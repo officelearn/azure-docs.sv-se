@@ -3,22 +3,23 @@ title: Konfigurera lösenord enkel inloggning för ett program för Azure AD-gal
 description: Förstå de vanliga problem personer står inför när du konfigurerar lösenord enkel inloggning för program som redan ingår i Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: f19b684a6c7426134844a2657b886280af2f061c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.openlocfilehash: 37c2a50a3aca281596a06e0d666edff05347f660
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067069"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331163"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Konfigurera lösenord enkel inloggning för ett program för Azure AD-galleriet problem
 
@@ -40,13 +41,13 @@ Lös problemet genom att först prova dessa saker:
 
   * Om inloggningen fungerar sedan för att användaren klickar på den **uppdatera autentiseringsuppgifterna** knappen på den **programmet panelen** i den **appar** avsnitt i den [programåtkomst Panelen](https://myapps.microsoft.com/) uppdatera dem till den senaste kända fungerande användarnamn och lösenord.
 
-   * Om du eller en annan administratör har tilldelats autentiseringsuppgifterna för denna användare, hitta användaren eller gruppen programmet tilldelningen genom att navigera till den **användare och grupper** för programmet, markera tilldelningen och klicka på den **referenser uppdatering** knappen.
+   * Om du eller en annan administratör har tilldelats autentiseringsuppgifterna för denna användare, hitta användaren eller gruppen programmet tilldelningen genom att navigera till den **användare och grupper** för programmet att markera tilldelningen och klicka på  **Uppdatera autentiseringsuppgifter** knappen.
 
--   Om användaren har tilldelats sina egna autentiseringsuppgifter, har användaren **Kontrollera att lösenordet inte har gått ut i programmet** och i så fall **uppdatera sina utgångna lösenord** genom att logga in direkt till programmet.
+-   Om användaren har tilldelats sina egna autentiseringsuppgifter, har användaren **Kontrollera att lösenordet inte har gått ut i programmet** och i så fall **uppdatera sina utgångna lösenord** genom att logga in till programmet direkt.
 
-   * När lösenordet har uppdaterats i programmet kan begära att klicka på den **uppdatera autentiseringsuppgifterna** knappen på den **programmet panelen** i den **appar** avsnitt i den [programmet åtkomstpanelen](https://myapps.microsoft.com/) uppdatera dem till den senaste kända fungerande användarnamn och lösenord.
+   * När lösenordet har uppdaterats i programmet kan begära att klicka på den **uppdatera autentiseringsuppgifterna** knappen på den **programmet panelen** i den **appar** avsnitt i den [Programmet åtkomstpanelen](https://myapps.microsoft.com/) att uppdatera dem till den senaste kända fungerande användarnamn och lösenord.
 
-   * Om du eller en annan administratör har tilldelats autentiseringsuppgifterna för denna användare, hitta användaren eller gruppen programmet tilldelningen genom att navigera till den **användare och grupper** för programmet, markera tilldelningen och klicka på den **referenser uppdatering** knappen.
+   * Om du eller en annan administratör har tilldelats autentiseringsuppgifterna för denna användare, hitta användaren eller gruppen programmet tilldelningen genom att navigera till den **användare och grupper** för programmet att markera tilldelningen och klicka på  **Uppdatera autentiseringsuppgifter** knappen.
 
 -   Behörighet att uppdatera webbläsartillägget för åtkomst-panelen genom att följa stegen nedan i den [installera åtkomst panelen webbläsartillägget](#how-to-install-the-access-panel-browser-extension) avsnitt.
 

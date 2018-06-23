@@ -3,22 +3,23 @@ title: Konfigurera federerad enkel inloggning för ett program för Azure AD-gal
 description: Vissa av de vanliga problem som kan uppstå när du konfigurerar federerad enkel inloggning med SAML för program som listas i Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 581b3c4ff7cc7b25f238602560f30280efa34edd
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: barbkess
+ms.openlocfilehash: 7fcc8c24214465bc1e601ced69ee67df2c48274f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053317"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334266"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problem som konfigurerar federerad enkel inloggning för ett program för Azure AD-galleriet
 

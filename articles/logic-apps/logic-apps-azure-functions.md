@@ -15,12 +15,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: befdd7af0a91623af4c5ea0fd957141cad84eb53
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d8d07e2ba58b7067d59baf5f0a4ea3228d6aabbc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297877"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331180"
 ---
 # <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>Lägg till och köra anpassad kod för logic apps via Azure Functions
 
@@ -35,7 +35,7 @@ Om du vill köra anpassade kodavsnitt för C# eller node.js i logikappar, kan du
 
 Vi rekommenderar att du skapar en funktion i Azure Functions-portalen från den **allmän Webhook - nod** eller **allmän Webhook - C#** mallar. Resultatet skapas en auto-fylls i en mall som accepterar `application/json` från en logikapp. Funktioner som du skapar från dessa mallar identifieras automatiskt och visas i designern logik appen under **Azure Functions i min region.**
 
-I Azure-portalen på den **integrera** fönstret för din funktion mallen ska visas som **läge** inställd på **Webhook** och **Webhook typen** är inställd på **allmänna JSON**. 
+I Azure-portalen på den **integrera** fönstret för din funktion mallen ska visas som **läge** inställd på **Webhook** och **Webhook typen**är inställd på **allmänna JSON**. 
 
 Webhook-funktioner acceptera en begäran och skicka det till metoden via en `data` variabel. Du kan komma åt egenskaperna för din nyttolast med hjälp av punktnotation som `data.function-name`. Till exempel en enkel JavaScript-funktion som konverterar ett DateTime-värde till en datumsträng ser ut som i följande exempel:
 
@@ -62,7 +62,7 @@ Du kan utlösa en logikapp inuti en funktion. Se [Logic apps som callable slutpu
 
 ### <a name="create-a-function-from-logic-app-designer"></a>Skapa en funktion från logik App Designer
 
-Du kan också skapa en webhook node.js-funktion från designer. Välj först **Azure Functions i min Region** och välj sedan en behållare för din funktion. Om du ännu inte har en behållare, måste du skapa en från den [Azure Functions-portalen](https://functions.azure.com/signin). Välj sedan **Skapa nytt**.  
+Du kan också skapa en webhook node.js-funktion från designer. Välj först **Azure Functions i min Region** och välj sedan en behållare för din funktion. Om du ännu inte har en behållare, måste du skapa en från den [Azure Functions-portalen](https://functions.azure.com/). Välj sedan **Skapa nytt**.  
 
 Ange context-objektet som du vill skicka till en funktion för att generera en mall baserat på de data som du vill beräkna. Det här objektet måste vara ett JSON-objekt. Till exempel om du skickar i filen innehåll från en FTP-åtgärd, kontext nyttolasten ser ut som det här exemplet:
 

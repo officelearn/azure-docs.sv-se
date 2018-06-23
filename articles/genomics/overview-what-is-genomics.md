@@ -11,12 +11,12 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: edfe6cc608a74b61777ce54eba3aa42c239b6090
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 8743905d6e415049a563bcd6b4736d6569f59b7f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
-ms.locfileid: "26684797"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333265"
 ---
 # <a name="what-is-microsoft-genomics"></a>Vad är Microsoft Genomics?
 Microsoft Genomics erbjuder en molnimplementering Burrows Larsson Aligner (BWA) och genom analys Toolkit (GATK) för sekundära analys. Tjänsten ISO-certifierad och kompatibel med HIPAA förordningar och ger pris förutsägbarhet för dina behov för påvisa ordningsföljd. Lär dig mer om att använda tjänsten Microsoft Genomics och integrera med vårt API genom att läsa vår Snabbstart, självstudier och dokumentation.
@@ -30,12 +30,12 @@ Microsoft Genomics erbjuder ett 99,99% tillgänglighet servicenivåavtal (SLA) f
 
 
 ## <a name="secure-your-data"></a>Skydda dina data
-Tjänsten Microsoft Genomics är ISO 27001 och ISO 27018 ISO 9001 certifierad och kompatibel med HIPAA förordningar. Besök [Azure Säkerhetscenter](https://www.microsoft.com/TrustCenter/Security/default.aspx) för information om Azures plattformssäkerhet.
+Tjänsten Microsoft Genomics är ISO 27001 och ISO 27018 ISO 9001 certifierad och kompatibel med HIPAA förordningar. Besök [Azure Säkerhetscenter](https://www.microsoft.com/en-us/trustcenter/security) för information om Azures plattformssäkerhet.
 
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har läst en introduktion till Microsoft Genomics, är du redo att:
 - Se prissättningssidan för kostnadsjämförelse och Kostnadsberäknare. [Prissättning](https://azure.microsoft.com/pricing/details/genomics/)
-- Kom igång genom att köra ditt första arbetsflöde via tjänsten Microsoft Genomics. [Köra ett arbetsflöde via tjänsten Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
+- Kom igång genom att köra ditt första arbetsflöde via tjänsten Microsoft Genomics. [Köra ett arbetsflöde via tjänsten Microsoft Genomics ](quickstart-run-genomics-workflow-portal.md)
 - Skicka data för bearbetning av tjänsten Microsoft Genomics: [länkas FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [flera FASTQ eller BAM](quickstart-input-multiple.md) 
 

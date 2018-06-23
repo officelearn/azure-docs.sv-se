@@ -3,7 +3,7 @@ title: Hantera federationscertifikat i Azure AD | Microsoft Docs
 description: Lär dig hur du anpassar ett sista giltighetsdatum för federationscertifikat och hur du förnyar certifikat som upphör snart att gälla.
 services: active-directory
 documentationcenter: ''
-author: jeevansd
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
-ms.author: jeedes
-ms.openlocfilehash: c4d812db6371a4cd1fcc701f7eae2c913c29fb6b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.author: barbkess
+ms.reviewer: jeedes
+ms.openlocfilehash: 5b4e2694a9b7e67643cb1e3b3cbc99fab940bd9d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303901"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337802"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Hantera certifikat för federerad enkel inloggning i Azure Active Directory
 Den här artikeln innehåller vanliga frågor och information som rör certifikat som skapas i Azure Active Directory (Azure AD) för att upprätta federerad enkel inloggning (SSO) till SaaS-program. Lägg till program från appgalleriet för Azure AD eller genom att använda en mall för icke-galleriet program. Konfigurera programmet med hjälp av alternativet federerad enkel inloggning.
@@ -84,7 +85,7 @@ Följande förnyelse ska leda till ingen betydande driftstopp för dina använda
     ![Generera ett nytt certifikat](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](../active-directory-saas-tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
 * [Programåtkomst och enkel inloggning med Azure Active Directory](what-is-single-sign-on.md)
 * [Felsökning av SAML-baserade enkel inloggning](../develop/active-directory-saml-debugging.md)

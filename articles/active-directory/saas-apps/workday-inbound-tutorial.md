@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: df1981443d8c55f07f86394967e357a599a7b3a3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 262c864a9e580ab5e2ebb0d4fc1e6ec16adeacb3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213149"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334334"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -60,6 +60,8 @@ Workday användaren etablering lösningen är för närvarande i förhandsversio
 * Organisationer som behöver ansluta till flyttar, och så att användarna ska synkroniseras till en eller flera Active Directory-skogar, domäner och organisationsenheter baserat bara på Ändra användarinformation i Workday HCM-modul (se [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
 
 * Organisationer som använder Office 365 för e-post
+
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
 ## <a name="planning-your-solution"></a>Planerar din lösning
 
@@ -362,16 +364,16 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 | **WorkerID**  |  EmployeeID | **Ja** | Skrivas i Skapa endast |
 | **Användar-ID**    |  CN    |   |   Skrivas i Skapa endast |
 | **Ansluta till (”@”, [användarnamn] ”contoso.com”)**   | userPrincipalName     |     | Skrivas i Skapa endast 
-| **Ersätt (Mid (Ersätt (\[UserID\]”, (\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[ \\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) ””, ”,), 1, 20)”, ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    SAMAccountName            |     |         Skrivas i Skapa endast |
-| **Växel (\[Active\],, ”0”, ”True”, ”1”)** |  AccountDisabled      |     | Skapa och uppdatera |
+| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Skrivas i Skapa endast |
+| **Växel (\[Active\],, ”0”, ”True”, ”1”)** |  accountDisabled      |     | Skapa och uppdatera |
 | **Förnamn**   | givenName       |     |    Skapa och uppdatera |
 | **Efternamn**   |   SN   |     |  Skapa och uppdatera |
 | **PreferredNameData**  |  Visningsnamn |     |   Skapa och uppdatera |
-| **Företag**         | Företag   |     |  Skapa och uppdatera |
+| **Företag**         | företag   |     |  Skapa och uppdatera |
 | **SupervisoryOrganization**  | avdelning  |     |  Skapa och uppdatera |
 | **ManagerReference**   | Manager  |     |  Skapa och uppdatera |
 | **BusinessTitle**   |  rubrik     |     |  Skapa och uppdatera | 
-| **AddressLineData**    |  StreetAddress  |     |   Skapa och uppdatera |
+| **AddressLineData**    |  streetAddress  |     |   Skapa och uppdatera |
 | **Namnet**   |   L   |     | Skapa och uppdatera |
 | **CountryReferenceTwoLetter**      |   CO |     |   Skapa och uppdatera |
 | **CountryReferenceTwoLetter**    |  c  |     |         Skapa och uppdatera |
@@ -543,14 +545,13 @@ I följande avsnitt beskrivs hur du konfigurerar en anslutning mellan Workday oc
 
    * Om Anslutningstestet lyckas klickar du på den **spara** längst upp. Om det misslyckas, kan du kontrollera att Workday-URL och autentiseringsuppgifter är giltiga i Workday.
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>Del 2: Konfigurera attributmappning 
 
 I det här avsnittet ska du konfigurera hur informationen flödar från Workday till Azure Active Directory för endast molnbaserad användare.
 
-1.  På fliken etablering under **mappningar**, klickar du på **synkronisera arbetare till Azure AD**.
+1. På fliken etablering under **mappningar**, klickar du på **synkronisera arbetare till Azure AD**.
 
-2.   I den **källa Objektområde** fält, kan du välja vilka uppsättningar med användare i Workday ska vara i omfånget för etablering i Azure AD genom att definiera en uppsättning attributbaserad filter. Standardvärde är ”alla användare i Workday”. Exempel filter:
+2. I den **källa Objektområde** fält, kan du välja vilka uppsättningar med användare i Workday ska vara i omfånget för etablering i Azure AD genom att definiera en uppsättning attributbaserad filter. Standardvärde är ”alla användare i Workday”. Exempel filter:
 
    * Exempel: Omfång för användare med Worker-ID: N mellan 1000000 och 2000000
 
@@ -566,9 +567,9 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 
       * Operatorn: Inte är NULL
 
-3.  I den **mål objektåtgärder** fält du kan globalt filtrera vilka åtgärder ska kunna utföras på Azure AD. **Skapa** och **uppdatering** är de vanligaste.
+3. I den **mål objektåtgärder** fält du kan globalt filtrera vilka åtgärder ska kunna utföras på Azure AD. **Skapa** och **uppdatering** är de vanligaste.
 
-4.  I den **attributet mappningar** avsnitt, kan du definiera hur enskilda Workday attribut mappar till Active Directory-attribut.
+4. I den **attributet mappningar** avsnitt, kan du definiera hur enskilda Workday attribut mappar till Active Directory-attribut.
 
 5. Klicka på en befintlig attributmappning att uppdatera det, eller klicka på **Lägg till ny mappning** längst ned på skärmen för att lägga till nya mappningar. En enskild attributmappning stöder dessa egenskaper:
 
@@ -602,7 +603,7 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 ### <a name="part-3-start-the-service"></a>Del 3: Starta tjänsten
 När delar 1 – 2 har slutförts, kan du starta tjänsten etablering.
 
-1.  I den **etablering** ställer du in den **Status för etablering** till **på**.
+1. I den **etablering** ställer du in den **Status för etablering** till **på**.
 
 2. Klicka på **Spara**.
 
@@ -612,7 +613,6 @@ När delar 1 – 2 har slutförts, kan du starta tjänsten etablering.
 
 5. En klar skrivs en översikt över kontrollrapport den **etablering** fliken enligt nedan.
 
-
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Konfigurera tillbakaskrivning av e-postadresser till Workday
 Följ dessa instruktioner för att konfigurera tillbakaskrivning av användare e-postadresser från Azure Active Directory till Workday.
 
@@ -620,21 +620,21 @@ Följ dessa instruktioner för att konfigurera tillbakaskrivning av användare e
 
 **Konfigurera Workday för Active Directory-etablering:**
 
-1.  Gå till <https://portal.azure.com>
+1. Gå till <https://portal.azure.com>
 
-2.  I det vänstra navigeringsfältet väljer **Azure Active Directory**
+2. I det vänstra navigeringsfältet väljer **Azure Active Directory**
 
-3.  Välj **företagsprogram**, sedan **alla program**.
+3. Välj **företagsprogram**, sedan **alla program**.
 
-4.  Välj **lägga till ett program**och välj den **alla** kategori.
+4. Välj **lägga till ett program**och välj den **alla** kategori.
 
-5.  Sök efter **Workday tillbakaskrivning**, och Lägg till appen från galleriet.
+5. Sök efter **Workday tillbakaskrivning**, och Lägg till appen från galleriet.
 
-6.  När appen har lagts till och skärmen app information är visas, väljer **etablering**
+6. När appen har lagts till och skärmen app information är visas, väljer **etablering**
 
-7.  Ändra den **etablering** **läge** till **automatisk**
+7. Ändra den **etablering** **läge** till **automatisk**
 
-8.  Slutför den **administratörsautentiseringsuppgifter** avsnittet på följande sätt:
+8. Slutför den **administratörsautentiseringsuppgifter** avsnittet på följande sätt:
 
    * **Admin Username** – ange användarnamnet för system-kontot Workday-integrering med klienten domännamnet tillagt. Ska se ut ungefär: username@contoso4
 
@@ -646,24 +646,22 @@ Följ dessa instruktioner för att konfigurera tillbakaskrivning av användare e
 
    * Klicka på den **Testanslutningen** knappen. Om Anslutningstestet lyckas klickar du på den **spara** längst upp. Om det misslyckas, kan du kontrollera att Workday-URL och autentiseringsuppgifter är giltiga i Workday.
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>Del 2: Konfigurera attributmappning 
-
 
 I det här avsnittet ska du konfigurera hur informationen flödar från Workday till Active Directory.
 
-1.  På fliken etablering under **mappningar**, klickar du på **synkronisera Azure AD-användare Workday**.
+1. På fliken etablering under **mappningar**, klickar du på **synkronisera Azure AD-användare Workday**.
 
-2.  I den **källa Objektområde** fält du kan du filtrera vilka uppsättningar med användare i Azure Active Directory ska ha sina e-postadresser skrivs tillbaka till Workday. Standardvärde är ”alla användare i Azure AD”. 
+2. I den **källa Objektområde** fält du kan du filtrera vilka uppsättningar med användare i Azure Active Directory ska ha sina e-postadresser skrivs tillbaka till Workday. Standardvärde är ”alla användare i Azure AD”. 
 
-3.  I den **attributet mappningar** avsnitt, kan du definiera hur enskilda Workday attribut mappar till Active Directory-attribut. Det finns en mappning för e-postadressen som standard. Det matchande ID måste dock uppdateras för att matcha användare i Azure AD med sina motsvarande poster i Workday. En populär matchande metod är att synkronisera Workday worker-ID eller anställnings-ID-extensionAttribute1 15 i Azure AD och sedan använda det här attributet i Azure AD för att matcha användare i Workday.
+3. I den **attributet mappningar** avsnitt, kan du definiera hur enskilda Workday attribut mappar till Active Directory-attribut. Det finns en mappning för e-postadressen som standard. Det matchande ID måste dock uppdateras för att matcha användare i Azure AD med sina motsvarande poster i Workday. En populär matchande metod är att synkronisera Workday worker-ID eller anställnings-ID-extensionAttribute1 15 i Azure AD och sedan använda det här attributet i Azure AD för att matcha användare i Workday.
 
-4.  Om du vill spara dina mappningar klickar du på **spara** överst i avsnittet attribut mappar.
+4. Om du vill spara dina mappningar klickar du på **spara** överst i avsnittet attribut mappar.
 
 ### <a name="part-3-start-the-service"></a>Del 3: Starta tjänsten
 När delar 1 – 2 har slutförts, kan du starta tjänsten etablering.
 
-1.  I den **etablering** ställer du in den **Status för etablering** till **på**.
+1. I den **etablering** ställer du in den **Status för etablering** till **på**.
 
 2. Klicka på **Spara**.
 
@@ -672,7 +670,6 @@ När delar 1 – 2 har slutförts, kan du starta tjänsten etablering.
 4. Enskilda sync händelser kan visas i den **granskningsloggar** fliken. **[Finns i guiden för etablering reporting detaljerade anvisningar om hur du tolkar granskningsloggarna](../active-directory-saas-provisioning-reporting.md)**
 
 5. En klar skrivs en översikt över kontrollrapport den **etablering** fliken enligt nedan.
-
 
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>Anpassa lista över användarattribut för Workday
 Arbetsdagen tillhandahållning av appar för Active Directory och Azure AD innehåller en standardlistan över Workday användarattribut som du kan välja från. De här listorna är dock inte omfattande. Workday stöder många hundratals möjliga användarattribut som kan vara antingen standard eller unik för din Workday-klient. 
@@ -799,15 +796,9 @@ Om du vill göra detta måste du använda [Workday Studio](https://community.wor
 
 * En tidigare med visas inte i Azure AD-klienter finns i Europeiska unionen-granskningsloggarna är löst. Dock krävs ytterligare konfigurationen för Azure AD-klienter i EU. Mer information finns i [del 3: konfigurera lokal synkronisering agent](#Part 3: Configure the on-premises synchronization agent)
 
-
 ## <a name="managing-personal-data"></a>Hantera personliga data
 
 Arbetsdagen etablering lösning för Active Directory kräver en synkronisering agent installeras på en domänansluten server och den här agenten skapar loggar i Windows-händelseloggen som kan innehålla personligt identifierbar information.
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]  där den... / referenser matchar hierarkistrukturen för din artikel
-
-> [!NOTE]
-> Om du vill visa eller ta bort personliga data, läser du riktlinjerna för Microsofts i den [Windows data ämnesnamn begäranden för BNPR](https://review.docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-windows) plats. Om du letar efter allmän information om BNPR finns i [BNPR avsnitt i Tjänstportalen förtroende](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## <a name="next-steps"></a>Nästa steg
 

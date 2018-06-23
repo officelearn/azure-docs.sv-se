@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f3ed658ffb3f85baacf7eeec8395aaeff84806b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7a6d72f2aefa11636653bea5f9e0e17e0e98f421
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616353"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332508"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiera data från Hive med Azure Data Factory 
 
@@ -35,7 +35,7 @@ Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, m
 
 ## <a name="getting-started"></a>Komma igång
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter för Hive-anslutningen.
 
@@ -50,7 +50,7 @@ Följande egenskaper stöds för Hive länkade tjänsten:
 | port | TCP-porten som Hive-servern använder för att lyssna efter anslutningar. Om du ansluter till Azure HDInsights ange porten som 443. | Ja |
 | Servertyp | Typ av Hive-server. <br/>Tillåtna värden är: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Nej |
 | thriftTransportProtocol | Transportprotokollet ska användas i Thrift-lagret. <br/>Tillåtna värden är: **binära**, **SASL**, **HTTP** | Nej |
-| AuthenticationType | Den autentiseringsmetod som används för att få åtkomst till Hive-servern. <br/>Tillåtna värden är: **anonym**, **användarnamn**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
+| authenticationType | Den autentiseringsmetod som används för att få åtkomst till Hive-servern. <br/>Tillåtna värden är: **anonym**, **användarnamn**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
 | serviceDiscoveryMode | TRUE om du vill ange använder tjänsten ZooKeeper false inte.  | Nej |
 | zooKeeperNameSpace | Namnområdet på ZooKeeper under vilka Hive Server 2 noder har lagts till.  | Nej |
 | useNativeQuery | Anger om drivrutinen använder interna HiveQL frågor eller konverterar dem till ett motsvarande formulär i HiveQL.  | Nej |

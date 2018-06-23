@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0e87243b4b6e8362cb840a6510c175d2712b8a1a
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 93972c88676cceef07b39b4a4ed34bab5b74cbd3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285764"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334881"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Kör kommandoskript i Linux-VM med kommandot Kör
 
@@ -23,7 +23,7 @@ Kör kommandot använder VM-agenten för att köra shell-skript i en Azure Linux
 
 Det finns flera alternativ som kan användas för att få åtkomst till dina virtuella datorer. Kör kommandot kan köra skript på virtuella datorer med hjälp av den Virtuella datoragenten. Kör kommandot kan användas via Azure portal [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), eller [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-Den här funktionen är användbart i alla scenarier där du vill köra ett skript witin en virtuella datorer och är en av det enda sättet att felsöka och åtgärda en virtuell dator som inte har RDP eller SSH-port som är öppna på grund av felaktig nätverks- eller administrativ användare konfiguration.
+Den här funktionen är användbart i alla scenarier där du vill köra ett skript i en virtuella datorer och är ett enda sätt att felsöka och åtgärda en virtuell dator som inte har RDP eller SSH-port som är öppna på grund av felaktig nätverks- eller administrativ användare konfiguration.
 
 ## <a name="restrictions"></a>Begränsningar
 

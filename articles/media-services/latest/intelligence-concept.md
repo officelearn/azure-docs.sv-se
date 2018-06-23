@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: 804a418f6ee88974d6e74a2c18bc5d01b6adf838
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788755"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331528"
 ---
 # <a name="media-intelligence"></a>Medieintelligens
 
@@ -50,8 +50,8 @@ Utdata innehåller en JSON-fil (insights.json) med de insikter som hittades i vi
 |Namn|Beskrivning|
 |---|---|
 |id|Rad-ID.|
-|Text|Betyg sig själv.|
-|språk|Språket som betyg. Avsett att stödja betyg där varje rad kan ha ett annat språk.|
+|text|Betyg sig själv.|
+|Språk|Språket som betyg. Avsett att stödja betyg där varje rad kan ha ett annat språk.|
 |instanser|En lista över tidsintervall där den här raden visades. Om-instansen är ett betyg, får endast 1 instans.|
 
 Exempel:
@@ -87,10 +87,10 @@ Exempel:
 
 |Namn|Beskrivning|
 |---|---|
-|id|OCR rad-id.|
-|Text|Texten som OCR.|
-|förtroende|Recognition förtroende.|
-|språk|OCR-språk.|
+|id|OCR rad-ID.|
+|text|Texten som OCR.|
+|Förtroende|Recognition förtroende.|
+|Språk|OCR-språk.|
 |instanser|En lista över tidsintervall där den här OCR fanns (samma OCR kan visas flera gånger).|
 
 ```json
@@ -126,14 +126,14 @@ Exempel:
   ],
 ```
 
-### <a name="keywords"></a>Nyckelord
+### <a name="keywords"></a>nyckelord
 
 |Namn|Beskrivning|
 |---|---|
-|id|Nyckelordet id.|
-|Text|Nyckelordstexten som.|
-|förtroende|Det nyckelordet recognition förtroende.|
-|språk|Nyckelordet språk (vid översättning).|
+|id|Nyckelordet-ID.|
+|text|Nyckelordstexten som.|
+|Förtroende|Det nyckelordet recognition förtroende.|
+|Språk|Nyckelordet språk (vid översättning).|
 |instanser|En lista över tidsintervall där det här nyckelordet fanns (ett nyckelord kan visas flera gånger).|
 
 ```json
@@ -178,13 +178,13 @@ Exempel:
 
 |Namn|Beskrivning|
 |---|---|
-|id|Ansikts-id.|
+|id|Ansikts-ID.|
 |namn|Ansikts-namn. Det kan vara ”okänt #0”, en identifierade ryktbarhet eller en kund utbildade person.|
-|förtroende|Ansikts identifiering förtroende.|
-|description|Vid en ryktbarhet beskrivningen (”Satya Nadella föddes med...”). |
+|Förtroende|Ansikts identifiering förtroende.|
+|description|Vid en ryktbarhet dess beskrivning. |
 |thumbnalId|Id för på miniatyrbilden för den sida.|
-|knownPersonId|Vid en känd person interna id.|
-|ReferenceId|Vid en Bing ryktbarhet Bing id.|
+|knownPersonId|Vid en känd person, ett internt ID.|
+|referenceId|Vid en Bing-ryktbarhet dess Bing-ID.|
 |referenceType|För närvarande bara Bing.|
 |rubrik|Vid en ryktbarhet rubriken (till exempel ”Microsofts VD”).|
 |imageUrl|Vid en ryktbarhet dess bild-url.|
@@ -219,13 +219,13 @@ Exempel:
 }]
 ```
 
-### <a name="labels"></a>Etiketter
+### <a name="labels"></a>etiketter
 
 |Namn|Beskrivning|
 |---|---|
-|id|etikett-id.|
+|id|Etikett-ID.|
 |namn|Etikettnamn (till exempel ”dator”, ”TV').|
-|språk|Etiketten namn språk (vid översättning). BCP-47|
+|Språk|Etiketten namn språk (vid översättning). BCP-47|
 |instanser|En lista över tidsintervall där den här etiketten fanns (en etikett kan visas flera gånger). Varje instans har ett förtroende-fält. |
 
 
@@ -282,8 +282,8 @@ Exempel:
 
 |Namn|Beskrivning|
 |---|---|
-|id|Som id.|
-|Nyckelrutor|En lista över viktiga ramar inom det bild (var och en har ett Id och en lista över instanser tidsintervall).|
+|id|Som ID.|
+|Nyckelrutor|En lista över viktiga ramar inom det bild (var och en har ett ID och en lista över instanser tidsintervall).|
 |instanser|En lista över tidsintervall för den här som visar (bilderna har endast 1 instans).|
 
 ```json
@@ -331,35 +331,8 @@ Exempel:
   ]
 ```
 
-### <a name="audioeffects"></a>audioEffects
 
-|Namn|Beskrivning|
-|---|---|
-|id|Ljud effekt-ID.|
-|typ|Ljud Effekttyp (till exempel applåder tal, tystnad).|
-|instanser|En lista över tidsintervall där detta ljud visades.|
-
-```json
-"audioEffects": [
-{
-    "id": 0,
-    "type": "Clapping",
-    "instances": [
-    {
-        "start": "00:00:00",
-        "end": "00:00:03"
-    },
-    {
-        "start": "00:01:13",
-        "end": "00:01:21"
-    }
-    ]
-}
-]
-```
-
-
-### <a name="sentiments"></a>våra
+### <a name="sentiments"></a>Våra
 
 Våra samman efter deras sentimentType (positiv/Neutral/negativ). Till exempel 0 0.1, 0,1 0,2.
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2018
+ms.date: 06/22/2018
 ms.author: magoedte
-ms.openlocfilehash: 7c4294947cba72b1638e77c2dd8de1f5ee37b62a
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 23109a74fa707759cc3300896392dcc129f3e28c
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286006"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335762"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Övervaka Azure Kubernetes Service (AKS) behållaren hälsotillstånd (förhandsgranskning)
 
@@ -37,7 +37,7 @@ Om du vill övervaka och hantera dina Docker och Windows behållaren värdar fö
 ## <a name="requirements"></a>Krav 
 Granska följande information innan du startar, så du kan förstå krav som stöds.
 
-- Följande versioner av AKS kluster stöds: 1.7.7 1.9.6.
+- En ny eller befintlig AKS kluster
 - En av OMS-agent för Linux-version microsoft / oms:ciprod04202018 och senare. Den här agenten installeras automatiskt när onboarding av behållare hälsa.  
 - En Log Analytics-arbetsyta.  Det kan skapas när du aktiverar övervakning av det nya klustret med AKS eller skapa ett till [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), eller från den [Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md).
 - Medlem deltagarrollen Log Analytics för att aktivera övervakning av behållare.  Mer information om hur du styr åtkomst till logganalys-arbetsytan finns [hantera arbetsytor](../log-analytics/log-analytics-manage-access.md).
@@ -244,7 +244,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
 När övervakning är aktiverad, kan det ta cirka 15 minuter innan du kan visa användningsdata för klustret.  
 
 ## <a name="verify-agent-deployed-successfully"></a>Kontrollera agent har distribuerats
-Kontrollera OMS-agenten distribueras korrekt genom att köra följande kommando: ` kubectl get ds omsagent --namespace=kube-system`.
+Kontrollera OMS-agenten distribueras korrekt genom att köra följande kommando: `kubectl get ds omsagent --namespace=kube-system`.
 
 Resultatet bör likna den följande som anger den distribuerades korrekt:
 

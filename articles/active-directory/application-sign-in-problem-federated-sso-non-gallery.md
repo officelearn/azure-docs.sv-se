@@ -3,22 +3,24 @@ title: Problem som loggar in på ett icke-galleriet program konfigurerade för f
 description: Riktlinjer för de specifika problem som du kan stöta på när du loggar in till ett program som konfigurerats för SAML-baserade federerad enkel inloggning med Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: cfd4e478850783983caa3042cbbb2b096a576292
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: d72fe88ef955dbe821a1fab55de8356ac14619a1
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
-ms.locfileid: "29383471"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334174"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problem som loggar in på ett icke-galleriet program som konfigurerats för federerad enkel inloggning
 
@@ -148,7 +150,7 @@ Användare som du har valt att kunna starta dessa program med hjälp av de metod
 
 **Möjlig orsak**
 
-Azure AD stöder inte SAML begäran skickas av programmet för enkel inloggning. Några vanliga problem är:
+Azure AD stöder inte SAML-begäran som skickades av programmet för enkel inloggning. Några vanliga problem är:
 
 -   Obligatoriska fält i SAML-begäran som saknas
 

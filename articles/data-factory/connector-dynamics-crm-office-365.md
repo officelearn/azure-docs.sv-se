@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 848b571dd2664d4910d669faa4dce1aad16cd528
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 2078fd3d23891a471d34de89b8e068ae896f8eb2
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808435"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332311"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (gemensamma Data Service) eller Dynamics CRM med hjälp av Azure Data Factory
 
@@ -50,7 +50,7 @@ Andra program typer t.ex. Operations och ekonomi, användare, etc. stöds inte.
 
 ## <a name="get-started"></a>Kom igång
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Dynamics.
 
@@ -65,7 +65,7 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 | typ | Egenskapen type måste anges till **Dynamics**. | Ja |
 | deploymentType | Typen av distribution av Dynamics-instans. Det måste vara **”Online”** för Dynamics online. | Ja |
 | serviceUri | Tjänsten URL-Adressen till din Dynamics instans, t.ex. `https://adfdynamics.crm.dynamics.com`. | Ja |
-| AuthenticationType | Autentiseringstypen som ansluter till en Dynamics-server. Ange **”Office365”** för Dynamics online. | Ja |
+| authenticationType | Autentiseringstypen som ansluter till en Dynamics-server. Ange **”Office365”** för Dynamics online. | Ja |
 | användarnamn | Ange användarnamnet för att ansluta till Dynamics. | Ja |
 | lösenord | Ange lösenordet för det användarkonto som du angett för användarnamn. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integrering runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om inget anges används standard-Azure Integration Runtime. | Inte för källa och har Ja för sink om källan länkade tjänsten inte en integration körning |
@@ -113,7 +113,7 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 | Värdnamn | Värdnamnet på den lokala Dynamics servern. | Ja |
 | port | Porten för lokal Dynamics server. | Nej, standard är 443 |
 | Organisationsnamn | Organisationsnamn Dynamics-instans. | Ja |
-| AuthenticationType | Autentiseringstypen att ansluta till Dynamics-servern. Ange **”Ifd”** för Dynamics lokalt med IFD. | Ja |
+| authenticationType | Autentiseringstypen att ansluta till Dynamics-servern. Ange **”Ifd”** för Dynamics lokalt med IFD. | Ja |
 | användarnamn | Ange användarnamnet för att ansluta till Dynamics. | Ja |
 | lösenord | Ange lösenordet för det användarkonto som du angett för användarnamn. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integrering runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om inget anges används standard-Azure Integration Runtime. | Ingen datakälla Ja för sink |
@@ -158,7 +158,7 @@ Ange typegenskapen för dataset för att kopiera data från och till Dynamics, *
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till **DynamicsEntity**. |Ja |
-| EntityName | Det logiska namnet för att hämta entiteten. | Nej för källa (om ”fråga” i aktivitetskälla har angetts), Ja till mottagare |
+| entityName | Det logiska namnet för att hämta entiteten. | Nej för källa (om ”fråga” i aktivitetskälla har angetts), Ja till mottagare |
 
 > [!IMPORTANT]
 >- När du kopierar data från Dynamics krävs avsnittet ”struktur” i Dynamics dataset. Den definierar namn och datatyp för uppgifter som du vill kopiera över. Läs mer i [datauppsättningsstrukturen](concepts-datasets-linked-services.md#dataset-structure) och [datatypsmappningen för Dynamics](#data-type-mapping-for-dynamics).
@@ -330,7 +330,7 @@ Konfigurera motsvarande Data Factory-datatypen i en dataset-struktur baserat på
 | AttributeType.Customer | GUID | ✓ | | 
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
-| AttributeType.Double | dubbla | ✓ | ✓ |
+| AttributeType.Double | Dubbel | ✓ | ✓ |
 | AttributeType.EntityName | Sträng | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ |

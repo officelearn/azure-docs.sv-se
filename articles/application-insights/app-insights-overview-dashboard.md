@@ -10,28 +10,25 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0be54c47965c6a27c3506fd37a7bf67e4b2b7924
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4a639b51fd930c5c74ee78b37fbe8e97e39dbc32
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337564"
 ---
-# <a name="application-insights-overview-dashboard-preview"></a>Instrumentpanel för program Översikt över Insights (förhandsversion)
+# <a name="application-insights-overview-dashboard"></a>Application Insights översikt över instrumentpanelen
 
-Application Insights tillhandahåller alltid en sammanfattande översiktsrutan att snabbt och på snabb utvärdering av programmets hälsotillstånd och prestanda. Den nya förhandsversion översikt över instrumentpanelen tillhandahåller en snabbare mer flexibelt.
+Application Insights tillhandahåller alltid en sammanfattande översiktsrutan att snabbt och på snabb utvärdering av programmets hälsotillstånd och prestanda. Den nya översikt över instrumentpanelen tillhandahåller en snabbare mer flexibelt.
 
 ## <a name="how-do-i-test-out-the-new-experience"></a>Hur jag testa den nya upplevelsen?
 
- I Application Insights under: _översikt_väljer _försök ny översikt innan den blir erfarenhet som standard_.
+Den nya översikt över instrumentpanelen startar nu som standard:
 
-![Översikt över Preview](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-01.png)
-
-Detta kommer att starta den nya standard översikt över instrumentpanelen:
-
-![Översikt över förhandsgranskningsfönstret](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-02.png)
+![Översikt över förhandsgranskningsfönstret](.\media\app-insights-overview-dashboard\overview-0001.png)
 
 ## <a name="better-performance"></a>Bättre prestanda
 
@@ -39,7 +36,7 @@ Valet av intervallet för tid har förenklats till ett enkelt gränssnitt för e
 
 ![Tidsintervall](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
 
-Övergripande höjts prestanda avsevärt. Varje standardläget dynamiskt KPI panelen är kopplad till motsvarande Application Insights-funktion. Till exempel välja misslyckade begäranden startas den _fel_ fönstret:
+Övergripande höjts prestanda avsevärt. Du har en enda klickning åtkomst till vanliga funktioner som **Sök** och **Analytics**. Varje standardläget dynamiskt KPI panelen ger inblick i motsvarande Application Insights-funktioner. Kunde inte begäranden väljer att lära dig mer om **fel** under den **Undersök** huvud:
 
 ![Fel](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
 
@@ -51,11 +48,11 @@ Instrumentpanel för program utnyttjar den befintliga instrumentpanel tekniken i
 
 ![Instrumentpanelsvy](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
 
-Om det här är första gången du startas ansluter till instrumentpanelen en standardvy:
+Om det här är första gången du ansluter till instrumentpanelen, startas en standardvy:
 
 ![Instrumentpanelsvy](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
 
-Medan du kan hålla standardvyn om du tycker att det, du kan också lägga till och ta bort från instrumentpanelen bästa passar behoven i din grupp.
+Du kan behålla standardvyn om du vill att den. Eller du kan också lägga till och ta bort från instrumentpanelen till bäst behoven för din grupp.
 
 > [!NOTE]
 > Alla användare med åtkomst till Application Insights-resursen dela samma program för instrumentpanelen. Ändringar som görs av en användare kommer att ändra vyn för alla användare.
@@ -63,6 +60,12 @@ Medan du kan hålla standardvyn om du tycker att det, du kan också lägga till 
 Om du vill gå tillbaka till översikt upplevelsen bara välja:
 
 ![Översikt över knappen](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+
+## <a name="access-the-classic-overview-dashboard"></a>Komma åt klassiska översikt över instrumentpanelen
+
+Om du missar gamla översikten väljer **klassiska översikt**.
+
+![Klassiska översikt](.\media\app-insights-overview-dashboard\overview-classic.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

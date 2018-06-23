@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: iainfou
-ms.openlocfilehash: d84e8d41d79d9800c952ba3ef0e89e0cdfbdd8dd
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: b7f07ec8736086483f91746512f10118ee90762d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850652"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333173"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Hur du använder förpackaren för att skapa virtuella Windows-avbildningar i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar Windows-distributionen och OS-version. Avbildningar kan innehålla förinstallerade program och konfigurationer. Azure Marketplace innehåller många första och tredje parts avbildningar för de vanligaste operativsystem och miljöer eller skapa egna anpassade avbildningar som är anpassade efter era behov. Den här artikeln beskriver hur du använder verktyget öppen källkod [förpackaren](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
@@ -68,7 +68,7 @@ Skapa en fil med namnet *windows.json* och klistra in följande innehåll. Ange 
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Visa service ägar-ID med `$sp.applicationId` |
 | *client_secret*                     | Lösenordet du angav i `$securePassword` |
-| *Tenant_id*                         | Utdata från `$sub.TenantId` kommando |
+| *tenant_id*                         | Utdata från `$sub.TenantId` kommando |
 | *PRENUMERATIONSID*                   | Utdata från `$sub.SubscriptionId` kommando |
 | *object_id*                         | Visa service principal objekt-ID med `$sp.Id` |
 | *managed_image_resource_group_name* | Namnet på resursgruppen som du skapade i det första steget |
@@ -94,8 +94,8 @@ Skapa en fil med namnet *windows.json* och klistra in följande innehåll. Ange 
     "image_sku": "2016-Datacenter",
 
     "communicator": "winrm",
-    "winrm_use_ssl": "true",
-    "winrm_insecure": "true",
+    "winrm_use_ssl": true,
+    "winrm_insecure": true,
     "winrm_timeout": "3m",
     "winrm_username": "packer",
 

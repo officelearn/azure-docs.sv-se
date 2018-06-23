@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2018
+ms.date: 06/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 86e8c1c8f0d8654c86b851e3ae7296476f38b94e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 1bb0b61fe8a74edd35bb096fd295aedc67f6efb3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34756909"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335898"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plattformar som stöds i Azure Security Center
 Tillstånd säkerhetsövervakning och rekommendationer är tillgängliga för virtuella datorer (VM) med hjälp av både klassiska och Resource Manager distributionsmodellerna och datorer.
@@ -42,12 +42,14 @@ Windows operativsystem:
 ## <a name="supported-platforms-for-linux-computers-and-vms"></a>Plattformar som stöds för Linux-datorer och virtuella datorer
 Operativsystem som stöds Linux:
 
-* Versioner av Ubuntu 12.04, 14.04, 16.04, 16.10
-* Debian versioner 7, 8
-* CentOS version 6. \*, 7.*
-* Red Hat Enterprise Linux (RHEL) version 6. \*, 7.*
-* SUSE Linux Enterprise Server (SLES) versioner 11 SP4 +, 12.*
-* Oracle Linux-version 6. \*, 7.*
+* Versioner av Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS
+* Debian versioner 6, 7, 8, 9
+* CentOS version 5, 6, 7
+* Red Hat Enterprise Linux (RHEL) version 5, 6, 7
+* SUSE Linux Enterprise Server (SLES) versioner 11, 12
+* Oracle Linux version 5, 6, 7
+* Amazon Linux 2012.09 via 2017
+* Openssl 1.1.0 stöds bara på x86_64 plattformar (64-bitars)
 
 > [!NOTE]
 > Virtuella beteendeanalys är ännu inte tillgängliga för Linux-operativsystem.

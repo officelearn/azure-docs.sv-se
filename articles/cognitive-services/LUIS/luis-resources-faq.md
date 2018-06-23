@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: b6b333937e7c88f566fc401967b26cbd31ca158b
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: fd63ffd312e3ac17a6376eb3c9bef8f1978e3935
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301510"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333623"
 ---
 # <a name="language-understanding-faq"></a>Språk förstå vanliga frågor och svar
 
@@ -127,7 +127,9 @@ Exportera THOMAS appen för att överföra en THOMAS app till Azure-prenumeratio
 Som standard loggas appen THOMAS utterances från användare. Om du vill hämta en logg över utterances som användarna skickar till appen THOMAS, gå till **Mina appar**, och klicka på de tre punkterna (***...*** ) i listan för din app. Klicka på **exportera Endpoint loggar**. Loggen formateras som en fil med kommaavgränsade värden (CSV).
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Hur kan jag inaktivera loggning av utterances?
-Du kan inaktivera loggning av användaren utterances genom att ange `log=false` i slutpunkts-URL som ditt klientprogram som använder för att fråga THOMAS. Men inaktiverar om du inaktiverar loggning appen THOMAS möjlighet att föreslå utterances eller förbättra prestanda som baseras på användarens frågor. Om du ställer in `log=false` på grund av data sekretessen, du kan inte hämta en post för dessa användare utterances från THOMAS eller använder dessa utterances för att förbättra din app.
+Du kan inaktivera loggning av användaren utterances genom att ange `log=false` i slutpunkts-URL som ditt klientprogram som använder för att fråga THOMAS. Men om du inaktiverar loggning inaktiverar appen THOMAS möjlighet att föreslå utterances eller förbättra prestanda som baseras på [active learning](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Om du ställer in `log=false` på grund av data sekretessen, du kan inte hämta en post för dessa användare utterances från THOMAS eller använder dessa utterances för att förbättra din app.
+
+Loggning är endast lagring av utterances. 
 
 ### <a name="why-dont-i-want-all-my-endpoint-utterances-logged"></a>Varför vill alla mina endpoint utterances loggas?
 Om du använder loggen för förutsägelse analys inte in test utterances i loggen.

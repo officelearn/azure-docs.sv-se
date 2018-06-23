@@ -8,12 +8,12 @@ ms.date: 04/30/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a8b58eae9aa08d8f6539370fa6e78a7a4813c18f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5fbac725894d01b2dc622d3542f865a66b240743
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631028"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333784"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge---preview"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT kant - förhandsgranskning
 Den här kursen visar hur du kan använda kontinuerlig integration och funktioner för kontinuerlig distribution för Visual Studio Team Services VSTS () och Microsoft Team Foundation Server (TFS) för att skapa, testa och distribuera program till snabbare och effektivare din Azure IoT kant. 
@@ -33,7 +33,7 @@ Det tar 30 minuter att slutföra den här självstudiekursen.
 
 I det här avsnittet skapar du ett prov IoT kant lösning som innehåller kontroller som du kan köra som en del av skapar. Innan du följer riktlinjerna i det här avsnittet bör du slutföra stegen i [utveckla en kant för IoT-lösning med flera moduler i Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
 
-1. Skriv i VS kod kommandot paletten och kör kommandot **kant: kant för ny IoT-lösningen**. Välj arbetsytemappen, ange lösningens namn (standardnamnet är **EdgeSolution**), och skapa en C#-modul (**FilterModule**) som den första användarmodulen i den här lösningen. Du måste också ange Docker avbildningslagringsplatsen för din första modulen. Standard avbildningslagringsplatsen baseras på en lokal Docker-registret (`localhost:5000/filtermodule`). Du måste ändra registret för Azure-behållaren (`<your container registry address>/filtermodule`) eller Docker-hubb för ytterligare kontinuerlig integration.
+1. Skriv i VS kod kommandot paletten och kör kommandot **kant: kant för ny IoT-lösningen**. Välj arbetsytemappen, ange lösningens namn (standardnamnet är **EdgeSolution**), och skapa en C#-modul (**FilterModule**) som den första användarmodulen i den här lösningen. Du måste också ange lagringsplatsen för Docker-avbildningar för din första modul. Standard avbildningslagringsplatsen baseras på en lokal Docker-registret (`localhost:5000/filtermodule`). Du måste ändra registret för Azure-behållaren (`<your container registry address>/filtermodule`) eller Docker-hubb för ytterligare kontinuerlig integration.
 
     ![Konfigurera ACR](./media/how-to-ci-cd/acr.png)
 
@@ -452,7 +452,7 @@ Så, när du distribuerar till enheter som IoT, det finns tre huvudsakliga milj�
 Den här kursen visar hur du kan använda kontinuerlig integrering och funktioner för kontinuerlig distribution av VSTS eller TFS. 
 
 * Förstå IoT kant distributionen i [förstå IoT kant distributioner för enstaka enheter eller i skala](module-deployment-monitoring.md)
-* Gå igenom stegen för att skapa, uppdatera eller ta bort en distribution i [distribuera och övervaka IoT kant moduler i skala] [how-till-distribuera-monitor.md].
+* Gå igenom stegen för att skapa, uppdatera eller ta bort en distribution i [distribuera och övervaka IoT kant moduler i skala](how-to-deploy-monitor.md).
 
 
 

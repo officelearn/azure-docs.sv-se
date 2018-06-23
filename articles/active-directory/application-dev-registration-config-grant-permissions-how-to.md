@@ -3,22 +3,23 @@ title: Ge behörigheter till ett anpassat utvecklade program | Microsoft Docs
 description: Ge behörigheter till ditt anpassade utvecklade program med hjälp av Azure AD-portalen eller en URL-parameter
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 0f13efd5e629bde592a3ab3a3e2db4a22180b5bb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.openlocfilehash: 3310a08047700a577c5c6cbada90e575fcd12089
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26611668"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333712"
 ---
 # <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>Ge behörigheter till ett anpassat utvecklade program
 

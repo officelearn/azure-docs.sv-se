@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från Impala med hjälp av Azure Data Factory (beta) | Microsoft Docs
+title: Kopiera data från Impala med hjälp av Azure Data Factory (förhandsversion) | Microsoft Docs
 description: Lär dig hur du kopierar data från Impala till stöds sink datalager med hjälp av en kopia aktivitet i en data factory-pipelinen.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 73987d03cb96fa421d193504fe6eaf6c3b5ddb18
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 49e9c338128cc857347bbf052c19dc34dd08f9c6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618777"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337620"
 ---
-# <a name="copy-data-from-impala-by-using-azure-data-factory-beta"></a>Kopiera data från Impala med hjälp av Azure Data Factory (beta)
+# <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Kopiera data från Impala med hjälp av Azure Data Factory (förhandsgranskning)
 
 Den här artikeln beskrivs hur du använder Kopieringsaktiviteten i Azure Data Factory för att kopiera data från Impala. Den bygger på den [Kopieringsaktiviteten översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över aktiviteten kopia.
 
@@ -28,7 +28,7 @@ Den här artikeln beskrivs hur du använder Kopieringsaktiviteten i Azure Data F
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory som är allmänt tillgänglig, se [Kopieringsaktiviteten i version 1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Den här anslutningen är för närvarande i betaversion. Du kan prova och ge feedback. Använd den inte i produktionsmiljöer.
+> Den här anslutningen är för närvarande under förhandsgranskning. Du kan prova och ge feedback. Om du vill skapa ett beroende på anslutningsappar som är i förhandsversion i din lösning kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -38,7 +38,7 @@ Du kan kopiera data från Impala till alla stöds sink-datalagret. En lista öve
 
 ## <a name="get-started"></a>Kom igång
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Impala kopplingen.
 
@@ -51,7 +51,7 @@ Följande egenskaper stöds för Impala länkade tjänsten.
 | typ | Egenskapen type måste anges till **Impala**. | Ja |
 | värd | IP-adressen eller värdnamnet namnet på servern Impala (det vill säga 192.168.222.160).  | Ja |
 | port | TCP-porten som används av Impala-server för att lyssna efter anslutningar. Standardvärdet är 21050.  | Nej |
-| AuthenticationType | Autentiseringstypen som ska användas. <br/>Tillåtna värden är **anonym**, **SASLUsername**, och **UsernameAndPassword**. | Ja |
+| authenticationType | Autentiseringstypen som ska användas. <br/>Tillåtna värden är **anonym**, **SASLUsername**, och **UsernameAndPassword**. | Ja |
 | användarnamn | Användarnamnet som används för åtkomst till Impala-servern. Standardvärdet är anonym när du använder SASLUsername.  | Nej |
 | lösenord | Det lösenord som motsvarar namnet när du använder UsernameAndPassword. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är **FALSKT**.  | Nej |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f7dfdc4319e50e7a6c1c6032c27de5c76397e8de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1ce47874b759748f4a2e2ce1fb438b394443058
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603084"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334806"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå struktur och syntaxen för Azure Resource Manager-mallar
 Den här artikeln beskriver strukturen i en Azure Resource Manager-mall. Det innehåller olika avsnitt i en mall och egenskaper som är tillgängliga i dessa avsnitt. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution. En stegvis självstudiekurs om hur du skapar en mall finns i [skapa din första Azure Resource Manager-mallen](resource-manager-create-first-template.md).
@@ -214,6 +214,7 @@ Du kan skapa egna funktioner i din mall. Dessa funktioner är tillgängliga för
 När du definierar en user-funktionen, finns det vissa begränsningar:
 
 * Funktionen kommer inte åt variabler.
+* Funktionen kan inte anropa andra användardefinierade funktioner.
 * Funktionen kan inte använda den [referera funktionen](resource-group-template-functions-resource.md#reference).
 * Parametrar för funktionen kan inte ha standardvärden.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 01a34eed3ea073deaaf449d28d7f8462f12b5a33
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8295abfae8d82a7c7762c6b27a8bac7487f6afff
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294318"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335289"
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>En genomgång av Analytics i Application Insights
 [Analytics](app-insights-analytics.md) är kraftfull sökfunktionen i [Programinsikter](app-insights-overview.md). Dessa sidor beskrivs Log Analytics-frågespråket.
@@ -180,7 +180,7 @@ Andra exempel:
 
 
 ## <a name="projecthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorsproject-operator-select-rename-and-compute-columns"></a>[Projektet](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator): Välj, byta namn på och bearbetning kolumner
-Använd [ `project` ](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) att välja ut bara de kolumner som du vill:
+Använd [ `project` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) att välja ut bara de kolumner som du vill:
 
 ```AIQL
 
@@ -203,7 +203,7 @@ Du kan också byta namn på kolumner och definiera nya:
             ['time of day'] = floor(timestamp % 1d, 1s)
 ```
 
-![Resultat](./media/app-insights-analytics-tour/270.png)
+![resultat](./media/app-insights-analytics-tour/270.png)
 
 * Kolumnnamn kan innehålla blanksteg eller symboler om de omges så här: `['...']` eller `["..."]`
 * `%` är den vanliga modulo-operatorn.
@@ -433,7 +433,7 @@ Använda frågan ovan, men ersätt den sista raden:
 
 Vi också bort den övre gränsen i where-satsen för att få rätt uppgifter som inkluderar alla sessioner med mer än en förfrågan:
 
-![Resultat](./media/app-insights-analytics-tour/180.png)
+![resultat](./media/app-insights-analytics-tour/180.png)
 
 Där hittar som:
 
@@ -525,7 +525,7 @@ Använd *kan* att definiera en funktion:
 ## <a name="accessing-nested-objects"></a>Åtkomst till kapslade objekt
 Kapslade objekt kan nås enkelt. Du kan till exempel se strukturerade objekt så här i dataströmmen undantag:
 
-![Resultat](./media/app-insights-analytics-tour/520.png)
+![resultat](./media/app-insights-analytics-tour/520.png)
 
 Du kan förenkla den genom att välja de egenskaper som du är intresserad av:
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: d63cb26acdc0a8b6c8435167b1043428de9f0729
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e88d8046e31a43f444193dff91895b474be70d91
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807626"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332345"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Kopiera data från Google BigQuery med hjälp av Azure Data Factory
 
@@ -35,7 +35,7 @@ Du kan kopiera data från Google BigQuery till alla stöds sink-datalagret. En l
 
 ## <a name="get-started"></a>Kom igång
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Google BigQuery kopplingen.
 
@@ -49,7 +49,7 @@ Följande egenskaper stöds för Google BigQuery länkade tjänsten.
 | projekt | Projekt-ID för BigQuery standardprojektet vid frågor mot.  | Ja |
 | additionalProjects | En kommaavgränsad lista över projekt-ID: N av offentliga BigQuery projekt till åtkomst.  | Nej |
 | requestGoogleDriveScope | Om du vill begära åtkomst till Google Drive. Google Drive åtkomst aktiverar stöd för externa tabeller som kombinerar BigQuery data med data från Google Drive. Standardvärdet är **FALSKT**.  | Nej |
-| AuthenticationType | OAuth 2.0 autentiseringsmekanism som används för autentisering. ServiceAuthentication kan användas enbart på Self-hosted integrering Runtime. <br/>Tillåtna värden är **UserAuthentication** och **ServiceAuthentication**. Avse respektive avsnitt under den här tabellen på fler egenskaper och JSON-exempel för dessa typer av autentisering. | Ja |
+| authenticationType | OAuth 2.0 autentiseringsmekanism som används för autentisering. ServiceAuthentication kan användas enbart på Self-hosted integrering Runtime. <br/>Tillåtna värden är **UserAuthentication** och **ServiceAuthentication**. Avse respektive avsnitt under den här tabellen på fler egenskaper och JSON-exempel för dessa typer av autentisering. | Ja |
 
 ### <a name="using-user-authentication"></a>Med hjälp av autentisering av användare
 

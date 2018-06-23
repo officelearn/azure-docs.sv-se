@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: badd2d63ffaf8e88ff672087783f2bce150bc7c3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ad26772650cf052926a2534d343f64765f47b78f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264998"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333402"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -267,9 +267,9 @@ Några av de insikter som du kanske vill få när trafik Analytics konfigurerats
 
 **Titta efter**
 
-- Trafikfördelning per undernät, topologi, övre källor för trafik till undernät, övre rouge nätverk konversation till undernätet och upp konversation programprotokoll.
+- Trafik distribution per undernät, topologi, övre källor för trafik till undernät, övre falska nätverk konversation till undernätet och upp konversation programprotokoll.
     - Att veta vilka undernät konversation till vilka undernät. Om du ser oväntat konversationer kan du korrigera konfigurationen.
-    - Om rouge nätverk konversation med ett undernät, kan du åtgärda det genom att konfigurera NSG-regler för att blockera falska nätverk.
+    - Om falska nätverk konversation med ett undernät, kan du åtgärda det genom att konfigurera NSG-regler för att blockera falska nätverk.
 - Undernät topologin visar översta menyfliksområdet för val av parametrar, till exempel Active/Inactive undernät, externa anslutningar, aktiva flöden och skadliga flöden till undernätet.
 - Undernät topologin visar trafikfördelning till ett virtuellt nätverk med avseende på flöden (tillåtna/blockerade/inkommande/utgående/Benign/skadliga), protokoll och NSG: er, till exempel:
 
@@ -277,10 +277,10 @@ Några av de insikter som du kanske vill få när trafik Analytics konfigurerats
 
 **Titta efter**
 
-Trafikfördelning per Programgateway och belastningsutjämnare, topologi översta källor för trafik, övre rouge nätverk konversation Programgateway & belastningsutjämnare och upp konversation programprotokoll. 
+Trafikfördelning per Programgateway och belastningsutjämnare, topologi översta källor för trafik, övre obehöriga nätverk konversation Programgateway & belastningsutjämnare och upp konversation programprotokoll. 
     
  - Att veta vilka undernät konversation som Programgateway eller belastningsutjämning. Om du upptäcker oväntat konversationer, kan du korrigera konfigurationen.
- - Om rouge nätverk konversation med en Programgateway eller belastningsutjämnare, kan du åtgärda det genom att konfigurera NSG-regler för att blockera falska nätverk. 
+ - Om falska nätverk konversation med en Programgateway eller belastningsutjämnare, kan du åtgärda det genom att konfigurera NSG-regler för att blockera falska nätverk. 
 
     ![Subnet-topology-showcasing-Traffic-distribution-to-a-Application-Gateway-Subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 5fb3aca61b63d70c9341a3964247addf7241a844
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b48bfcd5057dcdcce921a56e664d5bc3506585c1
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618131"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335915"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Kopiera data från Webbtabell med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,7 @@ Om du vill använda denna anslutning för Web tabell måste ställa in en Self-h
 
 ## <a name="getting-started"></a>Komma igång
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Web tabell connector.
 
@@ -54,7 +54,7 @@ Följande egenskaper stöds för Web tabell länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Web** |Ja |
 | url | URL till webbadressen |Ja |
-| AuthenticationType | Tillåtna värde är: **anonym**. |Ja |
+| authenticationType | Tillåtna värde är: **anonym**. |Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En Self-hosted integrering Runtime krävs enligt [krav](#prerequisites). |Ja |
 
 **Exempel:**

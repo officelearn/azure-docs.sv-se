@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: 76387733b1511593280f4a9439f5ddbf12d60975
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: de52521824c146f63fb16e2690e2a24167ae2efe
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302010"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333920"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Säker åtkomst till ett Azure DB som Cosmos-konto med hjälp av Azure Virtual Network tjänstslutpunkten
 
@@ -80,7 +80,7 @@ När Azure Virtual Network service slutpunkter har aktiverats för din Azure Cos
 
 Om ditt konto i Azure Cosmos DB används av andra Azure-tjänster som Azure Search eller åt från Stream analytics eller Power BI, du tillåter åtkomst genom att kontrollera **Tillåt åtkomst till Azure-tjänster**.
 
-För att säkerställa att du har åtkomst till Azure Cosmos DB statistik från portalen, måste du aktivera **Tillåt åtkomst till Azure portal** alternativ. Mer information om dessa alternativ finns [anslutningar från Azure-portalen](firewall-support.md#connections-from-the-azure-portal) och [anslutningar från Azure PaaS tjänster](firewall-support.md#connections-from-public-azure-datacenters-or-azure-paas-services) avsnitt. När du har valt åtkomst, Välj **spara** spara inställningarna.
+För att säkerställa att du har åtkomst till Azure Cosmos DB statistik från portalen, måste du aktivera **Tillåt åtkomst till Azure portal** alternativ. Mer information om dessa alternativ finns [anslutningar från Azure-portalen](firewall-support.md#connections-from-the-azure-portal) och [anslutningar från Azure PaaS tjänster](firewall-support.md#connections-from-global-azure-datacenters-or-azure-paas-services) avsnitt. När du har valt åtkomst, Välj **spara** spara inställningarna.
 
 ## <a name="remove-a-virtual-network-or-subnet"></a>Ta bort ett virtuellt nätverk eller undernät 
 
@@ -145,11 +145,20 @@ Använd följande steg för att konfigurera tjänstslutpunkten till ett Azure DB
 
    ```powershell
    $locations = @(@{})
+
+   <# If you have read regions in addition to a write region, use the following code to set the $locations variable instead.
+
+   $locations = @(@{"locationName"="<Write location>"; 
+                 "failoverPriority"=0}, 
+               @{"locationName"="<Read location>"; 
+                  "failoverPriority"=1}) #>
+
    $consistencyPolicy = @{}
    $cosmosDBProperties = @{}
 
    $locations[0]['failoverPriority'] = $cosmosDBConfiguration.Properties.failoverPolicies.failoverPriority
    $locations[0]['locationName'] = $cosmosDBConfiguration.Properties.failoverPolicies.locationName
+
    $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
 
    $accountVNETFilterEnabled = $True

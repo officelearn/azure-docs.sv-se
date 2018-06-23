@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: bwren
-ms.openlocfilehash: cb48d6f61991fd16112b3507a413946ec01b4871
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 1e0fd56b6e420103b4f786985f71a84737db642d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851338"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333640"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Vanliga frågor för övergången från OMS-portalen på Azure-portalen för logganalys-användare
 Logganalys används först sin egen portalen kallas OMS-portalen för att hantera konfigurationen och analysera insamlade data.  Alla funktioner från den här portalen har flyttats till Azure portal där den fortsätter att utvecklas.
@@ -39,7 +39,7 @@ I listan över arbetsytor i Azure-portalen klickar du på **Lägg till** i lista
 ![Översiktssidan](media/log-analytics-new-portal/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>Där är min översiktssida?
-Huvudfönstret i OMS-portalen visar panelerna för alla hanteringslösningarna som installerats i din arbetsyta och eventuella anpassade vyer som du har skapat. I Azure-portalen detta kallas den **översikt** sidan. Från arbetsytan i Azure-portalen, antingen välja **översikt** -menyn eller klicka på den **översikt** knappen på huvudsidan.
+Huvudfönstret i OMS-portalen visar panelerna för alla hanteringslösningarna som installerats i din arbetsyta och eventuella anpassade vyer som du har skapat. Samma vyn finns tillgänglig i Azure-portalen. Från arbetsytan, Välj **arbetsytan Sammanfattning**.
 
 ![Översiktssidan](media/log-analytics-new-portal/overview.png)
 

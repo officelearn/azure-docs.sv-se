@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
-ms.date: 05/17/2018
+ms.date: 06/21/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d9c2f210204122947c24eb42f643450537f3b9a8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3c3737d3a98093f752c1248460a8084436e60941
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232549"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333606"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -41,7 +41,7 @@ I det här ämnet får du en översikt över inloggningsaktiviteterna.
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
-* Användare i rollen säkerhetsadministratör, säkerhetsläsare eller rapportläsare
+* Användare i rollen säkerhet Admin säkerhet Reader, rapporten läsaren eller programadministratör
 * Globala administratörer
 * Alla användare (icke-administratörer) kan komma åt sina egna inloggningar 
 
@@ -63,16 +63,14 @@ Din startpunkt för alla granskningsdata är **Inloggningar** i avsnittet Aktivi
 ![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/61.png "inloggningsaktivitet")
 
 
-En inloggningslogg har en standardlistvy som visar:
+En granskningslogg har en standardlistvy som visar:
 
-- inloggningsdatum
-- den aktuella användaren
-- programmet som användaren har loggat in i
+- den relaterade användaren
+- programmet som användaren har loggat in till
 - inloggningsstatus
-- status för riskidentifieringen
-- status för MFA-kravet (multifaktorautentisering). 
+- inloggningstid
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/01.png "inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/41.png "inloggningsaktivitet")
 
 Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
@@ -80,94 +78,58 @@ Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
 På så sätt kan du visa ytterligare fält eller ta bort fält som redan visas.
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/02.png "inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/42.png "inloggningsaktivitet")
 
-När du klickar på ett objekt i listvyn visas all tillgänglig information om det i en horisontell vy.
+När du klickar på ett objekt i listvyn visas all tillgänglig information om det.
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/03.png "inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/43.png "Inloggningsaktivitet")
 
 
-## <a name="filter-sign-in-activities"></a>Filtrera inloggningsaktivitet
+## <a name="filtering-sign-in-activities"></a>Filtrerar inloggningsaktiviteter
 
-Om du vill begränsa vilka data som rapporteras till en nivå som passar dig kan du filtrera inloggningsdata med hjälp av följande standardfält:
+Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du filtrera inloggningsdata med hjälp av följande fält:
 
+- Tidsintervall
 - Användare
 - Program
+- Client
 - Inloggningsstatus
-- Status för riskidentifieringen
-- Date
+
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/44.png "inloggningsaktivitet")
 
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/04.png "inloggningsaktivitet")
-
-Med filtret **Användare** kan du ange namn eller användarhuvudnamn (UPN) för den användare som intresserar dig. 
-
-Med filtret **Program** kan du ange namnet på programmet som intresserar dig.  
-
-Med filtret **Inloggningsstatus** kan du välja något av följande filter:
-
-- Alla 
-- Lyckades
-- Fel
-
-Med filtret **Risk identifierades** kan du välja något av följande filter:
-
-- Alla
-- Ja
-- Nej 
-
-
-Med filtret **Datum** kan du definiera en tidsram för de data som returneras.  
+Med filtret för **tidsintervall** kan du definiera en tidsram för de data som returneras.  
 Möjliga värden:
 
 - 1 månad
 - 7 dagar
 - 24 timmar
-- Anpassat tidsintervall
+- Anpassat
 
 När du väljer en anpassad tidsram kan du konfigurera en starttid och en sluttid.
 
-Om du lägger till ytterligare fält i inloggningsvyn läggs de automatiskt till i listan med filter. Om du till exempel lägger till fältet **Klientapp** i listan får du även ett annat filteralternativ som gör att du kan ange följande filter:
+Med filtret **användare** kan du ange namn eller användarhuvudnamn (UPN) för den användare som intresserar dig.
 
-- Webbläsare      
-- Exchange ActiveSync (stöds)               
-- Exchange ActiveSync (stöds inte)
-- Övriga klienter               
-    - IMAP
-    - MAPI
-    - Äldre Office-klienter
-    - POP
-    - SMTP
+Med filtret **program** kan du ange namnet på programmet som intresserar dig.
 
+Med filtret **Klienten** kan du ange information om enheten som intresserar dig.
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/12.png "inloggningsaktivitet")
+Med filtret **inloggningsstatus** kan du välja något av följande filter:
 
-
-> [!TIP] 
-> Förutom standardfiltren blir alla ytterligare fält som du lägger till i inloggningsvyerna till filterfält.
-
-
-## <a name="download-sign-in-activities"></a>Ladda ned inloggningsaktivitet
-
-Du kan ladda ned informationen om inloggningsaktivitet om du vill arbete med den utanför Azure Portal. Förutom en nedladdningsknapp finns också ett alternativ på Azure Portal där du kan generera ett skript för att ladda ned data.  
-
-![Ladda ned](./media/active-directory-reporting-activity-sign-ins/71.png "Ladda ned")
-
-När du klickar på **Ladda ned** skapas en CSV-fil med de senaste 5 000 posterna. Om du behöver mer flexibilitet kan du använda skriptlösningen. Klicka på **skriptet** skapar ett PowerShell.skript som innehåller de filter som du har angett. Hämta och kör skriptet i **administratörsläge** att generera CSV-filen. Förutom den tekniska implementeringen begränsas antalet poster som du kan ladda ned även av [bevarandereglerna för Azure Active-rapporter](active-directory-reporting-retention.md).  
-
+- Alla
+- Lyckades
+- Fel
 
 
 ## <a name="sign-in-activities-shortcuts"></a>Genvägar till inloggningsaktiviteter
 
 Förutom Azure Active Directory finns det ytterligare två ställen på Azure Portal där du kan granska data om inloggning:
 
-- Översikt över identitetssäkerhet och skydd
-- Användare
-- Grupper
+- Användare och grupper
 - Företagsprogram
 
 
-### <a name="users-sign-ins-activities"></a>Användares inloggningsaktivitet
+### <a name="users-and-groups-sign-ins-activities"></a>Inloggningsaktivitet för användare och grupper
 
 Med den information som tillhandahålls av rapporten över användarinloggningsaktiviteter får du svar på frågor som:
 
@@ -177,39 +139,29 @@ Med den information som tillhandahålls av rapporten över användarinloggningsa
 
 
 
-Din startpunkt för dessa data är diagrammet över användarinloggning på översiktssidan **Identitetssäkerhet och skydd**. Diagrammet med användarinloggningar visar veckovisa sammanställningar av inloggningar för alla användare under en viss tidsperiod. Standardvärdet för tidsperioden är 30 dagar.
+Din startpunkt för denna data är användarinloggnings-diagrammet i avsnittet **Översikt** under **Användare och grupper**.
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/06.png "inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/45.png "inloggningsaktivitet")
 
-När du klickar på en dag i inloggningsdiagrammet visas en översikt över inloggningsaktiviteterna för den dagen.
+Diagrammet med användarinloggningar visar veckovisa sammanställningar av inloggningar för alla användare under en viss tidsperiod. Standardvärdet för tidsperioden är 30 dagar.
 
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/46.png "inloggningsaktivitet")
 
-Det här visas på varje rad i listan med inloggningsaktiviteter:
+När du klickar på en dag i inloggningsdiagrammet kan du få en detaljerad lista över inloggningsaktiviteterna för den dagen.
+
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/41.png "inloggningsaktivitet")
+
+Varje rad i aktivitetslistan över inloggningar ger dig detaljerad information om den valda inloggningen som:
 
 * Vem har loggat in?
+* Vad var relaterad UPN?
 * Vilket program var målet för inloggningen?
-* Vilken status har inloggningen?
-* Vilken MFA-status har inloggningen?
+* Vilken IP-adress hade inloggningen?
+* Vad var status för inloggningen?
 
-När du klickar på ett objekt visas mer information om inloggningen:
+Alternativet **Inloggningar** ger dig en fullständig översikt över alla användarinloggningar.
 
-- Användar-ID
-- Användare
-- Användarnamn
-- Program-ID:t
-- Program
-- Client
-- Plats
-- IP-adress
-- Date
-- MFA krävs
-- Inloggningsstatus
-
- 
-På sidan **Användare** visas en fullständig översikt över alla användarinloggningar om du klickar på **Inloggningar** i avsnittet **Aktivitet**.
-
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/08.png "inloggningsaktivitet")
-
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/51.png "inloggningsaktivitet")
 
 
 
@@ -221,9 +173,9 @@ Med en programcentrerad vy över dina inloggningsuppgifter kan du få svar på f
 * Vilka är de tre främsta programmen i organisationen?
 * Jag har nyligen distribuerat ett program. Hur går det för det?
 
-Din startpunkt för dessa data är rapporten över *de tre främsta programmen i organisationen under de senaste 30 dagarna* i avsnittet **Översikt** på sidan **Företagsprogram**.
+Din startpunkt för denna data är rapporten över de tre främsta programmen i organisationen under de senaste 30 dagarna avsnittet **Översikt**, under **Företagsprogram**.
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/10.png "inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/64.png "inloggningsaktivitet")
 
 Diagram över programanvändning visar veckovisa sammanställning av inloggningar för dina tre främsta program under en given tidsperiod. Standardvärdet för tidsperioden är 30 dagar.
 
@@ -237,11 +189,12 @@ Om du vill kan du ange att fokusera på ett visst program.
 När du klickar på en dag i programanvändningsdiagrammet kan du få en detaljerad lista över inloggningsaktiviteterna.
 
 
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/48.png "inloggningsaktivitet")
 
 
 Alternativet **Inloggningar** ger dig en fullständig översikt över alla inloggningshändelser för dina program.
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/11.png "inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/49.png "inloggningsaktivitet")
 
 
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b75bd5987ccf89c77509d0f2b4d8def5583e928
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a4f300666d0ab5345274d69d9ad6ad6871ce85e3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617441"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334048"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Kopiera data från PostgreSQL med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,10 +39,9 @@ Mer specifikt stöder den här PostgreSQL-anslutningen PostgreSQL **version 7.4 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda denna PostgreSQL-anslutning måste du:
+Om PostgreSQL-databas inte är offentligt tillgänglig, måste du ställa in en Self-hosted integrering Runtime. Mer information om automatisk värdbaserade integration körningar, se [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md) artikel. Integration Runtime innehåller en inbyggd PostgreSQL-drivrutin från version 3.7, därför behöver du inte installera en drivrutin manuellt.
 
-- Ställ in en Self-hosted integrering Runtime. Se [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md) artikeln för information.
-- Installera den [Ngpsql dataprovider för PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) med version mellan 2.0.12 och 3.1.9 på Integration Runtime-datorn.
+För Self-hosted IR-versionen är lägre än 3.7, måste du installera den [Ngpsql dataprovider för PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) med version mellan 2.0.12 och 3.1.9 på Integration Runtime-datorn.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -57,14 +56,36 @@ Följande egenskaper stöds för PostgreSQL länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **PostgreSql** | Ja |
-| server | Namnet på PostgreSQL-server. |Ja |
-| databas | Namnet på PostgreSQL-databas. |Ja |
-| Schemat | Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
-| användarnamn | Ange användarnamn för att ansluta till PostgreSQL-databasen. |Ja |
-| lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En Self-hosted integrering Runtime krävs enligt [krav](#prerequisites). |Ja |
+| connectionString | En ODBC-anslutningssträng att ansluta till Azure-databas för PostgreSQL. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
+
+En typisk anslutningssträng är `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Fler egenskaper som du kan ange per ditt fall:
+
+| Egenskap  | Beskrivning | Alternativ | Krävs |
+|:--- |:--- |:--- |:--- |:--- |
+| EncryptionMethod (EM)| Metoden drivrutinen använder för att kryptera data som skickas mellan drivrutinen och databasservern. T.ex. `ValidateServerCertificate=<0/1/6>;`| 0 (Ingen kryptering) **(standard)** / 1 (SSL) / 6 (RequestSSL) | Nej |
+| ValidateServerCertificate (VSC) | Avgör om drivrutinen bekräfta det certifikat som skickas av databasservern när SSL-kryptering är aktiverat (krypteringsmetod = 1). T.ex. `ValidateServerCertificate=<0/1>;`| 0 (inaktiverat) **(standard)** / 1 (aktiverad) | Nej |
 
 **Exempel:**
+
+```json
+{
+    "name": "PostgreSqlLinkedService",
+    "properties": {
+        "type": "PostgreSql",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
+            }
+        }
+    }
+}
+```
+
+Om du använde PostgreSQL länkade tjänsten med följande nyttolast fortfarande stöds som-är, medan du rekommenderas för att använda den nya framöver.
+
+**Tidigare nyttolast:**
 
 ```json
 {

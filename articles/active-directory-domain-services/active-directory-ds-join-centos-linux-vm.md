@@ -13,17 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: d570428f3e3ea23302e3cecc6bfa759468419986
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d76371935fddbfe94c6dc45e27971487e7fa4277
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216834"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333589"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Anslut en CentOS Linux-dator till en hanterad domän
 Den här artikeln visar hur du kopplar en CentOS Linux-dator i Azure till en Azure AD Domain Services-hanterad domän.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Om du vill utföra åtgärderna i den här artikeln behöver du:
@@ -87,7 +89,7 @@ De nödvändiga paketen är installerat på den virtuella Linux-datorn, är näs
     > [!NOTE]
     > **Felsöka:** om *sfär identifiera* gick inte att hitta din hanterade domän:  
       * Se till att domänen kan nås från den virtuella datorn (försök ping).  
-      * Kontrollera att den virtuella datorn faktiskt har distribuerats till samma virtuella nätverk som den hanterade domänen är tillgänglig. 
+      * Kontrollera att den virtuella datorn faktiskt har distribuerats till samma virtuella nätverk som den hanterade domänen är tillgänglig.
       * Kontrollera om du har uppdaterat DNS-serverinställningarna för det virtuella nätverket så att den pekar till domänkontrollanterna i den hanterade domänen.  
       >
 

@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2ceaf4ecf7da78377c52135b7de5191c1dc3dd28
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8d627abfe7b686eeeb5a65c4515e184f4ce62f4e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232553"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335065"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory reporting vanliga frågor och svar
 
@@ -72,7 +72,7 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active 
 
 **F: hur många poster som jag kan hämta från Azure-portalen?**
 
-**S:** upp till 5 000 poster kan hämtas från Azure-portalen. Poster sorteras efter *senaste* och som standard får de senaste 5000 posterna. Välj din filtervillkor för poster är större än 5000, och klicka på den *skriptet* knappen på Azure-portalen. Detta kommer att ladda ned ett PowerShell-skript som du kan köra för att generera en CSV-fil för alla poster som matchar dina filtervillkor. Du måste köra PowerShell-skriptet *administratörsläge*. Mer information finns i [Hämta inloggning aktiviteter](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities).
+**S:** upp till 5 000 poster kan hämtas från Azure-portalen. Poster sorteras efter *senaste* och som standard får de senaste 5000 posterna.
 
 ---
 

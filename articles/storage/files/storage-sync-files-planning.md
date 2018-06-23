@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 81b760e3a911bacb9c01106d59577d794788abe8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296178"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335847"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planera för distribution av en Azure-filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -144,6 +144,9 @@ För Azure filsynkronisering och DFS-R ska fungera sida-vid-sida:
 2. Server-slutpunkter ska inte konfigureras på mappar i DFS-R skrivskyddad-replikering.
 
 Mer information finns i [översikt över DFS Replication](https://technet.microsoft.com/library/jj127250).
+
+### <a name="sysprep"></a>Sysprep
+Med hjälp av sysprep på en server som Azure filsynkronisering agenten har installerats stöds inte och kan leda till oväntade resultat. Agentregistreringen för installation och server ska inträffa efter distribuera den servern och sysprep mini-installationen har slutförts.
 
 ### <a name="windows-search"></a>Windows Search
 Om molnet skiktning är aktiverat på en serverslutpunkt, filer som är kalla hoppas över och inte indexeras av Windows Search. Icke-nivåer filer som indexeras korrekt.

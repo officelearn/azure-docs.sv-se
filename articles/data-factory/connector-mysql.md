@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 4c9c97f30801ff901677156b0ea37c1eeb348502
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 43a27b98d8b53523bee8694ed3071e65a03355a6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808731"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335881"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Kopiera data från MySQL med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,13 +38,9 @@ Mer specifikt stöder den här MySQL-anslutningen MySQL **version 5.1 och högre
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda denna MySQL-anslutning måste du:
+Om MySQL-databasen inte är offentligt tillgänglig, måste du ställa in en Self-hosted integrering Runtime. Mer information om automatisk värdbaserade integration körningar, se [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md) artikel. Integration Runtime innehåller en inbyggd MySQL-drivrutin från version 3.7, därför behöver du inte installera en drivrutin manuellt.
 
-- Ställ in en Self-hosted integrering Runtime. Se [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md) artikeln för information.
-- Installera den [MySQL Connector/Net för Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) version mellan 6.6.5 och 6.10.7 på Integration Runtime-datorn. Den här 32-bitars-drivrutinen är kompatibel med 64-bitars IR.
-
-> [!TIP]
-> Om du klickar på fel i ”autentisering misslyckades eftersom Fjärrpartnern har stängt transport dataströmmen”., bör du uppgradera MySQL Connector/Net till en senare version.
+För Self-hosted IR-versionen är lägre än 3.7, måste du installera den [MySQL Connector/Net för Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) version mellan 6.6.5 och 6.10.7 på Integration Runtime-datorn. Den här 32-bitars-drivrutinen är kompatibel med 64-bitars IR.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -59,14 +55,40 @@ Följande egenskaper stöds för MySQL länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **MySql** | Ja |
-| server | Namnet på MySQL-servern. | Ja |
-| databas | Namnet på MySQL-databas. | Ja |
-| Schemat | Namnet på schemat i databasen. | Nej |
-| användarnamn | Ange användarnamn för att ansluta till MySQL-databas. | Ja |
-| lösenord | Ange lösenordet för det användarkonto som du angett. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En Self-hosted integrering Runtime krävs enligt [krav](#prerequisites). |Ja |
+| connectionString | Ange information som behövs för att ansluta till Azure-databas för MySQL-instansen. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime (om datalager finns i privat nätverk) eller Azure Integration Runtime. Om inget anges används standard-Azure Integration Runtime. |Nej |
+
+En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Fler egenskaper som du kan ange per ditt fall:
+
+| Egenskap  | Beskrivning | Alternativ | Krävs |
+|:--- |:--- |:--- |:--- |:--- |
+| SSLMode | Det här alternativet anger om drivrutinen använder SSL-kryptering och kontroll när du ansluter till MySQL. T.ex. `SSLMode=<0/1/2/3/4>`| INAKTIVERAD (0) / PREFERRED (1) **(standard)** / krävs (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Nej |
+| useSystemTrustStore | Det här alternativet anger om du vill använda ett certifikat från arkivet med betrodda system eller från en angiven PEM-fil. T.ex. `UseSystemTrustStore=<0/1>;`| (1) aktiveras / inaktiveras (0) **(standard)** | Nej |
 
 **Exempel:**
+
+```json
+{
+    "name": "MySQLLinkedService",
+    "properties": {
+        "type": "MySql",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Om du använde MySQL länkade tjänsten med följande nyttolast fortfarande stöds som-är, medan du rekommenderas för att använda den nya framöver.
+
+**Tidigare nyttolast:**
 
 ```json
 {

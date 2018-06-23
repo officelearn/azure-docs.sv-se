@@ -1,6 +1,6 @@
 ---
 title: Hantera åtkomst med hjälp av RBAC och REST-API - Azure | Microsoft Docs
-description: Lär dig mer om att hantera åtkomst för användare, grupper och program, med hjälp av rollbaserad åtkomstkontroll (RBAC) och REST-API. Detta inkluderar lista åtkomst, beviljar åtkomst och ta bort åtkomst.
+description: Lär dig mer om att hantera åtkomst för användare, grupper och program, med hjälp av rollbaserad åtkomstkontroll (RBAC) och REST-API. Detta inkluderar listan åtkomst, bevilja åtkomst och ta bort åtkomst.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,639 +12,109 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fdf246ede9fd030c03a70a90b35d4dd1fb645df1
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cfcb87fdff8105b25d4f7e63b775aaf9243d2a90
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294470"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317015"
 ---
 # <a name="manage-access-using-rbac-and-the-rest-api"></a>Hantera åtkomst med hjälp av RBAC och REST-API
 
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) är på sätt som du hanterar åtkomst till resurser i Azure. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och REST-API.
 
-## <a name="list-all-role-assignments"></a>Visa en lista med alla rolltilldelningar
-Listar alla rolltilldelningar i definitionsområdet och subscopes.
+## <a name="list-access"></a>Listan åtkomst
 
-Att lista rolltilldelningar, måste du ha tillgång till `Microsoft.Authorization/roleAssignments/read` åtgärden definitionsområdet. Inbyggda roller beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
+RBAC anger lista åtkomst du i rolltilldelningar. Vill se rolltilldelningar kan du använda en av de [rolltilldelningar - listan](/rest/api/authorization/roleassignments/list) REST API: er. För att förfina sökningen, anger du ett scope och ett valfritt filter. För att anropa API: et, måste du ha åtkomst till den `Microsoft.Authorization/roleAssignments/read` åtgärden i det specificerade omfånget. Flera [inbyggda roller](built-in-roles.md) beviljas åtkomst till den här åtgärden.
 
-### <a name="request"></a>Förfrågan
-Använd den **hämta** metoden med följande URI:
+1. Börja med följande begäran:
 
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
+    ```http
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter={filter}
+    ```
 
-Gör följande ersättningar att anpassa din begäran inom URI:
+1. Inom URI, Ersätt *{scope}* med den omfattning som du vill visa en lista över rolltilldelningarna.
 
-1. Ersätt *{scope}* med den omfattning som du vill visa en lista över rolltilldelningarna. Följande exempel visar hur du kan ange omfång för olika nivåer:
+    | Omfång | Typ |
+    | --- | --- |
+    | `subscriptions/{subscriptionId}` | Prenumeration |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
 
-   * Prenumerationen: /subscriptions/ {prenumerations-id}  
-   * Resursgrupp: /subscriptions/ {prenumerations-id} / resursgrupper/myresourcegroup1  
-   * Resurs: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Ersätt *{api-version}* med 2015-07-01.
-3. Ersätt *{filter}* med villkor som du vill tillämpa för att filtrera listan rollen tilldelning:
+1. Ersätt *{filter}* med villkor som du vill använda för filtrering av listan för tilldelning av rollen.
 
-   * Lista rolltilldelningar för endast det angivna omfånget, exklusive rolltilldelningar på subscopes: `atScope()`    
-   * Lista rolltilldelningar för en viss användare, grupp eller ett program: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
-   * Visa en lista med rolltilldelningar för en viss användare, inklusive de som ärvts från grupper | `assignedTo('{objectId of user}')`
+    | Filter | Beskrivning |
+    | --- | --- |
+    | `$filter=atScope()` | Lista över rolltilldelningar för endast det angivna omfånget, exklusive rolltilldelningar på subscopes. |
+    | `$filter=principalId%20eq%20'{objectId}'` | Lista över rolltilldelningar för en specifik användare, grupp eller tjänstens huvudnamn. |
+    | `$filter=assignedTo('{objectId}')` | Lista rolltilldelningar för en viss användare, inklusive de som ärvts från grupper. |
 
-### <a name="response"></a>Svar
-Statuskod: 200
+## <a name="grant-access"></a>Bevilja åtkomst
 
-```
-{
-  "value": [
+I RBAC, för att bevilja åtkomst, skapar du en rolltilldelning. Så här skapar du en rolltilldelning i [rolltilldelningar - skapa](/rest/api/authorization/roleassignments/create) REST-API och ange säkerhetsobjekt, rolldefinitionen och omfång. För att anropa denna API, måste du ha åtkomst till den `Microsoft.Authorization/roleAssignments/write` igen. I de inbyggda rollerna, endast [ägare](built-in-roles.md#owner) och [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) beviljas åtkomst till den här åtgärden.
+
+1. Använd den [rolldefinitioner - listan](/rest/api/authorization/roledefinitions/list) REST API: et eller se [inbyggda roller](built-in-roles.md) att hämta identifieraren för den rolldefinition som du vill tilldela.
+
+1. Använda en GUID för att generera en unik identifierare som ska användas för identifieraren för tilldelning av rollen. Identifieraren har formatet: `00000000-0000-0000-0000-000000000000`
+
+1. Börja med följande begäran och brödtext:
+
+    ```http
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}?api-version=2015-07-01
+    ```
+
+    ```json
     {
       "properties": {
-        "roleDefinitionId": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-        "principalId": "2f9d4375-cbf1-48e8-83c9-2a0be4cb33fb",
-        "scope": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-        "createdOn": "2015-10-08T07:28:24.3905077Z",
-        "updatedOn": "2015-10-08T07:28:24.3905077Z",
-        "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-        "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-      },
-      "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleAssignments/baa6e199-ad19-4667-b768-623fde31aedd",
-      "type": "Microsoft.Authorization/roleAssignments",
-      "name": "baa6e199-ad19-4667-b768-623fde31aedd"
+        "roleDefinitionId": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+        "principalId": "{principalId}"
+      }
     }
-  ],
-  "nextLink": null
-}
+    ```
+    
+1. Inom URI, Ersätt *{scope}* med omfång för rolltilldelning.
 
-```
+    | Omfång | Typ |
+    | --- | --- |
+    | `subscriptions/{subscriptionId}` | Prenumeration |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
 
-## <a name="get-information-about-a-role-assignment"></a>Hämta information om en rolltilldelning
-Hämtar information om en enda rolltilldelning som anges av rollen tilldelning identifierare.
+1. Ersätt *{roleAssignmentName}* med GUID-identifierare för rolltilldelningen.
 
-Om du vill få information om en rolltilldelning måste du ha tillgång till `Microsoft.Authorization/roleAssignments/read` igen. Inbyggda roller beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
+1. I begärandetexten, Ersätt *{subscriptionId}* med prenumerations-ID.
 
-### <a name="request"></a>Förfrågan
-Använd den **hämta** metoden med följande URI:
+1. Ersätt *{roleDefinitionId}* med identifieraren för rollen.
 
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
+1. Ersätt *{principalId}* med objekt-ID: t för den användare, grupp eller huvudnamn för tjänsten som ska tilldelas rollen.
 
-Gör följande ersättningar att anpassa din begäran inom URI:
+## <a name="remove-access"></a>Ta bort åtkomst
 
-1. Ersätt *{scope}* med den omfattning som du vill visa en lista över rolltilldelningarna. Följande exempel visar hur du kan ange omfång för olika nivåer:
+I RBAC, för att ta bort access kan du ta bort en rolltilldelning. Ta bort en rolltilldelning med den [rolltilldelningar - ta bort](/rest/api/authorization/roleassignments/delete) REST API. För att anropa denna API, måste du ha åtkomst till den `Microsoft.Authorization/roleAssignments/delete` igen. I de inbyggda rollerna, endast [ägare](built-in-roles.md#owner) och [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) beviljas åtkomst till den här åtgärden.
 
-   * Prenumerationen: /subscriptions/ {prenumerations-id}  
-   * Resursgrupp: /subscriptions/ {prenumerations-id} / resursgrupper/myresourcegroup1  
-   * Resurs: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Ersätt *{roll-tilldelning-id}* med GUID-identifierare för rolltilldelningen.
-3. Ersätt *{api-version}* med 2015-07-01.
+1. Hämta rollen tilldelning identifierare (GUID). Den här identifieraren returneras när du först skapa rolltilldelningen eller du kan hämta genom att ange rolltilldelningarna.
 
-### <a name="response"></a>Svar
-Statuskod: 200
+1. Börja med följande begäran:
 
-```
-{
-  "properties": {
-    "roleDefinitionId": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
-    "principalId": "672f1afa-526a-4ef6-819c-975c7cd79022",
-    "scope": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "createdOn": "2015-10-05T08:36:26.4014813Z",
-    "updatedOn": "2015-10-05T08:36:26.4014813Z",
-    "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-  },
-  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleAssignments/196965ae-6088-4121-a92a-f1e33fdcc73e",
-  "type": "Microsoft.Authorization/roleAssignments",
-  "name": "196965ae-6088-4121-a92a-f1e33fdcc73e"
-}
+    ```http
+    DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}?api-version=2015-07-01
+    ```
 
-```
+1. Inom URI, Ersätt *{scope}* med scope för att ta bort rolltilldelningen.
 
-## <a name="create-a-role-assignment"></a>Skapa en rolltilldelning
-Skapa en rolltilldelning i det specificerade omfånget för det angivna huvudnamnet bevilja den angivna rollen.
+    | Omfång | Typ |
+    | --- | --- |
+    | `subscriptions/{subscriptionId}` | Prenumeration |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
 
-Om du vill skapa en rolltilldelning måste du ha tillgång till `Microsoft.Authorization/roleAssignments/write` igen. I de inbyggda rollerna, endast *ägare* och *administratör för användaråtkomst* beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
-
-### <a name="request"></a>Förfrågan
-Använd den **PLACERA** metoden med följande URI:
-
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
-
-Gör följande ersättningar att anpassa din begäran inom URI:
-
-1. Ersätt *{scope}* med den omfattning som du vill skapa rolltilldelningen. När du skapar en rolltilldelning på en överordnad omfattning, ärver alla underordnade omfång samma rolltilldelning. Följande exempel visar hur du kan ange omfång för olika nivåer:
-
-   * Prenumerationen: /subscriptions/ {prenumerations-id}  
-   * Resursgrupp: /subscriptions/ {prenumerations-id} / resursgrupper/myresourcegroup1   
-   * Resurs: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Ersätt *{roll-tilldelning-id}* med en ny GUID som blir GUID-identifierare för ny rolltilldelning.
-3. Ersätt *{api-version}* med 2015-07-01.
-
-För begärantext, anger du värden i följande format:
-
-```
-{
-  "properties": {
-    "roleDefinitionId": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
-    "principalId": "5ac84765-1c8c-4994-94b2-629461bd191b"
-  }
-}
-
-```
-
-| Elementnamn | Krävs | Typ | Beskrivning |
-| --- | --- | --- | --- |
-| roleDefinitionId |Ja |Sträng |Identifierare för rollen. Formatet på identifieraren är: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
-| principalId |Ja |Sträng |objectId av Azure AD är säkerhetsobjekt (användare, grupp eller tjänstens huvudnamn) som har tilldelats rollen. |
-
-### <a name="response"></a>Svar
-Statuskod: 201
-
-```
-{
-  "properties": {
-    "roleDefinitionId": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
-    "principalId": "5ac84765-1c8c-4994-94b2-629461bd191b",
-    "scope": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND",
-    "createdOn": "2015-12-16T00:27:19.6447515Z",
-    "updatedOn": "2015-12-16T00:27:19.6447515Z",
-    "createdBy": null,
-    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-  },
-  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND/providers/Microsoft.Authorization/roleAssignments/2e9e86c8-0e91-4958-b21f-20f51f27bab2",
-  "type": "Microsoft.Authorization/roleAssignments",
-  "name": "2e9e86c8-0e91-4958-b21f-20f51f27bab2"
-}
-
-```
-
-## <a name="delete-a-role-assignment"></a>Ta bort en rolltilldelning
-Ta bort en rolltilldelning i det specificerade omfånget.
-
-Om du vill ta bort en rolltilldelning måste du ha åtkomst till den `Microsoft.Authorization/roleAssignments/delete` igen. I de inbyggda rollerna, endast *ägare* och *administratör för användaråtkomst* beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
-
-### <a name="request"></a>Förfrågan
-Använd den **ta bort** metoden med följande URI:
-
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
-
-Gör följande ersättningar att anpassa din begäran inom URI:
-
-1. Ersätt *{scope}* med den omfattning som du vill skapa rolltilldelningen. Följande exempel visar hur du kan ange omfång för olika nivåer:
-
-   * Prenumerationen: /subscriptions/ {prenumerations-id}  
-   * Resursgrupp: /subscriptions/ {prenumerations-id} / resursgrupper/myresourcegroup1  
-   * Resurs: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Ersätt *{roll-tilldelning-id}* med rollen tilldelnings-id GUID.
-3. Ersätt *{api-version}* med 2015-07-01.
-
-### <a name="response"></a>Svar
-Statuskod: 200
-
-```
-{
-  "properties": {
-    "roleDefinitionId": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
-    "principalId": "5ac84765-1c8c-4994-94b2-629461bd191b",
-    "scope": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND",
-    "createdOn": "2015-12-17T23:21:40.8921564Z",
-    "updatedOn": "2015-12-17T23:21:40.8921564Z",
-    "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-  },
-  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND/providers/Microsoft.Authorization/roleAssignments/5eec22ee-ea5c-431e-8f41-82c560706fd2",
-  "type": "Microsoft.Authorization/roleAssignments",
-  "name": "5eec22ee-ea5c-431e-8f41-82c560706fd2"
-}
-
-```
-
-## <a name="list-all-roles"></a>Visa en lista över alla roller
-Listar de roller som är tillgängliga för tilldelning i det specificerade omfånget.
-
-Lista roller måste du ha tillgång till `Microsoft.Authorization/roleDefinitions/read` åtgärden definitionsområdet. Inbyggda roller beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
-
-### <a name="request"></a>Förfrågan
-Använd den **hämta** metoden med följande URI:
-
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
-
-Gör följande ersättningar att anpassa din begäran inom URI:
-
-1. Ersätt *{scope}* med den omfattning som du vill visa en lista över roller. Följande exempel visar hur du kan ange omfång för olika nivåer:
-
-   * Prenumerationen: /subscriptions/ {prenumerations-id}  
-   * Resursgrupp: /subscriptions/ {prenumerations-id} / resursgrupper/myresourcegroup1  
-   * Resursen /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Ersätt *{api-version}* med 2015-07-01.
-3. Ersätt *{filter}* med villkor som du vill använda för att filtrera listan över roller:
-
-   * Lista roller som är tillgängliga för tilldelning i det specificerade omfånget och alla dess underordnade omfattningar: `atScopeAndBelow()`
-   * Sök efter en roll med exakt visningsnamn: `roleName%20eq%20'{role-display-name}'`. Använd URL-kodade formatet exakt visningsnamnet för rollen. Till exempel `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
-
-### <a name="response"></a>Svar
-Statuskod: 200
-
-```
-{
-  "value": [
-    {
-      "properties": {
-        "roleName": "Virtual Machine Contributor",
-        "type": "BuiltInRole",
-        "description": "Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they\u2019re connected to.",
-        "assignableScopes": [
-          "/"
-        ],
-        "permissions": [
-          {
-            "actions": [
-              "Microsoft.Authorization/*/read",
-              "Microsoft.Compute/availabilitySets/*",
-              "Microsoft.Compute/locations/*",
-              "Microsoft.Compute/virtualMachines/*",
-              "Microsoft.Compute/virtualMachineScaleSets/*",
-              "Microsoft.Insights/alertRules/*",
-              "Microsoft.Network/applicationGateways/backendAddressPools/join/action",
-              "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
-              "Microsoft.Network/loadBalancers/inboundNatPools/join/action",
-              "Microsoft.Network/loadBalancers/inboundNatRules/join/action",
-              "Microsoft.Network/loadBalancers/read",
-              "Microsoft.Network/locations/*",
-              "Microsoft.Network/networkInterfaces/*",
-              "Microsoft.Network/networkSecurityGroups/join/action",
-              "Microsoft.Network/networkSecurityGroups/read",
-              "Microsoft.Network/publicIPAddresses/join/action",
-              "Microsoft.Network/publicIPAddresses/read",
-              "Microsoft.Network/virtualNetworks/read",
-              "Microsoft.Network/virtualNetworks/subnets/join/action",
-              "Microsoft.Resources/deployments/*",
-              "Microsoft.Resources/subscriptions/resourceGroups/read",
-              "Microsoft.Storage/storageAccounts/listKeys/action",
-              "Microsoft.Storage/storageAccounts/read",
-              "Microsoft.Support/*"
-            ],
-            "notActions": []
-          }
-        ],
-        "createdOn": "2015-06-02T00:18:27.3542698Z",
-        "updatedOn": "2015-12-08T03:16:55.6170255Z",
-        "createdBy": null,
-        "updatedBy": null
-      },
-      "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
-      "type": "Microsoft.Authorization/roleDefinitions",
-      "name": "9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
-    }
-  ],
-  "nextLink": null
-}
-
-```
-
-## <a name="get-information-about-a-role"></a>Hämta information om en roll
-Hämtar information om en enda roll som anges av rollen definition identifierare. För information om en roll med hjälp av dess namn, se [lista över alla roller för](role-assignments-rest.md#list-all-roles).
-
-Om du vill få information om en roll måste du ha tillgång till `Microsoft.Authorization/roleDefinitions/read` igen. Inbyggda roller beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
-
-### <a name="request"></a>Förfrågan
-Använd den **hämta** metoden med följande URI:
-
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
-
-Gör följande ersättningar att anpassa din begäran inom URI:
-
-1. Ersätt *{scope}* med den omfattning som du vill visa en lista över rolltilldelningarna. Följande exempel visar hur du kan ange omfång för olika nivåer:
-
-   * Prenumerationen: /subscriptions/ {prenumerations-id}  
-   * Resursgrupp: /subscriptions/ {prenumerations-id} / resursgrupper/myresourcegroup1  
-   * Resurs: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Ersätt *{roll-definition-id}* med GUID-identifierare för rolldefinitionen.
-3. Ersätt *{api-version}* med 2015-07-01.
-
-### <a name="response"></a>Svar
-Statuskod: 200
-
-```
-{
-  "value": [
-    {
-      "properties": {
-        "roleName": "Virtual Machine Contributor",
-        "type": "BuiltInRole",
-        "description": "Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they\u2019re connected to.",
-        "assignableScopes": [
-          "/"
-        ],
-        "permissions": [
-          {
-            "actions": [
-              "Microsoft.Authorization/*/read",
-              "Microsoft.Compute/availabilitySets/*",
-              "Microsoft.Compute/locations/*",
-              "Microsoft.Compute/virtualMachines/*",
-              "Microsoft.Compute/virtualMachineScaleSets/*",
-              "Microsoft.Insights/alertRules/*",
-              "Microsoft.Network/applicationGateways/backendAddressPools/join/action",
-              "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
-              "Microsoft.Network/loadBalancers/inboundNatPools/join/action",
-              "Microsoft.Network/loadBalancers/inboundNatRules/join/action",
-              "Microsoft.Network/loadBalancers/read",
-              "Microsoft.Network/locations/*",
-              "Microsoft.Network/networkInterfaces/*",
-              "Microsoft.Network/networkSecurityGroups/join/action",
-              "Microsoft.Network/networkSecurityGroups/read",
-              "Microsoft.Network/publicIPAddresses/join/action",
-              "Microsoft.Network/publicIPAddresses/read",
-              "Microsoft.Network/virtualNetworks/read",
-              "Microsoft.Network/virtualNetworks/subnets/join/action",
-              "Microsoft.Resources/deployments/*",
-              "Microsoft.Resources/subscriptions/resourceGroups/read",
-              "Microsoft.Storage/storageAccounts/listKeys/action",
-              "Microsoft.Storage/storageAccounts/read",
-              "Microsoft.Support/*"
-            ],
-            "notActions": []
-          }
-        ],
-        "createdOn": "2015-06-02T00:18:27.3542698Z",
-        "updatedOn": "2015-12-08T03:16:55.6170255Z",
-        "createdBy": null,
-        "updatedBy": null
-      },
-      "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
-      "type": "Microsoft.Authorization/roleDefinitions",
-      "name": "9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
-    }
-  ],
-  "nextLink": null
-}
-
-```
-
-## <a name="create-a-custom-role"></a>Skapa en anpassad roll
-Skapa en anpassad roll.
-
-Om du vill skapa en anpassad roll måste du ha tillgång till `Microsoft.Authorization/roleDefinitions/write` igen på alla de `AssignableScopes`. I de inbyggda rollerna, endast *ägare* och *administratör för användaråtkomst* beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
-
-### <a name="request"></a>Förfrågan
-Använd den **PLACERA** metoden med följande URI:
-
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
-
-Gör följande ersättningar att anpassa din begäran inom URI:
-
-1. Ersätt *{scope}* med först *AssignableScope* av den anpassade rollen. Följande exempel visar hur du kan ange omfång för olika nivåer.
-
-   * Prenumerationen: /subscriptions/ {prenumerations-id}  
-   * Resursgrupp: /subscriptions/ {prenumerations-id} / resursgrupper/myresourcegroup1  
-   * Resurs: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Ersätt *{roll-definition-id}* med en ny GUID som blir GUID-identifierare för den nya anpassa rollen.
-3. Ersätt *{api-version}* med 2015-07-01.
-
-För begärantext, anger du värden i följande format:
-
-```
-{
-  "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
-  "properties": {
-    "roleName": "Virtual Machine Operator",
-    "description": "Lets you monitor virtual machines and restart them.",
-    "type": "CustomRole",
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.Compute/*/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Network/*/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/*/read",
-          "Microsoft.Support/*",
-          "Microsoft.Compute/virtualMachines/start/action",
-          "Microsoft.Compute/virtualMachines/restart/action"
-        ],
-        "notActions": []
-      }
-    ],
-    "assignableScopes": [
-      "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
-    ]
-  }
-}
-
-```
-
-| Elementnamn | Krävs | Typ | Beskrivning |
-| --- | --- | --- | --- |
-| namn |Ja |Sträng |GUID-identifierare för den anpassade rollen. |
-| properties.roleName |Ja |Sträng |Visningsnamn för den anpassade rollen. Maximal storlek 128 tecken. |
-| properties.description |Nej |Sträng |Beskrivning av anpassad roll. Maximal storlek 1024 tecken. |
-| properties.type |Ja |Sträng |Ange till ”CustomRole”. |
-| properties.permissions.actions |Ja |String[] |En strängmatris åtgärd anger de åtgärder som tilldelats av den anpassade rollen. |
-| properties.permissions.notActions |Nej |String[] |En strängmatris åtgärd anger åtgärderna som ska undantas från de åtgärder som tilldelats av den anpassade rollen. |
-| properties.assignableScopes |Ja |String[] |En matris med scope där den anpassade rollen som kan användas. |
-
-### <a name="response"></a>Svar
-Statuskod: 201
-
-```
-{
-  "properties": {
-    "roleName": "Virtual Machine Operator",
-    "type": "CustomRole",
-    "description": "Lets you monitor virtual machines and restart them.",
-    "assignableScopes": [
-      "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
-    ],
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.Compute/*/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Network/*/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/*/read",
-          "Microsoft.Support/*",
-          "Microsoft.Compute/virtualMachines/start/action",
-          "Microsoft.Compute/virtualMachines/restart/action"
-        ],
-        "notActions": []
-      }
-    ],
-    "createdOn": "2015-12-18T00:10:51.4662695Z",
-    "updatedOn": "2015-12-18T00:10:51.4662695Z",
-    "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-  },
-  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
-  "type": "Microsoft.Authorization/roleDefinitions",
-  "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7"
-}
-
-```
-
-## <a name="update-a-custom-role"></a>Uppdatera en anpassad roll
-Ändra en anpassad roll.
-
-Om du vill ändra en anpassad roll måste du ha tillgång till `Microsoft.Authorization/roleDefinitions/write` igen på alla de `AssignableScopes`. I de inbyggda rollerna, endast *ägare* och *administratör för användaråtkomst* beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
-
-### <a name="request"></a>Förfrågan
-Använd den **PLACERA** metoden med följande URI:
-
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
-
-Gör följande ersättningar att anpassa din begäran inom URI:
-
-1. Ersätt *{scope}* med först *AssignableScope* av den anpassade rollen. Följande exempel visar hur du kan ange omfång för olika nivåer:
-
-   * Prenumerationen: /subscriptions/ {prenumerations-id}  
-   * Resursgrupp: /subscriptions/ {prenumerations-id} / resursgrupper/myresourcegroup1  
-   * Resurs: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Ersätt *{roll-definition-id}* med GUID-identifierare för den anpassade rollen.
-3. Ersätt *{api-version}* med 2015-07-01.
-
-För begärantext, anger du värden i följande format:
-
-```
-{
-  "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
-  "properties": {
-    "roleName": "Virtual Machine Operator",
-    "description": "Lets you monitor virtual machines and restart them.",
-    "type": "CustomRole",
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.Compute/*/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Network/*/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/*/read",
-          "Microsoft.Support/*",
-          "Microsoft.Compute/virtualMachines/start/action",
-          "Microsoft.Compute/virtualMachines/restart/action"
-        ],
-        "notActions": []
-      }
-    ],
-    "assignableScopes": [
-      "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
-    ]
-  }
-}
-
-```
-
-| Elementnamn | Krävs | Typ | Beskrivning |
-| --- | --- | --- | --- |
-| namn |Ja |Sträng |GUID-identifierare för den anpassade rollen. |
-| properties.roleName |Ja |Sträng |Visningsnamn för den anpassade rollen som är uppdaterade. |
-| properties.description |Nej |Sträng |Beskrivning av den anpassade rollen som är uppdaterade. |
-| properties.type |Ja |Sträng |Ange till ”CustomRole”. |
-| properties.permissions.actions |Ja |String[] |En strängmatris åtgärd anger de åtgärder som den uppdaterade anpassade rollen som ger åtkomst. |
-| properties.permissions.notActions |Nej |String[] |En strängmatris åtgärd anger åtgärderna som ska undantas från de åtgärder som den anpassade rollen som uppdaterade ger. |
-| properties.assignableScopes |Ja |String[] |En matris med scope där uppdaterade anpassad roll kan användas. |
-
-### <a name="response"></a>Svar
-Statuskod: 201
-
-```
-{
-  "properties": {
-    "roleName": "Virtual Machine Operator",
-    "type": "CustomRole",
-    "description": "Lets you monitor virtual machines and restart them.",
-    "assignableScopes": [
-      "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
-    ],
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.Compute/*/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Network/*/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/*/read",
-          "Microsoft.Support/*",
-          "Microsoft.Compute/virtualMachines/start/action",
-          "Microsoft.Compute/virtualMachines/restart/action"
-        ],
-        "notActions": []
-      }
-    ],
-    "createdOn": "2015-12-18T00:10:51.4662695Z",
-    "updatedOn": "2015-12-18T00:10:51.4662695Z",
-    "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-  },
-  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
-  "type": "Microsoft.Authorization/roleDefinitions",
-  "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7"
-}
-
-```
-
-## <a name="delete-a-custom-role"></a>Ta bort en anpassad roll
-Ta bort en anpassad roll.
-
-Om du vill ta bort en anpassad roll måste du ha tillgång till `Microsoft.Authorization/roleDefinitions/delete` igen på alla de `AssignableScopes`. I de inbyggda rollerna, endast *ägare* och *administratör för användaråtkomst* beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
-
-### <a name="request"></a>Förfrågan
-Använd den **ta bort** metoden med följande URI:
-
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
-
-Gör följande ersättningar att anpassa din begäran inom URI:
-
-1. Ersätt *{scope}* med den omfattning som du vill ta bort rolldefinitionen. Följande exempel visar hur du kan ange omfång för olika nivåer:
-
-   * Prenumerationen: /subscriptions/ {prenumerations-id}  
-   * Resursgrupp: /subscriptions/ {prenumerations-id} / resursgrupper/myresourcegroup1  
-   * Resurs: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Ersätt *{roll-definition-id}* med ID: t för GUID rollen definitionen av den anpassade rollen.
-3. Ersätt *{api-version}* med 2015-07-01.
-
-### <a name="response"></a>Svar
-Statuskod: 200
-
-```
-{
-  "properties": {
-    "roleName": "Virtual Machine Operator",
-    "type": "CustomRole",
-    "description": "Lets you monitor virtual machines and restart them.",
-    "assignableScopes": [
-      "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
-    ],
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.Compute/*/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Network/*/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/*/read",
-          "Microsoft.Support/*",
-          "Microsoft.Compute/virtualMachines/start/action",
-          "Microsoft.Compute/virtualMachines/restart/action"
-        ],
-        "notActions": []
-      }
-    ],
-    "createdOn": "2015-12-16T00:07:02.9236555Z",
-    "updatedOn": "2015-12-16T00:07:02.9236555Z",
-    "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-  },
-  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/0bd62a70-e1b8-4e0b-a7c2-75cab365c95b",
-  "type": "Microsoft.Authorization/roleDefinitions",
-  "name": "0bd62a70-e1b8-4e0b-a7c2-75cab365c95b"
-}
-
-```
+1. Ersätt *{roleAssignmentName}* med GUID-identifierare för rolltilldelningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+- [Distribuera resurser med Resource Manager-mallar och Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [Azure REST API-referens](/rest/api/azure/)
+- [Skapa anpassade roller med hjälp av REST-API](custom-roles-rest.md)

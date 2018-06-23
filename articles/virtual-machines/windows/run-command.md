@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3feed9c1c8903db66a0506f09161982dadaa79ba
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: ddbac24020110e32792286a1ac64070316cfb081
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284972"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332722"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Kör PowerShell-skript i Windows-VM med kommandot Kör
 
@@ -23,7 +23,7 @@ Kör kommandot använder VM-agenten för att köra shell PowerShell-skript i en 
 
 Det finns flera alternativ som kan användas för att få åtkomst till dina virtuella datorer. Kör kommandot kan köra skript på virtuella datorer med hjälp av den Virtuella datoragenten. Kör kommandot kan användas via Azure portal [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), eller [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-Den här funktionen är användbart i alla scenarier där du vill köra ett skript witin en virtuella datorer och är en av det enda sättet att felsöka och åtgärda en virtuell dator som inte har RDP eller SSH-port som är öppna på grund av felaktig nätverks- eller administrativ användare konfiguration.
+Den här funktionen är användbart i alla scenarier där du vill köra ett skript i en virtuella datorer och är ett enda sätt att felsöka och åtgärda en virtuell dator som inte har RDP eller SSH-port som är öppna på grund av felaktig nätverks- eller administrativ användare konfiguration.
 
 ## <a name="restrictions"></a>Begränsningar
 
@@ -33,9 +33,10 @@ Följande begränsningar gäller när du kör kommandot:
 * Minsta tid att köra ett skript är ungefär 20 sekunder
 * Skript som körs som System i Windows
 * Ett skript i taget kan köras
-* Skript som begär information (interaktivt läge) stöds inte.
 * Du kan inte avbryta ett skript som körs
 * Den maximala tid som kan köra ett skript som är 90 minuter, där det ska gå innan timeout
+
+**PermissionsConfig OrchestratorUsersGroup***GroupName***- OrchestratorUser***användarnamn***\-fjärråtkomst** 
 
 ## <a name="run-a-command"></a>Köra ett kommando
 

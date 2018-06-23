@@ -117,6 +117,22 @@
       href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: Kontakta supporten
       href: ../azure-supportability/how-to-create-azure-support-request.md
+- name: Exempel
+  items:
+    - name: REST-API
+      items:
+        - name: Granska Enterprise-kostnader
+          href: billing-review-enterprise-billing.md
+        - name: Granska prenumerationsanvändning
+          href: billing-review-subscription-billing.md
+    - name: .NET-exempel
+      items:
+        - name: Kodexempel för API för faktura
+          href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
+        - name: Kodexempel för API för användning
+          href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
+        - name: Kodexempel för API för RateCard
+          href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
 - name: Referens
   items:
     - name: Scenarier för automatisering av fakturering
@@ -142,11 +158,3 @@
       items:
         - name: REST API för Enterprise Reporting
           href: 'https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary'
-    - name: Kodexempel för fakturering
-      items:
-        - name: Kodexempel för API för faktura
-          href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
-        - name: Kodexempel för API för användning
-          href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
-        - name: Kodexempel för API för RateCard
-          href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'

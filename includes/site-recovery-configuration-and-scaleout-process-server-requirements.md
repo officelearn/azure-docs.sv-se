@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 601819756b78ffe8762bdfbfd5f802bc2d76e9c5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: bc1beb53c5919914919e666ecf1836ec45d32ccf
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35268061"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319734"
 ---
 **Konfigurationsprocessen/server-krav**
 
@@ -36,7 +36,7 @@ IIS | -Ingen redan befintliga standardwebbplatsen <br> -Ingen befintliga webbpla
 | 
 **NÄTVERKSINSTÄLLNINGAR** | 
 IP-adresstyp | Statisk 
-Internet-åtkomst | Servern behöver åtkomst till dessa URL: er (direkt eller via proxy) <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (om du konfigurerar en server configuration) <br> - time.nist.gov <br> - time.windows.com 
+Internet-åtkomst | Servern behöver åtkomst till dessa URL: er (direkt eller via proxy) <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (om du konfigurerar en server configuration) <br> - time.nist.gov <br> - time.windows.com 
 Portar | 443 (kontrolkanalsorchestration)<br>9443 (dataöverföring) 
 NIC-typ | VMXNET3 (om konfigurationsservern är en VMware-VM)
  | 

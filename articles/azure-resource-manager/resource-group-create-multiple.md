@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 06/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: ce442793a9917320b6b2b0a7014a20f885c3720c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 580ecc98913dc35e2d1e21f1dcfa19936bb59826
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337963"
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuera flera instanser av en resurs eller en egenskap i Azure Resource Manager-mallar
 Den här artikeln visar hur du distribuerar villkorligt en resurs och hur du iterera i Azure Resource Manager-mall för att skapa flera instanser av en resurs.
 
 ## <a name="conditionally-deploy-resource"></a>Villkorligt distribuera resurs
 
-När du måste välja under distributionen för att skapa en instans eller inga instanser av en resurs, använda den `condition` element. Värdet för det här elementet matchar true eller false. När värdet är true, distribueras resursen. Om värdet är FALSKT har resursen inte distribuerats. Till exempel vill ange om ett nytt lagringskonto distribueras eller ett befintligt lagringskonto används, använder du:
+När du måste välja under distributionen för att skapa en instans eller inga instanser av en resurs, använda den `condition` element. Värdet för det här elementet matchar true eller false. När värdet är true, distribueras resursen. Om värdet är FALSKT, är inte resursen distribueras. Till exempel vill ange om ett nytt lagringskonto distribueras eller ett befintligt lagringskonto används, använder du:
 
 ```json
 {
@@ -127,7 +128,7 @@ Skapar dessa namn:
 * storagefabrikam
 * storagecoho
 
-Som standard skapar Resource Manager resurserna parallellt. Den ordning som de har skapats kan därför inte garanteras. Du kanske vill ange att resurserna som distribueras i följd. Till exempel när du uppdaterar en produktionsmiljö måste du kanske vill sprida uppdateringar så bara ett visst antal uppdateras samtidigt.
+Som standard skapar Resource Manager resurserna parallellt. Därför garanteras den ordning som de skapas inte. Du kanske vill ange att resurserna som distribueras i följd. Till exempel när du uppdaterar en produktionsmiljö måste du kanske vill sprida uppdateringar så bara ett visst antal uppdateras samtidigt.
 
 För att distribuera seriellt flera instanser av en resurs, ange `mode` till **seriella** och `batchSize` med antalet instanser som ska distribueras i taget. Med seriella läge skapar Resource Manager ett beroende på tidigare instanser i en slinga så att den inte startar en batch tills den föregående batchen har slutförts.
 
@@ -222,6 +223,34 @@ Hanteraren för filserverresurser expanderar den `copy` matris under distributio
       ...
 ```
 
+Kopiera elementet är en matris så att du kan ange flera egenskaper för resursen. Lägg till ett objekt för varje egenskap för att skapa.
+
+```json
+{
+    "name": "string",
+    "type": "Microsoft.Network/loadBalancers",
+    "apiVersion": "2017-10-01",
+    "properties": {
+        "copy": [
+          {
+              "name": "loadBalancingRules",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          },
+          {
+              "name": "probes",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          }
+        ]
+    }
+}
+```
+
 Du kan använda resursen och egenskapen iteration tillsammans. Referens egenskapen iteration efter namn.
 
 ```json
@@ -309,8 +338,29 @@ Du kan skapa flera instanser av en variabel med det `copy` element i avsnittet v
 }
 ```
 
+Kopiera elementet är en matris så att du kan ange fler än en variabel med antingen metoden. Lägg till ett objekt för varje variabel som du skapar.
+
+```json
+"copy": [
+  {
+    "name": "first-variable",
+    "count": 5,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('first-variable'))]",
+    }
+  },
+  {
+    "name": "second-variable",
+    "count": 3,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('second-variable'))]",
+    }
+  },
+]
+```
+
 ## <a name="depend-on-resources-in-a-loop"></a>Beroende av resurser i en loop
-Du anger att en resurs distribueras efter en annan resurs med hjälp av den `dependsOn` element. Ange namnet på kopian loop i dependsOn-elementet för att distribuera en resurs som är beroende av mängd resurser i en slinga. I följande exempel visas hur du distribuerar tre storage-konton innan du distribuerar den virtuella datorn. Fullständig definitionen för virtuell dator visas inte. Observera att kopiera elementet har name angivet till `storagecopy` och dependsOn-elementet för virtuella datorer har också `storagecopy`.
+Du anger att en resurs distribueras efter en annan resurs med hjälp av den `dependsOn` element. Ange namnet på kopian loop i dependsOn-elementet för att distribuera en resurs som är beroende av mängd resurser i en slinga. I följande exempel visas hur du distribuerar tre storage-konton innan du distribuerar den virtuella datorn. Fullständig virtuella definition visas inte. Observera att kopiera elementet har name angivet till `storagecopy` och dependsOn-elementet för virtuella datorer har också `storagecopy`.
 
 ```json
 {
@@ -409,7 +459,7 @@ Följande exempel visar vanliga scenarier för att skapa flera resurser eller eg
 |[Virtuell dator med en ny eller befintlig virtuellt nätverk, lagring och offentlig IP-adress](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Villkorligt distribuerar nya eller befintliga resurser med en virtuell dator. |
 |[Distribution av Virtuella datorer med en variabel antalet datadiskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Distribuerar flera datadiskar med en virtuell dator. |
 |[Kopiera variabler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Visar de olika sätt för att gå på variabler. |
-|[Flera säkerhetsregler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Distribuerar flera säkerhetsregler till en nätverkssäkerhetsgrupp. Den skapar säkerhetsregler från en parameter. |
+|[Flera säkerhetsregler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Distribuerar flera säkerhetsregler till en nätverkssäkerhetsgrupp. Den skapar säkerhetsregler från en parameter. Parametern, se [flera NSG parameterfilen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill veta om avsnitt i en mall finns [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).

@@ -3,22 +3,24 @@ title: Oväntat medgivandetext när du loggar in till ett program | Microsoft Do
 description: Felsökning av när en användare ser en fråga om medgivande för ett program som du har integrerat med Azure AD som du inte förväntar dig
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 0f24ca83922cc17e94683ed1bde5ed782b93df7c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 096f099c7fc44078cc6c6329b7022613ef09a0d2
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26611815"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331068"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Oväntat medgivandetext när du loggar in till ett program
 

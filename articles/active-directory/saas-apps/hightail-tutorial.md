@@ -7,19 +7,18 @@ author: jeevansd
 manager: mtillman
 ms.assetid: e15206ac-74b0-46e4-9329-892c7d242ec0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 6fe7cad2910bed2dc08180d28fdf1af1d6cffd9a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7267f8fa1ed900d1bac58b4fa61f076e5949d712
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223424"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319113"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Självstudier: Azure Active Directory-integrering med Hightail
 
@@ -105,31 +104,29 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_samlbase.png)
 
-3. På den **Hightail domän och URL: er** avsnittet, utför följande steg:
+3. På den **Hightail domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_url.png)
 
-     I den **Reply URL** textruta ange Webbadressen som: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
+    I den **Reply URL** textruta ange Webbadressen som: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
 
-    > [!NOTE] 
-    > Föregående värde är inte verkliga värde. Du uppdaterar värdet med faktiska Reply-URL, vilket beskrivs senare i självstudierna.
- 
-4. På den **Hightail domän och URL: er** om du vill konfigurera programmet i **SP initierade läge**, utför följande steg:
-    
+    > [!NOTE]
+    > Svars-URL-värdet är inte verkliga värde. Svars-URL-värdet uppdateras med faktiska Reply-URL, vilket beskrivs senare i självstudierna.
+
+4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
+
     ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_url1.png)
 
-    a. Klicka på den **visa avancerade inställningar för URL: en**.
-
-    b. I den **logga URL** textruta ange Webbadressen som: `https://www.hightail.com/loginSSO`
+    I den **logga URL** textruta ange Webbadressen som: `https://www.hightail.com/loginSSO`
 
 4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_certificate.png) 
 
-5. Hightail program förväntar SAML-intyg i ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värden för attributen från den **”Atrribute”** för programmet. Följande skärmbild visar ett exempel för det här. 
+5. Hightail program förväntar SAML-intyg i ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värden för attributen från den **”attributet”** för programmet. Följande skärmbild visar ett exempel för det här. 
 
     ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_attribute.png) 
 
@@ -153,7 +150,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     c. Från den **värdet** listan, ange det attributvärde som visas för den raden.
 
     d. Lämna den **Namespace** tomt.
-    
+
     e. Klicka på **OK**.
 
 7. Klicka på **spara** knappen.
@@ -162,41 +159,32 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 8. På den **Hightail Configuration** klickar du på **konfigurera Hightail** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_configure.png) 
+    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_configure.png)
 
-    >[!NOTE] 
+    >[!NOTE]
     >Innan du konfigurerar den enkel inloggning på Hightail app kan du lista för tillåten din e-postdomän med Hightail team så att alla användare som använder den här domänen kan använda enkel inloggning funktioner.
 
+9. Öppna i ett nytt webbläsarfönster i **Hightail** administrationsportal.
 
-9. För att få SSO konfigurerats för ditt program måste logga in till din Hightail-klient som administratör.
-   
-    a. Klicka på menyn högst upp i **konto** fliken och markera **konfigurera SAML**.
- 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_001.png) 
+10. Klicka på **Användarikon** från det övre högra hörnet på sidan. 
 
-    b. Markera kryssrutan för **aktivera SAML-autentisering**.
+    ![Konfigurera enkel inloggning](./media/hightail-tutorial/configure1.png)
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_002.png) 
+11. Klicka på **visa administratörskonsolen** fliken.
 
-    c. Öppna din Base64-kodade certifikatet i anteckningar som hämtas från Azure-portalen, kopiera innehållet i den till Urklipp och klistra in den till den **SAML Tokensigneringscertifikatet** textruta.
+    ![Konfigurera enkel inloggning](./media/hightail-tutorial/configure2.png)
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_003.png) 
+12. Klicka på menyn högst upp i **SAML** fliken och utför följande steg:
 
-    d. I den **SAML Authority (identitetsleverantör)** textruta klistra in värdet för **SAML inloggning tjänst-URL för enkel** kopieras från Azure-portalen.
+    ![Konfigurera enkel inloggning](./media/hightail-tutorial/configure3.png)
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_004.png)
+    a. I den **inloggnings-URL** textruta klistra in värdet för **SAML inloggning tjänst-URL för enkel** kopieras från Azure-portalen.
 
-    e. Om du vill konfigurera programmet i **IDP initierade läge** Välj **”identitetsprovider (IdP) initierade logga in”**. Om **SP initierade läge** Välj **”ServiceProvider (SP) initierade logga in”**.
+    b. Öppna din Base64-kodade certifikatet i anteckningar som hämtas från Azure-portalen, kopiera innehållet i den till Urklipp och klistra in den till den **SAML certifikat** textruta.
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_006.png)
+    c. Klicka på **kopiera** kopiera SAML konsument-URL för din instans och klistra in den i **Reply URL** TextBox-kontroll i **Hightail domän och URL: er** avsnitt på Azure-portalen.
 
-    f. Kopiera URL för SAML-konsumenten för din instans och klistra in den i **Reply URL** TextBox-kontroll i **Hightail domän och URL: er** avsnitt på Azure-portalen.
-    
-    g. Klicka på **Spara**.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    d. Klicka på **spara konfigurationen**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
@@ -256,7 +244,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 3. Klicka på menyn till vänster **användare och grupper**.
 
-    ![Tilldela användare][202] 
+    ![Tilldela användare][202]
 
 4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
 
@@ -267,7 +255,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
 
 7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
-    
+
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
 Syftet med det här avsnittet är att testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
@@ -279,8 +267,6 @@ När du klickar på panelen Hightail på åtkomstpanelen du bör få automatiskt
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 

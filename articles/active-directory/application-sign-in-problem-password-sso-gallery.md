@@ -2,22 +2,24 @@
 title: Problem med att logga ett program för Azure AD-galleriet konfigurerad för enkel inloggning | Microsoft Docs
 description: Felsökning av problem med Azure AD-galleriet program konfigurerade för lösenord för enkel inloggning
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 9458dc3254b6bfa377adeeff1c1abcb8bfdc0d94
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: dbb25ee959193ebc8d1c15ad76555e8d7dc9fe4b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069205"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331504"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problem med att logga att ett program för Azure AD-galleriet som konfigurerats för lösenord för enkel inloggning
 
@@ -80,7 +82,7 @@ Följ guiden [hur du distribuerar Access panelen-tillägg för Internet Explorer
 
 ## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Felsöka åtkomstpanelen i Internet Explorer
 
-Följ den [felsöka Access panelen-tillägg för Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot) guide för åtkomst till en diagnostik och steg-för-steg-instruktioner om hur du konfigurerar tillägget för Internet Explorer.
+Följ den [felsöka Access panelen-tillägg för Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) guide för åtkomst till en diagnostik och steg-för-steg-instruktioner om hur du konfigurerar tillägget för Internet Explorer.
 
 ## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Så här konfigurerar du lösenord för enkel inloggning för ett program för Azure AD-galleriet
 

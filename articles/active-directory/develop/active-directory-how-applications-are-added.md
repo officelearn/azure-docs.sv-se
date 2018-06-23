@@ -16,20 +16,22 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: c9ebfcba59e3f46fb30f4cd2402ec4ebb606f6d0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol, lenalepa
+ms.openlocfilehash: 5c8ae9534e79b8dc801262f85d8a007e050f4da7
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156178"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316967"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till Azure AD
+
 Det finns två representationer av program i Azure AD: 
-* [Programobjekt](active-directory-application-objects.md#application-object) – även om det finns [undantag](#notes-and-exceptions), dessa kan betraktas som definitionen av ett program.
-* [Tjänsten säkerhetsobjekt](active-directory-application-objects.md#service-principal-object) -dessa kan betraktas som en instans av ett program. Tjänstens huvudnamn vanligtvis referera ett programobjekt och objekt för ett program kan refereras av flera tjänstens huvudnamn i kataloger.
+* [Programobjekt](active-directory-application-objects.md#application-object) – även om det finns [undantag](#notes-and-exceptions), programobjekt kan ses definitionen av ett program.
+* [Tjänsten säkerhetsobjekt](active-directory-application-objects.md#service-principal-object) -kan anses vara en instans av ett program. Tjänstens huvudnamn vanligtvis referera ett programobjekt och objekt för ett program kan refereras av flera tjänstens huvudnamn i kataloger.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Vad är programobjekt och där de kommer från?
-[Programobjekt](active-directory-application-objects.md#application-object) (som du kan hantera i Azure-portalen via den [App registreringar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) upplevelse) beskriver programmet till Azure AD och kan ses definitionen av programmet, så att den tjänsten vet hur man utfärdar token till programmet baserat på dess inställningar. Programobjektet kommer endast finnas i sin hemkatalog, även om det är ett program för flera innehavare som stöder tjänstens huvudnamn i andra kataloger. Programobjektet kan vara något av följande (som också som ytterligare information som inte anges här):
+Du kan hantera [programobjekt](active-directory-application-objects.md#application-object) i Azure-portalen via den [App registreringar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) upplevelse. Programobjekt beskrivs programmet till Azure AD och kan ses definitionen av programmet, vilket gör att tjänsten för att vet hur man utfärdar token till programmet baserat på dess inställningar. Programobjektet kommer endast finnas i sin hemkatalog, även om det är ett program för flera innehavare som stöder tjänstens huvudnamn i andra kataloger. Programobjektet kan vara något av följande (som också som ytterligare information som inte anges här):
 * Namn, logotyp och utgivare
 * Svars-URL:er
 * Hemligheter (symmetrisk och/eller asymmetriska nycklar används för att autentisera programmet)
@@ -43,12 +45,12 @@ Det finns två representationer av program i Azure AD:
 Programobjekt kan skapas med flera sökvägar, inklusive:
 * Programmet registreringar i Azure-portalen
 * Skapa ett nytt program med Visual Studio och konfigurera den att använda Azure AD-autentisering
-* När en administratör lägger till ett program från appgalleriet (skapas också ett huvudnamn för tjänsten)
+* När en administratör lägger till ett program från appgalleriet (som kan också skapa en tjänstens huvudnamn)
 * Använda Microsoft Graph API, Azure AD Graph API och PowerShell för att skapa ett nytt program
 * Många andra inklusive olika developer upplevelser i Azure och API explorer upplevelser i developer Center
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>Vad är tjänstens huvudnamn och där de kommer från?
-[Tjänsten säkerhetsobjekt](active-directory-application-objects.md#service-principal-object) (som du kan hantera via den [företagsprogram](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) upplevelse) är vad faktiskt styr ett program som ansluter till Azure AD och kan ses instans av programmet i din katalog. Den kan ha högst en programobjektet (som är registrerade i en ”” arbetskatalog) och en eller flera service principal-objekt som representerar instanser av programmet i alla kataloger som det fungerar för alla angivna program. 
+Du kan hantera [tjänsten säkerhetsobjekt](active-directory-application-objects.md#service-principal-object) i Azure-portalen via den [företagsprogram](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) upplevelse. Tjänstens huvudnamn är vad styr ett program som ansluter till Azure AD och kan ses instans av programmet i katalogen. Den kan ha högst en programobjektet (som är registrerade i en ”” arbetskatalog) och en eller flera service principal-objekt som representerar instanser av programmet i alla kataloger som det fungerar för alla angivna program. 
 
 Tjänstens huvudnamn kan inkludera följande:
 
@@ -66,14 +68,14 @@ Tjänstens huvudnamn kan inkludera följande:
 T.ex. programobjekt, kan du även skapa tjänstens huvudnamn via flera sökvägar, inklusive:
 
 * När användare loggar in på ett program från tredje part integrerade med Azure AD
-  * Under inloggning användare uppmanas att ge behörighet till programmet åtkomst till deras profil och andra behörigheter. Den första personen att ge medgivande gör ett huvudnamn för tjänsten som representerar programmet som ska läggas till i katalogen.
+  * Under inloggning uppmanas användarna att ge behörighet till programmet åtkomst till deras profil och andra behörigheter. Den första personen att ge medgivande gör ett huvudnamn för tjänsten som representerar programmet som ska läggas till i katalogen.
 * När användare loggar in på Microsoft online services som [Office 365](http://products.office.com/)
   * När du prenumererar på Office 365 eller starta en utvärderingsversion, skapas en eller flera tjänstens huvudnamn i katalogen som representerar olika tjänster som används för att leverera alla funktioner som är associerade med Office 365.
   * Vissa Office 365-tjänster som SharePoint skapa tjänstens huvudnamn med jämna mellanrum för att säker kommunikation mellan komponenter, inklusive arbetsflöden.
 * När en administratör lägger till ett program från appgalleriet (skapas också en underliggande app-objektet)
 * Lägg till ett program att använda den [Azure AD Application Proxy](https://msdn.microsoft.com/library/azure/dn768219.aspx)
-* Ansluta ett program för enkel inloggning med SAML eller lösenord enkel inloggning (SSO)
-* Genom att programmera via Azure AD Graph API eller PowerShell
+* Ansluta ett program för enkel inloggning enkel inloggning (SSO) om hur du använder SAML eller lösenord
+* Programmässigt via Azure AD Graph API eller PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Hur är programobjekt och tjänstens huvudnamn relaterade till varandra?
 Ett program har en programobjektet i sin hemkatalog som refereras av en eller flera tjänstens huvudnamn i alla kataloger där den används (inklusive programmets arbetskatalog).
@@ -108,7 +110,7 @@ Program läggs till Azure AD för att använda en eller flera av de tjänster so
 * Autentisering och auktorisering
 * Enkel inloggning med federation eller lösenord
 * Användaretablering och synkronisering
-* Rollbaserad åtkomstkontroll - Använd katalogen för att definiera roller för programmet för att utföra roller baserat auktoriseringskontroller i ett program
+* Rollbaserad åtkomstkontroll - Använd katalogen för att definiera roller för programmet för att utföra rollbaserad auktorisering kontrollerar i ett program
 * Auktoriseringstjänster för OAuth - används av Office 365 och andra Microsoft-program för att auktorisera åtkomst till API: er/resurser
 * Programpublicering och proxy - publicera ett program från ett privat nätverk till internet
 
@@ -130,7 +132,8 @@ Om du vill förhindra att användare i din katalog från registrera program och 
 * För att förhindra användare från principer för program på egen hand:
   1. I Azure-portalen går du till den [användarinställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) avsnitt under företagsprogram.
   2. Ändra **användare kan samtycker till att appar kommer åt företagsdata åt** till **nr**. 
-     *Observera att om du vill inaktivera användargodkännande administratör kommer att behöva samtycker till att alla nya program som en användare behöver använda.*
+      > [!NOTE]
+      > Om du vill inaktivera användargodkännande kommer administratör att behöva samtycker till att alla nya program som en användare behöver använda.    
 * Att förhindra att användare registrerar sina egna program:
   1. I Azure-portalen går du till den [användarinställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) avsnitt under Azure Active Directory
   2. Ändra **användarna kan registrera program** till **nr**.

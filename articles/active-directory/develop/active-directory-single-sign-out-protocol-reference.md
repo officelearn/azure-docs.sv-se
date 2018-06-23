@@ -3,7 +3,7 @@ title: Azure enkel inloggning i SAML-protokollet | Microsoft Docs
 description: Den här artikeln beskriver den enda Sign-Out SAML-protokoll i Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
@@ -14,21 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: priyamo
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 9ec99ffc64138cf1cd94e0f11077cdc5d86dbc57
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin
+ms.openlocfilehash: c8373df67adbb93e25ab5a31a254efe70581d32d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155505"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317685"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Enkel utloggning SAML-protokoll
+
 Azure Active Directory (AD Azure) stöder SAML 2.0 web webbläsare enskild utloggning profil. För enstaka utloggning ska fungera korrekt, den **LogoutURL** för programmet explicit måste registreras med Azure AD under registreringen av program. Azure AD används LogoutURL för att omdirigera användare när de har loggat.
 
-Det här diagrammet visar arbetsflödet för en enskild utloggning process som Azure AD.
+Följande diagram visar arbetsflödet för en enskild utloggning process som Azure AD.
 
-![Enkel inloggning i arbetsflödet](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
+![Azure AD-enskild logga ut arbetsflöde](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
 ## <a name="logoutrequest"></a>LogoutRequest
 Cloud service skickar en `LogoutRequest` meddelande till Azure AD för att ange att en session har avslutats. Följande utdrag visar ett exempel på en `LogoutRequest` element.
@@ -43,9 +45,9 @@ Cloud service skickar en `LogoutRequest` meddelande till Azure AD för att ange 
 ### <a name="logoutrequest"></a>LogoutRequest
 Den `LogoutRequest` element som skickas till Azure AD kräver följande attribut:
 
-* `ID` : Det identifierar utloggning begäran. Värdet för `ID` får inte inledas med en siffra. Det vanliga sättet är att lägga till **id** till strängrepresentation av en GUID.
-* `Version` : Ange värdet för elementet för **2.0**. Det här värdet är obligatoriskt.
-* `IssueInstant` : Det här är en `DateTime` sträng med ett värde för samordna Universal Time (UTC) och [fram och åter format (”o”)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD förväntas ett värde av den här typen, men använda inte den.
+* `ID` -Detta identifierar utloggning begäran. Värdet för `ID` får inte inledas med en siffra. Det vanliga sättet är att lägga till **id** till strängrepresentation av en GUID.
+* `Version` -Värdet för det här elementet till **2.0**. Det här värdet är obligatoriskt.
+* `IssueInstant` -Detta är en `DateTime` sträng med ett värde för samordna Universal Time (UTC) och [fram och åter format (”o”)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD förväntas ett värde av den här typen, men använda inte den.
 
 ### <a name="issuer"></a>Utfärdare
 Den `Issuer` element i en `LogoutRequest` måste exakt matcha en av de **ServicePrincipalNames** i Molntjänsten i Azure AD. Normalt är inställningen i **App-ID URI** som anges under programmet registreringen.

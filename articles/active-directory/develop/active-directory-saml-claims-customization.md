@@ -17,12 +17,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 485e4c52751b390ebd440718e7a55de7b5b5ffd7
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: db529bf1e8ea4363c84cb365444ca367d428b162
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156916"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318428"
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory
 Idag Azure Active Directory har stöd för enkel inloggning på med de flesta företagsprogram, inklusive både program redan integrerade i Azure AD app-galleriet och anpassade program. När en användare autentiseras till ett program via Azure AD med hjälp av SAML 2.0-protokollet, skickar en token i Azure AD till programmet (via en HTTP POST). Och sedan programmet validerar och använder token för att logga in användaren i stället för att fråga efter användarnamn och lösenord. Dessa SAML-token innehålla uppgifter om användaren som kallas ”anspråk”.
@@ -73,7 +73,7 @@ Du måste till exempel skicka avdelningen som användaren tillhör i organisatio
 > Om det finns inget värde som lagras i ett valt attribut för en viss användare, är inte det anspråket som utfärdats i token.
 
 > [!TIP]
-> Den **user.onpremisesecurityidentifier** och **user.onpremisesamaccountname** stöds endast när synkronisering av användardata från lokala Active Directory med hjälp av den [Azure AD Connect-verktyget](../active-directory-aadconnect.md).
+> Den **user.onpremisesecurityidentifier** och **user.onpremisesamaccountname** stöds endast när synkronisering av användardata från lokala Active Directory med hjälp av den [Azure AD Ansluta verktyget](../active-directory-aadconnect.md).
 
 ## <a name="restricted-claims"></a>Begränsat anspråk
 

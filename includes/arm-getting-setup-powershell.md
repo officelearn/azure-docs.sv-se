@@ -24,7 +24,7 @@ Kontrollera att värdet för **PSVersion** 3.0 eller 4.0. Om inte, se [Windows M
 ### <a name="set-your-azure-account-and-subscription"></a>Konfigurera Azure-kontot och Azure-prenumerationen
 Om du inte redan har en Azure-prenumeration, kan du aktivera din [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 
-Öppna ett Azure PowerShell-Kommandotolken och logga in på Azure med det här kommandot.
+Öppna en Azure PowerShell-kommandotolk och logga in på Azure med det här kommandot.
 
     Connect-AzureRmAccount
 

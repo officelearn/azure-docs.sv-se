@@ -16,12 +16,12 @@ ms.date: 06/18/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 9aa060c6f28adb8361fcb9267ea658fda27b442c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 193be37f4c804d087bf404f14bc60e27349038ad
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223458"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319045"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integrering av SaaS-program med Azure Active Directory
 
@@ -137,7 +137,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/tutorial-list/active-directory-saas-ciscocloud-tutorial.png)| [Cisco moln](ciscocloud-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-ciscocloudlock-tutorial.png)| [Cisco Cloudlock](ciscocloudlock-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|
-| ![logotypen](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|
+| ![logotypen](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|[Cisco Webex - Användaretablering](cisco-webex-provisioning-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-sharefile-tutorial.png)| [Citrix ShareFile](sharefile-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](clarizen-tutorial.md)|[Clarizen - Användaretablering](clarizen-provisioning-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-clearreview-tutorial.png)| [Rensa granskning](clearreview-tutorial.md)|
@@ -224,7 +224,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/tutorial-list/active-directory-saas-freshgrade-tutorial.png)| [FreshGrade](freshgrade-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-front-tutorial.png)| [Framför](front-tutorial.md)|
-| ![logotypen](./media/tutorial-list/active-directory-saas-fuse-tutorial.png)| [säkrad](fuse-tutorial.md)|
+| ![logotypen](./media/tutorial-list/active-directory-saas-fuse-tutorial.png)| [Säkrad](fuse-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-fuze-tutorial.png)| [Fuze](fuze-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [G Suite](google-apps-tutorial.md)|[G Suite - Användaretablering](google-apps-provisioning-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-gaggleamp-tutorial.png)| [GaggleAMP](gaggleamp-tutorial.md)|
@@ -302,7 +302,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/tutorial-list/active-directory-saas-kantegassoforjira-tutorial.png)| [Kantega enkel inloggning för JIRA](kantegassoforjira-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-keeperpasswordmanager-tutorial.png)| [Sköter Lösenordshanteraren & digitala valvet](keeperpasswordmanager-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-kindling-tutorial.png)| [Kindling](kindling-tutorial.md)|
-| ![logotypen](./media/tutorial-list/active-directory-saas-kintone-tutorial.png)| [kintone](kintone-tutorial.md)|
+| ![logotypen](./media/tutorial-list/active-directory-saas-kintone-tutorial.png)| [Kintone](kintone-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-kiteworks-tutorial.png)| [Kiteworks](kiteworks-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-klue-tutorial.png)| [Klue](klue-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-knowbe4-tutorial.png)| [KnowBe4 säkerhetsutbildning medvetenhet](knowbe4-tutorial.md)|
@@ -403,7 +403,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/tutorial-list/active-directory-saas-pantheon-tutorial.png)| [Pantheon](pantheon-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-patentsquare-tutorial.png)| [PatentSQUARE](patentsquare-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-pegasystems-tutorial.png)| [Pega system](pegasystems-tutorial.md)|
-| ![logotypen](./media/tutorial-list/active-directory-saas-people-tutorial.png)| [Personer](people-tutorial.md)|
+| ![logotypen](./media/tutorial-list/active-directory-saas-people-tutorial.png)| [personer](people-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-peoplecart-tutorial.png)| [Peoplecart](peoplecart-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-perceptionunitedstates-tutorial.png)| [Uppfattning USA (icke-UltiPro)](perceptionunitedstates-tutorial.md)|
 | ![logotypen](./media/tutorial-list/active-directory-saas-performancecentre-tutorial.png)| [PerformanceCentre](performancecentre-tutorial.md)|

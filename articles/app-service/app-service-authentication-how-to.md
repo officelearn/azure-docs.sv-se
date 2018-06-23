@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 688ea090384755b9a6d60a4968d958678edc27ad
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763150"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337858"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Anpassa autentisering och auktorisering i Azure App Service
 
@@ -89,11 +89,11 @@ Du måste autentiseras användaren när din leverantör åtkomst-token upphör a
 
 - **Google**: Lägg till en `access_type=offline` frågesträngparametern till din `/.auth/login/google` API-anrop. Med Mobile Apps-SDK kan du lägga till parametern till ett av de `LogicAsync` överlagringar (se [Google uppdatera token](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: inte ger uppdaterings-tokens. Långlivade token ut inom 60 dagar (se [Facebook förfallodatum och tillägget åtkomsttoken](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: åtkomsttoken inte gälla (se [Twitter OAuth vanliga frågor och svar](https://developer.twitter.com/docs/basics/authentication/guides/oauth-faq)).
+- **Twitter**: åtkomsttoken inte gälla (se [Twitter OAuth vanliga frågor och svar](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
 - **Account**: när [konfigurera autentiseringsinställningar för Microsoft-konto](app-service-mobile-how-to-configure-microsoft-authentication.md), Välj den `wl.offline_access` omfång.
 - **Azure Active Directory**: I [ https://resources.azure.com ](https://resources.azure.com), gör du följande:
     1. Överst på sidan Välj **Skrivskyddstyp**.
-    1. I den vänstra webbläsaren, navigerar du till **prenumerationer** > **_\<prenumeration\_namn_**   >  **resursgrupper** > _**\<resurs\_grupp\_namn >**_   >  **providers** > **Microsoft.Web** > **platser** > _**\<app \_namn >**_ > **config** > **authsettings**. 
+    1. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
     1. Klicka på **Redigera**.
     1. Ändra följande egenskaper. Ersätt  _\<app\_id >_ med Azure Active Directory-program-ID för tjänsten som du vill komma åt.
 
@@ -103,7 +103,7 @@ Du måste autentiseras användaren när din leverantör åtkomst-token upphör a
 
     1. Klicka på **placera**. 
 
-När din leverantör har konfigurerats kan du kan se om uppdaterings-tokens finns i arkivet token genom att anropa `/.auth/me`. 
+När din leverantör är konfigurerad, kan du [hitta uppdateringstoken och förfallotiden för åtkomsttoken](#retrieve-tokens-in-app-code) i arkivet för token. 
 
 Om du vill uppdatera åtkomst-token när som helst, bara anropa `/.auth/refresh` på alla språk. Följande kodavsnitt använder jQuery för att uppdatera åtkomst-token från en JavaScript-klient.
 
@@ -140,7 +140,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Både Account och Azure Active Directory kan du logga in från flera domäner. Account kan till exempel _outlook.com_, _live.com_, och _hotmail.com_ konton. Azure Active Directory kan valfritt antal anpassade domäner för inloggning-konton. Det här problemet kan vara oönskade för en intern app som du inte vill att vem som helst med en _outlook.com_ kontot till åtkomst. Följ dessa steg om du vill begränsa domännamnet för kontona inloggning.
 
-I [ https://resources.azure.com ](https://resources.azure.com), gå till **prenumerationer** > **_\<prenumeration\_namn_**   >  **resursgrupper** > _**\<resurs\_grupp\_namn >**_   >  **providers** > **Microsoft.Web** > **platser**  >    _**\<app\_namn >**_ > **config** > **authsettings**. 
+In [https://resources.azure.com](https://resources.azure.com), navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
 
 Klicka på **redigera**ändra följande egenskaper och klicka sedan på **placera**. Se till att ersätta  _\<domän\_namn >_ med den domän som du vill använda.
 

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7d10f4bc772382f0ea48d32e7493be496946c455
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: a12ac87eba14db4ff13868446cf8d14b10d1f5fb
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801872"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317834"
 ---
 # <a name="azure-ad-token-reference"></a>Tokenreferens för Azure AD
 Azure Active Directory (AD Azure) genererar flera typer av säkerhetstoken vid bearbetning av varje autentiseringsflödet. Det här dokumentet beskriver format, säkerhet egenskaperna och innehållet i varje typ av token. 
@@ -113,7 +113,8 @@ Token som utfärdats av Azure AD är signerade med industry standard asymmetrisk
 {
   "typ": "JWT",
   "alg": "RS256",
-  "x5t": "kriMPdmBvx68skT8-mPAB3BseeA"
+  "x5t": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
+  "kid": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
 }
 ```
 
@@ -129,12 +130,13 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 
 > [!TIP]
 > Denna URL i en webbläsare kan du prova!
-> 
-> 
 
 Metadatadokumentet är en JSON-objekt som innehåller flera användbara delar av information, t.ex platsen för de olika slutpunkter som krävs för att utföra autentisering med OpenID Connect. 
 
 Den innehåller också en `jwks_uri`, vilket ger platsen för en uppsättning offentliga nycklar som används för att signera token. JSON-dokumentet finns på den `jwks_uri` innehåller all informationen om offentliga nycklar används av den viss tidpunkten. Din app kan använda den `kid` anspråk i JWT-huvudet för att välja vilka offentliga nyckeln i det här dokumentet har använts för att logga en viss token. Den kan utföra signaturverifiering med rätt offentlig nyckel och den angivna algoritmen.
+
+> [!NOTE]
+> Slutpunkten v1.0 returnerar både den `x5t` och `kid` anspråk. Den `x5t` anspråk saknas från v2.0-token. V2.0-slutpunkten svarar med den `kid` anspråk. Framöver, bör du använda den `kid` anspråk att verifiera din token.
 
 Utför signaturverifiering ligger utanför omfånget för det här dokumentet - det finns många bibliotek med öppen källkod för att hjälpa dig att göra det om det behövs.
 

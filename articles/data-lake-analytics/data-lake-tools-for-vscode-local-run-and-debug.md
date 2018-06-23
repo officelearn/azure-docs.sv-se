@@ -10,21 +10,21 @@ editor: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
-ms.openlocfilehash: de41120a3a9d399dafecde4225d56767efcd9f38
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 850b13becb2137c9e881b2d6a657bbd06216e96e
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624837"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317154"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Kör U-SQL och felsöka lokalt i Visual Studio Code
 Den här artikeln beskriver hur du kör U-SQL-jobb på en lokal utvecklingsdator att påskynda tidig kodning faser eller för att felsöka kod lokalt i Visual Studio-koden. Anvisningar för Azure Data Lake-verktyg för Visual Studio Code finns [Använd Azure Data Lake-verktyg för Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md). 
 
 ## <a name="set-up-the-u-sql-local-run-environment"></a>Konfigurera den lokala kör miljön för U-SQL
 
-1. Välj Ctrl + Skift + P för att öppna paletten kommando och ange sedan **ADL: hämta lokala kör beroende** att hämta paketen.  
+1. Välj Ctrl + Skift + P för att öppna paletten kommando och ange sedan **ADL: ladda ned paketet med lokala kör** att hämta paketen.  
 
-   ![Hämta ADL LocalRun beroende-paket](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/DownloadLocalRun.png)
+   ![Hämta ADL LocalRun beroende-paket](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/downloadtheadllocalrunpackage.png)
 
 2. Leta upp beroende paket från den sökväg som visas i den **utdata** rutan, och sedan installera BuildTools och Win10SDK 10240. Här är en exempelsökväg:  
 `C:\Users\xxx\AppData\Roaming\LocalRunDependency` 
@@ -44,7 +44,7 @@ Den här artikeln beskriver hur du kör U-SQL-jobb på en lokal utvecklingsdator
 
 
 ## <a name="start-the-local-run-service-and-submit-the-u-sql-job-to-a-local-account"></a>Starta tjänsten lokalt kör och skicka U-SQL-jobbet till ett lokalt konto 
-Första gången användaren, Använd **ADL: hämta lokala kör beroende** att hämta lokal kör paket, om du inte har [konfigurera lokal kör U-SQL-miljö](#set-up-the-u-sql-local-run-environment).
+Första gången användaren, använda **ADL: ladda ned paketet med lokala kör** att hämta lokal kör paket, om du inte har [konfigurera lokal kör U-SQL-miljö](#set-up-the-u-sql-local-run-environment).
 
 1. Välj Ctrl + Skift + P för att öppna paletten kommando och ange sedan **ADL: starta tjänsten för lokala kör**.   
 2. Välj **acceptera** att godkänna Licensvillkor för programvara från Microsoft för första gången. 
@@ -65,7 +65,7 @@ Första gången användaren, Använd **ADL: hämta lokala kör beroende** att h�
 ## <a name="start-a-local-debug-for-the-u-sql-job"></a>Starta en lokal debug för U-SQL-jobb  
 För första gången användaren:
 
-1. Använd **ADL: hämta lokala kör beroende** att hämta lokal kör paket, om du inte har [konfigurera lokal kör U-SQL-miljö](#set-up-the-u-sql-local-run-environment).
+1. Använd **ADL: ladda ned paketet med lokala kör** att hämta lokal kör paket, om du inte har [konfigurera lokal kör U-SQL-miljö](#set-up-the-u-sql-local-run-environment).
 2. Installera .NET Core SDK 2.0 enligt förslaget i meddelanderutan, om inte installerad.
  
   ![påminnelse installerar Dotnet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)

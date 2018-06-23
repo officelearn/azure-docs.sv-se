@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 23c9056bbfa6ae0be0f7c73a34250a2fff77f4d2
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5325f23a13a181d912bbc8b26042de72855dc41e
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266014"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319096"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure-databas för MySQL med hjälp av Azure CLI
 
@@ -32,32 +32,6 @@ Du behöver följande för att slutföra den här instruktioner:
 
 > [!IMPORTANT]
 > Den här instruktioner kräver att du använder Azure CLI version 2.0 eller senare. Om du vill bekräfta version Kommandotolken Azure CLI, ange `az --version`. Om du vill installera eller uppgradera, se [installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
-
-## <a name="add-the-extension"></a>Lägga till tillägget
-Lägg till det uppdaterade hanteringstillägget för Azure Database for MySQL med följande kommando:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Kontrollera att du har rätt tilläggsversion installerad. 
-```azurecli-interactive
-az extension list
-```
-
-JSON-returfilen bör innehålla följande: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Om version 0.0.5 inte returneras, kör du följande för att uppdatera tillägget: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>Ange konfigurationen för säkerhetskopiering
 

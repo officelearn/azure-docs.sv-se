@@ -1,67 +1,76 @@
-Some Bing responses include URLs to thumbnail images served by Bing. You may resize and crop the thumbnail images. 
+Vissa Bing svar innehålla URL: er att miniatyrbilder som hanteras av Bing. Du kan ändra storlek och Beskär miniatyrbilder. 
 
 > [!NOTE]
-> Ensure the size and cropping of the thumbnail provide a search scenario and respect third party rights, as required by [Search API Use and Display Requirements](/useanddisplayrequirements.md).
+> Kontrollera storleken och med miniatyren tillhandahålla ett scenario för sökning och respektera tredje parts rättigheter som krävs av Bing Search API-användning och visa krav.
 
 
-To resize an image, include the w (width) and h (height) query parameters in the thumbnail’s URL. Specify the width and height in pixels. For example:  
+Om du vill ändra storlek på en bild, inkludera bredd (b) och höjd () fråga parametrar i på miniatyrbilden URL. Ange bredd och höjd i bildpunkter. Exempel:  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   
-If you resize the image, its aspect ratio is maintained. To maintain the aspect ratio, white padding may be added to the boarder of the image. For example, if you resize a 480x359 image to 200x200 without cropping, the full width contains the image but the height contains 25 pixels of white padding at the top and bottom of the image. The same would be true if the image was 359x480 except the left and right boarders would contain white padding. If you crop the image, white padding is not added.  
-  
-The following picture shows the original size of a thumbnail image (480x300).  
-  
-![Original landscape image](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape.PNG)  
-  
-The following picture shows the image resized to 200x200. The aspect ratio is maintained and the top and bottom boarders are padded with white (the black boarder is included to show the padding).  
-  
-![Resized landscape image](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape-resized.PNG)  
-  
-If you specify dimensions that are greater than the image’s original width and height, the image is padded with white on the left and top boarders.  
-  
-To crop an image, include the c (crop) query parameter. The following are the possible values that you may specify.  
-  
-- 4&mdash;Blind Ratio  
-- 7&mdash;Smart Ratio  
-  
-If you request Smart Ratio cropping (c=7), the image is cropped from the center of the image’s region of interest outward while maintaining the image’s aspect ratio. The region of interest is the area of the image that Bing determines contains the most import parts. The following shows an example region of interest.  
-  
-![Region of interest](./media/cognitive-services-bing-resize-crop/bing-resize-crop-regionofinterest.PNG)
+Om du ändrar storlek på bilden bevaras dess proportionerna. Om du vill behålla proportionerna kan vit utfyllnad att lägga till kant för bilden. Om du ändrar storlek på en 480 x 359 avbildningen till 200 x 200 utan Beskär full bredd innehåller bilden men höjd innehåller 25 bildpunkter vit utfyllnad högst upp och längst ned i bilden. Samma skulle vara fallet om bilden var 359 x 480 utom till vänster och höger kantlinjer skulle innehålla vit utfyllnad. Om du Beskär bilden läggs inte vit utfyllnad.  
 
-If you resize an image and request Smart Ratio cropping, the image is reduced to the requested size while maintaining the aspect ratio. The image is then cropped based on the resized dimensions. For example, if the resized width is less than or equal to the height, the image is cropped to the left and right of the center of the region of interest. Otherwise, the image is cropped to the top and bottom of the center of the region of interest.  
+ 
+Följande bild visar den ursprungliga storleken för en miniatyrbild (480 x 300).  
   
-The following shows the image reduced to 200x200 using Smart Ratio cropping.  
+![Den ursprungliga liggande avbildning](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape.PNG)  
   
-![Landscape image cropped to 200x200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape200x200c7.PNG)
+Följande bild visar bildens storlek ska ändras till 200 x 200. Proportionerna underhålls och de övre och nedre kantlinjerna utfyllnad med vitt (svart kantlinje ingår att visa utfyllnaden).  
   
-The following shows the image reduced to 200x100 using Smart Ratio cropping.  
+![Ändrade liggande bild](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape-resized.PNG)  
+
+
+
+Om du anger dimensioner som är större än bildens ursprungliga Breddoch höjd utfyllt avbildningen med vitt på den vänstra och övre kantlinjen.  
+  
+Beskär bilden genom att inkludera c (Beskär) Frågeparametern. Följande är möjliga värden som du kan ange.  
+  
+- 4&mdash;nedsatt syn förhållandet  
+- 7&mdash;förhållandet för smartkort  
+  
+Om du begär Smart förhållandet Beskär (c = 7), bilden beskärs från mitten av avbildningens region intressanta passiv Behåll bildens proportionerna. Intressant område är området bildens Bing anger innehåller de flesta importera delar. Nedan visas ett exempel region av intresse.  
+  
+![Intressant område](./media/cognitive-services-bing-resize-crop/bing-resize-crop-regionofinterest.PNG)
+
+Om du ändrar storlek på en avbildning och begära Smart förhållandet Beskär har bilden minskats till den begärda storleken samtidigt proportionerna. Bilden beskärs sedan baserat på de nya storleken dimensionerna. Till exempel om storleksändrade bredden är mindre än eller lika med höjden, beskärs bilden till vänster och höger i mitten av intressant område. Annars beskärs bilden upp och längst ned i mitten av intressant område.  
+  
+ 
+Nedan visas minskas till 200 x 200 med Smart förhållandet Beskär bilden.  
+  
+![Liggande bilden beskärs till 200 x 200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape200x200c7.PNG)
+  
+Nedan visas minskas till 200 x 100 med Smart förhållandet Beskär bilden.  
    
-![Landscape image cropped to 200x100](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape200x100c7.PNG)
+![Liggande bilden beskärs till 200 x 100](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape200x100c7.PNG)
   
-The following shows the image reduced to 100x200 using Smart Ratio cropping.  
+Nedan visas minskas till 100 x 200 med Smart förhållandet Beskär bilden.  
   
-![Landscape image cropped to 100x200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape100x200c7.PNG)
+![Liggande bilden beskärs till 100 x 200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape100x200c7.PNG)
+
+
+
+Om Bing inte kan avgöra intressant bildens område, använder Bing hemlig förhållandet Beskär.  
   
-If Bing cannot determine the image’s region of interest, Bing uses Blind Ratio cropping.  
+Om du begär hemlig förhållandet Beskär (c = 4), Bing används följande regler Beskär bilden.  
   
-If you request Blind Ratio cropping (c=4), Bing uses the following rules to crop the image.  
+- Om (ursprungliga bredd / ursprungliga avbildningen höjd) < (begärt bredd / begärda avbildningen höjd) bilden mäts från övre vänstra hörnet och beskäras längst ned.  
+- Om (ursprungliga bredd / ursprungliga avbildningen höjd) > (begärt bredd / begärda avbildningen höjd) avbildningen mätt från center och beskäras till vänster och höger.  
+
+
+
+Nedan visas ett stående avbildning som 225 x 300.  
   
-- If (Original Image Width / Original Image Height) < (Requested Image Width / Requested Image Height), the image is measured from top left corner and cropped at the bottom.  
-- If (Original Image Width / Original Image Height) > (Requested Image Width / Requested Image Height), the image is measured from the center and cropped to the left and right.  
+![Ursprungliga direkt konsumtion avbildning](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower.PNG)
   
-The following shows a portrait image that’s 225x300.  
+Nedan visas minskas till 200 x 200 med hemlig förhållandet Beskär bilden. Bilden mäts från det övre vänstra hörnet ledde till längst ned i bilden beskärs.  
   
-![Original sunflower image](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower.PNG)
+![Direkt konsumtion bilden beskärs till 200 x 200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower200x200c4.PNG)
   
-The following shows the image reduced to 200x200 using Blind Ratio cropping. The image is measured from the top left corner resulting in the bottom part of the image being cropped.  
+Nedan visas minskas till 200 x 100 med hemlig förhållandet Beskär bilden. Bilden mäts från det övre vänstra hörnet ledde till längst ned i bilden beskärs.  
   
-![Sunflower image cropped to 200x200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower200x200c4.PNG)
+![Direkt konsumtion bilden beskärs till 200 x 100](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower200x100c4.PNG)
   
-The following shows the image reduced to 200x100 using Blind Ratio cropping. The image is measured from the top left corner resulting in the bottom part of the image being cropped.  
+Nedan visas minskas till 100 x 200 med hemlig förhållandet Beskär bilden. Bilden mäts från vilket resulterar i de vänstra och högra delarna av bilden beskärs center.  
   
-![Sunflower image cropped to 200x100](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower200x100c4.PNG)
-  
-The following shows the image reduced to 100x200 using Blind Ratio cropping. The image is measured from the center resulting in the left and right parts of the image being cropped.  
-  
-![Sunflower image cropped to 100x200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower100x200c4.PNG)
+![Direkt konsumtion bilden beskärs till 100 x 200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower100x200c4.PNG)
+

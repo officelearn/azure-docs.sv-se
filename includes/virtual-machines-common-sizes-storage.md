@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c2209a06921ffd6a8efb6fc38dacfa88fc87fa05
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 840d3737efe4314359ba3a3bf0f5c4f888f92567
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958732"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329577"
 ---
 Lagring optimerade VM-storlekar erbjuder ett högt genomflöde och -i/o och lämpar sig för Stordata, SQL och NoSQL-databaser. Den här artikeln innehåller information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
@@ -31,7 +31,7 @@ ACU: 180–240
 | Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 40,000 / 1,000     | 8 / 20,000 | 
  
 
-Det maximala diskgenomflödet för virtuella datorer i Ls-serien kan begränsas av de anslutna diskarnas antal, storlek och striping. Mer information finns i [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på virtuella datorer i Azure](../articles/virtual-machines/windows/premium-storage.md). 
+Maximal diskgenomflödet möjligt med Ls-serien virtuella datorer kan vara begränsas av antal, storlek och striping av alla anslutna diskar. Mer information finns i [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på virtuella datorer i Azure](../articles/virtual-machines/windows/premium-storage.md). Ls-serien VMs riktas mot arbetsbelastningar med hög lokal lagring används och normalt endast använda anslutna diskar för inledande inläsning och loggning som cachelagring är ineffektiv i dessa fall Ls-serien inte stöder värden cachelagring för anslutna diskar, diskarna måste vara anslutna i ej cachelagrat läge. 
 
 <sup>1</sup> instans är isolerad till maskinvara som är dedikerad till en kund.
 

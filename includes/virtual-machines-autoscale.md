@@ -2,13 +2,13 @@ Du kan enkelt [skala automatiskt](../articles/monitoring-and-diagnostics/insight
 
 ## <a name="horizontal-or-vertical-scaling"></a>Vågrät eller lodrät skalning
 
-Funktionen Autoskala i Azure-Monitor endast skalas vågrätt, vilket ökar (”out”) eller minska antalet virtuella datorer (”i”). Teckenbredden är mer flexibelt i en situation med molnet som du kan köra potentiellt tusentals virtuella datorer för att hantera belastningen. Du skala horisontellt genom att automatiskt eller manuellt ändra kapacitet (eller instansantalet) för den skaluppsättning. 
+Funktionen Autoskala i Azure-Monitor endast skalas vågrätt, vilket ökar (”out”) eller minska antalet virtuella datorer (”i”). Teckenbredden är mer flexibelt i en situation med molnet som du kan köra potentiellt tusentals virtuella datorer för att hantera belastningen. Du skala horisontellt genom att automatiskt eller manuellt ändra skaluppsättning kapacitet (eller instansantalet). 
 
 Lodrät skalning behåller samma antal virtuella datorer, men gör de virtuella datorerna mer (”upp”) eller mindre (”nedåt”) kraftfulla. Power mäts i attribut, till exempel minne, processorhastighet och ledigt diskutrymme. Lodrät skalning är beroende av tillgängligheten för större maskinvara, vilket snabbt träffar en övre gräns och kan variera beroende på region. Lodrät skalning kräver också vanligtvis en VM att stoppa och starta om. Du skala lodrätt genom att ange en ny storlek i konfigurationen för de virtuella datorerna i skaluppsättning.
 
 Använda runbooks i [Azure Automation](../articles/automation/automation-intro.md), kan du enkelt [skala virtuella datorer i en skaluppsättning](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision.md) uppåt eller nedåt.
 
-## <a name="create-a-virtual-machine-scale-set"></a>Skapa en skaluppsättning för virtuell dator
+## <a name="create-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
 
 Skaluppsättningar gör det enkelt att distribuera och hantera identiska virtuella datorer som en uppsättning. Du kan skapa Linux eller Windows skalningsuppsättningarna med hjälp av den [Azure-portalen](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), eller [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md). Du kan också skapa och hantera skalningsuppsättningar med SDK: er som [Python](/develop/python) eller [Node.js](/nodejs/azure), eller direkt med den [REST API: er](/rest/api/compute/virtualmachinescalesets). Automatisk skalning av virtuella datorer kan åstadkommas genom att använda mått och regler i uppsättningen skala.
 
@@ -18,7 +18,7 @@ Automatisk skalning innehåller antalet virtuella datorer för att hantera belas
 
 Du kan aktivera Autoskala när du skapar skaluppsättningen med [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) eller [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). Du kan också aktivera den när skaluppsättning har skapats. Du kan skapa en skalningsuppsättning, installera tillägget och konfigurera Autoskala med hjälp av en [Azure Resource Manager-mall](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). Aktivera Autoskala från Azure-Monitor i Azure-portalen eller aktivera Autoskala från ange inställningar för skalan.
 
-![Aktivera Autoskala](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
+![Aktivera autoskalning](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  
 ### <a name="metrics"></a>Mått
 

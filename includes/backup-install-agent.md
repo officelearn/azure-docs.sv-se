@@ -2,9 +2,9 @@
 Installera säkerhetskopieringsagenten på alla dina Windows-datorer (Windows Server, Windows-klient, System Center Data Protection Manager-server eller Azure Backup Server-dator) som används för att säkerhetskopiera data till Azure när du har skapat Recovery Services-valvet.
 
 1. Öppna din prenumeration i den [Azure Portal](https://ms.portal.azure.com/).
-2. På den vänstra menyn väljer **alla tjänster** och Skriv i listan över tjänster **återställningstjänster**. Klicka på **Recovery Services-valv**.
+2. På menyn till vänster väljer du **Alla tjänster** och i listan över tjänster skriver du **Recovery Services**. Klicka på **Recovery Services-valv**.
 
-   ![Öppna Recovery Services-valvet](../articles/backup/media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
+   ![öppna Recovery Services-valv](../articles/backup/media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 3. På sidan Snabbstart klickar du på den **för Windows Server eller System Center Data Protection Manager eller Windows-klienten** alternativ **hämta Agent**. Klicka på **spara** att kopiera den till den lokala datorn.
    
     ![Spara agent](./media/backup-install-agent/agent.png)
@@ -18,7 +18,7 @@ Installera säkerhetskopieringsagenten på alla dina Windows-datorer (Windows Se
    
     ![Valvautentiseringsuppgifter](./media/backup-install-agent/vc.png)
    
-    Valvautentiseringsfilen är endast giltig för 48 timmar (när den har hämtats från portalen). Om du påträffar eventuella fel i den här skärmen (t.ex. ”valvautentiseringsfilen som har upphört att gälla”), inloggning till Azure-portalen och hämta valvautentiseringsfilen igen.
+    Valvautentiseringsfilen är endast giltig för 48 timmar (när den har hämtats från portalen). Om det uppstår något fel i den här skärmen (t.ex. ”valvet autentiseringsuppgifterna filen har upphört att gälla”), logga in på Azure-portalen och hämta valvautentiseringsfilen igen.
    
     Se till att installationsprogrammet kan komma åt valvautentiseringsfilen. Om du får åtkomst-relaterade fel, kopiera valvautentiseringsfilen till en tillfällig plats på den lokala datorn och försök igen.
    

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 9e4ea16193824e63298b19d4401c110385fa7feb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 1d67266bf599a4dc57fc2e9e0d1c5f9f2562346c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700200"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318970"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränser, som ibland kallas kvoter. Det här dokumentet omfattar inte för närvarande alla Azure-tjänster. Över tiden, kommer i listan att expanderas och uppdateras så att den täcker flera av plattformen.
@@ -40,8 +40,7 @@ I gränserna som nedan, har en ny tabell lagts till återspeglar eventuella skil
 
 > [!NOTE]
 > Det är viktigt att betona att kvoter för Azure-resursgrupper är per region få åtkomst till din prenumeration och är inte per prenumeration som service management kvoter. Nu ska vi använda vCPU kvoter som exempel. Om du behöver begära en ökad kvot med stöd för vCPUs måste du bestämma hur många vCPUs som du vill använda i vilka regioner och sedan göra en specifik begäran för Azure-resursgrupp vCPU kvoter för belopp och regioner som du vill. Om du behöver för att köra programmet det med 30 vCPUs i västra Europa bör du därför uttryckligen begära 30 vCPUs i västra Europa. Men du har inte en vCPU kvot som ökar med en annan region – endast Västeuropa har 30 vCPU kvoten.
-> <!-- -->
-> Du kan därför vara bra att tänka på bestämmer vad din Azure-resursgrupp kvoter måste vara för din arbetsbelastning i en en region och begära beloppet i varje region som du planerar distributionen. Se [felsöka distributionsproblem](resource-manager-common-deployment-errors.md) för mer hjälp för att identifiera din aktuella kvoter för vissa regioner.
+> <!-- --> Du kan därför vara bra att tänka på bestämmer vad din Azure-resursgrupp kvoter måste vara för din arbetsbelastning i en en region och begära beloppet i varje region som du planerar distributionen. Se [felsöka distributionsproblem](resource-manager-common-deployment-errors.md) för mer hjälp för att identifiera din aktuella kvoter för vissa regioner.
 >
 >
 
@@ -325,7 +324,7 @@ Läs mer om gränserna för en mer detaljerad nivå, till exempel storlek, fråg
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>Begränsar SQL-databas
-SQL-databas gränser, se [gränserna för SQL-databasen](sql-database/sql-database-resource-limits.md).
+SQL-databas gränser, se [gränserna för SQL-databas för enskilda databaser](sql-database/sql-database-vcore-resource-limits-single-databases.md) och [gränserna för SQL-databas för elastiska pooler och grupperade databaser](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
 
 ### <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse gränser
 SQL Data Warehouse gränser, se [gränserna för SQL Data Warehouse](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).

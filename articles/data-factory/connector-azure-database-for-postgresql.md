@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: b47dbf081d857d0c6eb5e1bd4eb9781c4c894698
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 27b975df5d0161f0b64e02b62c89989a670731aa
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615945"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330568"
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Kopiera data från Azure-databas för PostgreSQL med hjälp av Azure Data Factory 
 
@@ -49,7 +49,7 @@ Följande egenskaper stöds för Azure-databas för PostgreSQL länkade tjänste
 | connectionString | En ODBC-anslutningssträng att ansluta till Azure-databas för PostgreSQL. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
-En typisk anslutningssträng är `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>@admstest;Password=<Password>`. Fler egenskaper som du kan ange per ditt fall:
+En typisk anslutningssträng är `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Fler egenskaper som du kan ange per ditt fall:
 
 | Egenskap  | Beskrivning | Alternativ | Krävs |
 |:--- |:--- |:--- |:--- |:--- |
@@ -66,7 +66,7 @@ En typisk anslutningssträng är `Server=<server>.postgres.database.azure.com;Da
         "typeProperties": {
             "connectionString": {
                  "type": "SecureString",
-                 "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>@admstest;Password=<Password>"
+                 "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
             }
         }
     }

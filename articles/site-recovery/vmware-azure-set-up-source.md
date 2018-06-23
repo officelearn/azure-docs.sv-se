@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: b2c564e8d49e39d9cdc09d3fe168388d579de70e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 01b0717660265b28d4ea7d804a761e7e425c997c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29812658"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319608"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Konfigurera källmiljön för VMware till Azure-replikering
 
@@ -39,12 +39,12 @@ Artikeln förutsätter att du redan har:
 
 ## <a name="set-up-the-configuration-server"></a>Ställ in konfigurationsservern
 
-Du har skapat konfigurationsservern som en lokal VMware VM, använda en mall för Open Virtualization Format (OVF). [Lär dig mer](concepts-vmware-to-azure-architecture.md) om komponenter som ska installeras på VMware VM. 
+Du kan ställa in konfigurationsservern som en lokal VMware VM via en mall för Open Virtualization program (ägg). [Lär dig mer](concepts-vmware-to-azure-architecture.md) om komponenter som ska installeras på VMware VM.
 
 1. Lär dig mer om den [krav](vmware-azure-deploy-configuration-server.md#prerequisites) för distribution av konfigurationsserver.
 2. [Kontrollera kapacitet siffror](vmware-azure-deploy-configuration-server.md#capacity-planning) för distribution.
-3. [Hämta](vmware-azure-deploy-configuration-server.md#download-the-template) och [importera](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) mallen OVF (how-till-distribuera-konfiguration – server.md) för att ställa in en lokal VMware virtuell dator som kör konfigurationsservern.
-4. Aktivera VM VMware och [registrera den](vmware-azure-deploy-configuration-server.md#register-the-configuration-server) i Recovery Services-valvet.
+3. [Hämta](vmware-azure-deploy-configuration-server.md#download-the-template) och [importera](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) mallen ägg för att konfigurera en lokal VMware virtuell dator som kör konfigurationsservern. Licensen som ingår i mallen är en licens för utvärdering och är giltig i 180 dagar. Efter måste denna tid kunden aktivera windows med upphandlade licens.
+4. Aktivera VM VMware och [registrera den](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services) i Recovery Services-valvet.
 
 
 ## <a name="add-the-vmware-account-for-automatic-discovery"></a>Lägg till VMware-konto för automatisk identifiering

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
-ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: be5089b825a873006696eb074ed4355f415e680b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
-ms.locfileid: "23886185"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319526"
 ---
 ## <a name="setting-up-powershell"></a>Konfigurera PowerShell
 Följ dessa steg innan du kan använda Azure PowerShell.
@@ -56,7 +56,7 @@ Instruktioner och en länk till den senaste versionen finns [installera och konf
 ### <a name="set-your-azure-account-and-subscription"></a>Konfigurera Azure-kontot och Azure-prenumerationen
 Om du inte redan har en Azure-prenumeration, kan du aktivera din [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 
-Öppna ett Azure PowerShell-Kommandotolken och logga in på Azure med det här kommandot.
+Öppna en Azure PowerShell-kommandotolk och logga in på Azure med det här kommandot.
 
     Add-AzureAccount
 

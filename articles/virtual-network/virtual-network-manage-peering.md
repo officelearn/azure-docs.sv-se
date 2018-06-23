@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 85919ccdc13ab363b32e593159abe54498ca98c9
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 314920d4aae2bd364ea93451fcbda2034a36cc7e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702041"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332107"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort ett virtuellt nätverk-peering
 
@@ -117,7 +117,7 @@ Om du vill att virtuella nätverk ska kunna kommunicera ibland, men inte alltid,
     - Resurser i ett virtuellt nätverk inte kan kommunicera med IP-adressen för en Azure intern belastningsutjämnare i peered virtuella nätverk. Belastningsutjämnaren och resurser som kommunicerar med den måste vara i samma virtuella nätverk.
     - Du kan inte använda remote gateways eller tillåta gateway-överföring. För att använda remote gateways eller tillåta överföring av gateway, måste båda virtuella nätverken i peering finns i samma region. 
     - Kommunikation över globalt peerkoppla virtuella nätverk via följande typer av VM stöds inte: [högpresterande beräkning](../virtual-machines/windows/sizes-hpc.md) och [GPU](../virtual-machines/windows/sizes-gpu.md). Detta inkluderar H, NC, NV, NCv2, NCv3 och ND serien virtuella datorer.
-- Virtuella nätverk kan finnas i samma eller olika prenumerationer. När de virtuella nätverk har olika prenumerationer kan måste båda prenumerationer vara kopplad till samma Azure Active Directory-klient. Om du inte redan har en AD-klient, kan du snabbt [skapar du en](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Du kan använda en [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) att ansluta två virtuella nätverk som finns i olika prenumerationer som är kopplade till olika Active Directory-klienter.
+- Virtuella nätverk kan finnas i samma eller olika prenumerationer. När du peer virtuella nätverk för olika prenumerationer måste båda prenumerationer vara kopplad till samma Azure Active Directory-klient. Om du inte redan har en AD-klient, kan du snabbt [skapar du en](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Du kan använda en [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) att ansluta två virtuella nätverk som finns i olika prenumerationer som är kopplade till olika Active Directory-klienter.
 - De virtuella nätverken peer-du måste ha icke-överlappande IP-adressutrymmen.
 - Du kan inte lägga till-adressintervall till eller ta bort adressintervall adressutrymmet för ett virtuellt nätverk när ett virtuellt nätverk är peerkopplat med ett annat virtuellt nätverk. Om du vill lägga till eller ta bort adressintervall, ta bort peering, lägga till eller ta bort adressintervallen, sedan skapa peerkopplingen på nytt. Om du vill lägga till-adressintervall till eller ta bort adressintervall från virtuella nätverk, se [hantera virtuella nätverk](manage-virtual-network.md).
 - Du kan peer-två virtuella nätverk som distribuerats via Hanteraren för filserverresurser eller ett virtuellt nätverk som distribuerats via Resource Manager med ett virtuellt nätverk som distribuerats via den klassiska distributionsmodellen. Du kan inte peer-två virtuella nätverk som skapats via den klassiska distributionsmodellen. Om du inte är bekant med Azure distributionsmodeller läsa den [förstå Azure distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel. Du kan använda [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) för att ansluta två virtuella nätverk som har skapats via den klassiska distributionsmodellen.

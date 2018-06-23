@@ -1,6 +1,6 @@
 ---
 title: Hantera åtkomst med hjälp av RBAC och Azure CLI | Microsoft Docs
-description: Lär dig mer om att hantera åtkomst för användare, grupper och program, med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure CLI. Detta inkluderar lista åtkomst, beviljar åtkomst och ta bort åtkomst.
+description: Lär dig mer om att hantera åtkomst för användare, grupper och program, med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure CLI. Detta inkluderar listan åtkomst, bevilja åtkomst och ta bort åtkomst.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/03/2018
+ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 15ff519f5af7471d6adaae44e2af19422ad44fea
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 16577339f1aa33fbd1a8b90f4beaef1ee4ce806c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294412"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316404"
 ---
 # <a name="manage-access-using-rbac-and-azure-cli"></a>Hantera åtkomst med hjälp av RBAC och Azure CLI
 
@@ -27,9 +27,10 @@ ms.locfileid: "36294412"
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda Azure CLI för att hantera rolltilldelningar, måste du ha följande krav:
+Om du vill hantera åtkomst till något av följande behöver du:
 
-* [Azure CLI](/cli/azure). Du kan använda den i din webbläsare med [Azure Cloud Shell](../cloud-shell/overview.md) eller [installera](/cli/azure/install-azure-cli) den på macOS, Linux och Windows och köra den från kommandoraden.
+* [Bash i Azure-molnet Shell](/azure/cloud-shell/overview)
+* [Azure CLI](/cli/azure)
 
 ## <a name="list-roles"></a>Lista roller
 
@@ -308,139 +309,7 @@ I följande exempel tar bort den *Reader* roll från den *Ann Mack Team* med ID 
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
-## <a name="custom-roles"></a>Anpassade roller
-
-### <a name="list-custom-roles"></a>Lista över anpassade roller
-
-Om du vill visa de roller som är tillgängliga för tilldelning på scopenivå, använder [az rollen definitionslista](/cli/azure/role/definition#az-role-definition-list).
-
-Båda av följande exempel lista alla anpassade roller i den aktuella prenumerationen:
-
-```azurecli
-az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "roleType":.roleType}'
-```
-
-```azurecli
-az role definition list --output json | jq '.[] | if .roleType == "CustomRole" then {"roleName":.roleName, "roleType":.roleType} else empty end'
-```
-
-```Output
-{
-  "roleName": "My Management Contributor",
-  "type": "CustomRole"
-}
-{
-  "roleName": "My Service Operator Role",
-  "type": "CustomRole"
-}
-{
-  "roleName": "My Service Reader Role",
-  "type": "CustomRole"
-}
-
-...
-```
-
-### <a name="create-a-custom-role"></a>Skapa en anpassad roll
-
-Så här skapar du en anpassad roll [az rolldefinitionen skapa](/cli/azure/role/definition#az-role-definition-create). Rolldefinitionen kan vara en JSON-beskrivning eller en sökväg till en fil som innehåller en JSON-beskrivning.
-
-```azurecli
-az role definition create --role-definition <role_definition>
-```
-
-I följande exempel skapas en anpassad roll med namnet *virtuella operatorn*. Den här anpassade rollen tilldelar åtkomst till alla läsåtgärder av *Microsoft.Compute*, *Microsoft.Storage*, och *Microsoft.Network* providers och tilldelar resursåtkomst Om du vill starta, starta om och övervaka virtuella datorer. Den här anpassade rollen kan användas i två prenumerationer. Det här exemplet används en JSON-fil som indata.
-
-vmoperator.json
-
-```json
-{
-  "Name": "Virtual Machine Operator",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
-
-  ],
-  "AssignableScopes": [
-    "/subscriptions/11111111-1111-1111-1111-111111111111",
-    "/subscriptions/33333333-3333-3333-3333-333333333333"
-  ]
-}
-```
-
-```azurecli
-az role definition create --role-definition ~/roles/vmoperator.json
-```
-
-### <a name="update-a-custom-role"></a>Uppdatera en anpassad roll
-
-Om du vill uppdatera en anpassad roll först använda [az rollen definitionslista](/cli/azure/role/definition#az-role-definition-list) att hämta rolldefinitionen. Andra, gör ändringarna i rolldefinitionen. Använd slutligen [az rollen Definitionsuppdatering](/cli/azure/role/definition#az-role-definition-update) att spara den uppdaterade rolldefinitionen.
-
-```azurecli
-az role definition update --role-definition <role_definition>
-```
-
-I följande exempel läggs den *Microsoft.Insights/diagnosticSettings/* åtgärden den *åtgärder* av den *virtuella operatorn* anpassad roll.
-
-vmoperator.json
-
-```json
-{
-  "Name": "Virtual Machine Operator",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Insights/diagnosticSettings/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
-
-  ],
-  "AssignableScopes": [
-    "/subscriptions/11111111-1111-1111-1111-111111111111",
-    "/subscriptions/33333333-3333-3333-3333-333333333333"
-  ]
-}
-```
-
-```azurecli
-az role definition update --role-definition ~/roles/vmoperator.json
-```
-
-### <a name="delete-a-custom-role"></a>Ta bort en anpassad roll
-
-Ta bort en anpassad roll genom att använda [az rolldefinitionen ta bort](/cli/azure/role/definition#az-role-definition-delete). Rollen för att ta bort Använd rollnamnet eller roll-ID. Använd för att fastställa roll-ID [az rollen definitionslista](/cli/azure/role/definition#az-role-definition-list).
-
-```azurecli
-az role definition delete --name <role_name or role_id>
-```
-
-I följande exempel tar bort den *virtuella operatorn* anpassad roll:
-
-```azurecli
-az role definition delete --name "Virtual Machine Operator"
-```
-
 ## <a name="next-steps"></a>Nästa steg
 
-[!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
+- [Självstudier: Skapa en anpassad roll med hjälp av Azure CLI](tutorial-custom-role-cli.md)
+- [Använda Azure CLI för att hantera Azure-resurser och resursgrupper](../azure-resource-manager/xplat-cli-azure-resource-manager.md)

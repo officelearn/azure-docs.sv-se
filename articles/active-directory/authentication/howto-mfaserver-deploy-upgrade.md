@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: a94d97fb90e65fd569047a3d55945437002d97ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 9537380daab80529c3ba6307f1b2cd82a8c0ca41
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867399"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334677"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Uppgradera till den senaste Azure Multi-Factor Authentication-servern
 
@@ -48,21 +48,12 @@ Om du uppgraderar från v6.x eller äldre till v7.x eller senare, ändra alla ko
 
 Om du har Användarportalen på flera servrar, Upprepa installationen på dem alla. 
 
-
 ## <a name="upgrade-the-mobile-app-web-service"></a>Uppgradera Mobilappwebbtjänsten
 
-1. Skapa en säkerhetskopia av filen Web.config i den virtuella katalogen för Mobilappwebbtjänsten installationsplatsen (till exempel C:\inetpub\wwwroot\app eller C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService).
-2. Kopiera filen MultiFactorAuthenticationMobileAppWebServiceSetup64.msi från installationsplatsen för MFA-servrar och placera den på webbservern för Mobilapp registrering.
-3. Kör installationsprogrammet. 
-
-  Om det uppstår ett fel som anger att Microsoft Visual C++ 2015 Redistributable uppdatering 1 eller senare krävs, hämta och installera det senaste uppdateringspaketet från den [Microsoft Download Center](https://www.microsoft.com/download/). Installera både x86 och x64 versioner.
-
-4. Jämför web.config-filen som har säkerhetskopierats i steg 1 med den nya web.config-filen när den uppdaterade Mobilappwebbtjänsten programvaran har installerats. Om det finns inga nya attribut i den nya web.config, kan du kopiera dina sparade web.config tillbaka till den virtuella katalogen och skriva över den nya servern. Ett annat alternativ är att kopiera och klistra in appSettings värdena och URL för webbtjänsten SDK från säkerhetskopian till den nya web.config.
-
-Om du har den Mobilappwebbtjänsten på flera servrar kan du upprepa installationen på dem alla. 
+> [!NOTE]
+> När du uppgraderar från en version av Azure MFA-Server som är äldre än 8.0 till 8.0 eller senare att webbtjänsten för mobila appar kan avinstalleras efter uppgraderingen
 
 ## <a name="upgrade-the-ad-fs-adapters"></a>Uppgradera AD FS-kort
-
 
 ### <a name="if-mfa-runs-on-different-servers-than-ad-fs"></a>Om MFA körs på olika servrar än AD FS
 

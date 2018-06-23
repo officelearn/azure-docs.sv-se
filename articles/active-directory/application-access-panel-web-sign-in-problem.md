@@ -3,23 +3,24 @@ title: Problem som loggar in på webbplatsen åtkomst panelen | Microsoft Docs
 description: Vägledning för att felsöka problem som kan uppstå när du försöker logga in att använda åtkomstpanelen
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.reviwer: japere
-ms.openlocfilehash: 1820ab1e2295e6e0c7795c9d014d001d294bb337
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.reviwer: japere,asteen
+ms.openlocfilehash: 84df32000892274c2b77b0bf5ce286bb94171494
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069620"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332583"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Logga in på webbplatsen åtkomst panelen problem
 

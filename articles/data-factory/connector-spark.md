@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: bf51e0ce03c2f69ab08aa56b8d48cf3e3636ed40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: aa7719fe621a6e264145c9582bf854248d2987fc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618393"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334106"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Kopiera data från Spark med Azure Data Factory 
 
@@ -36,7 +36,7 @@ Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, m
 
 ## <a name="getting-started"></a>Komma igång
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Spark-anslutningen.
 
@@ -51,7 +51,7 @@ Följande egenskaper stöds för länkad Spark-tjänst:
 | port | TCP-porten som Spark-servern använder för att lyssna efter anslutningar. Om du ansluter till Azure HDInsights ange porten som 443. | Ja |
 | Servertyp | Typ av Spark-server. <br/>Tillåtna värden är: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Nej |
 | thriftTransportProtocol | Transportprotokollet ska användas i Thrift-lagret. <br/>Tillåtna värden är: **binära**, **SASL**, **HTTP** | Nej |
-| AuthenticationType | Den autentiseringsmetod som används för att få åtkomst till Spark-servern. <br/>Tillåtna värden är: **anonym**, **användarnamn**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
+| authenticationType | Den autentiseringsmetod som används för att få åtkomst till Spark-servern. <br/>Tillåtna värden är: **anonym**, **användarnamn**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
 | användarnamn | Det användarnamn som du använder för att få åtkomst till Spark-Server.  | Nej |
 | lösenord | Lösenordet för användaren. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | httpPath | Partiell URL som motsvarar Spark-server.  | Nej |

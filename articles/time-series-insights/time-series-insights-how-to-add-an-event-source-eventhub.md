@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 780a7cb3035dbe19c45b5fe9c6dfae54fccafd03
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 8b1fe447cb673b9bc1f4fe4e73f7412a21f701a5
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293656"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330870"
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Hur du lägger till en Händelsehubb händelsekälla tid serien insikter miljö
 
@@ -26,6 +26,22 @@ Den här artikeln beskriver hur du använder Azure-portalen för att lägga till
 - Skapar en händelsehubb. Mer information om Händelsehubbar finns [skapa ett namnområde för Händelsehubbar och en händelsehubb med hjälp av Azure portal](../event-hubs/event-hubs-create.md)
 - Händelsehubben måste ha aktiva meddelandet händelser skickas i. Mer information finns i [skicka händelser till Händelsehubbar i Azure med hjälp av .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Skapa en dedikerad konsumentgrupp i Event Hub för tid serien Insight miljön att använda från. Varje gång serien insikter händelsekälla måste ha sin egen dedikerad konsumentgrupp som inte delas med andra användare. Om flera läsare förbrukar händelser från samma konsumentgrupp, förväntas alla läsare finns fel. Observera att det finns också en gräns på 20 konsumentgrupper per Event Hub. Mer information finns i [Programmeringsguide för Event Hubs](../event-hubs/event-hubs-programming-guide.md).
+
+### <a name="add-a-consumer-group-to-your-event-hub"></a>Lägg till en konsumentgrupp till din Event Hub
+Konsumentgrupper används av program för att hämta data från Azure Event Hubs. Ange en dedikerad konsumentgrupp för användning av den här tiden serien insikter miljön, på ett tillförlitligt sätt läsa data från din Event Hub.
+
+Följ dessa steg för att lägga till en ny konsumentgrupp i din Händelsehubb:
+1. Leta upp och öppna din Händelsehubb i Azure-portalen.
+
+2. Under den **entiteter** rubrik, Välj **konsumentgrupper**.
+
+   ![Event Hub - Lägg till en konsumentgrupp](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+
+3. Välj **+ konsumentgrupp** att lägga till en ny konsumentgrupp. 
+
+4. På den **konsumentgrupper** anger du en ny unik **namn**.  Använd den här samma namn när du skapar en ny händelsekälla i miljön tid serien insikter.
+
+5. Välj **skapa** att skapa nya konsumentgrupp.
 
 ## <a name="add-a-new-event-source"></a>Lägg till en ny händelsekälla
 1. Logga in på [Azure Portal](https://portal.azure.com).
@@ -78,29 +94,14 @@ Den här artikeln beskriver hur du använder Azure-portalen för att lägga till
    | Händelseserialiseringsformat | JSON är för närvarande endast tillgängligt serialisering. Meddelanden om händelser måste vara i formatet eller inga data kan läsas. |
    | Tidsstämpel egenskapsnamn | För att fastställa detta värde, måste du förstå meddelandeformat för meddelandedata som skickas till Händelsehubben. Det här värdet är den **namn** för egenskapen specifika händelser i meddelandedata som du vill använda som tidsstämpel för händelse. Värdet är skiftlägeskänsligt. När värdet är tomt används den **sätta händelsetid** i händelsen källa används som tidsstämpel för händelse. |
 
+10. Lägg till dedikerade TSD konsumenten gruppnamnet som du lagt till din Event hub.
 
-10. Välj **skapa** att lägga till ny händelsekälla.
+11. Välj **skapa** att lägga till ny händelsekälla.
    
    ![Klicka på Skapa](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
 
    När du har skapat händelsekällan börjar Time Series Insights automatiskt att strömma data till din miljö.
 
-
-### <a name="add-a-consumer-group-to-your-event-hub"></a>Lägg till en konsumentgrupp till din Event Hub
-Konsumentgrupper används av program för att hämta data från Azure Event Hubs. Ange en dedikerad konsumentgrupp för användning av den här tiden serien insikter miljön, på ett tillförlitligt sätt läsa data från din Event Hub.
-
-Följ dessa steg för att lägga till en ny konsumentgrupp i din Händelsehubb:
-1. Leta upp och öppna din Händelsehubb i Azure-portalen.
-
-2. Under den **entiteter** rubrik, Välj **konsumentgrupper**.
-
-   ![Event Hub - Lägg till en konsumentgrupp](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
-
-3. Välj **+ konsumentgrupp** att lägga till en ny konsumentgrupp. 
-
-4. På den **konsumentgrupper** anger du en ny unik **namn**.  Använd den här samma namn när du skapar en ny händelsekälla i miljön tid serien insikter.
-
-5. Välj **skapa** att skapa nya konsumentgrupp.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Definiera principer för åtkomst av data](time-series-insights-data-access.md) att skydda data.

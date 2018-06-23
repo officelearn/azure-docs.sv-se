@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från QuickBooks med hjälp av Azure Data Factory (Beta) | Microsoft Docs
+title: Kopiera data från QuickBooks med hjälp av Azure Data Factory (förhandsversion) | Microsoft Docs
 description: Lär dig hur du kopierar data från QuickBooks till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: db9b57ed64485882a9b0e0bb020392131f4c5d62
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d0c7557c400be36fed59e48fc346afb0fa5b198b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619185"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337942"
 ---
-# <a name="copy-data-from-quickbooks-using-azure-data-factory-beta"></a>Kopiera data från QuickBooks med hjälp av Azure Data Factory (Beta)
+# <a name="copy-data-from-quickbooks-using-azure-data-factory-preview"></a>Kopiera data från QuickBooks med hjälp av Azure Data Factory (förhandsgranskning)
 
 Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från QuickBooks. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
 
@@ -28,7 +28,7 @@ Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Fac
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Kopieringsaktiviteten i V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Den här anslutningen är för närvarande i betaversion. Du kan prova och ge oss feedback. Använd den inte i produktionsmiljöer.
+> Den här anslutningen är för närvarande under förhandsgranskning. Du kan prova och ge oss feedback. Om du vill skapa ett beroende på anslutningsappar som är i förhandsversion i din lösning kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -40,7 +40,7 @@ Den här anslutningen stöder för närvarande endast 1.0a, vilket innebär att 
 
 ## <a name="getting-started"></a>Komma igång
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till QuickBooks connector.
 
@@ -53,6 +53,8 @@ Följande egenskaper stöds för QuickBooks länkade tjänsten:
 | typ | Egenskapen type måste anges till: **QuickBooks** | Ja |
 | slutpunkt | Slutpunkten för QuickBooks-servern. (det vill säga quickbooks.api.intuit.com)  | Ja |
 | companyId | Företags-ID för QuickBooks företag att godkänna.  | Ja |
+| consumerKey | Konsumentnyckel för autentisering med OAuth 1.0. | Ja |
+| consumerSecret | Konsumenten hemligheten för 1.0 OAuth-autentisering. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | accessToken | Åtkomst-token för autentisering med OAuth 1.0. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | accessTokenSecret | Åtkomst-token hemligheten för 1.0 OAuth-autentisering. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är true.  | Nej |
@@ -67,6 +69,11 @@ Följande egenskaper stöds för QuickBooks länkade tjänsten:
         "typeProperties": {
             "endpoint" : "quickbooks.api.intuit.com",
             "companyId" : "<companyId>",
+            "consumerKey": "<consumerKey>",
+            "consumerSecret": {
+                "type": "SecureString",
+                "value": "<consumerSecret>"
+            },
             "accessToken": {
                  "type": "SecureString",
                  "value": "<accessToken>"

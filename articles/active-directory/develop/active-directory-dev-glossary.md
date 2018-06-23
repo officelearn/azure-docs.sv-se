@@ -16,12 +16,13 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: ab053e9b132630c19b6966286035d38c71c6b4d9
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.reviewer: elisol
+ms.openlocfilehash: d9379a54258b33277904d88b62dfdd7dfdec59a0
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268138"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317756"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory developer ordlista
 Den här artikeln innehåller definitioner för några av de Azure Active Directory (AD) developer grundbegrepp, vilket underlättar vid utbildning om programutveckling för Azure AD.
@@ -39,11 +40,11 @@ Se [Azure AD tokenreferens] [ AAD-Tokens-Claims] för mer information.
 ## <a name="application-id-client-id"></a>program-id (klient-id)
 Unik identifierare Azure AD-problem registreringen av ett program som identifierar ett visst program och de associera konfigurationerna. Program-id ([klient-id](https://tools.ietf.org/html/rfc6749#page-15)) används när autentisering begär och har angetts till autentiseringsbibliotek i tid. Program-id (klient-id) är inte en hemlighet. 
 
-## <a name="application-manifest"></a>Applikationsmanifestet
-En funktion som tillhandahålls av den [Azure-portalen][AZURE-portal], som producerar en JSON-representation av programmets identitet konfiguration används som en mekanism för att uppdatera de associerade [programmet] [ AAD-Graph-App-Entity] och [ServicePrincipal] [ AAD-Graph-Sp-Entity] entiteter. Se [förstå Azure Active Directory-programmanifestet] [ AAD-App-Manifest] för mer information.
+## <a name="application-manifest"></a>applikationsmanifestet
+En funktion som tillhandahålls av den [Azure-portalen][AZURE-portal], som producerar en JSON-representation av programmets identitet konfiguration används som en mekanism för att uppdatera de associerade [ Programmet] [ AAD-Graph-App-Entity] och [ServicePrincipal] [ AAD-Graph-Sp-Entity] entiteter. Se [förstå Azure Active Directory-programmanifestet] [ AAD-App-Manifest] för mer information.
 
 ## <a name="application-object"></a>Programobjektet
-När du registrera/uppdatera ett program i den [Azure-portalen][AZURE-portal], portalen skapat/uppdaterat programobjekt och en motsvarande [tjänstens huvudnamn objekt](#service-principal-object) för den klienten. Programobjektet *definierar* programmet användarens identitet configuration globalt (över alla klienter där den har åtkomst), tillhandahåller en mall som dess motsvarande service principal objekt är *härledda* för lokalt under körning (i en viss klient).
+När du registrera/uppdatera ett program i den [Azure-portalen][AZURE-portal], portalen skapat/uppdaterat programobjekt och en motsvarande [tjänstens huvudnamn objekt](#service-principal-object) för att klienten. Programobjektet *definierar* programmet användarens identitet configuration globalt (över alla klienter där den har åtkomst), tillhandahåller en mall som dess motsvarande service principal objekt är  *härledda* för lokalt under körning (i en viss klient).
 
 Mer information finns i [program och tjänstens huvudnamn objekt][AAD-App-SP-Objects].
 
@@ -57,13 +58,13 @@ För att ett program för att integrera med och delegera identitets- och åtkoms
 Se [integrera program med Azure Active Directory] [ AAD-Integrating-Apps] för mer information.
 
 ## <a name="authentication"></a>autentisering
-Åtgärden för att utvärdera en part legitima autentiseringsuppgifter ligger till grund för att skapa ett säkerhetsobjekt som ska användas för identitets- och åtkomstkontroll. Under en [OAuth2 authorization grant](#authorization-grant) exempelvis part autentisera fyller rollen antingen [resursägare](#resource-owner) eller [klientprogrammet](#client-application), beroende på bevilja används.
+Åtgärden för att utvärdera en part legitima autentiseringsuppgifter ligger till grund för att skapa ett säkerhetsobjekt som ska användas för identitets- och åtkomstkontroll. Under en [OAuth2 authorization grant](#authorization-grant) exempelvis part autentisera fyller rollen antingen [resursägare](#resource-owner) eller [klientprogrammet](#client-application), beroende på den bevilja används.
 
 ## <a name="authorization"></a>Auktorisering
 Att bevilja en autentiserad huvudnamn behörighet att göra något. Det finns två primära användningsområden i Azure AD-programmeringsmodell:
 
-* Under en [OAuth2 authorization grant](#authorization-grant) flöde: när den [resursägare](#resource-owner) ger behörighet att den [klientprogrammet](#client-application), så att klienten att komma åt resurser i resursägare.
-* Under resursåtkomst av klienten: som implementeras av den [resursservern](#resource-server)med hjälp av den [anspråk](#claim) värden finns i den [åtkomsttoken](#access-token) att göra besluten om åtkomstkontroll baserat på dem.
+* Under en [OAuth2 authorization grant](#authorization-grant) flöde: när den [resursägare](#resource-owner) ger behörighet att den [klientprogrammet](#client-application), så att klienten åtkomst till resursen ägarens resurser.
+* Under resursåtkomst av klienten: som implementeras av den [resursservern](#resource-server)med hjälp av den [anspråk](#claim) värden finns i den [åtkomsttoken](#access-token) att göra besluten om åtkomstkontroll baserat på den.
 
 ## <a name="authorization-code"></a>Auktoriseringskoden
 En kort livslängd ”token” som en [klientprogrammet](#client-application) av den [autentiseringsslutpunkt](#authorization-endpoint), som en del av flödet ”Auktoriseringskoden”, en av de fyra OAuth2 [auktorisering ger](#authorization-grant). Kod som returneras till klientprogrammet som svar på autentisering av en [resursägare](#resource-owner), som anger resursägaren har delegerats behörighet att komma åt de begärda resurserna. Som en del av flödet, Inlöst koden senare för en [åtkomsttoken](#access-token).
@@ -74,7 +75,7 @@ En av slutpunkterna som implementerats av den [auktorisering server](#authorizat
 Visa OAuth2-specifikation [auktorisering bevilja typer] [ OAuth2-AuthZ-Grant-Types] och [autentiseringsslutpunkt] [ OAuth2-AuthZ-Endpoint] avsnitt och [OpenIDConnect specifikationen] [ OpenIDConnect-AuthZ-Endpoint] för mer information.
 
 ## <a name="authorization-grant"></a>bevilja behörighet
-En autentiseringsuppgift som representerar den [resursägare](#resource-owner) [auktorisering](#authorization) att komma åt de skyddade resurser som tilldelas en [klientprogrammet](#client-application). Ett klientprogram kan använda något av de [fyra bevilja typer som definieras i OAuth2 auktorisering Framework] [ OAuth2-AuthZ-Grant-Types] att erhålla ett bidrag, beroende på typ/klientkrav: ”authorization kod grant”, ”klientens autentiseringsuppgifter bevilja”, ”implicit bevilja” och ”lösenordsinformation för resurs-ägare bevilja”. Autentiseringsuppgifterna som returneras till klienten är antingen en [åtkomsttoken](#access-token), eller en [Auktoriseringskoden](#authorization-code) (utväxlats senare för en åtkomst-token) beroende på vilken typ av auktorisering bevilja används.
+En autentiseringsuppgift som representerar den [resursägare](#resource-owner) [auktorisering](#authorization) att komma åt de skyddade resurser som tilldelas en [klientprogrammet](#client-application). Ett klientprogram kan använda en av de [fyra bevilja typer som definieras i OAuth2 auktorisering Framework] [ OAuth2-AuthZ-Grant-Types] att erhålla ett bidrag, beroende på typ/klientkrav: ”authorization kod grant”, ”klient autentiseringsuppgifter ger ”,” implicit bevilja ”och” lösenordsinformation för resurs-ägare bevilja ”. Autentiseringsuppgifterna som returneras till klienten är antingen en [åtkomsttoken](#access-token), eller en [Auktoriseringskoden](#authorization-code) (utväxlats senare för en åtkomst-token) beroende på vilken typ av auktorisering bevilja används.
 
 ## <a name="authorization-server"></a>auktorisering server
 Som definieras av den [OAuth2 auktorisering Framework][OAuth2-Role-Def], server ansvarar för att utfärda åtkomst-token till den [klienten](#client-application) efter autentisering av [resursägare](#resource-owner) och hämta dess tillstånd. En [klientprogrammet](#client-application) samverkar med auktorisering servern vid körning via dess [auktorisering](#authorization-endpoint) och [token](#token-endpoint) slutpunkter i enlighet med OAuth2 definierats [auktorisering ger](#authorization-grant).
@@ -82,17 +83,17 @@ Som definieras av den [OAuth2 auktorisering Framework][OAuth2-Role-Def], server 
 När det gäller Azure AD-integrering för programmet, Azure AD implementerar serverrollen auktorisering för Azure AD-program och Microsoft service API: er, till exempel [Microsoft Graph API: er][Microsoft-Graph].
 
 ## <a name="claim"></a>anspråk
-En [säkerhetstoken](#security-token) innehåller anspråk som innehåller intyg om en enhet (som en [klientprogrammet](#client-application) eller [resursägare](#resource-owner)) till en annan entitet (som den [resursservern](#resource-server)). Anspråk är namn/värde-par som vidarebefordrar fakta om token område (till exempel det säkerhetsobjekt som autentiseras av den [auktorisering server](#authorization-server)). Anspråk finns i en viss token är beroende av flera variabler, inklusive typ av token, vilken typ av autentiseringsuppgift som används för att autentisera ämne, konfiguration, osv.
+En [säkerhetstoken](#security-token) innehåller anspråk som innehåller intyg om en enhet (som en [klientprogrammet](#client-application) eller [resursägare](#resource-owner)) till en annan entitet (till exempel [resursservern](#resource-server)). Anspråk är namn/värde-par som vidarebefordrar fakta om token område (till exempel det säkerhetsobjekt som autentiseras av den [auktorisering server](#authorization-server)). Anspråk finns i en viss token är beroende av flera variabler, inklusive typ av token, vilken typ av autentiseringsuppgift som används för att autentisera ämne, konfiguration, osv.
 
 Se [Azure AD tokenreferens] [ AAD-Tokens-Claims] för mer information.
 
 ## <a name="client-application"></a>klientprogram
 Som definieras av den [OAuth2 auktorisering Framework][OAuth2-Role-Def], ett program som gör skyddade resursen begäranden på uppdrag av den [resursägare](#resource-owner). Termen ”klient” innebär inte någon särskild maskinvara implementering egenskaper (till exempel om programmet körs på en server, en stationär dator och andra enheter). 
 
-En klient begär [auktorisering](#authorization) från en resursägare att delta i en [OAuth2 authorization grant](#authorization-grant) flöda och kan komma åt API: er/data för resursägare räkning. OAuth2 auktorisering Framework [definierar två typer av klienter][OAuth2-Client-Types]”konfidentiellt” och ”offentliga”, baserat på klientens möjlighet att skydda sina autentiseringsuppgifter. Program kan implementera en [webbklienten (konfidentiell)](#web-client) som körs på en webbserver, en [native client (offentlig)](#native-client) installeras på en enhet eller en [användaren-agent-baserad klient (offentlig)](#user-agent-based-client) som körs i en enhetens webbläsare.
+En klient begär [auktorisering](#authorization) från en resursägare att delta i en [OAuth2 authorization grant](#authorization-grant) flöda och kan komma åt API: er/data för resursägare räkning. OAuth2 auktorisering Framework [definierar två typer av klienter][OAuth2-Client-Types]”konfidentiellt” och ”offentliga”, baserat på klientens möjlighet att skydda sina autentiseringsuppgifter. Program kan implementera en [webbklienten (konfidentiell)](#web-client) som körs på en webbserver, en [native client (offentlig)](#native-client) installeras på en enhet eller en [användare-agent-baserad klient (offentlig)](#user-agent-based-client)som körs i en enhetens webbläsare.
 
-## <a name="consent"></a>Medgivande
-Processen för en [resursägare](#resource-owner) auktoriseringsregler till en [klientprogrammet](#client-application), för att komma åt skyddade resurser under specifika [behörigheter](#permissions), för resursägare. Beroende på vilka behörigheter som begärs av klienten att en administratör eller användare ombeds medgivande att tillåta åtkomst till deras organisation/enskild data respektive. Observera att i en [flera innehavare](#multi-tenant-application) scenario, programmets [tjänstens huvudnamn](#service-principal-object) också registreras i klienten för consenting användaren.
+## <a name="consent"></a>medgivande
+Processen för en [resursägare](#resource-owner) auktoriseringsregler till en [klientprogrammet](#client-application), för att komma åt skyddade resurser under specifika [behörigheter](#permissions), för den resursägare. Beroende på vilka behörigheter som begärs av klienten att en administratör eller användare ombeds medgivande att tillåta åtkomst till deras organisation/enskild data respektive. Observera att i en [flera innehavare](#multi-tenant-application) scenario, programmets [tjänstens huvudnamn](#service-principal-object) också registreras i klienten för consenting användaren.
 
 ## <a name="id-token"></a>ID-token
 En [OpenID Connect] [ OpenIDConnect-ID-Token] [säkerhetstoken](#security-token) som tillhandahålls av en [auktorisering server](#authorization-server) [autentiseringsslutpunkt](#authorization-endpoint), som innehåller [anspråk](#claim) rör verifiering av en slutanvändare [resursägare](#resource-owner). Som ett åtkomsttoken, visas också ID-token som ett digitalt signerat [JSON-Webbtoken (JWT)][JWT]. Till skillnad från en åtkomst-token men anspråk för en ID-token används inte för relaterade till åtkomst till resurser och åtkomstkontroll specifikt.
@@ -115,13 +116,13 @@ En [klientprogrammet](#client-application) får åtkomst till en [resursservern]
 
 De kan också ansluta under den [medgivande](#consent) processen, vilket ger administratören eller resursägare möjlighet att bevilja/neka klientåtkomst till resurser i klientorganisationen.
 
-Behörighetsbegäranden konfigureras på ”program” / ”inställningar” fliken i den [Azure-portalen][AZURE-portal], under ”nödvändiga behörigheter”, genom att välja önskad ”delegerade behörigheter” och ”programbehörigheter” (det senare kräver medlemskap i rollen Global administratör). Eftersom en [offentliga klienten](#client-application) på ett säkert sätt kan inte upprätthålla autentiseringsuppgifter, den kan bara begära delegerade behörigheter, medan en [konfidentiell klienten](#client-application) har möjlighet att begära både delegerad och program. Klientens [programobjektet](#application-object) lagrar behörigheterna som har deklarerats i dess [requiredResourceAccess egenskapen][AAD-Graph-App-Entity].
+Behörighetsbegäranden konfigureras på ”program” / ”inställningar” fliken i den [Azure-portalen][AZURE-portal], under ”nödvändiga behörigheter”, genom att välja önskad ”delegerade behörigheter” och ”-program Behörigheter ”(det senare kräver medlemskap i rollen Global administratör). Eftersom en [offentliga klienten](#client-application) på ett säkert sätt kan inte upprätthålla autentiseringsuppgifter, den kan bara begära delegerade behörigheter, medan en [konfidentiell klienten](#client-application) har möjlighet att begära både delegerad och program behörigheter. Klientens [programobjektet](#application-object) lagrar behörigheterna som har deklarerats i dess [requiredResourceAccess egenskapen][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>resursägare
-Som definieras av den [OAuth2 auktorisering Framework][OAuth2-Role-Def], en entitet som kan beviljas åtkomst till en skyddad resurs. När resursägaren är en person, kallas det en slutanvändare. Till exempel när en [klientprogrammet](#client-application) vill komma åt en användares postlåda via den [Microsoft Graph API][Microsoft-Graph], krävs behörighet från resursägare av postlådan.
+Som definieras av den [OAuth2 auktorisering Framework][OAuth2-Role-Def], en entitet som kan beviljas åtkomst till en skyddad resurs. När resursägaren är en person, kallas det en slutanvändare. Till exempel när en [klientprogrammet](#client-application) vill komma åt en användares postlåda via den [Microsoft Graph API][Microsoft-Graph], krävs behörighet från resursägare av den e-postlådan.
 
 ## <a name="resource-server"></a>resursservern
-Som definieras av den [OAuth2 auktorisering Framework][OAuth2-Role-Def], en server att värdar skyddade resurser, kan ta emot och svara på skyddade resursen begäranden av [klientprogram](#client-application) som finns ett [åtkomsttoken](#access-token). Kallas även en skyddad resurs-servern eller resursprogram.
+Som definieras av den [OAuth2 auktorisering Framework][OAuth2-Role-Def], en server att värdar skyddade resurser, kan ta emot och svara på skyddade resursen begäranden av [klienten program](#client-application) som utgör en [åtkomsttoken](#access-token). Kallas även en skyddad resurs-servern eller resursprogram.
 
 Resursservern visar API: er och tillämpar åtkomst till sina skyddade resurser via [scope](#scopes) och [roller](#roles), med hjälp av OAuth 2.0 auktorisering Framework. Exempel: Azure AD Graph-API som ger åtkomst till data i Azure AD-klient och Office 365-API som ger åtkomst till data, till exempel e-post och kalender. Båda dessa är också tillgänglig via den [Microsoft Graph API][Microsoft-Graph]. 
 
@@ -130,11 +131,11 @@ Precis som ett klientprogram, upprättas resurs programmets identitet konfigurat
 ## <a name="roles"></a>roles
 Som [scope](#scopes), roller ge ett sätt för en [resursservern](#resource-server) att styra åtkomst till sina skyddade resurser. Det finns två typer: rollen ”användare” implementerar rollbaserad åtkomstkontroll för användare eller grupper som behöver åtkomst till resursen, medan en ”program” roll implementerar samma för [klientprogram](#client-application) som kräver åtkomst.
 
-Roller är definierad i resursen strängar (till exempel ”utgifter godkännare”, ”skrivskyddad”, ”Directory.ReadWrite.All”), hanteras i den [Azure-portalen] [ AZURE-portal] via resursens [programmanifestet](#application-manifest), och lagras i resursens [appRoles egenskapen][AAD-Graph-Sp-Entity]. Azure-portalen används också för att tilldela användare till ”användare” roller och konfigurera klienten [programbehörigheter](#permissions) åtkomst till en ”program”-roll.
+Roller är definierad i resursen strängar (till exempel ”utgifter godkännare”, ”skrivskyddad”, ”Directory.ReadWrite.All”), hanteras i den [Azure-portalen] [ AZURE-portal] via resursens [program manifest](#application-manifest), och lagras i resursens [appRoles egenskapen][AAD-Graph-Sp-Entity]. Azure-portalen används också för att tilldela användare till ”användare” roller och konfigurera klienten [programbehörigheter](#permissions) åtkomst till en ”program”-roll.
 
 En detaljerad beskrivning av programmet rollerna som exponeras av Azure AD Graph API finns [Behörighetsomfattningen för Graph API][AAD-Graph-Perm-Scopes]. En stegvis implementering exempel finns [hantera åtkomst med hjälp av RBAC och Azure portal][AAD-RBAC].
 
-## <a name="scopes"></a>Scope
+## <a name="scopes"></a>scope
 Som [roller](#roles), scope ge ett sätt för en [resursservern](#resource-server) att styra åtkomst till sina skyddade resurser. Omfattningar som används för att implementera [scope-baserade] [ OAuth2-Access-Token-Scopes] åtkomstkontroll för en [klientprogrammet](#client-application) som har angetts delegerad åtkomst till resursen av sin ägare.
 
 Scope är definierad i resursen strängar (till exempel ”Mail.Read”, ”Directory.ReadWrite.All”) hanteras i den [Azure-portalen] [ AZURE-portal] via resursens [programmanifestet](#application-manifest), och lagras i resursens [oauth2Permissions egenskapen][AAD-Graph-Sp-Entity]. Azure portal även för att konfigurera klientprogrammet [delegerad behörighet](#permissions) att komma åt ett scope.
@@ -142,10 +143,10 @@ Scope är definierad i resursen strängar (till exempel ”Mail.Read”, ”Dire
 En bästa praxis namngivningskonvention, är att använda formatet ”resource.operation.constraint”. En detaljerad beskrivning av de omfattningar som exponeras av Azure AD Graph API finns [Behörighetsomfattningen för Graph API][AAD-Graph-Perm-Scopes]. Scope som exponeras av Office 365-tjänster, se [Office 365-API-referens för behörigheter][O365-Perm-Ref].
 
 ## <a name="security-token"></a>säkerhetstoken
-Ett signerat dokument som innehåller anspråk, till exempel en OAuth2-token eller SAML 2.0-kontroll. För en OAuth2 [authorization grant](#authorization-grant), en [åtkomsttoken](#access-token) (OAuth2) och en [ID Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken) typer av säkerhetstoken som implementeras som en [JSON-Webbtoken (JWT)][JWT].
+Ett signerat dokument som innehåller anspråk, till exempel en OAuth2-token eller SAML 2.0-kontroll. För en OAuth2 [authorization grant](#authorization-grant), en [åtkomsttoken](#access-token) (OAuth2) och en [ID Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken) typer av säkerhetstoken som implementeras som en [JSON Webb-Token (JWT)][JWT].
 
 ## <a name="service-principal-object"></a>Tjänstens huvudnamn objekt
-När du registrera/uppdatera ett program i den [Azure-portalen][AZURE-portal], portalen skapat/uppdaterat både en [programobjektet](#application-object) och ett motsvarande service principal-objekt för den klienten. Programobjektet *definierar* programmets identitet konfiguration globalt (över alla klienter där det associerade programmet har beviljats åtkomst), och är den mall som dess motsvarande service principal objekt är *härledda* för lokalt under körning (i en viss klient).
+När du registrera/uppdatera ett program i den [Azure-portalen][AZURE-portal], portalen skapat/uppdaterat både en [programobjektet](#application-object) och en motsvarande service principal objekt för att klienten. Programobjektet *definierar* programmets identitet konfiguration globalt (över alla klienter där det associerade programmet har beviljats åtkomst), och är mallen som dess motsvarande tjänstens huvudnamn objekt är *härledda* för lokalt under körning (i en viss klient).
 
 Mer information finns i [program och tjänstens huvudnamn objekt][AAD-App-SP-Objects].
 
@@ -162,12 +163,12 @@ En instans av en Azure AD-katalog kallas för en Azure AD-klient. Det innehålle
 
 * registry-tjänsten för integrerade program
 * autentisering av användarkonton och registrerade program
-* REST-slutpunkter som krävs för att stödja olika protokoll, inklusive OAuth2 och SAML, inklusive den [autentiseringsslutpunkt](#authorization-endpoint), [tokenslutpunkten](#token-endpoint) och ”vanliga” slutpunkt som används av [program med flera klienter](#multi-tenant-application).
+* REST-slutpunkter som krävs för att stödja olika protokoll, inklusive OAuth2 och SAML, inklusive den [autentiseringsslutpunkt](#authorization-endpoint), [tokenslutpunkten](#token-endpoint) och ”vanliga” slutpunkt som används av [ program med flera klienter](#multi-tenant-application).
 
 Azure AD-klienter kan skapas/kopplade till Azure och Office 365-prenumerationer under registreringen, tillhandahåller Identity & Access Management-funktioner för prenumerationen. Azure-prenumerationsadministratörer kan också skapa ytterligare Azure AD-klienter via Azure portal. Se [skaffa en Azure Active Directory-klient] [ AAD-How-To-Tenant] information om de olika sätt kan du få åtkomst till en klient. Se [hur Azure-prenumerationer är associerade med Azure Active Directory] [ AAD-How-Subscriptions-Assoc] information om relationen mellan prenumerationer och Azure AD-klient.
 
 ## <a name="token-endpoint"></a>token för slutpunkt
-En av slutpunkterna som implementerats av den [auktorisering server](#authorization-server) till support OAuth2 [auktorisering ger](#authorization-grant). Beroende på att bevilja den kan användas för att få en [åtkomsttoken](#access-token) (och relaterade ”uppdatera” token) till en [klienten](#client-application), eller [ID token](#ID-token) när det används med den [OpenID Connect] [ OpenIDConnect] protokoll.
+En av slutpunkterna som implementerats av den [auktorisering server](#authorization-server) till support OAuth2 [auktorisering ger](#authorization-grant). Beroende på att bevilja den kan användas för att få en [åtkomsttoken](#access-token) (och relaterade ”uppdatera” token) till en [klienten](#client-application), eller [ID token](#ID-token) när det används med den [OpenID Ansluta] [ OpenIDConnect] protokoll.
 
 ## <a name="user-agent-based-client"></a>Användare-agent-baserad klient
 En typ av [klientprogrammet](#client-application) som hämtar koden från en webbserver och kör inom en användaragent (till exempel en webbläsare), till exempel en enda sida program (SPA). Eftersom all kod som körs på en enhet anses en ”offentliga” klient på grund av att det inte att lagra autentiseringsuppgifter privat/konfidentiellt. Mer information finns i [OAuth2 klienten typer och profiler][OAuth2-Client-Types].

@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: f45a9dfaf2863b81083fbfb647f420d9a4baed5a
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 58bfae51fda10d14d9b1c4ea34cc10345d9a90ac
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264671"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318066"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättra prognosens noggrannhet
 Mönster ger bättre precision när flera utterances liknar. Genom att ange ett mönster för utterance kan THOMAS ha en hög konfidensnivå i förutsägelser. 
@@ -50,7 +50,9 @@ Får tillräckligt med exempel utterances skulle THOMAS kunna öka förutsägels
 Ett mönster matchas baserat på identifiera enheter i mönstret först och sedan Validera resten av orden och word ordning av mönstret. Enheter som krävs i mönstret för ett mönster som matchar. 
 
 ## <a name="pattern-syntax"></a>Mönstret syntax
-Entiteter i mönster omges av klammerparenteser. Mönster kan innehålla entiteter och entiteter med roller. Pattern.any är en entitet som används endast för mönster. Syntaxen för var och en av dessa beskrivs i följande avsnitt.
+Mönstret syntax är en mall för en utterance. Mallen bör innehålla ord och enheter som du vill matcha samt ord och skiljetecken som du vill ignorera. Det är **inte** ett reguljärt uttryck. 
+
+Entiteter i mönster omges av klammerparenteser, `{}`. Mönster kan innehålla entiteter och entiteter med roller. Pattern.any är en entitet som används endast för mönster. Syntaxen beskrivs i följande avsnitt.
 
 ### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Syntax för att lägga till en entitet i en mall för mönster
 Om du vill lägga till en entitet i mönstret mallen omger entitetsnamnet med klammerparenteser som `Who does {Employee} manage?`. 
@@ -90,7 +92,7 @@ Anta att du har ett mönster som innehåller både valfria syntax `[]`, och enti
 
 Att kartlägga mönstret ”[Sök efter] e-post om {ämne} [från {namn}]. I följande utterances den **ämne** och **person** entitet extraheras felaktigt och på rätt sätt:
 
-|Utterance|Entitet|Korrekt extrahering|
+|utterance|Entitet|Korrekt extrahering|
 |--|--|:--:|
 |e-post om hund från Chris|ämne = hund<br>person = Chris|✔|
 |e-post om man från La Mancha|ämne = man<br>person = La Mancha|X|
@@ -109,7 +111,7 @@ Markera valfri text i utterance med hjälp av syntaxen för reguljära uttryck h
 Skiljetecken som `.`, `!`, och `?` kan ignoreras i hakparentes. För att ignorera dessa märken måste varje markering vara i ett separat mönster. Valfria syntaxen stöds för närvarande inte ignoreras ett objekt i en lista i flera artiklar.
 
 ## <a name="patterns-only"></a>Endast mönster
-THOMAS kan en app utan några exempel utterances i avsikt. Detta är bara tillåtet om mönster används. Mönster kräver minst en entitet i varje mönster. För en endast mönster app innehålla mönstret inte datorn inlärda entiteter eftersom de kräver exempel utterances. 
+THOMAS kan en app utan några exempel utterances i avsikt. Denna användning är bara tillåtet om mönster används. Mönster kräver minst en entitet i varje mönster. För en endast mönster app innehålla mönstret inte datorn inlärda entiteter eftersom de kräver exempel utterances. 
 
 ## <a name="best-practices"></a>Bästa praxis
 Läs [metodtips](luis-concept-best-practices.md).

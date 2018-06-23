@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 12422a1123673feac1977fa5f52f49b2cdfda777
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fa3ab6df9b471a596cc229edf5fb555009c3101d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621354"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318401"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - vanliga frågor och svar
 > [!NOTE]
@@ -41,7 +41,7 @@ Se [Data Factory-prisinformation sidan] [ adf-pricing-details] för prisinformat
 * En självstudiekurs om hur du **kopiera/flytta data** med Kopieringsaktivitet kan visa [kopiera data från Azure Blobblagring till Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * En självstudiekurs om hur du **Transformera data** använder HDInsight Hive-aktivitet. Se [bearbeta data genom att köra Hive-skript på Hadoop-kluster](data-factory-build-your-first-pipeline.md)
 
-### <a name="what-is-the-data-factorys-region-availability"></a>Vad är Data Factory s regional tillgänglighet?
+### <a name="what-is-the-data-factorys-region-availability"></a>Vad är den Data Factory regional tillgänglighet?
 Data Factory finns i **oss West** och **Nordeuropa**. Beräknings- och tjänsterna som används av datafabriker kan vara i andra regioner. Se [regioner som stöds](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Vilka är gränserna för antalet data fabriker/pipelines/aktiviteter/datauppsättningar?

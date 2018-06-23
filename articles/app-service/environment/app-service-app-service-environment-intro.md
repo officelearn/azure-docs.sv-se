@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: b13f726ada6deba67d5ed484eca769fed354e400
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca30818b015e95594d3b2c9861d98f24174c0aea
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23836786"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318171"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Introduktion till App Service miljö v1
 
@@ -71,7 +71,7 @@ En Apptjänst-miljö kan vara antingen mot med en offentlig IP-adress eller inte
 
 Du kan använda [nätverkssäkerhetsgrupper] [ NetworkSecurityGroups] att begränsa inkommande nätverkskommunikationen till undernätet där det finns en Apptjänst-miljö.  På så sätt kan du köra bakom överordnade enheter och tjänster som web application brandväggar och nätverksprovider för SaaS-appar.
 
-Apparna måste också ofta att komma åt företagets resurser, till exempel interna databaser och webbtjänster.  En vanlig metod är att göra dessa slutpunkter som är tillgänglig endast för interna nätverkstrafik som går inom ett virtuellt Azure-nätverk.  När en Apptjänst-miljö är ansluten till samma virtuella nätverk som interna tjänster, appar som körs i miljön kan komma åt dem, inklusive slutpunkter kan nås via [plats-till-plats] [ SiteToSite] och [Azure ExpressRoute] [ ExpressRoute] anslutningar.
+Apparna måste ofta även komma åt företagsresurser, t.ex. interna databaser och webbtjänster.  En vanlig metod är att göra dessa slutpunkter som är tillgänglig endast för interna nätverkstrafik som går inom ett virtuellt Azure-nätverk.  När en Apptjänst-miljö är ansluten till samma virtuella nätverk som interna tjänster, appar som körs i miljön kan komma åt dem, inklusive slutpunkter kan nås via [plats-till-plats] [ SiteToSite] och [Azure ExpressRoute] [ ExpressRoute] anslutningar.
 
 För mer information om hur Apptjänstmiljöer fungerar med virtuella nätverk och lokala nätverk finns i följande artiklar på [nätverksarkitektur][NetworkArchitectureOverview], [styra inkommande Trafik][ControllingInboundTraffic], och [säker anslutning till serverdelar][SecurelyConnectingToBackends]. 
 
@@ -93,7 +93,7 @@ Mer information om hur du använder en Apptjänst-miljö med ExpressRoute finns 
 [AzureConDeepDive]:  https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
 [GeodistributedAppFootprint]:  app-service-app-service-environment-geo-distributed-scale.md
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
+[SiteToSite]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [HowToConfigureanAppServiceEnvironment]:  app-service-web-configure-an-app-service-environment.md
 [ControllingInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md

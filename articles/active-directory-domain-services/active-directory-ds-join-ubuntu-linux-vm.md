@@ -13,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 5cbed14553462d8aff16304e52b66da7ad2652e3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d9f4dc0883ced599dd13d0c5d52ff865e03b73ed
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217239"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332919"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Anslut en virtuell Ubuntu-dator i Azure till en hanterad domän
 Den här artikeln visar hur du ansluter till en virtuell Ubuntu Linux-dator till en hanterad Azure AD DS-domän.
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Om du vill utföra åtgärderna i den här artikeln behöver du:  
@@ -122,17 +123,17 @@ De nödvändiga paketen är installerat på den virtuella Linux-datorn, är näs
     sudo realm discover CONTOSO100.COM
     ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > **Felsöka:** om *sfär identifiera* gick inte att hitta din hanterade domän:
      * Se till att domänen kan nås från den virtuella datorn (försök ping).
      * Kontrollera att den virtuella datorn faktiskt har distribuerats till samma virtuella nätverk som den hanterade domänen är tillgänglig.
      * Kontrollera om du har uppdaterat DNS-serverinställningarna för det virtuella nätverket så att den pekar till domänkontrollanterna i den hanterade domänen.
    >
 
-2. Initiera Kerberos. Skriv följande kommando i terminalen SSH: 
+2. Initiera Kerberos. Skriv följande kommando i terminalen SSH:
 
-    > [!TIP] 
-    > * Kontrollera att du anger en användare som tillhör gruppen AAD DC-administratörer. 
+    > [!TIP]
+    > * Kontrollera att du anger en användare som tillhör gruppen AAD DC-administratörer.
     > * Ange namnet på en domän med versaler, annan kinit misslyckas.
     >
 
@@ -140,9 +141,9 @@ De nödvändiga paketen är installerat på den virtuella Linux-datorn, är näs
     kinit bob@CONTOSO100.COM
     ```
 
-3. Anslut datorn till domänen. Skriv följande kommando i terminalen SSH: 
+3. Anslut datorn till domänen. Skriv följande kommando i terminalen SSH:
 
-    > [!TIP] 
+    > [!TIP]
     > Använd samma användarkonto som du angav i föregående steg (kinit).
     >
 
@@ -175,7 +176,7 @@ Om du vill aktivera automatisk generering av arbetskatalogen när du loggar in a
 ```
 sudo vi /etc/pam.d/common-session
 ```
-    
+
 Lägg till följande rad i den här filen under raden session valfria pam_sss.so och spara den:
 ```
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077

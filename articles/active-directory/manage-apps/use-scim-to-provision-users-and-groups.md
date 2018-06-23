@@ -3,7 +3,7 @@ title: Automatisera etablering med hjälp av SCIM i Azure Active Directory | Mic
 description: Azure Active Directory kan automatiskt etablera användare och grupper till några program eller identitet butik som är fronted av en webbtjänst med det gränssnitt som definierats i specifikationen av SCIM-protokollet
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
-ms.author: asmalser
+ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 2bbea8f082e482ec5f5a08ce9978940e05c2325b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 40fa7959fc27692489a6317df0eddb9208c57bd6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35304033"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337970"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Använda systemet för domäner Identity Management (SCIM) för att automatiskt etablera användare och grupper från Azure Active Directory till program
 
 ## <a name="overview"></a>Översikt
-Azure Active Directory (AD Azure) automatiskt kan etablera användare och grupper till några program eller identitet store som fronted av en webbtjänst med gränssnittet definieras i den [System för domäner Identity Management (SCIM) 2.0 protokollspecifikation](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory kan skicka begäranden om att skapa, ändra eller ta bort tilldelade användare och grupper till webbtjänsten. Webbtjänsten kan översätta dessa begäranden till åtgärder i Identitetslagret mål. 
+Azure Active Directory (AD Azure) automatiskt kan etablera användare och grupper till några program eller identitet store som fronted av en webbtjänst med gränssnittet definieras i den [System för domäner Identity Management (SCIM) 2.0-protokollet specifikationen](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory kan skicka begäranden om att skapa, ändra eller ta bort tilldelade användare och grupper till webbtjänsten. Webbtjänsten kan översätta dessa begäranden till åtgärder i Identitetslagret mål. 
 
 ![][0]
 *Bild 1: Etablering från Azure Active Directory till en butik identitet via en webbtjänst*
@@ -159,7 +159,7 @@ Det sista steget vid verifiering av exemplet är att öppna filen TargetFile.csv
 ### <a name="development-libraries"></a>Utvecklingsbibliotek
 För att utveckla egna webbtjänst som uppfyller specifikationerna SCIM uppbyggd följande bibliotek som tillhandahålls av Microsoft för att påskynda utvecklingsprocessen: 
 
-1. Common Language Infrastructure (CLI) bibliotek erbjuds för användning med språk som är baserat på infrastrukturen, till exempel C#. En av dessa bibliotek [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), deklarerar ett gränssnitt, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, som visas i följande bild: en utvecklare som använder biblioteken skulle implementera gränssnittet med en klass som kan refereras till, Allmänt, som en provider. Biblioteken kan utvecklare att distribuera en webbtjänst som överensstämmer med SCIM-specifikationen. Webbtjänsten kan finnas antingen i Internet Information Services eller alla körbara vanlig infrastruktur för språk-sammansättningen. Begäran översätts till anrop till leverantörens metoder som skulle vara programmerad av utvecklaren att använda vissa Identitetslagret.
+1. Common Language Infrastructure (CLI) bibliotek erbjuds för användning med språk som är baserat på infrastrukturen, till exempel C#. En av dessa bibliotek [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), deklarerar ett gränssnitt, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, som visas i följande bild: A utvecklare som använder biblioteken skulle implementera gränssnittet med en klass som kan refereras till, Allmänt, som en provider. Biblioteken kan utvecklare att distribuera en webbtjänst som överensstämmer med SCIM-specifikationen. Webbtjänsten kan finnas antingen i Internet Information Services eller alla körbara vanlig infrastruktur för språk-sammansättningen. Begäran översätts till anrop till leverantörens metoder som skulle vara programmerad av utvecklaren att använda vissa Identitetslagret.
   
   ![][3]
   
@@ -357,7 +357,7 @@ Gruppera resurser identifieras av schema-ID, http://schemas.microsoft.com/2006/1
 | Fax TelephoneNumber |phoneNumbers typ eq ”fax” .value |
 | givenName |name.givenName |
 | Befattning |rubrik |
-| E-post |e-postmeddelanden typen eq ”arbete” .value |
+| e-post |e-postmeddelanden typen eq ”arbete” .value |
 | mailNickname |externalId |
 | Manager |Manager |
 | mobila |phoneNumbers typ eq ”mobil” .value |
@@ -365,7 +365,7 @@ Gruppera resurser identifieras av schema-ID, http://schemas.microsoft.com/2006/1
 | Postnummer |adresser typen eq ”arbete” .postalCode |
 | Proxy-adresser |e-postmeddelanden [Ange eq ”andra”]. Värdet |
 | fysisk-leverans – OfficeName |[Ange eq ”andra”] adresser. Formaterad |
-| StreetAddress |adresser typen eq ”arbete” .streetAddress |
+| streetAddress |adresser typen eq ”arbete” .streetAddress |
 | Efternamn |name.familyName |
 | Telefonnummer |phoneNumbers typ eq ”arbete” .value |
 | användaren huvudkontot |Användarnamn |
@@ -374,7 +374,7 @@ Gruppera resurser identifieras av schema-ID, http://schemas.microsoft.com/2006/1
 | Azure Active Directory-grupp | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
 | --- | --- |
 | Visningsnamn |externalId |
-| E-post |e-postmeddelanden typen eq ”arbete” .value |
+| e-post |e-postmeddelanden typen eq ”arbete” .value |
 | mailNickname |Visningsnamn |
 | medlemmar |medlemmar |
 | objekt-ID |ID |
@@ -446,7 +446,7 @@ Följande bild visar meddelanden att Azure Active Directory skickar till en tjä
   * parametrar. AlternateFilter.ElementAt(0). ComparisonValue: ”jyoung”
   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin. Begärande-ID ”] 
 
-2. Om svaret på en fråga till webbtjänsten för en användare med ett externalId-attributvärde som matchar mailNickname attributvärdet för en användare inte returnerar några användare, begäranden Azure Active Directory för att etablera tjänsten en användare som motsvarar det i Azure Active Directory.  Här är ett exempel på en sådan begäran: 
+2. Om svaret på en fråga till webbtjänsten för en användare med ett externalId-attributvärde som matchar mailNickname attributvärdet för en användare inte returnerar några användare kan sedan begär Azure Active Directory att etablera tjänsten en användare som motsvarar det i Azure Active Directory.  Här är ett exempel på en sådan begäran: 
   ````
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
@@ -527,7 +527,7 @@ Följande bild visar meddelanden att Azure Active Directory skickar till en tjä
   * ID: ”54D382A4-2050-4C03-94D1-E769F1D15682”
   * SchemaIdentifier: ”urn: ietf:params:scim:schemas:extension:enterprise:2.0:User”
 
-4. Om ett referensattribut är uppdateras Azure Active Directory frågar tjänsten för att fastställa huruvida det aktuella värdet för referensattributet i Identitetslagret fronted av tjänsten redan överensstämmer med värdet för attributet i Azure Active Directory. För användare är det enda attributet som efterfrågas det aktuella värdet på det här sättet manager-attribut. Här är ett exempel på en begäran om att avgöra om attributet manager för en viss användare-objektet har ett visst värde: 
+4. Om ett referensattribut är uppdateras Azure Active Directory frågar tjänsten för att fastställa huruvida det aktuella värdet för referensattributet i Identitetslagret fronted av tjänsten redan överensstämmer med värdet för attributet i Azure Active Katalog. För användare är det enda attributet som efterfrågas det aktuella värdet på det här sättet manager-attribut. Här är ett exempel på en begäran om att avgöra om attributet manager för en viss användare-objektet har ett visst värde: 
   ````
     GET ~/scim/Users?filter=id eq 54D382A4-2050-4C03-94D1-E769F1D15682 and manager eq 2819c223-7f76-453a-919d-413861904646&attributes=id HTTP/1.1
     Authorization: Bearer ...
@@ -697,7 +697,7 @@ Följande bild visar meddelanden att Azure AcD skickar till en tjänst för SCIM
 * [Skriva uttryck för attributmappning](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Omfångsfilter för Användaretablering](../active-directory-saas-scoping-filters.md)
 * [Kontot etablering meddelanden](../active-directory-saas-app-provisioning.md)
-* [Lista över självstudier om hur du integrerar SaaS-appar](../active-directory-saas-tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: celested
-ms.reviewer: hirsin; nacanuma
+ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2bb0d10fee04c4ee48344695769fa7768b0f3a85
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e8957db002dd6fdeaf6da03b02e518e3e423539d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823874"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317739"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänsten tjänstanrop med delegerad användaridentitet i On-Behalf-Of-flöde
 Den OAuth 2.0 On-Behalf-Of (OBO) flöde fungerar användningsfall där ett program anropar ett service/webb-API, som i sin tur behöver anropa en annan tjänst/webb-API. Tanken är att sprida delegerad användarens identitet och behörigheter via alla begäranden har gjorts. För tjänsten mellannivå så att autentiserade begäranden till den underordnade tjänsten behöver skydda en åtkomst-token från Azure Active Directory (Azure AD) för användarens räkning.
@@ -52,7 +52,7 @@ Registrera både klientprogrammet och mellannivå-tjänsten i Azure AD.
 3. Klicka på **fler tjänster** i den vänstra nav och välj **Azure Active Directory**.
 4. Klicka på **App registreringar** och välj **nya appregistrering**.
 5. Ange ett eget namn för programmet och välj programtyp. Baserat på uppsättningen programmet typen inloggning URL eller omdirigera URL: en till en bas-URL. Klicka på **skapa** att skapa programmet.
-6. Välj programmet när fortfarande i Azure-portalen och klicka på **inställningar**. Välj på menyn inställningar **nycklar** och lägga till en nyckel - markerar du en nyckel varaktighet för antingen 1 eller 2 år. När du sparar den här sidan kan värdet för nyckeln ska visas, kopiera och spara värdet i en säker plats – du behöver den här nyckeln senare för att konfigurera inställningar för program i din implementering - värdet för nyckeln ska inte visas igen, och inte heller strängfält av något annat sätt, så du posten så snart den är synliga från Azure Portal.
+6. Välj programmet när fortfarande i Azure-portalen och klicka på **inställningar**. Välj på menyn inställningar **nycklar** och lägga till en nyckel - markerar du en nyckel varaktighet för antingen 1 eller 2 år. När du sparar den här sidan, om värdet för nyckeln ska visas, kopiera och spara värdet i en säker plats – du behöver den här nyckeln senare för att konfigurera inställningar för program i din implementering - värdet för nyckeln inte visas igen eller strängfält på annat sätt , så spara den som den är synlig från Azure Portal.
 
 ### <a name="register-the-client-application"></a>Registrera klientprogrammet
 1. Logga in på [Azure Portal](https://portal.azure.com).
@@ -60,7 +60,7 @@ Registrera både klientprogrammet och mellannivå-tjänsten i Azure AD.
 3. Klicka på **fler tjänster** i den vänstra nav och välj **Azure Active Directory**.
 4. Klicka på **App registreringar** och välj **nya appregistrering**.
 5. Ange ett eget namn för programmet och välj programtyp. Baserat på uppsättningen programmet typen inloggning URL eller omdirigera URL: en till en bas-URL. Klicka på **skapa** att skapa programmet.
-6. Konfigurera behörigheter för ditt program - på menyn Inställningar, väljer den **nödvändiga behörigheter** klickar du på **Lägg till**, sedan **väljer en API**, och Skriv namnet på mellannivå-tjänst i textrutan. Klicka på **Välj behörigheter** och välj ' åtkomst *tjänstnamnet*'.
+6. Konfigurera behörigheter för ditt program - på menyn Inställningar, väljer den **nödvändiga behörigheter** klickar du på **Lägg till**, sedan **väljer en API**, och Skriv namnet på tjänsten mellannivå i textrutan. Klicka på **Välj behörigheter** och välj ' åtkomst *tjänstnamnet*'.
 
 ### <a name="configure-known-client-applications"></a>Konfigurera kända klientprogram
 I det här scenariot har mellannivå-tjänsten inga användaråtgärder för att hämta användarens medgivande åtkomst till underordnade API. Därför måste alternativet för att bevilja åtkomst till underordnade API: N vara angiven gång som en del av samtycke steg under autentiseringen.

@@ -13,19 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: fc4e738e95799838c5761e8b1ee5973aefea7dc6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4c6e25972b47edf67dac8557e1925bb44463f4d6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213852"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331037"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Konfigurera Kerberos-begränsad delegering (KCD) på en hanterad domän
 Många program behöver åtkomst till resurser i kontexten för användaren. Active Directory stöder en mekanism som kallas Kerberos-delegering, vilket gör den här användningsfall. Dessutom kan du begränsa delegering så att bara vissa resurser kan användas i kontexten för användaren. Azure AD Domain Services-hanterade domäner skiljer sig från traditionella Active Directory-domäner eftersom de säkrare är låsta.
 
 Den här artikeln visar hur du konfigurerar Kerberos-begränsad delegering på en hanterad Azure AD DS-domän.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="kerberos-constrained-delegation-kcd"></a>Kerberos-begränsad delegering (KCD)
 Kerberos-delegering kan ett konto att personifiera en annan säkerhetsobjekt (till exempel en användare) för att komma åt resurser. Överväg att ett webbprogram som har åtkomst till en backend-webb-API i kontexten för en användare. I det här exemplet personifierar webbprogrammet (som körs i kontexten för ett tjänstkonto eller ett dator-/ datorkonto) användaren få åtkomst till resursen (backend-webb-API). Kerberos-delegering är osäker eftersom den inte begränsar resurser imiterande kontot kan komma åt i kontexten för användaren.

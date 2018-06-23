@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 3/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a1a5d6d455086ee34767e92b277936840717bcd6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 910a5c85d16cb46465598a77d5321cc0eed99744
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933781"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319256"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Använda en intern belastningsutjämnare med Azure-Kubernetes (AKS)
 
-Intern belastningsutjämning gör en Kubernetes tjänst tillgänglig för program som körs i samma virtuella nätverk som Kubernetes-kluster. Det här dokumentet beskriver och skapa en intern belastningsutjämnare med Azure-Kubernetes (AKS).
+Intern belastningsutjämning gör en Kubernetes tjänst tillgänglig för program som körs i samma virtuella nätverk som Kubernetes-kluster. Det här dokumentet beskriver och skapa en intern belastningsutjämnare med Azure-Kubernetes (AKS). Azure belastningsutjämning är tillgänglig i två SKU: er: Basic och Standard. AKS använder grundläggande SKU: N.
 
 ## <a name="create-internal-load-balancer"></a>Skapa en intern belastningsutjämnare
 

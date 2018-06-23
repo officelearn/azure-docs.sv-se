@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 3f4da70d94d28496f5b08035ead0ef7acf1ca3bc
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 2334aefdfb442054226ef6d7d55a8c097a433565
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29969605"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316331"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Logga händelser i Händelsehubbar i Azure API Management
 Händelsehubbar i Azure är en mycket skalbar tjänst för dataingång som kan mata in miljontals händelser per sekund så att du kan bearbeta och analysera de enorma mängder data som dina anslutna enheter och program producerar. Händelsehubbar fungerar som ”ytterdörren” för en händelsepipeline, och när data har samlats in i en händelsehubb, det kan omvandlas och lagras med hjälp av en leverantör av realtidsanalys eller adaptrar för batchbearbetning/lagring. Händelsehubbar frikopplar produktionen av en händelseström från användningen av dessa händelser så att händelsekonsumenterna kan komma åt dem på sitt eget schema.
 
 Den här artikeln är en medlem i den [integrera Azure API Management med Händelsehubbar](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) video och beskriver hur du loggar händelser för API Management med hjälp av Händelsehubbar i Azure.
 
-## <a name="create-an-azure-event-hub"></a>Skapa ett Azure Event Hub
+## <a name="create-an-azure-event-hub"></a>Skapa en Azure-händelsehubb
 
 Detaljerade anvisningar om hur du skapar en händelsehubb och hämta anslutningssträngar som du behöver för att skicka och ta emot händelser till och från Event Hub finns [skapa ett namnområde för Händelsehubbar och en händelsehubb med hjälp av Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
@@ -79,7 +79,7 @@ Du kan konfigurera loggen till eventhubs principer till önskade logghändelser 
 1. Bläddra till APIM-instansen.
 2. Välj fliken API.
 3. Välj API: N som du vill lägga till principen. I det här exemplet lägger vi till en princip för att den **Echo API** i den **obegränsad** produkten.
-4. Välj **alla åtgärder**.
+4. Välj **Alla åtgärder**.
 5. Välj fliken Design överst på skärmen.
 6. Klicka på triangel (bredvid penna) i fönstret inkommande eller utgående bearbetning.
 7. Välj redigeraren. Mer information finns i [så att ange eller redigera principer](set-edit-policies.md).
@@ -105,7 +105,8 @@ Klicka på **spara** att spara den uppdaterade principkonfigurationen. Så snart
 * Mer information om API-hantering och Händelsehubbar-integrering
   * [Loggaren enhetsreferens](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [principreferens för loggen till eventhub](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
-  * [Övervaka dina API: er med Azure API Management och Händelsehubbar Runscope](api-management-log-to-eventhub-sample.md)    
+  * [Övervaka dina API: er med Azure API Management och Händelsehubbar Runscope](api-management-log-to-eventhub-sample.md)  
+* Lär dig mer om [integrering med Azure Application Insights](api-management-howto-app-insights.md)
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png

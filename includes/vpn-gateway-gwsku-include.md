@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 05dc8ae48a9164e4f7118d378ab0eb7c30a4249e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/23/2018
 ms.locfileid: "30196855"
 ---
 När du skapar en virtuell nätverksgateway måste du ange vilken gateway-SKU som du vill använda. Välj den SKU som uppfyller dina krav baserat på typerna av arbetsbelastning, dataflöden, funktioner och serviceavtal.
@@ -29,7 +29,7 @@ Den nya VPN-gatewayen SKU: er förenkla funktionsuppsättningarna erbjuds via ga
 
 | **SKU**| **Funktioner**|
 | ---    | ---         |
-|**Basic** (**)   | **Ruttbaserad VPN**: 10 tunnlar med P2S; ingen RADIUS-autentisering för P2S; ingen IKEv2 för P2S<br>**Principbaserad VPN**: (IKEv1): 1 tunnel; ingen P2S|
+|**Grundläggande** (*)   | **Ruttbaserad VPN**: 10 tunnlar med P2S; ingen RADIUS-autentisering för P2S; ingen IKEv2 för P2S<br>**Principbaserad VPN**: (IKEv1): 1 tunnel; ingen P2S|
 | **VpnGw1, VpnGw2 och VpnGw3** | **Ruttbaserad VPN**: upp till 30 tunnlar (*), P2S, BGP, aktiv-aktiv, anpassade IPsec/IKE-principen, ExpressRoute/VPN-samverkan |
 |        |             |
 
@@ -44,7 +44,7 @@ På grund av skillnader i SLA: er och funktioner rekommenderar vi följande SKU:
 | **Arbetsbelastning**                       | **SKU: er**               |
 | ---                                | ---                    |
 | **Produktion, kritiska arbetsbelastningar** | VpnGw1 VpnGw2, VpnGw3 |
-| **Utv-test eller konceptbevis**   | Basic (**)                 |
+| **Utv-test eller konceptbevis**   | Basic (*)                 |
 |                                    |                        |
 
 (**) Grundläggande SKU: N anses vara en äldre SKU och har funktionsbegränsningar. Kontrollera att funktionen som du behöver stöds innan du använder grundläggande SKU: N.

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: dbfbafccc1bc735927535a5ee0f8d232be355dca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e3c4ec0062b6a155d0f4b11da1c699a0906c442
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618631"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318236"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schemamappning i en Kopieringsaktivitet
 Den här artikeln beskrivs hur Azure Data Factory-kopieringsaktiviteten hanterar schemamappning och datatypmappningen från källdata till sink data när kopiera data.
@@ -128,11 +128,18 @@ Följande JSON definierar en kopia aktivitet i en pipeline. Kolumner från käll
         "translator":
         {
             "type": "TabularTranslator",
-            "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+            "columnMappings": 
+            {
+                "UserId": "MyUserId",
+                "Group": "MyGroup",
+                "Name": "MyName"
+            }
         }
     }
 }
 ```
+
+Om du använder syntaxen för `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` om du vill ange kolumnmappningen den fortfarande stöds som-är.
 
 **Kolumnen mappning flöde:**
 
@@ -151,12 +158,12 @@ Du kan hitta mappningen mellan inbyggd typ till tillfälliga typ i avsnittet ”
 
 Data Factory stöder följande datatyper av mellanliggande: du kan ange under värden när de tillhandahåller typinformation i [datauppsättningsstrukturen](concepts-datasets-linked-services.md#dataset-structure) konfiguration:
 
-* byte]
+* Byte]
 * Boolesk
 * DateTime
 * DateTimeOffset
 * Decimal
-* dubbla
+* Dubbel
 * GUID
 * Int16
 * Int32

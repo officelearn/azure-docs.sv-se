@@ -10,7 +10,7 @@ Konfigurera din lokala Git-distribution för att kunna push-överföra till en f
 git remote add azure <URI from previous step>
 ```
 
-Skicka till Azure-fjärrdatabasen för att distribuera appen. Du uppmanas att ange lösenordet som du skapade tidigare när du skapade distributionsanvändaren. Se till att du anger det lösenord som du skapade tidigare i snabbstarten, inte lösenordet som du använde när du loggade in på Azure Portal.
+Skicka till Azure-fjärrdatabasen för att distribuera appen. Du uppmanas att ange lösenordet som du skapade tidigare när du skapade distributionsanvändaren. Kontrollera att du anger lösenordet som du skapade i tidigare i Snabbstart och inte det lösenord som du använder för att logga in på Azure-portalen.
 
 ```bash
 git push azure master

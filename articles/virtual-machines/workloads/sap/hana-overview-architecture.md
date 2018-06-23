@@ -11,21 +11,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/04/2018
+ms.date: 06/19/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfcab5a84d9e8b0bf164c666162636ede2e1b06f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 18b6aaf7396c16714370435d2ee6d3a4960ecf21
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763790"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337977"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Översikt över SAP HANA (stora instanser) och arkitektur på Azure
 
 ## <a name="what-is-sap-hana-on-azure-large-instances"></a>Vad är SAP HANA i Azure (stora instanser)?
 
-SAP HANA i Azure (stora instanser) är en unik lösning till Azure. Förutom att tillhandahålla virtuella datorer för distribution och körning SAP HANA ger Azure dig möjlighet att köra och distribuera SAP HANA på bare metal-servrar som är dedikerad till dig. SAP HANA i Azure (stora instanser) lösningen bygger på icke-delade/server host bare metal-maskinvara som är tilldelad till dig. Servermaskinvaran är inbäddad i större stämplar som innehåller beräknings-server, nätverk och infrastruktur. Som en kombination är skräddarsydda HANA center dataintegrering (TDI) certifierade. SAP HANA i Azure (stora instanser) tillhandahåller annan server SKU: er eller storlekar. Enheter kan ha 72 processorer och 768 GB minne och gå till enheter som har 960 processorer och 20 TB minne.
+SAP HANA i Azure (stora instanser) är en unik lösning till Azure. Förutom att tillhandahålla virtuella datorer för distribution och körning SAP HANA ger Azure dig möjlighet att köra och distribuera SAP HANA på bare metal-servrar som är dedikerad till dig. SAP HANA i Azure (stora instanser) lösningen bygger på icke-delade/server host bare metal-maskinvara som är tilldelad till dig. Servermaskinvaran är inbäddad i större stämplar som innehåller beräknings-server, nätverk och infrastruktur. Som en kombination är skräddarsydda HANA center dataintegrering (TDI) certifierade. SAP HANA i Azure (stora instanser) tillhandahåller annan server SKU: er eller storlekar. Enheter kan ha 36 Intel CPU-kärnor och 768 GB minne och gå till enheter som har upp till 480 Intel CPU-kärnor och upp till 24 TB minne.
 
 Kunden isolering inom infrastruktur stämpeln utförs i klienter, som ser ut som:
 
@@ -80,9 +80,9 @@ Förutom NetWeaver-certifiering kräver SAP en särskild certifikatutfärdare f�
 
 Core SAP-kommentar på NetWeaver och till en SAP HANA certifikatutfärdare grad är [SAP Obs #1928533 – SAP-program i Azure: produkter och Virtuella Azure-typer stöds](https://launchpad.support.sap.com/#/notes/1928533).
 
-Den [SAP Obs #2316233 - SAP HANA i Microsoft Azure (stora instanser)](https://launchpad.support.sap.com/#/notes/2316233/E) är också viktig. Den omfattar lösningen som beskrivs i den här guiden. Dessutom stöds om du vill köra SAP HANA i GS5 VM-typen av Azure. Information om det här fallet har publicerats på [webbplatsen SAP](http://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
+Certifikatutfärdare poster för SAP HANA på Azure (stora instanser)-enheter finns i den [SAP HANA certifierade IaaS plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) plats. 
 
-SAP HANA i Azure (stora instanser)-lösningen som anges i SAP Obs #2316233 ger Microsoft och SAP kunder möjlighet att distribuera stora SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA eller andra SAP HANA-arbetsbelastningar i Azure. Lösningen är baserad på stämpel för SAP HANA-certifierade dedikerad maskinvara ([SAP HANA skräddarsydda center dataintegrering – TDI](https://scn.sap.com/docs/DOC-63140)). Om du kör en SAP HANA TDI konfigurerade lösning fungerar alla SAP HANA-baserade program (till exempel SAP Business Suite på SAP HANA, SAP BW på SAP HANA och S4/HANA BW4/HANA) på maskinvara infrastruktur.
+SAP HANA på Azure (stora instanser) av typen som anges i SAP HANA certifierade IaaS plattformar plats, ger Microsoft och SAP kunder möjlighet att distribuera stora SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA eller andra SAP HANA-arbetsbelastningar i Azure. Lösningen är baserad på stämpel för SAP HANA-certifierade dedikerad maskinvara ([SAP HANA skräddarsydda center dataintegrering – TDI](https://scn.sap.com/docs/DOC-63140)). Om du kör en SAP HANA TDI konfigurerade lösning fungerar alla SAP HANA-baserade program (till exempel SAP Business Suite på SAP HANA, SAP BW på SAP HANA och S4/HANA BW4/HANA) på maskinvara infrastruktur.
 
 Den här lösningen har jämfört med SAP HANA i virtuella datorer en fördel. Den innehåller för mycket större volymer minne. Om du vill aktivera den här lösningen måste du förstå följande viktiga aspekter:
 
@@ -132,7 +132,9 @@ Precis som med virtuella datorer, erbjuds SAP HANA i Azure (stora instanser) i A
 
 Precis som du kan välja mellan VM av olika typer med Azure Virtual Machines, kan du välja mellan olika SKU: er av HANA stora-instans som är skräddarsydda för arbetsbelastning för olika typer av SAP HANA. SAP gäller minne till processor socket förhållandet för olika arbetsbelastningar baserat på Intel processor generationer. I följande tabell visas vilka SKU som erbjuds.
 
-Från och med juli 2017 är SAP HANA i Azure (stora instanser) tillgänglig i flera konfigurationer i Azure-regioner oss Väst och oss Öst, östra, Australien, sydost, västra Europa och Norra Europa.
+SAP HANA på Azure (stora instanser)-tjänsten är tillgänglig i flera konfigurationer i Azure-regioner för oss Väst och oss Öst, östra, Australien, sydost, Västeuropa, Norra Europa, östra och västra Japan.
+
+[SAP HANA certifierade SKU: er HANA stora instanser](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) lista som:
 
 | SAP-lösning | Processor | Minne | Storage | Tillgänglighet |
 | --- | --- | --- | --- | --- |
@@ -148,17 +150,31 @@ Från och med juli 2017 är SAP HANA i Azure (stora instanser) tillgänglig i fl
 |---| SAP HANA på Azure S576m<br /> – 12 x Intel Xeon®-Processor E7 8890 v4<br /> 288 CPU-kärnor och 576 CPU-trådar |  12,0 TB |  28 TB | Tillgängligt |
 |---| SAP HANA på Azure S768m<br /> – 16 x Intel Xeon®-Processor E7 8890 v4<br /> 384 CPU-kärnor och 768 CPU-trådar |  16,0 TB |  36 TB | Tillgängligt |
 |---| SAP HANA på Azure S960m<br /> – 20 x Intel Xeon®-Processor E7 8890 v4<br /> 480 CPU-kärnor och 960 CPU-trådar |  20,0 TB |  46 TB | Tillgängligt |
-| Optimerad för OLTP **TDIv5**: SAP Business Suite<br /> på SAP HANA eller S/4HANA (OLTP)<br /> allmän OLTP | SAP HANA på Azure S192xm<br /> – 4 x Intel Xeon®-Processor E7 8890 v4<br /> 96 CPU-kärnor och 192 CPU-trådar |  6.0 TB |  16 TB | Tillgängligt |
-|---| SAP HANA på Azure S384xxm<br /> – 8 x Intel Xeon®-Processor E7 8890 v4<br /> 192 CPU-kärnor och 384 CPU-trådar |  12,0 TB |  28 TB | Tillgängligt |
-|---| SAP HANA på Azure S576xm<br /> – 12 x Intel Xeon®-Processor E7 8890 v4<br /> 288 CPU-kärnor och 576 CPU-trådar |  18,0 TB |  41 TB | Tillgängligt |
-|---| SAP HANA på Azure S768xm<br /> – 16 x Intel Xeon®-Processor E7 8890 v4<br /> 384 CPU-kärnor och 768 CPU-trådar |  24.0 TB |  56 TB | Tillgängligt |
+
+
+Under SAP HANA TDIv5 kan SAP kundspecifika storlek och kundspecifika projekt som kan leda till serverkonfigurationer som inte är listade som certifierats i:
+
+- [SAP HANA certifierade installationer](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html)
+- [SAP HANA certifierade IaaS-plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+
+I många fall utföra dessa kundspecifika serverkonfigurationer mer minne än de server-enheter som är certifierad med SAP. Arbeta med SAP har kunder möjlighet att få support för SAP och certifierar för sina kundspecifika serverkonfigurationer för storlek. I Azure på följande HANA stora instans standard SKU: er är tillgängliga och i Microsoft prislista för sådana TDIv5 kundspecifika sizing projekt.
+
+
+| Ursprungliga SKU som kan vara <br /> Utökad i minnet | Processor | Minne | Storage | Tillgänglighet |
+| --- | --- | --- | --- | --- |
+| S192m kan utökas till | SAP HANA på Azure S192xm<br /> – 4 x Intel Xeon®-Processor E7 8890 v4<br /> 96 CPU-kärnor och 192 CPU-trådar |  6.0 TB |  16 TB | Tillgängligt |
+| S384xm kan utökas till | SAP HANA på Azure S384xxm<br /> – 8 x Intel Xeon®-Processor E7 8890 v4<br /> 192 CPU-kärnor och 384 CPU-trådar |  12,0 TB |  28 TB | Tillgängligt |
+| S576m kan utökas till | SAP HANA på Azure S576xm<br /> – 12 x Intel Xeon®-Processor E7 8890 v4<br /> 288 CPU-kärnor och 576 CPU-trådar |  18,0 TB |  41 TB | Tillgängligt |
+| S768m kan utökas till | SAP HANA på Azure S768xm<br /> – 16 x Intel Xeon®-Processor E7 8890 v4<br /> 384 CPU-kärnor och 768 CPU-trådar |  24.0 TB |  56 TB | Tillgängligt |
+
 - CPU-kärnor = summan av icke-hypertrådade CPU-kärnor av summan av processorer för server-enhet.
-- CPU-trådar = summan av beräknings-trådar som tillhandahålls av hyper-threaded processorkärnor av summan av processorer för server-enhet. Alla enheter som är konfigurerade som standard att använda flertrådsteknik.
+- CPU-trådar = summan av beräknings-trådar som tillhandahålls av hyper-threaded processorkärnor av summan av processorer för server-enhet. De flesta enheter har konfigurerats som standard att använda flertrådsteknik.
+- Baserat på leverantörens rekommendationer S768m har S768xm och S960m inte konfigurerats för att använda Hyper-Threading för att köra SAP HANA.
 
 
 Specifika konfigurationer som valts är beroende av arbetsbelastning, CPU-resurser och önskade minne. Det är möjligt för OLTP-arbetsbelastning att använda SKU: er som är optimerade för OLAP-arbetsbelastning. 
 
-Maskinvara för alla erbjudanden är SAP HANA TDI-certifierad. Två olika klasser av maskinvara delar upp SKU: er till:
+Maskinvara för erbjudanden, förutom enheter för kundspecifika sizing projekt är SAP HANA TDI-certifierad. Två olika klasser av maskinvara delar upp SKU: er till:
 
 - S72, S72m, S144, S144m, S192, S192m och S192xm, som kallas ”typen I klassen” av SKU: er.
 - S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm och S960m som kallas den ”typ II klass” av SKU: er.
@@ -296,7 +312,7 @@ Den här listan monterar krav för SAP HANA i Azure (större instanser).
    > Operativsystem som levereras av Microsoft är inte registrerad med SUSE. Det är inte ansluten till en prenumeration hanteringsverktyg-instans.
 
 - SUSE Linux prenumeration hanteringsverktyg distribuerade i Azure på en virtuell dator. Det här verktyget kan du för SAP HANA i Azure (stora instanser) ska registreras och respektive uppdateras av SUSE. (Det finns ingen internet-åtkomst inom datacentret HANA stora instans.) 
-- Licenser för Red Hat Enterprise Linux 6.7 eller 7.2 för SAP HANA.
+- Licenser för Red Hat Enterprise Linux 6.7 eller 7.x för SAP HANA.
 
    > [!NOTE]
    > Operativsystem som levereras av Microsoft är inte registrerad med Red Hat. Det är inte ansluten till en instans för Red Hat prenumeration Manager.
@@ -347,7 +363,7 @@ Se tabellen nedan vad gäller lagringsallokering. Tabellen innehåller grov kapa
 | S72m | 3,328 GB | 768 GB |1 280 GB | 768 GB |
 | S192 | 4 608 GB | 1 024 GB | 1,536 GB | 1 024 GB |
 | S192m | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
-| S192xm |  12 000 GB |  2,050 GB |  2,050 GB |  2.040 GB |
+| S192xm |  11,520 GB |  1,536 GB |  1,792 GB |  1,536 GB |
 | S384 | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
 | S384m | 12 000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
 | S384xm | 16 000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
@@ -480,9 +496,7 @@ För en mer skalbar nätverksarkitektur:
 
 ![Distribuera SAP programnivå över flera virtuella nätverk](./media/hana-overview-architecture/image4-networking-architecture.png)
 
-Bilden visar SAP programnivå eller komponenter, distribueras över flera virtuella nätverk. Den här konfigurationen introducerade oundvikligt latens kostnader som inträffade under kommunikation mellan de program som finns i de virtuella nätverk. Som standard nätverkstrafiken mellan virtuella datorer finns i olika virtuella nätverk vidarebefordra via routrar i utkanten enterprise i den här konfigurationen. Eftersom September 2016 kommer kan den här routning optimeras. 
-
-Sättet att optimera och minska svarstiden för kommunikationen mellan två virtuella nätverk är att peering virtuella nätverk inom samma region. Den här metoden fungerar även om de virtuella nätverk finns i olika prenumerationer. Med virtuella nätverk peering kan kommunikationen mellan virtuella datorer i två olika virtuella nätverk använda Azure-nätverk basen kommunicera direkt med varandra. Latens visas som om de virtuella datorerna finns i samma virtuella nätverk. Trafik som IP-adressintervall som är anslutna via Azure virtuella nätverkets gateway-adresser dirigeras via enskilda virtuella nätverks-gatewayen för det virtuella nätverket. 
+Bilden visar SAP programnivå eller komponenter, distribueras över flera virtuella nätverk. Den här konfigurationen introducerade oundvikligt latens kostnader som inträffade under kommunikation mellan de program som finns i de virtuella nätverk. Som standard nätverkstrafiken mellan virtuella datorer finns i olika virtuella nätverk vidarebefordra via routrar i utkanten enterprise i den här konfigurationen. Sättet att optimera och minska svarstiden för kommunikationen mellan två virtuella nätverk är att peering virtuella nätverk inom samma region. Den här metoden fungerar även om de virtuella nätverk finns i olika prenumerationer. Med virtuella nätverk peering kan kommunikationen mellan virtuella datorer i två olika virtuella nätverk använda Azure-nätverk basen kommunicera direkt med varandra. Latens visas som om de virtuella datorerna finns i samma virtuella nätverk. Trafik som IP-adressintervall som är anslutna via Azure virtuella nätverkets gateway-adresser dirigeras via enskilda virtuella nätverks-gatewayen för det virtuella nätverket. 
 
 Mer information om virtuellt nätverk peering finns [virtuella nätverk peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 

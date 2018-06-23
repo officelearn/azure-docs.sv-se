@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från Xero med hjälp av Azure Data Factory (Beta) | Microsoft Docs
+title: Kopiera data från Xero med hjälp av Azure Data Factory (förhandsversion) | Microsoft Docs
 description: Lär dig hur du kopierar data från Xero till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: fbfad00956faad49980a431504d991cfde22cafb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0d2b55384484932cb243ec6b15a6b4944c716471
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619379"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337655"
 ---
-# <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>Kopiera data från Xero med hjälp av Azure Data Factory (Beta)
+# <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>Kopiera data från Xero med hjälp av Azure Data Factory (förhandsgranskning)
 
 Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från Xero. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
 
@@ -28,7 +28,7 @@ Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Fac
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Kopieringsaktiviteten i V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Den här anslutningen är för närvarande i betaversion. Du kan prova och ge feedback. Använd den inte i produktionsmiljöer.
+> Den här anslutningen är för närvarande under förhandsgranskning. Du kan prova och ge feedback. Om du vill skapa ett beroende på anslutningsappar som är i förhandsversion i din lösning kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -43,7 +43,7 @@ Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, m
 
 ## <a name="getting-started"></a>Komma igång
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Xero-anslutningen.
 

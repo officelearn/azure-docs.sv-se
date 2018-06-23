@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8e521099-bf7d-43ab-a0e0-86aa1c9e577e
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 44b34c20c8b21b58ef67beedc1074f0664048b90
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f4ef40ea5e3d68ed8c04dc2a67042abd74df42aa
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212390"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317816"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Självstudier: Azure Active Directory-integrering med Manabi bära
 
@@ -101,35 +100,29 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning dialogrutan](./media/manabipocket-tutorial/tutorial_manabipocket_samlbase.png)
 
-3. På den **Manabi bära domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+3. På den **Manabi bära domän och URL: er** avsnittet, utför följande steg:
 
     ![URL: er och Manabi bära domän med enkel inloggning information](./media/manabipocket-tutorial/tutorial_manabipocket_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
-    
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/assertion_post`
+    a. I den **inloggnings-URL** textruta anger du URL: `https://ed-cl.com/`
+
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [Manabi bära klienten supportteamet](mailto:info-ed-cl@ntt.com) att hämta dessa värden.
+    > ID-värdet är inte verkliga. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [Manabi bära klienten supportteamet](mailto:info-ed-cl@ntt.com) att hämta det här värdet.
 
-4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
-
-    ![URL: er och Manabi bära domän med enkel inloggning information](./media/manabipocket-tutorial/tutorial_manabipocket_url1.png)
-
-    I den **inloggnings-URL** textruta anger du URL: `https://ed-cl.com/`
-
-5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Länken hämta certifikatet](./media/manabipocket-tutorial/tutorial_manabipocket_certificate.png) 
 
-6. Klicka på **spara** knappen.
+5. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/manabipocket-tutorial/tutorial_general_400.png)
 
-7. Konfigurera enkel inloggning på **Manabi bära** sida, måste du skicka den hämtade **XML-Metadata för** till [Manabi bära supportteamet](mailto:info-ed-cl@ntt.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+6. Konfigurera enkel inloggning på **Manabi bära** sida, måste du skicka den hämtade **XML-Metadata för** till [Manabi bära supportteamet](mailto:info-ed-cl@ntt.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
@@ -196,7 +189,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
 
 7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
-    
+
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
@@ -222,4 +215,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-direct
 [201]: ./media/manabipocket-tutorial/tutorial_general_201.png
 [202]: ./media/manabipocket-tutorial/tutorial_general_202.png
 [203]: ./media/manabipocket-tutorial/tutorial_general_203.png
-

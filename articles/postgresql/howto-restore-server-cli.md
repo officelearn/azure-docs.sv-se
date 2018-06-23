@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5c5cc1fdbe48fb93eea204e4619038052e685f1f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4e745a5de8000e0f26491c9f4f236f7f8a735ae9
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411506"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319649"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure-databas för PostgreSQL med hjälp av Azure CLI
 
@@ -32,32 +32,6 @@ Du behöver följande för att slutföra den här instruktioner:
 
 > [!IMPORTANT]
 > Den här instruktioner kräver att du använder Azure CLI version 2.0 eller senare. Om du vill bekräfta version Kommandotolken Azure CLI, ange `az --version`. Om du vill installera eller uppgradera, se [installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
-
-## <a name="add-the-extension"></a>Lägga till tillägget
-Lägg till det uppdaterade hanteringstillägget för Azure Database for PostgreSQL med följande kommando:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Kontrollera att du har rätt tilläggsversion installerad. 
-```azurecli-interactive
-az extension list
-```
-
-JSON-returfilen bör innehålla följande: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Om version 0.0.5 inte returneras, kör du följande för att uppdatera tillägget: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>Ange konfigurationen för säkerhetskopiering
 

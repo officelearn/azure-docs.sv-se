@@ -7,20 +7,20 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 06/22/2018
 ms.author: sujayt
-ms.openlocfilehash: 19c439e1182086b91d05f8bb23bc6c07c34a12a2
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 7f0011172185f13f51bcea8061b36012aa5da33b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716320"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36321201"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
 
 
-Den här artikeln beskriver konfigurationer som stöds och komponenter för Azure Site Recovery när replikering och återställa virtuella Azure-datorer från en region till en annan region.
+Den här artikeln sammanfattar konfigurationer som stöds och komponenter när du replikerar och återställa virtuella Azure-datorer från en region till en annan region med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service.
 
 ## <a name="user-interface-options"></a>Alternativ för användargränssnitt
 
@@ -79,9 +79,10 @@ Den nedan stöd gäller för alla arbetsbelastningar som körs på nämnda OS.
 - Ubuntu 16.04 LTS Server [ (kernel-versioner som stöds)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Debian 7 [ (kernel-versioner som stöds)](#supported-debian-kernel-versions-for-azure-virtual-machines)
 - Debian 8 [ (kernel-versioner som stöds)](#supported-debian-kernel-versions-for-azure-virtual-machines)
-- Oracle Enterprise Linux 6.4, 6.5 Red Hat kompatibel kernel eller Unbreakable Enterprise Kernel version 3 (UEK3)
+- SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versioner som stöds)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
+- Oracle Enterprise Linux 6.4, 6.5 Red Hat kompatibel kernel eller Unbreakable Enterprise Kernel version 3 (UEK3)
 
 (Uppgradering av replikera datorer från SLES 11 SP3 till SLES 11 SP4 stöds inte. Om en replikerad dator har uppgraderats från SLES 11SP3 till SLES 11 SP4, måste du inaktivera replikering och skydda datorn igen efter uppgraderingen.)
 
@@ -93,22 +94,32 @@ Den nedan stöd gäller för alla arbetsbelastningar som körs på nämnda OS.
 
 **Versionen** | **Mobilitetstjänstversionen** | **Kernelversion** |
 --- | --- | --- |
-14.04 LTS | 9.13 | 3.13.0-24-Generic till 3.13.0-137-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-104-generic |
-14.04 LTS | 9.14 | 3.13.0-24-Generic till 3.13.0-141-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-112-generic |
-14.04 LTS | 9.15 | 3.13.0-24-Generic till 3.13.0-143-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-116-generic |
+14.04 LTS | 9.17 | 3.13.0-24-Generic till 3.13.0-147-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-124-generic |
 14.04 LTS | 9.16 | 3.13.0-24-Generic till 3.13.0-144-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-119-generic |
-16.04 LTS | 9.13 | 4.4.0-21-Generic till 4.4.0-104-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic |
-16.04 LTS | 9.14 | 4.4.0-21-Generic till 4.4.0-112-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-32-generic,<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-Azure till 4.13.0-1009-azure |
-16.04 LTS | 9.15 | 4.4.0-21-Generic till 4.4.0-116-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-37-generic,<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-Azure till 4.13.0-1012-azure |
+14.04 LTS | 9.15 | 3.13.0-24-Generic till 3.13.0-143-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-116-generic |
+14.04 LTS | 9.14 | 3.13.0-24-Generic till 3.13.0-141-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-112-generic |
+|||
+16.04 LTS | 9.17 | 4.4.0-21-Generic till 4.4.0-124-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-41-generic,<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-Azure till 4.13.0-1016-azure |
 16.04 LTS | 9.16 | 4.4.0-21-Generic till 4.4.0-119-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-38-generic,<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-Azure till 4.13.0-1012-azure |
+16.04 LTS | 9.15 | 4.4.0-21-Generic till 4.4.0-116-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-37-generic,<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-Azure till 4.13.0-1012-azure |
+16.04 LTS | 9.14 | 4.4.0-21-Generic till 4.4.0-112-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-32-generic,<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-Azure till 4.13.0-1009-azure |
 
 
 ### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Debian kernel-versioner som stöds för virtuella Azure-datorer
 
 **Versionen** | **Mobilitetstjänstversionen** | **Kernelversion** |
 --- | --- | --- |
+Debian 7 | 9.17 | 3.2.0-4-amd64 till 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 Debian 7 | 9.14, 9.15, 9.16 | 3.2.0-4-amd64 till 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+|||
+Debian 8 | 9.17 | 3.16.0-4-amd64 till 3.16.0-6-amd64 4.9.0-0.bpo.4-amd64 till 4.9.0-0.bpo.6-amd64 |
 Debian 8 | 9.14, 9.15, 9.16 | 3.16.0-4-amd64 till 3.16.0-5-amd64 4.9.0-0.bpo.4-amd64 till 4.9.0-0.bpo.5-amd64 |
+
+### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>SUSE Linux Enterprise Server 12 kernel-versioner som stöds för virtuella Azure-datorer
+
+**Versionen** | **Mobilitetstjänstversionen** | **Kernelversion** |
+--- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default till 4.4.126-94.22-default |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Filsystem som stöds och Gäst lagringskonfigurationer på Azure virtuella datorer som kör Operativsystemet Linux
 
@@ -162,7 +173,7 @@ Diskar på premium storage-konton | Stöds | Om en virtuell dator har diskar som
 Hanterad standarddiskar | Stöds i Azure-regioner som Azure Site Recovery stöds. Offentliga moln stöds inte för närvarande.  |  
 Hanterad premiumdiskar | Stöds i Azure-regioner som Azure Site Recovery stöds. Offentliga moln stöds inte för närvarande. |
 Lagringsutrymmen | Stöds |         
-Kryptering i vila (SSE) | Stöds | Du kan välja ett lagringskonto för SSE aktiverad för cache och mål för lagringskonton.     
+Kryptering i vila (SSE) | Stöds | SSE är standardinställningen på storage-konton.   
 Azure Disk Encryption (ADE) | Stöds inte |
 Varm Lägg till/ta bort disken | Stöds inte | Om du lägger till eller ta bort datadisk på den virtuella datorn, måste du inaktivera replikering och aktivera replikering för den virtuella datorn igen.
 Uteslut disk | Stöds inte|   Tillfällig disklagring har exkluderats som standard.

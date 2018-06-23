@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 4be591a15c7ba2c6deaa17f1847233f409179472
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e80c69657dfb7cbab7d29c94d3dd3c56574de7b7
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "35356222"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36321997"
 ---
 # <a name="speech-service-rest-apis"></a>Tal service REST API: er
 
@@ -31,11 +31,14 @@ Västra USA| `https://westus.stt.speech.microsoft.com/speech/recognition/convers
 Norra Europa| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 
 > [!NOTE]
-> Om du har anpassat ljud modell eller språkmodell eller uttal du istället använda anpassade slutpunkten.
+> Du måste lägga till nödvändiga språkpaket i URI: N att undvika ett http 401-fel. För en-US så är rätt URI: N: https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 
 Tal Text-API: et är annars liknar den [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) tidigare tal-API: t.
 
 Tal Text REST-API: et stöder endast korta utterances. Begäranden kan innehålla upp till 10 sekunder ljud och senaste högst 14 övergripande sekunder. REST API returnerar endast slutresultatet, inte helt eller delvis mellanliggande resultat.
+
+> [!NOTE]
+> Om du har anpassat ljud modell eller språkmodell eller uttal du istället använda anpassade slutpunkten.
 
 ## <a name="text-to-speech"></a>Text till tal
 
@@ -143,7 +146,7 @@ C# klassen nedan illustrerar hur du skaffar en åtkomst-token. Överföra prenum
     public class Authentication
     {
         public static readonly string FetchTokenUri =
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
         private string subscriptionKey;
         private string token;
 
@@ -164,7 +167,6 @@ C# klassen nedan illustrerar hur du skaffar en åtkomst-token. Överföra prenum
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 UriBuilder uriBuilder = new UriBuilder(fetchUri);
-                uriBuilder.Path += "/issueToken";
 
                 var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
                 Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
@@ -210,7 +212,7 @@ Precis som tidigare, se till att den `FetchTokenUri` värdet matchar din prenume
     public class Authentication
     {
         public static readonly string FetchTokenUri = 
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
         private string subscriptionKey;
         private string token;
         private Timer accessTokenRenewer;
@@ -270,7 +272,6 @@ Precis som tidigare, se till att den `FetchTokenUri` värdet matchar din prenume
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 UriBuilder uriBuilder = new UriBuilder(fetchUri);
-                uriBuilder.Path += "/issueToken";
 
                 var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
                 Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
@@ -279,3 +280,8 @@ Precis som tidigare, se till att den `FetchTokenUri` värdet matchar din prenume
         }
     }
 ```
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Hämta din utvärderingsprenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
+* [Se hur du anpassar en modell med tal](how-to-customize-speech-models.md)

@@ -1,5 +1,5 @@
 ---
-title: Nätverk topologier för Azure SQL DB hanteras instans migreringar med tjänsten Azure Database migrering | Microsoft Docs
+title: Nätverk topologier för Azure SQL-hanterade databasinstans migreringar med tjänsten Azure Database migrering | Microsoft Docs
 description: Läs om käll- och konfigurationer för migrering databastjänsten.
 services: database-migration
 author: HJToland3
@@ -10,16 +10,16 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/06/2018
-ms.openlocfilehash: 5904864ffba656dab17e1549ed9832be4258a67f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 06/21/2018
+ms.openlocfilehash: 9fcee103854209016d73e29b598c9f33d35c4b6c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30235408"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316875"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Nätverkstopologier för hanterade Azure SQL DB-instans migreringar med tjänsten Azure Database migrering
-I den här artikeln får du lära dig om olika nätverkstopologier som tjänsten Azure Database migrering kan arbeta med för att tillhandahålla en sömlös migrering från lokala SQL-servrar till hanterade Azure SQL Database-instans.
+Den här artikeln beskrivs olika nätverkstopologier som tjänsten Azure Database migrering kan arbeta med för att tillhandahålla en omfattande migrering från lokala SQL-servrar till hanterade Azure SQL Database-instans.
 
 ## <a name="azure-sql-database-managed-instance-configured-for-hybrid-workloads"></a>Azure SQL Database hanteras-instans som konfigurerats för Hybrid arbetsbelastningar 
 Använd den här topologin om din Azure SQL-hanterade databasinstans är anslutet till det lokala nätverket. Den här metoden ger den mest förenklad nätverksroutning och ger maximal datagenomströmning under migreringen.
@@ -40,7 +40,7 @@ Använd den här nätverkstopologi om miljön kräver en eller flera av följand
 
 **Krav**
 - Det VNET som Azure-databas migreringstjänsten använder för det här scenariot måste också vara ansluten till det lokala nätverket genom att använda antingen (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Du måste ställa in [VNET nätverk peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) mellan VNET som används för hanteras Azure SQL Database-instans och tjänsten Azure Database migrering.
+- Ställ in [VNET nätverk peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) mellan VNET som används för hanteras Azure SQL Database-instans och tjänsten Azure Database migrering.
 
 
 ## <a name="cloud-to-cloud-migrations-shared-vnet"></a>Moln-to-cloud-migrering: delade virtuella nätverk
@@ -62,7 +62,7 @@ Använd den här nätverkstopologi om miljön kräver en eller flera av följand
 ![Nätverkstopologi för moln-to-Cloud-migreringar med ett isolerat virtuellt nätverk](media\resource-network-topologies\cloud-to-cloud-isolated.png)
 
 **Krav**
-- Du måste ställa in [VNET nätverk peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) mellan VNET som används för hanteras Azure SQL Database-instans och tjänsten Azure Database migrering.
+- Ställ in [VNET nätverk peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) mellan VNET som används för hanteras Azure SQL Database-instans och tjänsten Azure Database migrering.
 
 
 ## <a name="see-also"></a>Se även

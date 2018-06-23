@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/22/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: f7f459404b5a759bef9eb8f37141bbd4c9eae3e5
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a74e77f84aa70519015a589cbc6e7478c0c41592
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849636"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318817"
 ---
 # <a name="azure-stack-1803-update"></a>Azure-stacken 1803 uppdatering
 
@@ -54,45 +54,40 @@ Azure-stacken 1803 uppdatera versionsnumret är **20180329.1**.
   
   Till skillnad från uppdateringar till Azure-stacken ändras installera den här uppdateringen inte versionen av Azure-stacken. För att bekräfta den här uppdateringen har installerats, visas en lista med **installerade uppdateringar**.
 
-### <a name="post-update-steps"></a>Steg efter uppdateringen
-- Installera alla tillämpliga snabbkorrigeringar efter installationen av 1803. Mer information läser du följande knowledge base-artiklar, samt våra [Servicing princip](azure-stack-servicing-policy.md).
 
-  - [KB 4294441 - åtgärder mot resurser misslyckas-klient och oväntat resurser skapas på samma klient eller infrastruktur volym](https://support.microsoft.com/en-us/help/4294441)
-
-- Granska brandväggskonfigurationen så när du har installerat uppdateringen [nödvändiga portarna](azure-stack-integrate-endpoints.md) är öppna. Den här uppdateringen införs till exempel Azure-Monitor som innehåller en ändring av granskningsloggar för att skicka aktivitetsloggar. Med den här ändringen port 13012 används nu och måste också vara öppen.  
 
 ### <a name="new-features"></a>Nya funktioner 
 Den här uppdateringen innehåller följande förbättringar och korrigeringar för Azure-stacken.
 
 - **Uppdatera Azure Stack hemligheter** - (konton och certifikat). Mer information om hur du hanterar hemligheter finns [rotera hemligheter i Azure-stacken](azure-stack-rotate-secrets.md). 
 
-- <!-- 1914853 --> **Automatic redirect to HTTPS** when you use HTTP to access the administrator and user portals. This improvement was made based on [UserVoice](https://feedback.azure.com/forums/344565-azure-stack/suggestions/32205385-it-would-be-great-if-there-was-a-automatic-redirec) feedback for Azure Stack. 
+- <!-- 1914853 --> **Automatisk omdirigering till HTTPS** när du använder HTTP för att få åtkomst till administratörs- och portaler. Denna förbättring gjordes utifrån [UserVoice](https://feedback.azure.com/forums/344565-azure-stack/suggestions/32205385-it-would-be-great-if-there-was-a-automatic-redirec) feedback för Azure-stacken. 
 
-- <!-- 2202621  --> **Access the Marketplace** – You can now open the Azure Stack Marketplace by using the [+New](https://ms.portal.azure.com/#create/hub) option from within the admin and user portals the same way you do in the Azure portals.
+- <!-- 2202621  --> **Åtkomst till Marketplace** – nu kan du öppna Azure Stack Marketplace med hjälp av den [+ ny](https://ms.portal.azure.com/#create/hub) alternativet från inom administratörs- och portaler på samma sätt som i Azure portaler.
  
-- <!-- 2202621 --> **Azure Monitor** - Azure Stack adds [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) to the admin and user portals. This includes new explorers for metrics and activity logs. To access this Azure Monitor from external networks, port **13012** must be open in firewall configurations. For more information about ports required by Azure Stack, see [Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md).
+- <!-- 2202621 --> **Azure-Monitor** -Azure-stacken tillför [Azure-Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) till administratörs- och portaler. Detta inkluderar nya olika utforskarfönster för mått och aktivitet. För att komma åt den här Azure-Monitor från externa nätverk port **13012** måste öppnas i brandväggskonfigurationer. Mer information om portar som krävs av Azure-stacken finns [Azure Stack datacenter integration - publicera slutpunkter](azure-stack-integrate-endpoints.md).
 
    Också som en del av detta ändras under **fler tjänster**, *granskningsloggar* nu visas som *aktivitetsloggar*. Funktionen är nu konsekvent med den Azure-portalen. 
 
-- <!-- 1664791 --> **Sparse files** -  When you add a New image to Azure Stack, or add an image through marketplace syndication, the image is converted to a sparse file. Images that were added prior to using Azure Stack version 1803 cannot be converted. Instead, you must use marketplace syndication to resubmit those images to take advantage of this feature. 
+- <!-- 1664791 --> **Sparse-filer** – när du lägger till en ny avbildning till Azure-stacken eller lägga till en bild via marketplace syndikering bilden konverteras till en sparse-fil. Bilder som har lagts till innan du använder Azure-stacken version 1803 kan inte konverteras. I stället måste du använda marketplace syndikering för att skicka dessa avbildningar för att dra nytta av den här funktionen. 
  
    Sparse-filer är ett effektivt filformat som används för att minska användningen av diskutrymme för lagring och förbättra i/o.  Mer information finns i [Fsutil sparse](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-sparse) för Windows Server. 
 
 ### <a name="fixed-issues"></a>Fast problem
 
-- <!-- 1739988 --> Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to drop packets to the back-end network when using Linux instances on the back-end network. ILB works fine with Windows instances on the back-end network. 
+- <!-- 1739988 --> Internt Load Balancing (ILB) nu hanterar korrekt MAC-adresser för backend-virtuella datorer, vilket gör ILB att släppa paket till backend-nätverket när du använder Linux-instanser på backend-nätverket. ILB fungerar bra med Windows-instanser på backend-nätverket. 
 
-- <!-- 1805496 --> An issue where VPN Connections between Azure Stack would become disconnected due to Azure Stack using different settings for the IKE policy than Azure. The values for SALifetime (Time) and SALiftetime (Bytes) were not compatible with Azure and have changed in 1803 to match the Azure settings. The value for SALifetime (Seconds) prior to 1803 was 14,400 and now changes to 27,000 in 1803. The value for SALifetime (Bytes) prior to 1803 was 819,200 and changes to 33,553,408 in 1803.
+- <!-- 1805496 --> Ett problem där VPN-anslutningar mellan Azure Stack skulle bli frånkopplad på grund av Azure-stacken med olika inställningar för princip än Azure. Värdena för SALifetime (Time) och SALiftetime (byte) var inte kompatibelt med Azure och har ändrats i 1803 så att den matchar Azure-inställningar. Värdet för SALifetime (sekunder) innan 1803 var 14 400 och nu 27 000 ändringar i 1803. Värdet för SALifetime (byte) innan 1803 var 819,200 och ändringar av 33,553,408 i 1803.
 
-- <!-- 2209262 --> The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal. 
+- <!-- 2209262 --> IP-problemet om VPN-anslutningar var tidigare visas i portalen. men har att aktivera eller växla IP-vidarebefordring ingen effekt. Funktionen är aktiverad som standard och möjligheten att ändra den här stöds inte än.  Kontrollen har tagits bort från portalen. 
 
-- <!-- 1766332 --> Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal. 
+- <!-- 1766332 --> Azure-stacken stöder inte principen baserat VPN-gatewayer, även om alternativet som visas i portalen.  Alternativet har tagits bort från portalen. 
 
-- <!-- 1868283 --> Azure Stack now prevents resizing of a virtual machine that is created with dynamic disks. 
+- <!-- 1868283 --> Azure-stacken förhindrar nu storleksändring av en virtuell dator som har skapats med dynamiska diskar. 
 
-- <!-- 1756324 --> Usage data for virtual machines is now separated at hourly intervals. This is consistent with Azure. 
+- <!-- 1756324 --> Användningsdata för virtuella datorer är nu avgränsade i timmen. Detta är förenligt med Azure. 
 
-- <!--  2253274 --> The issue where in the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and manage this information.
+- <!--  2253274 --> Problemet där i administratörs- och analytikerportaler, inställningsbladet för vNet undernät inte laddas. Som en tillfällig lösning kan du använda PowerShell och [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) för att visa och hantera den här informationen.
 
 - När du skapar en virtuell dator meddelandet *det gick inte att visa priserna* visas inte längre när du väljer en storlek för VM-storlek.
 
@@ -104,20 +99,29 @@ Den här uppdateringen innehåller följande förbättringar och korrigeringar f
 
 
 ### <a name="known-issues-with-the-update-process"></a>Kända problem med uppdateringen    
-<!-- 2328416 --> During installation of the 1803 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
+<!-- 2328416 --> Under installationen av uppdateringen 1803 kan det vara driftstopp för blob-tjänsten och interna tjänster som använder blob-tjänsten. Detta inkluderar vissa åtgärder för virtuell dator. Detta stillestånd kan orsaka fel för klient operations eller aviseringar från tjänster som inte kan komma åt data. Det här problemet löser sig själv när uppdateringen är klar med installationen. 
+
+
+
+### <a name="post-update-steps"></a>Steg efter uppdateringen
+- Installera alla tillämpliga snabbkorrigeringar efter installationen av 1803. Mer information läser du följande knowledge base-artiklar, samt våra [Servicing princip](azure-stack-servicing-policy.md).
+
+  - [KB 4341390 - Azure Stack snabbkorrigering 1.0.180424.12](https://support.microsoft.com/en-us/help/4341390).
+
+- Granska brandväggskonfigurationen så när du har installerat uppdateringen [nödvändiga portarna](azure-stack-integrate-endpoints.md) är öppna. Till exempel den här uppdateringen införs *Azure-Monitor* som innehåller en ändring av granskningsloggar för att skicka aktivitetsloggar. Med den här ändringen port 13012 används nu och måste också vara öppen.  
 
 
 ### <a name="known-issues-post-installation"></a>Kända problem (efter installationen)
 Följande är efter installationen kända problem för version **20180323.2**.
 
 #### <a name="portal"></a>Portalen
-- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+- <!-- 2332636 - IS -->  När du använder AD FS för Azure-stacken identitetssystem och uppdatera till den här versionen av Azure-stacken standardägaren av providern standardabonnemang återställs till inbyggt **CloudAdmin** användare.  
   Lösning: Lös problemet när du har installerat uppdateringen med steg 3 från de [utlösaren automation för att konfigurera anspråksproviderförtroende i Azure-stacken](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) proceduren för att återställa standard providern Prenumerationens ägare.   
 
 - Möjlighet [att öppna en ny supportförfrågan i listrutan](azure-stack-manage-portals.md#quick-access-to-help-and-support) från inom administratören portalen är inte tillgänglig. I stället använder du följande länk:     
     - För Azure-Stack integrerad system använda https://aka.ms/newsupportrequest.
 
-- <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
+- <!-- 2050709 --> I administrationsportal går inte att redigera storage-mätvärden för Blob-tjänsten, tabelltjänsten eller kötjänsten. När du går till lagring och välj blob-, tabell, eller kön service sida vid sida, öppnas ett nytt blad som visar ett diagram för mått för tjänsten. Om du sedan välja Redigera upp i panelen mått diagram, öppnas bladet redigera diagram men visas inte alternativen för att redigera mått.
 
 - Det kanske inte går att visa beräkning eller lagring resurser i administratörsportalen. Orsaken till det här problemet uppstår ett fel under installationen av uppdateringen som gör att uppdateringen som ska rapporteras felaktigt som slutförd. Om det här problemet inträffar kan du kontakta Microsofts kundsupport om du behöver hjälp.
 
@@ -136,7 +140,7 @@ Följande är efter installationen kända problem för version **20180323.2**.
 
 
 #### <a name="health-and-monitoring"></a>Hälsa och övervakning
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+- <!-- 1264761 - IS ASDK -->  Du kan se aviseringar för den *hälsa controller* komponenten som har följande information:  
 
    Avisera #1:
    - NAMN: Infrastrukturrollen ohälsosamt
@@ -173,7 +177,7 @@ Följande är efter installationen kända problem för version **20180323.2**.
 
 -  Om det tar för lång tid att etablera ett tillägg på en distribution av Virtuella datorer, bör användarna kan etablering timeout-värde i stället för att stoppa processen för att frigöra eller ta bort den virtuella datorn.  
 
-- <!-- 1662991 --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
+- <!-- 1662991 --> Linux VM diagnostik stöds inte i Azure-stacken. När du distribuerar en Linux VM med diagnostik för Virtuella datorer aktiveras misslyckas distributionen. Distributionen misslyckas även om du aktiverar Linux VM grundläggande mätvärden via diagnostikinställningar.  
 
 
 #### <a name="networking"></a>Nätverk
@@ -191,7 +195,7 @@ Följande är efter installationen kända problem för version **20180323.2**.
 
 - Azure-stacken stöder inte att lägga till ytterligare nätverksgränssnitt i en VM-instans när den virtuella datorn har distribuerats. Om den virtuella datorn kräver mer än ett nätverksgränssnitt, måste ha definierats vid tidpunkten för distribution.
 
-- <!-- 2096388 --> You cannot use the admin portal to update rules for a network security group. 
+- <!-- 2096388 --> Du kan inte använda administrationsportal för att uppdatera regler för en nätverkssäkerhetsgrupp. 
 
     Lösning för Apptjänst: Om du behöver fjärrskrivbord till domänkontrollant instanser du ändra säkerhetsregler inom nätverkssäkerhetsgrupper med PowerShell.  Följande är exempel på hur du *Tillåt*, och sedan återställa konfigurationen av *neka*:  
     
@@ -262,7 +266,7 @@ Följande är efter installationen kända problem för version **20180323.2**.
 
 - Endast resursprovidern stöds för att skapa objekt på servrar som SQL-värd eller MySQL. Objekt som har skapats på en värdserver som inte har skapats av resursprovidern kan resultera i ett felaktigt tillstånd.  
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
+- <!-- IS, ASDK --> Specialtecken, inklusive blanksteg och punkter, stöds inte i den **familj** namn när du skapar en SKU för SQL och MySQL-resursprovidrar.
 
 > [!NOTE]  
 > När du har uppdaterat till Azure-stacken 1803 kan du fortsätta att använda SQL och MySQL resursproviders som du tidigare har distribuerats.  Vi rekommenderar att du uppdaterar SQL och MySQL när en ny version blir tillgänglig. T.ex. Azure-stacken, tillämpa uppdateringar SQL och MySQL resursprovidrar sekventiellt.  Till exempel om du använder version 1711 först installera version 1712 sedan 1802 och sedan uppdatera till 1803.      

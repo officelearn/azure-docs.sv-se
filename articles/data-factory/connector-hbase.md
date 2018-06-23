@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 0675c2d8a7f3a0a7929ff6f4b3e9a96c404a77c3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 69062b121d2a39b704c4c15111e44d9ce8d65a5a
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616829"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332202"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Kopiera data från HBase med hjälp av Azure Data Factory 
 
@@ -35,7 +35,7 @@ Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, m
 
 ## <a name="getting-started"></a>Komma igång
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till HBase-anslutningen.
 
@@ -49,7 +49,7 @@ Följande egenskaper stöds för HBase länkade tjänsten:
 | värd | IP-adressen eller värdnamnet namnet på HBase-server. (d.v.s. 192.168.222.160 [klusternamn]. azurehdinsight.NET .net)  | Ja |
 | port | TCP-porten som HBase-instans som används för att lyssna efter anslutningar. Standardvärdet är 9090. Om du ansluter till Azure HDInsights ange porten som 443. | Nej |
 | httpPath | Partiell URL som motsvarar HBase-server. (d.v.s. /gateway/sandbox/hbase/version)  | Nej |
-| AuthenticationType | Autentiseringsmekanism för att ansluta till HBase-servern. <br/>Tillåtna värden är: **anonym**, **grundläggande** | Ja |
+| authenticationType | Autentiseringsmekanism för att ansluta till HBase-servern. <br/>Tillåtna värden är: **anonym**, **grundläggande** | Ja |
 | användarnamn | Användarnamnet som används för att ansluta till HBase-instans.  | Nej |
 | lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är false.  | Nej |

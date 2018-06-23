@@ -2,11 +2,11 @@
 För att använda Mobile Apps för att hantera autentiseringsprocessen i din app måste du registrera din app med din identitetsprovider. Sedan måste du konfigurera program-ID och -hemligheten som du fått av din provider i Azure App Service.
 Mer information finns i självstudierna [Lägg till autentisering till din app](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
-När du har registrerat din identitetsprovider anropar du `.login()`-metoden med namnet på din provider. För att till exempel logga in med Facebook använder du följande kod:
+När du har registrerat din identitetsprovider anropar du `.login()`-metoden med namnet på din provider. Till exempel för att logga in med Facebook-Använd följande kod:
 
 ```
 client.login("facebook").done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -17,7 +17,7 @@ Giltiga värden för providern är 'aad', 'facebook', 'google', 'microsoftaccoun
 > [!NOTE]
 > Google-autentisering fungerar för närvarande inte via Server Flow.  Om du vill autentisera med Google måste du använda en [klientflödesmetod](#client-auth).
 
-I det här fallet hanterar Azure App Service OAuth 2.0-autentiseringsflödet.  Den visar inloggningssidan för den valda providern och genererar en App Service-autentiseringstoken efter genomförd inloggning med identitetsprovidern. När inloggningsfunktionen är färdig returnerar den ett JSON-objekt som både visar användar-ID och App Service-autentiseringstoken i fälten userId respektive authenticationToken. Den här token kan cachelagras och återanvändas tills den upphör att gälla.
+I det här fallet hanterar Azure App Service OAuth 2.0-autentiseringsflödet.  Den visar inloggningssidan för vald leverantör och genererar en Apptjänst-autentiseringstoken efter lyckad inloggning med identitetsleverantören. När inloggningsfunktionen är färdig returnerar den ett JSON-objekt som både visar användar-ID och App Service-autentiseringstoken i fälten userId respektive authenticationToken. Den här token kan cachelagras och återanvändas tills den upphör att gälla.
 
 ###<a name="client-auth"></a>Gör så här för att: autentisera med en provider (Client Flow)
 
@@ -32,7 +32,7 @@ client.login(
      "facebook",
      {"access_token": token})
 .done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -50,7 +50,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
             "microsoftaccount",
             {"authenticationToken": result.session.authentication_token})
       .done(function(results){
-            alert("You are now logged in as: " + results.userId);
+            alert("You are now signed in as: " + results.userId);
       },
       function(error){
             alert("Error: " + err);

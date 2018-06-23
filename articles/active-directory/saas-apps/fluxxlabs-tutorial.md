@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d8fac770-bb57-4e1f-b50b-9ffeae239d07
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 2d22720e71788493d3663524f2b70783ba26b84d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b5fb84f8d8fbed7e1d4112e96b00af3e460661a
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218177"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317110"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Självstudier: Azure Active Directory-integrering med Fluxx Labs
 
@@ -67,7 +66,7 @@ Du måste lägga till Fluxx Labs från galleriet i listan över hanterade SaaS-a
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet Enterprise program][2]
-    
+
 3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
@@ -103,7 +102,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning dialogrutan](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_samlbase.png)
 
 3. På den **Fluxx Labs domän och URL: er** avsnittet, utför följande steg:
@@ -123,8 +122,8 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     |-------------|------------|
     | Produktion | `https://<subdomain>.fluxx.io/auth/saml/callback` |
     | Förproduktion | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
-        
-    > [!NOTE] 
+
+    > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [Fluxx Labs supportteam](mailto:travis@fluxxlabs.com) att hämta dessa värden.
 
 4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
@@ -135,7 +134,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning spara](./media/fluxxlabs-tutorial/tutorial_general_400.png)
 
-6. På den **Fluxx Labs Configuration** klickar du på **konfigurera Fluxx Labs** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+6. På den **Fluxx Labs Configuration** klickar du på **konfigurera Fluxx Labs** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
 
     ![Fluxx Labs konfiguration](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_configure.png)
 
@@ -148,9 +147,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 9. Markera Admin-panelen **plugins** > **integreringar** och välj sedan **SAML SSO-(Disabled)**
 
     ![Fluxx Labs konfiguration](./media/fluxxlabs-tutorial/config2.png)
-    
+
 10. Utför följande steg i avsnittet attribut:
-    
+
     ![Fluxx Labs konfiguration](./media/fluxxlabs-tutorial/config3.png)
 
     a. Välj den **SAML SSO** kryssrutan.
@@ -159,15 +158,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     c. I den **motringning sökvägen** textruta typen **/auth/saml/callback**.
 
-    d. I den **Assertion konsumenten Service Url(Single Sign-On URL)** textruta klistra in värdet för **SAML inloggning tjänst-URL för enkel**, som du har kopierat från Azure-portalen.
+    d. I den **Assertion konsumenten Service Url(Single Sign-On URL)** textruta ange den **Reply URL** -värde som du har angett i Azure-portalen.
 
-    e. I den **målgruppen (SP enhets-ID)** textruta klistra in värdet för **SAML enhets-ID**, som du har kopierat från Azure-portalen.
+    e. I den **målgruppen (SP enhets-ID)** textruta, ange den **identifierare** -värde som du har angett i Azure-portalen.
 
-    f. Öppna din Base64-kodade certifikatet i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **providern identitetscertifikat** textruta.
+    f. I den **identitet providern SSO mål-URL** textruta klistra in den **SAML inloggning tjänst-URL för enkel** -värde som du har kopierat från Azure-portalen.
 
-    g. I **namnidentifierare Format** textruta anger du värdet `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+    g. Öppna din Base64-kodade certifikatet i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **providern identitetscertifikat** textruta.
 
-    h. Klicka på **Spara**.
+    h. I **namnidentifierare Format** textruta anger du värdet `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+
+    i. Klicka på **Spara**.
 
     > [!NOTE]
     > När innehållet sparas, fältet visas tomt för säkerhet, men värdet har sparats i konfigurationen.
@@ -221,7 +222,7 @@ Om du vill aktivera Azure AD-användare kan logga in på Fluxx Labs, måste de e
     ![Fluxx Labs konfiguration](./media/fluxxlabs-tutorial/config4.png)
 
 4. På den **nya personer** avsnittet, utför följande steg:
-    
+
     ![Fluxx Labs konfiguration](./media/fluxxlabs-tutorial/config5.png)
 
     a. Fluxx labben använda e-post som den unika identifieraren för SSO-inloggning. Fyll i den **SSO UID** med användarens e-postadress som matchar den e-postadress som de använder som inloggningen med enkel inloggning.
@@ -232,7 +233,7 @@ Om du vill aktivera Azure AD-användare kan logga in på Fluxx Labs, måste de e
 
 I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Fluxx övningar.
 
-![Tilldela rollen][200] 
+![Tilldela rollen][200]
 
 **Om du vill tilldela Fluxx Labs Britta Simon utför du följande steg:**
 
@@ -257,7 +258,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
 
 7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
-    
+
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.

@@ -13,12 +13,12 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 905cedd6ee781ca163731a6f71b083acfc11b5eb
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29800745"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332379"
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft hybrididentitetslösningar
 [Microsoft Azure Active Directory (AD Azure)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) hybrididentitetslösningar gör det möjligt att synkronisera lokala katalogobjekt med Azure AD när fortfarande hantera användare lokalt. Det första beslutet att fatta när du planerar att synkronisera dina lokala Windows Server Active Directory med Azure AD är om du vill använda synkroniserade identitet eller federerad identitet. Synkroniserade identiteter och eventuellt lösenordshashvärden, att användarna kan använda samma lösenord för åtkomst till både lokala och molnbaserade organisationens resurser. För mer avancerade krav för scenarier, till exempel enkel inloggning (SSO) eller lokal MFA som du behöver distribuera Active Directory Federation Services (AD FS) för att federera identiteter. 
@@ -53,7 +53,7 @@ Direkt-autentisering har konfigurerats med Azure AD Connect, som använder en en
 - Ansluten till en domän i skogen som användare verifieras
 
 ## <a name="federated-identity-ad-fs"></a>Federerade identiteter (AD FS)
-För mer kontroll över hur användare kommer åt Office 365 och andra molntjänster som du kan ställa in katalogsynkronisering med enkel inloggning (SSO) [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server-2016). Federering användarens inloggningar med AD FS delegerar autentisering till en lokal server som validerar användarens autentiseringsuppgifter. Lokala Active Directory-autentiseringsuppgifter skickas aldrig till Azure AD i den här modellen.
+För mer kontroll över hur användare kommer åt Office 365 och andra molntjänster som du kan ställa in katalogsynkronisering med enkel inloggning (SSO) [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). Federering användarens inloggningar med AD FS delegerar autentisering till en lokal server som validerar användarens autentiseringsuppgifter. Lokala Active Directory-autentiseringsuppgifter skickas aldrig till Azure AD i den här modellen.
 
 ![Federerade identiteter](./media/choose-hybrid-identity-solution/federated-identity.png)
 

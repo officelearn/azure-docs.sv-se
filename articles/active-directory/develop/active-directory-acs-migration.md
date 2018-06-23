@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: celested
-ms.reviewer: dastrock
-ms.openlocfilehash: c1c86f21d5a99cf251b0b83f41576c2cdaf96dfb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin, dastrock
+ms.openlocfilehash: 0b3e7d9b7a01767e44c7c59c7250808290a03c30
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157613"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319232"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrera från tjänsten Azure Access Control
 
@@ -292,7 +292,7 @@ Du kan också använda Azure AD för autentisering av server-till-server med hj�
 | ---------- | ----------- | ---------------- |
 | Så här registrerar du en webbtjänst | Skapa en förlitande part i hanteringsportalen för åtkomstkontroll | Skapa en Azure AD-webbapp i Azure-portalen |
 | Så här registrerar du en klient | Skapa en tjänstidentitet i hanteringsportalen för åtkomstkontroll | Skapa en annan Azure AD-webbprogram i Azure-portalen |
-| Protokoll som används |-Protokollet OAuth OMSLUTNING<br />-Bevilja OAuth 2.0 utkast 13 klientens autentiseringsuppgifter | Bevilja OAuth 2.0 klientens autentiseringsuppgifter |
+| Protokoll som används |-Protokollet OAuth OMSLUTNING<br />-Bevilja OAuth 2.0 utkast 13 klientens autentiseringsuppgifter | Beviljande av autentiseringsuppgifter för OAuth 2.0-klient |
 | Klientautentiseringsmetoder |-Enkla lösenord<br />-Signerade SWT<br />-SAML token från en federerad identitet-provider |-Enkla lösenord<br />-JWT signerad |
 | Token format |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | Endast JWT |
 | Omvandling av token |-Lägg till anpassade anspråk<br />-Enkelt om sedan anspråk utfärdande-logiken | Lägga till anpassade anspråk | 

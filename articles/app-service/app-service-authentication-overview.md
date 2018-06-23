@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-ms.openlocfilehash: c180dcf5d769245f3fa2485ccee2cbc18ecf5f67
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 9220eb3800cd1b7b46e276bbda5bb88fc06d5e54
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763500"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337830"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
 
@@ -79,11 +79,11 @@ Apptjänst använder [federerad identitet](https://en.wikipedia.org/wiki/Federat
 
 | Leverantör | Logga in slutpunkt |
 | - | - |
-| [Azure Active Directory](../active-directory/active-directory-whatis.md) | `/.auth/login/aad` |
+| [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
 | [Microsoft-konto](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoft` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
-| [Twitter](https://developer.twitter.com/docs/basics/authentication) | `/.auth/login/twitter` |
+| [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 
 När du aktiverar autentisering och auktorisering med något av dessa providers är inloggning slutpunkten tillgänglig för autentisering och för verifiering av autentiseringstoken från leverantören. Du kan ge användarna med valfritt antal dessa inloggningsalternativ enkel. Du kan också integrera en annan identitetsleverantör eller [egna anpassade identitetslösning][custom-auth].
 

@@ -50,7 +50,7 @@ function callGraphApi() {
         userInfoElement.parentElement.classList.remove("hidden");
         userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
-        // Show Sign-Out button
+        // Show sign-off button
         document.getElementById("signOutButton").classList.remove("hidden");
 
         // Now Call Graph API to show the user profile information:
@@ -81,7 +81,7 @@ function callGraphApi() {
 /**
  * Callback method from sign-in: if no errors, call callGraphApi() to show results.
  * @param {string} errorDesc - If error occur, the error message
- * @param {object} token - The token received from login
+ * @param {object} token - The token received from sign-in
  * @param {object} error - The error string
  * @param {string} tokenType - The token type: For loginRedirect, tokenType = "id_token". For acquireTokenRedirect, tokenType:"access_token".
  */
@@ -119,16 +119,16 @@ SPA som genererats av den här guiden gör inte användas direkt av ID-token –
 
 #### <a name="getting-a-user-token-interactively"></a>Hämta token för en användare interaktivt
 
-Efter den första inloggningen, du inte vill be användare att autentiseras varje gång de behöver för att begära en token för att komma åt en resurs – så *acquireTokenSilent* ska användas för de flesta fall för att hämta token. Det finns situationer men som behövs för att tvinga användare interagerar med Azure Active Directory v2 slutpunkt – några exempel:
--   Användare kan behöva ange sina autentiseringsuppgifter på eftersom lösenordet har upphört att gälla
--   Ditt program begär åtkomst till en resurs som användaren behöver samtycker till att
--   Tvåfaktorsautentisering krävs
+Efter den första inloggningen, du inte vill be användare att autentiseras varje gång de behöver för att begära en token för att komma åt en resurs – så *acquireTokenSilent* ska användas för de flesta fall för att hämta token. Det finns situationer men det måste du tvinga användare att interagera med Azure Active Directory v2 slutpunkt – några exempel:
+- Användare kan behöva ange sina autentiseringsuppgifter på eftersom lösenordet har upphört att gälla
+- Ditt program begär åtkomst till en resurs som användaren behöver samtycker till att
+- Tvåfaktorsautentisering krävs
 
-Anropar den *acquireTokenRedirect(scope)* resultera i att omdirigera användare till Azure Active Directory v2 slutpunkten (eller *acquireTokenPopup(scope)* resultatet i ett popup-fönster) när användare behöver interagera med genom att antingen bekräfta sina autentiseringsuppgifter, ge medgivande till den begärda resursen eller Slutför tvåfaktorsautentisering de två.
+Anropar den *acquireTokenRedirect(scope)* resultera i att omdirigera användare till Azure Active Directory v2 slutpunkten (eller *acquireTokenPopup(scope)* resultatet i ett popup-fönster) när användare behöver interagera genom att antingen bekräfta sina autentiseringsuppgifter, ge medgivande till den begärda resursen eller Slutför tvåfaktorsautentisering de två.
 
 #### <a name="getting-a-user-token-silently"></a>Hämta token för en användare tyst
 Den ` acquireTokenSilent` metoden hanterar token förvärv av organisationer och förnyelse utan någon användarinteraktion. Efter `loginRedirect` (eller `loginPopup`) körs för första gången `acquireTokenSilent` är den metod som används ofta för att hämta token som används för att komma åt skyddade resurser för efterföljande anrop - eftersom anrop till begära eller förnya token görs tyst.
-`acquireTokenSilent`misslyckas i vissa fall – till exempel användarens lösenord har upphört att gälla. Programmet kan hantera det här undantaget på två sätt:
+`acquireTokenSilent` misslyckas i vissa fall – till exempel användarens lösenord har upphört att gälla. Programmet kan hantera det här undantaget på två sätt:
 
 1.  Gör ett anrop till `acquireTokenRedirect` direkt, vilket innebär att användaren uppmanas att logga in. Det här mönstret är vanligt i Onlineprogram där det finns inget oautentiserade innehåll i programmet tillgängligt för användaren. Genereras av den här interaktiv installation används det här mönstret.
 
@@ -198,13 +198,13 @@ I det exempelprogram som skapats av den här guiden, den `callWebApiWithToken()`
 
 <!--end-collapse-->
 
-## <a name="add-a-method-to-sign-out-the-user"></a>Lägg till en metod för att logga ut användaren
+## <a name="add-a-method-to-sign-off-the-user"></a>Lägg till en metod för att logga ut användaren
 
 Lägg till följande kod i din `app.js` fil:
 
 ```javascript
 /**
- * Sign-out the user
+ * Sign off the user
  */
 function signOut() {
     userAgentApplication.logout();

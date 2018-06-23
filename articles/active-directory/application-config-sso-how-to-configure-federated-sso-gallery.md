@@ -3,21 +3,23 @@ title: Så här konfigurerar du federerad enkel inloggning för ett program för
 description: Hur du konfigurerar federerad enkel inloggning för ett befintligt program i Azure AD-galleriet och använda självstudier för att komma igång snabbare
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 47aab24702be966beeb41371201c6966497dc35a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.openlocfilehash: f74e614cd8709503afcbae8714732bbacf7c2ae2
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331658"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Så här konfigurerar du federerad enkel inloggning för ett program för Azure AD-galleriet
 
@@ -165,7 +167,7 @@ Följ stegen nedan för att ladda ned programmetadata eller certifikat från Azu
 
 8.  Gå till **SAML-signeringscertifikat** avsnittet och klicka sedan på **hämta** värde i kolumnen. Beroende på vilka programmet kräver att konfigurera enkel inloggning, finns antingen alternativet för att hämta Metadata XML eller certifikatet.
 
-Azure AD Ange inte en URL för att hämta metadata. Metadata kan endast hämtas som en XML-fil.
+Azure AD innehåller också en URL för att hämta metadata. Följer detta mönster för att få metadata-URL för programmet: https://login.microsoftonline.com/ <Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>.
 
 ## <a name="assign-users-to-the-application"></a>Tilldela användare till programmet
 

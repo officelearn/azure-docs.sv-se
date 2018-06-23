@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a929149f115d716bf7f9d850abe5ba97bd5a8189
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a79184a5e08aa43a4675194adf5f10b9807418db
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30198102"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329560"
 ---
 ### <a name="gwipnoconnection"></a> Att ändra lokala nätverkets gateway-IP-adress - ingen gateway-anslutningen
 
@@ -23,7 +23,7 @@ Använd exemplet för att ändra en lokal nätverksgateway som inte har någon g
 2. I den **IP-adress** ändrar IP-adress.
 3. Spara inställningarna genom att klicka på **Spara**.
 
-### <a name="gwipwithconnection"></a>Att ändra lokala nätverkets gateway gateway IP-adress - befintlig gateway-anslutningen
+### <a name="gwipwithconnection"></a>Att ändra lokala nätverkets gateway IP-adress - befintlig gateway-anslutningen
 
 Om du vill ändra en lokal nätverksgateway som har en anslutning måste du först ta bort anslutningen. När anslutningen har tagits bort kan du ändra IP-adressen till gatewayen och skapa en ny anslutning. Du kan också ändra adressprefixen på samma gång. Det medför en del avbrott för din VPN-anslutning. När du ändrar IP-adressen för gatewayen behöver du inte ta bort VPN-gatewayen. Du måste bara ta bort anslutningen.
  

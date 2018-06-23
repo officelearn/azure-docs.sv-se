@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: 0407d3c58fa63a11c8391f069039f7c35a15ceb7
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: c55f90b944038a0e4ca216a357fc30f4cf6a6ddc
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294745"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317294"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure DB Cosmos-brandväggsstöd
 Om du vill skydda data som lagras i Azure DB som Cosmos-databaskonto har Azure Cosmos DB fanns stöd för en hemlighet baserat [auktoriseringsmodellen](https://msdn.microsoft.com/library/azure/dn783368.aspx) som använder en stark hashbaserad meddelandeautentiseringskod (HMAC). Förutom den hemliga baserat auktoriseringsmodellen stöder nu Azure Cosmos DB drivs IP-baserade åtkomstkontroller för inkommande brandväggsstöd-princip. Den här modellen liknar brandväggsregler vid traditionella system och ger en extra nivå av säkerhet till databaskontot Azure Cosmos DB. Med den här modellen kan du nu konfigurera en Azure Cosmos DB konto om du vill att endast nås från en godkänd uppsättning datorer och/eller molntjänster. Åtkomst till Azure Cosmos DB resurser från dessa godkända uppsättningar av datorer och tjänster kräver fortfarande anroparen presentera en giltig auktoriserings-token.
@@ -56,10 +56,10 @@ När du aktiverar en IP-principer för åtkomstkontroll programmässigt du behö
 
 ![Skärmbild som visar hur du aktiverar Azure portalåtkomst](./media/firewall-support/enable-azure-portal.png)
 
-## <a name="connections-from-public-azure-datacenters-or-azure-paas-services"></a>Anslutningar från offentliga Azure-Datacenter eller Azure PaaS-tjänster
+## <a name="connections-from-global-azure-datacenters-or-azure-paas-services"></a>Anslutningar från globala Azure-Datacenter eller Azure PaaS-tjänster
 I Azure används PaaS-tjänster som Azure Stream analytics, Azure Functions och Azure App Service tillsammans med Azure Cosmos DB. Lägga till IP-adress 0.0.0.0 i listan över tillåtna IP-adresser som är associerade med din Azure Cosmos DB databaskonto programmässigt för att aktivera åtkomst till Azure Cosmos DB databaskonto från tjänsterna vars IP-adresser inte är tillgänglig. 
 
-Åtkomst till anslutningar från inom offentliga Azure-Datacenter är aktiverad som standard när du ändrar inställningen för brandväggen att **markerat nätverk** i Azure-portalen. 
+Åtkomst till anslutningar från inom globala Azure-Datacenter är aktiverad som standard när du ändrar inställningen för brandväggen att **markerat nätverk** i Azure-portalen. 
 
 ![Skärmbild som visar hur du öppnar sidan brandväggen i Azure-portalen](./media/firewall-support/enable-azure-services.png)
 
@@ -87,6 +87,25 @@ När du lägger till ytterligare virtuella datorinstanser i gruppen finns de aut
 
 ## <a name="connections-from-the-internet"></a>Anslutningar från internet
 När du använder ett konto för Azure Cosmos-DB-databas från en dator på internet kan läggas klientens IP-adress eller IP-adressintervall för datorn till listan över tillåtna IP-adress för databaskontot Azure Cosmos DB. 
+
+## <a name="using-azure-resource-manager-template-to-set-up-the-ip-access-control"></a>Använder Azure Resource Manager-mall för att ställa in åtkomstkontroll IP
+
+Lägg till följande JSON till mallen för att konfigurera IP-åtkomstkontroll. Resource Manager-mall för ett konto har ipRangeFilter attribut som är listan över IP-adressintervall som ska vara godkända.
+
+```json
+   {
+     "apiVersion": "2015-04-08",
+     "type": "Microsoft.DocumentDB/databaseAccounts",
+     "kind": "GlobalDocumentDB",
+     "name": "[parameters('databaseAccountName')]",
+     "location": "[resourceGroup().location]",
+     "properties": {
+     "databaseAccountOfferType": "Standard",
+     "name": "[parameters('databaseAccountName')]",
+     "ipRangeFilter":"10.0.0.1,10.0.0.2,183.240.196.255"
+   }
+   }
+```
 
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>Felsökning av de IP-principer för åtkomstkontroll
 ### <a name="portal-operations"></a>Portalen åtgärder

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 57bf8b81d8d7fee6eaee216b9a2e0c52aa625257
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a4a882781562ae71ad6c578577a9f9cd9096ef36
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868338"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331797"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga infrastruktur för NPS med Azure Multi-Factor Authentication
 
@@ -82,7 +82,7 @@ NPS-servern ansluter till Azure Active Directory och autentiseras av MFA-begära
 1. Öppna på servern, den **guiden Lägg till roller och funktioner** Serverhanteraren Quickstart-menyn.
 2. Välj **rollbaserad eller funktionsbaserad installation** för din installation.
 3. Välj den **nätverksprincip och åtkomsttjänster** -serverrollen. Ett fönster kan visas för att meddela dig om nödvändiga funktioner för att köra den här rollen.
-4. Vill du fortsätta med guiden förrän bekräftelsesidan. Välj **installera**.
+4. Vill du fortsätta med guiden förrän bekräftelsesidan. Välj **Installera**.
 
 Nu när du har en server som är avsedd för NPS kan konfigurera du också den här servern för att hantera inkommande RADIUS-förfrågningar från VPN-lösning.
 
@@ -172,7 +172,7 @@ Det här avsnittet innehåller överväganden vid utformning och förslag för l
 ### <a name="configuration-limitations"></a>Begränsningar för konfiguration
 
 - NPS-tillägget för Azure MFA innehåller inte verktyg för att migrera användare och inställningar från MFA-Server till molnet. Därför föreslår vi använder tillägget för nya distributioner, i stället för befintlig distribution. Om du använder tillägget på en befintlig distribution kan måste användarna utföra bevis upp igen för att fylla i information om MFA i molnet.  
-- NPS-tillägget använder UPN från lokala Active directory för att identifiera användaren vid Azure MFA för att utföra den sekundära auktor Tillägget kan konfigureras för att använda en annan identifierare som alternativt inloggnings-ID eller anpassade Active Directory-fältet än UPN. Se [avancerade konfigurationsalternativ för NPS-tillägg för multi-Factor Authentication](howto-mfaserver-nps-vpn.md) för mer information.
+- NPS-tillägget använder UPN från lokala Active directory för att identifiera användaren vid Azure MFA för att utföra den sekundära auktor Tillägget kan konfigureras för att använda en annan identifierare som alternativt inloggnings-ID eller anpassade Active Directory-fältet än UPN. Se [avancerade konfigurationsalternativ för NPS-tillägg för multi-Factor Authentication](howto-mfa-nps-extension-advanced.md) för mer information.
 - Inte alla krypteringsprotokoll stöder alla verifieringsmetoderna.
    - **PAP** stöder telefonsamtal, enkelriktade SMS, mobilappavisering och Verifieringskod för mobila appar
    - **CHAPv2** och **EAP** stöd för telefonsamtal och mobilappavisering

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cb68b00232edd79a7b9cf239c1576c88731812d6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cca35d75f6d5560a621d377ae544eeba41434962
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617689"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316387"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Kopiera data till och från SQL Server med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ Följande egenskaper stöds för SQL Server länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **SqlServer** | Ja |
-| connectionString |Ange connectionString information som behövs för att ansluta till SQL Server-databasen med hjälp av SQL-autentisering eller Windows-autentisering. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| connectionString |Ange connectionString information som behövs för att ansluta till SQL Server-databasen med hjälp av SQL-autentisering eller Windows-autentisering. Se följande exempel och du lägger till utökas för att inkludera fler egenskaper, t.ex. AlwaysOn. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | Användarnamn |Ange användarnamnet om du använder Windows-autentisering. Exempel: **domainname\\användarnamn**. |Nej |
 | lösenord |Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Nej |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime eller Azure Integration Runtime (om datalager är offentligt tillgänglig). Om inget anges används standard-Azure Integration Runtime. |Nej |
@@ -483,7 +483,7 @@ När du kopierar data från/till SQL Server, används följande mappning från S
 | SQL Server-datatypen | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | bigint |Int64 |
-| Binär |byte] |
+| Binär |Byte] |
 | bitar |Boolesk |
 | Char |Sträng, Char] |
 | datum |DateTime |
@@ -491,9 +491,9 @@ När du kopierar data från/till SQL Server, används följande mappning från S
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |byte] |
-| Flyttal |dubbla |
-| Bild |byte] |
+| FILESTREAM-attributet (varbinary(max)) |Byte] |
+| Flyttal |Dubbel |
+| image |Byte] |
 | int |Int32 |
 | Money |Decimal |
 | nchar |Sträng, Char] |
@@ -501,17 +501,17 @@ När du kopierar data från/till SQL Server, används följande mappning från S
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
 | Verklig |Enkel |
-| ROWVERSION |byte] |
+| ROWVERSION |Byte] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |
 | text |Sträng, Char] |
 | time |TimeSpan |
-| tidsstämpel |byte] |
+| tidsstämpel |Byte] |
 | tinyint |Int16 |
 | Unik identifierare |GUID |
-| varbinary |byte] |
+| varbinary |Byte] |
 | varchar |Sträng, Char] |
 | xml |Xml |
 

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/30/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 4224575644e754724d2129f101aed6b9e4b54b65
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04081a514d9b96a5289594a730ec0519e6ee0b01
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34670174"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329798"
 ---
 ## <a name="provision-the-solution"></a>Etablera lösningen
 
 Om du inte redan har etablerat den förkonfigurerade lösningen för fjärrövervakning i ditt konto:
 
-1. Logga in på [azureiotsuite.com][lnk-azureiotsuite] med din Azure-kontoinformation och skapa en lösning genom att klicka på **+**.
+1. Logga in på [azureiotsuite.com] [ lnk-azureiotsuite] med din Azure kontoautentiseringsuppgifter och klicka på **+** att skapa en lösning.
 2. Klicka på **Välj** på panelen **Fjärrövervakning**.
 3. Ange ett **lösningsnamn** för den förkonfigurerade lösningen för fjärrövervakning.
 4. Välj den **region** och **prenumeration** som du vill använda för att etablera lösningen.

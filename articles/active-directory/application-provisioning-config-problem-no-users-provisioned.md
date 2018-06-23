@@ -3,22 +3,24 @@ title: Inga användare allokeras till ett program för Azure AD-galleriet | Micr
 description: Felsökning av vanliga problem inför när du inte ser användarna som visas i en en Azure AD-galleriet program som du har konfigurerat för användaretablering med Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: asteen
-ms.openlocfilehash: a36d60b8915ae0b46226bb2127829a8f1767daba
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 394e8642c177312c8990ea211f77fb802d4228fd
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26616299"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332417"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Inga användare allokeras till ett program för Azure AD-galleriet
 
@@ -34,7 +36,7 @@ När sett att användarna inte tillhandahålls, finns i granskningsloggarna i Az
 
 Etablering granskningsloggarna kan nås i Azure-portalen i den **Azure Active Directory &gt; Företagsappar &gt; \[programnamn\] &gt; granskningsloggarna** fliken. Filtrera loggarna på den **Kontoetablering** kategori bara ser de etablering händelserna för appen. Du kan söka efter användare baserat på ”matchande ID” som konfigurerats för dem i attributet avbildningar. Om du har konfigurerat ”huvudnamn” eller ”e-postadress” som matchar attributet på Azure AD-sida och användaren inte etablering har värdet till exempel ”audrey@contoso.com”. Sök sedan granskningsloggarna för ”audrey@contoso.com” och granska sedan poster returnerades.
 
-Etablering granskningsloggar post alla åtgärder som utförs av etablering tjänsten, inklusive frågor till Azure AD för tilldelade användare som ingår i omfånget för etablering, frågar appen mål förekomsten av användare, genom att jämföra användarobjekt mellan systemet. Lägg sedan till, uppdatera eller inaktivera användarkontot i målsystemet baserat på jämförelsen.
+Etablering loggas post alla åtgärder som utförs av etablering tjänsten, inklusive frågor till Azure AD för tilldelade användare som ingår i omfånget för etablering, frågar appen mål förekomsten av användarna, genom att jämföra användarobjekt mellan system. Lägg sedan till, uppdatera eller inaktivera användarkontot i målsystemet baserat på jämförelsen.
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Allmänna problemområden med etablering att tänka på
 
@@ -45,7 +47,7 @@ Nedan visas en lista över allmänna problemområden som du kan detaljerat om du
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>Etablerar tjänsten visas inte att starta
 
-Om du ställer in den **Status för etablering** ska **på** i den **Azure Active Directory &gt; Företagsappar &gt; \[programnamn\] &gt;etablering** på Azure portal. Men ingen statusinformation visas på sidan när efterföljande laddar är det troligt att tjänsten körs men har inte slutförts ännu en inledande synkronisering. Kontrollera den **granskningsloggar** ovan för att avgöra vilka åtgärder som utförs med tjänsten, och om det finns några fel.
+Om du ställer in den **Status för etablering** ska **på** i den **Azure Active Directory &gt; Företagsappar &gt; \[programnamn\] &gt;Etablering** på Azure portal. Men ingen statusinformation visas på sidan när efterföljande laddar är det troligt att tjänsten körs men har inte slutförts ännu en inledande synkronisering. Kontrollera den **granskningsloggar** ovan för att avgöra vilka åtgärder som utförs med tjänsten, och om det finns några fel.
 
 >[!NOTE]
 >En inledande synkronisering kan ta allt från 20 minuter till flera timmar, beroende på storleken på Azure AD-katalog och antalet användare i omfånget för etablering. Efterföljande synkroniseringar efter den första synkroniseringen är snabbare, eftersom etablering tjänsten lagrar vattenstämplar som representerar tillståndet för båda systemen efter den första synkroniseringen. Detta förbättrar prestanda för efterföljande synkronisering.
@@ -58,7 +60,7 @@ När en användare visas som ”hoppas över” i granskningsloggarna, är det m
 
 -   **En målgrupp filter har konfigurerats** **som filtrera användaren baserat på ett attributvärde**. Mer information om Omfångsfilter finns <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
 
--   **Användaren har ”inte effektivt rätt”.** Om du ser det aktuella felmeddelandet beror det på att det är problem med tilldelning användarposten lagras i Azure AD. Åtgärda det här problemet, tilldela användaren (eller grupp) från appen och tilldela den igen. Mer information om tilldelning, se <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>.
+-   **Användaren har ”inte effektivt rätt”.** Om du ser det aktuella felmeddelandet beror det på att det är problem med tilldelning användarposten lagras i Azure AD. Åtgärda det här problemet, tilldela användaren (eller grupp) från appen och tilldela den igen. Mer information om tilldelning finns <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>.
 
 -   **Ett obligatoriskt attribut är inte ifyllda för en användare eller saknas.** En viktig sak att tänka på när du ställer in etablering att granska och konfigurera attributmappning och arbetsflöden som definierar vilka användare (eller grupp) egenskaper flödar från Azure AD till programmet. Detta inkluderar egenskapen ”matchande” som används för att identifiera och matchar användare eller grupper mellan de två systemen. Mer information om viktiga processen finns [anpassa användaren etablering attributmappning för SaaS-program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings).
 

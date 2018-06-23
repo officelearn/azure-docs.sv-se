@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/09/2018
 ms.author: ponatara
-ms.openlocfilehash: 5c94e26c4639284f7e4c53d924f16040118d996c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 838eac510fc17d56f808f541f4e205a279f63c56
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874367"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318899"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Felsöka när det inte att redundansväxla en virtuell dator till Azure
-Får du ett av följande fel medan växling vid fel på en virtuell dator till Azure. Felsök genom att använda beskrivs stegen för respektive feltillstånd.
 
+Får du ett av följande fel medan växling vid fel på en virtuell dator till Azure. Felsök genom att använda beskrivs stegen för respektive feltillstånd.
 
 ## <a name="failover-failed-with-error-id-28031"></a>Redundans misslyckades med felet ID 28031
 
@@ -45,6 +45,35 @@ Site Recovery kunde inte skapa en misslyckad över klassisk virtuell dator i Azu
 
 * En av resurserna som ett virtuellt nätverk som krävs för den virtuella datorn skapas finns inte. Skapa det virtuella nätverket som anges under beräknings- och inställningar för den virtuella datorn eller ändra inställningen till ett virtuellt nätverk som redan finns och försök sedan redundans.
 
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Det gick inte att ansluta/RDP/SSH till den misslyckade nedtonad över virtuella datorn på grund av att knappen Anslut på den virtuella datorn
+
+Om Connect-knappen är nedtonad och du inte är ansluten till Azure via en Express Route eller plats-till-plats VPN-anslutning, sedan
+
+1. Gå till **virtuella** > **nätverk**, klicka på namnet på nödvändiga gränssnitt.  ![gränssnitt](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. Gå till **Ip-konfigurationer**, klicka på namnfältet av IP-konfiguration. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+3. Om du vill aktivera offentlig IP-adress, klickar du på **aktivera**. ![Aktivera IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+4. Klicka på **konfigurera nödvändiga inställningar** > **Skapa nytt**. ![Skapa en ny](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+5. Ange namnet på offentlig adress, Välj standardalternativen för **SKU** och **tilldelning**, klicka på **OK**.
+6. Om du vill spara ändringarna som du **spara**.
+7. Stäng panelerna och gå till **översikt** avsnitt i den virtuella datorn ska ansluta/RDP.
+
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-even-though-connect-button-is-available-not-grayed-out-on-the-virtual-machine"></a>Det gick inte att ansluta/RDP/SSH till den via virtuella datorn även om Connect knappen är tillgänglig (inte nedtonat) på den virtuella datorn
+
+Kontrollera **starta diagnostik** på den virtuella datorn och Sök efter fel som anges i den här artikeln.
+
+1. Om den virtuella datorn inte har startat försök inte att redundansväxla till en tidigare återställningspunkt.
+2. Om programmet inuti den virtuella datorn inte är upp försök misslyckas över till en app konsekvent återställningspunkt.
+3. Om den virtuella datorn är ansluten till en domän, se till att domänkontrollanten fungerar korrekt. Detta kan göras genom att följa de angivna stegen nedan.
+    a. Skapa en ny virtuell dator i samma nätverk
+
+    b.  Se till att den kan ansluta till samma domän som den misslyckade över virtuella förväntas fram.
+
+    c. Om domänkontrollanten är **inte** fungerar korrekt, försök logga in på den misslyckade över virtuell dator med ett lokalt administratörskonto
+4. Om du använder en anpassad DNS-server, se till att den kan nås. Detta kan göras genom att följa de angivna stegen nedan.
+    a. Skapa en ny virtuell dator i samma nätverk och b. Kontrollera om den virtuella datorn kan namnmatchning med hjälp av anpassade DNS-servern
+
+>[!Note]
+>Aktivera alla inställningar än Startdiagnostikinställningar kräver Azure VM-agenten installeras på den virtuella datorn innan växling vid fel
 
 ## <a name="next-steps"></a>Nästa steg
 

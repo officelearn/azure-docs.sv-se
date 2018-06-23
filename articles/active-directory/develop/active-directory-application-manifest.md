@@ -16,13 +16,13 @@ ms.workload: identity
 ms.date: 07/20/2017
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: elisol
-ms.openlocfilehash: 9f73f31c7afd7ca13107653d097e1ac11ef94f0d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol, sureshja
+ms.openlocfilehash: 7448a6c37df2c0bbffbebf23d211e3ace8d12edc
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157083"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317403"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Azure Active Directory-programmanifestet
 Appar som integreras med Azure AD måste vara registrerad med Azure AD-klient. Den här appen kan konfigureras med appmanifestet (under Azure AD-bladet) i den [Azure-portalen](https://portal.azure.com).
@@ -35,10 +35,10 @@ Appar som integreras med Azure AD måste vara registrerad med Azure AD-klient. D
 |---------|---------|---------|---------|
 |appID     |  Strängen för meddelandealternatividentifieraren       |""|  Den unika identifieraren för det program som har tilldelats en app av Azure AD.|
 |appRoles     |    Typ av matris     |<code>[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&emsp;],<br>&emsp;"description":"Read-only access to device information",<br>&emsp;"displayName":"Read Only",<br>&emsp;"id":guid,<br>&emsp;"isEnabled":true,<br>&emsp;"value":"ReadOnly"<br>}]</code>|Roller som ett program kan förklara samling. Rollerna kan tilldelas användare, grupper eller tjänstens huvudnamn.|
-|AvailableToOtherTenants|boolesk|`true`|Om det här värdet anges till true, programmet är tillgängligt för andra klienter. Den är registrerad i om inställt på false, appen är endast tillgänglig för innehavaren. Mer information finns: [loggar in alla Azure Active Directory (AD)-användare med flera innehavare programmönster](active-directory-devhowto-multi-tenant-overview.md). |
+|availableToOtherTenants|boolesk|`true`|Om det här värdet anges till true, programmet är tillgängligt för andra klienter. Den är registrerad i om inställt på false, appen är endast tillgänglig för innehavaren. Mer information finns: [loggar in alla Azure Active Directory (AD)-användare med flera innehavare programmönster](active-directory-devhowto-multi-tenant-overview.md). |
 |Visningsnamn     |sträng         |`MyRegisteredApp`         |Visningsnamn för programmet. |
 |errorURL     |sträng         |`http://MyRegisteredAppError`         |URL till fel påträffades i ett program. |
-|GroupMembershipClaims     |    sträng     |    `1`     |   En bitmask som konfigurerar ”grupper”-anspråket utfärdat i en användare eller OAuth 2.0-åtkomsttoken som programmet förväntas. Värdena är: 0: ingen 1: säkerhetsgrupper och Azure AD-roller, 2: reserverade och 4: reserverat. Ange bitmask till 7 får alla säkerhetsgrupper, distributionsgrupper och Azure AD directory roller som den inloggade användaren är medlem i. |
+|groupMembershipClaims     |    sträng     |    `1`     |   En bitmask som konfigurerar ”grupper”-anspråket utfärdat i en användare eller OAuth 2.0-åtkomsttoken som programmet förväntas. Värdena är: 0: ingen 1: säkerhetsgrupper och Azure AD-roller, 2: reserverade och 4: reserverat. Ange bitmask till 7 får alla säkerhetsgrupper, distributionsgrupper och Azure AD directory roller som den inloggade användaren är medlem i. |
 |optionalClaims     |  sträng       |     `null`    |    Den [valfria anspråk](active-directory-optional-claims.md) i token som returnerades av säkerhetstokentjänsten för den här specifika appen. |
 |acceptMappedClaims    |      boolesk   | `true`        |    Om det här värdet anges till true, kan ett program att använda anspråk mappning utan att ange en anpassad signeringsnyckeln.|
 |Startsida     |  sträng       |`http://MyRegistererdApp`         |    URL till programmets startsida. |
@@ -52,10 +52,10 @@ Appar som integreras med Azure AD måste vara registrerad med Azure AD-klient. D
 |oauth2RequiredPostResponse     | boolesk        |    `false`     |      Anger om, Azure AD som en del av OAuth 2.0 token-förfrågningar, ska tillåta POST-begäranden, till skillnad från GET-begäranden. Standardvärdet är FALSKT, vilket innebär att GET-begäranden ska tillåtas. 
 |objekt-ID     | Strängen för meddelandealternatividentifieraren        |     ""    |    Unik identifierare för programmet i katalogen. Detta ID är inte det ID som används för att identifiera appen i någon transaktion för protokollet. Användaren är refererar till objektet i directory-frågor.|
 |passwordCredentials     | Typ av matris        |   <code>[{<br>"customKeyIdentifier":null,<br>"endDate":"2018-10-19T17:59:59.6521653Z",<br>"keyId":"\<guid>",<br>"startDate":"2016-10-19T17:59:59.6521653Z",<br>"value":null<br>}]  </code>    |    Se beskrivningen för egenskapen keyCredentials. |
-|PublicClient     |  boolesk       |      `false`   | Anger om ett program är en offentlig klient (till exempel ett installerat program som körs på en mobil enhet). Standardvärdet är false. |
+|publicClient     |  boolesk       |      `false`   | Anger om ett program är en offentlig klient (till exempel ett installerat program som körs på en mobil enhet). Standardvärdet är false. |
 |supportsConvergence     |  boolesk       |   `false`      | Den här egenskapen bör inte redigeras. Acceptera standardvärdet. |
 |replyUrls     |  Strängmatris       |   `http://localhost`     |  Flera värden egenskapen innehåller listan över registrerade redirect_uri värden som Azure AD tar emot som mål när du returnerar token. |
-|RequiredResourceAccess     |     Typ av matris    |    <code>[{<br>"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>"resourceAccess":[{<br>&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;}]<br>}] </code>    |   Anger resurser som det här programmet kräver åtkomst till och uppsättning behörighetsomfattningen för OAuth och roller för programmet som krävs under var och en av dessa resurser. Den här före konfiguration av nödvändiga resursåtkomst enheter medgivande-upplevelse.|
+|requiredResourceAccess     |     Typ av matris    |    <code>[{<br>"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>"resourceAccess":[{<br>&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;}]<br>}] </code>    |   Anger resurser som det här programmet kräver åtkomst till och uppsättning behörighetsomfattningen för OAuth och roller för programmet som krävs under var och en av dessa resurser. Den här före konfiguration av nödvändiga resursåtkomst enheter medgivande-upplevelse.|
 |resourceAppId     |    Strängen för meddelandealternatividentifieraren     |  ""      |   Den unika identifieraren för den resurs som programmet kräver åtkomst till. Det här värdet ska vara lika med appId som deklarerats i målprogrammet för resursen. |
 |resourceAccess     |  Typ av matris       | Se exempelvärdet för egenskapen requiredResourceAccess. |   Listan över OAuth2.0 behörighetsomfattningen och app-roller som programmet kräver för den angivna resursen (innehåller värdena ID och typ av de angivna resurserna)        |
 |samlMetadataUrl    |sträng| `http://MyRegisteredAppSAMLMetadata` |URL:en till SAML-metadatan för programmet.| 

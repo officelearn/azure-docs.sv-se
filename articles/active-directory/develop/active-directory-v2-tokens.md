@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 93d551bcc6e517702c064ec0bdf6be61d3230cb3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164466"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316676"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 token-referens
 Azure Active Directory (AD Azure) v2.0-slutpunkten genererar flera typer av säkerhetstoken i varje [autentiseringsflödet](active-directory-v2-flows.md). Den här referensen beskriver format, säkerhet egenskaperna och innehållet i varje typ av token.
@@ -62,18 +62,18 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | målgrupp |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identifierar den avsedda mottagaren av token. I ID-token är den din app program-ID som tilldelats din app i portalen för registrering av Microsoft-program. Din app ska verifiera det här värdet och avvisa token om värdet inte matchar. |
 | Utfärdaren |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Identifierar den säkerhetstokentjänst (STS) som skapar och återställer token och Azure AD-klient som användaren autentiserades. Appen bör verifiera utfärdaren anspråk så att token som kommer från v2.0-slutpunkten. Det bör också använda GUID-delen av anspråket för att begränsa antalet klienter som kan logga in i appen. Det GUID som anger att användaren är en konsument användare från ett Microsoft-konto är `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | Utfärdat till |`iat` |`1452285331` |Den tid då token utfärdats representeras i epok tid. |
-| Förfallotid |`exp` |`1452289231` |Den tid då token blir ogiltig representeras i epok tid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
-| Inte före |`nbf` |`1452285331` |Den tid då token börjar gälla, representeras i epok tid. Det är vanligtvis samma som den utfärdande-tid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
+| förfallotid |`exp` |`1452289231` |Den tid då token blir ogiltig representeras i epok tid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
+| inte före |`nbf` |`1452285331` |Den tid då token börjar gälla, representeras i epok tid. Det är vanligtvis samma som den utfärdande-tid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
 | version |`ver` |`2.0` |Versionen av ID-token, som definieras av Azure AD. Värdet är för v2.0-slutpunkten `2.0`. |
 | klientorganisations-ID |`tid` |`b9419818-09af-49c2-b0c3-653adc1f376e` |Ett GUID som representerar Azure AD-klient som användaren är från. För arbets- och skolkonton konton är GUID oföränderliga klient-ID på den organisation som användaren tillhör. Värdet är för personliga konton `9188040d-6c67-4c5b-b112-36a304b66dad`. Den `profile` omfattning krävs för att ta emot denna begäran. |
-| Koden hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Koden hash ingår i ID-token endast när ID-token utfärdas med en OAuth 2.0-auktoriseringskod. Den kan användas för att validera en Auktoriseringskoden är äkta. Mer information om hur du utför den här verifieringen finns i [OpenID Connect specifikationen](http://openid.net/specs/openid-connect-core-1_0.html). |
-| Åtkomst-token hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Åtkomst-token hash ingår i ID tokens endast när ID-token utfärdas med en OAuth 2.0-åtkomsttoken. Den kan användas för att validera en åtkomst-token är äkta. Mer information om hur du utför den här verifieringen finns i [OpenID Connect specifikationen](http://openid.net/specs/openid-connect-core-1_0.html). |
+| koden hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Koden hash ingår i ID-token endast när ID-token utfärdas med en OAuth 2.0-auktoriseringskod. Den kan användas för att validera en Auktoriseringskoden är äkta. Mer information om hur du utför den här verifieringen finns i [OpenID Connect specifikationen](http://openid.net/specs/openid-connect-core-1_0.html). |
+| åtkomst-token hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Åtkomst-token hash ingår i ID tokens endast när ID-token utfärdas med en OAuth 2.0-åtkomsttoken. Den kan användas för att validera en åtkomst-token är äkta. Mer information om hur du utför den här verifieringen finns i [OpenID Connect specifikationen](http://openid.net/specs/openid-connect-core-1_0.html). |
 | temporärt ID |`nonce` |`12345` |Temporärt ID är en strategi för att minimera token replay-attacker. Appen kan ange ett temporärt ID i en auktoriseringsbegäran om med hjälp av den `nonce` Frågeparametern. Värdet du anger i begäran har genererats i token ID `nonce` anspråk som ska ändras. Din app kan kontrollera värdet mot det värde som det anges på begäran, som associerar appens session med en specifik ID-token. Din app ska utföra den här verifieringen under verifieringsprocessen ID-token. |
 | namn |`name` |`Babe Ruth` |Anspråk namn innehåller ett läsbart värde som identifierar föremål för token. Värdet är inte säkert att vara unika, är det föränderliga och den har utformats för att användas endast för visning. Den `profile` omfattning krävs för att ta emot denna begäran. |
 | e-post |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Den primära e-postadress som är associerade med användarkontot, om sådan finns. Värdet är föränderliga och kan ändras med tiden. Den `email` omfattning krävs för att ta emot denna begäran. |
 | prioriterade användarnamn |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |Primära användarnamnet som representerar användaren i v2.0-slutpunkten. Det kan vara en e-postadress, telefonnummer och ett allmänt användarnamn utan angivet format. Värdet är föränderliga och kan ändras med tiden. Eftersom det föränderliga, får du inte använda det här värdet vid auktoriseringsbeslut. Den `profile` omfattning krävs för att ta emot denna begäran. |
 | Ämne |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | Den användare som token Assert information, till exempel användare av en app. Det här värdet är oföränderlig och kan inte tilldela om eller återanvänds. Den kan användas för att utföra auktoriseringskontroller på ett säkert sätt, till exempel när token som används för att komma åt en resurs och kan användas som en nyckel i databastabeller. Eftersom ämne är alltid finns i token att Azure AD-problem, bör du använda det här värdet i ett system med allmänna tillstånd. Ämne är dock en pairwise identifierare – det är unikt för ett visst program-ID. Därför om en användare loggar in på två olika appar som använder två olika klient-ID: N, får de apparna som två olika värden för ämne anspråket. Detta kan eller inte vara önskvärt beroende på dina krav arkitektur och sekretess. |
-| Objekt-ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Oåterkalleliga identifierare för ett objekt i Microsoft identitetssystem, i det här fallet ett användarkonto. Det kan också användas för att utföra auktoriseringskontroller på ett säkert sätt och som en nyckel i databastabeller. Detta ID identifierar användaren i program - två olika program som loggar in samma användare får samma värde i den `oid` anspråk. Det innebär att den kan användas när du skapar frågor till Microsoft online services, till exempel Microsoft Graph. Microsoft Graph returnerar detta ID som den `id` -egenskapen för ett givet användarkonto. Eftersom den `oid` tillåter flera apparna att korrelera användare, den `profile` omfattning krävs för att ta emot denna begäran. Observera att om en användare finns i flera klienter kan användaren innehåller ett annat objekt-ID i varje klient - de anses vara olika konton, även om användaren loggar in på varje konto med samma autentiseringsuppgifter. |
+| objekt-ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Oåterkalleliga identifierare för ett objekt i Microsoft identitetssystem, i det här fallet ett användarkonto. Det kan också användas för att utföra auktoriseringskontroller på ett säkert sätt och som en nyckel i databastabeller. Detta ID identifierar användaren i program - två olika program som loggar in samma användare får samma värde i den `oid` anspråk. Det innebär att den kan användas när du skapar frågor till Microsoft online services, till exempel Microsoft Graph. Microsoft Graph returnerar detta ID som den `id` -egenskapen för ett givet användarkonto. Eftersom den `oid` tillåter flera apparna att korrelera användare, den `profile` omfattning krävs för att ta emot denna begäran. Observera att om en användare finns i flera klienter kan användaren innehåller ett annat objekt-ID i varje klient - de anses vara olika konton, även om användaren loggar in på varje konto med samma autentiseringsuppgifter. |
 
 ### <a name="access-tokens"></a>Åtkomsttoken
 
@@ -95,8 +95,7 @@ När du lösa in en uppdateringstoken för en ny åtkomsttoken (och om din app h
 ## <a name="validating-tokens"></a>Verifiera token
 För närvarande verifieras endast token valideringen dina appar behöver utföra ID-token. Om du vill validera en ID-token bör appen verifiera både signatur för ID-token och anspråk i ID-token.
 
-<!-- TODO: Link -->
-Microsoft tillhandahåller bibliotek och kodexempel som visar hur du kan hantera token validering. I nästa avsnitt beskrivs underliggande processen. Flera från tredje part öppen källkod bibliotek är tillgängliga för JWT-verifiering. Det finns minst ett bibliotek alternativ för nästan alla plattformar och språk.
+<!-- TODO: Link --> Microsoft tillhandahåller bibliotek och kodexempel som visar hur du kan hantera token validering. I nästa avsnitt beskrivs underliggande processen. Flera från tredje part öppen källkod bibliotek är tillgängliga för JWT-verifiering. Det finns minst ett bibliotek alternativ för nästan alla plattformar och språk.
 
 ### <a name="validate-the-signature"></a>Verifiera signaturen
 En JWT innehåller tre segment som avgränsas med den `.` tecken. Det första segmentet kallas den *huvud*, det andra segmentet är den *brödtext*, och det tredje segmentet är den *signatur*. Signaturen segment kan användas för att kontrollera äkthet ID-token så att den kan vara betrott av din app.
@@ -113,7 +112,7 @@ ID-token är signerade med branschstandard asymmetriska krypteringsalgoritmer, t
 
 Den `alg` anspråk anger algoritmen som används för att signera token. Den `kid` anspråk anger den offentliga nyckeln som användes för att signera token.
 
-När som helst kan v2.0-slutpunkten logga en ID-token med hjälp av någon av en specifik uppsättning privat-offentligt nyckelpar. V2.0-slutpunkten roterar regelbundet möjliga uppsättning nycklar, så att din app ska skrivas till att hantera dessa viktiga ändringar automatiskt. En rimlig frekvens för att söka efter uppdateringar för offentliga nycklar som används av v2.0-slutpunkten är 24 timmar.
+V2.0-slutpunkten loggar ID och åtkomst-token med hjälp av någon av en specifik uppsättning privat-offentligt nyckelpar. V2.0-slutpunkten roterar regelbundet möjliga uppsättning nycklar, så att din app ska skrivas till att hantera dessa viktiga ändringar automatiskt. En rimlig frekvens för att söka efter uppdateringar för offentliga nycklar som används av v2.0-slutpunkten är 24 timmar.
 
 Du kan skaffa signering viktiga data som behövs för att verifiera signaturen med OpenID Connect Metadatadokumentet finns på:
 
@@ -123,10 +122,11 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 > [!TIP]
 > URL-Adressen i en webbläsare kan du prova!
->
->
 
 Metadatadokumentet är en JSON-objekt som har flera användbara delar av information, t.ex platsen för de olika slutpunkter som krävs för OpenID Connect-autentisering. Dokumentet innehåller också en *jwks_uri*, vilket ger platsen för en uppsättning offentliga nycklar som används för att signera token. JSON-dokument som finns på jwks_uri har alla offentlig nyckelinformation som används för närvarande. Din app kan använda den `kid` anspråk i JWT-huvudet för att välja vilka offentliga nyckeln i det här dokumentet har använts för att logga en token. Signaturverifiering utför sedan genom att använda rätt offentlig nyckel och den angivna algoritmen.
+
+> [!NOTE]
+> Den `x5t` anspråk är föråldrad i v2.0-slutpunkten. Vi rekommenderar att du använder den `kid` anspråk att verifiera din token.
 
 Utför signaturverifiering ligger utanför omfånget för det här dokumentet. Det finns många bibliotek med öppen källkod som hjälper dig med detta.
 
@@ -142,7 +142,7 @@ En fullständig lista över anspråk verifieringar som din app ska utföra finns
 
 Information om de förväntade värdena för dessa anspråk som ingår i den [ID-token](# ID tokens) avsnitt.
 
-## <a name="token-lifetimes"></a>Tokenlivslängder
+## <a name="token-lifetimes"></a>Livslängder för token
 Vi ger följande token livslängd endast i informationssyfte. Informationen kan hjälpa dig när du utvecklar och felsöka appar. Dina appar skrivs bör inte ser något av dessa livslängd förblir konstant. Token kan livslängd och kommer att ändras när som helst.
 
 | Token | Livslängd | Beskrivning |

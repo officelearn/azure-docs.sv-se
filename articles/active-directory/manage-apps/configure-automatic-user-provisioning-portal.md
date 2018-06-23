@@ -3,7 +3,7 @@ title: Hantering för företagsappar i Azure Active Directory för användaretab
 description: Lär dig att hantera användare konto-etablering för företagsappar som använder Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: asmalser
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
-ms.author: asmalser
+ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: eabeeb407b4894f92192932e44b9add1aa7d9307
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 926db432e413c3fc1360f68598e952830d212cb9
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303913"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331473"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera konto-etablering för företagsappar i Azure-portalen
-Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera automatisk användar konto-etablering och avetablering för program som stöder detta, särskilt de som har lagts till i kategorin ”aktuell” för den [Azure Active Directory-programgalleriet](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Läs mer om automatisk konto användaretablering och hur det fungerar i [automatisera Användaretablering och avetablering för SaaS-program med Azure Active Directory](../active-directory-saas-app-provisioning.md).
+Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera automatisk användarens konto-etablering och avetablering för program som stöder detta, särskilt de som har lagts till från ”Aktuell”kategorin[ Azure Active Directory-programgalleriet](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Läs mer om automatisk konto användaretablering och hur det fungerar i [automatisera Användaretablering och avetablering för SaaS-program med Azure Active Directory](../active-directory-saas-app-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Hitta dina appar i portalen
 Alla program som är konfigurerade för enkel inloggning i en katalog med en directory-administratör med hjälp av den [Azure Active Directory-programgalleriet](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), kan visas och hanteras i den [Azure-portalen](https://portal.azure.com). Programmen kan hittas i den **alla tjänster** &gt; **företagsprogram** avsnitt i portalen. Enterprise-appar är appar som har distribuerats och används i din organisation.
@@ -70,7 +70,7 @@ Om etablering har aktiverats för första gången för ett program, aktivera tj�
 
 Ändra den **Status för etablering** till **av** bara pausar tjänsten etablering. I det här tillståndet Azure inte skapa, uppdatera eller ta bort användare eller gruppobjekt i appen. Ändra tillståndet till på gör att tjänsten ska ta vid där den avbröts.
 
-Att välja den **Rensa aktuell status och starta om synkroniseringen** kryssrutan och spara stoppar tjänsten etablering Dumpar cachelagrade data om vilka Azure AD-konton som hanterar, startar om tjänsterna och utför den inledande synkroniseringen igen. Det här alternativet kan administratörer att starta etableringsprocessen distribution över igen.
+Att välja den **Rensa aktuell status och starta om synkroniseringen** kryssrutan och spara stoppar tjänsten etablering Dumpar cachelagrade data om vilka Azure AD-konton som hanterar, startar om tjänsterna och utför första synkroniseringen igen. Det här alternativet kan administratörer att starta etableringsprocessen distribution över igen.
 
 ### <a name="synchronization-details"></a>Synkroniseringsinformation
 Det här avsnittet innehåller ytterligare information om driften av tjänsten etablering, inklusive de första och sista etablering tjänsten har körts för programmet och hur många användare och gruppobjekt som hanteras.

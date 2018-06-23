@@ -1,93 +1,57 @@
 ---
-title: Lägg till en disk i Linux VM som använder Azure CLI | Microsoft Docs
-description: Lär dig att lägga till en beständig disk till din Linux VM med Azure CLI 1.0 och 2.0.
-keywords: Linux-dator, Lägg till resurs-disk
+title: Lägg till en datadisk till Linux-VM med hjälp av Azure CLI | Microsoft Docs
+description: Lär dig hur du lägger till en beständig datadisk för dina Linux VM i Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 02/02/2017
-ms.author: rclaus
+ms.date: 06/13/2018
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3d3e3468b491f366473899f5d073704ea9a95ea
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c41090943e4053ddf0ea46e9da1b3b5c7dbbf132
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30837014"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331231"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Lägg till en disk till en virtuell Linux-dator
 Den här artikeln visar hur du kopplar en beständig disk till den virtuella datorn så att du kan behålla data – även om den virtuella datorn etableras på grund av underhåll eller ändrar storlek på. 
 
 
-## <a name="use-managed-disks"></a>Använda hanterade diskar
-Azure Managed Disks förenklar diskhanteringen för virtuella Azure-datorer genom att hantera lagringskontona som är kopplade till de virtuella datorernas diskar. Du behöver bara ange typ (Premium eller Standard) och diskstorlek och sedan skapar och hanterar Azure disken. Mer information finns i [översikt för hanterade diskar](managed-disks-overview.md).
+## <a name="attach-a-new-disk-to-a-vm"></a>Koppla en ny disk till en virtuell dator
 
-
-### <a name="attach-a-new-disk-to-a-vm"></a>Koppla en ny disk till en virtuell dator
-Om du vill skapa en ny disk på den virtuella datorn, använder den [az vm disk bifoga](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) kommandot med de `--new` parameter. Om den virtuella datorn finns i en zon för tillgänglighet, skapas disken automatiskt i samma zon som den virtuella datorn. Mer information finns i [översikt av tillgänglighet zoner](../../availability-zones/az-overview.md). I följande exempel skapas en disk med namnet *myDataDisk* som *50*Gb i storlek:
+Om du vill lägga till en ny, tom datadisk på den virtuella datorn använder den [az vm disk bifoga](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) kommandot med de `--new` parameter. Om den virtuella datorn finns i en zon för tillgänglighet, skapas disken automatiskt i samma zon som den virtuella datorn. Mer information finns i [översikt av tillgänglighet zoner](../../availability-zones/az-overview.md). I följande exempel skapas en disk med namnet *myDataDisk* som är 50 Gb i storlek:
 
 ```azurecli
-az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
-  --new --size-gb 50
+az vm disk attach \
+   -g myResourceGroup \
+   --vm-name myVM \
+   --disk myDataDisk \
+   --new \
+   --size-gb 50
 ```
 
-### <a name="attach-an-existing-disk"></a>Ansluta en befintlig disk 
-I många fall. Du kan koppla diskar som redan har skapats. Om du vill koppla en befintlig disk, disk-ID: t och skickar ID som den [az vm disk bifoga](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) kommando. Följande Exempelfrågor för en disk med namnet *myDataDisk* i *myResourceGroup*, sedan kopplas till den virtuella datorn med namnet *myVM*:
+## <a name="attach-an-existing-disk"></a>Ansluta en befintlig disk 
+
+Om du vill koppla en befintlig disk, disk-ID: t och skickar ID som den [az vm disk bifoga](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) kommando. Följande Exempelfrågor för en disk med namnet *myDataDisk* i *myResourceGroup*, sedan kopplas till den virtuella datorn med namnet *myVM*:
 
 ```azurecli
-# find the disk id
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+
 az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
-```
-
-Resultatet ser ut ungefär så här (du kan använda den `-o table` alternativet alla kommandot för att formatera utdata i):
-
-```json
-{
-  "accountType": "Standard_LRS",
-  "creationData": {
-    "createOption": "Empty",
-    "imageReference": null,
-    "sourceResourceId": null,
-    "sourceUri": null,
-    "storageAccountId": null
-  },
-  "diskSizeGb": 50,
-  "encryptionSettings": null,
-  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
-  "location": "westus",
-  "name": "myDataDisk",
-  "osType": null,
-  "ownerId": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "tags": null,
-  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
-  "type": "Microsoft.Compute/disks"
-}
-```
-
-
-## <a name="use-unmanaged-disks"></a>Använda ohanterade diskar
-Ohanterad diskar kräver ytterligare belastningen för att skapa och hantera de underliggande lagringskontona. Ohanterad diskar skapas i samma lagringskonto som OS-disk. Skapa och koppla en ohanterad disk, Använd den [az vm ohanterad disk bifoga](/cli/azure/vm/unmanaged-disk?view=azure-cli-latest#az_vm_unmanaged_disk_attach) kommando. I följande exempel bifogar en *50*GB ohanterade disk till den virtuella datorn med namnet *myVM* i resursgrupp med namnet *myResourceGroup*:
-
-```azurecli
-az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
-  --new --size-gb 50
 ```
 
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Ansluta till Linux-VM för att montera den nya disken
-Att partitionera, formatera och montera den nya disken så att din Linux VM kan använda den SSH till den virtuella Azure-datorn. Mer information finns i [Så här använder du SSH med Linux på Azure](mac-create-ssh-keys.md). I följande exempel ansluter till en virtuell dator med offentliga DNS-posten för *mypublicdns.westus.cloudapp.azure.com* med användarnamnet *azureuser*: 
+Att partitionera, formatera och montera den nya disken så att din Linux VM kan använda den SSH till den virtuella datorn. Mer information finns i [Så här använder du SSH med Linux på Azure](mac-create-ssh-keys.md). I följande exempel ansluter till en virtuell dator med offentliga DNS-posten för *mypublicdns.westus.cloudapp.azure.com* med användarnamnet *azureuser*: 
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
@@ -115,7 +79,7 @@ Här, *sdc* är en disk som vi vill. Partitionera disk med `fdisk`, att den prim
 sudo fdisk /dev/sdc
 ```
 
-Utdata ser ut ungefär så här:
+Använd den `n` kommando för att lägga till en ny partition. I det här exemplet vi också välja `p` för en primär partition av och accepterar du resten av standardinställningarna. Utdata blir liknar följande exempel:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -137,7 +101,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Skapa en partition genom att skriva `p` i Kommandotolken på följande sätt:
+Skriva ut partitionstabellen genom att skriva `p` och sedan använda `w` att skriva tabellen till disk och avsluta. Resultatet bör likna följande exempel:
 
 ```bash
 Command (m for help): p
@@ -225,7 +189,7 @@ Därefter öppnar den */etc/fstab* filen i en textredigerare på följande sätt
 sudo vi /etc/fstab
 ```
 
-I det här exemplet använder vi UUID-värdet för den */dev/sdc1* enheten som skapades i föregående steg och monteringspunkt av */datadrive*. Lägg till följande rad i slutet av den */etc/fstab* fil:
+I det här exemplet använder du UUID-värdet för den */dev/sdc1* enheten som skapades i föregående steg och monteringspunkt av */datadrive*. Lägg till följande rad i slutet av den */etc/fstab* fil:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
@@ -266,7 +230,6 @@ Det finns två sätt att aktivera TRIMNING stöd i Linux-VM. Som vanligt, kontak
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* Kom ihåg att den nya disken inte är tillgänglig för den virtuella datorn om startas om du skriver informationen till din [fstab](http://en.wikipedia.org/wiki/Fstab) fil.
 * För att säkerställa ditt Linux VM är korrekt konfigurerad, granska den [optimera prestanda ditt Linux-datorer](optimization.md) rekommendationer.
 * Expandera lagringskapaciteten genom att lägga till ytterligare diskar och [konfigurera RAID](configure-raid.md) för ytterligare prestanda.
 

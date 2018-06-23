@@ -10,17 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 056608e7843c8feab28359de5f2762164287f09d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 12a63e65a739be08d436f8f1b53df566255b1fb1
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356142"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36322060"
 ---
 # <a name="publish-your-trained-app"></a>Publicera appen utbildade
 När du är klar bygger och testar appen THOMAS publicera den. När appen publiceras, publicera sidan visas alla tillhörande HTTP [slutpunkter](luis-glossary.md#endpoint). Dessa slutpunkter per [region](luis-reference-regions.md) och per [nyckeln](Manage-Keys.md), sedan integreras i alla klient, chatbot eller backend-program. 
 
-Du kan alltid [testa](train-test.md) appen innan du publicerar den. 
+Du kan alltid [testa](interactive-test.md) appen innan du publicerar den. 
 
 ## <a name="production-and-staging-slots"></a>Produktions- och mellanlagring fack
 Du kan publicera en app till den **mellanlagring fack** eller **produktionsplatsen**. Detta kan du har två olika versioner med publicerade slutpunkter eller samma version på två olika slutpunkter med hjälp av två platser för publicering. 
@@ -138,12 +138,12 @@ Följande fråga string-parametrar kan användas med slutpunkts-URL:
 
 |Frågesträng|Typ|Exempelvärde|Syfte|
 |--|--|--|--|
-|Utförlig|boolesk|true|Inkludera [alla avsiktshantering poäng](#include-all-predicted-intent-scores) för utterance|
-|timezoneOffset|Antal (enheten är minuter)|60|Ange [förskjutningen av tidszonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) för [datetimeV2 färdiga entiteter](luis-reference-prebuilt-entities.md#builtindatetimev2)|
+|utförlig|boolesk|true|Inkludera [alla avsiktshantering poäng](#include-all-predicted-intent-scores) för utterance|
+|timezoneOffset|Antal (enheten är minuter)|60|Ange [förskjutningen av tidszonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) för [datetimeV2 färdiga entiteter](luis-reference-prebuilt-datetimev2.md)|
 |Stavningskontroll|boolesk|true|[stavningskontroll](#enable-bing-spell-checker) av utterance--används tillsammans med bing-stavningskontroll-check-prenumeration-nyckeln frågesträngparametern|
 |Bing-stavningskontroll-check-prenumeration-nyckel|Prenumerations-ID||används tillsammans med stavningskontroll frågesträngparametern|
 |Mellanlagring|boolesk|false|Välj mellanlagring och produktion slutpunkt|
-|Logg|boolesk|true|lägga till frågan och resultat för att logga in|
+|logg|boolesk|true|lägga till frågan och resultat för att logga in|
 
 
 ## <a name="test-your-published-endpoint-in-a-browser"></a>Testa din publicerade slutpunkt i en webbläsare
@@ -154,4 +154,4 @@ Testa publicerade slutpunkten genom att välja en URL i den **Endpoint** kolumn.
 ## <a name="next-steps"></a>Nästa steg
 
 * Se [hantera nycklar](./Manage-Keys.md) Lägg till nycklar i appen THOMAS och lär dig mer om hur nycklar mappas till regioner.
-* Se [tåg och testa din app](Train-Test.md) anvisningar om hur du testar din publicerade app i test-konsolen.
+* Se [tåg och testa din app](interactive-test.md) anvisningar om hur du testar din publicerade app i test-konsolen.

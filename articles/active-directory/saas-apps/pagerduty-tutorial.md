@@ -8,19 +8,18 @@ manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 37409ee72591d943a834ff38f077a002a1724ab9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 18c3dbdcf85c5b06b4f0f20c85b9fe751a3719fe
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215400"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317990"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Självstudier: Azure Active Directory-integrering med PagerDuty
 
@@ -60,14 +59,14 @@ Du måste lägga till PagerDuty från galleriet i listan över hanterade SaaS-ap
 
 **Utför följande steg för att lägga till PagerDuty från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet Enterprise program][2]
-    
+
 3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
@@ -102,8 +101,8 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning länk][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+1. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+
     ![Enkel inloggning dialogrutan](./media/pagerduty-tutorial/tutorial_pagerduty_samlbase.png)
 
 3. På den **PagerDuty domän och URL: er** avsnittet, utför följande steg:
@@ -114,12 +113,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<tenant-name>.pagerduty.com`
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [PagerDuty klienten supportteamet](https://www.pagerduty.com/support/) att hämta dessa värden. 
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [PagerDuty klienten supportteamet](https://www.pagerduty.com/support/) att hämta dessa värden.
 
 4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
-    ![Länken hämta certifikatet](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png) 
+    ![Länken hämta certifikatet](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png)
 
 5. Klicka på **spara** knappen.
 
@@ -127,34 +126,33 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. På den **PagerDuty Configuration** klickar du på **konfigurera PagerDuty** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out Webbadressen och SAML enkel inloggning Service** från den **Snabbreferens avsnitt.**
 
-    ![PagerDuty konfiguration](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png) 
+    ![PagerDuty konfiguration](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png)
 
 7. Logga in på webbplatsen Pagerduty företag som en administratör i en annan webbläsarfönster.
 
 8. Klicka på menyn högst upp **kontoinställningar**.
-   
+
     ![Kontoinställningar](./media/pagerduty-tutorial/ic778535.png "kontoinställningar")
 
 9. Klicka på **enkel inloggning**.
-   
+
     ![Enkel inloggning](./media/pagerduty-tutorial/ic778536.png "enkel inloggning")
 
 10. På den **aktivera enkel inloggning (SSO)** utför följande steg:
-   
+
     ![Aktivera enkel inloggning](./media/pagerduty-tutorial/ic778537.png "aktivera enkel inloggning")
-   
+
     a. Öppna din Base64-kodade certifikat hämtas från Azure-portalen i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **X.509-certifikat** textruta
   
     b. I den **inloggnings-URL** textruta klistra in **SAML inloggning tjänst-URL för enkel** som du har kopierat från Azure-portalen.
   
     c. I den **logga ut URL** textruta klistra in **Sign-Out URL** som du har kopierat från Azure-portalen.
- 
-    d. Välj **aktivera enkel inloggning**.
- 
-    e. Klicka på **spara ändringar**.
 
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+    d. Välj **Tillåt användarnamn/lösenord för inloggning**.
+
+    e. Välj **kräver exakt autentisering kontexten jämförelse** kryssrutan.
+
+    f. Klicka på **spara ändringar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
@@ -262,8 +260,6 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-direct
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/pagerduty-tutorial/tutorial_general_01.png
@@ -277,4 +273,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-direct
 [201]: ./media/pagerduty-tutorial/tutorial_general_201.png
 [202]: ./media/pagerduty-tutorial/tutorial_general_202.png
 [203]: ./media/pagerduty-tutorial/tutorial_general_203.png
-

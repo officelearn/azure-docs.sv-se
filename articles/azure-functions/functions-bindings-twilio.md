@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ab0ea0726031a1db36f4fbc4ee1db8a0c7f07bf
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: e6c5a2e11e8b2faa62b04a792f5040ea928d94a3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308283"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318715"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-bindning för Azure Functions
 
@@ -41,7 +41,7 @@ Twilio-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Twilio](http:/
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="example"></a>Exempel
+## <a name="example---functions-1x"></a>Exempel – fungerar 1.x
 
 Finns i det språkspecifika:
 
@@ -206,6 +206,173 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
+## <a name="example---functions-2x"></a>Exempel – fungerar 2.x
+
+Finns i det språkspecifika:
+
+* [2.x C#](#2x-c-example)
+* [2.x C#-skript (.csx)](#2x-c-script-example)
+* [2.x JavaScript](#2x-javascript-example)
+
+### <a name="2x-c-example"></a>2.x C#-exempel
+
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som skickar ett SMS när aktiveras av ett meddelande i kön.
+
+```cs
+[FunctionName("QueueTwilio")]
+[return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX" )]
+public static SMSMessage Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
+    TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {order}");
+
+    var message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"))
+    {
+        Body = $"Hello {order["name"]}, thanks for your order!",
+        To = order["mobileNumber"].ToString()
+    };
+
+    return message;
+}
+```
+
+Det här exemplet används den `TwilioSms` metoden returnerade värdet för attributet. Ett alternativ är att använda attributet med en `out CreateMessageOptions` parameter eller en `ICollector<CreateMessageOptions>` eller `IAsyncCollector<CreateMessageOptions>` parameter.
+
+### <a name="2x-c-script-example"></a>exempel på 2.x C#-skript
+
+I följande exempel visas en Twilio bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder ett `out` parametern för att skicka ett SMS.
+
+Här är bindningsdata den *function.json* fil:
+
+Exempel function.json:
+
+```json
+{
+  "type": "twilioSms",
+  "name": "message",
+  "accountSid": "TwilioAccountSid",
+  "authToken": "TwilioAuthToken",
+  "to": "+1704XXXXXXX",
+  "from": "+1425XXXXXXX",
+  "direction": "out",
+  "body": "Azure Functions Testing"
+}
+```
+
+Här är C#-skriptkod:
+
+```cs
+#r "Newtonsoft.Json"
+#r "Twilio.Api"
+
+using System;
+using Newtonsoft.Json;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+
+public static void Run(string myQueueItem, out CreateMessageOptions message,  TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+
+    // In this example the queue item is a JSON string representing an order that contains the name of a
+    // customer and a mobile number to send text updates to.
+    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
+    string msg = "Hello " + order.name + ", thank you for your order.";
+
+    // Even if you want to use a hard coded message and number in the binding, you must at least
+    // initialize the CreateMessageOptions variable.
+    message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
+
+    // A dynamic message can be set instead of the body in the output binding. In this example, we use
+    // the order information to personalize a text message to the mobile number provided for
+    // order status updates.
+    message.Body = msg;
+    message.To = order.mobileNumber;
+}
+```
+
+Du kan inte använda out-parametrar i asynkrona koden. Här är en asynkron C# skript kodexempel:
+
+```cs
+#r "Newtonsoft.Json"
+#r "Twilio.Api"
+
+using System;
+using Newtonsoft.Json;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+
+public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOptions> message,  TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+
+    // In this example the queue item is a JSON string representing an order that contains the name of a
+    // customer and a mobile number to send text updates to.
+    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
+    string msg = "Hello " + order.name + ", thank you for your order.";
+
+    // Even if you want to use a hard coded message and number in the binding, you must at least
+    // initialize the CreateMessageOptions variable.
+    CreateMessageOptions smsText = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
+
+    // A dynamic message can be set instead of the body in the output binding. In this example, we use
+    // the order information to personalize a text message to the mobile number provided for
+    // order status updates.
+    smsText.Body = msg;
+    smsText.To = order.mobileNumber;
+
+    await message.AddAsync(smsText);
+}
+```
+
+### <a name="2x-javascript-example"></a>2.x JavaScript-exempel
+
+I följande exempel visas en Twilio bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen.
+
+Här är bindningsdata den *function.json* fil:
+
+Exempel function.json:
+
+```json
+{
+  "type": "twilioSms",
+  "name": "message",
+  "accountSid": "TwilioAccountSid",
+  "authToken": "TwilioAuthToken",
+  "to": "+1704XXXXXXX",
+  "from": "+1425XXXXXXX",
+  "direction": "out",
+  "body": "Azure Functions Testing"
+}
+```
+
+Här är JavaScript-kod:
+
+```javascript
+module.exports = function (context, myQueueItem) {
+    context.log('Node.js queue trigger function processed work item', myQueueItem);
+
+    // In this example the queue item is a JSON string representing an order that contains the name of a
+    // customer and a mobile number to send text updates to.
+    var msg = "Hello " + myQueueItem.name + ", thank you for your order.";
+
+    // Even if you want to use a hard coded message and number in the binding, you must at least
+    // initialize the message binding.
+    context.bindings.message = {};
+
+    // A dynamic message can be set instead of the body in the output binding. In this example, we use
+    // the order information to personalize a text message to the mobile number provided for
+    // order status updates.
+    context.bindings.message = {
+        body : msg,
+        to : myQueueItem.mobileNumber
+    };
+
+    context.done();
+};
+```
+
 ## <a name="attributes"></a>Attribut
 
 I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) attribut.
@@ -237,10 +404,10 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**typ**|| måste anges till `twilioSms`.|
 |**riktning**|| måste anges till `out`.|
 |**Namn**|| Variabelnamn som används i Funktionskoden för textmeddelande Twilio SMS. |
-|**AccountSid**|**AccountSid**| Det här värdet måste anges till namnet på en appinställning som innehåller dina Twilio-konto Sid.|
-|**AuthToken**|**AuthToken**| Det här värdet måste anges till namnet på en appinställning som innehåller dina Twilio-token för autentisering.|
-|**Att**|**Till**| Det här värdet anges till det telefonnummer som SMS-meddelanden skickas till.|
-|**Från**|**Från**| Det här värdet anges till det telefonnummer som SMS-meddelanden skickas från.|
+|**accountSid**|**AccountSid**| Det här värdet måste anges till namnet på en appinställning som innehåller dina Twilio-konto Sid.|
+|**authToken**|**AuthToken**| Det här värdet måste anges till namnet på en appinställning som innehåller dina Twilio-token för autentisering.|
+|**att**|**Till**| Det här värdet anges till det telefonnummer som SMS-meddelanden skickas till.|
+|**från**|**Från**| Det här värdet anges till det telefonnummer som SMS-meddelanden skickas från.|
 |**Brödtext**|**Brödtext**| Det här värdet kan användas för att hård code SMS textmeddelande om du inte behöver ange den dynamiskt i koden för din funktion. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -249,5 +416,3 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 > [!div class="nextstepaction"]
 > [Lär dig mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
-
-

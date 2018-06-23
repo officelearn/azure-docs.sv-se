@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database servicenivåer | Microsoft Docs
-description: Läs mer om servicenivåer för enstaka och pool databaser att tillhandahålla prestandanivåer och lagringsstorlek.
+title: Azure SQL Database köp modeller | Microsoft Docs
+description: Lär dig mer om hur du köper modellen för Azure SQL Database.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 6ca78596ad6c4ed2e14b127fe55a70bd2f55411a
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 0b38054ec623dc34daa3d18612e3356475655f35
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309892"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331333"
 ---
-# <a name="service-tier-purchasing-models-and-resources"></a>Tjänstnivåmallen köp modeller och resurser 
+# <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL Database köp modeller och resurser 
 
 Logiska servrar i [Azure SQL Database](sql-database-technical-overview.md) erbjuder två köp modeller för bearbetning, lagring och i/o-resurser: DTU-baserade inköpsmodell och en vCore-baserade inköpsmodell (förhandsversion). 
 

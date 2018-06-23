@@ -11,13 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: de5712fd7b48a759b366f5b9808bbbefc6e305cd
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.reviewer: thoroet
+ms.openlocfilehash: 3c9f114c2844021d515765888aa19f18a0adc10b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36320760"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Ge program åtkomst till resurser i Azure-stacken genom att skapa tjänstens huvudnamn
 
@@ -93,54 +95,7 @@ Om du har distribuerat Azure stacken använder AD FS som Identitetslagret använ
 * Tilldela en roll tjänstens huvudnamn.
 * Logga in med tjänstens huvudnamn identitet.
 
-### <a name="before-you-begin"></a>Innan du börjar
-
-[Hämta Azure Stack-verktyg som krävs på den lokala datorn.](azure-stack-powershell-download.md)
-
-### <a name="import-the-identity-powershell-module"></a>Importera identitet PowerShell-modulen
-
-Navigera till mappen för Azure Stack-verktyg och importera identitet PowerShell-modulen med hjälp av följande kommando:
-
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
-
-När du importerar Identity module måste du få detta felmeddelande: ”AzureStack.Connect.psm1 inte har signerats digitalt. Skriptet körs inte på datorn ”.
-
-Om du vill åtgärda det här problemet måste du konfigurera körningsprincipen så att köra skriptet. Om du vill ange körningsprincipen, kör du följande kommando i en upphöjd PowerShell-session:
-
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
-
-### <a name="create-the-service-principal"></a>Skapa huvudnamn för tjänsten
-
-Du kan skapa ett huvudnamn för tjänsten genom att köra följande kommando, se till att uppdatera den **DisplayName** parameter:
-
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-
-```
-
-### <a name="assign-a-role"></a>Tilldela en roll
-
-När du skapar tjänstens huvudnamn, måste du [tilldela den till en roll](azure-stack-create-service-principals.md#assign-role-to-service-principal).
-
-### <a name="sign-in-using-powershell"></a>Logga in med hjälp av PowerShell
-
-Du kan logga in till Azure-stacken genom att köra följande kommando, var noga med att uppdatera den **EnvironmentName** parameter med namnet på din app:
-
-```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
- -ServicePrincipal `
- -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId `
- -TenantId $directoryTenantId
-```
+Mer information om hur du skapar huvudnamn för tjänsten finns [skapa tjänstens huvudnamn för AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Tilldela en roll tjänstens huvudnamn
 

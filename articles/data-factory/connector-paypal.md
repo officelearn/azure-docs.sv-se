@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från PayPal med hjälp av Azure Data Factory (Beta) | Microsoft Docs
+title: Kopiera data från PayPal med hjälp av Azure Data Factory (förhandsversion) | Microsoft Docs
 description: Lär dig hur du kopierar data från PayPal till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: bbc4bfb80ffc1b9b2d17f3d0b024391726ea034a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: caac9666c932f6e22abc9f6619860742c79206d4
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617883"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337669"
 ---
-# <a name="copy-data-from-paypal-using-azure-data-factory-beta"></a>Kopiera data från PayPal med hjälp av Azure Data Factory (Beta)
+# <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Kopiera data från PayPal med hjälp av Azure Data Factory (förhandsgranskning)
 
 Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från PayPal. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
 
@@ -28,7 +28,7 @@ Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Fac
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Kopieringsaktiviteten i V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Den här anslutningen är för närvarande i betaversion. Du kan prova och ge oss feedback. Använd den inte i produktionsmiljöer.
+> Den här anslutningen är för närvarande under förhandsgranskning. Du kan prova och ge oss feedback. Om du vill skapa ett beroende på anslutningsappar som är i förhandsversion i din lösning kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -38,7 +38,7 @@ Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, m
 
 ## <a name="getting-started"></a>Komma igång
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till PayPal connector.
 

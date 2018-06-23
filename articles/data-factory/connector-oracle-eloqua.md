@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från Oracle Eloqua med hjälp av Azure Data Factory (Beta) | Microsoft Docs
+title: Kopiera data från Oracle Eloqua med hjälp av Azure Data Factory (förhandsversion) | Microsoft Docs
 description: Lär dig hur du kopierar data från Oracle Eloqua till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7fa26e71651f0b13da97653e998974c6fd39fe3f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8edab4a27966a0bdb278007c0d030fe43a126a35
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617203"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36320606"
 ---
-# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-beta"></a>Kopiera data från Oracle Eloqua med hjälp av Azure Data Factory (Beta)
+# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Kopiera data från Oracle Eloqua med hjälp av Azure Data Factory (förhandsgranskning)
 
 Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från Oracle Eloqua. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
 
@@ -28,7 +28,7 @@ Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Fac
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Kopieringsaktiviteten i V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Den här anslutningen är för närvarande i betaversion. Du kan prova och ge feedback. Använd den inte i produktionsmiljöer.
+> Den här anslutningen är för närvarande under förhandsgranskning. Du kan prova och ge feedback. Om du vill skapa ett beroende på anslutningsappar som är i förhandsversion i din lösning kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -49,8 +49,8 @@ Följande egenskaper stöds för Oracle-Eloqua länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Eloqua** | Ja |
-| slutpunkt | Slutpunkten för Eloqua-server. (det vill säga eloqua.example.com)  | Ja |
-| användarnamn | Namn och användarnamn för kontot Eloqua i formatet: namn/användarnamnet för platsen. (det vill säga Eloqua/Alice)  | Ja |
+| slutpunkt | Slutpunkten för Eloqua-server. Eloqua stöder flera datacenter, för att fastställa din slutpunkt, logga in på https://login.eloqua.com med dina autentiseringsuppgifter, kopiera den **bas-URL** del från den omdirigerade platsen med mönstret för `xxx.xxx.eloqua.com`. | Ja |
+| användarnamn | Namn och användarnamn för kontot Eloqua i formatet: `SiteName\Username` t.ex. `Eloqua\Alice`.  | Ja |
 | lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är true.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att den matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är true.  | Nej |
@@ -64,8 +64,8 @@ Följande egenskaper stöds för Oracle-Eloqua länkade tjänsten:
     "properties": {
         "type": "Eloqua",
         "typeProperties": {
-            "endpoint" : "eloqua.example.com",
-            "username" : "Eloqua/Alice",
+            "endpoint" : "<base URL e.g. xxx.xxx.eloqua.com>",
+            "username" : "<site name>\\<user name e.g. Eloqua\\Alice>",
             "password": {
                  "type": "SecureString",
                  "value": "<password>"

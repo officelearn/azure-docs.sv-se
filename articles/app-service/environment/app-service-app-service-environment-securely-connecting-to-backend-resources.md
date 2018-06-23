@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: a43d88d64710b95dd753c19f02582f22accac8b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2fb13a4dac923a19dc12910cb1b78e909b93abe1
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23836527"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317579"
 ---
 # <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Ansluta på ett säkert sätt till Serverdelsresurser från en Apptjänst-miljö
 ## <a name="overview"></a>Översikt
-Eftersom en Apptjänst-miljö skapas alltid i **antingen** ett virtuellt nätverk i Azure Resource Manager **eller** klassiska distributionsmodellen [virtuellt nätverk][virtualnetwork], utgående anslutningar från en Apptjänst-miljö till andra serverdelsresurser kan flöda uteslutande över det virtuella nätverket.  Med en ändring görs i juni 2016 distribueras ASEs också till virtuella nätverk som använder offentliga-adressintervall eller RFC1918 adressutrymmen (d.v.s. privata adresser).  
+Eftersom en Apptjänst-miljö skapas alltid i **antingen** ett virtuellt nätverk i Azure Resource Manager **eller** klassiska distributionsmodellen [virtuellt nätverk] [ virtualnetwork], utgående anslutningar från en Apptjänst-miljö till andra serverdelsresurser kan flöda uteslutande över det virtuella nätverket.  Med en ändring görs i juni 2016 distribueras ASEs också till virtuella nätverk som använder offentliga-adressintervall eller RFC1918 adressutrymmen (d.v.s. privata adresser).  
 
 Det kan exempelvis vara en SQL-Server som körs på ett kluster med virtuella datorer med port 1433 låst.  Slutpunkten kan vara ACLd att endast tillåta åtkomst från andra resurser på samma virtuella nätverk.  
 
@@ -94,7 +94,7 @@ Mer information kring styra inkommande trafik till din Apptjänst-miljö finns [
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [ControlInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md
-[SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
+[SiteToSite]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [NetworkAccessControlLists]: https://azure.microsoft.com/documentation/articles/virtual-networks-acl/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/

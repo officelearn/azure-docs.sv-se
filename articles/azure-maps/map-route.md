@@ -1,22 +1,20 @@
 ---
 title: Visa anvisningar med Azure Maps | Microsoft Docs
 description: Så här visar du riktningarna mellan två platser på en Javascript-karta
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: codepen
-ms.openlocfilehash: 9007afd1bc4d2361addc2a554fab1330174e88e7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5e9ab73ddc16517e17894cddd9bc102f3941f00c
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "35759801"
 ---
 # <a name="show-directions-from-a-to-b"></a>Visa anvisningar från A till B 
 
@@ -41,7 +39,11 @@ Senaste kodblocket tolkar inkommande svaret. Den samlar in informationen för va
 
 Läs mer om de klasser och metoder som används i den här artikeln: 
 
-* [karta](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
+* [Karta](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds)
     * [addLinestrings](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addlinestrings)
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+
+Att lägga till i din maps mer kodexempel finns i följande artiklar: 
+* [Visa trafik på kartan](./map-show-traffic.md)
+* [Interaktion med kartan - mushändelser](./map-events.md)

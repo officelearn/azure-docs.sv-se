@@ -98,22 +98,22 @@
           href: sql-database-dtu-resource-limits-single-databases.md
         - name: Skala enkla databasresurser
           href: sql-database-single-database-scale.md
-        - name: Elastiska pooler och databaser i en pool
-          items:
-            - name: Elastiska pooler och databaser i en pool
-              href: sql-database-elastic-pool.md
-            - name: Hantera pooler och databaser i en pool
-              href: sql-database-elastic-pool-manage.md
-            - name: vCore-baserade resursbegränsningar
-              href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: DTU-baserade resursbegränsningar
-              href: sql-database-dtu-resource-limits-elastic-pools.md
-        - name: Skala resurser i elastiska pooler
-          href: sql-database-elastic-pool-scale.md
         - name: Anslutningsarkitektur
           href: sql-database-connectivity-architecture.md
         - name: T-SQL-skillnader
           href: sql-database-transact-sql-information.md
+    - name: Elastiska pooler och databaser i en pool
+      items:
+        - name: Elastiska pooler och databaser i en pool
+          href: sql-database-elastic-pool.md
+        - name: Hantera pooler och databaser i en pool
+          href: sql-database-elastic-pool-manage.md
+        - name: vCore-baserade resursbegränsningar
+          href: sql-database-vcore-resource-limits-elastic-pools.md
+        - name: DTU-baserade resursbegränsningar
+          href: sql-database-dtu-resource-limits-elastic-pools.md
+        - name: Skala resurser i elastiska pooler
+          href: sql-database-elastic-pool-scale.md
     - name: Hanterade instanser
       items:
         - name: Hanterade instanser

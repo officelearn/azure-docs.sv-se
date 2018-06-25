@@ -6,15 +6,16 @@ author: jovanpop-msft
 ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 95eca05d695e039f59b71caa4d730f4e1f84fc97
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337949"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database hanteras instans T-SQL-skillnader från SQL Server 
 
@@ -207,6 +208,10 @@ Odokumenterade DBCC-instruktioner som är aktiverade i SQL Server stöds inte i 
 - `DBCC TRACEOFF` stöds inte. Se [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
 - `DBCC TRACEON` stöds inte. Se [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
 
+### <a name="distributed-transactions"></a>Distribuerade transaktioner
+
+Varken MSDTC eller [elastisk transaktioner](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) stöds för närvarande hanteras instans.
+
 ### <a name="extended-events"></a>Extended Events 
 
 Vissa Windows-specifika mål för XEvents stöds inte:
@@ -375,12 +380,10 @@ Information om att skapa och ändra tabeller finns [CREATE TABLE](https://docs.m
  
 Returnerar olika resultat följande variabler, uppgifter och vyer:  
 - `SERVERPROPERTY('EngineEdition')` Returnerar värdet 8. Den här egenskapen identifierar hanteras instans. Se [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` Returnerar kort instansnamnet, till exempel 'minserver'. Se [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` Returnerar NULL, eftersom begreppet instans som det finns för SQL Server inte gäller för hanterade instans. Se [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` Returnerar fullständig DNS 'anslutningsbart' namn, till exempel Mina-hanterad-instance.wcus17662feb9ce98.database.windows.net. Se [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` -Returnerar fullständig 'anslutningsbart' DNS-namn som `myinstance.domain.database.windows.net` för egenskaper 'name' och 'data_source'. Se [SYS. SERVRAR](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `@@SERVERNAME` Returnerar fullständig 'anslutningsbart' DNS-namn som `my-managed-instance.wcus17662feb9ce98.database.windows.net`. Se [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
-- `SYS.SERVERS` -Returnerar fullständig 'anslutningsbart' DNS-namn som `myinstance.domain.database.windows.net` för egenskaper 'name' och 'data_source'. Se [SYS. SERVRAR](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `@@SERVICENAME` Returnerar NULL, som det inget logiskt i hanterade instans miljö. Se [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
+- `@@SERVICENAME` Returnerar NULL, eftersom begreppet tjänsten eftersom den finns för SQL Server inte gäller för hanterade instans. Se [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - `SUSER_ID` stöds. Returnerar NULL om AAD-inloggningen inte är i sys.syslogins. Se [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` stöds inte. Returnerar felaktiga data (tillfälligt kända problem). Se [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
 - `GETDATE()` och andra inbyggda datum/tid-funktioner returnerar alltid tid i UTC-tid. Se [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).

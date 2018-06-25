@@ -5,7 +5,7 @@
 
 1. Använd dina Microsoft-kontouppgifter för att logga in på [Azure Portal](https://portal.azure.com/).
 
-2. I Azure-portalen klickar du på **skapar du en resurs** och klicka sedan på marknaden **se alla**.
+2. I Azure Portal klickar du på **Skapa en resurs** och på Marketplace klickar du sedan på **Visa alla**.
 
     ![Skapa StorSimple Device Manager](./media/storsimple-8000-create-new-service/createssdevman1.png)
 

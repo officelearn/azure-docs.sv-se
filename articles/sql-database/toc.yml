@@ -1,10 +1,10 @@
 - name: Dokumentation om SQL DB
   href: index.yml
-- name: Översikt
+- name: SQL Database Service
   items:
     - name: Om SQL DB
       href: sql-database-technical-overview.md
-    - name: PaaS eller IaaS
+    - name: Välj en version av Azure SQL
       href: sql-database-paas-vs-sql-server-iaas.md
 - name: Snabbstarter
   expanded: true
@@ -15,7 +15,7 @@
       href: sql-database-get-started-cli.md
     - name: Skapa DB – Azure PowerShell
       href: sql-database-get-started-powershell.md
-    - name: Ansluta och fråga
+    - name: Anslut och fråga
       href: sql-database-connect-query.md
       items:
         - name: SSMS
@@ -48,20 +48,22 @@
   items:
     - name: 1 – Utforma DB med hjälp av SSMS
       href: sql-database-design-first-database.md
-    - name: 1 – Utforma DB med hjälp av .NET
+    - name: 2 – Utforma DB med hjälp av .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 2 – Migrera till SQL Server DB med DMS
+    - name: 3 – Migrera till SQL Server DB med DMS
       href: sql-database-migrate-your-sql-server-database.md
-    - name: 3 – Skydda din SQL-databas
+    - name: 4 – Skydda din SQL-databas
       href: sql-database-security-tutorial.md
-    - name: 4 – Implementera en geo-distribuerad databas
+    - name: 5 – Implementera en geo-distribuerad databas
       href: sql-database-implement-geo-distributed-database.md
-    - name: 5 – Skapa Managed Instance
+    - name: 6 – Skapa en hanterad instans
       href: sql-database-managed-instance-create-tutorial-portal.md
-    - name: 6 – Återställa en säkerhetskopia till en hanterad instans
+    - name: 7 – Återställa en säkerhetskopia till en hanterad instans
       href: sql-database-managed-instance-restore-from-backup-tutorial.md
-    - name: 7 – Migrera till en hanterad instans med DMS
+    - name: 8 – Migrera till en hanterad instans med DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md
+    - name: 9 – Konfigurera Azure SQL Data Sync
+      href: sql-database-get-started-sql-data-sync.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -72,186 +74,334 @@
       href: sql-database-powershell-samples.md
 - name: Begrepp
   items:
-    - name: Servrar och databaser
-      href: sql-database-servers-databases.md
-    - name: Hanterad instans
-      href: sql-database-managed-instance.md
-    - name: DTU-baserade tjänstnivåer
-      href: sql-database-service-tiers-dtu.md
-    - name: vCore-baserade tjänstnivåer
-      href: sql-database-service-tiers-vcore.md
-    - name: Lässkalbarhet
-      href: sql-database-read-scale-out.md
-    - name: DTU-baserade resursbegränsningar
-      href: sql-database-dtu-resource-limits.md
-    - name: vCore-baserade resursbegränsningar
-      href: sql-database-vcore-resource-limits.md
-    - name: Enkla databaser
-      href: sql-database-single-database-resources.md
-    - name: Elastiska pooler
-      href: sql-database-elastic-pool.md
-    - name: Anslutningsarkitektur
-      href: sql-database-connectivity-architecture.md
-    - name: 'DTU:er och eDTU:er'
-      href: sql-database-what-is-a-dtu.md
-    - name: DTU-benchmark
-      href: sql-database-benchmark-overview.md
-    - name: Vanliga funktioner i SQL Server
-      href: sql-database-features.md
+    - name: Tjänstnivåer och resurser
+      items:
+        - name: Tjänstnivåer
+          href: sql-database-service-tiers.md
+        - name: vCore-baserad modell
+          href: sql-database-service-tiers-vcore.md
+        - name: DTU-baserad modell
+          href: sql-database-service-tiers-dtu.md
+        - name: Resursbegränsningar
+          href: sql-database-resource-limits.md
     - name: Hög tillgänglighet
       href: sql-database-high-availability.md
+    - name: Logiska servrar och enkla databaser
+      items:
+        - name: Logiska servrar och enkla databaser
+          href: sql-database-servers-databases.md
+        - name: Hantera servrar och enkla databaser
+          href: sql-database-servers-databases-manage.md
+        - name: vCore-baserade resursbegränsningar
+          href: sql-database-vcore-resource-limits-single-databases.md
+        - name: DTU-baserade resursbegränsningar
+          href: sql-database-dtu-resource-limits-single-databases.md
+        - name: Skala enkla databasresurser
+          href: sql-database-single-database-scale.md
+        - name: Elastiska pooler och databaser i en pool
+          items:
+            - name: Elastiska pooler och databaser i en pool
+              href: sql-database-elastic-pool.md
+            - name: Hantera pooler och databaser i en pool
+              href: sql-database-elastic-pool-manage.md
+            - name: vCore-baserade resursbegränsningar
+              href: sql-database-vcore-resource-limits-elastic-pools.md
+            - name: DTU-baserade resursbegränsningar
+              href: sql-database-dtu-resource-limits-elastic-pools.md
+        - name: Skala resurser i elastiska pooler
+          href: sql-database-elastic-pool-scale.md
+        - name: Anslutningsarkitektur
+          href: sql-database-connectivity-architecture.md
+        - name: T-SQL-skillnader
+          href: sql-database-transact-sql-information.md
+    - name: Hanterade instanser
+      items:
+        - name: Hanterade instanser
+          href: sql-database-managed-instance.md
+        - name: Konfiguration av virtuellt nätverk
+          href: sql-database-managed-instance-vnet-configuration.md
+        - name: Anpassad DNS
+          href: sql-database-managed-instance-custom-dns.md
+        - name: Synkronisera nätverkskonfiguration
+          href: sql-database-managed-instance-sync-network-configuration.md
+        - name: Anslut program
+          href: sql-database-managed-instance-connect-app.md
+        - name: T-SQL-skillnader
+          href: sql-database-managed-instance-transact-sql-information.md
+    - name: Vanliga funktioner i SQL Server
+      href: sql-database-features.md
     - name: Säkerhet
       items:
-        - name: Översikt
+        - name: Säkerhet
           href: sql-database-security-overview.md
         - name: Advanced Threat Protection
-          href: sql-advanced-threat-protection.md
-        - name: Dataidentifiering och -klassificering
-          href: sql-database-data-discovery-and-classification.md
-        - name: Sårbarhetsbedömning
-          href: sql-vulnerability-assessment.md
-        - name: Hotidentifiering – SQL Database
-          href: sql-database-threat-detection.md
-        - name: Hotidentifiering – Managed Instance
-          href: sql-database-managed-instance-threat-detection.md
+          items:
+            - name: Advanced Threat Protection
+              href: sql-advanced-threat-protection.md
+            - name: Dataidentifiering och -klassificering
+              href: sql-database-data-discovery-and-classification.md
+            - name: Sårbarhetsbedömning
+              href: sql-vulnerability-assessment.md
+            - name: Hotidentifiering – SQL Database
+              href: sql-database-threat-detection.md
+            - name: Hotidentifiering – Managed Instance
+              href: sql-database-managed-instance-threat-detection.md
         - name: Brandväggsregler
-          href: sql-database-firewall-configure.md
-        - name: Brandväggsregler för virtuellt nätverk
-          href: sql-database-vnet-service-endpoint-rule-overview.md
+          items:
+            - name: Översikt
+              href: sql-database-firewall-configure.md
+            - name: Slutpunkter för virtuellt nätverk
+              href: sql-database-vnet-service-endpoint-rule-overview.md
+            - name: Slutpunkter för virtuellt nätverk – PowerShell
+              href: sql-database-vnet-service-endpoint-rule-powershell.md
         - name: Åtkomstkontroll
-          href: sql-database-control-access.md
-        - name: Azure AD
-          href: sql-database-aad-authentication.md
-        - name: Inloggningar och användare
-          href: sql-database-manage-logins.md
-        - name: Multifaktorautentisering
-          href: sql-database-ssms-mfa-authentication.md
-        - name: Granskning – SQL Database
-          href: sql-database-auditing.md
-        - name: Granskning – Hanterad instans
-          href: sql-database-managed-instance-auditing.md
-        - name: Tabellgranskning och TDS
-          href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
+          items:
+            - name: Åtkomstkontroll
+              href: sql-database-control-access.md
+            - name: Inloggningar och användare
+              href: sql-database-manage-logins.md
+        - name: Azure AD-autentisering
+          items:
+            - name: Azure AD-autentisering
+              href: sql-database-aad-authentication.md
+            - name: Konfigurera Azure AD-autentisering
+              href: sql-database-aad-authentication-configure.md
+            - name: Villkorlig åtkomst
+              href: sql-database-conditional-access.md
+            - name: Multifaktorautentisering
+              href: sql-database-ssms-mfa-authentication.md
+            - name: Konfigurera multifaktorautentisering
+              href: sql-database-ssms-mfa-authentication-configure.md
+        - name: Granskning
+          items:
+            - name: 'Granskning – servrar, pooler och databaser'
+              href: sql-database-auditing.md
+            - name: Granskning – Hanterad instans
+              href: sql-database-managed-instance-auditing.md
+            - name: Tabellgranskning (inaktuellt)
+              href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Dynamisk datamaskning
-          href: sql-database-dynamic-data-masking-get-started.md
+          items:
+            - name: Dynamisk datamaskning
+              href: sql-database-dynamic-data-masking-get-started.md
+            - name: Konfigurera maskning
+              href: sql-database-dynamic-data-masking-get-started-portal.md
+        - name: Alltid krypterad
+          items:
+            - name: Använda certifikatarkiv
+              href: sql-database-always-encrypted.md
+            - name: Använda Azure-nyckelvalvet
+              href: sql-database-always-encrypted-azure-key-vault.md
     - name: Verksamhetskontinuitet
       items:
-        - name: Översikt
+        - name: Verksamhetskontinuitet
           href: sql-database-business-continuity.md
         - name: Säkerhetskopior av databasen
           href: sql-database-automated-backups.md
         - name: Långsiktig kvarhållning av säkerhetskopior
-          href: sql-database-long-term-retention.md
-        - name: Redundansgrupper
-          href: sql-database-geo-replication-overview.md
+          itmes:
+            - name: Långsiktig kvarhållning av säkerhetskopior
+              href: sql-database-long-term-retention.md
+            - name: Konfigurera långsiktig kvarhållning av säkerhetskopior – SQL-lagring
+              href: sql-database-long-term-backup-retention-configure.md
+            - name: Konfigurera långsiktig kvarhållning av säkerhetskopior – Azure-valv (inaktuellt)
+              href: sql-database-long-term-backup-retention-configure-vault.md
+        - name: Redundansgrupper och geo-replikering
+          items:
+            - name: Redundansgrupper och geo-replikering
+              href: sql-database-geo-replication-overview.md
+            - name: Konfigurera geo-replikering – Portal
+              href: sql-database-geo-replication-portal.md
+            - name: Konfigurera säkerhet för repliker
+              href: sql-database-geo-replication-security-config.md
         - name: Återställning av databaser
-          href: sql-database-recovery-using-backups.md
-        - name: Konfigurera säkerhet
-          href: sql-database-geo-replication-security-config.md
-        - name: Appdesign och återställning
-          href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
-        - name: Appdesign och pooler
-          href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
-        - name: Appdesign och appuppgraderingar
-          href: sql-database-manage-application-rolling-upgrade.md
-        - name: Återställa från driftavbrott
-          href: sql-database-disaster-recovery.md
-        - name: Utföra återställningstest
-          href: sql-database-disaster-recovery-drills.md
+          items:
+            - name: Återställning av databaser
+              href: sql-database-recovery-using-backups.md
+            - name: Återställa från driftavbrott
+              href: sql-database-disaster-recovery.md
+            - name: Utföra återställningstest
+              href: sql-database-disaster-recovery-drills.md
+        - name: Apputformning
+          items:
+            - name: Utforma för haveriberedskap
+              href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
+            - name: Utforma för elastiska pooler
+              href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
+            - name: Utforma för appuppgraderingar
+              href: sql-database-manage-application-rolling-upgrade.md
     - name: Migrera till SQL Database
       items:
         - name: Migrera till SQL Database
           href: sql-database-cloud-migrate.md
         - name: Migrera till Managed Instance
           href: sql-database-managed-instance-migrate.md
-        - name: Information om SQL Database T-SQL
-          href: sql-database-transact-sql-information.md
-        - name: Information om Managed Instance T-SQL
-          href: sql-database-managed-instance-transact-sql-information.md
         - name: Hantera SQL Database efter migrering
           href: sql-database-manage-after-migration.md
-    - name: Läsa in och flytta data
+    - name: Läs in och flytta data
       items:
-        - name: Kopiera en databas
+        - name: Kopiera en databas inom Azure
           href: sql-database-copy.md
-        - name: Importera en databas
+        - name: Importera en databas från en BACPAC-fil
           href: sql-database-import.md
-        - name: Exportera en databas
+        - name: Exportera en databas till en BACPAC-fil
           href: sql-database-export.md
-        - name: Synkronisera data
-          href: sql-database-sync-data.md
+        - name: Datasynkronisering
+          items:
+            - name: SQL Data Sync
+              href: sql-database-sync-data.md
+            - name: Replikera schemaändringar
+              href: sql-database-update-sync-schema.md
+            - name: Övervaka med OMS
+              href: sql-database-sync-monitor-oms.md
+            - name: Metodtips för Data Sync
+              href: sql-database-best-practices-data-sync.md
+            - name: Felsöka Data Sync
+              href: sql-database-troubleshoot-data-sync.md
+        - name: Läs in data med BCP
+          href: sql-database-load-from-csv-with-bcp.md
+        - name: Läs in data med ADF
+          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
     - name: Övervaka och finjustera
       items:
-        - name: Översikt
+        - name: Övervaka och finjustera
           href: sql-database-troubleshoot-performance.md
         - name: Prestandaövervakning
           href: sql-database-single-database-monitor.md
         - name: Prestandarekommendationer
           href: sql-database-advisor.md
         - name: Automatisk inställning
-          href: sql-database-automatic-tuning.md
+          items:
+            - name: Automatisk inställning
+              href: sql-database-automatic-tuning.md
+            - name: Aktivera automatisk inställning
+              href: sql-database-automatic-tuning-enable.md
+            - name: Aktivera e-postaviseringar
+              href: sql-database-automatic-tuning-email-notifications.md
         - name: Intelligent Insights
-          href: sql-database-intelligent-insights.md
-        - name: Diagnostiklogg för Intelligence Insights
-          href: sql-database-intelligent-insights-use-diagnostics-log.md
+          items:
+            - name: Intelligent Insights
+              href: sql-database-intelligent-insights.md
+            - name: Diagnostikloggning
+              href: sql-database-metrics-diag-logging.md
+            - name: Använda diagnostikloggar
+              href: sql-database-intelligent-insights-use-diagnostics-log.md
+            - name: Prestandafelsökning
+              href: sql-database-intelligent-insights-troubleshoot-performance.md
+        - name: Prestandarekommendationer
+          href: sql-database-performance.md
+        - name: Använda Query Performance Insight
+          href: sql-database-query-performance.md
+        - name: Tillämpa prestandarekommendationer
+          href: sql-database-advisor-portal.md
         - name: Manuell inställning
-          href: sql-database-performance-guidance.md
-        - name: Använd Query Store
-          href: sql-database-operate-query-store.md
-        - name: Utökade händelser
-          href: sql-database-xevent-db-diff-from-svr.md
+          items:
+            - name: Manuell inställning
+              href: sql-database-performance-guidance.md
+            - name: 'Använda DMV:er för att övervaka prestanda'
+              href: sql-database-monitoring-with-dmvs.md
+            - name: Använd Query Store
+              href: sql-database-operate-query-store.md
         - name: Övervaka minnesintern
           href: sql-database-in-memory-oltp-monitoring.md
-    - name: Elastic Database-jobb
-      items:
-        - name: Översikt
-          href: elastic-jobs-overview.md
-        - name: Skapa och hantera (PowerShell)
-          href: elastic-jobs-powershell.md
-        - name: Skapa och hantera (T-SQL)
-          href: elastic-jobs-tsql.md
-        - name: Migrera (från gamla elastiska jobb)
-          href: elastic-jobs-migrate.md
-        - name: Elastiska jobb (inaktuella)
+        - name: Utökade händelser
           items:
-            - name: Översikt (inaktuell)
-              href: sql-database-elastic-jobs-overview.md
-            - name: Installera elastiska jobb (inaktuellt)
-              href: sql-database-elastic-jobs-service-installation.md
-            - name: Skapa jobb – Portal (inaktuellt)
-              href: sql-database-elastic-jobs-create-and-manage.md
-            - name: Skapa jobb – Azure PowerShell (inaktuellt)
-              href: sql-database-elastic-jobs-powershell.md
-            - name: Skapa jobb – exempelapp (inaktuellt)
-              href: sql-database-elastic-jobs-getting-started.md
-            - name: Avinstallera elastiskt jobb (inaktuellt)
-              href: sql-database-elastic-jobs-uninstall.md
+            - name: Utökade händelser
+              href: sql-database-xevent-db-diff-from-svr.md
+            - name: Utökade händelser – händelsefil
+              href: sql-database-xevent-code-event-file.md
+            - name: Utökade händelser – ringbuffert
+              href: sql-database-xevent-code-ring-buffer.md
+        - name: Skapa aviseringar
+          href: sql-database-insights-alerts-portal.md
+        - name: Felsökning av anslutningar
+          href: sql-database-troubleshoot-common-connection-issues.md
+        - name: Azure Automation
+          href: sql-database-manage-automation.md
     - name: Skala ut
       items:
-        - name: Översikt
-          href: sql-database-elastic-scale-introduction.md
-        - name: Elastiskt klientbibliotek
-          href: sql-database-elastic-database-client-library.md
+        - name: Lässkalbarhet
+          href: sql-database-read-scale-out.md
+        - name: Horisontell partitionering av databas
+          items:
+            - name: Horisontell partitionering av databas
+              href: sql-database-elastic-scale-introduction.md
+            - name: Elastiskt klientbibliotek – konsolidering
+              href: sql-database-elastic-database-client-library.md
+            - name: Uppgradera klientbibliotek för elastiska databaser
+              href: sql-database-elastic-scale-upgrade-client-library.md
+            - name: Shardkartor
+              href: sql-database-elastic-scale-shard-map-management.md
+            - name: Routning för frågor
+              href: sql-database-elastic-scale-data-dependent-routing.md
+            - name: Hantera autentiseringsuppgifter
+              href: sql-database-elastic-scale-manage-credentials.md
+            - name: Shardfrågor
+              href: sql-database-elastic-scale-multishard-querying.md
+            - name: Elastiska verktyg
+              href: sql-database-elastic-scale-glossary.md
+            - name: Flytta shardade data
+              href: sql-database-elastic-scale-overview-split-and-merge.md
+            - name: Elastiskt klientbibliotek – Dapper
+              href: sql-database-elastic-scale-working-with-dapper.md
+            - name: Vanliga frågor och svar om elastiska verktyg
+              href: sql-database-elastic-scale-faq.md
+            - name: Skapa shardad app
+              href: sql-database-elastic-scale-get-started.md
+            - name: Fråga vågrätt shardade data
+              href: sql-database-elastic-query-getting-started.md
+            - name: Flytta shardade data
+              href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
+            - name: Säkerhetskonfiguration
+              href: sql-database-elastic-scale-split-merge-security-configuration.md
+            - name: Lägg till en shard
+              href: sql-database-elastic-scale-add-a-shard.md
+            - name: Lösa problem i shardkarta
+              href: sql-database-elastic-database-recovery-manager.md
+            - name: Migrera shardad databas
+              href: sql-database-elastic-convert-to-use-elastic-tools.md
+            - name: Skapa räknare
+              href: sql-database-elastic-database-perf-counters.md
+            - name: Använda Entity Framework
+              href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
+    - name: Åtgärder mellan databaser
+      items:
+        - name: Elastic Database-jobb
+          items:
+            - name: Elastic Database-jobb
+              href: elastic-jobs-overview.md
+            - name: Skapa och hantera (PowerShell)
+              href: elastic-jobs-powershell.md
+            - name: Skapa och hantera (T-SQL)
+              href: elastic-jobs-tsql.md
+            - name: Migrera (från gamla elastiska jobb)
+              href: elastic-jobs-migrate.md
+            - name: Elastiska jobb (inaktuella)
+              items:
+                - name: Elastiska jobb (inaktuella)
+                  href: sql-database-elastic-jobs-overview.md
+                - name: Installera elastiska jobb (inaktuellt)
+                  href: sql-database-elastic-jobs-service-installation.md
+                - name: Skapa jobb – Portal (inaktuellt)
+                  href: sql-database-elastic-jobs-create-and-manage.md
+                - name: Skapa jobb – Azure PowerShell (inaktuellt)
+                  href: sql-database-elastic-jobs-powershell.md
+                - name: Skapa jobb – exempelapp (inaktuellt)
+                  href: sql-database-elastic-jobs-getting-started.md
+                - name: Avinstallera elastiskt jobb (inaktuellt)
+                  href: sql-database-elastic-jobs-uninstall.md
         - name: Elastiska frågor
-          href: sql-database-elastic-query-overview.md
+          items:
+            - name: Elastiska frågor
+              href: sql-database-elastic-query-overview.md
+            - name: Fråga lodrätt partitionerade data
+              href: sql-database-elastic-query-getting-started-vertical.md
+            - name: Rapportera över utskalad datanivå
+              href: sql-database-elastic-query-horizontal-partitioning.md
+            - name: Fråga mellan tabeller med olika scheman
+              href: sql-database-elastic-query-vertical-partitioning.md
         - name: Elastiska transaktioner
           href: sql-database-elastic-transactions-overview.md
-        - name: Shardkartor
-          href: sql-database-elastic-scale-shard-map-management.md
-        - name: Routning för frågor
-          href: sql-database-elastic-scale-data-dependent-routing.md
-        - name: Hantera autentiseringsuppgifter
-          href: sql-database-elastic-scale-manage-credentials.md
-        - name: Shardfrågor
-          href: sql-database-elastic-scale-multishard-querying.md
-        - name: Elastiska verktyg
-          href: sql-database-elastic-scale-glossary.md
-        - name: Flytta shardade data
-          href: sql-database-elastic-scale-overview-split-and-merge.md
-        - name: Elastiskt klientbibliotek – Dapper
-          href: sql-database-elastic-scale-working-with-dapper.md
-        - name: Vanliga frågor och svar om elastiska verktyg
-          href: sql-database-elastic-scale-faq.md
     - name: SaaS med flera klientorganisationer
       items:
         - name: SaaS-designmönster
@@ -262,7 +412,7 @@
           href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Utveckla databaser
       items:
-        - name: Översikt
+        - name: Utveckla databaser
           href: sql-database-develop-overview.md
         - name: JSON-data
           href: sql-database-json-features.md
@@ -278,6 +428,8 @@
       items:
         - name: Anslutning
           href: sql-database-libraries.md
+        - name: Använda Spark-anslutningsappen
+          href: sql-database-spark-connector.md
         - name: Autentisera app
           href: sql-database-client-id-keys.md
         - name: Felmeddelanden
@@ -286,123 +438,19 @@
           href: sql-database-use-batching-to-improve-performance.md
         - name: Vägledning för anslutningar
           href: sql-database-connectivity-issues.md
-        - name: Översikt över DNS-alias
+        - name: DNS-alias
           href: dns-alias-overview.md
         - name: DNS-alias – PowerShell
           href: dns-alias-powershell.md
         - name: Portar – ADO.NET
           href: sql-database-develop-direct-route-ports-adonet-v12.md
+        - name: C och C ++
+          href: sql-database-develop-cplusplus-simple.md
+        - name: Excel
+          href: sql-database-connect-excel.md
 - name: Instruktionsguider
   items:
-    - name: Tjänstfunktioner
-      items:
-        - name: Uppgradera klientbibliotek för elastiska databaser
-          href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: Fråga lodrätt partitionerade data
-          href: sql-database-elastic-query-getting-started-vertical.md
-        - name: Rapportera över utskalad datanivå
-          href: sql-database-elastic-query-horizontal-partitioning.md
-        - name: Fråga mellan tabeller med olika scheman
-          href: sql-database-elastic-query-vertical-partitioning.md
-    - name: Managed Instance
-      items:
-        - name: Konfiguration av virtuellt nätverk
-          href: sql-database-managed-instance-vnet-configuration.md
-        - name: Anpassad DNS
-          href: sql-database-managed-instance-custom-dns.md
-        - name: Anslut program
-          href: sql-database-managed-instance-connect-app.md
-        - name: Synkronisera nätverkskonfiguration
-          href: sql-database-managed-instance-sync-network-configuration.md
-    - name: Säkerhet
-      items:
-        - name: Konfigurera Azure AD-autentisering
-          href: sql-database-aad-authentication-configure.md
-        - name: Villkorlig åtkomst
-          href: sql-database-conditional-access.md
-        - name: Alltid krypterat certifikatarkiv
-          href: sql-database-always-encrypted.md
-        - name: Alltid krypterat nyckelvalv
-          href: sql-database-always-encrypted-azure-key-vault.md
-        - name: Konfigurera maskning
-          href: sql-database-dynamic-data-masking-get-started-portal.md
-        - name: Konfigurera multifaktorautentisering
-          href: sql-database-ssms-mfa-authentication-configure.md
-        - name: Regler för Virtual Network av PowerShell
-          href: sql-database-vnet-service-endpoint-rule-powershell.md
-    - name: Verksamhetskontinuitet
-      items:
-        - name: Georeplikering – portal
-          href: sql-database-geo-replication-portal.md
-        - name: Konfigurera långsiktig kvarhållning av säkerhetskopior – SQL-lagring
-          href: sql-database-long-term-backup-retention-configure.md
-        - name: Konfigurera långsiktig kvarhållning av säkerhetskopior – Azure-valv
-          href: sql-database-long-term-backup-retention-configure-vault.md
-    - name: Läsa in och flytta data
-      items:
-        - name: Läs in data med BCP
-          href: sql-database-load-from-csv-with-bcp.md
-        - name: Läs in data med ADF
-          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
-        - name: Synkronisera data
-          href: sql-database-get-started-sql-data-sync.md
-        - name: Replikera schemaändringar för SQL Data Sync
-          href: sql-database-update-sync-schema.md
-        - name: Övervaka SQL Data Sync med OMS Log Analytics
-          href: sql-database-sync-monitor-oms.md
-        - name: Regelverk för SQL Data Sync
-          href: sql-database-best-practices-data-sync.md
-        - name: Felsöka SQL Data Sync
-          href: sql-database-troubleshoot-data-sync.md
-    - name: Övervaka och finjustera
-      items:
-        - name: Övervaka och förbättra prestanda
-          href: sql-database-performance.md
-        - name: Använda Query Performance Insight
-          href: sql-database-query-performance.md
-        - name: Tillämpa prestandarekommendationer
-          href: sql-database-advisor-portal.md
-        - name: Aktivera automatisk inställning
-          href: sql-database-automatic-tuning-enable.md
-        - name: Automatisk inställning av e-postaviseringar
-          href: sql-database-automatic-tuning-email-notifications.md
-        - name: Prestandafelsökning för Intelligent Insights
-          href: sql-database-intelligent-insights-troubleshoot-performance.md
-        - name: 'Använda DMV:er för att övervaka prestanda'
-          href: sql-database-monitoring-with-dmvs.md
-        - name: Skapa aviseringar
-          href: sql-database-insights-alerts-portal.md
-        - name: Utökade händelser – händelsefil
-          href: sql-database-xevent-code-event-file.md
-        - name: Utökade händelser – ringbuffert
-          href: sql-database-xevent-code-ring-buffer.md
-        - name: Diagnostikloggning
-          href: sql-database-metrics-diag-logging.md
-        - name: Felsökning av anslutningar
-          href: sql-database-troubleshoot-common-connection-issues.md
-        - name: Azure Automation
-          href: sql-database-manage-automation.md
-    - name: Skala ut
-      items:
-        - name: Skapa shardad app
-          href: sql-database-elastic-scale-get-started.md
-        - name: Fråga vågrätt shardade data
-          href: sql-database-elastic-query-getting-started.md
-        - name: Flytta shardade data
-          href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
-        - name: Säkerhetskonfiguration
-          href: sql-database-elastic-scale-split-merge-security-configuration.md
-        - name: Lägg till en shard
-          href: sql-database-elastic-scale-add-a-shard.md
-        - name: Lösa problem i shardkarta
-          href: sql-database-elastic-database-recovery-manager.md
-        - name: Migrera shardad databas
-          href: sql-database-elastic-convert-to-use-elastic-tools.md
-        - name: Skapa räknare
-          href: sql-database-elastic-database-perf-counters.md
-        - name: Använda Entity Framework
-          href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
-    - name: SaaS med flera klientorganisationer
+    - name: Referensarkitektur för SaaS med flera klientorganisationer
       items:
         - name: Exempel på Wingtip-biljetter
           href: saas-tenancy-welcome-wingtip-tickets-app.md
@@ -456,14 +504,6 @@
               href: saas-multitenantdb-schema-management.md
             - name: ETL för analys
               href: saas-multitenantdb-tenant-analytics.md
-    - name: Utveckla appar
-      items:
-        - name: C och C ++
-          href: sql-database-develop-cplusplus-simple.md
-        - name: Excel
-          href: sql-database-connect-excel.md
-        - name: Använda Spark-anslutningsappen
-          href: sql-database-spark-connector.md
 - name: Referens
   items:
     - name: Azure PowerShell

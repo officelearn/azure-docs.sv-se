@@ -36,6 +36,8 @@
       href: cdn-china-delivery.md
     - name: Stöd för HTTP/2
       href: cdn-http2.md
+    - name: Migrera från Standard Verizon Standard till Premium Verizon
+      href: cdn-migrate.md
 - name: Instruktionsguider
   items:
     - name: Optimera innehåll

@@ -206,7 +206,7 @@
 ### [Migrera till diagnostikinställningar](iot-hub-migrate-to-diagnostics-settings.md)
 ### [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
 ## Använda riktiga enheter
-### [Kom igång](iot-hub-get-started.md)
+### [Komma igång](iot-hub-get-started.md)
 ### [Använda en onlinesimulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 ### [Använda en fysisk enhet](iot-hub-get-started-physical.md)
 #### [Raspberry Pi med Python](iot-hub-raspberry-pi-kit-python-get-started.md)
@@ -259,6 +259,7 @@
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Kunddataförfrågningar](iot-hub-customer-data-requests.md)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=internet-of-things)
+## [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 ## [DeviceExplorer-verktyg](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [iothub-diagnostics-verktyg](https://github.com/Azure/iothub-diagnostics)
 ## [iothub-explorer-verktyg](https://github.com/Azure/iothub-explorer)

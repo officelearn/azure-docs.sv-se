@@ -417,6 +417,7 @@
 #### Självstudier
 ##### [Migrera en klassisk MFA-princip](active-directory-conditional-access-migration-mfa.md)
 #### Begrepp
+##### [Baslinjeskydd](active-directory-conditional-access-baseline-protection.md)
 ##### [Villkor](active-directory-conditional-access-conditions.md)
 ##### [Platsvillkor](active-directory-conditional-access-locations.md)
 ##### [Kontroller](active-directory-conditional-access-controls.md)

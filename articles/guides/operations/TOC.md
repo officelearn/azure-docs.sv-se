@@ -93,7 +93,7 @@
 ### [Skapa ett virtuellt nätverk med hjälp av Azure CLI](../../virtual-network/quick-create-cli.md#create-a-virtual-network?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../../virtual-network/security-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Självstudier för virtuella nätverk
-#### [Belastningsutjämna virtuella datorer](../../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Belastningsutjämna virtuella datorer](../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Anslut en dator till ett virtuellt nätverk](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Nästa steg](azure-operations-guide.md#next-steps)

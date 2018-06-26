@@ -29,6 +29,14 @@
           href: QuickStarts/curl-thumb.md
         - name: Extrahera tryckt text
           href: QuickStarts/curl-print-text.md
+    - name: Go
+      items:
+        - name: Analysera en bild
+          href: QuickStarts/go-analyze.md
+        - name: Skapa en miniatyrbild
+          href: QuickStarts/go-thumb.md
+        - name: Extrahera tryckt text
+          href: QuickStarts/go-print-text.md
     - name: Java
       items:
         - name: Analysera en bild

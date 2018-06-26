@@ -65,6 +65,8 @@
       items:
         - name: Välj Azure AD-autentisering
           href: azure-ad-choose-authn.md
+        - name: Säkerhetskontrollista
+          href: azure-ad-secure-steps.md
         - name: Bästa praxis
           href: azure-security-identity-management-best-practices.md
         - name: Använda MFA på prenumerationsadministratörer

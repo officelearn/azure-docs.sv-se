@@ -177,6 +177,8 @@
           href: api-management-howto-deploy-multi-region.md
         - name: Logga händelser till Azure Event Hubs
           href: api-management-howto-log-event-hubs.md
+        - name: Logga begäranden med Azure Application Insights
+          href: api-management-howto-app-insights.md
         - name: Konfigurera DR med säkerhetskopiering/återställning
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: Hantera användarkonton

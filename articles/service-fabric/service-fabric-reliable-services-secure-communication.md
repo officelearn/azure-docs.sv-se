@@ -1,6 +1,6 @@
 ---
-title: Skydda fjärrkommunikation servicemeddelanden i Azure Service Fabric | Microsoft Docs
-description: Lär dig att skydda fjärrkommunikation baserat tjänstkommunikation för tillförlitlig tjänster som körs i ett Azure Service Fabric-kluster.
+title: Skydda fjärrkommunikation servicemeddelanden med C# i Azure Service Fabric | Microsoft Docs
+description: Lär dig att skydda fjärrkommunikation baserat tjänstkommunikation för C# tillförlitliga tjänster som körs i ett Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: cd7211ecda61ab2cca0f97e292d9ce2c47ed6933
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d185be26633178d8b3f147453b4c48eb77d7e425
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210281"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753531"
 ---
-# <a name="secure-service-remoting-communications-for-a-service"></a>Skydda fjärrkommunikation servicemeddelanden för en tjänst
+# <a name="secure-service-remoting-communications-in-a-c-service"></a>Skydda fjärrkommunikation servicemeddelanden i en C#-tjänst
 > [!div class="op_single_selector"]
 > * [C# i Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java i Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-Säkerhet är en av de viktigaste aspekterna av kommunikation. Application framework Reliable Services innehåller några fördefinierade kommunikation stackar och verktyg som du kan använda för att förbättra säkerheten. Den här artikeln handlar om hur du förbättrar säkerheten när du använder tjänsten fjärrkommunikation.
+Säkerhet är en av de viktigaste aspekterna av kommunikation. Application framework Reliable Services innehåller några fördefinierade kommunikation stackar och verktyg som du kan använda för att förbättra säkerheten. Den här artikeln beskriver hur du förbättrar säkerheten när du använder tjänsten fjärrkommunikation i C#-tjänsten. Den bygger på en befintlig [exempel](service-fabric-reliable-services-communication-remoting.md) som förklarar hur du ställer in fjärrstyrning för tillförlitlig tjänster som skrivits i C#. 
 
-Vi använder en befintlig [exempel](service-fabric-reliable-services-communication-remoting.md) som förklarar hur du ställer in fjärrstyrning för tillförlitlig tjänster. Följ dessa steg om du vill skydda en tjänst när du använder tjänsten fjärrkommunikation:
+Följ dessa steg om du vill skydda en tjänst när du använder tjänsten fjärrkommunikation med C#-tjänster:
 
 1. Skapa ett gränssnitt `IHelloWorldStateful`, som definierar metoder som är tillgängliga för remote procedure call på din tjänst. Tjänsten använder `FabricTransportServiceRemotingListener`, som har deklarerats i den `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` namnområde. Det här är en `ICommunicationListener` implementering som tillhandahåller funktioner för fjärrkommunikation.
 
@@ -94,7 +94,7 @@ Vi använder en befintlig [exempel](service-fabric-reliable-services-communicati
        ```
    2. Ge dem med hjälp av en [konfigurationspaketet](service-fabric-application-and-service-manifests.md):
 
-       Lägg till en `TransportSettings` -avsnittet i settings.xml.
+       Lägg till en namngiven `TransportSettings` -avsnittet i settings.xml.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: c479298187cfc4af6d9b33d9bd3839e8fa579566
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: eeda0fa6ad8faa05baf0a9344e958d298fb80d8e
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294167"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936691"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Felsökningsanalys i Application Insights
 Problem med [Application Insights Analytics](app-insights-analytics.md)? Börja här. Analytics är ett kraftfullt sökverktyg av Azure Application Insights.
@@ -57,7 +57,7 @@ Ett autentiseringsrelaterat fel har inträffat (under autentisering eller under 
 4. Öppna ett nytt webbläsarfönster som (vanlig) och gå till [Azure](https://portal.azure.com). Logga ut. Öppna sedan länken och logga in med rätt autentiseringsuppgifter.
 5. Microsoft Edge- och Internet Explorer-användare kan också få det här felet om betrodda zoninställningar inte stöds.
    
-    Kontrollera att båda [Analytics-portalen](https://analytics.applicationinsights.io) och [Azure Active Directory-portalen](https://portal.azure.com) finns i samma säkerhetszon:
+    Kontrollera att båda [Analytics-portalen](https://portal.azure.com) och [Azure Active Directory-portalen](https://portal.azure.com) finns i samma säkerhetszon:
    
    * I Internet Explorer, öppna **Internetalternativ**, **säkerhet**, **tillförlitliga platser**, **platser**:
      

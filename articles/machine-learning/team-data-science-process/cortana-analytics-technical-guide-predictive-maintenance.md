@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: c3e9b27784a1c0671ca3c87f9a7c55a288362299
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 2916252c08c599d2e528595a8cdf2abca8ea89a3
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248392"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938452"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Teknisk guide till Cortana Intelligence-Lösningsmall för förebyggande underhåll i aerospace och andra företag
 
@@ -54,14 +54,14 @@ I följande avsnitt beskrivs delarna av lösningen.
 ### <a name="synthetic-data-source"></a>Syntetiska datakälla
 Datakällan som används genereras från ett program som du hämtar och kör lokalt efter slutförd distribution för den här mallen.
 
-Välj den första noden förutsägande Underhåll Datagenerator i lösningen mallen diagrammet för att hitta instruktionerna för att ladda ned och installera det här programmet. Anvisningarna finns i fältet egenskaper. Det här programmet feeds den [Azure Event Hub](#azure-event-hub) med datapunkter, eller händelser som används i resten av flödet lösning. Den här datakällan har härletts från offentligt tillgängliga data från den [NASA data databasen](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/) med hjälp av den [turbofläktmotorer endast motorn försämring simuleringen datauppsättning](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
+Välj den första noden förutsägande Underhåll Datagenerator i lösningen mallen diagrammet för att hitta instruktionerna för att ladda ned och installera det här programmet. Anvisningarna finns i fältet egenskaper. Det här programmet feeds den [Azure Event Hub](#azure-event-hub) med datapunkter, eller händelser som används i resten av flödet lösning. Den här datakällan har härletts från offentligt tillgängliga data från den [NASA data databasen](https://c3.nasa.gov/dashlink/resources/139/) med hjälp av den [turbofläktmotorer endast motorn försämring simuleringen datauppsättning](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
 
-Händelsen generation programmet fyller Azure Event Hub endast när det körs på datorn.
+Händelsen generation programmet fyller Azure Event Hub endast när det körs på datorn.  
 
-### <a name="azure-event-hub"></a>Azure händelsehubb
+### <a name="azure-event-hub"></a>Azure händelsehubb  
 Den [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) service är mottagaren av indata som angetts av syntetiska datakällan.
 
-## <a name="data-preparation-and-analysis"></a>Förberedelse av data och analys
+## <a name="data-preparation-and-analysis"></a>Förberedelse av data och analys  
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Använd [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) att tillhandahålla nästan analys i realtid på Indataströmmen från den [Azure Event Hub](#azure-event-hub) service. Sedan publicera resultaten till en [Power BI](https://powerbi.microsoft.com) instrumentpanelen samt Arkivera alla rådata inkommande händelser till den [Azure Storage](https://azure.microsoft.com/services/storage/) tjänsten för senare bearbetning av den [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)service.
 
@@ -113,11 +113,11 @@ I den här lösningen utdata frågorna tre DataSet med nästan realtidsanalys in
 Frågan i andra Stream Analytics-jobbet **maintenancesa02asablob** bara matar ut alla [Händelsehubb](https://azure.microsoft.com/services/event-hubs/) händelser till [Azure Storage](https://azure.microsoft.com/services/storage/) och därför kräver inga ändringar oavsett dina dataformat som händelsen fullständig strömmas information till lagring.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
-Den [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) service samordnar rörelser och bearbetning av data. I det förutsägande Underhåll för flyg Lösningsmall datafabriken består av tre [pipelines](../../data-factory/v1/data-factory-create-pipelines.md) att flytta och bearbeta de data som använder olika tekniker.  Åtkomst till din data factory genom att öppna noden Data Factory längst ned i lösningen mallen diagram som skapats med distributionen av lösningen. Fel under dina datauppsättningar distribueras på grund av data factory innan datagenerator startades. Dessa fel kan ignoreras och hindrar inte din data factory från att fungera
+Den [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) service samordnar rörelser och bearbetning av data. I det förutsägande Underhåll för flyg Lösningsmall datafabriken består av tre [pipelines](../../data-factory/concepts-pipelines-activities.md) att flytta och bearbeta de data som använder olika tekniker.  Åtkomst till din data factory genom att öppna noden Data Factory längst ned i lösningen mallen diagram som skapats med distributionen av lösningen. Fel under dina datauppsättningar distribueras på grund av data factory innan datagenerator startades. Dessa fel kan ignoreras och hindrar inte din data factory från att fungera
 
 ![Data Factory dataset fel](./media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
-Det här avsnittet beskrivs nödvändiga [pipelines](../../data-factory/v1/data-factory-create-pipelines.md) och [aktiviteter](../../data-factory/v1/data-factory-create-pipelines.md) som ingår i den [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/). Här är en diagramvy av lösningen.
+Det här avsnittet beskrivs nödvändiga [pipelines och aktiviteter](../../data-factory/concepts-pipelines-activities.md) som ingår i den [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/). Här är en diagramvy av lösningen.
 
 ![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
@@ -126,22 +126,22 @@ Två av pipelines i den här fabriken innehåller [Hive](http://blogs.msdn.com/b
 Liknar [Azure Stream Analytics](#azure-stream-analytics-1) frågor, den [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript har implicit kunskap om dataformatet för inkommande och måste ändras baserat på din dataformat.
 
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
-Detta [pipeline](../../data-factory/v1/data-factory-create-pipelines.md) innehåller en enskild aktivitet – en [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör en [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för att partitionera data placeras i [Azure Storage](https://azure.microsoft.com/services/storage/) under den [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jobb.
+Detta [pipeline](../../data-factory/concepts-pipelines-activities.md) innehåller en enskild aktivitet – en [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör en [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för att partitionera data placeras i [Azure Storage](https://azure.microsoft.com/services/storage/) under den [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jobb.
 
 Den [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för uppgiften partitionering är ***AggregateFlightInfo.hql***
 
 #### <a name="mlscoringpipeline"></a>*MLScoringPipeline*
-Detta [pipeline](../../data-factory/v1/data-factory-create-pipelines.md) innehåller flera aktiviteter vars slutresultatet är poängsatta förutsägelser från den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experiment som är associerade med den här lösningen mallen.
+Detta [pipeline](../../data-factory/concepts-pipelines-activities.md) innehåller flera aktiviteter vars slutresultatet är poängsatta förutsägelser från den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experiment som är associerade med den här lösningen mallen.
 
 Aktiviteter är:
 
-* [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör en [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för att utföra aggregeringar och egenskapsval som krävs för den [Azure-dator Lär dig](https://azure.microsoft.com/services/machine-learning/) experiment.
+* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör en [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för att utföra aggregeringar och egenskapsval som krävs för den [Azure-dator Lär dig](https://azure.microsoft.com/services/machine-learning/) experiment.
   Den [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för uppgiften partitionering är ***PrepareMLInput.hql***.
-* [Kopiera](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar resultaten från den [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) aktivitet för en enskild [Azure Storage](https://azure.microsoft.com/services/storage/) blob som nås av den [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) aktivitet.
+* [Kopiera](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar resultaten från den [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) aktivitet för en enskild [Azure Storage](https://azure.microsoft.com/services/storage/) blob som nås av den [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) aktivitet.
 * [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) aktivitet anrop av [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experiment med resultat som placeras i en enda [Azure Storage](https://azure.microsoft.com/services/storage/) blob.
 
 #### <a name="copyscoredresultpipeline"></a>*CopyScoredResultPipeline*
-Detta [pipeline](../../data-factory/v1/data-factory-create-pipelines.md) innehåller en enskild aktivitet – en [kopiera](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar resultatet av den [Azure Machine Learning](#azure-machine-learning) experiment från den  ***MLScoringPipeline*** till den [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) etablerats som en del av installationen mallen.
+Detta [pipeline](../../data-factory/concepts-pipelines-activities.md) innehåller en enskild aktivitet – en [kopiera](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar resultatet av den [Azure Machine Learning](#azure-machine-learning) experiment från den  ***MLScoringPipeline*** till den [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) etablerats som en del av installationen mallen.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentera används för den här lösningen mallen innehåller de återstående användbar livslängd (RUL) ett flygplan-motorn. Experimentet är specifik för den datamängd som används och kräver ändring eller ersättning som är specifika för data som finns.

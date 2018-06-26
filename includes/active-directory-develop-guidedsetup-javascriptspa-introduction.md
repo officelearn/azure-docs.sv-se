@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 0aadfd809fefa73af6869d496f6d88d6dc9df59e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: cfbf4dc08ccea95f99216f6cc82c1ee56d65768a
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36269586"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943359"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Anropa Microsoft Graph API från ett JavaScript Single-Page Application (SPA)
 
@@ -33,7 +33,7 @@ Den här guiden visar hur en JavaScript enda sidan program (SPA) kan logga in pe
 <!--start-collapse-->
 ### <a name="more-information"></a>Mer information
 
-Det exempelprogram som skapats av den här guiden kan en JavaScript-SPA frågar Microsoft Graph API eller ett webb-API som accepterar token från Azure Active Directory v2-slutpunkten. För det här scenariot, när en användare loggar in, begärt en åtkomst-token och lägga till HTTP-förfrågningar via authorization-huvud. Token förvärv och förnyelse hanteras av Microsoft Authentication Library (MSAL).
+Det exempelprogram som skapats av den här guiden kan en JavaScript-SPA frågar Microsoft Graph API eller ett webb-API som accepterar token från Azure Active Directory v2-slutpunkten. I det här scenariot när en användare loggar in, har en åtkomst-token begärt och läggs till HTTP-förfrågningar via authorization-huvud. Token förvärv och förnyelse hanteras av Microsoft Authentication Library (MSAL).
 
 <!--end-collapse-->
 

@@ -9,24 +9,22 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: ed2db5fd48c60601b90fc7ffb1094b8d89573b1f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e6aa0d477f94cd5ab087beface65e3a28e5094f5
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153667"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936980"
 ---
-# <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Hur du använder Azure hanterade tjänstidentiteten (förhandsversion) i App Service och Azure Functions
+# <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Hur du använder Azure hanterade tjänstidentiteten i App Service och Azure Functions
 
 > [!NOTE] 
-> Hanterade tjänstidentiteten för Apptjänst och Azure Functions är för närvarande under förhandsgranskning. Apptjänst på Linux- och webbprogrammet för behållare stöds inte för närvarande.
-
+> Apptjänst på Linux- och webbprogrammet för behållare stöder inte hanterade tjänstidentiteten för närvarande.
 
 > [!Important] 
-> Hanterade tjänstidentiteten för Apptjänst och Azure Functions fungerar inte som förväntat om din app flyttas över prenumerationer/klienter. Appen måste du skaffa en ny identitet och befintlig identitet kan inte tas bort korrekt utan att ta bort själva platsen. Appen kommer att behöva återskapas med en ny identitet och underordnade resurser måste du ha åtkomstprinciper uppdateras för att använda den nya identiteten.
-
+> Hanterade tjänstidentiteten för Apptjänst och Azure Functions fungerar inte som förväntat om din app flyttas över prenumerationer/klienter. Appen måste du skaffa en ny identitet, vilket kan göras genom att inaktivera och aktivera funktionen. Se [tar bort en identitet](#remove) nedan. Underordnade resurser måste också ha åtkomstprinciper uppdateras för att använda den nya identiteten.
 
 Det här avsnittet visar hur du skapar en hanterad app identitet för App Service och Azure Functions program och hur du använder den för att komma åt andra resurser. En hanterad tjänstidentitet från Azure Active Directory kan din app att enkelt komma åt andra AAD-skyddade resurser, till exempel Azure Key Vault. Identiteten hanteras av Azure-plattformen och kräver inte att etablera eller rotera alla hemligheter. Mer information om hanterade tjänstidentiteten finns i [hanterade tjänstidentiteten översikt](../active-directory/managed-service-identity/overview.md).
 
@@ -77,6 +75,31 @@ Följande steg beskriver hur du skapar en webbapp och tilldela den en identitet 
     az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
+### <a name="using-azure-powershell"></a>Använda Azure PowerShell
+
+Följande steg beskriver hur du skapar en webbapp och tilldela den en identitet med hjälp av Azure PowerShell:
+
+1. Om det behövs installerar du Azure PowerShell med hjälp av instruktionerna i [Azure PowerShell-guiden](/powershell/azure/overview) och kör sedan `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+
+2. Skapa ett webbprogram med hjälp av Azure PowerShell. Fler exempel på hur du använder Azure PowerShell med App Service finns [App Service PowerShell-exempel](../app-service/app-service-powershell-samples.md):
+
+    ```azurepowershell-interactive
+    # Create a resource group.
+    New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+    
+    # Create an App Service plan in Free tier.
+    New-AzureRmAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
+    
+    # Create a web app.
+    New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
+    ```
+
+3. Kör den `identity assign` kommando för att skapa identiteten för det här programmet:
+
+    ```azurepowershell-interactive
+    Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
+    ```
+
 ### <a name="using-an-azure-resource-manager-template"></a>Med en Azure Resource Manager-mall
 
 En Azure Resource Manager-mall kan användas för att automatisera distributionen av Azure-resurser. Mer information om hur du distribuerar till App Service och funktioner finns [automatisera distributionen av resurs i App Service](../app-service/app-service-deploy-complex-application-predictably.md) och [automatisera distributionen av resurs i Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
@@ -121,7 +144,7 @@ När webbplatsen har skapats har följande ytterligare egenskaper:
 }
 ```
 
-Där `<TENANTID>` och `<PRINCIPALID>` ersätts med GUID. Egenskapen tenantId identifierar vilka AAD-klient som programmet tillhör. PrincipalId är en unik identifierare för den nya Programidentitet. I AAD har programmet samma namn som du gav din App Service eller Azure Functions-instans.
+Där `<TENANTID>` och `<PRINCIPALID>` ersätts med GUID. Egenskapen tenantId identifierar vilka AAD-klient tillhör identitet. PrincipalId är en unik identifierare för den nya Programidentitet. I AAD har tjänstens huvudnamn samma namn som du gav din App Service eller Azure Functions-instans.
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Hämta token för Azure-resurser
 
@@ -161,7 +184,7 @@ En app med en hanterad tjänstidentitet har två miljövariabler som definierats
 Den **MSI_ENDPOINT** är en lokal URL som din app kan begära token. Om du vill hämta en token för en resurs, gör du en HTTP GET-begäran för den här slutpunkten, inklusive följande parametrar:
 
 > [!div class="mx-tdBreakAll"]
-> |Parameternamn|i|Beskrivning|
+> |Parameternamn|I|Beskrivning|
 > |-----|-----|-----|
 > |resurs|Fråga|AAD-resurs-URI för resursen för som en token ska hämtas.|
 > |API-version|Fråga|Versionen av token API som ska användas. ”2017-09-01” är för närvarande den enda version som stöds.|
@@ -240,9 +263,24 @@ $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SEC
 $accessToken = $tokenResponse.access_token
 ```
 
+## <a name="remove"></a>Tar bort en identitet
+
+En identitet kan tas bort genom att inaktivera funktionen med hjälp av portalen, PowerShell eller CLI på samma sätt som den skapades. Detta görs i protokollet REST/ARM-mallen genom att ange typen till ”None”:
+
+```json
+"identity": {
+    "type": "None"
+}    
+```
+
+Ta bort identiteten på det här sättet även bort objektet från AAD. Automatiskt tilldelade identiteter tas bort automatiskt från AAD när appen resursen tas bort.
+
+> [!NOTE] 
+> Det finns också ett program ange som kan anges för WEBSITE_DISABLE_MSI, vilket inaktiverar bara den lokala tjänsten för token. Men den lämnas kvar identitet och verktygsuppsättning fortfarande visas MSI som ”on” eller ”aktiverad”. Användning av den här inställningen är därför inte rekommenderas.
+
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Åtkomst till SQL-databas på ett säkert sätt med hjälp av hanterade tjänstidentiteten](app-service-web-tutorial-connect-msi.md)
+> [Säker åtkomst till SQL-databaser med hanterade tjänstidentiteter](app-service-web-tutorial-connect-msi.md)
 
 [Microsoft.Azure.Services.AppAuthentication referens]: https://go.microsoft.com/fwlink/p/?linkid=862452

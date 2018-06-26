@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 04fae653c72c127b22f994e89b050477dac6495d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5dc1a4bc1de3560338e1734e73ad04910535be5b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194258"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751310"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook-utdata och meddelanden i Azure Automation
 De flesta Azure Automation-runbooks har någon form av utdata, till exempel ett felmeddelande för användaren eller ett komplext objekt som är avsedd att användas av ett annat arbetsflöde. Windows PowerShell innehåller [flera strömmar](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) att skicka utdata från ett skript eller ett arbetsflöde. Azure Automation fungerar olika med var och en av dessa strömmar och du bör följa bästa praxis för hur du använder när du skapar en runbook.
@@ -31,7 +31,7 @@ Följande tabell innehåller en kort beskrivning av varje ström och deras betee
 | Felsökning |Meddelanden avsedda för en interaktiv användare. Bör inte användas i runbooks. |Skrivs inte till jobbhistoriken. |Skrivs inte till rutan Testutdata. |
 
 ## <a name="output-stream"></a>Utdataström
-Utdataströmmen är avsedd för utdata från objekt som skapats av ett skript eller ett arbetsflöde när det körs korrekt. I Azure Automation den här strömmen framför allt för objekt som ska konsumeras av [överordnade runbooks som anropar den aktuella runbooken](automation-child-runbooks.md). När du [anropar en infogad runbook](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) från en överordnad runbook returnerar den data från utdataströmmen till överordnat. Du bör endast använda utdataströmmen för att kommunicera allmän information tillbaka till användaren om du vet att runbooken aldrig anropas av en annan runbook. Som bästa praxis bör du vanligtvis använder, den [utförliga strömmen](#Verbose) att kommunicera allmän information till användaren.
+Utdataströmmen är avsedd för utdata från objekt som skapats av ett skript eller ett arbetsflöde när det körs korrekt. I Azure Automation den här strömmen framför allt för objekt som ska konsumeras av [överordnade runbooks som anropar den aktuella runbooken](automation-child-runbooks.md). När du [anropar en infogad runbook](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) från en överordnad runbook returnerar den data från utdataströmmen till överordnat. Du bör endast använda utdataströmmen för att kommunicera allmän information tillbaka till användaren om du vet att runbooken aldrig anropas av en annan runbook. Som bästa praxis bör du vanligtvis använder, den [utförliga strömmen](#verbose-stream) att kommunicera allmän information till användaren.
 
 Du kan skriva till dataströmmen utdata med [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) eller genom att placera objektet på en egen rad i runbooken.
 
@@ -118,7 +118,7 @@ En anteckning om beteendet för utdatatypen kontrollen. När du skriver ett vär
 Till skillnad från utdataströmmen är avsedda meddelandeströmmar att skicka information till användaren. Det finns flera meddelandeströmmar för olika typer av information och var och en hanteras olika av Azure Automation.
 
 ### <a name="warning-and-error-streams"></a>Varningar och felströmmar
-Varningar och felströmmar är avsedda att logga problem som uppstår i en runbook. De skrivs till jobbhistoriken när en runbook körs och ingår i rutan Testutdata i Azure-portalen när en runbook testas. Som standard fortsätter runbook att köras efter en varning eller fel. Du kan ange att runbook ska göra uppehåll när en varning eller fel genom att ange en [inställningsvariabeln](#PreferenceVariables) i runbooken innan du skapar meddelandet. Till exempel om du vill att en runbook att göra uppehåll när ett fel som ett undantag, ange **$ErrorActionPreference** till Stopp.
+Varningar och felströmmar är avsedda att logga problem som uppstår i en runbook. De skrivs till jobbhistoriken när en runbook körs och ingår i rutan Testutdata i Azure-portalen när en runbook testas. Som standard fortsätter runbook att köras efter en varning eller fel. Du kan ange att runbook ska göra uppehåll när en varning eller fel genom att ange en [inställningsvariabeln](#preference-variables) i runbooken innan du skapar meddelandet. Till exempel om du vill att en runbook att göra uppehåll när ett fel som ett undantag, ange **$ErrorActionPreference** till Stopp.
 
 Skapa en varning eller fel meddelande med hjälp av den [Write-Warningg](https://technet.microsoft.com/library/hh849931.aspx) eller [Write-Error](http://technet.microsoft.com/library/hh849962.aspx) cmdlet. Aktiviteter kan också skriva till dessa strömmar.
 
@@ -172,7 +172,7 @@ I följande tabell visas beteendet för de preferensvariabelvärden som är gilt
 
 ## <a name="retrieving-runbook-output-and-messages"></a>Hämtning av runbook-utdata och meddelanden
 ### <a name="azure-portal"></a>Azure Portal
-Du kan visa information om ett runbook-jobb på Azure-portalen på fliken jobb i en runbook. Sammanfattning av jobbet visar indataparametrarna och [utdataströmmen](#Output) förutom allmän information om jobbet och eventuella undantag de inträffade. Historiken innehåller meddelanden från den [utdataströmmen](#Output) och [varningar och Felströmmar](#WarningError) förutom den [utförliga strömmen](#Verbose) och [Förloppsposter](#Progress) om runbooken har konfigurerats att logga utförliga poster och förloppsposter.
+Du kan visa information om ett runbook-jobb på Azure-portalen på fliken jobb i en runbook. Sammanfattning av jobbet visar indataparametrarna och [utdataströmmen](#output-stream) förutom allmän information om jobbet och eventuella undantag de inträffade. Historiken innehåller meddelanden från den [utdataströmmen](#output-stream) och [varningar och Felströmmar](#warning-and-error-streams) förutom den [utförliga strömmen](#verbose-stream) och [Förloppsposter](#progress-records) om runbooken har konfigurerats att logga utförliga poster och förloppsposter.
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 I Windows PowerShell kan du hämta utdata och meddelanden från en runbook med den [Get-AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) cmdlet. Denna cmdlet kräver ID för jobbet och har en parameter som kallas dataströmmen där du kan ange vilken dataström som ska returneras. Du kan ange **alla** att returnera alla dataströmmar för jobbet.

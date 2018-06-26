@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 38b2f57811b0e952d3020c06d39350918f2f0391
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fcadac344e2e05c3f6cdd9003b87b819d7933fba
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599330"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937442"
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Hantera Azure Redis-Cache med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -127,12 +127,12 @@ Följande tabell innehåller egenskaperna och beskrivningar för vanliga paramet
 | --- | --- | --- |
 | Namn |Namnet på cachen | |
 | Plats |Platsen för cachen | |
-| resourceGroupName |Resursgruppens namn att skapa cachen | |
+| ResourceGroupName |Resursgruppens namn att skapa cachen | |
 | Storlek |Storleken på cacheminnet. Giltiga värden är: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |Antalet delar för att skapa när du skapar en premium-cache med aktiverad klustring. Giltiga värden är: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Anger SKU av cachen. Giltiga värden är: Basic, Standard, Premium |Standard |
 | RedisConfiguration |Anger inställningar för Redis-konfiguration. Mer information om varje inställning finns i följande [RedisConfiguration egenskaper](#redisconfiguration-properties) tabell. | |
-| enableNonSslPort |Anger om icke-SSL-porten är aktiverad. |False |
+| EnableNonSslPort |Anger om icke-SSL-porten är aktiverad. |False |
 | MaxMemoryPolicy |Den här parametern är inaktuell - Använd RedisConfiguration i stället. | |
 | StaticIP |När värd för ditt cacheminne i ett virtuellt nätverk, anger du en unik IP-adress i undernätet för cachen. Om inte är en valt i undernätet. | |
 | Undernät |När värd för ditt cacheminne i ett virtuellt nätverk, anger du namnet på undernätet där du vill distribuera cachen. | |
@@ -140,7 +140,7 @@ Följande tabell innehåller egenskaperna och beskrivningar för vanliga paramet
 | KeyType |Anger vilka snabbtangenten för att återskapa när du förnyar åtkomstnycklar. Giltiga värden är: primära, sekundära | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration egenskaper
-| Egenskap | Beskrivning | Prisnivåer |
+| Egenskap  | Beskrivning | Prisnivåer |
 | --- | --- | --- |
 | RDB säkerhetskopiering aktiverad |Om [Redis-datapersistence](cache-how-to-premium-persistence.md) är aktiverad |Endast Premium |
 | RDB---anslutningssträngen för lagring |Anslutningssträngen till lagringskontot för [Redis-datapersistence](cache-how-to-premium-persistence.md) |Endast Premium |
@@ -783,7 +783,7 @@ Mer information om hur du använder Windows PowerShell med Azure finns i följan
 * [Azure Redis-Cache cmdlet-dokumentationen på MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 * [Azure Resource Manager-Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765): Lär dig att använda cmdlets i Azure Resource Manager-modulen.
 * [Hantera Azure-resurser med hjälp av resursgrupper](../azure-resource-manager/resource-group-template-deploy-portal.md): Lär dig hur du skapar och hanterar resursgrupper i Azure-portalen.
-* [Azure blogg](http://blogs.msdn.com/windowsazure): Lär dig mer om nya funktioner i Azure.
+* [Azure blogg](https://azure.microsoft.com/en-us/blog/): Lär dig mer om nya funktioner i Azure.
 * [Windows PowerShell-blogg](http://blogs.msdn.com/powershell): Lär dig mer om nya funktioner i Windows PowerShell.
 * [”Hej, skriptdoktorn”! Bloggen](http://blogs.technet.com/b/heyscriptingguy/): hämta verkliga tips och råd i Windows PowerShell-communityn.
 

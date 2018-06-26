@@ -2,7 +2,7 @@
 
 För att ansluta till **SharePoint Online**, måste du ange din identitet (användarnamn och lösenord, smartkort autentiseringsuppgifter osv) till SharePoint Online. När du har autentiserats, kan du fortsätta att använda SharePoint Online-kopplingen i din logikapp. 
 
-Medan designer av din logikapp, gör så här att logga in på SharePoint att skapa den **anslutning** för användning i din logikapp:
+Medan designer av din logikapp, gör så här att logga in på SharePoint för att skapa den **anslutning** för användning i din logikapp:
 
 1. Ange SharePoint i sökrutan och vänta tills sökning för att returnera alla utlösare och åtgärder som är relaterade till SharePoint Online:   
    ![Konfigurera SharePoint][1]  

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 50338e05241be9ce573ff3dd3bb99711cbf15b28
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ff2e1660ffcc1f397697b27084e000371c7c84f3
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248545"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938017"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för förutsägande Underhåll lösningar
 
@@ -255,7 +255,7 @@ Det här avsnittet beskrivs huvudsakliga modellering tekniker för PdM problem, 
 > Valet av etiketter för fel fall på och strategin för märkning  
 > fastställas i samråd med experter domänen.
 
-### <a name="binary-classification"></a>binär klassificering
+### <a name="binary-classification"></a>Binär klassificering
 Binär klassificering används för att _förutsäga sannolikheten att utrustning misslyckas i en framtida tidsperiod_ – kallas den _framtida horizon period X_. X bestäms av problem i verksamheten och data till hands i samråd med experter domänen. Exempel är:
 - _minsta ledtid_ krävs för att ersätta komponenter, distribuera Underhåll resurser, utföra underhåll för att undvika problem som kan uppstå under denna tid.
 - _minsta antal händelser_ som kan inträffa innan ett problem uppstår.
@@ -434,7 +434,7 @@ Microsoft Azure erbjuder kostnadsfri innehåll och utbildning på allmänna AI-b
 |:-------------------|--------------|
 | [AI Developer på Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Offentligt |
 | [Microsoft AI skola](http://aischool.microsoft.com/learning-paths) | Offentligt |
-| [Azure AI Learning från GitHub](http://azure.github.io/learnanalytics/public) | Offentligt |
+| [Azure AI Learning från GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Offentligt |
 | [LinkedIn-utbildning](http://www.linkedin.com/learning) | Offentligt |
 | [Microsoft AI Youtube Webbseminarier](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Offentligt |
 | [Microsoft AI visa](http://channel9.msdn.com/Shows/AI-Show) | Offentligt |

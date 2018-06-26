@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 27b975df5d0161f0b64e02b62c89989a670731aa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d6f4a250adbdaa0226ae62eca0e70b7e9be7e353
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330568"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36749743"
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Kopiera data från Azure-databas för PostgreSQL med hjälp av Azure Data Factory 
 
@@ -138,6 +138,58 @@ Om du vill kopiera data från Azure-databas för PostgreSQL, anger du datakälla
     }
 ]
 ```
+
+## <a name="data-type-mapping-for-azure-database-for-postgresql"></a>Datatypsmappningen för Azure-databas för PostgreSQL
+
+När du kopierar data från Azure-databas för PostgreSQL, används följande mappningar från PostgreSQL-datatyper till Azure Data Factory tillfälliga datatyper. Se [Schema- och Skriv mappningar](copy-activity-schema-and-type-mapping.md) att lära dig hur kopieringsaktiviteten mappar källtypen schema och data till sink.
+
+| PostgreSQL-datatyp | PostgresSQL alias | Data factory tillfälliga datatyp |
+|:--- |:--- |:--- |
+| `abstime` |&nbsp; |`String` |
+| `bigint` | `int8` | `Int64` |
+| `bigserial` | `serial8` | `Int64` |
+| `bit [1]` |&nbsp; | `Boolean` |
+| `bit [(n)], n>1` |&nbsp; | `Byte[]` |
+| `bit varying [(n)]` | `varbit` |`Byte[]` |
+| `boolean` | `bool` | `Boolean` |
+| `box` |&nbsp; | `String` |
+| `bytea` |&nbsp; | `Byte[], String` |
+| `character [(n)]` | `char [(n)]` | `String` |
+| `character varying [(n)]` | `varchar [(n)]` | `String` |
+| `cid` |&nbsp; | `Int32` |
+| `cidr` |&nbsp; | `String` |
+| `circle` |&nbsp; |` String` |
+| `date` |&nbsp; |`Datetime` |
+| `daterange` |&nbsp; |`String` |
+| `double precision` |`float8` |`Double` |
+| `inet` |&nbsp; |`String` |
+| `intarray` |&nbsp; |`String` |
+| `int4range` |&nbsp; |`String` |
+| `int8range` |&nbsp; |`String` |
+| `integer` | `int, int4` |`Int32` |
+| `interval [fields] [(p)]` | | `String` |
+| `json` |&nbsp; | `String` |
+| `jsonb` |&nbsp; | `Byte[]` |
+| `line` |&nbsp; | `Byte[], String` |
+| `lseg` |&nbsp; | `String` |
+| `macaddr` |&nbsp; | `String` |
+| `money` |&nbsp; | `String` |
+| `numeric [(p, s)]`|`decimal [(p, s)]` |`String` |
+| `numrange` |&nbsp; |`String` |
+| `oid` |&nbsp; |`Int32` |
+| `path` |&nbsp; |`String` |
+| `pg_lsn` |&nbsp; |`Int64` |
+| `point` |&nbsp; |`String` |
+| `polygon` |&nbsp; |`String` |
+| `real` |`float4` |`Single` |
+| `smallint` |`int2` |`Int16` |
+| `smallserial` |`serial2` |`Int16` |
+| `serial` |`serial4` |`Int32` |
+| `text` |&nbsp; |`String` |
+| `timewithtimezone` |&nbsp; |`String` |
+| `timewithouttimezone` |&nbsp; |`String` |
+| `timestampwithtimezone` |&nbsp; |`String` |
+| `xid` |&nbsp; |`Int32` |
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats).

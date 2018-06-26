@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 143bbde2da990c146e63b8f0216388c03ddd5852
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: cf17ec616819da94678f2ae4f0f0ca283f99f629
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307765"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750432"
 ---
 # <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Om du väljer en DTU-baserade tjänstnivå och prestandanivå lagringsresurser 
 
@@ -40,7 +40,7 @@ Om du väljer en tjänstnivå beror huvudsakligen på kontinuitet för företag-
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Enskild databas DTU och Lagringsgränser
 
-Prestandanivåer uttrycks i DTU (Database Transaction Unit) för enkla databaser och eDTU (elastic Database Transaction Unit) för elastiska pooler. Mer information om dtu: er och edtu: er Se [vad är dtu: er och edtu: er](sql-database-what-is-a-dtu.md)?
+Prestandanivåer uttrycks i DTU (Database Transaction Unit) för enkla databaser och eDTU (elastic Database Transaction Unit) för elastiska pooler. Mer information om dtu: er och edtu: er Se [vad är dtu: er och edtu: er](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |

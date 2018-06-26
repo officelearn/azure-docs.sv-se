@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 056821bd26e9c6c110b23a048df4aa13bc4ab8fa
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293117"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754680"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept playbook: byggblock
 
@@ -100,10 +100,10 @@ Ungefärlig tid till slutförd: 15 minuter
 | Steg | Resurser |
 | --- | --- |
 | Gå till Azure AD Management-portalen | [Hanteringsportalen för Azure AD - företagsanpassning](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Överför tillgångar för inloggningssidan (hjälte logotyp, liten logotyp, etiketter, etc.). Du kan också om du har AD FS kan justera samma tillgångar med AD FS-inloggningssidor | [Lägga till företagsanpassning till inloggnings-- och åtkomstpanel sidor: anpassningsbara element](customize-branding.md) |
+| Överför tillgångar för inloggningssidan (hjälte logotyp, liten logotyp, etiketter, etc.). Du kan också om du har AD FS kan justera samma tillgångar med AD FS-inloggningssidor | [Lägga till företagsanpassning till inloggnings-- och åtkomstpanel sidor: anpassningsbara element](fundamentals/customize-branding.md) |
 | Vänta några minuter för att ändringarna ska börja gälla helt |  |
 | Logga in med autentiseringsuppgifterna för användaren POC att https://myapps.microsoft.com |  |
-| Bekräfta utseendet och känslan i webbläsare | [Lägga till företagsanpassning till inloggnings-- och åtkomstpanel sidor](customize-branding.md) |
+| Bekräfta utseendet och känslan i webbläsare | [Lägga till företagsanpassning till inloggnings-- och åtkomstpanel sidor](fundamentals/customize-branding.md) |
 | Du kan också bekräfta utseendet och känslan i andra enheter |  |
 
 ### <a name="considerations"></a>Överväganden
@@ -118,7 +118,7 @@ Ungefärlig tid till slutförd: 10 minuter
 
 | Förhandskrav | Resurser |
 | --- | --- |
-| Alla POC användare är en del av en säkerhetsgrupp (molnet eller lokalt) | [Skapa en grupp och lägga till medlemmar i Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Alla POC användare är en del av en säkerhetsgrupp (molnet eller lokalt) | [Skapa en grupp och lägga till medlemmar i Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 
 ### <a name="steps"></a>Steg
 
@@ -140,16 +140,16 @@ Ungefärlig tid till slutförd: 60 minuter
 | Förhandskrav | Resurser |
 | --- | --- |
 | Testmiljö för SaaS-program tillgängliga. I den här guiden använder vi ServiceNow som exempel.<br/>Vi rekommenderar starkt för att använda en test-instans för att minimera friktion om navigering befintliga kvalitet och mappningar. | Gå till https://developer.servicenow.com/app.do#! / hemma att starta processen för att få en test-instans |
-| Administratörsåtkomst till ServiceNow-hanteringskonsolen | [Självstudier: Azure Active Directory-integrering med ServiceNow](active-directory-saas-servicenow-tutorial.md) |
+| Administratörsåtkomst till ServiceNow-hanteringskonsolen | [Självstudier: Azure Active Directory-integrering med ServiceNow](saas-apps/servicenow-tutorial.md) |
 | Mål uppsättning användare att tilldela program till. En säkerhetsgrupp som innehåller användarna PoC rekommenderas. <br/>Om det inte är möjligt att skapa gruppen, tilldela användare till direkt till programmet för konceptbeviset | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>Steg
 
 | Steg | Resurser |
 | --- | --- |
-| Dela guiden för att alla aktörer från Microsoft Documentation  | [Självstudier: Azure Active Directory-integrering med ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Ange ett fungerande möte gör självstudiekurs med varje. | [Självstudier: Azure Active Directory-integrering med ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Koppla appen till den grupp som definieras i förutsättningarna. Om Konceptbeviset har villkorlig åtkomst i omfånget, kan du besöker som senare och lägga till MFA och liknande. <br/>Observera att detta startar i etableringsprocessen (om konfigurerad) |  [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Skapa en grupp och lägga till medlemmar i Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Dela guiden för att alla aktörer från Microsoft Documentation  | [Självstudier: Azure Active Directory-integrering med ServiceNow](saas-apps/servicenow-tutorial.md) |
+| Ange ett fungerande möte gör självstudiekurs med varje. | [Självstudier: Azure Active Directory-integrering med ServiceNow](saas-apps/servicenow-tutorial.md) |
+| Koppla appen till den grupp som definieras i förutsättningarna. Om Konceptbeviset har villkorlig åtkomst i omfånget, kan du besöker som senare och lägga till MFA och liknande. <br/>Observera att detta startar i etableringsprocessen (om konfigurerad) |  [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Skapa en grupp och lägga till medlemmar i Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Använda Azure AD Portal för att lägga till ServiceNow program från galleriet| [Azure AD management Portal: företagsprogram](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Vad är nytt i Enterprise programhantering i Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | Aktivera ”SAML-baserade inloggning” i ”enkel inloggning” bladet ServiceNow-appen |  |
 | Fyll i ”logga URL” och ”ID”-fält med ServiceNow-URL<br/>Markera kryssrutan för ”aktivera nytt certifikat”<br/>och spara inställningar |  |
@@ -163,7 +163,7 @@ Ungefärlig tid till slutförd: 60 minuter
 
 ### <a name="considerations"></a>Överväganden
 
-1. Ovan [kursen](active-directory-saas-servicenow-tutorial.md) refererar till gamla Azure AD-hanteringen. Men PoC baseras på [Quickstart](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) upplevelse.
+1. Ovan [kursen](saas-apps/servicenow-tutorial.md) refererar till gamla Azure AD-hanteringen. Men PoC baseras på [Quickstart](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) upplevelse.
 2. Om det inte finns i galleriet målprogrammet, kan du använda ”ta med din egen app”. Läs mer: [vad är nytt i Enterprise programhantering i Azure Active Directory: lägga till anpassade program från en plats](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>SaaS-lösenord SSO-konfiguration
@@ -242,7 +242,7 @@ Ungefärlig tid till slutförd: 20 minuter
 
 | Förhandskrav | Resurser |
 | --- | --- |
-| Ett Microsoft Azure AD basic eller premium-prenumeration och Azure AD-katalog som du är en global administratör | [Azure Active Directory-versioner](active-directory-whatis.md) |
+| Ett Microsoft Azure AD basic eller premium-prenumeration och Azure AD-katalog som du är en global administratör | [Azure Active Directory-versioner](fundamentals/active-directory-whatis.md) |
 | Ett webbprogram finns lokalt som du vill konfigurera för fjärråtkomst |  |
 | En server som kör Windows Server 2012 R2 eller Windows 8.1 eller senare, där du kan installera Application Proxy Connector | [Förstå Azure AD Application Proxy-kopplingar](manage-apps/application-proxy-connectors.md) |
 | Om det finns en brandvägg i sökvägen, kontrollerar du att den är öppen så att anslutningsverktyget kan göra HTTPS (TCP) förfrågningar till Application Proxy | [Aktivera Application Proxy på Azure-portalen: krav för Application Proxy](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
@@ -306,8 +306,8 @@ Ungefärlig tid till slutförd: 10 minuter
 | Förhandskrav | Resurser |
 | --- | --- |
 | SaaS-program (federerad enkel inloggning eller lösenord SSO) har redan konfigurerats | Byggblock: [SaaS federerad enkel inloggning konfiguration](#saas-federated-sso-configuration) |
-| Moln-grupp som tilldelas åtkomst till programmet i #1 identifieras | Byggblock: [SaaS federerad enkel inloggning konfiguration](#saas-federated-sso-configuration) <br/>[Skapa en grupp och lägga till medlemmar i Azure Active Directory](active-directory-groups-create-azure-portal.md) |
-| Autentiseringsuppgifterna för gruppägare är tillgängliga | [Hantera åtkomst till resurser med Azure Active Directory-grupper](active-directory-manage-groups.md) |
+| Moln-grupp som tilldelas åtkomst till programmet i #1 identifieras | Byggblock: [SaaS federerad enkel inloggning konfiguration](#saas-federated-sso-configuration) <br/>[Skapa en grupp och lägga till medlemmar i Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
+| Autentiseringsuppgifterna för gruppägare är tillgängliga | [Hantera åtkomst till resurser med Azure Active Directory-grupper](fundamentals/active-directory-manage-groups.md) |
 | Autentiseringsuppgifter för informationsarbetare att komma åt apparna som har identifierats | [Vad är åtkomstpanelen?](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -315,8 +315,8 @@ Ungefärlig tid till slutförd: 10 minuter
 
 | Steg | Resurser |
 | --- | --- |
-| Identifiera den grupp som har beviljats åtkomst till programmet och konfigurera ägare av given grupp| [Hantera inställningar för en grupp i Azure Active Directory ](active-directory-groups-settings-azure-portal.md) |
-| Logga in som gruppägare, se medlemskap i grupper-fliken i åtkomstpanelen | [Azure Active Directory-grupper Management-sidan](https://account.activedirectory.windowsazure.com/r/#/groups) |
+| Identifiera den grupp som har beviljats åtkomst till programmet och konfigurera ägare av given grupp| [Hantera inställningar för en grupp i Azure Active Directory ](fundamentals/active-directory-groups-settings-azure-portal.md) |
+| Logga in som gruppägare, se medlemskap i grupper-fliken i åtkomstpanelen | [Azure Active Directory-grupper Management-sidan](https://account.activedirectory.windowsazure.com/r#/groups) |
 | Lägg till informationsarbetare som du vill testa |  |
 | Logga in som informationsanställda, bekräfta panelen är tillgängligt | [Vad är åtkomstpanelen?](active-directory-saas-access-panel-introduction.md) |
 
@@ -331,7 +331,7 @@ Om programmet har etablering aktiverat kan behöva du vänta några minuter för
 | Förhandskrav | Resurser |
 | --- | --- |
 | SaaS-program (federerad enkel inloggning eller lösenord SSO) har redan konfigurerats | Byggblock: [SaaS federerad enkel inloggning konfiguration](#saas-federated-sso-configuration) |
-| Moln-grupp som tilldelas åtkomst till programmet i #1 identifieras | Byggblock: [SaaS federerad enkel inloggning konfiguration](#saas-federated-sso-configuration) <br/>[Skapa en grupp och lägga till medlemmar i Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Moln-grupp som tilldelas åtkomst till programmet i #1 identifieras | Byggblock: [SaaS federerad enkel inloggning konfiguration](#saas-federated-sso-configuration) <br/>[Skapa en grupp och lägga till medlemmar i Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Autentiseringsuppgifter för informationsarbetare att komma åt apparna som har identifierats | [Vad är åtkomstpanelen?](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -339,7 +339,7 @@ Om programmet har etablering aktiverat kan behöva du vänta några minuter för
 
 | Steg | Resurser |
 | --- | --- |
-| Ta bort användaren från appen har tilldelats gruppen | [Hantera gruppmedlemskap för användare i din Azure Active Directory-klient](active-directory-groups-members-azure-portal.md) |
+| Ta bort användaren från appen har tilldelats gruppen | [Hantera gruppmedlemskap för användare i din Azure Active Directory-klient](fundamentals/active-directory-groups-members-azure-portal.md) |
 | Vänta några minuter för avetablering | [Automatisk Användaretablering för SaaS-App i Azure AD: hur fungerar automatisk etablering arbete?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
 | Logga in som informationsarbetare till Mina appar portal och bekräfta brickan saknas på en separat webbläsarsession | http://myapps.microsoft.com |
 

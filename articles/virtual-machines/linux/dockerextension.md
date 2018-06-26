@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 1e5a4fcfd758c12213d6de7d0f5cfcc78531ee97
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6cf77a6fa5e2cb7f9ce349e72444e76d4c687f49
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30240916"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937660"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Skapa en Docker-miljö i Azure med Docker VM-tillägget
-Docker är en populär behållarhantering och avbildningsverktyg plattform som gör att du snabbt arbeta med behållare på Linux. I Azure det, finns olika sätt som du kan distribuera Docker efter dina behov. Den här artikeln fokuserar på att använda Docker VM-tillägget och Azure Resource Manager-mallar med Azure CLI 2.0. Du kan också utföra dessa steg med [Azure CLI 1.0](dockerextension-nodejs.md).
+Docker är en populär behållarhantering och avbildningsverktyg plattform som gör att du snabbt arbeta med behållare på Linux. I Azure det, finns olika sätt som du kan distribuera Docker efter dina behov. Den här artikeln fokuserar på att använda Docker VM-tillägget och Azure Resource Manager-mallar med Azure CLI 2.0. 
 
 > [!WARNING]
 > Azure Docker VM-tillägget för Linux är föråldrad och kommer att dras tillbaka November 2018.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a748cb0e2a08ed5e8ada5db171d5ef12b2fe121e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9e8c930acd12b5197238be48722947dac5380be6
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170735"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751419"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Samla in Azure-tjänstloggar och mått för användning i logganalys
 
@@ -35,10 +35,10 @@ Det finns fyra olika sätt för att samla in loggar och mått för Azure-tjänst
 | Tjänst                 | Resurstyp                           | Logs        | Mått     | Lösning |
 | --- | --- | --- | --- | --- |
 | Programgateways    | Microsoft.Network/applicationGateways   | Diagnostik | Diagnostik | [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
-| Application Insights    |                                         | Anslutning   | Anslutning   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (förhandsgranskning) |
+| Application Insights    |                                         | Koppling   | Koppling   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (förhandsgranskning) |
 | Automation-konton     | Microsoft.Automation/AutomationAccounts | Diagnostik |             | [Mer information](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch-konton          | Microsoft.Batch/batchAccounts           | Diagnostik | Diagnostik | |
-| Klassiska molntjänster  |                                         | Lagring     |             | [Mer information](log-analytics-azure-storage-iis-table.md) |
+| Klassiska molntjänster  |                                         | Storage     |             | [Mer information](log-analytics-azure-storage-iis-table.md) |
 | Cognitive Services      | Microsoft.CognitiveServices/accounts    |             | Diagnostik | |
 | Data Lake analytics     | Microsoft.DataLakeAnalytics/accounts    | Diagnostik |             | |
 | Data Lake store         | Microsoft.DataLakeStore/accounts        | Diagnostik |             | |
@@ -51,13 +51,13 @@ Det finns fyra olika sätt för att samla in loggar och mått för Azure-tjänst
 | Recovery-valv         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services Analytics (förhandsgranskning)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Söktjänster         | Microsoft.Search/searchServices         | Diagnostik | Diagnostik | |
 | Service Bus-namnområde   | Microsoft.ServiceBus/namespaces         | Diagnostik | Diagnostik | [Service Bus Analytics (förhandsgranskning)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-| Service Fabric          |                                         | Lagring     |             | [Service Fabric Analytics (förhandsgranskning)](log-analytics-service-fabric.md) |
+| Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (förhandsgranskning)](log-analytics-service-fabric.md) |
 | SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostik | [Azure SQL Analytics (förhandsgranskning)](log-analytics-azure-sql.md) |
-| Lagring                 |                                         |             | Skript      | [Azure Storage Analytics (förhandsgranskning)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
+| Storage                 |                                         |             | Skript      | [Azure Storage Analytics (förhandsgranskning)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtuella datorer        | Microsoft.Compute/virtualMachines       | Anknytning   | Anknytning <br> Diagnostik  | |
 | Skalningsuppsättningar i virtuella datorer | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostik | |
 | Webbservergrupper        | Microsoft.Web/serverfarms               |             | Diagnostik | |
-| Webbplatser               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostik | [Azure Web Apps Analytics (förhandsgranskning)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) |
+| Webbplatser               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostik | [Azure Web Apps Analytics (förhandsgranskning)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
 
 
 > [!NOTE]
@@ -71,7 +71,7 @@ Många Azure-resurser ska kunna skriva diagnostikloggar och mått direkt till Lo
 Azure-resurser som stöder [Azure övervakaren](../monitoring-and-diagnostics/monitoring-overview.md) kan skicka sin loggar och mått direkt till Log Analytics.
 
 > [!NOTE]
-> Skicka flerdimensionell mått till logganalys via diagnostikinställningar stöds inte för närvarande. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
+> Det går för närvarande inte att skicka flerdimensionella mätvärden till Log Analytics via diagnostikinställningarna. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
 > *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. Men när exporteras via diagnostikinställningar mått representeras som alla inkommande meddelanden i alla köer i hubben.
 >

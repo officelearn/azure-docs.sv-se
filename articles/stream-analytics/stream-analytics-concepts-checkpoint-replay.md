@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 1a7cb6c5d9c3383b127ce38ae21bb2dc811e1f2e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 32970ff37d202cc73e7ab7aa1bf3d737dae895c1
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31529487"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936725"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Kontrollpunkts- och replay koncept i Azure Stream Analytics-jobb
 Den här artikeln beskriver interna kontrollpunkts- och replay begreppen i Azure Stream Analytics och inverkan de har på jobbet återställning. Varje gång upprätthålls ett Stream Analytics-jobb körs statusinformation internt. Den statusinformation sparas i en kontrollpunkt med jämna mellanrum. I vissa scenarier används kontrollpunkt informationen för återställning av jobbet om ett jobb strömavbrott eller en uppgradering. Kontrollpunkten kan inte användas för återställning under andra omständigheter och spela krävs.
@@ -48,7 +48,7 @@ Microsoft uppgraderar ibland binärfilerna som kör Stream Analytics-jobb i Azur
 
 För närvarande kan bevaras återställning kontrollpunkt format inte mellan uppgraderingar. Tillståndet för strömmande frågan måste därför återställas helt med replay-teknik. För att tillåta Stream Analytics-jobb spela exakt samma indata från innan det är viktigt att ange bevarandeprincip för källdata till minst fönstret storlek i frågan. Om du inte gör det kan resultera i felaktig eller partiell resultat under tjänsteuppgraderingen eftersom datakällan inte bevaras kanske tillräckligt långt tillbaka om du vill inkludera fullständig fönsterstorleken.
 
-I allmänhet är mängden replay behövs proportion till storleken på fönstret multiplicerat med genomsnittlig händelsefrekvens. Exempel för ett projekt med en inkommande frekvens av 1000 händelser per sekund, anses en fönsterstorlek som är större än en timme ha en stor replay-storlek. För frågor med stora replay storlek kan du se fördröjd utdata (inga utdata) under en längre tid. 
+I allmänhet är mängden replay behövs proportion till storleken på fönstret multiplicerat med genomsnittlig händelsefrekvens. Exempel för ett projekt med en inkommande frekvens av 1000 händelser per sekund, anses en fönsterstorlek som är större än en timme ha en stor replay-storlek. Upp till en timme av data kan behöva vara bearbetas på nytt initiera tillståndet så att den kan ge fullständig och korrekt resultat, vilket kan orsaka fördröjd utdata (inga utdata) under en längre tid. Frågor med ingen windows eller andra temporala operatorer som `JOIN` eller `LAG`, skulle ha noll repetitionsattacker.
 
 ## <a name="estimate-replay-catch-up-time"></a>Uppskattningen replay catch-up tid
 Du kan följa den här tekniken för att beräkna hur lång fördröjningen på grund av en Serviceuppgradering av:

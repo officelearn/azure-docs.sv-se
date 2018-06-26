@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: d0c006b21e00693fe6c8b35237d4ce55f67c0f75
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8bb0df567fbac6e8f8a2e2f64f868b4f219e05ac
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36320599"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751402"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Felsöka SAML-baserade enkel inloggning till program i Azure Active Directory
 
@@ -45,6 +45,9 @@ Så här testar SAML-baserade enkel inloggning mellan AAD och ett målprogram:
 3.  Klicka på programmet som du vill testa enkel inloggning och sedan från alternativen vänster klickar du på listan över företagsprogram och **enkel inloggning**.
 4.  Öppna den SAML-baserade enkel testning inloggning, i den **domän och URL: er** Klicka på avsnittet **Test SAML inställningen**. Om knappen Testa SAML-inställningen är nedtonat måste du först fylla ut och spara attributen som krävs.
 5.  I den **testa enkel inloggning** bladet använda företagets autentiseringsuppgifter för inloggning till målprogrammet. Du kan logga in som den aktuella användaren eller en annan användare. Om du loggar in som en annan användare uppmanas du att autentisera i en kommandotolk.
+
+    ![SAML testsida](media/active-directory-saml-debugging/testing.png)
+
 
 Om du har loggat in, har testet skickats. Azure AD utfärdats i det här fallet en SAML-token för svar till programmet. Programmet använde SAML-token för att kunna logga in.
 

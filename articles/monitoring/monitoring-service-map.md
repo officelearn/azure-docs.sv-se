@@ -3,8 +3,8 @@ title: Med hjälp av en Tjänstkarta lösning i Azure | Microsoft Docs
 description: Tjänstkarta är en lösning i Azure som automatiskt identifierar programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Den här artikeln innehåller information för att distribuera Tjänstkarta i din miljö och använda den i en mängd olika scenarier.
 services: monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
@@ -12,20 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2016
-ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: aa9a6b54576ce8399471891c9ab5b80216f00ee1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
+ms.openlocfilehash: 812137a8320634364a7d91fd2e61cd3e9d15fc12
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887911"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751436"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Med hjälp av en Tjänstkarta lösning i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkartan, kan du visa dina servrar på samma sätt som du betrakta dem: som sammanlänkade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar över en TCP-ansluten arkitektur med ingen konfiguration krävs för andra än installation av en agent.
 
-Den här artikeln beskriver hur du använder Tjänstkartan. Information om hur du konfigurerar Tjänstkarta och onboarding agenter finns [konfigurera Tjänstkarta lösning i Azure]( monitoring-service-map-configure.md).
+Den här artikeln innehåller information om onboarding och med hjälp av Tjänstkarta. Information om hur du konfigurerar Tjänstkarta och onboarding agenter finns [konfigurera Tjänstkarta lösning i Azure]( monitoring-service-map-configure.md).
 
+## <a name="sign-in-to-azure"></a>Logga in på Azure
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+
+## <a name="enable-service-map"></a>Aktivera Tjänstkarta
+1. I Azure-portalen klickar du på **+ skapa en resurs för**.
+2. Skriv i sökfältet, **Tjänstkarta** och tryck på **RETUR**.
+3. Välj i sökresultatsidan marketplace **Tjänstkarta** från listan.<br><br> ![Välj Tjänstkarta-lösning från Azure Marketplace sökresultat](./media/monitoring-service-map/marketplace-search-results.png)<br>
+4. På den **Tjänstkarta** översikt, granska informationen om lösningen och klickar sedan på **skapa** att påbörja onboarding-processen att logganalys-arbetsytan.<br><br> ![Publicera Tjänstkarta lösningen](./media/monitoring-service-map/service-map-onboard.png).
+5. I den **konfigurera en lösning** rutan, Välj en befintlig eller skapa en ny logganalys-arbetsyta.  Mer information om hur du skapar en ny arbetsyta finns [skapa logganalys-arbetsytan i Azure portal](../log-analytics/log-analytics-quick-create-workspace.md). När du har angett informationen som krävs, klickar du på **skapa**.  
+
+När informationen har verifierats och lösningen har distribuerats, du kan följa förloppet under **meddelanden** på menyn. 
+
+Du kommer åt Tjänstkarta i Azure-portalen från logganalys-arbetsytan och väljer alternativet **lösningar** i den vänstra rutan.<br><br> ![Alternativet lösningar i arbetsytan](./media/monitoring-service-map/select-solution-from-workspace.png).<br> Välj i listan med lösningar **ServiceMap(workspaceName)** och i Tjänstkartan lösning översikt över sidan klickar du på på panelen Sammanfattning Tjänstkartan.<br><br> ![Panelen för sammanfattning av Tjänstkarta](./media/monitoring-service-map/service-map-summary-tile.png).
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Användningsfall: Se IT bearbetar beroende medveten
 
@@ -44,9 +57,10 @@ Om du använder Azure Site Recovery och behöver hjälp definierar recovery sekv
 ### <a name="patch-management"></a>Uppdateringshantering
 Tjänstkarta förbättrar din användning av utvärdering av uppdateringar i systemet genom att visa andra grupper och servrar beroende på din tjänst så att meddela dem i förväg innan du anteckna dina system för korrigering. Tjänstkarta förbättrar också uppdateringshantering genom att visa om dina tjänster är tillgänglig och korrekt ansluten efter de korrigeras och startas om.
 
-
 ## <a name="mapping-overview"></a>Översikt över mappning
-Tjänstkarta agenter samla in information om alla TCP-anslutna processer på servern där de är installerade och information om inkommande och utgående anslutningar för varje process. Du kan välja datorer eller grupper som har Tjänstkarta agenter visualisera beroenden under ett angivet tidsintervall i listan i det vänstra fönstret. Datorn beroende mappar fokuserar på en specifik dator och de visar alla datorer som är direkt TCP-klienter eller servrar för denna dator.  Datorgruppen maps Visa uppsättningar av servrar och deras beroenden.
+Tjänstkarta agenter samla in information om alla TCP-anslutna processer på servern där de är installerade och information om inkommande och utgående anslutningar för varje process.
+
+Du kan välja datorer eller grupper som har Tjänstkarta agenter visualisera beroenden under ett angivet tidsintervall i listan i det vänstra fönstret. Datorn beroende mappar fokuserar på en specifik dator och de visar alla datorer som är direkt TCP-klienter eller servrar för denna dator.  Datorgruppen maps Visa uppsättningar av servrar och deras beroenden.
 
 ![Tjänsten: översikt](media/monitoring-service-map/service-map-overview.png)
 
@@ -187,16 +201,13 @@ Den **Processammanfattning** tillhandahåller ytterligare information om process
 ![Processen sammanfattningsfönstret](media/monitoring-service-map/process-summary.png)
 
 ## <a name="alerts-integration"></a>Aviseringar-integrering
-Tjänstkarta integreras med aviseringar i logganalys att visa Eldad aviseringar för den valda servern i det valda tidsintervallet. Servern visar en ikon om det finns aktuella aviseringar och **datorn aviseringar** fönstret visas aviseringarna.
+Tjänstkarta integreras med Azure aviseringar att visa Eldad aviseringar för den valda servern i det valda tidsintervallet. Servern visar en ikon om det finns aktuella aviseringar och **datorn aviseringar** fönstret visas aviseringarna.
 
 ![Datorn aviseringspanelen](media/monitoring-service-map/machine-alerts.png)
 
 Skapa en aviseringsregel som utlöses för en specifik dator om du vill aktivera tjänsten för att visa relevanta aviseringarna. För att skapa rätt aviseringar:
 - Innehåller en instruktion i gruppen per dator (till exempel **datorn intervall 1 minut**).
 - Välj att varna baserat på mått mått.
-
-![Aviseringskonfiguration](media/monitoring-service-map/alert-configuration.png)
-
 
 ## <a name="log-events-integration"></a>Logga händelser integrering
 Tjänstkarta integreras med Log-sökning för att visa en uppräkning av alla tillgängliga logghändelser för den valda servern under det valda tidsintervallet. Du kan klicka på en rad i listan över händelse antal att hoppa till loggen Sök och se enskilda logghändelser.
@@ -224,7 +235,7 @@ Den **datorn ändringsspårning** fönstret visar alla ändringar, med den senas
 
 Följande bild är en detaljerad vy av en ConfigurationChange händelse som kan uppstå när du har valt **visas i logganalys**.
 
-![ConfigurationChange händelse](media/monitoring-service-map/configuration-change-event.png)
+![ConfigurationChange händelse](media/monitoring-service-map/configuration-change-event-01.png)
 
 
 ## <a name="performance-integration"></a>Prestanda-integrering
@@ -255,7 +266,6 @@ Den **säkerhet dator** visar data från den säkerhet och granska lösningen f�
 
 ![Datorn säkerhet fönstret](media/monitoring-service-map/machine-security.png)
 
-
 ## <a name="updates-integration"></a>Integrering av uppdateringar
 Tjänstkarta integrering med uppdateringshantering sker automatiskt när båda lösningarna är aktiverad och konfigurerad i loggen Anlaytics-arbetsyta.
 
@@ -281,11 +291,11 @@ Eftersom flera poster kan finnas för en angiven process och datorer i ett angiv
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL poster
 Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar med Tjänstkarta agenter. Dessa poster har egenskaper i följande tabell:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--|:--|
 | Typ | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| Resurs-ID | Den unika identifieraren för en dator i arbetsytan |
+| resurs-ID | Den unika identifieraren för en dator i arbetsytan |
 | ResourceName_s | Den unika identifieraren för en dator i arbetsytan |
 | ComputerName_s | Datorn FQDN |
 | Ipv4Addresses_s | En lista över serverns IPv4-adresser |
@@ -308,11 +318,11 @@ Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar m
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL poster
 Poster med en typ av *ServiceMapProcess_CL* har inventeringsdata för TCP-anslutna processer på servrar med Tjänstkarta agenter. Dessa poster har egenskaper i följande tabell:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--|:--|
 | Typ | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| Resurs-ID | Den unika identifieraren för en process på arbetsytan |
+| resurs-ID | Den unika identifieraren för en process på arbetsytan |
 | ResourceName_s | Den unika identifieraren för en process på datorn som kör|
 | MachineResourceName_s | Resursnamn för datorn |
 | ExecutableName_s | Namnet på den körbara filen process |
@@ -368,7 +378,7 @@ ServiceMapComputer_CL | där OperatingSystemFullName_s contains_cs ”CentOS” 
 Alla server, process och beroende data i Tjänstkartan är tillgängliga via den [Service Map REST API](https://docs.microsoft.com/rest/api/servicemap/).
 
 
-## <a name="diagnostic-and-usage-data"></a>diagnostik och användningsdata
+## <a name="diagnostic-and-usage-data"></a>Diagnostik- och användningsdata
 Microsoft samlar automatiskt in användnings- och prestandadata via din användning av tjänsten Tjänstkartan. Microsoft använder informationen för att tillhandahålla och förbättra kvalitet, säkerhet och integritet Tjänstkarta-tjänsten. Data innehåller information om konfigurationen av din programvara, till exempel operativsystem och version, IP-adress, DNS-namn och namn på arbetsstation för att tillhandahålla korrekta och effektiva funktioner för felsökning. Microsoft samlar inte in namn, adresser eller annan kontaktinformation.
 
 Mer information om insamling och användning finns i [sekretesspolicy för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).

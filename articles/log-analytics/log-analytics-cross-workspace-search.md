@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: magoedte
-ms.openlocfilehash: e46ae3af3a718703f9e1d6b847b2342469bf3a1e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 52c3914cc1b51bf7c2a6d0fbf28dc0bf7756e749
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517231"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751453"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Cross-resurs loggen sökning i logganalys  
 
 Tidigare med Azure logganalys du kan endast analysera data från inom den aktuella arbetsytan och det begränsade möjligheten att fråga över flera arbetsytor som definierats i din prenumeration.  Dessutom kan du bara söka telemetri objekt som samlas in från ditt webbaserade program med Application Insights direkt i Application Insights eller från Visual Studio.  Detta också gjort det en utmaning att internt analysera operativa och programdata tillsammans.   
 
-Nu kan du fråga inte bara över flera logganalys arbetsytor, utan också data från en viss Application Insights-app i samma resursgrupp, en annan resursgrupp eller en annan prenumeration. Detta ger dig en systemomfattande vy över dina data.  Du kan bara utföra dessa typer av frågorna i den [avancerade portal](log-analytics-log-search-portals.md#advanced-analytics-portal), inte i Azure-portalen.  
+Nu kan du fråga inte bara över flera logganalys arbetsytor, utan också data från en viss Application Insights-app i samma resursgrupp, en annan resursgrupp eller en annan prenumeration. Detta ger dig en systemomfattande vy över dina data.  Du kan bara utföra dessa typer av frågorna i den [avancerade portal](log-analytics-log-search-portals.md#advanced-analytics-portal), inte i Azure-portalen. Antalet resurser (logganalys arbetsytor och Application Insights-app) som ska inkluderas i en enskild fråga är begränsad till 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Fråga efter över logganalys arbetsytor och från Application Insights
 Om du vill referera till en annan arbetsyta i frågan, Använd den [ *arbetsytan* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) identifierare, och en app från Application Insights använder den [ *app* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app())identifierare.  

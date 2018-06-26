@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91d4efcd7fabc2f284078d752ea68778a9bd8d86
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29939877"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752047"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Skapa anpassade vyer med hjälp av Vydesigner i logganalys
 Med hjälp av Vydesigner i [Azure logganalys](log-analytics-overview.md), kan du skapa en mängd olika anpassade vyer i Azure-portalen som kan hjälpa dig att visualisera data i logganalys-arbetsytan. Den här artikeln visar en översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
@@ -54,14 +54,15 @@ Alternativen beskrivs i följande tabell:
 | Alternativ | Beskrivning |
 |:--|:--|
 | Uppdatera   | Uppdaterar vy med den senaste informationen. | 
-| Analys | Öppnar den [Advanced Analytics portal](log-analytics-log-search-portals.md#advanced-analytics-portal) att analysera data med loggen sökningar. |
-| Filter    | Anger ett tidsfilter för de data som ingår i vyn. |
-| Redigera      | Öppnar vyn i Vydesigner att redigera dess innehåll och konfiguration.  |
-| Klona     | Skapar en ny vy och öppnas i View Designer. Namnet på den nya vyn är samma som det ursprungliga namnet, men *kopiera* läggs till den. |
+| Analytics | Öppnar den [Advanced Analytics portal](log-analytics-log-search-portals.md#advanced-analytics-portal) att analysera data med loggen sökningar. |
+| Redigera       | Öppnar vyn i Vydesigner att redigera dess innehåll och konfiguration.  |
+| Klona      | Skapar en ny vy och öppnas i View Designer. Namnet på den nya vyn är samma som det ursprungliga namnet, men *kopiera* läggs till den. |
+| Datumintervall | Ange datum och tid intervallet filter för de data som ingår i vyn. |
+| +          | Definiera ett anpassat filter som definieras för vyn. |
 
 
 ## <a name="create-a-new-view"></a>Skapa en ny vy
-Du kan skapa en ny vy i Vydesigner genom att välja den **Vydesigner** panelen på den **översikt** sidan i logganalys-arbetsytan.
+Du kan skapa en ny vy i Vydesigner genom att välja **Vydesigner** på menyn i logganalys-arbetsytan.
 
 ![Visa Designer panelen](media/log-analytics-view-designer/view-designer-tile.png)
 
@@ -104,7 +105,6 @@ Alternativ för att arbeta med vyer i redigeringsläge beskrivs i följande tabe
 | Exportera      | Exporterar vyn till en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) som du kan importera till en annan arbetsyta. Namnet på filen är namnet på vyn och har en *omsview* tillägg. |
 | Importera      | Import av *omsview* filen som du exporterade från en annan arbetsyta. Den här åtgärden skriver över konfigurationen av den befintliga vyn. |
 | Klona       | Skapar en ny vy och öppnas i View Designer. Namnet på den nya vyn är samma som det ursprungliga namnet, men *kopiera* läggs till den. |
-| Publicera     | Exporterar vyn till en JSON-fil som du kan infoga i en [hanteringslösning](../operations-management-suite/operations-management-suite-solutions-resources-views.md). Filnamnet är samma som namnet på vyn, men med en *json* tillägg. En andra fil som skapas med en *resjson* tillägg, innehåller värden för de resurser som har definierats i JSON-filen.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lägg till [paneler](log-analytics-view-designer-tiles.md) till den anpassade vyn.

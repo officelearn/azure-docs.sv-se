@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 23bbbe9cf86268f93ae1f8fcec9303efa8a673de
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796724"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751786"
 ---
 # <a name="understanding-policy-effects"></a>Förstå effekterna av principer
 
@@ -90,7 +90,7 @@ Exempel 3: Enkel **fält/värde-** para ihop med en [alias](policy-definition.md
 "then": {
     "effect": "append",
     "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
         "value": [{
             "action": "Allow",
             "value": "134.5.0.0/21"
@@ -304,7 +304,7 @@ Exempel: Utvärderar SQL Server-databaser för att avgöra om transparentDataEnc
 
 ## <a name="layering-policies"></a>Skikta principer
 
-En resurs kan påverkas av flera tilldelningar. Tilldelningarna kan vara i samma definitionsområde (specifik resurs, resursgrupp, prenumeration eller hanteringsgruppen) eller på olika omfång. Var och en av dessa tilldelningar är också troligt att det har en annan effekt som definierats. Oavsett, utvärderas oberoende villkor och effekt för varje princip (tilldelas direkt eller som en del av ett initiativ). Till exempel om principen 1 har ett villkor som begränsar plats för prenumerationen A skapas i westus om du med neka effekt och principen 2 som begränsar resurser i resursen grupp B (som är i prenumerationen A) skapas i eastus om du med revisionen effekt tilldelas båda, att det resulterande resultatet:
+En resurs kan påverkas av flera tilldelningar. Tilldelningarna kan vara i samma definitionsområde (specifik resurs, resursgrupp, prenumeration eller hanteringsgruppen) eller på olika omfång. Var och en av dessa tilldelningar är också troligt att det har en annan effekt som definierats. Oavsett, utvärderas oberoende villkor och effekt för varje princip (tilldelas direkt eller som en del av ett initiativ). Till exempel om principen 1 har ett villkor som begränsar resursplats för prenumerationen A kan endast skapas med westus om du neka effekten och principen 2 har vara ett villkor som begränsar resursplats för resursgruppen B (som är i prenumerationen A) till bara skapade i 'eastus' gälla för granskning är tilldelad, resulterande resultatet skulle vara::
 
 - Alla resurser i resursgruppen B i 'eastus' redan är kompatibelt med princip 2, men markerad som icke-kompatibla till principen 1.
 - Alla resurser i resursgruppen B inte i 'eastus' redan kommer att markeras som icke-kompatibla principen 2 och skulle också markeras inte kompatibelt med principen 1 om inget 'westus'.
@@ -324,4 +324,4 @@ Eftersom varje tilldelning individuellt utvärderas det inte finns en möjlighet
 
 Nu när du har en bättre förståelse av principen definition effekter granska princip-exempel:
 
-- Granska fler exempel på [Azure princip exempel](json-samples.md).
+- Granska fler exempel på [Azure Policy-exempel](json-samples.md).

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 7cb6927b8de07566428050e06a981c8f3afabb05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d6117b5b071e780841f4450a205287d005e11801
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227531"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752188"
 ---
 # <a name="azure-security-overview"></a>Översikt över Azure-säkerhet
 
-Säkerhetsinformation för Microsoft Azure-webbplats på Azure.com är en teknisk svar på dina Azure säkerhetsfrågor. Om du är intresserad av Azure efterlevnad och hur Azure skyddar sin egen infrastruktur, finns det [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/).
+Säkerhetsinformation för Microsoft Azure-webbplats på Azure.com är en teknisk svar på dina Azure säkerhetsfrågor. Om du är intresserad av Azure efterlevnad och hur Azure skyddar sin egen infrastruktur, finns det [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 Vi vet att säkerhet är ett jobb i molnet och det är viktigt att du hitta korrekt och rimlig information om säkerheten i Azure. Ett av de bästa skälen att använda Azure för dina program och tjänster är att dra nytta av en mängd säkerhetsverktyg och funktioner som är tillgängliga. Dessa verktyg och funktioner för att göra det möjligt att skapa säkra lösningar för säkra Azure-plattformen.
 

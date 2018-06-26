@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 05/22/2018
+ms.date: 06/25/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b4e819bdce971e92e4b2d99e68f51ddbf8a22182
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5c347a024af385e04bfdf3631ddcbaec89df4f40
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597475"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937372"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Hantera Azure Analysis Services med PowerShell
 
@@ -54,22 +54,22 @@ Modul - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azur
 
 ## <a name="database-operations"></a>Databasåtgärder
 
-Åtgärder i Azure Analysis Services-databasen använder samma [SqlServer](https://www.powershellgallery.com/packages/SqlServer) modulen som SQL Server Analysis Services. Dock stöds inte alla cmdlets för Azure Analysis Services. 
+Åtgärder i Azure Analysis Services-databasen använder samma [SqlServer modulen](https://www.powershellgallery.com/packages/SqlServer) som SQL Server Analysis Services. Dock stöds inte alla cmdlets för Azure Analysis Services. Läs mer finns [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
 
 SqlServer-modulen innehåller cmdlet: ar uppgiftsspecifika databasen samt allmänna Invoke-ASCmd cmdlet som accepterar en tabellvy modellen Scripting språk (TMSL) fråga eller skript. Följande cmdlets i modulen SqlServer har stöd för Azure Analysis Services.
 
   
 |Cmdlet|Beskrivning|
 |------------|-----------------| 
-|[Lägg till RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Lägga till en medlem i en databasroll.| 
-|[Säkerhetskopiering ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Säkerhetskopiera databas för Analysis Services.|  
-|[Ta bort RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Ta bort en medlem från en databasroll.|   
-|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Köra ett skript för TMSL.|
-|[Invoke-ProcessASDatabase](https://msdn.microsoft.com/library/mt651773.aspx)|Bearbeta en databas.|  
-|[Invoke-ProcessPartition](https://msdn.microsoft.com/library/hh510164.aspx)|Bearbeta en partition.| 
-|[Anropa ProcessTable](https://msdn.microsoft.com/library/mt651774.aspx)|Bearbeta en tabell.|  
-|[Merge-Partition](https://msdn.microsoft.com/library/hh479576.aspx)|Koppla en partition.|  
-|[Återställ ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet)|Återställa en Analysis Services-databas.| 
+|[Lägg till RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Lägga till en medlem i en databasroll.| 
+|[Säkerhetskopiering ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Säkerhetskopiera databas för Analysis Services.|  
+|[Ta bort RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Ta bort en medlem från en databasroll.|   
+|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Köra ett skript för TMSL.|
+|[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|Bearbeta en databas.|  
+|[Invoke-ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|Bearbeta en partition.| 
+|[Anropa ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|Bearbeta en tabell.|  
+|[Merge-Partition](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|Koppla en partition.|  
+|[Återställ ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Återställa en Analysis Services-databas.| 
   
 
 ## <a name="related-information"></a>Relaterad information

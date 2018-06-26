@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: de52078681a830d76c1b419c39972c122f35b40e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 0e9e7dcab208d1ffd8410a02a7c1cd713d11b277
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724385"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753497"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindningar för Azure Functions
 
@@ -247,9 +247,9 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**riktning** | Saknas | Måste anges till ”i”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar kön eller avsnittet meddelandet i funktionskoden. Ange till ”$return” att referera till returvärde för funktion. | 
 |**Könamn**|**Könamn**|Namnet på den kö som ska övervakas.  Ange endast om övervakning av en kö, inte för ett ämne.
-|**topicName**|**topicName**|Namnet på avsnittet om du vill övervaka. Ange endast om övervakning av ett ämne, inte för en kö.|
-|**SubscriptionName**|**SubscriptionName**|Namnet på prenumerationen du övervakar. Ange endast om övervakning av ett ämne, inte för en kö.|
-|**Anslutning**|**Anslutning**|Namnet på en appinställning som innehåller Service Bus-anslutningssträng för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av namnet. Till exempel om du ställer in `connection` för ”MyServiceBus” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyServiceBus”. Om du lämnar `connection` tom Functions-runtime använder standard Service Bus-anslutningssträng i appinställningen som heter ”AzureWebJobsServiceBus”.<br><br>Om du vill hämta en anslutningssträng att följa anvisningarna på [hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Anslutningssträngen måste vara för Service Bus-namnrymd inte begränsat till en särskild kö eller ett ämne. |
+|**topicName**|**TopicName**|Namnet på avsnittet om du vill övervaka. Ange endast om övervakning av ett ämne, inte för en kö.|
+|**subscriptionName**|**SubscriptionName**|Namnet på prenumerationen du övervakar. Ange endast om övervakning av ett ämne, inte för en kö.|
+|**anslutning**|**Anslutning**|Namnet på en appinställning som innehåller Service Bus-anslutningssträng för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av namnet. Till exempel om du ställer in `connection` för ”MyServiceBus” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyServiceBus”. Om du lämnar `connection` tom Functions-runtime använder standard Service Bus-anslutningssträng i appinställningen som heter ”AzureWebJobsServiceBus”.<br><br>Om du vill hämta en anslutningssträng att följa anvisningarna på [hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Anslutningssträngen måste vara för Service Bus-namnrymd inte begränsat till en särskild kö eller ett ämne. |
 |**accessRights**|**Åtkomst**|Behörighet som krävs för anslutningssträngen. Tillgängliga värden är `manage` och `listen`. Standardvärdet är `manage`, vilket indikerar att den `connection` har den **hantera** behörighet. Om du använder en anslutningssträng som inte har den **hantera** , behörighetsgrupp `accessRights` ”lyssna”. Annars kan hantera funktionerna runtime misslyckas försöker att utföra åtgärder som kräver rättigheter. I Azure Functions version 2.x kan den här egenskapen är inte tillgänglig eftersom den senaste versionen av Storage SDK: N inte stöder hantera åtgärder.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -261,7 +261,7 @@ I C# och C#-skript kan använda du följande parametertyper för kö eller ett �
 * `string` – Om meddelandet är text.
 * `byte[]` -Användbart för binära data.
 * En anpassad typ - om meddelandet innehåller JSON, Azure Functions görs ett försök att deserialisera JSON-data.
-* `BrokeredMessage` – Ger dig avserialiserat meddelandet med den [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) metod.
+* `BrokeredMessage` – Ger dig avserialiserat meddelandet med den [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) metod.
 
 Dessa parametrar är för Azure Functions version 1.x; 2.x kan använda [ `Message` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) i stället för `BrokeredMessage`.
 
@@ -511,8 +511,8 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**riktning** | Saknas | Måste anges till ”out”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar kön eller -avsnittet i funktionskoden. Ange till ”$return” att referera till returvärde för funktion. | 
 |**Könamn**|**Könamn**|Namnet på kön.  Ange endast om att skicka meddelanden till kön, inte för ett ämne.
-|**topicName**|**topicName**|Namnet på avsnittet om du vill övervaka. Ange endast om avsnittet meddelanden, inte för en kö.|
-|**Anslutning**|**Anslutning**|Namnet på en appinställning som innehåller Service Bus-anslutningssträng för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av namnet. Till exempel om du ställer in `connection` för ”MyServiceBus” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyServiceBus”. Om du lämnar `connection` tom Functions-runtime använder standard Service Bus-anslutningssträng i appinställningen som heter ”AzureWebJobsServiceBus”.<br><br>Om du vill hämta en anslutningssträng att följa anvisningarna på [hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Anslutningssträngen måste vara för Service Bus-namnrymd inte begränsat till en särskild kö eller ett ämne.|
+|**topicName**|**TopicName**|Namnet på avsnittet om du vill övervaka. Ange endast om avsnittet meddelanden, inte för en kö.|
+|**anslutning**|**Anslutning**|Namnet på en appinställning som innehåller Service Bus-anslutningssträng för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av namnet. Till exempel om du ställer in `connection` för ”MyServiceBus” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyServiceBus”. Om du lämnar `connection` tom Functions-runtime använder standard Service Bus-anslutningssträng i appinställningen som heter ”AzureWebJobsServiceBus”.<br><br>Om du vill hämta en anslutningssträng att följa anvisningarna på [hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Anslutningssträngen måste vara för Service Bus-namnrymd inte begränsat till en särskild kö eller ett ämne.|
 |**accessRights**|**Åtkomst**|Behörighet som krävs för anslutningssträngen. Tillgängliga värden är `manage` och `listen`. Standardvärdet är `manage`, vilket indikerar att den `connection` har den **hantera** behörighet. Om du använder en anslutningssträng som inte har den **hantera** , behörighetsgrupp `accessRights` ”lyssna”. Annars kan hantera funktionerna runtime misslyckas försöker att utföra åtgärder som kräver rättigheter. I Azure Functions version 2.x kan den här egenskapen är inte tillgänglig eftersom den senaste versionen av Storage SDK: N inte stöder hantera åtgärder.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

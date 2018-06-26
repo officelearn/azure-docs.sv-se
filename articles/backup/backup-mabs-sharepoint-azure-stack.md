@@ -1,5 +1,5 @@
 ---
-title: Säkerhetskopiera en SharePoint-grupp på Azure-stacken till Azure
+title: Säkerhetskopiera en SharePoint-grupp på Azure-stacken
 description: Använda Azure Backup Server för att säkerhetskopiera och återställa SharePoint-data på Azure-stacken. Den här artikeln innehåller information för att konfigurera SharePoint-servergruppen så att önskade data kan lagras i Azure. Du kan återställa skyddade SharePoint-data från disken eller från Azure.
 services: backup
 author: pvrk
@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: da8421441863c8d7f840630614f4f35c16f184d5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 309e817426fff1eb877ab02ae9aa16ddc8f5cf16
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35249412"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751905"
 ---
-# <a name="back-up-a-sharepoint-farm-on-azure-stack-to-azure"></a>Säkerhetskopiera en SharePoint-grupp på Azure-stacken till Azure
+# <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Säkerhetskopiera en SharePoint-grupp på Azure-stacken
 Du säkerhetskopiera en SharePoint-grupp på Azure-stacken till Microsoft Azure med hjälp av Microsoft Azure Backup Server (MABS) på samma sätt som du säkerhetskopiera andra datakällor. Azure-säkerhetskopiering ger flexibilitet i schemat för säkerhetskopiering att skapa varje dag, varje vecka, månad eller årlig säkerhetskopiering pekar och ger alternativ för kvarhållning av princip för säkerhetskopiering punkter. Det ger också möjlighet att lagra lokal diskkopior för snabb återställningstiden mål (RTO) och för att lagra kopior till Azure för ekonomiska och långsiktig kvarhållning.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint-versioner som stöds och relaterade skyddsscenarier
-Azure Backup för DPM har stöd för följande scenarier:
+Azure-säkerhetskopiering av MABS stöder följande scenarion:
 
 | Arbetsbelastning | Version | Distribution av SharePoint | Skydd och återställning |
 | --- | --- | --- | --- | --- | --- |
@@ -41,9 +41,6 @@ För per 10 miljoner objekt i servergruppen måste det finnas minst 2 GB utrymme
 Azure Backup-servern körs som LocalSystem-kontot. Om du vill säkerhetskopiera SQL Server-databaser, måste MABS sysadmin-behörigheter på det kontot för den server som kör SQL Server. Ange NT AUTHORITY\SYSTEM till *sysadmin* på den server som kör SQL Server innan du säkerhetskopiera den.
 
 Om SharePoint-servergruppen har SQL Server-databaser som är konfigurerade med SQL Server-alias, installerar du SQL Server-klientkomponenterna på klientwebbservern som MABS ska skydda.
-
-### <a name="sharepoint-server"></a>SharePoint Server
-Medan prestanda beror på många faktorer, till exempel storleken på SharePoint-servergruppen, som en allmän vägledning kan en MABS skydda en SharePoint-grupp med 25 TB.
 
 ### <a name="whats-not-supported"></a>Vad som inte stöds
 * MABS som skyddar en SharePoint-servergrupp skyddar inte sökindexen eller databaser för tjänsten. Behöver du konfigurera skydd för dessa databaser separat.

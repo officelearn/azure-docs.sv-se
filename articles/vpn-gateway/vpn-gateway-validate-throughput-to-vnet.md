@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: cad7719eb077d7aca9c1db5741a5fe1e0ca910a2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 38ff1ee4c525d41e2a7446d5adc792c746504491
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191323"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754572"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Hur du verifierar VPN-genomströmning till ett virtuellt nätverk
 
@@ -54,7 +54,7 @@ Följande diagram visar logiska anslutningen till ett lokalt nätverk till Azure
 4.  Kontrollera din Internet-leverantör (ISP) bandbredd.
 5.  Beräkna din förväntade genomströmning - minsta bandbredd (VM-Gateway ISP) * 0,8.
 
-Om din beräknade genomströmning inte uppfyller kraven för ditt program baslinjen dataflöde, måste du öka bandbredden för den resurs som du identifierade prioriteten. Om du vill ändra storlek på en Azure VPN-Gateway, se [ändra en gateway-SKU](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Om du vill ändra storlek på en virtuell dator, se [ändra storlek på en virtuell dator](../virtual-machines/virtual-machines-windows-resize-vm.md). Om du inte har den förväntade internetbandbredd, kan du också vill kontakta Leverantören.
+Om din beräknade genomströmning inte uppfyller kraven för ditt program baslinjen dataflöde, måste du öka bandbredden för den resurs som du identifierade prioriteten. Om du vill ändra storlek på en Azure VPN-Gateway, se [ändra en gateway-SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Om du vill ändra storlek på en virtuell dator, se [ändra storlek på en virtuell dator](../virtual-machines/virtual-machines-windows-resize-vm.md). Om du inte har den förväntade internetbandbredd, kan du också vill kontakta Leverantören.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>Verifiera dataflödet i nätverket med hjälp av prestandaverktygen
 

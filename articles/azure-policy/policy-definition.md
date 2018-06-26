@@ -8,12 +8,12 @@ ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 320ca0da946a0f04517c9ed4e8a61a868d2bb27c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 2f756d65fa167b3812772088aec7232d08b04b9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260489"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937340"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -25,9 +25,9 @@ Du kan använda JSON för att skapa en principdefinition. Principdefinitionen in
 
 - läge
 - parameters
-- Visningsnamn
+- visningsnamn
 - description
-- Principregel
+- principregel
   - logiska utvärdering
   - effekt
 
@@ -192,7 +192,8 @@ Utvärderar ett villkor om en **fältet** uppfyller vissa villkor. Villkor som s
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-När du använder den **som** och **notLike** villkor, kan du ange ett jokertecken (*) i värdet. Värdet får inte innehålla fler än 1 jokertecknet (*).
+När du använder den **som** och **notLike** villkor, kan du ange ett jokertecken `*` i värdet.
+Värdet får inte innehålla fler än ett jokertecken `*`.
 
 När du använder den **matchar** och **notMatch** villkor, ger `#` som representerar en siffra `?` för en bokstav och alla andra tecken som representerar det faktiska tecknet. Exempel finns i [tillåter flera namn mönster](scripts/allow-multiple-name-patterns.md).
 
@@ -316,7 +317,7 @@ Lista över alla alias växer alltid. Använd någon av följande metoder för a
 
 ## <a name="initiatives"></a>Initiativ
 
-Initiativ aktivera du gruppera flera relaterade principdefinitioner för att förenkla tilldelningar och hantering eftersom du arbetar med en grupp som ett enskilt objekt. Du kan till exempel gruppera alla relaterade märkning principdefinitioner i ett enda initiativ. I stället för att tilldela varje princip individuellt kan använda du initiativ.
+Initiativ kan du gruppera flera relaterade principdefinitioner för att förenkla tilldelningar och hantering eftersom du arbetar med en grupp som ett enskilt objekt. Du kan till exempel gruppera alla relaterade märkning principdefinitioner i ett enda initiativ. I stället för att tilldela varje princip individuellt kan använda du initiativ.
 
 Följande exempel illustrerar hur du skapar ett initiativ för att hantera två taggar: `costCenter` och `productName`. Två inbyggda principer används för att tillämpa taggen standardvärdet.
 
@@ -394,4 +395,4 @@ Följande exempel illustrerar hur du skapar ett initiativ för att hantera två 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel på [Azure princip exempel](json-samples.md).
+- Granska fler exempel på [Azure Policy-exempel](json-samples.md).

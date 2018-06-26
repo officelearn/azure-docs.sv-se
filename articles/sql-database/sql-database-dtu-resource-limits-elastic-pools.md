@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: adf0cd8fb8511b01d2c8e773444b0af128102ad1
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 08dabf1ad66f69c5e0f55aedbc2a4d0bb265a0bd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309871"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752239"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Resurser gränser för elastiska pooler med DTU-baserade inköpsmodell 
 
@@ -126,5 +126,5 @@ I följande tabell beskrivs egenskaperna för pool-databaser.
 
 - Se [SQL-databasen med vanliga frågor om](sql-database-faq.md) för svar på vanliga frågor och svar.
 - Information om allmänna Azure gränser finns [Azure-prenumeration och tjänsten gränser, kvoter och begränsningar](../azure-subscription-service-limits.md).
-- Information om dtu: er och edtu: er finns [dtu: er och edtu: er](sql-database-what-is-a-dtu.md).
+- Information om dtu: er och edtu: er finns [dtu: er och edtu: er](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 - Information om storleksgränser för tempdb finns https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

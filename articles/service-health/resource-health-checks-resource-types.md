@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 831383ffa3aa3464f3d62da4e1609cf3f1a4707e
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: e37266f2438f9c6bc9de2d01624bda77f9d6ee8a
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309604"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945881"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Hälsa och resurstyper kontrollerar i Azure resurshälsa
 Nedan visas en fullständig lista över alla kontroller via resurshälsa av resurstyper.
@@ -62,13 +62,13 @@ Nedan visas en fullständig lista över alla kontroller via resurshälsa av resu
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/Accounts
 |Kontroller som utförs|
 |---|
-|<ul><li>Kan användare skicka jobb till Data Lake Analytics i region?</li><li>Utföra grundläggande jobb köras och slutföras i region?</li><li>Användare kan visa katalogobjekt i region?</li>|
+|<ul><li>Har användare erfarna problem med att skicka eller visa en lista över sina Data Lake Analytics-jobb?</li><li>Är Data Lake Analytics-jobb gick inte att slutföra system fel?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/Accounts
 |Kontroller som utförs|
 |---|
-|<ul><li>Användare kan överföra data till Data Lake Store i region?</li><li>Användare kan hämta data från Data Lake Store i region?</li></ul>|
+|<ul><li>Användare har haft problem med att överföra data till Data Lake Store?</li><li>Användare har haft problem som hämtar data från Data Lake Store?</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/iothubs
 

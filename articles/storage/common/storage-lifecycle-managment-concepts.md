@@ -9,12 +9,12 @@ ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: bd36cfd0cd03592396a2aa9a977124880f47ec90
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 9721935f005bbd9a5dc261fe801ecc14744b004f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248477"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752800"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Hantera Azure Blob Storage livscykeln (förhandsgranskning)
 
@@ -190,7 +190,7 @@ I preview stöder livscykelhantering skiktning och borttagning av blob och bortt
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Stöd för antal BLOB-informationsblock för närvarande på Hot nivå         | Stöds inte |
 | tierToArchive | Stöd för antal BLOB-informationsblock för närvarande på aktiv eller kall nivå | Stöds inte |
-| radera        | Stöds                                   | Stöds     |
+| delete        | Stöds                                   | Stöds     |
 
 >[!NOTE] 
 Om mer än en åtgärd har definierats för samma blob, gäller åtgärden billigaste blob livscykelhantering. (t.ex. åtgärden `delete` billigare än åtgärden `tierToArchive`. Åtgärden `tierToArchive` billigare än åtgärden `tierToCool`.)
@@ -265,7 +265,7 @@ Vissa data förblir inaktiva i molnet och används sällan, eller kanske aldrig,
 
 ### <a name="expire-data-based-on-age"></a>Ut data baserat på ålder
 
-Vissa data förväntas gälla dagar eller månader efter att minska kostnaderna och följa statliga regelverk har skapats. En princip för hantering av livscykeln kan ställas in att gälla efter borttagning baserat på data ålder. I följande exempel visas en princip som tar bort alla blockblobbar (med inget prefix har angetts) som är äldre än 365 dagar.
+Vissa data förväntas gälla dagar eller månader efter att minska kostnaderna och följa statliga regelverk har skapats. En princip för hantering av livscykeln kan ställas in att gälla data genom att ta bort baserat på data ålder. I följande exempel visas en princip som tar bort alla blockblobbar (med inget prefix har angetts) som är äldre än 365 dagar.
 
 ```json
 {

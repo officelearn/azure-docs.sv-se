@@ -15,20 +15,20 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c115414fc6ae599342192196e256597c28e5aa6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: aeb67a73a69684b89609c6b04160357b244f62b7
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293202"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754578"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet
 
-Den här artikeln handlar om en funktion som låter administratörer konfigurera enkel inloggning till program finns inte i appgalleriet för Azure Active Directory *utan att skriva kod*. Den här funktionen har frigjorts från technical preview 18 November 2015 och ingår i [Azure Active Directory Premium](active-directory-whatis.md). Om du söker i stället för guide för utvecklare om hur du integrerar anpassade appar med Azure AD via kod, se [Autentiseringsscenarier för Azure AD](active-directory-authentication-scenarios.md).
+Den här artikeln handlar om en funktion som låter administratörer konfigurera enkel inloggning till program finns inte i appgalleriet för Azure Active Directory *utan att skriva kod*. Den här funktionen har frigjorts från technical preview 18 November 2015 och ingår i [Azure Active Directory Premium](fundamentals/active-directory-whatis.md). Om du söker i stället för guide för utvecklare om hur du integrerar anpassade appar med Azure AD via kod, se [Autentiseringsscenarier för Azure AD](active-directory-authentication-scenarios.md).
 
 Azure Active Directory-programgalleriet innehåller en lista över program som stöder en form av enkel inloggning med Azure Active Directory, enligt beskrivningen i [i den här artikeln](manage-apps/what-is-single-sign-on.md). När du (som en IT-specialist eller system integrator i din organisation) har hittat programmet som du vill ansluta till, kan du komma igång genom att följa de stegvisa anvisningarna som visas i Azure-portalen för att aktivera enkel inloggning.
 
-Kunder med [Azure Active Directory Premium](active-directory-whatis.md) licens också få dessa ytterligare funktioner:
+Kunder med [Azure Active Directory Premium](fundamentals/active-directory-whatis.md) licens också få dessa ytterligare funktioner:
 
 * Självbetjäning integrering av alla program som stöder SAML 2.0 identitetsleverantörer (SP-initierad eller IdP-initierad)
 * Självbetjäning integrering av alla webbprogram som har en HTML-baserad inloggningssidan med [lösenordsbaserade SSO](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
@@ -148,18 +148,7 @@ Tilldela en användare kan Azure AD för att utfärda en token för användaren.
 
 ### <a name="test-the-saml-application"></a>Testa SAML-program
 
-Innan du testar programmet SAML måste du ha Ställ in program med Azure AD och tilldelade användare eller grupper till programmet.
-
-  ![Testning](./media/active-directory-saas-custom-apps/testing.png)
-
-Enkel inloggning-sidan klickar du på **Test SAML inställningar** under avsnittet domän och URL: er. Då öppnas en innehållsrutan med instruktioner om hur du testar programmet.
-
-1. Logga in på programmet. Om programmet har konfigurerats som service provider-initierad enkel inloggning, omdirigeras till enkel inloggning URL där du kan initiera logga in. Om programmet har konfigurerats som identitet provider-initierad enkel inloggning, sedan du är inloggad till programmet.
-2.  Om du ser något fel på sidan för företagets kopiera felet och gå tillbaka till Azure AD testa enkel inloggning innehållsrutan. Klistra in felet i rutan och klicka på **hämta Lösningssteg**. Om felet finns på sidan i programmet, måste du Kontakta programvaruleverantören och dela konfigurationen på Azure AD för att verifiera värdena. 
-3.  Baserat på felet innehåller Azure AD specifika anvisningar om hur du löser problemet.
-
-Mer information finns i [felsöka SAML-baserade enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-debugging/?WT.mc_id=DMC_AAD_?WT.mc_id=UI_AAD_Configure_NonGalleryApps)
-
+Innan du testar programmet SAML måste du ha Ställ in program med Azure AD och tilldelade användare eller grupper till programmet. Om du vill testa programmet SAML finns [felsöka SAML-baserade enkel inloggning till program i Azure Active Directory](develop/active-directory-saml-debugging.md).
 
 ## <a name="password-single-sign-on"></a>Lösenord för enkel inloggning
 

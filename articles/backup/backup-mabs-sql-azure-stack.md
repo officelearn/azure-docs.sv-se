@@ -8,21 +8,21 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: 5541a2fff6bb54f5d62518e7edf54fb9150e3109
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ca7da7ab048b6f7bfdba81aac9bc7702b20ff967
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35249400"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751805"
 ---
-# <a name="back-up-sql-server-on-azure-stack"></a>Säkerhetskopiera SQL Server på Azure-stacken
+# <a name="back-up-sql-server-on-stack"></a>Säkerhetskopiera SQL Server på Stack
 Använd den här artikeln för att konfigurera Microsoft Azure Backup Server (MABS) för att skydda SQL Server-databaser på Azure-stacken.
 
 Hantering av säkerhetskopiering av SQL Server-databas till Azure och återställning från Azure omfattar tre steg:
 
-1. Skapa en princip för säkerhetskopiering för att skydda SQL Server-databaser till Azure.
-2. Skapa säkerhetskopior för på-begäran till Azure.
-3. Återställ databasen från Azure.
+1. Skapa en princip för säkerhetskopiering för att skydda SQL Server-databaser
+2. Skapa säkerhetskopior på begäran
+3. Återställa databasen från diskar och från Azure
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -63,12 +63,6 @@ Hantering av säkerhetskopiering av SQL Server-databas till Azure och återstäl
    >
 
 7. På den **granska diskallokering** skärmen, kontrollera övergripande lagringsutrymme och diskutrymme som potentiellt. Klicka på **Nästa**.
-
-    ![Diskallokering](./media/backup-azure-backup-sql/pg-storage.png)
-
-    Som standard skapar Azure Backup-Server en volym per datakälla (SQL Server-databas) som används för den första säkerhetskopian. Med den här metoden begränsar LDM Logical Disk Manager () Azure Backup-skydd till 300 datakällor (SQL Server-databaser). För att undvika denna begränsning, Välj **samplacera data i DPM-lagringspoolen**. Med samplacering kan Azure Backup Server använder en enda volym för flera datakällor och kan skydda upp till 2000 SQL Server-databaser.
-
-    Om du väljer **Utöka automatiskt volymerna**, Azure Backup-Server-konton för ökad säkerhetskopieringsvolymen när produktionsdata växer. Om du inte markerar alternativet begränsar Azure Backup-Server säkerhetskopieringslagring som används för att datakällorna i skyddsgruppen.
 
 8. I den **Välj Replikskapandemetod**, Välj hur du vill skapa din första återställningspunkt. Du kan överföra den första säkerhetskopian manuellt (av nätverk) för att undvika överbelastning av bandbredd eller via nätverket. Om du väljer att vänta med att överföra den första säkerhetskopian kan ange du tiden för den första överföringen. Klicka på **Nästa**.
 
@@ -111,12 +105,7 @@ Hantering av säkerhetskopiering av SQL Server-databas till Azure och återstäl
     * Säkerhetskopian på lördag kl. 12:00 sparas i 104 veckor
     * Säkerhetskopian på sista lördag kl. 12:00 sparas i 60 månader
     * Säkerhetskopian på sista lördag mars klockan 12:00. sparas för 10 år
-13. Klicka på **nästa** och väljer lämpligt alternativ för att överföra den första säkerhetskopian till Azure. Du kan välja **automatiskt via nätverket** eller **Offline säkerhetskopiering**.
-
-    * **Automatiskt via nätverket** överförs säkerhetskopierade data till Azure enligt det schema som valts för säkerhetskopiering.
-    * **Offlinesäkerhetskopiering** förklaras på [Offline säkerhetskopiering arbetsflöde i Azure Backup](backup-azure-backup-import-export.md).
-
-    Välja relevant överföring mekanism för att skicka den första säkerhetskopian till Azure och klicka på **nästa**.
+13. Klicka på **nästa** och väljer lämpligt alternativ för att överföra den första säkerhetskopian till Azure. Du kan välja **automatiskt via nätverket**
 
 14. När du granska information om principen i den **sammanfattning** klickar du på **Skapa grupp** att slutföra arbetsflödet. Du kan klicka på **Stäng** och övervaka jobbförloppet på arbetsytan övervakning.
 
@@ -147,11 +136,11 @@ Följande steg krävs för att återställa en skyddad entitet (SQL Server-datab
 2. Högerklicka på namnet på databasen och på **återställa**.
 
     ![Återställa från Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM visar information om återställningspunkten. Klicka på **Nästa**. Om du vill skriva över databasen väljer du typ av återställning **Återställ till ursprunglig instans av SQL Server**. Klicka på **Nästa**.
+3. MABS visar information om återställningspunkten. Klicka på **Nästa**. Om du vill skriva över databasen väljer du typ av återställning **Återställ till ursprunglig instans av SQL Server**. Klicka på **Nästa**.
 
     ![Återställa till ursprunglig plats](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    I det här exemplet återställer DPM databasen till en annan SQL Server-instans eller till en nätverksmapp för fristående.
+    I det här exemplet återställer MABS databasen till en annan SQL Server-instans eller till en nätverksmapp för fristående.
 
 4. I den **Ange återställningsalternativ** skärmen, som du kan välja återställningsalternativ som begränsning av nätverksbandbredd för att begränsa bandbredden som används av återställningen. Klicka på **Nästa**.
 

@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: 8df9035cf4a5e62102353c701625526e211b7282
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c1ca250d7255877cc811bf7c03034ecbb8f1f372
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915335"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936912"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Skapa virtuella nätverkskort och använda interna DNS för namnmatchning för virtuell dator på Azure
-Den här artikeln visar hur du ställer in statiska interna DNS-namn för Linux virtuella datorer med Azure CLI 2.0 virtuella nätverkskort (vNics) och DNS-etikettnamn. Du kan också utföra dessa steg med [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Statisk DNS-namn används för permanenta infrastrukturtjänster som en Jenkins build-server, som används för det här dokumentet eller en Git-server.
+Den här artikeln visar hur du ställer in statiska interna DNS-namn för Linux virtuella datorer med Azure CLI 2.0 virtuella nätverkskort (vNics) och DNS-etikettnamn. Statisk DNS-namn används för permanenta infrastrukturtjänster som en Jenkins build-server, som används för det här dokumentet eller en Git-server.
 
 Kraven är:
 

@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 5c5c9894127386a05da9825435cfe5ca07b01542
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ccdeb2e57d8e2f8fc7ad2fa5e76726b90c0c8a50
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911989"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936827"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Ladda upp och skapa en Linux VM från anpassade disken med Azure CLI 2.0
-Den här artikeln visar hur du överför en virtuell hårddisk (VHD) till ett Azure storage-konto med Azure CLI 2.0 och skapar virtuella Linux-datorer från den här anpassade disken. Du kan också utföra dessa steg med [Azure CLI 1.0](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Den här funktionen kan du installera och konfigurera en Linux-distro enligt dina behov och sedan använda den virtuella Hårddisken för att snabbt skapa virtuella Azure-datorer (VM).
+Den här artikeln visar hur du överför en virtuell hårddisk (VHD) till ett Azure storage-konto med Azure CLI 2.0 och skapar virtuella Linux-datorer från den här anpassade disken. Den här funktionen kan du installera och konfigurera en Linux-distro enligt dina behov och sedan använda den virtuella Hårddisken för att snabbt skapa virtuella Azure-datorer (VM).
 
 Det här avsnittet använder storage-konton för de sista virtuella hårddiskarna, men du kan också göra följande med hjälp av [hanterade diskar](upload-vhd.md). 
 
@@ -105,7 +105,7 @@ Ersätt exempel parameternamn med egna värden i följande exempel. Exempel para
 ## <a name="prepare-the-disk-to-be-uploaded"></a>Förbereda disken som ska överföras
 Azure stöder olika Linux-distributioner (se [godkända distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). I följande artiklar när du går igenom hur du förbereder de olika Linux-distributioner som stöds i Azure:
 
-* **[CentOS-based Distributions](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[CentOS-baserade distributioner](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -116,7 +116,7 @@ Azure stöder olika Linux-distributioner (se [godkända distributioner](endorsed
 Se även den **[Linux installationsinformation](create-upload-generic.md#general-linux-installation-notes)** mer allmänna tips om hur du förbereder Linux avbildningar för Azure.
 
 > [!NOTE]
-> Den [Azure-plattformen SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) gäller för virtuella datorer som kör Linux endast när en av de påtecknade distributioner används med konfigurationsinformation som anges under stöds versioner i [Linux på Azure-Endorsed distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Den [Azure-plattformen SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) gäller för virtuella datorer som kör Linux endast när en av de påtecknade distributioner används med konfigurationsinformation som anges under stöds versioner i [Linux på Azure-godkända Distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 

@@ -10,12 +10,12 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 68ccf6f64f90200359322f35ca081aa6b53493f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bcc33eb7e5050c991c89b7f0998eec3707f62ebb
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648276"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751351"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med Intelligent insikter
 
@@ -235,7 +235,7 @@ Mer information finns i [introduktion till minnesoptimerade tabeller](https://do
 
 Det här mönstret kan upptäckas prestanda anger en försämring i den aktuella databasen arbetsbelastningsprestanda jämfört med de senaste sju dagar baslinjen. Det beror på brist på tillgängliga dtu: er i den elastiska poolen för din prenumeration. 
 
-Resurser på SQL-databas är vanligtvis kallas [DTU-resurser](sql-database-what-is-a-dtu.md), som består av en blandning av processor- och -i/o (data och transaktionen loggning i/o) resurser. [Azure elastisk pool resurser](sql-database-elastic-pool.md) används som en pool med tillgängliga eDTU-resurserna som delas mellan flera databaser för att skala syften. När tillgängliga eDTU-resurserna i din elastisk pool inte är tillräckligt stor för att stödja alla databaser i poolen, identifierade en elastisk pool DTU lite prestandaproblemet av systemet.
+Resurser på SQL-databas är vanligtvis kallas [DTU-resurser](sql-database-service-tiers.md#what-are-database-transaction-units-dtus), som består av en blandning av processor- och -i/o (data och transaktionen loggning i/o) resurser. [Azure elastisk pool resurser](sql-database-elastic-pool.md) används som en pool med tillgängliga eDTU-resurserna som delas mellan flera databaser för att skala syften. När tillgängliga eDTU-resurserna i din elastisk pool inte är tillräckligt stor för att stödja alla databaser i poolen, identifierade en elastisk pool DTU lite prestandaproblemet av systemet.
 
 ### <a name="troubleshooting"></a>Felsökning
 

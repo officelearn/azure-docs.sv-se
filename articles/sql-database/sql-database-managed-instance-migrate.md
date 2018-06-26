@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 8f666bc352dc1706da4812590f85adc7695e2f13
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5a81279726e5c221d9ae4734466a04ae5912af6
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647670"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936810"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-instansen migrering till Azure SQL-hanterade databasinstans
 
@@ -78,7 +78,6 @@ Hanterade instans stöder följande databas-migreringsalternativ (dessa är för
 
 - Azure migrering databastjänsten - migrering med nära noll avbrottstid
 - Interna återställning från URL - använder inbyggd säkerhetskopior från SQL Server och kräver att vissa avbrott
-- Migrera med hjälp av filen BACPAC - använder BACPAC filen från SQL Server eller SQL-databas och kräver att vissa avbrott
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
@@ -107,10 +106,6 @@ I följande tabell finns mer information om den metod som du kan använda beroen
 > Återställning av systemdatabaser stöds inte. Om du vill migrera instans initialisera (som lagras i master-databasen eller msdb-databaser) rekommenderar vi att skript ut dem och köra T-SQL-skript på mål-instans.
 
 En fullständig genomgång som innehåller återställa en säkerhetskopia av databasen till en hanterad instans med hjälp av en SAS-autentiseringsuppgifter finns [återställa från en säkerhetskopia till en hanterad](sql-database-managed-instance-restore-from-backup-tutorial.md).
-
-### <a name="migrate-using-bacpac-file"></a>Migrera med hjälp av BACPAC fil
-
-Du kan importera till Azure SQL Database och hanteras instans från en skapa en kopia av den ursprungliga databasen med data i en BACPAC-fil. Se [importera en BACPAC-fil till en ny Azure SQL Database](sql-database-import.md).
 
 ## <a name="monitor-applications"></a>Övervakning av program
 

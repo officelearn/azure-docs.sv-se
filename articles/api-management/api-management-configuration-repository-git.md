@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 57d14b6aa6caca0cc9b075723d4c350b0a50c9f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0165de82850c0c80052564c5f31a5e5cf5effb11
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29117545"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938316"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Spara och konfigurera din API Management service configuration med Git
 
@@ -149,7 +149,7 @@ Filer och mappar i den lokala git-lagringsplatsen innehåller konfigurationsinfo
 
 | Objekt | Beskrivning |
 | --- | --- |
-| Rotmapp för api management |Innehåller översta konfiguration för tjänstinstansen |
+| rotmapp för api management |Innehåller översta konfiguration för tjänstinstansen |
 | API: er för mappen |Innehåller konfiguration för API: er i instansen för tjänsten |
 | mappen grupper |Innehåller konfiguration för grupper i tjänstinstansen |
 | för principmappen |Innehåller principer i tjänstinstansen |
@@ -161,8 +161,8 @@ Varje mapp kan innehålla en eller flera filer och i vissa fall en eller flera m
 
 | Filtyp | Syfte |
 | --- | --- |
-| json |Konfigurationsinformation om respektive enhet |
-| html |Beskrivningar av entiteten ofta visas i developer-portalen |
+| JSON |Konfigurationsinformation om respektive enhet |
+| HTML |Beskrivningar av entiteten ofta visas i developer-portalen |
 | xml |Principrapporter |
 | CSS |Formatmallar för developer portal anpassning |
 
@@ -219,41 +219,41 @@ Den sista inställningen `$ref-policy`, mappar till den globala principfilen ins
 ### <a name="apis-folder"></a>API: er för mappen
 Den `apis` mappen innehåller en mapp för varje API i tjänstinstansen som innehåller följande objekt.
 
-* `apis\<api name>\configuration.json`-Detta är konfigurationen för API: et och innehåller information om URL: en för backend-tjänsten och åtgärder. Det här är samma information som returneras om du anropa [få en specifika API: et](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) med `export=true` i `application/json` format.
-* `apis\<api name>\api.description.html`-Detta är en beskrivning av API: et och motsvarar den `description` -egenskapen för den [API entiteten](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
-* `apis\<api name>\operations\`-den här mappen innehåller `<operation name>.description.html` filer som mappar till åtgärder i API: et. Varje fil som innehåller en beskrivning av en enda åtgärd i API som mappar till den `description` -egenskapen för den [åtgärden entiteten](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) i REST-API.
+* `apis\<api name>\configuration.json` -Detta är konfigurationen för API: et och innehåller information om URL: en för backend-tjänsten och åtgärder. Det här är samma information som returneras om du anropa [få en specifika API: et](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) med `export=true` i `application/json` format.
+* `apis\<api name>\api.description.html` -Detta är en beskrivning av API: et och motsvarar den `description` -egenskapen för den [API entiteten](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\` -den här mappen innehåller `<operation name>.description.html` filer som mappar till åtgärder i API: et. Varje fil som innehåller en beskrivning av en enda åtgärd i API som mappar till den `description` -egenskapen för den [åtgärden entiteten](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) i REST-API.
 
 ### <a name="groups-folder"></a>mappen grupper
 Den `groups` mappen innehåller en mapp för varje grupp som definierats i tjänstinstansen.
 
-* `groups\<group name>\configuration.json`-Detta är konfigurationen för gruppen. Det här är samma information som returneras om du anropar den [få en specifik grupp](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) igen.
-* `groups\<group name>\description.html`-Detta är en beskrivning av gruppen som motsvarar den `description` -egenskapen för den [gruppen entiteten](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
+* `groups\<group name>\configuration.json` -Detta är konfigurationen för gruppen. Det här är samma information som returneras om du anropar den [få en specifik grupp](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) igen.
+* `groups\<group name>\description.html` -Detta är en beskrivning av gruppen som motsvarar den `description` -egenskapen för den [gruppen entiteten](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
 
 ### <a name="policies-folder"></a>för principmappen
 Den `policies` mappen innehåller hanteringsprinciper för service-instans.
 
-* `policies\global.xml`-innehåller principer som definierats vid globalt scope för service-instans.
-* `policies\apis\<api name>\`-Om du har några definierade principer på API-scope, de ingår i den här mappen.
-* `policies\apis\<api name>\<operation name>\`mapp - om du har några definierade principer på åtgärdsomfånget de ingår i den här mappen i `<operation name>.xml` filer som mappas till principrapporter för varje åtgärd.
-* `policies\products\`-Om du har några principer som definierats i produktomfattningen de ingår i den här mappen som innehåller `<product name>.xml` filer som mappas till principrapporter för varje produkt.
+* `policies\global.xml` -innehåller principer som definierats vid globalt scope för service-instans.
+* `policies\apis\<api name>\` -Om du har några definierade principer på API-scope, de ingår i den här mappen.
+* `policies\apis\<api name>\<operation name>\` mapp - om du har några definierade principer på åtgärdsomfånget de ingår i den här mappen i `<operation name>.xml` filer som mappas till principrapporter för varje åtgärd.
+* `policies\products\` -Om du har några principer som definierats i produktomfattningen de ingår i den här mappen som innehåller `<product name>.xml` filer som mappas till principrapporter för varje produkt.
 
 ### <a name="portalstyles-folder"></a>portalStyles mapp
 Den `portalStyles` mappen innehåller konfiguration och style sheets developer portal anpassningar för tjänstinstansen.
 
-* `portalStyles\configuration.json`-innehåller namnen på de formatmallar som används av developer-portalen
-* `portalStyles\<style name>.css`-varje `<style name>.css` filen innehåller format för developer-portalen (`Preview.css` och `Production.css` som standard).
+* `portalStyles\configuration.json` -innehåller namnen på de formatmallar som används av developer-portalen
+* `portalStyles\<style name>.css` -varje `<style name>.css` filen innehåller format för developer-portalen (`Preview.css` och `Production.css` som standard).
 
 ### <a name="products-folder"></a>produkter mapp
 Den `products` mappen innehåller en mapp för varje produkt som definierats i tjänstinstansen.
 
-* `products\<product name>\configuration.json`-Detta är konfigurationen för produkten. Det här är samma information som returneras om du anropar den [få en specifik produkt](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) igen.
-* `products\<product name>\product.description.html`-Detta är en beskrivning av produkten som motsvarar den `description` -egenskapen för den [entiteten för produkt](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) i REST-API.
+* `products\<product name>\configuration.json` -Detta är konfigurationen för produkten. Det här är samma information som returneras om du anropar den [få en specifik produkt](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) igen.
+* `products\<product name>\product.description.html` -Detta är en beskrivning av produkten som motsvarar den `description` -egenskapen för den [entiteten för produkt](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) i REST-API.
 
 ### <a name="templates"></a>mallar
 Den `templates` mappen innehåller konfigurationen för den [e-mallar](api-management-howto-configure-notifications.md) i tjänstinstansen.
 
-* `<template name>\configuration.json`-Detta är konfigurationen för e-postmallen.
-* `<template name>\body.html`-Detta är innehållet i e-postmallen.
+* `<template name>\configuration.json` -Detta är konfigurationen för e-postmallen.
+* `<template name>\body.html` -Detta är innehållet i e-postmallen.
 
 ## <a name="next-steps"></a>Nästa steg
 Information om andra sätt att hantera din tjänstinstansen finns:

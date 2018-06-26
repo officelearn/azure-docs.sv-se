@@ -6,158 +6,240 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 6/21/2018
 ms.author: markgal
-ms.openlocfilehash: 844a70aa6fe003c6ad5816aaec9c32db9104c620
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d8169eba6790e49a85d69434663faabe7430942e
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605348"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937608"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Ta bort ett Recovery Services-valv
-Den här artikeln förklarar hur du tar bort ett Recovery Services-valv i Azure-portalen. Om du har säkerhetskopieringsvalv, har de konverterats till Recovery Services-valv.   
 
-Ta bort Recovery Services-valvet är autentiseringsprocessen - *angivna valvet inte innehåller några resurser*. Innan du kan ta bort Recovery Services-valvet, måste du ta bort eller ta bort alla resurser i valvet. Om du försöker ta bort ett valv som innehåller resurser får du ett felmeddelande som följande bild:
+Den här artikeln beskriver hur du ta bort alla objekt från en Recovery Services-valvet och tar bort den. Du kan inte ta bort Recovery Services-valvet om den är registrerad på en server och innehåller säkerhetskopierade data. Om du försöker ta bort ett valv, men inte kan konfigureras fortfarande valvet för att ta emot säkerhetskopierade data.
 
-![Fel vid borttagning av valvet](./media/backup-azure-delete-vault/vault-deletion-error.png) <br/>
+Information om hur du tar bort ett valv, finns i avsnittet [ta bort ett valv från Azure-portalen](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). Om du inte vill att behålla alla data i Recovery Services-valvet vill du ta bort valvet, finns i avsnittet [ta bort valvet av kraft](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Om du inte vet vad som finns i valvet och du måste se till att du kan ta bort valvet, finns i avsnittet [ta bort valvet beroenden och ta bort valvet](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 
-Tills du har avmarkerat resurser från valvet, klickar du på **försök** ger samma fel. Om du har fastnat på det här felmeddelandet klickar du på **Avbryt** och Använd följande steg för att ta bort resurserna i valvet.
+## <a name="delete-a-vault-from-azure-portal"></a>Ta bort ett valv från Azure-portalen
 
-## <a name="removing-items-from-a-vault-protecting-a-vm"></a>Ta bort objekt från ett valv som skyddar en VM
 Om du redan har Recovery Services-valvet öppna går du vidare till nästa steg.
 
 1. Öppna Azure portal och öppnar du vill ta bort valvet från instrumentpanelen.
 
-   Om du inte har Recovery Services-valvet fäst på instrumentpanelen på navmenyn klickar du på **fler tjänster** och Skriv i listan över resurser, **återställningstjänster**. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Recovery Services-valv**.
+   Om du inte har Recovery Services-valvet fäst på instrumentpanelen på navmenyn klickar du på **alla tjänster** och Skriv i listan över resurser, **återställningstjänster**. När du börjar skriva filtreras listan baserat på det du skriver. Om du vill visa listan över valv i din prenumeration, klickar du på **Recovery Services-valv**.
 
    ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-   Listan över Recovery Services-valv visas. Välj valvet som du vill ta bort från listan.
+   Listan över Recovery Services-valv visas. 
 
-   ![Välj valvet från lista](./media/backup-azure-work-with-vaults/choose-vault-to-delete.png)
-2. I vyn valvet titta på den **Essentials** fönstret. Om du vill ta bort ett valv, får inte det finnas några skyddade objekt. Om den **säkerhetskopiering objekt** eller **säkerhetskopiera hanteringsservrar** Visa inte noll, måste du ta bort dessa objekt. Du kan inte ta bort valvet om den innehåller data.
+   ![Välj valvet från lista](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
-    ![Titta på Essentials fönstret för skyddade objekt](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
+2. Välj valvet som du vill ta bort från listan. När du väljer valvet öppnas dess valvet instrumentpanelen.
 
-    Virtuella datorer och filer/mappar betraktas objekt för säkerhetskopiering och visas i den **säkerhetskopiering objekt** i fönstret Essentials. En DPM-server ingår i den **säkerhetskopiering hanteringsservern** i fönstret Essentials. **Replikerade objekt** hör till Azure Site Recovery-tjänsten.
-3. Om du vill ta bort de skyddade objekten från valvet, hitta objekt i valvet. I valvet instrumentpanelen klickar du på **inställningar**, och klicka sedan på **Säkerhetskopiera objekt** att öppna menyn.
+    ![Välj din valvet för att öppna dess instrumentpanel](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-    ![Välj valvet från lista](./media/backup-azure-delete-vault/open-settings-and-backup-items.png)
+3. Om du vill ta bort ett valv i valvet-instrumentpanelen klickar du på **ta bort**. Du ombeds bekräfta att du vill ta bort valvet.
 
-    Den **säkerhetskopiering objekt** menyn har separata listor, baserat på vilken typ av objekt: Azure virtuella datorer eller filmappar (se bilden). Standard objekttypen listan som visas är Azure virtuella datorer. Om du vill visa listan över mappar objekt i valvet, Välj **-mappar** från den nedrullningsbara menyn.
-4. Innan du kan ta bort ett objekt från valvet skyddar en VM, måste du stoppa objektets säkerhetskopieringsjobbet och ta bort punkten återställningsdata. Följ dessa steg för varje objekt i valvet:
+    ![Välj din valvet för att öppna dess instrumentpanel](./media/backup-azure-delete-vault/click-delete-button-to-delete-vault.png)
 
-    a. På den **Säkerhetskopieringsobjekt** -menyn, högerklicka på objektet och på snabbmenyn Välj **stoppa säkerhetskopiering**.
+    Om den **valvet fel vid borttagning av** visas, kan du antingen ta bort beroenden valvet, eller du kan använda PowerShell för att ta bort valvet automatiskt. I följande avsnitt beskrivs hur du utför dessa uppgifter.
 
-    ![Stoppa jobbet](./media/backup-azure-delete-vault/stop-the-backup-process.png)
+    ![Fel vid borttagning av valvet](./media/backup-azure-delete-vault/vault-delete-error.png)
+
+
+## <a name="delete-the-recovery-services-vault-by-force"></a>Ta bort Recovery Services-valvet automatiskt
+
+Du kan använda PowerShell för att ta bort Recovery Services-valvet automatiskt. Tvingad sätt tas Recovery Services-valvet och alla tillhörande säkerhetskopierade data bort permanent. 
+
+> [!Warning]
+> När du använder PowerShell för att ta bort Recovery Services-valvet måste du vara säker på att du permanent vill ta bort alla säkerhetskopierade data i valvet.
+>
+
+Ta bort Recovery Services-valv:
+
+1. Logga in på ditt Azure-konto.
+
+   Logga in på Azure-prenumerationen med den `Connect-AzureRmAccount` kommandot och följa den på skärmen riktningar.
+
+   ```powershell
+    Connect-AzureRmAccount
+   ```
+   Första gången du använder Azure Backup måste du registrera Azure Recovery Services-providern i din prenumeration med [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider).
+
+   ```powershell
+    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+   ```
+
+2. Öppna ett PowerShell-fönster med administratörsbehörighet.
+
+3. Använd `Set-ExecutionPolicy Unrestricted` att ta bort eventuella begränsningar.
+
+4. Kör följande kommando för att hämta Azure Resource Manager-klienten från chocolately.org.
+
+    `iex ((New-Object System.Net.WebClient) DownloadString('https://chocolatey.org/install.ps1))`
+
+5. Använd följande kommando för att installera Azure Resource Manager API-klient.
+
+   `choco.exe install armclient`
+
+6. Samla in prenumerations-ID och associerade resursgruppens namn för Recovery Services-valvet som du vill ta bort i Azure-portalen.
+
+7. I PowerShell kör du följande kommando med ditt prenumerations-ID, resursgruppens namn och namn på Recovery Services-valvet. När du kör kommandot tas bort valvet och alla beroenden.
+
+   ```powershell
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
+   ```
+8. Logga in till din prenumeration på Azure-portalen och kontrollera att valvet har tagits bort.
+
+
+## <a name="remove-vault-dependencies-and-delete-vault"></a>Ta bort valvet beroenden och ta bort valvet
+
+Ta bort konfigurationen mellan varje element eller servern och Recovery Services-valvet och manuellt ta bort valvet beroenden. När du går igenom följande procedur kan du använda den **säkerhetskopiering objekt** menyn (se bild) för:
+
+* Säkerhetskopieringar i Azure Storage (Azure-filer)
+* SQL Server i Virtuella Azure-säkerhetskopieringar
+* Virtuella datorer i Azure-säkerhetskopieringar
+* Microsoft Azure Recovery Services-agenten säkerhetskopieringar
+
+Använd den **säkerhetskopiering infrastruktur** menyn (se bild) för:
+
+* Azure Backup Server-säkerhetskopieringar
+* System Center DPM-säkerhetskopieringar
+
+    ![Välj din valvet för att öppna dess instrumentpanel](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
+
+1. Rulla ned till avsnittet skyddade objekt i menyn valvet instrumentpanelen och klicka på **säkerhetskopiering objekt**. I den här menyn kan du stoppa och ta bort Azure-filservrar, SQL-servrar i virtuella Azure-datorn och virtuella Azure-datorer. I det här exemplet ska vi ta bort säkerhetskopierade data från en filserver i Azure.
+
+    ![Välj din valvet för att öppna dess instrumentpanel](./media/backup-azure-delete-vault/selected-backup-items.png)
+
+2. Välj en typ av säkerhetskopiering att visa alla objekt av den typen.
+
+    ![Välj typ av säkerhetskopiering](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
+
+3. För alla objekt i listan högerklickar du på objektet och på snabbmenyn väljer **stoppa säkerhetskopiering**.
+
+    ![Välj typ av säkerhetskopiering](./media/backup-azure-delete-vault/stop-backup-item.png) 
 
     Stoppa säkerhetskopiering menyn öppnas.
 
-    b. På den **stoppa säkerhetskopiering** menyn från den **väljer du ett alternativ** väljer du **ta bort säkerhetskopieringsdata** > skriver du namnet på objektet > och klicka på **stoppa säkerhetskopiering**.
+4. På den **stoppa säkerhetskopiering** menyn från den **väljer du ett alternativ** väljer du **ta bort säkerhetskopieringsdata**, skriver du namnet på objektet och klicka på **stoppa säkerhetskopiering**.
 
-    Skriv namnet på objektet om du vill kontrollera att du vill ta bort den. Den **stoppa säkerhetskopiering** knappen aktiveras när du har gjort objektet. Om du inte ser dialogrutan för att ange namnet på objektet säkerhetskopiering som du har valt den **behålla säkerhetskopierade Data** alternativet.
+    Skriv namnet på objektet om du vill kontrollera att du vill ta bort den. Den **stoppa säkerhetskopiering** knappen aktiveras när du har gjort objektet. Om du behåller dina data, kan du inte ta bort valvet.
 
-    ![Ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
+    ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-    Du kan också kan du ange en orsak till varför du vill ta bort data och lägga till kommentarer. När du klickar på **stoppa säkerhetskopiering**, att ta bort jobbet ska slutföras innan du försöker ta bort valvet. Kontrollera den Azure-meddelanden för att verifiera att jobbet har slutförts, ![ta bort säkerhetskopieringsdata](./media/backup-azure-delete-vault/messages.png). <br/>
-    När jobbet är klart, tjänsten skickar ett meddelande: säkerhetskopieringen har stoppats och den säkerhetskopiera informationen har tagits bort.
+    Om du vill ange en orsak till varför du tar bort data och lägga till kommentarer. Kontrollera den Azure-meddelanden för att verifiera aktiviteten slutfördes ![ta bort säkerhetskopieringsdata](./media/backup-azure-delete-vault/messages.png). <br/>
+    När jobbet är slutfört tjänsten skickar ett meddelande: *säkerhetskopieringen har stoppats och den säkerhetskopiera informationen har tagits bort*.
 
-    c. När du tar bort ett objekt i listan på den **säkerhetskopiering objekt** -menyn klickar du på **uppdatera** kvarvarande objekt i valvet.
+5. När du tar bort ett objekt i listan på den **säkerhetskopiering objekt** -menyn klickar du på **uppdatera** objekt i valvet.
 
-      ![Ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/empty-items-list.png)
+      ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/empty-items-list.png)
 
       När det finns inga objekt i listan, bläddra till den **Essentials** rutan i menyn Recovery Services-valvet. Det får inte finnas något **Säkerhetskopiera objekt**, **säkerhetskopiera hanteringsservrar**, eller **replikerade objekt** visas. Om objekt visas fortfarande i valvet, återgår till steg tre och välj ett annat objekt typen lista.  
-5. När det finns inga fler objekt i verktygsfältet valvet, klickar du på **ta bort**.
 
-    ![Ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/delete-vault.png)
-6. Kontrollera att du vill ta bort valvet, klicka på **Ja**.
+6. När det finns inga fler objekt i verktygsfältet valvet, klickar du på **ta bort**.
+
+    ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
+
+7. Kontrollera att du vill ta bort valvet, klicka på **Ja**.
 
     Valvet tas bort och portalen återgår till den **ny** service-menyn.
 
-## <a name="what-if-i-stopped-the-backup-process-but-retained-the-data"></a>Vad händer om jag stoppats säkerhetskopieringen utan behålls data?
-Om du har stoppat säkerhetskopieringsprocessen men oavsiktligt *behålls* data, måste du ta bort den säkerhetskopiera informationen innan du kan ta bort valvet. Ta bort säkerhetskopierade data:
+## <a name="removing-azure-backup-server-or-dpm"></a>Ta bort Azure Backup-Server eller DPM
+
+1. Rulla ned till avsnittet Hantera valvet instrumentpanelen-menyn och klicka på **säkerhetskopiering infrastruktur**. 
+
+2. Klicka på undermenyn **Säkerhetskopieringshanteringsservrar** att visa servrar för Azure-säkerhetskopiering och System Center DPM-servern. Du kan stoppa och ta bort Azure-filservrar, SQL-servrar i virtuella Azure-datorn och virtuella Azure-datorer. 
+
+    ![Välj din valvet för att öppna dess instrumentpanel](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+
+3. Högerklicka på objektet som du vill ta bort och undermenyn, Välj **ta bort**.
+
+    ![Välj typ av säkerhetskopiering](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
+
+    Stoppa säkerhetskopiering menyn öppnas.
+
+4. På den **stoppa säkerhetskopiering** menyn från den **väljer du ett alternativ** väljer du **ta bort säkerhetskopieringsdata**, skriver du namnet på objektet och klicka på **stoppa säkerhetskopiering**.
+
+    Kontrollera du vill ta bort att skriva dess namn. Den **stoppa säkerhetskopiering** knappen aktiveras när du har gjort objektet. Om du behåller dina data, kan du ta bort valvet.
+
+    ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
+
+    Du kan också kan du ange en orsak till varför du vill ta bort data och lägga till kommentarer. Kontrollera den Azure-meddelanden för att verifiera att jobbet har slutförts, ![ta bort säkerhetskopieringsdata](./media/backup-azure-delete-vault/messages.png). <br/>
+    När jobbet är klart, tjänsten skickar ett meddelande: säkerhetskopieringen har stoppats och den säkerhetskopiera informationen har tagits bort.
+
+5. När du tar bort ett objekt i listan på den **säkerhetskopiering objekt** -menyn klickar du på **uppdatera** kvarvarande objekt i valvet.
+
+      ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/empty-items-list.png)
+
+      När det finns inga objekt i listan, bläddra till den **Essentials** rutan i menyn Recovery Services-valvet. Det får inte finnas något **Säkerhetskopiera objekt**, **säkerhetskopiera hanteringsservrar**, eller **replikerade objekt** visas. Om objekt visas fortfarande i valvet, återgår till steg tre och välj ett annat objekt typen lista.  
+6. När det finns inga fler objekt i valvet på valvet instrumentpanelen klickar du på **ta bort**.
+
+    ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
+
+7. Kontrollera att du vill ta bort valvet, klicka på **Ja**.
+
+    Valvet tas bort och portalen återgår till den **ny** service-menyn.
+
+
+## <a name="removing-azure-backup-agent-recovery-points"></a>Ta bort återställningspunkter för Azure Backup agent
+
+1. Rulla ned till avsnittet Hantera valvet instrumentpanelen-menyn och klicka på **säkerhetskopiering infrastruktur**.
+
+2. Klicka på den underordnade menyn **skyddade servrar** visa listan över skyddade servertyper, inklusive Azure Backup-agenten.
+
+    ![Välj din valvet för att öppna dess instrumentpanel](./media/backup-azure-delete-vault/identify-protected-servers.png)
+
+3. I den **skyddade servrar** klickar du på Azure Backup-agenten.
+
+    ![Välj typ av säkerhetskopiering](./media/backup-azure-delete-vault/list-of-protected-server-types.png)
+
+    Listan över servrar som skyddas med Azure Backup-agenten öppnas.
+
+    ![Välj den specifika skyddade servern](./media/backup-azure-delete-vault/azure-backup-agent-protected-servers.png)
+
+4. Klicka på en för att öppna menyn i listan över servrar.
+
+    ![visa instrumentpanelen för den valda servern](./media/backup-azure-delete-vault/selected-protected-server.png)
+
+5. På den valda servern instrumentpanelen menyn **ta bort**.
+
+    ![ta bort den valda servern](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
+
+6. På den **ta bort** menyn, skriver du namnet på objektet och klicka på **ta bort**.
+
+    Skriv namnet på objektet om du vill kontrollera att du vill ta bort den. Den **ta bort** knappen aktiveras när du har gjort objektet.
+
+    ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
+
+    Du kan också kan du ange en orsak till varför du vill ta bort data och lägga till kommentarer. Kontrollera den Azure-meddelanden för att verifiera att jobbet har slutförts, ![ta bort säkerhetskopieringsdata](./media/backup-azure-delete-vault/messages.png). <br/>
+    När jobbet är klart, tjänsten skickar ett meddelande: säkerhetskopieringen har stoppats och den säkerhetskopiera informationen har tagits bort.
+
+7. När du tar bort ett objekt i listan på den **säkerhetskopiering objekt** -menyn klickar du på **uppdatera** kvarvarande objekt i valvet.
+
+      ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/empty-items-list.png)
+
+      När det finns inga objekt i listan, bläddra till den **Essentials** rutan i menyn Recovery Services-valvet. Det får inte finnas något **Säkerhetskopiera objekt**, **säkerhetskopiera hanteringsservrar**, eller **replikerade objekt** visas. Om objekt visas fortfarande i valvet, återgår till steg tre och välj ett annat objekt typen lista.  
+8. När det finns inga fler objekt i valvet på valvet instrumentpanelen klickar du på **ta bort**.
+
+    ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
+
+9. Kontrollera att du vill ta bort valvet, klicka på **Ja**.
+
+    Valvet tas bort och portalen återgår till den **ny** service-menyn.
+
+## <a name="what-if-i-stop-the-backup-process-but-retain-the-data"></a>Vad händer om jag stoppa säkerhetskopieringsprocessen men behålla data?
+
+Om du avbryter säkerhetskopieringen men oavsiktligt *behålla* data, måste du ta bort den säkerhetskopiera informationen innan du kan ta bort valvet. Ta bort säkerhetskopierade data:
 
 1. På den **Säkerhetskopieringsobjekt** -menyn högerklickar du på objektet och klickar på snabbmenyn **ta bort säkerhetskopieringsdata**.
 
-    ![Ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/delete-backup-data-menu.png)
+    ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/delete-backup-data-menu.png)
 
     Den **ta bort säkerhetskopierade Data** menyn öppnas.
 2. På den **ta bort säkerhetskopierade Data** menyn, skriver du namnet på objektet och klicka på **ta bort**.
 
-    ![Ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/delete-retained-vault.png)
+    ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/delete-retained-vault.png)
 
     När du har tagit bort data tillbaka till steg 4c och fortsätta med processen.
-
-## <a name="delete-a-vault-used-to-protect-a-dpm-server"></a>Ta bort ett valv som används för att skydda en DPM-server
-Innan du kan ta bort ett valv som används för att skydda DPM-servern måste du rensa några återställningspunkter som har skapats och sedan avregistrera servern från valvet.
-
-Ta bort data som är associerade med en skyddsgrupp:
-
-1. I DPM-administratörskonsolen klickar du på **skydd** > Välj en skyddsgrupp > Välj Skyddsgruppsmedlemmen > och klicka på verktygsfliken **ta bort**.
-
-  Välj Skyddsgruppsmedlem att aktivera den **ta bort** knapp i menyfliksområdet. I det här exemplet medlemmen är **dummyvm9**. Om du vill välja flera medlemmar i skyddsgruppen, håll ned Ctrl-tangenten medan du klickar på medlemmar.
-
-    ![Ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/az-portal-delete-protection-group.png)
-
-    Den **stoppa skydd** öppnas.
-2. I den **stoppa skydd** markerar **ta bort skyddade data**, och klicka på **stoppa skydd**.
-
-    ![Ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/delete-dpm-protection-group.png)
-
-    Om du vill ta bort ett valv, måste du rensa eller ta bort valvet av skyddade data. Om det finns många återställningspunkter och data i skyddsgruppen, kan det ta flera minuter att ta bort data. Den **stoppa skydd** visar när jobbet har slutförts.
-
-    ![Ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/success-deleting-protection-group.png)
-3. Fortsätt för alla medlemmar i alla skyddsgrupper.
-
-    Ta bort alla skyddade data och skydd grupper.
-4. Växla till Azure-portalen när du tar bort alla medlemmar från skyddsgruppen. Öppna instrumentpanelen valvet och kontrollera att det finns inga **säkerhetskopiering objekt**, **säkerhetskopiera hanteringsservrar**, eller **replikerade objekt**. Klicka på verktygsfältet valvet **ta bort**.
-
-    ![Ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/delete-vault.png)
-
-    Om det finns säkerhetskopieringshanteringsservrar registrerad för valvet, kan du ta bort valvet även om det finns inga data i valvet. Om du har tagit bort säkerhetskopieringshanteringsservrar som är kopplad till valvet, men det finns servrar som anges i den **Essentials** fönstret finns [hitta säkerhetskopieringshanteringsservrar registrerad för valvet](backup-azure-delete-vault.md#find-the-backup-management-servers-registered-to-the-vault).
-5. Kontrollera att du vill ta bort valvet, klicka på **Ja**.
-
-    Valvet tas bort och portalen återgår till den **ny** service-menyn.
-
-## <a name="delete-a-vault-used-to-protect-a-production-server"></a>Ta bort ett valv som används för att skydda en produktionsserver
-Innan du kan ta bort ett valv som används för att skydda en produktionsserver, måste du ta bort eller avregistrera servern från valvet.
-
-Ta bort produktionsservern som är kopplad till valvet:
-
-1. Öppna valvet instrumentpanelen i Azure-portalen och på **inställningar** > **säkerhetskopiering infrastruktur** > **produktionsservrar**.
-
-    ![Öppna produktionsservrar meny](./media/backup-azure-delete-vault/delete-production-server.png)
-
-    Den **produktionsservrar** menyn öppnas och visar en lista över alla produktionsservrar i valvet.
-
-    ![lista över produktionsservrar](./media/backup-azure-delete-vault/list-of-production-servers.png)
-2. På den **produktionsservrar** -menyn, högerklicka på servern och på **ta bort**.
-
-    ![ta bort produktionsservern ](./media/backup-azure-delete-vault/delete-server-on-production-server-blade.png)
-
-    Den **ta bort** menyn öppnas.
-
-    ![ta bort produktionsservern ](./media/backup-azure-delete-vault/delete-blade.png)
-3. På den **ta bort** menyn bekräfta servernamnet och klicka på **ta bort**. Du måste namnet på servern för att aktivera den **ta bort** knappen.
-
-    När valvet har tagits bort, får du ett meddelande om valvet har tagits bort. När du tar bort alla servrar i valvet, bläddrar du till fönstret Essentials i valvet instrumentpanelen.
-4. I instrumentpanelen för valvet, kontrollera att det finns inga **säkerhetskopiering objekt**, **säkerhetskopiera hanteringsservrar**, eller **replikerade objekt**. Klicka på verktygsfältet valvet **ta bort**.
-5. Kontrollera att du vill ta bort valvet, klicka på **Ja**.
-
-    Valvet tas bort och portalen återgår till den **ny** service-menyn.
-
-## <a name="find-the-backup-management-servers-registered-to-the-vault"></a>Hitta säkerhetskopiering hanteringsservrar registrerad för valvet
-Om du har flera servrar har registrerats ett valv, kan det vara svårt att komma ihåg dem. Se de servrar som registrerad för valvet och ta bort dem:
-
-1. Öppna instrumentpanelen valvet.
-2. I den **Essentials** rutan klickar du på **inställningar** att öppna menyn.
-
-    ![Öppna inställningsmenyn](./media/backup-azure-delete-vault/backup-vault-click-settings.png)
-3. På den **inställningar** -menyn klickar du på **säkerhetskopiering infrastruktur**.
-4. På den **säkerhetskopiering infrastruktur** -menyn klickar du på **Säkerhetskopieringshanteringsservrar**. Säkerhetskopieringshanteringsservrar menyn öppnas.
-
-    ![lista över säkerhetskopiering hanteringsservrar](./media/backup-azure-delete-vault/list-of-backup-management-servers.png)
-5. Högerklicka på namnet på servern för att ta bort en server i listan och klicka sedan på **ta bort**.
-    Den **ta bort** menyn öppnas.
-6. På den **ta bort** menyn och ange namnet på servern. Du kan kopiera och klistra in den från listan över Säkerhetskopieringshanteringsservrar om det är ett långt namn. Klicka på **Ta bort**.  

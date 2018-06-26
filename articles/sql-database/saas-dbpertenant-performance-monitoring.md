@@ -10,18 +10,18 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: bc24465fa0efc9c473a78503d18200ea5b361920
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d8e260b8dabb4c6823d59374a7b8661e024f1b3d
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644614"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752279"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app för flera innehavare
 
 I den här självstudiekursen beskrivs flera KPI hanteringsscenarier som används i SaaS-program. Simulera aktiviteten över alla klient-databaser med hjälp av en load-generatorn är inbyggd övervakning och avisering funktioner i SQL-databasen och elastiska pooler visas.
 
-Appen Wingtip biljetter SaaS databas Per klient använder en enskild klient datamodellen, där varje plats (klient) har sina egna databasen. Precis som för flera SaaS-program så är de förväntade belastningsmönstren för klienterna oberäkneliga och sporadiska. Biljettförsäljningar kan med andra ord ske när som helst. För att dra nytta av det här typiska databasanvändningsmönstret, distribueras klientdatabaserna i elastiska databaspooler. Elastiska pooler optimerar kostnaderna för en lösning genom att dela resurser över flera databaser. Med den här typen av mönster är det viktigt att övervaka användningen av databas- och poolresurser för att försäkra att belastningarna balanseras över poolerna. Du behöver också se till att enskilda databaser har tillräckliga resurser och att pooler inte träffar sina [eDTU](sql-database-what-is-a-dtu.md)-gränser. Den här guiden går igenom sätt att övervaka och hantera databaser och pooler och hur man vidtar åtgärder i respons på belastningsvariationer.
+Appen Wingtip biljetter SaaS databas Per klient använder en enskild klient datamodellen, där varje plats (klient) har sina egna databasen. Precis som för flera SaaS-program så är de förväntade belastningsmönstren för klienterna oberäkneliga och sporadiska. Biljettförsäljningar kan med andra ord ske när som helst. För att dra nytta av det här typiska databasanvändningsmönstret, distribueras klientdatabaserna i elastiska databaspooler. Elastiska pooler optimerar kostnaderna för en lösning genom att dela resurser över flera databaser. Med den här typen av mönster är det viktigt att övervaka användningen av databas- och poolresurser för att försäkra att belastningarna balanseras över poolerna. Du behöver också se till att enskilda databaser har tillräckliga resurser och att pooler inte träffar sina [eDTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)-gränser. Den här guiden går igenom sätt att övervaka och hantera databaser och pooler och hur man vidtar åtgärder i respons på belastningsvariationer.
 
 I den här guiden får du lära dig hur man:
 
@@ -42,7 +42,7 @@ Följande krav måste uppfyllas för att kunna köra den här självstudiekursen
 
 Hantering av databasprestanda innebär kompilering och analys av prestandadata för att sedan reagera på den genom att justera parametrarna för att bibehålla en acceptabel svarstid för programmet. När du är värd för flera klientorganisationer, är elastiska databaspooler ett kostnadseffektivt sätt att tillhandahålla och hantera resurser för en grupp databaser med oförutsägbara arbetsbelastningar. Med vissa arbetsbelastningmönster, kan så få som två S3-databaser dra nytta av att hanteras i en pool.
 
-![Diagram över](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
+![diagram över](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
 
 Pooler och databaserna i poolen, bör övervakas för att säkerställa att de förblir inom acceptabel prestanda. Finjustera konfigurationen för lagringspooler för att uppfylla behoven för alla databaser som säkerställer att pool-edtu: er är lämpliga för den övergripande arbetsbelastningen sammanställd arbetsbelastningen. Justera per databas min och max eDTU-värden till lämpliga värden för dina specifika programkrav.
 
@@ -73,7 +73,7 @@ Om du redan har etablerats en grupp med klienter i en tidigare kursen går du ti
 
 Skriptet distribuerar 17 klienter på mindre än fem minuter.
 
-Den *ny TenantBatch* skript som använder en kapslad eller länkade uppsättning [Resource Manager](../azure-resource-manager/index.md) mallar som skapar en grupp med klienter, vilket som standard kopieras databasen **basetenantdb** på katalogserver att skapa den nya innehavaren databaser registrerar sedan dessa i katalogen och slutligen initierar dem med typen klient namn och plats. Detta är förenligt med hur appen etablerar en ny klient. Ändringar som görs till *basetenantdb* tillämpas på alla nya klienter som etablerats därefter. Finns det [schemat Management kursen](saas-tenancy-schema-management.md) att se hur du ändrar schemat *befintliga* klient databaser (inklusive den *basetenantdb* databas).
+Den *ny TenantBatch* skript som använder en kapslad eller länkade uppsättning [Resource Manager](../azure-resource-manager/index.md) mallar som skapar en grupp med klienter, vilket som standard kopieras databasen **basetenantdb**på katalogserver att skapa den nya innehavaren databaser registrerar sedan dessa i katalogen och slutligen initierar dem med typen klient namn och plats. Detta är förenligt med hur appen etablerar en ny klient. Ändringar som görs till *basetenantdb* tillämpas på alla nya klienter som etablerats därefter. Finns det [schemat Management kursen](saas-tenancy-schema-management.md) att se hur du ändrar schemat *befintliga* klient databaser (inklusive den *basetenantdb* databas).
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Simulera användning på alla klientdatabaser
 

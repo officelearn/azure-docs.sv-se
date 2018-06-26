@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: c10a6367f07bf66f7a0a8968022881b3c616fb74
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: bfdc89d9bc5d5a07c04e857c1a46e4b988c125ab
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205611"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943563"
 ---
 ## <a name="test-your-code"></a>Testa din kod
 
@@ -44,7 +44,7 @@ När du bläddrar till vyn domänkontrollanten bör du se en tabell som innehål
 |Egenskap  |Värde |Beskrivning |
 |---|---|---|
 |**Namn** |Användarens fullständiga namn | Användaren förnamn och efternamn.
-|**Användarnamn** |Användaren<span>@domain.com</span> | Användarnamnet som används för att identifiera användaren.
+|**Användarnamn** |användaren<span>@domain.com</span> | Användarnamnet som används för att identifiera användaren.
 |**Ämne** |Ämne |En sträng som unikt identifierar användaren på Internet.|
 |**Klient-ID** |GUID | En **guid** som unikt representerar användarens Azure AD-organisation.|
 
@@ -71,7 +71,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Begränsa vem som kan logga in på ditt program
-Som standard när du skapar program som skapats av den här guiden tillämpningsprogrammet accepterar logga moduler av personliga konton (inklusive outlook.com och live.com) som fungerar och skolkonton från alla företag eller organisation som har integrerat med Azure Active Directory. Detta är en rekommenderade alternativet för SaaS-program.
+Som standard när du skapar program som skapats av den här guiden tillämpningsprogrammet accepterar inloggningar av personliga konton (inklusive outlook.com och live.com) samt arbete och skolkonton från alla företag eller organisation som har integrerat med Azure Active Directory. Detta är en rekommenderade alternativet för SaaS-program.
 
 Om du vill begränsa användarnas inloggning åtkomst för ditt program, finns flera alternativ:
 

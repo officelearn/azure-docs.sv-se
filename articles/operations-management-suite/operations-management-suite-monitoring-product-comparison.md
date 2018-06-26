@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
-ms.openlocfilehash: b4201f105a87b0a41059c061eb37fb35d4514e02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6da876a0e6c1e98683caa864a4a2bcf85195cd10
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23866319"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753327"
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Microsoft övervakning Produktjämförelse
 Den här artikeln innehåller en jämförelse mellan System Center Operations Manager (SCOM) och logganalys i Operations Management Suite (OMS) i sina arkitektur, logiken för hur de övervaka resurser och hur de utför analys av den information som samlas in .  Detta är att ge dig en grundläggande förståelse av deras skillnader och relativa styrka.  
 
 ## <a name="basic-architecture"></a>Grundläggande arkitektur
 ### <a name="system-center-operations-manager"></a>System Center Operations Manager
-Alla installeras SCOM i ditt datacenter.  [Agenter är installerade](http://technet.microsoft.com/library/hh551142.aspx) på Windows- och Linux-datorer som hanteras av SCOM.  Agenter som ska ansluta till [hanteringsservrar](https://technet.microsoft.com/library/hh301922.aspx) som kommunicera med SCOM-driftdatabasen och datalagret.  Agenter är beroende av domänautentisering för att ansluta till hanteringsservrar.  De utanför en betrodd domän kan utföra autentisering med datorcertifikat eller ansluta till en [Gateway-servern](https://technet.microsoft.com/library/hh212823.aspx).
+Alla installeras SCOM i ditt datacenter.  [Agenter är installerade](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-console) på Windows- och Linux-datorer som hanteras av SCOM.  Agenter som ska ansluta till [hanteringsservrar](https://technet.microsoft.com/library/hh301922.aspx) som kommunicera med SCOM-driftdatabasen och datalagret.  Agenter är beroende av domänautentisering för att ansluta till hanteringsservrar.  De utanför en betrodd domän kan utföra autentisering med datorcertifikat eller ansluta till en [Gateway-servern](https://technet.microsoft.com/library/hh212823.aspx).
 
 SCOM kräver två SQL-databaser, ett för användningsdata och ett annat datalager som stöd för rapportering och dataanalys.  En [rapportservern](https://technet.microsoft.com/library/hh298611.aspx) kör SQL Reporting Services för att rapportera om data från datalagret. 
 
@@ -86,7 +86,7 @@ SCOM har många detaljerad arbetsflöden som vanligtvis definierar specifika kri
 #### <a name="solutions"></a>Lösningar
 Lösningar som erbjuder ytterligare logik för insamling och analys.  Du kan välja lösningar för att lägga till i prenumerationen OMS från galleriet lösning.
 
-![Lösningar galleri](media/operations-management-suite-monitoring-product-comparison/log-analytics-solutiongallery.png)
+![Lösningsgalleri](media/operations-management-suite-monitoring-product-comparison/log-analytics-solutiongallery.png)
 
 Lösningar köras i första hand i molnet ger analys av händelser och prestandaräknare som samlats in i OMS-databasen.  De kan också definiera ytterligare data som ska samlas in som kan analyseras med loggen frågor eller genom ytterligare användargränssnittet i lösningen i OMS-instrumentpanelen. 
 

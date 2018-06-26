@@ -3,7 +3,7 @@ title: Hur du använder PerfInsights i Microsoft Azure | Microsoft Docs
 description: Veta hur du använder PerfInsights för att felsöka Windows VM prestandaproblem.
 services: virtual-machines-windows'
 documentationcenter: ''
-author: genlin
+author: anandhms
 manager: cshepard
 editor: na
 tags: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cac17b5f3ee730bf1f56dbfd05b6c6d3b02c891f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2f496f906eef416b35e2e59b2db93481ce65acb1
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160666"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946539"
 ---
-# <a name="how-to-use-perfinsights"></a>Hur du använder PerfInsights 
+# <a name="how-to-use-perfinsights"></a>Hur du använder PerfInsights
 
 [PerfInsights](http://aka.ms/perfinsightsdownload) är ett verktyg för självhjälp diagnostik som samlar in & analyserar diagnostiska data, och ger en rapport för att felsöka problem med Windows virtuella prestanda i Azure. PerfInsights kan köras på virtuella datorer som ett fristående verktyg eller direkt från portalen genom att installera [Azure prestanda diagnostik VM-tillägget](performance-diagnostics-vm-extension.md).
 
@@ -31,7 +31,7 @@ Kör det här verktyget om du får prestandaproblem med virtuella datorer innan 
 
 PerfInsights kan samla in och analysera flera typer av information. Följande avsnitt beskriver vanliga scenarier.
 
-### <a name="collect-basic-configuration"></a>Samla in grundläggande konfiguration 
+### <a name="quick-performance-analysis"></a>Snabb prestandaanalys
 
 Det här scenariot samlar in diskkonfigurationen och annan viktig information, inklusive:
 
@@ -64,11 +64,11 @@ Det här scenariot körs den [Diskspd](https://github.com/Microsoft/diskspd) ben
 > Det här scenariot kan påverka systemet och bör inte köras på ett levande produktionssystem. Kör det här scenariot i en dedikerad underhållsfönstret för att undvika problem vid behov. En ökad belastning som orsakas av ett spårningen eller prestandamått test kan försämra prestanda på den virtuella datorn.
 >
 
-### <a name="slow-vm-analysis"></a>Långsam VM analys 
+### <a name="slow-vm-analysis"></a>Långsam VM analys
 
 Det här scenariot körs en [prestandaräknaren](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) spårningen med hjälp av de räknare som anges i filen RuleEngineConfig.json. Om den virtuella datorn identifieras som en server som kör SQL Server, kör en räknare spårning av prestanda. Detta sker med hjälp av de räknare som finns i filen RuleEngineConfig.json. Det här scenariot omfattar också diagnostik prestandadata.
 
-### <a name="azure-files-analysis"></a>Azure filer analys 
+### <a name="azure-files-analysis"></a>Azure Files analys
 
 Det här scenariot körs en särskild prestandaräknaren avbildning tillsammans med en spårning i nätverket. Avbildningen innehåller alla Server Message Block (SMB) klienten resurser räknare. Här följer några viktiga SMB-resursen prestandaräknare i klient som ingår i avbildningen:
 
@@ -90,9 +90,9 @@ Det här scenariot körs en särskild prestandaräknaren avbildning tillsammans 
 |              | Genomsn. Skriva Kölängd       |
 |              | Genomsn. Kölängd för data        |
 
-### <a name="custom-slow-vm-analysis"></a>Anpassade långsam VM-analys 
+### <a name="advanced-slow-vm-analysis"></a>Avancerad analys långsam VM
 
-När du kör en anpassad långsam VM-analys, markerar spårningar som körs parallellt. Om du vill kan köra du dem alla (prestandaräknaren Xperf, nätverk och StorPort).  
+När du kör en avancerad analys för långsam VM markerar spårningar som körs parallellt. Om du vill kan köra du dem alla (prestandaräknaren Xperf, nätverk och StorPort).  
 
 > [!Note]
 > Det här scenariot kan påverka systemet och bör inte köras på ett levande produktionssystem. Kör det här scenariot i en dedikerad underhållsfönstret för att undvika problem vid behov. En ökad belastning som orsakas av ett spårningen eller prestandamått test kan försämra prestanda på den virtuella datorn.
@@ -104,7 +104,7 @@ Information om Windows VM, diskar eller pooler lagringskonfiguration, prestandar
 
 |Data som samlas in                              |  |  | Scenarier för prestanda |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Samla in grundläggande konfiguration | Prestandamätningar | Långsam VM analys | Azure filer analys | Anpassade långsam VM-analys |
+|                               | Snabb prestandaanalys | Prestandamätningar | Långsam VM analys | Azure Files analys | Avancerad analys långsam VM |
 | Information från händelseloggar       | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Systeminformation                | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Volymen karta                        | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
@@ -171,9 +171,9 @@ I/o för Diskspd arbetsbelastning prov (OS-Disk [Skriv] och pool enheter [läsni
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Möjliga problem när du kör verktyget på produktion virtuella datorer
 
--  För benchmarking scenariot eller ”anpassad långsam VM analys” scenariot som är konfigurerad för att använda Xperf eller Diskspd kan verktyget påverka prestanda negativt för den virtuella datorn. Dessa scenarier ska inte köras i en verklig produktionsmiljö.
+-  För benchmarking scenariot eller ”avancerad långsam VM analys” scenariot som är konfigurerad för att använda Xperf eller Diskspd kan verktyget påverka prestanda negativt för den virtuella datorn. Dessa scenarier ska inte köras i en verklig produktionsmiljö.
 
--  Se till att inga andra bakgrundsaktivitet stör i/o-arbetsbelastning för benchmarking scenariot eller ”anpassad långsam VM analys”-scenario som är konfigurerad för att använda Diskspd.
+-  Se till att inga andra bakgrundsaktivitet stör i/o-arbetsbelastning för benchmarking scenariot eller ”avancerad långsam VM analys”-scenario som är konfigurerad för att använda Diskspd.
 
 -  Som standard använder verktyget enhetens tillfällig lagring för att samla in data. Om spårning förblir aktiverad under en längre tid, vara mängden data som samlas in relevanta. Detta kan minska tillgängligheten för utrymmet på den tillfälliga disken och kan därför påverka alla program som förlitar sig på den här enheten.
 
@@ -218,10 +218,16 @@ Följ dessa steg om du vill köra verktyget PerfInsights:
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    Du kan använda följande exempel för att köra anpassade scenariot med Xperf och prestanda räknaren spårningar för 5 minuter:
+    Du kan använda följande exempel för att köra Avancerat scenario med Xperf och prestanda räknaren spårningar för 5 minuter:
     
     ```
-    PerfInsights /run custom xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
+
+    Du kan använda det exemplet körs långsamt VM scenario för 5 minuter och ladda upp zip-resultatfilen till lagringskontot nedan:
+    
+    ```
+    PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>
     ```
 
     Du kan söka efter alla tillgängliga scenarier och alternativ med hjälp av den **/list** kommando:
@@ -237,7 +243,7 @@ Följ dessa steg om du vill köra verktyget PerfInsights:
     >
     >Som standard försöker PerfInsights uppdatera sig själv till den senaste versionen om de är tillgängliga. Använd **/SkipAutoUpdate** eller **/sau** parametern för att hoppa över automatisk uppdatering.  
     >
-    >Om varaktigheten växlar **/d** anges PerfInsights uppmanas du att reproducera problemet när du kör vmslow, azurefiles och egna scenarier. 
+    >Om varaktigheten växlar **/d** anges PerfInsights uppmanas du att reproducera problemet när du kör vmslow azurefiles och avancerade scenarier. 
 
 När spårningssessioner eller åtgärder har slutförts, visas en ny fil i samma mapp som PerfInsights. Namnet på filen är **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip.** Du kan skicka filen till supportpersonalen för analys eller öppna rapporten i zip-filen för att granska resultaten och rekommendationerna.
 
@@ -251,9 +257,9 @@ Välj den **resultaten** fliken.
 ![Skärmbild av PerfInsights rapport](media/how-to-use-perfInsights/findings.PNG)
 
 > [!NOTE] 
-> Resultaten kategoriserade som kritiskt är kända problem som kan orsaka prestandaproblem. Resultaten kategoriserade som representerar viktiga icke-optimal konfigurationer som inte nödvändigtvis orsakar prestandaproblem. Resultaten kategoriserade som informationsmeddelande är informativa instruktioner.
+> Resultaten kategoriseras som hög kända problem som kan orsaka prestandaproblem. Resultaten kategoriserat som medel representerar icke-optimal konfigurationer som inte nödvändigtvis orsakar prestandaproblem. Resultaten kategoriserade som låg är informativa instruktioner.
 
-Granska rekommendationer och länkar för alla kritiska och viktiga resultaten. Lär dig mer om hur de kan påverka prestanda och även om bästa praxis för prestanda-optimerad konfigurationer.
+Granska rekommendationer och länkar till alla hög eller medelhög resultaten. Lär dig mer om hur de kan påverka prestanda och även om bästa praxis för prestanda-optimerad konfigurationer.
 
 ### <a name="storage-tab"></a>Fliken lagring
 

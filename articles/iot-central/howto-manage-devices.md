@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b0772e3186c86239c773222a2b2e8d602a46aa52
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: cf803c03d266f2a400e47fc551dea62936456177
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300602"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937626"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Hantera enheter i din Azure IoT centralt program
 
@@ -96,7 +96,7 @@ Om du registrerar enheter genom att starta importen under **oassocierade enheter
 1. De valda enheterna kommer att flyttas mall för respektive enhet.
 
  >   [!NOTE] 
-    När en enhet har associerats med en mall inte kan ändras eller som är associerade med en annan mall.
+    När en enhet har associerats med en mall inte oassocierade eller som är associerade med en annan mall.
 
 ## <a name="export-devices"></a>Exportera enheter
 

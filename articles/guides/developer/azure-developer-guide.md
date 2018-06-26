@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: e0a04d44edf39c90533c59d67ea2dfce69f092cd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 3d4b93a604170cb3b8396562a15483923330f467
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771100"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754686"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -205,7 +205,7 @@ En av fördelarna med att använda Azure är att du kan distribuera ditt program
 
 Även om det är osannolik, är det inte omöjligt för ett helt datacenter för att försättas i offlineläge på grund av en händelse, till exempel en naturkatastrof eller ett Internet-fel. Det är en bra idé att värden viktiga affärsprogram i flera datacenter ger högsta tillgänglighet. Med hjälp av flera regioner kan också minska svarstiden för globala användare och möjligheter ytterligare flexibilitet vid uppdatering av program.
 
-Vissa tjänster, till exempel virtuella datorn och App-tjänster, använda [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) att aktivera stöd för flera regioner med växling mellan regioner som stöd för hög tillgänglighet företagsprogram. Ett exempel finns [Azure Referensarkitektur: webbprogrammet med hög tillgänglighet](../../guidance/guidance-web-apps-multi-region.md).
+Vissa tjänster, till exempel virtuella datorn och App-tjänster, använda [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) att aktivera stöd för flera regioner med växling mellan regioner som stöd för hög tillgänglighet företagsprogram. Ett exempel finns [Azure Referensarkitektur: kör ett webbprogram i flera områden](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 >**När du ska använda**: när du har enterprise och hög tillgänglighet program som har nytta av redundans och replikering.
 
@@ -263,9 +263,9 @@ Som utvecklare, som vi vill sätta igång direkt i koden och försök att komma 
 
 För att kunna skapa eller arbeta med en Azure-prenumeration, måste du ha ett Azure-konto. Ett Azure-konto är helt enkelt en identitet i Azure AD eller i en katalog, t.ex en arbets- eller skolkonto organisation, som är betrodd av Azure AD. Om du inte tillhör sådan organisation, kan du alltid skapa en prenumeration med ditt Microsoft-Account som är betrott av Azure AD. Mer information om integreringen med lokala Windows Server Active Directory med Azure AD finns [integrera dina lokala identiteter med Azure Active Directory](../../active-directory/active-directory-aadconnect.md).
 
-Alla Azure-prenumerationer har en förtroenderelation med en Azure AD-instans. Det innebär att den litar på den katalogen för att autentisera användare, tjänster och enheter. Flera prenumerationer kan lita på samma katalog, men en prenumeration litar bara på en katalog. Läs mer i [hur Azure-prenumerationer är associerade med Azure Active Directory](../../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Alla Azure-prenumerationer har en förtroenderelation med en Azure AD-instans. Det innebär att den litar på den katalogen för att autentisera användare, tjänster och enheter. Flera prenumerationer kan lita på samma katalog, men en prenumeration litar bara på en katalog. Läs mer i [hur Azure-prenumerationer är associerade med Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-Förutom definierar enskilda Azure-konto identiteter, kallas även *användare*, du kan också definiera *grupper* i Azure AD. Att skapa användargrupper är ett bra sätt att hantera åtkomst till resurser i en prenumeration med hjälp av rollbaserad åtkomstkontroll (RBAC). Information om hur du skapar grupper finns [skapar en grupp i Azure Active Directory preview](../../active-directory/active-directory-groups-create-azure-portal.md). Du kan också skapa och hantera grupper av [med hjälp av PowerShell](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+Förutom definierar enskilda Azure-konto identiteter, kallas även *användare*, du kan också definiera *grupper* i Azure AD. Att skapa användargrupper är ett bra sätt att hantera åtkomst till resurser i en prenumeration med hjälp av rollbaserad åtkomstkontroll (RBAC). Information om hur du skapar grupper finns [skapar en grupp i Azure Active Directory preview](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Du kan också skapa och hantera grupper av [med hjälp av PowerShell](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 ### <a name="manage-your-subscriptions"></a>Hantera prenumerationer
 

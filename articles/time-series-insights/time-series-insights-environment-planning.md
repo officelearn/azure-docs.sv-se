@@ -1,6 +1,6 @@
 ---
 title: Planera skalan för din Azure tid serien Insights-miljö | Microsoft Docs
-description: Den här artikeln beskriver hur du följer metodtipsen när du planerar en Azure tid serien Insights miljö, inklusive lagringskapacitet, datalagring, ingång kapacitet och övervakning.
+description: Den här artikeln beskriver hur du följer metodtipsen när du planerar en Azure tid serien Insights miljö, inklusive lagringskapacitet, datalagring, ingång kapacitet, övervakning och business-haveriberedskap (BCDR).
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 49842f971645f97d954451ff6755294dc3c5a40f
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f0f414e43231fc6d873d639902fd4f71e48f1002
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293272"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751177"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Planera din Azure tid serien Insights-miljö
 
@@ -94,8 +94,18 @@ En referens datauppsättning är en samling objekt som utökar händelser från 
 
 Observera att referensdata retroaktivt inte är ansluten. Detta innebär att endast aktuella och framtida ingång data är matchade och ansluten till uppsättningen med referens datum när den har konfigurerats och har överförts.  Om du planerar att skicka stora mängder historisk data till TSD och inte ladda upp eller skapa referensdata i TSD första, och du kan behöva nytt göra arbetet (tipset, inte roliga).  
 
-Mer information om hur du skapar, ladda upp och hantera dina referensdata i TSD, gå till vår *referensdata* dokumentation [dokumentation] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Mer information om hur du skapar, ladda upp och hantera dina referensdata i TSD, gå till vår *referensdata* dokumentationen [dokumentationen](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
+## <a name="business-disaster-recovery"></a>Företag katastrofåterställning
+Som en Azure-tjänst ger tid serien insikter hög tillgänglighet (HA) med hjälp av uppsägningar på nivån Azure-region utan ytterligare krävs för lösningen. Microsoft Azure-plattformen innehåller också funktioner för att skapa lösningar med funktioner för katastrofåterställning (DR) eller mellan regional tillgänglighet. Om du vill ange globalt, dra nytta av funktionerna Azure DR mellan region hög tillgänglighet för enheter eller användare. Artikeln [Azure Business Continuity teknisk vägledning](../resiliency/resiliency-technical-guidance.md) beskrivs de inbyggda funktionerna i Azure för kontinuitet för företag och Katastrofåterställning. [Katastrofåterställning och hög tillgänglighet för Azure-program] [katastrofåterställning och hög tillgänglighet för Azure-program] dokumentet innehåller arkitekturvägledning om strategier för Azure-program att uppnå hög tillgänglighet och Katastrofåterställning.
+
+Tid serien insikter har inte inbyggda business haveriberedskap (BCDR).  Kunder som kräver BCDR kan dock fortfarande att implementera en strategi. Skapa en andra gång serien insikter miljö i en säkerhetskopiering Azure-region och skicka händelser till den här sekundära miljön från primära händelsekällan utnyttjar en andra dedikerad konsumentgrupp och den händelsekälla BCDR riktlinjer.  
+
+1.  Skapa miljö i andra region.  Mer om hur du skapar en tid serien insikter miljö [här](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started).
+2.  Skapa en andra dedikerad konsumentgrupp för din händelsekällan och ansluta den händelsekällan till den nya miljön.  Glöm inte att ange andra, dedikerad konsumentgrupp.  Du kan lära dig mer om detta genom att följa antingen [IoT-hubb dokumentationen](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) eller [Event hub dokumentationen](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access).
+3.  Om din primära region kraschar vid en katastrof incident, växla över åtgärder för säkerhetskopiering tid serien insikter-miljö.  
+
+Mer information om principer för IoT-hubb BCDR head [här](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr).  Mer information om Event hub BCDR principer head [här](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr).  
 
 ## <a name="next-steps"></a>Nästa steg
 - [Hur du lägger till en Händelsehubb händelsekälla](time-series-insights-how-to-add-an-event-source-eventhub.md)

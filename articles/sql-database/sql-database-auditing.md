@@ -2,19 +2,19 @@
 title: Kom igång med Azure SQL database auditing | Microsoft Docs
 description: Att Azure SQL database auditing spårar databashändelser till en granskningslogg.
 services: sql-database
-author: giladm
+author: giladmit
 manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 62c6e576a5ef7fa953618dcba4ddd158df131148
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644597"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751051"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 Azure SQL database auditing spårar databashändelser och skriver dem till en granskningslogg logga i Azure storage-konto. Granskning också:
@@ -200,12 +200,17 @@ Ett exempel på skript finns [konfigurera granskning och hotidentifiering identi
 
 **REST API - blobbgranskning**:
 
-* [Skapa eller uppdatera databasen Blob granskningsprincip](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-* [Skapa eller uppdatera Server Blob granskningsprincip](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-* [Hämta databasen Blob granskningsprincip](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-* [Hämta Server Blob granskningsprincip](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [Skapa eller uppdatera databasen Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/createorupdate)
+* [Skapa eller uppdatera Server Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
+* [Hämta databasen Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
+* [Hämta Server Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
 * [Hämta Server Blob granskning resultat](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
+Utökad princip med där satsen stöd för ytterligare filtrering:
+* [Skapa eller uppdatera databasen *utökad* Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+* [Skapa eller uppdatera Server *utökad* Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
+* [Hämta databasen *utökad* Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/get)
+* [Hämta Server *utökad* Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

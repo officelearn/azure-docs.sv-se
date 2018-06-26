@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: cawa
-ms.openlocfilehash: a606c8e7d8b730b67bd8481656e099900eb39fbc
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 3ee2cc3ac5098ebf205331167faffa2b5f9b6d56
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
-ms.locfileid: "23890840"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937565"
 ---
 # <a name="optimizing-your-azure-code"></a>Optimera din Azure kod
 När du programmering appar som använder Microsoft Azure, finns det vissa kodningsexempel som du bör följa för att undvika problem med appen skalbarhet, beteende och prestanda i en molnmiljö. Microsoft tillhandahåller ett analysverktyg i Azure kod som identifierar och identifierar de dessa ofta påträffade problem och hjälper dig att lösa dem. Du kan hämta verktyget i Visual Studio via NuGet.
@@ -99,7 +99,7 @@ Använda delade signatur åtkomst (SAS) för autentisering. Access Control Servi
 Du kan dela idéer och feedback på [Azure kod analys feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
 ### <a name="reason"></a>Orsak
-För förbättrad säkerhet ersätter Azure Active Directory ACS-autentisering med SAS-autentisering. Se [Azure Active Directory är framtiden för ACS](http://blogs.technet.com/b/ad/archive/2013/06/22/azure-active-directory-is-the-future-of-acs.aspx) information om övergång planen.
+För förbättrad säkerhet ersätter Azure Active Directory ACS-autentisering med SAS-autentisering. Se [Azure Active Directory är framtiden för ACS](https://cloudblogs.microsoft.com/enterprisemobility/2013/06/22/azure-active-directory-is-the-future-of-acs/) information om övergång planen.
 
 ### <a name="solution"></a>Lösning
 Använd SAS-autentisering i dina appar. I följande exempel visar hur du använder en befintlig SAS-token för åtkomst till en service bus-namnrymd eller enhet.
@@ -364,7 +364,7 @@ Följande kodavsnitt visar koden korrigering för problemet. Ersätt
 
 `var settings = ConfigurationManager.AppSettings["mySettings"];`
 
-med
+med 
 
 `var settings = CloudConfigurationManager.GetSetting("mySettings");`
 
@@ -411,7 +411,7 @@ I stället för att konfigurera diagnostikinställningar i din kod som genom att
 Du kan dela idéer och feedback på [Azure kod analys feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
 ### <a name="reason"></a>Orsak
-Innan Azure SDK 2,5 (som använder Azure diagnostics 1.3), Azure Diagnostics (BOMULLSTUSS) kan konfigureras med hjälp av flera olika metoder: lägger till den konfiguration blob i lagring, med hjälp av tvingande koden, deklarativa konfigurationen eller standardkonfigurationen. Det bästa sättet att konfigurera diagnostik är dock att använda en XML-konfigurationsfil (diagnostics.wadcfg eller diagnositcs.wadcfgx för SDK-2.5 och senare) i projektet för konsolprogrammet. I den här metoden kan diagnostics.wadcfg filen helt definierar konfigurationen och uppdateras och omdistribueras när du vill. Blandning av användningen av konfigurationsfilen diagnostics.wadcfg med programmering för konfigurationer med hjälp av den [DiagnosticMonitor](https://msdn.microsoft.com/library/microsoft.windowsazure.diagnostics.diagnosticmonitor.aspx)eller [RoleInstanceDiagnosticManager](https://msdn.microsoft.com/library/microsoft.windowsazure.diagnostics.management.roleinstancediagnosticmanager.aspx)klasser kan leda till förvirring. Se [initieras eller ändra Azure Diagnostics konfiguration](https://msdn.microsoft.com/library/azure/hh411537.aspx) för mer information.
+Innan Azure SDK 2,5 (som använder Azure diagnostics 1.3), Azure Diagnostics (BOMULLSTUSS) kan konfigureras med hjälp av flera olika metoder: lägger till den konfiguration blob i lagring, med hjälp av tvingande koden, deklarativa konfiguration eller standard konfiguration. Det bästa sättet att konfigurera diagnostik är dock att använda en XML-konfigurationsfil (diagnostics.wadcfg eller diagnositcs.wadcfgx för SDK-2.5 och senare) i projektet för konsolprogrammet. I den här metoden kan diagnostics.wadcfg filen helt definierar konfigurationen och uppdateras och omdistribueras när du vill. Blandning av användningen av konfigurationsfilen diagnostics.wadcfg med programmering för konfigurationer med hjälp av den [DiagnosticMonitor](https://msdn.microsoft.com/library/microsoft.windowsazure.diagnostics.diagnosticmonitor.aspx)eller [RoleInstanceDiagnosticManager](https://msdn.microsoft.com/library/microsoft.windowsazure.diagnostics.management.roleinstancediagnosticmanager.aspx)klasser kan leda till förvirring. Se [initieras eller ändra Azure Diagnostics konfiguration](https://msdn.microsoft.com/library/azure/hh411537.aspx) för mer information.
 
 Från och med BOMULLSTUSS 1.3 (ingår i Azure SDK 2.5) kan den inte längre att använda koden för att konfigurera diagnostik. Därför kan du bara ange konfigurationen när du tillämpar eller uppdaterar tillägget diagnostik.
 

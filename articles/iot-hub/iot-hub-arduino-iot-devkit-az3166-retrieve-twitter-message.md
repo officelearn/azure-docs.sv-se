@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 0c3df0642d36aa1c4471c433fe9c1d3fa3b0880d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5a4605a1668d25d5a90dc7d7873efa83ddc767ff
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631769"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752691"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Skaka, skaka i en Tweet – hämta ett Twitter-meddelande med Azure Functions!
 
@@ -36,7 +36,7 @@ En aktiv Azure-prenumeration. Om du inte har någon, kan du registrera via någo
 
 ### <a name="start-vs-code"></a>Starta VS-kod
 
-- Se till att din DevKit **inte** ansluten till datorn.
+- Kontrollera att din DevKit är ansluten till datorn.
 - Starta VS-kod.
 - Anslut DevKit till datorn.
 
@@ -45,7 +45,10 @@ En aktiv Azure-prenumeration. Om du inte har någon, kan du registrera via någo
 
 ### <a name="open-arduino-examples-folder"></a>Öppna Arduino exempel mapp
 
-Expandera vänster **ARDUINO exempel** bläddrar du till **exempel MXCHIP AZ3166 > AzureIoT**, och välj **ShakeShake**. En ny kod jämfört med en projektmapp i den öppnas.
+Expandera vänster **ARDUINO exempel** bläddrar du till **exempel MXCHIP AZ3166 > AzureIoT**, och välj **ShakeShake**. En ny kod jämfört med en projektmapp i den öppnas.  
+
+> [!NOTE]
+> Om du inte ser avsnittet MXCHIP AZ3166, kontrollera att enheten är korrekt ansluten och starta om Visual Studio-koden.  
 
 ![Mini-solution-exempel](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
@@ -137,7 +140,7 @@ Efter app initialisering klickar du på och släpper knappen A sedan försiktigt
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-![diagram](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
+![Diagram](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 
 Arduino ritningarna skickar en händelse till Azure IoT Hub. Den här händelsen utlöses appen Azure Functions. Azure Functions-program innehåller logik för att ansluta till Twitter's API och hämta en tweet. Packar sedan tweet texten i en C2D meddelandet (moln till enhet) och skickar tillbaka till enheten.
 

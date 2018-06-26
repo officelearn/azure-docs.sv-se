@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Azure-säkerhetskopiering; VM-agent. Nätverksanslutningen;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 01/09/2018
+ms.date: 06/25/2018
 ms.author: genli
-ms.openlocfilehash: 63cded007af499455e7bb4fc23d26d56caf96678
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09cfda3c2c790297b0961ecac92cba61c9e6de6f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606366"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754597"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: problem med agenten eller tillägg
 
@@ -84,15 +84,15 @@ När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänst
 ### <a name="the-vm-has-no-internet-access"></a>Den virtuella datorn har inte tillgång till internet
 Per distributionskrav har inte den virtuella datorn Internetåtkomst. Eller så kanske den har begränsningar som förhindrar åtkomst till Azure-infrastrukturen.
 
-Tillägget säkerhetskopiering kräver anslutning till Azure offentliga IP-adresser ska fungera. Tillägget skickar kommandon till en Azure storage-slutpunkt (http-URL) för hantering av ögonblicksbilder av den virtuella datorn. Om filnamnstillägget inte har åtkomst till internet, misslyckas säkerhetskopieringen förr eller senare.
+Tillägget säkerhetskopiering kräver anslutning till Azure offentliga IP-adresser ska fungera. Tillägget skickar kommandon till en Azure storage-slutpunkt (HTTPs-URL) för hantering av ögonblicksbilder av den virtuella datorn. Om filnamnstillägget inte har åtkomst till internet, misslyckas säkerhetskopieringen förr eller senare.
 
-Den det möjligt att distribuera en proxyserver för att vidarebefordra VM-trafiken.
-##### <a name="create-a-path-for-http-traffic"></a>Skapa en sökväg för HTTP-trafik
+Det är möjligt att distribuera en proxyserver för att vidarebefordra VM-trafiken.
+##### <a name="create-a-path-for-https-traffic"></a>Skapa en sökväg för HTTPs-trafik
 
-1. Om du har nätverksbegränsningar på plats (t.ex, en nätverkssäkerhetsgrupp) kan du distribuera en HTTP-proxyserver för att dirigera trafiken.
-2. Om du vill tillåta åtkomst till internet från HTTP-proxyserver, att lägga till regler till nätverkssäkerhetsgruppen, om du har en.
+1. Om du har nätverksbegränsningar på plats (t.ex, en nätverkssäkerhetsgrupp) kan du distribuera en HTTPs-proxyserver för att dirigera trafiken.
+2. Om du vill tillåta åtkomst till internet från proxyservern HTTPs, att lägga till regler till nätverkssäkerhetsgruppen, om du har en.
 
-Information om hur du ställer in en HTTP-proxy för VM-säkerhetskopieringar finns [förbereda din miljö för att säkerhetskopiera virtuella datorer i Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+Information om hur du ställer in en HTTPs-proxy för VM-säkerhetskopieringar finns [förbereda din miljö för att säkerhetskopiera virtuella datorer i Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Säkerhetskopierade VM eller proxyserver genom vilken trafik dirigeras kräver åtkomst till Azure offentliga IP-adresser
 

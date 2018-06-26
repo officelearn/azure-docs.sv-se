@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 66423fecce92cd933cc8680810aa2abe5e25a90d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b87838a80c7c7706b9af2bd4ea274335d04a5c52
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153590"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751521"
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
 Funktionen säkerhetskopiering och återställning i [Azure App Service](app-service-web-overview.md) kan du enkelt skapa app säkerhetskopiering manuellt eller enligt ett schema. Du kan återställa appen till en ögonblicksbild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app. 
@@ -38,7 +38,7 @@ Apptjänst kan säkerhetskopiera följande information till en Azure storage-kon
 Följande databaslösningar stöds med funktionen för säkerhetskopiering: 
    - [SQL Database](https://azure.microsoft.com/services/sql-database/)
    - [Azure-databas för MySQL (förhandsgranskning)](https://azure.microsoft.com/services/mysql)
-   - [Azure-databas för PostgreSQL (förhandsgranskning)](https://azure.microsoft.com/services/postgres)
+   - [Azure-databas för PostgreSQL (förhandsgranskning)](https://azure.microsoft.com/services/postgresql)
    - [MySQL i appen](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 

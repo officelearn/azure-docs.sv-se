@@ -12,20 +12,20 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2326f37afcb845b8c484bdf57db0876026f8e8a1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7bee84e1ce473c27730b3fe84aa0a580baeba7c2
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602728"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938534"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
 Den här artikeln visar hur du flyttar resurser till en ny prenumeration eller en ny resursgrupp med samma prenumeration. Du kan använda portalen, PowerShell, Azure CLI eller REST API för att flytta resursen. Flytta åtgärder i den här artikeln kan du utan hjälp från Azure-supporten.
 
-När du flyttar resurser, låst både gruppen och målgruppen under åtgärden. Skriva och ta bort blockeras på resursgrupper tills flyttningen är klar. Låset innebär det går inte att lägga till, uppdatera eller ta bort resurser i resursgrupper, men innebär inte resurserna som är låsta. Om du flyttar en SQL Server och dess databas till en ny resursgrupp påträffar ett program som använder databasen utan avbrott. Det kan fortfarande läsa och skriva till databasen.
+När du flyttar resurser, låst både gruppen och målgruppen under åtgärden. Skriva och ta bort blockeras på resursgrupper tills flyttningen är klar. Låset innebär det går inte att lägga till, uppdatera eller ta bort resursgrupper, men det betyder att resurserna som är låsta. Om du flyttar en SQL Server och dess databas till en ny resursgrupp påträffar ett program som använder databasen utan avbrott. Det kan fortfarande läsa och skriva till databasen.
 
 Du kan inte ändra platsen för resursen. Flytta en resurs bara flyttas till en ny resursgrupp. Den nya resursgruppen kan ha en annan plats, men som ändra inte platsen för resursen.
 
@@ -54,12 +54,12 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Om klient-ID: N för käll- och -prenumerationer inte är samma, kan du använda följande metoder för att stämma av klient-ID: N:
+  Om klient-ID: N för käll- och prenumerationer inte är samma, kan du använda följande metoder för att stämma av klient-ID: N:
 
   * [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md)
-  * [Hur du associerar eller lägga till en Azure-prenumeration i Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
+  * [Hur du associerar eller lägga till en Azure-prenumeration i Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. Tjänsten måste göra det möjligt att flytta resurser. Den här artikeln innehåller tjänster som kan flytta resurser och tjänster som inte aktiverar flytta resurser.
+2. Tjänsten måste göra det möjligt att flytta resurser. Den här artikeln visar vilka tjänster kan flytta resurser och tjänster som inte kan flytta resurser.
 3. Målprenumerationen måste vara registrerad för resursprovidern för den resurs som flyttas. Om inte, du får ett felmeddelande om att den **prenumerationen har inte registrerats för en resurstyp**. Du kan stöta på detta problem när en resurs flyttas till en ny prenumeration, men prenumerationen aldrig har använts med den resurstypen.
 
   Använd följande kommandon för att hämta registreringsstatus för PowerShell:
@@ -93,6 +93,8 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** på käll-resursgrupp.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** på mål-resursgrupp.
 
+5. Kontrollera prenumerationen kvoter för den prenumeration som du flyttar resurser till innan du flyttar resurser. Om innebär att flytta resurserna prenumerationen kommer att överskrida gränsen, måste du granska om du kan begära en ökning av kvoten. En lista över begränsningar och hur du begär en ökning finns [Azure-prenumeration och tjänsten gränser, kvoter och begränsningar](../azure-subscription-service-limits.md).
+
 5. När det är möjligt, flyttar break stora på separata flytta åtgärder. Resource Manager misslyckas omedelbart försöker flytta mer än 800 resurser i en enda åtgärd. Dock kan flytta mindre än 800 resurserna också misslyckas av timeout.
 
 ## <a name="when-to-call-support"></a>När anropet stöd
@@ -115,6 +117,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Apptjänst-appar (webbprogram) - finns [Apptjänst begränsningar](#app-service-limitations)
 * App Service Certificate
 * Application Insights
+* Analysis Services
 * Automation
 * Azure Cosmos DB
 * Azure Relay
@@ -153,7 +156,8 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Storage
 * Storage (klassisk) - finns [klassisk distribution begränsningar](#classic-deployment-limitations)
 * Stream Analytics - Stream Analytics-jobb inte kan flyttas när du kör i läget.
-* SQL Database-server - databasen och servern måste finnas i samma resursgrupp. När du flyttar en SQLServer, flyttas även alla databaser. Detta gäller Azure SQL Database och Azure SQL Data Warehouse-databaser. 
+* SQL Database-server - databasen och servern måste finnas i samma resursgrupp. När du flyttar en SQLServer, flyttas även alla databaser. Detta gäller Azure SQL Database och Azure SQL Data Warehouse-databaser.
+* Time Series Insights
 * Traffic Manager
 * Det går inte att flytta virtuella datorer – virtuella datorer med hanterade diskar. Se [begränsningar för virtuella datorer](#virtual-machines-limitations)
 * Virtuella datorer (klassisk) - finns [klassisk distribution begränsningar](#classic-deployment-limitations)
@@ -164,7 +168,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 
 ## <a name="services-that-cannot-be-moved"></a>Tjänster som inte kan flyttas
 
-De tjänster som för närvarande inte aktiverar flytta en resurs är:
+De tjänster som för närvarande inte att flytta en resurs är:
 
 * AD DS
 * AD-Hybrid-tjänsten för hälsotillstånd
@@ -174,7 +178,8 @@ De tjänster som för närvarande inte aktiverar flytta en resurs är:
 * Azure Migrate
 * BizTalk Services
 * Certifikat - Apptjänstcertifikat kan flyttas, men överförda certifikat har [begränsningar](#app-service-limitations).
-* DevTest Labs - flyttar till en ny resursgrupp i samma prenumeration har aktiverats men flytta mellan prenumeration har inte aktiverats.
+* Container Service
+* DevTest Labs - flyttar till en ny resursgrupp i samma prenumeration har aktiverats men flytta mellan prenumerationen är inte aktiverad.
 * Dynamics LCS
 * Express Route
 * Kubernetes Service
@@ -182,14 +187,14 @@ De tjänster som för närvarande inte aktiverar flytta en resurs är:
 * Managed Applications
 * Hanterade diskar - Se [begränsningar för virtuella datorer](#virtual-machines-limitations)
 * Offentliga IP - finns [offentliga IP-begränsningar](#pip-limitations)
-* Recovery Services-ventilen - också vill inte flytta beräknings-, nätverks- och resurser som är associerade med Recovery Services-valvet finns [återställningstjänster begränsningar](#recovery-services-limitations).
+* Recovery Services valvet - också inte flytta resurserna beräkning, nätverk och lagring som är kopplade till Recovery Services-valvet, se [återställningstjänster begränsningar](#recovery-services-limitations).
 * Säkerhet
 * StorSimple Enhetshanteraren
 * Virtuella nätverk (klassiskt) - finns [klassisk distribution begränsningar](#classic-deployment-limitations)
 
 ## <a name="virtual-machines-limitations"></a>Begränsningar för virtuella datorer
 
-Hanterade diskar stöder inte flytta. Den här begränsningen innebär att flera relaterade resurser inte kan flyttas för. Du kan inte flytta:
+Flytta stöd inte för hanterade diskar. Den här begränsningen innebär att flera relaterade resurser inte kan flyttas för. Du kan inte flytta:
 
 * Hanterade diskar
 * Virtuella datorer med hanterade diskar
@@ -330,7 +335,7 @@ Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtg�
 
 ## <a name="recovery-services-limitations"></a>Recovery Services-begränsningar
 
-Flytta inte har aktiverats för lagring, nätverk, eller beräkningsresurser som används för att ställa in katastrofåterställning med Azure Site Recovery.
+Flytta är inte aktiverat för lagring, nätverk och beräkning av de resurser som används för att ställa in katastrofåterställning med Azure Site Recovery.
 
 Anta att du har ställt in replikering av din lokala datorer till ett lagringskonto (Storage1) och vill att den skydda datorn att starta efter en redundansväxling till Azure som en virtuell dator (VM1) ansluten till ett virtuellt nätverk (Network1). Du kan inte flytta resurserna Azure - Storage1 VM1 och Network1 - över resursgrupper inom samma prenumeration eller alla prenumerationer.
 

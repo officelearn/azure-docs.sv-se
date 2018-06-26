@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: a2770b9349dac8caa8e0611d77522ab56ca1bf07
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f69742d111555e776a968454bdc004ba171e6336
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798897"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937425"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET ändra Feed Processor SDK: Hämta och viktig information
 > [!div class="op_single_selector"]
@@ -74,6 +74,17 @@ ms.locfileid: "34798897"
 * Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.14.1 och nedan.
 
 ### <a name="pre-release-builds"></a>Förhands-versioner
+
+### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
+* Åtgärdat följande problem:
+  * När partition dela händer, kan det finnas dubbla bearbetning av dokument som har ändrats innan delningen.
+  * GetEstimatedRemainingWork API returnerade 0 när det fanns inga lån i samlingen lån.
+
+* Följande undantag görs offentliga. Tillägg som implementerar IPartitionProcessor orsaka sådana undantag.
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.LeaseLostException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
 
 ### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
 * Mindre ändringar i API:

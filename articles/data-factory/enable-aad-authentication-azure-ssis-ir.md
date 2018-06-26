@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/04/2018
+ms.date: 06/21/2018
 ms.author: douglasl
-ms.openlocfilehash: 5fce1a3b8370ce49a522f41749795362e1bf1f9b
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 93d3e25957fb1f04400fa78423a5658d32f7d5fd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757285"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36749726"
 ---
 # <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>Aktivera Azure Active Directory-autentisering för Azure-SSIS-integrering runtime
 
@@ -53,7 +53,7 @@ Du kan använda en befintlig Azure AD-grupp eller skapa en ny med hjälp av Azur
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Lägg till Data Factory MSI i gruppen. Du kan följa [Azure Data Factory tjänstidentiteten](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity) att hämta service identity-ID (till exempel 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc).
+3.  Lägg till Data Factory MSI i gruppen. Du kan följa [Azure Data Factory tjänstidentiteten](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity) att hämta huvudnamn SERVICE IDENTITY-ID (exempelvis 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, men Använd inte IDENTITY-ID för programmet för detta ändamål).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -97,7 +97,7 @@ För den här nästa steg behöver du [Microsoft SQL Server Management Studio](h
 
 4.  I den **användarnamn** , ange namnet på Azure AD-kontot som du anger som serveradministratören – till exempel testuser@xxxonline.com.
 
-5.  Välj **ansluta**. Slutföra inloggningen.
+5.  Välj **Anslut**. Slutföra inloggningen.
 
 6.  I den **Object Explorer**, expandera den **databaser** -> systemdatabaser mapp.
 

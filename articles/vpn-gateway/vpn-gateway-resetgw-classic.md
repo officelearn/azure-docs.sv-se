@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: 604af54d034b6b51a96ff098827e2352a163be18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 693996595f1a1b963c96e5f59e72fe4c9ca80ff0
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23884554"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753048"
 ---
-# <a name="reset-a-vpn-gateway"></a>Återställ en VPN-gateway
+# <a name="reset-a-vpn-gateway"></a>Återställ VPN Gateway
 
 Du kan behöva återställa en Azure VPN-gateway om VPN-anslutningen mellan flera platser i en eller flera VPN-tunnlar för plats-till-plats bryts. I det här fallet fungerar de lokala VPN-enheterna korrekt, men de kan inte upprätta IPSec-tunnlar med Azures VPN-gatewayer. Den här artikeln hjälper dig att återställa din VPN-gateway.
 
@@ -75,7 +75,7 @@ När du får ett returnerade resultat, kan du anta gateway återställningen lyc
 
 ### <a name="resetclassic"></a>Klassiska distributionsmodellen
 
-Cmdlet för att återställa en gateway är **Återställ AzureVNetGateway**. Innan du utför en återställning, kontrollera att du har den senaste versionen av den [Service Management (SM) PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0). I följande exempel återställs gateway för virtuellt nätverk med namnet ”ContosoVNet”:
+Cmdlet för att återställa en gateway är **Återställ AzureVNetGateway**. Innan du utför en återställning, kontrollera att du har den senaste versionen av den [Service Management (SM) PowerShell-cmdlets](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). I följande exempel återställs gateway för virtuellt nätverk med namnet ”ContosoVNet”:
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

@@ -50,7 +50,7 @@ function callGraphApi() {
         userInfoElement.parentElement.classList.remove("hidden");
         userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
-        // Show sign-off button
+        // Show sign-out button
         document.getElementById("signOutButton").classList.remove("hidden");
 
         // Now Call Graph API to show the user profile information:
@@ -198,13 +198,13 @@ I det exempelprogram som skapats av den här guiden, den `callWebApiWithToken()`
 
 <!--end-collapse-->
 
-## <a name="add-a-method-to-sign-off-the-user"></a>Lägg till en metod för att logga ut användaren
+## <a name="add-a-method-to-sign-out-the-user"></a>Lägg till en metod för att logga ut användaren
 
 Lägg till följande kod i din `app.js` fil:
 
 ```javascript
 /**
- * Sign off the user
+ * Sign out the user
  */
 function signOut() {
     userAgentApplication.logout();

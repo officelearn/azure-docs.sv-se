@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 5d01f2e402e4b793274761703ec3ca1ea3ff8164
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 10d4779d05d95822ffd487db1ce8992d199c495f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30185993"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753462"
 ---
-# <a name="verifying-expressroute-connectivity"></a>Verifiera en ExpressRoute-anslutning
+# <a name="verifying-expressroute-connectivity"></a>Verifiera ExpressRoute-anslutning
 ExpressRoute som sträcker sig ett lokalt nätverk via en privat anslutning som möjliggörs med hjälp av en provider för anslutning till Microsoft cloud omfattar följande tre separata nätverkszoner:
 
 -   Kundens nätverk
 -   Providern nätverk
--   Microsoft Datacenter
+-   Microsoft-Datacenter
 
 Syftet med det här dokumentet är att hjälpa användare att identifiera var (eller även om) ett anslutningsproblem finns och inom vilken zon, vilket för att begära hjälp från rätt team för att lösa problemet. Om Microsoft-supporten krävs för att lösa ett problem, öppna ett supportärende med [Microsoft-supporten][Support].
 
@@ -48,7 +48,7 @@ Beroende på anslutningen ExpressRoute modellen (moln Exchange samordning, Point
 3.  Sämsta (CE inriktad): providern edge routrar/växlar som är riktade mot klientens gränsroutrar. Kallas PE CEs i det här dokumentet.
 4.  Sämsta (MSEE inriktad): providern edge routrar/växlar som är riktade mot MSEEs. Kallas PE MSEEs i det här dokumentet.
 5.  MSEEs: Microsoft Enterprise kant (MSEE) ExpressRoute routrar
-6.  Virtual Network (VNet) Gateway
+6.  Gateway för virtuellt nätverk (VNet)
 7.  Compute-enhet i Azure VNet
 
 Om anslutningen modeller molnet Exchange samplacering eller Point-to-Point Ethernet-anslutning används skulle klientens gränsrouter (2) upprätta BGP-peering med MSEEs (5). Nätverket punkterna 3 och 4 skulle fortfarande finns men är något transparent som Lager2-enheter.
@@ -169,12 +169,12 @@ För att bekräfta om en ExpressRoute-krets fungerar, särskilt noga följande f
 >
 
 ## <a name="validate-peering-configuration"></a>Verifiera Peering konfiguration
-När etableringen ExpressRoute-kretsen tjänstleverantör har slutförts kan du skapa en routningskonfiguration via ExpressRoute-kretsen mellan MSEE fso (4) och MSEEs (5). Varje ExpressRoute-kretsen kan ha en, två eller tre routning kontexter aktiverad: Azure privat peering (trafik till privata virtuella nätverk i Azure), Azure offentlig peering (trafik till den offentliga IP-adresser i Azure) och Microsoft peering (trafik till Office 365 och Dynamics 365). Mer information om hur du skapar och ändra konfigurationen för routning finns i artikeln [skapa och ändra routning för en ExpressRoute-krets][CreatePeering].
+När etableringen ExpressRoute-kretsen tjänstleverantör har slutförts kan du skapa en routningskonfiguration via ExpressRoute-kretsen mellan MSEE fso (4) och MSEEs (5). Varje ExpressRoute-kretsen kan ha en, två eller tre routning kontexter aktiverad: privat Azure-peering (trafik till privata virtuella nätverk i Azure), offentlig Azure-peering (trafik till den offentliga IP-adresser i Azure) och Microsoft-peering (trafik till Office 365 och Dynamics 365). Mer information om hur du skapar och ändra konfigurationen för routning finns i artikeln [skapa och ändra routning för en ExpressRoute-krets][CreatePeering].
 
 ### <a name="verification-via-the-azure-portal"></a>Verifiering via Azure portal
 
 >[!NOTE]
->Om nivå 3 tillhandahålls av leverantören och peerkopplingar är tomma på portalen, uppdatera krets konfigurationen med hjälp av uppdateringsknappen på den protal. Den här åtgärden gäller rätt routningskonfiguration kretsen. 
+>Om nivå 3 tillhandahålls av leverantören och peerkopplingar är tomma på portalen, uppdatera krets konfigurationen med hjälp av uppdateringsknappen på portalen. Den här åtgärden gäller rätt routningskonfiguration kretsen. 
 >
 >
 
@@ -301,7 +301,7 @@ Ett exempelsvar för kommandot i lyckade scenariot:
                  113             On-Prem       10.0.0.1           e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
-På liknande sätt kan du ARP-tabell från MSEE i den *primära*/*sekundära* sökvägen för *privata*/*offentliga*/*Microsoft* peerkopplingar.
+På liknande sätt kan du ARP-tabell från MSEE i den *primära*/*sekundära* sökvägen för *privata*/*offentliga*  / *Microsoft* peerkopplingar.
 
 I följande exempel visas svaret i kommandot för en peering inte finns.
 
@@ -359,7 +359,7 @@ Exempel lyckade resultat för kommandot är:
          10.2.0.0/16            10.0.0.1                                       0    #### ##### #####
     ...
 
-På liknande sätt kan du routningstabellen från MSEE i den *primära*/*sekundära* sökvägen för *privata*/*offentliga*/*Microsoft* en peering-kontext.
+På liknande sätt kan du routningstabellen från MSEE i den *primära*/*sekundära* sökvägen för *privata* /  *Offentliga*/*Microsoft* en peering-kontext.
 
 I följande exempel visas svaret i kommandot för en peering inte finns:
 

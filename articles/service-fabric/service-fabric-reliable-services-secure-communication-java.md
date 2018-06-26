@@ -1,6 +1,6 @@
 ---
-title: Hjälpa säker kommunikation för tjänster i Azure Service Fabric | Microsoft Docs
-description: Översikt över hur du kan säker kommunikation för tillförlitlig tjänster som körs i ett Azure Service Fabric-kluster.
+title: Skydda fjärrkommunikation servicemeddelanden med Java i Azure Service Fabric | Microsoft Docs
+description: Lär dig att skydda fjärrkommunikation baserat tjänstkommunikation för tillförlitlig Java-tjänster som körs i ett Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
@@ -13,22 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 624d9d358145fb8b41013d686821cb157693d3c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1843720b9700e66af8ee84766cf7d63ac62e6283
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208003"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36749920"
 ---
-# <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Hjälp för säker kommunikation för tjänster i Azure Service Fabric
+# <a name="secure-service-remoting-communications-in-a-java-service"></a>Skydda fjärrkommunikation servicemeddelanden i en Java-tjänst
 > [!div class="op_single_selector"]
 > * [C# i Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java i Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>Skydda en tjänst när du använder tjänsten fjärrkommunikation
-Vi ska använda en befintlig [exempel](service-fabric-reliable-services-communication-remoting-java.md) som förklarar hur du ställer in fjärrstyrning för tillförlitlig tjänster. Följ dessa steg om du vill skydda en tjänst när du använder tjänsten fjärrkommunikation:
+Säkerhet är en av de viktigaste aspekterna av kommunikation. Application framework Reliable Services innehåller några fördefinierade kommunikation stackar och verktyg som du kan använda för att förbättra säkerheten. Den här artikeln beskriver hur du förbättrar säkerheten när du använder tjänsten fjärrkommunikation i en Java-tjänst. Den bygger på en befintlig [exempel](service-fabric-reliable-services-communication-remoting-java.md) som förklarar hur du ställer in fjärrstyrning för tillförlitlig tjänster som skrivits i Java. 
+
+Följ dessa steg om du vill skydda en tjänst när du använder tjänsten fjärrkommunikation med Java-tjänster:
 
 1. Skapa ett gränssnitt `HelloWorldStateless`, som definierar metoder som är tillgängliga för remote procedure call på din tjänst. Tjänsten använder `FabricTransportServiceRemotingListener`, som har deklarerats i den `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` paketet. Det här är en `CommunicationListener` implementering som tillhandahåller funktioner för fjärrkommunikation.
 
@@ -58,7 +59,7 @@ Vi ska använda en befintlig [exempel](service-fabric-reliable-services-communic
 
    1. Ge dem med hjälp av en [konfigurationspaketet](service-fabric-application-and-service-manifests.md):
 
-       Lägg till en `TransportSettings` -avsnittet i settings.xml.
+       Lägg till en namngiven `TransportSettings` -avsnittet i settings.xml.
 
        ```xml
        <!--Section name should always end with "TransportSettings".-->

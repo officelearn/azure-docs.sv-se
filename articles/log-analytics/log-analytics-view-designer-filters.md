@@ -12,25 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 5c2201292eb085dcc043e4257580c7971dbaffbd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 21b54f60286e25c410b9d51de8be122c450080d3
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "23945886"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752783"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filter i logganalys-vyer
 En **filter** i en [Log Analytics visa](log-analytics-view-designer.md) tillåter användare att filtrera data i vyn av värdet för en viss egenskap utan att ändra själva vyn.  Du kan till exempel användare av vyn för att filtrera vyn för endast data från en viss dator eller datorer.  Du kan skapa flera filter på en enda vy så att användarna kan filtrera efter flera egenskaper.  Den här artikeln beskriver hur du använder ett filter och lägga till ett i en anpassad vy.
 
 ## <a name="using-a-filter"></a>Använda ett filter
-Klicka på **Filter** att öppna filterfönstret för en vy.  På så sätt kan du välja ett tidsintervall och värden för eventuella filter som är tillgängliga för vyn.  När du väljer ett filter, visas en lista över tillgängliga värden.  Du kan välja ett eller flera värden, eller så kan du ange dem i. Vyn uppdateras automatiskt för att filtrera på de värden som du anger. 
+Klicka på data tidsintervall längst upp i en vy för att öppna nedrullningsbara där du kan ändra data tidsintervallet för vyn.
 
-Om inget värde har valts för ett filter, tillämpas filtret inte på vyn.  Om du tar bort alla värden för ett filter, kommer inte längre filtret tillämpas.
+![Filter, exempel](media/log-analytics-view-designer/filters-example-time.png)
+
+Klicka på den **+** att lägga till ett filter med anpassade filter som definieras för vyn. Välj ett värde för filtret antingen från listrutan eller ange ett värde. Fortsätta att lägga till filter genom att klicka på den **+**. 
 
 
-![Filter, exempel](media/log-analytics-view-designer/filters-example.png)
+![Filter, exempel](media/log-analytics-view-designer/filters-example-custom.png)
+
+Om du tar bort alla värden för ett filter, kommer inte längre filtret tillämpas.
 
 
 ## <a name="creating-a-filter"></a>Skapa ett filter
@@ -54,8 +58,8 @@ Följande tabell innehåller några exempel på vanliga filter.
 | Fältnamn | Frågan för värden | Tagga |
 |:--|:--|:--|
 | Dator   | Pulsslag &#124; distinkta datorn &#124; sortera efter dator asc | Datorer |
-| EventLevelName | Event &#124; distinct EventLevelName | Allvarsgrad |
-| SeverityLevel | Syslog &#124; distinkta SeverityLevel | Allvarsgrad |
+| EventLevelName | Händelsen &#124; distinkta EventLevelName | Severity |
+| SeverityLevel | Syslog &#124; distinkta SeverityLevel | Severity |
 | SvcChangeType | ConfigurationChange &#124; distinkta svcChangeType | ChangeType |
 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: d1282fa005d609394dacc818c2cb729f580bc3fc
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d48828c8d2ec439f389fe4eddabb59599cc1680b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263498"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752834"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arkivera Azure diagnostikloggar
 
@@ -69,12 +69,12 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 
 | Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
-| Resurs-ID |Ja |Resurs-ID för den resurs som du vill ange en diagnostikinställningen. |
-| StorageAccountId |Nej |Resurs-ID för det Lagringskonto där diagnostikloggar ska sparas. |
+| resurs-ID |Ja |Resurs-ID för den resurs som du vill ange en diagnostikinställningen. |
+| storageAccountId |Nej |Resurs-ID för det Lagringskonto där diagnostikloggar ska sparas. |
 | Kategorier |Nej |Kommaavgränsad lista över loggen kategorier för att aktivera. |
 | Enabled |Ja |Booleskt värde som anger om diagnostik är aktiverade eller inaktiverade på den här resursen. |
 | RetentionEnabled |Nej |Booleskt värde som anger om en bevarandeprincip är aktiverade på den här resursen. |
-| retentionInDays |Nej |Antal dagar som händelser ska behållas mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid. |
+| RetentionInDays |Nej |Antal dagar som händelser ska behållas mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid. |
 
 ## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Arkivera diagnostikloggar via Azure CLI 2.0
 
@@ -100,7 +100,7 @@ Den `--resource-group` argumentet är bara krävs om `--storage-account` är int
 
 ## <a name="archive-diagnostic-logs-via-the-rest-api"></a>Arkivera diagnostikloggar via REST API
 
-[Det här dokumentet finns](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings) information om hur du ställer in en diagnostikinställningen med hjälp av REST API för Azure-Monitor.
+[Det här dokumentet finns](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) information om hur du ställer in en diagnostikinställningen med hjälp av REST API för Azure-Monitor.
 
 ## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Schemat för diagnostikloggar i storage-konto
 
@@ -147,7 +147,7 @@ Varje händelse lagras i filen PT1H.json i matrisen ”innehåller” följa det
 | --- | --- |
 | time |Tidsstämpel när händelsen skapades av tjänsten Azure motsvarande händelsen begäran bearbetades. |
 | resourceId |Resurs-ID för resursen påverkas. |
-| operationName |Namnet på åtgärden. |
+| operationName |Åtgärdens namn. |
 | category |Loggen kategori för händelsen. |
 | properties |En uppsättning `<Key, Value>` par (d.v.s. ordlista) som beskriver information om händelsen. |
 

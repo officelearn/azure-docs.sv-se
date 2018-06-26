@@ -5,7 +5,7 @@
 > 
 > 
 
-1. Navigera till [Firebase-konsolen](https://console.firebase.google.com/) och logga in med dina Google-autentiseringsuppgifter.
+1. Navigera till den [Firebase konsolen](https://console.firebase.google.com/) och logga in med dina Google-kontouppgifter.
 2. Klicka på knappen **Skapa nytt projekt** för att skapa ett nytt projekt. Du kan också klicka på **Importera Google-projekt** för att importera ett befintligt projekt. 
 3. Om du väljer att skapa ett nytt projekt, anger du ett **Projektnamn** och väljer **Land/Region**.
 4. På din projektsida, klickar du på kugghjulet **Inställningar** överst till vänster. I menyn, klickar du på **Projektinställningar**.  

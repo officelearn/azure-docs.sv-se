@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/18/2018
 ms.author: kirpas;iainfou;sewhee
 ms.custom: include file
-ms.openlocfilehash: c8b48c9b3ebd6b40640a744f00673158c07cdc3a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ab4d5326fc06cc8676ea93ed529315cc47651e26
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35323807"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943461"
 ---
 ## <a name="overview"></a>Översikt
 När du skapar en ny virtuell dator (VM) i en resursgrupp genom att distribuera en avbildning från [Azure Marketplace](https://azure.microsoft.com/marketplace/), OS-Standardenheten är ofta 127 GB (vissa bilder har mindre diskstorlekar för OS som standard). Även om det är möjligt att lägga till datadiskar i den virtuella datorn (hur många beror på vilken SKU som har valts) rekommenderas du att installera program och processorintensiva arbetsbelastningar på de här tilläggsdiskarna eftersom kunder ofta behöver expandera operativsystemenheten för att kunna hantera följande typ av scenarier:
@@ -36,7 +36,7 @@ I den här artikeln ska vi ändra storlek på operativsystemenheten med hjälp a
 
 Öppna Powershell ISE eller Powershell-fönstret i administrativt läge och följ anvisningarna nedan:
 
-1. Logga in på Microsoft Azure-kontot i resurshanteringsläge och välj din prenumeration enligt följande:
+1. Logga in på Microsoft Azure-konto i resursen hanteringsläge och välja din prenumeration på följande sätt:
    
    ```Powershell
    Connect-AzureRmAccount
@@ -79,7 +79,7 @@ I den här artikeln ska vi ändra storlek på operativsystemenheten med hjälp a
 
 Öppna Powershell ISE eller Powershell-fönstret i administrativt läge och följ anvisningarna nedan:
 
-1. Logga in på Microsoft Azure-kontot i resurshanteringsläge och välj din prenumeration enligt följande:
+1. Logga in på Microsoft Azure-konto i resursen hanteringsläge och välja din prenumeration på följande sätt:
    
    ```Powershell
    Connect-AzureRmAccount

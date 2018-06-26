@@ -10,18 +10,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/15/2018
+ms.date: 06/22/2018
 ms.author: rithorn
-ms.openlocfilehash: 822a2df113b848f07e616f155881f345028cee1d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0a13627232904f4b14cdb5cbf5c3ca927d9ea167
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754669"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera resurser med av hanteringsgrupper 
 Hanteringsgrupper är behållare som hjälper dig att hantera åtkomst, principer och efterlevnad över flera prenumerationer. Du kan ändra, ta bort och hantera dessa behållare för hierarkier som kan användas med [Azure princip](../azure-policy/azure-policy-introduction.md) och [Azure rollbaserad åtkomst kontroller (RBAC)](../role-based-access-control/overview.md). Läs mer om av hanteringsgrupper i [ordna dina resurser med Azure hanteringsgrupper ](management-groups-overview.md).
 
-Funktionen för hantering av grupp finns i en förhandsversion. Börja använda hantering av grupper, logga in på den [Azure-portalen](https://portal.azure.com) eller så kan du använda [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), eller [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) till hantera dina hanteringsgrupper.
+Funktionen för hantering av grupp finns i en förhandsversion. Om du vill börja använda hanteringsgrupper, logga in på den [Azure-portalen](https://portal.azure.com) eller så kan du använda [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), eller [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) till hantera dina hanteringsgrupper.
 
 Om du vill ändra en hanteringsgrupp måste du ha en ägare eller deltagare roll på hanteringsgruppen. För att se vilka behörigheter som du har, Välj hanteringsgruppen och välj sedan **IAM**. Mer information om RBAC-roller finns [hantera åtkomst och behörighet med RBAC](../role-based-access-control/overview.md).
 
@@ -55,8 +56,8 @@ C:\> Update-AzureRmManagementGroup -GroupName ContosoIt -DisplayName "Contoso Gr
 
 Använd kommandot update för Azure CLI. 
 
-```azure-cli
-C:\> az account management-group update --group-name Contoso --display-name "Contoso Group" 
+```azurecli-interactive
+az account management-group update --name Contoso --display-name "Contoso Group" 
 ```
 
 ---
@@ -74,12 +75,12 @@ Om du vill ta bort en hanteringsgrupp, måste följande krav uppfyllas:
 2. Välj **alla tjänster** > **hanteringsgrupper**  
 3. Välj den hanteringsgrupp som du vill ta bort. 
     
-    ![Ta bort grupp](media/management-groups/delete.png)
+    ![ta bort grupp](media/management-groups/delete.png)
 4. Välj **Ta bort**. 
     - Om ikonen inaktiveras visas din mus selector hovrar över ikonen orsaken. 
 5. Det finns ett fönster som öppnas bekräftar du vill ta bort hanteringsgruppen. 
 
-    ![Ta bort grupp](media/management-groups/delete_confirm.png) 
+    ![ta bort grupp](media/management-groups/delete_confirm.png) 
 6. Välj **Ja** 
 
 
@@ -94,8 +95,8 @@ Remove-AzureRmManagementGroup -GroupName Contoso
 ### <a name="delete-in-azure-cli"></a>Borttagning i Azure CLI
 Med Azure CLI, använder du kommandot az konto-hanteringsgruppen. 
 
-```azure-cli
-C:\> az account management-group delete --group-name Contoso
+```azurecli-interactive
+az account management-group delete --name Contoso
 ```
 ---
 
@@ -105,7 +106,7 @@ Du kan visa en hanteringsgrupp som du har en direkt eller ärvda RBAC roll på.
 ### <a name="view-in-the-portal"></a>Visa på portalen
 1. Logga in på den [Azure-portalen](https://portal.azure.com)
 2. Välj **alla tjänster** > **hanteringsgrupper** 
-3. Hanteringsgruppen hierarkin sidan belastningar där du kan utforska alla hanteringsgrupper och prenumerationer som du har åtkomst till. Att välja gruppnamnet går du ned en nivå i hierarkin. Navigeringen fungerar som en Utforskaren. 
+3. Grupp hanteringshierarkin sidan belastningar där du kan utforska alla hanteringsgrupper och prenumerationer som du har åtkomst till. Att välja gruppnamnet går du ned en nivå i hierarkin. Navigeringen fungerar som en Utforskaren. 
     ![Main](media/management-groups/main.png)
 4. Om du vill se information om hanteringsgruppen, Välj den **(detaljer)** länken bredvid rubriken för hanteringsgruppen. Om den här länken inte finns kan har du inte behörighet att visa den hanteringsgruppen.  
 
@@ -124,13 +125,13 @@ Get-AzureRmManagementGroup -GroupName Contoso
 ### <a name="view-in-azure-cli"></a>Vyn i Azure CLI
 Du kan använda kommandot lista för att hämta alla grupper.  
 
-```azure-cli
+```azurecli-interactive
 az account management-group list
 ```
 Använd kommandot Visa information för en enskild hanteringsgrupp
 
-```azurepowershell-interactive
-az account management-group show --group-name Contoso
+```azurecli-interactive
+az account management-group show --name Contoso
 ```
 ---
 
@@ -185,14 +186,14 @@ Remove-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 123
 ### <a name="move-subscriptions-in-azure-cli"></a>Flytta prenumerationer i Azure CLI
 Om du vill flytta en prenumeration i CLI, kan du använda kommandot Lägg till. 
 
-```azure-cli
-C:\> az account management-group add --group-name Contoso --subscription 12345678-1234-1234-1234-123456789012
+```azurecli-interactive
+az account management-group subscription add --name Contoso --subscription 12345678-1234-1234-1234-123456789012
 ```
 
 Använd kommandot prenumeration ta bort för att ta bort prenumerationen från hanteringsgruppen.  
 
-```azure-cli
-C:\> az account management-group remove --group-name Contoso --subscription 12345678-1234-1234-1234-123456789012
+```azurecli-interactive
+az account management-group subscription remove --name Contoso --subscription 12345678-1234-1234-1234-123456789012
 ```
 
 ---
@@ -216,13 +217,13 @@ När du flyttar en överordnad hanteringsgrupp alla underordnade resurser som in
 Använd kommandot Update AzureRmManagementGroup i PowerShell för att flytta en hanteringsgrupp under en annan grupp.  
 
 ```powershell
-C:\> Update-AzureRmManagementGroup -GroupName Contoso  -ParentName ContosoIT
+Update-AzureRmManagementGroup -GroupName Contoso  -ParentName ContosoIT
 ```  
 ### <a name="move-management-groups-in-azure-cli"></a>Flytta hanteringsgrupper i Azure CLI
 Använd kommandot update om du vill flytta en hanteringsgrupp med Azure CLI. 
 
-```azure-cli
-C:/> az account management-group udpate --group-name Contoso --parent-id "Contoso Tenant" 
+```azurecli-interactive
+az account management-group update --name Contoso --parent "Contoso Tenant" 
 ``` 
 
 ---

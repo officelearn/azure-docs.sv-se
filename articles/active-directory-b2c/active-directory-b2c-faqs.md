@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b56cdd119bac28eec819dbf38afcd2be5aaf907
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: e16130dc41418b22f2dea4ceae5e0a90ed963161
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710740"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938446"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (FAQ) 
 Den här sidan svar på vanliga frågor om Azure Active Directory (AD Azure) B2C. Hålla kontroll för uppdateringar.
@@ -56,7 +56,7 @@ Nej, kan du värd för ditt program var som helst (i molnet eller lokalt). Allt 
 Innan du öppnar 'Azure AD B2C ”i vänster-menyn i Azure portal, måste du växla till den katalog som du vill hantera.  Växla kataloger genom att klicka på din identitet i övre högra hörnet i Azure-portalen och sedan välja en katalog i listrutan som visas.  En stegvis med bilder, finns i [navigera till Azure AD B2C inställningar](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Hur anpassa bekräftelsemeddelanden (innehållet och ”från”: fältet) skickas av Azure AD B2C?
-Du kan använda den [funktionen för företagsanpassning](../active-directory/customize-branding.md) att anpassa innehållet i e-post för verifiering. Mer specifikt kan du anpassa dessa två element för e-postmeddelandet:
+Du kan använda den [funktionen för företagsanpassning](../active-directory/fundamentals/customize-branding.md) att anpassa innehållet i e-post för verifiering. Mer specifikt kan du anpassa dessa två element för e-postmeddelandet:
 
 * **Banderoll logotypen**: visas längst ned till höger.
 * **Bakgrundsfärg**: visas högst upp.
@@ -89,7 +89,7 @@ Nej, av säkerhetsskäl, Azure AD B2C-sidor kan inte öppnas en iFrame.  Vår tj
 Integrering med Microsoft Dynamics 365-portalen är tillgänglig.  Se [konfigurerar Dynamics 365-portalen att använda Azure AD B2C för autentisering](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Har Azure AD B2C fungerar med SharePoint lokalt 2016 eller tidigare?
-Azure AD B2C är inte avsedd för SharePoint extern delning av partner scenariot; Se [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) i stället.
+Azure AD B2C är inte avsedd för SharePoint extern delning av partner scenariot; Se [Azure AD B2B](https://cloudblogs.microsoft.com/enterprisemobility/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview/) i stället.
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>Bör jag använda Azure AD B2C eller B2B för att hantera externa identiteter?
 Den här artikeln om [externa identiteter](../active-directory/active-directory-b2b-compare-external-identities.md) att lära dig mer om att tillämpa lämpliga funktioner till externa identity-scenarier.

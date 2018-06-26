@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/21/2018
-ms.openlocfilehash: f4fe04b972cdd3d4f78a139ce5554ee7b6774d8a
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: fc7a2316b5b006cbbf8a237c6a95a71b6489932b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319324"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753412"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure-databas för PostgreSQL prisnivåer
 
@@ -81,13 +81,13 @@ Lagring som du etablerar är mängden lagringskapacitet som är tillgängliga f�
 | Lagringstyp | Azure standardlagring | Azure Premium Storage | Azure Premium Storage |
 | Lagringsstorlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
 | Öka lagringsstorlek | 1 GB | 1 GB | 1 GB |
-| IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS<br/>Maximalt antal 7500 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Maximalt antal 7500 IOPS |
+| IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS<br/>Maximalt antal 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Maximalt antal 6000 IOPS |
 
 Du kan lägga till ytterligare lagringskapacitet under och efter skapandet av servern. Den grundläggande nivån innehåller inte en IOPS-garanti. I den generella och Minnesoptimerade prisnivåer, skala IOPS med den etablerade lagringsstorleken i förhållandet 3:1.
 
 Du kan övervaka dina i/o-användning i Azure-portalen eller genom att använda Azure CLI-kommandona. Mätvärdena som är relevanta för att övervaka är [lagringsgräns, lagringsprocent, lagringsutrymme som används och IO-procent](concepts-monitoring.md).
 
-### <a name="reaching-the-store-limit"></a>Att lagra gränsen
+### <a name="reaching-the-storage-limit"></a>Nå lagringsgränsen
 
 Servern är skrivskyddad när mängden ledigt utrymme uppnår mindre än 5 GB eller 5% av etablerade lagring, som är minst. Om du har etablerat 100 GB lagringsutrymme och den faktiska användningen går till exempel 95 GB, servern är skrivskyddad. Alternativt, om du har tillhandahållit 5 GB lagringsutrymme, servern är skrivskyddad när mängden ledigt utrymme når mindre än 250 MB.  
 

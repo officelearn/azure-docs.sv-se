@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: 9121726cc8500da87cf71cb1ca3035e6cc5a303b
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: c78138fa06da4d83774f9a2270263a48d404b17a
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294098"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751863"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (FAQ) om Azure-filer
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via standardmässiga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure filsynkronisering (förhandsversion) för snabb åtkomst nära där data används.
@@ -227,7 +227,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
 
 * <a id="data-compliance-policies"></a>
 **Vilka data efterlevnadsprinciper stöder Azure-filer?**  
-   Azure Files körs ovanpå samma lagringsarkitekturen som används i andra storage-tjänster i Azure Storage. Azure Files gäller samma data efterlevnadsprinciper som används i andra Azure-lagringstjänster. Mer information om kompatibilitet för Azure Storage-data som du kan hämta och referera till den [dataskydd i Microsoft Azure-dokumentet](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409), och gå till den [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
+   Azure Files körs ovanpå samma lagringsarkitekturen som används i andra storage-tjänster i Azure Storage. Azure Files gäller samma data efterlevnadsprinciper som används i andra Azure-lagringstjänster. Mer information om kompatibilitet för Azure Storage-data som du kan hämta och referera till den [dataskydd i Microsoft Azure-dokumentet](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409), och gå till den [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Lokal åtkomst
 * <a id="expressroute-not-required"></a>

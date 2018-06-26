@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 0b38054ec623dc34daa3d18612e3356475655f35
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dda37600dffaf1e8e1c85c9757696f2d8219febb
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331333"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751678"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL Database köp modeller och resurser 
 
@@ -30,8 +30,8 @@ Följande tabell och diagram Jämför och jämför dessa två köp modeller.
 
 |**Inköpsmodell**|**Beskrivning**|**Bäst för**|
 |---|---|---|
-|DTU-baserade modellen|Den här modellen är baserad på ett anpassade mått för bearbetning, lagring och i/o-resurser. Prestandanivåer uttrycks i DTU (Database Transaction Unit) för enkla databaser och eDTU (elastic Database Transaction Unit) för elastiska pooler. Mer information om dtu: er och edtu: er Se [vad är dtu: er och edtu: er](sql-database-what-is-a-dtu.md)?|Bäst för kunder som vill enkla, förkonfigurerade alternativ.| 
-|vCore-baserade modellen|Den här modellen kan du skala beräknings-och lagringsresurserna oberoende av varandra. Du kan också använda Azure Hybrid-förmån för SQL Server för att få besparingar.|Bäst för kunder som värdet flexibilitet, kontroll- och insyn.|
+|DTU-baserad modell|Den här modellen är baserad på ett anpassade mått för bearbetning, lagring och i/o-resurser. Prestandanivåer uttrycks i DTU (Database Transaction Unit) för enkla databaser och eDTU (elastic Database Transaction Unit) för elastiska pooler. Mer information om dtu: er och edtu: er Se [vad är dtu: er och edtu: er](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?|Bäst för kunder som vill enkla, förkonfigurerade alternativ.| 
+|vCore-baserad modell|Den här modellen kan du skala beräknings-och lagringsresurserna oberoende av varandra. Du kan också använda Azure Hybrid-förmån för SQL Server för att få besparingar.|Bäst för kunder som värdet flexibilitet, kontroll- och insyn.|
 ||||  
 
 ![prismodellen](./media/sql-database-service-tiers/pricing-model.png)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 94312edaa97a5d9a7502eed4c0551151ce2a06cc
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: bc260c747d5c6f3c4e3f955b1bbd93d22f9234d1
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235285"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753344"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiera data från Cassandra med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,7 +62,7 @@ Följande egenskaper stöds för Cassandra länkade tjänsten:
 | typ |Egenskapen type måste anges till: **Cassandra** |Ja |
 | värd |En eller flera IP-adresser eller värdnamn Cassandra servrar.<br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
 | port |TCP-porten som används av Cassandra-server för att lyssna efter anslutningar. |Nej (standard är 9042) |
-| AuthenticationType | Typ av autentisering som används för att ansluta till Cassandra-databasen.<br/>Tillåtna värden är: **grundläggande**, och **anonym**. |Ja |
+| authenticationType | Typ av autentisering som används för att ansluta till Cassandra-databasen.<br/>Tillåtna värden är: **grundläggande**, och **anonym**. |Ja |
 | användarnamn |Ange användarnamnet för användarkontot. |Ja, om authenticationType anges till Basic. |
 | lösenord |Ange lösenordet för användarkontot. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja, om authenticationType anges till Basic. |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime eller Azure Integration Runtime (om datalager är offentligt tillgänglig). Om inget anges används standard-Azure Integration Runtime. |Nej |
@@ -138,7 +138,7 @@ Om du vill kopiera data från Cassandra, anger du källa i kopieringsaktiviteten
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **CassandraSource** | Ja |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-92 frågan eller CQL frågan. Se [CQL referens](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-frågan anger **keyspace name.table namn** som representerar den tabell som du vill fråga. |Nej (om ”tabellnamn” och ”keyspace” i datamängden har angetts). |
-| consistencyLevel |Nivå för konsekvenskontroll anger hur många repliker måste svara på en läsbegäran innan den returnerar data till klientprogrammet. Cassandra kontrollerar det angivna antalet repliker för data att uppfylla read-förfrågan. Se [konfigurera datakonsekvens](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) mer information.<br/><br/>Tillåtna värden är: **en**, **två**, **tre**, **KVORUM**, **alla**, **LOCAL_ KVORUM**, **EACH_QUORUM**, och **LOCAL_ONE**. |Nej (standardvärdet är `ONE`) |
+| consistencyLevel |Nivå för konsekvenskontroll anger hur många repliker måste svara på en läsbegäran innan den returnerar data till klientprogrammet. Cassandra kontrollerar det angivna antalet repliker för data att uppfylla read-förfrågan. Se [konfigurera datakonsekvens](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) mer information.<br/><br/>Tillåtna värden är: **en**, **två**, **tre**, **KVORUM**, **alla**, **LOCAL_ KVORUM**, **EACH_QUORUM**, och **LOCAL_ONE**. |Nej (standardvärdet är `ONE`) |
 
 **Exempel:**
 
@@ -180,10 +180,10 @@ När du kopierar data från Cassandra, används följande mappningar från Cassa
 |:--- |:--- |
 | ASCII |Sträng |
 | BIGINT |Int64 |
-| BLOB |byte] |
+| BLOB |Byte] |
 | BOOLESKT VÄRDE |Boolesk |
 | DECIMAL |Decimal |
-| DUBBEL |dubbla |
+| DUBBEL |Dubbel |
 | FLYTTAL |Enkel |
 | INET |Sträng |
 | INT |Int32 |

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 5/15/2018
 ms.author: mabrigg
 ms.reviewer: Balsu.G
-ms.openlocfilehash: 2655b682d35dd1879c649ed58d524ecd80808896
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: bcd1c53221028a852550fa429abcb9f8e9523ed4
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258030"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752429"
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Konfigurera Azure Stack användarens PowerShell-miljö
 
@@ -46,7 +46,6 @@ Beroende på vilken typ av distributionen Azure Stack (Azure AD eller AD FS), k�
 Kontrollera att du ersätter följande skriptvariabler med värden från konfigurationen av Azure Stack:
 
 * AAD tenantName
-* GraphAudience slutpunkt
 * ArmEndpoint
 
 ### <a name="azure-active-directory-aad-based-deployments"></a>Azure Active Directory (AAD) baserade distributioner
@@ -59,18 +58,10 @@ Kontrollera att du ersätter följande skriptvariabler med värden från konfigu
   # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-  # For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
-  $GraphAudience = "<GraphAudience endpoint for your environment>"
-
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackUser" `
     -ArmEndpoint $ArmEndpoint
-
-  # Set the GraphEndpointResourceId value
-  Set-AzureRmEnvironment `
-    -Name "AzureStackUser" `
-    -GraphAudience $GraphAudience
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `
@@ -93,19 +84,10 @@ Kontrollera att du ersätter följande skriptvariabler med värden från konfigu
   # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-  # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-  $GraphAudience = "<GraphAudience endpoint for your environment>"
-
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackUser" `
     -ArmEndpoint $ArmEndpoint
-
-  # Set the GraphEndpointResourceId value
-  Set-AzureRmEnvironment `
-    -Name "AzureStackUser" `
-    -GraphAudience $GraphAudience `
-    -EnableAdfsAuthentication:$true
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `

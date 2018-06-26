@@ -11,25 +11,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 06/25/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 8643e75a24ff7840b71dfaceae9934cdda566d30
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: e1505761a0bd1ea9dabdd0b2cbab7af902198311
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604428"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938340"
 ---
-# <a name="use-sql-databases-on-microsoft-azure-stack"></a>Använda SQL-databaser på Microsoft Azure-stacken
-Använda Azure Stack SQL Server-resursprovidern för att visa SQL-databaser som en tjänst i Azure-stacken. SQL resource provider-tjänsten körs på SQL-resursprovidern VM, som är en virtuell dator med Windows Server core.
+# <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Distribuera SQL Server-resursprovidern på Azure-stacken
+
+Använda Azure Stack SQL Server-resursprovidern för att visa SQL-databaser som en tjänst i Azure-stacken. SQL-resursprovidern körs som en tjänst på en Server Core för Windows Server 2016 virtuell dator (VM).
 
 ## <a name="prerequisites"></a>Förutsättningar
-Det finns flera förutsättningar som måste vara på plats innan du kan distribuera Azure Stack SQL-resursprovidern. Utför följande steg på en dator som kan komma åt den privilegierade slutpunkten VM:
 
-- Om du inte redan har gjort det, [registrera Azure Stack](.\azure-stack-registration.md) med Azure så att du kan ladda ned Azure marketplace-objekt.
-- Lägg till nödvändiga Windows Server core VM på Azure-stacken Marketplace genom att hämta den **Windows Server 2016 Server core** bild. Du kan placera en enda om du behöver installera en uppdatering. MSU-paketet i den lokala beroende sökvägen. Om mer än en. MSU-fil hittas, SQL resource provider-installationen misslyckas.
-- Hämta SQL-resursprovidern binära och kör sedan Self-Extractor extrahera innehållet till en tillfällig katalog. Resursprovidern har en minsta motsvarande Azure-Stack skapa. Glöm inte att hämta rätt binärfil för versionen av Azure-stacken som du använder:
+Det finns flera förutsättningar som måste vara på plats innan du kan distribuera Azure Stack SQL-resursprovidern. Utför följande steg på en dator som kan komma åt den privilegierade slutpunkten VM för att uppfylla dessa krav:
+
+- Om du inte redan gjort det, [registrera Azure Stack](.\azure-stack-registration.md) med Azure så att du kan ladda ned Azure marketplace-objekt.
+- Lägg till nödvändiga Windows Server core VM på Azure-stacken Marketplace genom att hämta den **Windows Server 2016 Datacenter - Server Core** bild. Du kan också använda ett skript för att skapa en [Windows Server 2016 avbildningen](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). Kontrollera att du väljer alternativet core när du kör skriptet.
+
+  >[!NOTE]
+  >Om du behöver installera en uppdatering kan du placera ett enda MSU-paket i den lokala beroende sökvägen. Om mer än en MSU-fil hittas att SQL resource providerinstallationen misslyckas.
+
+- Hämta SQL resursprovidern binära och kör sedan Self-Extractor extrahera innehållet till en tillfällig katalog. Resursprovidern har en minsta motsvarande Azure-Stack skapa. Kontrollera att du har hämtat rätt binärfil för versionen av Azure-stacken som du kör.
 
     |Azure Stack-versionen|SQL RP-version|
     |-----|-----|
@@ -37,33 +43,36 @@ Det finns flera förutsättningar som måste vara på plats innan du kan distrib
     |Version 1802 (1.0.180302.1)|[SQL RP version 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
     |Version 1712 (1.0.180102.3, 1.0.180103.2 eller 1.0.180106.1 (integrerad system))|[SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712)|
     |     |     |
-- För integrerade system-installationer, du måste ange SQL PaaS PKI-certifikat enligt beskrivningen i avsnittet valfria PaaS certifikat i [Azure Stack PKI distributionskrav](.\azure-stack-pki-certs.md#optional-paas-certificates), genom att placera den .pfx-fil på plats anges av den **DependencyFilesLocalPath** parameter.
+
+### <a name="certificates"></a>Certifikat
+
+För integrerade system-installationer. Du måste ange den SQL PaaS PKI-certifikat som beskrivs i de valfria PaaS certifikat i [Azure Stack PKI distributionskrav](.\azure-stack-pki-certs.md#optional-paas-certificates). Placera den .pfx-fil på den plats som den **DependencyFilesLocalPath** parameter.
 
 ## <a name="deploy-the-sql-resource-provider"></a>Distribuera SQL-resursprovidern
-När du har förberett att installera SQL-resursprovidern som uppfyller alla krav, kan du nu köra den **DeploySqlProvider.ps1** skript för att distribuera SQL-resursprovidern. Skriptet DeploySqlProvider.ps1 hämtas som en del av binär SQL resursprovidern som du hämtade för din Azure Stack-version. 
+
+När du har alla nödvändiga komponenter installeras, kör du den **DeploySqlProvider.ps1** skript för att distribuera SQL-resursprovidern. Skriptet DeploySqlProvider.ps1 hämtas som en del av SQL resource provider binärfilen som du hämtade för din version av Azure-stacken.
 
 > [!IMPORTANT]
-> System där skriptet körs måste vara en Windows 10 eller Windows Server 2016 system med den senaste versionen av .NET-körningsmiljön installerad.
+> Systemet som du kör skriptet på måste vara en Windows 10 eller Windows Server 2016 system med den senaste versionen av .NET-körningsmiljön installerad.
 
+Distribuera SQL-resursprovidern genom att öppna en **nya** upphöjd PowerShell konsolfönstret och ändra till den katalog där du extraherade de binära filerna för SQL resource provider. Vi rekommenderar att du använder ett nytt PowerShell-fönster för att undvika eventuella problem som orsakas av PowerShell-moduler som har redan lästs in.
 
-Distribuera SQL-resursprovidern, öppna en ny upphöjd PowerShell-konsol (administratör) och ändra till den katalog där du extraherade de binära filerna för SQL resource provider.
+Kör skriptet DeploySqlProvider.ps1 som utför följande uppgifter:
+
+- Överför certifikat och andra artefakter till ett lagringskonto på Azure-stacken.
+- Publicerar gallery-paket så att du kan distribuera SQL-databaser med galleriet.
+- Publicerar ett gallery-paket för distribution av värdservrar.
+- Distribuerar en virtuell dator med Windows Server 2016 core bild du ned och installerar sedan SQL-resursprovidern.
+- Registrerar en lokal DNS-post som mappar till dina VM-resursprovidern.
+- Registrerar din resursprovidern med den lokala Azure Resource Manager för operatorn och användarkonton.
+- Du kan också installerar en enskild uppdatering i Windows Server under installationen av resurs-providern.
 
 > [!NOTE]
-> Använd ett nytt PowerShell-konsolfönster för att undvika problem som kan uppstå från felaktig PowerShell-moduler som har redan lästs in i systemet.
-
-Kör skriptet DeploySqlProvider.ps1 som utför följande steg:
-- Överför certifikat och andra artefakter till ett lagringskonto på Azure-stacken.
-- Publicerar gallery-paket så att du kan distribuera SQL-databaser via galleriet.
-- Publicerar ett gallery-paket för distribution av värdservrar.
-- Distribuerar en virtuell dator med hjälp av Windows Server 2016-avbildningen som skapades i steg 1 och installerar sedan resursprovidern.
-- Registrerar en lokal DNS-post som mappar till dina VM-resursprovidern.
-- Registrerar din resursprovidern med lokala Azure Resource Manager (användar- och admin).
-- Du installerar en enskild uppdatering i Windows under RP-installationen.
-
-Distribution av SQL resource provider börjar och skapar system.local.sqladapter resursgruppen. Det kan ta upp till 75 minuter att slutföra fyra nödvändiga distributioner till den här resursgruppen.
+> När SQL resource provider distributionen startar, **system.local.sqladapter** resursgruppen har skapats. Det kan ta upp till 75 minuter fyra nödvändiga distributioner till den här resursgruppen.
 
 ### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parametrar
-Du kan ange dessa parametrar på kommandoraden. Om du inte, eller om någon parameter valideringen misslyckas, uppmanas du att ange de obligatoriska parametrarna.
+
+Du kan ange följande parametrar från kommandoraden. Om du inte, eller om någon parameter valideringen misslyckas, uppmanas du att ange de obligatoriska parametrarna.
 
 | Parameternamn | Beskrivning | Kommentar eller standardvärde |
 | --- | --- | --- |
@@ -79,11 +88,11 @@ Du kan ange dessa parametrar på kommandoraden. Om du inte, eller om någon para
 | **DebugMode** | Förhindrar automatisk rensning vid fel. | Nej |
 
 >[!NOTE]
-> SKU: er kan ta upp till en timme att vara synliga i portalen. Du kan inte skapa en databas förrän SKU: N har skapats.
-
+> SKU: er kan ta upp till en timme att vara synliga i portalen. Du kan inte skapa en databas tills SKU: N är installerade och körs.
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Distribuera SQL-resursprovidern med hjälp av ett anpassat skript
-Du kan anpassa följande exempel på skript genom att ändra standard kontoinformation och lösenord som behövs för att undvika att manuellt ange nödvändig information när DeploySqlProvider.ps1 skriptet körs:
+
+Du kan anpassa följande skript för att ta bort alla manuella konfigurationer när du distribuerar resursprovidern. Ändra standard kontoinformation och lösenord som behövs för din Azure Stack-distribution.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module and set the profile.
@@ -99,45 +108,48 @@ $privilegedEndpoint = "AzS-ERCS01"
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
 
-# The service admin account (can be Azure Active Directory or Active Directory Federation Services).
+# The service admin account can be Azure Active Directory or Active Directory Federation Services.
 $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set credentials for the new resource provider VM local administrator account
+# Set credentials for the new resource provider VM local administrator account.
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
-# And the cloudadmin credential that's required for privileged endpoint access.
+# Add the cloudadmin credential that's required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Change directory to the folder where you extracted the installation files.
+# Change to the directory If folder where you extracted the installation files.
 # Then adjust the endpoints.
-$tempDir\DeploySQLProvider.ps1 `
+. $tempDir\DeploySQLProvider.ps1 `
     -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `
     -CloudAdminCredential $cloudAdminCreds `
     -PrivilegedEndpoint $privilegedEndpoint `
     -DefaultSSLCertificatePassword $PfxPass `
     -DependencyFilesLocalPath $tempDir\cert
+
  ```
 
-## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Kontrollera distributionen med hjälp av Azure Stack-portalen
-Stegen i det här avsnittet kan användas för att se till att SQL-resursprovidern har distribuerats.
+Uppdatera webbläsaren för att kontrollera att du kan se de senaste uppdateringarna när installationsskriptet för resurs-providern har slutförts.
 
-> [!NOTE]
->  Du måste uppdatera portalen om du vill se admin bladet och gallery objekt när installationen är klar.
+## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Kontrollera distributionen med hjälp av Azure Stack-portalen
+
+Du kan använda följande steg verifierar att SQL-resursprovidern har distribuerats.
 
 1. Logga in på administrationsportal som tjänstadministratör.
-
-2. Kontrollera att distributionen har slutförts. Gå till **resursgrupper**. Välj sedan den **system.\< plats\>.sqladapter** resursgruppen. Kontrollera att alla fyra distributioner lyckades.
+2. Välj **resursgrupper**.
+3. Välj den **system.\< plats\>.sqladapter** resursgruppen.
+4. Meddelandet under **distributioner**, visas i nästa skärmdump, bör vara **4 lyckades**.
 
       ![Kontrollera distributionen av SQL-resursprovidern](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
+5. Du kan få mer detaljerad information om resource provider distribution under **inställningar**. Välj **distributioner** att hämta information som: STATUS, TIDSSTÄMPEL och varaktighet för varje distribution.
 
 ## <a name="next-steps"></a>Nästa steg
 

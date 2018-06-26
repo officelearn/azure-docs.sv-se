@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b4fba492a57471df737896956e0b37e3da772cce
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 501e28cf3d01385d65a2308db06702d2db0d91ee
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262383"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937921"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 och senare Konfigurationsschemat
 > [!NOTE]
@@ -362,7 +362,7 @@ PublicConfig och PrivateConfig avgränsas eftersom json användning oftast skick
  De taggar som följer är ungefär i ordning som visas i föregående exempel.  Om du inte ser en fullständig beskrivning där du förväntar dig, kan du söka sidan för elementet eller attributet.  
 
 ## <a name="common-attribute-types"></a>Vanliga attribut  
- **scheduledTransferPeriod** attributet visas i flera element. Det är intervallet mellan schemalagda överföringar till lagring avrundat till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/schema/schema_dtypes_date.asp)
+ **scheduledTransferPeriod** attributet visas i flera element. Det är intervallet mellan schemalagda överföringar till lagring avrundat till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/xml/schema_dtypes_date.asp)
 
 
 ## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration Element  
@@ -415,11 +415,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
 |**CrashDumps**|Se beskrivning på annan plats på den här sidan.|  
-|**DiagnosticInfrastructureLogs**|Aktivera insamling av loggar som genereras av Azure-diagnostik. Infrastruktur för diagnostiska loggar är användbara för att felsöka systemets diagnostik. Valfria attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -konfigurerar lägsta allvarlighetsgrad för loggar samlas in.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**DiagnosticInfrastructureLogs**|Aktivera insamling av loggar som genereras av Azure-diagnostik. Infrastruktur för diagnostiska loggar är användbara för att felsöka systemets diagnostik. Valfria attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -konfigurerar lägsta allvarlighetsgrad för loggar samlas in.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**Kataloger**|Se beskrivning på annan plats på den här sidan.|  
 |**EtwProviders**|Se beskrivning på annan plats på den här sidan.|  
 |**Mått**|Se beskrivning på annan plats på den här sidan.|  
-|**performanceCounters**|Se beskrivning på annan plats på den här sidan.|  
+|**PerformanceCounters**|Se beskrivning på annan plats på den här sidan.|  
 |**WindowsEventLog**|Se beskrivning på annan plats på den här sidan.| 
 |**DockerSources**|Se beskrivning på annan plats på den här sidan. | 
 
@@ -432,7 +432,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attribut|Beskrivning|  
 |----------------|-----------------|  
-|**ContainerName**|Valfri. Namnet på blob-behållaren i Azure Storage-konto som används för att lagra krascher Dumpar.|  
+|**containerName**|Valfri. Namnet på blob-behållaren i Azure Storage-konto som används för att lagra krascher Dumpar.|  
 |**crashDumpType**|Valfri.  Konfigurerar Azure-diagnostik för att samla in Dumpar mini eller fullständig kraschar.|  
 |**directoryQuotaPercentage**|Valfri.  Konfigurerar procentandelen av **overallQuotaInMB** som ska reserveras för kraschdumpar på den virtuella datorn.|  
 
@@ -488,8 +488,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Konfigurerar insamling av händelser som genereras från [EventSource klassen](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Obligatoriskt attribut:<br /><br /> **Providern** -klassnamnet för händelsen EventSource.<br /><br /> Valfria attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -lägsta allvarlighetsgrad att överföra till ditt lagringskonto.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
-|**EtwManifestProviderConfiguration**|Obligatoriskt attribut:<br /><br /> **Providern** -GUID av Händelseprovidern<br /><br /> Valfria attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -lägsta allvarlighetsgrad att överföra till ditt lagringskonto.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**EtwEventSourceProviderConfiguration**|Konfigurerar insamling av händelser som genereras från [EventSource klassen](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Obligatoriskt attribut:<br /><br /> **Providern** -klassnamnet för händelsen EventSource.<br /><br /> Valfria attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -lägsta allvarlighetsgrad att överföra till ditt lagringskonto.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwManifestProviderConfiguration**|Obligatoriskt attribut:<br /><br /> **Providern** -GUID av Händelseprovidern<br /><br /> Valfria attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -lägsta allvarlighetsgrad att överföra till ditt lagringskonto.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
 
@@ -524,7 +524,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**MetricAggregation**|Obligatoriskt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**MetricAggregation**|Obligatoriskt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
 
@@ -553,7 +553,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Underordnat Element|Beskrivning|  
 |-------------------|-----------------|  
-|**dataSource**|Windows-händelseloggar att samla in. Obligatoriskt attribut:<br /><br /> **namnet** - XPath-frågan som beskriver de windows-händelserna som ska hämtas. Exempel:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Om du vill samla in alla händelser, ange ”*”|  
+|**DataSource**|Windows-händelseloggar att samla in. Obligatoriskt attribut:<br /><br /> **namnet** - XPath-frågan som beskriver de windows-händelserna som ska hämtas. Exempel:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Om du vill samla in alla händelser, ange ”*”|  
 
 
 
@@ -588,7 +588,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elementnamn|Beskrivning|  
 |------------------|-----------------|  
-|**sink**|Se beskrivning på annan plats på den här sidan.|  
+|**Sink**|Se beskrivning på annan plats på den här sidan.|  
 
 ## <a name="sink-element"></a>Sink Element
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - mottagare*
@@ -604,7 +604,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Element|Typ|Beskrivning|  
 |-------------|----------|-----------------|  
 |**Application Insights**|sträng|Används endast när data skickades till Application Insights. Innehåller den Instrumentation nyckeln för ett aktivt Application Insights-konto som du har åtkomst till.|  
-|**kanaler**|sträng|En för varje ytterligare filtrering strömma som du|  
+|**Kanaler**|sträng|En för varje ytterligare filtrering strömma som du|  
 
 ## <a name="channels-element"></a>Kanaler Element  
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - kanaler*
@@ -626,7 +626,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attribut|Typ|Beskrivning|  
 |----------------|----------|-----------------|  
-|**LogLevel**|**Sträng**|Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
+|**logLevel**|**Sträng**|Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
 |**Namn**|**Sträng**|Ett unikt namn för att referera till kanalen|  
 
 

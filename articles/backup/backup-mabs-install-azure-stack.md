@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: f39f8571d4256a14f64ee2a66788cac8fa524eec
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: c9dd6a1818b0afeb5e577724568a8254a70c8228
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248902"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753362"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installera Azure Backup Server på Azure Stack
 
@@ -42,18 +42,9 @@ Azure Backup-Server skyddar följande Azure Stack virtuella arbetsbelastningar.
 | SQL Server 2016 | Databas |
 | SQL Server 2014 | Databas |
 | SQL Server 2012 SP1 | Databas |
+| SharePoint 2016 | Servergrupp, databas, klientdel, webbserver |
 | SharePoint 2013 | Servergrupp, databas, klientdel, webbserver |
 | SharePoint 2010 | Servergrupp, databas, klientdel, webbserver |
-
-
-### <a name="host-vs-guest-backup"></a>Värd för vs gäst-säkerhetskopiering
-
-Azure Backup-servern utför värd- eller gästnivå säkerhetskopior av virtuella datorer. På värdnivå, Azure Backup-agenten är installerad på den virtuella datorn eller klustret och skyddar hela den virtuella datorn och datafiler som körs på värden. På gästnivå, Azure Backup-agenten är installerad på varje virtuell dator och skyddar arbetsbelastningen som finns på den datorn.
-
-Båda metoderna har sina för- och nackdelar:
-
-   * Säkerhetskopiering på värdnivå fungerar oberoende av Operativsystemet som körs på gästdatorer, och du behöver Azure Backup-agenten installeras på varje virtuell dator. Om du distribuerar säkerhetskopiering på värdnivå återställa du en hel virtuell dator eller filer och mappar (objektnivååterställning).
-   * Säkerhetskopiering på gästnivå är bra för att skydda specifika arbetsbelastningar som körs på en virtuell dator. Du kan återställa en hel virtuell dator eller specifika filer på värdnivå, men det återställa inte data i kontexten för ett visst program. Du måste till exempel skydda den virtuella datorn på gästnivå om du vill återställa specifika SharePoint-filer från en skyddad virtuell dator. Om du vill skydda data som lagras på genomströmningsdiskar måste du använda säkerhetskopiering på gästnivå. PASSTHROUGH kan den virtuella datorn få direkt åtkomst till lagringsenheten och lagra inte virtuell volymdata i en VHD-fil.
 
 ## <a name="prerequisites-for-the-azure-backup-server-environment"></a>Krav för Azure Backup Server-miljö
 
@@ -84,13 +75,10 @@ Lagra säkerhetskopierade data i Azure minskar infrastrukturen för säkerhetsko
 
 Skapa för att lagra säkerhetskopierade data i Azure, eller Använd Recovery Services-valvet. När du förbereder att säkerhetskopiera arbetsbelastningen Azure Backup Server du [konfigurera Recovery Services-valvet](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). När du konfigurerat varje gång en säkerhetskopiering körs skapas en återställningspunkt i valvet. Varje Recovery Services-valvet innehåller upp till 9999 återställningspunkter. Du kan behålla säkerhetskopierade data i många år beroende på antalet återställningspunkter som skapats och hur länge de bevaras. Du kan till exempel skapa månatliga återställningspunkter och behålla dem i fem år.
  
-### <a name="using-sql-server"></a>Använda SQLServer
-Välj endast en Azure-stacken virtuell dator som kör SQL Server om du vill använda en fjärransluten SQL Server för Azure Backup Server-databasen.
-
 ### <a name="scaling-deployment"></a>Skalning distribution
 Om du vill skala distributionen har följande alternativ:
   - Skala upp – öka storleken på Azure Backup Server virtuell dator från en serie D-serien och öka den lokala lagringen [per Azure Stack virtuella instruktioner](../azure-stack/user/azure-stack-manage-vm-disks.md).
-  - Omfördela data: skicka äldre data till Azure Backup Server och spara endast senaste data på det lagringsutrymme som är kopplade till Azure Backup-Server.
+  - Omfördela data: skicka äldre data till Azure och spara endast senaste data på det lagringsutrymme som är kopplade till Azure Backup-Server.
   - Skala ut – Lägg till fler Azure Backup-servrar för att skydda arbetsbelastningarna.
 
 ### <a name="net-framework"></a>.NET framework
@@ -216,7 +204,7 @@ I föregående steg du klickade på **Slutför** avsluta fasen extrahering och s
 
 ![Installationsguiden för Microsoft Azure Backup](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
 
-Azure Backup Server delar kod med Data Protection Manager. Du hittar referenser till Data Protection Manager och DPM i Azure Backup Server-installationsprogrammet. Även om Azure Backup Server och Data Protection Manager är separata produkter, är dessa produkter nära relaterade. Alla referenser till Data Protection Manager och DPM gäller för Azure Backup Server i Azure Backup Server-dokumentationen.
+Azure Backup Server delar kod med Data Protection Manager. Du hittar referenser till Data Protection Manager och DPM i Azure Backup Server-installationsprogrammet. Även om Azure Backup Server och Data Protection Manager är separata produkter, är dessa produkter nära relaterade.
 
 1. Om du vill starta guiden klickar du på **Microsoft Azure Backup Server**.
 
@@ -322,7 +310,7 @@ Azure Backup Server delar kod med Data Protection Manager. Du hittar referenser 
 
 ## <a name="add-backup-storage"></a>Lägg till lagring för säkerhetskopiering
 
-Den första säkerhetskopian sparas på lagringsutrymme som är anslutet till Azure Backup-Server-datorn. Läs mer om att lägga till diskar i [konfigurera lagringspooler och disklagring](https://technet.microsoft.com/library/hh758075.aspx).
+Den första säkerhetskopian sparas på lagringsutrymme som är anslutet till Azure Backup-Server-datorn. Läs mer om att lägga till diskar i [lägga till moderna Backup storage](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801).
 
 > [!NOTE]
 > Du måste lägga till lagring för säkerhetskopiering, även om du planerar att skicka data till Azure. I Azure Backup-Server-arkitektur Recovery Services-valvet innehåller den *andra* kopia av data under den lokala lagringen innehåller säkerhetskopian första (och obligatoriska).
@@ -372,10 +360,10 @@ Du kan också läsa [Azure Backup relaterade vanliga frågor och svar](backup-az
 
 ## <a name="next-steps"></a>Nästa steg
 
-I artikeln [förbereda din miljö för DPM](https://technet.microsoft.com/library/hh758176.aspx), innehåller information om Azure Backup Server-konfigurationer som stöds.
+I artikeln [förbereda din miljö för DPM](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), innehåller information om Azure Backup Server-konfigurationer som stöds.
 
 Du kan använda följande artiklar för att få en djupare förståelse för skydd av arbetsbelastning med hjälp av Microsoft Azure Backup-Server.
 
-- [SQL Server-säkerhetskopiering](backup-azure-backup-sql.md)
-- [SharePoint server-säkerhetskopiering](backup-azure-backup-sharepoint.md)
+- [SQL Server-säkerhetskopiering](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [SharePoint server-säkerhetskopiering](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Alternativ server-säkerhetskopiering](backup-azure-alternate-dpm-server.md)

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 80cec0bc8136142f30ea7b957de819379b1bb139
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d9061e12ac9fe0b9d858690897e582acab5169e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619141"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754581"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhetsaspekter vid flytt av data i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ Den här artikeln beskriver grundläggande infrastruktur med flytt datatjänster
 
 I en Data Factory-lösning skapar du en eller flera data[pipelines](concepts-pipelines-activities.md). En pipeline är en logisk gruppering aktiviteter som tillsammans utför en uppgift. Dessa pipelines finns i den region där datafabriken har skapats. 
 
-Även om Data Factory bara är tillgängligt i östra USA, östra USA 2 och Västeuropa regioner (förhandsgranskning version 2), av data movement service är tillgänglig [globalt i flera regioner](concepts-integration-runtime.md#azure-ir). Om av data movement service inte har distribuerats till den regionen som Data Factory-tjänsten som säkerställer att data inte ger ett geografiskt område eller en region om du uttryckligen instruera tjänsten för att använda en annan region. 
+Även om Data Factory finns bara i några regioner, av data movement service är [tillgängligt globalt](concepts-integration-runtime.md#integration-runtime-location) för att säkerställa efterlevnad av data, effektivitet och minskade nätverket utgång kostnader. 
 
 Azure Data Factory lagrar inte alla data utom länkade tjänsten autentiseringsuppgifter för molnet datalager som krypteras med hjälp av certifikat. Med Data Factory du skapa datadrivna arbetsflöden för att dirigera flödet av data mellan [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats), och bearbetning av data med hjälp av [compute services](compute-linked-services.md) i andra regioner eller i en lokala miljö. Du kan också övervaka och hantera arbetsflöden med hjälp av SDK: er och Azure-Monitor.
 
@@ -42,7 +42,7 @@ Flytt av data med hjälp av Data Factory har certifierats för:
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
 -   [CSA STJÄRNA](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
 
-Om du är intresserad av Azure efterlevnad och hur Azure skyddar sin egen infrastruktur, finns det [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
+Om du är intresserad av Azure efterlevnad och hur Azure skyddar sin egen infrastruktur, finns det [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 Vi går igenom säkerhetsaspekter i följande scenarier för flytt av två data i den här artikeln: 
 

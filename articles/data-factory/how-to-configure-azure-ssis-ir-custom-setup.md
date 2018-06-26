@@ -8,21 +8,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 06/21/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d724de8d5252318b37ae539ba2513faaf2313a76
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 76308bbb06d6bf1cdc9147258f7c26babae371a9
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268131"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750493"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Anpassa inställningar för Azure-SSIS-integrering runtime
 
-Gränssnittet med anpassad installation för Azure-SSIS-integrering Runtime tillhandahåller ett gränssnitt för att lägga till egna konfigurationsstegen under etablering eller omkonfiguration av Azure-SSIS-IR. Anpassad installation kan du ändra det standardoperativsystem konfiguration eller miljö (exempelvis för att starta ytterligare Windows-tjänster) eller installera ytterligare komponenter (till exempel sammansättningar, drivrutiner eller tillägg) på varje nod i Azure-SSIS-IR.
+Gränssnittet med anpassad installation för Azure-SSIS-integrering Runtime tillhandahåller ett gränssnitt för att lägga till egna konfigurationsstegen under etablering eller omkonfiguration av Azure-SSIS-IR. Anpassad installation kan du ändra det standardoperativsystem konfiguration eller miljö (exempelvis för att starta ytterligare Windows-tjänster eller spara autentiseringsuppgifter för filresurser) eller installera ytterligare komponenter (till exempel sammansättningar, drivrutiner eller tillägg) på varje nod i Azure-SSIS-IR.
 
 Du kan konfigurera dina egna inställningar genom att förbereda ett skript och dess associerade filer och överför dem till en blobbbehållare i Azure Storage-konto. Du anger en delad signatur åtkomst (SAS) identifierare URI (Uniform Resource) för din behållaren när du etablerar eller konfigurera om Azure-SSIS-IR. Varje nod i Azure-SSIS-IR sedan hämtar skriptet och dess associerade filer från din behållare och kör din anpassad installation med förhöjda privilegier. När anpassade installationen är klar överförs varje nod standardutdata för körning och andra loggar till din behållare.
 
@@ -87,7 +87,10 @@ För att anpassa Azure SSIS-IR, behöver du följande:
 
        ![Hämta signatur för delad åtkomst för behållaren](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
 
-    7.  Skapa SAS-URI för en behållare med en tillräckligt lång förfallotiden och Läs + skriva + listbehörigheter. Du måste ladda ned och köra din anpassade installationsskriptet och dess associerade filer när alla noder i Azure-SSIS-IR avbildade SAS-URI. Du behöver skrivbehörighet att överföra installationsloggarna för körning.
+    7.  Skapa SAS-URI för en behållare med en tillräckligt lång förfallotiden och Läs + skriva + listbehörigheter. Du måste SAS-URI att hämta och köra din anpassade installationsskriptet och dess associerade filer när alla noder i Azure-SSIS-IR är avbildade/startas om. Du behöver skrivbehörighet att överföra installationsloggarna för körning.
+
+        > [!IMPORTANT]
+        > Kontrollera att SAS-URI inte upphör att gälla och anpassade Installationsresurser alltid är tillgängliga under hela livscykeln för din Azure-SSIS-IR från skapandet av borttagning, särskilt om du regelbundet stoppa och starta Azure-SSIS-IR under denna tid.
 
        ![Generera den signatur för delad åtkomst för behållaren](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image7.png)
 
@@ -124,7 +127,7 @@ För att anpassa Azure SSIS-IR, behöver du följande:
 
     c. Markera den anslutna Public Preview-behållaren och dubbelklicka på den `CustomSetupScript` mapp. I den här mappen är följande:
 
-       1. En `Sample` mapp som innehåller en anpassad installation om du vill installera en standardaktivitet på varje nod i Azure-SSIS-IR. Uppgiften ingenting men strömsparläge under några sekunder. Mappen innehåller en `gacutil` mapp som innehåller `gacutil.exe`.
+       1. En `Sample` mapp som innehåller en anpassad installation om du vill installera en standardaktivitet på varje nod i Azure-SSIS-IR. Uppgiften ingenting men strömsparläge under några sekunder. Mappen innehåller en `gacutil` mapp som innehåller `gacutil.exe`. Dessutom `main.cmd` innehåller kommentarer för att spara autentiseringsuppgifter för filresurser.
 
        2. En `UserScenarios` mapp som innehåller flera anpassade inställningar för verkliga scenarier.
 
@@ -138,7 +141,7 @@ För att anpassa Azure SSIS-IR, behöver du följande:
 
        3. En `EXCEL` mapp som innehåller en anpassad installation för att installera sammansättningar med öppen källkod (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, och `ExcelDataReader.dll`) på varje nod i Azure-SSIS-IR.
 
-       4. En `MSDTC` mapp som innehåller en anpassad installation om du vill ändra nätverks- och konfigurationer för Microsoft Distributed Transaction Coordinator (MSDTC)-instans på varje nod i Azure-SSIS-IR.
+       4. En `MSDTC` mapp som innehåller en anpassad installation om du vill ändra nätverks- och konfigurationer för tjänsten Microsoft Distributed Transaction Coordinator (MSDTC) på varje nod i Azure-SSIS-IR. För att säkerställa att MSDTC startas, Lägg till uppgiften köra processen i början av Kontrollflöde i dina paket att köra följande kommando: `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
        5. En `ORACLE ENTERPRISE` mapp som innehåller en anpassad installationsskriptet (`main.cmd`) och konfigurationsfilen för tyst installation (`client.rsp`) att installera drivrutinen för Oracle OCI på varje nod i din Azure-SSIS IR Enterprise Edition. Den här installationen kan du använda Anslutningshanteraren för Oracle, källa och mål. Först ladda ned den senaste klienten Oracle - exempelvis `winx64_12102_client.zip` - från [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) och sedan ladda upp den tillsammans med `main.cmd` och `client.rsp` till din behållare. Om du använder TNS för att ansluta till Oracle kan du också behöva hämta `tnsnames.ora`, redigera den och överföra den till din behållare, så den kan kopieras till Oracle-installationsmappen under installationen.
 

@@ -7,7 +7,7 @@ Först måste du ha senast [Azure PowerShell](http://msdn.microsoft.com/library/
 > 
 > 
 
-Kör den [ **Connect-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet och du kommer att visas ett tecken på skärmen för att ange dina autentiseringsuppgifter. Använd samma autentiseringsuppgifter som du använder för att logga in på Azure Portal.
+Kör den [ **Connect-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet och du kommer att visas en skärm att ange dina autentiseringsuppgifter. Använd samma autentiseringsuppgifter som du använder för att logga in på Azure Portal.
 
     Connect-AzureRmAccount
 

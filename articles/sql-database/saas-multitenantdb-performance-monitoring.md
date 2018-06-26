@@ -10,18 +10,18 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 22a3c5b2c7c4676c9c05c7cc67f30108a5dfbe5b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 75431715b5948525e92c99b778842d26a684da82
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644689"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753461"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för delat flera innehavare Azure SQL-databas i en SaaS-app för flera innehavare
 
 I den här självstudiekursen beskrivs flera KPI hanteringsscenarier som används i SaaS-program. Använder en load-generatorn för att simulera aktiviteten över delat databaser för flera innehavare, är inbyggd övervakning och avisering funktioner i SQL-databas visas.
 
-Appen Wingtip biljetter SaaS flera innehavare databasen använder ett delat flera innehavare datamodellen, där distribueras plats (klient) data genom att klient-ID på eventuellt flera databaser. Precis som för flera SaaS-program så är de förväntade belastningsmönstren för klienterna oberäkneliga och sporadiska. Biljettförsäljningar kan med andra ord ske när som helst. Om du vill dra nytta av den här databasen användningsmönstret kan databaser skalas upp och ned för att optimera kostnaden för en lösning. Med den här typen av mönstret är det viktigt att övervaka Resursanvändning för databasen för att säkerställa att belastningar rimligen balanserad över potentiellt flera databaser. Du måste också se till att enskilda databaser har tillräckliga resurser och inte träffa sina [DTU](sql-database-what-is-a-dtu.md) gränser. Den här självstudiekursen utforskar sätt att övervaka och hantera databaser och hur du vidta åtgärder som svar på variationer i arbetsbelastning.
+Appen Wingtip biljetter SaaS flera innehavare databasen använder ett delat flera innehavare datamodellen, där distribueras plats (klient) data genom att klient-ID på eventuellt flera databaser. Precis som för flera SaaS-program så är de förväntade belastningsmönstren för klienterna oberäkneliga och sporadiska. Biljettförsäljningar kan med andra ord ske när som helst. Om du vill dra nytta av den här databasen användningsmönstret kan databaser skalas upp och ned för att optimera kostnaden för en lösning. Med den här typen av mönstret är det viktigt att övervaka Resursanvändning för databasen för att säkerställa att belastningar rimligen balanserad över potentiellt flera databaser. Du måste också se till att enskilda databaser har tillräckliga resurser och inte träffa sina [DTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus) gränser. Den här självstudiekursen utforskar sätt att övervaka och hantera databaser och hur du vidta åtgärder som svar på variationer i arbetsbelastning.
 
 I den här självstudiekursen får du lära du dig att:
 

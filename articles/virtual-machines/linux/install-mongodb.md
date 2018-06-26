@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: b21b33a265d499136dbe3e72538923d8295e9876
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a47c0e2f655f51444dc586f696c26caa63ab6cac
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852242"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937590"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Installera och konfigurera MongoDB på en Linux-VM
-[MongoDB](http://www.mongodb.org) är en populär öppen källkod, högpresterande NoSQL-databas. Den här artikeln visar hur du installerar och konfigurerar MongoDB på en Linux-VM med Azure CLI 2.0. Du kan också utföra dessa steg med [Azure CLI 1.0](install-mongodb-nodejs.md). Exempel visas hur detaljer till:
+[MongoDB](http://www.mongodb.org) är en populär öppen källkod, högpresterande NoSQL-databas. Den här artikeln visar hur du installerar och konfigurerar MongoDB på en Linux-VM med Azure CLI 2.0. Exempel visas hur detaljer till:
 
 * [Installera och konfigurera en grundläggande MongoDB-instansen manuellt](#manually-install-and-configure-mongodb-on-a-vm)
 * [Skapa en grundläggande MongoDB-instans med en Resource Manager-mall](#create-basic-mongodb-instance-on-centos-using-a-template)
@@ -118,7 +118,7 @@ sudo chkconfig mongod on
 ## <a name="create-basic-mongodb-instance-on-centos-using-a-template"></a>Skapa en grundläggande MongoDB-instans på CentOS med en mall
 Du kan skapa en grundläggande MongoDB-instans på en enda CentOS VM som använder följande Azure quickstart-mall från GitHub. Den här mallen använder tillägget för anpassat skript för Linux för att lägga till en **yum** databasen till den nyligen skapade CentOS VM och sedan installera MongoDB.
 
-* [Grundläggande MongoDB-instansen på CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
+* [Grundläggande MongoDB-instansen på CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
 Om du vill skapa den här miljön måste senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az_login). Skapa först en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
@@ -166,7 +166,7 @@ test
 ## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>Skapa ett komplext delat MongoDB-kluster på CentOS med en mall
 Du kan skapa komplexa delat MongoDB-kluster med hjälp av följande Azure quickstart-mall från GitHub. Den här mallen följer den [MongoDB delat kluster metodtips](https://docs.mongodb.com/manual/core/sharded-cluster-components/) att ge redundans och hög tillgänglighet. Mallen skapar två delar med tre noder i varje replik. En replik för config server med tre noder skapas också, plus två **mongos** router-servrar som tillhandahåller konsekvenskontroll till program från över delar.
 
-* [MongoDB horisontell partitionering kluster på CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
+* [MongoDB horisontell partitionering kluster på CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
 > Distribuera det här komplexa delat MongoDB-kluster kräver mer än 20 kärnor, som vanligtvis är standardvärdet för antal kärnor per region för en prenumeration. Öppna ett Azure supportbegäran för att öka din antal kärnor.

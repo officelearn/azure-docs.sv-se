@@ -1,5 +1,5 @@
 ---
-title: Vad är nyheter om verktyget Azure Active Directory för villkorlig åtkomst? -preview | Microsoft Docs
+title: Vad är nyheter om verktyget Azure Active Directory för villkorlig åtkomst?
 description: Lär dig hur du kan förstå effekten av principer för villkorlig åtkomst på din miljö.
 services: active-directory
 keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 661ada8de8821d489732e1f36dc2406eaa0ee4a7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 897f1b96f0861fb13ba0e6c2427b621ea6a12a06
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232407"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750090"
 ---
-# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access---preview"></a>Vad är nyheter om verktyget Azure Active Directory för villkorlig åtkomst? -Förhandsgranskning
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Vad är nyheter om verktyget Azure Active Directory för villkorlig åtkomst?
 
 [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md) är en funktion av Azure Active Directory (AD Azure) som gör det möjligt att styra hur behöriga användare har åtkomst till dina molnappar. Hur vet du vad som händer formuläret principerna för villkorlig åtkomst i din miljö? Du kan använda för att besvara frågan i **villkorlig åtkomst om verktyget**.
 

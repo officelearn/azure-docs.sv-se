@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 06/21/2018
-ms.openlocfilehash: c1597f16dda8544908bbefaf39e75e667d38b22c
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 93665ab075de539f98eebe34c2229870bd5a1a6e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316476"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750246"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure-databas för MySQL prisnivåer
 
@@ -41,7 +41,7 @@ När du har skapat en server, antalet vCores maskinvara generation och priser f�
 
 ## <a name="compute-generations-and-vcores"></a>Beräkna generationer och vCores
 
-Beräkna resurser tillhandahålls som vCores som representerar den underliggande maskinvaran logiska Processorn. För närvarande kan kan du välja mellan två beräkning generationer Gen 4 och 5 Gen. Gen 4 logiska processorer är baserade på Intel E5-2673 v3 (Haswell) 2,4 GHz processorer. Gen 5 logiska processorer är baserade på Intel E5-2673 v4 (Broadwell) 2.3 GHz-processorer. Gen 4 och 5 Gen finns i följande regioner (”X” anger tillgänglig). 
+Beräkna resurser tillhandahålls som vCores som representerar den underliggande maskinvaran logiska Processorn. För närvarande kan kan du välja mellan två beräkning generationer Gen 4 och 5 Gen. Gen 4 logiska processorer är baserade på Intel E5-2673 v3 (Haswell) 2,4 GHz processorer. Gen 5 logiska processorer är baserade på Intel E5-2673 v4 (Broadwell) 2.3 GHz-processorer. Gen 4 och 5 Gen finns i följande regioner (”X” anger tillgänglig).
 
 | **Azure-region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
@@ -80,7 +80,7 @@ Lagring som du etablerar är mängden lagringskapacitet som är tillgängliga f�
 | Lagringstyp | Azure standardlagring | Azure Premium Storage | Azure Premium Storage |
 | Lagringsstorlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
 | Öka lagringsstorlek | 1 GB | 1 GB | 1 GB |
-| IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS<br/>Maximalt antal 7500 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Maximalt antal 7500 IOPS |
+| IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS<br/>Maximalt antal 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Maximalt antal 6000 IOPS |
 
 Du kan lägga till ytterligare lagringskapacitet under och efter skapandet av servern. Den grundläggande nivån innehåller inte en IOPS-garanti. I den generella och Minnesoptimerade prisnivåer, skala IOPS med den etablerade lagringsstorleken i förhållandet 3:1.
 

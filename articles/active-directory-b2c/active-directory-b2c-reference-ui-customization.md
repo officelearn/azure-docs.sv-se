@@ -10,21 +10,21 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84734b89aeb95745d237c062e5654afc4d49f966
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: 00f1dc8c9cffbff240f96fed3d2f09888c041301
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711152"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754594"
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Anpassa Azure AD B2C-användargränssnittet (UI)
 
 Användarupplevelsen är ytterst viktigt i en kundinriktade program.  Utöka kunden grundläggande genom att utforma användarupplevelser med utseendet och känslan av ditt varumärke. Azure Active Directory B2C (Azure AD B2C) kan du anpassa profil för registrering, inloggning, redigering och sidor med pixel perfekt kontroll för återställning av lösenord.
 
 > [!NOTE]
-> Sidan anpassning gränssnittsfunktionen beskrivs i den här artikeln gäller inte för inloggning endast principen, dess tillhörande sidan för återställning av lösenord och verifiering e-postmeddelanden.  Använda funktionerna i [funktionen för företagsanpassning](../active-directory/customize-branding.md) i stället.
+> Sidan anpassning gränssnittsfunktionen beskrivs i den här artikeln gäller inte för inloggning endast principen, dess tillhörande sidan för återställning av lösenord och verifiering e-postmeddelanden.  Använda funktionerna i [funktionen för företagsanpassning](../active-directory/fundamentals/customize-branding.md) i stället.
 >
-> På liknande sätt, om en användare intiates en redigera profilprincip *innan* logga in användaren omdirigeras till en sida som kan anpassas med hjälp av den [funktionen för företagsanpassning](../active-directory/customize-branding.md).
+> På liknande sätt, om en användare intiates en redigera profilprincip *innan* logga in användaren omdirigeras till en sida som kan anpassas med hjälp av den [funktionen för företagsanpassning](../active-directory/fundamentals/customize-branding.md).
 
 Den här artikeln innehåller följande avsnitt:
 
@@ -214,7 +214,7 @@ Den här sidan innehåller ett formulär för lokalt konto baserat på en e-post
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>Fragment infogas i ”” sociala konto registreringssidan ”
+### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>Fragment infogas i ”sociala konto registreringssidan”
 
 Den här sidan visas när du loggar med ett befintligt konto från en sociala identitetsleverantören, till exempel Facebook eller Google +.  Den används när ytterligare information måste samlas in från slutanvändaren genom att använda en registreringsformuläret. Den här sidan liknar lokalt konto registreringssidan (visas i föregående avsnitt) med undantag för transaktionen lösenordsfält.
 
@@ -315,7 +315,7 @@ Användare kan verifiera sina telefonnummer (med text eller röst) under registr
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-error-page"></a>Fragment infogas i ”” felsidan ”
+### <a name="fragment-inserted-into-the-error-page"></a>Fragment infogas i sidan ”fel”
 
 ```HTML
 <div id="api" class="error-page-content" data-name="GlobalException">

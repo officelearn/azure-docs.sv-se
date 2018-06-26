@@ -1,7 +1,7 @@
 ---
 title: 'Azure DB Cosmos-designmönstret: sociala medier appar | Microsoft Docs'
 description: Läs mer om ett designmönster för sociala nätverk genom att utnyttja flexibiliteten för lagring av Azure Cosmos DB och andra Azure-tjänster.
-keywords: Sociala medier appar
+keywords: sociala medier appar
 services: cosmos-db
 author: ealsur
 manager: kfile
@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2017
 ms.author: maquaran
-ms.openlocfilehash: f03b2f3d295ed7d3986c45ecb80078190a2cd935
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 977ca57fdb2bcc0c9eaaa33eee06c1d8ae8e39ab
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613891"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754602"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Gå sociala med Azure Cosmos DB
 Bor i ett massivt sammankopplade society innebär att på någon punkt i livslängd du blir en del av en **sociala nätverk**. Vi använder sociala nätverk för att hålla kontakten med vänner, kolleger, familj, och ibland att dela vår passion med personer med gemensamma intressen.
@@ -61,7 +61,7 @@ Den här artikeln hjälper dig i modeling din sociala plattform data med Azures 
 
 Och kan hämtas med en enda fråga, och inga kopplingar. Detta är mycket mer lätt och budget-wise, den kräver färre resurser för att få ett bättre resultat.
 
-Azure Cosmos-DB ser till att alla egenskaper som indexeras med dess automatisk indexering, som även kan vara [anpassade](indexing-policies.md). Metoden schemafria Låt oss lagra dokument med olika och dynamiska strukturer, kanske imorgon vi vill inlägg ha en lista över kategorier eller hash-taggar som är kopplade till dem, Cosmos DB hanterar nya dokument med tillagda attribut med inget extra arbete som krävs för oss.
+Azure Cosmos-DB ser till att alla egenskaper som indexeras med dess automatisk indexering, som även kan vara [anpassade](indexing-policies.md). Metoden schemafria Låt oss lagra dokument med olika och dynamiska strukturer, kanske imorgon vi vill inlägg ha en lista över kategorier eller hash-taggar som är kopplade till dem, Cosmos DB hanterar alla nya dokument med tillagda attribut med inget extra arbete krävs för oss.
 
 Kommentarer om en post kan behandlas som bara andra inlägg med en överordnad-egenskap (Detta förenklar våra objektmappningen). 
 
@@ -99,9 +99,9 @@ Att skapa flöden är bara en fråga om hur du skapar dokument som kan innehåll
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Vi kan ha en ”senaste” dataström med listan sorteras efter skapandedatum, en ”senaste” ström med dessa poster med gillar mer under de senaste 24 timmarna, vi kan även genomföra en anpassad dataström för varje användare baserat på logik som blandare och intressen och det fortfarande skulle vara en lista över poster. Det handlar om hur du skapar de här listorna, men läsning prestanda förblir röra sig obehindrat. När vi skaffar en av dessa listor kan vi utfärda en enskild fråga till Cosmos-databas med hjälp av den [i operatorn](sql-api-sql-query.md#WhereClause) att hämta sidor i inlägg i taget.
+Vi kan ha en ”senaste” dataström med listan sorteras efter skapandedatum, en ”senaste” ström med dessa poster med gillar mer under de senaste 24 timmarna, vi kan även genomföra en anpassad dataström för varje användare baserat på logik som blandare och intressen och det fortfarande skulle vara en lista över p osts. Det handlar om hur du skapar de här listorna, men läsning prestanda förblir röra sig obehindrat. När vi skaffar en av dessa listor kan vi utfärda en enskild fråga till Cosmos-databas med hjälp av den [i operatorn](sql-api-sql-query.md#WhereClause) att hämta sidor i inlägg i taget.
 
-Feed strömmar kan byggas med [Azure App Services](https://azure.microsoft.com/services/app-service/) background processer: [Webjobs](../app-service/web-sites-create-web-jobs.md). När en post har skapats behandling i bakgrunden kan aktiveras med hjälp av [Azure Storage](https://azure.microsoft.com/services/storage/) [köer](../storage/queues/storage-dotnet-how-to-use-queues.md) och Webjobs aktiveras med hjälp av den [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementera post spridning i dataströmmar baserat på egna anpassade logik. 
+Feed strömmar kan byggas med [Azure App Services](https://azure.microsoft.com/services/app-service/) background processer: [Webjobs](../app-service/web-sites-create-web-jobs.md). När en post har skapats behandling i bakgrunden kan aktiveras med hjälp av [Azure Storage](https://azure.microsoft.com/services/storage/) [köer](../storage/queues/storage-dotnet-how-to-use-queues.md) och Webjobs aktiveras med hjälp av den [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementerar den Bokför spridning i strömmar som baseras på våra egna anpassade logik. 
 
 Punkter och om över ett inlägg kan bearbetas i en uppskjuten sätt med samma metod för att skapa en överensstämmelse miljö.
 
@@ -130,7 +130,7 @@ Vi kan använda en blandad metod för att lösa detta problem. Som en del av sta
         "totalPoints":11342
     }
 
-Och det faktiska diagrammet över blandare kan lagras i Azure Cosmos DB [Gremlin Graph API](../cosmos-db/graph-introduction.md), för att skapa [brytpunkter](http://mathworld.wolfram.com/GraphVertex.html) för varje användare och [kanter](http://mathworld.wolfram.com/GraphEdge.html) som underhåller ”A-sätt – B”-relationer. Graph API vi ska du inte bara hämta blandare med en viss användare men skapa mer komplexa frågor och även med vanliga föreslår personer. Om vi lägger till i diagrammet innehåll kategorier som personer som eller få kan vi starta vävning upplevelser som innehåller smart innehållsidentifiering föreslå innehåll än de som vi följer som, eller söka efter personer som vi kanske har mycket gemensamt.
+Och det faktiska diagrammet över blandare kan lagras i Azure Cosmos DB [Gremlin Graph API](../cosmos-db/graph-introduction.md), för att skapa [brytpunkter](http://mathworld.wolfram.com/GraphVertex.html) för varje användare och [kanter](http://mathworld.wolfram.com/GraphEdge.html) som underhåller den ”A-sätt – B” relationer. Graph API vi ska du inte bara hämta blandare med en viss användare men skapa mer komplexa frågor och även med vanliga föreslår personer. Om vi lägger till i diagrammet innehåll kategorier som personer som eller få kan vi starta vävning upplevelser som innehåller smart innehållsidentifiering föreslå innehåll än de som vi följer som, eller söka efter personer som vi kanske har mycket gemensamt.
 
 Statistik dokumentet kan användas för att skapa kort i Användargränssnittet eller snabb profil förhandsgranskningar.
 
@@ -150,7 +150,7 @@ Låt oss ta användarinformation som exempel:
         "address":"742 Evergreen Terrace",
         "birthday":"1983-05-07",
         "email":"john@doe.com",
-        "twitterHandle":"@john",
+        "twitterHandle":"\@john",
         "username":"johndoe",
         "password":"some_encrypted_phrase",
         "totalPoints":100,
@@ -167,7 +167,7 @@ Steget mellersta kallas för användaren, är det fullständiga data som ska anv
 
 Den största är Extended-användare. Den innehåller alla kritiska användarinformation samt andra data som verkligen inte kräver för att läsas snabbt eller dess användning är eventuell (till exempel inloggningen). Dessa data kan lagras utanför Cosmos-DB i Azure SQL Database eller Azure Storage-tabeller.
 
-Varför skulle vi dela användaren och även spara informationen på olika platser? Eftersom från en prestanda synsätt, desto större dokument, desto costlier frågor. Behåll dokument tunn med rätt information för att göra alla prestanda beroende frågor för det sociala nätverket och lagra andra extra informationen för eventuell scenarier som fullständig profil redigering, inloggningar, även datautvinning för användningsanalys och Stordata initiativ. Vi verkligen bryr dig inte om datainsamling för datautvinning är långsammare eftersom den körs på Azure SQL Database, vi har gäller dock att våra användare har en snabb och smidig upplevelse. En användare som lagras på Cosmos DB skulle se ut så här:
+Varför skulle vi dela användaren och även spara informationen på olika platser? Eftersom från en prestanda synsätt, desto större dokument, desto costlier frågor. Skydda dokument tunn med rätt information för att göra alla prestanda beroende frågor för det sociala nätverket och lagra andra extra informationen för eventuell scenarier som fullständig profil redigering, inloggningar, även datautvinning för användningsanalys och Stordata initiativ. Vi verkligen bryr dig inte om datainsamling för datautvinning är långsammare eftersom den körs på Azure SQL Database, vi har gäller dock att våra användare har en snabb och smidig upplevelse. En användare som lagras på Cosmos DB skulle se ut så här:
 
     {
         "id":"dse4-qwe2-ert4-aad2",
@@ -175,7 +175,7 @@ Varför skulle vi dela användaren och även spara informationen på olika plats
         "surname":"Doe",
         "username":"johndoe"
         "email":"john@doe.com",
-        "twitterHandle":"@john"
+        "twitterHandle":"\@john"
     }
 
 Och en Post skulle se ut:
@@ -199,7 +199,7 @@ Tack och lov, och eftersom vi använder Azure Cosmos DB vi enkelt implementera m
 
 Varför är det så enkelt?
 
-Azure Search implementerar de anropa [indexerare](https://msdn.microsoft.com/library/azure/dn946891.aspx)bakgrund bearbetar den hooken i data-databaser och automagically lägga till, uppdatera eller ta bort dina objekt i index. De stöder en [Azure SQL Database indexerare](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure BLOB indexerare](../search/search-howto-indexing-azure-blob-storage.md) och tack och lov, [Azure Cosmos DB indexerare](../search/search-howto-index-documentdb.md). Övergång till information från Cosmos-databasen till Azure Search är enkel som både store-information i JSON-format, vi behöver bara [skapa indexet](../search/search-create-index-portal.md) och mappa vilka attribut från våra dokument vi vill indexerade och som är det, på några minuter (beroende på storleken på våra data), vår innehållet blir tillgängligt som ska genomsökas vid , som den bästa lösningen för sökning som en tjänst i cloud-infrastruktur. 
+Azure Search implementerar de anropa [indexerare](https://msdn.microsoft.com/library/azure/dn946891.aspx)bakgrund bearbetar den hooken i data-databaser och automagically lägga till, uppdatera eller ta bort dina objekt i index. De stöder en [Azure SQL Database indexerare](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure BLOB indexerare](../search/search-howto-indexing-azure-blob-storage.md) och tack och lov, [Azure Cosmos DB indexerare](../search/search-howto-index-documentdb.md). Övergång till information från Cosmos-databasen till Azure Search är enkel som både store-information i JSON-format, vi behöver bara [skapa indexet](../search/search-create-index-portal.md) och mappa vilka attribut från våra dokument vi vill indexerade och som är det, i en några minuter (beroende på storleken på våra data), vår innehållet blir tillgängligt som ska sökas igenom på begäran av den bästa lösningen för sökning som en tjänst i cloud-infrastruktur. 
 
 Mer information om Azure Search kan du besöka den [Hitchhiker's Guide till Sök](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
 
@@ -212,16 +212,16 @@ Men det kan vi lära dig? Några enkelt exempel är [sentiment analysis](https:/
 
 Nu när jag fick du ansluta tänker du förmodligen behöver du vissa PhD i matematiska vetenskap att extrahera dessa mönster och information från enkla databaser och filer, men du kommer att fel.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), en del av den [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), är det en helt hanterad molntjänst som gör att du kan skapa arbetsflöden med hjälp av algoritmer i ett enkelt gränssnitt för dra och släpp code algoritmerna i [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) eller använda några av de redan har byggts och redo att använda API: er som: [textanalys](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [innehåll kontrollant](https://www.microsoft.com/moderator) eller [rekommendationer](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), en del av den [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), är en helt hanterad molntjänst som låter dig skapa arbetsflöden med hjälp av algoritmer i ett enkelt dra och släpp-gränssnitt, code algoritmerna i [ R](https://en.wikipedia.org/wiki/R_\(programming_language\)) eller använda några av de redan har byggts och redo att använda API: er som: [textanalys](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [innehåll kontrollant](https://www.microsoft.com/moderator) eller [rekommendationer](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 Om du vill åstadkomma något av dessa scenarier för Machine Learning, kan vi använda [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) att mata in information från olika källor och använda [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) att bearbeta informationen och skapa en utdata som kan bearbetas av Azure Machine Learning.
 
-En annan tillgängliga alternativ är att använda [Microsoft kognitiva Services](https://www.microsoft.com/cognitive-services) att analysera våra användare innehåll, inte bara kan vi lättare att förstå dem (via analysera de skriver med [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), men vi kan även identifiera oönskade eller mogen innehåll och fungerar därför med [datorn Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Kognitiva tjänster omfattar en mängd out box-lösningar som inte kräver någon form av Machine Learning kunskap för att använda.
+En annan tillgängliga alternativ är att använda [Microsoft kognitiva Services](https://www.microsoft.com/cognitive-services) att analysera våra användare innehåll, inte bara kan vi lättare att förstå dem (via analysera de skriver med [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), men vi kan också identifiera oönskade eller mogen innehåll och fungerar därför med [datorn Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Kognitiva tjänster omfattar en mängd out box-lösningar som inte kräver någon form av Machine Learning kunskap för att använda.
 
 ## <a name="a-planet-scale-social-experience"></a>En planeten skala-upplevelsen
 Det finns en sista, men inte minst viktiga avsnittet jag måste lösa: **skalbarhet**. När du utformar en arkitektur som det är viktigt att varje komponent kan skala på egen hand, antingen eftersom vi behöver bearbeta mer data eller eftersom vi vill ha en större geografisk omfattning (eller båda!). Tack och lov, uppnå en komplicerad uppgift är en **NYCKELFÄRDIGT upplevelse** med Cosmos DB.
 
-Har stöd för cosmos DB [dynamisk partitionering](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) out-of-the-box genom att automatiskt skapa partitioner baserat på en viss **partitionsnyckel** (definierat som ett av attributen i dina dokument). Definiera rätt Partitionsnyckeln måste göras vid designtillfället och i åtanke de [metodtips](../cosmos-db/partition-data.md#designing-for-partitioning) tillgängliga; när det gäller en upplevelsen, din strategi för partitionering måste vara lika justerade med hur du frågar (läsningar inom samma partition är önskvärt) och skriva (undvika ”aktiva punkter” genom att sprida skrivningar på flera partitioner). Vissa alternativ är: partitioner baserat på en temporal nyckel (dag/månad/vecka), med innehåll kategori av geografisk region, av användaren. Det beror på hur du ska fråga efter data och visa den i din-upplevelsen. 
+Har stöd för cosmos DB [dynamisk partitionering](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) out-of-the-box genom att automatiskt skapa partitioner baserat på en viss **partitionsnyckel** (definierat som ett av attributen i dina dokument). Definiera rätt Partitionsnyckeln måste göras vid designtillfället och i åtanke de [metodtips](../cosmos-db/partition-data.md#designing-for-partitioning) tillgängliga; när det gäller en upplevelsen, din strategi för partitionering måste vara lika justerade med hur du frågar (läsningar inom samma partitionen är önskvärt) och skriva (undvika ”aktiva punkter” genom att sprida skrivningar på flera partitioner). Vissa alternativ är: partitioner baserat på en temporal nyckel (dag/månad/vecka), med innehåll kategori av geografisk region, av användaren. Det beror på hur du ska fråga efter data och visa den i din-upplevelsen. 
 
 En intressant punkt värt att nämna att Cosmos DB kör dina frågor (inklusive [mängder](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) för alla partitioner transparent, behöver du inte lägga till några logik som datamängden växer.
 
@@ -244,7 +244,7 @@ Den här artikeln försöker sprida vissa enstaka i alternativen för att skapa 
 
 ![Diagram över interaktion mellan Azure-tjänster för sociala nätverk](./media/social-media-apps/social-media-apps-azure-solution.png)
 
-Sanningen är att det finns ingen silver punkt för den här typen av scenarier, är det samverkan som skapats av en kombination av bra tjänster som ger oss möjlighet att skapa en bra upplevelse: hastighet och fria Azure Cosmos DB tillhandahåller ett bra sociala program intelligence bakom en förstklassig search-lösning som Azure Search flexibiliteten hos Azure Apptjänster till värd inte ens språkoberoende program men kraftfull bakgrundsprocesser och utbyggbara Azure Storage och Azure SQL Database för att lagra stora mängder data och analytiska kraften i Azure Machine Learning skapa leverera kunskap och intelligence som kan ge feedback till vår processer och hjälp oss att rätt innehåll till rätt användare.
+Sanningen är att det finns ingen silver punkt för den här typen av scenarier, är det samverkan som skapats av en kombination av bra tjänster som ger oss möjlighet att skapa en bra upplevelse: hastighet och Azure Cosmos DB frihet att tillhandahålla en bra sociala program i tillgångsinformation bakom en förstklassig search-lösning som Azure Search Apptjänster för Azure som värd för program som inte även språkoberoende men kraftfull bakgrundsprocesser och utbyggbara Azure Storage och Azure SQL Database flexibilitet för lagring stora mängder data och analytiska kraften i Azure Machine Learning skapa kunskap och intelligence som kan ge feedback till vår processer och hjälp oss att leverera rätt innehåll till rätt användare.
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om användningsfall för Cosmos-DB i [vanliga Cosmos-DB användningsfall](use-cases.md).

@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5c396ad047567799b7541c1a125de0c1c51c39e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 900c45713541825ea36fe0b2d8684863b8138507
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186002"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936650"
 ---
 # <a name="resize-a-linux-virtual-machine-using-cli-20"></a>Ändra storlek på en Linux-dator med hjälp av CLI 2.0
 
-När du etablera en virtuell dator (VM) du kan skala VM uppåt eller nedåt genom att ändra den [VM-storlek][vm-sizes]. I vissa fall måste du frigöra den virtuella datorn först. Du måste frigöra den virtuella datorn om önskad storlek inte är tillgänglig på klustret maskinvara som är värd för den virtuella datorn. Den här artikeln beskriver hur du ändrar storlek på en Linux VM med Azure CLI 2.0. Du kan också utföra dessa steg med [Azure CLI 1.0](change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+När du etablera en virtuell dator (VM) du kan skala VM uppåt eller nedåt genom att ändra den [VM-storlek][vm-sizes]. I vissa fall måste du frigöra den virtuella datorn först. Du måste frigöra den virtuella datorn om önskad storlek inte är tillgänglig på klustret maskinvara som är värd för den virtuella datorn. Den här artikeln beskriver hur du ändrar storlek på en Linux VM med Azure CLI 2.0. 
 
 ## <a name="resize-a-vm"></a>Ändra storlek på en virtuell dator
 Om du vill ändra storlek på en virtuell dator, måste senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).

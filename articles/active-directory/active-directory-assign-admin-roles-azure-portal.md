@@ -14,12 +14,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 0bb4a57bcc31cffba3c0e7dc50d0e2b214c50838
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1de2482b7795bbed82874b6eea29f89f1ff52560
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260422"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938509"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -29,12 +29,18 @@ Du kan ange separata administratörer att hantera olika funktioner med Azure Act
 Den globala administratören har åtkomst till alla administrativa funktioner. Den person som registrerar sig för en Azure-prenumeration har tilldelats rollen global administratör för katalogen som standard. Endast globala administratörer kan tilldela andra administratörsroller.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Tilldela eller ta bort administratörsroller
-Information om hur du tilldelar administrativa roller till en användare i Azure Active Directory finns [Tilldela administratörsroller i Azure Active Directory användare](active-directory-users-assign-role-azure-portal.md).
+Information om hur du tilldelar administrativa roller till en användare i Azure Active Directory finns [Tilldela administratörsroller i Azure Active Directory användare](fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="available-roles"></a>Tillgängliga roller
 Följande administratörsroller är tillgängliga:
 
+* **Programadministratör**: användare i den här rollen kan skapa och hantera alla aspekter av företagsprogram och programmet registreringar application proxy-inställningar. Den här rollen ger också möjlighet att godkänna delegerade behörigheter och behörigheter för program utom Microsoft Graph och Azure AD-diagram. Medlemmar i den här rollen har inte lagts som ägare när du skapar nya registreringar för programmet eller företagsprogram.
+
+* **Programutvecklaren**: användare i den här rollen kan skapa program registreringar när den ”användare kan registrera program” är inställningen Nej. Den här rollen kan även medlemmar tillstånd på egen hand när den ”användare kan samtycker till att appar kommer åt företagsdata åt” är inställningen Nej. Medlemmar i den här rollen läggs till som ägare när du skapar nya registreringar för programmet eller företagsprogram.
+
 * **Faktureringsadministratör**: gör inköp, hanterar prenumerationer, hanterar supportärenden och övervakar tjänstens hälsa.
+
+* **Molnet programadministratör**: användare i den här rollen har samma behörigheter som rollen programadministratör exklusive möjligheten att hantera programproxy. Den här rollen ger möjlighet att skapa och hantera alla aspekter av företagsprogram och programmet registreringar. Den här rollen ger också möjlighet att godkänna delegerade behörigheter och behörigheter för program utom Microsoft Graph och Azure AD-diagram. Medlemmar i den här rollen har inte lagts som ägare när du skapar nya registreringar för programmet eller företagsprogram.
 
 * **Kompatibilitet administratören**: användare med den här rollen ha administrativ behörighet i i Office 365 säkerhet & Efterlevnadscentret och administrationscentret för Exchange. Mer information i ”[om administratörsroller i Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)”.
 
@@ -107,11 +113,29 @@ Följande administratörsroller är tillgängliga:
 
 ## <a name="administrator-permissions"></a>Administratörsbehörighet
 
+### <a name="application-administrator"></a>Programadministratör
+
+| Kan göra | Det går inte att göra |
+| --- | --- |
+| Läs all kataloginformation<br>Skapa program registreringar<br>Uppdatera egenskaper för registreringen av program<br>Hämta företagsprogram<br>Hantera behörigheter för registrering av program<br>Ta bort programmet registreringar<br>Hantera enterprise enkel inloggning programinställningar<br>Hantera företagsprogram provisioning-inställningar<br>Hantera enterprise självbetjäning programinställningar<br>Hantera behörighetsinställningar för enterprise-programmet<br>Hantera åtkomst till program<br>Hantera inställningar för etablering<br>Ta bort företagsprogram<br>Medgivande för alla för alla begäranden om delegerad behörighet<br>Medgivande för alla för alla program behörighetsbegäranden utom Azure AD-diagram eller Microsoft Graph<br>Hantera inställningar för proxy-program<br>Inställningar för tjänster<br>Övervakare för hälsotjänst<br>Hantera supportärenden<br>Läs dolda gruppmedlemskap | Skapa, redigera och ta bort grupper<br>Hantera användarlicenser<br>Använda katalogsynkronisering<br>Visa inloggning rapporter och granskningsloggar | 
+
+### <a name="application-developer"></a>Programutvecklare
+
+| Kan göra | Det går inte att göra |
+| --- | --- |
+| Läs all kataloginformation<br>Skapa program registreringar<br>Medgivande för självbetjäningsportalen | Visa inloggning och granskningsloggar<br>Läs dolda gruppmedlemskap |
+
 ### <a name="billing-administrator"></a>Faktureringsadministratör
 
 | Kan göra | Det går inte att göra |
 | --- | --- |
-|<p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Utföra fakturerings- och köp åtgärder för Office-produkter</p> |<p>Återställa användarlösenord</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Visa granskningsloggar</p>|
+|<p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Utföra fakturerings- och köp åtgärder för Office-produkter</p> |<p>Återställa användarlösenord</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Visa granskningsloggar</p> |
+
+### <a name="cloud-application-administrator"></a>Molnprogramadministratör
+
+| Kan göra | Det går inte att göra |
+| --- | --- |
+| Läs all kataloginformation<br>Skapa program registreringar<br>Uppdatera egenskaper för registreringen av program<br>Hämta företagsprogram<br>Hantera behörigheter för registrering av program<br>Ta bort programmet registreringar<br>Hantera enterprise enkel inloggning programinställningar<br>Hantera företagsprogram provisioning-inställningar<br>Hantera enterprise självbetjäning programinställningar<br>Hantera behörighetsinställningar för enterprise-programmet<br>Hantera åtkomst till program<br>Hantera inställningar för etablering<br>Ta bort företagsprogram<br>Medgivande för alla för alla begäranden om delegerad behörighet<br>Medgivande för alla för alla program behörighetsbegäranden utom Azure AD-diagram eller Microsoft Graph<br>Inställningar för tjänster<br>Övervakare för hälsotjänst<br>Hantera supportärenden<br>Läs dolda gruppmedlemskap | Hantera inställningar för proxy-program<br>Skapa, redigera och ta bort grupper<br>Hantera användarlicenser<br>Använda katalogsynkronisering<br>Visa inloggning rapporter och granskningsloggar |
 
 ### <a name="conditional-access-administrator"></a>Administratör för villkorsstyrd åtkomst
 
@@ -169,17 +193,19 @@ Visa Azure AD-inloggning rapporter och granskningsloggar<br>Visa information om 
 
    ![Öppna administrationscentret för azure AD](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
 
-2. Välj **användare och grupper &gt; alla användare**
+2. Välj **användare** > **alla användare**.
 
-3. Sök efter den användare som du vill beteckna som en Global administratör och öppna bladet för den användaren.
+3. Öppna sidan för den användare som du vill beteckna som en Global administratör.
 
-4. På bladet användare väljer **Directory rollen**.
- 
-5. På bladet directory roll väljer du den **Global administratör** roll, och spara.
+4. Välj på kommandofältet **Directory rollen**.
+
+5. Välj **Lägg till rollen**.
+
+6. På sidan directory roll väljer du den **Global administratör** roll och klicka sedan på **Välj** att spara.
 
 ## <a name="deprecated-roles"></a>Föråldrad roller
 
-Följande roller ska inte användas. De är föråldrad och kommer att tas bort från Azure AD i framtiden.
+Följande roller ska inte användas. De är inaktuella och tas bort från Azure AD i framtiden.
 
 * Ad hoc-licensadministratör
 * E-postverifierad användarskapare
@@ -190,9 +216,9 @@ Följande roller ska inte användas. De är föråldrad och kommer att tas bort 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du ändrar administratörer för en Azure-prenumeration finns i [Lägga till eller ändra Azure-administratörsroller](../billing-add-change-azure-subscription-administrator.md)
+* Mer information om hur du ändrar administratörer för en Azure-prenumeration finns [administratörer lägga till eller ändra Azure-prenumeration](../billing-add-change-azure-subscription-administrator.md)
 * Mer information om hur resursåtkomsten hanteras i Microsoft Azure finns i [Förstå resursåtkomst i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Mer information om hur Azure Active Directory relaterar till din Azure-prenumeration finns [hur Azure-prenumerationer är associerade med Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+* Mer information om hur Azure Active Directory relaterar till din Azure-prenumeration finns [hur Azure-prenumerationer är associerade med Azure Active Directory](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Hantera användare](active-directory-create-users.md)
 * [Hantera lösenord](active-directory-manage-passwords.md)
-* [Hantera grupper](active-directory-manage-groups.md)
+* [Hantera grupper](fundamentals/active-directory-manage-groups.md)

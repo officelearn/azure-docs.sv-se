@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 223829df11bb1c9add811b40b55e47ee1fbb1fe4
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301379"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751846"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure säkerhet och efterlevnad modell - PCI DSS-kompatibel bearbetningen av betalningen miljöer
 
@@ -204,8 +204,8 @@ Azure SQL Database-instans använder följande säkerhetsåtgärder för databas
 
 [Logga Analytics](https://azure.microsoft.com/services/log-analytics) kan ge Contoso Webstore utförlig loggning för alla system- och användaraktivitet får innehålla Kortinnehavarens dataloggning. Ändringar kan granskas och verifiera noggrannhet. 
 
-- **Aktivitetsloggar:**[aktivitetsloggar](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger kunskaper om de åtgärder som utfördes på resurser i din prenumeration.
-- **Diagnostikloggar:**[diagnostikloggar](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som orsakat av varje resurs. Loggarna finns system händelseloggarna i Windows Azure Blob storage, tabeller och kön loggar.
+- **Aktivitetsloggar:**[aktivitetsloggar](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger kunskaper om de åtgärder som utfördes på resurser i din prenumeration.  
+- **Diagnostikloggar:**[diagnostikloggar](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som orsakat av varje resurs.   Loggarna finns system händelseloggarna i Windows Azure Blob storage, tabeller och kön loggar.
 - **Brandväggen loggarna:** Programgatewayen ger fullständig diagnostik och komma åt loggar. Brandväggsloggar är tillgängliga för Programgateway resurser som har en Brandvägg är aktiverad.
 - **Loggen arkivering:** alla diagnostikloggar är konfigurerade för att skriva till en central och krypterad Azure storage-konto för arkivering med en definierad period (2 dagar). Loggarna är nu ansluten till Azure Log Analytics för bearbetning, lagring och dashboarding. [Logga Analytics](https://azure.microsoft.com/services/log-analytics) är en tjänst som hjälper dig att samla in och analysera data som genereras av resurser i molnet och lokala miljöer.
 
@@ -298,7 +298,7 @@ Standarddistribution är avsedd att ge en basnivå för security center-rekommen
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
-Komponenter för att distribuera den här lösningen finns i [PCI utkast kod databasen] [kod lagringsplatsen]. Distributionen av den grundläggande arkitekturen kräver flera steg utförs via Microsoft PowerShell v5. Du måste ange ett eget domännamn (t.ex contoso.com) för att ansluta till webbplatsen. Detta anges med hjälp av den `-customHostName` växla i steg 2. Mer information finns i [köpa ett anpassat domännamn för Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Ett anpassat domännamn krävs inte för att distribuera och köra lösningen, men du kan inte ansluta till webbplatsen i exempelsyfte.
+Komponenter för att distribuera den här lösningen är tillgängliga i den [PCI utkast databasen](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms). Distributionen av den grundläggande arkitekturen kräver flera steg utförs via Microsoft PowerShell v5. Du måste ange ett eget domännamn (t.ex contoso.com) för att ansluta till webbplatsen. Detta anges via en interaktiv användarprompten i primära distributionsskriptet i steg 2. Mer information finns i [köpa ett anpassat domännamn för Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Ett anpassat domännamn krävs inte för att distribuera och köra lösningen, men du kan inte ansluta till webbplatsen i exempelsyfte.
 
 Skripten lägga till domänanvändare i Azure AD-klient som du anger. Vi rekommenderar att du skapar en ny Azure AD-klienten ska användas som ett test.
 
@@ -323,19 +323,17 @@ Du rekommenderas att en ren installation av PowerShell används för att distrib
  
     ```powershell
     .\1-DeployAndConfigureAzureResources.ps1 
-        -resourceGroupName contosowebstore
-        -globalAdminUserName adminXX@contosowebstore.com 
-        -globalAdminPassword **************
-        -azureADDomainName contosowebstore.com 
-        -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
-        -suffix PCIcontosowebstore
-        -customHostName contosowebstore.com
-        -sqlTDAlertEmailAddress edna@contosowebstore.com 
-        -enableSSL
-        -enableADDomainPasswordPolicy 
     ```
     
-    Detaljerade instruktioner finns i [skript instruktioner – distribuera och konfigurera Azure-resurser](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
+    Detaljerade instruktioner finns i [skript instruktioner – distribuera och konfigurera Azure-resurser](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Det här skriptet kan användas för att stödja Contoso Web Store demo eller testkörning de första stegen för att distribuera en miljö för att stödja PCI-överensstämmelse. 
+    
+    ```PowerShell
+    .\1A-ContosoWebStoreDemoAzureResources.ps1
+    ```
+    
+    Instruktioner detaljerad användning för att stödja demodistribution Contoso Web Store finns i [skript instruktioner - Contoso Store Demo Azure webbresurser](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1A-ContosoWebStoreDemoAzureResources.md). Det här skriptet kan användas för att distribuera Contoso Web Store demo-infrastruktur. 
+    
+    Dessa skript är avsedda att användas oberoende av varandra. Förstå lösningen, bör demo-distributionen för att identifiera de nödvändiga Azure-resurser som krävs för att stödja lösningen. 
     
 3. Loggning och övervakning. När lösningen har distribuerats, logganalys-arbetsytan kan öppnas och exempelmallarna i lösningen databasen kan användas för att illustrera hur en instrumentpanelen för övervakning kan konfigureras. Exempelmallarna finns i den [omsDashboards mappen](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Observera att måste samlas in i logganalys mallar för att distribuera på rätt sätt. Detta kan ta upp till en timme eller mer beroende på platsaktivitet.
  

@@ -1,6 +1,6 @@
 ---
 title: Skapa en Linux-VM i Azure från en mall | Microsoft Docs
-description: Hur du använder Azure CLI 2.0 för att skapa en Linux VM från en Resource Manager-mall
+description: Hur du använder Azure CLI för att skapa en Linux VM från en Resource Manager-mall
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e241d56eba8c8cb23b1a78227b4ca7ff725162d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fc2b4dde9796336112d6c8a68d16d0b3006b3fee
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716415"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936422"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Så här skapar du en virtuell Linux-dator med Azure Resource Manager-mallar
-Den här artikeln visar hur du snabbt distribuerar en Linux-dator (VM) med Azure Resource Manager-mallar och Azure CLI 2.0. Du kan också utföra dessa steg med [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md).
+Den här artikeln visar hur du snabbt distribuerar en Linux-dator (VM) med Azure Resource Manager-mallar och Azure CLI. 
 
 
 ## <a name="templates-overview"></a>Översikt över mallar

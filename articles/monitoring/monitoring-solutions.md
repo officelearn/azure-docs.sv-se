@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3377a0b4e6440d83962d103b3e1770ccf43bd785
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885276"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752929"
 ---
 # <a name="management-solutions-in-azure"></a>Lösningar för hantering i Azure
 Hanteringslösningar utnyttja tjänster i Azure för att ge ytterligare insikter i driften av ett visst program eller tjänst. Den här artikeln innehåller en kort översikt över lösningar för hantering i Azure och information om använda och installera dem.
@@ -52,21 +52,17 @@ Klicka på namnet på en lösning för att öppna dess sammanfattningssidan. Den
 ![Egenskaper för lösning](media/monitoring-solutions/solution-properties.png)
 
 
-## <a name="find-management-solutions"></a>Sök efter lösningar för hantering
-Du kan bläddra och installera tillgängliga lösningar från Microsoft och partners i den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace). Utföra en [söka efter *hanteringslösningar* ](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions) att filtrera efter lösningar för hantering och klicka sedan på ett objekt för mer information.
-
-![Marketplace](media/monitoring-solutions/marketplace.png)
 
 ## <a name="install-a-management-solution"></a>Installera en lösning
+Av hanteringslösningar från Microsoft och partner som är tillgängliga från den [Azure Marketplace](https://azuremarketplace.microsoft.com). Du kan söka efter tillgängliga lösningar och installera dem med hjälp av följande procedur.
 
-### <a name="install-a-management-solution-from-the-azure-marketplace"></a>Installera en lösning från Azure Marketplace
-Du kan använda någon av följande metoder för att hitta och starta installationen av en lösning.
+1. Från den [lista med lösningar för din prenumeration](#list-installed-management-solutions), klickar du på **Lägg till**. 
+1. Till höger om **hanteringslösningar**, klickar du på **mer**. 
+1. Leta upp den hanteringslösning och om du vill läsa igenom beskrivningen.
+1. Klicka på **skapa** att starta installationen.
+1. När installationen startar uppmanas du att tillhandahålla nödvändig konfiguration som varierar för varje lösning. Alla kräver att du väljer en logganalys-arbetsyta där lösningen ska installeras och var data ska samlas. 
 
-- Klicka på **blir det nu** på en lösning i den [Azure Marketplace](#find-management-solutions).
-- Från den [lista med lösningar för din prenumeration](#list-installed-management-solutions), klickar du på **Lägg till**. Till höger om **hanteringslösningar**, klickar du på **mer**. Leta upp den hanteringslösning som du vill använda och klicka på **skapa**.
-- Välj i Azure-portalen **skapar du en resurs** > **övervakning + Management** > **se alla**. Till höger om **hanteringslösningar**, klickar du på **mer**. Leta upp den hanteringslösning som du vill använda och klicka på **skapa**.
-
-När installationen startar uppmanas du att tillhandahålla nödvändig konfiguration som varierar för varje lösning. Alla kräver att du väljer en logganalys-arbetsyta där lösningen ska installeras och var data ska samlas. Du kan även behöva [ange ett Automation-konto](#log-analytics-workspace-and-automation-account) om det krävs av lösningen.
+![Installera en lösning](media/monitoring-solutions/install-solution.png)
 
 ### <a name="install-a-solution-from-the-community"></a>Installera en lösning i communityn
 Medlemmar i gruppen kan skicka hanteringslösningar till Azure Quickstart mallar. Du kan installera dessa lösningar direkt eller hämta dem mallar för senare installation.

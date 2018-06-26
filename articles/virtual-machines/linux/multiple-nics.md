@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 1968222940888c1e5399e257a9694d47adce2e45
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2ad04b17fc4c5bafb7fa0b7eea946832430a4f17
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525190"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936759"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Så här skapar du en virtuell Linux-dator i Azure med flera nätverkskort
 Du kan skapa en virtuell dator (VM) i Azure som har flera virtuella nätverksgränssnitt (NIC) ansluten till den. Ett vanligt scenario är att ha olika undernät för frontend och backend-anslutning eller ett nätverk som är dedikerad för en lösning för övervakning eller säkerhetskopiering. Den här artikeln beskrivs hur du skapar en virtuell dator med flera nätverkskort som är kopplade till den och lägga till eller ta bort nätverkskort från en befintlig virtuell dator. Olika [VM-storlekar](sizes.md) stöder olika antal nätverkskort, så därför storlek den virtuella datorn.
 
-Den här artikeln beskrivs hur du skapar en virtuell dator med flera nätverkskort med Azure CLI 2.0. Du kan också utföra dessa steg med [Azure CLI 1.0](multiple-nics-nodejs.md).
+Den här artikeln beskrivs hur du skapar en virtuell dator med flera nätverkskort med Azure CLI 2.0. 
 
 
 ## <a name="create-supporting-resources"></a>Skapa stödresurser

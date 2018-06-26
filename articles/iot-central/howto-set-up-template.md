@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bda056a75ae9d696dab389b85fe1bfb2935ee1a8
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0bef8722ee51c916652e6964305f324341052341
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261992"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754668"
 ---
 # <a name="set-up-a-device-template"></a>Ange en mall för enhet
 
@@ -38,19 +38,19 @@ En builder kan till exempel skapa en mall för enheten för en ansluten IoT-flä
 Med den här enheten mallen operatör kan skapa och ansluta verkliga fläkt enheter med namn som **fläkt 1** och **fläkt 2**. Dessa fläktar har mått, inställningar och egenskaper, regler och en instrumentpanel som användare av ditt program kan övervaka och hantera.
 
 > [!NOTE]
-Endast builders och administratörer kan skapa, redigera och ta bort enheten mallar. Alla användare kan skapa enheter i den **enheten Explorer** sida från befintliga mallar för enheten.
+> Endast builders och administratörer kan skapa, redigera och ta bort enheten mallar. Alla användare kan skapa enheter i den **enheten Explorer** sida från befintliga mallar för enheten.
 
 ## <a name="create-a-new-device-template"></a>Skapa en ny enhetsmall
 
 1. Navigera till den **Application Builder** sidan.
 
-1. Välj för att skapa en tom mall **Skapa mall för enheten**, och välj sedan **anpassad**.
+2. Välj för att skapa en tom mall **Skapa mall för enheten**, och välj sedan **anpassad**.
 
-1. Ange ett namn för den nya mallen för enheten och välj **skapa**.
+3. Ange ett namn för den nya mallen för enheten och välj **skapa**.
 
     ![Informationssidan för enheten](./media/howto-set-up-template/devicedetailspage.png)
 
-1. Nu har du kommit till den **enhetsinformation** sidan i en ny simulerade enhet. En simulerad enhet skapas automatiskt för dig när du skapar en ny mall för enheten. Den rapporterar data och kan kontrolleras precis som en verklig enhet.
+4. Nu har du kommit till den **enhetsinformation** sidan i en ny simulerade enhet. En simulerad enhet skapas automatiskt för dig när du skapar en ny mall för enheten. Den rapporterar data och kan kontrolleras precis som en verklig enhet.
 
 Nu titta på flikarna på den **enhetsinformation** sidan.
 
@@ -133,8 +133,7 @@ Exempelvis kan du lägga till en ny fläkt hastighet inställning:
 
 När du har valt **spara**, **fläkt hastighet** inställningen visas som en panel och är redo för att användas för att ändra fläkt hastigheten på enheten.
 
-> [!NOTE]
-> När du har skapat en ny panel kan du prova den nya inställningen. Först stänga av designläge överst höger på skärmen:
+När du har skapat en ny panel kan du prova den nya inställningen. Först stänga av designläge överst höger på skärmen.
 
 ![Inställningar för sida vid sida](./media/howto-set-up-template/settingstile.png)
 
@@ -168,51 +167,70 @@ Det finns två typer av du kan lägga till egenskaper:
 - **Platsen som en egenskap på programmet** som kommer att lagras enbart i programmet. Enheten har ingen kunskap om programegenskaperna.
 - **Platsen som en enhetsegenskap** som rapporteras av enheten.
 
-####<a name="adding-location-as-an-application-property"></a>Lägga till platsen som en egenskap för programmet 
+#### <a name="adding-location-as-an-application-property"></a>Lägga till platsen som en egenskap för programmet 
+
 Du kan skapa en plats egenskapen som en egenskap för program som använder Azure mappar i ditt Azure IoT centrala program. Exempelvis kan du lägga till Enhetsadressen som installationen. 
 
 1. Gå till fliken enhetsegenskap. Kontrollera designläge är påslagen.
 
-![Platsegenskapen](./media/howto-set-up-template/locationcloudproperty1.png)
+   ![Platsegenskapen](./media/howto-set-up-template/locationcloudproperty1.png)
 
 2. Klicka på plats på fliken Egenskaper.
 3. Konfigurera visningsnamn, fältnamn och det initiala värdet för platsen (valfritt). 
 
-![Plats egenskapen formulär](./media/howto-set-up-template/locationcloudproperty2.png)
+   ![Plats egenskapen formulär](./media/howto-set-up-template/locationcloudproperty2.png)
 
-Det finns två format som stöds för att lägga till en plats:
-- **Platsen som en adress**
-- **Platsen som koordinater** 
+   Det finns två format som stöds för att lägga till en plats:
+   - **Platsen som en adress**
+   - **Platsen som koordinater** 
 
-4. Klicka på Spara. 
+4.  Klicka på **Spara**. 
 
-![Egenskapen Platsfältet](./media/howto-set-up-template/locationcloudproperty3.png)
+    ![Egenskapen Platsfältet](./media/howto-set-up-template/locationcloudproperty3.png)
 
 En operatör kan nu uppdatera plats värdet i formuläret plats fältet. 
 
-####<a name="adding-location-as-a-device-property"></a>Lägga till platsen som en enhetsegenskap för 
+#### <a name="adding-location-as-a-device-property"></a>Lägga till platsen som en enhetsegenskap för 
 
 Du kan skapa en plats som en enhet som rapporteras av enheten.
 Till exempel att du vill spåra platsen för enheten.
 
 1.  Gå till fliken enhetsegenskap. Kontrollera designläge är påslagen.
+
 2.  Klicka på enhetsegenskap från biblioteket.
 
-![Egenskapen Platsfältet](./media/howto-set-up-template/locationdeviceproperty1.png)
+    ![Egenskapen Platsfältet](./media/howto-set-up-template/locationdeviceproperty1.png)
 
 3.  Konfigurera visningsnamn, fältnamn och välj ”plats” som en datatyp. 
 
-> [!NOTE]
-Fältnamnet måste exakt matcha namnet på egenskapen enheten rapporter. 
+    > [!NOTE]
+    > Fältnamnet måste exakt matcha namnet på egenskapen enheten rapporter. 
 
-![Egenskapen Platsfältet](./media/howto-set-up-template/locationdeviceproperty2.png)
+    ![Egenskapen Platsfältet](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-![Plats egenskapen operator-vyn](./media/howto-set-up-template/locationdeviceproperty2.png)
+    ![Plats egenskapen operator-vyn](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Nu när du har konfigurerat din Platsegenskapen, kan du lägga till en karta för att visualisera plats i instrumentpanelen för enheten. Se hur du [Lägg till plats Azure kartan i instrumentpanelen](howto-set-up-template.md).
+Nu när du har konfigurerat din Platsegenskapen, kan du lägga till en karta för att visualisera plats i instrumentpanelen för enheten. Se hur du [Lägg till plats Azure kartan i instrumentpanelen](howto-set-up-template.md#add-location-azure-map-in-dashboard).
 
+## <a name="commands"></a>Kommandon
 
+Kommandon används för att hantera en enhet. De kan operatörer att omedelbart köra kommandon på enheten. Du kan lägga till flera kommandon till enheten mallen som visas sida vid sida på den **kommandon** för ansvariga att använda. Som Builder av enheten har du möjlighet att definiera ett kommando enligt dina krav.
 
+Hur är en **kommandot** skiljer sig från en **inställningen**? 
+
+* Inställningen: Inställningen är en konfiguration som du vill koppla till en enhet och enheten så att konfigurationen är kvar tills du ändrar den. Till exempel du vill ange temperaturen för din frysfartyg och du vill att inställningen även när frysfartyg startas om. 
+
+* Kommandot: Du använda kommandon för att omedelbart köra ett kommando på enheten via fjärranslutning från IoTCentral, om en enhet inte är ansluten och sedan kommando-timeout och misslyckas. Till exempel vill du starta om/starta om en enhet.  
+
+Kommandon när den exekveras kan vara i ett av tre lägen, beroende på om enheten emot kommandot. 
+
+Exempelvis kan du lägga till ett nytt echo-kommando:
+
+![Kommandon formulär](./media/howto-set-up-template/commandsecho.png)
+
+När du har valt **spara**, **Echo** kommandot visas som en panel och är redo för att användas för att skapa ett eko av enheten.
+
+När du har skapat en ny panel kan du testa din nya kommandot.
 
 ## <a name="rules"></a>Regler
 
@@ -234,28 +252,27 @@ Nu när en operator visar instrumentpanelen, ser den här panelen som visar egen
 
 ### <a name="add-location-azure-map-in-dashboard"></a>Lägg till plats Azure kartan i instrumentpanelen
 
-Om du har konfigurerat en Platsegenskapen enligt stegen [skapa en plats-egenskap som tillhandahålls av Azure Maps]((howto-set-up-template.md), du kommer att kunna visualisera platsen med hjälp av en karta direkt i instrumentpanelen i enheten.
+Om du har konfigurerat en Platsegenskapen enligt stegen [skapa en plats-egenskap som tillhandahålls av Azure Maps](howto-set-up-template.md), du kommer att kunna visualisera platsen med hjälp av en karta direkt i instrumentpanelen i enheten.
 
 1.  Gå till fliken instrumentpanelen för enheten. Kontrollera designläge är påslagen.
+
 2.  Välj karta från biblioteket på instrumentpanelen för enheten. 
 
-![Instrumentpanelen Azure platskarta väljer](./media/howto-set-up-template/locationcloudproperty4map.png)
+    ![Instrumentpanelen Azure platskarta väljer](./media/howto-set-up-template/locationcloudproperty4map.png)
 
 3.  Ge ett namn och Välj egenskapen location som du tidigare har konfigurerat som en del av din enhetsegenskap.
 
-![Konfigurera Azure kartan plats på instrumentpanelen](./media/howto-set-up-template/locationcloudproperty5map.png)
+    ![Konfigurera Azure kartan plats på instrumentpanelen](./media/howto-set-up-template/locationcloudproperty5map.png)
 
 4.  Spara och du ser kartan panelen visar den plats som du har valt. 
 
-![Azure kartan visualisera plats på instrumentpanelen](./media/howto-set-up-template/locationcloudproperty6map.png) 
+    ![Azure kartan visualisera plats på instrumentpanelen](./media/howto-set-up-template/locationcloudproperty6map.png) 
 
-Du kommer att kunna ändra storlek på kartan för att den har önskad storleken.
+    Du kommer att kunna ändra storlek på kartan för att den har önskad storleken.
 
-Nu när en operator visar instrumentpanelen, ser den här alla instrumentpanelen rutor du har konfigurerat inklusive plats karta!
+    Nu när en operator visar instrumentpanelen, ser den här alla instrumentpanelen rutor du har konfigurerat inklusive plats karta!
 
-![Instrumentpanelen plats Azure kartan instrumentpanelen](./media/howto-set-up-template/locationcloudproperty7map.png) 
-
-
+    ![Instrumentpanelen plats Azure kartan instrumentpanelen](./media/howto-set-up-template/locationcloudproperty7map.png) 
 
 ## <a name="next-steps"></a>Nästa steg
 

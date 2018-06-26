@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b59d86ddb8422108ece66eb1a7bbea808620d063
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: b6de3094e903c3584aa4a57e7792e4b07711f74a
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319550"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937146"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrera med Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -44,7 +44,7 @@ Det finns flera sätt för programmet att integrera med Azure AD. Dra nytta av s
 
 **Använda Azure AD för att styra vem som har åtkomst till ditt program.**  Administratörer och ägare i Azure AD kan ge behörighet till program till användare och grupper. Med Graph API kan du läsa den här listan och använda den för att styra etablering och avetablering av resurser och åtkomst till i ditt program.
 
-**Använda Azure AD för roller-baserad åtkomstkontroll.**  Administratörer och ägare kan tilldela användare och grupper roller som du definierar när du registrerar ditt program i Azure AD. Rollen informationen skickas till ditt program i inloggning token och kan också läsa med Graph API. Lär dig mer om [med hjälp av Azure AD för auktorisering](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx).
+**Använda Azure AD för roller-baserad åtkomstkontroll.**  Administratörer och ägare kan tilldela användare och grupper roller som du definierar när du registrerar ditt program i Azure AD. Rollen informationen skickas till ditt program i inloggning token och kan också läsa med Graph API. Lär dig mer om [med hjälp av Azure AD för auktorisering](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Få åtkomst till användarens profil, kalender, e-post, kontakter, filer och mer
 **Azure AD är auktoriserings-servern för Office 365 och andra Microsoft-företagstjänster.**  Om du stöder Azure AD för inloggning till programmet eller länka dina aktuella användarkonton till Azure AD-användarkonton med OAuth 2.0-stöd, kan du begära Läs- och skrivbehörighet till en användares profil, kalender, e-post, kontakter, filer och annan information. Du kan sömlöst skriva händelser till användarens kalender och läsa eller skriva filer till sina OneDrive. Lär dig mer om [åtkomst till Office 365-API: er](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: a8866385c682e86e889ddf171cc640fe0bb8252d
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 1e2c2dc45f2cb91ca225bf183ddde5fa2d1123c4
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737477"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936997"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Med hjälp av Azure CLI 1.0 med Azure Storage
 
@@ -41,9 +41,9 @@ Den här handboken förutsätts att du förstår de grundläggande principerna f
 ## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>Komma igång med Azure Storage- och Azure CLI på 5 minuter
 Den här guiden använder Ubuntu exempel, men andra operativsystemplattformar ska utföra på samma sätt.
 
-**Ny till Azure:** hämta Microsoft Azure-prenumeration och ett Microsoft-konto som är kopplade till den prenumerationen. Mer information om köpalternativ för Azure finns [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/), [köpa alternativ](https://azure.microsoft.com/pricing/purchase-options/), och [Medlemserbjudanden](https://azure.microsoft.com/pricing/member-offers/) (för medlemmar i MSDN, Microsoft Partner Network, BizSpark och att andra Microsoft-program).
+**Ny till Azure:** hämta Microsoft Azure-prenumeration och ett Microsoft-konto som är kopplade till den prenumerationen. Mer information om köpalternativ för Azure finns [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/), [köpa alternativ](https://azure.microsoft.com/pricing/purchase-options/), och [Medlemserbjudanden](https://azure.microsoft.com/pricing/member-offers/) (för medlemmar i MSDN, Microsoft Partner Network och BizSpark, och andra Microsoft-program).
 
-Se [Tilldela administratörsroller i Azure Active Directory (AD Azure)](https://msdn.microsoft.com/library/azure/hh531793.aspx) för mer information om Azure-prenumerationer.
+Se [Tilldela administratörsroller i Azure Active Directory (AD Azure)](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) för mer information om Azure-prenumerationer.
 
 **När du har skapat ett Microsoft Azure-prenumeration och konto:**
 

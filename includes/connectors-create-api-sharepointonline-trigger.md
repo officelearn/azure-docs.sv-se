@@ -6,7 +6,7 @@ I det här exemplet jag visar hur du använder den **SharePoint Online - när et
 > 
 
 1. Ange *sharepoint* i sökrutan på logic apps designer väljer den **SharePoint Online - när ett nytt objekt skapas** utlösare.  
-   ![SharePoint online utlösande bilden](./media/connectors-create-api-sharepointonline/trigger-1.png)  
+   ![SharePoint online utlösande bilden ](./media/connectors-create-api-sharepointonline/trigger-1.png)  
 2. Den **när ett nytt objekt skapas** kontrollen visas.  
    ![Bild 2 till SharePoint online-utlösare](./media/connectors-create-api-sharepointonline/trigger-2.png)   
 3. Välj en **webbplatsens URL**. Det här är den online SharePoint-webbplats som du vill övervaka för nya objekt som utlöser arbetsflödet.  

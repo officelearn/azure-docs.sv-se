@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: 552e93e9bd1b17c73fb1638fbae2ac30b051c261
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d5a832909f060ad8c8b3f0e7c7ea4504e5e5aadb
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29957557"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943478"
 ---
 1. I webbläsaren och öppna den [Azure Marketplace-avbildning för Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
 
@@ -33,7 +33,7 @@ ms.locfileid: "29957557"
 1. I den **grunderna** anger du följande värden:
 
     - **Namnet** -ange `Jenkins`.
-    - **Användarnamnet** -ange ett användarnamn som ska användas när du loggar in på den virtuella datorn som kör Jenkins. Användarnamnet måste uppfylla [specifika krav](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
+    - **Användarnamnet** -ange ett användarnamn som ska användas när du loggar in till den virtuella datorn som kör Jenkins. Användarnamnet måste uppfylla [specifika krav](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
     - **Autentiseringstypen** – Välj **offentliga SSH-nyckeln**.
     - **Offentlig SSH-nyckel** -kopiera och klistra in en offentlig RSA-nyckel i en rad format (från och med `ssh-rsa`) eller flerradiga PEM-format. Du kan skapa SSH-nycklar med hjälp av ssh-keygen i Linux och macOS eller PuTTYGen i Windows. Mer information om SSH-nycklar och Azure finns i artikeln [så Använd SSH-nycklar med Windows på Azure](/azure/virtual-machines/linux/ssh-from-windows).
     - **Prenumerationen** – Välj Azure-prenumeration som du vill installera Jenkins.

@@ -10,22 +10,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 3c80ce6e221acb8905c00e6178dd2fec1f8816af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: eb01d31d00177560aca3aa71750cd2d1ec096f8f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938447"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Använd API-version profiler med Azure CLI 2.0 i Azure-stacken
 
-I den här artikeln hjälper vi dig under processen för att använda Azure-kommandoradsgränssnittet (CLI) för att hantera Azure-stacken Development Kit resurser från Linux och Mac-klientplattformar. 
+Du kan följa stegen i den här artikeln för att ställa in den Azure kommandoradsgränssnittet (CLI) att hantera Azure-stacken Development Kit resurser från Linux, Mac och Windows-klientplattformar.
 
 ## <a name="install-cli"></a>Installera CLI
 
-Sedan loggar in på utvecklingsdatorn och installera CLI. Azure-stacken kräver version 2.0 av Azure CLI. Du kan installera som med hjälp av stegen som beskrivs i den [installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) artikel. Öppna en terminal eller Kommandotolken för att verifiera om installationen har lyckats, och kör följande kommando:
+Logga in på utvecklingsdatorn och installera CLI. Azure-stacken kräver version 2.0 av Azure CLI. Du kan installera som med hjälp av stegen som beskrivs i den [installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) artikel. Öppna en terminal eller Kommandotolken för att verifiera om installationen har lyckats, och kör följande kommando:
 
 ```azurecli
 az --version
@@ -35,27 +36,47 @@ Du bör se versionen av Azure CLI och andra beroende bibliotek som är installer
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Lita på Azure-stacken Certifikatutfärdarens rotcertifikat
 
-Hämta Azure Stack Certifikatutfärdarens rotcertifikat från Azure Stack-operatorn och litar på den. Om du vill lita på Azure-stacken Certifikatutfärdarens rotcertifikat, lägger du till dem i det befintliga certifikatet Python. Om du kör CLI från en Linux-dator som har skapats i Azure Stack-miljön, kör du kommandot bash:
+1. Hämta Azure Stack Certifikatutfärdarens rotcertifikat från [Azure Stack-operatorn](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) och litar på den. Om du vill lita på Azure-stacken Certifikatutfärdarens rotcertifikat, lägger du till dem i det befintliga certifikatet Python.
+
+2. Hitta certifikat plats på din dator. Platsen kan variera beroende på om du har installerat Python. Du måste ha [pip](https://pip.pypa.io) och [certifi](https://pypi.org/project/certifi/) module installerad. Du kan använda kommandot Python från bash-prompten:
+
+  ```bash  
+    python -c "import certifi; print(certifi.where())"
+  ```
+
+  Anteckna certifikatsplatsen för. Till exempel `~/lib/python3.5/site-packages/certifi/cacert.pem`. Din sökväg beror på ditt operativsystem och version av Python som du har installerat.
+
+### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>Ange sökväg för en utvecklingsdator i molnet
+
+Om du kör CLI från en Linux-dator som har skapats i Azure Stack-miljön, kör du kommandot bash med sökvägen till ditt certifikat.
 
 ```bash
-sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
 ```
 
-Om du kör CLI från en dator utanför Azure säckformat-miljön, måste du först ställa in [VPN-anslutning till Azure-stacken](azure-stack-connect-azure-stack.md). Nu kopiera PEM-certifikatet som du exporterade tidigare på utvecklingsdatorn och kör följande kommandon, beroende på din arbetsstation development OS.
+### <a name="set-the-path-for-a-development-machine-outside-the-cloud"></a>Ange sökväg för en utvecklingsdator utanför molnet
 
-### <a name="linux"></a>Linux
+Om du kör CLI från en dator **utanför** Azure Stack-miljö:  
+
+1. Du måste ställa in [VPN-anslutning till Azure-stacken](azure-stack-connect-azure-stack.md).
+
+2. Kopiera PEM-certifikat som du har fått från Azure-stacken operatorn och Anteckna platsen för filen (PATH_TO_PEM_FILE).
+
+3. Kör följande kommandon, beroende sista på arbetsstationen development OS.
+
+#### <a name="linux"></a>Linux
 
 ```bash
-sudo cat PATH_TO_PEM_FILE >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-### <a name="macos"></a>macOS
+#### <a name="macos"></a>macOS
 
 ```bash
-sudo cat PATH_TO_PEM_FILE >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-### <a name="windows"></a>Windows
+#### <a name="windows"></a>Windows
 
 ```powershell
 $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -181,14 +202,14 @@ Om resursgruppen har skapats, utdata följande egenskaper för den nyligen skapa
 ## <a name="known-issues"></a>Kända problem
 Det finns några kända problem som du måste vara medveten om när du använder CLI i Azure Stack:
 
-* CLI interaktivt läge engångsfaktorautentisering den `az interactive` kommandot stöds inte ännu i Azure-stacken.
-* Om du vill hämta listan över tillgängliga i Azure-stacken avbildningar av virtuella datorer använder den `az vm images list --all` kommandot i stället för den `az vm image list` kommando. Ange den `--all` alternativet ser till att svaret returnerar bara de avbildningar som är tillgängliga i Azure Stack-miljö. 
-* Virtuella avbildningen alias som är tillgängliga i Azure kan inte tillämpas på Azure-stacken. När du använder avbildningar av virtuella datorer, måste du använda parametern hela URN (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) i stället för det bild aliaset. Den här URN måste matcha avbildningen specifikationer som härletts från den `az vm images list` kommando.
-* Som standard använder CLI 2.0 ”Standard_DS1_v2” som standardstorlek för avbildning av virtuell dator. Men den här storleken inte är tillgängligt i Azure-stacken, så du måste ange den `--size` explicit när du skapar en virtuell dator. Du kan hämta listan över storlekar för virtuella datorer som är tillgängliga i Azure-stacken genom att använda den `az vm list-sizes --location <locationName>` kommando.
-
+ - CLI interaktivt läge engångsfaktorautentisering den `az interactive` kommandot stöds inte ännu i Azure-stacken.
+ - Om du vill hämta listan över tillgängliga i Azure-stacken avbildningar av virtuella datorer använder den `az vm images list --all` kommandot i stället för den `az vm image list` kommando. Ange den `--all` alternativet ser till att svaret returnerar bara de avbildningar som är tillgängliga i Azure Stack-miljö.
+ - Virtuella avbildningen alias som är tillgängliga i Azure kan inte tillämpas på Azure-stacken. När du använder avbildningar av virtuella datorer, måste du använda parametern hela URN (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) i stället för det bild aliaset. Den här URN måste matcha avbildningen specifikationer som härletts från den `az vm images list` kommando.
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Distribuera mallar med Azure CLI](azure-stack-deploy-template-command-line.md)
+
+[Aktivera Azure CLI för Azure-stacken användare (Operator)](..\azure-stack-cli-admin.md)
 
 [Hantera användarbehörigheter](azure-stack-manage-permissions.md)

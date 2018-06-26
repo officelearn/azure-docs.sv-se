@@ -1,0 +1,45 @@
+- name: Dokumentation om Translator Speech API
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Translator Speech API
+      href: Overview.md
+    - name: Språk som stöds
+      href: languages.md
+- name: Snabbstarter
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: Python
+      href: quickstarts/python.md
+- name: Självstudier
+  items:
+    - name: Translator-app
+      href: tutorial-translator-speech-csharp.md
+- name: Exempel
+  items:
+    - name: Exempel på GitHub
+      href: 'https://aka.ms/TranslatorGitHub'
+- name: Instruktionsguider
+  items:
+    - name: Registrera dig för Translator Speech API
+      href: translator-speech-how-to-signup.md
+- name: Referens
+  href: reference.md
+  items:
+    - name: Språk
+      href: languages-reference.md
+- name: Resurser
+  items:
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-speech-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/558796-translator'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'

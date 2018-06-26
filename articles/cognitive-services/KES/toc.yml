@@ -1,0 +1,35 @@
+- name: Dokumentation om Tjänst för kunskapsutveckling
+- name: Översikt
+  expanded: true
+  items:
+    - name: Lär dig mer om tjänsten för kunskapsutveckling
+      href: Overview.md
+- name: Kom igång
+  items:
+    - name: Skapa en serverdelsmotor
+      href: GettingStarted.md
+    - name: Kommandorad
+      href: CommandLine.md
+    - name: Schemaformat
+      href: SchemaFormat.md
+    - name: Dataformat
+      href: DataFormat.md
+    - name: Grammatikformat
+      href: GrammarFormat.md
+    - name: Semantisk tolkning
+      href: SemanticInterpretation.md
+    - name: Gränssnitt för webb-API
+      href: WebAPI.md
+      items:
+        - name: calchistogram
+          href: calchistogramMethod.md
+        - name: utvärdera
+          href: evaluateMethod.md
+        - name: tolka
+          href: interpretMethod.md
+    - name: Strukturerade frågeuttryck
+      href: Expressions.md
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'

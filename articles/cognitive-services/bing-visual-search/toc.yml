@@ -1,0 +1,60 @@
+- name: Dokumentation om Bing Visual Search
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är API för Bing Visual Search?
+      href: overview.md
+- name: Snabbstarter för REST API
+  expanded: true
+  items:
+    - name: 'Första frågan i C#'
+      href: quickstarts/csharp.md
+    - name: Första frågan i Java
+      href: quickstarts/java.md
+    - name: Första frågan för Node.js
+      href: quickstarts/nodejs.md
+    - name: Första frågan i Python
+      href: quickstarts/python.md
+- name: Självstudier
+  items:
+    - name: Enkelsidig webbapp
+      href: tutorial-bing-visual-search-single-page-app.md
+    - name: Enkelsidig webbapp (källkod)
+      href: tutorial-bing-visual-search-single-page-app-source.md
+- name: Exempel
+  items:
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search'
+- name: Begrepp
+  items:
+    - name: Insikter om standardbilder
+      href: default-insights-tag.md
+    - name: Användning av insikter i Bing
+      href: bing-insights-usage.md
+    - name: Länder och marknader som stöds
+      href: supported-countries-markets.md
+    - name: Analys för API för Bing Visual Search
+      href: bing-visual-search-stats.md
+- name: Instruktionsguider
+  items:
+    - name: Få insikter med token
+      href: use-insights-token.md
+    - name: Användnings- och visningsresultat
+      href: use-and-display-requirements.md
+    - name: Ändra storlek på och beskär miniatyrer
+      href: resize-and-crop-thumbnails.md
+- name: Referens
+  expanded: true
+  items:
+    - name: REST v7 API
+      href: 'https://aka.ms/bingvisualsearchreferencedoc'
+- name: Resurser
+  items:
+    - name: Få en kostnadsfri åtkomstnyckel
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api'
+    - name: Prova!
+      href: 'https://aka.ms/bingvisualsearchtryforfree'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/bing-search'
+    - name: User Voice
+      href: 'https://cognitive.uservoice.com/forums/555907-bing-search'

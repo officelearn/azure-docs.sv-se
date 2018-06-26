@@ -1,0 +1,54 @@
+- name: Dokumentation för Academic Knowledge
+- name: Översikt
+  items:
+    - name: Lär dig mer om Academic Knowledge API
+      href: Home.md
+- name: Instruktionsguider
+  items:
+    - name: Entitetsattribut
+      href: EntityAttributes.md
+      items:
+        - name: Artikel
+          href: PaperEntityAttributes.md
+        - name: Författare
+          href: AuthorEntityAttributes.md
+        - name: Anknytning
+          href: AffiliationEntityAttributes.md
+        - name: Studieinriktning
+          href: FieldsOfStudyEntityAttributes.md
+        - name: Konferensserie
+          href: ConferenceSeriesEntityAttributes.md
+        - name: Konferensinstans
+          href: ConferenceInstanceEntityAttributes.md
+        - name: Tidskrift
+          href: JournalEntityAttributes.md
+    - name: Metoder
+      items:
+        - name: CalcHistogram
+          href: CalcHistogramMethod.md
+        - name: Utvärdera
+          href: EvaluateMethod.md
+        - name: Tolka
+          href: InterpretMethod.md
+        - name: Likhet
+          href: SimilarityMethod.md
+    - name: Fråga uttryckssyntax
+      href: QueryExpressionSyntax.md
+    - name: Genomgång av diagram
+      items:
+        - name: Lambda-söksyntax
+          href: LambdaSearchSyntax.md
+        - name: Sökmetod för diagram
+          href: GraphSearchMethod.md
+        - name: Söksyntax för JSON
+          href: JSONSearchSyntax.md
+- name: Referens
+  items:
+    - name: API-referens
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97'
+    - name: Labs API-referens
+      href: 'https://dev.labs.cognitive.microsoft.com/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97'
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'

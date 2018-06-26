@@ -1,0 +1,29 @@
+- name: Dokumentation om Project Answer Search
+- name: Översikt
+  expanded: true
+  items:
+    - name: Vad är Project Answer Search?
+      href: overview.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: 'C#'
+      href: c-sharp-quickstart.md
+    - name: Java
+      href: java-quickstart.md
+    - name: Node
+      href: node-quickstart.md
+    - name: Python
+      href: python-quickstart.md
+- name: Begrepp
+  items:
+    - name: Faktafrågor
+      href: fact-queries.md
+    - name: Entitetsfrågor
+      href: entity-queries.md
+- name: Referens
+  items:
+    - name: Använd och visa krav
+      href: use-display-requirements.md
+    - name: Referens för Project Answer Search
+      href: reference.md

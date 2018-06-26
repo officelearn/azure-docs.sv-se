@@ -1,0 +1,28 @@
+- name: Dokumentation om förhandsversion av projekt-URL
+- name: Översikt
+  expanded: true
+  items:
+    - name: Vad är förhandsversion av projekt-URL?
+      href: overview.md
+    - name: Slutpunkt för URL-förhandsversion
+      href: endpoint.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: 'C#'
+      href: csharp.md
+    - name: Java
+      href: java-quickstart.md
+    - name: JavaScript
+      href: javascript.md
+    - name: Node
+      href: node-quickstart.md
+    - name: Python
+      href: python-quickstart.md
+- name: Referens
+  expanded: true
+  items:
+    - name: Använd och visa krav
+      href: use-display-requirements.md
+    - name: Referens för URL-förhandsversion
+      href: url-preview-reference.md

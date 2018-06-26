@@ -1,0 +1,49 @@
+- name: Översikt
+  href: Home.md
+- name: Kom igång
+  expanded: true
+  href: GetStarted/GetStarted.md
+  items:
+    - name: REST
+      href: GetStarted/GetStartedREST.md
+    - name: Klientbibliotek
+      href: GetStarted/GetStartedClientLibraries.md
+      items:
+        - name: 'C#-skrivbordsbibliotek'
+          href: GetStarted/GetStartedCSharpDesktop.md
+        - name: 'C#-tjänstbibliotek'
+          href: GetStarted/GetStartedCSharpServiceLibrary.md
+        - name: JavaScript-bibliotek
+          href: GetStarted/GetStartedJSWebsockets.md
+        - name: Java-bibliotek för Android
+          href: GetStarted/GetStartedJavaAndroid.md
+        - name: Objective-C-bibliotek för iOS
+          href: GetStarted/Get-Started-ObjectiveC-iOS.md
+- name: Exempel
+  href: samples.md
+- name: Begrepp
+  href: concepts.md
+- name: Instruktionsguider
+  items:
+    - name: Autentisering för användning av tjänsten
+      href: How-to/how-to-authentication.md
+    - name: Välj igenkänningsläge
+      href: How-to/how-to-choose-recognition-mode.md
+    - name: Segmenterad överföring av ljudström
+      href: How-to/how-to-chunked-transfer.md
+- name: Referens
+  items:
+    - name: Websocket-protokoll för Microsoft Speech
+      href: API-Reference-REST/websocketprotocol.md
+    - name: Referens för text till tal-API
+      href: API-Reference-REST/BingVoiceOutput.md
+    - name: Språk som stöds
+      href: API-Reference-REST/supportedlanguages.md
+- name: Felsökning
+  href: troubleshooting.md
+- name: Resurser
+  items:
+    - name: Support
+      href: support.md
+    - name: Kunskapsbas
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127980-bing-speech'

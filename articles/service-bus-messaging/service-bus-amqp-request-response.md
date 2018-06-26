@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: 847fe0c08d442388cfa506042272bb358058cb4c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cda313085d197558e969309eaed928421b0b1924
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194712"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752912"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 i Microsoft Azure Service Bus: begäran-svar-baserade åtgärder
 
 Den här artikeln definierar lista över Microsoft Azure Service Bus begäran/svar-baserade åtgärder. Den här informationen baseras på det AMQP Management Version 1.0 utkastet.  
   
-En detaljerad överföring nivå AMQP 1.0-protokollet guide, som beskriver hur Service Bus implementerar och bygger på OASIS AMQP tekniska specifikationer, finns det [AMQP 1.0 i Azure Service Bus och Händelsehubbar protokollet guiden][AMQP 1.0-protokollguide].  
+En detaljerad överföring nivå AMQP 1.0-protokollet guide, som beskriver hur Service Bus implementerar och bygger på OASIS AMQP tekniska specifikationer, finns det [AMQP 1.0 i Azure Service Bus och Händelsehubbar protokollet guiden][amqp 1.0-protokollguide].  
   
 ## <a name="concepts"></a>Begrepp  
   
@@ -118,8 +118,8 @@ Service Bus-entiteter måste åtgärdas på följande sätt:
   
 |Entitetstyp|Adress|Exempel|  
 |-----------------|-------------|-------------|  
-|Kön|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
-|Avsnittet|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
+|kö|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
+|ämne|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
 |prenumeration|`<topic_name>/Subscriptions/<subscription_name>`|`“myTopic/Subscriptions/MySub”`|  
   
 ## <a name="message-operations"></a>Meddelandeåtgärder  
@@ -134,7 +134,7 @@ Begärandemeddelandet måste innehålla de följande egenskaperna:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärden|sträng|Ja|`com.microsoft:renew-lock`|  
+|åtgärd|sträng|Ja|`com.microsoft:renew-lock`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
  Meddelandetexten begäran måste bestå av en amqp-värde-avsnitt som innehåller en karta med följande uppgifter:  
@@ -150,7 +150,7 @@ Svarsmeddelandet måste innehålla de följande egenskaperna:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statuskod|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades.|  
-|StatusDescription|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Meddelandetexten svar måste bestå av en amqp-värde-avsnitt som innehåller en karta med följande uppgifter:  
   
@@ -168,7 +168,7 @@ Begärandemeddelandet måste innehålla de följande egenskaperna:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärden|sträng|Ja|`com.microsoft:peek-message`|  
+|åtgärd|sträng|Ja|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
@@ -185,7 +185,7 @@ Svarsmeddelandet måste innehålla de följande egenskaperna:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statuskod|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – har fler meddelanden<br /><br /> 0xcc: ingen innehåll – inga fler meddelanden|  
-|StatusDescription|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Meddelandetexten svar måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
   
@@ -209,7 +209,7 @@ Begärandemeddelandet måste innehålla de följande egenskaperna:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärden|sträng|Ja|`com.microsoft:schedule-message`|  
+|åtgärd|sträng|Ja|`com.microsoft:schedule-message`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
@@ -235,7 +235,7 @@ Svarsmeddelandet måste innehålla de följande egenskaperna:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statuskod|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades.|  
-|StatusDescription|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Meddelandetexten svar måste bestå av en **amqp värdet** avsnitt som innehåller en karta med följande uppgifter:  
   
@@ -253,7 +253,7 @@ Begärandemeddelandet måste innehålla de följande egenskaperna:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärden|sträng|Ja|`com.microsoft:cancel-scheduled-message`|  
+|åtgärd|sträng|Ja|`com.microsoft:cancel-scheduled-message`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
@@ -269,7 +269,7 @@ Svarsmeddelandet måste innehålla de följande egenskaperna:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statuskod|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades.|  
-|StatusDescription|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Meddelandetexten svar måste bestå av en **amqp värdet** avsnitt som innehåller en karta med följande uppgifter:  
   
@@ -289,7 +289,7 @@ Begärandemeddelandet måste innehålla de följande egenskaperna:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärden|sträng|Ja|`com.microsoft:renew-session-lock`|  
+|åtgärd|sträng|Ja|`com.microsoft:renew-session-lock`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
@@ -305,7 +305,7 @@ Svarsmeddelandet måste innehålla de följande egenskaperna:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statuskod|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – har fler meddelanden<br /><br /> 0xcc: ingen innehåll – inga fler meddelanden|  
-|StatusDescription|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Meddelandetexten svar måste bestå av en **amqp värdet** avsnitt som innehåller en karta med följande uppgifter:  
   
@@ -323,7 +323,7 @@ Begärandemeddelandet måste innehålla de följande egenskaperna:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärden|sträng|Ja|`com.microsoft:peek-message`|  
+|åtgärd|sträng|Ja|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
@@ -341,7 +341,7 @@ Svarsmeddelandet måste innehålla de följande egenskaperna:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statuskod|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – har fler meddelanden<br /><br /> 0xcc: ingen innehåll – inga fler meddelanden|  
-|StatusDescription|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Meddelandetexten svar måste bestå av en **amqp värdet** avsnitt som innehåller en karta med följande uppgifter:  
   
@@ -365,7 +365,7 @@ Begärandemeddelandet måste innehålla de följande egenskaperna:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärden|sträng|Ja|`com.microsoft:peek-message`|  
+|åtgärd|sträng|Ja|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
@@ -382,7 +382,7 @@ Svarsmeddelandet måste innehålla de följande egenskaperna:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statuskod|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|StatusDescription|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 ### <a name="get-session-state"></a>Get-sessionstillstånd  
 
@@ -394,7 +394,7 @@ Begärandemeddelandet måste innehålla de följande egenskaperna:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärden|sträng|Ja|`com.microsoft:get-session-state`|  
+|åtgärd|sträng|Ja|`com.microsoft:get-session-state`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
@@ -410,7 +410,7 @@ Svarsmeddelandet måste innehålla de följande egenskaperna:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statuskod|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|StatusDescription|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Meddelandetexten svar måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
   
@@ -428,7 +428,7 @@ Begärandemeddelandet måste innehålla de följande egenskaperna:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärden|sträng|Ja|`com.microsoft:get-message-sessions`|  
+|åtgärd|sträng|Ja|`com.microsoft:get-message-sessions`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
@@ -437,7 +437,7 @@ Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som inneh
 |---------|----------------|--------------|--------------------|  
 |senast uppdaterad tid|tidsstämpel|Ja|Filtreras så att endast de sessioner som har uppdaterats efter en viss tidpunkt.|  
 |Hoppa över|int|Ja|Hoppa över ett antal sessioner.|  
-|Upp|int|Ja|Maximalt antal sessioner.|  
+|upp|int|Ja|Maximalt antal sessioner.|  
   
 #### <a name="response"></a>Svar  
 
@@ -446,14 +446,14 @@ Svarsmeddelandet måste innehålla de följande egenskaperna:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statuskod|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – har fler meddelanden<br /><br /> 0xcc: ingen innehåll – inga fler meddelanden|  
-|StatusDescription|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Meddelandetexten svar måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |Hoppa över|int|Ja|Antal överhoppade sessioner om statuskoden 200.|  
-|sessioner-ID|Strängmatris|Ja|Matris med sessions-ID. Om statuskoden 200.|  
+|sessioner-ID|strängmatris|Ja|Matris med sessions-ID. Om statuskoden 200.|  
   
 ## <a name="rule-operations"></a>Åtgärder för regeln  
   
@@ -465,7 +465,7 @@ Begärandemeddelandet måste innehålla de följande egenskaperna:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärden|sträng|Ja|`com.microsoft:add-rule`|  
+|åtgärd|sträng|Ja|`com.microsoft:add-rule`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
@@ -473,15 +473,15 @@ Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som inneh
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |Regelnamnet|sträng|Ja|Regelnamnet inte inklusive namn för ämnet och prenumerationen.|  
-|Beskrivning av regel|karta|Ja|Beskrivning av regel som anges i nästa avsnitt.|  
+|Beskrivning av regel|Karta|Ja|Beskrivning av regel som anges i nästa avsnitt.|  
   
 Den **beskrivning av regel** karta måste innehålla följande poster där **sql-filter** och **Korrelations-filter** kan inte anges samtidigt:  
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|sql-filter|karta|Ja|`sql-filter`, som anges i nästa avsnitt.|  
-|Korrelations-filter|karta|Ja|`correlation-filter`, som anges i nästa avsnitt.|  
-|SQL-Regelåtgärd|karta|Ja|`sql-rule-action`, som anges i nästa avsnitt.|  
+|sql-filter|Karta|Ja|`sql-filter`, som anges i nästa avsnitt.|  
+|Korrelations-filter|Karta|Ja|`correlation-filter`, som anges i nästa avsnitt.|  
+|SQL-Regelåtgärd|Karta|Ja|`sql-rule-action`, som anges i nästa avsnitt.|  
   
 Sql-filter karta måste innehålla följande uppgifter:  
   
@@ -497,11 +497,11 @@ Den **Korrelations-filter** karta måste innehålla minst en av följande uppgif
 |meddelande-id|sträng|Nej||  
 |till|sträng|Nej||  
 |Svara till|sträng|Nej||  
-|Etikett|sträng|Nej||  
+|etikett|sträng|Nej||  
 |sessions-id|sträng|Nej||  
 |Svara till session-id|sträng|Nej||  
 |innehållstyp|sträng|Nej||  
-|properties|karta|Nej|Mappas till Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
+|properties|Karta|Nej|Mappas till Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
   
 Den **sql Regelåtgärd** karta måste innehålla följande uppgifter:  
   
@@ -516,7 +516,7 @@ Svarsmeddelandet måste innehålla de följande egenskaperna:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statuskod|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|StatusDescription|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 ### <a name="remove-rule"></a>Ta bort regel  
   
@@ -526,7 +526,7 @@ Begärandemeddelandet måste innehålla de följande egenskaperna:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärden|sträng|Ja|`com.microsoft:remove-rule`|  
+|åtgärd|sträng|Ja|`com.microsoft:remove-rule`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
@@ -542,7 +542,7 @@ Svarsmeddelandet måste innehålla de följande egenskaperna:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statuskod|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|StatusDescription|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 ### <a name="get-rules"></a>Hämta regler
 
@@ -552,14 +552,14 @@ Begärandemeddelandet måste innehålla de följande egenskaperna:
 
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärden|sträng|Ja|`com.microsoft:enumerate-rules`|  
+|åtgärd|sträng|Ja|`com.microsoft:enumerate-rules`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
 
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|Upp|int|Ja|Antal regler för att hämta på sidan.|  
+|upp|int|Ja|Antal regler för att hämta på sidan.|  
 |Hoppa över|int|Ja|Antal regler för att hoppa över. Definierar startIndex (+ 1) i listan över regler. | 
 
 #### <a name="response"></a>Svar
@@ -635,7 +635,7 @@ Begärandemeddelandet måste innehålla de följande egenskaperna:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärden|sträng|Ja|`com.microsoft:receive-by-sequence-number`|  
+|åtgärd|sträng|Ja|`com.microsoft:receive-by-sequence-number`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
@@ -652,7 +652,7 @@ Svarsmeddelandet måste innehålla de följande egenskaperna:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statuskod|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|StatusDescription|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Meddelandetexten svar måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
   
@@ -677,18 +677,18 @@ Begärandemeddelandet måste innehålla de följande egenskaperna:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärden|sträng|Ja|`com.microsoft:update-disposition`|  
+|åtgärd|sträng|Ja|`com.microsoft:update-disposition`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|disposition-status|sträng|Ja|Slutförd<br /><br /> Avbrutna<br /><br /> avbruten|  
+|disposition-status|sträng|Ja|slutfört<br /><br /> avbrutna<br /><br /> avbruten|  
 |Lås-token|matris med uuid|Ja|Meddelandet lock-tokens för att uppdatera disposition status.|  
 |systemkön orsak|sträng|Nej|Du kan ange om disposition status anges till **avbruten**.|  
 |systemkön-beskrivning|sträng|Nej|Du kan ange om disposition status anges till **avbruten**.|  
-|Egenskaper för att ändra|karta|Nej|Lista över Service Bus asynkrona egenskaper för att ändra.|  
+|Egenskaper för att ändra|Karta|Nej|Lista över Service Bus asynkrona egenskaper för att ändra.|  
   
 #### <a name="response"></a>Svar  
 
@@ -697,7 +697,7 @@ Svarsmeddelandet måste innehålla de följande egenskaperna:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statuskod|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|StatusDescription|sträng|Nej|Beskrivning av status.|
+|statusDescription|sträng|Nej|Beskrivning av status.|
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -709,4 +709,4 @@ Mer information om AMQP och Service Bus finns i följande länkar:
 
 [Översikt över Service Bus AMQP]: service-bus-amqp-overview.md
 [AMQP 1.0-protokollguide]: service-bus-amqp-protocol-guide.md
-[AMQP i Service Bus för Windows Server]: https://msdn.microsoft.com/library/dn574799.asp
+[AMQP i Service Bus för Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)

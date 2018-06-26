@@ -1,0 +1,63 @@
+- name: Dokumentation för API för stavningskontroll i Bing
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är API för stavningskontroll i Bing?
+      href: proof-text.md
+- name: Snabbstarter för REST API
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: Snabbstarter för SDK
+  items:
+    - name: 'Snabbstart för SDK i C#'
+      href: sdk-quickstart-spell-check.md
+    - name: Översikt över SDK-exempel
+      href: sdk.md
+- name: Självstudier
+  items:
+    - name: Skapa en webbapp för stavningskontroll
+      href: tutorials/spellcheck.md
+    - name: 'Källkod: webbapp för stavningskontroll'
+      href: tutorials/spellcheck-source.md
+- name: Instruktionsguider
+  items:
+    - name: Användnings- och visningskrav
+      href: UseAndDisplayRequirements.md
+    - name: Uppgradera från v5 till v7
+      href: bing-spell-check-upgrade-guide-v5-to-v7.md
+- name: Referens
+  items:
+    - name: Stavningskontrolls-API i Bing v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference'
+    - name: Stavningskontrolls-API i Bing v5 (gammal version)
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference'
+- name: Resurser
+  items:
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: bing-spell-check-resource-faq.md
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/bing-api'
+    - name: Språk som stöds
+      href: bing-spell-check-supported-languages.md
+    - name: Analys för API för stavningskontroll i Bing
+      href: bing-spell-check-stats.md
+    - name: Prenumerationsnyckel
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api'
+    - name: Prova!
+      href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'

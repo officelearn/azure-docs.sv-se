@@ -1,0 +1,68 @@
+- name: Dokumentation för Conversation Learner
+- name: Översikt
+  expanded: true
+  items:
+    - name: Vad är Conversation Learner?
+      href: overview.md
+    - name: Språk som stöds
+      href: languages-supported.md
+- name: Begrepp
+  items:
+    - name: Kontrollflöde
+      href: control-flow.md
+    - name: Standardvärden och gränser
+      href: cl-values-and-boundaries.md
+- name: Instruktionsguider
+  items:
+    - name: Komma igång med Conversation Learner
+      href: quickstart.md
+    - name: Hello World
+      href: tutorials/1-hello-world.md
+    - name: Vänta-åtgärder jämfört med vänta inte-åtgärder
+      href: tutorials/2-wait-vs-nonwait-actions.md
+    - name: Introduktion till entiteter
+      href: tutorials/3-introduction-to-entities.md
+    - name: Förväntad entitet
+      href: tutorials/4-expected-entity.md
+    - name: Entiteter som kan negeras
+      href: tutorials/5-negatable-entities.md
+    - name: Entiteter med flera värden
+      href: tutorials/6-multi-value-entities.md
+    - name: Inbyggda entiteter
+      href: tutorials/7-built-in-entities.md
+    - name: Alternativa indata
+      href: tutorials/8-alternative-inputs.md
+    - name: Loggdialogrutor
+      href: tutorials/9-log-dialogs.md
+    - name: Motringning för entitetsidentifiering
+      href: tutorials/10-entity-detection-callback.md
+    - name: Sessionsmotringning
+      href: tutorials/11-session-callbacks.md
+    - name: API-anrop
+      href: tutorials/12-api-calls.md
+    - name: 'Kort, del 1'
+      href: tutorials/13-cards-1.md
+    - name: 'Kort, del 2'
+      href: tutorials/14-cards-2.md
+    - name: Förgrening och ångra
+      href: tutorials/15-branching-and-undo.md
+    - name: Versionshantering och taggning
+      href: tutorials/16-versioning-and-tagging.md
+    - name: Demonstration – lösenordsåterställning
+      href: tutorials/demo-password-reset.md
+    - name: Demonstration – beställning av pizza
+      href: tutorials/demo-pizza-order.md
+    - name: Demonstration – startprogram för VR-app
+      href: tutorials/demo-vr-app-launcher.md
+    - name: Distribuera en Conversation Learner-robot
+      href: deploy-to-bf.md
+    - name: Så här lär du ut med Conversation Learner
+      href: how-to-teach-cl.md
+    - name: Så här hanterar du användardata
+      href: managing-data.md
+- name: Resurser
+  items:
+    - name: Exempelrobot för Conversation Learner
+      href: 'https://github.com/Microsoft/ConversationLearner-Samples'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'

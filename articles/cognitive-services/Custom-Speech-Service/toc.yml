@@ -1,0 +1,39 @@
+- name: Dokumentation om Custom Speech Service
+- name: Översikt
+  items:
+    - name: Vad är Custom Speech Service?
+      href: cognitive-services-custom-speech-home.md
+- name: Självstudier
+  items:
+    - name: Skapa en anpassad akustisk modell
+      href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md
+    - name: Skapa en anpassad språkmodell
+      href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-language-model.md
+- name: Begrepp
+  items:
+    - name: Utforska de viktigaste funktionerna
+      href: cognitive-services-custom-speech-get-started.md
+    - name: 'Mätare, kvoter och skalning'
+      href: cognitive-services-custom-speech-meters.md
+- name: Instruktionsguider
+  items:
+    - name: Anpassa uttal efter dina behov
+      href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-custom-pronunciation.md
+    - name: Skapa en anpassad slutpunkt för till tal till text
+      href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md
+    - name: Använd en anpassad slutpunkt för tal till text
+      href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md
+    - name: Hämta prenumerationsnycklar
+      href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md
+    - name: Migrera till en ny prisnivå
+      href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-migrate-tiers.md
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Riktlinjer för transkription
+      href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-transcription-guidelines.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: cognitive-services-custom-speech-faq.md
+    - name: Ordlista
+      href: cognitive-services-custom-speech-glossary.md

@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Lägga till LinkedIn som en OAuth2-identitetsleverantör med anpassade principer'
-description: En artikel om hur du konfigurerar ett LinkedIn-program med hjälp av OAuth2-protokollet och anpassade principer
+title: Lägga till LinkedIn som en OAuth2-identitetsleverantör med hjälp av anpassade principer i Azure Active Directory B2C | Microsoft Docs
+description: En artikel om hur du konfigurerar ett LinkedIn-program med hjälp av OAuth2-protokollet och anpassade principer.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: davidmu
-ms.openlocfilehash: 9e5235739abcfbee1e530685890098a45a1b093d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 889264dc06d1a6f10713ff5fcd7ff644c113bb45
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752324"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: Lägga till LinkedIn som en identitetsleverantör med anpassade principer
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -26,7 +26,7 @@ Den här artikeln visar hur du aktiverar inloggning för användare av en Linked
 Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) artikel.
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>Steg 1: Skapa ett konto LinkedIn-program
-Att använda LinkedIn som en identitetsleverantör i Azure Active Directory B2C (Azure AD B2C), måste du skapa ett LinkedIn-program och ange rätt parametrar. Du kan registrera ett LinkedIn-program genom att gå till den [LinkedIn registreringssidan](https://LinkedIn.com/signup).
+Att använda LinkedIn som en identitetsleverantör i Azure Active Directory B2C (Azure AD B2C), måste du skapa ett LinkedIn-program och ange rätt parametrar. Du kan registrera ett LinkedIn-program genom att gå till den [LinkedIn registreringssidan](https://www.linkedin.com/start/join).
 
 1. Gå till den [LinkedIn programhantering](https://www.linkedin.com/secure/developer?newapp=) webbplats, logga in med autentiseringsuppgifterna för ditt LinkedIn och välj sedan **skapa program**.
 

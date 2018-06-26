@@ -1,0 +1,29 @@
+- name: Dokumentation för API för språkanalys
+- name: Översikt
+  items:
+    - name: Vad är API för språkanalys?
+      href: Home.md
+- name: Gör så här för att
+  items:
+    - name: Analyzer-namn
+      href: Analyzer-Names.md
+    - name: Parsning av valkrets
+      href: Constituency-Parsing.md
+    - name: Del av tal-märkning
+      href: POS-tagging.md
+    - name: Meningar och token
+      href: Sentences-and-Tokens.md
+    - name: Analysera metod
+      href: AnalyzeMethod.md
+    - name: Analyzer-metod
+      href: AnalyzersMethod.md
+- name: Referens
+  items:
+    - name: API för språkanalys
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56ea598f778daf01942505ff/operations/56ea5a1cca73071fd4b102bb'
+    - name: Windows SDK
+      href: 'https://github.com/Microsoft/Cognitive-linguisticanalysis-windows'
+- name: Resurser
+  items:
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555928-linguistic-analysis-api'

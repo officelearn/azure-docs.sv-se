@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 45183e51e9071647e07cfd0738522f0dfa28bd7b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: efdef681dd94cdb97d84de657668c49022b72d95
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751504"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Alternativ för Azure AD-lösenordshantering
 
@@ -53,25 +54,6 @@ Vi har förbättrat sättet att du kan visa lösenordsåterställning och lösen
 6. Du kan filtrera den här vyn om du vill visa bara de lösenord-återställning relaterade händelserna, välja den **Filter** längst upp i fönstret.
 7. Från den **Filter** väljer du den **kategori** nedrullningsbara listan, och ändra den till den **Self-service lösenordshantering** kategorityp.
 8. Du kan också filtrera listan ytterligare genom att välja specifikt **aktiviteten** du är intresserad av.
-
-## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>Hur du hämtar lösenord management händelser från Azure AD-rapporter och händelser API
-
-Azure AD-rapporter och händelser API stöder hämtning av all information som ingår i lösenordsåterställning och rapporter för registrering för lösenordsåterställning. Du kan hämta enskilda lösenord Återställ lösenord Återställ registrering händelser och och integrera dem med reporting tekniken önskat genom att använda detta API.
-
-> [!IMPORTANT]
-> För närvarande Azure AD-rapporter och händelser API hämtar upp till *75 000 enskilda händelser* av den [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) och [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) typer. API: et omfattar de senaste 30 dagarna.
-> 
-> Om du behöver hämta eller lagra data utöver det här fönstret föreslår vi spara det i en extern databas med API för att fråga går som uppstår. Vi rekommenderar att du börjar hämta dessa data när du börjar använda SSPR i din organisation. Spara den externt och fortsätt sedan att spåra går från den tidpunkten och framåt.
->
-
-### <a name="how-to-get-started-with-the-reporting-api"></a>Hur du kommer igång med reporting API
-
-Om du vill komma åt dessa data, måste du skriva ett litet program eller skript för att hämta från våra servrar. Mer information finns i [Kom igång med Azure AD reporting API](../active-directory-reporting-api-getting-started-azure-portal.md).
-
-När du har ett fungerande skript vill du undersöka lösenord återställning och registrering händelser som du kan hämta för att uppfylla dina scenarier:
-
-* [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): Visar en lista över tillgängliga kolumner för händelser för återställning av lösenord.
-* [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): Visar en lista över tillgängliga kolumner för registrering händelser för återställning av lösenord.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Beskrivning av rapportkolumner i Azure-portalen
 

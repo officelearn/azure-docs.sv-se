@@ -1,0 +1,91 @@
+- name: Dokumentation om nyhetssökning i Bing
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är nyhetssökning i Bing?
+      href: search-the-web.md
+- name: Snabbstarter för REST API
+  expanded: true
+  items:
+    - name: Kom igång
+      href: quickstart.md
+    - name: 'C#'
+      href: csharp.md
+    - name: Java
+      href: java.md
+    - name: Node.js
+      href: nodejs.md
+    - name: PHP
+      href: php.md
+    - name: Python
+      href: python.md
+    - name: Ruby
+      href: ruby.md
+- name: Snabbstarter för SDK
+  items:
+    - name: Översikt över SDK-exempel
+      href: sdk.md
+    - name: 'Snabbstart för SDK för nyhetssökning i C#'
+      href: news-search-sdk-quickstart.md
+    - name: Snabbstart för SDK för nyhetssökning i Node.js
+      href: news-search-sdk-node-quickstart.md
+    - name: Snabbstart för SDK för nyhetssökning i Python
+      href: news-sdk-python-quickstart.md
+    - name: Snabbstart för SDK för nyhetssökning i Java
+      href: news-sdk-java-quickstart.md
+- name: Självstudier
+  items:
+    - name: Enkelsidig webbapp
+      href: tutorial-bing-news-search-single-page-app.md
+    - name: Enkelsidig webbapp (källkod)
+      href: tutorial-bing-news-search-single-page-app-source.md
+- name: Exempel
+  items:
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search'
+- name: Instruktionsguider
+  items:
+    - name: Använda och visa krav
+      href: UseAndDisplayRequirements.md
+    - name: Hantera träffmarkering
+      href: hit-highlighting.md
+    - name: Bläddra bland nyheter
+      href: paging-news.md
+    - name: Ändra storlek på och beskär miniatyrer
+      href: resize-and-crop-thumbnails.md
+    - name: Uppgradera från v5 till v7
+      href: bing-news-upgrade-guide-v5-to-v7.md
+    - name: Arbeta med Visual Studio
+      items:
+        - name: Använda den anslutna tjänsten för nyhetssökning i Bing
+          href: vs-bing-news-search-connected-service.md
+- name: Referens
+  items:
+    - name: API för nyhetssökning i Bing v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference'
+    - name: API för nyhetssökning i Bing v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference'
+- name: Resurser
+  items:
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/911449-bing-news-search-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+news+search'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Kunskapsbas
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: Hämta API-nyckel
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api'
+    - name: Prova!
+      href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553'
+    - name: Slutpunkt för nyhetssökning i Bing
+      href: endpoint-news.md
+    - name: Länder och marknader som stöds
+      href: supported-countries-markets.md
+    - name: Analys för API för nyhetssökning i Bing
+      href: bing-news-stats.md

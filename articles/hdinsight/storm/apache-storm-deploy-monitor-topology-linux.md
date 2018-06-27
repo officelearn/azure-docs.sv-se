@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 9dd63e1f3ec381dd99495ebc6193198611c76c88
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8b4584e9ccd17eba385f2068709f5bbaea6df20b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31417045"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019967"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Distribuera och hantera Apache Storm-topologier på HDInsight
 
@@ -40,9 +40,9 @@ I detta dokument, lär du dig grunderna för att hantera och övervaka Storm-top
 
     En av följande versioner av Visual Studio:
 
-  * Visual Studio 2012 med [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+  * Visual Studio 2012 med Update 4
 
-  * Visual Studio 2013 med [uppdatering 4](http://www.microsoft.com/download/details.aspx?id=44921) eller [Visual Studio Community 2013](http://go.microsoft.com/fwlink/?LinkId=517284)
+  * Visual Studio 2013 med Update 4 eller [Visual Studio Community 2013](http://go.microsoft.com/fwlink/?LinkId=517284)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
   * Visual Studio 2015 (någon utgåva)
@@ -64,7 +64,7 @@ HDInsight-verktyg kan användas för att skicka eller hybrid C#-topologier till 
 
 3. I den **nytt projekt** dialogrutan Expandera **installerad** > **mallar**, och välj sedan **HDInsight**. Välj i listan över mallar **Storm exempel**. Ange ett namn för programmet längst ned i dialogrutan.
 
-    ![Bild](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
+    ![image](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
 
 4. I **Solution Explorer**, högerklicka på projektet och välj **skicka till Storm på HDInsight**.
 

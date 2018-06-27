@@ -1,3 +1,20 @@
+---
+title: ta med fil
+description: ta med fil
+services: storage
+author: ramankumarlive
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: ramankum
+ms.custom: include file
+ms.openlocfilehash: 5cbe6f1f8f15e9da8e1fe6961d3da9b9e2a31e4b
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806391"
+---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Premium-lagring med hög prestanda och hanterade diskar för virtuella datorer
 Azure Premium Storage ger stöd för hög prestanda, låg latens diskar för virtuella datorer (VM) med in-/ utdata (I/O)-intensiv arbetsbelastning. Virtuella diskar som använder Premium-lagring kan du lagra data på SSD-enheter (SSD). Om du vill dra nytta av hastighet och prestanda för lagring av premiumdiskar, kan du migrera befintliga Virtuella diskar till Premium-lagring.
 
@@ -61,7 +78,7 @@ Här följer några av funktionerna i Premium-lagring:
 
 ## <a name="supported-vms"></a>Virtuella datorer som stöds
 
-Premium-lagring stöder B-serien, DS-serien, DSv2-serien, DSv3-serien, GS-serien, Ls-serien, M-serien och Fs-serien virtuella datorer. Du kan använda standard och premium-lagringsdiskar med dessa VM-typer. Du kan inte använda premium lagringsdiskar med VM-serien som inte är Premium Storage-kompatibel.
+Premium-lagring stöder B-serien, DS-serien, DSv2-serien, DSv3-serien, Esv3-serien, GS-serien, Ls-serien, M-serien och Fs-serien virtuella datorer. Du kan använda standard och premium-lagringsdiskar med dessa VM-typer. Du kan inte använda premium lagringsdiskar med VM-serien som inte är Premium Storage-kompatibel.
 
 
 Information om VM-typer och storlekar i Azure för Windows finns i artikeln [VM-storlekar för Windows](../articles/virtual-machines/windows/sizes.md). Information om VM-typer och storlekar i Azure för Linux finns i artikeln [VM-storlekar för Linux](../articles/virtual-machines/linux/sizes.md).
@@ -131,7 +148,7 @@ När du etablerar en disk för premium-lagring anger storleken på disken högst
 
 | Premium diskar typ  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Diskstorlek           | 32 GB| 64 GB| 128 GB| 256 GB| 512 GB            | 1 024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Diskstorlek           | 32 GB| 64 GB| 128 GB| 256 GB| 512 GB            | 1 024 GB (1 TB)    | 2 048 GB (2 TB)    | 4095 GB (4 TB)    | 
 | IOPS per disk       | 120   | 240   | 500   | 1100   | 2 300              | 5000              | 7500              | 7500              | 
 | Dataflöde per disk | 25 MB per sekund  | 50 MB per sekund  | 100 MB per sekund | 125 MB per sekund | 150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund | 
 
@@ -241,9 +258,9 @@ Följande Linux-distributioner har validerats för Azure Premium-lagring. För b
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
 | Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 12| 3.12.36-38.1+| SUSE sles-12-prioritet-v20150213 <br> SUSE-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
+| CoreOS | 584.0.0+| 3.18.4+ | Virtuell CoreOS 584.0.0 |
 | CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 krävs](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se anmärkning i nästa avsnitt* |
 | CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 rekommenderas](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se anmärkning i nästa avsnitt* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |

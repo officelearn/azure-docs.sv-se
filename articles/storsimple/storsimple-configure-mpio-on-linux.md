@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: df9f53694cd72a700d593550bfde13a4f25180db
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27779099"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021761"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurera MPIO på en StorSimple-värd som kör CentOS
 Den här artikeln beskrivs de steg som krävs för att konfigurera flera sökvägar I/O (MPIO) på värdservern Centos 6.6. Värdservern är ansluten till din Microsoft Azure StorSimple-enhet för hög tillgänglighet via iSCSI-initierare. Det beskrivs i detalj automatisk identifiering av multipath enheter och de specifika inställningarna endast för StorSimple-volymer.
@@ -120,7 +120,7 @@ Det här avsnittet beskrivs konfigurationskraven för CentOS server och din Stor
    4. Använd för att säkerställa att iSCSI-initieraren är aktiverad under starten av `chkconfig` kommando för att aktivera tjänsten.
       
        `chkconfig iscsi on`
-   5. Kontrollera att den har korrekt installationsprogrammet kör du kommandot:
+   5. Kontrollera att den installerades korrekt genom att köra kommandot:
       
        `chkconfig --list | grep iscsi`
       
@@ -160,7 +160,7 @@ Din StorSimple-enhet bör ha:
         10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
         10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
 
-### <a name="hardware-configuration"></a>Maskinvarukonfiguration
+### <a name="hardware-configuration"></a>Konfiguration av maskinvara
 Vi rekommenderar att du ansluter två iSCSI-nätverksgränssnitt i separata sökvägar för redundans. Bilden nedan visar den rekommenderade maskinvarukonfigurationen för hög tillgänglighet och belastningsutjämning MPIO för din CentOS server och StorSimple-enhet.
 
 ![MPIO maskinvarukonfiguration för StorSimple till Linux-värd](./media/storsimple-configure-mpio-on-linux/MPIOHardwareConfigurationStorSimpleToLinuxHost2M.png)
@@ -438,7 +438,7 @@ Mer information finns på [använda felsökning interaktiva kommandot för flera
 | &nbsp; |`chkconfig multipathd on` </br> ELLER </br> `mpathconf –with_chkconfig y` |Aktivera multipath daemon att starta vid start |
 | &nbsp; |`multipathd –k` |Starta den interaktiva för felsökning |
 | &nbsp; |`multipath –l` |Lista över multipath anslutningar och enheter |
-| &nbsp; |`mpathconf --enable` |Skapa en exempelfil mulitpath.conf i`/etc/mulitpath.conf` |
+| &nbsp; |`mpathconf --enable` |Skapa en exempelfil mulitpath.conf i `/etc/mulitpath.conf` |
 |  | | |
 
 ## <a name="next-steps"></a>Nästa steg

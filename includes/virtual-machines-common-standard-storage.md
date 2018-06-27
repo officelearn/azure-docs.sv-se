@@ -1,22 +1,39 @@
+---
+title: ta med fil
+description: ta med fil
+services: storage
+author: yuemlu
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: yuemlu
+ms.custom: include file
+ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806306"
+---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Kostnadseffektiv standardlagring och ohanterade och hanterade Virtuella Azure-diskar
 
-Azure standardlagring ger stöd för tillförlitlig, billig diskar för virtuella datorer som kör latens-okänslig arbetsbelastningar. Det stöder också blobbar, tabeller, köer och filer. Med standardlagring lagras data på hårddiskar (HDD). När du arbetar med virtuella datorer kan använda du standardlagring diskar för utveckling och testning scenarier och mindre viktiga arbetsbelastningar och premiumdiskar lagring för kritiska produktionsprogram. Standardlagring är tillgänglig i alla Azure-regioner. 
+Azure standardlagring ger stöd för tillförlitlig, billig diskar för virtuella datorer som kör latens-okänslig arbetsbelastningar. Det stöder också blobbar, tabeller, köer och filer. Med standardlagring lagras data på hårddiskar (HDD). När du arbetar med virtuella datorer, kan du använda standard SSD och HDD-diskar för utveckling och testning scenarier och mindre viktiga arbetsbelastningar och premium SSD-diskar för verksamhetskritiska produktionsprogram. Standardlagring är tillgänglig i alla Azure-regioner. 
 
-Den här artikeln fokuserar på att använda standardlagring för Virtuella diskar. Mer information om hur du använder lagring med blobbar, tabeller, köer och filer finns i den [introduktion till Storage](../articles/storage/common/storage-introduction.md).
+Den här artikeln fokuserar på användning av standard SSD och HDD-diskar. Mer information om hur du använder lagring med blobbar, tabeller, köer och filer finns [introduktion till Storage](../articles/storage/common/storage-introduction.md).
 
 ## <a name="disk-types"></a>Disktyper
 
 Det finns två sätt att skapa standarddiskar för virtuella Azure-datorer:
 
-**Ohanterad diskar**: Detta är den ursprungliga metoden där du hanterar storage-konton som används för att lagra VHD-filer som motsvarar VM-diskarna. VHD-filer lagras som sidblobbar i storage-konton. Ohanterad diskar kan kopplas till en Azure VM-storlek, inklusive de virtuella datorer som i första hand använder Premiumlagring, till exempel DSv2 och GS-serien. Virtuella Azure-datorer stöder bifoga flera standarddiskar tillåter upp till 256 TB lagringsutrymme per virtuell dator.
+**Ohanterad diskar**: den här typen av disk är den ursprungliga metoden där du hanterar storage-konton som används för att lagra VHD-filer som motsvarar VM-diskarna. VHD-filer lagras som sidblobbar i storage-konton. Ohanterad diskar kan kopplas till en Azure VM-storlek, inklusive de virtuella datorer som i första hand använder Premiumlagring, till exempel DSv2 och GS-serien. Virtuella Azure-datorer stöder bifoga flera standarddiskar tillåter upp till 256 TB lagringsutrymme per virtuell dator.
 
-[**Azure-hanterade diskar**](../articles/virtual-machines/windows/managed-disks-overview.md): funktionen hanterar storage-konton som används för de Virtuella diskarna för dig. Du anger typ (Premium eller Standard) och storlek på disk och Azure skapar och hanterar disken du. Du behöver inte bry dig om att placera diskarna över flera lagringskonton för att säkerställa att du håller dig inom skalbarhetsgränser lagringskontots--Azure hanterar som du.
+[**Azure-hanterade diskar**](../articles/virtual-machines/windows/managed-disks-overview.md): funktionen hanterar storage-konton som används för de Virtuella diskarna för dig. Du anger typ (Premium SSD, Standard SSD eller Standard HDD) och storlek på disk och Azure skapar och hanterar disken du. Du behöver inte bry dig om att placera diskarna över flera lagringskonton för att säkerställa att du håller dig inom skalbarhetsgränser lagringskontots--Azure hanterar som du.
 
 Även om båda typer av diskar är tillgängliga, bör du använda hanterade diskar dra nytta av de många funktionerna.
 
 Kom igång med Azure standardlagring, besök [Kom igång gratis](https://azure.microsoft.com/pricing/free-trial/). 
 
-För information om hur du skapar en virtuell dator med hanterade diskar, se något av följande artiklar.
+Information om hur du skapar en virtuell dator med hanterade diskar finns i något av följande artiklar.
 
 * [Skapa en virtuell dator med Resource Manager och PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
 * [Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
@@ -27,7 +44,9 @@ Låt oss ta en titt på några av funktionerna i standardlagring. Mer informatio
 
 **Standardlagring**: Azure standardlagring stöder Azure-diskar, Azure BLOB, Azure-filer, Azure-tabeller och köer i Azure. Om du vill använda standardlagring services måste börja med [skapa ett Azure Storage-konto](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-**Standard lagringsdiskar:** standardlagring diskar kan kopplas till alla virtuella datorer i Azure inklusive storlek-serien virtuella datorer som används med Premium-lagring, till exempel DSv2 och GS-serien. En standardlagring disk kan endast kopplas till en virtuell dator. Du kan dock koppla en eller flera av dessa diskar till en virtuell dator, upp till antalet maximal disk som definierats för denna VM-storlek. I följande avsnitt på Standard skalbarhets- och Storage prestandamål beskrivs specifikationer i detalj. 
+**Standard SSD-diskar:** Standard SSD-diskar ger bättre prestanda än Standard HDD-diskar och är tillgängliga i förhandsversionen. Mer information om regional tillgänglighet Standard SSD-diskar finns [regional tillgänglighet Standard SSD-diskar (förhandsgranskning)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+
+**Standarddiskar Hårddisk:** Standard HDD-diskar kan kopplas till alla virtuella datorer i Azure inklusive storlek-serien virtuella datorer som används med Premium-lagring, till exempel DSv2 och GS-serien. En Standard HDD-disk kan bara kopplas till en virtuell dator. Du kan dock koppla en eller flera av dessa diskar till en virtuell dator, upp till antalet maximal disk som definierats för denna VM-storlek. I följande avsnitt på Standard skalbarhets- och Storage prestandamål beskrivs specifikationer i detalj.
 
 **Standard sidblob**: Standard sidblobar används för att lagra beständiga diskar för virtuella datorer och kan också komma åt direkt via REST precis som andra typer av Azure-BLOB. [Sidblobbar](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) är en samling 512 byte-sidor som är optimerade för slumpmässiga Läs- och skrivåtgärder. 
 

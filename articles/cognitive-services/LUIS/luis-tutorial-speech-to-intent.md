@@ -8,14 +8,14 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/26/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 6f2bf2ae454d5af1bba0c176940db1820268a129
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b8a2c0dbadb0124b9250849a0260f5b34d38a5c3
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266285"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021671"
 ---
 # <a name="integrate-speech-service"></a>Integrera service tal
 Den [tal tjänsten](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kan du använda en enskild begäran att ta emot ljud och returnera THOMAS förutsägelse JSON-objekt.
@@ -23,6 +23,9 @@ Den [tal tjänsten](https://docs.microsoft.com/azure/cognitive-services/Speech-S
 I den här artikeln, hämta och använda ett C#-projekt i Visual Studio för att tala en utterance i en mikrofon och ta emot information om THOMAS förutsägelse. Projektet använder talfunktionen [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paketet, som redan ingår som en referens. 
 
 För den här artikeln behöver du ett kostnadsfritt [THOMAS] [ LUIS] webbplats konto för att importera programmet.
+
+## <a name="create-luis-endpoint-key"></a>Skapa THOMAS slutpunktsnyckel
+I Azure-portalen [skapa](luis-how-to-azure-subscription.md#create-luis-endpoint-key) en **språk förstå** (THOMAS) nyckel. 
 
 ## <a name="import-human-resources-luis-app"></a>Importera personal THOMAS app
 Intents och utterances för den här artikeln kommer från personalavdelningen THOMAS appen tillgänglig från den [THOMAS prover](https://github.com/Microsoft/LUIS-Samples) Github-lagringsplatsen. Hämta den [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) filen, spara den med filnamnstillägget *.json och [importera](create-new-app.md#import-new-app) till THOMAS. 
@@ -40,11 +43,22 @@ Do I have any paid time off?
 När du har importerat appen, Välj **entiteter**, sedan **hantera färdiga entiteter**. Lägg till den **KeyPhrase** entitet. Entiteten KeyPhrase extraherar viktiga ämne från utterance.
 
 ## <a name="train-and-publish-the-app"></a>Träna och publicera appen
-Träna och publicera appen. På den **publicera** sidan, samla in app-ID, publicera region och prenumerations-ID. Du behöver ändra koden för att använda dessa värden senare i den här artikeln. 
+1. I det övre, högra navigeringsfältet, Välj den **träna** knappen för att träna THOMAS appen.
 
-Dessa värden ingår i slutpunkts-URL längst ned i den **publicera** sidan. 
+2. Välj **publicera** att gå till sidan Publicera. 
 
-https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? prenumeration nyckel =**LUISKEY**& q =
+3. Längst ned i den **publicera** , Lägg till THOMAS nyckeln som skapats i den [skapa THOMAS slutpunktsnyckel](#create-luis-endpoint-key) avsnitt.
+
+4. Publicera THOMAS appen genom att välja den **publicera** till höger i publicera platsen. 
+
+  På den **publicera** sidan, samla in app-ID, publicera region och prenumerations-ID för THOMAS nyckeln som skapats i den [skapa THOMAS slutpunktsnyckel](#create-luis-endpoint-key) avsnitt. Du behöver ändra koden för att använda dessa värden senare i den här artikeln. 
+
+  Dessa värden ingår i slutpunkts-URL längst ned i den **publicera** för nyckeln som du skapade. Gör **inte** använda den kostnadsfria starter-nyckeln för den här övningen. 
+
+  https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? prenumeration nyckel =**LUISKEY**& q =
+
+## <a name="audio-device"></a>Ljudenhet
+Den här artikeln använder enheten på datorn. Det kan vara hörlurar med mikrofon eller en inbyggda ljudenhet. Kontrollera ljud inkommande nivåer för att se om du ska talar högre än vanligt om du vill att ditt tal som identifieras av enheten. 
 
 ## <a name="download-the-luis-sample-project"></a>Ladda ned LUIS Sample-projekt
  Klona eller hämta den [THOMAS prover](https://github.com/Microsoft/LUIS-Samples) databasen. Öppna den [tal avsiktshantering projektet](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) med Visual Studio och återställa NuGet-paketen. Lösningsfilen VS är.\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
@@ -108,7 +122,7 @@ Recognition done. Your Choice:
 
 ```
 
-Rätt avsikten **GetEmployeeOrgChart**, hittades med 61%. Keyphrase entitet returnerades. 
+Rätt avsikten **GetEmployeeOrgChart**, hittades med 61%. KeyPhrase entitet returnerades. 
 
 Tal SDK Returnerar hela THOMAS svaret. 
 

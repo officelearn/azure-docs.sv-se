@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 62f5ae4a9152d3f1b1641cc69136bf472527ba2a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e2512a2af05ee7101713886c3ae1b5c6c74dd3db
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942419"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018546"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 Dessa viktig information för Azure Media Services sammanfattar ändringar från tidigare versioner och kända problem.
@@ -44,9 +44,9 @@ Dessa viktig information för Azure Media Services sammanfattar ändringar från
 
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Versionshistorik för REST-API
-Information om tidigare för Media Services REST API-versioner finns i [Azure Media Services REST API-referensen].
+Information om tidigare för Media Services REST API-versioner finns i [Azure Media Services REST API-referens].
 
-## <a name="may-2018"></a>Kan 2018 
+## <a name="may-2018"></a>Maj 2018 
 
 Startar den 12 maj 2018 live-kanaler kommer inte längre stöd för RTP/MPEG-2-transportström infogningsprotokollet. Migrera från RTP/MPEG-2 till RTMP eller fragmenterad MP4 (Smooth Streaming) infognings-protokoll.
 
@@ -170,7 +170,6 @@ Azure SDK-teamet publicerat en ny version av den [Azure SDK för PHP](http://git
 
 Mer information finns i:
 
-* Den [Media Services SDK för PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) blogg.
 * Följande [kodexempel](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) hjälper dig att snabbt komma igång:
   * **vodworkflow_aes.php**: den här PHP-filen visas hur du använder AES-128 dynamisk kryptering och tjänsten nyckel. Den är baserad på .NET-exempel som beskrivs i [Använd AES-128 dynamisk kryptering och tjänsten key](media-services-protect-with-aes128.md).
   * **vodworkflow_aes.php**: den här PHP-filen visas hur du använder PlayReady dynamisk kryptering och licensleveranstjänst. Den är baserad på .NET-exempel som beskrivs i [Använd PlayReady och/eller Widevine dynamic vanliga kryptering](media-services-protect-with-playready-widevine.md).
@@ -209,9 +208,7 @@ Mer information finns i [bloggen](https://azure.microsoft.com/blog/azure-media-s
 
 ## <a id="august_changes_15"></a>Augusti 2015-versionen
 * Media Services SDK för Java-versionen 0.8.0 och nya prov är nu tillgängliga. Mer information finns i:
-  
-  * [Det här blogginlägget](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
-  * [I prover Java-databasen](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+    
 * Azure Media Player har uppdaterats med stöd för flera ljudström. Mer information finns i [i det här blogginlägget](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
 
 ## <a id="july_changes_15"></a>Versionen för juli 2015
@@ -310,7 +307,7 @@ Den [Media Services .NET SDK](http://www.nuget.org/packages/windowsazure.mediase
 
 ## <a id="october_changes_14"></a>Oktober 2014-versionen
 ### <a id="new_encoder_release"></a>Media Services Encoder versionen
- Den nya versionen av Media Services Azure Media Encoder har meddelats. Med den senaste Media Encoder, är du debiteras för utdata GB. Annars är nya kodaren funktionen som är kompatibel med tidigare kodaren. Mer information finns i [Media Services prisinformation].
+ Den nya versionen av Media Services Azure Media Encoder har meddelats. Med den senaste Media Encoder, är du debiteras för utdata GB. Annars är nya kodaren funktionen som är kompatibel med tidigare kodaren. Mer information finns i [Prisinformation om Media Services].
 
 ### <a id="oct_sdk"></a>Media Services .NET SDK
 Media Services SDK för .NET-tilläggen är nu version 2.0.0.3.
@@ -355,11 +352,11 @@ Media Services SDK för .NET är nu version 3.0.0.7
 * Dynamisk AES-kryptering. Mer information finns i [Använd AES-128 dynamisk kryptering och tjänsten key](http://msdn.microsoft.com/library/azure/dn783457.aspx).
 * Playreadys licensleveranstjänst. 
 * PlayReady dynamisk kryptering. 
-* Media Services PlayReady license-mall. Mer information finns i [Media Services PlayReady licens mall översikt].
+* Media Services PlayReady license-mall. Mer information finns i [Översikt för Media Services PlayReady-licensmall].
 * Dataströmmen lagring krypteras tillgångar. Mer information finns i [strömma lagring-krypterat innehåll](http://msdn.microsoft.com/library/azure/dn783451.aspx).
 
 ## <a id="august_changes_14"></a>Augusti 2014-versionen
-När du koda en tillgång, skapas en utdatatillgången när kodningsjobbet är klar. Media Services-kodaren gav metadata om utdata tillgångar förrän den här versionen. Från och med den här versionen, producerar kodaren också metadata om inkommande tillgångar. Mer information finns i [ange metadata] och [utdata metadata].
+När du koda en tillgång, skapas en utdatatillgången när kodningsjobbet är klar. Media Services-kodaren gav metadata om utdata tillgångar förrän den här versionen. Från och med den här versionen, producerar kodaren också metadata om inkommande tillgångar. Mer information finns i [Inkommande metadata] och [Utgående metadata].
 
 ## <a id="july_changes_14"></a>Versionen som juli 2014
 Följande felkorrigeringar har gjorts för Azure Media Services Paketeraren och Krypterare:
@@ -545,10 +542,10 @@ Följande funktioner är nya i November-versionen av SDK:
 
 <!--- URLs. --->
 [Azure Media Services MSDN-Forum]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
-[Azure Media Services REST API-referensen]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
-[Media Services prisinformation]: http://azure.microsoft.com/pricing/details/media-services/
-[ange metadata]: http://msdn.microsoft.com/library/azure/dn783120.aspx
-[utdata metadata]: http://msdn.microsoft.com/library/azure/dn783217.aspx
+[Azure Media Services REST API-referens]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
+[Prisinformation om Media Services]: http://azure.microsoft.com/pricing/details/media-services/
+[Inkommande metadata]: http://msdn.microsoft.com/library/azure/dn783120.aspx
+[Utgående metadata]: http://msdn.microsoft.com/library/azure/dn783217.aspx
 [Deliver content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [Index media files with the Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
@@ -556,14 +553,14 @@ Följande funktioner är nya i November-versionen av SDK:
 [Use AES-128 dynamic encryption and the key delivery service]: http://msdn.microsoft.com/library/azure/dn783457.aspx
 [Use PlayReady dynamic encryption and the license delivery service]: http://msdn.microsoft.com/library/azure/dn783467.aspx
 [Preview features]: http://azure.microsoft.com/services/preview/
-[Media Services PlayReady licens mall översikt]: http://msdn.microsoft.com/library/azure/dn783459.aspx
+[Översikt för Media Services PlayReady-licensmall]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [Stream storage-encrypted content]: http://msdn.microsoft.com/library/azure/dn783451.aspx
 [Azure portal]: https://portal.azure.com
 [Dynamisk paketering]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin's blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protect Smooth Streaming with PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
-[försök logiken i Media Services SDK för .NET]: http://msdn.microsoft.com/library/azure/dn745650.aspx
-[bete DAL annonserar EDIUS 7 strömning via molnet]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
+[Försök logiken i Media Services SDK för .NET]: http://msdn.microsoft.com/library/azure/dn745650.aspx
+[Bete DAL annonserar EDIUS 7 strömning via molnet]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Control Media Services Encoder output file names]: http://msdn.microsoft.com/library/azure/dn303341.aspx
 [Create overlays]: http://msdn.microsoft.com/library/azure/dn640496.aspx
 [Stitch video segments]: http://msdn.microsoft.com/library/azure/dn640504.aspx

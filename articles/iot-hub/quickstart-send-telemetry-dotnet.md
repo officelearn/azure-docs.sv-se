@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3fe783f8b5a7955ebe117df02edcdc6aafeff4f8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dbb4ce971e6504f33de82e31cf289a42a1640952
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636859"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293177"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb och läs telemetrin från navet med ett serverdelsprogram (C#)
 
@@ -60,7 +60,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
     Om du väljer ett annat namn för din enhet måste du uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
-1. Kör följande kommando för att hämta _enhetsanslutningssträngen_ för enheten du just registrerade:
+2. Kör följande kommando för att hämta _enhetsanslutningssträngen_ för enheten du just registrerade:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
@@ -68,7 +68,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
     Anteckna enhetsanslutningssträngen. Den ser ut ungefär som `Hostname=...=`. Du kommer att använda det här värdet senare i snabbstarten.
 
-1. Du behöver också den _Event Hubs-kompatibla slutpunkten_, den _Event Hubs-kompatibla sökvägen_ och _iothubowner-primärnyckeln_ från din IoT-hubb för att kunna aktivera serverdelsprogrammet och ansluta till din IoT-hubb och hämta meddelandena. Följande kommandon hämtar dessa värden för din IoT-hubb:
+3. Du behöver också den _Event Hubs-kompatibla slutpunkten_, den _Event Hubs-kompatibla sökvägen_ och _iothubowner-primärnyckeln_ från din IoT-hubb för att kunna aktivera serverdelsprogrammet och ansluta till din IoT-hubb och hämta meddelandena. Följande kommandon hämtar dessa värden för din IoT-hubb:
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
@@ -86,17 +86,17 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
 
 1. Navigera till C#-exempelprojektets rotmapp i ett terminalfönster. Gå sedan till mappen **iot-hub\Quickstarts\simulated-device**.
 
-1. Öppna filen **SimulatedDevice.cs** i en valfri textredigerare.
+2. Öppna filen **SimulatedDevice.cs** i en valfri textredigerare.
 
     Ersätt värdet för `connectionString`-variabeln med den enhetsanslutningssträng du antecknade tidigare. Spara dina ändringar i filen **SimulatedDevice.cs**.
 
-1. Installera de paket som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i terminalfönstret:
+3. Installera de paket som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i terminalfönstret:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. Kör det simulerade enhetsprogrammet genom att skapa och köra följande kommandon i terminalfönstret:
+4. Kör det simulerade enhetsprogrammet genom att skapa och köra följande kommandon i terminalfönstret:
 
     ```cmd/sh
     dotnet run
@@ -112,21 +112,21 @@ Serverdelsprogrammet ansluter till **Events**-slutpunkten för tjänstsidan på 
 
 1. Navigera till C#-exempelprojektets rotmapp i ett annat terminalfönster. Gå sedan till mappen **iot-hub\Quickstarts\read-d2c-messages**.
 
-1. Öppna filen **ReadDeviceToCloudMessages.cs** i en valfri textredigerare.
+2. Öppna filen **ReadDeviceToCloudMessages.cs** i en valfri textredigerare. Uppdatera följande variabler och spara ändringarna i filen.
 
-    Ersätt värdet för `eventHubsCompatibleEndpoint`-variabeln med den Event Hubs-kompatibla slutpunkt du antecknade tidigare.
+    | Variabel | Värde |
+    | -------- | ----------- |
+    | `eventHubsCompatibleEndpoint` | Ersätt värdet för variabeln med den Event Hubs-kompatibla slutpunkt du antecknade tidigare. |
+    | `eventHubsCompatiblePath`     | Ersätt värdet för variabeln med den Event Hubs-kompatibla sökväg du antecknade tidigare. |
+    | `iotHubSasKey`                | Ersätt värdet för variabeln med den iothubowner-primärnyckel du antecknade tidigare. |
 
-    Ersätt värdet för `eventHubsCompatiblePath`-variabeln med den Event Hubs-kompatibla sökväg du antecknade tidigare.
-
-    Ersätt värdet för `iotHubSasKey`-variabeln med den iothubowner-primärnyckel du antecknade tidigare. Spara sedan dina ändringar i filen **ReadDeviceToCloudMessages.cs**.
-
-1. Installera de bibliotek som krävs för serverdelsprogrammet genom att köra följande kommandon i terminalfönstret:
+3. Installera de bibliotek som krävs för serverdelsprogrammet genom att köra följande kommandon i terminalfönstret:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. Skapa och kör serverdelsprogrammet genom att köra följande kommandon i terminalfönstret:
+4. Skapa och kör serverdelsprogrammet genom att köra följande kommandon i terminalfönstret:
 
     ```cmd/sh
     dotnet run
@@ -138,9 +138,7 @@ Serverdelsprogrammet ansluter till **Events**-slutpunkten för tjänstsidan på 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att slutföra nästa snabbstart så lämna resursgruppen och IoT-hubben och återanvänd dem senare.
-
-Om du inte behöver IoT-hubben längre kan du ta bort den och resursgruppen i portalen. Det gör du genom att markera **qs-iot-hub-rg**-resursgruppen som innehåller din IoT-hubb och klicka på **Ta bort**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

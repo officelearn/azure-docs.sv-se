@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9542eedecaf8dc6d689bf6192f74eee15287ae99
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178763"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295434"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
@@ -67,6 +67,7 @@ Du måste använda offentliga IP-adresser som du äger när du konfigurerar BGP-
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>IP-adresser för Microsofts peering
 Du måste använda offentliga IP-adresser som du äger när du konfigurerar BGP-sessionerna. Microsoft måste kunna verifiera ditt ägarskap till IP-adresserna via RIR (Routing Internet Registries) och IIR (Internet Routing Registries).
 
+* IP-adresser i portalen för annonserade offentliga prefix för Microsoft Peering kommer att skapa ACL:er för Microsoft-kärnroutrar för att tillåta inkommande trafik från dessa IP-adresser. 
 * Du måste använda ett unikt /29 (IPv4) eller /125 (IPv6)-undernät eller två /30 (IPv4) eller /126 (IPv6)-undernät till att konfigurera BGP-peeringen för varje peering per ExpressRoute-krets (om du har fler än en).
 * Om ett /29-undernät används delas det upp i två /30-undernät.
 * Det första /30-undernätet används för den primära länken och det andra/30-undernätet används för den sekundära länken.

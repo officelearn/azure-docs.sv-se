@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: aea76544f244adba8368a1d8fbe268746060b5a6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 23d4afffbe108d439dd53d95ed81f7d9fc4246ef
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30169833"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284586"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Kopiera data med verktyget Kopiera data 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -71,69 +71,73 @@ I den här snabbstarten använder du Azure-portalen för att skapa en datafabrik
 1. Sidan **Nu sätter vi igång** visas. Välj panelen **Kopiera data** för att starta verktyget kopieringsdata. 
 
    ![Panelen Kopiera data](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-tile.png)
-2. Välj **Nästa** på sidan **Egenskaper** för verktyget Kopiera data. Du kan ange ett namn och en beskrivning för pipelinen på den här sidan. 
+
+2. På sidan **Egenskaper** sida i verktyget Kopiera data kan du ange ett namn för din pipeline och dess beskrivning och sedan välja **Nästa**. 
 
    ![Sidan Egenskaper](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png)
-3. Välj **Azure Blob Storage** på sidan om **källdatalager** och klicka på **Nästa**.
+3. Gör följande på sidan **Källdatalager**:
 
-   ![Sidan om källdatalager](./media/quickstart-create-data-factory-copy-data-tool/source-data-store-page.png)
-4. Sidan för att **ange Azure Blob Storage-konto** visas. Välj ditt lagringskonto i listan med **lagringskontonamn** och välj sedan **Nästa**. 
+    a. Klicka på **+ Skapa ny anslutning** för att lägga till en anslutning.
 
-   ![Sidan för att ange Azure Blob Storage-konto](./media/quickstart-create-data-factory-copy-data-tool/specify-blob-storage-account.png)
-5. Gör följande på sidan för att **välja indatafil eller -mapp**:
+    ![Sidan om källdatalager](./media/quickstart-create-data-factory-copy-data-tool/new-source-linked-service.png)
 
-   a. Bläddra till mappen **adftutorial/input**.
+    b. Välj **Azure Blob Storage** från galleriet och välj sedan **Nästa**.
 
-   b. Välj filen **emp.txt**.
+    ![Välj blobblagring från galleriet](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-   c. Klicka på **Välj**. Du kan hoppa över det här steget genom att dubbelklicka på **emp.txt**.
+    c. Sidan för att **ange Azure Blob Storage-konto** visas. Välj ditt lagringskonto i listan med **lagringskontonamn** och välj sedan **Nästa**. 
 
-   d. Välj **Nästa**. 
+   ![Konfigurera Azure Blob Storage-konto](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 
-   ![Sidan för att välja indatafil eller -mapp](./media/quickstart-create-data-factory-copy-data-tool/choose-input-file-folder.png)
-6. Sidan med **filformatsinställningar** visas. Observera att verktyget automatiskt identifierar kolumn- och radavgränsare och klicka på **Nästa**. Du kan också förhandsgranska data och visa scheman för indata på den här sidan. 
+   d. Välj den nyligen skapade länkade tjänsten som källa och klicka sedan på **Nästa**.
 
-   ![Sidan med filformatsinställningar](./media/quickstart-create-data-factory-copy-data-tool/file-format-settings-page.png)
-7. Sidan **Destination data store** (Måldatalager) visas. Välj **Azure Blob Storage** och sedan **Nästa**. 
+   ![Välj källa för den länkade tjänsten](./media/quickstart-create-data-factory-copy-data-tool/select-source-linked-service.png)
 
-   ![Sidan om måldatalager](./media/quickstart-create-data-factory-copy-data-tool/destination-data-store-page.png)    
-8. Sidan för att **ange Azure Blob Storage-konto** visas. Välj ditt Azure Blob Storage-konto och sedan **Nästa**. 
 
-   ![Sidan för att ange Azure Blob Storage-konto](./media/quickstart-create-data-factory-copy-data-tool/specify-sink-blob-storage-account.png)
-9. Gör följande på sidan **Choose the output file or folder** (Välj utdatafil eller -mapp): 
+4. Gör följande på sidan för att **välja indatafil eller -mapp**:
 
-   a. Ange **adftutorial/output** som mappsökväg.
+   a. Klicka på **Bläddra** för att gå till mappen **adftutorial/input**, välj filen **emp.txt** och klicka på **Välj**. 
 
-   b. Ange **emp.txt** som filnamn.
+   ![Sidan för att välja indatafil eller -mapp](./media/quickstart-create-data-factory-copy-data-tool/configure-source-path.png)
 
-   c. Välj **Nästa**. 
+   d. Markera alternativet **binär kopia** för att kopiera filen i befintligt skick och välj **nästa**. 
 
-   ![Sidan för att välja utdatafil eller -mapp](./media/quickstart-create-data-factory-copy-data-tool/choose-output-file-folder.png) 
-10. Sidan med **filformatsinställningar** visas. Välj **Nästa**. 
+   ![Sidan för att välja indatafil eller -mapp](./media/quickstart-create-data-factory-copy-data-tool/select-binary-copy.png)
 
-    ![Sidan med filformatsinställningar](./media/quickstart-create-data-factory-copy-data-tool/file-format-settings-output-page.png)
-11. Sidan **Settings** (Inställningar) visas. Välj **Nästa**. 
 
-    ![Sidan med inställningar](./media/quickstart-create-data-factory-copy-data-tool/advanced-settings-page.png)
-12. Granska alla inställningar på sidan **Summary** (Sammanfattning) och klicka på **Nästa**. 
+5. Sidan **Destination data store** (Måldatalager) visas. Välj den länkade **Azure Blob Storage**-tjänsten som du skapade och sedan **Nästa**. 
+
+   ![Sidan om måldatalager](./media/quickstart-create-data-factory-copy-data-tool/select-sink-linked-service.png)
+
+6. På sidan **Välj utdatafil eller mapp** anger du **adftutorial/fromonprem** och klickar på **Nästa**. 
+
+   ![Sidan för att välja utdatafil eller -mapp](./media/quickstart-create-data-factory-copy-data-tool/configure-sink-path.png) 
+
+7. På sidan **Inställningar** väljer du **Nästa** för att använda standardkonfigurationerna. 
+
+8. Granska alla inställningar på sidan **Summary** (Sammanfattning) och klicka på **Nästa**. 
 
     ![Sidan med sammanfattning](./media/quickstart-create-data-factory-copy-data-tool/summary-page.png)
-13. Sidan om att **distributionen har slutförts** visas. Välj **Övervaka** om du vill övervaka den pipeline du har skapat. 
+
+9. Sidan om att **distributionen har slutförts** visas. Välj **Övervaka** om du vill övervaka den pipeline du har skapat. 
 
     ![Sidan om att distributionen har slutförts](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
-14. Programmet växlar till fliken **Övervaka**. På den här fliken visas status för pipelinen. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera). 
+
+10. Programmet växlar till fliken **Övervaka**. På den här fliken visas status för pipelinen. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera). 
     
-    ![Flik för att övervaka pipelinekörningar med knapp för att uppdatera](./media/quickstart-create-data-factory-copy-data-tool/monitor-pipeline-runs-page.png)
-15. Välj länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Actions** (Åtgärder). Pipelinen har endast en aktivitet av typen **Kopiera**. 
+    ![Övervaka pipelinekörning](./media/quickstart-create-data-factory-copy-data-tool/pipeline-monitoring.png)
 
-    ![Lista över aktivitetskörningar](./media/quickstart-create-data-factory-copy-data-tool/activity-runs.png)
-16. Om du vill se mer information om kopieringsåtgärden väljer du länken **Detaljer** (glasögonbilden) i kolumnen **Actions** (Åtgärder). Mer information om egenskaperna finns i [Copy Activity overview](copy-activity-overview.md) (Översikt över kopieringsaktivitet). 
+11. Välj länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Actions** (Åtgärder). Pipelinen har endast en aktivitet av typen **Kopiera**. 
 
-    ![Detaljerad information om kopieringsåtgärden](./media/quickstart-create-data-factory-copy-data-tool/copy-operation-details.png)
-17. Verifiera att filen **emp.txt** har skapats i mappen **output** för behållaren **adftutorial**. Om utdatamappen inte finns skapas den automatiskt av Data Factory-tjänsten. 
-18. Välj fliken **Edit** (Redigera) så kan du redigera länkade tjänster, datauppsättningar och pipeliner. Mer information om hur du redigerar dessa i användargränssnittet för Data Factory finns i [Skapa en datafabrik med hjälp av Azure-portalen](quickstart-create-data-factory-portal.md).
+    ![Övervaka aktivitetskörningar](./media/quickstart-create-data-factory-copy-data-tool/activity-monitoring.png)
+    
+12. Om du vill se mer information om kopieringsåtgärden väljer du länken **Detaljer** (glasögonbilden) i kolumnen **Actions** (Åtgärder). Mer information om egenskaperna finns i [Copy Activity overview](copy-activity-overview.md) (Översikt över kopieringsaktivitet).
 
-    ![Fliken Redigera](./media/quickstart-create-data-factory-copy-data-tool/edit-tab.png)
+    ![Detaljerad information om kopieringsåtgärden](./media/quickstart-create-data-factory-copy-data-tool/activity-execution-details.png)
+
+13. Verifiera att filen **emp.txt** har skapats i mappen **output** för behållaren **adftutorial**. Om utdatamappen inte finns skapas den automatiskt av Data Factory-tjänsten. 
+
+14. Växla till fliken **Fönster** över fliken **Övervakare** på den vänstra panelen så att du kan redigera länkade tjänster, datauppsättningar och piplines. Mer information om hur du redigerar dessa i användargränssnittet för Data Factory finns i [Skapa en datafabrik med hjälp av Azure-portalen](quickstart-create-data-factory-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Pipelinen i det här exemplet kopierar data från en plats till en annan i Azure Blob Storage. Gå igenom [självstudiekurserna](tutorial-copy-data-portal.md) om du vill lära dig hur du använder Data Factory i fler scenarier. 

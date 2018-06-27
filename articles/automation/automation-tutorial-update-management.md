@@ -1,6 +1,6 @@
 ---
 title: Hantera uppdateringar och korrigeringar för dina virtuella Windows-datorer i Azure
-description: I den här artikeln finns en översikt över hur du använder Azure Automation – Uppdateringshantering för att hantera uppdateringar och korrigeringsfiler för dina virtuella Azure-datorer i Windows.
+description: I den här artikeln finns en översikt över hur du använder Azure Automations uppdateringshantering för att hantera uppdateringar och korrigeringsfiler för dina virtuella Azure-datorer i Windows.
 services: automation
 author: zjalexander
 ms.service: automation
@@ -9,21 +9,20 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 84ec2a5852e6aaeb4b9fe6ef11924209d03fb54b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 92258ce7ea39a06f2af85efd9174b1b200710566
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34054767"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36216974"
 ---
-# <a name="manage-windows-updates-with-azure-automation"></a>Hantera Windows-uppdateringar med Azure Automation
+# <a name="manage-windows-updates-by-using-azure-automation"></a>Hantera Windows-uppdateringar med hjälp av Azure Automation
 
-Med Uppdateringshantering kan du hantera uppdateringar och korrigeringar för dina virtuella datorer.
-I den här självstudien får du lära dig hur du utvärderar statusen för tillgängliga uppdateringar snabbt, planerar installation av uppdateringar som krävs, granskar distributionsresultat och skapar en avisering för att verifiera uppdateringar.
+Du kan använda uppdateringshanteringen för att hantera uppdateringar och korrigeringar av virtuella datorer. I den här självstudien får du lära dig hur du utvärderar statusen för tillgängliga uppdateringar snabbt, planerar installation av uppdateringar som krävs, granskar distributionsresultat och skapar en avisering för att verifiera uppdateringar.
 
-Prisinformation finns i [Automation-priser för uppdateringshantering](https://azure.microsoft.com/pricing/details/automation/)
+Prisinformation finns i [Automation-priser för uppdateringshantering](https://azure.microsoft.com/pricing/details/automation/).
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Publicera en virtuell dator för hantering av uppdateringar
@@ -37,63 +36,61 @@ I den här guiden får du lära dig att:
 För att slutföra den här kursen behöver du:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina månatliga Azure-krediter för Visual Studio-prenumeranter ](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Ett [Automation-konto](automation-offering-get-started.md) för bevakaren och åtgärdsrunbooks och bevakaraktiviteten.
+* Ett [Azure Automation-konto](automation-offering-get-started.md) för bevakaren samt runbooks-flöden för åtgärd och bevakaraktivitet.
 * En [virtuell dator](../virtual-machines/windows/quick-create-portal.md) som du vill publicera.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="enable-update-management"></a>Aktivera uppdateringshantering
 
-Först måste du aktivera uppdateringshantering på din virtuella datorn för att kunna genomföra den här självstudien.
+Först aktiverar du uppdateringshantering på din virtuella datorn för att kunna genomföra den här självstudien:
 
-1. Från Azure Portal, på menyn till vänster, väljer du **Virtuella datorer** och väljer en virtuell dator från listan
-2. Från VM-sidan klickar du på **Uppdateringshantering** under avsnittet **Åtgärder**. Sidan **Aktivera hantering av uppdateringar** öppnas.
+1. I Azure Portal, i vänstermenyn, väljer du **Virtuella datorer**. Välj en virtuell dator i listan.
+2. På sidan för virtuell dator under **ÅTGÄRDER** väljer du **Uppdateringshantering**. Fönstret **Aktivera uppdateringshantering** öppnas.
 
-Verifieringen utförs för att fastställa om uppdateringshantering är aktiverat för den här virtuella datorn. Verifieringen söker efter en Log Analytics-arbetsyta och ett länkat Automation-konto, och om lösningen för uppdateringshantering är i arbetsytan.
+Verifieringen utförs för att fastställa om uppdateringshantering är aktiverat för den här virtuella datorn. Verifieringen söker efter en Log Analytics-arbetsyta och ett länkat Azure Automation-konto, och om lösningen för uppdateringshantering är i arbetsytan.
 
 En [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-arbetsyta används för att samla in data som genereras av funktioner och tjänster som uppdateringshantering. Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
 
-Verifieringsprocessen kontrollerar också om den virtuella datorn har etablerats med MMA och Automation Hybrid Runbook Worker.
-Den här agenten används för att kommunicera med Azure Automation och hämta information om uppdateringsstatus. Agenten kräver att port 443 till öppnas för att kommunicera med Azure Automation-tjänsten och för att ladda ner uppdateringar.
+Verifieringsprocessen kontrollerar också om den virtuella datorn har etablerats med MMA och Automation Hybrid Runbook Worker. Den här agenten används för att kommunicera med Azure Automation och hämta information om uppdateringsstatus. Agenten kräver att port 443 till öppnas för att kommunicera med Azure Automation-tjänsten och för att ladda ner uppdateringar.
 
 Om några av följande krav saknades under publiceringen läggs de till automatiskt:
 
 * [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-arbetsyta
-* [Automation-konto](./automation-offering-get-started.md)
-* En [Hybrid runbook worker](./automation-hybrid-runbook-worker.md) aktiveras på den virtuella datorn
+* Ett [Automation-konto](./automation-offering-get-started.md)
+* En [Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md) (aktiverad på den virtuella datorn)
 
-Skärmen **Uppdateringshantering** öppnas. Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och klicka på **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
+Under **Uppdateringshantering**, ange platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas. Välj sedan **Aktivera**. Om dessa alternativ inte är tillgängliga, innebär det att en annan automation-lösning är aktiverad för den virtuella datorn. I så fall måste samma arbetsyta och Automation-konto användas.
 
 ![Aktivera fönstret Uppdateringshanteringslösning](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-Det kan ta några minuter att aktivera lösningen. Under tiden ska du inte stänga webbläsaren.
-När lösningen har aktiverats flödar information om saknade uppdateringar på den virtuella datorn till Log Analytics.
-Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för analys.
+Det kan ta några minuter att aktivera lösningen. Under tiden ska du inte stänga webbläsaren. När lösningen har aktiverats flödar information om saknade uppdateringar på den virtuella datorn till Log Analytics. Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för analys.
 
 ## <a name="view-update-assessment"></a>Visa kontroll av uppdateringar
 
-När **uppdateringshantering** är aktiverat visas skärmen **Hantering av uppdateringar**.
-Om några uppdateringar saknar ser du en lista med uppdateringar som saknas på fliken  **Uppdateringar som saknas**.
+När uppdateringshantering är aktiverat visas fönstret **Uppdateringshantering**. Om några uppdateringar saknas visas en lista med uppdateringar som saknas på fliken  **Uppdateringar som saknas**.
 
-Välj **INFORMATIONSLÄNKEN** för uppdateringen för att öppna supportartikeln för uppdateringen i ett nytt fönster. Här kan du få viktig information om uppdateringen.
+Under **INFORMATIONSLÄNKEN** välj uppdateringslänken för att öppna supportartikeln för uppdateringen i ett nytt fönster. Du kan lära dig viktig information om uppdateringen i det här fönstret.
 
 ![Visa uppdateringsstatus](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
-Om du klickar någon annanstans i uppdateringen öppnas fönstret **Loggsökning** för den valda uppdateringen. Frågan för loggsökningen är fördefinierad för den specifika uppdateringen. Du kan ändra den här frågan eller skapa en egen fråga om du vill visa detaljerad information om uppdateringarna som har distribuerats eller som saknas i din miljö.
+Klicka någon annanstans på uppdateringen för att öppna fönstret **Loggsökning** för den markerade uppdateringen. Frågan för loggsökningen är fördefinierad för den specifika uppdateringen. Du kan ändra den här frågan eller skapa en egen fråga om du vill visa detaljerad information om uppdateringarna som har distribuerats eller som saknas i din miljö.
 
 ![Visa uppdateringsstatus](./media/automation-tutorial-update-management/logsearch.png)
 
-## <a name="configure-alerting"></a>Konfigurera aviseringar
+## <a name="configure-alerts"></a>Konfigurera varningar
 
-I det här steget konfigurerar du en avisering för att meddela när uppdateringar har distribuerats. Aviseringen som du skapar baseras på en Log Analytics-fråga. En anpassad fråga kan skrivas för ytterligare aviseringar och omfattar många olika scenarier. I Azure Portal går du till **Övervaka** och klickar på **Skapa avisering**. Då öppnas sidan **Skapa regel**.
+I det här steget ställer du in en avisering för att meddela när uppdateringar har distribuerats. Aviseringen som du skapar baseras på en Log Analytics-fråga. Du kan skriva en anpassad fråga för ytterligare aviseringar och omfattar många olika scenarier. I Azure Portal går du till **Övervaka**, och väljer sedan **Skapa avisering**. 
 
-Under **1. Definiera aviseringstillstånd** , klicka på **+ Välj mål**. Under **Filtrera efter resurstyp** väljer du **Log Analytics**. Välj Log Analytics-arbetsytan och klicka på **Klar**.
+Under **Skapa regel**,under **1. Definiera aviseringstillstånd**, välj **Välj mål**. Under **Filtrera efter resurstyp** väljer du **Log Analytics**. Välj Log Analytics-arbetsytan och välj sedan **Klar**.
 
-![skapa avisering](./media/automation-tutorial-update-management/create-alert.png)
+![Skapa avisering](./media/automation-tutorial-update-management/create-alert.png)
 
-Klicka på knappen **+ Lägg till kriterier** för att öppna sidan **Konfigurera signallogiken**. Välj **Anpassad loggsökning** i tabellen. Ange sedan följande fråga i textrutan **Sökfråga**. Den här frågan returnerar datorer och uppdateringens körnamn som slutförts under den tidsperiod som angetts.
+Välj **Lägg till villkor**.
+
+Under **Konfigurera signallogik**, i tabellen, välj **Anpassad loggsökning**. Ange sedan följande fråga i textrutan **Sökfråga**:
 
 ```loganalytics
 UpdateRunProgress
@@ -101,47 +98,46 @@ UpdateRunProgress
 | where TimeGenerated > now(-10m)
 | summarize by UpdateRunName, Computer
 ```
+Den här frågan returnerar datorer och uppdateringens körnamn som slutförts under den tidsperiod som angetts.
 
-Ange **1** som **Tröskelvärde** för aviseringslogiken. Klicka på **Klar** när du är klar.
+Under **Aviseringslogik**, för **Tröskelvärde**, ange **1**. När du är klar väljer du **Klar**.
 
 ![Konfigurera signallogiken](./media/automation-tutorial-update-management/signal-logic.png)
 
-Under **2. Definiera aviseringsinformation**, ge aviseringen ett eget namn och en beskrivning. Ange **Allvarlighetsgrad** till **Informational(Sev 2)** eftersom aviseringen är en lyckad körning.
+Under **2. Definiera aviseringsinformation**, ange ett namn och en beskrivning för aviseringen. Ange **Allvarlighetsgrad** till **Informational(Sev 2)** eftersom aviseringen är en lyckad körning.
 
 ![Konfigurera signallogiken](./media/automation-tutorial-update-management/define-alert-details.png)
 
-Under **3. Definiera åtgärdsgrupp**, klicka på **+ Ny åtgärdsgrupp**. En åtgärdsgrupp är en grupp av åtgärder som kan användas i flera aviseringar. Dessa kan inkludera, men är inte begränsade till, e-postmeddelanden, runbooks, webhooks och mycket mer. Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md)
+Under **3. Definiera åtgärdsgrupp**, välj **Ny åtgärdsgrupp**. En åtgärdsgrupp är en grupp av åtgärder som kan användas i flera aviseringar. Dessa åtgärder kan inkludera, men är inte begränsade till, e-postmeddelanden, runbooks, webhooks och mycket mer. Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md).
 
-I rutan **Åtgärdsgruppnamn** ge ett eget namn och ett kort namn. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
+I rutan **Åtgärdsgruppnamn** anger du ett namn för aviseringen och ett kortnamn. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
 
-Under **Åtgärder**, ge åtgärden ett eget namn som **e-postmeddelanden** under **ÅTGÄRDSTYP** välj **e-post/SMS/Push/röst**. Under **INFORMATION** väljer du **Redigera detaljer**.
+Under **Åtgärder**, ange ett namn för åtgärden, såsom **e-postmeddelanden**. Under **ÅTGÄRDSTYP**, välj **e-post/SMS/Push/röst**. Under **INFORMATION** väljer du **Redigera detaljer**.
 
-På sidan **e-post/SMS/Push/röst**, ge den ett namn. Markera kryssrutan **e-post** och ange en giltig e-postadress som ska användas.
+I rutan **e-post/SMS/Push/röst**, ange ett namn. Välj kryssrutan **e-post** och ange sedan en giltig e-postadress.
 
-![Konfigurera e-poståtgärdsgrupp](./media/automation-tutorial-update-management/configure-email-action-group.png)
+![Konfigurera en e-poståtgärdsgrupp](./media/automation-tutorial-update-management/configure-email-action-group.png)
 
-Klicka på **OK** på sidan **e-post/SMS/Push/röst** för att stänga den och klicka på **OK** att stänga sidan **Lägg till åtgärdsgrupp**.
+I rutan **e-post/SMS/Push/röst**, välj **OK**. I fönstret **Lägg till åtgärdsgrupp**, välj **OK**.
 
-Du kan anpassa ämnet för e-postmeddelandet som skickats genom att klicka på **e-postmeddelandets ämne** under **Anpassa åtgärder** på sidan **Skapa regel**. Klicka på **Skapa aviseringsregel** när du är klar. Detta skapar en regel som aviserar när en distribution lyckas och vilka datorer som var en del av denna uppdaterade distributionskörning.
+Anpassa föremål för aviserings-e-postmeddelandet under **Skapa regel**, under **Anpassa åtgärder**, välj **e-postmeddelandets ämne**. När du är klar väljer du **Skapa varningsregel**. Varningen berättar när en distribution lyckas och vilka datorer som var en del av denna uppdaterade distributionskörning.
 
 ## <a name="schedule-an-update-deployment"></a>Schemalägga en uppdateringsdistribution
 
-Nu när aviseringen är konfigurerad, schemalägger du en distribution som passar ditt schema och servicefönster för att installera uppdateringar.
-Du kan välja vilka uppdateringstyper som ska tas med i distributionen.
-Du kan till exempel ta med kritiska uppdateringar eller säkerhetsuppdateringar och exkludera samlade uppdateringar.
+För att installera uppdateringar schemalägger du en distribution som passar ditt schema och servicefönster. Du kan välja vilka uppdateringstyper som ska tas med i distributionen. Du kan till exempel ta med kritiska uppdateringar eller säkerhetsuppdateringar och exkludera samlade uppdateringar.
 
 > [!WARNING]
 > När uppdateringar kräver en omstart startas den virtuella datorn om automatiskt.
 
-Schemalägg en ny uppdateringsdistribution för den virtuella datorn genom att gå tillbaka till **Uppdateringshantering** och välj **Distribution av schemauppdatering** längst upp på skärmen.
+Schemalägg en ny uppdateringsdistribution för den virtuella datorn, gå till **Uppdateringshantering** och välj sedan **Distribution av schemauppdatering**.
 
-På skärmen **Ny uppdateringsdistribution** anger du följande information:
+Under **Ny uppdateringsdistribution** anger du följande information:
 
-* **Namn** – Ange ett unikt namn på uppdateringsdistributionen.
+* **Namn**: Ange ett unikt namn på uppdateringsdistributionen.
 
-* **Operativsystem** – Välj operativsystem som mål för uppdateringsdistributionen.
+* **Operativsystem**: Välj operativsystem som mål för uppdateringsdistributionen.
 
-* **Uppdatera klassificering** – Välj vilka typer av programvara som ska tas med i uppdateringsdistributionen. Låt alla typer vara markerade för den här självstudien.
+* **Uppdatera klassificering**: Välj vilka typer av programvara som ska tas med i uppdateringsdistributionen. Låt alla typer vara markerade för den här självstudien.
 
   Klassificeringstyper:
 
@@ -152,42 +148,39 @@ På skärmen **Ny uppdateringsdistribution** anger du följande information:
 
    En beskrivning av klassificeringstyper finns i [uppdatera klassificeringar](automation-update-management.md#update-classifications).
 
-* **Schemainställningar** – Öppnar sidan Schemainställningar. Starttiden är som standard 30 minuter efter den aktuella tiden. Det kan ställas in till vad som helst från 10 minuter i framtiden.
+* **Schemainställningar**: Sidan **Schemainställningar** öppnas. Starttiden är som standard 30 minuter efter den aktuella tiden. Du kan ange starttiden till helst från 10 minuter i framtiden.
 
-   Du kan också ange om distributionen ska ske en gång eller ange ett schema med återkommande tider.
-   Välj **När** under **Återkommande**. Låt standardvärdet stå kvar på 1 och klicka på **OK**. Då ställs ett återkommande schema in.
+   Du kan också ange om distributionen ska ske en gång eller ange ett schema med återkommande tider. Under **Återkommande**, välj **En gång**. Lämna standardvärdet till 1 dag och välj **OK**. Då ställs ett återkommande schema in.
 
-* **Underhållsperiod (minuter)** – Låt standardvärdet stå kvar. Du kan ange den tidsperiod som uppdateringsdistributionen ska utföras inom. Den här inställningen hjälper till att säkerställa att ändringarna utförs inom ditt definierade servicefönster.
+* **Underhållsperiod (minuter)**: Låt standardvärdet stå kvar. Du kan ange tidsfönstret som du vill att distributionen av uppdateringen ska ske inom. Den här inställningen hjälper till att säkerställa att ändringarna utförs inom ditt definierade servicefönster.
 
-![Inställningsskärmen för uppdateringsschema](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
+![Inställningsfönster för uppdateringsschema](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-När du har slutfört konfigurationen av schemat klickar du på knappen **Skapa**. Du kommer tillbaka till statusinstrumentpanelen. Välj **Schemalagda uppdateringsdistributioner** om du vill visa distributionsschemat du har skapat.
+När du är klar med att konfigurera schemat väljer du **Skapa**. Du kommer tillbaka till statusinstrumentpanelen. Välj **Schemalagda uppdateringsdistributioner** om du vill visa distributionsschemat du har skapat.
 
 ## <a name="view-results-of-an-update-deployment"></a>Visa resultat för en uppdateringsdistribution
 
-När den schemalagda distributionen startar kan du se status för distributionen på fliken **Uppdateringsdistributioner** på skärmen **Uppdateringshantering**.
-Om distributionen körs visas status **Pågår**.
-När distributionen har slutförts ändras status till **Lyckades**.
-Om det uppstod några fel med en eller flera uppdateringar i distributionen visas status **Misslyckades delvis**.
-Klicka på den slutförda uppdateringsdistributionen för att visa instrumentpanelen för distributionen.
+När den schemalagda distributionen startar kan du se status för distributionen på fliken **Uppdateringsdistributioner** under **Uppdateringshantering**. Statusen är **Pågår** när distributionen körs. När distributionen är klar, om den lyckas, ändras statusen till **Lyckades**. Om det uppstod några fel med en eller flera uppdateringar i distributionen visas status **Misslyckades delvis**.
 
-![Statusinstrumentpanel för Uppdatera distribution för specifik distribution](./media/automation-tutorial-update-management/manageupdates-view-results.png)
+Välj den slutförda uppdateringsdistributionen för att visa instrumentpanelen för distributionen.
 
-På panelen för **uppdateringsresultat** visas en sammanfattning av det totala antalet uppdateringar och distributionsresultat för den virtuella datorn.
-Tabellen till höger visar detaljer för varje uppdatering och installationsresultaten.
+![Statusinstrumentpanel för Uppdatera distribution för en specifik distribution](./media/automation-tutorial-update-management/manageupdates-view-results.png)
+
+Under **Uppdateringsresultat** visas en sammanfattning av det totala antalet uppdateringar och distributionsresultat för den virtuella datorn. Tabellen till höger visar detaljer för varje uppdatering och installationsresultaten.
+
 I följande lista visas tillgängliga värden:
 
-* **Inget försök har gjorts** – Uppdateringen installerades inte eftersom det inte fanns tillräckligt med tid utifrån det underhållsfönster som definierats.
-* **Lyckades** – Uppdateringen lyckades
-* **Misslyckades** – Uppdateringen misslyckades
+* **Inget försök har gjorts**: Uppdateringen installerades inte eftersom det inte fanns tillräckligt med tid utifrån det underhållsfönster som definierats.
+* **Lyckades**: Uppdateringen lyckades.
+* **Misslyckades**: Uppdateringen misslyckades.
 
-Klicka på **Alla loggar** om du vill se alla loggposter som har skapats för distributionen.
+Välj **Alla loggar** om du vill se alla loggposter som har skapats för distributionen.
 
-Klicka på panelen **Utdata** om du vill se jobbströmmen för den runbook som ansvarar för att hantera uppdateringsdistributionen på den virtuella måldatorn.
+Välj **Utdata** om du vill se jobbströmmen för den runbook som ansvarar för att hantera uppdateringsdistributionen på den virtuella måldatorn.
 
-Klicka på **Fel** om du vill se detaljerad information om fel som uppstått vid distributionen.
+Välj **Fel** om du vill se detaljerad information om fel som uppstått vid distributionen.
 
-När uppdateringsdistributionen av är klar skickas e-post som liknar följande bild för att visa resultatet av distributionen.
+När uppdateringsdistributionen av är klar skickas e-post som liknar följande exempel för att visa resultatet av distributionen:
 
 ![Konfigurera e-poståtgärdsgrupp](./media/automation-tutorial-update-management/email-notification.png)
 

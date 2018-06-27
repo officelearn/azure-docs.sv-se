@@ -1,0 +1,189 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Speech Service (Förhandsversion)
+metadata:
+  title: Dokumentation om Speech Service – självstudier, snabbstarter, API-referens – Cognitive Services | Microsoft Docs
+  meta.description: Speech SDK provides developers an easy way to create powerful speech-enabled features in their applications, such as voice command control and dialog, using natural speech conversation, speech transcription and dictation, and speech translation.
+  services: cognitive-services
+  author: noellelacharite
+  manager: nolachar
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.component: speech-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/01/2018
+  ms.author: nolachar
+  ms.openlocfilehash: ae9c5a62dd4f1b83f4d1317b54e5766b80d14245
+  ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 06/11/2018
+  ms.locfileid: "35358358"
+abstract:
+  description: Microsoft Speech Service och SDK ger utvecklare ett enkelt sätt att skapa kraftfulla talbaserade funktioner i sina program, till exempel röstkontroll, transkription och diktering. Samma teknik används i Cortana och Microsoft Office. En viktig skillnad i Microsoft Speech Service är möjligheten till akustisk anpassning för <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">tal till text</a> och möjligheten att anpassa språkmodeller för att hantera specialvokabulär, miljöstörningar och olika sätt att tala. Även anpassade funktioner för <a href="http://aka.ms/customvoice">text till tal</a> och <a href="http://aka.ms/customtranslator">talöversättning</a> är tillgängliga.<br/><br/>Vårt Speech SDK är tillgängligt på flera plattformar och i flera olika programmeringsspråk, så att du kan ägna tid åt mikrofonhantering, strömning i realtid eller batchbaserad filkommunikation, beroende på dina programbehov.
+sections:
+- title: Snabbstarter på tio minuter – Nya SDK:er
+  items:
+  - type: paragraph
+    text: 'Lär dig hur du installerar och använder Speech SDK med våra snabbstarter:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+    - image:
+        src: media/index/logo_cplusplus.svg
+    - image:
+        src: media/index/logo_java.jpg
+    rows:
+    - title: Windows
+      values:
+      - href: quickstart-csharp-windows
+      - href: cpp-windows
+      - href: 
+    - title: Linux
+      values:
+      - href: 
+      - href: cpp-linux
+      - href: 
+    - title: Devices SDK (Android)
+      values:
+      - href: 
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk
+- title: Exempel och referenser
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Exempel
+      html: <ul><li><a href="speech-to-text-sample.md">Taligenkänning</a></li><li><a href="intent.md">Avsiktsigenkänning</a></li><li><a href="translation.md">Översättning</a></li></ul>
+    - title: API-referens
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API (Devices SDK)</a></li></ul>
+- title: Tal till text
+  items:
+  - type: paragraph
+    text: Vårt Speech SDK stöder <b>tal till text</b> (STT) eller taligenkänning.  Med Speech SDK kan du transkribera ljudströmmar till text så att ditt program kan acceptera det som indata. Sedan kan programmet till exempel ange texten i ett dokument eller agera utifrån den som ett kommando.
+  - type: paragraph
+    text: 'Dessa är några vanliga användningsområden för <b>tal till text</b> via Speech SDK:'
+  - type: list
+    style: unordered
+    items:
+    - text: Identifiera ett kort yttrande, till exempel ett kommando, utan mellanliggande resultat.
+    - text: Transkribera långa, tidigare inspelade yttranden som till exempel ett röstmeddelande.
+    - text: Transkribera strömmande tal i realtid med ofullständiga resultat för diktering.
+    - text: Fastställa vad användare vill göra utifrån en begäran på ett talat, naturligt språk.
+  - type: paragraph
+    text: Speech SDK stöder interaktiv transkription av tal med kontinuerlig <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">tal till text</a> i realtid och mellanliggande resultat. Det finns även stöd för identifiering av talslut, valfri automatisk ändring till versal och skiljetecken, svordomsmaskning och textnormalisering.
+  - type: paragraph
+    text: En viktig skillnad i Microsoft Speech Service är möjligheten till akustisk anpassning för <a href="http://aka.ms/customspeech">tal till text</a> och möjligheten att anpassa språkmodeller för att hantera specialvokabulär, miljöstörningar och olika sätt att tala.
+- title: Talöversättning
+  items:
+  - type: paragraph
+    text: Speech SDK kan även användas för <a href="https://azure.microsoft.com/services/cognitive-services/speech-translation">talöversättning</a>.  Med strömmande <b>talöversättning</b> via Speech SDK returnerar tjänsten mellanliggande resultat som kan visas för användaren för att indikera översättningens förlopp. Resultaten kan returneras som text eller som röst.
+  - type: paragraph
+    text: 'Följande är några vanliga användningsområden för <b>talöversättning</b> via Speech SDK:'
+  - type: list
+    style: unordered
+    items:
+    - text: Implementera en översättningsmobilapp eller -enhet för resenärer för naturlig kommunikation.
+    - text: Ange automatiska översättningar för undertexter av ljud- och videoinspelningar.
+  - type: paragraph
+    text: Modeller för <b>talöversättning</b> kan även vara <a href="http://aka.ms/customtranslator">anpassade</a>.
+- title: Text till tal
+  items:
+  - type: paragraph
+    text: För närvarande stöds <a href="https://azure.microsoft.com/services/cognitive-services/text-to-speech">text till tal</a> (TTS) eller talsyntes via ett REST API som konverterar oformaterad text till naturligt tal som levereras till ditt program i en ljudfil. Flera röster med olika kön och dialekter finns tillgängliga för många språk.
+  - type: paragraph
+    text: Vårt Speech SDK ger åtkomst till både tal till text och talöversättning. Text till tal använder REST POST-anrop via HTTP.
+  - type: paragraph
+    text: REST API för <b>text till tal</b> stöder taggar för <b>Speech-Synthesis-Markup-Language</b> (märkspråk för talsyntes) så att du kan ange det exakta fonetiska uttalet för krångliga ord. SSML kan även ange talegenskaper (inklusive betoning, hastighet, volym, kön och tonläge) direkt i texten.
+  - type: paragraph
+    text: Om du vill använda en dialekt som inte stöds eller en unik röst i ditt program kan du skapa <a href="http://aka.ms/customvoice">anpassade rösttyper</a> med egna talexempel.
+  - type: paragraph
+    text: 'Följande är några vanliga användningsområden för REST API för <b>text till tal</b>:'
+  - type: list
+    style: unordered
+    items:
+    - text: Talutdata som alternativa skärmutdata för användare med nedsatt syn.
+    - text: Röstnavigering för program som används i bilen, till exempel navigeringsappar.
+    - text: Användargränssnitt med vardagligt språk som används ihop med API:et för <b>tal till text</b>.
+- title: Speech Devices SDK
+  items:
+  - type: paragraph
+    text: 'Efter introduktionen av den enhetliga tjänsten Speech Service erbjuder Microsoft och dess partner nu en integrerad plattform för maskin-och programvara som är optimerad för att utveckla talbaserade enheter: <b>Speech Devices SDK</b>. Detta SDK lämpar sig för utveckling av smarta talenheter för alla typer av program.'
+  - type: paragraph
+    text: Med <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk">Speech Devices SDK</a> kan du skapa dina egna ambienta enheter med ett anpassat väckningsord som är unikt för ditt varumärke och som utlöser ljudinspelning. Det ger också överlägsen ljudbearbetning från källor med flera kanaler för bättre taligenkänning, inklusive bullerdämpning, långdistansidentifiering och beamforming.
+- title: Äldre SDK:er
+  items:
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/uwp.jpg
+    - image:
+        src: media/index/logo_java.jpg
+    - image:
+        src: media/index/logo_objc.jpg
+    - image:
+        src: media/index/logo_js.svg
+    - image:
+        src: media/index/logo_rest_sr.svg
+    - image:
+        src: media/index/logo_rest_tts.svg
+    rows:
+    - title: Windows
+      values:
+      - href: https://docs.microsoft.com/windows/uwp/design/input/speech-recognition
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: Android
+      values:
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjavaandroid
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: iOS
+      values:
+      - href: 
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/get-started-objectivec-ios
+      - href: 
+      - href: 
+      - href: 
+    - title: Webb
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjswebsockets
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest?tabs=Powershell
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput
+- title: SDK:er under utveckling
+  items:
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_python.svg
+    - image:
+        src: media/index/logo_swift.jpg
+    - image:
+        src: media/index/logo_gopher.svg
+    - image:
+        src: media/index/c.jpg
+    rows:
+    - title: SDK
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 

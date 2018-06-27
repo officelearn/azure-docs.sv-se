@@ -1,0 +1,95 @@
+- name: Dokumentation om bildsökning i Bing
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är bildsökning i Bing?
+      href: overview.md
+- name: Snabbstarter för REST API
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: Snabbstarter för SDK
+  items:
+    - name: Översikt över SDK-exempel
+      href: sdk.md
+    - name: 'Snabbstart för SDK för bildsökning i C#'
+      href: image-search-sdk-quickstart.md
+    - name: Snabbstart för SDK för bildsökning i Node.js
+      href: image-search-sdk-node-quickstart.md
+    - name: Snabbstart för SDK för bildsökning i Python
+      href: image-sdk-python-quickstart.md
+    - name: Snabbstart för SDK för bildsökning i Java
+      href: image-sdk-java-quickstart.md
+- name: Självstudier
+  items:
+    - name: Enkelsidig webbapp
+      href: tutorial-bing-image-search-single-page-app.md
+    - name: Enkelsidig webbapp (källkod)
+      href: tutorial-bing-image-search-single-page-app-source.md
+    - name: Bilduppladdning i Bing för information
+      href: tutorial-image-post.md
+    - name: Bilduppladdning i Bing för information (källkod)
+      href: tutorial-image-post-source.md
+- name: Exempel
+  items:
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search'
+- name: Instruktionsguider
+  items:
+    - name: Använda och visa resultat
+      href: UseAndDisplayRequirements.md
+    - name: Hämta information om bilder
+      href: image-insights.md
+    - name: Hämta .gif-bilder
+      href: gif-images.md
+    - name: Hämta populära bilder
+      href: trending-images.md
+    - name: Bläddra bland bilder
+      href: paging-images.md
+    - name: Ändra storlek på och beskär miniatyrer
+      href: resize-and-crop-thumbnails.md
+    - name: Uppgradera från v5 till v7
+      href: bing-image-upgrade-guide-v5-to-v7.md
+- name: Referens
+  items:
+    - name: API för bildsökning i Bing v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference'
+    - name: API för bildsökning i Bing v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference'
+- name: Resurser
+  items:
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: bing-image-search-resource-faq.md
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555907-bing-search'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/bing-search'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Kunskapsbas
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: Hämta API-nyckel
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api'
+    - name: Prova!
+      href: 'https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/'
+    - name: Slutpunkter för bildsökning i Bing
+      href: image-search-endpoint.md
+    - name: Länder och marknader som stöds
+      href: supported-countries-markets.md
+    - name: Analys för API för bildsökning i Bing
+      href: bing-image-stats.md

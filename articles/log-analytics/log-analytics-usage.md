@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/05/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: ed2e77553cc72caa6a7b48fe6fa6baab0ffafec5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 2ceb350883bc6f2b40d88d5cf595b06b074013d1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802059"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36209824"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
 Log Analytics innehåller information om hur mycket data som samlas in, vilka källor som skickade data och vilka typer av data som skickas.  Med instrumentpanelen för **Log Analytics-användning** kan du granska och analysera dataanvändning. Instrumentpanelen visar hur mycket data som samlas in av varje lösning och hur mycket data som skickas av dina datorer.
@@ -59,7 +59,9 @@ I det här avsnittet beskrivs hur du skapar en avisering om:
 - Datavolymen överskrider en angiven mängd.
 - Datavolymen förväntas överskrida en angiven mängd.
 
-Log Analytics-[aviseringar](log-analytics-alerts-creating.md) använder sökfrågor. Följande fråga har ett resultat när det finns fler än 100 GB data som har samlats in under de senaste 24 timmarna:
+Azure-aviseringar har stöd för [loggaviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) som använder sökfrågor. 
+
+Följande fråga har ett resultat när det finns fler än 100 GB data som har samlats in under de senaste 24 timmarna:
 
 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
 
@@ -69,27 +71,35 @@ Följande fråga använder en enkel formel för att förutsäga när mer än 100
 
 Ändra 100 i frågan till antalet GB som du vill ange som gräns för att skicka en datavolymavisering.
 
-Använd stegen som beskrivs i [skapa en aviseringsregel](log-analytics-alerts-creating.md#create-an-alert-rule) om du vill meddelas när datainsamlingen är högre än förväntat.
+Använd stegen som beskrivs i [skapa en ny loggavisering](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) om du vill meddelas när datainsamlingen är högre än förväntat.
 
 När du skapar aviseringen för den första frågan--när det finns fler än 100 GB data på 24 timmar, ange:  
-- **Namnet** till *Datavolym är större än 100 GB på 24 timmar*  
-- **Allvarlighetsgrad** till *varning*  
-- **Sökfråga** till`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`   
-- **Tidsfönster** till *24 timmar*.
-- **Varningsfrekvens** till en timme, eftersom användningsdata uppdateras en gång i timmen.
-- **Skapa en avisering baserat på** som *antal resultat*
-- **Antalet resultat** som *större än 0*
 
-Använd stegen som beskrivs i [Lägga till åtgärder i varningsregler](log-analytics-alerts-actions.md) för att konfigurera e-post, webhook eller runbook-åtgärd för regeln.
+- **Definiera aviseringsvillkor** ange Log Analytics-arbetsytan som mål för resursen.
+- **Aviseringskriterier** ange följande:
+   - **Signalnamn** välj **Anpassad loggsökning**
+   - **Sökfråga** till`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - **Aviseringslogik** är **Baserad på** *antal resultat* och **Villkor** som är *Större än* ett **Tröskelvärde** på *0*
+   - **Tidsperiod** på *1440* minuter och **Aviseringsfrekvens** var *60*:e minut eftersom användningsdata bara uppdateras en gång i timmen.
+- **Definiera aviseringsinformation** ange följande:
+   - **Namnet** till *Datavolym är större än 100 GB på 24 timmar*
+   - **Allvarlighetsgrad** till *varning*
+
+Ange en befintlig eller skapa en ny [Åtgärdsgrupp](../monitoring-and-diagnostics/monitoring-action-groups.md) så att när loggaviseringen matchar kriterierna, får du ett meddelande.
 
 När du skapar aviseringen för den andra frågan--när mer än 100 GB data på 24 timmar förväntas, ange:
-- **Namnet** till *Datavolym förväntas vara större än 100 GB på 24 timmar*
-- **Allvarlighetsgrad** till *varning*
-- **Sökfråga** till`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
-- **Tidsfönster** till *3 timmar*.
-- **Varningsfrekvens** till en timme, eftersom användningsdata uppdateras en gång i timmen.
-- **Skapa en avisering baserat på** som *antal resultat*
-- **Antalet resultat** som *större än 0*
+
+- **Definiera aviseringsvillkor** ange Log Analytics-arbetsytan som mål för resursen.
+- **Aviseringskriterier** ange följande:
+   - **Signalnamn** välj **Anpassad loggsökning**
+   - **Sökfråga** till`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - **Aviseringslogik** är **Baserad på** *antal resultat* och **Villkor** som är *Större än* ett **Tröskelvärde** på *0*
+   - **Tidsperiod** på *180* minuter och **Aviseringsfrekvens** var *60*:e minut eftersom användningsdata bara uppdateras en gång i timmen.
+- **Definiera aviseringsinformation** ange följande:
+   - **Namnet** till *Datavolym förväntas vara större än 100 GB på 24 timmar*
+   - **Allvarlighetsgrad** till *varning*
+
+Ange en befintlig eller skapa en ny [Åtgärdsgrupp](../monitoring-and-diagnostics/monitoring-action-groups.md) så att när loggaviseringen matchar kriterierna, får du ett meddelande.
 
 När du får en avisering kan du använda stegen i följande avsnitt för att felsöka varför användningen är högre än förväntat.
 
@@ -155,12 +165,11 @@ Klicka på **Visa alla...**  för att visa en fullständig lista över datorer s
 
 Använd [lösningsriktning](../operations-management-suite/operations-management-suite-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
 
-
 ## <a name="next-steps"></a>Nästa steg
 * Se [Loggsökningar i Log analytics](log-analytics-log-searches.md) för information om hur du använder sökspråket. Du kan använda sökfrågor för att utföra ytterligare analys på användningsdata.
-* Använd stegen som beskrivs i [Skapa en aviseringsregel](log-analytics-alerts-creating.md#create-an-alert-rule) om du vill meddelas när ett sökvillkor har uppfyllts
-* Använd [lösningsmål](../operations-management-suite/operations-management-suite-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer
-* Om du vill konfigurera en effektiv princip för insamling av säkerhetshändelse kan du läsa [filtreringsprincipen för Azure Security Center](../security-center/security-center-enable-data-collection.md)
-* Ändra [prestandaräknarens konfiguration](log-analytics-data-sources-performance-counters.md)
-* Om du vill ändra inställningarna för insamling av händelser kan du läsa [händelseloggens konfiguration](log-analytics-data-sources-windows-events.md)
-* Om du vill ändra inställningarna för insamling av systemlogg kan du läsa [ systemloggens konfiguration](log-analytics-data-sources-syslog.md)
+* Använd stegen som beskrivs i [Skapa en ny loggavisering](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) om du vill meddelas när ett sökvillkor har uppfyllts.
+* Använd [lösningsriktning](../operations-management-suite/operations-management-suite-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
+* Om du vill konfigurera en effektiv princip för insamling av säkerhetshändelse kan du läsa [filtreringsprincipen för Azure Security Center](../security-center/security-center-enable-data-collection.md).
+* Ändra [prestandaräknarens konfiguration](log-analytics-data-sources-performance-counters.md).
+* Om du vill ändra inställningarna för insamling av händelser kan du läsa [händelseloggens konfiguration](log-analytics-data-sources-windows-events.md).
+* Om du vill ändra inställningarna för insamling av systemlogg kan du läsa [ systemloggens konfiguration](log-analytics-data-sources-syslog.md).

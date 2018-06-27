@@ -1,0 +1,43 @@
+- name: Dokumentation om Custom Decision Service
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är Custom Decision Service?
+      href: custom-decision-service-overview.md
+    - name: Custom Decision Service-arbetsflöde
+      href: custom-decision-service-workflow.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Registrera ditt program
+      href: custom-decision-service-get-started-register.md
+    - name: Anropa API från en webbläsare
+      href: custom-decision-service-get-started-browser.md
+    - name: Anropa API från en app
+      href: custom-decision-service-get-started-app.md
+- name: Självstudier
+  items:
+    - name: Personanpassning av artikel
+      href: custom-decision-service-tutorial-news.md
+    - name: Maskininlärning
+      href: custom-decision-service-tutorial-ml.md
+- name: Referens
+  items:
+    - name: API
+      href: custom-decision-service-api-reference.md
+    - name: Experimentering
+      href: custom-decision-service-experimentation-reference.md
+    - name: LogDownloader
+      href: custom-decision-service-log-downloader-reference.md
+- name: Resurser
+  items:
+    - name: Prissättning (kostnadsfri)
+      href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-decision-service/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598138-custom-decision-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Kunskapsbas
+      href: 'https://cognitive.uservoice.com/knowledgebase'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'

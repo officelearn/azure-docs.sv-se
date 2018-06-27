@@ -1,0 +1,131 @@
+- name: Content Moderator-dokumentation
+- name: Översikt
+  items:
+    - name: Vad är Content Moderator?
+      href: overview.md
+- name: Exempel
+  items:
+    - name: .NET SDK-exempel
+      href: samples-dotnet.md
+    - name: 'REST API-exempel i C#'
+      href: samples-rest.md
+- name: Begrepp
+  items:
+    - name: Bildmoderering
+      href: image-moderation-api.md
+    - name: Textmoderering
+      href: text-moderation-api.md
+    - name: Textmoderering – språk
+      href: Text-Moderation-API-Languages.md
+    - name: Videomoderering
+      href: video-moderation-human-review.md
+    - name: Jobb och granskningar
+      href: review-api.md
+    - name: Arbetsflöden
+      href: workflow-api.md
+- name: Instruktionsguider
+  items:
+    - name: Prova Content Moderator
+      items:
+        - name: Kom igång med Content Moderator
+          href: quick-start.md
+        - name: 'API:er för moderering'
+          items:
+            - name: Hjälpbibliotek – .NET
+              href: content-moderator-helper-quickstart-dotnet.md
+            - name: Avbildningar – API-konsol
+              href: try-image-api.md
+            - name: Avbildningar – .NET
+              href: image-moderation-quickstart-dotnet.md
+            - name: Anpassade avbildningar – API-konsol
+              href: try-image-list-api.md
+            - name: Anpassade avbildningar – .NET
+              href: image-lists-quickstart-dotnet.md
+            - name: Text – API-konsol
+              href: try-text-api.md
+            - name: Text – .NET
+              href: text-moderation-quickstart-dotnet.md
+            - name: Anpassade villkor – API-konsol
+              href: try-terms-list-api.md
+            - name: Anpassade villkor – .NET
+              href: term-lists-quickstart-dotnet.md
+            - name: Videor – .NET
+              href: video-moderation-api.md
+        - name: 'Omdömes-API:er'
+          items:
+            - name: Jobb – API-konsol
+              href: try-review-api-job.md
+            - name: Jobb – .NET
+              href: moderation-jobs-quickstart-dotnet.md
+            - name: Omdömen – API-konsol
+              href: try-review-api-review.md
+            - name: Omdömen – .NET
+              href: moderation-reviews-quickstart-dotnet.md
+            - name: Videoomdömen – .NET
+              href: video-reviews-quickstart-dotnet.md
+            - name: Avskriftsomdömen för videor – .NET
+              href: video-transcript-reviews-quickstart-dotnet.md
+            - name: Arbetsflöden – API-konsol
+              href: try-review-api-workflow.md
+    - name: Första Content Moderator-appar
+      items:
+        - name: Innehållsmoderering på Facebook
+          href: facebook-post-moderation.md
+        - name: Bildmoderering för e-handel
+          href: ecommerce-retail-catalog-moderation.md
+        - name: Video- och avskriftsmoderering
+          href: video-transcript-moderation-review-tutorial-dotnet.md
+    - name: Granskningsverktyg
+      items:
+        - name: Human in the loop
+          href: Review-Tool-User-Guide/human-in-the-loop.md
+        - name: Använd inställningar
+          href: Review-Tool-User-Guide/Configure.md
+        - name: Hantera team
+          href: Review-Tool-User-Guide/SubTeams.md
+        - name: Använd taggar
+          href: Review-Tool-User-Guide/Tags.md
+        - name: Granska bilder
+          href: Review-Tool-User-Guide/Review-Moderated-Images.md
+        - name: Granska text
+          href: Review-Tool-User-Guide/Text-Reviews.md
+        - name: Hantera autentiseringsuppgifter
+          href: Review-Tool-User-Guide/Credentials.md
+        - name: Använd anslutningsappar
+          href: Review-Tool-User-Guide/Connectors.md
+        - name: Använd arbetsflöden
+          href: Review-Tool-User-Guide/Workflows.md
+        - name: Visa instrumentpanel
+          href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Referens
+  items:
+    - name: API för Content Moderator
+      href: api-reference.md
+    - name: 'SDK:er'
+      items:
+        - name: Java
+          href: 'https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-cognitiveservices-contentmoderator%22'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python'
+        - name: .NET
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator'
+- name: Resurser
+  items:
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: FAQs.md
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator'
+    - name: Exportera eller ta bort kontodata
+      href: ./export-delete-data.md
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/559960-content-moderator'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Kunskapsbas
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: Webbseminarium på begäran
+      href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'

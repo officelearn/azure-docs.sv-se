@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: f6dcaee1ac328a9bafce0561f421b772b7e1d119
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7429516538c892bea04d38a98abcfb13ba960d22
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605176"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286408"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 Den här artikeln innehåller vanliga frågor och svar om hur du säkerhetskopierar Azure Files. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -23,7 +23,7 @@ Om du snabbt vill titta igenom avsnitten i denna artikel kan du använda länkar
 ## <a name="configuring-the-backup-job-for-azure-files"></a>Konfigurera säkerhetskopieringsjobbet för Azure Files
 
 ### <a name="why-cant-i-see-some-of-my-storage-accounts-i-want-to-protect-that-contain-valid-azure-file-shares-br"></a>Varför kan jag inte se vissa av de lagringskonton som jag vill skydda, och som innehåller giltiga Azure-filresurser? <br/>
-Under förhandsversionen stöder inte säkerhetskopieringen för Azure-filresurser alla typer av lagringskonton. Se listan [här](troubleshoot-azure-files.md#preview-boundaries) om du vill se en lista över Storage-konton som stöds. Det är också möjligt att det Storage Account du letar efter redan är skyddat eller registrerat med ett annat valv. [Avregistrera](troubleshoot-azure-files.md#configuring-backup) dig från valvet för att upptäcka Storage-kontot i andra valv i skyddssyfte.
+Under förhandsversionen stöder inte säkerhetskopieringen för Azure-filresurser alla typer av lagringskonton. Se listan [här](troubleshoot-azure-files.md#limitations-for-azure-file-share-backup-during-preview) om du vill se en lista över Storage-konton som stöds. Det är också möjligt att det Storage Account du letar efter redan är skyddat eller registrerat med ett annat valv. [Avregistrera](troubleshoot-azure-files.md#configuring-backup) dig från valvet för att upptäcka Storage-kontot i andra valv i skyddssyfte.
 
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>Varför visas inte vissa av mina Azure-filresurser i lagringskontot när jag försöker konfigurera säkerhetskopiering? <br/>
 Kontrollera om Azure-filresursen redan skyddas i samma Recovery Services-valv eller om den nyligen har tagits bort.
@@ -39,13 +39,13 @@ Ja. Men du måste [stoppa skyddet](backup-azure-files.md#stop-protecting-an-azur
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>I vilka geografiska områden kan jag säkerhetskopiera Azure-filresurser? <br/>
 Säkerhetskopieringen av Azure-filresurser är för närvarande en förhandsversion och är endast tillgängligt på följande platser: 
--   Australien, sydöstra (ASE) 
+-   Östra Australien (AE) 
+- Australien, sydöstra (ASE) 
 - Brasilien, södra (BRS)
 - Kanada, centrala (CNC)
 -   Kanada, östra (CE)
 -   USA, centrala (CUS)
 -   Asien, östra (EA)
--   Australien, östra (AE) 
 -   USA, östra (EUS)
 -   USA, östra 2 (EUS2)
 - Japan, östra (JPE)

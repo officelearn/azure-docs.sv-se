@@ -1,24 +1,19 @@
 ---
 title: Azure IoT-hubb ordlista | Microsoft Docs
 description: Utvecklarhandbok - en ordlista över vanliga villkoren för Azure IoT Hub.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 16ef29ea-a185-48c3-ba13-329325dc6716
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: aae72618da42db53304075506b4969945ff0165f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 69bc7d71e804ca33b984699ee30a44774542803f
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960499"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Ordlista IoT-hubb
 Den här artikeln innehåller några av de vanliga termer som används i IoT-hubb-artiklar.
@@ -110,11 +105,8 @@ Refererar till enheten tillståndsinformation, till exempel anslutningsmetod som
 ## <a name="device-data"></a>Data på enheten
 Data på enheten som refererar till per enhet data som lagras i IoT-hubben [identitetsregistret](#identity-registry). Det är möjligt att importera och exportera dessa data.
 
-## <a name="device-explorer"></a>Enheten explorer
+## <a name="device-explorer"></a>Enhetsutforskaren
 Den [enheten explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) är ett verktyg som körs på Windows och gör att du kan hantera dina enheter i den [identitetsregistret](#identity-registry). Verktyget kan också skicka och ta emot meddelanden till dina enheter.
-
-## <a name="device-identities-rest-api"></a>REST API för enhetsidentiteter
-Den [enheten identiteter REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) kan du hantera dina enheter som registrerats i den [identitetsregistret](#identity-registry) med hjälp av REST-API. Normalt bör du använda en av de högre [SDK-tjänsten](#azure-iot-service-sdks) som visas i IoT-hubb självstudier.
 
 ## <a name="device-identity"></a>Enhetsidentitet
 Enhetens identitet är den unika identifieraren som tilldelats varje enhet som registrerats i den [identitetsregistret](#identity-registry).
@@ -128,8 +120,8 @@ Enhetshantering omfattar hela livscykeln som är associerade med hantering av en
 ## <a name="device-management-patterns"></a>Enhetshanteringsmönster
 [IoT-hubb](#iot-hub) aktiverar vanliga device management mönster inklusive startas om, utföra fabriksåterställning och utför uppdateringar av inbyggd programvara på dina enheter.
 
-## <a name="device-messaging-rest-api"></a>REST API för enhetsmeddelanden
-Du kan använda den [Device Messaging REST API](https://docs.microsoft.com/rest/api/iothub/httpruntime) från en enhet skickar meddelanden från enhet till moln till en IoT-hubb och tar emot [moln till enhet](#cloud-to-device) meddelanden från en IoT-hubb. Normalt bör du använda en av de högre [enheten SDK](#azure-iot-device-sdks) som visas i IoT-hubb självstudier.
+## <a name="device-rest-api"></a>Enheten REST-API
+Du kan använda den [enheten REST API](https://docs.microsoft.com/rest/api/iothub/device/device) från en enhet skickar meddelanden från enhet till moln till en IoT-hubb och tar emot [moln till enhet](#cloud-to-device) meddelanden från en IoT-hubb. Normalt bör du använda en av de högre [enheten SDK](#azure-iot-device-sdks) som visas i IoT-hubb självstudier.
 
 ## <a name="device-provisioning"></a>Enhetsetableringen
 Enhetsetableringen är en process för att lägga till första [enhetsdata](#device-data) till butiker i din lösning. Om du vill aktivera en ny enhet att ansluta till din hubb, måste du lägga till en enhets-ID och nycklar IoT-hubben [identitetsregistret](#identity-registry). Som en del av etableringsprocessen kan behöva du initiera enhetsspecifika data i andra lösning Arkiv.
@@ -141,10 +133,7 @@ En [enheten dubbla](iot-hub-devguide-device-twins.md) är JSON-dokument som lagr
 Precis som dubbla enhet, en modul dubbla är JSON-dokument som lagras modulen tillståndsinformation som metadata, konfigurationer och villkor. IoT-hubb kvarstår en modul dubbla för varje modul-identitet som du etablerar under en enhetsidentitet i din IoT-hubb. Modulen twins kan du synkronisera modulen villkor och konfigurationer mellan modulen och lösningens serverdel. Du kan fråga modulen twins att söka efter specifika moduler och fråga status för långvariga åtgärder.
 
 ## <a name="twin-queries"></a>Dubbla frågor
-[Enheten och modulen dubbla frågor](iot-hub-devguide-query-language.md) använder frågespråket i SQL-liknande IoT-hubb för att hämta information från din enhet twins eller modulen twins. Du kan använda samma IoT-hubb-frågespråket för att hämta information om [jobb](#job) körs i din IoT-hubb.
-
-## <a name="device-twin-rest-api"></a>Enheten dubbla REST API
-Du kan använda den [enheten dubbla REST API](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) från lösningen serverdel för att hantera din enhet twins. API: et kan du hämta och uppdatera [enheten dubbla](#device-twin) egenskaper och anropa [direkt metoder](#direct-method). Normalt bör du använda en av de högre [SDK-tjänsten](#azure-iot-service-sdks) som visas i IoT-hubb självstudier.
+[Enheten och modulen dubbla frågor](iot-hub-devguide-query-language.md) använder frågespråket i SQL-liknande IoT-hubb för att hämta information från din enhet twins eller modulen twins. Du kan använda samma IoT-hubb-frågespråket för att hämta information om [ ](#job) körs i din IoT-hubb.
 
 ## <a name="twin-synchronization"></a>Dubbla synkronisering
 Dubbla synkronisering använder den [önskade egenskaper](#desired-properties) i enheten twins eller modulen twins för att konfigurera enheter eller moduler och hämta [rapporterade egenskaper](#reported-properties) från dem ska lagras i dubbla.
@@ -185,22 +174,19 @@ IoT-Hubbnamnrymd är en helt hanterad Azure-tjänst som möjliggör tillförlitl
 [IoT-hubb mått](iot-hub-metrics.md) ger data om tillståndet för IoT-hubbar i din [Azure-prenumeration](#subscription). IoT-hubb mått kan du utvärdera den övergripande hälsan för tjänsten och de enheter som är anslutna till den. IoT-hubb mått kan hjälpa dig att se vad som händer med din IoT-hubb och undersöka grundorsaken problem utan att behöva kontakta Azure-supporten.
 
 ## <a name="iot-hub-query-language"></a>IoT-hubb frågespråket
-Den [IoT-hubb frågespråket](iot-hub-devguide-query-language.md) är en SQL-liknande språk som gör att du kan fråga din [jobb](#job) och twins för enheten.
+Den [IoT-hubb frågespråket](iot-hub-devguide-query-language.md) är en SQL-liknande språk som gör att du kan fråga din [ ](#job) och twins för enheten.
 
-## <a name="iot-hub-resource-provider-rest-api"></a>IoT-hubb Resursprovidern REST-API
-Du kan använda den [IoT Hub Resource Provider REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) att hantera IoT-hubbar i din [Azure-prenumeration](#subscription) utföra åtgärder som att skapa, uppdatera och ta bort hubs.
+## <a name="iot-hub-resource-rest-api"></a>IoT-hubb resurs REST-API
+Du kan använda den [IoT Hub resurs REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) att hantera IoT-hubbar i din [Azure-prenumeration](#subscription) utföra åtgärder som att skapa, uppdatera och ta bort hubs.
 
-## <a name="iot-solution-accelerators"></a>IoT solution Accelerator
-Azure IoT solution Accelerator paketet tillsammans flera Azure-tjänster i lösningar. Dessa lösningar kan du komma igång snabbt med slutpunkt till slutpunkt-implementeringar av vanliga IoT-scenarier. Mer information finns i [vad är Azure IoT solution Accelerator?](../iot-suite/iot-suite-overview.md)
+## <a name="iot-solution-accelerators"></a>IoT-lösningsacceleratorer
+Azure IoT solution Accelerator paketet tillsammans flera Azure-tjänster i lösningar. Dessa lösningar kan du komma igång snabbt med slutpunkt till slutpunkt-implementeringar av vanliga IoT-scenarier. Mer information finns i [vad är Azure IoT solution Accelerator?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>IoT-tillägget för Azure CLI 2.0
 [IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) är en plattformsoberoende, kommandorads-verktyget. Verktyget gör det möjligt att hantera dina enheter i den [identitetsregistret](#identity-registry), skicka och motta meddelanden och filer från dina enheter och övervaka dina IoT hub-åtgärder.
 
 ## <a name="job"></a>Jobb
-Din lösningens serverdel kan använda [jobb](iot-hub-devguide-jobs.md) att schemalägga och spåra aktiviteter i en uppsättning enheter som registrerats med IoT-hubben. Aktiviteter omfattar uppdatera enheten dubbla [önskade egenskaper](#desired-properties), uppdaterar enheten dubbla [taggar](#tags), och anropar [direkt metoder](#direct-method). [IoT-hubb](#iot-hub) använder också jobb till [att importera och exportera](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) från den [identitetsregistret](#identity-registry).
-
-## <a name="jobs-rest-api"></a>Jobb REST-API
-Den [jobb REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) kan du hantera [jobb](#job) körs i din IoT-hubb.
+Din lösningens serverdel kan använda [jobb](iot-hub-devguide-jobs.md) att schemalägga och spåra aktiviteter i en uppsättning enheter som registrerats med IoT-hubben. Aktiviteter omfattar uppdatera enheten dubbla [önskade egenskaper](#desired-properties), uppdaterar enheten dubbla [taggar](#tags), och anropar [direkt metoder](#direct-method). [IoT-hubb](#iot-hub) använder också att [att importera och exportera](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) från den [identitetsregistret](#identity-registry).
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) är en av de messaging protokoll som [IoT-hubb](#iot-hub) har stöd för att kommunicera med enheter. Läs mer om meddelanden protokoll som stöds i IoT-hubb [skicka och ta emot meddelanden med IoT-hubben](iot-hub-devguide-messaging.md).
@@ -238,10 +224,13 @@ Du konfigurerar [routningsregler](iot-hub-devguide-messages-read-custom.md) i Io
 ## <a name="sasl-plain"></a>SASL OFORMATERAD
 SASL OFORMATERAD är ett protokoll som den [AMQP](#advanced-message-queue-protocol) protokoll som används för att överföra säkerhetstoken.
 
+## <a name="service-rest-api"></a>Tjänsten REST API
+Du kan använda den [Service REST API](https://docs.microsoft.com/rest/api/iothub/service/service) från lösningen serverdel för att hantera dina enheter. API: et kan du hämta och uppdatera [enheten dubbla](#device-twin) egenskaper, anropa [direkt metoder](#direct-method), och schema [jobb](#job). Normalt bör du använda en av de högre [SDK-tjänsten](#azure-iot-service-sdks) som visas i IoT-hubb självstudier.
+
 ## <a name="shared-access-signature"></a>Signatur för delad åtkomst
 Delad åtkomst signaturer (SAS) är en autentiseringsmekanism baserat på SHA-256 säker hashvärden eller URI: er. SAS-autentisering har två komponenter: en _delad åtkomstprincip_ och en _signatur för delad åtkomst_ (kallas ofta för en token). En enhet använder SAS för att autentisera med en IoT-hubb. [Backend-appar](#back-end-app) också använda SAS för att autentisera med tjänsten riktade slutpunkter på en IoT-hubb. Inkluderar vanligtvis, SAS-token i den [anslutningssträngen](#connection-string) att en app använder för att upprätta en anslutning till en IoT-hubb.
 
-## <a name="shared-access-policy"></a>Princip för delad åtkomst
+## <a name="shared-access-policy"></a>Policy för delad åtkomst
 En princip för delad åtkomst definierar behörigheterna för alla som har en giltig [primära och sekundära nycklarna](#primary-and-secondary-keys) som är associerade med principen. Du kan hantera principer för delad åtkomst och nycklar för din hubb i den [portal](#azure-portal).
 
 ## <a name="simulated-device"></a>Simulerad enhet

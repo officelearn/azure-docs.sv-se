@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 11/30/2017
+ms.date: 06/19/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ec58b5ef2b9095ba420a4518b84c4e2e6200abc3
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9ba8eae0fe9e68e4931bcdda989e59c59fd65edd
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714586"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293337"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Självstudie: Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps
 
@@ -32,9 +32,11 @@ I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Uppgradera appens prisnivå
-> * Binda ditt anpassade SSL-certifikat till App Service
-> * Använda HTTPS i din app
-> * Automatisera SSL-certifikatsbindning med skript
+> * Binda ditt anpassade certifikat till App Service
+> * Förnya certifikat
+> * Använda HTTPS
+> * Använda TLS 1.1/1.2
+> * Automatisera hantering av TLS med skript
 
 > [!NOTE]
 > Om du behöver ett anpassat SSL-certifikat kan du skaffa ett i Azure Portal direkt och binda det till din webbapp. Följ [Självstudie för App Service Certificate](web-sites-purchase-ssl-web-site.md).
@@ -213,6 +215,14 @@ Allt som nu återstår är att kontrollera att HTTPS fungerar för din anpassade
 
 <a name="bkmk_enforce"></a>
 
+## <a name="renew-certificates"></a>Förnya certifikat
+
+Din inkommande IP-adress kan ändras när du tar bort en bindning, även om bindningen är IP-baserad. Detta är särskilt viktigt att ha i åtanke när du förnyar ett certifikat som redan finns i en IP-baserad bindning. Du kan förhindra att appens IP-adress ändras genom att följa stegen nedan i ordning:
+
+1. Ladda upp det nya certifikatet.
+2. Bind det nya certifikatet till önskad anpassad domän utan att ta bort det gamla. Med den här åtgärden ersätts bindningen i stället för att den gamla tas bort.
+3. Ta bort det gamla certifikatet. 
+
 ## <a name="enforce-https"></a>Använda HTTPS
 
 Som standard kan alla fortfarande komma åt webbappen med hjälp av HTTP. Du kan omdirigera alla HTTP-begäranden till HTTPS-porten.
@@ -236,14 +246,6 @@ Välj **SSL-inställningar** i den vänstra navigeringen på webbappsidan. I **T
 ![Kräv TLS 1.1 eller 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 När åtgärden är klar avvisar appen alla anslutningar med lägre TLS-version.
-
-## <a name="renew-certificates"></a>Förnya certifikat
-
-Din inkommande IP-adress kan ändras när du tar bort en bindning, även om bindningen är IP-baserad. Detta är särskilt viktigt att ha i åtanke när du förnyar ett certifikat som redan finns i en IP-baserad bindning. Du kan förhindra att appens IP-adress ändras genom att följa stegen nedan i ordning:
-
-1. Ladda upp det nya certifikatet.
-2. Bind det nya certifikatet till önskad anpassad domän utan att ta bort det gamla. Med den här åtgärden ersätts bindningen i stället för att den gamla tas bort.
-3. Ta bort det gamla certifikatet. 
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 
@@ -273,6 +275,15 @@ az webapp config ssl bind \
     --ssl-type SNI \
 ```
 
+Följande kommando tvingar användning av TLS version 1.2 eller senare.
+
+```bash
+az webapp config set \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --min-tls-version 1.2
+```
+
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 Följande kommando laddar upp en exporterad PFX-fil och lägger till en SNI-baserad SSL-bindning.
@@ -297,9 +308,11 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Uppgradera appens prisnivå
-> * Binda ditt anpassade SSL-certifikat till App Service
-> * Använda HTTPS i din app
-> * Automatisera SSL-certifikatsbindning med skript
+> * Binda ditt anpassade certifikat till App Service
+> * Förnya certifikat
+> * Använda HTTPS
+> * Använda TLS 1.1/1.2
+> * Automatisera hantering av TLS med skript
 
 Gå vidare till nästa självstudie om du vill lära dig hur du använder Azure Content Delivery Network.
 

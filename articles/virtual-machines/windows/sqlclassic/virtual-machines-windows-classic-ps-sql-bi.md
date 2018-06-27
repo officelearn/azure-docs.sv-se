@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c8204e204978a9fd7cda2e9c02be0c70722b01bb
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425620"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021368"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence på Azure Virtuella datorer
 > [!IMPORTANT] 
@@ -34,7 +34,7 @@ Det finns två sätt att licens SQL Server i Microsoft Azure-datorer:
 1. Licens mobility fördelar som ingår i Software Assurance. Mer information finns i [Licensmobilitet via Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/).
 2. Betala per timme av Azure virtuella datorer med SQL Server installerad. Se avsnittet ”SQL Server” i [prissättning för Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
-Mer information om licensiering och aktuella kurser finns [virtuella datorer vanliga frågor om licensiering](https://azure.microsoft.com/pricing/licensing-faq/%20/).
+Mer information om licensiering och aktuella kurser finns [virtuella datorer vanliga frågor om licensiering](https://azure.microsoft.com/pricing/licensing-faq/).
 
 ## <a name="sql-server-images-available-in-azure-virtual-machine-gallery"></a>SQL Server-avbildningar finns i Azure galleriet för virtuella datorer
 Microsoft Azure Virtual Machine-galleriet innehåller flera avbildningar som innehåller Microsoft SQL Server. Programvaran på virtuella datoravbildningar varierar beroende på vilken version av operativsystemet och versionen av SQL Server. Listan över tillgängliga avbildningar i galleriet för virtuella Azure-datorn ändras ofta.

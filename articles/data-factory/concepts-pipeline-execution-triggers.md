@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/29/2018
+ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: e9fb1088110212a0971ea1af7bbfbecb7d150e21
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715045"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293487"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pipeline-körning och utlösare i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -142,6 +142,8 @@ Du kan även köra en pipelinekörning med utlösare. Utlösare representerar en
 
 - Utlösare för rullande fönster: en utlösare som körs med ett regelbundet intervall och samtidigt bibehåller ett tillstånd. Azure Data Factory har för närvarande inte stöd för händelsebaserade utlösare. Exempelvis stöds inte en utlösare för en pipeline som körs när en fil ankommer.
 
+- Händelsebaserad utlösare: en utlösare som svarar på en händelse.
+
 Pipeliner och utlösare har en många-till-många-relation. Flera utlösare kan starta en enda pipeline, och en enda utlösare kan starta flera pipeliner. I följande utlösardefinition refererar **pipelines**-egenskapen till en lista med pipeliner som utlöses av den aktuella utlösaren. Egenskapsdefinition innehåller värden för pipelineparametrarna.
 
 ### <a name="basic-trigger-definition"></a>Grundläggande utlösardefinition
@@ -175,11 +177,6 @@ Pipeliner och utlösare har en många-till-många-relation. Flera utlösare kan 
 En schemautlösare kör pipeliner enligt ett tidsschema. Den här utlösaren har stöd för periodiska och avancerade kalenderalternativ. Utlösaren har till exempel stöd för intervall som ”varje vecka” eller ”måndagar kl. 17.00 och torsdagar kl. 21:00”. Schemautlösaren är flexibel eftersom datamängdsmönstret är oberoende och utlösaren inte gör skillnad mellan tidsseriedata och andra typer av data.
 
 Mer information om schemautlösare och exempel hittar du i [Skapa en schemautlösare](how-to-create-schedule-trigger.md).
-
-## <a name="tumbling-window-trigger"></a>Utlösare för rullande fönster
-Utlösare för rullande fönster är en typ av utlösare som går igång med jämna tidsintervall från en angiven starttid och behåller sitt tillstånd. Rullande fönster är en serie sammanhängande tidsintervall med fast storlek som inte överlappar.
-
-Mer information om utlösare för rullande fönster och exempel finns i [Skapa en utlösare för rullande fönster](how-to-create-tumbling-window-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Definition av schemautlösare
 När du skapar en schemautlösare anger du schemaläggning och upprepning med en JSON-definition. 
@@ -322,6 +319,17 @@ I följande tabell beskrivs **schedule**-elementen i detalj:
 | **weekDays** | Veckodagar då utlösaren körs. Värdet kan bara anges med en veckofrekvens.|<br />– Måndag<br />– Tisdag<br />– Onsdag<br />– Torsdag<br />– Fredag<br />– Lördag<br />– Söndag<br />– Matris med dagvärden (maximal matrisstorlek är 7)<br /><br />Dagvärdena är inte skiftlägeskänsliga|
 | **monthlyOccurrences** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. |– Matris med **monthlyOccurence-objekt**: `{ "day": day,  "occurrence": occurence }`<br />– Attributet **day** är veckodagen som utlösaren körs på. Om egenskapen **monthlyOccurrences** till exempel har **day**-värdet `{Sunday}` innebär det varje söndag i månaden. Attributet **day** är obligatoriskt.<br />– Attributet **occurrence** är förekomsten av **day**-värdet i månaden. Om egenskapen **monthlyOccurrences** till exempel har **day**- och **occurrence**-värdena `{Sunday, -1}` innebär det den sista söndagen i månaden. Attributet **occurrence** är valfritt.|
 | **monthDays** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. |– Ett värde <= -1 och >= -31<br />– Ett värde > = 1 och < = 31<br />– Matris med värden|
+
+## <a name="tumbling-window-trigger"></a>Utlösare för rullande fönster
+Utlösare för rullande fönster är en typ av utlösare som går igång med jämna tidsintervall från en angiven starttid och behåller sitt tillstånd. Rullande fönster är en serie sammanhängande tidsintervall med fast storlek som inte överlappar.
+
+Mer information om utlösare för rullande fönster och exempel finns i [Skapa en utlösare för rullande fönster](how-to-create-tumbling-window-trigger.md).
+
+## <a name="event-based-trigger"></a>Händelsebaserad utlösare
+
+En händelsebaserade utlösare kör pipelines som svar på en händelse, till exempel mottagning av en fil eller borttagning av en fil i Azure Blob Storage.
+
+Läs mer om händelsebaserade utlösare i [Skapa en utlösare som kör en pipeline som svar på en händelse](how-to-create-event-trigger.md).
 
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Exempel på scheman för upprepning av utlösare
 Det här avsnittet innehåller exempel på återkommande scheman. Det fokuserar på de objektet **schema** och dess element.

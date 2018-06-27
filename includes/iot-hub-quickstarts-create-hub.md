@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 7987ee8c9a127c7a41ec2cd1f726450c771d527f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ddecf2f75e80f95291b12d9c139a8da85f45ac94
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34666982"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36288068"
 ---
 Det första steget är att använda Azure Portal till att skapa en IoT-hubb i din prenumeration. IoT-hubben gör att du kan mata in stora mängder telemetri i molnet från många enheter. Via hubben aktiveras sedan en eller flera servertjänster som körs i molnet, för läsning och bearbetning av telemetrin.
 
@@ -27,7 +27,7 @@ Det första steget är att använda Azure Portal till att skapa en IoT-hubb i di
 
    * **Prenumeration**: Välj den prenumeration som du vill använda för att skapa IoT-hubben.
 
-   * **Resursgrupp**: Skapa en resursgrupp som ska vara värd för IoT-hubben eller använd en befintlig. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser][lnk-resource-groups].
+   * **Resursgrupp**: Skapa en resursgrupp som ska vara värd för IoT-hubben eller använd en befintlig. Genom att lägga relaterade resurser i en grupp, kan du hantera dem tillsammans. Till exempel tas alla resurser som ingår i gruppen bort om resursgruppen tas bort. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser][lnk-resource-groups].
 
    * **Region**: Välj den plats som är närmast dig.
 

@@ -3,8 +3,8 @@ title: Skapa en statisk HTML-webbapp i Azure | Microsoft Docs
 description: Distribuera en statisk HTML-exempelapp och lär dig att köra webbappar i Azure App Service.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -12,91 +12,97 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/26/2017
-ms.author: cephalin
+ms.date: 06/15/2018
+ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: bca5757c971f15279ed6ee9b41f415cd347d91b3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9002d0636a5abaf24cc2bcd1e531f38ec5c8d2eb
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28918785"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294020"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Skapa en statisk HTML-webbapp i Azure
 
-Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstarten visar hur du distribuerar en enkel HTML+CSS-webbplats till Azure Web Apps. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera HTML-innehåll till webbappen.
+Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstarten visar hur du distribuerar en enkel HTML+CSS-webbplats till Azure Web Apps. Du måste slutföra denna snabbstart i [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview), men du kan också köra dessa kommandon lokalt med [Azure CLI](/cli/azure/install-azure-cli).
 
 ![Startsida för exempelapp](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator. Det tar cirka fem minuter att slutföra självstudiekursen när de nödvändiga komponenterna har installerats.
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-För att slutföra den här snabbstarten behöver du:
+## <a name="install-web-app-extension-for-cloud-shell"></a>Installera webbprogramtillägget för Cloud Shell
 
-- <a href="https://git-scm.com/" target="_blank">Installera Git</a>
+För att slutföra den här snabbstarten måste du lägga till [az-webbprogramtillägget](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add). Om tillägget redan är installerat måste du uppdatera det till den senaste versionen. Skriv `az extension update -n webapp` för att uppdatera webbprogramtillägget.
+
+Kör följande kommando om du vill installera webbprogramtillägget:
+
+```bash
+az extension add -n webapp
+```
+
+När du har installerat tillägget visar Cloud Shell information i följande exempel:
+
+```bash
+The installed extension 'webapp' is in preview.
+```
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-Kör följande kommando i ett terminalfönster för att klona databasen för exempelappen till den lokala datorn.
+Skapa en snabbstartskatalog i Cloud Shell och ändra sedan till den.
+
+```bash
+mkdir quickstart
+
+cd quickstart
+```
+
+Kör sedan följande kommando för att klona lagringsplatsen för exempelprogrammet till din snabbstartskatalog.
 
 ```bash
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-Ändra till den katalog som innehåller exempelkoden.
+## <a name="create-a-web-app"></a>Skapa en webbapp
+
+Ändra till den katalog som innehåller exempelkoden och kör `az webapp up` kommandot.
+
+Ersätt <app_name> med ett unikt programnamn i följande exempel.
 
 ```bash
 cd html-docs-hello-world
+
+az webapp up -n <app_name>
 ```
 
-## <a name="view-the-html"></a>Visa HTML
+Kommandot `az webapp up` utför följande åtgärder:
 
-Navigera till den katalog som innehåller HTML-exemplet. Öppna filen *index.html* i webbläsaren.
+- Skapa en standardresursgrupp.
 
-![Exempelstartsida för app](media/app-service-web-get-started-html/hello-world-in-browser.png)
+- Skapa en standard App Service-plan.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Skapa ett program med det givna namnet.
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+- [Zip-distribuera](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) filer från den aktuella arbetskatalogen till webbprogrammet.
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+Det kan ett par minuter att köra kommandot. Medan det körs visas information liknande den i följande exempel:
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
-
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
-
-![Sida för tom webbapp](media/app-service-web-get-started-html/app-service-web-service-created.png)
-
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
-
-```bash
-Counting objects: 13, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (11/11), done.
-Writing objects: 100% (13/13), 2.07 KiB | 0 bytes/s, done.
-Total 13 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'cc39b1e4cb'.
-remote: Generating deployment script.
-remote: Generating deployment script for Web Site
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot'
-remote: Deleting file: 'hostingstart.html'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+```json
+{
+  "app_url": "https://<app_name>.azurewebsites.net",
+  "location": "Central US",
+  "name": "<app_name>",
+  "os": "Windows",
+  "resourcegroup": "appsvc_rg_Windows_CentralUS ",
+  "serverfarm": "appsvc_asp_Windows_CentralUS",
+  "sku": "FREE",
+  "src_path": "/home/username/quickstart/html-docs-hello-world ",
+  < JSON data removed for brevity. >
+}
 ```
+
+Anteckna `resourceGroup`-värdet. Du behöver den för avsnittet [rensa resurser](#clean-up-resources).
 
 ## <a name="browse-to-the-app"></a>Bläddra till appen
 
@@ -110,16 +116,19 @@ Sidan körs som en Azure App Service-webbapp.
 
 ## <a name="update-and-redeploy-the-app"></a>Uppdatera och distribuera om appen
 
-Öppna filen *index.html* i en textredigerare och gör en ändring i koden. Ändra till exempel H1-rubriken från "Azure App Service - Sample Static HTML Site" till endast "Azure App Service".
+I Cloud Shell skriver du `nano index.html` för att öppna nanotextredigerare. I H1-rubriken ändrar du "Azure App Service - Sample Static HTML Site" till endast "Azure App Service", enligt följande exempel.
 
-I det lokala terminalfönstret sparar du ändringarna i Git och skickar sedan kodändringarna till Azure.
+![Nano index.html](media/app-service-web-get-started-html/nano-index-html.png)
+
+Spara dina ändringar och avsluta nano. Använd kommandot `^O` för att spara och `^X` för att avsluta.
+
+Du kan nu distribuera appen med samma `az webapp up`-kommando.
 
 ```bash
-git commit -am "updated HTML"
-git push azure master
+az webapp up -n <app_name>
 ```
 
-När distributionen är klar väljer du att uppdatera i webbläsaren så att ändringarna visas.
+När distributionen är klar går du tillbaka till webbläsarfönstret som öppnades när du skulle **söka efter appen** och klickar på knappen för att uppdatera sidan.
 
 ![Uppdaterad exempelstartsida för app](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
@@ -127,17 +136,25 @@ När distributionen är klar väljer du att uppdatera i webbläsaren så att än
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
 
-Klicka på **Apptjänster** i menyn till vänster och sedan på namnet på din Azure-webbapp.
+Klicka på **App Services** i menyn till vänster och sedan på namnet på din Azure-webbapp.
 
 ![Navigera till webbappen på Azure Portal](./media/app-service-web-get-started-html/portal1.png)
 
-Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
+Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
 
 ![App Service-blad på Azure Portal](./media/app-service-web-get-started-html/portal2.png)
 
-Menyn till vänster innehåller olika sidor för att konfigurera appen. 
+Menyn till vänster innehåller olika sidor för att konfigurera appen.
 
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+## <a name="clean-up-resources"></a>Rensa resurser
+
+I de föregående stegen skapade du Azure-resurser i en resursgrupp. Om du inte tror att du behöver dessa resurser i framtiden tar du bort resursgruppen genom att köra följande kommando i Cloud Shell. Kom ihåg att resursgruppens namn har genererats automatiskt för dig i steget [skapa en webbapp](#create-a-web-app).
+
+```bash
+az group delete --name appsvc_rg_Windows_CentralUS
+```
+
+Det kan några minuter att köra kommandot.
 
 ## <a name="next-steps"></a>Nästa steg
 

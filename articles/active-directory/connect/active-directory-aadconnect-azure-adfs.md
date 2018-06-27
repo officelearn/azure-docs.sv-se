@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5ac1e4c62242c088a0ac84fffc0211baf442b53
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 34a5e223dfc8ff51ce03a973e88a962643c71202
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595207"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36212680"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuera Active Directory Federation Services i Azure
 AD FS tillhandahåller förenklad, säker identitetsfederation och funktioner för enkel inloggning (SSO). Federation med Azure AD eller O365 gör att användarna kan autentiseras med lokala autentiseringsuppgifter och få åtkomst till alla resurser i molnet. Därför är det viktigt att du har en AD FS-infrastruktur med hög tillgänglighet för att säkerställa åtkomsten till resurser både lokalt och i molnet. Genom att distribuera AD FS i Azure kan du uppnå den höga tillgänglighet som krävs med minimalt arbete.
@@ -305,7 +305,7 @@ Det enklaste sättet är att testa AD FS med hjälp av sidan IdpInitiatedSignon.
 
 1. Kör cmdleten nedan på AD FS-servern med hjälp av PowerShell för att aktivera egenskapen.
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. Från alla externa datoråtkomster https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
+2. Gå till https:\//adfs-server.contoso.com/adfs/ls/IdpInitiatedSignon.aspx från valfri extern dator.  
 3. Du bör se en AD FS-sida som den här:
 
 ![Testa inloggningssidan](./media/active-directory-aadconnect-azure-adfs/test1.png)

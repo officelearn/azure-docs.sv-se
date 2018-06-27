@@ -12,55 +12,58 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2017
+ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 2878fb737f5daa875b91aefc77c6b8bc495f917e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59415941172fab06b3e86ef4d34d464cf359ce8f
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657578"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37026016"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Lagringsutforskaren viktig information
 
-Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.0.0 versionen och viktig information för tidigare versioner.
+Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.2.0 versionen och viktig information för tidigare versioner.
 
 [Microsoft Azure Lagringsutforskaren](./vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux.
 
-## <a name="version-110"></a>Version 1.1.0
-2018-05/09
+## <a name="version-120"></a>Version 1.2.0
+2018-06/12
 
-### <a name="download-azure-storage-explorer-110"></a>Hämta Azure Lagringsutforskaren 1.1.0
-- [Azure Lagringsutforskaren 1.1.0 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Lagringsutforskaren 1.1.0 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Lagringsutforskaren 1.1.0 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-120"></a>Hämta Azure Lagringsutforskaren 1.2.0
+- [Azure Lagringsutforskaren 1.2.0 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Lagringsutforskaren 1.2.0 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Lagringsutforskaren 1.2.0 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Ny
-* Lagringsutforskaren stöder nu användning av Azurite. Obs: anslutningen till Azurite är hårdkodad till standardslutpunkterna för utveckling.
-* Lagringsutforskaren stöder nu åtkomstnivåer för endast Blob och GPV2 Storage-konton. Mer information om åtkomstnivåer [här](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
-* En starttid krävs inte längre vid generering av en SAS.
+* Om det inte går att läsa in prenumerationer från en delmängd av klienterna Lagringsutforskaren, visas några prenumerationer som har lästs in tillsammans med ett felmeddelande för klienter som misslyckades. [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
+* I Windows, när en uppdatering är tillgänglig, kan du nu välja att ”uppdatera på Stäng”. När du har stängt Lagringsutforskaren körs installationsprogrammet för uppdateringen om det här alternativet hämtas. [#21](https://github.com/Microsoft/AzureStorageExplorer/issues/21)
+* Återställa ögonblicksbilden har lagts till på snabbmenyn för resursen filredigerare när du visar en fil dela ögonblicksbild. [#131](https://github.com/Microsoft/AzureStorageExplorer/issues/131)
+* Knappen Ta bort kön är nu alltid aktiverat. [#135](https://github.com/Microsoft/AzureStorageExplorer/issues/135)
+* Stöd för att logga in på Azure-stacken för AD FS har aktiverats på nytt. Azure-stacken version 1804 eller senare krävs. [#150](https://github.com/Microsoft/AzureStorageExplorer/issues/150)
 
 ### <a name="fixes"></a>Korrigeringar
-* Hämtning av prenumerationer för konton som tillhör amerikanska myndigheter bröts. Problemet har åtgärdats. [#61](https://github.com/Microsoft/AzureStorageExplorer/issues/61)
-* Förfallotiden för åtkomstprinciper som korrekt sparades inte. Problemet har åtgärdats. [#50](https://github.com/Microsoft/AzureStorageExplorer/issues/50)
-* När du genererar en SAS-URL för ett objekt i en behållare har inte namnet på objektet som läggs till URL: en. Problemet har åtgärdats. [#44](https://github.com/Microsoft/AzureStorageExplorer/issues/44)
-* När du skapar en SAS är utgången tider som är tidigare ibland standardvärdet. Det berodde på Lagringsutforskaren med senaste används start-och förfallotid som standardvärden. Varje gång du öppnar dialogrutan SAS skapas nu en ny uppsättning standardvärden. [#35](https://github.com/Microsoft/AzureStorageExplorer/issues/35)
-* När du kopierar mellan Lagringskonton, skapas en 24-timmarsformat SAS. Om kopian varade mer än 24 timmar, skulle kopian misslyckas. Vi har gjort SAS till senaste 1 veckan för att minska risken för en kopia misslyckas på grund av ett utgånget SAS. [#62](https://github.com/Microsoft/AzureStorageExplorer/issues/62)
-* För vissa aktiviteter fungerar att klicka på ”Avbryt” alltid inte. Problemet har åtgärdats. [#125](https://github.com/Microsoft/AzureStorageExplorer/issues/125)
-* För vissa aktiviteter var överföringshastigheten fel. Problemet har åtgärdats. [#124](https://github.com/Microsoft/AzureStorageExplorer/issues/124)
-* ”Föregående” stavningen i menyn Visa var fel. Det är nu korrekt stavat. [#71](https://github.com/Microsoft/AzureStorageExplorer/issues/71)
-* Den sista sidan i Windows installer hade en ”” nästa. Det har ändrats till en ”Slutför”. [#70](https://github.com/Microsoft/AzureStorageExplorer/issues/70)
-* Fliken fokus kunde inte visas för knappar i dialogrutor när du använder HC svart tema. Det är nu visas. [#64](https://github.com/Microsoft/AzureStorageExplorer/issues/64)
-* Versaler och gemener i ”löses” för åtgärder i aktivitetsloggen var fel. Det är rätt. [#51](https://github.com/Microsoft/AzureStorageExplorer/issues/51)
-* När du tar bort en entitet från en tabell, visas en felikon i dialogrutan där du uppmanas att bekräfta. Dialogrutan använder nu en varningsikon. [#148](https://github.com/Microsoft/AzureStorageExplorer/issues/148)
+* Om du har granskat ögonblicksbilder för en filresurs vars namn har ett prefix på en annan filresurs i samma lagringskonto skulle ögonblicksbilder för den delade filresursen också anges. Det här problemet har korrigerats. [#255](https://github.com/Microsoft/AzureStorageExplorer/issues/255)
+* När ansluten via SAS skulle återställa en fil från en fil dela ögonblicksbild resultera i ett fel. Det här problemet har korrigerats. [#211](https://github.com/Microsoft/AzureStorageExplorer/issues/211)
+* När du visar ögonblicksbilder för en blob aktiverades befordra ögonblicksbild åtgärd när den grundläggande blobben och en ögonblicksbild har valts. Åtgärden är nu aktiverad endast om en ögonblicksbild som är markerad. [#230](https://github.com/Microsoft/AzureStorageExplorer/issues/230)
+* Om en enstaka jobb (till exempel för att hämta en blob) har startat och senare misslyckas, skulle det inte automatiskt försök tills du startar ett annat jobb av samma typ. Alla jobb bör nu automatiskt försök, oavsett hur många jobb har du kö.
+* Redigerare öppnas för nyligen skapade blob-behållare i GPV2 och Blob Storage-konton har inte en åtkomstnivå-kolumn. Det här problemet har korrigerats. [#109](https://github.com/Microsoft/AzureStorageExplorer/issues/109)
+* En åtkomstnivå kolumn skulle ibland inte visas när ett lagringskonto eller blob-behållaren var anslutna via SAS. Kolumnen nu visas alltid, men med ett tomt värde om det finns ingen åtkomstnivå har angetts. [#160](https://github.com/Microsoft/AzureStorageExplorer/issues/160)
+* Ange åtkomstnivån för en nyligen uppladdade block-blob har inaktiverats. Det här problemet har korrigerats. [#171](https://github.com/Microsoft/AzureStorageExplorer/issues/171)
+* Om knappen ”Behåll fliken Öppna” anropades med hjälp av tangentbordet, skulle tangentbordsfokus gå förlorade. Fokus flyttas nu till fliken var hålls öppna. [#163](https://github.com/Microsoft/AzureStorageExplorer/issues/163)
+* För en fråga i Frågeverktyget VoiceOver inte ger en användbar beskrivning av den aktuella operatorn. Det är nu mer beskrivande. [#207](https://github.com/Microsoft/AzureStorageExplorer/issues/207)
+* Det gick inte att beskrivande sidbrytning länkarna för olika redigerare. De har ändrats så att mer beskrivande. [#205](https://github.com/Microsoft/AzureStorageExplorer/issues/205)
+* I dialogrutan Lägg till entiteten VoiceOver inte om vilken kolumn en indataelementet var en del av. Namnet på den aktuella kolumnen ingår nu i beskrivningen av elementet. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* Alternativknappar och kryssrutorna har inte en synlig kantlinje när fokus. Det här problemet har korrigerats. [#237](https://github.com/Microsoft/AzureStorageExplorer/issues/237)
 
 ### <a name="known-issues"></a>Kända problem
+* När du använder emulatorerna, till exempel Azure Storage-emulatorn eller Azurite, behöver du ha dem lyssna efter anslutningar på sina standardportarna. Annars Lagringsutforskaren inte ansluta till dem.
 * Om du använder VS för Mac och tidigare har skapat en anpassad AAD-konfiguration, kanske du inte logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör det inte låsa upp du, kommentera på [problemet](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * Azurite ännu inte helt har genomfört alla lagring API: er. Därmed är kan det finnas oväntade fel eller problem när du använder Azurite för utveckling lagring.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
 * Ladda upp från mappen OneDrive fungerar inte på grund av ett fel i NodeJS. Programfelet har åtgärdats men har ännu inte har integrerats i Electron.
 * När måldatorn Azure Stack misslyckas överföring av filer tilläggsblobar.
-* När du klickar på ”Avbryt” för en uppgift, kan det ta ett tag att avbryta aktiviteten. Detta beror på att vi använder Avbryt filter lösningen som beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317). 
+* När du klickar på ”Avbryt” för en uppgift, kan det ta ett tag att avbryta aktiviteten. Detta beror på att vi använder Avbryt filter lösningen som beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Byta namn på blobbar (individuellt eller i en bytt namn till blob-behållare) bevaras inte ögonblicksbilder. Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras vid ett byte av namn.
 * Även om Azure-stacken inte stöder filresurser, visas en filresurser nod fortfarande under ett bifogade Stack för Azure storage-konto.
@@ -86,8 +89,16 @@ Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.
     sudo apt-get install libgconf-2-4
     ```
 
+
+
+
+
+
+
+
 ## <a name="previous-releases"></a>Tidigare versioner
 
+* [Version 1.1.0](#version-110)
 * [Version 1.0.0](#version-100)
 * [Version 0.9.6](#version-096)
 * [Version 0.9.5](#version-095)
@@ -112,13 +123,64 @@ Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.
 * [Version 0.7.20160105.0](#version-07201601050)
 * [Version 0.7.20151116.0](#version-07201511160)
 
+
+## <a name="version-110"></a>Version 1.1.0
+2018-05/09
+
+### <a name="new"></a>Ny
+* Lagringsutforskaren stöder nu användning av Azurite. Obs: anslutningen till Azurite är hårdkodad till standardslutpunkterna för utveckling.
+* Lagringsutforskaren stöder nu åtkomstnivåer för endast Blob och GPV2 Storage-konton. Mer information om åtkomstnivåer [här](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
+* En starttid krävs inte längre vid generering av en SAS.
+
+### <a name="fixes"></a>Korrigeringar
+* Hämtning av prenumerationer för konton som tillhör amerikanska myndigheter bröts. Det här problemet har korrigerats. [#61](https://github.com/Microsoft/AzureStorageExplorer/issues/61)
+* Förfallotiden för åtkomstprinciper som korrekt sparades inte. Det här problemet har korrigerats. [#50](https://github.com/Microsoft/AzureStorageExplorer/issues/50)
+* När du genererar en SAS-URL för ett objekt i en behållare har inte namnet på objektet som läggs till URL: en. Det här problemet har korrigerats. [#44](https://github.com/Microsoft/AzureStorageExplorer/issues/44)
+* När du skapar en SAS är utgången tider som är tidigare ibland standardvärdet. Det berodde på Lagringsutforskaren med senaste används start-och förfallotid som standardvärden. Varje gång du öppnar dialogrutan SAS skapas nu en ny uppsättning standardvärden. [#35](https://github.com/Microsoft/AzureStorageExplorer/issues/35)
+* När du kopierar mellan Lagringskonton, skapas en 24-timmarsformat SAS. Om kopian varade mer än 24 timmar, skulle kopian misslyckas. Vi har gjort SAS till senaste 1 veckan för att minska risken för en kopia misslyckas på grund av ett utgånget SAS. [#62](https://github.com/Microsoft/AzureStorageExplorer/issues/62)
+* För vissa aktiviteter fungerar att klicka på ”Avbryt” alltid inte. Det här problemet har korrigerats. [#125](https://github.com/Microsoft/AzureStorageExplorer/issues/125)
+* För vissa aktiviteter var överföringshastigheten fel. Det här problemet har korrigerats. [#124](https://github.com/Microsoft/AzureStorageExplorer/issues/124)
+* ”Föregående” stavningen i menyn Visa var fel. Det är nu korrekt stavat. [#71](https://github.com/Microsoft/AzureStorageExplorer/issues/71)
+* Den sista sidan i Windows installer hade en ”” nästa. Det har ändrats till en ”Slutför”. [#70](https://github.com/Microsoft/AzureStorageExplorer/issues/70)
+* Fliken fokus kunde inte visas för knappar i dialogrutor när du använder HC svart tema. Det är nu visas. [#64](https://github.com/Microsoft/AzureStorageExplorer/issues/64)
+* Versaler och gemener i ”löses” för åtgärder i aktivitetsloggen var fel. Det är rätt. [#51](https://github.com/Microsoft/AzureStorageExplorer/issues/51)
+* När du tar bort en entitet från en tabell, visas en felikon i dialogrutan där du uppmanas att bekräfta. Dialogrutan använder nu en varningsikon. [#148](https://github.com/Microsoft/AzureStorageExplorer/issues/148)
+
+### <a name="known-issues"></a>Kända problem
+* Om du använder VS för Mac och tidigare har skapat en anpassad AAD-konfiguration, kanske du inte logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör det inte låsa upp du, kommentera på [problemet](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite ännu inte helt har genomfört alla lagring API: er. Därmed är kan det finnas oväntade fel eller problem när du använder Azurite för utveckling lagring.
+* I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
+* Ladda upp från mappen OneDrive fungerar inte på grund av ett fel i NodeJS. Programfelet har åtgärdats men har ännu inte har integrerats i Electron.
+* När måldatorn Azure Stack misslyckas överföring av filer tilläggsblobar.
+* När du klickar på ”Avbryt” för en uppgift, kan det ta ett tag att avbryta aktiviteten. Detta beror på att vi använder Avbryt filter lösningen som beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
+* Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
+* Byta namn på blobbar (individuellt eller i en bytt namn till blob-behållare) bevaras inte ögonblicksbilder. Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras vid ett byte av namn.
+* Även om Azure-stacken inte stöder filresurser, visas en filresurser nod fortfarande under ett bifogade Stack för Azure storage-konto.
+* Electron-gränssnittet som används av Lagringsutforskaren har problem med vissa maskinvaruacceleration GPU (graphics bearbetning unit). Om Lagringsutforskaren visas en tom (tom) huvudfönstret, kan du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växel:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* För Linux-användare, behöver du installera [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Du behöver kontrollera GCC är uppdaterad – kan du göra det genom att köra följande kommandon och sedan starta om datorn för användare på Ubuntu 14.04:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Du måste installera GConf – kan du göra det genom att köra följande kommandon och sedan starta om datorn för användare på Ubuntu nr 17.04 från:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+
 ## <a name="version-100"></a>Version 1.0.0
 2018-04/16
-
-### <a name="download-azure-storage-explorer-100"></a>Hämta Azure Lagringsutforskaren 1.0.0
-- [Azure Lagringsutforskaren 1.0.0 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Lagringsutforskaren 1.0.0 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Lagringsutforskaren 1.0.0 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Ny
 * Förbättrad autentisering som gör att Lagringsutforskaren att använda samma kontoarkiv som Visual Studio 2017. Om du vill använda den här funktionen, behöver du re-logga in på dina konton och ange nytt filtrerade prenumerationer.
@@ -135,28 +197,28 @@ Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.
 * Den metod som används för att kryptera känsliga data har ändrats. Det kan resultera i en del av din Snabbåtkomst objekten som ska läggas till igen och/eller vissa av du kopplade resurser som ska kopplas.
 
 ### <a name="fixes"></a>Korrigeringar
-* Vissa användare bakom proxyservrar skulle ha grupp blob överföringar eller nedladdningar som avbryts av ”det går inte att matcha' felmeddelande. Problemet har åtgärdats.
-* Om inloggning krävs när med en direktlänk, klicka på Logga In frågan skulle popup-ett tomt fönster. Problemet har åtgärdats.
+* Vissa användare bakom proxyservrar skulle ha grupp blob överföringar eller nedladdningar som avbryts av ”det går inte att matcha' felmeddelande. Det här problemet har korrigerats.
+* Om inloggning krävs när med en direktlänk att klicka på ”inloggning” uppmaningen skulle popup-ett tomt fönster. Det här problemet har korrigerats.
 * På Linux, om Lagringsutforskaren kan inte starta på grund av en GPU processen krasch du nu informeras om krasch, uppmanas du att använda den '--inaktivera gpu-växeln och Lagringsutforskaren kan sedan starta om automatiskt med växeln aktiverad.
 * Ogiltig åtkomstprinciper har svårt att identitet i dialogrutan åtkomstprinciper. Ogiltig åtkomstprincip ID nu beskrivs i rött för mer synlighet.
-* Aktivitetsloggen har ibland stora områden med blanksteg mellan de olika delarna av en aktivitet. Problemet har åtgärdats.
+* Aktivitetsloggen har ibland stora områden med blanksteg mellan de olika delarna av en aktivitet. Det här problemet har korrigerats.
 * I frågeredigeraren tabell om du har lämnat en tidsstämpel-sats i ett ogiltigt tillstånd och sedan försökte ändra en annan instruktion vill redigeraren låsa. Redigeraren för återställs nu tidsstämpel-satsen till sitt senaste giltiga tillstånd när en ändring i en annan instruktion har upptäckts.
 * Om du pausade när du skriver i sökfrågan i trädvyn sökningen ska börja och fokus skulle stjälas textrutan. Nu måste du uttryckligen starta sökningen genom att trycka på RETUR eller genom att klicka på knappen start sökning.
-* Kommandot ”Hämta signatur för delad åtkomst, skulle ibland inaktiveras när Högerklicka på en fil i en filresurs. Problemet har åtgärdats.
+* Kommandot ”Hämta signatur för delad åtkomst, skulle ibland inaktiveras när Högerklicka på en fil i en filresurs. Det här problemet har korrigerats.
 * Om trädnoden resursen med fokus har filtrerats ut vid sökning, det gick inte fliken i trädet för resurser och Använd piltangenterna för att navigera i resursträdet. Nu ska fokuserad resurs trädnoden är dold, den första noden i trädet för resurser automatiskt bestå.
-* En extra avgränsare skulle ibland visas i verktygsfältet editor. Problemet har åtgärdats.
-* Textrutan spåret skulle ibland dataspill. Problemet har åtgärdats.
-* Blob- och filresurs redigerare skulle ibland ständigt uppdatera när du överför många filer samtidigt. Problemet har åtgärdats.
+* En extra avgränsare skulle ibland visas i verktygsfältet editor. Det här problemet har korrigerats.
+* Textrutan spåret skulle ibland dataspill. Det här problemet har korrigerats.
+* Blob- och filresurs redigerare skulle ibland ständigt uppdatera när du överför många filer samtidigt. Det här problemet har korrigerats.
 * Statistik för mapp-funktionen har något syfte i vyn filhantering resursen ögonblicksbilder. Det har nu inaktiverats.
-* På Linux visas inte på Arkiv-menyn. Problemet har åtgärdats.
+* På Linux visas inte på Arkiv-menyn. Det här problemet har korrigerats.
 * När du laddar upp en mapp till en filresurs som standard laddades bara innehållet i mappen upp. Standardinställningen är nu att överföra innehållet i mappen till en matchande mapp i filresursen.
-* Ordningen på knapparna i flera dialogrutor hade återförts. Problemet har åtgärdats.
+* Ordningen på knapparna i flera dialogrutor hade återförts. Det här problemet har korrigerats.
 * Olika säkerhetsrelaterade korrigeringar.
 
 ### <a name="known-issues"></a>Kända problem
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
 * När måldatorn Azure Stack misslyckas överföring av filer tilläggsblobar.
-* När du klickar på ”Avbryt” för en uppgift, kan det ta ett tag att avbryta aktiviteten. Det beror på att vi använder Avbryt filter lösningen som beskrivs här. 
+* När du klickar på ”Avbryt” för en uppgift, kan det ta ett tag att avbryta aktiviteten. Det beror på att vi använder Avbryt filter lösningen som beskrivs här.
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Byta namn på blobbar (individuellt eller i en bytt namn till blob-behållare) bevaras inte ögonblicksbilder. Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras vid ett byte av namn.
 * Även om Azure-stacken inte stöder filresurser, visas en filresurser nod fortfarande under ett bifogade Stack för Azure storage-konto.
@@ -185,14 +247,9 @@ Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.
 ## <a name="version-096"></a>Version 0.9.6
 2018-02/28
 
-### <a name="download-azure-storage-explorer-096-preview"></a>Hämta Azure Lagringsutforskaren 0.9.6 (förhandsgranskning)
-- [Azure Lagringsutforskaren 0.9.6 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Lagringsutforskaren (förhandsversion) för 0.9.6 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Lagringsutforskaren (förhandsversion) för 0.9.6 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
-
 ### <a name="fixes"></a>Korrigeringar
-* Ett problem förhindrade att förväntade BLOB-filer som visas i redigeraren. Problemet har åtgärdats.
-* Ett problem orsakade växla mellan ögonblicksbild vyerna visas objekten på fel sätt. Problemet har åtgärdats.
+* Ett problem förhindrade att förväntade BLOB-filer som visas i redigeraren. Det här problemet har korrigerats.
+* Ett problem orsakade växla mellan ögonblicksbild vyerna visas objekten på fel sätt. Det här problemet har korrigerats.
 
 ### <a name="known-issues"></a>Kända problem
 * Lagringsutforskaren stöder inte ADFS-konton.
@@ -225,11 +282,6 @@ Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.
 
 ## <a name="version-095"></a>Version 0.9.5
 2018-02/06
-
-### <a name="download-azure-storage-explorer-095-preview"></a>Hämta Azure Lagringsutforskaren 0.9.5 (förhandsgranskning)
-- [Azure Lagringsutforskaren 0.9.5 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Lagringsutforskaren (förhandsversion) för 0.9.5 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Lagringsutforskaren (förhandsversion) för 0.9.5 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Ny
 
@@ -280,11 +332,6 @@ Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.
 ## <a name="version-094-and-093"></a>Version 0.9.4 och 0.9.3
 2018-01/21
 
-### <a name="download-azure-storage-explorer-094-preview"></a>Hämta Azure Lagringsutforskaren 0.9.4 (förhandsgranskning)
-* [Hämta Azure Lagringsutforskaren 0.9.4 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Hämta Azure Lagringsutforskaren (förhandsversion) för 0.9.4 för Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Hämta Azure Lagringsutforskaren (förhandsversion) för 0.9.4 för Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
-
 ### <a name="new"></a>Ny
 * Din befintliga lagring Utforskaren ska återanvändas när:
     * Öppna Direktlänkar genereras i Lagringsutforskaren.
@@ -295,9 +342,9 @@ Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.
     * För Mac finns det ett 'nytt fönster och' alternativet App-menyn.
 
 ### <a name="fixes"></a>Korrigeringar
-* Fast ett säkerhetsproblem. Uppgradera till 0.9.4 när tidigaste dig.
+* Fast ett säkerhetsproblem. Uppgradera till 0.9.4 tidigaste dataskyddsstatistik.
 * Gamla aktiviteter har inte korrekt rensas. Detta påverkade prestanda för tidskrävande jobb. De är nu rensas på rätt sätt.
-* Åtgärder som inbegriper stort antal filer och kataloger kan ibland orsaka Lagringsutforskaren att låsa. Begäranden till Azure för filresurser är nu trottled att begränsa system Resursanvändning.
+* Åtgärder som inbegriper stort antal filer och kataloger kan ibland orsaka Lagringsutforskaren att låsa. Begäranden till Azure för filresurser har nu begränsats för att begränsa system Resursanvändning.
 
 ### <a name="known-issues"></a>Kända problem
 * Lagringsutforskaren stöder inte ADFS-konton.
@@ -332,7 +379,7 @@ Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.
 
 ### <a name="hotfixes"></a>Snabbkorrigeringar
 * Oväntade data har möjligt när du redigerar Edm.DateTime värden för tabellentiteter beroende på den lokala tidszonen. Nu används en oformaterad textruta med exakt och konsekvent kontroll över Edm.DateTime värden.
-* Överför/hämta en uppsättning blobbar när kopplade till namn och nyckel startar inte. Problemet har åtgärdats.
+* Överför/hämta en uppsättning blobbar när kopplade till namn och nyckel startar inte. Det här problemet har korrigerats.
 * Tidigare Lagringsutforskaren endast ombeds du att autentiseras en inaktuella konto om en eller flera av kontots prenumerationer har valts. Nu uppmanas Lagringsutforskaren du även om kontot fullständigt har filtrerats ut.
 * Domänen slutpunkter för Azure som tillhör amerikanska myndigheter var fel. Den har korrigerats.
 * Verkställ-knappen på panelen hantera konton har ibland svårt att klicka på. Detta ska inte längre inträffa.
@@ -357,7 +404,7 @@ Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.
 
 ### <a name="fixes"></a>Korrigeringar
 * Om du försöker öppna eller hämta en blob med ett ogiltigt namn på Windows-filen misslyckas åtgärden. Lagringsutforskaren nu identifierar om en blobbnamnet är ogiltigt och be om du vill koda den eller hoppa över blob. Lagringsutforskaren identifierar även om ett filnamn verkar vara kodad och be dig om att avkoda innan du laddar upp.
-* Under blob filöverföringen redigerare mål blob-behållaren skulle ibland inte korrekt att uppdatera. Problemet har åtgärdats.
+* Under blob filöverföringen redigerare mål blob-behållaren skulle ibland inte korrekt att uppdatera. Det här problemet har korrigerats.
 * Stöd för flera typer av anslutningssträngar och SAS-URI: er regressed. Vi har löst alla kända problem men skicka feedback om du får ytterligare problem.
 * Meddelanden om uppdateringar bröts för vissa användare i 0.9.0. Det här problemet har åtgärdats och dem som berörs av felet, du manuellt kan hämta den senaste versionen av Lagringsutforskaren [här](https://azure.microsoft.com/features/storage-explorer/).
 
@@ -411,7 +458,7 @@ Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.
 
 ### <a name="fixes"></a>Korrigeringar
 * Om du försöker öppna eller hämta en blob med ett ogiltigt namn på Windows-filen misslyckas åtgärden. Lagringsutforskaren nu identifierar om en blobbnamnet är ogiltigt och be om du vill koda den eller hoppa över blob. Lagringsutforskaren identifierar även om ett filnamn verkar vara kodad och be dig om att avkoda innan du laddar upp.
-* Under blob filöverföringen redigerare mål blob-behållaren skulle ibland inte korrekt att uppdatera. Problemet har åtgärdats.
+* Under blob filöverföringen redigerare mål blob-behållaren skulle ibland inte korrekt att uppdatera. Det här problemet har korrigerats.
 * Stöd för flera typer av anslutningssträngar och SAS-URI: er regressed. Vi har löst alla kända problem men skicka feedback om du får ytterligare problem.
 * Meddelanden om uppdateringar bröts för vissa användare i 0.9.0. Det här problemet har åtgärdats och dem som berörs av felet, du manuellt kan hämta den senaste versionen av Lagringsutforskaren [här](https://azure.microsoft.com/features/storage-explorer/)
 
@@ -896,7 +943,7 @@ Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.
 #### <a name="new"></a>Ny
 
 * macOS och versioner av Windows
-* Logga in att visa dina Lagringskonton – använda din organisations konto, Account, 2FA osv.
+* Logga in på Visa dina Lagringskonton – använda din organisations konto, Account, 2FA osv.
 * Lokal utveckling lagring (Använd storage-emulatorn endast för Windows)
 * Stöd för Azure Resource Manager och klassisk resurs
 * Skapa och ta bort blobbar, köer och tabeller

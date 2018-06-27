@@ -6,14 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 11/10/2017
+ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: 0957ca2b6ce58249531ca0b8e3f26bc16cabb5d5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: ad5831309ff9e4cc420e777dc06815a5e6b79f91
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802433"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36217661"
 ---
 # <a name="what-is-azure-search"></a>Vad är Azure Search?
 Azure Search är en molnlösning för sökning som en tjänst 0som ger utvecklare API:er och verktyg för att lägga till omfattande sökfunktioner för privat heterogent innehåll i webb-, mobil- och företagsprogram.
@@ -26,7 +26,8 @@ Funktionerna exponeras via en enkel [REST API](/rest/api/searchservice/) eller [
 
 | Kategori | Funktioner |
 |----------|----------|
-|Fulltextsökning och textanalys | [Fulltextsökning](search-lucene-query-architecture.md) är ett primärt användningsfall för de flesta sökbaserade appar. Frågor kan formuleras med en syntax som stöds. <br/><br/>[**Enkel frågesyntax**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) innehåller logiska operatorer, frassökoperatorer, suffixoperatorer och prioritetsoperatorer.<br/><br/>[**Lucene-frågesyntax**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) innehåller alla åtgärder i enkel syntax, med tillägg för fuzzy-sökning, närhetssökning, termförstärkning och reguljära uttryck.| 
+|Fulltextsökning och textanalys | [Fulltextsökning](search-lucene-query-architecture.md) är ett primärt användningsfall för de flesta sökbaserade appar. Frågor kan formuleras med en syntax som stöds. <br/><br/>[**Enkel frågesyntax**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) innehåller logiska operatorer, frassökoperatorer, suffixoperatorer och prioritetsoperatorer.<br/><br/>[**Lucene-frågesyntax**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) innehåller alla åtgärder i enkel syntax, med tillägg för fuzzy-sökning, närhetssökning, termförstärkning och reguljära uttryck.|
+|Kognitiv sökning (förhandsversion) | [AI-styrda algoritmer](cognitive-search-concept-intro.md) för bild- och textanalys kan tillämpas på en indexerande pipeline för att extrahera textinformation från rådatainnehåll. Några exempel på [inbyggda kunskaper](cognitive-search-predefined-skills.md) inkluderar optisk teckenläsning (att göra skannad JPEG sökbar), entitetsigenkänning (identifierar en organisation, namn eller plats) och nyckelfrasigenkänning. Du kan också [koda anpassade kunskaper](cognitive-search-create-custom-skill-example.md) att ansluta till pipelinen. |
 | Dataintegrering | Azure Search-index accepterar data från alla källor, förutsatt att de skickas som en JSON-datastruktur. <br/><br/> För datakällor som stöds i Azure kan du om du vill använda [**indexerare**](search-indexer-overview.md) för att automatiskt crawla [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) eller [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) och synkronisera sökindexets innehåll med det primära datalagret. Azure Blob-indexerare kan utföra *dokumentknäckning* för [indexering av större filformat](search-howto-indexing-azure-blob-storage.md), bland annat Microsoft Office-, PDF- och HTML-dokument. |
 | Språklig analys | Analysverktyg är komponenter som används för textbearbetning under indexerings- och sökåtgärder. Det finns två typer. <br/><br/>[**Anpassad lexikalisk analys**](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) används för komplexa sökfrågor med fonetisk matchning och reguljära uttryck. <br/><br/>[**Språkanalys**](https://docs.microsoft.com/rest/api/searchservice/language-support) från Lucene eller Microsoft används för intelligent hantering av språkspecifik lingvistik, bland annat verbtempus, genus, substantiv med oregelbunden plural (till exempel 'mus' kontra 'möss'), uppdelning av sammansatta ord, ordseparation (för språk utan blanksteg) och mycket mer. |
 | Geo-sökning | Azure Search bearbetar, filtrerar och visar geografiska platser. Det gör det möjligt för användare att utforska data baserat på ett sökresultats närhet till en fysisk plats. [Titta på den här videon](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) eller [gå igenom det här exemplet](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) om du vill veta mer. |

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: df455f46e5fbc6bc1a4a7f0c30eac1bb185dea3d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: a1197277b97c14e95bdab67f7c3d00b75a841f22
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312703"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267582"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudie: Skapa och distribuera ett program med en ASP.NET Core Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
 Den här självstudien ingår i en serie.  Du får se hur du skapar ett Azure Service Fabric-program med en ASP.NET Core Web API-klientdel och en tillståndskänslig serverdelstjänst för att lagra dina data. När du är klar har du ett röstningsprogam med ASP.NET Core-webbklient som sparar röstningsresultat i en tillståndskänslig backend-tjänst i klustret. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) för det färdiga programmet och gå vidare till [Gå igenom exempelprogrammet för röstning](#walkthrough_anchor).  Om du vill kan du visa en [videogenomgång](https://channel9.msdn.com/Events/Connect/2017/E100) av den här kursen.
@@ -74,9 +74,21 @@ Skapa först webbklientdelen i röstningsprogrammet med ASP.NET Core. ASP.NET Co
    ![Solution Explorer när ett program med ASP.NET Core Web API-tjänst har skapats]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### <a name="add-angularjs-to-the-votingweb-service"></a>Lägg till AngularJS till VotingWeb-tjänsten
-Lägg till [AngularJS](http://angularjs.org/) till tjänsten med hjälp av [Bower-stöd](/aspnet/core/client-side/bower). Lägg först till en konfigurationsfil för Bower i projektet.  I Solution Explorer högerklickar du på **VotingWeb** och väljer **Lägg till->Nytt objekt**. Välj **Webb** och sedan **Bower-konfigurationsfil**.  Filen *bower.json* skapas.
+Lägg till [AngularJS](http://angularjs.org/) till tjänsten med hjälp av [Bower-stöd](/aspnet/core/client-side/bower). Lägg först till en *.bowerrc*-inställningsfil i projektet.  I Solution Explorer högerklickar du på **VotingWeb** och väljer **Lägg till->Nytt objekt**. Välj **C#** och sedan **JSON-fil**.  Ange **.bowerrc** i fältet *Namn* och klicka på **Lägg till**.
 
-Öppna *bower.json* och lägg till poster för vinkel och vinkel-bootstrap. Spara sedan ändringarna.
+Öppna *.bowerrc* och ersätt innehållet med följande, vilket betyder att Bower installerar pakettillgångarna till katalogen *wwwroot/lib*.
+
+```json
+{
+ "directory": "wwwroot/lib"
+}
+```
+
+Spara dina ändringar till *.bowerrc*.  Då skapas en *.bowerrc*-fil i ditt projekt.  
+
+Lägg sedan till en konfigurationsfil för Bower i projektet.  I Solution Explorer högerklickar du på **VotingWeb** och väljer **Lägg till->Nytt objekt**. Välj **C#** och sedan **JSON-fil**.  Ange **.bower.json** i fältet *Namn* och klicka på **Lägg till**.
+
+Öppna *bower.json* och ersätt innehållet med följande poster för Angular och Angular-bootstrap och spara sedan ändringarna.
 
 ```json
 {
@@ -92,7 +104,8 @@ Lägg till [AngularJS](http://angularjs.org/) till tjänsten med hjälp av [Bowe
   }
 }
 ```
-När du sparar filen *bower.json* installeras Angular i projektets *wwwroot/lib*-mapp. Den visas också i mappen *Beroenden/Bower*.
+
+När filen *bower.json* sparas kommer Visual Studios bower-stöd installera Angular i ditt projekts *wwwroot/lib*-mapp. Den visas också i mappen *Beroenden/Bower*.
 
 ### <a name="update-the-sitejs-file"></a>Uppdatera site.js-filen
 Öppna filen *wwwroot/js/site.js*.  Ersätt innehållet med det JavaScript som används av Start-vyerna:

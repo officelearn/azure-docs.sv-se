@@ -4,15 +4,15 @@ description: Ger en översikt över tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/08/2018
+ms.date: 06/20/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 68f335762e1fdd68296d7056ef5826f69c868d70
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 6c78554b78468329819726bfd95671a34f51b231
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236373"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285805"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -31,7 +31,7 @@ Med Azure Migrate får du hjälp med att:
 
 - För närvarande kan du endast utvärdera lokala virtuella VMware-datorer (VM) för migrering till virtuella Azure-datorer. De virtuella VMware-datorerna måste hanteras av en vCenter Server (version 5.5, 6.0 eller 6.5).
 - Stöd för Hyper-V finns i vår översikt. Under tiden kan rekommendera att du planerar att migrera Hyper-V-arbetsbelastningar med [Distributionshanteraren för Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc).
-- Du kan identifiera upp till 1 500 virtuella datorer i en enda identifiering och upp till 1 500 virtuella datorer i ett enda projekt. Dessutom kan du utvärdera upp till 1 500 virtuella datorer i en enda utvärdering.
+- Du kan identifiera upp till 1 500 virtuella datorer i en enda identifiering och upp till 1 500 virtuella datorer i ett enda projekt. Dessutom kan du utvärdera upp till 1 500 virtuella datorer i en enda utvärdering. Om du vill identifiera en större miljö kan du dela identifieringen och skapa flera projekt. Läs [mer](how-to-scale-assessment.md). Azure Migrate stöder upp till 20 projekt per prenumeration.
 - Du kan endast skapa ett Azure Migrate-projekt i regionen USA, västra eller USA, östra. Men detta påverkar inte din möjlighet att planera migrering för en annan Azure-plats. Platsen för ett migreringsprojekt används endast för att lagra metadata som identifieras från den lokala miljön.
 - Azure Migrate stöder endast hanterade diskar för migreringsutvärdering.
 
@@ -50,7 +50,10 @@ En utvärdering hjälper dig att identifiera Azure-lämpligheten för lokala vir
 **Målplats** | Azure-platsen du vill migrera till.<br/><br/>För närvarande stöder Azure Migrate 30 regioner, bland andra: Australien – östra, Australien – sydöstra, Brasilien – södra, Kanada – centrala, Kanada – östra, Indien – centrala, USA – centrala, Kina – östra, Kina – norra, Asien – östra (Asien och stillahavsområdet), USA – östra, Tyskland – centrala, Tyskland – nordöstra, USA – östra 2, Japan – östra, Japan – västra, Korea – centrala, Korea – södra, USA – norra centrala, Europa – norra, USA – södra centrala, Asien – sydost, Indien – södra, Storbritannien – södra, Storbritannien – västra, USA – US Gov Arizona – US Gov Texas – US Gov Virginia – västra centrala, USA – västra centrala, Europa – västra, Indien – västra, USA – västra och USA – västra 2. Målplatsen är som standard angiven som USA, västra 2.
 **Lagringstyp** | Du kan ange vilken typ av diskar som du vill tilldela i Azure. Den här egenskapen gäller när storlekskriterierna är samma som de lokala. Du kan ange måldisktypen som premiumhanterade diskar eller standardhanterade diskar. Standardvärdet är premiumhanterade diskar. För prestandabaserat storleksval sker diskrekommendationen automatiskt baserat på de virtuella datorernas prestanda. Observera att Azure Migrate endast stöder hanterade diskar för migreringsutvärdering.
 **Ändra storlek på kriterium** | Kriteriet som ska användas av Azure Migrate för att ställa in rätt storlek på virtuella datorer för Azure. Du kan storleksanpassa antingen baserat på *prestandahistorik* för de lokala virtuella datorerna eller storleksanpassa de virtuella datorerna *som lokala* för Azure utan att räkna in prestandahistorik. Standardvärdet är samma som det lokala storleksvärdet.
-**Prisavtal** | För kostnadsberäkningar överväger en utvärdering om du har Software Assurance och om du är berättigad för [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Den tittar också på [Azure-erbjudanden](https://azure.microsoft.com/support/legal/offer-details/) som du är registrerad för, och låter dig ange prenumerationsspecifika rabatter (%) som du kan få utöver erbjudandet.
+**Azure-erbjudande** | Du kan ange det [Azure-erbjudande](https://azure.microsoft.com/support/legal/offer-details/) du har registrerat dig för och därefter beräknar Azure Migrate kostnaden.
+**Azure Hybrid-förmån** | Ange om du har Software Assurance och är berättigad [Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-use-benefit/) för att få rabatter.
+**Reserverade instanser** |  Du kan också ange om du har [reserverade instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) i Azure så beräknar Azure Migrate kostnaden därefter.
+**VM-drifttid** | Om din virtuella dator inte längre kommer att köra dygnet runt i Azure, kan du ange hur länge som de kommer att köras i Azure och så sker kostnadsuppskattningen i enlighet med detta.
 **prisnivå** | Du kan ange [prisnivå (Basic/Standard)](../virtual-machines/windows/sizes-general.md) för Azure-måldatorerna. Om du exempelvis planerar att migrera en produktionsmiljö bör du överväga standardnivån, som tillhandahåller virtuella datorer med låg svarstid men kan kosta mer. Om du å andra sidan har en miljö för utveckling och testning kanske du vill överväga Basic-nivån som har virtuella datorer med högre svarstider och lägre kostnader. Som standard används [standardnivån](../virtual-machines/windows/sizes-general.md).
 **Prestandahistorik** | Som standard utvärderar Azure Migrate prestanda för lokala datorer med prestandahistoriken för den sista dagen, med ett percentilvärde på 95 %. Du kan ändra dessa värden i egenskaperna för utvärdering.
 **VM-serie** | Du kan ange den VM-serie som du vill överväga vid storleksberäkningen. Om du till exempel har en produktionsmiljö som du inte planerar att migrera till A-serien av virtuella datorer i Azure, kan du utesluta A-serien från listan eller serien, så fastställs storleken endast baserat på de valda serierna.  

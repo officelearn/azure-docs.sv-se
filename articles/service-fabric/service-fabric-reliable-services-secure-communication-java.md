@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 1843720b9700e66af8ee84766cf7d63ac62e6283
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: cbefb3ede6d0d1fe21065b49c84db9f4db5dd39c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749920"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020821"
 ---
 # <a name="secure-service-remoting-communications-in-a-java-service"></a>Skydda fjärrkommunikation servicemeddelanden i en Java-tjänst
 > [!div class="op_single_selector"]
@@ -55,7 +55,9 @@ Följ dessa steg om du vill skydda en tjänst när du använder tjänsten fjärr
     ```
 2. Lägga till lyssnarinställningarna och säkerhetsreferenser.
 
-    Kontrollera att det certifikat som du vill använda för att skydda din kommunikation är installerad på alla noder i klustret. Det finns två sätt att du kan ange inställningar för lyssnare och säkerhetsreferenser:
+    Kontrollera att det certifikat som du vill använda för att skydda din kommunikation är installerad på alla noder i klustret. För tjänster som körs på Linux-certifikatet måste vara tillgänglig som en formmatted PEM-fil. antingen en `.pem` -fil som innehåller certifikatet och den privata nyckeln eller en `.crt` -fil som innehåller certifikatet och en `.key` -fil som innehåller den privata nyckeln. Läs mer i [plats och format för X.509-certifikat på Linux-noder](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes).
+    
+    Det finns två sätt att du kan ange inställningar för lyssnare och säkerhetsreferenser:
 
    1. Ge dem med hjälp av en [konfigurationspaketet](service-fabric-application-and-service-manifests.md):
 

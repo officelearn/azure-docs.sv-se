@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 64e8a20f72d451908c12751c0f8062bf4ae86370
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e9ed70de6d72026b8e3469417c53d6923a8a85e
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021482"
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Kopiera data till och från lokala Oracle med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +42,7 @@ Du kan kopiera data från följande datalager **till en Oracle-databas**:
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
-Data Factory stöder anslutning till lokal Oracle källor med hjälp av Data Management Gateway. Se [Data Management Gateway](data-factory-data-management-gateway.md) artikeln innehåller information om Data Management Gateway och [flytta data från lokalt till molnet](data-factory-move-data-between-onprem-and-cloud.md) artikel stegvisa instruktioner om hur du konfigurerar gatewayen som en pipeline för data att flytta data.
+Data Factory stöder anslutning till lokal Oracle källor med hjälp av Data Management Gateway. Se [Data Management Gateway](data-factory-data-management-gateway.md) artikeln innehåller information om Data Management Gateway och [flytta data från lokalt till molnet](data-factory-move-data-between-onprem-and-cloud.md) artikel stegvisa instruktioner för att konfigurera gatewayen en data-pipeline för Flytta data.
 
 Gateway krävs även om Oracle finns i en Azure IaaS-VM. Du kan installera gatewayen på samma IaaS-VM som dataarkiv eller på en annan virtuell dator, förutsatt att gatewayen kan ansluta till databasen.
 
@@ -57,6 +58,9 @@ Den här anslutningen Oracle stöder två versioner av drivrutiner:
     - Oracle 10g R1, R2 (10.1, 10,2)
     - Oracle 9i R1, R2 (9.0.1, 9.2)
     - Oracle 8i R3 (8.1.7)
+
+> [!NOTE]
+> Oracle-proxyserver stöds inte.
 
 > [!IMPORTANT]
 > Microsoft-drivrutin för Oracle stöder för närvarande endast kopiering av data från Oracle men inte skriva till Oracle. Och notera Testa anslutning kapaciteten i fliken Data Management Gateway-diagnostik inte har stöd för den här drivrutinen. Du kan också använda guiden Kopiera för att verifiera anslutningen.
@@ -75,7 +79,7 @@ Du kan skapa en pipeline med en kopia-aktivitet som flyttar data till eller frå
 
 Det enklaste sättet att skapa en pipeline är att använda den **guiden Kopiera**. Finns [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall** , **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Om du använder verktyg eller API: er, kan du utföra följande steg för att skapa en pipeline som flyttar data från ett dataarkiv som källa till ett dataarkiv som mottagare:
 
@@ -91,12 +95,12 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för Oracle länkad tjänst.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **OnPremisesOracle** |Ja |
 | driverType | Ange vilka drivrutiner som ska använda för att kopiera data från/till Oracle-databas. Tillåtna värden är **Microsoft** eller **ODP** (standard). Se [stöds version och vilka installationsalternativ](#supported-versions-and-installation) avsnitt för mer information. | Nej |
 | connectionString | Ange information som behövs för att ansluta till Oracle-databasinstans för egenskapen connectionString. | Ja |
-| gatewayName | Namnet på gatewayen som används för att ansluta till lokal Oracle-server |Ja |
+| gatewayName | Namnet på den gateway som används för att ansluta till lokal Oracle-server |Ja |
 
 **Exempel: använda Microsoft-drivrutinen:**
 ```json
@@ -136,7 +140,7 @@ En fullständig lista över egenskaper som är tillgängliga för att definiera 
 
 Avsnittet typeProperties är olika för varje typ av dataset och ger information om placeringen av data i datalagret. Avsnittet typeProperties för datauppsättningen av typen OracleTable har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i Oracle-databas som den länkade tjänsten refererar till. |Nej (om **oracleReaderQuery** av **OracleSource** har angetts) |
 
@@ -151,14 +155,14 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten var
 ### <a name="oraclesource"></a>OracleSource
 I en Kopieringsaktivitet när källan är av typen **OracleSource** följande egenskaper är tillgängliga i **typeProperties** avsnitt:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | oracleReaderQuery |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från mytable prefix <br/><br/>Om inget annat anges, SQL-instruktionen som körs: Välj * från mytable prefix |Nej (om **tableName** av **dataset** har angetts) |
 
 ### <a name="oraclesink"></a>OracleSink
 **OracleSink** stöder följande egenskaper:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Vänta tills batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |TimeSpan<br/><br/> Exempel: 00:30:00 (30 minuter). |Nej |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antalet rader) |Nej (standard: 100) |
@@ -571,8 +575,8 @@ När du flyttar data från Oracle, används följande mappningar från Oracle-da
 
 | Oracle-datatyp | .NET framework-datatyp |
 | --- | --- |
-| BFILE |Byte[] |
-| BLOB |Byte[]<br/>(endast stöds på Oracle 10g och högre när Microsoft drivrutin) |
+| BFILE |Byte] |
+| BLOB |Byte]<br/>(endast stöds på Oracle 10g och högre när Microsoft drivrutin) |
 | CHAR |Sträng |
 | CLOB |Sträng |
 | DATE |DateTime |
@@ -581,12 +585,12 @@ När du flyttar data från Oracle, används följande mappningar från Oracle-da
 | INTERVALL ÅR, MÅNAD |Int32 |
 | INTERVALL DAG TILL ANDRA |TimeSpan |
 | LÅNG |Sträng |
-| LÅNGT RÅDATA |Byte[] |
+| LÅNGT RÅDATA |Byte] |
 | NCHAR |Sträng |
 | NCLOB |Sträng |
 | ANTAL |Decimal, sträng (om precision > 28) |
 | NVARCHAR2 |Sträng |
-| RAW |Byte[] |
+| RÅDATA |Byte] |
 | ROWID |Sträng |
 | TIDSSTÄMPEL |DateTime |
 | TIDSSTÄMPEL MED LOKALA TIDSZON |DateTime |

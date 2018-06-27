@@ -2,20 +2,20 @@
 title: Azure SQL datasynkronisering | Microsoft Docs
 description: Den här översikten introducerar Azure SQL-datasynkronisering
 services: sql-database
-author: douglaslms
+author: allenwux
 manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: douglasl
+ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: c31735719e559a25b53acf0bfcf1efff0cee4d5e
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: bb5a383828e98c773c079dcea8e3cf37f9a068f0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296185"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017443"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data över flera molntjänster och lokala databaser med SQL datasynkronisering
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 48546e84b94ad0c11a159b2f88f7e21f7eb6ae0e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7e83f141791bb49130f7cf01086537f8ae08c406
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208309"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019703"
 ---
 # <a name="get-started-with-reliable-services"></a>Kom igång med Reliable Services
 > [!div class="op_single_selector"]
@@ -116,10 +116,10 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-I den här självstudiekursen kommer vi fokusera på den `runAsync()` metoden. Det är där du kan starta direkt köra din kod.
+Den här självstudiekursen fokuserar på de `runAsync()` metoden. Det är där du kan starta direkt köra din kod.
 
 ### <a name="runasync"></a>RunAsync
-Plattformen som anropar den här metoden när en instans av en tjänst är monterade och redo att köra. För en tillståndslös tjänst innebär som bara när tjänstinstansen öppnas. En token för annullering tillhandahålls koordinera när service-instans måste stängas. I Service Fabric inträffa cykeln Öppna/stänga av en tjänstinstans många gånger under livslängden för tjänsten som helhet. Detta kan inträffa av olika orsaker, bland annat:
+Plattformen som anropar den här metoden när en instans av en tjänst är monterade och redo att köra. För tillståndslösa tjänster, det innebär när tjänstinstansen öppnas. En token för annullering tillhandahålls koordinera när service-instans måste stängas. I Service Fabric inträffa cykeln Öppna/stänga av en tjänstinstans många gånger under livslängden för tjänsten som helhet. Detta kan inträffa av olika orsaker, bland annat:
 
 * Systemet flyttar instanser av tjänsten för resurser.
 * Fel uppstår i koden.
@@ -201,16 +201,16 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) är en dictionary-implementering som du kan använda för att lagra på ett tillförlitligt sätt tillstånd i tjänsten. Med Service Fabric och tillförlitlig Hashmaps kan lagra du data direkt i din tjänst utan behov av en extern beständiga arkivet. Tillförlitliga Hashmaps gör att dina data är hög tillgänglighet. Service Fabric åstadkommer detta genom att skapa och hantera flera *repliker* av tjänsten för dig. Det ger också en API som avlägsnar direkt svårigheter för att hantera dessa repliker och deras tillståndsövergångar.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) är en dictionary-implementering som du kan använda för att lagra på ett tillförlitligt sätt tillstånd i tjänsten. Med Service Fabric och tillförlitlig HashMaps kan lagra du data direkt i din tjänst utan behov av en extern beständiga arkivet. Tillförlitliga HashMaps gör att dina data är hög tillgänglighet. Service Fabric åstadkommer detta genom att skapa och hantera flera *repliker* av tjänsten för dig. Det ger också en API som avlägsnar direkt svårigheter för att hantera dessa repliker och deras tillståndsövergångar.
 
 Tillförlitliga samlingar kan lagra alla Java-typ, inklusive din anpassade typer med några varningar.
 
-* Service Fabric gör ditt tillstånd hög tillgänglighet av *replikerar* tillstånd mellan noder och tillförlitlig Hashmap lagrar dina data till lokal disk på varje replik. Det innebär att allt som lagras i tillförlitliga Hashmaps måste vara *serialiserbara*. 
-* Objekt replikeras för hög tillgänglighet när du gör transaktioner på tillförlitliga Hashmaps. Objekt som lagras i tillförlitliga Hashmaps sparas i lokalt minne i din tjänst. Det innebär att du har en lokal referens till objektet.
+* Service Fabric gör ditt tillstånd hög tillgänglighet av *replikerar* tillstånd mellan noder och tillförlitlig HashMap lagrar dina data till lokal disk på varje replik. Det innebär att allt som lagras i tillförlitliga HashMaps måste vara *serialiserbara*. 
+* Objekt replikeras för hög tillgänglighet när du gör transaktioner på tillförlitliga HashMaps. Objekt som lagras i tillförlitliga HashMaps sparas i lokalt minne i din tjänst. Det innebär att du har en lokal referens till objektet.
   
-   Det är viktigt att du inte mutera lokala instanser av dessa objekt utan att utföra en Uppdateringsåtgärd i den tillförlitliga samlingen i en transaktion. Det beror på att ändringar i lokala instanser av objekt inte replikeras automatiskt. Du måste infoga objektet tillbaka till ordlistan igen eller Använd en av de *uppdatera* metoder i ordlistan.
+   Det är viktigt att du inte mutera lokala instanser av dessa objekt utan att utföra en Uppdateringsåtgärd i den tillförlitliga samlingen i en transaktion. Det beror på att ändringar i lokala instanser av objekt inte replikeras automatiskt. Du måste komma in objektet i ordlistan igen eller Använd en av de *uppdatera* metoder i ordlistan.
 
-Tillförlitliga Tillståndshanterarens hanterar tillförlitliga Hashmaps åt dig. Du kan bara be tillförlitliga Tillståndshanterarens för en tillförlitlig samling med namnet när som helst och var som helst i din tjänst. Den tillförlitliga tillstånd Manager ser till att du får en referens tillbaka. Inte rekommenderar vi att du sparar referenser till tillförlitliga samling instanser i klassmedlem egenskaper eller variabler. Särskild försiktighet måste vidtas för att säkerställa att referensen har angetts till en instans alltid i livscykeln för tjänsten. Tillförlitliga Tillståndshanterarens hanterar det här fungerar och har optimerats för Upprepa besök.
+Tillförlitliga Tillståndshanterarens hanterar tillförlitliga HashMaps åt dig. Du kan be tillförlitliga Tillståndshanterarens för en tillförlitlig samling med namnet när som helst och var som helst i din tjänst. Den tillförlitliga tillstånd Manager ser till att du får en referens tillbaka. Vi rekommenderar inte att du sparar referenser till tillförlitliga samling instanser i klassmedlemsvariabler eller egenskaper. Särskild försiktighet måste vidtas för att säkerställa att referensen har angetts till en instans alltid i livscykeln för tjänsten. Tillförlitliga Tillståndshanterarens hanterar det här fungerar och har optimerats för Upprepa besök.
 
 
 ### <a name="transactional-and-asynchronous-operations"></a>Transaktionell och asynkrona åtgärder
@@ -231,12 +231,12 @@ return map.computeAsync(tx, "counter", (k, v) -> {
 });
 ```
 
-Åtgärder på tillförlitliga Hashmaps är asynkron. Det beror på att skrivåtgärder med tillförlitlig samlingar utföra i/o-åtgärder för att replikera och spara data till disk.
+Åtgärder på tillförlitliga HashMaps är asynkron. Det beror på att skrivåtgärder med tillförlitlig samlingar utföra i/o-åtgärder för att replikera och spara data till disk.
 
-Den tillförlitliga Hashmap åtgärder är *transaktionella*, så att du kan behålla tillstånd konsekvent över flera tillförlitliga Hashmaps och åtgärder. Du kan till exempel få ett arbetsobjekt från en tillförlitlig ordlista, utföra en åtgärd på den och spara resultatet i anoter tillförlitliga Hashmap alla inom en enskild transaktion. Detta behandlas som en atomisk åtgärd och det garanterar att hela åtgärden lyckas eller hela åtgärden återställs. Om ett fel inträffar efter att objektet har status Created men innan du sparar resultatet hela transaktionen återställs och artikeln finns kvar i kön för bearbetning.
+Den tillförlitliga HashMap åtgärder är *transaktionella*, så att du kan behålla tillstånd konsekvent över flera tillförlitliga HashMaps och åtgärder. Du kan till exempel få ett arbetsobjekt från en tillförlitlig ordlista, utföra en åtgärd på den och spara resultatet i en annan tillförlitlig HashMap alla inom en enskild transaktion. Detta behandlas som en atomisk åtgärd och det garanterar att hela åtgärden lyckas eller hela åtgärden återställs. Om ett fel inträffar efter att objektet har status Created men innan du sparar resultatet hela transaktionen återställs och artikeln finns kvar i kön för bearbetning.
 
 
-## <a name="run-the-application"></a>Köra programmet
+## <a name="build-the-application"></a>Skapa programmet
 
 Yeoman scaffold-teknik innehåller ett gradle-skript för att skapa programmet och bash-skript för att distribuera och ta bort programmet. Om du vill köra programmet först skapa programmet med gradle:
 
@@ -246,13 +246,31 @@ $ gradle
 
 Detta ger ett Service Fabric-programpaket som kan distribueras med hjälp av Service Fabric CLI.
 
-### <a name="deploy-with-service-fabric-cli"></a>Distribuera med Service Fabric CLI
+## <a name="deploy-the-application"></a>Distribuera programmet
 
-Install.sh skriptet innehåller nödvändiga Service Fabric CLI-kommandona för att distribuera programpaketet. Kör skriptet install.sh om du vill distribuera programmet.
+När du har skapat programmet kan du distribuera det till det lokala klustret.
 
-```bash
-$ ./install.sh
-```
+1. Anslut till det lokala Service Fabric-klustret.
+
+    ```bash
+    sfctl cluster select --endpoint http://localhost:19080
+    ```
+
+2. Kör installationsskriptet som medföljer mallen för att kopiera programpaketet till klustrets avbildningsarkiv, registrera programtypen och skapa en instans av programmet.
+
+    ```bash
+    ./install.sh
+    ```
+
+Distributionen går till på samma sätt som för andra Service Fabric-program. Detaljerade instruktioner finns i dokumentationen om att [hantera ett Service Fabric-program med Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md).
+
+Du hittar parametrarna till de här kommandona i de genererade manifesten i programpaketet.
+
+När programmet har distribuerats öppnar du en webbläsare och går till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) på [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expandera sedan noden **Program** och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
+
+> [!IMPORTANT]
+> Om du vill distribuera programmet till en säker Linux-kluster i Azure måste du konfigurera ett certifikat för att verifiera ditt program med Service Fabric-körning. På så sätt kan dina Reliable Services-tjänster att kommunicera med den underliggande Service Fabric runtime API: er. Läs mer i [konfigurera en Reliable Services app att köras på Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
 
 ## <a name="next-steps"></a>Nästa steg
 

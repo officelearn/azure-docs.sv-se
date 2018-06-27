@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 276e53784b30c2196ad7455cf9fd801a103fdc30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 719506e35e6abe5ac573c7ceedc1668fd2704bd4
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590862"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961697"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Hantera och anpassa Active Directory Federation Services med hjälp av Azure AD Connect
 Den här artikeln beskriver hur du hanterar och anpassa Active Directory Federation Services (AD FS) med hjälp av Azure Active Directory (AD Azure) Anslut. Den omfattar också andra vanliga AD FS-uppgifter som du kan behöva göra för att slutföra konfigurationen av en AD FS-servergrupp.
@@ -209,7 +209,7 @@ I följande avsnitt beskrivs hur du kan skriva anpassade regler för vissa scena
 ### <a name="immutable-id-conditional-on-a-value-being-present-in-the-attribute"></a>Oåterkalleliga villkorlig, baserat på ett värde i attributet ID
 Azure AD Connect kan du ange ett attribut som ska användas som en källfästpunkt när objekt synkroniseras till Azure AD. Om värdet i det anpassade attributet inte är tom, kanske du vill utfärda ett ändras ID-anspråk.
 
-Du kan till exempel välja **ms-ds-consistencyguid** som attribut för källfästpunkten och utfärda **ImmutableID** som **ms-ds-consistencyguid** om attributet har ett värde med den. Om det finns inget värde mot attributet, utfärda **objectGuid** som ändras-ID. Du kan skapa en uppsättning anpassade anspråksregler som beskrivs i följande avsnitt.
+Du kan till exempel välja **ms-ds-consistencyguid** som attribut för källfästpunkten och utfärda **ImmutableID** som **ms-ds-consistencyguid** om attributet har ett värde mot den. Om det finns inget värde mot attributet, utfärda **objectGuid** som ändras-ID. Du kan skapa en uppsättning anpassade anspråksregler som beskrivs i följande avsnitt.
 
 **Regel 1: Frågan attribut**
 
@@ -246,31 +246,8 @@ I den här regeln du helt enkelt kontrollerar flaggan tillfälliga **idflag**. D
 > Sekvens med dessa regler är viktigt.
 
 ### <a name="sso-with-a-subdomain-upn"></a>Enkel inloggning med en underdomän UPN
-Du kan lägga till fler än en domän att bli federerad med hjälp av Azure AD Connect, enligt beskrivningen i [lägga till en ny extern domän](active-directory-aadconnect-federation-management.md#addfeddomain). Eftersom federerade rotdomänen omfattar även underordnat måste du ändra användarens huvudnamn (UPN) anspråk så att utfärdaren-ID motsvarar rotdomän och inte underdomänen.
 
-Anspråksregel för utfärdaren ID är som standard som:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![Standard utfärdaren ID-anspråk](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-Standardregeln bara tar UPN-suffix och används i ID-anspråk utfärdare. Till exempel John är en användare i sub.contoso.com och contoso.com är federerat med Azure AD. John anger john@sub.contoso.com som användarnamn när du loggar in på Azure AD. Utfärdaren ID anspråk Standardregeln i AD FS hanterar den på följande sätt:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**Anspråkets värde:**  http://sub.contoso.com/adfs/services/trust/
-
-Ändra regel för anspråk för att matcha följande om du vill att endast rotdomänen i anspråksvärdet utfärdare:
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+Du kan lägga till fler än en domän att bli federerad med hjälp av Azure AD Connect, enligt beskrivningen i [lägga till en ny extern domän](active-directory-aadconnect-federation-management.md#addfeddomain). Azure AD Connect-versionen 1.1.553.0 och senaste skapar du rätt anspråksregel för issuerID automatiskt. Om du inte använda Azure AD Connect version 1.1.553.0 eller senaste, rekommenderas att [Azure AD Rpthuvud Anspråksregler](https://aka.ms/aadrptclaimrules) verktyg som används för att generera och ange rätt anspråksregler för Azure AD-förtroende för förlitande part.
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om [användaren inloggningsalternativ](active-directory-aadconnect-user-signin.md).

@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 84facb99b2264b48ede7306ae87a79605e6e8bed
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f5a8c33f2bd3c89b1049435f15d7bf2020248afa
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31597096"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019331"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Använd Maven för att skapa Java-program som använder HBase med Windows-baserade HDInsight (Hadoop)
 Lär dig hur du skapar och skapa en [Apache HBase](http://hbase.apache.org/) program i Java med hjälp av Apache Maven. Sedan använda programmet Azure HDInsight (Hadoop).
 
-[Maven](http://maven.apache.org/) är ett projekt hantering och förståelse programverktyg som hjälper dig att skapa programvara, dokumentation och rapporter för Java-projekt. Du lär dig hur du skapar ett grundläggande Java-program som som skapar frågor, och tar bort en HBase-tabell i ett Azure HDInsight-kluster i den här artikeln.
+[Maven](http://maven.apache.org/) är ett projekt hantering och förståelse programverktyg som hjälper dig att skapa programvara, dokumentation och rapporter för Java-projekt. Du lär dig hur du skapar en grundläggande Java-program som skapar, frågor, och tar bort en HBase-tabell i ett Azure HDInsight-kluster i den här artikeln.
 
 > [!IMPORTANT]
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Windows. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -135,7 +135,7 @@ Lär dig hur du skapar och skapa en [Apache HBase](http://hbase.apache.org/) pro
     Detta `<plugins>` avsnittet konfigureras den [Maven-kompilatorn Plugin](http://maven.apache.org/plugins/maven-compiler-plugin/) och [Maven skugga Plugin](http://maven.apache.org/plugins/maven-shade-plugin/). Kompilatorn plugin-programmet används för att kompilera topologin. Skugga plugin-programmet används för att förhindra licens dubbletter av JAR-paketet som skapas genom Maven. Det används beror på att duplicerade licensfiler orsakar ett fel vid körning i HDInsight-klustret. Med hjälp av maven-skugga-plugin-programmet med den `ApacheLicenseResourceTransformer` implementering förhindrar det här felet.
 
     Maven-skugga-plugin-programmet ger också en uber jar (eller fat jar) som innehåller alla beroenden som krävs för programmet.
-4. Spara den **pom.xml** fil.
+4. Spara filen **pom.xml**.
 5. Skapa en ny katalog med namnet **conf** i den **hbaseapp** directory. I den **conf** directory, skapa en fil med namnet **hbase-site.xml**. Använd följande som innehåll i filen:
 
         <?xml version="1.0"?>

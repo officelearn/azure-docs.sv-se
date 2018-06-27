@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c5aaf9869326f2de86d3bff33f36e8f967f3e6fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3e058242840a3fa8b86c9ae9d5a0940cc02f04d2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210009"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020397"
 ---
 # <a name="configure-stateful-reliable-services"></a>Konfigurera tillståndskänsliga reliable services
 Det finns två uppsättningar av konfigurationsinställningar för tillförlitlig tjänster. En uppsättning är globala för alla tillförlitliga tjänster i klustret medan den andra uppsättningen är specifik för en viss tillförlitlig tjänst.
@@ -82,6 +82,11 @@ Standard Azure Service Fabric runtime söker efter fördefinierade Avsnittsnamne
 
 ### <a name="replicator-security-configuration"></a>Replikatorn säkerhetskonfiguration
 Replikatorn säkerhetskonfigurationer används för att skydda kommunikationskanalen som används vid replikering. Det innebär att tjänster inte kan se varandras replikeringstrafik, säkerställer att de data som har gjorts hög tillgänglighet är säker. Som standard förhindrar en tom säkerhetskonfigurationsavsnittet replikeringssäkerhet.
+
+> [!IMPORTANT]
+> Certifikaten måste ha PEM-formaterade för på Linux-noder. Läs mer om att hitta och konfigurera certifikat för Linux i [konfigurera certifikat på Linux](./service-fabric-configure-certificates-linux.md). 
+> 
+> 
 
 ### <a name="default-section-name"></a>Avsnittet för standardnamnet
 ReplicatorSecurityConfig

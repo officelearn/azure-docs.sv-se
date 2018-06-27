@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: f29754c73db74f02214522a4de15904e65df0e98
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c01bcfecea8d79784b764e715f077c76e7d4be45
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208268"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017655"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Konfigurera Reliable Actors--KVSActorStateProvider
 Du kan ändra standardkonfigurationen av KVSActorStateProvider genom att ändra filen settings.xml som skapas i Microsoft Visual Studio-rot för package under mappen Config för den angivna aktören.
@@ -34,6 +34,10 @@ Azure Service Fabric runtime söker efter fördefinierade Avsnittsnamnen i filen
 ## <a name="replicator-security-configuration"></a>Replikatorn säkerhetskonfiguration
 Replikatorn säkerhetskonfigurationer används för att skydda kommunikationskanalen som används vid replikering. Det innebär att tjänster inte kan se varandras replikeringstrafik, säkerställer att de data som har gjorts hög tillgänglighet är säker.
 Som standard förhindrar en tom säkerhetskonfigurationsavsnittet replikeringssäkerhet.
+
+> [!IMPORTANT]
+> Certifikaten måste ha PEM-formaterade för på Linux-noder. Läs mer om att hitta och konfigurera certifikat för Linux i [konfigurera certifikat på Linux](./service-fabric-configure-certificates-linux.md). 
+> 
 
 ### <a name="section-name"></a>Avsnittsnamn
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
@@ -50,7 +54,7 @@ Standardkonfigurationen genereras av Visual Studio-mall och bör vara tillräckl
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Sekunder |0.015 |Tidsperiod som replikatorn på de sekundära väntar när du har fått en åtgärd innan du skickar tillbaka en bekräftelse till den primära servern. Andra bekräftelser skickas för åtgärder som behandlas inom intervallet skickas som ett svar. |
 | ReplicatorEndpoint |Gäller inte |Ingen standard--obligatorisk parameter |Ange IP-adress och port som primära och sekundära replikatorn ska använda för att kommunicera med andra replikatörer i replikeringen. Detta bör referera en TCP-slutpunkt för resurs i service manifest. Referera till [Service manifest resurser](service-fabric-service-manifest-resources.md) du kan läsa mer om hur du definierar endpoint resurser i service manifest. |
-| RetryInterval |Sekunder |5 |Tidsperiod efter vilken replikatorn igen skickar ett meddelande om den inte får ett godkännande för en åtgärd. |
+| retryInterval |Sekunder |5 |Tidsperiod efter vilken replikatorn igen skickar ett meddelande om den inte får ett godkännande för en åtgärd. |
 | MaxReplicationMessageSize |Byte |50 MB |Maximal storlek för replikeringsdata som kan överföras i ett enda meddelande. |
 | MaxPrimaryReplicationQueueSize |Antal åtgärder |1024 |Maximalt antal åtgärder i primära kön. En åtgärd frigjorts när primära replikatorn tar emot en bekräftelse från de sekundära replikatörer. Det här värdet måste vara större än 64 och delbart med 2. |
 | MaxSecondaryReplicationQueueSize |Antal åtgärder |2048 |Maximalt antal åtgärder i sekundär kö. När du har gjort tillståndet hög tillgänglighet via beständiga frigjorts en åtgärd. Det här värdet måste vara större än 64 och delbart med 2. |

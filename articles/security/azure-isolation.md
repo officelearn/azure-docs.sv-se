@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 6f01c2938462f3912928e183fcec215a52a3ee48
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b112eee0e33654657bc6a57eec528c8a93bb077a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010888"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018422"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolera i det offentliga Azure-molnet
 ##  <a name="introduction"></a>Introduktion
@@ -121,7 +121,7 @@ Företagstjänster med granskad certifieringar, till exempel ISO/IEC 27001 kontr
 
 Om du tar bort alla data som Microsoft Azure tar bort data, inklusive eventuella cachelagrade eller säkerhetskopiering kopior. Borttagningen sker för omfattas tjänster inom 90 dagar efter slutet av kvarhållningsperioden. (I omfånget tjänster definieras i avsnittet databearbetning villkoren i vår [Online Services-villkoren](http://aka.ms/Online-Services-Terms).)
 
-Om en diskenhet som används för lagring av drabbas av ett maskinvarufel, är det på ett säkert sätt [raderas eller förstörs](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) innan Microsoft skickar tillbaka det till tillverkare för ersättning eller reparation. Skrivs över data på enheten för att säkerställa att data inte kan återställas på något sätt.
+Om en diskenhet som används för lagring av drabbas av ett maskinvarufel, är det på ett säkert sätt [raderas eller förstörs](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) innan Microsoft skickar tillbaka det till tillverkare för ersättning eller reparation. Skrivs över data på enheten för att säkerställa att data inte kan återställas på något sätt.
 
 ## <a name="compute-isolation"></a>Compute-isolering
 Microsoft Azure tillhandahåller olika molnbaserade databehandling tjänster som omfattar ett brett urval av compute-instanser och tjänster som kan skalas upp och ned automatiskt så att den passar ditt program-eller enterprise. Dessa beräkningar instans och tjänsten erbjuder isolering på flera nivåer för att skydda data utan att kompromissa flexibilitet i konfigurationen som kunder kräver.

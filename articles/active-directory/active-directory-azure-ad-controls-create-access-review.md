@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/14/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 6a1d4a55074630cc20c98202d2e94ec682c323f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2c4e26bb6f2cd144d00d9e4ada92d756fe68418b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234081"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020414"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Skapa en åtkomst-granskning av medlemmar i gruppen eller programåtkomst med Azure AD
 
@@ -26,7 +26,7 @@ Access-tilldelningar blir ”inaktiva” när användare har åtkomst till de in
 
 ## <a name="create-an-access-review"></a>Skapa en åtkomstgranskning
 
-1. Som en global administratör, gå till den [åtkomst går igenom sidan](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), och välj **program**.
+1. Som en global administratör eller Användaradministratör konto går du till den [åtkomst går igenom sidan](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), och välj **program**.
 
 2. Välj det program som innehåller granska åtkomstkontroll du vill skapa. **Standardprogrammet** är alltid finns, eller så kan du skapa ett annat program. Exempelvis kan du ha ett program för varje kompatibilitet eller företagsmål.
 
@@ -38,7 +38,7 @@ Access-tilldelningar blir ”inaktiva” när användare har åtkomst till de in
 
 6. Om du vill att granska åtkomst återkommande, ändra frekvensen från en gång för varje vecka, varje månad, kvartal eller år och använda skjutreglaget eller text för att definiera hur många dagar varje granskning av serien med återkommande kommer att vara öppen för indata från granskare. Till exempel maximal varaktighet för kan du ange för är en månatlig granskning 27 dagar att undvika överlappande granskningar. 
 
-7.  Serien med återkommande granska åtkomst kan avsluta 3 sätt: den kör kontinuerligt för att starta granskningar på obestämd tid till ett visst datum eller efter ett angivet antal förekomster har slutförts. Du eller en annan global administratör kan sluta serien när den har skapats genom att ändra datumet i inställningar, så att den slutar på det datumet.
+7.  Serien med återkommande granska åtkomst kan avsluta 3 sätt: den kör kontinuerligt för att starta granskningar på obestämd tid till ett visst datum eller efter ett angivet antal förekomster har slutförts. Du, kontoadministratör för en annan användare eller en annan global administratör kan sluta serien när den har skapats genom att ändra datumet i inställningar, så att den slutar på det datumet.
 
 8. Åtkomst granskningar kan vara medlemmar i en grupp eller användare som har tilldelats ett program. Du kan ytterligare omfång åtkomsten för endast granskning granskning gästanvändare som är medlemmar (eller tilldelade till appen), i stället för att granska alla användare som är medlemmar eller som har åtkomst till programmet.
 

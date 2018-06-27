@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2017
+ms.date: 06/25/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 493fb0295c1d760bb7de13ae1b703b3636750612
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29180044"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018722"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med System Center Operations Manager Health Check (förhandsgranskning)-lösning
 
@@ -212,14 +212,14 @@ Varje rekommendation innehåller information om varför det är viktigt. Använd
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Använd hälsokontroll fokus området rekommendationer
 
-Innan du kan använda en lösning för kontroll av hälsotillstånd i logganalys, måste du ha lösningen installerad. Du kan läsa mer om hur du installerar lösningar finns [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md). När den har installerats kan du visa sammanfattning av rekommendationer med hjälp av System Center Operations Manager Health Check-panelen på översiktssidan i OMS-portalen.
+Innan du kan använda en lösning för kontroll av hälsotillstånd i logganalys, måste du ha lösningen installerad. Du kan läsa mer om hur du installerar lösningar finns [installera en lösning för](log-analytics-add-solutions.md). När den har installerats, du kan visa en sammanfattning av rekommendationer med hjälp av System Center Operations Manager Health Check-panelen på den **översikt** för din arbetsyta i Azure-portalen.
 
 Visa sammanfattade efterlevnad bedömningar för din infrastruktur och gå till rekommendationer.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visa rekommendationer för en Fokusområde och vidta åtgärder
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
-3. Välj en arbetsyta i fönstret logganalys prenumerationer och klicka sedan på den **OMS-portalen** panelen.  
+3. Välj en arbetsyta i fönstret logganalys prenumerationer och klicka sedan på den **arbetsytan Sammanfattning** menyalternativet.  
 4. På den **översikt** klickar du på den **System Center Operations Manager Health Check** panelen.
 5. På den **System Center Operations Manager Health Check** , Granska sammanfattningen i ett fokus området blad och klickar sedan på en om du vill visa rekommendationer för området fokus.
 6. På någon av sidorna fokus område, kan du visa prioriterad rekommendationer för din miljö. Klicka på en rekommendation enligt **påverkade objekt** att visa information om varför rekommendationen görs.<br><br> ![Fokusområde](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
@@ -232,7 +232,7 @@ Om du har rekommendationer som du vill ignorera, kan du skapa en textfil som log
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Att identifiera rekommendationer som du vill ignorera
-1. I Azure-portalen på sidan för logganalys-arbetsytan för den valda arbetsytan klickar du på den **loggen Sök** panelen.
+1. I Azure-portalen på sidan för logganalys-arbetsytan för den valda arbetsytan klickar du på den **loggen Sök** menyalternativet.
 2. Använd följande fråga för att lista över rekommendationer som har misslyckats för datorer i din miljö.
 
     ```

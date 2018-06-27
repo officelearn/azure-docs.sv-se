@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 86b6d05538171fcf0e259e2761316529deb4fb37
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc48bf011d95b3e60a78d2102d88dc188155ddc1
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625329"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017376"
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Med hjälp av Azure Data Lake Store för stordata krav
 Det finns fyra viktiga steg i stort databearbetning:
@@ -43,7 +43,7 @@ Representerar mindre datauppsättningar som används för prototyper ett stort p
 | Azure Storage Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy-verktyget](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp som körs på HDInsight-kluster](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Direktuppspelat data
-Detta representerar data som genereras av olika källor, till exempel program, enheter, sensorer och så vidare. Dessa data kan inhämtas i ett Data Lake Store av olika verktyg. Dessa verktyg vanligtvis kan fånga och bearbeta data för en händelse med händelse i realtid, och sedan skriva händelser i batchar till Data Lake Store så att de kan bearbetas ytterligare.
+Detta representerar data som genereras av olika källor, till exempel program, enheter, sensorer och så vidare. Dessa data kan inhämtas i ett Data Lake Store med en mängd olika verktyg. Dessa verktyg vanligtvis kan fånga och bearbeta data för en händelse med händelse i realtid, och sedan skriva händelser i batchar till Data Lake Store så att de kan bearbetas ytterligare.
 
 Följande är ett verktyg som du kan använda:
 

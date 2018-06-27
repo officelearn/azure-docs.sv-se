@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cshoe
-ms.openlocfilehash: 4f20e79ea6cb2d9d403f4451f595516d5c2e9373
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: ad313c11fb88ec7992220d43c25ca75bf65acc56
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650748"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37026088"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Använda signaturer för delad åtkomst (SAS)
 
@@ -48,11 +48,11 @@ Ett vanligt scenario där en SAS är användbar är en tjänst där användare l
 
 Många verkliga tjänster kan använda en kombination av dessa två sätt. Vissa data kan till exempel bearbetas och godkänts via frontend proxy, medan andra data är sparade och/eller läsa med hjälp av SAS.
 
-Dessutom behöver du använda en SAS för att autentisera källobjektet i en kopieringsåtgärd i vissa scenarier:
+Dessutom behöver du använda en SAS för att bevilja åtkomst till källobjektet i en kopieringsåtgärd i vissa scenarier:
 
-* När du kopierar en blobb till en annan blob som finns i ett annat lagringskonto måste du använda en SAS för att autentisera käll-blob. Du kan eventuellt använda en SAS för att autentisera samt mål-blob.
-* När du kopierar en fil till en annan fil som finns i ett annat lagringskonto, måste du använda en SAS för att autentisera källfilen. Du kan eventuellt använda en SAS för att autentisera till målfilen.
-* När du kopierar en blobb till en fil eller en fil till en blobb, måste du använda en SAS för att autentisera källobjektet, även om käll- och objekt som finns inom samma lagringskonto.
+* När du kopierar en blobb till en annan blob som finns i ett annat lagringskonto måste du använda en SAS för att bevilja åtkomst till källan blob. Du kan eventuellt använda en SAS för att bevilja åtkomst till mål-blob samt.
+* När du kopierar en fil till en annan fil som finns i ett annat lagringskonto, måste du använda en SAS för att bevilja åtkomst till källfilen. Du kan eventuellt använda en SAS för att bevilja åtkomst till målfilen.
+* När du kopierar en blobb till en fil eller en fil till en blobb, måste du använda en SAS för att bevilja åtkomst till källobjektet, även om käll- och objekt som finns inom samma lagringskonto.
 
 ## <a name="types-of-shared-access-signatures"></a>Typer av signaturer för delad åtkomst
 Du kan skapa två typer av signaturer för delad åtkomst:
@@ -61,7 +61,7 @@ Du kan skapa två typer av signaturer för delad åtkomst:
 * **Konto-SAS.** Den konto SAS delegater åtkomsten till resurser i en eller flera av lagringstjänsterna. Alla åtgärder som är tillgängliga via en tjänst-SAS finns också tillgängliga via en konto-SAS. Med konto-SAS, kan du dessutom delegera åtkomst till åtgärder som gäller för en viss tjänst som **Get/Set-tjänstegenskaper** och **få statistik för tjänsten**. Du kan också delegera åtkomst till läs-, skriv- och borttagningsåtgärder i blobbbehållare, tabeller, köer och filresurser som inte tillåts med en tjänst-SAS. Se [hur du skapar ett konto-SAS](https://msdn.microsoft.com/library/mt584140.aspx) för detaljerad information om hur du skapar kontot SAS-token.
 
 ## <a name="how-a-shared-access-signature-works"></a>Så här fungerar en signatur för delad åtkomst
-En signatur för delad åtkomst är en signerad URI som pekar på en eller flera lagringsresurser och innehåller en token som innehåller en särskild uppsättning Frågeparametrar. Token som anger hur resurserna som kan användas av klienten. En av frågeparametrarna signatur, skapas från SAS-parametrar och signerad med kontonyckel. Den här signaturen används av Azure Storage för att autentisera SAS.
+En signatur för delad åtkomst är en signerad URI som pekar på en eller flera lagringsresurser och innehåller en token som innehåller en särskild uppsättning Frågeparametrar. Token som anger hur resurserna som kan användas av klienten. En av frågeparametrarna signatur, skapas från SAS-parametrar och signerad med kontonyckel. Signaturen används av Azure Storage för att bevilja åtkomst till resursen lagring.
 
 Här är ett exempel på en SAS-URI, visar resurs-URI och SAS-token:
 
@@ -69,20 +69,20 @@ Här är ett exempel på en SAS-URI, visar resurs-URI och SAS-token:
 
 SAS-token är en sträng som du skapar på den *klienten* sida (finns i [SAS exempel](#sas-examples) avsnittet kodexempel). En SAS-token som du skapar med storage-klientbiblioteket, till exempel spåras inte av Azure Storage på något sätt. Du kan skapa ett obegränsat antal SAS-token på klientsidan.
 
-När en klient innehåller ett SAS-URI till Azure Storage som en del av en begäran, kontrollerar tjänsten SAS parametrar och signatur för att kontrollera att den är giltig för att autentisera begäran. Om tjänsten verifierar att signaturen är giltig och sedan autentisera begäran. Annars har begäran nekats med felkoden 403 (förbjuden).
+När en klient innehåller ett SAS-URI till Azure Storage som en del av en begäran, kontrollerar tjänsten SAS parametrar och signatur för att kontrollera att den är giltig för att autentisera begäran. Om tjänsten verifierar att signaturen är giltig och sedan begäran är auktoriserad. Annars har begäran nekats med felkoden 403 (förbjuden).
 
 ## <a name="shared-access-signature-parameters"></a>Parametrar för signatur för delad åtkomst
 Konto-SAS och tjänsten SAS-token innehåller några vanliga parametrar och tar några parametrar som skiljer sig också.
 
 ### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>Parametrar som är gemensamma för konto-SAS och tjänsten SAS-token
 * **API-versionen** en valfri parameter som anger storage service-version du använder för att utföra begäran.
-* **Service-version** en obligatorisk parameter som anger storage service-version du använder för att autentisera begäran.
+* **Service-version** en obligatorisk parameter som anger storage service-version du använder för att auktorisera begäran.
 * **Starttid.** Det här är den tid då SAS börjar gälla. Starttiden för en signatur för delad åtkomst är valfritt. Om en starttid utelämnas är SAS gälla omedelbart. Starttiden måste anges i UTC (Coordinated Universal Time) med en särskild UTC beteckning (”Z”), till exempel `1994-11-05T13:15:30Z`.
 * **Förfallotiden.** Detta är den tid då SAS inte är giltig längre. Bästa praxis rekommenderar att du antingen ange en förfallotiden för en SAS eller koppla den till en princip för lagrade åtkomst. Förfallotid måste anges i UTC (Coordinated Universal Time) med en särskild UTC beteckning (”Z”), till exempel `1994-11-05T13:15:30Z` (se mer nedan).
 * **Behörigheter.** Behörigheter som anges på SAS visar vilka åtgärder som klienten kan utföra mot storage-resursen med hjälp av SAS. Tillgängliga behörigheter skiljer sig för en konto-SAS och en tjänst-SAS.
 * **IP-ADRESSEN.** En valfri parameter som anger en IP-adress eller ett intervall med IP-adresser utanför Azure (finns i avsnittet [konfiguration av Routning sessionstillstånd](../../expressroute/expressroute-workflows.md#routing-session-configuration-state) för Express Route) som du vill acceptera förfrågningar från.
 * **Protokoll.** En valfri parameter som anger vilket protokoll som tillåts för en begäran. Möjliga värden är HTTPS- och HTTP (`https,http`), vilket är standardvärdet eller HTTPS endast (`https`). Observera att HTTP endast inte är tillåtna värdet.
-* **Signatur.** Signaturen har skapats från de andra parametrar som angetts som en del token och sedan krypteras. Den används för att autentisera SAS.
+* **Signatur.** Signaturen har skapats från de andra parametrar som angetts som en del token och sedan krypteras. Signaturen används för att bevilja åtkomst till de angivna lagringsresurserna.
 
 ### <a name="parameters-for-a-service-sas-token"></a>Parametrar för en tjänst-SAS-token
 * **Storage-resursen.** Storage-resurser som du kan delegera åtkomst med en tjänst SAS inkluderar:
@@ -118,7 +118,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | Behörigheter |`sp=rw` |De behörigheter som utfärdats av SAS omfattar Read (r) och skriva (b). |
 | IP-intervall |`sip=168.1.5.60-168.1.5.70` |Intervallet av IP-adresser som en begäran kommer att accepteras. |
 | Protokoll |`spr=https` |Endast de begäranden som använder HTTPS tillåts. |
-| Signatur |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Används för att autentisera åtkomst till blob. Signaturen är en HMAC beräknas över ett sträng-inloggning och nyckeln med hjälp av SHA256-algoritmen och sedan kodad med Base64-kodning. |
+| Signatur |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Används för att bevilja åtkomst till blob. Signaturen är en HMAC beräknas över ett sträng-inloggning och nyckeln med hjälp av SHA256-algoritmen och sedan kodad med Base64-kodning. |
 
 ### <a name="account-sas-uri-example"></a>Kontot SAS-URI-exempel
 
@@ -151,19 +151,19 @@ Skillnaden mellan de två formulär är viktigt för ett key-scenario: återkall
 1. Förfallotiden som anges på SAS har nåtts.
 2. Förfallotiden som angetts på den lagrade åtkomstprincip som refereras av SAS har uppnåtts (om en lagrad åtkomstprincip refereras, och det anger en förfallotiden). Detta kan inträffa eftersom intervallet långa eller eftersom du har ändrat lagrade åtkomstprincipen med en förfallotiden tidigare, vilket är ett sätt att återkalla SAS.
 3. Lagrade åtkomstprincipen som refereras av SAS tas bort, vilket är ett annat sätt att återkalla SAS. Observera att om du återskapa den lagrade åtkomstprincipen med exakt samma namn, alla befintliga SAS-token igen är giltiga enligt de behörigheter som är kopplade till den lagrade åtkomstprincipen (förutsatt att som förfallotiden på SAS inte har passerats). Om du avsikten är att återkalla SAS, måste du använda ett annat namn om du återskapa åtkomstprincipen med ett förfallodatum i framtiden.
-4. Nyckeln för kontot som används för att skapa SAS genereras. Återskapande av någon kontonyckel kommer alla programkomponenter som använder nyckeln för att kunna autentisera förrän de har uppdaterats för att använda den andra nyckeln i giltigt konto eller nyligen återskapats kontonyckel.
+4. Nyckeln för kontot som används för att skapa SAS genereras. Återskapande av någon kontonyckel kommer alla programkomponenter med hjälp av nyckeln inte ska tillåta förrän de har uppdaterats för att använda den andra nyckeln i giltigt konto eller nyligen återskapats kontonyckel.
 
 > [!IMPORTANT]
 > En signatur för delad åtkomst URI som är associerad med kontonyckel som används för att skapa signaturen och den associerade lagras åtkomstprincip (eventuella). Om inga lagrade åtkomstprincip anges är det enda sättet att återkalla en signatur för delad åtkomst att ändra nyckeln för kontot.
 
 ## <a name="authenticating-from-a-client-application-with-a-sas"></a>Autentisering från ett klientprogram med en SAS
-En klient som innehar en SAS kan använda SAS för att autentisera en begäran mot ett lagringskonto som de inte har nycklar för kontot. En SAS kan ingå i en anslutningssträng eller användas direkt från lämplig konstruktor eller metod.
+En klient som innehar en SAS kan använda SAS för att auktorisera en begäran mot ett lagringskonto som de inte har nycklar för kontot. En SAS kan ingå i en anslutningssträng eller användas direkt från lämplig konstruktor eller metod.
 
 ### <a name="using-a-sas-in-a-connection-string"></a>Med hjälp av en SAS i en anslutningssträng
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ### <a name="using-a-sas-in-a-constructor-or-method"></a>Med hjälp av en SAS i en konstruktor eller metod
-Flera Azure Storage client biblioteket konstruktorer och metoden överlagringar erbjuder en SAS-parameter, så att du kan autentisera en begäran till tjänsten med en SAS.
+Flera Azure Storage client biblioteket konstruktorer och metoden överlagringar erbjuder en SAS-parameter, så att du kan auktorisera en begäran till tjänsten med en SAS.
 
 Till exempel används här SAS-URI för att skapa en referens till en blockblobb. SAS innehåller de enda autentiseringsuppgifter som krävs för begäran. Blockblobben används sedan för en skrivåtgärd:
 
@@ -221,7 +221,7 @@ Följande rekommendationer för att använda signaturer för delad åtkomst kan 
 5. **Var försiktig med SAS starttiden.** Om du anger starttiden för en SAS för **nu**, sedan skeva (skillnader i aktuell tid enligt olika datorer) på grund av klockan, fel kan observeras ibland för först få minuter. I allmänhet Ange starttid ska vara minst 15 minuter i förflutna. Eller inte anger den, vilket gör det giltiga omedelbart i samtliga fall. Samma gäller vanligtvis förfallotiden samt--Kom ihåg att du kan se upp till 15 minuter klockan skeva i vardera riktning på varje begäran. För klienter som använder en REST-version innan 2012-02-12, är maximal varaktighet för en Signatur som inte refererar till en lagrad åtkomstprincip 1 timme och policyer för att ange längre sikt än vad som kommer att misslyckas.
 6. **Måste vara specifikt med resursen som ska användas.** Av säkerhetsskäl är att ge en användare de minsta behörigheter som krävs. Om en användare behöver bara läsbehörighet till en enda enhet, ge dem tillgång till läsåtkomst till den enda entiteten och inte läsa/skriva och ta bort åtkomst till alla enheter. Det hjälper även minska skadan om en SAS äventyras eftersom SAS har mindre ström i händerna på en angripare.
 7. **Förstå att ditt konto kommer att debiteras för användning, inklusive göra med SAS.** Om du anger skrivåtkomst till en blob kan kan en användare välja att överföra en blob 200GB. Om du har gett dem samt läsbehörighet, kan de välja att hämta den 10 gånger medför 2 TB i kostnader för nätverksegress för dig. Igen, ange begränsade behörigheter för att minska de potentiella åtgärderna av obehöriga användare. Använd tillfällig SAS för att minska hotet (men Tänk också på klockavvikelser på sluttid).
-8. **Validera data som skrivs med hjälp av SAS.** När ett klientprogram skriver data till ditt lagringskonto, Kom ihåg att det kan finnas problem med dessa data. Om ditt program kräver att dessa data att verifieras eller behörighet innan den är klar att använda, bör du utföra verifieringen när data skrivs och innan den används av ditt program. Den här övningen även skyddar mot skadad eller skadliga data skrivs till ditt konto, antingen av en användare som korrekt förvärvade SAS eller av en användare som utnyttjar en känd SAS.
+8. **Validera data som skrivs med hjälp av SAS.** När ett klientprogram skriver data till ditt lagringskonto, Kom ihåg att det kan finnas problem med dessa data. Om ditt program kräver att data ska verifieras eller behörighet innan den är klar att använda, bör du utföra den här verifieringen när data skrivs och innan den används av ditt program. Den här övningen även skyddar mot skadad eller skadliga data skrivs till ditt konto, antingen av en användare som korrekt förvärvade SAS eller av en användare som utnyttjar en känd SAS.
 9. **Inte alltid att använda SAS.** Ibland uppväger risker med en viss åtgärd mot ditt lagringskonto fördelarna med SAS. Skapa en mellannivå-tjänst som skriver till ditt lagringskonto efter att ha genomfört företag för dessa åtgärder regel verifiering, autentisering och granskning. Dessutom är ibland det enklare att hantera åtkomst på annat sätt. Till exempel om du vill se alla blobbar i en behållare kan läsas offentligt du behållaren allmänheten, i stället för att tillhandahålla en SAS till alla klienter för åtkomst.
 10. **Använd Storage Analytics för övervakning av programmet.** Du kan använda loggning och mått om du vill se alla topp i antal autentiseringsfel på grund av ett avbrott i tjänsten din SAS-provider eller oavsiktlig borttagning av en princip för lagrade åtkomst. Finns det [Azure Storage-teamets blogg](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) för ytterligare information.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
 ms.author: dugill
-ms.openlocfilehash: 1dea8d173432b05a72de72e8b17db4c97ea7924d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ba2466f58b3af0ef208474adb3e4c7ff184ceccc
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359870"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018654"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Autentisering-Använd Resource Manager API för åtkomst-prenumerationer
 ## <a name="introduction"></a>Introduktion
@@ -88,7 +88,7 @@ AppId som du behöver vid autentisering som programmet inkluderar resultaten.
 ### <a name="optional-configuration---certificate-credential"></a>Valfri konfiguration - autentiseringsuppgifter för certifikat
 Azure AD stöder också certifikat autentiseringsuppgifter för program: skapa ett självsignerat certifikat, hålla den privata nyckeln och lägga till den offentliga nyckeln i din Azure AD-appregistrering. Programmet skickar en liten nyttolast till Azure AD som signerats med din privata nyckel för autentisering, och Azure AD verifierar signaturen med offentlig nyckel som du har registrerat.
 
-Information om hur du skapar en AD-app med ett certifikat finns i [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten att komma åt resurser](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) eller [Använd Azure CLI för att skapa ett huvudnamn för tjänsten att komma åt resurser](resource-group-authenticate-service-principal-cli.md).
+Information om hur du skapar en AD-app med ett certifikat finns i [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten att komma åt resurser](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) eller [Använd Azure CLI för att skapa ett huvudnamn för tjänsten att komma åt resurser](resource-group-authenticate-service-principal-cli.md) .
 
 ## <a name="get-tenant-id-from-subscription-id"></a>Hämta klient-ID från prenumerations-ID
 Programmet måste veta klient-ID för Azure AD-klient som är värd för Azure-prenumeration om du vill begära en token som kan användas för att anropa Resource Manager. Troligen användarna känner prenumerationen ID: N, men vet de inte klienten ID: N för Azure Active Directory. Be användaren för att hämta användarens klient-ID för prenumerations-ID. Ange den prenumerationen-ID när du skickar en begäran om prenumerationen:
@@ -204,7 +204,7 @@ Det är ett exempel på svaret att hämta användarens behörigheter på prenume
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-Behörigheter API returnerar flera behörigheter. Varje behörighet består av tillåtna åtgärder (**åtgärder**) och otillåtna åtgärder (**notactions**). Om en åtgärd i tillåtna åtgärder för vilken behörighet och det finns inte i otillåtna åtgärder för den behörigheten, användaren tillåts att utföra åtgärden. **Microsoft.Authorization/RoleAssignments/Write** är den åtgärd som beviljar åtkomst rights management. Programmet måste tolka resultatet behörigheter att leta efter en matchning för regex på den här åtgärden strängen i den **åtgärder** och **notactions** för varje behörighet.
+Behörigheter API returnerar flera behörigheter. Varje behörighet består av tillåtna åtgärder (**åtgärder**) och otillåtna åtgärder (**notactions**). Om en åtgärd i tillåtna åtgärder för vilken behörighet och det finns inte i otillåtna åtgärder för den behörigheten, användaren tillåts att utföra åtgärden. **Microsoft.Authorization/RoleAssignments/Write** är den åtgärd som beviljar åtkomst till rights management. Programmet måste tolka resultatet behörigheter att leta efter en matchning för regex på den här åtgärden strängen i den **åtgärder** och **notactions** för varje behörighet.
 
 ## <a name="get-app-only-access-token"></a>Hämta endast app-åtkomst-token
 Nu vet du om användaren kan ge behörighet till Azure-prenumerationen. Nästa steg är:

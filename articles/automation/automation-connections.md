@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ee866248ae7f0c1f1c49c449b777c2b68d884c5b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 88baa1385bfd64cab08299bc31a6f003f6b87e48
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257687"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019323"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Anslutningstillgångar i Azure Automation
 
@@ -80,7 +80,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
 ```
 
-Du kan använda skript för att skapa anslutningen tillgången eftersom när du skapar ditt Automation-konto kan den automatiskt innehåller flera globala moduler som standard tillsammans med anslutningstypen **AzurServicePrincipal** att skapa den **AzureRunAsConnection** anslutningstillgång.  Detta är viktigt att tänka på, eftersom om du försöker skapa en ny anslutningstillgång för att ansluta till en tjänst eller program med en annan autentiseringsmetod det misslyckas eftersom typen inte redan har definierats i Automation-kontot.  Mer information om hur du skapar egna anslutningstypen för anpassad eller modul från den [PowerShell-galleriet](https://www.powershellgallery.com), se [integreringsmoduler](automation-integration-modules.md)
+Du kan använda skript för att skapa anslutningen tillgången eftersom när du skapar ditt Automation-konto kan den automatiskt innehåller flera globala moduler som standard tillsammans med anslutningstypen **AzureServicePrincipal** till skapa den **AzureRunAsConnection** anslutningstillgång.  Detta är viktigt att tänka på, eftersom om du försöker skapa en ny anslutningstillgång för att ansluta till en tjänst eller program med en annan autentiseringsmetod det misslyckas eftersom typen inte redan har definierats i Automation-kontot.  Mer information om hur du skapar egna anslutningstypen för anpassad eller modul från den [PowerShell-galleriet](https://www.powershellgallery.com), se [integreringsmoduler](automation-integration-modules.md)
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Med hjälp av en anslutning i en runbook eller DSC-konfiguration
 

@@ -11,15 +11,15 @@ ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 89c5ff86b6c59223e0580860e14fdffdaef2472c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f48aa68838ff8cac0119f66f168fce6008d388bc
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166114"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959030"
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analysera Twitter-data med Hive och Hadoop på HDInsight
 
@@ -32,7 +32,7 @@ Lär dig hur du använder Apache Hive att processen Twitter-data. Resultatet är
 
 ## <a name="get-the-data"></a>Hämta data
 
-Twitter kan du hämta den [data för varje tweet](https://dev.twitter.com/docs/platform-objects/tweets) som JavaScript Object Notation (JSON) dokument via ett REST-API. [OAuth](http://oauth.net) krävs för autentisering-API: et.
+Twitter kan du hämta data för varje tweet som JavaScript Object Notation (JSON) dokument via ett REST-API. [OAuth](http://oauth.net) krävs för autentisering-API: et.
 
 ### <a name="create-a-twitter-application"></a>Skapa ett Twitter-program
 
@@ -337,5 +337,4 @@ Du har lärt dig hur du omvandlar en ostrukturerad datauppsättning JSON till en
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 
-[twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter

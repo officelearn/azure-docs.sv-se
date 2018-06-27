@@ -5,72 +5,46 @@ services: stream-analytics
 author: jseb225
 ms.author: jeanb
 manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 6dd96ee96201b05e4b272214983e955fcc5b9125
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 25c25a58b4c6eab5419f645e8e916e034e7803dd
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192051"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016898"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Använda referensdata för sökningar i Stream Analytics
-Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statisk eller saktas ändra karaktär används för att utföra en sökning eller att korrelera med din dataström. För att använda referensdata i Azure Stream Analytics-jobbet, använder du normalt en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. Stream Analytics använder Azure Blob storage som lagringsskikt för referensdata med Azure Data Factory-referensen kan data omvandlas eller kopieras till Azure Blob storage för användning som referensdata från [valfritt antal molnbaserade och lokalt datalager](../data-factory/copy-activity-overview.md). Referensdata modelleras som en serie blobbar (definieras i den inkommande configuration) i stigande ordning efter datum/tid som anges i blob-namn. Den **endast** har stöd för att lägga till i slutet av sekvensen med hjälp av ett datum/tid **större** än den som angetts av den senaste blobben i sekvensen.
+Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändra karaktär används för att utföra en sökning eller att korrelera med din dataström. Azure Stream Analytics läser in referensdata i minnet för att uppnå låg latens dataströmmen bearbetning. För att använda referensdata i Azure Stream Analytics-jobbet, använder du normalt en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. Stream Analytics använder Azure Blob storage som lagringsskikt för referensdata med Azure Data Factory-referensen kan data omvandlas eller kopieras till Azure Blob storage för användning som referensdata från [valfritt antal molnbaserade och lokalt datalager](../data-factory/copy-activity-overview.md). Referensdata modelleras som en serie blobbar (definieras i den inkommande configuration) i stigande ordning efter datum/tid som anges i blob-namn. Den **endast** har stöd för att lägga till i slutet av sekvensen med hjälp av ett datum/tid **större** än den som angetts av den senaste blobben i sekvensen.
 
-Stream Analytics har en **gränsen på 100 MB per blob** men jobb kan bearbeta flera referens blobbar med hjälp av den **sökvägar** egenskapen.
+Stream Analytics stöder referensdata med **maximal storlek på 300 MB**. 300 MB-gränsen för maximal storlek för referensdata är hastigheterna bara med enkla frågor. När frågan komplexitet ökar för att inkludera tillståndskänslig bearbetning, till exempel fönsteraggregeringar, temporala kopplingar och temporal analysfunktioner förväntas att största tillåtna storleken för referens data minskas. Om Azure Stream Analytics inte kan läsa in referensdata och utföra avancerade åtgärder, kommer jobbet slut på minne och misslyckas. I sådana fall når SU % användning mått 100%.    
+
+|**Antal enheter för strömning**  |**Uppskattat största storlek som stöds (i MB)**  |
+|---------|---------|
+|1   |50   |
+|3   |150   |
+|6 och senare   |300   |
+
+Öka antalet enheter för strömning för ett jobb utöver 6 ökar inte den maximala storleken som stöds för referensdata.
 
 Det finns inte stöd för komprimering för referensdata. 
 
 ## <a name="configuring-reference-data"></a>Konfigurera referensdata
 Om du vill konfigurera din referensdata måste du först skapa indata som är av typen **referensdata**. Tabellen nedan beskriver varje egenskap måste du ange när du skapar referens indata med beskrivningen:
 
-
-<table>
-<tbody>
-<tr>
-<td>Egenskapsnamn</td>
-<td>Beskrivning</td>
-</tr>
-<tr>
-<td>Ett inmatat Alias</td>
-<td>Ett eget namn som ska användas i jobb frågan för att referera till den här indata.</td>
-</tr>
-<tr>
-<td>Lagringskonto</td>
-<td>Namnet på det lagringskonto där dina blobbar finns. Om den är i samma prenumeration som Stream Analytics-jobbet måste välja du den från listrutan.</td>
-</tr>
-<tr>
-<td>Lagringskontonyckel</td>
-<td>Den hemliga nyckeln som associeras med lagringskontot. Detta hämtar fylls automatiskt i om lagringskontot tillhör samma prenumeration som Stream Analytics-jobbet.</td>
-</tr>
-<tr>
-<td>Lagringsbehållaren</td>
-<td>Behållare innehåller en logisk gruppering för blobbar som lagras i Microsoft Azure Blob-tjänsten. När du överför en blobb till Blob-tjänsten måste du ange en behållare för blobben.</td>
-</tr>
-<tr>
-<td>Sökvägar</td>
-<td>Sökvägen som används för att hitta dina blobbar i den angivna behållaren. I sökvägen, kan du välja att ange en eller flera instanser av följande 2 variabler:<BR>{date}, {time}<BR>Exempel 1: products/{date}/{time}/product-list.csv<BR>Exempel 2: products/{date}/product-list.csv
-</tr>
-<tr>
-<td>[Valfritt] datumformat</td>
-<td>Om du har använt {date} i sökvägar som du angav, kan du välja datumformat där dina blobbar ordnas listrutan av de format som stöds.<BR>Exempel: ÅÅÅÅ-MM/DD, åååå-MM-DD osv.</td>
-</tr>
-<tr>
-<td>[Valfritt] tidsformat</td>
-<td>Om du har använt {time} i sökvägar som du angav, kan du välja tidsformatet där dina blobbar ordnas listrutan av de format som stöds.<BR>Exempel: HH, HH/mm eller HH-mm</td>
-</tr>
-<tr>
-<td>Händelsen serialiseringsformat</td>
-<td>För att vara säker på att dina frågor fungerar som du vill, behöver Stream Analytics veta vilket serialiseringsformat du använder för inkommande dataströmmar. För referens är format som stöds csv- och JSON.</td>
-</tr>
-<tr>
-<td>Encoding</td>
-<td>UTF-8 är endast stöds Kodningsformatet just nu</td>
-</tr>
-</tbody>
-</table>
+|**Egenskapsnamn**  |**Beskrivning**  |
+|---------|---------|
+|Ett inmatat Alias   | Ett eget namn som ska användas i jobb frågan för att referera till den här indata.   |
+|Lagringskonto   | Namnet på det lagringskonto där dina blobbar finns. Om den är i samma prenumeration som Stream Analytics-jobbet måste välja du den från listrutan.   |
+|Lagringskontonyckel   | Den hemliga nyckeln som associeras med lagringskontot. Detta hämtar fylls automatiskt i om lagringskontot tillhör samma prenumeration som Stream Analytics-jobbet.   |
+|Lagringsbehållaren   | Behållare innehåller en logisk gruppering för blobbar som lagras i Microsoft Azure Blob-tjänsten. När du överför en blobb till Blob-tjänsten måste du ange en behållare för blobben.   |
+|Sökvägar   | Sökvägen som används för att hitta dina blobbar i den angivna behållaren. I sökvägen, kan du välja att ange en eller flera instanser av följande 2 variabler:<BR>{date}, {time}<BR>Exempel 1: products/{date}/{time}/product-list.csv<BR>Exempel 2: products/{date}/product-list.csv   |
+|[Valfritt] datumformat   | Om du har använt {date} i sökvägar som du angav, kan du välja datumformat där dina blobbar ordnas listrutan av de format som stöds.<BR>Exempel: ÅÅÅÅ-MM/DD, åååå-MM-DD osv.   |
+|[Valfritt] tidsformat   | Om du har använt {time} i sökvägar som du angav, kan du välja tidsformatet där dina blobbar ordnas listrutan av de format som stöds.<BR>Exempel: HH, HH/mm eller HH-mm.  |
+|Händelsen serialiseringsformat   | För att vara säker på att dina frågor fungerar som du vill, behöver Stream Analytics veta vilket serialiseringsformat du använder för inkommande dataströmmar. För referens är format som stöds csv- och JSON.  |
+|Kodning   | UTF-8 är det enda kodformat som stöds för närvarande.  |
 
 ## <a name="generating-reference-data-on-a-schedule"></a>Generera referensdata enligt ett schema
 Om din referensdata är en långsamt föränderliga datauppsättning, sedan stöd för att uppdatera referens data aktiveras genom att ange en sökväg mönster i inkommande konfigurationen med {date} och {time} ersättning token. Stream Analytics hämtar uppdaterade referensdata datadefinitioner baserat på den här sökvägen. Till exempel ett mönster för `sample/{date}/{time}/products.csv` med datumformatet **”åååå-MM-DD”** och ett tidsformat för **”HH-mm”** instruerar Stream Analytics för att hämta uppdaterade blob `sample/2015-04-16/17-30/products.csv` kl: 30 på 16 April , 2015 UTC-tidszonen.

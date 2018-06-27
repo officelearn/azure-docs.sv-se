@@ -39,7 +39,7 @@ Det här steget utförs i Windows PowerShell för StorSimple-gränssnittet på b
 Utför följande steg om du använder enhetens seriekonsol för att ansluta till Windows PowerShell-gränssnittet.
 
 #### <a name="to-initiate-the-service-data-encryption-key-change"></a>Att starta tjänsten data encryption key ändras
-1. Välj alternativ 1 för att logga in med fullständig åtkomst.
+1. Välj alternativ 1, **logga in med fullständig åtkomst**.
 2. Skriv följande vid kommandotolken:
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
@@ -60,7 +60,7 @@ Dessa steg måste utföras i Windows PowerShell-gränssnittet för din StorSimpl
 Utför följande steg för att uppdatera tjänsten datakryptering på enheten.
 
 #### <a name="to-update-the-service-data-encryption-key"></a>Uppdatera krypteringsnyckeln för tjänstdata
-1. Använda Windows PowerShell för StorSimple för att ansluta till konsolen. Välj alternativ 1 för att logga in med fullständig åtkomst.
+1. Använda Windows PowerShell för StorSimple för att ansluta till konsolen. Välj alternativ 1, **logga in med fullständig åtkomst**.
 2. Skriv följande vid kommandotolken:
    
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`

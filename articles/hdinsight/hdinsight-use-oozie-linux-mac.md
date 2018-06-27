@@ -2,24 +2,22 @@
 title: Använda Hadoop Oozie arbetsflöden i Linux-baserade Azure HDInsight | Microsoft Docs
 description: Använd Hadoop Oozie i Linux-baserade HDInsight. Lär dig hur du definierar ett arbetsflöde för Oozie och skicka ett Oozie-jobb.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 8a25507ab076c4eecccea4e8a503d68ff1441ae5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/26/2018
+ms.author: omidm
+ms.openlocfilehash: a1fd33ec83208dfd5d90a0fb11557c72a5f02e88
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179086"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019299"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använda Oozie med Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight
 
@@ -37,8 +35,6 @@ Du kan också använda Oozie för att schemalägga jobb som är specifika för e
 > [!NOTE]
 > Ett annat alternativ att definiera arbetsflöden med HDInsight är att använda Azure Data Factory. Mer information om Data Factory finns [Use Pig och Hive med Data Factory][azure-data-factory-pig-hive].
 
-> [!IMPORTANT]
-> Oozie har inte aktiverats på domänanslutna HDInsight.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -78,7 +74,7 @@ Oozie förväntar du lagra alla resurser som krävs för ett jobb i samma katalo
     ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
 
-    Ersätt `sshuser` med SSH-användarnamn för klustret. Ersätt `clustername` med namnet på klustret. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+    Ersätt `sshuser` med SSH-användarnamnet för klustret. Ersätt `clustername` med namnet på klustret. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 2. För att skapa katalogen, använder du följande kommando:
 
@@ -240,7 +236,7 @@ Om du vill skapa en SQL-databas, följer du stegen i den [skapa en SQL-databas](
 ### <a name="create-the-table"></a>Skapa tabellen
 
 > [!NOTE]
-> Det finns många sätt att ansluta till SQL-databas för att skapa en tabell. Följande steg används [FreeTDS](http://www.freetds.org/) från HDInsight-klustret.
+> Det finns många sätt att ansluta till SQL-databas för att skapa en tabell. Följande steg använder [FreeTDS](http://www.freetds.org/) från HDInsight-klustret.
 
 
 1. Använd följande kommando för att installera FreeTDS på HDInsight-kluster:
@@ -263,7 +259,7 @@ Om du vill skapa en SQL-databas, följer du stegen i den [skapa en SQL-databas](
         Default database being set to oozietest
         1>
 
-3. På den `1>` uppmanar, ange följande rader:
+3. Vid uppmaningen `1>` anger du följande rader:
 
     ```sql
     CREATE TABLE [dbo].[mobiledata](
@@ -274,7 +270,7 @@ Om du vill skapa en SQL-databas, följer du stegen i den [skapa en SQL-databas](
     GO
     ```
 
-    När den `GO` uttryck har angetts, tidigare rapporter utvärderas. De här uttrycken skapa en tabell med namnet **mobiledata**, som används av arbetsflödet.
+    När instruktionen `GO` har angivits värderas de föregående instruktionerna. De här uttrycken skapa en tabell med namnet **mobiledata**, som används av arbetsflödet.
 
     Kontrollera att tabellen har skapats genom att använda följande kommandon:
 

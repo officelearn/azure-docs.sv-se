@@ -12,25 +12,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/14/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 3bce933787e49d787c9414ef75ee0e97a41b79aa
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 06e91b4d52a70ea33f4317a6434c2bd49e5c3bd3
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233646"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020982"
 ---
 # <a name="manage-programs-and-their-controls"></a>Hantera program och deras kontroller 
 
 Azure Active Directory (AD Azure) innehåller åtkomst granskning av medlemmar i gruppen och programåtkomst. De här exemplen kontroller Kontrollera tillsyn för vem som har åtkomst till din organisations gruppmedlemskap och program. Organisationer kan använda de här kontrollerna för att effektivt hantera sina styrning och riskhantering krav på efterlevnad.
 
 ## <a name="create-and-manage-programs-and-their-controls"></a>Skapa och hantera program och deras kontroller
-Du kan förenkla spåra och samla in åtkomst omdömen för olika ändamål genom att ordna dem i program. Granska varje åtkomst kan länkas till ett program. När du förbereder rapporter för en granskare fokusera du sedan på åtkomst granskningar i omfånget för en viss initiative.  Program och åtkomst granska resultaten visas för användare i rollen Global administratör eller säkerhetsadministratör säkerhet läsare.
+Du kan förenkla spåra och samla in åtkomst omdömen för olika ändamål genom att ordna dem i program. Granska varje åtkomst kan länkas till ett program. När du förbereder rapporter för en granskare fokusera du sedan på åtkomst granskningar i omfånget för en viss initiative.  Program och åtkomst granska resultaten visas för användare i rollen Global administratör, kontoadministratör för användaren, säkerhetsadministratör eller säkerhet läsare.
 
 Om du vill se en lista över program, gå till den [åtkomst går igenom sidan](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) och välj **program**.
 
-**Standardprogrammet** finns alltid. Om du använder en global administratör kan skapa du ytterligare program. Exempelvis kan du ha ett program för varje kompatibilitet eller företagsmål.
+**Standardprogrammet** finns alltid. Om du är i en global administratör eller användarrollen kontot Administratör kan skapa du ytterligare program. Exempelvis kan du ha ett program för varje kompatibilitet eller företagsmål.
 
 Om du inte längre behöver ett program och det inte har några kontroller som är länkade till den, kan du ta bort den.
 

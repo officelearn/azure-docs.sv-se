@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/26/2018
 ms.author: sashan
-ms.openlocfilehash: 8de70c01f4c04d6df85c2f5acfe9efe18ff59c0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fb6e8f4420b739b5ac84f1d5c185fddc740c551a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649694"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018521"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Använd skrivskyddade repliker att läsa in saldo skrivskyddade frågeresultat arbetsbelastningar (förhandsgranskning)
 
@@ -65,6 +65,7 @@ Du kan kontrollera om du är ansluten till en skrivskyddad replik genom att kör
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
+
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Aktivera och inaktivera Läs skalbar med hjälp av Azure PowerShell
 
 Hantera Läs skalbar i Azure PowerShell kräver December 2016 Azure PowerShell version eller senare. Den senaste versionen i PowerShell finns i [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
@@ -106,6 +107,14 @@ Body:
 ```
 
 Mer information finns i [databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate).
+
+## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Läs skalbar med geo-replikerade databaser
+
+Om du använder skrivskyddade skalbar att läsa in saldo skrivskyddade arbetsbelastningar för en databas som är georeplikerad (t.ex. som en medlem i en redundansväxlingsgrupp) kontrollera att läsa skalbar är aktiverat på både primärt och sekundära databaser georeplikerad. Detta garanterar samma belastningsutjämning effekt när programmet ansluter till den nya primärt efter växling vid fel. Om du ansluter till den sekundära databasen georeplikerad med Läs-skala aktiverad sessioner till `ApplicationIntent=ReadOnly` vidarebefordras till en repliker på samma sätt som vi dirigera anslutningar på den primära databasen.  Sessioner utan `ApplicationIntent=ReadOnly` vidarebefordras till den primära repliken av sekundärt georeplikerad, som också är skrivskyddad. 
+
+> [!NOTE]
+> Under förhandsgranskningen gör vi kommer inte att utföra resursallokering eller några andra belastningsutjämnade routning mellan lokala repliker av den sekundära databasen. 
+
 
 ## <a name="next-steps"></a>Nästa steg
 

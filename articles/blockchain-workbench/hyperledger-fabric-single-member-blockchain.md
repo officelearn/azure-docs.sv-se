@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 7b60c086896506e5883607db48a64d2a2efbd967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 28561f5f94044d19cfd07e99d7f7a736ec470cf1
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655450"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960363"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Hyperledger Fabric medlem nätverk
 
@@ -89,7 +89,7 @@ Sedan under **storlek och prestanda,** ange indata för storleken på nätverket
 Parameternamn| Beskrivning| Tillåtna värden|Standardvärde
 ---|---|---|---
 **Antalet noder för medlemskap**|Antalet noder som kör tjänsten medlemskap. För ytterligare information om tjänsten medlemskap, titta på säkerhets- och Medlemskapstjänster under Hyperledger [dokumentationen](https://media.readthedocs.org/pdf/hyperledger-fabric/latest/hyperledger-fabric.pdf).<br /><br />Det här värdet är för närvarande begränsad till 1 nod, men vi planerar att stödja skalbar via klustring i nästa version.|1| 1
-**Antalet Orderer noder** |Antalet noder som beställer (ordna) transaktioner i block.--> detta instruktionen är mångordig och förvirrande. Mer information om tjänsten onlinebeställning finns i Hyperledger [dokumentationen](http://hyperledger-fabric.readthedocs.io/en/latest/orderingservice.html).<br /><br />Det här värdet är för närvarande begränsad till 1 nod. |1 |1
+**Antalet Orderer noder** |Antalet noder som beställer (ordna) transaktioner i block.--> detta instruktionen är mångordig och förvirrande. Mer information om tjänsten onlinebeställning finns i Hyperledger [dokumentationen](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html).<br /><br />Det här värdet är för närvarande begränsad till 1 nod. |1 |1
 **Antalet peer-noder**| Noder som ägs av medlemmarna som utför transaktioner och upprätthålla tillstånd och en kopia av.<br /><br />Mer information om tjänsten onlinebeställning finns i Hyperledger [dokumentationen](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|3| 3 - 9
 **Lagringsprestanda**|Typ av lagring säkerhetskopiering varje distribuerad nod. Mer information om lagring finns [introduktion till Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) och [Premiumlagring](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard- eller Premium|Standard
 **Storlek på virtuell dator** |Storleken på virtuella datorn används för alla noder i nätverket|Standard A<br />Standard D<br />Standard D-v2<br />Standard F-serien<br />Standard DS<br />och Standard FS|Standard D1_v2

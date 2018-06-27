@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2018
+ms.date: 06/26/2018
 ms.author: asmalser
-ms.openlocfilehash: fce7ea66f5e10aae4f1a0a3f0ed92ca57e6112c7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c7a18132a797bd7411487c233fc41647cc20dfb4
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293304"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37026027"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera användaren etablering och avetablering för SaaS-program med Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Vad är automatisk användaretablering för SaaS-appar?
@@ -50,7 +50,6 @@ Några vanliga motiveringen för att använda den här funktionen är:
 * Enkelt importera ett stort antal användare till ett visst SaaS-program eller system.
 * Att få med en enda uppsättning principer för att fastställa vem som har etablerats och som kan logga in på en app.
 
-
 ## <a name="how-does-automatic-provisioning-work"></a>Hur fungerar automatisk etablering?
     
 Den **Etableringstjänsten i Azure AD** etablerar du SaaS-appar och andra system, genom att ansluta till användaren hanterings-API-slutpunkter som tillhandahålls av leverantören av tillämpningsprogrammet. Dessa användare management API-slutpunkter kan Azure AD för att skapa, uppdatera och ta bort användare. För valda program tjänsten allokering kan också skapa, uppdatera och ta bort ytterligare identity-relaterade objekt, till exempel grupper och roller. 
@@ -69,15 +68,17 @@ Den **Etableringstjänsten i Azure AD** etablerar du SaaS-appar och andra system
 
 Azure AD-funktioner integrerade redan stöd för en mängd olika populära SaaS-appar och personal-system, samt allmänna stöd för appar som implementerar vissa delar av SCIM 2.0-standarden.
 
-En lista över alla program som stöder Azure AD en förintegrerade etablering koppling, finns det [lista över program självstudier för användaretablering](active-directory-saas-tutorial-list.md).
+### <a name="pre-integrated-applications"></a>Redan integrerade program
+En lista över alla program som stöder Azure AD en förintegrerade etablering koppling, finns det [lista över program självstudier för användaretablering](saas-apps/tutorial-list.md).
 
-Mer information om hur du lägger till stöd för Azure AD användaretablering till ett program finns [använda SCIM för att automatiskt etablera användare och grupper från Azure Active Directory till program](manage-apps/use-scim-to-provision-users-and-groups.md).
-
-Kontakta Azure AD engineering team för att begära etablering support för ytterligare program, skicka ett meddelande via den [Azure Active Directory Feedbackforum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).    
+Kontakta Azure AD engineering team för att begära etablering support för ytterligare program, skicka ett meddelande via den [Azure Active Directory Feedbackforum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
 
 > [!NOTE]
 > För ett program med stöd för automatisk användaretablering, måste det först ange nödvändiga Användarhantering API: er som gör att externa program att automatisera skapande, underhåll och borttagning av användare. Därför inte alla SaaS-appar som är kompatibla med den här funktionen. Azure AD-Utvecklingsteamet kommer sedan att kunna skapa en allokering koppling till apparna för appar som har stöd för användarhantering API: er, och detta verk prioriteras av behoven hos aktuella och potentiella kunder. 
-    
+
+### <a name="connecting-applications-that-support-scim-20"></a>Ansluta appar som stöder SCIM 2.0
+Information om hur du ansluter Allmänt program som implementerar SCIM 2.0 - baserade Användarhantering API: er, se [använda SCIM för att automatiskt etablera användare och grupper från Azure Active Directory till program](manage-apps/use-scim-to-provision-users-and-groups.md).
+
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>Hur ställer jag in automatisk etablering till ett program?
 
@@ -85,7 +86,7 @@ Kontakta Azure AD engineering team för att begära etablering support för ytte
 
 Konfigurationen av Azure AD etableras för ett valt program startar i den  **[Azure-portalen](https://portal.azure.com)**. I den **Azure Active Directory > företagsprogram** väljer **Lägg till**, sedan **alla**, och Lägg sedan till något av följande beroende på ditt scenario:
 
-* Alla program i den **aktuella program** avsnittet stöd för automatisk etablering. Finns det [lista över program självstudier för användaretablering](active-directory-saas-tutorial-list.md) för ytterligare mallar.
+* Alla program i den **aktuella program** avsnittet stöd för automatisk etablering. Finns det [lista över program självstudier för användaretablering](saas-apps/tutorial-list.md) för ytterligare mallar.
 
 * Använd alternativet ”icke-galleriet program” för anpassad utvecklat SCIM integreringar
 
@@ -152,7 +153,7 @@ Efter den första synkroniseringen kommer alla efterföljande synkroniseringar
 >[!NOTE]
 > Du kan om du vill inaktivera skapa-, update- eller delete-åtgärder med hjälp av den **riktade händelser för objektet** kryssrutor i den [attributmappning](active-directory-saas-customizing-attribute-mappings.md) avsnitt. Logik för att inaktivera en användare under en uppdatering kontrolleras även via en attributmappning från ett fält, till exempel ”accountEnabled”.
 
-Etablering tjänsten fortsätter att köras på obestämd tid back-to-back inkrementella synkroniseringar med intervall som definieras i den [självstudier som är specifika för varje program](active-directory-saas-tutorial-list.md), tills någon av följande händelser inträffar:
+Etablering tjänsten fortsätter att köras på obestämd tid back-to-back inkrementella synkroniseringar med intervall som definieras i den [självstudier som är specifika för varje program](saas-apps/tutorial-list.md), tills någon av följande händelser inträffar:
 
 * Tjänsten stoppats manuellt med hjälp av Azure-portalen eller med hjälp av kommandot Graph API 
 * En ny inledande synkronisering aktiveras med hjälp av den **Rensa status och starta om** alternativet i Azure-portalen eller med hjälp av kommandot Graph API. Detta tar bort alla lagrade vattenstämpel och medför att alla källobjekt som ska utvärderas igen.
@@ -167,7 +168,7 @@ Om en användare inte kan läggas till, uppdateras eller tas bort i målsystemet
 
 Dessa fel kan lösas genom att justera attributvärden för den berörda användaren i källsystemet eller genom att justera attributmappning för att inte orsakar konflikter.   
 
-### <a name="quarantine"></a>Placera i karantän
+### <a name="quarantine"></a>Karantän
 Om de flesta eller alla av anrop görs mot målsystemet konsekvent misslyckas på grund av ett fel (till exempel som i fallet med ogiltig administratörsautentiseringsuppgifter), sedan etableringsjobbet för den försätts i tillståndet ”karantän”. Detta visas i den [etablering sammanfattningsrapport](active-directory-saas-provisioning-reporting.md), och via e-post om e-postaviseringar har konfigurerats i Azure-portalen. 
 
 När du är i karantän, minska frekvensen av inkrementella synkroniseringar gradvis till en gång per dag. 
@@ -216,33 +217,31 @@ Sammanfattning av faktorer som påverkar den tid det tar för att slutföra en *
 * Begära hastighetsbegränsningar och begränsning implementeras av måldatorn. Vissa målsystem implementera begäran hastighetsbegränsningar och begränsning som kan påverka prestanda vid stora synkroniseringsåtgärder. Under dessa förhållanden kan en app som tar emot för många begäranden för snabb långsamma dess svar hastighet eller stänga anslutningen. Anslutningen måste justera genom att inte skicka app begäranden snabbare än appen kan bearbeta dem för att förbättra prestanda. Etablering kopplingar som skapats av Microsoft gör denna justering. 
 
 * Antal och storlek för tilldelade grupper. Synkroniserar tilldelade grupper tar längre tid än synkroniserar användare. Prestanda kan påverkas av både antalet och storleken på de tilldelade grupperna. Om ett program har [mappningar som aktiverats för gruppen objektet synkronisering](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings), egenskaper som gruppnamn och medlemskap synkroniseras och användare. Dessa ytterligare synkroniseringar tar längre tid än att bara synkronisera användarobjekt.
- 
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-**Hur kan jag spåra förloppet för den aktuella Etableringsjobbet?**
+##<a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Hur vet jag om användare som har etablerats korrekt?
 
-Finns det [etablering rapporteringsguide](active-directory-saas-provisioning-reporting.md).
+Alla åtgärder som utförts av användare som etablerar tjänsten registreras i Azure AD granskningsloggar. Detta omfattar alla Läs- och skrivåtgärder som gjorts i käll-och mål, samt vilka användardata som har lästs eller skrivits under varje åtgärd.
 
-**Hur vet jag om användare ska kunna hämta etablerats korrekt?**
+Mer information om hur Läs loggas i Azure portal finns det [etablering rapporteringsguide](active-directory-saas-provisioning-reporting.md).
 
-Alla fel registreras i Azure AD granskningsloggar. Mer information finns i [etablering rapporteringsguide](active-directory-saas-provisioning-reporting.md).
 
-**Hur kan jag skapa ett program som fungerar med tjänsten etablering?**
+##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Hur felsöker problem med användaretablering?
 
-Se [använda SCIM för att automatiskt etablera användare och grupper från Azure Active Directory till program](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning).
+Scenariobaserade vägledning om hur du felsöker automatisk användaretablering finns [problem med att konfigurera och etablera användare till ett program](active-directory-application-provisioning-content-map.md).
 
-**Hur kan jag skicka feedback till teknikteamet?**
 
-Kontakta oss via den [Azure Active Directory Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/).
+##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Vad är bästa praxis för lansera automatisk användaretablering?
+
+> [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
+
+Ett exempel stegvisa distributionsplan för utgående användaretablering till ett program, finns det [identitet i distributionsguiden för Användaretablering](https://aka.ms/userprovisioningdeploymentplan)/
 
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [Lista över självstudier om hur du integrerar SaaS-appar](active-directory-saas-tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar](saas-apps/tutorial-list.md)
 * [Anpassa attributmappning för Användaretablering](active-directory-saas-customizing-attribute-mappings.md)
 * [Skriva uttryck för attributmappning](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Omfångsfilter för Användaretablering](active-directory-saas-scoping-filters.md)
 * [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Översikt av Azure AD-synkronisering API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
-* [Stegvisa distributionsplan för utgående användaretablering för ett program](https://aka.ms/userprovisioningdeploymentplan)
-

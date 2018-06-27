@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 63f079f6c8e584ff3a89503104060daf056763ed
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5e225a16baef53c12a5d0a719c36a2042d391c7f
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836308"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959110"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Använd exemplen på datauppsättningar i Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -340,7 +340,7 @@ Väder data omfattar observationer från flygplats väder stationer, som omfatta
   <li>Väder station ID mappades till motsvarande flygplats ID: N</li>
   <li>Väder stationer som inte är associerade med de mest använda 70 flygplatserna har filtrerats ut</li>
   <li>Kolumnen är uppdelad i separata år, månad och dag kolumner</li>
-  <li>Följande kolumner har valts: AirportID, år, månad, dag, tid, tidszon, SkyCondition, synlighet, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, vindhastigheten, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
+  <li>Följande kolumner har valts: AirportID, år, månad, dag, tid, tidszon, SkyCondition, synlighet, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, Vindhastigheten, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
 </ul>
   </td>
 </tr>
@@ -403,7 +403,7 @@ Avsnittet om porttilldelningar för nyhetsartiklar i RCV1 V2 Reuters nyheter dat
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Den här informationen kommer från KDD Cup 2010 Student prestanda utvärdering challenge (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">student prestandautvärdering</a>). De data som används är träningsmängden Algebra_2008_2009 (Stamper, J., Niculescu-Mizil A. Ritter, S. Gordon, G.J. och Koedinger K.R. (2010). Algebra jag 2008-2009. Challenge dataset från KDD Cup 2010 utbildningssyfte Data Mining utmaning. Hitta den på <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> eller <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.
+Den här informationen kommer från KDD Cup 2010 Student prestanda utvärdering challenge (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">student prestandautvärdering</a>). De data som används är träningsmängden Algebra_2008_2009 (Stamper, J., Niculescu-Mizil A. Ritter, S. Gordon, G.J. och Koedinger K.R. (2010). Algebra jag 2008-2009. Challenge dataset från KDD Cup 2010 utbildningssyfte Data Mining utmaning. Hitta den på <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
 Datamängden har hämtats och lagrats i Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) och innehåller loggfilerna från en student tutoring system. De angivna funktionerna inkluderar problem-ID och dess kort beskrivning, student ID, tidsstämpel och hur många försök student innan lösa problemet på rätt sätt. Den ursprungliga datauppsättningen har 8.9M poster. den här datauppsättningen har provtagning ned till de första 100K raderna. Datamängden har 23 tabbavgränsade kolumner med olika typer: numeriska, kategoriska, och tidsstämpel.
   </td>

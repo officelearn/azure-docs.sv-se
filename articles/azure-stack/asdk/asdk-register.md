@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/26/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: bc17045106b2656cdeb5f51037b3138aeac9ee0f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 08a300d0e2d1565428f282a2073d91b5dd08c060
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757475"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017007"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-registrering
 Du kan registrera installationen av Azure Stack Development Kit (ASDK) med Azure att hämta marketplace-objekt från Azure och Ställ in commerce rapporterar tillbaka till Microsoft. Registrering krävs för att stödja fullständig Azure Stack-funktioner, inklusive marketplace-syndikeringsfeed. Registrering rekommenderas eftersom du kan testa viktiga Azure Stack-funktioner som marketplace syndikering och användningsrapportering. När du har registrerat Azure Stack rapporterat användning till Azure handel. Du kan se den under den prenumeration som du använde för registrering. Dock debiteras inte ASDK användare för användning rapporterar.
@@ -83,4 +83,4 @@ Följ dessa steg om du vill verifiera att registreringen ASDK med Azure lyckades
     ![](media/asdk-register/3.PNG)
 
 ## <a name="next-steps"></a>Nästa steg
-[Lägg till ett Azure-stacken marketplace-objekt](asdk-marketplace-item.md)
+[Lägg till ett Azure-stacken marketplace-objekt](.\.\azure-stack-marketplace.md)

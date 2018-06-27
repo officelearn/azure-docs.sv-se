@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: protection
-ms.date: 05/04/2017
+ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 699076a8e651dd8dbbab08b518d7be7e60a0ac47
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: a4ef91f7055db8f202e3a4e48375427c85964781
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233680"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020955"
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Hur du startar en åtkomst-granskning i Azure AD Privileged Identity Management
-Rolltilldelningar blir ”inaktiva” när användare privilegierad åtkomst som de inte behöver längre. För att minska riskerna i samband med dessa inaktuella rolltilldelningar bör Privilegierade rollen administratörer regelbundet granska de roller som användarna har fått. Det här dokumentet beskriver steg för att starta en åtkomst-granskning i Azure AD Privileged Identity Management (PIM).
+Rolltilldelningar blir ”inaktiva” när användare privilegierad åtkomst som de inte behöver längre. För att minska riskerna i samband med dessa inaktuella rolltilldelningar Privilegierade roller bör eller globala administratörer regelbundet skapa åtkomst omdömen för att be administratörer att granska de roller som användarna har fått. Det här dokumentet beskriver steg för att starta en åtkomst-granskning i Azure AD Privileged Identity Management (PIM).
 
 ## <a name="start-an-access-review"></a>Starta en åtkomstgranskning
 > [!NOTE]

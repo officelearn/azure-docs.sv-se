@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: d81f7889122bcf887676496a056df2148cdff6e9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 35f8937ddef54d407a6e3c83566225ca8ede8bd9
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593720"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960135"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analysera Twitter-data med Hive i HDInsight
 Sociala webbplatser är en av större Drivande faktorer för stordata införande. Offentliga API: er som tillhandahålls av webbplatser som Twitter är en användbar datakälla för att analysera och förstå populära trender.
@@ -68,7 +68,7 @@ I den här kursen använder du den [Twitter-API: er för strömning][twitter-str
 > [!NOTE]
 > En fil som innehåller 10 000 tweets och Hive-skriptfil (beskrivs i nästa avsnitt) har laddats upp i en offentlig blobbbehållare. Du kan hoppa över det här avsnittet om du vill använda de överförda filerna.
 
-[Tweets data](https://dev.twitter.com/docs/platform-objects/tweets) lagras i formatet JavaScript Object Notation (JSON) som innehåller en komplex kapslade struktur. I stället för att skriva många rader med kod med hjälp av en konventionell programmeringsspråk, kan du omvandla den här kapslade strukturen i en Hive-tabell så att den kan efterfrågas av en SQL Structured Query Language ()-som språk som kallas HiveQL.
+Tweets data lagras i formatet JavaScript Object Notation (JSON) som innehåller en komplex kapslade struktur. I stället för att skriva många rader med kod med hjälp av en konventionell programmeringsspråk, kan du omvandla den här kapslade strukturen i en Hive-tabell så att den kan efterfrågas av en SQL Structured Query Language ()-som språk som kallas HiveQL.
 
 Twitter använder OAuth för auktoriserad åtkomst till dess API. OAuth är ett autentiseringsprotokoll som tillåter användare att godkänna program fungerar åt utan att dela sina lösenord. Mer information finns på [oauth.net](http://oauth.net/) eller i den utmärkt [Nybörjarguide till OAuth](http://hueniverse.com/oauth/) från Hueniverse.
 

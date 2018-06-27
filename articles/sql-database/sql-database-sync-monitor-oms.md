@@ -1,26 +1,26 @@
 ---
-title: Övervaka Azure SQL datasynkronisering (förhandsversion) med Log Analytics | Microsoft Docs
-description: Lär dig att övervaka Azure SQL Data Sync (förhandsversion) med hjälp av logganalys
+title: Övervaka Azure SQL datasynkronisering med Log Analytics | Microsoft Docs
+description: Lär dig att övervaka Azure SQL Data Sync genom att använda logganalys
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 4c684337a904fe6984e6b5cd5cf88ef8eb976cb6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9b64a5e913748cda7927877c50a964ede587ae30
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650255"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37026009"
 ---
-# <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Övervaka SQL datasynkronisering (förhandsversion) med logganalys 
+# <a name="monitor-sql-data-sync-with-log-analytics"></a>Övervaka SQL datasynkronisering med logganalys 
 
 I aktivitetsloggen SQL datasynkronisering och identifiera fel och varningar genom tvungen du tidigare att kontrollera SQL datasynkronisering manuellt i Azure-portalen eller Använd PowerShell eller REST API. Följ stegen i den här artikeln för att konfigurera en anpassad lösning som förbättrar datasynkronisering övervakning upplevelse. Du kan anpassa den här lösningen så att den passar din situation.
 
-En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync (förhandsversion)](sql-database-sync-data.md).
+En översikt över SQL datasynkronisering finns [synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](sql-database-sync-data.md).
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Instrumentpanelen för övervakning för alla synkroniseringsgrupper 
 

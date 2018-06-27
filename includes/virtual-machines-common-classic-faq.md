@@ -48,7 +48,7 @@ För virtuella datorer som skapats med den klassiska distributionsmodellen kan d
 Du måste ange det nätverk som du vill att den virtuella datorn ska tillhöra när du skapar den virtuella datorn. Du kan inte ansluta en befintlig virtuell dator till ett virtuellt nätverk. Du kan dock komma runt detta genom att koppla från den virtuella hårddisken (VHD) från den befintliga virtuella datorn och sedan använda den för att skapa en ny virtuell dator med önskad nätverkskonfiguration.
 
 ## <a name="how-can-i-access--my-virtual-machine"></a>Hur kommer jag åt min virtuella dator?
-Du måste upprätta en fjärranslutning för att logga in på den virtuella datorn med hjälp av Anslutning till fjärrskrivbord för en virtuell Windows-dator eller SSH (Secure Shell) för en virtuell Linux-dator. Anvisningar finns i:
+Du måste upprätta en fjärranslutning för att logga in på den virtuella datorn med hjälp av anslutning till fjärrskrivbord för en virtuell Windows-dator eller en SSH (Secure Shell) för en Linux-VM. Anvisningar finns i:
 
 * [Så här loggar du in på en virtuell dator som kör Windows Server](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Högst 2 samtidiga anslutningar stöds, om inte servern är konfigurerad som en Fjärrskrivbordstjänster-sessionsvärd.  
 * [Så här loggar du in på en virtuell dator som kör Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Som standard tillåter SSH högst 10 samtidiga anslutningar. Du kan öka detta antal genom att redigera konfigurationsfilen.
@@ -78,7 +78,7 @@ Termen uppgradering innebär vanligtvis att flytta till en senare version av ope
 Allmän information om verktyg och processer för att migrera en Windows-server finns i [Migrera roller och funktioner till Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940).
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>Vad är standardanvändarnamnet och -lösenordet på den virtuella datorn?
-Avbildningarna som tillhandahålls av Azure har inget förkonfigurerat användarnamn och lösenord. När du skapar en virtuell dator med en av dessa avbildningar måste du ange ett användarnamn och lösenord som du använder för att logga in på den virtuella datorn.
+Avbildningarna som tillhandahålls av Azure har inget förkonfigurerat användarnamn och lösenord. När du skapar en virtuell dator med en av dessa bilder, måste du ange ett användarnamn och lösenord som du använder för att logga in på den virtuella datorn.
 
 Om du har glömt användarnamnet eller lösenordet och har installerat den virtuella datoragenten kan du åtgärda problemet genom att installera och använda tillägget [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

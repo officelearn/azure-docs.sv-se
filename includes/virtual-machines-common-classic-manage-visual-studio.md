@@ -68,7 +68,7 @@ Du kan skapa en virtuell dator i den [Azure-hanteringsportalen](http://go.micros
     
      ![Virtuella aktivitetsloggen - slutfördes.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
     
-     Om åtgärden är klar visas den nya virtuella datorn under den **virtuella datorer** nod i Server Explorer. Du kan logga in på den genom att klicka på den **ansluta med hjälp av fjärrskrivbord** genväg.
+     Om åtgärden är klar visas den nya virtuella datorn under den **virtuella datorer** nod i Server Explorer. Du kan logga in till den genom att klicka på den **ansluta med hjälp av fjärrskrivbord** genväg.
     
      ![Den virtuella datorn som visas i Server Explorer.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
 

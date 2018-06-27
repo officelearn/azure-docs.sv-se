@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 1c131c2c9ca12556c1d2cd52e7976d2f4272a0c8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 802be1ad5b1029add249430ee7760002407c4641
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32767971"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021633"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Bearbeta konfigurerbara tröskelvärdesbaserad regler i Azure Stream Analytics
 Den här artikeln beskriver hur du använder referensdata för att uppnå ett aviseringslösning som använder konfigurerbara tröskelvärdesbaserad regler i Azure Stream Analytics.
@@ -45,7 +45,7 @@ Referensdata för det här exemplet visar hur en tröskelvärdesbaserad regel ka
 - Exempelregeln används för att representera en justerbara avisering när CPU överskrider (medelvärde är större än eller lika med) värdet `90` procent. Den `value` fältet konfigureras efter behov.
 - Observera att regeln har ett **operatorn** som dynamiskt tolkas i frågesyntaxen senare på `AVGGREATEROREQUAL`. 
 - Regeln filtrerar data på en viss nyckel för dimensionen `2` med värdet `C1`. Andra fält är tom sträng, som anger inte om du vill filtrera Indataströmmen av dessa fält. Du kan ställa in ytterligare CPU-regler för att filtrera andra matchande fält efter behov.
-- Alla kolumner som ska inkluderas i händelsen utdata avisering. I det här fallet `includedDim` nyckeln nummer `2` är aktiverat `TRUE` motsvarar att fältnumret 2 händelsedata i dataströmmen inkluderas i kvalificera utdata händelser. De andra fälten ingår inte i aviseringen utdata, men fältlistan kan justeras.
+- Alla kolumner som ska inkluderas i händelsen utdata avisering. I det här fallet `includedDim` nyckeln nummer `2` är aktiverat `TRUE` att representera fältnumret 2 händelsedata i dataströmmen inkluderas i bestämda händelser som utdata. De andra fälten ingår inte i aviseringen utdata, men fältlistan kan justeras.
 
 
 ```json

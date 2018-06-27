@@ -6,19 +6,19 @@ documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 5f5ca940-eef8-4125-b6a0-f44ba04ab5ab
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 06/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 14aa54277cac3369df739a1d84580624f2d3b401
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3e1dd8ad49ceb126a14070ed641146d91419640a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025950"
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Exportera en Azure Resource Manager-mall från befintliga resurser
 I den här artikeln får du lära dig hur du exporterar en Resource Manager-mall från befintliga resurser i din prenumeration. Du kan använda mallen som genereras för att få en bättre förståelse av mallens syntax.
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig hur du exporterar en Resource Manager-mall
 Det finns två sätt att exportera en mall:
 
 * Du kan exportera **själva mallen som du använde för en distribution**. Den exporterade mallen innehåller alla parametrar och variabler exakt som de visas i den ursprungliga mallen. Den här metoden är användbar om du har distribuerat resurser via portalen och vill se mallen för att skapa dessa resurser. Mallen är enkel att använda. 
-* Du kan exportera en **genererad mall som representerar resursgruppens aktuella tillstånd**. Den exporterade mallen baseras inte på en mall som du har använt för distribution. I stället skapar en mall som är en ”ögonblicksbild” eller ”backup” av resursgruppen. Den exporterade mallen har många hårdkodade värden och troligen inte så många parametrar som du vanligtvis definierar. Använd det här alternativet om du vill distribuera resurser i samma resursgrupp. För att använda den här mallen för en annan resursgrupp måste kanske du ändra avsevärt den.
+* Du kan exportera en **genererad mall som representerar resursgruppens aktuella tillstånd**. Den exporterade mallen baseras inte på en mall som du använde för distribution. I stället skapar en mall som är en ”ögonblicksbild” eller ”backup” av resursgruppen. Den exporterade mallen har många hårdkodade värden och troligen inte så många parametrar som du vanligtvis definierar. Använd det här alternativet om du vill distribuera resurser i samma resursgrupp. För att använda den här mallen för en annan resursgrupp måste kanske du ändra avsevärt den.
 
 Den här artikeln visar båda metoderna via portalen.
 
@@ -56,7 +56,7 @@ Distributionen kan ta någon minut. När distributionen är klar ingår lösning
       ![Resursgrupp](./media/resource-manager-export-template/select-deployment.png)
 2. Du ser distributionshistoriken för gruppen. I ditt fall visas antagligen bara en distribution i portalen. Välj den här distributionen.
    
-     ![senaste distributionen](./media/resource-manager-export-template/select-history.png)
+     ![Senaste distributionen](./media/resource-manager-export-template/select-history.png)
 3. Portalen visar en sammanfattning av distributionen. Sammanfattningen innehåller statusen för distributionen och dess åtgärder samt de värden som du angav för parametrarna. Om du vill visa mallen som du använde för distributionen väljer du **Visa mall**.
    
      ![Visa distributionssammanfattning](./media/resource-manager-export-template/view-template.png)
@@ -64,8 +64,7 @@ Distributionen kan ta någon minut. När distributionen är klar ingår lösning
    
    1. **Mall**– Mallen som definierar infrastrukturen för lösningen. När du skapade lagringskontot på portalen använde Resource Manager en mall för att distribuera det och sparade mallen för framtida bruk.
    2. **Parametrar** – En parameterfil som du kan använda för att skicka in värden under distributionen. Den innehåller de värden som du angav under den första distributionen. Du kan ändra dessa värden när du distribuerar om mallen.
-   3. **CLI** – En Azure CLI-skriptfil (Command-Line-Interface) som du kan använda för att distribuera mallen.
-   3. **CLI 2.0** – En Azure CLI-skriptfil (Command-Line-Interface) som du kan använda för att distribuera mallen.
+   3. **CLI** -ett Azure CLI-skriptfil som du kan använda för att distribuera mallen.
    4. **PowerShell** – En Azure PowerShell-skriptfil som du kan använda för att distribuera mallen.
    5. **.NET** – En .NET-klass som du kan använda för att distribuera mallen.
    6. **Ruby**– En Ruby-klass som du kan använda för att distribuera mallen.
@@ -93,7 +92,7 @@ Om du har manuellt dina resurser har ändrats eller lagts till resurser i flera 
    
 3. Du har ett par alternativ för att fortsätta att arbeta med den här mallen. Du kan antingen hämta mallen och arbeta med den lokalt med en JSON-redigerare, eller så kan du spara mallen i biblioteket och arbeta med den via portalen.
    
-     Om du är nöjd med en JSON-redigerare såsom [VS-kod](https://code.visualstudio.com/) eller [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), kanske du föredrar att hämta mallen lokalt och använda denna redigerare. Om du vill arbeta lokalt väljer du **Hämta**.
+     Om du vill använda en JSON-redigerare som [VS kod](https://code.visualstudio.com/) eller [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), kanske du föredrar Hämta mall lokalt och använda den editor. Om du vill arbeta lokalt väljer du **Hämta**.
    
       ![Ladda ned mall](./media/resource-manager-export-template/download-template.png)
    
@@ -103,7 +102,7 @@ Om du har manuellt dina resurser har ändrats eller lagts till resurser i flera 
    
      När du lägger till en mall i biblioteket ge mallen ett namn och beskrivning. Välj sedan **Spara**.
    
-     ![mallvärden](./media/resource-manager-export-template/save-library-template.png)
+     ![Mallvärden](./media/resource-manager-export-template/save-library-template.png)
 4. Om du vill visa en mall som sparats i biblioteket väljer du **Fler tjänster**, skriv **Mallar** för att filtrera resultaten och välj **Mallar**.
    
       ![Det finns mallar](./media/resource-manager-export-template/find-templates.png)
@@ -120,7 +119,7 @@ Den exporterade mallen fungerar bra om du vill skapa samma webbapp och SQL-datab
 2. Välj mallen.
    
      ![Redigera mall](./media/resource-manager-export-template/select-added-template.png)
-3. För att kunna skicka de värden som du eventuellt vill ange under distributionen lägger du till följande två parametrar i **parameteravsnittet** i mallen:
+3. Du kan skicka värden som du kan ange under distributionen, lägger du till följande två parametrar till den **parametrar** avsnitt i mallen:
 
    ```json
    "administratorLogin": {
@@ -151,7 +150,7 @@ Den exporterade mallen fungerar bra om du vill skapa samma webbapp och SQL-datab
    },
    ```
 
-6. Välj **OK** när du har redigerat klart mallen.
+6. Välj **OK** när du är klar redigering av mallen.
 7. Välj **Spara** för att spara ändringarna i mallen.
    
      ![Spara mallen](./media/resource-manager-export-template/save-template.png)
@@ -162,12 +161,11 @@ Den exporterade mallen fungerar bra om du vill skapa samma webbapp och SQL-datab
 
 
 ## <a name="fix-export-issues"></a>Åtgärda exportproblem
-Alla resurstyper stöder inte funktionen för mallexport. Du kan lösa det här problemet genom att manuellt lägga till de resurser som saknas i mallen. Felmeddelandet innehåller de resurstyper som inte kan exporteras. Leta reda på resurstypen i [mallreferensen](/azure/templates/). Om du till exempel vill lägga till en virtuell nätverksgateway manuellt kan du läsa [mallreferensen Microsoft.Network/virtualNetworkGateways](/azure/templates/microsoft.network/virtualnetworkgateways).
+Alla resurstyper stöder inte funktionen för mallexport. Du kan bara se exportera problem när du exporterar från en resursgrupp i stället för från distributionshistoriken. Om din senaste distribution korrekt representerar resursgruppens aktuella tillstånd exporterar du mallen från distributionshistoriken i stället för från resursgruppen. Exportera endast från en resursgrupp när du har gjort ändringar i den resursgrupp som inte är definierad i en mall.
 
-> [!NOTE]
-> Exportproblem uppstår bara när du exporterar från en resursgrupp i stället för från distributionshistoriken. Om din senaste distribution korrekt representerar resursgruppens aktuella tillstånd exporterar du mallen från distributionshistoriken i stället för från resursgruppen. Exportera bara från en resursgrupp om du har gjort ändringar i resursgruppen som inte är definierade i samma mall.
-> 
-> 
+Lös export problem genom att manuellt lägga till saknade resurser tillbaka till din mall. Felmeddelandet innehåller resurstyper som inte kan exporteras. Leta reda på resurstypen i [mallreferensen](/azure/templates/). Om du till exempel vill lägga till en virtuell nätverksgateway manuellt kan du läsa [mallreferensen Microsoft.Network/virtualNetworkGateways](/azure/templates/microsoft.network/virtualnetworkgateways). Mallreferensen får du JSON att lägga till resursen i mallen.
+
+När JSON-format för resursen, behöver du resurs-värden. Du kan se värdena för resursen med hjälp av GET-åtgärden i REST-API för resurstypen. Till exempel värdena för din virtuella nätverksgateway finns [virtuella Nätverksgatewayer - hämta](/rest/api/network-gateway/virtualnetworkgateways/get).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: d185be26633178d8b3f147453b4c48eb77d7e425
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: be5dab7b9714f13a4bd30e6ab33a5a0e2016212d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753531"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020027"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Skydda fjärrkommunikation servicemeddelanden i en C#-tjänst
 > [!div class="op_single_selector"]
@@ -57,7 +57,12 @@ Följ dessa steg om du vill skydda en tjänst när du använder tjänsten fjärr
     ```
 2. Lägga till lyssnarinställningarna och säkerhetsreferenser.
 
-    Kontrollera att det certifikat som du vill använda för att skydda din kommunikation är installerad på alla noder i klustret. Det finns två sätt att du kan ange inställningar för lyssnare och säkerhetsreferenser:
+    Kontrollera att det certifikat som du vill använda för att skydda din kommunikation är installerad på alla noder i klustret. 
+    
+    > [!NOTE]
+    > För Linux-noder, certifikatet måste finnas som PEM-formaterade filer i den */var/lib/sfcerts* directory. Läs mer i [plats och format för X.509-certifikat på Linux-noder](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
+
+    Det finns två sätt att du kan ange inställningar för lyssnare och säkerhetsreferenser:
 
    1. Ge dem direkt i kod som:
 
@@ -202,5 +207,6 @@ Följ dessa steg om du vill skydda en tjänst när du använder tjänsten fjärr
     string message = await client.GetHelloWorld();
 
     ```
+
 
 Som ett nästa steg läsa [Web API med OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md).

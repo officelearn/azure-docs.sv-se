@@ -428,6 +428,8 @@
               href: service-fabric-securing-containers.md
             - name: Konfigurera gMSA för Windows-behållare
               href: service-fabric-setup-gmsa-for-windows-containers.md
+            - name: Konfigurera certifikat på Linux
+              href: service-fabric-configure-certificates-linux.md
         - name: Konfigurera regelbundna säkerhetskopieringar (kluster i Azure)
           href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
         - name: Konfigurera regelbundna säkerhetskopieringar (fristående kluster)

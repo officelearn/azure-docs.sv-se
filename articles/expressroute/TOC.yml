@@ -89,6 +89,8 @@
       href: expressroute-howto-move-arm.md
     - name: Migrera associerade virtuella nätverk från klassisk till Resource Manager
       href: expressroute-migration-classic-resource-manager.md
+    - name: Skapa en zonredundant VNet-gateway i Azure-tillgänglighetszoner
+      href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Konfigurera en router för ExpressRoute
       items:
         - name: Konfigurera en router

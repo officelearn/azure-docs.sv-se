@@ -45,6 +45,8 @@
       href: use-reports.md
     - name: Använd instrumentpaneler
       href: dashboards.md
+    - name: Hantera budgetar
+      href: manage-budgets.md
 - name: Resurser
   items:
     - name: Kostnadshanteringsvideor

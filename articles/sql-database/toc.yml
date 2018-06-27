@@ -74,9 +74,9 @@
       href: sql-database-powershell-samples.md
 - name: Begrepp
   items:
-    - name: Tjänstnivåer och resurser
+    - name: Inköpsmodeller och resurser
       items:
-        - name: Tjänstnivåer
+        - name: Inköpsmodeller
           href: sql-database-service-tiers.md
         - name: vCore-baserad modell
           href: sql-database-service-tiers-vcore.md

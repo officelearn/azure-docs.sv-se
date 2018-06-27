@@ -1,8 +1,9 @@
 # Översikt
-## [Kom igång](get-started.md)
+## [Komma igång](get-started.md)
 ## [Certifieringar](sap-certifications.md)
 # SAP HANA på Azure (stora instanser)
 ## [Översikt och arkitektur](hana-overview-architecture.md)
+### [HLI-scenarier som stöds](hana-supported-scenario.md)
 ## [Infrastruktur och anslutningsmöjlighet](hana-overview-infrastructure-connectivity.md)
 ## [Installera SAP HANA](hana-installation.md)
 ## [Hög tillgänglighet och haveriberedskap](hana-overview-high-availability-disaster-recovery.md)

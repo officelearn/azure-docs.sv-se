@@ -2,7 +2,7 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Lär dig mer om Language Understanding
+    - name: Vad är Language Understanding?
       href: Home.md
     - name: Språk som stöds
       href: luis-supported-languages.md
@@ -25,10 +25,10 @@
           href: luis-quickstart-primary-and-secondary-data.md
         - name: Hierarkisk entitet
           href: luis-quickstart-intent-and-hier-entity.md
-        - name: Lista entitet
-          href: luis-quickstart-intent-and-list-entity.md
         - name: Entitet med vanligt uttryck
           href: luis-quickstart-intents-regex-entity.md
+        - name: Lista entitet
+          href: luis-quickstart-intent-and-list-entity.md
         - name: KeyPhrase-entitet
           href: luis-quickstart-intent-and-key-phrase.md
         - name: Attitydanalys
@@ -238,7 +238,33 @@
     - name: Gränser
       href: luis-boundaries.md
     - name: Fördefinierad entitetsreferens
-      href: luis-reference-prebuilt-entities.md
+      items:
+        - name: Entiteter per kultur
+          href: luis-reference-prebuilt-entities.md
+        - name: Entitet för ålder
+          href: luis-reference-prebuilt-age.md
+        - name: Entitet för valuta
+          href: luis-reference-prebuilt-currency.md
+        - name: DatetimeV2-entitet
+          href: luis-reference-prebuilt-datetimev2.md
+        - name: Entitet för dimension
+          href: luis-reference-prebuilt-dimension.md
+        - name: Inaktuella entiteter
+          href: luis-reference-prebuilt-deprecated.md
+        - name: Entitet för e-post
+          href: luis-reference-prebuilt-email.md
+        - name: Enheter för nummer
+          href: luis-reference-prebuilt-number.md
+        - name: Entitet för ordningstal
+          href: luis-reference-prebuilt-ordinal.md
+        - name: Entitet för procentandel
+          href: luis-reference-prebuilt-percentage.md
+        - name: Entitet för telefonnummer
+          href: luis-reference-prebuilt-phonenumber.md
+        - name: Entitet för temperatur
+          href: luis-reference-prebuilt-temperature.md
+        - name: URL-entitet
+          href: luis-reference-prebuilt-url.md
     - name: Fördefinierad domänreferens
       href: luis-reference-prebuilt-domains.md
     - name: Fördefinierad Cortana-appreferens

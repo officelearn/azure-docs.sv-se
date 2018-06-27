@@ -15,12 +15,23 @@
       href: quickstarts/nodejs.md
     - name: Första frågan i Python
       href: quickstarts/python.md
+- name: SDK
+  expanded: true
+  items:
+    - name: Översikt över SDK-exempel
+      href: sdk.md
+    - name: SDK i Python
+      href: visual-search-sdk-python.md
 - name: Självstudier
   items:
     - name: Enkelsidig webbapp
       href: tutorial-bing-visual-search-single-page-app.md
     - name: Enkelsidig webbapp (källkod)
       href: tutorial-bing-visual-search-single-page-app-source.md
+    - name: 'SDK för visuell sökning i Bing, bildbeskärningsområde och resultat'
+      href: tutorial-visual-search-crop-area-results.md
+    - name: 'SDK för visuell sökning i Bing, ImageInsightsToken och resultat'
+      href: tutorial-visual-search-insights-token.md
 - name: Exempel
   items:
     - name: Kodexempel

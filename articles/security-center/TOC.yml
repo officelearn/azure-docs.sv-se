@@ -48,6 +48,8 @@
           href: security-center-customize-os-security-config.md
         - name: Säkerhetsprincip med Azure-princip
           href: security-center-azure-policy.md
+        - name: Synlighet i hela klientorganisationen
+          href: security-center-management-groups.md
     - name: Implementera säkerhetsrekommendationer
       href: security-center-recommendations.md
     - name: Övervaka säkerhetshälsa

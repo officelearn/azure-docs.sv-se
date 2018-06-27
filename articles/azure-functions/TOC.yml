@@ -49,8 +49,8 @@
       href: functions-openapi-definition.md
     - name: Ändra storlek på avbildning med Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Skapa ett serverlöst webbprogram med funktioner som API
-      href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
+    - name: Skapa en webbapp utan server
+      href: 'https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database'
     - name: Funktioner på Linux
       items:
         - name: Anpassad avbildning

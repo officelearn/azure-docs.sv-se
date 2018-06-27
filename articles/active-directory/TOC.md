@@ -250,7 +250,7 @@
 #### [Avancerad certifikatsignering för SAML-appar](manage-apps/certificate-signing-options.md)
 #### [Dölja ett program från en användarmiljö](manage-apps/hide-application-from-user-portal.md)
 ### [Konfigurera automatisk acceleration för inloggning med hjälp av HRD-princip](manage-apps/configure-authentication-for-federated-users-portal.md)
-### [Migrera AD FS-appar till Azure AD](migrate-adfs-apps-to-azure.md) 
+### [Migrera AD FS-appar till Azure AD](manage-apps/migrate-adfs-apps-to-azure.md) 
 ### [Hantera åtkomst till appar](manage-apps/what-is-access-management.md)
 #### [Åtkomst med enkel inloggning](manage-apps/what-is-single-sign-on.md)
 #### [Certifikat för enkel inloggning](manage-apps/manage-certificates-for-federated-single-sign-on.md)
@@ -386,13 +386,10 @@
 
 ## Delegera åtkomst till resurser
 ### [Administratörsroller](active-directory-assign-admin-roles-azure-portal.md)
-#### [Tilldela administratörsroll till en användare](fundamentals/active-directory-users-assign-role-azure-portal.md) 
-#### [Jämföra behörigheter för medlemmar och gästanvändare](fundamentals/users-default-permissions.md) 
-### [Säker privilegierad åtkomst](admin-roles-best-practices.md)  
-### [Skapa åtkomst till administratörskonton vid akutfall](active-directory-admin-manage-emergency-access-accounts.md) 
-
-
-#### [Standardinställningar för användarbehörigheter](fundamentals/users-default-permissions.md)
+#### [Tilldela administratörsroll till en användare](fundamentals/active-directory-users-assign-role-azure-portal.md)
+#### [Jämföra behörigheter för medlemmar och gästanvändare](fundamentals/users-default-permissions.md)
+### [Skydda administratörsroller](admin-roles-best-practices.md)  
+#### [Skapa administratörskonton för åtkomst vid akutfall](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Administrativa enheter](active-directory-administrative-units-management.md)
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
 ### [Skydda privilegierade roller](admin-roles-best-practices.md)

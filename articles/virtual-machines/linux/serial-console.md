@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 99d09455ed73b366fb3acfb414b9bd095df6319b
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425341"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961959"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Virtuella seriekonsolen (förhandsgranskning) 
 
@@ -32,6 +32,7 @@ Seriekonsolen för virtuell dator i Azure ger tillgång till en textbaserad kons
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
+* Du måste använda resursdistributionsmodell för hantering. Klassiska distributioner stöds inte. 
 * Virtuell dator måste ha [starta diagnostik](boot-diagnostics.md) aktiverad 
 * Det konto som använder seriekonsolen måste ha [deltagarrollen](../../role-based-access-control/built-in-roles.md) för den virtuella datorn och [starta diagnostik](boot-diagnostics.md) storage-konto. 
 * Inställningar som är specifika för Linux distro finns [åtkomst till seriekonsolen för Linux](#accessing-serial-console-for-linux)
@@ -90,8 +91,8 @@ Interaktion med startprogrammet | Åtkomst GRUB/BCD via seriekonsolen | Linux/Wi
 ## <a name="accessing-serial-console-for-linux"></a>Åtkomst till seriekonsolen för Linux
 Gästoperativsystemet måste konfigureras för att läsa och skriva konsolmeddelanden till den seriella porten för seriekonsolen ska fungera korrekt. De flesta [godkända Azure Linux-distributioner](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) har seriekonsolen konfigureras som standard. Genom att klicka på portalen på avsnittet seriekonsolen ger åtkomst till konsolen. 
 
-### <a name="access-for-redhat"></a>Åtkomst för RedHat 
-RedHat bilder på Azure har konsolåtkomst aktiverad som standard. Enanvändarläge i Red Hat kräver rotanvändaren aktiveras, vilket är inaktiverat som standard. Om du behöver aktivera enanvändarläge, använda på följande sätt:
+### <a name="access-for-red-hat"></a>Åtkomst för Red Hat 
+Red Hat bilder som finns på Azure har konsolåtkomst aktiverad som standard. Enanvändarläge i Red Hat kräver rotanvändaren aktiveras, vilket är inaktiverat som standard. Om du behöver aktivera enanvändarläge, använda på följande sätt:
 
 1. Logga in på Red Hat-systemet via SSH
 2. Aktivera lösenord för rotanvändaren 

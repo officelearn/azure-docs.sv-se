@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: 1372dab2685d62a12d0d1fb186c803f8906156b1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 41c568191ab47faba8f67e855f0a52d5d97ffc6b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200681"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020655"
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>Köra Hive-frågor med HDInsight .NET SDK
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -145,7 +145,7 @@ I den här artikeln har du lärt dig att skapa ett HDInsight-kluster på flera o
 * [Komma igång med Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Skapa Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Hantera Hadoop-kluster i HDInsight med hjälp av Azure portal](../hdinsight-administer-use-management-portal.md)
-* [HDInsight .NET SDK-referens](https://msdn.microsoft.com/library/mt271028.aspx)
+* [HDInsight .NET SDK-referens](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Använda Pig med HDInsight](hdinsight-use-pig.md)
 * [Använda Sqoop med HDInsight](apache-hadoop-use-sqoop-mac-linux.md)
 * [Skapa .NET HDInsight-program med icke-interaktiv autentisering](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)

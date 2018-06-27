@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 70762b720dcd55679d02de8e5064dc99353e06cb
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: ec1727926f6dbfeead9932004715a8bb1dfbb0cd
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36206106"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36964543"
 ---
 ## <a name="os-config"></a>Lägg till IP-adresser till ett VM-operativsystem
 
-Anslut och logga in på en virtuell dator som du skapade med flera privata IP-adresser. Du måste manuellt lägga till alla de privata IP-adresser (inklusive det primära) som du lade till den virtuella datorn. Slutför steg att följande för ditt VM-operativsystem.
+Anslut och logga in på en virtuell dator som du skapat med flera privata IP-adresser. Du måste manuellt lägga till alla de privata IP-adresser (inklusive det primära) som du lade till den virtuella datorn. Slutför steg att följande för ditt VM-operativsystem.
 
 ### <a name="windows"></a>Windows
 

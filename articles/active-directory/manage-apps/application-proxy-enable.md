@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 58bcb3cbdf389393beb58a9f50b3e77aa2b3aae8
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: 0ac14f792c63ea06a484eb5b522c4d33958538ed
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158429"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37026082"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Kom igång med Application Proxy och installera connector
 I den här artikeln beskrivs steg för steg hur du aktiverar Microsoft Azure AD Application Proxy för din molnkatalog i Azure AD.
@@ -30,7 +30,7 @@ Om du inte är medveten om säkerhet och produktivitet fördelarna Application P
 ## <a name="application-proxy-prerequisites"></a>Krav för Application Proxy
 Innan du kan aktivera och använda Application Proxy-tjänster behöver du:
 
-* En [Basic- eller Premium-prenumeration på Microsoft Azure AD](../active-directory-whatis.md) och en Azure AD-katalog som du är en global administratör för.
+* En [Basic- eller Premium-prenumeration på Microsoft Azure AD](../fundamentals/active-directory-whatis.md) och en Azure AD-katalog som du är en global administratör för.
 * En server som kör Windows Server 2012 R2 eller 2016, där du kan installera Application Proxy Connector. Servern behöver för att kunna ansluta till Application Proxy-tjänster i molnet och lokala program som du publicerar.
   * För enkel inloggning till ditt publicerade program med hjälp av Kerberos-begränsad delegering, måste den här datorn vara ansluten till domänen i samma AD-domän som de program som du publicerar. Mer information finns i [KCD för enkel inloggning med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
@@ -64,7 +64,6 @@ För att förbereda din miljö för Azure AD Application Proxy, måste du först
 
 4. Din anslutningstjänst behöver åtkomst till login.windows.net och login.microsoftonline.com för registreringen.
 
-5. Använd den [Azure AD Application Proxy Connector portar Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) att verifiera att din connector kan nå tjänsten Application Proxy. Kontrollera att den centrala USA och region som är närmast dig har alla gröna bockmarkeringarna minimum. Utöver det kan innebär mer gröna bockmarkeringarna större flexibilitet.
 
 ## <a name="install-and-register-a-connector"></a>Installera och registrera en koppling
 1. Logga in som administratör i den [Azure-portalen](https://portal.azure.com/).

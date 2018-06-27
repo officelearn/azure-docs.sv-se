@@ -6,7 +6,7 @@ När du använder Underhåll läge uppdateringar på StorSimple-enhet har pausat
 > * Kontrollera att båda styrenheter är felfri på Azure-portalen innan du anger underhållsläge. Om domänkontrollanten inte är felfri, [kontakta Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) i nästa steg.
 > * Du måste först uppdatera en domänkontrollant och den andra styrenheten när du är i underhållsläge.
 
-1. Använd PuTTY för att ansluta till seriekonsol. Följ de detaljerade instruktionerna i [Använd PuTTY för att ansluta till enhetens seriekonsol](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Tryck på **Retur** i kommandotolken. Välj alternativ 1 för att logga in på enheten med fullständig åtkomst.
+1. Använd PuTTY för att ansluta till seriekonsol. Följ de detaljerade instruktionerna i [Använd PuTTY för att ansluta till enhetens seriekonsol](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Tryck på **Retur** i kommandotolken. Välj alternativ 1 **logga in med fullständig åtkomst**.
 
 2. Om du vill placera styrenheten i underhållsläge, skriver du:
     
@@ -30,7 +30,7 @@ När du använder Underhåll läge uppdateringar på StorSimple-enhet har pausat
 
     `Get-HcsFirmwareVersion`
    
-    Förväntade disk firmware versioner är:`XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
+    Förväntade disk firmware versioner är:  `XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
 
 6. Avsluta underhållsläget. Skriv följande kommando för varje enhet domänkontrollant:
 

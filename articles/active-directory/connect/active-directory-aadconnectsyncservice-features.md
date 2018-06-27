@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2dbe14f6c7f8f9f1dcfaf733dc884df5adf919aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f721c371687addfe48d753e7289df78c2be1f3c7
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593179"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958008"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect sync-tjänsten-funktioner
 Synkroniseringsfunktionen av Azure AD Connect har två komponenter:
@@ -58,7 +58,8 @@ Följande inställningar konfigureras med Azure AD Connect och kan inte ändras 
 | DeviceWriteback |[Azure AD Connect: Aktivera tillbakaskrivning av enheter](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect-synkronisering: katalogtillägg](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Tillåter ett attribut som ska placeras i karantän när det är en dubblett av ett annat objekt i stället misslyckas hela objektet under exporten. |
-| PasswordSync |[Implementera hash Lösenordssynkronisering med Azure AD Connect-synkronisering](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+| Hash-synkronisering av lösenord |[Implementera hash Lösenordssynkronisering med Azure AD Connect-synkronisering](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+|Direktautentisering|[Användaren logga in med Azure Active Directory direkt-autentisering](active-directory-aadconnect-pass-through-authentication.md)|
 | UnifiedGroupWriteback |[Förhandsversion: Tillbakaskrivning av grupp](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Stöds inte för närvarande. |
 

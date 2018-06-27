@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: juliako
-ms.openlocfilehash: f0241278343ba4383caef5bb52bc4f1ece2bec7e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 53ccd4dc40136ada30a0e230d526414b567919c7
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790533"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960465"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Komma igång med att leverera innehåll på begäran med hjälp av REST
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -267,11 +267,9 @@ En SAS-URL har följande format:
 
 Vissa förutsättningar gäller:
 
-* Du kan inte ha fler än fem unika lokaliserare som är associerade med en viss resurs i taget. Mer information finns i lokaliserare.
+* Du kan inte ha fler än fem unika lokaliserare som är associerade med en viss resurs i taget. 
 * Om du behöver överföra filer omedelbart ska du ange StartTime-värdet till fem minuter före aktuell tid. Det beror på att det kan finnas klockan skeva mellan klientdatorn och Media Services. StartTime-värdet måste också vara i följande DateTime-format: ÅÅÅÅ-MM-ddTHH (till exempel ”2014-05-23T17:53:50Z”).    
-* Det kan finnas en 30-40 andra fördröjning efter en positionerare skapas när den är tillgänglig för användning. Det här problemet gäller både SAS-URL och ursprung lokaliserare.
-
-Mer information om SAS finns lokaliserare [detta](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blogg.
+* Det kan finnas en 30-40 andra fördröjning efter en positionerare skapas när den är tillgänglig för användning. Det här problemet gäller både [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) och ursprung lokaliserare.
 
 I följande exempel visas hur du skapar en URL SAS-lokaliserare som definieras av egenskapen Type i begärandetexten (”1” för en SAS-lokaliserare) och ”2” för en positionerare för ursprung på begäran. Den **sökväg** returnerade-egenskapen innehåller den URL som du måste använda för att överföra din fil.
 
@@ -694,7 +692,7 @@ Följande kod visar hur du begär utdatatillgången Id.
 
 ## <a id="publish_get_urls"></a>Publicera tillgången och hämta strömning och progressiv överföring URL: er med REST API
 
-Om du vill strömma eller hämta en tillgång behöver du först ”publicera” den genom att skapa en positionerare. Positionerare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av positionerare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) och Access Signature (SAS)-positionerare som används för att hämta mediefiler. Mer information om SAS finns lokaliserare [detta](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blogg.
+Om du vill strömma eller hämta en tillgång behöver du först ”publicera” den genom att skapa en positionerare. Positionerare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av positionerare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) och Access Signature (SAS)-positionerare som används för att hämta mediefiler. 
 
 När du har skapat positionerarna kan du skapa URL: er som används för att strömma eller hämta dina filer.
 

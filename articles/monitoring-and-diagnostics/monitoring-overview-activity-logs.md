@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 6fc4fefe6eaaf48061ea05bdbc087288ada35838
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b6639ecc6fbd36df29458532d555b68b50b0a19c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264576"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018985"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervakaraktiviteten i prenumerationen med Azure-aktivitetsloggen
 
@@ -55,7 +55,7 @@ Aktivitetsloggen innehåller flera kategorier av data. Mer information om schema
 ## <a name="what-you-can-do-with-the-activity-log"></a>Vad du kan göra med aktivitetsloggen
 Här följer några av de saker som du kan göra med aktivitetsloggen:
 
-![Azure-aktivitetsloggen](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
+![Azure-aktivitetslogg](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
 * Fråga efter och visa den i den **Azure-portalen**.
@@ -136,17 +136,17 @@ Get-AzureRmLogProfile
 #### <a name="add-a-log-profile"></a>Lägg till en logg-profil
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
 | Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
 | Namn |Ja |Namnet på loggen profilen. |
-| StorageAccountId |Nej |Resurs-ID för det Lagringskonto där aktivitetsloggen ska sparas. |
+| storageAccountId |Nej |Resurs-ID för det Lagringskonto där aktivitetsloggen ska sparas. |
 | serviceBusRuleId |Nej |Service Bus regel-ID för Service Bus-namnområde som har skapats i händelsehubbar. Är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser för aktivitetsloggen. |
-| retentionInDays |Ja |Antal dagar för vilka händelser som ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
-| Kategorier |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva och ta bort åtgärd. |
+| Plats |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser för aktivitetsloggen. |
+| RetentionInDays |Ja |Antal dagar för vilka händelser som ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
+| Kategori |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva och ta bort åtgärd. |
 
 #### <a name="remove-a-log-profile"></a>Ta bort en logg-profil
 ```

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/26/2018
 ms.author: magoedte
-ms.openlocfilehash: c44546ffe65a0849b485fb0d2dd169e4216ae80a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5426c9c5727d76d401c00b6e7338688b8f064ad0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261376"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021245"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visa analytiska data för mått för alla webbprogram i Azure-resurser
 
@@ -57,8 +57,7 @@ Till skillnad från de flesta andra logganalys-lösningar är inte samlas in fö
 
 Utför följande steg för att konfigurera Azure Web Apps Analytics lösningen för dina arbetsytor.
 
-1. Aktivera Azure Web Apps Analytics-lösning från [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) eller genom att använda processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).
-2. [Aktivera loggning för Azure-resurs mått till Log Analytics med hjälp av PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
+1. [Aktivera loggning för Azure-resurs mått till Log Analytics med hjälp av PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
 
 Azure Web Apps Analytics lösningen samlar in två olika mått från Azure:
 
@@ -89,7 +88,7 @@ När du lägger till Azure Web Apps Analytics lösningen till din arbetsyta i **
 
 ### <a name="view-azure-web-apps-analytics-information"></a>Visa information om Azure Web Apps Analytics
 
-Klicka på den **Azure Web Apps Analytics** öppna den **Azure Web Apps Analytics** instrumentpanelen. Instrumentpanelen innehåller bladen i följande tabell. Varje bladet visar upp till tio objekt som matchar det bladet villkoren för angivet omfång och tidsintervall. Du kan köra en sökning i loggen som returnerar alla poster genom att klicka på **se alla** längst ned på bladet eller genom att klicka på rubriken bladet.
+Klicka på den **Azure Web Apps Analytics** öppna den **Azure Web Apps Analytics** instrumentpanelen. Instrumentpanelen innehåller bladen i följande tabell. Varje bladet visar upp till tio objekt som matchar det bladet villkoren för angivet omfång och tidsintervall. Du kan köra en loggsökning som returnerar alla poster genom att klicka på **Se alla** längst ned på bladet eller genom att klicka på bladrubriken.
 
 
 | Kolumn | Beskrivning |
@@ -120,7 +119,7 @@ En primär orsak visar att data är så att du kan identifiera en Webbapp med h�
 
 I följande loggen Sök exempelbild, kan du se att den *anugup3* webbprogrammet hade en mycket högre svarstid än andra webbprogram.
 
-![loggen Sök-exempel](./media/log-analytics-azure-web-apps-analytics/web-app-search-example.png)
+![exempel på loggsökning](./media/log-analytics-azure-web-apps-analytics/web-app-search-example.png)
 
 ### <a name="app-service-plans"></a>Apptjänstplaner
 

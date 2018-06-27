@@ -9,19 +9,19 @@ ms.component: emotion-api
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 64a5c4e761653748c4328e310f9a399fe62f9149
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0e7d3991b195a83a8b87e306b3b34fbed2098581
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352395"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018034"
 ---
 # <a name="emotion-api-java-for-android-quick-start"></a>Känslo-API Java för Snabbstart för Android
 
 > [!IMPORTANT]
 > Förhandsgranskning av video API avslutas på 30 oktober 2017. Prova den nya [Video indexeraren API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) enkelt extrahera insikter från videor och förbättra innehållsidentifiering upplevelser, till exempel sökresultat med hjälp av tal, ytor, tecken och känslor. [Läs mer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
 
-Den här artikeln innehåller information och en kodexempel för att hjälpa dig att snabbt komma igång med den [Känslo känner igen metoden](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) i Känslo-API Android klientbiblioteket. Exemplet visar hur du kan använda Java för att identifiera emotikoner uttryckt av personer. 
+Den här artikeln innehåller information och en kodexempel för att hjälpa dig att snabbt komma igång med den [Känslo känner igen metoden](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) i Känslo-API Android klientbiblioteket. Exemplet visar hur du kan använda Java för att identifiera emotikoner uttryckt av personer. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Hämta Java Känslo-API för Android SDK [här](https://github.com/Microsoft/Cognitive-emotion-android)

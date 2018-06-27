@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 87045d5dbbc1221a770e44bd9e9cf2451a9ac522
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8ac67f9df0e5baccc668c2aeb70f65d96e574df5
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295544"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021293"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Söka efter nyheter med Bing Search och Azure Logic Apps 
 
@@ -102,7 +102,7 @@ Välj den åtgärd som du vill använda från listan över åtgärder.
 
    | Egenskap  | Krävs | Värde | Beskrivning | 
    |----------|----------|-------|-------------| 
-   | Sökfråga | Ja | <*Sök-uttryck*> | Ange ett uttryck för att fråga efter utlösaren resultaten. Du kan välja från fält om dynamiskt innehåll listan eller skapa ett uttryck med uttrycket builder. |
+   | Sökfråga | Ja | <*Sök-uttryck*> | Ange ett uttryck för att fråga efter utlösaren resultaten. Du kan välja från fälten i den dynamiska innehåll listan eller skapa ett uttryck med uttrycket builder. |
    | Marknad | Ja | <*Nationella inställningar*> | Sök-språk. Standardvärdet är ”sv-se”, men du kan välja ett annat värde. | 
    | Säker sökning | Ja | <*Sök-nivå*> | Filternivån för att undanta vuxet innehåll. Standardvärdet är ”mellan”, men du väljer en annan nivå. | 
    | Antal | Nej | <*antalet resultat*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna värdet. | 

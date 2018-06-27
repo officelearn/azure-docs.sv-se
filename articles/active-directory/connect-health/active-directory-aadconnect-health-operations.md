@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4377e9902696a4ee3b5bbb5fcb44d972ec14f822
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31389721"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958733"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Åtgärder i Azure Active Directory Connect Health
 Det här avsnittet beskrivs de olika åtgärder som du kan utföra med hjälp av Azure Active Directory (AD Azure) Connect Health.
@@ -101,7 +101,7 @@ Azure AD Connect Health stöder följande inbyggda roller:
 
 | Roll | Behörigheter |
 | --- | --- |
-| Ägare |Ägare kan *hantera åtkomst* (till exempel tilldela en roll till en användare eller grupp), *se all information* (till exempel visa aviseringar) från portalen och *ändra inställningar* (till exempel e-postmeddelanden) i Azure AD Connect Health. <br>Globala administratörer för Azure AD tilldelas rollen som standard, och detta kan inte ändras. |
+| Ägare |Ägare kan *hantera åtkomst* (till exempel tilldela en roll till en användare eller grupp), *se all information* (till exempel visa aviseringar) från portalen och *ändra inställningar* (för exempel, e-postmeddelanden) i Azure AD Connect Health. <br>Globala administratörer för Azure AD tilldelas rollen som standard, och detta kan inte ändras. |
 | Deltagare |Deltagare kan *se all information* (till exempel visa aviseringar) från portalen och *ändra inställningar* (till exempel e-postmeddelanden) i Azure AD Connect Health. |
 | Läsare |Läsare kan *se all information* (till exempel visa aviseringar) från i Azure AD Connect Health-portalen. |
 
@@ -122,7 +122,7 @@ Att tillåta åtkomst till den *alla tjänstinstanser* nivå i Azure AD Connect 
 
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Steg 2: Lägg till användare och grupper och tilldela roller
 1. Från den **konfigurera** klickar du på **användare**.<br>
-   ![Skärmbild av Azure AD Connect Health RBAC huvudblad, med användare som är markerat](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+   ![Skärmbild av Azure AD Connect Health resurs sidopanelen](./media/active-directory-aadconnect-health/startRBAC.png)
 2. Välj **Lägg till**.
 3. I den **Välj en roll** rutan, Välj en roll (till exempel **ägare**).<br>
    ![Skärmbild av Azure AD Connect Health RBAC användare fönster](./media/active-directory-aadconnect-health/RBAC_add.png)

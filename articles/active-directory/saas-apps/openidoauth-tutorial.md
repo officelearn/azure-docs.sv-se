@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 176af41197810059a17daf5ab09d29e0169e9640
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 69e9d66458409bbc744416a58ceb508349418a76
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225015"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019561"
 ---
 # <a name="steps-to-configure-an-openidoauth-application-from-azure-ad-app-gallery"></a>Steg för att konfigurera ett OpenID/OAuth-program från Azure AD App-galleriet
 
@@ -42,7 +42,7 @@ ms.locfileid: "36225015"
     ![Lägger till program](./media/openidoauth-tutorial/addfromgallery.png)
 
     > [!NOTE]
-    > Knappen är inaktiverad som standard för öppna ID Connect och OAuth appar Lägg till. Här klient administratören klickar på den **anmälan** knappen och ge medgivande till programmet. Klient behöver du inte uttryckligen, lägga till och göra konfigurationerna med att programmet ska hämta lagts till kunden.
+    > Knappen är inaktiverad som standard för öppna ID Connect och OAuth appar Lägg till. Här klient administratören klickar på den **anmälan** knappen och ge medgivande till programmet. Med som programmet ska hämta lagts till kund-klient behöver du inte uttryckligen, lägga till och göra konfigurationerna.
 
     ![Knappen Lägg till](./media/openidoauth-tutorial/addbutton.png)
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: d0afc8b6f8e0b7ef73e5d1c3cbabf2e1542f47f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5a3070582a32adeda45dff233782c3a971885c14
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234534"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018463"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs-SDK för händelsedriven Bakgrundsbearbetning
 
@@ -66,6 +66,9 @@ Den här artikeln förutsätter att du har [ett Azure-konto](https://azure.micro
 2. Välj **klassiska Windows-skrivbordet > konsolen App (.NET Framework)**.
 
    Om du vill skapa ett 3.x-projekt, Välj **.NET Core > konsolprogram (.NET Core)**.
+   
+   > [!NOTE]
+   > 3.x är fortfarande under förhandsgranskning och är under utveckling. 3.x anvisningarna i den här artikeln är ofullständig. den senaste informationen finns i GitHub-frågor längst ned på sidan.
 
 3. Namnge projektet *WebJobsSDKSample*, och välj sedan **OK**.
 
@@ -320,7 +323,7 @@ I det här avsnittet kan du göra följande uppgifter för att konfigurera Appli
 
 4. I den **anslutningssträngar** Lägg till följande post.
 
-   |Namn  |Anslutningssträng  |Databastyp|
+   |Namn  |anslutningssträngen  |Databastyp|
    |---------|---------|------|
    |AzureWebJobsStorage | {lagringsanslutningssträngen som du kopierade tidigare}|Anpassat|
    

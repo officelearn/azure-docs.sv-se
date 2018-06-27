@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: a4a882781562ae71ad6c578577a9f9cd9096ef36
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2b08c3adb0c638cdfa0ccd9ae4c5beacac822eb4
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331797"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018314"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga infrastruktur för NPS med Azure Multi-Factor Authentication
 
@@ -222,7 +222,7 @@ Giltigt-från- och -tills tidsstämplar som är läsbart format, som kan använd
 Det här felet kan bero på ett av flera skäl. Följ dessa steg för att felsöka:
 
 1. Starta om NPS-servern.
-2. Kontrollera att certifikat som klienten är installerad som förväntat.
+2. Kontrollera att klientens certifikat har installerats som förväntat.
 3. Kontrollera att certifikatet är associerad med din klient på Azure AD.
 4. Kontrollera att https://login.microsoftonline.com/ är tillgänglig från den server som kör tillägget.
 

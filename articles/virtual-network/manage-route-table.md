@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 93ecd0264413e0eb719c9d33f0a0b756bcee6552
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: cd97b00a522ff41a74f46195da5d8b1a0d92d344
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726456"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960016"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Skapa, ändra eller ta bort en routningstabell
 
@@ -95,7 +95,7 @@ Ett undernät kan ha noll eller en vägtabell associerad till den. En routingtab
 4. Välj du vill associera routningstabellen för undernätet.
 5. Välj **routningstabellen**, Välj routningstabellen som du vill koppla till undernätet och välj sedan **spara**.
 
-Om det virtuella nätverket är ansluten till en Azure VPN-gateway kan inte koppla en routingtabell till den [gatewayundernät](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) som innehåller en väg med 0.0.0.0/0 som mål. Gör detta kan inte gatewayen från att fungera korrekt. Mer information om hur du använder 0.0.0.0/0 i en väg finns [trafikroutning för virtuella nätverk](virtual-networks-udr-overview.md#default-route).
+Om ditt virtuella nätverk är anslutet till en Azure VPN-gateway, associerar du inte en routingtabell till det [gatewayundernät](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) som innehåller en väg med målet 0.0.0.0/0. Om du gör det så förhindrar du gatewayen från att fungera korrekt. Mer information om hur du använder 0.0.0.0/0 i en väg finns [trafikroutning för virtuella nätverk](virtual-networks-udr-overview.md#default-route).
 
 **Kommandon**
 
@@ -213,7 +213,7 @@ Effektiva vägar för varje nätverksgränssnitt som är kopplad till en virtuel
 **Kommandon**
 
 - Azure CLI: [az nätverk nic visa-gällande--routningstabellen](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
-- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/remove-azurermrouteconfig) 
+- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## <a name="validate-routing-between-two-endpoints"></a>Validera routning mellan två slutpunkter
 

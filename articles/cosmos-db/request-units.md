@@ -2,19 +2,19 @@
 title: Enheter för programbegäran och uppskatta genomströmning - Azure Cosmos DB | Microsoft Docs
 description: Läs mer om hur du förstår, ange och beräkna begäran enhet krav i Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 16ccda120aef0aa892bf365403f3f0bdc1209ca3
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 9021d0c3f650d64480f2881508d456ce98beab2a
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823731"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961968"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
 
@@ -111,7 +111,7 @@ Du använder verktyget:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Använd Azure Cosmos DB begäran kostnad-svarshuvud
-Varje svaret från tjänsten Azure Cosmos DB innehåller en anpassad rubrik (`x-ms-request-charge`) som innehåller frågeenheter som används för en viss begäran. Du kan också komma åt det här sidhuvudet via Azure Cosmos DB SDK. I SDK för .NET **RequestCharge** är en egenskap hos den **ResourceResponse** objekt. För frågor ger Azure Cosmos DB Data Explorer i Azure portal begäran kostnad information för utförda frågor.
+Varje svaret från tjänsten Azure Cosmos DB innehåller en anpassad rubrik (`x-ms-request-charge`) som innehåller frågeenheter som används för en viss begäran. Du kan också komma åt det här sidhuvudet via Azure Cosmos DB SDK. I SDK för .NET **RequestCharge** är en egenskap hos den **ResourceResponse** objekt. För frågor ger Azure Cosmos DB Data Explorer i Azure portal begäran kostnad information för utförda frågor. Mer information om hur du hämtar och ange dataflöde med hjälp av olika flera modellen API: er finns [ange och hämta genomflöde i Azure Cosmos DB](set-throughput.md) artikel.
 
 En metod för att uppskatta mängden reserverat dataflöde som krävs för programmet är att registrera begäran enhet tillägget som är associerade med vanliga åtgärder som körs mot ett representativt objekt som används av ditt program. Sedan beräkna antal åtgärder som du vill utföra varje sekund. Se till att även mäta och innehåller vanliga frågor och Azure Cosmos DB skript användning.
 

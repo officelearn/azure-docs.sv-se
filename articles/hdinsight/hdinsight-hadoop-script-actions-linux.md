@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: d5df67021e997df3a6344701f50be4871a11386d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9ca8be3066254ade37c858bd62f9ce6a2e2be902
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406038"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018390"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Skriptutveckling med HDInsight
 
@@ -377,5 +377,5 @@ Ersätt `INFILE` med den fil som innehåller Strukturen. `OUTFILE` måste vara e
 ## <a name="seeAlso"></a>Nästa steg
 
 * Lär dig hur du [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md)
-* Använd den [HDInsight .NET SDK referens](https://msdn.microsoft.com/library/mt271028.aspx) vill veta mer om hur du skapar .NET-program som hanterar HDInsight
+* Använd den [HDInsight .NET SDK referens](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) vill veta mer om hur du skapar .NET-program som hanterar HDInsight
 * Använd den [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) att lära dig hur du använder REST för att utföra hanteringsåtgärder på HDInsight-kluster.

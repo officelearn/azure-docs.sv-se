@@ -1,25 +1,24 @@
 ---
-title: "Vad är nytt i Azure Data Catalog | Microsoft Docs"
-description: "Den här artikeln innehåller en översikt över nya funktioner som lagts till i Azure Data Catalog."
+title: Vad är nytt i Azure Data Catalog | Microsoft Docs
+description: Den här artikeln innehåller en översikt över nya funktioner som lagts till i Azure Data Catalog.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 9fb7814a8412200f6d31cfb9dcaee4663d7cea97
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 780ab56df19e8d6761fcf88fa7fbed3e8002fbe8
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025967"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Vad är nytt i Azure Data Catalog
 Uppdateringar för **Azure Data Catalog** släpps regelbundet. Inte alla viktig innehåller nya funktioner för användarinriktad, vissa versioner fokuserar på funktioner för backend-tjänst. Den här sidan visar nya funktioner som användarinriktad har lagts till tjänsten Azure Data Catalog.
@@ -99,7 +98,7 @@ Från och med januari 2017 har följande funktioner lagts till Azure Data Catalo
 
 ## <a name="whats-new-for-december-2016"></a>Vad är nytt för December 2016
 Följande funktioner har lagts till Azure Data Catalog December 2016:
-*   Azure Data Catalog är nu [HIPAA](https://www.microsoft.com/trustcenter/Compliance/HIPAA) och [EU-standardavtalsklausuler](https://www.microsoft.com/TrustCenter/Compliance/EU-Model-Clauses) kompatibla.
+*   Azure Data Catalog är nu [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) och [EU-standardavtalsklausuler](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) kompatibla.
 *   Stöd för att redigera anslutningsinformationen för datakällan. Data tillgångens ägare och administratörer för Data Catalog kan nu redigera anslutningsinformationen för registrerade datakällor utan att behöva registrera datakällor.
 *   Stöd för Salesforce.com-datakällor. Användare kan nu registrera och identifiera Salesforce-objekt.
 
@@ -169,7 +168,7 @@ Följande funktioner har lagts till Azure Data Catalog januari 2016:
   * OData - funktionen, Entitetsuppsättning och Entitetsbehållaren
   * HTTP - fil, slutpunkt, rapporten och plats
   * Filsystem - fil
-  * SharePoint - List
+  * SharePoint - lista
   * FTP - filer och kataloger
   * Salesforce.com - objekt
   * DB2 - tabellen, vyn och databas
@@ -246,7 +245,7 @@ Från och med September 2015 har följande funktioner lagts till Azure Data Cata
 * En ny ”komma igång” datakälla identifiering upplevelse i Azure Data Catalog-portalen. När användarna skriver in sidan ”identifiera” i Azure Data Catalog-portalen utan att ange en sökterm, visas en översikt över katalogen innehållet inklusive används mest taggar, experter, typer av datakällor och objekttyper.
 * Stöd för registrering och identifiera Azure SQL Data Warehouse-objekt och databaser. Ytterligare information om Azure SQL Data Warehouse finns [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 * Stöd för registrering och identifiering av SQL Server Analysis Services-modeller och SQL Server Reporting Services-servrar som behållare. När registrering SSAS och SSRS-objekt, skapas en post för SSAS-modell och SSRS-servern och för rapporter och andra objekt i Azure Data Catalog. Behållarna kan identifieras och kommenterats med hjälp av Azure Data Catalog-portalen. Användare kan också söka och filtrera innehållet i en modell eller server förutom sökning och filtrering innehållet i katalogen.
-* Stöd för registrering och identifiera SQL Server Analysis Services-objekt via HTTP eller HTTPS. Användare kan ansluta till SSAS-servrar med hjälp av en URL (t.ex https://servername/olap/msmdpump.dll) i stället för ett servernamn nu och kan använda grundläggande autentisering och anonyma anslutningar förutom Windows-autentisering. Ytterligare information om HTTP/HTTPS-anslutningar till SSAS finns [konfigurera HTTP-åtkomst till Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
+* Stöd för registrering och identifiera SQL Server Analysis Services-objekt via HTTP eller HTTPS. Användare kan nu ansluta till SSAS-servrar med hjälp av en URL (t.ex https://servername/olap/msmdpump.dll) i stället för en server name och kan använda grundläggande autentisering och anonyma anslutningar förutom Windows-autentisering. Ytterligare information om HTTP/HTTPS-anslutningar till SSAS finns [konfigurera HTTP-åtkomst till Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
 * Stöd för Hive-datakällor på HDInsight. Användare kan nu registrera och identifierar Hive-tabeller för Apache Hive i Hadoop på HDInsight-datakällor. Ytterligare information om Hive i HDInsight finns i [HDInsight Dokumentationscenter](../hdinsight/hadoop/hdinsight-use-hive.md).
 * Stöd för registrering och identifiering av Oracle-databaser och HDFS-kluster som behållare. När du registrerar Oracle-tabeller och vyer eller HDFS skapas Azure Data Catalog en post för databasen, tabeller och vyer. Databasen kan identifieras och kommenterats med hjälp av Azure Data Catalog-portalen. Användare kan också söka och filtrera innehållet i en databas eller ett kluster utöver sökning och filtrering innehållet i katalogen.
 * Stöd för manuell registrering av okända typer av datakällor. Användare kan manuellt ange information om datakälla med hjälp av Azure Data Catalog-portalen så att de datakällor som inte stöds av registreringsverktyget för datakällor kan kommenterats och identifieras.

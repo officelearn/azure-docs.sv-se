@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 59dbc4134ee11999e54d2eba51804939e7e14229
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28030725"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020747"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Anpassade fält i logganalys
 Den **anpassade fält** funktionen för Log Analytics kan du utöka befintliga poster i logganalys genom att lägga till egna sökbara fält.  Anpassade fält fylls automatiskt i från data som hämtats från andra egenskaper i samma post.
@@ -79,7 +79,7 @@ Du kan visa en lista över alla anpassade fält i hanteringsgruppen från den **
 ## <a name="removing-a-custom-field"></a>Ta bort ett anpassat fält
 Det finns två sätt att ta bort ett anpassat fält.  Först är den **ta bort** alternativ för varje fält när du visar den fullständiga listan enligt beskrivningen ovan.  Den andra metoden är att hämta en post och klicka på knappen till vänster om fältet.  Menyn har ett alternativ för att ta bort det Anpassa fältet.
 
-## <a name="sample-walkthrough"></a>Exempel genomgång
+## <a name="sample-walkthrough"></a>Exempelgenomgång
 Följande avsnitt beskriver hur en komplett exempel på hur du skapar anpassade fält.  Det här exemplet extraherar tjänstnamnet i Windows-händelser som indikerar att en tjänst som ändrar tillstånd.  Detta är beroende av händelser som skapas av Service Control Manager i systemloggen på Windows-datorer.  Om du vill följa det här exemplet måste du vara [samla informationshändelser i systemloggen](log-analytics-data-sources-windows-events.md).
 
 Vi anger du följande fråga för att returnera alla händelser från Service Control Manager som har händelse-ID 7036 som är den händelse som anger en tjänst startar eller stoppar.
@@ -96,7 +96,7 @@ Vi vill tjänstnamnet som visas i den **RenderedDescription** egenskapen och vä
 
 Den **fältet Extraheringsguiden** har öppnats och **EventLog** och **EventID** fält har markerats i den **Main exempel** kolumn.  Detta anger att det anpassade fältet definieras händelser från systemloggen med händelse-ID 7036.  Detta är tillräckliga så vi inte behöver välja andra fält.
 
-![Main-exempel](media/log-analytics-custom-fields/main-example.png)
+![Huvudexempel](media/log-analytics-custom-fields/main-example.png)
 
 Vi markerar du namnet på tjänsten i den **RenderedDescription** egenskapen och Använd **Service** att identifiera namnet på tjänsten.  Det anpassade fältet anropas **Service_CF**.
 
@@ -130,7 +130,7 @@ Vi kan se det **Service_CF** har skapats, men ännu inte har lagts till alla pos
 
 ![Inledande antal](media/log-analytics-custom-fields/initial-count.png)
 
-Efter en stund har passerat så nya händelser som samlas in, kan vi se som som den **Service_CF** fältet läggs nu till poster som matchar våra villkor.
+Efter en stund har passerat så nya händelser som samlas in, kan vi se som den **Service_CF** fältet läggs nu till poster som matchar våra villkor.
 
 ![Slutresultatet](media/log-analytics-custom-fields/final-results.png)
 

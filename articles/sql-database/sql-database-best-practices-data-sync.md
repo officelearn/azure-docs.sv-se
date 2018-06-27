@@ -1,25 +1,25 @@
 ---
-title: Metodtips för datasynkronisering för Azure SQL (förhandsversion) | Microsoft Docs
-description: Lär dig mer om metodtips för att konfigurera och köra Azure SQL Data Sync (förhandsversion).
+title: Metodtips för Azure SQL-datasynkronisering | Microsoft Docs
+description: Lär dig mer om metodtips för att konfigurera och köra Azure SQL-datasynkronisering.
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 683cf1426f01b3ab495b2380612dbf37342fc27a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b53c72f1df4f2fc2509d91220d08aff4682b6620
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646015"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025961"
 ---
-# <a name="best-practices-for-sql-data-sync-preview"></a>Metodtips för SQL-datasynkronisering (förhandsgranskning) 
+# <a name="best-practices-for-sql-data-sync"></a>Regelverk för SQL Data Sync 
 
-Den här artikeln beskrivs bästa praxis för datasynkronisering för Azure SQL (förhandsversion).
+Den här artikeln beskrivs bästa praxis för Azure SQL-datasynkronisering.
 
-En översikt över SQL datasynkronisering (förhandsgranskning), se [synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering (förhandsgranskning)](sql-database-sync-data.md).
+En översikt över SQL datasynkronisering finns [synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a> Säkerhet och tillförlitlighet
 
@@ -50,10 +50,10 @@ Azure SQL Database stöder bara en enda uppsättning autentiseringsuppgifter. Ö
 
 #### <a name="sql-database-instance-size"></a>Storlek på SQL-databas
 
-När du skapar en ny instans av SQL-databas, ange den maximala storleken så att den alltid är större än databasen som du distribuerar. Om du inte anger den maximala storleken till större än den distribuerade databasen, misslyckas synkronisering. Även om SQL-datasynkronisering (förhandsgranskning) inte kan automatisk ökning, kan du köra den `ALTER DATABASE` kommando för att öka storleken på databasen när den har skapats. Se till att du hålla storleksbegränsningarna SQL Database-instans.
+När du skapar en ny instans av SQL-databas, ange den maximala storleken så att den alltid är större än databasen som du distribuerar. Om du inte anger den maximala storleken till större än den distribuerade databasen, misslyckas synkronisering. Även om SQL-datasynkronisering inte erbjuda automatisk ökning, kan du köra den `ALTER DATABASE` kommando för att öka storleken på databasen när den har skapats. Se till att du hålla storleksbegränsningarna SQL Database-instans.
 
 > [!IMPORTANT]
-> SQL-datasynkronisering (förhandsgranskning) lagrar ytterligare metadata med varje databas. Se till att du ta hänsyn till dessa metadata när du beräknar utrymmet som krävs. Mängden ytterligare kostnader som är relaterad till bredd tabeller (till exempel smala tabeller kräver mer resurser) och mängden trafik.
+> SQL-datasynkronisering lagrar ytterligare metadata med varje databas. Se till att du ta hänsyn till dessa metadata när du beräknar utrymmet som krävs. Mängden ytterligare kostnader som är relaterad till bredd tabeller (till exempel smala tabeller kräver mer resurser) och mängden trafik.
 
 ### <a name="table-considerations-and-constraints"></a> Tabell överväganden och begränsningar
 
@@ -63,19 +63,19 @@ Du behöver ta med alla tabeller i en databas i en grupp för synkronisering. Ta
 
 #### <a name="primary-keys"></a>Primära nycklar
 
-Varje tabell i en grupp för synkronisering måste ha en primärnyckel. Tjänsten SQL-datasynkronisering (förhandsversion) kan inte synkronisera en tabell som inte har en primärnyckel.
+Varje tabell i en grupp för synkronisering måste ha en primärnyckel. Datasynkronisering för SQL-tjänsten kan inte synkronisera en tabell som inte har en primärnyckel.
 
-Testa prestanda för inledande och pågående synkronisering innan du använder SQL-datasynkronisering (förhandsgranskning) i produktion.
+Innan du använder SQL datasynkronisering i produktion, testprestanda inledande och pågående synkronisering.
 
 ### <a name="provisioning-destination-databases"></a> Etablerar mål databaser
 
-Förhandsgranska SQL datasynkronisering (förhandsversion) ger autoprovisioning basic-databas.
+SQL-datasynkronisering ger autoprovisioning basic-databas.
 
-Det här avsnittet beskrivs begränsningar för etablering i SQL-datasynkronisering (förhandsversion).
+Det här avsnittet beskrivs begränsningar för etablering i SQL-datasynkronisering.
 
 #### <a name="autoprovisioning-limitations"></a>Autoprovisioning begränsningar
 
-SQL-datasynkronisering (förhandsversion) har följande begränsningar på autoprovisioning:
+SQL-datasynkronisering har följande begränsningar på autoprovisioning:
 
 -   Markera de kolumner som har skapats i måltabellen.  
     Alla kolumner som inte tillhör gruppen synkronisering etablerats inte i mål-tabeller.
@@ -88,7 +88,7 @@ SQL-datasynkronisering (förhandsversion) har följande begränsningar på autop
 
 #### <a name="recommendations"></a>Rekommendationer
 
--   Använda SQL-datasynkronisering (förhandsgranskning) autoprovisioning funktionen endast när du testar tjänsten.  
+-   Använda SQL datasynkronisering autoprovisioning funktionen endast när du testar tjänsten.  
 -   Etablera databasschemat för produktion.
 
 ### <a name="locate-hub"></a> Var ska NAV-databas
@@ -114,7 +114,7 @@ I det här avsnittet diskuterar vi den första synkroniseringen av en grupp för
 
 #### <a name="how-initial-sync-works"></a>Hur den första synkroniseringen fungerar
 
-När du skapar en grupp för synkronisering, börja med data i en enda databas. Om du har data i flera databaser behandlar SQL datasynkronisering (förhandsgranskning) varje rad som en konflikt som måste lösas. Den här konfliktlösning gör den första synkroniseringen gå långsamt. Om du har data i flera databaser kan inledande synkronisering ta mellan flera dagar och flera månader, beroende på databasstorleken.
+När du skapar en grupp för synkronisering, börja med data i en enda databas. Om du har data i flera databaser behandlar SQL datasynkronisering varje rad som en konflikt som måste lösas. Den här konfliktlösning gör den första synkroniseringen gå långsamt. Om du har data i flera databaser kan inledande synkronisering ta mellan flera dagar och flera månader, beroende på databasstorleken.
 
 Om databaserna är i olika datacenter, måste varje rad färdas mellan olika datacenter. Detta ökar kostnaden för en inledande synkronisering.
 
@@ -209,16 +209,16 @@ I stället först ta bort en databas från en grupp för synkronisering. Sedan d
 Om du försöker ta bort en databas och sedan redigera en sync-grupp utan att först distribuera en ändringar misslyckas en eller den andra åtgärden. Gränssnittet portal kan bli inkonsekvent. Om det händer, uppdatera sidan om du vill återställa rätt tillstånd.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om SQL-datasynkronisering (förhandsgranskning) finns i:
+Mer information om SQL-datasynkronisering finns:
 
--   [Synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering (förhandsgranskning)](sql-database-sync-data.md)
--   [Konfigurera Azure SQL datasynkronisering (förhandsgranskning)](sql-database-get-started-sql-data-sync.md)
--   [Övervaka Azure SQL-datasynkronisering (förhandsversion) med logganalys](sql-database-sync-monitor-oms.md)
--   [Felsökning av problem med Azure SQL-datasynkronisering (förhandsgranskning)](sql-database-troubleshoot-data-sync.md)  
--   Slutför PowerShell-exempel som visar hur du konfigurerar SQL-datasynkronisering (förhandsversion):  
+-   [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
+-   [Konfigurera Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Övervaka Azure SQL Data Sync med Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)  
+-   Slutför PowerShell-exempel som visar hur du konfigurerar SQL Data Sync:  
     -   [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Hämta SQL datasynkronisering (förhandsgranskning) REST API-dokumentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
+-   [Ladda ned REST API-dokumentation för SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 Mer information om SQL-databas finns i:
 

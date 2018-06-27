@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magoedte
-ms.openlocfilehash: f14b96b88a96f4bef24602bb9338a77352fbf375
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8558b3b1f5a9036f1134ddce3302211b41f57c05
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37026094"
 ---
 # <a name="log-analytics-data-security"></a>Logga Analytics datasäkerhet
 Det här dokumentet är avsett att ge Azure logganalys specifik information för att komplettera informationen på [Azure Säkerhetscenter](../security/security-microsoft-trust-center.md).  
@@ -32,7 +33,7 @@ Logganalys-tjänsten hanterar molnbaserade data på ett säkert sätt med hjälp
 * Fysisk säkerhet
 * Hantering av incidenter
 * Efterlevnad
-* standarder Säkerhetscertifieringar
+* Standarder Säkerhetscertifieringar
 
 Kontakta oss med frågor, förslag och problem om något av följande information, inklusive vår säkerhetsprinciper på [Azure supportalternativ](http://azure.microsoft.com/support/options/).
 
@@ -59,15 +60,15 @@ I följande tabell visas exempel på datatyper:
 
 | **Datatyp** | **Fält** |
 | --- | --- |
-| Varning |Varna namn, Aviseringsbeskrivningen, BaseManagedEntityId, Problem-ID, IsMonitorAlert, RuleId, ResolutionState, prioritet, allvarlighetsgrad, kategori, ägare, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
+| Varning |Varna namn, Aviseringsbeskrivningen, BaseManagedEntityId, Problem-ID, IsMonitorAlert, RuleId, ResolutionState, prioritet, allvarlighetsgrad, kategori, ägare, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved TimeResolutionStateLastModified TimeResolutionStateLastModifiedInDB, RepeatCount |
 | Konfiguration |CustomerID, AgentID, ID för entiteterna, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
 | Händelse |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Obs:** när du skriver händelser med anpassade fält i Windows-händelseloggen OMS samlar in dem. |
-| Metadata |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, nätverksnamn, IP-adress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP-adress, NetbiosDomainName, LogicalProcessors, DNS-namn, DisplayName, DomainDnsName, ActiveDirectorySite, huvudkontot, OffsetInMinuteFromGreenwichTime |
+| Metadata |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, nätverksnamn, IP-adress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Adress NetbiosDomainName, LogicalProcessors, DNS-namn, DisplayName, DomainDnsName, ActiveDirectorySite, huvudkontot, OffsetInMinuteFromGreenwichTime |
 | Prestanda |Objektnamn, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
 | Status |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Fysisk säkerhet
-Logganalys-tjänsten hanteras av Microsoft-Personal och alla aktiviteter loggas och kan granskas. Logganalys styrs som en Azure-tjänst och uppfyller alla krav för Azure efterlevnad och säkerhet. Du kan visa information om den fysiska säkerheten för Azure tillgångar på sidan 18 i den [översikt över Microsoft Azure-säkerhet](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Fysiska åtkomsträttigheter för att kunna skydda områden ändras inom en arbetsdag för alla som har ansvar för OMS-tjänsten, inklusive överföring och avslutning inte längre. Du kan läsa om globala fysisk infrastruktur som vi använder på [Microsoft Datacenters](https://www.microsoft.com/server-cloud/cloud-os/global-datacenters.aspx).
+Logganalys-tjänsten hanteras av Microsoft-Personal och alla aktiviteter loggas och kan granskas. Logganalys styrs som en Azure-tjänst och uppfyller alla krav för Azure efterlevnad och säkerhet. Du kan visa information om den fysiska säkerheten för Azure tillgångar på sidan 18 i den [översikt över Microsoft Azure-säkerhet](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Fysiska åtkomsträttigheter för att kunna skydda områden ändras inom en arbetsdag för alla som har ansvar för OMS-tjänsten, inklusive överföring och avslutning inte längre. Du kan läsa om globala fysisk infrastruktur som vi använder på [Microsoft Datacenters](https://azure.microsoft.com/en-us/global-infrastructure/).
 
 ## <a name="incident-management"></a>Hantering av incidenter
 OMS har en process för hantering av incidenter som följer alla Microsoft-tjänster. Sammanfattningsvis, vi:
@@ -91,10 +92,10 @@ OMS har en process för hantering av incidenter som följer alla Microsoft-tjän
 
 Om en kund dataförlust, meddelar vi varje kund inom en dag. Kunden dataförlust har aldrig uppstått med tjänsten. 
 
-Läs mer om hur Microsoft ska svara på säkerhetsincidenter [Microsoft Azure Security Response i molnet](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/1/Microsoft Azure Security Response in the cloud.pdf).
+Läs mer om hur Microsoft ska svara på säkerhetsincidenter [Microsoft Azure Security Response i molnet](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf).
 
 ## <a name="compliance"></a>Efterlevnad
-Logganalys programvara utvecklings- och gruppens säkerhets- och styrning programmet information stöder affärskraven och följer lagar och förordningar enligt beskrivningen i [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) och [ Microsoft Trust Center kompatibilitet](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Hur logganalys upprättar säkerhetskrav, identifierar säkerhetsåtgärder, hanterar och övervakar risker beskrivs också det. Årligen, vi granska principer, standarder och procedurer som riktlinjer.
+Logganalys programvara utvecklings- och gruppens säkerhets- och styrning programmet information stöder affärskraven och följer lagar och förordningar enligt beskrivningen i [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) och [ Microsoft Trust Center kompatibilitet](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx). Hur logganalys upprättar säkerhetskrav, identifierar säkerhetsåtgärder, hanterar och övervakar risker beskrivs också det. Årligen, vi granska principer, standarder och procedurer som riktlinjer.
 
 Varje medlem i gruppen utveckling får formella säkerhetsutbildning. Internt, använder vi ett system för version för programutveckling. Varje projekt program är skyddat av systemet för versionskontroll.
 
@@ -112,10 +113,10 @@ Azure logganalys uppfyller följande krav:
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * [Betalningen kort (PCI-kompatibel) Data Security branschstandard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) PCI Security Standards rådet.
 * [Tjänsten organisation kontroller (SOC) 1 typen 1 och SOC 2 typ 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) kompatibla
-* [HIPAA och HITECH](https://www.microsoft.com/TrustCenter/Compliance/HIPAA) för företag som har ett HIPAA Business associera avtal
+* [HIPAA och HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) för företag som har ett HIPAA Business associera avtal
 * Windows vanliga tekniker villkor
 * Microsoft Trustworthy Computing
-* De komponenter som Log Analytics använder följa Azure efterföljandekrav som en Azure-tjänst. Du kan läsa mer i [Microsoft förtroende Center kompatibilitet](https://www.microsoft.com/TrustCenter/Compliance/default.aspx).
+* De komponenter som Log Analytics använder följa Azure efterföljandekrav som en Azure-tjänst. Du kan läsa mer i [Microsoft förtroende Center kompatibilitet](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx).
 
 > [!NOTE]
 > I vissa certifieringar/intyg logganalys anges under dess tidigare namnet på *åtgärdsinformation*.
@@ -130,8 +131,8 @@ Följande diagram visar en moln-säkerhetsarkitekturen som flödet av informatio
 ## <a name="1-sign-up-for-log-analytics-and-collect-data"></a>1. Registrera dig för Log Analytics och samla in data
 Din organisation att skicka data till logganalys, konfigurerar du en Windows- eller Linux-agenten som körs på virtuella Azure-datorer eller på virtuella eller fysiska datorer i din miljö eller andra molntjänstleverantör.  Om du använder Operations Manager från hanteringsgruppen konfigurera du Operations Manager-agenten. Användare (som kan vara dig, andra enskilda användare eller en grupp människor) skapa en eller flera logganalys arbetsytor och registrera agenter med någon av följande konton:
 
-* [Organisations-ID](../active-directory/sign-up-organization.md)
-* [Microsoft-konto – Outlook, Office Live, MSN](http://www.microsoft.com/account/default.aspx)
+* [Organisations-ID](../active-directory/fundamentals/sign-up-organization.md)
+* [Microsoft-konto – Outlook, Office Live, MSN](https://account.microsoft.com/account)
 
 Logganalys-arbetsytan är där data som samlas in, aggregeras, analyseras och visas. En arbetsyta används främst för att partitionera data och varje arbetsyta är unika. Du kanske vill ha produktionsdata hanteras med en arbetsyta och testa data hanteras med en annan arbetsyta. Arbetsytor också hjälpa en administratören kontrollera åtkomst till data. Varje arbetsyta kan ha flera användarkonton som är kopplade till den, och varje användarkonto kan komma åt flera logganalys arbetsytor. Du skapar arbetsytor baserat på datacenter region. Varje arbetsyta replikeras till andra datacenter i region, främst för tillgänglighet för Log Analytics-tjänst.
 

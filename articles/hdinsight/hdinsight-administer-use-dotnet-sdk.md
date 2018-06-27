@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 0feb1e344d70207d48e4ef07f5b45790425727ad
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 08c9d16570a923c79c81cebb8669a43488129d9a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200324"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017945"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Hantera Hadoop-kluster i HDInsight med hjälp av .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Lär dig att hantera HDInsight-kluster med [HDInsight.NET SDK](https://msdn.microsoft.com/library/mt271028.aspx).
+Lär dig att hantera HDInsight-kluster med [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 
 **Förutsättningar**
 
@@ -271,7 +271,7 @@ Se [Oozie för användning med Hadoop för att definiera och köra ett arbetsfl�
 Mer information finns i [Överföra data till HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Se även
-* [HDInsight .NET SDK-referensdokumentation](https://msdn.microsoft.com/library/mt271028.aspx)
+* [HDInsight .NET SDK-referensdokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Administrera HDInsight med hjälp av Azure portal][hdinsight-admin-portal]
 * [Administrera HDInsight med ett kommandoradsgränssnitt][hdinsight-admin-cli]
 * [Skapa HDInsight-kluster][hdinsight-provision]

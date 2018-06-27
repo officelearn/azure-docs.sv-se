@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 77326832f42cc1ef74ae7a380f4e38d3c67d17b7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c07cc3e434a178a5f6a1ea10f7dc630c3d0d548d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775119"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019306"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware övervakning (förhandsgranskning) lösning i logganalys
 
@@ -54,9 +54,9 @@ Skapa ett Linux-operativsystem VM ta emot alla syslog-data från ESXi-värdar. D
     ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
 
     ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)  
-4. Kontrollera vSphere-konsolen och verifiera att den syslog är korrekt konfigurerad. Bekräfta på ESXI-värd porten **1514** har konfigurerats.
+4. Kontrollera vSphere-konsolen och verifiera att syslog har konfigurerats korrekt. Bekräfta på ESXI-värd porten **1514** har konfigurerats.
 5. Hämta och installera OMS-Agent för Linux i Linux-servern. Mer information finns i [dokumentationen till OMS-Agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
-6. När OMS-Agent för Linux installeras, gå till katalogen /etc/opt/microsoft/omsagent/sysconf/omsagent.d och kopiera filen vmware_esxi.conf till katalogen /etc/opt/microsoft/omsagent/conf/omsagent.d och ändringen ägare/grupp och behörigheterna för filen. Exempel:
+6. När OMS-Agent för Linux har installerats, gå till katalogen /etc/opt/microsoft/omsagent/sysconf/omsagent.d och kopiera filen vmware_esxi.conf till katalogen /etc/opt/microsoft/omsagent/conf/omsagent.d och ändringen ägare/grupp och behörigheter i filen. Exempel:
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
@@ -87,7 +87,7 @@ I följande tabell visar metoder för insamling av data och annan information om
 
 I följande tabell visar exempel på datafält som samlas in av övervakning av VMware-lösningen:
 
-| Fältnamn | description |
+| fältnamn | description |
 | --- | --- |
 | Device_s |VMware-lagringsenheter |
 | ESXIFailure_s |fel-typer |

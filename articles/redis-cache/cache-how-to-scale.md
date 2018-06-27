@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 9ef988ccdcca921c0285bf983125483a38a07678
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d88fcea4a41d8402cc25a1623727284afb0e9088
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30240232"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959390"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Så här skalar du Azure Redis-Cache
 Azure Redis-Cache har olika cache-erbjudanden som ger flexibilitet vid val av cachestorlek och funktioner. När en cache har skapats kan skala du storlek och prisnivå för cachen om kraven för ditt program ändrar. Den här artikeln visar hur du skala din cache med hjälp av Azure-portalen och verktyg som Azure PowerShell och Azure CLI.
@@ -154,7 +154,7 @@ Standard och Premium har ett SLA för 99,9% för tillgänglighet, finns men det 
 * **Grundläggande** cacheminnen är offline under skalning åtgärder till en annan storlek. Grundläggande cacheminnen är tillgängliga vid skalning från **grundläggande** till **Standard** men kan ha en liten anslutning blip. Om en anslutning blip inträffar ska redis-klienter kunna återupprätta anslutningen omedelbart.
 
 
-### <a name="scaling-limitations-with-geo-relication"></a>Skalning med Geo-relication
+### <a name="scaling-limitations-with-geo-replication"></a>Skalning med Geo-replikering
 
 När du har lagt till en länk för Geo-replikering mellan två cacheminnen kan att du inte längre kunna starta en åtgärd för skalning eller ändra antalet delar i ett kluster. Du måste ta bort länken cache för att utfärda dessa kommandon. Mer information finns i [konfigurera Geo-replikering](cache-how-to-geo-replication.md).
 

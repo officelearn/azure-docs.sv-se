@@ -1,28 +1,28 @@
 ---
-title: Konfigurera Azure SQL datasynkronisering (förhandsversion) | Microsoft Docs
-description: Den här kursen visar hur du ställer in datasynkronisering för Azure SQL (förhandsgranskning)
+title: Konfigurera Azure SQL datasynkronisering | Microsoft Docs
+description: Den här kursen visar hur du ställer in Azure SQL-datasynkronisering
 services: sql-database
-author: douglaslms
+author: allenwux
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: douglasl
+ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 7598484a20d2d719c84e1789664ac2b40c2d0639
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: df7ca91d403374e8d320822f5fa384a866fac0ae
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647858"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37026093"
 ---
-# <a name="set-up-sql-data-sync-preview"></a>Konfigurera synkronisering för SQL-Data (förhandsgranskning)
+# <a name="set-up-sql-data-sync"></a>Konfigurera SQL datasynkronisering
 Lär dig hur du ställer in Azure SQL Data Sync genom att skapa en hybrid sync-grupp som innehåller både Azure SQL Database och SQL Server-instanser i den här självstudiekursen. Den nya gruppen sync helt har konfigurerats och synkroniserar enligt det schema du anger.
 
 Den här kursen förutsätter att du har minst tidigare erfarenhet med SQL Database och SQL Server. 
 
-En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync (förhandsversion)](sql-database-sync-data.md).
+En översikt över SQL datasynkronisering finns [synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](sql-database-sync-data.md).
 
 Fullständig PowerShell-exempel som visar hur du konfigurerar SQL datasynkronisering, finns i följande artiklar:
 -   [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -199,7 +199,7 @@ Minsta frekvens är var femte minut.
 
 ### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>SQL-datasynkronisering fullständigt skapa och etablera tabeller?
 
-Om synkronisering schemat tabeller inte är redan har skapats i måldatabasen skapar SQL datasynkronisering (förhandsgranskning) dem med de kolumner som du har valt. Men resulterar det här beteendet inte i ett schema för fullständig återgivning, av följande skäl:
+Om synkronisering schemat tabeller inte är redan har skapats i måldatabasen skapar SQL datasynkronisering dem med de kolumner som du har valt. Men resulterar det här beteendet inte i ett schema för fullständig återgivning, av följande skäl:
 
 -   Endast de kolumner som du har valt skapas i måltabellen. Om vissa kolumner i källtabellerna inte är en del av gruppen sync tillhandahålls inte kolumnerna i mål-tabeller.
 
@@ -215,7 +215,7 @@ Om synkronisering schemat tabeller inte är redan har skapats i måldatabasen sk
 
 På grund av dessa begränsningar rekommenderar vi följande:
 -   För produktionsmiljöer, etablera fullständig återgivning schemat själv.
--   För att testa tjänsten funktionen Automatisk etablering i SQL-datasynkronisering (förhandsgranskning) fungerar bra.
+-   Testar tjänsten fungerar funktionen Automatisk etablering i SQL-datasynkronisering väl.
 
 ### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Varför ser tabeller som jag inte kan skapa?  
 Datasynkronisering skapar tabeller sida i databasen för ändringsspårning. Ta bort inte eller datasynkronisering slutar fungera.
@@ -246,7 +246,7 @@ När du exporterar en databas som en `.bacpac` filen och importera filen om du v
 
 ### <a name="why-do-i-need-a-client-agent"></a>Varför behöver jag en klientagent
 
-Tjänsten SQL-datasynkronisering (förhandsgranskning) kommunicerar med SQL Server-databaser via klientagenten. Den här säkerhetsfunktionen förhindrar direktkommunikation med databaser bakom en brandvägg. När tjänsten SQL-datasynkronisering (förhandsgranskning) kommunicerar med agenten den gör det genom att använda krypterade anslutningar och en unik token eller *agentnyckeln*. SQL Server-databaserna autentisera agenten med anslutningsnyckel sträng och agent. Den här designen ger en hög nivå av säkerhet för dina data.
+Tjänsten SQL datasynkronisering kommunicerar med SQL Server-databaser via klientagenten. Den här säkerhetsfunktionen förhindrar direktkommunikation med databaser bakom en brandvägg. När tjänsten SQL datasynkronisering kommunicerar med agenten den gör det genom att använda krypterade anslutningar och en unik token eller *agentnyckeln*. SQL Server-databaserna autentisera agenten med anslutningsnyckel sträng och agent. Den här designen ger en hög nivå av säkerhet för dina data.
 
 ### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Hur många instanser av den lokala agenten UI kan köras?
 
@@ -258,7 +258,7 @@ När du har installerat en klientagent är det enda sättet att ändra tjänstko
 
 ### <a name="how-do-i-change-my-agent-key"></a>Hur kan jag ändra Mina agent-nyckeln?
 
-En agent-nyckel kan bara användas en gång av en agent. Det går inte att återanvändas när du tar bort och sedan installera om en ny agent, och kan inte användas av flera agenter. Om du behöver skapa en ny nyckel för en befintlig agent måste du vara säker på att samma nyckel registreras med klientagenten och tjänsten SQL-datasynkronisering (förhandsversion).
+En agent-nyckel kan bara användas en gång av en agent. Det går inte att återanvändas när du tar bort och sedan installera om en ny agent, och kan inte användas av flera agenter. Om du behöver skapa en ny nyckel för en befintlig agent måste du vara säker på att samma nyckel registreras med klientagenten och tjänsten SQL datasynkronisering.
 
 ### <a name="how-do-i-retire-a-client-agent"></a>Hur jag dra tillbaka en klientagent
 
@@ -270,7 +270,7 @@ Om du vill köra lokal agent från en annan dator än den som för tillfället �
 
 1. Installera agenten på önskad dator.
 
-2. Logga in på portalen SQL datasynkronisering (förhandsversion) och återskapa en agentnyckeln för den nya agenten.
+2. Logga in på SQL-datasynkronisering portal och återskapa en agentnyckeln för den nya agenten.
 
 3. Använda den nya agenten Gränssnittet för att skicka den nya agentnyckeln.
 

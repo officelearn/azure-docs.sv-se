@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: faccaa4496eb1deda23bbfcf335088a023d229d6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e2ab7efdec326a7f1a2c7f3e7b7d0f379efa8606
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293185"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025956"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Självstudier: Rapportering om etablering av en automatisk användar-konto
 
@@ -30,9 +30,9 @@ Den här artikeln beskriver hur du kontrollerar statusen för Etableringsjobb n�
 
 ## <a name="overview"></a>Översikt
 
-Etablering kopplingar är främst ställa in och konfigurerats för att använda den [Azure-hanteringsportalen](https://portal.azure.com), genom att följa den [tillhandahålls dokumentationen](active-directory-saas-tutorial-list.md) för programmet där etablering av kontot är det önskade. När konfigurerad och igång, kan Etableringsjobb för ett program rapporteras på ett av två sätt:
+Etablering kopplingar är ställa in och konfigurerats för att använda den [Azure-portalen](https://portal.azure.com), genom att följa den [tillhandahålls dokumentationen](saas-apps/tutorial-list.md) för program som stöds. När konfigurerad och körs, rapporteras Etableringsjobb på ett av två sätt:
 
-* **Azure-hanteringsportalen** -den här artikeln beskriver främst hämtar rapportinformation från den [Azure-hanteringsportalen](https://portal.azure.com), som innehåller både en allokering sammanfattningsrapport samt detaljerad etablering granskning loggar för ett visst program.
+* **Azure-hanteringsportalen** -den här artikeln beskriver främst hämtar rapportinformation från den [Azure-portalen](https://portal.azure.com), som innehåller både en etablering sammanfattningsrapport samt detaljerad etablering granskningsloggar för en angivet program.
 
 * **Granska API** -Azure Active Directory innehåller också en granska API som ger programmatisk hämtning av detaljerad etablering granskningsloggarna. Se [Azure Active Directory audit API-referens](active-directory-reporting-api-audit-reference.md) för hur du använder den här API-dokumentation. När den här artikeln inte specifikt beskriver hur du använder API: et den information om vilka typer av händelser som registreras i granskningsloggen-etablering.
 
@@ -54,28 +54,28 @@ Om du vill hämta etablering rapportinformation för ett visst program, starta g
 Härifrån kan du har åtkomst till både sammanfattningsrapporten etablering och allokering granskningsloggarna, både beskrivs nedan.
 
 
-### <a name="provisioning-summary-report"></a>Etablering sammanfattningsrapport
+## <a name="provisioning-summary-report"></a>Etablering sammanfattningsrapport
 
-Etablering sammanfattningsrapporten visas i den **etablering** fliken för det angivna programmet. Det finns i avsnittet information om synkronisering under **inställningar**, och innehåller följande information:
+Etablering sammanfattningsrapporten visas i den **etablering** fliken för det angivna programmet. Det finns i den **synkroniseringsinformation** avsnittet under **inställningar**, och innehåller följande information:
 
-* Det totala antalet användare och grupper som har synkroniserats och finns för närvarande i omfånget för etablering mellan källsystemet och målsystemet.
+* Det totala antalet användare och grupper som har synkroniserats och finns för närvarande i omfånget för etablering mellan källsystemet och måldatorn
 
-* Tid för senaste synkronisering kördes. Synkronisering sker vanligtvis var 20 – 40 minuter efter en fullständig synkronisering har slutförts.
+* Tid för senaste synkronisering kördes. Synkronisering sker vanligtvis var 20 – 40 minuter efter en [inledande synkronisering](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) har slutförts.
 
-* Huruvida en första fullständig synkronisering har slutförts.
+* Huruvida en [inledande synkronisering](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) har slutförts
 
-* Huruvida etableringen har placerats i karantän, och vad Statusanledning för karantän som är t.ex. (fel ska kunna kommunicera med målsystemet på grund av ogiltig administratörsautentiseringsuppgifter)
+* Huruvida etableringen har placerats i karantän och Statusanledning för karantän är (t.ex, det gick inte att kommunicera med målsystemet på grund av ogiltig administratörsautentiseringsuppgifter)
 
 Etablering sammanfattningsrapporten ska hur administratörer första plats för att kontrollera om driftstatusen för etableringsjobbet för.
 
  ![Sammanfattningsrapport](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
 
-### <a name="provisioning-audit-logs"></a>Etablering granskningsloggar
+## <a name="provisioning-audit-logs"></a>Etablering granskningsloggar
 Alla aktiviteter som utförs av etablering tjänsten registreras i Azure AD-granskningsloggarna, som kan visas i den **granskningsloggar** fliken den **Kontoetablering** kategori. Loggade händelsen aktivitetstyper inkluderar:
 
 * **Importera händelser** -en ”import” händelse registreras varje gång som Azure AD etableras hämtar information om en enskild användare eller grupp från källsystemet eller målsystemet. Under synkroniseringen hämtas användare från källsystemet först med resultat som är registrerade som ”importera” händelser. Matchande ID hämtade användare tillfrågas sedan mot målsystemet ska kontrollera om de finns med resultat som också är registrerad som ”importera” händelser. Händelserna registreras alla mappade användarattribut och deras värden som visades av Azure AD etableras vid tidpunkten för händelsen. 
 
-* **Synkronisering regeln händelser** - händelserna rapportera resultaten av attributet mappningsregler och eventuella konfigurerade målgrupp filter när informationen har importerats och utvärderas från käll-och mål. Till exempel om en användare i ett källsystem anses vara i omfånget för etablering och anses inte finns i målsystemet och sedan denna händelse registrerar som kommer användaren att tillhandahållas i målsystemet. 
+* **Synkronisering regeln händelser** - händelserna rapportera resultaten av attributmappning regler och eventuella konfigurerade målgrupp filter när informationen har importerats och utvärderas från käll-och mål. Till exempel om en användare i ett källsystem anses vara i omfånget för etablering och anses inte finns i målsystemet och sedan denna händelse registrerar som kommer användaren att tillhandahållas i målsystemet. 
 
 * **Exportera händelser** -en ”export” händelse registreras varje gång som Azure AD etableras skriver ett användarobjekt för kontot eller grupp till ett målsystem. Händelserna registreras alla användarattribut och deras värden som har skrivits av Azure AD etableras vid tidpunkten för händelsen. Om ett fel uppstod vid skrivning till användarobjektet konto eller en grupp till målsystemet, kommer den att visas här.
 
@@ -87,9 +87,9 @@ När du tittar på etablering händelser för en enskild användare, inträffar 
 
 2. Importera händelse: målsystemet efterfrågas för att kontrollera om finns för den hämtade användaren.
 
-3. Regeln synkroniseringshändelsen: användardata från käll- och system utvärderas mot attributet konfigurerade matchningsregler och Omfångsfilter för att fastställa vilken åtgärd eventuella ska utföras.
+3. Regeln synkroniseringshändelsen: användardata från käll- och system utvärderas mot den konfigurerade attributmappning regler och målgrupp filter för att fastställa vilken åtgärd eventuella ska utföras.
 
-4. Exportera händelse: om händelsen synkronisering regel anges att åtgärden ska utföras (t.ex. Lägg till, uppdatera, ta bort), och sedan resultatet av åtgärden registreras i en Export-händelse.
+4. Exportera händelse: om händelsen synkronisering regel anges att åtgärden ska utföras (Lägg till, uppdatera, ta bort), och sedan resultatet av åtgärden registreras i en Export-händelse.
 
 ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-provisioning-reporting/audit_logs.PNG)
 
@@ -104,7 +104,7 @@ I de flesta användningsfall för etablering granskningsloggarna är att kontrol
 
 3. I den **datumintervall** -menyn, välj datumintervallet som du vill söka,
 
-4. I den **Sök** menyraden, ange användar-ID för den användare som du vill söka efter. Formatet på ID-värde ska matcha det du valt som primärt matchande ID i attributet mappningskonfigurationen (t.ex. userPrincipalName eller medarbetare ID-nummer). ID-värde som krävs visas i kolumnen Target(s).
+4. I den **Sök** menyraden, ange användar-ID för den användare som du vill söka efter. Formatet på ID-värde ska matcha det du valt som primärt matchande ID i attributmappning konfigurationen (till exempel userPrincipalName eller medarbetare ID-nummer). ID-värde som krävs visas i kolumnen Target(s).
 
 5. Tryck på RETUR för att söka. Senaste etablering händelser returneras först.
 

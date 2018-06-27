@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: e37266f2438f9c6bc9de2d01624bda77f9d6ee8a
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 35eedb170e1c79f4d282f71608b456a271c4d59b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36945881"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018231"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Hälsa och resurstyper kontrollerar i Azure resurshälsa
 Nedan visas en fullständig lista över alla kontroller via resurshälsa av resurstyper.
@@ -80,6 +80,11 @@ Nedan visas en fullständig lista över alla kontroller via resurshälsa av resu
 |Kontroller som utförs|
 |---|
 |<ul><li>Det har förekommit några databas eller en samling förfrågningar som inte hanteras på grund av en Azure DB som Cosmos-tjänsten inte finns?</li><li>Det har förekommit alla begäranden för dokument som inte hanteras på grund av en Azure DB som Cosmos-tjänsten inte finns?</li></ul>|
+
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+|Kontroller som utförs|
+|---|
+|<ul><li>Begäranden till nyckelvalvet misslyckas på grund av problem med Azure KeyVault-plattformen?</li><li>Begäranden till nyckelvalvet som har begränsats på grund av för många förfrågningar som kunden har gjort?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
 |Kontroller som utförs|

@@ -2,7 +2,7 @@
 title: Partitionering och teckenbredden i Azure Cosmos DB | Microsoft Docs
 description: Lär dig mer om hur partitionering fungerar i Azure Cosmos DB, hur du konfigurerar partitionering och partitions-nycklar och hur du väljer rätt Partitionsnyckeln för ditt program.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d083181b379301ae80e6577ccc3ac8f142767db3
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 046e45978d401e05d0ab8154aff994052f5d7717
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261091"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960380"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionera och skala i Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Semantik för partitionsnycklar är något annorlunda att matcha semantiken för
 | API | Partitionsnyckeln | Radnyckel |
 | --- | --- | --- |
 | SQL | Anpassad partitionering nyckelsökvägen | Åtgärdade `id` | 
-| MongoDB | anpassade Fragmentera nyckel  | Åtgärdade `_id` | 
+| MongoDB | Anpassade Fragmentera nyckel  | Åtgärdade `_id` | 
 | Gremlin | Anpassad partitionering nyckelegenskapen | Åtgärdade `id` | 
 | Tabell | Åtgärdade `PartitionKey` | Åtgärdade `RowKey` | 
 

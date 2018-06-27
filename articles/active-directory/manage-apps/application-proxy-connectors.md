@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/28/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dfbabb3bc2702e7c6ab5d0ba5c809a1bd04d0bbc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 74e6428cf0536a7c8016be6cdf29071128bf4a3b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293015"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025973"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD Application Proxy-kopplingar
 
@@ -92,7 +92,6 @@ Kopplingar kan bara skicka utgående förfrågningar. Utgående trafik som skick
 
 Mer information om hur du konfigurerar utgående brandväggsregler finns [fungerar med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md).
 
-Använd den [Azure AD Application Proxy Connector portar Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) att verifiera att din connector kan nå tjänsten Application Proxy. Kontrollera att den centrala USA och region som är närmast dig har alla gröna bockmarkeringarna minimum. Utöver det kan innebär mer gröna bockmarkeringarna större flexibilitet. 
 
 ## <a name="performance-and-scalability"></a>Prestanda och skalbarhet
 
@@ -104,7 +103,7 @@ Prestanda för kopplingen bundna av processor- och nätverk. CPU-prestanda kräv
 
 Minnet är däremot mindre problem för kopplingar. Tjänsten online hand tar om mycket bearbetning och all trafik som inte har autentiserats. Allt som kan göras i molnet görs i molnet. 
 
-Belastningsutjämning sker mellan kopplingar i ett angivet kopplings-gruppen. Vi gör en variation av resursallokering att avgöra vilka connector i gruppen hanterar en viss begäran. När du har valt en koppling, upprätthåller vi ett session-mappning mellan som användare och program för hela sessionen. Om du av någon anledning att kopplingen eller datorn blir otillgänglig, börjar trafiken gå till en annan koppling i gruppen. Den här återhämtning är också varför vi rekommenderar att du har flera kopplingar.
+Belastningsutjämning sker mellan kopplingar i ett angivet kopplings-gruppen. Vi gör en variation av resursallokering att avgöra vilka connector i gruppen hanterar en viss begäran. Om du av någon anledning att kopplingen eller datorn blir otillgänglig, trafiken börjar gå till en annan koppling i gruppen. Den här återhämtning är också varför vi rekommenderar att du har flera kopplingar.
 
 En annan faktor som påverkar prestanda är kvaliteten på nätverk mellan kopplingar, inklusive: 
 

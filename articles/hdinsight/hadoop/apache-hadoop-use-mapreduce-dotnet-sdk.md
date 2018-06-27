@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: 068d63b7c96dd6729ebc46fb92a136be43b84385
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2b5c265827c30ec9f62cc902aa348e050aec7ba1
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200868"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019612"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Kör jobb för MapReduce med HDInsight .NET SDK
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -179,6 +179,6 @@ I den här artikeln har du lärt dig att skapa ett HDInsight-kluster på flera o
 * För att skicka ett Hive-jobb finns [köra Hive-frågor med HDInsight .NET SDK](apache-hadoop-use-hive-dotnet-sdk.md).
 * För att skapa HDInsight-kluster, se [skapa Linux-baserade Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * För att hantera HDInsight-kluster, se [hantera Hadoop-kluster i HDInsight](../hdinsight-administer-use-portal-linux.md).
-* För HDInsight .NET SDK, se [HDInsight .NET SDK referens](https://msdn.microsoft.com/library/mt271028.aspx).
+* För HDInsight .NET SDK, se [HDInsight .NET SDK referens](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 * För icke-interaktiv autentisera till Azure, se [skapa icke-interaktiv autentisering .NET HDInsight-program](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 

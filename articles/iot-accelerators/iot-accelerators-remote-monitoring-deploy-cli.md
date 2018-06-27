@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628131"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017517"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera fjärråtkomst övervakning solution accelerator med hjälp av CLI
 
@@ -68,7 +68,7 @@ Skapa en grundläggande lösning för resulterar i följande Azure-tjänster som
 | Antal | Resurs                       | Typ         | Används för |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux-dator](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Värd för mikrotjänster |
-| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – grundläggande nivån | Enhetshantering och kommunikation |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – standardnivån | Enhetshantering och kommunikation |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Lagra konfigurationsdata och enhetstelemetrin som regler, larm och meddelanden |  
 | 1     | [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Lagring för virtuell dator och kontrollpunkter för strömning |
 | 1     | [Webbprogram](https://azure.microsoft.com/services/app-service/web/)        |                 | Värd för frontend-webbprogram |
@@ -82,7 +82,7 @@ Skapa en lösning som Standard resulterar i följande Azure-tjänster som etable
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Virtuella Linux-datorer](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 huvudserver och 3 agenter som värd för mikrotjänster med redundans |
 | 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) orchestrator |
-| 1     | [Azure IoT-hubb] [https://azure.microsoft.com/services/iot-hub/]                     | S1 – grundläggande nivån | Hantering av enheter, kommando och kontroll |
+| 1     | [Azure IoT-hubb] [https://azure.microsoft.com/services/iot-hub/]                     | S2 – standardnivån | Hantering av enheter, kommando och kontroll |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Lagra konfigurationsdata och enhetstelemetrin som regler, larm och meddelanden |
 | 5     | [Azure Storage-konton](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 för VM-lagring och 1 för strömmande kontrollpunkter |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Programgateway via SSL |

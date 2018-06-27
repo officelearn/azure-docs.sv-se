@@ -9,19 +9,19 @@ ms.component: emotion-api
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: anroth
-ms.openlocfilehash: acf30e7aded92c6d07331089fabd02836a8f3e9a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 89735ae54395447e3cb421f45db3d6b99001ecd6
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352422"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016573"
 ---
 # <a name="emotion-api-c-quick-start"></a>Känslo -API C# Snabbstart
 
 > [!IMPORTANT]
 > Förhandsversion av Video-API avslutades 30 oktober 2017. Om du vill extrahera enkelt insikter från videor, prova den nya [Video indexeraren API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/). Du kan också använda den för att förbättra innehållsidentifiering upplevelser, till exempel sökresultat med hjälp av tal, ytor, tecken och känslor. Mer information finns i [Video indexeraren Preview](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview) Översikt.
 
-Den här artikeln innehåller information och en kodexempel för att hjälpa dig att snabbt komma igång med hjälp av den [Känslo-API känner igen metoden](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) med C#. Du kan använda den för att identifiera emotikoner uttryckt genom en eller flera personer i en bild. 
+Den här artikeln innehåller information och en kodexempel för att hjälpa dig att snabbt komma igång med hjälp av den [Känslo-API känner igen metoden](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) med C#. Du kan använda den för att identifiera emotikoner uttryckt genom en eller flera personer i en bild. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Hämta kognitiva tjänster [Känslo-API: et Windows SDK](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/).

@@ -6,7 +6,7 @@
 3. Du kommer att uppmanas att välja det språk som du vill ställa in för din enhet. Ange språk och tryck på Retur. 
    
     ![StorSimple konfigurera och registrera enhet 1](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice1-gov-include.png)
-4. I menyn för seriekonsolen som visas, väljer du alternativ 1 för att logga in med fullständig åtkomst. 
+4. I menyn för seriekonsolen som visas, väljer du alternativ 1, **logga in med fullständig åtkomst**. 
    
     ![StorSimple registrera enhet 2](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice2-gov-include.png)
 5. Utför följande steg om du vill konfigurera de minsta nödvändiga nätverksinställningarna för enheten.

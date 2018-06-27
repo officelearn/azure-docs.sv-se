@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 6dae715343a082b56e74bc2be0ee7b2353485e75
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 884e07880b76ec1ff53071d03d0ce340188586e3
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230513"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018158"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Självstudier: Azure Active Directory-integrering med Amazon Web Services (AWS)
 
@@ -340,6 +340,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Lägga till användare](./media/amazon-web-service-tutorial/provisioning2.png)
 
+> [!Note]
+> Om du vill integrera flera AWS-konton till en Azure-konto för enkel inloggning på [detta](https://docs.microsoft.com/azure/active-directory/active-directory-saas-aws-multi-accounts-tutorial) artikel. 
+
+
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
@@ -410,8 +414,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
-När du klickar på panelen Amazon Web Services (AWS) på åtkomstpanelen du bör få automatiskt loggat in på ditt program för Amazon Web Services (AWS).
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen Amazon Web Services (AWS) på åtkomstpanelen du bör få automatiskt loggat in på ditt program för Amazon Web Services (AWS). Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -452,4 +455,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-direct
 [39]: ./media/amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_automatic.png
 [40]: ./media/amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_testconnection.png
 [41]: ./media/amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_on.png
-

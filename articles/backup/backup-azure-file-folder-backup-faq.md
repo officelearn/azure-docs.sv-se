@@ -7,14 +7,14 @@ manager: shreeshd
 keywords: säkerhetskopiering och katastrofåterställning, säkerhetskopieringstjänst
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2017
+ms.date: 6/25/2018
 ms.author: trinadhk
-ms.openlocfilehash: 4234b76c192ba3bbeaca9593250cc855c073e380
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac6d2a8a152f3c6e22be962b867ef58421eda47b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605539"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016496"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Frågor om Azure Backup-agenten
 Den här artikeln innehåller svar på vanliga frågor så att du snabbt kan förstå Azure Backup-agentkomponenterna. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -58,7 +58,7 @@ Absolut. Azure Backup stöder säkerhetskopiering på VM-nivå för virtuella da
 Ja. Installera Azure Backup-agenten i Windows-gästoperativsystemet och säkerhetskopiera filer och mappar till ett tillfälligt lagringsutrymme. Säkerhetskopieringsjobb misslyckas om du rensar data i tillfällig lagring. Om data i tillfällig lagring har tagits bort kan du bara återställa till beständig lagring.
 
 ### <a name="whats-the-minimum-size-requirement-for-the-cache-folder-br"></a>Vilken är den minsta nödvändiga storleken på cachelagringsmappen? <br/>
-Storleken på cachelagringsmappen avgör mängden data som säkerhetskopieras. Cachelagringsmappens storlek bör vara 5 % av det utrymme som krävs för att lagra data.
+Storleken på cachelagringsmappen avgör mängden data som säkerhetskopieras. Volymen för din cachemapp bör vara minst 5-10% ledigt utrymme, jämfört med den totala storleken för säkerhetskopierade data. Om volymen har mindre än 5% ledigt utrymme, antingen öka volymens storlek eller [flytta cache-mappen till en volym med tillräckligt med ledigt utrymme](backup-azure-file-folder-backup-faq.md#backup).
 
 ### <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>Hur registrerar jag min server till ett annat datacenter?<br/>
 Säkerhetskopierade data skickas till datacentret för det valv som det har registrerats för. Det enklaste sättet att ändra datacentret är att avinstallera och installera om agenten och registrera ett nytt valv som tillhör det önskade datacentret.

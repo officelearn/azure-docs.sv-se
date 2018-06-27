@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: 178d49a9481cec20da3e9418d9c104684f303267
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5f03f4fe1422f1665d857269c98a50827ed75d55
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206663"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958366"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Uppdatera det tidigare Service Fabric Java-programmet för att hämta Java-bibliotek från Maven
 Vi har nyligen flyttat Service Fabric Java-binärfiler från Service Fabric Java-SDK:n till Maven-lagring. Nu kan du använda **mavencentral** för att hämta de senaste Service Fabric Java-beroendena. I den här snabbstarten får du hjälp att uppdatera dina befintliga Java-program, som du tidigare har skapat för användning med Service Fabric Java-SDK:n, med hjälp av en Yeoman-mall eller Eclipse, för att vara kompatibla med den Maven-baserade versionen.
@@ -53,8 +53,8 @@ Service Fabric-stöd för tillförlitliga aktörer för ditt program.
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-actors-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf-actors</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -63,7 +63,7 @@ Service Fabric-stöd för tillförlitliga aktörer för ditt program.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-actors-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-actors:1.0.0'
   }
   ```
 
@@ -74,8 +74,8 @@ Service Fabric-stöd för tillståndslös tjänst för ditt program.
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-services-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf-services</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -84,7 +84,7 @@ Service Fabric-stöd för tillståndslös tjänst för ditt program.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-services-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-services:1.0.0'
   }
   ```
 
@@ -96,8 +96,8 @@ Transportnivåstöd för Service Fabric Java-program. Du behöver inte uttryckli
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-transport-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf-transport</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -106,7 +106,7 @@ Transportnivåstöd för Service Fabric Java-program. Du behöver inte uttryckli
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-transport-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-transport:1.0.0'
   }
   ```
 
@@ -117,8 +117,8 @@ Systemnivåstöd för Service Fabric, som kommunicerar med ursprunglig Service F
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -127,7 +127,7 @@ Systemnivåstöd för Service Fabric, som kommunicerar med ursprunglig Service F
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf:1.0.0'
   }
   ```
 
@@ -179,15 +179,15 @@ configurations {
 
 dependencies {
     compile project(':Interface')
-    azuresf ('com.microsoft.servicefabric:sf-services-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-services:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"
@@ -252,15 +252,15 @@ configurations {
 }
 
 dependencies {
-    azuresf ('com.microsoft.servicefabric:sf-actors-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-actors:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"
@@ -325,15 +325,15 @@ configurations {
 
 dependencies {
     compile project(':MyactorInterface')
-    azuresf ('com.microsoft.servicefabric:sf-actors-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-actors:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"
@@ -425,15 +425,15 @@ configurations {
 
 dependencies {
     compile project(':MyactorInterface')
-    azuresf ('com.microsoft.servicefabric:sf-actors-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-actors:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"

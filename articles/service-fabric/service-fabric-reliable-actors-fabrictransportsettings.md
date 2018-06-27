@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 5ba13aeb63a72b738aac435b63ebbcfd4eeb7fa9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f196859500d5de883a4de3f21b803c8f83e2f0b2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213222"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021420"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Konfigurera inställningar för FabricTransport för Reliable Actors
 
@@ -51,6 +51,10 @@ I följande exempel visas hur du ändrar standardvärdet för FabricTransport Op
 ## <a name="config-package"></a>Konfigurationspaketet
 
 Du kan använda en [konfigurationspaketet](service-fabric-application-and-service-manifests.md) att ändra standardkonfigurationen.
+
+> [!IMPORTANT]
+> Certifikaten måste ha PEM-formaterade för på Linux-noder. Läs mer om att hitta och konfigurera certifikat för Linux i [konfigurera certifikat på Linux](./service-fabric-configure-certificates-linux.md). 
+> 
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Konfigurera FabricTransport inställningar för tjänsten aktören
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: ce894f775614c5be7413a004d2237f6a5cf00926
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59dc090053c78dbddc1854f21db39f66df7bc91c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642418"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020553"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Skapa ditt första Azure Service Fabric-program
 > [!div class="op_single_selector"]
@@ -108,11 +108,23 @@ Du hittar parametrarna till de här kommandona i de genererade manifesten i prog
 
 När programmet har distribuerats öppnar du en webbläsare och går till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) på [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expandera sedan noden **Program** och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
+> [!IMPORTANT]
+> Om du vill distribuera programmet till en säker Linux-kluster i Azure måste du konfigurera ett certifikat för att verifiera ditt program med Service Fabric-körning. På så sätt kan dina Reliable Services-tjänster att kommunicera med den underliggande Service Fabric runtime API: er. Läs mer i [konfigurera en Reliable Services app att köras på Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
+
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Starta testklienten och utför en redundansväxling
 Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller klient för att skicka meddelanden till dem. Aktörsmallen innehåller ett enkelt testskript som du kan använda för att interagera med aktörstjänsten.
 
 1. Kör skriptet med övervakningsverktyget för att se resultatet av aktörstjänsten.
 
+   Vid MAC OS X måste du kopiera mappen myactorsvcTestClient till en plats i behållaren genom att köra följande ytterligare kommandon.
+    
+    ```bash
+    docker cp  [first-four-digits-of-container-ID]:/home
+    docker exec -it [first-four-digits-of-container-ID] /bin/bash
+    cd /home
+    ```
+    
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh

@@ -41,12 +41,6 @@
           href: billing-understand-reserved-instance-usage-ea.md
         - name: Hantera reserverade instanser
           href: billing-manage-reserved-vm-instance.md
-    - name: REST-exempel
-      items:
-        - name: Granska Enterprise-kostnader
-          href: billing-review-enterprise-billing.md
-        - name: Granska prenumerationsanvändning
-          href: billing-review-subscription-billing.md
 - name: Hantera kontot
   items:
     - name: Kostnadsfritt konto

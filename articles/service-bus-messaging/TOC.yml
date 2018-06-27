@@ -6,6 +6,7 @@
       href: service-bus-messaging-overview.md
     - name: Jämföra meddelandetjänster
       href: ../event-grid/compare-messaging-services.md
+      maintainContext: true
 - name: Snabbstarter
   items:
     - name: Skicka meddelanden – PowerShell

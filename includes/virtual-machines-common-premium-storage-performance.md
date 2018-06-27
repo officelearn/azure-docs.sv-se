@@ -162,7 +162,7 @@ När du startar ett program, är en av de första sakerna att göra, Välj en vi
 
 Hög skalning för virtuella datorer finns i olika storlekar med ett annat antal CPU-kärnor, minne, OS och tillfällig diskstorleken. Varje VM-storlek har också maximala antalet datadiskar som kan bifogas till den virtuella datorn. Därför valt VM-storlek påverkar hur mycket bearbetning, minne, och lagringskapacitet är tillgängligt för ditt program. Det påverkar också beräkningen och lagring kostnad. Nedan ser du till exempel specifikationerna för den största VM-storleken i DS-serien, DSv2-serien och GS-serien:
 
-| Storlek på virtuell dator | Processorkärnor | Minne | Storlekar för Virtuella diskar | Max. Datadiskar | Cachestorlek | IOPS | Gränser för Cache-i/o-bandbredd |
+| Storlek på virtuell dator | Processorkärnor | Minne | Storlekar för Virtuella diskar | Max. datadiskar | Cachestorlek | IOPS | Gränser för Cache-i/o-bandbredd |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS14 |16 |112 GB |OS = 1 023 GB <br> Lokal SSD = 224 GB |32 |576 GB |50 000 IOPS <br> 512 MB per sekund |4 000 IOPS och 33 MB per sekund |
 | Standard_GS5 |32 |448 GB |OS = 1 023 GB <br> Lokal SSD = 896 GB |64 |4224 GB |80 000 IOPS <br> 2 000 MB per sekund |5 000 IOPS och 50 MB per sekund |
@@ -239,7 +239,7 @@ Det är viktigt att aktivera cachen på rätt uppsättning diskar. Om du ska akt
 | **Typ av disk** | **Standardinställning för Cache** |
 | --- | --- |
 | OS-disk |ReadWrite |
-| Datadisk |Ingen |
+| Datadisk |Skrivskyddad |
 
 Följande är inställningar för cachelagring av rekommenderas för datadiskar,
 

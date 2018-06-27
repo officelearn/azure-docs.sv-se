@@ -1,23 +1,20 @@
 ---
 title: Kom igång med Azure IoT Hub-enhet twins (Java) | Microsoft Docs
 description: Hur du använder Azure IoT Hub-enhet twins att lägga till taggar och sedan använda en IoT-hubb-fråga. Azure IoT-enhet SDK för Java används för att implementera appen enheten och tjänsten Azure IoT SDK för Java att implementera en service-app som lägger till taggar och IoT-hubb-frågan körs.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: 8611b55f6e4f33f8946d8c7c481163166d24049c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 96cad0fc7f387c5f0cb14996ae6ac015c104b81d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016707"
 ---
 # <a name="get-started-with-device-twins-java"></a>Kom igång med enheten twins (Java)
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 05/07/2018
 I kursen får skapa du två Java-konsolappar:
 
 * **Lägg till-taggar-query**, en backend-Java-app som lägger till taggar och frågar enheten twins.
-* **simulerade enheten**, en enhet Java-app som som ansluter till din IoT-hubb och rapporterar anslutningen villkor med hjälp av en rapporterade egenskap.
+* **simulerade enheten**, en enhet Java-app som ansluter till din IoT-hubb och rapporterar tillståndet anslutning med hjälp av en rapporterade egenskap.
 
 > [!NOTE]
 > Artikeln [Azure IoT SDK](iot-hub-devguide-sdks.md) innehåller information om Azure IoT-SDK: er som du kan använda för att skapa både enheten och backend-appar.

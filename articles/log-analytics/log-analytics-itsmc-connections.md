@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: fdf3c7d1a6621437c414e2c1fe0628f2f585d98a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 18398094dfff03739a3d3d44d2c9c58149271123
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34638644"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Anslut ITSM produkter och tjänster med IT Service Management-anslutningstjänsten
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM produkter eller tjänster och IT Service Management-koppling (ITSMC) i logganalys centralt hantera din arbetsobjekt. Läs mer om ITSMC [översikt](log-analytics-itsmc-overview.md).
@@ -85,7 +86,7 @@ Använd följande procedur för att ansluta din System Center Service Manager-in
 - Du kan skapa incidenter från logganalys varningar eller loggposter eller Azure-aviseringar i den här instansen för Service Manager.
 
 
-Läs mer: [skapa ITSM arbetsobjekt för Log Analytics aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [skapa ITSM arbetsobjekt från logganalys loggar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) och [skapa ITSM arbetsobjekt från Azure aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Läs mer: [skapa ITSM arbetsobjekt från Azure aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Skapa och distribuera tjänsten för Service Manager web app
 
@@ -238,7 +239,7 @@ Använd följande procedur för att skapa en ServiceNow-anslutning:
 
 - Du kan skapa incidenter från logganalys varningar eller loggposter eller Azure-aviseringar i den här instansen av ServiceNow.
 
-Läs mer: [skapa ITSM arbetsobjekt för Log Analytics aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [skapa ITSM arbetsobjekt från logganalys loggar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) och [skapa ITSM arbetsobjekt från Azure aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Läs mer: [skapa ITSM arbetsobjekt från Azure aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Skapa en användarroll för integrering i ServiceNow-app
 
@@ -329,7 +330,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 
 - Du kan skapa incidenter från logganalys varningar eller loggposter eller Azure-aviseringar i den här Provance-instansen.
 
-Läs mer: [skapa ITSM arbetsobjekt för Log Analytics aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [skapa ITSM arbetsobjekt från logganalys loggar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) och [skapa ITSM arbetsobjekt från Azure aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Läs mer: [skapa ITSM arbetsobjekt från Azure aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Ansluta Cherwell till IT-tjänst Management-anslutningstjänsten i Azure
 
@@ -381,7 +382,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 
 - Du kan skapa incidenter från logganalys varningar eller loggposter eller Azure-aviseringar i den här Cherwell-instansen.
 
-Läs mer: [skapa ITSM arbetsobjekt för Log Analytics aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [skapa ITSM arbetsobjekt från logganalys loggar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) och [skapa ITSM arbetsobjekt från Azure aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Läs mer: [skapa ITSM arbetsobjekt från Azure aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="generate-client-id-for-cherwell"></a>Generera klient-ID för Cherwell
 
@@ -395,6 +396,4 @@ Använd följande procedur för att generera klient-ID-nyckel för Cherwell:
 
 
 ## <a name="next-steps"></a>Nästa steg
- - [Skapa ITSM arbetsobjekt för logganalys-aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)
- - [Skapa ITSM arbetsobjekt från logganalys-loggen innehåller loggarna](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)
  - [Skapa ITSM arbetsobjekt från Azure-aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

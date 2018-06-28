@@ -1,24 +1,20 @@
 ---
 title: Schemalägga med Azure IoT Hub (nod) | Microsoft Docs
 description: Så här schemalägger du ett Azure IoT Hub-jobb att anropa en direkt metod på flera enheter. Azure IoT-SDK för Node.js används för att implementera de simulerade enheten apparna och service-appen för att köra jobbet.
-services: iot-hub
-documentationcenter: .net
 author: juanjperez
-manager: timlt
-editor: ''
-ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
+manager: cberlin
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: juanpere
-ms.openlocfilehash: e7e724de68e7078782e90a3f2eda9f7261638ea5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 42deb210c55cd4a6c2aa2c7757ed87f8f706c58f
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34634115"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Schemat och sändning jobb (nod)
 
@@ -131,7 +127,7 @@ I det här avsnittet skapar du en Node.js-konsolprogram som initierar en fjärra
     ```
     npm init
     ```
-2. Vid en kommandotolk i den **scheduleJobService** mapp, kör följande kommando för att installera den **azure iothub** enheten SDK-paketet och **azure-iot-enhet – mqtt** paketet:
+2. Vid en kommandotolk i den **scheduleJobService** mapp, kör följande kommando för att installera den **azure iothub** enheten SDK-paketet och **azure-iot-enhet-mqtt** paket:
    
     ```
     npm install azure-iothub uuid --save

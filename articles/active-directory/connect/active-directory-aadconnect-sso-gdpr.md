@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a4fc779cdfb177a9817049fd7b62b0014e141ce0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34592416"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Användarsekretess och Azure AD sömlös enkel inloggning
 
@@ -27,11 +29,11 @@ ms.lasthandoff: 04/28/2018
 ## <a name="overview"></a>Översikt
 
 
-Azure AD sömlös SSO skapar följande loggtyp som kan innehålla EUII:
+Azure AD sömlös SSO skapar följande loggtyp som kan innehålla personuppgifter: 
 
 - Azure AD Connect-spårningsloggfilerna.
 
-Sekretess-efterlevnad för sömlös SSO kan nås på två sätt:
+Förbättra användarnas integritet för sömlös SSO på två sätt:
 
 1.  Hämta data för en person och ta bort data från den personen från installationer på begäran.
 2.  Se till att inga data sparas 48 timmar.

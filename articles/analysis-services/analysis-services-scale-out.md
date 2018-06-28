@@ -3,16 +3,17 @@ title: Azure Analysis Services skalbar | Microsoft Docs
 description: Replikera Azure Analysis Services-servrar med skalbara
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/16/2018
+ms.date: 05/24/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5d1d55a1cf29d6dc3574099cd468c42ccfc72f5b
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34597135"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services skalbar
 
@@ -33,6 +34,22 @@ När bearbetningen är klar måste du utföra en synkronisering mellan bearbetni
 
 > [!NOTE]
 > Skalbar ökar inte mängden tillgängligt minne för servern. Du behöver uppgradera din plan för att öka minne.
+
+## <a name="region-limits"></a>Region gränser
+
+Antal frågan repliker som du kan konfigurera begränsas av den region som servern finns i. Följande begränsningar gäller:
+
+|Region  |Max antal repliker  |
+|---------|---------|
+|Östra USA 2    |    7     |
+|Västra centrala USA     |    7     |
+|Västra Europa     |    7     |
+|Västra USA     |     7    |
+|Centrala USA     |     3    |
+|Sydostasien    |     3    |
+|Alla andra regioner  |   1    |
+
+
 
 ## <a name="monitor-qpu-usage"></a>Övervakaren QPU användning
 

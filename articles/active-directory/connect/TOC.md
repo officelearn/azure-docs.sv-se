@@ -47,7 +47,6 @@
 ##### [Aktuella begränsningar](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [Hur fungerar det?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
 ##### [Uppgradera agenter i förhandsversion](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
-##### [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Vanliga frågor och svar](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Felsöka](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [Djupgående om säkerhet](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)

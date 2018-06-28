@@ -1,0 +1,249 @@
+---
+title: Självstudie om att skapa en LUIS-app för att hämta data som matchas med reguljära uttryck – Azure | Microsoft Docs
+description: I den här självstudien skapar du en enkel LUIS-app med hjälp av avsikter och en entitet för reguljära uttryck för att extrahera data.
+services: cognitive-services
+author: v-geberr
+manager: kaiqb
+ms.service: cognitive-services
+ms.component: luis
+ms.topic: tutorial
+ms.date: 06/18/2018
+ms.author: v-geberr
+ms.openlocfilehash: c31e7d130d02ab6b0fad7577026e557692c2b60e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285958"
+---
+# <a name="tutorial-use-regular-expression-entity"></a>Självstudie: använda entitet för reguljära uttryck
+I den här självstudien skapar du en app som visar hur det går till att extrahera konsekvent formaterade data från ett yttrande med hjälp av entiteten **Regular Expression** (Reguljärt uttryck).
+
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Förstå entiteter för reguljära uttryck 
+> * Använda en LUIS-app för en HR-domän (Human Resources) med avsikten FindForm
+> * Lägga till entitet för reguljära uttryck för att extrahera formulärnummer från yttrande
+> * Träna och publicera app
+> * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
+
+För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
+
+## <a name="before-you-begin"></a>Innan du börjar
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om de fördefinierade entiteterna [custom domain](luis-tutorial-prebuilt-intents-entities.md) (anpassad domän) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen][LUIS] från [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json)-Github-lagringsplatsen.
+
+Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `regex`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
+
+
+## <a name="purpose-of-the-regular-expression-entity"></a>Syftet med entitet för reguljära uttryck
+Syftet med en entitet är att hämta viktiga data som finns i yttrandet. Appens användning av entiteten för reguljära uttryck är att hämta formaterade Human Resources-formulärnummer (Personalfrågor) från ett yttrande. Den är inte maskininlärd. 
+
+Enkla exempel på yttranden innefattar:
+
+```
+Where is HRF-123456?
+Who authored HRF-123234?
+HRF-456098 is published in French?
+```
+
+Förkortade versioner av eller slangvarianter på yttranden innefattar:
+
+```
+HRF-456098
+HRF-456098 date?
+HRF-456098 title?
+```
+ 
+Entiteten för reguljära uttryck för att matcha formulärnumret är `hrf-[0-9]{6}`. Den här reguljära uttrycket matchar de exakta tecknen `hrf -` men ignorerar konjugationer och kulturella varianter. Det matchar siffrorna 0–9 för exakt 6 siffror.
+
+HRF står för Human Resources Form (formulär för personalfrågor).
+
+### <a name="tokenization-with-hyphens"></a>Tokenisering med bindestreck
+LUIS tokeniserar yttrandet när yttrandet läggs till i en avsikt. Tokeniseringen för de här yttrandena lägger till blanksteg före och efter bindestrecket, `Where is HRF - 123456?`  Det reguljära uttrycket tillämpas på yttrandet i obearbetat format, innan det tokeniseras. Eftersom det tillämpas i _obearbetat_ format behöver det reguljära uttrycket inte hantera ordgränser. 
+
+
+## <a name="add-findform-intent"></a>Lägg till avsikten FindForm
+
+1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
+
+    [ ![Skärmbild på LUIS-app med Build (Skapa) markerat i navigeringsfältet längst upp till höger](./media/luis-quickstart-intents-regex-entity/first-image.png)](./media/luis-quickstart-intents-regex-entity/first-image.png#lightbox)
+
+2. Välj **Create new intent** (Skapa ny avsikt). 
+
+    [ ![Skärmbild på sidan Intents (Avsikter) med knappen ”Create new intent” (Skapa ny avsikt) markerad](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png) ](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png#lightbox)
+
+3. Ange `FindForm` i popup-dialogrutan och välj sedan **Done** (Klar). 
+
+    ![Skärmbild på dialogrutan Create new intent (Skapa ny avsikt) med Utilities (Verktyg) i sökrutan](./media/luis-quickstart-intents-regex-entity/create-new-intent-ddl.png)
+
+4. Lägg till exempel på yttranden i avsikten.
+
+    |Exempel på yttranden|
+    |--|
+    |Vad är URL för hrf-123456?|
+    |Var är hrf-345678?|
+    |När uppdaterades hrf-456098?|
+    |Uppdaterade Johan Svensson hrf-234639 förra veckan?|
+    |Hur många versioner av hrf-345123 finns det?|
+    |Vem behöver godkänna formuläret hrf-123456?|
+    |Hur många personer måste signera hrf-345678?|
+    |datum för hrf-234123?|
+    |författare av hrf-546234?|
+    |rubrik för hrf-456234?|
+
+    [ ![Skärmbild på sidan Intent (Avsikt) med nya yttranden markerade](./media/luis-quickstart-intents-regex-entity/findform-intent.png) ](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
+
+    Programmet har en fördefinierad nummerentitet som lagts till från den föregående självstudien. Därför är varje formulärnummer taggat. Det här kan vara tillräckligt för klientprogrammet, men numret kommer inte att märkas med den typen av nummer. Om en ny entitet med ett lämpligt namn skapas kan klientprogrammet bearbeta entiteten på rätt sätt när den returneras från LUIS.
+
+## <a name="create-a-hrf-number-regular-expression-entity"></a>Skapa en entitet för reguljära uttryck för HRF-nummer 
+Skapa en entitet för reguljära uttryck för att ange för LUIS vad ett HRF-nummerformat är med följande steg:
+
+1. Välj **Entities** (Entiteter) på den vänstra panelen.
+
+2. Välj knappen **Create new entity** (Skapa ny entitet) på sidan Entities (Entiteter). 
+
+    [![Skärmbild på sidan Entities (Entiteter) med knappen ”Create new intent” (Skapa ny avsikt) markerad](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png)](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png#lightbox)
+
+3. I popop-dialogrutan anger du det nya entitetsnamnet `HRF-number`, väljer **RegEx** som enhetstyp, anger `hrf-[0-9]{6}` som Regex och väljer sedan **Done** (Klar).
+
+    ![Skärmbild på inställning för popup-dialogruta med egenskaper för ny entitet](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
+
+4. Välj **Intents** (Avsikter) och sedan avsikten **FindForm** för att se det reguljära uttrycket märkt i yttrandena. 
+
+    [![Skärmbild på yttrandet Label (Etikett) med befintlig entitet och regexmönster](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png)](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png#lightbox)
+
+    Eftersom entiteten inte är en maskininlärd entitet tillämpas etiketten på yttrandena och visas på LUIS-webbplatsen så snart den skapas.
+
+## <a name="train-the-luis-app"></a>Träna LUIS-appen
+Entiteter för reguljära uttryck kräver inte träning, men det behöver dock den nya avsikten och de nya yttrandena. 
+
+1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Train** (Träna).
+
+    ![Bild på knappen training (träning)](./media/luis-quickstart-intents-regex-entity/train-button.png)
+
+2. Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
+
+    ![Bild på meddelandefält om att processen är klar](./media/luis-quickstart-intents-regex-entity/trained.png)
+
+## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
+För att få en LUIS-förutsägelse i en chattrobot eller i ett annat program måste du publicera appen. 
+
+1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Publish** (Publicera). 
+
+    ![Skärmbild på FindKnowledgeBase knappen Publish (Publicera) i det översta navigeringsfältet markerad](./media/luis-quickstart-intents-regex-entity/publish-button.png)
+
+2. Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera).
+
+    ![Skärmbild på sidan Publish (Publicera) med knappen Publish to production slot (Publicera till produktionsplats) markerad](./media/luis-quickstart-intents-regex-entity/publish-to-production.png)
+
+3. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
+
+## <a name="query-the-endpoint-with-a-different-utterance"></a>Skicka fråga till slutpunkten med ett annat yttrande
+1. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. 
+
+    ![Skärmbild på sidan Publish (Publicera) med slutpunkts-URL markerad](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
+
+2. Gå till slutet av URL:en i adressen och ange `When were HRF-123456 and hrf-234567 published?`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `FindForm` med de två formulärnumren `HRF-123456` och `hrf-234567`.
+
+    ```
+    {
+      "query": "When were HRF-123456 and hrf-234567 published?",
+      "topScoringIntent": {
+        "intent": "FindForm",
+        "score": 0.970179737
+      },
+      "intents": [
+        {
+          "intent": "FindForm",
+          "score": 0.970179737
+        },
+        {
+          "intent": "ApplyForJob",
+          "score": 0.0131893409
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.00364777143
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.0024568392
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.00173760345
+        },
+        {
+          "intent": "None",
+          "score": 0.00173070864
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.00130692765
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.00130328839
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.0006671795
+        }
+      ],
+      "entities": [
+        {
+          "entity": "hrf-123456",
+          "type": "HRF-number",
+          "startIndex": 10,
+          "endIndex": 19
+        },
+        {
+          "entity": "hrf-234567",
+          "type": "HRF-number",
+          "startIndex": 25,
+          "endIndex": 34
+        },
+        {
+          "entity": "-123456",
+          "type": "builtin.number",
+          "startIndex": 13,
+          "endIndex": 19,
+          "resolution": {
+            "value": "-123456"
+          }
+        },
+        {
+          "entity": "-234567",
+          "type": "builtin.number",
+          "startIndex": 28,
+          "endIndex": 34,
+          "resolution": {
+            "value": "-234567"
+          }
+        }
+      ]
+    }
+    ```
+
+    Numren i yttrandet returneras två gånger, en gång som den nya entiteten `hrf-number`, och en gång som en fördefinierad entitet, `number`. Ett yttrande kan ha mer än en entitet och mer än en av samma typ av enhet, vilket det här exemplet visar. När en entitet för reguljära uttryck används extraherar LUIS namngivna data, vilket är programmässigt mer användbart för det klientprogram som tar emot JSON-svaret.
+
+## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
+Den här appen identifierade avsikten och returnerade extraherade data. 
+
+Din chattrobot har nu tillräckligt med information för att bestämma den primära åtgärden, `FindForm`, och de formulärnummer som fanns i sökningen. 
+
+## <a name="where-is-this-luis-data-used"></a>Var används dessa LUIS-data? 
+LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och formulärnumren för att söka ett tredjeparts-API. LUIS utför inte det arbetet. LUIS tar endast reda på vad användarens avsikt är och extraherar data om den avsikten. 
+
+## <a name="clean-up-resources"></a>Rensa resurser
+Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du menyn med tre punkter (...) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+
+## <a name="next-steps"></a>Nästa steg
+
+> [!div class="nextstepaction"]
+> [Lär dig mer om entiteten KeyPhrase](luis-quickstart-intent-and-key-phrase.md)
+
+<!--References-->
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

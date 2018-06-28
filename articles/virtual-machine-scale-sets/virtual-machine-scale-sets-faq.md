@@ -16,20 +16,22 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 2b0f463c009d13440f6d3eb2bbbe2315ba7b13f2
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: bf73f9419732e93c1f32f2fb39d3acee02f49b64
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34656449"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Skala virtuell Azure-dator Anger vanliga frågor och svar
 
 Få svar på vanliga frågor och svar om virtuella datorer i Azure.
 
 ## <a name="top-frequently-asked-questions-for-scale-sets"></a>Vanliga frågor om skaluppsättningar upp
+
 **F.** Hur många virtuella datorer kan man ha i en skalningsuppsättning?
 
-**S.** En skalningsuppsättning kan innehålla mellan 0 och 1 000 virtuella datorer baserade på plattformsavbildningar, eller mellan 0 och 300 virtuella datorer baserade på anpassade avbildningar. 
+**S.** En skalningsuppsättning kan innehålla mellan 0 och 1 000 virtuella datorer baserade på plattformsavbildningar, eller mellan 0 och 300 virtuella datorer baserade på anpassade avbildningar.
 
 **F.** Kan datadiskar användas i skalningsuppsättningar?
 
@@ -47,7 +49,7 @@ Få svar på vanliga frågor och svar om virtuella datorer i Azure.
 
 **F.** Hur skapar jag en skalningsuppsättning med en anpassad avbildning?
 
-**S.** Skapa en hanterad disk baserat på den anpassade virtuella hårddiskavbildningen (VHD) och referera till den i din mall för skalningsuppsättningen. [Här är ett exempel](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
+**S.** Skapa och hämta en datoravbildning av virtuell och sedan använda som källa för din skaluppsättning. En självstudiekurs om hur du skapar och använder en anpassad VM-avbildning som du kan använda den [Azure CLI 2.0](tutorial-use-custom-image-cli.md) eller [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 **F.** Vilka virtuella datorer tas bort om jag minskar skalningsuppsättningens kapacitet från 20 till 15?
 
@@ -119,16 +121,20 @@ Används på värdnivå CPU måttet och ett meddelande count-mått.
 
 Du kan skapa aviseringar för mått för skalningsuppsättningar i virtuella datorer via PowerShell eller Azure CLI. Mer information finns i [PowerShell för Azure-Monitor quickstart prover](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) och [Azure-Monitor plattformsoberoende CLI quickstart exempel](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
 
-TargetResourceId för virtuella datorns skaluppsättning ser ut så här: 
+TargetResourceId för virtuella datorns skaluppsättning ser ut så här:
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-Du kan välja alla VM-prestandaräknaren som mått för att aktivera en avisering för. Mer information finns i [Gästoperativsystem mätvärden för Resource Manager-baserade virtuella Windows-datorer](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) och [Gästoperativsystem mätvärden för virtuella Linux-datorer](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) i den [Azure-Monitor autoskalning vanliga mått](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/) artikel.
+Du kan välja alla VM-prestandaräknaren som mått för att aktivera en avisering för. Mer information finns i [Gästoperativsystem mätvärden för Resource Manager-baserade virtuella Windows-datorer](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) och [Gästoperativsystem mätvärden för virtuella Linux-datorer](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) i den [Azure-Monitor autoskalning vanliga mått](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/)artikel.
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Hur ställer jag in Autoskala på en virtuell dator skala in med hjälp av PowerShell?
 
-Om du vill konfigurera Autoskala på en virtuell dator skala in med hjälp av PowerShell finns i bloggposten [lägga till Autoskala i en skaluppsättning för virtuell dator i Azure](https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/).
+Om du vill konfigurera Autoskala på en virtuell dator skala in med hjälp av PowerShell Se [skala automatiskt en virtuella datorns skaluppsättning](tutorial-autoscale-powershell.md). Du kan också konfigurera autoskalning med den [Azure CLI 2.0](tutorial-autoscale-cli.md) och [Azure-mallar](tutorial-autoscale-template.md)
 
+
+### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Om jag har stoppats (frigjorts) en virtuell dator, är den virtuella datorn starta som en del av en åtgärd för Autoskala?
+
+Nej. Om automatiska regler kräver ytterligare VM-instanser som en del av en skalningsuppsättning, skapas en ny VM-instans. VM-instanser som har stoppats (frigjorts) startas inte som en del av en Autoskala händelse. Men kan dessa stoppats (frigjorts) virtuella datorer tas bort som en del av en Autoskala händelse som kan byggas ut i antalet instanser, på samma sätt som att VM-instans kan tas bort baserat terabyte VM-instans-ID.
 
 
 
@@ -615,7 +621,7 @@ Om du vill skapa en skaluppsättning för virtuell dator som tilldelar en offent
 
 ### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>Konfigurerar en skala som ska fungera med flera Programgatewayer?
 
-Ja. Du kan lägga till resurs-id's för flera Programgateway serverdelsadresspooler till den _applicationGatewayBackendAddressPools_ lista i den _ipConfigurations_ delen av din skala inställd nätverksprofil.
+Ja. Du kan lägga till resurs-id's för flera Programgateway serverdelsadresspooler till den _applicationGatewayBackendAddressPools_ lista i den _ipConfigurations_ delen av din skala inställd nätverk profil.
 
 ## <a name="scale"></a>Skala
 

@@ -195,10 +195,16 @@
           href: automation-migrate-account-subscription.md
     - name: Felsöka
       items:
-        - name: Felsöka vanliga fel
-          href: automation-troubleshooting-automation-errors.md
-        - name: Felsöka Hybrid Runbook Worker
-          href: automation-troubleshooting-hybrid-runbook-worker.md
+        - name: Publicering
+          href: troubleshoot/onboarding.md
+        - name: Runbooks
+          href: troubleshoot/runbooks.md
+        - name: Önskad tillståndskonfiguration (DSC)
+          href: troubleshoot/desired-state-configuration.md
+        - name: Hybrid Runbook Worker
+          href: troubleshoot/hybrid-runbook-worker.md
+        - name: Uppdateringshantering
+          href: troubleshoot/update-management.md
 - name: Referens
   items:
     - name: Azure PowerShell

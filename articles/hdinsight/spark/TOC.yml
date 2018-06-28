@@ -160,9 +160,6 @@
         - name: Använd Hue
           href: ../hdinsight-hadoop-hue-linux.md
           maintainContext: true
-        - name: Använd R
-          href: ../hdinsight-hadoop-r-scripts-linux.md
-          maintainContext: true
         - name: Använd Solr
           href: ../hdinsight-hadoop-solr-install-linux.md
           maintainContext: true

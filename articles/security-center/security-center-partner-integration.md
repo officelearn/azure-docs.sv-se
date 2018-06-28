@@ -12,14 +12,14 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2018
+ms.date: 06/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 28bb900a3281becc7bb243e6bd7bf2beedf1a5c1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 49558f5a4777818478ee11b96636d87b70e1e156
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261639"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335374"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -44,7 +44,7 @@ Slutpunktsskyddsintegreringen kan variera beroende på lösning. Följande tabel
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
 | Windows Defender (Microsoft-programvara mot skadlig kod)                  | Windows Server 2016                   | Nej, inbyggd i OS           | Ja                       |
 | System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 | Via tillägg                | Ja                       |
-| Trend Micro – Alla versioner         | Windows Server-familjen                 | Via tillägg                | Ja                       |
+| Trend Micro – Alla versioner         | Windows Server-familjen                 | Nej                           | Ja                       |
 | Symantec v12.1.1100+              | Windows Server-familjen                 | Nej                           | Ja                       |
 | McAfee v10 +                       | Windows Server-familjen                 | Nej                           | Ja                       |
 | Kaspersky                         | Windows Server-familjen                 | Nej                           | Nej                        |

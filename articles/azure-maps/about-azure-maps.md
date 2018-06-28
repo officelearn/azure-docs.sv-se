@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9eb6039a10cbdac004ab25f8295f5659c246a743
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 239134e7665b80ef78b6a3df12c14156bff9ae29
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600069"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317066"
 ---
 # <a name="an-introduction-to-azure-maps"></a>En introduktion till Azure Maps
 Azure Maps är en portfölj med geospatiala tjänster som omfattar tjänst-API:er för kartor, sökning, ruttplanering, trafik och tidszoner. Med portföljen med tjänster kan du använda välbekanta verktyg för att snabbt utveckla och skala lösningar som integrerar platsinformation i dina Azure-lösningar. Azure Maps ger utvecklare från alla branscher kraftfulla geospatiala funktioner med nya mappningsdata som krävs för att tillhandahålla geografisk kontext till webb- och mobilprogram. Azure Maps är en uppsättning REST API:er som åtföljs av en webbaserad JavaScript-kontroll som gör utveckling över flera medier enkelt, flexibelt och portabelt. 
@@ -77,27 +77,9 @@ Azure Maps API är för närvarande inte tillgänglig alla länder. Kontrollera 
 * Pakistan
 * Sydkorea
 
-## <a name="relationship-with-bing-maps"></a>Relationen med Bing-kartor
-Kartorna som beskrivs i detta dokument skiljer sig från de som tillhandahålls av Bing-kartor. Även om de har flera funktioner gemensamt så är de två tjänsterna olika och inte relaterade. Den här Azure-tjänsten påverkar inte erbjudanden eller översikten som gäller Bing-kartor.
-
-Microsofts mål är att ge utvecklare ett val när det gäller erbjudanden om platstjänster. Följande tabell innehåller riktlinjer för utvecklare för att hjälpa välja tjänst: 
-
-| Scenario | Använd Azure Maps när… | Använd Bing-kartor när… |
-| ------------- | ------------- | ------------- |
-| Utvecklingsmiljö | du skapar i eller koordinerar med andra Azure-tjänster | använder en moln- eller utvecklingsmiljö från tredje part |
-| Utvecklingsfas  | Azure Maps är optimerat för tidig testning och Proof of Concept-utveckling | Ett serviceavtal i företagsklass krävs för en produktionsmiljö |
-| Prisalternativ | Preliminära prisalternativ för utvecklare räcker | Anpassad prissättning i företagsklass krävs |
-| Miljö för användningsfall | Användning i fordon krävs | Användning i fordon krävs inte |
-| Geografisk täckning | Indien, Kina, Japan och Sydkorea krävs inte | Karttäckning för Indien, Kina, Japan och Sydkorea krävs |
-| Kartinnehåll | Standardytkartor räcker | Satellit-, flygfoto- och gatubilder krävs |
-| Underliggande kartkälla | TomTom-kartdata föredras | HERE-kartdata föredras |
-
-Registrera dig för ett [Azure Maps-konto redan idag](http://aka.ms/azurelbsportal).
-
 ## <a name="next-steps"></a>Nästa steg
 
 Nu har du en översikt över Azure Maps. Nästa steg är att testa en exempelapp som använder tjänsten.
 
 > [!div class="nextstepaction"]
 > [Starta en demokarta för interaktiv sökning](quick-demo-map-app.md)
-

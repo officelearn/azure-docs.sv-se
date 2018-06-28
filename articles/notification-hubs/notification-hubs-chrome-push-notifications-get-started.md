@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 5754a537b8a0bf0a93d6d54ba0ba78e5957ac87f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7bdc692104194bff4a25e6974ba72971af543cbf
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777482"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029007"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Självstudie: Skicka meddelanden till Chrome-appar med Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -400,7 +400,7 @@ I testsyfte skickas Chrome-push-meddelanden med hjälp av en .NET-konsolapp.
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-   En referens till Azure Service Bus-SDK:n med <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/"> WindowsAzure.ServiceBus NuGet-paketet läggs automatiskt till i projektet</a>
+   En referens till Azure Service Bus-SDK:n med <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/"> WindowsAzure.ServiceBus NuGet-paketet läggs automatiskt till i projektet</a>
 4. Öppna `Program.cs` och lägg till följande `using`-uttryck:
    
         using Microsoft.Azure.NotificationHubs;

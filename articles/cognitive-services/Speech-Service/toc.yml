@@ -12,31 +12,33 @@
     - name: 'Identifiera tal i C#'
       href: quickstart-csharp-windows.md
     - name: Identifiera tal i C++ för Windows
-      href: cpp-windows.md
+      href: quickstart-cpp-windows.md
     - name: Identifiera tal i C++ för Linux
-      href: cpp-linux.md
+      href: quickstart-cpp-linux.md
     - name: Komma igång med Speech Devices SDK
       href: speech-devices-sdk-qsg.md
-- name: Instruktionsguider
+- name: Anpassning
   items:
-    - name: Identifiera tal
-      href: how-to-speech-to-text.md
     - name: Anpassa talmodeller
       href: how-to-customize-speech-models.md
-    - name: Syntetisera tal
-      href: how-to-text-to-speech.md
     - name: Anpassa rösttyper
       href: how-to-customize-voice-font.md
-    - name: Översätt tal
-      href: how-to-translate-speech.md
     - name: Förbered avskrifter
       href: prepare-transcription.md
     - name: Använda anpassade ljudströmmar
       href: how-to-use-audio-input-streams.md
+    - name: Anpassa väckningsord för enhet (Devices SDK)
+      href: speech-devices-sdk-create-kws.md
+- name: Instruktionsguider
+  items:
+    - name: Identifiera tal
+      href: how-to-speech-to-text.md
+    - name: Syntetisera tal
+      href: how-to-text-to-speech.md
+    - name: Översätt tal
+      href: how-to-translate-speech.md
     - name: Hämta Speech Devices SDK
       href: get-speech-devices-sdk.md
-    - name: Anpassa väckningsord för enhet
-      href: speech-devices-sdk-create-kws.md
     - name: Batch-transkription (kundtjänst)
       href: batch-transcription.md
 - name: Exempel
@@ -73,8 +75,14 @@
       href: speech-synthesis-markup.md
 - name: Resurser
   items:
-    - name: Vanliga frågor och svar om tal till text
-      href: faq-stt.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      items:
+        - name: Vanliga frågor och svar om tal till text
+          href: faq-stt.md
+        - name: Vanliga frågor och svar om Text till tal
+          href: faq-text-to-speech.md
+        - name: Vanliga frågor och svar om Translator
+          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: UserVoice

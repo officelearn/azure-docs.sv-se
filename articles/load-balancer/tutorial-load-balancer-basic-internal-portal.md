@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: a16e9ad5b72d87614f5d3630e24e6aa36def8c51
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 7902b5ad2d680a22a2d132187cdad5f96a334447
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779581"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061853"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Självstudier: Belastningsutjämna intern trafik till virtuella datorer med en enkel belastningsutjämnare med hjälp av Azure Portal
 
@@ -43,6 +43,8 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
     - *myBackendSubnet* – för undernätsnamnet.
 2. Skapa det virtuella nätverket genom att klicka på **Skapa**.
 
+![Skapa en belastningsutjämnare](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
+
 ## <a name="create-a-basic-load-balancer"></a>Skapa en grundläggande belastningsutjämnare
 Skapa en intern enkel belastningsutjämnare med hjälp av portalen.
 
@@ -57,10 +59,7 @@ Skapa en intern enkel belastningsutjämnare med hjälp av portalen.
     - *myResourceGroupILB* – namnet på den nya resursgrupp som du skapar.
 3. Skapa belastningsutjämnaren genom att klicka på **Skapa**.
    
-    ![Skapa en belastningsutjämnare](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
-
-
-## <a name="create-backend-servers"></a>Skapa serverdelsservrar
+    ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
 I det här avsnittet skapar du två virtuella datorer för belastningsutjämnarens backend-pool och installerar sedan IIS på de virtuella datorerna. IIS gör det lättare att testa belastningsutjämnaren.
 

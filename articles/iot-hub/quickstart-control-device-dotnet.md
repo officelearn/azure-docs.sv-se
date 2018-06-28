@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: c24c311f6ee446122fea7fd7699b34ab2ae8510c
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 0bb27c23850384501afec733d24f824346b8416b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292848"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335483"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT Hub (.NET)
 
@@ -67,7 +67,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
     Om du väljer ett annat namn för din enhet måste du uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
-1. Kör följande kommando för att hämta _enhetsanslutningssträngen_ för enheten du just registrerade:
+2. Kör följande kommando för att hämta _enhetsanslutningssträngen_ för enheten du just registrerade:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
@@ -91,17 +91,17 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
 
 1. Navigera till C#-exempelprojektets rotmapp i ett terminalfönster. Gå sedan till mappen **iot-hub\Quickstarts\simulated-device-2**.
 
-1. Öppna filen **SimulatedDevice.cs** i en valfri textredigerare.
+2. Öppna filen **SimulatedDevice.cs** i en valfri textredigerare.
 
-    Ersätt värdet för `connectionString`-variabeln med den enhetsanslutningssträng du antecknade tidigare. Spara dina ändringar i filen **SimulatedDevice.cs**.
+    Ersätt värdet för `s_connectionString`-variabeln med den enhetsanslutningssträng du antecknade tidigare. Spara dina ändringar i filen **SimulatedDevice.cs**.
 
-1. Installera de paket som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i terminalfönstret:
+3. Installera de paket som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i terminalfönstret:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. Kör det simulerade enhetsprogrammet genom att skapa och köra följande kommandon i terminalfönstret:
+4. Kör det simulerade enhetsprogrammet genom att skapa och köra följande kommandon i terminalfönstret:
 
     ```cmd/sh
     dotnet run
@@ -117,17 +117,17 @@ Serverdelsprogrammet ansluter till en slutpunkt på tjänstsidan på din IoT-hub
 
 1. Navigera till C#-exempelprojektets rotmapp i ett annat terminalfönster. Gå sedan till mappen **Quickstarts\back-end-application**.
 
-1. Öppna filen **BackEndApplication.cs** i en valfri textredigerare.
+2. Öppna filen **BackEndApplication.cs** i en valfri textredigerare.
 
-    Ersätt värdet för `connectionString`-variabeln med den tjänstanslutningssträng du antecknade tidigare. Spara dina ändringar i filen **BackEndApplication.cs**.
+    Ersätt värdet för `s_connectionString`-variabeln med den tjänstanslutningssträng du antecknade tidigare. Spara dina ändringar i filen **BackEndApplication.cs**.
 
-1. Installera de bibliotek som krävs för serverdelsprogrammet genom att köra följande kommandon i terminalfönstret:
+3. Installera de bibliotek som krävs för serverdelsprogrammet genom att köra följande kommandon i terminalfönstret:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. Skapa och kör serverdelsprogrammet genom att köra följande kommandon i terminalfönstret:
+4. Skapa och kör serverdelsprogrammet genom att köra följande kommandon i terminalfönstret:
 
     ```cmd/sh
     dotnet run

@@ -388,11 +388,10 @@
 ### [Administratörsroller](active-directory-assign-admin-roles-azure-portal.md)
 #### [Tilldela administratörsroll till en användare](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Jämföra behörigheter för medlemmar och gästanvändare](fundamentals/users-default-permissions.md)
-### [Skydda administratörsroller](admin-roles-best-practices.md)  
+### [Förstärka säkerheten för administratörsrollen](admin-roles-best-practices.md)  
 #### [Skapa administratörskonton för åtkomst vid akutfall](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Administrativa enheter](active-directory-administrative-units-management.md)
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
-### [Skydda privilegierade roller](admin-roles-best-practices.md)
 
 ## Åtkomstgranskningar
 ### [Översikt över åtkomstgranskningar](active-directory-azure-ad-controls-access-reviews-overview.md)

@@ -20,6 +20,10 @@
   items:
     - name: Översikt över SDK-exempel
       href: sdk.md
+    - name: 'SDK i C#'
+      href: visual-search-sdk-c-sharp.md
+    - name: SDK i Node
+      href: visual-search-sdk-node.md
     - name: SDK i Python
       href: visual-search-sdk-python.md
 - name: Självstudier

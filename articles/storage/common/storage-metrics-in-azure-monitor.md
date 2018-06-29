@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: b1d82f9b527a62109e0301907b87bd683f9912af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05021d5ab8d33e36bff16ce7d2ebacd3db72639a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036315"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
@@ -38,7 +39,7 @@ Du kan övervaka mått med tiden i Azure-portalen. I följande exempel visas hur
 
 ![Skärmbild av åtkomst till mätvärden i Azure-portalen](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-För statistik som stöd för dimensioner, måste du filtrera med värdet för önskade dimensionen. I följande exempel visas hur du visar **transaktioner** på kontonivå med **lyckade** svarstyp.
+Du kan filtrera mått med värdet för önskade dimensionen för mätvärden som stöder dimensioner. I följande exempel visas hur du visar **transaktioner** på kontonivå med en specifik åtgärd genom att välja värden för **API-namnet** dimension.
 
 ![Skärmbild av åtkomst till mått med dimension i Azure-portalen](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
@@ -317,7 +318,7 @@ Nedan visas ett format för att ange resurs-ID för var och en av lagringstjäns
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 `
 * Filen service resurs-ID `
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
 `
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>Resurs-ID i Azure-Monitor REST-API
@@ -395,13 +396,19 @@ Azure Storage har stöd för följande dimensioner för mätvärden i Azure-Moni
 | BlobType | Typ av blob för endast Blob-mått. Värdena som stöds är **BlockBlob** och **PageBlob**. Lägg till Blob ingår i BlockBlob. |
 | ResponseType | Transaktionstyp för svar. Tillgängliga värden är: <br/><br/> <li>ServerOtherError: Alla serversidan fel förutom beskrivs de </li> <li> ServerBusyError: Begäran som returnerade ett HTTP 503-statuskoden. </li> <li> ServerTimeoutError: Timeout begäran som returnerade en HTTP 500-statuskod. Timeout uppstod på grund av ett serverfel. </li> <li> AuthorizationError: Begäran som misslyckades på grund av obehörig åtkomst av data eller ett auktoriseringsfel. </li> <li> NetworkError: Begäran som misslyckades på grund av nätverksfel. Inträffar oftast när en klient stänger en anslutning innan tidsgränsen upphör att gälla för tidigt. </li> <li>    ClientThrottlingError: Klientsidan bandbreddsbegränsning fel. </li> <li> ClientTimeoutError: Timeout begäran som returnerade en HTTP 500-statuskod. Om klientens nätverk eller timeout för begäranden har angetts till ett lägre värde än förväntat genom att lagringstjänsten är en förväntad timeout. Annars rapporteras den som en ServerTimeoutError. </li> <li> ClientOtherError: Alla klientsidan fel utom beskrivs de. </li> <li> Lyckades: Lyckade begäranden|
 | GeoType | Transaktion från primär eller sekundär kluster. Tillgängliga värden är primär och sekundär. Det gäller läsbehörighet Geo-Redundant Storage(RA-GRS) vid läsning av objekt från sekundär klient. |
-| apiName | Namnet på åtgärden. Exempel: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Namn på åtgärden, se [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
+| ApiName | Namnet på åtgärden. Exempel: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Namn på åtgärden, se [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
 
 För mått stödjande dimensioner måste du ange dimensionsvärdet om du vill se motsvarande mått värden. Om du tittar på exempelvis **transaktioner** värdet för lyckad svar du vill filtrera den **ResponseType** med **lyckade**. Eller om du tittar på **BlobCount** värdet för Blockblob, måste du filtrera den **BlobType** med **BlockBlob**.
 
 ## <a name="service-continuity-of-legacy-metrics"></a>Kontinuitet för äldre mått
 
 Äldre är tillgängligt parallellt med Azure-Monitor hanteras. Stöd för att hålla samma tills Azure Storage avslutar tjänsten på äldre mått.
+
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+
+**Stöder Azure Storage metrics för hanterade diskar eller ohanterad diskar?**
+
+Nej, Azure Compute stöder mätvärdena på diskar. Se [artikel](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 

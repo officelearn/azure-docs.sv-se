@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: c07105a34f6778fcd62f6f1bc1d3930f6a8bf173
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f8478a0aef52f8e573fa300a0b1328ea9ce5129f
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714943"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031006"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Skala upp en app i Azure
 
@@ -98,7 +98,7 @@ En tabell med tjänsten gränser, kvoter och begränsningar och funktioner som s
   
     [Virtuell dator och Molntjänststorlekar för Microsoft Azure][vmsizes]
   
-* Information om Azure App Service finns bästa praxis, inklusive att skapa en skalbar och flexibel arkitektur [metodtips: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+* Information om Azure App Service finns bästa praxis, inklusive att skapa en skalbar och flexibel arkitektur [metodtips: Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
 * Videor om att skala Apptjänst-appar finns i följande resurser:
   
   * [När ska du skala Azure Websites – med Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)

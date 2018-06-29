@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 2a0a411d5f2b19eda844cba160429ecfe958c45e
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: d97e0bf94b911936cacf04f7f26c172b9975c56f
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309621"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061652"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera en databas i Azure SQL Database
 
@@ -170,7 +170,7 @@ Expressroute kan du också burst upp till 2 x gränsen som du köper utan extra 
 - [Arbetsflöden](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Är SQL-databas som är kompatibel med eventuella krav och som sätt med min egen organisation efterlevnad?
-SQL-databasen är kompatibel med en mängd regelverk compliances. Om du vill visa den senaste uppsättningen compliances har uppfyllts, finns det [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings) och detaljgranska compliances som är viktiga för din organisation för att se om SQL-databas som ingår i kompatibla Azure-tjänster. Det är viktigt att Observera att även om SQL-databasen kan vara certifierat kompatibla tjänster, det hjälper till att kompatibiliteten för organisationens tjänst men garanterar inte att automatiskt den.
+SQL-databasen är kompatibel med en mängd regelverk compliances. Om du vill visa den senaste uppsättningen compliances har uppfyllts, finns det [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) och detaljgranska compliances som är viktiga för din organisation för att se om SQL-databas som ingår i kompatibla Azure-tjänster. Det är viktigt att Observera att även om SQL-databasen kan vara certifierat kompatibla tjänster, det hjälper till att kompatibiliteten för organisationens tjänst men garanterar inte att automatiskt den.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Intelligent databasen övervakning och underhåll efter migreringen
 
@@ -245,11 +245,11 @@ SQL-databasen använder vissa smart metoder som gör att den kan hantera vissa t
 
 - **Exportera**: du kan exportera din Azure SQL-databas som en BACPAC-fil från Azure-portalen
 
-   ![Databasexport](./media/sql-database-export/database-export.png)
+   ![databasexport](./media/sql-database-export/database-export.png)
 
 - **Importera**: du kan även importera data som en BACPAC-fil i databasen med hjälp av Azure portal.
 
-   ![Databasimport](./media/sql-database-import/import.png)
+   ![databasimport](./media/sql-database-import/import.png)
 
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Hur jag för att synkronisera data mellan SQL-databas och SQL Server?
 Du har flera olika sätt att åstadkomma detta: 

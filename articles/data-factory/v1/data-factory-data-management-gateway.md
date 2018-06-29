@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d28d25b74ce46c0323b01670bfdb639c02b92d8a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 67b8e35f0ddafd0a39bf29757927f4ace6230547
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335813"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048925"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [egenvärdbaserat integrering körning i version 2](../create-self-hosted-integration-runtime.md). 
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [egenvärdbaserat integrering körning i](../create-self-hosted-integration-runtime.md). 
 
 > [!NOTE]
 > Data Management Gateway har nu tagits byta namn som Self-hosted integrering Runtime.  
@@ -288,12 +288,12 @@ Du kan inaktivera/aktivera funktionen för automatisk uppdatering genom att gör
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
-[För flera noder hög tillgänglighet och skalbarhet gateway (förhandsgranskning)](data-factory-data-management-gateway-high-availability-scalability.md)
+[För hög tillgänglighet och skalbarhet-gateway med flera noder](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Starta Windows PowerShell på gateway-datorn.
 2. Växla till mappen C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\.
 3. Kör följande kommando för att aktivera automatisk uppdatering funktion av (inaktivera).   
 
-    En extra auktoriseringsnyckel param krävs för gateway med hög tillgänglighet (förhandsversion).
+    En extra auktoriseringsnyckel param krävs för gateway med funktionen för hög tillgänglighet.
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```

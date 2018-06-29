@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d04500e770bf43278b88c2f980a10693590c7d16
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2d636eb381710c5e8341e24af8cd157a627348ef
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053844"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - hög tillgänglighet och skalbarhet (förhandsgranskning)
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [egenvärdbaserat integrering körning i version 2](../create-self-hosted-integration-runtime.md). 
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [egenvärdbaserat integrering körning i](../create-self-hosted-integration-runtime.md). 
 
 
 Den här artikeln hjälper dig att konfigurera lösning för hög tillgänglighet och skalbarhet med Data Management Gateway / integrering.    
@@ -189,7 +190,7 @@ Du kan aktivera **avancerade inställningar** i den **Gateway** sidan för att v
 Namn | Namnet på den logiska gateway och noder som är kopplade till gatewayen.  
 Status | Status för logiska gatewayen och gateway-noder. Exempel: Online/Offline/begränsad/etc. Information om dessa statusar finns [gatewaystatusen](#gateway-status) avsnitt. 
 Version | Visar vilken version av den logiska gatewayen och varje gateway-noden. Versionen av den logiska gatewayen bestäms baserat på version av merparten av noder i gruppen. Om det finns noder med olika versioner i logiska gateway-inställningarna endast noder med samma versionsnummer som funktionen logiska gateway korrekt. Andra är i begränsat läge och måste uppdateras manuellt (bara om automatisk uppdatering misslyckas). 
-Tillgängligt minne | Tillgängligt minne på en gateway-noden. Det här värdet är en nära realtid ögonblicksbild. 
+Ledigt minne | Tillgängligt minne på en gateway-noden. Det här värdet är en nära realtid ögonblicksbild. 
 Processoranvändning | Processoranvändningen för en gateway-nod. Det här värdet är en nära realtid ögonblicksbild. 
 Nätverk (In/ut) | Nätverksanvändning för en gateway-nod. Det här värdet är en nära realtid ögonblicksbild. 
 Samtidiga jobb (kör / begränsa) | Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nära realtid ögonblicksbild. Gränsen innebär högsta samtidiga jobb för varje nod. Det här värdet definieras baserat på storleken på datorn. Du kan höja gränsen att skala upp samtidiga jobbkörningen i avancerade scenarier där CPU / minne / nätverket är outnyttjad men aktiviteter uppnådd tidsgräns. Den här funktionen finns också med en enda nod gateway (även om funktionen skalbarhet och tillgänglighet inte är aktiverad). Mer information finns i [skala överväganden](#scale-considerations) avsnitt. 

@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: shlo
-ms.openlocfilehash: 61d53e0d5f32f40b67f5b2d4ce888b047f8c4cea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 02f84047d0e1d3e73fac991250da814176f3995d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619719"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049932"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Skapa en utlösare som kör en pipeline på en rullande fönster
 Den här artikeln innehåller steg för att skapa, starta och övervaka en rullande fönster utlösare. Allmän information om utlösare och typerna som stöds finns [Pipeline körning och utlösare](concepts-pipeline-execution-triggers.md).
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Azure Data Factory, som för närvarande är en förhandsversion. Om du använder Azure Data Factory version 1, som är allmänt tillgänglig (GA), se [Kom igång med Azure Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Utlösare för rullande fönster är en typ av utlösare som går igång med jämna tidsintervall från en angiven starttid och behåller sitt tillstånd. Rullande fönster är en serie sammanhängande tidsintervall med fast storlek som inte överlappar. En rullande fönster utlösare har en 1: 1-relation med en rörledning och kan bara referera till en enkel rörledning.
 
@@ -81,7 +78,7 @@ Följande tabell innehåller en översikt över viktiga JSON-element som är rel
 | **interval** | Ett positivt heltal som anger intervallet för värdet för **frequency** och som avgör hur ofta utlösaren körs. Till exempel om den **intervall** är 3 och **frekvens** är ”timme” utlösaren återkommer var 3: e timme. | Integer | Ett positivt heltal. | Ja |
 | **startTime**| Den första förekomsten, vilket kan vara i förflutna. Den första utlösaren är (**startTime**, **startTime** + **intervall**). | DateTime | Ett DateTime-värde. | Ja |
 | **endTime**| Den sista förekomsten, vilket kan vara i förflutna. | DateTime | Ett DateTime-värde. | Ja |
-| **Fördröjning** | Hur lång tid att fördröja starten av databearbetningen för fönster. Pipelinen körs startas efter att den förväntade tiden för körningen plus mängden **fördröjning**. Den **fördröjning** definierar hur länge utlösaren ska vänta efter förfallotiden innan ett nytt kör. Den **fördröjning** påverkar inte fönstret **startTime**. Till exempel en **fördröjning** värdet 00:10:00 innebär en fördröjning på 10 minuter. | Tidsintervall  | Ett tidsvärde där standardvärdet är 00:00:00. | Nej |
+| **fördröjning** | Hur lång tid att fördröja starten av databearbetningen för fönster. Pipelinen körs startas efter att den förväntade tiden för körningen plus mängden **fördröjning**. Den **fördröjning** definierar hur länge utlösaren ska vänta efter förfallotiden innan ett nytt kör. Den **fördröjning** påverkar inte fönstret **startTime**. Till exempel en **fördröjning** värdet 00:10:00 innebär en fördröjning på 10 minuter. | Tidsintervall  | Ett tidsvärde där standardvärdet är 00:00:00. | Nej |
 | **maxConcurrency** | Antalet samtidiga utlösaren körs som aktiverats för windows som är klara. Om du vill säkerhetskopiera fill körs exempelvis varje timme i 24 windows igår resultat. Om **maxConcurrency** = 10, utlösare händelser skickas endast för de första 10 windows (01 00:00:00 - 09:00-10:00). När de första 10 utlösta pipelinen körs är klart, utlöses utlösaren körs för nästa 10 windows (10:00-11:00 – 19:00-20:00). Fortsätter med det här exemplet på **maxConcurrency** = 10, om det finns 10 windows redo, det finns 10 totala pipelinen körs. Om det finns endast 1 fönstret redo, är det bara 1 pipeline kör. | Integer | Ett heltal mellan 1 och 50. | Ja |
 | **retryPolicy: antal** | Antalet försök innan du kör pipeline har markerats som ”misslyckades”.  | Integer | Ett heltal, där standardvärdet är 0 (inga nya försök). | Nej |
 | **retryPolicy: intervalInSeconds** | Fördröjning mellan försök i sekunder. | Integer | Antal sekunder, där standardvärdet är 30. | Nej |

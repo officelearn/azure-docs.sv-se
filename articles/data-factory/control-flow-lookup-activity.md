@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: 032b14051c5c2b06fa23ee67858706fada545967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25ed439674fcf7136e29034eb97e0652ae9ba111
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618665"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059174"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Sökning aktivitet i Azure Data Factory
 
@@ -26,9 +26,6 @@ Sökning aktiviteten kan användas för att hämta en datamängd från någon av
 - Dynamiskt bestämma vilka objekt (filer, tabeller osv) att använda i en efterföljande aktivitet i stället för att hårdkoda objektnamnet
 
 Sökning aktivitet kan läsa och returnera innehållet i en konfigurationsfil, konfigurationstabell eller resultatet av att utföra en fråga eller en lagrad procedur.  Utdata från aktiviteten för sökning kan användas i en efterföljande kopia eller omvandling aktivitet om det är en singleton-värde eller användas i en ForEach-aktivitet om det är en matris med attribut.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Azure Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen om Data Factory version 1](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 

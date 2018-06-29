@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 62ee13c4e756e41558adcb5b98081e24d683e01a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 62712a201e8f9717f3e0215c4c29130d3bddcdf2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620382"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050219"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Skapa förutsägande pipelines med hjälp av Azure Machine Learning och Azure Data Factory
 
@@ -37,7 +37,7 @@ ms.locfileid: "34620382"
 
 ## <a name="introduction"></a>Introduktion
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Transformera data med hjälp av machine learning i Data Factory version 2](../transform-data-using-machine-learning.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Transformera data med hjälp av machine learning i Data Factory](../transform-data-using-machine-learning.md).
 
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
@@ -83,7 +83,7 @@ I det här scenariot Azure Machine Learning-webbtjänsten gör förutsägelser m
 > [!IMPORTANT]
 > Om webbtjänsten tar flera inmatningar kan använda den **webServiceInputs** egenskapen istället för att använda **webServiceInput**. Finns det [webbtjänst kräver flera indata](#web-service-requires-multiple-inputs) avsnittet ett exempel på hur du använder egenskapen webServiceInputs.
 >
-> Datauppsättningar som refererar till den **webServiceInput**/**webServiceInputs** och **webServiceOutputs** egenskaper (i **typeProperties**) måste också tas med i aktiviteten **indata** och **matar ut**.
+> Datauppsättningar som refererar till den **webServiceInput**/**webServiceInputs** och **webServiceOutputs** egenskaper (i  **typeProperties**) måste också tas med i aktiviteten **indata** och **matar ut**.
 >
 > Ha standardnamnen (”input1”, ”input2”) som du kan anpassa i experimentet Azure ML webbtjänst och portar och globala parametrar. De namn som du använder för webServiceInputs, webServiceOutputs och globalParameters inställningar måste exakt matcha namnen i experiment. Du kan visa nyttolasten i begäran av exemplet på Batch Execution sidan för din Azure ML-slutpunkt att verifiera förväntade mappningen.
 >

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 44abf7a4fc24893146179b34d3357f54450decab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 27f6ccadaa89042ebced759ac3040b5b79e1f8f8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365152"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051533"
 ---
 # <a name="azure-database-security-overview"></a>Översikt över säkerheten i Azure-databas
 
@@ -69,7 +69,7 @@ Du kan utföra flera åtgärder för att skydda databasen. Till exempel utforma 
 
 En lösning är att kryptera känsliga data i databasen och skydda nycklar som används för att kryptera data med ett certifikat. Den här lösningen förhindrar att någon utan nycklar med hjälp av data, men den här typen av skydd måste planeras.
 
-Du löser problemet, SQL Server och SQL Database-stöd [transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/securityrecryption/transparent-data-encryption-tde). Transparent datakryptering krypterar SQL Server och SQL Database-datafiler, kallas även krypteringsdata i vila.
+Du löser problemet, SQL Server och SQL Database-stöd [transparent datakryptering](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017). Transparent datakryptering krypterar SQL Server och SQL Database-datafiler, kallas även krypteringsdata i vila.
 
 Transparent datakryptering skyddar mot hot från skadlig aktivitet. Den genomför realtid kryptering och dekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler vilande utan ändringar i programmet.  
 

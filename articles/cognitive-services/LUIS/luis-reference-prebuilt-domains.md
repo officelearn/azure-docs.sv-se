@@ -10,15 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: v-geberr
-ms.openlocfilehash: 8e04853e0044e045158642fea51c225378eb3ad6
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 14c53bd25913922a0cd7cc438ad0fbe8b4663dd1
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319062"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061972"
 ---
-# <a name="prebuilt-domain-reference"></a>Fördefinierade referens
-Den här referensen innehåller information om de fördefinierade domäner som är färdiga samlingar med avsikter och entiteter som THOMAS erbjuder.
+# <a name="prebuilt-domain-reference"></a>Fördefinierad domänreferens
+Den här referensen innehåller information om den [färdiga domäner](luis-how-to-use-prebuilt-domains.md), som är färdiga samlingar med avsikter och entiteter som THOMAS erbjuder.
+
+[Anpassade domäner](create-new-app.md), däremot startar utan avsikter och modeller. Du kan lägga till några fördefinierade domän avsikter och enheter till en anpassad modell.
 
 ## <a name="list-of-prebuilt-domains"></a>Lista över fördefinierade domäner
 THOMAS erbjuder 20 fördefinierade domäner. 
@@ -41,7 +43,7 @@ THOMAS erbjuder 20 fördefinierade domäner.
 | Påminnelse | Begäranden som rör skapa, redigera och söka efter påminnelser.| sv-SE<br/> zh-CN |
 | RestaurantReservation | Hantera begäranden om att hantera restaurang reservationer.| sv-SE<br/> zh-CN |
 | Taxi | Hanterar bokningar för en taxi.| sv-SE<br/> zh-CN |
-| Översätta | Översätta text till ett mål-språk.| sv-SE<br/> zh-CN |
+| Översätt | Översätta text till ett mål-språk.| sv-SE<br/> zh-CN |
 | TV | Kontrollera TV-apparater.| sv-SE |
 | Samhällsservice  | Begäranden som är vanliga i många domäner som ”hjälp”, ”upprepa”, ”börja om från början”.| sv-SE |
 | Väder | Hämtar väderrapporter och prognoser.| sv-SE<br/> zh-CN |
@@ -442,7 +444,7 @@ restart|
 | RouteAvoidanceCriteria | Villkor för att undvika vägar som undvika missöden, konstruktioner eller vägtullar | Vägtullar <br/>Konstruktioner<br/>Väg 11|
 | ServiceProvided | Detta är den tjänst som tillhandahålls av ett företag eller plats, till exempel klippte dig, vinter plowing, landskapsformer. | klippte dig<br/>dvs<br/>rörmokare|
 | TransportationCompany | Namnet på en transportprovider.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | Transport-typen.|Bus<br/>Lär in<br/>Driving (Bil)|
+| TransportationType | Transport-typen.|Bus<br/>Träna<br/>Driving (Bil)|
 
 ## <a name="reminder"></a>Påminnelse 
 Domänen påminnelse ger avsikter och entiteter för att skapa, redigera och söka efter påminnelser.
@@ -523,9 +525,9 @@ Cancel my Uber
 | PlaceName | Namn på lokala företag restaurang, offentliga finns eller institut. |Central Park<br/>Safeway<br/>Walmart|
 | PlaceType| Typ av plats i en begäran om att boka en taxi.|Restaurang<br/>Opera<br/>filmer|
 | TransportationCompany | Namnet på en transportprovider.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | Transport-typen.|Bus<br/>Lär in<br/>Driving (Bil)|
+| TransportationType | Transport-typen.|Bus<br/>Träna<br/>Driving (Bil)|
 
-## <a name="translate"></a>Översätta 
+## <a name="translate"></a>Översätt 
 Översätt domänen ger avsikter och enheter som är relaterade till att översätta text till ett mål-språk.
 
 ### <a name="examples"></a>Exempel
@@ -538,7 +540,7 @@ Translate this sentence to English
 ### <a name="intents"></a>Avsikter
 | Avsiktshantering namn | Beskrivning | Exempel |
 | ---------------- |-----------------------|----|
-| Översätta| Översätta text till ett annat språk.|Omvandla till franska<br/>Översätta hello tyska|
+| Översätt| Översätta text till ett annat språk.|Omvandla till franska<br/>Översätta hello tyska|
 
 
 ### <a name="entities"></a>Entiteter

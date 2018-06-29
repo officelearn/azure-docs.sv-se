@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: ee4321b905396f78e7dad9248b9e377dad250a13
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 1a516c890441c3b703d43f31816b7c37cac364fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010983"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054389"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Resursen tjänstproviderns API-versioner som stöds av profiler i Azure-stacken
 
@@ -26,7 +26,7 @@ Du kan hitta resursprovidern och versionsnummer för varje API-profil som använ
 
 API-profilen använder tre namngivningsregler:
  - senaste
- - Åååå-mm-dd-hybrid
+ - åååå-mm-dd-hybrid
  - åååå-mm-dd-profil
 
 En förklaring av API-profiler och version versionen takt för Azure-Stack finns [hantera API-version-profiler i Azure-stacken](azure-stack-version-profiles.md).
@@ -144,11 +144,14 @@ Azure Compute-API: erna ger programmatisk åtkomst till virtuella datorer och de
 
 | Resurstyper | API-versioner |
 |--------------------|--------------------|
-| Varningsregler | 2016-03-01 |
-| Kategorier | 2017-03-01-preview |
-| Typer av händelse | 2017-03-01-preview |
-| Måttdefinitioner | 2016-03-01 |
 | Åtgärder | 2015-04-01 |
+| Typer av händelse | 2015-04-01 |
+| Kategorier | 2015-04-01 |
+| Måttdefinitioner | 2018-01-01 |
+| Mått | 2018-01-01 |
+| Diagnostikinställningar | 2017-05-01-preview |
+| Diagnostikinställningar för kategorier | 2017-05-01-preview |
+
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
@@ -157,7 +160,7 @@ Hantera din nyckel valv samt de nycklar och hemligheter certifikat inom ditt nyc
 | Resurstyper | API-versioner |
 |-------------------------|--------------|
 | Åtgärder | 2016-10-01 |
-| Valv | 2016-10-01 |
+| valv | 2016-10-01 |
 | Valv / åtkomstprinciper | 2016-10-01 |
 | Valv/hemligheter | 2016-10-01 |
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6bddb3d5beca57852ef62361b278ec1fa8961f45
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: edbef08eaa100248368d7f0b23171f15b52ec56a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621266"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050955"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Anropa MapReduce program från Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34621266"
 > * [Anpassad aktivitet för .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Transformera data med MapReduce activity från Data Factory version 2](../transform-data-using-hadoop-map-reduce.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Transformera data med MapReduce activity från Data Factory](../transform-data-using-hadoop-map-reduce.md).
 
 
 HDInsight MapReduce-aktiviteten i en Datafabrik [pipeline](data-factory-create-pipelines.md) MapReduce-program körs på [egna](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller [på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-baserade HDInsight-kluster. Den här artikeln bygger på den [data transformation aktiviteter](data-factory-data-transformation-activities.md) artikel som presenterar en allmän översikt över data transformation och stöds omvandling aktiviteter.
@@ -189,7 +189,7 @@ Pipeline i det här exemplet har endast en aktivitet som är av typen: HDInsight
 | Klassnamn |Namnet på klassen är: **wordcount** |
 | jarFilePath |Sökvägen till jar-filen som innehåller klassen. Om du kopiera och klistra in följande kod, Glöm inte att ändra namnet på klustret. |
 | jarLinkedService |Azure Storage länkade tjänst som innehåller jar-filen. Den här länkade tjänsten refererar till den lagring som är associerad med HDInsight-klustret. |
-| Argument |Wordcount-programmet tar två argument, indata och utdata. Indatafilen är davinci.txt-fil. |
+| argument |Wordcount-programmet tar två argument, indata och utdata. Indatafilen är davinci.txt-fil. |
 | frekvens/intervall |Värdena för dessa egenskaper matchar datamängd för utdata. |
 | linkedServiceName |refererar till länkad HDInsight-tjänsten som du har skapat tidigare. |
 

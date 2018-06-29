@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: cdfc3ceb1ce94c4653a710658c1df991d9ca2c30
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8253dfb6525496c78515a9382778a767f7da0771
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294453"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063586"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Vissa av min telemetri saknas
@@ -41,7 +41,7 @@ ms.locfileid: "35294453"
 *När jag högerklickar på ett befintligt projekt i Solution Explorer, visas inte alla alternativ som Application Insights.*
 
 * Inte alla typer av .NET-projekt som stöds av verktygen. Webb-och WCF stöds. För andra projekttyper, till exempel skrivbord eller tjänsten program kan du fortfarande [manuellt lägga till en Application Insights SDK i projektet](app-insights-windows-desktop.md).
-* Kontrollera att du har [Visual Studio 2013 Update 3 eller senare](http://go.microsoft.com/fwlink/?LinkId=397827). Det finns förinstallerat med utvecklare Analytics verktyg som ger Application Insights SDK.
+* Kontrollera att du har [Visual Studio 2013 Update 3 eller senare](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2013-update3-rtm-vs). Det finns förinstallerat med utvecklare Analytics verktyg som ger Application Insights SDK.
 * Välj **verktyg**, **tillägg och uppdateringar** och kontrollera att **Analytics utvecklingsverktyg** är installerat och aktiverat. I så fall, klickar du på **uppdateringar** om det finns en uppdatering.
 * Öppna dialogrutan Nytt projekt och välj ASP.NET-webbprogram. Om du ser det alternativet Application Insights är verktygen installerade. Om inte, försök att avinstallera och sedan installera Application Insights Tools.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: fdfb35b0e1c52ad2aad164a38ae308f9142880a6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25df96664f6b5fe9da26bee43bc726e05504e5b8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619634"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059117"
 ---
 # <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Läs in data till Azure Data Lake Store med hjälp av Azure Data Factory
 
@@ -35,9 +35,6 @@ Den här artikeln visar hur du använder verktyget Data Factory kopieringsdata t
 
 > [!NOTE]
 > Mer information finns i [kopiera data till och från Azure Data Lake Store med hjälp av Azure Data Factory](connector-azure-data-lake-store.md).
->
-> Den här artikeln gäller för version 2 av Azure Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Kopieringsaktiviteten i Azure Data Factory version 1](v1/data-factory-data-movement-activities.md).
-
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration: Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
@@ -56,7 +53,7 @@ Den här artikeln visar hur du använder verktyget Data Factory kopieringsdata t
     * **Namnet**: Ange ett globalt unikt namn för din Azure data factory. Om du får felet ”datafabriksnamnet \"LoadADLSDemo\" är inte tillgängligt” ange ett annat namn för data factory. Du kan till exempel använda namnet  _**dittnamn**_**ADFTutorialDataFactory**. Försök att skapa datafabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumerationen**: Välj din Azure-prenumeration att skapa datafabriken. 
     * **Resursgruppen**: Välj en befintlig resursgrupp från den nedrullningsbara listan eller Välj den **Skapa nytt** och ange namnet på en resursgrupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
-    * **Version**: Välj **V2 (förhandsgranskning)**.
+    * **Version**: Välj **V2**.
     * **Plats**: Välj platsen för data factory. Endast platser som stöds visas i listrutan. Datalager som används av datafabriken kan vara på andra platser och regioner. Lagrar dessa data inkluderar Azure Data Lake Store, Azure Storage, Azure SQL Database och så vidare.
 
 3. Välj **Skapa**.
@@ -74,35 +71,45 @@ Den här artikeln visar hur du använder verktyget Data Factory kopieringsdata t
 2. I den **egenskaper** anger **CopyFromAmazonS3ToADLS** för den **aktivitet** och markerar **nästa**:
 
     ![Sidan Egenskaper](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)
-3. I den **källa datalagret** väljer **Amazon S3**, och välj **nästa**:
+3. I den **källa datalagret** klickar du på **+ Skapa ny anslutning**:
 
     ![Sidan Källdatalager](./media/load-data-into-azure-data-lake-store/source-data-store-page.png)
+    
+    Välj **Amazon S3**, och välj **Fortsätt**
+    
+    ![Datakälla data store s3 på sidan](./media/load-data-into-azure-data-lake-store/source-data-store-page-s3.png)
+    
 4. I den **ange Amazon S3 anslutning** gör du följande: 
    1. Ange den **åtkomst nyckel-ID** värde.
    2. Ange den **hemlighet åtkomstnyckel** värde.
-   3. Välj **Nästa**.
+   3. Välj **Slutför**.
    
    ![Ange Amazon S3 konto](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+   
+   4. Du ser en ny anslutning. Välj **Nästa**.
+   
+   ![Ange Amazon S3 konto](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
+   
 5. I den **Välj inkommande filen eller mappen** sidan, bläddra till mappen och filen som du vill kopiera över. Välj mappen/filen **Välj**, och välj sedan **nästa**:
 
     ![Välj indatafil eller mapp](./media/load-data-into-azure-data-lake-store/choose-input-folder.png)
 
-6. I den **data målarkiv** väljer **Azure Data Lake Store**, och välj **nästa**:
-
-    ![Sidan Måldatalager](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
-
-7. Välj Kopiera beteendet genom att välja den **kopiera filer rekursivt** och **binära kopiera** (kopiera filer som-är) alternativ. Välj **nästa**:
+6. Välj Kopiera beteendet genom att välja den **kopiera filer rekursivt** och **binära kopiera** (kopiera filer som-är) alternativ. Välj **nästa**:
 
     ![Ange utdatamapp](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
+    
+7. I den **data målarkiv** klickar du på **+ Skapa ny anslutning**, och välj sedan **Azure Data Lake Store**, och välj **Fortsätt**:
+
+    ![Sidan Måldatalager](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
 
 8. I den **ange Data Lake Store anslutning** gör du följande: 
 
    1. Välj din Data Lake Store för den **Data Lake Store-kontonamnet**.
-   2. Ange tjänstens huvudnamn information: **klient**, **tjänsten ägar-ID**, och **Service principal key**.
+   2. Ange den **klient**, och klicka på Slutför.
    3. Välj **Nästa**.
    
    > [!IMPORTANT]
-   > I den här genomgången ska du använda en _tjänstens huvudnamn_ att autentisera ditt Data Lake Store. Se till att ge tjänstens huvudnamn i Azure Data Lake Store rätt behörighet genom att följa [instruktionerna](connector-azure-data-lake-store.md#using-service-principal-authentication).
+   > I den här genomgången ska du använda en _hanterade tjänstidentiteten_ att autentisera ditt Data Lake Store. Se till att ge tjänstens huvudnamn i Azure Data Lake Store rätt behörighet genom att följa [instruktionerna](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
    ![Ange Azure Data Lake Store-konto](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. I den **välja filen eller mappen** anger **copyfroms3** som utdata mappnamn och välj **nästa**: 

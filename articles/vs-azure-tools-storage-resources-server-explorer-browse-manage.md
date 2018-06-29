@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: 0beeb8fb7f7e46db97e179f3eacf3c68dd92cff3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c9828504ab40a1e62c107f218fda024be6330c23
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798588"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061751"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Bläddra bland och hantera lagringsresurser med hjälp av Server Explorer
 
@@ -157,7 +157,7 @@ Följande bild visar en kö som innehåller två meddelanden:
 
 ![Visa en kö](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
 
-För mer information om storage services köer, se [komma igång med Azure Queue storage med hjälp av .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Information om webbtjänsten för lagringstjänster köer, finns [kötjänst-koncept](http://go.microsoft.com/fwlink/?LinkId=264788). Information om hur du skickar meddelanden till en kö för storage-tjänster med hjälp av Visual Studio finns [skicka meddelanden till en kö för Storage Services](https://msdn.microsoft.com/library/azure/jj649344.aspx).
+För mer information om storage services köer, se [komma igång med Azure Queue storage med hjälp av .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Information om webbtjänsten för lagringstjänster köer, finns [kötjänst-koncept](http://go.microsoft.com/fwlink/?LinkId=264788). Information om hur du skickar meddelanden till en kö för storage-tjänster med hjälp av Visual Studio finns [skicka meddelanden till en kö för Storage Services](https://docs.microsoft.com/azure/visual-studio/vs-storage-cloud-services-getting-started-queues).
 
 > [!NOTE]
 > Tjänster lagringsköer skiljer sig från Azure Service Bus-köer. Läs mer om Service Bus-köer, [Service Bus-köer, ämnen och prenumerationer](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).

@@ -294,15 +294,15 @@
             - name: Erbjuder ett Kubernetes kluster
               href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Användning och fakturering
+          href: azure-stack-billing-and-chargeback.md
           items:
-            - name: Översikt
-              href: azure-stack-billing-and-chargeback.md
             - name: Hantera användningen och fakturering som en Kryptografiprovider
               href: azure-stack-add-manage-billing-as-a-csp.md
-            - name: Lägg till klienter för användning och fakturering
-              href: azure-stack-csp-howto-register-tenants.md
-            - name: Hantera klient-registrering
-              href: azure-stack-csp-ref-operations.md
+              items:
+                - name: Lägg till klienter för användning och fakturering
+                  href: azure-stack-csp-howto-register-tenants.md
+                - name: Hantera klient-registrering
+                  href: azure-stack-csp-ref-operations.md
             - name: Användnings- och fakturering referens
               items:
                 - name: Rapportering av användningsdata

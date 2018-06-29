@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nitinme
-ms.openlocfilehash: b80c49b67c7cca835ae08346561984e168e3df4e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6ccdb1fff5ecdcb61beedf1b12904d3785d4921d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31392178"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048513"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Maskininlärning på HDInsight
 
@@ -33,13 +33,13 @@ Microsoft Machine Learning-biblioteket för Apache Spark [MMLSpark](https://gith
 
 ## <a name="r"></a>R
 
-[R](https://www.r-project.org/) för närvarande är det mest populära statistiska programmeringsspråket i världen. Det är en öppen källkod data visualiseringen verktyg med över 2,5 miljoner användare och växande. Med dess framgångsrika användarbas och än 8 000 överförda paket är R ett troligt alternativ för många företag som behöver maskininlärning. Du kan skapa ett HDInsight-kluster med R-Server som är redo att användas med stora datauppsättningar och modeller. Den här funktionen gör dataanalytiker och statistiker med ett bekant R-gränssnitt som kan skalas på begäran via HDInsight, utan extra kostnader för konfiguration och underhåll.
+[R](https://www.r-project.org/) för närvarande är det mest populära statistiska programmeringsspråket i världen. Det är en öppen källkod data visualiseringen verktyg med över 2,5 miljoner användare och växande. Med dess framgångsrika användarbas och än 8 000 överförda paket är R ett troligt alternativ för många företag som behöver maskininlärning. Du kan skapa ett HDInsight-kluster med ML-tjänster som är redo att användas med stora datauppsättningar och modeller. Den här funktionen gör dataanalytiker och statistiker med ett bekant R-gränssnitt som kan skalas på begäran via HDInsight, utan extra kostnader för konfiguration och underhåll.
 
 ![Utbildning för förutsägelse med R server](./media/hdinsight-machine-learning-overview/r-training.png)
 
 Edge-nod i ett kluster ger en lämplig plats att ansluta till klustret och köra R-skript.  Du har också möjlighet att köra R-skript mellan noder i klustret med hjälp av Scaler's Hadoop kartan minska eller compute kontexter för Spark.
 
-Med R Server på HDInsight med Spark parallelize du utbildning mellan noder i ett kluster med hjälp av en Spark beräknings-kontext. Du kan köra R-skript direkt på kantnoden använder alla tillgängliga kärnor parallellt, vid behov. Alternativt kan du köra din kod från kantnod till startar bearbetning som är fördelade på alla noder i klustret. R Server på HDInsight med Spark kan också parallelizing funktioner från öppen källkod R-paket, om så önskas.
+ML tjänster på HDInsight med Spark parallelize du utbildning mellan noder i ett kluster med hjälp av en Spark beräknings-kontext. Du kan köra R-skript direkt på kantnoden använder alla tillgängliga kärnor parallellt, vid behov. Alternativt kan du köra din kod från kantnod till startar bearbetning som är fördelade på alla noder i klustret. ML-tjänster på HDInsight med Spark kan också parallelizing funktioner från öppen källkod R-paket, om så önskas.
 
 ## <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning och Hive
 

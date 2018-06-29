@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: f648bec7530260a6445f74b6d141140f728674ee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: aaec710dd6c12f96a479a1f41603351512da1df6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617169"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054678"
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Kopiera data från OData-datakälla med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-odata-connector.md)
-> * [Version 2 – förhandsversion](connector-odata.md)
+> * [Version 1](v1/data-factory-odata-connector.md)
+> * [Aktuell version](connector-odata.md)
 
 Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från en OData-källa. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [OData-anslutningen i V1](v1/data-factory-odata-connector.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -53,7 +50,7 @@ Följande egenskaper stöds för länkad OData-tjänst:
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **OData** |Ja |
 | url | Rot-URL för OData-tjänsten. |Ja |
-| AuthenticationType | Typ av autentisering som används för att ansluta till OData-källan.<br/>Tillåtna värden är: **anonym**, **grundläggande**, och **Windows**. Observera OAuth inte stöds. | Ja |
+| authenticationType | Typ av autentisering som används för att ansluta till OData-källan.<br/>Tillåtna värden är: **anonym**, **grundläggande**, och **Windows**. Observera OAuth inte stöds. | Ja |
 | Användarnamn | Ange användarnamnet om du använder grundläggande eller Windows-autentisering. | Nej |
 | lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
@@ -207,12 +204,12 @@ När du kopierar data från OData, används följande mappningar från OData-dat
 
 | OData-datatyp | Data factory tillfälliga datatyp |
 |:--- |:--- |
-| Edm.Binary | byte] |
-| Edm.Boolean | bool |
-| Edm.Byte | byte] |
+| Edm.Binary | Byte] |
+| Edm.Boolean | Bool |
+| Edm.Byte | Byte] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
-| Edm.Double | dubbla |
+| Edm.Double | Dubbel |
 | Edm.Single | Enkel |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |

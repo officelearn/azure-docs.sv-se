@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 51a0f43587b9d34a3693eb4a2927d10c71bd95d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59631ee0115c817da1b0588c1ad37d2f8b34db67
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621759"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053674"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Compute länkade tjänster i version 2](../compute-linked-services.md).
+> Den här artikeln gäller för version 1 av Azure Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Compute länkade tjänster i](../compute-linked-services.md).
 
 Den här artikeln förklaras i beräknings-miljöer där du kan använda för att bearbeta eller Transformera data. Det ger också information om olika konfigurationer (på begäran och sätta egna) att beräkna Data Factory-stöd när du konfigurerar länkade tjänster som länkar dessa miljöer till ett Azure data factory.
 
@@ -66,7 +66,7 @@ Efter den 31 juli 2018:
 - Om du använder en länkad HDInsight-tjänst för på begäran för att köra Data Factory version 1 DotNet anpassad aktivitet, uppdatering DotNet anpassad aktivitet JSON-definition i stället använda en Azure Batch länkade tjänsten. Mer information finns i [använda anpassade aktiviteter i en Data Factory-pipelinen](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities). 
 
 > [!Note]
-> Om du använder din befintliga bring your own klustret HDInsight länkad enhet i Data Factory version 1 eller en bring your own och på begäran länkad HDInsight-tjänst i Azure Data Factory version 2, ingen åtgärd krävs. I dessa fall tillämpas redan den senaste principen för versionen av HDInsight-kluster. 
+> Om du använder din befintliga bring your own klustret HDInsight länkad enheten i Data Factory version 1 eller en bring your own och på begäran länkad HDInsight-tjänst i Azure Data Factory, ingen åtgärd krävs. I dessa fall tillämpas redan den senaste principen för versionen av HDInsight-kluster. 
 >
 > 
 
@@ -393,7 +393,7 @@ För autentisering av användare autentiseringsuppgifter för Data Lake Analytic
 | Egenskap           | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
 | Auktorisering | I Data Factory-redigeraren, Välj den **auktorisera** knappen. Ange autentiseringsuppgifter som tilldelar automatiskt genererade auktorisering URL till den här egenskapen. | Ja      |
-| Sessions-ID     | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unikt och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja      |
+| sessions-ID     | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unikt och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja      |
 
 **Exempel: Användarautentisering för autentiseringsuppgifter**
 ```json

@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 996b1e5cbc477bf8a67a8cbb118961aaedf151fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3a24e919f1bbde6188e3655399f1ef843fbec23b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621514"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052998"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Flytta data till och från Azure-tabellen med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-azure-table-connector.md)
-> * [Version 2 – förhandsversion](../connector-azure-table-storage.md)
+> * [Version 1](data-factory-azure-table-connector.md)
+> * [Version 2 (aktuell version)](../connector-azure-table-storage.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Azure Table Storage connector i V2](../connector-azure-table-storage.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Azure Table Storage connector i V2](../connector-azure-table-storage.md).
 
 Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data Factory för att flytta data till och från Azure Table Storage. Den bygger på den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel som presenterar en allmän översikt över dataflyttning med copy-aktivitet. 
 
@@ -38,7 +38,7 @@ Du kan skapa en pipeline med en kopia-aktivitet som flyttar data till och från 
 
 Det enklaste sättet att skapa en pipeline är att använda den **guiden Kopiera**. Finns [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall** , **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Om du använder verktyg eller API: er, kan du utföra följande steg för att skapa en pipeline som flyttar data från ett dataarkiv som källa till ett dataarkiv som mottagare: 
 
@@ -477,7 +477,7 @@ När du flyttar data till och från Azure Table följande [mappningar som defini
 | OData-datatyp | .NET-typ | Information |
 | --- | --- | --- |
 | Edm.Binary |byte |En matris med byte upp till 64 KB. |
-| Edm.Boolean |bool |Ett booleskt värde. |
+| Edm.Boolean |Bool |Ett booleskt värde. |
 | Edm.DateTime |DateTime |En 64-bitars värdet uttrycks som Coordinated Universal Time (UTC). Det intervall som stöds för den DateTime som börjar från midnatt, 1 januari, 1601 e. kr. (C.E.) UTC. Intervallet slutar vid den 31 December 9999. |
 | Edm.Double |double |En 64-bitars flytande punktvärdet. |
 | Edm.Guid |GUID |En 128-bitars globalt unik identifierare. |

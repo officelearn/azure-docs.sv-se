@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6826d87e5613ce4892e9fd839c66ec26282ad188
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e8d3b83c8508ae5913975edcbf89f4e70a8b08be
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622133"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050856"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformera data med hjälp av Hive aktivitet i Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34622133"
 > * [Anpassad aktivitet för .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Transformera data med Hive aktivitet från Data Factory version 2](../transform-data-using-hadoop-hive.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Transformera data med Hive aktivitet från Data Factory](../transform-data-using-hadoop-hive.md).
 
 HDInsight Hive-aktivitet i en Datafabrik [pipeline](data-factory-create-pipelines.md) kör Hive-frågor på [egna](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller [på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-baserade HDInsight-kluster. Den här artikeln bygger på den [data transformation aktiviteter](data-factory-data-transformation-activities.md) artikel som presenterar en allmän översikt över data transformation och stöds omvandling aktiviteter.
 
@@ -82,7 +82,7 @@ HDInsight Hive-aktivitet i en Datafabrik [pipeline](data-factory-create-pipeline
 | inmatningar |Indata som används av Hive-aktiviteten |Nej |
 | utdata |Utdata som produceras av aktiviteten Hive |Ja |
 | linkedServiceName |Referens till HDInsight-kluster som är registrerat som en länkad tjänst i Data Factory |Ja |
-| Skriptet |Ange infogat för Hive-skript |Nej |
+| skriptet |Ange infogat för Hive-skript |Nej |
 | sökvägen för skriptet |Lagra Hive-skript i ett Azure blob storage och ange sökvägen till filen. Använd egenskapen 'script' eller 'scriptPath'. Båda kan inte användas tillsammans. Filnamnet är skiftlägeskänslig. |Nej |
 | definierar |Ange parametrar som nyckel/värde-par för refererar till i Hive-skript med hjälp av 'hiveconf' |Nej |
 

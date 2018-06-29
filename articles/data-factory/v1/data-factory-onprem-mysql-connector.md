@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9075c774d0b56b6609616205e30b5a7d484fa031
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 34de57188dffb7375889ed9ed89a759238b035ac
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808102"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046892"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Flytta data från MySQL med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-onprem-mysql-connector.md)
-> * [Version 2 – förhandsversion](../connector-mysql.md)
+> * [Version 1](data-factory-onprem-mysql-connector.md)
+> * [Version 2 (aktuell version)](../connector-mysql.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [MySQL-anslutningen i V2](../connector-mysql.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [MySQL-anslutningen i V2](../connector-mysql.md).
 
 
 Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data Factory för att flytta data från en lokal MySQL-databas. Den bygger på den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel som presenterar en allmän översikt över dataflyttning med copy-aktivitet.
@@ -52,7 +52,7 @@ För Data Management Gateway att ansluta till MySQL-databas, måste du installer
 Du kan skapa en pipeline med en kopia-aktivitet som flyttar data från en lokal Cassandra data store med hjälp av olika verktyg/API: er. 
 
 - Det enklaste sättet att skapa en pipeline är att använda den **guiden Kopiera**. Finns [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall** , **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Om du använder verktyg eller API: er, kan du utföra följande steg för att skapa en pipeline som flyttar data från ett dataarkiv som källa till ett dataarkiv som mottagare:
 
@@ -72,8 +72,8 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | typ |Egenskapen type måste anges till: **OnPremisesMySql** |Ja |
 | server |Namnet på MySQL-servern. |Ja |
 | databas |Namnet på MySQL-databas. |Ja |
-| Schemat |Namnet på schemat i databasen. |Nej |
-| AuthenticationType |Typ av autentisering som används för att ansluta till MySQL-databas. Möjliga värden är: `Basic`. |Ja |
+| schemat |Namnet på schemat i databasen. |Nej |
+| authenticationType |Typ av autentisering som används för att ansluta till MySQL-databas. Möjliga värden är: `Basic`. |Ja |
 | användarnamn |Ange användarnamn för att ansluta till MySQL-databas. |Ja |
 | lösenord |Ange lösenordet för det användarkonto som du angett. |Ja |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala MySQL-databasen. |Ja |
@@ -305,37 +305,37 @@ När du flyttar data att MySQL används följande mappningar från MySQL-typer t
 | bigint osignerade |Decimal |
 | bigint |Int64 |
 | bitar |Decimal |
-| blob |byte] |
-| bool |Boolesk |
+| blob |Byte] |
+| Bool |Boolesk |
 | Char |Sträng |
 | datum |DateTime |
 | datetime |DateTime |
 | Decimal |Decimal |
-| dubbel precision |dubbla |
-| double |dubbla |
+| dubbel precision |Dubbel |
+| double |Dubbel |
 | Enum |Sträng |
 | flyt |Enkel |
 | int osignerade |Int64 |
 | int |Int32 |
 | heltal osignerade |Int64 |
 | heltal |Int32 |
-| lång varbinary |byte] |
+| lång varbinary |Byte] |
 | lång varchar |Sträng |
-| longblob |byte] |
+| longblob |Byte] |
 | LONGTEXT |Sträng |
-| mediumblob |byte] |
+| mediumblob |Byte] |
 | mediumint osignerade |Int64 |
 | mediumint |Int32 |
 | mediumtext |Sträng |
 | numeriskt |Decimal |
-| Verklig |dubbla |
+| Verklig |Dubbel |
 | Ange |Sträng |
 | smallint osignerade |Int32 |
 | smallint |Int16 |
 | text |Sträng |
 | time |TimeSpan |
 | tidsstämpel |DateTime |
-| tinyblob |byte] |
+| tinyblob |Byte] |
 | tinyint osignerade |Int16 |
 | tinyint |Int16 |
 | tinytext |Sträng |

@@ -1,15 +1,15 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 32fdc23aded78ca491fbde2ef5c76247c56d0c4c
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 509d2bc3f58c57a3e2e15eed2ea2c70ed17856f3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313752"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063705"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Förskottsbetala virtuella datorer med Azure reserverade VM-instanser
 
-Betala i förhand för virtuella datorer och spara pengar med Azure reserverade virtuella datorn (VM)-instanser. Mer information finns i [Azure reserverade instanser erbjudande](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Betala i förhand för virtuella datorer och spara pengar med Azure reserverade virtuella datorn (VM)-instanser. Mer information finns i [Azure reserverade VM-instanser erbjudande](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
 Du kan köpa Azure reserverade instanser den [Azure-portalen](https://portal.azure.com). Att köpa en reserverad instans:
 -   Du måste ha en ägarrollen för minst en Enterprise- eller prenumeration med användningsbaserad betalning.
@@ -50,12 +50,12 @@ Du måste använda en av de metoder som beskrivs nedan för att identifiera den 
 ## <a name="next-steps"></a>Nästa steg 
 Reserverade rabatten används automatiskt antalet virtuella datorer som matchar reserverade scope och attribut som körs. Du kan uppdatera omfånget för den reserverade instans via [Azure-portalen](https://portal.azure.com), PowerShell, CLI eller via API: et. 
 
-Information om hur du hanterar en reserverad instans finns [hantera Azure reserverade instanser](../articles/billing/billing-manage-reserved-vm-instance.md).
+Information om hur du hanterar en reserverad instans finns [hantera reserverade instanser i Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
 
 Mer information om Azure reserverade instanser finns i följande artiklar:
 
-- [Spara pengar på virtuella datorer med reserverade instanser](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Hantera Azure reserverade instanser](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [Vad är Azure reserverade VM-instanser?](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Hantera reserverade instanser i Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
 - [Förstå hur de reserverade rabatterna används](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [Förstå reserverade användning för din prenumeration med användningsbaserad betalning](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Förstå reserverade användning för Enterprise-registrering](../articles/billing/billing-understand-reserved-instance-usage-ea.md)

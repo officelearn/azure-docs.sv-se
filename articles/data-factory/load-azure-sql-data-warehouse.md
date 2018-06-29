@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: b035141c443c3dad18c3e9bfbc53581a7d180e5a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b96483232a1da5ae21e6ba8cbe873d876d38ed11
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333835"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050309"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Läs in data till Azure SQL Data Warehouse med hjälp av Azure Data Factory
 
@@ -35,9 +35,6 @@ Den här artikeln visar hur du använder verktyget Data Factory kopieringsdata t
 
 > [!NOTE]
 > Mer information finns i [kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory](connector-azure-sql-data-warehouse.md).
->
-> Den här artikeln gäller för version 2 av Azure Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Kopieringsaktiviteten i Azure Data Factory version 1](v1/data-factory-data-movement-activities.md).
-
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration: Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
@@ -57,7 +54,7 @@ Den här artikeln visar hur du använder verktyget Data Factory kopieringsdata t
     * **Namnet**: Ange ett globalt unikt namn för din Azure data factory. Om du får felet ”datafabriksnamnet \"LoadSQLDWDemo\" är inte tillgängligt” ange ett annat namn för data factory. Du kan till exempel använda namnet  _**dittnamn**_**ADFTutorialDataFactory**. Försök att skapa datafabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumerationen**: Välj din Azure-prenumeration att skapa datafabriken. 
     * **Resursgruppen**: Välj en befintlig resursgrupp från den nedrullningsbara listan eller Välj den **Skapa nytt** och ange namnet på en resursgrupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
-    * **Version**: Välj **V2 (förhandsgranskning)**.
+    * **Version**: Välj **V2**.
     * **Plats**: Välj platsen för data factory. Endast platser som stöds visas i listrutan. Datalager som används av datafabriken kan vara på andra platser och regioner. Lagrar dessa data inkluderar Azure Data Lake Store, Azure Storage, Azure SQL Database och så vidare.
 
 3. Välj **Skapa**.
@@ -90,9 +87,9 @@ Den här artikeln visar hur du använder verktyget Data Factory kopieringsdata t
    
     ![Konfigurera Azure SQL-databas](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
-    d. Välj den nyligen skapade länkade tjänsten som källa och klicka sedan på **nästa**.
+    d. Välj den nyligen skapade länkade tjänsten som källa och klicka sedan på **Nästa**.
 
-    ![Välj källa länkad tjänst](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
+    ![Välj källa för den länkade tjänsten](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
 
 4. I den **Välj tabeller som du vill kopiera data eller använda en anpassad fråga** anger **SalesLT** att filtrera tabellerna. Välj den **(Markera allt)** om du vill använda alla tabeller för kopian och välj sedan **nästa**: 
 

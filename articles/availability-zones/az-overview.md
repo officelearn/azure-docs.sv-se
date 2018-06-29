@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2018
+ms.date: 06/27/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 7a67d65621da129640d3bb551cb0976ec1912050
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 6a4dcc2cd3b196221b881783c79ddb0adaa6f38b
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284812"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063671"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Vad är tillgänglighet zoner i Azure?
 Tillgänglighet zoner är en hög tillgänglighet erbjudande som skyddar program och data från fel datacenter. Tillgänglighet zoner är unika fysiska platser i en Azure-region. Varje zon består av en eller flera datacenter med oberoende ström, kylning och nätverk. För att säkerställa återhämtning, finns det minst tre separata zoner i alla aktiverade regioner. Fysisk avgränsning av tillgänglighet zoner inom en region skyddar program och data från fel datacenter. Zonredundant services replikeras dina program och data tillgänglighet zoner för att skydda från enkel punkter av fel. Azure erbjuder branschen bästa 99,99% VM drifttid SLA med tillgänglighet zoner. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
@@ -42,7 +42,7 @@ Skapa din programarkitektur med Azure-region par kombinationen av tillgänglighe
 - Centrala USA
 - Frankrike, centrala
 - Östra USA 2 (förhandsgranskning)
-- Västra Europa (förhandsgranskning)
+- Västra Europa
 - Sydostasien (förhandsgranskning)
 
 
@@ -59,6 +59,8 @@ Azure-tjänster som stöder tillgänglighet zoner är:
 - SQL Database
 - Event Hubs
 - Service Bus
+- VPN Gateway
+- ExpressRoute
 
 
 ## <a name="pricing"></a>Prissättning
@@ -73,6 +75,9 @@ Det finns utan extra kostnad för virtuella datorer i en zon för tillgänglighe
 - [Belastningsutjämna virtuella datorer i en zon med en zonal klientdel Standard belastningsutjämning](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Zonredundant lagring](../storage/common/storage-redundancy-zrs.md)
 - [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration-preview)
+- [Event Hubs geo-katastrofåterställning](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
+- [Service Bus geo-katastrofåterställning](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+- [Skapa en zonredundant virtuell nätverksgateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,6 +1,6 @@
 ---
-title: Använda befintliga NPS-servrar för att ge funktioner för Azure MFA | Microsoft Docs
-description: Lägga till molnbaserade tvåstegsverifiering vericiation funktioner i din befintliga infrastruktur för autentisering
+title: Använda befintliga NPS-servrar för att ge funktioner för Azure MFA
+description: Lägga till molnbaserade tvåstegsverifiering verifiering funktioner i din befintliga infrastruktur för autentisering
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 2b08c3adb0c638cdfa0ccd9ae4c5beacac822eb4
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: ac2b0e2ba3eff83462ded91bcd0ac9a7309f73b4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018314"
+ms.locfileid: "37031149"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga infrastruktur för NPS med Azure Multi-Factor Authentication
 
@@ -58,8 +58,8 @@ Windows Server 2008 R2 SP1 eller senare.
 
 Dessa bibliotek installeras automatiskt med tillägget.
 
--   [Visual C++ Redistributable-paket för Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Microsoft Azure Active Directory-modulen för Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Visual C++ Redistributable-paket för Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Microsoft Azure Active Directory-modulen för Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 Den Microsoft Azure Active Directory-modulen för Windows PowerShell installeras, om det inte redan finns, via ett konfigurationsskript som du körs som en del av installationen. Det finns inget behov av att installera den här modulen i förväg om den inte redan är installerad.
 
@@ -70,6 +70,13 @@ Alla som använder tillägget NPS måste synkroniseras till Azure Active Directo
 När du installerar tillägget behöver du autentiseringsuppgifter för katalog-ID och administratör för Azure AD-klienten. Du kan hitta din katalog-ID i den [Azure-portalen](https://portal.azure.com). Logga in som administratör, Välj den **Azure Active Directory** ikon på vänster och välj sedan **egenskaper**. Kopiera GUID i den **katalog-ID** och spara den. Du kan använda detta GUID som klient-ID när du installerar NPS-tillägget.
 
 ![Hitta din katalog-ID under Azure Active Directory-egenskaper](./media/howto-mfa-nps-extension/find-directory-id.png)
+
+### <a name="network-requirements"></a>Nätverkskrav
+
+NPS-servern måste kunna kommunicera med följande webbadresser via portarna 80 och 443.
+
+* https://adnotifications.windowsazure.com  
+* https://login.microsoftonline.com
 
 ## <a name="prepare-your-environment"></a>Förbered din miljö
 
@@ -115,7 +122,7 @@ Du kan [inaktivera stöds inte autentiseringsmetoder](howto-mfa-mfasettings.md#s
 
 ### <a name="register-users-for-mfa"></a>Registrera användare för MFA
 
-Innan du distribuerar och använder NPS-tillägget, måste användare som kommer att behöva utföra tvåstegsverifiering registreras för MFA. Mer direkt om du vill testa tillägget när du distribuerar det, behöver du minst ett testkonto som är fullständigt registrerad för Multifaktorautentisering.
+Innan du distribuerar och använder NPS-tillägget, måste användare som krävs för att utföra tvåstegsverifiering registreras för MFA. Mer direkt om du vill testa tillägget när du distribuerar det, behöver du minst ett testkonto som är fullständigt registrerad för Multifaktorautentisering.
 
 Följ dessa steg för att hämta ett testkonto igång:
 1. Logga in på [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) med ett testkonto. 
@@ -131,19 +138,19 @@ Användarna måste också att följa dessa steg för att registrera innan de kan
 
 ### <a name="download-and-install-the-nps-extension-for-azure-mfa"></a>Hämta och installera NPS-tillägget för Azure MFA
 
-1.  [Hämta tillägget NPS](https://aka.ms/npsmfa) från Microsoft Download Center.
-2.  Kopiera den binära filen till nätverksprincipservern som du vill konfigurera.
-3.  Kör *setup.exe* och Följ installationsanvisningarna. Om det uppstår fel kontrollerar du att två bibliotek från avsnittet förutsättningar har installerats.
+1. [Hämta tillägget NPS](https://aka.ms/npsmfa) från Microsoft Download Center.
+2. Kopiera den binära filen till nätverksprincipservern som du vill konfigurera.
+3. Kör *setup.exe* och Följ installationsanvisningarna. Om det uppstår fel kontrollerar du att två bibliotek från avsnittet förutsättningar har installerats.
 
 ### <a name="run-the-powershell-script"></a>Kör PowerShell-skriptet
 
-Installationsprogrammet skapar en PowerShell-skript på den här platsen: `C:\Program Files\Microsoft\AzureMfa\Config` (där C:\ är installationsenheten). Det här PowerShell-skriptet utförs följande åtgärder:
+Installationsprogrammet skapar en PowerShell-skript på den här platsen: `C:\Program Files\Microsoft\AzureMfa\Config` (där C:\ är installationsenheten). Detta PowerShell-skript följande åtgärder utförs varje gång den körs:
 
--   Skapa ett självsignerat certifikat.
--   Koppla den offentliga nyckeln för certifikatet till tjänstens huvudnamn på Azure AD.
--   Lagra certifikatet i lokala datorns certifikatarkiv.
--   Bevilja åtkomst till certifikatets privata nyckel till användare i nätverket.
--   Starta om NPS.
+- Skapa ett självsignerat certifikat.
+- Koppla den offentliga nyckeln för certifikatet till tjänstens huvudnamn på Azure AD.
+- Lagra certifikatet i lokala datorns certifikatarkiv.
+- Bevilja åtkomst till certifikatets privata nyckel till användare i nätverket.
+- Starta om NPS.
 
 Om du inte vill använda dina egna certifikat (i stället för de självsignerade certifikat som genereras av PowerShell-skriptet), Kör PowerShell-skript för att slutföra installationen. Om du installerar tillägget på flera servrar, ha var och en sina egna certifikat.
 
@@ -162,8 +169,8 @@ Om du inte vill använda dina egna certifikat (i stället för de självsignerad
 
 Upprepa dessa steg på ytterligare NPS-servrar som du vill konfigurera för belastningsutjämning.
 
->[!NOTE]
->Om du använder egna certifikat i stället för att certifikat med PowerShell-skript, kontrollera att justera NPS namngivningskonventionen. Ämnesnamn måste vara **CN =\<TenantID\>, OU = Microsoft NPS tillägget**. 
+> [!NOTE]
+> Om du använder egna certifikat i stället för att certifikat med PowerShell-skript, kontrollera att justera NPS namngivningskonventionen. Ämnesnamn måste vara **CN =\<TenantID\>, OU = Microsoft NPS tillägget**. 
 
 ## <a name="configure-your-nps-extension"></a>Konfigurera NPS-tillägget
 
@@ -172,7 +179,7 @@ Det här avsnittet innehåller överväganden vid utformning och förslag för l
 ### <a name="configuration-limitations"></a>Begränsningar för konfiguration
 
 - NPS-tillägget för Azure MFA innehåller inte verktyg för att migrera användare och inställningar från MFA-Server till molnet. Därför föreslår vi använder tillägget för nya distributioner, i stället för befintlig distribution. Om du använder tillägget på en befintlig distribution kan måste användarna utföra bevis upp igen för att fylla i information om MFA i molnet.  
-- NPS-tillägget använder UPN från lokala Active directory för att identifiera användaren vid Azure MFA för att utföra den sekundära auktor Tillägget kan konfigureras för att använda en annan identifierare som alternativt inloggnings-ID eller anpassade Active Directory-fältet än UPN. Se [avancerade konfigurationsalternativ för NPS-tillägg för multi-Factor Authentication](howto-mfa-nps-extension-advanced.md) för mer information.
+- NPS-tillägget använder UPN från lokala Active directory för att identifiera användaren vid Azure MFA för att utföra den sekundära auktor Tillägget kan konfigureras för att använda en annan identifierare som alternativt inloggnings-ID eller anpassade Active Directory-fältet än UPN. Mer information finns i artikeln [avancerade konfigurationsalternativ för NPS-tillägget för Multifaktorautentisering](howto-mfa-nps-extension-advanced.md).
 - Inte alla krypteringsprotokoll stöder alla verifieringsmetoderna.
    - **PAP** stöder telefonsamtal, enkelriktade SMS, mobilappavisering och Verifieringskod för mobila appar
    - **CHAPv2** och **EAP** stöd för telefonsamtal och mobilappavisering
@@ -232,12 +239,15 @@ Det här felet kan bero på ett av flera skäl. Följ dessa steg för att felsö
 
 Kontrollera att AD Connect är igång och att användaren finns i både Windows Active Directory och Azure Active Directory.
 
-------------------------------------------------------------
+-------------------------------------------------------------
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Varför ser HTTP connect-fel i loggarna med min autentiseringar misslyckas?
 
 Kontrollera att https://adnotifications.windowsazure.com kan nås från den server som kör NPS-tillägget.
 
+## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Hantering av TLS/SSL-protokoll och krypteringssviter
+
+Du rekommenderas att äldre och svagare krypteringssviter inaktiveras eller tas bort om det inte krävs av din organisation. Information om hur till fullständig aktiviteten finns i artikeln [hantera SSL/TLS-protokoll och krypteringssviter för AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ## <a name="next-steps"></a>Nästa steg
 

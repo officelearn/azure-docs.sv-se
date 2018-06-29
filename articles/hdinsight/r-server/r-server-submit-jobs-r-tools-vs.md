@@ -11,14 +11,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 06/27/2018
 ms.author: maxluk
-ms.openlocfilehash: c6f6e691ef4b317854aef1d7397d5fb840d25ff2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: eb7b538737e54b2c3d8a32e2ba65f7e0762a302c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409330"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047164"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Skicka jobb från R Tools för Visual Studio
 
@@ -37,7 +37,7 @@ RTVS förbättrar R arbetsflödet genom att erbjuda verktyg som den [R interakti
 3. Du behöver ha offentliga och privata nycklar för SSH-autentisering.
 <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
-4. Installera [R Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) på din dator. R Server ger den [ `RevoScaleR` ](https://msdn.microsoft.com/microsoft-r/scaler/scaler) och `RxSpark` funktioner.
+4. Installera [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) på din dator. ML-servern tillhandahåller de [ `RevoScaleR` ](https://msdn.microsoft.com/microsoft-r/scaler/scaler) och `RxSpark` funktioner.
 
 5. Installera [PuTTY](http://www.putty.org/) att ge en beräkning kontext för att köra `RevoScaleR` funktioner från din lokala klient till ditt HDInsight-kluster.
 
@@ -53,7 +53,7 @@ RTVS förbättrar R arbetsflödet genom att erbjuda verktyg som den [R interakti
 
 ## <a name="execute-local-r-methods"></a>Kör lokal R-metoder
 
-1. Skapa din [R Server HDInsight-kluster](r-server-get-started.md).
+1. Skapa din [HDInsight ML Services klustret](r-server-get-started.md).
 2. Installera den [RTVS tillägget](https://docs.microsoft.com/visualstudio/rtvs/installation).
 3. Hämta den [exempel zip-filen](https://github.com/Microsoft/RTVS-docs/archive/master.zip).
 4. Öppna `examples/Examples.sln` att starta lösningen i Visual Studio.
@@ -66,11 +66,11 @@ RTVS förbättrar R arbetsflödet genom att erbjuda verktyg som den [R interakti
 
     ![Inställningarna för vetenskap...](./media/r-server-submit-jobs-r-tools-vs/workspace.png)
 
-## <a name="submit-jobs-to-an-hdinsight-r-cluster"></a>Skicka jobb till ett kluster i HDInsight R
+## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Skicka jobb till ett kluster i HDInsight ML-tjänster
 
-Med en Microsoft R Server/Microsoft R-klient från en Windows-dator med PuTTY kan du skapa en kontext för beräkning som ska köra distribuerade `RevoScaleR` funktioner från din lokala klient till ditt HDInsight-kluster. Använd `RxSpark` att skapa kontexten beräkning, ange ditt användarnamn, Hadoop-kluster kantnod, SSH-växlar och så vidare.
+Med en Microsoft ML Server/Microsoft R-klient från en Windows-dator med PuTTY kan du skapa en kontext för beräkning som ska köra distribuerade `RevoScaleR` funktioner från din lokala klient till ditt HDInsight-kluster. Använd `RxSpark` att skapa kontexten beräkning, ange ditt användarnamn, Hadoop-kluster kantnod, SSH-växlar och så vidare.
 
-1. Att hitta din kantnod värdnamn, öppna din R HDInsight-kluster i Azure och välj sedan **SSH (Secure Shell)** på den översta menyn i översiktsfönstret.
+1. Om du vill hitta din kantnod värdnamn, öppna din ML-tjänster för HDInsight-kluster på Azure och välj sedan **SSH (Secure Shell)** på den översta menyn i översiktsfönstret.
 
     ![Secure Shell (SSH)](./media/r-server-submit-jobs-r-tools-vs/ssh.png)
 
@@ -122,7 +122,7 @@ Med en Microsoft R Server/Microsoft R-klient från en Windows-dator med PuTTY ka
 
 5. Kontrollera att den `rxHadoopCopy` har kopierade den `people.json` filen från mappen exempel data till den nyligen skapade `/user/RevoShare/newUser` mapp:
 
-    1. I rutan din R HDInsight-kluster i Azure, Välj **lagringskonton** i den vänstra menyn.
+    1. I rutan dina HDInsight ML Services-kluster i Azure, Välj **lagringskonton** i den vänstra menyn.
 
         ![Lagringskonton](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
 
@@ -144,6 +144,6 @@ Med en Microsoft R Server/Microsoft R-klient från en Windows-dator med PuTTY ka
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Alternativ för beräkningskontexter för R Server på HDInsight](r-server-compute-contexts.md)
+* [Compute-kontexten alternativ för ML-tjänster på HDInsight](r-server-compute-contexts.md)
 * [Kombinera ScaleR och SparkR](../hdinsight-hadoop-r-scaler-sparkr.md) innehåller ett exempel på flygbolag svarta fördröjning förutsägelser.
 <!-- * You can also submit R jobs with the [R Studio Server](hdinsight-submit-jobs-from-r-studio-server.md) -->

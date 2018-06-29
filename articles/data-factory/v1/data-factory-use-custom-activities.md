@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: d12038daf5d74889ca99ed2c7d35009f4cb7add7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 044d47a294df4e218c84a928a63426dde4f8373b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622821"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053141"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-use-custom-activities.md)
-> * [Version 2 – förhandsversion](../transform-data-using-dotnet-custom-activity.md)
+> * [Version 1](data-factory-use-custom-activities.md)
+> * [Version 2 (aktuell version)](../transform-data-using-dotnet-custom-activity.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [anpassade aktiviteter i V2](../transform-data-using-dotnet-custom-activity.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [anpassade aktiviteter i V2](../transform-data-using-dotnet-custom-activity.md).
 
 Det finns två typer av aktiviteter som du kan använda i ett Azure Data Factory-pipelinen.
 
@@ -387,7 +387,7 @@ Metoden returnerar en ordlista som kan användas för att kedja anpassade aktivi
 15. Ladda upp MyDotNetActivity.zip som en blobb till customactivitycontainer i en **allmänna** Azure blob-lagring (hot inte/lågfrekvent Blob-lagring) som refereras av AzureStorageLinkedService.  
 
 > [!IMPORTANT]
-> Om du lägger till det här projektet för .NET-aktiviteten en lösning i Visual Studio som innehåller ett projekt som Data Factory och lägga till en referens till projektet för .NET-aktiviteten från Data Factory-programprojekt, behöver du inte utföra de två sista stegen för att manuellt skapa zip-filen och överföra den till allmänna Azure blob storage. När du publicerar Data Factory-enheter med hjälp av Visual Studio, utförs automatiskt de här stegen av publiceringsprocessen. Mer information finns i [Data Factory-projekt i Visual Studio](#data-factory-project-in-visual-studio) avsnitt.
+> Om du lägger till det här projektet för .NET-aktiviteten en lösning i Visual Studio som innehåller ett projekt som Data Factory och lägga till en referens till projektet för .NET-aktiviteten från Data Factory-programprojekt, behöver du inte utföra de två sista stegen för att skapa zip manuellt filen och överföra den till allmänna Azure blob storage. När du publicerar Data Factory-enheter med hjälp av Visual Studio, utförs automatiskt de här stegen av publiceringsprocessen. Mer information finns i [Data Factory-projekt i Visual Studio](#data-factory-project-in-visual-studio) avsnitt.
 
 ## <a name="create-a-pipeline-with-custom-activity"></a>Skapa en pipeline med anpassad aktivitet
 Du har skapat en anpassad aktivitet och upp zip-filen med binärfiler till en blobbbehållare i en **allmänna** Azure Storage-konto. I det här avsnittet skapar du ett Azure data factory med en pipeline som använder den anpassade aktiviteten.
@@ -706,7 +706,7 @@ Felsökning består av några grundläggande tekniker:
    Du kan också kontrollera **system 0.log** för alla system felmeddelanden och undantag.
 4. Inkludera den **PDB** filen i zip-filen så att felinformation har information som **anropsstacken** när ett fel inträffar.
 5. Alla filer i zip-filen för den anpassade aktiviteten måste vara på den **översta nivån** utan undermappar.
-6. Se till att den **assemblyName** (MyDotNetActivity.dll) **entryPoint**(MyDotNetActivityNS.MyDotNetActivity) **packageFile** (customactivitycontainer/MyDotNetActivity.zip) och **packageLinkedService** (måste peka på den **allmänna**Azure blob-lagring som innehåller zip-filen) är inställda på rätt värden.
+6. Se till att den **assemblyName** (MyDotNetActivity.dll) **entryPoint**(MyDotNetActivityNS.MyDotNetActivity) **packageFile** (customactivitycontainer / MyDotNetActivity.zip) och **packageLinkedService** (måste peka på den **allmänna**Azure blob-lagring som innehåller zip-filen) är inställda på rätt värden.
 7. Om du har korrigerat ett fel och vill bearbeta sektorn på nytt, högerklickar du på sektorn i **OutputDataset**-bladet och klickar på **Kör**.
 8. Om du ser följande fel använder du Azure Storage-paketet med version > 4.3.0. Startprogram för data Factory-tjänsten kräver 4.3 version av WindowsAzure.Storage. Se [Appdomain isolering](#appdomain-isolation) avsnittet för en arbete runt om du måste använda den senare versionen av Azure Storage-sammansättningen. 
 
@@ -721,9 +721,9 @@ Felsökning består av några grundläggande tekniker:
     ```
 
     Bygga projektet. Ta bort Azure.Storage sammansättningen av version > 4.3.0 från mappen bin\Debug. Skapa en zip-fil med binärfiler och PDB-filen. Ersätt den gamla zipfilen med den här i blob-behållaren (customactivitycontainer). Köra sektorerna misslyckades (Högerklicka segment och klicka på Kör).   
-8. Den anpassade aktiviteten använder inte den **app.config** filen från paketet. Därför om koden läser eventuella anslutningssträngar i konfigurationsfilen, fungerar det inte vid körning. Bästa praxis och när du använder Azure Batch är att hålla alla hemligheter i en **Azure KeyVault**, använda en certifikatbaserad tjänstens huvudnamn för att skydda den **keyvault**, och distribuera certifikat till Azure Batch-pool. Den anpassade .NET-aktiviteten kan sedan komma åt hemligheter i KeyVault vid körning. Den här lösningen är en allmän lösning och kan skalas till alla typer av hemlighet, inte bara anslutningssträngen.
+8. Den anpassade aktiviteten använder inte den **app.config** filen från paketet. Därför om koden läser eventuella anslutningssträngar i konfigurationsfilen, fungerar det inte vid körning. Bästa praxis och när du använder Azure Batch är att hålla alla hemligheter i en **Azure KeyVault**, använda en certifikatbaserad tjänstens huvudnamn för att skydda den **keyvault**, och distribuera certifikat till Azure Batch pool. Den anpassade .NET-aktiviteten kan sedan komma åt hemligheter i KeyVault vid körning. Den här lösningen är en allmän lösning och kan skalas till alla typer av hemlighet, inte bara anslutningssträngen.
 
-   Det finns en enklare lösning (men inte rekommenderas): du kan skapa en **Azure SQL länkade tjänsten** skapa en datamängd som använder den länkade tjänsten med inställningar för sträng och kedja datamängden som en dummy inkommande datauppsättning för anpassad .NET-aktiviteten. Du kan sedan komma åt den länkade tjänsten anslutningssträngen i koden anpassad aktivitet.  
+   Det finns en enklare lösning (men inte rekommenderas): du kan skapa en **Azure SQL länkade tjänsten** skapa en datamängd som använder den länkade tjänsten med inställningar för sträng och kedja datamängden som en dummy inkommande datauppsättningen till den Anpassad .NET-aktivitet. Du kan sedan komma åt den länkade tjänsten anslutningssträngen i koden anpassad aktivitet.  
 
 ## <a name="update-custom-activity"></a>Uppdatera anpassad aktivitet
 Om du uppdaterar koden för den anpassade aktiviteten, skapa den och ladda upp zip-filen som innehåller nya binärfiler till blob storage.

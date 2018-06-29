@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/04/2018
+ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0747bd5dc147639167f352dea46f7e4a1d43227d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 178102990462235b9b39f2ed1ad0e43395118daf
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763464"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064061"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Installera och konfigurera SAP HANA (stora instanser) på Azure
 
@@ -44,7 +44,7 @@ Kontrollera igen, särskilt när du planerar att installera HANA 2.0 [SAP stöd 
 
 ## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>Första stegen när du har fått HANA stora instans enhet(er)
 
-**Första steget** när du tar emot stora HANA-instansen och har etablerat åtkomst och anslutning till instanser, är att registrera OS på instansen med leverantören av OS. Det här steget inkluderar registrera ditt SUSE Linux-operativsystem i en instans av SUSE SMT som du behöver har distribuerats på en virtuell dator i Azure. HANA stora instans-enhet kan ansluta till den här SMT-instansen (se senare i den här dokumentationen). Eller RedHat-OS måste vara registrerad med Red Hat prenumeration Manager måste du ansluta till. Se även anmärkningar i det här [dokument](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Det här steget är nödvändigt för att kunna uppdatera Operativsystemet. En aktivitet som är ansvarig för kunden. SUSE, Sök i dokumentationen för att installera och konfigurera SMT [här](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
+**Första steget** när du tar emot stora HANA-instansen och har etablerat åtkomst och anslutning till instanser, är att registrera OS på instansen med leverantören av OS. Det här steget inkluderar registrera ditt SUSE Linux-operativsystem i en instans av SUSE SMT som du behöver har distribuerats på en virtuell dator i Azure. HANA stora instans-enhet kan ansluta till den här SMT-instansen (se senare i den här dokumentationen). Eller Operativsystemet Red Hat måste vara registrerad med Red Hat prenumeration Manager måste du ansluta till. Se även anmärkningar i det här [dokument](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Det här steget är nödvändigt för att kunna uppdatera Operativsystemet. En aktivitet som är ansvarig för kunden. SUSE, Sök i dokumentationen för att installera och konfigurera SMT [här](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
 **Andra steg** är att söka efter nya korrigeringsfiler och korrigeringar av specifika OS/versionen. Kontrollera om korrigeringsnivå av stora HANA-instansen på det aktuella tillståndet. Baserat på tidsinställningen för OS-korrigering/versioner och ändringar till Microsoft kan distribuera avbildningen, kan det finnas fall där de senaste korrigeringarna ingår inte kanske. Därför är det ett obligatoriskt steg när du har tagit över en HANA stora instans-enhet, kontrollera om publicerades korrigeringsprogram som är relevanta för säkerhet, funktioner, tillgänglighet och prestanda under tiden av viss Linux-leverantör och måste tillämpas.
 
@@ -80,18 +80,7 @@ Vi förutsätter att du följt rekommendationerna i utforma Azure-Vnet och anslu
 
 Det finns vissa information värt att nämna om nätverk enda enheter. Varje enhet HANA stora instans levereras med två eller tre IP-adresser som är tilldelade två eller tre NIC-portar på enheten. Tre IP-adresser används i HANA skalbar konfigurationer och HANA System Replication-scenario. En av IP-adresser som tilldelats nätverkskortet på enheten ligger utanför servern IP-adresspool som beskrivs i den [SAP HANA (stora instans) översikt och arkitektur för Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
-Distribution för enheter med två IP-adresser som tilldelats bör se ut som:
-
-- eth0.xx bör ha en IP-adress som ligger utanför intervallet för Serverpoolen IP-adress som du har skickat till Microsoft. Den här IP-adressen användas för att underhålla i/etc/hosts av OS.
-- eth1.xx bör ha en IP-adress som används för kommunikation till NFS. Dessa adresser bör därför **inte** måste underhållas i etc/hosts för att tillåta instans instans trafik i klienten.
-
-En bladet konfiguration med två IP-adresser som tilldelats är inte lämplig för distribution fall HANA System replikering eller HANA skalbara. Om du har två IP-adresser som är tilldelade endast och som vill distribuera en sådan konfiguration, kontakta SAP HANA på Azure Service Management för att hämta en tredje IP-adress i en tredje tilldelade VLAN. För stora HANA-instans enheter med tre IP-adresser som har tilldelats tre NIC-portar, gäller följande användningsregler:
-
-- eth0.xx bör ha en IP-adress som ligger utanför intervallet för Serverpoolen IP-adress som du har skickat till Microsoft. Denna IP-adress skall därför inte användas för att underhålla i/etc/hosts av OS.
-- eth1.xx bör ha en IP-adress som används för kommunikation till NFS-lagring. Den här typen av adresser bör därför inte behållas i etc/hosts.
-- eth2.xx bör användas uteslutande bevaras i etc/hosts för kommunikation mellan olika instanser. Dessa adresser också är IP-adresser som måste underhållas i skalbar HANA konfigurationer som IP-adresser HANA använder för konfigurationen mellan noder.
-
-
+Se [HLI stöds scenarier](hana-supported-scenario.md) Läs Ethernet-information för din arkitektur.
 
 ## <a name="storage"></a>Storage
 
@@ -111,7 +100,7 @@ Där SID = HANA instans System-ID
 
 Och = en intern uppräkning av åtgärder när du distribuerar en klient.
 
-Som du ser delar HANA delade usr/sap samma volym. Nomenklaturen för monteringspunkter innehåller System-ID för HANA instanser samt mount-numret. Skala upp distributioner finns det bara en monteringspunkt som mnt00001. Medan i skalbar distribution visas så många monteringar som måste ha worker och master noder. För skalbar miljö, data, log, delad och kopplade till varje nod i konfigurationen för skalbara loggen Säkerhetskopiera volymer. För konfigurationer med flera instanser av SAP, en annan uppsättning volymer skapas och är kopplade till enheten HAN stora instans.
+Som du ser delar HANA delade usr/sap samma volym. Nomenklaturen för monteringspunkter innehåller System-ID för HANA instanser samt mount-numret. Skala upp distributioner finns det bara en monteringspunkt som mnt00001. Medan i skalbar distribution visas så många monteringar som måste ha worker och master noder. För skalbar miljö, data, log, delad och kopplade till varje nod i konfigurationen för skalbara loggen Säkerhetskopiera volymer. För konfigurationer med flera instanser av SAP, en annan uppsättning volymer skapas och är kopplade till enheten HAN stora instans. Se [HLI stöds scenarier](hana-supported-scenario.md) lagring layout information för ditt scenario.
 
 När du läser dokumentet och se ut en HANA stora instans-enhet upptäcker du att enheterna ingår i stället generösa diskvolymen för HANA-data och att vi har en volym HANA/loggsäkerhetskopiering. Orsaken till varför vi storlek HANA/data så stor är att vi erbjuder du som kund lagring ögonblicksbilderna använder den samma volymen. Det innebär mer lagringsutrymme ögonblicksbilder som du utför, mer utrymme som förbrukas av ögonblicksbilder i din tilldelade lagringsvolymer. HANA/loggsäkerhetskopiering volymen kan inte antas vara volymen för att placera säkerhetskopiorna av databasen i. Den storlek som ska användas som säkerhetskopieringsvolymen för säkerhetskopieringarna av transaktionsloggen HANA. I framtida snapshot versioner av lagring self service, vi gäller specifika volymen om du vill ha mer frekventa ögonblicksbilder. Och med mer frekventa replikeringar till disaster recovery plats om du vill att alternativet i för disaster recovery funktioner som tillhandahålls av HANA stora instans-infrastruktur. Mer information finns i [SAP HANA (stora instanser) med hög tillgänglighet och katastrofåterställning i Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
 
@@ -150,6 +139,7 @@ Du kan också konfigurera parametrarna efter installationen för SAP HANA-databa
 
 Hdbparam framework har ersatts med SAP HANA 2.0. Därför måste parametrar anges med hjälp av SQL-kommandon. Mer information finns i [SAP Obs #2399079: eliminering av hdbparam i HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
 
+Se [HLI stöds scenarier](hana-supported-scenario.md) Läs lagringslayout för din arkitektur.
 
 ## <a name="operating-system"></a>Operativsystem
 
@@ -157,7 +147,7 @@ Växlingsutrymme bildens levererat OS är inställd på 2 GB enligt den [SAP st�
 
 [SUSE Linux Enterprise Server 12 SP1 för SAP-program](https://www.suse.com/products/sles-for-sap/hana) fördelning av Linux som installerats för SAP HANA i Azure (stora instanser). Viss distributionen ger funktioner för SAP-specifika &quot;direkt&quot; (inklusive förinställda parametrar för att köra SAP på SLES effektivt).
 
-Se [resurs bibliotek/faktablad](https://www.suse.com/products/sles-for-sap/resource-library#white-papers) på webbplatsen SUSE och [SAP på SUSE](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE) på SAP Community nätverk (SCN) för flera användbara resurser som rör distribution av SAP HANA på SLES (inklusive installation för hög tillgänglighet och säkerhet härdning som är specifika för SAP operations).
+Se [resurs bibliotek/faktablad](https://www.suse.com/products/sles-for-sap/resource-library#white-papers) på webbplatsen SUSE och [SAP på SUSE](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE) på SAP Community nätverk (SCN) för flera användbara resurser som rör distribution av SAP HANA på SLES (inklusive inställning hög Tillgänglighet, säkerhet härdning som är specifika för SAP-åtgärder med mera).
 
 Ytterligare och användbara SAP på SUSE-relaterade länkar:
 
@@ -325,7 +315,7 @@ Eftersom enheterna HANA stora instansen inte har direkt anslutning till internet
 
 För att kunna hämta HANA Installationspaketen, behöver du en SAP-S-användare eller andra användare som får du åtkomst till SAP-Marketplace. Gå igenom den här sekvensen skärmar när du loggar in:
 
-Gå till [SAP Service Marketplace](https://support.sap.com/en/index.html) > Klicka på hämta programvara > installationer och uppgradering > av alfabetiskt Index > H Under – SAP HANA-plattformen Edition > SAP HANA-plattformen version 2.0 > Installation > hämta följande filer
+Gå till [SAP Service Marketplace](https://support.sap.com/en/index.html) > Klicka på ladda ned programvara > installationer och uppgradering > efter alfabetisk Index > Under H – SAP HANA-plattformen Edition > SAP HANA-plattformen version 2.0 > Installation > hämta den följande filer
 
 ![Hämta HANA installation](./media/hana-installation/image16_download_hana.PNG)
 
@@ -400,7 +390,7 @@ I nästa steg behöver du också hämta data som du gav till Microsoft när du s
 > [!Important]
 > Du måste ange samma System användar-ID och ID användargrupp som du tillhandahöll Microsoft som order enhet distributionen. Om du inte vill ge samma ID: N, misslyckas installationen av SAP HANA på HANA stora instans-enheten.
 
-På två skärmar, vilket vi inte visas i den här dokumentationen du behöver ange lösenordet för systemanvändaren för SAP HANA-databasen och sapadm användares lösenord som används för värden SAP-Agent som installeras som en del av SAP HANA-databasinstansen.
+På två skärmar, vilket vi inte visas i den här dokumentationen du behöver ange lösenordet för systemanvändaren för SAP HANA-databasen och sapadm användares lösenord som används för värden SAP-Agent som installeras som en del av SAP HANA-datab ase-instans.
 
 När du har definierat lösenordet en bekräftelseskärm visas. Kontrollera att alla data i listan och fortsätta med installationen. Du når ett förlopp som dokument under installationen, som den nedan
 

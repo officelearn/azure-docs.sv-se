@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c6ec168332d8a655d78c3deffe89f51f7d75a840
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
-ms.translationtype: MT
+ms.openlocfilehash: a8ac62986eb7eb184ae6d102a956ee051e3aa88a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751888"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063518"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering i Azure
 
@@ -505,39 +505,9 @@ Uppdatera Management kanske fortfarande rapporterar att datorn som icke-kompatib
 
 Distribuera uppdateringar med klassificeringen fungerar inte på CentOS direkt. För SUSE, välja *endast* andra uppdateringar klassificeringen resultera i att vissa uppdateringar att installeras också om säkerhetsuppdateringar rör zypper (package manager) eller dess beroenden krävs först. Detta är en begränsning i zypper. I vissa fall kan du behöva köra igen distributionen av uppdateringen att verifiera Kontrollera update-loggen.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshoot"></a>Felsöka
 
-Det här avsnittet innehåller information som hjälper dig att felsöka problem med lösningen för hantering av uppdateringar.
-
-### <a name="windows"></a>Windows
-
-Om du får problem när du försöker publicera lösningen eller en virtuell dator, kontrollera den **program och tjänster för Logs\Operations** händelseloggen på den lokala datorn för händelser med händelse-ID 4502 och händelse meddelanden innehåller **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. Följande tabell visar felmeddelanden och en möjlig lösning för varje:
-
-| Meddelande | Orsak | Lösning |
-|----------|----------|----------|
-| Det gick inte att registrera datorn för uppdateringshantering.<br/>Registreringen misslyckades med undantaget<br/>System.InvalidOperationException: {"Meddelande":"Datorn har redan<br/>registrerats för ett annat konto. "} | Datorn är redan publicerats så att en annan arbetsyta för hantering av uppdateringar. | Utföra rensning av gamla artefakter av [bort Hybrid Runbook gruppen](automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group).|
-| Det gick inte att registrera datorn för uppdateringshantering, registrering misslyckades med undantaget<br/>System.Net.Http.HttpRequestException: Ett fel uppstod när begäran skickades. ---><br/>System.Net.WebException: Den underliggande anslutningen<br/>stängdes: Ett oväntat fel<br/>uppstod vid mottagning. ---> System.ComponentModel.Win32Exception:<br/>Klienten och servern kan inte kommunicera<br/>eftersom de inte har en gemensam algoritm. | Proxy-gateway-brandväggen blockerar kommunikation. | [Granska nätverkskrav](automation-hybrid-runbook-worker.md#network-planning).|
-| Det gick inte att registrera datorn för uppdateringshantering.<br/>Registreringen misslyckades med undantaget<br/>Newtonsoft.Json.JsonReaderException: Det gick inte att parsa positivt oändligt värde. | Proxy-gateway-brandväggen blockerar kommunikation. | [Granska nätverkskrav](automation-hybrid-runbook-worker.md#network-planning).|
-| Certifikatet som presenterades av tjänsten \<wsid\>. oms.opinsights.azure.com<br/>utfärdades inte av en certifikatutfärdare<br/>som används för Microsoft-tjänster. Kontakt<br/>nätverksadministratören för att se om de kör en proxy som hindrar<br/>TLS/SSL-kommunikation. |Proxy-gateway-brandväggen blockerar kommunikation. | [Granska nätverkskrav](automation-hybrid-runbook-worker.md#network-planning).|
-| Det gick inte att registrera datorn för uppdateringshantering.<br/>Registreringen misslyckades med undantaget<br/>AgentService.HybridRegistration.<br/>PowerShell.Certificates.CertificateCreationException:<br/>Det gick inte att skapa ett självsignerat certifikat. ---><br/>System.UnauthorizedAccessException: Åtkomst nekad. | Självsignerade certifikat generation fel. | Kontrollera att systemkontot har<br/>läsbehörighet till mappen:<br/>**C:\ProgramData\Microsoft\**<br/>** Crypto\RSA **|
-
-### <a name="linux"></a>Linux
-
-Om uppdateringen körs inte starta på en Linux-dator, göra en kopia av följande loggfil och bevara för felsökning:
-
-```
-/var/opt/microsoft/omsagent/run/automationworker/worker.log
-```
-
-Om fel uppstår under en uppdatering som körs när den startar på Linux, kontrollera utdata från den berörda datorn kör jobbet. Du kan hitta felmeddelanden från din dator Pakethanteraren som du kan undersöka och vidta åtgärder för. Uppdateringshantering kräver package manager ska felfri för lyckade uppdateringsdistributioner.
-
-Paketet uppdateringar kan i vissa fall kan störa uppdatera Management hindrar en distribution från att slutföras. Om du ser som du måste antingen undanta dessa paket från framtida uppdateringskörningar eller installera dem manuellt själv.
-
-Om du inte kan lösa ett problem med uppdatering, göra en kopia av följande loggfil och bevara den **innan** nästa uppdateringsdistributionen startar i felsökningssyfte:
-
-```
-/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
-```
+Information om hur du felsöker ditt uppdateringshantering finns [felsökning uppdateringshantering](troubleshoot/update-management.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

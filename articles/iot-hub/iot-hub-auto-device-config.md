@@ -8,14 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: fe5ce960663f39d4f2c87a7bbffa091d327e9559
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29a56e212f842e8f4243eca7fc865175fd275a39
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632456"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030775"
 ---
-# <a name="configure-and-monitor-iot-devices-at-scale---preview"></a>Konfigurera och övervaka IoT-enheter i skala - förhandsgranskning
+# <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-portal"></a>Konfigurera och övervaka IoT-enheter i stor skala med Azure-portalen
+
+[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
 Automatisk enhetshantering i Azure IoT Hub automatiserar många av återkommande och komplicerade uppgifter för att hantera stora enheten flottor via deras livscykler i sin helhet. Med automatisk enhetshantering du rikta en uppsättning enheter baserat på deras egenskaper, definiera en önskad konfiguration och låta IoT-hubb uppdatera enheter när de kommer inom omfånget.  Detta görs med hjälp av en automatisk enhetskonfiguration kommer också att du kan sammanfatta slutförande och efterlevnad, sammanslagning av referensen och konflikter och distribuera konfigurationer stegvis.
 
@@ -28,9 +30,6 @@ Automatisk enhet konfigurationer arbete med uppdatering av enheten twins med ege
 * Den **rikta innehåll** definierar egenskaperna som ska läggas till eller uppdateras i de aktuella enheten twins. Innehållet innehåller en sökväg till avsnittet för egenskaper som ska ändras.
 
 * Den **mått** definiera sammanfattning antal olika konfigureringstillstånd som **lyckade**, **pågår**, och **fel**. Anpassade mått har angetts som frågor på enheten dubbla rapporterade egenskaper.  Systemet är standard mått som mäter dubbla uppdateringsstatus, till exempel antalet enheten twins som riktas och antalet twins som har uppdaterats. 
-
-> [!Note]
-> Den här funktionen är inte tillgänglig för IoT-hubbar i östra USA, västra USA, Norra Europa och Västeuropa regioner under förhandsgranskning.
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Implementera enheten twins för att konfigurera enheter
 
@@ -52,7 +51,7 @@ Innan du kan skapa en konfiguration, måste du ange vilka enheter som du vill p�
 ## <a name="create-a-configuration"></a>Skapa en konfiguration
 
 1. I den [Azure-portalen][lnk-portal], gå till din IoT-hubb. 
-1. Välj **konfiguration för IoT-enheter (förhandsgranskning)**.
+1. Välj **IoT enhetskonfiguration**.
 1. Välj **lägga till konfigurationen**.
 
 Det finns fem steg för att skapa en konfiguration. Följande avsnitt beskriver hur vart och ett. 
@@ -96,7 +95,7 @@ Använd egenskapen taggar från din enhet twins för att fokusera på specifika 
 Eftersom flera konfigurationer kan mål på samma enhet, bör du ge varje konfiguration av en prioritetsnivå. Om det uppstår en konflikt med den högsta prioritet vinner konfigurationen. 
 
 1. Ange ett positivt heltal för konfigurationen **prioritet**. Högsta numeriskt värde anses vara högst prioritet. Om två konfigurationer har samma prioritetsnummer, som har skapats i de flesta WINS-nyligen. 
-1. Ange en **mål villkoret** att avgöra vilka enheter som ska gälla för med den här konfigurationen. Villkoret är baserad på enheten dubbla taggar eller enheten dubbla rapporterade egenskaper och ska matcha uttrycket-format. Till exempel `tags.environment='test'` eller `properties.reported.chillerProperties.model='4000x'`. 
+1. Ange en **mål villkoret** att avgöra vilka enheter som ska gälla för med den här konfigurationen. Villkoret är baserad på enheten dubbla taggar eller enheten dubbla rapporterade egenskaper och ska matcha uttrycket-format. Till exempel `tags.environment='test'` eller `properties.reported.chillerProperties.model='4000x'`. Du kan ange `*` att fokusera på alla enheter.
 1. Välj **nästa** att gå vidare till det sista steget.
 
 ### <a name="step-5-review-configuration"></a>Steg 5: Granska konfigurationen
@@ -108,8 +107,8 @@ Granska konfigurationsinformationen om och sedan välja **skicka**.
 Använd följande steg om du vill visa information om en konfiguration och övervakning av enheter som kör det:
 
 1. I den [Azure-portalen][lnk-portal], gå till din IoT-hubb. 
-1. Välj **konfiguration för IoT-enheter (förhandsgranskning)**.
-1. Granska konfigurationslistan. Du kan visa följande information för varje konfiguration:
+1. Välj **IoT enhetskonfiguration**.
+2. Granska konfigurationslistan. Du kan visa följande information för varje konfiguration:
    * **ID** -namnet på konfigurationen.
    * **Rikta villkoret** -fråga som används för att definiera målenheter.
    * **Prioritet** -prioritetsnivå som tilldelats till konfigurationen.
@@ -136,25 +135,25 @@ Om du uppdaterar målvillkoren sker följande uppdateringar:
 Om du vill ändra en konfiguration, använder du följande steg: 
 
 1. I den [Azure-portalen][lnk-portal], gå till din IoT-hubb. 
-1. Välj **konfiguration för IoT-enheter (förhandsgranskning)**. 
-1. Välj den konfiguration som du vill ändra. 
-1. Göra uppdateringar för följande fält: 
+1. Välj **IoT enhetskonfiguration**. 
+2. Välj den konfiguration som du vill ändra. 
+3. Göra uppdateringar för följande fält: 
    * Målvillkoren 
    * Etiketter 
    * Prioritet 
    * Mått
-1. Välj **Spara**.
-1. Följ stegen i [övervakaren en konfiguration] [fästpunkt övervakaren] se ändringarna lanserar. 
+4. Välj **Spara**.
+5. Följ stegen i [övervakaren en konfiguration] [fästpunkt övervakaren] se ändringarna lanserar. 
 
 ## <a name="delete-a-configuration"></a>Ta bort en konfiguration
 
 När du tar bort en konfiguration vidta någon enhet twins på deras nästa högsta prioritet konfiguration. Om enheten twins inte uppfyller villkoret mål av någon annan konfiguration kan tillämpas inga andra inställningar. 
 
 1. I den [Azure-portalen][lnk-portal], gå till din IoT-hubb. 
-1. Välj **konfiguration för IoT-enheter (förhandsgranskning)**. 
-1. Använd kryssrutan för att välja den konfiguration som du vill ta bort. 
-1. Välj **Ta bort**.
-1. En uppmaning ber dig att bekräfta.
+1. Välj **IoT enhetskonfiguration**. 
+2. Använd kryssrutan för att välja den konfiguration som du vill ta bort. 
+3. Välj **Ta bort**.
+4. En uppmaning ber dig att bekräfta.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln får du lära dig hur konfigurera och övervaka IoT-enheter i större skala. Du kan följa dessa länkar om du vill veta mer om hur du hanterar Azure IoT-hubb:

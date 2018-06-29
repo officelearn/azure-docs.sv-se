@@ -14,21 +14,21 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 27d74ce2cf8fdc4434c48c36dd0c0751dbbab232
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 505f7345af6224b767d6d3719c123d91f54e48f5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622320"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054300"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera prestandajustering guide och prestanda för aktiviteten
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-copy-activity-performance.md)
-> * [Version 2 – förhandsversion](../copy-activity-performance.md)
+> * [Version 1](data-factory-copy-activity-performance.md)
+> * [Version 2 (aktuell version)](../copy-activity-performance.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [kopiera aktivitet prestanda och prestandajustering guide för Data Factory version 2](../copy-activity-performance.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [kopiera aktivitet prestanda och prestandajustering guide för Data Factory](../copy-activity-performance.md).
 
 Azure Data Factory-Kopieringsaktiviteten levererar en förstklassig säker, tillförlitlig och högpresterande datainläsning lösning. Det gör att du kan kopiera flera terabyte data varje dag i omfattande olika molnet och lokala datalager. Blixtsnabb snabb prestanda för datainläsning är nyckeln till att se till att du kan fokusera på core ”big data” problemet: skapa lösningar för avancerade analyser och hämtar djupa insikter från alla data.
 
@@ -200,7 +200,7 @@ I ett hybridscenario kopia (källan är lokala och mottagare är i molnet), gate
 
 ![Mellanlagrad kopia: hybridscenario](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
 
-När du aktiverar dataflyttning med hjälp av ett fristående Arkiv, kan du ange om du vill att data ska komprimeras innan du flyttar data från datalagret källan till ett tillfälligt eller fristående datalager och sedan expandera innan du flyttar data från en interimistisk eller mellanlagring datalagret till datalagret sink.
+När du aktiverar dataflyttning med hjälp av ett fristående Arkiv kan du ange om du vill att data ska komprimeras innan du flyttar data från datalagret källan till ett tillfälligt eller fristående datalager och sedan expandera innan du flyttar data från en interimistisk eller mellanlagring av data lagra till datalagret mottagare.
 
 För närvarande kan du kopiera data mellan två lokala datalager med hjälp av ett fristående Arkiv. Vi räknar med det här alternativet ska vara tillgänglig snart.
 
@@ -266,9 +266,9 @@ Vi rekommenderar att du gör följande för att anpassa prestandan för din Data
      * [Data Management Gateway skalbarhet](data-factory-data-management-gateway-high-availability-scalability.md)
    * [Gateway för datahantering](#considerations-for-data-management-gateway)
    * [Källa](#considerations-for-the-source)
-   * [sink](#considerations-for-the-sink)
+   * [Sink](#considerations-for-the-sink)
    * [Serialisering och deserialisering](#considerations-for-serialization-and-deserialization)
-   * [Komprimering](#considerations-for-compression)
+   * [komprimering](#considerations-for-compression)
    * [Kolumnmappningen](#considerations-for-column-mapping)
    * [Andra överväganden](#other-considerations)
 3. **Expandera konfigurationen till hela datauppsättningen**. När du är nöjd med resultaten av körningen och prestanda kan du expandera definitionen och pipelinens aktiva period som täcker hela datauppsättningen.
@@ -276,7 +276,7 @@ Vi rekommenderar att du gör följande för att anpassa prestandan för din Data
 ## <a name="considerations-for-data-management-gateway"></a>Överväganden för Data Management Gateway
 **Installationsprogram för gateway**: Vi rekommenderar att du använder en särskild dator till värd Data Management Gateway. Se [överväganden för att använda Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
 
-**Gateway-övervakning och upp/skalbar**: en enskild logisk gateway med en eller flera gateway-noder kan hantera flera Kopieringsaktiviteten körs samtidigt samtidigt. Du kan visa nära realtid ögonblicksbild av resursutnyttjande (CPU, minne, network(in/out) osv) på en gateway-dator samt antalet samtidiga jobb som körs mot gräns i Azure-portalen finns [övervakaren gateway i portalen](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Om du har tunga behov på hybrid dataflyttning med stort antal samtidiga kopiera aktiviteten körs eller med stora mängder data att kopiera anser [skala upp eller ut gateway](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) för att bättre utnyttja din resurs eller för att etablera flera resurs för att ge kopia. 
+**Gateway-övervakning och upp/skalbar**: en enskild logisk gateway med en eller flera gateway-noder kan hantera flera Kopieringsaktiviteten körs samtidigt samtidigt. Du kan visa nära realtid ögonblicksbild av resursutnyttjande (CPU, minne, network(in/out) osv) på en gateway-dator samt antalet samtidiga jobb som körs mot gräns i Azure-portalen finns [övervakaren gateway i portalen](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Om du har tunga behov på hybrid dataflyttning med stort antal samtidiga kopiera aktiviteten körs eller med stora mängder data att kopiera anser [skala upp eller ut gateway](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) för att bättre utnyttja din resurs eller för att etablera Mer resurser för att möta kopia. 
 
 ## <a name="considerations-for-the-source"></a>Överväganden för källa
 ### <a name="general"></a>Allmänt
@@ -326,7 +326,7 @@ Om du kopierar data från **Blob storage** till **SQL Data Warehouse**, Övervä
 * **Mönstret och batch datastorleken**:
   * Tabellens schema påverkar kopiera genomflöde. Om du vill kopiera samma mängd data får stora Radstorleken du bättre prestanda än en liten Radstorleken eftersom databasen mer effektivt kan genomföra färre batchar av data.
   * Kopieringsaktiviteten infogar data i en serie med batchar. Du kan ange antalet rader i en batch med hjälp av den **writeBatchSize** egenskapen. Om dina data har liten rader, kan du ange den **writeBatchSize** egenskap med ett högre värde för att dra nytta av lägre batch kostnader och högre genomströmning. Om Radstorleken på dina data är stor, var försiktig när du ökar **writeBatchSize**. Ett högt värde kan leda till en kopia misslyckades på grund av överbelastning i databasen.
-* För **lokala relationsdatabaser** som SQL Server och Oracle, vilket kräver att **Data Management Gateway**, finns det [överväganden för Data Management Gateway](#considerations-for-data-management-gateway) avsnitt.
+* För **lokala relationsdatabaser** som SQL Server och Oracle, vilket kräver att **Data Management Gateway**, finns det [överväganden för Data Management Gateway](#considerations-for-data-management-gateway)avsnitt.
 
 ### <a name="nosql-stores"></a>NoSQL-lagringsplatser
 *(Omfattar tabellagring och Azure Cosmos DB)*
@@ -361,7 +361,7 @@ När datauppsättningen inkommande eller utgående är en fil kan ange du Kopier
 ## <a name="considerations-for-column-mapping"></a>Överväganden för kolumnmappningen
 Du kan ange den **columnMappings** egenskap i en Kopieringsaktivitet att mappa alla eller en delmängd av indatakolumnerna till utdatakolumner. När av data movement service läser data från källan, måste den utföra kolumnmappningen på data innan den skriver data till sink. Den här extra bearbetning minskar kopiera genomflöde.
 
-Om källa datalager frågbar kan till exempel om det är en relationell butik som SQL Database eller SQL Server, eller om det är en NoSQL-butiken som Table storage eller Azure Cosmos DB du sänder kolumnen filtrering och omordning logik för att den **frågan** egenskapen istället för att använda kolumnmappningen. Det här sättet projektionen inträffar när av data movement service läser data från datalagret källa om det är mycket effektivare.
+Om källa datalager frågbar kan till exempel om det är en relationell butik som SQL Database eller SQL Server, eller om det är en NoSQL-butiken som Table storage eller Azure Cosmos DB du sänder kolumnen filtrering och omordning logik för att den **fråga** egenskapen istället för att använda kolumnmappningen. Det här sättet projektionen inträffar när av data movement service läser data från datalagret källa om det är mycket effektivare.
 
 ## <a name="other-considerations"></a>Andra överväganden
 Om storleken på data som du vill kopiera är stor, kan du justera affärslogik att partitionera data med hjälp av mekanismen för slicing i Data Factory. Schemalägg sedan Kopieringsaktiviteten ska köras oftare för att minska storleken på data för varje Kopieringsaktiviteten kör.

@@ -1,25 +1,26 @@
 ---
-title: Stordataprogram som är kompatibel med Data Lake Store | Microsoft Docs
-description: Lista över program med öppen källkod som fungerar med Azure Data Lake Store
+title: Stordataprogram som är kompatibel med Data Lake lagring Gen1 | Microsoft Docs
+description: Lista över program med öppen källkod som fungerar med Azure Data Lake lagring Gen1 (tidigare kallat Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 699e1805-cb76-4807-9ac1-8bd9d9bbb72b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: fdeaf4d1d25d1669002b696219adfb6eaff4fd40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 61187a26190e8d449a572e00d5abe8338d9060c2
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624712"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029646"
 ---
-# <a name="open-source-big-data-applications-that-work-with-azure-data-lake-store"></a>Öppna ett stort källdata program som fungerar med Azure Data Lake Store
+# <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Öppna stort källdata program som fungerar med Azure Data Lake lagring Gen1
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 Den här artikeln visar öppen källkod stordataprogram som fungerar med Azure Data Lake Store. Endast versionerna som är tillgängliga med den angivna distributionsplatsen stöd för program i tabellen nedan. Information om vilka versioner av dessa program är tillgängliga med HDInsight finns [HDInsight component-versioning](../hdinsight/hdinsight-component-versioning.md).
 
 | Programvara med öppen källkod | Distribution |
@@ -38,5 +39,5 @@ Den här artikeln visar öppen källkod stordataprogram som fungerar med Azure D
 
 
 ## <a name="see-also"></a>Se också
-* [Översikt över Azure Data Lake Store](data-lake-store-overview.md)
+* [Översikt över Azure Data Lake lagring Gen1](data-lake-store-overview.md)
 

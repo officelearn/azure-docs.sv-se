@@ -11,24 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f6add6691b0e1f43d70399493fa6bf8db8f3833
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 24954cfc128834313bf13a1917e67d5c1812cf66
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617186"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059121"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Table storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – Allmänt tillgänglig](v1/data-factory-azure-table-connector.md)
-> * [Version 2 – förhandsversion](connector-azure-table-storage.md)
+> * [Version 1](v1/data-factory-azure-table-connector.md)
+> * [Aktuell version](connector-azure-table-storage.md)
 
 Den här artikeln beskrivs hur du använder Kopieringsaktiviteten i Azure Data Factory för att kopiera data till och från Azure Table storage. Den bygger på den [Kopieringsaktiviteten översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över Kopieringsaktiviteten.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory som är allmänt tillgänglig, se [Table storage connector i version 1](v1/data-factory-azure-table-connector.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -81,8 +78,8 @@ Du kan också skapa en länkad Storage-tjänst genom att använda en signatur f�
 
 En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt lagringskonto. Du kan använda den för att ge en klient begränsade behörigheter till objekt i ditt lagringskonto för en viss tid och på en viss uppsättning behörigheter. Du behöver inte dela åtkomstnycklarna för ditt konto. Signatur för delad åtkomst är en URI som omfattar all information som krävs för autentiserad åtkomst till en lagringsresurs i dess Frågeparametrar. För att komma åt lagringsresurser med signatur för delad åtkomst, måste klienten endast ska skickas i signatur för delad åtkomst till lämplig konstruktor eller metod. Mer information om signaturer för delad åtkomst finns [signaturer för delad åtkomst: Förstå delad åtkomst signatur modellen](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-> [!IMPORTANT]
-> Data Factory stöder nu endast service delade åtkomstsignaturer men inte kontot delade åtkomstsignaturer. Mer information om dessa två typer och hur du skapar dem finns [typer av signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). Delad åtkomst signatur-URL som genereras från Azure-portalen eller Azure Lagringsutforskaren är ett konto signatur för delad åtkomst, vilket inte stöds.
+> [!NOTE]
+> Data Factory stöder nu både tjänsten delade åtkomstsignaturer och kontot delade åtkomstsignaturer. Mer information om dessa två typer och hur du skapar dem finns [typer av signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
 
 > [!TIP]
 > Du kan köra följande PowerShell-kommandon för att generera en signatur för delad åtkomst av tjänsten för ditt lagringskonto. Ersätt platshållarna och bevilja behörighet som krävs.
@@ -271,7 +268,7 @@ När du flyttar data till och från Azure Table följande [mappningar som defini
 | Azure Table-datatyp | Data Factory tillfälliga datatyp | Information |
 |:--- |:--- |:--- |
 | Edm.Binary |byte |En matris med byte upp till 64 KB. |
-| Edm.Boolean |bool |Ett booleskt värde. |
+| Edm.Boolean |Bool |Ett booleskt värde. |
 | Edm.DateTime |DateTime |En 64-bitars värdet uttrycks som Coordinated Universal Time (UTC). Det tillåtna intervallet för DateTime börjar midnatt 1 januari, 1601 e. kr. (C.E.) UTC. Intervallet slutar den 31 December 9999. |
 | Edm.Double |double |En 64-bitars flytande punktvärdet. |
 | Edm.Guid |GUID |En 128-bitars globalt unik identifierare. |

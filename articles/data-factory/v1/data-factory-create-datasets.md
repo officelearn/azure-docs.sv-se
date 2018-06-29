@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6a3401f620f7dfe8b42bad9ed1a3981325b2ce1e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f33ff3f588dac49e295a5aa96d71557d32407e46
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620487"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046994"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datauppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-create-datasets.md)
-> * [Version 2 – förhandsversion](../concepts-datasets-linked-services.md)
+> * [Version 1](data-factory-create-datasets.md)
+> * [Version 2 (aktuell version)](../concepts-datasets-linked-services.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [datauppsättningar i V2](../concepts-datasets-linked-services.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [datauppsättningar i V2](../concepts-datasets-linked-services.md).
 
 Den här artikeln beskriver vilka datauppsättningar är hur de har definierats i JSON-format och hur de används i Azure Data Factory rörledningar. Den innehåller information om varje avsnitt (till exempel struktur, tillgänglighet och princip) i JSON-definitionen för datauppsättning. Artikeln innehåller även exempel för att använda den **offset**, **anchorDateTime**, och **style** egenskaper i en dataset JSON-definition.
 
@@ -197,7 +197,7 @@ Varje kolumn i strukturen innehåller följande egenskaper:
 | --- | --- | --- |
 | namn |Namnet på kolumnen. |Ja |
 | typ |Datatypen för kolumnen.  |Nej |
-| Kultur |. NET-baserade kulturen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. |Nej |
+| kultur |. NET-baserade kulturen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. |Nej |
 | Format |Formatsträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. |Nej |
 
 Följande riktlinjer hjälper dig att avgöra när du ska inkludera strukturinformation och vad som ska ingå i den **struktur** avsnitt.
@@ -322,7 +322,7 @@ Om ett DataSet-objekt produceras av Data Factory, bör det markeras som **extern
 | Namn | Beskrivning | Krävs | Standardvärde |
 | --- | --- | --- | --- |
 | dataDelay |Tid att fördröja kontrollera tillgängligheten för externa data för den angivna sektorn. Du kan till exempel fördröja en kontroll av varje timme med den här inställningen.<br/><br/>Inställningen gäller bara för den aktuella tiden.  Om det är 1:00 PM just nu och det här värdet är 10 minuter, till exempel startas valideringen klockan 13:10.<br/><br/>Observera att den här inställningen inte påverkar segment i förflutna. Sektorer med **sektorn sluttid** + **dataDelay** < **nu** bearbetas utan fördröjning.<br/><br/>Gånger större än 23:59 timmar måste anges med hjälp av den `day.hours:minutes:seconds` format. Till exempel vill ange 24 timmar, Använd inte 24:00:00. Använd i stället 1.00:00:00. Om du använder 24:00:00, behandlas den som 24 dagar (24.00:00:00). Ange 1:04:00:00 för 1 dag och 4 timmar. |Nej |0 |
-| RetryInterval |Väntetiden mellan ett fel och nästa försök. Den här inställningen gäller för närvarande. Om den tidigare misslyckade, nästa försök är efter den **retryInterval** period. <br/><br/>Om den är 1:00 PM just nu kan börja vi första försöket. Om tid att slutföra den första verifieringen är 1 minut och åtgärden misslyckades, nästa försök görs 1:00 + 1 min. (varaktighet) + 1 min. (Återförsöksintervall) = 1:02 PM. <br/><br/>Segment tidigare finns det ingen fördröjning. Den här gången sker omedelbart. |Nej |00:01:00 (1 minut) |
+| retryInterval |Väntetiden mellan ett fel och nästa försök. Den här inställningen gäller för närvarande. Om den tidigare misslyckade, nästa försök är efter den **retryInterval** period. <br/><br/>Om den är 1:00 PM just nu kan börja vi första försöket. Om tid att slutföra den första verifieringen är 1 minut och åtgärden misslyckades, nästa försök görs 1:00 + 1 min. (varaktighet) + 1 min. (Återförsöksintervall) = 1:02 PM. <br/><br/>Segment tidigare finns det ingen fördröjning. Den här gången sker omedelbart. |Nej |00:01:00 (1 minut) |
 | retryTimeout |Tidsgräns för varje nytt försök.<br/><br/>Om den här egenskapen har angetts till 10 minuter ska verifieringen ha slutförts inom 10 minuter. Om det tar längre tid än 10 minuter att utföra valideringen timeout för och försök igen.<br/><br/>Om alla försök för timeout validering sektorn är markerat som **orsakade**. |Nej |00:10:00 (10 minuter) |
 | maximumRetry |Antal gånger för att kontrollera tillgänglighet för externa data. Det högsta tillåtna värdet är 10. |Nej |3 |
 

@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e30cffa836beb2086e3bc4e94bf60be94136d3a0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f68e1077ebc26245b25eae3b0310db74b6d1357e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620630"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046453"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Skicka data till ett Azure Search-index med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-azure-search-connector.md)
-> * [Version 2 – förhandsversion](../connector-azure-search.md)
+> * [Version 1](data-factory-azure-search-connector.md)
+> * [Version 2 (aktuell version)](../connector-azure-search.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Azure Search-kopplingen i V2](../connector-azure-search.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Azure Search-kopplingen i V2](../connector-azure-search.md).
 
 Den här artikeln beskriver hur du använder aktiviteten kopiera för pusha data från ett dataarkiv som stöds källan till Azure Search-index. Stöds källa datalager listas i kolumnen källa för den [källor och sänkor stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Den här artikeln bygger på den [data movement aktiviteter](data-factory-data-movement-activities.md) artikel som ger en allmän översikt över dataflyttning stöds data store kombinationer och Kopieringsaktivitet.
 
@@ -41,7 +41,7 @@ Du kan skapa en pipeline med en kopia-aktivitet som skickar data från ett dataa
 
 Det enklaste sättet att skapa en pipeline är att använda den **guiden Kopiera**. Finns [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall** , **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Om du använder verktyg eller API: er, kan du utföra följande steg för att skapa en pipeline som flyttar data från ett dataarkiv som källa till ett dataarkiv som mottagare: 
 
@@ -80,8 +80,8 @@ För Kopieringsaktiviteten när sink är av typen **AzureSearchIndexSink**, föl
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Anger om du vill slå samman eller ersätta ett dokument som redan finns i indexet. Finns det [WriteBehavior egenskapen](#writebehavior-property).| sammanfoga (standard)<br/>Ladda upp| Nej |
-| writeBatchSize | Överför data till Azure Search index när buffertstorleken når writeBatchSize. Finns det [WriteBatchSize egenskapen](#writebatchsize-property) mer information. | 1 till 1 000. Standardvärdet är 1000. | Nej |
+| WriteBehavior | Anger om du vill slå samman eller ersätta ett dokument som redan finns i indexet. Finns det [WriteBehavior egenskapen](#writebehavior-property).| Sammanfoga (standard)<br/>Ladda upp| Nej |
+| WriteBatchSize | Överför data till Azure Search index när buffertstorleken når writeBatchSize. Finns det [WriteBatchSize egenskapen](#writebatchsize-property) mer information. | 1 till 1 000. Standardvärdet är 1000. | Nej |
 
 ### <a name="writebehavior-property"></a>Egenskapen WriteBehavior
 AzureSearchSink upserts när data skrivs. När du skriver ett dokument, om dokumentnyckeln finns redan i Azure Search-index kan uppdateras med andra ord Azure Search befintligt dokument i stället för att en konflikt undantag.
@@ -104,7 +104,7 @@ I följande tabell anger om en Azure Search-datatyp stöds eller inte.
 | Sträng | Y |
 | Int32 | Y |
 | Int64 | Y |
-| dubbla | Y |
+| Dubbel | Y |
 | Boolesk | Y |
 | DataTimeOffset | Y |
 | Strängmatris | N |

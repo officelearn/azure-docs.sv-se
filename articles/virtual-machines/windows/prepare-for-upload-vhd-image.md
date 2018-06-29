@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 038a9be813367d130dd8bb02b24879d1e2e573b5
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2d7ee7050f430efea64d9988adf4f5a603128de2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072257"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053457"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en Windows-VHD eller VHDX för att överföra till Azure
 Innan du laddar upp en Windows-datorer (VM) från lokal till Microsoft Azure måste du förbereda den virtuella hårddisken (VHD eller VHDX). Azure stöder endast generering 1 virtuella datorer som är i VHD-format och har en fast storlek disk. Den maximala storleken för den virtuella Hårddisken är 1,023 GB. Du kan konvertera en generation 1 virtuell dator från VHDX-filsystemet till virtuell Hårddisk och från en dynamiskt expanderande disk till en fast storlek. Men du kan inte ändra en virtuell dator generation. Mer information finns i [bör jag skapa en generation 1 eller 2 virtuella datorn i Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -367,7 +367,7 @@ Om du vill i stället endast att skapa en virtuell dator från en disk kan du in
 Mer information om hur du skapar en virtuell dator från en särskild disk finns:
 
 - [Skapa en virtuell dator från en särskild disk](create-vm-specialized.md)
-- [Skapa en virtuell dator från en särskild VHD-disk](https://azure.microsoft.com/resources/templates/201-vm-specialized-vhd/)
+- [Skapa en virtuell dator från en särskild VHD-disk](https://review.docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
 Om du vill skapa en generaliserad avbildning måste du köra sysprep. Mer information om Sysprep finns [så att använda Sysprep: en introduktion](http://technet.microsoft.com/library/bb457073.aspx). 
 
@@ -381,7 +381,7 @@ Stöder den här generalisering inte varje roll eller program som är installera
 1. Logga in på Windows VM.
 2. Kör **kommandotolk** som administratör. 
 3. Ändra katalogen till: **%windir%\system32\sysprep**, och kör sedan **sysprep.exe**.
-3. I den **systemförberedelseverktyget** dialogrutan **ange System Out of Box Experience (OOBE)**, och se till att den **Generalize** är markerad.
+3. Välj **Starta OOBE för systemet (Out-of-Box Experience)** i dialogrutan **Systemförberedelseverktyget** och kontrollera att kryssrutan **Generalisera** är markerad.
 
     ![Systemförberedelseverktyget](media/prepare-for-upload-vhd-image/syspre.png)
 4. I **avstängningsalternativ**väljer **avstängning**.

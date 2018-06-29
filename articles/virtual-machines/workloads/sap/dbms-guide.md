@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 356e44b063fbd65de23d3aab313f58b5572840ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 79e77aa067cbb7262a945d94ce8ac1750e80b2d5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656201"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054797"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Azure virtuella datorer DBMS-distribution för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -288,7 +288,7 @@ ms.locfileid: "34656201"
 [virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
-[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
+[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/en-us/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
@@ -390,7 +390,7 @@ För att följa det här kapitlet, är det nödvändigt att förstå vad som ang
 
 Diskar som innehåller ett operativsystem har begränsad till 127 GB i storlek tills mars 2015. Den här begränsningen har lyfts i mars 2015 (för mer information kontrollen <https://azure.microsoft.com/blog/2015/03/25/azure-vm-os-drive-limit-octupled/>). Därifrån på diskar som innehåller operativsystemet kan ha samma storlek som någon annan disk. Vi föredrar dock fortfarande en struktur för distribution där operativsystemet, DBMS och eventuell SAP-binärfiler skiljer sig från databasfilerna. Vi förvänta dig därför SAP-system som körs i Azure Virtual Machines har den grundläggande VM (eller disk) som installerats med operativsystemet, databasen management system körbara filer och SAP körbara filer. DBMS data och loggfilen filerna lagras i Azure-lagring (Standard eller Premium-lagring) i separata diskar och anslutna som logiska diskar på den ursprungliga Azure operativsystemavbildningen VM. 
 
-Beroende på utnyttja Azure Standard eller Premium-lagring (till exempel med hjälp av DS-serien eller GS-serien VMs) det finns andra kvoter i Azure, som finns dokumenterade [här (Linux)] [ virtual-machines-sizes-linux] och [här (Windows)][virtual-machines-sizes-windows]. När du planerar din disklayouten, måste du hitta en bra balans av kvoter för följande objekt:
+Beroende på utnyttja Azure Standard eller Premium-lagring (till exempel med hjälp av DS-serien eller GS-serien VMs) det finns andra kvoter i Azure, som finns dokumenterade [här (Linux)] [ virtual-machines-sizes-linux] och [ här (Windows)][virtual-machines-sizes-windows]. När du planerar din disklayouten, måste du hitta en bra balans av kvoter för följande objekt:
 
 * Antalet datafiler.
 * Antal diskar som innehåller filerna.
@@ -449,7 +449,7 @@ Rekommendation för Azure Premium-lagring är att utnyttja **läsa cachelagring 
 ### <a name="c8e566f9-21b7-4457-9f7f-126036971a91"></a>Programvarubaserad RAID
 Angivits redan ovan, måste du väga antalet IOPS som behövs för databasfilerna över antalet diskar som du kan konfigurera och högsta IOPS en Azure VM ger per disk- eller Premium-lagring disktyp. Hantera IOPS belastningen över diskar enklast att skapa en programvarubaserad RAID över olika diskar. Placera sedan ett antal filer i SAP-DBMS på LUN högg utanför programvarubaserad RAID. Beroende på vilka krav som du kanske vill överväga användning av Premium-lagring samt sedan två av tre olika Premium-lagring diskar har högre IOPS kvot än diskar baserat på standardlagring. Förutom den betydande bättre i/o-svarstid som tillhandahålls av Azure Premium-lagring. 
 
-Detsamma gäller för transaktionsloggen för de olika DBMS-system. I många av dem att lägga till fler Tlog filer hjälper inte eftersom DBMS-system att skriva till en av filerna på bara en gång. Om du behöver högre IOPS takt än en enda Standard lagring baserat disk kan leverera, du kan stripe över flera standardlagring diskar eller du kan använda en större Premium-lagring disktyp som utöver högre IOPS priser levererar även faktorer kortare svarstid för skrivning I/o i transaktionsloggen.
+Detsamma gäller för transaktionsloggen för de olika DBMS-system. I många av dem att lägga till fler Tlog filer hjälper inte eftersom DBMS-system att skriva till en av filerna på bara en gång. Om högre IOPS priser behövs än en enda standardlagring baserad disk kan leverera, du kan stripe över flera standardlagring diskar eller du kan använda en större disktyp för Premium-lagring som utöver högre IOPS priser faktorer ger också kortare svarstid för skrivning jag / OS i transaktionsloggen.
 
 Situationer som uppstått i Azure-distributioner som skulle ge företräde åt med en programvarubaserad RAID är:
 
@@ -554,7 +554,7 @@ Vill du koppla ifrån en Microsoft eller tredje part som avbildning från Azure 
 #### <a name="deploying-a-vm-with-a-customer-specific-generalized-image"></a>Distribuera en virtuell dator med en kundspecifika generaliserad avbildning
 På grund av specifika krav om ditt operativsystem eller DBMS-version, kan de tillhandahållna avbildningarna i Azure Marketplace inte passar dina behov. Därför kan du behöva skapa en virtuell dator med hjälp av en egen ”privat” OS/DBMS VM-avbildning som kan distribueras efteråt flera gånger. Operativsystemet måste vara generaliserad på den lokala virtuella datorn för att förbereda en ”privat” avbildning för dubblering. Referera till den [Deployment Guide] [ deployment-guide] för information om hur du generalisera en virtuell dator.
 
-Om du redan har installerat SAP innehållet i den lokala virtuella datorn (särskilt för nivå 2-system), kan du anpassa SAP systeminställningar när proceduren som stöds av SAP programvara etablering Manager distributionen av virtuella Azure-datorn via instansen (SAP-kommentar [1619720]). Annars kan du installera SAP-program senare efter distributionen av Azure VM.
+Om du redan har installerat SAP innehållet i den lokala virtuella datorn (särskilt för nivå 2-system), kan du anpassa systeminställningar SAP när distributionen av virtuella Azure-datorn via instansen proceduren som stöds av SAP programvara etablering Manager (SAP Observera [1619720]). Annars kan du installera SAP-program senare efter distributionen av Azure VM.
 
 Eftersom av databasen innehåll används av SAP-programmet, du kan antingen generera innehållet nyligen av en SAP-installation eller du kan importera ditt innehåll till Azure med hjälp av en virtuell Hårddisk med en säkerhetskopia av databasen DBMS eller genom att utnyttja funktionerna i DBMS att säkerhetskopiera direkt till  Microsoft Azure-lagring. I det här fallet kan du även förbereda virtuella hårddiskar med den DBMS data och loggfilen filer lokalt och sedan importera dem som diskar till Azure. Men överföring av DBMS-data som läses in från lokal till Azure skulle fungera över VHD-diskar som måste förberedas lokalt.
 
@@ -567,7 +567,7 @@ Azure erbjuder följande hög tillgänglighet och Disaster Recovery (DR) funktio
 ### <a name="vms-deployed-on-azure-nodes"></a>Virtuella datorer som distribueras på Azure-noder
 Azure-plattformen erbjuder inte funktioner, till exempel Direktmigrering för distribuerade virtuella datorer. Det innebär att om det krävs Underhåll på ett serverkluster som är distribuerad på en virtuell dator, den virtuella datorn behöver hämta stoppas och startas om. Underhåll i Azure utförs med så kallade uppgradera domäner inom kluster med servrar. Endast en uppgradera domän i taget bevaras. Under en omstart finns det ett avbrott i tjänsten medan den virtuella datorn är avstängd och underhåll utförs virtuella datorn startas om. De flesta DBMS-leverantörer men ger hög tillgänglighet och katastrofåterställning funktioner som startar snabbt om DBMS-tjänster på en annan nod om den primära noden är tillgänglig. Azure-plattformen ger funktioner för att distribuera virtuella datorer, lagring och andra Azure-tjänster uppgradera domäner så att endast planerat underhåll eller infrastruktur fel påverkar en liten del av virtuella datorer eller tjänster.  Med noggrann planering, är det möjligt att uppnå tillgänglighet jämförbar med lokal infrastruktur.
 
-Microsoft Azure-Tillgänglighetsuppsättningar är en logisk gruppering av virtuella datorer eller tjänster som säkerställer att virtuella datorer och andra tjänster som har distribuerats till olika fel- och uppgradera domäner inom ett kluster så att det kan bara finnas en nodavstängning på någon punkt i tiden (läsa [(Linux)] [ virtual-machines-manage-availability-linux] eller [(Windows)] [ virtual-machines-manage-availability-windows] mer information).
+Microsoft Azure-Tillgänglighetsuppsättningar är en logisk gruppering av virtuella datorer eller tjänster som säkerställer att virtuella datorer och andra tjänster som har distribuerats till olika fel och uppgradera domäner inom ett kluster så att skulle det bara finnas en nodavstängning på någon punkt i tiden (läsa [(Linux)] [ virtual-machines-manage-availability-linux] eller [(Windows)] [ virtual-machines-manage-availability-windows] mer information).
 
 Den måste konfigureras med syftet vid distribution av virtuella datorer som visas här:
 
@@ -713,7 +713,7 @@ Hämta x64 installationsfilen och i dokumentationen. Filen installerar ett progr
 * Verktyget kan du definiera regler som kan användas för att styra olika typer av säkerhetskopieringar för olika Azure Storage-behållare.
 * När reglerna är på plats, omdirigerar verktyget skrivdataström av säkerhetskopian till en av de virtuella hårddiskar/diskarna till Azure Storage-plats, som definierades tidigare.
 * Verktyget lämnar en liten stub-fil med några KB storleken på VHD/disken som har definierats för SQL Server säkerhetskopiering. **Den här filen ska lämnas på lagringsplatsen eftersom det krävs för att återställa igen från Azure Storage.**
-  * Om du har tappat bort stubbfil (till exempel genom förlust av lagringsmedia som innehöll stub-filen) och du har valt alternativet för att säkerhetskopiera till ett Microsoft Azure Storage-konto, kan du återställa stub-filen via Microsoft Azure Storage genom att hämta det från vilken lagringsbehållare som den släpptes. Placera stub-filen i en mapp på den lokala datorn där verktyget är konfigurerad för att identifiera och ladda upp till behållaren med samma Krypteringslösenord om kryptering användes med den ursprungliga regeln. 
+  * Om du har tappat bort stubbfil (till exempel genom förlust av lagringsmedia som innehöll stub-filen) och du har valt alternativet för att säkerhetskopiera till ett Microsoft Azure Storage-konto, kan du återställa stub-filen via Microsoft Azure Storage genom att hämta den från vilken lagringsbehållare som den släpptes. Placera stub-filen i en mapp på den lokala datorn där verktyget är konfigurerad för att identifiera och ladda upp till behållaren med samma Krypteringslösenord om kryptering användes med den ursprungliga regeln. 
 
 Det innebär att schemat som beskrivs ovan för nyare versioner av SQL Server kan placeras på plats samt SQL Server-versioner som inte tillåter att direkt adressen en Azure-lagringsplats.
 
@@ -802,7 +802,7 @@ Vissa aspekter med hjälp av en Tillgänglighetsgruppslyssnare är:
 
 * Med hjälp av en Tillgänglighetsgruppslyssnare är bara möjligt med Windows Server 2012 eller högre som gästoperativsystemet på den virtuella datorn. För Windows Server 2012 måste du se till att korrigeringsfilen tillämpas: <https://support.microsoft.com/kb/2854082> 
 * För Windows Server 2008 R2 finns inte den här korrigeringsfilen och alltid på måste användas på samma sätt som databasspegling genom att ange redundanspartner i anslutningssträngen (göra SAP default.pfl parametern dbs/mss/server - Se SAP-kommentar [965908]).
-* När du använder en Tillgänglighetsgruppslyssnare, måste de virtuella datorerna databasen måste vara ansluten till en särskild belastningsutjämnare. Namnmatchning i distributioner för endast molnbaserad antingen kräver ett SAP-system (programservrar, DBMS-servern och server (A) SCS) på alla virtuella datorer finns i samma virtuella nätverk eller kräver från en SAP programnivå underhåll av etc\host-filen för att få VM namnen på SQL Server-datorer som löst. För att undvika att Azure tilldelar nya IP-adresser i de fall där båda VM: ar tillfälligtvis avstängning en bör tilldela statiska IP-adresser för nätverksgränssnitten i de virtuella datorer i konfigurationen för Always On (definierar en statisk IP-adress beskrivs i [detta] [ virtual-networks-reserved-private-ip] artikel)
+* När du använder en Tillgänglighetsgruppslyssnare, måste de virtuella datorerna databasen måste vara ansluten till en särskild belastningsutjämnare. Namnmatchning i distributioner för endast molnbaserad antingen kräver ett SAP-system (programservrar, DBMS-servern och server (A) SCS) på alla virtuella datorer finns i samma virtuella nätverk eller från en SAP programnivå kräver underhåll av filen etc\host i ordning att hämta VM namnen på SQL Server-datorer som löst. För att undvika att Azure tilldelar nya IP-adresser i de fall där båda VM: ar tillfälligtvis avstängning bör en tilldela statiska IP-adresser för nätverksgränssnitten i de virtuella datorer i konfigurationen för Always On (definierar en statisk IP-adress beskrivs i [detta] [ virtual-networks-reserved-private-ip] artikel)
 
 [comment]: <> (Gamla bloggar)
 [comment]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>) 
@@ -931,7 +931,7 @@ och länkar som har genererats i transaktionen DBACockpit ser ut ungefär så h�
 > 
 > 
 
-Beroende på använder om och hur den virtuella datorn för Azure som värd för SAP-systemet är ansluten via plats-till-plats, flera platser eller ExpressRoute (mellan lokala distribution) måste du kontrollera att ICM ett fullständigt kvalificerat värdnamn som kan lösas på datorn där du försöker öppna DBACockpit från. Se SAP-kommentar [773830] att förstå hur ICM anger fullständigt kvalificerat värdnamn beroende på profilen parametrar och ange parametern icm/host_name_full uttryckligen om det behövs.
+Beroende på om och hur den virtuella datorn för Azure som värd för SAP-systemet är ansluten via plats-till-plats, flera platser eller ExpressRoute (mellan lokala distribution) måste du kontrollera att ICM använder ett fullständigt kvalificerat värdnamn som kan lösas på datorn där du försöker öppna DBACockpit från. Se SAP-kommentar [773830] att förstå hur ICM anger fullständigt kvalificerat värdnamn beroende på profilen parametrar och ange parametern icm/host_name_full uttryckligen om det behövs.
 
 Om du har distribuerat den virtuella datorn i ett scenario med endast molnbaserad utan anslutning mellan lokala och Azure måste du definiera en offentlig IP-adress och en domainlabel. Formatet för det offentliga DNS-namnet på den virtuella datorn ser ut så här:
 
@@ -1043,7 +1043,7 @@ Beroende på vilken version av SAPInst/SWPM används för att installera innehå
 * En SAP ASE tempdb som skapats genom att installera SAP ASE och en ytterligare saptempdb som skapats av rutinen SAP-installation
 * En SAP ASE tempdb som skapats genom att installera SAP ASE och en ytterligare tempdb som har skapats manuellt (till exempel följande SAP-kommentar [1752266]) till ERP/BW specifika tempdb-krav
 
-Vid specifika ERP eller alla BW arbetsbelastningar klokt det, gäller prestanda, så Håll tempdb-enheter efter dessutom skapade tempdb (via SWPM eller manuellt) på en separat filsystem, som representeras av en enda Azure datadisk eller en Linux-RAID som sträcker sig över flera diskar i Azure data. Om det finns inga ytterligare tempdb, rekommenderas att skapa en (SAP-kommentar [1752266]).
+Vid specifika ERP eller alla BW arbetsbelastningar kan det vara bra om prestanda för att tempdb-enheter efter dessutom skapade tempdb (via SWPM eller manuellt) på en separat filsystem, som representeras av en enda Azure datadisk eller en Linux-RAID-spannin g flera diskar i Azure data. Om det finns inga ytterligare tempdb, rekommenderas att skapa en (SAP-kommentar [1752266]).
 
 Följande steg ska utföras för dessutom skapade tempdb för sådana system:
 
@@ -1084,7 +1084,7 @@ och länkar som har genererats i transaktionen DBACockpit ser ut ungefär så h�
 > 
 > 
 
-Beroende på använder om och hur den virtuella datorn för Azure som värd för SAP-systemet är ansluten via plats-till-plats, flera platser eller ExpressRoute (mellan lokala distribution) måste du kontrollera att ICM ett fullständigt kvalificerat värdnamn som kan lösas på datorn där du försöker öppna DBACockpit från. Se SAP-kommentar [773830] att förstå hur ICM anger fullständigt kvalificerat värdnamn beroende på profilen parametrar och ange parametern icm/host_name_full uttryckligen om det behövs.
+Beroende på om och hur den virtuella datorn för Azure som värd för SAP-systemet är ansluten via plats-till-plats, flera platser eller ExpressRoute (mellan lokala distribution) måste du kontrollera att ICM använder ett fullständigt kvalificerat värdnamn som kan lösas på datorn där du försöker öppna DBACockpit från. Se SAP-kommentar [773830] att förstå hur ICM anger fullständigt kvalificerat värdnamn beroende på profilen parametrar och ange parametern icm/host_name_full uttryckligen om det behövs.
 
 Om du har distribuerat den virtuella datorn i ett scenario med endast molnbaserad utan anslutning mellan lokala och Azure måste du definiera en offentlig IP-adress och en domainlabel. Formatet för det offentliga DNS-namnet på den virtuella datorn ser ut så här:
 
@@ -1265,7 +1265,7 @@ Kort sagt behöver du:
 
 * Om du använder Azure Storage-konton, anger du Azure storage-konto som innehåller SAP MaxDB data och loggfilen volymer (d.v.s. filer) till **lokalt Redundant lagring (LRS)** som anges i kapitel [Microsoft Azure Storage][dbms-guide-2.3].
 * Separata i/o-sökväg för SAP MaxDB datavolymer (d.v.s. filer) från i/o-sökväg för loggvolymer (d.v.s. filer). Detta innebär att SAP MaxDB datavolymer (d.v.s. filer) måste installeras på en logisk enhet och SAP MaxDB loggvolymer (d.v.s. filer) måste installeras på en annan logisk enhet.
-* Ange rätt cachelagring typ för varje disk, beroende på om du använder för SAP MaxDB data- eller loggfilen volymer (d.v.s. filer) och om du använder Azure-Standard eller Azure Premium-lagring, enligt beskrivningen i kapitel [cachelagring för virtuella datorer och datadiskar][dbms-guide-2.1].
+* Ange rätt cachelagring typ för varje disk, beroende på om du använder för SAP MaxDB data- eller loggfilen volymer (d.v.s. filer) och om du använder Azure-Standard eller Azure Premium-lagring, enligt beskrivningen i kapitel [cachelagring för virtuella datorer och datadiskar] [dbms-guide-2.1].
 * Så länge kvoten IOPS per disk uppfyller kraven, är det möjligt att lagra alla datavolymer som på en monterad disk och även lagra alla loggvolymer för databasen på en annan enkel monterade disken.
 * Om det krävs mer IOPS och/eller blanksteg, rekommenderas att använda lagringspooler i Microsoft Windows (endast tillgängligt i Microsoft Windows Server 2012 och senare) eller Microsoft Windows striping för Microsoft Windows 2008 R2 för att skapa en logisk enhet för stora över flera monterade diskar. Se även kapitel [programvara RAID] [ dbms-guide-2.2] i det här dokumentet. Den här metoden förenklar omkostnader för administration för att hantera diskutrymmet och undviker att behöva distribuera manuellt filer över flera monterade diskar.
 * För de högsta IOPS-kraven, kan du använda Azure Premium-lagring som är tillgänglig på DS-serien och GS-serien virtuella datorer.
@@ -1363,7 +1363,7 @@ Vi rekommenderar starkt att använda den senaste versionen av Microsoft Windows 
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Riktlinjer för SAP innehållsserver konfiguration för SAP installationer i virtuella Azure-datorer
 #### <a name="storage-configuration"></a>Lagringskonfiguration
-Om du konfigurerar SAP innehållsservern för att lagra filer i databasen SAP MaxDB alla Azure-lagring best practices rekommendation för SAP MaxDB enligt kapitel [lagringskonfiguration] [ dbms-guide-8.4.1] gäller också för SAP innehållsserver scenario. 
+Om du konfigurerar SAP innehållsservern för att lagra filer i databasen SAP MaxDB alla Azure-lagring best practices rekommendation för SAP MaxDB enligt kapitel [lagringskonfiguration] [ dbms-guide-8.4.1] också är giltiga för scenariot SAP innehållsserver. 
 
 Om du konfigurerar SAP innehållsservern för att lagra filer i filsystemet, rekommenderas att använda en dedikerad logisk enhet. Med lagringsutrymmen för Windows kan du också öka logiska diskens storlek och IOPS genomströmning som beskrivs i kapitlet [programvara RAID][dbms-guide-2.2]. 
 
@@ -1386,7 +1386,7 @@ Här har du två alternativ:
 <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
 
 #### <a name="backup--restore"></a>Säkerhetskopiering/återställning
-Om du konfigurerar SAP innehållsservern för att lagra filer i databasen SAP MaxDB säkerhetskopiering/återställning proceduren- och prestandaöverväganden som beskrivs i SAP MaxDB kapitel [säkerhetskopierar och återställer] [ dbms-guide-8.4.2] och kapitel [prestandaöverväganden för säkerhetskopiering och återställning][dbms-guide-8.4.3]. 
+Om du konfigurerar SAP innehållsservern för att lagra filer i databasen SAP MaxDB säkerhetskopiering/återställning proceduren- och prestandaöverväganden som beskrivs i SAP MaxDB kapitel [säkerhetskopierar och återställer] [ dbms-guide-8.4.2]och kapitel [prestandaöverväganden för säkerhetskopiering och återställning][dbms-guide-8.4.3]. 
 
 Om du konfigurerar SAP innehållsservern för att lagra filer i filsystemet, är ett alternativ att köra en manuell säkerhetskopiering/återställning av hela filstrukturen där dokumenten finns. Liknar SAP MaxDB säkerhetskopiering/återställning, bör ha en dedikerad volym för säkerhetskopiering ändamål. 
 
@@ -1414,7 +1414,7 @@ Alla databasfiler måste lagras i NTFS-filsystemet som är baserat på direkt an
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
 
-Om du använder diskar baserat på Azure sidan BLOB Storage eller hanterade diskar instruktionerna som gjorts i det här dokumentet i kapitlet [struktur för en distribution av RDBMS] [ dbms-guide-2] gäller även för distributioner med IBM DB2 för LUW databasen. 
+Om du använder diskar baserat på Azure sidan BLOB Storage eller hanterade diskar instruktionerna som gjorts i det här dokumentet i kapitlet [struktur för en distribution av RDBMS] [ dbms-guide-2] gäller även för distributioner med IBM DB2 för LUW Databas. 
 
 Enligt beskrivningen tidigare i den allmänna delen av dokumentet finns kvoter på IOPS genomströmning för diskar. De exakta kvoterna beror på VM-typ som används. En lista över Virtuella typer med sina kvoter hittar [här (Linux)] [ virtual-machines-sizes-linux] och [här (Windows)][virtual-machines-sizes-windows].
 
@@ -1422,7 +1422,7 @@ Så länge kvoten IOPS per disk räcker är det möjligt att lagra alla databasf
 
 Prestanda finns överväganden även i kapitlet ”datasäkerhet och prestandaöverväganden för databaskataloger” i guider för SAP-installationen.
 
-Alternativt kan du använda Windows lagringspooler (endast tillgängligt i Windows Server 2012 och senare) eller Windows striping för Windows 2008 R2 som beskrivs i kapitel [programvara RAID] [ dbms-guide-2.2] av det här dokumentet för att skapa en logisk enhet för stora över flera diskar.
+Alternativt kan du använda Windows lagringspooler (endast tillgängligt i Windows Server 2012 och senare) eller Windows striping för Windows 2008 R2 som beskrivs i kapitel [programvara RAID] [ dbms-guide-2.2] i detta dokument Skapa en logisk enhet för stora över flera diskar.
 För diskarna med DB2 lagringssökvägar för dina sapdata och saptmp kataloger, måste du ange en fysisk disk sektorstorlek på 512 KB. När du använder lagringspooler för Windows, måste du skapa lagringspooler manuellt via kommandoradsgränssnittet med parametern `-LogicalSectorSizeDefault`. Mer information finns i <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
 #### <a name="backuprestore"></a>Säkerhetskopiera/återställa
@@ -1446,7 +1446,7 @@ Microsoft Cluster Server (MSCS) stöds inte.
 
 DB2 katastrofåterställning för hög tillgänglighet (HADR) stöds. Om de virtuella datorerna med hög tillgänglighet konfigurationen har fungerar namnmatchning, skilja inte inställningarna i Azure från alla inställningar som görs lokalt. Det rekommenderas inte kan förlita sig på endast IP-lösning.
 
-Använd inte Geo-replikering för lagringskonton som lagrar databasen diskar. Mer information finns i kapitlet [Microsoft Azure Storage] [ dbms-guide-2.3] och kapitel [hög tillgänglighet och katastrofåterställning med virtuella Azure-datorer][dbms-guide-3].
+Använd inte Geo-replikering för lagringskonton som lagrar databasen diskar. Mer information finns i kapitlet [Microsoft Azure Storage] [ dbms-guide-2.3] och kapitel [hög tillgänglighet och katastrofåterställning med virtuella Azure-datorer] [ dbms-guide-3].
 
 #### <a name="other"></a>Annat
 Andra allmänna områden som Azure-Tillgänglighetsuppsättningar eller SAP övervakning tillämpas enligt beskrivningen i de tre första kapitlen i det här dokumentet för distributioner av virtuella datorer med IBM DB2 för LUW samt. 
@@ -1500,7 +1500,7 @@ Om du vill öka antalet mål att skriva till att två alternativ använda kombin
 #### <a name="high-availability-and-disaster-recovery"></a>Hög tillgänglighet och katastrofåterställning
 DB2 katastrofåterställning för hög tillgänglighet (HADR) stöds. Om de virtuella datorerna med hög tillgänglighet konfigurationen har fungerar namnmatchning, skilja inte inställningarna i Azure från alla inställningar som görs lokalt. Det rekommenderas inte kan förlita sig på endast IP-lösning.
 
-Använd inte Geo-replikering för lagringskonton som lagrar databasen diskar. Mer information finns i kapitlet [Microsoft Azure Storage] [ dbms-guide-2.3] och kapitel [hög tillgänglighet och katastrofåterställning med virtuella Azure-datorer][dbms-guide-3].
+Använd inte Geo-replikering för lagringskonton som lagrar databasen diskar. Mer information finns i kapitlet [Microsoft Azure Storage] [ dbms-guide-2.3] och kapitel [hög tillgänglighet och katastrofåterställning med virtuella Azure-datorer] [ dbms-guide-3].
 
 #### <a name="other"></a>Annat
 Andra allmänna avsnitt som Azure-Tillgänglighetsuppsättningar eller SAP övervakning tillämpas enligt beskrivningen i de tre första kapitlen i det här dokumentet för distributioner av virtuella datorer med IBM DB2 för LUW samt.

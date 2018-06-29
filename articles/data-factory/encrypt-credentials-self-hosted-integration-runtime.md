@@ -13,20 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 1cadcdd45e648f315e292bbc806abc9337725670
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b577c276627c3a187215cd0da551428fbb32791f
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619226"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050914"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Kryptera dina autentiseringsuppgifter för lokalt datalager i Azure Data Factory
 Du kan kryptera och lagra autentiseringsuppgifter för dina lokala datalager (länkade tjänster med känslig information) på en dator med automatisk värdbaserade integration runtime. 
 
 Du skickar en JSON-definitionsfil med autentiseringsuppgifter för att den <br/>[**Nya AzureRmDataFactoryV2LinkedServiceEncryptedCredential** ](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential?view=azurermps-4.4.0) för att skapa en JSON-definitionen utdatafil med krypterade autentiseringsuppgifter. Använd sedan den uppdaterade JSON-definitionen för att skapa länkade tjänster.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen om Data Factory version 1](v1/data-factory-introduction.md).
 
 ## <a name="author-sql-server-linked-service"></a>Skapad SQL Server som är länkad tjänst
 Skapa en JSON-fil med namnet **SqlServerLinkedService.json** i en mapp med följande innehåll:  

@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0149b15fdfbd9fd7a3c9f9c099db9d505d27d1c5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f475135f019994900f39a0a4007e8c4cf49af484
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623068"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054644"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Flytta data från SAP HANA med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-sap-hana-connector.md)
-> * [Version 2 – förhandsversion](../connector-sap-hana.md)
+> * [Version 1](data-factory-sap-hana-connector.md)
+> * [Version 2 (aktuell version)](../connector-sap-hana.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [SAP HANA-anslutningen i V2](../connector-sap-business-warehouse.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [SAP HANA-anslutningen i V2](../connector-sap-business-warehouse.md).
 
 Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data Factory för att flytta data från en lokal SAP HANA. Den bygger på den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel som presenterar en allmän översikt över dataflyttning med copy-aktivitet.
 
@@ -44,7 +44,7 @@ Om du vill aktivera anslutning till SAP HANA-instans, installera följande kompo
 Du kan skapa en pipeline med en kopia-aktivitet som flyttar data från en lokal SAP HANA-datalagret med hjälp av olika verktyg/API: er. 
 
 - Det enklaste sättet att skapa en pipeline är att använda den **guiden Kopiera**. Finns [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall** , **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Om du använder verktyg eller API: er, kan du utföra följande steg för att skapa en pipeline som flyttar data från ett dataarkiv som källa till ett dataarkiv som mottagare:
 
@@ -62,7 +62,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 server | Namnet på den server som SAP HANA-instansen finns. Om servern använder en anpassad port, ange `server:port`. | sträng | Ja
-AuthenticationType | Typ av autentisering. | Sträng. ”Basic” eller ”Windows” | Ja 
+authenticationType | Typ av autentisering. | sträng. ”Basic” eller ”Windows” | Ja 
 användarnamn | Namnet på den användare som har åtkomst till SAP-server | sträng | Ja
 lösenord | Lösenord för användaren. | sträng | Ja
 gatewayName | Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till lokal SAP HANA-instans. | sträng | Ja
@@ -285,19 +285,19 @@ När du flyttar data från SAP HANA, används följande mappningar från SAP HAN
 
 SAP HANA-typ | .NET baserat typ
 ------------- | ---------------
-TINYINT | Mottagna byte
+TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
 VERKLIG | Enkel
 DUBBEL | Enkel
 DECIMAL | Decimal
-BOOLESKT VÄRDE | Mottagna byte
+BOOLESKT VÄRDE | Byte
 VARCHAR | Sträng
 NVARCHAR | Sträng
-CLOB | byte]
+CLOB | Byte]
 ALPHANUM | Sträng
-BLOB | byte]
+BLOB | Byte]
 DATE | DateTime
 TID | TimeSpan
 TIDSSTÄMPEL | DateTime

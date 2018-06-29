@@ -4,8 +4,6 @@ description: Extrahera text från bildfiler i en Azure Search berikande pipeline
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 4ac86be25ebe7d12190cce290603ce83037a7b47
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 478afe81ed739b98487973eb092ee9cad0aa17fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640378"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059195"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR kognitiva kunskaper
 
@@ -38,14 +36,14 @@ Parametrar är skiftlägeskänsliga.
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
 | detectOrientation | Aktiverar automatisk igenkänning av orientering. <br/> Giltiga värden: true / false.|
-|defaultLanguageCode |  Språkkod av indatatexten. Språk som stöds: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`.  Om koden är Ospecificerad eller null, är språket som autodetected.|
+|defaultLanguageCode | <p>  Språkkod av indatatexten. Språk som stöds: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (Tjeckien) <br/>da (danska) <br/>NL (holländska) <br/>SV (på engelska) <br/>Fi (finska)  <br/>fr (franska) <br/>  Tyskland (tyska) <br/>el (grekiska) <br/> HU (ungerska) <br/> den (italienska) <br/>  Ja (japanska) <br/> Ko (koreanska) <br/> NB (norska) <br/>   PL (polska) <br/> PT (brasiliansk) <br/>  RU (ryska) <br/>  ES (spanska) <br/>  SA (svenska) <br/>  TR (Turkisk) <br/> ar (arabiska) <br/> ro (rumänska) <br/> SR-Cyrl (SerbianCyrillic) <br/> SR-Latn (SerbianLatin) <br/>  Sk (slovakiska). <br/>  UNK (okänd) <br/><br/> Om koden är Ospecificerad eller null, är språket som autodetected. </p> |
 | textExtractionAlgorithm | ”ut” eller ”handskriven”. Algoritmen ”handskriven” text recognition OCR är för närvarande under förhandsgranskning och stöds endast på engelska. |
 
 ## <a name="skill-inputs"></a>Kunskaper indata
 
 | Indatanamnet      | Beskrivning                                          |
 |---------------|------------------------------------------------------|
-| Bild         | Komplex typ. För närvarande bara fungerar med ”/ dokument/normalized_images” fältet produceras av Azure Blob-indexeraren när ```imageAction``` är inställd på ```generateNormalizedImages```. Finns det [exempel](#sample-output) för mer information.|
+| image         | Komplex typ. För närvarande bara fungerar med ”/ dokument/normalized_images” fältet produceras av Azure Blob-indexeraren när ```imageAction``` är inställd på ```generateNormalizedImages```. Finns det [exempel](#sample-output) för mer information.|
 
 
 ## <a name="skill-outputs"></a>Kunskaper utdata

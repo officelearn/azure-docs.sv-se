@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: e6aa0d477f94cd5ab087beface65e3a28e5094f5
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 8305a447ac75cf4c72a332910c9c4c90c1d8eac6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936980"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061445"
 ---
 # <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Hur du använder Azure hanterade tjänstidentiteten i App Service och Azure Functions
 
@@ -228,7 +228,7 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>Kodexempel
-Att göra denna begäran i C#:
+<a name="token-csharp"></a>Att göra denna begäran i C#:
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -239,7 +239,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 > [!TIP]
 > För .NET-språk, kan du också använda [Microsoft.Azure.Services.AppAuthentication](#asal) i stället för att utforma detta begära själv.
 
-I Node.JS:
+<a name="token-js"></a>I Node.JS:
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -254,7 +254,7 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
-I PowerShell:
+<a name="token-powershell"></a>I PowerShell:
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"

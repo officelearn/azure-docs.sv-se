@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 301a1a9934f9d7e76399dfe46a65481351a61e22
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7c6751a0432d66aee0ff3056b212dc1b348e333f
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621453"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045834"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Flytta data från MongoDB med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-on-premises-mongodb-connector.md)
-> * [Version 2 – förhandsversion](../connector-mongodb.md)
+> * [Version 1](data-factory-on-premises-mongodb-connector.md)
+> * [Version 2 (aktuell version)](../connector-mongodb.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [MongoDB-anslutningen i V2](../connector-mongodb.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [MongoDB-anslutningen i V2](../connector-mongodb.md).
 
 
 Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data Factory för att flytta data från en lokal MongoDB-databas. Den bygger på den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel som presenterar en allmän översikt över dataflyttning med copy-aktivitet.
@@ -50,7 +50,7 @@ Du kan skapa en pipeline med en kopia-aktivitet som flyttar data från en lokal 
 
 Det enklaste sättet att skapa en pipeline är att använda den **guiden Kopiera**. Finns [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall** , **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Om du använder verktyg eller API: er, kan du utföra följande steg för att skapa en pipeline som flyttar data från ett dataarkiv som källa till ett dataarkiv som mottagare: 
 
@@ -70,11 +70,11 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | typ |Egenskapen type måste anges till: **OnPremisesMongoDb** |Ja |
 | server |IP-adressen eller värdnamnet namnet på MongoDB-servern. |Ja |
 | port |TCP-port som MongoDB-servern använder för att lyssna efter anslutningar. |Valfritt, standardvärdet: 27017 |
-| AuthenticationType |Grundläggande eller anonym. |Ja |
+| authenticationType |Grundläggande eller anonym. |Ja |
 | användarnamn |Användarkonto för att få åtkomst till MongoDB. |Ja (om grundläggande autentisering används). |
 | lösenord |Lösenord för användaren. |Ja (om grundläggande autentisering används). |
 | authSource |Namnet på MongoDB-databas som du vill använda för att kontrollera autentiseringsuppgifterna för autentisering. |Valfritt (om grundläggande autentisering används). standard: använder administratörskonto och databasen som anges med egenskapen databaseName. |
-| DatabaseName |Namnet på den MongoDB-databas som du vill komma åt. |Ja |
+| databaseName |Namnet på den MongoDB-databas som du vill komma åt. |Ja |
 | gatewayName |Namnet på den gateway som har åtkomst till datalagret. |Ja |
 | encryptedCredential |Autentiseringsuppgifter har krypterats av gateway. |Valfri |
 
@@ -296,10 +296,10 @@ När data flyttas till MongoDB används följande mappningar från MongoDB-typer
 
 | MongoDB-typ | .NET framework-typ |
 | --- | --- |
-| Binär |byte] |
+| Binär |Byte] |
 | Boolesk |Boolesk |
 | Date |DateTime |
-| NumberDouble |dubbla |
+| NumberDouble |Dubbel |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectId |Sträng |

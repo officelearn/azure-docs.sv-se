@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1d566a719abaf09146965a677868d363d33d10e5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 189adf27795172bb08b52af1a9e3428d854a50a0
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622772"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046738"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Flytta data från PostgreSQL med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-onprem-postgresql-connector.md)
-> * [Version 2 – förhandsversion](../connector-postgresql.md)
+> * [Version 1](data-factory-onprem-postgresql-connector.md)
+> * [Version 2 (aktuell version)](../connector-postgresql.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [PostgreSQL-anslutningen i V2](../connector-postgresql.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [PostgreSQL-anslutningen i V2](../connector-postgresql.md).
 
 
 Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data Factory för att flytta data från en lokal PostgreSQL-databas. Den bygger på den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel som presenterar en allmän översikt över dataflyttning med copy-aktivitet.
@@ -78,8 +78,8 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | typ |Egenskapen type måste anges till: **OnPremisesPostgreSql** |Ja |
 | server |Namnet på PostgreSQL-server. |Ja |
 | databas |Namnet på PostgreSQL-databas. |Ja |
-| Schemat |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
-| AuthenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden är: anonym, grundläggande och Windows. |Ja |
+| schemat |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
+| authenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden är: anonym, grundläggande och Windows. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
 | lösenord |Ange lösenordet för det användarkonto som du angav för användarnamnet. |Nej |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala PostgreSQL-databasen. |Ja |
@@ -312,7 +312,7 @@ När data flyttas till PostgreSQL, används följande mappningar från PostgreSQ
 | bigserial |serial8 |Int64 |
 | bitars [(n)] | |Byte [], sträng | &nbsp;
 | bit varierande [(n)] |varbit |Byte [], sträng |
-| boolesk |bool |Boolesk |
+| boolesk |Bool |Boolesk |
 | Rutan | |Byte [], sträng |&nbsp;
 | bytea | |Byte [], sträng |&nbsp;
 | tecknet [(n)] |char [(n)] |Sträng |
@@ -322,7 +322,7 @@ När data flyttas till PostgreSQL, används följande mappningar från PostgreSQ
 | cirkel | |Byte [], sträng |&nbsp;
 | datum | |DateTime |&nbsp;
 | DateRange | |Sträng |&nbsp;
-| dubbel precision |FLOAT8 |dubbla |
+| dubbel precision |FLOAT8 |Dubbel |
 | inet | |Byte [], sträng |&nbsp;
 | intarry | |Sträng |&nbsp;
 | int4range | |Sträng |&nbsp;
@@ -330,8 +330,8 @@ När data flyttas till PostgreSQL, används följande mappningar från PostgreSQ
 | heltal |int, int4 |Int32 |
 | intervallet [fält] [(p)] | |Tidsintervall |&nbsp;
 | JSON | |Sträng |&nbsp;
-| jsonb | |byte] |&nbsp;
-| raden | |Byte [], sträng |&nbsp;
+| jsonb | |Byte] |&nbsp;
+| Raden | |Byte [], sträng |&nbsp;
 | lseg | |Byte [], sträng |&nbsp;
 | macaddr | |Byte [], sträng |&nbsp;
 | Money | |Decimal |&nbsp;
@@ -340,7 +340,7 @@ När data flyttas till PostgreSQL, används följande mappningar från PostgreSQ
 | OID | |Int32 |&nbsp;
 | sökväg | |Byte [], sträng |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
-| punkt | |Byte [], sträng |&nbsp;
+| Punkt | |Byte [], sträng |&nbsp;
 | polygon | |Byte [], sträng |&nbsp;
 | Verklig |FLOAT4 |Enkel |
 | smallint |int2 |Int16 |

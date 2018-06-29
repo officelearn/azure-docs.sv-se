@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 05abd943d85fcdd709143bf7fce221dcdfb86011
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f6196c1403ded7bb8a72ee5483c2c2056b0e8020
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215107"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030717"
 ---
-# <a name="service-endpoint-monitor"></a>Tjänsten Endpoint för övervakning
+# <a name="service-connectivity-monitor"></a>Övervakare av tjänstanslutning
 
-Du kan använda tjänsten Endpoint bildskärmar i [Network Performance Monitor](log-analytics-network-performance-monitor.md) att övervaka nätverksanslutning till någon slutpunkt som har en öppen TCP-port. Dessa slutpunkter är webbplatser, SaaS-program, PaaS-program och SQL-databaser. 
+Du kan använda tjänsten anslutning bildskärmar i [Network Performance Monitor](log-analytics-network-performance-monitor.md) att övervaka nätverksanslutning till någon slutpunkt som har en öppen TCP-port. Dessa slutpunkter är webbplatser, SaaS-program, PaaS-program och SQL-databaser. 
 
-Du kan utföra följande funktioner med tjänsten Endpoint Övervakare: 
+Du kan utföra med anslutning Tjänstövervakare följande funktioner: 
 
 - Övervaka nätverksanslutningen till dina program och tjänster från flera kontor och avdelningskontor. Program och tjänster för nätverk innehåller Office 365, Dynamics CRM, interna line-of-business-program och SQL-databaser.
 - Använd inbyggda testerna för att övervaka nätverksanslutning till Office 365 och Dynamics 365 slutpunkter. 
@@ -34,7 +34,7 @@ Du kan utföra följande funktioner med tjänsten Endpoint Övervakare:
 - Identifiera aktiva punkter i nätverket som kan orsaka dåliga programmens prestanda genom att visa svarstid som har bidragit med varje hopp på en topologisk karta.
 
 
-![Tjänsten Endpoint för övervakning](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![Övervakare av tjänstanslutning](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Konfiguration 
@@ -55,11 +55,11 @@ netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmp
 netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
 ```
 
-### <a name="create-service-endpoint-monitor-tests"></a>Skapa tester för tjänsten Endpoint övervakning 
+### <a name="create-service-connectivity-monitor-tests"></a>Skapa tester för tjänsten anslutning övervakning 
 
 Börja skapa dina tester för att övervaka nätverksanslutning till Tjänsteslutpunkter.
 
-1. Välj den **Endpoint Tjänstövervakare** fliken.
+1. Välj den **anslutning Tjänstövervakare** fliken.
 2. Välj **lägga till testa**, och ange test namn och beskrivning. 
 3. Välj typ av test:<br>
 
@@ -84,7 +84,7 @@ Börja skapa dina tester för att övervaka nätverksanslutning till Tjänsteslu
 
 ## <a name="walkthrough"></a>Genomgång 
 
-Gå till vyn Network Performance Monitor-instrumentpanelen. För att få en översikt över hälsotillståndet för de olika tester som du har skapat kan du titta på den **Endpoint Tjänstövervakare** sidan. 
+Gå till vyn Network Performance Monitor-instrumentpanelen. För att få en översikt över hälsotillståndet för de olika tester som du har skapat kan du titta på den **anslutning Tjänstövervakare** sidan. 
 
 ![Tjänsten Endpoint övervakning sida](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 

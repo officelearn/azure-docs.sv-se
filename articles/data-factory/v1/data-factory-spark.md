@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d22829217209b7d0b1b5690d6a864b58bf102e3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e775798dbaaf93d5a9b497323a3b2fa365820550
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622286"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046476"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Anropa Spark-program från Azure Data Factory pipelines
 
@@ -37,7 +37,7 @@ ms.locfileid: "34622286"
 > * [.NET-anpassad aktivitet](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig. Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Transformera data med hjälp av aktiviteten Apache Spark i Data Factory version 2](../transform-data-using-spark.md).
+> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Transformera data med hjälp av aktiviteten Apache Spark i Data Factory](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Introduktion
 Aktiviteten Spark är ett av de [data transformation aktiviteter](data-factory-data-transformation-activities.md) stöds av Data Factory. Den här aktiviteten körs det angivna Spark-programmet på Spark-kluster i Azure HDInsight. 
@@ -268,8 +268,7 @@ I det här steget skapar du en pipeline med en HDInsightSpark aktivitet. För n�
 
     ![Jupyter frågeresultat](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Detaljerade anvisningar finns i avsnittet [köra Spark SQL-fråga](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article --> Detaljerade anvisningar finns i avsnittet [köra Spark SQL-fråga](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
 ### <a name="troubleshooting"></a>Felsökning
 Eftersom du angett getDebugInfo **alltid**, visas en logg undermapp i mappen pyFiles i blob-behållaren. Mer information finns i loggfilen i loggmappen. Den här loggfilen är användbart när det uppstår ett fel. I en produktionsmiljö kan du vill ange **fel**.
@@ -337,7 +336,7 @@ I följande tabell beskrivs JSON-egenskaper som används i JSON-definitionen.
 | rootPath | Blob-behållaren och mappen med Spark-filen. Filnamnet är skiftlägeskänsligt. | Ja |
 | entryFilePath | Relativa sökvägen till rotmappen på Spark/kodpaketet. | Ja |
 | Klassnamn | Programmets huvudsakliga Java/Spark klass. | Nej |
-| Argument | En lista med kommandoradsargument till Spark-program. | Nej |
+| argument | En lista med kommandoradsargument till Spark-program. | Nej |
 | proxyUser | Användarkontot som ska personifiera för att köra Spark-program. | Nej |
 | sparkConfig | Ange värdena för konfigurationsegenskaperna Spark som anges i [Spark-konfiguration: programegenskaper](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nej |
 | getDebugInfo | Anger när Spark loggfilerna kopieras till den lagring som används av HDInsight-klustret (eller) anges av sparkJobLinkedService. Tillåtna värden är None, alltid eller fel. Standardvärdet är ingen. | Nej |

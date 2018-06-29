@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 446df7922422ccfcf3fbb92ecf153c6dec2f6197
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e20670476f4549a06d80d5f85e2ebd8ab1f50b05
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26640386"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047249"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Övervaka hälsotillstånd och aviseringar i Azure-stacken
 
@@ -32,6 +32,17 @@ Azure-stacken innehåller funktioner som gör att du kan visa hälso- och aviser
  ## <a name="understand-health-in-azure-stack"></a>Förstå hälsotillstånd i Azure-stacken
 
  Hälsa och aviseringar hanteras av resursprovidern hälsa. Azure Stack infrastrukturkomponenter registrera med resursprovidern hälsa under Azure Stack-distribution och konfiguration. Den här registreringen gör det möjligt för visning av hälsotillstånd och aviseringar för varje komponent. Hälsotillstånd i Azure-stacken är ett enkelt begrepp. Om det finns aviseringar för en registrerad instans av en komponent, visar hälsotillståndet för komponenten den sämsta active allvarlighetsgraden; varning eller kritisk.
+
+## <a name="alert-severity-definition"></a>Allvarlighetsgrad definition
+
+I Azure-stacken aviseringar som aktiveras med bara två allvarlighetsgraderna: **varning** och **kritiska**.
+
+**Varning**  
+En operatör kan åtgärda varningen på ett sätt som är schemalagda. Aviseringen vanligtvis påverkar inte användare arbetsbelastningar.
+
+**Kritiska**  
+En operator bör adressera kritisk varning med angelägenhetsgrad. Dessa är problem som påverkar eller snart kommer att påverka Azure Stack användare för närvarande. 
+
  
  ## <a name="view-and-manage-component-health-state"></a>Visa och hantera komponentens hälsotillstånd
  

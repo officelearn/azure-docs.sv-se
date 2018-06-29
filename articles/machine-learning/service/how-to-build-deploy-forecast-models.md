@@ -3,18 +3,18 @@ title: Skapa och distribuera en prognosmodellen med Azure Machine Learning-paket
 description: Lär dig mer om att skapa, träna, testa och distribuera en prognosmodellen med Azure Machine Learning-paketet för Prognosticering.
 services: machine-learning
 ms.service: machine-learning
-ms.component: service
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 05/07/2018
-ms.openlocfilehash: 0891f49da479b4209c305ebb532b053d85a7b2a6
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 320a7cf4a34657138c9096cdc4b573170be376e9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833537"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036641"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Skapa och distribuera prognosmodellen modeller med Azure Machine Learning
 
@@ -336,7 +336,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 Data innehåller ungefär 250 olika kombinationer av store och märke i en data-ram. Varje kombination definierar egna tidsserier av försäljning. 
 
-Du kan använda den [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframets.timeseriesdataframe) klassen lätt modellera flera serier i ett enda data struktur med den _grain_. Grain anges av den `store` och `brand` kolumner.
+Du kan använda den [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) klassen lätt modellera flera serier i ett enda data struktur med den _grain_. Grain anges av den `store` och `brand` kolumner.
 
 Skillnaden mellan _grain_ och _grupp_ är att grain alltid fysiskt betydelse i den verkliga världen, medan gruppen inte behöver vara. Internt paketet funktioner använda gruppen för att skapa en modell från flera tidsserier om användaren tror att den här grupperingen hjälper till att förbättra prestanda för modellen. Som standard anges grupp ska vara lika med grain och en modell är utformat för varje grain. 
 
@@ -498,7 +498,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-Den [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframets.timeseriesdataframe#ts-report) funktionen genererar en sammanfattande rapport tidsram för data i serien. Rapporten innehåller både en beskrivning av allmänna data samt statistik som är specifika för tid series-data. 
+Den [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) funktionen genererar en sammanfattande rapport tidsram för data i serien. Rapporten innehåller både en beskrivning av allmänna data samt statistik som är specifika för tid series-data. 
 
 
 ```python
@@ -887,14 +887,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Förbearbeta data och sedan imputera värden som saknas
 
-Starta genom att dela data i träningsmängden och en testning med den [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/python/api/ftk.tsutils) verktygsfunktionen. Det resulterande testning uppsättningen innehåller 40 senaste observationer av varje tidsserier. 
+Starta genom att dela data i träningsmängden och en testning med den [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) verktygsfunktionen. Det resulterande testning uppsättningen innehåller 40 senaste observationer av varje tidsserier. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Grundläggande tid serie modeller kräver sammanhängande tidsserier. Kontrollera om serien Normal, vilket innebär att de har ett tid index provtagning med jämna mellanrum, med hjälp av den [check_regularity_by_grain](https://docs.microsoft.compython/api/ftk.dataframets.timeseriesdataframe) funktion.
+Grundläggande tid serie modeller kräver sammanhängande tidsserier. Kontrollera om serien Normal, vilket innebär att de har ett tid index provtagning med jämna mellanrum, med hjälp av den [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) funktion.
 
 
 ```python
@@ -969,7 +969,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-Du kan se att de flesta av serier (213 av 249) är felaktiga. En [uppräkning transformeringen](https://docs.microsoft.com/python/api/ftk.transforms.tsimputer.timeseriesimputer) krävs för att fylla i saknade värden och antal. Det finns många alternativ för uppräkning, används följande exempelkod linjär interpolerade.
+Du kan se att de flesta av serier (213 av 249) är felaktiga. En [uppräkning transformeringen](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) krävs för att fylla i saknade värden och antal. Det finns många alternativ för uppräkning, används följande exempelkod linjär interpolerade.
 
 
 ```python
@@ -1035,7 +1035,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Kombinera flera modeller
 
-Den [ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecasterunion.forecasterunion) exteriörbedömning kan du kombinera flera estimators och anpassa/förutsäga på dem med hjälp av en rad med kod.
+Den [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) exteriörbedömning kan du kombinera flera estimators och anpassa/förutsäga på dem med hjälp av en rad med kod.
 
 
 ```python
@@ -1249,7 +1249,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-Den [RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regressionforecaster.regressionforecaster) funktionen radbryts sklearn regression estimators så att de kan få utbildning på TimeSeriesDataFrame. Omslutna prognosmodell kan varje grupp i det här fallet arkivet till samma modell. Prognosmodell Lär dig en modell för en serie som bedömdes liknande och kan grupperas tillsammans. En modell för en grupp av serien använder ofta data från längre serie för att förbättra prognoser för kort serien. Du kan använda dessa modeller för alla andra modeller i biblioteket som stöder regression. 
+Den [RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) funktionen radbryts sklearn regression estimators så att de kan få utbildning på TimeSeriesDataFrame. Omslutna prognosmodell kan varje grupp i det här fallet arkivet till samma modell. Prognosmodell Lär dig en modell för en serie som bedömdes liknande och kan grupperas tillsammans. En modell för en grupp av serien använder ofta data från längre serie för att förbättra prognoser för kort serien. Du kan använda dessa modeller för alla andra modeller i biblioteket som stöder regression. 
 
 
 ```python

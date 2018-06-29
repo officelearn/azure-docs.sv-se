@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 89fcd88643bd793935e7476ef32641ffa5ff4713
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6bc845e4ec329d308ed87770d0dec6a7d5e447c7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299801"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030965"
 ---
 # <a name="scenario-trigger-a-logic-app-with-azure-functions-and-azure-service-bus"></a>Scenario: Utlösa en logikapp med Azure Functions och Azure Service Bus
 
@@ -39,7 +39,7 @@ I det här exemplet har en funktion som körs för varje logikappen som måste a
 ## <a name="build-the-function"></a>Skapa funktionen
 Därefter måste skapa du en funktion som fungerar som utlösare och lyssnar till kön.
 
-1. I den [Azure Functions-portalen](https://functions.azure.com/signin)väljer **nya funktionen**, och välj sedan den **ServiceBusQueueTrigger - C#** mall.
+1. I den [Azure Functions-portalen](https://functions.azure.com/)väljer **nya funktionen**, och välj sedan den **ServiceBusQueueTrigger - C#** mall.
    
     ![Azure Functions-portalen][2]
 2. Konfigurera anslutningen till Service Bus-kö som använder Azure Service Bus SDK `OnMessageReceive()` lyssnare.

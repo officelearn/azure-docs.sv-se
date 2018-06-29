@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 0f3662ed386c3a3d2d132a483e7192bddc26de06
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5c05c7c4c0f8f0b3619b36390c8a0224a03c900a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26633823"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063550"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Viktig information om Azure BizTalk-tjänst
 
@@ -42,7 +42,7 @@ Viktig information för Microsoft Azure BizTalk Services innehåller kända prob
     Se [registrera och uppdatera en BizTalk-tjänst-distribution på BizTalk-Services-portalen](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>14 augusti uppdatering
-* BizTalk-Services-portalen frikopplas nu avtalet och bridge Frikoppling – handel partner avtal och bryggor. Du nu skapa avtal och bryggor separat och vid körning bryggor matcha till ett avtal baserat på värdena i EDI-meddelandet. Se [skapa avtal i Azure BizTalk-tjänst](https://msdn.microsoft.com/library/azure/hh689908.aspx), [skapa en EDI-brygga med BizTalk-Services-portalen](https://msdn.microsoft.com/library/azure/dn793986.aspx), [skapa ett AS2-brygga med BizTalk-Services-portalen](https://msdn.microsoft.com/library/azure/dn793993.aspx), och [hur löser bryggor avtal vid körning?](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
+* BizTalk-Services-portalen frikopplas nu avtalet och bridge Frikoppling – handel partner avtal och bryggor. Du nu skapa avtal och bryggor separat och vid körning bryggor matcha till ett avtal baserat på värdena i EDI-meddelandet. Se [skapa avtal i Azure BizTalk-tjänst](https://msdn.microsoft.com/library/azure/hh689908.aspx), [skapa en EDI-brygga med BizTalk-Services-portalen](https://msdn.microsoft.com/library/azure/dn793986.aspx), [skapa ett AS2-brygga med BizTalk-Services-portalen](https://msdn.microsoft.com/library/azure/dn793993.aspx), och [ Hur löser bryggor avtal vid körning?](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
 * Alternativet för att skapa mallar för avtal upphör.  
 * För sändningssidan avtalet, kan du nu ange en avgränsare för olika uppsättningar för varje schema. Den här konfigurationen har angetts under protokollinställningar för för Skicka sida avtal. Mer information finns i [skapa en X12 avtalet i Azure BizTalk-tjänst](https://msdn.microsoft.com/library/azure/hh689847.aspx) och [skapa ett EDIFACT-avtal i Azure BizTalk Services](https://msdn.microsoft.com/library/azure/dn606267.aspx). Två nya entiteter läggs också till TPM OM API för samma ändamål. Se [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) och [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Standard XSD-konstruktioner, inklusive härledda typer stöds nu. Se [Använd standard XSD konstruktioner i din maps](https://msdn.microsoft.com/library/azure/dn793987.aspx) och [använda härledda typer i mappning av scenarier och exempel](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
@@ -66,17 +66,17 @@ Du Build'-lösningen i Visual Studio har. Sedan 'Återskapa' eller rensa lösnin
   Det gick inte att kopiera filen <Path to DLL> till ”bin\Debug\FileName.dll”. Det går inte att komma åt filen 'bin\Debug\FileName.dll' eftersom den används av en annan process.  
 
 #### <a name="workaround"></a>Lösning
-* Om [Visual Studio 2012 uppdatering 3](https://www.microsoft.com/download/details.aspx?id=39305) är installerat, du har följande två alternativ:
+* Om [Visual Studio 2012 uppdatering 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) är installerat, du har följande två alternativ:
   
   * Starta om Visual Studio eller
   * Starta om lösningen. Därefter utför endast en version i lösningen.  
-* Om [Visual Studio 2012 uppdatering 3](https://www.microsoft.com/download/details.aspx?id=39305) är inte installerat, öppna Aktivitetshanteraren, klicka på processer fliken på MSBuild.exe process och klickar sedan på knappen Avsluta processen.  
+* Om [Visual Studio 2012 uppdatering 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) är inte installerat, öppna Aktivitetshanteraren, klicka på processer fliken på MSBuild.exe process och klickar sedan på knappen Avsluta processen.  
 
 ### <a name="routing-to-basichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>Routning till BasicHttpRelay slutpunkter stöds inte från bryggor och BizTalk-Services-portalen om icke utskrivbara tecken befordras som HTTP-huvuden
 Om du använder icke utskrivbara tecken som en del av upphöjda egenskaper för meddelanden, kan dessa meddelanden skickas till relay mål som använder BasicHttpRelay bindningen. Dessutom upphöjda egenskaper som är tillgängliga som en del av spårning är URL-kodade för BLOB och icke kodad för mål.  
 
 ### <a name="mdn-is-sent-asynchronously-even-if-the-send-asynchronous-mdn-option-is-unchecked"></a>MDN skickas asynkront även om skicka asynkront MDN alternativet är markerat
-Överväg att det här scenariot – om du väljer den **skicka asynkront MDN** kryssrutan och ange en URL för att skicka asynkrona MDN till, och avmarkerar sedan den **skicka asynkront MDN** kryssrutan igen, MDN fortfarande skickas till den angivna URL: en även om alternativet att skicka asynkrona MDNs inte är markerat.  
+Överväg att det här scenariot – om du väljer den **skicka asynkront MDN** kryssrutan och ange en URL för att skicka asynkrona MDN till, och avmarkerar sedan den **skicka asynkront MDN** kryssrutan igen, MDN fortfarande skickas till den Ange URL: en även om alternativet att skicka asynkrona MDNs inte är markerat.  
 Som en lösning, måste du ta bort den angivna URL: en innan avmarkera den **skicka asynkront MDN** kryssrutan och sedan distribuera AS2-avtal.  
 
 ### <a name="whitespace-characters-beyond-a-valid-interchange-cause-an-empty-message-to-be-sent-to-the-suspend-endpoint"></a>Blanksteg efter en giltigt interchange orsaka ett tomt meddelande skickas till slutpunkten pausa
@@ -108,7 +108,7 @@ När du lägger till **resurser**, dialogrutan kan inte spara sökvägen som anv
 * Stäng filen .bcs (genom att stänga fliken i Visual Studio) utan att spara ändringarna.  
 * Öppna filen .bcs igen från Solution Explorer.  
   Du ser att medan den associera .bridgeconfig-filen har det nya namnet du angav, entitetsnamnet i designvyn fortfarande är det gamla namnet. Om du försöker öppna konfiguration av brygga genom att dubbelklicka på komponenten bridge ger följande fel:  
-  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist`Om du vill undvika det här scenariot, kontrollera att du sparar ändringar när du byter namn på entiteter i BizTalk Service-projekt.  
+  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist` Om du vill undvika det här scenariot, kontrollera att du sparar ändringar när du byter namn på entiteter i BizTalk Service-projekt.  
   
 ### <a name="biztalk-service-project-builds-successfully-even-if-an-artifact-has-been-excluded-from-a-visual-studio-project"></a>BizTalk-Service-projekt skapar har även om en artefakt har undantagits från ett Visual Studio-projekt
 Överväg ett scenario där du lägger till en artefakt (till exempel en XSD-fil) till ett BizTalk Service-projekt, inkludera den artefakten i konfiguration av brygga (till exempel genom att ange den som en begäran meddelandetyp) och utesluter den från Visual Studio-projekt. I sådana fall får bygga projektet inte något fel så länge den borttagna artefakten finns på disken på samma plats från där den ingår i Visual Studio-projekt.
@@ -222,6 +222,6 @@ Anta att ett scenario där du har en XML-brygga som distribuerats på BizTalk-Se
 ### <a name="pipelines-versus-bridges"></a>Pipelines och bryggor
 I det här dokumentet används termen ”pipelines' och 'bryggor” synonymt. Både i stort sett betyda samma sak, vilket är en meddelande processing unit som distribuerats på BizTalk-tjänst.  
 
-### <a name="concepts"></a>Koncept
+### <a name="concepts"></a>Begrepp
 [BizTalk-tjänst](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
 

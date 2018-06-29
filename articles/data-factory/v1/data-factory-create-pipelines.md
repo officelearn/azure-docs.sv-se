@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f80a22c39608a9d9c67977f2d0493af7300f475b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09fd2f38c3746cf92d576325058dc36221ae50cd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622714"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052495"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-create-pipelines.md)
-> * [Version 2 – förhandsversion](../concepts-pipelines-activities.md)
+> * [Version 1](data-factory-create-pipelines.md)
+> * [Version 2 (aktuell version)](../concepts-pipelines-activities.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Pipelines i V2](../concepts-pipelines-activities.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Pipelines i V2](../concepts-pipelines-activities.md).
 
 I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för dina dataförflyttnings- och databearbetningsscenarier.  
 
@@ -102,7 +102,7 @@ Nu tar vi en närmare titt på hur en pipeline definieras i JSON-format. Den all
 | slut | Datum sluttiden för pipelinen. Om du måste vara i ISO-format. Exempel: `2016-10-14T17:32:41Z` <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00-05:00`, vilket är 6 AM EST.<br/><br/>Ange 09-09-9999 som värde för end-egenskapen för att köra pipelinen på obestämd tid. <br/><br/> En pipeline är aktiv endast mellan dess starttid och sluttid. Det utförs inte före starttiden eller efter sluttid. Om pipeline pausas är körs den inte oavsett dess start- och tid. För en rörledning för att köra, bör det inte pausas. Se [schemaläggning och körning](data-factory-scheduling-and-execution.md) att förstå hur schemaläggning och körning fungerar i Azure Data Factory. |Nej <br/><br/>Om du anger ett värde för egenskapen start, måste du ange värde för end-egenskapen.<br/><br/>Du hittar information för den **starta** egenskapen. |
 | isPaused | Om värdet är true pipelinen inte körs. Det är i pausläge. Standardvärde = false. Du kan använda den här egenskapen för att aktivera eller inaktivera en pipeline. |Nej |
 | pipelineMode | Metoden för schemaläggning körs för pipeline. Tillåtna värden är: schemalagda (standard), görs.<br/><br/>”Schemalagd” anger att pipelinen körs vid ett angivet tidsintervall enligt den aktiva perioden (start- och -tid). 'Görs ”anger att pipelinen körs bara en gång. Görs pipelines när skapat går inte att ändra/uppdatera för närvarande. Se [Onetime pipeline](#onetime-pipeline) mer information om hur du görs. |Nej |
-| ExpirationTime | Tid när den har skapats för vilka den [enstaka pipeline](#onetime-pipeline) är giltig och vara etablerade. Om den inte har någon aktiv, misslyckades, eller väntande körs pipelinen är automatiskt når bort när den förfallotid. Standardvärde: `"expirationTime": "3.00:00:00"`|Nej |
+| expirationTime | Tid när den har skapats för vilka den [enstaka pipeline](#onetime-pipeline) är giltig och vara etablerade. Om den inte har någon aktiv, misslyckades, eller väntande körs pipelinen är automatiskt når bort när den förfallotid. Standardvärde: `"expirationTime": "3.00:00:00"`|Nej |
 | Datauppsättningar |Lista över datauppsättningar som ska användas av aktiviteter som definierats i pipelinen. Den här egenskapen kan användas för att definiera datauppsättningar som är specifika för den här pipelinen och inte definierats inom datafabriken. Datauppsättningar som definierats i denna pipeline kan endast användas av denna pipeline och kan inte delas. Se [omfång datauppsättningar](data-factory-create-datasets.md#scoped-datasets) mer information. |Nej |
 
 ## <a name="activity-json"></a>Aktivitets-JSON
@@ -149,11 +149,11 @@ Principer påverkar beteendet körning av en aktivitet, särskilt när segment i
 
 | Egenskap  | Tillåtna värden | Standardvärde | Beskrivning |
 | --- | --- | --- | --- |
-| Concurrency |Integer <br/><br/>Värdet för maximalt antal: 10 |1 |Antal samtidiga körningar av aktiviteten.<br/><br/>Den avgör antalet ParallellAktivitet körningar som kan inträffa på olika segment. Till exempel om en aktivitet behöver gå igenom snabbare en stor mängd tillgänglig data, med ett större värde för samtidighet behandling. |
+| concurrency |Integer <br/><br/>Värdet för maximalt antal: 10 |1 |Antal samtidiga körningar av aktiviteten.<br/><br/>Den avgör antalet ParallellAktivitet körningar som kan inträffa på olika segment. Till exempel om en aktivitet behöver gå igenom snabbare en stor mängd tillgänglig data, med ett större värde för samtidighet behandling. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Anger den sorteringen av datasektorer som bearbetas.<br/><br/>Till exempel om du har 2 sektorer (en inträffar klockan 4, och en annan kl) och båda finns väntande körning. Om du ställer in executionPriorityOrder ska NewestFirst bearbetas sektorn kl först. På liknande sätt om du ställer in executionPriorityORder ska OldestFIrst bearbetas sedan sektorn klockan 4. |
 | retry |Integer<br/><br/>Värdet för maximalt antal kan vara 10 |0 |Antal försök innan databearbetning för sektorn som har markerats som ett fel. Aktivitetskörningen för en datasektorn försöks upp till antalet angivna försök igen. Det nya försöket görs så snart som möjligt efter fel. |
 | timeout |TimeSpan |00:00:00 |Tidsgräns för aktiviteten. Exempel: 00:10:00 (inbegriper timeout 10 minuter)<br/><br/>Om ett värde har angetts eller är 0, är tidsgränsen obegränsad.<br/><br/>Om databearbetningstiden på ett segment överskrider timeout-värdet, det avbryts och försöker systemet att försök bearbetning. Antalet försök beror på egenskapen försök igen. När timeout uppstår är status för lång tid. |
-| Fördröjning |TimeSpan |00:00:00 |Ange fördröjning innan databearbetningen av sektorn startar.<br/><br/>Körningen av aktiviteten för en datasektorn startas efter fördröjningen har passerat den förväntade tiden för körningen.<br/><br/>Exempel: 00:10:00 (inbegriper fördröjning på 10 minuter) |
+| fördröjning |TimeSpan |00:00:00 |Ange fördröjning innan databearbetningen av sektorn startar.<br/><br/>Körningen av aktiviteten för en datasektorn startas efter fördröjningen har passerat den förväntade tiden för körningen.<br/><br/>Exempel: 00:10:00 (inbegriper fördröjning på 10 minuter) |
 | longRetry |Integer<br/><br/>Värdet för maximalt antal: 10 |1 |Antal lång nya försök innan körningen sektorn misslyckades.<br/><br/>longRetry försök fördelade av longRetryInterval. Så om du behöver ange en tid mellan nya försök använda longRetry. Om både försök och longRetry anges varje longRetry försök omförsök max antal försök används och försök igen * longRetry.<br/><br/>Till exempel om vi har följande inställningar i principen för aktiviteten:<br/>Försök: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Anta att det finns endast en sektor att köra (status väntar) och aktivitetskörningen misslyckas varje gång. Det skulle inledningsvis 3 körning på varandra följande försök. Efter varje försök är sektorn status försök igen. Efter första 3 försök över är statusen för sektorn LongRetry.<br/><br/>Efter en timme (det vill säga Longretryinteval's värde), skulle det finnas en annan uppsättning 3 körning på varandra följande försök. Efter detta segment status skulle misslyckades och inga fler försök kan inte genomföras. Därför har övergripande 6 försök gjorts.<br/><br/>Om alla körning lyckas, statusen för sektorn är klar och inga fler försök görs.<br/><br/>longRetry får användas i situationer där beroende data kommer till icke-deterministiska gånger eller hela miljön är flaky under vilken databearbetningen sker. I sådana fall kan detta återförsök efter varandra inte kan hjälpa och gör att när ett intervall på tid som resulterar i önskad utdata.<br/><br/>Liten varning: Ange inte höga värden för longRetry eller longRetryInterval. Normalt en högre värden andra systemfel problem. |
 | longRetryInterval |TimeSpan |00:00:00 |Fördröjning mellan försök har lång |
 

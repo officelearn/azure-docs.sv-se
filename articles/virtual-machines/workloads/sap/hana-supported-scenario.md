@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/25/2018
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b703f6d141005cf3cf29531a0586eebb61693a2
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 8927b2a32956f73e75ac7b157ebad6bf6596ea88
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754575"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063637"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scenarier som stöds för HANA stora instanser
 Det här dokumentet beskriver scenarierna som stöds med information arkitektur för HANA stora instanser (HLI).
@@ -78,6 +78,22 @@ Om det behövs kan du definiera ytterligare NIC-kort på egen hand. Konfiguratio
 
 >[!NOTE]
 >Du kan fortfarande vara ytterligare gränssnitt som är fysiska gränssnitt eller partnerskap. Du bör överväga att ovannämnda gränssnitten för ditt ärende som används, kan du ignorera rest / eller att inte modifieras med.
+
+Distribution för enheter med två IP-adresser som tilldelats bör se ut som:
+
+Ethernet ”A” bör ha en IP-adress som ligger utanför intervallet för Serverpoolen IP-adress som du har skickat till Microsoft. Den här IP-adressen användas för att underhålla i/etc/hosts av OS.
+
+Ethernet ”B” bör ha en IP-adress som används för kommunikation till NFS. Dessa adresser bör därför **inte** måste underhållas i etc/hosts för att tillåta instans instans trafik i klienten.
+
+En bladet konfiguration med två IP-adresser som tilldelats är inte lämplig för distribution fall HANA System replikering eller HANA skalbara. Om du har två IP-adresser som är tilldelade endast och som vill distribuera en sådan konfiguration, kontakta SAP HANA på Azure Service Management för att hämta en tredje IP-adress i en tredje tilldelade VLAN. För stora HANA-instans enheter med tre IP-adresser som har tilldelats tre NIC-portar, gäller följande användningsregler:
+
+- Ethernet ”A” bör ha en IP-adress som ligger utanför intervallet för Serverpoolen IP-adress som du har skickat till Microsoft. Denna IP-adress skall därför inte användas för att underhålla i/etc/hosts av OS.
+
+- Ethernet ”B” bör ha en IP-adress som används för kommunikation till NFS-lagring. Den här typen av adresser bör därför inte behållas i etc/hosts.
+
+- Ethernet ”C” bör användas uteslutande bevaras i etc/hosts för kommunikation mellan olika instanser. Dessa adresser också är IP-adresser som måste underhållas i skalbar HANA konfigurationer som IP-adresser HANA använder för konfigurationen mellan noder.
+
+- Ethernet ”D” ska användas för åtkomst STONITH enhetens pacemaker exklusivt. Detta krävs när du konfigurerar HANA System replikering (HSR) och vill uppnå automatisk redundans på operativsystem som använder en uppstår baserad enhet.
 
 
 ### <a name="storage"></a>Storage
@@ -221,6 +237,7 @@ Följande monteringspunkter förkonfigurerade:
 - För MCOS: Baseras volym storlek distribution av databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) avsnittet om du vill veta vilken databas storlekar i minnet stöds med multisid miljö.
 - Vid DR: volymer och monteringspunkter konfigureras (markerade som ”som krävs för installation av HANA”) för produktion HANA instans installation vid Katastrofåterställning HLI-enhet. 
 - Vid DR: data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Se [redundans för katastrofåterställning](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information.
+- Startvolym för **SKU-typ I klassen** replikeras till DR-nod.
 
 
 ## <a name="4-single-node-with-dr-multipurpose"></a>4. Enskild nod med DR (Multipurpose)
@@ -270,6 +287,7 @@ Följande monteringspunkter förkonfigurerade:
 - Vid DR: volymer och monteringspunkter konfigureras (markerade som ”som krävs för installation av HANA”) för produktion HANA instans installation vid Katastrofåterställning HLI-enhet. 
 - Vid DR: data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Se [redundans för katastrofåterställning](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information. 
 - Vid DR: data, logbackups, log, klusterdelade volymer för QA (markerade som ”QA instans-installation”) har konfigurerats för QA instans installationen.
+- Startvolym för **SKU-typ I klassen** replikeras till DR-nod.
 
 ## <a name="5-hsr-with-stonith"></a>5. HSR med STONITH
  
@@ -378,6 +396,7 @@ Följande monteringspunkter förkonfigurerade:
 - Vid DR: volymer och monteringspunkter konfigureras (markerade som ”som krävs för installation av HANA”) för produktion HANA instans installation vid Katastrofåterställning HLI-enhet. 
 - Vid DR: data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Se [redundans för katastrofåterställning](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information. 
 - Vid DR: data, logbackups, log, klusterdelade volymer för QA (markerade som ”QA instans-installation”) har konfigurerats för QA instans installationen.
+- Startvolym för **SKU-typ I klassen** replikeras till DR-nod.
 
 
 ## <a name="7-host-auto-failover-11"></a>7. Värden automatisk redundans (1 + 1)
@@ -540,6 +559,7 @@ Följande monteringspunkter förkonfigurerade:
 - /usr/SAP/SID är en symbolisk länk till /hana/shared/SID.
 -  Vid DR: volymer och monteringspunkter konfigureras (markerade som ”som krävs för installation av HANA”) för produktion HANA instans installation vid Katastrofåterställning HLI-enhet. 
 - Vid DR: data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Se [redundans för katastrofåterställning](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information. 
+- Startvolym för **SKU-typ I klassen** replikeras till DR-nod.
 
 
 ## <a name="next-steps"></a>Nästa steg

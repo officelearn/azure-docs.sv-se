@@ -13,23 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 6b0f576538f159155dcf602fe39b0ea67254e4c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b6de6331b4d829f183c8b5dc03d6a29095a47479
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619260"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049340"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera prestandajustering guide och prestanda för aktiviteten
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-copy-activity-performance.md)
-> * [Version 2 – förhandsversion](copy-activity-performance.md)
+> * [Version 1](v1/data-factory-copy-activity-performance.md)
+> * [Aktuell version](copy-activity-performance.md)
 
 
 Azure Data Factory-Kopieringsaktiviteten levererar en förstklassig säker, tillförlitlig och högpresterande datainläsning lösning. Det gör att du kan kopiera flera terabyte data varje dag i omfattande olika molnet och lokala datalager. Blixtsnabb snabb prestanda för datainläsning är nyckeln till att se till att du kan fokusera på core ”big data” problemet: skapa lösningar för avancerade analyser och hämtar djupa insikter från alla data.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [kopiera aktivitet prestanda i Data Factory version 1](v1/data-factory-copy-activity-performance.md).
 
 Azure tillhandahåller en uppsättning företagsklass lösningar för lagring och data warehouse och Kopieringsaktivitet erbjuder en hög optimal upplevelse är enkel att konfigurera och ställa in för datainläsning. Med bara en enda kopia aktivitet, kan du få:
 
@@ -40,7 +37,7 @@ Azure tillhandahåller en uppsättning företagsklass lösningar för lagring oc
 Den här artikeln beskrivs:
 
 * [Prestanda referensnummer](#performance-reference) stöd för källa och mottagare datalager för att planera projektet.
-* Funktioner som kan öka kopiera genomflöde i olika scenarier, inklusive [molnet Data Movement enheter](#cloud-data-movement-units), [parallell kopiera](#parallel-copy), och [mellanlagrad kopiera](#staged-copy);
+* Funktioner som kan öka kopiera genomflöde i olika scenarier, inklusive [integrering enheter](#data-integration-units), [parallell kopiera](#parallel-copy), och [mellanlagrad kopiera](#staged-copy);
 * [Riktlinjer för prestandajustering](#performance-tuning-steps) på hur du ställer in prestanda- och de viktigaste faktorerna som kan påverka prestanda för kopia.
 
 > [!NOTE]
@@ -49,12 +46,12 @@ Den här artikeln beskrivs:
 
 ## <a name="performance-reference"></a>Prestandareferens för
 
-Som en referens, tabellen nedan visar hur kopiera genomströmning många **i MBps** för de angivna källa och mottagare par **i en enda kopia aktivitet kör** baserat på interna tester. För jämförelse, visas också hur olika inställningar för [molnet data movement enheter](#cloud-data-movement-units) eller [Self-hosted integrering Runtime skalbarhet](concepts-integration-runtime.md#self-hosted-integration-runtime) (flera noder) hjälper dig att kopiera prestanda.
+Som en referens, tabellen nedan visar hur kopiera genomströmning många **i MBps** för de angivna källa och mottagare par **i en enda kopia aktivitet kör** baserat på interna tester. För jämförelse, visas också hur olika inställningar för [integrering enheter](#data-integration-units) eller [Self-hosted integrering Runtime skalbarhet](concepts-integration-runtime.md#self-hosted-integration-runtime) (flera noder) hjälper dig att kopiera prestanda.
 
 ![Matris för prestanda](./media/copy-activity-performance/CopyPerfRef.png)
 
->[!IMPORTANT]
->I Azure Data Factory version 2 när kopieringsaktiviteten körs på en Azure Integration körning minsta tillåtna molntjänster data movement enheter är två. Om inget anges finns data movement standardenheter som används i [molnet data movement enheter](#cloud-data-movement-units).
+> [!IMPORTANT]
+> När kopieringsaktiviteten körs på en Azure Integration körning är två minsta tillåtna Data Integration enheter (kallades tidigare Data Movement enheter). Om inget anges finns i standard Integration enheter som används i [integrering enheter](#data-integration-units).
 
 Pekar på Observera:
 
@@ -79,25 +76,25 @@ Pekar på Observera:
 
 
 > [!TIP]
-> Du kan uppnå högre genomströmning genom att använda mer data movement enheter (DMUs) än standardvärdet tillåtna maximala DMUs som är 32 för en moln-to-cloud kopieringsaktiviteten kör. Till exempel med 100 DMUs du kan åstadkomma kopiering av data från Azure Blob till Azure Data Lake Store på **1.0GBps**. Finns det [molnet data movement enheter](#cloud-data-movement-units) finns mer information om den här funktionen och scenariot som stöds. Kontakta [Azure-supporten](https://azure.microsoft.com/support/) att begära mer DMUs.
+> Du kan uppnå högre genomströmning genom att använda mer Data Integration enheter (DIU) än standardvärdet tillåtna maximala DIUs som är 32 för en moln-to-cloud kopieringsaktiviteten kör. Till exempel med 100 DIUs du kan åstadkomma kopiering av data från Azure Blob till Azure Data Lake Store på **1.0GBps**. Finns det [integrering enheter](#data-integration-units) finns mer information om den här funktionen och scenariot som stöds. Kontakta [Azure-supporten](https://azure.microsoft.com/support/) att begära mer DIUs.
 
-## <a name="cloud-data-movement-units"></a>Molnet data movement enheter
+## <a name="data-integration-units"></a>Integration enheter
 
-En **moln data movement enhet (dmu här)** är ett mått som representerar en enhet i Data Factory styrka (en kombination av CPU, minne och nätverksresursallokering). **Dmu här gäller bara för [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, men inte [Self-hosted integrering Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
+En **Data Integration enhet (DIU)** (kallades molnet dataenheten flytt eller dmu här) är ett mått som representerar en enhet i Data Factory styrka (en kombination av CPU, minne och nätverksresursallokering). **DIU gäller endast för [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, men inte [Self-hosted integrering Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-**Minimal molnet dataflytt enheter för att möta Kopieringsaktiviteten kör är två.** Om den inte anges visas i följande tabell standard-DMUs som används i olika kopiera scenarier:
+**Minimal Data Integration enheter för att möta Kopieringsaktiviteten kör är två.** Om den inte anges visas i följande tabell standard-DIUs som används i olika kopiera scenarier:
 
-| Kopiera scenario | Standard DMUs bestäms av tjänsten |
+| Kopiera scenario | Standard DIUs bestäms av tjänsten |
 |:--- |:--- |
 | Kopiera data mellan filbaserade lagrar | Mellan 4 och 32 beroende på antalet och storleken på filerna. |
 | Alla andra copy-scenarier | 4 |
 
-Om du vill åsidosätta denna standardinställning måste du ange ett värde för den **cloudDataMovementUnits** egenskapen på följande sätt. Den **tillåtna värden** för den **cloudDataMovementUnits** egenskapen är **upp till 256**. Den **faktiska antalet molnet DMUs** att kopieringen använder vid körning är lika med eller mindre än det konfigurerade värdet, beroende på din datamönster. Information om andelen prestandafördelar som du kan få när du konfigurerar flera enheter för en specifik kopieringskälla och mottagare finns i [Prestandareferens](#performance-reference).
+Om du vill åsidosätta denna standardinställning måste du ange ett värde för den **dataIntegrationUnits** egenskapen på följande sätt. Den **tillåtna värden** för den **dataIntegrationUnits** egenskapen är **upp till 256**. Den **faktiska antalet DIUs** att kopieringen använder vid körning är lika med eller mindre än det konfigurerade värdet, beroende på din datamönster. Information om andelen prestandafördelar som du kan få när du konfigurerar flera enheter för en specifik kopieringskälla och mottagare finns i [Prestandareferens](#performance-reference).
 
-Du kan se faktiskt används molnet data movement enheter för varje kopia som körs i en Kopieringsaktivitet utdata när övervakning av en aktivitet som kör. Mer information från [kopiera aktivitetsövervakning](copy-activity-overview.md#monitoring).
+Du kan se faktiskt används Data Integration enheterna för varje kopia som körs i en Kopieringsaktivitet utdata när övervakning av en aktivitet som körs. Mer information från [kopiera aktivitetsövervakning](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Om du behöver mer molnet DMUs för en högre genomströmning Kontakta [Azure-supporten](https://azure.microsoft.com/support/). Inställning av 8 och senare fungerar aktuellt endast när du **kopiera flera filer från Blob storage/Datasjölager/Amazon S3 eller ett moln FTP-eller ett moln SFTP till alla andra dataarkiv för molnet**.
+> Om du behöver mer DIUs för en högre genomströmning Kontakta [Azure-supporten](https://azure.microsoft.com/support/). Inställning av 8 och senare fungerar aktuellt endast när du **kopiera flera filer från Blob storage/Datasjölager/Amazon S3 eller ett moln FTP-eller ett moln SFTP till alla andra dataarkiv för molnet**.
 >
 
 **Exempel:**
@@ -116,15 +113,15 @@ Du kan se faktiskt används molnet data movement enheter för varje kopia som k�
             "sink": {
                 "type": "AzureDataLakeStoreSink"
             },
-            "cloudDataMovementUnits": 32
+            "dataIntegrationUnits": 32
         }
     }
 ]
 ```
 
-### <a name="cloud-data-movement-units-billing-impact"></a>Molnet data movement enheter fakturering påverkan
+### <a name="data-integration-units-billing-impact"></a>Data Integration enheter fakturering påverkan
 
-Den har **viktiga** komma ihåg att debiteras baserat på den totala tiden av kopieringen. Den totala varaktigheten du debiteras för dataflytt är summan av varaktigheten mellan DMUs. Om en kopieringsjobbet används för att ta en timme med två enheter i molnet och nu det tar 15 minuter med åtta molnet enheter, förblir nästan samma övergripande faktura.
+Den har **viktiga** komma ihåg att debiteras baserat på den totala tiden av kopieringen. Den totala varaktigheten du debiteras för dataflytt är summan av varaktigheten mellan DIUs. Om en kopieringsjobbet används för att ta en timme med två enheter i molnet och nu det tar 15 minuter med åtta molnet enheter, förblir nästan samma övergripande faktura.
 
 ## <a name="parallel-copy"></a>Parallell kopia
 
@@ -134,7 +131,7 @@ För varje kopia aktivitet som kör avgör Data Factory hur många parallella ko
 
 | Kopiera scenario | Standardvärdet för parallell Kopiera antal bestäms av tjänsten |
 | --- | --- |
-| Kopiera data mellan filbaserade lagrar |Beror på storleken på filerna och antalet molnet data movement enheter (DMUs) används för att kopiera data mellan två molnet datalager eller den fysiska konfigurationen av den Self-hosted integrering Runtime-datorn. |
+| Kopiera data mellan filbaserade lagrar |Beror på storleken på filerna och antalet enheter Integration (DIUs) används för att kopiera data mellan två molnet datalager eller den fysiska konfigurationen av den Self-hosted integrering Runtime-datorn. |
 | Kopiera data från datalagret någon källa till Azure Table storage |4 |
 | Alla andra copy-scenarier |1 |
 
@@ -168,7 +165,7 @@ Pekar på Observera:
 * När du kopierar data mellan filbaserade lagrar den **parallelCopies** fastställa parallellitet på filnivå. Dela upp i en fil som skulle hända under automatiskt och transparent och den har utformats för att använda bästa lämplig segmentstorleken för en viss källa datalagertyp att läsa in data i parallella och ortogonal mot parallelCopies. Det faktiska antalet parallella kopior av data movement service används för kopieringen vid körning är inte fler än antalet filer som du har. Om beteendet kopia är **mergeFile**, Kopieringsaktivitet kan inte utnyttja filnivå parallellitet.
 * När du anger ett värde för den **parallelCopies** egenskapen överväga att belastningen ökar på din käll- och mottagarnoderna datalager och Self-Hosted integrering Runtime om befogenhet aktiviteten kopia av det till exempel för hybridkopiering. Detta händer särskilt när du har flera aktiviteter eller samtidiga körningar av samma aktiviteter som körs mot samma datalager. Om du märker att dataarkivet eller Self-hosted integrering Runtime blir överbelastad till följd med belastningen minskar den **parallelCopies** värde att avlasta belastningen.
 * När du kopierar data från butiker som inte är filbaserade till butiker som är filbaserade av data movement service ignorerar den **parallelCopies** egenskapen. Även om parallellitet anges tillämpas den inte i det här fallet.
-* **parallelCopies** är ortogonalt mot **cloudDataMovementUnits**. Den förstnämnda räknas över alla moln data movement enheter.
+* **parallelCopies** är ortogonalt mot **dataIntegrationUnits**. Den förstnämnda räknas över alla enheter för Data-Integration.
 
 ## <a name="staged-copy"></a>Stegvis kopia
 
@@ -184,7 +181,7 @@ När du aktiverar funktionen fristående först data kopieras från datalagret k
 
 ![Stegvis kopia](media/copy-activity-performance/staged-copy.png)
 
-När du aktiverar dataflyttning med hjälp av ett fristående Arkiv, kan du ange om du vill att data ska komprimeras innan du flyttar data från datalagret källan till ett tillfälligt eller fristående datalager och sedan expandera innan du flyttar data från en interimistisk eller mellanlagring datalagret till datalagret sink.
+När du aktiverar dataflyttning med hjälp av ett fristående Arkiv kan du ange om du vill att data ska komprimeras innan du flyttar data från datalagret källan till ett tillfälligt eller fristående datalager och sedan expandera innan du flyttar data från en interimistisk eller mellanlagring av data lagra till datalagret mottagare.
 
 För närvarande kan du kopiera data mellan två lokala datalager med hjälp av ett fristående Arkiv.
 
@@ -246,14 +243,14 @@ Vi rekommenderar att du gör följande för att anpassa prestandan för din Data
 
    * Avancerade funktioner:
      * [Parallell kopia](#parallel-copy)
-     * [Molnet data movement enheter](#cloud-data-movement-units)
+     * [Integration enheter](#data-integration-units)
      * [Stegvis kopia](#staged-copy)
      * [Automatisk värdbaserade Integration Runtime skalbarhet](concepts-integration-runtime.md#self-hosted-integration-runtime)
    * [Automatisk värdbaserade Integration Runtime](#considerations-for-self-hosted-integration-runtime)
    * [Källa](#considerations-for-the-source)
-   * [sink](#considerations-for-the-sink)
+   * [Sink](#considerations-for-the-sink)
    * [Serialisering och deserialisering](#considerations-for-serialization-and-deserialization)
-   * [Komprimering](#considerations-for-compression)
+   * [komprimering](#considerations-for-compression)
    * [Kolumnmappningen](#considerations-for-column-mapping)
    * [Andra överväganden](#other-considerations)
 
@@ -349,7 +346,7 @@ När datauppsättningen inkommande eller utgående är en fil kan ange du Kopier
 
 Du kan ange den **columnMappings** egenskap i en Kopieringsaktivitet att mappa alla eller en delmängd av indatakolumnerna till utdatakolumner. När av data movement service läser data från källan, måste den utföra kolumnmappningen på data innan den skriver data till sink. Den här extra bearbetning minskar kopiera genomflöde.
 
-Om källa datalager frågbar kan till exempel om det är en relationell butik som SQL Database eller SQL Server, eller om det är en NoSQL-butiken som Table storage eller Azure Cosmos DB du sänder kolumnen filtrering och omordning logik för att den **frågan** egenskapen istället för att använda kolumnmappningen. Det här sättet projektionen inträffar när av data movement service läser data från datalagret källa om det är mycket effektivare.
+Om källa datalager frågbar kan till exempel om det är en relationell butik som SQL Database eller SQL Server, eller om det är en NoSQL-butiken som Table storage eller Azure Cosmos DB du sänder kolumnen filtrering och omordning logik för att den **fråga** egenskapen istället för att använda kolumnmappningen. Det här sättet projektionen inträffar när av data movement service läser data från datalagret källa om det är mycket effektivare.
 
 Mer information från [Kopieringsaktiviteten schemamappning](copy-activity-schema-and-type-mapping.md).
 

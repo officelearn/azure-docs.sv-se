@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 06/27/2018
 ms.author: maheshu
-ms.openlocfilehash: 4263034408de059880b91e8106f6832ccacc6085
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 5838dbefab9f7100ed4776eebef7a1d07d2db1a6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300976"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061053"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
 
@@ -48,7 +48,7 @@ Utför följande konfigurationssteg för att aktivera säker LDAP:
 4. Säker LDAP-åtkomst till din hanterade domän är inaktiverat som standard. Växla **säkert LDAP** till **aktivera**.
 
     ![Aktivera säker LDAP](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
-5. Som standard inaktiveras säker LDAP-åtkomst till din hanterade domän via internet. Växla **ger LDAP åtkomst via internet** till **aktivera**om det behövs. 
+5. Som standard inaktiveras säker LDAP-åtkomst till din hanterade domän via internet. Växla **ger LDAP åtkomst via internet** till **aktivera**om det behövs.
 
     > [!WARNING]
     > När du aktiverar säker LDAP-åtkomst via internet, är din domän sårbara för lösenord brute force-attacker via internet. Därför rekommenderar vi hur du konfigurerar en NSG till låsa åtkomst till nödvändiga käll-IP-adressintervall. Se instruktionerna för att [Lås LDAPS åtkomst till din hanterade domän via internet](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
@@ -111,6 +111,23 @@ I följande tabell visas ett exempel på en NSG som du kan konfigurera för att 
 
 <br>
 
+## <a name="bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>Binda till den hanterade domänen via LDAP med hjälp av LDP.exe
+Du kan använda verktyget LDP.exe som ingår i Remote Server Administration tools paketet till bind och söka via LDAP.
+
+Först öppna LDP och ansluta till den hanterade domänen. Klicka på **anslutning** och på **Anslut...**  på menyn. Ange DNS-domännamnet för den hanterade domänen. Ange porten som ska användas för anslutningar. Använd port 389 för LDAP-anslutningar. Använda port 636 för LDAPS anslutningar. Klicka på **OK** du vill ansluta till den hanterade domänen.
+
+Sedan binda till den hanterade domänen. Klicka på **anslutning** och på **binda...**  på menyn. Ange autentiseringsuppgifter för ett användarkonto som tillhör gruppen AAD DC-administratörer.
+
+Välj **visa**, och välj sedan **trädet** på menyn. Lämna fältet Bas-DN tomt och klicka på OK. Navigera till den behållare som du vill söka efter, högerklicka på behållaren och välj sökning.
+
+> [!TIP]
+> - Användare och grupper som synkroniserats från Azure AD lagras i den **AADDC användare** behållare. Sökvägen för den här behållaren ser ut som ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```.
+> - Datorkontona för datorer som är anslutna till den hanterade domänen lagras i den **AADDC datorer** behållare. Sökvägen för den här behållaren ser ut som ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```.
+>
+>
+
+Mer information om - [grunderna i LDAP-fråga](https://technet.microsoft.com/library/aa996205.aspx)
+
 
 ## <a name="troubleshooting"></a>Felsökning
 Om du har problem att ansluta till den hanterade domänen med säker LDAP, utför du följande felsökningssteg:
@@ -129,6 +146,7 @@ Om du fortfarande har problem att ansluta till den hanterade domänen med säker
 ## <a name="related-content"></a>Relaterat innehåll
 * [Azure AD Domain Services - komma igång-guide](active-directory-ds-getting-started.md)
 * [Administrera en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-administer-domain.md)
+* [Grunderna i LDAP-fråga](https://technet.microsoft.com/library/aa996205.aspx)
 * [Administrera Grupprincip i en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md)
 * [Skapa en säkerhetsgrupp för nätverk](../virtual-network/tutorial-filter-network-traffic.md)

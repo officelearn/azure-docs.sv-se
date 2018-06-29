@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb8382a9801c3570a190259416d846fe518cc6ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 967184d9a7590dc0b8c88a49cf178bbd9eb83267
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595044"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063603"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory direkt-autentisering säkerhet ingående
 
@@ -132,20 +132,21 @@ Direkt-autentisering hanterar en inloggning begäran på följande sätt:
 1. En användare försöker komma åt ett program, till exempel [Outlook Web App](https://outlook.office365.com/owa).
 2. Om användaren inte redan har signerats omdirigerar programmet webbläsaren till inloggningssidan för Azure AD.
 3. Azure AD-STS-tjänsten svarar tillbaka med den **användarinloggning** sidan.
-4. Användaren anger sitt användarnamn och lösenord i den **användarinloggning** sidan och väljer den **inloggning** knappen.
-5. Användarnamn och lösenord skickas till Azure AD-STS i en POST för HTTPS-begäran.
-6. Azure AD STS hämtar offentliga nycklar för alla autentisering agenter som registrerats på din klient från Azure SQL-databasen och lösenordet krypteras med hjälp av dem. 
+4. Användaren anger sitt lösenord till det **användarinloggning** sidan och väljer den **nästa** knappen.
+5. Användaren anger sitt lösenord till det **användarinloggning** sidan och väljer den **inloggning** knappen.
+6. Användarnamn och lösenord skickas till Azure AD-STS i en POST för HTTPS-begäran.
+7. Azure AD STS hämtar offentliga nycklar för alla autentisering agenter som registrerats på din klient från Azure SQL-databasen och lösenordet krypteras med hjälp av dem. 
     - Den genererar ”N” krypterade lösenord för ”N” autentisering agenter som är registrerad på din klient.
-7. Azure AD STS placerar verifieringsbegäran lösenord som består av användarnamn och lösenord för krypterade värden till Service Bus-kö specifik för din klient.
-8. Eftersom initierad autentisering agenterna beständigt är ansluten till Service Bus-kö är hämtar en av de tillgängliga agenter för autentisering verifieringsbegäran lösenord.
-9. Autentisering-agenten söker efter det krypterade lösenord-värde som är specifik för den offentliga nyckeln med hjälp av en identifierare och dekrypterar den med hjälp av den privata nyckeln.
-10. Autentisering agenten försöker verifiera användarnamnet och lösenordet mot lokala Active Directory med hjälp av den [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) med den **dwLogonType** parametern värdet **LOGON32_LOGON_NETWORK**. 
+8. Azure AD STS placerar verifieringsbegäran lösenord som består av användarnamn och lösenord för krypterade värden till Service Bus-kö specifik för din klient.
+9. Eftersom initierad autentisering agenterna beständigt är ansluten till Service Bus-kö är hämtar en av de tillgängliga agenter för autentisering verifieringsbegäran lösenord.
+10. Autentisering-agenten söker efter det krypterade lösenord-värde som är specifik för den offentliga nyckeln med hjälp av en identifierare och dekrypterar den med hjälp av den privata nyckeln.
+11. Autentisering agenten försöker verifiera användarnamnet och lösenordet mot lokala Active Directory med hjälp av den [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) med den **dwLogonType** parametern värdet **LOGON32_LOGON_NETWORK**. 
     - Detta API är samma API som används av Active Directory Federation Services (AD FS) för att logga in användare i ett scenario med federerad inloggning.
     - Detta API är beroende av lösningsprocessen som standard i Windows Server för att hitta domänkontrollanten.
-11. Autentisering-agenten tar emot resultatet från Active Directory, till exempel lyckades, användarnamn eller felaktigt lösenord eller lösenordet har upphört att gälla.
-12. Authentication Agent vidarebefordrar resultatet tillbaka till Azure AD STS via en utgående ömsesidigt autentiserad HTTPS-kanal via port 443. Ömsesidig autentisering använder certifikat som utfärdats för den autentiseringsagent tidigare under registreringen.
-13. Azure AD STS verifierar att resultatet för den här korrelerar med specifika inloggning begäran på din klient.
-14. Azure AD STS fortsätter med proceduren inloggning som konfigurerats. Till exempel om valideringen av lösenordet lyckades kan användaren vara anropas för multi-Factor Authentication eller omdirigeras till programmet.
+12. Autentisering-agenten tar emot resultatet från Active Directory, till exempel lyckades, användarnamn eller felaktigt lösenord eller lösenordet har upphört att gälla.
+13. Authentication Agent vidarebefordrar resultatet tillbaka till Azure AD STS via en utgående ömsesidigt autentiserad HTTPS-kanal via port 443. Ömsesidig autentisering använder certifikat som utfärdats för den autentiseringsagent tidigare under registreringen.
+14. Azure AD STS verifierar att resultatet för den här korrelerar med specifika inloggning begäran på din klient.
+15. Azure AD STS fortsätter med proceduren inloggning som konfigurerats. Till exempel om valideringen av lösenordet lyckades kan användaren vara anropas för multi-Factor Authentication eller omdirigeras till programmet.
 
 ## <a name="operational-security-of-the-authentication-agents"></a>Operativ säkerhet autentisering agenter
 
@@ -208,7 +209,7 @@ Att uppdateras automatiskt en autentiseringsagent:
 ## <a name="next-steps"></a>Nästa steg
 - [Aktuella begränsningar](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Lär dig vilka scenarier som stöds och vilka som inte är.
 - [Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md): komma igång direkt i Azure AD för autentisering.
-- [Smartkort kontoutelåsning](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Konfigurera Smart kontoutelåsning kapaciteten på din klient skydda användarkonton.
+- [Smartkort kontoutelåsning](../authentication/howto-password-smart-lockout.md): Konfigurera Smart kontoutelåsning kapaciteten på din klient skydda användarkonton.
 - [Så här fungerar](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Lär dig grunderna för hur Azure AD direkt autentisering fungerar.
 - [Vanliga frågor och svar](active-directory-aadconnect-pass-through-authentication-faq.md): få svar på vanliga frågor och svar.
 - [Felsöka](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Lär dig att lösa vanliga problem med funktionen direkt-autentisering.

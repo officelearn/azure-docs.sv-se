@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: b48bfcd5057dcdcce921a56e664d5bc3506585c1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 995bf4586b88671c65077d965b0588de8de74e5c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335915"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048942"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Kopiera data från Webbtabell med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-web-table-connector.md)
-> * [Version 2 – förhandsversion](connector-web-table.md)
+> * [Version 1](v1/data-factory-web-table-connector.md)
+> * [Aktuell version](connector-web-table.md)
 
 Den här artikeln beskriver hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från en tabell Web-databas. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Webbtabell connector i V1](v1/data-factory-web-table-connector.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 

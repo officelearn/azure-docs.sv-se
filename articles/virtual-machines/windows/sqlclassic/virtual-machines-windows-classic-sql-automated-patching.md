@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: 1da89bbf88e9f1f2105e7afab5c3fdabcecdbc64
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4bb13ec9d835959273801c2f53c8d736491080a6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852718"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061343"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Automatisk uppdatering för SQLServer på virtuella Azure-datorer (klassisk)
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ Baserat på det här exemplet beskrivs i följande tabell i praktiken på målet
 | --- | --- |
 | **DayOfWeek** |Korrigeringsprogram installerade varje torsdag. |
 | **MaintenanceWindowStartingHour** |Begin uppdateringar på 11:00:00. |
-| **MaintenanceWindowsDuration** |Korrigeringsfiler måste installeras inom 120 minuter. Baserat på starttid, måste de utföra av 1:00 pm. |
+| **MaintenanceWindowDuration** |Korrigeringsfiler måste installeras inom 120 minuter. Baserat på starttid, måste de utföra av 1:00 pm. |
 | **PatchCategory** |Inställningen bara möjligt för den här parametern är ”viktigt”. |
 
 Det kan ta flera minuter att installera och konfigurera SQL Server IaaS-Agent.

@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67603c04cf7b5f45517d16620e5b79241aaae94d
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 7810027e4ab9df6742b4431d12daf9ba2b678bf6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057969"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061817"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Uppdatera 1.2 viktig information för enheten StorSimple 8000-serien
 
@@ -54,7 +54,7 @@ Dessa funktioner publicerades först med uppdatering 1 som har gjorts tillgängl
   * **Kontinuitet för företag**, genom att aktivera migrering av befintliga data på 5000 7000-serien installationer 8000-serien-enheterna.
   * **Förbättrad funktionen erbjudanden av utrustning i 8000-serien**, till exempel effektiv centraliserad hantering av flera installationer via StorSimple Manager-tjänsten, bättre maskinvaruklass och uppdatera inbyggd programvara, virtuella installationer, data mobility och funktioner i framtida Översikt.
     
-    Referera till den [Migreringsguide](http://www.microsoft.com/download/details.aspx?id=47322) för information om hur du migrerar en virtuell StorSimple 5000 7000-serien till en serieenhet i 8000-. 
+    Referera till den [Migreringsguide](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b) för information om hur du migrerar en virtuell StorSimple 5000 7000-serien till en serieenhet i 8000-. 
 * **Tillgänglighet i Azure Portal för myndigheter** – StorSimple är nu tillgängligt i Azure Government-portalen. Se hur du [distribuera en virtuell StorSimple-enhet i Azure Portal för myndigheter](storsimple-deployment-walkthrough-gov.md).
 * **Stöd för andra molntjänstleverantörer** – andra molntjänstleverantörer som stöds är Amazon S3, Amazon S3 med RRS, HP och OpenStack (beta).
 * **Uppdatera till senaste lagring API: er** – med den här versionen, StorSimple har uppdaterats till den senaste Azure Storage service API: er. StorSimple 8000-serien enheter som körs före uppdatering 1 programvaruversioner (versionen 0,1 och 0,2 0,3) använder versioner av Azure Storage Service API: erna äldre än 17 juli 2009. Enligt informationen i den uppdaterade [meddelande om borttagning av Storage-tjänstversioner](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx), genom att 1 augusti 2016 dessa API: er att bli inaktuell. Det är viktigt att du tillämpar StorSimple 8000 Series uppdatering 1 före den 1 augusti 2016. Om du inte gör stoppa StorSimple-enheter fungerar korrekt.

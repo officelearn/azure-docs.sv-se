@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 06fd2f3ef4a17c5626afc95ed8ae5999778ebda6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 24b20766997a9a41956f575f6cab8ee5ef0d9e25
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293168"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036475"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappning i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappning som du kan ange mappningen för en uttryck. Du måste skriva ett skript-liknande uttryck som gör att du kan omvandla användarnas data i format som är mer godkänd för SaaS-program för dessa.
@@ -37,7 +37,7 @@ Syntax för uttryck för attributmappning är påminner om Visual Basic för App
 * För strängkonstanter, om du behöver ett omvänt snedstreck (\) eller citattecken (”) i en sträng, måste det föregås av omvänt snedstreck (\) symbolen. Till exempel ”: Företagsnamn: \"Contoso\"”
 
 ## <a name="list-of-functions"></a>Lista över funktioner
-[Lägg till](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [ansluta](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [inte](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Ersätta](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [växel](#switch)
+[Lägg till](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [ansluta](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [inte](#not) &nbsp; &nbsp; &nbsp; &nbsp; [ersätta](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Växel](#switch)
 
 - - -
 ### <a name="append"></a>Lägg till
@@ -93,10 +93,22 @@ Om något av källvärden är ett attribut med flera värden och varje värde i 
 | --- | --- | --- | --- |
 | **Källa** |Krävs |Sträng |Vanligtvis attributets namn. |
 | **start** |Krävs |heltal |Index i den **källa** strängen där delsträngen ska starta. Första tecknet i strängen har index 1, andra tecknet ska ha index 2 och så vidare. |
-| **Längd** |Krävs |heltal |Längden på delsträngen. Om längden slutar utanför den **källa** sträng, funktionen returnerar delsträngen från **starta** indexet till slutet av **källa** sträng. |
+| **längd** |Krävs |heltal |Längden på delsträngen. Om längden slutar utanför den **källa** sträng, funktionen returnerar delsträngen från **starta** indexet till slutet av **källa** sträng. |
 
 - - -
-### <a name="not"></a>inte
+### <a name="normalizediacritics"></a>NormalizeDiacritics
+**Funktionen:**<br> NormalizeDiacritics(source)
+
+**Beskrivning:**<br> Kräver ett strängargument. Returnerar strängen, men med diakritiska tecken ersätts med motsvarande icke diakritiska tecken. Normalt används för att konvertera förnamn och efternamn som innehåller diakritiska tecken (accenttecken) till giltiga värden som kan användas i olika-ID: n som huvudnamn för användare, SAM-namnen och e-postadresser.
+
+**Parametrar:**<br> 
+
+| Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
+| --- | --- | --- | --- |
+| **Källa** |Krävs |Sträng | Vanligtvis ett förnamn eller sista name-attribut |
+
+- - -
+### <a name="not"></a>Inte
 **Funktionen:**<br> Not(Source)
 
 **Beskrivning:**<br> Vänder booleskt värde för den **källa**. Om **källa** värdet är ”*SANT*”, returnerar ”*FALSKT*”. Annars returnerar ”*SANT*”.
@@ -129,7 +141,6 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på de ang
   * Om **källa** har ett värde, använder **regexPattern** och **regexGroupName** att extrahera ersättningsvärde från egenskapen med **replacementPropertyName** . Ersättningsvärde returneras som ett resultat
 
 **Parametrar:**<br> 
-
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
 | **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
@@ -138,13 +149,13 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på de ang
 | **regexGroupName** |Valfri |Sträng |Namnet på gruppen i **regexPattern**. Endast när replacementPropertyName används, kommer vi extrahera värdet för den här gruppen som ersättningsvärde från egendom. |
 | **Ersättningsvärde** |Valfri |Sträng |Nytt värde som ska ersätta gamla med. |
 | **replacementAttributeName** |Valfri |Sträng |Namnet på attributet som ska användas för ersättningsvärde, när datakällan har inte något värde. |
-| **mallen** |Valfri |Sträng |När **mallen** värde har angetts, kommer vi att leta efter **oldValue** i mallen och Ersätt den med källvärdet. |
+| **Mallen** |Valfri |Sträng |När **mallen** värde har angetts, kommer vi att leta efter **oldValue** i mallen och Ersätt den med källvärdet. |
 
 - - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Funktionen:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
-**Beskrivning:**<br> Returnerar en enda appRoleAssignment från listan över alla appRoleAssignments som tilldelats en användare för ett visst program. Den här funktionen krävs för att konvertera appRoleAssignments-objekt till en enda roll namnsträngen. Observera att det bästa sättet är att se till att endast en appRoleAssignment tilldelas en användare åt gången och om flera roller har tilldelats rollen-sträng returnerades inte förutsägbart.
+**Beskrivning:**<br> Kräver ett strängargument. Returnerar strängen, men med några diakritiska tecken repalced med motsvarande icke diakritiska tecken.
 
 **Parametrar:**<br> 
 
@@ -162,7 +173,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på de ang
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **Källa** |Krävs |Sträng |**Källan** värde att uppdatera. |
+| **Källa** |Krävs |Sträng |**källan** värde att uppdatera. |
 
 - - -
 ### <a name="switch"></a>Växel
@@ -215,16 +226,16 @@ Du måste skapa en användare alias genom att först 3 bokstäver i användarens
 * **INDATA** (efternamn): ”Berg”
 * **UTDATA**: ”JohDoe”
 
-### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Ta bort diakritiska tecken från en sträng och konvertera till gemener
-Du måste ta bort specialtecknen från en sträng och konvertera versaler till gemener.
+### <a name="remove-diacritics-from-a-string"></a>Ta bort diakritiska tecken från en sträng
+Du måste ersätta tecken som innehåller accenttecken med motsvarande tecken som inte innehåller accenttecken.
 
 **Uttryck:** <br>
-`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+NormalizeDiacritics([givenName])
 
 **I/o-exempel:** <br>
 
 * **INDATA** (givenName): ”Zoë”
-* **UTDATA**: ”zoe”
+* **UTDATA**: ”Zoe”
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Utdatadatum som en sträng i ett visst format
 Vill du skicka datum till ett SaaS-program i ett visst format. <br>
@@ -259,5 +270,5 @@ Om tillståndet koden inte matchar någon av de fördefinierade alternativ, anv�
 * [Omfångsfilter för Användaretablering](active-directory-saas-scoping-filters.md)
 * [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Kontot etablering meddelanden](active-directory-saas-account-provisioning-notifications.md)
-* [Lista över självstudier om hur du integrerar SaaS-appar](active-directory-saas-tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar](saas-apps/tutorial-list.md)
 

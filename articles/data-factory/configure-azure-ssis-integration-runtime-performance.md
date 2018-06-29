@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: e0bbd504b47a3b599022049c984c6dd59a6d0a0b
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ac53e1a8a7c6c1b2c2959b92e14c7911065aed6d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266778"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052036"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurera Azure SSIS-integrering Runtime för hög prestanda
 
@@ -38,11 +38,11 @@ $DataFactoryLocation = "EastUS"
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
 $AzureSSISName = "<Specify a name for your Azure-SSIS IR>"
 $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
-# In public preview, only EastUS, NorthEurope, and WestEurope are supported.
+# Only EastUS, NorthEurope, and WestEurope are supported.
 $AzureSSISLocation = "EastUS" 
-# In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
+# Only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
 $AzureSSISNodeSize = "Standard_D3_v2"
-# In public preview, only 1-10 nodes are supported.
+# Only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
 # For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
@@ -60,7 +60,7 @@ $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S
 **AzureSSISLocation** är platsen för integrering runtime arbetsnoden. Arbetsnoden upprätthåller en anslutning till katalogen SSIS-databasen (SSISDB) på en Azure SQL database. Ange den **AzureSSISLocation** på samma plats som SQL Database-server som är värd för SSISDB som gör att körningen integrering ska fungera effektivt som möjligt.
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
-Förhandsversion av Azure Data Factory v2, inklusive Azure SSIS-IR stöder följande alternativ:
+Data Factory, inklusive Azure SSIS-IR stöder följande alternativ:
 -   Standard\_A4\_v2
 -   Standard\_A8\_v2
 -   Standard\_D1\_v2

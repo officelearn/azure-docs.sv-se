@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 4530b11db7691f631f636021634cc5e9c8be8c86
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac0e1945e75ee7aea346c103a671b4a47b9e5994
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620569"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048622"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Viktig information för gateway för datahantering
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [egenvärdbaserat integrering körning i V2](../create-self-hosted-integration-runtime.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [egenvärdbaserat integrering körning i V2](../create-self-hosted-integration-runtime.md).
 
 En av utmaningarna för moderna dataintegrering är att flytta data till och från lokalt till molnet. Data Factory gör den här integreringen med Data Management Gateway, vilket är en agent som att du kan installera lokalt för att aktivera hybrid dataflyttning.
 
@@ -127,12 +127,12 @@ Inga fler upprätthåller vi i Viktigt.txt. Hämta senaste viktig information [h
 
     *  Organiseras och förenklad kontroller.
 
-    *  Du kan kopiera data från en lagring med hjälp av den [kod utan kopiera preview verktyget](data-factory-copy-data-wizard-tutorial.md). Se [mellanlagrad kopiera](data-factory-copy-activity-performance.md#staged-copy) mer information om den här funktionen i allmänhet.
+    *  Du kan kopiera data från en lagring med hjälp av den [kod utan Kopiera verktyget](data-factory-copy-data-wizard-tutorial.md). Se [mellanlagrad kopiera](data-factory-copy-activity-performance.md#staged-copy) mer information om den här funktionen i allmänhet.
 *  Du kan använda Data Management Gateway till ingång data direkt från en lokal SQL Server-databas i Azure Machine Learning.
 
 *  Prestandaförbättringar
 
-    * Förbättra prestanda i Visa Schema/Förhandsgranska mot SQL Server i kod-fri kopiering preview-verktyget.
+    * Förbättra prestanda om hur du visar Schema/Förhandsgranska mot SQL Server i koden utan kopiera verktyg.
 
 ## <a name="11259531"></a>1.12.5953.1
 

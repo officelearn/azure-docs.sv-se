@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ef94f5cfa91422dddf9c684c2dc1b6eada754f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8b74a431664faa95e8be9c9ff90970fd6e7c0ec7
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621300"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048728"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Kopiera eller flytta data med guiden för Azure Data Factory kopiera
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Läs [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md) (kopiera aktivitetssjälvstudien i dokumentationen för version 2) om du använder version 2 av Data Factory-tjänsten, som finns tillgänglig som förhandsversion. 
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [kopiera aktivitet kursen](../quickstart-create-data-factory-dot-net.md). 
 
 
 Guiden Kopiera Azure Data Factory är att underlätta processen med vill föra in data, som vanligtvis är ett första steg i ett scenario för integrering av data för slutpunkt till slutpunkt. När du använder guiden Kopiera Azure Data Factory behöver du inte förstå alla JSON-definitioner för länkade tjänster, datauppsättningar och rörledningar. Men när du har slutfört alla steg i guiden skapar guiden automatiskt en pipeline för att kopiera data från den valda datakällan till den angivna platsen. Dessutom kan guiden Kopiera hjälper dig att validera data som inhämtas vid tidpunkten för redigering, vilket sparar mycket tid, särskilt när du mata in data för första gången från datakällan. Starta guiden Kopiera, klicka på den **kopiera data** panelen på startsidan i din data factory.
@@ -34,7 +34,7 @@ Guiden Kopiera Azure Data Factory är att underlätta processen med vill föra i
 ## <a name="an-intuitive-wizard-for-copying-data"></a>En intuitiv guiden för att kopiera data
 Den här guiden kan du enkelt kan flytta data från olika källor till mål i minuter. Efter att gå igenom guiden skapas automatiskt en pipeline med en kopia-aktivitet du tillsammans med beroende Data Factory-enheter (länkade tjänster och datauppsättningar). Inga ytterligare åtgärder krävs för att skapa pipelinen.   
 
-![Välj datakälla](./media/data-factory-copy-wizard/select-data-source-page.png)
+![Välja datakälla](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
 > Se [guiden Kopiera kursen](data-factory-copy-data-wizard-tutorial.md) artikel för stegvisa instruktioner för att skapa en exempel-rörledning för att kopiera data från ett Azure blob till Azure SQL Database-tabellen. 

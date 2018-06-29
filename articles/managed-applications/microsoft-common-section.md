@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: e6d7d5d7b205d275c72e96df527a354b072a9dd3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 90ffae3dd8b05041c34d766e464eb68f793f6066
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260977"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062986"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section UI-element
 En kontroll som grupperar ett eller flera element under en rubrik.
@@ -31,17 +31,17 @@ En kontroll som grupperar ett eller flera element under en rubrik.
 {
   "name": "section1",
   "type": "Microsoft.Common.Section",
-  "label": "Some section",
+  "label": "Example section",
   "elements": [
     {
-      "name": "element1",
+      "name": "text1",
       "type": "Microsoft.Common.TextBox",
-      "label": "Some text box 1"
+      "label": "Example text box 1"
     },
     {
-      "name": "element2",
+      "name": "text2",
       "type": "Microsoft.Common.TextBox",
-      "label": "Some text box 2"
+      "label": "Example text box 2"
     }
   ],
   "visible": true
@@ -49,14 +49,14 @@ En kontroll som grupperar ett eller flera element under en rubrik.
 ```
 
 ## <a name="remarks"></a>Kommentarer
-- `elements` måste innehålla minst ett element och kan innehålla alla elementtyper utom `Microsoft.Common.Section`.
+- `elements` måste ha minst ett element och kan ha alla elementtyper utom `Microsoft.Common.Section`.
 - Det här elementet har inte stöd för den `toolTip` egenskapen.
 
 ## <a name="sample-output"></a>Exempel på utdata
 Åtkomst till utdatavärden av element i `elements`, använda den [basics()](create-uidefinition-functions.md#basics) eller [steps()](create-uidefinition-functions.md#steps) funktioner och punktnotation:
 
 ```json
-basics('section1').element1
+steps('configuration').section1.text1
 ```
 
 Element av typen `Microsoft.Common.Section` har inga utdata värdena.

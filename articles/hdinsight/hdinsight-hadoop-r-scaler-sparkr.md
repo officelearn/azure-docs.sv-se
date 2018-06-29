@@ -1,6 +1,6 @@
 ---
 title: Använda ScaleR och SparkR med Azure HDInsight | Microsoft Docs
-description: Använda ScaleR och SparkR med R Server och HDInsight
+description: Använd ScaleR och SparkR ML-tjänster på HDInsight
 services: hdinsight
 documentationcenter: ''
 author: bradsev
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 4306f265bf7f52f9bc307def2256dd62e94e004f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 34d923cdf2dd96412996c766632ae42aac576e8c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31399974"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061486"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Kombinera ScaleR och SparkR i HDInsight
 
 Det här dokumentet beskrivs hur du förutsäga svarta ankomst fördröjningar med hjälp av en **ScaleR** logistic regressionsmodell. I exemplet används svarta fördröjning och väder data med hjälp av **SparkR**.
 
-Även om båda paketen körs på Hadoops motorn för körning av Spark, blockeras de från InMemory-Datadelning eftersom de varje kräver sin egen respektive Spark-sessioner. Tills problemet åtgärdas i en kommande version av R-Server, är lösningen att upprätthålla icke-överlappande Spark sessioner och för att utbyta data via mellanliggande filer. Anvisningarna här visar att dessa krav är enkla att uppnå.
+Även om båda paketen körs på Hadoops motorn för körning av Spark, blockeras de från InMemory-Datadelning eftersom de varje kräver sin egen respektive Spark-sessioner. Tills problemet åtgärdas i en kommande version av ML-Server, är lösningen att upprätthålla icke-överlappande Spark sessioner och för att utbyta data via mellanliggande filer. Anvisningarna här visar att dessa krav är enkla att uppnå.
 
 Det här exemplet har ursprungligen delas i en prata med skikt 2016 av Mario Inchiosa och Roni Burd. Du hittar den här prata på [skapa en skalbar datavetenskap plattform med R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
-Koden skrevs ursprungligen för R Server körs på Spark i HDInsight-kluster i Azure. Men begreppet blanda användningen av SparkR och ScaleR i ett skript också är giltig i kontexten för lokala miljöer. 
+Koden skrevs ursprungligen för ML-servern körs på Spark i HDInsight-kluster i Azure. Men begreppet blanda användningen av SparkR och ScaleR i ett skript också är giltig i kontexten för lokala miljöer.
 
-Stegen i det här dokumentet förutsätter att du har en mellanliggande nivå av R och är den [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) bibliotek med R Server. Du introduceras [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) när via det här scenariot.
+Stegen i det här dokumentet förutsätter att du har en mellanliggande nivå av R och är den [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) bibliotek med ML-Server. Du introduceras [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) när via det här scenariot.
 
 ## <a name="the-airline-and-weather-datasets"></a>Flygbolag och väder datauppsättningar
 
@@ -200,7 +200,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importera data flygbolag och väder till Spark DataFrames
 
-Vi använder SparkR [read.df()](https://docs.databricks.com/spark/latest/sparkr/functions/read.df.html) funktionen Importera väder och flygbolag data till Spark DataFrames. Den här funktionen så många Spark-metoder utförs lazy, vilket innebär att de i kö för körning men inte köras förrän krävs.
+Vi använder SparkR [read.df()](https://docs.databricks.com/spark/1.6/sparkr/functions/read.df.html#read-df) funktionen Importera väder och flygbolag data till Spark DataFrames. Den här funktionen så många Spark-metoder utförs lazy, vilket innebär att de i kö för körning men inte köras förrän krävs.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -360,7 +360,7 @@ Vi kan använda CSV-fil för domänanslutna flygbolag och väder data som-är f�
 ```
 logmsg('Import the CSV to compressed, binary XDF format') 
 
-# set the Spark compute context for R Server 
+# set the Spark compute context for ML Services 
 rxSetComputeContext(sparkCC)
 rxGetComputeContext()
 
@@ -537,15 +537,15 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln visas hur du kan kombinera användningen av SparkR för datamanipulering med ScaleR för modellen utveckling i Hadoop Spark. Det här scenariot måste du underhålla separata Spark-sessioner, kör endast en session i taget och utbyta data via CSV-filer. Även om det är enkelt, ska den här processen vara enklare i en kommande R Server-versionen när SparkR och ScaleR kan dela en Spark-session och dela så Spark DataFrames.
+I den här artikeln visas hur du kan kombinera användningen av SparkR för datamanipulering med ScaleR för modellen utveckling i Hadoop Spark. Det här scenariot måste du underhålla separata Spark-sessioner, kör endast en session i taget och utbyta data via CSV-filer. Även om det är enkelt, ska den här processen vara enklare i en kommande ML Services-versionen när SparkR och ScaleR kan dela en Spark-session och dela så Spark DataFrames.
 
 ## <a name="next-steps-and-more-information"></a>Nästa steg och mer information
 
-- Mer information om användning av R Server på Spark finns det [komma igång-guiden på MSDN](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Mer information om användning av ML-Server på Spark finns det [komma igång-guiden](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
-- Allmän information om R Server finns i [Kom igång med R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) artikel.
+- Allmän information om ML-Server finns i [Kom igång med R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) artikel.
 
-- Mer information om R Server på HDInsight finns [R Server på Azure HDInsight översikt](r-server/r-server-overview.md) och [R Server på Azure HDInsight](r-server/r-server-get-started.md).
+- Mer information om ML-tjänster på HDInsight finns [översikt av ML Services på HDInsight](r-server/r-server-overview.md) och [komma igång med ML Services på Azure HDInsight](r-server/r-server-get-started.md).
 
 Mer information om användning av SparkR finns:
 

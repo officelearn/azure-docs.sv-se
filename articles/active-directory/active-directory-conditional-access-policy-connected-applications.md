@@ -1,6 +1,6 @@
 ---
-title: Konfigurera principer för Azure Active Directory enhetsbaserad villkorlig åtkomst | Microsoft Docs
-description: Lär dig hur du konfigurerar principer för Azure Active Directory enhetsbaserad villkorlig åtkomst.
+title: Hur ska - kräver hanterade enheter för åtkomst till appen moln med Azure Active Directory för villkorlig åtkomst | Microsoft Docs
+description: Lär dig hur du konfigurerar Azure Active Directory (AD Azure) enhetsbaserad villkorliga åtkomstprinciper som kräver hanterade enheter för åtkomst till appen i molnet.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,38 +13,48 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1c21c915bc0a83cdafb221a2cd592890577437ee
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
-ms.translationtype: HT
+ms.openlocfilehash: 066d25e8953a2be4bd64cdd1af79b7f2a25dd5f9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849533"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036360"
 ---
-# <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Konfigurera principer för Azure Active Directory enhetsbaserad villkorlig åtkomst
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Så här: Kräver hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst
 
-Med [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-conditional-access-azure-portal.md), du kan styra hur behöriga användare kan komma åt dina resurser. Du kan till exempel begränsa åtkomst till vissa resurser till hanterade enheter. En princip för villkorlig åtkomst som kräver en hanterad enhet kallas även för principen för enhetsbaserad villkorlig åtkomst.
+I mobile första, molnet först världen aktiverar Azure Active Directory (AD Azure) enkel inloggning till appar och tjänster från var som helst. Auktoriserade användare kan komma åt dina molnappar från en mängd olika enheter, inklusive mobila och personliga enheter. Men har många miljöer minst några appar som bara kan användas av enheter som uppfyller dina krav för säkerhet och efterlevnad. Dessa enheter kallas även för hanterade enheter. 
 
-Det här avsnittet beskrivs hur du kan konfigurera principer för enhetsbaserad villkorlig åtkomst för Azure AD-anslutna program. 
+Den här artikeln förklarar hur du kan konfigurera villkorliga åtkomstprinciper som kräver hanterade enheter får åtkomst till vissa molnappar i din miljö. 
 
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="prerequisites"></a>Förutsättningar
 
-Enhetsbaserad villkorlig åtkomst ties **villkorlig åtkomst i Azure AD** och **Azure AD-enhetshantering tillsammans**. Om du inte är bekant med något av dessa områden ännu, bör du först läsa i följande avsnitt:
+Krav på hanterade enheter för cloud app åtkomst ties **villkorlig åtkomst i Azure AD** och **Azure AD enhetshantering** tillsammans. Om du inte är bekant med något av dessa områden ännu, bör du först läsa i följande avsnitt:
 
-- **[Villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal.md)**  -det här avsnittet ger en översikt över relaterade terminologi och villkorlig åtkomst.
+- **[Villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal.md)**  -den här artikeln ger en översikt över relaterade terminologi och villkorlig åtkomst.
 
-- **[Introduktion till hantering av enheter i Azure Active Directory](device-management-introduction.md)**  -det här avsnittet innehåller en översikt över de olika alternativ som du måste ansluta enheter med Azure AD. 
+- **[Introduktion till hantering av enheter i Azure Active Directory](device-management-introduction.md)**  -den här artikeln innehåller en översikt över de olika alternativ som du behöver hämta enheter under organisationens kontroll. 
 
+
+## <a name="scenario-description"></a>Scenariobeskrivning
+
+Hantering av balansen mellan säkerhet och produktivitet är en utmaning. Den ökande mängden av enheter som stöds till molnresurser hjälper oss för att förbättra användarnas produktivitet. På sidan Vänd vill du förmodligen inte vissa resurser i miljön som kan nås av enheter med en okänd skyddsnivå. Du bör kräva att användare kan bara komma åt dem med hjälp av en hanterad enhet för de berörda resurserna. 
+
+Du kan åtgärda det här kravet med en enda princip som beviljar åtkomst med Azure AD villkorlig åtkomst:
+
+- Till valda molnappar
+
+- För valda användare och grupper
+
+- Kräver en hanterad enhet
 
 
 ## <a name="managed-devices"></a>Hanterade enheter  
 
-I en mobile första, molnet först värld kan Azure Active Directory enkel inloggning till enheter, appar och tjänster från var som helst. För vissa kanske resurser i din miljö och bevilja åtkomst till rätt användare inte tillräckligt bra. Förutom rätt användare kan du också kräva att åtkomstförsök kan endast utföras med hjälp av en hanterad enhet.
-
-En hanterad enhet är en enhet som uppfyller dina krav för säkerhet och efterlevnad. Enkelt uttryckt hanterade enheter är enheter som är *vissa sortera* för organisationens kontroll. I Azure AD är nödvändiga för en hanterad enhet har registrerats med Azure AD. Registrerar en enhet skapas en identitet för enheten i form av ett enhetsobjekt. Det här objektet används av Azure för att spåra statusinformation om en enhet. Som en Azure AD-administratör kan du redan använder det här objektet ska växla (aktivera/inaktivera) tillstånd för en enhet.
+Enkelt uttryckt hanterade enheter är enheter som är *vissa sortera* för organisationens kontroll. I Azure AD är nödvändiga för en hanterad enhet har registrerats med Azure AD. Registrerar en enhet skapas en identitet för enheten i form av ett enhetsobjekt. Det här objektet används av Azure för att spåra statusinformation om en enhet. Som en Azure AD-administratör kan du redan använder det här objektet ska växla (aktivera/inaktivera) tillstånd för en enhet.
   
 ![Enhetsbaserad villkor](./media/active-directory-conditional-access-policy-connected-applications/32.png)
 
@@ -56,10 +66,9 @@ För att få en enhet som registrerats med Azure AD, finns det tre alternativ:
 
 - **[Hybrid Azure AD-anslutna enheter](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  - om du vill hämta en Windows 10-enhet som är ansluten till en lokal AD registrerad med Azure AD.
 
-Om du vill bli en hanterad enhet, kan en registrerad enhet vara en Hybrid Azure AD-ansluten enhet eller en enhet som har markerats som kompatibla.  
+Om du vill bli en hanterad enhet, en registrerad enhet måste vara antingen en **Hybrid Azure AD-ansluten enhet** eller en **enhet som har markerats som kompatibel**.  
 
 ![Enhetsbaserad villkor](./media/active-directory-conditional-access-policy-connected-applications/47.png)
-
 
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>Kräver Hybrid Azure AD-anslutna enheter
@@ -83,8 +92,8 @@ Alternativet att *kräver en enhet har markerats som kompatibel* är den starkas
 
 Det här alternativet kräver att en enhet registreras med Azure AD och även för att markeras som är kompatibla med:
          
-- Intune 
-- En mobil enhet från tredje part hanteras system som hanterar Windows 10-enheter via Azure AD-integrering 
+- Intune.
+- En tredjeparts mobila enheter (MDM) hanteringssystem som hanterar Windows 10-enheter via integrering med Azure AD. Tredje parts MDM-system för enhetstyper operativsystem än Windows 10 stöds inte.
  
 ![Enhetsbaserad villkor](./media/active-directory-conditional-access-policy-connected-applications/46.png)
 

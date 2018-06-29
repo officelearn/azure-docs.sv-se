@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: b7751bd1b309333d5ef40530b0fa499a42a57cd1
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: d77953100bb7007553cf1c5ab00b9cdafea281e9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752256"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030445"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välj rätt IoT-hubb nivån för din lösning
 
@@ -43,7 +43,7 @@ När du har skapat din IoT-hubb som du kan uppgradera från den grundläggande n
 | [Övervakning och diagnostik](iot-hub-monitor-resource-health.md) | Ja | Ja |
 | [Meddelanden moln till enhet](iot-hub-devguide-c2d-guidance.md) |   | Ja |
 | [Enheten twins](iot-hub-devguide-device-twins.md), [modulen twins](iot-hub-devguide-module-twins.md) och [enhetshantering](iot-hub-device-management-overview.md) |   | Ja |
-| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Ja |
+| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Ja |
 
 IoT-hubb erbjuder också en kostnadsfri nivå som är avsedd för testning och utvärdering. Det har alla funktioner av standardnivån, men begränsad meddelanden ersättning. Du kan inte uppgradera från den kostnadsfria nivån till basic eller standard. 
 
@@ -59,9 +59,9 @@ Skillnaden i funktioner som stöds mellan nivåerna basic och standard IoT-hubb 
 | Hämta modul | Ja | Ja |
 | [Få statistik för registret](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Ja | Ja |
 | [Hämta statistik för tjänster](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Ja | Ja |
-| [Placera enheten](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Ja | Ja |
+| [Skapa eller uppdatera enheten](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | Ja | Ja |
 | Placera modulen | Ja | Ja |
-| [Fråga om enheter](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Ja | Ja |
+| [Frågan IoT-hubb](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | Ja | Ja |
 | Frågan moduler | Ja | Ja |
 | [Skapa filöverföringen SAS-URI](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | Ja | Ja |
 | [Enheten bunden meddelande](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | Ja | Ja |

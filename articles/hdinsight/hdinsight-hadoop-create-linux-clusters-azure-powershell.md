@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 57ae7c3cab6c0084bb43585f65d79ae6cc265356
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 11e98117a93f541f6f88b213f59dcf4aba3e7f36
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400460"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045219"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Skapa Linux-baserade kluster i HDInsight med hjälp av Azure PowerShell
 
@@ -63,7 +63,7 @@ De värden som du anger för SSH-användare används för att skapa SSH-använda
 > [!IMPORTANT]
 > Om du planerar att använda mer än 32 arbetarnoder (antingen när klustret skapas eller genom att skala klustret när den har skapats) måste du också ange en huvudnod storlek med minst 8 kärnor och 14 GB RAM-minne.
 >
-> Mer information om noden storlekar och relaterade kostnader finns [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).
+> Mer information om nodstorlekar och relaterade kostnader finns i [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Det kan ta upp till 20 minuter att skapa ett kluster.
 
@@ -71,7 +71,7 @@ Det kan ta upp till 20 minuter att skapa ett kluster.
 
 Du kan också skapa ett HDInsight configuration objekt med hjälp av `New-AzureRmHDInsightClusterConfig` cmdlet. Du kan ändra det här konfigurationsobjektet för att aktivera ytterligare konfigurationsalternativ för klustret. Använd slutligen den `-Config` parameter för den `New-AzureRmHDInsightCluster` för att använda konfigurationen.
 
-Följande skript skapar ett konfigurationsobjekt för att konfigurera en R Server på typ av HDInsight-kluster. Konfigurationen kan en kantnod och RStudio ett ytterligare storage-konto.
+Följande skript skapar ett konfigurationsobjekt om du vill konfigurera en ML-tjänster på typ av HDInsight-kluster. Konfigurationen kan en kantnod och RStudio ett ytterligare storage-konto.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 

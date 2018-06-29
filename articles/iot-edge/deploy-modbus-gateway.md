@@ -6,16 +6,16 @@ manager: timlt
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: d6e831cdd7cd18305beb617693ee1026bb6429e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9e69faf1b07af0e60cfd21cd6eb9f00e211ab91e
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631481"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031761"
 ---
-# <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway---preview"></a>Ansluta Modbus TCP-enheter via en IoT Edge-enhetsgateway – förhandsversion
+# <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Ansluta Modbus TCP-enheter via en gateway för IoT-Edge-enhet
 
 Om du vill ansluta IoT-enheter som använder Modbus TCP eller RTU-protokoll till en Azure IoT Hub ska du använda en IoT Edge-enhet som gateway. Gatewayenheten läser data från Modbus-enheterna och kommunicerar sedan dessa data till molnet med ett protokoll som stöds. 
 
@@ -26,7 +26,7 @@ Den här artikeln beskriver hur du skapar en egen behållaravbildning för en Mo
 Den här artikeln förutsätter att du använder Modbus TCP-protokollet. Mer information om hur du konfigurerar modulen så att den stöder Modbus RTU finns i projektet [Azure IoT Edge Modbus-modul](https://github.com/Azure/iot-edge-modbus) på Github. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-* En Azure IoT Edge-enhet. En genomgång av hur du ställer in en finns i [Deploy Azure IoT Edge on a simulated device in Windows](tutorial-simulate-device-windows.md) or [Linux](tutorial-simulate-device-linux.md) (Distribuera Azure IoT Edge på en simulerad enhet i Windows eller Linux). 
+* En Azure IoT Edge-enhet. En genomgång av hur du ställer in en finns i [Deploy Azure IoT Edge on a simulated device in Windows](quickstart.md) or [Linux](quickstart-linux.md) (Distribuera Azure IoT Edge på en simulerad enhet i Windows eller Linux). 
 * Primärnyckelns anslutningssträng för IoT Edge-enheten.
 * En fysisk eller simulerad Modbus-enhet som stöder Modbus TCP.
 
@@ -43,10 +43,10 @@ Om du vill skapa en egen modul och anpassa den för din miljö finns det ett pro
 
 ## <a name="run-the-solution"></a>Kör lösningen
 1. Gå till IoT-hubben på [Azure-portalen](https://portal.azure.com/).
-2. Gå till **IoT Edge (förhandsversion)** och välj IoT Edge-enhet.
+2. Gå till **IoT kant** och klicka på enheten IoT kant.
 3. Välj **Ange moduler**.
 4. Lägg till Modbus-modulen:
-   1. Välj **Lägg till IoT Edge-modul**.
+   1. Klicka på **Lägg till** och välj **IoT kant modulen**.
    2. I fältet **Namn** skriver du ”modbus”.
    3. I fältet **Bild** anger du bildens URI för exempelbehållaren: `microsoft/azureiotedge-modbus-tcp:1.0-preview`.
    4. Markera rutan **Aktivera** för att uppdatera önskade egenskaper för modultvillingen.
@@ -87,8 +87,8 @@ Om du vill skapa en egen modul och anpassa den för din miljö finns det ett pro
    ```
 
 8. Välj **Nästa**. 
-9. I steget för att **granska mallen** väljer du **Skicka**. 
-10. Återgå till informationssidan om enheten och välj **Uppdatera**. Nu bör du se din nya **modbus** som körs tillsammans med IoT Edge-körningen.
+9. I den **granska distribution** steg, Välj **skicka**. 
+10. Återgå till informationssidan om enheten och välj **Uppdatera**. Du bör se den nya **modbus** modulen körs tillsammans med IoT-Edge-körningsmiljön.
 
 ## <a name="view-data"></a>Visa data
 Visa data som kommer genom modbus-modulen:
@@ -100,5 +100,8 @@ Du kan också visa telemetri som enheten skickar med [IoT Hub-utforskarverktyget
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta mer om hur IoT Edge-enheter kan fungera som gatewayer kan du läsa informationen om att [skapa en IoT Edge-enhet som fungerar som en transparent gateway](how-to-create-transparent-gateway.md).
+- Mer information om hur IoT-gränsenheterna kan fungera som gateways finns [skapa en insticksenhet för IoT som fungerar som en transparent gateway][lnk-transparent-gateway-linux]
 - Mer information om hur IoT Edge-moduler fungerar finns i informationen om att [förstå Azure IoT Edge-moduler](iot-edge-modules.md)
+
+<!-- Links -->
+[lnk-transparent-gateway-linux]: ./how-to-create-transparent-gateway-linux.md

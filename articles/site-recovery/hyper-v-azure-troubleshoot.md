@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: rayne
-ms.openlocfilehash: 95a33c80b1aeef7fbf8bea0ab760bbd66babdac8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8b16f495a21ff0b3da415390877777650a9fbb82
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31427240"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048211"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Felsöka Hyper-V till Azure-replikering och redundans
 
@@ -58,7 +58,7 @@ Felsöka problem med inledande och pågående replikering på följande sätt:
 5. Kontrollera om Hyper-V-värdar kan ansluta till URL: en för Azure storage blob. Välj om du vill göra det, och kontrollera **cbengine.exe**. Visa **TCP-anslutningar** att verifiera anslutning från värden till Azure storage-blob.
 6. Kontrollera prestandaproblem, som beskrivs nedan.
     
-### <a name="performance-issues"></a>prestandaproblem
+### <a name="performance-issues"></a>Prestandaproblem
 
 Begränsningar i nätverksbandbredd kan påverka replikering. Felsökning av problem på följande sätt:
 
@@ -116,7 +116,7 @@ En programkonsekventa ögonblicksbilder är en tidpunkt i ögonblicksbild av pro
         - Räknaren ”: skriva byte / sek”</br>
         - Den här omsättningen data ökar eller kvar på en hög nivå, beroende på hur upptagen den virtuella datorn eller dess apps är.
         - Den genomsnittliga källa disk dataomsättningen är 2 MB/s för standardlagring för Site Recovery. [Läs mer](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - Dessutom kan du [Kontrollera lagring skalbarhetsmål](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets.md#scalability-targets-for-a-storage-account).
+    - Dessutom kan du [Kontrollera lagring skalbarhetsmål](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
 8. Kör den [distribution Planner](hyper-v-deployment-planner-run.md).
 9. Granska rekommendationer för [nätverk](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) och [lagring](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 
@@ -135,7 +135,7 @@ En programkonsekventa ögonblicksbilder är en tidpunkt i ögonblicksbild av pro
 
 ### <a name="common-errors"></a>Vanliga fel
 
-**Felkod** | **Meddelande** | **Detaljer**
+**Felkod** | **meddelande** | **Detaljer**
 --- | --- | ---
 **0x800700EA** | ”Det gick inte att generera en uppsättning av VSS-ögonblicksbilder för den virtuella datorn Hyper-V: flera data är tillgängliga. (0x800700EA). Ange ögonblicksbildgenerering VSS kan misslyckas om säkerhetskopiering pågår.<br/><br/> Replikeringsåtgärden för den virtuella datorn misslyckades: flera data är tillgängliga ”. | Kontrollera om den virtuella datorn har en dynamisk disk som är aktiverad. Det stöds inte.
 **0x80070032** | ”Det gick inte att ansluta till virtuella Hyper-V Volume Shadow Copy begärande <. / VMname > eftersom versionen som inte matchar den version som förväntades av Hyper-V | Kontrollera om de senaste uppdateringarna är installerade.<br/><br/> [Uppgradera](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services.md#keep-integration-services-up-to-date) till den senaste versionen av Integration Services.

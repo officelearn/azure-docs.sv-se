@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 56128a7fe28f1599b74ba9f1475ef636e0e8718c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c07199887faf073d19007f1ef410c193bbdbf3ee
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617988"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049374"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadata för aktiviteten i Azure Data Factory
-GetMetadata-aktiviteten kan användas för att hämta **metadata** alla data i Azure Data Factory. Den här aktiviteten stöds endast för datafabriker för version 2. Den kan användas i följande scenarier:
+GetMetadata-aktiviteten kan användas för att hämta **metadata** alla data i Azure Data Factory. Den här aktiviteten kan användas i följande scenarier:
 
 - Validera metadatainformation för alla data
 - Utlös en pipeline när data är klar / tillgängliga
@@ -31,9 +31,6 @@ Följande funktioner är tillgängliga i kontrollflödet:
 
 - Utdata från GetMetadata aktiviteten kan användas i villkorsuttryck för att utföra verifiering.
 - En pipeline kan utlösas när villkoret är uppfyllt via-tills slingor
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Data Factory V1 dokumentationen](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -46,14 +43,18 @@ Aktiviteten GetMetadata tar en datamängd som en obligatorisk indata och utdata 
 
 **Fillagring:**
 
-| Connector-Metadata | itemName<br>(filen/mappen) | itemType<br>(filen/mappen) | storlek<br>(fil) | skapad<br>(filen/mappen) | Senast ändrad<br>(filen/mappen) |childItems<br>(mapp) |contentMD5<br>(fil) | struktur<br/>(fil) | Antal kolumner<br>(fil) | Det finns<br>(filen/mappen) |
+| Connector-Metadata | itemName<br>(filen/mappen) | itemType<br>(filen/mappen) | storlek<br>(fil) | skapad<br>(filen/mappen) | senast ändrad<br>(filen/mappen) |childItems<br>(mapp) |contentMD5<br>(fil) | struktur<br/>(fil) | Antal kolumner<br>(fil) | Det finns<br>(filen/mappen) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Azure-blobb | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
+| Amazon S3 | √/√ | √/√ | √ | x/x | √ / √ * | √ | x | √ | √ | √ / √ * |
+| Azure-blobb | √/√ | √/√ | √ | x/x | √ / √ * | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure File Storage | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | Filsystem | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+
+- För Amazon S3 den `lastModified` gäller bucket och nyckeln men inte virtuell mapp; och `exists` gäller bucket och nyckeln men inte prefix eller virtuell mapp.
+- För Azure-Blob den `lastModified` gäller för behållaren och blob men inte virtuell mapp.
 
 **Relationsdatabas:**
 
@@ -73,7 +74,7 @@ Följande typer av metadata kan anges i fältlistan GetMetadata aktiviteten att 
 | itemType | Typ av filen eller mappen. Utdatavärdet för är `File` eller `Folder`. |
 | storlek | Storlek i byte. Gäller endast filen. |
 | skapad | Skapad datum/tid för filen eller mappen. |
-| Senast ändrad | Senast ändrad datum/tid för filen eller mappen. |
+| senast ändrad | Senast ändrad datum/tid för filen eller mappen. |
 | childItems | Lista över undermappar och filer i den angivna mappen. Gäller endast mappen. Utdatavärdet är en lista över namn och typ för varje underordnade objekt. |
 | contentMD5 | MD5 för filen. Gäller endast filen. |
 | struktur | Datastruktur i filen eller relationsdatabas tabell. Utdatavärdet är en lista med kolumnnamn och kolumntypen. |

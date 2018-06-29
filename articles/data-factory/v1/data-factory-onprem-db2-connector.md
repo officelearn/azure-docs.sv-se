@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fc4ce0a2ae33e99ecede371d9f17fb9a63851f64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 88e56f522545f9c1f38bf0d0fdbcebdc171c294b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622031"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046538"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Flytta data från DB2 med hjälp av Azure Data Factory-Kopieringsaktiviteten
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-onprem-db2-connector.md)
-> * [Version 2 – förhandsversion](../connector-db2.md)
+> * [Version 1](data-factory-onprem-db2-connector.md)
+> * [Version 2 (aktuell version)](../connector-db2.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [DB2-koppling i V2](../connector-db2.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [DB2-koppling i V2](../connector-db2.md).
 
 
 Den här artikeln beskriver hur du kan använda Kopieringsaktiviteten i Azure Data Factory för att kopiera data från en lokal DB2-databas till ett datalager. Du kan kopiera data till en butik som har listats som en mottagare som stöds i den [Data Factory data movement aktiviteter](data-factory-data-movement-activities.md#supported-data-stores-and-formats) artikel. Det här avsnittet bygger på Data Factory-artikel som visar en översikt över data flyttas med hjälp av Kopieringsaktiviteten och visar store kombinationer av data som stöds. 
@@ -84,11 +84,11 @@ I följande tabell visas JSON-egenskaper som är specifika för en DB2 länkad t
 | --- | --- | --- |
 | **typ** |Den här egenskapen måste anges till **OnPremisesDb2**. |Ja |
 | **Server** |Namnet på DB2-servern. |Ja |
-| **Databasen** |Namnet på DB2-databasen. |Ja |
-| **Schemat** |Namnet på schemat i DB2-databasen. Den här egenskapen är skiftlägeskänsliga. |Nej |
-| **AuthenticationType** |Typ av autentisering som används för att ansluta till DB2-databasen. Möjliga värden är: anonym, grundläggande och Windows. |Ja |
-| **Användarnamn** |Namnet för användarkontot om du använder grundläggande eller Windows-autentisering. |Nej |
-| **Lösenord** |Lösenordet för användarkontot. |Nej |
+| **databasen** |Namnet på DB2-databasen. |Ja |
+| **schemat** |Namnet på schemat i DB2-databasen. Den här egenskapen är skiftlägeskänsliga. |Nej |
+| **authenticationType** |Typ av autentisering som används för att ansluta till DB2-databasen. Möjliga värden är: anonym, grundläggande och Windows. |Ja |
+| **användarnamn** |Namnet för användarkontot om du använder grundläggande eller Windows-autentisering. |Nej |
+| **lösenord** |Lösenordet för användarkontot. |Nej |
 | **gatewayName** |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala DB2-databasen. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
@@ -107,7 +107,7 @@ För Kopieringsaktiviteten när källan är av typen **RelationalSource** (som o
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| **Frågan** |Använd anpassad fråga för att läsa data. |SQL-sträng. Exempel: `"query": "select * from "MySchema"."MyTable""` |Nej (om den **tableName** -egenskapen för en dataset har angetts) |
+| **frågan** |Använd anpassad fråga för att läsa data. |SQL-sträng. Exempel: `"query": "select * from "MySchema"."MyTable""` |Nej (om den **tableName** -egenskapen för en dataset har angetts) |
 
 > [!NOTE]
 > Schema och tabellnamn är skiftlägeskänsliga. I frågeuttrycket omge egenskapsnamn med hjälp av ”” (dubbla citattecken).
@@ -313,41 +313,41 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | Integer |Int32 |
 | BigInt |Int64 |
 | Real |Enkel |
-| dubbla |dubbla |
-| Flyttal |dubbla |
+| Dubbel |Dubbel |
+| Flyttal |Dubbel |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numerisk |Decimal |
 | Date |DateTime |
 | Tid |TimeSpan |
 | Tidsstämpel |DateTime |
-| Xml |byte] |
+| Xml |Byte] |
 | Char |Sträng |
 | VarChar |Sträng |
 | LongVarChar |Sträng |
 | DB2DynArray |Sträng |
-| Binär |byte] |
-| VarBinary |byte] |
-| LongVarBinary |byte] |
+| Binär |Byte] |
+| VarBinary |Byte] |
+| LongVarBinary |Byte] |
 | Bild |Sträng |
 | VarGraphic |Sträng |
 | LongVarGraphic |Sträng |
 | CLOB |Sträng |
-| Blob |byte] |
+| Blob |Byte] |
 | DbClob |Sträng |
 | SmallInt |Int16 |
 | Integer |Int32 |
 | BigInt |Int64 |
 | Real |Enkel |
-| dubbla |dubbla |
-| Flyttal |dubbla |
+| Dubbel |Dubbel |
+| Flyttal |Dubbel |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numerisk |Decimal |
 | Date |DateTime |
 | Tid |TimeSpan |
 | Tidsstämpel |DateTime |
-| Xml |byte] |
+| Xml |Byte] |
 | Char |Sträng |
 
 ## <a name="map-source-to-sink-columns"></a>Karta källan till mottagare för kolumner

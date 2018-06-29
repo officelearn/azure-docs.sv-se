@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: 11a4fe4cd7b4b08b4468e08bba754518d27abb99
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: f39392518f89ac51afd9a18fe59bcef46840478d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309546"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054186"
 ---
 # <a name="grow-your-business-with-appsource"></a>Växa med AppSource  
 Använd AppSource när du kontaktar företagskunder att hitta, försök och hämta line-of-business-programvara som en tjänst (SaaS) appar och tjänster-implementering för att enheten verksamhetsresultat och minska tiden för värden.  
@@ -67,7 +67,7 @@ Kvaliteten på app publikationen och åtagande att kundernas sida begäran gener
 Följande checklista beskriver marknadsföring metodtips och resurser att tänka på när du skapar erbjudanden som ska publiceras på AppSource:  
 *   **Tänk på Microsoft Trademark & Brand riktlinjer.**  
     När namnge din app och hänvisar till Microsofts varumärken och namnen på Microsoft-programvara, produkter och tjänster, följ Microsoft Trademark och riktlinjer för varumärken samt relevanta produktspecifika riktlinjer.  
-    *   Mer information om Microsofts varumärken och anpassning finns i Microsoft-Trademark och riktlinjer för varumärken sidan finns på [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).  
+    *   Mer information om Microsofts varumärken och anpassning finns i Microsoft-Trademark och riktlinjer för varumärken sidan finns på [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).  
 *   **Aktivera den nu se get kostnadsfri utvärderingsversion eller testa enheten upplevelse för din app.**  
     Företagsanvändare vill upplever appen först manuellt.  
 *   **Skapa en stark värdeförslag.**  
@@ -104,7 +104,7 @@ Följande tabeller innehåller information om varje steg i att fylla i erbjudand
 
 | Inställningen för erbjudande | Bästa praxis | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Namn** | **Namnge ditt erbjudande**<br />Att välja ett namn för din app är viktiga beslut. Förmånen-baserade namn är effektivare än beskrivande namn. Appens namn kommunicera får core value-kunder. Inklusive sökord i din app rubrik kan också hjälpa din app som ska rangordnas högre i sökresultat. Följ Microsoft Trademark och riktlinjer för varumärken samt relevanta produktspecifika riktlinjer när du refererar till Microsofts varumärken och namnen på Microsoft, programvara, produkter och tjänster.<ul> <li>Mer information om Microsofts varumärken och anpassning finns i Microsoft-Trademark och riktlinjer för varumärken sidan finns på [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
+| **Namn** | **Namnge ditt erbjudande**<br />Att välja ett namn för din app är viktiga beslut. Förmånen-baserade namn är effektivare än beskrivande namn. Appens namn kommunicera får core value-kunder. Inklusive sökord i din app rubrik kan också hjälpa din app som ska rangordnas högre i sökresultat. Följ Microsoft Trademark och riktlinjer för varumärken samt relevanta produktspecifika riktlinjer när du refererar till Microsofts varumärken och namnen på Microsoft, programvara, produkter och tjänster.<ul> <li>Mer information om Microsofts varumärken och anpassning finns i Microsoft-Trademark och riktlinjer för varumärken sidan finns på [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
 
 **Storefront information - erbjudandet**  
 

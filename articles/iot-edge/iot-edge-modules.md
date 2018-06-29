@@ -8,14 +8,14 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 60c2c17d7a5cca66a6323f43e1ab2662afff54ee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9c196ec92fc7997617fa464d676dc93ca9fe84f0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630844"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029106"
 ---
-# <a name="understand-azure-iot-edge-modules---preview"></a>Förstå Azure IoT kant moduler – förhandsgranskning
+# <a name="understand-azure-iot-edge-modules"></a>Förstå Azure IoT kant-moduler
 
 Azure IoT-gräns kan du distribuera och hantera affärslogik på gränsen i form av *moduler*. Azure IoT kant-moduler är den minsta enheten av beräkning som hanteras av IoT kant och kan innehålla Azure-tjänster (till exempel Azure Stream Analytics) eller din egen lösning-specifik kod. För att förstå hur moduler har utvecklats, distribueras och hanteras, hjälper det för att tänka på fyra konceptuella delarna som utgör en modul:
 
@@ -60,6 +60,17 @@ await client.OpenAsync();
 // Get the model twin 
 Twin twin = await client.GetTwinAsync(); 
 ```
+
+## <a name="offline-capabilities"></a>Offline-funktioner
+
+Azure IoT-Edge har stöd för offline-åtgärder för din IoT-gränsenheterna. Dessa funktioner är begränsade just nu och ytterligare scenarier utvecklas. 
+
+IoT-Edge moduler kan vara offline under långa perioder förutsatt att följande krav är uppfyllda: 
+
+* **Meddelandet time to live (TTL) inte har gått**. Standardvärdet för meddelande-TTL är två timmar, kan men ändras högre eller lägre i arkivet och vidarebefordra konfigurationen i kanten IoT-hubbsinställningar. 
+* **Moduler behöver inte autentiseras med kant för IoT-hubb offline**. Moduler kan bara autentisera med kant-hubbar som har en aktiv anslutning till en IoT-hubb. Moduler som behöver återautentisera om de startas om av någon anledning. Moduler kan fortfarande skicka meddelanden till hubben kant när deras SAS-token har gått ut. När anslutningen återställs Edge hubben begär en ny token från modulen och validerar den med IoT-hubben. Om detta lyckas vidarebefordrar Edge hubben modulen meddelanden lagras, även de meddelanden som skickades när modulens token har upphört att gälla. 
+* **Den modul som skickade meddelanden när offline fungerar fortfarande när anslutningen återställs**. När de återansluter till IoT-hubb Edge navet inte behöver verifiera en ny modul-token (om det tidigare har upphört att gälla) innan den kan vidarebefordra meddelanden modulen. Om modulen inte är tillgängliga för en ny token kan inte Edge-hubb fungera på modulens lagrade meddelanden. 
+* **Edge-hubben har ledigt diskutrymme för att lagra meddelanden**. Som standard lagras meddelanden i Edge-hubb behållarens filsystem. Det finns ett alternativ för att ange en monterad volym för att lagra meddelanden i stället. I båda fallen behöver det finnas utrymme att lagra meddelanden för uppskjuten leverans till IoT-hubb.  
 
 ## <a name="next-steps"></a>Nästa steg
  - [Förstå Azure IoT kant-runtime och dess arkitektur][lnk-runtime]

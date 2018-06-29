@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: a5f323b98fa30d2c4c89fa8fe8e75c1d89089b6e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c0794ebd953160c8569502db5d58c6d2b9ad892a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895286"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061504"
 ---
 # <a name="governance-in-azure"></a>Styrning i Azure
 
@@ -178,21 +178,21 @@ Du kan bevilja upp till 2 000 rolltilldelningar inom varje prenumeration.
 
 ## <a name="resource-management"></a>Resurshantering
 
-Azure som ursprungligen den klassiska distributionsmodellen. I den här modellen fanns varje resurs självständigt. Det gick inte att gruppera relaterade resurser. I stället var du tvungen att manuellt spåra vilka resurser som består av din lösning eller ditt program och Kom ihåg att hantera dem på ett samordnat sätt.
+Azure levererade ursprungligen bara den klassiska distributionsmodellen. I den modellen var varje resurs fristående och det gick inte att gruppera relaterade resurser. I stället var du tvungen att manuellt spåra vilka resurser som fanns i din lösning eller ditt program och sedan komma ihåg att hantera dem på ett samordnat sätt.
 
-Om du vill distribuera en lösning var du tvungen att skapa varje resurs individuellt via Azure-portalen eller skapa ett skript som distribuerats alla resurser i rätt ordning. Om du vill ta bort en lösning var du tvungen att ta bort varje resurs individuellt. Du kan inte enkelt tillämpa och uppdatera principer för åtkomstkontroll för relaterade resurser. Slutligen kan du inte använda taggar till resurser för att märka dem med villkor som hjälper dig övervaka dina resurser och hantera fakturering.
+Om du vill distribuera en lösning var du tvungen att skapa varje resurs individuellt via Azure-portalen eller skapa ett skript som distribuerats alla resurser i rätt ordning. Om du ville ta bort en lösning var du tvungen att ta bort varje resurs separat. Det gick inte att tillämpa och uppdatera principerna för åtkomstkontroll för relaterade resurser på ett enkelt sätt. Slutligen kunde du inte tillämpa taggar på resurser för att märka dem med villkor som hjälpte dig att övervaka dina resurser och hantera faktureringen.
 
-I 2014 introducerade Azure Resource Manager som läggs till konceptet för en resursgrupp. En resursgrupp är en behållare för resurser som delar en gemensam livscykel. Resource Manager-distributionsmodellen ger många fördelar:
+2014 introducerade Azure Resource Manager som lade till konceptet med en resursgrupp. En resursgrupp är en behållare för resurser som har en gemensam livscykel. Resource Manager-distributionsmodellen ger många fördelar:
 
-- Du kan distribuera, hantera och övervaka alla tjänster för din lösning som en grupp i stället för att hantera dessa tjänster individuellt.
+- Du kan distribuera, hantera och övervaka alla tjänster för din lösning som en grupp i stället för att hantera tjänsterna separat.
 
-- Du kan upprepade gånger distribuera lösningen under hela dess livscykel och vara säker på att dina resurser distribueras i ett konsekvent tillstånd.
+- Du kan distribuera lösningen flera gånger under dess livscykel och vara säker på att dina resurser distribueras på ett konsekvent sätt.
 
-- Du kan använda åtkomstkontroll för alla resurser i resursgruppen och dessa principer tillämpas automatiskt när nya resurser läggs till i resursgruppen.
+- Du kan tillämpa åtkomstkontroll på alla resurser i resursgruppen och dessa principer tillämpas automatiskt när nya resurser läggs till i resursgruppen.
 
 - Du kan lägga till taggar för resurser och organisera alla logiskt i din prenumeration.
 
-- Du kan använda JavaScript Object Notation (JSON) för att definiera infrastrukturen för lösningen. JSON-filen kallas en Resource Manager-mall.
+- Du kan använda JSON (JavaScript Object Notation) till att definiera infrastrukturen för lösningen. JSON-filen är känd som en Resource Manager-mall.
 
 - Du kan definiera beroenden mellan resurser så att de distribueras i rätt ordning.
 
@@ -276,7 +276,7 @@ Till skillnad från rollbaserad åtkomstkontroll använder du management Lås f�
 
 När du använder ett lås på en överordnad omfattning, ärver alla resurser i omfattningen samma låset. Även resurser som du senare lägger till ärver låset från överordnat. Det mest restriktiva låset i ärvda företräde.
 
-För att skapa eller ta bort management lås, måste du ha tillgång till Microsoft.Authorization/ _eller Microsoft.Authorization/locks/_ åtgärder. I de inbyggda rollerna, endast **ägare** och **administratör för användaråtkomst** beviljas dessa åtgärder.
+För att skapa eller ta bort management lås, måste du ha tillgång till Microsoft.Authorization/ _eller Microsoft.Authorization/locks/_ åtgärder. Av de inbyggda rollerna har endast **Ägare** och **Administratör för användaråtkomst** åtkomst till dessa åtgärder.
 
 ## <a name="api-access-to-billing-information"></a>API-åtkomst till faktureringsinformationen
 
@@ -413,7 +413,7 @@ Azure Security Center övervakar följande Azure-resurser:
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Logganalys programvara utvecklings- och gruppens informationssäkerhet och [styrning programmet](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) stöder affärskraven och följer lagar och förordningar enligt beskrivningen i [litar på Microsoft Azure Center](https://azure.microsoft.com/support/trust-center/) och [Microsoft Trust Center kompatibilitet](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Hur logganalys upprätta säkerhetskrav, identifierar säkerhetsåtgärder, hanterar och övervakar risker beskrivs också det. Årligen, vi granska principer, standarder och procedurer som riktlinjer.
+Logganalys programvara utvecklings- och gruppens informationssäkerhet och [styrning programmet](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) stöder affärskraven och följer lagar och förordningar enligt beskrivningen i [litar på Microsoft Azure Center](https://azure.microsoft.com/support/trust-center/) och [Microsoft Trust Center kompatibilitet](https://microsoft.com/en-us/trustcenter/compliance). Hur logganalys upprätta säkerhetskrav, identifierar säkerhetsåtgärder, hanterar och övervakar risker beskrivs också det. Årligen, vi granska principer, standarder och procedurer som riktlinjer.
 
 Varje medlem i gruppen logganalys utveckling får formella säkerhetsutbildning. Internt, använder vi ett system för version för programutveckling. Varje projekt program är skyddat av systemet för versionskontroll.
 

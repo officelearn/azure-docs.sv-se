@@ -1,6 +1,6 @@
 ---
-title: Azure-lagringslösningar för R Server på HDInsight - Azure | Microsoft Docs
-description: Lär dig mer om olika lagringsplatser alternativen med R Server på HDInsight
+title: Azure-lagringslösningar för ML-tjänster på HDInsight - Azure | Microsoft Docs
+description: Lär dig mer om olika lagringsplatser alternativen med ML-tjänster på HDInsight
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -11,18 +11,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 23e32a913fb73d2207f7cf37ce6230e428fbe95c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f5b9b180f8a6f825e4d91850ee72af19e6d09a4c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409473"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052971"
 ---
-# <a name="azure-storage-solutions-for-r-server-on-azure-hdinsight"></a>Azure-lagringslösningar för R Server på Azure HDInsight
+# <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure-lagringslösningar för ML-tjänster på Azure HDInsight
 
-R Server på HDInsight har olika lagringslösningar för att bevara data, kod eller objekt som innehåller resultatet från analys. Dessa omfattar följande alternativ:
+ML tjänster på HDInsight kan använda en mängd olika lagringslösningar för att bevara data, kod eller objekt som innehåller resultatet från analysis. Dessa omfattar följande alternativ:
 
 - [Azure Blob](https://azure.microsoft.com/services/storage/blobs/)
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/)
@@ -35,14 +35,14 @@ När du skapar ett Hadoop-kluster i HDInsight kan du ange antingen ett **Azure s
 - [Använda Azure storage med HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Använd Data Lake Store med Azure HDInsight-kluster](../hdinsight-hadoop-use-data-lake-store.md)
 
-## <a name="use-azure-blob-storage-accounts-with-r-server-cluster"></a>Använda Azure Blob storage-konton med R Server-kluster
+## <a name="use-azure-blob-storage-accounts-with-ml-services-cluster"></a>Använda Azure Blob storage-konton med ML Services kluster
 
-Om du har angett mer än en storage-konto när du skapar R Server-kluster förklaras i följande anvisningar hur du använder ett sekundärt konto för dataåtkomst och -åtgärder på R Server-kluster. Anta att följande storage-konton och behållare: **storage1** och en standardbehållare kallas **container1**, och **storage2** med **container2**.
+Om du har angett mer än en storage-konto när du skapar klustret ML tjänster förklaras i följande anvisningar hur du använder ett sekundärt konto för åtkomst till data och åtgärder i ett kluster ML-tjänster. Anta att följande storage-konton och behållare: **storage1** och en standardbehållare kallas **container1**, och **storage2** med **container2**.
 
 > [!WARNING]
 > För prestanda skapas HDInsight-klustret i samma datacenter som primär storage-konto som du anger. Med hjälp av ett lagringskonto i en annan plats än HDInsight-kluster stöds inte.
 
-### <a name="use-the-default-storage-with-r-server-on-hdinsight"></a>Använd standardlagring med R Server på HDInsight
+### <a name="use-the-default-storage-with-ml-services-on-hdinsight"></a>Använd standardlagring ML-tjänster på HDInsight
 
 1. Använder en SSH-klient kan ansluta till edge-nod i klustret. Information om hur du använder SSH med HDInsight-kluster finns i [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
   
@@ -73,7 +73,7 @@ Om du har angett mer än en storage-konto när du skapar R Server-kluster förkl
 
 Alla filer och referenser som pekar på lagringskontot `wasb://container1@storage1.blob.core.windows.net`. Det här är den **standard lagringskonto** som associeras med HDInsight-klustret.
 
-### <a name="use-the-additional-storage-with-r-server-on-hdinsight"></a>Använd det extra lagringsutrymmet med R Server på HDInsight
+### <a name="use-the-additional-storage-with-ml-services-on-hdinsight"></a>Använd det extra lagringsutrymmet ML-tjänster på HDInsight
 
 Anta nu att du vill bearbeta en fil med namnet mysamplefile1.csv som finns i /private för **container2** i **storage2**.
 
@@ -106,13 +106,13 @@ Du måste konfigurera/User/RevoShare/<SSH username> på **storage2** på följan
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
-## <a name="use-an-azure-data-lake-store-with-r-server-cluster"></a>Använda Azure Data Lake Store med R Server-kluster 
+## <a name="use-an-azure-data-lake-store-with-ml-services-cluster"></a>Använda Azure Data Lake Store med ML Services kluster 
 
 Du måste ge ditt Klusteråtkomst till varje Azure Data Lake Store som du vill använda för att använda Data Lake Store med ditt HDInsight-kluster. Anvisningar för hur du använder Azure-portalen för att skapa ett HDInsight-kluster med ett Azure Data Lake Store-konto som standardlagring eller som en ytterligare butik finns [skapar ett HDInsight-kluster med Data Lake Store med hjälp av Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 Du sedan använda store i din R-skriptet mycket som du gjorde en sekundär Azure storage-konto som beskrivs i föregående procedur.
 
-### <a name="add-cluster-access-to-your-azure-data-lake-stores"></a>Lägg till klustret åtkomst till Azure Data Lake-Arkiv
+### <a name="add-cluster-access-to-your-azure-data-lake-stores"></a>Lägg till klustret åtkomst till din Azure Data Lake butiker
 Du har åtkomst till ett Data Lake store med hjälp av ett huvudnamn för tjänsten Azure Active Directory (AD Azure) som är kopplad till ditt HDInsight-kluster.
 
 1. När du skapar ditt HDInsight-kluster, Välj **kluster-AAD-identitet** från den **datakällan** fliken.
@@ -123,9 +123,9 @@ När du namnge tjänstens huvudnamn och skapa ett lösenord för det, klickar du
 
 Det är också möjligt att lägga till klustret åtkomst till en eller flera datasjölagerkonton efter klustret skapas. Öppna Azure portal posten för ett Data Lake Store och gå till **Data Explorer > åtkomst > Lägg till**. 
 
-### <a name="how-to-access-the-data-lake-store-from-r-server-on-hdinsight"></a>Hur du kommer åt Data Lake store från R Server på HDInsight
+### <a name="how-to-access-the-data-lake-store-from-ml-services-on-hdinsight"></a>Hur du kommer åt Data Lake store från ML-tjänster på HDInsight
 
-När du har gett åtkomst till ett Data Lake Store, kan du använda arkivet i R Server-kluster i HDInsight på sätt som en sekundär Azure storage-konto. Den enda skillnaden är att prefixet **wasb: / /** ändras till **adl: / /** på följande sätt:
+När du har gett åtkomst till ett Data Lake Store, kan du använda arkivet i ML Services kluster i HDInsight på sätt som en sekundär Azure storage-konto. Den enda skillnaden är att prefixet **wasb: / /** ändras till **adl: / /** på följande sätt:
 
 
     # Point to the ADL store (e.g. ADLtest)
@@ -161,7 +161,7 @@ Följande kommandon används för att konfigurera Data Lake Store-konto med Revo
     hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 
 
-## <a name="use-azure-file-storage-with-r-server-on-hdinsight"></a>Använda Azure File storage med R Server på HDInsight
+## <a name="use-azure-file-storage-with-ml-services-on-hdinsight"></a>Använda Azure File storage med ML-tjänster på HDInsight
 
 Det finns också ett praktiskt data lagringsalternativ för användning på kantnod kallas [Azure filer] ((https://azure.microsoft.com/services/storage/files/). På så sätt kan du montera en filresurs i Azure Storage till Linux-filsystem. Det här alternativet kan vara praktiskt för att lagra filer, R-skript och resultatobjekt som kan behövas senare, särskilt när det praktiskt att använda intern filsystemet på kantnod i stället för HDFS. 
 
@@ -173,7 +173,7 @@ En större fördelarna med Azure-filer är att filresurserna kan montera och anv
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över R Server-kluster i HDInsight](r-server-overview.md)
-* [Kom igång med R Server-kluster på Hadoop](r-server-get-started.md)
-* [Alternativ för beräkningskontexter för R Server-kluster i HDInsight](r-server-compute-contexts.md)
+* [Översikt över tjänster ML-kluster i HDInsight](r-server-overview.md)
+* [Kom igång med ML Services kluster på Hadoop](r-server-get-started.md)
+* [Compute-kontexten alternativ för ML Services kluster i HDInsight](r-server-compute-contexts.md)
 

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 84d81dd9e1ef51a2a1705210cd7002a685bdf8fb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 3758b04fc9b5ecd5dc69c82a8bd07999a9f1074a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266829"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050615"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Hur du startar och stoppar Azure SSIS-integrering runtime enligt ett schema
 Den här artikeln beskriver hur du schemalägger starta och stoppa en Azure SSIS-integrering körning (IR) med hjälp av Azure Automation och Azure Data Factory. Kör en Azure SSIS (SQL Server Integration Services) integration körning har (IR) kostnader som är kopplade till den. Du vill därför vanligtvis IR endast körs när du behöver köra SSIS-paket i Azure och stoppa IR när det inte behövs. Du kan använda Data Factory Användargränssnittet eller PowerShell för Azure att [manuellt starta eller stoppa ett Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)).
@@ -34,10 +34,6 @@ Här följer de övergripande stegen som beskrivs i den här artikeln:
 3. **Skapa två webhooks för runbook**, en för att starta åtgärden och den andra för STOP-åtgärd. Du kan använda URL: er för dessa webhooks när du konfigurerar webbprogram aktiviteter i en Data Factory-pipelinen. 
 4. **Skapa Data Factory-pipelinen**. Du skapar pipeline består av tre aktiviteter. Först **Web** aktivitet anropar första webhooken för att starta Azure SSIS IR. Den **lagrade proceduren** aktiviteten körs ett SQL-skript som körs SSIS-paket. Andra **Web** aktiviteten slutar Azure SSIS IR. Mer information om hur du anropar ett SSIS-paket från Data Factory-pipelinen med hjälp av aktiviteten lagrad procedur finns [anropa ett SSIS-paket](how-to-invoke-ssis-package-stored-procedure-activity.md). Sedan kan skapa du en utlösare för schemat om du vill schemalägga pipelinen ska köras med det intervall som du anger.
 
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [anropa SSIS-paket med hjälp av aktiviteten lagrad procedur i version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
-
- 
 ## <a name="prerequisites"></a>Förutsättningar
 Om du inte har etablerat en Azure SSIS-integrering körning redan, etablera du genom att följa anvisningarna i den [kursen](tutorial-create-azure-ssis-runtime-portal.md). 
 
@@ -254,7 +250,7 @@ När du skapar och testar pipeline, skapa en schema-utlösare och associera med 
       - Välj **Skapa ny** och ange namnet på en resursgrupp.   
          
       Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
-4. Välj **V2 (förhandsgranskning)** för **versionen**.
+4. Välj **V2** för den **version**.
 5. Välj **plats** för datafabriken. Endast de platser som har stöd för att skapa datafabriker visas i listan.
 6. Välj **fäst till instrumentpanelen**.     
 7. Klicka på **Skapa**.

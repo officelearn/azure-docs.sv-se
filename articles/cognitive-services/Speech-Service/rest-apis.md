@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e80c69657dfb7cbab7d29c94d3dd3c56574de7b7
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
-ms.translationtype: MT
+ms.openlocfilehash: a25c2b7ea7fdfcc6bcaa10baff3a5ae14ae9753b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321997"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37044828"
 ---
 # <a name="speech-service-rest-apis"></a>Tal service REST API: er
 
@@ -24,14 +24,7 @@ REST-API: er för tjänsten enhetlig tal liknar de API: er som tillhandahålls a
 
 I tal Text-API: et, de slutpunkter som används som skiljer sig från tidigare tal tjänsten Speech Recognition API. Nya slutpunkter visas i tabellen nedan. Använd ett som matchar din prenumeration region.
 
-Region| Tal till Text-slutpunkten
--|-
-Västra USA| `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-Östasien| `https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-Norra Europa| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-
-> [!NOTE]
-> Du måste lägga till nödvändiga språkpaket i URI: N att undvika ett http 401-fel. För en-US så är rätt URI: N: https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
+[!include[](includes/endpoints-speech-to-text.md)]
 
 Tal Text-API: et är annars liknar den [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) tidigare tal-API: t.
 
@@ -62,14 +55,7 @@ sv-SE  | Svenska | Man   | ”Microsoft Server Speech Text till tal-röst (en-US
 
 Följande är REST-slutpunkter för den enhetliga service Text till tal API. Använd den slutpunkt som matchar din prenumeration region.
 
-Region| Text till tal-slutpunkt
--|-
-Västra USA|    `https://westus.tts.speech.microsoft.com/cognitiveservices/v1`
-Östasien|  `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1`
-Norra Europa|   `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1`
-
-> [!NOTE]
-> Om du har skapat en anpassad röst teckensnitt, använder du anpassade slutpunkten.
+[!include[](includes/endpoints-text-to-speech.md)]
 
 Att dessa skillnader i åtanke när du refererar till den [REST API-dokumentation](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) tidigare tal-API: t.
 
@@ -77,11 +63,7 @@ Att dessa skillnader i åtanke när du refererar till den [REST API-dokumentatio
 
 En begäran skickades till tjänsten tal REST API kräver en åtkomst-token. Du hämtar en token med din prenumeration nyckel till en tjänst för regional tal `issueToken` slutpunkt, visas i tabellen nedan. Använd den slutpunkt som matchar din prenumeration region.
 
-Region| Token tjänstslutpunkten
--|-
-Västra USA|    `https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-Östasien|  `https://eastasia.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-Norra Europa|   `https://northeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken`
+[!include[](includes/endpoints-token-service.md)]
 
 Varje åtkomst-token är giltig i 10 minuter. Du kan hämta en ny token när som helst, inklusive, om du vill precis innan varje tal REST API-begäran. För att minimera nätverkstrafiken och svarstid, men bör du använda samma token för nio minuter.
 

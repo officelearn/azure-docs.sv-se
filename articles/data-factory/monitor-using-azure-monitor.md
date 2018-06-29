@@ -13,20 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: e60f368115e91cbd8972af8dfa7f0f3d6ea8765b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1d1b21897975717db7b733e33b7700bc76e3e065
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337599"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046555"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Varna och övervaka datafabriker med hjälp av Azure-Monitor
 Molnprogram är komplicerade med många rörliga delar. Övervakning tillhandahåller data för att säkerställa att programmet in och körs i ett felfritt tillstånd. Det hjälper dig också att stave ut potentiella problem eller felsöka tidigare viktiga. Du kan dessutom använda övervakningsdata och få djupa insikter om ditt program. Den här kunskapen kan hjälpa dig att förbättra programmets prestanda eller underhålla eller automatisera åtgärder som annars skulle kräva manuella åtgärder.
 
 Azure-Monitor innehåller basnivån infrastruktur mått och loggar för de flesta tjänster i Microsoft Azure. Mer information finns i [översikt över övervakning](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure diagnostikloggar är loggar orsakat av en resurs som innehåller omfattande, ofta data om användningen av den här resursen. Data Factory matar ut diagnostikloggar i Azure-Monitor.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [övervaka och hantera pipelines i Data Factory version1](v1/data-factory-monitor-manage-pipelines.md).
 
 ## <a name="persist-data-factory-data"></a>Spara Data Factory-Data
 Data Factory lagrar bara pipeline kör data för 45 dagar. Om du vill bevara pipeline kör data mer än 45 dagar med hjälp av Azure-Monitor, du kan inte bara vidarebefordra diagnostikloggar för analys, du kan behålla dem i ett lagringskonto, så att du har factory information för din chossing varaktighet.

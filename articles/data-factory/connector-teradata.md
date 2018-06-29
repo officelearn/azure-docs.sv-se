@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4360ff12a435afc4347fa97bba4506ccd81618aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a2928b202f56674c69e6431201db6d846a9feb9a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618988"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045763"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Kopiera data från Teradata med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-onprem-teradata-connector.md)
-> * [Version 2 – förhandsversion](connector-teradata.md)
+> * [Version 1](v1/data-factory-onprem-teradata-connector.md)
+> * [Aktuell version](connector-teradata.md)
 
 Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från en Teradata-databas. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Teradata-anslutningen i V1](v1/data-factory-onprem-teradata-connector.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -60,7 +57,7 @@ Följande egenskaper stöds för Teradata länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Teradata** | Ja |
 | server | Namnet på Teradata-server. | Ja |
-| AuthenticationType | Typ av autentisering som används för att ansluta till Teradata-databasen.<br/>Tillåtna värden är: **grundläggande**, och **Windows**. | Ja |
+| authenticationType | Typ av autentisering som används för att ansluta till Teradata-databasen.<br/>Tillåtna värden är: **grundläggande**, och **Windows**. | Ja |
 | användarnamn | Ange användarnamn för att ansluta till Teradata-databasen. | Ja |
 | lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En Self-hosted integrering Runtime krävs enligt [krav](#prerequisites). |Ja |
@@ -168,14 +165,14 @@ När du kopierar data från Teradata, används följande mappningar från Terada
 | Datatypen för Teradata | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | BigInt |Int64 |
-| Blob |byte] |
-| Mottagna byte |byte] |
+| Blob |Byte] |
+| Byte |Byte] |
 | ByteInt |Int16 |
 | Char |Sträng |
 | CLOB |Sträng |
 | Date |DateTime |
 | Decimal |Decimal |
-| dubbla |dubbla |
+| Dubbel |Dubbel |
 | Bild |Sträng |
 | Integer |Int32 |
 | Intervall dag |TimeSpan |
@@ -191,7 +188,7 @@ När du kopierar data från Teradata, används följande mappningar från Terada
 | Intervall för andra |TimeSpan |
 | Intervall år |Sträng |
 | Intervall år, månad |Sträng |
-| Tal |dubbla |
+| Tal |Dubbel |
 | Period(Date) |Sträng |
 | Period(Time) |Sträng |
 | Tid (Time med tidszon) |Sträng |
@@ -202,7 +199,7 @@ När du kopierar data från Teradata, används följande mappningar från Terada
 | Tid med tidszon |Sträng |
 | Tidsstämpel |DateTime |
 | Tidsstämpel med tidszon |DateTimeOffset |
-| VarByte |byte] |
+| VarByte |Byte] |
 | VarChar |Sträng |
 | VarGraphic |Sträng |
 | Xml |Sträng |

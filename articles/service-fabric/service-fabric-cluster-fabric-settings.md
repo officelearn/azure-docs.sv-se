@@ -12,15 +12,21 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: 118a6d10eeba691fd0886967f90156a0ab8d9fae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 6783c2b3b431e99050bc6762c1855b22e0701686
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642656"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062287"
 ---
+# <a name="description-of-the-different-upgrade-policies"></a>Beskrivning av olika uppgradera principer
+
+- **Dynamiska** – ändringar i en dynamisk konfiguration inte orsakar någon omstart av Service Fabric-processer eller värdprocesser din tjänst. 
+- **Statisk** – ändringar i en statisk konfiguration gör att Service Fabric-noden måste startas om för att kunna använda ändringen. Tjänster på noderna kommer att startas om.
+- **NotAllowed** – de här inställningarna kan inte ändras. Om du ändrar inställningarna kräver att klustret förstöras och ett nytt kluster skapas. 
+
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Anpassa inställningar för Service Fabric-kluster och Fabric-uppgradera princip
 Det här dokumentet förklarar hur du anpassar olika infrastrukturinställningarna och infrastrukturen uppgradera princip för Service Fabric-klustret. Du kan anpassa dem via den [Azure-portalen](https://portal.azure.com) eller med en Azure Resource Manager-mall.
 
@@ -80,7 +86,7 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-|MinReplicaSetSize|Int, standardvärdet är 0|Statisk|MinReplicaSetSize för BackupRestoreService |
+|MinReplicaSetSize|int, standard är 0|Statisk|MinReplicaSetSize för BackupRestoreService |
 |PlacementConstraints|wstring, standard är L ””|Statisk| PlacementConstraints för BackupRestore-tjänsten |
 |SecretEncryptionCertThumbprint|wstring, standard är L ””|Dynamisk|Kryptering med hemliga X509 certifikatets tumavtryck |
 |SecretEncryptionCertX509StoreName|wstring, standard är L ”Mina”|  Dynamisk|    Anger certifikatet som ska användas för kryptering och dekryptering av inloggningsuppgifter namn X.509-certifikatarkivet som används för kryptering, dekryptering store-autentiseringsuppgifter som används av tjänsten säkerhetskopiering Restore |
@@ -207,9 +213,9 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |BuildReplicaTimeLimit|TimeSpan, standard är Common::TimeSpan::FromSeconds(3600)|Dynamisk|Ange tidsintervall i sekunder. Tidsgränsen för att skapa en tillståndskänslig replik; efter vilken en varning hälsorapport initieras |
-|ClusterPauseThreshold|Int, standardvärdet är 1|Dynamisk|Om antalet noder i systemet under detta värde än placering; belastningsutjämning; och växling vid fel har stoppats. |
+|ClusterPauseThreshold|int, standard är 1|Dynamisk|Om antalet noder i systemet under detta värde än placering; belastningsutjämning; och växling vid fel har stoppats. |
 |CreateInstanceTimeLimit|TimeSpan, standard är Common::TimeSpan::FromSeconds(300)|Dynamisk|Ange tidsintervall i sekunder. Tidsgränsen för att skapa en tillståndslös instans; efter vilken en varning hälsorapport initieras |
-|ExpectedClusterSize|Int, standardvärdet är 1|Dynamisk|När klustret startas först. FM väntar på att detta många noder om du vill rapportera själva in innan den börjar placera andra tjänster. inklusive systemtjänster som namnges. Det här värdet ökar den tid det tar ett kluster att starta. men förhindrar tidig noder från blir överbelastad och ytterligare flyttar som kommer att vara nödvändigt som fler noder är online. Det här värdet ska normalt anges till en liten del av den första klusterstorleken. |
+|ExpectedClusterSize|int, standard är 1|Dynamisk|När klustret startas först. FM väntar på att detta många noder om du vill rapportera själva in innan den börjar placera andra tjänster. inklusive systemtjänster som namnges. Det här värdet ökar den tid det tar ett kluster att starta. men förhindrar tidig noder från blir överbelastad och ytterligare flyttar som kommer att vara nödvändigt som fler noder är online. Det här värdet ska normalt anges till en liten del av den första klusterstorleken. |
 |ExpectedNodeDeactivationDuration|TimeSpan, standard är Common::TimeSpan::FromSeconds(60.0 * 30)|Dynamisk|Ange tidsintervall i sekunder. Det här är den förväntade varaktighet för en nod slutföra inaktiveringen i. |
 |ExpectedNodeFabricUpgradeDuration|TimeSpan, standard är Common::TimeSpan::FromSeconds(60.0 * 30)|Dynamisk|Ange tidsintervall i sekunder. Det här är den förväntade varaktigheten för en nod som ska uppgraderas under Windows Fabric-uppgraderingen. |
 |ExpectedReplicaUpgradeDuration|TimeSpan, standard är Common::TimeSpan::FromSeconds(60.0 * 30)|Dynamisk|Ange tidsintervall i sekunder. Det här är den förväntade varaktigheten för alla repliker som ska uppgraderas på en nod under uppgradering av programmet. |
@@ -231,7 +237,7 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 | --- | --- | --- | --- |
 |CompletedActionKeepDurationInSeconds | Int, standard är 604800 |Statisk| Detta är ungefär hur lång tid att behålla åtgärder som är i ett avslutat tillstånd. Detta beror också på StoredActionCleanupIntervalInSeconds; eftersom arbetet som rensning utförs endast på intervallet. 604800 är 7 dagar. |
 |DataLossCheckPollIntervalInSeconds|int, standard är 5|Statisk|Detta är tiden mellan de kontroller som utförs under väntan på förlust av data ska ske. Antalet gånger som data går förlorade numret kontrolleras per interna iteration är DataLossCheckWaitDurationInSeconds för detta. |
-|DataLossCheckWaitDurationInSeconds|Int, standard är 25|Statisk|Den totala mängden tid. i sekunder. att systemet väntar förlust av data ska ske. Det här används internt när StartPartitionDataLossAsync() API: et anropas. |
+|DataLossCheckWaitDurationInSeconds|int, standard är 25|Statisk|Den totala mängden tid. i sekunder. att systemet väntar förlust av data ska ske. Det här används internt när StartPartitionDataLossAsync() API: et anropas. |
 |MinReplicaSetSize |Int, standardvärdet är 0 |Statisk|MinReplicaSetSize för FaultAnalysisService. |
 |PlacementConstraints | sträng, standardvärdet är ””|Statisk| PlacementConstraints för FaultAnalysisService. |
 |QuorumLossWaitDuration | Tid i sekunder är standardvärdet MaxValue |Statisk|Ange tidsintervall i sekunder. QuorumLossWaitDuration för FaultAnalysisService. |
@@ -298,7 +304,7 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |MaxPercentDeltaUnhealthyNodes|Int, standardvärdet är 10|Statisk|Klustret uppgradera utvärdering hälsoprincip: Maxprocent delta felaktiga noder som tillåts för att klustret ska felfri |
-|MaxPercentUpgradeDomainDeltaUnhealthyNodes|Int, standardvärdet är 15|Statisk|Klustret uppgradera utvärdering hälsoprincip: maximala procentandelen delta felaktiga noder i en uppgraderingsdomän tillåts för att klustret ska felfri |
+|MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, standard är 15|Statisk|Klustret uppgradera utvärdering hälsoprincip: maximala procentandelen delta felaktiga noder i en uppgraderingsdomän tillåts för att klustret ska felfri |
 
 ## <a name="hosting"></a>Värd för
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
@@ -379,7 +385,7 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |AzureStorageMaxConnections | Int, standard är 5 000 |Dynamisk|Maximalt antal samtidiga anslutningar till azure-lagring. |
-|AzureStorageMaxWorkerThreads | Int, standard är 25 |Dynamisk|Maximalt antal arbetstrådar parallellt. |
+|AzureStorageMaxWorkerThreads | int, standard är 25 |Dynamisk|Maximalt antal arbetstrådar parallellt. |
 |AzureStorageOperationTimeout | Tid i sekunder är standardvärdet 6000 |Dynamisk|Ange tidsintervall i sekunder. Tidsgräns för xstore-åtgärd ska slutföras. |
 |CleanupApplicationPackageOnProvisionSuccess|bool, standard är FALSKT |Dynamisk|Den här konfigurationen aktiverar eller inaktiverar automatisk rensning av programpaket på lyckad etablera. |
 |DisableChecksumValidation | Bool, standard är FALSKT |Statisk| Den här konfigurationen gör att vi kan aktivera eller inaktivera validering av kontrollsumma under etableringen av programmet. |
@@ -469,9 +475,9 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 |ConstraintFixPartialDelayAfterNodeDown | Tid i sekunder, standardvärdet är 120 |Dynamisk| Ange tidsintervall i sekunder. Gör inte åtgärda FaultDomain och UpgradeDomain begränsningen överträdelser inom denna period efter en nod av händelsen. |
 |ConstraintViolationHealthReportLimit | Int, standardvärdet är 50 |Dynamisk| Definierar hur många gånger som villkoret brott mot replik måste vara beständigt olöst innan diagnostik utförs och hälsorapporter släpps. |
 |DetailedConstraintViolationHealthReportLimit | Int, standardinställningen är 200 |Dynamisk| Definierar hur många gånger som villkoret brott mot replik måste beständigt olöst innan diagnostik utförs och detaljerade rapporter släpps hälsa. |
-|DetailedDiagnosticsInfoListLimit | Int, standardvärdet är 15 |Dynamisk| Anger antal diagnostikposter (med detaljerad information) per begränsning för att inkludera innan trunkering i diagnostik.|
-|DetailedNodeListLimit | Int, standardvärdet är 15 |Dynamisk| Definierar antalet noder per begränsning för att inkludera innan trunkering i rapporter om Ej placerade replik. |
-|DetailedPartitionListLimit | Int, standardvärdet är 15 |Dynamisk| Definierar antalet partitioner per diagnostiska post för en begränsning att inkludera innan trunkering i diagnostik. |
+|DetailedDiagnosticsInfoListLimit | int, standard är 15 |Dynamisk| Anger antal diagnostikposter (med detaljerad information) per begränsning för att inkludera innan trunkering i diagnostik.|
+|DetailedNodeListLimit | int, standard är 15 |Dynamisk| Definierar antalet noder per begränsning för att inkludera innan trunkering i rapporter om Ej placerade replik. |
+|DetailedPartitionListLimit | int, standard är 15 |Dynamisk| Definierar antalet partitioner per diagnostiska post för en begränsning att inkludera innan trunkering i diagnostik. |
 |DetailedVerboseHealthReportLimit | Int, standardinställningen är 200 | Dynamisk|Definierar hur många gånger som en replik av en Ej placerade måste beständigt Ej placerade innan detaljerad hälsorapporter släpps. |
 |FaultDomainConstraintPriority | Int, standardvärdet är 0 |Dynamisk| Anger prioriteten för domänbegränsningar fel: 0: hårda; 1: mjuk; negativt: ignorera. |
 |GlobalMovementThrottleCountingInterval | Tid i sekunder, standard är 600 |Statisk| Ange tidsintervall i sekunder. Ange längden på den senaste intervall som du vill spåra per domän replik förflyttningar (används tillsammans med GlobalMovementThrottleThreshold). Kan anges till 0 för att ignorera global begränsning helt och hållet. |
@@ -527,10 +533,10 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval|TimeSpan, standard är Common::TimeSpan::FromMilliseconds(15)|Statisk|Ange tidsintervall i sekunder. Anger hur lång tid som replikatorn väntar när du har fått en åtgärd innan en bekräftelse skickas tillbaka. Andra åtgärder som togs emot under den här tiden har sina bekräftelser skickas tillbaka i ett enda meddelande -> minska nätverkstrafiken men potentiellt minskar genomflödet av replikatorn.|
-|MaxCopyQueueSize|Uint, standard är 1024|Statisk|Detta är högsta värdet definierar den ursprungliga storleken för kön som underhåller replikeringsåtgärder. Observera att det måste vara delbart med 2. Om körningsfel kön storlek i den här åtgärden kommer att begränsas mellan de primära och sekundära replikatörer.|
+|MaxCopyQueueSize|uint, standard är 1024|Statisk|Detta är högsta värdet definierar den ursprungliga storleken för kön som underhåller replikeringsåtgärder. Observera att det måste vara delbart med 2. Om körningsfel kön storlek i den här åtgärden kommer att begränsas mellan de primära och sekundära replikatörer.|
 |MaxPrimaryReplicationQueueMemorySize|Uint, standardvärdet är 0|Statisk|Detta är det maximala värdet för den primära Replikeringskön i byte.|
-|MaxPrimaryReplicationQueueSize|Uint, standard är 1024|Statisk|Detta är det maximala antalet åtgärder som kan finnas i kön primär replikering. Observera att det måste vara delbart med 2.|
-|MaxReplicationMessageSize|Uint, standard är 52428800|Statisk|Maximal meddelandestorlek på replikeringsåtgärder. Standardvärdet är 50MB.|
+|MaxPrimaryReplicationQueueSize|uint, standard är 1024|Statisk|Detta är det maximala antalet åtgärder som kan finnas i kön primär replikering. Observera att det måste vara delbart med 2.|
+|MaxReplicationMessageSize|uint, standard är 52428800|Statisk|Maximal meddelandestorlek på replikeringsåtgärder. Standardvärdet är 50MB.|
 |MaxSecondaryReplicationQueueMemorySize|Uint, standardvärdet är 0|Statisk|Detta är det maximala värdet för den sekundära Replikeringskön i byte.|
 |MaxSecondaryReplicationQueueSize|uint, standard är 2048|Statisk|Detta är det maximala antalet åtgärder som kan finnas i sekundära Replikeringskön. Observera att det måste vara delbart med 2.|
 |QueueHealthMonitoringInterval|TimeSpan, standard är Common::TimeSpan::FromSeconds(30)|Statisk|Ange tidsintervall i sekunder. Det här värdet anger hur lång tid som används av replikatorn för att övervaka varning hälsa händelser i replikeringsköer för åtgärden. Värdet '0' inaktiverar övervakning av hälsotillstånd |
@@ -538,7 +544,7 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 |ReplicatorAddress|String, standard är L ”localhost:0”|Statisk|Slutpunkt i form av en sträng-'IP:Port' som används av Windows Fabric replikatorn upprätta anslutningar till andra repliker för att kunna skicka och ta emot åtgärder.|
 |ReplicatorListenAddress|String, standard är L ”localhost:0”|Statisk|Slutpunkt i form av en sträng-'IP:Port' som används av Windows Fabric replikatorn tar emot åtgärder från andra repliker.|
 |ReplicatorPublishAddress|String, standard är L ”localhost:0”|Statisk|Slutpunkt i form av en sträng-'IP:Port' som används av Windows Fabric replikatorn för att skicka-åtgärder till andra repliker.|
-|RetryInterval|TimeSpan, standard är Common::TimeSpan::FromSeconds(5)|Statisk|Ange tidsintervall i sekunder. När en åtgärd går förlorad eller avvisa den här timern avgör hur ofta replikatorn försöker skicka igen.|
+|retryInterval|TimeSpan, standard är Common::TimeSpan::FromSeconds(5)|Statisk|Ange tidsintervall i sekunder. När en åtgärd går förlorad eller avvisa den här timern avgör hur ofta replikatorn försöker skicka igen.|
 
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
@@ -765,7 +771,7 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 |MaxCopyQueueSize |Uint, standard är 16384 | Statisk |Detta är högsta värdet definierar den ursprungliga storleken för kön som underhåller replikeringsåtgärder. Observera att det måste vara delbart med 2. Om körningsfel kön storlek i den här åtgärden kommer att begränsas mellan de primära och sekundära replikatörer. |
 |MaxPrimaryReplicationQueueMemorySize |Uint, standardvärdet är 0 | Statisk |Detta är det maximala värdet för den primära Replikeringskön i byte. |
 |MaxPrimaryReplicationQueueSize |Uint, standard är 8192 | Statisk |Detta är det maximala antalet åtgärder som kan finnas i kön primär replikering. Observera att det måste vara delbart med 2. |
-|MaxReplicationMessageSize |Uint, standard är 52428800 | Statisk | Maximal meddelandestorlek på replikeringsåtgärder. Standardvärdet är 50MB. |
+|MaxReplicationMessageSize |uint, standard är 52428800 | Statisk | Maximal meddelandestorlek på replikeringsåtgärder. Standardvärdet är 50MB. |
 |MaxSecondaryReplicationQueueMemorySize |Uint, standardvärdet är 0 | Statisk |Detta är det maximala värdet för den sekundära Replikeringskön i byte. |
 |MaxSecondaryReplicationQueueSize |Uint, standard är 16384 | Statisk |Detta är det maximala antalet åtgärder som kan finnas i sekundära Replikeringskön. Observera att det måste vara delbart med 2. |
 |ReplicatorAddress |strängen, standard är ”localhost:0” | Statisk | Slutpunkt i form av en sträng-'IP:Port' som används av Windows Fabric replikatorn upprätta anslutningar till andra repliker för att kunna skicka och ta emot åtgärder. |
@@ -791,7 +797,7 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 ## <a name="upgradeservice"></a>UpgradeService
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-|BaseUrl | sträng, standardvärdet är ”” |Statisk|BaseUrl för UpgradeService. |
+|baseUrl | sträng, standardvärdet är ”” |Statisk|BaseUrl för UpgradeService. |
 |ClusterId | sträng, standardvärdet är ”” |Statisk|ClusterId för UpgradeService. |
 |CoordinatorType | strängen, standard är ”WUTest”|Inte tillåten|CoordinatorType för UpgradeService. |
 |MinReplicaSetSize | Int, standardvärdet är 2 |Inte tillåten| MinReplicaSetSize för UpgradeService. |

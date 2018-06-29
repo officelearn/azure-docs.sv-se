@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 4e1963e97a7458db8badb63e28dbc3d215ad88b2
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: a9874681d59d193fc3c3d0fd4271e2a6a0fb0dc6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309638"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060392"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
 
@@ -60,7 +60,7 @@ I följande diagram visas zonen redundant version av arkitekturen för hög till
 ![hög tillgänglighet arkitektur zonredundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>Läs skalbar
-Enligt beskrivningen, tjänsten Premium och företag kritiska (förhandsgranskning) nivåer utnyttjar kvorum-uppsättningar och alltid på teknik för både i samma zon och redundanta konfigurationer med hög tillgänglighet. En av fördelarna med AlwasyON är att replikerna är alltid i ett konsekvent tillstånd. Eftersom replikerna har samma prestandanivå som den primära servern, programmet kan dra nytta av den extra kapaciteten för att underhålla skrivskyddade arbetsbelastningar utan extra kostnad (skrivskyddade skalbar). Det här sättet skrivskyddad frågorna isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Läs skalbar funktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar som till exempel analytics och därför kan utnyttja denna ytterligare kapacitet utan att ansluta till primärt. 
+Enligt beskrivningen, tjänsten Premium och företag kritiska (förhandsgranskning) nivåer utnyttjar kvorum-uppsättningar och alltid på teknik för både i samma zon och redundanta konfigurationer med hög tillgänglighet. En av fördelarna med AlwaysOn är att replikerna är alltid i ett konsekvent tillstånd. Eftersom replikerna har samma prestandanivå som den primära servern, programmet kan dra nytta av den extra kapaciteten för att underhålla skrivskyddade arbetsbelastningar utan extra kostnad (skrivskyddade skalbar). Det här sättet skrivskyddad frågorna isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Läs skalbar funktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar som till exempel analytics och därför kan utnyttja denna ytterligare kapacitet utan att ansluta till primärt. 
 
 Om du vill använda funktionen för Läs skalbar med en viss databas, måste du uttryckligen aktivera den när du skapar databasen eller efteråt genom att ändra konfigurationen med hjälp av PowerShell genom att anropa den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets eller via Azure Resource Manager REST-API med hjälp av [databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate) metod.
 

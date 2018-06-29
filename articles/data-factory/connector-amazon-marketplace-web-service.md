@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från Amazon Marketplace-webbtjänsten med hjälp av Azure Data Factory (förhandsversion) | Microsoft Docs
+title: Kopiera data från Amazon Marketplace-webbtjänsten med hjälp av Azure Data Factory | Microsoft Docs
 description: Lär dig hur du kopierar data från Amazon Marketplace-webbtjänsten till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: add0f9185ac94a8b673e0c05de9de919286ffa3a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c456f87b451c5876653d704ec367629c2856a1f6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337956"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052478"
 ---
-# <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Kopiera data från Amazon Marketplace-webbtjänsten med hjälp av Azure Data Factory (förhandsgranskning)
+# <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Kopiera data från Amazon Marketplace-webbtjänsten med hjälp av Azure Data Factory
 
 Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från Amazon Marketplace-webbtjänsten. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Kopieringsaktiviteten i V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > Den här anslutningen är för närvarande under förhandsgranskning. Du kan prova och ge oss feedback. Om du vill skapa ett beroende på anslutningsappar som är i förhandsversion i din lösning kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/).

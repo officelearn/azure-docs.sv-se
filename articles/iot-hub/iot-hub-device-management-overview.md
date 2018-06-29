@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 82a3ebcf4d208b550a792deddba5ce214105af13
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c4d0b5d5ba429dc5d839fa054476461f96a52143
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632755"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030741"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Översikt över enhetshantering med IoT Hub
 
@@ -51,16 +51,16 @@ I var och en av dessa fem faser finns det flera enhetsoperatorskrav som måste u
 
 * **Planera**: Operatörer kan skapa ett schema med enhetens metadata. Schemat kan användas till att snabbt och korrekt skicka frågor till eller fokusera på en enhetsgrupp för massåtgärder. Du kan använda enhetstvillingen för att lagra dessa enhetsmetadata i form av taggar och egenskaper.
   
-    *Mer information*: [Kom igång med enhetstvillingar][lnk-twins-getstarted], [Förstå enhetstvillingar][lnk-twins-devguide], [How to use device twin properties ][lnk-twin-properties] (Använda egenskaper för enhetstvillingar).
+    *Ytterligare läsning*: [Kom igång med enheten twins][lnk-twins-getstarted], [förstå enheten twins][lnk-twins-devguide], [så Använd dubbla enhetsegenskaper][lnk-twin-properties], [bästa praxis för enhetskonfiguration inom en IoT-lösning][lnk-adm-best-practices].
 * **Etablera**: Etablera säkert nya enheter i IoT Hub där operatörerna kan se enhetens funktioner direkt.  Använd IoT Hub-identitetsregistret för att skapa flexibla enhetsidentiteter och autentiseringsuppgifter och utför åtgärden gruppvis med hjälp av ett jobb. Skapa enheter om du vill rapportera deras kapacitet och villkor via enhetens egenskaper i enhetstvillingen.
   
-    *Mer information*: [Hantera enhetsidentiteter][lnk-identity-registry], [Bulk management of device identities][lnk-bulk-identity] (Masshantering av enhetsidentiteter), [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar), [Azure IoT Hub Device Provisioning-tjänst][lnk-dps].
+    *Ytterligare läsning*: [Hantera identiteter för enheten][lnk-identity-registry], [Massredigera hantering av enheten identiteter][lnk-bulk-identity], [Hur du använder identiska enhetsegenskaper][lnk-twin-properties], [bästa praxis för enhetskonfiguration inom en IoT-lösning][lnk-adm-best-practices], [Azure IoT-hubb enheten etableras][lnk-dps].
 * **Konfigurera**: underlätta massinläsning av konfigurationsändringar och uppdaterad enhetsprogramvara utan att förlora funktion eller säkerhet. Utför dessa åtgärder för enhetshantering gruppvis genom att använda önskade egenskaper eller med direkta metoder och sändningsjobb.
   
-    *Mer information*:  [Använda direkta metoder][lnk-c2d-methods], [Invoke a direct method on a device][lnk-methods-devguide] (Anropa en direkt metod på en enhet), [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar), [Schemalägga och sända jobb][lnk-jobs], [Schemalägga jobb på flera enheter][lnk-jobs-devguide] (Schemalägga jobb på flera enheter).
+    *Ytterligare läsning*: [hur du använder identiska enhetsegenskaper][lnk-twin-properties], [konfigurera och övervaka IoT-enheter i skala][lnk-adm-how-to], [ Metodtips för enhetskonfiguration inom en IoT-lösning][lnk-adm-best-practices].
 * **Övervaka**: Övervaka enhetssamlingens allmänna funktion samt statusen för pågående åtgärder så att operatörerna blir medvetna om problem som kräver åtgärder.  Använd enhetstvillingen för att tillåta att enheterna rapporterar driftsförhållanden och status för uppdateringsåtgärder i realtid. Skapa kraftfulla instrumentpanelsrapporter som lyfter fram de mest omedelbara problemen genom att använda enhetstvillingsfrågor.
   
-    *Mer information*: [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar), [IoT Hub query language for device twins, jobs and message routing][lnk-query-language] (IoT Hub-frågespråk för enhetstvillingar, jobb och meddelanderuttning).
+    *Ytterligare läsning*: [hur du använder identiska enhetsegenskaper][lnk-twin-properties], [IoT-hubb frågespråk för enheten twins, jobb och meddelanderoutning] [ lnk-query-language], [Konfigurera och övervaka IoT-enheter i skala][lnk-adm-how-to], [bästa praxis för enhetskonfiguration inom en IoT-lösning] [lnk-adm-best-practices].
 * **Inaktivera**: ersätta eller inaktivera enheter efter ett fel, uppgraderingscykel eller efter enhetens funktionstid har löpt ut.  Använd enhetstvillingen för att underhålla enhetsinformation om den fysiska enheten håller på att ersättas eller arkiveras om den har återkallats. Använd IoT Hub-identitetsregistret för att säkert återkalla enhetsidentiteter och autentiseringsuppgifter.
   
     *Mer information*: [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar), [Hantera enhetsidentiteter][lnk-identity-registry].
@@ -77,7 +77,7 @@ IoT Hub använder följande uppsättning enhetshanteringsmönster.  [Självstudi
 * **Konfiguration** – Serverdelsappen använder önskade egenskaper för att konfigurera programvaran som körs på enheten.  Enheten använder de rapporterade egenskaperna för att uppdatera enhetens konfigurationsstatus.
   
     ![Bild över konfigurationsmönster för enhetshantering][img-config_pattern]
-* **Uppdatering av enhetens programvara** –Serverdelsappen informerar enheten via en direkt metod om att en uppdatering av enhetens programvara har påbörjats.  Enheten initierar en process i flera steg för att ladda ned inbyggd avbildning av programvara, tillämpa den och därefter återkoppla till IoT Hub-tjänsten.  Enheten använder de rapporterade egenskaperna under hela flerstegsprocessen för att uppdatera enhetens förlopp och status.
+* **Firmware-uppdatering** -backend-appen använder en automatisk enhetshanteringskonfigurationen för att välja enheter tar emot uppdateringen, för att ange enheterna var att hitta uppdateringen och övervaka uppdateringsprocessen. Enheten initierar en process för att hämta, verifiera, och tillämpa den inbyggda programvaran och sedan starta om enheten innan du ansluter till tjänsten IoT-hubb.  Enheten använder de rapporterade egenskaperna under hela flerstegsprocessen för att uppdatera enhetens förlopp och status.
   
     ![Bild över mönster för uppdatering av inbyggd programvara för enhetshantering][img-fwupdate_pattern]
 * **Rapportering av förlopp och status** –Lösningsserverdelen kör frågor på enhetstvillingpar över en uppsättning enheter för att ge information om pågående åtgärders status och förlopp.
@@ -111,3 +111,5 @@ Om du vill lära dig mer om enhetshanteringsfunktionerna i IoT Hub går du själ
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+[lnk-adm-best-practices]: iot-hub-configuration-best-practices.md
+[lnk-adm-how-to]: iot-hub-auto-device-config.md

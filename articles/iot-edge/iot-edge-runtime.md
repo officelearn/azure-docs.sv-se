@@ -4,18 +4,18 @@ description: Lär dig mer om Azure IoT kant-runtime och hur kan dina enheter
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 02/15/2018
+ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c44713d6b58edd3a18b0d20992d31dec7377fa7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632082"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030387"
 ---
-# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Förstå Azure IoT kant-runtime och dess arkitektur - förhandsgranskning
+# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT kant-runtime och dess arkitektur
 
 IoT-Edge runtime är en uppsättning program som måste installeras på en enhet att anses vara en IoT-enhet. Gemensamt kallade komponenter av körningsmiljön IoT kant aktivera IoT kant enheter tar emot koden för att köra i utkanten och meddela resultaten. 
 
@@ -90,9 +90,9 @@ Om du vill starta körningen av Edge-agent, kör du startkommandot azure iot-edg
 
 Varje objekt i moduler ordlistan innehåller specifik information om en modul och används av Edge-agenten för att styra modulens livscykel. Vissa av egenskaperna mer intressant är: 
 
-* **Settings.Image** – behållaren avbildningen Edge-agenten använder för att starta modulen. Edge-agent måste konfigureras med autentiseringsuppgifter för behållaren registernyckeln om bilden skyddas av ett lösenord. Om du vill konfigurera Edge-agenten använder du följande kommando: `azure-iot-edge-runtime-ctl.py –configure`
+* **Settings.Image** – behållaren avbildningen Edge-agenten använder för att starta modulen. Edge-agent måste konfigureras med autentiseringsuppgifter för behållaren registernyckeln om bilden skyddas av ett lösenord. Om du vill konfigurera Edge agenten att uppdatera den `config.yaml` filen. I Linux, använder du följande kommando: `sudo nano /etc/iotedge/config.yaml`
 * **settings.createOptions** – en sträng som skickas direkt till Docker-daemon när du startar en modul behållare. Lägger till Docker-alternativ i den här egenskapen kan avancerade alternativ som port vidarebefordran eller montering av volymer i en modul behållare.  
-* **status för** – tillstånd där agenten Edge placerar modulen. Det här värdet anges vanligtvis *kör* som de flesta vill Edge-agent för att starta alla moduler direkt på enheten. Du kan dock ange inledningsvis i en modul som ska stoppas och vänta en framtida tid för att ange Edge-agenten för att starta en modul. Edge agenten rapporterar status för varje modul tillbaka till molnet i rapporterade egenskaper. Skillnad mellan önskade egenskaperna och rapporterade är en indikator eller fel enhet. Stöds statusar:
+* **status för** – tillstånd där agenten Edge placerar modulen. Det här värdet anges vanligtvis *kör* som de flesta vill Edge-agent för att starta alla moduler direkt på enheten. Du kan dock ange inledningsvis i en modul som ska stoppas och vänta en framtida tid för att ange Edge-agenten för att starta en modul. Edge agenten rapporterar status för varje modul tillbaka till molnet i rapporterade egenskaper. Skillnad mellan önskade egenskaperna och rapporterade är en indikator på en felaktigt enhet. Stöds statusar:
    * Laddas ned
    * Körs
    * Skadad
@@ -114,7 +114,7 @@ IoT-Edge agenten skickar runtime svar till IoT-hubb. Här är en lista över mö
 
 ### <a name="security"></a>Säkerhet
 
-IoT-Edge agenten spelar en viktig roll i säkerheten för en IoT-enhet. Till exempel utför den åtgärder som verifierar en modul bilden innan du startar den. Dessa funktioner läggs vid allmän tillgänglighet för V2-funktioner. 
+IoT-Edge agenten spelar en viktig roll i säkerheten för en IoT-enhet. Till exempel utför den åtgärder som verifierar en modul bilden innan du startar den. Dessa funktioner läggs vid allmän tillgänglighet. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 

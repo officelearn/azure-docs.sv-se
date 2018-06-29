@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: c8966c70fba1cbb17d377223ed5348075ebb7adc
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: f953e1dc15e12c37c30a86ebd7536b1126bf18f7
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266905"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062008"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Microsoft.Common.DropDown UI-element
 En markering med en listruta.
@@ -31,8 +31,8 @@ En markering med en listruta.
 {
   "name": "element1",
   "type": "Microsoft.Common.DropDown",
-  "label": "Some drop down",
-  "defaultValue": "my value",
+  "label": "Example drop down",
+  "defaultValue": "Value two",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
@@ -44,21 +44,23 @@ En markering med en listruta.
         "label": "Value two",
         "value": "two"
       }
-    ]
+    ],
+    "required": true
   },
   "visible": true
 }
 ```
 
 ## <a name="remarks"></a>Kommentarer
+
 - Etikett för `constraints.allowedValues` är texten som visas för ett objekt och dess värde är värdet av elementet när du valt.
 - Om du standardvärdet måste vara en etikett som finns i `constraints.allowedValues`. Om inget anges det första objektet i `constraints.allowedValues` är markerad. Standardvärdet är **null**.
-- `constraints.allowedValues` måste innehålla minst ett objekt.
-- Det här elementet har inte stöd för den `constraints.required` egenskapen. Emuleras problemet genom att lägga till ett objekt med en etikett och värdet för `""` (tom sträng) till `constraints.allowedValues`.
+- `constraints.allowedValues` måste ha minst ett objekt.
+- För att emulera ett värde som inte krävs, lägger du till ett objekt med en etikett och värdet för `""` (tom sträng) till `constraints.allowedValues`.
 
 ## <a name="sample-output"></a>Exempel på utdata
 ```json
-"Bar"
+"two"
 ```
 
 ## <a name="next-steps"></a>Nästa steg

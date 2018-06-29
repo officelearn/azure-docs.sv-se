@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 683e8b1407042624d08aee1f0a2120990e2f702e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d010fd90d96409b262be59f1db4fac9e4cec835c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621718"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051567"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-azure-sql-connector.md)
-> * [Version 2 – förhandsversion](../connector-azure-sql-database.md)
+> * [Version 1](data-factory-azure-sql-connector.md)
+> * [Version 2 (aktuell version)](../connector-azure-sql-database.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Azure SQL Database-anslutningen i V2](../connector-azure-sql-database.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Azure SQL Database-anslutningen i V2](../connector-azure-sql-database.md).
 
 Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data Factory för att flytta data till och från Azure SQL Database. Den bygger på den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel som presenterar en allmän översikt över dataflyttning med copy-aktivitet.  
 
@@ -48,7 +48,7 @@ Du kan skapa en pipeline med en kopia-aktivitet som flyttar data till eller frå
 
 Det enklaste sättet att skapa en pipeline är att använda den **guiden Kopiera**. Finns [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall** , **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Om du använder verktyg eller API: er, kan du utföra följande steg för att skapa en pipeline som flyttar data från ett dataarkiv som källa till ett dataarkiv som mottagare: 
 
@@ -639,7 +639,7 @@ När data flyttas till och från Azure SQL Database, används följande mappning
 | SQL Server Database Engine-typ | .NET framework-typ |
 | --- | --- |
 | bigint |Int64 |
-| Binär |byte] |
+| Binär |Byte] |
 | bitar |Boolesk |
 | Char |Sträng, Char] |
 | datum |DateTime |
@@ -647,9 +647,9 @@ När data flyttas till och från Azure SQL Database, används följande mappning
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |byte] |
-| Flyttal |dubbla |
-| Bild |byte] |
+| FILESTREAM-attributet (varbinary(max)) |Byte] |
+| Flyttal |Dubbel |
+| image |Byte] |
 | int |Int32 |
 | Money |Decimal |
 | nchar |Sträng, Char] |
@@ -657,17 +657,17 @@ När data flyttas till och från Azure SQL Database, används följande mappning
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
 | Verklig |Enkel |
-| ROWVERSION |byte] |
+| ROWVERSION |Byte] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |
 | text |Sträng, Char] |
 | time |TimeSpan |
-| tidsstämpel |byte] |
-| tinyint |Mottagna byte |
+| tidsstämpel |Byte] |
+| tinyint |Byte |
 | Unik identifierare |GUID |
-| varbinary |byte] |
+| varbinary |Byte] |
 | varchar |Sträng, Char] |
 | xml |Xml |
 

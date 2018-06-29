@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: df8fe611c762421f3a963340b24df74a80a20160
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 678913796edafe86e19d8907e3a2e29ec15ffa90
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621742"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047085"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-azure-sql-data-warehouse-connector.md)
-> * [Version 2 – förhandsversion](../connector-azure-sql-data-warehouse.md)
+> * [Version 1](data-factory-azure-sql-data-warehouse-connector.md)
+> * [Version 2 (aktuell version)](../connector-azure-sql-data-warehouse.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Azure SQL Data Warehouse-kopplingen i V2](../connector-azure-sql-data-warehouse.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Azure SQL Data Warehouse-kopplingen i V2](../connector-azure-sql-data-warehouse.md).
 
 Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data Factory för att flytta data till och från Azure SQL Data Warehouse. Den bygger på den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel som presenterar en allmän översikt över dataflyttning med copy-aktivitet.  
 
@@ -54,7 +54,7 @@ Du kan skapa en pipeline med en kopia-aktivitet som flyttar data till och från 
 
 Det enklaste sättet att skapa en pipeline som kopierar data till och från Azure SQL Data Warehouse är att använda guiden Kopiera data. Se [Självstudier: Läs in data till SQL Data Warehouse med Data Factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) för en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall** , **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Om du använder verktyg eller API: er, kan du utföra följande steg för att skapa en pipeline som flyttar data från ett dataarkiv som källa till ett dataarkiv som mottagare:
 
@@ -347,7 +347,7 @@ Mappningen är samma som den [Datatypsmappningen i SQL Server för ADO.NET](http
 | SQL Server Database Engine-typ | .NET framework-typ |
 | --- | --- |
 | bigint |Int64 |
-| Binär |byte] |
+| Binär |Byte] |
 | bitar |Boolesk |
 | Char |Sträng, Char] |
 | datum |DateTime |
@@ -355,9 +355,9 @@ Mappningen är samma som den [Datatypsmappningen i SQL Server för ADO.NET](http
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |byte] |
-| Flyttal |dubbla |
-| Bild |byte] |
+| FILESTREAM-attributet (varbinary(max)) |Byte] |
+| Flyttal |Dubbel |
+| image |Byte] |
 | int |Int32 |
 | Money |Decimal |
 | nchar |Sträng, Char] |
@@ -365,17 +365,17 @@ Mappningen är samma som den [Datatypsmappningen i SQL Server för ADO.NET](http
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
 | Verklig |Enkel |
-| ROWVERSION |byte] |
+| ROWVERSION |Byte] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |
 | text |Sträng, Char] |
 | time |TimeSpan |
-| tidsstämpel |byte] |
-| tinyint |Mottagna byte |
+| tidsstämpel |Byte] |
+| tinyint |Byte |
 | Unik identifierare |GUID |
-| varbinary |byte] |
+| varbinary |Byte] |
 | varchar |Sträng, Char] |
 | xml |Xml |
 

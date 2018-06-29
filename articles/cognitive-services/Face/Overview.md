@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: bb3ee9431f24a51dfd3877f1c4d621f7ba633b96
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fb1d14ff80bf53adc3008d79cc998739ffffde1b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352473"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048677"
 ---
 # <a name="what-is-face-api"></a>Vad är Ansikts-API?
 
@@ -85,6 +85,8 @@ Följande kurser visar de grundläggande Ansikts-API-funktioner och processer so
 
 Ta en titt på dessa exempelprogram som använder Ansikts-API.
 
+- [Microsoft ansikte API: Windows klientbiblioteket & exempel](https://github.com/Microsoft/Cognitive-Face-Windows)
+  - WPF sample-appen som visar flera scenarier för framsidan identifiering, analys och identifiering.
 - [FamilyNotes UWP-appen](https://github.com/Microsoft/Windows-appsample-familynotes)
   - Universella Windowsplattformen (UWP) exempelapp som visar användningen av tal, Cortana, pennanteckningar och kameran via en familj Observera delning scenario.
 - [Bildruta Analysis-exempel](https://github.com/microsoft/cognitive-samples-videoframeanalysis)

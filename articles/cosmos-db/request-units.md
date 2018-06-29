@@ -7,14 +7,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 9021d0c3f650d64480f2881508d456ce98beab2a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961968"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053335"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Azure Cosmos-DB ger snabb och förutsägbar prestanda genom att reservera resurs
 
 Med Azure Cosmos DB anges reserverat dataflöde i begäran enhet som bearbetades per sekund. Du kan se frågeenheter som dataflöde valuta. Du kan reservera ett antal garanterad frågeenheter ska vara tillgängliga för ditt program på grundval av per sekund. Varje åtgärd i Azure Cosmos DB, inklusive skriva ett dokument, utför en fråga och uppdaterar ett dokument, förbrukar CPU, minne och IOPS. Varje åtgärd ådrar som är en avgift för begäran som anges i begäran enheter. När du förstår de faktorer som påverkar begäran enhet kostnader och genomströmning programkrav kan köra du programmet som kostnad effektiv som möjligt. 
 
-För att hjälpa dig att komma igång, beskrivs Azure Cosmos DB Programhanteraren Andrew Liu frågeenheter i följande video: <br /><br />
+För att hjälpa dig att komma igång, beskrivs Azure Cosmos DB Programhanteraren Andrew Liu frågeenheter i följande video (det finns ett mindre skrivfel i begäran enheter exempel av videon. När 1 KB data med 100 000 poster används är det totala lagringsutrymmet 100 MB och inte 100 GB): <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 

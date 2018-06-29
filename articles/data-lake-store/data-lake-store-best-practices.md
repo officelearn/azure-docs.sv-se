@@ -1,24 +1,26 @@
 ---
-title: Bästa praxis för att använda Azure Data Lake Store | Microsoft Docs
-description: Läs Metodtips om datapåfyllning, datum säkerhet och prestanda som rör bruket av Azure Data Lake Store
+title: Bästa praxis för att använda Azure Data Lake lagring Gen1 | Microsoft Docs
+description: Läs Metodtips om datapåfyllning, datum säkerhet och prestanda som rör bruket av Azure Data Lake lagring Gen1 (tidigare kallat Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
-editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 9fd6b72a7d09f85f7a6e60e5af4035ffc3862d2c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 00eb2b6b60aa6c3224b58556f6dad64d4294c308
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625346"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036372"
 ---
-# <a name="best-practices-for-using-azure-data-lake-store"></a>Metodtips för Azure Data Lake Store
+# <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Metodtips för Azure Data Lake lagring Gen1
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 I den här artikeln får information du om metodtips och överväganden för att arbeta med Azure Data Lake Store. Den här artikeln innehåller information kring säkerhet, prestanda, återhämtning och övervakning för Data Lake Store. Arbeta med verkligen stordata i tjänster som Azure HDInsight var krånglig innan Data Lake Store. Var du tvungen att fragmentera data över flera Blob storage-konton så att petabyte lagring och optimala prestanda som kan byggas ut kan uppnås. De flesta av de hårda gränsvärdena för storlek och prestanda tas bort med Data Lake Store. Det finns dock fortfarande vissa aspekter som den här artikeln täcker så att du kan få bästa möjliga prestanda med Data Lake Store. 
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
@@ -114,7 +116,7 @@ Kopiera jobb kan utlösas av Apache Oozie arbetsflöden med hjälp av frekvens e
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Använd Azure Data Factory för att schemalägga kopia 
 
-Azure Data Factory kan också användas för att schemalägga kopiera jobb med hjälp av en **Kopieringsaktiviteten**, och kan även ställas in på en frekvens via den **guiden Kopiera**. Tänk på att Azure Data Factory har en begränsning på molnet data movement enheter (DMUs) och slutligen caps genomströmning/beräkning för stora arbetsbelastningar. Dessutom erbjuder Azure Data Factory för närvarande inte delta uppdateringar mellan datasjölagerkonton, så kräver en fullständig kopia att replikera mappar som Hive-tabeller. Referera till den [Kopieringsaktiviteten prestandajustering guiden](../data-factory/v1/data-factory-copy-activity-performance.md) för mer information om hur du kopierar med Data Factory. 
+Azure Data Factory kan också användas för att schemalägga kopiera jobb med hjälp av en **Kopieringsaktiviteten**, och kan även ställas in på en frekvens via den **guiden Kopiera**. Tänk på att Azure Data Factory har en begränsning på molnet data movement enheter (DMUs) och slutligen caps genomströmning/beräkning för stora arbetsbelastningar. Dessutom erbjuder Azure Data Factory för närvarande inte delta uppdateringar mellan datasjölagerkonton, så kräver en fullständig kopia att replikera mappar som Hive-tabeller. Referera till den [Kopieringsaktiviteten prestandajustering guiden](../data-factory/copy-activity-performance.md) för mer information om hur du kopierar med Data Factory. 
 
 ### <a name="adlcopy"></a>AdlCopy
 

@@ -13,28 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 8754e550f396c90504ed0fdaf1131173a10923ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6c76820b39f31d92362295d54984069393fa0dec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619107"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059114"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Feltolerans kopiera aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-copy-activity-fault-tolerance.md)
-> * [Version 2 – förhandsversion](copy-activity-fault-tolerance.md)
+> * [Version 1](v1/data-factory-copy-activity-fault-tolerance.md)
+> * [Aktuell version](copy-activity-fault-tolerance.md)
 
 Kopieringsaktiviteten i Azure Data Factory finns två sätt att hantera inkompatibla rader vid kopiering av data mellan käll- och mottagarnoderna datalager:
 
 - Du kan avbryta och misslyckas kopieringen aktivitet när inkompatibla data påträffades (standardinställning).
 - Du kan fortsätta att kopiera alla data genom att lägga till feltolerans och hoppar över inkompatibla datarader. Dessutom kan du logga inkompatibla raderna i Azure Blob storage eller Azure Data Lake Store. Du kan sedan Kontrollera loggen om du vill veta orsaken till felet, rätta data på datakällan och försök kopieringsaktiviteten.
 
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [kopiera feltolerans för aktiviteten i V1](v1/data-factory-copy-activity-fault-tolerance.md).
-
-
- ## <a name="supported-scenarios"></a>Scenarier som stöds
+## <a name="supported-scenarios"></a>Scenarier som stöds
 Kopieringsaktiviteten stöder tre scenarier för identifiering, hoppar över och loggning inkompatibla data:
 
 - **Inkompatibilitet mellan källdatatyp och interna Mottagartypen**. 

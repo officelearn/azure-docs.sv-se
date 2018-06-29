@@ -13,23 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5787f944211c5dd6c0c83e7dc10170d8a0cd9a23
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6d36733b63645fd86580ccdc5af756739f77338c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616618"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048153"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiera data från Amazon Redshift med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-amazon-redshift-connector.md)
-> * [Version 2 – förhandsversion](connector-amazon-redshift.md)
+> * [Version 1](v1/data-factory-amazon-redshift-connector.md)
+> * [Aktuell version](connector-amazon-redshift.md)
 
 
 Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från en Amazon Redshift. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Amazon Redshift connnector i V1](v1/data-factory-amazon-redshift-connector.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -201,7 +198,7 @@ För det här exemplet användningsfall, aktiviteten tar bort data från Amazon 
                 "linkedServiceName": "AzureStorageLinkedService",
                 "path": "adfstagingcopydata"
             },
-            "cloudDataMovementUnits": 32
+            "dataIntegrationUnits": 32
         }
     }
 ]
@@ -218,7 +215,7 @@ När du kopierar data från Amazon Redshift, används följande mappningar från
 | CHAR |Sträng |
 | DATE |DateTime |
 | DECIMAL |Decimal |
-| DUBBEL PRECISION |dubbla |
+| DUBBEL PRECISION |Dubbel |
 | HELTAL |Int32 |
 | VERKLIG |Enkel |
 | SMALLINT |Int16 |

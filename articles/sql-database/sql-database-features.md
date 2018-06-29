@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: de85a555def31d164f2cda5c6c6bc9fae9fb5a7e
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
-ms.translationtype: MT
+ms.openlocfilehash: c48a0f078da8e56038ec74ee398bd26fe1dc2718
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309290"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054763"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Funktionsjämförelse: Azure SQL Database och SQL Server 
 
@@ -75,7 +75,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [Händelseaviseringar](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Finns inte - [aviseringar](sql-database-insights-alerts-portal.md) | Ja |
 | [Uttryck](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Ja | Ja |
 | [Utökade händelser](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Vissa - Se [utökade händelser i SQL-databas](sql-database-xevent-db-diff-from-svr.md) | Ja - finns [utökade händelser skillnader ](sql-database-managed-instance-transact-sql-information.md#extended-events) |
-| [utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nej | Nej |
+| [Utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nej | Nej |
 [Filer och filgrupper](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Endast primära filgruppen | Ja |
 | [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Nej | Nej |
 | [Fulltextsökning](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Tredjeparts-funnits stöds inte |Tredjeparts-funnits stöds inte |
@@ -121,7 +121,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Finns inte - [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | Finns inte - [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [SQL Server-granskning](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Finns inte - [SQL Database auditing](sql-database-auditing.md) | Ja - finns [granskning skillnader](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Ja | Ja |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja, med en hanterad SSIS i Azure Data Factory (ADM)-miljö där paket lagras i SSISDB hos Azure SQL Database och köras på [Azure SSIS-integrering Runtime](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). | Ja, med en hanterad SSIS i Azure Data Factory (ADM)-miljö där paket lagras i SSISDB hanteras instans som värd och köras på [Azure SSIS-integrering Runtime](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja, med en hanterad SSIS i Azure Data Factory (ADM)-miljö där paket lagras i SSISDB hos Azure SQL Database och körs på Azure SSIS Integration Runtime (IR), se [skapa Azure-SSIS-IR i ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). | Ja, med en hanterad SSIS i Azure Data Factory (ADM)-miljö där paket lagras i SSISDB hanteras instans som värd och körs på Azure SSIS Integration Runtime (IR), se [skapa Azure-SSIS-IR i ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Ja | Ja |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ja | Ja |
 | [SQL Server-versioner](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Finns inte - [utökade händelser](sql-database-xevent-db-diff-from-svr.md) | Ja |

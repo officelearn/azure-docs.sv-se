@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 774d678c00b830f3932455c5b79fb44bde284d91
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b1485ff933df7991e1c112981ae10d93bf5613da
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895651"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061549"
 ---
 # <a name="azure-network-security"></a>Azure-nätverkssäkerhet
 
@@ -27,7 +27,7 @@ Vi vet att säkerhet är ett jobb i molnet och det är viktigt att du hitta korr
 
 Microsoft Azure tillhandahåller sekretess, integritet och tillgänglighet av kundinformation, samtidigt som transparent accountability. För att hjälpa dig att bättre förstå mängden nätverket säkerhetsåtgärder som implementerats i Microsoft Azure kundens ur skrivs den här artikeln ”nätverkssäkerhet för Azure”, till och ger en omfattande titt på nätverket säkerhetsåtgärder tillgängligt med Microsoft Azure.
 
-Det här dokumentet är avsett att informera dig om mängd nätverkskontroller som du kan konfigurera för att förbättra säkerheten för de lösningar som du distribuerar i Azure. Om du är intresserad av vad Microsoft gör för att skydda nätverksinfrastruktur för själva Azure-plattformen finns i Azure-säkerhet i den [Microsoft Trust Center](https://www.microsoft.com/trustcenter/security/azure-security).
+Det här dokumentet är avsett att informera dig om mängd nätverkskontroller som du kan konfigurera för att förbättra säkerheten för de lösningar som du distribuerar i Azure. Om du är intresserad av vad Microsoft gör för att skydda nätverksinfrastruktur för själva Azure-plattformen finns i Azure-säkerhet i den [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure).
 
 ## <a name="azure-platform"></a>Azure-plattformen
 
@@ -521,7 +521,7 @@ Nätverksbevakaren är en regionala tjänst som gör att du kan övervaka och di
 
 Nätverksbevakaren har för närvarande följande funktioner:
 
-#### <a name="topology"></a>topologi
+#### <a name="topology"></a>Topologi
 
 [Topologi](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview) returnerar ett diagram över nätverksresurser i ett virtuellt nätverk. Diagrammet visar sambandet mellan resurser för att representera nätverksanslutning för slutpunkt till slutpunkt. I portalen returnerar topologi resursobjekt på enligt grunden för virtuella nätverk. Relationerna illustreras med linjer mellan resurser utanför Nätverksbevakaren region, även om resursen gruppen inte visas. Resurser som returneras i vyn portal är en delmängd av nätverkskomponenter som är visas i diagram registreringen. Om du vill se en fullständig lista över nätverksresurser, kan du använda [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-powershell) eller [REST](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-rest).
 
@@ -549,7 +549,7 @@ Anger den [nästa hopp](https://docs.microsoft.com/azure/network-watcher/network
 
 Nästa hopp returnerar också routningstabellen som är associerad med nästa hopp. När du frågar ett nexthop om vägen definieras som en användardefinierad väg, returneras den rutten. Annars returnerar nästa hopp ”Systemväg”.
 
-#### <a name="security-group-view"></a>gruppvy för säkerhet
+#### <a name="security-group-view"></a>Gruppvy för säkerhet
 
 Hämtar de effektiva och tillämpade säkerhetsregler som tillämpas på en virtuell dator. Nätverkssäkerhetsgrupper associeras på en undernätverksnivå eller på en NIC-nivå. Som är associerad till en undernätverksnivå, gäller alla VM-instanser i undernätet. Nätverket [säkerhetsgrupp visa](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) returnerar alla konfigurerade NSG: er och regler som är associerade på ett nätverkskort och undernät nivå för en virtuell dator som ger inblick i konfigurationen. Dessutom returneras effektiva säkerhetsregler för varje nätverkskort i en virtuell dator. Med hjälp av Nätverkssäkerhetsgruppen vyn du utvärdera en virtuell dator för säkerhetsrisker i nätverket, till exempel öppna portar. Du kan också verifiera om säkerhetsgrupp för nätverk fungerar som förväntat baserat på en [jämförelse mellan den konfigurerade och effektiva säkerhetsregler](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell).
 

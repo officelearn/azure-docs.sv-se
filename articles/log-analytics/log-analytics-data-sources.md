@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2018
+ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e0366e6a2403f7cea83efde35c7b3b42565a1cf2
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792556"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062787"
 ---
 # <a name="data-sources-in-log-analytics"></a>Datakällor i logganalys
 Logganalys samlar in data från dina anslutna källor och lagrar den i logganalys-arbetsytan.  De data som samlas in från varje definieras av datakällor som du konfigurerar.  Data i logganalys lagras som en uppsättning poster.  Varje datakälla skapar poster för en viss typ med varje typ med en egen uppsättning egenskaper.
@@ -37,9 +37,9 @@ I följande tabell visas de datakällor som är tillgängliga i logganalys.  Var
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Anpassade loggar](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | anländer |
 | [Anpassade loggar](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | anländer |
-| [IIS-loggar](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 minuter |
-| [Prestandaräknare](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |Som planerat, minst 10 sekunder |
-| [Prestandaräknare](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |Som planerat, minst 10 sekunder |
+| [IIS-loggar](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |beror på inställningen för loggfil |
+| [Prestandaräknare](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |som schemalagts minst 10 sekunder |
+| [Prestandaräknare](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |som schemalagts minst 10 sekunder |
 | [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |från Azure storage: 10 minuter. från agent: anländer |
 | [Windows-händelseloggar](log-analytics-data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | anländer |
 

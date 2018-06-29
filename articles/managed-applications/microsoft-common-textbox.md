@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: f11098f4af2e85df16e00ce6dac6e7c4b5b34e2b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: fa3e5fff8080acb9e824ffe27f6c149054804830
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260926"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063654"
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Microsoft.Common.TextBox UI-element
 En kontroll som används för att redigera oformaterad text.
@@ -31,8 +31,8 @@ En kontroll som används för att redigera oformaterad text.
 {
   "name": "element1",
   "type": "Microsoft.Common.TextBox",
-  "label": "Some text box",
-  "defaultValue": "my value",
+  "label": "Example text box 1",
+  "defaultValue": "my text value",
   "toolTip": "Use only allowed characters",
   "constraints": {
     "required": true,
@@ -44,15 +44,15 @@ En kontroll som används för att redigera oformaterad text.
 ```
 
 ## <a name="remarks"></a>Kommentarer
-- Om `constraints.required` är inställd på **SANT**, textrutan måste innehålla ett värde som ska valideras. Standardvärdet är **FALSKT**.
+- Om `constraints.required` är inställd på **SANT**, textrutan måste ha ett värde som ska valideras. Standardvärdet är **FALSKT**.
 - `constraints.regex` är en JavaScript-mönstret för reguljära uttryck. Om anges måste textrutans värde matcha mönstret som ska valideras. Standardvärdet är **null**.
 - `constraints.validationMessage` är en sträng som ska visas när textrutans värde inte verifieringen. Om den inte anges används den textruta inbyggda verifieringsmeddelanden. Standardvärdet är **null**.
-- Det är möjligt att ange ett värde för `constraints.regex` när `constraints.required` är inställd på **FALSKT**. I det här scenariot krävs inte ett värde för textrutan kan valideras. Om en anges måste den matcha mönstret för reguljära uttryck.
+- Det är möjligt att ange ett värde för `constraints.regex` när `constraints.required` är inställd på **FALSKT**. I det här scenariot krävs för textrutan kan valideras inte ett värde. Om en anges måste den matcha mönstret för reguljära uttryck.
 
 ## <a name="sample-output"></a>Exempel på utdata
 
 ```json
-"my value"
+"my text value"
 ```
 
 ## <a name="next-steps"></a>Nästa steg

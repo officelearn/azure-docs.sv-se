@@ -4,18 +4,18 @@ description: Lär dig mer om hur moduler distribueras till enheter
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f64e6db576b7b1605cc070948a021184fc6ee8ad
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725334"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029268"
 ---
-# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Förstå IoT kant distributioner för enstaka enheter eller i skala - förhandsgranskning
+# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale"></a>Förstå IoT kant distributioner för enstaka enheter eller i skala
 
 Azure IoT-gränsenheterna följer en [enhetslivscykeln] [ lnk-lifecycle] som liknar andra typer av IoT-enheter:
 
@@ -23,7 +23,7 @@ Azure IoT-gränsenheterna följer en [enhetslivscykeln] [ lnk-lifecycle] som lik
 1. Enheterna som är konfigurerade för att köras [IoT kant moduler][lnk-modules], och sedan övervakas för hälsotillstånd. 
 1. Slutligen dras enheter när de ersätts eller föråldrade.  
 
-Azure IoT-Edge tillhandahåller två sätt att konfigurera modulerna som körs på enheter som IoT: en för utveckling och snabb iterationer på en enskild enhet (som du använde i Azure IoT kant självstudier) och en för att hantera stora fordonsflottor kant för IoT-enheter. Båda dessa metoder är tillgängliga i Azure-portalen och genom programmering.
+Azure IoT-Edge tillhandahåller två sätt att konfigurera modulerna som körs på enheter som IoT: en för utveckling och snabb iterationer på en enskild enhet (du använder den här metoden i Azure IoT kant självstudiekurser) och en för att hantera stora fordonsflottor kant för IoT-enheter. Båda dessa metoder är tillgängliga i Azure-portalen och genom programmering.
 
 Den här artikeln fokuserar på konfiguration och övervakning faser för flottor av enheterna, vilket gemensamt kallas för IoT kant automatiska uppdateringar. Övergripande stegen för distributionen är följande:   
 
@@ -32,15 +32,15 @@ Den här artikeln fokuserar på konfiguration och övervakning faser för flotto
 1. IoT-hubb-tjänsten hämtar status från IoT-gränsenheterna och hämtar de för operatorn för att övervaka.  En operatör kan exempelvis se när en insticksenhet har inte konfigurerats korrekt eller om en modul misslyckas under körning. 
 1. När som helst konfigureras nya kant för IoT-enheter som uppfyller villkor som målobjekt för distributionen. Till exempel konfigurerar en distribution som riktar sig till alla IoT-gränsenheterna i staten Washington automatiskt en ny IoT Edge-enhet när den är etablerad och lagts till i staten Washington enhetsgrupp. 
  
-Den här artikeln beskriver hur varje komponent som ingår i konfigurering och övervakning av en distribution. En genomgång av hur du skapar och uppdaterar en distribution finns [distribuera och övervaka IoT kant moduler i skala][lnk-howto].
+Den här artikeln beskriver varje komponent som ingår i konfigurering och övervakning av en distribution. En genomgång av hur du skapar och uppdaterar en distribution finns [distribuera och övervaka IoT kant moduler i skala][lnk-howto].
 
 ## <a name="deployment"></a>Distribution
 
-En automatisk distribution IoT kant tilldelar IoT kant modulen bilder att köras som instanser på en riktad uppsättning kant för IoT-enheter. Det fungerar genom att konfigurera en IoT-Edge distributionsmanifestet om du vill inkludera en lista med moduler med motsvarande initieringsparametrar. En distribution kan tilldelas till en enhet (vanligtvis baserat på enhets-Id) eller till en grupp av enheter (baserat på taggar). När en IoT-enhet tar emot en distributionsmanifestet, hämtar och installerar modulen behållaren bilder från respektive behållaren databaser, och konfigurerar den dem i enlighet med detta. När du har skapat en distribution kan operatör övervaka Distributionsstatus om målenheter är korrekt konfigurerad.   
+En automatisk distribution IoT kant tilldelar IoT kant modulen bilder att köras som instanser på en riktad uppsättning kant för IoT-enheter. Det fungerar genom att konfigurera en IoT-Edge distributionsmanifestet om du vill inkludera en lista med moduler med motsvarande initieringsparametrar. En distribution kan tilldelas till en enhet (baserat på enhets-ID) eller till en grupp av enheter (baserat på taggar). När en IoT-enhet tar emot en distributionsmanifestet, hämtar och installerar modulen behållaren bilder från respektive behållaren databaser, och konfigurerar den dem i enlighet med detta. När du har skapat en distribution kan operatör övervaka Distributionsstatus om målenheter är korrekt konfigurerad.   
 
-Enheter måste etableras som IoT-gränsenheterna konfigureras med en distribution. Följande är förutsättningar och ingår inte i distributionen:
+Enheter måste etableras som IoT-gränsenheterna konfigureras med en distribution. Följande krav måste vara på enheten innan den kan ta emot distributionen:
 * Det grundläggande operativsystemet
-* Docker 
+* Ett system för behållare, t.ex. Moby eller Docker
 * Etablering av körningsmiljön IoT kant 
 
 ### <a name="deployment-manifest"></a>Distributionsmanifestet
@@ -52,12 +52,16 @@ Av konfigurationsmetadata för varje modul omfattar:
 * Typ 
 * Status (t ex igång eller stoppad) 
 * Starta om principen 
-* Bild- och databasen 
+* Bild- och registret
 * Vägar för data som indata och utdata 
+
+Om modulen avbildningen lagras i ett privat behållaren register innehåller IoT kant agenten registret-behörighet. 
 
 ### <a name="target-condition"></a>Målvillkoren
 
-Målvillkoren utvärderas kontinuerligt för att inkludera nya enheter som uppfyller kraven eller ta bort enheter som inte längre gör via livslängden för distributionen. Distributionen ska återaktiveras om tjänsten identifierar ändringar mål villkor. Exempelvis kan du har en distribution A som har ett mål villkoret tags.environment = 'prod'. När du startar distributionen, finns det 10 produktprenumeration enheter. Modulerna som är installerat i dessa 10 enheter. IoT kant agentens Status visas som 10 Totalt antal enheter, 10 har svar, 0 fel svar och 0 väntar på svar. Nu du lägga till 5 flera enheter med tags.environment = 'prod'. Tjänsten identifierar ändringen och Agentstatus för IoT-Edge blir 15 totalt antal enheter, 10 har svar, 0 fel svar och 5 väntande svar när den försöker distribuera till fem nya enheter.
+Målvillkoren utvärderas kontinuerligt för att inkludera nya enheter som uppfyller kraven eller ta bort enheter som inte längre gör via livslängden för distributionen. Distributionen ska återaktiveras om tjänsten identifierar ändringar mål villkor. 
+
+Exempelvis kan du har en distribution A med ett mål villkoret tags.environment = 'prod'. När du startar distributionen, finns tio enheter för produktion. Modulerna som är installerat i dessa tio enheter. IoT kant agentens Status visas som 10 Totalt antal enheter, 10 lyckade svar, 0 fel svar och 0 väntar på svar. Nu du lägga till fem flera enheter med tags.environment = 'prod'. Tjänsten identifierar ändringen och Agentstatus för IoT-Edge blir 15 totalt antal enheter, 10 lyckade svar, 0 fel svar och 5 väntar på svar när den försöker distribuera till fem nya enheter.
 
 Använd booleskt villkor på enheten twins taggar eller deviceId för att välja målenheter. Om du vill använda villkoret med taggar du behöver lägga till ”taggar”:{} avsnitt i enheten dubbla under samma nivå som egenskaper. [Mer information om taggar i enheten dubbla](../iot-hub/iot-hub-devguide-device-twins.md)
 
@@ -73,7 +77,7 @@ Här följer några avgränsar när du skapar ett villkor för mål:
 * Du kan bara bygga ett mål villkor med hjälp av taggar eller deviceId i enheten dubbla.
 * Dubbla citattecken tillåts inte i någon del av målvillkoren. Använd enkla citattecken.
 * Enkla citattecken representerar värden för målvillkoren. Du måste därför escape enkla citattecken med ett annat enkelt citattecken om det är en del av namnet på en enhet. Till exempel målvillkoren för: operator'sDevice skulle behöva skrivas som deviceId =' operatorn '' sDevice'.
-* Siffror, bokstäver och följande tecken är tillåtna i målet villkoret values:-:.+%_#*? (),=@;$
+* Siffror, bokstäver och följande tecken tillåts i villkor målvärden: `-:.+%_#*?!(),=@;$`.
 
 ### <a name="priority"></a>Prioritet
 

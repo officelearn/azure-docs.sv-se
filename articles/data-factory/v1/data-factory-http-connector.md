@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 16b181631d8d91ad8137e57564792789903bccf2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29281843dc1b375182eb3dafe95ad86c89217671
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621631"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052281"
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Flytta data från en HTTP-datakälla med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-http-connector.md)
-> * [Version 2 – förhandsversion](../connector-http.md)
+> * [Version 1](data-factory-http-connector.md)
+> * [Version 2 (aktuell version)](../connector-http.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [HTTP-anslutningen i V2](../connector-http.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [HTTP-anslutningen i V2](../connector-http.md).
 
 
 Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att flytta data från en HTTP-slutpunkt på lokalt/i molnet till datakällan stöds sink. Den här artikeln bygger på den [data movement aktiviteter](data-factory-data-movement-activities.md) artikel som ger en allmän översikt över dataflyttning kopieringsaktiviteten och listan över datakällor som stöds som källor/sänkor.
@@ -34,7 +34,7 @@ Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Fac
 Data factory stöder för närvarande endast flytta data från en HTTP-källa till andra databaser, men inte flytta data från andra data lagrar till en HTTP-mål.
 
 ## <a name="supported-scenarios-and-authentication-types"></a>Scenarier som stöds och typer av autentisering
-Du kan använda den här HTTP-anslutningen för att hämta data från **både till molnet och lokala HTTP/s-slutpunkt** med hjälp av HTTP **hämta** eller **POST** metod. Följande autentiseringstyper av som stöds: **anonym**, **grundläggande**, **sammanfattad**, **Windows**, och **ClientCertificate**. Observera skillnaden mellan den här kopplingen och [Web tabell connector](data-factory-web-table-connector.md) är: används att extrahera innehållet från webbsidan HTML.
+Du kan använda den här HTTP-anslutningen för att hämta data från **både till molnet och lokala HTTP/s-slutpunkt** med hjälp av HTTP **hämta** eller **POST** metod. Följande autentiseringstyper av som stöds: **anonym**, **grundläggande**, **sammanfattad**, **Windows**, och  **ClientCertificate**. Observera skillnaden mellan den här kopplingen och [Web tabell connector](data-factory-web-table-connector.md) är: används att extrahera innehållet från webbsidan HTML.
 
 När du kopierar data från en lokal HTTP-slutpunkt, måste du installera en Data Management Gateway i lokal miljö/Azure VM. Se [flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artikeln innehåller information om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar en gateway.
 
@@ -43,7 +43,7 @@ Du kan skapa en pipeline med en kopia-aktivitet som flyttar data från en HTTP-d
 
 - Det enklaste sättet att skapa en pipeline är att använda den **guiden Kopiera**. Finns [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. JSON-exempel att kopiera data från http-källa till Azure Blob Storage finns [JSON-exempel](#json-examples) avsnitt i den här artikeln.
+- Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall** , **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. JSON-exempel att kopiera data från http-källa till Azure Blob Storage finns [JSON-exempel](#json-examples) avsnitt i den här artikeln.
 
 ## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
 Följande tabell innehåller beskrivning för JSON-element som är specifika för HTTP länkade tjänsten.
@@ -52,7 +52,7 @@ Följande tabell innehåller beskrivning för JSON-element som är specifika fö
 | --- | --- | --- |
 | typ | Egenskapen type måste anges till: `Http`. | Ja |
 | url | Bas-URL till webbservern | Ja |
-| AuthenticationType | Anger vilken autentiseringstyp. Tillåtna värden är: **anonym**, **grundläggande**, **sammanfattad**, **Windows**, **ClientCertificate**. <br><br> Avse respektive avsnitt under den här tabellen på fler egenskaper och JSON-exempel för dessa typer av autentisering. | Ja |
+| authenticationType | Anger vilken autentiseringstyp. Tillåtna värden är: **anonym**, **grundläggande**, **sammanfattad**, **Windows**, **ClientCertificate**. <br><br> Avse respektive avsnitt under den här tabellen på fler egenskaper och JSON-exempel för dessa typer av autentisering. | Ja |
 | enableServerCertificateValidation | Ange om du vill aktivera server SSL-certifikatsverifiering om datakällan är HTTPS-webbserver. När HTTPS-server använder självsignerade certifikat kan du ange detta till false. | Nej, standard är SANT |
 | gatewayName | Namnet på Data Management Gateway för att ansluta till en lokal http-källa. | Ja om du kopierar data från en lokal http-källa. |
 | encryptedCredential | Krypterade autentiseringsuppgifter till HTTP-slutpunkten. Genereras automatiskt när du konfigurerar autentiseringsinformation i guiden Kopiera eller ClickOnce popup-dialogruta. | Nej. Gäller bara när du kopierar data från en lokal HTTP-server. |
@@ -157,8 +157,8 @@ Den **typeProperties** avsnitt är olika för varje typ av dataset och innehåll
 | requestMethod | HTTP-metod. Tillåtna värden är **hämta** eller **efter**. | Nej. Standardvärdet är `GET`. |
 | additionalHeaders | Ytterligare HTTP-begärans sidhuvud. | Nej |
 | requestBody | Brödtext för HTTP-begäran. | Nej |
-| Format | Om du vill bara **hämta data från HTTP-slutpunkt som-är** hoppa över den här formatinställningar utan parsning den. <br><br> Om du vill att parsa innehållet i HTTP-svar vid kopiering, stöds följande format: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. |Nej |
-| Komprimering | Ange typ och kompression för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| Format | Om du vill bara **hämta data från HTTP-slutpunkt som-är** hoppa över den här formatinställningar utan parsning den. <br><br> Om du vill att parsa innehållet i HTTP-svar vid kopiering, stöds följande format: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. |Nej |
+| komprimering | Ange typ och kompression för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 ### <a name="example-using-the-get-default-method"></a>Exempel: med metoden GET (standard)
 

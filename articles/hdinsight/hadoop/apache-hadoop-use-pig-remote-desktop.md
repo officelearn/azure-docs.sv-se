@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 700569684888428032997dd81c10023c6fd5a7d8
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f293aab67fb5e952dc32e20a6370d45cded682b5
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823313"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "35762005"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Köra Pig-jobb från en fjärrskrivbordsanslutning
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -78,6 +78,7 @@ Aktivera Fjärrskrivbord för HDInsight-klustret och sedan ansluta till den geno
     <td>RESULTATET = order frekvenser av antal desc;</td><td>Sorterar loggningsnivåerna efter antal (fallande) och lagras i resultatet</td>
     </tr>
 </table>
+
 6. Du kan också spara resultaten av en omvandling med hjälp av den `STORE` instruktionen. Till exempel följande kommando sparar den `RESULT` till den **/example/data/pigout** katalog i standardbehållaren för lagring för klustret:
 
         STORE RESULT into 'wasb:///example/data/pigout'
@@ -86,6 +87,7 @@ Aktivera Fjärrskrivbord för HDInsight-klustret och sedan ansluta till den geno
    > Data lagras i katalogen som angetts i filer med namnet **del nnnnn**. Om mappen redan finns visas ett felmeddelande.
    >
    >
+   
 7. Om du vill avsluta grunt prompten anger du följande instruktion.
 
         QUIT;

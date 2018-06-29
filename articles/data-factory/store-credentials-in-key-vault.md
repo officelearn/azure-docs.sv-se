@@ -12,21 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: jingwang
-ms.openlocfilehash: f12c3a2a1193adc08c408292a4e0eca2e2458085
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e1be16ec6a7536cedf3a27ffacb9c4dffe42bbef
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620674"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052423"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Spara autentiseringsuppgifter i Azure Key Vault
 
 Du kan lagra autentiseringsuppgifter för datalager och beräknar i en [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory hämtar autentiseringsuppgifterna vid körning av en aktivitet som använder data store/beräkning.
 
 För närvarande stöder alla aktivitetstyper utom anpassad aktivitet den här funktionen. För kopplingskonfiguration i synnerhet Kontrollera avsnittet ”länkade tjänstegenskaper” i [varje koppling avsnitt](copy-activity-overview.md#supported-data-stores-and-formats) mer information.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [dokumentationen för Data Factory version1](v1/data-factory-introduction.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -51,7 +48,7 @@ Följande egenskaper stöds för Azure Key Vault länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **AzureKeyVault**. | Ja |
-| BaseUrl | Ange Azure Key Vault-URL. | Ja |
+| baseUrl | Ange Azure Key Vault-URL. | Ja |
 
 **Använda redigering UI:**
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b2f33a8dce441312e74688ca766ab65c028451d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167907"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064121"
 ---
 # <a name="understanding-cost-management-reports"></a>Förstå kostnadsrapporter
 
@@ -121,7 +121,7 @@ Varje numrerade område i föregående bild beskrivs i detalj i följande inform
     -   **Användningstyp**
           - Användningstyp kan vara en avgifter eller återkommande avgifter.
 
-5. **filter**
+5. **Filter**
 
     Använda enkla eller välja flera filter för att ange intervall för valda värden. Ange ett filter, klicka på **Lägg till** och välj sedan filterkategorier och värden.
 
@@ -162,7 +162,7 @@ Varje numrerade område i föregående bild beskrivs i detalj i följande inform
 
     Visa/Dölj alternativet har inte någon effekt i rapporter.
 
-12.   **format**
+12.   **Format**
 
     Använd format för att välja olika vyer av diagrammet eller tabellen.
 
@@ -175,6 +175,10 @@ Varje numrerade område i föregående bild beskrivs i detalj i följande inform
 14. **Åtgärder**
 
     Använd åtgärder för att spara, exportera eller schemalägger rapporten.
+
+15. **Princip**
+
+    Även om inte avbildas innehåller i vissa rapporter en princip för beräkning av planerad kostnad. I dessa rapporter i **konsoliderade** princip visar rekommendationer för alla konton och -prenumerationer under den aktuella enheten, till exempel Microsoft registrering eller AWS betalar. Den **fristående** princip visar rekommendationer för ett konto eller prenumeration som om det finns inga andra prenumerationer. Den princip som du väljer beror på den optimering strategi som används av din organisation. Kostnad projektioner baseras på de senaste 30 dagarna för användning.
 
 ## <a name="save-and-schedule-reports"></a>Spara och schemalägga rapporter
 
@@ -199,4 +203,5 @@ När du visar en rapport klickar du på **åtgärder** och välj sedan **exporte
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du inte har redan slutförts första självstudierna för hantering av kostnader, läsa den på [granska användning och kostnader](tutorial-review-usage.md).
+- Lär dig mer om de rapporter som ingår i Cloudyn på [Använd kostnad rapporter](use-reports.md).
+- Lär dig mer om hur du använder rapporter för att skapa [instrumentpaneler](dashboards.md).

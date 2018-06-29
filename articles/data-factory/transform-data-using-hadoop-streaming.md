@@ -12,22 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: ea83701e834895b09faf8eb6602bd342b648ec37
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4c2bf83fec3d8f961a84523365e4a98fe3bf7603
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620212"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052375"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformera data med Hadoop Streaming activity i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-hadoop-streaming-activity.md)
-> * [Version 2 – förhandsversion](transform-data-using-hadoop-streaming.md)
+> * [Version 1](v1/data-factory-hadoop-streaming-activity.md)
+> * [Aktuell version](transform-data-using-hadoop-streaming.md)
 
 HDInsight Streaming Activity i en Datafabrik [pipeline](concepts-pipelines-activities.md) Hadoop Streaming program körs på [egna](compute-linked-services.md#azure-hdinsight-linked-service) eller [på begäran](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight-kluster. Den här artikeln bygger på den [data transformation aktiviteter](transform-data.md) artikel som presenterar en allmän översikt över data transformation och stöds omvandling aktiviteter.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Hadoop Streaming Activity i V1](v1/data-factory-hadoop-streaming-activity.md).
 
 Om du har använt Azure Data Factory, Läs igenom [introduktion till Azure Data Factory](introduction.md) och gör den [Självstudier: Transformera data](tutorial-transform-data-spark-powershell.md) innan du läser den här artikeln. 
 
@@ -86,7 +83,7 @@ Om du har använt Azure Data Factory, Läs igenom [introduktion till Azure Data 
 | indata             | Anger WASB sökvägen till filen för mapparen. | Ja      |
 | utdata            | Anger WASB sökväg till utdatafilen för Reducer. | Ja      |
 | getDebugInfo      | Anger om filerna kopieras till Azure Storage används av HDInsight-kluster (eller) anges av scriptLinkedService. Tillåtna värden: None, alltid eller fel. Standardvärde: Ingen. | Nej       |
-| Argument         | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som argument på kommandoraden för varje aktivitet. | Nej       |
+| argument         | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som argument på kommandoraden för varje aktivitet. | Nej       |
 | definierar           | Ange parametrar som nyckel/värde-par för refererar till i Hive-skript. | Nej       | 
 
 ## <a name="next-steps"></a>Nästa steg

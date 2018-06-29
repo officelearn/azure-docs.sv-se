@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0c115cce7659fe1f10e8d3d9c988748151916ce0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 951756d57441d175ccf8bab44bf00c3cb542f1b9
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620749"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050054"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Självstudier: Skapa din första pipeline för att omvandla data med Hadoop-kluster
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "34620749"
 
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Läs [Quickstart: Create a data factory using Azure Data Factory version 2](../quickstart-create-data-factory-dot-net.md) (Snabbstart: Skapa en datafabrik med Azure Data Factory version 2) om du använder version 2 av Data Factory-tjänsten, som finns tillgänglig som förhandsversion.
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Snabbstart: skapa en datafabrik med hjälp av Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 I den här självstudiekursen skapar du din första Azure data factory med en rörledning för data. Pipelinen omvandlar inkommande data genom att köra Hive-skript i ett kluster för Azure HDInsight (Hadoop) gav inga utdata.  
 

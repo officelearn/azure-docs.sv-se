@@ -10,19 +10,19 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 37228ca2f887f0993f707a2b10a2b5dcd888b1b9
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 0bcdc3c4357cb8985fad16c607957bffad4a2b8c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753687"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049238"
 ---
 # <a name="quickstart-for-c-and-windows"></a>Snabbstart för C++ och Windows
 
 Den aktuella versionen av kognitiva Services tal SDK är `0.4.0`.
 
 Vi beskriver hur du skapar ett konsolprogram med C++ för Windows-skrivbordet som använder SDK för tal.
-Programmet baseras på den [Microsoft kognitiva Services SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) och Microsoft VisualStudio 2017.
+Programmet baseras på den [Microsoft kognitiva Services SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) och Microsoft Visual Studio 2017.
 
 > [!NOTE]
 > Om du letar efter en Snabbstart för C++- och Linux, gå [här](quickstart-cpp-linux.md).<br>

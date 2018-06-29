@@ -1,26 +1,23 @@
 ---
-title: "Komma igång med Azure Data Lake Store med hjälp av Azures kommandoradsgränssnitt 2.0 | Microsoft Docs"
-description: "Använda Azures plattformsoberoende kommandoradsgränssnitt 2.0 för att skapa ett Data Lake Store-konto och utföra grundläggande åtgärder"
+title: Använd Azure kommandoradsverktyget 2.0-gränssnittet för att komma igång med Azure Data Lake lagring Gen1 | Microsoft Docs
+description: Använda Azures plattformsoberoende kommandoradsgränssnitt 2.0 för att skapa ett Data Lake Store-konto och utföra grundläggande åtgärder
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 4ffa0f4a-1cca-46ac-803d-1fc8538c685b
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: b93b9a801b3e5e1fd869cda7f3d67554e2d03195
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
-ms.translationtype: HT
+ms.openlocfilehash: acd1182fdc66374e9abbc4964207417a7de3aadb
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036578"
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Komma igång med Azure Data Lake Store med hjälp av Azure CLI 2.0
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-cli-20"></a>Kom igång med Azure Data Lake lagring Gen1 använder Azure CLI 2.0
 > [!div class="op_single_selector"]
 > * [Portalen](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -28,12 +25,14 @@ ms.lasthandoff: 03/09/2018
 >
 > 
 
-Lär dig hur du använder Azure CLI 2.0 för att skapa ett Azure Data Lake Store-konto och hur du utför grundläggande åtgärder, till exempel hur du skapar mappar, laddar upp och hämtar filer, tar bort ditt konto, osv. Mer information om Data Lake Store finns i [Översikt över Data Lake Store](data-lake-store-overview.md).
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
+Lär dig hur du använder Azure CLI 2.0 för att skapa ett Azure Data Lake Store-konto och hur du utför grundläggande åtgärder, till exempel hur du skapar mappar, laddar upp och hämtar filer, tar bort ditt konto, osv. Mer information om Data Lake Store finns [översikt av Data Lake lagring Gen1](data-lake-store-overview.md).
 
 Azure CLI 2.0 är Azures nya kommandoradsmiljö för att hantera Azure-resurser. Den kan användas i Mac OS, Linux och Windows. Mer information finns i [Översikt över Azure CLI 2.0](https://docs.microsoft.com/cli/azure). En fullständig lista över kommandon och syntax finns i [Azure Data Lake Store CLI 2.0-referensen](https://docs.microsoft.com/cli/azure/dls).
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här artikeln måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -53,7 +52,7 @@ Den här artikeln använder en enklare metod för autentisering med Data Lake St
     az login
     ```
 
-    Du får en kod som du ska använda i nästa steg. Använd en webbläsare för att öppna sidan https://aka.ms/devicelogin och ange koden för autentisering. Du uppmanas att logga in med dina autentiseringsuppgifter.
+    Du får en kod som du ska använda i nästa steg. Använda en webbläsare för att öppna sidan https://aka.ms/devicelogin och ange koden för autentisering. Du uppmanas att logga in med dina autentiseringsuppgifter.
 
 2. När du loggar in visar fönstret alla Azure-prenumerationer som är kopplade till ditt konto. Välj en specifik prenumeration med hjälp av följande kommando.
    

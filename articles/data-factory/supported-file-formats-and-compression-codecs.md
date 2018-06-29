@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: c96d8b273a0e74ced5b121d19e1c3e5343a754b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 534df0dfef1f69297c5728ed892a5457944e4468
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621827"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052298"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Filformat som stöds och komprimering codec-rutiner i Azure Data Factory
 
@@ -27,9 +27,6 @@ Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), 
 * [Avro-formatet](#avro-format)
 * [ORC-format](#orc-format)
 * [Parkettgolv format](#parquet-format)
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [stöds format och komprimering i Data Factory version1](v1//data-factory-supported-file-and-compression-formats.md).
 
 > [!TIP]
 > Lär dig hur kopieringsaktiviteten mappas datakällan till sink från [schemamappning i en Kopieringsaktivitet](copy-activity-schema-and-type-mapping.md), inklusive hur metadata definieras baserat på dina inställningar för fil-format och tips om när du ska ange den [dataset `structure` ](concepts-datasets-linked-services.md#dataset-structure) avsnitt.
@@ -450,8 +447,8 @@ Observera följande punkter:
 | Data factory tillfälliga datatyp | ORC-typer |
 |:--- |:--- |
 | Boolesk | Boolesk |
-| SByte | Mottagna byte |
-| Mottagna byte | Kort |
+| SByte | Byte |
+| Byte | Kort |
 | Int16 | Kort |
 | UInt16 | Int |
 | Int32 | Int |
@@ -459,7 +456,7 @@ Observera följande punkter:
 | Int64 | Lång |
 | UInt64 | Sträng |
 | Enkel | Flyttal |
-| dubbla | dubbla |
+| Dubbel | Dubbel |
 | Decimal | Decimal |
 | Sträng | Sträng |
 | DateTime | Tidsstämpel |
@@ -495,7 +492,7 @@ Observera följande punkter:
 |:--- |:--- |:--- |:--- |
 | Boolesk | Boolesk | Gäller inte | Gäller inte |
 | SByte | Int32 | int8 | int8 |
-| Mottagna byte | Int32 | UInt8 | Int16 |
+| Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
 | UInt16 | Int32 | UInt16 | Int32 |
 | Int32 | Int32 | Int32 | Int32 |
@@ -503,7 +500,7 @@ Observera följande punkter:
 | Int64 | Int64 | Int64 | Int64 |
 | UInt64 | Int64/binär | UInt64 | Decimal |
 | Enkel | Flyttal | Gäller inte | Gäller inte |
-| dubbla | dubbla | Gäller inte | Gäller inte |
+| Dubbel | Dubbel | Gäller inte | Gäller inte |
 | Decimal | Binär | Decimal | Decimal |
 | Sträng | Binär | Utf8 | Utf8 |
 | DateTime | Int96 | Gäller inte | Gäller inte |

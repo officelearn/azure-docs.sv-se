@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5731e4249c94e77846f07870e4bba28aab70682e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7ece34809734478ddb52c12d5dbd92291231f439
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619532"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045695"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Flytta data från Amazon Redshift med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-amazon-redshift-connector.md)
-> * [Version 2 – förhandsversion](../connector-amazon-redshift.md)
+> * [Version 1](data-factory-amazon-redshift-connector.md)
+> * [Version 2 (aktuell version)](../connector-amazon-redshift.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Amazon Redshift connector i V2](../connector-amazon-redshift.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Amazon Redshift connector i V2](../connector-amazon-redshift.md).
 
 Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data Factory för att flytta data från Amazon Redshift. Artikeln bygger på den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel som presenterar en allmän översikt över dataflyttning med copy-aktivitet. 
 
@@ -66,9 +66,9 @@ Följande tabell innehåller beskrivningar för JSON-element som är specifika f
 | **typ** |Den här egenskapen måste anges till **AmazonRedshift**. |Ja |
 | **Server** |IP-adressen eller värdnamnet namnet på Amazon Redshift-server. |Ja |
 | **port** |Antalet TCP-porten som Amazon Redshift-servern använder för att lyssna efter anslutningar. |Nej (standard är 5439) |
-| **Databasen** |Namnet på Amazon Redshift-databasen. |Ja |
-| **Användarnamn** |Namnet på den användare som har åtkomst till databasen. |Ja |
-| **Lösenord** |Lösenordet för användarkontot. |Ja |
+| **databasen** |Namnet på Amazon Redshift-databasen. |Ja |
+| **användarnamn** |Namnet på den användare som har åtkomst till databasen. |Ja |
+| **lösenord** |Lösenordet för användarkontot. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
@@ -88,7 +88,7 @@ För Kopieringsaktiviteten när källan är av typen **AmazonRedshiftSource**, f
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| **Frågan** | Använd anpassad fråga för att läsa data. |Nej (om den **tableName** -egenskapen för en dataset har angetts) |
+| **frågan** | Använd anpassad fråga för att läsa data. |Nej (om den **tableName** -egenskapen för en dataset har angetts) |
 | **redshiftUnloadSettings** | Innehåller Egenskapsgruppen när du använder Redshift **UNLOAD** kommando. | Nej |
 | **s3LinkedServiceName** | Amazon S3 ska användas som en mellanliggande arkivet. Den länkade tjänsten anges med ett Azure Data Factory-namn för typen **AwsAccessKey**. | Krävs när du använder den **redshiftUnloadSettings** egenskapen |
 | **bucketName** | Anger Amazon S3-bucket ska lagras tillfälligt data. Om den här egenskapen inte anges, genererar Kopieringsaktiviteten auto-en bucket. | Krävs när du använder den **redshiftUnloadSettings** egenskapen |
@@ -97,7 +97,7 @@ Du kan också använda den **RelationalSource** typ, som inkluderar Amazon Redsh
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| **Frågan** |Använd anpassad fråga för att läsa data. | Nej (om den **tableName** -egenskapen för en dataset har angetts) |
+| **frågan** |Använd anpassad fråga för att läsa data. | Nej (om den **tableName** -egenskapen för en dataset har angetts) |
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Använd ta bort för att kopiera data från Amazon Redshift
 
@@ -336,7 +336,7 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
 | VERKLIG |Enkel |
-| DUBBEL PRECISION |dubbla |
+| DUBBEL PRECISION |Dubbel |
 | BOOLESKT VÄRDE |Sträng |
 | CHAR |Sträng |
 | VARCHAR |Sträng |

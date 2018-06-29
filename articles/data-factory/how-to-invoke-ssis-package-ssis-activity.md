@@ -13,18 +13,15 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ffe65260e73aa2daa4ab63840a00076000f8e6a8
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: MT
+ms.openlocfilehash: 5ff397e8b13d56b3b034854c507f8bef05008812
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264913"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054729"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten kör SSIS-paket i Azure Data Factory
 Den här artikeln beskriver hur du kör ett SSIS-paket i ett Azure Data Factory-pipelinen med hjälp av aktiviteten köra SSIS-paket. 
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Aktiviteten kör SSIS-paket är inte tillgängliga i version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA). Ett annat sätt att köra ett SSIS-paket med version 1 av Data Factory-tjänsten finns [kör SSIS-paket med hjälp av aktiviteten lagrad procedur i version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -59,7 +56,7 @@ Första steget är att skapa en datafabrik med hjälp av Azure portal.
       - Välj **Skapa ny** och ange namnet på en resursgrupp.   
          
     Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
-4. Välj **V2 (förhandsgranskning)** för **versionen**.
+4. Välj **V2** för den **version**.
 5. Välj **plats** för datafabriken. Endast platser som stöds av Data Factory visas i listrutan. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas på andra platser.
 6. Välj **fäst till instrumentpanelen**.     
 7. Klicka på **Skapa**.
@@ -177,7 +174,7 @@ Observera följande punkter:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna **deltagare** eller **ägare**, eller vara **administratör** för Azure-prenumerationen.
-* För närvarande kan Data Factory version 2 du skapa datafabriker endast i östra USA, östra US2, västra Europa och Sydostasien regioner. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+* För närvarande kan Data Factory du skapa datafabriker endast i östra USA, östra US2, västra Europa och Sydostasien regioner. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
 ### <a name="create-a-pipeline-with-an-ssis-activity"></a>Skapa en pipeline med en SSIS-aktivitet 
 I det här steget skapar du en pipeline med en SSIS-aktivitet. Aktiviteten körs SSIS-paket. 

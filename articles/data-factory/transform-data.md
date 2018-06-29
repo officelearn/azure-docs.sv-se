@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 90089c009d3515df3df2453c710bac143ee7d90f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 23471a4ae912ee4947a91f0aef7fb2557e6ebba3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619756"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050975"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformera data i Azure Data Factory
 > [!div class="op_single_selector"]
@@ -35,10 +35,6 @@ ms.locfileid: "34619756"
 Den här artikeln förklarar data transformation aktiviteter i Azure Data Factory att du kan använda för att omvandla och bearbetar dina rådata i förutsägelser och insikter. En omvandling aktivitet körs i en datormiljö, till exempel Azure HDInsight-kluster eller ett Azure Batch. Det innehåller länkar till artiklar med detaljerad information om varje aktivitet för omvandling.
 
 Data Factory stöder följande data transformation-aktiviteter som kan läggas till [pipelines](concepts-pipelines-activities.md) antingen individuellt eller härledda med en annan aktivitet.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [omvandling aktiviteter i Data Factory version 1](v1/data-factory-data-transformation-activities.md).
- 
 
 ## <a name="hdinsight-hive-activity"></a>HDInsight Hive-aktivitet
 HDInsight Hive-aktivitet i en Data Factory-pipelinen kör Hive-frågor på egen hand eller på begäran Windows/Linux-baserade HDInsight-kluster. Se [Hive aktiviteten](transform-data-using-hadoop-hive.md) artikeln för information om den här aktiviteten. 

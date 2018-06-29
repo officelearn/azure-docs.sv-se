@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fa3ab6df9b471a596cc229edf5fb555009c3101d
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 1db10a1578133021b976231a66aee6b550d71faf
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318401"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046762"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - vanliga frågor och svar
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [vanliga fråga - Data Factory version 2](../frequently-asked-questions.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [vanliga fråga - Data Factory](../frequently-asked-questions.md).
 
 ## <a name="general-questions"></a>Allmänna frågor
 ### <a name="what-is-azure-data-factory"></a>Vad är Azure Data Factory?

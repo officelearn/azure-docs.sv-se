@@ -1,6 +1,6 @@
 ---
-title: Compute-kontexten alternativ för R Server på HDInsight - Azure | Microsoft Docs
-description: Lär dig mer om olika beräkning kontexten alternativen för användare med R Server på HDInsight
+title: Compute-kontexten alternativ för ML-tjänster på HDInsight - Azure | Microsoft Docs
+description: Lär dig mer om olika beräkning kontexten alternativen för användare med ML-tjänster på HDInsight
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -11,26 +11,26 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 2aa10e1eab6cabe058062519ecc023b88361d742
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 57480cef48182a56b315d7d6932883c485f5a7c8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409077"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050116"
 ---
-# <a name="compute-context-options-for-r-server-on-hdinsight"></a>Compute-kontexten alternativ för R Server på HDInsight
+# <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Compute-kontexten alternativ för ML-tjänster på HDInsight
 
-Microsoft R Server på Azure HDInsight styr hur anropen genom att ange beräknings-kontexten. Den här artikeln beskrivs de alternativ som är tillgängliga för att ange om och hur körningen paralleliserad över kärnor kantnod eller HDInsight-kluster.
+Ml – tjänster i Azure HDInsight styr hur anropen genom att ange beräknings-kontexten. Den här artikeln beskrivs de alternativ som är tillgängliga för att ange om och hur körningen paralleliserad över kärnor kantnod eller HDInsight-kluster.
 
 Edge-nod i ett kluster ger en lämplig plats att ansluta till klustret och köra R-skript. Med en kantnod har möjlighet att köra parallelized distribuerade funktioner RevoScaleR över kärnor på noden gränsservern. Du kan också köra dem mellan noder i klustret med hjälp av Revoscaler's Hadoop kartan minska eller compute kontexter för Spark.
 
-## <a name="microsoft-r-server-on-azure-hdinsight"></a>Microsoft R Server på Azure HDInsight
-[Microsoft R Server på Azure HDInsight](r-server-overview.md) innehåller de senaste funktionerna för analys av R-baserade. Det kan använda data som lagras i en HDFS-behållare i din [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage-konto, ett Data Lake store eller lokala Linux-filsystem. Eftersom R Server bygger på öppen källkod R gäller R-baserade program som du skapar öppen källkod R-paket 8000 +. De kan också använda rutiner i [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), Microsofts big analytics datapaketet som ingår i R Server.  
+## <a name="ml-services-on-azure-hdinsight"></a>Ml – tjänster i Azure HDInsight
+[Ml – tjänster i Azure HDInsight](r-server-overview.md) innehåller de senaste funktionerna för analys av R-baserade. Det kan använda data som lagras i en HDFS-behållare i din [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage-konto, ett Data Lake store eller lokala Linux-filsystem. Eftersom ML Services bygger på öppen källkod R gäller R-baserade program som du skapar öppen källkod R-paket 8000 +. De kan också använda rutiner i [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), Microsofts big analytics datapaketet som ingår i ML-tjänster.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Beräkna kontexter för en kantnod
-I allmänhet körs ett R-skript som körs i R Server på kantnoden inom R-tolken på noden. Undantagen är de steg som anropar en RevoScaleR funktion. RevoScaleR anropen köras i en miljö för beräkning som bestäms av hur du ställer in RevoScaleR beräknings-kontexten.  När du kör din R-skriptet från en kantnod är beräknings-kontexten möjliga värden:
+I allmänhet körs ett R-skript som körs i ML Services klustret på noden edge inom R-tolken på noden. Undantagen är de steg som anropar en RevoScaleR funktion. RevoScaleR anropen köras i en miljö för beräkning som bestäms av hur du ställer in RevoScaleR beräknings-kontexten.  När du kör din R-skriptet från en kantnod är beräknings-kontexten möjliga värden:
 
 - lokal sekventiella (*lokala*)
 - lokala parallell (*localpar*)
@@ -78,9 +78,9 @@ Mer information och exempel på RevoScaleR beräkning kontexter finns infogat hj
 Du kan också gå till den [distribuerad databehandling översikt](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) i [Machine Learning Server-dokumentationen](https://docs.microsoft.com/machine-learning-server/).
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig om de alternativ som är tillgängliga för att ange om och hur körningen paralleliserad över kärnor kantnod eller HDInsight-kluster. Mer information om hur du använder R Server med HDInsight-kluster finns i följande avsnitt:
+I den här artikeln har du lärt dig om de alternativ som är tillgängliga för att ange om och hur körningen paralleliserad över kärnor kantnod eller HDInsight-kluster. Mer information om hur du använder ML-tjänster med HDInsight-kluster finns i följande avsnitt:
 
-* [Översikt över R Server för Hadoop](r-server-overview.md)
-* [Komma igång med R Server för Hadoop](r-server-get-started.md)
-* [Alternativ för Azure Storage för R Server på HDInsight](r-server-storage.md)
+* [Översikt över ML Services för Hadoop](r-server-overview.md)
+* [Kom igång med Hadoop ML-tjänster](r-server-get-started.md)
+* [Azure lagringsalternativ för ML-tjänster på HDInsight](r-server-storage.md)
 

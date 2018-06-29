@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: 58bfae51fda10d14d9b1c4ea34cc10345d9a90ac
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: c3c0d12bbbeec85d2cbf0daead49ee16ca7728fb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318066"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046266"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättra prognosens noggrannhet
 Mönster ger bättre precision när flera utterances liknar. Genom att ange ett mönster för utterance kan THOMAS ha en hög konfidensnivå i förutsägelser. 
@@ -42,6 +42,9 @@ Mönster med en blandning av tekniker för förutsägelse. Ange en utterance en 
 
 ## <a name="patterns-do-not-improve-entity-detection"></a>Mönster förbättrar inte entiteten identifiering
 Medan mönster kräver entiteter, ett mönster hjälper inte att identifiera enheten. Ett mönster är bara tänkt att hjälpa förutsägelser med avsikter och roller.  
+
+## <a name="patterns-use-entity-roles"></a>Mönster använda entiteten roller
+Om två eller flera enheter i ett mönster är sammanhang relaterade, mönster använda entiteten [roller](luis-concept-roles.md) att extrahera detaljerad information om entiteter. Detta motsvarar hierarkiska entitet underordnade, men är **endast** tillgängliga i mönster. 
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Förutsägelse resultat med och utan mönster
 Får tillräckligt med exempel utterances skulle THOMAS kunna öka förutsägelse förtroende utan mönster. Mönster öka förtroende poäng utan att ange så många utterances.  
@@ -92,7 +95,7 @@ Anta att du har ett mönster som innehåller både valfria syntax `[]`, och enti
 
 Att kartlägga mönstret ”[Sök efter] e-post om {ämne} [från {namn}]. I följande utterances den **ämne** och **person** entitet extraheras felaktigt och på rätt sätt:
 
-|utterance|Entitet|Korrekt extrahering|
+|Yttrande|Entitet|Korrekt extrahering|
 |--|--|:--:|
 |e-post om hund från Chris|ämne = hund<br>person = Chris|✔|
 |e-post om man från La Mancha|ämne = man<br>person = La Mancha|X|

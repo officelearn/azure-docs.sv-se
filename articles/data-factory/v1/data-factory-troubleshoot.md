@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: a9a4f7b19d6ef08562d17474e252ce72fd0977dc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cbd51c48ec5b1801062e7aaf0b77e7b347018b31
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051873"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Felsök Data Factory-problem
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig (GA). 
+> Den här artikeln gäller för version 1 av Azure Data Factory. 
 
 Den här artikeln innehåller felsökningstips för problem när du använder Azure Data Factory. Den här artikeln innehåller inte alla möjliga problem när du använder tjänsten, men omfattar vissa problem och allmänna felsökningstips.   
 
@@ -67,7 +68,7 @@ Sektorer kan vara i **väntar på** tillstånd på grund av olika orsaker. En av
 
 I följande exempel kan du se hur egenskapen **external** används. Du kan också ange **externalData*** om du ställer in externa till true.
 
-Se [datauppsättningar](data-factory-create-datasets.md) artikeln för mer information om den här egenskapen.
+Mer info om den här egenskapen finns i artikeln om [datauppsättningar](data-factory-create-datasets.md).
 
 ```json
 {

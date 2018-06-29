@@ -10,24 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: aa96356b01d63aa21c55f1b2e6998e65f9d617f6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a232787793f9f4992a4dece821ae0bcc9059afc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059118"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – Allmänt tillgänglig](v1/data-factory-onprem-oracle-connector.md)
-> * [Version 2 – förhandsversion](connector-oracle.md)
+> * [Version 1](v1/data-factory-onprem-oracle-connector.md)
+> * [Aktuell version](connector-oracle.md)
 
 Den här artikeln beskrivs hur du använder Kopieringsaktiviteten i Azure Data Factory för att kopiera data från och till en Oracle-databas. Den bygger på den [Kopieringsaktiviteten översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över aktiviteten kopia.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory som är allmänt tillgänglig, se [Oracle-anslutningen i version 1](v1/data-factory-onprem-oracle-connector.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -40,6 +38,9 @@ Mer specifikt stöder denna koppling Oracle följande versioner av en Oracle-dat
 - Oracle 10g R1, R2 (10.1, 10,2)
 - Oracle 9i R1, R2 (9.0.1, 9.2)
 - Oracle 8i R3 (8.1.7)
+
+> [!Note]
+> Oracle-proxyserver stöds inte.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -55,10 +56,10 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Oracle länkade tjänsten.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till **Oracle**. | Ja |
-| connectionString | Anger information som behövs för att ansluta till Oracle-databasinstansen. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Stöd för anslutningstypen**: du kan använda **Oracle SID** eller **Oracle tjänstnamnet** att identifiera din databas:<br>– Om du använder SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Om du använder namn på tjänst: `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Ja |
+| connectionString | Anger information som behövs för att ansluta till Oracle-databasinstansen. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Stöd för anslutningstypen**: du kan använda **Oracle SID** eller **Oracle tjänstnamnet** att identifiera din databas:<br>– Om du använder SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Om du använder namn på tjänst: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
 | connectVia | Den [integrering runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime eller Azure Integration Runtime (om datalager är offentligt tillgänglig). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
 **Exempel:**
@@ -88,7 +89,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Ange typegenskapen för dataset för att kopiera data från och till Oracle, **OracleTable**. Följande egenskaper stöds.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till **OracleTable**. | Ja |
 | tableName |Namnet på tabellen i Oracle-databas som den länkade tjänsten refererar till. | Ja |
@@ -120,7 +121,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Oracle, anger du källa i kopieringsaktiviteten till **OracleSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till **OracleSource**. | Ja |
 | oracleReaderQuery | Använda anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`. | Nej |
@@ -163,7 +164,7 @@ Om du inte anger ”oracleReaderQuery” kolumner som har definierats i avsnitte
 
 Om du vill kopiera data till Oracle, anger du sink i kopieringsaktiviteten till **OracleSink**. Följande egenskaper stöds i kopieringsaktiviteten **sink** avsnitt.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för kopiera aktivitet sink måste anges till **OracleSink**. | Ja |
 | writeBatchSize | Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är heltal (antalet rader). |Nej (standardvärdet är 10 000-tal) |
@@ -207,20 +208,20 @@ När du kopierar data från och till Oracle, används följande mappningar från
 
 | Oracle-datatyp | Data Factory tillfälliga datatyp |
 |:--- |:--- |
-| BFILE |Byte[] |
-| BLOB |Byte[]<br/>(endast kan användas på Oracle 10g och senare) |
+| BFILE |Byte] |
+| BLOB |Byte]<br/>(endast kan användas på Oracle 10g och senare) |
 | CHAR |Sträng |
 | CLOB |Sträng |
 | DATE |DateTime |
 | FLYTTAL |Decimal, sträng (om precision > 28) |
 | HELTAL |Decimal, sträng (om precision > 28) |
 | LÅNG |Sträng |
-| LÅNGT RÅDATA |Byte[] |
+| LÅNGT RÅDATA |Byte] |
 | NCHAR |Sträng |
 | NCLOB |Sträng |
 | ANTAL |Decimal, sträng (om precision > 28) |
 | NVARCHAR2 |Sträng |
-| RAW |Byte[] |
+| RÅDATA |Byte] |
 | ROWID |Sträng |
 | TIDSSTÄMPEL |DateTime |
 | TIDSSTÄMPEL MED LOKALA TIDSZON |Sträng |

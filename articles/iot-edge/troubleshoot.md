@@ -4,16 +4,16 @@ description: Lös vanliga problem och lär dig felsökning av Azure IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/23/2018
+ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ad22b0cd1457c1d4146a75047ff18e916c0c7ccd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: efe3e31a1a92e21f2c3a3461deba248d2a8c97fa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633544"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029449"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
@@ -23,36 +23,135 @@ Om du får problem med att köra Azure IoT Edge i din miljö kan du använda den
 
 När det uppstår ett problem kan du läsa mer om IoT Edge-enhetens tillstånd genom att granska behållarloggarna och meddelandena som skickas till och från enheten. Använd kommandona och verktygen i det här avsnittet för att samla in information. 
 
-* Titta på loggarna för Docker-behållarna för att identifiera problem. Börja med dina distribuerade behållare och titta på behållarna som utgör IoT Edge-körningen: Edge-agent och Edge Hub. Edge-agentloggarna ger vanligtvis information om livscykeln för varje behållare. Edge Hub-loggarna ger information om meddelanden och routning. 
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Kontrollera status för IoT Edge Security Manager och dess loggfiler:
 
-   ```cmd
-   docker logs <container name>
+På Linux:
+- Visa status för IoT Edge Security Manager:
+
+   ```bash
+   sudo systemctl status iotedge
    ```
 
-* Visa meddelandena som skickas genom Edge Hub och få kunskap om uppdateringar av enhetens egenskaper med utförliga loggar från körningsbehållarna.
+- Visa loggar för IoT Edge Security Manager:
 
-   ```cmd
-   iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
-   ```
+    ```bash
+    sudo journalctl -u iotedge -f
+    ```
+
+- Visa mer detaljerad loggar för IoT Edge Security Manager:
+
+   - Redigera inställningar för iotedge daemon:
+
+      ```bash
+      sudo systemctl edit iotedge.service
+      ```
    
-* Visa utförliga loggar från kommandona iotedgectl:
+   - Uppdatera följande rader:
+    
+      ```
+      [Service]
+      Environment=IOTEDGE_LOG=edgelet=debug
+      ```
+    
+   - Starta om daemonen IoT kant säkerhet:
+    
+      ```bash
+      sudo systemctl cat iotedge.service
+      sudo systemctl daemon-reload
+      sudo systemctl restart iotedge
+      ```
 
-   ```cmd
-   iotedgectl --verbose DEBUG <command>
+I Windows:
+- Visa status för IoT Edge Security Manager:
+
+   ```powershell
+   Get-Service iotedge
    ```
 
-* Om du får problem med nätverksanslutningen kan du ta en titt på Edge-enhetens miljövariabler som enhetens anslutningssträng:
+- Visa loggar för IoT Edge Security Manager:
+
+   ```powershell
+   # Displays logs from today, newest at the bottom.
+ 
+   Get-WinEvent -ea SilentlyContinue `
+   -FilterHashtable @{ProviderName= "iotedged";
+     LogName = "application"; StartTime = [datetime]::Today} |
+   select TimeCreated, Message |
+   sort-object @{Expression="TimeCreated";Descending=$false}
+   ```
+
+### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Om Säkerhetshanteraren IoT kant inte körs Kontrollera konfigurationsfilen yaml
+
+> [!WARNING]
+> YAML-filer får inte innehålla flikar som indrag. Använd 2 utrymmen i stället.
+
+På Linux:
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+I Windows:
 
    ```cmd
-   docker exec edgeAgent printenv
+   notepad C:\ProgramData\iotedge\config.yaml
+   ```
+
+### <a name="check-container-logs-for-issues"></a>Loggarna behållare för problem
+
+När IoT Edge Security Daemon körs kan du titta på loggar av behållarna för att identifiera problem. Börja med dina distribuerade behållare och titta på behållarna som utgör IoT Edge-körningen: Edge-agent och Edge Hub. Edge-agentloggarna ger vanligtvis information om livscykeln för varje behållare. Edge Hub-loggarna ger information om meddelanden och routning. 
+
+   ```cmd
+   iotedge logs <container name>
+   ```
+
+### <a name="view-the-messages-going-through-the-edge-hub"></a>Visa meddelanden som skickas via Edge-hubb
+
+Visa meddelanden som skickas via navet kant och samla insikter om egenskaper uppdateringar med utförlig loggar från edgeAgent och edgeHub runtime behållarna. Aktivera utförlig loggar på dessa behållare genom att ange den `RuntimeLogLevel` miljövariabeln: 
+
+På Linux:
+    
+   ```cmd
+   export RuntimeLogLevel="debug"
+   ```
+    
+I Windows:
+    
+   ```powershell
+   [Environment]::SetEnvironmentVariable("RuntimeLogLevel", "debug")
    ```
 
 Du kan också kontrollera meddelandena som skickas mellan IoT Hub och IoT Edge-enheterna. Visa meddelandena genom att använda tillägget [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) för Visual Studio Code. Mer information finns i [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) (Praktiskt verktyg när du utvecklar med Azure IoT).
 
-När du har letat efter information i loggarna och meddelandena kan du också försöka starta om Azure IoT Edge-körningen:
+### <a name="restart-containers"></a>Starta om behållare
+När du undersöker loggar och meddelanden för information, kan du prova att starta om behållare:
+
+```
+iotedge restart <container name>
+```
+
+Starta om IoT kant runtime-behållare:
+
+```
+iotedge restart edgeAgent && iotedge restart edgeHub
+```
+
+### <a name="restart-the-iot-edge-security-manager"></a>Starta om säkerhetshanteraren IoT kant
+
+Om problemet fortfarande beständighet, kan du starta om säkerhetshanteraren IoT kant.
+
+På Linux:
 
    ```cmd
-   iotedgectl restart
+   sudo systemctl restart iotedge
+   ```
+
+I Windows:
+
+   ```powershell
+   Stop-Service iotedge -NoWait
+   sleep 5
+   Start-Service iotedge
    ```
 
 ## <a name="edge-agent-stops-after-about-a-minute"></a>Edge-agenten avslutas efter ungefär en minut
@@ -100,29 +199,11 @@ En behållare kan inte köras, och Edge-agentloggarna visar ett 403-fel.
 Edge-agenten har inte behörighet för att få åtkomst till en moduls avbildning. 
 
 ### <a name="resolution"></a>Lösning
-Försök köra kommandot `iotedgectl login` igen.
+Kontrollera att autentiseringsuppgifterna registret har angetts korrekt i din distributionsmanifestet
 
-## <a name="iotedgectl-cant-find-docker"></a>iotedgectl kan inte hitta Docker
+## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>IoT-Edge security daemon misslyckas med ett ogiltigt värdnamn
 
-Kommandona `iotedgectl setup` eller `iotedgectl start` misslyckas och skriva till loggar följande meddelande:
-```output
-File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
-  info = self._client.info()
-File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
-  return self.api.info(*args, **kwargs)
-File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
-  return self._result(self._get(self._url("/info")), True)
-```
-
-### <a name="root-cause"></a>Rotorsak
-iotedgectl kan inte hitt Docker, vilket är et förhandskrav.
-
-### <a name="resolution"></a>Lösning
-Installera Docker, se till att det körs och försök igen.
-
-## <a name="iotedgectl-setup-fails-with-an-invalid-hostname"></a>iotedgectl installationen misslyckas med ett ogiltigt värdnamn
-
-Kommandot `iotedgectl setup` misslyckas och följande meddelande: 
+Kommandot `sudo journalctl -u iotedge` misslyckas och följande meddelande: 
 
 ```output
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
@@ -143,9 +224,17 @@ När du ser det här felet kan åtgärda du det genom att konfigurera DNS-namnet
 4. Kopiera den nya DNS-namn som ska vara i formatet  **\<DNSnamelabel\>.\< vmlocation\>. cloudapp.azure.com**.
 5. Inuti den virtuella datorn använder du följande kommando för att ställa in IoT kant runtime med DNS-namn:
 
-   ```input
-   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
-   ```
+   - På Linux:
+
+      ```bash
+      sudo nano /etc/iotedge/config.yaml
+      ```
+
+   - I Windows:
+
+      ```cmd
+      notepad C:\ProgramData\iotedge\config.yaml
+      ```
 
 ## <a name="next-steps"></a>Nästa steg
 Tror du att du har hittat ett fel i IoT Edge-plattformen? [Skicka in ett problem](https://github.com/Azure/iot-edge/issues) så att vi kan fortsätta att förbättra oss. 

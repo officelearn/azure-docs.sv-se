@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a70f02fca5ebf575bc009623c3af648a5a80fd70
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 358827722e8d77cd91410fae842ad2ba99967d98
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153752"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028905"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Använd en Linux VM hanterade tjänsten identitet (MSI) för att komma åt Azure Data Lake Store
 
@@ -190,7 +190,7 @@ Grattis!  Du har autentiserats för Data Lake Store-filsystem med hjälp av en V
 - En översikt över MSI finns [hanterade tjänstidentiteten översikt](msi-overview.md).
 - Operations Data Lake Store använder Azure Resource Manager för hantering.  Mer information om hur du använder en VM MSI för att autentisera till Resource Manager [använder en Linux VM hanterade tjänsten identitet (MSI) för åtkomst till Resource Manager](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md).
 - Lär dig mer om [autentisering med Data Lake Store med hjälp av Azure Active Directory](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
-- Lär dig mer om [filsystemsåtgärder på Azure Data Lake Store med hjälp av REST API](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) eller [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis.md).
+- Lär dig mer om [filsystemsåtgärder på Azure Data Lake Store med hjälp av REST API](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) eller [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
 - Lär dig mer om [åtkomstkontroll i Data Lake Store](~/articles/data-lake-store/data-lake-store-access-control.md).
 
 Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och utforma innehållet.

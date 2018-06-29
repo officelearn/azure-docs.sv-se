@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 8ceecdefe644cb5dd1b6038636960cbb5dd9167e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cd4b58dea43e497a2d7a5b977379d95f7004af45
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618971"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052315"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Förrän aktivitet i Azure Data Factory
 Aktiviteten till fungerar på samma sätt som ett-tills slingor strukturen innehåller programmeringsspråk. En uppsättning aktiviteter körs i en loop tills det villkor som är associerat med aktiviteten utvärderas till sant. Du kan ange en tidsgräns för Until-aktiviteten i Data Factory. 
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Data Factory V1 dokumentationen](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Syntax
 
@@ -61,7 +58,7 @@ Egenskap  | Beskrivning | Tillåtna värden | Krävs
 namn | Namnet på den `Until` aktivitet. | Sträng | Ja
 typ | Måste anges till **tills**. | Sträng | Ja
 uttryck | Uttryck som måste utvärderas till true eller false | Uttryck.  | Ja
-timeout | Do-tills loop gånger ut efter den angivna tiden. | Sträng. `d.hh:mm:ss` (eller) `hh:mm:ss`. Standardvärdet är 7 dagar. Högsta tillåtna värde är: 90 dagar. | Nej
+timeout | Do-tills loop gånger ut efter den angivna tiden. | sträng. `d.hh:mm:ss` (eller) `hh:mm:ss`. Standardvärdet är 7 dagar. Högsta tillåtna värde är: 90 dagar. | Nej
 Aktiviteter | Uppsättning aktiviteter körs tills uttrycket utvärderas till `true`. | Matris med aktiviteter. |  Ja
 
 ## <a name="example-1"></a>Exempel 1

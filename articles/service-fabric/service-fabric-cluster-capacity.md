@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: a5046a5e3771e95d76bb6edc7987a1e3176abeb0
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: aca03452ff5655d3a7180009f42df14c9459a9ff
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309424"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061566"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-kluster kapacitetsplaneringsöverväganden
 För alla Produktionsdistribution är kapacitetsplanering ett viktigt steg. Här är några av de objekt som du måste väga som en del av den här processen.
@@ -27,6 +27,10 @@ För alla Produktionsdistribution är kapacitetsplanering ett viktigt steg. Här
 * Antalet nodtyper klustret måste börja med
 * Egenskaperna för varje nodtyp (storlek, primära internetuppkopplad, antalet virtuella datorer, osv.)
 * Klustrets egenskaper för tillförlitlighet och hållbarhet
+
+> [!NOTE]
+> Du bör granska alla minimalt **inte tillåtet** uppgradera principvärden under planering. Detta är att se till att du har angett värden på rätt sätt och att minimera bränna på klustret senare på grund av konfigurationsinställningar för system som inte ändras. 
+> 
 
 Låt oss gå igenom objekten.
 

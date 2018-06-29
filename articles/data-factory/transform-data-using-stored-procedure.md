@@ -12,24 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 25329d65861dc31e67bba146e15a6446a6449e83
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e8e0f8352404892ea8af6a0fa176c336dd2c1659
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620596"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054032"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformera data med hjälp av aktiviteten lagrad procedur för SQL Server i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-stored-proc-activity.md)
-> * [Version 2 – förhandsversion](transform-data-using-stored-procedure.md)
-
+> * [Version 1](v1/data-factory-stored-proc-activity.md)
+> * [Aktuell version](transform-data-using-stored-procedure.md)
 
 Du kan använda data transformation aktiviteter i en Datafabrik [pipeline](concepts-pipelines-activities.md) att transformera och bearbeta rådata till förutsägelser och insikter. Den lagrade Proceduraktiviteten är en av omvandling av aktiviteter som har stöd för Data Factory. Den här artikeln bygger på den [Transformera data](transform-data.md) artikel som presenterar en allmän översikt över data transformation och stöds omvandling aktiviteter i Data Factory.
 
 > [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [lagrade Proceduraktiviteten i V1](v1/data-factory-stored-proc-activity.md).
-> 
 > Om du har använt Azure Data Factory, Läs igenom [introduktion till Azure Data Factory](introduction.md) och gör kursen: [Självstudier: Transformera data](tutorial-transform-data-spark-powershell.md) innan du läser den här artikeln. 
 
 Du kan använda den lagrade Proceduraktiviteten för att anropa en lagrad procedur i någon av följande datalager i ditt företag eller på ett Azure-dator (VM): 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 7d31a434d4ead6dd8f8a13a08d368389904b5b4a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5ffba386ae6b1e1e5d18f92803bc8cb74b2ff89e
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364241"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061307"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Översikt över säkerheten i Azure virtuella datorer
 Du kan använda Azure virtuella datorer för att distribuera en mängd olika lösningar för datorer i en flexibel metod. Tjänsten stöder Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP och Azure BizTalk-tjänst. Så kan du distribuera alla arbetsbelastningar och alla språk på nästan alla operativsystem.
@@ -142,5 +142,5 @@ Virtuella Azure-datorer är certifierad för FISMA, FedRAMP, HIPAA, PCI DSS niv�
 
 Läs mer:
 
-* [Microsoft Trust Center: kompatibilitet](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
+* [Microsoft Trust Center: kompatibilitet](https://www.microsoft.com/en-us/trustcenter/compliance)
 * [Betrodda moln: Microsoft Azure-säkerhet, sekretess och efterlevnad](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)

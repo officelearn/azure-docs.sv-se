@@ -1,5 +1,5 @@
 ---
-title: Förstå din faktura för Azure
+title: Förstå din faktura för Azure | Microsoft Docs
 description: Lär dig hur du läst och förstått användnings- och faktura för din Azure-prenumeration
 services: ''
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 06/14/2018
 ms.author: tonguyen
-ms.openlocfilehash: f3e0e3eeab88ad8ad0c4a21eb69a6340dbbe0441
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 689ea9e0d029bb65bc579fc914c6ed3073b4a96b
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204899"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064120"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Förstå fakturan för Microsoft Azure
 Jämför fakturan med filen detaljerad daglig användning och kostnader management rapporterna i Azure-portalen för att förstå fakturan Azure.
@@ -101,6 +101,40 @@ Om du [betala av fakturering](billing-how-to-pay-by-invoice.md), skickar du beta
 ## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>Hur jag för att kontrollera status för en betalning kreditkort?
 
 [Skapa ett supportärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) och be om statusen för din betalning. 
+
+## <a name="are-there-different-azure-customer-types-how-do-i-know-what-customer-type-i-am"></a>Finns det olika Azure-kundtyper? Hur vet vilken kund-typ som jag?
+Det finns olika typer av Azure-kunder. För att bättre förstå din faktura och prissättning, finns i följande beskrivningar för kund-typen.
+
+- **Enterprise**: Enterprise-kunder som har undertecknat ett Enterprise-avtal med Azure för att göra förhandlade monetära åtaganden och få åtkomst till anpassade priser för Azure-resurser.
+- **Web Direct**: Web direkt kunder har inte skrivit något anpassade avtal med Azure. Dessa kunder har registrerat dig för Azure via azure.com och få offentliga Internetriktade priser för alla Azure-resurser.
+- **Cloud Service Provider**: molntjänst-Providers är vanligtvis företag som har anlitat av en end-kund att skapa lösningar på Azure.
+
+## <a name="why-dont-i-see-the-cost-the-resource-i-have-created-in-my-bill"></a>Varför ser jag kostnaden resursen har skapats i min faktura?
+Azure har inte faktura direkt baserat på resursen. Debitering görs beroende av en eller flera mätare som används för att spåra användningen av en resurs under hela sin livslängd. Dessa mätare används sedan för att beräkna växeln. Läs mer om Azure avläsning nedan.
+
+## <a name="how-does-azure-charge-metering-work"></a>Hur debiterar avläsning arbete i Azure?
+När du få igång en enda Azure resurs, till exempel en virtuell dator har en eller flera mätaren instanser som skapats samt. Dessa mätare används för att spåra användningen av resursen över tid. Varje mätaren avger användningsposter som sedan används av Azure i vår kostnaden avläsning systemet för att beräkna växeln. 
+
+En enskild virtuell dator som skapats i Azure kan till exempel ha följande mätare skapas för att spåra användningen:
+
+- Instanstimmar
+- IP-Adresstimmar
+- Dataöverföring in
+- Dataöverföring ut
+- Standard hanterade diskar
+- Åtgärder för hanterade diskar som standard
+- Standard-i/o-Disk
+- Standard-i/o-Block-Blob Läs
+- Standard-i/o-Block-Blob-skrivåtgärder
+- Ta bort standard-i/o-Block-Blob
+
+När den virtuella datorn har skapats börjar var och en av de ovanstående mätare avger användningsposter. Denna användning ska sedan användas i Azures avläsning datorn tillsammans med den mätaren pris för att avgöra hur mycket kunden debiteras.
+
+> [!Note]
+> I ovanstående exempel mätare kan endast vara en delmängd av mätare skapas en virtuell dator som har skapats.
+
+## <a name="what-is-the-difference-between-azure-1st-party-charges-and-azure-marketplace-charges"></a>Vad är skillnaden mellan Azure 1 part avgifter och kostnader för Azure Marketplace?
+Azure 1 part avgifterna är för resurser som är direkt utvecklas och som Azure erbjuder. Azure Marketplace-debiteringar är resurser som har skapats av tredje part programleverantörer som är tillgängliga via Azure marketplace. Till exempel är en Barracuda brandvägg en Azure marketplace-resurs som erbjuds av en tredje part. Alla avgifter för brandväggen och dess motsvarande mätare visas som marketplace-debiteringar. 
 
 ## <a name="tips-for-cost-management"></a>Tips för hantering av kostnad
 - Uppskatta kostnader med hjälp av den [prisnivå Kalkylatorn](https://azure.microsoft.com/pricing/calculator/) och [totalkostnad för ägarskap Kalkylatorn](https://aka.ms/azure-tco-calculator), och få de [utförlig prisinformation för varje tjänst](https://azure.microsoft.com/pricing/).

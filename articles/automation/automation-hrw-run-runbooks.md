@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a4cf32ea7b77db3fc78a404063b8a4d69ecebf58
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 32cc1a436521574917c8e52b2fa4e045d32a4f09
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195717"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062582"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks som körs på en Hybrid Runbook Worker
 
@@ -157,13 +157,9 @@ Spara den *Export RunAsCertificateToHybridWorker* runbook på datorn med en `.ps
 
 Jobb hanteras något annorlunda på Hybrid Runbook Workers än de är när de körs på Azure sandboxar. En viktigaste skillnaden är att det finns ingen gräns på varaktighet för jobbet på Hybrid Runbook Workers. Om du har en tidskrävande runbook vill du kontrollera att det är motståndskraftiga mot möjliga omstart, till exempel om datorn som är värd för worker-hybriden startas om. Om värddatorn Hybrid worker startas om, startar alla runbook-jobb som körs från början, eller från den senaste kontrollpunkten för PowerShell-arbetsflöde runbooks. Om en runbook-jobbet har startats om mer än 3 gånger är sedan den avbruten.
 
-## <a name="troubleshooting-runbooks-on-hybrid-runbook-worker"></a>Felsökning av runbooks på Hybrid Runbook Worker
+## <a name="troubleshoot"></a>Felsöka
 
-Loggfilerna lagras lokalt på varje worker-hybrid på C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Hybrid Worker-arbeten också registrera fel och händelser i händelseloggen i Windows under **program och tjänster Logs\Microsoft-SMA\Operational**. Runbooks som körs på worker-relaterade händelser skrivs till **program och tjänster Logs\Microsoft-Automation\Operational**. Den **Microsoft SMA** loggen innehåller många fler händelser relaterade till runbook-jobbet pushas till arbetaren och bearbetning av runbook. När den **Microsoft Automation** händelseloggen inte har många händelser med information som hjälper med felsökning av runbook-körningen, det innehåller resultatet av runbook-jobbet.
-
-[Runbook-utdata och meddelanden om](automation-runbook-output-and-messages.md) skickas till Azure Automation från hybrid Worker-arbeten precis som runbook-jobb körs i molnet. Du kan också aktivera utförlig och förlopp strömmar på samma sätt som för andra runbooks.
-
-Om dina runbooks inte har slutförts korrekt och jobbet sammanfattning visar statusen **pausad**, granska felsökningsartikel [Runbook Worker-Hybrid: runbook-jobbet avslutas med statusen Pausad](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).
+Om dina runbooks inte har slutförts korrekt och jobbet sammanfattning visar statusen **pausad**, granska den felsökningsguide för [fel vid körning av runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,22 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 525ad1c83a1982ae5b954b900c5a6c7086544c66
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: abe2fabc505f94f19d4b15a406fc59bf6d6e7ac1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700544"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050343"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformera data med hjälp av Spark aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-spark.md)
-> * [Version 2 – förhandsversion](transform-data-using-spark.md)
+> * [Version 1](v1/data-factory-spark.md)
+> * [Aktuell version](transform-data-using-spark.md)
 
 Spark-aktivitet i en Datafabrik [pipeline](concepts-pipelines-activities.md) kör ett Spark-program på [egna](compute-linked-services.md#azure-hdinsight-linked-service) eller [på begäran](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight-kluster. Den här artikeln bygger på den [data transformation aktiviteter](transform-data.md) artikel som presenterar en allmän översikt över data transformation och stöds omvandling aktiviteter. När du använder en på-begäran Spark länkad tjänst Data Factory skapar automatiskt ett Spark-kluster för du just-in-time bearbeta data och tar bort klustret när bearbetningen är klar. 
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Spark aktivitet i V1](v1/data-factory-spark.md).
 
 > [!IMPORTANT]
 > Spark aktiviteten stöder inte HDInsight Spark-kluster som använder ett Azure Data Lake Store som primär lagring.
@@ -74,7 +71,7 @@ I följande tabell beskrivs JSON-egenskaper som används i JSON-definitionen:
 | rootPath              | Azure Blob-behållaren och mappen som innehåller filen Spark. Filnamnet är skiftlägeskänslig. Referera till mappstrukturen avsnitt (nästa avsnitt) för ytterligare information om strukturen för den här mappen. | Ja      |
 | entryFilePath         | Relativa sökvägen till rotmappen på Spark/kodpaketet. Post-filen måste vara en Python-fil eller en .jar-fil. | Ja      |
 | Klassnamn             | Programmets Java/Spark huvudsakliga klass      | Nej       |
-| Argument             | En lista med kommandoradsargument till Spark-program. | Nej       |
+| argument             | En lista med kommandoradsargument till Spark-program. | Nej       |
 | proxyUser             | Användarkontot som ska personifiera för att köra Spark-program | Nej       |
 | sparkConfig           | Ange värden för egenskaper för Spark-konfiguration visas i avsnittet: [Spark-konfiguration – programegenskaper](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nej       |
 | getDebugInfo          | Anger när Spark loggfilerna kopieras till Azure storage som används av HDInsight-kluster (eller) anges av sparkJobLinkedService. Tillåtna värden: None, alltid eller fel. Standardvärde: Ingen. | Nej       |

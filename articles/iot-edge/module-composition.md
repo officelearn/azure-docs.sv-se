@@ -1,37 +1,37 @@
 ---
 title: Azure IoT kant modulsammansättningen | Microsoft Docs
-description: Lär dig vad hamnar i Azure IoT kant-moduler och hur de kan återanvändas
+description: Lär dig hur en distributionsmanifestet deklarerar vilka moduler för att distribuera, hur du distribuerar dem och hur du skapar meddelandevägar mellan dem.
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/23/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c886d1d9dea120a243693c12ae861a58126daadc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 84a0698a61e68c141cc79dbc779f352aab528afa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631691"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031489"
 ---
-# <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Förstå hur IoT kant moduler kan användas, konfigurerad, och återanvänds - förhandsgranskning
+# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Lär dig hur du använder distributionsmanifest att distribuera moduler och upprätta vägar
 
-Varje IoT gränsenheten kör minst två moduler: $edgeAgent och $edgeHub, som utgör IoT kant-körningsmiljön. Förutom dessa standard två köra alla IoT-enhet flera moduler för att utföra valfritt antal processer. När du distribuerar dessa moduler till en enhet på samma gång behöver du ett sätt att deklarera vilka moduler ingår hur de samverkar med varandra. 
+Varje IoT gränsenheten kör minst två moduler: $edgeAgent och $edgeHub, som utgör IoT kant-körningsmiljön. Förutom dessa standard två köra alla IoT-enhet flera moduler för att utföra valfritt antal processer. När du distribuerar dessa moduler till en enhet på samma gång behöver du ett sätt att deklarera vilka moduler ingår och hur de samverkar med varandra. 
 
 Den *distributionsmanifestet* är ett JSON-dokument som beskriver:
 
-* Vilka IoT kant-moduler måste distribueras tillsammans med deras alternativ för skapande och hantering.
+* Konfiguration av agenten kant som innehåller bilden behållare för varje modul, autentiseringsuppgifter för åtkomst till privata behållare register och instruktioner för hur varje modul ska skapas och hanteras.
 * Konfiguration av Edge hubben, vilket innefattar hur meddelanden flödar mellan moduler och slutligen till IoT-hubb.
-* Du kan också värdena som anges i modulen twins, önskade egenskaper att konfigurera enskilda modulen program.
+* Du kan också egenskaperna för modulen twins.
 
 Alla IoT-gränsenheterna måste konfigureras med en distributionsmanifestet. En nyligen installerade IoT kant runtime rapporterar en felkod förrän konfigurerats med ett giltigt manifest. 
 
-I Azure IoT kant självstudier skapar du en distributionsmanifestet genom att gå via en guide i Azure IoT kant-portalen. Du kan också använda en distributionsmanifestet programmässigt med hjälp av REST- eller IoT-hubb Service SDK. Referera till [distribuera och övervaka] [ lnk-deploy] mer information om IoT kant-distributioner.
+I Azure IoT kant självstudier skapar du en distributionsmanifestet genom att gå via en guide i Azure IoT kant-portalen. Du kan också använda en distributionsmanifestet programmässigt med hjälp av REST- eller IoT-hubb Service SDK. Mer information finns i [förstå IoT kant distributioner][lnk-deploy].
 
 ## <a name="create-a-deployment-manifest"></a>Skapa en distributionsmanifestet
 
-Distributionsmanifestet konfigurerar en modul dubbla egenskaper för IoT kant-moduler som har distribuerats på en IoT-enhet på en hög nivå. Två av dessa moduler finns alltid: Edge-agenten och Edge-hubben.
+Distributionsmanifestet konfigurerar en modul dubbla egenskaper för IoT kant-moduler som har distribuerats på en IoT-enhet på en hög nivå. Två av dessa moduler finns alltid: `$edgeAgent`, och `$edgeHub`.
 
 Distributionsmanifestet som innehåller endast IoT kant körningen (agent och hubb) är giltig.
 
@@ -44,6 +44,7 @@ Manifestet följer den här strukturen:
             "properties.desired": {
                 // desired properties of the Edge agent
                 // includes the image URIs of all modules
+                // includes container registry credentials
             }
         },
         "$edgeHub": {
@@ -67,7 +68,7 @@ Manifestet följer den här strukturen:
 
 ## <a name="configure-modules"></a>Konfigurera moduler
 
-Utöver etablera önskade egenskaper för alla moduler som du vill distribuera, behöver du hur IoT kant-körningen ska installeras. Konfiguration och hantering av information för alla moduler går inuti den **$edgeAgent** önskade egenskaper. Informationen omfattar konfigurationsparametrarna för själva Edge-agenten. 
+Du behöver hur IoT kant-körningsmiljön att installera modulerna i distributionen. Konfiguration och hantering av information för alla moduler går inuti den **$edgeAgent** önskade egenskaper. Informationen omfattar konfigurationsparametrarna för själva Edge-agenten. 
 
 En fullständig lista över egenskaper som kan eller måste tas med, se [egenskaper för Edge agent och Edge hubb](module-edgeagent-edgehub.md).
 
@@ -78,6 +79,11 @@ Egenskaperna $edgeAgent följande struktur:
     "properties.desired": {
         "schemaVersion": "1.0",
         "runtime": {
+            "settings":{
+                "registryCredentials":{ // give the edge agent access to container images that aren't public
+                    }
+                }
+            }
         },
         "systemModules": {
             "edgeAgent": {
@@ -88,7 +94,7 @@ Egenskaperna $edgeAgent följande struktur:
             }
         },
         "modules": {
-            "{module1}": { //optional
+            "{module1}": { // optional
                 // configuration and management details
             },
             "{module2}": { // optional
@@ -158,7 +164,7 @@ Sink definierar där meddelanden skickas. Det kan vara något av följande värd
 | `$upstream` | Skicka meddelandet till IoT-hubb |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Skicka meddelandet till indata `{input}` för modulen `{moduleId}` |
 
-Det är viktigt att notera att Edge hubb tillhandahåller garantier för på-minst en gång, vilket innebär att meddelanden lagras lokalt om en väg går inte att leverera meddelandet till dess mottagare, till exempel Edge-hubb kan inte ansluta till IoT-hubb eller mål-modulen är inte ansluten.
+IoT-Edge tillhandahåller garantier för på-minst en gång. Edge-hubben lagrar meddelanden lokalt om en väg går inte att leverera meddelandet till dess mottagare. Till exempel om kant-hubb inte kan ansluta till IoT-hubb eller mål-modulen är inte anslutet.
 
 Edge hubb lagrar meddelanden upp till den tid som anges i den `storeAndForwardConfiguration.timeToLiveSecs` -egenskapen för den [kant hubb önskade egenskaper](module-edgeagent-edgehub.md).
 
@@ -168,7 +174,7 @@ Distributionsmanifestet kan ange egenskaper för modulen dubbla för varje modul
 
 Om du inte anger en modul dubbla önskade egenskaper i distributionsmanifestet IoT-hubb kan inte ändra modulen dubbla på något sätt och du kommer att kunna ange de önskade egenskaperna programmässigt.
 
-Av samma metoder som gör det möjligt att ändra enheten twins används för att ändra modulen twins. Referera till den [enheten dubbla Utvecklarhandbok](../iot-hub/iot-hub-devguide-device-twins.md) för ytterligare information.   
+Av samma metoder som gör det möjligt att ändra enheten twins används för att ändra modulen twins. Mer information finns i [enheten dubbla Utvecklarhandbok](../iot-hub/iot-hub-devguide-device-twins.md).   
 
 ## <a name="deployment-manifest-example"></a>Exempel på distribution manifest
 
@@ -176,72 +182,79 @@ Detta exempel på distribution manifestet JSON-dokument.
 
 ```json
 {
-"moduleContent": {
+  "moduleContent": {
     "$edgeAgent": {
-        "properties.desired": {
-            "schemaVersion": "1.0",
-            "runtime": {
-                "type": "docker",
-                "settings": {
-                    "minDockerVersion": "v1.25",
-                    "loggingOptions": ""
-                }
-            },
-            "systemModules": {
-                "edgeAgent": {
-                    "type": "docker",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-agent:1.0-preview",
-                    "createOptions": ""
-                    }
-                },
-                "edgeHub": {
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-hub:1.0-preview",
-                    "createOptions": ""
-                    }
-                }
-            },
-            "modules": {
-                "tempSensor": {
-                    "version": "1.0",
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
-                    "createOptions": "{}"
-                    }
-                },
-                "filtermodule": {
-                    "version": "1.0",
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "myacr.azurecr.io/filtermodule:latest",
-                    "createOptions": "{}"
-                    }
-                }
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {
+              "ContosoRegistry": {
+                "username": "myacr",
+                "password": "{password}",
+                "address": "myacr.azurecr.io"
+              }
             }
+          }
+        },
+        "systemModules": {
+          "edgeAgent": {
+            "type": "docker",
+            "settings": {
+              "image": "microsoft/azureiotedge-agent:1.0-preview",
+              "createOptions": ""
+            }
+          },
+          "edgeHub": {
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "microsoft/azureiotedge-hub:1.0-preview",
+              "createOptions": ""
+            }
+          }
+        },
+        "modules": {
+          "tempSensor": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "createOptions": "{}"
+            }
+          },
+          "filtermodule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "myacr.azurecr.io/filtermodule:latest",
+              "createOptions": "{}"
+            }
+          }
         }
+      }
     },
     "$edgeHub": {
-        "properties.desired": {
-            "schemaVersion": "1.0",
-            "routes": {
-                "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-                "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
-            },
-            "storeAndForwardConfiguration": {
-                "timeToLiveSecs": 10
-            }
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {
+          "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+          "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
+        },
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 10
         }
+      }
     }
-}
+  }
 }
 ```
 

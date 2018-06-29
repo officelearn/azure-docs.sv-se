@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cdea020ad4c9c9e828d62fff8639acec2e3d6c74
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6b13c70d86af195e50190083aa562811236cdd4b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621929"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054266"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Flytta data med hjälp av Kopieringsaktiviteten
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-data-movement-activities.md)
-> * [Version 2 – förhandsversion](../copy-activity-overview.md)
+> * [Version 1](data-factory-data-movement-activities.md)
+> * [Version 2 (aktuell version)](../copy-activity-overview.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Kopieringsaktiviteten i V2](../copy-activity-overview.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Kopieringsaktiviteten i V2](../copy-activity-overview.md).
 
 ## <a name="overview"></a>Översikt
 I Azure Data Factory, du kan använda Kopieringsaktiviteten för att kopiera data mellan lokala och moln datalager. När data kopieras, kan ytterligare omvandlas och analyseras. Du kan också använda Kopieringsaktiviteten för att publicera omvandling och analysresultat för business intelligence (BI) och förbrukning av programmet.

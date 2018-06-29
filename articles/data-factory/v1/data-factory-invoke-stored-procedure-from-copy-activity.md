@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c06e8c1a64f6f784f106c9b925f698b33c196320
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e75573513f107977e1d5fe62fbae89cb4439e0e9
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621844"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048959"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Anropa lagrade procedur från kopieringsaktiviteten i Azure Data Factory
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Transformera data med hjälp av aktiviteten lagrad procedur i Data Factory version 2](../transform-data-using-stored-procedure.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Transformera data med hjälp av aktiviteten lagrad procedur i Data Factory](../transform-data-using-stored-procedure.md).
 
 
 När du kopierar data till [SQL Server](data-factory-sqlserver-connector.md) eller [Azure SQL Database](data-factory-azure-sql-connector.md), kan du konfigurera den **SqlSink** i en Kopieringsaktivitet att anropa en lagrad procedur. Du kanske vill använda den lagrade proceduren för att utföra några andra processer (sammanslagning kolumner, söka efter värden, infogning i flera tabeller, etc.) krävs innan du infogar data i måltabellen. Den här funktionen utnyttjar [Table-Valued parametrar](https://msdn.microsoft.com/library/bb675163.aspx). 

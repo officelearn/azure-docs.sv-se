@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 18398094dfff03739a3d3d44d2c9c58149271123
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 1c1c294a877a996dc0e6cb916b038dc0ca27ed5c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "34638644"
+ms.locfileid: "37061717"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Anslut ITSM produkter och tjänster med IT Service Management-anslutningstjänsten
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM produkter eller tjänster och IT Service Management-koppling (ITSMC) i logganalys centralt hantera din arbetsobjekt. Läs mer om ITSMC [översikt](log-analytics-itsmc-overview.md).
@@ -191,7 +191,7 @@ Se till att följande krav är uppfyllda:
 **ServiceNow Admins måste göra följande i sina instansen av ServiceNow**:
 - Generera klient-ID och klienthemlighet för ServiceNow-produkten. Information om hur du skapar klient-ID och Hemlig, finns följande information som krävs:
 
-    - [Konfigurera OAuth för Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
+    - [Konfigurera OAuth för Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Djakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Helsingfors](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

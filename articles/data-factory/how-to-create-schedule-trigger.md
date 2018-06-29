@@ -13,20 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 5df6633d40a3a361e551d1bea6caa2606a661a52
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eee68481f4396f8a09241b664d4c3d7d4a4f6567
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618930"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054362"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Skapa en utlösare som kör en pipeline enligt ett schema
 Den här artikeln innehåller information om utlösaren schema och stegen för att skapa, starta och övervaka en schema-utlösare. För andra typer av utlösare finns [Pipeline körning och utlösare](concepts-pipeline-execution-triggers.md).
 
 När du skapar en utlösare för schemat måste du ange ett schema (startdatum, återkommande, slutdatum o.s.v.) för utlösare och associeras med en rörledning. Pipeliner och utlösare har en många-till-många-relation. Flera utlösare kan starta en pipeline. En enskild utlösare kan starta flera pipeliner.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Azure Data Factory, som för närvarande är en förhandsversion. Om du använder Azure Data Factory version 1, som är allmänt tillgänglig (GA), se [Kom igång med Azure Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Följande avsnitt innehåller steg för att skapa en schema-utlösare på olika sätt. 
 
@@ -249,7 +246,7 @@ Det här avsnittet visar hur du använder Python SDK för att skapa, starta och 
 Du kan använda en Azure Resource Manager-mall för att skapa en utlösare. Stegvisa instruktioner finns [skapa ett Azure data factory med hjälp av en Resource Manager-mall](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Skicka utlösaren starttiden för en pipeline
-Azure Data Factory version 1 stöder läsning eller skrivning partitionerade data med hjälp av systemvariablerna: **SliceStart**, **SliceEnd**, **WindowStart**, och **WindowEnd**. Du kan åstadkomma detta genom att använda en pipeline-parameter i Azure Data Factory version 2. Start- och schema för utlösaren anges som värde för parametern pipeline. I följande exempel visas den schemalagda tiden för utlösaren skickas som ett värde till pipelinen **scheduledRunTime** parameter:
+Azure Data Factory version 1 stöder läsning eller skrivning partitionerade data med hjälp av systemvariablerna: **SliceStart**, **SliceEnd**, **WindowStart**, och **WindowEnd**. Du kan åstadkomma detta genom att använda en pipeline-parametern i den aktuella versionen av Azure Data Factory. Start- och schema för utlösaren anges som värde för parametern pipeline. I följande exempel visas den schemalagda tiden för utlösaren skickas som ett värde till pipelinen **scheduledRunTime** parameter:
 
 ```json
 "parameters": {

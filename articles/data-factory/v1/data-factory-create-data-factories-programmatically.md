@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: dcfd24d3d0122f664655f6085bbd58bc0bfe9718
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: de892afee57b9a39b841f6cfc93f8470d831c2a6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018496"
+ms.locfileid: "37045940"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Skapa, övervaka och hantera Azure datafabriker med Azure Data Factory .NET SDK
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Läs [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md) (kopiera aktivitetssjälvstudien i dokumentationen för version 2) om du använder version 2 av Data Factory-tjänsten, som finns tillgänglig som förhandsversion. 
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [kopiera aktivitet kursen](../quickstart-create-data-factory-dot-net.md). 
 
 ## <a name="overview"></a>Översikt
 Du kan skapa, övervaka och hantera Azure datafabriker genom programmering med Data Factory .NET SDK. Den här artikeln innehåller en genomgång som du kan följa om du vill skapa ett exempelkonsol .NET-program som skapar och övervakar en datafabrik. 

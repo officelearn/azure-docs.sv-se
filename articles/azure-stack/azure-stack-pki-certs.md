@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9a43179998e8377dfbbb1a41ba7d46936d63aedd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234849"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030163"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack PKI-certifikatkrav
 
@@ -76,20 +76,6 @@ För din distribution [region] och [externalfqdn] värdena måste matcha region 
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Jokertecken SSL-certifikat) | Queue Storage | kö. &lt;region >. &lt;fqdn > |
 | KeyVault | * .vault. &lt;region >. &lt;fqdn ><br>(Jokertecken SSL-certifikat) | Key Vault | valvet. &lt;region >. &lt;fqdn > |
 | KeyVaultInternal | *.adminvault. &lt;region >. &lt;fqdn ><br>(Jokertecken SSL-certifikat) |  Internt Keyvault |  adminvault. &lt;region >. &lt;fqdn > |
-
-### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>För Azure Stack-miljö i Pre-1803 versioner
-
-|Distributionsmappen|Nödvändiga certifikatämnet och Alternativt ämnesnamn (SAN)|Omfång (per region)|Underdomän namnområde|
-|-----|-----|-----|-----|
-|Offentlig Portal|portalen.  *&lt;region >.&lt; FQDN >*|Portaler|*&lt;region>.&lt;fqdn>*|
-|Admin Portal|adminportal.  *&lt;region >.&lt; FQDN >*|Portaler|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager offentliga|management.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager-administratör|adminmanagement.  *&lt;region >.&lt; FQDN >*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|En multi-underdomänen jokerteckencertifikat med certifikatämnets alternativa namn för:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;region>.&lt;fqdn>*<br>tabell.  *&lt;region >.&lt; FQDN >*<br>queue.*&lt;region>.&lt;fqdn>*|
-|KeyVault|&#42;.Vault.  *&lt;region >.&lt; FQDN >*<br>(Jokertecken SSL-certifikat)|Key Vault|valvet.  *&lt;region >.&lt; FQDN >*|
-|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Jokertecken SSL-certifikat)|Internt Keyvault|adminvault.  *&lt;region >.&lt; FQDN >*|
-|
-<sup>1</sup> kräver tre jokertecken SAN-nätverk på ett enda certifikat för ACS-certifikatet. Flera jokertecken SAN på ett enda certifikat kan stöds inte av alla offentlig certifikatutfärdare. 
 
 Om du distribuerar Azure stacken med hjälp av Azure AD-distribution, behöver du bara begära certifikat visas i föregående tabell. Om du distribuerar Azure stacken med hjälp av AD FS-distribution måste du dock även begära certifikat som beskrivs i följande tabell:
 

@@ -4,19 +4,19 @@ description: Det här scenariot visas hur du gör distribuerade finjustering av 
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: c6eccda4329572a181b6a7e7e3870ace4bfac13b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6347500b8968394a922969dd3dd2f00dd51cb6dd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832755"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036432"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuerad justering av justeringsmodeller med hjälp av Azure Machine Learning arbetsstationen
 
@@ -157,9 +157,9 @@ Efter det markerar dataset-behållaren i listan och klicka på knappen Skicka. A
 
 Överför filer tar flera minuter beroende på din Internet-anslutning. 
 
-I vår kod vi använder [Azure Storage SDK: N](https://azure-storage.readthedocs.io/en/latest/) att ladda ned datauppsättningen från blob storage till den aktuella körningsmiljön. Hämtas i belastning\_anropades funktion från load_data.py-filen. Om du vill använda den här koden, måste du ersätta < kontonamn > och < ACCOUNT_KEY > med namnet och primärnyckel för ditt lagringskonto som är värd för datauppsättningen. Du kan se namnet på kontot i det övre vänstra hörnet av Azure storage-konto-sidan. För att hämta kontot nyckel, Välj snabbtangenter i Azure sidan av lagring (se första skärmbilden under Datapåfyllning) och kopiera lång sträng i den första raden i nyckelkolumn:
+I vår kod vi använder [Azure Storage SDK: N](https://docs.microsoft.com/en-us/python/azure/) att ladda ned datauppsättningen från blob storage till den aktuella körningsmiljön. Hämtas i belastning\_anropades funktion från load_data.py-filen. Om du vill använda den här koden, måste du ersätta < kontonamn > och < ACCOUNT_KEY > med namnet och primärnyckel för ditt lagringskonto som är värd för datauppsättningen. Du kan se namnet på kontot i det övre vänstra hörnet av Azure storage-konto-sidan. För att hämta kontot nyckel, Välj snabbtangenter i Azure sidan av lagring (se första skärmbilden under Datapåfyllning) och kopiera lång sträng i den första raden i nyckelkolumn:
  
-![Snabbtangent](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
+![snabbtangent](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 
 Följande kod från load_data() funktionen laddar ned en fil:
 
@@ -213,7 +213,7 @@ Xgboost har åtta justeringsmodeller, beskrivs [här](https://github.com/dmlc/xg
 * learning_rate
 * colsample\_by_level
 * delprov
-* Mål  
+* mål  
  
 Från början vi använda remote DSVM och finjustera justeringsmodeller från ett litet rutnät av möjliga värden:
 

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 1f4afbe1849210c55c392d014449224f2fe97b04
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0959617185694d48c593996d5cd8c836098dd1cd
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655466"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062214"
 ---
-# <a name="integrate-cloud-foundry-with-azure"></a>Integrera Foundry moln med Azure
+# <a name="integrate-cloud-foundry-with-azure"></a>Integrera Cloud Foundry med Azure
 
 [Molnet Foundry](https://docs.cloudfoundry.org/) är en PaaS-plattform som körs på molnet providers IaaS-plattformen. Den erbjuder enhetlig tillämpning distributionsupplevelse över molntjänstleverantörer. Dessutom kan den också integreras med olika Azure-tjänster, med enterprise-klass hög tillgänglighet, skalbarhet och besparingar.
 Det finns [6 undersystem för molnet](https://docs.cloudfoundry.org/concepts/architecture/), som kan vara ett flexibelt sätt skala online, inklusive: routning, autentisering, livscykel programhantering, Service-hantering, övervakning och meddelanden. Du kan konfigurera molnet Foundry för att använda motsvarande Azure-tjänst för varje delsystem. 
@@ -81,7 +81,7 @@ Medan F och virtuell dator D-serien har ofta rekommenderas för spela en central
 #### <a name="managed-standard-disk"></a>Hanterade Standard Disk: 
 Premiumdiskar rekommenderades för tillförlitlig prestanda i produktion.  Med [hanteras Disk](https://azure.microsoft.com/services/managed-disks/), standardlagring kan också tillhandahålla en liknande tillförlitlighet, med olika prestanda. För arbetsbelastning som inte är känslig för prestanda, t.ex. dev/Test- eller icke-kritiska miljön erbjuda hanterade standarddiskar ett alternativ med lägre kostnad.  
 ### <a name="cost-saving-in-general"></a>Kostnad sparas i allmänhet 
-#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>VM betydande kostnadsbesparingar med reserverade instanser: 
+#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Betydande VM kostnaden sparar med reserverade instanser: 
 Idag debiteras alla CF virtuella datorer med hjälp av ”på begäran” prissättning, även om miljöerna vanligtvis fortsätta under obestämd tid. Du kan nu reserverad kapacitet för virtuell dator på en term som 1 eller 3 år och få rabatt på 45 65%. Rabatter i faktureringssystem utan ändringar av miljön. Mer information finns i [hur reserverade instanser fungerar](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
 #### <a name="managed-premium-disk-with-smaller-sizes"></a>Hanterade Premium Disk med mindre: 
 Hanterade diskar stöd mindre diskstorlekar, till exempel P4(32 GB) och P6(64 GB) för premium- och standarddiskar. Om du har liten arbetsbelastningar kan spara du kostnader när du migrerar från standard premiumdiskar till hanterade premiumdiskar.

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
 ms.author: robb
-ms.openlocfilehash: f0efe96684d77fb83b69a4da12d312872da2f768
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f7fd27dc9be161059dc62071fee33374106e18ef
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30262882"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061289"
 ---
 # <a name="service-health"></a>Service Health
-Tjänstens hälsa ger dig en anpassningsbar instrumentpanel som spårar hälsotillståndet för din Azure-tjänster i regioner där du använder. Du kan spåra aktiva händelser som löpande service problem, kommande planerade maintence eller relevanta hälsa rekommendationerna i den här instrumentpanelen. När händelser blir inaktiva, placeras de i historiken hälsa för upp till 90 dagar. Slutligen kan du använda instrumentpanelen tjänstens hälsa för att skapa och hantera tjänsten health-aviseringar som att meddela dig när tjänsten problem påverkar du.
+Tjänstens hälsa ger dig en anpassningsbar instrumentpanel som spårar hälsotillståndet för din Azure-tjänster i regioner där du använder. Du kan spåra aktiva händelser som löpande service problem, kommande planerat underhåll eller relevanta hälsa rekommendationerna i den här instrumentpanelen. När händelser blir inaktiva, placeras de i historiken hälsa för upp till 90 dagar. Slutligen kan du använda instrumentpanelen tjänstens hälsa för att skapa och hantera tjänsten health-aviseringar som att meddela dig när tjänsten problem påverkar du.
 
 ## <a name="service-health-events"></a>Hälsa av tjänsten-händelser
 Tjänstens hälsa spårar tre typer av hälsotillstånd händelser som kan påverka dina resurser:

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 37239a45cffe18478b8302ccf1ee95c8edd0423a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9b36014057eb1713b2b056cd203a099c59d9b5d4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592168"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031778"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Användaren logga in med Azure Active Directory direkt-autentisering
 
@@ -49,7 +49,7 @@ Du kan kombinera direkt-autentisering med den [sömlös enkel inloggning](active
 - *Skydda*
   - Lokala lösenord lagras aldrig i molnet i någon form.
   - Agenten är endast utgående anslutningar från i nätverket. Det finns därför inget krav att installera agenten i ett perimeternätverk, också kallas en demilitariserad zon.
-  - Skyddar dina användarkonton med fungerar sömlöst med [Azure AD villkorliga åtkomstprinciper](../active-directory-conditional-access-azure-portal.md), inklusive Multi-Factor Authentication (MFA) och av [filtrera lösenord nyckelsökningsangrepp](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
+  - Skyddar dina användarkonton med fungerar sömlöst med [Azure AD villkorliga åtkomstprinciper](../active-directory-conditional-access-azure-portal.md), inklusive Multi-Factor Authentication (MFA) och av [filtrera lösenord nyckelsökningsangrepp](../authentication/howto-password-smart-lockout.md).
 - *Hög tillgänglighet*
   - Ytterligare agenter kan installeras på flera lokala servrar för att tillhandahålla hög tillgänglighet för inloggningsförfrågningar.
 
@@ -64,12 +64,12 @@ Du kan kombinera direkt-autentisering med den [sömlös enkel inloggning](active
 - Den kan aktiveras [Azure AD Connect](active-directory-aadconnect.md).
 - Den använder en förenklad lokal agent som lyssnar efter och svarar på begäran för verifiering av lösenord.
 - Installera flera agenter ger hög tillgänglighet för inloggningsförfrågningar.
-- Den [skyddar](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) dina lokala konton mot brute force angrepp av lösenord i molnet.
+- Den [skyddar](../authentication/howto-password-smart-lockout.md) dina lokala konton mot brute force angrepp av lösenord i molnet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [**Snabbstart** ](active-directory-aadconnect-pass-through-authentication-quick-start.md) – komma igång och körs direkt i Azure AD-autentisering.
-- [**Smartkort kontoutelåsning** ](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) -konfigurerar Smart kontoutelåsning kapaciteten på din klient för att skydda användarkonton.
+- [**Smartkort kontoutelåsning** ](../authentication/howto-password-smart-lockout.md) -konfigurerar Smart kontoutelåsning kapaciteten på din klient för att skydda användarkonton.
 - [**Aktuella begränsningar** ](active-directory-aadconnect-pass-through-authentication-current-limitations.md) – Lär dig vilka scenarier som stöds och vilka som inte är.
 - [**Tekniska ingående** ](active-directory-aadconnect-pass-through-authentication-how-it-works.md) -förstå hur funktionen fungerar.
 - [**Vanliga frågor och svar** ](active-directory-aadconnect-pass-through-authentication-faq.md) -svar på vanliga frågor och svar.

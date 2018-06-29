@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/19/2018
+ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18b6aaf7396c16714370435d2ee6d3a4960ecf21
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3918096a977cfd48e2128646d7c552e842ab8834
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337977"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063688"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Översikt över SAP HANA (stora instanser) och arkitektur på Azure
 
@@ -393,6 +393,8 @@ De här storlekarna är grov volym siffror som kan variera något baserat på di
 Du kan behöva mer lagringsutrymme. Du kan lägga till lagring genom att köpa ytterligare lagringsutrymme i enheter som 1 TB. Den här ytterligare lagringsutrymme kan läggas till som ytterligare volym. Den kan även användas för att utöka en eller flera av de befintliga volymerna. Det går inte att minska storleken på volymerna som ursprungligen har distribuerats och främst dokumenterats i föregående tabell. Det är inte heller går att ändra namnen på volymerna eller montera namn. Lagringsvolymer som beskrevs tidigare är kopplade till HANA stora instans-enheter som NFS4 volymer.
 
 Du kan använda ögonblicksbilder för lagring för säkerhetskopiering och återställning och disaster recovery. Mer information finns i [SAP HANA (stora instanser) hög tillgänglighet och katastrofåterställning recovery på Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+Se [HLI stöds scenarier](hana-supported-scenario.md) lagring layout information för ditt scenario.
 
 ### <a name="encryption-of-data-at-rest"></a>Kryptering av vilande data
 Det lagringsutrymme som används för HANA stora instansen kan en transparent kryptering av data som lagras på diskarna. När en enhet HANA stora instans har distribuerats kan aktivera du den här typen av kryptering. Du kan också ändra till krypterade volymer när distributionen har inträffat. Flytta från en icke-krypterade till krypterade volymer är transparent och behöver inte driftstopp. 

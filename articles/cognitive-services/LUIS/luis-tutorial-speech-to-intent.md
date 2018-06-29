@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: v-geberr;
-ms.openlocfilehash: b8a2c0dbadb0124b9250849a0260f5b34d38a5c3
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: b681598f953d217ca636fb5c0adc3de4ddbebd60
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021671"
+ms.locfileid: "37031795"
 ---
 # <a name="integrate-speech-service"></a>Integrera service tal
 Den [tal tjänsten](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kan du använda en enskild begäran att ta emot ljud och returnera THOMAS förutsägelse JSON-objekt.
@@ -53,7 +53,9 @@ När du har importerat appen, Välj **entiteter**, sedan **hantera färdiga enti
 
   På den **publicera** sidan, samla in app-ID, publicera region och prenumerations-ID för THOMAS nyckeln som skapats i den [skapa THOMAS slutpunktsnyckel](#create-luis-endpoint-key) avsnitt. Du behöver ändra koden för att använda dessa värden senare i den här artikeln. 
 
-  Dessa värden ingår i slutpunkts-URL längst ned i den **publicera** för nyckeln som du skapade. Gör **inte** använda den kostnadsfria starter-nyckeln för den här övningen. 
+  Dessa värden ingår i slutpunkts-URL längst ned i den **publicera** för nyckeln som du skapade. 
+  
+  Gör **inte** använda den kostnadsfria starter-nyckeln för den här övningen. Endast en **språk förstå** nyckeln som skapats i Azure-portalen fungerar för den här övningen. 
 
   https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? prenumeration nyckel =**LUISKEY**& q =
 
@@ -84,22 +86,13 @@ Filen har redan de personal avsikter mappas.
 
 Skapa och köra appen. 
 
-![Skärmbild av kommandoraden som kör program](./media/luis-tutorial-speech-to-intent/cmdline-1.png)
-
 ## <a name="test-code-with-utterance"></a>Testa kod med utterance
-Välj **8** och tala i mikrofonens ”som är chef för John Smith”.
+Välj **1** och tala i mikrofonens ”som är chef för John Smith”.
 
 ```cmd
-1. Speech recognition with microphone input.
-2. Speech recognition in the specified language.
-3. Speech recognition with file input.
-4. Speech recognition using customized model.
-5. Speech continuous recognition using events.
-6. Translation with microphone input.
-7. Translation with file input.
-8. Speech recognition of LUIS intent.
+1. Speech recognition of LUIS intent.
 0. Stop.
-Your choice: 8
+Your choice: 1
 LUIS...
 Say something...
 ResultId:cc83cebc9d6040d5956880bcdc5f5a98 Status:Recognized IntentId:<GetEmployeeOrgChart> Recognized text:<Who is the manager of John Smith?> Recognized Json:{"DisplayText":"Who is the manager of John Smith?","Duration":25700000,"Offset":9200000,"RecognitionStatus":"Success"}. LanguageUnderstandingJson:{
@@ -127,7 +120,7 @@ Rätt avsikten **GetEmployeeOrgChart**, hittades med 61%. KeyPhrase entitet retu
 Tal SDK Returnerar hela THOMAS svaret. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS HumanResources appen när de inte längre behövs. Om du vill göra det, väljer du menyn med tre punkter (...) till höger om appnamnet i applistan väljer **ta bort**. I popup-fönstret **ta bort appen?** väljer **Ok**.
+Ta bort LUIS HumanResources appen när de inte längre behövs. För att göra det väljer du menyn med tre punkter (...) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 Kom ihåg att ta bort katalogen Samples THOMAS när du är klar med exempelkoden.
 

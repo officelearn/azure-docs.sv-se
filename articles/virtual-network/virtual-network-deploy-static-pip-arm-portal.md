@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50ae4d6e8c275db16f811a2a1a063eda441f150b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 524293f9a1ded73ee7cb6ba4f53208a9f9c54ffa
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525547"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048234"
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>Skapa en virtuell dator med en statisk offentlig IP-adress med hjälp av Azure portal
 
@@ -51,7 +51,7 @@ Om du vill skapa en virtuell dator med en statisk offentlig IP-adress i Azure-po
 5. I den **välja en storlek** rutan klickar du på **A1 Standard** som följer och klicka sedan på **Välj**.
    
     ![Azure portal – Välj en storlek](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. I den **inställningar** rutan klickar du på **offentliga IP-adressen**, i den **skapa offentlig IP-adress** rutan under **tilldelning**, klickar du på  **Statisk** enligt följande. Och klicka sedan på **OK**.
+6. I den **inställningar** rutan klickar du på **offentliga IP-adressen**, i den **skapa offentlig IP-adress** rutan under **tilldelning**, klickar du på  **Statisk** på följande sätt. Och klicka sedan på **OK**.
    
     ![Azure portal – skapa offentlig IP-adress](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
 7. I den **inställningar** rutan klickar du på **OK**.

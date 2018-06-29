@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d65851f73ca3cc0bc85caff39b3a322900b78843
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5abd0b07037559b14158a3c314b6ca6ce30ab655
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622524"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045124"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformera data med hjälp av Pig-aktiviteten i Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34622524"
 > * [Anpassad aktivitet för .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Transformera data med Pig aktivitet från Data Factory version 2](../transform-data-using-hadoop-pig.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Transformera data med Pig aktivitet från Data Factory](../transform-data-using-hadoop-pig.md).
 
 
 HDInsight Pig-aktiviteten i en Datafabrik [pipeline](data-factory-create-pipelines.md) Pig frågor körs på [egna](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller [på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-baserade HDInsight-kluster. Den här artikeln bygger på den [data transformation aktiviteter](data-factory-data-transformation-activities.md) artikel som presenterar en allmän översikt över data transformation och stöds omvandling aktiviteter.
@@ -90,7 +90,7 @@ HDInsight Pig-aktiviteten i en Datafabrik [pipeline](data-factory-create-pipelin
 | inmatningar |En eller flera inmatningar som används av Pig-aktiviteten |Nej |
 | utdata |En eller flera av de utdata som produceras av aktiviteten Pig |Ja |
 | linkedServiceName |Referens till HDInsight-kluster som är registrerat som en länkad tjänst i Data Factory |Ja |
-| Skriptet |Ange infogat för Pig-skript |Nej |
+| skriptet |Ange infogat för Pig-skript |Nej |
 | sökvägen för skriptet |Lagra Pig-skriptet i en Azure blob storage och ange sökvägen till filen. Använd egenskapen 'script' eller 'scriptPath'. Båda kan inte användas tillsammans. Filnamnet är skiftlägeskänslig. |Nej |
 | definierar |Ange parametrar som nyckel/värde-par för refererar till i Pig-skriptet |Nej |
 

@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ad883248097fd84e2fa064515b6c7a5232aaa3d3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f6b2be357ad53a1852973d40e221da3d41b09ffb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621946"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050581"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processen stora datauppsättningar genom att använda Data Factory och Batch
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig. Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [anpassade aktiviteter i Data Factory version 2](../transform-data-using-dotnet-custom-activity.md).
+> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig. Om du använder den aktuella versionen av Data Factory-tjänsten finns [anpassade aktiviteter i Data Factory](../transform-data-using-dotnet-custom-activity.md).
 
 Den här artikeln beskriver en arkitektur på en exempellösning som flyttar och bearbetar stora datauppsättningar på automatisk och schemalagda sätt. Det ger också en slutpunkt till slutpunkt-genomgång för att implementera lösningen genom att använda Data Factory och Azure Batch.
 

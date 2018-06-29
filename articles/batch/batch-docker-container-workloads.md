@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 4ee8425bb5c3830b029b766aad464df0ffb15f41
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 8ef9d5a8e5212f6715769eecf4fde92a6d0b9d44
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801123"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060525"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Köra behållarprogram på Azure Batch
 
@@ -229,7 +229,13 @@ Använd den `ContainerSettings` egenskapen i klasserna uppgift att konfigurera b
 
 Om du kör uppgifter på behållaren bilder, den [moln uppgiften](/dotnet/api/microsoft.azure.batch.cloudtask) och [manager projektaktivitet](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) kräver behållaren inställningar. Men den [aktiviteten starta](/dotnet/api/microsoft.azure.batch.starttask), [förberedelse projektaktivitet](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), och [versionen projektaktivitet](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) kräver inte behållaren inställningar (det vill säga de kan köras inom kontexten för en behållare eller direkt på noden).
 
-När du konfigurerar inställningar för behållare, alla kataloger rekursivt nedan i `AZ_BATCH_NODE_ROOT_DIR` (roten för Azure Batch kataloger på noden) mappas till behållare och alla uppgiften miljö variabler som ska mappas till behållaren och kommandorad för uppgift körs i behållaren.
+Kommandoraden för en Azure Batch behållaren uppgift utförs i en arbetskatalogen i behållaren som liknar miljön Batch ställer in för en vanlig aktivitet (behållar-):
+
+* Alla kataloger rekursivt nedan i `AZ_BATCH_NODE_ROOT_DIR` (roten för Azure Batch kataloger på noden) mappas till behållaren
+* Miljövariabler för alla aktivitet ska mappas till behållaren
+* Arbetskatalogen programmet anges desamma som för en vanlig aktivitet så att du kan använda funktioner som programpaket och resursfiler
+
+Aktiviteten körs i en annan plats än vanliga behållaren startpunkten eftersom Batch ändras standard arbetskatalogen i din behållaren, (till exempel `c:\` som standard på en Windows-behållare eller `/` på Linux). Se till att aktiviteten kommandorad eller behållaren startpunkten anger en absolut sökväg, om den inte redan har konfigurerats på så sätt.
 
 Python följande fragment visas en grundläggande kommandorad som körs i en behållare för Ubuntu som hämtas från Docker-hubb. Behållaren som kör alternativen är ytterligare argument till den `docker create` kommando som aktiviteten körs. Här är den `--rm` alternativet tar bort behållaren när uppgiften har slutförts.
 
@@ -240,7 +246,7 @@ task_container_settings = batch.models.TaskContainerSettings(
     container_run_options='--rm')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='echo hello',
+    command_line='/bin/echo hello',
     container_settings=task_container_settings
 )
 
@@ -251,7 +257,7 @@ Följande C#-exempel visar inställningar för grundläggande behållare för en
 ```csharp
 // Simple container task command
 
-string cmdLine = "<my-command-line>";
+string cmdLine = "c:\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
     imageName: "tensorflow/tensorflow:latest-gpu",

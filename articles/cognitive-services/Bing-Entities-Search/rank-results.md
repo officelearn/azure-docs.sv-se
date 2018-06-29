@@ -10,16 +10,16 @@ ms.component: bing-entity-search
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: v-jerkin
-ms.openlocfilehash: ff5b004aaa863dbdfc460a774a5dfd658ce52537
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 53354c0f78419a37e8896bb4d00e0d7aebf32203
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351429"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060000"
 ---
 # <a name="using-ranking-to-display-results"></a>Med rangordning för att visa resultat  
 
-Varje entitet Sök svaret innehåller en [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-entities-v7-reference#rankingresponse) besvara, liknar det i ett Bing webbsökning svar, som anger hur visas i sökresultaten. Rangordning svaret grupperar resultaten i pol, likriktade, och sidopanelen innehåll. Pol resultatet är mest viktiga eller framträdande resultatet och ska visas först. Om du inte vill visa de återstående resulterar i en traditionell likriktade och sidopanelen format måste du ange likriktade innehåll högre synlighet än sidopanelen innehåll. 
+Varje entitet Sök svaret innehåller en [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) besvara, liknar det i ett Bing webbsökning svar, som anger hur visas i sökresultaten. Rangordning svaret grupperar resultaten i pol, likriktade, och sidopanelen innehåll. Pol resultatet är mest viktiga eller framträdande resultatet och ska visas först. Om du inte vill visa de återstående resulterar i en traditionell likriktade och sidopanelen format måste du ange likriktade innehåll högre synlighet än sidopanelen innehåll. 
   
 I varje grupp i [objekt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) matris identifierar den ordning som innehållet måste visas i. Varje element finns två sätt att identifiera resultatet i ett svar.  
   

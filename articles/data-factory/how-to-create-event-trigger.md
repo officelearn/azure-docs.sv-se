@@ -10,20 +10,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2018
+ms.date: 06/27/2018
 ms.author: douglasl
-ms.openlocfilehash: 2bcb0d4e6af00b56d083690439be45379ce4d175
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a9c15b239ee0bd0dde0b1f11691565b2676e3d07
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752817"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062129"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Skapa en utlösare som kör en pipeline som svar på en händelse
 
 Den här artikeln beskriver händelsebaserade utlösare som du kan skapa i din Data Factory pipelines.
 
-Händelsedriven arkitektur (EDA) är en gemensam integration datamönster som inbegriper produktion, identifiering, förbrukning och reaktion på händelser. Data integrationsscenarier kräver ofta Data Factory kunder att utlösa pipelines baserat på händelser.
+Händelsedriven arkitektur (EDA) är en gemensam integration datamönster som inbegriper produktion, identifiering, förbrukning och reaktion på händelser. Data integrationsscenarier kräver ofta Data Factory kunder att utlösa pipelines baserat på händelser. Data Factory har nu integrerats med [Azure händelse rutnätet](https://azure.microsoft.com/services/event-grid/), där kan du utlösa rörledningar på en händelse.
 
 ## <a name="data-factory-ui"></a>Data Factory-användargränssnitt
 
@@ -64,11 +64,20 @@ Följande tabell innehåller en översikt över schemaelement som är relaterade
 Det här avsnittet innehåller exempel på inställningar för händelsebaserad utlösare.
 
 -   **BLOB-sökväg som börjar med**('/ containername /') – tar emot händelser för alla blob-behållare.
--   **BLOB-sökväg som börjar med**('/ containername/mappnamn') – tar emot händelser för alla blobbar i behållaren för containername och mappnamn mappen.
--   **BLOB-sökväg som börjar med**('/ containername/foldername/file.txt') – tar emot händelser för en blob med namnet fil.txt i mappen mappnamn under behållaren containername.
+-   **BLOB-sökväg som börjar med**(”/ mappnamn-containername/blobbar”) – tar emot händelser för alla blobbar i behållaren för containername och mappnamn mappen.
+-   **BLOB-sökväg som börjar med**('/ containername/blobs/foldername/file.txt') – tar emot händelser för en blob med namnet fil.txt i mappen mappnamn under behållaren containername.
 -   **Blobbsökvägen som slutar med**('fil.txt') – mottagningar händelser för en blob med namnet fil.txt på valfri sökväg.
--   **Blobbsökvägen som slutar med**('/ containername/file.txt') – tar emot händelser för en blob med namnet fil.txt under behållaren containername.
+-   **Blobbsökvägen som slutar med**('/ containername/blobs/file.txt') – tar emot händelser för en blob med namnet fil.txt under behållaren containername.
 -   **Blobbsökvägen som slutar med**('foldername/file.txt') – mottagningar händelser för en blob med namnet fil.txt mappnamn mappen under en behållare.
+
+> [!NOTE]
+> Du behöver ta den `/blobs/` segmentet i sökvägen när du anger behållaren och mappen, behållare och filen eller behållare, mapp och fil.
+
+## <a name="using-blob-events-trigger-properties"></a>Använda Blob händelser utlösaren egenskaper
+
+När en utlösare för blob-händelser som utlöses är två variabler tillgängliga för din pipeline: *folderPath* och *fileName*. Om du vill komma åt dessa variabler kan använda den `@triggerBody().fileName` eller `@triggerBody().folderPath` uttryck.
+
+Anta till exempel att en utlösare som har konfigurerats för att utlösa när en blob skapas med `.csv` som värde för `blobPathEndsWith`. När en CSV-fil som släpps till storage-konto i *folderPath* och *fileName* placeringen av CSV-filen. Till exempel *folderPath* har värdet `/containername/foldername/nestedfoldername` och *fileName* har värdet `filename.csv`.
 
 ## <a name="next-steps"></a>Nästa steg
 Detaljerad information om utlösare finns [Pipeline körning och utlösare](concepts-pipeline-execution-triggers.md#triggers).

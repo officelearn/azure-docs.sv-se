@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 345ea6f91593e14ff19616f5512916ee77f38486
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2dab0adb0728a1fb5e8ac9bebe01f861ed8c7c3a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619957"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059113"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-use-custom-activities.md)
-> * [Version 2 – förhandsversion](transform-data-using-dotnet-custom-activity.md)
+> * [Version 1](v1/data-factory-use-custom-activities.md)
+> * [Aktuell version](transform-data-using-dotnet-custom-activity.md)
 
 Det finns två typer av aktiviteter som du kan använda i ett Azure Data Factory-pipelinen.
 
@@ -30,10 +30,6 @@ Det finns två typer av aktiviteter som du kan använda i ett Azure Data Factory
 - [Data transformation aktiviteter](transform-data.md) för att omvandla data med hjälp av compute-tjänster som Azure HDInsight, Azure Batch och Azure Machine Learning. 
 
 För att flytta data till/från en lagra Data Factory inte har stöd för, eller för att transformera/bearbeta data på ett sätt som inte stöds av Data Factory, kan du skapa en **anpassad aktivitet** med dina egna data flyttas eller omvandling logik och användning aktiviteten i en pipeline. Den anpassade aktiviteten körs din anpassade kod logik på ett **Azure Batch** pool för virtuella datorer.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [(anpassat) DotNet aktivitet i Data Factory version 1](v1/data-factory-use-custom-activities.md).
- 
 
 Se följande artiklar om du har använt Azure Batch-tjänsten:
 
@@ -107,7 +103,7 @@ I följande tabell beskrivs namn och beskrivningar av egenskaper som är specifi
 | description           | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
 | typ                  | För anpassade aktiviteten aktivitetstypen är **anpassad**. | Ja      |
 | linkedServiceName     | Länkade tjänsten Azure Batch. Mer information om den här länkade tjänsten, se [Compute länkade tjänster](compute-linked-services.md) artikel.  | Ja      |
-| kommandot               | Kommandot för det anpassa programmet som ska köras. Om programmet redan är tillgängliga i Azure Batch-Pool noden kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange kommandot för att vara `cmd /c dir`, som stöds internt av noden Windows Batch-Pool. | Ja      |
+| command               | Kommandot för det anpassa programmet som ska köras. Om programmet redan är tillgängliga i Azure Batch-Pool noden kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange kommandot för att vara `cmd /c dir`, som stöds internt av noden Windows Batch-Pool. | Ja      |
 | resourceLinkedService | Azure länkade lagringstjänsten till lagringskontot där programmet finns | Nej       |
 | folderPath            | Sökvägen till mappen för det anpassa programmet och dess beroenden | Nej       |
 | referenceObjects      | En matris med befintliga länkade tjänster och datauppsättningar. Den refererade länkade tjänster och datauppsättningar skickas till det anpassa programmet i JSON-format så att din anpassade kod kan hänvisa till resurser av Data Factory | Nej       |
@@ -288,7 +284,7 @@ namespace SampleApp
   "failureType": ""
   "target": "MyCustomActivity"
   ```
-Om du vill använda innehållet i stdout.txt i underordnade aktiviteter kan du få sökvägen till filen stdout.txt i uttrycket ”@activity(MyCustomActivity).output.outputs [0]”. 
+Om du vill använda innehållet i stdout.txt i underordnade aktiviteter kan du få sökvägen till filen stdout.txt i uttrycket ”\@activity('MyCustomActivity').output.outputs [0]”. 
 
   > [!IMPORTANT]
   > - Activity.json, linkedServices.json och datasets.json lagras i mappen körning av aktiviteten Batch. I det här exemplet activity.json, linkedServices.json och datasets.json lagras i ”https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/” sökväg. Om det behövs, måste du rensa dem separat. 
@@ -307,7 +303,7 @@ Om du vill använda innehållet i stdout.txt i underordnade aktiviteter kan du f
   I följande tabell beskrivs skillnaderna mellan Data Factory V2 anpassad aktivitet och Data Factory version 1 (Custom) DotNet aktiviteten: 
 
 
-|Skillnader      |version 2 anpassad aktivitet      | version 1 (Custom) DotNet-aktivitet      |
+|Skillnader      | Anpassad aktivitet      | version 1 (Custom) DotNet-aktivitet      |
 | ---- | ---- | ---- |
 |Hur egen kod som har definierats      |Genom att tillhandahålla en körbar fil      |Genom att implementera en .net-DLL      |
 |Körningsmiljön för egen kod      |Windows- eller Linux      |Windows (.Net Framework 4.5.2)      |
@@ -318,7 +314,7 @@ Om du vill använda innehållet i stdout.txt i underordnade aktiviteter kan du f
 |Loggning      |Skriver direkt till STDOUT      |Implementera loggaren i .net DLL      |
 
 
-  Om du har befintliga .net-kod som skrivs för en version 1 (Custom) DotNet-aktivitet som du behöver ändra koden att fungera med en version 2 anpassad aktivitet. Uppdatera din kod genom att följa riktlinjerna på hög nivå:  
+  Om du har befintliga .net-kod som skrivs för en version 1 (Custom) DotNet-aktivitet som du behöver ändra koden att fungera med den aktuella versionen av den anpassade aktiviteten. Uppdatera din kod genom att följa riktlinjerna på hög nivå:  
 
    - Ändra projektet från en .net-klassbiblioteket till en Konsolapp. 
    - Starta programmet med den `Main` metoden. Den `Execute` metod för den `IDotNetActivity` gränssnittet inte längre behövs. 
@@ -327,7 +323,7 @@ Om du vill använda innehållet i stdout.txt i underordnade aktiviteter kan du f
    - Det krävs inte längre Microsoft.Azure.Management.DataFactories NuGet-paketet. 
    - Kompilera koden, ladda upp den körbara filen och dess beroenden till Azure Storage och definiera sökvägen i den `folderPath` egenskapen. 
 
-Ett komplett exempel på hur det slutpunkt till slutpunkt-DLL och pipeline exemplet beskrivs i Data Factory-version 1 artikel [använda anpassade aktiviteter i ett Azure Data Factory-pipelinen](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) kan skrivas om som en anpassad aktivitet för Data Factory-v2, se [ Data Factory version 2 anpassad aktivitet exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Ett komplett exempel på hur det slutpunkt till slutpunkt-DLL och pipeline exemplet beskrivs i Data Factory-version 1 artikel [använda anpassade aktiviteter i ett Azure Data Factory-pipelinen](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) kan skrivas om som en anpassad aktivitet Data Factory, se [ Data Factory anpassad aktivitet exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatisk skalning av Azure Batch
 Du kan också skapa en Azure Batch-pool med **Autoskala** funktion. Du kan till exempel skapa en azure batch-pool med 0 dedikerade virtuella datorer och en Autoskala formel baserat på antalet väntande åtgärder. 

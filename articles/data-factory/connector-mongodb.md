@@ -13,23 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 24d641247ad9bb0b5e6199952cbde9cb56fcaea7
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: debb27f49c730df4a8bef42b1f1ef9ec50f1faf0
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809302"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054066"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiera data från MongoDB med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-on-premises-mongodb-connector.md)
-> * [Version 2 – förhandsversion](connector-mongodb.md)
+> * [Version 1](v1/data-factory-on-premises-mongodb-connector.md)
+> * [Aktuell version](connector-mongodb.md)
 
 Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från en MongoDB-databas. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [MongoDB-anslutningen i V1](v1/data-factory-on-premises-mongodb-connector.md).
-
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -59,8 +55,8 @@ Följande egenskaper stöds för MongoDB länkade tjänsten:
 | typ |Egenskapen type måste anges till: **MongoDb** |Ja |
 | server |IP-adressen eller värdnamnet namnet på MongoDB-servern. |Ja |
 | port |TCP-port som MongoDB-servern använder för att lyssna efter anslutningar. |Nej (standard är 27017) |
-| DatabaseName |Namnet på den MongoDB-databas som du vill komma åt. |Ja |
-| AuthenticationType | Typ av autentisering som används för att ansluta till MongoDB-databasen.<br/>Tillåtna värden är: **grundläggande**, och **anonym**. |Ja |
+| databaseName |Namnet på den MongoDB-databas som du vill komma åt. |Ja |
+| authenticationType | Typ av autentisering som används för att ansluta till MongoDB-databasen.<br/>Tillåtna värden är: **grundläggande**, och **anonym**. |Ja |
 | användarnamn |Användarkonto för att få åtkomst till MongoDB. |Ja (om grundläggande autentisering används). |
 | lösenord |Lösenord för användaren. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja (om grundläggande autentisering används). |
 | authSource |Namnet på MongoDB-databas som du vill använda för att kontrollera autentiseringsuppgifterna för autentisering. |Nej. Standardvärdet är att använda administratörskontot och databasen som anges med egenskapen databaseName för grundläggande autentisering. |
@@ -180,10 +176,10 @@ När du kopierar data från MongoDB, används följande mappningar från MongoDB
 
 | Datatypen för MongoDB | Data factory tillfälliga datatyp |
 |:--- |:--- |
-| Binär |byte] |
+| Binär |Byte] |
 | Boolesk |Boolesk |
 | Date |DateTime |
-| NumberDouble |dubbla |
+| NumberDouble |Dubbel |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectId |Sträng |

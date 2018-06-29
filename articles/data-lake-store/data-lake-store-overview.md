@@ -1,26 +1,26 @@
 ---
-title: Översikt över Azure Data Lake Store | Microsoft Docs
-description: Förstå Azure Data Lake Store och dess värde över andra dataarkiv
+title: Översikt över Azure Data Lake lagring Gen1 | Microsoft Docs
+description: Förstå vilka Data Lake lagring Gen1 är (tidigare kallat Azure Data Lake Store) och dess värde över andra dataarkiv
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: b3475057-9427-4492-a3af-25a802a23a79
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/26/2018
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 111906bc9e7e85e30a879d7bacff37edb4b204ac
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: HT
+ms.openlocfilehash: 4dff8f4ff9fc324d48391c0399677b64824493c6
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036456"
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Översikt över Azure Data Lake Store
+# <a name="overview-of-azure-data-lake-storage-gen1"></a>Översikt över Azure Data Lake lagring Gen1
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 Azure Data Lake Store är en företagsomfattande storskalig lagringsplats för analytiska arbetsbelastningar för stordata. Med Azure Data Lake kan du samla in data av olika storlekar, former, typer och inmatningshastighet på en enda plats för drifts- och undersökande analyser.
 
 > [!TIP]
@@ -81,24 +81,8 @@ Data Lake Store kan nås via det nya filsystemet AzureDataLakeFilesystem (adl://
 
 Du kan komma åt dina data i Data Lake Store med hjälp av `adl://<data_lake_store_name>.azuredatalakestore.net`. Mer information om hur du kan komma åt data i Data Lake Store finns i [Visa egenskaper för lagrade data](data-lake-store-get-started-portal.md#properties)
 
-## <a name="how-do-i-start-using-azure-data-lake-store"></a>Hur börjar jag använda Azure Data Lake Store?
-Se [Kom igång med Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md) för information om hur du etablerar ett Data Lake Store med hjälp av Azure Portal. När du har etablerat Azure Data Lake kan du lära dig hur du använder erbjudanden för stordata, till exempel Azure Data Lake Analytics eller Azure HDInsight med Data Lake Store. Du kan också skapa ett .NET-program för att skapa ett Azure Data Lake Store-konto och utföra åtgärder, till exempel ladda upp eller hämta data osv.
+## <a name="next-steps"></a>Nästa steg
 
-* [Kom igång med Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Använd Azure HDInsight med Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Kom igång med Data Lake Store med hjälp av Azure-portalen](data-lake-store-get-started-portal.md)
 * [Kom igång med Azure Data Lake Store med hjälp av .NET SDK](data-lake-store-get-started-net-sdk.md)
-
-## <a name="data-lake-store-videos"></a>Data Lake Store-videor
-Om du vill titta på videor för att lära dig, har Data Lake Store videor om en mängd funktioner.
-
-* [Skapa ett Azure Data Lake Store-konto](https://mix.office.com/watch/1k1cycy4l4gen)
-* [Använd Data Explorer för att hantera data i Azure Data Lake Store](https://mix.office.com/watch/icletrxrh6pc)
-* [Anslut Azure Data Lake Analytics till Azure Data Lake Store](https://mix.office.com/watch/qwji0dc9rx9k)
-* [Åtkomst till Azure Data Lake Store via Data Lake Analytics](https://mix.office.com/watch/1n0s45up381a8)
-* [Anslut Azure HDInsight till Azure Data Lake Store](https://mix.office.com/watch/l93xri2yhtp2)
-* [Åtkomst till Azure Data Lake Store via Hive och Pig](https://mix.office.com/watch/1n9g5w0fiqv1q)
-* [Använd DistCp (Hadoop-distribuerad kopia) för att kopiera data till och från Azure Data Lake Store](https://mix.office.com/watch/1liuojvdx6sie)
-* [Använd Apache Sqoop för att flytta data mellan relationella källor och Azure Data Lake Store](https://mix.office.com/watch/1butcdjxmu114)
-* [Data Orchestration med hjälp av Azure Data Factory för Azure Data Lake Store](https://mix.office.com/watch/1oa7le7t2u4ka)
-* [Skydda data i Azure Data Lake Store](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
+* [Använd Azure HDInsight med Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

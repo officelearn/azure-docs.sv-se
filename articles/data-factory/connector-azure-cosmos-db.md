@@ -10,25 +10,23 @@ ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/27/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 58e1c88629c21940e09efd6832d536c0b2b47ace
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 92b45c1038fd099926360dc80802ababf0e8ee93
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052774"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Kopiera data till och från Azure Cosmos-databasen med Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-azure-documentdb-connector.md)
-> * [Version 2 – förhandsversion](connector-azure-cosmos-db.md)
+> * [Version 1](v1/data-factory-azure-documentdb-connector.md)
+> * [Aktuell version](connector-azure-cosmos-db.md)
 
 Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från och till Azure Cosmos DB (SQL-API). Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Azure Cosmos DB connnector i V1](v1/data-factory-azure-documentdb-connector.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -51,7 +49,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för Azure Cosmos DB länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **CosmosDb**. | Ja |
 | connectionString |Ange information som behövs för att ansluta till Azure DB som Cosmos-databasen. Observera att du måste ange Databasinfo i anslutningssträngen som under exempel. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
@@ -84,7 +82,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Ange typegenskapen för dataset för att kopiera data från/till Azure Cosmos DB, **DocumentDbCollection**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till: **DocumentDbCollection** |Ja |
 | Samlingsnamn |Namnet på samlingen Cosmos DB dokumentet. |Ja |
@@ -111,8 +109,8 @@ Ange typegenskapen för dataset för att kopiera data från/till Azure Cosmos DB
 
 För schemafria data butiker, till exempel Azure Cosmos DB härleder kopieringsaktiviteten schemat på något av följande sätt. Därför, om du inte vill [import/export av JSON-dokument som-är](#importexport-json-documents), det bästa sättet är att ange strukturen för data i den **struktur** avsnittet.
 
-1. Om du anger strukturen för data med hjälp av den **struktur** egenskap i datauppsättningsdefinitionen Data Factory-tjänsten godkänner den här strukturen som schema. Om en rad inte innehåller ett värde för en kolumn, tillhandahålls i det här fallet ett null-värde för den.
-2. Om du inte anger strukturen för data med hjälp av den **struktur** egenskap i datauppsättningsdefinitionen Data Factory-tjänsten härleder schemat med hjälp av den första raden i data. I det här fallet om den första raden inte innehåller fullständig schemat kommer vissa kolumner att saknas i resultatet av kopieringsåtgärden.
+*. Om du anger strukturen för data med hjälp av den **struktur** egenskap i datauppsättningsdefinitionen Data Factory-tjänsten godkänner den här strukturen som schema. Om en rad inte innehåller ett värde för en kolumn, tillhandahålls i det här fallet ett null-värde för den.
+*. Om du inte anger strukturen för data med hjälp av den **struktur** egenskap i datauppsättningsdefinitionen Data Factory-tjänsten härleder schemat med hjälp av den första raden i data. I det här fallet om den första raden inte innehåller fullständig schemat kommer vissa kolumner att saknas i resultatet av kopieringsåtgärden.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
@@ -122,7 +120,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Azure Cosmos DB, anger du källa i kopieringsaktiviteten till **DocumentDbCollectionSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **DocumentDbCollectionSource** |Ja |
 | DocumentDB |Ange Cosmos-DB-frågan som läser data.<br/><br/>Exempel: `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nej <br/><br/>Om inget annat anges, SQL-instruktionen som körs: `select <columns defined in structure> from mycollection` |
@@ -164,7 +162,7 @@ Om du vill kopiera data från Azure Cosmos DB, anger du källa i kopieringsaktiv
 
 Om du vill kopiera data till Azure Cosmos DB anger sink i kopieringsaktiviteten till **DocumentDbCollectionSink**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för kopiera aktivitet sink måste anges till: **DocumentDbCollectionSink** |Ja |
 | nestingSeparator |Ett specialtecken i källkolumnsnamnet att ange kapslade dokumentet krävs. <br/><br/>Till exempel `Name.First` i datamängd för utdata struktur genererar följande JSON-strukturen i dokumentet DB Cosmos:`"Name": {"First": "[value maps to this column from source]"}` när nestedSeparator är punkt. |Nej (standardvärdet är punkt `.`) |
@@ -210,8 +208,8 @@ Den här Cosmos-DB-anslutningen kan du enkelt
 
 Att uppnå sådan schema-oberoende kopia:
 
-- I Cosmos DB datauppsättning/ar, inte anges i avsnittet ”struktur”; och i en Kopieringsaktivitet Cosmos DB källor/mottagare inte ange egenskapen ”nestingSeparator”.
-- När import från / exporterar till JSON-filer i motsvarande filen store dataset anger formatet som ”JsonFormat” och config ”filePattern” korrekt (se [JSON-format](supported-file-formats-and-compression-codecs.md#json-format) information), sedan ange inte ”-struktur ”avsnittet och hoppa över inställningarna för rest-format.
+* När du använder verktyget för kopiera data, kontrollera den **”exportera som-som JSON-filer eller Cosmos DB samling”** alternativet.
+* När med redigering av aktiviteten inte anger avsnittet ”struktur” (även kallat schema) i Cosmos DB datauppsättning/ar eller egenskapen ”nestingSeparator” i Cosmos DB källor/mottagare i en Kopieringsaktivitet. När import från / exporterar till JSON-filer i motsvarande filen store dataset anger formatet som ”JsonFormat” och config ”filePattern” korrekt (se [JSON-format](supported-file-formats-and-compression-codecs.md#json-format) information), sedan ange inte ”-struktur ”(även kallat schema) avsnittet och hoppa över inställningarna för rest-format.
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md##supported-data-stores-and-formats).

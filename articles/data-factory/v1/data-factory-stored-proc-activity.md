@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 3a0d6998671df7f05d7077da6fffc20a5bf27e8a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b10fbd953eb9ca904043973ebc1f7c6adb9f9abc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622507"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047397"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQLServer lagrade Proceduraktiviteten
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34622507"
 > * [Anpassad aktivitet för .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Transformera data med hjälp av aktiviteten lagrad procedur i Data Factory version 2](../transform-data-using-stored-procedure.md).
+> Den här artikeln gäller för version 1 av Azure Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Transformera data med hjälp av aktiviteten lagrad procedur i Data Factory](../transform-data-using-stored-procedure.md).
 
 ## <a name="overview"></a>Översikt
 Du kan använda data transformation aktiviteter i en Datafabrik [pipeline](data-factory-create-pipelines.md) att transformera och bearbeta rådata till förutsägelser och insikter. Den lagrade Proceduraktiviteten är en av omvandling av aktiviteter som har stöd för Data Factory. Den här artikeln bygger på den [data transformation aktiviteter](data-factory-data-transformation-activities.md) artikel som presenterar en allmän översikt över data transformation och stöds omvandling aktiviteter i Data Factory.
@@ -153,7 +153,7 @@ Du måste ange en datamängd för utdata för en lagrad procedur aktivitet, äve
     ```
 3. Om du vill distribuera datauppsättningen klickar du på **distribuera** i kommandofältet. Bekräfta att du ser dataset i trädvyn.
 
-    ![Trädvy med länkade tjänster](media/data-factory-stored-proc-activity/tree-view-2.png)
+    ![trädvy med länkade tjänster](media/data-factory-stored-proc-activity/tree-view-2.png)
 
 ### <a name="create-a-pipeline-with-sqlserverstoredprocedure-activity"></a>Skapa en pipeline med SqlServerStoredProcedure aktivitet
 Nu ska vi skapa en pipeline med en lagrad procedur-aktivitet. 
@@ -203,13 +203,13 @@ Observera följande egenskaper:
 ### <a name="monitor-the-pipeline"></a>Övervaka pipeline
 1. Klicka på **X** för att stänga bladen i Data Factory-redigeraren och för att gå tillbaka till Data Factory-bladet och klicka på **Diagram**.
 
-    ![Diagram över sida vid sida](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
+    ![diagram över sida vid sida](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
 2. I **diagramvyn** visas en översikt över pipelines och datauppsättningar som används i den här självstudien.
 
-    ![Diagram över sida vid sida](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
+    ![diagram över sida vid sida](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
 3. Dubbelklicka på datauppsättningen i diagramvyn `sprocsampleout`. Du ser segment i tillståndet Ready. Det bör finnas fem segment eftersom ett segment skapas för varje timme mellan start- och sluttid från JSON.
 
-    ![Diagram över sida vid sida](media/data-factory-stored-proc-activity/data-factory-slices.png)
+    ![diagram över sida vid sida](media/data-factory-stored-proc-activity/data-factory-slices.png)
 4. När ett segment är i **klar** tillstånd, kör en `select * from sampletable` frågan mot Azure SQL-databasen för att verifiera att data har infogas i tabellen av den lagrade proceduren.
 
    ![Utdata](./media/data-factory-stored-proc-activity/output.png)

@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 93729646cf1a501b5502e2666ed68944fe474f72
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d5cf4005ad50c9c75f22b2fa2719925afbe69f26
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616013"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37044984"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Datauppsättningar och länkade tjänster i Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-create-datasets.md)
-> * [Version 2 – förhandsversion](concepts-datasets-linked-services.md)
+> * [Version 1](v1/data-factory-create-datasets.md)
+> * [Aktuell version](concepts-datasets-linked-services.md)
 
-Den här artikeln beskriver vilka datauppsättningar är hur de har definierats i JSON-format och hur de används i Azure Data Factory V2 rörledningar. 
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [datauppsättningar i Data Factory V1](v1/data-factory-create-datasets.md).
+Den här artikeln beskriver vilka datauppsättningar är hur de har definierats i JSON-format och hur de används i Azure Data Factory rörledningar. 
 
 Om du är nybörjare på Data Factory finns [introduktion till Azure Data Factory](introduction.md) en översikt. 
 
@@ -193,7 +190,7 @@ Egenskap  | Beskrivning | Krävs
 -------- | ----------- | --------
 namn | Namnet på kolumnen. | Ja
 typ | Datatypen för kolumnen. Data Factory stöder följande datatyper av mellanliggande som tillåtna värden: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], Boolean, String, Guid, Datetime, Datetimeoffset och Timespan** | Nej
-Kultur | . NET-baserade kulturen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej
+kultur | . NET-baserade kulturen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej
 Format | Formatsträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum och tid formatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) om hur du datetime-format. | Nej
 
 ### <a name="example"></a>Exempel
@@ -220,13 +217,13 @@ Följande riktlinjer hjälper dig att förstå när du ska inkludera strukturinf
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 Du kan skapa datauppsättningar på något av dessa verktyg och SDK: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager-mall och Azure-portalen
 
-## <a name="v1-vs-v2-datasets"></a>V1 vs. V2 datauppsättningar
+## <a name="current-version-vs-version-1-datasets"></a>Aktuell version jämfört med version 1 datauppsättningar
 
-Här följer några skillnader mellan datauppsättningar som Data Factory v1 och v2: 
+Här följer några skillnader mellan Data Factory och datauppsättningar som Data Factory version 1: 
 
-- Egenskapen externa stöds inte i v2. Den har ersatts av en [utlösaren](concepts-pipeline-execution-triggers.md).
-- Principen och tillgänglighet egenskaper stöds inte i V2. Starttiden för en pipeline beror på [utlösare](concepts-pipeline-execution-triggers.md).
-- Begränsade datauppsättningar (datauppsättningar som definierats i en pipeline) stöds inte i V2. 
+- Egenskapen externa stöds inte i den aktuella versionen. Den har ersatts av en [utlösaren](concepts-pipeline-execution-triggers.md).
+- Principen och tillgänglighet egenskaper stöds inte i den aktuella versionen. Starttiden för en pipeline beror på [utlösare](concepts-pipeline-execution-triggers.md).
+- Begränsade datauppsättningar (datauppsättningar som definierats i en pipeline) stöds inte i den aktuella versionen. 
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande självstudierna för stegvisa instruktioner för att skapa pipelines och datauppsättningar på något av dessa verktyg och SDK: er. 

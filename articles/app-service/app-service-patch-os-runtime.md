@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 92b6945ad13842e926d53be6dcc0d21554485ff3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0626b958a9b822569f4d3b6d27f3395bed853174
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151016"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030061"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>OS- och runtime korrigering i Azure App Service
 
@@ -74,31 +74,31 @@ az webapp config set --python-version 3.4 --resource-group <groupname> --name <a
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 
-### <a name="deprecated-versions"></a>Föråldrad versioner
+### <a name="deprecated-versions"></a>Föråldrad versioner  
 
 När en äldre version är föråldrad har profilens Borttagningsdatum meddelats så att du kan planera runtime versionsuppgraderingen i enlighet med detta. 
 
-## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Hur kan fråga OS och körning uppdateringsstatus på min instanser?
+## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Hur kan fråga OS och körning uppdateringsstatus på min instanser?  
 
 När kritiska OS-information är låst ned från åtkomst (se [operativsystemet funktioner i Azure App Service](web-sites-available-operating-system-functionality.md)), [Kudu-konsolen](https://github.com/projectkudu/kudu/wiki/Kudu-console) kan du fråga din App Service-instans om Operativsystemet versionen och runtime-versioner. 
 
 I följande tabell visas hur de versioner av Windows och language runtime som kör dina appar:
 
-| Information | Var den |
+| Information | Var den | 
 |-|-|
 | Windows-version | Se `https://<appname>.scm.azurewebsites.net/Env.cshtml` (under SYSTEMINFO) |
 | .NET-version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör följande kommando i Kommandotolken: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
 | .NET core-version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör följande kommando i Kommandotolken: <br> `dotnet --version` |
 | PHP-version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör följande kommando i Kommandotolken: <br> `php --version` |
 | Node.js-standardversion | I den [moln Shell](../cloud-shell/overview.md), kör du följande kommando: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
-| Python-version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör följande kommando i Kommandotolken: <br> `python --version` |
+| Python-version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör följande kommando i Kommandotolken: <br> `python --version` |  
 
-> [!NOTE]
+> [!NOTE]  
 > Åtkomst till registerplats `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, där information om [”KB” korrigeringsfiler]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)) lagras, är låst.
 >
 >
 
 ## <a name="more-resources"></a>Fler resurser
 
-[Säkerhetscenter: säkerhet](https://www.microsoft.com/TrustCenter/Security/default.aspx)  
+[Säkerhetscenter: säkerhet](https://www.microsoft.com/en-us/trustcenter/security)  
 [64-bitars ASP.NET Core på Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

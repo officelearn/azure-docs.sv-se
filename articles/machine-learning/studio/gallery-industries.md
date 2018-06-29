@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: garye
-ms.openlocfilehash: b2b55c550a75be977b040070926953308c387639
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c1ca9c45a7bd070ba0dbcee3b428f986ebac47d3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834574"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062105"
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Upptäck branschspecifika lösningar i Azure AI-galleriet
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="industry-specific-cortana-intelligence-solutions"></a>Branschspecifika Cortana Intelligence-lösningar
-Den **[branscher](https://gallery.cortanaintelligence.com/industries)** avsnitt i galleriet för ihop olika resurser som är specifika för sådana branscher som
+Den **[branscher](https://gallery.azure.ai/industries)** avsnitt i galleriet för ihop olika resurser som är specifika för sådana branscher som
 
-* [Retail](https://gallery.cortanaintelligence-int.com/industries/retail) -retail-lösningar, till exempel försäljning prognoser förutsäga kunden omsättning och utveckla prissättningsmodeller.
-* [Tillverkar](https://gallery.cortanaintelligence-int.com/industries/manufacturing) – Sök tillverkar lösningar, till exempel förutseende underhåll och skapa prognoser energi priser.
-* [Bankwebbplatser](https://gallery.cortanaintelligence-int.com/industries/banking) – Sök bankwebbplatser lösningar, till exempel att förutsäga kredit risk och övervakning av bedrägerier online.
-* [Hälsovård](https://gallery.cortanaintelligence-int.com/industries/healthcare) -hitta sjukvården lösningar, till exempel identifiera sjukdom och förutsäga sjukhus readmissions.
+* [Retail](https://gallery.azure.ai/industries/retail) -retail-lösningar, till exempel försäljning prognoser förutsäga kunden omsättning och utveckla prissättningsmodeller.
+* [Tillverkar](https://gallery.azure.ai/industries/manufacturing) – Sök tillverkar lösningar, till exempel förutseende underhåll och skapa prognoser energi priser.
+* [Bankwebbplatser](https://gallery.azure.ai/industries/banking) – Sök bankwebbplatser lösningar, till exempel att förutsäga kredit risk och övervakning av bedrägerier online.
+* [Hälsovård](https://gallery.azure.ai/industries/healthcare) -hitta sjukvården lösningar, till exempel identifiera sjukdom och förutsäga sjukhus readmissions.
 
 Dessa resurser inkluderar experiment, anpassade moduler, API: er, samlingar och andra Galleriobjekt som kan hjälpa dig att utveckla lösningar som är specifika för du arbetar i branschen.
 

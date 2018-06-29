@@ -1,5 +1,5 @@
 ---
-title: Övervaka och spåra användning av gratistjänster - Azure | Microsoft Docs
+title: Övervaka och spåra användning av Azure gratistjänster | Microsoft Docs
 description: Lär dig att kontrollera användningen av gratistjänster. Använda Azure portal och användning csv.
 services: ''
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 560137d92491da46fda950dec84a0a7caa3ed720
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 7fa0196b7a44ef20ecd63797869dffea55f92c3d
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33205898"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061324"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Kontrollera användningen av ledigt tjänster som ingår i din kostnadsfritt Azure-konto 
 

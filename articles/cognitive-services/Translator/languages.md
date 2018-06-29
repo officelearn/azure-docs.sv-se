@@ -6,18 +6,19 @@ author: Jann-Skotdal
 manager: chriswendt1
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
-ms.date: 10/30/2017
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: f388e9e39809774f307c0d1752e29f34b041ed13
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 5542c1c0eee5e4c7c85c566908dc8999b118f06e
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35356401"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37032456"
 ---
-# <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Språk som stöds i Microsoft översättare Text-API 
-Microsoft översättare Text API stöder följande språk för översättning till text. Neural maskinöversättning (NMT) är den nya standarden för hög kvalitet AI-påslagen maskinöversättningar och är tillgänglig som standard med V3 översättare Text API när ett neural system är tillgänglig. Neural maskinöversättning är tillgänglig i V2 med hjälp av kategorin ”generalnn”. 
+# <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Språk som stöds i Microsoft översättare Text-API
+
+Microsoft översättare Text API stöder följande språk för översättning till text. Neural maskinöversättning (NMT) är den nya standarden för hög kvalitet AI-påslagen maskinöversättningar och är tillgänglig som standard med V3 översättare Text API när ett neural system är tillgänglig. Neural maskinöversättning är tillgänglig i V2 med hjälp av kategorin ”generalnn”.
 
 [Mer information om hur maskinöversättning fungerar](https://www.microsoft.com/translator/mt.aspx)
 
@@ -25,6 +26,7 @@ Microsoft översättare Text API stöder följande språk för översättning ti
 |:----------- |:-------:|:-------------:|
 | Afrikaans      | Statistisk |`af`          |
 | Arabiska      | Neural | `ar`          |
+| Arabiska *, Levantine    | Neural | `apc`
 | Bangla      | Neural |`bn`          |
 | Bosniska (latinsk)      | Statistisk |`bs`          |
 | Bulgariska     |  Neural |`bg`          |
@@ -116,7 +118,7 @@ Transliterate-metoden stöder följande språk. I den ”till/från”, ”<>--�
 
 ## <a name="dictionary"></a>Ordlista
 
-Ordlistan stöder följande språk till eller från engelska metoderna sökning och exempel. 
+Ordlistan stöder följande språk till eller från engelska metoderna sökning och exempel.
 
 | Språk    | Språkkod |
 |:----------- |:-------------:|
@@ -173,12 +175,12 @@ Ordlistan stöder följande språk till eller från engelska metoderna sökning 
 
 ## <a name="languages-detected-by-the-detect-method"></a>Språk som identifieras av metoden identifiera
 
-Följande språk kan identifieras av metoden identifiera. Identifiera kan identifiera språk som Microsoft Translator inte kan översätta. 
+Följande språk kan identifieras av metoden identifiera. Identifiera kan identifiera språk som Microsoft Translator inte kan översätta.
 
-| Språk    | 
+| Språk    |
 |:----------- |
 | Afrikaans |
-| Albanska | 
+| Albanska |
 | Arabiska |
 | Baskiska |
 | Vitryska |
@@ -248,7 +250,7 @@ Följande språk kan identifieras av metoden identifiera. Identifiera kan identi
 
 Du kan komma åt listan över språk som stöds genom programmering med åtgärden språk V3.0 Text API. Du kan visa listan med funktionen, språkkod samt språkets namn på engelska eller något annat språk som stöds. Den här listan uppdateras automatiskt av tjänsten Microsoft Translator när nya språk blir tillgängliga.
 
-[Språk referensdokumentationen för åtgärden](/reference/languages.md)
+[Språk referensdokumentationen för åtgärden](reference/v3-0-languages.md)
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Komma åt listan på webbplatsen Microsoft Translator
 

@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: fa25f16d3ef7ee8c7ec4c0c9ee17ccc89e8c52a2
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
-ms.translationtype: MT
+ms.openlocfilehash: 64e505889ef9472603471d67a961985c1290663a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321857"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045851"
 ---
 # <a name="custom-speech-service-frequently-asked-questions"></a>Vanliga och frågor svar om anpassade tal Service
 
@@ -88,7 +88,7 @@ Kontakta oss om du vill ha ökad skala.
 
 **Fråga**: data rapporten står det fanns misslyckade utterances. Vad är problemet?
 
-**Svaret**: inte kan överföra 100% av utterences i en fil är inte ett problem.
+**Svaret**: inte kan överföra 100% av utterances i en fil är inte ett problem.
 Om majoriteten av utterances i en acoustic eller språk (till exempel > 95%) har importerats datauppsättningen kan användas. Det rekommenderas dock att du försöker förstå varför utterances misslyckades och åtgärda problem. De flesta vanliga problem, till exempel formateringsfel, är enkla att åtgärda. 
 
 ## <a name="creating-am"></a>Skapa AM
@@ -148,7 +148,7 @@ Du bör sträva efter att slå baslinje-modellen för att göra anpassningen lö
 **Fråga**: kan jag bara ladda upp en lista över ord?
 
 **Svaret**: ladda upp en lista över ord kommer att hämta orden i ordförråd men inte lära systemet hur orden normalt används.
-Genom att tillhandahålla fullständig eller partiell utterances (meningar eller fraser av saker som användare kan komma att säga) du kan lära dig nya ord språk modellen och hur de används. Anpassade språk modellen är bra inte bara för att hämta nya ord i systemet, men också för att justera sannolikheten för kända ord för ditt program. Ger fullständig utterances hjälper systemet Läs ebtter. 
+Genom att tillhandahålla fullständig eller partiell utterances (meningar eller fraser av saker som användare kan komma att säga) du kan lära dig nya ord språk modellen och hur de används. Anpassade språk modellen är bra inte bara för att hämta nya ord i systemet, men också för att justera sannolikheten för kända ord för ditt program. Ger fullständig utterances hjälper systemet lär du dig bättre. 
 
 ## <a name="next-steps"></a>Nästa steg
 

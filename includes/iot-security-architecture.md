@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 62856d4743d853d5685503b5c21faedc46575e55
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6f28df6f2faa78af90fb4b5e62f218e3b391000b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814806"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37066092"
 ---
 # <a name="internet-of-things-security-architecture"></a>Sakernas Internet-säkerhetsarkitekturen
 
@@ -29,7 +29,7 @@ Många utvecklingsgrupper göra en utmärkt jobb som avbildar funktionella krav 
 
 ### <a name="when-to-threat-model"></a>När du ska hot modellen
 
-[Hotmodellering](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) ger det största värdet när du inkludera den i designfasen. När du designar har störst flexibilitet att göra ändringar eliminera hot. Eliminera hot avsiktligt är önskat utfall. Det är mycket enklare än att lägga till åtgärder, testa dem och att de fortfarande är aktuella och dessutom sådan eliminering är inte alltid möjligt. Det blir svårare att eliminera hot som en produkt blir mer mogen och slutligen i sin tur kräver mer arbete och mycket svårare kompromisser än hot modeling tidigt i utvecklingen.
+[Hotmodellering](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) ger det största värdet när du inkludera den i designfasen. När du designar har störst flexibilitet att göra ändringar eliminera hot. Eliminera hot avsiktligt är önskat utfall. Det är mycket enklare än att lägga till åtgärder, testa dem och att de fortfarande är aktuella och dessutom sådan eliminering är inte alltid möjligt. Det blir svårare att eliminera hot som en produkt blir mer mogen och slutligen i sin tur kräver mer arbete och mycket svårare kompromisser än hot modeling tidigt i utvecklingen.
 
 ### <a name="what-to-threat-model"></a>Vad du hotmodell
 
@@ -103,7 +103,7 @@ I följande avsnitt beskrivs standard komponenter som vanligtvis finns i dessa z
 
 ### <a name="the-device-zone"></a>Zonen enhet
 
-Enheten miljön är omedelbar fysiskt utrymme runt enheten där fysisk åtkomst och/eller ”lokala nätverk” peer-to-peer digitala åtkomst till enheten är möjligt. ”Lokala nätverk” antas vara ett nätverk som är separat och isolerade från – men potentiellt bryggade till – det offentliga Internet och innehåller alla kort Håll trådlösa alternativknapp-teknik som möjliggör peer-to-peer-kommunikation av enheter. Det gör *inte* omfattar alla nätverk virtualiseringsteknik skapar illusionen av ett lokalt nätverk och det också omfattar inte offentlig operatör nätverk som kräver att alla enheter som har två kan kommunicera över offentligt nätverk utrymme om de anger en relation för peer-to-peer-kommunikation.
+Enheten miljön är omedelbar fysiskt utrymme runt enheten där fysisk åtkomst och/eller ”lokala nätverk” peer-to-peer digitala åtkomst till enheten är möjligt. ”Lokala nätverk” antas vara ett nätverk som är separat och isolerade från – men potentiellt bryggade till – det offentliga Internet och innehåller alla kort Håll trådlösa alternativknapp-teknik som möjliggör peer-to-peer-kommunikation av enheter. Det gör *inte* omfattar alla nätverk virtualiseringsteknik skapar illusionen av ett lokalt nätverk och det också omfattar inte offentlig operatör nätverk som kräver att alla enheter som har två kan kommunicera över offentligt nätverk utrymme om de skulle ange en relation för peer-to-peer-kommunikation.
 
 ### <a name="the-field-gateway-zone"></a>Zonen fältet Gateway
 
@@ -174,7 +174,7 @@ Var och en av de kategorier som beskrivs i Azure IoT-arkitekturen i det här exe
 
 **Höjning av privilegier (E)**: en enhet som har en specifik funktion kan tvingas att göra något annat. En ventilen är programmerad att öppna halvvägs kan till exempel att öppna ända.
 
-| **Komponent** | **Hot** | **Lösning** | **Risk** | **Implementering** |
+| **Komponent** | **Hot** | **Lösning** | **Risk** | **implementering** |
 | --- | --- | --- | --- | --- |
 | Enhet |S |Tilldela identitet till enheten och autentisering av enheten |Ersätt enhet eller en del av enheten med en annan enhet. Hur vet du handlar på rätt enhet? |Autentisering av den enhet som använder Transport Layer Security (TLS) eller IPSec. Infrastrukturen ska ha stöd för med i förväg delad nyckel (PSK) på de enheter som inte kan hantera fullständig asymmetrisk kryptering. Använda Azure AD [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
 || TRID |Tillämpa tamperproof mekanismer till enheten, till exempel genom att göra det svårt att det går inte att extrahera nycklar och andra kryptografiska material från enheten. |Risken är om någon är manipulation enheten (fysiska störningar). Hur vill du, enheten har inte ändrats. |Den mest effektiva begränsande faktorn är en betrodd platform module (TPM)-funktion som gör att lagra nycklar på särskilda-chip kretsar som nycklarna går inte att läsa, men kan endast användas för kryptografiska åtgärder som använder nyckeln men lämna aldrig ut nyckeln. Minne kryptering av enheten. Nyckelhantering för enheten. Koden för signering. | |
@@ -217,7 +217,7 @@ Förfalskning: Kan en angripare extrahera kryptografiska nyckelmaterial från en
 
 Hot runt kommunikationssökvägen mellan enheter, enheter och fältet gateways och gateway-enhet och molnet. I följande tabell innehåller vägledning runt öppna sockets på enheten/VPN:
 
-| **Komponent** | **Hot** | **Lösning** | **Risk** | **Implementering** |
+| **Komponent** | **Hot** | **Lösning** | **Risk** | **implementering** |
 | --- | --- | --- | --- | --- |
 | Enheten IoT-hubb |TID |(D) TLS (PSK/RSA) att kryptera trafiken |Avlyssning eller stör kommunikationen mellan enheten och gateway |Säkerhet på protokollnivå. Du måste ta reda på hur du skyddar dem med anpassade protokoll. I de flesta fall sker kommunikationen från enheten till IoT-hubben (enheten inleder anslutningen). |
 | Enheten enhet |TID |(D) TLS (PSK/RSA) att kryptera trafiken. |Läsningen av data som överförs mellan enheter. Manipulation av data. Överbelastning enheten med nya anslutningar |Säkerhet på protokollnivå (MQTT/AMQP/HTTP/CoAP. Du måste ta reda på hur du skyddar dem med anpassade protokoll. Lösning för DoS-hot är att peer-enheter via en moln- eller gateway och har endast act som klienter mot nätverket. Peering kan resultera i en direkt anslutning mellan peer-datorer efter att ha varit asynkrona av gateway |
@@ -241,7 +241,7 @@ Här följer några exempel på hot i den här kategorin:
 
 Varje enhet och fältet gateway har någon form av lagring (tillfälliga för queuing data, operativsystem (OS) bildlagring).
 
-| **Komponent** | **Hot** | **Lösning** | **Risk** | **Implementering** |
+| **Komponent** | **Hot** | **Lösning** | **Risk** | **implementering** |
 | --- | --- | --- | --- | --- |
 | Enhetslagring |TRID |Lagringskryptering signering loggarna |Läsning av data från lagring (personligt identifierbar information data), manipulera telemetridata. Manipulera i kö eller cachelagrad kommandot kontrolldata. Manipulera konfiguration eller inbyggd programvara uppdateringspaket kan medan cachelagras eller köade lokalt leda till OS-och/eller system komponenter komprometteras |Kryptering, message authentication code (MAC) eller digital signatur. Möjligt, starkt åtkomstkontroll via resursåtkomst styra där listor (ACL) eller behörigheter. |
 | Enhetens OS-bild |TRID | |Manipulera OS / ersätta OS-komponenter |OS-partitionen är skrivskyddad, signerade OS-avbildning, kryptering |
@@ -250,13 +250,13 @@ Varje enhet och fältet gateway har någon form av lagring (tillfälliga för qu
 
 ### <a name="device-and-event-processingcloud-gateway-zone"></a>Enheten och händelsen bearbetning eller ett moln gateway zon
 
-En molngateway är system som aktiverar fjärrkommunikation från och till enheter eller gateways för fältet från flera olika platser över offentligt nätverk utrymme, vanligtvis mot en molnbaserad kontroll- och system för analys, ett federationsförtroende på sådana system. I vissa fall kan underlätta en molngateway omedelbart åtkomst till särskilda enheter från terminaler, till exempel surfplattor eller telefoner. Kontexten som beskrivs här ”moln” är avsedd att referera till en dedikerad databearbetning system som inte har bundits till samma plats som den anslutna enheter eller fältet gateways och där operativa åtgärder för att förhindra fysisk åtkomst som mål men inte nödvändigtvis att en ”offentliga” molninfrastruktur. En molngateway kan potentiellt mappas till ett nätverksvirtualisering överlägg till certifikatutfärdarhierarki gateway för moln och alla dess anslutna enheter eller gateways för fältet från annan nätverkstrafik. Molngatewayen är inte ett system för enheten eller en bearbetning eller lagringsutrymmet för enhetsdata; Dessa anläggningar gränssnittet med molngateway. Zonen molnet gateway innehåller själva molngatewayen tillsammans med alla fält gatewayer och enheter som är direkt eller indirekt kopplade till den.
+En molngateway är system som aktiverar fjärrkommunikation från och till enheter eller gateways för fältet från flera olika platser över offentligt nätverk utrymme, vanligtvis mot en molnbaserad kontroll- och system för analys, ett federationsförtroende på sådana system. I vissa fall kan underlätta en molngateway omedelbart åtkomst till särskilda enheter från terminaler, till exempel surfplattor eller telefoner. I den kontexten som beskrivs här, ”moln” är avsedd att referera till en dedikerad databearbetning system som inte är bunden till samma plats som den anslutna enheter eller fältet gateways och där operativa åtgärder för att förhindra riktade fysisk åtkomst men är inte nödvändigtvis till en ” infrastruktur för offentliga moln ”. En molngateway kan potentiellt mappas till ett nätverksvirtualisering överlägg till certifikatutfärdarhierarki gateway för moln och alla dess anslutna enheter eller gateways för fältet från annan nätverkstrafik. Molngatewayen är inte ett system för enheten eller en bearbetning eller lagringsutrymmet för enhetsdata; Dessa anläggningar gränssnittet med molngateway. Zonen molnet gateway innehåller själva molngatewayen tillsammans med alla fält gatewayer och enheter som är direkt eller indirekt kopplade till den.
 
 Molngatewayen är främst anpassade inbyggda program som körs som en tjänst med exponerade slutpunkter som fältet gateway och enheter att ansluta. Det måste därför utformas med säkerhet i åtanke. Följ [SDL](http://www.microsoft.com/sdl) processer för att designa och skapa den här tjänsten.
 
 #### <a name="services-zone"></a>Zonen för tjänster
 
-Kontrollsystem (eller domänkontrollant) är en programvarulösning som har kontakt med en enhet eller en fältet gateway eller molngateway för att styra en eller flera enheter och/eller för att samla in och/eller lagra och analysera data på enheten för presentation eller efterföljande kontroll syften. System är endast enheter i omfånget för den här diskussionen som kan underlätta interaktion med personer omedelbart. Undantagen är mellanliggande fysisk kontroll på portalen innehåller på enheter som en växel som gör att en person för att stänga av enheten eller ändra andra egenskaper och där det inte finns ingen funktionell ekvivalent som kan nås digitalt.
+Ett system för (eller domänkontrollant) är en programvarulösning som har kontakt med en enhet eller en fältet gateway eller molngateway för att styra en eller flera enheter och/eller för att samla in och/eller lagra och analysera data på enheten för presentation eller Syftet med efterföljande kontroll. System är endast enheter i omfånget för den här diskussionen som kan underlätta interaktion med personer omedelbart. Undantagen är mellanliggande fysisk kontroll på portalen innehåller på enheter som en växel som gör att en person för att stänga av enheten eller ändra andra egenskaper och där det inte finns ingen funktionell ekvivalent som kan nås digitalt.
 
 Mellanliggande fysisk kontroll på portalen innehåller är sådana där styr logik avgränsar funktionen av fysiska yta så att en motsvarande funktion kan initieras via fjärranslutning eller inkommande står i konflikt med fjärråtkomst indata kan undvikas – exempel intermediated kontrollen hämtar bifogas begreppsmässigt till ett lokalt system som använder samma underliggande funktioner som alla andra fjärrstyrning system som enheten kan kopplas till parallellt. Övre hot mot cloud computing-lösningar kan läsas på [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) sidan.
 

@@ -1,0 +1,113 @@
+---
+title: Granska faktureringsuppgifter för Azure-prenumeration med REST API | Microsoft Docs
+description: 'Lär dig hur du använder Azure REST API: er för att granska faktureringsinformation för prenumerationen.'
+services: billing
+documentationcenter: na
+author: lleonard-msft
+manager: MBaldwin
+editor: ''
+ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
+ms.service: billing
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 06/06/2018
+ms.author: alleonar
+ms.openlocfilehash: cc29d1f613af67604d50654be794cc90080098bb
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064052"
+---
+# <a name="review-subscription-billing-using-rest-apis"></a>Granska prenumerationsärenden med hjälp av REST API: er
+
+Azure Reporting API: er hjälper dig att granska och hantera dina Azure kostnader.  
+
+Filter att anpassa resultatet för att uppfylla dina behov.
+
+Här kan du lära dig att använda en REST-API för att returnera faktureringsinformation för prenumerationen för ett visst datumintervall.
+
+``` http
+GET https://management.azure.com/subscriptions/${subscriptionID}/providers/Microsoft.Billing/billingPeriods/${billingPeriod}/providers/Microsoft.Consumption/usageDetails?$filter=properties/usageEnd ge '${startDate}' AND properties/usageEnd le '${endDate}'
+Content-Type: application/json   
+Authorization: Bearer
+```
+
+## <a name="build-the-request"></a>Skapa begäran  
+
+Den `{subscriptionID}` parametern krävs och identifierar målprenumerationen.
+
+Den `{billingPeriod}` parametern krävs och anger en aktuell [faktureringsperiod](https://docs.microsoft.com/rest/api/billing/billingperiods/get#billingperiod).
+
+Den `${startDate}` och `${endDate}` parametrar är obligatoriska för det här exemplet, men valfria för slutpunkten.  De ange datumintervallet som strängar i formatet ÅÅÅÅ-MM-DD (exempel: `'20180501'` och `'20180615'`). 
+
+Följande huvuden krävs: 
+
+|Huvudet i begäran|Beskrivning|  
+|--------------------|-----------------|  
+|*Content-Type:*|Krävs. Ange till `application/json`.|  
+|*Auktorisering:*|Krävs. Ange att en giltig `Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+
+## <a name="response"></a>Svar  
+
+Statuskoden 200 returneras (OK) för ett lyckat svar, som innehåller en lista med detaljerade kostnader för ditt konto.
+
+``` json
+{
+  "value": [
+    {
+      "id": "/subscriptions/{$subscriptionID}/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/usageDetails/{$detailsID}",
+      "name": "{$detailsID}",
+      "type": "Microsoft.Consumption/usageDetails",
+      "properties": {
+        "billingPeriodId": "/subscriptions/${subscriptionID}/providers/Microsoft.Billing/billingPeriods/${billingPeriod}",
+        "invoiceId": "/subscriptions/${subscriptionID}/providers/Microsoft.Billing/invoices/${invoiceID}",
+        "usageStart": "${startDate}}",
+        "usageEnd": "${endDate}",
+        "currency": "USD",
+        "usageQuantity": ${usageQuantity},
+        "billableQuantity": ${billableQuantity},
+        "pretaxCost": ${cost},
+        "meterId": "${meterID}",
+        "meterDetails": ${meterDetails}
+      }
+    }
+    ],
+    "nextLink": "${nextLinkURL}"
+} 
+```  
+
+Varje objekt i **värdet** representerar ett information om användningen av en tjänst:
+
+|Egenskapen svar|Beskrivning|
+|----------------|----------|
+|**subscriptionGuid** | Globalt unikt ID för prenumerationen. | 
+|**Startdatum** | Datum Använd igång. |
+|**Slutdatum** | Datum att avslutas. |
+|**useageQuantity** | Använd kvantitet. | 
+|**billableQuantity** | Antal faktiskt debiteras. |
+|**pretaxCost** | Kostnad faktureringen före eventuella skatter. | 
+|**meterDetails** | Detaljerad information om hur du använder. |
+|**nextLink**| När värdet anger en URL för nästa ”sida” i information. Tom när sidan är den sista. |  
+||
+  
+Det här exemplet är förkortas; Se [visa användningsinformation](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) för en fullständig beskrivning av varje svarsfält. 
+
+Andra statuskoder indikerar fel. I dessa fall response-objektet som förklarar varför begäran misslyckades.
+
+``` json
+{  
+  "error": [  
+    { "code": "Error type." 
+      "message": "Error response describing why the operation failed."  
+    }  
+  ]  
+}  
+```  
+
+## <a name="next-steps"></a>Nästa steg 
+- Granska [Enterprise översikt över rapportering](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
+- Undersöka [Enterprise fakturering REST-API](https://docs.microsoft.com/rest/api/billing/)   
+- [Kom igång med Azure REST API](https://docs.microsoft.com/rest/api/azure/)   

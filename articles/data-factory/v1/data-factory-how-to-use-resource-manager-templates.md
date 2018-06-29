@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0a03bb836f789a2a1cb58705a6758000c07036d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3419f8718396bfb4ec894310e545f6a8a5b8f718
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621317"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049272"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Använda mallar för att skapa Azure Data Factory entiteter
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). 
+> Den här artikeln gäller för version 1 av Data Factory. 
 
 ## <a name="overview"></a>Översikt
 När du använder Azure Data Factory för dina behov för integrering av data, kan du själv återanvända samma mönster i olika miljöer eller genomföra samma uppgift upprepade gånger inom samma lösning. Mallar kan du implementera och hantera dessa scenarier på ett enkelt sätt. Mallar i Azure Data Factory är idealisk för scenarier som omfattar återanvändning och upprepas.
@@ -33,7 +33,7 @@ När du använder Azure Data Factory för dina behov för integrering av data, k
 
 I det här fallet behöver en aktivitet upprepas i samma miljö, men med olika värden över 10 datafabriker för varje anläggning. I praktiken **upprepning** finns. Templating gör för detta allmänna flöde (det vill säga pipelines som har samma aktiviteter i varje data factory), men använder en separat parameter-fil för varje anläggning.
 
-Som organisationen vill distribuera dessa 10 datafabriker flera gånger mellan olika miljöer mallar kan dessutom använda detta **återanvändning** genom att använda en separat parameter filer för utveckling, test- och miljöer.
+Som organisationen vill distribuera dessa 10 datafabriker flera gånger mellan olika miljöer mallar kan dessutom använda detta **återanvändning** genom att använda en separat parameter filer för utveckling, testa, och produktionsmiljöer.
 
 ## <a name="templating-with-azure-resource-manager"></a>Templating med Azure Resource Manager
 [Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-overview.md#template-deployment) är ett bra sätt att uppnå templating i Azure Data Factory. Resource Manager-mallar definierar infrastrukturen och konfigurationen av din Azure-lösning via en JSON-fil. Eftersom Azure Resource Manager-Mallar fungerar med alla/de flesta Azure-tjänster, kan det ofta användas för att enkelt hantera alla resurser för dina Azure tillgångar. Se [redigera Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-authoring-templates.md) lära dig mer om Resource Manager-mallar i allmänhet.
@@ -237,7 +237,7 @@ Metodtips för Parameterisera finns [bästa praxis för att skapa mallar för Az
 * Inställningarna varierar beroende på miljö (exempel: utveckling, test och produktion)
 * Hemligheter (till exempel lösenord)
 
-Om du behöver ta emot hemligheter från [Azure Key Vault](../../key-vault/key-vault-get-started.md) när du distribuerar Azure Data Factory-enheter med hjälp av mallar kan du ange den **nyckelvalv** och **hemliga namnet** som visas i följande exempel:
+Om du behöver ta emot hemligheter från [Azure Key Vault](../../key-vault/key-vault-get-started.md) när du distribuerar Azure Data Factory-enheter med hjälp av mallar kan du ange den **nyckelvalv** och **hemliga namnet** enligt den följande exempel:
 
 ```JSON
 "parameters": {

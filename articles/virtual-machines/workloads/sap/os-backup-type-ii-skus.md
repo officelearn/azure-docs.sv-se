@@ -11,24 +11,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d5caf5836b96555e01b55d408e51f3df2407d35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f01a32612b335003856a372ece15ef300b9d93db
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657612"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063282"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus"></a>OS-säkerhetskopiering och återställning för typ II SKU: er
 
-Det här dokumentet beskriver steg för att säkerhetskopiera operativsystemet och återställning av den **typ II SKU: er** av stora HANA-instanser. 
+Det här dokumentet beskriver steg för att utföra en operativsystemet nivån säkerhetskopiering och återställning av den **typ II SKU: er** av stora HANA-instanser. 
 
 >[!NOTE]
 >OS säkerhetskopiering skript använder bakre programvara, vilket är förinstallerad på servern.  
 
-När etableringen har slutförts av Microsoft Service Management-teamet som standard konfigureras servern med två säkerhetskopieringar schema för säkerhetskopiering av det fullständiga operativsystemet. Du kan kontrollera schemat för jobbet med hjälp av följande kommando:
+När etableringen har slutförts av Microsoft Service Management-teamet som standard servern har konfigurerats med två säkerhetskopieringar schema för säkerhetskopiering av filsystemet nivå säkerhetskopiera av operativsystemet. Du kan kontrollera schemat för jobbet med hjälp av följande kommando:
 ```
 #crontab –l
 ```
@@ -38,14 +38,14 @@ Du kan ändra schemat för säkerhetskopiering med hjälp av följande kommando:
 ```
 ## <a name="how-to-take-a-manual-backup"></a>Hur du utför en manuell säkerhetskopiering?
 
-Säkerhetskopia av operativsystemet är schemalagd med hjälp av en **cron jobbet** redan. Dock kan du utföra säkerhetskopieringen operativsystem samt manuellt. Om du vill utföra en manuell säkerhetskopiering, kör du följande kommando:
+Filsystemsäkerhetskopia för operativsystemet är schemalagd med hjälp av en **cron jobbet** redan. Dock kan du utföra operativsystemet nivån säkerhetskopian samt manuellt. Om du vill utföra en manuell säkerhetskopiering, kör du följande kommando:
 
 ```
 #rear -v mkbackup
 ```
 Följande skärmbild visas visar exempel manuell säkerhetskopiering:
 
-![Hur](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
+![hur](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
 
 
 ## <a name="how-to-restore-a-backup"></a>Hur du återställer en säkerhetskopia?

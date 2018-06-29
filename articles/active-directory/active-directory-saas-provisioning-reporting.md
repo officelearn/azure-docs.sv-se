@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: e2ab7efdec326a7f1a2c7f3e7b7d0f379efa8606
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5011dfbe496472e21a85dee9fa4901dad429a984
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025956"
+ms.locfileid: "37031737"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Självstudier: Rapportering om etablering av en automatisk användar-konto
 
@@ -112,6 +112,9 @@ I de flesta användningsfall för etablering granskningsloggarna är att kontrol
 
 7. Klicka på enskilda händelser för att visa utökad information, inklusive alla egenskaper för användare som har hämtats, utvärderas eller skrivs som en del av händelsen.
 
+Ett exempel på hur du använder granskningsloggarna, finns i videon nedan. Granskningsloggarna visas runt 5:30 Markera:
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 ### <a name="tips-for-viewing-the-provisioning-audit-logs"></a>Tips för att visa etablering granskningsloggar
 

@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: f4ce76385897c24bd5259d5a39aa1756769fe2aa
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284488"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050873"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory tjänstidentitet
 
 Den här artikeln hjälper dig att förstå vad är data factory-tjänstidentitet och hur det fungerar.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [dokumentationen för Data Factory version1](v1/data-factory-introduction.md).
 
 ## <a name="overview"></a>Översikt
 
@@ -39,7 +36,7 @@ Data factory tjänstidentiteten fördelar följande två funktioner:
 
 Data factory tjänstidentiteten skapas på följande sätt:
 
-- När du skapar datafabriken via **Azure-portalen eller PowerShell**, tjänstidentiteten kommer alltid att skapas automatiskt eftersom ADF V2 förhandsversion.
+- När du skapar datafabriken via **Azure-portalen eller PowerShell**, tjänstidentiteten skapas alltid automatiskt.
 - När du skapar datafabriken via **SDK**, tjänstidentiteten skapas bara om du anger ”identitet = ny FactoryIdentity()” i fabriken objektet för att skapa. Se exemplet i [Snabbstart för .NET - skapa datafabriken](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
 - När du skapar datafabriken via **REST API**, tjänstidentiteten skapas bara om du anger ”identitetsavsnittet” i begärandetexten. Se exemplet i [REST-Snabbstart - skapa datafabriken](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 

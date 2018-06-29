@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 974ed70fbda88dfcb775e021474583f7afb0576b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 835e649959164aee5cc8edb1f2e34170d8a321f1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404968"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046687"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och pålitlighet för Hadoop-kluster i HDInsight
 
@@ -38,7 +38,7 @@ Noder i ett HDInsight-kluster implementeras med hjälp av Azure virtuella datore
 > [!NOTE]
 > Inte alla nodtyper används för en typ av kluster. Till exempel har en typ av Hadoop-kluster inte några Nimbus-noder. Mer information om noder som används av HDInsight-klustertyper finns i avsnittet kluster typer av den [skapa Linux-baserade Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) dokumentet.
 
-### <a name="head-nodes"></a>HEAD-noder
+### <a name="head-nodes"></a>Huvudnoder
 
 HDInsight tillhandahåller två huvudnoderna för att säkerställa hög tillgänglighet för Hadoop-tjänster. Båda huvudnoderna är aktiv och körs i HDInsight-klustret samtidigt. Vissa tjänster, till exempel HDFS eller YARN, är bara aktiva i en huvudnod vid en given tidpunkt. Andra tjänster som HiveServer2 eller Hive MetaStore är aktiva på båda head noder på samma gång.
 
@@ -63,9 +63,9 @@ Arbetarnoder analysera den faktiska data när ett jobb som skickas till klustret
 
 En kantnod deltar inte aktivt i dataanalys i klustret. Den används av utvecklare eller datavetare när du arbetar med Hadoop. Kantnoden bor i Azure samma virtuella nätverk som de andra noderna i klustret och direkt åtkomst till alla andra noder. Kantnoden kan användas utan att göra resurser från kritiska Hadoop-tjänster eller analys jobb.
 
-R Server på HDInsight är för närvarande den enda typen i klustret som tillhandahåller en kantnod som standard. R Server på HDInsight kantnoden används testkod R lokalt på nod innan den skickas till klustret för distribuerad databehandling.
+Ml – tjänster på HDInsight är för närvarande den enda typen i klustret som tillhandahåller en kantnod som standard. För ML tjänster på HDInsight kantnoden används testkod R lokalt på nod innan den skickas till klustret för distribuerad databehandling.
 
-Information om hur du använder en kantnod med klustertyper än R Server finns i [använder edge-noder i HDInsight](hdinsight-apps-use-edge-node.md) dokumentet.
+Information om hur du använder en kantnod med andra typer av klustret finns i [använder edge-noder i HDInsight](hdinsight-apps-use-edge-node.md) dokumentet.
 
 ## <a name="accessing-the-nodes"></a>Åtkomst till noderna
 

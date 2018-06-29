@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2018
+ms.date: 06/27/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: aca67ceff2650a5470b1c08b20c21d71f00bae62
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: eae350f751788eb09271e70f71f79b12e27c4e16
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751538"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061409"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta till en Azure-SSIS-integrering körning till ett virtuellt nätverk
 Anslut din Azure-SSIS-integrering runtime (IR) till Azure-nätverk i följande scenarier: 
@@ -27,10 +27,7 @@ Anslut din Azure-SSIS-integrering runtime (IR) till Azure-nätverk i följande s
 
 - Du är värd för SQL Server Integration Services (SSIS) katalogdatabasen i Azure SQL Database med virtuella nätverk service slutpunkter/hanterad instansen (förhandsversion). 
 
- Azure Data Factory version 2 (förhandsversion) kan du ansluta din Azure-SSIS-integrering runtime till ett virtuellt nätverk som skapats via den klassiska distributionsmodellen och Azure Resource Manager-distributionsmodellen. 
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som finns i allmänhet tillgänglighet (GA), finns det [Data Factory version 1 dokumentationen](v1/data-factory-introduction.md). 
+ Azure Data Factory kan du ansluta din Azure-SSIS-integrering runtime till ett virtuellt nätverk som skapats via den klassiska distributionsmodellen och Azure Resource Manager-distributionsmodellen. 
 
 ## <a name="access-to-on-premises-data-stores"></a>Åtkomst till lokala datalager
 Om SSIS-paket åtkomst till endast de offentliga moln datalager, behöver du inte ansluta till Azure-SSIS-IR till ett virtuellt nätverk. Om SSIS-paket åtkomst till lokala datalager, måste du ansluta till Azure-SSIS-IR till ett virtuellt nätverk som är anslutet till det lokala nätverket. 
@@ -114,7 +111,10 @@ Om du är orolig för att förlora möjligheten att inspektera utgående Interne
 Se [detta PowerShell-skript](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) ett exempel. Du måste köra skriptet weekly för att hålla Azure data center IP-adresslistan uppdaterade. 
 
 ### <a name="resource-group"></a> Krav för resursgrupp
-Azure-SSIS-IR måste skapa vissa nätverksresurser under samma resursgrupp som det virtuella nätverket, inklusive en Azure belastningsutjämnare, en Azure offentliga IP-adress och en nätverkssäkerhetsgrupp för arbetet. 
+-   Azure-SSIS-IR måste skapa vissa nätverksresurser under samma resursgrupp som det virtuella nätverket. Dessa resurser inkluderar följande:
+    -   Azure belastningsutjämnare, med namnet  *<Guid>- azurebatch cloudserviceloadbalancer*.
+    -   En Azure offentliga IP-adress med namnet  *<Guid>- azurebatch cloudservicepublicip*.
+    -   En nätverk fungerar säkerhetsgrupp med namnet  *<Guid>- azurebatch cloudservicenetworksecuritygroup*. 
 
 -   Kontrollera att du inte har någon resurslås på den resursgrupp eller prenumeration som tillhör det virtuella nätverket. Om du konfigurerar ett skrivskyddat Lås eller ta bort lås, kan starta och stoppa IR misslyckas eller Lägg. 
 

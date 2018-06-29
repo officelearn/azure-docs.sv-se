@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: a5a81279726e5c221d9ae4734466a04ae5912af6
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1015600343886333655a921f2e0944ebb676f3e6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936810"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050135"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-instansen migrering till Azure SQL-hanterade databasinstans
 
@@ -82,6 +82,8 @@ Hanterade instans stöder följande databas-migreringsalternativ (dessa är för
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
 Den [Azure databas migrering Service (DMS)](../dms/dms-overview.md) är en helt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure Data plattformar med minimal avbrottstid. Den här tjänsten förenklar uppgifter som krävs för att flytta befintliga tredjeparts- och SQL Server-databaser till Azure. Distributionsalternativ i Public Preview innehåller Azure SQL Database, hanteras instans och SQL Server i en virtuell dator i Azure. DMS är den rekommenderade metoden för migrering för ditt företagsarbetsbelastningar. 
+
+Om du använder SQL Server Integration Services (SSIS) på SQL-servern lokalt, DMS stöder ännu inte migrera SSIS-katalogen (SSISDB) som lagrar SSIS-paket, men du kan etablera Azure SSIS Integration Runtime (IR) i Azure Data Factory (ADM) som kommer Skapa en ny SSISDB i Azure SQL Database/hanterad instans och sedan distribuera paketen till den, se [skapa Azure-SSIS-IR i ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
 
 Läs mer om det här scenariot och konfigurationssteg för DMS i [migrera dina lokala databasen till hanterade instans med DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 

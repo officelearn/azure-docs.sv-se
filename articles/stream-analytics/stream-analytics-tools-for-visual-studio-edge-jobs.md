@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/13/2018
-ms.openlocfilehash: ec916ea2104df9d694aad2462df7ca5a487017f2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: cfdfa1493857a1731da74c52a616293b482f811a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907766"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030700"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Utveckla kant för Stream Analytics-jobb med hjälp av Visual Studio tools
 
@@ -61,7 +61,7 @@ När projektet skapas, går du till den **Solution Explorer** att visa mapphiera
 2. Se till att mottagare har angetts för att välja **kant hubb** > händelse serialiseringsformat har angetts till **Json** > och kodning är inställd på **UTF8** > och Format är inställd på  **Matrisen**. Alternativt kan du byta namn på **kolumnalias**, lämna den som är i det här exemplet ska vi. Om du byter namn på utdataalias, använder du det namn du angav när du definierar i frågan. Spara inställningarna genom att klicka på **Spara**. 
    ![Konfiguration av utdata](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png)
  
-## <a name="define-the-transformation-query"></a>Definiera fråga för omvandling
+## <a name="define-the-transformation-query"></a>Definiera transformationsfrågan
 
 Stream Analytics-jobb som distribuerats i Edge-miljöer stöder de flesta av [Stream Analytics-frågespråket referens](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396), men följande åtgärder inte stöds ännu för Edge jobb: 
 
@@ -123,6 +123,6 @@ Visa fönstret jobb ger åtgärder, t.ex uppdatera jobb, tar bort jobb, öppna j
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Mer information om Azure Iot kant](../iot-edge/how-iot-edge-works.md)
+* [Mer information om Azure Iot kant](../iot-edge/about-iot-edge.md)
 * [ASA på IoT kant självstudiekursen](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [Skicka feedback till teamet med den här undersökningen](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 

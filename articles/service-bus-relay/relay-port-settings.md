@@ -12,41 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 06/26/2018
 ms.author: sethm
-ms.openlocfilehash: 055f04d496b56a5e8542911aa78292d7746ae80b
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 56688b6941d58c0ecc8d0ff4ba3c8a8392e71496
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28017383"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029381"
 ---
 # <a name="azure-relay-port-settings"></a>Azure Relay-portinställningar
 
 I följande tabell beskrivs nödvändig konfiguration av portarna för Azure Relay.
 
 ## <a name="hybrid-connections"></a>Hybridanslutningar
-Hybridanslutningar använder WebSockets som den underliggande transportmekanismen som använder **HTTPS** endast. 
+
+Hybridanslutningar använder WebSockets på port 443 med SSL som den underliggande transportmekanismen som använder **HTTPS** endast. 
 
 ## <a name="wcf-relays"></a>WCF-reläer
   
 |Bindning|Transportsäkerhet|Port|  
 |-------------|------------------------|----------|  
 |[BasicHttpRelayBinding klassen](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (klient)|Ja|HTTPS| 
-| |" |Nej|HTTP|  
+|" |Nej|HTTP|  
 |[BasicHttpRelayBinding klassen](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (service)|Antingen|9351/HTTP|  
 |[NetEventRelayBinding klassen](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (klient)|Ja|9351/HTTPS|  
-||" |Nej|9350/HTTP|  
+|" |Nej|9350/HTTP|  
 |[NetEventRelayBinding klassen](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (service)|Antingen|9351/HTTP|  
 |[NetTcpRelayBinding klassen](/dotnet/api/microsoft.servicebus.nettcprelaybinding) (klienttjänsten)|Antingen|HTTP-5671/9352 (9352/9353, om du använder hybrid)|  
 |[NetOnewayRelayBinding klassen](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (klient)|Ja|9351/HTTPS|  
-||" |Nej|9350/HTTP|  
+|" |Nej|9350/HTTP|  
 |[NetOnewayRelayBinding klassen](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (service)|Antingen|9351/HTTP|  
 |[WebHttpRelayBinding klassen](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (klient)|Ja|HTTPS|  
-||" |Nej|HTTP|  
+|" |Nej|HTTP|  
 |[WebHttpRelayBinding klassen](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (service)|Antingen|9351/HTTP|  
 |[WS2007HttpRelayBinding klassen](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (klient)|Ja|HTTPS|  
-||" |Nej|HTTP|  
+|" |Nej|HTTP|  
 |[WS2007HttpRelayBinding klassen](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (service)|Antingen|9351/HTTP|
 
 ## <a name="next-steps"></a>Nästa steg

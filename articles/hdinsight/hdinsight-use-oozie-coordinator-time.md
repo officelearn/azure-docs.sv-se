@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: db7f1f85601cfcf4531bb11176a21126625ce7f0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c5819d39bf3ab7c0f4af32171aadea56e4f6a241
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31422019"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063552"
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Använda tidsbaserad Oozie-koordinator med Hadoop i HDInsight för att definiera arbetsflöden och samordna jobb
 I den här artikeln lär du dig hur du definierar arbetsflöden och koordinatorer och hur du utlöser coordinator jobb, baserat på tid. Är det bra att gå igenom [Använd Oozie med HDInsight] [ hdinsight-use-oozie] innan den här artikeln. Förutom Oozie, kan du också schemalägga jobb med hjälp av Azure Data Factory. Information om Azure Data Factory finns [Use Pig och Hive med Data Factory](../data-factory/transform-data.md).
@@ -220,7 +220,7 @@ Oozie arbetsflöden definitioner skrivs i hPDL (en XML-processen definition lang
     <tr><td>${hiveOutputFolder}</td><td>Den utgående mappen för instruktionen Hive Infoga skriva över. Det här är samma mapp för Sqoop exporten (export-dir).</td></tr>
     </table>
 
-    Läs mer om Oozie arbetsflödet och använder arbetsflödesåtgärderna [Apache Oozie 4.0 dokumentationen] [ apache-oozie-400] (för HDInsight-kluster av version 3.0) eller [Apache Oozie 3.3.2 dokumentationen] [ apache-oozie-332] (för HDInsight-kluster av version 2.1).
+    Läs mer om Oozie arbetsflödet och använder arbetsflödesåtgärderna [Apache Oozie 4.0 dokumentationen] [ apache-oozie-400] (för HDInsight-kluster av version 3.0) eller [Apache Oozie 3.3.2 dokumentation ] [ apache-oozie-332] (för HDInsight-kluster av version 2.1).
 
 1. Spara filen som **C:\Tutorials\UseOozie\workflow.xml** med hjälp av kodningen ANSI (ASCII). (Använd anteckningar om din textredigerare inte ger det här alternativet.)
 
@@ -752,7 +752,7 @@ I kursen får du har lärt dig hur du definierar ett arbetsflöde för Oozie och
 [powershell-download]: http://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx

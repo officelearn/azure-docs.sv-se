@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 924c41b060f56b4a21e4d29e059eb2968fa19330
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: dc1e3fd3984d0ccbfb0565a3216ec907894e88ea
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232576"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028956"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Vad är åtkomstkontroller i Azure Active Directory för villkorlig åtkomst? 
 
@@ -77,7 +77,7 @@ Använda Multi-Factor authentication skyddar resurser från används av en obeh�
 
 ### <a name="compliant-device"></a>Kompatibel enhet
 
-Du kan konfigurera principer för villkorlig åtkomst som baseras på enheten. Syftet med en princip för enhetsbaserad villkorlig åtkomst är att ge åtkomst till de konfigurerade resurserna från [hanterade enheter](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Kräver en kompatibel enhet är ett alternativ måste du definiera en hanterad enhet är. Om det här alternativet väljs, princip för villkorlig åtkomst ger åtkomst till åtkomstförsök med enheter som är [registrerade](device-management-introduction.md) till din Azure Active Directory och är markerade som kompatibel med din MDM-lösning.
+Du kan konfigurera principer för villkorlig åtkomst som baseras på enheten. Syftet med en princip för enhetsbaserad villkorlig åtkomst är att ge åtkomst till de konfigurerade resurserna från [hanterade enheter](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Kräver en kompatibel enhet är ett alternativ måste du definiera en hanterad enhet är. Om det här alternativet väljs, princip för villkorlig åtkomst ger åtkomst till åtkomstförsök med enheter som är [registrerade](device-management-introduction.md) till din Azure Active Directory och är markerad som är kompatibla med Intune (för alla enheter OS) eller med din tredje parts MDM-systemet för Windows 10-enheter. Tredje parts MDM-system för enhetstyper operativsystem än Windows 10 stöds inte.
 
 Mer information finns i [ställa in Azure Active Directory enhetsbaserad villkorliga åtkomstprinciper](active-directory-conditional-access-policy-connected-applications.md).
 

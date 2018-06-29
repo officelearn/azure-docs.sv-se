@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från Vertika med hjälp av Azure Data Factory (Beta) | Microsoft Docs
+title: Kopiera data från Vertika med hjälp av Azure Data Factory | Microsoft Docs
 description: Lär dig hur du kopierar data från Vertika till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 56be714224ccdaf9af1afcb18e24a85bed7522b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d4399fd26c4c536f89bb15e16bfc67fb1d0940fa
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617859"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059106"
 ---
-# <a name="copy-data-from-vertica-using-azure-data-factory-beta"></a>Kopiera data från Vertika med hjälp av Azure Data Factory (Beta)
+# <a name="copy-data-from-vertica-using-azure-data-factory"></a>Kopiera data från Vertika med hjälp av Azure Data Factory 
 
 Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från Vertika. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Kopieringsaktiviteten i V1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> Den här anslutningen är för närvarande i betaversion. Du kan prova och ge oss feedback. Använd den inte i produktionsmiljöer.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 

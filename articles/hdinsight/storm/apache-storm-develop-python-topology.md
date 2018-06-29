@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 0a8930da2d44714573155477d791dd9cb78d872a
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 9ad6ab9e280762fbdb04ba0c1790cd6d01526556
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311700"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063450"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Utveckla Apache Storm-topologier med Python i HDInsight
 
@@ -38,7 +38,7 @@ Koden för det här projektet är tillgänglig på [ https://github.com/Azure-Sa
 
 * Maven 3
 
-* (Valfritt) En lokal Storm-utvecklingsmiljö. En lokal miljö Storm krävs endast om du vill köra topologin lokalt. Mer information finns i [ställa in en utvecklingsmiljö](http://storm.apache.org/releases/1.1.0/Setting-up-development-environment.html).
+* (Valfritt) En lokal Storm-utvecklingsmiljö. En lokal miljö Storm krävs endast om du vill köra topologin lokalt. Mer information finns i [ställa in en utvecklingsmiljö](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html).
 
 ## <a name="storm-multi-language-support"></a>Storm-stöd för flera språk
 
@@ -97,7 +97,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 ```
 
 > [!NOTE]
-> Kommandot kräver en lokal Storm-utvecklingsmiljö. Mer information finns i [ställa in en utvecklingsmiljö](http://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html)
+> Kommandot kräver en lokal Storm-utvecklingsmiljö. Mer information finns i [ställa in en utvecklingsmiljö](http://storm.apache.org/releases/1.0.6/Setting-up-development-environment.html)
 
 När topologi-startar den skickar information till den lokala konsolen som liknar följande:
 

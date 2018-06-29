@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2017
 ms.author: douglasl
-ms.openlocfilehash: 956bd89a993a019d7a5a4dd28efec4116b174334
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 523d50623257d3944342cb174174e27bd4731248
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297265"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045253"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integration körning i Azure Data Factory  
 **Integration runtime** är beräkningsinfrastrukturen som används av Azure Data Factory för att ange olika funktioner för integration av data mellan olika nätverksmiljöer. Det finns tre typer av integration körningar som erbjuds av Data Factory:
@@ -26,9 +26,6 @@ ms.locfileid: "35297265"
 - Azure Integration Runtime
 - Integration Runtime med egen värd
 - Azure SSIS Integration Runtime
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen om Data Factory version 1](v1/data-factory-introduction.md).
 
 Kör följande PowerShell-kommando för att hämta status för en instans av integration runtime (IR): 
 
@@ -200,9 +197,9 @@ Finns i följande artiklar om du vill veta mer om Azure-SSIS-integrering körnin
 
 - [Azure-SSIS-integrering Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln innehåller information om integration körningar i allmänhet inklusive Azure SSIS-IR. 
 - [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS IR och använder en Azure SQL-databas som värd för SSIS-katalogen. 
-- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln kan utökas med kursen och innehåller instruktioner om med Azure SQL hanteras instans (förhandsversion) och koppla IR till ett virtuellt nätverk. 
+- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln kan utökas med självstudien och innehåller instruktioner för hur du använder Azure SQL-hanterade instanser (förhandsversion) och ansluter IR till ett virtuellt nätverk. 
 - [Hantera en Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Den här artikeln visar hur du stoppar, startar eller tar bort en Azure-SSIS IR. Den också visar hur du skalar ut Azure-SSIS IR genom att lägga till fler noder i IR. 
-- [Ansluta till en Azure-SSIS-IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller information om att ansluta till en Azure-SSIS-IR till ett Azure virtual network. Det ger också steg för att använda Azure-portalen för att konfigurera det virtuella nätverket så att Azure-SSIS-IR kan ansluta till det virtuella nätverket. 
+- [Anslut Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller begreppsrelaterad information om att ansluta Azure-SSIS IR till ett virtuellt Azure-nätverk. Det ger också steg för att använda Azure-portalen för att konfigurera det virtuella nätverket så att Azure-SSIS-IR kan ansluta till det virtuella nätverket. 
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar för att övervaka pipelines på olika sätt: 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: cfb1e6810285886da13aa0bf69faee9c65e2b222
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: af113ae76d81c82ff6c4ced1569aa16f3a9ee27c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738235"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064049"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Översikt över dela ögonblicksbilder för Azure-filer 
 Azure Files ger möjlighet att ta resursen ögonblicksbilder av filresurser. Dela ögonblicksbilder avbilda tillstånd för filresurs då i tid. Den här artikeln beskrivs vilka funktioner som ger resursen ögonblicksbilder och hur du kan dra nytta av dem i din anpassade användningsfall.
@@ -46,7 +46,7 @@ Dela ögonblicksbild kapaciteten tillhandahålls på filnivå för resursen. Hä
 
 En resurs ögonblicksbild av en filresurs är identisk med dess grundläggande filresurs. Den enda skillnaden är att en **DateTime** värdet läggs till resurs-URI för att visa den tid då resursen ögonblicksbilden togs. Till exempel om en filresurs URI är http://storagesample.core.file.windows.net/myshare, dela ögonblicksbilden URI liknar:
 ```
-http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 Dela ögonblicksbilder sparas tills de uttryckligen tas bort. En ögonblicksbild av en resurs kan inte sträcker sig längre än dess grundläggande filresurs. Du kan räkna upp ögonblicksbilder kopplade till grundläggande filresursen att spåra din aktuella ögonblicksbilder. 

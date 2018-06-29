@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c4c126663d34d65cc7e0aa641bf93b848a5dcae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d2445713aa5d6a839950ca0fe9567133c06d1ffa
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658323"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062249"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Stora instanser för SAP HANA hög tillgänglighet och katastrofåterställning recovery på Azure 
 
@@ -44,10 +44,12 @@ I följande tabell visar de kombinationer av och stöds för närvarande hög ti
 | Scenario som stöds i HANA stora instanser | Alternativ för hög tillgänglighet | Återställningsalternativ för katastrofåterställning | Kommentarer |
 | --- | --- | --- | --- |
 | Enkel nod | Inte tillgängligt. | Dedikerad DR-installationen.<br /> Multipurpose DR-installationen. | |
-| Värd för automatisk redundans: N + m<br /> inklusive 1 + 1 | Möjligt med vänteläge tar rollen active.<br /> HANA styr växeln roll. | Dedikerad DR-installationen.<br /> Multipurpose DR-installationen.<br /> DR synkronisering med storage-replikering. | HANA volym anger är kopplade till alla noder (n + m).<br /> DR-plats måste ha samma antal noder. |
+| Värd för automatisk redundans: skalbar (med eller utan vänteläge)<br /> inklusive 1 + 1 | Möjligt med vänteläge tar rollen active.<br /> HANA styr växeln roll. | Dedikerad DR-installationen.<br /> Multipurpose DR-installationen.<br /> DR synkronisering med storage-replikering. | HANA volym anger är kopplade till alla noder.<br /> DR-plats måste ha samma antal noder. |
 | HANA system replikering | Möjligt med primär eller sekundär installationen.<br /> Sekundär flyttar till primär roll i fall växling vid fel.<br /> HANA system replikering och OS kontroll av redundans. | Dedikerad DR-installationen.<br /> Multipurpose DR-installationen.<br /> DR synkronisering med storage-replikering.<br /> DR med hjälp av HANA system replikering är inte möjligt utan tredjepartskomponenter ännu. | Separat uppsättning diskvolymer är kopplade till varje nod.<br /> Endast volymerna på sekundär replik i produktionsplatsen replikeras till DR-plats.<br /> En uppsättning volymer krävs på DR-plats. | 
 
 En dedikerad DR-installationen är där HANA stora instans-enhet i DR-plats inte används för att köra andra arbetsbelastning eller icke-produktion system. Enheten är passiva och distribueras endast om en katastrof redundans körs. Den här installationen är dock inte ett önskade alternativ för många kunder.
+
+Se [HLI stöds scenarier](hana-supported-scenario.md) mer lagringsutrymme layout och Ethernet-information för din arkitektur.
 
 > [!NOTE]
 > [SAP HANA MCOD distributioner](https://launchpad.support.sap.com/#/notes/1681092) (flera HANA instanser på en enhet) som ovanpå scenarier arbete med hög tillgänglighet och Katastrofåterställning metoder som visas i tabellen. Ett undantag är användning av HANA System replikering med en automatisk redundanskluster utifrån Pacemaker. Sådana fall stöder bara en HANA instans per enhet. För [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) distributioner, endast icke-storage-baserade hög tillgänglighet och Katastrofåterställning metoder fungerar om mer än en klient har distribuerats. Med en klient som distribueras är alla metoder som anges giltiga.  
@@ -60,7 +62,7 @@ Du hittar mer information om hög tillgänglighet för SAP HANA i SAP följande 
 - [Vitboken för SAP HANA hög tillgänglighet](http://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
 - [SAP HANA Administrationsguide](http://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
 - [SAP HANA Academy videon på SAP HANA System-replikering](http://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
-- [SAP stöd Obs #1999880 – vanliga frågor och svar på SAP HANA System-replikering](https://bcs.wdf.sap.corp/sap/support/notes/1999880)
+- [SAP stöd Obs #1999880 – vanliga frågor och svar på SAP HANA System-replikering](https://apps.support.sap.com/sap/support/knowledge/preview/en/1999880)
 - [SAP stöd Obs #2165547 – SAP HANA tillbaka in och återställa inom SAP HANA-systemmiljön replikering](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [SAP stöd Obs #1984882 – med SAP HANA System replikering för maskinvara Exchange med minsta/noll avbrottstid](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
 

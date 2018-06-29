@@ -12,27 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: ffa65e542b83bccf1629674a0a4860e236401605
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 87a71cff07d18dde25fa5c58b3718e7a57e3ce8d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621531"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046021"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Skapa förutsägande pipelines med hjälp av Azure Machine Learning och Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-azure-ml-batch-execution-activity.md)
-> * [Version 2 – förhandsversion](transform-data-using-machine-learning.md)
+> * [Version 1](v1/data-factory-azure-ml-batch-execution-activity.md)
+> * [Aktuell version](transform-data-using-machine-learning.md)
 
 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) gör det möjligt att bygga, testa och distribuera prediktiva Analyslösningar. Från en övergripande synsätt görs i tre steg:
 
 1. **Skapa en träningsexperiment**. Du kan göra det här steget med hjälp av Azure ML Studio. ML studio är en gemensam visual utvecklingsmiljö som används för att träna och testa en förutsägelseanalysmodell med hjälp av utbildningsdata.
 2. **Konvertera den till en prediktivt experiment**. När din modell har tränats med befintliga data och du är redo att använda den för att samla in nya data, förbereda och förenkla experimentet för resultatfunktioner.
 3. **Distribuera den som en webbtjänst**. Du kan publicera experimentet bedömningsprofil som Azure-webbtjänst. Du kan skicka data till din modell via den här slutet för webbtjänst och ta emot resultatet förutsägelser från modellen.  
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Machine Learning-Batchkörningsaktivitet i V1](v1/data-factory-azure-ml-batch-execution-activity.md).
-
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory och Machine Learning tillsammans
 Azure Data Factory kan du enkelt skapa pipelines som använder en publicerad [Azure Machine Learning] [azure-machine-learning] webbtjänst för förutsägelseanalys. Med hjälp av den **Batchkörningsaktivitet** i Azure Data Factory-pipelinen, du kan anropa en Azure ML-webbtjänst för att göra förutsägelser på data i batch. 

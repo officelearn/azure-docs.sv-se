@@ -13,26 +13,26 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 9608af734d39627435a81e1d853c2546eabcdb0f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bf91b1cb1e764c1350cead0c5dfb109b73e9dad3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623442"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052723"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av aktiviteten lagrad procedur i Azure Data Factory
 Den här artikeln beskriver hur du anropa ett SSIS-paket från ett Azure Data Factory-pipelinen genom att använda en lagrad procedur-aktivitet. 
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory som är allmänt tillgänglig. Om du använder version 2 av Data Factory-tjänsten, som är tillgänglig som förhandsversion, se [anropa SSIS-paket med hjälp av aktiviteten lagrad procedur i version 2](../how-to-invoke-ssis-package-stored-procedure-activity.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [anropa SSIS-paket med hjälp av aktiviteten lagrad procedur i](../how-to-invoke-ssis-package-stored-procedure-activity.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
-Den här genomgången i den här artikeln använder en Azure SQL-databas som är värd för SSIS-katalogen. Du kan också använda en Azure SQL hanteras-instans (förhandsversion).
+Den här genomgången i den här artikeln använder en Azure SQL-databas som är värd för SSIS-katalogen. Du kan också använda en Azure SQL-hanterade databasinstans (förhandsversion).
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Skapa en Azure-SSIS Integration Runtime
-Skapa en Azure-SSIS-integrering körning om du inte har någon av följande steg för steg-anvisningarna i den [genomgång: distribuera SSIS-paket](../tutorial-create-azure-ssis-runtime-portal.md). Du måste skapa en datafabrik version 2 för att skapa en Azure-SSIS-integrering körning. 
+Skapa en Azure-SSIS-integrering körning om du inte har någon av följande steg för steg-anvisningarna i den [genomgång: distribuera SSIS-paket](../tutorial-create-azure-ssis-runtime-portal.md). Du kan inte använda Data Factory version 1 för att skapa en Azure-SSIS-integrering körning. 
 
 ## <a name="azure-portal"></a>Azure Portal
 I det här avsnittet använder du Azure-portalen för att skapa Data Factory-pipelinen med en lagrad procedur-aktivitet som anropar ett SSIS-paket.

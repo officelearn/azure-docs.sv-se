@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 4c77c8a7209825477929ddc0997b75ace5fe04a1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0b920d21486fc0003d8b11bef79bd44be4b28adf
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30910534"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030622"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Realtid Twitter-sentiment analys i Azure Stream Analytics
 
@@ -69,7 +69,7 @@ I den här proceduren du först skapa en event hub-namnområde och sedan lägga 
 
 ### <a name="grant-access-to-the-event-hub"></a>Bevilja åtkomst till händelsehubben
 
-Innan en process kan skicka data till en händelsehubb, måste händelsehubben ha en princip som tillåter åtkomstbehörighet. Åtkomstprincipen producerar en anslutningssträng som innehåller auktoriseringsinformation om.
+Innan en process kan skicka data till en händelsehubb, måste händelsehubben ha en princip som tillåter åtkomstbehörighet. Åtkomstprincipen producerar en anslutningssträng som inkluderar auktoriseringsinformation.
 
 1.  I bladet händelse namnområde klickar du på **Händelsehubbar** och klicka sedan på namnet på den nya händelsehubben.
 
@@ -251,7 +251,7 @@ Om du vill jämföra antalet nämns mellan ämnen som du kan använda en [rullan
 
     Azure exempel 3 minuter kan du se från Indataströmmen och meddelar dig när exempeldata är klar. (Detta tar en stund.) 
 
-    Exempeldata lagras tillfälligt och är tillgänglig när du har frågefönster öppnas. Om du stänger frågefönstret exempeldata ignoreras och du måste skapa en ny uppsättning exempeldata. 
+    Exempeldata lagras tillfälligt och är tillgängliga medan du har frågefönstret öppet. Om du stänger frågefönstret exempeldata ignoreras och du måste skapa en ny uppsättning exempeldata. 
 
 5. Ändra frågan i kodredigeraren för till följande:
 
@@ -281,7 +281,7 @@ I följande tabell visas de fält som är en del av JSON strömmande data. Du ka
 |CreatedAt | Den tid som tweet skapades|
 |Avsnitt | Avsnittet som matchar det angivna nyckelordet|
 |SentimentScore | Sentiment poäng från Sentiment140|
-|Skapa | Twitter-referensen som skickats av tweet|
+|Författare | Twitter-referensen som skickats av tweet|
 |Text | Själva tweet|
 
 
@@ -338,7 +338,7 @@ Jobbet indata-, fråge- och utdata har angetts. Du är redo att börja Stream An
 
 När jobbet har startats och bearbetas i realtid Twitter-dataströmmen kan visa du utdata för sentiment analys.
 
-Du kan använda ett verktyg som [Azure Lagringsutforskaren](https://http://storageexplorer.com/) eller [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) att visa din jobbutdata i realtid. Härifrån kan du använda [Power BI](https://powerbi.com/) att utöka ditt program att inkludera en anpassad instrumentpanel som det visas i följande skärmbild:
+Du kan använda ett verktyg som [Azure Lagringsutforskaren](https://storageexplorer.com/) eller [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) att visa din jobbutdata i realtid. Härifrån kan du använda [Power BI](https://powerbi.com/) att utöka ditt program att inkludera en anpassad instrumentpanel som det visas i följande skärmbild:
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

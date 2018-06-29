@@ -1,6 +1,6 @@
 ---
-title: Operationalisera R Server på HDInsight - Azure | Microsoft Docs
-description: Lär dig mer om att operationalisera R Server i Azure HDInsight.
+title: Operationalisera ML-tjänster på HDInsight - Azure | Microsoft Docs
+description: Lär dig mer om att operationalisera ML tjänster i Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -10,28 +10,31 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 6de6e78d9b4ad68d268b59cff18c75fbdd7be757
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: caefe30ff567a5e24e1f4c3a11309bd35e06190c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412849"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046147"
 ---
-# <a name="operationalize-r-server-cluster-on-azure-hdinsight"></a>Operationalisera R Server-kluster i Azure HDInsight
+# <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operationalisera ML Services kluster på Azure HDInsight
 
-När du har använt R Server-kluster i HDInsight för att slutföra din datamodeller, kan du operationalisera modellen för att göra förutsägelser. Den här artikeln innehåller instruktioner om hur du utför den här uppgiften.
+När du har använt ML Services kluster i HDInsight för att slutföra din datamodeller, kan du operationalisera modellen för att göra förutsägelser. Den här artikeln innehåller instruktioner om hur du utför den här uppgiften.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **R Server-kluster i HDInsight**: instruktioner finns i [komma igång med R Server på HDInsight](r-server-get-started.md).
+* **Ml – tjänster-kluster i HDInsight**: instruktioner finns i [komma igång med ML Services på HDInsight](r-server-get-started.md).
 
 * **En SSH-klient (Secure Shell)**: En SSH-klient används för att fjärransluta till HDInsight-klustret och köra kommandon direkt på klustret. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
-## <a name="operationalize-r-server-cluster-with-one-box-configuration"></a>Operationalisera R Server-kluster med en ruta konfiguration
+## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Operationalisera ML Services kluster med en ruta konfiguration
 
-1. SSH till kantnoden.  
+> [!NOTE]
+> Stegen nedan gäller för R Server 9.0 och ML Server 9.1. ML Server 9.3 finns [Använd administrationsverktyget för att hantera konfigurationen operationalization](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
+
+1. SSH till kantnoden.
 
         ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
@@ -39,7 +42,7 @@ När du har använt R Server-kluster i HDInsight för att slutföra din datamode
 
 2. Ändra katalogen för de relevanta och sudo punkt net DLL-filen: 
 
-    - Microsoft R-server 9.1:
+    - För Microsoft ML Server 9.1:
 
             cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0
             sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
@@ -49,11 +52,11 @@ När du har använt R Server-kluster i HDInsight för att slutföra din datamode
             cd /usr/lib64/microsoft-deployr/9.0.1
             sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Visas med alternativ att välja mellan. Välj det första alternativet, som visas i följande skärmbild till **konfigurera R Server för Operationalization**.
+3. Visas med alternativ att välja mellan. Välj det första alternativet, som visas i följande skärmbild till **ML konfigurerar Server för Operationalization**.
 
     ![en enda driftsättning](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-4. Nu visas med möjlighet att välja hur du vill att operationalisera R Server. Alternativ för presenterades väljer du den första genom att ange **A**.
+4. Nu visas med möjlighet att välja hur du vill att operationalisera ML-Server. Alternativ för presenterades väljer du den första genom att ange **A**.
 
     ![en enda driftsättning](./media/r-server-operationalize/admin-util-one-box-2.png)
 
@@ -99,7 +102,7 @@ Om du får långa fördröjningar när du försöker använda en webbtjänst som
 
 I det här skedet är konfigurationen för driftsättning klar. Nu kan du använda den `mrsdeploy` paketet på din RClient att ansluta till operationalization på kantnod och börja använda dess funktioner som [fjärrkörning](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) och [-webbtjänster](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). Beroende på om klustret är konfigurerat i ett virtuellt nätverk eller inte kan du behöva konfigurera portvidarebefordran via SSH-inloggning. I följande avsnitt beskrivs hur du konfigurerar den här tunneln.
 
-### <a name="r-server-cluster-on-virtual-network"></a>R Server-kluster på det virtuella nätverket
+### <a name="ml-services-cluster-on-virtual-network"></a>Ml – tjänster kluster på virtuellt nätverk
 
 Se till att du tillåter trafik genom port 12800 till kantnoden. På så sätt kan du använda kantnoden för att ansluta till driftsättningsfunktionen.
 
@@ -115,7 +118,7 @@ Se till att du tillåter trafik genom port 12800 till kantnoden. På så sätt k
 
 Om `remoteLogin()` inte kan ansluta till kantnoden, men SSH till kantnod fungerar, kontrollerar du att regeln för att tillåta trafik via port 12800 har ställts in på rätt sätt. Om problemet kvarstår kan du kringgå det genom att ställa in portvidarebefordran via SSH. Anvisningar finns i följande avsnitt:
 
-### <a name="r-server-cluster-not-set-up-on-virtual-network"></a>R Server-kluster som inte har ställts in på det virtuella nätverket
+### <a name="ml-services-cluster-not-set-up-on-virtual-network"></a>Ml – tjänster klustret inte ställts in på det virtuella nätverket
 
 Om inget kluster har konfigurerats på vnet, eller om du har problem med anslutningen via vnet, kan du använda SSH-portvidarebefordran:
 
@@ -139,7 +142,7 @@ Om du vill skala datornoderna först inaktivera arbetsnoderna och konfigurera se
 
 ### <a name="step-1-decommission-the-worker-nodes"></a>Steg 1: Inaktivera arbetsnoderna
 
-R Server-klustret hanteras inte via YARN. Om arbetsnoderna inte är inaktiverade fungerar YARN Resource Manager inte som förväntat, eftersom den inte är medveten om de resurser som tas upp av servern. För att undvika detta rekommenderar vi att du inaktiverar arbetsnoderna innan du skalar ut beräkningsnoderna.
+Ml – tjänster klustret hanteras inte via YARN. Om arbetsnoderna inte är inaktiverade fungerar YARN Resource Manager inte som förväntat, eftersom den inte är medveten om de resurser som tas upp av servern. För att undvika detta rekommenderar vi att du inaktiverar arbetsnoderna innan du skalar ut beräkningsnoderna.
 
 Följ dessa steg om du vill inaktivera arbetsnoderna:
 
@@ -163,11 +166,11 @@ Följ dessa steg om du vill inaktivera arbetsnoderna:
 
 1. SSH till varje inaktiverad arbetsnod.
 
-2. Kör verktyget för administration med relevanta DLL-filen för R Server-klustret som du har. För R Server 9.1, kör du följande:
+2. Kör verktyget för administration med relevanta DLL-filen för klustret ML-tjänster som du har. För ML Server 9.1, kör du följande:
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Ange **1** att välja alternativet **konfigurera R Server för Operationalization**.
+3. Ange **1** att välja alternativet **ML konfigurerar Server för Operationalization**.
 
 4. Ange **C** att välja alternativet `C. Compute node`. Då konfigureras beräkningsnoden på arbetsnoden.
 
@@ -175,7 +178,7 @@ Följ dessa steg om du vill inaktivera arbetsnoderna:
 
 ### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Steg 3: Lägg till compute-noder information på webben nod
 
-När alla inaktiverade arbetarnoder har konfigurerats för att köra compute-nod, gå tillbaka på kantnoden och Lägg till inaktiverade worker noder IP-adresser i R Server web nodens konfiguration:
+När alla inaktiverade arbetarnoder har konfigurerats för att köra compute-nod, gå tillbaka på kantnoden och Lägg till inaktiverade worker noder IP-adresser i ML Server web nodens konfiguration:
 
 1. SSH till kantnoden.
 
@@ -192,6 +195,6 @@ När alla inaktiverade arbetarnoder har konfigurerats för att köra compute-nod
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera R Server-kluster i HDInsight](r-server-hdinsight-manage.md)
-* [Alternativ för beräkningskontexter för R Server-kluster i HDInsight](r-server-compute-contexts.md)
-* [Alternativ för Azure Storage för R Server-kluster i HDInsight](r-server-storage.md)
+* [Hantera tjänster ML-kluster i HDInsight](r-server-hdinsight-manage.md)
+* [Compute-kontexten alternativ för ML Services kluster i HDInsight](r-server-compute-contexts.md)
+* [Azure lagringsalternativ för ML Services-kluster i HDInsight](r-server-storage.md)

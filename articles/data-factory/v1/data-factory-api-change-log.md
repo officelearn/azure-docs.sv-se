@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c5f47379072f4e5d15ffd96c5e45a23d10fff187
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f53c9e2b21e4758bccb6b0f89eb69501df2a6009
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620256"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051407"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - ändringsloggen för .NET-API
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). 
+> Den här artikeln gäller för version 1 av Data Factory. 
 
 Den här artikeln innehåller information om ändringar till Azure Data Factory SDK i en viss version. Du hittar det senaste NuGet-paketet för Azure Data Factory [här](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
 
@@ -43,9 +43,9 @@ Funktionen tillägg:
 
 ## <a name="version-4100"></a>Version 4.10.0
 * Följande valfria egenskaper har lagts till TextFormat:
-  * [SkipLineCount](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.skiplinecount.aspx)
-  * [FirstRowAsHeader](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.firstrowasheader.aspx)
-  * [TreatEmptyAsNull](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.treatemptyasnull.aspx)
+  * [skipLineCount](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.skiplinecount.aspx)
+  * [firstRowAsHeader](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.firstrowasheader.aspx)
+  * [treatEmptyAsNull](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.treatemptyasnull.aspx)
 * På följande länkade tjänsttyper har lagts till:
   * [OnPremisesCassandraLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisescassandralinkedservice.aspx)
   * [SalesforceLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.salesforcelinkedservice.aspx)
@@ -72,7 +72,7 @@ Funktionen tillägg:
 ### <a name="feature-additions"></a>Funktionen tillägg
 * Följande valfria egenskaper har lagts till kopia aktivitetstyp att aktivera justering av kopiera prestanda:
   * [parallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
-  * [cloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
+  * [CloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
 
 ## <a name="version-470"></a>Version 4.7.0
 ### <a name="feature-additions"></a>Funktionen tillägg
@@ -89,7 +89,7 @@ Funktionen tillägg:
 ### <a name="feature-additions"></a>Funktionen tillägg
 * Följande egenskaper har lagts till [PipelineProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties_properties.aspx):
   * [PipelineMode](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.pipelinemode.aspx)
-  * [ExpirationTime](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.expirationtime.aspx)
+  * [expirationTime](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.expirationtime.aspx)
   * [Datauppsättningar](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
 * Följande egenskaper har lagts till [PipelineRuntimeInfo](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.aspx):
   * [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
@@ -184,5 +184,5 @@ Följande klasser har bytt namn. De nya namn var de ursprungliga namnen på klas
 * **Lista** pipeline API returnerar bara en sammanfattning av en pipeline i stället för fullständig information. Till exempel innehålla aktiviteter i en pipeline-sammanfattning endast namn och typ.
 
 ### <a name="feature-additions"></a>Funktionen tillägg
-* Den [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) klassen stöder två nya egenskaper **SliceIdentifierColumnName** och **SqlWriterCleanupScript**att stödja idempotent kopiera till Azure SQL Data Warehouse. Finns det [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) artikeln för information om dessa egenskaper.
+* Den [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) klassen stöder två nya egenskaper **SliceIdentifierColumnName** och **SqlWriterCleanupScript**att stödja idempotent kopiera till Azure SQL-Data Datalager. Finns det [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) artikeln för information om dessa egenskaper.
 * Vi stöder nu Kör lagrad procedur mot Azure SQL Database och Azure SQL Data Warehouse källor som en del av aktiviteten kopia. Den [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) och [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) klasser har följande egenskaper: **SqlReaderStoredProcedureName** och **StoredProcedureParameters**. Finns det [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) och [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) artiklar på Azure.com mer information om dessa egenskaper.  

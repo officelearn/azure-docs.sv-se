@@ -8,14 +8,14 @@ manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 47527087dc008c201949524f193820e636a8744f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 38f7f038a803546adb83245519efc5de0c0d1599
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35356233"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045018"
 ---
 # <a name="sample-for-intent-recognition"></a>Exempel på avsiktshantering redovisning
 
@@ -23,7 +23,7 @@ ms.locfileid: "35356233"
 > Anvisningar att hämta det här exemplet och andra finns [prover för tal SDK](samples.md).
 
 > [!NOTE]
-> Skaffa en prenumeration för först. Till skillnad från andra tjänster som stöds av kognitiva Service tal SDK avsikt Recognition services kräver en specifika subscribtion-nyckel. [Här](https://www.luis.ai) hittar du mer information om avsiktshantering recognition tekniken, samt information om hur du skaffar en prenumeration nyckel. Ersätt din egen nyckel prenumeration, region för tjänsten, samt AppId av avsiktshantering modellen på lämplig plats i exemplen.
+> Skaffa en prenumeration för först. Till skillnad från andra tjänster som stöds av kognitiva Service tal SDK avsikt Recognition tjänster kräver en viss prenumeration nyckel. [Här](https://www.luis.ai) hittar du mer information om avsiktshantering recognition tekniken, samt information om hur du skaffar en prenumeration nyckel. Ersätt din egen nyckel prenumeration, region för tjänsten och AppId av avsiktshantering modellen på lämplig plats i exemplen.
 
 > [!NOTE]
 > Följande översta förklaringar bör vara på plats för alla prover nedan:
@@ -54,7 +54,7 @@ Följande kodavsnitt identifierar avsikt från en ljudfil på standardspråket (
 
 [!include[Sample Audio](includes/sample-audio.md)]
 
-[!code-cpp[Intent Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp?IntentRecognitionWithFile)]
+[!code-cpp[Intent Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithFile)]
 
 - - -
 

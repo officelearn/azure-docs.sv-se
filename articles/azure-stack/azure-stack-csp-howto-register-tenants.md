@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27473ce4057fdb06ab9faf0f46dede62b4ee2246
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157398"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048847"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Lägg till klient för användning och fakturering till Azure-stacken
 
@@ -64,7 +64,7 @@ Uppdatera registreringen med nya kundens prenumeration. Azure rapporterar kunden
 3. Kör i PowerShell-session:
 
 ```powershell
-    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
 ```
 ### <a name="new-azurermresource-powershell-parameters"></a>Nya AzureRmResource PowerShell-parametrar
 | Parameter | Beskrivning |
@@ -73,6 +73,7 @@ Uppdatera registreringen med nya kundens prenumeration. Azure rapporterar kunden
 | customerSubscriptionID | Azure-prenumerationen (inte Azure-Stack) som hör till kunden ska registreras. Måste vara skapas i CSP erbjudandet; i praktiken innebär detta via Partnercenter. Om en kund har mer än en Azure Active Directory-klient, måste den här prenumerationen skapas i innehavaren som ska användas för att logga in på Azure-stacken.
 | resourceGroup | Resursgrupp i Azure som är lagrade i din registrering. 
 | registrationName | Namnet på registrering av Azure-stacken. Det är ett objekt som lagras i Azure. | 
+| Egenskaper | Anger egenskaper för resursen. Använd den här parametern om du vill ange värden för egenskaper som är specifika för resurstypen.
 
 
 > [!Note]  

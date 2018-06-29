@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: ce8764e79d24d36eb3b162fb5f3f688b3e9fab3f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8a8344388e9d31846770d5989d1ddd43fbe15336
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402010"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047487"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitetsplanering för HDInsight-kluster
 
@@ -114,5 +114,5 @@ Men det finns vissa fast kvotgränserna, till exempel en enda Azure-prenumeratio
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Ställ in kluster i HDInsight Hadoop, Spark, Kafka och mycket mer](hdinsight-hadoop-provision-linux-clusters.md): Lär dig hur du skapar och konfigurerar kluster i HDInsight med Hadoop, Spark, Kafka, interaktiva Hive, HBase, R Server eller Storm.
+* [Ställ in kluster i HDInsight Hadoop, Spark, Kafka och mycket mer](hdinsight-hadoop-provision-linux-clusters.md): Lär dig hur du skapar och konfigurerar kluster i HDInsight med Hadoop, Spark, Kafka, interaktiva Hive, HBase, ML tjänster eller Storm.
 * [Övervaka klusterprestanda](hdinsight-key-scenarios-to-monitor.md): Lär dig mer om viktiga scenarier för att övervaka ditt HDInsight-kluster som kan påverka ditt kluster kapacitet.

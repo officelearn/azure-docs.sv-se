@@ -9,16 +9,18 @@ ms.component: bing-spell-check
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: nolachar
-ms.openlocfilehash: e33fe5a30d154e8396c17d01487ef4420313527d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7cab8e0471151cd2ae7c2e31406f2460fdff6a0b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354735"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050394"
 ---
 # <a name="supported-language-list-and-status"></a>Lista över språk som stöds och status
 
-Dessa språk som stöds av Bing stavningskontroll kontrollera API.
+Dessa språk som stöds av Bing stavningskontroll kontrollera API (i `spell` läge). 
+
+Observera att du arbetar med ett annat språk än `en-US`, `mkt` ska anges och antingen `Accept-Language` eller `setLang` ska anges som det beskrivs i [stavningskontroll kontrollera API v7-referens](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
 
 | Språk    | Språkkod |
 |:----------- |:-------------:|

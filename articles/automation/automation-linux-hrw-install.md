@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8507cf99ea22b24aa3026565cb7c4139e4c3742d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: MT
+ms.openlocfilehash: d37dbb85dc85ee8bae0447f18f771dc658de18e3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268124"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060246"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera en Linux Hybrid Runbook Worker
 
@@ -50,7 +50,7 @@ Minimikraven för en Linux Hybrid Runbook Worker är:
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C-bibliotek| 2.5-12 |
 |Openssl| OpenSSL-bibliotek | 0.9.8e eller 1.0|
-|CURL | cURL Webbklient | 7.15.5|
+|cURL | cURL Webbklient | 7.15.5|
 |Python-ctypes | |
 |PAM | PAM-moduler|
 | **Valfritt paket** | **Beskrivning** | **Lägsta version**|
@@ -109,41 +109,9 @@ Följande typer av runbook fungerar inte på en Linux Worker-Hybrid:
 * Grafisk
 * Grafisk PowerShell-arbetsflöde
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshoot"></a>Felsöka
 
-Linux Hybrid Runbook Worker beror på OMS-Agent för Linux för att kommunicera med ditt Automation-konto för registrering worker, ta emot runbook-jobb och rapportera status. Om registreringen av worker misslyckas, kan vissa möjliga orsaker till felet.
-
-### <a name="the-oms-agent-for-linux-isnt-running"></a>OMS-Agent för Linux körs inte
-
-Om OMS-Agent för Linux inte kör kan inte Linux Hybrid Runbook Worker kommunicera med Azure Automation. Kontrollera att agenten är igång genom att ange kommandot `ps -ef | grep python`. 
-
-Du bör se utdata som liknar följande (Python bearbetar med den **nxautomation** användarkonto). Om uppdateringshantering eller Azure Automation-lösningen inte är aktiverad, körs ingen av följande processer.
-
-```bash
-nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
-nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-```
-
-Följande processer startas för en Linux Hybrid Runbook Worker. De är placerade i den `/var/opt/microsoft/omsagent/state/automationworker/` directory.
-
-* **OMS.conf**: Detta är manager arbetsprocessen. Den startas direkt från önskad tillstånd Configuration DSC ().
-
-* **Worker.conf**: det här är automatiskt registrerad Hybrid Worker-process. Den har startats av hanteraren för arbetaren. Den här processen används av hantering av uppdateringar och är transparent för användaren. Den här processen finns endast om uppdateringshantering lösningen är aktiverat på datorn.
-
-* **diy/Worker.conf**: Detta är själv hybrid arbetsprocessen. Arbetsprocessen själv hybrid används för att köra runbooks för användaren på Hybrid Runbook Worker. Den skiljer sig från processen för att automatiskt registrera Hybrid Worker endast att den använder en annan konfiguration. Den här processen finns bara om Azure Automation-lösningen är aktiverad och själv Linux Hybrid Worker registreras.
-
-Om OMS-Agent för Linux inte körs, kör följande kommando för att starta tjänsten: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-
-### <a name="the-specified-class-doesnt-exist"></a>Den angivna klassen finns inte
-
-Om du ser felet ”den angivna klassen finns inte” i `/var/opt/microsoft/omsconfig/omsconfig.log`, OMS-Agent för Linux måste uppdateras. Kör följande kommando för att installera om OMS-agenten:
-
-```bash
-wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
-```
-
-Ytterligare anvisningar om hur du felsöker problem med hantering av uppdateringar finns [uppdateringshantering: felsökning](automation-update-management.md#troubleshooting).
+Information om hur du felsöker Hybrid Runbook Worker-arbeten finns [felsökning Linux Hybrid Runbook Worker](troubleshoot/hybrid-runbook-worker.md#linux)
 
 ## <a name="next-steps"></a>Nästa steg
 

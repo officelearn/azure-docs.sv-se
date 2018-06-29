@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: nitinme
-ms.openlocfilehash: 17ba4af006587dd1d34f61a0f5f77cbcd768fcf8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a53bc6459e431d855ba09cda59680c5d8698c488
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410098"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063265"
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Viktig information för Hadoop-komponenter på Azure HDInsight
 
@@ -28,6 +28,17 @@ Den här artikeln innehåller information om den **senaste** uppdateringar med A
 > [!IMPORTANT]
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight versionshantering artikel](hdinsight-component-versioning.md).
 
+## <a name="notes-for-06272018---release-of-new-open-source-versions-adls-gen2-etc-on-hdinsight-36"></a>Information om 2018-06/27 - versionen av nya versioner med öppen källkod osv. ADLS Gen2 HDInsight 3,6
+Juni 2018-versionen av HDInsight shaping upp till vara en betydande version med en mängd nya uppdateringar och funktioner för våra kunder som beskrivs nedan. Läs detta [efter](https://azure.microsoft.com/en-us/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/) för mer information.
+
+Följande är de viktigaste delarna. För detaljerad viktig information, programfel som har korrigerats, kända problem osv., Läs detta [dokument](https://aka.ms/hdirelnotes).
+
+- **Uppdatera Hadoop och andra projekt med öppen källkod** – förutom 1000 + felkorrigeringar över 20 + öppen källkod projekt, den här uppdateringen innehåller en ny version av Spark (2.3) och Kafka (1.0).
+- **Uppdatera R Server 9.1 till Machine Learning Services 9.3** – med den här versionen ger dataanalytiker och tekniker med bästa för öppen källkod utökats med algoritmbaserade innovationer och enkel operationalization, alla tillgängliga i sina önskat språk med Apache Spark hastighet. Den här versionen utökar funktionerna som erbjuds i R Server med stöd för Python, vilket leder till ändringen av klustret från R Server till ML-tjänster. 
+- **Stöd för Azure Data Lake lagring Gen2** – HDInsight stöder förhandsversionen av Azure Data Lake lagring Gen2. Kunder kommer att kunna välja ett Gen2 ADLS-konto som ett Arkiv för sina HDInsight-kluster i de tillgängliga regionerna.
+- **HDInsight paketet säkerhetsuppdateringar (förhandsgranskning) Enterprise** – (förhandsgranskning) slutpunkter för virtuella nätverk som stöd för Azure blob Storage, ADLS Gen1, Cosmos-DB och Azure DB. 
+
+
 ## <a name="notes-for-03202018---release-of-spark-22-on-hdinsight-36"></a>Information om 2018-03/20 - versionen av Spark 2.2 i HDInsight 3,6
 
 - Spark 2.2.0 förbättrar stabiliteten i Spark Core, SQL, ML och ger strukturerade strömning GA status. Spark 2.2.0 är nu tillgänglig på HDInsight 3,6.
@@ -35,7 +46,7 @@ Den här artikeln innehåller information om den **senaste** uppdateringar med A
 
 ## <a name="notes-for-08012017-release-of-hdinsight"></a>Information om 2017-08/01 versionen av HDInsight
 
-| Namn | Beskrivning | Område som påverkas  | Typ av kluster  | 
+| Titel | Beskrivning | Område som påverkas  | Typ av kluster  | 
 | --- | --- | --- | --- | --- |
 | Version av Microsoft R Server 9.1 i HDInsight |HDInsight stöder nu etablering R Server 9.1 kluster i HDInsight. Mer information om Microsoft R Server 9.1 versionen finns [bloggen](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |Tjänst |R Server |
 | HDInsight 3,6 innehåller nu nyare versioner av Hadoop-stacken|<ul><li>En detaljerad lista över uppdaterade versioner finns [Hadoop komponent-versioner som är tillgängliga i HDInsight](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions).</li><li>En lista över programfel som har korrigerats i de senaste versionerna av Hadoop-stacken, se [Apache Korrigeringsinformation](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>En lista över bryta ändringar mellan HDP 2.6.1 (vilket är nu tillgängligt i HDInsight 3,6), se [ https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html ](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>En lista över kända problem i HDP 2.6.1 finns [kända problem](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Tjänst |Alla |Gäller inte |

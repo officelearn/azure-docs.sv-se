@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 16cc7c5841708b8b27cff4fcc7c93cdbb2fe0fa4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7754fccdfe8a2c4fad24f61fc22c722d2640ffa6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838341"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064115"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Så här identifierar du scenarier och planerar för avancerade analyser vid databearbetning
 Vilka resurser bör du planerar att när du konfigurerar en miljö för att göra avancerade analyser bearbetning på en datamängd? Den här artikeln tyder på ett antal frågor som hjälper identifiera de uppgifter och resurser som är relevanta ditt scenario. Anvisningar för förutsägelseanalys beskrivs i [vad är Team Data vetenskap processen (TDSP)?](overview.md). Var och en av dessa steg kräver särskilda resurser för uppgifterna som är relevanta för din specifika situation. Viktiga frågor för att identifiera ditt scenario omfatta data logistik, egenskaper, kvaliteten på datauppsättningar, och de verktyg och språk som du föredrar att göra analys.
@@ -97,9 +97,9 @@ Det finns många alternativ beroende på vilka språk och utvecklingsmiljöer el
    
    * [Microsoft Azure Powershell](/powershell/azure/overview) -ett skriptspråk som används för att administrera dina Azure-resurser i ett skriptspråk.
    * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
-   * [Revolution Analytics](http://www.revolutionanalytics.com/revolution-r-open)
+   * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
    * [RStudio](http://www.rstudio.com)
-   * [Python Tools för Visual Studio](http://microsoft.github.io/PTVS/)
+   * [Python Tools för Visual Studio](http://aka.ms/ptvsdocs)
    * [Anaconda](https://www.continuum.io/why-anaconda)
    * [Jupyter-anteckningsböcker](http://jupyter.org/)
    * [Microsoft Power BI](http://powerbi.microsoft.com)

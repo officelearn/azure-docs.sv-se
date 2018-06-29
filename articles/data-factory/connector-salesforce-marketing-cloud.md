@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från Salesforce marknadsföring molnet med Azure Data Factory (Beta) | Microsoft Docs
+title: Kopiera data från Salesforce marknadsföring molnet med Azure Data Factory | Microsoft Docs
 description: Lär dig hur du kopierar data från Salesforce marknadsföring molnet till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 59ad27a8609b4491ba131649b574d2a3bf55309b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a68090ea32c7ba4155aa5474067c5cce6f1ee30b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617937"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059110"
 ---
-# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-beta"></a>Kopiera data från Salesforce marknadsföring molnet med Azure Data Factory (Beta)
+# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Kopiera data från Salesforce marknadsföring molnet med Azure Data Factory
 
 Den här artikeln beskriver hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från Salesforce marknadsföring molnet. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
 
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Kopieringsaktiviteten i V1](v1/data-factory-data-movement-activities.md).
-
 > [!IMPORTANT]
-> Den här anslutningen är för närvarande i betaversion. Du kan prova och ge oss feedback. Använd den inte i produktionsmiljöer.
+> Den här anslutningen är för närvarande under förhandsgranskning. Du kan prova och ge oss feedback. Om du vill skapa ett beroende på anslutningsappar som är i förhandsversion i din lösning kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 

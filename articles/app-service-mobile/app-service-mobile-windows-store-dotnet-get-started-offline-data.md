@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: a16de4cef82c29f9b6becfae1901662ee1936934
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 3df6951129f7beda7970e394ffdd32c7e02304dd
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27594487"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060315"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Aktivera offlinesynkronisering av Windows-appen
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -29,15 +29,15 @@ Den här kursen visar hur du lägger till offline-stöd för en universella Wind
 
 I kursen får du uppdatera UWP-appsprojektet från kursen [skapa en Windows-app] att stödja Azure Mobile Apps offline funktioner. Om du inte använder serverprojekt hämtade Snabbstart, måste du lägga till data access-tilläggspaket projektet. Mer information om server tilläggspaket finns [arbeta med serverdelen .NET SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Mer information om funktionen offlinesynkronisering finns i avsnittet [offlinesynkronisering Data i Azure Mobile Apps].
+Mer information om funktionen offlinesynkronisering finns i avsnittet [Datasynkronisering offline i Azure Mobile Apps].
 
-## <a name="requirements"></a>Krav
+## <a name="requirements"></a>Krav  
 Den här kursen kräver följande förutsättningar:
 
 * Visual Studio 2013 körs på Windows 8.1 eller senare.
-* Slutförande av [skapa en Windows-app][Skapa en windows-app].
+* Slutförande av [skapa en Windows-app][skapa en windows-app].
 * [Azure Mobile Services SQLite Store][sqlite store nuget]
-* [SQLite för Uwp-utveckling](http://www.sqlite.org/downloads)
+* [SQLite för Uwp-utveckling](https://marketplace.visualstudio.com/items?itemName=SQLiteDevelopmentTeam.SQLiteforUniversalWindowsPlatform) 
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>Uppdatera klientappen för att stödja Offlinefunktioner
 Azure Mobile App offline funktionerna kan du samverka med en lokal databas när du är i ett offline-scenario. För att använda funktionerna i din app måste du initiera en [SyncContext] [ synccontext] till ett lokalt Arkiv. Referenstabell via den [IMobileServiceSyncTable][IMobileServiceSyncTable] gränssnitt. SQLite används som det lokala arkivet på enheten.
@@ -45,7 +45,7 @@ Azure Mobile App offline funktionerna kan du samverka med en lokal databas när 
 1. Installera den [SQLite runtime för Uwp](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 2. Öppna i Visual Studio NuGet package manager för UWP-appsprojektet som du har slutfört i den [skapa en Windows-app] kursen.
     Sök efter och installera den **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet-paketet.
-3. I Solution Explorer högerklickar du på **referenser** > **Lägg till referens...** >**Universell Windows** > **tillägg**, aktivera båda **SQLite för Uwp** och **Visual C++ 2015 Runtime för Universal Windows Platform appar**.
+3. I Solution Explorer högerklickar du på **referenser** > **Lägg till referens...** > **Universell Windows** > **tillägg**, aktivera båda **SQLite för Uwp** och **Visual C++ 2015 Runtime för universell Windows Appar**.
 
     ![Lägg till SQLite UWP-referens][1]
 4. Öppna filen MainPage.xaml.cs och Avkommentera den `#define OFFLINE_SYNC_ENABLED` definition.
@@ -75,7 +75,7 @@ När du först kör programmet, den `OnNavigatedTo` händelsehanteraranrop `Init
 3. (Valfritt) Visa den uppdaterade data med hjälp av SQL Server Object Explorer eller ett REST-verktyg som Fiddler. Meddelande data har synkroniserats mellan Azure Mobile App backend-databas och det lokala arkivet.
 4. I appen, klickar du på kryssrutan bredvid några objekt att slutföra dem i det lokala arkivet.
 
-   `UpdateCheckedTodoItem`anrop `SyncAsync` till varje slutförd synkroniseringsobjekt med serverdelen för Mobilappen. `SyncAsync`anropar både sändning och mottagning. Dock **när du kör en pull mot en tabell som klienten har gjort ändringar i en push alltid körs automatiskt**. Det här beteendet garanteras att alla tabeller i det lokala arkivet tillsammans med relationer förblir konsekventa. Detta kan resultera i ett oväntat push.  Mer information om det här problemet finns i [offlinesynkronisering Data i Azure Mobile Apps].
+   `UpdateCheckedTodoItem` anrop `SyncAsync` till varje slutförd synkroniseringsobjekt med serverdelen för Mobilappen. `SyncAsync` anropar både sändning och mottagning. Dock **när du kör en pull mot en tabell som klienten har gjort ändringar i en push alltid körs automatiskt**. Det här beteendet garanteras att alla tabeller i det lokala arkivet tillsammans med relationer förblir konsekventa. Detta kan resultera i ett oväntat push.  Mer information om det här problemet finns i [Datasynkronisering offline i Azure Mobile Apps].
 
 ## <a name="api-summary"></a>API-översikten
 Om du vill stödja offline funktioner i mobila tjänster vi använde den [IMobileServiceSyncTable] gränssnitt och initieras [MobileServiceClient.SyncContext] [ synccontext] med en lokal SQLite-databas. När du är offline, arbeta normal CRUD-åtgärder för Mobile Apps som om appen fortfarande är ansluten medan åtgärder mot det lokala arkivet. Följande metoder används för att synkronisera det lokala arkivet med servern:
@@ -89,7 +89,7 @@ Mer information om de här koncepten finns [Offline datasynkronisering i Azure M
 ## <a name="more-info"></a>Mer information
 Följande avsnitt finns bakgrundsinformation om funktionen offlinesynkronisering i Mobile Apps:
 
-* [offlinesynkronisering Data i Azure Mobile Apps]
+* [Datasynkronisering offline i Azure Mobile Apps]
 * [Azure Mobile Apps .NET SDK ta][8]
 
 <!-- Anchors. -->
@@ -105,7 +105,7 @@ Följande avsnitt finns bakgrundsinformation om funktionen offlinesynkronisering
 
 
 <!-- URLs. -->
-[offlinesynkronisering Data i Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
+[Datasynkronisering offline i Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Skapa en windows-app]: app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920

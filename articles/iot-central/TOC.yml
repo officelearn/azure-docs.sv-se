@@ -17,20 +17,16 @@
       href: quick-deploy-iot-central.md
 - name: Självstudier
   items:
-    - name: Builder
-      items:
-        - name: 1 – Definiera en ny enhetstyp
-          href: tutorial-define-device-type.md
-        - name: 2 – Konfigurera regler
-          href: tutorial-configure-rules.md
-        - name: 3 – Anpassa operator-vyn
-          href: tutorial-customize-operator.md
-    - name: Operator
-      items:
-        - name: 4 – Övervaka dina enheter
-          href: tutorial-monitor-devices.md
-        - name: 5 – Lägg till en enhet
-          href: tutorial-add-device.md
+    - name: 1 – Definiera en ny enhetstyp
+      href: tutorial-define-device-type.md
+    - name: 2 – Konfigurera regler
+      href: tutorial-configure-rules.md
+    - name: 3 – Anpassa operator-vyn
+      href: tutorial-customize-operator.md
+    - name: 4 – Övervaka dina enheter
+      href: tutorial-monitor-devices.md
+    - name: 5 – Lägg till en enhet
+      href: tutorial-add-device.md
 - name: Begrepp
   items:
     - name: Arkitektur

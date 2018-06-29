@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: f07ce542c176f4038378d54497d7114109ac5bd3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
-ms.translationtype: MT
+ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215532"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054661"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad-instans (förhandsgranskning)?
 
@@ -66,7 +66,7 @@ I följande tabell visas flera egenskaper, tillgängligt via Transact SQL som du
 |**Säkerhet och efterlevnad** | **Hantering**|
 |Isolerad miljö (VNet integration, stöd för en innehavare service, dedikerad beräkning och lagring <br>Kryptering av data under överföring <br>Azure AD-autentisering, stöd för enkel inloggning <br>Följer efterlevnadsstandarder samma som Azure SQL-databas <br>SQL-granskning <br>Hotidentifiering |Azure Resource Manager API för att automatisera service etablering och skalning <br>Azure portal funktioner för manuell tjänst för etablering och skalning <br>Migrering datatjänst 
 
-![Enkel inloggning](./media/sql-database-managed-instance/sso.png) 
+![enkel inloggning](./media/sql-database-managed-instance/sso.png) 
 
 ## <a name="vcore-based-purchasing-model-preview"></a>vCore-baserade inköpsmodell (förhandsgranskning)
 
@@ -210,7 +210,8 @@ Hanterade instans fördelar från att alltid upp-hittills i molnet, vilket inneb
 - Hanterade instansen tillåter inte att ange fullständiga fysiska sökvägar så alla motsvarande scenarier stöds inte på samma sätt: ÅTERSTÄLLA DB stöder inte WITH MOVE, skapa DB tillåter inte fysiska sökvägar, BULK INSERT fungerar med Azure BLOB endast osv. 
 - Hanterade instans stöder [Azure AD authentication](sql-database-aad-authentication.md) moln alternativ till Windows-autentisering. 
 - Hanterade instans hanterar automatiskt XTP-filgruppen och filer som innehåller objekt i minnet OLTP-databaser
- 
+- Hanterade instans stöder SQL Server Integration Services (SSIS) och kan värden SSIS-katalog (SSISDB) som lagrar SSIS-paket, men de körs på en hanterad Azure SSIS Integration Runtime (IR) i Azure Data Factory (ADM), se [skapa Azure-SSIS-IR i ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+
 ### <a name="managed-instance-administration-features"></a>Hanterade instans-funktioner för administration  
 
 Hanterade instans aktivera systemadministratören att fokusera på vad gäller de flesta för företag. Många system administratör/DBA aktiviteter krävs inte eller så är enkel. Till exempel OS / RDBMS installationen och korrigering, dynamiska instans storleksändring och konfiguration, säkerhetskopiering, databasreplikering (inklusive systemdatabaser), konfiguration för hög tillgänglighet och konfigurationen av hälsotillstånd och prestanda övervakningsdata dataströmmar. 

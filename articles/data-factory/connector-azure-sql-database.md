@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 9b2acf622f33f5d1748c503ab4765b72c3d921e2
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 5287a1d1f09a7057590b455c14aa7f70128ad7fa
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751586"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053658"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
-> * [Version 1, GA](v1/data-factory-azure-sql-connector.md)
-> * [Version 2, förhandsgranskning](connector-azure-sql-database.md)
+> * [Version 1](v1/data-factory-azure-sql-connector.md)
+> * [Aktuell version](connector-azure-sql-database.md)
 
 Den här artikeln förklarar hur du använder Kopieringsaktiviteten i Azure Data Factory för att kopiera data från eller till Azure SQL Database. Den bygger på den [Kopieringsaktiviteten översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över Kopieringsaktiviteten.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory för närvarande under förhandsgranskning. Om du använder version 1 av tjänsten Data Factory allmänt tillgänglig (GA), se [Azure SQL Database-anslutningen i V1](v1/data-factory-azure-sql-connector.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 

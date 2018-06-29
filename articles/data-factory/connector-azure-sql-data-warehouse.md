@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 5a7ee7862e102093efa2c203eac2497b025af4e5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 42ffdbf117b3f522e27e6e46628231ddb8221018
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337823"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051635"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> * [Version 1: GA](v1/data-factory-azure-sql-data-warehouse-connector.md)
-> * [Version 2: Preview](connector-azure-sql-data-warehouse.md)
+> * [Version1 ](v1/data-factory-azure-sql-data-warehouse-connector.md)
+> * [Aktuell version](connector-azure-sql-data-warehouse.md)
 
 Den här artikeln förklarar hur du använder Kopieringsaktiviteten i Azure Data Factory för att kopiera data till och från Azure SQL Data Warehouse. Den bygger på den [Kopieringsaktiviteten översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över Kopieringsaktiviteten.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory för närvarande under förhandsgranskning. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Azure SQL Data Warehouse-kopplingen i V1](v1/data-factory-azure-sql-data-warehouse-connector.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 

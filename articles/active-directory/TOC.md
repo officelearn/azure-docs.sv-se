@@ -151,6 +151,7 @@
 ### [SSPR-anpassning](authentication/concept-sspr-customization.md)
 ### [SSPR-datakrav](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR-rapportering](authentication/howto-sspr-reporting.md)
+### [Smart utlåsning](authentication/howto-password-smart-lockout.md)
 ### [Eliminera svaga lösenord](authentication/concept-password-ban-bad.md)
 ### [Konfigurera listan med förbjudna lösenord](authentication/howto-password-ban-bad.md)
 ### [Lokal integration](authentication/concept-password-ban-bad-on-premises.md)

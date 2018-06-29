@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 806ebe80ad49f2f908bf46549bb4abc533a6d516
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: c59b9982f5ba5a4fa52ab36df5ebb6995b2d45b0
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936708"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085097"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Azure strömmen diagnostiska loggar till en händelsehubb
 **[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)**  kan strömmas i nära realtid för alla program med alternativet inbyggda ”exportera till Händelsehubbar” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i diagnostikinställningen via Azure PowerShell-Cmdlets eller Azure CLI 2.0.
@@ -41,7 +41,7 @@ Här följer några olika sätt som du kan använda den strömmande kapaciteten 
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>Strömning av diagnostiska loggar
 
-Du kan aktivera strömning av diagnostikloggar programmässigt via portalen eller med hjälp av den [Azure övervakaren REST API: er](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). Oavsett hur du skapar en diagnostikinställningen där du anger ett namnområde för Händelsehubbar och logg kategorier och mått som du vill skicka namnområdet. En händelsehubb har skapats i namnområdet för varje logg kategori som du aktiverar. En diagnostik **loggen kategori** är en typ av logg som en resurs kan samla in.
+Du kan aktivera strömning av diagnostikloggar programmässigt via portalen eller med hjälp av den [Azure övervakaren REST API: er](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). Oavsett hur du skapar en diagnostikinställningen där du anger ett namnområde för Händelsehubbar och logg kategorier och mått som du vill skicka namnområdet. En händelsehubb har skapats i namnområdet för varje logg kategori som du aktiverar. En diagnostik **loggen kategori** är en typ av logg som en resurs kan samla in.
 
 > [!WARNING]
 > Aktivera och strömning diagnostikloggar från beräkningsresurser (till exempel virtuella datorer eller Service Fabric) [kräver en annan uppsättning steg](../event-hubs/event-hubs-streaming-azure-diags-data.md).

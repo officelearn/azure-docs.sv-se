@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 06/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 68a7e71cf374f10b4c5ced3e64da36138b0d2e4d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: a641464e04421b90de15cd953bb8a0fbf9b687d3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34800732"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084730"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Ange identitetskrav för för din hybrididentitetslösning
 Det första steget i utforma en hybrididentitetslösning är att avgöra kraven för organisationen som kommer att använda den här lösningen.  Hybrididentitet startas som en stödjande roll (stöds alla andra molnlösningar genom att tillhandahålla autentisering) och för att lägga till nya och intressanta funktioner som att låsa upp nya arbetsbelastningar för användare.  Dessa arbetsbelastningar eller tjänster som du vill använda för dina användare styr kraven för hybrid identity-design.  Dessa tjänster och arbetsbelastningar behöver utnyttja hybrididentitet både lokalt och i molnet.  
@@ -58,7 +58,7 @@ Du måste också vara medveten om molntjänster som ditt företag kan ha. Det ä
 * För närvarande är den här integreringen i produktion eller är en pilot?
 
 > [!NOTE]
-> Om du inte har en korrekt mappning för alla dina appar och molntjänster, kan du använda verktyget Cloud App Discovery. Det här verktyget kan ge IT-avdelningen insyn i alla organisationens affärsbehov och konsumenten molnappar. Den gör det enklare att upptäcka skugg-it, information om användarmönster och eventuell användaråtkomst till dina molnprogram. Få igång finns [Cloud app discovery](manage-apps/cloud-app-discovery.md).
+> Cloud Discovery analyserar dina trafikloggar mot Microsoft Cloud App Securitys molnappkatalogen över 16 000 molnet appar som rangordnas och poängsätts baserat på mer än 70 riskfaktorer använder för att tillhandahålla du pågående synlighet i molnet, Shadow IT och risken Skuggkopia IT utgör i din organisation. Få igång finns [konfigurera Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 > 
 > 
 

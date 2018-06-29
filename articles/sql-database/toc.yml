@@ -50,7 +50,7 @@
       href: sql-database-design-first-database.md
     - name: 2 – Utforma DB med hjälp av .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 3 – Migrera till SQL Server DB med DMS
+    - name: 3 – Migrera till SQL Server DB med DMA
       href: sql-database-migrate-your-sql-server-database.md
     - name: 4 – Skydda din SQL-databas
       href: sql-database-security-tutorial.md

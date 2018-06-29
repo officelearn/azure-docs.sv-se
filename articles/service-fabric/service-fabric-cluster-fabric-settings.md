@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: 6783c2b3b431e99050bc6762c1855b22e0701686
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 84f8827a58d7f3c5dcc32943d2ba891b02c1e1ab
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062287"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083200"
 ---
-# <a name="description-of-the-different-upgrade-policies"></a>Beskrivning av olika uppgradera principer
-
-- **Dynamiska** – ändringar i en dynamisk konfiguration inte orsakar någon omstart av Service Fabric-processer eller värdprocesser din tjänst. 
-- **Statisk** – ändringar i en statisk konfiguration gör att Service Fabric-noden måste startas om för att kunna använda ändringen. Tjänster på noderna kommer att startas om.
-- **NotAllowed** – de här inställningarna kan inte ändras. Om du ändrar inställningarna kräver att klustret förstöras och ett nytt kluster skapas. 
-
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Anpassa inställningar för Service Fabric-kluster och Fabric-uppgradera princip
 Det här dokumentet förklarar hur du anpassar olika infrastrukturinställningarna och infrastrukturen uppgradera princip för Service Fabric-klustret. Du kan anpassa dem via den [Azure-portalen](https://portal.azure.com) eller med en Azure Resource Manager-mall.
 
 > [!NOTE]
 > Alla inställningar är inte tillgängliga i portalen. Anpassa den med hjälp av en Azure Resource Manager-mall om en inställning nedan inte är tillgängliga via portalen.
 > 
+
+## <a name="description-of-the-different-upgrade-policies"></a>Beskrivning av olika uppgradera principer
+
+- **Dynamiska** – ändringar i en dynamisk konfiguration inte orsakar någon omstart av Service Fabric-processer eller värdprocesser din tjänst. 
+- **Statisk** – ändringar i en statisk konfiguration gör att Service Fabric-noden måste startas om för att kunna använda ändringen. Tjänster på noderna kommer att startas om.
+- **NotAllowed** – de här inställningarna kan inte ändras. Om du ändrar inställningarna kräver att klustret förstöras och ett nytt kluster skapas. 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Anpassa inställningarna med hjälp av Resource Manager-mallar
 Stegen nedan illustrerar hur du lägger till en ny inställning *MaxDiskQuotaInMB* till den *diagnostik* avsnitt.

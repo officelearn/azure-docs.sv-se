@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 06/28/2018
 ms.author: v-geberr
-ms.openlocfilehash: ccb7269109309355e2af95f6fb2aa060c1998b22
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 01f451f7a3e09aacb029c2194044320717bfae96
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286026"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083265"
 ---
 # <a name="entities-in-luis"></a>Entiteter i THOMAS
 
@@ -28,7 +28,7 @@ Avsikten representerar jämförelse förutsägelser av hela utterance.
 ## <a name="entities-represent-data"></a>Entiteter representerar data
 Entiteter är data som du vill hämta från utterance. Detta kan vara ett namn, datum, produktnamn eller en grupp med ord. 
 
-|Utterance|Entitet|Data|
+|Yttrande|Entitet|Data|
 |--|--|--|
 |Köp 3 biljetter New York|Fördefinierade tal<br>Location.Destination|3<br>New York|
 |Köp en biljett från New York London 5 mars|Location.Origin<br>Location.Destination<br>Fördefinierade datetimeV2|New York<br>London<br>5 mars 2018|
@@ -90,6 +90,9 @@ THOMAS erbjuder många typer av enheter. fördefinierade entiteter, anpassade da
 
 ## <a name="entity-limits"></a>Entiteten gränser
 Granska [gränser](luis-boundaries.md#model-boundaries) att förstå hur många av varje typ av enhet kan du lägga till en modell.
+
+## <a name="entity-roles"></a>Entiteten roller
+Entiteten [roller](luis-concept-roles.md) används i endast mönster. 
 
 ## <a name="composite-vs-hierarchical-entities"></a>Sammansatta vs hierarkiska entiteter
 Sammansatta entiteter och hierarkiska entiteter både ha överordnade och underordnade relationer och är datorn lärt dig. Maskininlärning kan THOMAS att förstå enheter baserat på olika kontexter (placering av ord). Sammansatta entiteter är mer flexibel eftersom de låter olika enhetstyper som underordnade. En hierarkisk entitet underordnade är endast enkla enheter. 

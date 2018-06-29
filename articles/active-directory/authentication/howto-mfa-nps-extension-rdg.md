@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: fbca491e845ad96ecafc6afb5f40d46b99c047bf
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 19d602570337b101e4a5cf759fc56822313c631c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33932106"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098013"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera din infrastruktur för Remote Desktop Gateway med tillägget Server (NPS) och Azure AD
 
@@ -95,7 +95,7 @@ Följ stegen i [komma igång med Azure Multi-Factor Authentication i molnet](how
 ### <a name="configure-accounts-for-two-step-verification"></a>Konfigurera konton för tvåstegsverifiering
 När ett konto har aktiverats för Multifaktorautentisering, kan du logga in till resurser som omfattas av principen MFA förrän du har konfigurerat en betrodd enhet för den andra faktorn autentisering och har autentiseras med tvåstegsverifiering.
 
-Följ stegen i [vad Azure Multi-Factor Authentication innebär för mig?](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md) att förstå och konfigurera dina enheter för MFA med ditt användarkonto.
+Följ stegen i [vad Azure Multi-Factor Authentication innebär för mig?](end-user/current/multi-factor-authentication-end-user.md) att förstå och konfigurera dina enheter för MFA med ditt användarkonto.
 
 ## <a name="install-and-configure-nps-extension"></a>Installera och konfigurera NPS-tillägget
 Det här avsnittet innehåller instruktioner för att konfigurera RDS infrastruktur att använda Azure MFA för klientautentisering med fjärrskrivbordsgateway.

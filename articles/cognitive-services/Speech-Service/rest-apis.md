@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a25c2b7ea7fdfcc6bcaa10baff3a5ae14ae9753b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: 53560fd4f8240c4446898f58992a9319e5177435
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37044828"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085379"
 ---
 # <a name="speech-service-rest-apis"></a>Tal service REST API: er
 
@@ -265,5 +265,7 @@ Precis som tidigare, se till att den `FetchTokenUri` värdet matchar din prenume
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta din utvärderingsprenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
-* [Se hur du anpassar en modell med tal](how-to-customize-speech-models.md)
+- [Hämta din utvärderingsprenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
+- [Anpassa ljud modeller](how-to-customize-acoustic-models.md)
+- [Anpassa språk modeller](how-to-customize-language-model.md)
+

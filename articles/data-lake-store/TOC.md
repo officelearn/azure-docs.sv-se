@@ -1,11 +1,11 @@
-# [Dokumentation om Data Lake Store](index.md)
+# [Dokumentation om Data Lake Storage Gen1](index.md)
 
 # Översikt
-## [Översikt över Azure Data Lake Store](data-lake-store-overview.md)
-## [Jämför Azure Data Lake Store med Azure Storage](data-lake-store-comparison-with-blob-storage.md)
-## [Azure Data Lake Store för bearbetning av stordata](data-lake-store-data-scenarios.md)
-## [Program med öppen källkod som fungerar med Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
-## [Tips på hur du använder Data Lake Store](data-lake-store-best-practices.md)
+## [Översikt över Data Lake Storage Gen1](data-lake-store-overview.md)
+## [Jämför Data Lake Storage Gen1 med Azure Storage](data-lake-store-comparison-with-blob-storage.md)
+## [Data Lake Storage Gen1 för bearbetning av stordata](data-lake-store-data-scenarios.md)
+## [Program med öppen källkod som fungerar med Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
+## [Regelverk för användning av Data Lake Storage Gen1](data-lake-store-best-practices.md)
 
 # Kom igång
 ## [Använda portalen](data-lake-store-get-started-portal.md)
@@ -21,15 +21,15 @@
 ### [Använda DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Använda Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Ladda upp data från offlinekällor](data-lake-store-offline-bulk-data-upload.md)
-### [Migrera Azure Data Lake Store över regioner](data-lake-store-migration-cross-region.md)
+### [Migrera Data Lake Store mellan olika regioner](data-lake-store-migration-cross-region.md)
 
 ## Skydda data
 ### [Säkerhetsöversikt](data-lake-store-security-overview.md)
-### [Åtkomstkontroll i Data Lake Store](data-lake-store-access-control.md)
-### [Säkra data i Data Lake Store](data-lake-store-secure-data.md)
+### [Åtkomstkontroll i Data Lake Storage Gen1](data-lake-store-access-control.md)
+### [Skydda data i Data Lake Storage Gen1](data-lake-store-secure-data.md)
 ### [Kryptering](data-lake-store-encryption.md)
 
-## Autentisera med Data Lake Store
+## Autentisera med Data Lake Storage Gen1
 ### [Autentiseringsalternativ](data-lakes-store-authentication-using-azure-active-directory.md)
 ### [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md)
 #### [Använda Java](data-lake-store-end-user-authenticate-java-sdk.md)
@@ -42,7 +42,7 @@
 #### [Använda REST-API](data-lake-store-service-to-service-authenticate-rest-api.md)
 #### [Använda Python](data-lake-store-service-to-service-authenticate-python.md)
 
-## Arbeta med Data Lake Store
+## Arbeta med Data Lake Storage Gen1
 ### Åtgärder för kontohantering
 #### [Använda .NET SDK](data-lake-store-get-started-net-sdk.md)
 #### [Använda REST-API](data-lake-store-get-started-rest-api.md)
@@ -54,12 +54,12 @@
 #### [Använda Python](data-lake-store-data-operations-python.md)
 
 ## Prestanda
-### [Prestandajusteringsvägledning för Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
-### [Prestandajusteringsvägledning för användning av PowerShell med Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
-### [Prestandajusteringsvägledning för Spark på HDInsight och Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
-### [Prestandajusteringsvägledning för Hive på HDInsight och Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
-### [Prestandajusteringsvägledning för MapReduce på HDInsight och Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)
-### [Prestandajusteringsvägledning för Storm på HDInsight och Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
+### [Vägledning: Prestandajustering för Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-guidance.md)
+### [Vägledning: Prestandajustering för användning av PowerShell med Data Lake Storage Gen1](data-lake-store-performance-tuning-powershell.md)
+### [Vägledning: Prestandajustering för Spark på HDInsight och Data Lake Storage Gen1](data-lake-store-performance-tuning-spark.md)
+### [Vägledning: Prestandajustering för Hive på HDInsight och Data Lake Storage Gen1](data-lake-store-performance-tuning-hive.md)
+### [Vägledning: Prestandajustering för MapReduce på HDInsight och Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md)
+### [Vägledning: Prestandajustering för Storm på HDInsight och Data Lake Storage Gen1](data-lake-store-performance-tuning-storm.md)
 
 ## Integrera med Azure-tjänster
 ### Med HDInsight

@@ -1,9 +1,9 @@
 ---
 title: Montera Azure File storage i virtuella Linux-datorer med hjälp av SMB | Microsoft Docs
-description: Hur man monterar Azure File storage på virtuella Linux-datorer med hjälp av SMB med Azure CLI 2.0
+description: Hur man monterar Azure File storage på virtuella Linux-datorer med hjälp av SMB med Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -12,137 +12,109 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2017
-ms.author: iainfou
-ms.openlocfilehash: 2255c8fd7cd873ae9b6511e1a7b9e2ac13f9fb66
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.date: 06/28/2018
+ms.author: cynthn
+ms.openlocfilehash: 2019324030b2e4c469d0b9ba937fb40a9d0675f1
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936776"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099719"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montera Azure File storage i virtuella Linux-datorer med hjälp av SMB
 
-Den här artikeln visar hur du använder tjänsten Azure File storage på en Linux-VM i en SMB-montering med Azure CLI 2.0. Azure File storage erbjuder filresurser i molnet genom att använda SMB-standardprotokollet. Kraven är:
 
-- [ett Azure-konto](https://azure.microsoft.com/pricing/free-trial/)
-- [offentliga och privata SSH-nyckelfiler](mac-create-ssh-keys.md)
+Den här artikeln visar hur du använder Azure File storage-tjänst på en Linux-VM med hjälp av en SMB-montering med Azure CLI. Azure File storage erbjuder filresurser i molnet genom att använda SMB-standardprotokollet. 
 
-## <a name="quick-commands"></a>Snabbkommandon
+File storage erbjuder filresurser i molnet som använder SMB-standardprotokollet. Du kan montera en filresurs från alla operativsystem som stöder SMB 3.0. När du använder en SMB-monteringspunkter på Linux hämta enkelt säkerhetskopieringar till en robust, permanenta arkivering lagringsplats som stöds av ett serviceavtal.
 
-* En resursgrupp
-* Azure-nätverk
-* En nätverkssäkerhetsgrupp med en SSH inkommande
-* Ett undernät
-* Ett Azure storage-konto
-* Azure lagringskontonycklar
-* Ett Azure File storage-resurs
-* En virtuell Linux-dator
+Flytta filer från en virtuell dator till en SMB-monteringspunkter som är värd för fillagring är ett bra sätt att debug-loggar. Samma SMB-resursen kan monteras lokalt till din Mac, Linux eller Windows-arbetsstation. SMB är den bästa lösningen för direktuppspelning av Linux eller programloggar i realtid, eftersom SMB-protokollet inte har byggts för att hantera sådana uppgifter tunga loggning. En dedikerad, enhetlig loggning layer verktyg som till exempel Fluentd är ett bättre alternativ än SMB för att samla in Linux- och programmet loggning utdata.
 
-Ersätt alla exempel med dina egna inställningar.
+Den här guiden kräver att du använder Azure CLI version 2.0.4 eller senare. Kör **az --version** om du vill se versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-### <a name="create-a-directory-for-the-local-mount"></a>Skapa en katalog för lokal montering
+
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+
+Skapa en resursgrupp med namnet *myResourceGroup* i den *östra USA* plats.
 
 ```bash
-mkdir -p /mnt/mymountpoint
+az group create --name myResourceGroup --location eastus
 ```
 
-### <a name="mount-the-file-storage-smb-share-to-the-mount-point"></a>Montera fillagring SMB-resurs till monteringspunkten
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+
+Skapa ett nytt lagringskonto i resursgruppen som du skapat med [az storage-konto skapar](/cli/azure/storage/account#create). Det här exemplet skapas ett lagringskonto med namnet *mySTORAGEACCT<random number>*  och placerar namnet på det lagringskontot i variabeln **STORAGEACCT**. Lagringskontonamn måste vara unikt, med hjälp av `$RANDOM` lägger till ett nummer i slutet som gör det unikt.
 
 ```bash
-sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+STORAGEACCT=$(az storage account create \
+    --resource-group "myResourceGroup" \
+    --name "mystorageacct$RANDOM" \
+    --location eastus \
+    --sku Standard_LRS \
+    --query "name" | tr -d '"')
 ```
 
-### <a name="persist-the-mount-after-a-reboot"></a>Monteringen är kvar efter en omstart
-Om du vill göra det lägger du till följande rad i den `/etc/fstab`:
+## <a name="get-the-storage-key"></a>Hämta lagringsnyckel för
+
+När du skapar ett lagringskonto skapas nycklar för kontot i par så att de kan roteras utan några avbrott i tjänsten. När du växlar till den andra nyckeln i paret, skapar du en ny nyckel. Ny lagringskontonycklar skapas alltid parvis, så att du alltid har minst en oanvända lagringskontonyckel redo att växla till.
+
+Visa lagringskontonycklar med [az nycklar lagringskontolistan](/cli/azure/storage/account/keys#list). Det här exemplet lagrar värdet för nyckel 1 i den **STORAGEKEY** variabeln.
 
 ```bash
-//myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+STORAGEKEY=$(az storage account keys list \
+    --resource-group "myResourceGroup" \
+    --account-name $STORAGEACCT \
+    --query "[0].value" | tr -d '"')
 ```
 
-## <a name="detailed-walkthrough"></a>Detaljerad genomgång
+## <a name="create-a-file-share"></a>Skapa en filresurs
 
-File storage erbjuder filresurser i molnet som använder SMB-standardprotokollet. Du kan också montera en filresurs från alla operativsystem som stöder SMB 3.0 med den senaste versionen av File storage. När du använder en SMB-monteringspunkter på Linux hämta enkelt säkerhetskopieringar till en robust, permanenta arkivering lagringsplats som stöds av ett serviceavtal.
+Skapa filen lagring resursen med [az lagringsresurs skapa](/cli/azure/storage/share#create). 
 
-Flytta filer från en virtuell dator till en SMB-monteringspunkter som är värd för fillagring är ett bra sätt att debug-loggar. Det beror på att samma SMB-resursen kan monteras lokalt till din Mac, Linux eller Windows-arbetsstation. SMB är den bästa lösningen för direktuppspelning av Linux eller programloggar i realtid, eftersom SMB-protokollet inte har byggts för att hantera sådana uppgifter tunga loggning. En dedikerad, enhetlig loggning layer verktyg som till exempel Fluentd är ett bättre alternativ än SMB för att samla in Linux- och programmet loggning utdata.
+Resursnamn måste vara alla gemena bokstäver, siffror och bindestreck enda men får inte börja med ett bindestreck. Mer information om hur du namnger filresurser och filer finns i [Namnge och referera till resurser, kataloger, filer och Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-För den här detaljerade genomgången ska vi skapa de förutsättningar som krävs för att först skapa fillagringsresursen och montera den via SMB på en Linux-VM.
+Det här exemplet skapar en resurs med namnet *minresurs* med en 10 GiB kvot. 
 
-1. Skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create) för filresursen.
+```bash
+az storage share create --name myshare \
+    --quota 10 \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY
+```
 
-    Så här skapar du en resursgrupp med namnet `myResourceGroup` på plats ”USA, västra”, Använd följande exempel:
+## <a name="create-a-mount-point"></a>Skapa en monteringspunkt
 
-    ```azurecli
-    az group create --name myResourceGroup --location westus
-    ```
+Om du vill ansluta till Azure-filresursen på Linux-dator, måste du kontrollera att du har den **cifs-verktyg för webbplatsuppgradering** paketet är installerat. Installationsanvisningar finns i [installationspaket cifs-verktyg för webbplatsuppgradering för Linux-distribution](../../storage/files/storage-how-to-use-files-linux.md#install-cifs-utils).
 
-2. Skapa ett Azure storage-konto med [az storage-konto skapar](/cli/azure/storage/account#az_storage_account_create) de faktiska filerna.
+Azure Files använder SMB-protokollet som kommunicerar via TCP-port 445.  Om du har problem med din Azure-filresursen att montera, kontrollera att brandväggen inte blockerar TCP-port 445.
 
-    Använd följande exempel för att skapa ett lagringskonto med namnet mittlagringskonto med hjälp av Standard_LRS lagring SKU:
 
-    ```azurecli
-    az storage account create --resource-group myResourceGroup \
-        --name mystorageaccount \
-        --location westus \
-        --sku Standard_LRS
-    ```
+```bash
+mkdir -p /mnt/MyAzureFileShare
+```
 
-3. Visa lagringskontonycklarna.
+## <a name="mount-the-share"></a>Montera resursen
 
-    När du skapar ett lagringskonto skapas nycklar för kontot i par så att de kan roteras utan några avbrott i tjänsten. När du växlar till den andra nyckeln i paret, skapar du en ny nyckel. Ny lagringskontonycklar skapas alltid parvis, se till att du alltid har minst en oanvända lagringskontonyckel redo att växla till.
+Montera filresursen Azure till den lokala katalogen. 
 
-    Visa lagringskontonycklar med den [az nycklar lagringskontolistan](/cli/azure/storage/account/keys#az_storage_account_keys_list). Lagringskontot nycklar för den namngivna `mystorageaccount` visas i följande exempel:
+```bash
+sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
+```
 
-    ```azurecli
-    az storage account keys list --resource-group myResourceGroup \
-        --account-name mystorageaccount
-    ```
 
-    Om du vill extrahera en enskild nyckel måste använda den `--query` flaggan. I följande exempel hämtar den första nyckeln (`[0]`):
 
-    ```azurecli
-    az storage account keys list --resource-group myResourceGroup \
-        --account-name mystorageaccount \
-        --query '[0].{Key:value}' --output tsv
-    ```
+## <a name="persist-the-mount"></a>Spara monterings
 
-4. Skapa File storage-resurs.
+När du startar om Linux VM är den monterade SMB-resursen omonterade vid avstängningen. Lägga till en rad Linux /etc/fstab om du vill återansluta till SMB-resursen på Start. Linux använder filen fstab för att lista filsystem som krävs för att montera under startprocessen. Lägger till SMB-resursen garanterar att File storage-resurs är en permanent anslutet filsystem för Linux-VM. Det är möjligt att lägga till File storage SMB-resurs i en ny virtuell dator när du använder molntjänster initiering.
 
-    Fillagringsresursen innehåller SMB-resursen med [az lagringsresurs skapa](/cli/azure/storage/share#az_storage_share_create). Kvoten uttrycks alltid i gigabyte (GB). Pass i en av nycklarna från den föregående `az storage account keys list` kommando. Skapa en resurs med namnet mystorageshare med en 10 GB kvot genom att använda följande exempel:
-
-    ```azurecli
-    az storage share create --name mystorageshare \
-        --quota 10 \
-        --account-name mystorageaccount \
-        --account-key nPOgPR<--snip-->4Q==
-    ```
-
-5. Skapa en monteringspunkt katalog.
-
-    Skapa en lokal katalog i filsystemet Linux för att montera SMB-resursen. Något skrivs eller läsa från katalogen för lokal montering vidarebefordras till SMB-resurs som är värd för lagring av filer. Om du vill skapa en lokal katalog i /mnt/mymountdirectory kan du använda följande exempel:
-
-    ```bash
-    sudo mkdir -p /mnt/mymountpoint
-    ```
-
-6. Montera SMB-resursen till den lokala katalogen.
-
-    Ange dina egna lagring Kontoanvändarnamn och lagringskontonyckel för monteringspunkter på följande sätt:
-
-    ```azurecli
-    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountpoint -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
-    ```
-
-7. Spara SMB montera via omstarter.
-
-    När du startar om Linux VM är den monterade SMB-resursen omonterade vid avstängningen. Lägga till en rad Linux /etc/fstab om du vill återansluta till SMB-resursen på Start. Linux använder filen fstab för att lista filsystem som krävs för att montera under startprocessen. Lägger till SMB-resursen garanterar att File storage-resurs är en permanent anslutet filsystem för Linux-VM. Det är möjligt att lägga till File storage SMB-resurs i en ny virtuell dator när du använder molntjänster initiering.
-
-    ```bash
-    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
-    ```
+```bash
+//myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+```
+För ökad säkerhet i produktionsmiljöer bör du lagra autentiseringsuppgifterna utanför fstab.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Med hjälp av molnet init för att anpassa en Linux VM under skapandet](using-cloud-init.md)
 - [Lägg till en disk till en virtuell Linux-dator](add-disk.md)
 - [Kryptera diskar på en Linux-VM med hjälp av Azure CLI](encrypt-disks.md)
+

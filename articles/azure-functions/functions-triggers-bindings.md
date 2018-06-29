@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 5e7e6608003b365d5516ca2e94a51c0710ad1125
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 305f7a54e290b8628401c21f033f8be7017d4a91
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061361"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083873"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-utlösare och bindningar begrepp
 
@@ -37,62 +37,6 @@ Utlösare och bindningar kan du undvika hardcoding information om de tjänster s
 När du utvecklar funktioner med hjälp av Azure portal, utlösare och bindningar har konfigurerats i en *function.json* fil. Portalen innehåller ett gränssnitt för den här konfigurationen, men du kan redigera filen direkt genom att ändra till den **redigeraren**.
 
 När du utvecklar funktioner genom att använda Visual Studio för att skapa en klassbiblioteket konfigurerar du utlösare och bindningar med pynta metoder och parametrar med attribut.
-
-## <a name="supported-bindings"></a>Stöds bindningar
-
-[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
-
-Information om vilka bindningar finns i förhandsgranskningen eller godkänns för produktion finns [språk som stöds](supported-languages.md).
-
-## <a name="register-binding-extensions"></a>Registrera bindning tillägg
-
-I vissa utvecklingsmiljöer måste du uttryckligen *registrera* en bindning som du vill använda. Bindningen tillägg finns i NuGet-paket och för att registrera ett tillägg som du installerar ett paket. Följande tabell visar hur och när du registrerar bindning tillägg.
-
-|Utvecklingsmiljö |Registrering<br/> i funktioner 1.x  |Registrering<br/> i funktioner 2.x  |
-|---------|---------|---------|
-|Azure Portal|Automatisk|[Automatisk med Kommandotolken](#azure-portal-development)|
-|Lokala med hjälp av Azure Functions Core-verktyg|Automatisk|[Använd Core verktyg CLI-kommandon](#local-development-azure-functions-core-tools)|
-|C#-klassbiblioteket har med hjälp av Visual Studio 2017|[Använd NuGet-verktyg](#c-class-library-with-visual-studio-2017)|[Använd NuGet-verktyg](#c-class-library-with-visual-studio-2017)|
-|C#-klassbiblioteket har med hjälp av Visual Studio Code|Gäller inte|[Använda .NET Core CLI](#c-class-library-with-visual-studio-code)|
-
-Följande bindningstyper av är undantag som inte kräver explicit registrering eftersom de registreras automatiskt i alla versioner och miljöer: HTTP-timer- och Azure Storage (BLOB, köer och tabeller). 
-
-### <a name="azure-portal-development"></a>Azure portal-utveckling
-
-När du skapar en funktion eller lägga till en bindning efterfrågas när tillägget för utlösare eller bindningen kräver registrering. Svara på uppmaningen genom att klicka på **installera** att registrera tillägget. Installationen kan ta upp till 10 minuter på en plan för användning.
-
-Du behöver bara installera varje tillägg en gång för en viss funktionsapp. 
-
-### <a name="local-development-azure-functions-core-tools"></a>Lokal utveckling Azure Functions grundläggande verktyg
-
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
-
-<a name="local-csharp"></a>
-### <a name="c-class-library-with-visual-studio-2017"></a>C#-klassbiblioteket med Visual Studio 2017
-
-I **Visual Studio 2017**, kan du installera paket från Package Manager-konsolen med hjälp av den [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) kommandot som visas i följande exempel:
-
-```powershell
-Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
-```
-
-Namnet på paketet som ska användas för en viss bindning har angetts i referensartikeln för bindningen. Ett exempel finns i [paket i Service Bus bindning referensartikeln](functions-bindings-service-bus.md#packages---functions-1x).
-
-Ersätt `<target_version>` i exemplet med en viss version av paketet, som `3.0.0-beta5`. Giltiga versioner visas på sidorna enskilda paketet på [NuGet.org](https://nuget.org). Större versioner som motsvarar Functions-runtime 1.x eller 2.x anges i referensartikeln för bindningen.
-
-### <a name="c-class-library-with-visual-studio-code"></a>C#-klassbiblioteket med Visual Studio Code
-
-I **Visual Studio Code**, kan du installera paket från en kommandotolk med hjälp av den [dotnet lägga till paket](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) kommandot i .NET Core CLI, som visas i följande exempel:
-
-```terminal
-dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
-```
-
-.NET Core CLI kan endast användas för Azure Functions 2.x-utveckling.
-
-Namnet på paketet som ska användas för en viss bindning har angetts i referensartikeln för bindningen. Ett exempel finns i [paket i Service Bus bindning referensartikeln](functions-bindings-service-bus.md#packages---functions-1x).
-
-Ersätt `<target_version>` i exemplet med en viss version av paketet, som `3.0.0-beta5`. Giltiga versioner visas på sidorna enskilda paketet på [NuGet.org](https://nuget.org). Större versioner som motsvarar Functions-runtime 1.x eller 2.x anges i referensartikeln för bindningen.
 
 ## <a name="example-trigger-and-binding"></a>Exempel utlösaren och bindning
 
@@ -202,6 +146,66 @@ I en klassbiblioteket, samma utlösare och bindningsinformationen &mdash; kön o
      public string MobileNumber { get; set; }
  }
 ```
+
+## <a name="supported-bindings"></a>Stöds bindningar
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+Information om vilka bindningar finns i förhandsgranskningen eller godkänns för produktion finns [språk som stöds](supported-languages.md).
+
+## <a name="register-binding-extensions"></a>Registrera bindning tillägg
+
+I vissa utvecklingsmiljöer måste du uttryckligen *registrera* en bindning som du vill använda. Bindningen tillägg finns i NuGet-paket och för att registrera ett tillägg som du installerar ett paket. Följande tabell visar hur och när du registrerar bindning tillägg.
+
+|Utvecklingsmiljö |Registrering<br/> i funktioner 1.x  |Registrering<br/> i funktioner 2.x  |
+|---------|---------|---------|
+|Azure Portal|Automatisk|[Automatisk med Kommandotolken](#azure-portal-development)|
+|Lokala med hjälp av Azure Functions Core-verktyg|Automatisk|[Använd Core verktyg CLI-kommandon](#local-development-azure-functions-core-tools)|
+|C#-klassbiblioteket har med hjälp av Visual Studio 2017|[Använd NuGet-verktyg](#c-class-library-with-visual-studio-2017)|[Använd NuGet-verktyg](#c-class-library-with-visual-studio-2017)|
+|C#-klassbiblioteket har med hjälp av Visual Studio Code|Gäller inte|[Använda .NET Core CLI](#c-class-library-with-visual-studio-code)|
+
+Följande bindningstyper av är undantag som inte kräver explicit registrering eftersom de registreras automatiskt i alla versioner och miljöer: HTTP-timer- och Azure Storage (BLOB, köer och tabeller). 
+
+### <a name="azure-portal-development"></a>Azure portal-utveckling
+
+Det här avsnittet gäller endast funktioner 2.x. Bindningen tillägg som inte har uttryckligen registreras i funktioner 1.x.
+
+När du skapar en funktion eller lägga till en bindning efterfrågas när tillägget för utlösare eller bindningen kräver registrering. Svara på uppmaningen genom att klicka på **installera** att registrera tillägget. Installationen kan ta upp till 10 minuter på en plan för användning.
+
+Du behöver bara installera varje tillägg en gång för en viss funktionsapp. 
+
+### <a name="local-development-azure-functions-core-tools"></a>Lokal utveckling Azure Functions grundläggande verktyg
+
+Det här avsnittet gäller endast funktioner 2.x. Bindningen tillägg som inte har uttryckligen registreras i funktioner 1.x.
+
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+
+<a name="local-csharp"></a>
+### <a name="c-class-library-with-visual-studio-2017"></a>C#-klassbiblioteket med Visual Studio 2017
+
+I **Visual Studio 2017**, kan du installera paket från Package Manager-konsolen med hjälp av den [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) kommandot som visas i följande exempel:
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
+```
+
+Namnet på paketet som ska användas för en viss bindning har angetts i referensartikeln för bindningen. Ett exempel finns i [paket i Service Bus bindning referensartikeln](functions-bindings-service-bus.md#packages---functions-1x).
+
+Ersätt `<target_version>` i exemplet med en viss version av paketet, som `3.0.0-beta5`. Giltiga versioner visas på sidorna enskilda paketet på [NuGet.org](https://nuget.org). Större versioner som motsvarar Functions-runtime 1.x eller 2.x anges i referensartikeln för bindningen.
+
+### <a name="c-class-library-with-visual-studio-code"></a>C#-klassbiblioteket med Visual Studio Code
+
+I **Visual Studio Code**, kan du installera paket från en kommandotolk med hjälp av den [dotnet lägga till paket](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) kommandot i .NET Core CLI, som visas i följande exempel:
+
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
+```
+
+.NET Core CLI kan endast användas för Azure Functions 2.x-utveckling.
+
+Namnet på paketet som ska användas för en viss bindning har angetts i referensartikeln för bindningen. Ett exempel finns i [paket i Service Bus bindning referensartikeln](functions-bindings-service-bus.md#packages---functions-1x).
+
+Ersätt `<target_version>` i exemplet med en viss version av paketet, som `3.0.0-beta5`. Giltiga versioner visas på sidorna enskilda paketet på [NuGet.org](https://nuget.org). Större versioner som motsvarar Functions-runtime 1.x eller 2.x anges i referensartikeln för bindningen.
 
 ## <a name="binding-direction"></a>Bindningen riktning
 

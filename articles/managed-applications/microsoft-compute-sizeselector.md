@@ -11,20 +11,27 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: d1b4974c78a5cdb7b4eb885797319b283be2d393
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9009d29e281ace179ad1dd2021c7cf35e3dc611a
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260848"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084815"
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Microsoft.Compute.SizeSelector UI-element
 En kontroll för att välja en storlek för en eller flera instanser av virtuell dator.
 
 ## <a name="ui-sample"></a>UI-exempel
+
+Användaren ser en väljare med standardvärden från elementdefinition.
+
 ![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
+
+När du har valt kontrollen, ser användaren en utökad visning av tillgängliga storlekar.
+
+![Microsoft.Compute.SizeSelector expanderas](./media/managed-application-elements/microsoft.compute.sizeselector-expanded.png)
 
 ## <a name="schema"></a>Schema
 ```json
@@ -44,6 +51,9 @@ En kontroll för att välja en storlek för en eller flera instanser av virtuell
     "numAvailabilityZonesRequired": 3,
     "zone": "3"
   },
+  "options": {
+    "hideDiskTypeFilter": false
+  },
   "osPlatform": "Windows",
   "imageReference": {
     "publisher": "MicrosoftWindowsServer",
@@ -56,14 +66,14 @@ En kontroll för att välja en storlek för en eller flera instanser av virtuell
 ```
 
 ## <a name="remarks"></a>Kommentarer
-- `recommendedSizes` ska innehålla minst en storlek. Den första rekommenderade storleken används som standard.
-- Om en rekommenderad storlek inte är tillgängligt på den valda platsen storlek automatiskt att hoppas över. I stället används nästa Rekommenderad storlek.
-- Oavsett storlek inte har angetts i den `constraints.allowedSizes` är dolt och valfri storlek inte har angetts i `constraints.excludedSizes` visas.
-`constraints.allowedSizes` och `constraints.excludedSizes` både valfria, men kan inte användas samtidigt. Listan över tillgängliga storlekar kan fastställas genom att anropa [visa en lista med tillgängliga virtuella datorstorlekar för en prenumeration](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region).
+- `recommendedSizes` bör ha minst en storlek. Den första rekommenderade storleken används som standard. Listan över tillgängliga storlekar är inte sorterad efter rekommenderade tillstånd. Användaren kan välja att kolumn att sortera efter rekommenderade tillstånd.
+- Om en rekommenderade storleken är inte tillgänglig i den valda platsen storlek automatiskt att hoppas över. I stället används nästa Rekommenderad storlek.
+- `constraints.allowedSizes` och `constraints.excludedSizes` både valfria, men kan inte användas samtidigt. Listan över tillgängliga storlekar kan fastställas genom att anropa [visa en lista med tillgängliga virtuella datorstorlekar för en prenumeration](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region). Oavsett storlek inte har angetts i den `constraints.allowedSizes` är dolt och valfri storlek inte har angetts i `constraints.excludedSizes` visas.
 - `osPlatform` måste anges, och kan vara antingen **Windows** eller **Linux**. Den används för att fastställa kostnader för maskinvara för virtuella datorer.
 - `imageReference` tas bort för från första part bilder, men det angivna för bilder från tredje part. Den används för att fastställa programvara kostnaderna för virtuella datorer.
 - `count` används för att ange lämplig multiplikatorn för elementet. Den stöder ett statiskt värde som **2**, eller ett dynamiskt värde från ett annat element som `[steps('step1').vmCount]`. Standardvärdet är **1**.
 - Den `numAvailabilityZonesRequired` kan vara 1, 2 eller 3.
+- Som standard `hideDiskTypeFilter` är **FALSKT**. Disk typen filtret kan användaren att se alla disktyper eller endast SSD.
 
 ## <a name="sample-output"></a>Exempel på utdata
 ```json

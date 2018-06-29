@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 5cb93941751c8744a19a5473d13f1e135a589eaa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6177758eaa3e611ad67da0778d889df48b052d90
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351756"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095759"
 ---
 # <a name="ecommerce-catalog-moderation-with-machine-learning"></a>e-handel katalogen avbrottsmoderering med machine learning
 
@@ -158,7 +158,7 @@ I vårt fall vi definiera dessa anpassade taggar (**Kändisarnas**, **flaggan**,
 
 ## <a name="classify-into-flags-toys-and-pens"></a>Klassificera i flaggor och toys pennor
 
-1. [Logga in](https://www.customvision.ai/account/signin) till den [anpassad Vision API preview](https://www.customvision.ai/).
+1. [Logga in](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) till den [anpassad Vision API preview](https://www.customvision.ai/).
 2. Använd den [Quickstart](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) att bygga din anpassade klassificerare för att upptäcka potentiella flaggor och toys pennor.
    ![Anpassade Vision utbildning bilder](images/tutorial-ecommerce-custom-vision.PNG)
 3. [Hämta förutsägelse slutpunkts-URL](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) för din anpassade klassificerare.

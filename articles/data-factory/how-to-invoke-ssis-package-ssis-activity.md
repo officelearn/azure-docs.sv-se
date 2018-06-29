@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5ff397e8b13d56b3b034854c507f8bef05008812
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: 26b9271744d7be45c2a879fde3bb3fb5d6049a3b
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054729"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083793"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten kör SSIS-paket i Azure Data Factory
 Den här artikeln beskriver hur du kör ett SSIS-paket i ett Azure Data Factory-pipelinen med hjälp av aktiviteten köra SSIS-paket. 
@@ -174,7 +174,7 @@ Observera följande punkter:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna **deltagare** eller **ägare**, eller vara **administratör** för Azure-prenumerationen.
-* För närvarande kan Data Factory du skapa datafabriker endast i östra USA, östra US2, västra Europa och Sydostasien regioner. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+* För en lista över Azure-regioner som Data Factory finns för närvarande, väljer du de områden som intresserar dig på följande sida och expandera sedan **Analytics** att hitta **Datafabriken**: [ Produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
 ### <a name="create-a-pipeline-with-an-ssis-activity"></a>Skapa en pipeline med en SSIS-aktivitet 
 I det här steget skapar du en pipeline med en SSIS-aktivitet. Aktiviteten körs SSIS-paket. 

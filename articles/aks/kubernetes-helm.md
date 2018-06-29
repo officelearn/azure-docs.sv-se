@@ -2,18 +2,19 @@
 title: Distribuera behållare med Helm i Kubernetes på Azure
 description: Verktyget Helm paketering ska distribuera behållare på ett kluster med Kubernetes på AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/13/2018
-ms.author: nepeters
+ms.date: 06/13/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 70e13fb377be3ec501cce5170ed391aac8cb6e5d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 531e6d9368b2bf91c48fd41b1e9330879b0df49a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102485"
 ---
 # <a name="use-helm-with-azure-kubernetes-service-aks"></a>Använda Helm med Azure Kubernetes-tjänsten (AKS)
 
@@ -27,7 +28,7 @@ Stegen som beskrivs i det här dokumentet förutsätter att du har skapat ett AK
 
 ## <a name="install-helm-cli"></a>Installera Helm CLI
 
-Helm CLI är en klient som körs på utvecklingssystemet och gör att du kan starta, stoppa och hantera program med Helm diagram.
+Helm CLI är en klient som körs på utvecklingssystemet och gör att du kan starta, stoppa och hantera program med Helm.
 
 Om du använder Azure CloudShell är Helm CLI redan installerad. Installera Helm CLI på en Mac-Använd `brew`. Installation av ytterligare alternativ finns [installerar Helm][helm-install-options].
 
@@ -48,24 +49,47 @@ Bash completion has been installed to:
 🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
 ```
 
+## <a name="create-service-account"></a>Skapa tjänstkonto
+
+Innan konfigurera Helm i en RBAC aktiverad klustret, behöver du ett tjänstkonto och rollen bindning för tjänsten rorkulten. Mer information om hur du skyddar Helm / rorkulten i en RBAC aktiverat kluster, se [rorkulten namnområden och RBAC][tiller-rbac]. Observera om klustret inte är RBAC aktiverad, hoppa över det här steget.
+
+Skapa en fil med namnet `helm-rbac.yaml` och kopiera följande YAML.
+
+```
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: tiller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: tiller
+    namespace: kube-system
+```
+
+Skapar tjänstkonto och rollen bindning med det `kubectl create` kommando.
+
+```
+kubectl create -f helm-rbac.yaml
+```
+
+När klustret med en RBAC aktiverad, har du alternativ för åtkomstnivån som rorkulten har till klustret. Se [Helm: rollbaserade åtkomstkontroller] [ helm-rbac] mer information om konfigurationsalternativ.
+
 ## <a name="configure-helm"></a>Konfigurera Helm
 
-Den [helm init] [ helm-init] kommando som används för att installera Helm komponenter i ett Kubernetes kluster och ge klientsidan konfigurationer. Kör följande kommando för att installera Helm på AKS klustret och konfigurera Helm-klienten.
-
-```azurecli-interactive
-helm init --upgrade --service-account default
-```
-
-Resultat:
+Nu installeras rorkulten med den [helm init] [ helm-init] kommando. Om klustret inte är aktiverat RBAC kan ta bort den `--service-account` argument och dess värde.
 
 ```
-$HELM_HOME has been configured at /Users/neilpeterson/.helm.
-
-Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
-
-Please note: by default, Tiller is deployed with an insecure 'allow unauthenticated users' policy.
-For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
-Happy Helming!
+helm init --service-account tiller
 ```
 
 ## <a name="find-helm-charts"></a>Hitta Helm diagram
@@ -115,42 +139,56 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>Kör Helm diagram
 
-Om du vill distribuera en domänkontrollant för en NGINX-ingång använder den [helm installera] [ helm-install] kommando.
+Distribuera Wordpress med hjälp av ett Helm diagram med hjälp av [helm installera] [ helm-install] kommando.
 
 ```azurecli-interactive
-helm install stable/nginx-ingress --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
+helm install stable/wordpress
 ```
 
 Utdata liknar följande, men innehåller ytterligare information, till exempel instruktioner om hur du använder Kubernetes-distributionen.
 
 ```
-NAME:   tufted-ocelot
-LAST DEPLOYED: Thu Oct  5 00:48:04 2017
+NAME:   bilging-ibex
+LAST DEPLOYED: Tue Jun  5 14:31:49 2018
 NAMESPACE: default
 STATUS: DEPLOYED
 
 RESOURCES:
+==> v1/Pod(related)
+NAME                                     READY  STATUS   RESTARTS  AGE
+bilging-ibex-mariadb-7557b5474-dmdxn     0/1    Pending  0         1s
+bilging-ibex-wordpress-7494c545fb-tskhz  0/1    Pending  0         1s
+
+==> v1/Secret
+NAME                    TYPE    DATA  AGE
+bilging-ibex-mariadb    Opaque  2     1s
+bilging-ibex-wordpress  Opaque  2     1s
+
 ==> v1/ConfigMap
-NAME                                    DATA  AGE
-tufted-ocelot-nginx-ingress-controller  1     5s
+NAME                        DATA  AGE
+bilging-ibex-mariadb        1     1s
+bilging-ibex-mariadb-tests  1     1s
+
+==> v1/PersistentVolumeClaim
+NAME                    STATUS   VOLUME   CAPACITY  ACCESS MODES  STORAGECLASS  AGE
+bilging-ibex-mariadb    Pending  default  1s
+bilging-ibex-wordpress  Pending  default  1s
 
 ==> v1/Service
-NAME                                         CLUSTER-IP   EXTERNAL-IP  PORT(S)                     AGE
-tufted-ocelot-nginx-ingress-controller       10.0.140.10  <pending>    80:30486/TCP,443:31358/TCP  5s
-tufted-ocelot-nginx-ingress-default-backend  10.0.34.132  <none>       80/TCP                      5s
+NAME                    TYPE          CLUSTER-IP    EXTERNAL-IP  PORT(S)                     AGE
+bilging-ibex-mariadb    ClusterIP     10.0.76.164   <none>       3306/TCP                    1s
+bilging-ibex-wordpress  LoadBalancer  10.0.215.250  <pending>    80:30934/TCP,443:31134/TCP  1s
 
 ==> v1beta1/Deployment
-NAME                                         DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-tufted-ocelot-nginx-ingress-controller       1        1        1           0          5s
-tufted-ocelot-nginx-ingress-default-backend  1        1        1           1          5s
+NAME                    DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
+bilging-ibex-mariadb    1        1        1           0          1s
+bilging-ibex-wordpress  1        1        1           0          1s
 ...
 ```
 
-Läs mer om hur du använder en domänkontrollant för en NGINX-ingång med Kubernetes [NGINX ingång Controller][nginx-ingress].
+## <a name="list-helm-releases"></a>Lista Helm versioner
 
-## <a name="list-helm-charts"></a>Lista Helm diagram
-
-Om du vill se en lista över diagram som installerats på klustret använder den [helm lista] [ helm-list] kommando.
+Om du vill se en lista över versioner som är installerade på klustret använder den [helm lista] [ helm-list] kommando.
 
 ```azurecli-interactive
 helm list
@@ -159,8 +197,8 @@ helm list
 Resultat:
 
 ```
-NAME            REVISION    UPDATED                     STATUS      CHART               NAMESPACE
-bilging-ant     1           Thu Oct  5 00:11:11 2017    DEPLOYED    nginx-ingress-0.8.7 default
+NAME            REVISION    UPDATED                     STATUS      CHART           NAMESPACE
+bilging-ibex    1           Tue Jun  5 14:31:49 2018    DEPLOYED    wordpress-1.0.9 default
 ```
 
 ## <a name="next-steps"></a>Nästa steg
@@ -172,14 +210,15 @@ Mer information om hur du hanterar Kubernetes diagram i dokumentationen om Helm.
 
 <!-- LINKS - external -->
 [helm]: https://github.com/kubernetes/helm/
-[helm-documentation]: https://github.com/kubernetes/helm/blob/master/docs/index.md
+[helm-documentation]: https://docs.helm.sh/
 [helm-init]: https://docs.helm.sh/helm/#helm-init
 [helm-install]: https://docs.helm.sh/helm/#helm-install
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
 [helm-list]: https://docs.helm.sh/helm/#helm-list
+[helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
 [helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
 [helm-search]: https://docs.helm.sh/helm/#helm-search
-[nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+[tiller-rbac]: https://docs.helm.sh/using_helm/#tiller-namespaces-and-rbac
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

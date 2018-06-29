@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628267"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088679"
 ---
 # <a name="create-a-new-simulated-device"></a>Skapa en ny simulerad enhet
 
@@ -41,7 +41,7 @@ Följande tabell visar data i av glödlampa rapporterar till molnet som en datas
 | ------ | ----------- |
 | Status | ”på”, ”av” |
 | Temperatur | Grader F |
-| online | SANT, FALSKT |
+| Online | SANT, FALSKT |
 
 > [!NOTE]
 > Den **online** telemetri värdet är obligatoriskt för alla simulerade typer.
@@ -71,7 +71,7 @@ I det andra scenariot lägger du till en ny typ av telemetri till Contoso befint
 
 Den här kursen visar hur du använder enheten simulatorn med Fjärrövervaknings solution accelerator:
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 >[!div class="checklist"]
 > * Skapa en ny enhetstyp av
@@ -174,7 +174,7 @@ I självstudierna kan du arbeta med Visual Studio-lösning som ansluter till lö
     sudo grep STORAGEADAPTER_DOCUMENTDB /app/env-vars
     ```
 
-    Anteckna anslutningssträngen. Du kan använda det här värdet senare under kursen.
+    Anteckna anslutningssträngen. Du använder det här värdet senare i kursen.
 
 1. Kör följande kommando för att hitta anslutningssträngen IoT-hubb i SSH-session som är ansluten till den virtuella datorn:
 
@@ -182,7 +182,7 @@ I självstudierna kan du arbeta med Visual Studio-lösning som ansluter till lö
     sudo grep IOTHUB_CONNSTRING /app/env-vars
     ```
 
-    Anteckna anslutningssträngen. Du kan använda det här värdet senare under kursen.
+    Anteckna anslutningssträngen. Du använder det här värdet senare i kursen.
 
 > [!NOTE]
 > Du kan också hitta dessa anslutningssträngar i Azure-portalen eller genom att använda den `az` kommando.
@@ -191,15 +191,15 @@ I självstudierna kan du arbeta med Visual Studio-lösning som ansluter till lö
 
 När du ändrar simuleringen tjänst kan köra du det lokalt för att testa dina ändringar. Innan du kör tjänsten enhet simuleringen lokalt, måste du stoppa den instans som körs på den virtuella datorn på följande sätt:
 
-1. Att hitta den **BEHÅLLAR-ID** av den **enheten simuleringen** tjänsten, kör följande kommando i SSH-session som är ansluten till den virtuella datorn:
+1. Att hitta den **BEHÅLLAR-ID** av den **enhet-simulering-dotnet** tjänsten, kör följande kommando i SSH-session som är ansluten till den virtuella datorn:
 
     ```sh
     docker ps
     ```
 
-    Anteckna behållar-ID för den **enheten simuleringen** service.
+    Anteckna behållar-ID för den **enhet-simulering-dotnet** service.
 
-1. Stoppa den **enheten simuleringen** behållare, kör du följande kommando:
+1. Stoppa den **dotnet-simulering-enheten** behållare, kör du följande kommando:
 
     ```sh
     docker stop container-id-from-previous-step
@@ -248,12 +248,6 @@ Nu har du allt på plats och du är redo att börja lägga till en ny typ av sim
 ## <a name="create-a-simulated-device-type"></a>Skapa en simulerad enhetstyp
 
 Det enklaste sättet att skapa en ny typ av enhet i simuleringen tjänst är att kopiera och ändra en befintlig typ. Följande steg visar hur du kopierar inbyggt **kylaggregat** enhet för att skapa en ny **av glödlampa** enhet:
-
-1. Öppna i Visual Studio den **enhet simulation.sln** lösningsfilen i din lokala kloning av den **enheten simuleringen** databasen.
-
-1. I Solution Explorer högerklickar du på den **SimulationAgent** projekt, Välj **egenskaper**, och välj sedan **felsöka**.
-
-1. I den **miljövariabler** avsnitt, redigera värdet för den **datorer\_IOTHUB\_CONNSTRING** variabeln ska vara IoT-hubb anslutningssträngen som du antecknade tidigare. Spara dina ändringar.
 
 1. I Solution Explorer högerklickar du på den **WebService** projekt, Välj **egenskaper**, och välj sedan **felsöka**.
 
@@ -385,18 +379,21 @@ Den **skript/av glödlampa-01-state.js** filen definierar beteendet simulering a
 1. Redigera den **huvudsakliga** funktion för att implementera beteenden som visas i följande utdrag:
 
     ```js
-    function main(context, previousState) {
+    function main(context, previousState, previousProperties) {
 
-      // Restore the global state before generating the new telemetry, so that
-      // the telemetry can apply changes using the previous function state.
-      restoreState(previousState);
+        // Restore the global device properties and the global state before
+        // generating the new telemetry, so that the telemetry can apply changes
+        // using the previous function state.
+        restoreSimulation(previousState, previousProperties);
 
-      state.temperature = vary(200, 5, 150, 250);
+        state.temperature = vary(200, 5, 150, 250);
 
-      // Make this flip every so often
-      state.status = flip(state.status);
+        // Make this flip every so often
+        state.status = flip(state.status);
 
-      return state;
+        updateState(state);
+
+        return state;
     }
     ```
 
@@ -545,11 +542,11 @@ Följande steg förutsätter att du har en databas som heter **av glödlampa** i
 
     Skripten läggs den **testning** tagg på avbildningen.
 
-1. Använda SSH för att ansluta till din lösning virtuell dator i Azure. Gå sedan till den **App** mapp och redigera den **docker compose.yaml** fil:
+1. Använda SSH för att ansluta till din lösning virtuell dator i Azure. Gå sedan till den **App** mapp och redigera den **docker-compose.yml** fil:
 
     ```sh
     cd /app
-    sudo nano docker-compose.yaml
+    sudo nano docker-compose.yml
     ```
 
 1. Redigera posten för tjänsten enhet simuleringen att använda docker-avbildningen:
@@ -605,7 +602,7 @@ Det här avsnittet beskrivs hur du ändrar en befintlig typ simulerade enheten f
 
 Följande steg visar hur du söker efter filer som definierar inbyggt **kylaggregat** enhet:
 
-1. Om du inte redan har gjort det, använder du följande kommando för att klona den **enheten simuleringen** GitHub-lagringsplatsen till den lokala datorn:
+1. Om du inte redan har gjort det, använder du följande kommando för att klona den **enhet-simulering-dotnet** GitHub-lagringsplatsen till den lokala datorn:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
@@ -673,9 +670,9 @@ Följande steg visar hur du lägger till en ny **inre temperatur** typ till den 
 
 ### <a name="test-the-chiller-device-type"></a>Testa kylaggregat enhetstyp
 
-Att testa den uppdaterade **kylaggregat** enhetstyp, först köra en lokal kopia av den **enheten simuleringen** -tjänsten för att testa din enhetstyp fungerar som förväntat. När du har testat och testar din uppdaterade enhetstyp lokalt, kan du återskapa behållaren och omdistribuera den **enheten simuleringen** tjänst till Azure.
+Att testa den uppdaterade **kylaggregat** enhetstyp, först köra en lokal kopia av den **enhet-simulering-dotnet** -tjänsten för att testa din enhetstyp fungerar som förväntat. När du har testat och testar din uppdaterade enhetstyp lokalt, kan du återskapa behållaren och omdistribuera den **enhet-simulering-dotnet** tjänst till Azure.
 
-När du kör den **enheten simuleringen** tjänsten lokalt, skickas telemetri till din lösning för övervakning av fjärråtkomst. På den **enheter** kan du etablera instanser av din uppdaterade.
+När du kör den **enhet-simulering-dotnet** tjänsten lokalt, skickas telemetri till din lösning för övervakning av fjärråtkomst. På den **enheter** kan du etablera instanser av din uppdaterade.
 
 Om du vill testa och felsöka dina ändringar lokalt, finns i föregående avsnitt [testa typ av glödlampa enhet lokalt](#test-the-lightbulb-device-type-locally).
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 311e58f01fac6d7786992b3c11e4b1b7c02ca838
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: f8cf5a46e1d1e3242fd46900b56f7d8cf15d3fc5
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304523"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082532"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Hantera klassrum labb i Azure Lab Services 
 Den här artikeln beskriver hur du skapar och konfigurerar ett klassrum labb, visa alla klassrum labs eller ta bort ett klassrum labb.
@@ -86,8 +86,8 @@ När du publicerar en mall, skapar Azure Lab Services virtuella datorer i labbet
 2. Nu väljer den **publicera** knappen. Den här processen kan ta lite tid beroende på hur många virtuella datorer skapas, vilket är samma som antalet användare som tillåts i labbet.
     
     > [!IMPORTANT]
-    > När en mall har gjorts offentligt tillgänglig, kan åtkomsten inte ändras till privat. 
-4. Växla till den **virtuella datorer** sidan och bekräfta att du ser fem virtuella datorer som finns i **otilldelade** tillstånd. Dessa virtuella datorer har inte tilldelats studenter ännu. 
+    > Det går inte att avpublicera när en mall har publicerats. 
+4. Växla till den **virtuella datorer** sidan och bekräfta att du ser att virtuella datorer som finns i **otilldelade** tillstånd. Dessa virtuella datorer har inte tilldelats studenter ännu. 
 
     ![Virtuella datorer](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. Vänta tills de virtuella datorerna har skapats. De måste vara i **stoppad** tillstånd. Du kan starta en student VM, ansluta till den virtuella datorn, stoppa den virtuella datorn och ta bort den virtuella datorn på den här sidan. Du kan starta dem i den här sidan eller låt eleverna starta de virtuella datorerna. 

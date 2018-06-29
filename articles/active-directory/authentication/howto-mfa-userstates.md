@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: b809097e50a17178da12fdb424eba08dc8e0c4cb
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 204910ff6e02eafd62eeb56bf82b77b91b3cb5ad
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866899"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099617"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Så här kräver tvåstegsverifiering för en användare eller grupp
 
@@ -71,7 +71,7 @@ Använd följande steg för att komma åt sidan där du kan visa och hantera anv
 
 5. Bekräfta dina val i popup-fönstret som öppnas. 
 
-När du aktiverar användare, meddela dem via e-post. Be dem att de kommer att behöva registrera sig nästa gång de loggar in. Om din organisation använder icke-webbläsarbaserade appar som inte stöder modern autentisering, måste de också skapa applösenord används. Du kan även inkludera en länk till den [Azure MFA slutanvändarens guiden](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md) hjälper dem att komma igång.
+När du aktiverar användare, meddela dem via e-post. Be dem att de kommer att behöva registrera sig nästa gång de loggar in. Om din organisation använder icke-webbläsarbaserade appar som inte stöder modern autentisering, måste de också skapa applösenord används. Du kan även inkludera en länk till den [Azure MFA slutanvändarens guiden](end-user/current/multi-factor-authentication-end-user.md) hjälper dem att komma igång.
 
 ### <a name="use-powershell"></a>Använd PowerShell
 Så här ändrar du användartillstånd med hjälp av [Azure AD PowerShell](/powershell/azure/overview), ändra `$st.State`. Det finns tre möjliga tillstånd:

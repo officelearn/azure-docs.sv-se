@@ -2,19 +2,19 @@
 title: Använda Azure-fil med AKS
 description: Använda Azure-diskarna med AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d3e92902e711ba2b1664c6497ecb66f035ea9308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 84500791887194884e1ec7d15ddfbc169ba22517
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597509"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098353"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Beständiga volymer med Azure-filer
 
@@ -24,7 +24,7 @@ Mer information om Kubernetes beständiga volymer, inklusive statiska skapa finn
 
 ## <a name="create-storage-account"></a>Skapa lagringskonto
 
-När du skapar en Azure-filresurs som en Kubernetes volym dynamiskt, storage-konto kan användas som den är i AKS **nod** resursgruppen. Hämta resursgruppens namn med den [az resurs visa] [ az-resource-show] kommando.
+När du skapar en Azure-filresurs som en Kubernetes volym dynamiskt, storage-konto kan användas som den är i AKS **nod** resursgruppen. Detta är den med den `MC_` prefix som har skapats av etableringen av resurser för AKS klustret. Hämta resursgruppens namn med den [az resurs visa] [ az-resource-show] kommando.
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
@@ -40,13 +40,15 @@ Uppdatera `--resource-group` med namnet på resursgruppen som samlats in i det s
 az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
+> Azure Files fungerar endast med standardlagring. Om du använder premium-lagring kan inte etablera volymen.
+
 ## <a name="create-storage-class"></a>Skapa storage-klass
 
 En lagringsklass används för att definiera hur du skapar en Azure-filresursen. Ett visst lagringskonto kan anges i-klassen. Om ett lagringskonto har angetts en `skuName` och `location` måste anges, och alla lagringskonton i associerade resursgrupp utvärderas efter en matchning.
 
 Mer information om Kubernetes lagringsklasser för Azure-filer finns [Kubernetes lagringsklasser][kubernetes-storage-classes].
 
-Skapa en fil med namnet `azure-file-sc.yaml` och kopiera följande manifestet. Uppdatering av `storageAccount` med namnet på ditt mål-lagringskontot.
+Skapa en fil med namnet `azure-file-sc.yaml` och kopiera följande manifestet. Uppdatering av `storageAccount` med namnet på ditt mål-lagringskontot. I avsnittet [monteringsalternativ] mer information på `mountOptions`.
 
 ```yaml
 kind: StorageClass
@@ -54,8 +56,13 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: azurefile
 provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
 parameters:
-  storageAccount: mystorageaccount
+  skuName: Standard_LRS
 ```
 
 Skapa klassen lagring med de [kubectl gäller] [ kubectl-apply] kommando.
@@ -206,3 +213,4 @@ Läs mer om Kubernetes beständiga volymer med Azure-filer.
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
+[mount-options]: #mount-options

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: cb77bd4418e105c877202f0f1725350380ea2308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 241808e0a7bde1d2c53cd0af1de677275c169214
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661013"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082238"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Hantera behörigheter till Azure Storage-data med RBAC (förhandsgranskning)
 
@@ -61,7 +61,7 @@ I följande avsnitt visas hur du tilldelar en roll som är begränsade till lagr
 
 Tilldela en inbyggd roll som beviljar åtkomst till alla behållare eller köer i storage-konto i Azure-portalen:
 
-1. I den [Azure-portalen](https://azure.portal.com/), navigera till ditt lagringskonto.
+1. I den [Azure-portalen](https://portal.azure.com), navigera till ditt lagringskonto.
 2. Välj ditt lagringskonto och sedan **Access Control (IAM)** att visa inställningar för åtkomstkontroll för kontot. Klicka på den **Lägg till** för att lägga till en ny roll.
 
     ![Skärmbild som visar behörighetsinställningar för lagring](media/storage-auth-aad-rbac/portal-access-control.png)
@@ -78,7 +78,7 @@ Tilldela en inbyggd roll som beviljar åtkomst till alla behållare eller köer 
 
 Stegen för att tilldela en inbyggd roll som har begränsats till en behållare eller till en kö är liknande. Det förfarande som visas här tilldelar en roll som är begränsade till en behållare, men du kan följa samma steg för att tilldela en roll som är begränsade till en kö: 
 
-1. I den [Azure-portalen](https://azure.portal.com/), navigera till ditt lagringskonto och visa den **översikt** för kontot.
+1. I den [Azure-portalen](https://portal.azure.com), navigera till ditt lagringskonto och visa den **översikt** för kontot.
 2. Välj under Blob-tjänsten **Bläddra Blobbar**. 
 3. Leta upp den behållare som du vill tilldela en roll och visa behållarens inställningar. 
 4. Välj **Access Control (IAM)** att visa inställningar för åtkomstkontroll för behållaren.

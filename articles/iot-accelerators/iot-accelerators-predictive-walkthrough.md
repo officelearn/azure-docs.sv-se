@@ -1,6 +1,6 @@
 ---
-title: Genomgång av lösningsacceleratorn Förutsägande underhåll – Azure | Microsoft Docs
-description: En genomgång av lösningsacceleratorn Förutsägande underhåll i Azure IoT.
+title: Översikt över lösningsacceleratorn Förutsägande underhåll – Azure | Microsoft Docs
+description: En översikt över Azure IoT förutsägande Underhåll solution accelerator.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,14 +8,14 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: e29975558801b4ffccd38d4485306d25ecaec0aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6bd61f301fa4468ef1d308d4da275c760ee09dc0
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655503"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088671"
 ---
-# <a name="predictive-maintenance-solution-accelerator-walkthrough"></a>Genomgång av lösningsacceleratorn Förutsägande underhåll
+# <a name="predictive-maintenance-solution-accelerator-overview"></a>Översikt över lösningsacceleratorn Förutsägande underhåll
 
 Lösningsacceleratorn Förutsägande underhåll är en lösning från slutpunkt till slutpunkt för ett affärsscenario som förutsäger den punkt då det är troligt att ett fel uppstår. Du kan använda lösningsacceleratorn proaktivt för att till exempel optimera underhållet. Lösningen kombinerar viktiga tjänster i Azure IoT-lösningsaccelerator, till exempel IoT Hub, Stream Analytics och en [Azure Machine Learning][lnk-machine-learning]-arbetsyta. Den här arbetsytan innehåller en modell, baserad på en offentlig provdatauppsättning, för att förutsäga återstående driftstid (RUL) för en flygplansmotor. Lösningen implementerar IoT-affärsscenariot som startpunkt när du planerar och implementerar en lösning som uppfyller dina specifika affärskrav.
 
@@ -76,5 +76,5 @@ Du kan även utforska andra funktioner och möjligheter i IoT-lösningsaccelerat
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
-[lnk-security-groundup]:securing-iot-ground-up.md
+[lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 4f548e180ca315013d5ca91118041cac2e622520
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b161fad822804ed0b2a6c7ad5315eca45984b19d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611457"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081497"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Hur du distribuerar data globalt med Azure Cosmos DB
 Azure är allt vanligare - den har en global storleken över 50 + geografiska regioner och kontinuerligt växer. Med dess global närvaro är en av de olika funktionerna som Azure erbjuder sina utvecklare möjlighet att skapa, distribuera och hantera enkelt globalt distribuerade program. 
@@ -92,7 +92,7 @@ Funktioner för automatisk och manuell redundans exponeras för närvarande på 
 ### <a id="MultiHomingAPIs"></a>Multihoming i Azure Cosmos DB
 Azure Cosmos-DB kan du samverka med en-databas med hjälp av antingen *logiska* (region-oberoende) eller *fysiska* (regionspecifika) slutpunkter. Om du använder logiska slutpunkter säkerställer att programmet transparent kan vara multi-homed vid redundans. Dessa, en fysisk slutpunkt, ger detaljerad kontroll till programmet att omdirigera läser och skriver till vissa regioner.
 
-Du kan hitta information om hur du konfigurerar Läs inställningar för den [SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md), [Gremlin API](../cosmos-db/tutorial-global-distribution-graph.md), [tabell API](../cosmos-db/tutorial-global-distribution-table.md), och [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) i dessa artiklar.
+Du hittar information om hur du konfigurerar Läs inställningar för den [SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md), [tabell API](../cosmos-db/tutorial-global-distribution-table.md), och [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) i dessa artiklar.
 
 ### <a id="TransparentSchemaMigration"></a>Migrering av öppet och konsekvent databasen schemat och index 
 Azure Cosmos-DB är helt [schema-oberoende](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). Den unika designen av databasmotorn kan Azure Cosmos-Databsen ska automatiskt och index synkront alla data vid införandet, utan att något schema eller sekundärindex från användaren. På så sätt kan du snabbt iterera globalt distribuerade program utan att oroa sig för migrering av databasen schemat och index eller koordinera med lanseringar av schemaändringar. Azure Cosmos-DB garanterar att inga ändringar av indexering principer som du uttryckligen har gjort inte kommer försämring av prestanda eller tillgänglighet.  

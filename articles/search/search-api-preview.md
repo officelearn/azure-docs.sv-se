@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: search
 ms.date: 05/17/2018
 ms.author: HeidiSteen
-ms.openlocfilehash: ce5771777762414a0229cf83425c2f3601cb979a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 2e000628ebec393147328125a04d5d6f55afd3c6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655730"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100495"
 ---
 # <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>Azure Search-tjänsten REST api-version 2017-11-11-Preview
 Den här artikeln beskriver den `api-version=2017-11-11-Preview` versionen av Azure Search-tjänst, med experiment funktioner som inte ännu allmänt tillgänglig.
@@ -27,11 +27,11 @@ Den här artikeln beskriver den `api-version=2017-11-11-Preview` versionen av Az
 
 ## <a name="new-in-2017-11-11-preview"></a>I 2017-11-11-Preview
 
-[Kognitiva Sök](cognitive-search-concept-intro.md), en ny berikande funktion i Azure Search hittar Latenta information i icke-text källor och omvandla det till fulltext sökbara innehåll i Azure Search odifferentierad text.
+[**Automatisk komplettering** ](search-autocomplete-tutorial.md) ansluter till den befintliga [förslag API](https://docs.microsoft.com/rest/api/searchservice/suggestions) att lägga till kompletterande typ-ahead inträffar till sökfältet. Automatisk komplettering returnerar kandidat sökord som en användare kan välja som frågesträngen för en efterföljande sökning. Förslag returnerar faktiska dokument som svar på partiella indata: sökresultat direkt och ändra dynamiskt när sökningen termen indata växer och särskilda egenskaper.
 
-Följande reources introduceras eller ändras i förhandsgranskningen REST API. Alla andra REST API: er är samma oavsett om du anropar den allmänt tillgängliga eller förhandsgranskning.
+[**Kognitiva Sök**](cognitive-search-concept-intro.md), en ny berikande funktion i Azure Search hittar Latenta information i icke-text källor och omvandla det till fulltext sökbara innehåll i Azure Search odifferentierad text. Följande resurser introduceras eller ändras i förhandsgranskningen REST API. Alla andra REST API: er är samma oavsett om du anropar den allmänt tillgängliga eller förhandsgranskning.
 
-+ [Skapa kunskaper (api-version = 2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Kunskaper operations(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/skillset-operations)
 
 + [Skapa indexerare (api-version = 2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 

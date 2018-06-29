@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: fa68711158bea203d4fe1605966363dd2786a038
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9418525e60f255787f39a42657ee0dbdbd46957d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715028"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096941"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -102,10 +102,10 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
    <a id="max-connection"></a>
 3. **Öka System.Net MaxConnections per värd när du använder läget för Gateway**
 
-    Azure Cosmos-DB-begäranden görs över HTTPS/RESTEN när du använder Gateway-läge och är föremål för standard anslutningsgränsen per värdnamn eller IP-adress. Du kan behöva ange MaxConnections till ett högre värde (100-1000) så att klientbiblioteket kan använda flera samtidiga anslutningar till Azure Cosmos DB. I .NET SDK 1.8.0 och senare standardvärdet för [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) är 50 och du kan ange om du vill ändra värdet på [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) till ett högre värde.   
+    Azure Cosmos-DB-begäranden görs över HTTPS/RESTEN när du använder Gateway-läge och är föremål för standard anslutningsgränsen per värdnamn eller IP-adress. Du kan behöva ange MaxConnections till ett högre värde (100-1000) så att klientbiblioteket kan använda flera samtidiga anslutningar till Azure Cosmos DB. I .NET SDK 1.8.0 och senare standardvärdet för [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) är 50 och du kan ange om du vill ändra värdet på [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)till ett högre värde.   
 4. **Justera parallella frågor för partitionerade samlingar**
 
-     SQL .NET SDK version 1.9.0 och högre support parallella frågor, vilket gör det möjligt att fråga en partitionerad samling parallellt (se [arbeta med SDK: erna](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) och den relaterade [kodexempel](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) för mer information). Parallella frågor är utformade för att förbättra svarstid och genomströmning över sin seriella motsvarighet. Parallella frågor ange två parametrar som användare kan justera för anpassade efter deras krav, (a) MaxDegreeOfParallelism: att kontrollera det maximala antalet partitioner sedan kan efterfrågas parallellt och (b) MaxBufferedItemCount: att styra hur många tidigare hämtade resultat.
+     SQL .NET SDK version 1.9.0 och högre support parallella frågor, vilket gör det möjligt att fråga en partitionerad samling parallellt (se [arbeta med SDK: erna](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) och den relaterade [kodexempel](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) för mer information). Parallella frågor är utformade för att förbättra svarstid och genomströmning över sin seriella motsvarighet. Parallella frågor ange två parametrar som användare kan justera för anpassade efter deras krav, (a) MaxDegreeOfParallelism: att kontrollera det maximala antalet partitioner sedan kan efterfrågas parallellt och (b) MaxBufferedItemCount: att styra antalet tidigare hämtade resultat.
 
     (a) ***justera MaxDegreeOfParallelism\:***  parallell frågan fungerar genom att fråga flera partitioner parallellt. Dock hämtas data från en enskild partitionerade samla in seriellt med avseende på frågan. Så har om MaxDegreeOfParallelism till antalet partitioner högsta risken för att uppnå de flesta performant frågan, förutsatt att alla andra system villkoren förblir oförändrade. Om du inte vet antalet partitioner, du kan ange MaxDegreeOfParallelism till ett stort antal och minsta (antal partitioner, tillhandahålls användarindata) som MaxDegreeOfParallelism väljs automatiskt.
 
@@ -155,7 +155,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
     - För VSTest baserad testprojekt, kan du göra det genom att välja **testa**->**Testinställningar**->**standard processorarkitektur som X64**, från den **Visual Studio Test** menyalternativet.
 
-    - För lokalt distribuerade ASP.NET-webbprogram, detta kan göras genom att kontrollera den **använder 64-bitarsversionen av IIS Express för webbplatser och projekt**under **verktyg**->**alternativ**->**projekt och lösningar**->**webbprojekt**.
+    - För lokalt distribuerade ASP.NET-webbprogram, detta kan göras genom att kontrollera den **använder 64-bitarsversionen av IIS Express för webbplatser och projekt**under **verktyg**->**alternativ**  -> **Projekt och lösningar**->**Web projekt**.
 
     - För ASP.NET-webbprogram har distribuerats på Azure, detta kan göras genom att välja den **plattform som 64-bitars** i den **programinställningar** på Azure-portalen.
 
@@ -200,7 +200,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
          }
     ```             
 
-    Begäran-tillägget som returneras i det här sidhuvudet är en del av din dataflöde (d.v.s. 2000 RUs / sekund). Om den föregående frågan returnerar 1000 1KB-dokument, är kostnaden för åtgärden 1000. Inom en sekund godkänner servern därför bara två sådana begäranden innan begränsning efterföljande förfrågningar. Mer information finns i [programbegäran](request-units.md) och [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner).
+    Begäran-tillägget som returneras i det här sidhuvudet är en del av din dataflöde (d.v.s. 2000 RUs / sekund). Om den föregående frågan returnerar 1000 1KB-dokument, är kostnaden för åtgärden 1000. Inom en sekund godkänner servern därför bara två sådana begäranden innan hastighet begränsa efterföljande förfrågningar. Mer information finns i [programbegäran](request-units.md) och [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Hantera hastighet begränsa/förfrågningar för stor**
 

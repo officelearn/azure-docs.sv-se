@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e16130dc41418b22f2dea4ceae5e0a90ed963161
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 11335079373b627bab923f63eda148b0a74307ea
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938446"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100529"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (FAQ) 
 Den här sidan svar på vanliga frågor om Azure Active Directory (AD Azure) B2C. Hålla kontroll för uppdateringar.
@@ -97,9 +97,9 @@ Den här artikeln om [externa identiteter](../active-directory/active-directory-
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Vilka rapportering och granskning funktioner Azure AD B2C ger? Är de samma som i Azure AD Premium?
 Nej, stöder inte Azure AD B2C samma uppsättning rapporter som Azure AD Premium. Det finns emellertid många gemensamma utformning gör:
 
-* **Logga in rapporter** är bara tillgängliga i Azure-portalen (Azure Active Directory > aktivitet > inloggningar) och är inte tillgängliga via Graph API. De ger en post för varje inloggning med nedsatt information.
-* **Granska rapporter** är bara tillgängliga i Azure-portalen (Azure Active Directory > aktivitet > granskningsloggar) och är inte tillgängliga via Graph API. De omfattar både administratörsaktivitet samt programaktivitet. 
-* **Användningsrapporter** är bara tillgängliga via den [användning Reporting API](active-directory-b2c-reference-usage-reporting-api.md) och är inte tillgängliga via Azure portal. De är antalet användare, antal inloggningar och volym för Multifaktorautentisering. 
+* **Logga in rapporter** innehåller en post för varje inloggning med nedsatt information.
+* **Granska rapporter** inkluderar både administratörsaktivitet samt programaktivitet. 
+* **Användningsrapporter** är antalet användare, antal inloggningar och volym för Multifaktorautentisering. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Kan jag lokalisera Användargränssnittet för sidor som hanteras av Azure AD B2C? Vilka språk som stöds?
 Visst!  Läs mer om [språk anpassning](active-directory-b2c-reference-language-customization.md), som är tillgänglig som förhandsversion.  Vi ger översättningar för 36 språk och du kan åsidosätta valfri sträng så att de passar dina behov.

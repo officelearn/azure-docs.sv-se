@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 64281215d139731b61365936bc1b837798ad8fbf
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ms.openlocfilehash: f0a2ec617c71f9e86610017d3b6fa961bbd14322
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37016842"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083094"
 ---
 # <a name="quickstart-recognize-speech-using-the-cognitive-services-speech-c-sdk"></a>Snabbstart: Identifiera tal med kognitiva Services tal C# SDK
 
@@ -101,4 +101,5 @@ Senaste uppsättning exempel, finns det [kognitiva Services tal SDK exempel GitH
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översätta tal](how-to-translate-speech.md)
-- [Anpassa tal modeller](how-to-customize-speech-models.md)
+- [Anpassa ljud modeller](how-to-customize-acoustic-models.md)
+- [Anpassa språk modeller](how-to-customize-language-model.md)

@@ -1,6 +1,6 @@
 ---
-title: Utveckla och kör lokalt Azure functions | Microsoft Docs
-description: Lär dig hur du code och testa Azure functions lokalt på datorn innan du kör dem på Azure Functions.
+title: Arbeta med Azure Functions grundläggande verktyg | Microsoft Docs
+description: Lär dig mer om att koda och testa Azure functions från Kommandotolken eller terminal på din lokala dator innan du kör dem på Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -12,30 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/03/2018
+ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: 5613b6b30d97b88bdfa6b00f90e334f1756ad614
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5c582b080ec6f2cff801758fc4bff4f7d07fd7df
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294510"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083077"
 ---
-# <a name="code-and-test-azure-functions-locally"></a>Platskod och testa Azure Functions lokalt
+# <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions grundläggande verktyg
 
-När den [Azure Portal] ger en fullständig uppsättning av verktyg för att utveckla och testa Azure Functions, många utvecklare föredrar en lokal utveckling upplevelse. Azure Functions gör det enkelt att använda din favorit redigerare och lokala utvecklingsverktyg att utveckla och testa dina funktioner på den lokala datorn. Dina funktioner kan utlösa händelser i Azure och du kan felsöka ditt C# och JavaScript-funktioner på den lokala datorn. 
+Azure Functions Core-verktyg kan du utveckla och testa dina funktioner på den lokala datorn från Kommandotolken eller terminal. Din lokala funktioner kan ansluta till live Azure-tjänster och du kan felsöka dina funktioner på den lokala datorn med fullständig Functions-runtime. Du kan även distribuera en funktionsapp till din Azure-prenumeration.
 
-Om du är en Visual Studio C# utvecklare Azure Functions även [kan integreras med Visual Studio 2017](functions-develop-vs.md).
+[!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
->[!IMPORTANT]  
-> Blanda inte lokal utveckling med portalen utveckling i appen med samma funktion. När du skapar och publicera funktioner från ett lokalt projekt bör du inte försöka underhåll eller ändra Projektkod i portalen.
+## <a name="core-tools-versions"></a>Core verktyg versioner
+
+Det finns två versioner av Azure Functions grundläggande verktyg. Den version som du använder beror på din lokala utvecklingsmiljö, val av språk och supportnivå som krävs:
+
++ [Version 1.x](#v1): har stöd för version 1.x av körningsmiljön, vilket är normalt tillgängliga (GA). Den här versionen av verktygen stöds bara på Windows-datorer och installeras från en [npm paketet](https://docs.npmjs.com/getting-started/what-is-npm). Med den här versionen kan du skapa funktioner i experiment språk som inte stöds officiellt. Mer information finns i [språk som stöds i Azure Functions](supported-languages.md)
+
++ [Version 2.x](#v2): har stöd för version 2.x av körningsmiljön. Den här versionen stöder [Windows](#windows-npm), [macOS](#brew), och [Linux](#linux). Använder plattformsspecifika paketet chefer eller npm för installation. Som 2.x-runtime är den här versionen av grundläggande verktyg för närvarande i förhandsgranskningen.
+
+Om inget annat anges i exemplen i den här artikeln gäller version 2.x.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installera Azure Functions Core Tools
 
-[Azure Functions grundläggande verktyg] är en lokal version av Azure Functions-runtime som du kan köra på utvecklingsdatorn lokala. Det är inte en emulator eller simulatorn. Det är samma körningsmiljön som stänger fungerar i Azure. Det finns två versioner av Azure Functions grundläggande verktyg:
-
-+ [Version 1.x](#v1): har stöd för version 1.x av körningsmiljön. Den här versionen stöds endast på Windows-datorer och installeras från en [npm paketet](https://docs.npmjs.com/getting-started/what-is-npm).
-+ [Version 2.x](#v2): har stöd för version 2.x av körningsmiljön. Den här versionen stöder [Windows](#windows-npm), [macOS](#brew), och [Linux](#linux). Använder plattformsspecifika paketet chefer eller npm för installation. 
+[Azure Functions grundläggande verktyg] innehåller en version av samma körningsmiljön som används av Azure Functions-runtime som du kan köra på utvecklingsdatorn lokala. Det ger också kommandon för att skapa funktioner, ansluta till Azure och distribuera funktionen projekt.
 
 ### <a name="v1"></a>Version 1.x
 
@@ -115,23 +119,11 @@ Följande steg används [LGH](https://wiki.debian.org/Apt) installera grundlägg
     sudo apt-get install azure-functions-core-tools
     ```
 
-## <a name="run-azure-functions-core-tools"></a>Köra verktyg för Azure Functions kärnor
-
-Azure Functions grundläggande verktyg lägger du till följande kommando alias:
-
-+ **funktionen**
-+ **azfun**
-+ **azurefunctions**
-
-Något av dessa alias kan användas där `func` illustreras i exemplen.
-
-```bash
-func init MyFunctionProj
-```
-
 ## <a name="create-a-local-functions-project"></a>Skapa ett projekt med lokala funktioner
 
-När du kör lokalt funktioner projektet är en katalog som innehåller filerna [host.json](functions-host-json.md) och [local.settings.json](#local-settings-file). Den här katalogen är motsvarigheten till en funktionsapp i Azure. Läs mer om Azure Functions mappstrukturen i den [Azure Functions utvecklarguide för](functions-reference.md#folder-structure).
+En funktion projektkatalogen innehåller filer [host.json](functions-host-json.md) och [local.settings.json](#local-settings-file), längs undermappar som innehåller koden för enskilda funktioner. Den här katalogen är motsvarigheten till en funktionsapp i Azure. Mer information om mappstrukturen funktioner finns i [Azure Functions utvecklarguide för](functions-reference.md#folder-structure).
+
+Version 2.x måste du välja ett standardspråk för ditt projekt när den har initierats och alla funktioner läggs till standard språkmallar. I version 1.x, du ange språk när du skapar en funktion.
 
 Kör följande kommando för att skapa projektet och lokal Git-lagringsplats i fönstret terminal eller från en kommandotolk:
 
@@ -139,14 +131,23 @@ Kör följande kommando för att skapa projektet och lokal Git-lagringsplats i f
 func init MyFunctionProj
 ```
 
-Resultatet ser ut som i följande exempel:
+I version 2.x, när du kör kommandot du måste välja en runtime för projektet. Om du planerar att utveckla JavaScript-funktioner, välja **noden**:
 
 ```output
+Select a worker runtime:
+dotnet
+node
+```
+
+Använd upp/ned piltangenterna för att välja språk och tryck sedan på RETUR. Resultatet ser ut som följande exempel för ett JavaScript-projekt:
+
+```output
+Select a worker runtime: node
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
-Created launch.json
-Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
+Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
+Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
 Använd för att skapa projektet utan en lokal Git-lagringsplats i `--no-source-control [-n]` alternativet.
@@ -165,15 +166,15 @@ Filen local.settings.json lagrar app-inställningar, anslutningssträngar och in
 
 ```json
 {
-  "IsEncrypted": false,   
+  "IsEncrypted": false,
   "Values": {
-    "AzureWebJobsStorage": "<connection-string>", 
+    "AzureWebJobsStorage": "<connection-string>",
     "AzureWebJobsDashboard": "<connection-string>",
     "MyBindingConnection": "<binding-connection-string>"
   },
   "Host": {
-    "LocalHttpPort": 7071, 
-    "CORS": "*" 
+    "LocalHttpPort": 7071,
+    "CORS": "*"
   },
   "ConnectionStrings": {
     "SQLConnectionString": "Value"
@@ -183,8 +184,8 @@ Filen local.settings.json lagrar app-inställningar, anslutningssträngar och in
 
 | Inställning      | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **isEncrypted** | Om värdet är **SANT**, alla värden som är krypterade med en lokal dator-nyckel. Används med `func settings` kommandon. Standardvärdet är **FALSKT**. |
-| **Värden** | Samling programinställningar och anslutningssträngar som används när du kör lokalt. Dessa motsvarar app-inställningar i appen funktionen i Azure, som **AzureWebJobsStorage** och **AzureWebJobsDashboard**. Många utlösare och bindningar har en egenskap som refererar till en appinställningen för anslutningssträngen, exempelvis **anslutning** för den [Blob storage utlösaren](functions-bindings-storage-blob.md#trigger---configuration). För sådana egenskaper, behöver du en tillämpningsinställning som definierats i den **värden** matris. <br/>**AzureWebJobsStorage** är en obligatorisk appinställning för utlösare än HTTP. När du har den [Azure storage-emulatorn](../storage/common/storage-use-emulator.md) installeras lokalt, du kan ställa in **AzureWebJobsStorage** till `UseDevelopmentStorage=true` och grundläggande verktygen använder emulatorn. Detta är användbart vid utveckling, men du bör testa med en anslutning för faktiska lagringsplatsen före distributionen. |
+| **IsEncrypted** | Om värdet är **SANT**, alla värden som är krypterade med en lokal dator-nyckel. Används med `func settings` kommandon. Standardvärdet är **FALSKT**. |
+| **Värden** | Samling programinställningar och anslutningssträngar som används när du kör lokalt. Dessa värden motsvarar app-inställningar i appen funktionen i Azure, som **AzureWebJobsStorage** och **AzureWebJobsDashboard**. Många utlösare och bindningar har en egenskap som refererar till en appinställningen för anslutningssträngen, exempelvis **anslutning** för den [Blob storage utlösaren](functions-bindings-storage-blob.md#trigger---configuration). För sådana egenskaper, behöver du en tillämpningsinställning som definierats i den **värden** matris. <br/>**AzureWebJobsStorage** är en obligatorisk appinställning för utlösare än HTTP. När du har den [Azure storage-emulatorn](../storage/common/storage-use-emulator.md) installeras lokalt, du kan ställa in **AzureWebJobsStorage** till `UseDevelopmentStorage=true` och grundläggande verktygen använder emulatorn. Detta är användbart vid utveckling, men du bör testa med en anslutning för faktiska lagringsplatsen före distributionen. |
 | **Värd** | Inställningarna i det här avsnittet Anpassa värdprocess funktioner när du kör lokalt. |
 | **LocalHttpPort** | Anger den standardport som används när du kör den lokala värden funktioner (`func host start` och `func run`). Den `--port` kommandoradsalternativet har högre prioritet än detta värde. |
 | **CORS** | Definierar det ursprung som tillåts för [resursdelning för korsande ursprung (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Ursprung tillhandahålls som en kommaavgränsad lista med inga blanksteg. Jokertecknet (\*) stöds, vilket gör att begäranden från alla ursprung. |
@@ -229,39 +230,65 @@ Om ingen giltig lagringsanslutningssträng anges för **AzureWebJobsStorage** oc
     func azure storage fetch-connection-string <StorageAccountName>
     ```
     
-    Båda kommandon måste du först logga in på Azure.
+    När du redan inte är inloggad till Azure, uppmanas du att göra detta.
 
-<a name="create-func"></a>
-## <a name="create-a-function"></a>Skapa en funktion
+## <a name="create-func"></a>Skapa en funktion
 
 Om du vill skapa en funktion, kör du följande kommando:
 
 ```bash
 func new
-``` 
-`func new` stöder följande valfria argument:
-
-| Argumentet     | Beskrivning                            |
-| ------------ | -------------------------------------- |
-| **`--language -l`** | Den mall som programmeringsspråket, till exempel C#, F # eller JavaScript. |
-| **`--template -t`** | Mallnamnet. |
-| **`--name -n`** | Namnet på funktionen. |
-
-Till exempel för att skapa en JavaScript-HTTP-utlösare, kör du:
-
-```bash
-func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
-Om du vill skapa en funktion som utlöses av kön, kör du:
+I version 2.x, när du kör `func new` du uppmanas att välja en mall på standardspråket för funktionen appen och du uppmanas också att ange ett namn för din funktion. I version 1.x, du uppmanas också att välja önskat språk.
+
+```output
+Select a language: Select a template:
+Blob trigger
+Cosmos DB trigger
+Event Grid trigger
+HTTP trigger
+Queue trigger
+SendGrid
+Service Bus Queue trigger
+Service Bus Topic trigger
+Timer trigger
+```
+
+Funktionskoden genereras i en undermapp med det angivna funktionsnamnet som du ser i följande kö utlösaren utdata:
+
+```output
+Select a language: Select a template: Queue trigger
+Function name: [QueueTriggerJS] MyQueueTrigger
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\index.js
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\readme.md
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\sample.dat
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
+```
+
+Du kan också ange alternativen i kommandot med följande argument:
+
+| Argumentet     | Beskrivning                            |
+| ------------------------------------------ | -------------------------------------- |
+| **`--language -l`**| Den mall som programmeringsspråket, till exempel C#, F # eller JavaScript. Det här alternativet är obligatoriskt i version 1.x. I version 2.x kan inte använda det här alternativet eller Välj standardspråk för projektet. |
+| **`--template -t`** | Det mallnamn som kan vara något av värdena:<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
+| **`--name -n`** | Namnet på funktionen. |
+
+Till exempel för att skapa en JavaScript-HTTP-utlösare i ett enda kommando, kör du:
 
 ```bash
-func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
-```bash
-<a name="start"></a>
-## Run functions locally
+func new --template "Http Trigger" --name MyHttpTrigger
+```
 
-To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
+Om du vill skapa en funktion som utlöses av kön i ett enda kommando kör du:
+
+```bash
+func new --template "Queue Trigger" --name QueueTriggerJS
+```
+
+## <a name="start"></a>Kör funktioner lokalt
+
+För att köra ett funktioner projekt, kör du funktioner värden. Värden kan utlösare för alla funktioner i projektet:
 
 ```bash
 func host start
@@ -272,13 +299,13 @@ func host start
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
 |**`--port -p`** | Den lokala porten lyssna på. Standardvärde: 7071. |
-| **`--debug <type>`** | Alternativen är `VSCode` och `VS`. |
+| **`--debug <type>`** | Värden med debug-port öppnas så att du kan ansluta till den **func.exe** processer från [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) eller [Visual Studio 2017](functions-dotnet-class-library.md). Den *\<typen\>* alternativ är `VSCode` och `VS`.  |
 | **`--cors`** | En kommaavgränsad lista över CORS ursprung, utan blanksteg. |
 | **`--nodeDebugPort -n`** | Porten för felsökaren nod att använda. Standard: Ett värde från launch.json eller 5858. |
 | **`--debugLevel -d`** | Spårningsnivån konsolen (av, verbose, info, warning eller error). Standard: Info.|
 | **`--timeout -t`** | Tidsgräns för funktioner värden startas, i sekunder. Standard: 20 sekunder.|
-| **`--useHttps`** | Binda till https://localhost:{port} i stället för till http://localhost:{port}. Som standard skapas ett betrott certifikat på datorn.|
-| **`--pause-on-error`** | Pausa för ytterligare information innan du avslutar processen. Användbar när den startas Azure Functions grundläggande verktyg från en integrerad utvecklingsmiljö (IDE).|
+| **`--useHttps`** | Binda till `https://localhost:{port}` i stället för till `http://localhost:{port}`. Som standard skapas ett betrott certifikat på datorn.|
+| **`--pause-on-error`** | Pausa för ytterligare information innan du avslutar processen. Används när den startas Core verktyg från Visual Studio eller VS-kod.|
 
 När värden funktioner startar anger URL: en för HTTP-utlösta funktioner:
 
@@ -290,28 +317,9 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
-### <a name="vs-debug"></a>Felsöka i VS-kod eller Visual Studio
-
-Om du vill koppla en felsökare skickar den `--debug` argumentet. Använd Visual Studio-koden för att felsöka JavaScript-funktioner. Använda Visual Studio för C#.
-
-Om du vill felsöka C#-funktioner, Använd `--debug vs`. Du kan också använda [Azure Functions Visual Studio 2017 Tools](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/). 
-
-Om du vill starta värden och Ställ in JavaScript-felsökning, kör du:
-
-```bash
-func host start --debug vscode
-```
-
-> [!IMPORTANT]
-> För felsökning endast Node.js 8.x stöds. Node.js 9.x stöds inte. 
-
-I Visual Studio-koden i den **felsöka** väljer **ansluta till Azure Functions**. Du kan koppla brytpunkter inspektera variabler och stega igenom koden.
-
-![JavaScript-felsökning med Visual Studio Code](./media/functions-run-local/vscode-javascript-debugging.png)
-
 ### <a name="passing-test-data-to-a-function"></a>Skicka test-data till en funktion
 
-Att testa dina funktioner lokalt kan du [startar funktioner värden](#start) och anropa slutpunkter på den lokala servern med hjälp av HTTP-begäranden. Den slutpunkt du anropa beror på vilken typ av funktionen. 
+Att testa dina funktioner lokalt kan du [startar funktioner värden](#start) och anropa slutpunkter på den lokala servern med hjälp av HTTP-begäranden. Den slutpunkt du anropa beror på vilken typ av funktionen.
 
 >[!NOTE]  
 > Exemplen i det här avsnittet använda verktyget cURL för att skicka HTTP-begäranden från terminalen eller Kommandotolken. Du kan använda ett verktyg du väljer för att skicka HTTP-begäranden till den lokala servern. CURL-verktyget finns som standard på Linux-baserade system. I Windows, måste du först hämta och installera den [cURL verktyget](https://curl.haxx.se/).
@@ -340,6 +348,7 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 Du kan hämta begäranden från en webbläsare överföring av data i frågesträngen. För alla andra HTTP-metoder, måste du använda cURL, Fiddler, Postman eller ett liknande tester HTTP-verktyg.  
 
 #### <a name="non-http-triggered-functions"></a>Icke-HTTP-utlösta funktioner
+
 Du kan testa dina funktioner för alla typer av funktioner än http-utlösare och webhooks lokalt genom att anropa en slutpunkt för administration. Anropar den här slutpunkten med en HTTP POST-begäran på den lokala servern utlöser funktionen. Du kan eventuellt överföra testdata att körningen i brödtexten för POST-begäran. Den här funktionen liknar den **Test** fliken i Azure-portalen.  
 
 Du kan anropa följande administratör slutpunkt för att utlösa icke-HTTP-funktioner:
@@ -352,8 +361,9 @@ Du måste ange data i brödtexten i en POST-förfrågan om du vill skicka testda
 {
     "input": "<trigger_input>"
 }
-```` 
-Den `<trigger_input>` värdet innehåller data i ett format som förväntades av funktionen. Följande cURL-exempel är en POST till en `QueueTriggerJS` funktion. I det här fallet är indata en sträng som motsvarar det meddelande som förväntas finnas i kön.      
+````
+
+Den `<trigger_input>` värdet innehåller data i ett format som förväntades av funktionen. Följande cURL-exempel är en POST till en `QueueTriggerJS` funktion. I det här fallet är indata en sträng som motsvarar det meddelande som förväntas finnas i kön.
 
 ```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
@@ -407,7 +417,8 @@ Den `publish` kommandot Överför innehållet i projektkatalogen funktioner. Om 
 
 >[!IMPORTANT]  
 > När du skapar en funktionsapp i Azure används version 1.x av funktionen körningsmiljön som standard. För att funktionen Använd programversion 2.x av körningsmiljön, Lägg till inställningen `FUNCTIONS_EXTENSION_VERSION=beta`.  
-Använd följande kod i Azure CLI för att lägga till den här inställningen i appen funktionen: 
+Använd följande kod i Azure CLI för att lägga till den här inställningen i appen funktionen:
+
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
@@ -417,7 +428,7 @@ az functionapp config appsettings set --name <function_app> \
 ## <a name="next-steps"></a>Nästa steg
 
 Azure Functions grundläggande verktyg är [öppna datakällan och finns på GitHub](https://github.com/azure/azure-functions-cli).  
-Till filen en bugg eller funktion begäran [öppna ett problem med GitHub](https://github.com/azure/azure-functions-cli/issues). 
+Till filen en bugg eller funktion begäran [öppna ett problem med GitHub](https://github.com/azure/azure-functions-cli/issues).
 
 <!-- LINKS -->
 

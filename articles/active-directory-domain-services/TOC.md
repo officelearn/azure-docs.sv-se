@@ -38,6 +38,7 @@
 #### [Uppgift 3: Aktivera säkert LDAP för den hanterade domänen med Azure Portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Skapa en OU på en hanterad domän](active-directory-ds-admin-guide-create-ou.md)
+### [Skapa ett grupphanterat tjänstkonto på en hanterad domän](active-directory-ds-create-gmsa.md)
 ### [Administrera grupprincip i en hanterad domän](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Välj ett virtuellt nätverk](active-directory-ds-networking.md)
 ## Distribuera program

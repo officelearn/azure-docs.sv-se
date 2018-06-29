@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: ed69d4de56d23210cc9133d74ab81530f924b5ae
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 769d530d85199e3f38890589e3719ba35f7cf5d6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261567"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097979"
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -70,7 +70,7 @@ Ja, kan du registrera dig för ett konto för tidsbegränsade utan kostnad, utan
 
 Om du är nybörjare på Azure, kan du registrera dig för en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/), som ger dig 30 dagar och och ett kreditkort för att prova alla Azure-tjänster. Om du har en prenumeration på Visual Studio kan du också är berättigad till [kostnadsfria Azure-krediter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) att använda i valfria Azure-tjänster. 
 
-Du kan också använda den [Azure Cosmos DB emulatorn](local-emulator.md) att utveckla och testa programmet lokalt för gratis, utan att skapa en Azure-prenumeration. När du är nöjd med hur programmet fungerar i Azure Cosmos DB-emulatorn kan växla du till med ett Azure DB som Cosmos-konto i molnet.
+Du kan också använda den [Azure Cosmos DB emulatorn](local-emulator.md) att utveckla och testa programmet lokalt för gratis, utan att skapa en Azure-prenumeration. När du är nöjd med hur programmet fungerar i Azure Cosmos DB-emulatorn kan du växla till ett Azure Cosmos DB-konto i molnet.
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Hur kan jag få ytterligare hjälp med Azure Cosmos DB?
 
@@ -80,7 +80,7 @@ Om du vill ställa en teknisk fråga kan du i en av dessa två fråga och besvar
 
 Skapa en ny begäran om du vill begära nya funktioner på [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
-Om du vill åtgärda ett problem med ditt konto, filen en [supportbegäran](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) i Azure-portalen.
+Om du vill åtgärda ett problem med ditt konto, skickar du in ett [supportärende](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) i Azure-portalen.
 
 Andra frågor kan skickas till teamet på [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com); men detta inte är ett alias för teknisk support. 
 
@@ -281,9 +281,6 @@ Du kan använda den [Azure Lagringsutforskaren](https://docs.microsoft.com/azure
 
 Verktyg med möjlighet att ta en anslutningssträng i det format som specificerats stöder tidigare tabellen nya API: et. En lista över Tabellverktyg finns på den [Azure Storage-klientverktyg](../storage/common/storage-explorers.md) sidan. 
 
-### <a name="do-powershell-or-azure-cli-work-with-the-table-api"></a>PowerShell eller Azure CLI fungerar med tabell-API: et?
-Det finns stöd för [PowerShell](table-powershell.md). Azure CLI-stöd är inte tillgänglig.
-
 ### <a name="is-the-concurrency-on-operations-controlled"></a>Är samtidigheten på åtgärder som styrs?
 Ja, tillhandahålls Optimistisk samtidighet med hjälp av mekanismen för ETag. 
 
@@ -410,7 +407,7 @@ Ingen. Det finns ingen ändring i priset för befintliga Azure Table storage-kun
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>Hur beräknas priset för tabell-API: et? 
 Priset beror på allokerade TableThroughput. 
 
-### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-offering"></a>Hur hanterar jag en begränsning på tabellerna i tabellen API erbjudande? 
+### <a name="how-do-i-handle-any-rate-limiting-on-the-tables-in-table-api-offering"></a>Hur jag hantera alla hastighetsbegränsning på tabellerna i tabellen API erbjudande? 
 Om frekvensen för begäran överskrider kapaciteten för etablerat dataflöde för den underliggande behållaren eller en uppsättning behållare, du får ett felmeddelande och SDK försöker anropet genom att använda principen försök igen.
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>Varför måste välja en genomströmning förutom PartitionKey och RowKey för att dra nytta av tabellen API-erbjudande på Azure Cosmos DB?

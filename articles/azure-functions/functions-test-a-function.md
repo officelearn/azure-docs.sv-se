@@ -3,7 +3,7 @@ title: Testa Azure Functions | Microsoft Docs
 description: Testa dina Azure funktioner med hjälp av Postman cURL och Node.js.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: wesmc
+ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 41796a8cdde0756e5157ba276463a56b07679d04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4f6bf89ec5c83a497666a8a410a156c5f9bb359
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23838956"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083268"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
 
@@ -37,7 +37,7 @@ Det här avsnittet visar de olika sätt att testa funktioner, inklusive användn
 Dessa tester metoder funktionen en HTTP-utlösare som accepterar indata via en frågesträngsparameter eller begärandetexten. Du skapar den här funktionen i det första avsnittet.
 
 ## <a name="create-a-function-for-testing"></a>Skapa en funktion för testning
-För merparten av den här kursen använder vi en lite annorlunda version av mallen HttpTrigger JavaScript-funktionen som är tillgängliga när du skapar en funktion. Om du behöver hjälp med att skapa en funktion kan du granska detta [kursen](functions-create-first-azure-function.md). Välj den **HttpTrigger - JavaScript** mallen när du skapar test-funktionen i den [Azure-portalen].
+För merparten av den här kursen använder vi en lite annorlunda version av mallen HttpTrigger JavaScript-funktionen som är tillgängliga när du skapar en funktion. Om du behöver hjälp med att skapa en funktion kan du granska detta [kursen](functions-create-first-azure-function.md). Välj den **HttpTrigger - JavaScript** mallen när du skapar test-funktionen i den [Azure Portal].
 
 Standardmall för funktionen är i princip en ”hello world”-funktion som ekon tillbaka namnet på begäranparametern brödtext eller fråga sträng `name=<your name>`.  Vi ska uppdatera koden för att även kan du ange namnet och en adress som JSON-innehåll i begärandetexten. Funktionen ekon sedan dessa tillbaka till klienten när det är tillgängligt.   
 
@@ -186,10 +186,10 @@ I portalen **loggar** fönstret utdata liknar följande loggas i funktionen kör
 ### <a name="test-a-blob-trigger-by-using-storage-explorer"></a>Testa en blob-utlösare med Lagringsutforskaren
 Du kan testa en utlösare blob-funktion med hjälp av [Azure Lagringsutforskaren](http://storageexplorer.com/).
 
-1. I den [Azure-portalen] för funktionen appen, skapa en C#, F # eller JavaScript blob Utlösarfunktion. Ange sökvägen till övervaka till namnet på blob-behållare. Exempel:
+1. I den [Azure Portal] för funktionen appen, skapa en C#, F # eller JavaScript blob Utlösarfunktion. Ange sökvägen till övervaka till namnet på blob-behållare. Exempel:
 
         files
-2. Klicka på den  **+**  för att välja eller skapa lagringskonto som du vill använda. Klicka sedan på **Skapa**.
+2. Klicka på den **+** för att välja eller skapa lagringskonto som du vill använda. Klicka sedan på **Skapa**.
 3. Skapa en textfil med följande text och spara den:
 
         A text file for blob trigger function testing.
@@ -248,15 +248,15 @@ Om du vill visa den här metoden vi först skapa en kö Utlösarfunktion som vi 
 >
 >
 
-1. I den [Azure-portalen] appen funktionen klickar du på **nya funktionen** > **QueueTrigger - C#**.
+1. I den [Azure Portal] appen funktionen klickar du på **nya funktionen** > **QueueTrigger - C#**.
 2. Ange könamnet som ska övervakas av funktionen kö:
 
         queue-newusers
-3. Klicka på den  **+**  för att välja eller skapa lagringskonto som du vill använda. Klicka sedan på **Skapa**.
+3. Klicka på den **+** för att välja eller skapa lagringskonto som du vill använda. Klicka sedan på **Skapa**.
 4. Lämna den här portalen webbläsarfönster öppen, så att du kan övervaka loggposter för standard kön Funktionskoden mallen.
 
 #### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>Skapa en timer som utlösare för att ta bort ett meddelande i kön
-1. Öppna den [Azure-portalen] i ett nytt webbläsarfönster och navigera till appen funktion.
+1. Öppna den [Azure Portal] i ett nytt webbläsarfönster och navigera till appen funktion.
 2. Klicka på **nya funktionen** > **TimerTrigger - C#**. Ange ett cron-uttryck för att ange hur ofta timer koden testar kö-funktionen. Klicka sedan på **Skapa**. Om du vill testa att köra med 30 sekunders mellanrum, kan du använda följande [CRON-uttryck](https://wikipedia.org/wiki/Cron#CRON_expression):
 
         */30 * * * * *
@@ -268,7 +268,7 @@ Om du vill visa den här metoden vi först skapa en kö Utlösarfunktion som vi 
 6. Ange namnet på kön var meddelandet ska skickas:
 
         queue-newusers
-7. Klicka på den  **+**  för att välja lagringskontot som du tidigare använt med kö utlösaren. Klicka sedan på **Spara**.
+7. Klicka på den **+** för att välja lagringskontot som du tidigare använt med kö utlösaren. Klicka sedan på **Spara**.
 8. Klicka på den **utveckla** för din timer som utlösare.
 9. Du kan använda följande kod för C# timer-funktionen, så länge som du använde för samma meddelande objektet könamnet visades tidigare. Klicka sedan på **Spara**.
 
@@ -443,4 +443,4 @@ Du kan se varje meddelande bearbetas i webbläsarfönstret för funktionen kö:
 
 <!-- URLs. -->
 
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

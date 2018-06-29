@@ -3,9 +3,9 @@ title: Hantera program och kontroller för Azure AD åtkomst granskningar | Micr
 description: Du kan skapa ytterligare program för varje styrning och riskhantering efterlevnad initiativ i din organisation att samla och ordna Azure Active Directory access granskningar som kontroller.
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,13 @@ ms.topic: article
 ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 06e91b4d52a70ea33f4317a6434c2bd49e5c3bd3
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.reviewer: mwahl
+ms.openlocfilehash: fe2cddbe47f49ee93d3e58beb63d9d82286ec441
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020982"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37080936"
 ---
 # <a name="manage-programs-and-their-controls"></a>Hantera program och deras kontroller 
 

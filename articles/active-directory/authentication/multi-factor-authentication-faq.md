@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 226400c6da5db589db6ce2f1887c3e96cf9e1f14
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 2b006976aef59c55ccb51362e05ceb4275602fd1
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869877"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096500"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 
@@ -131,7 +131,7 @@ Ta bort alla användares applösenord för att förhindra obehörig åtkomst. N�
 
 **F: Vad händer om en användare kan logga in på icke-webbläsarbaserade appar?**
 
-Om din organisation använder fortfarande äldre klienter och [tillåtna användningen av applösenord](howto-mfa-mfasettings.md#app-passwords), och sedan användarna inte logga in dessa äldre klienter med sitt användarnamn och lösenord. I stället de behöver [ställa in applösenord](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md). Användarna måste rensa (ta bort) sin inloggningsinformation, starta om appen och sedan logga in med sina användarnamn och *applösenord* i stället för vanliga lösenordet.
+Om din organisation använder fortfarande äldre klienter och [tillåtna användningen av applösenord](howto-mfa-mfasettings.md#app-passwords), och sedan användarna inte logga in dessa äldre klienter med sitt användarnamn och lösenord. I stället de behöver [ställa in applösenord](end-user/current/multi-factor-authentication-end-user-app-passwords.md). Användarna måste rensa (ta bort) sin inloggningsinformation, starta om appen och sedan logga in med sina användarnamn och *applösenord* i stället för vanliga lösenordet.
 
 Om din organisation inte har äldre klienter, bör du inte låta användarna skapa applösenord.
 

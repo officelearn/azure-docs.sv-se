@@ -10,12 +10,12 @@ ms.date: 03/05/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: e8d84944d44588602593c762c4f60c375e480343
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d4e69d33e07f484b4ccc5343786865230368c7ca
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298176"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096384"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Skapa villkorssatser som styr arbetsflödesåtgärder i Azure Logic Apps
 
@@ -46,36 +46,31 @@ Anta att du har en logikapp som skickar för många e-postmeddelanden när nya o
 
    När du vill lägga till ett villkor i slutet av arbetsflödet, längst ned i din logikapp, Välj **+ nytt steg** > **Lägg till ett villkor**.
 
-3. Under **villkoret**, skapa dina villkor. 
+3. Under **villkoret**, skapa villkoret. 
 
    1. Ange data eller fält som du vill jämföra i den vänstra rutan.
 
-      Från den **lägga till dynamiskt innehåll** kan du välja befintliga fält från din logikapp.
+      När du klickar i den vänstra rutan, visas dynamiskt innehåll så att du kan välja utdata från föregående steg i din logikapp. 
+      För det här exemplet väljer du sammanfattningen RSS-feed.
+
+      ![Skapa villkoret](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
 
    2. Välj åtgärden som ska utföras i listan mellersta. 
-   3. Ange ett värde eller ett fält som villkor i den högra rutan.
+   Det här exemplet väljer du ”**innehåller**”. 
 
-   Exempel:
-
-   ![Redigera villkor i grundläggande läge](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode.png)
+   3. Ange ett värde eller ett fält som villkor i den högra rutan. 
+   I det här exemplet anger du följande sträng: **Microsoft**
 
    Här är det fullständiga villkoret:
 
-   ![Slutför villkor](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
+   ![Slutför villkor](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
+
+5. Under **om värdet är true** och **om falskt**, lägga till stegen för att utföra baserat på om villkoret är uppfyllt. Exempel:
+
+   ![Villkor med ”om värdet är true” och ”om det är false” sökvägar](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
    > [!TIP]
-   > Om du vill skapa ett mer avancerade villkor eller använda uttryck, Välj **redigera i Avancerat läge**. Du kan använda uttryck som definieras av den [språk i arbetsflödesdefinitionen](../logic-apps/logic-apps-workflow-definition-language.md).
-   > 
-   > Exempel:
-   >
-   > ![Redigera villkor i koden](./media/logic-apps-control-flow-conditional-statement/edit-condition-advanced-mode.png)
-
-5. Under **Ja om** och **om Nej**, lägga till stegen för att utföra baserat på om villkoret är uppfyllt. Exempel:
-
-   ![Villkor med Ja och inga sökvägar](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
-
-   > [!TIP]
-   > Du kan dra befintliga åtgärder i den **Ja om** och **om Nej** sökvägar.
+   > Du kan dra befintliga åtgärder i den **om värdet är true** och **om falskt** sökvägar.
 
 6. Spara din logikapp.
 
@@ -87,14 +82,21 @@ Nu när du har skapat en logikapp med hjälp av instruktionen villkorlig känna 
 
 ``` json
 "actions": {
-  "myConditionName": {
+  "Condition": {
     "type": "If",
-    "expression": "@contains(triggerBody()?['summary'], 'Microsoft')",
     "actions": {
       "Send_an_email": {
-        "inputs": { },
+        "inputs": {},
         "runAfter": {}
-      }
+    },
+    "expression": {
+      "and": [ 
+        { 
+          "contains": [ 
+            "@triggerBody()?['summary']", "Microsoft"
+          ]
+        } 
+      ]
     },
     "runAfter": {}
   }

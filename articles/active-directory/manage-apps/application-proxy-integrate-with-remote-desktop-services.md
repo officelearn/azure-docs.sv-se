@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 5c6d6b9580b123dafb03af2acc885d2416ca2a56
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0a004ee6e5dbdd2ceb8546a4b7ce20b2b551fac9
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292549"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084073"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicera Fjärrskrivbord med Azure AD Application Proxy
 
@@ -44,6 +44,8 @@ I en RDS-distribution köras för webbrollen och rollen för fjärrskrivbordsgat
 >Om du inte har distribuerat RDS innan eller vill ha mer information innan du börjar, lär du dig hur du [sömlöst distribuera RDS med Azure Resource Manager och Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
 
 ## <a name="requirements"></a>Krav
+
+- Använda en klient än webbklienten fjärrskrivbord eftersom webbklienten inte stöder Application Proxy.
 
 - Både RD webb- och fjärrskrivbordsgateway slutpunkter måste finnas på samma dator och med rot. Webbåtkomst och fjärrskrivbordsgateway publiceras som ett enda program med programproxy så att du har en enkel inloggning mellan de två programmen.
 

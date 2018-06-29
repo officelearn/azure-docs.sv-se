@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054661"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082513"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad-instans (förhandsgranskning)?
 
@@ -210,7 +210,7 @@ Hanterade instans fördelar från att alltid upp-hittills i molnet, vilket inneb
 - Hanterade instansen tillåter inte att ange fullständiga fysiska sökvägar så alla motsvarande scenarier stöds inte på samma sätt: ÅTERSTÄLLA DB stöder inte WITH MOVE, skapa DB tillåter inte fysiska sökvägar, BULK INSERT fungerar med Azure BLOB endast osv. 
 - Hanterade instans stöder [Azure AD authentication](sql-database-aad-authentication.md) moln alternativ till Windows-autentisering. 
 - Hanterade instans hanterar automatiskt XTP-filgruppen och filer som innehåller objekt i minnet OLTP-databaser
-- Hanterade instans stöder SQL Server Integration Services (SSIS) och kan värden SSIS-katalog (SSISDB) som lagrar SSIS-paket, men de körs på en hanterad Azure SSIS Integration Runtime (IR) i Azure Data Factory (ADM), se [skapa Azure-SSIS-IR i ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+- Hanterade instans stöder SQL Server Integration Services (SSIS) och kan värden SSIS-katalog (SSISDB) som lagrar SSIS-paket, men de körs på en hanterad Azure SSIS Integration Runtime (IR) i Azure Data Factory (ADM), se [skapa Azure-SSIS-IR i ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). Om du vill jämföra SSIS-funktioner i SQL-databasen och hanteras instansen finns [jämför SQL-databasen och hanteras instansen (förhandsgranskning)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
 
 ### <a name="managed-instance-administration-features"></a>Hanterade instans-funktioner för administration  
 

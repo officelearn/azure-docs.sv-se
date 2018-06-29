@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d08ac9f2cbdf98493b3132fa9dd3a3e973576451
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943220"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098825"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Direktsänd strömning med lokala kodare som skapar dataströmmar i multibithastighet
 
@@ -146,7 +146,7 @@ Kanaler ange förhandsgranskningsslutpunkten (förhandsgranskning URL) som anvä
 
 När du skapar kanalen kan du få förhandsgransknings-URL. Om du vill hämta Webbadress måste kanalen behöver inte finnas i den **kör** tillstånd. När kanalen har startat mata in data kan du förhandsgranska dataströmmen.
 
-För närvarande Förhandsgranska dataströmmen levereras endast i fragmenterad MP4 (Smooth Streaming) format, oavsett angivna Indatatyp. Du kan använda den [Smooth Streaming hälsoövervakning](http://smf.cloudapp.net/healthmonitor) player att testa smooth stream. Du kan också använda en spelare som finns i Azure portal för att visa din dataström.
+För närvarande Förhandsgranska dataströmmen levereras endast i fragmenterad MP4 (Smooth Streaming) format, oavsett angivna Indatatyp. Du kan använda den [Smooth Streaming hälsoövervakning](http://playready.directtaps.net/smoothstreaming/) player att testa smooth stream. Du kan också använda en spelare som finns i Azure portal för att visa din dataström.
 
 #### <a name="allowed-ip-addresses"></a>Tillåtna IP-adresser
 Du kan ange IP-adresser som tillåts att ansluta till förhandsgranskningsslutpunkten. Om inga IP-adresser har angetts tillåts alla IP-adresser. Tillåtna IP-adressen kan anges som något av följande:

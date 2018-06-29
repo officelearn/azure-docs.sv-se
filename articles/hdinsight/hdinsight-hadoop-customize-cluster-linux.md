@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: larryfr
-ms.openlocfilehash: 856a94b0cf64a20fbe9267b76422c47d88d21f43
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.openlocfilehash: 500b6ef33bb70cd5138067d88303b7db9121e867
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32778911"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102759"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder
 
@@ -58,7 +58,7 @@ En skriptåtgärd är Bash-skript som körs på noderna i ett HDInsight-kluster.
 
 * Måste vara lagrade på en URI som är tillgänglig från HDInsight-klustret. Följande är möjliga lagringsplatser:
 
-    * En **Azure Data Lake Store** konto som är tillgänglig för HDInsight-klustret. Information om hur du använder Azure Data Lake Store med HDInsight finns i [skapar ett HDInsight-kluster med Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * En **Azure Data Lake Store** konto som är tillgänglig för HDInsight-klustret. Information om hur du använder Azure Data Lake Store med HDInsight finns i [Snabbstart: Skapa kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
         När du använder ett skript som lagras i Data Lake Store URI-formatet är `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
@@ -173,9 +173,7 @@ Det här avsnittet innehåller exempel på olika sätt som du kan använda scrip
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Använd en skriptåtgärd när klustret skapas i Azure Portal
 
-1. Skapa ett kluster, enligt beskrivningen i [skapa Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Stoppa när du når den __klustret sammanfattning__ avsnitt.
-
-2. Från den __klustret sammanfattning__ väljer den __redigera__ länka för __avancerade inställningar__.
+1. Skapa ett kluster, enligt beskrivningen i [skapa Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md). När klustret skapas kommer du till en __klustret sammanfattning__ sidan. Från den __klustret sammanfattning__ väljer den __redigera__ länka för __avancerade inställningar__.
 
     ![Avancerade inställningar länk](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
@@ -189,7 +187,7 @@ Det här avsnittet innehåller exempel på olika sätt som du kan använda scrip
 
     I följande tabell beskrivs element i formuläret:
 
-    | Egenskap | Värde |
+    | Egenskap  | Värde |
     | --- | --- |
     | Välj ett skript | Om du vill använda ett eget skript __anpassad__. Annars väljer du något av de angivna skript. |
     | Namn |Ange ett namn för skriptåtgärden. |
@@ -268,7 +266,7 @@ I det här avsnittet lär du dig hur du vidtar skriptåtgärder på ett kluster 
 
     I följande tabell beskrivs element i formuläret:
 
-    | Egenskap | Värde |
+    | Egenskap  | Värde |
     | --- | --- |
     | Välj ett skript | Om du vill använda ett eget skript __anpassade__. Välj annars en skriptet. |
     | Namn |Ange ett namn för skriptåtgärden. |

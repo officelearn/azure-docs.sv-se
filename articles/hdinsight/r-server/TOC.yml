@@ -1,6 +1,6 @@
 - name: Dokumentation om Azure HDInsight
   href: /azure/hdinsight
-- name: R Server på HDInsight
+- name: ML Services på HDInsight
   items:
     - name: Översikt
       href: r-server-overview.md
@@ -9,7 +9,7 @@
       maintainContext: true
 - name: Kom igång
   items:
-    - name: Börja med R Server
+    - name: Börja med ML Services
       href: r-server-get-started.md
     - name: Installera HDInsight-appar
       href: ../hdinsight-apps-install-applications.md
@@ -19,11 +19,11 @@
       maintainContext: true
 - name: Gör så här för att
   items:
-    - name: Använd R Server
+    - name: Använda ML Services
       items:
-        - name: Hantera R Server-kluster
+        - name: Hantera ML Services-kluster
           href: r-server-hdinsight-manage.md
-        - name: Operationalisera R Server-kluster
+        - name: Operationalisera ML Services-kluster
           href: r-server-operationalize.md
         - name: Lagringsalternativ
           href: r-server-storage.md

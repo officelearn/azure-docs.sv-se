@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 183c5f3196653ce9519c0742db7a67cd36c63fb9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c60d736798adbbcb47b94172768dc8b8e5c366fe
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292845"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088672"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Integrera Azure Active Directory med program komma igång
 ## <a name="overview"></a>Översikt
@@ -61,8 +61,8 @@ Kanske du har inte svaren på alla frågor direkt, men det är OK.  Den här gui
 * En Azure-prenumeration och en Azure Active Directory-katalog.  Om du inte redan har en Azure-prenumeration, kan du prova Azure kostnadsfritt i 30 dagar. [Prova!](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>Programmet integrering med Azure AD
-### <a name="finding-unsanctioned-cloud-applications-with-cloud-app-discovery"></a>Hitta ej sanktionerad molnprogram med Cloud App Discovery
-Som nämnts ovan är kan det finnas program som inte har hanterats av din organisation fram till nu.  Som en del av processen inventory går det att hitta ej sanktionerade molnappar. Se [hitta ej sanktionerade molnappar med Cloud App Discovery](cloud-app-discovery.md).
+### <a name="finding-unsanctioned-cloud-applications-with-cloud-discovery"></a>Hitta ej sanktionerad molnprogram med Cloud Discovery
+Som nämnts ovan är kan det finnas program som inte har hanterats av din organisation fram till nu.  Som en del av processen inventory går det att hitta ej sanktionerade molnappar. Se [konfigurera Cloud Discovery](/cloud-app-security/set-up-cloud-discovery.md).
 
 ### <a name="authentication-types"></a>Typer av autentisering
 Var och en av dina program kan ha olika krav. Med Azure AD, kan signera certifikat användas med program som använder SAML 2.0, WS-Federation, eller OpenID Connect protokoll samt lösenordet enkel inloggning. Mer information om programmet autentiseringstyper för användning med Azure AD finns [hantera certifikat för federerad enkel inloggning i Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) och [lösenord utifrån för enkel inloggning](what-is-single-sign-on.md).
@@ -73,9 +73,9 @@ Du kan ge åtkomst till program som finns i ditt privata nätverk på ett säker
 ### <a name="integrating-applications-with-azure-ad"></a>Integrera program med Azure AD
 I följande artiklar beskrivs olika sätt program integrera med Azure AD och innehåller vägledning.
 
-* [När du fastställer vilka Active Directory för att använda](../active-directory-administer.md)
+* [När du fastställer vilka Active Directory för att använda](../fundamentals/active-directory-administer.md)
 * [Med hjälp av program i Azure-programgalleriet](what-is-single-sign-on.md)
-* [Integrera SaaS-program självstudier lista](../active-directory-saas-tutorial-list.md)
+* [Integrera SaaS-program självstudier lista](../saas-apps/tutorial-list.md)
 
 ## <a name="managing-access-to-applications"></a>Hantera åtkomst till program
 Följande artiklar beskriver hur du kan hantera åtkomst till program när de har integrerats med Azure AD med hjälp av Azure AD-anslutningar och Azure AD.

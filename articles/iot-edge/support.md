@@ -8,12 +8,12 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6bf918428312c511505304bd23b68cd19e46471
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 0a5cbabf8080efd1ae25ba151a1be339e8f5cad2
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036668"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081762"
 ---
 # <a name="azure-iot-edge-support"></a>Azure IoT-Edge-Support
 Det finns flera olika sätt att begära support för Azure IoT kant-produkten.
@@ -33,8 +33,8 @@ Nivå 1-system kan betraktas som officiellt stöds. Detta innebär att Microsoft
 * ger installationspaket för dem.
 
 Allmänt tillgänglig
-* Ubuntu 18.04
-* Ubuntu 16.04
+* Ubuntu Server 18.04
+* Ubuntu Server 16.04
 * Raspbian stretch
 
 Förhandsversion
@@ -47,9 +47,9 @@ Nivå 2-system kan betraktas som kompatibelt med Azure IoT kant och relativt lä
 * Microsoft har gjort ad hoc-tester på plattformarna eller känner av en partner har kör Azure IoT kanten på plattformen
 * Installationspaket för andra plattformar fungerar på följande plattformar
 
-Ubuntu Server 18.04
+Ubuntu 18.04
 
-Ubuntu Server 16.04
+Ubuntu 16.04
 
 Vind floden 8
 

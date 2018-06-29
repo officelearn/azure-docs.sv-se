@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/24/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 714afa1da5d2c8c5695dfe33edd0257f69af149d
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 8dd77dd3431f1be2b8edd8b51929c21b1d5bcd88
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287712"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081358"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Göra en avbildning av virtuell dator som är tillgängliga i Azure-stacken
 
@@ -54,7 +54,7 @@ Bilder måste kunna refereras av en URI för blob-lagring. Förbereda en Windows
 
    ![Ange blobåtkomst till offentliga](./media/azure-stack-add-vm-image/image2.png)
 
-2. Logga in på Azure-stacken som operator. Välj på menyn **fler tjänster** > **Resursproviders**. Markera **Compute** > **VM-avbildningar** > **Lägg till**.
+2. Logga in på Azure-stacken som operator. Välj på menyn **fler tjänster**. Markera **Compute** > **VM-avbildningar** > **Lägg till**.
 
 3. Under **lägga till en VM-avbildning**, ange utgivare, erbjudande, SKU och version för avbildningen av virtuella datorn. Dessa namn segment finns i VM-avbildning i Resource Manager-mallar. Se till att välja den **osType** värdet på rätt sätt. För **OS-diskens Blob-URI**, anger du Blob-URI där bilden överfördes. Markera **skapa** att börja skapa VM-avbildning.
 
@@ -99,7 +99,7 @@ Bilder måste kunna refereras av en URI för blob-lagring. Förbereda en Windows
   - **sku**  
     Exempel: `14.04.3-LTS`  
     SKU namn segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **Datacenter2016**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-  - **Version**  
+  - **version**  
     Exempel: `1.0.0`  
     Versionen av VM-avbildning som användare använder när de distribuerar VM-avbildning. Den här versionen är i formatet *\#.\#.\#*. Ett exempel är **1.0.0**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
   - **osType**  
@@ -203,7 +203,7 @@ När du behöver inte längre avbildningen av den virtuella dator som du överf�
   - **sku**  
     Exempel: `14.04.3-LTS`  
     SKU namn segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **Datacenter2016**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-  - **Version**  
+  - **version**  
     Exempel: `1.0.0`  
     Versionen av VM-avbildning som användare använder när de distribuerar VM-avbildning. Den här versionen är i formatet *\#.\#.\#*. Ett exempel är **1.0.0**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
     

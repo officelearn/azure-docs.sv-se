@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: a3e7390e0df707c4898ad9573baa96b567499de1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 4eb91e37331a5af064d2af0e937eb071d805688f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866616"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097887"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporter i Azure Multi-Factor Authentication
 
@@ -49,5 +49,5 @@ Identifiera användare som inte har registrerats för MFA med hjälp av PowerShe
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [För användare](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)
+* [För användare](end-user/current/multi-factor-authentication-end-user.md)
 * [Var du vill distribuera](concept-mfa-whichversion.md)

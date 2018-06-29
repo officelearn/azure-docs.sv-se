@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 49a381efa0603889336f43e409698bbcef44f41f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f6852de2c09e3de9375a2cb5d73f052ac68f039
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615649"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100580"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Övervakning och felsökning med mått i Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Den här artikeln beskriver hur vanliga användningsområden och hur Azure Cosmo
 
 Kom igång genom att gå till den [Azure-portalen](https://portal.azure.com) och navigera till den **mått** bladet. I bladet hittar den **antalet begäranden överskred kapacitet per minut** diagram. Det här diagrammet visar en minut av minut förfrågningarna åtskilda med statuskoden. Mer information om HTTP-statuskoder finns [http-statuskoder för Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
-Den vanligaste felkoden är 429 (begränsning), vilket innebär att begäranden till Azure Cosmos DB överskrider det tillhandahållna dataflödet. Den vanligaste lösningen till detta är att [skala upp RUs](./set-throughput.md) för den angivna samlingen.
+Den vanligaste felkoden är 429 (Betygsätt begränsa/begränsning), vilket innebär att begäranden till Azure Cosmos DB överskrider det tillhandahållna dataflödet. Den vanligaste lösningen till detta är att [skala upp RUs](./set-throughput.md) för den angivna samlingen.
 
 ![Antal begäranden per minut](media/use-metrics/metrics-12.png)
 

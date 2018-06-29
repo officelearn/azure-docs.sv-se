@@ -1,6 +1,6 @@
 ---
-title: Arkitektur för fjärranslutna övervakningslösning - Azure | Microsoft Docs
-description: En genomgång av arkitekturen för fjärråtkomst övervakning solution accelerator.
+title: Fjärråtkomst övervakning solution accelerator översikt – Azure | Microsoft Docs
+description: En översikt över fjärråtkomst övervakning solution accelerator.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,14 +8,14 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: af7feb6c95a7de1d2211378c5eb71f09907221ff
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: a8b5d9e3917c854cb255a35d3bbc901bcce52c24
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757441"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084539"
 ---
-# <a name="remote-monitoring-solution-accelerator-architecture"></a>Fjärråtkomst övervakning accelerator lösningsarkitektur
+# <a name="remote-monitoring-solution-accelerator-overview"></a>Fjärråtkomst övervakning solution accelerator översikt
 
 Fjärråtkomst övervakning [lösningsaccelerator](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) implementerar en övervakningslösning för slutpunkt till slutpunkt för flera datorer på fjärrplatser. I lösningen kombineras viktiga Azure-tjänster till en allmän implementering av affärsscenariot. Du kan använda lösningen som en startpunkt för din egen implementering och [anpassa](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) att uppfylla dina egna specifika affärsbehov.
 

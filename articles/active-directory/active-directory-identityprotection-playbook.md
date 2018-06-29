@@ -2,7 +2,7 @@
 title: Azure Active Directory-identitetsskydd playbook | Microsoft Docs
 description: Lär dig hur Azure AD Identity Protection gör att du kan begränsa möjligheten för en angripare som utnyttjar en komprometterad identitet eller en enhet och att skydda en identitet eller en enhet som har tidigare eller misstänks vara hotad.
 services: active-directory
-keywords: Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip
+keywords: Azure active directory identitetsskydd, cloud discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ff4a8bfb5a92f0969aef726893bebb6aacd4d942
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 566748d7d7a2ec89c69ab706700583a9db1f5246
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714314"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083965"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory-identitetsskydd playbook
 
@@ -104,7 +104,7 @@ Logga in visas i instrumentpanelen identitetsskydd inom 2-4 timmar.
 Säkerhetsrisker är svagheter i en Azure AD-miljö som kan utnyttjas av en felaktig aktören. För närvarande exponeras 3 typer av säkerhetsproblem i Azure AD Identity Protection som utnyttjar andra funktioner i Azure AD. Dessa problem visas på instrumentpanelen identitetsskydd automatiskt när dessa funktioner har ställts in.
 
 * Azure AD [Multifaktorautentisering](authentication/multi-factor-authentication.md)
-* Azure AD [Cloud App Discovery](manage-apps/cloud-app-discovery.md).
+* Azure AD [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
 

@@ -9,12 +9,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 01bbf4ca19b0fb702aa76d5149fb0e38389fe455
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: cf58f676be52aa16ce6de59c3566613c7ee9276d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054831"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084090"
 ---
 # <a name="batch-transcription"></a>Batch skrivfel
 
@@ -40,7 +40,7 @@ WAV |  Stereo  |
 
 För stereo ljudströmmar delas Batch skrivfel den vänstra och högra kanalen under utskrift. Två JSON-filer med resultatet skapas varje från en enda kanal. Tidsstämplar per utterance kan utvecklare att skapa en ordnad slutliga betyg. Följande JSON-exemplet visar resultatet för en kanal.
 
-    ```
+```json
        {
         "recordingsUrl": "https://mystorage.blob.core.windows.net/cris-e2e-datasets/TranscriptionsDataset/small_sentence.wav?st=2018-04-19T15:56:00Z&se=2040-04-21T15:56:00Z&sp=rl&sv=2017-04-17&sr=b&sig=DtvXbMYquDWQ2OkhAenGuyZI%2BYgaa3cyvdQoHKIBGdQ%3D",
         "resultsUrls": {
@@ -53,7 +53,7 @@ För stereo ljudströmmar delas Batch skrivfel den vänstra och högra kanalen u
         "status": "Succeeded",
         "locale": "en-US"
     },
-    ```
+```
 
 > [!NOTE]
 > Batch-skrivfel API använder en REST-tjänst för att begära transcriptions, status och associerade resultat. Den är baserad på .NET och har inte några externa beroenden. I nästa avsnitt beskrivs hur de används.
@@ -77,7 +77,24 @@ Som med alla funktioner i tjänsten Unified tal måste användaren att skapa en 
 
 ## <a name="sample-code"></a>Exempelkod
 
-Genom att utnyttja API: et är ganska enkelt. Exempelkoden nedan måste anpassas med en prenumeration och en API-nyckel.
+Genom att utnyttja API: et är ganska enkelt. Exempelkoden nedan måste anpassas med en prenumeration nyckel och en API-nyckel, vilket i sin tur kan utvecklare att få en ägartoken som koden följande fragment visas:
+
+```cs
+    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+        {
+            var client = new HttpClient();
+            client.Timeout = TimeSpan.FromMinutes(25);
+            client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
+
+            var tokenProviderPath = "/oauth/ctoken";
+            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
+
+            return new CrisClient(client);
+        }
+```
+
+När token som erhålls måste utvecklaren ange SAS-Uri som pekar på filen som kräver skrivfel. Resten av koden går igenom statusen bara och visar resultat.
 
 ```cs
    static async Task TranscribeAsync()
@@ -93,7 +110,7 @@ Genom att utnyttja API: et är ganska enkelt. Exempelkoden nedan måste anpassas
             var newLocation = 
                 await client.PostTranscriptionAsync(
                     "<selected locale i.e. en-us>", // Locale 
-                    "<your subscripition key>", // Subscription Key
+                    "<your subscription key>", // Subscription Key
                     new Uri("<SAS URI to your file>")).ConfigureAwait(false);
 
             var transcription = await client.GetTranscriptionAsync(newLocation).ConfigureAwait(false);
@@ -146,7 +163,7 @@ Aktuella exempelkoden anger inte några anpassade modeller. Tjänsten använder 
 Om något inte vill använda baslinje, måste en klara modell-ID: N för både acoustic och språk-modeller.
 
 > [!NOTE]
-> För baslinjen saknar skrivfel användaren deklarera slutpunkter av baslinje-modeller. Om användaren vill använda anpassade modeller han skulle behöva ange sina slutpunkter-ID: N som den [exempel](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Om användaren vill använda ett ljud baslinjen med en baslinje språkmodell sedan behöver han bara deklarera anpassade modellen endpoint-ID. Internt kommer vårt system ta reda på partner baslinjen modellen (vara den ljud eller språk) och använda den för att fullfill skrivfel begäran.
+> För baslinjen saknar skrivfel användaren deklarera slutpunkter av baslinje-modeller. Om användaren vill använda anpassade modeller han skulle behöva ange sina slutpunkter-ID: N som den [exempel](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Om användaren vill använda ett ljud baslinjen med en baslinje språkmodell sedan behöver han bara deklarera anpassade modellen endpoint-ID. Internt kommer vårt system ta reda på partner baslinjen modellen (vara den ljud eller språk) och använda den för att uppfylla begäran skrivfel.
 
 ### <a name="supported-storage"></a>Stöds
 

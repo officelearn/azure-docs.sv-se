@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 04/04/2018
+ms.date: 06/27/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 9149405e2778557a94815812fdf4966d38a3149c
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 18c162e03030fc4277fa0a7b3e953bf780574a21
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308463"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084968"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -40,7 +40,7 @@ I följande tabell jämförs infoga och Återställningspunktmål för varje tj�
 
 SQL-databas utförs automatiskt en kombination av fullständiga databassäkerhetskopieringar varje vecka, varje timme differentiella säkerhetskopieringar och transaktionen loggsäkerhetskopior var femte - tio minuter för att skydda företaget från förlust av data. Om du använder den [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md), och sedan dessa säkerhetskopior lagras i RA-GRS-lagring för 35 dagar för databaser i tjänstnivåer Standard och Premium och 7 dagar för databaser på Basic tjänstnivån. Om kvarhållningsperioden för din tjänstenivå inte uppfyller dina verksamhetskrav kan du öka kvarhållningsperioden genom att [byta tjänstnivå](sql-database-single-database-scale.md). Om du använder den [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md), kvarhållning säkerhetskopior är Konfigurerbart upp till 35 dagar i generella och företag kritiska nivåer. De fullständiga och differentiella säkerhetskopieringarna replikeras också till ett [kopplat datacenter](../best-practices-availability-paired-regions.md) för skydd mot avbrott på datacentret. Mer information finns i [automatiska säkerhetskopieringar](sql-database-automated-backups.md).
 
-Om den högsta bevarandeperioden för stöds PITR inte räcker för ditt program, kan du utöka den genom att konfigurera en kvarhållningsprincip för långsiktig (LTR) för databaserna. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
+Om den maximala stöds i tidpunkt återställer (PITR) kvarhållningsperiod är inte tillräcklig för ditt program, kan du utöka den genom att konfigurera en kvarhållningsprincip för långsiktig (LTR) för databaserna. Mer information finns i [automatisk säkerhetskopiering](sql-database-automated-backups.md) och [långsiktig lagring av säkerhetskopior](sql-database-long-term-retention.md).
 
 Du kan använda dessa automatiska databassäkerhetskopior för att återställa en databas från olika avbrottshändelser, både i ditt datacenter och till ett annat datacenter. Om du använder automatiska databassäkerhetskopieringar beror den beräknade återställningstiden på flera faktorer, inklusive det totala antalet databaser som återställs i samma region vid samma tidpunkt, databasens storlek, transaktionsloggarnas storlek och nätverksbandbredden. Tiden för återställning är vanligtvis mindre än 12 timmar. Det kan ta längre tid att återställa en mycket stor eller aktiv databas. Mer information om återställningstid finns [databasen återställningstid](sql-database-recovery-using-backups.md#recovery-time). När du återställer till en annan dataregion är den potentiella dataförlusten begränsad till 1 timme med geo-redundant lagring med differentiella säkerhetskopieringar varje timme.
 

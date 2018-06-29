@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 6707610fc3410eab6eb2985c7d8a0ef821354689
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 9e986507269d9d7d8822e6f6088901be7d92edd8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062087"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096561"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Snabbstart: Skapa kluster i HDInsight
 
@@ -117,7 +117,7 @@ Du behöver inte ange klusterplatsen explicit; klustret är på samma plats som 
 
 Under konfigurationen för standardslutpunkten lagring anger du lagring av Data Lake. Standard-lagringen innehåller program- och loggar. Alternativt kan ange du ytterligare länkade Azure Data Lake Storage-konton som har åtkomst till klustret. HDInsight-klustret och beroende storage-konton måste vara i samma Azure-plats.
 
-![Inställningar för lagring: HDFS-kompatibla lagring slutpunkter](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage-TEMP.png)
+![Inställningar för lagring: HDFS-kompatibla lagring slutpunkter](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
 > [!IMPORTANT]
 > Se till att **inaktivera Data Lake Store-åtkomst**. Inställningarna som refererar till gammalt *Datasjölager* funktioner och måste inaktiveras för *lagring av Data Lake* funktioner ska fungera korrekt.

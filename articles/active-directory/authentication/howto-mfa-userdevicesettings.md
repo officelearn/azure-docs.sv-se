@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 8dd30f53dc37734e1c01b3712b5adb7d81a1489b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 363106421e75fa2e1b220d03a7d7cbed25447bcc
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33865909"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098404"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Hantera användarinställningar med Azure Multi-Factor Authentication i molnet
 
@@ -58,7 +58,7 @@ En av de konfigurerbara funktionerna i Azure Multi-Factor Authentication ge anv�
 
 Användare kan välja bort tvåstegsverifiering för antalet dagar på sina enheter för vanliga. Om ett konto komprometteras eller en betrodd enhet tappas bort, måste du kunna ta bort den betrodda statusen och kräver tvåstegsverifiering igen.
 
-Den **Återställ multifaktorautentisering på alla sparade enheter** inställningen innebär att användaren kommer att anropas för att utföra tvåstegsverifiering nästa gång de loggar in, oavsett om de har valt att markera sin enhet som betrodd. 
+Den **Återställ multifaktorautentisering på alla sparade enheter** inställningen innebär att användaren kommer att anropas för att utföra tvåstegsverifiering nästa gång de loggar in, oavsett om de har valt att markera sin enhet som betrodda. 
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Så här återställer du MFA på alla avbrutna enheter för en användare
 1. Logga in på [Azure Portal](https://portal.azure.com).
@@ -75,4 +75,4 @@ Den **Återställ multifaktorautentisering på alla sparade enheter** inställni
 
 - Mer information om hur du [konfigurerar Azure Multi-Factor Authentication-inställningar](howto-mfa-mfasettings.md)
 
-- Om dina användare behöver hjälp peka dem mot den [användarhandboken för tvåstegsverifiering](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)
+- Om dina användare behöver hjälp peka dem mot den [användarhandboken för tvåstegsverifiering](end-user/current/multi-factor-authentication-end-user.md)

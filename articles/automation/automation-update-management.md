@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8ac62986eb7eb184ae6d102a956ee051e3aa88a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 3de93c06285f36353d91a66db975c0a579c1379c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063518"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097452"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering i Azure
 
@@ -35,9 +35,9 @@ Följande diagram visar en översikt över beteendet och dataflöde med hur lös
 
 ![Uppdatera processflöde för hantering](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-När en dator som utför en sökning för att kontrollera uppdateringskompatibilitet, vidarebefordrar agenten information gruppvis till Azure logganalys. På en Windows-dator kan utförs kompatibilitetsgenomsökningen var 12: e timme som standard. 
+När en dator som utför en sökning för att kontrollera uppdateringskompatibilitet, vidarebefordrar agenten information gruppvis till Azure logganalys. På en Windows-dator kan utförs kompatibilitetsgenomsökningen var 12: e timme som standard.
 
-Förutom schema för genomsökning initieras genomsökningen efter uppdateringsefterlevnad inom 15 minuter om MMA startas innan installationen av uppdateringen och efter installationen av uppdateringen. 
+Förutom schema för genomsökning initieras genomsökningen efter uppdateringsefterlevnad inom 15 minuter om MMA startas innan installationen av uppdateringen och efter installationen av uppdateringen.
 
 För en Linux-dator utförs kompatibilitetsgenomsökningen var 3: e timme som standard. Om agenten MMA startas initieras en kompatibilitetsgenomsökningen inom 15 minuter.
 
@@ -86,7 +86,7 @@ De måste ha tillgång till Microsoft Update eller Windows-agenter måste konfig
 
 #### <a name="linux"></a>Linux
 
-För Linux måste datorn har åtkomst till en update-databas. Uppdatera databasen kan vara privat eller offentlig. En Operations Management Suite (OMS) Agent för Linux som är konfigurerad för att rapportera till flera logganalys arbetsytor stöds inte med den här lösningen.
+För Linux måste datorn har åtkomst till en update-databas. Uppdatera databasen kan vara privat eller offentlig. TLS 1.1 och TLS 1.2 krävs för att interagera med hantering av uppdateringar. En Operations Management Suite (OMS) Agent för Linux som är konfigurerad för att rapportera till flera logganalys arbetsytor stöds inte med den här lösningen.
 
 Information om hur du installerar OMS-Agent för Linux och hämta den senaste versionen finns [Operations Management Suite-Agent för Linux](https://github.com/microsoft/oms-agent-for-linux). Information om hur du installerar OMS-Agent för Windows finns i [Operations Management Suite-agenten för Windows](../log-analytics/log-analytics-windows-agent.md).
 
@@ -208,16 +208,16 @@ Välj den **uppdatera distributioner** att visa listan över befintliga distribu
 
 Om du vill skapa en ny uppdateringsdistribution **schema distribution**. Den **distribution av nya** fönstret öppnas. Ange värden för de egenskaper som beskrivs i följande tabell:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 |Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Välj **Linux** eller **Windows**.|
 |Datorer för att uppdatera |Välj en sparad sökning eller välj **datorn** från listrutan och välj sedan enskilda datorer. |
-|Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver. CentOS stöder inte det direkt.|
-|Uppdateringar som ska uteslutas|Ange uppdateringar ska undantas. Ange i KB-artikel utan för Windows, den **KB** prefix. Ange paketnamnet för Linux eller Använd ett jokertecken.  |
-|Schemainställningar|Välj tid för start och välj sedan antingen **när** eller **återkommande** för återkommande.|| Underhållsperiod |Antal minuter som anges för uppdateringar. Värdet får inte vara mindre än 30 minuter eller mer än 6 timmar. |
+|Klassificering av uppdatering|Välj de uppdateringsklassificeringar som du behöver. CentOS stöder inte det direkt.|
+|Uppdateringar som ska undantas|Ange uppdateringar ska undantas. Ange i KB-artikel utan för Windows, den **KB** prefix. Ange paketnamnet för Linux eller Använd ett jokertecken.  |
+|Inställningar för schemaläggning|Välj tid för start och välj sedan antingen **när** eller **återkommande** för återkommande.|| Underhållsperiod |Antal minuter som anges för uppdateringar. Värdet får inte vara mindre än 30 minuter eller mer än 6 timmar. |
 
-## <a name="update-classifications"></a>Uppdatera klassificeringar
+## <a name="update-classifications"></a>Klassificering av uppdatering
 
 I tabellerna nedan listas uppdateringsklassificeringar i uppdatera hantering med en definition för varje klassificering.
 
@@ -253,7 +253,7 @@ Det finns för närvarande ingen metoden stöds-metod för att aktivera inbyggda
 
 Följande adresser krävs för hantering av uppdateringar. Kommunikation till dessa adresser sker via port 443.
 
-|Azure Public  |Azure Government  |
+|Azure offentliga  |Azure Government  |
 |---------|---------|
 |*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |

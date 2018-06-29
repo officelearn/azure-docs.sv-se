@@ -8,12 +8,12 @@ ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-ms.translationtype: HT
+ms.openlocfilehash: aa371ef2ebad01fba379675e8438f56dca9ce356
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030387"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096976"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT kant-runtime och dess arkitektur
 
@@ -40,12 +40,12 @@ Både Edge-agenten och kant-hubben är moduler, precis som en annan modul som k�
 Edge-hubben är en av två moduler som utgör Azure IoT kant-körningsmiljön. Det fungerar som en lokal proxyserver för IoT-hubb genom att exponera samma protokollslutpunkterna som IoT-hubb. Den här konsekvenskontroll innebär att klienter (om enheter eller moduler) kan ansluta till IoT kant runtime precis som de skulle för IoT-hubb. 
 
 >[!NOTE]
-> Under förhandsversion stöd Edge hubb endast för klienter som ansluter via MQTT.
+>Edge-hubben har stöd för klienter som ansluter med hjälp av MQTT eller AMQP. Det stöder inte klienter som använder HTTP. 
 
 Edge-hubben är inte en fullständig version av IoT-hubb som körs lokalt. Det finns vissa saker som Edge hubben tyst delegerar till IoT-hubb. Edge hubb vidarebefordrar autentiseringsbegäranden till IoT-hubb när en enhet försöker ansluta. Efter den första anslutningen har upprättats cachelagras säkerhetsinformation lokalt Edge hubb. Efterföljande anslutningar från den enheten tillåts utan att autentisera till molnet. 
 
 >[!NOTE]
-> Under förhandsversion ansluten körningsmiljön varje gång den försöker autentisera en enhet.
+>Vara måste ansluten körningsmiljön varje gång den försöker autentisera en enhet.
 
 För att minska bandbredden som gräns för IoT-lösningen använder, Edge hubben optimerar hur många anslutningar görs till molnet. Edge hubb tar logiska anslutningar från klienter som moduler eller löv enheter och kombineras för en enda fysisk anslutning till molnet. Information om den här processen är transparent för resten av lösningen. Klienter tror att de har sina egna anslutningar till molnet, även om de alla skickas via samma anslutning. 
 

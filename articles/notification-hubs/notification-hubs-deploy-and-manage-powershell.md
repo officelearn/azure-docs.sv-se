@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: d2350d8021925278d6362c8227d408476a569319
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2d70aff4cc569a194740fdab9373b7e11a1fcb15
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776914"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084356"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuera och hantera Notification Hubs med PowerShell
 ## <a name="overview"></a>Översikt
@@ -34,8 +34,8 @@ Hantera meddelanden nav stöds inte direkt av de cmdletar som ingår i Azure Pow
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Azure är en plattform som baseras på prenumerationer. Mer information om hur du skaffar en prenumeration finns [Köpalternativ], [Medlemmen erbjudanden], eller [Kostnadsfri utvärderingsversion].
-* En dator med Azure PowerShell. Instruktioner finns i [Installera och konfigurera Azure PowerShell].
+* En Azure-prenumeration. Azure är en plattform som baseras på prenumerationer. Mer information om hur du skaffar en prenumeration finns [köpalternativ], [Medlemmen erbjudanden], eller [kostnadsfri utvärderingsversion].
+* En dator med Azure PowerShell. Instruktioner finns i [installera och konfigurera Azure PowerShell].
 * En förståelse av PowerShell-skript, NuGet-paket och .NET Framework.
 
 ## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>Inklusive en referens till .NET-sammansättning för Service Bus
@@ -85,7 +85,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 
 ## <a name="provisioning-a-new-notification-hub"></a>Etablera en ny Meddelandehubb
-För att etablera en ny meddelandehubb, Använd den [.NET-API för Meddelandehubbar].
+För att etablera en ny meddelandehubb, Använd den [.NET API: et för Notification hub].
 
 I den här delen av skriptet kan ställa du in fyra lokala variabler. 
 
@@ -158,7 +158,7 @@ Vissa färdiga skript är också tillgängliga för hämtning:
 [Medlemmen erbjudanden]: http://azure.microsoft.com/pricing/member-offers/
 [Kostnadsfri utvärderingsversion]: http://azure.microsoft.com/pricing/free-trial/
 [Installera och konfigurera Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[.NET-API för Meddelandehubbar]: https://msdn.microsoft.com/library/azure/mt414893.aspx
+[.NET API: et för Notification hub]: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx

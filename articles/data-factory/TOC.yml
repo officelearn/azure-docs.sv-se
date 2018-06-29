@@ -1,4 +1,4 @@
-- name: Dokumentation om Data Factory V2
+- name: Dokumentation om Data Factory
   href: index.yml
 - name: Växla till dokumentationen för version 1
   href: v1/data-factory-introduction.md
@@ -6,7 +6,7 @@
   items:
     - name: Introduktion till Data Factory
       href: introduction.md
-    - name: Jämför version 1 och 2
+    - name: Jämför den aktuella versionen med version 1
       href: compare-versions.md
 - name: Snabbstarter
   expanded: true
@@ -138,6 +138,8 @@
           href: connector-azure-blob-storage.md
         - name: Azure Cosmos DB
           href: connector-azure-cosmos-db.md
+        - name: Azure Data Lake Storage
+          href: connector-azure-data-lake-storage.md
         - name: Azure Data Lake Store
           href: connector-azure-data-lake-store.md
         - name: Azure Database for MySQL
@@ -275,6 +277,8 @@
         - name: Kopiera data-verktyg
           href: copy-data-tool.md
           items: null
+        - name: Läs in Data Lake Storage
+          href: load-azure-data-lake-storage-gen2.md
         - name: Läs in SQL Data Warehouse
           href: load-azure-sql-data-warehouse.md
         - name: Läs in Data Lake Store

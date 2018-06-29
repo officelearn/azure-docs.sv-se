@@ -22,7 +22,7 @@
 ### Skalningsuppsättningar för virtuella datorer
 #### [Skapa en skalningsuppsättning i en tillgänglighetszon](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
-### Belastningsutjämnare
+### Load Balancer
 #### [Vad är belastningsutjämnare?](../load-balancer/load-balancer-standard-overview.md)
 #### [Load Balancer Standard och tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md)
 
@@ -40,8 +40,20 @@
 ### SQL Database
 #### [Tillgänglighetszoner med SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)
 
-### Lagring
+### Storage
 #### [Zonredundant lagring](../storage/common/storage-redundancy-zrs.md)
+
+### Event Hubs
+#### [Geohaveriberedskap för Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
+
+### Service Bus
+#### [Geohaveriberedskap för Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+
+### VPN Gateway
+#### [Skapa en zonredundant virtuell nätverksgateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+
+### ExpressRoute
+#### [Skapa en zonredundant virtuell nätverksgateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 # Haveriberedskap
 ## [Använd Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)

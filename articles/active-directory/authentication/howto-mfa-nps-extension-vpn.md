@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: cfdb89ae833dc2450a4670a84af305f1caa10591
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: dfd28c5abea668e704fb5ee8b02d85d552e9ae77
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869520"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098880"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA med hjälp av NPS-tillägget för Azure
 
@@ -305,7 +305,7 @@ Felsökning av problem med dessa är användbar om du vill starta för att grans
  
 ## <a name="configure-multi-factor-authentication"></a>Konfigurera Multi-Factor Authentication
 
-Mer information om hur du konfigurerar användare för Multifaktorautentisering finns artiklarna [kräva tvåstegsverifiering för en användare eller grupp](howto-mfa-userstates.md) och [Konfigurera mitt konto för tvåstegsverifiering](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
+Mer information om hur du konfigurerar användare för Multifaktorautentisering finns artiklarna [kräva tvåstegsverifiering för en användare eller grupp](howto-mfa-userstates.md) och [Konfigurera mitt konto för tvåstegsverifiering](end-user/current/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Installera och konfigurera NPS-tillägget
 
@@ -393,7 +393,7 @@ Om du vill använda skriptet ger tillägget dina administrativa autentiseringsup
 
 6. Starta om servern.
 
-### <a name="verify-the-configuration"></a>Verifiera konfigurationen
+### <a name="verify-the-configuration"></a>Kontrollera att konfigurationen
 Om du vill verifiera konfigurationen måste du upprätta en ny VPN-anslutning med VPN-servern. När du har angett dina autentiseringsuppgifter för primär autentisering, väntar VPN-anslutningen på den sekundära autentiseringen ska lyckas innan anslutningen har upprättats, enligt nedan. 
 
 ![Fönstret VPN för Windows-inställningar](./media/howto-mfa-nps-extension-vpn/image42.png)

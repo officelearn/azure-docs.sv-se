@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: 2c0290ef160283f5aef8b1a4a5f67e69222aec0e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-ms.translationtype: HT
+ms.openlocfilehash: bf0bd715e47cc7145a76d5f8b5f2589f24b343a8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029364"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100563"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -148,9 +148,9 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
     response.getRequestCharge();
     ```             
 
-    Begäran-tillägget som returneras i det här sidhuvudet är en del av din dataflöde. Till exempel om du har 2000 RU/s etablerats och om den föregående frågan returnerar 1000 1KB-dokument, kostnaden för åtgärden är 1000. Inom en sekund godkänner servern därför bara två sådana begäranden innan begränsning efterföljande förfrågningar. Mer information finns i [programbegäran](request-units.md) och [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner).
+    Begäran-tillägget som returneras i det här sidhuvudet är en del av din dataflöde. Till exempel om du har 2000 RU/s etablerats och om den föregående frågan returnerar 1000 1KB-dokument, kostnaden för åtgärden är 1000. Inom en sekund godkänner servern därför bara två sådana begäranden innan hastighet begränsa efterföljande förfrågningar. Mer information finns i [programbegäran](request-units.md) och [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
-2. **Hantera hastighet begränsa/förfrågningar för stor**
+1. **Hantera hastighet begränsa/förfrågningar för stor**
 
     När en klient försöker överskrida reserverat dataflöde för ett konto, finns det inga prestandaförsämring på servern och ingen användning av genomflödeskapaciteten utanför den reserverade. Servern förebyggande syfte kan avsluta begäran och RequestRateTooLarge (HTTP-statuskod 429) och returnera den [x-ms-retry-efter-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) huvud som anger hur lång tid i millisekunder som användaren måste vänta innan ett nytt försök begäran.
 

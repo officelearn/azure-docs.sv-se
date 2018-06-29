@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 867a48674fe2489629a887ff9626d8e10b41e653
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e3ee75a07f19fef50d9aca61773bd7ea860f2ca4
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613990"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102474"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -49,7 +49,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
 3. **Justera ConnectionPolicy**
 
-    Azure Cosmos-DB-begäranden görs över HTTPS/RESTEN när du använder Async Java SDK och är föremål för de standard max storleken på administratörsanslutningspool (1000). Det här värdet ska vara perfekt för flesta användningsområden. Om du har en mycket stor samling med många partitioner du kan dock ange den maximala storleken på administratörsanslutningspool till ett större antal (t.ex., 1500) med hjälp av setMaxPoolSize.
+    Azure Cosmos-DB-begäranden görs över HTTPS/RESTEN när du använder Async Java SDK och är föremål för de standard max storleken på administratörsanslutningspool (1000). Det här värdet ska vara perfekt för flesta användningsområden. Om du har en stor samling med många partitioner du kan dock ange den maximala storleken på administratörsanslutningspool till ett större antal (t.ex., 1500) med hjälp av setMaxPoolSize.
 
 4. **Justera parallella frågor för partitionerade samlingar**
 
@@ -83,11 +83,11 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
     Du kan också ange sidstorlek med metoden setMaxItemCount.
     
-9. **Använd lämplig Schemaläggaren (Undvik att stjäla Eventloop IO Netty trådar)**
+9. **Använd lämplig Schemaläggaren (Undvik att stjäla händelse loop-i/o Netty trådar)**
 
-    Asynkrona Java SDK använder [netty](https://netty.io/) för icke-blockerande IO. SDK använder ett fast antal i/o netty eventloop trådar (valfritt antal processorkärnor din dator har) för att köra i/o-åtgärder. Observeras som returneras av API skickar resultatet på en delad IO eventloop netty trådar. Det är därför viktigt att inte blockera delade IO eventloop netty trådar. Processorn arbetar kan blockerar åtgärden i i/o-eventloop netty tråden orsaka deadlock eller avsevärt minska SDK.
+    Asynkrona Java SDK använder [netty](https://netty.io/) för icke-blockerande IO. SDK använder ett fast antal i/o netty händelse loop trådar (valfritt antal processorkärnor din dator har) för att köra i/o-åtgärder. Observeras som returneras av API skickar resultatet på en av de delade i/o-händelse loop netty trådarna. Det är därför viktigt att inte blockera delade i/o-händelse loop netty trådar. Processorn arbetar kan blockerar åtgärden i i/o-händelse loop netty tråd orsaka deadlock eller avsevärt minska SDK.
 
-    Följande kod kör till exempel en cpu arbetar på eventloop-i/o netty tråd:
+    Följande kod kör till exempel en cpu arbetar på händelsen loop IO netty tråd:
 
     ```java
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
@@ -103,7 +103,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
       });
     ```
 
-    När resultatet har tagits emot om du vill göra fungerar Processorintensiva på resultatet bör du undvika att göra så vidare eventloop IO netty tråd. I stället kan du ange egna Schemaläggaren för att tillhandahålla egna tråd för att köra ditt arbete.
+    När resultatet har tagits emot om du vill göra fungerar Processorintensiva på resultatet bör du undvika att göra så vidare händelse loop-i/o netty tråd. I stället kan du ange egna Schemaläggaren för att tillhandahålla egna tråd för att köra ditt arbete.
 
     ```java
     import rx.schedulers;
@@ -126,13 +126,13 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
     Mer information finns i den [Github-sidan](https://github.com/Azure/azure-cosmosdb-java) för asynkrona Java SDK.
 
-10. **Inaktivera netty's loggning** Netty biblioteket loggning chatty och måste vara avstängda (utelämna logg i konfigurationen kanske inte är tillräckligt) att undvika ytterligare CPU-kostnader. Om du inte är i felsökningsläge loggningen inaktivera netty helt. Om du använder log4j för att ta bort de extra CPU-kostnaderna genom ``org.apache.log4j.Category.callAppenders()`` från netty att lägga till följande rad i din kodbas:
+10. **Inaktivera loggning för netty's** Netty biblioteket loggning chatty och måste vara avstängda (utelämna inloggning konfigurationen kanske inte är tillräckligt) att undvika ytterligare CPU-kostnader. Om du inte är i felsökningsläge loggningen inaktivera netty helt. Om du använder log4j för att ta bort de extra CPU-kostnaderna genom ``org.apache.log4j.Category.callAppenders()`` från netty att lägga till följande rad i din kodbas:
 
     ```java
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
     ```
 
-11. **OS öppna filer resursgräns** vissa Linux-system (till exempel Redhat) har en övre gräns för antalet öppna filer, och det totala antalet anslutningar. Kör följande om du vill visa aktuella begränsningar:
+11. **OS öppna filer resursgräns** vissa Linux-system (till exempel Red Hat) har en övre gräns för antalet öppna filer, och det totala antalet anslutningar. Kör följande om du vill visa aktuella begränsningar:
 
     ```bash
     ulimit -a
@@ -170,7 +170,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
     </dependency>
     ```
 
-Referera till dessa instruktioner för andra plattformar (Redhat, Windows, Mac, osv.) https://netty.io/wiki/forked-tomcat-native.html
+För andra plattformar (Red Hat, Windows, Mac, etc.) refererar till dessa instruktioner https://netty.io/wiki/forked-tomcat-native.html
 
 ## <a name="indexing-policy"></a>Indexeringspolicy
  
@@ -209,7 +209,7 @@ Referera till dessa instruktioner för andra plattformar (Redhat, Windows, Mac, 
     response.getRequestCharge();
     ```             
 
-    Begäran-tillägget som returneras i det här sidhuvudet är en del av din dataflöde. Till exempel om du har 2000 RU/s etablerats och om den föregående frågan returnerar 1000 1KB-dokument, kostnaden för åtgärden är 1000. Inom en sekund godkänner servern därför bara två sådana begäranden innan begränsning efterföljande förfrågningar. Mer information finns i [programbegäran](request-units.md) och [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner).
+    Begäran-tillägget som returneras i det här sidhuvudet är en del av din dataflöde. Till exempel om du har 2000 RU/s etablerats och om den föregående frågan returnerar 1000 1KB-dokument, kostnaden för åtgärden är 1000. Inom en sekund godkänner servern därför bara två sådana begäranden innan hastighet begränsa efterföljande förfrågningar. Mer information finns i [programbegäran](request-units.md) och [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Hantera hastighet begränsa/förfrågningar för stor**
 

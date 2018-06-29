@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: d80d7d9c54bad12a4d26d8623eeccdf9bc2a743a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fab76467025518bc455295da681d0b0127a9cbfe
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873949"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098737"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Hur du skickar e-post med SendGrid från Java i Azure-distribution
 I följande exempel visas hur du kan använda SendGrid för att skicka e-post från en webbsida som finns på Azure. Exempelprogrammet uppmanas användaren för e-värden som visas i följande skärmbild visar.
@@ -213,7 +213,7 @@ Distribuera appen till beräkningsemulatorn och kör emailform.jsp i en webbläs
 
 Den här koden har angetts för att visa dig hur du använder SendGrid i Java i Azure. Innan du distribuerar till Azure i produktion, kanske du vill lägga till flera felhantering eller andra funktioner. Exempel: 
 
-* Du kan använda Azure storage-blobbar eller SQL-databas för att lagra e-postadresser och e-postmeddelanden, istället för att använda ett webbformulär. Information om hur du använder Azure storage-blobbar i Java finns [hur du använder tjänsten Blob Storage från Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Information om hur du använder SQL-databas i Java finns [med hjälp av SQL-databas i Java](https://azure.microsoft.com/develop/java/how-to-guides/using-sql-azure-in-java/).
+* Du kan använda Azure storage-blobbar eller SQL-databas för att lagra e-postadresser och e-postmeddelanden, istället för att använda ett webbformulär. Information om hur du använder Azure storage-blobbar i Java finns [hur du använder tjänsten Blob Storage från Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Information om hur du använder SQL-databas i Java finns [med hjälp av SQL-databas i Java](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-connect-query-java).
 * Du kan använda `RoleEnvironment.getConfigurationSettings` att hämta SendGrid användarnamn och lösenord från din distribution konfigurationsinställningar, i stället för webbformuläret för att hämta värdena. Information om den `RoleEnvironment` klassen, se [med hjälp av Azure Service Runtime Library i JSP](http://msdn.microsoft.com/library/windowsazure/hh690948) och dokumentation för körtid för Azure-paketet på <http://dl.windowsazure.com/javadoc>.
 * Mer information om hur du använder SendGrid i Java finns [hur du skickar e-post med SendGrid från Java](store-sendgrid-java-how-to-send-email.md).
 

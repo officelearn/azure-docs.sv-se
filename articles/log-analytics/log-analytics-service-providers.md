@@ -13,74 +13,71 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
-ms.author: richrund
-ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: meirm
+ms.openlocfilehash: 97e36c624e865010ada67f5163af6d7f03de079f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593057"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096578"
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Log Analytics funktioner för leverantörer
 Logganalys hjälper hanterade tjänsteleverantörer (MSPs), stora företag, oberoende programvaruleverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens lokala eller molninfrastruktur. 
 
 Stora företag dela många likheter med leverantörer, särskilt när det finns en central IT-teamet som ansvarar för att hantera IT-avdelningen för många olika affärsenheter. För enkelhetens skull använder det här dokumentet termen *tjänstleverantör* men samma funktion är också tillgängligt för företag och andra kunder.
 
-## <a name="cloud-solution-provider"></a>Cloud Solution Provider
 Partners och leverantörer som är en del av den [Cloud Solution Providers (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) program, Log Analytics är en av Azure-tjänster finns i [Azure CSP prenumeration](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
-För Log Analytics följande funktioner är aktiverade i *leverantör* prenumerationer.
+## <a name="architectures-for-service-providers"></a>Arkitekturer för leverantörer
 
-Som en *leverantör* kan du:
+Log Analytics arbetsytor ger en metod för administratören att styra flödet och isolering av loggarna och skapa en logg-arkitektur som tar upp specifika affärsbehov. [Den här artikeln](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-manage-access) beskriver allmänna överväganden kring arbetsytan management. Leverantörer har ytterligare överväganden.
 
-* Skapa logganalys arbetsytor i prenumeration för en klient (kundens).
-* Åtkomst arbetsytor som skapats av klienter. 
-* Lägg till och ta bort användaråtkomst till arbetsytan med Azure användarhantering. När en klient arbetsytan i OMS-portalen på Användarhantering sidan inställningar är inte tillgängligt
-  * Log Analytics har inte stöd för rollbaserad åtkomst ännu -ge en användare `reader` i Azure-portalen tillåter dem att göra konfigurationsändringar i OMS-portalen
+Det finns tre möjliga arkitekturer för tjänstleverantörer om logganalys arbetsytor:
 
-Du måste ange klient-ID för att logga in till en klient prenumeration. Klient-ID är ofta den sista delen av e-postadressen används för att logga in.
+### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. Distribuerad - lagras loggfilerna i arbetsytor finns i kundens klient 
 
-* Lägg till i OMS-portalen `?tenant=contoso.com` i URL: en för portalen. Till exempel, `mms.microsoft.com/?tenant=contoso.com`
-* I PowerShell använder den `-Tenant contoso.com` parameter när du använder `Connect-AzureRmAccount` cmdlet
-* Klient-ID läggs till automatiskt när du använder den `OMS portal` länk från Azure portal för att öppna och logga in på OMS-portalen för den valda arbetsytan
+I den här arkitekturen distribueras arbetsytan i kundens innehavaren som ska användas för alla loggar kundens. Service provider-administratörer beviljas åtkomst till den här arbetsytan med hjälp av [gästanvändare för Azure Active Directory (B2B)](https://docs.microsoft.com/en-us/azure/active-directory/b2b/what-is-b2b). Tjänstproviderns administratör måste ändra i Azure-portalen till sina kunder katalogen för att kunna komma åt dessa arbetsytor.
 
-Som en *kunden* av en leverantör kan du:
+Fördelarna med den här arkitekturen är:
+* Kunden kan hantera åtkomst till loggar med sina egna [rollbaserad åtkomst](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview).
+* Varje kund kan ha olika inställningar för arbetsytan, till exempel kvarhållning och tak som skall data.
+* Isolering mellan kunder för regelverk och kompatibilitet.
+* Kostnad för varje arbetsyta återställs till kundens prenumeration.
+* Loggarna samlas in från alla typer av resurser, inte bara agent-baserade. Till exempel Azure granskning.
 
-* Skapa log analytics arbetsytor i en CSP-prenumeration
-* Åtkomst arbetsytor som skapats av Kryptografiprovidern
-  * Använd den `OMS portal` länk från Azure portal för att öppna och logga in på OMS-portalen för den valda arbetsytan
-* Visa och använda sidan för användarhantering under inställningar i OMS-portalen
+Nackdelarna med den här arkitekturen är:
+* Det är svårare för leverantören att hantera många kunden klienter på samma gång.
+* Service provider administratörer har etableras på katalogen kunder.
+* Tjänstprovidern kan analysera data över sina kunder.
 
-> [!NOTE]
-> Med säkerhetskopiering och återställning av lösningar för Log Analytics kan inte ansluta till Recovery Services-valvet och inte kan konfigureras i en CSP-prenumeration. 
-> 
-> 
+### <a name="2-central---logs-are-stored-in-workspace-located-in-the-service-provider-tenant"></a>2. Central - loggar lagras i arbetsytan finns i service provider-klient
 
-## <a name="managing-multiple-customers-using-log-analytics"></a>Hantera flera kunder som använder logganalys
-Vi rekommenderar att du skapar en logganalys-arbetsytan för varje kund som du hanterar. Logganalys-arbetsytan innehåller:
+Loggfilerna lagras inte i den här arkitekturen i kundens hyresgäster, men endast i en central plats i en av tjänstproviderns prenumerationer. Agenter som installerats på kundens virtuella datorer är konfigurerade för att skicka deras loggar till den här arbetsytan med arbetsyte-ID och hemlig nyckel.
 
-* En geografisk plats för data som ska lagras. 
-* Precision för fakturering 
-* Dataisolering 
-* Unik konfiguration
+Fördelarna med den här arkitekturen är:
+* Det är enkelt att hantera stort antal kunder och integrera dem till olika serverdelssystem.
+* Tjänstprovidern har fullständigt ägarskap över loggarna och olika artefakter, till exempel funktioner och sparade frågor.
+* Leverantören kan utföra analyser för alla kunder.
 
-Genom att skapa en arbetsyta per kund kan kan du behålla data för varje kund separat och även spåra användningen av varje kund.
+Nackdelarna med den här arkitekturen är:
+* Det är svårt att dela data mellan kunderna. Endast bra metod att göra detta är att använda datorns domännamn.
+* Alla data från alla kunder kommer att lagras i samma region med en enda faktura och samma inställningar för kvarhållning och konfiguration.
+* Azure-strukturen och PaaS-tjänster som Azure-diagnostik och Azure granskning kräver arbetsytan ska vara i samma klientorganisation som resursen därför de inte kan skicka loggar till arbetsytan central.
 
-Mer information om när och varför ska du skapa flera arbetsytor beskrivs i [hantera åtkomst för att logga analytics](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need).
+### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. Hybrid - loggar lagras i arbetsytan i kundens klient och några av dem hämtas till en central plats.
 
-Skapa och konfiguration av customer arbetsytor kan automatiseras med hjälp av [PowerShell](log-analytics-powershell-workspace-configuration.md), [Resource Manager-mallar](log-analytics-template-workspace-configuration.md), eller med hjälp av den [REST API](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/).
+Den tredje arkitekturen blanda mellan de två alternativen. Den är baserad på den första distribuerad arkitektur där loggarna är lokala för varje kund men med någon mekanism för att skapa en central databas loggar. En del av loggarna som hämtas till en central plats för rapportering och analys. Den här delen kan vara litet antal typer av data eller en sammanfattning av aktivitet, till exempel dagliga statistik.
 
-Användningen av Resource Manager-mallar för arbetsytan konfiguration kan du ha en master-konfiguration som kan användas för att skapa och konfigurera arbetsytor. Du kan vara säker på att som arbetsytor skapas för kunder de konfigureras automatiskt enligt dina behov. När du uppdaterar dina krav mallen uppdateras och sedan på nytt befintliga arbetsytor. Den här processen säkerställer att även befintliga arbetsytor uppfyller dina nya.    
+Det finns två alternativ för att implementera den centrala platsen i logganalys:
 
-När du hanterar flera logganalys arbetsytor, rekommenderar vi integrerar varje arbetsyta med din befintliga biljettsystem / operations-konsolen använder den [aviseringar](log-analytics-alerts.md) funktioner. Genom att integrera med befintliga system kan supportpersonal fortsätta att följa sina bekant processer. Logganalys regelbundet kontrollerar varje arbetsyta mot aviseringsvillkoren som du anger och genererar en avisering när åtgärd krävs.
+1. Central arbetsytan: tjänstleverantören kan skapa en arbetsyta i dess klient och använda ett skript som använder den [frågan API](https://dev.loganalytics.io/) med den [Data Collection API](log-analytics-data-collector-api.md) in data från olika arbetsytorna till den här central plats. Ett annat alternativ än skript är att använda [Azure Logikapp](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview).
 
-Anpassade vyer av data använder den [instrumentpanelen](../azure-portal/azure-portal-dashboards.md) kapaciteten i Azure-portalen.  
+2. PowerBI som en central plats: Power BI kan fungera som den centrala platsen när de olika arbetsytorna exportera data till den med hjälp av integrering mellan logganalys och [Power BI](log-analytics-powerbi.md). 
 
-För verkställande nivån rapporter som summerar data över arbetsytor kan du använda integrationen mellan logganalys och [PowerBI](log-analytics-powerbi.md). Om du behöver integrera med en annan rapporteringssystem du kan använda Sök-API (via PowerShell eller [REST](log-analytics-log-search-api.md)) att köra frågor och exportera sökresultaten.
 
 ## <a name="next-steps"></a>Nästa steg
 * Automatisera skapandet och konfiguration av arbetsytor med [Resource Manager-mallar](log-analytics-template-workspace-configuration.md)
 * Automatisera genereringen av arbetsytor med [PowerShell](log-analytics-powershell-workspace-configuration.md) 
 * Använd [aviseringar](log-analytics-alerts.md) att integrera med befintliga system
-* Generera sammanfattningsrapporter med [PowerBI](log-analytics-powerbi.md)
+* Generera sammanfattningsrapporter med [Power BI](log-analytics-powerbi.md)
 

@@ -1,27 +1,27 @@
 ---
-title: Felsöka tvåstegsverifiering | Microsoft Docs
+title: Felsöka tvåstegsverifiering - Azure AD | Microsoft Docs
 description: Det här dokumentet ger användare information om vad du gör om de stöter på ett problem med Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 keywords: flerfunktionsautentisering klienten, problem med autentisering, Korrelations-ID
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2017
-ms.author: barlan
+ms.author: lizross
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 995430a5c8a388358fcfb7c8c9bac978450df411
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e207a51b06563b38a85df47b0bac75293cccf040
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792267"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102719"
 ---
 # <a name="get-help-with-two-step-verification"></a>Få hjälp med tvåstegsverifiering
 Den här artikeln innehåller svar på de vanligaste frågorna om tvåstegsverifiering.
@@ -46,7 +46,7 @@ Vissa dagar du lämnar din telefon hemma, men fortfarande behöver logga in på 
 3. Välj verifieringsalternativ som du vill använda.
 4. Fortsätt med tvåstegsverifiering.
 
-Om du inte ser den **använder ett annat verifieringsalternativ** länkar, och det innebär att du inte konfigurera alternativa metoder när du först registrerade för tvåstegsverifiering. Kontakta företagets support för att få hjälp att logga in på ditt konto. När du har loggat in, se till att [hantera dina inställningar](multi-factor-authentication-end-user-manage-settings.md) att lägga till ytterligare verifieringsmetoderna för nästa gång.
+Om du inte ser den **använder ett annat verifieringsalternativ** länkar, och det innebär att du inte konfigurera alternativa metoder när du först registrerade för tvåstegsverifiering. Kontakta företagets support för att få hjälp att logga in på ditt konto. När du har loggat in, se till att [hantera dina inställningar](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md) att lägga till ytterligare verifieringsmetoderna för nästa gång.
 
 Om du ser den **använder ett annat verifieringsalternativ** länken, men inte har åtkomst till din alternativa metoder antingen, kontakta ditt företag som stöd för att få hjälp att logga in på ditt konto.
 
@@ -66,10 +66,10 @@ Följ dessa steg för att logga in med alternativa telefonnummer:
    ![Olika verifiering](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
 
 3. Välj det telefonnummer eller en enhet som du har åtkomst till.
-4. När du är tillbaka i ditt konto, [hantera dina inställningar](multi-factor-authentication-end-user-manage-settings.md) ändra telefonnummer för autentisering.
+4. När du är tillbaka i ditt konto, [hantera dina inställningar](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md) ändra telefonnummer för autentisering.
 
 ### <a name="clear-your-settings"></a>Rensa dina inställningar
-Du måste kontakta företagets support för hjälp om du inte har konfigurerat ett telefonnummer för sekundära autentiseringen. Be dem ta bort inställningarna så nästa gång du loggar in, uppmanas du att [registrera dig för tvåstegsverifiering](multi-factor-authentication-end-user-first-time.md) igen.
+Du måste kontakta företagets support för hjälp om du inte har konfigurerat ett telefonnummer för sekundära autentiseringen. Be dem ta bort inställningarna så nästa gång du loggar in, uppmanas du att [registrera dig för tvåstegsverifiering](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md) igen.
 
 ## <a name="i-am-not-receiving-a-text-or-call-on-my-phone"></a>Jag kan inte ta emot en text eller anropa på min telefon
 Det finns flera skäl till varför du kan försöka logga in, men inte ta emot text eller telefonsamtal. Om du har fått text eller samtal till din telefon tidigare, sedan är förmodligen ett problem med phone-providern inte ditt konto. Kontrollera att du har bra cell signal och om du försöker att ta emot ett textmeddelande kontrollerar du att du ska kunna ta emot textmeddelanden. Be en vän att anropa du eller text du som ett test.
@@ -83,16 +83,16 @@ Om du har väntat flera minuter innan ett textmeddelande eller samtal är det sn
 
     Använd det senaste om du har fått flera verifieringskoder.
 
-Om du inte har någon annan metod som har konfigurerats, kontakta företagets support och be dem ta bort dina inställningar. Nästa gång du loggar in, uppmanas du att [konfigurera multifaktorautentisering](multi-factor-authentication-end-user-first-time.md) igen.
+Om du inte har någon annan metod som har konfigurerats, kontakta företagets support och be dem ta bort dina inställningar. Nästa gång du loggar in, uppmanas du att [konfigurera multifaktorautentisering](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md) igen.
 
-Om du har ofta fördröjningar på grund av felaktiga cell signal, vi rekommenderar att du använder den [Microsoft Authenticator-appen](microsoft-authenticator-app-how-to.md) på din smartphone. Appen kan generera slumpmässigt säkerhetskoder som du använder för att logga in och dessa koder kräver inte någon cell signal eller internet-anslutning.
+Om du har ofta fördröjningar på grund av felaktiga cell signal, vi rekommenderar att du använder den [Microsoft Authenticator-appen](../../active-directory/authentication/end-user/current/microsoft-authenticator-app-how-to.md) på din smartphone. Appen kan generera slumpmässigt säkerhetskoder som du använder för att logga in och dessa koder kräver inte någon cell signal eller internet-anslutning.
 
 ## <a name="app-passwords-are-not-working"></a>Applösenord fungerar inte
-Kontrollera först att du har angett rätt applösenordet. Genererade applösenordet ersätter lösenordet normal, men endast för äldre program som inte stöder tvåstegsverifiering. Om det fortfarande inte fungerar, försök logga in och [skapa ett nytt applösenord](multi-factor-authentication-end-user-app-passwords.md).  Om det fortfarande inte fungerar kan kontakta företagets support och ha dem [ta bort dina befintliga applösenord](../../active-directory/authentication/howto-mfa-userdevicesettings.md) och du kan sedan skapa en ny.
+Kontrollera först att du har angett rätt applösenordet. Genererade applösenordet ersätter lösenordet normal, men endast för äldre program som inte stöder tvåstegsverifiering. Om det fortfarande inte fungerar, försök logga in och [skapa ett nytt applösenord](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-app-passwords.md).  Om det fortfarande inte fungerar kan kontakta företagets support och ha dem [ta bort dina befintliga applösenord](../../active-directory/authentication/howto-mfa-userdevicesettings.md) och du kan sedan skapa en ny.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Det gick inte att hitta ett svar till mitt problem.
 Om du har gjort dessa felsökningssteg men är fortfarande körs problem, kontakta företagets support. De ska kunna hjälpa dig.
 
 ## <a name="related-topics"></a>Relaterade ämnen
-* [Hantera inställningar för tvåstegsverifiering](multi-factor-authentication-end-user-manage-settings.md)  
-* [Microsoft Authenticator program vanliga frågor och svar](microsoft-authenticator-app-faq.md)
+* [Hantera inställningar för tvåstegsverifiering](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md)  
+* [Microsoft Authenticator program vanliga frågor och svar](../../active-directory/authentication/end-user/current/microsoft-authenticator-app-faq.md)

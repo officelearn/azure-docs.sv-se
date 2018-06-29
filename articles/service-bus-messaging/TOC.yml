@@ -126,6 +126,10 @@
               href: service-bus-amqp-request-response.md
         - name: Avancerade funktioner
           items:
+            - name: IP-anslutningsfilter
+              href: service-bus-ip-filtering.md
+            - name: Tjänstslutpunkter för virtuellt nätverk
+              href: service-bus-service-endpoints.md
             - name: Köer för obeställbara meddelanden
               href: service-bus-dead-letter-queues.md
             - name: Förhämtning av meddelanden

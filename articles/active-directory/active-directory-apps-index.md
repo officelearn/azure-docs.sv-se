@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ed1179663823bc5a16f3ef348a649731814cdd5a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: d091a56fd5190ea9b40f7933e217eabac87967a5
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293100"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098771"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Artikelindex för programhantering i Azure Active Directory
 Den här sidan innehåller en omfattande lista över alla dokument som skrivits om de olika program-relaterade funktionerna i Azure Active Directory (AD Azure).
@@ -54,8 +54,8 @@ Ger användare åtkomst till en mängd olika appar och tjänster med endast en u
 | Artikel Guide |  |
 |:---:| --- |
 | En introduktion till federation och andra typer av inloggning |[Enkel inloggning med Azure AD](manage-apps/what-is-single-sign-on.md) |
-| SaaS-appar som redan är integrerade med Azure AD med tusentals förenklad enkel inloggning konfigurationssteg |[Komma igång med Azure AD application gallery](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Fullständig lista över förintegrerade appar som har stöd för Federation](active-directory-saas-tutorial-list.md)<br /><br />[Lägga till din App i Appgalleriet för Azure AD](active-directory-app-gallery-listing.md) |
-| Fler än 150 app självstudier om hur du konfigurerar enkel inloggning för appar som [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), och mycket mer |[Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md) |
+| SaaS-appar som redan är integrerade med Azure AD med tusentals förenklad enkel inloggning konfigurationssteg |[Komma igång med Azure AD application gallery](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Fullständig lista över förintegrerade appar som har stöd för Federation](saas-apps/tutorial-list.md)<br /><br />[Lägga till din App i Appgalleriet för Azure AD](active-directory-app-gallery-listing.md) |
+| Fler än 150 app självstudier om hur du konfigurerar enkel inloggning för appar som [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md), och mycket mer |[Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](saas-apps/tutorial-list.md) |
 | Hur du manuellt konfigurera och anpassa din konfiguration för enkel inloggning |[Hur att konfigurera federerad enkel inloggning för appar som inte ingår i Azure Active Directory-Programgalleriet](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Anpassa anspråk som utfärdats i SAML-Token för förintegrerade appar](active-directory-saml-claims-customization.md) |
 | Felsökningsguide för federerade appar som använder SAML-protokoll |[Felsökning av SAML-baserade enkel inloggning](active-directory-saml-debugging.md) |
 | Hur du konfigurerar din app certifikatets förfallodatum och hur du förnyar certifikat |[Hantera certifikat för federerad enkel inloggning i Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
@@ -112,23 +112,18 @@ När du ställer in enkel inloggning till dina appar och resurser som kan du sed
 | Hur du aktiverar villkorlig åtkomst för följande typer av resurser |[Villkorlig åtkomst för SaaS-appar](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Villkorlig åtkomst för Office 365-tjänster](active-directory-conditional-access-device-policies.md)<br /><br />[Villkorlig åtkomst för lokala program](active-directory-conditional-access-azure-portal.md)<br /><br />[Villkorlig åtkomst för lokala program som publicerats via Azure AD App-Proxy](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Hur du registrerar enheter med Azure Active Directory för att aktivera principer för enhetsbaserad villkorlig åtkomst |[Översikt över Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Så här aktiverar du automatisk Enhetsregistrering för domänanslutna Windowsenheter](active-directory-conditional-access-automatic-device-registration.md)<br />– [Steg för Windows 8.1-enheter](active-directory-conditional-access-automatic-device-registration-setup.md)<br />– [Steg för Windows 7-enheter](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
-| Hur du använder Microsoft Authenticator-appen för tvåstegsverifiering | [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| Hur du använder Microsoft Authenticator-appen för tvåstegsverifiering | [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 Villkorlig åtkomst är en [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) funktion.
 
 ## <a name="apps--azure-ad"></a>Appar och Azure AD
-### <a name="cloud-app-discovery-find-which-saas-apps-are-being-used-in-your-organization"></a>Cloud App Discovery: Hitta vilka SaaS-appar som används i din organisation
-Cloud App Discovery hjälper IT-avdelningar information om vilka SaaS-appar används i hela organisationen. Det kan Mät appanvändning och dess popularitet så att den kan fastställa vilka appar kommer mest nytta av som ansluts under IT-kontroll och integreras med Azure AD.
+### <a name="cloud-discovery-find-which-saas-apps-are-being-used-in-your-organization"></a>Cloud Discovery: Hitta vilka SaaS-appar som används i din organisation
+Cloud Discovery analyserar dina trafikloggar mot Microsoft Cloud App Securitys molnappkatalogen över 16 000 molnet appar som rangordnas och poängsätts baserat på mer än 70 riskfaktorer använder för att tillhandahålla du pågående synlighet i molnet, Shadow IT och risken Skuggkopia IT utgör i din organisation.
 
 | Artikel Guide |  |
 |:---:| --- |
-| En allmän översikt över hur det fungerar |[Hitta ej sanktionerad molnprogram med Cloud App Discovery](manage-apps/cloud-app-discovery.md) |
-| En mer grundlig genomgång i hur det fungerar med svar på frågor om sekretess |[Säkerhet och överväganden för sekretess](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) |
-| Vanliga frågor och svar |[Vanliga frågor och svar för Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
-| Självstudier för distribution av Cloud App Discovery |[Handboken för distribution](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[Distributionsguiden för System Center](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[Installera på proxyservrar med anpassade portar](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |
-| Ändringsloggen för uppdateringar av Cloud App Discovery-agenten |[Ändringslogg](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx) |
+| En allmän översikt över hur det fungerar |[Konfigurera Cloud Discovery](/cloud-app-security/set-up-cloud-discovery) |
 
-Cloud App Discovery är en [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) funktion.
 
 ### <a name="automatically-provision-and-deprovision-user-accounts-in-saas-apps"></a>Automatiskt etablera och ta bort etableringen av användarkonton i SaaS-appar
 Automatisera skapande, underhållet och borttagningen av användaridentiteter i SaaS-program, till exempel Dropbox, Salesforce, ServiceNow med mera. Matchar och synkronisera befintliga identiteter mellan Azure AD och din SaaS-appar och kontrollera åtkomsten genom att automatiskt inaktivera konton när användarna lämnar organisationen.
@@ -160,9 +155,9 @@ För att hjälpa dig att hantera som ska ha åtkomst till vilka resurser, kan du
 
 | Artikel Guide |  |
 |:---:| --- |
-| En översikt över Azure AD access management-funktioner |[Introduktion till att hantera åtkomst till appar](manage-apps/what-is-access-management.md)<br /><br />[Hur Access Management arbetar i Azure AD](active-directory-manage-groups.md)<br /><br />[Använda grupper för att hantera åtkomst till SaaS-program](active-directory-accessmanagement-group-saasapps.md) |
+| En översikt över Azure AD access management-funktioner |[Introduktion till att hantera åtkomst till appar](manage-apps/what-is-access-management.md)<br /><br />[Hur Access Management arbetar i Azure AD](fundamentals/active-directory-manage-groups.md)<br /><br />[Använda grupper för att hantera åtkomst till SaaS-program](active-directory-accessmanagement-group-saasapps.md) |
 | Aktivera tjänsten hantering av appar och grupper |[Självbetjäning programhantering](active-directory-self-service-application-access.md)<br /><br />[Self-Service Group Management](active-directory-accessmanagement-self-service-group-management.md) |
-| Instruktioner för att konfigurera dina grupper i Azure AD |[Så här skapar du säkerhetsgrupper](active-directory-groups-create-azure-portal.md)<br /><br />[Hur du kan ange ägare för en grupp](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Hur du använder gruppen ”Alla användare”](active-directory-accessmanagement-dedicated-groups.md) |
+| Instruktioner för att konfigurera dina grupper i Azure AD |[Så här skapar du säkerhetsgrupper](fundamentals/active-directory-groups-create-azure-portal.md)<br /><br />[Hur du kan ange ägare för en grupp](fundamentals/active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Hur du använder gruppen ”Alla användare”](active-directory-accessmanagement-dedicated-groups.md) |
 | Använda dynamiska grupper för att automatiskt fylla i gruppmedlemskap med attributbaserad medlemskapsregler |[Dynamiska gruppmedlemskap: Avancerade regler](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Felsökning av dynamiska gruppmedlemskap](active-directory-accessmanagement-troubleshooting.md) |
 
 Hantering av grupp-baserade program är tillgängligt för [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) och [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Grupphantering via självbetjäning, självbetjäning programhantering och dynamiska grupper är [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) funktioner.
@@ -205,7 +200,7 @@ Azure Active Directory innehåller flera rapporter och aviseringar för att öve
 Att se vilka rapporter inkluderas i olika versioner av Azure Active Directory, [Klicka här](active-directory-view-access-usage-reports.md).
 
 ## <a name="see-also"></a>Se också
-[Vad är Azure Active Directory?](active-directory-whatis.md)
+[Vad är Azure Active Directory?](fundamentals/active-directory-whatis.md)
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)
 

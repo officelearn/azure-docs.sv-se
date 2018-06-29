@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 634cecb247686afd8c5c749d6e28b301d7e07c4f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d8966edb6061ed07f5aecb9682fca081ed589040
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263515"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083982"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Strömma Azure diagnostiska loggar till logganalys
 
@@ -30,7 +30,7 @@ Azure Log Analytics är en flexibel sökning och analyser för loggfiler som gö
 
 ## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Strömning av diagnostiska loggar till logganalys
 
-Du kan aktivera strömning av diagnostikloggar programmässigt via portalen eller med hjälp av den [Azure övervakaren REST API: er](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). Oavsett hur du skapar en diagnostikinställningen där du anger en logganalys-arbetsytan och logg kategorier och mått som du vill skicka i till arbetsytan. En diagnostik **loggen kategori** är en typ av logg som en resurs kan ge.
+Du kan aktivera strömning av diagnostikloggar programmässigt via portalen eller med hjälp av den [Azure övervakaren REST API: er](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). Oavsett hur du skapar en diagnostikinställningen där du anger en logganalys-arbetsytan och logg kategorier och mått som du vill skicka i till arbetsytan. En diagnostik **loggen kategori** är en typ av logg som en resurs kan ge.
 
 Logganalys-arbetsytan behöver inte finnas i samma prenumeration som resursen avger loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC åtkomst till båda prenumerationer.
 

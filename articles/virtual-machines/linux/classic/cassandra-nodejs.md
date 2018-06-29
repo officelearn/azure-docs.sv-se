@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 93cd4b6c4264c5905746b85f9fa46ce31ebd9e9f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: b1945c68f0e320c834ae93a590f420403263a0fd
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937677"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098948"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Kör en Cassandra kluster på Linux i Azure med Node.js
 
@@ -61,7 +61,7 @@ Observera att när detta skrivs Azure tillåter inte att explicit mappningen fö
 
 **Klustret frö:** är det viktigt att välja de flesta högtillgänglig noderna för frö när nya noder kommunicerar med seed noder vill identifiera topologin i klustret. En nod från varje tillgänglighetsuppsättning betecknas som seed noder för att undvika enskild felpunkt.
 
-**Replikering faktor och konsekvensnivå:** Cassandras inbyggda hög tillgänglighet och data hållbarhet kännetecknas av replikering faktor (RF - antal kopior av varje rad som lagras på klustret) och konsekvensnivå (antal replikerna att läsa/skriva innan resultatet returneras till anroparen). Replikering faktor anges under genereringen KEYSPACE (liknar en relationsdatabas) medan konsekvensnivå anges vid utfärdande CRUD-frågan. Se Cassandra dokumentation på [konfigurera konsekvent](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) konsekvenskontroll information och formel för beräkning av kvorum.
+**Replikering faktor och konsekvensnivå:** Cassandras inbyggda hög tillgänglighet och data hållbarhet kännetecknas av replikering faktor (RF - antal kopior av varje rad som lagras på klustret) och konsekvensnivå (antal replikerna att läsa/skriva innan resultatet returneras till anroparen). Replikering faktor anges under genereringen KEYSPACE (liknar en relationsdatabas) medan konsekvensnivå anges vid utfärdande CRUD-frågan. Se Cassandra dokumentation på [konfigurera konsekvent](https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlConfigConsistency.html) konsekvenskontroll information och formel för beräkning av kvorum.
 
 Cassandra stöder två typer av integritet datamodeller – konsekvens och slutliga konsekvensen; Replikering faktor och konsekvensnivå bestämmer tillsammans om data är konsekventa som en skrivåtgärd är slutförd eller överensstämmelse. Till exempel ange KVORUM som nivån konsekvens garanterar alltid data konsekvenskontroll när alla konsekvensnivå nedan antal repliker som ska skrivas efter behov för att uppnå KVORUM (till exempel en) resulterar i data som överensstämmelse.
 
@@ -75,8 +75,8 @@ Enskild region Cassandra klusterkonfiguration:
 | Replikering faktor (RF) |3 |Antal repliker på en viss rad |
 | Konsekvensnivå (skriva) |QUORUM[(RF/2) +1) = 2] är resultatet av formeln avrundas nedåt |Skriver högst 2 repliker innan svaret skickas till anroparens 3 replik är skriven i ett överensstämmelse sätt. |
 | Konsekvensnivå (läsa) |KVORUM [(RF/2) + 1 = 2] resultatet av formeln avrundas nedåt |Läser 2 repliker innan du skickar svar till anroparen. |
-| Replikeringsstrategi |NetworkTopologyStrategy Se [datareplikering](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) i Cassandra dokumentationen för mer information |Förstår topologi för distribution och placerar repliker på noder så att alla repliker inte slutar på samma rack. |
-| Snitch |GossipingPropertyFileSnitch Se [växlar](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) i Cassandra dokumentationen för mer information |NetworkTopologyStrategy använder ett koncept för snitch för att förstå topologin. GossipingPropertyFileSnitch ger bättre kontroll i varje nod att mappa till datacenter och rack. Klustret använder sedan ett för att sprida informationen. Detta är mycket enklare i dynamisk IP-inställningen i förhållande till PropertyFileSnitch |
+| Replikeringsstrategi |NetworkTopologyStrategy Se [datareplikering](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) i Cassandra dokumentationen för mer information |Förstår topologi för distribution och placerar repliker på noder så att alla repliker inte slutar på samma rack. |
+| Snitch |GossipingPropertyFileSnitch Se [växlar](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) i Cassandra dokumentationen för mer information |NetworkTopologyStrategy använder ett koncept för snitch för att förstå topologin. GossipingPropertyFileSnitch ger bättre kontroll i varje nod att mappa till datacenter och rack. Klustret använder sedan ett för att sprida informationen. Detta är mycket enklare i dynamisk IP-inställningen i förhållande till PropertyFileSnitch |
 
 **Azure överväganden för Cassandra kluster:** kapaciteten för Microsoft Azure-datorer använder Azure Blob storage för disk; Azure Storage sparar tre repliker för varje disk för hög hållbarhet. Det innebär att varje rad med data som infogas i en tabell med Cassandra lagras redan i tre repliker. Så är datakonsekvens redan tagit hand om även om replikering faktor (RF) är 1. Det huvudsakliga problemet med replikering faktor 1 är att programmet påträffar driftstopp även om en enskild nod Cassandra misslyckas. Om en nod avser problem (till exempel maskinvara, programvara systemfel) som identifieras av Azure-Infrastrukturkontrollanten, Etablerar det en ny nod i stället använda samma lagringsenheter. Etablera en ny nod för att ersätta det gamla kan ta några minuter.  På samma sätt för planerat underhållsaktiviteter som gäst-OS ändringar Cassandra uppgraderar och ändringar i programmet Azure-Infrastrukturkontrollanten utför rullande uppgraderingar av noderna i klustret.  Även rullande uppgraderingar kan ta bort några noder samtidigt och därför klustret kan ha kort driftstopp för några partitioner. Informationen är dock inte förlorade på grund av den inbyggda Azure Storage-redundansen.  
 
@@ -110,8 +110,8 @@ För ett system som kräver hög konsekvens, ser en LOCAL_QUORUM för konsekvens
 | Replikering faktor (RF) |3 |Antal repliker på en viss rad |
 | Konsekvensnivå (skriva) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] resultatet av formeln avrundas nedåt |2 noder skrivs till första datacentret synkront; ytterligare 2 noder som behövs för kvorum skrivs asynkront till 2 datacenter. |
 | Konsekvensnivå (läsa) |LOCAL_QUORUM ((RF/2) + 1) = 2 resultatet av formeln avrundas nedåt |Läs begäranden uppfylls från en enda region. 2 noder är skrivskyddade innan svaret skickas tillbaka till klienten. |
-| Replikeringsstrategi |NetworkTopologyStrategy Se [datareplikering](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) i Cassandra dokumentationen för mer information |Förstår topologi för distribution och placerar repliker på noder så att alla repliker inte slutar på samma rack. |
-| Snitch |GossipingPropertyFileSnitch Se [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) i Cassandra dokumentationen för mer information |NetworkTopologyStrategy använder ett koncept för snitch för att förstå topologin. GossipingPropertyFileSnitch ger bättre kontroll i varje nod att mappa till datacenter och rack. Klustret använder sedan ett för att sprida informationen. Detta är mycket enklare i dynamisk IP-inställningen i förhållande till PropertyFileSnitch |
+| Replikeringsstrategi |NetworkTopologyStrategy Se [datareplikering](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) i Cassandra dokumentationen för mer information |Förstår topologi för distribution och placerar repliker på noder så att alla repliker inte slutar på samma rack. |
+| Snitch |GossipingPropertyFileSnitch Se [Snitches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) i Cassandra dokumentationen för mer information |NetworkTopologyStrategy använder ett koncept för snitch för att förstå topologin. GossipingPropertyFileSnitch ger bättre kontroll i varje nod att mappa till datacenter och rack. Klustret använder sedan ett för att sprida informationen. Detta är mycket enklare i dynamisk IP-inställningen i förhållande till PropertyFileSnitch |
 
 ## <a name="the-software-configuration"></a>KONFIGURATION AV PROGRAMVARA
 Följande programvaruversioner används under distributionen:

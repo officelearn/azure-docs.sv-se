@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 893888904b6afc583c3c20b94d08eb3255a98cad
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 7c490aa958cf9e78c260dd0fbcf7952b55d8d88c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304432"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096185"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure DB Cosmos bulk utföraren biblioteket – översikt
  
@@ -33,7 +33,7 @@ Massinläsning utföraren biblioteket kan du utnyttja den här omfattande genoms
  
 * Det minskar avsevärt klientsidan beräkningsresurser som behövs för att fylla genomströmning som allokerats till en behållare. Ett enda flertrådade program som skriver data med hjälp av bulk import API uppnår 10 gånger större genomströmning för skrivning jämfört med ett flertrådat program som skriver data parallellt medan att överbelastas klienten datorns processor.  
 
-* Den avlägsnar direkt tråkigt uppgifter för att skriva programlogiken till att hantera begäran begränsning begäran-timeout och andra tillfälligt undantag genom att effektivt hantera dem i biblioteket.  
+* Den avlägsnar direkt tråkigt uppgifter för att skriva programlogiken till att hantera hastighetsbegränsning begäran, begäran-timeout och andra tillfälligt undantag genom att effektivt hantera dem i biblioteket.  
 
 * Det ger en förenklad mekanism för program som utför massåtgärder ska skalas ut. En enda grupp utföraren-instans som körs på en Azure VM kan använda större än 500 K RU/s och du kan uppnå högre hastighet för dataflödet genom att lägga till ytterligare instanser på enskilda klienten virtuella datorer.  
  
@@ -47,7 +47,7 @@ När en massåtgärd att importera eller uppdatera dokument utlöses med en batc
 
 ![Massinläsning utföraren arkitektur](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-Bulk utföraren biblioteket ser till att använda högst genomströmning som allokerats till en samling. Den använder en [AIMD-format överbelastning kontrollen mekanism](https://tools.ietf.org/html/rfc5681) för varje Azure Cosmos DB partitions viktiga intervallet att effektivt hantera begränsning och timeout. 
+Bulk utföraren biblioteket ser till att använda högst genomströmning som allokerats till en samling. Den använder en [AIMD-format överbelastning kontrollen mekanism](https://tools.ietf.org/html/rfc5681) partitions viktiga intervallet att effektivt hantera hastighetsbegränsning och timeout för varje Azure Cosmos-DB. 
 
 ## <a name="next-steps"></a>Nästa steg 
   

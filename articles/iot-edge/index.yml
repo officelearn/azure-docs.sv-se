@@ -9,14 +9,14 @@ metadata:
   ms.service: iot-edge
   services: iot-edge
   ms.topic: landing-page
-  ms.date: 01/08/2018
+  ms.date: 06/21/2018
   ms.author: kgremban
-  ms.openlocfilehash: 6d46719a31e5ebd41276a1f6988180518fcbf9bb
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+  ms.openlocfilehash: 4c2ffde78b2a29601722f4233c69c99b37f332d5
+  ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34631096"
+  ms.lasthandoff: 06/27/2018
+  ms.locfileid: "37028548"
 abstract:
   description: Azure IoT Edge är en tjänst för Sakernas Internet (IoT) som bygger på IoT Hub. Den här tjänsten är avsedd för kunder som vill analysera data på enheter, dvs. ”vid gränsen”, i stället för i molnet. När delar av din arbetsbelastning flyttas till Edge kan dina enheter ägna mindre tid åt att skicka meddelanden till molnet och i stället reagera snabbare på tillståndsändringar.
 sections:
@@ -35,10 +35,6 @@ sections:
         src: https://docs.microsoft.com/media/logos/logo_linux-color.svg
       text: Linux
       href: /azure/iot-edge/quickstart-linux
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_macos.svg
-      text: Mac
-      href: /azure/iot-edge/quickstart-linux
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
@@ -46,9 +42,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/iot-edge/tutorial-simulate-device-windows">Simulera en IoT Edge-enhet i Windows</a>
-    - html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">Simulera en IoT Edge-enhet i Linux eller MacOS</a>
-    - html: <a href="/azure/iot-edge/tutorial-csharp-module">Utveckla och distribuera en C#-modul</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Distribuera Azure Stream Analytics som en modul</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Distribuera Azure Machine Learning som en modul</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-function">Distribuera Azure Functions som en modul</a>
+    - html: <a href="/azure/iot-edge/tutorial-deploy-function">Filtrera meddelanden med Azure Functions</a>
+    - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Hitta medelvärden med Azure Stream Analytics som en modul</a>
+    - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Bedöma data med Azure Machine Learning som en modul</a>
+    - html: <a href="/azure/iot-edge/tutorial-csharp-module">Filtrera data med en C#-modul</a>
+    - html: <a href="/azure/iot-edge/tutorial-python-module">Filtrera data med en Python-modul</a>
+    - html: <a href="/azure/iot-edge/tutorial-node-module">Filtrera data med en Node.js-modul</a>
+    - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Lagra data på gränsen med SQL Server</a>

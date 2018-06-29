@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: v-geberr
-ms.openlocfilehash: 20950ced66497fb0dc96365975b37f244f677ce3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: MT
+ms.openlocfilehash: 37d67bef7712012a95543041744706b240b16e2d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266387"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085505"
 ---
-# <a name="use-prebuilt-intents-and-entities-to-handle-common-intents-and-data"></a>Använda fördefinierade avsikter och enheter för att hantera vanliga avsikter och data
+# <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Självstudier: 2. Lägg till fördefinierade avsikter och entiteter
 Lägger till fördefinierade avsikter och entiteter för personalavdelningen quickstart app att snabbt få avsiktshantering extrahering av prognoser och data. 
 
 I den här guiden får du lära dig hur man:
@@ -28,16 +28,16 @@ I den här guiden får du lära dig hur man:
 * Fråga THOMAS och förutsägelse svar
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen personal från den [domänen](luis-quickstart-intents-only.md) Snabbstart, [importera](create-new-app.md#import-new-app) JSON till en ny app i den [THOMAS] [ LUIS] webbplats , från den [THOMAS prover](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github-lagringsplatsen.
+Om du inte har den [personal](luis-quickstart-intents-only.md) app från föregående självstudierna [importera](create-new-app.md#import-new-app) JSON till en ny app i den [THOMAS](luis-reference-regions.md#luis-website) webbplats, från den [THOMAS-exempel ](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github-lagringsplatsen.
 
-Om du vill behålla ursprungliga personal appen klona versionen på den [inställningar](luis-how-to-manage-versions.md#clone-a-version) sidan och ge den namnet `prebuilts`. Kloningen är ett bra sätt att spela med olika THOMAS funktioner utan att påverka den ursprungliga versionen. 
+Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `prebuilts`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
 ## <a name="add-prebuilt-intents"></a>Lägg till fördefinierade avsikter
 THOMAS innehåller flera fördefinierade avsikter att hjälpa med vanliga användare avsikter.  
 
-1. Kontrollera att din app finns i den **skapa** avsnitt i THOMAS. Du kan ändra till det här avsnittet genom att välja **skapa** Högerklicka menyfältet högst upp. 
+1. Kontrollera att din app finns i den **skapa** avsnitt i THOMAS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
 
-    [ ![Skärmbild av THOMAS app med Build hightlighted i övre, höger navigeringsfält](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
+    [ ![Skärmbild på LUIS-app med Build (Skapa) markerat i navigeringsfältet längst upp till höger](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
 2. Välj **lägga till färdiga domän avsikt**. 
 
@@ -71,20 +71,20 @@ THOMAS innehåller flera fördefinierade enheter för vanliga extrahering av dat
     ![Skärmbild av antalet Välj i dialogrutan för färdiga entiteter](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
 ## <a name="train-and-publish-the-app"></a>Träna och publicera appen
-1. I upp till höger på THOMAS webbplatsen, väljer du den **Train** knappen. 
+1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Train** (Träna). 
 
     ![Train-knappen](./media/luis-quickstart-intents-only/train-button.png)
 
-    Utbildning är klar när du ser grön statusfältet längst upp på webbplatsen bekräftar lyckades.
+    Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
 
     ![Utbildade statusfältet](./media/luis-quickstart-intents-only/trained.png)
 
-2. I övre högra sidan av webbplatsen THOMAS väljer den **publicera** knappen för att öppna sidan Publicera. Produktionsplatsen väljs som standard. Välj den **publicera** knappen av produktion fack val. Publiceringen är klar när du ser grön statusfältet längst upp på webbplatsen bekräftar lyckades.
+2. I övre högra sidan av webbplatsen THOMAS väljer den **publicera** knappen för att öppna sidan Publicera. Produktionsplatsen väljs som standard. Välj den **publicera** knappen av produktion fack val. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
 
     Du behöver inte skapa en THOMAS nyckel i Azure-portalen innan du publicerar eller innan du testar slutpunkts-URL. Varje THOMAS app har en kostnadsfri starter för redigering. Den ger dig obegränsad redigering och en [några endpoint träffar](luis-boundaries.md#key-limits). 
 
 ## <a name="query-endpoint-with-an-utterance"></a>Frågan slutpunkt med ett utterance
-På den **publicera** väljer den **endpoint** länken längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. Gå till slutet av URL-Adressen i adressen och ange `I want to cancel on March 3`. Den sista parametern för frågesträngen är `q`, utterance **frågan**. 
+På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. Gå till slutet av URL:en i adressen och ange `I want to cancel on March 3`. Den sista parametern för frågesträngen är `q`, utterance **frågan**. 
 
 Resultatet förutsade Utilities.Cancel avsikten och extraheras datumet för 3 mars och talet 3. 
 
@@ -167,8 +167,6 @@ Snabbt och enkelt lägger du till fördefinierade avsikter och entiteter, klient
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Mer information om entiteter](luis-concept-entity-types.md). 
+> [!div class="nextstepaction"]
+> [Lägga till ett reguljärt uttryck entitet i appen](luis-quickstart-intents-regex-entity.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

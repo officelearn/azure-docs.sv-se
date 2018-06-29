@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: e2512a2af05ee7101713886c3ae1b5c6c74dd3db
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 1a874e31c05d287522810782f743d389c86dbe27
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018546"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098931"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 Dessa viktig information för Azure Media Services sammanfattar ändringar från tidigare versioner och kända problem.
@@ -366,7 +366,7 @@ Följande felkorrigeringar har gjorts för Azure Media Services Paketeraren och 
 
 ## <a id="may_changes_14"></a>Kan 2014-versionen
 ### <a id="may_14_changes"></a>Allmän Media Services-uppdateringar
-Du kan nu använda [dynamisk paketering] till strömmen HLS version 3. Dataströmmen HLS version 3, lägga till följande format till locator ursprungssökväg: * .ism/manifest(format=m3u8-aapl-v3). Mer information finns i [bloggen](http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/).
+Du kan nu använda [dynamisk paketering] till strömmen HLS version 3. Dataströmmen HLS version 3, lägga till följande format till locator ursprungssökväg: * .ism/manifest(format=m3u8-aapl-v3). Mer information finns i [forumet](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
 
 Dynamisk paketering nu stöder också leverera HLS (version 3 och version 4) som krypterats med PlayReady baserat på Smooth Streaming statiskt krypteras med PlayReady. Mer information om hur du krypterar Smooth Streaming med PlayReady finns [skydda Smooth Streaming med PlayReady](http://msdn.microsoft.com/library/azure/dn189154.aspx).
 

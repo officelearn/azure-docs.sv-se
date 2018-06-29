@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 10b5fbe0a03d3ea712edc9df603bbcea5e188a02
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 5529a4510b6d9f005dc46165e1be799585e5a153
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296540"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100852"
 ---
 Här följer begränsningarna för användning och andra tjänstebegränsningar för Azure Active Directory-tjänsten.
 
 | Kategori | Begränsningar |
 | --- | --- |
-| Kataloger |En enskild användare kan associeras med högst 20 Azure Active Directory-kataloger.<br />Exempel på möjliga kombinationer: <ul> <li>En enskild användare skapar 20 kataloger.</li><li>En enskild användare läggs till i 20 kataloger som medlem.</li><li>En enskild användare skapar 10 kataloger som senare läggs till av andra i 10 olika kataloger.</li></ul> |
+| Kataloger |En enskild användare kan associeras med högst 500 Azure Active Directory-kataloger.<br />Exempel på möjliga kombinationer: <ul> <li>En enskild användare skapar 500 kataloger.</li><li>En enskild användare läggs till 500 kataloger som en medlem.</li><li>En enskild användare skapar 250 kataloger och senare har lagts till av andra till 250 olika kataloger.</li></ul> |
 | Domäner | Du kan lägga till mer än 900 hanterade domännamn. Om du ställer in alla för federation med lokala Active Directory-domäner, kan du lägga till mer än 450 domännamn i varje katalog. |
 | Objekt |<ul><li>Högst 500 000 objekt kan skapas i en katalog med användare av den kostnadsfria versionen av Azure Active Directory.</li><li>En icke-administratör kan skapa högst 250 objekt.</li></ul> |
 | Schematillägg |<ul><li>Strängtypen tillägg kan innehålla maximalt 256 tecken. </li><li>Tillägg av typen binary är begränsade till 256 byte.</li><li>100 tilläggsvärden (över ALLA typer och ALLA program) kan skrivas till ett enskilt objekt.</li><li>Endast entiteter av typen ”User”, ”Group”, ”TenantDetail”, ”Device”, ”Application” och ”ServicePrincipal” kan utökas med typen ”String” eller enkelvärdesattribut av typen ”Binary”.</li><li>Schematillägg är bara tillgängliga i Graph API-version 1.21-preview. Programmet måste beviljas skrivbehörighet för att det ska vara möjligt att registrera ett tillägg.</li></ul> |

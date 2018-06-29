@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 826daae9c5d9cf5cd169651ab8603cef938e6482
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 48723a68fcad79ab7c4c670da78c95de3ea5868f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030044"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100546"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt för Azure-stacken
 
@@ -204,7 +204,7 @@ Microsoft Azure-stacken stöder följande Azure Marketplace virtuella datorer oc
 | ![Forum för enkel datorer](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Forum för enkel datorer](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | Enkel forum programvara att skapa egna online-community. | Bitnami |
 | ![Spree](media/azure-stack-marketplace-azure-items/spree.png) | [Spree](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.spree) | Lätt att använda e-handel plattform. | Bitnami |
 | ![Subversion](media/azure-stack-marketplace-azure-items/subversion.png) | [Subversion](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.subversion) | Kontrollsystem för öppen källkod version. | Bitnami |
-| ![SugarCRM](media/azure-stack-marketplace-azure-items/sugarcrm.png) | [SugarCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.sugarcrm) | Flexibla kunden hanteringslösning för relationen. | Bitnami |
+| ![SugarCRM](media/azure-stack-marketplace-azure-items/sugarcrm.png) | [SugarCRM](https://azuremarketplace.microsoft.com/marketplace/apps/aad.sugarcrm) | Flexibla kunden hanteringslösning för relationen. | Bitnami |
 | ![SuiteCRM](media/azure-stack-marketplace-azure-items/suitecrm.png) | [SuiteCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.suitecrm) | Populära företagsklass CRM-programmet. | Bitnami |
 | ![Testlänk](media/azure-stack-marketplace-azure-items/testlink.png) | [Testlänk](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.testlink) | Testa hanteringsprogramvara underlätta kvalitet säkerhet. | Bitnami |
 | ![Tiki Wiki CMS grupprogram](media/azure-stack-marketplace-azure-items/tikiwikicmsgroupware.png) | [Tiki Wiki CMS grupprogram](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tikiwikicmsgroupware) | Komplett funktionalitet wiki plattform. | Bitnami |
@@ -233,5 +233,5 @@ Microsoft Azure-stacken stöder följande Azure Marketplace virtuella datorer oc
 | ![Brandvägg för PT-program](media/azure-stack-marketplace-azure-items/pt.png) | [Brandvägg för PT-program](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | Brandvägg för PT program identifierar kända & okänd säkerhetsrisker och förebygger attacker i webbprogram. <b>Ladda ned båda PT Marketplace-objekt.</b> | Positivt tekniker |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kan du automatisera hela livscykeln för din Azure Stack-infrastruktur. <b>Ladda ned båda Puppet Marketplace-objekt.</b> | Puppet |
 | ![Begäran om förnyelse snabb återställning](media/azure-stack-marketplace-azure-items/quest.png) | [Begäran om förnyelse snabb återställning kärnor](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Snabb återställning avancerade dataskydd förenar säkerhetskopiering, replikering och återställning i en enkel att använda en lösning. | Begäran om förnyelse programvara |
-| ![SUSE Manager 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Bäst i klassen infrastrukturhantering för öppen källkod. | SUSE |
+| ![SUSE Manager 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | Bäst i klassen infrastrukturhantering för öppen källkod. | SUSE |
 | ![Verktyget ZeroDown program](media/azure-stack-marketplace-azure-items/zerodown.png) | [Verktyget ZeroDown program ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown programvara verktyget v7.1 - migrera + hög tillgänglighet. | ZeroDown programvara |

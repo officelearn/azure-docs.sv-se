@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cfac573bc9f1bdec3fd884f8090e11514f1e93b3
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: b5adc1bb5a5aae96f37cc312588aa71e57d8342e
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604717"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083234"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack certifikat signering begäran generation
 
@@ -30,8 +30,6 @@ Verktyget Azure Stack beredskap Checker (AzsReadinessChecker) utför följande c
 
  - **Standard certifikatbegäranden**  
     Begära enligt [generera PKI-certifikat för distribution av Azure-stacken](azure-stack-get-pki-certs.md).
- - **Typ av begäran**  
-    Anger om Certifikatsigneringsförfrågan ska vara en enskild begäran eller flera begäranden.
  - **Plattform som en tjänst**  
     Du kan också begära plattform som en tjänst (PaaS) namn på certifikat som anges i [Azure Stack infrastruktur för offentliga nycklar certifikatkrav - valfria PaaS certifikat](azure-stack-pki-certs.md#optional-paas-certificates).
 
@@ -98,22 +96,22 @@ Följ dessa steg för att förbereda och validera Azure Stack PKI-certifikat:
     > [!note]  
     > `<regionName>.<externalFQDN>` utgör grunden som alla externa DNS-namn i Azure-stacken skapas i det här exemplet, portalen att `portal.east.azurestack.contoso.com`.  
 
-6. Generera en enda certifikatbegäran med flera Alternativt ämnesnamn:
+6. Att generera certifikatsigneringsbegäran för varje DNS-namn:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    ````
+
+    Om du vill inkludera ange PaaS Services växeln ```-IncludePaaS```
+
+7. Du kan också för utveckling och testning miljöer. Generera en enda certifikatbegäran med flera Alternativt ämnesnamn lägga till **- RequestType SingleCSR** och värdet (**inte** rekommenderas för produktionsmiljöer):
 
     ```PowerShell  
     Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
     Om du vill inkludera ange PaaS Services växeln ```-IncludePaaS```
-
-7. Att skapa enskilda certifikatsigneringsbegäran för varje DNS-namn:
-
-    ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ````
-
-    Om du vill inkludera ange PaaS Services växeln ```-IncludePaaS```
-
+    
 8. Granska utdata:
 
     ````PowerShell  

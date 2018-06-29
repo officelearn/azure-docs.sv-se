@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 97eca81a8ddc2726bf5de0f4ad7ba0bdf1df1d05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 78b3288cf4973efa2684252581000d0e4fc56cae
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220092"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083006"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Använda övervakningsdata från Azure
 
@@ -28,7 +28,7 @@ I Azure-plattformen levererar vi tillsammans övervakningsdata i en enda plats m
 | Anpassade eller ett program mått | Mått | Alla program som instrumenterats med Application Insights | <ul><li>**REST-API:** [Programinsikter REST-API](https://dev.applicationinsights.io/reference)</li></ul> |
 | Storage-mätvärden | Mått | Azure Storage | <ul><li>**Tabell för lagring:** [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Faktureringsinformation | Mått | Alla Azure-tjänster | <ul><li>**REST-API:** [Azure Resursanvändning och RateCard API: er](../billing/billing-usage-rate-card-overview.md)</li></ul> |
-| Aktivitetslogg | Händelser | Alla Azure-tjänster | <ul><li>**REST-API:** [Azure övervaka händelser API](https://docs.microsoft.com/rest/api/monitor/events)</li><li>**Storage-blob eller händelse hubb:** [Log-profil](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
+| Aktivitetslogg | Händelser | Alla Azure-tjänster | <ul><li>**REST-API:** [Azure övervaka händelser API](https://docs.microsoft.com/en-us/rest/api/monitor/eventcategories)</li><li>**Storage-blob eller händelse hubb:** [Log-profil](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
 | Azure-Monitor diagnostikloggar | Händelser | [Visa lista här](monitoring-diagnostic-logs-schema.md) | <ul><li>**Storage-blob eller händelse hubb:** [diagnostikinställningar](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
 | Beräkna gäst OS-loggar (t.ex. IIS, ETW, systemloggar) | Händelser | [Windows](../virtual-machines-dotnet-diagnostics.md) och virtuella Linux-datorer (v2), [molntjänster](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Tabell för lagring eller blob:** [Windows eller Linux-Azure-diagnostik](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Händelsehubb:** [Windows Azure-diagnostik](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | Apptjänst loggar | Händelser | App Services | <ul><li>**Fil-, tabell- eller blob storage:** [Web appdiagnostik](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |

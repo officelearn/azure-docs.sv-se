@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b3b9228c0733d34ea909a501e8ca6f9e11948381
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 58e3646588e500c4dd5334966d559aaed333b689
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825248"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083169"
 ---
 # <a name="become-a-publisher-in-the-storefronts-on-the-marketplace"></a>Bli utgivare i skyltfönster på marketplace  
 Följande steg hjälper dig att registrera som utgivare i skyltfönster på marketplace. Baserat på dina befintliga interaktion med Microsoft och valts listtyp, kanske några av de följande stegen inte krävs.  
@@ -30,7 +30,6 @@ Följande steg hjälper dig att registrera som utgivare i skyltfönster på mark
 | 2 | Skapa ett Microsoft-ID | 15 minuter | [Skapa ett Microsoft-ID](#create-a-microsoft-id) |  
 | 3 | Skicka formuläret marketplace kandidat | 1-3 dagar | [Skicka formuläret marketplace kandidat](#submit-the-marketplace-nomination-form) |  
 | 4 | Registrera i Microsoft Developer Center (Dev Center) | 5-10 dagar | [Registrera i Dev Center](#register-in-dev-center) |  
-| 5 | Logga in på AppSource | 15 minuter | [Logga in på AppSource](#sign-into-appSource) |  
 | 5 |  Logga in på partnerportalen för molnet | 15 minuter | [Logga in på partnerportalen för molnet](#sign-into-cloud-partner-portal) |  
 
 ## <a name="register-in-microsoft-partner-network"></a>Registrera i Microsoft Partner Network  
@@ -81,18 +80,6 @@ Det krävs ett Dev Center-konto för publishing appar som har Transact listtyp; 
 >[!Important]
 >Innan du försöker skapa ett Dev Center-konto kan du kontrollera att ditt företag inte redan har ett Dev Center-konto. 
 >*   Mer information finns i [så att registrera i Dev Center](#how-to-register-in-dev-center) avsnitt.  
-
----  
-
-## <a name="sign-into-appsource"></a>Logga in på AppSource  
-| 15 minuter |  
-När din kandidat har godkänts och du har registrerat i både MPN och Dev Center har marketplace-konto skapats med åtkomst till AppSource. Första gången inloggningsuppgifter skickas i din e-post för kandidat godkännande. 
-*   För att komma åt MPN finns på sidan medlemskap i [partner.microsoft.com/membership](https://partner.microsoft.com/membership).  
-*   Besök sidan finns i Windows Dev Center för att komma åt Dev Center [dev.windows.com](https://dev.windows.com).  
-*   För att komma åt AppSource finns på sidan AppSource på [appsource.microsoft.com](https://appsource.microsoft.com).  
-*   För att komma åt Microsoft Cloud partnerportalen finns i molnet partnerportalen sidan finns på [cloudpartner.azure.com](https://cloudpartner.azure.com).  
-*   Mer information om hur du använder molntjänster partnerportalen finns i avsnittet Mer information finns i [cloudpartner.azure.com/#Learn](https://cloudpartner.azure.com/#Learn).  
-*   Dokumentation om molnet partnerportalen finns i avsnittet dokumentation finns på [cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation).  
 
 ---  
 

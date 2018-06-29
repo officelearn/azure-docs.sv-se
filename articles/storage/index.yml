@@ -3,24 +3,24 @@ documentType: LandingData
 title: Azure Storage-dokumentation
 metadata:
   title: Dokumentation om Azure Storage – Självstudier, API-referens | Microsoft Docs
-  description: Azure Storage är en Microsoft-hanterad molntjänst som tillhandahåller lagring som är mycket tillgänglig, säker, beständig, skalbar och redundant. Azure Storage består av Blob Storage, File Storage och Queue Storage.
+  description: Azure Storage är en Microsoft-hanterad molntjänst som tillhandahåller lagring som är mycket tillgänglig, säker, beständig, skalbar och redundant. Azure Storage omfattar Azure-blobar, Azure Data Lake Storage Gen2, Azure Files, Azure-köer och Azure-tabeller.
   services: storage
   author: tamram
-  manager: jeconnoc
+  manager: twooley
   ms.service: storage
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/18/2018
+  ms.date: 06/27/2018
   ms.author: tamram
-  ms.openlocfilehash: 0e8c2b7048ff9e59612e13a87506bf1209036ca6
-  ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+  ms.openlocfilehash: a2254967a9f7338e29105682ea6d496271bbbe75
+  ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/19/2018
-  ms.locfileid: "36266679"
+  ms.lasthandoff: 06/27/2018
+  ms.locfileid: "37030299"
 abstract:
-  description: Microsoft Azure Storage är en Microsoft-hanterad molntjänst som tillhandahåller lagring som är mycket tillgänglig, säker, beständig, skalbar och redundant. Azure Storage består av Blob Storage, File Storage och Queue Storage.  Lär dig att utnyttja Azure Storage i dina program med våra snabbstarter och självstudier.
+  description: Azure Storage är en Microsoft-hanterad tjänst som tillhandahåller lagring i molnet som är mycket tillgänglig, säker, beständig, skalbar och redundant. Azure Storage omfattar Azure-blobar (objekt), Azure Data Lake Storage Gen2, Azure Files, Azure-köer och Azure-tabeller. Lär dig att utnyttja Azure Storage i dina program med våra snabbstarter och självstudier.
 sections:
 - title: Snabbstarter på 5 minuter
   items:
@@ -65,30 +65,25 @@ sections:
       - href: /azure/storage/blobs/storage-quickstart-blobs-java
       - href: /azure/storage/blobs/storage-quickstart-blobs-python
       - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
+    - title: Data Lake Storage Gen2
+      values:
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-the-azure-portal
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-powershell
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-azure-cli
+      - href: 
+      - href: 
+      - href: 
+      - href: 
 - title: Stegvisa självstudier
   items:
-  - type: paragraph
-    text: Lär dig att överföra och bearbeta bilddata i molnet.
   - type: list
-    style: unordered
+    style: cards
+    className: cardsD
     items:
-    - html: <a href="/azure/storage/blobs/storage-upload-process-images">Ladda upp och hämta avbildningsdata i molnet</a>
-    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Utlösa Azure Functions för att bearbeta blobar</a>
-    - html: <a href="/azure/storage/blobs/storage-secure-access-application">Skydda programdata</a>
-    - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Övervaka och felsöka lagring</a>
-  - type: paragraph
-    text: Lär dig att utforma ditt program för hög tillgänglighet i Azure Storage.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Skapa hög tillgänglighet för dina programdata</a>
-    - html: <a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Simulera ett fel vid läsåtkomst till redundant lagring</a>
-  - type: paragraph
-    text: Lär dig hur du söker efter ostrukturerade data i Azure Storage.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/storage/blobs/storage-unstructured-search">Söka efter ostrukturerade data i molnlagring</a>
+    - title: Blobar
+      html: <p>Ladda upp och bearbeta avbildningsdata i molnet</p><ul><li><a href="/azure/storage/blobs/storage-upload-process-images">Ladda upp och hämta avbildningsdata i molnet</a></li><li><a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Utlösa Azure Functions för att bearbeta blobar</a></li><li><a href="/azure/storage/blobs/storage-secure-access-application">Skydda programdata</a></li><li><a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Övervaka och felsöka lagring</a></li></ul><p>Utforma ditt program för hög tillgänglighet</p><ul><li><a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Skapa hög tillgänglighet för dina programdata</a></li><li><a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Simulera ett fel vid läsåtkomst till redundant lagring</a></li></ul><p><a href="/azure/storage/blobs/storage-unstructured-search">Söka efter ostrukturerade data i Azure Storage</a></p>
+    - title: Data Lake Storage Gen2
+      html: <p><a href="/azure/storage/data-lake-storage/handle-data-using-databricks">Extrahera, transformera och läsa in data med Azure Databricks</a></p><p><a href="/azure/storage/data-lake-storage/using-databricks-spark">Få åtkomst till Azure Data Lake Storage Gen2-data med DataBricks med hjälp av Spark</a></p><p><a href="/azure/storage/data-lake-storage/tutorial-extract-transform-load-hive">Extrahera, transformera och läsa in data med Apache Hive på Azure HDInsight</a></p>
 - title: Exempel
   items:
   - type: paragraph

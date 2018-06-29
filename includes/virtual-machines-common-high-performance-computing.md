@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/11/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-ms.translationtype: HT
+ms.openlocfilehash: b8bbcf81f48e82417a0d51e29f7dd8ce76681fed
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34152231"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37095343"
 ---
 Organisationer har storskaliga behov. De här stort Compute arbetsbelastningarna inkluderar teknisk design och analys, finansiella risk beräkningar avbildningen återgivning, komplexa modellering, Monte Carlo-simulering och mer. 
 
@@ -40,7 +40,7 @@ Använd Azure-molnet för att köra effektivt beräkningsintensiva Linux och Win
     * Kör Azure-aktiverade tekniker och simulering lösningar från leverantörer inklusive [Altair](http://www.altair.com/), [skala om](https://www.rescale.com/azure/), och [cykel Computing](https://cyclecomputing.com/) (nu [kopplas till Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).
     * Använd en [Cray superdator](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure) som en tjänst som finns i Azure.
 * **Marketplace-lösningar**
-    * Använd skala [HPC-program](#hpc-applications) och [lösningar](#marketplace-solutions) erbjuds i den [Azure Marketplace](https://azuremarketplace.microsoft.com/). 
+    * Använd skala [HPC-program](#hpc-applications) och [lösningar](#marketplace-solutions) erbjuds i den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). 
     
 
 
@@ -64,7 +64,7 @@ Besök den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplac
  
 ## <a name="hpc-applications"></a>HPC-program
 
-Kör anpassade eller kommersiella HPC-program i Azure. Flera exempel i det här avsnittet är jämfört med om du vill skala ett effektivt sätt med ytterligare virtuella datorer eller compute kärnor. Besök den [Azure Marketplace](https://marketplace.azure.com) redo att distribuera lösningar.
+Kör anpassade eller kommersiella HPC-program i Azure. Flera exempel i det här avsnittet är jämfört med om du vill skala ett effektivt sätt med ytterligare virtuella datorer eller compute kärnor. Besök den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) redo att distribuera lösningar.
 
 > [!NOTE]
 > Kontrollera med leverantören av kommersiella program för licensiering eller andra begränsningar för körs i molnet. Alla leverantörer erbjuder inte licensiering enligt modellen Betala per användning. Du kanske behöver licensieringsservern i molnet för din lösning eller ansluta till en lokal server.

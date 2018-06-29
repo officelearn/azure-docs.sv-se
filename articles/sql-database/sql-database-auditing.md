@@ -9,12 +9,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: f187a5fe1541f5508e55443abe80fc295ee63c87
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751051"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081463"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 Azure SQL database auditing spårar databashändelser och skriver dem till en granskningslogg logga i Azure storage-konto. Granskning också:
@@ -62,20 +62,18 @@ En granskningsprincip kan definieras för en viss databas eller som en standardp
 I följande avsnitt beskrivs konfigurationen av granskning med Azure-portalen.
 
 1. Gå till [Azure-portalen](https://portal.azure.com).
-2. Gå till den **inställningar** bladet SQL-databas/SQL-Server som du vill granska. I den **inställningar** bladet väljer **Auditing & Threat detection**.
+2. Gå till **granskning** under rubriken säkerheten i din SQL database-server-fönstret.
 
     <a id="auditing-screenshot"></a>![Navigeringsfönstret][1]
 3. Om du vill konfigurera en granskningsprincip för server, kan du välja den **visa inställningarna för** länken i databasbladet för granskning. Du kan visa eller ändra inställningar för servergranskning. Servern granskningsprinciper gäller för alla befintliga och nya databaser på servern.
 
     ![Navigeringsfönster][2]
-4. Om du vill aktivera blobbgranskning på databasnivå för **granskning**väljer **ON**, och för **granskning typen**väljer **Blob**.
+4. Om du vill att aktivera granskning på databasnivå växla **granskning** till **på**.
 
-    Om servern blobbgranskning är aktiverat, kommer att finnas audit databasen konfigurerad sida vid sida med blob-audit server.
+    Om servern granskning är aktiverat, kommer databasen konfigurerad audit finnas sida vid sida med server audit.
 
     ![Navigeringsfönster][3]
 5. Öppna den **granska loggarna lagring** bladet väljer **lagringsinformation**. Välj Azure storage-konto där loggar sparas, och välj sedan kvarhållningsperioden. Kommer att ta bort de gamla loggarna. Klicka sedan på **OK**.
-    >[!TIP]
-    >Använd samma lagringskonto för alla granskad databaser för att få mest av granskning rapporter mallarna.
 
     <a id="storage-screenshot"></a>![Navigeringsfönstret][4]
 6. Om du vill anpassa granskade händelser kan du göra detta via [PowerShell-cmdlets](#subheading-7) eller [REST API](#subheading-9).
@@ -102,7 +100,8 @@ Det finns flera metoder du kan använda för att visa blob granskningsloggar:
     En **granskningsloggarna** öppnas bladet som kommer du att kunna visa loggfilerna.
 
     - Du kan visa specifika datum genom att klicka på **Filter** överst i den **granskningsloggarna** bladet.
-    - Du kan växla mellan granskningsposter som har skapats av en server princip- eller princip för granskning.
+    - Du kan växla mellan granskningsposter som har skapats av den *server granskningsprincip* och *databasen granskningsprincip* genom att klicka **granska källa**.
+    - Du kan visa endast SQL injection relaterade granskningsposter genom att kontrollera **Visa endast granskningsloggarna för SQL-injektering** kryssrutan.
 
        ![Navigeringsfönster][8]
 
@@ -147,8 +146,8 @@ Med geo-replikerade databaser när du aktiverar granskning på den primära data
 * Servernivå (**rekommenderas**): aktivera granskning på både den **primära servern** samt de **sekundär server** -primära och sekundära databaser varje granskas oberoende baserat på deras respektive princip för servernivå.
 
 * Databasnivå: Databasnivå granskning för sekundära databaser kan endast konfigureras från primära databasen granskningsinställningar.
-   * Blobbgranskning måste vara aktiverat på den *primära databasen själva*, inte på servern.
-   * När blobbgranskning är aktiverat på den primära databasen kan aktiveras den också på den sekundära databasen.
+   * Granskning måste vara aktiverat på den *primära databasen själva*, inte på servern.
+   * När granskning är aktiverat på den primära databasen kan aktiveras den också på den sekundära databasen.
 
     >[!IMPORTANT]
     >Med databasnivå granskning måste lagringsinställningarna för den sekundära databasen vara samma som den primära databasen orsakar mellan regionala trafik. Vi rekommenderar att du aktiverar granskning endast servernivå och lämna databasnivå granskning inaktiveras för alla databaser.
@@ -204,7 +203,6 @@ Ett exempel på skript finns [konfigurera granskning och hotidentifiering identi
 * [Skapa eller uppdatera Server Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
 * [Hämta databasen Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
 * [Hämta Server Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
-* [Hämta Server Blob granskning resultat](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 Utökad princip med där satsen stöd för ytterligare filtrering:
 * [Skapa eller uppdatera databasen *utökad* Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)

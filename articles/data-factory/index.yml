@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentation om förhandsversionen av Azure Data Factory V2
+title: Dokumentation om Azure Data Factory
 metadata:
   title: Dokumentation om Azure Data Factory – Självstudier, API-referens | Microsoft Docs
   description: Lär dig hur du använder Data Factory för att konfigurera automatiska datapipelines till och från källor på lokala platser och i molnet, för att flytta och bearbeta data för analys.
@@ -13,21 +13,21 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/08/2017
   ms.author: douglasl
-  ms.openlocfilehash: e31500a02bc3470e338f727771eebe887dcc493f
-  ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+  ms.openlocfilehash: 624b2f0968776115f35698710cdc930a9a824922
+  ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/23/2018
-  ms.locfileid: "30166750"
+  ms.lasthandoff: 06/27/2018
+  ms.locfileid: "37047208"
 abstract:
-  description: Lär dig att använda Data Factory, en tjänst för molndataintegrering, för att ordna datalagrings-, rörelse- och bearbetningstjänster i automatiserade datapipelines. Självstudier och annan dokumentation visar hur du konfigurerar och hanterar datapipelines, samt flyttar och omvandlar data för analys. <p>För närvarande finns en förhandsversion av V2 av Data Factory. Versionen V1 är allmänt tillgänglig. Om du använder V1 av Data Factory-tjänsten går du till <a href=/azure/data-factory/v1/data-factory-introduction>V1-dokumentationen.</a></p>
+  description: Lär dig att använda Data Factory, en tjänst för molndataintegrering, för att ordna datalagrings-, rörelse- och bearbetningstjänster i automatiserade datapipelines. Självstudier och annan dokumentation visar hur du konfigurerar och hanterar datapipelines, samt flyttar och omvandlar data för analys. <p>Om du använder V1 av Data Factory-tjänsten går du till <a href=/azure/data-factory/v1/data-factory-introduction>V1-dokumentationen.</a></p>
   aside:
     image:
       alt: 
       height: 110
       src: media/index/video.png
       width: 250
-    title: Skapa pipeliner visuellt för Azure Data Factory V2 (19:31)
+    title: Skapa pipeliner visuellt för Azure Data Factory (19:31)
     href: https://azure.microsoft.com/en-us/resources/videos/azure-friday-visually-build-pipelines-for-azure-data-factory-v2
     width: 250
 sections:

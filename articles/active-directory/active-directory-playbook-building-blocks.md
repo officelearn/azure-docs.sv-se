@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 056821bd26e9c6c110b23a048df4aa13bc4ab8fa
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 36cbf9249664af1cd469d7e27c617a4810d0e74f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754680"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098965"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept playbook: byggblock
 
@@ -428,7 +428,7 @@ Ungefärlig tid till slutförd: 10 minuter
 ### <a name="considerations"></a>Överväganden
 
 1. Stegen i den här inställningen uttryckligen MFA för en användare på alla inloggningar byggblock PoC. Det finns andra verktyg, till exempel villkorlig åtkomst och identitetsskydd som engagera MFA på fler scenarier som mål. Detta kan vara något att tänka på när du flyttar från POC till produktionen.
-2. PoC stegen i den här byggblock använder explicit telefonsamtal som metod för MFA för expedience. När du flyttar från POC till produktion bör du använda program som de [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) som din andra faktor när det är möjligt.
+2. PoC stegen i den här byggblock använder explicit telefonsamtal som metod för MFA för expedience. När du flyttar från POC till produktion bör du använda program som de [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) som din andra faktor när det är möjligt.
 Läs mer: [utkast NIST Special Publication 800 63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>MFA villkorlig åtkomst för SaaS-program
@@ -553,7 +553,7 @@ Ungefärlig tid för att slutföra: 20 minuter
 | --- | --- |
 | Enheten användarcertifikat etablerats (Windows, iOS eller Android) från Företags-PKI | [Distribuera användarcertifikat](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Azure AD-domän federerade med AD FS | [Azure AD Connect och federation](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Översikt över Active Directory Certificate Services](https://technet.microsoft.com/library/hh831740.aspx)|
-| Har Microsoft Authenticator-appen för iOS-enheter | [Kom igång med Microsoft Authenticator-appen](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| Har Microsoft Authenticator-appen för iOS-enheter | [Kom igång med Microsoft Authenticator-appen](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Steg
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 509df5274a5e44342390036511689fa8f8146807
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: bf25ae5703a632005dd73820fc05347f7b5e16a6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869809"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097503"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
@@ -292,7 +292,7 @@ Användare kan inte skapa applösenord som standard. Funktionen app lösenord m�
 
 Användare kan skapa applösenord vid första registreringen. Användaren har du möjlighet att skapa applösenord i slutet av registreringsprocessen.
 
-Användare kan också skapa applösenord efter registreringen. Applösenord kan ändras via inställningarna i Azure-portalen eller Office 365-portalen. Mer information och detaljerade anvisningar för dina användare finns [vad är applösenord i Azure Multi-Factor Authentication?](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md)
+Användare kan också skapa applösenord efter registreringen. Applösenord kan ändras via inställningarna i Azure-portalen eller Office 365-portalen. Mer information och detaljerade anvisningar för dina användare finns [vad är applösenord i Azure Multi-Factor Authentication?](end-user/current/multi-factor-authentication-end-user-app-passwords.md)
 
 <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>
 ## <a name="remember-multi-factor-authentication-for-trusted-devices"></a>Kom ihåg Multifaktorautentisering för betrodda enheter
@@ -301,7 +301,7 @@ Den _komma ihåg Multifaktorautentisering_ funktionen för enheter och webbläsa
 >[!IMPORTANT]
 >Om ett konto eller en enhet har komprometterats bör kan komma ihåg Multifaktorautentisering för betrodda enheter påverka säkerheten. Om ett företagskonto har komprometterats eller en betrodd enhet tappas bort eller blir stulen, bör du [Återställ Multifaktorautentisering på alla enheter](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
 >
->Åtgärden Återställ återkallar betrodda status från alla enheter och användaren krävs för att utföra tvåstegsverifiering igen. Du kan också instruera användarna att återställa Multi-Factor Authentication på sina egna enheter med instruktionerna i [hantera inställningar för tvåstegsverifiering](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
+>Åtgärden Återställ återkallar betrodda status från alla enheter och användaren krävs för att utföra tvåstegsverifiering igen. Du kan också instruera användarna att återställa Multi-Factor Authentication på sina egna enheter med instruktionerna i [hantera inställningar för tvåstegsverifiering](end-user/current/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
 >
 
 ### <a name="how-the-feature-works"></a>Hur funktionen fungerar
@@ -341,7 +341,7 @@ När du har aktiverat funktionen Kom ihåg Multifaktorautentisering användare k
 
 Du kan välja verifieringsmetoderna som är tillgängliga för användarna med hjälp av den _valbar verifieringsmetoderna_ funktion. Följande tabell innehåller en kort översikt över metoderna.
 
-När användarna registrerar sina konton för Multifaktorautentisering i Azure, kan de välja sin önskade verifieringsmetod från de alternativ som du har aktiverat. Vägledning för användaren registreringen finns i [Konfigurera mitt konto för tvåstegsverifiering](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md).
+När användarna registrerar sina konton för Multifaktorautentisering i Azure, kan de välja sin önskade verifieringsmetod från de alternativ som du har aktiverat. Vägledning för användaren registreringen finns i [Konfigurera mitt konto för tvåstegsverifiering](end-user/current/multi-factor-authentication-end-user-first-time.md).
 
 | Metod | Beskrivning |
 |:--- |:--- |

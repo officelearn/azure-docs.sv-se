@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: b672b777e9a60f2f3d978947c06290db48e6766c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bcfa7a6b9a2ebd60ec804fe8a61c26300f003a5e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627031"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097792"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Hadoop-kluster i HDInsight med hjälp av Azure portal
 
@@ -105,7 +105,7 @@ Om du får felet NoRegisteredProviderFound eller MissingSubscriptionRegistration
     * **Övervaka**: övervaka kluster i Azure logganalys.
     * **Egenskaper för**: Visa egenskaper för klustret.
     * **Storage-konton**: Visa storage-konton och nycklarna. Storage-konton har konfigurerats när klustret skapas.
-    * **Data Lake Store-åtkomst**: Konfigurera åtkomst som lagrar Data Lake.  Se [skapa HDInsight-kluster med Data Lake Store med hjälp av Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * **Data Lake Store-åtkomst**: Konfigurera åtkomst som lagrar Data Lake.  Se [Snabbstart: Skapa kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
     * **Resurshälsa**: se [Azure resource health översikt](../service-health/resource-health-overview.md).
     * **Ny supportbegäran**: du kan skapa ett supportärende Microsoft support.
     
@@ -358,7 +358,7 @@ Den **användning** på HDInsight-klusterbladet visar information om antal kärn
 > [!IMPORTANT]
 > För att övervaka tjänster som tillhandahålls av HDInsight-kluster, måste du använda Ambari Web eller Ambari REST API. Mer information om hur du använder Ambari finns [hantera HDInsight-kluster med Ambari](hdinsight-hadoop-manage-ambari.md)
 
-## <a name="connect-to-a-cluster"></a>Ansluta till ett kluster
+## <a name="connect-to-a-cluster"></a>Anslut till ett kluster
 
 * [Använda Hive med HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)

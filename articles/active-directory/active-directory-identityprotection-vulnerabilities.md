@@ -2,7 +2,7 @@
 title: Sårbarheter som identifieras av Azure Active Directory Identity Protection | Microsoft Docs
 description: Översikt över sårbarheter som identifieras av Azure Active Directory Identity Protection.
 services: active-directory
-keywords: Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip
+keywords: Azure active directory identitetsskydd, cloud discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9ee926ff7cf44041c1969d541ca225395ba31a2f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 534384f8e8fde17c2330831b346d87c50ea24183
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713702"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084016"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Sårbarheter som identifieras av Azure Active Directory Identity Protection
 Säkerhetsrisker är svagheter i din miljö som kan utnyttjas av en angripare. Vi rekommenderar att åtgärda dessa problem för att förbättra säkerhetsläget i din organisation och förhindrar att angripare utnyttjar dem.
@@ -47,9 +47,9 @@ Det här problemet kan du identifiera ohanterade molnappar i din organisation.
 
 I moderna företag inte IT-avdelningar ofta känner till alla molnprogram som användare i organisationen använder för att utföra sitt arbete. Det är enkelt att se varför administratörer skulle oroar otillåten åtkomst till företagsdata, möjliga dataläckage och andra säkerhetsrisker. 
 
-Vi rekommenderar för att distribuera Cloud App Discovery att identifiera ohanterade molnprogram och hantera dessa program med Azure Active Directory.
+Vi rekommenderar för att distribuera Cloud Discovery att identifiera ohanterade molnprogram och hantera dessa program med Azure Active Directory.
 
-Mer information finns i [hitta ohanterade molnprogram med Cloud App Discovery](manage-apps/cloud-app-discovery.md).
+Mer information finns i [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Säkerhetsaviseringar från Privileged Identity Management
 Den här säkerhetsrisken hjälper dig att identifiera och lösa aviseringar om Privilegierade identiteter i din organisation.  

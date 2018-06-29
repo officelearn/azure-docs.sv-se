@@ -17,12 +17,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 02cd491be5336abe708cce0f6e268b38514d4e88
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 3693b167f196b82c520703fa50ffabb27b555050
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234962"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082673"
 ---
 # <a name="call-a-function-from-powerapps"></a>Anropa en funktion från PowerApps
 Den [PowerApps](https://powerapps.microsoft.com) plattformen är avsedd för affärsexperter att skapa appar utan traditionella programkod. Professionella utvecklare kan använda Azure Functions för att utöka funktionerna i PowerApps, samtidigt PowerApps app builders från teknisk information.
@@ -46,7 +46,7 @@ I det här avsnittet lär du dig hur du:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-+ En aktiv [PowerApps konto](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) med samma tecken i autentiseringsuppgifter som din Azure-konto. 
++ En aktiv [PowerApps konto](https://docs.microsoft.com/en-us/powerapps/maker/signup-for-powerapps) med samma tecken i autentiseringsuppgifter som din Azure-konto. 
 + Excel och [Excel exempelfilen](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) som du vill använda som en datakälla för din app.
 + Slutför guiden [en OpenAPI definition för en funktion för att skapa](functions-openapi-definition.md).
 
@@ -139,7 +139,7 @@ Nu när datakällorna som är tillgängliga i appen, du lägger till en skärm i
 
 1. I den **Data** fönstret väljer **turbiner** från listan.
 
-    ![Välj datakälla](media/functions-powerapps-scenario/select-data-source.png)
+    ![Välja datakälla](media/functions-powerapps-scenario/select-data-source.png)
 
     Datauppsättningen innehåller inte en bild bredvid du ändra layouten så att de bättre passar data. 
 

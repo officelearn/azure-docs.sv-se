@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 13f746697a7e694da79a6e376b45f95529049a44
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5a6fa3f2bb6ab76bf323fe3ca829797878f5e774
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401969"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100512"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Skapa Linux-baserade kluster i HDInsight med hjälp av Azure portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -74,14 +74,14 @@ Azure-portalen visar de flesta egenskaper för klustret. Med Azure Resource Mana
 
     * Klicka på **Nästa**.
 
-4. För **lagring**, ange om du vill Azure Storage (WASB) eller Data Lake Store som standardlagring. Titta på tabellen nedan för mer information.
+4. För **lagring**, ange om du vill Azure Storage (WASB) eller lagring av Data Lake som standardlagring. Titta på tabellen nedan för mer information.
 
     ![Skapa ett nytt kluster i Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "skapar ett nytt kluster i Azure-portalen")
 
-    | Lagring                                      | Beskrivning |
+    | Storage                                      | Beskrivning |
     |----------------------------------------------|-------------|
-    | **Azure Storage-Blobbar som standardlagring**   | <ul><li>För **primära lagringstyp**väljer **Azure Storage**. Efter det för **urvalsmetod**, kan du välja **Mina prenumerationer** om du vill ange ett lagringskonto som är en del av din Azure-prenumeration och välj sedan lagringskontot. Annars klickar du på **åtkomstnyckeln** och ange information för det lagringskonto som du vill välja från utanför Azure-prenumerationen.</li><li>För **standardbehållaren**, kan du gå med standardnamnet för behållaren som föreslås i portalen eller ange egna.</li><li>Om du använder WASB som standardlagring kan du (valfritt) på **ytterligare Lagringskonton** att ange ytterligare lagringskonton ska associeras med klustret. För **Azure Lagringsnycklar**, klickar du på **lägga till en nyckel för säkerhetslagring**, och du kan ange ett lagringskonto från Azure-prenumerationer eller andra prenumerationer (genom att tillhandahålla åtkomstnyckel för lagring).</li><li>Om du använder WASB som standardlagring kan du (valfritt) på **Data Lake Store-åtkomst** att ange Azure Data Lake Store som ytterligare lagringsutrymme. Mer information finns i [skapar ett HDInsight-kluster med Data Lake Store med hjälp av Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).</li></ul> |
-    | **Azure Data Lake Store som standardlagring** | För **primära lagringstyp**väljer **Datasjölager** och finns i artikel [skapar ett HDInsight-kluster med Data Lake Store med hjälp av Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) anvisningar. |
+    | **Azure Storage-Blobbar som standardlagring**   | <ul><li>För **primära lagringstyp**väljer **Azure Storage**. Efter det för **urvalsmetod**, kan du välja **Mina prenumerationer** om du vill ange ett lagringskonto som är en del av din Azure-prenumeration och välj sedan lagringskontot. Annars klickar du på **åtkomstnyckeln** och ange information för det lagringskonto som du vill välja från utanför Azure-prenumerationen.</li><li>För **standardbehållaren**, kan du gå med standardnamnet för behållaren som föreslås i portalen eller ange egna.</li><li>Om du använder WASB som standardlagring kan du (valfritt) på **ytterligare Lagringskonton** att ange ytterligare lagringskonton ska associeras med klustret. För **Azure Lagringsnycklar**, klickar du på **lägga till en nyckel för säkerhetslagring**, och du kan ange ett lagringskonto från Azure-prenumerationer eller andra prenumerationer (genom att tillhandahålla åtkomstnyckel för lagring).</li><li>Om du använder WASB som standardlagring kan du (valfritt) på **Data Lake Store-åtkomst** att ange lagring av Azure Data Lake som ytterligare lagringsutrymme. Mer information finns i [Snabbstart: Skapa kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
+    | **Azure Data Lake Storage som standardlagring** | För **primära lagringstyp**väljer **Azure Data Lake lagring Gen1** eller **Azure Data Lake lagring Gen2 (förhandsgranskning)** och finns i artikel [Snabbstart : Ställ in kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) anvisningar. |
     | **Externa metastores**                      | Alternativt kan ange du en SQL-databas för att spara Hive och Oozie-metadata som associeras med klustret. För **Välj en SQL-databas för Hive** Välj en SQL-databas och ange sedan det användarnamn/lösenordet för databasen. Upprepa dessa steg för Oozie-metadata.<br><br>Vissa överväganden när du använder Azure SQL-databas för metastores. <ul><li>Azure SQL-databasen som används för metastore måste tillåta anslutning till andra Azure-tjänster, inklusive Azure HDInsight. Klicka på namnet på servern på Azure SQL database instrumentpanelen till höger. Detta är den server som kör SQL-databasinstansen. När du är på server-vy klickar du på **konfigurera**, och sedan för **Azure Services**, klickar du på **Ja**, och klicka sedan på **spara**.</li><li>När du skapar en metastore kan du inte använda ett databasnamn som innehåller tankstreck eller bindestreck, eftersom detta kan orsaka klusterskapandeprocessen misslyckas.</li></ul> |
 
     Klicka på **Nästa**. 
@@ -99,7 +99,7 @@ Azure-portalen visar de flesta egenskaper för klustret. Med Azure Resource Mana
    > [!IMPORTANT]
    > Om du planerar att mer än 32 arbetarnoder i klustret har skapats eller genom att skala klustret när den har skapats, måste du välja en huvudnod storlek med minst 8 kärnor och 14 GB RAM-minne.
    > 
-   > Mer information om noden storlekar och relaterade kostnader finns [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).
+   > Mer information om nodstorlekar och relaterade kostnader finns i [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).
    > 
    > 
    

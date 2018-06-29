@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 2916252c08c599d2e528595a8cdf2abca8ea89a3
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 3715dcceb4330f6eaab01f49aee9d4d19663b62e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938452"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099677"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Teknisk guide till Cortana Intelligence-Lösningsmall för förebyggande underhåll i aerospace och andra företag
 
@@ -54,7 +54,7 @@ I följande avsnitt beskrivs delarna av lösningen.
 ### <a name="synthetic-data-source"></a>Syntetiska datakälla
 Datakällan som används genereras från ett program som du hämtar och kör lokalt efter slutförd distribution för den här mallen.
 
-Välj den första noden förutsägande Underhåll Datagenerator i lösningen mallen diagrammet för att hitta instruktionerna för att ladda ned och installera det här programmet. Anvisningarna finns i fältet egenskaper. Det här programmet feeds den [Azure Event Hub](#azure-event-hub) med datapunkter, eller händelser som används i resten av flödet lösning. Den här datakällan har härletts från offentligt tillgängliga data från den [NASA data databasen](https://c3.nasa.gov/dashlink/resources/139/) med hjälp av den [turbofläktmotorer endast motorn försämring simuleringen datauppsättning](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
+Välj den första noden förutsägande Underhåll Datagenerator i lösningen mallen diagrammet för att hitta instruktionerna för att ladda ned och installera det här programmet. Anvisningarna finns i fältet egenskaper. Det här programmet feeds den [Azure Event Hub](#azure-event-hub) med datapunkter, eller händelser som används i resten av flödet lösning. Den här datakällan har härletts från offentligt tillgängliga data från den [NASA data databasen](https://c3.nasa.gov/dashlink/resources/139/) med hjälp av den [turbofläktmotorer endast motorn försämring simuleringen datauppsättning](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
 Händelsen generation programmet fyller Azure Event Hub endast när det körs på datorn.  
 
@@ -82,7 +82,7 @@ Använd [Power BI](https://powerbi.microsoft.com) att visa en instrumentpanel so
 ## <a name="how-to-bring-in-your-own-data"></a>Hur du hanterar i dina egna data
 Det här avsnittet beskrivs hur du hanterar dina egna data till Azure och vilka områden som behöver ändras för de data du sätta i den här arkitekturen.
 
-Det är inte troligt att datamängden matchar den datamängd som används av den [turbofläktmotorer endast motorn försämring simuleringen datauppsättning](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) används för den här lösningen mallen. Förstå dina data och kraven är avgörande för hur du ändrar den här mallen för att arbeta med dina egna data. 
+Det är inte troligt att datamängden matchar den datamängd som används av den [turbofläktmotorer endast motorn försämring simuleringen datauppsättning](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) används för den här lösningen mallen. Förstå dina data och kraven är avgörande för hur du ändrar den här mallen för att arbeta med dina egna data. 
 
 I följande avsnitt beskrivs de delar av mallen som kräver ändringar när en ny datamängd införs.
 

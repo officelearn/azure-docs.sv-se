@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: dda37600dffaf1e8e1c85c9757696f2d8219febb
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 1a5424b69fc70f69359b12beac86060f4e23ff27
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751678"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083999"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL Database köp modeller och resurser 
 
@@ -40,7 +40,7 @@ Följande tabell och diagram Jämför och jämför dessa två köp modeller.
 
 En virtuell kärna representerar logiska Processorn erbjuds med möjlighet att välja mellan generationer av maskinvara. VCore-baserade inköpsmodell (förhandsversion) ger ditt flexibilitet, kontroll, genomskinlighet enskilda resursförbrukning och ett enkelt sätt att översätta krav på lokal arbetsbelastning till molnet. Den här modellen kan du skala beräknings-, minnes- och storage baserat på deras behov av arbetsbelastning. I den vCore-baserade inköpsmodell (förhandsgranskning), kunder kan välja mellan generella och kritiska tjänstnivåer för företag (förhandsversion) för både [enkel databaser](sql-database-single-database-scale.md) och [elastiska pooler](sql-database-elastic-pool.md). 
 
-han vCore-baserade inköpsmodell (förhandsversion) kan du skala beräknings-och lagringsresurser, matchar lokalt prestanda och optimera pris oberoende av varandra. Om den databas eller en elastisk pool förbrukar mer än 300 DTU konvertering till vCore kan minska dina kostnader. Du kan konvertera med hjälp av din API väljer eller Azure-portalen utan avbrott. Dock krävs inte konverteringen. Om DTU-inköpsmodell uppfyller dina företagskrav på prestanda och, ska du fortsätta använda den. Om du vill konvertera från DTU-modellen till vCore-modell, bör du välja prestandanivå med hjälp av följande tumregel: varje 100 DTU i standardnivån kräver minst 1 vCore i generella skiktet; varje 125 DTU i Premium-nivån kräver minst 1 vCore i företag kritisk nivå.
+VCore-baserade inköpsmodell (förhandsversion) kan du skala beräknings-och lagringsresurser, matchar lokalt prestanda och optimera pris oberoende av varandra. Om den databas eller en elastisk pool förbrukar mer än 300 DTU konvertering till vCore kan minska dina kostnader. Du kan konvertera med hjälp av din API väljer eller Azure-portalen utan avbrott. Dock krävs inte konverteringen. Om DTU-inköpsmodell uppfyller dina företagskrav på prestanda och, ska du fortsätta använda den. Om du vill konvertera från DTU-modellen till vCore-modell, bör du välja prestandanivå med hjälp av följande tumregel: varje 100 DTU i standardnivån kräver minst 1 vCore i generella skiktet; varje 125 DTU i Premium-nivån kräver minst 1 vCore i företag kritisk nivå.
 
 I den vCore-baserade inköpsmodell (förhandsgranskning), kunder som betalar för:
 - Beräkna (tjänstnivån + antal vCores + maskinvarusystem) *

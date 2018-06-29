@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: aa140bceb5f7ad5e638f747fa8d88803c27f02a3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 74a660f7240b9ae6138c402dbbb418bbc665dc3c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867673"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098710"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Lösa felmeddelanden från NPS-tillägg för Azure Multi-Factor Authentication
 
@@ -52,14 +52,14 @@ Om det uppstår problem med NPS-tillägget för Azure Multi-Factor Authenticatio
 | Felkod | Felmeddelande | Felsökningsanvisningar |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | Anroparen klienten har inte behörighet att utföra autentiseringen för användaren | Kontrollera om klientdomänen och domänen för användarens huvudnamn (UPN) är samma. Till exempel se till att user@contoso.com försöker autentisera till Contoso-klienten. UPN representerar en giltig användare för klienten i Azure. |
-| **AuthenticationMethodNotConfigured** | Angiven autentiseringsmetod har inte konfigurerats för användaren | Behörighet att lägga till eller verifiera sina verifieringsmetoderna enligt anvisningarna i [hantera inställningar för tvåstegsverifiering](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). |
+| **AuthenticationMethodNotConfigured** | Angiven autentiseringsmetod har inte konfigurerats för användaren | Behörighet att lägga till eller verifiera sina verifieringsmetoderna enligt anvisningarna i [hantera inställningar för tvåstegsverifiering](end-user/current/multi-factor-authentication-end-user-manage-settings.md). |
 | **AuthenticationMethodNotSupported** | Angiven autentiseringsmetod stöds inte. | Samla in alla loggfiler som innehåller det här felet och [supporten](#contact-microsoft-support). Ange användarnamnet och det sekundära verifieringsmetod som utlöste felet när du kontaktar supporten. |
-| **BecAccessDenied** | MSODS Bec-anropet returnerade åtkomst nekad, förmodligen användarnamnet har inte definierats i klienten | Användaren finns i Active Directory lokalt men har synkroniserats inte till Azure AD med AD Connect. Eller användaren saknas för klienten. Lägga till användaren i Azure AD och ha dem lägga till sina verifieringsmetoderna enligt anvisningarna i [hantera inställningar för tvåstegsverifiering](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). |
+| **BecAccessDenied** | MSODS Bec-anropet returnerade åtkomst nekad, förmodligen användarnamnet har inte definierats i klienten | Användaren finns i Active Directory lokalt men har synkroniserats inte till Azure AD med AD Connect. Eller användaren saknas för klienten. Lägga till användaren i Azure AD och ha dem lägga till sina verifieringsmetoderna enligt anvisningarna i [hantera inställningar för tvåstegsverifiering](end-user/current/multi-factor-authentication-end-user-manage-settings.md). |
 | **InvalidFormat** eller **StrongAuthenticationServiceInvalidParameter** | Telefonnumret är i ett okänt format | Låt användaren korrigera deras telefonnummer för verifiering. |
 | **InvalidSession** | Den angivna sessionen är ogiltig eller har gått ut | Sessionen har trätt i mer än tre minuter att slutföra. Kontrollera att användaren att ange verifieringskoden eller svara på appmeddelande inom tre minuter för inledande autentiseringsförfrågan. Om detta inte löser problemet, kontrollerar du att det inte finns några nätverksfördröjningar mellan klienten, NAS-Server, NPS-Server och Azure MFA-slutpunkten.  |
-| **NoDefaultAuthenticationMethodIsConfigured** | Ingen standardautentiseringsmetod har konfigurerats för användaren | Behörighet att lägga till eller verifiera sina verifieringsmetoderna enligt anvisningarna i [hantera inställningar för tvåstegsverifiering](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). Kontrollera att användaren har valt en standardmetoden för autentisering och konfigurerats som metod för sitt konto. |
+| **NoDefaultAuthenticationMethodIsConfigured** | Ingen standardautentiseringsmetod har konfigurerats för användaren | Behörighet att lägga till eller verifiera sina verifieringsmetoderna enligt anvisningarna i [hantera inställningar för tvåstegsverifiering](end-user/current/multi-factor-authentication-end-user-manage-settings.md). Kontrollera att användaren har valt en standardmetoden för autentisering och konfigurerats som metod för sitt konto. |
 | **OathCodePinIncorrect** | Fel kod och angiven PIN-kod. | Det här felet förväntas inte i NPS-tillägget. Om användaren påträffar, [supporten](#contact-microsoft-support) för hjälp med felsökning. |
-| **ProofDataNotFound** | Bevis data har inte konfigurerats för den angivna autentiseringsmetoden. | Låt användaren prova ett annat verifieringsmetod eller Lägg till en ny verifieringsmetoderna enligt anvisningarna i [hantera inställningar för tvåstegsverifiering](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). Om användaren fortfarande att se det här felet när du har bekräftat att deras verifieringsmetod är korrekt konfigurerade, [supporten](#contact-microsoft-support). |
+| **ProofDataNotFound** | Bevis data har inte konfigurerats för den angivna autentiseringsmetoden. | Låt användaren prova ett annat verifieringsmetod eller Lägg till en ny verifieringsmetoderna enligt anvisningarna i [hantera inställningar för tvåstegsverifiering](end-user/current/multi-factor-authentication-end-user-manage-settings.md). Om användaren fortfarande att se det här felet när du har bekräftat att deras verifieringsmetod är korrekt konfigurerade, [supporten](#contact-microsoft-support). |
 | **SMSAuthFailedWrongCodePinEntered** | Fel kod och angiven PIN-kod. (OneWaySMS) | Det här felet förväntas inte i NPS-tillägget. Om användaren påträffar, [supporten](#contact-microsoft-support) för hjälp med felsökning. |
 | **TenantIsBlocked** | Klienten är blockerad | [Kontakta supporten](#contact-microsoft-support) med katalog-ID från Azure AD-egenskapssidan i Azure-portalen. |
 | **UserNotFound** | Det gick inte att hitta den angivna användaren | Klienten inte längre visas som aktiv i Azure AD. Kontrollera att din prenumeration är aktiv och att du har de nödvändiga första part appar. Kontrollera också att klienten i certifikatets ämne är som förväntat och cert fortfarande är giltig och registrerad under tjänstens huvudnamn. |
@@ -98,7 +98,7 @@ Om det uppstår något av dessa fel, rekommenderar vi att du [supporten](#contac
 
 Om användarna är [har problem med tvåstegsverifiering](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md), hjälpa dem själv diagnosticera problem. 
 
-### <a name="contact-microsoft-support"></a>Kontakta Microsoft support
+### <a name="contact-microsoft-support"></a>Kontakta Microsoft-supporten
 
 Om du behöver ytterligare hjälp kan du kontakta supportpersonalen via [stöd för Azure Multi-Factor Authentication-servern](https://support.microsoft.com/oas/default.aspx?prid=14947). När du kontaktar oss är det bra om du kan ange så mycket information om problemet som möjligt. Information som du kan ange innehåller sidan där du såg fel, den specifika felkoden specifika sessions-ID, ID för den användare som såg felet, loggar och felsökningsloggar.
 

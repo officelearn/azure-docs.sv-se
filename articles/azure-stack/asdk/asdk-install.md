@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 7b8fe61731a9412c61152bc58e55deebb611d011
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 74a81901c8ad38a84357a9f3c2e1d948aa81e8bc
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30171204"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084339"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installera Azure-stacken Development Kit (ASDK)
 Efter [förbereda värddatorn ASDK](asdk-prepare-host.md), ASDK kan distribueras till CloudBuilder.vhdx avbildningen med hjälp av följande steg i den här artikeln.
@@ -58,7 +58,7 @@ Stegen i den här artikeln visar hur du distribuerar ASDK med ett grafiskt anvä
     - Ange en giltig **tid servern IP** adress. Detta krävs för fältet anger tid-server som ska användas av development kit. Den här parametern måste anges som en giltig tid serverns IP-adress. Servernamn stöds inte.
 
       > [!TIP]
-      > Du hittar en IP-adress [pool.ntp.org](http:\\pool.ntp.org) eller pinga time.windows.com. 
+      > Du hittar en IP-adress [pool.ntp.org](http://pool.ntp.org) eller pinga time.windows.com. 
 
     - **Du kan också**, anger du följande värden:
         - **VLAN-ID**: Anger VLAN-ID. Använd bara det här alternativet om värden och AzS BGPNAT01 måste konfigurera VLAN-ID för att komma åt den fysiska nätverk (och internet). 

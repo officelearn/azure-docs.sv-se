@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 11e0a4e38739a775d977cf76b72d4dc92942a7b0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e93b241c79a50380f4ef1538dfbf7615232e6c49
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725099"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096517"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ansluta till Azure Cosmos-databasen med verktyg för analys av BI med ODBC-drivrutin
 
@@ -63,7 +63,7 @@ Nu kan komma igång med ODBC-drivrutinen.
 4. Klicka på den **Test** för att kontrollera att du kan ansluta till ditt konto i Azure Cosmos DB. 
 5. Klicka på **avancerade alternativ** och ange följande värden:
     - **Fråga konsekvenskontroll**: Välj den [konsekvensnivå](consistency-levels.md) för din verksamhet. Standardvärdet är Session.
-    - **Antal återförsök**: Ange hur många gånger ska försöka utföra en åtgärd om den ursprungliga begäranden inte slutföras på grund av begränsning av tjänsten.
+    - **Antal återförsök**: Ange hur många gånger ska försöka utföra en åtgärd om den ursprungliga begäranden inte slutföras på grund av tjänsten hastighetsbegränsning.
     - **Schemafilen**: du har ett antal alternativ här.
         - Som standard, lämnar den här posten är (tom) söker drivrutinen första sidan data för alla samlingar att fastställa schemat för varje samling. Detta kallas samlingen mappning. Drivrutinen har att utföra sökningen för varje drivrutin session utan en schemafilen som definierats och kan resultera i en högre starttiden för ett program med hjälp av DSN. Vi rekommenderar att du alltid associerar en schemafil för en Datakälla.
         - Om du redan har en schemafilen (eventuellt en som du skapat med hjälp av [schemat redigeraren](#schema-editor)), kan du klicka på **Bläddra**, navigera till filen, klicka på **spara**, och klicka sedan på **OK**.
@@ -106,7 +106,7 @@ Följande steg att skapa ett schema för data i en eller flera samlingar med hj�
 
     b. Välj attributet i rutan om du bara vill omfång provtagning till vissa värden för attributet som du angav och ange ett värde i den **värdet** rutan, till exempel Seattle och tryck på RETUR. Du kan fortsätta att lägga till flera värden för attributen. Se bara till att rätt attributet aktiveras när du anger värden.
 
-    Om du inkluderar exempelvis en **attribut** värdet av ort, och du vill begränsa din tabell om du vill inkludera endast rader med ett värde för ort i New York och Dubai, anger du stad i rutan attribut, och New York och sedan Dubai i den **värden** rutan.
+    Om du inkluderar exempelvis en **attribut** värdet av ort, och du vill begränsa din tabell om du vill inkludera endast rader med ett värde för ort i New York och Dubai, anger du stad i rutan attribut, och New York och sedan Dubai i **Värden** rutan.
 4. Klicka på **OK**. 
 5. När du har slutfört mappning definitioner för samlingarna du vill prova i den **schemat Editor** -fönstret klickar du på **exempel**.
      För varje kolumn, kan du ändra kolumnnamnet för SQL, SQL-typ, SQL-längd (om tillämpligt), skala (om tillämpligt), Precision (om tillämpligt) och kan ha värdet null.

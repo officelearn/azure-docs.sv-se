@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
-ms.openlocfilehash: 335781a8048e1497b74f0ecf9bef337c923d95b7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: aeff3be89121bb93432d03f108ab5d2e5fa6f007
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793553"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099545"
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Komma igång med Azure Search i Node.js
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Du kan också prova någon av dessa söktermer:
 ## <a name="next-steps"></a>Nästa steg
 Det här är den första Azure Search-självstudiekursen som baseras på Node.js och USGS-datauppsättningen. Med tiden kommer vi att utöka den här självstudiekursen och demonstrera ytterligare sökfunktioner som du kanske vill använda i dina anpassade lösningar.
 
-Om du redan har viss erfarenhet av Azure Search kan du använda det här exemplet som utgångspunkt för att prova förslagsställare (frågeifyllningsförslag eller Komplettera automatiskt), filter och aspektbaserad navigering. Du kan även förbättra sidan med sökresultat genom att lägga till antal och batchbearbeta dokument så att användarna kan bläddra igenom resultaten.
+Om du redan har vissa bakgrunden i Azure Search kan du använda det här exemplet som en springboard för försök suggesters (typ i förväg eller automatisk komplettering frågor), filter och fasetterad navigering. Du kan även förbättra sidan med sökresultat genom att lägga till antal och batchbearbeta dokument så att användarna kan bläddra igenom resultaten.
 
 Har du inte provat Azure Search än? Vi rekommenderar att du går andra självstudiekurser så att du ser vad du kan skapa. Vår [dokumentationssida](https://azure.microsoft.com/documentation/services/search/) innehåller fler resurser. Mer information finns också på länkarna i [listan med videoklipp och självstudiekurser](search-video-demo-tutorial-list.md).
 

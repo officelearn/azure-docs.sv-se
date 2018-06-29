@@ -10,85 +10,85 @@ ms.topic: article
 ms.date: 04/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f6f9b9c7ae71697efb6d722eff55d9ee3f8746d5
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 073af4a57d55eb8b2f3608482159b57c7b408f3b
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712308"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102752"
 ---
-# <a name="configure-the-resource-owner-password-credentials-flow-ropc-in-azure-ad-b2c"></a>Konfigurera resurs ägare lösenord autentiseringsuppgifter flödet (ROPC) i Azure AD B2C
+# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera resurs ägare lösenord autentiseringsuppgifter flödet i Azure AD B2C
 
-Flödet resurs ägare lösenord autentiseringsuppgifter (ROPC) är ett OAUTH standardautentisering flöde där programmet, även kallat den förlitande parten utbyten giltiga autentiseringsuppgifter, till exempel användar-ID och lösenord för en ID-token, åtkomst-token och en uppdateringstoken. 
+Flödet resurs ägare lösenord autentiseringsuppgifter (ROPC) är ett OAuth standardautentisering flöde där programmet, även kallat den förlitande parten utbyten giltiga autentiseringsuppgifter, till exempel användar-ID och lösenord för en ID-token, åtkomst-token och en uppdateringstoken. 
 
 > [!NOTE]
 > Den här funktionen är en förhandsversion.
 
-Dessa alternativ kan användas i Azure AD B2C:
+I Azure Active Directory (AD Azure) B2C stöds följande alternativ:
 
-- **Native Client** – användarinteraktion under autentiseringen sker med hjälp av kod som körs på en enhet för användaren på klientsidan, vilket kan vara ett mobilt program som körs i operativsystemet som t.ex Android eller körs i webbläsaren, till exempel Javascript.
-- **Offentliga flödet** – endast användarautentiseringsuppgifter, samlas in av ett program, skickas i API-anrop. Autentiseringsuppgifterna för programmet skickas inte.
-- **Lägga till nya anspråk** -ID-token innehållet kan ändras om du vill lägga till nya anspråk. 
+- **Native Client**: användarinteraktion under autentiseringen sker när koden körs på en enhet för användaren på klientsidan. Enheten kan vara ett mobilt program som körs i ett operativsystem, till exempel Android, eller som körs i en webbläsare, till exempel JavaScript.
+- **Offentliga flödet**: endast användarautentiseringsuppgifter, samlas in av ett program, skickas i API-anrop. Autentiseringsuppgifterna för programmet skickas inte.
+- **Lägga till nya anspråk**: ID-token innehållet kan ändras om du vill lägga till nya anspråk. 
 
-De här flödena stöds inte:
+Följande flödena stöds inte:
 
-- **Server-till-server** skydd identitetssystem (IDPS) måste en tillförlitlig IP-adress som samlats in från anroparen (native client) som en del av interaktionen.  Endast serverns IP-adress används i en API-anrop för serversidan, och IDPS kan identifiera en upprepad IP-adress som en angripare om dynamiskt tröskelvärde för misslyckad har överskridits.
-- **Konfidentiell flödet** - klient-ID för programmet har verifierats, men hemligheten som programmet har inte verifierats.
+- **Server-till-server**: skydd identitetssystem måste en tillförlitlig IP-adress som samlats in från anroparen (native client) som en del av interaktionen. I ett API-anrop för serversidan används bara serverns IP-adress. Om en dynamiskt tröskelvärde för misslyckad har överskridits kan skydd identitetssystem identifiera en IP-adress med upprepade som en angripare.
+- **Konfidentiell flödet**: programmet klient-ID har verifierats, men hemligheten som programmet har inte verifierats.
 
 ##  <a name="create-a-resource-owner-policy"></a>Skapa en princip för resurs-ägare
 
 1. Logga in på Azure-portalen som global administratör för din Azure AD B2C-klient.
-2. Om du vill växla till Azure AD B2C-klientorganisationen väljer du B2C-katalogen längst upp till höger i portalen.
+2. Om du vill växla till din Azure AD B2C-klient, Välj B2C-katalogen i övre högra hörnet av portalen.
 3. Under **principer**väljer **resursägare principer**.
-4. Ange ett namn för principen som *ROPC_Auth*, och klicka sedan på **Programanspråk**.
+4. Ange ett namn för principen som *ROPC_Auth*, och välj sedan **Programanspråk**.
 5. Välj programmet anspråk som du behöver för ditt program som *visningsnamn*, *e-postadress*, och *identitetsleverantör*.
-6. Klicka på **OK**, och klicka sedan på **skapa**.
+6. Välj **OK** och sedan **Skapa**.
 
-En slutpunkt som det här exemplet visas sedan:
+   En slutpunkt som det här exemplet visas sedan:
 
-`https://login.microsoftonline.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_ROPC_Auth`
+   `https://login.microsoftonline.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_ROPC_Auth`
 
 
 ## <a name="register-an-application"></a>Registrera ett program
 
-1. I B2C-inställningarna klickar du på **Program** och sedan på **+ Lägg till**.
-2. Ange ett namn för programmet, t.ex *ROPC_Auth_app*.
-3. Klicka på **nr** för **Web App/Web API** och på **Ja** för **Native client**.
-4. Lämna alla värden som de är och på **skapa**.
-5. Markera det nya programmet och anteckna program-ID.
+1. Välj i B2C-inställningar **program**, och välj sedan **Lägg till**.
+2. Ange ett namn för programmet, till exempel *ROPC_Auth_app*.
+3. Välj **nr** för **Web App/Web API**, och välj sedan **Ja** för **Native client**.
+4. Lämna alla värden som de är och välj sedan **skapa**.
+5. Markera det nya programmet och notera det program-ID för senare användning.
 
 ## <a name="test-the-policy"></a>Testa principen
 
 Använd din favorit-API-utveckling program för att generera ett API-anrop och granska svaret för att felsöka principen. Skapa ett anrop så här med informationen i följande tabell som en del av POST-begäran:
-- Ersätt *yourtenant.onmicrosoft.com* med namnet på din B2C-klient
-- Ersätt *B2C_1A_ROPC_Auth* med det fullständiga namnet på din ROPC-princip
-- Ersätt *bef2222d56 552f-4a5b-b90a-1988a7d634c3* med program-ID från din registrering.
+- Ersätt  *\<yourtenant.onmicrosoft.com >* med namnet på din B2C-klient.
+- Ersätt  *\<B2C_1A_ROPC_Auth >* med det fullständiga namnet på din resurs ägare autentiseringsuppgifter lösenordsprincip.
+- Ersätt  *\<bef2222d56 552f-4a5b-b90a-1988a7d634c3 >* med program-ID från din registrering.
 
-`https://te.cpim.windows.net/yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
+`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
 
 | Nyckel | Värde |
 | --- | ----- |
 | användarnamn | leadiocl@outlook.com |
 | lösenord | Passxword1 |
 | grant_type | lösenord |
-| omfång | openid bef2222d56-552f-4a5b-b90a-1988a7d634c3 offline_access |
-| client_id | bef2222d56 552f-4a5b-b90a-1988a7d634c3 |
+| omfång | openid \<bef2222d56 552f-4a5b-b90a-1988a7d634c3 > offline_access |
+| client_id | \<bef2222d56 552f-4a5b-b90a-1988a7d634c3 > |
 | response_type | token id_token |
 
 *Client_id* är det värde som du antecknade tidigare som program-ID. *Offline_access* är valfritt om du vill få en uppdateringstoken. 
 
-Den faktiska POST-begäranden som ser ut så här:
+Den faktiska POST-begäranden som ser ut som följande:
 
 ```
 POST /yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
-Host: te.cpim.windows.net
+Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
 ```
 
 
-Ett lyckat svar med offline-åtkomst liknar följande exempel:
+Ett lyckat svar med offline-åtkomst som ser ut som i följande exempel:
 
 ```
 { 
@@ -102,26 +102,25 @@ Ett lyckat svar med offline-åtkomst liknar följande exempel:
 
 ## <a name="redeem-a-refresh-token"></a>Lösa in en uppdateringstoken
 
-Skapa en POST anrop så här med informationen i följande tabell som en del av begäran:
+Skapa en POST-anrop som det visas här med informationen i följande tabell som en del av begäran:
 
-`https://te.cpim.windows.net/yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
+`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
 
 | Nyckel | Värde |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
-| client_id | bef2222d56 552f-4a5b-b90a-1988a7d634c3 |
-| resurs | bef2222d56 552f-4a5b-b90a-1988a7d634c3 |
+| client_id | \<bef2222d56 552f-4a5b-b90a-1988a7d634c3 > |
+| resurs | \<bef2222d56 552f-4a5b-b90a-1988a7d634c3 > |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* och *resurs* är de värden som du antecknade tidigare som program-ID. *Refresh_token* är token som du fick i authentication-samtal som tidigare nämnts.
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementera din önskade intern SDK eller använda App-autentisering
 
+Azure AD B2C-implementeringen uppfyller OAuth 2.0-standarder för lösenordsinformation för offentliga klienten resurs-ägare och ska vara kompatibla med de flesta SDK-klienten. Vi har testat det här flödet i stor utsträckning, i produktion med AppAuth för iOS och AppAuth för Android. Den senaste informationen finns [inbyggd App SDK för OAuth 2.0 och OpenID Connect implementera moderna metodtips](https://appauth.io/).
 
-Azure AD B2C-implementeringen uppfyller OAuth 2.0-standarder eller offentliga klienten ROPC och ska vara kompatibla med de flesta SDK-klienten.  Vi har testat det här flödet i stor utsträckning, i produktion med AppAuth för iOS och AppAuth för Android.  Se https://appauth.io/ för den senaste informationen.
-
-Du kan ladda ned fungerande prov som har konfigurerats för användning med Azure AD B2C från github på https://aka.ms/aadb2cappauthropc för Android och https://aka.ms/aadb2ciosappauthropc.
+Hämta exempel som fungerar som har konfigurerats för användning med Azure AD B2C från GitHub, [för Android](https://aka.ms/aadb2cappauthropc) och [för iOS](https://aka.ms/aadb2ciosappauthropc).
 
 
 

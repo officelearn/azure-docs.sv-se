@@ -3,7 +3,7 @@ title: Kom igång med för Azure IT operatörer | Microsoft Docs
 description: Startguide för Azure IT-operatörer
 services: ''
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: nepeters
-ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: iainfou
+ms.openlocfilehash: f79f727ed46f85866f59468be418ba8975c17bd8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361670"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099501"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introduktion till molntjänster och Microsoft Azure
 
@@ -61,7 +61,7 @@ SaaS är programvara som är på och hanteras centralt. Den bygger vanligtvis p�
 
 Microsoft Office 365 är ett bra exempel på en SaaS erbjudande. Prenumeranter betala en avgift per månad eller årlig prenumeration och de får Microsoft Exchange, Microsoft OneDrive och resten av Microsoft Office-paket som en tjänst. Prenumeranter få alltid den senaste versionen och Exchange-servern hanteras. Jämfört med installation och uppgradering av Office varje år, detta är billigare och kräver mindre ansträngning.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS: Plattform som en tjänst 
+#### <a name="paas-platform-as-a-service"></a>PaaS: Plattform som en tjänst
 
 Med PaaS, kan du distribuera programmet till en miljö som cloud service-leverantören tillhandahåller. Leverantören har alla infrastrukturhanteringen så att du kan fokusera på programutveckling.
 
@@ -381,11 +381,11 @@ Azure storage-konton kan konfigureras med olika nivåer av redundans:
 
 -   **Geo-redundant lagring med läsbehörighet** är geo-redundant lagring plus möjlighet att läsa data i den sekundära regionen. Den här möjligheten gör den lämplig för partiellt katastrofåterställning. Om det finns ett problem med den primära regionen, kan du ändra ditt program har skrivskyddad åtkomst till parad region.
 
-### <a name="use-cases"></a>Användningsfall 
+### <a name="use-cases"></a>Användningsfall
 
 Varje lagringstyp har olika användningsfall.
 
-**Blob Storage** 
+**Blob Storage**
 
 Ordet *blob* är en förkortning *binärt stort objekt*. Blobbar är Ostrukturerade filer som de som du lagrar på datorn. Blob Storage kan lagra alla slags textdata eller binära data, till exempel ett dokument, en mediefil eller ett installationsprogram. Blob Storage kallas även för objektlagring. Azure Blob storage innehåller också datadiskar för virtuella datorer i Azure.
 
@@ -445,7 +445,7 @@ På samma sätt kan du använda Azure CLI för att distribuera en Azure Resource
 
 ### <a name="access-and-security-for-azure-storage"></a>Åtkomst och säkerhet för Azure Storage
 
-Azure Storage finns på olika sätt, inklusive under Skapa en virtuell dator och åtgärden och från lagringsklientbiblioteken om Azure-portalen. 
+Azure Storage finns på olika sätt, inklusive under Skapa en virtuell dator och åtgärden och från lagringsklientbiblioteken om Azure-portalen.
 
 **Virtuella diskar**
 

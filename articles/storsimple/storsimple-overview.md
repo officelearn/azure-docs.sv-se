@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 10f4b6ec29c2d9539fa7fe61c96581755e630822
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b0d6a797e4fe84ce2cb969d001ff96177f6ac641
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23950289"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097054"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000-serien: en hybridlagringslösning för molnet
 ## <a name="overview"></a>Översikt
@@ -152,11 +152,11 @@ Mer information finns på [StorSimple-kortet för SharePoint](storsimple-adapter
 ## <a name="storage-management-technologies"></a>Tekniker för hantering av lagring
 Förutom den dedikerade virtuella StorSimple-enheten, virtuella enheten och andra komponenter använder Microsoft Azure StorSimple följande tekniker för program att ger snabb åtkomst till data och minska användningen av lagringsutrymme:
 
-* [automatisk lagringsnivåer](#automatic-storage-tiering) 
+* [Automatisk lagringsnivåer](#automatic-storage-tiering) 
 * [Tunn allokering](#thin-provisioning) 
 * [Deduplicering och komprimering](#deduplication-and-compression) 
 
-### <a name="automatic-storage-tiering"></a>automatisk lagringsnivåer
+### <a name="automatic-storage-tiering"></a>Automatisk lagringsnivåer
 Microsoft Azure StorSimple ordnar automatiskt data i logiska nivåer, baserat på aktuell användning, ålder och relation till andra data. Data som är mest aktiva lagras lokalt, medan mindre aktiva och inaktiva data migreras automatiskt till molnet. Följande diagram illustrerar den här metoden för lagring.
 
 ![Lagringsnivåer för StorSimple](./media/storsimple-overview/hcs-data-services-storsimple-components-tiers.png)
@@ -249,7 +249,7 @@ Nedan följer en lista över andra program som används med StorSimple för att 
 | Mål för säkerhetskopian |Veeam |Veeam v 9 och senare |[StorSimple som ett mål med Veaam](storsimple-configure-backup-target-veeam.md)|
 | Mål för säkerhetskopian |Veritas Backup Exec |Backup Exec 16 och senare |[StorSimple som ett mål med Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)|
 | Mål för säkerhetskopian |Veritas NetBackup |NetBackup 7.7.x och senare  |[StorSimple som ett mål med NetBackup](storsimple-configure-backuptarget-netbackup.md)|
-| Globala fildelning <br></br> Samarbete |Talon  |[StorSimple med Talon](https://www.talonstorage.com/products/fast-deployment-azure-storsimple) | |
+| Globala fildelning <br></br> Samarbete |Talon  |[StorSimple med Talon](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
 
 ## <a name="storsimple-terminology"></a>Terminologi för StorSimple
 Innan du distribuerar Microsoft Azure StorSimple-lösningen rekommenderar vi att du läser följande termer och definitioner.
@@ -258,7 +258,7 @@ Innan du distribuerar Microsoft Azure StorSimple-lösningen rekommenderar vi att
 | Termen (förkortning eller förkortning) | Beskrivning |
 | --- | --- |
 | åtkomstkontrollpost (ACR) |En post som är kopplade till en volym på din Microsoft Azure StorSimple-enhet som bestämmer vilka värdar som kan ansluta till den. Bestämning baseras på iSCSI-kvalificerade namn (IQN) för de värdar som ansluter till din StorSimple-enhet (som ingår i ACR). |
-| AES-256 |En 256-bitars Advanced Encryption Standard (AES) algoritm för att kryptera data som flyttas till och från molnet. |
+| AES 256 |En 256-bitars Advanced Encryption Standard (AES) algoritm för att kryptera data som flyttas till och från molnet. |
 | storlek på allokeringsenhet (Australien) |Den minsta mängden diskutrymme som kan tilldelas en fil i ditt Windows-filsystem. Om en filstorlek som inte är en jämn multipel av klusterstorleken extra utrymme måste användas för att lagra fil (upp till nästa multipel av klusterstorleken) ledde till förlorade utrymme och fragmentering på hårddisken. <br>Rekommenderade Australien för Azure StorSimple-volymer är 64 KB eftersom den fungerar med dedupliceringsalgoritmer. |
 | automatisk lagringsnivåer |Flytta automatiskt mindre aktiva data från SSD till hårddiskar och sedan till en nivå i molnet och aktivera hantering av alla lagring från ett centralt gränssnitt. |
 | Säkerhetskopieringskatalogen |En samling av säkerhetskopieringar, oftast relaterade av programtyp som användes. Den här samlingen visas i bladet säkerhetskopieringskatalog för tjänsten StorSimple Enhetshanteraren Användargränssnittet. |
@@ -270,7 +270,7 @@ Innan du distribuerar Microsoft Azure StorSimple-lösningen rekommenderar vi att
 | Moln som en nivå (CaaT) |Molnlagring integrerat som en nivå i lagringsarkitekturen så att all lagring som ser ut att vara en del av en enterprise-lagringsnätverk. |
 | molntjänstleverantör (CSP) |En leverantör av tjänster för molntjänster. |
 | ögonblicksbild i molnet |En tidpunkt i kopia av volymens data som lagras i molnet. En ögonblicksbild i molnet är detsamma som en ögonblicksbild replikeras på ett annat, externt lagringssystem. Molnögonblicksbilder är särskilt användbart i katastrofåterställning. |
-| Krypteringsnyckel för molnlagring |Ett lösenord eller en nyckel som används av din StorSimple-enhet för att få åtkomst till krypterade data som skickas av enheten till molnet. |
+| krypteringsnyckel för molnlagring |Ett lösenord eller en nyckel som används av din StorSimple-enhet för att få åtkomst till krypterade data som skickas av enheten till molnet. |
 | klustermedveten uppdatering |Hantera programuppdateringar på servrar i ett redundanskluster så att uppdateringar har minimal eller ingen effekt på tjänstetillgänglighet. |
 | DataPath |En samling funktionella enheter som utför åtgärder sammankopplade databearbetning. |
 | inaktivera |En permanent åtgärd som bryter anslutningen mellan StorSimple-enheten och tjänsten associerade molnet. Molnögonblicksbilder av enheten kan kvar efter den här processen och klonas eller användas för katastrofåterställning. |
@@ -290,11 +290,11 @@ Innan du distribuerar Microsoft Azure StorSimple-lösningen rekommenderar vi att
 | lokal ögonblicksbild |En tidpunkt i kopia av volymens data som lagras på Microsoft Azure StorSimple-enheten. |
 | Microsoft Azure StorSimple |En kraftfull lösning som består av en lagringsenhet för datacenter och programvara som gör att IT-organisationer utnyttja molnlagring som om det vore datacenter lagring. StorSimple förenklar dataskydd och datahantering samtidigt minska kostnaderna. Lösningen konsoliderar primära lagring, arkivera, säkerhetskopiering och katastrofåterställning återställning (DR) via sömlös integration med molnet. Genom att kombinera hantering för SAN-lagring och molnet data på en plattform i företagsklass, aktivera hastighet, enkel och tillförlitlighet för alla lagringsrelaterade StorSimple-enheter. |
 | Ström och kylning modul (PCM) |Maskinvarukomponenter för din StorSimple-enhet som består av strömförsörjningar och fläkten, därför namnet ström och kylning modulen. Primär höljet på enheten som har två 764W PCMs EBOD höljet har två 580 w vid PCMs. |
-| Primär enhet |Huvudsakliga höljet av StorSimple-enheten som innehåller programmet plattform domänkontrollanterna. |
-| Återställning tid mål för Återställningstid |Den maximala tidsperiod som ska vara förbrukad innan en affärsprocess eller system har återställts efter en katastrof. |
+| primär enhet |Huvudsakliga höljet av StorSimple-enheten som innehåller programmet plattform domänkontrollanterna. |
+| återställning tid mål för Återställningstid |Den maximala tidsperiod som ska vara förbrukad innan en affärsprocess eller system har återställts efter en katastrof. |
 | serieansluten SCSI (SAS) |En typ av hårddisken (HDD). |
 | krypteringsnyckel för tjänstdata |En nyckel som är tillgängliga för alla nya StorSimple-enheter som registreras med tjänsten StorSimple Enhetshanteraren. Konfigurationsdata som överförs mellan service Manager för StorSimple-enhet och enheten krypteras med en offentlig nyckel och kan sedan dekrypteras endast på enheten med en privat nyckel. Krypteringsnyckel för tjänstdata kan tjänsten för att erhålla den privata nyckeln för dekryptering. |
-| Nyckel för tjänstregistrering |En nyckel som kan registrera StorSimple-enhet med StorSimple Device Manager-tjänsten så att den visas i Azure-portalen för ytterligare hanteringsåtgärder för. |
+| nyckel för tjänstregistrering |En nyckel som kan registrera StorSimple-enhet med StorSimple Device Manager-tjänsten så att den visas i Azure-portalen för ytterligare hanteringsåtgärder för. |
 | Small Computer System Interface (SCSI) |En uppsättning standarder för att ansluta datorer och överföra data mellan dem fysiskt. |
 | Solid-State-hårddisk (SSD) |En disk som innehåller inga rörliga delar; till exempel flash-enhet. |
 | storage account |En uppsättning autentiseringsuppgifter som är kopplad till ditt lagringskonto för en viss molntjänstleverantören. |
@@ -303,11 +303,11 @@ Innan du distribuerar Microsoft Azure StorSimple-lösningen rekommenderar vi att
 | StorSimple Snapshot Manager |En Microsoft Management Console (MMC) snapin-modulen för hantering av säkerhetskopiering och återställning i Microsoft Azure StorSimple. |
 | ta säkerhetskopia |En funktion som gör att användaren kan ta en interaktiv säkerhetskopia av en volym. Det är något annat sätt att göra en manuell säkerhetskopiering för en volym i stället för med en automatisk säkerhetskopiering via en definierad princip. |
 | Tunn allokering |En metod för att optimera effektiviteten som används i tillgängligt lagringsutrymme i lagringssystem. I tunn allokering allokeras lagring mellan flera användare baserat på det minsta utrymmet som krävs för varje användare vid en given tidpunkt. Se även *fat etablering*. |
-| Skiktning |Ordna data i logiska grupper baserat på aktuell användning, ålder och relation till andra data. StorSimple ordnar automatiskt data i nivåer. |
-| Volym |Logiska lagringsutrymmen som visas i form av enheter. StorSimple-volymer motsvarar de volymer som monterats av värden, inklusive de som identifieras med hjälp av iSCSI- och en StorSimple-enhet. |
+| skiktning |Ordna data i logiska grupper baserat på aktuell användning, ålder och relation till andra data. StorSimple ordnar automatiskt data i nivåer. |
+| volym |Logiska lagringsutrymmen som visas i form av enheter. StorSimple-volymer motsvarar de volymer som monterats av värden, inklusive de som identifieras med hjälp av iSCSI- och en StorSimple-enhet. |
 | volymbehållare |En gruppering av volymerna och de inställningar som gäller för dem. Alla volymer på StorSimple-enhet är grupperade i volymbehållare. Volymen behållaren inställningar inkluderar storage-konton, krypteringsinställningar för data som skickas till molnet med associerade krypteringsnycklar och bandbredd för åtgärder som rör molnet. |
 | volymen grupp |StorSimple Snapshot Manager en volym grupp är en samling av volymer som har konfigurerats för att underlätta uppgifter. |
-| Volume Shadow Copy Service (VSS) |En Windows Server operativsystemtjänst som underlättar programkonsekvens genom att kommunicera med VSS-medvetna program att samordna skapandet av inkrementell ögonblicksbilder. VSS säkerställer att programmen är tillfälligt inaktiv när ögonblicksbilder tas. |
+| Tjänsten Volume Shadow Copy (VSS) |En Windows Server operativsystemtjänst som underlättar programkonsekvens genom att kommunicera med VSS-medvetna program att samordna skapandet av inkrementell ögonblicksbilder. VSS säkerställer att programmen är tillfälligt inaktiv när ögonblicksbilder tas. |
 | Windows PowerShell för StorSimple |Ett Windows PowerShell-baserade kommandoradsgränssnitt används för att tillämpa och hantera din StorSimple-enhet. Det här gränssnittet har ytterligare dedikerad cmdlets som är inriktad på att hantera en StorSimple-enhet utan att några av de grundläggande funktionerna i Windows PowerShell. |
 
 ## <a name="next-steps"></a>Nästa steg

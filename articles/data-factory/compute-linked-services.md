@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: douglasl
-ms.openlocfilehash: b4e8a2dba65973919d9716655c4fbb4d533b1c78
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 14cb59487788f272533fd7ec7eccf313654bf857
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824939"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082815"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 Den här artikeln beskrivs olika beräknings-miljöer som du kan använda för att bearbeta eller Transformera data. Det ger också information om olika konfigurationer (på begäran eller ta med din egen) som stöds av Data Factory när du konfigurerar länkade tjänster länka dessa compute miljöer till ett Azure data factory.
@@ -106,7 +106,7 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight länkad tjän
 | linkedServiceName            | Azure Storage länkade tjänsten som ska användas av klustret på begäran för lagring och bearbetning av data. HDInsight-klustret skapas i samma region som Azure Storage-konto. Azure HDInsight har en begränsning för hur många kärnor du kan använda i varje Azure-region som stöds. Kontrollera att du har tillräckligt med core kvoter i den Azure-regionen som uppfyller de nödvändiga clusterSize. Mer information finns i [ställa in kluster i HDInsight Hadoop, Spark, Kafka och mycket mer](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>För närvarande kan du skapa ett HDInsight-kluster med på begäran som använder ett Azure Data Lake Store som lagring. Om du vill lagra Resultatdata från HDInsight som bearbetas i en Azure Data Lake Store kan du använda en Kopieringsaktiviteten för att kopiera data från Azure Blobblagring till Azure Data Lake Store. </p> | Ja      |
 | clusterResourceGroup         | HDInsight-klustret har skapats i den här resursgruppen. | Ja      |
 | TimeToLive                   | Tillåten inaktivitetstid för HDInsight-kluster på begäran. Anger hur länge HDInsight-kluster på begäran förblir aktiva efter slutförande av en aktivitet som kör om det finns inga aktiva jobb i klustret. Den minsta tillåtna värdet är 5 minuter (00: 05:00).<br/><br/>Till exempel om en aktivitet kör tar 6 minuter och timetolive är inställd på 5 minuter, förblir klustret aktiv på 5 minuter efter 6 minuter för aktiviteten kör. Om en annan aktivitet kör körs med fönstret 6 minuter, bearbetas men det av samma kluster.<br/><br/>Skapar ett HDInsight-kluster på begäran är en kostsam åtgärd (kan ta en stund), så Använd den här inställningen som krävs för att förbättra prestanda för en datafabrik genom att återanvända ett HDInsight-kluster på begäran.<br/><br/>Om du anger timetolive-värdet till 0 bort klustret som kör aktiviteten har slutförts. Men om du anger ett högt värde kan klustret kan vara inaktiv för inloggning för felsökning av vissa syfte, men det kan resultera i höga kostnader. Det är därför viktigt att du har angett rätt värde baserat på dina behov.<br/><br/>Om egenskapen timetolive-värdet är korrekt, delar flera pipelines instans av HDInsight-kluster på begäran. | Ja      |
-| clusterType                  | Typ av HDInsight-klustret skapas. Tillåtna värden är ”hadoop” och ”spark”. Om inget anges är standardvärdet hadoop. | Nej       |
+| clusterType                  | Typ av HDInsight-klustret skapas. Tillåtna värden är ”hadoop” och ”spark”. Om inget anges är standardvärdet hadoop. Enterprise-säkerhetspaketet aktiverat kluster stöds inte för närvarande | Nej       |
 | version                      | Version av HDInsight-klustret. Om den inte anges används den aktuella HDInsight definierade standardversionen. | Nej       |
 | hostSubscriptionId           | Azure prenumerations-ID som används för att skapa HDInsight-kluster. Om inget anges används prenumerations-ID för Azure-inloggning-kontexten. | Nej       |
 | clusterNamePrefix           | Prefixet för HDI klustrets namn, en tidsstämpel läggs automatiskt i slutet av klustrets namn| Nej       |
@@ -123,6 +123,10 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight länkad tjän
 
 > [!IMPORTANT]
 > HDInsight stöder flera Hadoop-klusterversioner som kan distribueras. Varje version alternativ skapas en viss version av Hortonworks Data Platform (HDP)-distribution och en uppsättning komponenter som ingår i distributionen. Listan över versioner som stöds HDInsight behåller uppdateras för att tillhandahålla senaste Hadoop-ekosystemet komponenterna och korrigeringar. Kontrollera att du alltid se senaste information av [stöds HDInsight-version och typ av operativsystem](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) att se till att du använder HDInsight version som stöds. 
+>
+> 
+> [!IMPORTANT]
+> För närvarande finns HDInsight länkade tjänster inte stöder HBase, interaktiva fråga (Hive LLAP), Storm och Enterprise Säkerhetsaktiverade (domänanslutet) kluster. 
 >
 > 
 
@@ -149,7 +153,7 @@ Använd service principal autentisering genom att ange följande egenskaper:
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Ange programmets klient-ID.     | Ja      |
 | **servicePrincipalKey** | Ange programmets nyckeln.           | Ja      |
-| **Klient**              | Ange information om klient (domain name eller klient ID) under där programmet finns. Du kan hämta den hovrar muspekaren i det övre högra hörnet i Azure-portalen. | Ja      |
+| **klient**              | Ange information om klient (domain name eller klient ID) under där programmet finns. Du kan hämta den hovrar muspekaren i det övre högra hörnet i Azure-portalen. | Ja      |
 
 ### <a name="advanced-properties"></a>Avancerade egenskaper
 
@@ -295,6 +299,10 @@ Du kan skapa en Azure HDInsight länkad tjänst för att registrera ditt eget kl
 > [!IMPORTANT]
 > HDInsight stöder flera Hadoop-klusterversioner som kan distribueras. Varje version alternativ skapas en viss version av Hortonworks Data Platform (HDP)-distribution och en uppsättning komponenter som ingår i distributionen. Listan över versioner som stöds HDInsight behåller uppdateras för att tillhandahålla senaste Hadoop-ekosystemet komponenterna och korrigeringar. Kontrollera att du alltid se senaste information av [stöds HDInsight-version och typ av operativsystem](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) att se till att du använder HDInsight version som stöds. 
 >
+> [!IMPORTANT]
+> För närvarande finns HDInsight länkade tjänster inte stöder HBase, interaktiva fråga (Hive LLAP), Storm och Enterprise Säkerhetsaktiverade (domänanslutet) kluster. 
+>
+> 
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch länkad tjänst
 

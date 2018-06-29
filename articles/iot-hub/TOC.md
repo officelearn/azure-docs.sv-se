@@ -20,6 +20,7 @@
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Meddelanderoutning](tutorial-routing.md)
 ## [Konfigurera dina enheter](tutorial-device-twins.md)
+## [Hantera uppdateringar av inbyggd programvara](tutorial-firmware-update.md)
 ## [Testa enhetsanslutning](tutorial-connectivity.md)
 ## Skicka meddelanden från moln till enhet
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
@@ -111,6 +112,8 @@
 #### [Skicka meddelanden till en MQTT-server med Eclipse Paho-API:er](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 #### [Övervaka den magnetiska sensorn och skicka e-postaviseringar med Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
+## [Regelverk för enhetskonfiguration](iot-hub-configuration-best-practices.md)
+
 # Instruktionsguider
 ## Planera
 ### [Jämföra IoT Hub och Event Hubs](iot-hub-compare-event-hubs.md)
@@ -169,6 +172,9 @@
 ### Kom igång med modultvillingar
 #### [Portal](iot-hub-portal-csharp-module-twin-getstarted.md)
 #### [.NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
+#### [Python](iot-hub-python-python-module-twin-getstarted.md)
+#### [C](iot-hub-c-c-module-twin-getstarted.md)
+#### [Node](iot-hub-node-node-module-twin-getstarted.md)
 ### Använda direkta metoder
 #### [Node.js](iot-hub-node-node-direct-methods.md)
 #### [.NET](iot-hub-csharp-csharp-direct-methods.md)
@@ -221,7 +227,9 @@
 ## [Uppgradera en IoT-hubb](iot-hub-upgrade.md)
 ## [Användningsstatistik](iot-hub-metrics.md)
 ## [Konfigurera IP-filtrering](iot-hub-ip-filtering.md)
-## [Konfigurera enheter i skala](iot-hub-auto-device-config.md)
+## Konfigurera enheter i skala
+### [Använda Azure Portal](iot-hub-auto-device-config.md)
+### [Använda Azure CLI](iot-hub-auto-device-config-cli.md)
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=iot-hub)

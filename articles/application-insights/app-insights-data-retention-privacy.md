@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ee712b24478b52dfc5864e59e885e3b9dd6137b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: MT
+ms.openlocfilehash: 95e576eb5ce6834e67d997cde57426fd09db4e6a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294074"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099804"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
 
@@ -128,22 +128,9 @@ Krypteras alla data som flyttas mellan datacenter.
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Krypteras data under överföring från mitt program till Application Insights servrar?
 Ja, vi använder https för att skicka data till portalen från nästan alla SDK: er, inklusive webbservrar, enheter och HTTPS-webbsidor. Det enda undantaget är data som skickas från vanlig HTTP-webbsidor. 
 
-## <a name="personally-identifiable-information"></a>Personligt identifierbar Information
-#### <a name="could-personally-identifiable-information-pii-be-sent-to-application-insights"></a>Kunde personligt identifierbar Information (PII) skickas till Application Insights?
-Ja, det är möjligt. 
+## <a name="personal-data-stored-in-application-insights"></a>Personliga data som lagras i Application Insights
 
-Som en allmän vägledning:
-
-* De flesta standard telemetri (det vill säga telemetri som skickas utan att du skriva någon kod) innehåller inte explicit personligt identifierbar information. Dock kan det vara möjligt att identifiera enskilda användare genom härledning från en samling av händelser.
-* Undantag och spåra meddelanden kan innehålla personligt identifierbar information
-* Anpassad telemetri - anrop som är till exempel TrackEvent som du kan skriva i kod med API- eller loggfil spåren - kan innehålla alla data som du väljer.
-
-Tabellen i slutet av det här dokumentet innehåller mer detaljerade beskrivningar av insamlade data.
-
-#### <a name="am-i-responsible-for-complying-with-laws-and-regulations-in-regard-to-pii"></a>Kan jag ansvarar för att följa lagar och förordningar om personligt identifierbar information?
-Ja. Det är ditt ansvar att säkerställa att insamling och användning av data överensstämmer med lagar och förordningar och villkoren Microsoft Online Services.
-
-Du bör på lämpligt sätt informera kunderna om programmet samlar in data och hur data används.
+Vår [Application Insights personuppgifter artikel](app-insights-customer-data.md) beskrivs i det här avsnittet djupgående.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Mina användare kan stänga av Application Insights?
 Inte direkt. Vi tillhandahålla inte en växel som användarna kan användas för att stänga av Application Insights.
@@ -177,7 +164,7 @@ För [SDK: er för andra plattformar][platforms], se dokumenten.
 | **Egenskaper** |**Några data - bestäms av din kod** |
 | DeviceContext |ID, IP-, språk, enhetsmodell, nätverk, nätverkstyp, OEM-namnet, skärmupplösning Rollinstansen, Role-namn, typ av enhet |
 | ClientContext |OS, språk, språk, nätverk, fönstret upplösning |
-| Session |Sessions-id |
+| Session |sessions-id |
 | ServerContext |Namnet på datorn, språk, OS, enhet, användarens session, användarkontext, åtgärden |
 | Härleda |geoplats från IP-adress, timestamp, OS, webbläsare |
 | Mått |Tjänstmåttets namn och värde |

@@ -1,6 +1,6 @@
 ---
-title: Azure-hantering – övervakning | Microsoft Docs
-description: Azure har flera tjänster och verktyg som samarbetar för att tillhandahålla fullständig hantering för såväl program som körs i Azure som för program i andra moln och lokalt.  Den här artikeln innehåller en översiktlig beskrivning av de olika hanteringsområdena samt länkar till innehåll om Azure-verktyg för hantering av molnprogram och resurser.
+title: Azure-hantering och Operations Management Suite (OMS) | Microsoft Docs
+description: Översikt över hanteringsområden för Azure-program och -resurser med länkar till innehåll om Azure-hanteringsverktyg som tidigare fanns med i paketet för Operations Management Suite (OMS).
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: bwren
-ms.openlocfilehash: 36dd04be167d9e8e63ab38e4af80c5766ba55370
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8598e3528aa0a9fb171853e5f6554346ace937ef
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410302"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059958"
 ---
 # <a name="azure-management---monitoring"></a>Azure-hantering – övervakning
 
@@ -63,6 +63,6 @@ Tidigare teknisk dokumentation för Azure-hantering innefattade Operations Manag
 - Azure Automation
 - Azure Backup
 - Log Analytics
-- Webbplatsåterställning
+- Site Recovery
 
 Vi beskriver inte längre det sammanslagna paketet i vår tekniska dokumentation eftersom den fullständiga hanteringen i Azure har utökats för att omfatta andra tjänster. Ingen av de tjänster som ingår i OMS har ändrats och alla tjänster spelar fortfarande en viktig roll i hanteringen av Azures program och resurser. Du bör fokusera på de hanteringsuppgifter som du måste utföra och på de olika Azure-tjänster som fungerar tillsammans för varje uppgift.

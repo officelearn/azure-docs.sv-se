@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: f85772aa74e876764181330b6d29c4f8d2b48508
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b9298b081baf94350ab19a5d9a8af2705327eed6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102372"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Kom igång med ett Apache HBase-exempel i HDInsight
 
@@ -34,7 +35,7 @@ Innan du testar det här HBase-exemplet måste du ha följande objekt:
 * [curl](http://curl.haxx.se/download.html).
 
 ## <a name="create-hbase-cluster"></a>Skapa HBase-kluster
-Följande procedur använder en Azure Resource Manager-mall för att skapa ett HBase-kluster och det beroende standardkontot för Azure Storage. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+Följande procedur använder en Azure Resource Manager-mall för att skapa ett HBase-kluster och det beroende standardkontot för Azure Storage. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Läs mer om hur du använder Data Lake lagring Gen2 [Snabbstart: Skapa kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Klicka på följande bild för att öppna mallen i Azure Portal. Mallen finns i [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/).
    
@@ -42,7 +43,7 @@ Följande procedur använder en Azure Resource Manager-mall för att skapa ett H
 2. Från bladet **Anpassad distribution** anger du följande värden:
    
    * **Prenumeration**: Välj den Azure-prenumeration som kommer användas för att skapa klustret.
-   * **Resursgrupp**: Skapa en Azure Resource Management-grupp eller använd en befintlig.
+   * **Resursgruppen**: skapa en Azure-resurshanteraren hanteringsgrupp eller använda en befintlig.
    * **Plats**: Ange platsen för resursgruppen. 
    * **Klusternamn**: Ange ett namn för HBase-klustret.
    * **Klustrets inloggningsnamn och lösenord**: Inloggningsnamnet är som standard **admin**.

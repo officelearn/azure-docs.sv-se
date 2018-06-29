@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: d382293ce815f24ad635b50c920d7988b664d79c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d030bdaf4c68a7e2ec9d11cdd8a2f55eccfbd67d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169616"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081175"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>Använda Pig med Hadoop i HDInsight
 
@@ -55,7 +55,7 @@ Pig Latin-språk kan du beskriva dataflödet från rådata indata via en eller f
 
 Pig Latin stöder även användardefinierade funktioner (UDF), där du kan anropa externa komponenter som implementerar logik som är svår att modellen i Pig Latin.
 
-Läs mer om Pig Latin [Pig Latin referens manuell 1](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) och [Pig Latin referens manuell 2](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html).
+Läs mer om Pig Latin [Pig Latin referens manuell 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) och [Pig Latin referens manuell 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
 Ett exempel på med Pig UDF: er, finns i följande dokument:
 
@@ -99,7 +99,7 @@ HDInsight kan köra Pig Latin jobb med hjälp av olika metoder. Använd följand
 | **Använd den här** om du vill... | ...an **interaktiva** shell | ...**batch** bearbetning | ...med detta **klustret operativsystem** | ...from detta **klienten** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X eller Windows |
-| [CURL](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux- eller Windows |Linux, Unix, Mac OS X eller Windows |
+| [cURL](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux- eller Windows |Linux, Unix, Mac OS X eller Windows |
 | [.NET SDK för Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux- eller Windows |Windows (för tillfället) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux- eller Windows |Windows |
 

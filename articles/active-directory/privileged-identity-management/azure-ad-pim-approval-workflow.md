@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/28/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 6e14d91eae367ef62d1ff2e4cb6ddeb47c9fbbea
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 135c789dc6e41e07bb939ece679756c8c42de2d1
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261023"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085291"
 ---
 # <a name="approvals"></a>Godkännanden
 
@@ -40,7 +41,7 @@ Privata förhandsgranskningen stöder följande scenarion:
 
 **Som en privilegierade rollen Administratör (PRA) kan du:**
 
--   [Aktivera godkännande för specifika roller](#enable-approval-for-specific-roles)
+-   [aktivera godkännande för specifika roller](#enable-approval-for-specific-roles)
 
 -   [Ange godkännare användare och/eller grupper för att godkänna begäranden](#specify-approver-users-and/or-groups-to-approve-requests)
 
@@ -50,17 +51,17 @@ Privata förhandsgranskningen stöder följande scenarion:
 
 -   [Visa väntande godkännanden (antal begäranden)](#view-pending-approvals-requests)
 
--   [Godkänna eller Avvisa begäran för rollen höjning (enkel och/eller)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
+-   [godkänna eller Avvisa begäran för rollen höjning (enkel och/eller)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
 
 -   [Ange en motivering till min godkännande/nekande](#provide-justification-for-my-approval/rejection) 
 
 **Som en behörig användare i rollen kan du:**
 
--   [Begära aktivering av en roll som kräver godkännande](#request-activation-of-a-role-that-requires-approval)
+-   [begära aktivering av en roll som kräver godkännande](#request-activation-of-a-role-that-requires-approval)
 
 -   [Visa status för din begäran om att aktivera](#view-the-status-of-your-request-to-activate)
 
--   [Slutföra uppgiften i Azure AD om aktivering har godkänts](#complete-your-task-in-azure-ad-if-activation-was-approved)
+-   [slutföra uppgiften i Azure AD om aktivering har godkänts](#complete-your-task-in-azure-ad-if-activation-was-approved)
 
 ### <a name="navigation"></a>Navigering
 

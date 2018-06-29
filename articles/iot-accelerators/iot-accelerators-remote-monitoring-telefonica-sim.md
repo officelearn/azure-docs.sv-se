@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae8751f429cb4b11199bd8da9d8c2e08c0b98b35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8ba187fd82fa6a698905313bfda2802324a9034d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628291"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097088"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrera SIM data i Fjärrövervaknings-lösning
 
@@ -21,7 +21,7 @@ IoT-enheter ansluter ofta till molnet genom att använda ett SIM-kort som gör a
 
 Fjärråtkomst övervakning ger out-of-box-integrering med Telefónica IoT-anslutning, vilket innebär att kunder som använder dess IoT anslutning plattform synkronisera sina enheter SIM-kort anslutningsdata till sina lösningar. Den här lösningen kan utökas för att stödja andra leverantörer av IoT-anslutning via GitHub [databasen](http://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 * Integrera Telefónica IoT SIM data i Fjärrövervaknings-lösning
 * Visa realtid telemetri
@@ -33,9 +33,9 @@ I den här guiden får du lära dig att:
 
 Ytterligare Fjärrövervaknings funktionen är för närvarande under förhandsgranskning. Följ dessa steg för att synkronisera anslutningsdata till Azure Remote övervakning lösning:
 
-1. Fylla i en begäran i [Telefónicas plats](https://iot.Telefónica.com/contact), väljer alternativet **Azure Fjärrövervaknings**, inklusive dina kontaktdata.
+1. Fylla i en begäran i [Telefónicas plats](https://iot.telefonica.com/contact), väljer alternativet **Azure Fjärrövervaknings**, inklusive dina kontaktdata.
 2. Telefónica aktiverar ditt konto.
-3. Om du ännu inte har en Telefónica klient och du vill få detta eller andra IoT anslutning molnet redo tjänster finns [Telefónicas plats](https://iot.Telefónica.com/contact) och väljer alternativet **anslutning**.
+3. Om du ännu inte har en Telefónica klient och du vill få detta eller andra IoT anslutning molnet redo tjänster finns [Telefónicas plats](https://iot.telefonica.com/) och väljer alternativet **anslutning**.
 
 ### <a name="telefnica-sim-setup"></a>Telefónica SIM-installationen
 Telefónica SIM & Azure dubbla ID enhetsassociering baseras på Telefónica IoT SIM ”alias”-egenskap. 

@@ -1,26 +1,28 @@
 ---
-title: Dokumentation om Azure Data Lake Store – Självstudier, API-referens | Microsoft Docs
+title: Dokumentation om Azure Data Lake Storage Gen1 – självstudier, API-referens | Microsoft Docs
 description: Lär dig hur du konfigurerar, hanterar och får åtkomst till en högskalig, Hadoop-kompatibel Data Lake-lagringsplats för analys av data av alla storlekar, typer och inmatningshastigheter.
 services: data-lake-store
-author: czeumault
-manager: carolz
+author: twooley
+manager: twooley
 layout: LandingPage
 ms.assetid: ''
 ms.service: data-lake-store
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: d738676a0a9b16c32646734168546992d8595912
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 06/27/2018
+ms.author: twooley
+ms.openlocfilehash: ba17c59169d00a8333bb9eb1c7bb0c1a56aaba83
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033453"
 ---
-# <a name="data-lake-store-documentation"></a>Dokumentation om Data Lake Store
+# <a name="azure-data-lake-storage-gen1-documentation"></a>Dokumentation om Azure Data Lake Storage Gen1
 
-Lär dig hur du använder Data Lake Store för att skapa en högskalig, Hadoop-kompatibel lagringsplats för analys av data av alla storlekar, typer och inmatningshastigheter. Självstudier, API-referenser och annan dokumentation visar hur du konfigurerar, hanterar och får åtkomst till en Data Lake-lagringsplats för drifts- och förberedande analys.
+Lär dig hur du använder Azure Data Lake Storage Gen1 (tidigare Azure Data Lake Store) för att skapa en Hadoop-kompatibel lagringsplats i hyperskala för analys av data av alla storlekar, typer och inmatningshastigheter. Självstudier, API-referenser och annan dokumentation visar hur du konfigurerar, hanterar och får åtkomst till en Data Lake-lagringsplats för drifts- och förberedande analys.
+
+Gå till [produktsidan](https://aka.ms/adlsgen2-product) om du vill veta mer om förhandsversionen av Data Lake Storage Gen2.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -34,7 +36,7 @@ Lär dig hur du använder Data Lake Store för att skapa en högskalig, Hadoop-k
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Läs mer om Azure Data Lake Store</h3>
+                        <h3>Lär dig mer om Data Lake Storage Gen1</h3>
                     </div>
                 </div>
             </div>
@@ -52,7 +54,7 @@ Lär dig hur du använder Data Lake Store för att skapa en högskalig, Hadoop-k
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Data Lake Store videobibliotek</h3>
+                        <h3>Videobibliotek för Data Lake Storage Gen1</h3>
                     </div>
                 </div>
             </div>
@@ -70,7 +72,7 @@ Lär dig hur du använder Data Lake Store för att skapa en högskalig, Hadoop-k
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Kom igång med Azure Data Lake Store med Azure Portal</h3>
+                        <h3>Komma igång med Data Lake Storage Gen1 med hjälp av Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +90,7 @@ Lär dig hur du använder Data Lake Store för att skapa en högskalig, Hadoop-k
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Kom igång med Azure Data Lake Store med PowerShell</h3>
+                        <h3>Komma igång med Data Lake Storage Gen1 med hjälp av PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +108,7 @@ Lär dig hur du använder Data Lake Store för att skapa en högskalig, Hadoop-k
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Kom igång med Azure Data Lake Store med Azure CLI</h3>
+                        <h3>Komma igång med Data Lake Storage Gen1 med hjälp av Azure CLI</h3>
                     </div>
                 </div>
             </div>
@@ -124,7 +126,7 @@ Lär dig hur du använder Data Lake Store för att skapa en högskalig, Hadoop-k
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Kom igång med Azure Data Lake Store med .NET</h3>
+                        <h3>Komma igång med Data Lake Storage Gen1 med hjälp av .NET</h3>
                     </div>
                 </div>
             </div>
@@ -142,7 +144,7 @@ Lär dig hur du använder Data Lake Store för att skapa en högskalig, Hadoop-k
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Kom igång med Azure Data Lake Store med Java</h3>
+                        <h3>Komma igång med Data Lake Storage Gen1 med hjälp av Java</h3>
                     </div>
                 </div>
             </div>
@@ -160,7 +162,7 @@ Lär dig hur du använder Data Lake Store för att skapa en högskalig, Hadoop-k
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Kom igång med Azure Data Lake Store med Node.js</h3>
+                        <h3>Komma igång med Data Lake Storage Gen1 med hjälp av Node.js</h3>
                     </div>
                 </div>
             </div>

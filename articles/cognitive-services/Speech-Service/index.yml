@@ -15,12 +15,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/01/2018
   ms.author: nolachar
-  ms.openlocfilehash: 98e254d3a993c5d02091be9535eb685ecd987a09
-  ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+  ms.openlocfilehash: 21f67f7fcce505e18792a3be830524d64dd8045e
+  ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/25/2018
-  ms.locfileid: "36937864"
+  ms.lasthandoff: 06/27/2018
+  ms.locfileid: "37045311"
 abstract:
   description: Microsoft Speech Service ger utvecklare ett enkelt sätt att lägga till kraftfulla talbaserade funktioner i sina program, till exempel röstkontroll, transkription, diktering och översättning med hjälp av <a href="rest-apis">REST API</a> eller SDK för <a href="speech-sdk">C#, C++ eller Java</a>.<p>Med Speech Service kan du anpassa modeller för <a href="how-to-customize-speech-models">Tal till text</a> för att hantera specialvokabulär, miljöstörningar och olika sätt att tala. Det finns även anpassade funktioner för <a href="https://cris.ai/Home/customvoice">Text till tal</a> och <a href="https://www.microsoft.com/translator/customization.aspx">Talöversättning</a>.<p>Mer information finns i <a href="overview">Vad är Speech Service?</a>
 sections:

@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Integrera utbyten av REST API anspråk i din Azure AD B2C användaren resa som verifiering av indata från användaren'
+title: Integrera utbyten av REST API anspråk i din Azure Active Directory B2C användaren resa | Microsoft Docs
 description: Integrera utbyten av REST API anspråk i din Azure AD B2C användaren resa som verifiering av indata från användaren.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: davidmu
-ms.openlocfilehash: c4a530b3d6b4f6d4f5ec6087adcee839422dd01d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: e17647016da0e877bd8f21357a4bd38121820f22
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34709367"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera utbyte av REST API-anspråk i din Azure AD B2C användaren resa som verifiering av indata från användaren
 
@@ -82,7 +82,7 @@ Modeller representerar de inkommande anspråken och utgående anspråk data i RE
 Skapa en modell som representerar inkommande anspråk genom att göra följande:
 
 1. Om Solution Explorer inte redan är öppen väljer **visa** > **Solution Explorer**. 
-2. I Solution Explorer högerklickar du på den **modeller** mapp, Välj **Lägg till**, och välj sedan **klassen**.
+2. I Solution Explorer högerklickar du på mappen **Modeller**, välj **Lägg till** och sedan **Klass**.
 
     ![Lägg till modell](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
 
@@ -136,7 +136,7 @@ Skapa en modell som representerar inkommande anspråk genom att göra följande:
 ### <a name="step-22-add-a-controller"></a>Steg 2.2: Lägg till en domänkontrollant
 I webb-API, en _domänkontrollant_ är ett objekt som hanterar HTTP-begäranden. Returnerar domänkontrollanten utgående anspråk eller om det första namnet inte är giltigt, genererar ett felmeddelande för HTTP-konflikt.
 
-1. I Solution Explorer högerklickar du på den **domänkontrollanter** mapp, Välj **Lägg till**, och välj sedan **domänkontrollant**.
+1. I Solution Explorer högerklickar du på mappen **Styrenheter**. Välj sedan **Lägg till** och sedan **Styrenhet**.
 
     ![Lägga till nya styrenhet](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
 

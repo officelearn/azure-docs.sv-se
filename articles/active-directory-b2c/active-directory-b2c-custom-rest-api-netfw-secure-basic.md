@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Skydda din RESTful-tjänster med hjälp av grundläggande HTTP-autentisering'
-description: Skydda din anpassade REST API anspråk utbyte i din Azure AD B2C med hjälp av grundläggande HTTP-autentisering
+title: Skydda din RESTful-tjänster med hjälp av grundläggande HTTP-autentisering i Azure Active Directory B2C | Microsoft Docs
+description: Skydda din anpassade REST API anspråk utbyte i din Azure AD B2C med grundläggande HTTP-autentisering.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 749157d16c1c394b173545dddb8751d58fdcfd56
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 18aeeef1aa2ef322f78e7e10118464d542926e59
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34709802"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Skydda din RESTful-tjänster med hjälp av grundläggande HTTP-autentisering
 

@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Komma igång med anpassade principer | Microsoft Docs'
-description: Hur du kommer igång med Azure Active Directory B2C anpassade principer
+title: Kom igång med anpassade principer i Azure Active Directory B2C | Microsoft Docs
+description: Hur du kommer igång med Azure Active Directory B2C anpassade principer.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 502f88bd08c05f71988763fedeba4d596aa409b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 8ff69942971950e2d4a274e7d3502379a26326c7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34709299"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: Komma igång med anpassade principer
 
@@ -52,7 +52,7 @@ Innan du fortsätter bör du kontrollera att du har en Azure AD B2C-klient som �
  e. För **datum**, använda standardinställningarna.<br>
  f. För **nyckelanvändning**, använda **kryptering**.<br>
  g. Välj **Skapa**.<br>
-5. Create B2C_1A_FacebookSecret. <br>
+5. Skapa B2C_1A_FacebookSecret. <br>
 Om du redan har en hemlighet för Facebook-programmet kan lägga till den som en princip för din klient. Annars måste du skapa nyckeln med ett platshållarvärde så att dina principer valideras.<br>
  a. Välj **Lägg till**.<br>
  b. För **alternativ**, använda **manuell**.<br>
@@ -73,8 +73,8 @@ Azure AD B2C måste du registrera två extra program som används av motorn för
 
 1. I den [Azure-portalen](https://portal.azure.com), växla till den [kontext för din Azure AD B2C-klient](active-directory-b2c-navigate-to-b2c-context.md).
 2. Öppna den **Azure Active Directory** bladet (inte den **Azure AD B2C** bladet). Du kan behöva välja **fler tjänster** att hitta den.
-3. Välj **App registreringar**.
-4. Välj **nya appregistrering**.
+3. Välj **Appregistreringar**.
+4. Välj **Ny programregistrering**.
    * För **namn**, Använd `IdentityExperienceFramework`.
    * För **programtyp**, använda **webb-app/API**.
    * För **inloggnings-URL**, använda `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, där `yourtenant` är ditt domännamn i Azure AD B2C-klient.
@@ -85,8 +85,8 @@ Azure AD B2C måste du registrera två extra program som används av motorn för
 
 ### <a name="create-the-proxyidentityexperienceframework-application"></a>Skapa ProxyIdentityExperienceFramework-program
 
-1. Välj **App registreringar**.
-1. Välj **nya appregistrering**.
+1. Välj **Appregistreringar**.
+1. Välj **Ny programregistrering**.
    * För **namn**, Använd `ProxyIdentityExperienceFramework`.
    * För **programtyp**, använda **interna**.
    * För **omdirigerings-URI**, använda `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, där `yourtenant` är Azure AD B2C-klient.
@@ -99,7 +99,7 @@ Azure AD B2C måste du registrera två extra program som används av motorn för
 1. Välj **väljer en API**.
 1. Sök efter namnet IdentityExperienceFramework. Välj **IdentityExperienceFramework** i resultaten och klickar sedan på **Välj**.
 1. Markera kryssrutan bredvid **åtkomst IdentityExperienceFramework**, och klicka sedan på **Välj**.
-1. Välj **klar**.
+1. Välj **Done** (Klar).
 1. Välj **bevilja med**, och sedan bekräfta genom att välja **Ja**.
 
 ## <a name="download-starter-pack-and-modify-policies"></a>Hämta startpaket och ändra principer
@@ -144,7 +144,7 @@ Varje startpaket innehåller:
 
 5. Spara filen.
 6. Öppna TrustFrameworkExtensions.xml. Gör samma två ändringar genom att ersätta `yourtenant.onmicrosoft.com` med din Azure AD B2C-klient. Gör samma ersättningen i den `<TenantId>` element för totalt tre ändringar. Spara filen.
-7. Open SignUpOrSignIn.xml. Göra samma ändringar genom att ersätta `yourtenant.onmicrosoft.com` med din Azure AD B2C-klient på tre platser. Spara filen.
+7. Öppna SignUpOrSignIn.xml. Göra samma ändringar genom att ersätta `yourtenant.onmicrosoft.com` med din Azure AD B2C-klient på tre platser. Spara filen.
 8. Öppna lösenordsåterställningen och redigera filer-profilen. Göra samma ändringar genom att ersätta `yourtenant.onmicrosoft.com` med din Azure AD B2C-klient på tre platser i varje fil. Spara filerna.
 
 ### <a name="add-the-application-ids-to-your-custom-policy"></a>Lägg till program-ID: N i en anpassad princip
@@ -170,7 +170,7 @@ Lägg till program-ID i tilläggsfilen (`TrustFrameworkExtensions.xml`):
 
 1. Överför TrustFrameworkBase.xml.
 2. Överför TrustFrameworkExtensions.xml.
-3. Upload SignUpOrSignin.xml.
+3. Överför SignUpOrSignin.xml.
 4. Ladda upp dina övriga principfiler.
 
 När en fil har överförts, namnet på principfilen inledd med `B2C_1A_`.

@@ -9,10 +9,11 @@ ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: 490260a1cda8ed467d3fc7ad0c1020e6e459bd13
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "30325420"
 ---
 >[!NOTE]
->De funktioner som beskrivs i den här artikeln är bara tillgängliga på standardnivån för IoT-hubb. Mer information om IoT-hubb nivåerna basic och standard finns [hur du väljer rätt IoT-hubb nivån](../articles/iot-hub/iot-hub-scaling.md).
+>De funktioner som beskrivs i den här artikeln är bara tillgängliga på standardnivån för IoT-hubb. Mer information om nivåerna Basic och Standard finns i artikeln om att [välja rätt nivå för IoT Hub](../articles/iot-hub/iot-hub-scaling.md).

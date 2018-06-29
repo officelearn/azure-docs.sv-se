@@ -1,21 +1,21 @@
 ---
-title: Token referens - Azure AD B2C | Microsoft Docs
+title: Token-referens i Azure Active Directory B2C | Microsoft Docs
 description: Vilka typer av token som utfärdats i Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 09d776b54941e33979d7969b25c35e67a53cf8f0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: e2ca582c9ec767e9b810c574e3efddc6485bb6a0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34709316"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token-referens
 
@@ -58,7 +58,7 @@ CQhoFA
 
 ```
 
-### <a name="access-tokens"></a>Åtkomst-token
+### <a name="access-tokens"></a>Åtkomsttoken
 
 En åtkomst-token är också en typ av säkerhetstoken som din app som tar emot från Azure AD B2C `/authorize` och `/token` slutpunkter. Åtkomsttoken även visas i form av [JWTs](#types-of-tokens), och de innehåller anspråk som du kan använda för att identifiera de beviljar behörigheterna att dina API: er. Åtkomsttoken är signerat, men de för närvarande är krypterade inte. Åtkomst-token ska användas för att ge åtkomst till API: er och resurs-servrar. Mer information om hur du [använder åtkomsttoken](active-directory-b2c-access-tokens.md). 
 
@@ -73,13 +73,13 @@ Observera att anspråk i ID-token inte returneras i någon särskild ordning. De
 | Namn | Begär | Exempelvärde | Beskrivning |
 | --- | --- | --- | --- |
 | Målgrupp |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |En målgrupp anspråk identifierar den avsedda mottagaren av token. Azure AD B2C är målgruppen din app program-ID som tilldelats din app i portalen för registrering av app. Din app ska verifiera det här värdet och avvisa token om det inte matchar. |
-| Utgivare |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Det här anspråket identifierar den säkerhetstokentjänst (STS) som skapar och returnerar token. Du identifierar även Azure AD-katalog där användaren autentiserades. Appen bör verifiera utfärdaren anspråk så att token som kommer från Azure Active Directory v2.0-slutpunkten. |
+| Utfärdare |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Det här anspråket identifierar den säkerhetstokentjänst (STS) som skapar och returnerar token. Du identifierar även Azure AD-katalog där användaren autentiserades. Appen bör verifiera utfärdaren anspråk så att token som kommer från Azure Active Directory v2.0-slutpunkten. |
 | Utfärdat till |`iat` |`1438535543` |Detta anspråk är den tid då token har utfärdats, representeras i epok tid. |
 | Förfallotid |`exp` |`1438539443` |Förfallotiden anspråk är den tid då token blir ogiltigt, som representeras i epok tid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
-| Inte före |`nbf` |`1438535543` |Detta anspråk är den tid som token blir giltigt, representeras i epok tid. Detta är vanligtvis samma som den tid som token har utfärdats. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
+| inte före |`nbf` |`1438535543` |Detta anspråk är den tid som token blir giltigt, representeras i epok tid. Detta är vanligtvis samma som den tid som token har utfärdats. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
 | Version |`ver` |`1.0` |Detta är versionen av ID-token som definierats av Azure AD. |
-| Koden hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |En kod hash ingår i en ID-token endast när token som utfärdas tillsammans med en kod för auktorisering av OAuth 2.0. En kod hash kan användas för att bekräfta en Auktoriseringskoden är äkta. Mer information om hur du utför den här verifieringen finns i [OpenID Connect specifikationen](http://openid.net/specs/openid-connect-core-1_0.html).  |
-| Åtkomst-token hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |En åtkomst-token hash ingår i en ID-token endast när token som utfärdas tillsammans med en OAuth 2.0-åtkomsttoken. En åtkomst-token-hash kan användas för att bekräfta en åtkomst-token är äkta. Mer information om hur du utför den här verifieringen finns i [OpenID Connect-specifikationen](http://openid.net/specs/openid-connect-core-1_0.html)  |
+| koden hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |En kod hash ingår i en ID-token endast när token som utfärdas tillsammans med en kod för auktorisering av OAuth 2.0. En kod hash kan användas för att bekräfta en Auktoriseringskoden är äkta. Mer information om hur du utför den här verifieringen finns i [OpenID Connect specifikationen](http://openid.net/specs/openid-connect-core-1_0.html).  |
+| åtkomst-token hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |En åtkomst-token hash ingår i en ID-token endast när token som utfärdas tillsammans med en OAuth 2.0-åtkomsttoken. En åtkomst-token-hash kan användas för att bekräfta en åtkomst-token är äkta. Mer information om hur du utför den här verifieringen finns i [OpenID Connect-specifikationen](http://openid.net/specs/openid-connect-core-1_0.html)  |
 | temporärt ID |`nonce` |`12345` |Ett temporärt ID är en strategi som används för att minimera token replay-attacker. Appen kan ange ett temporärt ID i en auktoriseringsbegäran om med hjälp av den `nonce` Frågeparametern. Värdet du anger i begäran kommer orsakat ska ändras i den `nonce` anspråk för en ID-token. Detta kan din app att verifiera värdet mot det värde som det anges på begäran, som associerar appens session med en viss ID-token. Din app ska utföra den här verifieringen under verifieringsprocessen ID-token. |
 | Ämne |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Detta är principal om vilka token Assert information, till exempel användare av en app. Det här värdet är oföränderlig och kan inte tilldela om eller återanvänds. Det kan användas för att utföra auktoriseringskontroller på ett säkert sätt, till exempel när token som används för att komma åt en resurs. Som standard fylls ämne anspråk med objekt-ID för användaren i katalogen. Läs mer i [Azure Active Directory B2C: Token, session och enkel inloggning konfiguration](active-directory-b2c-token-session-sso.md). |
 | Autentisering kontexten klassreferens |`acr` |Inte tillämpligt |Inte används för närvarande, med undantag för äldre principer. Läs mer i [Azure Active Directory B2C: Token, session och enkel inloggning konfiguration](active-directory-b2c-token-session-sso.md). |
@@ -145,12 +145,12 @@ När din app eller API får du en ID-token, bör det också utföra flera kontro
 
 En fullständig lista över verifieringar som din app ska utföra avser den [OpenID Connect specifikationen](https://openid.net). Information om de förväntade värdena för dessa anspråk som ingår i den föregående [token avsnittet](#types-of-tokens).  
 
-## <a name="token-lifetimes"></a>Tokenlivslängder
+## <a name="token-lifetimes"></a>Livslängder för token
 Följande token livslängd som ytterligare din vetskap. De kan hjälpa dig när du utvecklar och felsöka appar. Observera att dina appar inte att skriva till räknar med någon av dessa livslängd förblir konstant. De kan och kommer att ändras. Läs mer om den [anpassning av token livslängd](active-directory-b2c-token-session-sso.md) i Azure AD B2C.
 
 | Token | Livslängd | Beskrivning |
 | --- | --- | --- |
-| ID-token |En timme |ID-token gäller vanligtvis i en timme. Ditt webbprogram kan använda den här livslängd för att underhålla en egen sessioner med användare (rekommenderas). Du kan också välja en annan session livslängd. Om din app måste hämta ett nytt ID-token, behöver den bara begära en ny inloggning till Azure AD. Om en användare har en giltig webbläsarsession med Azure AD, kan användaren inte krävas att ange autentiseringsuppgifter igen. |
+| ID-token |En timma |ID-token gäller vanligtvis i en timme. Ditt webbprogram kan använda den här livslängd för att underhålla en egen sessioner med användare (rekommenderas). Du kan också välja en annan session livslängd. Om din app måste hämta ett nytt ID-token, behöver den bara begära en ny inloggning till Azure AD. Om en användare har en giltig webbläsarsession med Azure AD, kan användaren inte krävas att ange autentiseringsuppgifter igen. |
 | Uppdatera token |Upp till 14 dagar |En enskild uppdateringstoken är giltig för 14 dagar. En uppdateringstoken kan dock bli ogiltiga när som helst för en rad orsaker. Din app ska fortsätta att försöka använda en uppdateringstoken förrän misslyckas begäran eller din app ersätter uppdateringstoken med en ny. En uppdateringstoken kan också blir ogiltiga om 90 dagar har gått sedan användaren senast angivna autentiseringsuppgifter. |
 | Auktoriseringskoder |Fem minuter |Auktoriseringskoder är avsiktligt tillfällig. De bör lösas omedelbart för åtkomst-token, ID-token eller uppdateringstoken när de tas emot. |
 

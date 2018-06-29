@@ -67,6 +67,8 @@
   items:
     - name: Språk som stöds
       href: supported-languages.md
+    - name: Regioner
+      href: regions.md
     - name: 'REST API:er'
       href: rest-apis.md
     - name: API för Speech SDK

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 178102990462235b9b39f2ed1ad0e43395118daf
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: ecef13f0ce97c7cec5a6583479911a08a99b0877
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064061"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110736"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Installera och konfigurera SAP HANA (stora instanser) på Azure
 
@@ -301,7 +301,7 @@ Det här avsnittet visar hur man installerar SAP HANA på en enhet med stora HAN
 
 - Du har angett Microsoft alla data för att distribuera en SAP HANA stora instans.
 - Du har fått SAP HANA stora instans från Microsoft.
-- Du har skapat ett virtuellt Azure-nätverk som är ansluten till nätverket på plats.
+- Du har skapat ett virtuellt Azure-nätverk som är anslutet till det lokala nätverket.
 - Du ansluten ExpressRotue kretsen för HANA stora instanser till samma Azure VNet.
 - Du har installerat en Azure VM som du använder som en hopp för HANA stora instanser.
 - Du kontrollerat att du kan ansluta från rutan hopp till HANA stora instans-enhet och vice versa.

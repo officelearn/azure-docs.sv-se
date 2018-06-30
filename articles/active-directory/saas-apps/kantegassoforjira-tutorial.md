@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: ebbb61b8612418fbec37769ee56907ff99d5214a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9355af15ed8156fee5f4b3584aa3342ea40c0628
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228772"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112073"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Självstudier: Azure Active Directory-integrering med Kantega SSO för JIRA
 
@@ -133,7 +133,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/kantegassoforjira-tutorial/tutorial_general_400.png)
     
-7. I en annan webbläsarfönster logga du in på ditt JIRA på lokal server som administratör.
+7. I en annan webbläsarfönstret, logga in på ditt JIRA lokal server som administratör.
 
 8. Hovra över kugge och klicka på den **tillägg**.
 
@@ -218,7 +218,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     c. Klicka på **Spara**. 
 
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
@@ -258,7 +258,7 @@ Om du vill aktivera Azure AD-användare kan logga in på JIRA etableras de i JIR
 
 **Utför följande steg om du vill konfigurera ett användarkonto:**
 
-1. Logga in på din JIRA på lokal server som administratör.
+1. Logga in på ditt JIRA lokal server som administratör.
 
 2. Hovra över kugge och klicka på den **Användarhantering**.
 

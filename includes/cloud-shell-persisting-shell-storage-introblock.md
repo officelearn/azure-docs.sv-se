@@ -19,7 +19,7 @@ När du använder grundläggande inställningar och välj endast en prenumeratio
 Filresursen monterar som `clouddrive` i din `$Home` directory. Detta är en engångsåtgärd och filresursen automatiskt monterar i efterföljande sessioner. 
 
 > [!NOTE]
-> Av säkerhetsskäl bör varje användare etablera egna lagring.  Användarna måste ha deltagare åtkomst för rollbaserad åtkomstkontroll (RBAC) eller senare.
+> Av säkerhetsskäl bör varje användare etablera egna storage-konto.  För rollbaserad åtkomstkontroll (RBAC), måste användarna har deltagare åtkomst eller ovan på lagringen konto nivå.
 
 I Bash, filresursen även innehåller en 5 GB-avbildning som skapas för dig som automatiskt kvarstår data i din `$Home` directory. 
 

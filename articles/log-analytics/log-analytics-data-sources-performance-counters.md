@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.component: na
+ms.openlocfilehash: b23c170e557d019abf2b9aab8edcb74728bc872d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783170"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128783"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows- och Linux prestanda datakällor i logganalys
 Prestandaräknare i Windows och Linux ger kunskaper om prestandan för maskinvarukomponenter, operativsystem och program.  Logganalys kan samla in prestandaräknare med återkommande intervall för analys i nära realtid (NRT) utöver sammanställa prestandadata för längre sikt analys och rapportering.
@@ -37,7 +38,7 @@ Du kan välja en specifik instans för varje prestandaräknare för Windows-pres
 | --- | --- |
 | \_Totalt |Summan av alla instanser |
 | \* |Alla instanser |
-| (/ &#124; / var) |Matchar instanser med namnet: / eller /var |
+| (/&#124;/var) |Matchar instanser med namnet: / eller /var |
 
 ### <a name="windows-performance-counters"></a>Windows-prestandaräknare
 
@@ -49,7 +50,7 @@ Gör så här för att lägga till en ny Windows prestandaräknare för att saml
 
     När SQL Server-prestandaräknare har samlats in från namngivna instanser, alla namngivna instansen räknare starta med *MSSQL$* och följt av namnet på instansen.  Till exempel för att samla in räknaren loggen Cache nått kvoten för alla databaser från databasen prestandaobjektet för namngiven SQL-instansen INST2, ange `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
 
-2. Klicka på  **+**  eller tryck på **RETUR** att lägga till räknaren i listan.
+2. Klicka på **+** eller tryck på **RETUR** att lägga till räknaren i listan.
 3. När du lägger till en räknare, används standardvärdet 10 sekunder för dess **provintervallet**.  Du kan ändra det till ett högre värde av upp till 1 800 sekunder (30 minuter) om du vill minska utrymmeskraven för prestandadata som samlats in.
 4. När du är klar att lägga till räknare klickar du på den **spara** längst upp på skärmen för att spara konfigurationen.
 
@@ -61,7 +62,7 @@ Gör så här för att lägga till en ny Linux prestandaräknare för att samla 
 
 1. Som standard pushas alla konfigurationsändringar automatiskt till alla agenter.  Linux-agenter skickas en konfigurationsfil till Fluentd datainsamlaren.  Om du vill ändra den här filen manuellt på varje Linux-agenten och avmarkera sedan kryssrutan *Använd konfigurationen nedan för Mina Linux-datorer* och följer du anvisningarna nedan.
 2. Skriv namnet på räknaren i textrutan i formatet *objekt (förekomst) \counter*.  När du börjar skriva visas med en matchande lista över vanliga räknare.  Du kan välja en räknare från listan eller Skriv en egen.  
-3. Klicka på  **+**  eller tryck på **RETUR** lägga till räknaren i listan över andra räknare för objektet.
+3. Klicka på **+** eller tryck på **RETUR** lägga till räknaren i listan över andra räknare för objektet.
 4. Alla räknare för ett objekt som använder samma **provintervallet**.  Standardvärdet är 10 sekunder.  Du ändra det till ett högre värde av upp till 1 800 sekunder (30 minuter) om du vill minska utrymmeskraven för prestandadata som samlats in.
 5. När du är klar att lägga till räknare klickar du på den **spara** längst upp på skärmen för att spara konfigurationen.
 
@@ -84,14 +85,14 @@ Parametrarna i det här elementet beskrivs i följande tabell.
 | Parametrar | Beskrivning |
 |:--|:--|
 | objektet\_namn | Objektnamn för samlingen. |
-| instansen\_regex |  En *reguljärt uttryck* definierar vilka instanser som ska samla in. Värdet: `.*` anger alla instanser. Att samla in processor mätvärden för endast den \_totala instans kan du ange `_Total`. Du kan ange om du vill samla in Processmätvärden för endast crond eller sshd instanser: ' (crond\|sshd)'. |
-| räknaren\_namn\_regex | En *reguljärt uttryck* definierar vilket räknare (för objektet) för att samla in. Om du vill samla in alla räknare för objektet, ange: `.*`. Om du vill samla in endast växlingen utrymme räknare för i minnet, t.ex, kan du ange:`.+Swap.+` |
+| instansen\_regex |  En *reguljärt uttryck* definierar vilka instanser som ska samla in. Värdet: `.*` anger alla instanser. Att samla in processor mätvärden för endast den \_totala instans kan du ange `_Total`. Du kan ange om du vill samla in Processmätvärden för endast crond eller sshd instanser: `(crond\|sshd)`. |
+| räknaren\_namn\_regex | En *reguljärt uttryck* definierar vilket räknare (för objektet) för att samla in. Om du vill samla in alla räknare för objektet, ange: `.*`. Om du vill samla in endast växlingen utrymme räknare för i minnet, t.ex, kan du ange: `.+Swap.+` |
 | interval | Frekvensen då objektets räknare samlas in. |
 
 
 I följande tabell visas de objekt och räknare som du kan ange i konfigurationsfilen.  Det finns ytterligare räknare för vissa program som beskrivs i [samla in prestandaräknare för Linux-program i logganalys](log-analytics-data-sources-linux-applications.md).
 
-| Objektnamn | Räknarens namn |
+| Objektnamn | Räknarnamn |
 |:--|:--|
 | Logisk Disk | % Ledigai |
 | Logisk Disk | Ledigt utrymme i procent |
@@ -188,7 +189,7 @@ Logganalys samlar in alla angivna prestandaräknare på sina angivna provinterva
 ## <a name="performance-record-properties"></a>Prestanda post egenskaper
 Prestanda poster har en typ av **Perf** och ha egenskaper i följande tabell.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | Dator |Dator som händelsen samlats in från. |
 | CounterName |Namnet på prestandaräknaren |
@@ -210,15 +211,15 @@ Följande tabell innehåller olika exempel på loggen sökningar som hämtar upp
 | Fråga | Beskrivning |
 |:--- |:--- |
 | Perf |Alla prestandadata |
-| Perf &#124; Om datorn == ”den här datorn” |Alla data från en viss dator |
-| Perf &#124; Om CounterName == ”den Aktuell diskkölängd” |Alla prestandadata för räknaren |
-| Perf &#124; där ObjectName == ”-Processor” och CounterName == ”% processortid” och InstanceName == ”_Total” &#124; Sammanfatta AVGCPU = avg(Average) per dator |Genomsnittlig CPU-användning på alla datorer |
-| Perf &#124; Om CounterName == ”% processortid” &#124; Sammanfatta AggregatedValue = max(Max) per dator |Högsta CPU-användning på alla datorer |
-| Perf &#124; där ObjectName == ”logisk disk” och CounterName == ”den Aktuell diskkölängd” och datorn == ”MyComputerName” &#124; Sammanfatta AggregatedValue = avg(Average) av instansnamn |Genomsnittlig Kölängd för aktuella Disk i alla instanser av en viss dator |
-| Perf &#124; Om CounterName == ”DiskTransfers/sek” &#124; Sammanfatta AggregatedValue = percentil (medel, 95) per dator |95: e percentilen för disköverföringar/sek på alla datorer |
-| Perf &#124; Om CounterName == ”% processortid” och InstanceName == ”_Total” &#124; Sammanfatta AggregatedValue = avg(CounterValue) av bin (TimeGenerated 1 tim), datorn |Varje timme medelvärdet av CPU-användning på alla datorer |
-| Perf &#124; Om datorn == ”den här datorn” och CounterName startswith_cs ”%” och InstanceName == ”_Total” &#124; Sammanfatta AggregatedValue = percentil (CounterValue 70) som bin (TimeGenerated 1 tim), CounterName | Varje timme 70: e percentilen för varje procent räknaren % för en viss dator |
-| Perf &#124; Om CounterName == ”% processortid” och InstanceName == ”_Total” och datorn == ”den här datorn” &#124; Sammanfatta [”min(CounterValue)”] = min(CounterValue), [”avg(CounterValue)”] = avg(CounterValue), [”percentile75(CounterValue)”] = percentil (CounterValue 75), [”max(CounterValue)”] = max(CounterValue) av bin (TimeGenerated 1 tim), datorn |Varje timme medelvärde, lägsta, högsta och 75 percentil CPU-användning för en specifik dator |
+| Perf &#124; där datorn == ”den här datorn” |Alla data från en viss dator |
+| Perf &#124; där CounterName == ”den Aktuell diskkölängd” |Alla prestandadata för räknaren |
+| Perf &#124; där ObjectName == ”-Processor” och CounterName == ”% processortid” och InstanceName == ”_Total” &#124; sammanfatta AVGCPU = avg(Average) per dator |Genomsnittlig CPU-användning på alla datorer |
+| Perf &#124; där CounterName == ”% processortid” &#124; sammanfatta AggregatedValue = max(Max) per dator |Högsta CPU-användning på alla datorer |
+| Perf &#124; där ObjectName == ”logisk disk” och CounterName == ”den Aktuell diskkölängd” och datorn == ”MyComputerName” &#124; sammanfatta AggregatedValue = avg(Average) av instansnamn |Genomsnittlig Kölängd för aktuella Disk i alla instanser av en viss dator |
+| Perf &#124; där CounterName == ”DiskTransfers/sek” &#124; sammanfatta AggregatedValue = percentil (medel, 95) per dator |95: e percentilen för disköverföringar/sek på alla datorer |
+| Perf &#124; där CounterName == ”% processortid” och InstanceName == ”_Total” &#124; sammanfatta AggregatedValue = avg(CounterValue) av bin (TimeGenerated 1 tim), datorn |Varje timme medelvärdet av CPU-användning på alla datorer |
+| Perf &#124; där datorn == ”den här datorn” och CounterName startswith_cs ”%” och InstanceName == ”_Total” &#124; sammanfatta AggregatedValue = percentil (CounterValue 70) som bin (TimeGenerated 1 tim), CounterName | Varje timme 70: e percentilen för varje procent räknaren % för en viss dator |
+| Perf &#124; där CounterName == ”% processortid” och InstanceName == ”_Total” och datorn == ”den här datorn” &#124; sammanfatta [”min(CounterValue)”] = min(CounterValue), [”avg(CounterValue)”] = avg(CounterValue), [”percentile75(CounterValue)”] = percentil (CounterValue 75), [”max(CounterValue)”] = max(CounterValue) av bin (TimeGenerated 1 tim), datorn |Varje timme medelvärde, lägsta, högsta och 75 percentil CPU-användning för en specifik dator |
 | Perf &#124; där ObjectName == ”MSSQL$ INST2: databaser” och InstanceName == ”master” | Alla prestandadata från databasen prestandaobjekt för master-databasen från den namngivna SQL Server-instansen INST2.  
 
 

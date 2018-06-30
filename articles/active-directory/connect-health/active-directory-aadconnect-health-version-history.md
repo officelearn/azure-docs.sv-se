@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 3e3cebd47a259c7c297d6df0eaf76a350111f2e3
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8907619b802d93cee4463a80155f38ce9030948f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319273"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129679"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Versionshistorik för Azure AD Connect Health
 Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med nya funktioner. Den här artikeln innehåller de versioner och funktioner som har släppts.
@@ -29,6 +29,13 @@ Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med
 * Azure AD Connect Health för synkronisering - diagnostisera och åtgärda Duplicerat attribut synkroniseringsfel från portalen 
 
 **Agentuppdatering:** 
+*  Azure AD Connect Health agent för AD DS (version 3.1.7.0)    
+   1. Snabbkorrigering för hög CPU-utfärdandet av övervakningsagent med versioner av .NET Framework KB
+
+*   Azure AD Connect Health agent för AD FS (version 3.1.7.0)  
+   1. Snabbkorrigering för hög CPU-utfärdandet av övervakningsagent med versioner av .NET Framework KB  
+   2. Testa resultaten korrigeringar på en sekundär server för AD FS Server 2016
+   
 *   Azure AD Connect Health agent för AD FS (version 3.1.2.0)  
    1. Snabbkorrigering för agenten minneshantering och relaterade aviseringar för version 3.0.244.0
 

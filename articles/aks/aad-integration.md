@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 6/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 272d98613e13c1bb76c75befd6bd5e0115c32610
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
-ms.translationtype: HT
+ms.openlocfilehash: ff9f107b8cd10cdab71ba13a1925403d2d144984
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097248"
+ms.locfileid: "37128504"
 ---
 # <a name="integrate-azure-active-directory-with-aks---preview"></a>Integrera Azure Active Directory med AKS - förhandsgranskning
 
@@ -59,19 +59,21 @@ Det första Azure AD-programmet används för att hämta en Azure AD medlemskap 
 
 4. Gå tillbaka till Azure AD-program, Välj **inställningar** > **nödvändiga behörigheter** > **Lägg till**  >   **Välj en API** > **Microsoft Graph** > **Välj**.
 
-  Under **PROGRAMBEHÖRIGHETER** Markera kryssrutan bredvid **läsa katalogdata**.
+  ![Välj graph API](media/aad-integration/graph-api.png)
+
+5. Under **PROGRAMBEHÖRIGHETER** Markera kryssrutan bredvid **läsa katalogdata**.
 
   ![Ange behörigheter för program-diagram](media/aad-integration/read-directory.png)
 
-5. Under **DELEGERADE BEHÖRIGHETER**, markera kryssrutan bredvid **logga in och Läs användarprofil** och **läsa katalogdata**. Spara uppdateringarna gjort en gång.
+6. Under **DELEGERADE BEHÖRIGHETER**, markera kryssrutan bredvid **logga in och Läs användarprofil** och **läsa katalogdata**. Spara uppdateringarna gjort en gång.
 
   ![Ange behörigheter för program-diagram](media/aad-integration/delegated-permissions.png)
 
-6. Välj **klar** och **bevilja med** att slutföra det här steget. Det här steget misslyckas om det aktuella kontot inte är en tenant admin.
+7. Välj **klar**, Välj *Microsoft Graph* från listan över API: er, Välj **bevilja med**. Det här steget misslyckas om det aktuella kontot inte är en tenant admin.
 
   ![Ange behörigheter för program-diagram](media/aad-integration/grant-permissions.png)
 
-7. Återgå till programmet och anteckna den **program-ID**. När du distribuerar ett Azure AD-aktiverade AKS kluster kan det här värdet kallas den `Server application ID`.
+8. Återgå till programmet och anteckna den **program-ID**. När du distribuerar ett Azure AD-aktiverade AKS kluster kan det här värdet kallas den `Server application ID`.
 
   ![Hämta program-ID](media/aad-integration/application-id.png)
 
@@ -195,6 +197,12 @@ aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
 ```
 
 När du är klar, cachelagras autentiseringstoken. Du är bara reprompted att logga in om token har upphört att gälla eller konfigurationsfilen Kubernetes skapas på nytt.
+
+Om du ser ett meddelande om auktoriseringsfel när du har loggat in, kontrollera att användaren du loggar in är inte gäst i Azure AD (det är ofta fallet om du använder en federerad inloggning från en annan katalog).
+```console
+error: You must be logged in to the server (Unauthorized)
+```
+
 
 ## <a name="next-steps"></a>Nästa steg
 

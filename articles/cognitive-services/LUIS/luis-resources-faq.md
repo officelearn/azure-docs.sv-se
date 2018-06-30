@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: fd63ffd312e3ac17a6376eb3c9bef8f1978e3935
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f192c2f71208f3caf8a01a18a7023763f8de63c3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333623"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113144"
 ---
 # <a name="language-understanding-faq"></a>Språk förstå vanliga frågor och svar
 
@@ -65,9 +65,9 @@ THOMAS [tokenizes](luis-glossary.md#token) utterance baserat på de [kultur](lui
 Systemet bör använda högsta bedömningsprofil avsikten oavsett dess värde. Till exempel en poäng nedan 0,5 (mindre än 50%) inte nödvändigtvis att THOMAS har låg förtroende. Tillhandahåller mer utbildningsdata kan du öka poängen för den mest sannolika avsikten.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Varför ser jag min endpoint träffar i min app instrumentpanelen?
-Totalt endpoint träffar i din app instrumentpanelen uppdateras regelbundet, men de mätvärden som är associerade med din prenumeration THOMAS nyckel i Azure-portalen uppdateras oftare. 
+Totalt endpoint träffar i din app instrumentpanelen uppdateras regelbundet, men de mätvärden som är associerade med din THOMAS endpoint nyckel i Azure-portalen uppdateras oftare. 
 
-Om du inte ser uppdaterade endpoint träffar i instrumentpanelen, logga in på Azure-portalen och hitta resursen som är associerade med din prenumeration THOMAS-nyckel och öppna **mått** att välja den **Totalt antal anrop** mått. Om prenumerationen nyckel används för flera THOMAS app, visar mått i Azure-portalen det sammanlagda antalet anrop från alla THOMAS appar som använder den.
+Om du inte ser uppdaterade endpoint träffar i instrumentpanelen, logga in på Azure-portalen och hitta resursen som är associerade med din THOMAS endpoint-nyckel och öppna **mått** att välja den **Totalt antal anrop** mått. Om slutpunktsnyckel används för flera THOMAS app, visar mått i Azure-portalen det sammanlagda antalet anrop från alla THOMAS appar som använder den.
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Min app THOMAS fungerade igår men idag jag får 403-fel. Appen ändras inte. Hur kan jag göra? 
 Efter den [instruktioner](#how-do-i-create-and-assign-a-luis-endpoint-key) i nästa vanliga frågor om att skapa en nyckel för THOMAS slutpunkt och tilldela den till appen. Du måste ändra HTTP-begäran till slutpunkten för [använder den nya nyckeln endpoint](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -115,8 +115,9 @@ I Azure representerar en klient klient eller organisation som är associerad med
 
 ![Klient-ID i Azure-portalen](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
-### <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Varför är det mer prenumeration nycklar på min app publicera sidan än tilldelats appen? 
-Varje THOMAS app har redigering/starter-nyckel. THOMAS prenumeration nycklar som skapades under tidsperioden GA visas på sidan Publicera, oavsett om du har lagt till dem i appen. Detta gjordes för att underlätta GA-migrering. Alla nya THOMAS prenumeration nycklar visas inte på sidan Publicera. 
+<a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+### <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Varför är det mer endpoint nycklar på min app publicera sidan än tilldelats appen? 
+Varje THOMAS app har redigering/starter-nyckel. THOMAS endpoint nycklar som skapades under tidsperioden GA visas på sidan Publicera, oavsett om du har lagt till dem i appen. Detta gjordes för att underlätta GA-migrering. Alla nya THOMAS endpoint nycklar visas inte på sidan Publicera. 
 
 ## <a name="app-management"></a>Apphantering
 
@@ -153,7 +154,7 @@ Om du använder loggen för förutsägelse analys inte in test utterances i logg
 ## <a name="app-notification"></a>Avisering via App
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>Varför visas ett e-postmeddelande som talar om jag är nästan slut kvoten?
-Redigera/starter-nyckel är endast tillåtet 1000 endpoint frågar en månad. Skapa en THOMAS prenumeration nyckel (ledigt eller betald) och Använd nyckeln när slutpunkten frågor. Om du gör endpoint frågor från en bot eller ett annat klientprogram som du behöver ändra THOMAS slutpunktsnyckel det. 
+Redigera/starter-nyckel är endast tillåtet 1000 endpoint frågar en månad. Skapa en THOMAS endpoint nyckel (ledigt eller betald) och Använd nyckeln när slutpunkten frågor. Om du gör endpoint frågor från en bot eller ett annat klientprogram som du behöver ändra THOMAS slutpunktsnyckel det. 
 
 ## <a name="integrating-luis"></a>Integrera THOMAS
 
@@ -167,7 +168,7 @@ Om du väljer en THOMAS mall och välj den **Välj** knapp i panelen den vänstr
 
 ## <a name="luis-service"></a>THOMAS service 
 
-### <a name="is-luis-available-on-premise-or-in-private-cloud"></a>Är THOMAS tillgängliga lokalt eller i privata moln?
+### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>Är THOMAS tillgängliga lokalt eller i privata moln?
 Nej. 
 
 ## <a name="changes-to-the-docs"></a>Ändringar av dokumenten
@@ -201,7 +202,7 @@ Ytterligare redigering [API vägar](https://github.com/Microsoft/LUIS-Samples/bl
 Video: 
 * [Azure fredag Build 2018: Kognitiva Services - språk (THOMAS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [Build 2018 AI Show - vad är nytt i språk förstå Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [2018 build-Session - Bot intelligence talfunktioner och NLU bästa praxis](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Session på Build 2018 – Robotintelligens, talfunktioner och regelverk för NLU](https://channel9.msdn.com/events/Build/2018/BRK3208)
 * [2018 build - THOMAS uppdateringar](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projekt: 

@@ -4,8 +4,8 @@ description: Hur du ställer in kontinuerlig distribution från en Docker-behål
 keywords: Azure apptjänst, linux, docker, acr, oss
 services: app-service
 documentationcenter: ''
-author: ahmedelnably
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-ms.author: aelnably;msangapu
-ms.openlocfilehash: ac35dbd041de50ab8aae1a0fb4c00fe3917a7297
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/29/2018
+ms.author: msangapu
+ms.openlocfilehash: 0f2d4626308eed376b71f1b3df2f9e43f1b2a4f7
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30168334"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130981"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Kontinuerlig distribution med webbprogrammet för behållare
 
@@ -54,7 +54,8 @@ Hämta Webhooksadressen med [Azure CLI](https://docs.microsoft.com/cli/azure/ins
 az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
-För Webhooksadressen, behöver du följande slutpunkt: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
+Anteckna Webhooksadressen. Du behöver det i nästa avsnitt.
+`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
 
 Du kan hämta din `publishingusername` och `publishingpwd` genom att hämta webbprogrammet publiceringsprofil med Azure-portalen.
 
@@ -62,29 +63,10 @@ Du kan hämta din `publishingusername` och `publishingpwd` genom att hämta webb
 
 ## <a name="add-a-webhook"></a>Lägg till en webhook
 
-### <a name="azure-container-registry"></a>Azure Container Registry
+Följ stegen i de här guiderna för att lägga till en webhook:
 
-1. Välj på portalsidan registret **Webhooks**.
-2. Om du vill skapa en ny webhook **Lägg till**. 
-3. I den **skapa webhook** rutan namnge din webhooken. Ange en URL som hämtades i föregående avsnitt för webhook URI.
-
-Kontrollera att du definierar omfattningen som lagringsplatsen som innehåller bilden behållare.
-
-![Skärmbild av webhooken](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
-
-När du uppdaterar avbildningen uppdateras webbprogrammet automatiskt med den nya avbildningen.
-
-### <a name="docker-hub"></a>Docker Hub
-
-Välj på sidan Docker-hubb **Webhooks**, och sedan **skapa en WEBHOOK**.
-
-![Skärmbild för att lägga till webhook 1](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
-
-Ange en URL som du fick tidigare för webhook-URL.
-
-![Skärmbild för att lägga till webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
-
-När du uppdaterar avbildningen uppdateras webbprogrammet automatiskt med den nya avbildningen.
+- [Azure Container registret](../../container-registry/container-registry-webhook.md) med Webhooksadressen
+- [Webhooks för Docker-hubb](https://docs.docker.com/docker-hub/webhooks/)
 
 ## <a name="next-steps"></a>Nästa steg
 

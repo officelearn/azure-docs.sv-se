@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 28fde09fa9291fbcd64ce4542a008f48dd0018d1
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 8d8620a1c53037be6f1a33083f41964655a04921
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265260"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112124"
 ---
 # <a name="data-extraction"></a>Extrahering av data
 THOMAS ger dig möjlighet att hämta information från en användares naturligt språk utterances. Informationen hämtas på ett sätt att den kan användas av ett program, programmet eller chatbot för att vidta åtgärder.
@@ -26,7 +26,7 @@ THOMAS innehåller data från de publicerade [endpoint](luis-glossary.md#endpoin
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-Den `appID` är tillgängligt på den **inställningar** sidan i din THOMAS appen som en del av URL: en (när `/apps/`) när du redigerar THOMAS appen. Den `subscription-key` endpoint-nyckeln som används för att fråga efter din app. Du kan använda din kostnadsfria redigering/starter nyckel medan du lär dig THOMAS, är det viktigt att ändra prenumerationen nyckeln till en nyckel som har stöd för din [förväntades THOMAS användning](luis-boundaries.md#key-limits). Den `timezoneOffset` enhet är minuter.
+Den `appID` är tillgängligt på den **inställningar** sidan i din THOMAS appen som en del av URL: en (när `/apps/`) när du redigerar THOMAS appen. Den `subscription-key` endpoint-nyckeln som används för att fråga efter din app. Du kan använda din kostnadsfria redigering/starter nyckel medan du lär dig THOMAS, är det viktigt att ändra slutpunkten nyckeln till en nyckel som har stöd för din [förväntades THOMAS användning](luis-boundaries.md#key-limits). Den `timezoneOffset` enhet är minuter.
 
 Den **HTTPS svar** innehåller alla informationen avsikt och entiteten THOMAS kan fastställa baserat på den aktuella publicerade modellen antingen slutpunkten mellanlagring och produktion. Slutpunkten URL-Adressen finns på den [THOMAS] [ LUIS] webbplats **publicera** sidan. 
 
@@ -540,7 +540,7 @@ Pattern.any enheter är variabel längd enheter används i mallen utterances av 
 ```
 
 
-## <a name="sentiment-analysis"></a>Känsloanalys
+## <a name="sentiment-analysis"></a>Sentimentanalys
 Om Sentiment analys är konfigurerad, innehåller THOMAS json svaret sentiment analys. Mer information om sentiment analys i den [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) dokumentation.
 
 ### <a name="sentiment-data"></a>Sentiment data

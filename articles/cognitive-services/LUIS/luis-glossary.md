@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7cfcc5b907b28a877bea57ea869e17f01aae00cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: d1b83432e925e4f6fd439ac78acfde56ad31ba52
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265395"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128410"
 ---
 # <a name="glossary"></a>Ordlista
 
@@ -70,7 +70,7 @@ Samma som [aktiva versionen](#active-version)
 
 I kontexten THOMAS en **domän** är en del av informationen. Din domän är specifik för din app område. Detta kan vara ett allmänt område, till exempel appen resa agent. En resa agent-app kan också vara specifika för bara delarna av information för ditt företag, till exempel specifika geografiska platser, språk och tjänster. 
 
-## <a name="endpoint"></a>slutpunkt
+## <a name="endpoint"></a>Slutpunkt
 
 Den [THOMAS endpoint](https://aka.ms/luis-endpoint-apis) URL: en är där du kan skicka THOMAS frågor efter den [THOMAS app](#luis-app) har skapats och publicerats. Slutpunkts-URL innehåller regionen och publicerade appen som app-ID. Du kan hitta slutpunkten på den **[publicera](publishapp.md)** sidan i din app i tabellen resurser och nycklar eller om du kan hämta slutpunkts-URL från den [hämta App-Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
@@ -82,11 +82,11 @@ Det ser ut som en exempel-slutpunkt:
 |--|--|
 |region| [publicerade region](luis-reference-regions.md#publishing-regions) |
 |appID | THOMAS app-ID |
-|Prenumerations-ID | THOMAS prenumeration nyckeln som skapats i Azure-portalen |
+|prenumerations-ID | THOMAS slutpunkt (prenumeration) nyckeln som skapats i Azure-portalen |
 |Q | utterance |
 |timezoneOffset| minutes|
 
-## <a name="entity"></a>Entitet
+## <a name="entity"></a>entitet
 
 [Entiteter](luis-concept-entity-types.md) är viktiga ord i [utterances](luis-concept-utterance.md) som beskriver information som är relevanta för den [avsikt](luis-concept-intent.md), och ibland de är mycket viktigt att den. En entitet är i grunden en datatyp i THOMAS. 
 
@@ -110,7 +110,7 @@ I machine learning, en [funktionen](luis-concept-feature.md) är en särskiljand
 
 En [avsikt](luis-concept-intent.md) representerar en aktivitet eller åtgärd som användaren vill utföra. Det är ett syfte eller målet uttryckt i indata för en användare, till exempel Bokningstyp en svarta, betalar en faktura eller söka efter en nyhetsartikel i. I THOMAS utifrån hela utterance avsiktshantering förutsägelser. Entiteter, däremot är en utterance.
 
-## <a name="labeling"></a>etiketter
+## <a name="labeling"></a>Etiketter
 
 Etiketter är en process för att associera ett ord eller en fras i en avsikt [utterance](#utterance) med en [entiteten](#entity) (datatype). 
 
@@ -175,7 +175,7 @@ Samma som [programmässiga nyckeln](#programmatic-key), bytt namn till redigerin
 
 ## <a name="subscription-key"></a>Prenumerationen nyckel
 
-Nyckeln prenumerationen är den nyckel som är associerad med tjänsten THOMAS [du skapade i Azure](luis-how-to-azure-subscription.md). Den här nyckeln är inte den [redigering nyckeln](#programmatic-key). Om du har en prenumeration nyckel kan användas för alla endpoint-förfrågningar i stället för nyckeln för redigering. Du kan se din aktuella prenumeration nyckel i slutpunkts-URL längst ned i [ **publicera appen** sidan](publishapp.md) i [THOMAS](luis-reference-regions.md) webbplats. Det är värdet för **prenumeration nyckeln** namn/värde-par. 
+Prenumerationen nyckeln är den **endpoint** nyckeln som associeras med tjänsten THOMAS [du skapade i Azure](luis-how-to-azure-subscription.md). Den här nyckeln är inte den [redigering nyckeln](#programmatic-key). Om du har en slutpunktsnyckel kan användas för alla endpoint-förfrågningar i stället för nyckeln för redigering. Du kan se din aktuella endpoint-nyckel i slutpunkts-URL längst ned i [ **publicera appen** sidan](publishapp.md) i [THOMAS](luis-reference-regions.md) webbplats. Det är värdet för **prenumeration nyckeln** namn/värde-par. 
 
 ## <a name="test"></a>Test
 
@@ -202,11 +202,11 @@ I [batch testar][batch-testing], datapunkter representerar utterances som din ap
 
 I [batch testar][batch-testing], datapunkter representerar utterances som din app korrekt förutsade förekomsten av avsikt/målentiteten.
 
-## <a name="utterance"></a>Utterance
+## <a name="utterance"></a>utterance
 
 En utterance är ett naturligt språk, exempelvis ”book 2 biljetter till Seattle nästa tisdag”. Exempel utterances läggs till avsikten. 
 
-## <a name="version"></a>Version
+## <a name="version"></a>version
 
 En THOMAS [version](luis-how-to-manage-versions.md) är en datamodell som är associerade med en THOMAS app-ID och publicerade slutpunkten. Varje THOMAS app har minst en version.
 

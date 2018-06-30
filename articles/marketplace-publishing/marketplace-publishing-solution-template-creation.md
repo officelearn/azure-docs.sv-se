@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 147b0b9b4a3fe789544457d17fed3d29badbe12c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29937316"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113960"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guide för att skapa en för lösningsmall för Azure Marketplace
 När du har slutfört steg 1, [skapande av konton och registrering][link-acct-creation], vi Interaktiv du vid skapandet av en Azure-kompatibel lösningsmall på [tekniska krav för att skapa en lösningsmall](marketplace-publishing-solution-template-creation-prerequisites.md). Nu går du igenom stegen för att skapa en lösningsmall för för flera virtuella datorer på den [Publiceringsportal] [ link-pubportal] för Azure Marketplace.
@@ -60,7 +60,7 @@ Nu när du har skapat din lösning och upp zip-filen, följ instruktionerna i de
 Du kan också vara intresserad av dessa relaterade artiklar:
 
 * VM-avbildningar: [om avbildningar av virtuella datorer i Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-* VM-tillägg: [VM-agenten och VM-tillägg översikt](https://msdn.microsoft.com/library/azure/dn832621.aspx) och [Azure VM-tillägg och funktioner](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+* VM-tillägg: [VM-agenten och VM-tillägg översikt](https://msdn.microsoft.com/library/azure/dn832621.aspx) och [Azure VM-tillägg och funktioner](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows)
 * Azure Resource Manager: [redigera Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) och [enkel mall-exempel](https://github.com/rjmax/ArmExamples)
 * Storage-konto begränsar: [övervaka för Storage-konto begränsning](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) och [Premium-lagring](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
 

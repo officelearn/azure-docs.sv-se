@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 12a63e65a739be08d436f8f1b53df566255b1fb1
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: ad5ef58536bb6cc7f2c754f2e5c4487a3ffe96f2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36322060"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112834"
 ---
 # <a name="publish-your-trained-app"></a>Publicera appen utbildade
 När du är klar bygger och testar appen THOMAS publicera den. När appen publiceras, publicera sidan visas alla tillhörande HTTP [slutpunkter](luis-glossary.md#endpoint). Dessa slutpunkter per [region](luis-reference-regions.md) och per [nyckeln](Manage-Keys.md), sedan integreras i alla klient, chatbot eller backend-program. 
@@ -48,7 +48,7 @@ I den **externa tjänster inställningar**, **aktivera tal Priming** kryssrutan 
 Publicera en app när den här funktionen har aktiverats. När du publicerar appen THOMAS skickas din appmodell till tal tjänsten till prime tjänsten tal. Modellinformationen om är **inte** används utanför din egen tjänst. 
 
 För att slutföra användningen av tal promotor, behöver du följande information för användning i den [tal SDK](../speech-service/speech-sdk-reference.md):
-* En THOMAS prenumeration nyckel.
+* En THOMAS endpoint-nyckel.
 * THOMAS app-ID.
 * En slutpunkt-domän, kallas ”värdnamnet” i tal SDK, till exempel ”westus.api.cognitive.microsoft.com” där den första underdomänen är den region där appen har publicerats.
 
@@ -129,7 +129,7 @@ Den här tabellen visar ett enkelt sätt publishing konfigurationen i URL-slutpu
 
 URL-flödet har skapats med regionen och app-ID. Om du publicerar i andra regioner eller med andra appar kan slutpunkts-URL konstrueras genom att ändra värdena för region och app-ID: T. 
 
-* Välj produktionsplatsen och **publicera** knappen. När publicera lyckas, kan du använda visas slutpunkts-URL för att komma åt appen THOMAS. 
+* Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera). När publicera lyckas, kan du använda visas slutpunkts-URL för att komma åt appen THOMAS. 
 
 ### <a name="optional-query-string-parameters"></a>Valfri sträng frågeparametrar
 Följande fråga string-parametrar kan användas med slutpunkts-URL:

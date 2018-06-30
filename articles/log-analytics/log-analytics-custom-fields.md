@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: 31572b51-6b57-4945-8208-ecfc3b5304fc
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 59dbc4134ee11999e54d2eba51804939e7e14229
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.component: na
+ms.openlocfilehash: 164b071a47c13f7c5586bd287adc41bea54a1198
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020747"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129625"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Anpassade fält i logganalys
 Den **anpassade fält** funktionen för Log Analytics kan du utöka befintliga poster i logganalys genom att lägga till egna sökbara fält.  Anpassade fält fylls automatiskt i från data som hämtats från andra egenskaper i samma post.

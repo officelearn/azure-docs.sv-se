@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 8e6e363649a0bdab5525de7b8e7abe9a53d14573
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 1fdf0f21697e48fd5cb9eca4212596059a9519cb
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266030"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127125"
 ---
 # <a name="manage-your-luis-keys"></a>Hantera THOMAS-nycklar
 En nyckel kan du skapa och publicera en app i THOMAS eller fråga din slutpunkt. 
@@ -34,7 +34,7 @@ Se [nycklar i THOMAS](luis-concept-keys.md) att förstå THOMAS redigering och s
 ## <a name="assign-endpoint-key"></a>Tilldela slutpunktsnyckel
 På den **publicera appen** sidan, det finns redan en nyckel i den **resurser och nycklar** tabell. Detta är nyckeln redigering (Start). 
 
-1. Skapa en THOMAS nyckel på den [Azure-portalen](https://portal.azure.com). Ytterligare instruktioner finns i [skapar en prenumeration nyckel med hjälp av Azure](luis-how-to-azure-subscription.md).
+1. Skapa en THOMAS nyckel på den [Azure-portalen](https://portal.azure.com). Ytterligare instruktioner finns i [att skapa en slutpunkt-nyckeln med hjälp av Azure](luis-how-to-azure-subscription.md).
  
 2. För att lägga till THOMAS nyckeln som skapades i föregående steg klickar du på den **Lägg till nyckel** för att öppna den **tilldela en nyckel till din app** dialogrutan. 
 

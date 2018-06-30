@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: v-geberr
-ms.openlocfilehash: b792d090d037ef180258a1634d4bd063c0a71b9a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c7249cb8d8cff29f419412025c69e3b2b76b49d1
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353319"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110665"
 ---
 # <a name="cortana-prebuilt-app"></a>Cortana färdiga appen
 
@@ -46,7 +46,7 @@ Du kan komma åt Cortana färdiga appen med följande slutpunkter:
 > Slutpunkten URL: er är också tillgängliga på den [appar – hämta personliga assistent program](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c32) API.
 
 ## <a name="try-out-the-personal-assistant-app"></a>Testa appen personliga assistent
-För att anropa slutpunkten, kan du lägga till din prenumeration argument och fråga sträng nyckel till slutpunkten. 
+Du kan lägga till din slutpunkt argument och fråga sträng nyckel till slutpunkten för att anropa slutpunkten. 
 
 Till exempel om utterance som du vill tolka är ”skapa ett möte för team möte”, och sedan kan du lägga till den utterance slutpunkts-URL. 
 
@@ -54,7 +54,7 @@ Till exempel om utterance som du vill tolka är ”skapa ett möte för team mö
 https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/c413b2ef-382c-45bd-8ff0-f76d60e2a821?subscription-key={YOUR-SUBSCRIPTION-KEY}&q=create an appointment for team meeting
 ```
 
-Du kan klistra in Webbadressen till en webbläsare och ersätta din prenumeration nyckel för den `{YOUR-SUBSCRIPTION-KEY}` fältet.
+Du kan klistra in Webbadressen till en webbläsare och ersätta din slutpunktsnyckel för den `{YOUR-SUBSCRIPTION-KEY}` fältet.
 
 I webbläsaren ser du att den färdiga appen Cortana identifierar `builtin.intent.calendar.create_calendar_entry` som avsikt, och `builtin.calendar.title` som entitetstyp och för utterance `create an appointment for team meeting`.
 

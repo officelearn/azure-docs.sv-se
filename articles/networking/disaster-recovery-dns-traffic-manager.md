@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6c46ada7fc95d5789512f8f7c7842852e6a86b69
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: d608378f9b3ff3179f9e37ef13f88c65a645d018
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35249417"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112994"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Haveriberedskap med hjälp av Azure DNS och Traffic Manager
 
@@ -59,7 +59,7 @@ DNS är ett av de mest effektiva mekanismerna för att omdirigera nätverkstrafi
 
 Det är viktigt att förstå några begrepp i DNS som ofta används för att diskutera lösningar som tillhandahålls i den här artikeln:
 - **DNS A Record** – A-poster är pekare som pekar en domän till en IPv4-adress. 
-- **CNAME-eller Canonical** -posttypen används för att peka till en annan DNS-post. CNAME svarar inte med ett IP-svar utan i stället pekaren till den post som innehåller IP-adressen. 
+- **CNAME-eller Canonical** -posttypen används för att peka till en annan DNS-post. CNAME svarar inte med en IP-adress, men i stället pekaren till den post som innehåller IP-adressen. 
 - **Viktade routning** – kan du välja att koppla en vikt till Tjänsteslutpunkter och sedan distribuera trafiken baserat på de tilldelade vikterna. Den här routningsmetoden är en av fyra trafik routning metoder tillgängliga i Traffic Manager. Mer information finns i [viktas routningsmetoden](../traffic-manager/traffic-manager-routing-methods.md#weighted).
 - **Prioritet routning** – prioritet routning baseras på hälsokontroller slutpunkter. Azure Traffic manager skickar all trafik till högsta prioritet slutpunkten som standard och när ett fel eller haveri Traffic Manager dirigerar trafik till sekundär slutpunkten. Mer information finns i [prioritet routningsmetoden](../traffic-manager/traffic-manager-routing-methods.md#priority).
 

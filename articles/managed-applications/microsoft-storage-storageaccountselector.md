@@ -11,22 +11,30 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4a18d629b959e4f1abf4ec2df28a31180efec89f
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5de536a562d234a4c463c862aedffc7c7ca5228d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261045"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112294"
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Microsoft.Storage.StorageAccountSelector UI-element
 En kontroll för att välja ett nytt eller befintligt lagringskonto.
 
 ## <a name="ui-sample"></a>UI-exempel
+
+Kontrollen visar standardvärdet.
+
 ![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
 
+Kontrollen gör att användaren kan skapa ett nytt lagringskonto eller välj ett befintligt lagringskonto.
+
+![Ny Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector-new.png)
+
 ## <a name="schema"></a>Schema
+
 ```json
 {
   "name": "element1",
@@ -49,14 +57,13 @@ En kontroll för att välja ett nytt eller befintligt lagringskonto.
 ```
 
 ## <a name="remarks"></a>Kommentarer
-- Om anges `defaultValue.name` verifieras automatiskt för unikhet. Om lagringskontonamnet inte är unikt, måste användaren ange ett annat namn eller välj ett befintligt lagringskonto.
+- Om anges `defaultValue.name` verifieras automatiskt för unikhet. Om lagringskontonamnet är inte unikt måste användaren ange ett annat namn eller välj ett befintligt lagringskonto.
 - Standardvärdet för `defaultValue.type` är **Premium_LRS**.
-- Någon typ som inte har angetts i `constraints.allowedTypes` är dolt och alla typer som inte har angetts i `constraints.excludedTypes` visas.
-`constraints.allowedTypes` och `constraints.excludedTypes` både valfria, men kan inte användas samtidigt.
+- Någon typ som inte har angetts i `constraints.allowedTypes` är dolt och alla typer som inte har angetts i `constraints.excludedTypes` visas. `constraints.allowedTypes` och `constraints.excludedTypes` både valfria, men kan inte användas samtidigt.
 - Om `options.hideExisting` är **SANT**, kan användaren välja ett befintligt lagringskonto. Standardvärdet är **FALSKT**.
 
-
 ## <a name="sample-output"></a>Exempel på utdata
+
 ```json
 {
   "name": "storageaccount01",

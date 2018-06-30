@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: danis
-ms.openlocfilehash: eac64a5b456eb040bcb1ac01c3c86dfde0847e57
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 526021ca238be7bc934e639c34d3e49879279a6a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942776"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127660"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Använda Azure anpassade skript tillägget Version 1 med Linux virtuella datorer
 Anpassade skript tillägget Version 1 hämtar och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för efter distributionen konfiguration, installation av programvara eller andra uppgifter konfiguration och hantering. Du kan hämta skript från Azure Storage eller en annan tillgänglig Internetplats eller kan du ge dem till tillägget körningsmiljön. 
@@ -34,7 +34,7 @@ Det finns två Linux anpassade Skriptfilnamnstillägg:
 * Version 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
 * Version 2 - Microsoft.Azure.Extensions.CustomScript
 
-Växla nya och befintliga distributioner om du vill använda den nya versionen ([Microsoft.Azure.Extensions.CustomScript](\custom-script-linux.md)) i stället. Den nya versionen är avsedd att ersätta gör att installera. Därför migreringen är lika enkelt som att ändra namn och version, du behöver inte ändra konfigurationen av tillägget.
+Växla nya och befintliga distributioner om du vill använda den nya versionen ([Microsoft.Azure.Extensions.CustomScript](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-linux)) i stället. Den nya versionen är avsedd att ersätta gör att installera. Därför migreringen är lika enkelt som att ändra namn och version, du behöver inte ändra konfigurationen av tillägget.
 
  
 

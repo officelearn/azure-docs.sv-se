@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
-ms.openlocfilehash: a63b15ca5126b45451f0694c9ee75d7b67b1ceaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: 59b6f8b82d0f714d4526147b42f68e14bf0aa2bd
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23855210"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127704"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Samla in data från CollectD på Linux-agenter i logganalys
 [CollectD](https://collectd.org/) är en öppen källkod Linux-demonen som regelbundet samlar in prestandastatistik från program och information om systemet. Exempelprogram inkluderar Java Virtual Machine (JVM), MySQL-servern och Nginx. Den här artikeln innehåller information om att samla in prestandadata från CollectD i logganalys.
@@ -111,7 +112,7 @@ Om du vill behålla en bekant modell mellan infrastruktur-mätvärden som redan 
 
 | Fältet CollectD mått | Log Analytics-fält |
 |:--|:--|
-| värden | Dator |
+| värd | Dator |
 | plugin-programmet | Ingen |
 | plugin_instance | Instansnamn<br>Om **plugin_instance** är *null* sedan InstanceName = ”*_Total*” |
 | typ | Objektnamn |

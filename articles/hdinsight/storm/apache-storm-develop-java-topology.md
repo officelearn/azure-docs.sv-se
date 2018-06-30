@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5f2a6de9737569c75e0350e2aceec19b149d9549
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 105c10423a9688300ba74874769b162e29572185
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418500"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128613"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Skapa en Apache Storm-topologi i Java
 
@@ -41,7 +41,7 @@ När du har slutfört stegen i det här dokumentet kan du distribuera topologin 
 
 ## <a name="configure-environment-variables"></a>Konfigurera miljövariabler
 
-Följande miljövariabler kan anges när du installerar Java och JDK. Dock bör du kontrollera att de finns och att de innehåller rätt värden för ditt system.
+Följande miljövariabler kan anges när du installerar Java och JDK. Du bör dock kontrollera att de finns och att de innehåller rätt värden för ditt system.
 
 * **JAVA_HOME** -måste peka på den katalog där med Java runtime environment (JRE) har installerats. Till exempel en Unix- eller Linux-distribution, den inte innehålla ett värde som liknar `/usr/lib/jvm/java-8-oracle`. I Windows, skulle det ha ett värde som liknar `c:\Program Files (x86)\Java\jre1.8`
 
@@ -600,7 +600,7 @@ Filen YAML definierar komponenterna som ska användas för topologi och data fl�
 Mer information om som finns [som framework (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
 
 > [!WARNING]
-> På grund av att en [programfel (https://issues.apache.org/jira/browse/STORM-2055) ](https://issues.apache.org/jira/browse/STORM-2055) med Storm 1.0.1, kan du behöva installera en [Storm utvecklingsmiljö](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) att köra som topologier lokalt.
+> På grund av att en [programfel (https://issues.apache.org/jira/browse/STORM-2055) ](https://issues.apache.org/jira/browse/STORM-2055) med Storm 1.0.1, kan du behöva installera en [Storm utvecklingsmiljö](http://storm.apache.org/releases/current/Setting-up-development-environment.html) att köra som topologier lokalt.
 
 1. Flytta den `WordCountTopology.java` filen utanför projektet. Topologin har definierats tidigare den här filen, men behövs inte med som.
 
@@ -719,9 +719,9 @@ Mer information om som finns [som framework (https://storm.apache.org/releases/0
     ```
 
     > [!WARNING]
-    > Om din topologi använder Storm 1.0.1 bits, misslyckas kommandot. Felet orsakas av [ https://issues.apache.org/jira/browse/STORM-2055 ](https://issues.apache.org/jira/browse/STORM-2055). I stället [installera Storm i din utvecklingsmiljö](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) och Använd följande steg:
+    > Om din topologi använder Storm 1.0.1 bits, misslyckas kommandot. Felet orsakas av [ https://issues.apache.org/jira/browse/STORM-2055 ](https://issues.apache.org/jira/browse/STORM-2055). I stället [installera Storm i din utvecklingsmiljö](http://storm.apache.org/releases/current/Setting-up-development-environment.html) och Använd följande steg:
     >
-    > Om du har [installerat Storm i din utvecklingsmiljö](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), du kan använda följande kommandon i stället:
+    > Om du har [installerat Storm i din utvecklingsmiljö](http://storm.apache.org/releases/current/Setting-up-development-environment.html), du kan använda följande kommandon i stället:
     >
     > ```bash
     > mvn compile package

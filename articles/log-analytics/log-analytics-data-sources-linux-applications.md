@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: bfb9b62a8965fa1f7daf62d814665ca23491cc04
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 528274844908f9a1b2a604de42d8e84f4dc7d6f2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168290"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127359"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Samla in prestandaräknare för Linux-program i logganalys 
 Den här artikeln innehåller information om hur du konfigurerar den [OMS-Agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) att samla in prestandaräknare för specifika program.  Program som ingår i den här artikeln är:  
@@ -48,7 +49,7 @@ Följande är formatet för filen MySQL OMI-autentisering
 
 Poster i autentiseringsfilen beskrivs i följande tabell.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--|:--|
 | Port | Representerar den aktuella porten MySQL-instans lyssnar på. Port 0 anger att egenskaperna för följande används för standardinstansen. |
 | Bind-adress| Aktuell MySQL bind-adress. |
@@ -82,7 +83,7 @@ Följande tabell innehåller information om syntaxen för att använda mycimprov
 | automatisk uppdatering *FALSKT eller SANT* | mycimprovauth automatisk uppdatering false | Anger huruvida autentiseringsfilen uppdateras automatiskt på Starta om eller uppdatera. |
 | standard *användarlösenordet för bind-adress* | mycimprovauth standard 127.0.0.1 rot pwd | Anger standardinstansen i MySQL OMI autentiseringsfilen.<br>Lösenordsfältet ska anges i klartext - lösenordet i filen MySQL OMI autentisering blir Base64-kodade. |
 | ta bort *standard eller portnummer* | mycimprovauth 3308 | Tar bort den angivna instansen som antingen standard eller av portnummer. |
-| hjälp | mycimprov hjälp | Visar en lista med kommandon för att använda. |
+| Hjälp | mycimprov hjälp | Visar en lista med kommandon för att använda. |
 | Skriv ut | mycimprov utskrift | Visar en lättläst MySQL OMI autentiseringsfilen. |
 | Uppdatera portnummer *användarlösenordet för bind-adress* | mycimprov uppdatering 3307 127.0.0.1 rot pwd | Uppdaterar den angivna instansen eller lägger till instansen om det inte finns. |
 
@@ -116,7 +117,7 @@ Dessa behörigheter kan tilldelas genom att köra följande kommandon för bevil
 
 När du konfigurerar OMS-Agent för Linux för att skicka data till logganalys, måste du konfigurera prestandaräknarna som samlar in.  Använd proceduren i [Windows och Linux prestanda datakällor i logganalys](log-analytics-data-sources-windows-events.md) med räknarna i följande tabell.
 
-| Objektnamn | Räknarens namn |
+| Objektnamn | Räknarnamn |
 |:--|:--|
 | MySQL-databas | Ledigt diskutrymme i byte |
 | MySQL-databas | Tabeller |
@@ -152,7 +153,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 När du konfigurerar OMS-Agent för Linux för att skicka data till logganalys, måste du konfigurera prestandaräknarna som samlar in.  Använd proceduren i [Windows och Linux prestanda datakällor i logganalys](log-analytics-data-sources-windows-events.md) med räknarna i följande tabell.
 
-| Objektnamn | Räknarens namn |
+| Objektnamn | Räknarnamn |
 |:--|:--|
 | Apache HTTP-Server | Upptagen arbetare |
 | Apache HTTP-Server | Inaktiv arbetare |

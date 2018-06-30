@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0ce22cae50e70ca7232e025d4009b23d62f6a198
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f7125a18aa2496ebe8367443a67502a7a7dbac02
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649235"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128523"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Hantera Azure SQL Database långsiktig lagring av säkerhetskopior.
 
@@ -83,8 +83,10 @@ Visa säkerhetskopieringar som finns kvar för en viss databas med en princip f�
 Följande avsnitt visar hur du använder PowerShell för att konfigurera långsiktig säkerhetskopiering kvarhållning, visa säkerhetskopieringar i Azure SQL-lagring och återställning från en säkerhetskopia i SQL Azure storage.
 
 > [!IMPORTANT]
-> Du måste använda den senaste AzureRM powershell för att ställa in LTR V2 principer. Den aktuella versionen är [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview), detta är en förhandsversion, så använder det här kommandot för att installera den: `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
-> Anvisningar om hur du installerar förhandsversionen finns [hämta PowerShellGet modulen](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). AzureRM powershell kan 2018 versionen kommer några dagar (förväntades vara 2018-5/18), kan du ignorera växeln - AllowPrelease när du installerar slutversionen när den blir tillgänglig och använda kommandot ” `Install-Module -Name AzureRM.Sql -Force`.
+> LTR V2 API stöds i följande versioner av PowerShell:
+- [AzureRM.Sql 4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) eller senare
+- [AzureRM 6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) eller senare
+> 
 
 ### <a name="create-an-ltr-policy"></a>Skapa en princip för LTR
 

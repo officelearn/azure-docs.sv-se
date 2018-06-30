@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: v-geberr
-ms.openlocfilehash: 1f501981dd4b45f4d36188ef4c2aaa6cb11881a2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: f5d1cf61ca7b8d8eeaed52fc3f45f8d4847ddda9
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263761"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108696"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Enterprise strategier för en THOMAS app
 Granska strategierna designen för din företagsapp.
@@ -32,7 +32,7 @@ Ange en enda app som huvudserver. Alla utterances som föreslås för granskning
 Schemalägga en regelbunden [granskning av slutpunkten utterances](label-suggested-utterances.md) för aktiva, till exempel varannan vecka, sedan träna om och publicera på nytt. 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>Tilldela flera THOMAS nycklar till samma app
-Om appen THOMAS tar emot flera endpoint träffar än din enda nyckel kvoten tillåter skapar och tilldelar appen THOMAS flera nycklar. Skapa en traffic manager eller belastningsutjämnare för att hantera endpoint frågor över nycklar för prenumerationen. 
+Om appen THOMAS tar emot flera endpoint träffar än din enda nyckel kvoten tillåter skapar och tilldelar appen THOMAS flera nycklar. Skapa en traffic manager eller belastningsutjämnare för att hantera endpoint frågor över endpoint-nycklar. 
 
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>När appen monolitisk returnerar fel avsikt
 Om din app är avsedd att förutsäga ett stort antal användare utterances, Överväg att implementera den [dispatch modellen](#dispatch-tool-and-model). Dela upp en monolitisk app kan THOMAS fokus identifiering mellan avsikter har i stället för förvirrande mellan avsikter över appen överordnade och underordnade appar. 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/02/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 330350d6ac6838ea5b09763fe1f73fab1934710c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 950e422b3076e5abd5db6dd0ac452fa1c2d500d0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315056"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129276"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Skapa frågor till listan Batch resurser effektivt
 
@@ -172,7 +172,7 @@ Egenskapsnamn i filtret, markera och expandera strängar *måste* återspeglar m
 
 | Batch .NET-typer | REST API-enheter |
 | --- | --- |
-| [certifikat][net_cert] |[Hämta information om ett certifikat][rest_get_cert] |
+| [Certifikat][net_cert] |[Hämta information om ett certifikat][rest_get_cert] |
 | [CloudJob][net_job] |[Hämta information om ett jobb][rest_get_job] |
 | [CloudJobSchedule][net_schedule] |[Hämta information om ett Jobbschema][rest_get_schedule] |
 | [ComputeNode][net_node] |[Hämta information om en nod][rest_get_node] |
@@ -182,7 +182,7 @@ Egenskapsnamn i filtret, markera och expandera strängar *måste* återspeglar m
 ## <a name="example-construct-a-filter-string"></a>Exempel: skapa en Filtersträng
 När du skapar en Filtersträng för [ODATADetailLevel.FilterClause][odata_filter], med hjälp av tabellen ovan under ”mappningar för filtersträngar” till REST API-dokumentationen sidan som motsvarar den lista över åtgärden som du vill utföra. Du hittar filtrera egenskaperna och deras stöds operatorer i tabellen för första försök för på sidan. Om du vill hämta alla aktiviteter vars avslutskoden var inte är noll, till exempel detta rad på [lista över aktiviteter som är kopplade till ett jobb] [ rest_list_tasks] anger gäller egenskapssträng och tillåtna operatorer:
 
-| Egenskap | Tillåtna åtgärder | Typ |
+| Egenskap  | Tillåtna åtgärder | Typ |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -193,7 +193,7 @@ Därför är Filtersträngen för att lista alla aktiviteter med slutkoden noll:
 ## <a name="example-construct-a-select-string"></a>Exempel: skapa en väljer sträng
 Att konstruera [ODATADetailLevel.SelectClause][odata_select], med hjälp av tabellen ovan under ”mappningar för väljer strängar” och gå till sidan REST-API som motsvarar typ av enhet som du visar. Du hittar valbar egenskaperna och deras stöds operatorer i tabellen för första försök för på sidan. Om du vill hämta endast ID och kommandoraden för varje aktivitet i en lista, t.ex, du hittar dessa rader i tabellen tillämplig på [hämta information om en aktivitet][rest_get_task]:
 
-| Egenskap | Typ | Anteckningar |
+| Egenskap  | Typ | Anteckningar |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
@@ -248,15 +248,12 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 ### <a name="parallel-node-tasks"></a>Parallel-nod uppgifter
 [Maximera Azure Batch beräkning Resursanvändning med samtidiga nod uppgifter](batch-parallel-node-tasks.md) en annan artikel rör Batch programprestanda. Vissa typer av arbetsbelastningar kan dra nytta av köra parallella aktiviteter på större-- men färre--compute-noder. Kolla in den [Exempelscenario](batch-parallel-node-tasks.md#example-scenario) i artikeln för information om sådant scenario.
 
-### <a name="batch-forum"></a>Batch-Forum
-Den [Azure Batch-Forum] [ forum] på MSDN är det bra att diskutera Batch och ställa frågor om tjänsten. HEAD på över för användbara ”Fäst” inlägg och publicera dina frågor när de uppstår när du skapar Batch-lösningar.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
 [odata_ctor]: https://msdn.microsoft.com/library/azure/dn866178.aspx

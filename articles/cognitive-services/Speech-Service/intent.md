@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 38f7f038a803546adb83245519efc5de0c0d1599
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1c9c1e2d54ccb200ef009be3566f6da9ced01175
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045018"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111175"
 ---
 # <a name="sample-for-intent-recognition"></a>Exempel på avsiktshantering redovisning
 
@@ -23,7 +23,7 @@ ms.locfileid: "37045018"
 > Anvisningar att hämta det här exemplet och andra finns [prover för tal SDK](samples.md).
 
 > [!NOTE]
-> Skaffa en prenumeration för först. Till skillnad från andra tjänster som stöds av kognitiva Service tal SDK avsikt Recognition tjänster kräver en viss prenumeration nyckel. [Här](https://www.luis.ai) hittar du mer information om avsiktshantering recognition tekniken, samt information om hur du skaffar en prenumeration nyckel. Ersätt din egen nyckel prenumeration, region för tjänsten och AppId av avsiktshantering modellen på lämplig plats i exemplen.
+> Skaffa en prenumeration för först. Till skillnad från andra tjänster som stöds av kognitiva Service tal SDK avsikt Recognition tjänster kräver en viss prenumeration nyckel. [Här](https://www.luis.ai) hittar du mer information om avsiktshantering recognition tekniken, samt information om hur du skaffar en prenumeration nyckel. Ersätt din egen prenumeration nyckel i [regionen för din prenumeration](regions.md), och AppId av avsiktshantering modellen på lämpliga platser i exemplen.
 
 > [!NOTE]
 > Följande översta förklaringar bör vara på plats för alla prover nedan:

@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
-ms.openlocfilehash: 7a7deb4d7a287b2e9613e6035a7ffd7bb6f14f9c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.component: na
+ms.openlocfilehash: 8183258ddde335b09293c72368ad3bf58a69334a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26782038"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129361"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Windows-händelseloggen datakällor i logganalys
 Windows-händelseloggar är en av de vanligaste [datakällor](log-analytics-data-sources.md) för att samla in data med hjälp av Windows-agenter eftersom många program skriva till händelseloggen i Windows.  Du kan samla in händelser från standard loggar, till exempel System och program samt göra eventuella anpassade loggar som skapas av program som du behöver övervaka.
@@ -29,7 +30,7 @@ Windows-händelseloggar är en av de vanligaste [datakällor](log-analytics-data
 ## <a name="configuring-windows-event-logs"></a>Konfigurera Windows-händelse loggar
 Konfigurera Windows-händelseloggar från den [Data-menyn i logganalys-inställningar](log-analytics-data-sources.md#configuring-data-sources).
 
-Logganalys endast samlar in händelser från händelseloggarna i Windows som anges i inställningarna.  Du kan lägga till en händelselogg genom att skriva namnet på loggen och klicka på  **+** .  Endast händelser med de valda allvarlighetsgraderna samlas in för varje logg.  Kontrollera allvarlighetsgraderna för viss loggen som du vill samla in.  Du kan inte ange några ytterligare kriterier för att filtrera händelser.
+Logganalys endast samlar in händelser från händelseloggarna i Windows som anges i inställningarna.  Du kan lägga till en händelselogg genom att skriva namnet på loggen och klicka på **+**.  Endast händelser med de valda allvarlighetsgraderna samlas in för varje logg.  Kontrollera allvarlighetsgraderna för viss loggen som du vill samla in.  Du kan inte ange några ytterligare kriterier för att filtrera händelser.
 
 När du skriver namnet på en händelselogg innehåller logganalys förslag på Händelseloggnamn. Om den logg som du vill lägga till inte visas i listan kan du fortfarande lägga till den genom att skriva i det fullständiga namnet på loggen. Du kan söka efter det fullständiga namnet på loggen i Loggboken. I Loggboken, öppna den *egenskaper* för loggen och kopiera strängen från den *fullständiga namn* fältet.
 
@@ -45,7 +46,7 @@ Logganalys samlar in varje händelse som matchar en vald allvarlighetsgrad från
 ## <a name="windows-event-records-properties"></a>Windows-händelse registrerar egenskaper
 Windows händelseposter har en typ av **händelse** och ha egenskaper i följande tabell:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | Dator |Namnet på den dator som händelsen samlats in från. |
 | EventCategory |Kategori för händelsen. |
@@ -69,8 +70,8 @@ Följande tabell innehåller olika exempel på loggen sökningar som hämtar pos
 |:---|:---|
 | Händelse |Alla Windows-händelser. |
 | Händelsen &#124; där EventLevelName == ”error” |Alla Windows-händelser med allvarlighetsgraden fel. |
-| Händelsen &#124; Sammanfatta count() av källa |Antal Windows-händelser efter källa. |
-| Händelsen &#124; där EventLevelName == ”error” &#124; Sammanfatta count() av källa |Antal Windows felhändelser efter källa. |
+| Händelsen &#124; sammanfatta count() av källa |Antal Windows-händelser efter källa. |
+| Händelsen &#124; där EventLevelName == ”error” &#124; sammanfatta count() av källa |Antal Windows felhändelser efter källa. |
 
 
 ## <a name="next-steps"></a>Nästa steg

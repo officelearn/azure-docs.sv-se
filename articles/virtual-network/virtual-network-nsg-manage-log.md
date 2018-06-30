@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: c3f4a64c9e11d17899987bbe818506f61c415e3f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 81809660bdda957eb4502e02799b9f7f5538ae51
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757067"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114031"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Diagnostikloggning för en nätverkssäkerhetsgrupp
 
@@ -35,11 +35,11 @@ Diagnostikloggning aktiveras separat för *varje* NSG som du vill samla in diagn
 
 ## <a name="enable-logging"></a>Aktivera loggning
 
-Du kan använda den [Azure Portal](#azure-portal), eller [PowerShell](#powershell), för att aktivera diagnostikloggning.
+Du kan använda den [Azure Portal](#azure-portal), [PowerShell](#powershell), eller [Azure CLI](#azure-cli) diagnostikloggning ska aktiveras.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Logga in på den [portal](https://portal.azure.com).
+1. Logga in på [portalen](https://portal.azure.com).
 2. Välj **alla tjänster**, Skriv *nätverkssäkerhetsgrupper*. När **Nätverkssäkerhetsgrupper** visas i sökresultaten, markerar du den.
 3. Välj NSG: N som du vill aktivera loggning för.
 4. Under **övervakning**väljer **diagnostik loggar**, och välj sedan **aktivera diagnostiken**som visas i följande bild:
@@ -69,12 +69,12 @@ $Nsg=Get-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-Du kan skriva diagnostiska loggar till tre destinationstypen. Mer information finns i [logga mål](#log-destinations). I den här artikeln loggar skickas till den *logganalys* mål, t.ex. Hämta en befintlig logganalys-arbetsyta med [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace). Om du till exempel att hämta en befintlig arbetsyta namnet *myLaWorkspace* i en resursgrupp med namnet *LaWorkspaces*, anger du följande kommando:
+Du kan skriva diagnostiska loggar till tre destinationstypen. Mer information finns i [logga mål](#log-destinations). I den här artikeln loggar skickas till den *logganalys* mål, t.ex. Hämta en befintlig logganalys-arbetsyta med [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace). Om du till exempel att hämta en befintlig arbetsyta namnet *myWorkspace* i en resursgrupp med namnet *myWorkspaces*, anger du följande kommando:
 
 ```azurepowershell-interactive
 $Oms=Get-AzureRmOperationalInsightsWorkspace `
-  -ResourceGroupName LaWorkspaces `
-  -Name myLaWorkspace
+  -ResourceGroupName myWorkspaces `
+  -Name myWorkspace
 ```
 
 Om du inte har en befintlig arbetsyta kan du skapa en med [ny AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace).
@@ -89,6 +89,41 @@ Set-AzureRmDiagnosticSetting `
 ```
 
 Om du bara vill logga data i en kategori eller den andra i stället både lägga till den `-Categories` alternativet för att det föregående kommandot följt av *NetworkSecurityGroupEvent* eller *NetworkSecurityGroupRuleCounter*. Om du vill logga in till en annan [mål](#log-destinations) än logganalys-arbetsytan använder lämpliga parametrar för en Azure [lagringskonto](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Händelsehubb](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Visa och analysera loggfiler. Mer information finns i [visa och analysera loggar](#view-and-analyze-logs).
+
+### <a name="azure-cli"></a>Azure CLI
+
+Du kan köra kommandon som visas i den [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra Azure CLI från datorn. Azure Cloud-gränssnittet är ett kostnadsfritt interaktiva gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör CLI från datorn, måste du version 2.0.38 eller senare. Kör `az --version` på datorn för att hitta den installerade versionen. Om du behöver uppgradera [installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Om du kör CLI lokalt, måste du också köra `az login` att logga in på Azure med ett konto som har den [behörighet](virtual-network-network-interface.md#permissions).
+
+Om du vill aktivera diagnostikloggning måste Id för en befintlig NSG. Om du inte har en befintlig NSG, kan du skapa en med [az nätverket nsg skapa](/cli/azure/network/nsg#az-network-nsg-create).
+
+Hämtar nätverkssäkerhetsgruppen som du vill aktivera loggning för med [az nätverket nsg visa](/cli/azure/network/nsg#az-network-nsg-show). Om du till exempel att hämta en NSG namnet *myNsg* som finns i en resursgrupp med namnet *myResourceGroup*, anger du följande kommando:
+
+```azurecli-interactive
+nsgId=$(az network nsg show \
+  --name myNsg \
+  --resource-group myResourceGroup \
+  --query id \
+  --output tsv)
+```
+
+Du kan skriva diagnostiska loggar till tre destinationstypen. Mer information finns i [logga mål](#log-destinations). I den här artikeln loggar skickas till den *logganalys* mål, t.ex. Mer information finns i [logga kategorier](#log-categories). 
+
+Aktivera diagnostikloggning för NSG: N med [az diagnostik-inställningar för övervakning av skapa](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). I följande exempel loggar händelse- och räknare kategoridata till en befintlig arbetsyta med namnet *myWorkspace*, som finns i en resursgrupp med namnet *myWorkspaces*, och NSG: N som du hämtade-ID tidigare:
+
+```azurecli-interactive
+az monitor diagnostic-settings create \
+  --name myNsgDiagnostics \
+  --resource $nsgId \
+  --logs '[ { "category": "NetworkSecurityGroupEvent", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "NetworkSecurityGroupRuleCounter", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } } ]' \
+  --workspace myWorkspace \
+  --resource-group myWorkspaces
+```
+
+Om du inte har en befintlig arbetsyta, kan du skapa en med hjälp av den [Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Det finns två typer av loggning kan du aktivera loggarna. 
+
+Ta bort den kategori som du inte vill logga data för i det föregående kommandot om du bara vill logga data i en kategori eller den andra. Om du vill logga in till en annan [mål](#log-destinations) än logganalys-arbetsytan använder lämpliga parametrar för en Azure [lagringskonto](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Händelsehubb](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Visa och analysera loggfiler. Mer information finns i [visa och analysera loggar](#view-and-analyze-logs).
 

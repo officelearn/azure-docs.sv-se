@@ -4,22 +4,23 @@ description: Datorgrupper i logganalys kan du omfång loggen sökningen till en 
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: ''
 ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: c4a1edc8e4ff129a8b073f008e1d20bb20941ae1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: na
+ms.openlocfilehash: 23ac75b4afb07c3f8d5f0d90755a5cf2087087e1
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775272"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130683"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Datorgrupper i logganalys logga sökningar
 
@@ -45,7 +46,7 @@ Du kan använda en fråga för en datorgrupp, men det måste returnera en specif
 
 I följande tabell beskrivs de egenskaper som definierar en datorgrupp.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:---|:---|
 | Visningsnamn   | Namn på sökningen ska visas i portalen. |
 | Kategori       | Kategori för att organisera sökningar i portalen. |
@@ -122,7 +123,7 @@ Följande fråga returnerar UpdateSummary poster för endast datorer i Domändat
 ## <a name="computer-group-records"></a>Gruppen datorposter
 En post har skapats i logganalys-arbetsytan för varje datorgruppmedlemskap som skapats från Active Directory eller WSUS.  Dessa poster har en typ av **ComputerGroup** och ha egenskaper i följande tabell.  Poster skapas inte för datorgrupper baserat på loggen sökningar.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | Typ |*ComputerGroup* |
 | SourceSystem |*SourceSystem* |

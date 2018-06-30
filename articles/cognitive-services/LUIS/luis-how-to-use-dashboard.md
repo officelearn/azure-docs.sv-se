@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: v-geberr
-ms.openlocfilehash: 4e117aa734c551f76c3602f81e3e2ebc6aa9f337
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c7ef38e2f2edaf795d3d76706afd4aa09b3b6959
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355779"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110056"
 ---
 # <a name="application-dashboard"></a>Instrumentpanel för program
 Appinstrumentpanelen kan du övervaka din app på en enda överblick över. Den **instrumentpanelen** visas när du öppnar en app genom att klicka på namnet på programmet på **Mina appar** sidan Välj **instrumentpanelen** från övre panelen. 
@@ -69,7 +69,7 @@ Att välja en tid att visa i diagrammet:
 2. Välj en punkt i listan och klicka sedan på pilen Bakåt ![Bakåt](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) att visa diagrammet.
 
 ### <a name="key-usage"></a>Nyckelanvändning
-Antal träffar förbrukad från programnyckel prenumeration. Mer information om prenumerationen nycklar finns [nycklar i THOMAS](luis-concept-keys.md). 
+Antal träffar förbrukad från programnyckel slutpunkt. Mer information om slutpunkten nycklar finns [nycklar i THOMAS](luis-concept-keys.md). 
   
 ## <a name="intent-breakdown"></a>Avsiktshantering uppdelning
 Den **avsikt uppdelning** visar en uppdelning av intents baserat på märkt utterances eller slutpunkt träffar. Den här översiktsdiagrammet visar varje avsikt relativa betydelse i appen. När du håller muspekaren över ett segment visas avsiktshantering namn och procentandelen representerar det totala antalet träffar märkt utterances-slutpunkten. 

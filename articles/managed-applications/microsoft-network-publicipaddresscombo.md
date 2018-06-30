@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: bf0ef5be609fba14ab12e1e6f9f97bc63f032aae
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d06a450595a53fdc65fba74791345abe3a1b3db4
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260568"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109577"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI-element
 En grupp av kontroller för att välja en ny eller befintlig offentlig IP-adress.
@@ -63,21 +63,23 @@ En grupp av kontroller för att välja en ny eller befintlig offentlig IP-adress
 ```
 
 ## <a name="remarks"></a>Kommentarer
-- Om `constraints.required.domainNameLabel` är inställd på **SANT**, måste användaren ange en domännamnet när du skapar en ny offentlig IP-adress. Befintliga offentliga IP-adresser utan en etikett inte är tillgängliga för val.
+- Om `constraints.required.domainNameLabel` är inställd på **SANT**, måste användaren ange en domännamnet när du skapar en ny offentlig IP-adress. Befintliga offentliga IP-adresser utan en etikett inte väljas.
 - Om `options.hideNone` är inställd på **SANT**, sedan alternativet **ingen** för den offentliga IP-adress är dolt. Standardvärdet är **FALSKT**.
 - Om `options.hideDomainNameLabel` är inställd på **SANT**, och sedan textrutan för domännamnet är dolt. Standardvärdet är **FALSKT**.
-- Om `options.hideExisting` är true tas användaren inte har möjlighet att välja en befintlig offentlig IP-adress. Standardvärdet är **FALSKT**.
+- Om `options.hideExisting` är true tas användaren inte kan välja en befintlig offentlig IP-adress. Standardvärdet är **FALSKT**.
 - För `zone`, endast offentliga IP-adresser för den angivna zonen eller zonen flexibel offentliga IP-adresser som är tillgängliga.
 
 ## <a name="sample-output"></a>Exempel på utdata
-Om användaren väljer Ingen offentlig IP-adress, förväntat i följande utdata:
+Om användaren väljer Ingen offentlig IP-adress, resultat kontrollen följande:
+
 ```json
 {
   "newOrExistingOrNone": "none"
 }
 ```
 
-Om användaren väljer en ny eller befintlig IP-adress, förväntat i följande utdata:
+Om användaren väljer en ny eller befintlig IP-adress, resultat kontrollen följande:
+
 ```json
 {
   "name": "ip01",
@@ -87,6 +89,7 @@ Om användaren väljer en ny eller befintlig IP-adress, förväntat i följande 
   "newOrExistingOrNone": "new"
 }
 ```
+
 - När `options.hideNone` har angetts som **SANT**, `newOrExistingOrNone` har bara ett värde av **nya** eller **befintliga**.
 - När `options.hideDomainNameLabel` har angetts som **SANT**, `domainNameLabel` har inte deklarerats.
 

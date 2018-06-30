@@ -3,7 +3,7 @@ title: Logga Analytics vanliga frågor och svar | Microsoft Docs
 description: Svar på vanliga frågor och svar om Azure Log Analytics-tjänsten.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 9d34c06461ea5f264f762494d93d76f1dc1bcb3e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.component: na
+ms.openlocfilehash: eb1a60ff533e9e24f3dc80057129da47a2d9a726
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221554"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128538"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 Den här Microsoft-FAQ är en lista över vanliga frågor om logganalys i Microsoft Azure. Om du har några ytterligare frågor om logganalys går du till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och dina frågor. När en fråga är vanliga vi lägga till den i den här artikeln så att den finns snabbt och enkelt.
@@ -79,13 +80,13 @@ S: med stegen som beskrivs i [skapa en ny avisering loggen](../monitoring-and-di
 
 Ange när du skapar en avisering om när datainsamling slutar på:
 
-- **Definiera varningsvillkor** ange logganalys-arbetsytan som mål för resursen.
-- **Varna kriterier** anger du följande:
+- **Definiera aviseringsvillkor** ange Log Analytics-arbetsytan som mål för resursen.
+- **Aviseringskriterier** ange följande:
    - **Skicka en signal namnet** Välj **anpassad logg sökning**.
    - **Sökfråga** till`Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-   - **Varna logik** är **baserat på** *antal resultat* och **villkoret** är *större än* en **tröskelvärde**  av *0*
+   - **Aviseringslogik** är **Baserad på** *antal resultat* och **Villkor** som är *Större än* ett **Tröskelvärde** på *0*
    - **Tidsperiod** av *30* minuter och **Varna frekvens** till varje *10* minuter
-- **Definiera aviseringsinformation** anger du följande:
+- **Definiera aviseringsinformation** ange följande:
    - **Namnet** till *datainsamling har stoppats*
    - **Allvarlighetsgrad** till *varning*
 

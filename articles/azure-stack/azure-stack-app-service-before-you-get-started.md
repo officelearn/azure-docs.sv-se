@@ -14,62 +14,69 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: anwestg
-ms.openlocfilehash: ae21a7cc5c38fefd40a2676e15308b027c6f95d5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 37d6ee2f047768f08ea7a113b7d97911d58a46e2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796741"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110583"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du börjar med App Service på Azure-stacken
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-> [!IMPORTANT]
-> Uppdateringen är 1804 Azure Stack integrerade systemet eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.2.
->
->
+Innan du distribuerar Azure App Service på Azure-stacken måste du slutföra de nödvändiga stegen i den här artikeln.
 
-Innan du distribuerar Azure App Service på Azure-stacken måste du slutföra krav i den här artikeln.
+> [!IMPORTANT]
+> Uppdateringen är 1804 Azure Stack integrerade systemet eller distribuera den senaste Azure Stack Development Kit (ASDK) innan du distribuerar Azure App Service 1.2.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Ladda ned installationsprogrammet och helper-skript
 
 1. Hämta den [Apptjänst på Azure-stacken distribution helper skript](https://aka.ms/appsvconmashelpers).
 2. Hämta den [Apptjänst i Azure-stacken installer](https://aka.ms/appsvconmasinstaller).
-3. Extrahera filerna från ZIP-filen helper skript. Följande filer och mappstrukturer visas:
+3. Extrahera filerna från ZIP-filen helper skript. Följande filer och mappar extraheras:
+
    - Common.ps1
    - Create-AADIdentityApp.ps1
    - Create-ADFSIdentityApp.ps1
    - Create-AppServiceCerts.ps1
    - Get-AzureStackRootCert.ps1
    - Remove-AppService.ps1
-   - Moduler
+   - Moduler mapp
      - GraphAPI.psm1
 
 ## <a name="high-availability"></a>Hög tillgänglighet
 
-På grund av 1802-versionen av Azure-stacken, vilket lägger till stöd för feldomäner nya distributioner av Azure App Service på Azure-stacken ska distribueras över feldomäner och ge feltolerans.  Befintliga distributioner av Azure App Service på Azure-stacken, som har distribuerats innan lanseringen av 1802 uppdateringen finns på [dokumentationen](azure-stack-app-service-fault-domain-update.md) att balansera om distributionen.
+Azure-stacken 1802 uppdateringen lägger till stöd för feldomäner. Nya distributioner av Azure App Service på Azure-stacken ska distribueras över feldomäner och ge feltolerans.
 
-Dessutom distribuera Azure App Service på Azure-stacken för hög tillgänglighet krävs file server och SQL Server-instans i en konfiguration med hög tillgänglighet.
+Befintliga distributioner av Azure App Service på Azure-stacken, som har distribuerats före uppdateringen av 1802, finns det [balansera en Apptjänst-resursprovidern över feldomäner](azure-stack-app-service-fault-domain-update.md) artikel.
+
+Dessutom kan distribuera nödvändiga file server och SQL Server-instanser i en konfiguration med hög tillgänglighet.
 
 ## <a name="get-certificates"></a>Hämta certifikat
 
 ### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure Resource Manager-rotcertifikatet för Azure-stacken
 
-I en PowerShell-session som körs som azurestack\CloudAdmin på en dator som kan nå Privilegierade slutpunkten på Azure-stacken integrerat System eller Azure Stack Development Kit värddatorn, kör du skriptet Get-AzureStackRootCert.ps1 från mappen där du extraherade helper-skript. Skriptet skapar ett rotcertifikat i samma mapp som skriptet som Apptjänst behöver för att skapa certifikat.
+Öppna en upphöjd PowerShell-session på en dator som kan nå Privilegierade slutpunkten på Azure-stacken integrerat System eller Azure Stack Development Kit värddatorn.
+
+Kör den *Get-AzureStackRootCert.ps1* skriptet från den mapp där du extraherade helper-skript. Skriptet skapar ett rotcertifikat i samma mapp som skriptet som Apptjänst behöver för att skapa certifikat.
+
+När du kör följande PowerShell-kommando har du anger Privilegierade slutpunkten och autentiseringsuppgifterna för AzureStack\CloudAdmin.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
 ```
+
+#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 Skriptparametrar
 
 | Parameter | Obligatorisk eller valfri | Standardvärde | Beskrivning |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Krävs | AzS ERCS01 | Privilegierade slutpunkt |
 | CloudAdminCredential | Krävs | AzureStack\CloudAdmin | Domän-autentiseringsuppgift konto för Azure-stacken molnet administratörer |
 
-### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Certifikat som krävs för Azure-stacken Development Kit
+### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Certifikat som krävs för ASDK distribution av Azure App Service
 
-Första skriptet fungerar med Azure Stack certifikatutfärdare att skapa fyra certifikat som behöver Apptjänst:
+Den *skapa AppServiceCerts.ps1* skriptet fungerar med Azure Stack certifikatutfärdare att skapa fyra certifikat som behöver Apptjänst.
 
 | Filnamn | Användning |
 | --- | --- |
@@ -78,29 +85,32 @@ Första skriptet fungerar med Azure Stack certifikatutfärdare att skapa fyra ce
 | ftp.appservice.local.azurestack.external.pfx | Apptjänst publisher SSL-certifikat |
 | sso.appservice.local.azurestack.external.pfx | Apptjänst identitetscertifikat program |
 
-Kör skriptet på Azure-stacken Development Kit värden och kontrollera att du kör PowerShell som azurestack\CloudAdmin:
+Följ dessa steg för att skapa certifikat:
 
-1. Kör skriptet Skapa AppServiceCerts.ps1 från mappen där du extraherade helper-skript i ett PowerShell-session som körs som azurestack\AzureStackAdmin. Skriptet skapar fyra certifikat i samma mapp som skriptet som Apptjänst behöver för att skapa certifikat.
-2. Ange ett lösenord för att skydda PFX-filer och anteckna den. Du måste ange den i App Service i Azure-stacken installer.
+1. Logga in på Azure-stacken Development Kit värden med hjälp av AzureStack\AzureStackAdmin-kontot.
+2. Öppna en upphöjd PowerShell-session.
+3. Kör den *skapa AppServiceCerts.ps1* skriptet från den mapp där du extraherade helper-skript. Det här skriptet skapar fyra certifikat i samma mapp som skriptet som Apptjänst behöver för att skapa certifikat.
+4. Ange ett lösenord för att skydda PFX-filer och anteckna den. Du måste ange den i Apptjänst i Azure-stacken installer.
 
-#### <a name="create-appservicecertsps1-parameters"></a>Skapa AppServiceCerts.ps1 parametrar
-
-```PowerShell
-    Create-AppServiceCerts.ps1
-```
+#### <a name="create-appservicecertsps1-script-parameters"></a>Skapa AppServiceCerts.ps1 Skriptparametrar
 
 | Parameter | Obligatorisk eller valfri | Standardvärde | Beskrivning |
 | --- | --- | --- | --- |
-| PfxPassword | Krävs | Null | Lösenordet som hjälper dig att skydda den privata nyckeln för certifikatet |
+| pfxPassword | Krävs | Null | Lösenordet som hjälper dig att skydda den privata nyckeln för certifikatet |
 | Domännamn | Krävs | local.azurestack.external | Azure Stack region och domänens suffix |
 
-### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Certifikat som krävs för en Produktionsdistribution av Azure App Service på Azure-stacken
+### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Certifikat som krävs för Azure-stacken Produktionsdistribution av Azure App Service
 
-För att fungera resursprovidern i produktion, måste du ange följande fyra certifikat:
+Om du vill köra resursprovidern i produktion, måste du ange följande certifikat:
+
+- Standardcertifikat
+- API-certifikat
+- Publicera certifikat
+- Identitetscertifikat
 
 #### <a name="default-domain-certificate"></a>Standardcertifikat
 
-Standard Domäncertifikat är placerad på frontend-rollen. Användarprogram för begäranden med jokertecken eller standard domän till Azure App Service använda det här certifikatet. Certifikatet används också för källa kontrollåtgärder (Kudu).
+Standard Domäncertifikat är placerad på frontend-rollen. Användarprogram för jokertecken eller standard domän-begäran till Azure App Service använda det här certifikatet. Certifikatet används också för källa kontrollåtgärder (Kudu).
 
 Certifikatet måste vara i PFX-format och ska vara ett jokerteckencertifikat med tre ämne. Detta krav kan ett certifikat att täcka både standarddomänen och SCM-slutpunkten för kontroller som källa.
 
@@ -133,15 +143,15 @@ Certifikatet för programmets identitet kan:
 - Integrering mellan Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) directory, Azure-stacken och Apptjänst till stöd för integrering med compute-resursprovidern.
 - Enkel inloggning scenarier för avancerad utvecklingsverktygen i Azure App Service på Azure-stacken.
 
-Certifikat för identitet måste innehålla ett ämne som matchar följande format:
+Certifikat för identitet måste innehålla ett ämne som matchar följande format.
 
 | Format | Exempel |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-## <a name="virtual-network"></a>Virtual Network
+## <a name="virtual-network"></a>Virtuellt nätverk
 
-Azure Apptjänst Azure stacken kan du distribuera resursprovidern till antingen ett befintligt virtuellt nätverk eller Apptjänst skapas som en del av distributionen.  Med hjälp av ett befintligt virtuellt nätverk kan du använda interna IP-adresser ska ansluta till filservern och SQLServer krävs för Azure App Service på Azure-stacken.  Det virtuella nätverket konfigureras med följande adressintervallet och undernät innan du installerar Azure App Service på Azure Stack:
+Azure Apptjänst Azure stacken kan du distribuera resursprovidern till ett befintligt virtuellt nätverk eller kan du skapa ett virtuellt nätverk som en del av distributionen. Med hjälp av ett befintligt virtuellt nätverk kan du använda interna IP-adresser ska ansluta till filservern och SQLServer krävs för Azure App Service på Azure-stacken. Det virtuella nätverket konfigureras med följande adressintervallet och undernät innan du installerar Azure App Service på Azure Stack:
 
 Virtuellt nätverk – /16
 
@@ -161,43 +171,51 @@ Azure-stacken Development Kit distributioner kan du använda den [exempel Azure 
 
 >[!IMPORTANT]
 > Om du vill distribuera Apptjänst i ett befintligt virtuellt nätverk som servern ska distribueras till ett separat undernät från Apptjänst.
->
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Etablera grupper och konton i Active Directory
 
 1. Skapa följande Active Directory globala säkerhetsgrupper:
+
    - FileShareOwners
    - FileShareUsers
+
 2. Skapa följande Active Directory-konton som tjänstkonton:
+
    - FileShareOwner
    - FileShareUser
 
-   Som bör bästa praxis bör användare för dessa konton (och för alla webbroller för) skiljer sig från varandra och ha starkt användarnamn och lösenord. Ange lösenord med följande villkor:
+   Säkerheten ska bör användare för dessa konton (och för alla webbroller för) vara unikt och ha starkt användarnamn och lösenord. Ange lösenord med följande villkor:
+
    - Aktivera **lösenordet upphör aldrig att gälla**.
    - Aktivera **användaren kan inte ändra lösenordet**.
    - Inaktivera **användaren måste byta lösenord vid nästa inloggning**.
+
 3. Lägg till kontona gruppmedlemskap enligt följande:
+
    - Lägg till **FileShareOwner** till den **FileShareOwners** grupp.
    - Lägg till **FileShareUser** till den **FileShareUsers** grupp.
 
 ### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Etablera grupper och konton i en arbetsgrupp
 
 >[!NOTE]
-> När du konfigurerar en server, kör du följande kommandon i en administrativ kommandotolk. *Använd inte PowerShell.*
+> När du konfigurerar en filserver som kör följande kommandon från en **administratörskommandotolk**. <br>***Använd PowerShell inte.***
 
 När du använder Azure Resource Manager-mall kan användarna redan har skapats.
 
 1. Kör följande kommandon för att skapa FileShareOwner och FileShareUser konton. Ersätt `<password>` med egna värden.
+
     ``` DOS
     net user FileShareOwner <password> /add /expires:never /passwordchg:no
     net user FileShareUser <password> /add /expires:never /passwordchg:no
     ```
 2. Ange lösenorden för kontona aldrig upphör att gälla genom att köra följande WMIC-kommandon:
+
     ``` DOS
     WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
     WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
     ```
 3. Skapa de lokala grupperna FileShareUsers och FileShareOwners och lägga till konton i det första steget i dem:
+
     ``` DOS
     net localgroup FileShareUsers /add
     net localgroup FileShareUsers FileShareUser /add
@@ -318,7 +336,7 @@ Följ de här stegen:
 10. Välj **App registreringar**.
 11. Sök efter program-ID som returneras som en del i steg 7. Ett program med App Service anges.
 12. Välj **programmet** i listan.
-13. Klicka på **inställningar**.
+13. Välj **inställningar**.
 14. Välj **nödvändiga behörigheter** > **bevilja behörigheter** > **Ja**.
 
 ```PowerShell

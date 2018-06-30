@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 2f34233a68bec506d9f69426d779aee8e493d759
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9314b8ae8dceb29a9aee63ba3093ab191d4fdef3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402071"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37116303"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrahering, transformering och laddning (ETL) i skala
 
@@ -85,7 +85,7 @@ För uppladdning datauppsättningar i intervallet terabyte kan Nätverksfördrö
 
 * Azure ExpressRoute: Azure ExpressRoute kan du skapa privata anslutningar mellan Azure-datacenter och din lokala infrastruktur. Dessa anslutningar ge en tillförlitlig alternativet för att överföra stora mängder data. Mer information finns i [Azure ExpressRoute dokumentation](../../expressroute/expressroute-introduction.md).
 
-* ”Offline” överföra data. Du kan använda [Azure Import/Export service](../../storage/common/storage-import-export-service.md) att leverera hårddiskar med dina data till en Azure-datacenter. Dina data överförs först till Azure Storage-Blobbar. Du kan sedan använda [Azure Data Factory](../../data-factory/v1/data-factory-azure-datalake-connector.md) eller [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) verktyg för att kopiera data från Azure Storage BLOB till Data Lake Store.
+* ”Offline” överföra data. Du kan använda [Azure Import/Export service](../../storage/common/storage-import-export-service.md) att leverera hårddiskar med dina data till en Azure-datacenter. Dina data överförs först till Azure Storage-Blobbar. Du kan sedan använda [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) eller [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) verktyg för att kopiera data från Azure Storage BLOB till Data Lake Store.
 
 ### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
@@ -135,7 +135,7 @@ Apache Flume är en distribuerad, tillförlitlig och tillgänglig tjänst för a
 
 Apache Flume kan inte användas med Azure HDInsight.  En lokal Hadoop-installation kan använda Flume för att skicka data till Azure Storage-Blobbar eller Azure Data Lake Store.  Mer information finns i [med Apache Flume med HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
-## <a name="transform"></a>Transformera
+## <a name="transform"></a>Transformering
 
 När data finns på den valda platsen, måste du rensa den, kombinera det och förbereda den för en specifik användningsmönstret.  Hive, Pig och Spark SQL är alla bra alternativ för den typ av arbete.  De stöds i HDInsight. 
 

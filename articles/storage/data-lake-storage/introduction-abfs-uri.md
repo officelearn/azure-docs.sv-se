@@ -10,12 +10,12 @@ manager: jahogg
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 75edf6dc7382a8a2ece7c25edd09aeacfe1c5189
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a6130d8440b16e5a72c939fc07f6bf32c0946418
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060067"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114300"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Använda Azure Data Lake lagring Gen2 URI
 
@@ -25,15 +25,7 @@ Den [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html) drivrutin som är 
 
 URI-syntax för Data Lake lagring Gen2 beror på om ditt lagringskonto har konfigurerats till att har Data Lake lagring Gen2 som standard-filsystem.
 
-Om Data Lake lagring Gen2 kan kontot som du vill adress anges som standardfilsystem under kontoskapande av är shorthand URI-syntax:
-
-<pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
-
-1. **Sökvägen**: ett snedstreck avgränsade (`/`) representation av katalogstrukturen.
-
-2. **Filnamn**: namnet på enskilda filer.
-
-Om kontot Data Lake lagring Gen2 kan du inte vill att adressen *inte* standardfilsystemet URI-syntax är:
+Om kontot Data Lake lagring Gen2 kan du inte vill att adressen **är inte** inställningen är som standardfilsystem när kontot skapas shorthand URI-syntax är:
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.widows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
@@ -46,6 +38,15 @@ Om kontot Data Lake lagring Gen2 kan du inte vill att adressen *inte* standardfi
 4. **Sökvägar**: ett snedstreck avgränsade (`/`) representation av katalogstrukturen.
 
 5. **Filnamnet**: namnet på enskilda filer. Den här parametern är valfri om du adressering en katalog.
+
+Men om det konto som du vill skapa en adress anges som standardfilsystemet under kontoskapande av kan är sedan shorthand URI-syntax:
+
+<pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
+
+1. **Sökvägen**: ett snedstreck avgränsade (`/`) representation av katalogstrukturen.
+
+2. **Filnamn**: namnet på enskilda filer.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

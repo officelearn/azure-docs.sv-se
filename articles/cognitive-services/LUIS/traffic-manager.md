@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 513d4395b1d3e631855c2f6e132d54331b3ddf8d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 8c8228b13c972c65596f0389e2fdfde585f8a742
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266353"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110321"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Använda Microsoft Azure Traffic Manager för att hantera endpoint kvoten över nycklar
 Språk förstå (THOMAS) ger dig möjlighet att öka kvoten för slutpunkt-begäran utöver kvoten för en enskild nyckel. Detta görs genom att skapa flera nycklar för THOMAS och lägger till dem THOMAS programmet på den **publicera** sidan i den **resurser och nycklar** avsnitt. 
@@ -48,13 +48,13 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Skärmbild av THOMAS portal med två THOMAS nycklar på publicera sidan](./media/traffic-manager/luis-keys-in-luis.png)
 
-    Exempel-URL i den **endpoint** kolumn använder en GET-begäran med nyckeln prenumeration som en frågeparameter. Kopiera URL: er för de två nya nycklarna slutpunkt. De används som en del av Traffic Manager konfigurationen.
+    Exempel-URL i den **endpoint** kolumn använder en GET-begäran med slutpunktsnyckel som en frågeparameter. Kopiera URL: er för de två nya nycklarna slutpunkt. De används som en del av Traffic Manager konfigurationen.
 
 ## <a name="manage-luis-endpoint-requests-across-keys-with-traffic-manager"></a>Hantera begäranden om THOMAS slutpunkt över nycklar med Traffic Manager
 Traffic Manager skapar en ny DNS-åtkomstpunkt för dina slutpunkter. Den inte fungera som en gateway eller proxy, men enbart på DNS-nivå. Det här exemplet ändras inte alla DNS-poster. Den använder ett DNS-bibliotek för att kommunicera med Traffic Manager att hämta korrekt slutpunkt för specifik begäran. _Varje_ begäran som är avsedda för THOMAS först kräver en Traffic Manager-begäran för att avgöra vilken THOMAS slutpunkt som ska användas. 
 
 ### <a name="polling-uses-luis-endpoint"></a>Avsökningen använder THOMAS slutpunkt
-Traffic Manager avsöker slutpunkter med jämna mellanrum för att se till att slutpunkten är fortfarande tillgängliga. Traffic Manager-URL avsökas måste vara tillgänglig med en GET-begäran och returnera ett 200. Slutpunkts-URL på den **publicera** sidan gör detta. Eftersom varje prenumeration nyckel har en annan väg och fråga string-parametrar, måste varje prenumeration nyckel en annan avsökning sökväg. Varje gång Traffic Manager avsöker kostar den en kvot-begäran. Frågesträngparametern **q** slutpunkt är THOMAS utterance skickas till THOMAS. Den här parametern i stället för att skicka en utterance används för att lägga till Traffic Manager-avsökning THOMAS endpoint loggen som en teknik som felsökning vid hämtning av Traffic Manager konfigureras.
+Traffic Manager avsöker slutpunkter med jämna mellanrum för att se till att slutpunkten är fortfarande tillgängliga. Traffic Manager-URL avsökas måste vara tillgänglig med en GET-begäran och returnera ett 200. Slutpunkts-URL på den **publicera** sidan gör detta. Eftersom varje slutpunktsnyckel har en annan väg och fråga string-parametrar, måste varje slutpunktsnyckel en annan avsökning sökväg. Varje gång Traffic Manager avsöker kostar den en kvot-begäran. Frågesträngparametern **q** slutpunkt är THOMAS utterance skickas till THOMAS. Den här parametern i stället för att skicka en utterance används för att lägga till Traffic Manager-avsökning THOMAS endpoint loggen som en teknik som felsökning vid hämtning av Traffic Manager konfigureras.
 
 Eftersom varje THOMAS slutpunkt behöver dess egna sökväg, måste en egen Traffic Manager-profilen. För att hantera över profiler, skapas en [ _kapslade_ Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-nested-profiles) arkitektur. En överordnad profil pekar på profilerna underordnade och hantera trafik över dem.
 
@@ -64,11 +64,11 @@ När Traffic Manager har konfigurerats kan du komma ihåg att ändra sökvägen 
 I följande avsnitt skapa två underordnade profiler, en för Öst THOMAS nyckeln och en för Väst THOMAS nyckeln. Sedan en överordnad profil har skapats och två underordnade profiler har lagts till i den överordnade profilen. 
 
 ### <a name="create-the-east-us-traffic-manager-profile-with-powershell"></a>Skapa östra USA Traffic Manager-profilen med PowerShell
-Det finns flera steg för att skapa östra USA Traffic Manager-profilen: skapa profil, Lägg till slutpunkt och ange slutpunkt. Traffic Manager-profilen kan ha många slutpunkter, men varje slutpunkt har samma sökväg för verifiering. Eftersom THOMAS endpoint-URL för prenumerationer Öst- och skiljer sig åt på grund av region och prenumeration nyckel, måste varje THOMAS slutpunkt vara en enda slutpunkt i profilen. 
+Det finns flera steg för att skapa östra USA Traffic Manager-profilen: skapa profil, Lägg till slutpunkt och ange slutpunkt. Traffic Manager-profilen kan ha många slutpunkter, men varje slutpunkt har samma sökväg för verifiering. Eftersom THOMAS endpoint-URL för prenumerationer Öst- och skiljer sig åt på grund av region och slutpunkten nyckel, måste varje THOMAS slutpunkt vara en enda slutpunkt i profilen. 
 
 1. Skapa profil med **[ny AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/new-azurermtrafficmanagerprofile?view=azurermps-6.2.0)** cmdlet
 
-    Använd följande cmdlet för att skapa profilen. Se till att ändra den `appIdLuis` och `subscriptionKeyLuis`. SubscriptionKey är för Öst oss THOMAS nyckeln. Om sökvägen är inte korrekt, inklusive THOMAS app-ID och din prenumeration nyckeln Traffic Manager-avsökning har statusen `degraded` eftersom hantera trafik inte kan begära THOMAS slutpunkten har. Kontrollera att värdet för `q` är `traffic-manager-east` så att du kan se det här värdet i loggarna THOMAS slutpunkt.
+    Använd följande cmdlet för att skapa profilen. Se till att ändra den `appIdLuis` och `subscriptionKeyLuis`. SubscriptionKey är för Öst oss THOMAS nyckeln. Om sökvägen är inte korrekt, inklusive THOMAS app-ID och slutpunkten nyckeln Traffic Manager-avsökning har statusen `degraded` eftersom hantera trafik inte kan begära THOMAS slutpunkten har. Kontrollera att värdet för `q` är `traffic-manager-east` så att du kan se det här värdet i loggarna THOMAS slutpunkt.
 
     ```PowerShell
     $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
@@ -136,7 +136,7 @@ Följ samma steg för att skapa västra USA Traffic Manager-profilen,: skapa pro
 
 1. Skapa profil med **[ny AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet
 
-    Använd följande cmdlet för att skapa profilen. Se till att ändra den `appIdLuis` och `subscriptionKeyLuis`. SubscriptionKey är för Öst oss THOMAS nyckeln. Om sökvägen inte är korrekt inklusive nyckeln THOMAS app-ID och din prenumeration Traffic Manager-avsökning har statusen `degraded` eftersom hantera trafik inte kan begära THOMAS slutpunkten har. Kontrollera att värdet för `q` är `traffic-manager-west` så att du kan se det här värdet i loggarna THOMAS slutpunkt.
+    Använd följande cmdlet för att skapa profilen. Se till att ändra den `appIdLuis` och `subscriptionKeyLuis`. SubscriptionKey är för Öst oss THOMAS nyckeln. Om sökvägen inte är korrekt inklusive nyckeln THOMAS app-ID och slutpunkten Traffic Manager-avsökning har statusen `degraded` eftersom hantera trafik inte kan begära THOMAS slutpunkten har. Kontrollera att värdet för `q` är `traffic-manager-west` så att du kan se det här värdet i loggarna THOMAS slutpunkt.
 
     ```PowerShell
     $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
@@ -152,7 +152,7 @@ Följ samma steg för att skapa västra USA Traffic Manager-profilen,: skapa pro
     |-RelativeDnsName|Thomas-dns-westus|Detta är underdomänen för tjänsten: Thomas-dns-westus.trafficmanager.net|
     |Ttl-|30|Avsökningsintervall 30 sekunder|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Port och protokoll för THOMAS är HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Ersätt <appId> och <subscriptionKey> med egna värden. Spara den här prenumerationen nyckeln är annat än east prenumeration nyckel|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Ersätt <appId> och <subscriptionKey> med egna värden. Spara den här slutpunkten nyckeln är annat än east-slutpunktsnyckel|
     
     En lyckad begäran har inget svar.
 
@@ -364,7 +364,7 @@ Du måste infoga ett anrop till Traffic Manager-DNS för att hitta THOMAS slutpu
 
 
 ## <a name="clean-up"></a>Rensa
-Ta bort två THOMAS prenumeration nycklar, tre Traffic Manager-profiler och resursgruppen som innehåller dessa fem resurser. Detta görs från Azure-portalen. Du kan ta bort de fem resurserna från resurslistan över. Ta sedan bort resursgruppen. 
+Ta bort två THOMAS endpoint nycklar, tre Traffic Manager-profiler och resursgruppen som innehåller dessa fem resurser. Detta görs från Azure-portalen. Du kan ta bort de fem resurserna från resurslistan över. Ta sedan bort resursgruppen. 
 
 ## <a name="next-steps"></a>Nästa steg
 

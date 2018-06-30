@@ -10,15 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: bwren
-ms.openlocfilehash: 1e0fd56b6e420103b4f786985f71a84737db642d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.component: na
+ms.openlocfilehash: 6479db44681071932ff92ee17ea0aec6518dc74e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333640"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128647"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Vanliga frågor för övergången från OMS-portalen på Azure-portalen för logganalys-användare
 Logganalys används först sin egen portalen kallas OMS-portalen för att hantera konfigurationen och analysera insamlade data.  Alla funktioner från den här portalen har flyttats till Azure portal där den fortsätter att utvecklas.

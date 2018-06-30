@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: omidm
-ms.openlocfilehash: f4380f5d6ec379d5807f697294623a672bd270ae
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8503534031dc5774e64c58edd3e158162a5a6aee
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715249"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110464"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planera Azure-domänanslutna Hadoop-kluster i HDInsight
 
@@ -50,7 +50,7 @@ Följande skärmbild visar en Organisationsenhet som skapats i contoso.com. Någ
 HDInsight stöder för närvarande endast AAD-DS som den huvudsakliga domänkontrollanten att klustret ska kommunicera med Kerberise klustret. Andra avancerade AD-installationer är dock också möjligt så länge det leder till att aktivera AAD-DS för HDI-åtkomst.
 
 - **[Azure Active Directory Domain Services (AAD-DS)](../../active-directory-domain-services/active-directory-ds-overview.md)**: den här tjänsten tillhandahåller en hanterad domän som är helt kompatibel med Windows Server Active Directory. Microsoft hand tar om hantering, uppdatering och övervakning domän i en inställning för hög Available(HA). Du kan distribuera klustret utan att bekymra dig om att hantera domänkontrollanter. Användare, grupper och lösenord synkroniseras från din Azure Active Directory(AAD) [enkelriktad synkronisering från AAD till AAD-DS] att användare kan logga in till klustret med samma företagets autentiseringsuppgifter. Mer information finns i [hur du konfigurerar domänanslutna HDInsight-kluster med AAD-DS](./apache-domain-joined-configure-using-azure-adds.md).
-- **Lokala AD eller AD på IaaS-VM**: Om du har en lokal AD eller andra mer komplexa AD inställningarna för din domän som, du kan synkronisera de identiteterna som AAD med hjälp av AD Connect och sedan aktivera AAD-DS på den AD-klient. Eftersom Kerberos är beroende av lösenordshashvärden, behöver du [aktivera lösenordshashsynkronisering på AAD-DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Om du använder federation med AD-federation Services (ADFS), konfigurera du om du vill lösenordshashsynkronisering som en säkerhetskopia om det inte går att din AD FS-infrastruktur. Mer information finns i [aktivera lösenordshashsynkronisering med AAD Connect sync](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md). Använda lokala AD eller AD på IaaS-VM enbart, är utan AAD och AAD-DS inte en konfiguration som stöds för att ansluta till HDI klustret domän.
+- **Lokala AD eller AD på IaaS-VM**: Om du har en lokal AD eller andra mer komplexa AD inställningarna för din domän som, du kan synkronisera de identiteterna som AAD med hjälp av AD Connect och sedan aktivera AAD-DS på den AD-klient. Eftersom Kerberos är beroende av lösenordshashvärden, behöver du [aktivera lösenordshashsynkronisering på AAD-DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Om du använder federation med AD-federation Services (ADFS), konfigurera du om du vill lösenordshashsynkronisering som en säkerhetskopia om det inte går att din AD FS-infrastruktur. Mer information finns i [aktivera lösenordshashsynkronisering med AAD Connect sync](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md). Använda lokala AD eller AD på egen hand utan AAD och AAD-DS IaaS-VM är inte en konfiguration som stöds för att ansluta till HDI klustret domän.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Konfigurera domänanslutna HDInsight-kluster](apache-domain-joined-configure-using-azure-adds.md).

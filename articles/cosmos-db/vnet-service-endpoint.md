@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: de52521824c146f63fb16e2690e2a24167ae2efe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e6b263c1eb9fe3b151f0a51b5da9a92b8ced4549
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333920"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109750"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Säker åtkomst till ett Azure DB som Cosmos-konto med hjälp av Azure Virtual Network tjänstslutpunkten
 
@@ -249,7 +249,7 @@ Läs mer om NSG-taggar finns [virtuellt nätverk service taggar](../virtual-netw
 
 Dessa två funktioner kompletterar varandra för att säkra isolering av Azure Cosmos DB tillgångar och skydda dem. Med IP-garanterar brandväggen att statiska IP-adresser kan komma åt Azure DB som Cosmos-konto.  
 
-### <a name="can-an-on-premise-devices-ip-address-that-is-connected-through-azure-virtual-network-gatewayvpn-or-express-route-gateway-access-azure-cosmos-db-account"></a>Har en lokal enhet IP-adress som är anslutna via Azure Virtual Network gateway(VPN) eller expressroute gateway åtkomst till Azure Cosmos-DB-konto?  
+### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gatewayvpn-or-express-route-gateway-access-azure-cosmos-db-account"></a>Har en lokal enhet IP-adress som är anslutna via Azure Virtual Network gateway(VPN) eller expressroute gateway åtkomst till Azure Cosmos-DB-konto?  
 
 Lokala enhetens IP-adress eller IP-adressintervall bör läggas till i listan över statisk IP för att komma åt Azure DB som Cosmos-konto.  
 

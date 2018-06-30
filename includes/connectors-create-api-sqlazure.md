@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
-ms.openlocfilehash: 013e230aa7e096f6a90ed7cf9e93a44fbdeb3bd6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 4ffda692da0ab7b63f7376c36dfab0bec914e334
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34678313"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138073"
 ---
 * Om du använder Azure SQL Database, följer du stegen under [Anslut till Azure SQL Database](#connect-azure-sql-db). 
 
@@ -98,7 +98,7 @@ Innan du kan välja din gateway, kontrollerar du att du redan [ställa in din da
 
    | Egenskap  | Värde | Information | 
    |----------|-------|---------| 
-   | Anslut via lokal gateway | Välj det här alternativet först för SQL Server-inställningar. | | 
+   | Anslut via lokala gateway | Välj det här alternativet först för SQL Server-inställningar. | | 
    | Anslutningsnamn | <*Mina sql-anslutning*> | Namn för din anslutning | 
    | SQL Server-namn | <*Min sql server*> | Namnet på SQLServer |
    | SQL Database-namn | <*Mina sql database*>  | Namnet på din SQL-databas |

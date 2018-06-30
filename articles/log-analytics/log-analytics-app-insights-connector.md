@@ -3,7 +3,7 @@ title: Visa Azure Application Insights AppData | Microsoft Docs
 description: Du kan använda Application Insights Connector-lösning för att diagnostisera prestandaproblem och förstå vad användarna göra med din app när övervakas med Application Insights.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -11,19 +11,23 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/18/2017
+ms.topic: conceptual
+ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 854ec70c897b6a561fdec056228f82ccec3ae16c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 2312b0ed51be7079da3e53b27c269adfb761044d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186241"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131634"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Connector lösning (förhandsgranskning)
 
 ![Application Insights symbol](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
+
+>[!NOTE]
+> Med stöd för [cross-resurs frågor](log-analytics-cross-workspace-search.md), hanteringslösningen Application Insights connector krävs inte längre och kommer att vara inaktuell. Starta juli kommer du inte att länka ny Application Insights-resurser till logganalys arbetsytor. Befintliga länkar och instrumentpaneler fortsätter att fungera förrän November 2018. Mer information finns i [OMS-portalen som flyttar till Azure](log-analytics-oms-portal-transition.md).
 
 Program Insights Connector-lösningen hjälper dig att diagnostisera prestandaproblem och förstå vad användare göra med din app när den är övervakad med [Programinsikter](../application-insights/app-insights-overview.md). Vyer för samma programtelemetri som utvecklare finns i Application Insights är tillgängliga i logganalys. När du integrerar dina Application Insights-appar med logganalys ökas visningen av dina program genom att låta igen och programdata på ett ställe. Med samma vyer kan du samarbeta med din apputvecklare. Vanliga vyer kan du minska tiden för att identifiera och lösa både program- och plattform problem.
 
@@ -83,7 +87,7 @@ Klicka på den **Programinsikter** öppna den **Application Insights** instrumen
 
 ![Instrumentpanel för program insikter](./media/log-analytics-app-insights-connector/app-insights-dash02.png)
 
-Instrumentpanelen innehåller blad som visas i tabellen. Varje bladet visar upp till 10 objekt som matchar det bladet villkoren för angivet omfång och tidsintervall. Du kan köra en sökning i loggen som returnerar alla poster när du klickar på **se alla** längst ned på bladet eller när du klickar på rubriken bladet.
+Instrumentpanelen innehåller blad som visas i tabellen. Varje blad visar en lista med upp till tio objekt som matchar bladets kriterier för angivet omfång och tidsintervall. Du kan köra en sökning i loggen som returnerar alla poster när du klickar på **se alla** längst ned på bladet eller när du klickar på rubriken bladet.
 
 [!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
@@ -118,7 +122,7 @@ När du klickar någonstans i den **undantag** bladet finns en visualisering som
 
 ![Application Insights undantag bladet](./media/log-analytics-app-insights-connector/exceptions-blade-drill-search.png)
 
-Oavsett om du klickar på något en den **Application Insights Connector** instrumentpanelen, inom den **Sök** sidan, alla frågor som returnerar Application Insights-data visar Application Insights perspektiv. Om du visar Application Insights-data, till exempel en **&#42;** frågan också visar fliken perspektiv som på följande bild:
+Oavsett om du klickar på något en den **Application Insights Connector** instrumentpanelen, inom den **Sök** sidan, alla frågor som returnerar Application Insights-data visar programmet Insikter perspektiv. Om du visar Application Insights-data, till exempel en **&#42;** frågan också visar fliken perspektiv som på följande bild:
 
 ![Application Insights ](./media/log-analytics-app-insights-connector/app-insights-search.png)
 
@@ -171,11 +175,11 @@ En post med en *typen* av *ApplicationInsights* skapas för varje typ av indata.
 
 ### <a name="generic-fields"></a>Allmän fält
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Typ | ApplicationInsights |
 | ClientIP |   |
-| TimeGenerated | Tiden då posten |
+| TimeGenerated | Tid för posten |
 | ApplicationId | Instrumentation nyckeln för appen Application Insights |
 | ApplicationName | Namnet på Application Insights app |
 | RoleInstance | ID för server-värd |
@@ -189,15 +193,15 @@ En post med en *typen* av *ApplicationInsights* skapas för varje typ av indata.
 | SamplingRate | Procentandelen telemetri som genererats av SDK som skickas till portalen. Intervallet 0,0 100,0. |
 | SampledCount | 100/(SamplingRate). Till exempel 4 =&gt; 25% |
 | IsAuthenticated | Sant eller falskt |
-| OperationID | Objekt som har samma åtgärd ID visas som relaterade objekt i portalen. Vanligtvis begäran-ID |
+| Åtgärds-ID | Objekt som har samma åtgärd ID visas som relaterade objekt i portalen. Vanligtvis begäran-ID |
 | ParentOperationID | ID för överordnad igen |
-| OperationName |   |
-| SessionId | GUID för att identifiera den session där den skapades |
+| operationName |   |
+| sessions-ID | GUID för att identifiera den session där den skapades |
 | SourceSystem | ApplicationInsights |
 
 ### <a name="availability-specific-fields"></a>Tillgänglighet-specifika fält
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | TelemetryType | Tillgänglighet |
 | AvailabilityTestName | Namnet på webbtestet |
@@ -239,7 +243,7 @@ En post med en *typen* av *ApplicationInsights* skapas för varje typ av indata.
 
 ### <a name="request-specific-fields"></a>Begäran-specifika fält
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Typ | ApplicationInsights |
 | TelemetryType | Förfrågan |

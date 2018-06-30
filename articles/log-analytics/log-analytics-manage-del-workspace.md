@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: 084b8fa0addbe2ddeee699b58c9b0de1a6f27d99
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.component: na
+ms.openlocfilehash: 54f2af60751ed0d9c64e71efad6fa9aa3ef06589
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33938700"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129123"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Ta bort en Azure logganalys-arbetsytan med Azure-portalen
 Den här artikeln visar hur du använder Azure-portalen för att ta bort logganalys-arbetsytan som du kan inte längre behöver. 
@@ -38,7 +38,7 @@ När du tar bort logganalys-arbetsytan raderas alla data som rör din arbetsyta 
 
 Alla agenter och System Center Operations Manager-hanteringsgrupper som är konfigurerad för att rapportera till arbetsytan kan du fortsätta att överblivna tillståndet.  Inventera vilka agenter, lösningar och andra Azure-tjänster som är integrerade med arbetsytan innan du fortsätter.   
  
-Om du är administratör och det finns flera användare som är kopplade till arbetsytan bryts kopplingen mellan användare och arbetsytan. Om användarna är associerade med andra arbetsytor, kan de fortsätta med de andra arbetsytorna logganalys. Men om de inte är associerade med andra arbetsytor behöver sedan de skapa en arbetsyta för att använda Log Analytics. 
+Om du är administratör och det finns flera användare som är kopplade till arbetsytan bryts kopplingen mellan användare och arbetsytan. Om användarna är associerade med andra arbetsytor kan de fortsätta använda Log Analytics med de andra arbetsytorna. Men om de inte är associerade med andra arbetsytor behöver sedan de skapa en arbetsyta för att använda Log Analytics. 
 
 1. Logga in på [Azure-portalen](http://portal.azure.com). 
 2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.

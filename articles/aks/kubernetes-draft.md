@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2caf8e14407546d8a2ec7c9d18765dd10e575144
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8f273a5a2c47b25dc339fd63df127d141fe2f8e2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099350"
+ms.locfileid: "37130251"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Använd utkast med Azure Kubernetes Service (AKS)
 
@@ -58,11 +58,11 @@ Utkast skapar behållaren-avbildningar lokalt och sedan antingen distribuerar de
 
 ### <a name="create-trust-between-aks-cluster-and-acr"></a>Skapa förtroende mellan AKS klustret och ACR
 
-För att upprätta förtroende mellan ett AKS kluster och en ACR-registret, kan du ändra de Azure Active Directory Service Prinicipal används med AKS genom att lägga till deltagarrollen till den med omfattning ACR-databasen. Gör du genom att köra följande kommandon, ersätter _&lt;aks-rg-name&gt;_ och _&lt;aks klusternamnet&gt;_ med resursgrupp och namnet på din AKS klustret och _&lt;acr-rg-numren&gt;_ och _&lt;acr-repo-name&gt;_ med resursnamnet för gruppen och databasen för din ACR databasen som du vill skapa förtroende.
+För att upprätta förtroende mellan ett AKS kluster och en ACR-registret, kan du ändra de Azure Active Directory Service Prinicipal används med AKS genom att lägga till deltagarrollen till den med omfattningen av ACR-registret. Gör du genom att köra följande kommandon, ersätter _&lt;aks-rg-name&gt;_ och _&lt;aks klusternamnet&gt;_ med resursgrupp och namnet på din AKS klustret och _&lt;acr-rg-numren&gt;_ och _&lt;acr-registret-name&gt;_ med resursnamnet för grupp och registret för din ACR registret som du vill skapa förtroende.
 
 ```console
 export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
-export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-repo-name> --query "id" -o tsv)
+export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-registry-name> --query "id" -o tsv)
 az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 

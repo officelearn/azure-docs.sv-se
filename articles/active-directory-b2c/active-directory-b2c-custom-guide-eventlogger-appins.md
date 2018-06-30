@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b37e61763b34e320ffb4078600e08b1d32330a1
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 94d96af8db651a848ac092d1f8b85da4909427b7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709972"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110123"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Spåra användarens beteende i Azure AD B2C resor med hjälp av Application Insights
 
@@ -111,7 +111,7 @@ Tekniska profiler kan ses funktioner i den identitet upplevelse Framework av Azu
 | JourneyContextForInsights | Öppnar sessionen i Application Insights och skickar en Korrelations-ID |
 | AzureInsights-SignInRequest | Skapar en `SignIn` händelse med en uppsättning anspråk när en begäran om inloggning har tagits emot | 
 | AzureInsights-UserSignup | Skapar en UserSignup händelse när användaren utlöser registreringsalternativ i en sign-upp/inloggning resa | 
-| AzureInsights-SignInComplete | registrerar slutförande av en autentisering när en token har skickats till förlitande partsprogram | 
+| AzureInsights-SignInComplete | Registrerar slutförande av en autentisering när en token har skickats till förlitande partsprogram | 
 
 Lägg till profilerna i tilläggsfilen från startpaket genom att lägga till dessa element och den `<ClaimsProviders>` nod.  Filnamnet är vanligtvis `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
 
@@ -280,13 +280,12 @@ Referenced using {OIDC:One of the property names below}
 
 | Begär | OpenIdConnect parameter | Exempel |
 | ----- | ----------------------- | --------|
-| kommandotolk | kommandotolk | Gäller inte |
+| Fråga | kommandotolk | Gäller inte |
 | LoginHint |  login_hint | Gäller inte |
 | DomainHint | domain_hint | Gäller inte |
 |  MaxAge | max_age | Gäller inte |
 | clientId | client_id | Gäller inte |
 | Användarnamn | login_hint | Gäller inte |
-| Lösenord | domain_hint | Gäller inte |
 |  Resurs | resurs| Gäller inte |
 | AuthenticationContextReferences | acr_values | Gäller inte |
 
@@ -304,11 +303,11 @@ Här är ett exempel på begäran från programmet:
 https://login.microsoftonline.com/sampletenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
 
 ```
-Du kan sedan lägga till anspråk genom att lägga till en `Input Claim` element till Application Insights-händelse:
+Du kan sedan lägga till anspråk genom att lägga till en `Input Claim` element till Application Insights-händelsen. Egenskaper för en händelse har lagts till via syntax {egenskapen: NAME}, där namnet egenskap läggs till händelsen. Exempel:
 
 ```
-<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="app_session" DefaultValue="{OAUTH-KV:app_session}" />
-<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="loyalty_number" DefaultValue="{OAUTH-KV:loyalty_number}" />
+<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
+<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
 ```
 
 ### <a name="other-system-claims"></a>Andra system anspråk

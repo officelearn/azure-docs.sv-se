@@ -16,16 +16,16 @@ ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 5df4af49a6c0251161d619c358ae68eaad3c3660
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2cb29d61de43bcd2fc6f9bfb3a94af309b1c3f55
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102456"
+ms.locfileid: "37128487"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Inloggning med Azure Multi-Factor Authentication
 > [!NOTE]
-> Syftet med den här artikeln är att gå igenom ett typiskt inloggningen. Hjälp med att logga in eller att felsöka problem finns i [har problem med Azure Multi-Factor Authentication](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+> Syftet med den här artikeln är att gå igenom ett typiskt inloggningen. Hjälp med att logga in eller att felsöka problem finns i [har problem med Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 ## <a name="what-will-your-sign-in-experience-be"></a>Vad är din inloggning?
 Din inloggning skiljer sig åt beroende på vad du väljer att använda som din tvåfaktorsautentisering: ett telefonsamtal eller ett authentication-appen texter. Välj det alternativ som bäst beskriver vad du vill göra:
@@ -86,7 +86,7 @@ Du saknar ibland telefon eller enhet som du ställer in som din primära verifie
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har problem med att logga in med tvåstegsverifiering kan få mer information på [har problem med Azure Multi-Factor Authentication](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+Om du har problem med att logga in med tvåstegsverifiering kan få mer information på [har problem med Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 Lär dig hur du [hantera dina inställningar för tvåstegsverifiering](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md).
 

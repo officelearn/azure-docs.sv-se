@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: a28b46e10bbdd5331cc665fad3f80523b3aa8a58
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1326e4a84938c46a9e7acc10dd8ed94db708f62a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23877225"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113093"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple som ett mål med Backup Exec
 
@@ -173,7 +173,7 @@ En stegvisa distributionsanvisningar StorSimple finns [distribuera din lokala St
 
 ### <a name="deploy-backup-exec"></a>Distribuera Backup Exec
 
-Backup Exec Metodtips för installation, se [Metodtips för installation av Backup Exec](https://www.veritas.com/support/en_US/article.000068207).
+Backup Exec Metodtips för installation, se [Metodtips för installation av Backup Exec](https://www.veritas.com/content/support/en_US/doc/72686287-131623464-0/v70444238-131623464).
 
 ## <a name="set-up-the-solution"></a>Konfigurera lösningen
 
@@ -310,9 +310,9 @@ Här är ett exempel på ett GFS rotationsschema för fyra veckor, månatliga oc
 
 | Typ av frekvens/säkerhetskopiering | Fullständig | Stegvis (1-5 dagar)  |   
 |---|---|---|
-| Varje vecka (1 – 4 veckor) | Lördag | Monday-Friday |
-| Månadsvis  | Lördag  |   |
-| Varje år | Lördag  |   |   |
+| Varje vecka (1 – 4 veckor) | lördag | Måndag-fredag |
+| Månadsvis  | lördag  |   |
+| Varje år | lördag  |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Tilldela ett säkerhetskopieringsjobb Backup Exec StorSimple-volymer

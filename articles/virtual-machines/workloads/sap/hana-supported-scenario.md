@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8927b2a32956f73e75ac7b157ebad6bf6596ea88
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 656ba21abf06ad0f079e3ce425d3221724d195d4
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063637"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113586"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scenarier som stöds för HANA stora instanser
 Det här dokumentet beskriver scenarierna som stöds med information arkitektur för HANA stora instanser (HLI).
@@ -81,17 +81,17 @@ Om det behövs kan du definiera ytterligare NIC-kort på egen hand. Konfiguratio
 
 Distribution för enheter med två IP-adresser som tilldelats bör se ut som:
 
-Ethernet ”A” bör ha en IP-adress som ligger utanför intervallet för Serverpoolen IP-adress som du har skickat till Microsoft. Den här IP-adressen användas för att underhålla i/etc/hosts av OS.
+- Ethernet ”A” bör ha en IP-adress som ligger utanför intervallet för Serverpoolen IP-adress som du har skickat till Microsoft. Den här IP-adressen användas för att underhålla i/etc/hosts av OS.
 
-Ethernet ”B” bör ha en IP-adress som används för kommunikation till NFS. Dessa adresser bör därför **inte** måste underhållas i etc/hosts för att tillåta instans instans trafik i klienten.
+- Ethernet ”C” ska ha en IP-adress som används för kommunikation till NFS. Dessa adresser bör därför **inte** måste underhållas i etc/hosts för att tillåta instans instans trafik i klienten.
 
 En bladet konfiguration med två IP-adresser som tilldelats är inte lämplig för distribution fall HANA System replikering eller HANA skalbara. Om du har två IP-adresser som är tilldelade endast och som vill distribuera en sådan konfiguration, kontakta SAP HANA på Azure Service Management för att hämta en tredje IP-adress i en tredje tilldelade VLAN. För stora HANA-instans enheter med tre IP-adresser som har tilldelats tre NIC-portar, gäller följande användningsregler:
 
 - Ethernet ”A” bör ha en IP-adress som ligger utanför intervallet för Serverpoolen IP-adress som du har skickat till Microsoft. Denna IP-adress skall därför inte användas för att underhålla i/etc/hosts av OS.
 
-- Ethernet ”B” bör ha en IP-adress som används för kommunikation till NFS-lagring. Den här typen av adresser bör därför inte behållas i etc/hosts.
+- Ethernet ”B” bör användas uteslutande bevaras i etc/hosts för kommunikation mellan olika instanser. Dessa adresser också är IP-adresser som måste underhållas i skalbar HANA konfigurationer som IP-adresser HANA använder för konfigurationen mellan noder.
 
-- Ethernet ”C” bör användas uteslutande bevaras i etc/hosts för kommunikation mellan olika instanser. Dessa adresser också är IP-adresser som måste underhållas i skalbar HANA konfigurationer som IP-adresser HANA använder för konfigurationen mellan noder.
+- Ethernet ”C” ska ha en IP-adress som används för kommunikation till NFS-lagring. Den här typen av adresser bör därför inte behållas i etc/hosts.
 
 - Ethernet ”D” ska användas för åtkomst STONITH enhetens pacemaker exklusivt. Detta krävs när du konfigurerar HANA System replikering (HSR) och vill uppnå automatisk redundans på operativsystem som använder en uppstår baserad enhet.
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94fbc1cf0232eaf48bb0be3c6edc0542142e4681
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7958042ccb2f55e9b6021f7d804a0dcd090695c5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196057"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109325"
 ---
 # <a name="azure-automation-runbook-types"></a>Typer av Azure Automation-runbook
 Azure Automation har stöd för flera typer av runbooks som beskrivs kortfattat i följande tabell.  I avsnitten nedan innehåller ytterligare information om varje typ av bland annat tänka på när du använder.
@@ -44,7 +44,7 @@ Azure Automation har stöd för flera typer av runbooks som beskrivs kortfattat 
 * Det går inte att visa eller redigera direkt PowerShell-koden som skapas av grafiskt arbetsflöde. Observera att du kan visa den kod som du skapar i koden aktiviteter.
 
 ## <a name="powershell-runbooks"></a>PowerShell-runbooks
-PowerShell-runbooks är baserade på Windows PowerShell.  Du redigera direkt koden för runbook med textredigeraren i Azure-portalen.  Du kan också använda en textredigerare som offline och [importera runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) i Azure Automation.
+PowerShell-runbooks är baserade på Windows PowerShell.  Du redigera direkt koden för runbook med textredigeraren i Azure-portalen.  Du kan också använda en textredigerare som offline och [importera runbook](automation-creating-importing-runbook.md) i Azure Automation.
 
 ### <a name="advantages"></a>Fördelar
 * Implementera alla komplex logik med PowerShell-koden utan ytterligare svårigheter med PowerShell-arbetsflöde. 
@@ -65,7 +65,7 @@ Följande är aktuella kända problem med PowerShell-runbooks.
 * En PowerShell-runbook kan misslyckas om det görs ett försök att skriva en stor mängd data till utdataströmmen samtidigt.   Du kan ofta undvika det här problemet genom att skicka ut bara den information som du behöver när du arbetar med stora objekt.  Till exempel i stället för att mata ut ungefär så *Get-Process*, du kan spara de obligatoriska fälten med *Get-Process | Välj processnamn CPU*.
 
 ## <a name="powershell-workflow-runbooks"></a>PowerShell-arbetsflöde runbooks
-PowerShell-arbetsflöde runbooks är text runbooks enligt [Windows PowerShell-arbetsflöde](automation-powershell-workflow.md).  Du redigera direkt koden för runbook med textredigeraren i Azure-portalen.  Du kan också använda en textredigerare som offline och [importera runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) i Azure Automation.
+PowerShell-arbetsflöde runbooks är text runbooks enligt [Windows PowerShell-arbetsflöde](automation-powershell-workflow.md).  Du redigera direkt koden för runbook med textredigeraren i Azure-portalen.  Du kan också använda en textredigerare som offline och [importera runbook](automation-creating-importing-runbook.md) i Azure Automation.
 
 ### <a name="advantages"></a>Fördelar
 * Implementera alla komplex logik med PowerShell-arbetsflöde kod.
@@ -80,7 +80,7 @@ PowerShell-arbetsflöde runbooks är text runbooks enligt [Windows PowerShell-ar
 * PowerShell-runbooks kan bara ingå som underordnade runbooks med hjälp av cmdleten Start-AzureAutomationRunbook som skapar ett nytt jobb.
 
 ## <a name="python-runbooks"></a>Python runbooks
-Python runbooks kompilera under Python 2.  Du kan redigera koden för runbook med textredigeraren i Azure portal direkt eller du kan använda valfri textredigerare som offline och [importera runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) i Azure Automation.
+Python runbooks kompilera under Python 2.  Du kan redigera koden för runbook med textredigeraren i Azure portal direkt eller du kan använda valfri textredigerare som offline och [importera runbook](automation-creating-importing-runbook.md) i Azure Automation.
 
 ### <a name="advantages"></a>Fördelar
 * Använda robust standardbiblioteket av Python.

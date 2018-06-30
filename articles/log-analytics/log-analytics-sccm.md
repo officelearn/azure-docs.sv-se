@@ -3,7 +3,7 @@ title: Ansluta Configuration Manager till Log Analytics | Microsoft Docs
 description: Den här artikeln visar stegen för att ansluta Configuration Manager till logganalys och börja analysera data.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.openlocfilehash: 5ff0687fe99f0853e29e5f0d814a8555c367027c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: na
+ms.openlocfilehash: 6bb59e4b63933500bc8571dca2422eec6c3456ee
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30284004"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129765"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Ansluta Configuration Manager till logganalys
 Du kan ansluta din miljö för System Center Configuration Manager till Azure logganalys att synkronisera enheten samlingsdata och referera till dessa samlingar i logganalys och Azure Automation.  
@@ -48,7 +49,7 @@ I följande procedur ger den *deltagare* roll i logganalys-arbetsytan till AD-pr
 > Du måste ange behörigheter i logganalys för Configuration Manager. I annat fall visas ett felmeddelande när du använder guiden för konfiguration av i Configuration Manager.
 >
 
-1. I Azure-portalen klickar du på **alla tjänster** hittades i det övre vänstra hörnet. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. I listan över logganalys arbetsytor, väljer du arbetsytan för att ändra.
 3. I den vänstra rutan, Välj **Access Control (IAM)**.
 4. Access Control-sidan klickar du på **Lägg till** och **lägga till behörigheter** visas.
@@ -94,7 +95,7 @@ När du har lagt till en OMS-anslutning till Configuration Manager och har insta
 
 När du har slutfört inledande konfiguration för att importera enhetssamlingar från hierarkin hämtas medlemskapsinformation samling var 3: e timme om du vill behålla det aktuella medlemskap. Du kan välja att inaktivera det när som helst.
 
-1. I Azure-portalen klickar du på **alla tjänster** hittades i det övre vänstra hörnet. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
+1. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. Välj arbetsytan Configuration Manager har registrerats med i listan över logganalys arbetsytor.  
 3. Välj **Avancerade inställningar**.<br><br> ![Avancerade inställningar i Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Välj **datorgrupper** och välj sedan **SCCM**.  

@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 0bcdc3c4357cb8985fad16c607957bffad4a2b8c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4dea1209548fb3bb4f846cdf7eaf82751f938bea
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049238"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108852"
 ---
 # <a name="quickstart-for-c-and-windows"></a>Snabbstart för C++ och Windows
 
@@ -78,8 +78,8 @@ Ersätt Koden standard starter med följande:
 [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-cpp/CppHelloSpeech.cpp#code)]
 
 > [!IMPORTANT]
-> Ersätt nyckeln prenumeration med en som du fick. <br>
-> Ersätt regionen med din region från den [tal Service REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis), t.ex. Ersätt med 'westus'.
+> Ersätt nyckeln prenumerationen med det som du har köpt. <br>
+> Ersätt den [region](regions.md) med den som är associerade med prenumerationen, till exempel ersätta med `westus` för den kostnadsfria utvärderingsversionen.
 
 ![Lägg till din prenumeration nyckel](media/sdk/sub-key-recognize-speech-cpp.png)
 

@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: bbd5e7d91e982a3dce320ea10a7fe8da435ff212
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 35860838d03d61e1145d35fd2516c1688c3bb64f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293782"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130588"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minska begränsning för att minska svarstiden i Azure tid serien insikter
 När mängden inkommande data överskrider din miljö konfiguration, kan det uppstå fördröjningar eller begränsning i Azure tid serien insikter.
@@ -52,15 +52,15 @@ Därifrån kan konfigurera du aviseringar via följande mått:
 |**Ingång mottagna meddelanden**   | Antalet meddelanden som har lästs från alla Händelsehubbar eller IoT-hubbar händelsekällor.        |
 |**Ingång lagras byte**     | Total storlek på händelser som lagras och tillgängliga för frågor. Storlek beräknas endast på egenskapens värde.        |
 |**Ingång lagras händelser**     |   Antal sammanslagna händelser lagrade och tillgängliga för frågor.      |
-|**Tidsförskjutningen för ingång mottagna meddelanden**    |  Skillnaden mellan att meddelandet i kö i händelsekällan och den tid som den bearbetas i ingång.      |
-|**Ingång mottagna antalet meddelanden fördröjning**    |  Skillnaden mellan sekvensnumret för den sista köas meddelandet datakällan i partitionen och sekvens antal meddelanden som bearbetas i ingång.      |
+|**Tidsförskjutningen för ingång mottaget meddelande**    |  Skillnad i sekunder från det att meddelandet är i kö i käll- och den tid som den bearbetas i ingång.      |
+|**Ingång emot antalet meddelanden fördröjning**    |  Skillnaden mellan sekvensnumret för den sista köas meddelandet datakällan i partitionen och sekvens antal meddelanden som bearbetas i ingång.      |
 
 
 ![Svarstid](media/environment-mitigate-latency/latency.png)
 
-Om du har begränsats ser du ett värde för den *ingång mottagna meddelandet tidsförskjutningen*, informerar dig om hur många minuter bakom TSD är från den faktiska tiden meddelandet träffar händelsekällan (exklusive indexering tiden för appx. 30 till 60 sekunder).  *Antalet för ingång mottagna meddelanden fördröjning* bör också ha ett värde så att du kan avgöra hur många meddelanden bakom dig.  Det enklaste sättet att få uppdateringar är att öka kapaciteten för din miljö till en storlek som gör att du kan lösa skillnaden.  
+Om du har begränsats ser du ett värde för den *ingång tog emot meddelande tidsförskjutningen*, informerar dig om hur många sekunder bakom TSD är från den faktiska tiden meddelandet träffar händelsekällan (exklusive indexering tiden för appx. 30 till 60 sekunder).  *Ingång emot antalet meddelanden fördröjning* bör också ha ett värde så att du kan avgöra hur många meddelanden bakom dig.  Det enklaste sättet att få uppdateringar är att öka kapaciteten för din miljö till en storlek som gör att du kan lösa skillnaden.  
 
-Om du har en enda enhet S1-miljö och att det finns en fördröjning på fem miljoner meddelandet kan du öka storleken på din miljö med sex units för runt en dag att få uppdateringar.  Du kan öka även ytterligare till catch upp snabbare.  Detta är en gemensam förekomst ursprungligen etablera en miljö, särskilt när du ansluter den till en händelsekälla som redan har händelser i den eller när du massimportera överför stora mängder historisk data.
+Om du har en enda enhet S1-miljö och att det finns en fördröjning på fem miljoner meddelandet kan du öka storleken på din miljö med sex units för runt en dag att få uppdateringar.  Du kan öka även ytterligare till catch upp snabbare.  Catch-up perioden är vanligt förekommande ursprungligen etablera en miljö, särskilt när du ansluter den till en händelsekälla som redan har händelser i den eller när du massimportera överför stora mängder historisk data.
 
 En annan metod är att ange en **lagras Ingångshändelser** avisering > = ett tröskelvärde något nedanför din totala kapacitet för en period på två timmar.  Den här aviseringen kan hjälpa dig att förstå om du ständigt på kapacitet, som anger en hög sannolikhet av fördröjning.  
 

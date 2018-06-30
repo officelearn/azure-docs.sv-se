@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: v-geberr
-ms.openlocfilehash: 060baa6578f8a31234a1a667e2d591b92c39a06f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 45b6c2eda77668616a7e49ecd5ea2715af3cd3ce
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264292"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111594"
 ---
 # <a name="api-v2-migration-guide"></a>Migreringsguide för API-v2
 Version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) och [redigering](https://aka.ms/v1-authoring-api-docs) API: er att bli inaktuell. Använd den här guiden för att förstå hur du migrerar till version 2 [endpoint](https://aka.ms/luis-endpoint-apis) och [redigering](https://aka.ms/luis-authoring-apis) API: er. 
@@ -104,14 +104,14 @@ v2 endpoint lyckat svar:
 ```
 
 ## <a name="key-management-no-longer-in-api"></a>Hantering av nycklar inte längre i API
-Nyckeln prenumeration API: er är inaktuella returnerar 410 GONE.
+Prenumerationen slutpunktsnyckel API: er är inaktuella returnerar 410 GONE.
 
 | version | route |
 |--|--|
 |1|/Luis/v1.0/prog/subscriptions|
 |1|/ luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [prenumeration nycklar](luis-how-to-azure-subscription.md) genereras i Azure-portalen. Du tilldelar nyckeln till en THOMAS app på den **[publicera](manage-keys.md)** sidan. Du behöver inte veta faktiska värdet för nyckeln. THOMAS använder prenumerationsnamn för att kontrollera tilldelningen. 
+Azure [endpoint nycklar](luis-how-to-azure-subscription.md) genereras i Azure-portalen. Du tilldelar nyckeln till en THOMAS app på den **[publicera](manage-keys.md)** sidan. Du behöver inte veta faktiska värdet för nyckeln. THOMAS använder prenumerationsnamn för att kontrollera tilldelningen. 
 
 ## <a name="new-versioning-route"></a>Ny väg för versionshantering
 V2-modellen nu ingår i en [version](luis-how-to-manage-versions.md). Ett versionsnamn är 10 tecken i flödet. Standardversionen är ”0.1”.

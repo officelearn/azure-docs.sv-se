@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/21/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 49db6b625a9e4fc46fe414eb723dfccd890efd64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b31e5cc3f99bdbb45aae6f9d71efdabdcc60f9c8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34677367"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138185"
 ---
 **Dokumentera senaste uppdatering**: 21 maj 2018 3:00 PM PST.
 
@@ -28,7 +28,7 @@ På den 21 maj 2018 Google projektet noll och Microsoft har meddelat om en ny un
 >
 > Sen februari 2018 Intel Corporation publicerade uppdaterade [mikrokod Revision vägledning](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) statusen för sina mikrokod-versioner som förbättrar stabiliteten och skyddar mot de senaste säkerhetsrisker som visas av [Google projektet noll](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). Ändringar gjorda av Azure [3 januari 2018](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) påverkas inte av Intels mikrokod uppdateringen. Microsoft placera redan starkt åtgärder som skyddar Azure-kunder från andra virtuella Azure-datorer.  
 >
-> Intels mikrokod adresser variant 2 Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) eller gren mål injection) att skydda mot attacker som endast är tillämpliga där du kör delade eller ej betrodda arbetsbelastningar i din virtuella dator på Azure. Våra tekniker testar stabiliteten för att minimera påverkan på prestanda för mikrokod innan du gör den tillgänglig för Azure-kunder.  Som ett fåtal kunder köra ej betrodda arbetsbelastningar inom deras virtuella datorer, behöver de flesta kunder inte aktivera den här funktionen ut en gång. 
+> Intels mikrokod adresser variant 2 Spectre - [CVE-2017-5715](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5715) eller gren mål injektion - att skydda mot attacker som endast är tillämpliga där du kör delade eller ej betrodda arbetsbelastningar i din virtuella dator på Azure. Våra tekniker testar stabiliteten för att minimera påverkan på prestanda för mikrokod innan du gör den tillgänglig för Azure-kunder.  Som ett fåtal kunder köra ej betrodda arbetsbelastningar inom deras virtuella datorer, behöver de flesta kunder inte aktivera den här funktionen ut en gång. 
 >
 > Den här sidan kommer att uppdateras när finns mer information.  
 

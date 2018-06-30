@@ -10,15 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: 5f040d1480433ccf4c0b2b22c0cf1e25a7151d74
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: na
+ms.openlocfilehash: d1cd4f938092c6a1312bd0c0ec9240d459d67e83
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29953317"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131295"
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Förstå loggen söker i logganalys
 
@@ -28,7 +29,7 @@ Du behöver en logg-sökning för att hämta data från logganalys.  Om du analy
 
 Olika sätt som du ska använda loggen sökningar i logganalys inkluderar följande:
 
-- **Portals.** Du kan utföra interaktiv analys av data i databasen i Azure-portalen eller [Advanced Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587).  På så sätt kan du redigera din fråga och analysera resultaten i en mängd olika format och visualiseringar.  De flesta frågor som du skapar kommer att starta i någon av portalerna och kopieras sedan när du kontrollera att den fungerar som förväntat.
+- **Portaler.** Du kan utföra interaktiv analys av data i databasen i Azure-portalen eller [Advanced Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587).  På så sätt kan du redigera din fråga och analysera resultaten i en mängd olika format och visualiseringar.  De flesta frågor som du skapar kommer att starta i någon av portalerna och kopieras sedan när du kontrollera att den fungerar som förväntat.
 - **Varningsregler.** [Varna regler](log-analytics-alerts.md) proaktivt identifiera problem utifrån data i din arbetsyta.  Varje regel för varning baseras på en logg sökning som körs automatiskt med jämna mellanrum.  Resultatet är kontrolleras för att avgöra om en avisering ska skapas.
 - **Vyer.**  Du kan skapa visualiseringar av data som ska inkluderas i instrumentpaneler för användare med [Vydesigner](log-analytics-view-designer.md).  Loggen sökningar tillhandahåller de data som används av [paneler](log-analytics-view-designer-tiles.md) och [visualiseringen delar](log-analytics-view-designer-parts.md) i varje vy.  Du kan öka detaljnivån från visualiseringen delar i loggen söksidan att utföra analyser på data.
 - **Exportera.**  När du exporterar data från logganalys-arbetsytan till Excel eller [Power BI](log-analytics-powerbi.md), du skapar en logg-sökning för att definiera data som ska exporteras.

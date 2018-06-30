@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 2062ba20b09e8e42fd094fbff628f5e76b5ea00f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d234b34f7583441f496fb96d37166c5472cadb4c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225797"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110835"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Självstudier: Azure Active Directory-integrering med Riskware
 
@@ -67,7 +67,7 @@ Du måste lägga till Riskware från galleriet i listan över hanterade SaaS-app
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet Enterprise program][2]
-    
+
 3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
@@ -101,7 +101,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning dialogrutan](./media/riskware-tutorial/tutorial_riskware_samlbase.png)
 
 3. På den **Riskware domän och URL: er** avsnittet, utför följande steg:
@@ -113,7 +113,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
     | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` | 
+    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
     b. I den **identifierare (enhets-ID)** textruta, ange ett URL-Adressen:
@@ -121,10 +121,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
     | PROD| `https://riskcloud.net/prod` |
-    | DEMO| `https://riskcloud.net/demo` | 
+    | DEMO| `https://riskcloud.net/demo` |
     |||
 
-    > [!NOTE] 
+    > [!NOTE]
     > Logga in på URL-värdet är inte verkliga. Uppdatera värdet med det faktiska inloggnings-URL. Kontakta [Riskware klienten supportteamet](mailto:support@pansoftware.com.au) värdet hämtas.
 
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
@@ -137,11 +137,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. På den **Riskware Configuration** klickar du på **konfigurera Riskware** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out Webbadressen och SAML enkel inloggning Service** från den **Snabbreferens avsnitt.**
 
-    ![Riskware konfiguration](./media/riskware-tutorial/tutorial_riskware_configure.png) 
+    ![Riskware konfiguration](./media/riskware-tutorial/tutorial_riskware_configure.png)
 
-7. I en annan webbläsarfönster loggar du in på webbplatsen Riskware företag som administratör.
+7. I en annan webbläsarfönster loggar du in på ditt Riskware företagets webbplats som administratör.
 
-8. Klicka på upp till höger, **Underhåll** att öppna underhållssidan. 
+8. Klicka på upp till höger, **Underhåll** att öppna underhållssidan.
 
     ![Riskware konfigurationer Underhåll](./media/riskware-tutorial/tutorial_riskware_maintain.png)
 
@@ -159,16 +159,16 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     c. I den **beskrivning** textruta Anger beskrivningen som AZURE-konfiguration för enkel inloggning.
 
-    d. I **enkel inloggning på sidan** textruta klistra in värdet för **SAML inloggning tjänst-URL för enkel**, som du har kopierat från Azure-portalen.
+    d. I **enkel inloggning på sidan** textruta klistra in den **SAML inloggning tjänst-URL för enkel** -värde som du har kopierat från Azure-portalen.
 
-    e. I **logga ut sidan** textruta klistra in värdet för **Sign-Out URL**, som du har kopierat från Azure-portalen.
+    e. I **logga ut sidan** textruta klistra in den **Sign-Out URL** -värde som du har kopierat från Azure-portalen.
 
-    f. I den **fält bokför** textruta skriv fältnamnet finns i Post-svar som innehåller SAML som SamlResponse
+    f. I den **fält bokför** textruta skriv fältnamnet finns i Post-svar som innehåller SAML som SAMLResponse
 
     g. I den **identitet för XML-taggnamnet** textruta type-attributet som innehåller den unika identifieraren i SAML-svar som NameID.
 
     h. Öppna den hämtade **Xml-Metadata för** kopiera certifikatet från metadatafilen från Azure-portalen i anteckningar och klistra in det i den **certifikat** textruta
-    
+
     i. I **konsumenten URL** textruta klistra in värdet för **Reply URL**, som du får från supportgruppen.
 
     j. I **utfärdaren** textruta klistra in värdet för **identifierare**, som du får från supportgruppen.
@@ -176,9 +176,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!Note]
     > Kontakta [Riskware klienten supportteamet](mailto:support@pansoftware.com.au) att hämta dessa värden
 
-    k. Välj **användning efter** skickar SAML-begäran som en post-parameter.
+    k. Välj **användning efter** kryssrutan.
 
-    l. Välj **Använd SAML begära** skickar SSO tillåter SAML-begäran för SP initieras.
+    l. Välj **Använd SAML begära** kryssrutan.
 
     m. Klicka på **Spara**.
 
@@ -213,10 +213,10 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
     c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
 
     d. Klicka på **Skapa**.
- 
+
 ### <a name="create-a-riskware-test-user"></a>Skapa en testanvändare Riskware
 
-Om du vill aktivera Azure AD-användare kan logga in på Riskware etableras de i Riskware. I Riskware är etablering en manuell aktivitet.
+Om du vill aktivera Azure AD-användare att logga in på Riskware etableras de i Riskware. I Riskware är etablering en manuell aktivitet.
 
 **Utför följande steg om du vill konfigurera ett användarkonto:**
 
@@ -230,8 +230,8 @@ Om du vill aktivera Azure AD-användare kan logga in på Riskware etableras de i
 
     ![Konfiguration av Riskware personer](./media/riskware-tutorial/tutorial_riskware_people.png)
 
-4. På den **information** fliken, utför följande steg:
-    
+4. Välj **information** fliken och utför följande steg:
+
     ![Riskware konfigurationsinformation](./media/riskware-tutorial/tutorial_riskware_details.png)
 
     a. Välj **typ** som medarbetare.
@@ -240,7 +240,7 @@ Om du vill aktivera Azure AD-användare kan logga in på Riskware etableras de i
 
     c. I **efternamn** textruta Ange efternamn för användaren som **Simon**.
 
-5. På den **säkerhet** fliken, utför följande steg:    
+5. På den **säkerhet** fliken, utför följande steg:
 
     ![Riskware Configuration säkerhet](./media/riskware-tutorial/tutorial_riskware_security.png)
 
@@ -250,12 +250,12 @@ Om du vill aktivera Azure AD-användare kan logga in på Riskware etableras de i
 
     c. I den **lösenord** textruta ange lösenord för användaren.
 
-6. På den **organisationen** fliken, utför följande steg:
+6. På den **organisation** fliken, utför följande steg:
 
     ![Riskware Configuration org](./media/riskware-tutorial/tutorial_riskware_org.png)
 
-    a. Under **organisationen** väljer du organisationen som **Level1** organisationen.
-    
+    a. Välj alternativet som **Level1** organisation.
+
     b. Under **persons primära arbetsplats** avsnitt i den **plats** textruta Skriv din plats.
 
     c. Under **medarbetare** väljer **anställningsstatus** som Vardaglig.
@@ -266,7 +266,7 @@ Om du vill aktivera Azure AD-användare kan logga in på Riskware etableras de i
 
 I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Riskware.
 
-![Tilldela rollen][200] 
+![Tilldela rollen][200]
 
 **Om du vill tilldela Riskware Britta Simon utför du följande steg:**
 

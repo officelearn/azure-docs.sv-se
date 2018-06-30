@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: cee70ba585f93dda3249fc5b39f25fb613b57a45
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: e5ea74f92eb91ff89f013a4ee9ef7cbe0f001db0
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753681"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111158"
 ---
 # <a name="quickstart-for-c-and-linux"></a>Snabbstart för C++- och Linux
 
@@ -78,7 +78,9 @@ Placera den i en fil med namnet `quickstart-linux.cpp`:
 
 [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Linux/quickstart-linux/quickstart-linux.cpp#code)]
 
-Ersätt nyckeln prenumeration i koden med det du har köpt.
+> [!IMPORTANT]
+> Ersätt nyckeln prenumerationen med det som du har köpt. <br>
+> Ersätt den [region](regions.md) med den som är associerade med prenumerationen, till exempel ersätta med `westus` för den kostnadsfria utvärderingsversionen.
 
 ## <a name="building"></a>Skapar
 

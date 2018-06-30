@@ -16,15 +16,15 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
 ms.custom: end-user
-ms.openlocfilehash: 25a51cf534afaabd6fd540d70152659fc2478e11
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 81c2323dd65ee18d42a231306840eeb65bd09313
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102755"
+ms.locfileid: "37127466"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Hantera inställningar för tvåstegsverifiering
-Den här artikeln innehåller svar på frågor om hur du uppdaterar inställningar för tvåstegsverifiering verifieringen eller Multi-Factor authentication. Om du har problem att logga in på ditt konto, se [har problem med tvåstegsverifiering](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md) för hjälp med felsökning.
+Den här artikeln innehåller svar på frågor om hur du uppdaterar inställningar för tvåstegsverifiering verifieringen eller Multi-Factor authentication. Om du har problem att logga in på ditt konto, se [har problem med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md) för hjälp med felsökning.
 
 ## <a name="where-to-find-the-settings-page"></a>Här hittar du på inställningssidan
 Beroende på hur företaget du konfigurerar Azure Multi-Factor Authentication, finns det några platser där du kan ändra inställningarna som ditt telefonnummer.
@@ -55,7 +55,7 @@ Om du klickar på länken inte fungerar kan du också få till den **ytterligare
 Det är viktigt att du konfigurerar ett telefonnummer för sekundära autentiseringen.  Eftersom ditt primära telefonnummer och din mobila app är förmodligen på samma telefon, är det enda sättet du kommer att kunna komma åt ditt konto om din telefon blir stulen eller sekundära telefonnumret.
 
 > [!NOTE]
-> Om du inte har åtkomst till ditt primära telefonnummer och behöver hjälp med att få i till ditt konto, se den [har problem med tvåstegsverifiering](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md) artikel för mer hjälp.  
+> Om du inte har åtkomst till ditt primära telefonnummer och behöver hjälp med att få i till ditt konto, se den [har problem med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md) artikel för mer hjälp.  
 
 **Ändra ditt primära telefonnummer:**  
 
@@ -80,5 +80,5 @@ Beroende på inställningarna för din organisation kan du ha en kryssruta med t
 När du avinstallerar appen från enheten eller återställa enheten, tas inte bort aktivering på serverdelen. Mer information finns i [Microsoft Authenticator](../../../../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* Hämta felsökningstips och hjälpa på [har problem med tvåstegsverifiering](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md)
+* Hämta felsökningstips och hjälpa på [har problem med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md)
 * Ställ in [applösenord](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md) för alla program som inte stöder tvåstegsverifiering.

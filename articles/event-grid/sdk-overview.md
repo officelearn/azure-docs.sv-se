@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 05/04/2018
+ms.date: 06/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: ebba28e72b3b27729318956bad07b6b6df3f14ac
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 3c085074863aa166a5766116b6c63b7dc341ad96
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823554"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130843"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>Händelsen rutnätet SDK-verktyg för hantering och publicering
 
@@ -43,6 +43,7 @@ Dataplan SDK kan du skicka händelser till avsnitt som tar hand om autentisering
 
 ## <a name="next-steps"></a>Nästa steg
 
+* Till exempel program, se [händelse rutnätet kodexempel](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
 * En introduktion till händelse rutnätet finns [vad är händelsen rutnätet?](overview.md)
 * Händelsen rutnätet kommandon i Azure CLI, se [Azure CLI](/cli/azure/eventgrid).
 * Händelsen rutnätet kommandon i PowerShell, se [PowerShell](/powershell/module/azurerm.eventgrid).

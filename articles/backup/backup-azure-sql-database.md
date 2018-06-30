@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/1/2018
+ms.date: 6/29/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 4ae64fefb58840214104a4e1cb338ec404fac1a8
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 89a1df607c220e5dc12bc6263955d6e445e529bd
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235421"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37116296"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Säkerhetskopiera SQL Server-databas i Azure
 
@@ -251,7 +251,7 @@ När du använder den **identifiera DBs** i bakgrunden verktyget Azure Backup ut
 
 - installerar den **AzureBackupWindowsWorkload** tillägget på den virtuella datorn. Säkerhetskopiera en SQL-databas är en lösning för utan Agent, det vill säga med filnamnstillägget är installerad på den virtuella datorn även ingen agent installerad på SQL-databasen.
 
-- skapar tjänstkonto, **NT Service\AzureWLBackupPluginSvc**, på den virtuella datorn. Alla åtgärder för säkerhetskopiering och återställning använder service-kontot. **NT Server\AzureWLBackupPluginSvc** måste SQL-sysadmin-behörighet. Alla SQL-Marketplace virtuella datorer som medföljer SqlIaaSExtension installerad och AzureBackupWindowsWorkload använder SQLIaaSExtension att automatiskt få behörigheter som krävs. Om den virtuella datorn inte har installerat SqlIaaSExtension, identifiera DB åtgärden misslyckas och du får felmeddelandet **UserErrorSQLNoSysAdminMembership**. Om du vill lägga till en sysadmin-behörighet för säkerhetskopiering, följ instruktionerna i [ställa in Azure Backup behörigheter för icke-marketplace SQL virtuella datorer](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms).
+- skapar tjänstkonto, **NT Service\AzureWLBackupPluginSvc**, på den virtuella datorn. Alla åtgärder för säkerhetskopiering och återställning använder service-kontot. **NT Service\AzureWLBackupPluginSvc** måste SQL-sysadmin-behörighet. Alla SQL-Marketplace virtuella datorer som medföljer SqlIaaSExtension installerad och AzureBackupWindowsWorkload använder SQLIaaSExtension att automatiskt få behörigheter som krävs. Om den virtuella datorn inte har installerat SqlIaaSExtension, identifiera DB åtgärden misslyckas och du får felmeddelandet **UserErrorSQLNoSysAdminMembership**. Om du vill lägga till en sysadmin-behörighet för säkerhetskopiering, följ instruktionerna i [ställa in Azure Backup behörigheter för icke-marketplace SQL virtuella datorer](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms).
 
     ![Välj den virtuella datorn och databasen](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -443,6 +443,10 @@ Att återställa en databas
 
 Den här proceduren beskriver hur återställer data till en alternativ plats. Om du vill skriva över databasen när du återställer hoppa till avsnittet [återställa och skriva över databasen](backup-azure-sql-database.md#restore-and-overwrite-the-database). Den här proceduren förutsätter att du har öppnat din Recovery Services-valvet och på menyn återställa konfigurationen. Om du inte börja med avsnittet [återställa en SQL-databas](backup-azure-sql-database.md#restore-a-sql-database).
 
+> [!NOTE]
+> Du kan återställa databasen till en SQL-Server i samma Azure-region och målservern måste vara registrerad till Recovery Services-valvet. 
+>
+
 Den **Server** nedrullningsbara menyn visar bara SQL-servrar som har registrerats med Recovery Services-valvet. Om den server du vill inte är i den **Server** lista, se avsnittet [identifiera SQL server-databaser](backup-azure-sql-database.md#discover-sql-server-databases) att hitta servern. Under identifieringsprocessen databasen är nya servrar registrerade på Recovery Services-valvet.
 
 1. I den **återställa konfigurationen** menyn:
@@ -607,10 +611,40 @@ Det här avsnittet innehåller information om de olika Azure Backup hanteringså
 * Avregistrera en SQLServer
 
 ### <a name="monitor-jobs"></a>Övervaka jobb
+Azure-säkerhetskopiering som en företagslösning för klassen innehåller avancerade säkerhetskopiering aviseringar och meddelanden för fel (se aviseringar om säkerhetskopiering nedan). Om du vill övervaka specifika jobb kan du använda något av följande alternativ baserat på dina behov:
 
-Azure Backup använder SQL native API: er för alla säkerhetskopieringsåtgärder. Med den ursprungliga API: er kan du hämta alla jobbinformation från den [SQL säkerhetskopieuppsättningen tabell](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) i msdb-databasen. Dessutom Azure Backup visar alla manuellt utlösta eller ad hoc, jobb i jobb Backup-portalen. Projekten i portalen är: alla konfigurera säkerhetskopieringar för återställningsåtgärderna, registrering och identifiera databasåtgärder och stoppa säkerhetskopieringsåtgärder. Alla schemalagda jobb kan också övervakas med OMS logganalys. Med hjälp av logganalys tar bort jobb oreda och innehåller detaljerade flexibilitet för att övervaka eller filtrering specifika jobb.
-
+#### <a name="using-azure-portal---recovery-services-vault-for-all-ad-hoc-operations"></a>Med hjälp av Azure portal -> Recovery Services-ventilen för alla ad hoc-åtgärder
+Azure Backup visar alla manuellt utlöses eller ad hoc, jobb i jobb Backup-portalen. Projekten i portalen är: alla konfigurera säkerhetskopieringsåtgärder manuellt utlöses säkerhetskopieringar för återställningsåtgärderna, registrering och identifiera databasåtgärder och stoppa säkerhetskopieringsåtgärder. 
 ![Avancerad konfiguration-menyn](./media/backup-azure-sql-database/jobs-list.png)
+
+> [!NOTE]
+> Alla schemalagda säkerhetskopieringsjobb inklusive fullständig, differentiella och logga säkerhetskopiering ska inte visas i portalen och kan övervakas med SQL Server Management Studio som beskrivs nedan.
+>
+
+#### <a name="using-sql-server-management-studio-ssms-for-backup-jobs"></a>Med hjälp av SQL Server Management Studio (SSMS) för säkerhetskopieringsjobb
+Azure Backup använder SQL native API: er för alla säkerhetskopieringsåtgärder. Med den ursprungliga API: er kan du hämta alla jobbinformation från den [SQL säkerhetskopieuppsättningen tabell](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) i msdb-databasen. 
+
+Du kan använda den under frågan som exempel för att hämta alla säkerhetskopieringsjobb för en viss databas med namnet ”DB1”. Du kan anpassa den nedan frågan för mer avancerad övervakning.
+```
+select CAST (
+Case type
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
+server_name,
+machine_name,
+backup_start_date,
+backup_finish_date,
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+ 
+```
 
 ### <a name="backup-alerts"></a>Aviseringar om säkerhetskopiering
 

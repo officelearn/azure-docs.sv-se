@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f0705f2fb14bc44a7738f38bc3ef53a6359dfb4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4b3024b451ddf08b6b7ab171238ae45edbafc58a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657779"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110970"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Med hjälp av Azure för värd för och köra SAP arbetsbelastningsscenarier
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -301,7 +301,7 @@ Förutom värd SAP NetWeaver scenarier med olika DBMS på Azure, du kan vara vä
 
 Azure har inbyggda virtuella Azure-erbjudanden som någonsin växer i storlek på processor och minne resurser för att täcka SAP arbetsbelastning som utnyttjar SAP HANA. Mer information om det här området slå upp dokument under avsnittet SAP HANA på Azure Virtual Machines ”.
 
-Unik Azure för SAP HANA är ett unikt erbjudande som anger Azure förutom konkurrens. För att aktivera värd mer minne och processoranvändning dedikerade krävande SAP scenarier som involverar SAP HANA Azure erbjuder användningen av kunden bare metal-maskinvara för att köra SAP HANA-distributioner som kräver upp till 20 TB (60 TB skalbar) minne för S/4HANA eller andra SAP HANA-arbetsbelastning. Den här unika Azure lösningen för SAP HANA i Azure (stora instanser) kan du köra SAP HANA på den särskilda bare metal-maskinvaran med SAP programnivå eller arbetsbelastning i mitten-ware lager i interna virtuella datorer i Azure som värd. Den här lösningen dokumenteras i flera dokument i avsnittet ”SAP HANA i Azure (stora instanser)”.   
+Unik Azure för SAP HANA är ett unikt erbjudande som anger Azure förutom konkurrens. För att aktivera värd mer minne och CPU-resurs krävande SAP-scenarier som involverar SAP HANA Azure erbjuder användningen av kunden dedikerad bare metal-maskinvara för att köra SAP HANA-distributioner som kräver upp till 20 TB (60 TB skalbar) minne för S/4HANA eller andra SAP HANA-arbetsbelastning. Den här unika Azure lösningen för SAP HANA i Azure (stora instanser) kan du köra SAP HANA på den särskilda bare metal-maskinvaran med SAP programnivå eller arbetsbelastning i mitten-ware lager i interna virtuella datorer i Azure som värd. Den här lösningen dokumenteras i flera dokument i avsnittet ”SAP HANA i Azure (stora instanser)”.   
 
 Värdscenario SAP arbetsbelastning i Azure kan också skapa kraven i Identity integration och enkel inloggning med hjälp av Azure aktivitet Directory till olika SAP-komponenter och SAP SaaS eller PaaS erbjuder. En lista över sådana integrering och Single-Sign-On-scenarier med Azure Active Directory (AAD) och SAP entiteter beskrivas och dokumenteras i avsnittet ”AAD SAP Identity Integration och Single-Sign-On”.
 
@@ -444,7 +444,7 @@ Uppdaterad: Juni 2017
 ### <a name="high-availability-configurations-of-sap-netweaver-in-azure-vms"></a>Hög tillgänglighet konfigurationer för SAP NetWeaver i virtuella Azure-datorer
 Rubrik: Azure Virtual Machines hög tillgänglighet för SAP NetWeaver
 
-Sammanfattning: I detta dokument, vi beskriver de steg som du kan vidta för att distribuera hög tillgänglighet SAP-system i Azure med hjälp av Azure Resource Manager-distributionsmodellen. Vi dig igenom dessa viktiga uppgifter. I det här dokumentet beskrivs hur single---felpunkter komponenter som avancerade Business Application Programming (ABAP) SAP centrala tjänster (ASCS) / SAP centrala Services (SCS) och databashanteringssystem (DBMS) och redundanta komponenter som SAP-programserver kommer att skyddas när den körs i virtuella Azure-datorer. Ett steg för steg-exempel på en installation och konfiguration av en SAP-systemet för hög tillgänglighet i ett redundanskluster i Windows Server-kluster och SUSE Linux Enterprise Server-kluster Framework i Azure visas och visas i det här dokumentet.
+Sammanfattning: I detta dokument, vi beskriver de steg som du kan vidta för att distribuera hög tillgänglighet SAP-system i Azure med hjälp av Azure Resource Manager-distributionsmodellen. Vi dig igenom dessa viktiga uppgifter. I det här dokumentet beskrivs hur single---felpunkter komponenter som avancerade Business Application Programming (ABAP) SAP centrala tjänster (ASCS) / SAP centrala Services (SCS) och databashanteringssystem (DBMS) och redundanta komponenter som SAP Programservern ska skyddas när den körs i virtuella Azure-datorer. Ett steg för steg-exempel på en installation och konfiguration av en SAP-systemet för hög tillgänglighet i ett redundanskluster i Windows Server-kluster och SUSE Linux Enterprise Server-kluster Framework i Azure visas och visas i det här dokumentet.
 
 Uppdaterad: Oktober 2017
 

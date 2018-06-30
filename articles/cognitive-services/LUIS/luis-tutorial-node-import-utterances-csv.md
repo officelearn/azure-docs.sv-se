@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 09c9d4da835b7b30fd132770f9d13b33fa80a3f5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: e97dc184266bc9518ee5f909891bd97f7c71804b
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268332"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113064"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Skapa en THOMAS app programmässigt med Node.js
 
@@ -111,7 +111,7 @@ Installera Node.js-beroenden från NPM i terminal/kommandoraden.
 ````
 
 ### <a name="change-configuration-settings"></a>Ändra konfigurationsinställningar
-För att kunna använda det här programmet måste du ändra värdena i index.js-filen till din egen prenumeration nyckel och ange det namn du vill att appen har. Du kan också ange appens kultur eller ändra versionsnumret.
+För att kunna använda det här programmet måste du ändra värdena i index.js-filen till din egen slutpunktsnyckel, och ange det namn du vill att appen har. Du kan också ange appens kultur eller ändra versionsnumret.
 
 Öppna filen index.js och ändra dessa värden överst i filen.
 
@@ -178,7 +178,7 @@ När skriptet har slutförts, du kan logga in till [THOMAS] [ LUIS] och se THOMA
 Det här exempelprogrammet använder följande LUIS APIs:
 - [Skapa app](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
 - [Lägg till avsikter](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
-- [Lägga till enheter](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
+- [lägga till enheter](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
 - [Lägg till utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

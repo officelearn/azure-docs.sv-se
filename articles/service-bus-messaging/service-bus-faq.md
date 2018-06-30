@@ -8,16 +8,16 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: df60862b6a835340534be4ed43a27267c33b64f5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: b3171ca264afdbdbddeb26eff8744ee67f336dfe
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802273"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109532"
 ---
 # <a name="service-bus-faq"></a>Vanliga frågor och svar om Service Bus
 
-Den här artikeln beskrivs några vanliga frågor om Microsoft Azure Service Bus. Du kan också besöka den [Azure stöder vanliga frågor och svar](http://go.microsoft.com/fwlink/?LinkID=185083) allmän Azure priser och support information.
+Den här artikeln beskrivs några vanliga frågor om Microsoft Azure Service Bus. Du kan också besöka den [Azure stöder vanliga frågor och svar](https://azure.microsoft.com/en-us/support/faq/) allmän Azure priser och support information.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Allmänna frågor om Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
@@ -48,7 +48,7 @@ Följande egenskaper för en kö och avsnittet är oföränderliga. Ta hänsyn t
 
 * Partitionering
 * Sessioner
-* Identifiering av dubbletter
+* Dubblettidentifiering
 * Express entitet
 
 ## <a name="pricing"></a>Prissättning
@@ -56,7 +56,7 @@ Det här avsnittet besvarar några vanliga frågor om Service Bus priser struktu
 
 Den [Service Bus priser och fakturering](service-bus-pricing-billing.md) artikeln förklarar fakturering mätare i Service Bus. Mer information om Service Bus priser alternativ finns [Service Bus prisinformation](https://azure.microsoft.com/pricing/details/service-bus/).
 
-Du kan också besöka den [Azure svar](http://go.microsoft.com/fwlink/?LinkID=185083) för allmän Azure prisinformation. 
+Du kan också besöka den [Azure svar](https://azure.microsoft.com/en-us/support/faq/) för allmän Azure prisinformation. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Hur du debiteras för Service Bus?
 Fullständig information om priser för Service Bus finns [Service Bus prisinformation][Pricing overview]. Förutom de priser som anges, debiteras du för överföring av associerade data för utgående utanför datacentret där programmet har etablerats.

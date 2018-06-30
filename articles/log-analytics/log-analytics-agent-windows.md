@@ -3,7 +3,7 @@ title: Ansluta Windows-datorer till Azure Log Analytics | Microsoft Docs
 description: Den här artikeln beskriver hur du ansluter en Windows-datorer i andra moln eller lokala till logganalys med Microsoft Monitoring Agent (MMA).
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 342387edb3793358d041702eaa6d76b462aef527
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: df61ef74d95dd9305fa8d97758bf07bcb40d54a6
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637420"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131394"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ansluta Windows-datorer till Log Analytics-tjänsten i Azure
 
@@ -32,9 +33,9 @@ Agenten kan installeras på något av följande metoder. De flesta installatione
 * Manuell installation. Installationsprogrammet körs manuellt på datorn med hjälp av guiden Konfigurera från kommandoraden eller distribueras med en befintlig distribution programverktyg.
 * Azure Automation Desired State Configuration (DSC). Använda DSC i Azure Automation med ett skript för Windows-datorer som redan har distribuerats i din miljö.  
 * PowerShell-skript.
-* Resource Manager-mall för virtuella datorer som kör Windows på plats i Azure-stacken.  
+* Resource Manager-mall för virtuella datorer som kör Windows lokalt i Azure-stacken.  
 
-För att förstå konfigurationen som stöds, granska [Windows-operativsystem som stöds](log-analytics-concept-hybrid.md#supported-windows-operating-systems) och [brandväggen nätverkskonfigurationen](log-analytics-concept-hybrid.md#network-firewall-requirements).
+Om du vill förstå konfigurationen som stöds, så granska [de Windows-operativsystem som stöds](log-analytics-concept-hybrid.md#supported-windows-operating-systems) och [nätverkets brandväggskonfiguration](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans ID och nyckel
 Innan du installerar Microsoft Monitoring Agent för Windows behöver du arbetsytans ID och nyckel för Log Analytics-arbetsytan.  Den här informationen krävs under installationen från olika installationsmetoderna konfigurera agenten och se till att den kan kommunicera med logganalys i Azure kommersiella och som tillhör amerikanska myndigheter moln korrekt.  

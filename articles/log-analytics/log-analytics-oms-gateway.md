@@ -3,7 +3,7 @@ title: Ansluta datorer med hjälp av OMS-Gateway | Microsoft Docs
 description: Ansluta dina enheter och datorer som övervakas av Operations Manager till OMS-Gateway för att skicka data till Azure Automation och Log Analytics-tjänsten när de inte har tillgång till Internet.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magoedte
-ms.openlocfilehash: b3055e6b22e3f391c0bc3f321cd8117d55a95cf5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.component: na
+ms.openlocfilehash: ecbc88ebaaa93215f85b57becc8a643dc3e168a0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271657"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129048"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Ansluta datorer utan Internetåtkomst med OMS-Gateway
 Det här dokumentet beskriver hur du konfigurerar kommunikation med Azure Automation och Log Analytics med hjälp av OMS-Gateway när det är direkt ansluten eller Operations Manager övervakade datorer saknar Internetåtkomst.  OMS-gatewayen, som är en vanlig HTTP-proxy som stöder HTTP-tunnel använder kommandot HTTP ansluta kan samla in data och skicka den till Azure Automation och logganalys åt.  
@@ -33,7 +34,7 @@ OMS-gatewayen stöder:
 
 Om din IT-säkerhetsprinciper tillåter inte datorer i nätverket för att ansluta till Internet, till exempel försäljning (POS) enheter eller servrar som stöder IT-tjänster, men du måste ansluta dem till Azure Automation eller Log Analytics för att hantera och övervaka dem , de kan konfigureras för att kommunicera direkt med OMS-Gateway för att ta emot konfigurationen och vidarebefordra data åt.  Om dessa datorer är konfigurerade med OMS-agent för att ansluta direkt till logganalys-arbetsytan, alla datorer i stället att kommunicera med OMS-Gateway.  Gatewayen överför data från agenter till tjänsten direkt, analyserar data under överföring inte.
 
-När en hanteringsgrupp för Operations Manager är integrerat med logganalys kan hanteringsservrar konfigureras för att ansluta till OMS-Gateway för att ta emot information om konfiguration och skicka insamlade data beroende på lösningen som du har aktiverat.  Operations Manager-agenter skickar vissa data som Operations Manager-aviseringar, configuration assessment, instansutrymme och kapacitet data till hanteringsservern. Andra stora volymer data, till exempel IIS-loggar, prestanda och säkerhetshändelser skickas direkt till OMS-Gateway.  Om du har en eller flera Operations Manager-Gateway-servrar som distribuerats i en DMZ eller andra isolerat nätverk för att övervaka obetrodda system, kan inte den kommunicera med en OMS-Gateway.  Operations Manager-Gateway-servrar kan endast rapportera till en hanteringsserver.  När en hanteringsgrupp för Operations Manager har konfigurerats för att kommunicera med en OMS-Gateway distribueras automatiskt proxy konfigurationsinformation till alla agenthanterade datorer som konfigurerats för att samla in data för Log Analytics, även om inställningen är tom.    
+När en hanteringsgrupp för Operations Manager är integrerat med logganalys kan hanteringsservrar konfigureras för att ansluta till OMS-Gateway för att ta emot information om konfiguration och skicka insamlade data beroende på lösningen som du har aktiverat.  Operations Manager-agenter skickar vissa data som Operations Manager-aviseringar, configuration assessment, instansutrymme och kapacitet data till hanteringsservern. Andra stora volymer data, till exempel IIS-loggar, prestanda och säkerhetshändelser skickas direkt till OMS-Gateway.  Om du har en eller flera Operations Manager-Gateway-servrar som distribuerats i en DMZ eller andra isolerat nätverk för att övervaka obetrodda system, kan inte den kommunicera med en OMS-Gateway.  Operations Manager-Gateway-servrar kan endast rapportera till en hanteringsserver.  När en hanteringsgrupp för Operations Manager har konfigurerats för att kommunicera med gatewayen OMS konfigurationsinformation proxy distribueras automatiskt till alla agenthanterade datorer som konfigurerats för att samla in data för Log Analytics även om den inställningen är tom.    
 
 Att tillhandahålla hög tillgänglighet för direkt ansluten eller Operations Management-grupper som kommunicerar med logganalys via gatewayen, du kan använda Utjämning av nätverksbelastning att omdirigera och distribuerar trafik över flera gateway-servrar.  Om en gateway-servern kraschar, dirigeras trafiken till en annan tillgänglig nod.  
 
@@ -157,12 +158,12 @@ Om du vill använda en Gateway för att stödja Operations Manager, måste du ha
 > Om du inte anger ett värde för gatewayen pushas tomma värden till alla agenter.
 > 
 
-Alternativet för att ange proxykonfiguration för hanteringsgruppen är inte tillgänglig i Operations-konsolen om registrerar din Operations Manager-hanteringsgrupp med en logganalys-arbetsyta.  Hanteringsgruppen har har registrerats med tjänsten innan det här alternativet är tillgängligt.  Du behöver uppdatera proxykonfigurationen system med Netsh på systemet kör driftkonsolen från att konfigurera integration och alla hanteringsservrar i hanteringsgruppen.  
+Alternativet för att ange proxykonfiguration för hanteringsgruppen är inte tillgänglig i Operations-konsolen om registrerar din Operations Manager-hanteringsgrupp med en logganalys-arbetsyta.  Hanteringsgruppen måste registrerats med tjänsten innan det här alternativet är tillgängligt.  Du behöver uppdatera systemproxykonfigurationen med Netsh på systemet som Operations-konsolen körs från för att konfigurera integration och alla hanteringsservrar i hanteringsgruppen.  
 
 1. Öppna en upphöjd kommandotolk.
    a. Gå till **starta** och skriv **cmd**.
    b. Högerklicka på **kommandotolk** och välj Kör som administratör **.
-2. Ange följande kommando och tryck på **ange**:
+2. Ange följande kommando och tryck på **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
@@ -182,7 +183,7 @@ För stora eller komplexa miljöer, kan du bara vill specifika servrar (eller gr
 1. Öppna Operations Manager-konsolen och välj den **redigering** arbetsytan.  
 2. I arbetsytan redigering väljer **regler** och klicka på den **omfång** i Operations Manager-verktygsfältet. Om den här knappen inte är tillgänglig, kontrollera att du har ett objekt och inte en mapp markerad i övervakningsfönstret. Den **omfång för Hanteringspaketsobjekt** dialogrutan visar en lista med vanliga riktade klasser, grupper eller objekt. 
 3. Typen **Hälsotjänsten** i den **leta efter** fältet och markera den i listan.  Klicka på **OK**.  
-4. Sök efter regeln **Advisor Proxy inställningen regeln** och klicka på i verktygsfältet Operations-konsolen **åsidosätter** och peka sedan på **åsidosätta Rule\For ett specifikt objekt i klassen: Hälsotjänsten** och välj ett specifikt objekt i listan.  Du kan också kan du skapa en anpassad grupp som innehåller hälsotillstånd serviceobjektet av de servrar som du vill tillämpa den här åsidosättningen och tillämpa sedan åsidosättningen till gruppen.
+4. Sök efter regeln **Advisor Proxy inställningen regeln** och klicka på i verktygsfältet Operations-konsolen **åsidosätter** och peka sedan på **åsidosätta Rule\For ett specifikt objekt i klassen: tjänsten för hälsotillstånd**  och välj ett specifikt objekt i listan.  Du kan också kan du skapa en anpassad grupp som innehåller hälsotillstånd serviceobjektet av de servrar som du vill tillämpa den här åsidosättningen och tillämpa sedan åsidosättningen till gruppen.
 5. I den **egenskaper för åsidosättning** dialogrutan, klicka om du vill markera i den **åsidosätta** bredvid den **WebProxyAddress** parameter.  I den **åsidosättningsvärde** anger du URL: en OMS-Gateway-server för att du startar med den `http://` prefix.  
 
     >[!NOTE]

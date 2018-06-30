@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: ed1a55c26ab1ef2aadb4906757205df0ca09d866
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7a0a5d4f1fbba5d7bd2813e8b9c300a37853e06c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655511"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111484"
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Visualisera Remote övervakningsdata med tiden serien insikter
 
@@ -55,7 +55,7 @@ Azure Time Series Insights är en fullständigt hanterad tjänst för analys, la
     | Inställning | Värde |
     | ------- | ----- |
     | Namn | Följande skärmbild använder namnet **contorosrmtsi**. Välj ditt eget unikt namn när du slutför det här steget. |
-    | Prenumeration | Välj din Azure-prenumeration i listrutan. |
+    | Prenumeration | I listrutan väljer du din Azure-prenumeration. |
     | Resursgrupp | **Skapa en ny**. Vi använder namnet **ContosoRM**. |
     | Plats | Vi använder **östra USA**. Skapa miljön i samma region som din lösning för övervakning av fjärråtkomst. |
     | Sku |**S1** |
@@ -87,7 +87,7 @@ Skapa en ny händelsekälla att ansluta till din IoT-hubb. Kontrollera att du an
     | Händelsekälla namn | Följande skärmbild använder namnet **contosorm iot hub**. Använda ditt eget unikt namn när du slutför det här steget. |
     | Källa | **IoT Hub** |
     | Importalternativ | **Använd IoT-hubb från tillgängliga prenumerationer** |
-    | Prenumerations-ID | Välj din Azure-prenumeration i listrutan. |
+    | Prenumerations-ID | I listrutan väljer du din Azure-prenumeration. |
     | IOT-hubbnamnet | **contosorma57a6**. Använd namnet på din IoT-hubb från din lösning för övervakning av fjärråtkomst. |
     | Principnamn för IOT-hubb | **iothubowner** se till att den princip som används är en ägare. |
     | IOT-hubb principnyckel | Det här fältet fylls i automatiskt. |
@@ -145,4 +145,4 @@ Tid serien insikter explorer är en webbapp som hjälper dig att skapa visualise
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs om hur du utforska och frågar efter data i tid serien insikter explorer i [Azure tid serien Insights explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-dashboard.png).
+Läs om hur du utforska och frågar efter data i tid serien insikter explorer i [Azure tid serien Insights explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).

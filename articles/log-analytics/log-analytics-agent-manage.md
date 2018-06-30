@@ -3,7 +3,7 @@ title: Hantera Azure Log Analytics agenten | Microsoft Docs
 description: Den här artikeln beskriver de olika administrativa uppgifter som du vanligtvis utför under livscykeln för Microsofts övervakning Agent (MMA) har distribuerats på en dator.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 5ff4f79a607143683b37726f1c02a6057dc6b9b0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: na
+ms.openlocfilehash: 908418dffaffc25be320bd0008edf03493aa4e55
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30320092"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128800"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Hantera och underhålla logganalys-agenten för Windows och Linux
 
@@ -195,7 +196,7 @@ Utför följande steg om du vill konfigurera OMS-Agent för Windows att rapporte
 7. I den **primära hanteringsserver** skriver du namnet på den primära hanteringsservern.
 8. I den **hanteringsserverporten** anger TCP-portnummer.
 9. Under **Agentåtgärdskontot**, välja kontot Lokalt System eller en lokal domänkonto.
-10. Klicka på **OK** att stänga den **lägga till en Hanteringsgrupp** dialogrutan och klicka sedan på **OK** att stänga den **egenskaper för Microsoft Monitoring Agent** dialogrutan.
+10. Klicka på **OK** att stänga den **lägga till en Hanteringsgrupp** dialogrutan och klicka sedan på **OK** att stänga den **egenskaper för Microsoft Monitoring Agent** i dialogrutan.
 
 ### <a name="linux-agent"></a>Linux-agent
 Utför följande steg för att konfigurera OMS-Agent för Linux rapportera till en System Center Operations Manager-hanteringsgrupp. 

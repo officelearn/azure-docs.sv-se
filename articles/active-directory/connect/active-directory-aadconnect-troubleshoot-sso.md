@@ -2,25 +2,22 @@
 title: 'Azure Active Directory Connect: Felsöka sömlös enkel inloggning | Microsoft Docs'
 description: Det här avsnittet beskrivs hur du felsöker Azure Active Directory sömlös enkel inloggning
 services: active-directory
-keywords: Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on
-documentationcenter: ''
-author: swkrish
+author: billmath
+ms.reviewer: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 06/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 205df47c36cb1d6925e232f06c0f1355c40ae973
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4df60668f6b9aa0afb2203fa59788c47e2ffaefb
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592236"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110897"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Felsöka Azure Active Directory sömlös enkel inloggning
 
@@ -84,6 +81,7 @@ Använd följande checklista för att felsöka problem med sömlös SSO:
 - Kontrollera att användarkontot har från en Active Directory-skog där sömlös SSO har ställts in.
 - Kontrollera att enheten är ansluten till företagsnätverket.
 - Kontrollera att enhetens tiden har synkroniserats med tiden i både Active Directory och domänkontrollanter och att de är inom fem minuter efter varandra.
+- Se till att den `AZUREADSSOACCT` datorkontot är finns och är aktiverad i varje AD-skog som du vill sömlös SSO aktiverad. 
 - Visa en lista med befintliga Kerberos-biljetter på enheten med hjälp av den `klist` kommandot från en kommandotolk. Se till att biljetter som utfärdats för den `AZUREADSSOACCT` datorkonto finns. Användarnas Kerberos-biljetter gäller vanligtvis under 10 timmar. Du kan ha olika inställningar i Active Directory.
 - Om du inaktiveras och återaktiveras sömlös SSO på din klient kan får användarna inte enkel inloggning till deras cachelagrade Kerberos-biljetter har upphört att gälla.
 - Rensa befintliga Kerberos-biljetter från enheten med hjälp av den `klist purge` kommandot och försök igen.

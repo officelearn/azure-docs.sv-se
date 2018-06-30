@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 72f5215bac9254c9e3295b2cade7b6d44d516af6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2c988f8651d0ae9a8662b502ca2ba2dbabb2defe
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637743"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37116185"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Skapa och distribuera avbildningen klassificering modeller med Azure Machine Learning
 
@@ -34,7 +34,7 @@ När du skapar och distribuerar den här modellen med AMLPCV, gå igenom följan
 7. Webbtjänsten distribution
 8. Läs in testning-webbtjänst
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/) används som djup learning-ramverk utbildning utförs lokalt på en GPU påslagen dator som den ([djup learning datavetenskap VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), och distributionen använder Azure ML Operationalization CLI.
+[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) används som djup learning-ramverk utbildning utförs lokalt på en GPU påslagen dator som den ([djup learning datavetenskap VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), och distributionen använder Azure ML Operationalization CLI.
 
 Läs den [paketet referensdokumentationen](https://aka.ms/aml-packages/vision) för detaljerad för varje modul och klass.
 

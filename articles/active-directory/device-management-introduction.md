@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 96de05eb8ebae85b73eaa012efdfb38ac074abf8
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850016"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110928"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introduktion till hantering av enheter i Azure Active Directory
 
@@ -119,7 +119,7 @@ För mer än en tio åren har många organisationer används domänanslutning ti
 
 - Användare att logga in på sina enheter med deras Active Directory arbets- eller skolkonton. 
 
-Normalt organisationer med ett lokalt storleken är beroende av imaging metoder för att etablera enheter och de använder ofta **System Center Configuration Manager (SCCM)** eller **Grupprincip (GP)** ska hanteras.
+Normalt organisationer med ett lokalt storleken är beroende av imaging metoder för att etablera enheter och de använder ofta **System Center Configuration Manager (SCCM)** eller **Grupprincip (GP)** att hantera dem.
 
 Om din miljö har en lokal AD storleken och du även vill utnyttja funktionerna i Azure Active Directory, du kan implementera hybrid Azure AD anslutna enheter. Dessa är enheter som är både, ansluten till din lokala Active Directory och Azure Active Directory.
 

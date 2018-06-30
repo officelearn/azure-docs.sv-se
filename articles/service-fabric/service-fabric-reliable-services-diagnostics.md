@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
+ms.date: 6/28/2018
 ms.author: dekapur
-ms.openlocfilehash: 268ec61515f438fb7f98b6cef7a8ec60ba22e23f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 51895731efd466a314877e963a5fd2c6d868ec02
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212644"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110880"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnostisk funktionalitet för tillståndskänsliga Reliable Services
 Klassen Azure Service Fabric Stateful Reliable Services StatefulServiceBase avger [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) händelser som kan användas vid felsökning av tjänsten, som ger insikter om hur körningsmiljön drift och underlätta felsökningen.
@@ -53,13 +53,16 @@ Reliable Services runtime definierar följande prestandaräknarkategorier:
 | Kategori | Beskrivning |
 | --- | --- |
 | Transaktionsreplikering i Service Fabric |Räknare som är specifika för den Azure-tjänsten Transaktionsreplikering fabric |
+| Service Fabric TStore |Räknare som är specifika för Azure Service Fabric TStore |
 
-Den Transaktionsreplikering Service fabric används av den [tillförlitliga Tillståndshanterare](service-fabric-reliable-services-reliable-collections-internals.md) att replikera transaktioner inom en given uppsättning [repliker](service-fabric-concepts-replica-lifecycle.md). 
+Den Transaktionsreplikering Service fabric används av den [tillförlitliga Tillståndshanterare](service-fabric-reliable-services-reliable-collections-internals.md) att replikera transaktioner inom en given uppsättning [repliker](service-fabric-concepts-replica-lifecycle.md).
+
+Service Fabric-TStore är en komponent som används i [tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections-internals.md) för att lagra och hämta nyckel-värdepar.
 
 Den [Windows Prestandaövervakaren](https://technet.microsoft.com/library/cc749249.aspx) program som är tillgängligt som standard i Windows-operativsystemet kan användas för att samla in och visa information om prestandaräknare. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) är ett annat alternativ för att samla in prestandaräknardata och överföra den till Azure-tabeller.
 
 ### <a name="performance-counter-instance-names"></a>Namn på prestandaräknarinstanser
-Ett kluster med ett stort antal reliable services eller tillförlitlig tjänst partitioner har ett stort antal transaktionella replikatorn prestandaräknaren instanser. Namn på prestandaräknarinstanser hjälper dig identifiera specifikt [partition](service-fabric-concepts-partitioning.md) och tjänsten repliken som prestandaräknarinstans är kopplad till.
+Ett kluster med ett stort antal reliable services eller tillförlitlig tjänst partitioner har ett stort antal transaktionella replikatorn prestandaräknaren instanser. Detta är också fallet för TStore prestandaräknare, men även multiplicerat med antalet tillförlitliga ordböcker och tillförlitlig köer som används. Namn på prestandaräknarinstanser hjälper dig identifiera specifikt [partition](service-fabric-concepts-partitioning.md), service replik och tillståndsprovidern vid TStore som prestandaräknarinstans är kopplad till.
 
 #### <a name="service-fabric-transactional-replicator-category"></a>Transaktionsreplikering Service fabric-kategori
 För kategori `Service Fabric Transactional Replicator`, instansnamn räknaren finns i följande format:
@@ -76,6 +79,25 @@ Följande räknare instansnamnet är typiska för en räknare under den `Service
 
 I föregående exempel `00d0126d-3e36-4d68-98da-cc4f7195d85e` är strängrepresentation av Service Fabric partitions-ID och `131652217797162571` är replik-ID.
 
+#### <a name="service-fabric-tstore-category"></a>Service Fabric TStore kategori
+För kategori `Service Fabric TStore`, instansnamn räknaren finns i följande format:
+
+`ServiceFabricPartitionId:ServiceFabricReplicaId:ServiceFabricStateProviderId_PerformanceCounterInstanceDifferentiator`
+
+*ServiceFabricPartitionId* är strängrepresentation av Service Fabric partitions-ID som prestandaräknarinstans är kopplad till. Partitions-ID är ett GUID och dess strängrepresentation genereras via [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) med Formatspecificeraren ”D”.
+
+*ServiceFabricReplicaId* är det ID som är associerade med en viss replik av en tillförlitlig tjänst. Replik-ID ingår i instansen prestandaräknarnamnet att säkerställa dess unika och undvika konflikter med andra prestandaräknaren instanser som skapats av samma partition. Mer information om repliker och deras roll i reliable services finns [här](service-fabric-concepts-replica-lifecycle.md).
+
+*ServiceFabricStateProviderId* är det ID som är associerade med en tillståndsprovidern inom en tillförlitlig tjänst. Tillstånd Provider-ID ingår i instansen prestandaräknarnamnet att skilja mellan en TStore från en annan.
+
+*PerformanceCounterInstanceDifferentiator* är olika-ID som är associerade med en prestandaräknarinstans inom en tillståndsprovidern. Den här fördelar ingår i instansen prestandaräknarnamnet att säkerställa dess unika och undvika konflikter med andra prestandaräknaren instanser som skapats av samma tillståndsprovidern.
+
+Följande räknare instansnamnet är typiska för en räknare under den `Service Fabric TStore` kategori:
+
+`00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337`
+
+I föregående exempel `00d0126d-3e36-4d68-98da-cc4f7195d85e` är strängrepresentation av Service Fabric partitions-ID `131652217797162571` är replik-ID `142652217797162571` är tillstånd provider-ID och `1337` är prestandaräknaren instans fördelar.
+
 ### <a name="transactional-replicator-performance-counters"></a>Transaktionell replikatorn prestandaräknare
 
 Körningsmiljön Reliable Services genererar följande händelser under den `Service Fabric Transactional Replicator` kategori
@@ -88,6 +110,14 @@ Körningsmiljön Reliable Services genererar följande händelser under den `Ser
 | Begränsade åtgärder/sek | Antal åtgärder per sekund av transaktionella replikatorn på grund av begränsningar som avvisas. |
 | Genomsn. Ms/genomförande | Genomsnittlig commit latens per transaktion i millisekunder |
 | Genomsn. Rensa svarstid (ms) | Genomsnittlig varaktighet för tömning diskåtgärder initieras av transaktionella replikatorn i millisekunder |
+
+### <a name="tstore-performance-counters"></a>TStore prestandaräknare
+
+Körningsmiljön Reliable Services genererar följande händelser under den `Service Fabric TStore` kategori
+
+ Räknarens namn | Beskrivning |
+| --- | --- |
+| Objektsantal | Antalet nycklar i arkivet.|
 
 ## <a name="next-steps"></a>Nästa steg
 [EventSource providrar på förhandsgranskning](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

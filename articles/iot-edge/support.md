@@ -8,17 +8,17 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0a5cbabf8080efd1ae25ba151a1be339e8f5cad2
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
-ms.translationtype: HT
+ms.openlocfilehash: 05a571c4491122ec5c7c35f6bccc4b8c332a4be2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081762"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130717"
 ---
 # <a name="azure-iot-edge-support"></a>Azure IoT-Edge-Support
 Det finns flera olika sätt att begära support för Azure IoT kant-produkten.
 
-**Rapportering av programfel** – flesta utveckling som ingår i produkten Azure IoT kant sker i projektet IoT kant öppen källkod. Fel rapporteras på den [sidan ärenden](https://github.com/azure/iot-edge/issues) i projektet. Korrigeringar nå snabbt från projektet i att produktuppdateringarna.
+**Rapportering av programfel** – flesta utveckling som ingår i produkten Azure IoT kant sker i projektet IoT kant öppen källkod. Fel rapporteras på den [sidan ärenden](https://github.com/azure/iotedge/issues) i projektet. Korrigeringar nå snabbt från projektet i att produktuppdateringarna.
 
 **Microsofts kundsupport team** – användare som har en [supportavtal](https://azure.microsoft.com/support/plans/) kan delta i Microsofts kundsupport teamet genom att skapa ett supportärende direkt från den [Azure-portalen]( https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 

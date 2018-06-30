@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: ed1a307cb2a2613fc7701392cd7b408715f10910
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc0bb56e85c2a9cf7a458b0f6d97887d392ee65f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207306"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114324"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduktion till Service Fabric-hälsoövervakning
 Azure Service Fabric introducerar en hälsomodell som ger omfattande, flexibla och utökningsbara hälsoutvärderingen och rapportering. Modellen tillåter nära realtid övervakning av tillståndet för klustret och de tjänster som körs i den. Du kan lätt få information om hälsa och rätta potentiella problem innan de sprids och orsaka massiv avbrott. I vanliga modellen services skicka rapporter baserat på deras lokala vyer och att informationen sammanställs för att ge en övergripande-klusternivå vyn.
@@ -78,7 +78,7 @@ Möjliga [hälsotillstånd](https://docs.microsoft.com/dotnet/api/system.fabric.
 * **OK**. Entiteten är felfri. Det finns inga kända problem rapporteras på den eller dess underordnade objekt (i förekommande fall).
 * **Varning**. Entiteten har några problem, men det kan fortfarande fungera korrekt. Till exempel fördröjning, men de gör inte problemen funktionella ännu. I vissa fall kan åtgärda varningsvillkor själva utan externa åtgärder. I dessa fall hälsorapporter öka medvetenhet och ger inblick i vad som händer. I annat fall kan varningsvillkor försämras i ett allvarligt problem utan åtgärder från användaren.
 * **Fel**. Entiteten är felfri. Bör åtgärdas för att åtgärda tillståndet för entiteten eftersom den inte fungera korrekt.
-* **Okänd**. Entiteten finns inte i health store. Det här resultatet kan hämtas från de distribuerade frågor som sammanfoga resultat från flera komponenter. Till exempel get-noden listfrågan går till **FailoverManager**, **ClusterManager**, och **HealthManager**; hämta programmet listfrågan går till **ClusterManager** och **HealthManager**. De här frågorna sammanfoga resultat från flera komponenter. Om en annan komponent returnerar en entitet som inte finns i health store resultatet är okänd hälsotillstånd. En entitet är inte i arkivet eftersom hälsorapporter som ännu inte har bearbetats eller entiteten har rensats efter borttagningen.
+* **Okänd**. Entiteten finns inte i health store. Det här resultatet kan hämtas från de distribuerade frågor som sammanfoga resultat från flera komponenter. Till exempel get-noden listfrågan går till **FailoverManager**, **ClusterManager**, och **HealthManager**; hämta programmet listfrågan går till  **ClusterManager** och **HealthManager**. De här frågorna sammanfoga resultat från flera komponenter. Om en annan komponent returnerar en entitet som inte finns i health store resultatet är okänd hälsotillstånd. En entitet är inte i arkivet eftersom hälsorapporter som ännu inte har bearbetats eller entiteten har rensats efter borttagningen.
 
 ## <a name="health-policies"></a>Hälsoprinciper
 Health store gäller hälsoprinciper för att avgöra om en entitet är felfri baserat på dess rapporter och dess underordnade.
@@ -117,7 +117,7 @@ I följande exempel är ett utdrag ur ett klustermanifest. Om du vill definiera 
 Den [programmets hälsoprincip](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) beskriver hur utvärderingen av händelser och underordnade tillstånd aggregeringen är klar för program och deras underordnade. Det kan definieras i programmanifestet, **ApplicationManifest.xml**, i programpaketet. Om inga principer anges, förutsätter Service Fabric att entiteten feltillstånd om den har en hälsorapport eller en underordnad på hälsotillståndet varning eller fel.
 De konfigurerbara principerna är:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Anger om att behandla varningen hälsa rapporterar som fel under hälsoutvärderingen. Standard: false.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Anger om att behandla varningen hälsa rapporterar som fel under hälsoutvärderingen. Standard: false.
 * [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Anger maximalt tillåten procentandel av distribuerade program som kan vara felaktiga innan programmet anses vara fel. Den här procent beräknas genom att dividera antalet felaktiga distribuerade program över antalet noder som program som för närvarande har distribuerats på i klustret. Beräkningen Avrundar uppåt till tolererar att ett fel på litet antal noder. Standard procentandel: noll.
 * [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Anger standard service typen hälsoprincipen, som ersätter standardprincipen för hälsotillstånd för alla tjänsttyper av i programmet.
 * [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Innehåller en karta över service hälsoprinciper per typ av tjänst. Dessa principer ersätter tjänsten typen hälsa standardprinciperna för varje typ av angivna tjänsten. Du kan till exempel konfigurera hälsoprinciper för utvärderingen annorlunda om ett program har en typ av tillståndslösa gateway och en tillståndskänslig engine service type. När du anger princip per typ av tjänst kan du få mer detaljerad kontroll över hälsotillståndet för tjänsten.

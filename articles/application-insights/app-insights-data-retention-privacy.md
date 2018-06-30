@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/07/2017
+ms.date: 06/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 95e576eb5ce6834e67d997cde57426fd09db4e6a
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
-ms.translationtype: HT
+ms.openlocfilehash: 897671ef592ac691402a4e452f7a0baa04aa228a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099804"
+ms.locfileid: "37129065"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
 
@@ -126,19 +126,57 @@ Inte i servrar för närvarande.
 Krypteras alla data som flyttas mellan datacenter.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Krypteras data under överföring från mitt program till Application Insights servrar?
-Ja, vi använder https för att skicka data till portalen från nästan alla SDK: er, inklusive webbservrar, enheter och HTTPS-webbsidor. Det enda undantaget är data som skickas från vanlig HTTP-webbsidor. 
+Ja, vi använder https för att skicka data till portalen från nästan alla SDK: er, inklusive webbservrar, enheter och HTTPS-webbsidor. Det enda undantaget är data som skickas från vanlig HTTP-webbsidor.
+
+## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>Hur skickar jag data till Application Insights med hjälp av TLS 1.2?
+
+Om du vill säkerställa säkerheten för data under överföringen till Application Insights-slutpunkter, uppmanar vi kunder att konfigurera sina program för att använda minst Transport Layer Security (TLS) 1.2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har befunnits vara utsatt och medan de fortfarande för närvarande fungerar för att tillåta bakåtkompatibilitet kompatibilitet är **rekommenderas inte**, och bransch snabbt flyttar till Avbryt stöd äldre protokoll. 
+
+Den [PCI Security Standards rådet](https://www.pcisecuritystandards.org/) har angetts en [tidsgräns för 30 juni 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) att inaktivera äldre versioner av TLS/SSL och uppgraderingen mer säkra protokoll. När Azure släpper bakåtkompatibelt stöd om dina program/klienter inte kan kommunicera över minst TLS 1.2 som du inte kommer att kunna skicka data till Application Insights. Den metod som du utför för att testa och validera TLS-stöd för ditt program varierar beroende på operativsystem/plattform samt/språkramverket används i ditt program.
+
+Vi rekommenderar inte att programmet endast ska använda TLS 1.2 såvida inte absolut nödvändigt eftersom det kan innebära att säkerhet på radnivå funktioner så att du kan identifiera och dra nytta av nya säkrare protokoll när de blir automatiskt tillgängliga, till exempel TLS 1.3. Vi rekommenderar att du utför en grundlig granskning av din programkod för att söka efter hardcoding av specifika TLS/SSL-versioner.
+
+### <a name="platformlanguage-specific-guidance"></a>Specifika anvisningar för plattformen/språk
+
+|Plattform/språk | Support | Mer information |
+| --- | --- | --- |
+| Azure App Services  | Stöds, kan krävas. | Stöd har angivits i April 2018. Läsa meddelandet för [konfigurationsinformation](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
+| Appar i Azure-funktion | Stöds, kan krävas. | Stöd har angivits i April 2018. Läsa meddelandet för [konfigurationsinformation](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
+|.NET | Stöd för varierar konfigurationen beroende på versionen. | Mer detaljerad konfigurationsinformation för .NET 4.7 och tidigare versioner finns i [instruktionerna](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12).  |
+|Statusövervakaren | Konfigurationer som stöds, krävs | Statusövervakaren förlitar sig på [Operativsystemskonfiguration](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) + [.NET konfiguration](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12) till stöd för TLS 1.2.
+|Node.js |  Stöds i v10.5.0, kan krävas. | Använd den [officiella Node.js TLS/SSL-dokumentation](https://nodejs.org/api/tls.html) för en specifik konfiguration för program. |
+|Java | Stöd för JDK-stöd för TLS 1.2 har lagts till i [JDK 6 update 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) och [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 använder [TLS 1.2 som standard](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
+|Linux | Linux-distributioner tenderar att lita på [OpenSSL](https://www.openssl.org) för TLS 1.2-stöd.  | Kontrollera den [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) att bekräfta din version av OpenSSL stöds.|
+| Windows 8.0 10 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder den [standardinställningar](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 2016 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder den [standardinställningar](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds men inte aktiverad som standard. | Finns det [registerinställningar för Transport Layer Security (TLS)](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) information om hur du aktiverar sidan.  |
+| Windows Server 2008 SP2 | Stöd för TLS 1.2 kräver en uppdatering. | Se [Update för att lägga till stöd för TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) i Windows Server 2008 SP2. |
+|Windows Vista | Stöds inte. | Gäller inte
+
+### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Kontrollera vilken version av OpenSSL körs Linux-distribution
+
+Om du vill kontrollera vilken version av OpenSSL som du har installerat, öppna terminalen och kör:
+
+```terminal
+openssl version -a
+```
+
+### <a name="run-a-test-tls-12-transaction-on-linux"></a>Kör ett test TLS 1.2-transaktionen på Linux
+
+Att köra en grundläggande preliminära test för att se om Linux-system kan kommunicera över TLS 1.2. Öppna terminalen och kör:
+
+```terminal
+openssl s_client -connect bing.com:443 -tls1_2
+```
 
 ## <a name="personal-data-stored-in-application-insights"></a>Personliga data som lagras i Application Insights
 
-Vår [Application Insights personuppgifter artikel](app-insights-customer-data.md) beskrivs i det här avsnittet djupgående.
+Vår [Application Insights personuppgifter artikeln](app-insights-customer-data.md) beskriver problemet djupgående.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Mina användare kan stänga av Application Insights?
 Inte direkt. Vi tillhandahålla inte en växel som användarna kan användas för att stänga av Application Insights.
 
 Men kan du implementera en sådan funktion i ditt program. Alla SDK innehåller en API-inställning som inaktiverar telemetri samling. 
-
-#### <a name="my-application-is-unintentionally-collecting-sensitive-information-can-application-insights-scrub-this-data-so-it-isnt-retained"></a>Mina program oavsiktligt samlar in känslig information. Application Insights Skrubba kan dessa data så att den inte finns kvar?
-Application Insights inte filtrera eller ta bort dina data. Du ska hantera data på rätt sätt och undvika att skicka sådana data till Application Insights.
 
 ## <a name="data-sent-by-application-insights"></a>Data som skickas av Application Insights
 SDK: erna variera mellan plattformar och det finns flera komponenter som du kan installera. (Se [Application Insights - översikt][start].) Varje komponent skickar olika data.

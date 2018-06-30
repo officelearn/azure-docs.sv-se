@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: a3c81d63593bb7bf268c1026064e34c3a363ef86
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.component: na
+ms.openlocfilehash: d083783fb4c648cde5d8f4ab611990f65e48a16e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34304665"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130005"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -205,7 +206,7 @@ När du aktiverar Network Performance Monitor-lösning, lösningen panelen på d
 
  
 
-### <a name="drill-down-for-depth"></a>detaljnivån för djup 
+### <a name="drill-down-for-depth"></a>Detaljnivån för djup 
 
 Du kan välja olika länkar på instrumentpanelen lösningen att gå ner djupare i alla intresseområde. När du ser en avisering eller ett feltillstånd nätverkslänken som visas på instrumentpanelen, väljer du exempelvis att undersöka vidare. En sida visar alla undernätverkslänkar för nätverks-länk. Du kan se förlust, svarstid och hälsostatus för varje undernätverk länk. Du kan snabbt ta reda vilka undernätverk länken orsakar problem. Välj **visa nodlänkar** att se alla länkar i noden för länken ohälsosamt undernät. Du kan sedan se enskilda nod till nod länkar och hitta nodlänkar. 
 

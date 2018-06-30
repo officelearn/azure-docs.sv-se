@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: raynew
-ms.openlocfilehash: d58dfd482b66d90748f0ca661e56fa281c14598a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2610a331ef8ef17b319da99eb89288b59532be9f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29876022"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111506"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Växla över och återställas tillbaka fysiska servrar som replikeras till Azure
 
@@ -114,7 +114,7 @@ Kör en redundans enligt följande:
 
 ## <a name="reprotect-on-premises-machines-to-azure"></a>Återaktivera skyddet av lokala datorer till Azure
 
-Dina data bör nu finnas på den lokala platsen igen, men de replikeras inte till Azure. Du kan påbörja replikeringen till Azure igen på följande sätt:
+Data bör nu vara tillbaka på den lokala platsen, men också replikeras den inte till Azure. Du kan påbörja replikeringen till Azure igen på följande sätt:
 
 1. I valvet > **Inställningar** >**Replikerade objekt** väljer du de återställda virtuella datorerna och klickar på **Återaktivera skydd**.
 2. Välj den processerver som används för att skicka replikerade data till Azure och klicka på **OK**.

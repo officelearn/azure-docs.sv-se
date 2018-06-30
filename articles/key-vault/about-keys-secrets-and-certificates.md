@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dd1bb6117c0360e67783434c980c56b5f6ae7f9f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636614"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110252"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar och hemligheter certifikat
 Azure Key Vault kan du lagra och använda kryptografiska nycklar i Microsoft Azure-miljön. Key Vault stöder flera nyckeltyper och algoritmer och möjliggör användning av maskinvara säkerhet moduler (HSM) för högt värderade nycklar. Dessutom kan Key Vault användare på ett säkert sätt lagra hemligheter. Hemligheter är begränsad storlek oktett-objekt med några särskilda semantik. Key Vault stöder även certifikat som är byggda på nycklar och hemligheter och lägga till en funktion för automatisk förnyelse.
@@ -172,7 +172,7 @@ Azure Key Vault stöder följande åtgärder på objekt nycklar:
 -   **Säkerhetskopiering**: exporterar en nyckel i ett skyddat format.  
 -   **Återställa**: importerar en tidigare säkerhetskopierade nyckel.  
 
-Mer information finns i [nyckeln åtgärder](/rest/api/keyvault/key-operations.md)  
+Mer information finns i [nyckeln operations](/rest/api/keyvault/key-operations).  
 
 När en nyckel har skapats i Azure Key Vault kan kan följande kryptografiska åtgärder utföras med hjälp av nyckeln:  
 
@@ -281,7 +281,7 @@ Följande behörigheter kan användas för per huvudnamn, i hemligheter åtkomst
 -   *ta bort*: ta bort hemligheten  
 -   *alla*: alla behörigheter  
 
-Mer information om hur du arbetar med hemligheter finns [hemliga operations](/rest/api/keyvault/secret-operations.md).  
+Mer information om hur du arbetar med hemligheter finns [hemliga operations](/rest/api/keyvault/secret-operations).  
 
 ###  <a name="BKMK_SecretTags"></a> Hemlig taggar  
 Du kan ange ytterligare programspecifik metadata i form av taggar. Azure Key Vault stöder upp till 15 taggar, som kan ha ett namn på 256 tecken och ett värde 256 tecken.  
@@ -376,7 +376,7 @@ I följande tabell representerar mappningen av x509 nyckelanvändning princip ef
 |**X509 nyckelanvändning flaggor**|**Key Vault viktiga ops**|**Standardbeteende**|
 |----------|--------|--------|
 |DataEncipherment|kryptera, dekryptera| Gäller inte |
-|DecipherOnly|Dekryptera| Gäller inte  |
+|DecipherOnly|dekryptera| Gäller inte  |
 |DigitalSignature|logga in, kontrollera| Key Vault standard utan en specifikation för användning vid tidpunkten för skapandet av certifikat | 
 |EncipherOnly|encrypt| Gäller inte |
 |KeyCertSign|logga in, kontrollera|Gäller inte|
@@ -443,9 +443,9 @@ Om en certifikatprincip anges till automatisk förnyelse, skickas ett meddelande
 
 ## <a name="additional-information-for-certificates"></a>Mer information om certifikat
 
-- [Certifikat och principer](/rest/api/keyvault/certificates-and-policies.md)
-- [Certifikatutfärdare](/rest/api/keyvault/certificate-issuers.md)
-- [Certifikat för kontakter](/rest/api/keyvault/certificate-contacts.md)
+- [Certifikat och principer](/rest/api/keyvault/certificates-and-policies)
+- [Certifikatutfärdare](/rest/api/keyvault/certificate-issuers)
+- [Certifikat för kontakter](/rest/api/keyvault/certificate-contacts)
 
 ## <a name="see-also"></a>Se även
 

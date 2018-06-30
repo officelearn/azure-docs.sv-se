@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 011eaf1a4705f9078225b9b871f81b4333b05ee8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: 1e7806e802f9b1dda16a9d5d477783663d03d416
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011102"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131794"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog-datakällor i logganalys
 Syslog är en händelse loggning protokoll som är gemensamma för Linux.  Program skickar meddelanden som kan lagras på den lokala datorn eller levereras till en Syslog-insamlare.  När OMS-Agent för Linux installeras konfigurerar den lokala Syslog-daemon för att vidarebefordra meddelanden till agenten.  Agenten skickar sedan meddelandet till logganalys där motsvarande post har skapats i OMS-databasen.  
@@ -192,7 +193,7 @@ Syslog-poster har en typ av **Syslog** och ha egenskaper i följande tabell.
 | Värdnamn |Namnet på system som skickar meddelandet. |
 | SeverityLevel |Allvarlighetsgrad för händelsen. |
 | SyslogMessage |Texten i meddelandet. |
-| Process-ID |ID för den process som genererade meddelandet. |
+| ProcessID |ID för den process som genererade meddelandet. |
 | EventTime |Datum och tid då händelsen skapades. |
 
 ## <a name="log-queries-with-syslog-records"></a>Log-frågor med Syslog-poster

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
+ms.date: 05/17/2018
 ms.author: sethm
-ms.openlocfilehash: a581b7039a3631b7f1dc35816175242f892bd7dd
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d2c38ac589e5120441daf972217e61738fd57a1
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29802795"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131363"
 ---
 # <a name="event-hubs-samples"></a>Event Hubs-exempel 
 
@@ -34,7 +34,7 @@ Mer information om olika versioner av .NET Framework finns [ramverk och mål](/d
 
 Flera exempel kommer att läggas till med tiden, så kom tillbaka ofta efter uppdateringar.
 
-## <a name="net-standard"></a>.NET Standard
+## <a name="net-standard"></a>Standard för .NET
 
 Följande exempel visar hur du skickar och tar emot händelser med hjälp av den [händelsehubbklient](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md) för den [.NET standardbibliotek](/dotnet/articles/standard/library).
 
@@ -46,7 +46,7 @@ Den [börjar skicka](https://github.com/Azure/azure-event-hubs/tree/master/sampl
 
 Den [börja ta emot med den värd för händelsebearbetning](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) prov är ett .NET Core-konsolprogram som tar emot meddelanden från en händelsehubb med hjälp av den värd för händelsebearbetning.
 
-## <a name="net-framework"></a>.NET Framework   
+## <a name="net-framework"></a>.NET framework   
 
 De här exemplen visar olika funktioner i Azure Event Hubs, riktad på [biblioteket för .NET Framework](/dotnet/framework/index).
  

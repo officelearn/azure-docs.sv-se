@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 946311c42088d3a5840eb35387c8a552d3d5d70f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c1ca8146db8c5d67be53ba4e30d8ab0218aca104
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735652"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128766"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Viktig information om Azure File Sync-agenten (förhandsversionen)
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -25,7 +25,8 @@ Följande versioner av Azure File Sync-agenten stöds:
 
 | Milstolpe | Agentversionsnummer | Utgivningsdatum | Status |
 |----|----------------------|--------------|------------------|
-| Uppdatera 2 | 3.0.12.0 | 22 maj 2018 | Stöds (rekommenderad version) |
+| Samlad uppdatering för juni | 3.0.13.0 | 29 juni 2018 | Stöds (rekommenderad version) |
+| Uppdatera 2 | 3.0.12.0 | 22 maj 2018 | Stöds |
 | Samlad uppdatering för april | 2.3.0.0 | 8 kan 2018 | Stöds |
 | Samlad uppdatering för mars | 2.2.0.0 | 12 mars 2018 | Stöds |
 | Samlad uppdatering för februari | 2.1.0.0 | 28 februari 2018 | Stöds |
@@ -37,6 +38,12 @@ Följande versioner av Azure File Sync-agenten stöds:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-30130"></a>Agentversionen 3.0.13.0
+Följande information gäller 3.0.13.0 för Azure filen Sync-agentens version släpps den 29 juni 2018. Dessa anteckningar är förutom viktig information för version 3.0.12.0.
+
+Den här versionen innehåller följande korrigering:
+- Synkroniseringen misslyckas om en server har lagts till i en befintlig sync-grupp om referenspunkter finns i serverns slutpunkt plats på servern.
 
 ## <a name="agent-version-30120"></a>Agentversionen 3.0.12.0
 Följande information gäller version av 3.0.12.0 av Azure filsynkronisering agent (22 maj 2018).

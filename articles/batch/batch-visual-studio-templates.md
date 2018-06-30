@@ -15,19 +15,19 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5241c62e8b423b20477fc72c87303daf3d4ab43c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 98a5af1c0b321b7f9acf2bfd936a16d22088babf
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316757"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128868"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Använd Visual Studio-projektmallar att Batch lösningar
 
 Den **Jobbhanteraren** och **aktivitet Processor Visual Studio-mallar** Batch ange i koden som hjälper dig att implementera och köra beräkningsintensiva arbetsbelastningar på Batch med minsta möjliga ansträngning. Det här dokumentet beskriver dessa mallar och vägledning för hur de används.
 
 > [!IMPORTANT]
-> Den här artikeln beskrivs bara information som gäller för dessa två mallar och förutsätter att du är bekant med Batch-tjänsten och viktiga begrepp som är relaterade till den: pooler, compute-noder, jobb och uppgifter, job manager-uppgifter, miljövariabler och annan relevant information. Du hittar mer information finns i [grunderna i Azure Batch](batch-technical-overview.md), [Batch funktionsöversikt för utvecklare](batch-api-basics.md), och [komma igång med Azure Batch-biblioteket för .NET](batch-dotnet-get-started.md).
+> Den här artikeln beskrivs bara information som gäller för dessa två mallar och förutsätter att du är bekant med Batch-tjänsten och viktiga begrepp som är relaterade till den: pooler, compute-noder, jobb och uppgifter, job manager-uppgifter, miljövariabler och andra relevanta information. Du hittar mer information finns i [grunderna i Azure Batch](batch-technical-overview.md), [Batch funktionsöversikt för utvecklare](batch-api-basics.md), och [komma igång med Azure Batch-biblioteket för .NET](batch-dotnet-get-started.md).
 > 
 > 
 
@@ -216,7 +216,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 ```
 **Autentiseringsuppgifter för lagring**
 
-Normalt behöver klienten inte ange autentiseringsuppgifter för länkad lagring att manager projektaktivitet eftersom a mest jobbet cheferna behöver inte explicit åtkomst till länkade lagringskontot och (b) det länka lagringskontot ofta har angetts för alla aktiviteter som en gemensam miljö för jobbet. Om du inte använder länkade storage-konto via vanliga miljöinställningar och jobbhanteraren kräver åtkomst till länkad lagring, ska du ange autentiseringsuppgifter för länkad lagring på följande sätt:
+Normalt klienten behöver inte ange autentiseringsuppgifter för länkad lagring att manager projektaktivitet eftersom (a) de flesta jobbet cheferna behöver inte explicit åtkomst till länkade lagringskontot och (b) det länka lagringskontot används ofta på alla aktiviteter som en vanliga miljöinställning för jobbet. Om du inte använder länkade storage-konto via vanliga miljöinställningar och jobbhanteraren kräver åtkomst till länkad lagring, ska du ange autentiseringsuppgifter för länkad lagring på följande sätt:
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -259,7 +259,7 @@ Följ dessa steg om du vill lägga till en aktivitet processor i lösningen som 
 1. Öppna din befintliga lösning i Visual Studio.
 2. Högerklicka på lösningen i Solution Explorer, klicka på **Lägg till**, och klicka sedan på **nytt projekt**.
 3. Under **Visual C#**, klickar du på **moln**, och klicka sedan på **Azure Batch uppgiften Processor**.
-4. Ange ett namn som beskriver ditt program och identifierar det här projektet som aktiviteten-processor (t.ex.) "LitwareTaskProcessor").
+4. Ange ett namn som beskriver ditt program och identifierar det här projektet som aktiviteten-processor (t.ex.) ”LitwareTaskProcessor”).
 5. Klicka för att skapa projektet **OK**.
 6. Slutligen skapa projekt för att tvinga Visual Studio för att läsa in alla refererade NuGet-paket och kontrollera att projektet är giltigt innan du börjar att ändra den.
 
@@ -362,7 +362,7 @@ Implementeringen Run() har åtkomst till:
 
 **Aktivitet, fel**
 
-Du kan avsluta Run()-metoden genom att ett undantag om fel uppstår, men detta lämnar den översta nivån Undantagshanteraren kontrollen över sluttid för aktiviteten. Om du vill kontrollera slutkoden så att du kan skilja mellan olika typer av fel, till exempel för att ställa diagnoser eller eftersom vissa feltillstånd bör avsluta jobbet och andra bör inte ska du avsluta Run()-metoden som returnerar slutkoden noll. Detta blir sluttid för aktiviteten.
+Du kan avsluta Run()-metoden genom att ett undantag om fel uppstår, men detta lämnar den översta nivån Undantagshanteraren kontrollen över sluttid för aktiviteten. Om du vill kontrollera slutkoden så att du kan skilja mellan olika typer av fel, till exempel för att ställa diagnoser eller eftersom vissa feltillstånd bör avsluta jobbet och andra bör bör du avsluta metoden Run() genom att returnera en icke-noll slutkod. Detta blir sluttid för aktiviteten.
 
 ### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>Slutkoder och undantag i aktiviteten Processor mallen
 Slutkoder och undantag tillhandahåller en mekanism för att fastställa resultatet av att köra ett program och de kan hjälpa dig identifiera eventuella problem med körning av programmet. Mallen uppgiften Processor implementerar slutkoder och undantag som beskrivs i det här avsnittet.
@@ -385,7 +385,7 @@ All information som returneras av undantag skrivs i stdout.txt och stderr.txt-fi
 ### <a name="client-considerations"></a>Överväganden för klienten
 **Autentiseringsuppgifter för lagring**
 
-Om aktiviteten-processor använder Azure blob storage för att bevara utdata, till exempel med hjälp av filen konventioner hjälpbibliotek, så den behöver åtkomst till *antingen* moln lagringskontouppgifter *eller* en URL för blob-behållare som innehåller en signatur för delad åtkomst (SAS). Mallen innehåller stöd för att tillhandahålla autentiseringsuppgifter via vanliga miljövariabler. Klienten kan skicka autentiseringsuppgifterna lagring på följande sätt:
+Om aktiviteten-processor använder Azure blob storage för att bevara utdata, till exempel med hjälp av filen konventioner hjälpbibliotek, så den behöver åtkomst till *antingen* moln lagringskontouppgifter *eller* en blob behållar-URL som innehåller en signatur för delad åtkomst (SAS). Mallen innehåller stöd för att tillhandahålla autentiseringsuppgifter via vanliga miljövariabler. Klienten kan skicka autentiseringsuppgifterna lagring på följande sätt:
 
 ```csharp
 job.CommonEnvironmentSettings = new [] {
@@ -439,10 +439,7 @@ parameters.JSON och om att hitta den läser in den som parametrar ordlistan. Det
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>Spara jobb- och utdata till Azure Storage
 Ett annat bra verktyg i utvecklingen av Batch-lösningar är [Azure Batch filen konventioner][nuget_package]. Använd det här .NET klass-biblioteket (för närvarande under förhandsgranskning) i Batch .NET-program att enkelt lagra och hämta utdata för aktiviteten till och från Azure Storage. [Spara Azure Batch-jobb- och utdata](batch-task-output.md) innehåller en fullständig beskrivning av biblioteket och dess användning.
 
-### <a name="batch-forum"></a>Batch-Forum
-Den [Azure Batch-Forum] [ forum] på MSDN är det bra att diskutera Batch och ställa frågor om tjänsten. HEAD på över för användbara ”Fäst” inlägg och publicera dina frågor när de uppstår när du skapar Batch-lösningar.
 
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files

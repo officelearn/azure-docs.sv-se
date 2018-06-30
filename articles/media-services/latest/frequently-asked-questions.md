@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: juliako
-ms.openlocfilehash: 7fe59763162ca53ea0256d5902aeece90525f214
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 098a34aba8e5ce23f64d4bb07e3b9622aa2adb8e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655676"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110428"
 ---
 # <a name="azure-media-services-v3-preview-frequently-asked-questions"></a>Azure Media Services v3 vanliga frågor och svar om (förhandsgranskning)
 
@@ -30,7 +30,7 @@ Inte ännu. Du kan använda en av de SDK: er som stöds. Se självstudier och ex
 
 Media Services-teamet är eliminera RUs i v3. Men tjänster som behövs arbetet har inte slutförts. Fram till dess kan kunder behöver använda Azure-portalen eller AMS v2 API: er för att ange RUs (enligt beskrivningen i [skalning media bearbetning](../previous/media-services-scale-media-processing-overview.md). 
 
-S3 RUs krävs för den **VideoAnalyzerPreset** och **AudioAnalyzerPreset** V3 förinställningar.
+När du använder **VideoAnalyzerPreset** och/eller **AudioAnalyzerPreset**, ange ditt Media Services-konto till 10 S3 Media reserverade enheter.
 
 ## <a name="does-v3-asset-have-no-assetfile-concept"></a>Har V3 tillgången något AssetFile begrepp?
 
@@ -56,7 +56,7 @@ Mer information finns i [filtrering, sortering, växling](assets-concept.md#filt
 
 ## <a name="how-to-retrieve-an-entity-in-media-services-v3"></a>Hur du hämtar en entitet i Media Services v3?
 
-v3 baseras på en enhetlig API-yta som innehåller funktioner för både hantering och åtgärder som bygger på **Azure Resource Manager**. I enlighet med **Azure Resource Manager**, resursnamnen alltid är unika. Därför kan du använda alla strängar som unik identifierare (till exempel GUID) för din resursnamn. 
+v3 baseras på en enhetlig API-yta som innehåller funktioner för både hantering och åtgärder som bygger på **Azure Resource Manager**. I enlighet med **Azure Resource Manager**, resursnamnen alltid är unika. Därför kan du använda alla strängar som unika identifierare (till exempel GUID) för ditt resursnamn. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 3d4d217fba55b8329937575042f0ac909aad09e9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f447378816f137517a3d542a27841d0cab351473
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838484"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112689"
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Verktyg för datavetenskap grupprojekt och plattformar
 
-Microsoft tillhandahåller en fullständig spektrum av data och analytics-tjänster och resurser för både molnet eller lokala plattformar. De kan distribueras för att körningen av dina datavetenskap projekt effektivt och skalbara. Vägledning för team implementera datavetenskap projekt i en trackable version kontrolleras och samarbetsfunktioner sätt tillhandahålls av den [Team datavetenskap Process](overview.md) (TDSP).  En beskrivning av rollerna personal och förknippade aktiviteter som hanteras av en datavetenskap team standardisera på den här processen finns [Team datavetenskap Process roller och aktiviteter](roles-tasks.md).
+Microsoft tillhandahåller en fullständig spektrum av data och analyser tjänster och resurser för både molnet eller lokala plattformar. De kan distribueras för att körningen av dina datavetenskap projekt effektivt och skalbara. Vägledning för team implementera datavetenskap projekt i en trackable version kontrolleras och samarbetsfunktioner sätt tillhandahålls av den [Team datavetenskap Process](overview.md) (TDSP).  En beskrivning av rollerna personal och förknippade aktiviteter som hanteras av en datavetenskap team standardisera på den här processen finns [Team datavetenskap Process roller och aktiviteter](roles-tasks.md).
 
 Data och analyser tjänster som är tillgängliga att datavetenskap grupper med hjälp av TDSP omfattar:
 

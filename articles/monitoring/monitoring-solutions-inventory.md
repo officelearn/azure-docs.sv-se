@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: ab07a11883b3462c4b9d0f9adab6c55e4fe49d78
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 887611f1293e276070df51ac06df51a994161ec1
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010259"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112209"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Information om samlingen för hanteringslösningar i Azure
 Den här artikeln innehåller en lista över [hanteringslösningar](monitoring-solutions.md) tillgängliga från Microsoft med länkar till deras detaljerad dokumentation.  Det ger också information på deras metod och frekvens för datainsamling till logganalys.  Du kan använda informationen i den här artikeln för att identifiera de olika lösningarna som är tillgänglig och att förstå de trafikflöde och anslutningen kraven för olika lösningar. 
@@ -65,9 +65,6 @@ Beskrivningar av kolumnerna är följande:
 | [Övervakning av nätverksprestanda](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP-handskakningar på var femte sekund data skickas var 3: e minut |
 | [Office 365 Analytics (förhandsgranskning)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |på meddelande |
 | **Lösning** | **Plattform** | **Microsoft övervakningsagent** | **Operations Manager-agent** | **Azure Storage** | **Operations Manager som krävs?** | **Operations Manager agent-data som skickas via management-grupp** | **Frekvens för samlingen** |
-| [Säkerhet och granska](../operations-management-suite/oms-security-getting-started.md) (Syslog) | Linux | &#8226; | | |  |  | anländer |
-| [Säkerhet och granska](../operations-management-suite/oms-security-getting-started.md) (säkerhetshändelseloggar) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | anländer |
-| [Säkerhet och granska](../operations-management-suite/oms-security-getting-started.md) (brandväggen loggar) |Windows |&#8226; |&#8226; |  |  |  |anländer |
 | [Service Fabric Analytics (förhandsgranskning)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5 minuter |
 | [Tjänstkarta](../operations-management-suite/operations-management-suite-service-map.md) | Windows och Linux | &#8226; | &#8226; |  |  |  | 15 sekunder |
 | [SQL-bedömning](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dagar |

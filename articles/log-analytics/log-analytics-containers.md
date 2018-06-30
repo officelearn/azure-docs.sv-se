@@ -3,7 +3,7 @@ title: Behållaren övervakning lösning i Azure Log Analytics | Microsoft Docs
 description: Lösning för övervakning av behållare i logganalys hjälper dig se och hantera Docker- och Windows behållaren värdar i en enda plats.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 66d3ee76308573bb5672ffa8eeedcc4aca4c0cc5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 584e7a211cde83d7785c7fa0962c004af2b76968
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638355"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128919"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i logganalys
 
@@ -608,7 +609,7 @@ Logganalys markerar en behållare som **misslyckades** om den har avslutats med 
 
 ### <a name="to-find-failed-containers"></a>Misslyckades att hitta behållare
 1. Klicka på den **behållare Status** område.  
-   ![Behållare status](./media/log-analytics-containers/containers-status.png)
+   ![behållare status](./media/log-analytics-containers/containers-status.png)
 2. Sök i loggfilen öppnas och visar tillståndet för behållarna som liknar följande.  
    ![behållare tillstånd](./media/log-analytics-containers/containers-log-search.png)
 3. Klicka sedan på aggregerade värdet för misslyckade behållarna för att visa ytterligare information. Expandera **visa fler** att visa det bild-ID.  

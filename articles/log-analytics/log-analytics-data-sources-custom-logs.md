@@ -4,22 +4,23 @@ description: Logganalys kan samla in händelser från textfiler på Windows- och
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/27/2018
 ms.author: bwren
-ms.openlocfilehash: 28523ce3671a8104d91f04575b3e88647dde16f4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: c533d54a804ccc624246f54940ccf269361cdd7a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637080"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128681"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Anpassade loggar i logganalys
 Datakälla för anpassade loggar i logganalys kan du samla in händelser från textfiler på Windows- och Linux-datorer. Många program loggar information till textfiler i stället för standardtjänster loggning, till exempel Windows-händelseloggen eller Syslog.  När samlas in, analyserar du varje post i inloggningen till enskilda fält med hjälp av den [anpassade fält](log-analytics-custom-fields.md) funktion i logganalys.
@@ -173,7 +174,7 @@ Vi använder en fråga med *typ = MyApp_CL* och alla poster från insamlade logg
 ![Loggen fråga utan anpassade fält](media/log-analytics-data-sources-custom-logs/query-01.png)
 
 ### <a name="parse-the-custom-log-entries"></a>Parsa anpassade loggposter
-Vi använder anpassade fält för att definiera den *EventTime*, *kod*, *Status*, och *meddelandet* fält och vi kan se skillnaden mellan de poster som returneras av frågan.
+Vi använder anpassade fält för att definiera den *EventTime*, *kod*, *Status*, och *meddelandet* fält och vi kan se skillnaden mellan posterna som returneras av frågan.
 
 ![Loggen frågan med anpassade fält](media/log-analytics-data-sources-custom-logs/query-02.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/19/2018
 ms.author: tomsh
-ms.openlocfilehash: 29a479ffee3488768f1882c0938b0ecfdd55218b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 63f892dfdade3c61c2adf84f86cdcaff1fb1cb5c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186053"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127000"
 ---
 # <a name="azure-security-white-papers"></a>Azure Security-rapporter
 | | |
@@ -29,12 +29,15 @@ ms.locfileid: "32186053"
 |[Azure data kryptering i vila](azure-security-encryption-atrest.md)|Fokuserar på hur skyddas data i vila mellan Azure och de olika komponenterna som deltar i data protection implementeringen. Granskar- och nackdelar med de olika nyckelhantering skydd metoderna.|
 |[Loggning och granskning i Azure](azure-log-audit.md)|Ger en introduktion för generering, insamling och när säkerhetsloggar från tjänster i Azure. Dessa loggar kan hjälpa dig få säkerhetsinsikter om dina Azure-distributioner. |
 |[Azure-nätverkssäkerhet](azure-network-security.md)|Ger en introduktion till mängd nätverkskontroller som du kan konfigurera för att förbättra säkerheten för de lösningar som du distribuerar i Azure. Fokus är kund-riktade säkerhetsåtgärder för nätverket.|
+|[Azure Functions och serverlösa plattform säkerhet](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|Faktabladet nedladdningsbara beskriver fördelarna med serverlösa computing säkerhetsaspekter och åtgärder i kontexten för Azure. | 
 |[Azure operativ säkerhet](azure-operational-security.md)|Ger en omfattande i kund-riktade operativa säkerhetstekniker och tjänster som är tillgängliga med Azure.|
 |[De tekniska funktionerna i Azure-säkerhet](azure-security-technical-capabilities.md)|Fokuserar på funktioner och funktionalitet som stöder Azure Storage, Azure SQL-databaser, virtuell dator i Azure-modell och verktyg och infrastruktur som hanterar allt.|
 |[Säkerhetsguide för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |En översikt över alla säkerhetsfunktioner som kan användas med Azure Storage. Beskriver management plan säkerhet, plan datasäkerhet och kryptering i vila, kryptering i svarta och storage analytics.|
-|[Dataklassificering för användning i molnet](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03) |Det här nedladdningsbara dokumentet introducerar grunderna i dataklassificering och dess värde i kontexten för cloud computing. Organisationer bedöma cloud nytta computing för framtida användning eller organisationer som för närvarande använder molntjänster och söka metoder för att optimera data management kommer mest av det här dokumentet.|
+|[Dataklassificering för användning i molnet](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03/file/172083/1/Data%20Classification%20for%20Cloud%20Readiness%20(2017-04-11).pdf)  |Det här nedladdningsbara dokumentet introducerar grunderna i dataklassificering och dess värde i kontexten för cloud computing. Organisationer bedöma cloud nytta computing för framtida användning eller organisationer som för närvarande använder molntjänster och söka metoder för att optimera data management kommer mest av det här dokumentet.|
 |[Styrning i Azure](governance-in-azure.md)|Beskriver de funktioner för säkerhet och styrning inbyggda i Azure. De huvudsakliga styrning problem som beskrivs är: principer, processer och procedurer implementering för din organisationsmål. säkerhet och kontinuerlig kompatibilitet med organisationens normer. övervakning och aviseringar.
 |[Isolera i det offentliga Azure-molnet](azure-isolation.md)|Beskriver hur Azure tillhandahåller isolering mot skadliga såväl som icke-skadliga användare. Fungerar som en guide för att bygga om molnlösningar genom att erbjuda olika alternativ för isolering arkitekter. Primära fokus är på säkerhetsåtgärder kund-riktade och försöker inte adressen SLA: er, prissättning modeller och DevOps överväganden.|
 |[Översikt över Azure kompatibilitet](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|Den här nedladdningsbara diskuteras Azure efterlevnad erbjudanden, inklusive formella certifieringar, intyg, verifieringar, tillstånd och utvärderingar som produceras av fristående från tredje part granskning företag samt avtal ändringar egna bedömningar och riktlinjer för kunden kommer från Microsoft. <br/> Varje erbjudande beskrivning tillstånd vilka Azure kunden riktade i omfattningen för bedömning och innehåller länkar till hämtningsbara resurser för att hjälpa kunder med sina egna efterlevnad skyldigheter.|
 |[Säkerhetshantering i Azure](azure-security-management.md)|Beskriver problem i Azure-resurser för fjärråtkomst. Vilka slags i molnet krav fjärråtkomst administration och därmed säkerhet är av yttersta vikt. Beskriver allmänna riktlinjer, klientkonfiguration, bästa praxis och operativa principer och procedurer. |
+
+
 

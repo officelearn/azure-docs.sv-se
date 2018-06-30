@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: na
+ms.openlocfilehash: 8a92bf7b031899ee75fbf2bb2fdfd7dced3bc1ad
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30263538"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127900"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure nätverk övervakning lösningar i logganalys
 
@@ -31,7 +32,7 @@ Logganalys erbjuder följande lösningar för att övervaka dina nätverk:
  * Azure Application Gateway-mått
 * Lösningar för att övervaka och granska nätverksaktivitet i nätverket moln
 * [Trafik Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
-* Azure Nätverkssäkerhetsgruppen Analytics
+* Azure Network Security Group Analytics
 
 ## <a name="network-performance-monitor-npm"></a>Network Performance Monitor (NPM)
 
@@ -77,7 +78,8 @@ Följande loggar stöds för Programgatewayer:
 * ApplicationGatewayPerformanceLog
 * ApplicationGatewayFirewallLog
 
-Följande mått stöds för Programgatewayer:
+Följande mått stöds för Programgatewayer: igen
+
 
 * 5 minut genomflöde
 
@@ -140,6 +142,12 @@ Du kan visa resultaten av tid, detaljerade resultat och Logghistoriken på någo
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Azure Network Security Group analytics lösning i logganalys
 
 ![Azure Network Security Group Analytics symbol](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+
+> [!NOTE]
+> Nätverkssäkerhetsgruppen analytics lösningen flyttas till community-support, eftersom dess funktioner har ersatts av [trafik Analytics](../network-watcher/traffic-analytics.md).
+> - Lösningen är nu tillgängligt i [Azure Quickstart mallar](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) och snart inte längre att vara tillgänglig i Azure Marketplace.
+> - För befintliga kunder som redan lagts till lösningen till deras arbetsyta, fortsätter den att fungera utan ändringar.
+> - Microsoft fortsätter att stödja NSG skicka diagnostikloggar till din arbetsyta med hjälp av inställningarna för Webbprogramdiagnostik.
 
 Följande loggar stöds för nätverkssäkerhetsgrupper:
 
@@ -213,8 +221,8 @@ Använda de uppdaterade lösningarna:
 
     | Istället för: | Användning: |
     | --- | --- |
-    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; where ResourceType="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess" |
-    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; där ResourceType == ”APPLICATIONGATEWAYS” och OperationName = ApplicationGatewayPerformance |
+    | NetworkApplicationgateways &#124; där OperationName == ”ApplicationGatewayAccess” | AzureDiagnostics &#124; där ResourceType = ”APPLICATIONGATEWAYS” och OperationName == ”ApplicationGatewayAccess” |
+    | NetworkApplicationgateways &#124; där OperationName == ”ApplicationGatewayPerformance” | AzureDiagnostics &#124; där ResourceType == ”APPLICATIONGATEWAYS” och OperationName = ApplicationGatewayPerformance |
     | NetworkSecuritygroups | AzureDiagnostics &#124; där ResourceType == ”NETWORKSECURITYGROUPS” |
 
    + För alla fält som har suffixet \_s, \_d, eller \_g i namnet, ändra det första tecknet till gemener

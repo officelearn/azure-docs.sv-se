@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: eb1bf9f6465a8a94fd2de75f581817887c333289
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0813e0f6b51c747d033ca2c44aed21cf94c32000
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895342"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113035"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure avancerade Hotidentifiering
 ## <a name="introduction"></a>Introduktion
@@ -420,7 +420,7 @@ Brandvägg för webbaserade program kontrollerar om inkommande web trafik och bl
 
 Följande är exempel på webbprogrammet brandväggar som är tillgängliga i Azure Marketplace:
 
-[Barracuda Brandvägg för webbaserade program, Brocade virtuella Brandvägg för webbaserade program (Brocade vWAF), Imperva SecureSphere och det ThreatSTOP IP-brandväggen.](https://azure.microsoft.com/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/)
+[Barracuda Brandvägg för webbaserade program, Brocade virtuella Brandvägg för webbaserade program (Brocade vWAF), Imperva SecureSphere och det ThreatSTOP IP-brandväggen.](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf)
 
 ## <a name="next-steps"></a>Nästa steg
 

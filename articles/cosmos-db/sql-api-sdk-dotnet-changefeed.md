@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: f69742d111555e776a968454bdc004ba171e6336
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: f47b847b3a356540e5f366235713b8f99aea3404
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937425"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113725"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET ändra Feed Processor SDK: Hämta och viktig information
 > [!div class="op_single_selector"]
@@ -41,39 +41,10 @@ ms.locfileid: "36937425"
 
 ## <a name="release-notes"></a>Viktig information
 
-### <a name="stable-builds"></a>Stabil versioner
+### <a name="v2-builds"></a>v2-versioner
 
-### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
-* Lägga till mer loggning.
-* Fast en DocumentClient läcka vid anrop av pågående arbete uppskattning flera gånger.
-
-### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
-* Korrigeringar i den pågående arbete beräkning av.
-
-### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
-* Stabilitetsförbättringar.
-  * Lösning för hantering av avbrutna aktiviteter problem som kan leda till stoppades observatörerna för några partitioner.
-* Stöd för manuell kontrollpunkter.
-* Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.21 och högre.
-
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Lägger till stöd för .NET Standard 2.0. Paketet stöder nu `netstandard2.0` och `net451` framework monikrar.
-* Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.17.0 och högre.
-* Kompatibel med [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) versioner 1.5.1 och högre.
-
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
-* Åtgärdar problemet med beräkningen av uppskattning av återstående när ändringen Feed var tom eller inget arbete pågick.
-* Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.13.2 och högre.
-
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Lägga till en metod för att få en uppskattning av återstående arbete som ska bearbetas i ändra Feed.
-* Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.13.2 och högre.
-
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
 * GA-SDK
-* Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.14.1 och nedan.
-
-### <a name="pre-release-builds"></a>Förhands-versioner
 
 ### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
 * Åtgärdat följande problem:
@@ -108,6 +79,39 @@ ms.locfileid: "36937425"
 * 100% bakåtkompatibel med API: n v1.
 * Nya kodbas.
 * Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.21.1 och högre.
+
+### <a name="v1-builds"></a>V1-versioner
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* Lägga till mer loggning.
+* Fast en DocumentClient läcka vid anrop av pågående arbete uppskattning flera gånger.
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* Korrigeringar i den pågående arbete beräkning av.
+
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
+* Stabilitetsförbättringar.
+  * Lösning för hantering av avbrutna aktiviteter problem som kan leda till stoppades observatörerna för några partitioner.
+* Stöd för manuell kontrollpunkter.
+* Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.21 och högre.
+
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+* Lägger till stöd för .NET Standard 2.0. Paketet stöder nu `netstandard2.0` och `net451` framework monikrar.
+* Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.17.0 och högre.
+* Kompatibel med [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) versioner 1.5.1 och högre.
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* Åtgärdar problemet med beräkningen av uppskattning av återstående när ändringen Feed var tom eller inget arbete pågick.
+* Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.13.2 och högre.
+
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* Lägga till en metod för att få en uppskattning av återstående arbete som ska bearbetas i ändra Feed.
+* Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.13.2 och högre.
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* GA-SDK
+* Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.14.1 och nedan.
+
 
 ## <a name="release--retirement-dates"></a>Versionen & pensionering datum
 Microsoft meddelar notification minst **12 månader** innan du tar bort en SDK för att utjämna övergången till en nyare/stöds version.

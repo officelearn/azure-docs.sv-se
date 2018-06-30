@@ -10,12 +10,12 @@ ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: a726779e731be2534e457ba595d93fe51c023601
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: e92c4efba29f1c40f6d4cb155974ca3a896796e5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036282"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114341"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Drivrutinens Azure Blob-filsystem (ABFS): en dedikerad Azure Storage-drivrutin för Hadoop
 
@@ -29,7 +29,7 @@ Om du vill lösa inbyggd design brister i WASB implementerades därför den nya 
 
 ## <a name="the-azure-blob-file-system-driver"></a>Drivrutinens Azure Blob-filsystem
 
-Den [Azure Data Lake Storage REST-gränssnittet](https://docs.microsoft.com/en-us/rest/api/datalakestorage/) är utformad för att stödja filsystemen över Azure Blob Storage. Med tanke på att Hadoop FileSystem är också designad att stöd för samma semantik krävs ingen för en komplex mappning i drivrutinen. Därför är drivrutinen Azure Blob-filsystem (eller ABFS) en enbart klienten shim för REST-API.
+Den [Azure Data Lake Storage REST-gränssnittet](https://docs.microsoft.com/en-us/rest/api/storageservices/data-lake-storage-gen2) är utformad för att stödja filsystemen över Azure Blob Storage. Med tanke på att Hadoop FileSystem är också designad att stöd för samma semantik krävs ingen för en komplex mappning i drivrutinen. Därför är drivrutinen Azure Blob-filsystem (eller ABFS) en enbart klienten shim för REST-API.
 
 Det finns dock vissa funktioner som drivrutinen måste fortfarande utföra:
 

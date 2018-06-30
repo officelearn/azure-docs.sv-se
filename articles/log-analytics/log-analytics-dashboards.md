@@ -3,7 +3,7 @@ title: Skapa en anpassad instrumentpanel i Azure Log Analytics | Microsoft Docs
 description: Den här guiden hjälper dig att förstå hur logganalys instrumentpaneler kan visualisera alla dina sparad logg-sökningar, vilket ger dig en enda lins att visa din miljö.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7eaa74655b009e3154e2cc4f09d5599040ec4589
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: 7b17b23d30b15fe71dcf031ac67f0c54fc3cfe3e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010779"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129320"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Skapa en anpassad instrumentpanel för användning i logganalys
 
@@ -68,11 +68,11 @@ I vyn instrumentpanel för Mina Klicka bara på **anpassa** ange anpassningsläg
 ### <a name="tile-visualizations"></a>Panelen visualiseringar
 Det finns tre typer av panelen visualiseringar kan välja mellan:
 
-| diagramtyp | syfte |
+| diagramtyp | Syfte |
 | --- | --- |
 | ![Liggande stapeldiagram](./media/log-analytics-dashboards/oms-dashboards-bar-chart.png) |Visar en tidslinje för din sparad logg sökresultat som ett stapeldiagram eller en lista med resultat av ett fält beroende på om sökningen loggen aggregerar resultaten efter ett fält eller inte. |
 | ![mått](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Visar träffar din totala Sök resultatet som ett tal i en panel. Mått paneler kan du ange ett tröskelvärde som ska markeras panelen när tröskelvärdet har uppnåtts. |
-| ![raden](./media/log-analytics-dashboards/oms-dashboards-line.png) |Visar en tidslinje sparad logg Sök resultatet träffar med värden som ett linjediagram. |
+| ![Raden](./media/log-analytics-dashboards/oms-dashboards-line.png) |Visar en tidslinje sparad logg Sök resultatet träffar med värden som ett linjediagram. |
 
 ### <a name="threshold"></a>Tröskelvärde
 Du kan skapa ett tröskelvärde på en panel med mått visualiseringen. Välj för att skapa ett tröskelvärde på panelen. Välj om du vill markera panelen när värdet ligger över eller under det valda tröskelvärdet och ange sedan tröskelvärdet nedan.

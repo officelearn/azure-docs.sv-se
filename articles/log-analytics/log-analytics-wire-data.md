@@ -3,7 +3,7 @@ title: Wire Data-lösning i Log Analytics| Microsoft Docs
 description: Wire-data är konsoliderade nätverks- och prestandadata från datorer med OMS-agenter, inklusive Operations Manager och Windows-anslutna agenter. Nätverksdata kombineras med dina loggdata, vilket hjälper dig att korrelera data.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: magoedte
-ms.openlocfilehash: c86d1274ed46ff725c9db3093a8852fbae7f67ff
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: f44f47129a1d989422d25b7f0c5c55c1d229c07e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011449"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129014"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Wire Data 2.0-lösning (förhandsversion) i Log Analytics
 
@@ -81,7 +82,7 @@ Om du är en System Center Operations Manager-användare med en hanteringsgrupp 
 
 Om du använder direktagenten måste du konfigurera själva OMS-agenten till att ansluta till Log Analytics eller till din OMS-gateway. Du kan ladda ned OMS-gatewayen från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Kräver lösningen [Insikter och analys](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing).
 - Om du använder en tidigare version av Wire Data-lösningen måste du först bort den. Alla data som hämtats via den ursprungliga Wire Data-lösningen är dock fortfarande tillgängliga i Wire Data 2.0 och loggsökningen.
@@ -418,7 +419,7 @@ Wire-datan samlar in metadata om nätverkstrafik med hjälp av de agenter som du
 
 En post av typen _WireData_ skapas för varje typ av indata. WireData-poster har egenskaper enligt följande tabell:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |---|---|
 | Dator | Namn på den dator där data samlades in |
 | TimeGenerated | Tid för posten |

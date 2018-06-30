@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 2b006976aef59c55ccb51362e05ceb4275602fd1
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ea976f7ac80f0c485320713117c9ff2b484a287b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096500"
+ms.locfileid: "37128698"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 
@@ -118,7 +118,7 @@ Azure Active Directory krävs för licens-modellen eftersom licenser läggs till
 
 Alla användare konfigureras förhoppningsvis mer än en verifieringsmetod. Be dem att försöka logga in igen, men välj en annan verifieringsmetod på inloggningssidan.
 
-Du kan ange att användarna ska den [slutanvändarens felsökningsguiden](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+Du kan ange att användarna ska den [slutanvändarens felsökningsguiden](end-user/current/multi-factor-authentication-end-user-troubleshoot.md).
 
 
 **F: Vad gör jag om en av användarna går inte att få sitt konto?**

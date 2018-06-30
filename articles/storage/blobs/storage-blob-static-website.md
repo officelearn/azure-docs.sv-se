@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
-ms.openlocfilehash: 7021a0499547818d702d14aecb9d8e451a820181
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: df1661b5fe7a2c0e37deef5259d6b5842ed6ee5e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025938"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131617"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Statisk webbplats värd i Azure Storage (förhandsgranskning)
 Azure Storage erbjuder statisk webbplats värd (förhandsgranskning), så att du kan distribuera kostnadseffektiv och skalbar moderna webbprogram på Azure. På en statisk webbplats innehåller webbsidor statiskt innehåll och JavaScript eller andra klientkod. Däremot dynamiska webbplatser beroende serverkoden och kan finnas med [Azure Web Apps](/app-service/app-service-web-overview.md).
@@ -43,6 +43,9 @@ Om du vill börja vara värd för ditt webbprogram på Azure Storage, kan du kon
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
 Ladda upp dina webb-tillgångar till behållaren ”$web” som har skapats som en del av statisk webbplats aktivering. Du kan göra detta direkt i Azure Portal och du kan dra nytta av [Azure Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/) att överföra hela katalogstrukturer. Se till att omfatta en index dokumentet med namn som du har konfigurerat. I det här exemplet är det dokumentnamn ”index.html”.
+
+> [!NOTE]
+> Namnet är skiftlägeskänsligt och måste därför exakt matchar namnet på filen i lagring.
 
 Slutligen, navigera till din webbslutpunkt för att testa din webbplats.
 

@@ -11,23 +11,26 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5d806afbfd74d68d139f494c7a5a6e871a7dae36
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 2c2553d9ffb1dfbe032385fb77e234a8b96cb239
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260602"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110073"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo UI-element
 En grupp av kontroller för att välja ett nytt eller befintligt virtuellt nätverk.
 
 ## <a name="ui-sample"></a>UI-exempel
-![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
+När användaren hämtar ett nytt virtuellt nätverk, kan användaren anpassa varje undernät namn och adressprefix. Konfigurera undernät är valfritt.
 
-- I det övre Trådblock har användaren valts ett nytt virtuellt nätverk, så att användaren kan anpassa namn och adress prefix för varje undernät. I detta fall är konfigurera undernät valfritt.
-- I den nedre Trådblock har användaren valts ett befintligt virtuellt nätverk, så att användaren måste mappa varje undernät som krävs för mallen för distribution till ett befintligt undernät. Konfiguration av undernät krävs i det här fallet.
+![Ny Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
+
+När du hämtar ett befintligt virtuellt nätverk, måste användaren mappa varje undernät som krävs för mallen för distribution till ett befintligt undernät. Konfiguration av undernät krävs i det här fallet.
+
+![Microsoft.Network.VirtualNetworkCombo befintliga](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>Schema
 ```json
@@ -88,12 +91,12 @@ En grupp av kontroller för att välja ett nytt eller befintligt virtuellt nätv
 - `constraints.minAddressPrefixSize` måste anges. Alla befintliga virtuella nätverk med ett adressutrymme som är mindre än det angivna värdet är inte tillgängliga för val.
 - `subnets` måste anges, och `constraints.minAddressPrefixSize` måste anges för varje undernät.
 - När du skapar ett nytt virtuellt nätverk, varje undernät adressprefixet beräknas automatiskt utifrån på det virtuella nätverket adressprefixet och motsvarande `addressPrefixSize`.
-- När du använder ett befintligt virtuellt nätverk, alla undernät som är mindre än respektive `constraints.minAddressPrefixSize` är inte tillgängliga för val. Dessutom, om angivna undernät som inte innehåller minst `minAddressCount` tillgängliga adresser är inte tillgängliga för val.
-Standardvärdet är **0**. För att säkerställa att tillgängliga adresser är sammanhängande, ange **SANT** för `requireContiguousAddresses`. Standardvärdet är **SANT**.
-- Det går inte att skapa undernät i ett befintligt virtuellt nätverk.
+- När du använder ett befintligt virtuellt nätverk, alla undernät som är mindre än respektive `constraints.minAddressPrefixSize` är inte tillgängliga för val. Dessutom, om angivna undernät som inte har minst `minAddressCount` tillgängliga adresser är inte tillgängliga för val. Standardvärdet är **0**. För att säkerställa att tillgängliga adresser är sammanhängande, ange **SANT** för `requireContiguousAddresses`. Standardvärdet är **SANT**.
+- Skapa undernät i ett befintligt virtuellt nätverk stöds inte.
 - Om `options.hideExisting` är **SANT**, kan användaren välja ett befintligt virtuellt nätverk. Standardvärdet är **FALSKT**.
 
 ## <a name="sample-output"></a>Exempel på utdata
+
 ```json
 {
   "name": "vnet01",

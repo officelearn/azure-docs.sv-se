@@ -8,16 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: bwren
-ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 7c2158d8e6f64c7c356ba40b3bf56684f00cb8c0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133038"
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Övergång till nya Azure Log Analytics-frågespråket
 Logganalys nyligen implementerat ett nytt frågespråk.  Den här artikeln innehåller hjälp om övergång till det här språket för Log Analytics om du redan är bekant med det äldre språket och fortfarande behöver hjälp.
@@ -36,7 +38,7 @@ Om du är bekant med det äldre Log Analytics-frågespråket är det enklaste s�
 Den [dokumentationswebbplats för Log Analytics-frågespråket](https://docs.loganalytics.io) har alla de resurser som du behöver för att komma igång på det nya språket.  Detta inkluderar självstudier, exempel och en fullständig Språkreferens.
 
 
-## <a name="cheat-sheet"></a>Fusklapp
+## <a name="cheat-sheet"></a>Översiktsblad
 
 Följande tabell innehåller en jämförelse mellan olika vanliga frågor till motsvarande kommandon mellan nya och gamla frågespråket i Azure logganalys.
 
@@ -44,15 +46,15 @@ Följande tabell innehåller en jämförelse mellan olika vanliga frågor till m
 |:--|:--|:--|
 | Sök alla tabeller      | fel | Sök ”error” (inte skiftlägeskänsliga) |
 | Välj data från tabellen | Typ = händelse |  Händelse |
-|                        | Type=Event &#124; select Source, EventLog, EventID | Händelsen &#124; projektet källa, EventLog, händelse-ID |
-|                        | Typ = händelse &#124; uppifrån 100 | Event &#124; take 100 |
-| Strängjämförelse      | Type=Event Computer=srv01.contoso.com   | Händelsen &#124; där datorn == ”srv01.contoso.com” |
-|                        | Type=Event Computer=contains("contoso") | Händelsen &#124; där datorn innehåller ”contoso” (inte skiftlägeskänsliga)<br>Händelsen &#124; där datorn contains_cs ”Contoso” (skiftlägeskänslig) |
-|                        | Type=Event Computer=RegEx("@contoso@")  | Händelsen &#124; där datorn matchar regex ”. *contoso*” |
+|                        | Typ = händelse &#124; Välj källa, EventLog, händelse-ID | Händelsen &#124; projektet källa, EventLog, händelse-ID |
+|                        | Typ = händelse &#124; uppifrån 100 | Händelsen &#124; ta 100 |
+| Strängjämförelse      | Typ = händelsen Computer=srv01.contoso.com   | Händelsen &#124; där datorn == ”srv01.contoso.com” |
+|                        | Typ = händelsen Computer=contains("contoso") | Händelsen &#124; där datorn innehåller ”contoso” (inte skiftlägeskänsliga)<br>Händelsen &#124; där datorn contains_cs ”Contoso” (skiftlägeskänslig) |
+|                        | Typ = händelse datorn = RegEx (”\@contoso @”)  | Händelsen &#124; där datorn matchar regex ”. *contoso*” |
 | Jämförelse av datum        | Typ av händelse TimeGenerated = > nu 1DAYS | Händelsen &#124; där TimeGenerated > ago(1d) |
 |                        | Typ av händelse TimeGenerated = > 2017-05-01 TimeGenerated < 2017-05-31 | Händelsen &#124; där TimeGenerated mellan (datetime(2017-05-01)... datetime(2017-05-31)) |
-| Booleskt jämförelse     | Type=Heartbeat IsGatewayInstalled=false  | Pulsslag \| där IsGatewayInstalled == false |
-| Sortera                   | Type=Event &#124; sort Computer asc, EventLog desc, EventLevelName asc | Händelsen \| sortera efter dator asc, EventLog desc, EventLevelName asc |
+| Booleskt jämförelse     | Typ = pulsslag IsGatewayInstalled = false  | Pulsslag \| där IsGatewayInstalled == false |
+| Sortera                   | Typ = händelse &#124; sortera datorn asc, EventLog desc, EventLevelName asc | Händelsen \| sortera efter dator asc, EventLog desc, EventLevelName asc |
 | Distinkta               | Typ = händelse &#124; dedupliceringen datorn \| Välj dator | Händelsen &#124; sammanfatta per dator, EventLog |
 | Utöka kolumner         | Typ = Perf CounterName = ”% processortid” &#124; utöka if(map(CounterValue,0,50,0,1),"HIGH","LOW") som användning | Perf &#124; där CounterName == ”% processortid” \| utöka användningen = iff (CounterValue > 50, ”hög”, ”lågt”) |
 | Sammansättning            | Typ = händelse &#124; mäta count() som antal per dator | Händelsen &#124; sammanfatta Count = count() per dator |

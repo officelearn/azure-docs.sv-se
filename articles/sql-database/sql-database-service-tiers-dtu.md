@@ -2,19 +2,19 @@
 title: Azure SQL Database servicenivåer - DTU | Microsoft Docs
 description: Läs mer om servicenivåer för enstaka och pool databaser att tillhandahålla prestandanivåer och lagringsstorlek.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/28/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: cf17ec616819da94678f2ae4f0f0ca283f99f629
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: d6dc641123e2bf840940f6246245a89fdd792db5
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750432"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131846"
 ---
 # <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Om du väljer en DTU-baserade tjänstnivå och prestandanivå lagringsresurser 
 
@@ -60,7 +60,7 @@ Prestandanivåer uttrycks i DTU (Database Transaction Unit) för enkla databaser
 ||||||
 
 > [!IMPORTANT]
-> Mer än 1 TB lagringsutrymme i Premium-nivån är för närvarande tillgänglig i alla regioner förutom följande: Storbritannien, Nord, västra centrala USA, Storbritannien South2, Kina Öst, USDoDCentral, Tyskland Central, USDoDEast, USA Gov Southwest, oss Gov södra centrala, Tyskland nordöst, Kina Nord USA Gov Öst. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Mer än 1 TB lagringsutrymme i Premium-nivån är för närvarande tillgänglig i alla regioner förutom följande: Väst centrala USA, Öst Kina, USDoDCentral, Tyskland Central, USDoDEast, USA Gov Southwest, USA: s regering Iowa, Tyskland Northeast, Kina Nord. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="next-steps"></a>Nästa steg
 

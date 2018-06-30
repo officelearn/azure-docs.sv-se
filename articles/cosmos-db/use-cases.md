@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/7/2017
 ms.author: sngun
-ms.openlocfilehash: ab24dc98ef4c767f04dc083ac6208e2c9d831935
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 15a4e2fa981617c538edf3731bf9457bf172213c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616812"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113127"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Vanliga användningsområden för Azure Cosmos DB
 Den här artikeln innehåller en översikt över flera vanliga användningsområden för Azure Cosmos DB.  Rekommendationerna i den här artikeln fungera som en startpunkt som du utvecklar programmet med Cosmos DB.   
@@ -51,7 +51,7 @@ Belastning av data kan vara inhämtas av Händelsehubbar i Azure som den erbjude
 
 En exempel IoT-lösning med hjälp av Azure Cosmos DB, EventHubs och Storm finns i [hdinsight-storm-exempel lagringsplats på GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
-Läs mer på Azure-erbjudanden för IoT [skapa din Sakernas Internet](http://www.microsoft.com/server-cloud/internet-of-things.aspx). 
+Läs mer på Azure-erbjudanden för IoT [skapa din Sakernas Internet](https://www.microsoft.com/en-us/internet-of-things). 
 
 ## <a name="retail-and-marketing"></a>Återförsäljarversion och marknadsföring
 Azure Cosmos-DB används ofta i Microsofts egna e-handel plattformar, som kör Windows Store och XBox Live. Det används också i detaljhandel för lagring av data catalog och för händelsen som källa i ordning bearbetning pipelines.

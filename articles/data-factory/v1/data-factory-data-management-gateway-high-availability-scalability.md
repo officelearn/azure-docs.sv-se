@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 2d636eb381710c5e8341e24af8cd157a627348ef
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: b9ec9867e9abd188142067e593c925e3c8acdd0b
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053844"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113348"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - hög tillgänglighet och skalbarhet (förhandsgranskning)
 > [!NOTE]
@@ -165,7 +165,7 @@ Här följer kraven för TLS/SSL-certifikatet som används för att skydda kommu
 - Certifikatet måste vara offentligt betrodda X509 v3-certifikat. Vi rekommenderar att du använder certifikat som utfärdas av en offentlig (tredje parts) certifikatutfärdare (CA).
 - Varje integration runtime-nod måste ha förtroende för certifikatet, samt den klientdator som kör autentiseringsuppgifter manager-program. 
 > [!NOTE]
-> Autentiseringsuppgifter manager används vid på ett säkert sätt ställa in autentiseringsuppgifter från guiden Kopiera / Azure-portalen. Och det kan vara Eldad från en dator i samma nätverk som lokal / privat datalagret.
+> Autentiseringsuppgifter manager används vid på ett säkert sätt ställa in autentiseringsuppgifter från guiden Kopiera / Azure-portalen. Och det kan vara Eldad från en dator i samma nätverk som lokalt / privat datalagret.
 - Certifikat med jokertecken stöds. Om din FQDN-namn är **node1.domain.contoso.com**, du kan använda ***. domain.contoso.com** som ämnesnamnet för certifikatet.
 - SAN-certifikat rekommenderas inte eftersom det sista objektet i Alternativt ämnesnamn används och alla andra kommer att ignoreras på grund av aktuell begränsning. T.ex. du har ett SAN-certifikat vars SAN är **node1.domain.contoso.com** och **node2.domain.contoso.com**, du kan bara använda det här certifikatet på datorn vars FQDN är **node2.domain.contoso.com**.
 - Stöder alla nyckelstorlek som stöds av Windows Server 2012 R2 för SSL-certifikat.

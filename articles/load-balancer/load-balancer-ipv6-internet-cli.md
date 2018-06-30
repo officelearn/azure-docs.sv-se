@@ -1,10 +1,10 @@
 ---
 title: Skapa en offentlig belastningsutjämnare med IPv6 - Azure CLI | Microsoft Docs
-description: Lär dig hur du skapar en offentlig belastningsutjämnare med IPv6 i Azure Resource Manager med hjälp av Azure CLI.
+description: Lär dig hur du skapar en offentlig belastningsutjämnare med IPv6 med Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager
 keywords: IPv6, azure belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot
 ms.assetid: a1957c9c-9c1d-423e-9d5c-d71449bc1f37
@@ -13,21 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 06/25/2018
 ms.author: kumud
-ms.openlocfilehash: 62f22ccadfabd2f3d6906beb3c241703d4e6383f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 10698c79b11a47a465604f90bf63e180615a5ed7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30264038"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112742"
 ---
-# <a name="create-a-public-load-balancer-with-ipv6-in-azure-resource-manager-by-using-azure-cli"></a>Skapa en offentlig belastningsutjämnare med IPv6 i Azure Resource Manager med hjälp av Azure CLI
-
-> [!div class="op_single_selector"]
-> * [PowerShell](load-balancer-ipv6-internet-ps.md)
-> * [Azure CLI](load-balancer-ipv6-internet-cli.md)
-> * [Mall](load-balancer-ipv6-internet-template.md)
+# <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Skapa en offentlig belastningsutjämnare med IPv6 med Azure CLI
 
 
 En Azure belastningsutjämnare är en Layer 4-belastningsutjämnare (TCP, UDP). Belastningsutjämnare ger hög tillgänglighet genom att distribuera inkommande trafik mellan felfri tjänstinstanser i molntjänster eller virtuella datorer i en belastningen belastningsutjämnaren. Belastningsutjämnare kan också visa dessa tjänster på flera portar eller flera IP-adresser eller båda.
@@ -40,15 +35,15 @@ Följande diagram illustrerar belastningsutjämning lösning som distribueras me
 
 I det här scenariot skapar du följande Azure-resurser:
 
-* två virtuella datorer (VM)
-* ett virtuellt nätverksgränssnitt för varje virtuell dator med både IPv4 och IPv6-adresser som tilldelats
+* Två virtuella datorer (VM)
+* Ett virtuellt nätverksgränssnitt för varje virtuell dator med både IPv4 och IPv6-adresser som tilldelats
 * En offentlig belastningsutjämnare med en IPv4- och en offentlig IP-adress för IPv6
 * En tillgänglighetsuppsättning med två virtuella datorer
-* två läsa in belastningsutjämning regler för att mappa offentliga VIP till privata slutpunkter
+* Två läsa in belastningsutjämning regler för att mappa offentliga VIP till privata slutpunkter
 
 ## <a name="deploy-the-solution-by-using-azure-cli"></a>Distribuera lösningen med hjälp av Azure CLI
 
-Följande steg visar hur du skapar en offentlig belastningsutjämnare med Azure Resource Manager med Azure CLI. Med Azure Resource Manager kan du skapa och konfigurera varje objekt, och placera dem tillsammans för att skapa en resurs.
+Följande steg visar hur du skapar en offentlig belastningsutjämnare med hjälp av Azure CLI. Med CLI kan du skapa och konfigurera varje objekt individuellt, och placera dem tillsammans för att skapa en resurs.
 
 Om du vill distribuera en belastningsutjämnare, skapa och konfigurera följande objekt:
 
@@ -58,39 +53,13 @@ Om du vill distribuera en belastningsutjämnare, skapa och konfigurera följande
 * **Inkommande NAT-regler**: innehåller network adress translation (NAT) regler som mappar en offentlig port på belastningsutjämnaren till en port för en specifik virtuell dator i backend-adresspoolen.
 * **Avsökningar**: innehåller hälsoavsökningar som används för att kontrollera tillgängligheten för en virtuell datorinstans i backend-adresspoolen.
 
-Mer information finns i [Azure Resource Manager-stöd för belastningsutjämnare](load-balancer-arm.md).
-
-## <a name="set-up-your-azure-cli-environment-to-use-azure-resource-manager"></a>Konfigurera Azure CLI-miljön att använda Azure Resource Manager
+## <a name="set-up-azure-cli"></a>Konfigurera Azure CLI
 
 I det här exemplet kör du Azure CLI-verktygen i ett PowerShell-kommandofönster. För att förbättra läsbarhet och återanvändning kan använda du PowerShells skriptfunktioner, inte Azure PowerShell-cmdlets.
 
-1. Om du aldrig har använt Azure CLI, se [installera och konfigurera Azure CLI](../cli-install-nodejs.md) och följ instruktionerna upp till den punkt där du väljer Azure-konto och prenumeration.
+1. [Installera och konfigurera Azure CLI]((https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)) genom att följa stegen i den länkade artikeln och logga in på kontot.
 
-2. Om du vill växla till läget Resource Manager kör den **azure config mode** kommando:
-
-    ```azurecli
-    azure config mode arm
-    ```
-
-    Förväntad utdata:
-
-        info:    New mode is arm
-
-3. Logga in på Azure och få en lista över prenumerationer:
-
-    ```azurecli
-    azure login
-    ```
-
-4. Ange dina autentiseringsuppgifter för Azure i Kommandotolken:
-
-    ```azurecli
-    azure account list
-    ```
-
-5. Välj den prenumeration som du vill använda och notera prenumerations-ID för användning i nästa steg.
-
-6. Ställ in PowerShell variabler för användning med Azure CLI-kommandon:
+2. Ställ in PowerShell variabler för användning med Azure CLI-kommandon:
 
     ```powershell
     $subscriptionid = "########-####-####-####-############"  # enter subscription id
@@ -111,26 +80,26 @@ I det här exemplet kör du Azure CLI-verktygen i ett PowerShell-kommandofönste
 1. Skapa en resursgrupp:
 
     ```azurecli
-    azure group create $rgName $location
+    az group create $rgName $location
     ```
 
 2. Skapa en belastningsutjämnare:
 
     ```azurecli
-    $lb = azure network lb create --resource-group $rgname --location $location --name $lbName
+    $lb = az network lb create --resource-group $rgname --location $location --name $lbName
     ```
 
 3. Skapa ett virtuellt nätverk:
 
     ```azurecli
-    $vnet = azure network vnet create  --resource-group $rgname --name $vnetName --location $location --address-prefixes $vnetPrefix
+    $vnet = az network vnet create  --resource-group $rgname --name $vnetName --location $location --address-prefixes $vnetPrefix
     ```
 
 4. Skapa två undernät i det här virtuella nätverket:
 
     ```azurecli
-    $subnet1 = azure network vnet subnet create --resource-group $rgname --name $subnet1Name --address-prefix $subnet1Prefix --vnet-name $vnetName
-    $subnet2 = azure network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
+    $subnet1 = az network vnet subnet create --resource-group $rgname --name $subnet1Name --address-prefix $subnet1Prefix --vnet-name $vnetName
+    $subnet2 = az network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
     ```
 
 ## <a name="create-public-ip-addresses-for-the-front-end-pool"></a>Skapa den offentliga IP-adresser för frontend-pool
@@ -145,8 +114,8 @@ I det här exemplet kör du Azure CLI-verktygen i ett PowerShell-kommandofönste
 2. Skapa en offentlig IP-adress för frontend IP-adresspool:
 
     ```azurecli
-    $publicipV4 = azure network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --ip-version IPv4 --allocation-method Dynamic --domain-name-label $dnsLabel
-    $publicipV6 = azure network public-ip create --resource-group $rgname --name $publicIpv6Name --location $location --ip-version IPv6 --allocation-method Dynamic --domain-name-label $dnsLabel
+    $publicipV4 = az network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --ip-version IPv4 --allocation-method Dynamic --domain-name-label $dnsLabel
+    $publicipV6 = az network public-ip create --resource-group $rgname --name $publicIpv6Name --location $location --ip-version IPv6 --allocation-method Dynamic --domain-name-label $dnsLabel
     ```
 
     > [!IMPORTANT]
@@ -172,10 +141,10 @@ I det här avsnittet skapar du följande IP-adresspooler:
 2. Skapa en frontend IP-adresspool och koppla den till den offentliga IP-Adressen som du skapade i föregående steg och belastningsutjämnaren.
 
     ```azurecli
-    $frontendV4 = azure network lb frontend-ip create --resource-group $rgname --name $frontendV4Name --public-ip-name $publicIpv4Name --lb-name $lbName
-    $frontendV6 = azure network lb frontend-ip create --resource-group $rgname --name $frontendV6Name --public-ip-name $publicIpv6Name --lb-name $lbName
-    $backendAddressPoolV4 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV4Name --lb-name $lbName
-    $backendAddressPoolV6 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
+    $frontendV4 = az network lb frontend-ip create --resource-group $rgname --name $frontendV4Name --public-ip-name $publicIpv4Name --lb-name $lbName
+    $frontendV6 = az network lb frontend-ip create --resource-group $rgname --name $frontendV6Name --public-ip-name $publicIpv6Name --lb-name $lbName
+    $backendAddressPoolV4 = az network lb address-pool create --resource-group $rgname --name $backendAddressPoolV4Name --lb-name $lbName
+    $backendAddressPoolV6 = az network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
     ```
 
 ## <a name="create-the-probe-nat-rules-and-load-balancer-rules"></a>Skapa avsökningen, NAT-regler och belastningsutjämningsreglerna
@@ -185,7 +154,7 @@ I det här exemplet skapas följande objekt:
 * Avsökningen regel att söka efter anslutning till TCP-port 80.
 * En NAT-regel för att översätta all inkommande trafik på port 3389 till port 3389 för RDP.\*
 * En NAT-regel för att översätta all inkommande trafik på port 3391 till port 3389 för remote desktop protocol (RDP).\*
-* en regel för belastningsutjämnare ska hantera all inkommande trafik på port 80 till port 80 på adresser i backend-poolen.
+* En regel för belastningsutjämnare ska hantera all inkommande trafik på port 80 till port 80 på adresser i backend-poolen.
 
 \* NAT-regler som är associerade med en specifik virtuell dator instans bakom belastningsutjämnaren. Den nätverkstrafik som anländer på port 3389 skickas till en specifik virtuell dator och port som är associerad med NAT-regeln. Du måste ange ett protokoll (UDP eller TCP) för en NAT-regel. Du kan inte tilldela båda protokollen till samma port.
 
@@ -204,27 +173,27 @@ I det här exemplet skapas följande objekt:
     I följande exempel skapas en TCP-avsökning som kontrollerar anslutningen till backend-TCP-port 80 var 15: e sekund. Efter två på varandra följande fel markeras backend-resurs som inte tillgänglig.
 
     ```azurecli
-    $probeV4V6 = azure network lb probe create --resource-group $rgname --name $probeV4V6Name --protocol tcp --port 80 --interval 15 --count 2 --lb-name $lbName
+    $probeV4V6 = az network lb probe create --resource-group $rgname --name $probeV4V6Name --protocol tcp --port 80 --interval 15 --count 2 --lb-name $lbName
     ```
 
 3. Skapa inkommande NAT-regler som tillåter RDP-anslutningar till backend-resurser:
 
     ```azurecli
-    $inboundNatRuleRdp1 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule1V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3389 --backend-port 3389 --lb-name $lbName
-    $inboundNatRuleRdp2 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule2V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3391 --backend-port 3389 --lb-name $lbName
+    $inboundNatRuleRdp1 = az network lb inbound-nat-rule create --resource-group $rgname --name $natRule1V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3389 --backend-port 3389 --lb-name $lbName
+    $inboundNatRuleRdp2 = az network lb inbound-nat-rule create --resource-group $rgname --name $natRule2V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3391 --backend-port 3389 --lb-name $lbName
     ```
 
 4. Skapa belastningen belastningsutjämnaren regler som skickar trafik till andra backend-portar, beroende på klientdelen som tog emot begäran.
 
     ```azurecli
-    $lbruleIPv4 = azure network lb rule create --resource-group $rgname --name $lbRule1V4Name --frontend-ip-name $frontendV4Name --backend-address-pool-name $backendAddressPoolV4Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 80 --lb-name $lbName
-    $lbruleIPv6 = azure network lb rule create --resource-group $rgname --name $lbRule1V6Name --frontend-ip-name $frontendV6Name --backend-address-pool-name $backendAddressPoolV6Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 8080 --lb-name $lbName
+    $lbruleIPv4 = az network lb rule create --resource-group $rgname --name $lbRule1V4Name --frontend-ip-name $frontendV4Name --backend-address-pool-name $backendAddressPoolV4Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 80 --lb-name $lbName
+    $lbruleIPv6 = az network lb rule create --resource-group $rgname --name $lbRule1V6Name --frontend-ip-name $frontendV6Name --backend-address-pool-name $backendAddressPoolV6Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 8080 --lb-name $lbName
     ```
 
 5. Kontrollera inställningarna:
 
     ```azurecli
-    azure network lb show --resource-group $rgName --name $lbName
+    az network lb show --resource-group $rgName --name $lbName
     ```
 
     Förväntad utdata:
@@ -287,10 +256,10 @@ Skapa nätverkskort och koppla dem till NAT-regler, regler för inläsning av be
 2. Skapa ett nätverkskort för varje serverdel och Lägg till en IPv6-konfiguration:
 
     ```azurecli
-    $nic1 = azure network nic create --name $nic1Name --resource-group $rgname --location $location --private-ip-version "IPv4" --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule1V4Id
-    $nic1IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic1Name
+    $nic1 = az network nic create --name $nic1Name --resource-group $rgname --location $location --private-ip-version "IPv4" --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule1V4Id
+    $nic1IPv6 = az network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic1Name
 
-    $nic2 = azure network nic create --name $nic2Name --resource-group $rgname --location $location --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule2V4Id
+    $nic2 = az network nic create --name $nic2Name --resource-group $rgname --location $location --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule2V4Id
     $nic2IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic2Name
     ```
 
@@ -324,21 +293,21 @@ Du måste ha ett lagringskonto för att skapa virtuella datorer. Belastningsutj�
     Du kan använda ett befintligt lagringskonto när du skapar de virtuella datorerna. Du kan skapa ett nytt lagringskonto med hjälp av följande kommando:
 
     ```azurecli
-    $storageAcc = azure storage account create $storageAccountName --resource-group $rgName --location $location --sku-name "LRS" --kind "Storage"
+    $storageAcc = az storage account create $storageAccountName --resource-group $rgName --location $location --sku-name "LRS" --kind "Storage"
     ```
 
 3. Skapa tillgänglighetsuppsättningen:
 
     ```azurecli
-    $availabilitySet = azure availset create --name $availabilitySetName --resource-group $rgName --location $location
+    $availabilitySet = az vm availability-set create --name $availabilitySetName --resource-group $rgName --location $location
     ```
 
 4. Skapa de virtuella datorerna med associerade nätverkskort:
 
     ```azurecli
-    $vm1 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm1Name --nic-id $nic1Id --os-disk-vhd $osDisk1Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
+    $vm1 = az vm create --resource-group $rgname --location $location --availability-set $availabilitySet --name $vm1Name --nic-id $nic1Id --os-disk-vhd $osDisk1Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
 
-    $vm2 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm2Name --nic-id $nic2Id --os-disk-vhd $osDisk2Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
+    $vm2 = azure vm create --resource-group $rgname --location $location --availability-set $availabilitySet --name $vm2Name --nic-id $nic2Id --os-disk-vhd $osDisk2Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
     ```
 
 ## <a name="next-steps"></a>Nästa steg

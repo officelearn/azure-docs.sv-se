@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 340fb34c234a12f93fcfc3182ac3fd44fce324fe
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 96b23146e726b7fee86b7e449c81d7efc0073e8d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356121"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127677"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Rätta felstavade ord med Bing stavningskontroll
 
@@ -26,8 +26,9 @@ Din [första Bing stavningskontroll kontrollera API v7 nyckeln](https://azure.mi
 
 ![Skapa ledigt nyckel](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
-## <a name="create-subscription-key"></a>Skapa prenumeration nyckel
-Om din kostnadsfria nyckel har upphört att gälla, kan du skapa en prenumeration-nyckel.
+< en ”skapa-prenumeration-namnnyckel” ></a>
+## <a name="create-endpoint-key"></a>Skapa slutpunktsnyckel
+Om din kostnadsfria nyckel har upphört att gälla, kan du skapa en slutpunktsnyckel.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
@@ -56,7 +57,7 @@ Om din kostnadsfria nyckel har upphört att gälla, kan du skapa en prenumeratio
 10. Kopiera den första nyckeln. Du behöver bara en av två nycklar. 
 
 ## <a name="using-the-key-in-luis-test-panel"></a>Med hjälp av nyckeln THOMAS test Kontrollpanelen
-Det finns två platser i THOMAS angavs. Först är i den [test panelen](train-test.md#view-bing-spell-check-corrections-in-test-panel). Nyckeln sparas inte till THOMAS men är i stället en sessionsvariabeln. Du måste ange nyckeln varje gång du vill panelen test för att gälla utterance Bing stavningskontroll kontrollera API v7-tjänsten. Se [instruktioner](train-test.md#view-bing-spell-check-corrections-in-test-panel) på panelen test för att ställa in nyckeln.
+Det finns två platser i THOMAS angavs. Först är i den [test panelen](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Nyckeln sparas inte till THOMAS men är i stället en sessionsvariabeln. Du måste ange nyckeln varje gång du vill panelen test för att gälla utterance Bing stavningskontroll kontrollera API v7-tjänsten. Se [instruktioner](interactive-test.md#view-bing-spell-check-corrections-in-test-panel) på panelen test för att ställa in nyckeln.
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Att lägga till nyckeln slutpunkts-URL
 Frågan slutpunkt måste nyckeln som har skickats för varje fråga som du vill använda stavningskontrollen sträng Frågeparametrar. Du kan ha en chatbot som anropar THOMAS eller du kan anropa THOMAS slutpunkten API direkt. Oavsett hur slutpunkten anropas måste varje anrop innehålla information som behövs för stavningskorrigeringar ska fungera korrekt.

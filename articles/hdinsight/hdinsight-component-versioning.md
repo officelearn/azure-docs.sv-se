@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 3ac3df7f7861b8a12778190072e5554927706e08
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: f79d80a2743fb1a46fd2f17ec3b99d97e3b3d8d8
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061427"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111032"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
@@ -84,7 +84,6 @@ I följande tabell visas HDInsight-versioner som är tillgängliga i Azure Porta
 | HDInsight-version | HDP version | VM OS | Utgivningsdatum | Stöd för förfallodatum | Datumet för tillbakadragandet | Hög tillgänglighet |  Tillgänglighet på Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3,6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 april 2017 | | |Ja |Ja |
-| HDInsight 3.5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Ja |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |Den 2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nej |
 
 > [!NOTE]
@@ -97,6 +96,7 @@ I följande tabell visas de versioner av HDInsight **inte** tillgängliga i Azur
 
 | HDInsight-version | HDP version | VM OS | Utgivningsdatum | Stöd för förfallodatum | Datumet för tillbakadragandet | Hög tillgänglighet |  Tillgänglighet på Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Nej |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Den 29 mars 2016 |Den 29 december 2016 |9 januari 2018 |Ja |Nej |
 | HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Den 2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Nej |
 | HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS eller Windows Server 2012 R2 |18 februari 2015 |Den 1 mars 2016 |1 april 2017 |Ja |Nej |

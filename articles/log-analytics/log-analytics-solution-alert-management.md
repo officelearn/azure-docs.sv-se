@@ -4,22 +4,23 @@ description: Aviseringen hanteringslösning i logganalys hjälper dig att analys
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
-ms.service: operations-management-suite
+ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 0d9028b821e4c488186143311c81bfa6d17908ff
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: eb61a48e8c479db4742d65187b202655f29b032d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30181205"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131055"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Aviseringen hanteringslösning i Azure Log Analytics
 
@@ -70,7 +71,7 @@ Klicka på den **Aviseringshanteringen** öppna den **Alert Management** instrum
 |:--- |:--- |
 | Kritiska aviseringar |Alla aviseringar med en allvarlighetsgraden kritiskt grupperade efter namn på avisering.  Klicka på ett namn på avisering att köra en logg sökning returnera alla poster för den här aviseringen. |
 | Varningsaviseringar |Alla aviseringar med en allvarlighetsgrad för varning grupperade efter namn på avisering.  Klicka på ett namn på avisering att köra en logg sökning returnera alla poster för den här aviseringen. |
-| Aktiva SCOM aviseringar |Alla aviseringar som samlas in från Operations Manager med några tillstånd än *stängd* grupperade efter källa som skapade aviseringen. |
+| Aktiva SCOM-aviseringar |Alla aviseringar som samlas in från Operations Manager med några tillstånd än *stängd* grupperade efter källa som skapade aviseringen. |
 | Alla aktiva aviseringar |Alla varningar med några allvarlighetsgrad grupperade efter namn på avisering. Endast innehåller Operations Manager-varningar med några tillstånd än *stängd*. |
 
 Om du bläddrar till höger på instrumentpanelen visar några vanliga frågor som du kan klicka på för att utföra en [loggen Sök](log-analytics-log-searches.md) för aviseringsdata.
@@ -83,7 +84,7 @@ Aviseringen hanteringslösningen analyserar en post med en typ av **avisering**.
 
 Lösningen går att importera aviseringar från System Center Operations Manager och skapar en post för var och en med en typ av **avisering** och en SourceSystem av **OpsManager**.  Dessa poster har egenskaper i följande tabell:  
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | Typ |*Varning* |
 | SourceSystem |*OpsManager* |
@@ -111,13 +112,13 @@ Följande tabell innehåller exempel loggen söker efter avisering innehåller i
 
 | Fråga | Beskrivning |
 |:---|:---|
-| Varning &#124; där SourceSystem == ”OpsManager” och AlertSeverity == ”error” och TimeRaised > ago(24h) |Kritiska aviseringar som genererats under de senaste 24 timmarna |
-| Varning &#124; där AlertSeverity == ”varning” och TimeRaised > ago(24h) |Varningsaviseringar som genererats under de senaste 24 timmarna |
+| Varning &#124; där SourceSystem == ”OpsManager” och AlertSeverity == ”error” och TimeRaised > ago(24h) |Kritiska aviseringar som har genererats under de senaste 24 timmarna |
+| Varning &#124; där AlertSeverity == ”varning” och TimeRaised > ago(24h) |Varningsaviseringar som har genererats under de senaste 24 timmarna |
 | Varning &#124; där SourceSystem == ”OpsManager” och in AlertState! = ”stängd” och TimeRaised > ago(24h) &#124; sammanfatta Count = count() av SourceDisplayName |Källor med aktiva aviseringar som genererats under de senaste 24 timmarna |
 | Varning &#124; där SourceSystem == ”OpsManager” och AlertSeverity == ”error” och TimeRaised > ago(24h) och in AlertState! = ”stängd” |Kritiska aviseringar som genererats under de senaste 24 timmarna som fortfarande är aktiva |
 | Varning &#124; där SourceSystem == ”OpsManager” och TimeRaised > ago(24h) och in AlertState == ”stängd” |Aviseringar som genererats under de senaste 24 timmarna som nu har stängts |
-| Varning &#124; där SourceSystem == ”OpsManager” och TimeRaised > ago(1d) &#124; sammanfatta Count = count() av AlertSeverity |Aviseringar som genererats under de senaste 1 dagen grupperat efter allvarlighetsgrad |
-| Varning &#124; där SourceSystem == ”OpsManager” och TimeRaised > ago(1d) &#124; sortera efter RepeatCount desc |Aviseringar som genererats under de senaste 1 dagen sorterat efter upprepat antalsvärde |
+| Varning &#124; där SourceSystem == ”OpsManager” och TimeRaised > ago(1d) &#124; sammanfatta Count = count() av AlertSeverity |Aviseringar som genererats under den senaste 1 dagen grupperat efter allvarlighetsgrad |
+| Varning &#124; där SourceSystem == ”OpsManager” och TimeRaised > ago(1d) &#124; sortera efter RepeatCount desc |Aviseringar som har genererats under den senaste 1 dagen sorterat efter upprepat antalsvärde |
 
 
 

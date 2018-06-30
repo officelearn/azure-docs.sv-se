@@ -3,7 +3,7 @@ title: Samla in data från din miljö med Azure Log Analytics | Microsoft Docs
 description: Det här avsnittet hjälper dig att förstå hur samla in data och övervaka datorer i din lokala eller andra molnmiljö med logganalys.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 5bf1e12c958fef0cb20eaad8cece8cadb380c196
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: na
+ms.openlocfilehash: a13c83fc0d35be1aec87cb5f2d2b19b0bf27f1bf
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235948"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133128"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Samla in data från datorer i din miljö med logganalys
 
@@ -96,7 +97,7 @@ För Linux-agenten proxyservern har angetts under installationen eller [efter in
 Exempel: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> Om du använder specialtecken som ”@” lösenordet, du får en proxy-anslutningsfel eftersom värdet tolkas felaktigt.  Undvik problemet genom att koda lösenordet i URL-Adressen med ett verktyg som [URLDecode](https://www.urldecoder.org/).  
+> Om du använder specialtecken som ”\@” lösenordet, du får en proxy-anslutningsfel eftersom värdet tolkas felaktigt.  Undvik problemet genom att koda lösenordet i URL-Adressen med ett verktyg som [URLDecode](https://www.urldecoder.org/).  
 
 ## <a name="install-and-configure-agent"></a>Installera och konfigurera agenten 
 Ansluta dina lokala datorer direkt till Log Analytics kan åstadkommas med hjälp av olika metoder beroende på dina krav. Följande tabell visar varje metod för att avgöra vilka som fungerar bäst i din organisation.

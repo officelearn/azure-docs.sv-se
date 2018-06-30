@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: abb822483253fc5fce0e76afc2628806fe4485d8
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: f3faa9e811216cc930354b76903519a66f3d3587
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801770"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128819"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Etablera Linux compute-noder i Batch-pooler
 
-Du kan använda Azure Batch för att köra parallella beräkning av arbetsbelastningar på Linux- och Windows-datorer. Den här artikeln beskriver hur du skapar pooler för Linux compute-noder i Batch-tjänsten med både den [Batch Python] [ py_batch_package] och [Batch .NET] [ api_net] klientbibliotek.
+Du kan använda Azure Batch för att köra parallella beräkning av arbetsbelastningar på Linux- och Windows-datorer. Den här artikeln beskriver hur du skapar pooler för Linux compute-noder i Batch-tjänsten med både den [Batch Python] [ py_batch_package] och [Batch .NET] [ api_net]klientbibliotek.
 
 > [!NOTE]
 > Programpaket kan användas för alla Batch-pooler som skapats efter 5 juli 2017. De kan användas för Batch-pooler som skapats mellan 10 mars 2016 och 5 juli 2017, men endast om poolen skapades med en molntjänstkonfiguration. Programpaket kan inte användas för Batch-pooler som har skapats före 10 mars 2016. Mer information om hur du använder programpaket för att distribuera program till dina Batch-noder finns i [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md) (Distribuera program till beräkningsnoder med Batch-programpaket).
@@ -216,8 +216,8 @@ I följande tabell visas de virtuella datorn Marketplace-bilder som är kompatib
 
 | **Utgivare** | **Erbjudande** | **Bild SKU** | **Version** | **Noden agent SKU-ID** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| batch | återgivning centos73 | Återgivning | senaste | batch.node.centos 7 |
-| batch | återgivning windows2016 | Återgivning | senaste | batch.node.Windows amd64 |
+| batch | återgivning centos73 | återgivning | senaste | batch.node.centos 7 |
+| batch | återgivning windows2016 | återgivning | senaste | batch.node.Windows amd64 |
 | Canonical | UbuntuServer | 16.04-LTS | senaste | batch.node.Ubuntu 16.04 |
 | Canonical | UbuntuServer | 14.04.5-LTS | senaste | batch.node.Ubuntu 14.04 |
 | credativ | Debian | 9 | senaste | batch.node.debian 9 |
@@ -330,14 +330,10 @@ För en mer detaljerad vägledning om hur du arbetar med Batch med hjälp av Pyt
 ### <a name="batch-python-code-samples"></a>Batch Python-kodexempel
 Den [Python kodexempel] [ github_samples_py] i den [azure-batch-samples] [ github_samples] databasen på GitHub innehåller skript som visar hur du utför vanliga Batch-åtgärder, till exempel pool, jobb och skapa aktiviteter. Den [viktigt] [ github_py_readme] som medföljer Python exempel innehåller information om hur du installerar de nödvändiga paketen.
 
-### <a name="batch-forum"></a>Batch-forum
-Den [Azure Batch-Forum] [ forum] på MSDN är det bra att diskutera Batch och ställa frågor om tjänsten. Läs användbara ”fasta” anslår och publicera dina frågor när de uppstår när du skapar Batch-lösningar.
-
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [cloud_services_pricing]: https://azure.microsoft.com/pricing/details/cloud-services/
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
@@ -349,14 +345,14 @@ Den [Azure Batch-Forum] [ forum] på MSDN är det bra att diskutera Batch och st
 [net_list_skus]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listnodeagentskus.aspx
 [net_pool_ops]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.aspx
 [net_ssh_key]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenodeuser.sshpublickey.aspx
-[nuget_batch_net]: https://www.nuget.org/packages/Azure.Batch/
+[nuget_batch_net]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [py_account_ops]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations
 [py_azure_sdk]: https://pypi.python.org/pypi/azure
-[py_batch_docs]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.html
+[py_batch_docs]: https://azure-sdk-for-python.readthedocs.io/batch.html
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
-[py_computenodeuser]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.models.html#azure.batch.models.ComputeNodeUser
-[py_imagereference]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.models.html#azure.batch.models.ImageReference
+[py_computenodeuser]: https://docs.microsoft.com/python/api/azure.batch.models.computenodeuser
+[py_imagereference]: https://docs.microsoft.com/python/api/azure.mgmt.batch.models.imagereference
 [py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/

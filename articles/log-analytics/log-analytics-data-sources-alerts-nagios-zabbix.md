@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: a34a4be75488aca46fe232331e4bac3e0ac414b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 240e56e3e482b81d6336f7d6d2a1f5688953ecd8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637777"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131559"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Samla in aviseringar från Nagios och Zabbix i logganalys från OMS-Agent för Linux 
 [Nagios](https://www.nagios.org/) och [Zabbix](http://www.zabbix.com/) är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från dessa verktyg till Log Analytics för att analysera dem tillsammans med [aviseringar från andra källor](log-analytics-alerts.md).  Den här artikeln beskriver hur du konfigurerar OMS-Agent för Linux för att samla in varningar från dessa system.
@@ -105,7 +106,7 @@ Varna poster som samlas in av Zabbix har en **typen** av **avisering** och en **
 | Typ |*Varning* |
 | SourceSystem |*Zabbix* |
 | AlertName | Namnet på aviseringen. |
-| AlertPriority | Allvarlighetsgrad för aviseringen.<br><br>inte har klassificerats<br>information<br>Varning<br>genomsnittligt<br>Hög<br>katastrofåterställning  |
+| AlertPriority | Allvarlighetsgrad för aviseringen.<br><br>inte har klassificerats<br>information<br>Varning<br>genomsnittligt<br>hög<br>katastrofåterställning  |
 | In AlertState | Status för aviseringen.<br><br>0 - tillståndet är uppdaterad.<br>1 - tillståndet är okänt.  |
 | AlertTypeNumber | Anger om avisering kan skapa flera problem händelser.<br><br>0 - tillståndet är uppdaterad.<br>1 - tillståndet är okänt.    |
 | Kommentarer | Ytterligare kommentarer för aviseringen. |

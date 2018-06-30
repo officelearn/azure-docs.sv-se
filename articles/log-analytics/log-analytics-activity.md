@@ -3,7 +3,7 @@ title: Samla in och analysera Azure aktivitetsloggar i Log Analytics | Microsoft
 description: Du kan använda Azure aktivitetsloggar lösningen för att analysera och söka Azure aktivitetsloggen i alla dina Azure-prenumerationer.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: b6e823d9338d76a350569091d6794e3ac4a2eae9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: na
+ms.openlocfilehash: 0b05dc17fc7ba567bf633c25a080fbf56903935c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283392"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130334"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Samla in och analysera Azure aktivitetsloggar i logganalys
 
@@ -66,7 +67,7 @@ Till skillnad från de flesta andra logganalys-lösningar kan inte samlas in fö
 
 Utför följande steg för att konfigurera aktiviteten logganalys-lösningen för dina arbetsytor.
 
-1. Aktivera aktivitet logganalys-lösning från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) eller genom att använda processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).
+1. Aktivera Aktivitetslogganalys från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) eller använd processen som beskrivs i [Lägg till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
 2. Konfigurera aktivitetsloggar att gå till logganalys-arbetsytan.
     1. Välj din arbetsyta i Azure-portalen och klicka sedan på **Azure-aktivitetsloggen**.
     2. Klicka på prenumerationsnamn för varje prenumeration.  
@@ -85,11 +86,11 @@ När du lägger till aktiviteten logganalys-lösningen till din arbetsyta i **Az
 
 ### <a name="view-azure-activity-logs"></a>Visa Azure aktivitet loggar
 
-Klicka på den **Azure aktivitetsloggar** öppna den **Azure aktivitetsloggar** instrumentpanelen. Instrumentpanelen innehåller bladen i följande tabell. Varje bladet visar upp till 10 objekt som matchar det bladet villkoren för angivet omfång och tidsintervall. Du kan köra en sökning i loggen som returnerar alla poster genom att klicka på **se alla** längst ned på bladet eller genom att klicka på rubriken bladet.
+Klicka på den **Azure aktivitetsloggar** öppna den **Azure aktivitetsloggar** instrumentpanelen. Instrumentpanelen innehåller bladen i följande tabell. Varje blad visar en lista med upp till tio objekt som matchar bladets kriterier för angivet omfång och tidsintervall. Du kan köra en loggsökning som returnerar alla poster genom att klicka på **Se alla** längst ned på bladet eller genom att klicka på bladrubriken.
 
 Loggdata för aktivitet visas bara *när* du har konfigurerat din aktivitetsloggar att gå till lösning, så att du kan visa data innan.
 
-| Bladet | Beskrivning |
+| Blad | Beskrivning |
 | --- | --- |
 | Azure aktivitet loggposter | Visar ett liggande diagram över de Azure aktivitetsloggpost poster summor för intervallet som du har valt och visar en lista över de översta 10 aktivitet anropare. Klicka på diagrammet om du vill köra en logg sökning efter <code>AzureActivity</code>. Klicka på en anroparen objekt om du vill köra en logg sökning returnerar alla aktiviteten loggposter för objektet. |
 | Aktivitetsloggar efter Status | Visar ett ringdiagram för Azure log aktivitetsstatus för intervallet som du har valt. Visar en lista också en lista över de översta tio status-posterna. Klicka på diagrammet om du vill köra en logg sökning efter <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Klicka på en statusobjekt om du vill köra en logg sökning returnerar alla aktiviteten loggposter för posten status. |

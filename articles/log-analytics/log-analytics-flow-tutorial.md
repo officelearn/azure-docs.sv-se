@@ -3,21 +3,22 @@ title: Automatisera Azure logganalys-processer med Microsoft Flow
 description: Lär dig hur du kan använda Microsoft Flow för att automatisera snabbt repeterbara processer med hjälp av Azure logganalys-anslutningen.
 services: log-analytics
 documentationcenter: ''
-author: CFreemanwa
+author: mgoedtel
 manager: carmonm
 ms.service: log-analytics
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: 9884b97aad8f022e6bc20b2a630ccdd07ebc64db
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.component: na
+ms.openlocfilehash: 21cf7cf3d12902b02fcbf650a1623e78004d28b4
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
-ms.locfileid: "23889510"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131708"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatisera logganalys processer med connector för Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) kan du skapa automatiska arbetsflöden med hundratals åtgärder för en mängd olika tjänster. Utdata från en åtgärd kan användas som indata till en annan så att du kan skapa integration mellan olika tjänster.  Azure logganalys-koppling för Microsoft Flow kan du skapa arbetsflöden som innehåller data som hämtats av loggen söker i logganalys.

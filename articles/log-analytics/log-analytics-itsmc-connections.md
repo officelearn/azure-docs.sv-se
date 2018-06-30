@@ -2,7 +2,7 @@
 title: Stöd för anslutningar med IT Service Management-anslutningstjänsten i Azure Log Analytics | Microsoft Docs
 description: Den här artikeln innehåller information om hur du ansluter din ITSM produkter och tjänster med IT Service Management koppling (ITSMC) i OMS logganalys centralt övervaka och hantera arbetsuppgifter ITSM.
 documentationcenter: ''
-author: JYOTHIRMAISURI
+author: jyothirmaisuri
 manager: riyazp
 editor: ''
 ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
@@ -10,15 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 1c1c294a877a996dc0e6cb916b038dc0ca27ed5c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.component: na
+ms.openlocfilehash: 661107779b74b6e21dec01aecf6d545ec2b7a702
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061717"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131760"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Anslut ITSM produkter och tjänster med IT Service Management-anslutningstjänsten
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM produkter eller tjänster och IT Service Management-koppling (ITSMC) i logganalys centralt hantera din arbetsobjekt. Läs mer om ITSMC [översikt](log-analytics-itsmc-overview.md).

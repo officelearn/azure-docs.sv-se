@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/29/2018
 ms.author: jeffgilb
-ms.openlocfilehash: af820f90c5d8822dbdaa768b16360d534fd47828
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 74d888ffe28e5428b47bfc73122518c22d0f0918
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060050"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128715"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Lägg till värdservrar för SQL-resursprovidern
 
@@ -121,7 +121,8 @@ Konfigurera SQL Always On instanser kräver ytterligare åtgärder och kräver t
 > [!NOTE]
 > SQL-kort resursprovidern _endast_ stöder SQL 2016 SP1 Enterprise eller senare instanser för Always On. Den här konfigurationen för nätverkskort kräver nya SQL-funktioner som automatisk seeding.
 
-Dessutom måste du aktivera [automatisk Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) på varje tillgänglighetsgrupp för varje instans av SQL Server.
+### <a name="automatic-seeding"></a>Automatisk seeding
+Du måste aktivera [automatisk Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) på varje tillgänglighetsgrupp för varje instans av SQL Server.
 
 Om du vill aktivera automatisk seeding på alla instanser, redigera och kör följande SQL-kommando för varje instans:
 
@@ -136,6 +137,18 @@ Redigera och kör följande SQL-kommando för varje instans på de sekundära in
 
   ```
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
+
+### <a name="configure-contained-database-authentication"></a>Konfigurera innesluten databas-autentisering
+Se till att alternativet innesluten databas authentication server har angetts till 1 på varje server-instansen som är värd för en tillgänglighetsreplik för tillgänglighetsgruppen innan du lägger till en innesluten databas till en tillgänglighetsgrupp. Mer information finns i [innehöll Databasautentisering Server Configuration Option](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+
+Ange alternativ för innesluten databas autentisering för varje instans med hjälp av dessa kommandon:
+
+  ```
+  EXEC sp_configure 'contained database authentication', 1
+  GO
+  RECONFIGURE
   GO
   ```
 

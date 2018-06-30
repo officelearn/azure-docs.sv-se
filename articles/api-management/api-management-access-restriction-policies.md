@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5fbb4f8a15ee7ee8b6cecbe76391e2b2a7e4be1b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1b6aea5152e9eb5152b400d74d834e31eb883458
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31515357"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110253"
 ---
 # <a name="api-management-access-restriction-policies"></a>Principer för begränsning av API Management-åtkomst
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -40,7 +40,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 ### <a name="policy-statement"></a>Principframställning  
   
 ```xml  
-<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="True">  
+<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="true">  
     <value>Value1</value>  
     <value>Value2</value>  
 </check-header>  
@@ -115,7 +115,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |----------|-----------------|--------------|  
 |Ställ in gräns|Rotelementet.|Ja|  
 |api|Lägg till en eller flera av de här elementen att införa en anropet hastighetsbegränsning på API: er inom produkten. Produkt- och API anropa räntesats gränser som är oberoende av varandra. API: T kan vara refereras antingen via `name` eller `id`. Om båda attributen tillhandahålls `id` används och `name` kommer att ignoreras.|Nej|  
-|åtgärden|Lägg till en eller flera av de här elementen att införa en anropet hastighetsbegränsning på åtgärder i en API. Produkt-, API- och åtgärden anropa räntesats gränser som är oberoende av varandra. Åtgärden kan vara refereras antingen via `name` eller `id`. Om båda attributen tillhandahålls `id` används och `name` kommer att ignoreras.|Nej|  
+|åtgärd|Lägg till en eller flera av de här elementen att införa en anropet hastighetsbegränsning på åtgärder i en API. Produkt-, API- och åtgärden anropa räntesats gränser som är oberoende av varandra. Åtgärden kan vara refereras antingen via `name` eller `id`. Om båda attributen tillhandahålls `id` används och `name` kommer att ignoreras.|Nej|  
   
 ### <a name="attributes"></a>Attribut  
   
@@ -270,14 +270,14 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |----------|-----------------|--------------|  
 |kvot|Rotelementet.|Ja|  
 |api|Lägg till en eller flera av de här elementen att införa anropet kvoten på API: er inom produkten. Produkt- och API-anrop kvoter tillämpas oberoende av varandra. API: T kan vara refereras antingen via `name` eller `id`. Om båda attributen tillhandahålls `id` används och `name` kommer att ignoreras.|Nej|  
-|åtgärden|Lägg till en eller flera av de här elementen att vidta åtgärder i en API-anrop kvoten. Produkten, API och åtgärden anropet kvoter tillämpas oberoende av varandra. Åtgärden kan vara refereras antingen via `name` eller `id`. Om båda attributen tillhandahålls `id` används och `name` kommer att ignoreras.|Nej|  
+|åtgärd|Lägg till en eller flera av de här elementen att vidta åtgärder i en API-anrop kvoten. Produkten, API och åtgärden anropet kvoter tillämpas oberoende av varandra. Åtgärden kan vara refereras antingen via `name` eller `id`. Om båda attributen tillhandahålls `id` används och `name` kommer att ignoreras.|Nej|  
   
 ### <a name="attributes"></a>Attribut  
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
 |namn|Namnet på API: et eller åtgärden som kvoten gäller.|Ja|Gäller inte|  
-|Bandbredd|Det maximala totala antalet kilobyte tillåts under en tidsperiod som angetts i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
+|bandbredd|Det maximala totala antalet kilobyte tillåts under en tidsperiod som angetts i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
 |anrop|Det maximala totalt antalet anrop tillåts under en tidsperiod som angetts i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
 |förnyelseperioden|Hur lång tid i sekunder, efter vilken kvoten återställs.|Ja|Gäller inte|  
   
@@ -335,7 +335,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|Bandbredd|Det maximala totala antalet kilobyte tillåts under en tidsperiod som angetts i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
+|bandbredd|Det maximala totala antalet kilobyte tillåts under en tidsperiod som angetts i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
 |anrop|Det maximala totalt antalet anrop tillåts under en tidsperiod som angetts i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
 |motparterna nyckel|Nyckeln som ska användas för kvot principen.|Ja|Gäller inte|  
 |öka villkor|Den booleska uttryck som anger om begäran ska räknas mot kvoten (`true`)|Nej|Gäller inte|  
@@ -503,12 +503,12 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |misslyckades-validering-httpcode|HTTP-statuskoden ska returneras om JWT inte valideras.|Nej|401|  
 |huvudets namn|Namnet på det HTTP-huvud som denna token.|Antingen `header-name` eller `query-parameter-name` måste vara anges, men inte båda.|Gäller inte|  
 |id|Den `id` attributet för den `key` element kan du ange den sträng som matchas mot `kid` anspråk i token (om sådan finns) att ta reda på lämplig nyckel ska användas för signaturverifiering.|Nej|Gäller inte|  
-|Matcha|Den `match` attributet för den `claim` element anger om varje anspråksvärde i principen måste finnas i token för verifiering ska lyckas. Möjliga värden:<br /><br /> -                          `all` -värde för alla anspråk i principen måste finnas i token för verifiering ska lyckas.<br /><br /> -                          `any` -minst en anspråksvärdet måste finnas i token för verifiering ska lyckas.|Nej|all|  
+|matchning|Den `match` attributet för den `claim` element anger om varje anspråksvärde i principen måste finnas i token för verifiering ska lyckas. Möjliga värden:<br /><br /> -                          `all` -värde för alla anspråk i principen måste finnas i token för verifiering ska lyckas.<br /><br /> -                          `any` -minst en anspråksvärdet måste finnas i token för verifiering ska lyckas.|Nej|all|  
 |paremeter frågenamnet|Namnet på den Frågeparametern denna token.|Antingen `header-name` eller `query-paremeter-name` måste vara anges, men inte båda.|Gäller inte|  
 |kräver förfallotid|Booleskt värde. Anger om ett förfallodatum anspråk krävs i token.|Nej|true|
 |kräver schema|Namnet på token schemat, t.ex. ”Ägar”. När det här attributet anges säkerställer principen för det angivna schemat finns i huvudvärde auktorisering.|Nej|Gäller inte|
 |Kräv-signerad-token|Booleskt värde. Anger om det krävs en token som ska signeras.|Nej|true|  
-|avgränsare|Sträng. Anger avgränsare (t.ex. ””,) som ska användas för att extrahera en uppsättning värden från ett anspråk med flera värden.|Nej|Gäller inte| 
+|avgränsare|sträng. Anger avgränsare (t.ex. ””,) som ska användas för att extrahera en uppsättning värden från ett anspråk med flera värden.|Nej|Gäller inte| 
 |url|Öppna ID configuration slutpunkts-URL från där du kan hämta öppna ID configuration metadata. Svaret ska vara enligt specifikationerna som definierats på URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Använd följande URL för Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` ersätter din klient katalognamn, t.ex. `contoso.onmicrosoft.com`.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  

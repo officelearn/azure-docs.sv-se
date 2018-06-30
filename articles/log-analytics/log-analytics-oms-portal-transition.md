@@ -10,15 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: bwren
-ms.openlocfilehash: 5719dc3719739fb561626e307ee295729752c1fa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.component: na
+ms.openlocfilehash: e47e8cbd209ea34317ca9b176a2c4b0fef10a2b2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297761"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133160"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Flyttar till Azure OMS-portalen
 Tack för att använda OMS-portalen. Vi uppmuntras av din support och fortsätta att kraftigt investera i våra övervakning och hantering av tjänster. En typ av feedback upprepade gånger hört från kunder är behovet av en enda användarupplevelse att övervaka och hantera både lokala och Azure arbetsbelastningar. Du vet förmodligen Azure-portalen NAV för alla Azure-tjänster och ger en omfattande partnerhanteringsfunktionen med funktioner, till exempel instrumentpaneler för att fästa resurser, intelligent Sök för att hitta resurser och märkning för resurshantering. För att konsolidera och förenkla övervakning och hantering av arbetsflödet, börjar vi lägga till OMS portal funktionerna i Azure-portalen. Vi är glada över att meddela de flesta av funktionerna i OMS-portalen är nu en del av Azure-portalen. Några av de nya funktionerna, till exempel Traffic Manager är i själva verket bara tillgängliga i Azure-portalen. Det finns bara ett fåtal luckor återstående, mest impactful som fem lösningar som fortfarande pågår flyttas till Azure-portalen. Om du inte använder dessa funktioner, kommer du att kunna göra allt du gjorde i OMS-portalen med Azure-portalen och mycket mer. Om du inte redan gjort det, rekommenderar vi att du börjar med Azure-portalen idag! 
@@ -94,7 +95,7 @@ Med stöd för [cross-resurs frågor](log-analytics-cross-workspace-search.md), 
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure Network Security Group Analytics
-Den [Azure Network Security Group Analytics lösning](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) ersätts med de nyligen lanserade [trafik Analytics](../network-watcher/traffic-analytics.md) som ger inblick i användar- och programaktivitet på molnet nätverk. Trafik Analytics kan du granska din organisations nätverksaktivitet, säkra program och data, optimera arbetsbelastningsprestanda och vara kompatibla. 
+Den [Azure Network Security Group Analytics lösning](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) ersätts med de nyligen lanserade [trafik Analytics](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) som ger inblick i användar- och programaktivitet på molnet nätverk. Trafik Analytics kan du granska din organisations nätverksaktivitet, säkra program och data, optimera arbetsbelastningsprestanda och vara kompatibla. 
 
 Den här lösningen analyserar NSG flöda loggar och ger insikter om följande.
 
@@ -105,7 +106,7 @@ Den här lösningen analyserar NSG flöda loggar och ger insikter om följande.
 - Säkerhet inklusive skadlig trafik, öppna till Internet, program eller virtuella datorer som försöker Internetåtkomst portar.
 - Kapacitetsutnyttjande som du kan utesluta problem av över etablering och underutnyttjande.
 
-Du kan fortsätta att lita på diagnostikinställningar att skicka NSG-loggar till logganalys så att din befintliga sparade sökningar, aviseringar, instrumentpaneler fortsätter att fungera. Kunder som redan har installerat lösningen kan fortsätta att använda tills vidare. Starta 20 juni NSG lösningen tas bort från marketplace och tillgängliga via gemenskapen som en [Azure QuickStart mallen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
+Du kan fortsätta att lita på diagnostikinställningar att skicka NSG-loggar till logganalys så att din befintliga sparade sökningar, aviseringar, instrumentpaneler fortsätter att fungera. Kunder som redan har installerat lösningen kan fortsätta att använda tills vidare. Starta 20 juni Network Security Group Analytics lösningen tas bort från marketplace och tillgängliga via gemenskapen som en [Azure QuickStart mallen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
 
 ## <a name="next-steps"></a>Nästa steg
 - Se [vanliga frågor för övergången från OMS-portalen på Azure-portalen för Log Analytics användare](log-analytics-oms-portal-faq.md) anvisningar om hur du flyttar från OMS-portalen till Azure-portalen.

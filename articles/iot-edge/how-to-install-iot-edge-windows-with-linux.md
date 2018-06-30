@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: cd517d7e652b38c7ecf28a17657936698416413a
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 039ca304633eafa8211daffe1a4241b326eda6fb
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036261"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114109"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Installera Azure IoT kant körning i Windows för användning med Linux-behållare
 
@@ -87,15 +87,37 @@ Windows Registry Editor Version 5.00
 
 ## <a name="configure-the-azure-iot-edge-security-daemon"></a>Konfigurera Azure IoT-Edge Security-Daemon
 
-Daemonen kan konfigureras med hjälp av konfigurationsfilen på `C:\ProgramData\iotedge\config.yaml` gränsenheten kan konfigureras <!--[automatically via Device Provisioning Service][lnk-dps] or--> manuellt med hjälp av en [enheten anslutningssträngen][lnk-dcs].
+Daemonen kan konfigureras med hjälp av konfigurationsfilen på `C:\ProgramData\iotedge\config.yaml`.
 
-För manuell konfiguration, anger du enheten anslutningssträngen i **etablering:** avsnitt i **config.yaml**
+Gränsenheten kan konfigureras manuellt med hjälp av en [enheten anslutningssträngen] [ lnk-dcs] eller [automatiskt via enhet Etableringstjänsten] [ lnk-dps].
 
-```yaml
-provisioning:
-  source: "manual"
-  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-```
+* Manuell konfiguration kan du ta bort kommentarerna i **manuell** Etableringsläge. Uppdatera värdet i **device_connection_string** med anslutningssträngen från IoT-Edge-enhet.
+
+   ```yaml
+   provisioning:
+     source: "manual"
+     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   # provisioning: 
+   #   source: "dps"
+   #   global_endpoint: "https://global.azure-devices-provisioning.net"
+   #   scope_id: "{scope_id}"
+   #   registration_id: "{registration_id}"
+   ```
+
+* Automatisk konfiguration, Avkommentera den **dp** Etableringsläge. Uppdatera värdena för **scope_id** och **registration_id** med värden från din IoT-hubb DP-instans och enheten IoT kanten med TPM. 
+
+   ```yaml
+   # provisioning:
+   #   source: "manual"
+   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   provisioning: 
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "{scope_id}"
+     registration_id: "{registration_id}"
+   ```
 
 Hämta namnet på edge enheter med hjälp av `hostname` kommando i PowerShell och anges som värde för **värdnamn:** i konfigurationen yaml. Exempel:
 
@@ -156,6 +178,9 @@ Start-Service iotedge
 
 ## <a name="verify-successful-installation"></a>Kontrollera att installationen lyckades
 
+Om du har använt den **manuell konfiguration** stegen i föregående avsnitt IoT kant-körningen ska vara har etablerad och körs på enheten. Om du har använt den **automatisk konfiguration** steg, måste du slutföra några ytterligare steg så att körningen kan registrera din enhet med din IoT-hubb för din räkning. Nästa steg, se [skapa och etablera en simulerad TPM Edge-enhet i Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
+
+
 Du kan kontrollera status för tjänsten IoT kanten av: 
 
 ```powershell
@@ -191,8 +216,8 @@ Om du har problem med kant-körningsmiljön installeras korrekt, checka ut den [
 
 <!-- Links -->
 [lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
-[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
-[lnk-dps]: how-to-simulate-dps-tpm.md
+[lnk-dcs]: how-to-register-device-portal.md
+[lnk-dps]: how-to-auto-provision-simulated-device-windows.md
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md

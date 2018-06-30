@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 9f2fd54a1ce3cf8900b04545a258a32f9aa3e31a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: feefe68fbe6681ee4b450503606ac8c4f25d5a39
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647195"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130268"
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Konfigurera och återställa från Azure SQL Database långsiktig lagring av säkerhetskopior med hjälp av Azure Recovery Services-valv
 
@@ -265,6 +265,55 @@ $restoredDb
 
 > [!NOTE]
 > Härifrån kan du kan ansluta till den återställda databasen använder SQL Server Management Studio för att utföra uppgifter som krävs, exempelvis genom att extrahera en bit data från den återställda databasen ska kopieras till den befintliga databasen eller ta bort den befintliga databasen och Byt namn på den återställda databasen till det befintliga databasnamnet. Se [punkt tidpunkt för återställning](sql-database-recovery-using-backups.md#point-in-time-restore).
+
+## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>Hur du rensa säkerhetskopieringar i Recovery Services-valvet
+
+Från och med 1 juli 2018 LTR V1 API är inaktuell och alla befintliga säkerhetskopior i återställningstjänsten valv har migrerats till de behållare för lagring av LTR som hanteras av SQL-databas. För att säkerställa att du inte längre debiteras för de ursprungliga säkerhetskopiorna, har de tagits bort från valv efter migreringen. Men om du har placerat ett lås på ditt valv förblir säkerhetskopieringar det. För att undvika onödiga kostnader, kan du manuellt ta bort gamla säkerhetskopior från valvet Recovery-tjänsten med hjälp av följande skript. 
+
+```PowerShell
+<#
+.EXAMPLE
+    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}” 
+#>
+[CmdletBinding()]
+Param (
+    [Parameter(Mandatory = $true, HelpMessage="The vault subscription ID")]
+    $SubscriptionId,
+
+    [Parameter(Mandatory = $true, HelpMessage="The vault resource group name")]
+    $ResourceGroup,
+
+    [Parameter(Mandatory = $true, HelpMessage="The vault name")]
+    $VaultName
+)
+
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+$vaults = Get-AzureRmRecoveryServicesVault
+$vault = $vaults | where { $_.Name -eq $VaultName }
+
+Set-AzureRmRecoveryServicesVaultContext -Vault $vault
+
+$containers = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL
+
+ForEach ($container in $containers)
+{
+   $canDeleteContainer = $true  
+   $ItemCount = 0
+   Write-Host "Working on container" $container.Name
+   $items = Get-AzureRmRecoveryServicesBackupItem -container $container -WorkloadType AzureSQLDatabase
+   ForEach ($item in $items)
+   {
+          write-host "Deleting item" $item.name
+          Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
+   }
+
+   Write-Host "Deleting container" $container.Name
+   Unregister-AzureRmRecoveryServicesBackupContainer -Container $container
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: c9828504ab40a1e62c107f218fda024be6330c23
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: dd867462ce3a1841aa4e2e8943f2c2619d168b08
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061751"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112328"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Bläddra bland och hantera lagringsresurser med hjälp av Server Explorer
 
@@ -219,7 +219,7 @@ Du kan anpassa de entiteter som visas i en tabell om du använder Frågeverktyge
 1. När du är klar skapar frågan, Stäng dialogrutan. Formuläret text för frågan visas som ett filter för WCF Data Services i en textruta.
 1. Välj ikonen grön triangel om du vill köra frågan.
 
-Du kan också filtrera entitetsdata som visas i tabelldesignern om du anger en WCF-datatjänster Filtersträngen direkt i filter-textrutan. Den här typen av strängen liknar en SQL WHERE-sats men skickas till servern som en HTTP-begäran. Information om hur du skapar filtersträngar finns [filtret konstruerar strängar för tabelldesign](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+Du kan också filtrera entitetsdata som visas i tabelldesignern om du anger en WCF-datatjänster Filtersträngen direkt i filter-textrutan. Den här typen av strängen liknar en SQL WHERE-sats men skickas till servern som en HTTP-begäran. Information om hur du skapar filtersträngar finns [Constructing filtersträngar för tabelldesign](https://docs.microsoft.com/azure/vs-azure-tools-table-designer-construct-filter-strings).
 
 Följande bild visar ett exempel på ett giltigt filter-sträng:
 

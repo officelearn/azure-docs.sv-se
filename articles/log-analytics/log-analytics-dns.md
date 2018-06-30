@@ -3,7 +3,7 @@ title: DNS-Analytics lösning i Azure Log Analytics | Microsoft Docs
 description: Konfigurera och använda DNS-Analytics-lösning i logganalys att samla in insikter om DNS-infrastrukturen på säkerhet, prestanda och åtgärder.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 6a59cf8b9444fe7cb197501c51d10dae81acb027
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: na
+ms.openlocfilehash: a6f63fac85008425f473f431ae85d04f62eed667
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30241953"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127599"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in insikter om din DNS-infrastruktur med DNS-Analytics Preview-lösning
 
@@ -41,7 +42,7 @@ Lösningen samlar in, analyseras och korrelerar Windows DNS analytiska och grans
 
 I följande tabell beskrivs de anslutna källor som stöds av den här lösningen:
 
-| **Ansluten datakälla** | **Support** | **Beskrivning** |
+| **Ansluten källa** | **Support** | **Beskrivning** |
 | --- | --- | --- |
 | [Windows-agenter](log-analytics-windows-agent.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
 | [Linux-agenter](log-analytics-linux-agents.md) | Nej | Lösningen inte samlar in DNS-information direkt Linux-agenter. |
@@ -77,12 +78,12 @@ Klicka på instrumentpanelen i lösningen **Configuration** att öppna sidan DNS
 
 Om du använder Microsoft Monitoring Agent för att ansluta till Operations Management Suite-arbetsyta installeras följande hanteringspaket:
 
-- Microsoft DNS Data Collector Intelligence Pack (Microsft.IntelligencePacks.Dns)
+- Microsoft DNS-Data Collector informationspaketet (Microsft.IntelligencePacks.Dns)
 
 Om din Operations Manager-hanteringsgrupp är ansluten till Operations Management Suite-arbetsyta, installeras följande hanteringspaket i Operations Manager när du lägger till den här lösningen. Det finns ingen konfiguration eller underhåll av dessa hanteringspaket:
 
-- Microsoft DNS Data Collector Intelligence Pack (Microsft.IntelligencePacks.Dns)
-- Microsoft System Center Advisor DNS Analytics Configuration (Microsoft.IntelligencePack.Dns.Configuration)
+- Microsoft DNS-Data Collector informationspaketet (Microsft.IntelligencePacks.Dns)
+- Microsoft System Center Advisor DNS-konfiguration (Microsoft.IntelligencePack.Dns.Configuration)
 
 Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](log-analytics-om-agents.md).
 
@@ -122,7 +123,7 @@ Informationen hjälper dig att identifiera den:
 
 **Domäner som efterfrågas**. Innehåller de vanligaste domännamn som efterfrågas av DNS-klienter i din miljö. Du kan visa listan över alla domännamn som efterfrågas. Du kan också öka detaljnivån sökning begäran detaljer om ett visst domännamn i loggen sökningen.
 
-![Domains Queried blade](./media/log-analytics-dns/domains-queried-blade.png)
+![Domäner sökt bladet](./media/log-analytics-dns/domains-queried-blade.png)
 
 **DNS-klienter**. Rapporterar klienter *brott mot tröskelvärdet* för antal frågor i den valda tidsperioden. Du kan visa listan över DNS-klienter och detaljerna för de frågor som gjorts av dem i loggen sökningen.
 

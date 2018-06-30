@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/25/2018
+ms.topic: conceptual
+ms.date: 06/14/2018
 ms.author: bwren
-ms.openlocfilehash: 33b98c56cde8d4a876f217d0bbdd716d3a336260
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 1125cdb5b1cc6829345c71537582816d020edc53
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636740"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133025"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Skicka data till logganalys med HTTP-Data Collector API (förhandsversion)
 Den här artikeln visar hur du använder HTTP-Data Collector API för att skicka data till logganalys från en REST API-klient.  Det beskriver hur du formatera data som samlas in av skript eller program, inkludera den i en begäran och har den begäran som auktoriserad genom logganalys.  Exempel för för PowerShell, C# och Python.
@@ -60,7 +61,7 @@ Om du vill använda HTTP Data Collector-API: et kan du skapa en POST-begäran so
 | Auktorisering |Signaturen för auktorisering. Senare i artikeln kan du läsa om hur du skapar ett HMAC SHA256-huvud. |
 | Typ |Ange posttyp för de data som skickas. Loggtyp stöder för närvarande endast alfanumeriska tecken. Stöder inte siffror eller specialtecken. Storleksgränsen för den här parametern är 100 tecken. |
 | x-ms-date |Det datum då begäran bearbetades i RFC 1123 format. |
-| tid genererade fält |Namnet på ett fält i de data som innehåller dataobjektet tidsstämpel. Om du anger ett fält och dess innehåll används för **TimeGenerated**. Det får inte vara null och det måste innehålla ett giltigt datum. Om det här fältet har inte angetts, standard för **TimeGenerated** är den tid som meddelandet inhämtas. Innehållet i fältet meddelande bör följa ISO 8601-formatet ÅÅÅÅ-MM-ddTHH. |
+| tid genererade fält |Namnet på ett fält i de data som innehåller dataobjektet tidsstämpel. Om du anger ett fält och dess innehåll används för **TimeGenerated**. Om det här fältet har inte angetts, standard för **TimeGenerated** är den tid som meddelandet inhämtas. Innehållet i fältet meddelande bör följa ISO 8601-formatet ÅÅÅÅ-MM-ddTHH. |
 
 ## <a name="authorization"></a>Auktorisering
 Alla förfrågningar till Log Analytics HTTP Data Collector API måste innehålla ett authorization-huvud. För att autentisera en begäran, måste du registrera begäran med primärt eller den sekundära nyckeln för den arbetsyta som begäran kommer ifrån. Sedan överföra signaturen som en del av begäran.   
@@ -101,29 +102,33 @@ Exemplen i nästa avsnitt har exempelkod för att skapa ett authorization-huvud.
 Innehållet i meddelandet måste vara i JSON. Det måste innehålla en eller flera poster med egenskapen namn och värdepar i det här formatet:
 
 ```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 Du kan batch flera poster tillsammans i en enskild begäran med hjälp av följande format. Alla poster måste vara samma posttyp.
 
 ```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-},
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    },
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 ## <a name="record-type-and-properties"></a>Posttyp och egenskaper
@@ -137,7 +142,7 @@ Lägger till ett suffix till egenskapsnamnet för att identifiera en egenskapens
 |:--- |:--- |
 | Sträng |_S |
 | Boolesk |_b |
-| dubbla |_D |
+| Dubbel |_D |
 | Datum/tid |_Tätt |
 | GUID |_g |
 
@@ -382,7 +387,7 @@ namespace OIAPIExample
 
 ```
 
-### <a name="python-sample"></a>Python-exempel
+### <a name="python-2-sample"></a>Python-2-exempel
 ```
 import json
 import requests

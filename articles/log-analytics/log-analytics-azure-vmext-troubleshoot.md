@@ -3,23 +3,24 @@ title: Felsöka Azure Log Analytics VM-tillägget | Microsoft Docs
 description: Beskriv symptom, orsaker och upplösning för de flesta vanliga problem med Log Analytics VM-tillägg för Windows och Linux virtuella Azure-datorer.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: d1e70d8f9fb929e3877c88fd4c1169a0c76ac2a6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: na
+ms.openlocfilehash: 700d6b2c3bcd39aed38bf75556bcdcb59d1ab78b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29394994"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128834"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Felsöka Log Analytics VM-tillägget
 Du får hjälp med att felsöka fel som du kan uppleva med Log Analytics VM-tillägg för Windows och Linux virtuella datorer som körs på Microsoft Azure och ger förslag på lösningar för att lösa dem.
@@ -27,7 +28,7 @@ Du får hjälp med att felsöka fel som du kan uppleva med Log Analytics VM-till
 Utför följande steg för att kontrollera status för filnamnstillägget från Azure-portalen.
 
 1. Logga in på [Azure-portalen](http://portal.azure.com).
-2. I Azure-portalen klickar du på **alla tjänster**. I listan över resurser, skriver **virtuella datorer**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **virtuella datorer**.
+2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser, skriver **virtuella datorer**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **virtuella datorer**.
 3. Hitta och markera den i din lista över virtuella datorer.
 3. Klicka på den virtuella datorn, **tillägg**.
 4. Kontrollera i listan om logganalys-tillägget har aktiverats eller inte.  För Linux-agenten har listats som **OMSAgentforLinux** och för Windows, visas agenten som **MicrosoftMonitoringAgent**.

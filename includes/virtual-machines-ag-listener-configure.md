@@ -88,5 +88,30 @@ Tillgänglighetsgruppens lyssnare är en IP-adress och att SQL Server-tillgängl
 
     b. Ange Klusterparametrar genom att köra PowerShell-skriptet på en av klusternoderna.  
 
+Upprepa stegen ovan för att ange klusterparametrar för WSFC-klustrets IP-adress.
+
+1. Hämta IP-adress namnet på WSFC-klustrets IP-adress. I **Klusterhanteraren** under **klustrets kärnresurser**, leta upp **servernamn**.
+
+1. Högerklicka på **IP-adress**, och välj **egenskaper**.
+
+1. Kopiera den **namn** av IP-adressen. Det kan vara `Cluster IP Address`. 
+
+1. <a name="setwsfcparam"></a>Ange Klusterparametrar i PowerShell.
+    
+    a. Kopiera följande PowerShell-skript till en SQL Server-instanser. Uppdatera variablerna för din miljö.     
+    
+    ```PowerShell
+    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
+    $ILBIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+    [int]$ProbePort = <nnnnn>
+    
+    Import-Module FailoverClusters
+    
+    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+    ```
+
+    b. Ange Klusterparametrar genom att köra PowerShell-skriptet på en av klusternoderna.  
+
     > [!NOTE]
     > Om SQL Server-instanser finns i olika områden, måste du köra PowerShell-skriptet två gånger. Första gången ska du använda den `$ILBIP` och `$ProbePort` från det första området. Den andra gången använder den `$ILBIP` och `$ProbePort` från andra regioner. Klustrets nätverksnamn och IP-resurs klusternamnet är samma. 

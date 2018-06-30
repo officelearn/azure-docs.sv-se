@@ -3,7 +3,7 @@ title: Använda blob storage för IIS- och lagring för händelser i Azure Log A
 description: Logganalys kan läsa loggfiler för Azure-tjänster som skriver diagnostik till tabellagring eller IIS-loggar som skrivs till blob storage.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459ef90ca1d76bada6565bfefd7b4bd1086197d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: 8f923cc081ea652c8e32d4109225044c70c8767d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23855448"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128749"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Använda Azure blob storage för IIS och Azure-tabellagring för händelser med logganalys
 
@@ -66,7 +66,7 @@ Använd följande procedur för att aktivera Azure-diagnostik i en virtuell dato
      Den virtuella datorn har filnamnstillägget Azure Diagnostics installerade och körs när åtgärden har slutförts. Det här tillägget är ansvarig för att samla in diagnostikdata.
 2. Aktivera övervakning och konfigurera händelseloggning på en befintlig virtuell dator. Du kan aktivera diagnostik på VM-nivå. Om du vill aktivera diagnostik och sedan konfigurera händelseloggning, utför du följande steg:
 
-   1. Välj den virtuella datorn.
+   1. Välj VM.
    2. Klicka på **övervakning**.
    3. Klicka på **diagnostik**.
    4. Ange den **Status** till **på**.

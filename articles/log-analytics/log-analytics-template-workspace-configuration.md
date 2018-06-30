@@ -3,22 +3,24 @@ title: Använd Azure Resource Manager-mallar för att skapa och konfigurera en L
 description: Du kan använda Azure Resource Manager-mallar för att skapa och konfigurera logganalys arbetsytor.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
-manager: jochan
+author: mgoedtel
+manager: carmonm
 editor: ''
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
-ms.topic: article
-ms.date: 04/25/2018
-ms.author: richrund
-ms.openlocfilehash: 297f15430c64e5de3c10e6f38855664a50d11a8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: conceptual
+ms.date: 06/11/2018
+ms.author: magoedte
+ms.component: na
+ms.openlocfilehash: 6e23858bcc288b68a70750e7dbcecdf4b43b8870
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133133"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Hantera Log Analytics med hjälp av Azure Resource Manager-mallar
 Du kan använda [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) att skapa och konfigurera logganalys arbetsytor. Exempel på uppgifter som du kan utföra med mallar:
@@ -35,6 +37,16 @@ Du kan använda [Azure Resource Manager-mallar](../azure-resource-manager/resour
 * Konfigurera logganalys index data som samlas in med hjälp av Azure-diagnostik
 
 Den här artikeln innehåller mall-exempel som visar några av den konfiguration som du kan utföra med mallar.
+
+## <a name="api-versions"></a>API-versioner
+I följande tabell visas API-version för de resurser som används i det här exemplet.
+
+| Resurs | Resurstyp | API-version |
+|:---|:---|:---|:---|
+| Arbetsyta   | arbetsytor    | 2017-03-15-preview |
+| Search      | savedSearches | 2017-03-15-preview |
+| Datakälla | datakällor   | 2015-11-01-preview |
+| Lösning    | lösningar     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Skapa en logganalys-arbetsyta
 I följande exempel skapas en arbetsyta med hjälp av en mall från den lokala datorn. JSON-mall har konfigurerats för att endast uppmanar dig för att ange namnet på arbetsytan och anger ett standardvärde för de parametrar som sannolikt ska användas som en standardkonfiguration i din miljö.  

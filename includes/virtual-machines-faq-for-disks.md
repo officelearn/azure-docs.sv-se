@@ -2,18 +2,18 @@
 title: ta med fil
 description: ta med fil
 services: virtual-machines
-author: rogara
+author: roygara
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 812f11a1ced3bac765441bf66f402abb4da4bc3f
-ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.openlocfilehash: d05d6d4a8bfc4450de4881e704b0e9f7b7b4716d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35414577"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138151"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om Azure IaaS-VM och hanterade och ohanterade premiumdiskar
 
@@ -102,7 +102,7 @@ Kunder kan ta en ögonblicksbild av deras hanterade diskar och sedan använda ö
 Ja, både ohanterade och hanterade diskar stöds. Vi rekommenderar att du använder hanterade diskar för nya arbetsbelastningar och migrera dina aktuella arbetsbelastningar till hanterade diskar.
 
 
-**Om jag skapa en 128 GB disk och sedan öka storleken till 130 GB jag debiteras för nästa diskens storlek (512 GB)?**
+**Om jag skapa en 128 GB disk och sedan öka storleken till 130 GB jag debiteras för nästa diskens storlek (256 GB)?**
 
 Ja.
 
@@ -209,11 +209,11 @@ Nej.
 
 **Är Lagringstjänstens kryptering endast tillgänglig i vissa områden?**
 
-Nej. Den är tillgänglig i alla regioner där hanterade diskar är tillgängliga. Hanterade diskar är tillgänglig i alla offentliga regioner och Tyskland.
+Nej. Den är tillgänglig i alla regioner där hanterade diskar är tillgängliga. Hanterade diskar är tillgänglig i alla offentliga regioner och Tyskland. Det är också tillgängliga i Kina, men endast för Microsoft inte hanterade nycklar, kunden hanterade nycklar.
 
 **Hur kan jag ta reda om hanterade disken krypteras?**
 
-Du hittar den tid då en hanterad disk skapades från Azure-portalen, Azure CLI och PowerShell. Om tiden efter den 9 juni 2017 krypteras disken. 
+Du hittar den tid då en hanterad disk skapades från Azure-portalen, Azure CLI och PowerShell. Om tiden efter den 9 juni 2017 krypteras disken.
 
 **Hur kan jag kryptera Mina befintliga diskar som skapades före 10 juni 2017?**
 

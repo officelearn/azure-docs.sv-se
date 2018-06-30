@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 06/28/2018
 ms.author: mikejo
-ms.openlocfilehash: 34c667b0a594682e4d099e7bff64bfdb336b850b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2ff2a619dabd7dfabf89361172557efa4884ba12
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30292548"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110495"
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Konfigurera diagnostik för Azure-molntjänster och virtuella datorer
 När du behöver felsöka ett Azure-molntjänst eller den virtuella datorn använder du Visual Studio enklare ställa in Azure-diagnostik. Diagnostik avbildar systemdata och loggningsdata på virtuella datorer och instanser för virtuella datorer som kör Molntjänsten. Diagnostikdata överförs till ett lagringskonto som du väljer. Mer information om diagnostik loggning i Azure, se [aktivera diagnostikloggning för Web Apps i Azure App Service](app-service/web-sites-enable-diagnostic-log.md).
@@ -87,7 +87,11 @@ I Visual Studio kan du samla in diagnostikdata för roller som körs i Azure nä
    * Om du väljer **prenumerationen**, du kan välja de Azure-prenumeration som du vill använda och ange ett kontonamn. För att hantera dina Azure-prenumerationer, Välj **hantera konton**.
    * Om du väljer **autentiseringsuppgifterna anges manuellt**, ange namnet och nyckeln för det Azure-konto som du vill använda.
 5. Visa den **diagnostik configuration** dialogrutan **konfigurera**. Undantag för **allmänna** och **loggen kataloger**, varje flik representerar en diagnostik-datakälla som du kan samla in. Standard **allmänna** fliken erbjuder följande diagnostik alternativ för samlingen: **endast fel**, **All information**, och **anpassade plan**. Standard **endast fel** alternativet använder den minsta mängden lagring, eftersom den inte överföra varningar eller spårning av meddelanden. Den **All information** överför mycket mer information, använder mest lagring och därför är alternativet dyraste.
-   
+
+   > [!NOTE]
+   > Minsta storlek som stöds för ”Disk kvot i MB” är 4GB. Men om du samlar in minnesdumpar öka detta till ett högre värde som 10GB.
+   >
+  
     ![Aktivera Azure-diagnostik och konfiguration](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
 6. Det här exemplet väljer du den **anpassade plan** alternativ, så du kan anpassa insamlade data.
 7. I den **diskkvot i MB** kan du ange hur mycket utrymme för att allokera i ditt lagringskonto för diagnostikdata. Du kan ändra eller acceptera standardvärdet.
@@ -249,7 +253,7 @@ Om du vill veta problem med en molnbaserad tjänst som redan körs, kanske du vi
 ### <a name="to-set-up-diagnostics-for-a-running-cloud-service"></a>Konfigurera diagnostik för en molnbaserad tjänst som körs
 1. I Server Explorer expanderar den **molntjänster** nod, och sedan expandera listan över noder att hitta rollen eller instansen (eller båda) som du vill undersöka.
    
-    ![Konfigurera diagnostik](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC748913.png)
+    ![Konfigurera diagnostiken](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC748913.png)
 2. Välj på snabbmenyn för en instans noden eller rollen **uppdatera diagnostikinställningar**, och välj sedan de diagnostiska inställningar som du vill samla in.
    
     Information om inställningarna i avsnittet **ställa in diagnostik datakällor** i den här artikeln. Information om hur du visar diagnostikdata finns i avsnittet **visa diagnostikdata** i den här artikeln.

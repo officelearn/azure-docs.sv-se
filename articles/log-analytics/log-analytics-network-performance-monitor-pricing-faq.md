@@ -10,17 +10,18 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: 1e7e43dc2e7ed386f8f77fd1ab186d2ff34af405
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 96eb26d6a4faf8c6907d23ebf21f2446722c913b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177007"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127101"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Priser ändringar för Azure Network Performance Monitor
 
@@ -67,7 +68,7 @@ Kostnaden för att övervaka en enda undernät länk för hela månaden, finns d
 Kostnad för införandet (dataöverföringen till logganalys bearbetning och indexering) är tillgängligt på den [sida med priser](https://azure.microsoft.com/pricing/details/log-analytics/) för Log Analytics i avsnittet Datapåfyllning. Kostnad för datalagring (det vill säga data som behålls enligt kundens val efter den första månaden) är också tillgängligt på den [sida med priser](https://azure.microsoft.com/pricing/details/log-analytics/), i avsnittet datalagring.
 
 
-## <a name="expressroute-monitor"></a>Övervakare för ExpressRoute
+## <a name="expressroute-monitor"></a>ExpressRoute-övervakning
 
 **Vad är avgifter för användning av ExpressRoute-Övervakaren?**
 
@@ -107,8 +108,8 @@ Kunder med högre percentiler (i tabellen ovan) vanligtvis övervaka deras krets
 **Vad är avgifter för användning av tjänsten Endpoint övervakning?**
 
 Avgifter för användning av tjänsten Endpoint övervakning beräknas baserat på:
-* antalet anslutningar
-* mängden data
+* Antalet anslutningar
+* Mängden data
 
 **Vad är en anslutning?**
 

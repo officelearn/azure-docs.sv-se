@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: c1ba6cb5b01c86c64fd6134c592829050bbb226d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: b3525f461d0662db5bf3677f7e981bbdbc663d50
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34307557"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103651"
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Sakernas Internet security från grunden
 
@@ -33,7 +33,7 @@ Säkerhet, sekretess, genomskinlighet och efterlevnad av säkerhetsskäl får f�
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>Säker infrastruktur från grunden
 
-Den [Microsoft Cloud](https://www.microsoft.com/enterprise/microsoftcloud/default.aspx#fbid=WzBsRQi6aGk) infrastrukturen stöder mer än en miljard kunder i 127 länder. Ritning på Microsofts åren lång erfarenhet bygga företagsprogram och köra några av de största onlinetjänsterna i världen, ger Microsoft Cloud högre nivåer av förbättrad säkerhet, sekretess, efterlevnad och hot minskning praxis än de flesta kunder kan uppnå på egen hand.
+Den [Microsoft Cloud](https://azure.microsoft.com) infrastrukturen stöder mer än en miljard kunder i 127 länder. Ritning på Microsofts åren lång erfarenhet bygga företagsprogram och köra några av de största onlinetjänsterna i världen, ger Microsoft Cloud högre nivåer av förbättrad säkerhet, sekretess, efterlevnad och hot minskning praxis än de flesta kunder kan uppnå på egen hand.
 
 Den [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/) ger en obligatorisk företagsomfattande utvecklingsprocessen som bäddar in säkerhetskrav i livscykeln för hela programmet. För att säkerställa att driften följer samma nivå av säkerhetspraxis, använder SDL rigorösa säkerhetsriktlinjer utvecklas i Microsofts operativa säkerhet försäkran OSA processer. Microsoft fungerar även med tredjeparts-audit företag pågående verifiera att den uppfyller kraven efterlevnad och Microsoft bedriver bred säkerhet arbete genom att skapa mittpunkter utmärkt, inklusive Microsoft Digital Crimes Unit, Microsoft Security Response Center och Microsoft Malware Protection Center.
 

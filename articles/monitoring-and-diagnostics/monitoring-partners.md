@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/15/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: c8f8dbc4aa32b550849ff14f3ad653311b9fab93
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5d5b2e78755d6800f61e3e4adb1769799d01dad2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265291"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111531"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure övervakaren partner integreringar
 | Partner |  |  |
@@ -90,7 +90,7 @@ LogicMonitor® är den inledande SaaS-baserade prestandaövervakning plattform f
 Moogsoft AIOps påskyndar flexibel business-omvandling.
 
 Microsoft Azure Automation-och ange ett realtid fönster status för program och mikrotjänster som distribueras i Azure och hjälpa att dirigera diagnostik- och runbooks för snabbare reparation.
-Andra verktyg från tredje part ger ett fönster i lokal program och status för infrastruktur.
+Andra verktyg från tredje part tillhandahålla ett fönster till lokala program och status för infrastruktur.
 
 Moogsoft AIOps automatiserar händelsen reparation arbetsflödet utan att ändra befintliga processer och organisationens struktur. 
 

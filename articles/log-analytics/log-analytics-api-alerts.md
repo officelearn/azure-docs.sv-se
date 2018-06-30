@@ -4,23 +4,23 @@ description: 'Log Analytics avisering REST-API kan du skapa och hantera aviserin
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6987900ac2ef535fe31d4d1ecadb1a302a9c0be
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 9097ca13bf4f65db4b0924044a9c0f075e3703af
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178539"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128902"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Skapa och hantera Varningsregler i logganalys med REST API
 Log Analytics avisering REST-API kan du skapa och hantera aviseringar i Operations Management Suite (OMS).  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.
@@ -34,7 +34,7 @@ Aviseringar kan för närvarande kan endast skapas med en sparad sökning i logg
 En sparad sökning kan ha ett eller flera scheman. Schemat definierar hur ofta sökningen ska köras och det tidsintervall under vilken kriterierna som identifieras.
 Scheman har egenskaperna i följande tabell.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | Intervall |Hur ofta sökningen körs. Mätt i minuter. |
 | QueryTimeSpan |Det tidsintervall som villkoren utvärderas. Måste vara lika med eller större än intervall. Mätt i minuter. |
@@ -93,7 +93,7 @@ Ett schema kan ha flera åtgärder. En åtgärd kan definiera en eller flera pro
 
 Alla åtgärder ha egenskaperna i följande tabell.  Olika typer av aviseringar har olika ytterligare egenskaper som beskrivs nedan.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | Typ |Typ av åtgärd.  Möjliga värden är för närvarande aviseringen och Webhooken. |
 | Namn |Visningsnamn för aviseringen. |
@@ -137,7 +137,7 @@ Ett schema ska ha en Aviseringsåtgärd.  Aviseringsåtgärder har en eller fler
 | Section | Beskrivning | Användning |
 |:--- |:--- |:--- |
 | Tröskelvärde |Kriterier för när instruktionen körs.| Krävs för varje avisering före eller efter att de har utökats till Azure. |
-| Allvarsgrad |Etiketten används för att klassificera avisering när den utlöses.| Krävs för varje avisering före eller efter att de har utökats till Azure. |
+| Severity |Etiketten används för att klassificera avisering när den utlöses.| Krävs för varje avisering före eller efter att de har utökats till Azure. |
 | Åtgärdsgrupper |ID: N för Azure ActionGroup där åtgärder som krävs har angetts som - e-postmeddelanden, SMSs, röstsamtal, Webhooks, Automation-Runbooks, ITSM kopplingar och så vidare.| Krävs när aviseringar har utökats till Azure|
 | Anpassa åtgärder|Ändra standardutdata för väljer åtgärder från ActionGroup| Valfritt för varje avisering kan användas när aviseringar har utökats till Azure. |
 | EmailNotification |Skicka e-post till flera mottagare. | Krävs inte, om aviseringar har utökats till Azure|
@@ -147,12 +147,12 @@ Ett schema ska ha en Aviseringsåtgärd.  Aviseringsåtgärder har en eller fler
 > [!NOTE]
 > Från den 14 maj 2018 utökas alla aviseringar i en arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utöka aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar till Azure från OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
 
-#### <a name="thresholds"></a>Tröskelvärden
+#### <a name="thresholds"></a>Tröskel
 En åtgärd måste ha ett och endast ett tröskelvärde.  När resultatet av en sparad sökning matchar tröskelvärdet i en åtgärd som är associerade med sökningen kör några andra processer i åtgärden.  En åtgärd kan också innehålla endast ett tröskelvärde så att den kan användas med åtgärder för andra typer som inte innehåller tröskelvärden.
 
 Tröskelvärden har egenskaperna i följande tabell.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | Operator |Operator för tröskelvärde jämförelse. <br> gt = större än <br> lt = mindre än |
 | Värde |Värdet för tröskelvärdet. |
@@ -182,12 +182,12 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en åtgärd
     $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
-#### <a name="severity"></a>Allvarsgrad
+#### <a name="severity"></a>Severity
 Log Analytics kan du klassificera aviseringar i kategorier så att enklare hantering och prioritering. Allvarlighetsgrad som definierats är: information, varningar och kritiska. Dessa mappas till normaliserade allvarlighetsgrad skalan för Azure-aviseringar som:
 
 |Allvarlighetsgrad för log Analytics  |Allvarlighetsgrad för Azure-aviseringar  |
 |---------|---------|
-|kritiska |Sev 0|
+|Kritiska |Sev 0|
 |Varning |Sev 1|
 |Information | Sev 2|
 
@@ -326,7 +326,7 @@ E-postaviseringar skicka e-post till en eller flera mottagare.  De omfattar egen
 > Från den 14 maj 2018 utökas alla aviseringar i en arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utöka aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar till Azure från OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Åtgärder som e-postavisering styrs nu i Azure åtgärdsgrupper för användare som utökar aviseringar till Azure. När en arbetsyta och dess aviseringar utökas till Azure, kan du hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | Mottagare |Lista över e-postadresser. |
 | Ämne |Ämnet för e-postmeddelandet. |
@@ -371,7 +371,7 @@ Reparationer startar en runbook i Azure Automation som försöker åtgärda prob
 
 Reparationer innehålla egenskaperna i följande tabell.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | RunbookName |Namnet på runbook. Detta måste matcha en publicerad runbook i automation-kontot som konfigurerats i Automation-lösningen i OMS-arbetsyta. |
 | WebhookUri |URI för webhooken. |

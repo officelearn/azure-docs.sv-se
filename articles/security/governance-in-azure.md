@@ -1,6 +1,6 @@
 ---
 title: Styrning i Azure | Microsoft Docs
-description: Läs mer om molnbaserad databearbetning tjänster som omfattar ett brett urval av compute-instanser och tjänster som kan skalas upp och ned automatiskt så att den passar ditt program-eller enterprise.
+description: Mer information om molnbaserade databehandling tjänster som kan skalas upp och ned för att uppfylla behoven i programmet eller enterprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,230 +14,161 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c0794ebd953160c8569502db5d58c6d2b9ad892a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9c6509f25be7fe520a427e17ca1206e10f296fea
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061504"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110770"
 ---
 # <a name="governance-in-azure"></a>Styrning i Azure
 
-Vi vet att säkerhet är ett jobb i molnet och det är viktigt att du hitta korrekt och rimlig information om säkerheten i Azure. Ett av de bästa skälen att använda Azure för dina program och tjänster är att dra nytta av dess mängd säkerhetsverktyg och funktioner. Dessa verktyg och funktioner för att göra det möjligt att skapa säkra lösningar för säkra Azure-plattformen.
+Azure ger dig många säkerhetsalternativ och möjlighet att styra dem så att du kan uppfylla de specifika behoven för din organisation distributioner.
 
-För att hjälpa dig att bättre förstå matrisen för styrning kontroller som implementerats i Microsoft Azure från både kund- och Microsoft operations perspektiv, den här artikeln ”styrning i Azure” skrivs att tillhandahålla en omfattande titt på styrningen funktioner som är tillgängliga med Microsoft Azure.
+Azure-molnet styrning refererar till beslutsprocesser, villkor och principer som ingår i planeringen, arkitektur, förvärv, distribution, åtgärden och hantering av molntjänster. Azure-molnet styrning ger en integrerad granskning och rådgivning metod för att granska och ge råd organisationer på deras användning av Azure-plattformen. 
 
-## <a name="azure-platform"></a>Azure-plattformen
+Om du vill skapa en plan för Azure-molnet styrning, måste du ta en titt på personer, processer och tekniker nu på plats. Du kan sedan skapa ramverk som gör det lättare för IT att stödja konsekvent affärsbehov och ger användarna möjlighet att använda funktioner i Azure.
 
-Azure är en offentlig molntjänstplattform som har stöd för ett brett urval av operativsystem, programmeringsspråk, ramverk, verktyg, databaser och enheter. Det kan köras Linux behållare med Dockers integration. skapa appar med JavaScript, Python, .NET, PHP, Java och Node.js; build-servrar för iOS, Android och Windows enheter. Offentliga Azure-molnet och support att samma tekniker miljontals utvecklare och IT-proffs redan förlitar sig på och litar på.
+## <a name="implementation-of-policies-processes-and-standards"></a>Implementering av principer, processer och standarder 
 
-När du bygger på, eller migrera IT tillgångar, en offentlig molntjänstleverantör du förlita dig på den organisationens förmåga att skydda dina program och data med tjänster och kontrollerna som ger för att hantera säkerheten för din molnbaserade tillgångar.
+Management har upprättat roller och ansvarsområden som övervakar implementering av information säkerhetsprinciper och fungerar kontinuitet i Azure. Azure management är ansvarig för att granska säkerhet och kontinuiteten praxis inom sina respektive grupper (inklusive tredje part). Gör det också lättare efterlevnad med principer, processer och standarder.
 
-Azures infrastruktur från funktionen är utformad för att program som värd för miljontals kunder samtidigt och ger en säker grund som företag kan uppfylla sina säkerhetskrav. Dessutom ger Azure dig många säkerhetsalternativ och möjlighet att styra dem så att du kan anpassa säkerhet för att uppfylla de specifika behoven för din organisation distributioner.
+### <a name="account-provisioning"></a>Kontoetablering
 
-Det här dokumentet hjälper dig att förstå hur Azure styrning funktioner kan hjälpa dig att uppfylla kraven.
-
-## <a name="abstract"></a>Abstrakt
-
-Microsoft Azure cloud styrning ger en integrerad granskning och rådgivning metod för att granska och ge råd organisationer på deras användning av Azure-plattformen. Microsoft Azure cloud styrning refererar till beslutsprocesser, villkor och principer som ingår i planeringen, arkitektur, förvärv, distribution, åtgärden och hantering av ett moln datoranvändning.
-
-Om du vill skapa en plan för Microsoft Azure cloud styrning, måste du ta en titt på personer, processer och tekniker för närvarande på plats och skapa ramverk som gör det lättare för IT att stödja affärsbehov och ger användarna konsekvent möjlighet att använda kraftfulla funktioner i Microsoft Azure.
-
-Det här dokumentet beskriver hur du kan uppnå en förhöjd styrning av din IT-resurser i Microsoft Azure. Det här dokumentet hjälper dig att förstå de funktioner för säkerhet och styrning inbyggd i Microsoft Azure.
-
-Följande är main styrning problem som beskrivs i det här dokumentet:
-
-- Genomförande av principer, processer och procedurer enligt organisationens mål.
-
-- Säkerhet och kontinuerlig organisation krav uppfylls
-
-- Övervakning och aviseringar
-
-## <a name="implementation-of-policies-processes-and-procedures"></a>Implementering av principer, processer och procedurer 
-
-Management har upprättat roller och ansvarsområden som övervakar genomförandet av information säkerhetsprincip och operativa kontinuitet i Azure. Microsoft Azure management är ansvarig för att granska säkerhets- och kontinuiteten rutiner inom sina respektive grupper (inklusive tredje part) och gör det lättare att efterlevnad med principer, processer och standarder.
-
-Här följer de faktorer som utvecklats:
-
-- Kontoetablering
-
-- Prenumerationen kontroller
-
-- Roll baserad åtkomstkontroll
-
-- Resurshantering
-
-- Resursen spårning
-
-- Kritisk resurskontroll
-
-- Åtkomst till faktureringsinformation API
-
-- Kontroller för nätverk
-
-## <a name="account-provisioning"></a>Kontoetablering
-
-Definiera Kontohierarki är ett viktigt steg för att använda och struktur Azure services inom ett företag och är styrningsstrukturen kärnor. Vid kunder med enterprise-avtal kan kunder ytterligare dela upp miljö till avdelningar, konton och slutligen prenumerationer.
+Definiera Kontohierarki är ett viktigt steg för att använda och struktur Azure-tjänster inom ett företag. Det är styrningsstrukturen kärnor. Kunder som har ett Enterprise-avtal (EA) kan du dela upp miljö till avdelningar, konton och prenumerationer.
 
 ![Kontoetablering](./media/governance-in-azure/security-governance-in-azure-fig1.png)
 
-Om du inte har ett enterprise-avtal, bör du använda [Azure taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) på prenumerationsnivån att definiera hierarki. En Azure-prenumeration är den grundläggande enheten där alla resurser som ingår. Den definierar också flera begränsningar i Azure, till exempel antal kärnor, resurser osv. Prenumerationer kan innehålla [resursgrupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), som kan innehålla resurser. [RBAC](https://docs.microsoft.com/azure/api-management/api-management-role-based-access-control) principer som tillämpas på dessa tre nivåer.
+Om du inte har ett Enterprise-avtal kan du använda [Azure taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) på prenumerationsnivån att definiera hierarkin. En Azure-prenumeration är den grundläggande enheten som innehåller alla resurser. Den definierar också flera begränsningar i Azure, till exempel antalet kärnor och resurser. Prenumerationer kan innehålla [resursgrupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), som kan innehålla resurser. [Rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) principer som tillämpas på dessa tre nivåer.
 
-Alla företag har olika och hierarkin med hjälp av Azure taggar vid företagskunder tillåter stor flexibilitet i hur Azure ordnas inom företaget. Innan du distribuerar resurserna i Microsoft Azure, bör du modellen hierarkin och förstå effekten på fakturering, åtkomst till företagsresurser och komplexitet.
+Alla företag har olika. För icke-enterprise företag tillåter hierarki med hjälp av Azure taggar flexibilitet i hur Azure organiseras. Innan du distribuerar resurser i Azure bör du utforma en hierarki och förstå effekten på fakturering, åtkomst till företagsresurser och komplexitet.
 
-## <a name="subscription-controls"></a>Prenumerationen kontroller
+### <a name="subscription-controls"></a>Prenumerationen kontroller
 
-Prenumerationen styr hur resursförbrukning rapporteras och debiteras. Prenumerationer kan konfigureras för separata fakturering och betalning. Vi kan ha flera prenumerationer som nämnts tidigare i en Azure-konto. Prenumerationer kan användas för att fastställa Azure resursanvändningen för flera avdelningar i ett företag.
+Prenumerationer avgör hur resursförbrukning rapporteras och debiteras. Du kan konfigurera prenumerationer för separata fakturering och betalning. En Azure-konto kan ha flera prenumerationer. Prenumerationer kan användas för att fastställa Azure resursanvändningen för flera avdelningar i ett företag.
 
-Om exempelvis ett företag har IT-avdelningen, HR och marknadsföring avdelningar och dessa har olika projekt som körs. Baserat på användning av Azure-resurser som virtuella datorer av varje avdelning, kan de faktureras därefter. Vi kan styra ekonomi för varje avdelning av detta.
+Till exempel ett företag har IT-avdelningen, HR, och marknadsföring avdelningar, och dessa kör olika projekt. Företaget kan basera dess fakturering på varje avdelning användning av Azure-resurser, t.ex. virtuella datorer. Företaget kan sedan kontrollera ekonomi för varje avdelning.
 
 Azure-prenumerationer upprätta tre parametrar:
 
-- ett unikt prenumerations-ID
+- Unikt prenumerations-ID
 
-- en fakturering plats
+- Plats för fakturering
 
 - Uppsättning av tillgängliga resurser
 
-För en individ, som omfattar en Microsoft-konto-ID, kreditkortsnummer och hela sviten för Azure-tjänster – även om Microsoft tillämpar förbrukning gränser, beroende på vilken prenumerationstyp.
+För en enskild innehåller parametrarna en Microsoft-konto-ID, kreditkortsnummer och hela sviten för Azure-tjänster. Microsoft tillämpar förbrukning gränser, beroende på vilken prenumerationstyp.
 
-Registrering av Azure hierarkier definiera hur tjänster är strukturerade inom ett Enterprise-avtal. Enterprise Portal möjligheten för kunder att dela åtkomst till Azure-resurser som är associerade med ett Enterprise-avtal baserat på flexibla hierarkier anpassningsbara till en organisations unika behov. Hierarkin mönstret måste matcha en organisations hantering och geografiska struktur så att den associera fakturerings- och åtkomsten kan redovisas korrekt.
+Registrering av Azure hierarkier definiera hur tjänster är strukturerade inom ett Enterprise-avtal. Enterprise-avtal portal ger kunder möjlighet att dela åtkomst till Azure-resurser som är associerade med ett Enterprise-avtal baserat på flexibla hierarkier som kan anpassas efter organisationens behov. Hierarkin mönstret måste matcha en organisations hantering och geografiska struktur för den associera fakturerings- och åtkomsten.
 
-De tre övergripande mönster är funktionell, affärsenhet och geografiska, med avdelningar som en administrativ konstruktion för kontot grupperingar. Inom varje avdelning kan tilldelas konton prenumerationer som skapar silor för fakturering och flera viktiga begränsningar i Azure (t.ex. antalet virtuella datorer, lagringskonton osv.).
+De tre övergripande hierarki mönster är funktionell, affärsenhet och geografiska. Avdelningar är en administrativ konstruktion för kontot grupperingar. Inom varje avdelning kan tilldelas konton prenumerationer som skapar silor för fakturering och flera viktiga begränsningar i Azure (till exempel antal virtuella datorer och storage-konton).
 
 ![Prenumerationen kontroller](./media/governance-in-azure/security-governance-in-azure-fig2.png)
 
 
 För organisationer med ett Enterprise-avtal så en hierarki i fyra nivåer i Azure-prenumerationer:
 
-- registreringen företagsadministratör
+1. registreringen företagsadministratör
 
-- avdelning administratör
+2. avdelning administratör
 
-- kontoägaren
+3. kontoägaren
 
-- Tjänstadministratör
+4. Tjänstadministratör
 
 Den här hierarkin styr följande:
 
-- Fakturering relation
+- Fakturering relation.
 
-- Administrationen
+- Administrationen.
 
-- Rollen åtkomstkontroll (RBAC) till artefakter
+- Åtkomst till resurser via RBAC.
 
-- Gränser-gränser
-
-- Gränser
+- Gränser:
 
   - Användnings- och fakturering (priskort baserat på erbjudande siffror)
 
   - Begränsningar
 
-  - Virtual Network
+  - Virtuellt nätverk
 
-- Ansluten till 1 AAD (1 AAD associeras med många prenumerationer)
+- Bifogad fil till Azure Active Directory (AD Azure). En Azure AD-instans kan vara associerat med många prenumerationer.
 
-- Som är associerade med ett konto för enterprise-registrering
+- Kopplingen med ett konto för registrering av företaget.
 
-## <a name="role-based-access-controls"></a>Rollbaserad åtkomstkontroll
+### <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-När Azure släpptes ursprungligen, åtkomstkontroller för att en prenumeration har grundläggande: administratör eller medadministratör. Åtkomst till en prenumeration i klassiskt modell underförstådda åtkomst till alla resurser i portalen. Den här bristen på finmaskig kontroll ledde till den ökande mängden av prenumerationer att ge en rimlig åtkomstkontroll för en Azure-registrering.
+[RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) möjliggör detaljerad åtkomsthantering av resurser i Azure. Med RBAC kan bevilja du endast åtkomstnivå som användare måste utföra sitt arbete. Företag bör fokusera på att ge anställda behörigheterna exakt som de behöver. För många behörigheter exponerar ett konto för attacker. För få behörigheter innebär att anställda kan få arbetet gjort effektivt. 
 
-![Rollbaserad åtkomstkontroll](./media/governance-in-azure/security-governance-in-azure-fig3.png)
+Obegränsad istället för att ge alla behörigheter i din Azure-prenumeration eller resurser, kan du tillåta endast vissa åtgärder. Du kan till exempel använda RBAC så att en medarbetare som hanterar virtuella datorer i en prenumeration medan en annan medarbetare hanterar SQL-databaser i samma prenumeration.
 
-Den här spridning av prenumerationer behövs inte längre. Du kan tilldela användare till standardroller (till exempel ”reader” och ”författare” vanliga roller) med rollbaserad åtkomstkontroll. Du kan också definiera anpassade roller.
+Om du vill bevilja åtkomst, tilldela roller till användare, grupper eller program för ett visst område. Omfånget för en rolltilldelning kan vara en prenumeration, resursgrupp eller en enskild resurs. En roll som tilldelats en överordnad omfattning även ger åtkomst till underordnade som finns i den. En användare med åtkomst till en resursgrupp kan exempelvis hantera alla resurser som den innehåller som webbplatser, virtuella datorer och undernät. Du kan skapa upp till 2 000 rolltilldelningar inom varje prenumeration.
 
-[Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) Aktivera detaljerad åtkomsthantering för Azure. Med RBAC kan du bevilja exakt den åtkomstnivå som användarna behöver för att kunna utföra sitt arbete. Säkerhet indatavärdena företag bör tänka på att ge anställda behörigheterna exakt som de behöver. För många behörigheter exponerar ett konto för attacker. För få behörigheter innebär att anställda kan få arbetet gjort effektivt. Azure rollbaserad åtkomstkontroll (RBAC) kan du lösa det här problemet genom att erbjuda detaljerad åtkomsthantering för Azure. RBAC hjälper dig att särskilja uppgifter i din grupp och ge bara mängden åtkomst till användare som de behöver för att utföra sitt arbete. Obegränsad istället för att ge alla behörigheter i din Azure-prenumeration eller resurser, kan du tillåta endast vissa åtgärder.
+En roll är en samling behörigheter och RBAC har flera inbyggda roller. Följande inbyggda roller gäller för alla typer av resurser:
 
-Till exempel använda RBAC så att en medarbetare som hanterar virtuella datorer i en prenumeration medan en annan kan hantera SQL-databaser inom samma prenumeration.
-
-Azure RBAC har tre grundläggande roller som gäller för alla typer av resurser:
-
-- **Ägare** har fullständig åtkomst till alla resurser som bland annat att delegera åtkomst till andra.
+- **Ägare** har fullständig åtkomst till alla resurser, bland annat att delegera åtkomst till andra.
 
 - **Deltagare** kan skapa och hantera alla typer av Azure-resurser, men det går inte att bevilja åtkomst till andra.
 
-- **Läsaren** kan visa befintliga Azure-resurser.
+- **Läsaren** kan visa alla Azure-resurser.
 
-Resten av rollerna i Azure RBAC kan hanteringen av specifika Azure-resurser. Till exempel tillåter virtuella deltagarrollen användaren att skapa och hantera virtuella datorer. Det ger dem åtkomst till virtuella nätverk eller undernät som den virtuella datorn ansluter till.
+Resten av de inbyggda rollerna i Azure kan hanteringen av specifika Azure-resurser. Till exempel tillåter virtuella deltagarrollen användaren att skapa och hantera virtuella datorer. En lista över inbyggda roller och verksamheten finns [inbyggda RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
-[Inbyggda RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) listar rollerna som är tillgängliga i Azure. Det anger åtgärder och scope som varje inbyggd roll som ger användare.
+RBAC stöder hanteringsåtgärder Azure-resurser i Azure-portalen och Azure Resource Manager API: er. I de flesta fall kan inte RBAC godkänna datanivå åtgärder för Azure-resurser. Information om hur RBAC utökas till dataåtgärder finns [förstå rolldefinitioner](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions).
 
-Bevilja åtkomst genom att tilldela rollen RBAC till användare, grupper och program för ett visst område. Omfånget för en rolltilldelning kan vara en prenumeration, resursgrupp eller en enskild resurs. En roll som tilldelats en överordnad omfattning även ger åtkomst till underordnade som finns i den.
+Om inbyggda roller inte uppfyller dina specifika behov, kan du [skapa en anpassad roll](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). Precis som inbyggda roller kan anpassade roller tilldelas användare, grupper och program på prenumerationen, resursgruppen och resursen omfång. Du kan skapa anpassade roller med hjälp av [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), och [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 
-En användare med åtkomst till en resursgrupp kan exempelvis hantera alla resurser som den innehåller som webbplatser, virtuella datorer och undernät.
+### <a name="resource-management"></a>Resurshantering
 
-Azure RBAC stöder endast hanteringsåtgärder Azure-resurser i Azure-portalen och Azure Resource Manager API: er. Det går inte att tillåta alla data på åtgärder för Azure-resurser. Du kan till exempel auktorisera någon att hantera Storage-konton, men inte till blobbar eller tabeller i ett Lagringskonto kan du inte. På samma sätt kan kan en SQL-databas hanteras, men inte tabellerna i den.
+Azure tillhandahåller två distributionsmodeller: [klassiska](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) och Azure Resource Manager.
 
-Mer information om hur RBAC kan hjälpa dig att hantera åtkomsten finns i [Vad är rollbaserad åtkomstkontroll?](https://docs.microsoft.com/azure/role-based-access-control/overview)
+I den klassiska modellen finns varje resurs oberoende av varandra. Det går inte att gruppera relaterade resurser. Du måste manuellt spåra vilka resurser som utgör din lösning eller ditt program och Kom ihåg att hantera dem på ett samordnat sätt. Den grundläggande hanteringsenheten är prenumerationen. Det är svårt att dela upp resurser inom en prenumeration, vilket leder till att skapa många prenumerationer.
 
-Du kan också [skapa en anpassad roll](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) i rollbaserad åtkomstkontroll (RBAC) om ingen av de inbyggda rollerna uppfyller dina specifika åtkomst måste. Anpassade roller kan skapas med [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure-kommandoradsgränssnittet (CLI)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), och [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Precis som inbyggda roller kan anpassade roller tilldelas användare, grupper och program på prenumerationen, resursgruppen och resursen omfattningar.
+Resource Manager-distributionsmodellen omfattar begreppet en [resursgruppen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). En resursgrupp är en behållare för resurser som har en gemensam livscykel. Det kan innefatta alla resurser för lösningen eller endast de resurser som du vill hantera som en grupp. Du bestämmer hur du vill allokera resurser till resursgrupper baserat på vad som är lämpligast för din organisation.
 
-Du kan bevilja upp till 2 000 rolltilldelningar inom varje prenumeration.
-
-## <a name="resource-management"></a>Resurshantering
-
-Azure levererade ursprungligen bara den klassiska distributionsmodellen. I den modellen var varje resurs fristående och det gick inte att gruppera relaterade resurser. I stället var du tvungen att manuellt spåra vilka resurser som fanns i din lösning eller ditt program och sedan komma ihåg att hantera dem på ett samordnat sätt.
-
-Om du vill distribuera en lösning var du tvungen att skapa varje resurs individuellt via Azure-portalen eller skapa ett skript som distribuerats alla resurser i rätt ordning. Om du ville ta bort en lösning var du tvungen att ta bort varje resurs separat. Det gick inte att tillämpa och uppdatera principerna för åtkomstkontroll för relaterade resurser på ett enkelt sätt. Slutligen kunde du inte tillämpa taggar på resurser för att märka dem med villkor som hjälpte dig att övervaka dina resurser och hantera faktureringen.
-
-2014 introducerade Azure Resource Manager som lade till konceptet med en resursgrupp. En resursgrupp är en behållare för resurser som har en gemensam livscykel. Resource Manager-distributionsmodellen ger många fördelar:
+Resource Manager-distributionsmodellen ger många fördelar:
 
 - Du kan distribuera, hantera och övervaka alla tjänster för din lösning som en grupp i stället för att hantera tjänsterna separat.
 
-- Du kan distribuera lösningen flera gånger under dess livscykel och vara säker på att dina resurser distribueras på ett konsekvent sätt.
+- Du kan upprepade gånger distribuera lösningen under hela dess livscykel och vara säker på att dina resurser distribueras i ett konsekvent tillstånd.
 
-- Du kan tillämpa åtkomstkontroll på alla resurser i resursgruppen och dessa principer tillämpas automatiskt när nya resurser läggs till i resursgruppen.
+- Du kan använda åtkomstkontroll för alla resurser i resursgruppen. Dessa principer tillämpas automatiskt när nya resurser läggs till i resursgruppen.
 
 - Du kan lägga till taggar för resurser och organisera alla logiskt i din prenumeration.
 
 - Du kan använda JSON (JavaScript Object Notation) till att definiera infrastrukturen för lösningen. JSON-filen är känd som en Resource Manager-mall.
 
-- Du kan definiera beroenden mellan resurser så att de distribueras i rätt ordning.
+- Du kan definiera beroenden mellan resurser så att de har distribuerats i rätt ordning.
 
-![Resurshantering](./media/governance-in-azure/security-governance-in-azure-fig4.png)
-
-Resource Manager kan du placera resurser i meningsfulla grupper för hantering av fakturerings- eller fysisk tillhörighet. Som nämnts tidigare har Azure två distributionsmodeller. I den tidigare [modell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model), den grundläggande hanteringsenheten var prenumerationen. Det var svårt att dela upp resurser inom en prenumeration, vilket ledde till att skapa många prenumerationer. Vi såg introduktionen av resursgrupper med Resource Manager-modellen.
-
-En resursgrupp är en behållare som innehåller relaterade resurser för en Azure-lösning. [Resursgruppen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) kan innehålla alla resurser för lösningen, eller bara de resurser som du vill hantera som en grupp. Du bestämmer hur du vill allokera resurser till resursgrupper baserat på vad som är lämpligast för din organisation.
+![Resource Manager](./media/governance-in-azure/security-governance-in-azure-fig4.png)
 
 Rekommendationer om mallar finns i [Metodtips för att skapa Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
 
-Azure Resource Manager analyserar beroenden för att säkerställa att resurserna skapas i rätt ordning. Om en resurs bygger på ett värde från en annan resurs (till exempel en virtuell dator som behöver ett lagringskonto för diskar) anger du ett beroende.
+Azure Resource Manager analyserar alla beroenden för att säkerställa att resurserna skapas i rätt ordning. Om en resurs som förlitar sig på ett värde från en annan resurs (till exempel en virtuell dator behöver ett lagringskonto för diskar), du [ange ett beroende](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies) i mallen.
 
->[!Note]
->Mer information finns i [Definiera beroenden i Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies).
+Du kan också använda mallen för uppdateringar av infrastrukturen. Du kan till exempel lägga till en resurs till din lösning och lägga till konfigurationsregler för resurser som redan har distribuerats. Om mallen används för att skapa en resurs, men att resursen finns redan, utför Resource Manager en uppdatering i stället för att skapa en ny tillgång. Resource Manager uppdaterar den befintliga tillgången till samma tillstånd som den skulle ha som ny.
 
-Du kan också använda mallen för uppdateringar av infrastrukturen. Du kan till exempel lägga till en resurs till din lösning och lägga till konfigurationsregler för resurser som redan har distribuerats. Om mallen används för att skapa en resurs men resursen redan finns utför Azure Resource Manager en uppdatering i stället för att skapa en ny tillgång. Azure Resource Manager uppdaterar den befintliga tillgången till samma tillstånd som den skulle ha som ny.
+Resource Manager tillhandahåller tillägg för scenarier när du behöver fler åtgärder, till exempel installera programvara som inte ingår i installationsprogrammet.
 
-Resource Manager tillhandahåller tillägg för scenarier när du behöver ytterligare åtgärder som att installera programvara som inte ingår i installationsprogrammet.
+### <a name="resource-tracking"></a>Resursen spårning
 
-## <a name="resource-tracking"></a>Resursen spårning
+Som användare i din organisation kan du lägga till resurser i prenumerationen, blir det viktigare vill associera resurser med rätt avdelning, kund och miljö. Du kan koppla metadata till resurser via [taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags). Du kan använda taggar för att ange information om resursen eller ägare. Taggar kan du inte bara sammanställa och gruppera resurser på flera sätt, men också använda dessa data för återbetalning.
 
-Som användare i din organisation kan du lägga till resurser i prenumerationen, blir allt viktigare att koppla resurser till rätt avdelning, kund och miljö. Du kan koppla metadata till resurser via taggar. Du använder [taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) att ge information om resursen eller ägare. Taggar kan du inte bara sammanställa och gruppera resurser på flera sätt, men använda dessa data för återbetalning.
+Använd taggar när du har en komplex samling resursgrupper och resurser och du behöver visualisera dessa tillgångar på ett sätt som är bäst för dig. Du kan till exempel tagga resurser som har en liknande roll i organisationen eller som tillhör samma avdelning.
 
-Använd taggar om du har en komplex samling resursgrupper och resurser och behöver visualisera dessa tillgångar på ett sätt som passar dig. Du kan till exempel tagga resurser som har en liknande roll i organisationen eller som tillhör samma avdelning.
+Utan taggar kan kan användare i din organisation skapa flera resurser som kan vara svårt att identifiera och hantera senare. Du kanske vill ta bort alla resurser för ett projekt. Om resurserna inte har taggats för projektet måste du hittar dem manuellt. Taggning kan vara ett bra sätt att minska onödiga kostnader i din prenumeration.
 
-Utan taggar kan användare i din organisation skapa flera resurser som kan vara svåra att identifiera och hantera längre fram. Exempelvis kanske du vill ta bort alla resurser för ett projekt. Om resurserna inte har taggats för projektet måste du hittar dem manuellt. Taggning kan vara ett bra sätt att minska onödiga kostnader i din prenumeration.
+Resurser behöver inte finnas i samma resursgrupp att dela en tagg. Du kan skapa din egen taggtaxonomi för att säkerställa att alla användare i din organisation använder samma taggar i stället för oavsiktligt använder något annorlunda taggar (till exempel ”Avd” i stället för ”avdelning”).
 
-Resurser behöver inte finnas i samma resursgrupp för att dela en tagg. Du kan skapa din egen taggtaxonomi för att försäkra dig om att alla användare i organisationen använder samma taggar och att de inte av misstag använder varianter (till exempel ”avd” i stället för ”avdelning”).
+Principer för företagsresurser kan du skapa standardregler för din organisation. Du kan skapa principer för att säkerställa att resurserna är märkta med lämpliga värden.
 
-Principer för företagsresurser kan du skapa standardregler för din organisation. Du kan skapa principer som kontrollera resurser som är märkta med lämpliga värden.
+Du kan också visa taggade resurser via Azure Portal. Den [användningsrapporten](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) för din prenumeration omfattar taggnamn och värden, så du kan dela ut kostnaderna genom taggar.
 
-> [!Note]
-> Mer information finns i [fakturering taggar princip initiativ](../azure-policy/scripts/billing-tags-policy-init.md).
-
-Du kan också visa taggade resurser via Azure Portal.
-
-[Användningsrapporten](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) för din prenumeration innehåller taggnamn och -värden, vilket betyder att du kan dela upp kostnader efter taggar.
-
-> [!Note]
-> Mer information om taggar finns [fakturering taggar princip initiativ](../azure-policy/scripts/billing-tags-policy-init.md).
+Mer information om taggar finns [fakturering taggar princip initiativ](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Följande begränsningar gäller för taggar:
 
-- Varje resurs eller en resursgrupp kan innehålla högst 15 taggen nyckel/värde-par. Den här begränsningen gäller bara för taggar tillämpas direkt på den resursgrupp eller resurs. En resursgrupp kan innehålla många resurser som har 15 taggen nyckel/värde-par.
+- Varje resurs eller en resursgrupp kan innehålla högst 15 taggen nyckel/värde-par. Den här begränsningen gäller endast för taggar som tillämpas direkt på resursgruppen eller resursen. En resursgrupp kan innehålla många resurser som har 15 taggen nyckel/värde-par.
 
 - Taggnamnet är begränsat till 512 tecken.
 
@@ -247,248 +178,227 @@ Följande begränsningar gäller för taggar:
 
 Om du har fler än 15 värden som du vill koppla till en resurs använder du en JSON-sträng för taggvärdet. JSON-strängen kan innehålla flera värden som tillämpas på en enskild tagg nyckel.
 
-### <a name="tags-and-billing"></a>Taggar och fakturering
+#### <a name="tags-for-billing"></a>Taggar för fakturering
 
-Taggar kan du gruppera dina faktureringsinformation. Till exempel om du kör flera virtuella datorer i olika organisationer använda taggar om du vill gruppera användning av kostnadsställe. Du kan också använda taggar för att kategorisera kostnader av körningsmiljön; till exempel den fakturering användningen av virtuella datorer som körs i produktionsmiljön.
+Taggar kan du gruppera dina faktureringsinformation. Till exempel om du använder flera virtuella datorer i olika organisationer använda taggar om du vill gruppera användning av kostnadsställe. Du kan också använda taggar för att kategorisera kostnader av körningsmiljön, till exempel fakturering användning för virtuella datorer som körs i produktionsmiljön.
 
 Du kan hämta information om taggar via den [Azure Resursanvändning och RateCard APIs](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview) eller filen användning fil med kommaavgränsade värden (CSV). Du hämta filen från användning av [konton i Azure portal](https://account.windowsazure.com/) eller [EA portal](https://ea.azure.com/).
 
->[!Note]
-> Mer information om programmatisk åtkomst till faktureringsinformationen finns [få insikter om dina Microsoft Azure-resursförbrukning](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview). REST-API: et finns [Azure Billing REST API-referens](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+Mer information om programmatisk åtkomst till faktureringsinformationen finns [få insikter om dina Microsoft Azure-resursförbrukning](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview). REST-API: et finns [Azure Billing REST API-referens](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
 När du hämtar användning CSV för tjänster som stöder taggar med fakturering visas taggarna i kolumnen taggar.
 
-## <a name="critical-resource-controls"></a>Kritisk resurskontroller
+### <a name="critical-resource-controls"></a>Kritisk resurskontroller
 
-När organisationen lägger till kärntjänsterna prenumerationen, blir det ytterst viktigt att se till att tjänsterna är tillgängliga för att undvika avbrott i verksamheten. [Resurslås](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) att du kan begränsa värdefulla resurser där ändra eller ta bort dem skulle ha en betydande inverkan på ditt program eller molninfrastruktur. Du kan använda lås för en prenumeration, resursgrupp eller resurs. Normalt kan du använda Lås i grundläggande resurser, till exempel virtuella nätverk, gatewayenheter och storage-konton.
+När organisationen lägger till kärntjänsterna prenumerationen, blir den mer viktigt att se till att tjänsterna är tillgängliga för att undvika avbrott i verksamheten. [Resurslås](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) att du kan begränsa värdefulla resurser där ändra eller ta bort dem skulle ha en betydande inverkan på ditt program eller molninfrastruktur. Du kan använda lås för en prenumeration, resursgrupp eller resurs. Normalt kan du använda Lås i grundläggande resurser, till exempel virtuella nätverk, gatewayenheter och storage-konton.
 
-Resurslås för närvarande stöder två värden: CanNotDelete och ReadOnly. CanNotDelete innebär att användare (med lämpliga behörigheter) kan fortfarande läsa eller ändra en resurs men ta bort inte den. ReadOnly innebär att behöriga användare inte kan ta bort eller ändra en resurs.
+Resurslås för närvarande stöder två värden: **CanNotDelete** och **ReadOnly**. **CanNotDelete** innebär att användare (med lämpliga behörigheter) kan fortfarande läsa eller ändra en resurs men inte ta bort den. **ReadOnly** innebär att behöriga användare kan inte ta bort eller ändra en resurs.
 
-Hanteraren för filserverresurser Lås gäller endast för åtgärder som sker i management-plan, som består av åtgärder som skickas till <https://management.azure.com>. Lås begränsar inte hur resurser utföra sina egna funktioner. Resursändringar är begränsad, men resursåtgärder är inte begränsade. Till exempel en ReadOnly-lås på en SQL-databas hindrar dig från att ta bort eller ändra databasen, men det förhindrar inte du att skapa, uppdatera eller ta bort data i databasen.
+Resurslås gäller endast för åtgärder som sker i management-plan, som består av åtgärder som skickas till <https://management.azure.com>. Lås begränsa inte hur resurser utföra sina egna funktioner. Resursändringar är begränsad, men resursåtgärder är inte begränsade. Till exempel en **ReadOnly** lås på en SQL-databas hindrar dig från att ta bort eller ändra databasen, men det hindrar dig inte från att skapa, uppdatera eller ta bort data i databasen.
 
-Tillämpa **ReadOnly** kan leda till oväntade resultat eftersom vissa åtgärder som ser ut som att läsa ytterligare åtgärder krävs för åtgärderna. Till exempel placera en **ReadOnly** lås på ett lagringskonto som förhindrar att alla användare lista nycklarna. Listan med nycklar operationen hanteras via en POST-begäran eftersom returnerade nycklar är tillgängliga för skrivåtgärder.
+Tillämpa **ReadOnly** kan leda till oväntade resultat eftersom vissa åtgärder som ser ut som att läsa ytterligare åtgärder krävs för åtgärderna. Till exempel placera en **ReadOnly** lås på ett lagringskonto som förhindrar att alla användare lista nycklarna. Åtgärden för att visa en lista över nycklar hanteras via en POST-begäran eftersom returnerade nycklar är tillgängliga för skrivåtgärder.
 
 ![Kritisk resurskontroller](./media/governance-in-azure/security-governance-in-azure-fig5.png)
 
-För ett annat exempel är förhindrar att placera en ReadOnly-lås på en App Service-resurs Visual Studio Server Explorer visar filer för resursen eftersom den interaktionen kräver skrivåtkomst.
+För ett annat exempel är att placera en **ReadOnly** lås på en resurs i Azure App Service som förhindrar att Visual Studio Server Explorer visar filer för resursen eftersom den interaktionen kräver skrivåtkomst.
 
-Till skillnad från rollbaserad åtkomstkontroll använder du management Lås för att tillämpa en begränsning för alla användare och roller. Läs om hur du anger behörigheter för användare och roller i [Azure rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Till skillnad från rollbaserad åtkomstkontroll använder du management Lås för att tillämpa en begränsning för alla användare och roller. Läs om hur du anger behörigheter i [hantera åtkomst med hjälp av RBAC och Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 När du använder ett lås på en överordnad omfattning, ärver alla resurser i omfattningen samma låset. Även resurser som du senare lägger till ärver låset från överordnat. Det mest restriktiva låset i ärvda företräde.
 
-För att skapa eller ta bort management lås, måste du ha tillgång till Microsoft.Authorization/ _eller Microsoft.Authorization/locks/_ åtgärder. Av de inbyggda rollerna har endast **Ägare** och **Administratör för användaråtkomst** åtkomst till dessa åtgärder.
+Du måste ha åtkomst till Microsoft.Authorization/ eller Microsoft.Authorization/locks/ åtgärder för att skapa eller ta bort management Lås. I de inbyggda rollerna beviljas endast ägare och administratör för användaråtkomst dessa åtgärder.
 
-## <a name="api-access-to-billing-information"></a>API-åtkomst till faktureringsinformationen
+### <a name="api-access-to-billing-information"></a>API-åtkomst till faktureringsinformationen
 
-Använd Azure fakturering API: er som hämtar användnings- och data till din önskade verktyg för dataanalys. Användning av Azure och RateCard APIs kan hjälpa dig korrekt förutsäga och hantera dina kostnader. API: erna implementeras som en Resource Provider och en del av API: er som exponeras av Azure Resource Manager.
+Använd Azure fakturering API: er som hämtar användnings- och data till din önskade verktyg för dataanalys. Användning av Azure och RateCard APIs kan hjälpa dig korrekt förutsäga och hantera dina kostnader. API: erna implementeras som en resursprovidern och en del av API: er som exponeras av Azure Resource Manager.
 
-### <a name="azure-resource-usage-api-preview"></a>Azure Resursanvändning API (förhandsgranskning)
+#### <a name="resource-usage-api-preview"></a>Resursanvändning API (förhandsgranskning)
 
 Använd Azure [resurs användning API](https://msdn.microsoft.com/library/azure/mt219003) hämtar dina data uppskattade Azure förbrukningen. Detta API innehåller:
 
-- **Azure rollbaserad åtkomstkontroll** -konfigurera åtkomstprinciper på den [Azure-portalen](https://portal.azure.com/) eller via [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview) att ange vilka användare eller program kan få åtkomst till den Prenumerationens användningsdata. Anropare måste använda standard Azure Active Directory-token för autentisering. Lägg till anroparen antingen den fakturering Reader, Reader, ägare eller deltagare rollen för att få åtkomst till användningsdata för en viss Azure-prenumeration.
+- **RBAC**: Konfigurera åtkomstprinciper på den [Azure-portalen](https://portal.azure.com/) eller via [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview) att ange vilka användare eller program kan få åtkomst till prenumerationens användningsdata. Anropare måste använda standard Azure Active Directory-token för autentisering. Lägg till anroparen antingen den fakturering Reader, Reader, ägare eller deltagare rollen för att få åtkomst till användningsdata för en viss Azure-prenumeration.
 
-- **Varje timme och dag** – anropare kan ange om de vill ha sina Azure användningsdata i varje timme tidsgrupper eller dagligen tidsgrupper. Standardvärdet är varje dag.
+- **Timvis eller daglig sammanställning**: anropare kan ange om de vill sina Azure användningsdata i steg om timvis eller dagligen. Standardvärdet är varje dag.
 
-- **Instansen metadata (inklusive resurstaggar)** – hämta instansen detaljnivåer som fullständiga resurs-uri (/subscriptions/ {prenumerations-id} /..), grupp resursinformation och resurstaggar. Dessa metadata hjälper dig att deterministiskt och genom programmering allokera användning av taggarna för användningsfall som mellan debitering.
+- **Instansen metadata (inklusive resurstaggar)**: hämta instansen detaljnivåer som fullständiga resurs-URI (/subscriptions/ {prenumerations-id} /..), grupp resursinformation och resurstaggar. Dessa metadata hjälper dig att deterministiskt och genom programmering allokera användning av taggarna för användningsområden som mellan debitering.
 
-- **Resursmetadata** -resursinformation som mätaren namn, mätaren kategori, mätaren underkategori, enhet och region ge anroparen en bättre förståelse för vad förbrukades. Vi arbetar också för att justera resurs metadata terminologi i Azure-portalen, Azure användning CSV, EA fakturering CSV och andra offentliga upplevelser, så att du kan korrelera data över upplevelser.
+- **Resursmetadata**: resursinformation som mätaren namn, mätaren kategori, mätaren underkategori, enhet och region ge anroparen en bättre förståelse för vad förbrukades. Vi arbetar också för att justera resurs metadata terminologi i Azure-portalen, Azure användning CSV, EA fakturering CSV och andra offentliga upplevelser, som hjälper dig att korrelera data över upplevelser.
 
-- **Användning för alla erbjuder typer** – användningsdata är tillgängliga för alla erbjuder typer som betala per användning, MSDN, Summa, kredit och EA.
+- **Användning för alla erbjuder typer**: användningsdata är tillgängliga för alla erbjuder typer, inklusive betala per användning, MSDN, Summa, kredit och EA.
 
-**Azure-resurs RateCard API (förhandsgranskning)**
+#### <a name="resource-ratecard-api"></a>Resursen RateCard API
 
 Använd Azure Resource RateCard API för att hämta listan över tillgängliga Azure-resurser och uppskattade prisinformation för varje. Detta API innehåller:
 
-- **Azure rollbaserad åtkomstkontroll** – konfigurera principer för åtkomst på Azure-portalen eller via Azure PowerShell-cmdletar för att ange vilka användare eller program kan få åtkomst till RateCard data. Anropare måste använda standard Azure Active Directory-token för autentisering. Lägg till anroparen Reader, ägare eller deltagare rollen för att få åtkomst till användningsdata för en viss Azure-prenumeration.
+- **RBAC**: Konfigurera principer för åtkomst på Azure-portalen eller via Azure PowerShell-cmdletar för att ange vilka användare eller program kan få åtkomst till RateCard data. Anropare måste använda standard Azure Active Directory-token för autentisering. Lägg till anroparen rollen Läsare, ägare eller deltagare för att få åtkomst till användningsdata för en viss Azure-prenumeration.
 
-- **Stöd för betala per användning, MSDN, Summa och kredit erbjuder (EA stöds inte)** -detta API ger Azure erbjudande nivå hastighet information. Anroparen av denna API måste klara i erbjudandet information för att hämta resursinformation och priser. Vi kan för närvarande inte att ange EA priser eftersom EA erbjudanden har anpassat kostnader per registrering. Här följer några scenarier som möjliggörs med en kombination av användningen och RateCard APIs:
+- **Stöd för betala per användning, MSDN, Summa och kredit erbjudanden (men inte EA)**: Detta API ger Azure erbjudande nivå hastighet information. Anroparen av denna API måste klara i erbjudandet information för att hämta resursinformation och priser. EA stöds inte för närvarande eftersom EA erbjudanden har anpassat kostnader per registrering. 
 
-- **Azure utgifter under månaden** - använda en kombination av användningen och RateCard APIs få bättre insikter om ditt moln utgifter under månaden. Du kan analysera per timme och dag buckets användnings- och kostnad uppskattningar.
+#### <a name="scenarios"></a>Scenarier
 
-- **Ställa in aviseringar** – använda användningen och RateCard APIs för att hämta uppskattade molnet förbrukning och kostnader och konfigurera resurs- eller monetära baserade aviseringar.
+En kombination av användnings- och RateCard APIs gör det möjligt att dessa scenarier:
 
-- **Förutsäga faktura** – Get uppskattade användnings- och molnet tillbringar och tillämpa maskininlärningsalgoritmer för att förutsäga växeln skulle vara i slutet av faktureringsperioden.
+- **Förstå Azure utgifter under månaden**: använda en kombination av användningen och RateCard APIs få bättre insikter om ditt moln utgifter under månaden. Du kan analysera varje timme och dagliga användnings- och kostnad uppskattningar.
 
-- **Före förbrukning kostnad analysis** – Använd RateCard API för att förutse hur mycket din faktura är för din förväntade användning när du flyttar dina arbetsbelastningar till Azure. Om du har befintliga arbetsbelastningar i andra moln eller privata moln, kan du även mappa förbrukningen i Azure tillbringar priser för att få en bättre uppfattning av Azure. Denna uppskattning ger dig möjlighet att pivotera på erbjudandet och jämför olika erbjudandetyper utöver betala per användning, t.ex. summa och kredit. API: et även ger dig möjlighet att se kostnaden skillnader efter region och kan du göra en vad händer om kostnadsanalys som hjälper dig att fatta distributionsbeslut.
+- **Ställa in aviseringar**: använda användnings- och RateCard APIs för att hämta uppskattade molnet förbrukning och kostnader och konfigurera resurs- eller monetära baserade aviseringar.
 
-- **Konsekvensanalys** -du kan fastställa om det är mer kostnadseffektivt att köra arbetsbelastningar i en annan region, eller på en annan konfiguration av Azure-resurs. Azure resurskostnader kan variera beroende på Azure-regionen du använder.
+- **Förutsäga faktura**: Get uppskattade användnings- och molnet tillbringar och tillämpa maskininlärningsalgoritmer för att förutsäga växeln skulle vara i slutet av faktureringsperioden.
 
-- Du kan också bestämma om en annan typ av Azure-erbjudande ger en bättre hastighet på Azure-resurs.
+- **Utföra en före förbrukning kostnad analysis**: Använd RateCard API för att förutse hur mycket din faktura är för din förväntade användning när du flyttar dina arbetsbelastningar till Azure. Om du har befintliga arbetsbelastningar i andra moln eller privata moln, kan du även mappa förbrukningen i Azure tillbringar priser för att få en bättre uppfattning av Azure. Denna uppskattning ger dig möjlighet att pivotera på erbjudandet och jämför olika erbjudandetyper utöver betala per användning som summa och kredit.
 
-## <a name="networking-controls"></a>Kontroller för nätverk
+- **Utföra en konsekvensanalys**: du kan fastställa om det är mer kostnadseffektivt att köra arbetsbelastningar i en annan region eller på en annan konfiguration av Azure-resurs. Azure resurskostnader kan variera beroende på Azure-regionen du använder. Du kan också bestämma om en annan typ av Azure-erbjudande ger en bättre hastighet på Azure-resurs.
 
-Åtkomst till resurser kan vara antingen interna (inom företagets nätverk) eller externa (via internet). Det är enkelt för användare i din organisation att oavsiktligt placera resurser i fel plats och öppna dem potentiellt skadliga åtkomst. Precis som med lokalt / enheter, företag måste lägga till lämpliga kontroller för att säkerställa att rätt beslut på Azure-användare.
+### <a name="networking-controls"></a>Kontroller för nätverk
+
+Åtkomst till resurser kan vara antingen interna (inom företagets nätverk) eller externa (via internet). Det är enkelt för användare i din organisation att oavsiktligt placera resurser i fel plats och öppna dem potentiellt skadliga åtkomst. Företag måste lägga till lämpliga kontroller för att säkerställa att Azure användare fatta rätt beslut som lokala enheter.
 
 ![Kontroller för nätverk](./media/governance-in-azure/security-governance-in-azure-fig6.png)
 
-Vi kan identifiera kärnresurser som ger grundläggande kontroll av åtkomst för prenumeration styrning. Kärnresurserna består av:
+För prenumerationen styrningen ger följande kärnresurser grundläggande kontroll av åtkomst.
 
-### <a name="network-connectivity"></a>Nätverksanslutning
+#### <a name="network-connectivity"></a>Nätverksanslutning
 
-[Virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) är behållarobjekt för undernät. Även om det inte är absolut nödvändigt, används ofta när du ansluter program till interna företagsresurser. Tjänsten Azure Virtual Network kan du ansluta Azure-resurser på ett säkert sätt till varandra med virtuella nätverk (Vnet).
+[Virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) är behållarobjekt för undernät. Även om det inte är absolut nödvändigt, används ofta ett virtuellt nätverk för att ansluta program till interna företagsresurser. Tjänsten Azure Virtual Network kan du ansluta Azure-resurser på ett säkert sätt till varandra med virtuella nätverk.
 
-Ett virtuellt nätverk är en representation av ditt eget nätverk i molnet. Ett virtuellt nätverk är en logisk isolering av Azure-molnet dedikerad till din prenumeration. Du kan också ansluta Vnet till ditt lokala nätverk.
+Ett virtuellt nätverk är en representation av ditt eget nätverk i molnet. Ett virtuellt nätverk är en logisk isolering av Azure-molnet dedikerad till din prenumeration. Du kan också ansluta virtuella nätverk till ditt lokala nätverk.
 
 Följande är funktioner för virtuella Azure-nätverk:
 
-- **Isolering**: Vnet isoleras från varandra. Du kan skapa separata Vnet för utveckling, testning och produktion som använder samma CIDR-Adressblock. Däremot kan du skapa flera virtuella nätverk som använder olika CIDR-Adressblock och ansluta nätverk tillsammans. Du kan dela ett VNet i flera undernät. Azure erbjuder intern namnmatchning för virtuella datorer och molntjänster rollinstanser ansluten till ett virtuellt nätverk. Du kan också konfigurera ett virtuellt nätverk för att använda dina egna DNS-servrar i stället för intern namnmatchning för Azure.
+- **Isolering**: virtuella nätverk är isolerade från varandra. Du kan skapa separata virtuella nätverk för utveckling, testning och produktion som använder samma CIDR-Adressblock. Däremot kan du skapa flera virtuella nätverk som använder olika CIDR-Adressblock och ansluta nätverk tillsammans. Du kan dela ett virtuellt nätverk i flera undernät. Azure erbjuder intern namnmatchning för virtuella datorer och Azure Cloud Services rollinstanser som är anslutna till ett virtuellt nätverk. Du kan också konfigurera ett virtuellt nätverk för att använda dina egna DNS-servrar i stället för intern namnmatchning för Azure.
 
-- **Internetanslutning**: alla Azure virtuella datorer (VM) och molntjänster rollinstanser ansluten till ett virtuellt nätverk har åtkomst till Internet, som standard. Du kan också aktivera inkommande åtkomst till specifika resurser efter behov.
+- **Internetanslutning**: alla Azure-datorer och molntjänster rollinstanser som är anslutna till ett virtuellt nätverk har åtkomst till internet, som standard. Du kan också aktivera inkommande åtkomst till specifika resurser efter behov.
 
-- **Azure-resurs anslutningen**: Azure-resurser som molntjänster och virtuella datorer kan anslutas till samma virtuella nätverk. Resurserna kan ansluta till varandra med privata IP-adresser, även om de finns i olika undernät. Azure tillhandahåller standardroutning mellan undernät, virtuella nätverk och lokala nätverk, så du behöver att konfigurera och hantera vägar.
+- **Azure-resurs anslutningen**: Azure-resurser, till exempel molntjänster och virtuella datorer kan anslutas till samma virtuella nätverk. Resurserna kan ansluta till varandra via privata IP-adresser, även om de inte finns i olika undernät. Azure tillhandahåller standardroutning mellan undernät, virtuella nätverk och lokala nätverk, så du behöver att konfigurera och hantera vägar.
 
-- **VNet-anslutningen**: Vnet kan anslutas till varandra, aktivera resurser som är anslutna till alla virtuella nätverk för att kommunicera med alla resurser för andra virtuella nätverk.
+- **Virtuell nätverksanslutning**: du kan ansluta virtuella nätverk till varandra. Resurser som är anslutna till något virtuellt nätverk kan sedan kommunicera med en resurs på andra virtuella nätverket.
 
-- **Lokal anslutning**: Vnet kan anslutas till lokalt nätverk via privata nätverksanslutningar mellan ditt nätverk och Azure, eller en plats-till-plats VPN-anslutning via Internet.
+- **Lokal anslutning**: du kan ansluta virtuella nätverk till lokala nätverk via privata nätverksanslutningar mellan ditt nätverk och Azure, eller en plats-till-plats virtuellt privat nätverk (VPN)-anslutning via internet.
 
-- **Trafikfiltrering**: molntjänster och Virtuella nätverkstrafik för rollen instanser inkommande och utgående kan filtreras efter källans IP-adress och port, mål-IP-adress och port och protokoll.
+- **Trafikfiltrering**: du kan filtrera nätverkstrafik (inkommande och utgående) för virtuella datorer och molntjänster genom källans IP-adress och port, mål-IP-adress och port och protokoll.
 
-- **Routning**: du kan du åsidosätta Azures standard routning genom att konfigurera egna vägar eller använda BGP-vägar via en nätverksgateway.
+- **Routning**: du kan om du vill åsidosätta standardvärdet för Azure routning genom att konfigurera egna vägar eller genom att använda BGP-vägar via en nätverksgateway.
 
-## <a name="network-access-controls"></a>Åtkomstkontroller för nätverk
+#### <a name="network-access-controls"></a>Åtkomstkontroller för nätverk
 
-[Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) fungerar som en brandvägg och ange regler för hur en resurs kan ”prata” över nätverket. De ger detaljerad kontroll över hur / om ett undernät (eller en virtuell dator) kan ansluta till Internet eller andra undernät i samma virtuella nätverk.
+[Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG: er) är som en brandvägg och ange regler för hur en resurs kan ”prata” över nätverket. De ger kontroll över hur ett undernät (eller en virtuell dator) kan ansluta till internet eller andra undernät i samma virtuella nätverk.
 
-En nätverkssäkerhetsgrupp (NSG) innehåller en lista över säkerhetsregler som tillåter eller nekar nätverkstrafik till resurser som är anslutna till virtuella Azure-nätverk (VNet). Nätverkssäkerhetsgrupper kan kopplas till undernät, enskilda virtuella datorer (klassisk) eller enskilda nätverkskort (NIC) som är anslutna till virtuella datorer (Resource Manager).
+En nätverkssäkerhetsgrupp innehåller en lista över säkerhetsregler som tillåter eller nekar nätverkstrafik till resurser som är anslutna till virtuella Azure-nätverk. NSG: er kan associeras med undernät, enskilda virtuella datorer (klassiskt) eller enskilda nätverksgränssnitt (NIC) kopplad till virtuella datorer (Resource Manager).
 
-När en nätverkssäkerhetsgrupp är kopplad till ett undernät gäller reglerna för alla resurser som är anslutna till undernätet. Trafiken kan begränsas ytterligare genom att en nätverkssäkerhetsgrupp associeras med en virtuell dator eller ett nätverkskort.
+När en NSG är associerad med ett undernät, tillämpas reglerna till alla resurser som är anslutna till undernätet. Du kan begränsa trafik genom att koppla en NSG till en VM eller nätverkskort.
 
-## <a name="security-and-continuous-compliance-with-organizational-standards"></a>Säkerhet och kontinuerlig kompatibilitet med organisationens normer
+## <a name="security-and-compliance-with-organizational-standards"></a>Säkerhet och kompatibilitet med organisationens normer
 
-Alla företag har olika behov och alla företag kan dra nytta av distinkta fördelar från molnlösningar. Kunder för alla typer har fortfarande samma grundläggande frågor om hur du flyttar till molnet. De vill behålla kontrollen över data och de vill att data ska hållas säker och privat, alla samtidigt genomskinlighet och efterlevnad.
+Alla företag har olika behov och kan dra nytta av distinkta fördelar från molnlösningar. Kunder för alla typer har fortfarande samma grundläggande frågor om hur du flyttar till molnet. Kunder vill från molntjänstleverantörer är:
 
-Kunder vill från molntjänstleverantörer är:
+- **Skydda våra data**: IT-företag som bekräftar att molnet kan ge ökad säkerhet och administrativ kontroll. Men de är fortfarande berörda att migrera till molnet lämnar dem mer sårbara för hackare än deras aktuella interna lösningar.
 
-- **Skydda våra data** medan bekräftades att molnet kan ge ökad säkerhet för data och administrativ kontroll, IT-företag fortfarande gäller att migrera till molnet lämnar dem mer sårbara för hackare än sin nuvarande interna lösningar.
+- **Hålla våra data privat**: molntjänster Generera en unik sekretess utmaningar. Som företag ser till att spara på kostnader med infrastruktur och förbättra deras flexibilitet molnet, behöver de också förlora kontroll över där deras data lagras, vem som åtkomst till den och hur den används.
 
-- **Skydda våra data** privata molntjänster Generera en unik sekretess utmaningar för företag. Som företag ser till att spara på kostnader med infrastruktur och förbättra deras flexibilitet molnet, behöver de också förlora kontroll över där deras data lagras, vem som åtkomst till den och hur den används.
+- **Ge oss kontrollen**: även om företag dra nytta av molnet för att distribuera flera innovativa lösningar, de är orolig för att förlora kontroll över sina data. De senaste upplysningarna hos myndigheter som har åtkomst till kundens data på både juridiska och utomrättsliga sätt göra vissa IT-chefer försiktig med att lagra sina data i molnet.
 
-- **Ge oss kontrollen** även om de dra nytta av molnet för att distribuera flera innovativa lösningar företag är mycket orolig förlora kontroll över sina data. De senaste upplysningarna hos myndigheter som har åtkomst till kundens data på både juridiska och extra juridiska sätt göra vissa IT-chefer försiktig med att lagra sina data i molnet.
+- **Befordra genomskinlighet**: företagets beslutsfattare förstår vikten av säkerhet, sekretess och kontroll. Men de vill också möjlighet att oberoende kontrollera hur data lagras, ofta och säkra.
 
-- **Befordra genomskinlighet** säkerhet, sekretess och kontroll är viktigt att företagets beslutsfattare, de också vill kunna oberoende kontrollera hur data lagras, ofta och säkra.
+- **Upprätthålla överensstämmelse**: företag Expandera användningen av molntekniker, komplexitet och omfattningen av standarder och föreskrifter fortsätta att utvecklas. Företag måste du veta att deras efterlevnadsstandarder uppfylls.
 
-- **Upprätthålla överensstämmelse** som företag Expandera användningen av molntekniker, komplexitet och omfattningen av standarder och föreskrifter fortsätter att utvecklas. Företag måste du veta att deras efterlevnadsstandarder uppfylls och att efterlevnad kommer att utvecklas som föreskrifter ändring över tid.
+## <a name="security-configuration-for-monitoring-logging-and-auditing"></a>Säkerhetskonfiguration för övervakning, loggning och granskning
 
-## <a name="security-configuration-monitoring-and-alerting"></a>Konfiguration, övervakning och avisering
+Azure-prenumeranter kan hantera sina molnmiljöer från flera enheter. Dessa enheter kan innehålla hantering av arbetsstationer, utvecklardatorer och även Privilegierade slutanvändarens enheter som har uppgiftsspecifika behörigheter. 
 
-Azure-prenumeranter kan hantera sina molnmiljöer från flera enheter, inklusive hantering av arbetsstationer, utvecklardatorer och även privilegierade slutanvändarens enheter som har uppgiftsspecifika behörigheter. I vissa fall kan utförs administrativa funktioner via webbaserade konsoler som Azure-portalen. I andra fall kan det finnas direkta anslutningar till Azure från lokala system över virtuella privata nätverk (VPN), Terminal Services, klientprotokoll för program eller (programmässigt) Azure Service Management API (SMAPI). Dessutom kan klientslutpunkter vara antingen domänanslutna eller isolerade och ohanterade, till exempel surfplattor eller smartphones.
+I vissa fall kan utförs administrativa funktioner via webbaserade konsoler som Azure-portalen. I andra fall kan finnas det direkta anslutningar till Azure från lokala system över VPN-anslutningar, Terminal Services, klientprotokoll för program eller (programmässigt) Azure Service Management API (SMAPI). Dessutom kan klientslutpunkter vara antingen domänanslutna eller isolerade och ohanterade, som surfplattor eller smartphones-domän.
 
-Även om de många funktionerna för åtkomst och hantering tillhandahåller en omfattande uppsättning alternativ, kan den här variationen medföra betydande risker för en molndistribution. Det kan vara svårt att hantera, spåra och granska administrativa åtgärder. Den här variationen kan också innebära säkerhetshot via oreglerad åtkomst till klientslutpunkter som används för att hantera molntjänster. Med hjälp av allmänna eller personliga arbetsstationer för att utveckla och hantera infrastrukturen öppnas oförutsägbara hotvektorer, till exempel webbsurfning (t.ex. vattenhålsattacker) eller mejl (t.ex. social manipulation och nätfiskewebbplatser).
+Den här variationen innebära betydande risk för en molndistribution. Det kan vara svårt att hantera, spåra och granska administrativa åtgärder. Den här variationen kan också introducera säkerhetshot via oreglerad åtkomst till klientslutpunkter som används för att hantera molntjänster. Med hjälp av allmänna eller personliga arbetsstationer för att utveckla och hantera infrastrukturen öppnas oförutsägbara hotvektorer, till exempel webbsurfning (t.ex. vattenhålsattacker) eller mejl (t.ex. social manipulation och nätfiskewebbplatser).
 
-Övervakning, loggning och granskning ger en grund för att spåra och förstå administrativa aktiviteter, men det inte alltid möjligt att granska alla åtgärder i detalj på grund av mängden data som genereras. Men det är alltid bra att utvärdera hur effektiva hanteringsprinciperna är.
+Övervakning, loggning och granskning ger en grund för att spåra och förstå administrativa aktiviteter. Granska alla åtgärder i detalj kanske inte alltid möjligt på grund av mängden data som genereras. Men hanteringsprinciperna principer för hantering av bästa praxis.
 
-Azure-säkerhet styrning från AD DS-grupprincipobjekt för att styra alla administratörens Windows-gränssnitt, till exempel fildelning. Inkludera hanteringsdatorer processerna för granskning, övervakning och loggning. Spåra alla administratörers och utvecklares åtkomst och användning.
+Azure-säkerhet styrning från Azure Active Directory Domain Services (AD DS) grupprincipobjekt hjälper dig att styra alla administratörens Windows-gränssnitt, till exempel fildelning. Inkludera hanteringsdatorer i övervakning, loggning och granskning processer. Spåra alla administratörers och utvecklares åtkomst och användning.
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
-Den [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) innehåller en central för säkerhetsstatusen för resurserna i prenumerationerna och ger rekommendationer som kan förhindra angripna resurser. Det kan aktivera mer detaljerad principer (till exempel tillämpa principer till specifika resursgrupper som gör att företag kan anpassa sina hållningsdata för risk de adressering).
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) innehåller en central för säkerhetsstatusen för resurserna i prenumerationer. Det ger rekommendationer som kan förhindra angripna resurser. Det kan aktivera mer detaljerad principer--exempelvis tillämpa principer på specifika resursgrupper som gör att företag kan anpassa sina hållningsdata för risk som de adressering.
 
 ![Azure Security Center](./media/governance-in-azure/security-governance-in-azure-fig7.png)
 
 Security Center innehåller integrerad säkerhet övervaka och hantera principer för dina Azure-prenumerationer, och upptäcka hot som annars kanske skulle förbli oupptäckta, fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar. När du har aktiverat [säkerhetsprinciper](https://docs.microsoft.com/azure/security-center/security-center-policies) för en prenumeration resurser, Security Center analyserar säkerheten för dina resurser för att identifiera potentiella säkerhetsrisker. Information om nätverkskonfigurationen är tillgänglig direkt.
 
-Azure Security Center representerar en kombination av bästa praxis analys- och principhantering för alla resurser i en Azure-prenumeration. Det här kraftfulla och enkla att använda verktyget kan säkerhet team och risker antal för att förebygga, upptäcka och svara på säkerhetshot som automatiskt samlar in och analyserar säkerhetsdata från resurserna i Azure, nätverket och partnerlösningar som skadlig program och brandväggar.
+Azure Security Center representerar en kombination av bästa praxis analys- och principhantering för alla resurser i en Azure-prenumeration. Aktiverar säkerhet team och risker antal för att förebygga, upptäcka och svara på säkerhetshot som automatiskt samlar in och analyserar säkerhetsdata från resurserna i Azure, nätverket och partnerlösningarna, till exempel program mot skadlig kod och brandväggar.
 
-Dessutom analysteknik Azure Security Center avancerad, inklusive machine learning och beteendeanalys samtidigt utnyttja globala hotinformation från Microsoftprodukter och tjänster, Microsoft Digital Crimes Unit (DCU), Microsoft Security Response Center (MSRC) och externa flöden används. [Säkerhet styrning](https://www.credera.com/blog/credera-site/azure-governance-part-4-other-tools-in-the-toolbox/) kan tillämpas brett på prenumerationsnivån eller minskar antalet specifika, detaljerade krav som tillämpas på enskilda resurser via principdefinition.
+Dessutom analysteknik Azure Security Center avancerad, inklusive machine learning och beteendeanalys. Den använder globala hotinformation från Microsoftprodukter och tjänster, Microsoft Digital Crimes Unit (DCU), Microsoft Security Response Center (MSRC) och externa flöden. Du kan använda [säkerhet styrning](https://www.credera.com/blog/credera-site/azure-governance-part-4-other-tools-in-the-toolbox/) brett på prenumerationsnivån. Eller så kan du begränsa den till specifika krav och koppla dem till enskilda resurser via principdefinitionen.
 
-Slutligen Azure Security Center analyserar resurssäkerhetshälsa baserat på de principerna och använder dem för att ange insiktsfulla instrumentpaneler och avisering för händelser, t.ex identifiering av skadlig kod eller skadliga IP-anslutning försök.
-
->[!Note]
-> Mer information om hur du utför rekommendationerna finns i artikeln [Utföra säkerhetsrekommendationerna i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
-
-Security Center samlar in data från dina virtuella datorer för att utvärdera deras säkerhetstillstånd, ange säkerhetsrekommendationer och varna dig om hot. Första gången du öppnar Security Center, är insamling av data aktiverat på alla virtuella datorer i din prenumeration. Insamling av data rekommenderas, men du kan välja bort av [inaktivera datainsamling](https://docs.microsoft.com/azure/security-center/security-center-faq) i Security Center-princip.
-
-Slutligen är Azure Security Center en öppen plattform som gör Microsoft-partner och oberoende programvaruleverantörer kan skapa program som ansluts till Azure Security Center för att förbättra dess funktioner.
+Slutligen Azure Security Center analyserar resurssäkerhetshälsa baserat på de principerna och använder informationen för att ange insiktsfulla instrumentpaneler och avisering för händelser, t.ex identifiering av skadlig kod eller skadliga IP-anslutning försök. Mer information om hur du utför rekommendationerna finns [utföra säkerhetsrekommendationerna i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
 
 Azure Security Center övervakar följande Azure-resurser:
 
-- Virtuella datorer (VM) (inklusive Cloud Services)
+- Virtuella datorer (VM) (inklusive molntjänster)
 
-- Azure Virtual Networks
+- Virtuella nätverk
 
-- Azure SQL-tjänsten
+- SQL-databaser
 
-- Partnerlösningar som är integrerad med din Azure-prenumeration, till exempel en brandvägg för webbaserade program på virtuella datorer och på [Apptjänstmiljö](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme).
+- Partnerlösningar som är integrerad med din Azure-prenumeration, till exempel en brandvägg för webbaserade program på virtuella datorer och på den [Apptjänstmiljö](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme)
+
+Första gången du öppnar Security Center, är insamling av data aktiverat på alla virtuella datorer i din prenumeration. Vi rekommenderar att du behåller insamling av data aktiverad, men du kan [inaktivera det](https://docs.microsoft.com/azure/security-center/security-center-faq) i Security Center-princip.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Logganalys programvara utvecklings- och gruppens informationssäkerhet och [styrning programmet](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) stöder affärskraven och följer lagar och förordningar enligt beskrivningen i [litar på Microsoft Azure Center](https://azure.microsoft.com/support/trust-center/) och [Microsoft Trust Center kompatibilitet](https://microsoft.com/en-us/trustcenter/compliance). Hur logganalys upprätta säkerhetskrav, identifierar säkerhetsåtgärder, hanterar och övervakar risker beskrivs också det. Årligen, vi granska principer, standarder och procedurer som riktlinjer.
+Azure logganalys programvara utvecklings- och gruppens informationssäkerhet och [styrning programmet](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) stöder affärskraven. Det följer lagar och förordningar enligt beskrivningen i [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) och [Microsoft förtroende Center kompatibilitet](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Hur logganalys upprättar säkerhetskrav, identifierar säkerhetskontroller och hanterar och övervakar risker beskrivs också det. Teamet granskar årligen, principer, standarder, procedurer och riktlinjer.
 
-Varje medlem i gruppen logganalys utveckling får formella säkerhetsutbildning. Internt, använder vi ett system för version för programutveckling. Varje projekt program är skyddat av systemet för versionskontroll.
+Varje medlem i gruppen logganalys utveckling får formella säkerhetsutbildning. Ett system för version skyddar varje programvara projekt under utveckling.
 
-Microsoft har ett team för säkerhet och efterlevnad som övervakar och utvärderar alla tjänster i Microsoft. Information security polis utgör teamet och de är inte kopplade till de tekniska avdelningar som utvecklar logganalys. De har sina egna management kedjan och utföra oberoende bedömning av produkter och tjänster för att garantera säkerhet och efterlevnad.
-
-Azure tillhandahåller en uppsättning tjänster som har utformats i molnet från början. I stället för att distribuera och hantera lokala resurser finns helt komponenterna i Azure. Konfigurationen är minimal, och du kommer igång på bara några minuter.
-
-![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
-
-Bara eftersom Log Analytics-tjänster som körs betyder molnet att de effektivt kan hantera din lokala miljö.
-
-Placera en agent på alla Windows eller Linux-dator i datacentret och den skickar data till logganalys där den kan analyseras tillsammans med andra data som samlas in från molnet eller lokala tjänster. Använda Azure Backup och Azure Site Recovery för att utnyttja molnet för säkerhetskopiering och hög tillgänglighet för på lokala resurser.
-
-Runbook-flöden i molnet kan normalt inte komma åt dina lokala resurser, men du kan installera en agent på en eller flera datorer som fungerar som värd för runbook-flöden i ditt datacenter. När du startar en runbook anger du om du vill att den ska köras i molnet eller på en lokal arbetsprocess.
+Microsoft har ett team för säkerhet och efterlevnad som övervakar och utvärderar alla tjänster i Microsoft. Information security polis utgör teamet och de är inte associerad med engineering avdelningar som utvecklar logganalys. Säkerhet polis har sina egna management-kedjan. De genomföra oberoende bedömning av produkter och tjänster för att garantera säkerhet och efterlevnad.
 
 Huvudfunktionerna i logganalys tillhandahålls av en uppsättning tjänster som körs i Azure. Varje tjänst tillhandahåller en specifik hanteringsfunktion, och du kan kombinera tjänster för olika hanteringsscenarier.
 
-![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
+![Azure-tjänster för hantering](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Azure-åtgärden manager överskrider dess funktioner genom att tillhandahålla lösningar för hantering. [Hanteringslösningar](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) är färdigförpackade uppsättningar av logik som implementerar ett hanteringsscenario som utnyttjar en eller flera tjänster.
+Dessa tjänster har utformats i molnet. De är helt finns i Azure, så att de inte inkluderar distribuera och hantera lokala resurser. Konfigurationen är minimal och du kan vara igång på bara några minuter.
 
-![Hantera Azure-åtgärden](./media/governance-in-azure/security-governance-in-azure-fig10.png)
+Placera en agent på alla Windows- eller Linux-datorer i ditt datacenter och den skickar data till logganalys. Det, kan analyseras tillsammans med andra data som samlas in från molnet eller lokala tjänster. Använda Azure Backup och Azure Site Recovery för att dra nytta av molnet för säkerhetskopiering och hög tillgänglighet för lokala resurser.
 
-Olika lösningar är tillgängliga från Microsoft och att du kan enkelt lägga till din Azure-prenumeration att öka värdet på din investering i logganalys-partner.
+![Tjänster på instrumentpanelen för Azure](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-Som partner kan skapa du egna lösningar för att stödja dina program och tjänster och ge dem till användare via Azure Marketplace eller snabb Start mallar.
+Runbooks i molnet normalt inte kan komma åt lokala resurser, men du kan installera en agent på en eller flera datorer som är värd för runbooks i ditt datacenter. När du startar en runbook kan ange du om du vill att den körs i molnet eller på en lokal worker.
+
+Olika lösningar är tillgängliga från Microsoft och att du kan lägga till din Azure-prenumeration att öka värdet på din investering i logganalys-partner. Till exempel Azure erbjuder [hanteringslösningar](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)--färdigförpackade uppsättningar av logik som implementerar ett hanteringsscenario med hjälp av en eller flera tjänster.
+
+![Galleriet med hanteringslösningar i Azure](./media/governance-in-azure/security-governance-in-azure-fig10.png)
+
+Som partner kan skapa du egna lösningar för att stödja dina program och tjänster och ge dem till användare via Azure Marketplace eller Quickstart mallar.
 
 ## <a name="performance-alerting-and-monitoring"></a>Prestandaaviseringar och övervakning
 
 ### <a name="alerting"></a>Aviseringar
 
-Aviseringar är en metod för att övervaka Azure-resurs mått, händelser eller loggar och att meddelas när du anger ett villkor uppfylls.
+Aviseringar är en metod för övervakning mätvärden i Azure-resurs, händelser eller loggar. De meddela dig när en som du har angett är uppfyllt.
 
-**Aviseringar i olika Azure-tjänster**
+Aviseringar är tillgänglig över tjänster, inklusive:
 
-Aviseringar är tillgängliga för olika tjänster, inklusive:
+- **Azure Application Insights**: aktiverar web test och mått aviseringar. Mer information finns i [Ställ in aviseringar på Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) och [övervaka tillgänglighet och svarstider för alla webbplatser](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
 
-- Application Insights: Gör det möjligt för webbtestet och mått aviseringar.
+- **Logga Analytics**: aktiverar Routning av aktivitet och diagnostiska loggar till logganalys. Det gör mått, logg och andra aviseringstyper. Mer information finns i [aviseringar i logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).
 
->[!Note]
-> Se [Ställ in aviseringar på Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) och [övervaka tillgänglighet och svarstider för alla webbplatser](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
-
-- Logganalys: Gör routning av aktivitet och diagnostiska loggar till logganalys och att mått, logg och andra aviseringstyper.
-
->[!Note]
-> Mer information finns i aviseringar i [logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).
-
-- Azure övervaka: Gör det möjligt för varningar baserat på både måttvärden och aktivitet logghändelser. Du kan använda den [REST-API för Azure-Monitor](https://msdn.microsoft.com/library/dn931943.aspx) att hantera aviseringar.
-
->[!Note]
-> Mer information finns i [använder Azure-portalen, kommandoradsgränssnittet eller PowerShell för att skapa aviseringar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal).
+- **Azure-Monitor**: gör varningar baserat på både måttvärden och aktivitet logghändelser. Du kan använda den [REST-API för Azure-Monitor](https://msdn.microsoft.com/library/dn931943.aspx) att hantera aviseringar. Mer information finns i [använder Azure-portalen, kommandoradsgränssnittet eller PowerShell för att skapa aviseringar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal).
 
 ### <a name="monitoring"></a>Övervakning
 
-Prestandaproblem i din molnapp kan påverka din verksamhet. Med flera sammankopplade komponenter och ofta versioner kan degradations inträffa när som helst. Och om du utvecklar en app användarna identifiera vanligtvis problem som du inte kan hitta vid testning. Du bör känna till de här problemen omedelbart och har verktyg för att diagnostisera och lösa problem. Microsoft Azure har en uppsättning verktyg för att identifiera problemen.
+Prestandaproblem i din molnapp kan påverka din verksamhet. Med flera sammankopplade komponenter och ofta versioner kan degradations inträffa när som helst. Och om du utvecklar en app användarna identifiera vanligtvis problem som du inte kan hitta vid testning. Du bör känna till de här problemen omedelbart och har verktyg för att diagnostisera och åtgärda dem.
 
-**Hur övervakar jag min Azure-molnappar?**
-
-Det finns ett antal verktyg för övervakning av Azure-program och tjänster. Några av sina funktioner överlappar varandra. Detta är delvis historiska skäl och delvis på grund av oskärpa mellan utveckling och drift av ett program.
+Det finns ett antal verktyg för övervakning av Azure-program och tjänster. Några av sina funktioner överlappar varandra. Detta beror delvis på oskärpa mellan utveckling och drift av ett program.
 
 Här är de viktigaste verktygen:
 
-- **Azure-Monitor** är grundläggande verktyg för att övervaka tjänster som körs på Azure. Den ger dig infrastrukturnivå data om genomflödet av en tjänst och omgivningen. Om du hanterar dina appar i Azure, ger bestämmer dig för att skala upp eller ned resurser, sedan Azure-Monitor dig vad du använder för att starta.
+- **Azure-Monitor** är ett grundläggande verktyg för att övervaka tjänster som körs på Azure. Den ger dig infrastrukturnivå data om genomflödet av en tjänst och omgivningen. Om du hanterar dina appar i Azure och bestämmer dig för att skala upp eller ned resurser, hjälper dig att starta Azure-Monitor.
 
-- **Application Insights** kan användas för utveckling och som en produktion övervakningslösning. Det fungerar genom att installera ett paket i din app och så får du en mer interna vy över vad som händer. Data innehåller svarstider för beroenden, undantag spårning, felsökning ögonblicksbilder, körning av profiler. Den innehåller kraftfulla smarta verktyg för analys av den här telemetri både för att felsöka en app och som hjälper dig att förstå vad användarna gör med den. Du kan avgöra om är en topp i antal svarstider på grund av något i en app eller vissa externa resourcing problemet. Om du använder Visual Studio och appen är fel, kan du tas rätt att problemet raderna i koden så att du kan åtgärda den.
+- **Application Insights** kan användas för utveckling och som en produktion övervakningslösning. Det fungerar genom att installera ett paket i din app så att den ger dig en mer interna vy över vad som händer. Data innehåller svarstider för beroenden, undantag spårning, felsökning ögonblicksbilder och körning av profiler. Den innehåller verktyg för analys av den här telemetri både för att felsöka en app och som hjälper dig att förstå vad användarna gör med den. Du kan avgöra om är en topp i antal svarstider på grund av något i en app eller vissa externa resourcing problemet. Om du använder Visual Studio och appen är fel kan du gå direkt till problemet kodrad så att du kan åtgärda den.
 
-- **Logga Analytics** för den som behöver Finjustera prestanda och planera Underhåll på program som körs i produktion. Den är baserad i Azure. Den samlar in och samlar in data från flera källor, men med en fördröjning på 10 – 15 minuter. Det ger en heltäckande lösning för IT för Azure, lokalt och från tredje part molnbaserad infrastruktur (till exempel Amazon Web Services). Det ger bättre verktyg för att analysera data från flera källor, tillåter komplexa frågor över alla loggar och proaktivt kan meddela på angivna villkor. Du kan även samla in anpassade data till den centrala databasen så kan fråga och visualisera den.
+- **Logga Analytics** för den som behöver Finjustera prestanda och planera Underhåll på program som körs i produktion. Den samlar in och samlar in data från flera källor med en fördröjning på 10 – 15 minuter. Det ger en heltäckande lösning för IT för Azure, lokalt och från tredje part molnbaserad infrastruktur (till exempel Amazon Web Services). Den innehåller verktyg för att analysera data från källor, tillåter komplexa frågor över alla loggar och proaktivt kan meddela på angivna villkor. Du kan även samla in anpassade data på den centrala lagringsplatsen, och sedan fråga och visualisera data.
 
-- **System Center Operations Manager (SCOM)** är för att hantera och övervaka stora molnet installationer. Du kanske redan känner till den som ett hanteringsverktyg för lokal Windows Sever och baserat Hyper-V-moln, men den kan även integreras med och hantera Azure-appar. Bland annat installera den Application Insights på befintliga live appar. Om en app kraschar, om det i sekunder.
+- **System Center Operations Manager** är för att hantera och övervaka stora molnet installationer. Du kanske redan känner till den som ett hanteringsverktyg för lokala Windows Server och Hyper-V baserat moln, men den kan även integreras med och hantera Azure-appar. Bland annat installera den Application Insights på befintliga live appar. Om en app kraschar om Operations Manager i sekunder.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Bästa praxis för att skapa mallar för Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
+- [Metodtips för att skapa Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices)
 
-- [Exempel på att implementera Azure-prenumeration styrning](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-examples).
+- [Exempel på att implementera styrning av Azure-prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-examples)
 
-- [Microsoft Azure Government](https://docs.microsoft.com/azure/azure-government/).
+- [Microsoft Azure Government](https://docs.microsoft.com/azure/azure-government/)

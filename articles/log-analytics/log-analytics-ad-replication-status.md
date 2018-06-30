@@ -3,7 +3,7 @@ title: Visa replikeringsstatus för Active Directory med Azure Log Analytics | M
 description: Active Directory-replikeringsstatus lösningspaket övervakar regelbundet Active Directory-miljön för eventuella replikeringsfel.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7707c4a1afdc42ef44a7b6f761ceb03b7e7da2f0
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.component: na
+ms.openlocfilehash: 0ccd457295584f871088bc20864ef103648f1654
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29179342"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128732"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Visa replikeringsstatus för Active Directory med logganalys
 
@@ -39,7 +39,7 @@ Använd följande information för att installera och konfigurera lösningen.
 ## <a name="ad-replication-status-data-collection-details"></a>AD replikeringsstatus data samling information
 I följande tabell visas data collection metoder och annan information om hur data samlas in för AD-replikeringsstatus.
 
-| Plattform | Styr Agent | SCOM-agent | Azure Storage | SCOM krävs? | SCOM-agent data som skickas via management-grupp | Frekvens för samlingen |
+| Plattform | Direktagent | SCOM-agent | Azure Storage | SCOM krävs? | SCOM-agent data som skickas via management-grupp | Frekvens för samlingen |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |var femte dag |
 
@@ -132,7 +132,7 @@ S: inte måste bara en enda domänkontrollant läggas till. Om du har flera dom�
 S: Ja. Du kan ange värdet för en registernyckel för att aktivera den. Se [att aktivera en icke-domänkontrollant AD data ska skickas till logganalys](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 **F: Vad är namnet på processen som gör datainsamlingen?**
-A: AdvisorAssessment.exe
+S: AdvisorAssessment.exe
 
 **F: hur lång tid tar det för data som samlas in?**
 S: data collection tid beror på storleken på Active Directory-miljö, men tar vanligtvis mindre än 15 minuter.

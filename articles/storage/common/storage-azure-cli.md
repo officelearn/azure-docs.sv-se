@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 68e101ebec4a90d8c0f39eedeef33d252c720ed1
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: b7cb8b1ca2f377964f3613ad8e0549418cb2abec
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737376"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131879"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Med hjälp av Azure CLI 2.0 med Azure Storage
 
@@ -198,9 +198,20 @@ az storage account create \
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
-
 ### <a name="set-default-azure-storage-account-environment-variables"></a>Ange standardkontot för Azure storage miljövariabler
+
 Du kan ha flera lagringskonton i Azure-prenumerationen. Du kan ange dessa miljövariabler för att välja en av dem ska användas för alla efterföljande lagring-kommandon:
+
+Visa först dina lagringskontonycklar med kommandot [az storage account keys list](/cli/azure/storage/account/keys#list):
+
+```azurecli-interactive
+az storage account keys list \
+    --account-name <account_name> \
+    --resource-group <resource_group> \
+    --output table
+```
+
+Nu när du har nyckeln kan du definiera den och kontonamnet som miljövariabler:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -223,7 +234,6 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 
 > [!NOTE]
 > Alla exempel i följande avsnitt i den här artikeln förutsätter att du har ställt in den `AZURE_STORAGE_ACCOUNT` och `AZURE_STORAGE_ACCESS_KEY` miljövariabler.
->
 
 ## <a name="create-and-manage-blobs"></a>Skapa och hantera blobbar
 Azure Blob storage är en tjänst för att lagra stora mängder Ostrukturerade data, till exempel text eller binära data som kan nås från var som helst i världen via HTTP eller HTTPS. Det här avsnittet förutsätter att du redan är bekant med Azure Blob storage-koncept. Detaljerad information finns i [komma igång med Azure Blob storage med hjälp av .NET](../blobs/storage-dotnet-how-to-use-blobs.md) och [Blob-Tjänstkoncept](/rest/api/storageservices/blob-service-concepts).

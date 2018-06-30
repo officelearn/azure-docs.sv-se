@@ -1,11 +1,11 @@
 ---
 title: Azure Apptjänst i Linux vanliga frågor och svar | Microsoft Docs
 description: Azure Apptjänst i Linux vanliga frågor och svar.
-keywords: Azure apptjänst, webbprogram, vanliga frågor och svar, linux, oss
+keywords: Azure apptjänst, webbprogram, vanliga frågor och svar, linux, oss, webbprogram för behållare, flera behållare, multicontainer
 services: app-service
 documentationCenter: ''
-author: ahmedelnably
-manager: cfowler
+author: yili
+manager: apurvajo
 editor: ''
 ms.assetid: ''
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
-ms.author: msangapu
-ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 06/26/2018
+ms.author: yili
+ms.openlocfilehash: a35f3d428674c3398497cd43465e0bd501f5c3fc
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222985"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131500"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure Apptjänst i Linux vanliga frågor och svar
 
@@ -144,6 +144,35 @@ Vi har port automatiskt. Du kan också ange en app inställningen kallas *WEBSIT
 **Behöver jag implementera HTTPS i min anpassade container?**
 
 Nej, plattformen hanterar HTTPS-avslutning på delade frontwebbservrarna.
+
+## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Flera behållare med Docker Compose och Kubernetes
+
+**Hur konfigurerar Azure Container registret (ACR) ska användas med flera behållare?**
+
+För att kunna använda ACR med flera behållare **alla behållare bilder** måste finnas på samma server för ACR-registret. När de är på samma server i registret, behöver du skapa inställningar för program och uppdatera sedan Docker Compose eller Kubernetes konfigurationsfil för att inkludera ACR avbildningens namn.
+
+Skapa följande programinställningar för:
+
+- DOCKER_REGISTRY_SERVER_USERNAME
+- DOCKER_REGISTRY_SERVER_URL (fullständig URL, ex: https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_PASSWORD (aktivera administratörsåtkomst i inställningarna för ACR)
+
+I konfigurationsfilen, referera till ACR bilden som i följande exempel:
+
+```yaml
+image: <server-name>.azurecr.io/<image-name>:<tag>
+```
+
+**Hur vet jag vilka behållare är tillgänglig internet?**
+
+- Endast en behållare kan vara öppen för åtkomst
+- Endast port 80 och 8080 är tillgänglig (exponerade portar)
+
+Här följer reglerna för att fastställa vilken behållare är tillgänglig – i den ordning som prioritet:
+
+- Inställningen `WEBSITES_WEB_CONTAINER_NAME` inställd på behållarens namn
+- Den första behållaren för att definiera port 80 eller 8080
+- Om inget av ovanstående stämmer första behållaren som definieras i filen kommer att komma åt (exponeras)
 
 ## <a name="pricing-and-sla"></a>Priser och SLA
 

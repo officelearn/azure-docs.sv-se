@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 879c89d21aece120888dded49ca1b2c55677635e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: na
+ms.openlocfilehash: 282b610aeb75010108a63dafe037c09180a247a1
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31595063"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131692"
 ---
 # <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>Utvärdera Azure Service Fabric-program och micro-tjänster med PowerShell
 > [!div class="op_single_selector"]
@@ -300,7 +301,7 @@ $storageAccount = Select-StorageAccount
 
 När du har konfigurerat logganalys-arbetsytan att läsa från Azure-tabeller i storage-konto kan logga in på Azure-portalen. Välj logganalys-arbetsyta från **alla resurser**. Antalet lagring konto loggar som är ansluten till arbetsytan visas. Välj den **Storage-konto loggar** panelen. Granska listan med lagring konto loggar för att kontrollera att ditt lagringskonto är ansluten till rätt arbetsyta.
 
-![Storage-konto loggar](./media/log-analytics-service-fabric/sf1.png)
+![Lagringskontologgar](./media/log-analytics-service-fabric/sf1.png)
 
 ## <a name="enable-the-service-fabric-solution"></a>Aktivera Service Fabric-lösning
 Använd följande skript för att lägga till lösningen logganalys-arbetsytan. Kör skriptet i PowerShell med hjälp av Azure-prenumerationen som är kopplad till logganalys-arbetsytan som du vill aktivera Service Fabric-lösningen i.
@@ -375,7 +376,7 @@ Klicka på den **Service Fabric** öppna Service Fabric-instrumentpanelen. Instr
 
 I följande tabell visar metoder för insamling av data och annan information om hur data samlas in för Service Fabric:
 
-| Plattform | Styr Agent | Operations Manager-agent | Azure Storage | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Frekvens för samlingen |
+| Plattform | Direktagent | Operations Manager-agent | Azure Storage | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Frekvens för samlingen |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |  |  | &#8226; |  |  |10 minuter |
 

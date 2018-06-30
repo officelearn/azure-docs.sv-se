@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: f7c3820624a4ef27e2ece4d902f2c033b6a6f48f
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9b41ca1eedcf69b23557c079e018d69de9fb907c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061228"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114375"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Azure Data Lake lagring Gen2 Preview hierarkiskt namnområde
 
-En nyckel mekanism som gör att Azure Data Lake lagring Gen2 Förhandsgranska för att ge filen systemets prestanda på objektet lagring skala och priser, är att lägga till en **hierarkiskt namnområde**. Detta gör att samlingen med objekt/filer i ett konto som ska ordnas i en hierarki med kataloger och kapslade underkataloger på samma sätt som att filsystemet på datorn är organiserat. Med hierarkiskt namnområde aktiverat, ger Data Lake lagring Gen2 skalbarhet och kostnadseffektivitet objektet lagring med filsystemen som analytics motorer och ramverk.
+En nyckel mekanism som gör att Azure Data Lake lagring Gen2 Förhandsgranska för att ge filen systemets prestanda på objektet lagring skala och priser är att lägga till en **hierarkiskt namnområde**. Detta gör att samlingen med objekt/filer i ett konto som ska ordnas i en hierarki med kataloger och kapslade underkataloger på samma sätt som att filsystemet på datorn är organiserat. Med hierarkiskt namnområde aktiverat, ger Data Lake lagring Gen2 skalbarhet och kostnadseffektivitet objektet lagring med filsystemen som analytics motorer och ramverk.
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>Fördelarna med hierarkiskt namnområde
 
@@ -27,7 +27,7 @@ En nyckel mekanism som gör att Azure Data Lake lagring Gen2 Förhandsgranska f�
 
 Följande fördelar är associerade med filsystem som implementerar ett hierarkiskt namnområde över blob-data:
 
-- **Atomiska Directory manipulering:** objektet lagrar ungefärlig directory-hierarkin genom användning av en konvention för att bädda in snedstreck (/) i objektnamn att ange sökvägssegment. Denna konvention fungerar tillfredsställande sätt för att ordna objekt, ger konventionen inget stöd för åtgärder som flyttar, byta namn på eller ta bort kataloger. Utan verkliga kataloger måste program potentiellt bearbeta miljontals enskilda BLOB att uppnå katalognivå uppgifter. Däremot bearbetar hierarkiskt namnområde dessa uppgifter genom att uppdatera en post (den överordnade katalogen). 
+- **Atomiska Directory manipulering:** objektet lagrar ungefärlig directory-hierarkin genom användning av en konvention för att bädda in snedstreck (/) i objektnamn att ange sökvägssegment. Denna konvention arbetar för att ordna objekt, ger konventionen inget stöd för åtgärder som flyttar, byta namn på eller ta bort kataloger. Utan verkliga kataloger måste program potentiellt bearbeta miljontals enskilda BLOB att uppnå katalognivå uppgifter. Däremot bearbetar hierarkiskt namnområde dessa uppgifter genom att uppdatera en post (den överordnade katalogen). 
 
     Denna dramatisk optimering är särskilt viktig för många ramverk för analyser av stordata. Verktyg som Hive, Spark, etc. skriva ofta utdata till tillfällig platser och Byt sedan namn på platsen när jobbet. Utan hierarkiskt namnområde kan det här byta namn ofta ta längre tid än analyserna bearbeta sig själv. Kortare svarstid för jobbet är lika med lägre ägandekostnader (TCO) för analytics-arbetsbelastningar.
 

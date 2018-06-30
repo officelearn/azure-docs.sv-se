@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: v-geberr
-ms.openlocfilehash: 70bca3b181e02f42da50e827154193936544131a
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: d22b2ba332996d31b1db4ef4d095f0a4b443ba16
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263826"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109366"
 ---
 # <a name="keys-in-luis"></a>Nycklar i THOMAS
 THOMAS använder två nycklar: [redigering](#programmatic-key) och [endpoint](#endpoint-key). Redigering nyckeln skapas automatiskt för dig när du skapar THOMAS-konto. När du är redo att publicera THOMAS-app, behöver du [skapa slutpunkten nyckeln](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [tilldela den](Manage-keys.md#assign-endpoint-key) i appen THOMAS och [med slutpunkten frågan](#use-endpoint-key-in-query). 
@@ -22,7 +22,7 @@ THOMAS använder två nycklar: [redigering](#programmatic-key) och [endpoint](#e
 |Nyckel|Syfte|
 |--|--|
 |[Redigera nyckel](#programmatic-key)|Redigering, publicera, hantera medarbetare, versionshantering|
-|[Slutpunktsnyckel](#endpoint-key)| Fråga|
+|[slutpunktsnyckel](#endpoint-key)| Fråga|
 
 Det är viktigt att redigera THOMAS appar i [regioner](luis-reference-regions.md#publishing-regions) där du även vill publicera och fråga.
 
@@ -40,7 +40,7 @@ När du vill se **produktion endpoint frågor**, skapa en Azure [THOMAS prenumer
 > [!CAUTION]
 > För enkelhetens skull många exemplen använder nyckeln redigering eftersom den innehåller några endpoint-anrop i dess [kvot](luis-boundaries.md#key-limits).  
 
-## <a name="endpoint-key"></a>Slutpunktsnyckel
+## <a name="endpoint-key"></a>slutpunktsnyckel
  När du behöver **produktion endpoint frågor**, skapa en [THOMAS nyckeln](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) i Azure-portalen. Kom ihåg namnet som används för att skapa nyckeln, du behöver den när du lägger till nyckeln i appen..
 
 När THOMAS prenumerationsprocessen är klar [lägga till nyckeln](Manage-keys.md#assign-endpoint-key) till appen på den **publicera** sidan. 
@@ -62,10 +62,10 @@ Slutpunkten THOMAS accepterar två typer av frågan använder både endpoint nyc
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>API-användning av Ocp-Apim-prenumeration-nyckeln
 LUIS APIs använda rubriken, `Ocp-Apim-Subscription-Key`. Huvudets namn ändras inte utifrån vilka nyckel och en uppsättning API: er som används. Ange rubriken för nyckeln redigering för redigering API: er. Om du använder slutpunkten Ange rubriken till slutpunktsnyckel. 
 
-Du kan inte överföra nyckeln slutpunkten för API: er för redigering. Om du vill få ett 401-fel – åtkomst nekad på grund av ogiltiga prenumerationen nyckel. 
+Du kan inte överföra nyckeln slutpunkten för API: er för redigering. Om du vill få ett 401-fel – åtkomst nekad på grund av ogiltig slutpunktsnyckel. 
 
 ## <a name="key-limits"></a>Viktiga begränsningar
-Se [nyckeln gränser](luis-boundaries.md#key-limits) och [Azure-regioner](luis-reference-regions.md). Redigering är ledigt och använt för redigering. Nyckeln THOMAS prenumerationen har en kostnadsfri nivå men måste skapas av dig och associerade med appen THOMAS på den **publicera** sidan. Den kan inte användas för redigering, men endast endpoint frågor.
+Se [nyckeln gränser](luis-boundaries.md#key-limits) och [Azure-regioner](luis-reference-regions.md). Redigering är ledigt och använt för redigering. Nyckeln THOMAS slutpunkten har en kostnadsfri nivå men måste skapas av dig och associerade med appen THOMAS på den **publicera** sidan. Den kan inte användas för redigering, men endast endpoint frågor.
 
 Publishing regioner skiljer sig från redigering regioner. Kontrollera att du skapar en app i authoring region motsvarande publishing regionen som du vill använda.
 

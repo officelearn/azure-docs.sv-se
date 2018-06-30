@@ -2,19 +2,19 @@
 title: Azure SQL Database DTU-baserade resurs begränsar enskilda databaser | Microsoft Docs
 description: Den här sidan beskrivs några vanliga DTU-baserade gränserna för enskilda databaser i Azure SQL Database.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 5a7abb7d67de59ea326b5180cf94e3594cd06576
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 2d6660e1064959f2d04424ae1c3e9bc668231c92
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753395"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131329"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Gränserna för enskilda databaser med hjälp av DTU-baserade inköpsmodell 
 
@@ -72,7 +72,7 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 
 
 > [!IMPORTANT]
-> Mer än 1 TB lagringsutrymme i Premium-nivån är för närvarande tillgänglig i alla regioner förutom följande: Storbritannien, Nord, västra centrala USA, Storbritannien South2, Kina Öst, USDoDCentral, Tyskland Central, USDoDEast, USA Gov Southwest, oss Gov södra centrala, Tyskland nordöst, Kina Nord USA Gov Öst. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Mer än 1 TB lagringsutrymme i Premium-nivån är för närvarande tillgänglig i alla regioner förutom följande: Väst centrala USA, Öst Kina, USDoDCentral, Tyskland, centrala, USDoDEast, USA Gov Southwest, Tyskland nordöst, USGovIowa, Kina Nord. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="single-database-change-storage-size"></a>Databas: ändra lagringsstorlek
 

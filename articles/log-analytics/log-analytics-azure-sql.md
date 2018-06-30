@@ -1,9 +1,9 @@
 ---
 title: Azure SQL Analytics lösning i Log Analytics | Microsoft Docs
-description: Azure SQL Analytics lösningen hjälper dig att hantera dina Azure SQL-databaser.
+description: Azure SQL Analytics lösningen hjälper dig att hantera dina Azure SQL-databaser
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -11,24 +11,26 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: na
+ms.openlocfilehash: f57a47677f752a644975a25fa746d78bced5d766
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133031"
 ---
-# <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsgranskning) i logganalys
+# <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL-databaser med hjälp av Azure SQL Analytics (förhandsgranskning)
 
 ![Azure SQL Analytics symbol](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-Azure SQL Analytics lösningen i Azure Log Analytics samlar in och visualizes viktiga mått för prestanda för SQL Azure. Med det mått som du samlar in med lösningen kan skapa du anpassade regler för övervakning och aviseringar. Du kan övervaka Azure SQL Database och elastisk pool mått över flera Azure-prenumerationer och elastiska pooler och visualisera dem. Lösningen hjälper dig att identifiera problem på varje nivå i program-stacken.  Den använder [Azure diagnostisk mått](log-analytics-azure-storage.md) tillsammans med logganalys vyer presentera data om dina Azure SQL-databaser och elastiska pooler i en enda logganalys-arbetsyta.
+Azure SQL-Analytics är ett moln övervakningslösning för övervakning av prestanda i Azure SQL-databaser i större skala över flera elastiska pooler och prenumerationer. Den samlar in och visualizes viktiga prestandamått för Azure SQL Database med inbyggd intelligens för prestanda felsökning längst upp. 
+
+Med hjälp av mått som du samlar in med lösningen kan du skapa anpassade regler för övervakning och aviseringar. Lösningen hjälper dig att identifiera problem på varje nivå i program-stacken. Azure-diagnostik mått tillsammans med logganalys vyer används för att presentera data om alla Azure SQL-databaser och elastiska pooler i en enda logganalys-arbetsyta. Logganalys hjälper dig att samla in, korrelera och visualisera strukturerade och Ostrukturerade data.
 
 Den här preview-lösningen stöder för närvarande, upp till 150 000 Azure SQL-databaser och 5 000 SQL elastiska pooler per arbetsytan.
-
-Azure SQL Analytics-lösningen, precis som andra tillgängliga för Log Analytics hjälper dig att övervaka och ta emot meddelanden om hälsotillståndet för dina Azure-resurser – i det här fallet, Azure SQL Database. Microsoft Azure SQL Database är en skalbar relationsdatabas-tjänst som tillhandahåller välbekanta SQL-Server-liknande funktioner till program som körs i Azure-molnet. Logganalys hjälper dig att samla in, korrelera och visualisera strukturerade och Ostrukturerade data.
 
 För en praktisk översikt om hur du använder Azure SQL Analytics lösning och vanliga Användningsscenarier finns inbäddad video:
 
@@ -37,39 +39,34 @@ För en praktisk översikt om hur du använder Azure SQL Analytics lösning och 
 
 ## <a name="connected-sources"></a>Anslutna källor
 
-Azure SQL Analytics lösningen använder inte agenter för att ansluta till Log Analytics-tjänsten.
-
-I följande tabell beskrivs de anslutna källor som stöds av den här lösningen.
+Azure SQL-Analytics är ett moln som övervakning lösning stödjande strömning av diagnostiktelemetri för Azure SQL-databaser och elastiska pooler. Eftersom den inte använder agenter för att ansluta till Log Analytics-tjänsten, lösningen stöder inte anslutning med Windows, Linux eller SCOM resurser, se tabellen kompatibilitet.
 
 | Ansluten källa | Support | Beskrivning |
 | --- | --- | --- |
+| **[Azure-diagnostik](log-analytics-azure-storage.md)** | **Ja** | Azure mått och loggar data skickas till logganalys direkt av Azure. |
+| [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Logganalys inte att läsa data från ett lagringskonto. |
 | [Windows-agenter](log-analytics-windows-agent.md) | Nej | Direkt Windows-agenter som inte används av lösningen. |
 | [Linux-agenter](log-analytics-linux-agents.md) | Nej | Direkt Linux-agenter som inte används av lösningen. |
 | [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Nej | En direkt anslutning från SCOM-agent till logganalys används inte av lösningen. |
-| [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Logganalys inte att läsa data från ett lagringskonto. |
-| [Azure Diagnostics](log-analytics-azure-storage.md) | Ja | Azure mått och loggar data skickas till logganalys direkt av Azure. |
-
-## <a name="prerequisites"></a>Förutsättningar
-
-- En Azure-prenumeration. Om du inte har någon, kan du skapa en för [ledigt](https://azure.microsoft.com/free/).
-- Logganalys-arbetsytan. Du kan använda en befintlig eller kan du [skapa en ny](log-analytics-quick-create-workspace.md) innan du börjar använda den här lösningen.
-- Aktivera Azure-diagnostik för din Azure SQL-databaser och elastiska pooler och [konfigurera dem att skicka data till logganalys](../sql-database/sql-database-metrics-diag-logging.md).
 
 ## <a name="configuration"></a>Konfiguration
 
 Utför följande steg för att lägga till Azure SQL Analytics lösningen till din arbetsyta.
 
-1. Lägg till Azure SQL Analytics-lösning till arbetsytan från [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) eller genom att använda processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).
-2. I Azure-portalen klickar du på **skapar du en resurs** > **övervakning + Management**.  
+1. Lägg till Azure SQL Analytics-lösning till arbetsytan från [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview).
+2. I Azure-portalen klickar du på **+ skapa en resurs**, Sök sedan efter **Azure SQL Analytics**.  
     ![Övervakning och hantering](./media/log-analytics-azure-sql/monitoring-management.png)
-3. I den **övervakning + Management** lista Klicka **se alla**.
-4. I den **rekommenderas** klickar du på **mer**, och sedan i den nya listan **Azure SQL Analytics (förhandsgranskning)** och markera den.  
-    ![Azure SQL Analytics-lösning](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. I den **Azure SQL Analytics (förhandsgranskning)** området klickar du på **skapa**.  
+3. Välj **Azure SQL Analytics (förhandsgranskning)** från listan
+4. I den **Azure SQL Analytics (förhandsgranskning)** området klickar du på **skapa**.  
     ![Skapa](./media/log-analytics-azure-sql/portal-create.png)
-6. I den **Skapa ny lösning** området, Välj arbetsytan som du vill lägga till lösningen på och klicka sedan på **skapa**.  
+5. I den **Skapa ny lösning** område, skapa en ny eller välj en befintlig arbetsyta som du vill lägga till lösningen på och klicka sedan på **skapa**.  
     ![Lägg till arbetsytan](./media/log-analytics-azure-sql/add-to-workspace.png)
 
+### <a name="configure-azure-sql-databases-and-elastic-pools-to-stream-diagnostics-telemetry"></a>Konfigurera Azure SQL-databaser och elastiska pooler till dataströmmen diagnostiktelemetri
+
+När du har skapat Azure SQL Analytics lösning i din arbetsyta, för att övervaka prestanda för Azure SQL-databaser och elastiska pooler måste du **konfigurera varje** för Azure SQL Database och elastisk pool-resurs som du vill att övervaka för att strömma dess diagnostiktelemetri till lösningen.
+
+- Aktivera Azure-diagnostik för din Azure SQL-databaser och elastiska pooler och [konfigurera dem att skicka data till logganalys](../sql-database/sql-database-metrics-diag-logging.md).
 
 ### <a name="to-configure-multiple-azure-subscriptions"></a>Så här konfigurerar du Azure-prenumerationer
 
@@ -108,11 +105,11 @@ Varje perspektiv innehåller sammanfattningar för prenumerationen, server, elas
 | Resurs av typen | Perspektiv som räknar alla resurser som övervakas. Nedåt innehåller en sammanfattning av DTU och GB mått. |
 | Insikter | Ger hierarkiska nedåt till Intelligent insikter. Läs mer om intelligent insikter. |
 | Fel | Erbjuder hierarkiska nedåt i SQL-fel som inträffat på databaserna. |
-| Tidsgränser | Erbjuder hierarkiska nedåt i SQL-tidsgränser som inträffat på databaserna. |
-| Blockings | Erbjuder hierarkiska nedåt i SQL-blockings som inträffat på databaserna. |
+| Timeouter | Erbjuder hierarkiska nedåt i SQL-tidsgränser som inträffat på databaserna. |
+| Blockeringar | Erbjuder hierarkiska nedåt i SQL-blockings som inträffat på databaserna. |
 | Databasen väntar | Erbjuder hierarkiska nedåt i SQL vänta statistik på databasnivå. Innehåller sammanfattningar av totala väntetiden och väntetiden per typ vänta. |
-| frågan varaktighet | Erbjuder hierarkiska nedåt i frågan körning av statistik, till exempel fråga varaktighet, CPU-användning, Data-i/o-användning, logg-i/o-användning. |
-| Timeout | Ger hierarkiska nedåt i frågan vänta statistik genom att vänta kategori. |
+| Frågan varaktighet | Erbjuder hierarkiska nedåt i frågan körning av statistik, till exempel fråga varaktighet, CPU-användning, Data-i/o-användning, logg-i/o-användning. |
+| Frågan väntar | Ger hierarkiska nedåt i frågan vänta statistik genom att vänta kategori. |
 
 ### <a name="intelligent-insights-report"></a>Intelligent insikter rapport
 

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 273fca51d83f25e2657b51b68179e46f4295f92b
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b3283880ebb116e5397c38d722a0790cff414f38
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263888"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111930"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Web App Bot med mallen THOMAS för C#
 
@@ -72,7 +72,7 @@ Bot svarar genom att säga ”du har nått hälsning. Du SA: hello ”.  Det hä
 
 ## <a name="connect-your-luis-app-to-the-bot"></a>Anslut appen THOMAS till bot
 
-Öppna **programinställningar** och redigera den **LuisAppId** fältet ska innehålla program-ID för appen THOMAS. Om du har skapat HomeAutomation THOMAS appen i en annan region än västra USA kan du behöver ändra den **LuisAPIHostName** samt. Den **LuisAPIKey** är inställd på att din nyckel för redigering. Du ändra det till din prenumeration nyckel när trafiken överskrider kvoten kostnadsfria nivån. 
+Öppna **programinställningar** och redigera den **LuisAppId** fältet ska innehålla program-ID för appen THOMAS. Om du har skapat HomeAutomation THOMAS appen i en annan region än västra USA kan du behöver ändra den **LuisAPIHostName** samt. Den **LuisAPIKey** är inställd på att din nyckel för redigering. Du ändra det till din slutpunktsnyckel när trafiken överskrider kvoten kostnadsfria nivån. 
 
   ![Uppdatera THOMAS app-ID i Azure](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 

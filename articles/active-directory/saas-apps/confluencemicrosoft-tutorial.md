@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d8f3c0e4dec05b2ed968a3493a7cc560231e7331
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b57522933647c9d1d5518740d41b624b199a020e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215699"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Självstudier: Azure Active Directory-integrering med antal samverkande SAML SSO av Microsoft
 
@@ -167,7 +167,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **URL för tjänstmetadata** textruta klistra in **webbadress Federation Metadata** värde som du har kopierat från Azure-portalen och klicka på den **lösa** knappen. Den läser IdP metadata-URL och fyller i informationen för fält.
 
-    b. Kopiera den **identifierare, svars-URL: en och URL: en inloggning** värden och klistra in dem i **identifierare, svars-URL: en och URL: en inloggning** textrutor respektive i **växer samman SAML SSO av URL: er och Microsoft Domain** avsnitt på Azure-portalen.
+    b. Kopiera den **identifierare, svars-URL: en och URL: en inloggning** värden och klistra in dem i **identifierare, svars-URL: en och URL: en inloggning** textrutor respektive i **växer samman SAML SSO av URL: er och Microsoft Domain**  avsnitt på Azure-portalen.
 
     c. I **knappen inloggningsnamnet** skriver du namnet på knappen organisationen vill att användarna ska se på inloggningsskärmen.
 
@@ -222,11 +222,11 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="creating-a-confluence-saml-sso-by-microsoft-test-user"></a>Skapa ett antal samverkande SAML SSO av Microsoft testanvändare
 
-Om du vill aktivera Azure AD-användare kan logga in på växer samman på lokal server, måste de etableras i antal samverkande SAML SSO av Microsoft. Antal samverkande SAML SSO av Microsoft är etablering en manuell aktivitet.
+Om du vill aktivera Azure AD-användare kan logga in på lokal server växer samman etableras de i antal samverkande SAML SSO av Microsoft. Antal samverkande SAML SSO av Microsoft är etablering en manuell aktivitet.
 
 **Utför följande steg om du vill konfigurera ett användarkonto:**
 
-1. Logga in på ditt växer samman på lokal server som administratör.
+1. Logga in på ditt växer samman lokal server som administratör.
 
 2. Hovra över kugge och klicka på den **Användarhantering**.
 

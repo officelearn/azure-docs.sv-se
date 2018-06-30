@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287811"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114617"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Konfigurera alltid på Tillgänglighetsgruppen i Azure VM manuellt
 
@@ -86,7 +86,7 @@ När förutsättningarna har slutförts, är det första steget att skapa ett re
 
    ![Egenskaper för klustret](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Välj **statisk IP-adress** och ange en tillgänglig adress från intervallet privata IP-adressering APIPA (Automatic): 169.254.0.1 till 169.254.255.254 i textrutan adress. Du kan använda alla adresser i intervallet för det här exemplet. Till exempel `169.254.0.1`. Klicka på **OK**.
+3. Välj **statisk IP-adress** och ange en tillgänglig adress från samma undernät som virtuella datorer.
 
 4. I den **klustrets kärnresurser** avsnittet, högerklickar du på klusternamnet och klickar på **Anslut**. Vänta tills båda resurser är online. När namnet klusterresursen är online uppdaterar DC-servern med ett nytt AD-datorkonto. Använda AD-kontot för att köra tjänsten Availability Group klustrade senare.
 
@@ -341,7 +341,7 @@ Du har nu en tillgänglighetsgrupp med repliker på två instanser av SQL Server
 
 ## <a name="create-an-azure-load-balancer"></a>skapa en Azure Load Balancer
 
-På Azure virtual machines kräver en belastningsutjämnare i en SQL Server-tillgänglighetsgrupp. Belastningsutjämnaren innehåller IP-adressen för tillgänglighetsgruppens lyssnare. Det här avsnittet beskrivs hur du skapar belastningsutjämnaren i Azure-portalen.
+På Azure virtual machines kräver en belastningsutjämnare i en SQL Server-tillgänglighetsgrupp. Belastningsutjämnaren innehåller IP-adresser för tillgänglighetsgruppens lyssnare och Windows Server-redundanskluster. Det här avsnittet beskrivs hur du skapar belastningsutjämnaren i Azure-portalen.
 
 1. I Azure-portalen går du till resursgruppen där din SQL-servrar är och på **+ Lägg till**.
 2. Sök efter **belastningsutjämnare**. Välj belastningsutjämnaren som publicerats av Microsoft.
@@ -370,7 +370,7 @@ På Azure virtual machines kräver en belastningsutjämnare i en SQL Server-till
 
 Om du vill konfigurera belastningsutjämnaren måste du skapa en serverdelspool, en avsökning och ange regler för belastningsutjämning. Gör följande i Azure-portalen.
 
-### <a name="add-backend-pool"></a>Lägg till serverdelspoolen
+### <a name="add-backend-pool-for-the-availability-group-listener"></a>Lägg till serverdelspoolen för tillgänglighetsgruppens lyssnare
 
 1. Gå till tillgänglighetsgruppen i Azure-portalen. Du kan behöva uppdatera vyn för att se nyligen skapade belastningsutjämnaren.
 
@@ -416,6 +416,46 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en serverdelspool,
    | **Port** | Använd porten för tillgänglighetsgruppens lyssnare | 1435 |
    | **Backend-Port** | Det här fältet används inte när flytande IP är inställd för direkta servern returnerade | 1435 |
    | **Avsökningen** |Det namn du angav för avsökningen | SQLAlwaysOnEndPointProbe |
+   | **Persistence för session** | Listrutan | **Ingen** |
+   | **Inaktivitetstid** | Minuter att öppna en TCP-anslutning | 4 |
+   | **Flytande IP (direkt serverreturnering)** | |Enabled |
+
+   > [!WARNING]
+   > Direkt serverreturnering anges när du skapar. Det kan inte ändras.
+
+1. Klicka på **OK** att ange regler för belastningsutjämning.
+
+### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Lägg till IP-adress för klientdel för WSFC
+
+WSFC-IP-adressen måste också vara på belastningsutjämnaren. 
+
+1. Lägg till en ny Frontend IP-konfiguration för WSFC i portalen. Använd IP-adress som du har konfigurerat för WSFC i klustrets kärnresurser. Ange IP-adressen som statisk. 
+
+1. Klicka på belastningsutjämnaren, **hälsoavsökning**, och klicka på **+ Lägg till**.
+
+1. Ange hälsoavsökningen enligt följande:
+
+   | Inställning | Beskrivning | Exempel
+   | --- | --- |---
+   | **Namn** | Text | WSFCEndPointProbe |
+   | **Protokoll** | Välj TCP | TCP |
+   | **Port** | Alla oanvända portar | 58888 |
+   | **Intervall**  | Tidslängd mellan avsökningsförsök i sekunder |5 |
+   | **Tröskelvärde för ohälsosamt värde** | Antalet avsökningsfel som måste vidtas för en virtuell dator för att ses som ohälsosamt  | 2 |
+
+1. Klicka på **OK** att ange avsökningen hälsa.
+
+1. Ange regler för belastningsutjämning. Klicka på **belastningsutjämningsregler**, och klicka på **+ Lägg till**.
+
+1. Ange belastningsutjämning regler på följande sätt.
+   | Inställning | Beskrivning | Exempel
+   | --- | --- |---
+   | **Namn** | Text | WSFCPointListener |
+   | **Frontend-IP-adress** | Välj en adress |Använd den adress som du skapade när du har konfigurerat WSFC-IP-adress. |
+   | **Protokoll** | Välj TCP |TCP |
+   | **Port** | Använd porten för tillgänglighetsgruppens lyssnare | 58888 |
+   | **Backend-Port** | Det här fältet används inte när flytande IP är inställd för direkta servern returnerade | 58888 |
+   | **Avsökningen** |Det namn du angav för avsökningen | WSFCEndPointProbe |
    | **Persistence för session** | Listrutan | **Ingen** |
    | **Inaktivitetstid** | Minuter att öppna en TCP-anslutning | 4 |
    | **Flytande IP (direkt serverreturnering)** | |Enabled |

@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 9c4b16ec11d1990de687014c5385314f0e0c602a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: na
+ms.openlocfilehash: 47158d0c2b5a80ceae25b275836d45b63db50ff4
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30238400"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127050"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Azure Key Vault Analytics lösning i logganalys
 
@@ -102,7 +103,7 @@ När du klickar på den **översikt** panelen, kan du visa sammanfattningar av l
 ## <a name="log-analytics-records"></a>Log Analytics-poster
 Azure Key Vault-lösningen analyserar poster som har en typ av **KeyVaults** som samlas in från [AuditEvent loggar](../key-vault/key-vault-logging.md) i Azure-diagnostik.  Egenskaper för dessa poster finns i följande tabell:  
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | Typ |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
@@ -113,12 +114,12 @@ Azure Key Vault-lösningen analyserar poster som har en typ av **KeyVaults** som
 | httpStatusCode_d |HTTP-statuskoden som returnerades av begäran (till exempel *200*) |
 | id_s |Unikt ID för begäran |
 | identity_claim_appid_g | GUID för det program-id |
-| OperationName |Namnet på åtgärden, enligt beskrivningen i [Azure Key Vault-loggning](../key-vault/key-vault-logging.md) |
+| operationName |Namnet på åtgärden, enligt beskrivningen i [Azure Key Vault-loggning](../key-vault/key-vault-logging.md) |
 | OperationVersion |REST API-version som begärs av klienten (till exempel *2015-06-01*) |
 | requestUri_s |URI för begäran |
 | Resurs |Namnet på nyckelvalvet |
 | ResourceGroup |Resursgruppen för nyckelvalvet |
-| Resurs-ID |Azure Resource Manager Resource-ID. För Key Vault loggar är Key Vault-resurs-ID. |
+| resurs-ID |Azure Resource Manager Resource-ID. För Key Vault loggar är Key Vault-resurs-ID. |
 | ResourceProvider |*MICROSOFT. KEYVAULT* |
 | ResourceType | *VAULTS* |
 | ResultSignature |HTTP-status (till exempel *OK*) |

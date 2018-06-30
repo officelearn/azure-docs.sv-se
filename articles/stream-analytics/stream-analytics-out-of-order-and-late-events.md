@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f0ee486d9ff4c05269da23866edad281aa627889
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912023"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113902"
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics händelse ordning överväganden
 
@@ -22,7 +22,7 @@ ms.locfileid: "30912023"
 
 I en temporal dataström av händelser tilldelas varje händelse en tidsstämpel. Azure Stream Analytics tilldelar en tidsstämpel till varje händelse med hjälp av antingen ankomst tid eller programmet tid. Den **System.Timestamp** kolumn har tilldelats tidsstämpeln. 
 
-Ankomsttid tilldelas vid Indatakällan när händelsen når källan. Du kan komma åt ankomsttid med hjälp av den **EventEnqueuedTime** -egenskapen för event hub indata och använder den [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) -egenskapen för blob-indata. 
+Ankomsttid tilldelas vid Indatakällan när händelsen når källan. Du kan komma åt ankomsttid med hjälp av den **EventEnqueuedUtcTime** -egenskapen för Händelsehubbar indata **IoTHub.EnqueuedTime** -egenskapen för IoT-hubb och använder den [BlobProperties.LastModified ](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) -egenskapen för blob-indata. 
 
 Tid för programmet tilldelas när händelsen genereras och den ingår i nyttolasten. För att bearbeta händelser efter programmet tid, Använd den **tidsstämpel av** -satsen i select-frågan. Om den **tidsstämpel av** satsen saknas, händelser som bearbetas av ankomsttid. 
 
@@ -111,7 +111,7 @@ Frågan har inte en **Partition av PartitionId** -satsen, och det finns minst tv
 
 Konfigurationen är samma som exempel 2. Men kan avsaknaden av data i en av partitionerna fördröja utdata av ytterligare sen ankomst tolerans ett fönster.
 
-## <a name="handling-event-producers-with-differing-timelines"></a>Hanterar händelsen producenter med olika tidslinjer
+## <a name="handling-event-producers-with-differing-timelines-with-substreams"></a>Hanterar händelsen producenter med olika tidslinjer med ”underströmmar”
 En enda inkommande händelseströmmen innehåller ofta händelser som kommer från flera händelse tillverkare, till exempel enskilda enheter. Dessa händelser kan tas emot i rätt ordning på grund av orsaker som nämnts tidigare. I dessa scenarier, även om störning över händelse producenter kanske är stor, är störning i händelser från en enda producent liten (eller även obefintlig).
 
 Azure Stream Analytics ger allmänna metoder för att hantera out ordning händelser. Dessa mekanismer resultatet i bearbetning eller (väntan straggling händelser till systemet), släppa eller justeras händelser eller båda.

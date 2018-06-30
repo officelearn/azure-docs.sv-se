@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be79f0111cb569509cb05b24c99f86d4ca9534b0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 54b2cab2ad6b1a22d35fcf0755f257063573e58b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064057"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128630"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller molnet med hjälp av Hybrid Runbook Worker
 
@@ -95,7 +95,7 @@ Om du vill ta bort en grupp, måste du först ta bort Hybrid Runbook Worker frå
 
 ### <a name="hybrid-worker-role"></a>Hybrid Worker-rollen
 
-För Runbook Worker-hybriden att ansluta till och registrera med logganalys, måste den ha åtkomst till portnumret och URL: erna som beskrivs i det här avsnittet. Åtkomst är tillägg till den [portar och URL: er som krävs för Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) att ansluta till logganalys.
+För Runbook Worker-hybriden att ansluta till och registrera med logganalys, måste den ha åtkomst till portnumret och URL: erna som beskrivs i det här avsnittet. Åtkomst är tillägg till den [portar och URL: er som krävs för Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) att ansluta till logganalys. 
 
 Om du använder en proxyserver för kommunikation mellan agenten och Log Analytics-tjänsten måste du kontrollera att lämpliga resurser är tillgängliga. Om du använder en brandvägg för att begränsa åtkomsten till internet, måste du konfigurera brandväggen att tillåta åtkomst till.
 
@@ -105,6 +105,8 @@ Följande porten och URL: er krävs att kommunicera med Automation Hybrid Runboo
 * Globala URL: *.azure-automation.net
 * Globala URL för USA Gov Virginia: *.azure automation.us
 * Agent-tjänsten: https://\<workspaceId\>.agentsvc.azure-automation.net
+
+Det rekommenderas att använda de adresser som anges när du definierar undantag. För IP-adresser som du kan hämta den [IP-intervall i Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Den här filen uppdateras varje vecka och är för tillfället distribuerade intervall och eventuella kommande ändringar till IP-adressintervall.
 
 Om du har ett Automation-konto som har definierats för en viss region, kan du begränsa kommunikation till det regionala datacentret. Följande tabell innehåller DNS-post för varje region:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: fe55c84964d10be971c0f1d64d2c70313098a4ee
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bf262a42751e02c939696e4c8554fc19f5a4f4bd
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215717"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111209"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Självstudier: Azure Active Directory-integrering med Kantega SSO för FishEye/genom
 
@@ -133,7 +133,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/tutorial_general_400.png)
     
-7. I en annan webbläsarfönster logga du in på ditt FishEye/genom på lokal server som administratör.
+7. I en annan webbläsarfönster logga in FishEye/genom en lokal server som administratör.
 
 8. Hovra över kugge och klicka på den **tillägg**.
 
@@ -222,7 +222,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     c. Klicka på **Spara**.  
 
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
@@ -261,7 +261,7 @@ Om du vill aktivera Azure AD-användare kan logga in på FishEye/genom etableras
 
 **Utför följande steg om du vill konfigurera ett användarkonto:**
 
-1. Logga in på ditt genom på lokal server som administratör.
+1. Logga in på ditt genom lokal server som administratör.
 
 2. Hovra över kugge och klicka på den **användare**.
 

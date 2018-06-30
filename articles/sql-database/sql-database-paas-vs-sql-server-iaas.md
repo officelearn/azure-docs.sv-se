@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: a212a595c02a048721f1a8753b437f74f2fc4973
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 2fb5a7cbca4df0faa06864f580814f31cc2b609c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308962"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114409"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Välj ett molnbaserat SQL Server-alternativ: Azure SQL (PaaS) Database eller SQL Server på Azure Virtual Machines (IaaS)
 
@@ -124,7 +124,7 @@ För **SQL Server som kör på virtuella Azure-datorer** erbjuder Microsoft en t
 
 **SQL-hanterade databasinstans** underlättar migrering av befintliga program till Azure SQL Database, vilket gör det lättare att göra en migrerade databasen snabbt på marknaden i Azure-program.
 
-**SQL Server som körs på Azure Virtual Machines** är perfekt om dina befintliga eller nya program kräver stora databaser eller åtkomst till alla funktioner i SQL Server eller Windows-/ Linux, och du vill undvika att tid och kostnader för att skaffa ny maskinvara för lokalt. Det är också passa om du vill migrera befintliga lokala program och databaser till Azure som-är – i fall där hanterade Azure SQL Database-instans inte är en bra. Eftersom du inte behöver ändra presentationen, programmet eller datalagren, kan du spara in tid och budget på att omstrukturera din befintliga lösning. Istället kan du fokusera på att migrera alla dina lösningar till Azure och på att genomföra prestandaoptimeringar som kan krävas av Azure-plattformen. Mer information finns i [Bästa praxis för prestanda i SQL Server på Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
+**SQL Server som körs på Azure Virtual Machines** är perfekt om dina befintliga eller nya program kräver stora databaser eller åtkomst till alla funktioner i SQL Server eller Windows-/ Linux, och du vill undvika att tid och kostnader för att skaffa ny lokal maskinvara. Det är också passa om du vill migrera befintliga lokala program och databaser till Azure som-är – i fall där hanterade Azure SQL Database-instans inte är en bra. Eftersom du inte behöver ändra presentationen, programmet eller datalagren, kan du spara in tid och budget på att omstrukturera din befintliga lösning. Istället kan du fokusera på att migrera alla dina lösningar till Azure och på att genomföra prestandaoptimeringar som kan krävas av Azure-plattformen. Mer information finns i [Bästa praxis för prestanda i SQL Server på Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
 
 ## <a name="summary"></a>Sammanfattning
 Den här artikeln har gått igenom SQL Database och SQL Server på virtuella Azure-datorer (VM:ar) och pratat om några vanliga verksamhetsmotivationer som kan påverka ditt beslut. Här följer en sammanfattning av förslag som du kan tänka på:

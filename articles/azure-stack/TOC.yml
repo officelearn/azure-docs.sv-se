@@ -269,6 +269,8 @@
               href: azure-stack-app-service-release-notes-update-one.md
             - name: Apptjänst på Azure-stacken uppdatering 2 viktig information
               href: azure-stack-app-service-release-notes-update-two.md
+        - name: Distribuera Ethereum
+          href: azure-stack-ethereum.md
         - name: Lägga till i Marketplace
           items:
             - name: Marketplace-översikt

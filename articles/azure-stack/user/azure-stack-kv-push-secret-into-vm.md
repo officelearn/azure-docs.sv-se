@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 06/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3950c9dfc5ff5f7ea1d170da086b4f97048ed81c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 05278ee4b0dc1f2c22f40bfcff4f9d7342017c0f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069041"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108764"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Skapa en virtuell dator och installera ett certifikat som hämtades från nyckelvalvet en Azure-stacken
 
@@ -43,8 +43,8 @@ Följande steg beskriver den process som krävs för att pressa ett certifikat p
 2. Uppdatera azuredeploy.parameters.json-filen.
 3. Distribuera mallen
 
->[!NOTE]
->Du kan använda de här stegen från Azure-stacken Development Kit eller från en extern klient om du är ansluten via VPN.
+> [!NOTE]
+> Du kan använda de här stegen från Azure-stacken Development Kit eller från en extern klient om du är ansluten via VPN.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -56,8 +56,8 @@ Följande steg beskriver den process som krävs för att pressa ett certifikat p
 
 Följande skript skapar ett certifikat i PFX-format, skapas en nyckelvalvet och lagrar certifikatet i nyckelvalvet som en hemlighet.
 
->[!IMPORTANT]
->Du måste använda den `-EnabledForDeployment` parameter när du skapar nyckeln felet. Den här parametern säkerställer att nyckelvalvet kan refereras från Azure Resource Manager-mallar.
+> [!IMPORTANT]
+> Du måste använda den `-EnabledForDeployment` parameter när du skapar nyckelvalvet. Den här parametern säkerställer att nyckelvalvet kan refereras från Azure Resource Manager-mallar.
 
 ```powershell
 

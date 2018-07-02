@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Belastningsutjämnare
+title: Load Balancer
 metadata:
   document_id: 
-  title: Belastningsutjämnare
+  title: Load Balancer
   meta.description: Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
   services: load-balancer
   author: KumudD
@@ -14,11 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/19/2018
   ms.author: kumud
-  ms.openlocfilehash: 8ddf35502bb8fd7f6d4e2a83d1f6f37f30ab8857
-  ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+  ms.openlocfilehash: 497dc23f56e3dd75c6d7e0549fbdef42ff3c3698
+  ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 05/03/2018
+  ms.lasthandoff: 06/29/2018
+  ms.locfileid: "37132627"
 abstract:
   description: Lär dig hur du använder Azure Load Balancer. Snabbstarter, självstudier, exempel med mera som visar hur du distribuerar en belastningsutjämnare och belastningsutjämnar trafik till och från virtuella datorer och molnresurser och mellan lokala virtuella nätverk på plats.
 sections:
@@ -48,9 +49,11 @@ sections:
   - type: list
     style: unordered
     items:
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-manage-portal">Skapa och hantera Load Balancer</a>
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-basic-internal-portal">Belastningsutjämna intern trafik till virtuella datorer</a>
-    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal">Skapa en zonredundant offentlig Standard Load Balancer</a>
-    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal">Belastningsutjämna virtuella datorer inom en zon</a>
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal">Belastningsutjämna virtuella datorer mellan tillgänglighetszoner</a>
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal">Belastningsutjämna virtuella datorer i en specifik tillgänglighetszon</a>
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal">Konfigurera portvidarebefordran i Load Balancer</a>
 - title: Kostnadsfri videoutbildning för Pluralsight
   items:
   - type: list
@@ -89,8 +92,8 @@ sections:
     className: cardsD
     items:
     - title: Kommandorad
-      html: <p><a href="/powershell/module/azurerm.network#networking">PowerShell</a></p><p><a href="/cli/azure/network">Azure CLI</a></p>
+      html: <p><a href="/powershell/module/azurerm.network#load_balancer">PowerShell</a></p><p><a href="/cli/azure/network/lb">Azure CLI</a></p>
     - title: Språk
-      html: <p><a href="/dotnet/api/overview/azure/network">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node.js</a></p><p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations#azure.mgmt.network.operations.LoadBalancersOperations">Python</a></p>
+      html: <p><a href="/dotnet/api/overview/azure/network">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.network.v2017_10_01.models.LoadBalancer">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.network.v2015_06_15.operations.loadbalancersoperations">Python</a></p>
     - title: REST
       html: <p><a href="/rest/api/load-balancer/">REST API-referens</a></p>

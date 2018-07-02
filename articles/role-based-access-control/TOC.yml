@@ -25,16 +25,11 @@
   items:
     - name: Förstå rolldefinitioner
       href: role-definitions.md
-    - name: Inbyggda roller
-      href: built-in-roles.md
-    - name: Åtgärder för resursprovider
-      href: resource-provider-operations.md
     - name: Privileged Identity Management (PIM) för RBAC
       href: pim-azure-resource.md
     - name: Villkorlig åtkomst för hantering av Azure
       href: conditional-access-azure-management.md
 - name: Instruktionsguider
-  expanded: true
   items:
     - name: Hantera åtkomst
       items:
@@ -63,3 +58,17 @@
       href: role-assignments-external-users.md
     - name: Felsöka
       href: troubleshooting.md
+- name: Referens
+  items:
+    - name: Inbyggda roller
+      href: built-in-roles.md
+    - name: Åtgärder för resursprovider
+      href: resource-provider-operations.md
+    - name: RBAC-begränsningar
+      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.resources
+    - name: Azure CLI
+      href: /cli/azure/role?view=azure-cli-latest
+    - name: REST-API
+      href: /rest/api/authorization/

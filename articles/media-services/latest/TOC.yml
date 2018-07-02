@@ -35,6 +35,10 @@
   items:
     - name: Tillgångar
       href: assets-concept.md
+    - name: Innehållsskydd
+      items:
+        - name: Översikt
+          href: content-protection-overview.md
     - name: Kodning
       items:
         - name: Översikt
@@ -69,6 +73,10 @@
           href: job-input-from-http-how-to.md
         - name: Från en lokal fil – .NET
           href: job-input-from-local-file-how-to.md
+    - name: Skydda innehåll
+      items:
+        - name: Med AES-128 – .NET
+          href: protect-with-aes128.md
 - name: Referens
   items:
     - name: OpenAPI-specifikation (Swagger)
@@ -87,6 +95,12 @@
       href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: Händelsescheman
       href: media-services-event-schemas.md
+    - name: DRM-licensscheman
+      items:
+        - name: PlayReady-licensmall
+          href: playready-license-template-overview.md
+        - name: Widevine-licensmall
+          href: widevine-license-template-overview.md
 - name: Resurser
   items:
     - name: Azure-översikt

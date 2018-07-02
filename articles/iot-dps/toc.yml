@@ -113,6 +113,9 @@
           href: how-to-manage-dps-with-cli.md
         - name: 'Kontrollera åtkomst till Provisioning Service-API:er'
           href: how-to-control-access.md
+    - name: Etablera en IoT Edge-enhet
+      href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+      maintainContext: true
     - name: Använda attesteringsmekanismer med SDK
       href: use-hsm-with-sdk.md
     - name: Använda SDK-verktyg för utveckling

@@ -91,6 +91,8 @@
           href: cdn-resource-health.md
         - name: Åsidosätt beteende med regler
           href: cdn-rules-engine.md
+        - name: Använda Traffic Manager
+          href: cdn-traffic-manager.md
     - name: Analysera
       href: cdn-log-analysis.md
       items:

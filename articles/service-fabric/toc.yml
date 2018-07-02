@@ -460,6 +460,13 @@
           href: service-fabric-debugging-your-application-java.md
         - name: Övervaka och diagnostisera lokalt
           href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+    - name: Arbeta i en VS Code-miljö
+      href: service-fabric-get-started-vs-code.md
+      items:
+        - name: 'Utveckla C# Service Fabric-program med VS Code'
+          href: service-fabric-develop-csharp-applications-with-vs-code.md
+        - name: Utveckla Java Service Fabric-program med VS Code
+          href: service-fabric-develop-java-applications-with-vs-code.md
     - name: Migrera från Cloud Services
       items:
         - name: Jämför Cloud Services med Service Fabric
@@ -534,10 +541,6 @@
                   href: service-fabric-cluster-creation-via-arm.md
                 - name: Kluster med unika namn för certifikat
                   href: service-fabric-create-cluster-using-cert-cn.md
-                - name: Aktivera diskkryptering för Windows
-                  href: service-fabric-enable-azure-disk-encryption-windows.md
-                - name: Aktivera diskkryptering för Linux
-                  href: service-fabric-enable-azure-disk-encryption-linux.md
             - name: Skala
               items:
                 - name: Skala ut manuellt

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 02c3a3d996fa253cf56e551a37e098639bf73533
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: ab5d6c531b08a13d465811d68a07e07e9fb0167c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32151951"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109468"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Hur du delegerar användarens registrering och produkt-prenumeration
 Delegering kan du använda din befintliga webbplats för att hantera developer logga-i/sign-upp och din prenumeration på produkter i stället för med inbyggda funktioner i developer-portalen. Detta gör att din webbplats ska äga användardata och utföra valideringen av stegen i ett anpassat sätt.
@@ -175,7 +175,7 @@ Mer information om delegering finns i följande video:
 [Delegating product subscription]: #delegate-product-subscription
 [en enkel inloggning (SSO) token för begäran]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [Skapa en användare]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[anropa REST-API för produkten prenumeration]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[anropa REST-API för produkten prenumeration]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
 [exempelkoden nedan]: #delegate-example-code
 

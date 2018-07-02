@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
 ms.locfileid: "23874033"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Hur du använder tjänsten SendGrid e-post från PHP
@@ -35,7 +35,7 @@ SendGrid är en [molnbaserade e-posttjänst] som ger tillförlitliga [transaktio
 * Vidarebefordran av kundfrågor
 * E-postaviseringar från ditt program
 
-Mer information finns i [https://sendgrid.com][https://sendgrid.com].
+Mer information finns i [ https://sendgrid.com ] [ https://sendgrid.com].
 
 ## <a name="create-a-sendgrid-account"></a>Skapa ett SendGrid-konto
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -47,7 +47,7 @@ Med SendGrid i ett Azure PHP-program kräver ingen särskild konfiguration eller
 Du kan skicka e-post med SMTP- eller webb-API som tillhandahålls av SendGrid.
 
 ### <a name="smtp-api"></a>SMTP-API
-Om du vill skicka e-post med SendGrid SMTP-API, Använd *Swift adresshuvud*, ett komponentbaserade bibliotek för att skicka e-post från PHP-program. Du kan hämta den *Swift adresshuvud* bibliotek från [http://swiftmailer.org/download] [ http://swiftmailer.org/download] v5.3.0 (använda [Composer] installera Swift Adresshuvud). Skicka e-post med biblioteket innebär att du skapar instanser av den <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_adresshuvud</span>, och <span class="auto-style2">Swift\_meddelande </span> klasser, ange lämpliga egenskaper och anropa den <span class="auto-style2">Swift\_Mailer::send</span> metod.
+Om du vill skicka e-post med SendGrid SMTP-API, Använd *Swift adresshuvud*, ett komponentbaserade bibliotek för att skicka e-post från PHP-program. Du kan hämta den *Swift adresshuvud* bibliotek från [ http://swiftmailer.org/download ] [ http://swiftmailer.org/download] v5.3.0 (använda [Composer] installera Swift adresshuvud). Skicka e-post med biblioteket innebär att du skapar instanser av den <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_adresshuvud</span>, och <span class="auto-style2">Swift\_meddelande </span> klasser, ange lämpliga egenskaper och anropa den <span class="auto-style2">Swift\_Mailer::send</span> metod.
 
     <?php
      include_once "vendor/autoload.php";

@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/06/2018
+ms.date: 06/28/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 861b4ca360ef3fb9bc752d79009570ee2cfc9ade
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 7de9700b41b08e2769ba337dcd5760fdf7ab246b
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294504"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114651"
 ---
 # <a name="built-in-roles-in-azure"></a>Inbyggda roller i Azure
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela användare, grupper och tjänstens huvudnamn. Rolltilldelningar är hur du styr åtkomst till resurser i Azure. Om inbyggda roller inte uppfyller de specifika behoven i din organisation, kan du skapa egna [anpassade roller](custom-roles.md).
@@ -35,11 +35,11 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 | --- | --- |
 | [Ägare](#owner) | Låter dig hantera allt, inklusive åtkomst till resurser. |
 | [Deltagare](#contributor) | Låter dig hantera allt, med undantag för åtkomst till resurser. |
-| [läsare](#reader) | Låter dig visa allting, men låter dig inte göra några ändringar. |
+| [Läsare](#reader) | Låter dig visa allting, men låter dig inte göra några ändringar. |
 | [AcrImageSigner](#acrimagesigner) | acr-bildsignerare |
 | [AcrQuarantineReader](#acrquarantinereader) | acr-karantändataläsare |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr-karantändataskrivare |
-| [API Management-tjänsten deltagare](#api-management-service-contributor) | Kan hantera tjänsten och de API: er |
+| [API Management-tjänsten deltagare](#api-management-service-contributor) | Låter dig hantera API Management-tjänster, men ger dig inte tillgång till dem. |
 | [Operatörsrollen för API Management-tjänsten](#api-management-service-operator-role) | Kan hantera tjänsten men inte API:er |
 | [Rollen för API Management-tjänsten läsare](#api-management-service-reader-role) | Skrivskyddad åtkomst till tjänst och API:er |
 | [Application Insights Component Contributor](#application-insights-component-contributor) | Kan hantera Application Insights-komponenter |
@@ -51,7 +51,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 | [Säkerhetskopiering deltagare](#backup-contributor) | Låter dig hantera säkerhetskopieringstjänsten, men låter dig inte skapa valv eller ge åtkomst till andra |
 | [Ansvarig för säkerhetskopiering](#backup-operator) | Låter dig hantera säkerhetskopieringstjänster, med undantag för att ta bort säkerhetskopior, skapa valv eller ge åtkomst till andra |
 | [Säkerhetskopiering läsare](#backup-reader) | Kan visa säkerhetskopieringstjänster, men inte göra några ändringar |
-| [Fakturering läsare](#billing-reader) | Tillåter läsbehörighet för faktureringsinformation |
+| [Fakturering läsare](#billing-reader) | Låter dig läsa faktureringsdata |
 | [BizTalk-deltagare](#biztalk-contributor) | Låter dig hantera BizTalk-tjänster, men ger dig inte tillgång till dem. |
 | [CDN-slutpunkten deltagare](#cdn-endpoint-contributor) | Kan hantera CDN-slutpunkter, men kan inte bevilja åtkomst till andra användare. |
 | [CDN-slutpunkten läsare](#cdn-endpoint-reader) | Kan visa CDN-slutpunkter, men kan inte göra ändringar. |
@@ -63,10 +63,10 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 | [Klassiska Virtual Machine-deltagare](#classic-virtual-machine-contributor) | Låter dig hantera klassiska virtuella datorer, men ger dig inte tillgång till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till. |
 | [ClearDB MySQL DB-deltagare](#cleardb-mysql-db-contributor) | Låter dig hantera ClearDB MySQL-databaser, men ger dig inte tillgång till dem. |
 | [Rollen för läsare av cosmos DB-konto](#cosmos-db-account-reader-role) | Kan läsa Azure Cosmos DB kontodata. Se [DocumentDB-konto deltagare](#documentdb-account-contributor) för att hantera Azure DB som Cosmos-konton. |
-| [Data Factory deltagare](#data-factory-contributor) | Skapa och hantera datafabriker, samt underordnade resurser i dem. |
+| [Data Factory deltagare](#data-factory-contributor) | Låter dig hantera datafabriker, men ger dig inte tillgång till dem. |
 | [Data Lake Analytics-utvecklare](#data-lake-analytics-developer) | Låter dig skicka in, övervaka och hantera dina egna jobb, men inte skapa eller ta bort Data Lake Analytics-konton. |
 | [Data Purger](#data-purger) | Det går att rensa analysdata |
-| [DevTest Labs användare](#devtest-labs-user) | Kan du ansluta, starta, -omstart och -avstängning dina virtuella datorer i Azure DevTest Labs. |
+| [DevTest Labs användare](#devtest-labs-user) | Låter dig ansluta, starta, starta om och stänga av virtuella datorer i din Azure DevTest Labs. |
 | [DNS-zonen deltagare](#dns-zone-contributor) | Låter dig hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig inte kontrollera vem som har åtkomst till dem. |
 | [DocumentDB-konto deltagare](#documentdb-account-contributor) | Hantera Azure DB som Cosmos-konton. Azure Cosmos-DB är kallades DocumentDB. |
 | [Intelligenta System-kontot deltagare](#intelligent-systems-account-contributor) | Låter dig hantera Intelligent Systems-konton, men ger dig inte tillgång till dem. |
@@ -88,7 +88,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 | [Schemaläggaren jobbet samlingar deltagare](#scheduler-job-collections-contributor) | Låter dig hantera Scheduler-jobbsystem, men ger dig inte tillgång till dem. |
 | [Sök Service deltagare](#search-service-contributor) | Låter dig hantera söktjänster, men ger dig inte tillgång till dem. |
 | [Säkerhet Admin](#security-admin) | I Security Center endast: Visa säkerhetsprinciper, visa säkerhetsstatus, redigera säkerhetsprinciper, Visa aviseringar och rekommendationerna, stänga aviseringar och rekommendationer |
-| [Säkerhetshanteraren (äldre)](#security-manager-legacy) | Detta är en äldre roll. Använd säkerhetsadministratör istället |
+| [Säkerhetshantering](#security-manager) | Låter dig hantera säkerhetskomponenter, säkerhetsprinciper och virtuella datorer |
 | [Säkerhet läsare](#security-reader) | I Security Center endast: Visa rekommendationer och aviseringar, visa säkerhetsprinciper, visa säkerhetsstatus, men det går inte att göra ändringar |
 | [Site Recovery-deltagare](#site-recovery-contributor) | Låter dig hantera Site Recovery-tjänsten förutom att skapa valv och tilldela roller |
 | [Site Recovery-operatorn](#site-recovery-operator) | Låter dig växla vid fel och återställa men inte utföra andra Site Recovery-hanteringsåtgärder |
@@ -105,9 +105,9 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 | [Stöd för begäran deltagare](#support-request-contributor) | Låter dig skapa och hantera supportförfrågningar |
 | [Traffic Manager-deltagare](#traffic-manager-contributor) | Låter dig hantera Traffic Manager-profiler, men låter dig inte kontrollera vem som har åtkomst till dem. |
 | [Administratör för användaråtkomst](#user-access-administrator) | Låter dig hantera användaråtkomst till Azure-resurser. |
-| [Administratören för virtuella datorer inloggning](#virtual-machine-administrator-login) | –  Användare med den här rollen kan logga in på en virtuell dator som Windows-administratör eller Linux-rotanvändare. |
-| [Virtuell datordeltagare](#virtual-machine-contributor) | Kan du hantera virtuella datorer, men inte åtkomst till dem, och inte virtuellt nätverk eller lagringskonto som de är anslutna till. |
-| [Användarinloggning för virtuell dator](#virtual-machine-user-login) | Användare med den här rollen kan logga in på en virtuell dator som en vanlig användare. |
+| [Administratören för virtuella datorer inloggning](#virtual-machine-administrator-login) | Visa virtuella datorer på portalen och logga in som administratör |
+| [Virtuell datordeltagare](#virtual-machine-contributor) | Låter dig hantera virtuella datorer, men ger dig inte åtkomst till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till. |
+| [Användarinloggning för virtuell dator](#virtual-machine-user-login) | Visa virtuella datorer på portalen och logga in som en vanlig användare. |
 | [Web Plan deltagare](#web-plan-contributor) | Låter dig hantera webbplaner för webbplatser, men ger dig inte tillgång till dem. |
 | [Webbplatsen deltagare](#website-contributor) | Låter dig hantera webbplatser (men inte webbplaner), men ger dig inte tillgång till dem. |
 
@@ -178,7 +178,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan hantera tjänsten och de API: er |
+> | **Beskrivning** | Låter dig hantera API Management-tjänster, men ger dig inte tillgång till dem. |
 > | **Id** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **Åtgärder** |  |
 > | Microsoft.ApiManagement/service/* | Skapa och hantera API Management-tjänsten |
@@ -383,14 +383,18 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
 > | Microsoft.Network/virtualNetworks/read | Hämta definitionen av virtuellt nätverk |
+> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp är en intern åtgärd som används av tjänsten |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Returnerar status för åtgärden |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Hämtar resultat från utförd åtgärd på skyddsbehållare. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Säkerhetskopierar ett skyddat objekt. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Hämtar resultat från utförd åtgärd på skyddade objekt. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Returnerar status för utförd åtgärd på skyddade objekt. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Returnerar information om objekt för det skyddade objektet |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Etablera omedelbar återställning för skyddade objekt |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Hämta återställningspunkter för skyddade objekt. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Återskapa återställningspunkter för skyddade objekt. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Återkalla omedelbar återställning för skyddade objekt |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Skapa en säkerhetskopiera skyddade objekt |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Returnerar alla registrerade behållare |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Skapa och hantera säkerhetskopieringsjobb |
@@ -398,36 +402,32 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Returnerar resultat från jobbåtgärd. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Returnerar alla jobbobjekt |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportera jobben |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Returnerar resultatet av jobbet exportåtgärden. |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Returnerar metadata för hantering av säkerhetskopiering för Recovery Services-valvet. |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Skapa och hantera resultaten av säkerhetskopiering hanteringsåtgärder |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Hämtar resultat från principåtgärd. |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationStatus/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returnerar alla Protection-principer |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Skapa och hantera objekt som kan säkerhetskopieras |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/read | Returnerar lista över alla objekt som ska skyddas. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Returnerar listan över alla skyddade objekt. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Returnerar alla behållare som hör till prenumerationen |
 > | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Returnerar sammanfattningar för skyddade objekt och skyddade servrar för en Recovery Services. |
+> | Microsoft.RecoveryServices/Vaults/certificates/write | Uppdatera resurs certifikat åtgärden uppdaterar Autentiseringscertifikatet resurs-valvet. |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | Med Hämta utökad information hämtas utökad information för ett objekt som representerar Azure-resursen av typen ?valv? |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/write | Med Hämta utökad information hämtas utökad information för ett objekt som representerar Azure-resursen av typen ?valv? |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Hämtar aviseringar för Recovery services-valvet. |
+> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | Åtgärden hämta valvet hämtar ett objekt som representerar Azure-resurs av typen 'valvet' |
-> | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Hantera Identifieringsåtgärden för hämtning av nyskapad behållare |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Uppdaterar listan över behållare |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Hämta åtgärden resulterar åtgärden kan användas för hämta Åtgärdsstatus och resultat för asynkront skickats igen |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Hämta behållarna åtgärden kan användas för hämta behållare som har registrerats för en resurs. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Registrera tjänstbehållaren åtgärden kan användas för att registrera en behållare med återställningstjänsten. |
+> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returnerar användningsinformation om Recovery Services-valvet. |
 > | Microsoft.Resources/deployments/* | Skapa och hantera distributionen av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Storage/storageAccounts/read | Returnerar listan med lagringskonton eller hämtar egenskaperna för det angivna lagringskontot. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Etablera omedelbar återställning för skyddade objekt |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Återkalla omedelbar återställning för skyddade objekt |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp är en intern åtgärd som används av tjänsten |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Hämtar aviseringar för Recovery services-valvet. |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Returnerar resultatet av jobbet exportåtgärden. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationStatus/read |  |
-> | Microsoft.RecoveryServices/Vaults/certificates/write | Uppdatera resurs certifikat åtgärden uppdaterar Autentiseringscertifikatet resurs-valvet. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
 ## <a name="backup-reader"></a>Säkerhetskopieringsläsare
@@ -472,7 +472,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Tillåter läsbehörighet för faktureringsinformation |
+> | **Beskrivning** | Låter dig läsa faktureringsdata |
 > | **Id** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
@@ -660,7 +660,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Skapa och hantera datafabriker, samt underordnade resurser i dem. |
+> | **Beskrivning** | Låter dig hantera datafabriker, men ger dig inte tillgång till dem. |
 > | **Id** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rollen tilldelningar |
@@ -719,7 +719,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan du ansluta, starta, -omstart och -avstängning dina virtuella datorer i Azure DevTest Labs. |
+> | **Beskrivning** | Låter dig ansluta, starta, starta om och stänga av virtuella datorer i din Azure DevTest Labs. |
 > | **Id** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rollen tilldelningar |
@@ -1103,18 +1103,19 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > | Microsoft.Resources/deployments/* | Skapa och hantera distributionen av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Security/*/read | Läs säkerhetskomponenter och principer |
-> | Microsoft.Security/locations/alerts/dismiss/action | Avvisa en säkerhetsavisering |
 > | Microsoft.Security/locations/alerts/activate/action | Aktivera en säkerhetsvarning |
-> | Microsoft.Security/locations/tasks/dismiss/action | Stänga en säkerhetsrekommendation |
+> | Microsoft.Security/locations/alerts/dismiss/action | Avvisa en säkerhetsavisering |
 > | Microsoft.Security/locations/tasks/activate/action | Aktivera en säkerhetsrekommendation |
+> | Microsoft.Security/locations/tasks/dismiss/action | Stänga en säkerhetsrekommendation |
 > | Microsoft.Security/policies/write | Uppdaterar säkerhetsprincipen |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
+> | Microsoft.Management/managementGroups/read | Lista över hanteringsgrupper för den autentiserade användaren. |
 
-## <a name="security-manager-legacy"></a>Säkerhetshanteraren (äldre)
+## <a name="security-manager"></a>Säkerhetshanteraren
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Detta är en äldre roll. Använd säkerhetsadministratör istället |
+> | **Beskrivning** | Låter dig hantera säkerhetskomponenter, säkerhetsprinciper och virtuella datorer |
 > | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
@@ -1135,13 +1136,14 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > | **Beskrivning** | I Security Center endast: Visa rekommendationer och aviseringar, visa säkerhetsprinciper, visa säkerhetsstatus, men det går inte att göra ändringar |
 > | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **Åtgärder** |  |
-> | Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
-> | Microsoft.Resources/deployments/* | Skapa och hantera distributionen av resursgrupper |
-> | Microsoft.operationalInsights/workspaces/*/read | Visa logganalys data |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
-> | Microsoft.Support/* | Skapa och hantera supportärenden |
+> | Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
+> | Microsoft.operationalInsights/workspaces/*/read | Visa logganalys data |
+> | Microsoft.Resources/deployments/* | Skapa och hantera distributionen av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Security/*/read | Läs säkerhetskomponenter och principer |
+> | Microsoft.Support/* | Skapa och hantera supportärenden |
+> | Microsoft.Management/managementGroups/read | Lista över hanteringsgrupper för den autentiserade användaren. |
 
 ## <a name="site-recovery-contributor"></a>Site Recovery-bidragsgivare
 > [!div class="mx-tableFixed"]
@@ -1221,7 +1223,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action | Uppdatera providern |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Läsa alla Lagringsklassificeringar |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read | Läsa alla mappningar för klassificering av lagring |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Läsa alla jobb |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Läsa alla Vcenter |
 > | Microsoft.RecoveryServices/vaults/replicationJobs/* | Skapa och hantera replikeringsjobb |
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Läsa alla principer |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/failoverCommit/action | Redundansåtgärd återställningsplan |
@@ -1272,7 +1274,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Läsa alla Recovery Services-Providers |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Läsa alla Lagringsklassificeringar |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read | Läsa alla mappningar för klassificering av lagring |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Läsa alla jobb |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Läsa alla Vcenter |
 > | Microsoft.RecoveryServices/vaults/replicationJobs/read | Läsa alla jobb |
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Läsa alla principer |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Läsa alla Återställningsplaner |
@@ -1503,7 +1505,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | –  Användare med den här rollen kan logga in på en virtuell dator som Windows-administratör eller Linux-rotanvändare. |
+> | **Beskrivning** | Visa virtuella datorer på portalen och logga in som administratör |
 > | **Id** | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
 > | **Åtgärder** |  |
 > | Microsoft.Network/publicIPAddresses/read | Hämtar en definition av offentlig ip-adress. |
@@ -1519,7 +1521,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan du hantera virtuella datorer, men inte åtkomst till dem, och inte virtuellt nätverk eller lagringskonto som de är anslutna till. |
+> | **Beskrivning** | Låter dig hantera virtuella datorer, men ger dig inte åtkomst till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till. |
 > | **Id** | 9980e02c-c2be-4D73-94e8-173b1dc7cf3c |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läsa tillstånd |
@@ -1564,7 +1566,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Användare med den här rollen kan logga in på en virtuell dator som en vanlig användare. |
+> | **Beskrivning** | Visa virtuella datorer på portalen och logga in som en vanlig användare. |
 > | **Id** | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | **Åtgärder** |  |
 > | Microsoft.Network/publicIPAddresses/read | Hämtar en definition av offentlig ip-adress. |

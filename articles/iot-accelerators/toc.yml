@@ -1,0 +1,215 @@
+- name: Grunderna i Azure IoT
+  href: ../iot-fundamentals/index.yml
+- name: Dokumentation för IoT-lösningsacceleratorer
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är Azure IoT-lösningsacceleratorer?
+      href: about-iot-accelerators.md
+- name: Snabbstarter
+  items:
+    - name: Distribuera en fjärrövervakningslösning
+      href: quickstart-remote-monitoring-deploy.md
+- name: Självstudier
+  items:
+    - name: Övervaka IoT-enheter
+      href: iot-accelerators-remote-monitoring-monitor.md
+    - name: Identifiera enhetsproblem
+      href: iot-accelerators-remote-monitoring-automate.md
+    - name: Konfigurera och hantera enheter
+      href: iot-accelerators-remote-monitoring-manage.md
+    - name: Använda aviseringar och åtgärda enhetsproblem
+      href: iot-accelerators-remote-monitoring-maintain.md
+- name: Begrepp
+  items:
+    - name: Fjärrövervakning
+      href: iot-accelerators-remote-monitoring-sample-walkthrough.md
+      items:
+        - name: Val av arkitektur
+          href: iot-accelerators-remote-monitoring-architectural-choices.md
+        - name: Schema för enhetsmodell
+          href: iot-accelerators-remote-monitoring-device-schema.md
+        - name: Beteende för enhetsmodell
+          href: iot-accelerators-remote-monitoring-device-behavior.md
+    - name: Förutsägande underhåll
+      href: iot-accelerators-predictive-walkthrough.md
+    - name: Ansluten fabrik
+      href: iot-accelerators-connected-factory-features.md
+      items:
+        - name: Arkitektur
+          href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: Behörigheter på azureiotsolutions.com
+      href: iot-accelerators-permissions.md
+- name: Instruktionsguider
+  items:
+    - name: Fjärrövervakning
+      items:
+        - name: Ansluta en fysisk enhet
+          items:
+            - name: C i Windows
+              href: iot-accelerators-connecting-devices.md
+            - name: C i Linux
+              href: iot-accelerators-connecting-devices-linux.md
+            - name: Node.js (generisk)
+              href: iot-accelerators-connecting-devices-node.md
+            - name: Node.js på Raspberry Pi
+              href: iot-accelerators-connecting-pi-node.md
+            - name: C på Raspberry Pi
+              href: iot-accelerators-connecting-pi-c.md
+            - name: MX Chip AZ3166 DevKit
+              href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
+        - name: Integrera SIM-data
+          href: iot-accelerators-remote-monitoring-telefonica-sim.md
+        - name: Skapa en simulerad enhet
+          href: iot-accelerators-remote-monitoring-test.md
+        - name: Anpassa användargränssnittet
+          href: iot-accelerators-remote-monitoring-customize.md
+        - name: Anpassa och distribuera om en mikrotjänst
+          href: iot-accelerators-microservices-example.md
+        - name: Distribuera användningen av CLI
+          href: iot-accelerators-remote-monitoring-deploy-cli.md
+        - name: Distribuera lokalt
+          href: iot-accelerators-remote-monitoring-deploy-local.md
+        - name: Visualisera telemetri med PowerBI
+          href: iot-accelerators-integrate-data-powerbi.md
+        - name: Visualisera telemetri med Time Series Insights
+          href: iot-accelerators-time-series-insights.md
+        - name: Analysera telemetri med Data Lake
+          href: iot-accelerators-integrate-data-lake.md
+    - name: Fjärrövervakning (tidigare version)
+      items:
+        - name: Vilka är de förkonfigurerade lösningarna?
+          href: ../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md
+        - name: VANLIGA FRÅGOR OCH SVAR
+          href: ../iot-suite/iot-suite-v1-faq.md
+        - name: Kom igång
+          items:
+            - name: Kom igång med förkonfigurerade lösningar
+              href: ../iot-suite/iot-suite-v1-getstarted-preconfigured-solutions.md
+            - name: Behörigheter på azureiotsuite.com
+              href: ../iot-suite/iot-suite-v1-permissions.md
+            - name: Genomgång av lösning för fjärrövervakning
+              href: ../iot-suite/iot-suite-v1-remote-monitoring-sample-walkthrough.md
+            - name: Anslut Raspberry Pi
+              href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-get-started.md
+              items:
+                - name: Använd C
+                  items:
+                    - name: Simulerade data
+                      href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md
+                    - name: Använd verkliga sensorer
+                      href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md
+                    - name: Implementera uppdatering för inbyggd programvara
+                      href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md
+                - name: Använd Node.js
+                  items:
+                    - name: Simulerade data
+                      href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md
+                    - name: Använd verkliga sensorer
+                      href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md
+                    - name: Implementera uppdatering för inbyggd programvara
+                      href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md
+            - name: Anslut ditt MXChip IoT DevKit
+              href: ../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md
+        - name: Instruktionsguider
+          items:
+            - name: Anslut en simulerad enhet
+              items:
+                - name: C i Windows
+                  href: ../iot-suite/iot-suite-v1-connecting-devices.md
+                - name: C i Linux
+                  href: ../iot-suite/iot-suite-v1-connecting-devices-linux.md
+                - name: Node.js
+                  href: ../iot-suite/iot-suite-v1-connecting-devices-node.md
+            - name: Anslut en logikapp till fjärrövervakningslösningen
+              href: ../iot-suite/iot-suite-v1-logic-apps-tutorial.md
+            - name: Anpassa en lösningsaccelerator
+              href: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+            - name: Använd dynamisk telemetri med fjärrövervakningslösningen
+              href: ../iot-suite/iot-suite-v1-dynamic-telemetry.md
+            - name: Skapa en anpassad regel i fjärrövervakningslösningen
+              href: ../iot-suite/iot-suite-v1-custom-rule.md
+            - name: Enhetsinformation i fjärrövervakningslösningen
+              href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
+    - name: Förutsägande underhåll
+      items:
+        - name: Distribuera en lösningsaccelerator
+          href: iot-accelerators-predictive-overview.md
+    - name: Ansluten fabrik
+      items:
+        - name: Distribuera en lösningsaccelerator
+          href: iot-accelerators-connected-factory-overview.md
+        - name: Distribuera en gateway
+          href: iot-accelerators-connected-factory-gateway-deployment.md
+        - name: Använd OPC-utgivaren
+          href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
+        - name: Konfigurera lösningsacceleratorn
+          href: iot-accelerators-connected-factory-configure.md
+        - name: Anpassa lösningsacceleratorn
+          href: iot-accelerators-connected-factory-customize.md
+    - name: Enhetssimulering
+      items:
+        - name: Distribuera en lösningsaccelerator
+          href: iot-accelerators-device-simulation-deploy.md
+        - name: Köra en simulering
+          href: iot-accelerators-device-simulation-explore.md
+- name: Referens
+  items:
+    - name: Referensguide för utvecklare
+      href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide'
+    - name: Felsökningsguide för utvecklare
+      href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide'
+    - name: Säkerhetsarkitektur
+      href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc
+    - name: Metodtips för säkerhet
+      href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc
+    - name: Skydda distributionen av IoT
+      href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc
+    - name: Säkerhet från grunden
+      href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc
+- name: Relaterat
+  items:
+    - name: Lösningar
+      items:
+        - name: IoT-lösningsacceleratorer
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Plattformstjänster
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: 'SDK:er för IoT-tjänster'
+          href: /azure/iot-hub/iot-hub-devguide-sdks  azure-iot-service-sdks
+        - name: Kartor
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: 'SDK:er för IoT-enheter'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+    - name: Stream Analytics
+      href: /azure/stream-analytics/
+    - name: Event Hubs
+      href: /azure/event-hubs/
+    - name: Machine Learning
+      href: /azure/machine-learning/
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: iot-accelerators-faq.md
+    - name: Vanliga frågor och svar om fjärrövervakning
+      href: iot-accelerators-faq-rm-v2.md
+    - name: Vanliga frågor och svar om ansluten fabrik
+      href: iot-accelerators-faq-cf.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-iot-suite'
+    - name: Utbildningsväg för IoT-lösningsacceleratorer
+      href: 'https://azure.microsoft.com/documentation/learning-paths/iot-suite/'

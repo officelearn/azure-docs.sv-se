@@ -1,11 +1,11 @@
 - name: Dokumentation om visuellt innehåll
   href: index.yml
 - name: Översikt
+  expanded: true
   items:
     - name: Vad är visuellt innehåll?
       href: Home.md
-- name: Snabbstarter
-  expanded: true
+- name: API-snabbstarter
   items:
     - name: Sammanfattning
       href: QuickStarts/quickstart-summary.md
@@ -97,6 +97,16 @@
           href: QuickStarts/ruby-thumb.md
         - name: Extrahera tryckt text
           href: QuickStarts/ruby-print-text.md
+- name: Snabbstarter för SDK
+  items:
+    - name: 'C#'
+      items:
+        - name: Analysera en bild
+          href: quickstarts-sdk/csharp-analyze-sdk.md
+        - name: Skapa en miniatyrbild
+          href: quickstarts-sdk/csharp-thumb-sdk.md
+        - name: Extrahera handskriven text
+          href: quickstarts-sdk/csharp-hand-text-sdk.md
 - name: Instruktionsguider
   items:
     - name: Första appar för visuellt innehåll

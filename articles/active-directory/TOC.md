@@ -186,12 +186,6 @@
 ### [Komma igång](manage-apps/plan-an-application-integration.md)
 ### [Självstudier om SaaS-appintegration](saas-apps/tutorial-list.md)
 
-
-### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
-#### [Skapa ögonblicksrapporter](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
-#### [Konfigurera kontinuerlig rapportering](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Använda en parser för loggar](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-
 ### [Användaretablering och -avetablering till SaaS-appar](active-directory-saas-app-provisioning.md) 
 #### [Självstudier om appintegration](saas-apps/tutorial-list.md) 
 #### [Automatisera etablering till SCIM-aktiverade appar](manage-apps/use-scim-to-provision-users-and-groups.md) 

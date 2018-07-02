@@ -50,8 +50,12 @@
           href: use-distcp.md
         - name: Kopiera data till Data Lake Storage Gen2 med Azure Data Factory
           href: ../../data-factory/load-azure-data-lake-storage-gen2.md
-    - name: Ansluta till Azure DataBricks
+    - name: Ansluta till Azure Databricks
       href: 'https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html'
+- name: Referens
+  items:
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2'
 - name: Resurser
   items:
     - name: Azure-översikt

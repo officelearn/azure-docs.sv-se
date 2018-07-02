@@ -9,36 +9,8 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa appmodell
-      items:
-        - name: Använd fördefinierad domän
-          href: luis-get-started-create-app.md
-        - name: Använd anpassad domän
-          href: luis-quickstart-intents-only.md
-- name: Självstudier
-  items:
-    - name: Lägg till fördefinierade avsikter och entiteter
-      href: luis-tutorial-prebuilt-intents-entities.md
-    - name: Hämta data från entitet
-      items:
-        - name: Enkel entitet
-          href: luis-quickstart-primary-and-secondary-data.md
-        - name: Hierarkisk entitet
-          href: luis-quickstart-intent-and-hier-entity.md
-        - name: Entitet med vanligt uttryck
-          href: luis-quickstart-intents-regex-entity.md
-        - name: Lista entitet
-          href: luis-quickstart-intent-and-list-entity.md
-        - name: KeyPhrase-entitet
-          href: luis-quickstart-intent-and-key-phrase.md
-        - name: Attitydanalys
-          href: luis-quickstart-intent-and-sentiment-analysis.md
-    - name: Förbättra förutsägelse
-      items:
-        - name: Med mönster
-          href: luis-tutorial-pattern.md
-        - name: Med en fraslista
-          href: luis-tutorial-interchangeable-phrase-list.md
+    - name: Bygg en fördefinierad domänapp
+      href: luis-get-started-create-app.md
     - name: 'Använd API: er'
       items:
         - name: Hämta förutsägelse för yttranden med slutpunktsfråga
@@ -73,6 +45,32 @@
               href: luis-get-started-php-add-utterance.md
             - name: Ruby
               href: luis-get-started-ruby-add-utterance.md
+- name: Självstudier
+  items:
+    - name: Bygg en app
+      items:
+        - name: 1. Med anpassad domän
+          href: luis-quickstart-intents-only.md
+        - name: 2. Lägg till fördefinierade avsikter och entiteter
+          href: luis-tutorial-prebuilt-intents-entities.md
+        - name: 3. Lägg till entitet för reguljära uttryck
+          href: luis-quickstart-intents-regex-entity.md
+        - name: 4. Lägg till listentitet
+          href: luis-quickstart-intent-and-list-entity.md
+        - name: 5. Lägg till hierarkisk entitet
+          href: luis-quickstart-intent-and-hier-entity.md
+        - name: 6. Lägg till en enkel entitet och fraslista
+          href: luis-quickstart-primary-and-secondary-data.md
+        - name: 7. Lägga till keyPhrase-entitet
+          href: luis-quickstart-intent-and-key-phrase.md
+        - name: 8. Lägg till attitydanalys
+          href: luis-quickstart-intent-and-sentiment-analysis.md
+    - name: Förbättra förutsägelse
+      items:
+        - name: Med mönster
+          href: luis-tutorial-pattern.md
+        - name: Med en fraslista
+          href: luis-tutorial-interchangeable-phrase-list.md
 - name: Exempel
   items:
     - name: Kodexempel

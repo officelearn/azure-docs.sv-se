@@ -118,8 +118,6 @@ items:
                         href: sql-api-java-get-started.md
                       - name: Node.js
                         href: sql-api-nodejs-get-started.md
-                      - name: C++
-                        href: sql-api-cpp-get-started.md
                   - name: Bygga en webbapp
                     items:
                       - name: .NET
@@ -144,10 +142,6 @@ items:
                     href: local-emulator.md
                   - name: Exportera certifikat
                     href: local-emulator-export-ssl-certificates.md
-              - name: 6 – Integrera med Functions
-                items:
-                  - name: HTTP-utlösare
-                    href: tutorial-functions-http-trigger.md
           - name: Exempel
             items:
               - name: Azure CLI
@@ -350,26 +344,14 @@ items:
                 href: gremlin-support.md
           - name: Självstudier
             items:
-              - name: 1 – Skapa
-                href: tutorial-develop-graph-dotnet.md
-              - name: 2 – Fråga
+              - name: 1 – fråga
                 href: tutorial-query-graph.md
-              - name: 3 – Distribuera globalt
-                href: tutorial-global-distribution-graph.md
           - name: Instruktionsguider
             items:
               - name: Grafpartitionering
                 href: graph-partitioning.md
               - name: Hantera Storage Explorer
                 href: storage-explorer.md
-              - name: Integrera
-                items:
-                  - name: Anslut till Spark GraphX
-                    href: spark-connector-graph.md
-          - name: Referens
-            items:
-              - name: .NET
-                href: graph-sdk-dotnet.md
           - name: Resurser
             items:
               - name: Hantera Storage Explorer

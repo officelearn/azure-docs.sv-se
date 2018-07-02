@@ -157,6 +157,8 @@
           href: b2clogin.md
         - name: Med hjälp av åldershantering
           href: basic-age-gating.md
+        - name: Direkt inloggning
+          href: direct-signin.md
     - name: Identity Experience Framework
       items:
         - name: Anpassade principer

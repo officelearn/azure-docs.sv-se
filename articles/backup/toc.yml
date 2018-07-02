@@ -61,13 +61,13 @@
           href: backup-mabs-protection-matrix.md
         - name: Installera eller uppgradera
           items:
-            - name: Förbereda Azure Backup Server-arbetsbelastningar i Azure Portal
+            - name: Installera Azure Backup Server
               href: backup-azure-microsoft-azure-backup.md
-            - name: Lägga till lagringsutrymme på Azure Backup Server
+            - name: Lägg till lagringsutrymme
               href: backup-mabs-add-storage.md
-            - name: Uppgradera Azure Backup Server till v.2
+            - name: Uppgradera till V12
               href: backup-mabs-upgrade-to-v2.md
-            - name: Obevakad installation av Azure Backup Server
+            - name: Obevakad installation
               href: backup-mabs-unattended-install.md
         - name: Skydda arbetsbelastningar
           items:

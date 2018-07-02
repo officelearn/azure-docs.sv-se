@@ -138,9 +138,11 @@
         - name: Testa funktioner
           href: functions-test-a-function.md
         - name: Utveckla och felsöka lokalt
-          href: functions-run-local.md
+          href: functions-develop-local.md
         - name: Visual Studio-utveckling
           href: functions-develop-vs.md
+        - name: Utvecklingsverktyg
+          href: functions-run-local.md
         - name: Hantera anslutningar
           href: manage-connections.md
         - name: Felhantering

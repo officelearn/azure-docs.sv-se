@@ -145,7 +145,7 @@
           href: search-faceted-navigation.md
         - name: Relevansjustering
           href: 'https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index'
-        - name: Synonymer (förhandsversion)
+        - name: Synonymer
           href: search-synonyms.md
     - name: Indexeringsdata
       items:

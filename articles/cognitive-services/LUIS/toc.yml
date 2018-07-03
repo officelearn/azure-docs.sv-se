@@ -192,11 +192,11 @@
         - name: Förbättra noggrannheten med batch-testning
           href: luis-tutorial-batch-testing.md
     - name: Publicera appen
-      href: PublishApp.md
+      href: luis-how-to-publish-app.md
     - name: Använd fördefinierade modeller
       items:
         - name: Använda fördefinierade entiteter
-          href: Pre-builtEntities.md
+          href: luis-prebuilt-entities.md
         - name: Använda fördefinierade domäner
           href: luis-how-to-use-prebuilt-domains.md
         - name: Använda den färdiga Cortana-appen
@@ -208,7 +208,7 @@
         - name: Skapa nycklar
           href: luis-how-to-azure-subscription.md
         - name: Lägg till nycklar i LUIS
-          href: Manage-Keys.md
+          href: luis-how-to-manage-keys.md
         - name: Visa slutpunktsanvändning med PowerShell
           href: luis-how-to-manage-from-cloud-shell.md
         - name: Hantera versioner
@@ -283,6 +283,10 @@
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Android'
         - name: Node.js
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Node.js'
+        - name: Go
+          href: 'https://aka.ms/luis-sdk-go'
+        - name: Java
+          href: 'https://aka.ms/luis-java-sdk'
         - name: Python
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Python'
         - name: .Net-slutpunkt

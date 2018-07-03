@@ -4,10 +4,10 @@
 ### Översikt och fördelar  
 ### Butiker  
 #### [Jämföra AppSource och Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
-#### [Låt din verksamhet växa med AzureSource](./grow-your-business-with-appsource.md)  
+#### [Låt din verksamhet växa med AzureSource](./grow-your-business-with-appsource.md) 
+#### [Önskade lösningar](./preferred-solutions.md)
 ##### [Skapa din landningssida](./build-your-landing-page.md)  
 ##### [Aktivera delning av lead](./enable-lead-sharing.md)  
-##### [Önskade lösningar](./preferred-solutions.md)
 ##### [GTM-fördelar på Marketplace](./gtm-benefits.md)  
 ##### [Marknadsför din verksamhet med Microsoft](./promote-your-business-with-microsoft.md)  
 #### [Låt din verksamhet växa med Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  

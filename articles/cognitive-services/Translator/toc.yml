@@ -21,6 +21,20 @@
           href: quickstart-csharp-languages.md
         - name: Hämta meningslängden i text
           href: quickstart-csharp-sentences.md
+    - name: Go
+      items:
+        - name: Översätt text
+          href: quickstart-go-translate.md
+        - name: Konvertera textskript
+          href: quickstart-go-transliterate.md
+        - name: Identifiera språket i texten
+          href: quickstart-go-detect.md
+        - name: Hämta alternativa översättningar
+          href: quickstart-go-dictionary.md
+        - name: Hämta språk som stöds
+          href: quickstart-go-languages.md
+        - name: Hämta meningslängden i text
+          href: quickstart-go-sentences.md
     - name: Java
       items:
         - name: Översätt text

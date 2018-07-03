@@ -41,18 +41,16 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=865446'
     - name: API för Custom Vision Prediction
       href: 'https://go.microsoft.com/fwlink/?linkid=865445'
-    - name: Begränsningar och kvoter
-      href: limits-and-quotas.md
     - name: Ordlista
       href: glossary-of-terms.md
     - name: 'SDK:er'
       items:
-        - name: Go
-          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices'
-        - name: Python
-          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules'
         - name: Windows
           href: 'http://github.com/Microsoft/Cognitive-CustomVision-Windows'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules'
+        - name: Go
+          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices'
 - name: Resurser
   items:
     - name: Exempel
@@ -67,3 +65,7 @@
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Begränsningar och kvoter
+      href: limits-and-quotas.md

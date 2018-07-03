@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/30/2017
   ms.author: v-jansko
-  ms.openlocfilehash: 1995f8d58c47b8e098022ca672c7889195dd5328
-  ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+  ms.openlocfilehash: 5d321a533ee6194492e5f0b25a8ef78951ac188a
+  ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/22/2018
-  ms.locfileid: "36319188"
+  ms.lasthandoff: 07/02/2018
+  ms.locfileid: "37340897"
 abstract:
   description: Microsoft Translator Text API är en molnbaserad maskinöversättningstjänst. Med detta API kan du översätta text i nära realtid från valfri app eller tjänst via ett enkelt REST API-anrop. API:et använder den senaste tekniken inom neural maskinöversättning och erbjuder även teknik för statistisk maskinöversättning. Listan med språk som stöds, både för neural maskinöversättning och statistisk maskinöversättning, finns i <a href="languages.md">Språk som stöds</a>.
 sections:
@@ -41,6 +41,9 @@ sections:
     - image:
         src: media/index/logo_python.svg
       title: Python
+    - image:
+        src: media/index/logo_go.svg
+      title: Go
     rows:
     - title: Översätt text från ett språk till ett annat
       values:
@@ -48,24 +51,28 @@ sections:
       - href: quickstart-java-translate
       - href: quickstart-nodejs-translate
       - href: quickstart-python-translate
+      - href: quickstart-go-translate
     - title: Konvertera text från ett skript till ett annat
       values:
       - href: quickstart-csharp-transliterate
       - href: quickstart-java-transliterate
       - href: quickstart-nodejs-transliterate
       - href: quickstart-python-transliterate
+      - href: quickstart-go-transliterate
     - title: Identifiera språket i texten
       values:
       - href: quickstart-csharp-detect
       - href: quickstart-java-detect
       - href: quickstart-nodejs-detect
       - href: quickstart-python-detect
+      - href: quickstart-go-detect
     - title: Hämta alternativa översättningar och användning
       values:
       - href: quickstart-csharp-dictionary
       - href: quickstart-java-dictionary
       - href: quickstart-nodejs-dictionary
       - href: quickstart-python-dictionary
+      - href: quickstart-go-dictionary
 - title: Referens
   items:
   - type: paragraph

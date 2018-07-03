@@ -1,28 +1,35 @@
-### <a name="prerequisites"></a>Krav
-* Ett Azure-konto; Du kan skapa en [kostnadsfritt konto](https://azure.microsoft.com/free)
-* En [Azure Blob Storage-konto](../articles/storage/common/storage-create-storage-account.md) inklusive lagringskontonamn och dess snabbtangent. Den här informationen visas i egenskaperna för storage-konto i Azure-portalen. Läs mer om [Azure Storage](../articles/storage/common/storage-introduction.md).
+---
+title: ta med fil
+description: ta med fil
+services: logic-apps
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 05/21/2018
+ms.author: estfan
+ms.custom: include file
+ms.openlocfilehash: 6e95d456c5eb981a29400057cfd58faa419060fc
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34677955"
+---
+1. När du uppmanas att ange anslutningsinformationen Tillhandahåll följande information:
 
-Innan du använder Azure Blob Storage-konto i en logikapp kan du ansluta till Azure Blob Storage-konto. Du kan göra detta enkelt i din logikapp på Azure-portalen.  
+   *Krävs*
 
-Anslut till ditt Azure Blob Storage-konto med följande steg:  
+   | Egenskap  | Värde | Beskrivning | 
+   |----------|-------|-------------| 
+   | Anslutningsnamn | <*Anslutningens namn*> | Namn för att skapa för anslutningen | 
+   | Lagringskonto | <*lagringskonto*> | Välj ditt lagringskonto i listan. | 
+   ||| 
 
-1. Skapa en logikapp. Lägg till en utlösare i Logic Apps-designer och sedan lägga till en åtgärd. Välj **visa Microsoft hanterade API: er** i nedrullningsbara listan, och ange sedan ”blob” i sökrutan. Välj något av åtgärderna som:  
-   
-    ![Azure Blob Storage anslutning skapas steg](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)  
-2. Om du inte tidigare har skapat alla anslutningar till Azure storage, tillfrågas om anslutningsinformationen:   
-   
-    ![Azure Blob Storage anslutning skapas steg](./media/connectors-create-api-azureblobstorage/connection-details.png)  
-3. Ange information om lagringskonto. Egenskaper med en asterisk krävs.
-   
-   | Egenskap | Information |
-   | --- | --- |
-   | Anslutningsnamn * |Ange ett namn för anslutningen. |
-   | Azure Storage-kontonamnet * |Ange namnet på lagringskontot. Lagringskontonamn visas i egenskaperna för lagring i Azure-portalen. |
-   | Azure Storage åtkomstnyckel * |Ange lagringskontots åtkomstnyckel. Åtkomstnycklarna visas i egenskaperna för lagring i Azure-portalen. |
-   
-    Dessa autentiseringsuppgifter används för att verifiera din logikapp för att ansluta och komma åt dina data. 
-4. Välj **Skapa**.
-5. Observera att anslutningen har skapats. Nu kan fortsätta med andra steg i din logikapp: 
-   
-    ![Azure Blob Storage anslutning skapas steg](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
+   Exempel:
+
+   ![Skapa anslutning](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
+
+2. När du är klar väljer du **Skapa**.
+
+3. När du skapar anslutningen, fortsätter du med [Lägg till en utlösare](#add-trigger) eller [Lägg till en åtgärd](#add-action).
 

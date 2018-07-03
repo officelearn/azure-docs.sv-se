@@ -1,42 +1,38 @@
 ---
-title: Hur du skapar X.509-certifikat med hjälp av PowerShell | Microsoft Docs
-description: Hur du använder PowerShell för att skapa lokalt X.509-certifikat och aktivera X.509 baserat säkerheten i din Azure IoT-hubb i en simulerad miljö.
-services: iot-hub
-documentationcenter: ''
+title: Hur du använder PowerShell för att skapa X.509-certifikat | Microsoft Docs
+description: Hur du använder PowerShell för att skapa lokalt X.509-certifikat och aktivera X.509 baserad säkerhet i Azure IoT hub i en simulerad miljö.
 author: dsk-2015
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: dkshir
-ms.openlocfilehash: 656799c76a87870a19018849dbeffea3b12a356e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d0063ff79a0bda88fffb486f03286f6784ece7fa
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34637607"
 ---
-# <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>PowerShell-skript för att hantera CA-signerat X.509-certifikat
+# <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>PowerShell-skript för att hantera CA-signerade X.509-certifikat
 
-X.509 certifikatbaserad säkerhet i IoT-hubben måste du börja med en [X.509 certifikatkedja](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), som innehåller rotcertifikatet, liksom alla mellanliggande certifikat fram till lövcertifikatet. Detta *så* guiden går du igenom exempel PowerShell-skript som använder [OpenSSL](https://www.openssl.org/) att skapa och signera X.509-certifikat. Vi rekommenderar att du kan använda den här guiden för experimentering, eftersom många av de här stegen sker under tillverkar processen i verkligheten. Du kan använda dessa certifikat för att simulera säkerheten i din Azure IoT-hubb med den *X.509 certifikatautentisering*. Stegen i den här guiden Skapa certifikat lokalt på din Windows-dator. 
+X.509-certifikatbaserad säkerheten i IoT Hub måste du börja med en [X.509-certifikatkedja](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), som innehåller rotcertifikatet samt eventuella mellanliggande certifikat fram lövcertifikatet. Detta *så* guiden vägleder dig igenom PowerShell-exempelskript som använder [OpenSSL](https://www.openssl.org/) att skapa och registrera X.509-certifikat. Vi rekommenderar att du använder den här guiden för experimentering, eftersom många av de här stegen sker under tillverkningsprocessen i verkligheten. Du kan använda dessa certifikat för att simulera säkerheten i din Azure IoT hub med hjälp av den *X.509 certifikatautentisering*. Stegen i den här guiden Skapa certifikat lokalt på din Windows-dator. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här kursen förutsätter att du har köpt OpenSSL-binärfilerna. Du kan antingen
-    - Hämta OpenSSL källkoden och skapa de binära filerna på din dator eller 
-    - Hämta och installera någon [från tredje part OpenSSL binärfiler](https://wiki.openssl.org/index.php/Binaries), till exempel från [projektet på SourceForge](https://sourceforge.net/projects/openssl/).
+Den här självstudien förutsätter att du har köpt OpenSSL-binärfiler. Du kan antingen
+    - ladda ned källkoden OpenSSL och skapa de binära filerna på din dator, eller 
+    - ladda ned och installera eventuella [från tredje part OpenSSL binärfiler](https://wiki.openssl.org/index.php/Binaries), till exempel från [det här projektet på SourceForge](https://sourceforge.net/projects/openssl/).
 
 <a id="createcerts"></a>
 
 ## <a name="create-x509-certificates"></a>Skapa X.509-certifikat
-Följande steg visar ett exempel på hur du skapar X.509 rotcertifikat lokalt. 
+Följande steg visar ett exempel på hur du skapar de X.509 rotcertifikaten lokalt. 
 
 1. Öppna ett PowerShell-fönster som en *administratör*.  
-   **Obs:** måste du öppna det i PowerShell själva inte PowerShell ISE, Visual Studio-koden eller andra verktyg som omsluter underliggande PowerShell-konsolen.  Med hjälp av en icke-konsol baserat PowerShell leder `openssl` kommandon nedan hängande.
+   **Obs:** måste du öppna det i PowerShell själva, inte PowerShell ISE, Visual Studio Code eller andra verktyg som omsluter underliggande PowerShell-konsolen.  Med hjälp av en icke-konsol baserat PowerShell resulterar i `openssl` kommandon nedan hängande.
 
-2. Gå till arbetskatalogen. Kör följande skript för att ställa in de globala variablerna. 
+2. Gå till din arbetskatalog. Kör följande skript för att ange de globala variablerna. 
     ```PowerShell
     $openSSLBinSource = "<full_path_to_the_binaries>\OpenSSL\bin"
     $errorActionPreference    = "stop"
@@ -58,7 +54,7 @@ Följande steg visar ett exempel på hur du skapar X.509 rotcertifikat lokalt.
     # Whether to use ECC or RSA.
     $useEcc                     = $true
     ```
-3. Kör följande skript som kopierar OpenSSL-binärfiler till arbetskatalogen och ställer in miljövariablerna:
+3. Kör följande skript som kopierar OpenSSL-binärfiler till din arbetskatalog och ställer in miljövariablerna:
 
     ```PowerShell
     function Initialize-CAOpenSSL()
@@ -80,7 +76,7 @@ Följande steg visar ett exempel på hur du skapar X.509 rotcertifikat lokalt.
     }
     Initialize-CAOpenSSL
     ```
-4. Kör följande skript söker om ett certifikat med det angivna *ämnesnamn* redan är installerad, och om OpenSSL har konfigurerats korrekt på datorn:
+4. Kör följande skript söker igenom om ett certifikat genom den angivna *ämnesnamn* redan är installerad, och om OpenSSL är korrekt konfigurerad på datorn:
     ```PowerShell
     function Get-CACertBySubjectName([string]$subjectName)
     {
@@ -115,13 +111,13 @@ Följande steg visar ett exempel på hur du skapar X.509 rotcertifikat lokalt.
     }
     Test-CAPrerequisites
     ```
-    Om allt är korrekt konfigurerad, bör du se ”klar” visas. 
+    Om allt har konfigurerats korrekt, bör du se ”lyckades” meddelande. 
 
 <a id="createcertchain"></a>
 
-## <a name="create-x509-certificate-chain"></a>Skapa kedja för X.509-certifikat
-Skapa en certifikatkedja med en rot-CA, till exempel ”CN = Azure IoT Root CA” att det här exemplet använder genom att köra följande PowerShell-skript. Det här skriptet uppdateras också ditt Windows OS-certifikatarkiv, skapar samt certifikatfiler i arbetskatalogen. 
-    1. Följande skript skapar ett PowerShell-funktionen om du vill skapa ett självsignerat certifikat, för en given *ämnesnamn* och signering utfärdare. 
+## <a name="create-x509-certificate-chain"></a>Skapa X.509-certifikatkedja
+Skapa en certifikatkedja med en rotcertifikatutfärdare, till exempel ”CN = Azure IoT Root CA: N” att det här exemplet används genom att köra följande PowerShell-skript. Det här skriptet dessutom uppdateras ditt Windows OS-certifikatarkiv, skapar samt certifikatfiler i din arbetskatalog. 
+    1. Följande skript skapar en PowerShell-funktion för att skapa ett självsignerat certifikat, för en viss *ämnesnamn* och signering utfärdare. 
     ```PowerShell
     function New-CASelfsignedCertificate([string]$commonName, [object]$signingCert, [bool]$isASigner=$true)
     {
@@ -157,7 +153,7 @@ Skapa en certifikatkedja med en rot-CA, till exempel ”CN = Azure IoT Root CA�
         write (New-SelfSignedCertificate @selfSignedArgs)
     }
     ``` 
-    2. Följande PowerShell-funktionen skapar mellanliggande X.509-certifikat med hjälp av funktionen föregående samt OpenSSL-binärfilerna. 
+    2. Följande PowerShell-funktionen skapar mellanliggande X.509-certifikat med hjälp av funktionen föregående samt OpenSSL-binärfiler. 
     ```PowerShell
     function New-CAIntermediateCert([string]$commonName, [Microsoft.CertificateServices.Commands.Certificate]$signingCert, [string]$pemFileName)
     {
@@ -174,7 +170,7 @@ Skapa en certifikatkedja med en rot-CA, till exempel ”CN = Azure IoT Root CA�
         write $newCert
     }  
     ```
-    3. Följande PowerShell-funktionen skapar kedja för X.509-certifikat. Läs [certifikat kedjor](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification) för mer information.
+    3. Följande PowerShell-funktionen skapar X.509-certifikatkedja. Läs [certifikat går att härleda](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification) för mer information.
     ```PowerShell
     function New-CACertChain()
     {
@@ -192,15 +188,15 @@ Skapa en certifikatkedja med en rot-CA, till exempel ”CN = Azure IoT Root CA�
         Write-Host "Success"
     }    
     ```
-    Det här skriptet skapar en fil med namnet *RootCA.cer* i arbetskatalogen. 
-    4. Slutligen använda funktionerna PowerShell för att skapa certifikatkedja X.509 genom att köra kommandot `New-CACertChain` i PowerShell-fönster. 
+    Det här skriptet skapar en fil med namnet *RootCA.cer* i din arbetskatalog. 
+    4. Använd slutligen funktionerna PowerShell för att skapa X.509-certifikatkedja, genom att köra kommandot `New-CACertChain` i PowerShell-fönster. 
 
 
 <a id="signverificationcode"></a>
 
-## <a name="proof-of-possession-of-your-x509-ca-certificate"></a>Konceptbevis tillgång för din CA X.509-certifikat
+## <a name="proof-of-possession-of-your-x509-ca-certificate"></a>Bevis på tillgång ditt X.509 CA-certifikat
 
-Det här skriptet utför den *bevis tillgång* flödet för X.509-certifikat. 
+Det här skriptet utför den *bevis tillgång* flöde för ditt X.509-certifikat. 
 
 Kör följande kod i PowerShell-fönster på skrivbordet:
    
@@ -225,7 +221,7 @@ Kör följande kod i PowerShell-fönster på skrivbordet:
    New-CAVerificationCert "<your verification code>"
    ```
 
-Den här koden skapar ett certifikat med den angivna ämnesnamn signerats av CA: N, som en fil med namnet *VerifyCert4.cer* i arbetskatalogen. Den här certifikatfilen hjälper dig att kontrollera med din IoT-hubb som du har behörigheten signering (det vill säga den privata nyckeln) för denna Certifikatutfärdare.
+Den här koden skapar ett certifikat med den angivna ämnesnamn signerats av CA: N, som en fil med namnet *VerifyCert4.cer* i din arbetskatalog. Den här certifikatfilen kan verifiera med din IoT-hubb som du har behörigheten signeringscertifikat (det vill säga den privata nyckeln) för denna Certifikatutfärdare.
 
 
 <a id="createx509device"></a>
@@ -234,7 +230,7 @@ Den här koden skapar ett certifikat med den angivna ämnesnamn signerats av CA:
 
 Det här avsnittet visar du kan använda ett PowerShell-skript som skapar en enhet lövcertifikatet och motsvarande certifikatkedjan. 
 
-Kör följande skript för att skapa en CA-signerat X.509-certifikat för den här enheten i PowerShell-fönstret på den lokala datorn:
+Kör följande skript för att skapa ett certifikatutfärdarsignerat X.509-certifikat för den här enheten i PowerShell-fönstret på den lokala datorn:
 
    ```PowerShell
    function New-CADevice([string]$deviceName, [string]$signingCertSubject=$_rootCertSubject)
@@ -276,14 +272,14 @@ Kör följande skript för att skapa en CA-signerat X.509-certifikat för den h�
    }
    ```
 
-Kör sedan `New-CADevice "<yourTestDevice>"` i PowerShell-fönster med hjälp av det egna namnet som du använde för att skapa din enhet. Ange ”123” när du uppmanas att ange lösenordet för CA: ns privata nyckel. Detta skapar en  _<yourTestDevice>.pfx_ filen i arbetskatalogen.
+Kör sedan `New-CADevice "<yourTestDevice>"` i PowerShell-fönster med hjälp av det egna namnet som du använde för att skapa enheten. När du tillfrågas om lösenordet för CA: ns privata nyckeln, anger du ”123”. Detta skapar en  _<yourTestDevice>.pfx_ fil i din arbetskatalog.
 
-## <a name="clean-up-certificates"></a>Rensa certifikat
+## <a name="clean-up-certificates"></a>Rensa upp certifikat
 
-I startfältet eller **inställningar** app, Sök efter och välj **hantera datorcertifikat**. Ta bort eventuella certifikat som utfärdats av ** Azure IoT CA TestOnly ***. Dessa certifikat ska finnas på följande tre platser: 
+I startfältet eller **inställningar** , Sök efter och välj **hantera datorcertifikat**. Ta bort eventuella certifikat som utfärdats av ** Azure IoT CA TestOnly ***. Dessa certifikat ska finnas på följande tre platser: 
 
-* Certifikat - lokal dator > personliga > certifikat
-* Certifikat - lokal dator > betrodda rotcertifikatutfärdare > certifikat
-* Certifikat - lokal dator > mellanliggande certifikatutfärdare > certifikat
+* Certifikat – lokal dator > personliga > certifikat
+* Certifikat – lokal dator > betrodda rotcertifikatutfärdare > certifikat
+* Certifikat – lokal dator > mellanliggande certifikatutfärdare > certifikat
 
    ![Ta bort Azure IoT CA TestOnly certifikat](./media/iot-hub-security-x509-create-certificates/cleanup.png)

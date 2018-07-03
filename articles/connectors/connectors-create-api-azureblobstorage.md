@@ -1,6 +1,6 @@
 ---
 title: Ansluta till Azure blob storage - Azure Logic Apps | Microsoft Docs
-description: Skapa och hantera blobbar i Azure-lagring med Azure Logikappar
+description: Skapa och hantera blobar i Azure storage med Azure Logic Apps
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -12,98 +12,98 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 49d08135dee4568d1a9d65ec2d22d17ee3bda2ea
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
+ms.lasthandoff: 07/02/2018
 ms.locfileid: "35294687"
 ---
-# <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Skapa och hantera blobbar i Azure blob storage med Azure Logikappar
+# <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Skapa och hantera blobbar i Azure blob storage med Azure Logic Apps
 
-Den här artikeln visar hur du kan komma åt och hantera filer som lagras som blobar i ditt Azure storage-konto i en logikapp med Azure Blob Storage-anslutningen. På så sätt kan du skapa logikappar som automatiserar uppgifter och arbetsflöden för att hantera dina filer. Du kan till exempel skapa logikappar som skapa, hämta, uppdatera och ta bort filer i ditt lagringskonto.
+Den här artikeln visar hur du kan komma åt och hantera filer som lagras som blobar i Azure storage-kontot från inuti en logikapp med Azure Blob Storage connector. På så sätt kan du skapa logikappar som automatiserar uppgifter och arbetsflöden för att hantera dina filer. Du kan till exempel skapa logikappar som att skapa, hämta, uppdatera och ta bort filer i ditt storage-konto.
 
-Anta att du har ett verktyg som uppdateras på en Azure-webbplats. den fungerar som utlösare för din logikapp. Den här händelsen inträffar, kan du ha logikappen vissa filen i din blobblagringsbehållare, vilket är en åtgärd i din logikapp. 
+Anta att du har ett verktyg som uppdateras på en Azure-webbplats. den fungerar som en utlösare för din logikapp. Om den här händelsen inträffar kan ha du logikappen vissa filen i din blob storage-behållare, vilket är en åtgärd i din logikapp. 
 
-Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. Om du har använt logikappar granska [vad är Azure Logikappar](../logic-apps/logic-apps-overview.md) och [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Connector-specifik teknisk information finns i <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">Azure Blob Storage connector referens</a>.
+Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Specifika teknisk information finns i den <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">Azure Blob Storage-anslutning för referens</a>.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En [Azure storage-konto och lagringsbehållare](../storage/blobs/storage-quickstart-blobs-portal.md)
+* En [Azure storage-konto och storage-behållare](../storage/blobs/storage-quickstart-blobs-portal.md)
 
-* Logikappen där du behöver åtkomst till Azure blob storage-konto. Om du vill starta din logikapp med en Azure Blob Storage-utlösare, behöver du en [tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* Logikappen där du behöver åtkomst till Azure blob storage-kontot. Om du vill starta logikappen med en Azure Blob Storage-utlösare, som du behöver en [tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 <a name="add-trigger"></a>
 
-## <a name="add-blob-storage-trigger"></a>Lägga till blob storage-utlösare
+## <a name="add-blob-storage-trigger"></a>Lägg till blob storage-utlösare
 
-I Azure Logic Apps varje logikapp måste börja med en [utlösaren](../logic-apps/logic-apps-overview.md#logic-app-concepts), som utlöses när en viss händelse inträffar eller när ett specifikt villkor uppfylls. Varje gång utlösaren-utlöses Logic Apps motorn skapar en logik app-instansen och börjar köras appens arbetsflöde.
+I Azure Logic Apps varje logikapp måste börja med en [utlösaren](../logic-apps/logic-apps-overview.md#logic-app-concepts), som utlöses när en specifik händelse sker eller när ett specifikt villkor uppfylls. Varje gång utlösaren Logic Apps-motorn skapar en logikappinstans och börjar köras appens arbetsflöde.
 
-Det här exemplet illustrerar hur du kan starta ett arbetsflöde med logik app med den **Azure Blob Storage - när en blob har lagts till eller ändras (Egenskaper)** utlösare när en blob-egenskaper hämtar läggs till eller uppdateras i storage-behållare. 
+Det här exemplet visar hur du kan starta en logikapparbetsflöde med den **Azure Blob Storage - när en blob läggs till eller ändras (enbart egenskaper)** utlösare när egenskaper för en blob hämtar läggs till eller uppdateras i lagringsbehållaren. 
 
-1. Skapa en tom logikapp, vilket öppnar logik App Designer i Azure-portalen eller Visual Studio. Det här exemplet använder Azure-portalen.
+1. I Azure portal eller Visual Studio, skapar du en tom logikapp som öppnas Logic App Designer. Det här exemplet används Azure-portalen.
 
-2. I sökrutan anger du ”azure blob” som filter. Välj utlösare som du vill använda från listan över utlösare.
+2. I sökrutan anger du ”azure blob” som filter. Välj utlösaren som du vill använda från listan över utlösare.
 
-   Det här exemplet används den här utlösaren: **Azure Blob Storage - när en blob har lagts till eller ändras (Egenskaper)**
+   Det här exemplet används den här utlösaren: **Azure Blob Storage - när en blob läggs till eller ändras (enbart egenskaper)**
 
    ![Välj utlösare](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
-3. Om du uppmanas anslutningsinformation [skapa blob storage anslutningen nu](#create-connection). Eller, om det finns redan en anslutning, ange nödvändig information för utlösaren.
+3. Om du uppmanas anslutningsinformation [skapar din blob storage-anslutning nu](#create-connection). Eller om anslutningen redan finns, ange nödvändig information för utlösaren.
 
-   Det här exemplet väljer du behållaren och mappen som du vill övervaka.
+   För det här exemplet väljer du behållaren och mappen som du vill övervaka.
 
    1. I den **behållare** väljer du mappikonen.
 
-   2. I listan väljer du vinkelparentesen ( **>** ), och Bläddra tills du hittar och välj den mapp som du vill använda. 
+   2. I listan väljer du vinkelparentesen ( **>** ), och sedan bläddra tills du hittar och välj den mapp som du vill. 
 
       ![Välj mapp](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
    3. Välj intervall och frekvens för hur ofta du vill att utlösaren ska kontrollera mappen för ändringar.
 
-4. När du är klar i verktygsfältet designer väljer **spara**.
+4. När du är klar på verktygsfältet för appdesignern väljer **spara**.
 
-5. Fortsätt att lägga till en eller flera åtgärder i din logikapp för de aktiviteter som du vill utföra med Utlösare resultat.
+5. Nu ska du fortsätta att lägga till en eller flera åtgärder i din logikapp för uppgifter som du vill utföra med utlösare resultaten.
 
 <a name="add-action"></a>
 
 ## <a name="add-blob-storage-action"></a>Lägg till blob storage-åtgärd
 
-I Azure Logikappar en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) är ett steg i arbetsflödet som följer en utlösare eller en annan åtgärd. I det här exemplet logikappen som börjar med den [upprepning utlösaren](../connectors/connectors-native-recurrence.md).
+I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) är ett steg i arbetsflödet som följer en utlösare eller en annan åtgärd. I det här exemplet logikappen som börjar med den [upprepningsutlösare](../connectors/connectors-native-recurrence.md).
 
-1. Öppna logikappen i logik App Designer i Azure-portalen eller Visual Studio. Det här exemplet använder Azure-portalen.
+1. Öppna logikappen i Logic App Designer i Azure portal eller Visual Studio. Det här exemplet används Azure-portalen.
 
-2. I logik App Designer under utlösare eller åtgärd, Välj **nytt steg** > **lägga till en åtgärd**.
+2. I Logic App Designer, utlösaren eller åtgärden, väljer **nytt steg** > **Lägg till en åtgärd**.
 
    ![Lägga till en åtgärd](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
-   Om du vill lägga till en åtgärd mellan befintliga steg, håller du muspekaren över anslutande pilen. 
-   Välj på plustecknet (**+**) som visas och sedan välja **lägga till en åtgärd**.
+   Flytta musen över den anslutande pilen för att lägga till en åtgärd mellan befintliga steg. 
+   Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
 
-3. I sökrutan anger du ”azure blob” som filter. Välj den åtgärd som du vill använda från listan över åtgärder.
+3. I sökrutan anger du ”azure blob” som filter. Välj vilken åtgärd du önska från åtgärdslistan över.
 
    Det här exemplet använder den här åtgärden: **Azure Blob Storage - Get-blobinnehåll**
 
    ![Välj åtgärd](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
 
-4. Om du uppmanas anslutningsinformation [skapar anslutningen Azure Blob Storage nu](#create-connection). Eller, om det finns redan en anslutning, ange nödvändig information för åtgärden. 
+4. Om du uppmanas anslutningsinformation [skapa anslutningen Azure Blob Storage nu](#create-connection). Eller om anslutningen redan finns, ange informationen som krävs för åtgärden. 
 
-   Det här exemplet väljer du den fil du vill.
+   För det här exemplet väljer du den fil du vill.
 
    1. Från den **Blob** väljer du mappikonen.
   
       ![Välj mapp](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
-   2. Hitta och välja den fil du vill baserat på blobben **Id** nummer. Du hittar det **Id** nummer i det blob-metadata som returneras av tidigare beskrivs blob storage-utlösare.
+   2. Hitta och välj den fil du vill utifrån blobens **Id** tal. Du hittar den **Id** numret i blobbmetadata som returneras av beskrevs tidigare blob storage-utlösare.
 
-5. När du är klar i verktygsfältet designer väljer **spara**.
-Kontrollera att den valda mappen innehåller en blob för att testa logikappen.
+5. När du är klar på verktygsfältet för appdesignern väljer **spara**.
+Testa din logikapp genom att se till att den valda mappen innehåller en blob.
 
-Det här exemplet endast hämtar innehållet för en blob. Lägg till en annan åtgärd som skapar en fil med blobben med hjälp av en annan koppling för att visa innehållet. Till exempel lägga till en OneDrive-åtgärd som skapar en fil utifrån blob-innehåll.
+Det här exemplet hämtar endast innehållet för en blob. Lägg till en annan åtgärd som skapar en fil med blobben med hjälp av en annan koppling för att visa innehållet. Lägg exempelvis till en OneDrive-åtgärd som skapar en fil baserat på blob-innehållet.
 
 <a name="create-connection"></a>
 
-## <a name="connect-to-storage-account"></a>Ansluta till storage-konto
+## <a name="connect-to-storage-account"></a>Ansluta till lagringskonto
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
@@ -111,7 +111,7 @@ Det här exemplet endast hämtar innehållet för en blob. Lägg till en annan �
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information, till exempel utlösare och åtgärder som gränser, enligt beskrivningen av kopplingens Swagger-filen finns den [kopplingens referenssida](/connectors/azureblobconnector/). 
+Teknisk information, till exempel utlösare och åtgärder gränser, enligt beskrivningen av kopplingens Swagger-fil, finns i den [anslutningsappens-referenssida](/connectors/azureblobconnector/). 
 
 ## <a name="get-support"></a>Få support
 
@@ -120,4 +120,4 @@ Teknisk information, till exempel utlösare och åtgärder som gränser, enligt 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om andra [Logic Apps kopplingar](../connectors/apis-list.md)
+* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)

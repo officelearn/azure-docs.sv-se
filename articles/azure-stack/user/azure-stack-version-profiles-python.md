@@ -1,6 +1,6 @@
 ---
-title: Med hjälp av API-version profiler med Python i Azure-stacken | Microsoft Docs
-description: Lär dig mer om hur du använder profiler för API-version med Python i Azure-stacken.
+title: Med hjälp av API-versionsprofiler med Python i Azure Stack | Microsoft Docs
+description: Lär dig mer om hur du använder API-versionsprofiler med Python i Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,54 +15,54 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 <!-- dev: viananth -->
 ms.openlocfilehash: d17ba9ed4548a986d6846d934aee197609ec80ca
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
+ms.lasthandoff: 07/03/2018
 ms.locfileid: "34806844"
 ---
-# <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Använd profiler för API-version med Python i Azure-stacken
+# <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Använd API-versionsprofiler med Python i Azure Stack
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-## <a name="python-and-api-version-profiles"></a>Profiler för Python och API-version
+## <a name="python-and-api-version-profiles"></a>Python och API-versionsprofiler
 
-Python SDK stöder profiler för API-version att målplattformar annat moln, till exempel Azure-stacken och global Azure. Du kan använda API-profiler för att skapa lösningar för ett hybridmoln. Python SDK stöder följande API-profiler:
+Python SDK har stöd för API-versionsprofiler för att rikta olika plattformar, till exempel Azure Stack och globala Azure. Du kan använda API-profiler i att skapa lösningar för ett hybridmoln. Python SDK har stöd för följande API-profiler:
 
 1. **senaste**  
-    Profilen som riktar sig till den senaste API-versionen för alla providers i Azure-plattformen.
-2.  **2017-03-09-profil**  
-    **2017-03-09-profil**  
-    Profilen som riktar sig till API-versioner av resursproviders som stöds av Azure-stacken.
+    Profilen som riktar sig mot den aktuella API-versionen för alla leverantörer i Azure-plattformen.
+2.  **2017-03-09-profile**  
+    **2017-03-09-profile**  
+    Profilen som riktar sig mot de API-versionerna som stöds av Azure Stack resource provider.
 
-    Mer information om API-profiler och Azure-stacken finns [hantera API-version-profiler i Azure-stacken](azure-stack-version-profiles.md).
+    Mer information om API-profiler och Azure Stack finns i [hantera API-versionsprofiler i Azure Stack](azure-stack-version-profiles.md).
 
 ## <a name="install-azure-python-sdk"></a>Installera Azure Python SDK
 
-1.  Installera Git från [officiella platsen](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-2.  Anvisningar att installera Python SDK finns [Azure för Python-utvecklare](https://docs.microsoft.com/python/azure/python-sdk-azure-install?view=azure-python).
-3.  Om det inte finns kan du skapa en prenumeration och spara prenumerations-ID som ska användas senare. Anvisningar att skapa en prenumeration finns [skapa prenumerationer erbjudanden i Azure-stacken](../azure-stack-subscribe-plan-provision-vm.md). 
-4.  Skapa ett huvudnamn för tjänsten och spara dess ID och hemlighet. Instruktioner för att skapa ett huvudnamn för tjänsten för Azure-stacken, se [ge program åtkomst till Azure-stacken](../azure-stack-create-service-principals.md). 
-5.  Kontrollera att din tjänstens huvudnamn har deltagare/ägarrollen på din prenumeration. Instruktioner om hur du tilldelar rollen till tjänstens huvudnamn finns [ge program åtkomst till Azure-stacken](../azure-stack-create-service-principals.md).
+1.  Installera Git från [webbplatsen officiella](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+2.  Anvisningar för att installera Python SDK finns i [Azure för Python-utvecklare](https://docs.microsoft.com/python/azure/python-sdk-azure-install?view=azure-python).
+3.  Om det inte finns skapar du en prenumeration och spara prenumerations-ID som ska användas senare. Anvisningar för att skapa en prenumeration finns i [skapa prenumerationer för erbjudanden i Azure Stack](../azure-stack-subscribe-plan-provision-vm.md). 
+4.  Skapa ett huvudnamn för tjänsten och spara dess ID och hemlighet. Anvisningar för att skapa ett tjänstobjekt för Azure Stack finns i [ge program åtkomst till Azure Stack](../azure-stack-create-service-principals.md). 
+5.  Kontrollera att din tjänstens huvudnamn har rollen deltagare/ägare av prenumerationen. Anvisningar om hur du tilldelar roll till tjänstens huvudnamn finns i [ge program åtkomst till Azure Stack](../azure-stack-create-service-principals.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att kunna använda Azure SDK för Python med Azure-stacken, måste du ange följande värden och ange sedan värden med miljövariabler. Se anvisningarna efter tabellen för operativsystemet på inställningen i miljövariabler. 
+För att kunna använda Azure SDK för Python med Azure Stack, måste du ange följande värden och ange sedan värden med miljövariabler. Se anvisningarna efter tabellen för operativsystemet på ställa in miljövariabler. 
 
 | Värde | Miljövariabler | Beskrivning |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Klient-ID:t | AZURE_TENANT_ID | Värdet för Azure-stacken [klient-ID](../azure-stack-identity-overview.md). |
-| Klient-ID | AZURE_CLIENT_ID | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn skapades i föregående avsnitt i det här dokumentet. |
-| Prenumerations-ID:t | AZURE_SUBSCRIPTION_ID | Den [prenumerations-ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) är hur du kommer åt erbjudanden i Azure-stacken. |
-| Klienthemlighet | AZURE_CLIENT_SECRET | Huvudnamn tjänstprogrammet hemlighet sparas när tjänstens huvudnamn skapades. |
-| Resource Manager-slutpunkt | ARM_ENDPOINT | Se [Stack Azure resource manager-slutpunkt](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Klient-ID:t | AZURE_TENANT_ID | Värdet för Azure Stack [klient-ID](../azure-stack-identity-overview.md). |
+| Klient-ID | AZURE_CLIENT_ID | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn har skapats i föregående avsnitt i det här dokumentet. |
+| Prenumerations-ID:t | AZURE_SUBSCRIPTION_ID | Den [prenumerations-ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) är hur du kommer åt erbjudanden i Azure Stack. |
+| Klienthemlighet | AZURE_CLIENT_SECRET | Huvudnamn tjänstprogrammet hemlighet sparas när tjänstens huvudnamn har skapats. |
+| Resource Manager-slutpunkten | ARM_ENDPOINT | Se [Azure Stack resource manager-slutpunkten](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 
 
-## <a name="python-samples-for-azure-stack"></a>Python-exempel för Azure-Stack 
+## <a name="python-samples-for-azure-stack"></a>Python-exempel för Azure Stack 
 
-Du kan använda följande kodexempel för att utföra vanliga hanteringsuppgifter för virtuella datorer i Azure-stacken.
+Du kan använda följande kodexempel för att utföra vanliga administrationsuppgifter för virtuella datorer i Azure Stack.
 
-Kodexempel visar du:
+Kodexempel visar att:
 
 - Skapa virtuella datorer:
     - Skapa en virtuell Linux-dator
@@ -70,7 +70,7 @@ Kodexempel visar du:
 - Uppdatera en virtuell dator:
     - Expandera en enhet
     - Tagga en virtuell dator
-    - Bifoga datadiskar
+    - Koppla datadiskar
     - Koppla från datadiskar
 - Använda en virtuell dator:
     - Starta en virtuell dator
@@ -79,22 +79,22 @@ Kodexempel visar du:
 - Lista över virtuella datorer
 - Ta bort en virtuell dator
 
-Om du vill granska koden för att utföra dessa åtgärder, ta en titt på **run_example()** funktion i Python-skriptet **Hybrid/unmanaged-disks/example.py** i GitHub-Repo- [ virtuella datorer – python-hantera](https://github.com/viananth/virtual-machines-python-manage/tree/8643ed4bec62aae6fdb81518f68d835452872f88).
+Om du vill granska koden för att utföra dessa åtgärder ta en titt på **run_example()** funktionen i Python-skriptet **Hybrid/unmanaged-disks/example.py** i GitHub-lagringsplatsen [ virtuella datorer – python-hantera](https://github.com/viananth/virtual-machines-python-manage/tree/8643ed4bec62aae6fdb81518f68d835452872f88).
 
-Varje åtgärd är tydligt märkt med en kommentar och en funktionen print.
+Varje åtgärd är tydligt märkt med en kommentar och en utskriftsfunktionen.
 Exemplen är inte nödvändigtvis i den ordning som visas i listan ovan.
 
 
-## <a name="run-the-python-sample"></a>Kör Python-exempel
+## <a name="run-the-python-sample"></a>Köra Python-exemplet
 
 1.  Om du inte redan har det, [installera Python](https://www.python.org/downloads/).
 
-    Det här exemplet (och SDK) är kompatibel med Python 2.7, 3.4, 3.5 och 3,6.
+    Det här exemplet (och SDK: N) är kompatibel med Python 2.7, 3.4, 3.5 och 3.6.
 
-2.  Allmänna rekommendationer för utveckling av Python är att använda en virtuell miljö. 
+2.  Allmän rekommendation för Python-utveckling är att använda en virtuell miljö. 
     Mer information finns i https://docs.python.org/3/tutorial/venv.html
     
-    Installera och starta den virtuella miljön med modulen ”venv” på Python 3 (du måste installera [virtuell miljö](https://pypi.python.org/pypi/virtualenv) för Python 2.7):
+    Installera och initiera den virtuella miljön med modulen ”venv” på Python 3 (du måste installera [virtuell miljö](https://pypi.python.org/pypi/virtualenv) för Python 2.7):
 
     ````bash
     python -m venv mytestenv # Might be "python3" or "py -3.6" depending on your Python installation
@@ -104,22 +104,22 @@ Exemplen är inte nödvändigtvis i den ordning som visas i listan ovan.
     ./scripts/activate.bat   # Windows CMD only
     ````
 
-3.  Klona lagringsplatsen.
+3.  Klona databasen.
 
     ````bash
     git clone https://github.com/Azure-Samples/virtual-machines-python-manage.git
     ````
 
-4.  Installera beroenden med pip.
+4.  Installera beroenden med hjälp av pip.
 
     ````bash
     cd virtual-machines-python-manage\Hybrid
     pip install -r requirements.txt
     ````
 
-5.  Skapa en [tjänstens huvudnamn](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) att arbeta med Azure-stacken. Kontrollera att tjänstens huvudnamn har [deltagare/ägarrollen](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal) på din prenumeration.
+5.  Skapa en [tjänstens huvudnamn](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) att arbeta med Azure Stack. Kontrollera att tjänstens huvudnamn har [deltagare/ägarrollen](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal) på din prenumeration.
 
-6.  Ange följande variabler och exportera dessa miljövariabler i din aktuella shell. 
+6.  Ange följande variabler och exportera miljövariablerna i ditt nuvarande gränssnitt. 
 
     ````bash
     export AZURE_TENANT_ID={your tenant id}

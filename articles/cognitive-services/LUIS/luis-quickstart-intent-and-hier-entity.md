@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 03/27/2018
+ms.date: 06/22/2018
 ms.author: v-geberr
-ms.openlocfilehash: 2547407126943161ba604fa2f5e80b9186cae57e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 5fb93ebbd2da02df0c2cdf0d19ed282aeafe9473
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266506"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335568"
 ---
 # <a name="tutorial-create-app-that-uses-hierarchical-entity"></a>Självstudie: skapa app som använder hierarkisk entitet
 I den här självstudien skapar du en app som visar hur det går till att hitta relaterade datadelar baserat på kontext. 
@@ -22,140 +22,111 @@ I den här självstudien skapar du en app som visar hur det går till att hitta 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Förstå hierarkiska entiteter och underordnade element med kontextuell inlärning 
-> * Skapa ny LUIS-app för resedomän med avsikten Bookflight
-> * Lägga till avsikten _None_ (Ingen) och lägga till exempelyttranden
+> * Använda LUIS-appen i HR-domänen (Human Resources) 
 > * Lägg till platshierarkisk entitet med ursprung och underordnade destinationselement
 > * Träna och publicera app
 > * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar inklusive hierarkiska underordnade element 
 
 För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
 
+## <a name="before-you-begin"></a>Innan du börjar
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om [list entities](luis-quickstart-intent-and-list-entity.md) (listentiteter) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json)-GitHub-lagringsplatsen.
+
+Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `hier`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
+
 ## <a name="purpose-of-the-app-with-this-entity"></a>Syftet med appen med den här entiteten
-Den här bedömer om en användare vill boka en flygresa. Den använder den hierarkiska entiteten för att bestämma platser, ursprungsort och destinationsort inom användarens kontext. 
+Den här appen bestämmer var en medarbetare ska flyttas från (byggnad och kontor) och till (byggnad och kontor). Den använder den hierarkiska entiteten för att urskilja platser i yttrandet. 
 
 Den hierarkiska entiteten passar bra för den här typen av data eftersom följande gäller för de två datadelarna:
 
-* Båda är platser, vilket vanligtvis uttrycks som orter eller flygplatskoder.
-* Vanligtvis finns det unika ordval runt orden för att kunna avgöra vad som är ursprunget och vad som är målet. De här orden innefattar: till, mot, från, avgår.
+* De är relaterade till varandra i yttrandet.
+* Specifika ord används för att ange varje plats. Exempel på sådana ord: från/till, lämnar/ska till, bort från/till.
 * Båda platserna förekommer ofta i samma yttrande. 
 
 Syftet med den **hierarkiska** entiteten är att hitta relaterade data inom yttrandet baserat på kontext. Ta följande yttrande som exempel:
 
 ```JSON
-1 ticket from Seattle to Cairo`
+mv Jill Jones from a-2349 to b-1298
 ```
-
-I yttrandet finns två angivna platser. Den ena är ursprungsorten, Seattle, och den andra är destinationsorten, Kairo. Båda dessa orter är viktiga för att boka en flygresa. De skulle kunna hittas med hjälp av enkla entiteter, men de är relaterade till varandra och förekommer ofta i samma yttrande. Därför är det logiskt att gruppera båda två som underordnade element i en hierarkisk entitet, **”Location”** (Plats). 
-
-Eftersom det gäller maskininlärda enheter behöver appen exempel på yttranden där ursprungsorten och destinationsorten är märkta. Det här lär LUIS var entiteterna finns i yttrandena, hur långa de är och vilka ord som finns runtom. 
-
-## <a name="app-intents"></a>App-avsikter
-Avsikterna är de kategorier av saker som användaren vill ha. Den här appen har två avsikter: BookFlight och None. Avsikten [None](luis-concept-intent.md#none-intent-is-fallback-for-app) (Ingen) har syftet att indikera allt som faller utanför appen.  
-
-## <a name="hierarchical-entity-is-contextually-learned"></a>Hierarkisk entitet lärs kontextuellt 
-Syftet med entiteten är att hitta och kategorisera delar av texten i yttrandet. En [hierarkisk](luis-concept-entity-types.md) entitet är en över-underordnad entitet baserad på användningens kontext. En person kan fastställa ursprungs- och destinationsorterna i ett yttrande baserat på användningen av `to` och `from`. Det här är ett exempel på kontextuell användning.  
-
-För den här Travel-appen (Resor) extraherar LUIS ursprungs- och destinationsplatserna på ett sätt som gör att en standardbokning kan skapas och genomföras. I LUIS kan yttranden ha variationer, förkortningar och slang. 
-
-Enkla exempel på yttranden från användare innefattar:
-
-```
-Book a flight to London for next Monday
-2 tickets from Dallas to Dublin this weekend
-Researve a seat from New York to Paris on the first of April
-```
-
-Förkortade versioner av eller slangvarianter på yttranden innefattar:
-
-```
-LHR tomorrow
-SEA to NYC next Monday
-LA to MCO spring break
-```
+I yttrandet finns två angivna platser: `a-2349` och `b-1298`. Anta att bokstaven motsvarar ett byggnadsnamn och numret indikerar kontoret i byggnaden. Båda dessa är underordnade den hierarkiska entiteten `Locations` eftersom båda datadelar behöver extraheras från yttrandet och de är relaterade till varandra. 
  
-Den hierarkiska enheten matchar ursprungs- och destinationsplatserna. Om endast ett underordnat element (ursprung eller destination) för en hierarkisk entitet finns extraheras det ändå. Det är inte nödvändigt att hitta alla underordnade element för att endast ett eller några element ska kunna extraheras. 
+Om endast ett underordnat element (ursprung eller destination) för en hierarkisk entitet finns extraheras det ändå. Det är inte nödvändigt att hitta alla underordnade element för att endast ett eller några element ska kunna extraheras. 
 
-## <a name="what-luis-does"></a>What LUIS gör
-När yttrandets avsikt och entiteter identifierats, [extraherats](luis-concept-data-extraction.md#list-entity-data) och returnerats i JSON från [slutpunkten](https://aka.ms/luis-endpoint-apis) är LUIS klar. Det anropande programmet eller chattroboten använder JSON-svaret och uppfyller begäran på det sätt som appen eller chattroboten har instruerats att göra. 
+## <a name="remove-prebuilt-number-entity-from-app"></a>Ta bort fördefinierad nummerentitet från appen
+Om du vill se hela yttrandet och märka de underordnade delarna i hierarkin kan du ta bort den fördefinierade nummerentiteten tillfälligt.
 
-## <a name="create-a-new-app"></a>Skapa en ny app
-1. Logga in på [LUIS-webbplatsen][LUIS]. Se till att logga in på den [region][LUIS-regions] där du behöver få LUIS-slutpunkterna publicerade.
+1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
 
-2. På [LUIS-webbplatsen][LUIS] väljer du **Create new app** (Skapa ny app).  
+    [ ![Skärmbild på LUIS-app med Build (Skapa) markerat i navigeringsfältet längst upp till höger](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
 
-    [![](media/luis-quickstart-intent-and-hier-entity/app-list.png "Skärmbild på sidan App lists (App-listor)")](media/luis-quickstart-intent-and-hier-entity/app-list.png#lightbox)
+2. Välj **Entities** (Entiteter) på den vänstra menyn.
 
-3. I popup-dialogrutan anger du namnet `MyTravelApp`. 
+    [ ![Skärmbild på LUIS-appen med knappen Entities (Entiteter) markerad på menyn till vänster](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
 
-    [![](media/luis-quickstart-intent-and-hier-entity/create-new-app.png "Skärmbild på popup-dialogrutan Create new app (Skapa ny app)")](media/luis-quickstart-intent-and-hier-entity/create-new-app.png#lightbox)
 
-4. När processen är klar visar appen sidan **Intents** (Avsikter) med avsikten **None** (Ingen). 
+3. Välj de tre punkterna (...) till höger om nummerentiteten i listan. Välj **Ta bort**. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/intents-page-none-only.png "Skärmbild på Intents list (Avsiktslista) med endast avsikten None (Ingen)")](media/luis-quickstart-intent-and-hier-entity/intents-page-none-only.png#lightbox)
+    [ ![Skärmbild på LUIS-appen med sidan för entitetslistan, och borttagningsknappen för den fördefinierade nummerentiteten markerad](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
 
-## <a name="create-a-new-intent"></a>Skapa en ny avsikt
 
-1. På sidan **Intents** (Avsikter) väljer du **Create new intent** (Skapa ny avsikt). 
+## <a name="add-utterances-to-findform-intent"></a>Lägga till yttranden till avsikten FindForm
 
-    [![](media/luis-quickstart-intent-and-hier-entity/create-new-intent-button.png "Skärmbild på Intents list (Avsiktslista) med knappen ”Create new intent” (Skapa ny avsikt) markerad")](media/luis-quickstart-intent-and-hier-entity/create-new-intent-button.png#lightbox)
+1. Välj **Intents** (Avsikter) på den vänstra menyn.
 
-2. Ange det nya avsiktsnamnet `BookFlight`. Den här avsikten ska väljas när en användare vill boka flygresor.
+    [ ![Skärmbild på LUIS-appen med Intents (Avsikter) markerat på menyn till vänster](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png#lightbox)
 
-    Genom att skapa en avsikt skapar du den primära kategorin för information som du vill identifiera. Tack vare att kategorin får ett namn kan andra program som använder LUIS-frågeresultaten använda det kategorinamnet för att hitta ett lämpligt svar eller utföra lämpliga åtgärder. LUIS svarar inte på de här frågorna, utan identifierar bara vilken typ av information som det frågas om i naturligt språk. 
+2. Välj **MoveEmployee** i listan med avsikter.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/create-new-intent.png "Skärmbild på popup-dialogrutan Create new intent (Skapa ny avsikt)")](media/luis-quickstart-intent-and-hier-entity/create-new-intent.png#lightbox)
+    [ ![Skärmbild på LUIS-appen med avsikten MoveEmployee markerad på menyn till vänster](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png)](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png#lightbox)
 
-3. Lägg till flera yttranden till avsikten `BookFlight` som du förväntar dig att en användare begär, till exempel:
+3. Lägg till följande exempelyttranden:
 
-    | Exempel på yttranden|
+    |Exempel på yttranden|
     |--|
-    |Boka 2 flygresor från Seattle till Kairo nästa måndag|
-    |Boka en biljett till London i morgon|
-    |Reservera 4 biljetter från Paris till London 1 april|
+    |Flytta John W. Smith **till** a-2345|
+    |Hänvisa Jill Jones **till** b-3499|
+    |Ordna flytt för x23456 **från** hh-2345 **till** e-0234|
+    |Påbörja pappersarbetet för att x12345 **ska flytta från** a-3459 **till** f-34567|
+    |Flytta 425-555-0000 **från** g-2323 **till** hh-2345|
 
-    [![](media/luis-quickstart-intent-and-hier-entity/enter-utterances-on-intent.png "Skärmbild på yttranden som anges på sidan för BookFlight-avsikt")](media/luis-quickstart-intent-and-hier-entity/enter-utterances-on-intent.png#lightbox)
+    I enlighet med självstudien om [listentitet](luis-quickstart-intent-and-list-entity.md) kan en medarbetare anges med namn, e-postadress, telefonanknytning, mobilnummer eller amerikanskt socialförsäkringsnummer. Dessa medarbetarnummer används i yttranden. Föregående exempelyttranden innehåller olika sätt att ange ursprungs- och målplatser, markerade i fetstil. I några av yttrandena ingår endast målplatser. Detta hjälper LUIS-appen att förstå hur dessa platser placeras i yttranden när ursprungsplats inte anges.
 
-## <a name="add-utterances-to-none-intent"></a>Lägga till yttranden till avsikten None (Ingen)
+    [ ![Skärmbild på LUIS-appen med nya yttranden i avsikten MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+     
 
-LUIS-appen har för närvarande inga yttranden för avsikten **None** (Ingen). Den behöver yttranden som du inte vill att appen svarar på. Därför behöver den ha yttranden i avsikten **None** (Ingen). Lämna den inte tom. 
+## <a name="create-a-location-entity"></a>Skapa en platsentitet
+LUIS-appen behöver förstå vad en plats är genom att märka ursprungs- och målplatser i yttranden. Om du behöver se ett yttrande i tokenvyn (obearbetad) väljer du växlingsknappen i fältet ovanför yttrandena som är märkta **Entities View** (Entitetsvy). När du byter läge är kontrollen märkt **Tokens View** (Tokenvy).
 
-1. Välj **Intents** (Avsikter) på den vänstra panelen. 
+1. I yttrandet `Displace 425-555-0000 away from g-2323 toward hh-2345` väljer du ordet `g-2323`. En listrutemeny visas med en textruta längst upp. Ange entitetsnamnet `Locations` i textrutan och välj sedan **Create new entity** (Skapa ny entitet) i listrutan. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/select-intents-from-bookflight-intent.png "Skärmbild på sidan för BookFlight-avsikt med knappen Intents (Avsikter) markerad")](media/luis-quickstart-intent-and-hier-entity/select-intents-from-bookflight-intent.png#lightbox)
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Skärmbild på en ny entitet som skapas på avsiktssidan")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
-2. Välj avsikten **None** (Ingen). Lägg till tre yttranden som din använda kan tänkas ange men som inte är relevanta för appen:
+2. I popup-fönstret väljer du entitetstypen **Hierarchical** (Hierarkisk) med `Origin` och `Destination` som underordnade entiteter. Välj **Done** (Klar).
 
-    | Exempel på yttranden|
-    |--|
-    |Avbryt!|
-    |Hej då|
-    |Vad är det som händer?|
+    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Skärmbild på dialogruta för att skapa entitet för den nya entiteten Location (Plats)")
 
-## <a name="when-the-utterance-is-predicted-for-the-none-intent"></a>När yttrandet förväntas för avsikten None (Ingen)
-I det LUIS-anropande programmet (till exempel en chattrobot) kan roboten när LUIS returnerar avsikten **None** (Ingen) för ett yttrande fråga om användaren vill avsluta konversationen. Roboten kan även ge fler anvisningar för att fortsätta konversationen om användaren inte vill avsluta den. 
+3. Etiketten för `g-2323` har märkts som `Locations` eftersom LUIS inte känner till om termen var ursprunget, målet, eller ingetdera. Välj `g-2323`, välj sedan **Locations** (Platser) och följ därefter menyn till höger och välj `Origin`.
 
-Entiteter fungerar i avsikten **None** (Ingen). Om **None** (Ingen) är avsikten med högst poäng men en entitet som är väsentlig för chattroboten extraheras kan chattroboten följa upp med en fråga som fokuserar användarens avsikt. 
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Skärmbild på dialogruta för att märka entiteter och ändra underordnad platsentitet")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
-## <a name="create-a-location-entity-from-the-intent-page"></a>Skapa en platsentitet från sidan Intent (Avsikt)
-Nu när de två avsikterna har yttranden behöver LUIS förstå vad en plats är för något. Gå tillbaka till avsikten `BookFlight` och etikettera (märk) ortnamnen i ett yttrande genom att följa stegen:
+5. Märk de andra platserna i alla andra yttranden genom att välja byggnad och kontor i yttrandet, välja Locations (Platser), följa menyn till höger och välja `Origin` eller `Destination`. När alla platser är märkta börjar yttrandena i **Tokens View** (Tokenvy) att få ett mönster. 
 
-1. Gå tillbaka till avsikten `BookFlight` genom att välja **Intents** (Avsikter) på den vänstra panelen.
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Skärmbild på entiteten Locations (Platser) märkt i yttranden")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
-2. Välj `BookFlight` från listan över avsikter.
+## <a name="add-prebuilt-number-entity-to-app"></a>Lägga till fördefinierad nummerentitet i appen
+Lägg till den fördefinierade nummerentiteten i appen.
 
-3. I yttrandet `Book 2 flights from Seattle to Cairo next Monday` väljer du ordet `Seattle`. En listrutemeny visas med en textruta längst upp att för skapa en ny entitet. Ange entitetsnamnet `Location` i textrutan och välj sedan **Create new entity** (Skapa ny entitet) i listrutan. 
+1. Välj **Entities** (Entiteter) på den vänstra navigeringsmenyn.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png "Skärmbild på sidan för BookFlight-avsikt där en ny entitet skapas från markerad text")](media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png#lightbox)
+    [ ![Skärmbild på knappen Entities (Entiteter) markerad i navigeringen till vänster](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png#lightbox)
 
-4. I popup-fönstret väljer du entitetstypen **Hierarchical** (Hierarkisk) med `Origin` och `Destination` som underordnade entiteter. Välj **Done** (Klar).
+2. Välj knappen **Manage prebuilt entities** (Hantera fördefinierade entiteter).
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png "Skärmbild på popup-dialogruta för skapande av entitet för den nya entiteten Location (Plats)")](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png#lightbox)
+    [ ![Skärmbild på listan Entities (Entiteter) med Manage prebuilt entities (Hantera fördefinierade entiteter) markerad](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png#lightbox)
 
-    Etiketten för `Seattle` har märkts som `Location` eftersom LUIS inte känner till om termen var ursprunget, målet, eller ingetdera. Välj `Seattle`, välj sedan Location (Plats) och följ därefter menyn till höger och välj `Origin`.
+3. Välj **number** (nummer) i listan över fördefinierade entiteter och sedan **Done** (Klar).
 
-5. Nu när entiteten har skapats och ett yttrande har märkts ska du märka de andra orterna genom att välja ortnamnet och sedan välja Location (Plats), och därefter följa menyn till höger och välja `Origin` eller `Destination`.
-
-    [![](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png "Skärmbild på entiteten Bookflight med yttrandetext markerad för entitetsmarkering")](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png#lightbox)
+    ![Skärmbild på dialogrutan för fördefinierade entiteter med nummer markerat](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
 LUIS känner inte till ändringarna av avsikterna och entiteterna (modellen) förrän den tränas. 
@@ -173,8 +144,6 @@ För att få en LUIS-förutsägelse i en chattrobot eller i ett annat program m�
 
 1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Publish** (Publicera). 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/publish.png "Skärmbild på avsikten Bookflight med knappen Publish (Publicera) markerad")](media/luis-quickstart-intent-and-hier-entity/publish.png#lightbox)
-
 2. Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera).
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Skärmbild på sidan Publish (Publicera) med knappen Publish to production slot (Publicera till produktionsplats) markerad")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
@@ -186,41 +155,114 @@ För att få en LUIS-förutsägelse i en chattrobot eller i ett annat program m�
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png "Skärmbild på sidan Publish (Publicera) med slutpunkts-URL markerad")](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png#lightbox)
 
-2. Gå till slutet av URL:en i adressen och ange `1 ticket to Portland on Friday`. Den sista frågesträngsparametern är `q`, yttrande**f**rågan. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `BookFlight` med den hierarkiska entiteten extraherad.
+2. Gå till slutet av webbadressen i adressfältet och ange `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `MoveEmployee` med den hierarkiska entiteten extraherad.
 
-```
+```JSON
 {
-  "query": "1 ticket to Portland on Friday",
+  "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
   "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.9998226
+    "intent": "MoveEmployee",
+    "score": 0.9966052
   },
   "intents": [
     {
-      "intent": "BookFlight",
-      "score": 0.9998226
+      "intent": "MoveEmployee",
+      "score": 0.9966052
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.0325253047
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.006137873
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.00462633232
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00415637763
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.00382325822
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00249120337
     },
     {
       "intent": "None",
-      "score": 0.221926212
+      "score": 0.00130756292
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00119622645
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 1.26910036E-05
     }
   ],
   "entities": [
     {
-      "entity": "portland",
-      "type": "Location::Destination",
-      "startIndex": 12,
-      "endIndex": 19,
-      "score": 0.564448953
+      "entity": "jill - jones @ mycompany . com",
+      "type": "Employee",
+      "startIndex": 18,
+      "endIndex": 41,
+      "resolution": {
+        "values": [
+          "Employee-45612"
+        ]
+      }
+    },
+    {
+      "entity": "x - 2345",
+      "type": "Locations::Origin",
+      "startIndex": 48,
+      "endIndex": 53,
+      "score": 0.8520272
+    },
+    {
+      "entity": "g - 23456",
+      "type": "Locations::Destination",
+      "startIndex": 58,
+      "endIndex": 64,
+      "score": 0.974032
+    },
+    {
+      "entity": "-2345",
+      "type": "builtin.number",
+      "startIndex": 49,
+      "endIndex": 53,
+      "resolution": {
+        "value": "-2345"
+      }
+    },
+    {
+      "entity": "-23456",
+      "type": "builtin.number",
+      "startIndex": 59,
+      "endIndex": 64,
+      "resolution": {
+        "value": "-23456"
+      }
     }
   ]
 }
 ```
 
-## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
-Med hjälp av endast två avsikter och en hierarkisk entitet har den här appen identifierat en frågeavsikt i naturligt språk och returnerat extraherade data. 
+## <a name="could-you-have-used-a-regular-expression-for-each-location"></a>Går det att använda ett reguljärt uttryck för varje plats?
+Ja, skapa det reguljära uttrycket med ursprungs- och målroller och använd det i ett mönster.
 
-Din chattrobot har nu tillräckligt med information för att bestämma den primära åtgärden, `BookFlight`, och den platsinformation som hittades i yttrandet. 
+Platserna i det här exemplet, som `a-1234`, har ett visst format med en eller två bokstäver följt av ett bindestreck, och sedan ett nummer med 4–5 tal. Dessa data kan beskrivas som en entitet för reguljära uttryck med en roll för varje plats. Roller är tillgängliga för mönster. Du kan skapa mönster baserade på dessa yttranden och sedan skapa ett reguljärt uttryck för platsformatet och lägga till det i mönster. <!-- Go to this tutorial to see how that is done -->
+
+## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
+Med hjälp av endast några få avsikter och en hierarkisk entitet har den här appen identifierat en frågeavsikt i naturligt språk och returnerat extraherade data. 
+
+Din chattrobot har nu tillräckligt med information för att bestämma den primära åtgärden, `MoveEmployee`, och den platsinformation som hittades i yttrandet. 
 
 ## <a name="where-is-this-luis-data-used"></a>Var används dessa LUIS-data? 
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
@@ -231,11 +273,6 @@ Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
 > [Lär dig hur du lägger till en listentitet](luis-quickstart-intent-and-list-entity.md) 
-
-Lägg till **numret** [fördefinierad entitet](luis-how-to-add-entities.md#add-prebuilt-entity) för att extrahera numret. 
-
-Lägg till **datetimeV2**, [en fördefinierad entitet](luis-how-to-add-entities.md#add-prebuilt-entity), för att extrahera datuminformationen.
-
 
 <!--References-->
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

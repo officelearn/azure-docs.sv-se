@@ -1,10 +1,10 @@
 ---
 title: Skapa en ASP.NET-app i Azure med SQL Database | Microsoft Docs
-description: Lär dig hur du får en ASP.NET-app att fungera i Azure, med anslutning till en SQL Database.
+description: Lär dig hur du distribuerar en C# ASP.NET-app med en SQL Server-databas till Azure.
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: cfowler
 editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 06/09/2017
+ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4fd1381594c77d8bba92027fee06c08376ee903b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b08033c53185e6229e6fa368a3456749e19eb1f0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789256"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021331"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Självstudie: Skapa en ASP.NET-app i Azure med SQL Database
 
@@ -44,18 +44,14 @@ I den här guiden får du lära dig att:
 
 För att slutföra den här självstudien behöver du:
 
-* Installera [Visual Studio 2017](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
-  - **ASP.NET och webbutveckling**
-  - **Azure Development**
-
-  ![ASP.NET och webbutveckling och Azure Development (under webb och moln)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+Installera <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> med arbetsbelastningen **ASP.NET och webbutveckling**.
 
 Om du redan har installerat Visual Studio lägger du till arbetsbelastningarna i Visual Studio genom att klicka på **Tools (Verktyg)** > **Get Tools and Features (Skaffa verktyg och funktioner)**.
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-[Ladda ned exempelprojektet](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
-
+<a name="-download-the-sample-projecthttpsgithubcomazure-samplesdotnet-sqldb-tutorialarchivemasterzip"></a>-[Ladda ned exempelprojektet](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+-
 Extrahera (zippa upp) filen *dotnet-sqldb-tutorial-master.zip*.
 
 Exempelprojektet innehåller en enkel [ASP.NET MVC](https://www.asp.net/mvc) CRUD-app (create-read-update-delete) som använder [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
@@ -86,20 +82,20 @@ Dialogrutan **Skapa App Service** öppnas där du får hjälp att skapa alla Azu
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
-I dialogrutan **Skapa App Service** klickar du på **Lägg till ett konto** och logga sedan in på din Azure-prenumeration. Om du redan är inloggad på ett Microsoft-konto kontrollerar du att kontot tillhör din Azure-prenumeration. Om kontot inte tillhör din Azure-prenumeration klickar du på den för att lägga till rätt konto.
+I dialogrutan **Skapa App Service** klickar du på **Lägg till ett konto** och logga sedan in på din Azure-prenumeration. Om du redan är inloggad på ett Microsoft-konto kontrollerar du att kontot tillhör din Azure-prenumeration. Om kontot inte tillhör din Azure-prenumeration klickar du på den för att lägga till rätt konto. 
+
+> [!NOTE]
+> Välj inte **Skapa** ännu om du redan är inloggad.
+>
+>
    
 ![Logga in på Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
-
-När du har loggat in kan du skapa alla resurser du behöver för din Azure-webbapp i den här dialogrutan.
 
 ### <a name="configure-the-web-app-name"></a>Konfigurera webbappnamnet
 
 Du kan behålla det genererade webbappnamnet eller ändra det till ett annat unikt namn (giltiga tecken är `a-z`, `0-9` och `-`). Webbappnamnet används som en del av standard-URL:en för din app (`<app_name>.azurewebsites.net`, där `<app_name>` är webbappnamnet). Webbappnamnet måste vara unikt inom alla appar i Azure. 
 
 ![Dialogrutan Skapa App Service](media/app-service-web-tutorial-dotnet-sqldatabase/wan.png)
-
-> [!NOTE]
-> Klicka inte på **Skapa**. Du måste först konfigurera en SQL Database i ett senare steg.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -131,13 +127,9 @@ I dialogrutan **Configure App Service Plan** (Konfigurera App Service-plan) ange
 
 Innan du skapar en databas behöver du en [logisk server för Azure SQL Database](../sql-database/sql-database-features.md). En logisk server innehåller en uppsättning databaser som hanteras som en grupp.
 
-Välj **Explore additional Azure services** (Utforska ytterligare Azure-tjänster).
+Klicka på **Skapa en SQL Database**.
 
-![Ange webbappnamn](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
-
-På fliken **Services** (Tjänster) klickar du på ikonen **+** bredvid **SQL Database**. 
-
-![På fliken Services (Tjänster) klickar du på ikonen + bredvid SQL Database.](media/app-service-web-tutorial-dotnet-sqldatabase/sql.png)
+![Skapa en SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
 Dialogrutan **Configure SQL Database** (Konfigurera SQL-databas) öppnas. Klicka på **New** (Nytt) bredvid **SQL Server**. 
 
@@ -314,7 +306,7 @@ Nu när kodändringen fungerar, inklusive databasmigreringen, publicerar du den 
 
 Precis som tidigare högerklickar du på projektet och väljer **Publish** (Publicera).
 
-Klicka på **Inställningar** så öppnas publiceringsguiden.
+Klicka på **Konfigurera** för att öppna publiceringsinställningarna.
 
 ![Öppna publiceringsinställningar](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-settings.png)
 

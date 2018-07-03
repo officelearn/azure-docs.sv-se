@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: bd1b0f21162978496750886d32e7166c3a90922d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 130e9956702515574da47dc872b03598ca19ff29
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868304"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031700"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Komma igång med Azure Multi-Factor Authentication Server
 
@@ -103,8 +103,8 @@ Nu när du har laddat ned servern kan du installera och konfigurera den. Se till
 
 1. Dubbelklicka på den körbara filen.
 2. Kontrollera att mappen på skärmen Välj installationsmapp stämmer och klicka på **Nästa**.
-3. När installationen har slutförts klickar du på **Slutför**.  Konfigurationsguiden startar.
-4. Markera **Hoppa över autentiseringskonfigurationsguiden** på välkomstskärmen i konfigurationsguiden och klicka på **Nästa**.  Guiden stängs och servern startas.
+3. När installationen har slutförts klickar du på **Slutför**. Konfigurationsguiden startar.
+4. Markera **Hoppa över autentiseringskonfigurationsguiden** på välkomstskärmen i konfigurationsguiden och klicka på **Nästa**. Guiden stängs och servern startas.
 
    ![Molnet](./media/howto-mfaserver-deploy/skip2.png)
 
@@ -116,7 +116,7 @@ Tillåt att MFA-servern kan kommunicera med dina användare för att underlätta
 
 Innehållet i e-postmeddelandet som du skickar beror på hur du konfigurerade användarna för tvåstegsverifiering. Om du till exempel importerade telefonnummer från företagets katalog bör e-postmeddelandet innehålla de fördefinierade telefonnumren så att användarna vet vad de ska förvänta sig. Om du inte har importerat användarnas telefonnummer, eller om användarna kommer att använda mobilappen, skickar du ett e-postmeddelande där de uppmanas att slutföra kontoregistreringen. Inkludera en hyperlänk till användarportalen för Azure Multi-Factor Authentication i e-postmeddelandet.
 
-Innehållet i e-postmeddelandet varierar också beroende på vilken verifieringsmetod som har konfigurerats för användarna (telefonsamtal, SMS eller mobilapp).  Om användarna till exempel måste använda en PIN-kod när de autentiserar så meddelar e-postmeddelandet vilken deras ursprungliga PIN-kod är.  Användarna uppmanas att ändra sina PIN-koder under den första verifieringen.
+Innehållet i e-postmeddelandet varierar också beroende på vilken verifieringsmetod som har konfigurerats för användarna (telefonsamtal, SMS eller mobilapp). Om användarna till exempel måste använda en PIN-kod när de autentiserar så meddelar e-postmeddelandet vilken deras ursprungliga PIN-kod är. Användarna uppmanas att ändra sina PIN-koder under den första verifieringen.
 
 ### <a name="configure-email-and-email-templates"></a>Konfigurera e-post och e-postmallar
 
@@ -136,8 +136,8 @@ Nu när servern är installerad är det dags att lägga till användare. Du kan 
 
 1. Välj **Användare** i Azure MFA Server till vänster.
 2. Välj **Importera från Active Directory** längst ned på sidan.
-3. Nu kan du antingen söka efter enskilda användare eller söka i AD-katalogen efter organisationsenheter som innehåller användare.  I det här exemplet anger vi organisationsenheten för användare.
-4. Markera alla användare till höger och klicka på **Importera**.  Ett popup-meddelande visas som informerar dig om att åtgärden lyckades.  Stäng importfönstret.
+3. Nu kan du antingen söka efter enskilda användare eller söka i AD-katalogen efter organisationsenheter som innehåller användare. I det här exemplet anger vi organisationsenheten för användare.
+4. Markera alla användare till höger och klicka på **Importera**. Ett popup-meddelande visas som informerar dig om att åtgärden lyckades. Stäng importfönstret.
 
    ![MFA-serveranvändarimport](./media/howto-mfaserver-deploy/import2.png)
 
@@ -181,6 +181,10 @@ Om en återställning krävs gör du följande:
 5. Starta tjänsten **MultiFactorAuth**.
 
 Den nya servern är nu aktiv och körs med den ursprungliga säkerhetskopierade konfigurationen och användardata.
+
+## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Hantering av TLS/SSL-protokoll och chiffersviter
+
+När du har uppgraderat till eller installerat MFA Server-versionen 8.x eller högre rekommenderar vi att du inaktiverar äldre eller svagare chiffersviter, om de inte behövs av din organisation. Information om hur du slutför den här aktiviteten finns i artikeln om hur du [hanterar SSL/TLS-protokoll och chiffersviter för AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ## <a name="next-steps"></a>Nästa steg
 

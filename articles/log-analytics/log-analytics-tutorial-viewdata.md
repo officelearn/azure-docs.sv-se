@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 6345fe89a3bf25041621213274ea0c3081848d99
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4a5e6b24bbf7cc21d40cea8e4331de98a5cc05a6
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30834426"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752154"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Visa eller analysera data som samlats in med Log Analytics-loggsökning
 
@@ -41,8 +41,8 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 ## <a name="open-the-log-search-portal"></a>Öppna loggsökningsportalen 
 Börja med att öppna loggsökningsportalen.   
 
-1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
-2. I prenumerationsfönstret för Log Analytics väljer du en arbetsyta och sedan panelen **Loggsökning**.<br><br> ![Loggsökningsknapp](media/log-analytics-tutorial-viewdata/azure-portal-02.png)
+1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Monitor**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Monitor**.
+2. På navigeringsmenyn för Monitor väljer du **Log Analytics** och sedan en arbetsyta
 
 ## <a name="create-a-simple-search"></a>Skapa en enkel sökning
 Det snabbaste sättet att hämta vissa data att arbeta med är en enkel fråga som returnerar alla poster i en tabell.  Om du har några Windows- eller Linux-klienter anslutna till din arbetsyta har du data i antingen tabellen Händelse (Windows) eller Syslog (Linux).
@@ -124,7 +124,7 @@ Perf
 Det är dock inte särskilt användbart att returnera miljontals poster för alla prestandaobjekt och räknare.  Du kan använda samma metoder som du använde ovan för att filtrera data eller så skriver du följande fråga direkt i loggsökningsrutan.  Det returnerar enbart processoranvändningsposter för både Windows- och Linux-datorer.
 
 ```
-Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time")
+Perf | where ObjectName == "Processor"  | where CounterName == "% Processor Time"
 ```
 
 ![Processoranvändning](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-02.png)
@@ -132,7 +132,9 @@ Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor T
 Det begränsar data till en särskild räknare, men det placerar dem fortfarande inte i ett formulär som är särskilt användbart.  Du kan visa data i ett linjediagram, men först måste du gruppera dem via Dator och TimeGenerated.  Om du vill gruppera flera fält måste du ändra frågan direkt, så ändra frågan så här.  Funktionen [medel](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) för egenskapen **CounterValue** används för att beräkna medelvärdet för varje timme.
 
 ```
-Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated
+Perf  
+| where ObjectName == "Processor"  | where CounterName == "% Processor Time"
+| summarize avg(CounterValue) by Computer, TimeGenerated
 ```
 
 ![Diagram över prestandadata](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
@@ -140,7 +142,10 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 Nu när dina data är lämpligt grupperade kan du visa dem i ett visuellt diagram genom att lägga till operatorn [render](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator).  
 
 ```
-Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated | render timechart
+Perf  
+| where ObjectName == "Processor" | where CounterName == "% Processor Time" 
+| summarize avg(CounterValue) by Computer, TimeGenerated 
+| render timechart
 ```
 
 ![Linjediagram](media/log-analytics-tutorial-viewdata/log-analytics-portal-linechart-01.png)

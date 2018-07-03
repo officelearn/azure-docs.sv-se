@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: e21c08d418022430400ff14baedc1759d2d16069
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 27e7d6f22678bf33ffd81fb34472fe4add3f9a15
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30171571"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045483"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
 I den här självstudien använder du användargränssnittet för Azure Data Factory för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet.
 
 > [!NOTE]
-> Den här artikeln gäller för version 2 av Azure Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory, som är allmänt tillgänglig, läser du i [Dokumentation för Data Factory, version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-> 
 > Den här artikeln ger inte någon detaljerad introduktion till Data Factory. Mer information finns i [Introduktion till Data Factory](introduction.md). 
 
 I den här självstudien får du göra följande:
@@ -128,21 +126,21 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
    
    ![Skapa ny datafabrik](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
 3. I fönstret **Ny datafabrik**, under **Namn** anger du **ADFTutorialDataFactory**. 
-      
+   
      ![Sida för ny datafabrik](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
- 
-   Namnet på datafabriken måste vara *globalt unikt*. Om följande felmeddelande visas för namnfältet ändrar du namnet på datafabriken (t.ex. dittnamnADFTutorialDataFactory). Se artikeln [Namnregler för Data Factory](naming-rules.md) för namnregler för Data Factory-artefakter.
-  
+
+Namnet på datafabriken måste vara *globalt unikt*. Om följande felmeddelande visas för namnfältet ändrar du namnet på datafabriken (t.ex. dittnamnADFTutorialDataFactory). Se artikeln [Namnregler för Data Factory](naming-rules.md) för namnregler för Data Factory-artefakter.
+
    ![Namn på ny datafabrik](./media/tutorial-hybrid-copy-portal/name-not-available-error.png)
 4. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i.
 5. Gör något av följande för **Resursgrupp**:
-     
+   
       - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan.
 
       - Välj **Skapa ny** och ange namnet på en resursgrupp.
-         
+        
     Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
-6. Under **Version** väljer du **V2 (förhandsversion)**.
+6. Under **Version** väljer du **V2**.
 7. Under **Plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (t.ex. lagring och SQL-databas) och beräkningarna (t.ex. Azure HDInsight) som används i Data Factory kan finnas i andra regioner.
 8. Välj **fäst till instrumentpanelen**. 
 9. Välj **Skapa**.
@@ -160,42 +158,55 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
 1. På sidan **Nu sätter vi igång** väljer du **Skapa pipeline**. En pipeline skapas automatiskt åt dig. Pipelinen visas i trädvyn och dess redigerare öppnas. 
 
    ![Sidan Nu sätter vi igång](./media/tutorial-hybrid-copy-portal/get-started-page.png)
+
 2. På fliken **Allmänt** nedtill i fönstret **Egenskaper** skriver du för **Namn** värdet **SQLServerToBlobPipeline**.
 
    ![Namn på pipeline](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
+
 3. Gå till verktygsfältet **Aktiviteter** och expandera **Dataflöde**. Dra och släpp aktiviteten **Kopiera** på pipelinedesignytan. Ge aktiviteten namnet **CopySqlServerToAzureBlobActivity**.
 
    ![Aktivitetsnamn](./media/tutorial-hybrid-copy-portal/copy-activity-name.png)
+
 4. I fönstret **Egenskaper** går du till fliken **Källa** och väljer **+ Ny**.
 
    ![Fliken Källa](./media/tutorial-hybrid-copy-portal/source-dataset-new-button.png)
+
 5. I fönstret **Ny datauppsättning** söker du efter **SQL Server**. Välj **SQL Server** och välj sedan **Slutför**. En ny flik med namnet **SqlServerTable1** visas. Datauppsättningen **SqlServerTable1** visas också i trädvyn till vänster. 
 
    ![Val av SQL Server](./media/tutorial-hybrid-copy-portal/select-sql-server.png)
+
 6. På fliken **Allmänt** nedtill i fönstret **Egenskaper** skriver du för **Namn** värdet **SqlServerDataset**.
-    
+
    ![Namn på källdatauppsättning](./media/tutorial-hybrid-copy-portal/source-dataset-name.png)
+
 7. Gå till fliken **Anslutningar** och välj **+ Ny**. I det här steget skapar du en anslutning till källdatalagret (SQL Server-databasen). 
 
    ![Anslutning till källdatauppsättning](./media/tutorial-hybrid-copy-portal/source-connection-new-button.png)
-8. I fönstret **Ny länkad tjänst** väljer du **Ny Integration Runtime**. I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den till en lokal dator med SQL Server-databasen. En lokal Integration Runtime är den komponent som kopierar data från SQL Server-databasen på din dator till Blob Storage. 
+
+8. I fönstret **New Linked Service** (Ny länkad tjänst) lägger du till **Namn** som **SqlServerLinkedService**. Välj **Ny** under **Connect via integration runtime** (Anslut via Integration Runtime). I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den till en lokal dator med SQL Server-databasen. En lokal Integration Runtime är den komponent som kopierar data från SQL Server-databasen på din dator till Blob Storage. 
 
    ![Ny integreringskörning](./media/tutorial-hybrid-copy-portal/new-integration-runtime-button.png)
+
 9. I installationsfönstret för **Integration Runtime** väljer du **Privat nätverk** och väljer sedan **Nästa**. 
 
    ![Val av privat nätverk](./media/tutorial-hybrid-copy-portal/select-private-network.png)
+
 10. Ange ett namn på integreringskörningen och välj **Nästa**.
-    
+
     ![Namn på integreringskörning](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
+
 11. Under **Option 1: Express setup** (Alternativ 1: Expressinstallation) väljer du **Click here to launch the express setup for this computer** (Klicka här för att starta expressinstallation för den här datorn). 
 
     ![Länk för expressinstallation](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+
 12. Välj **Stäng** i fönstret **Snabbinstallation av Integration Runtime (lokal installation)**. 
 
     ![Snabbinstallation av Integration Runtime (lokal installation)](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-13. Välj **Slutför** i webbläsaren i fönstret **Integration Runtime-installation**. 
 
-    ![Installation av Integration Runtime](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
+13. I fönstret **New Linked Service** (Ny länkad tjänst) kontrollerar du att **integreringskörningen** som skapades ovan är vald under **Connect via integration runtime** (Anslut via Integration Runtime). 
+
+    ![](./media/tutorial-hybrid-copy-portal/select-integration-runtime.png)
+
 14. Utför följande steg i fönstret **Ny länkad tjänst**:
 
     a. Under **Namn** anger du **SqlServerLinkedService**.
@@ -212,9 +223,10 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
 
     g. Välj **Testanslutning**. Utför det här steget för att bekräfta att Data Factory kan ansluta till SQL Server-databasen med den lokala integreringskörningen som du har skapat.
 
-    h. Välj **Spara** för att spara den länkade tjänsten.
+    h. Välj **Slutför** för att spara den länkade tjänsten.
 
-       ![Inställningar för ny länkad tjänst](./media/tutorial-hybrid-copy-portal/sql-server-linked-service-settings.png)
+       
+
 15. Nu visas normalt fönstret med källdatauppsättningen öppen. Gör följande i fliken **Anslutning** i fönstret **Egenskaper**: 
 
     a. Bekräfta att du ser **SqlServerLinkedService** i **Länkad tjänst**.
@@ -222,21 +234,27 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
     b. Under **Tabell** väljer du **[dbo].[emp]**.
 
     ![Källdatauppsättning – anslutningsinformation](./media/tutorial-hybrid-copy-portal/source-dataset-connection.png)
+
 16. Gå till fliken med **SQLServerToBlobPipeline** eller välj **SQLServerToBlobPipeline** i trädvyn. 
 
     ![Fliken Pipeline](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+
 17. Gå till fliken **Mottagare** längst ned i fönstret **Egenskaper** och välj **+ Ny**. 
 
     ![Fliken Mottagare](./media/tutorial-hybrid-copy-portal/sink-dataset-new-button.png)
+
 18. Välj **Azure Blob Storage** i fönstret **Ny datauppsättning**. Välj sedan **Slutför**. En ny flik öppnas för datauppsättningen. Du kan också se datauppsättningen i trädvyn. 
 
     ![Val av Blob Storage](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
+
 19. I **Namn** anger du **AzureBlobDataset**.
 
     ![Namn på datauppsättning för mottagare](./media/tutorial-hybrid-copy-portal/sink-dataset-name.png)
+
 20. Gå till fliken **Anslutning** längst ned i fönstret **Egenskaper**. Intill **Länkad tjänst** väljer du **+ Ny**. 
 
     ![Knapp för ny länkad tjänst](./media/tutorial-hybrid-copy-portal/new-storage-linked-service-button.png)
+
 21. Utför följande steg i fönstret **Ny länkad tjänst**:
 
     a. Under **Namn** anger du **AzureStorageLinkedService**.
@@ -248,28 +266,39 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
     d. Välj **Spara**.
 
     ![Inställningar för länkad lagringstjänst](./media/tutorial-hybrid-copy-portal/azure-storage-linked-service-settings.png) 
-22.  Nu visas normalt fönstret med datauppsättningen för mottagare öppen. Gör följande på fliken **Anslutning**: 
 
-        a. I **Länkad tjänst** bekräftar du att **AzureStorageLinkedService** är vald.
+22. Nu visas normalt fönstret med datauppsättningen för mottagare öppen. Gör följande på fliken **Anslutning**: 
 
-        b. I **mappdelen** av **filsökvägen** anger du **adftutorial/fromonprem**. Om utdatamappen inte finns i behållaren adftutorial skapas den automatiskt av Data Factory.
+       a. I **Länkad tjänst** bekräftar du att **AzureStorageLinkedService** är vald.
 
-        c. I **filnamnsdelen** av **filsökvägen** anger du `@CONCAT(pipeline().RunId, '.txt')`.
+       b. I delen **mapp**/ **Katalog** för **sökväg** anger du **adftutorial/fromonprem**. Om utdatamappen inte finns i behållaren adftutorial skapas den automatiskt av Data Factory.
 
-     ![Anslutning till datauppsättning för mottagare](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
+       c. I delen **filnamn** för **sökväg** väljer du **Lägg till dynamiskt innehåll**.   
+
+    ![dynamiskt filnamnsvärde](./media/tutorial-hybrid-copy-portal/file-name.png)
+
+       d. Lägg till `@CONCAT(pipeline().RunId, '.txt')`, välj **Slutför**. Då ändras namnet på filen till PipelineRunID.txt. 
+
+    ![dynamiska uttryck för lösning av filnamn](./media/tutorial-hybrid-copy-portal/add-dynamic-file-name.png)
+
+    ![Anslutning till datauppsättning för mottagare](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
+
 23. Gå till fliken med pipelinen öppen eller välj pipelinen i trädvyn. I **Sink Dataset** (Datauppsättning för mottagare) bekräftar du att **AzureBlobDataset** är vald. 
 
     ![Vald datauppsättning för mottagare](./media/tutorial-hybrid-copy-portal/sink-dataset-selected.png)
+
 24. Verifiera pipelineinställningarna genom att välja **Verifiera** i verktygsfältet för pipelinen. Om du vill stänga **verifieringsrapporten för pipeline** väljer du **Stäng**. 
 
     ![Verifiera pipeline](./media/tutorial-hybrid-copy-portal/validate-pipeline.png)
+
 25. Om du vill publicera entiteter du skapat till Data Factory väljer du **Publicera alla**.
 
     ![Knappen Publicera](./media/tutorial-hybrid-copy-portal/publish-button.png)
+
 26. Vänta tills du ser popup-fönstret som meddelar att **publiceringen är klar**. Du kan kontrollera status för publiceringen genom att välja länken **Visa meddelanden** till vänster. Stäng meddelandefönstret genom att klicka på **Stäng**. 
 
     ![Publiceringen är klar](./media/tutorial-hybrid-copy-portal/publishing-succeeded.png)
-    
+
 
 ## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
 Välj **Utlös** i verktygsfältet för pipelinen och välj sedan **Trigger Now** (Utlös nu).
@@ -286,15 +315,9 @@ Välj **Utlös** i verktygsfältet för pipelinen och välj sedan **Trigger Now*
     ![Övervaka aktivitetskörningar](./media/tutorial-hybrid-copy-portal/activity-runs.png)
 
 ## <a name="verify-the-output"></a>Verifiera utdata
-Pipelinen skapar automatiskt utdatamappen med namnet *fromonprem* i `adftutorial`-blobbehållaren. Bekräfta att filen *dbo.emp.txt* finns i utdatamappen. 
+Pipelinen skapar automatiskt utdatamappen med namnet *fromonprem* i `adftutorial`-blobbehållaren. Bekräfta att du ser filen *[pipeline().RunId].txt* i utdatamappen. 
 
-1. I behållarfönstret **adftutorial** i Azure-portalen väljer du **Uppdatera** för att se utdatamappen.
-
-    ![Utdatamapp skapad](media/tutorial-hybrid-copy-portal/fromonprem-folder.png)
-2. Välj `fromonprem` i listan över mappar. 
-3. Bekräfta att du ser en fil med namnet `dbo.emp.txt`.
-
-    ![Utdatafil](media/tutorial-hybrid-copy-portal/fromonprem-file.png)
+![bekräfta utdata-filnamn](./media/tutorial-hybrid-copy-portal/sink-output.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -12,17 +12,26 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 85dc16b07b72f2e8c1ed00fb5dd25288b985ae21
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 576558f7ab3ae9a0e3ceebb65d19f689b4836022
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603051"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958824"
 ---
 # <a name="azure-resource-manager-overview"></a>Översikt över Azure Resource Manager
 Infrastrukturen för ditt program består normalt av många komponenter – kanske en virtuell dator, ett lagringskonto och ett virtuellt nätverk eller en webbapp, en databas, en databasserver och tjänster från tredje part. Du ser inte de här komponenterna som separata entiteter, utan som relaterade delar av samma enhet som är beroende av varandra. Du vill distribuera, hantera och övervaka dem som en grupp. Med Azure Resource Manager kan du arbeta med resurserna i en lösning som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i lösningen i en enda, samordnad åtgärd. Du använder en mall för distributionen. Mallen kan användas i olika miljöer, till exempel för testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings- och taggningsfunktioner som hjälper dig att hantera dina resurser efter distributionen. 
+
+## <a name="consistent-management-layer"></a>Enhetligt hanteringslager
+Resource Manager tillhandahåller ett konsekvent hanteringslager för att utföra uppgifter via Azure PowerShell, Azure CLI, Azure portal, REST API samt klient-SDK:er. Alla funktioner som är tillgängliga i Azure-portalen är även tillgängliga via Azure PowerShell, Azure CLI, Azure REST API:er och klient-SDK:er. Funktioner som ursprungligen publiceras via API:er kommer att representeras i portalen inom 180 dagar efter den första publiceringen.
+
+Välj de verktyg och API:er som fungerar bäst för dig – de har samma funktioner och ger konsekventa resultat.
+
+Följande bild visar hur alla verktyg interagerar med samma Azure Resource Manager-API. API:et skickar begäranden till Resource Manager-tjänsten, som autentiserar och auktoriserar begäranden. Resource Manager dirigerar sedan begäranden till lämpliga resursleverantörer.
+
+![Modell för Resource Manager-begäranden](./media/resource-group-overview/consistent-management-layer.png)
 
 ## <a name="terminology"></a>Terminologi
 Om du inte har arbetat med Azure Resource Manager tidigare finns det några termer som kanske är nya för dig.
@@ -45,13 +54,6 @@ Resource Manager har flera fördelar:
 * Du kan tydliggöra din organisations fakturering genom att visa kostnaderna för en grupp av resurser som delar samma tagg.  
 
 Resource Manager erbjuder ett nytt sätt att distribuera och hantera lösningar. Om du använde den tidigare distributionsmodellen och vill veta mer om ändringarna läser du [Förstå Resource Manager-distribution och klassisk distribution](resource-manager-deployment-model.md).
-
-## <a name="consistent-management-layer"></a>Enhetligt hanteringslager
-Resource Manager tillhandahåller ett konsekvent hanteringslager för uppgifter du utför via Azure PowerShell, CLI Azure, Azure Portal, REST API och utvecklingsverktyg. Alla verktyg använder en gemensam uppsättning åtgärder. Du kan använda de verktyg som passar dig bäst och du kan byta fram och tillbaka utan problem. 
-
-Följande bild visar hur alla verktyg interagerar med samma Azure Resource Manager-API. API:et skickar begäranden till Resource Manager-tjänsten, som autentiserar och auktoriserar begäranden. Resource Manager dirigerar sedan begäranden till lämpliga resursleverantörer.
-
-![Modell för Resource Manager-begäranden](./media/resource-group-overview/consistent-management-layer.png)
 
 ## <a name="guidance"></a>Riktlinjer
 Följande rekommendationer hjälper dig att dra full nytta av Resource Manager när du arbetar med dina lösningar.
@@ -227,7 +229,7 @@ I vissa fall kanske du vill köra kod eller skript som använder resurser, men i
 Du kan också låsa viktiga resurser explicit för att förhindra att användare tar bort eller ändrar dem. Mer information finns i [Låsa resurser med Azure Resource Manager](resource-group-lock-resources.md).
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
-Resource Manager loggar alla åtgärder som skapar, ändrar eller tar bort en resurs. Du kan använda aktivitetsloggarna för att hitta ett fel när du felsöker eller övervakar hur en användare i organisationen ändrat en resurs. Om du vill visa loggarna väljer du **Aktivitetsloggar** på bladet **Inställningar** för en resursgrupp. Du kan filtrera loggarna med många olika värden, inklusive vilken användare som initierade åtgärden. Information om hur du arbetar med aktivitetsloggar finns i [View activity logs to manage Azure resources](resource-group-audit.md) (Visa aktivitetsloggar för att hantera Azure-resurser).
+Resource Manager loggar alla åtgärder som skapar, ändrar eller tar bort en resurs. Du kan använda aktivitetsloggarna för att hitta ett fel när du felsöker eller övervakar hur en användare i organisationen ändrat en resurs. Du kan filtrera loggarna med många olika värden, inklusive vilken användare som initierade åtgärden. Information om hur du arbetar med aktivitetsloggar finns i [View activity logs to manage Azure resources](resource-group-audit.md) (Visa aktivitetsloggar för att hantera Azure-resurser).
 
 ## <a name="customized-policies"></a>Anpassade principer
 Med Resource Manager kan du hantera resurser genom att skapa anpassade principer. De typer av principer som du skapar kan inkludera olika scenarier. Du kan tillämpa en namngivningskonvention på resurser, begränsa vilka typer och instanser av resurser som kan distribueras eller begränsa vilka regioner som kan vara värd för en viss typ av resurs. Du kan kräva ett taggvärde på resurser för att organisera faktureringen efter avdelningar. Du skapar principer för att minska kostnaderna och upprätthålla konsekvensen i din prenumeration. 
@@ -255,7 +257,7 @@ Det finns många fler typer av principer som du kan skapa. Mer information finns
 ## <a name="sdks"></a>SDK:er
 Azure-SDK:er är tillgängliga för flera språk och plattformar. Var och en av dessa språkimplementeringar är tillgängliga via pakethanteraren i respektive implementerings ekosystem och på GitHub.
 
-Här är våra databaser för SDK med öppen källkod. Vi tar gärna emot feedback, information om problem och pull-förfrågningar.
+Här är lagringsplatserna för SDK med öppen källkod.
 
 * [Azure SDK för .NET](https://github.com/Azure/azure-sdk-for-net)
 * [Azures hanteringsbibliotek för Java](https://github.com/Azure/azure-sdk-for-java)

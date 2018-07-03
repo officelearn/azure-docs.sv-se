@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: dab9e7b4ee62624ba32b7b6b41d0dee5ac01af09
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e40283abd418552f296f7539e554e0ad5232e49a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598325"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031703"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introduktion till Azure App Service i Linux
 
@@ -76,7 +76,7 @@ Azure-portalen visar endast de funktioner som för närvarande fungerar tillsamm
 
 Vissa funktioner – till exempel Virtual Network-integration, Azure Active Directory/autentiseringsmetoder från tredje part och Kudu-platstillägg – är inte tillgängliga ännu. När funktionerna blir tillgängliga kommer vi att uppdatera vår dokumentation och bloggen så att de återspeglar ändringarna.
 
-App Service i Linux fungerar endast om du har valt någon av App Service-planerna [Basic eller Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) utan [kostnadsfritt eller delat](https://azure.microsoft.com/pricing/details/app-service/plans/) alternativ. Du kan inte skapa webbappar för behållare i App Service-planer som redan är värdar för icke-Linux-webbappar. Det går för närvarande inte att blanda Windows- och Linux-appar i samma resursgrupp.
+App Service i Linux fungerar endast om du har valt någon av App Service-planerna [Basic, Standard eller Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) och inte har ett [kostnadsfritt eller delat](https://azure.microsoft.com/pricing/details/app-service/plans/) alternativ. [Linux i ASE (isolerad nivå)](https://blogs.msdn.microsoft.com/appserviceteam/2018/05/07/announcing-the-linux-on-app-service-environment-public-preview/) är i förhandsversionsläge och kan för närvarande inte användas för produktionsarbetsbelastningar. Det går inte att skapa Web App for Containers i en App Service-plan som redan agerar värd för webbappar av andra typer än Linux. Det finns också en aktuell begränsning vad gäller att inte blanda Windows och Linux-appar i samma resursgrupp.
 
 ## <a name="troubleshooting"></a>Felsökning
 

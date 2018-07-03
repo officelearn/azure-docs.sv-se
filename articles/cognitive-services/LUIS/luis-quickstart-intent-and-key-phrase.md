@@ -7,31 +7,35 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 12c306b5199da5862302c28d1690b81c6e1edb0e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 9acdfdde667d37bac5b96e4497b3e86d2cdeccb8
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264623"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063416"
 ---
-# <a name="tutorial-create-app-that-returns-keyphrases-entity-data-found-in-utterances"></a>Självstudie: skapa app som returnerar keyPhrases-entitetsdata som hittas i yttranden
-I den här självstudien skapar du en app som visar hur det går till att extrahera nyckelämnen från yttranden.
+# <a name="tutorial-learn-how-to-return-data-from-keyphrase-entity"></a>Självstudier: Lär dig att returnera data från en keyPhrase-entitet 
+I den här självstudien använder du en app som visar hur det går till att extrahera nyckelämnen från yttranden.
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Förstå keyPhrase-entiteter 
-> * Skapa ny LUIS-app för personalfrågedomän
-> * Lägga till avsikten _None_ (Ingen) och lägga till exempelyttranden
+> * Använda LUIS-appen i HR-domänen (Human Resources) 
 > * Lägga till keyPhrase-entitet för att extrahera innehåll från yttrande
 > * Träna och publicera app
-> * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
+> * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar inklusive nyckelfraser
 
-För den här artikeln kan du använda ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
+För den här artikeln kan du använda ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#publishing-regions) för att kunna redigera LUIS-programmet.
+
+## <a name="before-you-begin"></a>Innan du börjar
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om [simple entity](luis-quickstart-primary-and-secondary-data.md) (enkel entitet) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json)-GitHub-lagringsplatsen.
+
+Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `keyphrase`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
 ## <a name="keyphrase-entity-extraction"></a>Extrahering av keyPhrase-entitet
-Nyckelämnen tillhandahålls av den fördefinierade entiteten **keyPhrase**. Den här entiteten returnerar nyckelämnen i yttrandet
+Nyckelämnen tillhandahålls av den fördefinierade entiteten **keyPhrase**. Den här entiteten returnerar nyckelämnen i yttrandet.
 
 Följande yttranden visar exempel på nyckelfraser:
 
@@ -40,65 +44,54 @@ Följande yttranden visar exempel på nyckelfraser:
 |Kommer det att erbjudas en ny sjukvårdsplan med lägre självrisk nästa år?|”lägre självrisk”<br>”ny sjukvårdsplan”<br>”år”|
 |Ingår synbehandling i sjukvårdsplanen med hög självrisk?|”sjukvårdsplan med hög självrisk”<br>”synbehandling”|
 
-Din chattrobot kan överväga de här värdena, utöver alla de andra entiteter som extraheras, när den bestämmer nästa steg i konversationen.
-
-## <a name="download-sample-app"></a>Ladda ned exempelapp
-Ladda ned appen [Human Resources](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) (Personalfrågor) och spara den till en fil med filnamnstillägget *.json. Den här exempelappen identifierar yttranden som är relevanta för de anställdas förmåner, organisationsscheman och fysiska tillgångar.
-
-## <a name="create-a-new-app"></a>Skapa en ny app
-1. Logga in på [LUIS-webbplatsen][LUIS]. Se till att logga in på den [region][LUIS-regions] där du behöver få LUIS-slutpunkterna publicerade.
-
-2. På [LUIS-webbplatsen][LUIS] väljer du **Import new app** (Importera ny app) för att importera appen Human Resources (Personalfrågor) som laddades ned i föregående avsnitt. 
-
-    [![](media/luis-quickstart-intent-and-key-phrase/app-list.png "Skärmbild på sidan App lists (App-listor)")](media/luis-quickstart-intent-and-key-phrase/app-list.png#lightbox)
-
-3. I dialogrutan **Import new app** (Importera ny app) ger du appen namnet `Human Resources with Key Phrase entity`. 
-
-    ![Bild på dialogrutan Create new app (Skapa ny app)](./media/luis-quickstart-intent-and-key-phrase/import-new-app-inline.png)
-
-    När processen för att skapa appen är klar visar LUIS listan över avsikter.
-
-    [![](media/luis-quickstart-intent-and-key-phrase/intents-list.png "Skärmbild på sidan Intents lists (Lista över avsikter)")](media/luis-quickstart-intent-and-key-phrase/intents-list.png#lightbox)
+Ditt klientprogram kan använda dessa värden tillsammans med andra extraherade entiteter för att avgöra nästa steg i konversationen.
 
 ## <a name="add-keyphrase-entity"></a>Lägga till keyPhrase-entitet 
 Lägg till den fördefinierade keyPhrase-entiteten för att extrahera ämnesinnehåll från yttranden.
 
-1. Välj **Entities** (Entiteter) på den vänstra menyn.
+1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
 
-    [ ![Skärmbild på Entities (Entiteter) markerade i vänster navigeringsfält på avsnittet Build (Skapa)](./media/luis-quickstart-intent-and-key-phrase/select-entities.png)](./media/luis-quickstart-intent-and-key-phrase/select-entities.png#lightbox)
+    [ ![Skärmbild på LUIS-app med Build (Skapa) markerat i navigeringsfältet längst upp till höger](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png)](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png#lightbox)
 
-2. Välj **Manage prebuilt entities** (Hantera fördefinierade entiteter).
+2. Välj **Entities** (Entiteter) på den vänstra menyn.
 
-    [ ![Skärmbild på popup-dialogrutan Entities list (Lista över entiteter)](./media/luis-quickstart-intent-and-key-phrase/manage-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/manage-prebuilt-entities.png#lightbox)
+    [ ![Skärmbild på Entities (Entiteter) markerade i vänster navigeringsfält på avsnittet Build (Skapa)](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities-button.png#lightbox)
 
-3. I popup-dialogrutan väljer du **keyPhrase** och sedan **Done** (Klar). 
+3. Välj **Manage prebuilt entities** (Hantera fördefinierade entiteter).
 
-    [ ![Skärmbild på popup-dialogrutan Entities list (Lista över entiteter)](./media/luis-quickstart-intent-and-key-phrase/add-or-remove-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/add-or-remove-prebuilt-entities.png#lightbox)
+    [ ![Skärmbild på popup-dialogrutan Entities list (Lista över entiteter)](./media/luis-quickstart-intent-and-key-phrase/hr-manage-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-manage-prebuilt-entities.png#lightbox)
+
+4. I popup-dialogrutan väljer du **keyPhrase** och sedan **Done** (Klar). 
+
+    [ ![Skärmbild på popup-dialogrutan Entities list (Lista över entiteter)](./media/luis-quickstart-intent-and-key-phrase/hr-add-or-remove-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-add-or-remove-prebuilt-entities.png#lightbox)
 
     <!-- TBD: asking Carol
     You won't see these entities labeled in utterances on the intents pages. 
     -->
+5. Välj **Intents** (Avsikter) på menyn till vänster och välj avsikten **Utilities.Confirm**. Entiteten keyPhrase är märkt med flera yttranden. 
+
+    [ ![Skärmbild på avsikten Utilities.Confirm med keyPhrases märkta i yttranden](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
-LUIS känner inte till den här ändringen av modellen förrän den tränas. 
+Den nya `keyphrase`-versionen av appen behöver tränas.  
 
 1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Train** (Träna).
 
-    ![Skärmbild på markerad knapp Train (Träna)](./media/luis-quickstart-intent-and-key-phrase/train-button-expanded.png)
+    ![Träna appen](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
 
 2. Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
 
-    ![Skärmbild på meddelandefält om att Training (Träning) är klar ](./media/luis-quickstart-intent-and-key-phrase/trained-inline.png)
+    ![Träningen är klar](./media/luis-quickstart-intent-and-key-phrase/trained.png)
 
 ## <a name="publish-app-to-endpoint"></a>Publicera app till slutpunkt
 
 1. Välj **Publish** (Publicera) i det övre högra navigeringsfältet.
 
-    ![Skärmbild på sidan Entity (Entitet) med knappen Publish (Publicera) expanderad ](./media/luis-quickstart-intent-and-key-phrase/publish-expanded.png)
+    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "Skärmbild på sidan Publish (Publicera) med knappen Publish to production slot (Publicera till produktionsplats) markerad")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
 
 2. Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera).
 
-    [![](media/luis-quickstart-intent-and-key-phrase/publish-to-production-inline.png "Skärmbild på sidan Publish (Publicera) med knappen Publish to production slot (Publicera till produktionsplats) markerad")](media/luis-quickstart-intent-and-key-phrase/publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "Skärmbild på sidan Publish (Publicera) med knappen Publish to production slot (Publicera till produktionsplats) markerad")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
 
 3. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
 
@@ -106,39 +99,98 @@ LUIS känner inte till den här ändringen av modellen förrän den tränas.
 
 1. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. 
 
-    ![Skärmbild på sidan Publish (Publicera) med slutpunkts-URL markerad](media/luis-quickstart-intent-and-key-phrase/endpoint-url-inline.png )
+    ![Skärmbild på sidan Publish (Publicera) med slutpunkts-URL markerad](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png )
 
-2. Gå till slutet av URL:en i adressen och ange `Is there a new medical plan with a lower deductible offered next year?`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
+2. Gå till slutet av URL:en i adressen och ange `does form hrf-123456 cover the new dental benefits and medical plan`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 
 ```
 {
-  "query": "Is there a new medical plan with a lower deductible offered next year?",
+  "query": "does form hrf-123456 cover the new dental benefits and medical plan",
   "topScoringIntent": {
     "intent": "FindForm",
-    "score": 0.216838628
+    "score": 0.9300641
   },
+  "intents": [
+    {
+      "intent": "FindForm",
+      "score": 0.9300641
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.0359598845
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0141798034
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.0112197418
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00507669244
+    },
+    {
+      "intent": "None",
+      "score": 0.00238501839
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00202810857
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00102957746
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.0008688423
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 3.557994E-05
+    }
+  ],
   "entities": [
     {
-      "entity": "lower deductible",
-      "type": "builtin.keyPhrase",
-      "startIndex": 35,
-      "endIndex": 50
+      "entity": "hrf-123456",
+      "type": "HRF-number",git 
+      "startIndex": 10,
+      "endIndex": 19
     },
     {
-      "entity": "new medical plan",
+      "entity": "new dental benefits",
       "type": "builtin.keyPhrase",
-      "startIndex": 11,
-      "endIndex": 26
+      "startIndex": 31,
+      "endIndex": 49
     },
     {
-      "entity": "year",
+      "entity": "medical plan",
       "type": "builtin.keyPhrase",
-      "startIndex": 65,
-      "endIndex": 68
+      "startIndex": 55,
+      "endIndex": 66
+    },
+    {
+      "entity": "hrf",
+      "type": "builtin.keyPhrase",
+      "startIndex": 10,
+      "endIndex": 12
+    },
+    {
+      "entity": "-123456",
+      "type": "builtin.number",
+      "startIndex": 13,
+      "endIndex": 19,
+      "resolution": {
+        "value": "-123456"
+      }
     }
   ]
 }
 ```
+
+Användaren som sökte efter ett formulär angav mer information än vad som var nödvändigt för att hitta det. Den ytterligare informationen returneras som **builtin.keyPhrase**. Klientprogrammet kan använda den ytterligare informationen till följdfrågor som ”Vill du tala med en representant på personalavdelningen om den nya tandvårdsförsäkringen?”, eller för att uppge en meny med fler alternativ som ”Mer information om den nya tandvårds- eller sjukvårdsförsäkringen”.
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
 Med keyPhrase-entitetsidentifiering identifierade den här appen en frågeavsikt i naturligt språk och returnerade extraherade data, inklusive nyckelämnet. 
@@ -156,6 +208,3 @@ Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du 
 > [!div class="nextstepaction"]
 > [Skapa app som returnerar sentiment tillsammans med avsiktsförutsägelse](luis-quickstart-intent-and-sentiment-analysis.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

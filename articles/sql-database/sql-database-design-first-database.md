@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 05/22/2018
+ms.date: 6/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 90e351992e08459040012a4d53f7e793ea35a8b5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c89b03baccc7e20ae945da154fbd78d5d0dac376
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645165"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311039"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Självstudier: Skapa din första Azure SQL-databas med SSMS
 
@@ -86,9 +86,7 @@ Följ de här stegen om du vill skapa en tom SQL-databas.
 8. Godkänn förhandsgranskningsvillkoren för att använda alternativet **Lägg till mer lagringsutrymme**. 
 
    > [!IMPORTANT]
-   > - Lagringsstorlekar som är större än mängden lagringsutrymme som ingår finns i förhandsversionen, och extra kostnader tillkommer. Mer information finns i [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
-   > - Mer än 1 TB lagringsutrymme på premiumnivån är tillgängligt i alla regioner utom följande: norra Storbritannien, västra centrala USA, södra Storbritannien 2, Kina öst, USDoDCentral, centrala Tyskland, USDoDEast, sydvästra USA Gov, södra centrala USA Gov, nordöstra Tyskland, Kina nord, östra USA Gov. Mer omfattande tillgänglighet planeras. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   >
+   > Mer än 1 TB lagringsutrymme på premiumnivån är för närvarande tillgängligt i alla regioner förutom följande: Storbritannien, norra, västra centrala USA, södra Storbritannien 2, Kina, östra, USDoDCentral, Tyskland, centrala, USDoDEast, sydvästra USA Gov, södra centrala USA Gov, Tyskland, nordöstra, Kina, norra, östra USA Gov. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
 
 9. När du har valt tjänstenivå, antalet DTU:er och mängden lagring klickar du på **Apply** (Använd).  
 
@@ -179,7 +177,7 @@ Skapa ett databasschema med fyra tabeller som visar ett studenthanteringssystem 
 Följande diagram visar hur tabellerna är relaterade till varandra. Vissa av tabellerna hänvisar till kolumner i andra tabeller. Till exempel hänvisar studenttabellen till kolumnen **PersonId** i tabellen **Person**. Studera diagrammet för att förstå hur tabellerna i de här självstudierna är relaterade till varandra. Mer information om hur du skapar effektiva databastabeller finns i [Skapa effektiva databastabeller](https://msdn.microsoft.com/library/cc505842.aspx). Information om hur du väljer datatyper finns i [Datatyper](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
 
 > [!NOTE]
-> Du kan också använda [tabelldesignern i SQL Server Management Studio](https://msdn.microsoft.com/library/hh272695.aspx) för att skapa och utforma tabeller. 
+> Du kan också använda [tabelldesignern i SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools) för att skapa och utforma tabeller. 
 
 ![Relationer mellan tabellerna](./media/sql-database-design-first-database/tutorial-database-tables.png)
 

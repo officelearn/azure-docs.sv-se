@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 41418cb908f2bf149a3d0087728652b44cd6b19e
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 2a6118bd23c6e8319ad4fa26a266948a4dad1b9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825558"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939176"
 ---
 Hittills har du kört programmets kod som om du var den enda utvecklaren som arbetade med appen. I det här avsnittet lär du dig hur Azure Dev Spaces förenklar utvecklingen i ett team:
 * Göra det möjligt för ett utvecklarteam att arbeta i samma miljö, genom att arbeta i en delad utvecklarmiljö eller i särskilda utvecklarmiljöer efter behov..
@@ -56,13 +56,15 @@ webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-c
 
 Utrymmeskolumnen visar att båda tjänsterna körs i ett utrymme som heter `default`. Om någon öppnar den offentliga URL:en och navigerar till webbprogrammet anropas kodsökvägen som du tidigare skrev som körs via båda tjänsterna. Anta nu att du vill fortsätta utveckla `mywebapi`. Hur kan du göra kodändringar och testa dem utan att störa andra utvecklare som använder utvecklarmiljön? Det gör du genom att konfigurera ett eget utrymme.
 
-### <a name="create-a-space"></a>Skapa ett utrymme
+### <a name="create-a-dev-space"></a>Skapa en utvecklarmiljö
 För att köra din egen version av `mywebapi` i ett annat utrymme än `default` kan du skapa ett eget utrymme med följande kommando:
 
 ``` 
-azds space create --name scott
+azds space select --name scott
 ```
+
+När du uppmanas väljer du `default` som **parent dev space** (överordnad utvecklarmiljö). Det innebär att det nya utrymmet, `default/scott`, härleds från utrymmet `default`. Vi kommer snart att se hur det hjälper oss med testning. 
 
 I exemplet ovan har jag använt mitt namn för det nya utrymmet så att det kan identifieras av mina kolleger som är i utrymmet jag arbetar i, men du kan kalla det vad du vill och vara flexibel kring vad det betyder, som ”sprint4” eller ”demo”.
 
-Kör kommandot `azds space list` för att se en lista över alla utrymmen i utvecklarmiljön. En asterisk (*) visas bredvid det markerade utrymmet. I ditt fall valdes utrymmet som heter ”scott” när det skapades. Du kan välja ett annat utrymme när som helst med kommandot `azds space select`.
+Kör kommandot `azds space list` för att se en lista över alla utrymmen i utvecklarmiljön. En asterisk (*) visas bredvid det markerade utrymmet. I ditt fall valdes utrymmet som heter ”default/scott” när det skapades. Du kan välja ett annat utrymme när som helst med kommandot `azds space select`.

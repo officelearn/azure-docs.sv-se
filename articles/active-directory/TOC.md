@@ -380,6 +380,7 @@
 ### [Integrera lokala identiteter med Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 ## Delegera åtkomst till resurser
+### [Visa medlemmar av en administratörsroll](directory-manage-roles-portal.md)
 ### [Administratörsroller](active-directory-assign-admin-roles-azure-portal.md)
 #### [Tilldela administratörsroll till en användare](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Jämföra behörigheter för medlemmar och gästanvändare](fundamentals/users-default-permissions.md)

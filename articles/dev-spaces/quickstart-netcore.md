@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 3802e67503fd546ef71b9c26daddc8ef63cf4bd2
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 21b94544105f55cbb8cb77c28d8c546ffcf7f8c0
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823234"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945864"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Snabbstart: Skapa ett Kubernetes dev-utrymme med Azure Dev Spaces (.NET Core och VS Code)
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig hur du:
 - Felsök koden i ditt dev-utrymme från VS Code
 
 > [!Note]
-> **Om du fastnar** du kan när som helst referera till avsnittet [Felsökning](troubleshooting.md) eller lägga upp en kommentar på den här sidan. Du kan också testa den mer detaljerade [självstudien](get-started-netcore.md).
+> **Om du fastnar** du kan när som helst referera till avsnittet [Felsökning](troubleshooting.md) eller lägga upp en kommentar på den här sidan. Du kan också försöka med den mer ingående [självstudien](get-started-netcore.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -40,7 +40,7 @@ I den här guiden får du lära dig hur du:
 
 ## <a name="set-up-azure-dev-spaces"></a>Konfigurera Azure Dev Spaces
 
-1. Installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.33 eller högre).
+1. Installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.38 eller högre).
 1. Ställ in Dev Spaces på ditt AKS-kluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. Ladda ned [Azure Dev Spaces-tillägget](https://aka.ms/get-azds-code) för VS Code.
 1. Installera tillägget: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
@@ -48,14 +48,17 @@ I den här guiden får du lära dig hur du:
 ## <a name="build-and-run-code-in-kubernetes"></a>Skapa och köra kod i Kubernetes
 
 1. Hämta exempelkoden från GitHub: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
-1. Ändra katalogen till webfrontend-mappen: `cd dev-spaces/samples/dotnetcore/getting-started/webfrontend`
+1. Ändra katalogen till mappen webfrontend: `cd dev-spaces/samples/dotnetcore/getting-started/webfrontend`
 1. Skapa Docker- och Helm-diagramtillgångar: `azds prep --public`
-1. Skapa och kör din kod i AKS. Kör det här kommandot från webbklientdelen **rotkodsmappen** i terminalfönstret: `azds up`
+1. Skapa och kör din kod i AKS. I terminalfönstret från **webfrontend-mappen** kör du det här kommandot: `azds up`
 1. Skanna konsolens utdata för information om den URL som skapades av `up`-kommandot. Den kommer att vara i formen: 
 
    `Service 'webfrontend' port 'http' is available at <url>` 
 
    Öppna webbadressen i ett webbläsarfönster. Du bör nu se hur webbappen läses in. 
+   
+   > [!Note]
+   > Första gången det körs kan det ta några minuter innan DNS är redo. Om den offentliga URL:en inte fungerar kan du använda den alternativa http://localhost:<portnumber>-URL:en som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om behållaren körs lokalt, men i själva verket körs den i AKS. För enkelhetens skull och för att underlätta interaktionen med tjänsten från den lokala datorn skapar Azure Dev Spaces en tillfällig SSH-tunnel för behållaren som körs i Azure. Du kan komma tillbaka och testa den offentliga URL:en senare när DNS-posten är färdig.
 
 ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 

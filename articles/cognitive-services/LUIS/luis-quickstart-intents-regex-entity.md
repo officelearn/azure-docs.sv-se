@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: v-geberr
-ms.openlocfilehash: c31e7d130d02ab6b0fad7577026e557692c2b60e
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 317d5b37b90f6c436e3cecf0486d587f54960598
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285958"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316550"
 ---
 # <a name="tutorial-use-regular-expression-entity"></a>Självstudie: använda entitet för reguljära uttryck
 I den här självstudien skapar du en app som visar hur det går till att extrahera konsekvent formaterade data från ett yttrande med hjälp av entiteten **Regular Expression** (Reguljärt uttryck).
@@ -28,10 +28,10 @@ I den här självstudien skapar du en app som visar hur det går till att extrah
 > * Träna och publicera app
 > * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
 
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
+För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen Human Resources (Personalfrågor) från självstudien om de fördefinierade entiteterna [custom domain](luis-tutorial-prebuilt-intents-entities.md) (anpassad domän) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen][LUIS] från [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json)-Github-lagringsplatsen.
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om de fördefinierade entiteterna [custom domain](luis-tutorial-prebuilt-intents-entities.md) (anpassad domän) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website) från [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json)-GitHub-lagringsplatsen.
 
 Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `regex`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
@@ -84,7 +84,7 @@ LUIS tokeniserar yttrandet när yttrandet läggs till i en avsikt. Tokeniseringe
     |Vad är URL för hrf-123456?|
     |Var är hrf-345678?|
     |När uppdaterades hrf-456098?|
-    |Uppdaterade Johan Svensson hrf-234639 förra veckan?|
+    |Uppdaterade John Smith hrf-234639 förra veckan?|
     |Hur många versioner av hrf-345123 finns det?|
     |Vem behöver godkänna formuläret hrf-123456?|
     |Hur många personer måste signera hrf-345678?|
@@ -244,6 +244,3 @@ Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du 
 > [!div class="nextstepaction"]
 > [Lär dig mer om entiteten KeyPhrase](luis-quickstart-intent-and-key-phrase.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

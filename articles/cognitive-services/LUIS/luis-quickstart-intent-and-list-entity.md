@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 33394dff1091f27c79c74d8648a90724ba8d6698
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 68c241833aab756bfc5e71c03da5d4175401910d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264835"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335830"
 ---
 # <a name="tutorial-create-app-using-a-list-entity"></a>Självstudie: skapa en app med hjälp av en listentitet
 I den här självstudien skapar du en app som visar hur det går till att hämta data som matchar en fördefinierad lista. 
@@ -22,154 +22,126 @@ I den här självstudien skapar du en app som visar hur det går till att hämta
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Förstå listentiteter 
-> * Skapa ny LUIS-app för dryckesdomänen med avsikten OrderDrinks
-> * Lägga till avsikten _None_ (Ingen) och lägga till exempelyttranden
-> * Lägga till listentitet för att extrahera dryckesobjekt från yttrande
+> * Skapa en ny LUIS-app för personalfrågedomänen med avsikten MoveEmployee
+> * Lägga till listentitet för att extrahera medarbetare från yttrande
 > * Träna och publicera app
 > * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
 
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
+För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
+
+## <a name="before-you-begin"></a>Innan du börjar
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om entiteter för reguljära uttryck [custom domain](luis-quickstart-intents-regex-entity.md) (anpassad domän) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json)-GitHub-lagringsplatsen.
+
+Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `list`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
 ## <a name="purpose-of-the-list-entity"></a>Syftet med listentiteten
-Den här appen tar emot dryckesbeställningar som `1 coke and 1 milk please` och returnerar data såsom typen av dryck. En **listentitet** för drycker letar efter exakta textmatchningar och returnerar matchningarna. 
+Den här appen förutsäger yttranden om att flytta en medarbetare från en byggnad till en annan. Appen använder en listentitet för att extrahera en medarbetare. Medarbetaren kan refereras till med hjälp av namn, telefonnummer, e-postadress eller amerikanskt socialförsäkringsnummer. 
 
-En listentitet är ett bra alternativ för den här typen av data när datavärdena är en känd datamängd. Namnen på dryckerna kan variera på grund av slang och förkortningar, men de ändras inte särskilt ofta. 
+En listentitet kan innehålla flera objekt med synonymer för varje objekt. I små till medelstora företag används en listentitet till att extrahera information om medarbetare. 
 
-## <a name="app-intents"></a>App-avsikter
-Avsikterna är de kategorier av saker som användaren vill ha. Den här appen har två avsikter: OrderDrink och None. Avsikten [None](luis-concept-intent.md#none-intent-is-fallback-for-app) (Ingen) har syftet att indikera allt som faller utanför appen.  
+Det kanoniska namnet för varje objekt är medarbetarens nummer. Exempel på synonymer för den här domänen: 
 
-## <a name="list-entity-is-an-exact-text-match"></a>Listentitet är en exakt textmatchning
-Syftet med entiteten är att hitta och kategorisera delar av texten i yttrandet. En [listentitet](luis-concept-entity-types.md) möjliggör en exakt matchning av ord eller fraser.  
+|Synonymsyfte|Synonymvärde|
+|--|--|
+|Namn|John W. Smith|
+|E-postadress|john.w.smith@mycompany.com|
+|Telefonanknytning|x12345|
+|Personligt mobilnummer|425-555-1212|
+|Amerikanskt socialförsäkringsnummer|123-45-6789|
 
-För den här dryckesappen extraherar LUIS dryckesbeställningen på ett sätt som gör att en standardbeställning kan skapas och genomföras. I LUIS kan yttranden ha variationer, förkortningar och slang. 
+En listentitet är ett bra alternativ för den här typen av data när:
 
-Enkla exempel på yttranden från användare innefattar:
+* Datavärdena är en känd uppsättning.
+* Uppsättningen inte överskrider de högsta [gränserna](luis-boundaries.md) för LUIS för den här entitetstypen.
+* Texten i yttrandet stämmer exakt med ett synonym. 
+
+LUIS extraherar medarbetare på ett sätt så att en standardorder för att flytta medarbetare kan skapas av klientprogrammet.
+<!--
+## Example utterances
+Simple example utterances for a `MoveEmployee` inent:
 
 ```
-2 glasses of milk
-3 bottles of water
-2 cokes
-```
-
-Förkortade versioner av eller slangvarianter på yttranden innefattar:
+move John W. Smith from B-1234 to H-4452
+mv john.w.smith@mycompany from office b-1234 to office h-4452
 
 ```
-5 milk
-3 h2o
-1 pop
-```
- 
-Listentiteten matchar `h2o` till vatten, och `pop` till läsk.  
+-->
 
-## <a name="what-luis-does"></a>What LUIS gör
-När yttrandets avsikt och entiteter identifierats, [extraherats](luis-concept-data-extraction.md#list-entity-data) och returnerats i JSON från [slutpunkten](https://aka.ms/luis-endpoint-apis) är LUIS klar. Det anropande programmet eller chattroboten använder JSON-svaret och uppfyller begäran på det sätt som appen eller chattroboten har instruerats att göra. 
+## <a name="add-moveemployee-intent"></a>Lägga till avsikten MoveEmployee
 
-## <a name="create-a-new-app"></a>Skapa en ny app
-1. Logga in på [LUIS-webbplatsen][LUIS]. Se till att logga in på den [region][LUIS-regions] där du behöver få LUIS-slutpunkterna publicerade.
+1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
 
-2. På [LUIS-webbplatsen][LUIS] väljer du **Create new app** (Skapa ny app).  
+    [ ![Skärmbild på LUIS-app med Build (Skapa) markerat i navigeringsfältet längst upp till höger](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png#lightbox)
 
-    ![Skapa ny app](./media/luis-quickstart-intent-and-list-entity/app-list.png)
+2. Välj **Create new intent** (Skapa ny avsikt). 
 
-3. I popup-dialogrutan anger du namnet `MyDrinklist`. 
+    [ ![Skärmbild på sidan Intents (Avsikter) med knappen ”Create new intent” (Skapa ny avsikt) markerad](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png#lightbox)
 
-    ![Ge appen namnet MyDrinkList](./media/luis-quickstart-intent-and-list-entity/create-app-dialog.png)
+3. Ange `MoveEmployee` i popup-dialogrutan och välj sedan **Done** (Klar). 
 
-4. När processen är klar visar appen sidan **Intents** (Avsikter) med avsikten **None** (Ingen). 
+    ![Skärmbild på dialogrutan Create new intent (Skapa ny avsikt)](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-ddl.png)
 
-    [![](media/luis-quickstart-intent-and-list-entity/intents-page-none-only.png "Skärmbild på sidan Intents (Avsikter)")](media/luis-quickstart-intent-and-list-entity/intents-page-none-only.png#lightbox)
+4. Lägg till exempel på yttranden i avsikten.
 
-## <a name="create-a-new-intent"></a>Skapa en ny avsikt
-
-1. På sidan **Intents** (Avsikter) väljer du **Create new intent** (Skapa ny avsikt). 
-
-    [![](media/luis-quickstart-intent-and-list-entity/create-new-intent.png "Skärmbild på sidan Intents (Avsikter) med knappen ”Create new intent” (Skapa ny avsikt) markerad")](media/luis-quickstart-intent-and-list-entity/create-new-intent.png#lightbox)
-
-2. Ange det nya avsiktsnamnet `OrderDrinks`. Den här avsikten ska väljas när en användare vill beställa en dryck.
-
-    Genom att skapa en avsikt skapar du den primära kategorin för information som du vill identifiera. Tack vare att kategorin får ett namn kan andra program som använder LUIS-frågeresultaten använda det kategorinamnet för att hitta ett lämpligt svar eller utföra lämpliga åtgärder. LUIS svarar inte på de här frågorna, utan identifierar bara vilken typ av information som det frågas om i naturligt språk. 
-
-    [![](media/luis-quickstart-intent-and-list-entity/intent-create-dialog-order-drinks.png "Skärmbild på skapande av ny OrderDrings-avsikt")](media/luis-quickstart-intent-and-list-entity/intent-create-dialog-order-drinks.png#lightbox)
-
-3. Lägg till flera yttranden till avsikten `OrderDrinks` som du förväntar dig att en användare begär, till exempel:
-
-    | Exempel på yttranden|
+    |Exempel på yttranden|
     |--|
-    |Skulle jag kunna få 2 cola och en flaska vatten till mitt rum?|
-    |2 perrier med en liten limeskruv|
-    |h20|
+    |flytta John W. Smith från B-1234 till H-4452|
+    |flytta john.w.smith@mycompany.com från kontoret b-1234 till kontoret h-4452|
+    |flytta x12345 till h-1234 imorgon|
+    |placera 425-555-1212 i HH-2345|
+    |flytta 123-45-6789 från A-4321 till J-23456|
+    |flytta Jill Jones från D-2345 till J-23456|
+    |flytta jill-jones@mycompany.com till M-12345|
+    |x23456 till M-12345|
+    |425-555-0000 till h-4452|
+    |234-56-7891 till hh-2345|
 
-    [![](media/luis-quickstart-intent-and-list-entity/intent-order-drinks-utterance.png "Skärmbild på yttrande som anges på sidan för OrderDrinks-avsikt")](media/luis-quickstart-intent-and-list-entity/intent-order-drinks-utterance.png#lightbox)
+    [ ![Skärmbild på sidan Intent (Avsikt) med nya yttranden markerade](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
 
-## <a name="add-utterances-to-none-intent"></a>Lägga till yttranden till avsikten None (Ingen)
+    Programmet har en fördefinierad nummerentitet som lagts till från den föregående självstudien. Därför är varje nummer taggat. Det här kan vara tillräckligt för klientprogrammet, men numret märks inte med den typen. Om en ny entitet med ett lämpligt namn skapas kan klientprogrammet bearbeta entiteten när den returneras från LUIS.
 
-LUIS-appen har för närvarande inga yttranden för avsikten **None** (Ingen). Den behöver yttranden som du inte vill att appen svarar på. Därför behöver den ha yttranden i avsikten **None** (Ingen). Lämna den inte tom. 
-
-1. Välj **Intents** (Avsikter) på den vänstra panelen. 
-
-    [![](media/luis-quickstart-intent-and-list-entity/left-panel-intents.png "Skärmbild på Intents-länk (Avsikter) som väljs på den vänstra panelen")](media/luis-quickstart-intent-and-list-entity/left-panel-intents.png#lightbox)
-
-2. Välj avsikten **None** (Ingen). Lägg till tre yttranden som din använda kan tänkas ange men som inte är relevanta för appen:
-
-    | Exempel på yttranden|
-    |--|
-    |Avbryt!|
-    |Hej då|
-    |Vad är det som händer?|
-
-## <a name="when-the-utterance-is-predicted-for-the-none-intent"></a>När yttrandet förväntas för avsikten None (Ingen)
-I det LUIS-anropande programmet (till exempel en chattrobot) kan roboten när LUIS returnerar avsikten **None** (Ingen) för ett yttrande fråga om användaren vill avsluta konversationen. Roboten kan även ge fler anvisningar för att fortsätta konversationen om användaren inte vill avsluta den. 
-
-Entiteter fungerar i avsikten **None** (Ingen). Om **None** (Ingen) är avsikten med högst poäng men en entitet som är väsentlig för chattroboten extraheras kan chattroboten följa upp med en fråga som fokuserar användarens avsikt. 
-
-## <a name="create-a-menu-entity-from-the-intent-page"></a>Skapa en menyentitet från sidan Intent (Avsikt)
-Nu när de två avsikterna har yttranden behöver LUIS förstå vad en dryck är för något. Gå tillbaka till avsikten `OrderDrinks` och etikettera (märk) dryckerna i ett yttrande genom att följa stegen:
-
-1. Gå tillbaka till avsikten `OrderDrinks` genom att välja **Intents** (Avsikter) på den vänstra panelen.
-
-2. Välj `OrderDrinks` från listan över avsikter.
-
-3. I yttrandet `Please send 2 cokes and a bottle of water to my room` väljer du ordet `water`. En listrutemeny visas med en textruta längst upp att för skapa en ny entitet. Ange entitetsnamnet `Drink` i textrutan och välj sedan **Create new entity** (Skapa ny entitet) i listrutan. 
-
-    [![](media/luis-quickstart-intent-and-list-entity/intent-label-h2o-in-utterance.png "Skärmbild på ny entitet som skapas genom att ett ord väljs i yttrandet")](media/luis-quickstart-intent-and-list-entity/intent-label-h2o-in-utterance.png#lightbox)
-
-4. I popup-fönstret väljer du entitetstypen **List** (Lista). Lägg till synonymen `h20`. Välj returtangenten efter varje synonym. Lägg inte till `perrier` i listan över synonymer. Det läggs till i nästa steg som ett exempel. Välj **Done** (Klar).
-
-    [![](media/luis-quickstart-intent-and-list-entity/create-list-ddl.png "Skärmbild på ny entitet som konfigureras")](media/luis-quickstart-intent-and-list-entity/create-list-ddl.png#lightbox)
-
-5. Nu när entiteten har skapats märker du de andra synonymerna för vatten genom att välja synonymen för vatten och sedan välja `Drink` i listrutan. Följ menyn till höger och välj sedan `Set as synonym` följt av `water`.
-
-    [![](media/luis-quickstart-intent-and-list-entity/intent-label-perriers.png "Skärmbild på yttrande som märks med befintlig entitet")](media/luis-quickstart-intent-and-list-entity/intent-label-perriers.png#lightbox)
-
-## <a name="modify-the-list-entity-from-the-entity-page"></a>Ändra listentiteten från sidan Entity (Entitet)
-Entiteten för dryckeslistan skapas men har inte många objekt eller synonymer. Om du känner till vissa av termerna, förkortningarna och slanguttrycken går det snabbare att fylla i listan på sidan **Entity** (Entitet). 
+## <a name="create-an-employee-list-entity"></a>Skapa en listentitet för medarbetare
+Avsikten **MoveEmployee** innehåller nu yttranden, och LUIS behöver förstå vad en medarbetare är. 
 
 1. Välj **Entities** (Entiteter) på den vänstra panelen.
 
-    [![](media/luis-quickstart-intent-and-list-entity/intent-select-entities.png "Skärmbild på Entities (Entiteter) som väljs på den vänstra panelen")](media/luis-quickstart-intent-and-list-entity/intent-select-entities.png#lightbox)
+    [ ![Skärmbild på sidan Intent (Avsikt) med knappen Entities (Entiteter) markerad i navigeringen till vänster](./media/luis-quickstart-intent-and-list-entity/hr-select-entity-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-select-entity-button.png#lightbox)
 
-2. Välj `Drink` från listan över entiteter.
+2. Välj **Create new entity** (Skapa ny entitet).
 
-    [![](media/luis-quickstart-intent-and-list-entity/entities-select-drink-entity.png "Skärmbild på entiteten Drink (Dryck) som väljs från listan över entiteter")](media/luis-quickstart-intent-and-list-entity/entities-select-drink-entity.png#lightbox)
+    [ ![Skärmbild på sidan Entities (Entiteter) med alternativet Create new entity (Skapa ny entitet) markerat](./media/luis-quickstart-intent-and-list-entity/hr-create-new-entity-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-create-new-entity-button.png#lightbox)
 
-3. I textrutan anger du `Soda pop` och sedan retur. Det här är en term som används för olika typer av kolsyrehaltiga drycker. Olika kulturer har sina egna namn och slanguttryck för den här typen av dryck.
+3. I dialogrutan för entiteter anger du `Employee` som entitetsnamn och **List** (Lista) som entitetstyp. Välj **Done** (Klar).  
 
-    [![](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-canonical-name.png "Skärmbild på kanoniskt namn som anges")](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-canonical-name.png#lightbox)
+    [![](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Skärmbild på dialogrutan för att skapa en ny entitet")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
 
-4. På samma rad som `Soda pop` anger du synonymer som: 
+4. På entitetssidan för medarbetare anger du `Employee-24612` som det nya värdet.
 
-    ```
-    coke
-    cokes
-    coca-cola
-    coca-colas
-    ```
+    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Skärmbild på värde som anges")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
-    Synonymerna kan innehålla fraser, skiljetecken, genitiv och plural. Eftersom listentiteten är en exakt matchning (förutom skiftläget), behöver synonymerna ha alla varianter. Du kan expandera listan allteftersom du lär dig fler varianter från frågeloggarna eller granskar slutpunktsträffar. 
+5. Lägg till följande värden för synonymer:
 
-    Den här artikeln har bara några synonymer i syfte att hålla exemplet kort. En LUIS-app på produktionsnivå skulle innehålla många synonymer och granskas och expanderas regelbundet. 
+    |Synonymsyfte|Synonymvärde|
+    |--|--|
+    |Namn|John W. Smith|
+    |E-postadress|john.w.smith@mycompany.com|
+    |Telefonanknytning|x12345|
+    |Personligt mobilnummer|425-555-1212|
+    |Amerikanskt socialförsäkringsnummer|123-45-6789|
 
-    [![](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-synonyms.png "Skärmbild på synonymer som läggs till")](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-synonyms.png#lightbox)
+    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Skärmbild på synonymer som läggs till")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
+
+6. Ange `Employee-45612` som nytt värde.
+
+7. Lägg till följande värden för synonymer:
+
+    |Synonymsyfte|Synonymvärde|
+    |--|--|
+    |Namn|Jill Jones|
+    |E-postadress|jill-jones@mycompany.com|
+    |Telefonanknytning|x23456|
+    |Personligt mobilnummer|425-555-0000|
+    |Amerikanskt socialförsäkringsnummer|234-56-7891|
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
 LUIS känner inte till ändringarna av avsikterna och entiteterna (modellen) förrän den tränas. 
@@ -200,59 +172,127 @@ För att få en LUIS-förutsägelse i en chattrobot eller i ett annat program m�
 
     [![](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png "Skärmbild på slutpunkts-URL på sidan Publish (Publicera)")](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png#lightbox)
 
-2. Gå till slutet av URL:en i adressen och ange `2 cokes and 3 waters`. Den sista frågesträngsparametern är `q`, yttrande**f**rågan. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `OrderDrinks` med de två dryckestyperna `cokes` och `waters`.
+2. Gå till slutet av URL:en i adressen och ange `shift 123-45-6789 from Z-1242 to T-54672`. Den sista frågesträngsparametern är `q`, yttrande**f**rågan. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `MoveEmployee` med `Employee` extraherad.
 
-```
+```JSON
 {
-  "query": "2 cokes and 3 waters",
+  "query": "shift 123-45-6789 from Z-1242 to T-54672",
   "topScoringIntent": {
-    "intent": "OrderDrinks",
-    "score": 0.999998569
+    "intent": "MoveEmployee",
+    "score": 0.9882801
   },
   "intents": [
     {
-      "intent": "OrderDrinks",
-      "score": 0.999998569
+      "intent": "MoveEmployee",
+      "score": 0.9882801
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.016044287
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.007611245
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.007063288
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00684710965
     },
     {
       "intent": "None",
-      "score": 0.23884207
+      "score": 0.00304174074
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.002981
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.00212222221
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00191026414
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.0007461446
     }
   ],
   "entities": [
     {
-      "entity": "cokes",
-      "type": "Drink",
-      "startIndex": 2,
-      "endIndex": 6,
+      "entity": "123 - 45 - 6789",
+      "type": "Employee",
+      "startIndex": 6,
+      "endIndex": 16,
       "resolution": {
         "values": [
-          "Soda pop"
+          "Employee-24612"
         ]
       }
     },
     {
-      "entity": "waters",
-      "type": "Drink",
-      "startIndex": 14,
-      "endIndex": 19,
+      "entity": "123",
+      "type": "builtin.number",
+      "startIndex": 6,
+      "endIndex": 8,
       "resolution": {
-        "values": [
-          "h20"
-        ]
+        "value": "123"
+      }
+    },
+    {
+      "entity": "45",
+      "type": "builtin.number",
+      "startIndex": 10,
+      "endIndex": 11,
+      "resolution": {
+        "value": "45"
+      }
+    },
+    {
+      "entity": "6789",
+      "type": "builtin.number",
+      "startIndex": 13,
+      "endIndex": 16,
+      "resolution": {
+        "value": "6789"
+      }
+    },
+    {
+      "entity": "-1242",
+      "type": "builtin.number",
+      "startIndex": 24,
+      "endIndex": 28,
+      "resolution": {
+        "value": "-1242"
+      }
+    },
+    {
+      "entity": "-54672",
+      "type": "builtin.number",
+      "startIndex": 34,
+      "endIndex": 39,
+      "resolution": {
+        "value": "-54672"
       }
     }
   ]
 }
 ```
 
+Medarbetaren hittades och returnerades som typen `Employee` med lösningsvärdet `Employee-24612`.
+
 ## <a name="where-is-the-natural-language-processing-in-the-list-entity"></a>Var är bearbetningen av naturligt språk i listentiteten? 
-Eftersom listentiteten är en exakt matchning förlitar den sig inte på bearbetning av naturligt språk (eller maskininlärning). LUIS använder bearbetning av naturligt språk (eller maskininlärning) för att välja rätt avsikt med högst poäng. Dessutom kan ett yttrande vara en blandning av mer än en entitet eller mer än en typ av entitet. Varje yttrande bearbetas för alla entiteter i appen, inklusive entiteter för bearbetning av naturligt språk (eller maskininlärning), till exempel entiteten **Simple** (Enkel).
+Eftersom listentiteten är en exakt matchning förlitar den sig inte på bearbetning av naturligt språk (eller maskininlärning). LUIS använder bearbetning av naturligt språk (eller maskininlärning) för att välja rätt avsikt med högst poäng. Dessutom kan ett yttrande vara en blandning av mer än en entitet eller mer än en typ av entitet. Varje yttrande bearbetas för alla entiteter i appen, inklusive entiteter för bearbetning av naturligt språk (eller maskininlärning).
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
-Med hjälp av endast två avsikter och en listentitet har den här appen identifierat en frågeavsikt i naturligt språk och returnerat extraherade data. 
+Med hjälp av en listentitet har appen extraherat rätt medarbetare. 
 
-Din chattrobot har nu tillräckligt med information för att bestämma den primära åtgärden, `OrderDrinks`, och vilka typer av drycker som beställdes från listentiteten Drink (Dryck). 
+Din chattrobot har nu tillräckligt med information för att bestämma den primära åtgärden, `MoveEmployee`, och vilken medarbetare som ska flyttas. 
 
 ## <a name="where-is-this-luis-data-used"></a>Var används dessa LUIS-data? 
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
@@ -263,10 +303,5 @@ Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du lägger till en entitet för reguljärt uttryck](luis-quickstart-intents-regex-entity.md)
+> [Lär dig hur du lägger till en hierarkisk entitet](luis-quickstart-intent-and-hier-entity.md)
 
-Lägg till **numret** [fördefinierad entitet](luis-how-to-add-entities.md#add-prebuilt-entity) för att extrahera numret. 
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

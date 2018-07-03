@@ -5,6 +5,8 @@
     - name: Vad är Speech Service?
       href: overview.md
       expanded: true
+    - name: Tal-scenarier
+      href: speech-scenarios.md
 - name: Snabbstarter
   items:
     - name: Prova Speech Service kostnadsfritt
@@ -25,16 +27,18 @@
       href: how-to-text-to-speech.md
     - name: Översätt tal
       href: how-to-translate-speech.md
-    - name: Hämta Speech Devices SDK
-      href: get-speech-devices-sdk.md
     - name: Batch-transkription
       href: batch-transcription.md
+    - name: Hämta Speech Devices SDK
+      href: get-speech-devices-sdk.md
 - name: Anpassning
   items:
     - name: Anpassa akustiska modeller
       href: how-to-customize-acoustic-models.md
     - name: Anpassa språkmodeller
       href: how-to-customize-language-model.md
+    - name: Anpassa uttal
+      href: how-to-customize-pronunciation.md
     - name: Anpassa rösttyper (Bot Brand Voice)
       href: how-to-customize-voice-font.md
     - name: Förbered avskrifter

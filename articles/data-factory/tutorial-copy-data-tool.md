@@ -9,27 +9,24 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/09/2018
+ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: d2f1d089c6a08a1dc90f82fd9d1c3cb2b6f6dc0a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 504f025edef79b310249c29665198438a326881a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30171816"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052009"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Kopiera data från Azure Blob Storage till en SQL-databas med verktyget för att kopiera data
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Version 1 – Allmänt tillgänglig](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Version 2 – förhandsversion](tutorial-copy-data-tool.md)
+> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Aktuell version](tutorial-copy-data-tool.md)
 
 I den här självstudien skapar du en datafabrik i Azure Portal. Sedan använder du verktyget Kopiera data för att skapa en pipeline som kopierar data från Azure Blob Storage till en SQL-databas. 
 
 > [!NOTE]
 > Om du inte har använt Azure Data Factory tidigare kan du läsa [Introduktion till Azure Data Factory](introduction.md).
->
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory, som är allmänt tillgänglig, kan du läsa [Kom igång med Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 
 I den här självstudien får du göra följande:
 
@@ -106,7 +103,7 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
          
     Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
 
-5. Under **version** väljer du **V2 (förhandsversion)** för versionen.
+5. För **version** väljer du **V2**.
 6. Under **plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (t.ex. Azure Storage och SQL Database) och beräkningarna (t.ex. Azure HDInsight) som används i datafabriken kan finnas på andra platser och i andra regioner.
 7. Välj **fäst till instrumentpanelen**. 
 8. Välj **Skapa**.
@@ -126,84 +123,80 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
 2. På sidan **Egenskaper** under **Aktivitetsnamn**, anger du **CopyFromBlobToSqlPipeline**. Välj sedan **Nästa**. Med användargränssnittet för Data Factory skapas en pipeline med angivet aktivitetsnamn. 
 
     ![Sidan Egenskaper](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
-3. Välj **Azure Blob Storage** på sidan om **källdatalager** och klicka på **Nästa**. Källdatan finns i Blob Storage. 
+3. Gör följande på sidan **Källdatalager**:
 
-    ![Sidan Källdatalager](./media/tutorial-copy-data-tool/source-data-store-page.png)
-4. Gör följande på sidan **Ange Azure Blob Storage-konto**:
+    a. Klicka på **+ Skapa ny anslutning** för att lägga till en anslutning
 
-    a. Under **Anslutningsnamn** anger du **AzureStorageLinkedService**.
+    ![Ny källa för den länkade tjänsten](./media/tutorial-copy-data-tool/new-source-linked-service.png)
 
-    b. Välj ditt lagringskontonamn i listrutan **Lagringskontonamn**.
+    b. Välj **Azure Blob Storage** från galleriet och välj sedan **Nästa**.
 
-    c. Välj **Nästa**. 
+    ![Välj blobkälla](./media/tutorial-copy-data-tool/select-blob-source.png)
 
-    ![Ange lagringskontot](./media/tutorial-copy-data-tool/specify-blob-storage-account.png)
+    c. På sidan **New Linked Service** (Ny länkad tjänst), väljer du ditt lagringskonto i listan **Lagringskontonamn** och sedan **Avsluta**.
 
-    En länkad tjänst länkar ett datalager eller en beräkning till datafabriken. I det här fallet skapar du en länkad lagringstjänst som länkar ditt lagringskonto till datalagret. Den länkade tjänsten har anslutningsinformationen som Data Factory använder för att ansluta till Blob Storage vid körning. Datauppsättningen anger behållaren, mappen och filen (valfritt) som innehåller källdata. 
+    ![Konfigurera Azure Storage](./media/tutorial-copy-data-tool/configure-azure-storage.png)
 
-5. Gör följande på sidan **Välj indatafil eller mapp**:
+    d. Välj den nyligen skapade länkade tjänsten som källa och klicka sedan på **Nästa**.
+
+    ![Välj källa för den länkade tjänsten](./media/tutorial-copy-data-tool/select-source-linked-service.png)
+
+4. Gör följande på sidan för att **välja indatafil eller -mapp**:
     
-    a. Bläddra till mappen **adfv2tutorial/input**.
+    a. Klicka på **Bläddra** för att gå till mappen **adfv2tutorial/input**, välj filen **inputEmp.txt** och klicka på **Välj**.
 
-    b. Välj filen **inputEmp.txt**.
+    ![Välj indatafil eller mapp](./media/tutorial-copy-data-tool/specify-source-path.png)
 
-    c. Klicka på **Välj**. Du kan också dubbelklicka på **inputEmp.txt**.
+    b. Klicka på **Nästa** för att gå vidare till nästa steg.
 
-    d. Välj **Nästa**. 
-
-    ![Välj indatafil eller mapp](./media/tutorial-copy-data-tool/choose-input-file-folder.png)
-
-6. Sidan med **filformatinställningar** visas. Observera att verktyget automatiskt identifierar kolumn- och radavgränsare. Välj **Nästa**. Du kan också förhandsgranska data och visa schemat för indata på den här sidan. 
+5. Sidan med **filformatinställningar** visas. Observera att verktyget automatiskt identifierar kolumn- och radavgränsare. Välj **Nästa**. Du kan också förhandsgranska data och visa schemat för indata på den här sidan. 
 
     ![Filformatinställningar](./media/tutorial-copy-data-tool/file-format-settings-page.png)
-7. På sidan **Måldatalager** väljer du **Azure SQL Database** och sedan **Nästa**.
+6. Gör följande på sidan **Måldatalager**:
 
-    ![Måldatalager](./media/tutorial-copy-data-tool/destination-data-storage-page.png)
-8. Gör följande på sidan **Specify the Azure SQL database** (Ange Azure SQL-databas): 
+    a. Klicka på **+ Skapa ny anslutning** för att lägga till en anslutning
 
-    a. Under **Anslutningsnamn** anger du **AzureSqlDatabaseLinkedService**.
+    ![Ny mottagare för länkade tjänster](./media/tutorial-copy-data-tool/new-sink-linked-service.png)
 
-    b. Under **Servernamn** väljer du din SQL Server-instans.
+    b. Välj **Azure Blob Storage** från galleriet och välj sedan **Nästa**.
 
-    c. Under **Databasnamn** väljer du din SQL-databas.
+    ![Välj Azure SQL DB](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
 
-    d. Under **Användarnamn** anger du namnet på användaren.
+    c. På sidan **New Linked Service** (Ny länkad tjänst) väljer du ditt servernamn och databasnamn från listrutan och anger användarnamn och lösenord. Välj sedan **Avsluta**.    
 
-    e. Under **Lösenord** anger du användarens lösenord.
+    ![Konfigurera Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
-    f. Välj **Nästa**. 
+    d. Välj den nyligen skapade länkade tjänsten som mottagare och klicka sedan på **Nästa**.
 
-    ![Ange SQL-databasen](./media/tutorial-copy-data-tool/specify-azure-sql-database.png)
+    ![Välj mottagare för länkade tjänster](./media/tutorial-copy-data-tool/select-sink-linked-service.png)
 
-    En datauppsättning måste associeras med en länkad tjänst. Den länkade tjänsten har anslutningssträngen som Data Factory använder för att ansluta till SQL-databasen vid körning. Datauppsättningen anger den behållare, mapp och fil (valfritt) som data kopieras till.
+7. På sidan **Tabellmappning** väljer du tabellen **[dbo].[emp]** och sedan **Nästa**. 
 
-9. På sidan **Tabellmappning** väljer du tabellen **[dbo].[emp]** och sedan **Nästa**. 
+    ![Tabellmappning](./media/tutorial-copy-data-tool/table-mapping.png)
+8. Observera att den första och andra kolumnen är mappade till kolumnerna **FirstName** och **LastName** för tabellen **emp** på sidan **Schemamappning**. Välj **Nästa**.
 
-    ![Tabellmappning](./media/tutorial-copy-data-tool/table-mapping-page.png)
-10. Observera att den första och andra kolumnen är mappade till kolumnerna **FirstName** och **LastName** för tabellen **emp** på sidan **Schemamappning**.
-
-    ![Sidan för schemamappning](./media/tutorial-copy-data-tool/schema-mapping-page.png)
-11. Sidan **Settings** (Inställningar) visas. Välj **Nästa**. 
-
-    ![Sidan Inställningar](./media/tutorial-copy-data-tool/settings-page.png)
-12. Granska inställningarna på sidan **Sammanfattning** och klicka på **Nästa**.
+    ![Sidan för schemamappning](./media/tutorial-copy-data-tool/schema-mapping.png)
+9. Sidan **Settings** (Inställningar) visas. Välj **Nästa**. 
+10. Granska inställningarna på sidan **Sammanfattning** och klicka på **Nästa**.
 
     ![Sammanfattningssida](./media/tutorial-copy-data-tool/summary-page.png)
-13. Välj **Övervaka** på sidan **Distribution** för att övervaka pipelinen (aktiviteten).
+11. Välj **Övervaka** på sidan **Distribution** för att övervaka pipelinen (aktiviteten).
 
     ![Distributionssida](./media/tutorial-copy-data-tool/deployment-page.png)
-14. Observera att fliken **Övervaka** till vänster väljs automatiskt. I kolumnen **Åtgärder** finns länkar som visar information om aktivitetskörningen och för att köra pipelinen igen. Om du vill uppdatera listan väljer du **Uppdatera**. 
+12. Observera att fliken **Övervaka** till vänster väljs automatiskt. I kolumnen **Åtgärder** finns länkar som visar information om aktivitetskörningen och för att köra pipelinen igen. Om du vill uppdatera listan väljer du **Uppdatera**. 
 
-    ![Övervaka pipelinekörningar](./media/tutorial-copy-data-tool/monitor-pipeline-runs.png)
-15. Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Det finns bara en aktivitet (kopieringsaktiviteten) i pipelinen. Därför visas bara en post. Om du vill se mer information om kopieringsåtgärden väljer du länken **Information** (glasögonikonen) i kolumnen **Åtgärder**. Om du vill växla tillbaka till vyn **Pipeline Runs** (Pipelinekörningar) klickar du på länken **Pipeliner** högst upp. Välj **Uppdatera** för att uppdatera vyn. 
+    ![Övervaka pipelinekörningar](./media/tutorial-copy-data-tool/pipeline-monitoring.png)
+13. Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Om du vill se mer information om kopieringsåtgärden väljer du länken **Information** (glasögonikonen) i kolumnen **Åtgärder**. Om du vill växla tillbaka till vyn **Pipeline Runs** (Pipelinekörningar) klickar du på länken **Pipeliner** högst upp. Välj **Uppdatera** för att uppdatera vyn. 
 
-    ![Övervaka aktivitetskörningar](./media/tutorial-copy-data-tool/monitor-activity-runs.png)
-16. Klicka på fliken **Redigera** till vänster för att växla till redigeringsläget. Du kan uppdatera de länkade tjänster, datauppsättningar och pipeliner som skapats med verktyget med hjälp av redigeraren. Välj **Kod** för att visa JSON-koden för enheten som är öppen i redigeraren. Mer information om hur du redigerar dessa entiteter i användargränssnittet för Data Factory finns i [Azure Portal-versionen av den här självstudiekursen](tutorial-copy-data-portal.md).
+    ![Övervaka aktivitetskörningar](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
-    ![Flik för redigerare](./media/tutorial-copy-data-tool/edit-tab.png)
-17. Kontrollera att datan infogas i tabellen **emp** i din SQL-databas.
+    ![Kopiera aktivitetsinformation](./media/tutorial-copy-data-tool/copy-execution-details.png)
+
+14. Kontrollera att datan infogas i tabellen **emp** i din SQL-databas.
 
     ![Kontrollera SQL-utdata](./media/tutorial-copy-data-tool/verify-sql-output.png)
+
+15. Klicka på fliken **Författare** till vänster för att växla till redigeringsläget. Du kan uppdatera de länkade tjänster, datauppsättningar och pipeliner som skapats med verktyget med hjälp av redigeraren. Mer information om hur du redigerar dessa entiteter i användargränssnittet för Data Factory finns i [Azure Portal-versionen av den här självstudiekursen](tutorial-copy-data-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Pipelinen i det här exemplet kopierar data från Blob Storage till en SQL-databas. Du har lärt dig att: 

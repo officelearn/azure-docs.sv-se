@@ -1,7 +1,7 @@
 ---
-title: Skapa en app med flera behållare (förhandsversion) med Azure Web App for Containers
+title: Skapa en app med flera behållare (förhandsversion) i Web App for Containers
 description: Lär dig hur du använder flera behållare på Azure med Docker Compose- och Kubernetes-konfigurationsfiler med en WordPress- och MySQL-app.
-keywords: azure app service, web app, linux, docker, compose, multi-container, container, kubernetes
+keywords: azure app service, web app, linux, docker, compose, multicontainer, container, kubernetes
 services: app-service
 documentationcenter: ''
 author: msangapu
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 05/02/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 61158af0bc978665c3d914c8de3376b8f5d5c69f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 43a3fa271a1958c99bd3dd597c73de2d77bb1bfd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651517"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751922"
 ---
-# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Självstudie: Skapa en app med flera behållare (förhandsversion) med Web App for Containers
+# <a name="tutorial-create-a-multicontainer-preview-app-in-web-app-for-containers"></a>Självstudie: Skapa en app med flera behållare (förhandsversion) i Web App for Containers
 
 Med [Web App for Containers](app-service-linux-intro.md) får du ett flexibelt sätt att använda Docker-avbildningar. I den här självstudien lär du dig hur du skapar en app med flera behållare med hjälp av WordPress och MySQL.
 
@@ -309,7 +309,7 @@ services:
      restart: always
 ```
 
-### <a name="update-app-with-new-configuration"></a>Uppdatera appen med ny konfiguration
+### <a name="update-app-with-new-configuration"></a>Uppdatera appen med en ny konfiguration
 
 I den lokala kommandotolken konfigurerar du om [webbappen](app-service-linux-intro.md) med flera behållare med kommandot [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Glöm inte att ersätta _\<app_name>_ med namnet på webbappen som du skapade tidigare.
 
@@ -511,7 +511,7 @@ WordPress ansluter till Redis-servern. Anslutningens **status** visas på samma 
 
 I det här avsnittet lär du dig att använda en Kubernetes-konfiguration för att distribuera flera behållare. Följ tidigare steg för att skapa en [resursgrupp](#create-a-resource-group) och en [App Service-plan](#create-an-azure-app-service-plan). Eftersom de flesta av stegen är ungefär som Compose-avsnittet har konfigurationsfilen sammanställts åt dig.
 
-### <a name="supported-kubernetes-options-for-multi-container"></a>Kubernetes-alternativ som stöds för flera behållare
+### <a name="supported-kubernetes-options-for-multicontainer"></a>Kubernetes-alternativ som stöds för flera behållare
 
 * args
 * command
@@ -649,7 +649,7 @@ När appinställningen har skapats visar Azure CLI information som ser ut ungef�
 ]
 ```
 
-### <a name="create-a-multi-container-app-kubernetes"></a>Skapa en app för flera behållare (Kubernetes)
+### <a name="create-a-multicontainer-app-kubernetes"></a>Skapa en app för flera behållare (Kubernetes)
 
 I den lokala kommandotolken skapar du en [webbapp](app-service-linux-intro.md) med flera behållare i resursgruppen `myResourceGroup` och App Service-planen `myAppServicePlan` med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Glöm inte att ersätta _\<app_name>_ med ett unikt appnamn.
 

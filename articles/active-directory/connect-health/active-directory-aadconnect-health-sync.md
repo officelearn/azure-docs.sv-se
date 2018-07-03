@@ -14,17 +14,17 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff8be88e23d57545a9926df366289c6ba264886
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a3801573f3ffe3a0941f3941cf33e516f4f1b614
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30229956"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961646"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Övervaka Azure AD Connect-synkronisering med Azure AD Connect Health
 Följande dokumentation är specifik för övervakning av Azure AD Connect (Sync) med Azure AD Connect Health.  Information om övervakning av AD FS med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD FS](active-directory-aadconnect-health-adfs.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md).
 
-![Azure AD Connect Health för synkronisering](./media/active-directory-aadconnect-health-sync/sync-blade.png)
+![Azure AD Connect Health för synkronisering](./media/active-directory-aadconnect-health-sync/syncsnapshot.png)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-sync"></a>Aviseringar för Azure AD Connect Health för synkronisering
 Avsnittet om Azure AD Connect Health-aviseringar för synkronisering innehåller en lista över aktiva aviseringar. Varje avisering innehåller relevant information, lösningssteg och länkar till relaterad dokumentation. Om du väljer en aktiv eller åtgärdad avisering visas ett nytt blad med ytterligare information, samt de steg som du kan utföra för att åtgärda aviseringen liksom länkar till ytterligare dokumentation. Du kan också visa historiska data för tidigare åtgärdade aviseringar.
@@ -98,15 +98,18 @@ Att gå djupare in i varje kategori kommer att ge listan över objekt som har fe
 ### <a name="error-details"></a>Information om fel
 Följande data är tillgängliga i den detaljerade vyn för varje fel
 
+* Markerade attribut i konflikt
 * Identifierare för inblandade *AD-objekt*
 * Identifierare för inblandade *Azure AD-objekt* (som tillämpligt)
 * Felbeskrivning och hur du åtgärdar
-* Relaterade artiklar
 
-![Rapportdetaljer för synkroniseringsfel](./media/active-directory-aadconnect-health-sync/errorreport04.png)
+![Rapportdetaljer för synkroniseringsfel](./media/active-directory-aadconnect-health-sync/duplicateAttributeSyncError.png)
 
 ### <a name="download-the-error-report-as-csv"></a>Hämta felrapporten som CSV
 Du kan hämta en CSV-fil med all information om felen genom att klicka på Exportera.
+
+### <a name="diagnose-and-remediate-sync-errors"></a>Diagnostisera och åtgärda synkroniseringsfel 
+Synkroniseringsfel med duplicerade attribut som omfattar källfästpunktsuppdatering för användare kan åtgärdas direkt från portalen. Läs mer om att [diagnostisera och åtgärda synkroniseringsfel med duplicerade attribut](active-directory-aadconnect-health-diagnose-sync-errors.md)
 
 ## <a name="related-links"></a>Relaterade länkar
 * [Felsöka fel under synkronisering](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)

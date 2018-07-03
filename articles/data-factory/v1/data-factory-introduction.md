@@ -14,20 +14,20 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6747dc6ef482fecba7e9fb4fae5748de377051eb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1b0838bb3d4fa1f47d906294ce42c318d1f4a0cd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179607"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049805"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](data-factory-introduction.md)
-> * [Version 2 – förhandsversion](../introduction.md)
+> * [Version 1](data-factory-introduction.md)
+> * [Version 2 (aktuell version)](../introduction.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av tjänsten Data Factory, som finns i förhandsversion, läser du [introduktionen till Data Factory V2](../introduction.md).
+> Den här artikeln gäller för version 1 av Azure Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [introduktionen till Data Factory V2](../introduction.md).
 
 
 ## <a name="what-is-azure-data-factory"></a>Vad är Azure Data Factory?

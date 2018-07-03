@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: bd42268c36f44dc20b88d27d19cbf378e848b82f
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 8b14f06f364bde1d4c5588e60a54aefe07c821d2
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823154"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945929"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Komma igång med Azure Dev Spaces med .NET Core
 
@@ -32,7 +32,7 @@ Nu är du redo att skapa en Kubernetes-baserad utvecklarmiljö i Azure.
 Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklarmiljöns konfiguration lagras i molnet och kan delas med andra användare. Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!IMPORTANT]
-> Om du redan har installerat Azure CLI kontrollerar du att du använder version 2.0.33 eller högre.
+> Om du redan har installerat Azure CLI kontrollerar du att du använder version 2.0.38 eller senare.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -101,7 +101,7 @@ Det finns dock en ännu *snabbare kodutvecklingsmetod*, som vi ska titta närmar
 ### <a name="debug-the-container-in-kubernetes"></a>Felsöka behållaren i Kubernetes
 Tryck på **F5** för att felsöka koden i Kubernetes.
 
-Precis som med `up`-kommandot synkroniseras koden med utvecklarmiljön, och en behållare skapas och distribueras till Kubernetes. Men den här gången är felsökaren kopplad till fjärrbehållaren.
+Precis som med `up`-kommandot, synkroniseras koden med utvecklarmiljön och en behållare skapas och distribueras till Kubernetes. Men den här gången är felsökaren kopplad till fjärrbehållaren.
 
 [!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
 
@@ -174,7 +174,7 @@ Nu ska vi skriva kod i `webfrontend` som skickar en begäran till `mywebapi`.
     }
     ```
 
-I föregående kodexempel vidarebefordrar rubriken `azds-route-as` från den inkommande till den utgående begäran. Lite längre fram ser du hur detta kan underlätta utvecklingsarbetet i ett team.
+I föregående kodexempel vidarebefordras rubriken `azds-route-as` från den inkommande till den utgående begäran. Lite längre fram ser du hur detta kan underlätta utvecklingsarbetet i ett team.
 
 ### <a name="debug-across-multiple-services"></a>Felsöka över flera tjänster
 1. I detta läge bör `mywebapi` fortfarande köras med felsökaren. Om inte trycker du på F5 i `mywebapi`-projektet.
@@ -193,13 +193,14 @@ Bra gjort! Nu har du ett program med flera behållare där varje behållare kan 
 
 Nu ska vi se hur det fungerar i praktiken. Gå till VS Code-fönstret `mywebapi` och gör en kodändring i `string Get(int id)`-metoden, till exempel:
 
-    ```csharp
-    [HttpGet("{id}")]
-    public string Get(int id)
-    {
-        return "mywebapi now says something new";
-    }
-    ```
+```csharp
+[HttpGet("{id}")]
+public string Get(int id)
+{
+    return "mywebapi now says something new";
+}
+```
+
 
 [!INCLUDE[](includes/team-development-2.md)]
 

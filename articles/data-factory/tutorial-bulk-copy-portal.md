@@ -11,21 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 440b07b494b34db7ff3fcdf5d5ac830b165c339d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c42f7257b4b4077cc719c57e3136505f766e654c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30173291"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046841"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 I den här självstudien visas hur du **kopierar ett antal tabeller från Azure SQL Database till Azure SQL Data Warehouse**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
 
 > [!NOTE]
 > - Om du inte har använt Azure Data Factory tidigare kan du läsa [Introduktion till Azure Data Factory](introduction.md).
-> - Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen för Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Sett på en hög nivå ingår följande steg i självstudierna:
 
@@ -93,7 +92,7 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
       - Välj **Skapa ny** och ange namnet på en resursgrupp.   
          
       Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
-4. Välj **V2 (förhandsgranskning)** för **versionen**.
+4. Välj **V2** för **versionen**.
 5. Välj **plats** för datafabriken. För närvarande kan du endast skapa datafabriker i Data Factory V2 i regionerna USA, östra; USA; östra 2 och Europa, västra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 6. Välj **fäst till instrumentpanelen**.     
 7. Klicka på **Skapa**.
@@ -163,9 +162,9 @@ I den här självstudien använder du Azure Blob Storage som ett mellanlagringsu
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 I den här självstudien skapar du datauppsättningar för källa och mottagare som anger var data lagras. 
 
-Indatauppsättningen AzureSqlDatabaseDataset refererar till AzureSqlDatabaseLinkedService. Den länkade tjänsten anger anslutningssträngen för att ansluta till databasen. Datauppsättningen anger namnet på databasen och tabellen som innehåller källdata. 
+Datauppsättningen för indata **AzureSqlDatabaseDataset** refererar till **AzureSqlDatabaseLinkedService**. Den länkade tjänsten anger anslutningssträngen för att ansluta till databasen. Datauppsättningen anger namnet på databasen och tabellen som innehåller källdata. 
 
-Datauppsättningen för utdata AzureSqlDWDataset refererar till AzureSqlDWLinkedService. Den länkade tjänsten anger anslutningssträngen för att ansluta till informationslagret. Datauppsättningen anger databasen och tabellen som data kopieras till. 
+Datauppsättningen för utdata **AzureSqlDWDataset** refererar till **AzureSqlDWLinkedService**. Den länkade tjänsten anger anslutningssträngen för att ansluta till informationslagret. Datauppsättningen anger databasen och tabellen som data kopieras till. 
 
 I den här självstudien är käll- och måltabellerna i SQL inte hårdkodade i definitionen för datauppsättningen. Istället skickar ForEach-aktiviteten tabellens namn under körningsfasen till kopieringsaktiviteten. 
 
@@ -179,7 +178,6 @@ I den här självstudien är käll- och måltabellerna i SQL inte hårdkodade i 
     ![Välja Azure SQL Database](./media/tutorial-bulk-copy-portal/select-azure-sql-database-dataset.png)
 3. I egenskapsfönstret längst ned skriver du **AzureSqlDatabaseDataset** som **namn**.
 
-    ![Namn på källdatauppsättning](./media/tutorial-bulk-copy-portal/source-dataset-general.png)
 4. Växla till fliken **Anslutning** och gör följande: 
 
     1. Välj **AzureSqlDatabaseLinkedService** som **länkad tjänst**.
@@ -193,14 +191,21 @@ I den här självstudien är käll- och måltabellerna i SQL inte hårdkodade i 
 1. Klicka på **+ (plus)** i den vänstra rutan och sedan på **Datauppsättning**. 
 2. Välj **Azure SQL Data Warehouse** i fönstret **Ny datauppsättning** och klicka på **Slutför**. Du ser en ny flik som heter **AzureSqlDWTable1**. 
 3. I egenskapsfönstret längst ned skriver du **AzureSqlDWDataset** som **namn**.
-4. Välj fliken **Anslutning** och välj **AzureSqlDatabaseLinkedService** som **länkad tjänst**.
-5. Växla till fliken **Parametrar** och klicka på **+ Ny**
+5. Byt till fliken **Parametrar**, klicka på **+ Ny** och ange **DWTableName** som parameternamn. Se till att inga **avslutande blanksteg** följer med i slutet av **DWTableName** om du kopierar/klistrar in det här namnet från sidan. 
 
-    ![Sida för källdatauppsättningsanslutning](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Ange **DWTableName** som parameternamn. Se till att inga **avslutande blanksteg** följer med i slutet av **DWTableName** om du kopierar/klistrar in det här namnet från sidan. 
-7. I avsnittet **Parametriserade egenskaper** anger du `@{dataset().DWTableName}` för egenskapen **tableName**. Uppsättningens egenskap **tableName** är inställd på värdet som har skickats som argument för parametern **DWTableName**. ForEach-aktiviteten itereras via en lista över tabeller och skickar en i taget till kopieringsaktiviteten. 
-   
-    ![Parameternamn](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)
+    ![Sida för källdatauppsättningsanslutning](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter.png)
+
+6. Växla till fliken **Anslutningar**. 
+
+    a. Välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst**.
+
+    b. För **Tabell**, markera alternativet **Redigera** och klicka i textrutan för tabellnamnet. Klicka sedan på länken **Lägg till dynamiskt innehåll** nedan. 
+    
+    ![Parameternamn](./media/tutorial-bulk-copy-portal/table-name-parameter.png)
+
+    c. På sidan **Lägg till dynamiskt innehåll** klickar du på **DWTAbleName** under **Parametrar**. Då populeras automatiskt textrutan för uttryck – överkant `@dataset().DWTableName`. Klicka sedan på **Slutför**. Uppsättningens egenskap **tableName** är inställd på värdet som har skickats som argument för parametern **DWTableName**. ForEach-aktiviteten itereras via en lista över tabeller och skickar en i taget till kopieringsaktiviteten. 
+
+    ![Byggare för datauppsättningsparametern](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
 
 ## <a name="create-pipelines"></a>Skapa pipelines
 I den här självstudien skapar du två pipeliner: **IterateAndCopySQLTables** och **GetTableListAndTriggerCopyData**. 
@@ -217,63 +222,65 @@ Pipelinen **GetTableListAndTriggerCopyData** utför två steg:
 1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Pipeline**.
 
     ![Meny för ny pipeline](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-2. I fönstret Egenskaper byter du namn på pipelinen till **IterateAndCopySQLTables**. 
+2. På fliken **Allmänt** anger du **IterateAndCopySQLTables** som namn. 
 
-    ![Namn på pipeline](./media/tutorial-bulk-copy-portal/first-pipeline-name.png)
 3. Växla till fliken **Parametrar** och gör följande: 
 
     1. Klicka på **+ Ny**. 
     2. Ange **tableList** som parameterns **namn**.
-    3. Välj **Objekt** som **typ**.
+    3. Välj **Matris** för **Typ**.
 
         ![Pipeline-parameter](./media/tutorial-bulk-copy-portal/first-pipeline-parameter.png)
-4. I verktygslådan **Aktiviteter** expanderar du **Iteration & Conditions** (Iteration och villkor) och drar och släpper aktiviteten **ForEach** till pipelinedesignytan. Du kan också söka efter aktiviteter i verktygslådan **Aktiviteter**. I **egenskapsfönstret** längst ned skriver du **IterateSQLTables** som **namn**. 
+4. I verktygslådan **Aktiviteter** expanderar du **Iteration & Conditions** (Iteration och villkor) och drar och släpper aktiviteten **ForEach** till pipelinedesignytan. Du kan också söka efter aktiviteter i verktygslådan **Aktiviteter**. 
 
-    ![ForEach-aktivitetsnamn](./media/tutorial-bulk-copy-portal/for-each-activity-name.png)
-5. Växla till fliken **Inställningar** och ange `@pipeline().parameters.tableList` för **Objekt**.
+    a. I fliken **Allmänt**  längst ned skriver du **IterateSQLTables** för **Namn**. 
+
+    b. Växla till fliken **Inställningar** och klicka på textrutan för **Objekt**. Klicka på länken **Lägg till dynamiskt innehåll** nedan. 
 
     ![ForEach-aktivitetsinställning](./media/tutorial-bulk-copy-portal/for-each-activity-settings.png)
-6. Om du vill lägga till en underordnad aktivitet till aktiviteten **ForEach** **dubbelklickar du på** ForEach-aktiviteten (eller) klickar på **Redigera (pennikonen)**. Du ser bara åtgärdslänkar för en aktivitet när du markerar den. 
 
-    ![ForEach-aktivitetsnamn](./media/tutorial-bulk-copy-portal/edit-for-each-activity.png)
-7. I verktygslådan **Aktiviteter** expanderar du **DataFlow** och drar och släpper **kopieringsaktiviteten** till pipelinedesignerytan och byter namn i egenskapsfönstret till **CopyData**. Lägg märke till adressfältmenyn längst upp. IterateAndCopySQLTable är pipelinenamnet och IterateSQLTables är ForEach-aktivitetsnamnet. Designern är i aktivitetsomfånget. Om du vill gå tillbaka till pipeline-redigeringsprogrammet från ForEach-redigeringsprogrammet klickar du på länken på adressfältmenyn. 
+    c. På sidan **Lägg till dynamiskt innehåll** döljer du avsnittet för systemvariabler och funktioner. Klicka på **tableList** under **Parametrar**. Då populeras automatiskt textrutan för uttryck – överkant som `@pipeline().parameter.tableList`. Klicka sedan på **Slutför**. 
+
+    ![Byggare för parametern Foreach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
+    
+    d. Växla till fliken **Aktiviteter**. Klicka på **Lägg till aktivitet** för att lägga till en underordnad aktivitet till aktiviteten **ForEach**.
+
+5. I verktygslådan **Aktiviteter** visar du **Dataflöde** och drar och släpper aktiviteten **Kopiera** till pipelinedesignytan. Lägg märke till adressfältmenyn längst upp. IterateAndCopySQLTable är pipelinenamnet och IterateSQLTables är ForEach-aktivitetsnamnet. Designern är i aktivitetsomfånget. Om du vill gå tillbaka till pipeline-redigeringsprogrammet från ForEach-redigeringsprogrammet klickar du på länken på adressfältmenyn. 
 
     ![Kopiera i ForEach](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
-8. Växla till fliken **Källa** och gör följande:
+6. Växla till fliken **Källa** och gör följande:
 
     1. Välj **AzureSqlDatabaseDataset** för **källdatauppsättning**. 
     2. Välj alternativet **Fråga** för **User Query** (Användarfråga). 
-    3. Ange följande SQL-fråga för **Fråga**.
+    3. Klicka på textrutan **Fråga** -> välj **Lägg till dynamiskt innehåll** nedan -> ange följande uttryck för **Fråga** -> välj **Slutför**.
 
         ```sql
         SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ``` 
 
         ![Inställningar för att kopiera källa](./media/tutorial-bulk-copy-portal/copy-source-settings.png)
-9. Växla till fliken **Mottagare** och gör följande: 
+7. Växla till fliken **Mottagare** och gör följande: 
 
     1. Välj **AzureSqlDWDataset** för **Sink Dataset** (Datauppsättning för mottagare).
+    2. Klicka på textrutan för VALUE för parametern DWTableName -> välj **Lägg till dynamiskt innehåll** nedan, ange uttrycket `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` som skript -> välj **Slutför**.
     2. Expandera **Polybase Settings** (Polybase-inställningar) och välj **Allow polybase** (Tillåt polybase). 
     3. Avmarkera alternativet **Use Type default** (Standardanvändartyp). 
-    4. Ange följande SQL-skript för **Cleanup Script** (Rensningsskript). 
+    4. Klicka på textrutan **Cleanup Script** (Rensningsscript) -> välj **Lägg till dynamiskt innehåll** nedan -> ange följande uttryck för Fråga -> välj **Slutför**. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
 
         ![Inställningar för att kopiera mottagare](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
-10. Växla till fliken **Parametrar**, och om det behövs bläddrar du ned för att se avsnittet **Sink Dataset** (Datauppsättning för mottagare) med parametern **DWTableName**. Ange `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` som parameterns värde.
 
-    ![Parametrar för kopieringsmottagare](./media/tutorial-bulk-copy-portal/copy-sink-parameters.png)
-11. Växla till fliken **Inställningar** och gör följande: 
+8. Växla till fliken **Inställningar** och gör följande: 
 
     1. Välj **Sant** för **Enable Staging** (Aktivera mellanlagring).
     2. Välj **AzureStorageLinkedService** för **Store Account Linked Service** (Länkad tjänst för lagringskonto).
 
         ![Aktivera mellanlagring](./media/tutorial-bulk-copy-portal/copy-sink-staging-settings.png)
-12. Verifiera pipelineinställningarna genom att klicka på **Verifiera**. Kontrollera att det inte finns några verifieringsfel. Om du vill stänga **verifieringsrapporten för pipeline** klickar du på **>>**.
 
-    ![Verifieringsrapport för pipeline](./media/tutorial-bulk-copy-portal/first-pipeline-validation-report.png)
+9. Verifiera pipelineinställningarna genom att klicka på **Verifiera** i verktygsfältet för pipelinen. Kontrollera att det inte finns några verifieringsfel. Om du vill stänga **verifieringsrapporten för pipeline** klickar du på **>>**.
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>Skapa pipelinen GetTableListAndTriggerCopyData
 
@@ -287,7 +294,6 @@ Den här pipelinen utför två steg:
     ![Meny för ny pipeline](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
 2. I fönstret Egenskaper ändrar du pipelinenamnet till **GetTableListAndTriggerCopyData**. 
 
-    ![Namn på pipeline](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
 3. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper **sökningsaktiviteten** till pipelinedesignytan och utför följande steg:
 
     1. Skriv **LookupTableList** som **namn**. 
@@ -315,7 +321,7 @@ Den här pipelinen utför två steg:
     2. Expandera avsnittet **Avancerat**. 
     3. Klicka på **+ Ny** i avsnittet **Parametrar**. 
     4. Skriv **tableList** som parameterns **namn**.
-    5. Anger `@activity('LookupTableList').output.value`som **parametervärde**. Du ställer in resultatlistan från sökningsaktiviteten som indata för den andra pipelinen. Resultatlistan innehåller listan över tabeller vars data ska kopieras till målet. 
+    5. Klicka på textrutan VALUE -> välj **Lägg till dynamiskt innehåll** nedan -> ange `@activity('LookupTableList').output.value` som värde för tabellens namn -> välj **Slutför**. Du ställer in resultatlistan från sökningsaktiviteten som indata för den andra pipelinen. Resultatlistan innehåller listan över tabeller vars data ska kopieras till målet. 
 
         ![Kör pipeline-aktivitet – sidan inställningar](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 7. **Anslut** **sökningsaktiviteten** till **Kör pipeline-aktiviteten** genom att dra den **gröna rutan** som är ansluten till sökningsaktiviteten till vänster om Kör pipeline-aktiviteten.
@@ -323,17 +329,13 @@ Den här pipelinen utför två steg:
     ![Ansluta kopierings- och Kör pipeline-aktiviteter](./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png)
 8. Verifiera pipelinen genom att klicka på **Verifiera** i verktygsfältet. Kontrollera att det inte finns några verifieringsfel. Om du vill stänga **verifieringsrapporten för pipeline** klickar du på **>>**.
 
-    ![Den andra pipelinen – verifieringsrapport](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. Om du vill publicera entiteter (datauppsättningar, pipeliner osv.) till Data Factory-tjänsten klickar du på **Publicera alla**. Vänta tills publiceringen har lyckats. 
-
-    ![Knappen Publicera](./media/tutorial-bulk-copy-portal/publish.png)
+9. Om du vill publicera entiteter (datauppsättningar, pipelines osv.) till Data Factory-tjänsten klickar du på **Publicera alla** upptill i fönstret. Vänta tills publiceringen har lyckats. 
 
 ## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
 
-1. Kontrollera att fliken **GetTableListAndTriggerCopyData** är aktiv. 
-2. Klicka på **Utlösare** i och klicka på **Trigger Now** (Utlös nu). 
+Gå till pipelinen **GetTableListAndTriggerCopyData**, klicka på **Utlösare** och sedan på **Utlös nu**. 
 
-    ![Utlös nu](./media/tutorial-bulk-copy-portal/trigger-now.png)
+![Utlös nu](./media/tutorial-bulk-copy-portal/trigger-now.png)
 
 ## <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 

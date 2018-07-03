@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: e1a216a8bf524d22af815d077b16ab29c817e9e4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e3e0855d2ac54643a6dc6128eea974d952bb56d5
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866241"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335636"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Uppgradera PhoneFactor Agent till Azure Multi-Factor Authentication Server
 
@@ -66,11 +66,8 @@ Installationssökvägen hämtas från registret från den tidigare installatione
 
   3. Gå till installationsplatsen för användarportalen (t.ex. C:\inetpub\wwwroot\MultiFactorAuth) och redigera filen web.config. Kopiera värdena i avsnitten appSettings och applicationSettings från den ursprungliga web.config-filen som du säkerhetskopierade före uppgraderingen och klistra in dem i den nya web.config-filen. Om du behöll det nya standardnamnet för den virtuella katalogen när du installerade webbtjänst-SDK ändrar du URL:en i avsnittet applicationSettings så att den pekar på rätt plats. Om du ändrade andra standardvärden i den tidigare web.config-filen tillämpar du samma ändringar i den nya web.config-filen.
 
-  4. Installera webbtjänsten Mobile Apps på webbservern genom att öppna en kommandotolk som administratör och köra MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi.
-
-    Standardnamnet på den virtuella datorn nu är **MultiFactorAuthMobileAppWebService** i stället för **PhoneFactorPhoneAppWebService**. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Du kanske vill välja ett kortare namn så att det blir lättare för slutanvändarna att skriva det på sina mobila enheter. Annars, om du tillåter att installationen använder det nya namnet, klickar du på ikonen Mobilapp i Multi-Factor Authentication Server och uppdaterar URL:en för Mobile App-webbtjänsten.
-
-  5. Gå till installationsplatsen för Mobile App-webbtjänsten (t.ex. C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) och redigera filen Web.config. Kopiera värdena i avsnitten appSettings och applicationSettings från den ursprungliga web.config-filen som du säkerhetskopierade före uppgraderingen och klistra in dem i den nya web.config-filen. Om du behöll det nya standardnamnet för den virtuella katalogen när du installerade webbtjänst-SDK ändrar du URL:en i avsnittet applicationSettings så att den pekar på rätt plats. Om du ändrade andra standardvärden i den tidigare web.config-filen tillämpar du samma ändringar i den nya web.config-filen.
+> [!NOTE]
+> Vid uppgradering från en version Azure MFA Server som är äldre än 8.0 till 8.0 eller senare kan webbtjänsten för mobila appar avinstalleras efter uppgraderingen
 
 ## <a name="next-steps"></a>Nästa steg
 

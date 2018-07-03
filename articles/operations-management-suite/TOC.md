@@ -1,6 +1,5 @@
 # Översikt
-## [Vad är Operations Management Suite (OMS)?](operations-management-suite-overview.md)
-## [OMS-arkitektur](operations-management-suite-architecture.md)
+## [Agentövervakning](../monitoring/index.md)
 
 # Kom igång
 ## [Log Analytics](../log-analytics/log-analytics-get-started.md)
@@ -13,8 +12,6 @@
 
 ## Analysera
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Övervaka produktjämförelse](operations-management-suite-monitoring-product-comparison.md)
-### [Hantera aviseringar](operations-management-suite-monitoring-alerts.md)
 ## Automatisera
 ### [Översikt över Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -68,12 +65,7 @@
 ### [Bästa praxis](../monitoring/monitoring-solutions-best-practices.md)
 
 ## Hanteringsscenarier
-### [Samla in analysdata från runbook](operations-management-suite-runbook-datacollect.md)
-
-## [Integrera med OMS](operations-management-suite-integration.md)
-
-# Referens
-## [SDK](operations-management-suite-sdk.md)
+### [Samla in analysdata från runbook](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)

@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: b1e7fa441dc52a647828c7d3785f09533af06fd0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42be14569215af7ee98a540c2a86cef2b2a028e4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651549"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034085"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -76,7 +76,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hub-name -o table
+az iot hub show-connection-string --hub-name $hubname -o table
 
 ```
 
@@ -260,14 +260,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen beskrivs hur du synkroniserar statusinformation mellan dina enheter och din IoT-hubb genom att utföra följande uppgifter:
-
-> [!div class="checklist"]
-> * Skapa en IoT-hubb och lägg till en testenhet i identitetsregistret.
-> * Använda önskade egenskaper för att skicka statusinformation till den simulerade enheten.
-> * Använda rapporterade egenskaper för att ta emot statusinformation från den simulerade enheten.
-
-Gå vidare till nästa kurs att lära dig mer att använda tvillingenheter för att implementera en process för uppdatering av fast programvara.
+I den här självstudien beskrivs hur du synkroniserar statusinformation mellan dina enheter och din IoT Hub. Gå vidare till nästa kurs att lära dig mer att använda tvillingenheter för att implementera en process för uppdatering av fast programvara.
 
 > [!div class="nextstepaction"]
-[Använda en simulerad enhet för att testa anslutningen till din IoT-hubb](tutorial-connectivity.md)
+[Implementera en uppdateringsprocess för enhetens inbyggda programvara](tutorial-firmware-update.md)

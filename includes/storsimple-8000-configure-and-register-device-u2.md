@@ -9,7 +9,7 @@
 
 3. Du kommer att uppmanas att välja det språk som du vill ställa in för din enhet. Ange språket och tryck på **Retur**.
 
-4. I seriemenyn för konsolen som visas väljer du alternativ 1 för att **logga in med fullständig åtkomst**.
+4. I seriemenyn för konsolen som visas väljer du alternativ 1, **Logga in med fullständig åtkomst**.
      Slutför steg 5–12 för att konfigurera de minsta nödvändiga nätverksinställningarna för din enhet. **De här konfigurationsstegen behöver genomföras på den aktiva styrenheten för enheten.** Menyn för seriekonsolen indikerar status för styrenheten i banderollmeddelandet. Om du inte är ansluten till den aktiva styrenheten, kopplar du från och ansluter till den aktiva styrenheten.
 
 5. Ange ditt lösenord i kommandotolken. Enheten standardlösenord är **Password1**.

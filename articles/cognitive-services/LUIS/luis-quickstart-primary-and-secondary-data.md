@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 03/29/2018
+ms.date: 06/26/2018
 ms.author: v-geberr
-ms.openlocfilehash: 1e8647e34da3d34946a4f6ac298017f6d4c99de6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b718ed505babd2df6487aecd3a87f17590aef2b9
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265368"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061255"
 ---
 # <a name="tutorial-create-app-that-uses-simple-entity"></a>Självstudie: skapa app som använder enkel entitet
 I den här självstudien skapar du en app som visar hur det går till att extrahera maskininlärningsdata från ett yttrande med hjälp av entiteten **Simple** (Enkel).
@@ -22,125 +22,110 @@ I den här självstudien skapar du en app som visar hur det går till att extrah
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Förstå enkla entiteter 
-> * Skapa ny LUIS-app för kommunikationsdomänen med avsikten SendMessage
-> * Lägga till avsikten _None_ (Ingen) och lägga till exempelyttranden
-> * Lägg till enkel entitet för att extrahera meddelandeinnehåll från yttrande
+> * Skapa en ny LUIS-app för HR-domänen (Human Resources) 
+> * Lägga till en enkel entitet för att extrahera jobb från appen
 > * Träna och publicera app
 > * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
+> * Lägga till en fraslista för att förbättra extraheringen av jobbord
+> * Träna, publicera appen och skicka om fråga till slutpunkten
 
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
+För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
+
+## <a name="before-you-begin"></a>Innan du börjar
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om [hierarchical entity](luis-quickstart-intent-and-hier-entity.md) (hierarkisk entitet) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json)-GitHub-lagringsplatsen.
+
+Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `simple`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen.  
 
 ## <a name="purpose-of-the-app"></a>Syftet med appen
 Den här appen visar hur det går till att hämta data från ett yttrande. Ta följande yttrande från en chattrobot som exempel:
 
-```JSON
-Send a message telling them to stop
-```
+|Yttrande|Jobbnamn som kan extraheras|
+|:--|:--|
+|Jag vill söka det nya jobbet inom redovisning.|redovisning|
+|Jag skickar härmed mitt cv för att söka tjänsten inom teknik.|teknik|
+|Fyll i ansökan till jobbet 123456|123456|
 
-Avsikten är att skicka ett meddelande. De data i yttrandet som är viktiga är meddelandet i sig, `telling them to stop`.  
+I den här självstudien lägger du till en ny entitet för att extrahera jobbnamnet. Funktionen att extrahera ett specifikt jobbnummer visas i [självstudien](luis-quickstart-intents-regex-entity.md) för reguljära uttryck. 
 
 ## <a name="purpose-of-the-simple-entity"></a>Syftet med den enkla entiteten
-Syftet med den enkla entiteten är att lära LUIS vad ett meddelande är och var det kan hittas i ett yttrande. Den del av yttrandet som utgör meddelandet kan variera från yttrande till yttrande baserat på ordval och yttrandets längd. LUIS behöver exempel på meddelanden i yttranden över alla avsikter.  
+Syftet med den enkla entiteten är att lära LUIS vad ett jobbnamn är och var det kan hittas i ett yttrande. Den del av yttrandet som utgör jobbet kan variera från yttrande till yttrande baserat på ordval och yttrandets längd. LUIS behöver exempel på jobb i yttranden över alla avsikter.  
 
-För den här enkla appen kommer meddelandet i slutet av yttrandet. 
+Jobbnamnet är svårt att urskilja eftersom ett namn kan vara ett substantiv, verb eller en fras med flera ord. Till exempel:
 
-## <a name="create-a-new-app"></a>Skapa en ny app
-1. Logga in på [LUIS-webbplatsen][LUIS]. Se till att logga in på den region där du behöver få LUIS-slutpunkterna publicerade.
+|Jobb|
+|--|
+|tekniker|
+|datatekniker|
+|erfaren datatekniker|
+|ansvara för en teknikgrupp |
+|flygledare|
+|fordonsförare|
+|ambulansförare|
+|skötare|
+|maskinoperatör|
+|montör|
 
-2. På [LUIS-webbplatsen][LUIS] väljer du **Create new app** (Skapa ny app).  
+Den här LUIS-appen har jobbnamn i flera avsikter. Genom att märka orden i en avsikts alla yttranden lär sig LUIS mer om de olika jobben och var de finns i yttrandena.
 
-    ![Lista över LUIS-appar](./media/luis-quickstart-primary-and-secondary-data/app-list.png)
+## <a name="create-job-simple-entity"></a>Skapa en enkel jobbentitet
 
-3. I popup-dialogrutan anger du namnet `MyCommunicator`. 
+1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
 
-    ![Lista över LUIS-appar](./media/luis-quickstart-primary-and-secondary-data/create-new-app-dialog.png)
+    [ ![Skärmbild på LUIS-appen med Build (Skapa) markerat i navigeringsfältet längst upp till höger](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
 
-4. När processen är klar visar appen sidan **Intents** (Avsikter) med avsikten **None** (Ingen). 
+2. På sidan **Intents** (Avsikter) väljer du avsikten **ApplyForJob**. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/intents-list.png "Skärmbild på sidan LUIS Intents (LUIS-avsikter) med avsikten None (Ingen)")](media/luis-quickstart-primary-and-secondary-data/intents-list.png#lightbox)
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png "Skärmbild på LUIS-appen med avsikten ApplyForJob markerad")](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png#lightbox)
 
-## <a name="create-a-new-intent"></a>Skapa en ny avsikt
+3. I yttrandet `I want to apply for the new accounting job` väljer du `accounting` och anger `Job` i det översta fältet på snabbmenyn. Välj sedan **Create new entity** (Skapa ny entitet) på snabbmenyn. 
 
-1. På sidan **Intents** (Avsikter) väljer du **Create new intent** (Skapa ny avsikt). 
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Skärmbild på LUIS-appen med avsikten ApplyForJob och stegen för att skapa en entitet markerade")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
-    [![](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png "Skärmbild på LUIS med knappen ”Create new intent” (Skapa ny avsikt) markerad")](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png#lightbox)
+4. Kontrollera entitetsnamnet och -typen i popup-fönstret och välj **Done** (Klar).
 
-2. Ange det nya avsiktsnamnet `SendMessage`. Den här avsikten ska väljas när en användare vill skicka ett meddelande.
+    ![Dialogruta för att skapa en enkel entitet med jobbnamn och entitetstyp](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-    Genom att skapa en avsikt skapar du den primära kategorin för information som du vill identifiera. Tack vare att kategorin får ett namn kan andra program som använder LUIS-frågeresultaten använda det kategorinamnet för att hitta ett lämpligt svar eller utföra lämpliga åtgärder. LUIS svarar inte på de här frågorna, utan identifierar bara vilken typ av information som det frågas om i naturligt språk. 
+5. I yttrandet `Submit resume for engineering position` märker du ordet teknik som en jobbentitet. Välj ordet teknik och välj sedan Job (Jobb) på snabbmenyn. 
 
-    ![Ange avsiktsnamnet SendMessage](./media/luis-quickstart-primary-and-secondary-data/create-new-intent-popup-dialog.png)
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Skärmbild på LUIS-appen med markerad märkning av jobbentitet")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
-3. Lägg till sju yttranden till avsikten `SendMessage` som du förväntar dig att en användare begär, till exempel:
+    Alla yttranden är märkta, men fem räcker inte för att lära LUIS tillräckligt många jobbrelaterade ord och fraser. För jobb med nummervärde behövs det inte fler exempel eftersom en entitet för reguljära uttryck används. För jobb som består av ord eller fraser krävs det minst 15 exempel till. 
 
-    | Exempel på yttranden|
-    |--|
-    |Svara med Jag har fått ditt meddelandet och svarar i morgon|
-    |Skicka meddelande När är du hemma?|
-    |Skicka SMS Jag är upptagen|
-    |Berätta att det måste göras i dag|
-    |Skicka snabbmeddelande att jag kör bil och svarar senare|
-    |Skapa meddelande till David där det står När var det?|
-    |säg glenn hej|
+6. Lägg till fler yttranden och märk jobborden eller -fraserna som **jobbentiteter**. Jobbtyperna är allmänna för anställning via ett anställningsföretag. Om du behöver jobb för en viss bransch ska jobborden spegla detta. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/enter-utterances-on-intent-page.png "Skärmbild på LUIS med angivna yttranden")](media/luis-quickstart-primary-and-secondary-data/enter-utterances-on-intent-page.png#lightbox)
+    |Yttrande|Jobbentitet|
+    |:--|:--|
+    |Jag söker jobbet som programansvarig inom FoU|Programansvarig|
+    |Här är min ansökan till kocktjänsten.|kocktjänst|
+    |Mitt cv för att söka jobbet som lägerledare är bifogat.|lägerledare|
+    |Jag skickar härmed mitt cv för att söka jobbet som administrativ assistent.|administrativ assistent|
+    |Jag vill söka chefstjänsten inom försäljning.|chefstjänst, försäljning|
+    |Jag söker härmed det nya jobbet inom redovisning.|redovisning|
+    |Min ansökan till jobbet som diskare ingår.|diskare|
+    |Jag söker jobbet som takläggare och snickare.|takläggare, snickare|
+    |Mitt cv för att söka jobbet som bussförare bifogas härmed.|bussförare|
+    |Jag är en legitimerad sjuksköterska. Härmed bifogas mitt cv.|legitimerad sjuksköterska|
+    |Jag skickar härmed mina ansökningshandlingar för jobbet som lärare som fanns i tidningen.|lärare|
+    |Jag skickar härmed mitt cv för att söka jobbet som varuplockare.|varuplockare|
+    |Söka jobbet som kakelsättare.|kakelsättning|
+    |Mitt cv är bifogat för tjänsten som landskapsarkitekt.|landskapsarkitekt|
+    |Mitt curriculum vitae är bifogat för att söka tjänsten som professor i biologi.|professor i biologi|
+    |Jag vill ansöka om jobbet som fotograf.|fotograf|git 
 
-## <a name="add-utterances-to-none-intent"></a>Lägga till yttranden till avsikten None (Ingen)
-
-LUIS-appen har för närvarande inga yttranden för avsikten **None** (Ingen). Den behöver yttranden som du inte vill att appen svarar på. Därför behöver den ha yttranden i avsikten **None** (Ingen). Lämna den inte tom. 
-    
-1. Välj **Intents** (Avsikter) på den vänstra panelen. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/select-intent-link.png "Skärmbild på LUIS med knappen ”Intents” (Avsikter) markerad")](media/luis-quickstart-primary-and-secondary-data/select-intent-link.png#lightbox)
-
-2. Välj avsikten **None** (Ingen). 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/select-none-intent.png "Skärmbild på avsikten None (Ingen) som väljs ")](media/luis-quickstart-primary-and-secondary-data/select-none-intent.png#lightbox)
-
-3. Lägg till tre yttranden som din använda kan tänkas ange men som inte är relevanta för appen. Några bra **None**-yttranden (Inget) är:
-
-    | Exempel på yttranden|
-    |--|
-    |Avbryt!|
-    |Hej då|
-    |Vad är det som händer?|
-    
-    I det LUIS-anropande programmet, till exempel en chattrobot, kan roboten om LUIS returnerar avsikten **None** (Ingen) för ett yttrande fråga om användaren vill avsluta konversationen. Roboten kan även ge fler anvisningar för att fortsätta konversationen om användaren inte vill avsluta den. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png "Skärmbild på LUIS med yttranden för avsikten None (Ingen)")](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png#lightbox)
-
-## <a name="create-a-simple-entity-to-extract-message"></a>Skapa en enkel entitet för att extrahera meddelande 
+## <a name="label-entity-in-example-utterances-for-getjobinformation-intent"></a>Märka entitet i exempelyttranden för avsikten GetJobInformation
 1. Välj **Intents** (Avsikter) på den vänstra menyn.
 
-    ![Välj länken Intents (Avsikter)](./media/luis-quickstart-primary-and-secondary-data/select-intents-from-none-intent.png)
+2. Välj **GetJobInformation** i listan med avsikter. 
 
-2. Välj `SendMessage` från listan över avsikter.
+3. Märk jobben i exempelyttranden:
 
-    ![Välj avsikten SendMessage](./media/luis-quickstart-primary-and-secondary-data/select-sendmessage-intent.png)
+    |Yttrande|Jobbentitet|
+    |:--|:--|
+    |Finns det möjlighet att få arbeta med databaser?|databaser|
+    |Söker efter ett nytt arbete inom redovisning|redovisning|
+    |Finns det lediga tjänster för erfarna tekniker?|erfarna tekniker|
 
-3. I yttrandet `Reply with I got your message, I will have the answer tomorrow` markerar du det första ordet i meddelandetexten, `I`, och det sista ordet i meddelandetexten, `tomorrow`. Alla de här orden markeras för meddelandet, och en listrutemeny visas med textrutan längst upp.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/select-words-in-utterance.png "Skärmbild på markerade ord i yttrandet för meddelandet")](media/luis-quickstart-primary-and-secondary-data/select-words-in-utterance.png#lightbox)
-
-4. Ange entitetsnamnet `Message` i textrutan.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/enter-entity-name-in-box.png "Skärmbild på entitetsnamn som anges i rutan")](media/luis-quickstart-primary-and-secondary-data/enter-entity-name-in-box.png#lightbox)
-
-5. Välj **Create new entity** (Skapa ny entitet) i listrutemenyn. Syftet med entiteten är att hämta den text som utgör meddelandetexten. I den här LUIS-appen är textmeddelandet i slutet av yttrandet, men yttrandet och meddelandet kan ha vilken längd som helst. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/create-message-entity.png "Skärmbild på ny entitet som skapas från yttrande")](media/luis-quickstart-primary-and-secondary-data/create-message-entity.png#lightbox)
-
-6. I popup-fönstret är standardentitetstypen **Simple** (Enkel), och entitetsnamnet är `Message`. Behåll de här inställningarna och välj **Done** (Klar).
-
-    ![Verifiera entitetstyp](./media/luis-quickstart-primary-and-secondary-data/entity-type.png)
-
-7. Nu när entiteten har skapats och ett yttrande har märkts ska du märka de återstående yttrandena med den entiteten. Välj ett yttrande och välj sedan det första och det sista ordet i ett meddelande. I listrutemenyn väljer du entiteten `Message`. Meddelandet är nu märkt i entiteten. Fortsätt att märka alla meddelandefraser i de återstående yttrandena.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/all-labeled-utterances.png "Skärmbild på alla meddelandeyttranden som är märkta")](media/luis-quickstart-primary-and-secondary-data/all-labeled-utterances.png#lightbox)
-
-    Standardvyn för yttrandena är **Entities view** (Entitetsvy). Välj kontrollen **Entities view** (Entitetsvy) ovanför yttrandena. **Tokens view** (Tokenvy) visar yttrandetexten. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/tokens-view-of-utterances.png "Skärmbild på yttranden i Tokens view (Tokenvy)")](media/luis-quickstart-primary-and-secondary-data/tokens-view-of-utterances.png#lightbox)
+    Det finns andra exempelyttranden som inte innehåller jobbrelaterade ord.
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
 LUIS känner inte till ändringarna av avsikterna och entiteterna (modellen) förrän den tränas. 
@@ -169,48 +154,227 @@ På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) l�
 
 [![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Skärmbild på sidan Publish (Publicera) med slutpunkt markerad")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
 
-Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. Gå till slutet av URL:en i adressen och ange `text I'm driving and will be 30 minutes late to the meeting`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera yttrandena `SendMessage`.
+Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. Gå till slutet av URL:en i adressen och ange `Here is my c.v. for the programmer job`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera yttrandena `ApplyForJob`.
 
-```
+```JSON
 {
-  "query": "text I'm driving and will be 30 minutes late to the meeting",
+  "query": "Here is my c.v. for the programmer job",
   "topScoringIntent": {
-    "intent": "SendMessage",
-    "score": 0.987501
+    "intent": "ApplyForJob",
+    "score": 0.9826467
   },
   "intents": [
     {
-      "intent": "SendMessage",
-      "score": 0.987501
+      "intent": "ApplyForJob",
+      "score": 0.9826467
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0218927357
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.007849265
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00349470088
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.00348804821
     },
     {
       "intent": "None",
-      "score": 0.111048922
+      "score": 0.00319909188
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00222647213
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00211193133
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00172086991
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00138010911
     }
   ],
   "entities": [
     {
-      "entity": "i ' m driving and will be 30 minutes late to the meeting",
-      "type": "Message",
-      "startIndex": 5,
-      "endIndex": 58,
-      "score": 0.162995353
+      "entity": "programmer",
+      "type": "Job",
+      "startIndex": 24,
+      "endIndex": 33,
+      "score": 0.5230502
     }
   ]
 }
 ```
 
+## <a name="names-are-tricky"></a>Namn kan vara svårhanterade
+LUIS-appen hittade rätt avsikt med hög exakthet och extraherade jobbnamnet, men namn är svårare. Prova yttrandet `This is the lead welder paperwork`.  
+
+I följande JSON svarar LUIS-appen med rätta avsikten `ApplyForJob`, men extraherar inte jobbnamnet `lead welder`. 
+
+```JSON
+{
+  "query": "This is the lead welder paperwork.",
+  "topScoringIntent": {
+    "intent": "ApplyForJob",
+    "score": 0.468558252
+  },
+  "intents": [
+    {
+      "intent": "ApplyForJob",
+      "score": 0.468558252
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0102701457
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.009442534
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00639619166
+    },
+    {
+      "intent": "None",
+      "score": 0.005859333
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.005087704
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00315379258
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00259344373
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00193389168
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.000420796918
+    }
+  ],
+  "entities": []
+}
+```
+
+Eftersom ett namn kan vara vad som helst förutsäger LUIS-appen entiteter mer korrekt om den har en lista med ordfraser för att förbättra extraheringen.
+
+## <a name="to-boost-signal-add-jobs-phrase-list"></a>Lägg till jobb i fraslistan för att förbättra extraheringen
+Öppna filen [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) från LUIS-Samples-GitHub-lagringsplatsen. Listan innehåller mer än tusen jobbrelaterade ord och fraser. Titta igenom listan efter ord som kan vara till nytta för dig. Om ord eller fraser som du behöver inte finns med i listan kan du lägga till egna.
+
+1. I avsnittet **Build** (Skapa) i LUIS-appen väljer du **Phrase lists** (Fraslistor) under menyn **Improve app performance** (Förbättra appens prestanda).
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png "Skärmbild på Phrase lists (Fraslistor) med den vänstra navigeringsknappen markerad")](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png#lightbox)
+
+2. Välj **Create new phrase list** (Skapa ny fraslista). 
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png "Skärmbild på markerad knapp för att skapa nya fraslistor")](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png#lightbox)
+
+3. Namnge den nya fraslistan `Jobs` och kopiera listan från jobs-phrase-list.csv till textrutan **Values** (Värden). Välj Retur. 
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Skärmbild på dialogrutan för att skapa en ny fraslista")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+
+    Om du vill lägga till fler ord i fraslistan kan du gå igenom de rekommenderade orden och lägga till det som behövs. 
+
+4. Välj **Save** (Spara) så aktiveras fraslistan.
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Skärmbild på dialogrutan för att skapa en ny fraslista med ord i fraslistans värderuta")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+
+5. [Träna](#train-the-luis-app) och [publicera](#publish-the-app-to-get-the-endpoint-URL) appen igen för att använda fraslistan.
+
+6. Skicka om frågan till slutpunkten med samma yttrande: `This is the lead welder paperwork.`
+
+    JSON-svaret innehåller den extraherade entiteten:
+
+    ```JSON
+    {
+        "query": "This is the lead welder paperwork.",
+        "topScoringIntent": {
+            "intent": "ApplyForJob",
+            "score": 0.920025647
+        },
+        "intents": [
+            {
+            "intent": "ApplyForJob",
+            "score": 0.920025647
+            },
+            {
+            "intent": "GetJobInformation",
+            "score": 0.003800706
+            },
+            {
+            "intent": "Utilities.StartOver",
+            "score": 0.00299335527
+            },
+            {
+            "intent": "MoveEmployee",
+            "score": 0.0027167045
+            },
+            {
+            "intent": "None",
+            "score": 0.00259556063
+            },
+            {
+            "intent": "FindForm",
+            "score": 0.00224019377
+            },
+            {
+            "intent": "Utilities.Stop",
+            "score": 0.00200693542
+            },
+            {
+            "intent": "Utilities.Cancel",
+            "score": 0.00195913855
+            },
+            {
+            "intent": "Utilities.Help",
+            "score": 0.00162656687
+            },
+            {
+            "intent": "Utilities.Confirm",
+            "score": 0.0002851904
+            }
+        ],
+        "entities": [
+            {
+            "entity": "lead welder",
+            "type": "Job",
+            "startIndex": 12,
+            "endIndex": 22,
+            "score": 0.8295959
+            }
+        ]
+    }
+    ```
+
+## <a name="phrase-lists"></a>Fraslistor
+Genom att lägga till fraslistan förbättrades listordens extrahering, men de är **inte** exakta matchningar. Fraslistan har flera jobb med det första ordet `lead` och med jobbet `welder`, men inte jobbet `lead welder`. Den här fraslistan över jobb behöver kanske kompletteras. Allt eftersom du [granskar slutpunktsyttranden](label-suggested-utterances.md) och hittar andra jobbord, lägger du till dem i fraslistan. Träna sedan appen igen och publicera om.
+
 ## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
-Med hjälp av endast två avsikter och en entitet har den här appen identifierat en frågeavsikt i naturligt språk och returnerat meddelandedata. 
+Med hjälp av en enkel entitet och en fraslista har den här appen identifierat en frågeavsikt i naturligt språk och returnerat meddelandedata. 
 
-JSON-resultatet identifierar avsikten `SendMessage` med högst poäng och ett resultat på 0,987501. Alla poäng är mellan 1 och 0, ju närmare 1 desto bättre. Poängen för avsikten `None` är 0,111048922, vilket är mycket närmare noll. 
-
-Meddelandedata har en typ, `Message`, och ett värde, `i ' m driving and will be 30 minutes late to the meeting`. 
-
-Din chattrobot har nu tillräckligt med information för att bestämma den primära åtgärden, `SendMessage`, och en parameter för åtgärden, texten i meddelandet. 
+Din chattrobot har nu tillräckligt med information för att bestämma den primära åtgärden vid jobbansökan och en parameter för åtgärden, vilket jobb det gäller. 
 
 ## <a name="where-is-this-luis-data-used"></a>Var används dessa LUIS-data? 
-LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att skicka meddelandet via ett tredjeparts-API. Om det finns andra programmässiga alternativ för roboten eller det anropande programmet utför inte LUIS det arbetet. LUIS tar endast reda på vad användarens avsikt är. 
+LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att skicka jobbinformation till någon på personalavdelningen via ett tredjeparts-API. Om det finns andra programmässiga alternativ för roboten eller det anropande programmet utför inte LUIS det arbetet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du menyn med tre punkter (...) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
@@ -218,8 +382,4 @@ Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du lägger till en hierarkisk entitet](luis-quickstart-intent-and-hier-entity.md)
-
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+> [Lär dig hur du lägger till en fördefinierad keyPhrase-entitet](luis-quickstart-intent-and-key-phrase.md)

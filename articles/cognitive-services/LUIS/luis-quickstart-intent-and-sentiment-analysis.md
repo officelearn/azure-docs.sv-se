@@ -7,104 +7,98 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/25/2018
 ms.author: v-geberr
-ms.openlocfilehash: d000637312619fc493e2f7bad8e8edf0d8d0d94b
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ac959989dbe64460025bfba84df7b6f22c3c1c04
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265342"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958437"
 ---
 # <a name="tutorial-create-app-that-returns-sentiment-along-with-intent-prediction"></a>Självstudie: skapa app som returnerar sentiment tillsammans med avsiktsförutsägelse
 I den här självstudien skapar du en app som visar hur det går till att extrahera positiva, negativa och neutrala sentiment från yttranden.
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Förstå hierarkiska entiteter och underordnade element med kontextuell inlärning 
-> * Skapa ny LUIS-app för resedomän med avsikten Bookflight
-> * Lägga till avsikten _None_ (Ingen) och lägga till exempelyttranden
-> * Lägg till platshierarkisk entitet med ursprung och underordnade destinationselement
+> * Förstå en attitydanalys
+> * Använda LUIS-appen i HR-domänen (Human Resources) 
+> * Lägga till attitydanalys
 > * Träna och publicera app
-> * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar inklusive hierarkiska underordnade element 
+> * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar 
 
 För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
+
+## <a name="before-you-begin"></a>Innan du börjar
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om [keyPhrase entities](luis-quickstart-intent-and-key-phrase.md) (keyPhrase-entiteter) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json)-GitHub-lagringsplatsen.
+
+Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `sentiment`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
 ## <a name="sentiment-analysis"></a>Sentimentanalys
 Sentimentanalys är förmågan att avgöra om en användares yttrande är positivt, negativt eller neutralt. 
 
 Följande yttranden visar exempel på sentiment:
 
-|Sentiment och poäng|Yttrande|
-|:--|--|
-|positivt – 0,89 |Soppan och salladen var toppen.|
-|negativt – 0,07 |Jag gillade inte förrätten under middagsservicen.|
+|Sentiment|Poäng|Yttrande|
+|:--|:--|:--|
+|positivt|0,91 |John W. Smith gjorde ett riktigt bra jobb med presentationen i Paris.|
+|positivt|0,84 |jill-jones@mycompany.com gjorde ett fantastiskt jobb med säljpresentationen till Parker.|
 
-Sentimentanalys är en appinställning som tillämpas på alla yttranden. Du behöver inte hitta de ord som indikerar sentiment i yttrandet och märka dem. LUIS gör det åt dig.
+Attitydanalys är en appinställning som tillämpas på alla yttranden. Du behöver inte hitta orden som beskriver sentiment i yttrandet och märka dem eftersom attitydanalysen omfattar hela yttrandet. 
 
-## <a name="create-a-new-app"></a>Skapa en ny app
-1. Logga in på [LUIS-webbplatsen][LUIS]. Se till att logga in på den [region][LUIS-regions] där du behöver få LUIS-slutpunkterna publicerade.
+## <a name="add-employeefeedback-intent"></a>Lägga till avsikten EmployeeFeedback 
+Lägg till en ny avsikt för att samla in feedback om medarbetare från kollegor inom företaget. 
 
-2. På [LUIS-webbplatsen][LUIS] väljer du **Create new app** (Skapa ny app). 
+1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/app-list.png "Skärmbild på sidan App lists (App-listor)")](media/luis-quickstart-intent-and-sentiment-analysis/app-list.png#lightbox)
+    [ ![Skärmbild på LUIS-app med Build (Skapa) markerat i navigeringsfältet längst upp till höger](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png#lightbox)
 
-3. I dialogrutan **Create new app** (Skapa ny app) ger du appen namnet `Restaurant Reservations With Sentiment` och väljer **Done** (Klar). 
+2. Välj **Create new intent** (Skapa ny avsikt).
 
-    ![Bild på dialogrutan Create new app (Skapa ny app)](./media/luis-quickstart-intent-and-sentiment-analysis/create-app-ddl.png)
+    [ ![Skärmbild på LUIS-app med Build (Skapa) markerat i navigeringsfältet längst upp till höger](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png#lightbox)
 
-    När processen för att skapa appen är klar visar LUIS listan över avsikter som innehåller avsikten None (Ingen).
+3. Ge den nya avsikten namnet `EmployeeFeedback`.
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/intents-list.png "Skärmbild på sidan Intents lists (Lista över avsikter)")](media/luis-quickstart-intent-and-sentiment-analysis/intents-list.png#lightbox)
+    ![Dialogrutan Create new intent (Skapa ny avsikt) med EmployeeFeedback som namn](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
-## <a name="add-a-prebuilt-domain"></a>Lägga till en fördefinierad domän
-Lägg till en fördefinierad domän för att snabbt lägga till avsikter, entiteter och märkta yttranden.
+4. Lägg till flera yttranden som beskriver att en medarbetare gjort något bra eller att något behöver förbättras:
 
-1. Välj **Prebuilt Domains** (Fördefinierade domäner) på den vänstra menyn.
+    Kom ihåg att medarbetare i den här appen Human Resources (Personalfrågor) definieras i listentiteten `Employee` med namn, e-postadress, telefonanknytning, mobilnummer och amerikanskt socialförsäkringsnummer. 
 
-    [ ![Skärmbild på knappen Prebuilt Domain (Fördefinierad domän)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-expanded.png#lightbox)
+    |Yttranden|
+    |--|
+    |425-555-1212 gjorde ett bra jobb med att välkomna tillbaka en medarbetare som haft mammaledigt.|
+    |234-56-7891 tröstade en medarbetare i sorg.|
+    |jill-jones@mycompany.com hade inte alla fakturorna som krävdes för pappersarbetet.|
+    |john.w.smith@mycompany.com lämnade in de obligatoriska formulären en månad för sent, och utan signaturer.|
+    |x23456 kom inte till det viktiga externa marknadsföringsmötet.|
+    |x12345 missade mötet för juni-genomgången.|
+    |Jill Jones gjorde ett fantastiskt jobb med säljpresentationen på Harvard.|
+    |John W. Smith gjorde ett riktigt bra jobb med presentationen på Stanford.|
 
-2. Välj **Add domain** (Lägg till domän) för den fördefinierade domänen **RestaurantReservation**. Vänta tills domänen har lagts till.
-
-    [ ![Skärmbild på Prebuilt Domain list (Lista över fördefinierade domäner)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-expanded.png#lightbox)
-
-3. Välj **Intents** (Avsikter) i det vänstra navigeringsfältet. Den här fördefinierade domänen har en avsikt.
-
-    [ ![Skärmbild på Prebuilt domain list (Lista över fördefinierade domäner) med Intents (Avsikter) markerade i det vänstra navigeringsfältet](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-domain-added-expanded.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-domain-added-expanded.png#lightbox)
-
-4.  Välj avsikten **RestaurantReservation.Reserve**. 
-
-    [ ![Skärmbild på Intents list (Lista över avsikter) med RestaurantReservation.Reserve markerat](./media/luis-quickstart-intent-and-sentiment-analysis/select-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/select-intent.png#lightbox)
-
-5. Växla **Entities View** (Entitetsvy) för att se de många yttranden som medföljer de märkta domänspecifika entiteterna.
-
-    [ ![Skärmbild på avsikten RestaurantReservation.Reserve med Entities View (Entitetsvy) växlad för att markera vyn Token](./media/luis-quickstart-intent-and-sentiment-analysis/utterance-list-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/utterance-list-expanded.png#lightbox)
+    [ ![Skärmbild på LUIS-appen med exempelyttranden i avsikten EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
-LUIS känner inte till ändringarna av avsikterna och entiteterna (modellen) förrän den tränas. 
+LUIS känner inte till den nya avsikten och dess exempelyttranden förrän den har tränats. 
 
 1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Train** (Träna).
 
-    ![Skärmbild på markerad knapp Train (Träna)](./media/luis-quickstart-intent-and-sentiment-analysis/train-button-expanded.png)
+    ![Skärmbild på markerad knapp Train (Träna)](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
 
 2. Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
 
-    ![Skärmbild på meddelandefält om att Training (Träning) är klar ](./media/luis-quickstart-intent-and-sentiment-analysis/trained-expanded.png)
+    ![Skärmbild på meddelandefält om att Training (Träning) är klar ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-trained-inline.png)
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>Konfigurera appen för att inkludera sentimentanalys
-Sentimentanalys är aktiverat på sidan **Publish** (Publicera). 
+Konfigurera attitydanalys på sidan **Publish** (Publicera). 
 
 1. Välj **Publish** (Publicera) i det övre högra navigeringsfältet.
 
-    ![Skärmbild på sidan Intent (Avsikt) med knappen Publish (Publicera) expanderad ](./media/luis-quickstart-intent-and-sentiment-analysis/publish-expanded.png)
+    ![Skärmbild på sidan Intent (Avsikt) med knappen Publish (Publicera) expanderad ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-button-in-top-nav-highlighted.png)
 
-2. Välj **Enable Sentiment Analysis** (Aktivera sentimentanalys).
+2. Välj **Enable Sentiment Analysis** (Aktivera sentimentanalys). Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera).
 
-    ![Skärmbild på sidan Publish (Publicera) med Enable Sentiment Analysis (Aktivera sentimentanalys) aktiverat ](./media/luis-quickstart-intent-and-sentiment-analysis/enable-sentiment-expanded.png)
-
-3. Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera).
-
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/publish-to-production-inline.png "Skärmbild på sidan Publish (Publicera) med knappen Publish to production slot (Publicera till produktionsplats) markerad")](media/luis-quickstart-intent-and-sentiment-analysis/publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "Skärmbild på sidan Publish (Publicera) med knappen Publish to production slot (Publicera till produktionsplats) markerad")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
 
 4. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
 
@@ -112,34 +106,102 @@ Sentimentanalys är aktiverat på sidan **Publish** (Publicera).
 
 1. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. 
 
-    ![Skärmbild på sidan Publish (Publicera) med slutpunkts-URL markerad](media/luis-quickstart-intent-and-sentiment-analysis/endpoint-url-inline.png)
+    ![Skärmbild på sidan Publish (Publicera) med slutpunkts-URL markerad](media/luis-quickstart-intent-and-sentiment-analysis/hr-endpoint-url-inline.png)
 
-2. Gå till slutet av URL:en i adressen och ange `Reserve table for  10 on upper level away from kitchen`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `RestaurantReservation.Reserve` med sentimentanalysen extraherad.
+2. Gå till slutet av URL:en i adressen och ange `Jill Jones work with the media team on the public portal was amazing`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `EmployeeFeedback` med sentimentanalysen extraherad.
 
 ```
 {
-  "query": "Reserve table for 10 on upper level away from kitchen",
+  "query": "Jill Jones work with the media team on the public portal was amazing",
   "topScoringIntent": {
-    "intent": "RestaurantReservation.Reserve",
-    "score": 0.9926384
+    "intent": "EmployeeFeedback",
+    "score": 0.4983256
   },
   "intents": [
     {
-      "intent": "RestaurantReservation.Reserve",
-      "score": 0.9926384
+      "intent": "EmployeeFeedback",
+      "score": 0.4983256
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.06617523
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.04631853
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.0103248553
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.007531875
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00344597152
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00337914471
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.0026357458
     },
     {
       "intent": "None",
-      "score": 0.00961109251
+      "score": 0.00214573368
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00157622492
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 7.379545E-05
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "entity": "jill jones",
+      "type": "Employee",
+      "startIndex": 0,
+      "endIndex": 9,
+      "resolution": {
+        "values": [
+          "Employee-45612"
+        ]
+      }
+    },
+    {
+      "entity": "media team",
+      "type": "builtin.keyPhrase",
+      "startIndex": 25,
+      "endIndex": 34
+    },
+    {
+      "entity": "public portal",
+      "type": "builtin.keyPhrase",
+      "startIndex": 43,
+      "endIndex": 55
+    },
+    {
+      "entity": "jill jones",
+      "type": "builtin.keyPhrase",
+      "startIndex": 0,
+      "endIndex": 9
+    }
+  ],
   "sentimentAnalysis": {
-    "label": "neutral",
-    "score": 0.5
+    "label": "positive",
+    "score": 0.8694164
   }
 }
 ```
+
+sentimentAnalysis är positiv med ett poängresultat på 0,86. 
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
 Med sentimentanalys aktiverat identifierade den här appen en frågeavsikt i naturligt språk och returnerade extraherade data, inklusive det totala sentimentet som poäng. 

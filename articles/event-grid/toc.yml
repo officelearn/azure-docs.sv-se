@@ -89,6 +89,12 @@
       href: /powershell/module/azurerm.eventgrid
     - name: REST
       href: /rest/api/eventgrid
+    - name: Mallresurser
+      items:
+        - name: Prenumerationer på händelser
+          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+        - name: Ämnen
+          href: /azure/templates/microsoft.eventgrid/topics
     - name: 'SDK:er'
       href: sdk-overview.md
     - name: Prenumerationsschema

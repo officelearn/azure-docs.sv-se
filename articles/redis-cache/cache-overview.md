@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 8f477282e49104e9b034e11656ff50c2a67545f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5efb0087c8e1ea55051d8eb7b209059b3abd5c5c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195880"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062767"
 ---
 # <a name="what-is-azure-redis-cache"></a>Vad är Azure Redis Cache?
 
@@ -77,6 +77,7 @@ En detaljerad jämförelse av respektive nivå finns på sidan med [priser för 
 
 * [Snabbstart för ASP.NET-webbprogram](cache-web-app-howto.md) Skapa ett enkelt ASP.NET-webbprogram som använder Azure Redis Cache.
 * [Snabbstart för .NET](cache-dotnet-how-to-use-azure-redis-cache.md) Skapa ett .NET-program som använder Azure Redis Cache.
+* [Snabbstart för .NET Core](cache-dotnet-core-quickstart.md) Skapa en .NET Core-app som använder Azure Redis Cache.
 * [Snabbstart för Node.js](cache-nodejs-get-started.md) Skapa en enkel Node.js-app som använder Azure Redis Cache.
 * [Snabbstart för Java](cache-java-get-started.md) Skapa en enkel Java-app som använder Azure Redis Cache.
 * [Snabbstart för Python](cache-python-get-started.md) Skapa en Python-app som använder Azure Redis Cache.

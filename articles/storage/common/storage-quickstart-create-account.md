@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 1dffceb629df5d0197bfc8ac66120df3912d70b1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7f6357c5b0be12c18797e82b73bd05af42888aa0
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603784"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752341"
 ---
 # <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -165,7 +165,7 @@ Följ de här stegen för att skapa ett GPv2-konto för generell användning i A
 1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och välja **Alla tjänster**. Rulla ned till **lagring** och välj **lagringskonton**. På fönstret **lagringskonton** som visas, väljer du **lägg till**.
 2. Ange ett namn för lagringskontot.
 3. Sätt fältet **Typ av konto** till **StorageV2 (generell användning v2)**.
-4. Låt fältet **Replikering** stå som **Lokalt redundant lagring (LRS)**. Alternativt kan du välja **Zonredundant lagring (ZRS förhandsversion)**, **Geo-redundant lagring (GRS)** eller **Read-Access Geo-Redundant Storage (RA-GRS)**.
+4. Låt fältet **Replikering** stå som **Lokalt redundant lagring (LRS)**. Alternativt kan du välja **Zonredundant lagring (ZRS) (förhandsversion)**, **Geo-redundant lagring (GRS)** eller **Read-Access Geo-Redundant Storage (RA-GRS)**.
 5. Behåll standardvärdena för dessa fält: **Distributionsmodell**, **Prestanda**, **Säker överföring krävs**.
 6. Välj den prenumeration där du vill skapa lagringskontot.
 7. I avsnittet **Resursgrupp** väljer du **Använd befintlig** och väljer sedan den resursgrupp du skapade i föregående avsnitt.
@@ -186,7 +186,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2 
 ```
 
-Du kan skapa ett GPv2-lagringskonto for generell användning med zonredundant lagring (ZRS förhandsversion), geo-redundant lagring (GRS) eller read-access geo-redundant storage (RA-GRS) genom att ersätta det önskade värdet i tabellen nedan med **SkuName**-parametern. 
+Du kan skapa ett GPv2-lagringskonto for generell användning med zonredundant lagring (ZRS) (förhandsversion), geo-redundant lagring (GRS) eller read-access geo-redundant storage (RA-GRS) genom att ersätta **SkuName**-parametern med det önskade värdet i tabellen nedan. 
 
 |Replikeringsalternativ  |SkuName-parameter  |
 |---------|---------|
@@ -219,13 +219,7 @@ Du kan skapa ett GPv2-lagringskonto for generell användning med zonredundant la
 
 ---
 
-> [!NOTE]
-> [Zonredundant lagring](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) finns för närvarande i förhandsversion och är endast tillgängligt på följande platser:
->    - Östra USA 2
->    - Centrala USA
->    - Centrala Frankrike (Den här regionen är en förhandsversion. Läs mer om [förhandsversion av Microsoft Azure med tillgänglighetszoner som öppnats i Frankrike](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) om du vill begära åtkomst.)
-    
-Mer information om olika typer av replikering som är tillgängliga finns i [Alternativ för lagringsreplikering](storage-redundancy.md).
+Mer information om tillgängliga replikeringsalternativ finns i [Storage replication options](storage-redundancy.md) (Alternativ för lagringsreplikering).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

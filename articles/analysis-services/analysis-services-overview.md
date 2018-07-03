@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/05/2018
+ms.date: 06/21/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 52695ba495b088d30a5ee039d3e24eb274957bff
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 07768dbc8beb7a851d442e9e0c3e7538bf12b766
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234564"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937945"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -31,7 +31,7 @@ På Azure Portal kan du [skapa en server](analysis-services-create-server.md) p�
 
 **Video:** Se [Automatiseringsdistribution](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) för mer information om hur du kan använda Azure Automation för att snabbare skapa servrar.
 
-Azure Analysis Services integreras med många Azure-tjänster vilket gör att du kan skapa lösningar för avancerade analyser. Integreringen med [Azure Active Directory](../active-directory/active-directory-whatis.md) ger dig säker, rollbaserad åtkomst till dina viktiga data. Integrera i en [Azure Data Factory](../data-factory/introduction.md)-pipeline genom att omfatta en aktivitet som läser in data i modellen. [Azure Automation](../automation/automation-intro.md) och [Azure Functions](../azure-functions/functions-overview.md) kan användas för att utföra enkel orkestrering av modeller med anpassad kod. 
+Azure Analysis Services integreras med många Azure-tjänster vilket gör att du kan skapa lösningar för avancerade analyser. Integreringen med [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) ger dig säker, rollbaserad åtkomst till dina viktiga data. Integrera i en [Azure Data Factory](../data-factory/introduction.md)-pipeline genom att omfatta en aktivitet som läser in data i modellen. [Azure Automation](../automation/automation-intro.md) och [Azure Functions](../azure-functions/functions-overview.md) kan användas för att utföra enkel orkestrering av modeller med anpassad kod. 
 
 ## <a name="the-right-tier-when-you-need-it"></a>Rätt nivå när du behöver den
 
@@ -72,39 +72,41 @@ Den här nivån passar bäst för verksamhetskritiska produktionsprogram som kr�
 
 ## <a name="availability-by-region"></a>Tillgänglighet efter region
 
-Azure Analysis Services stöds i regioner över hela världen. Garantera [hög tillgänglighet](analysis-services-bcdr.md) genom att distribuera modellerna på redundanta servrar i flera regioner. Nivåer som stöds och frågerepliker är beroende av den region som väljs. 
+Azure Analysis Services stöds i regioner över hela världen. Planer som stöds och tillgänglighet för frågereplik är beroende av den region som väljs. Tillgänglighet för plan och frågereplik kan ändras beroende på behov och tillgängliga resurser för varje region. 
 
 ### <a name="americas"></a>Nord- och Sydamerika
 
-|Region  | Nivåer som stöds | Frågerepliker |
+|Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
 |Södra Brasilien     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Centrala Kanada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Östra USA     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|Östra USA 2     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
+|Östra USA 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
 |Norra centrala USA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|Centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Södra centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Västra centrala USA   |     B1, B2, S0, S1, S2, S4, D1    |    7     |
-|Västra USA     |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
-|USA, västra 2    |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    1     |
+|Västra centrala USA   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|Västra USA     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|USA, västra 2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
 
 ### <a name="europe"></a>Europa
 
-|Region  | Nivåer som stöds | Frågerepliker |
+|Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
-|Norra Europa     |    B1, B2, S0, S1, S2, S4, D1      |    1     |
+|Norra Europa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Storbritannien, södra   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Västra Europa     |    B1, B2, S0, S1, S2, S4, S8, S9, D1      |    7     |
+|Västra Europa     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
 
 ### <a name="asia-pacific"></a>Asien och stillahavsområdet 
 
-|Region  | Nivåer som stöds | Frågerepliker |
+|Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
 |Sydöstra Australien     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Östra Japan  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Sydostasien     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   3      |
+|Sydostasien     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
 |Indien, västra     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+
+\* S8- och S9-planer på standardnivån stödjer en frågereplik.
 
 ## <a name="scale-to-your-needs"></a>Skala efter behov
 
@@ -116,7 +118,7 @@ Gå upp, ned eller pausa din server. Använd Azure Portal eller få fullständig
 
 Med skalning distribueras klientfrågor över flera *frågerepliker* i en frågepool. Frågerepliker har synkroniserade kopior av dina tabellmodeller. Genom att sprida frågearbetsbelastningen kan svarstiderna minskas under stora frågearbetsbelastningar. Modellbearbetning kan separeras från frågepoolen. Det här säkerställer att klientfrågor inte påverkas negativt av bearbetningsåtgärder. 
 
-Du kan skapa en frågepool med upp till sju ytterligare frågerepliker (åtta totalt, inklusive din server). Antalet frågerepliker som du kan ha i din pool beror på den valda regionen. Frågerepliker kan inte spridas utanför din serverregion. Frågerepliker debiteras med samma avgift som din server.
+Du kan skapa en frågepool med upp till sju ytterligare frågerepliker (åtta totalt, inklusive din server). Antalet frågerepliker som du kan ha i din pool beror på den valda planen och regionen. Frågerepliker kan inte spridas utanför din serverregion. Frågerepliker debiteras med samma avgift som din server.
 
 Du kan skala ut frågerepliker efter dina behov, precis som för att ändra nivån. Konfigurera skalning i portalen eller med hjälp av REST API: er. Läs mer i [Skalning av Azure Analysis Services](analysis-services-scale-out.md).
 
@@ -148,7 +150,7 @@ Azure Analysis Services brandvägg blockerar alla klientanslutningar förutom IP
 
 ### <a name="authentication"></a>Autentisering
 
-Användarautentisering hanteras av [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Vid inloggning använder användare en organisationskontoidentitet med rollbaserad åtkomst till databasen. Användaridentiteter måste vara medlemmar i standard-Azure Active Directory för den prenumeration som servern finns i. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
+Användarautentisering hanteras av [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md). Vid inloggning använder användare en organisationskontoidentitet med rollbaserad åtkomst till databasen. Användaridentiteter måste vara medlemmar i standard-Azure Active Directory för den prenumeration som servern finns i. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
 
 ### <a name="data-security"></a>Datasäkerhet
 

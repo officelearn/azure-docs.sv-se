@@ -11,25 +11,22 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 23d4afffbe108d439dd53d95ed81f7d9fc4246ef
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 4df392ec7e100ef0efcbb3876079710a6b9ca4fb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284586"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048034"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Kopiera data med verktyget Kopiera data 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Version 2 – förhandsversion](quickstart-create-data-factory-copy-data-tool.md)
+> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Aktuell version](quickstart-create-data-factory-copy-data-tool.md)
 
 I den här snabbstarten använder du Azure-portalen för att skapa en datafabrik. Sedan använder du verktyget Kopiera data för att skapa en pipeline som kopierar data från en mapp i en Azure Blob Storage till en annan mapp. 
 
 > [!NOTE]
 > Om du inte har använt Azure Data Factory tidigare kan du läsa [Introduktion till Azure Data Factory](data-factory-introduction.md). 
->
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av tjänsten som är allmänt tillgänglig ska du läsa [Kom igång med Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
@@ -52,7 +49,7 @@ I den här snabbstarten använder du Azure-portalen för att skapa en datafabrik
    - Välj **Skapa ny** och ange namnet på en resursgrupp.   
          
    Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
-4. För **Version** väljer du **V2 (förhandsversion)**.
+4. För **Version** väljer du **V2**.
 5. För **Plats** väljer du en plats för datafabriken. 
 
    Endast platser som stöds visas på listan. Datalager (som Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan finnas på andra platser/regioner.
@@ -85,7 +82,7 @@ I den här snabbstarten använder du Azure-portalen för att skapa en datafabrik
 
     ![Välj blobblagring från galleriet](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-    c. Sidan för att **ange Azure Blob Storage-konto** visas. Välj ditt lagringskonto i listan med **lagringskontonamn** och välj sedan **Nästa**. 
+    c. På sidan där du **anger Azure Blob Storage-konto** väljer du ditt lagringskonto i listan med **lagringskontonamn**. Välj sedan **Avsluta**. 
 
    ![Konfigurera Azure Blob Storage-konto](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 

@@ -3,7 +3,7 @@ title: Kopiera flera tabeller stegvis med Azure Data Factory | Microsoft Docs
 description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar deltadata stegvis från flera tabeller i en lokal SQL Server-databas till en Azure SQL-databas.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
-ms.author: jingwang
-ms.openlocfilehash: 399e132f0a28ffc6b60e3d757afff5aae60f7674
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: c35d267acfd1778e80605cdfe9eec0edbb18a281
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052852"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
@@ -36,9 +37,6 @@ I den här självstudiekursen får du göra följande:
 > * Lägga till eller uppdatera data i källtabeller.
 > * Köra och övervaka pipelinen igen.
 > * Granska de slutliga resultaten.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Azure Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, hittar du information i [dokumentationen för Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Översikt
 Här är några viktiga steg för att skapa den här lösningen: 
@@ -369,16 +367,25 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
 3. Du ser en ny flik öppnas i webbläsaren för att konfigurera datauppsättningen. Du kan också se datauppsättningen i trädvyn. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **SinkDataset** som **namn**.
 
    ![Datauppsättning för mottagare – allmänt](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-general.png)
-4. Byt till fliken **Connection** (Anslutning) i fönstret Egenskaper och välj **AzureSqlLinkedService** för **Linked service** (Länkad tjänst). 
-
-   ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
-5. Växla till fliken **Parameters** (Parametrar) i fönstret Egenskaper och utför följande steg: 
+4. Växla till fliken **Parameters** (Parametrar) i fönstret Egenskaper och utför följande steg: 
 
     1. Klicka på **+ Ny** i avsnittet för att **skapa/uppdatera parametrar**. 
     2. Ange **SinkTableName** som **namn**, och **String** som **typ**. Den här datauppsättningen tar **SinkTableName** som en parameter. Parametern SinkTableName anges dynamiskt vid körning av pipelinen. ForEach-aktiviteten i pipelinen upprepas över en lista med tabellnamn och skickar tabellnamnet till datamängden i varje iteration.
-    3. I avsnittet `@{dataset().SinkTableName}`Parametriserade egenskaper**anger du** för egenskapen **tableName**. Du använder värdet som skickas till parametern **SinkTableName** för att initiera egenskapen **tableName** för datauppsättningen. 
-
+   
        ![Mottagardatauppsättning – egenskaper](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+5. Byt till fliken **Connection** (Anslutning) i fönstret Egenskaper och välj **AzureSqlLinkedService** för **Linked service** (Länkad tjänst). För egenskapen **Table** (Tabell) klickar du på **Add dynamic content** (Lägg till dynamiskt innehåll). 
+
+   ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
+    
+    
+6. Välj **SinkTableName** i avsnittet **Parameters** (Parametrar)
+   
+   ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
+
+   
+ 7. När du klickar på **Finish** (Slutför) visas **@dataset().SinkTableName** som tabellens namn.
+   
+   ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
 ### <a name="create-a-dataset-for-a-watermark"></a>Skapa en datauppsättning för en vattenstämpel
 I det här steget skapar du en datauppsättning för att lagra ett värde för ett högvattenmärke. 
@@ -644,7 +651,7 @@ VALUES
     ]
     ```
 
-## <a name="monitor-the-pipeline"></a>Övervaka pipeline
+## <a name="monitor-the-pipeline-again"></a>Övervaka pipelinen igen
 
 1. Växla till fliken **Övervaka** till vänster. Du kan se den pipelinekörning som utlöstes av den **manuella utlösaren**. Om du vill uppdatera listan klickar du på **Uppdatera**. Med länkarna i kolumnen **Action** (Åtgärd) kan du visa de aktivitetskörningar som är associerade med pipelinekörningar och köra pipelinen på nytt. 
 

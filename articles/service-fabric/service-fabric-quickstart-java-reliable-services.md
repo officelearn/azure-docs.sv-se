@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 13d350950e91d771b7b4b2310a788537c4c36bd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5ae6ba28ba448591d58cc3963f5df9a563997ab0
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642401"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959553"
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Snabbstart: Distribuera ett Java Service Fabric-program (tillförlitliga tjänster) till Azure
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av mikrotjänster och behållare. 
@@ -120,13 +120,13 @@ Använd den metod som du är mest bekväm med till att importera certifikatet p�
 
 Certifikattumavtrycket måste läggas till i ditt program eftersom det använder Service Fabrics programmeringsmodeller. 
 
-1. Du kommer att behöva tumavtrycket för certifikatet i ```Voting/VotingApplication/ApplicationManiest.xml```-filen när du kör på ett säkert kluster. Kör följande kommando för att extrahera tumavtrycket för certifikatet.
+1. Du kommer att behöva tumavtrycket för certifikatet i `Voting/VotingApplication/ApplicationManifest.xml`-filen när du kör på ett säkert kluster. Kör följande kommando för att extrahera tumavtrycket för certifikatet.
 
     ```bash
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. I ```Voting/VotingApplication/ApplicationManiest.xml``` lägger du till följande kodavsnitt under taggen **ApplicationManifest**. **X509FindValue** ska vara tumavtrycket från föregående steg (inga semikolon). 
+2. I filen `Voting/VotingApplication/ApplicationManifest.xml` lägger du till följande kodavsnitt under taggen **ApplicationManifest**. **X509FindValue** ska vara tumavtrycket från föregående steg (inga semikolon). 
 
     ```xml
     <Certificates>

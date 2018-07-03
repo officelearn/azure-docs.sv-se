@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 035deabd04b8b838e0009f2cae96b0761733897f
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: f839b05a1d97ce78601697469c982839358d6b06
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248249"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300864"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Självstudiekurs: Övervaka Windows-behållare i Service Fabric med Log Analytics
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig hur man:
 > [!div class="checklist"]
 > * Konfigurera Log Analytics för Service Fabric-kluster
 > * Använda en Log Analytics-arbetsyta till att visa och fråga loggar från behållare och noder
-> * konfigurerar OMS-agenten så att behållare och nodvärden hämtas in.
+> * Konfigurera Log Analytics-agenten så att behållare och nodvärden hämtas in
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du börjar de här självstudierna bör du:
@@ -81,7 +81,7 @@ Gör följande ändringar i *template.json*:
     "omsSolution": "ServiceFabric"
     ```
 
-3. Lägg till OMS Microsoft Monitoring Agent som tillägg för virtuell dator. Hitta resursen skalningsuppsättningar för virtuella datorer: *resurser* > *"apiVersion": "[variables('vmssApiVersion')]"*. Under *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* lägger du till följande tilläggsbeskrivning under tillägget *ServiceFabricNode*: 
+3. Lägg till Microsoft Monitoring Agent som ett tillägg för virtuella datorer. Hitta resursen skalningsuppsättningar för virtuella datorer: *resurser* > *"apiVersion": "[variables('vmssApiVersion')]"*. Under *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* lägger du till följande tilläggsbeskrivning under tillägget *ServiceFabricNode*: 
     
     ```json
     {
@@ -181,7 +181,7 @@ Gör följande ändringar i *template.json*:
     },
     ```
 
-[Här](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) är en exempelmall (används i del 1 i den här guiden). I den finns alla ändringarna, att referera till vid behov. De här ändringarna lägger till Log Analytics-arbetsytan i resursgruppen. Arbetsytan konfigureras så att den hämtar upp Service Fabric-plattformshändelser från lagringstabeller som har konfigurerats med [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)-agenten. OMS-agenten (Microsoft Monitoring Agent) har också lagts till i varje nod i klustret som tillägg för virtuell dator. Det innebär att agenten konfigureras automatiskt på varje dator och kopplas till samma arbetsyta när du skalar klustret.
+[Här](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) är en exempelmall (används i del 1 i den här guiden). I den finns alla ändringarna, att referera till vid behov. De här ändringarna lägger till Log Analytics-arbetsytan i resursgruppen. Arbetsytan konfigureras så att den hämtar upp Service Fabric-plattformshändelser från lagringstabeller som har konfigurerats med [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)-agenten. Log Analytics-agenten (Microsoft Monitoring Agent) har också lagts till i varje nod i klustret som ett tillägg för virtuella datorer. Det innebär att agenten konfigureras automatiskt på varje dator och kopplas till samma arbetsyta när du skalar klustret.
 
 Distribuera mallen med dina ändringar för att uppgradera det aktuella klustret. Du bör se Log Analytics-resurserna i resursgruppen när det här har slutförts. När klustret är klart kan du distribuera program i behållare till det. I nästa steg ställer vi in behållarövervakning.
 
@@ -191,7 +191,7 @@ När du vill konfigurera behållarlösningen i arbetsyta söker du efter *Lösni
 
 ![Lägga till behållarlösning](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-När du tillfrågas om *Log Analytics-arbetsytan* markerar du den arbetsyta som skapades i resursgruppen och klickar på **Skapa**. Det här lägger till en *lösning för övervakning av behållare*  på arbetsytan. Det gör automatiskt att OMS-agenten som driftsattes av mallen börjar samla in dockerloggar och statistik. 
+När du tillfrågas om *Log Analytics-arbetsytan* markerar du den arbetsyta som skapades i resursgruppen och klickar på **Skapa**. Det här lägger till en *lösning för övervakning av behållare*  på arbetsytan. Det gör automatiskt att Log Analytics-agenten som driftsattes av mallen börjar samla in docker-loggar och statistik. 
 
 Navigera tillbaka till *resursgruppen*. Du bör nu se den nyligen tillagda övervakningslösningen. Om du klickar på den visar landningssidan antalet behållaravbildningar som körs. 
 
@@ -211,11 +211,11 @@ Om du klickar på någon av dessa paneler dirigeras du till Log Analytics-fråga
 
 ![Behållarfråga](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
-## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>Konfigurera OMS-agent för att hämta in prestandaräknare
+## <a name="configure-log-analytics-agent-to-pick-up-performance-counters"></a>Konfigurera Log Analytics-agenten för att hämta prestandaräknare
 
-En annan fördel med att använda OMS-agenten är möjligheten att ändra de prestandaräknare som du hämtar in i OMS UI-miljön. Du slipper att konfigurera Azure-diagnostikagenten och genomföra en uppgradering baserad på resurshanteringsmallen varje gång. För att göra det klickar du på **OMS-arbetsytan** på landningssidan för lösningen för övervakning av behållare (eller Service Fabric).
+En annan fördel med att använda Log Analytics-agenten är möjligheten att ändra de prestandaräknare som du hämtar in i Log Analytics UI-miljön. Du slipper att konfigurera Azure-diagnostikagenten och genomföra en uppgradering baserad på resurshanteringsmallen varje gång. För att göra det klickar du på **OMS-arbetsytan** på landningssidan för lösningen för övervakning av behållare (eller Service Fabric).
 
-Det tar dig till OMS-arbetsytan där du kan se dina lösningar, skapa anpassade instrumentpaneler och konfigurera OMS-agenten. 
+Det tar dig till Log Analytics-arbetsytan där du kan se dina lösningar, skapa anpassade instrumentpaneler och konfigurera Log Analytics-agenten. 
 * Klicka på **Avancerade inställningar** för att öppna menyn Avancerade inställningar.
 * Klicka på **Anslutna källor** > **Windows-servrar** för att kontrollera att du har *5 anslutna Windows-datorer*.
 * Klicka på **Data** > **Windows-prestandaräknare** för att söka efter och lägga till nya prestandaräknare. Här visas en lista över rekommendationer från Log Analytics för prestandaräknare som du kan samla in samt alternativet att söka efter andra räknare. Kontrollera att räknarna **Processor(_Total)\% Processortid** och **Minne (*) \Tillgängliga megabyte** samlas in.

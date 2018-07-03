@@ -1,5 +1,5 @@
 ---
-title: Skapa en Kubernetes-utvecklingsmiljö i molnet med .NET Core och Visual Studio | Microsoft Docs
+title: Skapa en Kubernetes-utvecklarmiljö i molnet med .NET Core och Visual Studio | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,18 +11,18 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 012efcbd3fa87268f3a68fdac524ce8310d10120
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 93c1c9cb27e5eb2d56583dccaffe92e9d50ecc2d
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362064"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959282"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Komma igång med Azure Dev Spaces med .NET Core och Visual Studio
 
 I den här guiden får du lära dig hur du:
 
-- Skapar en Kubernetes-baserad miljö i Azure som är optimerad för utveckling.
+- Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 - Iterativt utvecklar kod i behållare med Visual Studio.
 - Oberoende utvecklar två separata tjänster och använder Kubernetes DNS-tjänstidentifiering för att anropa en annan tjänst.
 - Effektivt utvecklar och testar din kod i en teammiljö.
@@ -37,9 +37,11 @@ I den här guiden får du lära dig hur du:
     * ASP.NET och webbutveckling
 1. Installera [Visual Studio-tillägget för Azure Dev Spaces](https://aka.ms/get-azds-visualstudio)
 
-Nu är du redo att skapa en ASP.NET-webbapp med Visual Studio.
+## <a name="create-a-web-app-running-in-a-container"></a>Skapa en webbapp som körs i en behållare
 
-## <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
+I det här avsnittet ska du skapa en ASP.NET Core-webbapp och köra den i en behållare i Kubernetes.
+
+### <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
 
 Skapa ett nytt projekt i Visual Studio 2017. För närvarande måste projektet vara ett **ASP.NET Core-webbprogram**. Ge projektet namnet ”**webfrontend**”.
 
@@ -50,9 +52,9 @@ Välj mallen **Webbprogram (MVC, Model-View-Controller)** och välj **.NET Core*
 ![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
 
 
-## <a name="create-a-dev-environment-in-azure"></a>Skapa en utvecklingsmiljö i Azure
+### <a name="enable-dev-spaces-for-an-aks-cluster"></a>Aktivera Dev Spaces för ett AKS-kluster
 
-Med Azure Dev Spaces kan du skapa Kubernetes-baserade utvecklingsmiljöer som hanteras helt av Azure och som är optimerade för utveckling. För projektet som du nyss skapat väljer du **Azure Dev Spaces** i listrutan för startinställningar, som du ser nedan.
+För projektet som du nyss skapat väljer du **Azure Dev Spaces** i listrutan för startinställningar, som du ser nedan.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
@@ -79,35 +81,59 @@ Välj **OK**.
 > [!Note]
 > Du kan inte felsöka programmet förrän utvecklingsmiljön har skapats.
 
-## <a name="look-at-the-files-added-to-project"></a>Titta på filerna som lagts till i projektet
+### <a name="look-at-the-files-added-to-project"></a>Titta på filerna som lagts till i projektet
 Medan utvecklingsmiljön skapas kan du titta på filerna som lades till i projektet när du valde att använda en utvecklingsmiljö.
 
 Först ser du att en mapp med namnet `charts` har lagts till och att ett [Helm-diagram](https://docs.helm.sh) har skapats för ditt program i den här mappen. Dessa filer används för att distribuera ditt program till utvecklingsmiljön.
 
-Du ser att en fil med namnet `Dockerfile` har lagts till. Den här filen innehåller information som behövs för att paketera ditt program i Docker-standardformatet. En `HeaderPropagation.cs`-fil skapas också. Vi diskuterar den här filen lite längre fram i genomgången. 
+Du ser att en fil med namnet `Dockerfile` har lagts till. Den här filen innehåller information som behövs för att paketera ditt program i Docker-standardformatet.
 
-Slutligen ser du också en fil med namnet `azds.yaml`, som innehåller konfigurationsinformation som krävs av utvecklingsmiljön, t.ex. huruvida programmet ska vara tillgängligt via en offentlig slutpunkt.
+Slutligen ser du en fil med namnet `azds.yaml`, som innehåller den utvecklingstidskonfiguration som krävs av utvecklingsmiljön.
 
 ![](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
 ## <a name="debug-a-container-in-kubernetes"></a>Felsöka en behållare i Kubernetes
 När utvecklingsmiljön har skapats kan du felsöka programmet. Lägg till en brytpunkt i koden, till exempel på rad 20 i filen `HomeController.cs` där variabeln `Message` anges. Starta felsökningen genom att trycka på **F5**. 
 
-Visual Studio kommunicerar med utvecklingsmiljön för att skapa och distribuera programmet och öppnar sedan en webbläsare där webbprogrammet körs. Det kan verka som om behållaren körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure. localhost-adressen beror på att Azure Dev Spaces skapar en tillfällig SSH-tunnel för behållaren som körs i Azure.
+Visual Studio kommunicerar med utvecklingsmiljön för att skapa och distribuera programmet och öppnar sedan en webbläsare där webbprogrammet körs. Det kan verka som om behållaren körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure. localhost-adressen beror på att Azure Dev Spaces skapar en tillfällig SSH-tunnel för behållaren som körs i AKS.
 
 Klicka på länken **Om** längst upp på sidan för att utlösa brytpunkten. Du har fullständig åtkomst till felsökningsinformation precis som när koden körs lokalt, t.ex. anropsstack, lokala variabler, undantagsinformation och så vidare.
+
+## <a name="iteratively-develop-code"></a>Iterativ kodutveckling
+
+Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
+
+### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
+1. Leta upp filen `./Views/Home/Index.cshtml` och gör en ändring i HTML-koden. Ändra till exempel rad 70, `<h2>Application uses</h2>`, till något som: `<h2>Hello k8s in Azure!</h2>`
+1. Spara filen.
+1. Gå till webbläsaren och uppdatera sidan. Den uppdaterade HTML-koden bör visas på webbsidan.
+
+Vad hände? Redigering av innehållsfiler som HTML och CSS kräver inte omkompilering i en .NET Core-webbapp. En aktiv F5-session synkroniserar automatiskt ändrade innehållsfiler i behållaren som körs i AKS, så att du genast kan se dina innehållsändringar.
+
+### <a name="update-a-code-file"></a>Uppdatera en kodfil
+Uppdateringar av kodfiler kräver lite mer arbete eftersom .NET Core-appar måste återskapas och skapa uppdaterade binärfiler för programmet.
+
+1. Stoppa felsökaren i Visual Studio.
+1. Öppna kodfilen `Controllers/HomeController.cs` och ändra meddelandet som ska visas på sidan Om: `ViewData["Message"] = "Your application description page.";`
+1. Spara filen.
+1. Starta felsökningen igen genom att trycka på **F5**. 
+
+I stället för att återskapa och distribuera om en ny behållaravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i befintliga behållaren för snabbare redigerings- och felsökningsförlopp.
+
+Uppdatera webbappen i webbläsaren och gå till sidan Om. Nu bör ditt anpassade meddelande visas i användargränssnittet.
+
 
 ## <a name="call-another-container"></a>Anropa en annan behållare
 I det här avsnittet ska du skapa en andra tjänst, `mywebapi`, som ska anropas av `webfrontend`. Varje tjänst körs i en separat behållare. Du ska sedan felsöka båda behållarna.
 
 ![](media/common/multi-container.png)
 
-## <a name="download-sample-code-for-mywebapi"></a>Ladda ned exempelkoden för *mywebapi*
-För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå till https://github.com/Azure/dev-spaces och välj **Klona eller Ladda ned** för att hämta GitHub-databasen. Koden för det här avsnittet finns i `samples/dotnetcore/getting-started/mywebapi`.
+### <a name="download-sample-code-for-mywebapi"></a>Ladda ned exempelkoden för *mywebapi*
+För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå till https://github.com/Azure/dev-spaces och välj **Klona eller Ladda ned** för att ladda ned GitHub-databasen. Koden för det här avsnittet finns i `samples/dotnetcore/getting-started/mywebapi`.
 
-## <a name="run-mywebapi"></a>Kör *mywebapi*
+### <a name="run-mywebapi"></a>Kör *mywebapi*
 1. Öppna projektet `mywebapi` i ett *separat fönster i Visual Studio*.
-1. Välj **Azure Dev Spaces** i listrutan med startinställningar som du gjorde tidigare för projektet `webfrontend`. Den här gången, i stället för att skapa en ny utvecklingsmiljö, väljer du samma miljö som du redan skapat. Precis som förut lämnar du standardinställningen `default` för Utrymme och klickar på **OK**. I fönstret Utdata kanske du märker att Visual Studio börjar ”värma upp” den här nya tjänsten i utvecklingsmiljön för att påskynda förloppet när du börjar felsöka.
+1. Välj **Azure Dev Spaces** i listrutan med startinställningar som du gjorde tidigare för projektet `webfrontend`. I stället för att skapa ett nytt AKS-kluster väljer du den här gången samma som du redan skapat. Precis som förut lämnar du standardinställningen `default` för Utrymme och klickar på **OK**. I fönstret Output (Utdata) märker du kanske att Visual Studio börjar ”värma upp” den här nya tjänsten i utvecklingsmiljön för att påskynda förloppet när du börjar felsöka.
 1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Processen är klar när statusfältet i Visual Studio blir orange
 1. Anteckna slutpunktens webbadress som visas i fönstret **Azure Dev Spaces för AKS** i fönstret **Utdata**. Den ser ut ungefär så här: http://localhost:\<portnumber\>. Det kan verka som om behållaren körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure.
 2. När `mywebapi` är klar öppnar du webbläsaren på localhost-adressen och lägger till `/api/values` i URL:en för att anropa standard-GET-API:et för `ValuesController`. 
@@ -115,7 +141,7 @@ För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå t
 
     ![](media/get-started-netcore-visualstudio/WebAPIResponse.png)
 
-## <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Skicka en begäran från *webfrontend* till *mywebapi*
+### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Skicka en begäran från *webfrontend* till *mywebapi*
 Nu ska vi skriva kod i `webfrontend` som skickar en begäran till `mywebapi`. Växla till Visual Studio-fönstret som innehåller `webfrontend`-projektet. *Ersätt* koden för About-metoden i filen `HomeController.cs` med följande kod:
 
    ```csharp
@@ -123,26 +149,29 @@ Nu ska vi skriva kod i `webfrontend` som skickar en begäran till `mywebapi`. V�
    {
       ViewData["Message"] = "Hello from webfrontend";
 
-      // Use HeaderPropagatingHttpClient instead of HttpClient so we can propagate
-      // headers in the incoming request to any outgoing requests
-      using (var client = new HeaderPropagatingHttpClient(this.Request))
-      {
-          // Call *mywebapi*, and display its response in the page
-          var response = await client.GetAsync("http://mywebapi/api/values/1");
-          ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
-      }
+      using (var client = new System.Net.Http.HttpClient())
+            {
+                // Call *mywebapi*, and display its response in the page
+                var request = new System.Net.Http.HttpRequestMessage();
+                request.RequestUri = new Uri("http://mywebapi/api/values/1");
+                if (this.Request.Headers.ContainsKey("azds-route-as"))
+                {
+                    // Propagate the dev space routing header
+                    request.Headers.Add("azds-route-as", this.Request.Headers["azds-route-as"] as IEnumerable<string>);
+                }
+                var response = await client.SendAsync(request);
+                ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
+            }
 
       return View();
    }
    ```
 
-Observera hur Kubernetes DNS-tjänstidentifiering används för att referera till tjänsten som `http://mywebapi`. **Koden i din utvecklingsmiljö körs på samma sätt som den kommer att köras i produktionsmiljön**.
+I föregående kodexempel vidarebefordras rubriken `azds-route-as` från den inkommande till den utgående begäran. Senare ser du hur detta bidrar till en mer produktiv utvecklingsupplevelse i teamscenarier.
 
-I exemplet ovan används även en `HeaderPropagatingHttpClient`-klass. Den här hjälpklassen är filen `HeaderPropagation.cs` som lades till i projektet när du konfigurerade det att använda Azure Dev Spaces. `HeaderPropagatingHttpClient` härleds från den välkända `HttpClient`-klassen och lägger till funktioner som distribuerar specifika meddelandehuvuden från ett befintligt ASP .NET HttpRequest-objekt till ett utgående HttpRequestMessage-objekt. Senare ser du hur detta bidrar till en mer produktiv utvecklingsupplevelse i teamscenarier.
-
-## <a name="debug-across-multiple-services"></a>Felsöka över flera tjänster
+### <a name="debug-across-multiple-services"></a>Felsöka över flera tjänster
 1. I detta läge bör `mywebapi` fortfarande köras med felsökaren. Om inte trycker du på F5 i `mywebapi`-projektet.
-1. Ange en brytpunkt i `Get(int id)`-metoden i `ValuesController.cs`-filen som hanterar `api/values/{id}`-GET-begäranden.
+1. Ange en brytpunkt i `Get(int id)`-metoden i `Controllers/ValuesController.cs`-filen som hanterar `api/values/{id}`-GET-begäranden.
 1. I `webfrontend`-projektet där du klistrade in koden ovan lägger du till en brytpunkt precis innan en GET-begäran skickas till `mywebapi/api/values`.
 1. Tryck på F5 i `webfrontend`-projektet. Visual Studio öppnar återigen en webbläsare på lämplig localhost-port och webbappen visas.
 1. Klicka på länken **Om** längst upp på sidan för att utlösa brytpunkten i `webfrontend`-projektet. 
@@ -155,7 +184,7 @@ Bra gjort! Nu har du ett program med flera behållare där varje behållare kan 
 ## <a name="learn-about-team-development"></a>Lär dig mer om utveckling i team
 
 Hittills har du kört programmets kod som om du var den enda utvecklaren som arbetade med appen. I det här avsnittet lär du dig hur Azure Dev Spaces förenklar utvecklingen i ett team:
-* Flera utvecklare i ett team kan arbeta i samma utvecklingsmiljö.
+* Göra det möjligt för ett utvecklarteam att arbeta i samma miljö, genom att arbeta i en delad utvecklarmiljö eller i särskilda utvecklarmiljöer efter behov..
 * Varje utvecklare kan arbeta med sin egen kod utan att oroa sig för att skada andras kod.
 * Testa koden från slutpunkt till slutpunkt, innan koden checkas in, utan att skapa simulerade objekt eller beroendesimuleringar.
 
@@ -171,13 +200,13 @@ Föreställ dig att du arbetar med en tjänst som interagerar med en rad andra t
 
     ![](media/common/microservices-challenges.png)
 
-### <a name="work-in-a-shared-development-environment"></a>Arbeta i en delad utvecklingsmiljö
-Med Azure Dev Spaces kan du konfigurera en *delad* utvecklingsmiljö i Azure. Varje utvecklare kan fokusera på sin del av programmet, och kan arbeta med *icke incheckad kod* i en miljö som redan innehåller alla andra tjänster och molnresurser som krävs i det aktuella scenariot. Beroenden är alltid uppdaterade och utvecklarna arbetar på ett sätt som återspeglar produktionsmiljön.
+### <a name="work-in-a-shared-dev-space"></a>Arbeta i en delad utvecklarmiljö
+Med Azure Dev Spaces kan du konfigurera en *delad* utvecklarmiljö i Azure. Varje utvecklare kan fokusera på sin del av programmet, och kan arbeta med *icke incheckad kod* i en utvecklarmiljö som redan innehåller alla andra tjänster och molnresurser som krävs i det aktuella scenariot. Beroenden är alltid uppdaterade och utvecklarna arbetar på ett sätt som återspeglar produktionsmiljön.
 
 ### <a name="work-in-your-own-space"></a>Arbeta i ditt eget utrymme
 När du utvecklar kod för en tjänst är koden sällan perfekt förrän du väljer att checka in den. Du arbetar ju fortfarande med den, testar den och experimenterar med lösningar. Azure Dev Spaces införlivar begreppet **utrymme**, som innebär att du kan arbeta isolerat, utan att oroa dig för att skada andra teammedlemmars kod.
 
-Kontrollera att både `webfrontend`- och `mywebapi`-tjänsten körs i utvecklingsmiljön **och i `default`-utrymmet**.
+Gör följande för att se till att både `webfrontend`- och `mywebapi`-tjänsten körs **i `default`utvecklingsmiljön**.
 1. Stäng alla F5-/felsökningssessioner för båda tjänsterna, men lämna projekten öppna i Visual Studio-fönstren.
 2. Växla till Visual Studio-fönstret med `mywebapi`-projektet och tryck på Ctrl+F5 för att köra tjänsten utan felsökaren.
 3. Växla till Visual Studio-fönstret med `webfrontend`-projektet och tryck på Ctrl+F5 för att köra även den tjänsten.
@@ -187,7 +216,7 @@ Kontrollera att både `webfrontend`- och `mywebapi`-tjänsten körs i utveckling
 
 Om någon öppnar den offentliga URL:en och navigerar till webbprogrammet anropas kodsökvägen som du har skrivit, som körs via båda tjänsterna med `default`-standardutrymmet. Anta nu att du vill fortsätta utveckla `mywebapi` – hur kan du göra det utan att det påverkar andra utvecklare som använder utvecklingsmiljön? Det gör du genom att konfigurera ett eget utrymme.
 
-### <a name="create-a-new-space"></a>Skapa ett nytt utrymme
+### <a name="create-a-new-dev-space"></a>Skapa en ny utvecklingsmiljö
 I Visual Studio kan du kan skapa ytterligare utrymmen som kan användas när du kör F5 eller Ctrl+F5 mot din tjänst. Du kan ge ett utrymme vilket namn du vill med valfri innebörd (t.ex. `sprint4` eller `demo`).
 
 Så här skapar du ett nytt utrymme:
@@ -203,13 +232,13 @@ Så här skapar du ett nytt utrymme:
 
     ![](media/get-started-netcore-visualstudio/AddSpace.png)
 
-7. Nu bör du se att din utvecklingsmiljö och det nya utrymmet har valts på egenskapssidan för projektet.
+7. Nu bör du se att ditt AKS-kluster och det nya utrymmet har valts på egenskapssidan för projektet.
 
     ![](media/get-started-netcore-visualstudio/Settings2.png)
 
 ### <a name="update-code-for-mywebapi"></a>Uppdatera koden för *mywebapi*
 
-1. Ändra koden i `string Get(int id)`-metoden i filen `ValuesController.cs` i `mywebapi`-projektet, som du ser här:
+1. Ändra koden i `string Get(int id)`-metoden i filen `Controllers/ValuesController.cs` i `mywebapi`-projektet, som du ser här:
  
     ```csharp
     [HttpGet("{id}")]
@@ -220,18 +249,18 @@ Så här skapar du ett nytt utrymme:
     ```
 
 2. Ange en brytpunkt i det här uppdaterade kodblocket (du kanske redan har en sedan tidigare).
-3. Starta `mywebapi`-tjänsten genom att trycka på F5. När du gör det startar tjänsten i utvecklingsmiljön med det valda utrymmet, i det här fallet `scott`.
+3. Starta `mywebapi`-tjänsten genom att trycka på F5. När du gör det startar tjänsten i klustret med det valda utrymmet, i det här fallet `scott`.
 
-Här är ett diagram som hjälper dig att förstå hur de olika utrymmena fungerar. Den blå sökvägen visar en begäran via `default`-utrymmet, vilket är standardsökvägen som används om inget utrymme har lagts till i URL:en. Den gröna sökvägen visar en begäran via `scott`-utrymmet.
+Här är ett diagram som hjälper dig att förstå hur de olika utrymmena fungerar. Den lila sökvägen visar en begäran via `default`-utrymmet, vilket är standardsökvägen som används om inget utrymme har lagts till i URL:en. Den rosa sökvägen visar en begäran via `default/scott`-utrymmet.
 
 ![](media/common/Space-Routing.png)
 
 Med den här inbyggda funktionen i Azure Dev Spaces kan du testa kod från slutpunkt till slutpunkt i en delad miljö utan att varje utvecklare måste återskapa hela tjänststacken i deras respektive utrymme. Den här typen av routning kräver att spridningshuvuden vidarebefordras i programkoden, vilket illustrerades i föregående steg i den här guiden.
 
-### <a name="test-code-running-in-the-scott-space"></a>Testa koden som körs i utrymmet `scott`
-Du testar den nya versionen av `mywebapi` tillsammans med `webfrontend` genom att öppna webbläsaren på URL:en för offentlig åtkomst för `webfrontend` (till exempel http://webfrontend-teamenv.123456abcdef.eastus.aksapp.io) och gå till sidan Om. Du bör se det ursprungliga meddelandet ”Hello from webfrontend and Hello from mywebapi”.
+### <a name="test-code-running-in-the-defaultscott-space"></a>Testa koden som körs i utrymmet `default/scott`
+Du testar den nya versionen av `mywebapi` tillsammans med `webfrontend` genom att öppna webbläsaren på URL:en för offentlig åtkomst för `webfrontend` (till exempel http://webfrontend.123456abcdef.eastus.aksapp.io) och gå till sidan Om. Du bör se det ursprungliga meddelandet ”Hello from webfrontend and Hello from mywebapi”.
 
-Lägg till delen ”scott.s.” i URL:en, så att den ser ut ungefär så här http://scott.s.webfrontend-teamenv.123456abcdef.eastus.aksapp.io, och uppdatera webbläsaren. Brytpunkten som du angett i `mywebapi`-projektet bör nås. Fortsätt genom att trycka på F5. Nu bör du se det nya meddelandet ”Hello from webfrontend and mywebapi now says something new”. Det beror på att sökvägen till den uppdaterade koden i `mywebapi` körs i `scott`-utrymmet.
+Lägg till delen ”scott.s.” i URL:en, så att den ser ut ungefär så här http://scott.s.webfrontend.123456abcdef.eastus.aksapp.io, och uppdatera webbläsaren. Brytpunkten som du angett i `mywebapi`-projektet bör nås. Fortsätt genom att trycka på F5. Nu bör du se det nya meddelandet ”Hello from webfrontend and mywebapi now says something new”. Det beror på att sökvägen till den uppdaterade koden i `mywebapi` körs i `default/scott`-utrymmet.
 
 [!INCLUDE[](includes/well-done.md)]
 

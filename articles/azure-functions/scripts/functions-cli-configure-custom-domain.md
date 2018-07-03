@@ -13,19 +13,19 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 06/01/2017
+ms.date: 06/26/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: d2efd0891cb0010aac6135ce190ad77667f78efd
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 7d3fc71bc53e85fa7555dbee5ee79b3f06f27fe8
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843994"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960346"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Mappa en anpassad domän till en funktionsapp
 
-Det här skriptexemplet skapar en funktionsapp med relaterade resurser och mappar sedan `www.<yourdomain>` till den. Om du vill mappa till en anpassad domän måste funktionsappen skapas i en App Service-plan och inte i en användningsplan. Azure Functions har bara stöd för mappning av anpassade domäner med en A-post.
+Det här skriptexemplet skapar en funktionsapp med relaterade resurser och mappar sedan `www.<yourdomain>` till den. När din funktionsapp finns i en [App Service-plan](../functions-scale.md#app-service-plan) kan du mappa en anpassad domän med antingen en CNAME-post eller en A-post. För funktionsappar i en [förbrukningsplan](../functions-scale.md#consumption-plan) stöds endast alternativet CNAME.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

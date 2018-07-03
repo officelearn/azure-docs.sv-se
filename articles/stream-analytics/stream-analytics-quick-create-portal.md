@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 1e7245afe36d348b1cbd955900e34876b8e34511
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1059a401382820b4e5d3fd4b010d400bb6113926
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651734"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031438"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen
 
@@ -40,7 +40,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som har k
      "hmdt": 44
    }
    ```
-2. Logga in på Azure Portal.  
+2. Logga in på [Azure-portalen](https://portal.azure.com/).  
 
 3. Välj **Skapa en resurs** > **Lagring** > **Lagringskonto** i det övre vänstra hörnet i Azure-portalen. Fyll i sidan för Storage-kontojobb med ”asaquickstartstorage” som **Namn**, ”västra USA 2” som **Plats**, ”asaquickstart-resourcegroup” som **Resursgrupp** (använd samma resursgrupp som värd för lagringskontot som streamingjobbet för bättre prestanda). Återstående inställningar kan ha kvar standardvärdena.  
 
@@ -116,7 +116,7 @@ I det här avsnittet konfigurerar du blob-lagring som indata till Stream Analyti
    |---------|---------|---------|
    |Utdataalias |   BlobOutput   |   Ange ett namn som identifierar jobbets utdata. |
    |Prenumeration  |  \<Din prenumeration\>  |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
-   |Lagringskonto |  myasastorageaccount |   Välj eller ange lagringskontots namn. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration.       |
+   |Lagringskonto |  asaquickstartstorage |   Välj eller ange lagringskontots namn. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration.       |
    |Behållare |   container1  |  Välj en befintlig behållare som du skapade i ditt lagringskonto.   |
    |Sökvägsmönster |   utdata  |  Ange ett namn som fungerar som sökväg i din befintliga behållare för utdata.   |
 

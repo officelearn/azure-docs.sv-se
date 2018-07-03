@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: dc67de00abb2eac2eeb6e2b6bf3798e3aa210152
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b512ba91d1df7ec0432bdf9048268714e570fe6b
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29949896"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958684"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudie: Skapa och distribuera ett program med en Java Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
 Den här självstudien ingår i en serie. När du är klar har du ett röstningsprogram med en Java-webbklientdel som sparar röstningsresultaten i en tillståndskänslig serverdelstjänst i klustret. För den här självstudien måste du ha en fungerande dator för Mac OSX eller Linux-utvecklare. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden för det färdiga programmet](https://github.com/Azure-Samples/service-fabric-java-quickstart) och gå vidare till [Gå igenom exempelprogrammet för röstning](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).
@@ -596,7 +596,7 @@ Stommen för den tillståndslösa tjänsten i klientdelen och serverdelstjänste
     }
     
     dependencies {
-        compile ('com.microsoft.servicefabric:sf-actors:1.0.0-preview1')
+        compile ('com.microsoft.servicefabric:sf-actors:1.0.0')
     }
     
     jar {
@@ -897,7 +897,7 @@ Programmet är nu redo att distribueras till ett lokalt Service Fabric-kluster.
     ```
 
 4. Högerklicka på projektet **Voting** i Package Explorer för Eclipse och klicka på **Service Fabric -> Publicera program ...** 
-5. I fönstret **Publicera program** väljer du **Local.json** i listrutan och klickar på **Publicera**.
+5. I fönstret **Publish Application** (Publicera program) väljer du **Local.json** i listrutan och klickar på **Publish** (Publicera).
 6. Gå till din webbläsare och **http://localhost:8080** för att visa det program som körs på det lokala Service Fabric-klustret. 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -13,24 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ceff54b15ef70c9654142566bb1d54b6a7990833
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293487"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048646"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pipeline-körning och utlösare i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-scheduling-and-execution.md)
-> * [Version 2 – förhandsversion](concepts-pipeline-execution-triggers.md)
+> * [Version 1](v1/data-factory-scheduling-and-execution.md)
+> * [Aktuell version](concepts-pipeline-execution-triggers.md)
 
-En _pipelinekörning_ i Azure Data Factory Version 2 definierar en instans av en pipeline-åtgärd. Anta till exempel att du har en pipeline som körs kl. 8.00, 9.00 och 10.00. Det skulle i så fall vara tre separata körningar av pipelinen, eller pipelinekörningar. Varje pipelinekörning har ett unikt pipelinekörnings-ID. Ett körnings-ID är ett GUID som unikt definierar den specifika pipelinekörningen. 
+En _pipelinekörning_ i Azure Data Factory definierar en instans av en pipeline-åtgärd. Anta till exempel att du har en pipeline som körs kl. 8.00, 9.00 och 10.00. Det skulle i så fall vara tre separata körningar av pipelinen, eller pipelinekörningar. Varje pipelinekörning har ett unikt pipelinekörnings-ID. Ett körnings-ID är ett GUID som unikt definierar den specifika pipelinekörningen. 
 
 Pipelinekörningar instansieras normalt genom att skicka argument till parametrar som du definierar i pipelinen. Du kan köra en pipeline antingen manuellt eller via en _utlösare_. Den här artikeln innehåller information om båda körningssätten.
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Azure Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Azure Data Factory, som är allmänt tillgänglig, kan du läsa om [schemaläggning och körning i version 1 av Azure Data Factory](v1/data-factory-scheduling-and-execution.md).
 
 ## <a name="manual-execution-on-demand"></a>Manuell körning (på begäran)
 En manuell körning av en pipeline kallas även för en körning _på begäran_.
@@ -136,7 +133,7 @@ Ett mer komplett exempel finns i [Snabbstart: skapa en datafabrik med hjälp av 
 > Du kan använda .NET SDK till att anropa Data Factory-pipeliner från Azure Functions, från dina egna webbtjänster och så vidare.
 
 <h2 id="triggers">Körning via utlösare</h2>
-Du kan även köra en pipelinekörning med utlösare. Utlösare representerar en bearbetningsenhet som avgör när en pipeline-körning måste startas. Data Factory har för närvarande stöd för två typer av utlösare:
+Du kan även köra en pipelinekörning med utlösare. Utlösare representerar en bearbetningsenhet som avgör när en pipeline-körning måste startas. Data Factory har för närvarande stöd för tre typer av utlösare:
 
 - Schemautlösare: en utlösare som anropar en pipeline enligt ett tidsschema.
 

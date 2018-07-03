@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 89f5391cfbfd85f9f0715a8c7d288cc3981cc618
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ae0247df0bbde07e755bd910bca08b8703969cec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237013"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047283"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – allmänt tillgänglig](v1/data-factory-introduction.md)
-> * [Version 2 – förhandsversion](introduction.md)
+> * [Version 1](v1/data-factory-introduction.md)
+> * [Aktuell version](introduction.md)
 
 När det gäller stordata, lagras råa, oordnade data ofta i relationella, icke-relationella och andra lagringssystem. Men i sig självt så har rådata inte rätt kontext eller mening för att ge analytiker, dataforskare och beslutsfattare meningsfulla insikter. 
 
@@ -40,9 +40,6 @@ Azure Data Factory är en plattform som löser den här typen av datascenarier. 
 Dessutom kan du publicera utdata till datalager som Azure SQL Data Warehouse för Business Intelligence (BI)-program kan använda. Slutligen kan rådata ordnas, via Azure Data Factory, i meningsfulla datalager och datasjöar för att ge bättre beslutsunderlag.
 
 ![Toppnivåvy över Data Factory](media/introduction/big-picture.png)
-
-> [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [Introduktion till Data Factory version 1](v1/data-factory-introduction.md).
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 Pipelines (datadrivna arbetsflöden) i Azure Data Factory utför vanligen följande fyra steg:
@@ -92,7 +89,7 @@ Länkade tjänster används för två syften i Data Factory:
 - Så här visar du en **beräkningsresurs** som kan vara värd för körningen av en aktivitet. HDInsightHive-aktiviteten körs till exempel på ett HDInsight Hadoop-kluster. En lista över transformeringsaktiviteter och beräkningsmiljöer som stöds finns i artikeln om [omvandling av data](transform-data.md).
 
 ### <a name="triggers"></a>Utlösare
-Utlösare representerar en bearbetningsenhet som avgör när en pipelinekörning måste startas. Det finns olika typer av utlösare för olika typer av händelser. I förhandsvisningen stöder Data Factory wall-clock scheduler-utlösaren. 
+Utlösare representerar en bearbetningsenhet som avgör när en pipelinekörning måste startas. Det finns olika typer av utlösare för olika typer av händelser.
 
 ### <a name="pipeline-runs"></a>Pipelinekörningar
 En pipelinekörning är en instans av en pipelinekörning. Pipelinekörningar initieras vanligen genom att skicka argumenten till de parametrar som definierats i pipelines. Argumenten kan skickas manuellt eller i en utlösardefinition.
@@ -124,8 +121,8 @@ Azure Data Factory lagrar inte själv några data. Du kan använda den för att 
 
 Exempelvis kan vi anta att dina beräkningsmiljöer, som t.ex. Azure HDInsight-kluster och Azure Machine Learning, körs utanför regionen Europa, västra. Du kan skapa och använda en Azure Data Factory-instans i USA, östra eller USA, östra 2 och använda den för att schemalägga jobb i dina beräkningsmiljöer i Västeuropa. Det tar några millisekunder för Data Factory att utlösa jobbet i din beräkningsmiljö, men den tid det tar för att köra jobbet ändras inte.
 
-## <a name="compare-with-version-2"></a>Jämför med version 2
-En lista över skillnaderna mellan version 1 och version 2 av Data Factory-tjänsten finns i [Jämför med version 1](compare-versions.md). 
+## <a name="compare-with-version-1"></a>Jämför med version 1
+En lista över skillnaderna mellan version 1 och den aktuella versionen av Data Factory-tjänsten finns i avsnittet [Jämför med version 1](compare-versions.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 Kom igång med att skapa en Data Factory-pipeline med något av följande verktyg/SDK:er: 

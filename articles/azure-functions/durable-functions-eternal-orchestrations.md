@@ -1,6 +1,6 @@
 ---
-title: Eternal orkestreringarna i varaktiga funktioner – Azure
-description: Lär dig hur du implementerar eternal orkestreringarna med filnamnstillägget varaktiga funktioner för Azure Functions.
+title: Eternal-orkestreringar i varaktiga funktioner – Azure
+description: Lär dig hur du implementerar eternal-orkestreringar med hjälp av tillägget varaktiga funktioner för Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f42526430599e47e673d359433e91b4687cbeb9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0af61ec3b22692402697df5331df80ca044759b5
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763758"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340669"
 ---
-# <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Eternal orkestreringarna i varaktiga funktioner (Azure-funktioner)
+# <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Eternal-orkestreringar i varaktiga funktioner (Azure Functions)
 
-*Eternal orkestreringarna* orchestrator-funktioner som aldrig avslutas. De är användbara när du vill använda [varaktiga funktioner](durable-functions-overview.md) för aggregatorer och alla scenario som kräver en oändlig loop.
+*Eternal-orkestreringar* finns orchestrator-funktioner som aldrig slutar. De är användbara när du vill använda [varaktiga funktioner](durable-functions-overview.md) för aggregatorer och scenarier som kräver en oändlig loop.
 
 ## <a name="orchestration-history"></a>Orchestration-historik
 
-Enligt beskrivningen i [kontrollpunkter och omsändning](durable-functions-checkpointing-and-replay.md), beständiga aktiviteten Framework håller reda på historiken för varje funktion orchestration. Denna historik växer kontinuerligt så länge funktionen orchestrator fortsätter att schemalägga nytt arbete. Om funktionen orchestrator hamnar i en oändlig loop och kontinuerligt schemalägger arbete, kan denna historik ytterst växa och orsaka betydande prestandaproblem. Den *eternal orchestration* konceptet har utformats för att minimera dessa typer av problem för program som behöver oändliga slingor.
+Enligt beskrivningen i [kontrollpunkter och återuppspelning](durable-functions-checkpointing-and-replay.md), hållbar uppgift ramverket håller reda på historiken för varje funktion orchestration. Denna historik växer kontinuerligt så länge som orchestrator-funktion som fortsätter att schemalägga nytt arbete. Om orchestrator-funktion hamnar i en oändlig loop och schemalägger kontinuerligt arbete, kan denna historik ytterst växa och orsaka betydande prestandaproblem. Den *eternal orchestration* konceptet har utformats för att undvika dessa typer av problem för program som behöver oändliga slingor.
 
 ## <a name="resetting-and-restarting"></a>Återställa och starta om
 
-Istället för att använda oändliga slingor, Återställ orchestrator-funktioner deras tillstånd genom att anropa den [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) metod. Den här metoden tar en JSON-serialiserbara parameter, som blir den nya indata för nästa generations för orchestrator-funktionen.
+I stället för att använda oändlig slingor kan återställa orchestrator-funktioner deras tillstånd genom att anropa den [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) metod. Den här metoden tar ett enda JSON-serialiserbara parametern, som blir den nya indata för nästa generations för orchestrator-funktion.
 
-När `ContinueAsNew` anropas, instans enqueues ett meddelande till sig själv innan den avslutas. Meddelandet startar om instansen med nya indatavärdet. Samma instans-ID är kvar men funktionen orchestrator historik trunkeras effektivt.
+När `ContinueAsNew` anropas, instans placerar det i kö ett meddelande till sig själv innan den avslutas. Meddelandet startar om instansen med det nya värdet för indata. Samma instans-ID är kvar men orchestrator-funktion historik trunkeras effektivt.
 
 > [!NOTE]
-> Beständiga aktiviteten Framework behålls samma instans-ID men internt skapar en ny *körnings-ID* för orchestrator-funktionen som hämtar återställs av `ContinueAsNew`. Körnings-ID är vanligtvis inte exponerad externt, men det kan vara bra att känna till när du felsöker orchestration-körning.
+> Hållbar uppgift ramverket har samma instans-ID men internt skapar en ny *körnings-ID* för orchestrator-funktion som hämtar återställa genom `ContinueAsNew`. Den här körnings-ID Allmänt exponeras inte externt, men det kan vara praktiskt att känna till när felsökning orchestration-körning.
 
 > [!NOTE]
 > Den `ContinueAsNew` metoden är ännu inte tillgänglig i JavaScript.
 
-## <a name="periodic-work-example"></a>Periodiska arbetsuppgifter exempel
+## <a name="periodic-work-example"></a>Periodiska arbete-exempel
 
-Användningsfall för eternal orkestreringarna är kod som behöver utföra regelbundna arbete på obestämd tid.
+Användningsfall för eternal-orkestreringar är kod som behöver utföra periodiska arbete på obestämd tid.
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -60,41 +60,15 @@ public static async Task Run(
 }
 ```
 
-Skillnaden mellan det här exemplet och en timer-utlösta funktion är att rensa utlösaren gånger här inte är baserade på ett schema. Till exempel ett CRON-schema som utför en funktion i timmen körs den 1:00, 2:00, 3:00 etc. och köra till problem med överlappar varandra. I det här exemplet, men om rensningen tar 30 minuter sedan den kommer att schemaläggas 1:00, 2:30, 4:00, etc. och det finns ingen risk för överlappar varandra.
+Skillnaden mellan det här exemplet och en timerutlöst funktion är att rensa utlösaren här gånger inte enligt ett schema. Till exempel ett CRON-schema som körs varje timme för en funktion ska köra den 1:00, 2:00, 3:00 osv och köra överlappning problem. I det här exemplet, men om rensningen tar 30 minuter sedan den schemaläggs vid 1:00, 2:30, 4:00 osv och det finns ingen risk för överlappar varandra.
 
-## <a name="counter-example"></a>Räknaren exempel
+## <a name="exit-from-an-eternal-orchestration"></a>Avsluta en eternal orkestrering
 
-Här är ett förenklat exempel på en *räknaren* funktion som lyssnar efter *ökning* och *minska* händelser för evigt.
+Om en orchestrator-funktion måste kommer att slutföras, så allt du behöver göra är att *inte* anropa `ContinueAsNew` och låt funktionen Avsluta.
 
-```csharp
-[FunctionName("SimpleCounter")]
-public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
-{
-    int counterState = context.GetInput<int>();
-
-    string operation = await context.WaitForExternalEvent<string>("operation");
-
-    if (operation == "incr")
-    {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
-    }
-    
-    context.ContinueAsNew(counterState);
-}
-```
-
-## <a name="exit-from-an-eternal-orchestration"></a>Avsluta en eternal orchestration
-
-Om en orchestrator-funktion måste kommer att slutföras, så du behöver *inte* anropa `ContinueAsNew` och låta funktionen Avsluta.
-
-Om en orchestrator-funktionen är i en oändlig loop och måste stoppas använder den [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) metod för att stoppa den. Mer information finns i [Instanshantering](durable-functions-instance-management.md).
+Om en orchestrator-funktion finns i en oändlig loop och måste stoppas, använder du den [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) metod för att stoppa den. Mer information finns i [Instanshantering](durable-functions-instance-management.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du implementerar singleton orkestreringarna](durable-functions-singletons.md)
+> [Lär dig hur du implementerar singleton-orkestreringar](durable-functions-singletons.md)

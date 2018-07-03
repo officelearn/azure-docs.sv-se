@@ -1,10 +1,10 @@
 ---
-title: Guide för Azure Marketplace och AppSource publisher | Azure
-description: Översikt över vilka Azure Marketplace och AppSource gäller för appen och tjänsten utgivare
+title: Publiceringsguiden för Azure Marketplace och AppSource | Azure
+description: Översikt över vad Azure Marketplace och AppSource är för appen och tjänsten utgivare
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
@@ -12,144 +12,126 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: e40b3a9f1454e892e07f7749ba900cd74c42c339
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ff78a7ed700506625761b0b1060040548b4a3ea1
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309239"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344822"
 ---
-# <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace och AppSource Publisher Guide  
+# <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace och AppSource Publiceringsguiden  
 
-## <a name="overview"></a>Översikt  
-Välkommen till guiden publisher för skyltfönster på marketplace.
-*  AppSource  
-*  Azure Marketplace  
+## <a name="overview"></a>Översikt 
 
-Nya och befintliga utgivare (du) mer information om följande ämnen med hjälp av den här guiden. 
-*   Hur du använder Azure Marketplace och AppSource skyltfönster
-*   Så här publicerar du dina appar och erbjudanden  
-*   Så här växa partner med Microsoft  
+Välkommen till guiden för Marketplace-utgivare. Den här guiden är utformad för att du vill och befintliga utgivare förstå hur du använder Azure Marketplace (www.azuremarketplace.com) och AppSource (www.appsource.com) butikerna gör för att öka sin verksamhet i partnerskap med Microsoft genom att lista sina program och tjänster.  
 
-Du får en bättre förståelse av de följande avsnitten.
-*   Vad är fördelarna lista i skyltfönster på marketplace  
-*   Hur du använder skyltfönster  
-*   Vilka storefront som passar dina erbjudanden och tjänster  
-*   Vilka typer av appar och erbjudanden som du kan publicera  
-*   Vilka de tekniska krav och affärskrav som gäller för varje publiceringsalternativ  
-*   Så här skapar du en före publishing checklista för tillgångsinformation  
-*   Hur ska bli en utgivare  
-*   Om du skapar och publicerar erbjuder  
-*   Optimera en lista och använda gå till marknaden resurser till enheten påverkan  
-*   Var du kan få hjälp och support  
+Den här handboken beskrivs i följande avsnitt: 
+*   Vad är marketplace och hur det fungerar 
+*   Vad är skillnaden mellan Azure Marketplace och AppSource butiker 
+*   Fördelarna du får genom att delta i marketplace 
+*   Hur du blir utgivare och listar programmet eller tjänsten 
+*   Att utveckla din verksamhet 
 
-Skicka ett e-postmeddelande till frågor och kommentarer om marketplace eller guiden publishing [ cloudmarketplace@microsoft.com ](mailto:cloudmarketplace@microsoft.com).  
+Den här guiden innehåller både tekniska och information om steg du måste förstå innan du visa en lista över dina program och tjänster. Använd navigeringsfältet finns till vänster om den här sidan för att hoppa till olika avsnitt i den här guiden och gå direkt till viktiga ämnen.   
+
+För ytterligare frågor om Azure Marketplace och AppSource Skicka oss ett meddelande under problemtyp > Marketplace Onboarding. Vår Marketplace Publisher Onboarding-teamet kommer att vara hjälper gärna till! 
 
 ---  
 
-## <a name="benefits"></a>Fördelar  
+## <a name="benefits-of-participating-in-the-marketplace"></a>Fördelar med att delta i marketplace 
 
-### <a name="benefits-of-participating-on-the-marketplace"></a>Fördelar med att delta på marketplace  
-Skyltfönster på marketplace är launchpads för gemensamma gå till marknaden (GTM)-aktiviteter med Microsoft.  
-*   AppSource  
-*   Azure Marketplace  
+Marketplace är startmenyn för gemensamma go-to-market-aktiviteter med Microsoft för att påskynda din verksamhet att växa. Med start befordran, skapande av efterfrågan och gemensamma försäljnings- och marknadsföringsresurser, kan dina marketplace-erbjudanden mittpunkten i din molnverksamhet. Det finns inga avgifter för att du deltar i marketplace.  
 
-Skyltfönster är dörrar till medarbetare säljer redo partnerskap affärsmöjligheter. Du kan välja att använda din app eller erbjuda i något av följande roller.  
-*   Mittpunkten i ditt moln business-motorn  
-*   Svänghjul till dina affärsbehov 
+Vårt mål är att ansluta Microsoft-kunder med de bästa lösningarna som vårt partnerekosystem erbjuder. Om du vill göra det, hjälper vi dig genom hela resan från onboarding för publicering och tillväxt. 
 
-Du kan välja att växa med följande funktioner på marketplace.  
-*    Starta befordran  
-*    Skapande av efterfrågan  
-*    Gemensamma försäljning och marknadsföring  
+Dra nytta av funktionerna på marketplace och få din verksamhet att växa: 
 
-Det finns inga avgifter för deltagande i skyltfönster på marketplace. Microsoft fokuserar på ansluter du till bästa lösningar och tjänster som tillhandahålls av Microsoft-partner. 
+### <a name="expand-to-new-markets-and-segments-and-generate-new-sales-opportunities"></a>Expandera till nya marknader och segment och generera nya affärsmöjligheter
 
-Du kan dra nytta av funktionerna på marketplace att växa.  
+Använda marketplace som kanal för att få åtkomst till nya marknader, segment och användare med Microsoft-molnet med din portfölj med lösningar. Generera nya leads för marknadsföring och säljflödet dem till potentiella kunder. Dra nytta av gemensam marknadsföring och försäljning aktiviteter för att få fler kunder.  
 
-#### <a name="generate-leads-and-sales-opportunities"></a>Generera leads och potentiella kunder.  
-Ange nya marknader med en utökad portfölj av lösningar i skyltfönster på marketplace. Medföljande och mellan säljer marketplace-erbjudanden.  
+### <a name="enhance-business-value-and-increase-deal-size-with-existing-and-new-customers"></a>Förbättra verksamheten mervärde och gör större affärer med befintliga och nya kunder 
 
-#### <a name="enhance-business-value-and-increase-deal-size-with-existing-and-new-customers"></a>Förbättra affärsvärde och öka avtalsstorlek med befintliga och nya kunder  
-Utöka avtalsstorlek och åtgärda problem när du flyttar arbetsbelastningar till Azure. Minska försäljning cykler och öka systembearbetningstid lönsamhet genom att sälja kompletta lösningar som mål för specifika arbetsbelastningar och industrin scenarier.  
+Merförsäljning och korsförsäljning dina lösningar genom att lösa kundernas problem när du flyttar arbetsbelastningar till molnet. Om du säljer eller distribuerar via marketplace, kan du minska försäljningscykel påskynda projekt och öka lönsamheten på avtalet genom att sälja kompletta lösningar som mål specifika arbetsbelastningar och branschen scenarier. 
+  
+### <a name="get-actionable-insights"></a>Få användbara insikter 
 
-#### <a name="get-actionable-insights"></a>Få användbara insikter  
-Din framgång är ömsesidigt lyckades. Få insikter om dina listor med molnet Partner-portalen. Hämta mer information om prestanda, leads och maximera kampanjaktiviteter för din app.  
+Få insikter om prestanda för dina listor med insikter och analyser som gjorts tillgängliga för dig. Få mer information om Kampanjresultat, order och payouts och hur du kan maximera kampanjaktiviteterna i lösningen.  
 
->[!NOTE]
->Appar som utökar Office måste åtkomst till insights via publiceringsprocessen för Office-appar.  
+### <a name="marketplace-go-to-market-benefits"></a>Marketplace Go-To-Market-fördelar 
 
-### <a name="go-to-market-benefits"></a>Gå till marknaden förmåner  
-Skyltfönster kan du presentera dina lösningar till miljontals kunder. Nya listor på marketplace får automatiskt en uppsättning ledigt GTM fördelar för att enheten medvetenhet om erbjudandet på marketplace.  
+Nya publiceringar på marketplace är berättigade till diversifierad uppsättning kostnadsfria fördelar med att hjälpa partner att öka sin verksamhet i marketplace. Dessa fördelar är indelade i följande kategorier: 
 
- Din startfönstret för gemensamma GTM-aktiviteter med Microsoft börjar med att publicera erbjudandet i skyltfönster.  Skyltfönster är dörrar till Co sell redo partnerskap affärsmöjligheter. Alla nya appar och erbjudanden tillhandahålls automatiskt en uppsättning inga kostnadsfördelar GTM att enheten medvetenhet om din app eller erbjudandet att Microsofts kunder. GTM-fördelar leverera flera samtidigt marknadsföring och samtidigt säljer aktiviteter.  Aktiviteter samtidigt marknadsföring och samtidigt säljer är utformade för att du kan använda följande för att enheten medvetenhet om din lösning och generera försäljning.
-*   Microsoft varumärken  
-*   Microsoft kanaler  
-*   Microsoft-kunder och partner  
+*   Teknisk: Allt du behöver att förbereda programmet för start. Från teknisk support, programmets design och arkitekturdesign upp till Azure-kredit för utveckling och testning. 
 
-Du behöver inte göra något. När du har publicerat erbjudandet kontaktar du påbörja leverans av Microsoft GTM-teamet.  
-*   För mer information om Microsoft GTM fördelar och sätt att växa på marketplace, finns på sidan Microsoft gå till marknaden Services på [partner.microsoft.com/reach-customers/gtm](https://partner.microsoft.com/reach-customers/gtm).  
+*   Gemensam marknadsföring: Allt du behöver att starta ditt erbjudande. Få åtkomst till kostnadsfria Go-to-Market starta grunderna för att starta och flytta upp din lösning. Du kan också vara berättigade till ytterligare Microsoft marketing campaign inkludering och innehåller möjligheter till att synas i marketplace.  
+
+*   Samarbetsmöjligheter: Börjar eller gör din resa till försäljning med Microsoft via marketplace. Åtkomst till program och gemensamma ökar försäljningen med Microsoft teams-supporten.  
+
+När du [skicka din lösning](https://azuremarketplace.microsoft.com/sell/signup) på Marketplace kontaktar vårt registreringsteam dig för att stödja din publiceringsupplevelse.  
+
+Mer information om Microsoft go-to-market-fördelar och sätt att utöka verksamheten på marketplace finns på [Microsoft Go-To-Market Services sidan](https://partner.microsoft.com/reach-customers/gtm).
 
 ---  
 
 ## <a name="storefronts"></a>Butiker  
-Microsoft tillhandahåller två distinkta skyltfönster på marketplace. Skyltfönster kan du visa en lista med erbjudanden, aktivera försök och transact direkt med Microsoft-kunder.  
+Microsoft tillhandahåller två distinkta butiker på marketplace. Butiker kan du lista erbjudanden, aktivera utvärderingsversioner och transact direkt med Microsoft-kunder.  
 *   Jämföra AppSource och Azure Marketplace
-    *   Mer information om skyltfönster besöker du jämföra AppSource och Azure Marketplace sidan finns på [jämföra AppSource och Azure Marketplace](./comparing-appsource-azure-marketplace.md).
+    *   Mer information om butiker finns i AppSource jämföra och Azure Marketplace-sidan finns på [jämföra AppSource och Azure Marketplace](./comparing-appsource-azure-marketplace.md).
 *   AppSource 
-    *   Mer information om AppSource finns växa med AppSource sidan finns på [växa med AppSource](./grow-your-business-with-appsource.md).  
+    *   Mer information om AppSource finns utvidga din verksamhet med AppSource sidan finns på [Låt företaget växa med AppSource](./grow-your-business-with-appsource.md).  
 *   Azure Marketplace 
-    *   Mer information om Azure Marketplace finns växa med Azure Marketplace sidan finns på [växa med Azure Marketplace](./grow-your-business-with-azure-marketplace.md).  
+    *   Mer information om Azure Marketplace finns utvidga din verksamhet med Azure Marketplace-sidan finns på [Låt företaget växa med Azure Marketplace](./grow-your-business-with-azure-marketplace.md).  
 
-Skyltfönster kan du hitta, försök och köpa appar och tjänster som accelerera din digitala transformation. Skyltfönster hjälpa dig att utöka ditt företag genom att öka åtkomst till Microsoft-kunder och partner.  
+De butikerna gör det möjligt att hitta, prova och köpa appar och tjänster som kan påskynda den digitala omvandlingen. Butiker hjälper dig att växa ditt företag genom att öka åtkomst till Microsofts kunder och partner.  
  
-Varje storefront innehåller särskilda alternativ som hjälper dig att maximera investeringen publishing. I följande tabell sammanfattas dessa alternativ.  
+Varje butik innehåller särskilda alternativ för att maximera din investering i publicering. I följande tabell sammanfattas de här alternativen.  
 
 |  | AppSource | Azure Marketplace |  
 |:--- |:--- |:--- |  
-| Målgrupp | Line-of-business beslutsfattare<table> <tr> <th>Specialist roller </th> </tr> <tr> <td>Redovisning</td> </tr> <tr> <td>Inköp</td> </tr> <tr> <td>Tillverkning</td> </tr> </table> | IT-proffs och utvecklare<table> <tr> <th>Specialist roller </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>DBAs</td> </tr> <tr> <td>Säkra driftsmetoder</td> </tr> </table> |  
+| Målgrupp | Line-of-business-beslutsfattare<table> <tr> <th>Specialist roller </th> </tr> <tr> <td>Redovisning</td> </tr> <tr> <td>Inköp</td> </tr> <tr> <td>Tillverkning</td> </tr> </table> | IT-proffs och utvecklare<table> <tr> <th>Specialist roller </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>Databasadministratörer</td> </tr> <tr> <td>SecOps</td> </tr> </table> |  
 | Skapats med eller utöka | Azure<br />Dynamics 365<br />Office 365<br />Power BI<br />PowerApps | Azure |  
-| Typer av lösningar och tjänster | Färdig line-of-business molnappar<br />Tillägg för Office 365 | Infrastrukturlösningar<br />Professionella tjänster |  
-| Erbjudandetyp | Rådgivning<br />Kontakta mig<br />Kostnadsfri utvärderingsversion<br />Hämta nu<br />Testkör | Azure-appar: Principhanterade appar<br />Appar i Azure: lösningsmallar<br />Rådgivning<br />Kontakta mig<br />Utvärdering<br />virtuell dator |  
-| App-upplevelse för att ge användare åtkomst<br />till appar och tjänster i samband med<br />din app | Dynamics 365<br />Office 365<br />Office-klientprogram<br />Power BI | Azure Portal<br />Azure Resource Manager CLI |  
+| Typer av lösningar och tjänster | Klar line-of-business-molnappar<br />Office 365-tillägg | Infrastrukturlösningar<br />Professionella tjänster |  
+| Erbjudandetyp | Konsulttjänster<br />Kontakta mig<br />Kostnadsfri utvärderingsversion<br />Hämta nu<br />Testkör | Azure-appar: Principhanterade appar<br />Azure-appar: lösningsmallar<br />Konsulttjänster<br />Kontakta mig<br />Utvärdering<br />virtuell dator |  
+| I appen för att ge användare åtkomst<br />till appar och tjänster i samband med<br />din app | Dynamics 365<br />Office 365<br />Office-klientappar<br />Power BI | Azure Portal<br />Azure Resource Manager-CLI |  
 
 ---   
 
 ## <a name="how-to-publish-in-the-storefronts-on-the-marketplace"></a>Så här publicerar du i butiker på marknadsplatsen  
-Följande sidor hjälpa dig att navigera publiceringsalternativ i AppSource och Azure Marketplace.  
+På följande sidor hjälpa dig navigera publiceringsalternativ i AppSource och Azure Marketplace.  
 
-Bli utgivare i skyltfönster på marketplace i tre enkla steg.  
-1.  Besök den [avgör vilken lista för din lösning](./determine-your-listing-type.md) sidan.  
-2.  Besök den [blir utgivare i skyltfönster på marketplace](./become-publisher.md) sidan.  
-3.  Besök den [krav efter typ när du visar en lista över](./listing-type-requirements.md) sidan.  
+Bli en utgivare i butiker på marketplace i tre enkla steg.  
+1.  Gå till den [Bestäm vilken lista för din lösning](./determine-your-listing-type.md) sidan.  
+2.  Gå till den [blir utgivare butiker på marketplace](./become-publisher.md) sidan.  
+3.  Gå till den [krav genom att visa en lista över typ](./listing-type-requirements.md) sidan.  
 
 ---   
 
 ## <a name="publishing-checklists"></a>Publicera checklistor  
-*   Besök den [Publishing checklista för AppSource](publishing-checklist-appsource.md) sidan.  
-*   Besök den [Publishing checklista för Azure Marketplace på molnet partnerportalen](./publishing-checklist-azure-marketplace.md) sidan.  
-*   Besök den [aktivera utvärderingsversion med Azure AD](./enable-trial-using-azure-ad.md) sidan.  
+*   Gå till den [Publishing checklista för AppSource](publishing-checklist-appsource.md) sidan.  
+*   Gå till den [Publishing checklista för Azure Marketplace på partnerportalen i molnet](./publishing-checklist-azure-marketplace.md) sidan.  
+*   Gå till den [aktivera utvärderingsversion med hjälp av Azure AD](./enable-trial-using-azure-ad.md) sidan.  
 
 ---  
 
 ## <a name="support"></a>Support  
-*   Besök den [stöd för AppSource](./support-appsource.md) sidan.  
-*   Besök den [stöd för Azure Marketplace](./support-azure-marketplace.md) sidan.  
+*   Gå till den [stöd för AppSource](./support-appsource.md) sidan.  
+*   Gå till den [stöd för Azure Marketplace](./support-azure-marketplace.md) sidan.  
 
 ---  
 
 ## <a name="guides"></a>Guider  
-*   Besök den [Azure Marketplace samråd Service](consulting-services.md) sidan.  
-*   Besök den [Azure Marketplace SaaS app tekniska publiceringsguide](marketplace-saas-applications-technical-publishing-guide.md) sidan.  
+*   Gå till den [Azure Marketplace Consulting Service](consulting-services.md) sidan.  
+*   Gå till den [Azure Marketplace SaaS teknisk publiceringsguide om appen](marketplace-saas-applications-technical-publishing-guide.md) sidan.  
 
 ## <a name="guidelines"></a>Riktlinjer  
-*   Besök den [riktlinjer](./guidelines.md) sidan.  
-    *   Besök den [riktlinjer för att skapa ett Microsoft-ID för att hantera en marketplace-kontot](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) avsnitt.  
-*   Besök den [registrera i Dev Center](./register-dev-center.md) sidan.  
-*   Besök den [skatteinformation och Lägg till Bank](./add-bank-tax-info.md) sidan.  
-*   Besök den [aktivera utvärderingsversion med Azure AD](./enable-trial-using-azure-ad.md) sidan.  
-*   Besök den [fakturering alternativ för Azure Marketplace](./billing-options-azure-marketplace.md) sidan.  
+*   Gå till den [riktlinjer](./guidelines.md) sidan.  
+    *   Gå till den [riktlinjer för att skapa ett Microsoft-ID för att hantera en marketplace](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) avsnittet.  
+*   Gå till den [registrera i Dev Center](./register-dev-center.md) sidan.  
+*   Gå till den [Lägg till Bank- och skatteinformation](./add-bank-tax-info.md) sidan.  
+*   Gå till den [aktivera utvärderingsversion med hjälp av Azure AD](./enable-trial-using-azure-ad.md) sidan.  
+*   Gå till den [fakturering alternativ för Azure Marketplace](./billing-options-azure-marketplace.md) sidan.  
 
 ---  

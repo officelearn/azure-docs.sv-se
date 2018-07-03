@@ -1,28 +1,28 @@
-## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>Testa fråga Microsoft Graph API från iOS-program
+## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>Testa frågor till Microsoft Graph-API från din iOS-program
 
 Om du vill köra koden i simulatorn trycker du på **kommandot** + **R**.
 
-![Testa programmet i simulatorn](media/active-directory-develop-guidedsetup-ios-test/iostestscreenshot.png)
+![Testa ditt program i simulatorn](media/active-directory-develop-guidedsetup-ios-test/iostestscreenshot.png)
 
-När du är redo att testa väljer **anropa Microsoft Graph API**. När du uppmanas, ange ditt användarnamn och lösenord.
+När du är redo att testa väljer **anropa Microsoft Graph API**. När du uppmanas, anger du ditt användarnamn och lösenord.
 
-### <a name="provide-consent-for-application-access"></a>Ange tillstånd för åtkomst till program
-Första gången du loggar in i tillämpningsprogrammet, uppmanas du att ge ditt medgivande för att tillåta åtkomst till din profil och logga in dig:
+### <a name="provide-consent-for-application-access"></a>Ge medgivande för programåtkomst
+Första gången du loggar in på ditt program, uppmanas du att ge ditt medgivande för att ge programmet åtkomst till din profil och logga in dig på:
 
 ![Ge ditt medgivande för programåtkomst](media/active-directory-develop-guidedsetup-ios-test/iosconsentscreen.png)
 
 ### <a name="view-application-results"></a>Visa program resultat
-När du loggar in kan du bör se din profilinformation för användaren som returneras av Microsoft Graph API-anrop i den **loggning** avsnitt. 
+När du har loggat in visas din användarprofilsinformation som returneras av Microsoft Graph API-anrop i den **loggning** avsnittet. 
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mer information om scope och delegerade behörigheter
 
-Microsoft Graph API kräver den **user.read** omfång att läsa en användares profil. Detta scope läggs automatiskt som standard i alla program som har registrerats på portalen för registrering. Andra för Microsoft Graph-API: er, samt anpassade API: er för backend-servern, kan kräva ytterligare scope. Microsoft Graph API kräver den **Calendars.Read** scope för att visa användarens kalendrar.
+Microsoft Graph API kräver den **user.read** omfattning att läsa en användares profil. Det här omfånget läggs automatiskt som standard i alla program som är registrerat på portalen för registrering. Andra API: er för Microsoft Graph, samt anpassade API: er för backend-servern, kan kräva ytterligare scope. Microsoft Graph API kräver den **Calendars.Read** omfattning att lista användarens kalendrar.
 
-För att få åtkomst till användarkalendrar i kontexten för ett program måste du lägga till den **Calendars.Read** delegerad behörighet att registreringsinformation för programmet. Lägg sedan till den **Calendars.Read** omfånget för den **acquireTokenSilent** anropa. 
+Om du vill få åtkomst till användarkalendrar i kontexten för ett program måste du lägga till den **Calendars.Read** delegerad behörighet att registreringsinformation för programmet. Lägg sedan till den **Calendars.Read** begränsa omfånget till den **acquireTokenSilent** anropa. 
 
 >[!NOTE]
->Användaren kan uppmanas att ytterligare medgivanden när du ökar antalet scope.
+>Användaren uppmanas för ytterligare medgivanden när du ökar antalet omfång.
 
 <!--end-collapse-->
 

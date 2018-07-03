@@ -1,6 +1,6 @@
 ---
-title: Hur du installerar Azure IoT kanten på Windows med Linux-behållare | Microsoft Docs
-description: Azure IoT kant instruktioner för installation i Windows med Linux-behållare
+title: Hur du installerar Azure IoT Edge på Windows med Linux-behållare | Microsoft Docs
+description: Azure IoT Edge instruktioner för installation på Windows med Linux-behållare
 author: kgremban
 manager: timlt
 ms.reviewer: veyalla
@@ -9,41 +9,41 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 039ca304633eafa8211daffe1a4241b326eda6fb
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: a5b7845522769393826057c4bc92bda56e557258
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114109"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346155"
 ---
-# <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Installera Azure IoT kant körning i Windows för användning med Linux-behållare
+# <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Installera Azure IoT Edge-körningen på Windows för användning med Linux-behållare
 
-Azure IoT kant runtime distribueras på alla kant för IoT-enheter. Den har tre komponenter. Den **IoT Edge security daemon** ger och underhåller säkerhetskrav på gränsenheten. Daemon startas på varje start och startar enheten genom att starta IoT kant-agenten. Den **IoT kant agent** underlättar distribution och övervakning av moduler på Edge-enheten, inklusive kant för IoT-hubben. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten, samt mellan enheten och IoT Hub.
+Azure IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponenter. Den **IoT Edge security daemon** tillhandahåller och underhåller säkerhetsstandarder på Edge-enhet. Daemonen startar vid varje start och startar enheten genom att starta IoT Edge-agenten. Den **IoT Edge-agenten** underlättar distribution och övervakning av moduler på Edge-enheter, inklusive IoT Edge hub. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten, samt mellan enheten och IoT Hub.
 
-Den här artikeln innehåller steg för att installera Azure IoT kant-körningsmiljön på Windows x64 (AMD/Intel) system. Stöd för Windows är för närvarande under förhandsgranskning.
+Den här artikeln visar hur du installerar Azure IoT Edge-körningen på din Windows x64 (AMD/Intel) system. Windows support förhandsvisas just nu.
 
 >[!NOTE]
-Med Linux-behållare på Windows sytems är inte en rekommenderad eller stöds produktion konfiguration för Azure IoT kant. Det kan dock användas för utveckling och testning.
+Med Linux-behållare på Windows sytems är inte en rekommenderad eller stöds produktionskonfigurationen för Azure IoT Edge. Det kan dock användas för utveckling och testning.
 
 ## <a name="supported-windows-versions"></a>Windows-versioner som stöds
-Azure IoT-kant kan vara används för utveckling och testning i följande versioner av Windows, när du använder Linux-behållare:
-  * Windows 10 eller nyare operativsystem.
+Azure IoT Edge kan vara används för utveckling och testning på följande versioner av Windows, när du använder Linux-behållare:
+  * Windows 10 eller senare operativsystem.
   * Windows Server 2016 eller nya server-operativsystem.
 
-## <a name="install-the-container-runtime"></a>Installera behållaren runtime 
+## <a name="install-the-container-runtime"></a>Installera runtime behållare 
 
-Azure IoT-Edge förlitar sig på en [OCI-kompatibel] [ lnk-oci] behållare runtime (t.ex. Docker). 
+Azure IoT Edge förlitar sig på en [OCI-kompatibla] [ lnk-oci] container-körning (t.ex. Docker). 
 
-Du kan använda [Docker för Windows] [ lnk-docker-for-windows] för utveckling och testning. Kontrollera Docker för Windows är [konfigurerats för att använda Linux-behållare][lnk-docker-config]
+Du kan använda [Docker för Windows] [ lnk-docker-for-windows] för utveckling och testning. Kontrollera Docker för Windows är [konfigurerad för att använda Linux-behållare][lnk-docker-config]
 
-## <a name="install-the-azure-iot-edge-security-daemon"></a>Installera Azure IoT-Edge Security Daemon
+## <a name="install-the-azure-iot-edge-security-daemon"></a>Installera Daemon för Azure IoT Edge-säkerhet
 
 >[!NOTE]
->Azure IoT kant programvarupaket regleras licensvillkoren finns i paket (i katalogen licens). Läs licensvillkoren innan du använder paketet. Din installation och användning av paketet som utgör ditt godkännande av villkoren. Om du inte godkänner licensvillkoren, Använd inte paketet.
+>Azure IoT Edge-programvarupaket omfattas licensvillkoren finns i paket (i katalogen licens). Läs igenom licensvillkoren innan du börjar använda paketet. Din installation och användning av paketet kräver att du accepterar dessa villkor. Om du inte samtycker till licensvillkoren, Använd inte paketet.
 
-### <a name="download-the-edge-daemon-package-and-install"></a>Hämta daemon kant och installera
+### <a name="download-the-edge-daemon-package-and-install"></a>Ladda ned Edge-daemon och installera
 
-Kör följande kommandon i en administratör PowerShell-fönstret:
+Kör följande kommandon i ett administratören PowerShell-fönster:
 
 ```powershell
 Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
@@ -61,20 +61,20 @@ Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D
 .\vc_redist.exe /quiet /norestart
  ```
 
-Skapa och starta *iotedge* tjänsten:
+Skapa och starta *iotedge* service:
 
 ```powershell
 New-Service -Name "iotedge" -BinaryPathName "C:\ProgramData\iotedge\iotedged.exe -c C:\ProgramData\iotedge\config.yaml"
 Start-Service iotedge
 ```
 
-Lägg till brandväggsundantag för portar som används av tjänsten:
+Lägg till brandväggsundantag för de portar som används av tjänsten:
 
 ```powershell
 New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
 ```
 
-Skapa en **iotedge.reg** med följande innehåll, och importera i Windows-registret genom att dubbelklicka på den eller använda den `reg import iotedge.reg` kommando:
+Skapa en **iotedge.reg** filen med följande innehåll och importera i Windows-registret genom att dubbelklicka på den eller använda den `reg import iotedge.reg` kommando:
 
 ```
 Windows Registry Editor Version 5.00
@@ -85,13 +85,13 @@ Windows Registry Editor Version 5.00
 "TypesSupported"=dword:00000007
 ```
 
-## <a name="configure-the-azure-iot-edge-security-daemon"></a>Konfigurera Azure IoT-Edge Security-Daemon
+## <a name="configure-the-azure-iot-edge-security-daemon"></a>Konfigurera Azure IoT Edge Security Daemon
 
 Daemonen kan konfigureras med hjälp av konfigurationsfilen på `C:\ProgramData\iotedge\config.yaml`.
 
-Gränsenheten kan konfigureras manuellt med hjälp av en [enheten anslutningssträngen] [ lnk-dcs] eller [automatiskt via enhet Etableringstjänsten] [ lnk-dps].
+Gränsenheten kan konfigureras manuellt med hjälp av en [enhetsanslutningssträngen] [ lnk-dcs] eller [automatiskt via Device Provisioning-tjänsten] [ lnk-dps].
 
-* Manuell konfiguration kan du ta bort kommentarerna i **manuell** Etableringsläge. Uppdatera värdet i **device_connection_string** med anslutningssträngen från IoT-Edge-enhet.
+* Manuell konfiguration kan du ta bort kommentarerna i **manuell** Etableringsläge. Uppdatera värdet för **device_connection_string** med anslutningssträngen från din IoT Edge-enhet.
 
    ```yaml
    provisioning:
@@ -105,7 +105,7 @@ Gränsenheten kan konfigureras manuellt med hjälp av en [enheten anslutningsstr
    #   registration_id: "{registration_id}"
    ```
 
-* Automatisk konfiguration, Avkommentera den **dp** Etableringsläge. Uppdatera värdena för **scope_id** och **registration_id** med värden från din IoT-hubb DP-instans och enheten IoT kanten med TPM. 
+* För automatisk konfiguration, ta bort kommentarerna i **dps** Etableringsläge. Uppdaterar du värdet för **scope_id** och **registration_id** med värden från IoT Hub DPS-instansen och din IoT Edge-enhet med TPM. 
 
    ```yaml
    # provisioning:
@@ -119,7 +119,7 @@ Gränsenheten kan konfigureras manuellt med hjälp av en [enheten anslutningsstr
      registration_id: "{registration_id}"
    ```
 
-Hämta namnet på edge enheter med hjälp av `hostname` kommando i PowerShell och anges som värde för **värdnamn:** i konfigurationen yaml. Exempel:
+Hämta namnet på edge-enhet med `hostname` kommando i PowerShell och ställa in det som värdet för **värdnamn:** i konfigurationen yaml. Exempel:
 
 ```yaml
   ###############################################################################
@@ -134,33 +134,35 @@ Hämta namnet på edge enheter med hjälp av `hostname` kommando i PowerShell oc
   hostname: "edgedevice-1"
 ```
 
-Därefter måste du ange ip-adress och port för **workload_uri** och **management_uri** i den **ansluta:** avsnitt i konfigurationen.
+Sedan ange IP-adress och port för **workload_uri** och **management_uri** i den **ansluta:** och **lyssna:** delar av den konfiguration.
 
-Ip-adress, ange `ipconfig` i PowerShell-fönstret och välj ip-adressen för den **vEthernet (DockerNAT)**-gränssnitt som visas i exemplet nedan (ip-adressen på datorn kan vara olika):
+Om du vill hämta din IP-adress, ange `ipconfig` i PowerShell-fönster. Kopiera IP-adressen för den **vEthernet (DockerNAT)**' gränssnitt som visas i följande exempel (ip-adressen på datorn kan vara annorlunda):
 
 ![DockerNat][img-docker-nat]
 
+Uppdatera den **workload_uri** och **management_uri** i den **ansluta:** avsnittet i konfigurationsfilen. Ersätt **\<gateway-adress\>** med IP-adress som du kopierade. 
+
 ```yaml
 connect:
-  management_uri: "http://10.0.75.1:15580"
-  workload_uri: "http://10.0.75.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Ange samma adresserna i den **lyssna:** avsnitt i konfigurationen. Exempel:
+Ange samma adresser i den **lyssna:** avsnittet av konfigurationen med hjälp av din IP-adress som gatewayadress.
 
 ```yaml
 listen:
-  management_uri: "http://10.0.75.1:15580"
-  workload_uri: "http://10.0.75.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Skapa en miljövariabel i PowerShell-fönstret **IOTEDGE_HOST** med den **management_uri** adress, exempel:
+I PowerShell-fönstret skapar du en miljövariabel **IOTEDGE_HOST** med den **management_uri** adress.
 
 ```powershell
-[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://10.0.75.1:15580")
+[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
 ```
 
-Kontrollera slutligen den **nätverk:** inställningen **moby_runtime:** har tagit bort kommentarstecken från och ange **azure-iot-kant**
+Kontrollera slutligen att den **nätverk:** inställningen **moby_runtime:** tagit bort kommentarstecken från och tilldelas **azure iot edge**
 
 ```yaml
 moby_runtime:
@@ -176,12 +178,12 @@ sleep 5
 Start-Service iotedge
 ```
 
-## <a name="verify-successful-installation"></a>Kontrollera att installationen lyckades
+## <a name="verify-successful-installation"></a>Verifiera installationen
 
-Om du har använt den **manuell konfiguration** stegen i föregående avsnitt IoT kant-körningen ska vara har etablerad och körs på enheten. Om du har använt den **automatisk konfiguration** steg, måste du slutföra några ytterligare steg så att körningen kan registrera din enhet med din IoT-hubb för din räkning. Nästa steg, se [skapa och etablera en simulerad TPM Edge-enhet i Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
+Om du har använt den **manuell konfiguration** stegen i föregående avsnitt, IoT Edge-körningen ska vara har etablerad och körs på din enhet. Om du har använt den **automatisk konfiguration** stegen, måste du utföra några ytterligare steg så att körningen kan registrera din enhet med IoT-hubben för din räkning. Nästa steg, se [skapa och etablera en simulerad TPM-Edge-enhet på Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
 
 
-Du kan kontrollera status för tjänsten IoT kanten av: 
+Du kan kontrollera status för IoT Edge-tjänsten genom att: 
 
 ```powershell
 Get-Service iotedge
@@ -200,7 +202,7 @@ Get-WinEvent -ea SilentlyContinue `
   sort-object @{Expression="TimeCreated";Descending=$false}
 ```
 
-Och lista med moduler med:
+Och listan körs moduler med:
 
 ```powershell
 iotedge list
@@ -208,7 +210,7 @@ iotedge list
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har problem med kant-körningsmiljön installeras korrekt, checka ut den [felsökning] [ lnk-trouble] sidan.
+Om du har problem med Edge-körningen installeras korrekt, Kolla in den [felsökning] [ lnk-trouble] sidan.
 
 
 <!-- Images -->

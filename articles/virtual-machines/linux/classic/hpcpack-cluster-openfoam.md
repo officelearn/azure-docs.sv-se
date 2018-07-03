@@ -1,6 +1,6 @@
 ---
 title: Kör OpenFOAM med HPC Pack på virtuella Linux-datorer | Microsoft Docs
-description: Distribuera ett kluster för Microsoft HPC Pack på Azure och kör en OpenFOAM jobb på flera Linux compute-noder i ett nätverk med RDMA.
+description: Distribuera ett Microsoft HPC Pack-kluster i Azure och kör en OpenFOAM jobb på flera Linux-beräkningsnoder i en RDMA-nätverk.
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
@@ -15,44 +15,44 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: f43790d3495e1c09730e90b5077ec840731a7d83
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 73ad78fc73a7605f8feaf114ebdfac5023cc91b6
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841919"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342441"
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Kör OpenFoam med Microsoft HPC Pack på ett Linux RDMA-kluster i Azure
-Den här artikeln får du ett sätt att köra OpenFoam i virtuella Azure-datorer. Här kan du distribuera ett Microsoft HPC Pack kluster med Linux compute-noder på Azure och kör en [OpenFoam](http://openfoam.com/) jobbet med Intel MPI. Du kan använda RDMA-kompatibla virtuella Azure-datorer för compute-noder så att datornoderna kommunicera över nätverket Azure RDMA. Andra alternativ för att köra OpenFoam i Azure innehåller helt konfigurerade kommersiella bilder som finns på marknaden, till exempel Ubercloud's [OpenFoam 2.3 på CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/), och genom att köra på [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
+Den här artikeln visar ett sätt att köra OpenFoam i Azure-datorer. Här kan du distribuera ett Microsoft HPC Pack-kluster med Linux-beräkningsnoder i Azure och kör en [OpenFoam](http://openfoam.com/) jobb med Intel MPI. Du kan använda RDMA-kompatibla virtuella datorer i Azure för compute-noder så att compute-noder kommunicerar via RDMA för Azure-nätverk. Andra alternativ för att köra OpenFoam i Azure är fullständigt konfigurerad kommersiella avbildningar på Marketplace, till exempel Ubercloud's [OpenFoam 2.3 på CentOS 6](https://azuremarketplace.microsoft.com/marketplace/apps/cfd-direct.cfd-direct-from-the-cloud), och genom att köra på [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-OpenFOAM (för åtgärden Öppna fältet och manipulering) är en öppen källkod beräkningsprogram (CFD)-programpaket som används ofta i tekniker och vetenskap i både kommersiella och academic organisationer. Den innehåller verktyg för meshing, särskilt snappyHexMesh en parallelized mesher för komplexa CAD-geometrier och för före och efter bearbetning. Nästan alla processer som körs parallellt, så att användarna kan dra full nytta av datormaskinvara tillgång.  
+OpenFOAM (för öppna fältet igen och manipulering av) är en öppen källkod dataflödesdynamik (CFD)-programpaket som används ofta i teknik och vetenskap, i såväl kommersiell och akademiska organisationer. Den innehåller verktyg för meshing, särskilt snappyHexMesh, en parallelliserad mesher för komplexa CAD geometrier och för före och efterbearbetning. Nästan alla processer köras parallellt, där användaren kan dra full nytta av datormaskinvara förfogar.  
 
-Microsoft HPC Pack tillhandahåller funktioner för att köra storskaliga HPC och parallella program, inklusive MPI program på kluster av Microsoft Azure-datorer. HPC Pack stöder också körs Linux HPC-program på Linux-beräkningsnod virtuella datorer distribueras i ett kluster med HPC Pack. Se [komma igång med Linux compute-noder i ett HPC Pack kluster i Azure](hpcpack-cluster.md) för en introduktion till Linux compute-noder med HPC Pack.
+Microsoft HPC Pack innehåller funktioner för att köra storskaliga HPC och parallella program, inklusive MPI-program på kluster av Microsoft Azure-datorer. HPC Pack stöder också köra Linux HPC-program på Linux-beräkningsnod virtuella datorer distribueras i ett HPC Pack-kluster. Se [Kom igång med Linux-beräkningsnoder i ett HPC Pack-kluster i Azure](hpcpack-cluster.md) en introduktion till med Linux-beräkningsnoder med HPC Pack.
 
 > [!NOTE]
-> Den här artikeln visar hur du kör en Linux MPI arbetsbelastning med HPC Pack. Det förutsätts att du vara bekant med Linux systemadministration och MPI arbetsbelastningar som körs på Linux-kluster. Om du använder versioner av MPI och OpenFOAM skiljer sig från de som visas i den här artikeln kan behöva du ändra vissa installations- och konfigurationssteg. 
+> Den här artikeln visar hur du kör en Linux MPI-arbetsbelastning med HPC Pack. Det förutsätter att du har bekant med Linux systemadministration och kör MPI-arbetsbelastningar på Linux-kluster. Om du använder versioner av MPI och OpenFOAM skiljer sig från de som visas i den här artikeln kan behöva du ändra några steg för installation och konfiguration. 
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
-* **HPC Pack kluster med RDMA-kompatibla Linux datornoder** – distribuera ett HPC Pack kluster med storlek A8 A9, H16r, eller H16rm Linux compute-noder med antingen en [Azure Resource Manager-mall](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) eller en [Azure PowerShell-skriptet](hpcpack-cluster-powershell-script.md). Se [komma igång med Linux compute-noder i ett HPC Pack kluster i Azure](hpcpack-cluster.md) för kraven och steg för något av alternativen. Om du väljer distributionsalternativ för PowerShell-skript finns i exempelkonfigurationsfilen i exempelfiler i slutet av den här artikeln. Använd den här konfigurationen för att distribuera ett Azure-baserade HPC Pack kluster som består av en storlek A8 Windows Server 2012 R2 huvudnod och 2 storlek A8 SUSE Linux Enterprise Server 12 compute-noder. Ersätt lämpliga värden för namn på din prenumeration och tjänsten. 
+## <a name="prerequisites"></a>Förutsättningar
+* **HPC Pack-kluster med RDMA-kompatibla Linux-beräkningsnoder** – distribuera ett HPC Pack-kluster med storlek A8, A9, H16r, eller H16rm Linux-beräkningsnoder med hjälp av antingen ett [Azure Resource Manager-mall](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) eller en [Azure PowerShell-skriptet](hpcpack-cluster-powershell-script.md). Se [Kom igång med Linux-beräkningsnoder i ett HPC Pack-kluster i Azure](hpcpack-cluster.md) för kraven och steg för något av alternativen. Om du väljer distributionsalternativ för PowerShell-skript, se exempelkonfigurationsfilen i exempelfilerna i slutet av den här artikeln. Använd den här konfigurationen för att distribuera ett Azure-baserad HPC Pack-kluster som består av en storlek A8 Windows Server 2012 R2-huvudnod och 2 storleken A8 SUSE Linux Enterprise Server 12 compute-noder. Ersätt lämpliga värden för din prenumeration och tjänstnamn. 
   
-  **Ytterligare viktiga punkter**
+  **Fler saker att känna till**
   
-  * Linux RDMA nätverk krav i Azure, se [högpresterande compute VM-storlekar](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-  * Om du använder distributionsalternativet för Powershell-skript kan du distribuera alla Linux compute-noderna i ett moln-tjänsten ska använda RDMA-nätverksanslutning.
-  * Anslut med SSH att utföra några ytterligare administrativa uppgifter när du har distribuerat Linux-noder. Hitta information för SSH-anslutning för varje Linux-VM i Azure-portalen.  
-* **Intel MPI** - om du vill köra OpenFOAM på SLES 12 HPC compute-noder i Azure, måste du installera Intel MPI biblioteket 5 runtime från den [Intel.com plats](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 är förinstallerat på CentOS-baserade HPC bilder.)  Installera Intel MPI på dina Linux compute-noder i ett senare steg om det behövs. För att förbereda för det här steget när du har registrerat med Intel, på länken i e-bekräftelse till relaterade webbsidan. Kopiera sedan hämtningslänken för filen .tgz lämplig version av Intel MPI. Den här artikeln är baserad på Intel MPI version 5.0.3.048.
-* **OpenFOAM källa Pack** -ladda ned OpenFOAM källa Pack för Linux från den [OpenFOAM Foundation-webbplatsen](http://openfoam.org/download/2-3-1-source/). Den här artikeln är baserad på källan Pack-version 2.3.1-baserad, hämtas som OpenFOAM 2.3.1.tgz. Följ anvisningarna nedan om du vill packa upp och kompilera OpenFOAM på datornoderna Linux.
-* **EnSight** (valfritt) – att se resultatet av dina OpenFOAM simulering, hämta och installera den [EnSight](https://www.ceisoftware.com/download/) visualisering och analys av programmet. Licensierings-och hämta finns på webbplatsen EnSight.
+  * För Linux RDMA-nätverk krav i Azure, se [högpresterande compute VM-storlekar](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * Om du använder distributionsalternativet för Powershell-skript kan du distribuera alla de Linux-beräkningsnoderna i en molntjänst du använder RDMA-nätverksanslutning.
+  * Ansluta med SSH för att utföra ytterligare administrativa åtgärder när du har distribuerat Linux-noder. Hitta SSH-anslutningsinformation för varje Linux VM i Azure-portalen.  
+* **Intel MPI** – om du vill köra OpenFOAM på SLES 12 HPC-Databehandlingsnoderna i Azure, måste du installera Intel MPI biblioteket 5 runtime från den [Intel.com plats](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 är förinstallerat på CentOS-baserade HPC-avbildningar.)  Installera Intel MPI på Linux-beräkningsnoder i ett senare steg om det behövs. Om du vill förbereda för det här steget när du har registrerat med Intel, följer du länken i e-postbekräftelsen på relaterade webbsidan. Kopiera sedan länken för filen .tgz lämplig version av Intel MPI. Den här artikeln är baserad på Intel MPI version 5.0.3.048.
+* **OpenFOAM källa Pack** – ladda ned programvaran OpenFOAM källa Pack för Linux från den [OpenFOAM Foundation-webbplatsen](http://openfoam.org/download/2-3-1-source/). Den här artikeln baseras på källan Pack-version 2.3.1, hämtas som OpenFOAM 2.3.1.tgz. Följ anvisningarna senare i den här artikeln för att packa upp och kompilera OpenFOAM på Linux-beräkningsnoder.
+* **EnSight** (valfritt) – att se resultatet av dina OpenFOAM simulering, ladda ned och installera den [EnSight](https://www.ceisoftware.com/download/) visualisering och analys-programmet. Licensiering och ladda ned information finns på webbplatsen EnSight.
 
-## <a name="set-up-mutual-trust-between-compute-nodes"></a>Ställ in ömsesidigt förtroende mellan beräkningsnoder
-Köra ett jobb mellan noder på flera Linux-noder måste noderna till förtroende för varandra (av **rsh** eller **ssh**). När du skapar klustret HPC Pack med Microsoft HPC Pack IaaS-distributionsskriptet konfigurerar skriptet automatiskt permanenta ömsesidigt förtroende för administratörskontot som du anger. För vanliga användare som du skapar i klustrets domän, har att ställa in tillfällig ömsesidigt förtroende mellan noder när ett jobb har tilldelats dem och ta bort relationen när jobbet har slutförts. Ange ett RSA-nyckelpar till klustret med HPC Pack för förtroendet för att upprätta förtroende för varje användare.
+## <a name="set-up-mutual-trust-between-compute-nodes"></a>Skapa ömsesidigt förtroende mellan compute-noder
+När du kör ett jobb mellan noder på flera Linux-noder måste noderna till förtroende för varandra (av **rsh** eller **ssh**). När du skapar HPC Pack-kluster med Microsoft HPC Pack IaaS-distributionsskriptet konfigurerar skriptet automatiskt permanent ömsesidigt förtroende för administratörskontot som du anger. För vanliga användare som du skapar i klustrets domän, ställa in tillfälliga ömsesidigt förtroende mellan noderna när ett jobb har tilldelats dem och ta bort relationen när jobbet har slutförts. Ange ett RSA-nyckelpar i klustret med HPC Pack för förtroendet för att upprätta förtroende för varje användare.
 
-### <a name="generate-an-rsa-key-pair"></a>Generera en RSA-nyckelpar
-Det är enkelt att generera ett RSA-nyckelpar, som innehåller en offentlig nyckel och en privat nyckel genom att köra Linux **ssh-keygen** kommando.
+### <a name="generate-an-rsa-key-pair"></a>Skapa ett RSA-nyckelpar
+Det är enkelt att skapa ett RSA-nyckelpar, som innehåller en offentlig nyckel och en privat nyckel genom att köra Linux **ssh-keygen** kommando.
 
 1. Logga in på en Linux-dator.
 2. Kör följande kommando:
@@ -62,18 +62,18 @@ Det är enkelt att generera ett RSA-nyckelpar, som innehåller en offentlig nyck
    ```
    
    > [!NOTE]
-   > Tryck på **RETUR** att använda standardinställningarna tills kommandot har slutförts. Ange inte en lösenfras här. När du uppmanas att ange ett lösenord trycker du bara på **RETUR**.
+   > Tryck på **RETUR** att använda standardinställningarna tills kommandot har slutförts. Ange inte en lösenfras här. När du uppmanas att göra ett lösenord trycker du bara på **RETUR**.
    > 
    > 
    
-   ![Generera en RSA-nyckelpar][keygen]
+   ![Skapa ett RSA-nyckelpar][keygen]
 3. Ändra katalog till katalogen ~/.ssh. Den privata nyckeln lagras i id_rsa och den offentliga nyckeln i id_rsa.pub.
    
    ![Privata och offentliga nycklar][keys]
 
-### <a name="add-the-key-pair-to-the-hpc-pack-cluster"></a>Lägga till nyckelparet i HPC Pack klustret
-1. Gör en fjärrskrivbordsanslutning till din huvudnod med ditt administratörskonto HPC Pack (administratörskontot som du ställer in när du körde distributionsskriptet).
-2. Använd standard Windows Server procedurer för att skapa ett domänanvändarkonto i klustrets Active Directory-domän. Till exempel använda verktyget Active Directory-användare och datorer i huvudnod. Exemplen i den här artikeln förutsätter att du skapar en domänanvändare med namnet hpclab\hpcuser.
+### <a name="add-the-key-pair-to-the-hpc-pack-cluster"></a>Lägg till nyckelparet i HPC Pack-kluster
+1. Gör en anslutning till fjärrskrivbord till din huvudnoden med HPC Pack-administratörskonto (administratörskontot som du ställer in när du körde skriptet för distribution).
+2. Använd standard Windows Server-procedurer för att skapa ett domänanvändarkonto i Active Directory-domän för klustrets. Till exempel använda verktyget Active Directory-användare och datorer på huvudnoden. Exemplen i den här artikeln förutsätter att du skapar en domänanvändare med namnet hpclab\hpcuser.
 3. Skapa en fil med namnet C:\cred.xml och kopiera RSA viktiga data till den. En exempelfil cred.xml är i slutet av den här artikeln.
    
    ```
@@ -82,25 +82,25 @@ Det är enkelt att generera ett RSA-nyckelpar, som innehåller en offentlig nyck
      <PublicKey>Copy the contents of public key here</PublicKey>
    </ExtendedData>
    ```
-4. Öppna en kommandotolk och ange följande kommando för att ange autentiseringsuppgifter för kontot hpclab\hpcuser. Du använder den **extendeddata** parametern för att skicka namnet på C:\cred.xml fil som du skapade för viktiga data.
+4. Öppna en kommandotolk och ange följande kommando för att ange autentiseringsuppgifter för kontot hpclab\hpcuser. Du använder den **extendeddata** parameter för att skicka namnet på C:\cred.xml fil som du skapade för viktiga data.
    
    ```
    hpccred setcreds /extendeddata:c:\cred.xml /user:hpclab\hpcuser /password:<UserPassword>
    ```
    
-   Det här kommandot har slutförts utan utdata. Lagra filen cred.xml på en säker plats när du har angett autentiseringsuppgifterna för de användarkonton som du behöver köra jobb, eller ta bort den.
-5. Glöm inte att ta bort nycklar när du är klar med dem. Om du genererade RSA-nyckelpar på en Linux-noder. Om HPC Pack hittar en befintlig id_rsa- eller id_rsa.pub fil, anger den inte ömsesidigt förtroende.
+   Det här kommandot har slutförts utan utdata. Lagra cred.xml-filen på en säker plats när du har angett autentiseringsuppgifterna för de användarkonton som du behöver köra jobb, eller ta bort den.
+5. Om du har genererat RSA-nyckelpar på en Linux-noder kan du komma ihåg att ta bort nycklar när du är klar med dem. Om HPC Pack hittar en befintlig id_rsa- eller id_rsa.pub fil, den inte ställts in ömsesidigt förtroende.
 
 > [!IMPORTANT]
-> Vi rekommenderar inte kör ett Linux-jobb som en Klusteradministratör i ett delat kluster, eftersom ett jobb som skickats av en administratör köras under rotkontot på Linux-noder. Dock körs ett jobb som skickats av en icke-administratörer under ett lokalt användarkonto för Linux med samma namn som användaren som jobbet. I det här fallet konfigurerar HPC Pack ömsesidigt förtroende för den här användaren Linux mellan noderna som allokerats till jobbet. Du kan konfigurera Linux-användare manuellt på Linux-noder innan du kör jobbet eller HPC Pack skapar användaren automatiskt när jobbet har skickats. Om HPC Pack skapar användaren, HPC Pack tar bort den när jobbet har slutförts. Tar bort tangenterna när jobbet har slutförts för att minska säkerhetsrisker HPC Pack.
+> Vi rekommenderar inte kör ett Linux-jobb som en Klusteradministratör i ett delat kluster eftersom ett jobb som skickats av en administratör som körs under rotkontot på Linux-noder. Dock körs ett jobb som skickats av en icke-administratörer under ett lokalt användarkonto i Linux med samma namn som användare för jobbet. I det här fallet ställer HPC Pack in ömsesidigt förtroende för den här Linux-användaren för noder som allokerats till jobbet. Du kan konfigurera Linux-användare manuellt på Linux-noder innan du kör jobbet eller HPC Pack skapar användaren automatiskt när jobbet har skickats. Om HPC Pack skapar användaren, HPC Pack tar bort den när jobbet har slutförts. Tar bort tangenterna när jobbet har slutförts för att minska hot, HPC Pack.
 > 
 > 
 
-## <a name="set-up-a-file-share-for-linux-nodes"></a>Skapa en filresurs för Linux-noder
-Nu ställa in en vanlig SMB-resurs på en mapp på huvudnoden. Montera den delade mappen så att de Linux-noderna till programfiler med en sökväg på Linux-noder. Om du vill kan använda du ett annat alternativ, till exempel filer för Azure-resurs - rekommenderas för många scenarier- eller en NFS-resurs för fildelning. Se filen dela information och detaljerade anvisningar i [komma igång med Linux compute-noder i ett HPC Pack-kluster i Azure](hpcpack-cluster.md).
+## <a name="set-up-a-file-share-for-linux-nodes"></a>Konfigurera en filresurs för Linux-noder
+Nu ställa in en standard SMB-resurs på en mapp på huvudnoden. Om du vill tillåta Linux-noder att få åtkomst till programfiler med en sökväg, ansluta till den delade mappen på Linux-noder. Om du vill kan använda du ett annat alternativ, till exempel en Azure Files-resurs - rekommenderas för många scenarier- eller en NFS-resurs för fildelning. Se fildelning och få detaljerade instruktioner i [Kom igång med Linux-beräkningsnoder i ett HPC Pack-kluster i Azure](hpcpack-cluster.md).
 
-1. Skapa en mapp på huvudnoden och dela den för alla genom att ange behörighet för läsning och skrivning. Till exempel dela C:\OpenFOAM på huvudnoden som \\ \\SUSE12RDMA HN\OpenFOAM. Här, *SUSE12RDMA HN* är värdnamnet på huvudnoden.
-2. Öppna Windows PowerShell-fönstret och kör följande kommandon:
+1. Skapa en mapp på huvudnoden och dela den till alla genom att ange läs/skrivbehörighet. Till exempel dela C:\OpenFOAM på huvudnoden som \\ \\SUSE12RDMA HN\OpenFOAM. Här kan *SUSE12RDMA HN* är värdnamnet för huvudnoden.
+2. Öppna ett Windows PowerShell-fönster och kör följande kommandon:
    
    ```
    clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -108,27 +108,27 @@ Nu ställa in en vanlig SMB-resurs på en mapp på huvudnoden. Montera den delad
    clusrun /nodegroup:LinuxNodes mount -t cifs //SUSE12RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
    ```
 
-Det första kommandot skapar en mapp med namnet /openfoam på alla noder i gruppen LinuxNodes. Det andra kommandot monterar delad mapp //SUSE12RDMA-HN/OpenFOAM på Linux-noder med dir_mode och file_mode bits anger 777. Den *användarnamn* och *lösenord* kommandot ska vara autentiseringsuppgifterna för en användare på huvudnoden.
+Det första kommandot skapar en mapp med namnet /openfoam på alla noder i gruppen LinuxNodes. Det andra kommandot monterar den delade mappen //SUSE12RDMA-HN/OpenFOAM på Linux-noder med dir_mode och file_mode bits ange 777. Den *användarnamn* och *lösenord* i kommandot ska vara autentiseringsuppgifterna för en användare på huvudnoden.
 
 > [!NOTE]
-> Den ”\`” symbol i det andra kommandot är en symbolen för PowerShell. ”\`”, betyder ””, (kommatecken tecken) är en del av kommandot.
+> Den ”\`” symbolen i det andra kommandot är en symbolen för PowerShell. ”\`”, innebär att ””, (kommatecken) är en del av kommandot.
 > 
 > 
 
 ## <a name="install-mpi-and-openfoam"></a>Installera MPI och OpenFOAM
-Om du vill köra OpenFOAM som ett MPI-jobb i RDMA-nätverket, måste du kompilera OpenFOAM med Intel MPI-bibliotek. 
+Om du vill köra OpenFOAM som ett MPI-jobb i RDMA-nätverk, måste du kompilera OpenFOAM med Intel MPI-bibliotek. 
 
-Kör först flera **clusrun** kommandon för att installera Intel MPI-bibliotek (om det inte redan är installerat) och OpenFOAM på Linux-noder. Använda resursen huvudnod konfigurerats tidigare för att dela installationsfilerna mellan Linux-noder.
+Kör först flera **clusrun** kommandon för att installera Intel MPI-bibliotek (om det inte redan är installerat) och OpenFOAM på Linux-noder. Använd huvudnoden resursen som konfigurerats tidigare för att dela installationsfilerna mellan Linux-noder.
 
 > [!IMPORTANT]
-> Dessa installation och kompilerar stegen är exempel. Du måste viss erfarenhet av Linux systemadministration så att beroende kompilerare och bibliotek har installerats korrekt. Du kan behöva ändra vissa miljövariabler eller andra inställningar för din version av Intel MPI och OpenFOAM. Mer information finns i [Intel MPI-biblioteket för Linux-installationsguiden](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html) och [OpenFOAM källa installationen](http://openfoam.org/download/2-3-1-source/) för din miljö.
+> Dessa installation och kompilerar stegen är exempel. Du behöver vissa kunskaper Linux systemadministration så att beroende kompilatorer och bibliotek har installerats korrekt. Du kan behöva ändra vissa miljövariabler eller andra inställningar för version av Intel MPI och OpenFOAM. Mer information finns i [Intel MPI-biblioteket för Linux-installationsguiden](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html) och [OpenFOAM källa Packet](http://openfoam.org/download/2-3-1-source/) för din miljö.
 > 
 > 
 
 ### <a name="install-intel-mpi"></a>Installera Intel MPI
-Spara det hämtade installationspaketet för Intel MPI (l_mpi_p_5.0.3.048.tgz i det här exemplet) i C:\OpenFoam på huvudnoden så att Linux-noder kan komma åt den här filen från /openfoam. Kör sedan **clusrun** installera Intel MPI-biblioteket på alla Linux-noder.
+Spara det hämta installationspaketet för Intel MPI (l_mpi_p_5.0.3.048.tgz i det här exemplet) i C:\OpenFoam på huvudnoden så att Linux-noder kan komma åt den här filen från /openfoam. Kör sedan **clusrun** installera Intel MPI-biblioteket på Linux-noder.
 
-1. Följande kommandon kopiera installationspaket och extrahera till /opt/intel på varje nod.
+1. Följande kommandon kopiera installationspaket och extrahera det till /opt/intel på varje nod.
    
    ```
    clusrun /nodegroup:LinuxNodes mkdir -p /opt/intel
@@ -137,10 +137,10 @@ Spara det hämtade installationspaketet för Intel MPI (l_mpi_p_5.0.3.048.tgz i 
    
    clusrun /nodegroup:LinuxNodes tar -xzf /opt/intel/l_mpi_p_5.0.3.048.tgz -C /opt/intel/
    ```
-2. Installera Intel MPI biblioteket tyst genom att använda en silent.cfg-fil. Du hittar ett exempel i exempelfiler i slutet av den här artikeln. Placera filen i den delade mappen /openfoam. Mer information om filen silent.cfg finns [Intel MPI-biblioteket för installationsguiden för Linux - tyst Installation](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html#silentinstall).
+2. Använd en silent.cfg-fil för att tyst Intel MPI-biblioteket. Du hittar ett exempel i exempelfilerna i slutet av den här artikeln. Placera filen i den delade mappen /openfoam. Mer information om filen silent.cfg finns i [Intel MPI-biblioteket för Linux-installationsguide – tyst Installation](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html#silentinstall).
    
    > [!TIP]
-   > Kontrollera att du sparar filen som en textfil med Linux silent.cfg radbrytningar (endast LF, inte CR LF). Det här steget säkerställer att den körs korrekt på Linux-noder.
+   > Kontrollera att du sparar filen silent.cfg som en textfil med Linux radbrytningar (endast LF, inte CR LF). Det här steget säkerställer att den körs korrekt på Linux-noder.
    > 
    > 
 3. Installera Intel MPI biblioteket i tyst läge.
@@ -150,24 +150,24 @@ Spara det hämtade installationspaketet för Intel MPI (l_mpi_p_5.0.3.048.tgz i 
    ```
 
 ### <a name="configure-mpi"></a>Konfigurera MPI
-För att testa, bör du lägga till följande rader /etc/security/limits.conf på varje Linux-nod:
+För att testa, bör du lägga till följande rader /etc/security/limits.conf på varje Linux-noder:
 
     clusrun /nodegroup:LinuxNodes echo "*               hard    memlock         unlimited" `>`> /etc/security/limits.conf
     clusrun /nodegroup:LinuxNodes echo "*               soft    memlock         unlimited" `>`> /etc/security/limits.conf
 
 
-Starta om Linux-noder när du uppdaterar filen limits.conf. Till exempel använda följande **clusrun** kommando:
+Starta om Linux-noder när du har uppdaterat limits.conf-filen. Till exempel använda följande **clusrun** kommando:
 
 ```
 clusrun /nodegroup:LinuxNodes systemctl reboot
 ```
 
-Se till att den delade mappen är monterade som /openfoam efter omstart.
+Se till att den delade mappen är monterad som /openfoam efter omstart.
 
 ### <a name="compile-and-install-openfoam"></a>Kompilera och installera OpenFOAM
-Spara det hämtade installationspaketet för OpenFOAM källa Pack (OpenFOAM-2.3.1.tgz i det här exemplet) till C:\OpenFoam på huvudnoden så att Linux-noder kan komma åt den här filen från /openfoam. Kör sedan **clusrun** kommandon för att kompilera OpenFOAM på Linux-noder.
+Spara det hämta installationspaketet för OpenFOAM källa Pack (OpenFOAM-2.3.1.tgz i det här exemplet) till C:\OpenFoam på huvudnoden så att Linux-noder kan komma åt den här filen från /openfoam. Kör sedan **clusrun** kommandon för att kompilera OpenFOAM på alla Linux-noder.
 
-1. Skapa en mapp /opt/OpenFOAM på varje Linux-nod, kopiera paketet källan till den här mappen och extrahera det det.
+1. Skapa en mapp /opt/OpenFOAM på varje Linux-nod, kopiera käll-paketet till den här mappen och extrahera den det.
    
    ```
    clusrun /nodegroup:LinuxNodes mkdir -p /opt/OpenFOAM
@@ -176,8 +176,8 @@ Spara det hämtade installationspaketet för OpenFOAM källa Pack (OpenFOAM-2.3.
    
    clusrun /nodegroup:LinuxNodes tar -xzf /opt/OpenFOAM/OpenFOAM-2.3.1.tgz -C /opt/OpenFOAM/
    ```
-2. Kompilera OpenFOAM med Intel MPI bibliotek först ställa in miljövariabler för både Intel MPI och OpenFOAM. Använd ett bash-skript som heter settings.sh för att ange variabler. Du hittar ett exempel i exempelfiler i slutet av den här artikeln. Placera filen (som sparas med radbrytningar för Linux) i den delade mappen /openfoam. Den här filen innehåller inställningar för MPI och OpenFOAM körningar som du senare använda för att köra ett OpenFOAM-jobb.
-3. Installera beroende paket som behövs för att kompilera OpenFOAM. Beroende på Linux-distribution kan du först behöver lägga till en databas. Kör **clusrun** kommandon som liknar följande:
+2. Kompilera OpenFOAM med Intel MPI först ställa in miljövariabler för både Intel MPI och OpenFOAM. Använd ett bash-skript som heter settings.sh för att ange variabler. Du hittar ett exempel i exempelfilerna i slutet av den här artikeln. Placera den här filen (som sparas med radbrytningar för Linux) i den delade mappen /openfoam. Den här filen innehåller också inställningar för MPI och OpenFOAM körningar som du senare använda för att köra ett OpenFOAM-jobb.
+3. Installera beroende paket som behövs för att kompilera OpenFOAM. Beroende på vilken Linux-distribution kan du först behöva lägga till en databas. Kör **clusrun** kommandon som liknar följande:
    
     ```
     clusrun /nodegroup:LinuxNodes zypper ar http://download.opensuse.org/distribution/13.2/repo/oss/suse/ opensuse
@@ -185,51 +185,51 @@ Spara det hämtade installationspaketet för OpenFOAM källa Pack (OpenFOAM-2.3.
     clusrun /nodegroup:LinuxNodes zypper -n --gpg-auto-import-keys install --repo opensuse --force-resolution -t pattern devel_C_C++
     ```
    
-    Vid behov SSH till varje Linux-nod för att köra kommandon för att bekräfta att de fungerar.
-4. Kör följande kommando för att kompilera OpenFOAM. Kompileringsprocessen tar en stund att slutföra och genererar en stor mängd logginformation till standardutdata, så den **/ överlagrat** alternativet för att visa utdata överlagrat.
+    Om det behövs, SSH till varje Linux-nod till kör kommandon för att bekräfta att de körs korrekt.
+4. Kör följande kommando för att kompilera OpenFOAM. Kompileringsprocessen tar lite tid att slutföra och genererar en stor mängd logginformation till standardutdata, så Använd den **/ överlagrad** alternativet för att visa utdata överlagrad.
    
    ```
    clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-2.3.1/Allwmake
    ```
    
    > [!NOTE]
-   > Den ”\`” symbol i kommandot är en symbolen för PowerShell. ”\`&” innebär det ”&” är en del av kommandot.
+   > Den ”\`” symbolen i kommandot är en symbolen för PowerShell. ”\`&” innebär det ”och” är en del av kommandot.
    > 
    > 
 
-## <a name="prepare-to-run-an-openfoam-job"></a>Förbereda för att köra ett OpenFOAM-jobb
-Hämta nu redo att köra ett MPI-jobb som kallas sloshingTank3D som är en av OpenFoam exemplen på två Linux-noder. 
+## <a name="prepare-to-run-an-openfoam-job"></a>Förbereda för att köra ett jobb för OpenFOAM
+Nu gör dig redo att köra en MPI-jobb som heter sloshingTank3D, som är en av exempel som OpenFoam på två Linux-noder. 
 
-### <a name="set-up-the-runtime-environment"></a>Ställ in körningsmiljön
-Om du vill konfigurera runtime-miljöer för MPI och OpenFOAM på Linux-noder, kör du följande kommando i Windows PowerShell-fönstret i huvudnod. (Det här kommandot är giltig för SUSE Linux endast.)
+### <a name="set-up-the-runtime-environment"></a>Konfigurera runtime-miljö
+Om du vill ställa in körningsmiljöer för MPI och OpenFOAM på Linux-noder, kör du följande kommando i ett Windows PowerShell-fönster på huvudnoden. (Det här kommandot är giltig för SUSE Linux bara.)
 
 ```
 clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 ```
 
 ### <a name="prepare-sample-data"></a>Förbereda exempeldata
-Använd huvudnod resursen som du tidigare konfigurerat för att dela filer mellan Linux-noder (monterade som /openfoam).
+Använd huvudnoden filresursen som du tidigare konfigurerat för att dela filer mellan Linux-noder (som monterats som /openfoam).
 
-1. SSH till någon av dina Linux compute-noder.
-2. Kör följande kommando för att ställa in körningsmiljö OpenFOAM om du inte redan har gjort detta.
+1. SSH till en av dina Linux-beräkningsnoder.
+2. Kör följande kommando för att ställa in för OpenFOAM-körningsmiljön om du inte redan har gjort detta.
    
    ```
    $ source /openfoam/settings.sh
    ```
-3. Kopiera sloshingTank3D provet till den delade mappen och navigera till den.
+3. Kopiera sloshingTank3D exemplet till den delade mappen och navigera till den.
    
    ```
    $ cp -r $FOAM_TUTORIALS/multiphase/interDyMFoam/ras/sloshingTank3D /openfoam/
    
    $ cd /openfoam/sloshingTank3D
    ```
-4. När du använder standardparametrarna för det här exemplet kan ta det flera minuter att köra, så kanske du vill ändra vissa parametrar för att göra det snabbare. Ett enkelt alternativ är att ändra tid step variabler deltaT och writeInterval i filen system/controlDict. Den här filen lagras alla indata som rör kontroll över tid och läsning och skrivning av data för lösningen. Du kan till exempel ändra värdet för deltaT från 0,05 till 0,5 och värdet för writeInterval från 0,05 till 0,5.
+4. När du använder standardparametrarna för det här exemplet, kan det ta flera minuter att köra, så kanske du vill ändra vissa parametrar för att göra det snabbare. Ett enkelt alternativ är att ändra tiden steg variabler deltaT och writeInterval i filen system/controlDict. Den här filen lagrar alla inkommande data som rör kontroll över tid och läsa och skriva lösningsdata. Du kan till exempel ändra värdet för deltaT från 0,05 till 0,5 och värdet för writeInterval från 0,05 till 0,5.
    
    ![Ändra steg variabler][step_variables]
-5. Ange önskade värden för variabler i filen system/decomposeParDict. Det här exemplet använder två Linux noder varje med 8 kärnor, så anger du numberOfSubdomains 16 och n för hierarchicalCoeffs att (1 1 16), vilket betyder att köra OpenFOAM parallellt med 16 processer. Mer information finns i [OpenFOAM användarhandboken: 3,4 program som körs parallellt](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4).
+5. Ange önskade värden för variablerna i filen system/decomposeParDict. Det här exemplet används två Linux-noder varje med 8 kärnor, så ange numberOfSubdomains till 16 och n för hierarchicalCoeffs att (1 1 16), vilket betyder att kör OpenFOAM parallellt med 16 processer. Mer information finns i [OpenFOAM användarhandboken: 3.4 körs program parallellt](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4).
    
    ![Dela upp processer][decompose]
-6. Kör följande kommandon från katalogen sloshingTank3D för att förbereda exempeldata.
+6. Kör följande kommandon från katalogen sloshingTank3D förbereda exempeldata.
    
    ```
    $ . $WM_PROJECT_DIR/bin/tools/RunFunctions
@@ -242,15 +242,15 @@ Använd huvudnod resursen som du tidigare konfigurerat för att dela filer mella
    
    $ runApplication setFields  
    ```
-7. Du bör se exempelfilerna data kopieras till C:\OpenFoam\sloshingTank3D på noden head. (C:\OpenFoam är den delade mappen på huvudnoden.)
+7. Du bör se exempeldatafiler kopieras till C:\OpenFoam\sloshingTank3D på klustrets huvudnod. (C:\OpenFoam är den delade mappen på huvudnoden.)
    
    ![Datafiler på huvudnoden][data_files]
 
 ### <a name="host-file-for-mpirun"></a>Värdfilen för mpirun
-I det här steget skapar du en värd-fil (en lista över compute-noder) som den **mpirun** kommando använder.
+I det här steget skapar du en värd-fil (en lista över compute-noder) som den **mpirun** kommandot använder.
 
-1. På en Linux-noder, skapa en fil med namnet hostfile under /openfoam, så den här filen kan nås på /openfoam/hostfile på alla noder i Linux.
-2. Skriv din Linux nod-namn i den här filen. Filen innehåller följande namn i det här exemplet:
+1. På en Linux-noder, skapar du en fil med namnet hostfile under /openfoam, så att den här filen kan nås på /openfoam/hostfile på alla Linux-noder.
+2. Skriv ditt namn för Linux-noder i den här filen. Filen innehåller följande namn i det här exemplet:
    
    ```       
    SUSE12RDMA-LN1
@@ -258,20 +258,20 @@ I det här steget skapar du en värd-fil (en lista över compute-noder) som den 
    ```
    
    > [!TIP]
-   > Du kan också skapa den här filen på C:\OpenFoam\hostfile i huvudnod. Om du väljer det här alternativet, spara den som en textfil med Linux radbrytningar (endast LF, inte CR LF). Detta säkerställer att den körs korrekt på Linux-noder.
+   > Du kan också skapa den här filen på C:\OpenFoam\hostfile på huvudnoden. Om du väljer det här alternativet, spara den som en textfil med Linux radbrytningar (endast LF, inte CR LF). Detta säkerställer att den körs korrekt på Linux-noder.
    > 
    > 
    
-   **Omslutning för Bash-skript**
+   **Bash-skript-omslutning**
    
-   Om du har många Linux noder och du vill att jobbet ska köras på bara några av dem, är det inte en bra idé att använda en fast värd-fil, eftersom du inte vet vilka noder som kommer att tilldelas ditt jobb. I det här fallet skriva ett bash-skript Omslutning för **mpirun** att skapa värdfilen automatiskt. Du kan hitta ett exempel bash-skript wrapper kallas hpcimpirun.sh i slutet av den här artikeln och spara den som /openfoam/hpcimpirun.sh. Det här exempelskriptet gör följande:
+   Om du har många Linux-noder och du vill att jobbet ska köras på bara några av dem, är det inte en bra idé att använda en fast värd-fil, eftersom du inte vet vilka noder som ska allokeras till jobbet. I det här fallet skriva en bash-skript-Omslutning för **mpirun** att skapa värdfilen automatiskt. Du kan hitta en exempel bash-skript-omslutning kallas hpcimpirun.sh i slutet av den här artikeln och spara den som /openfoam/hpcimpirun.sh. Det här exempelskriptet gör följande:
    
-   1. Ställer in miljövariablerna för **mpirun**, och vissa parametrar för att lägga till kör MPI-jobb via nätverket RDMA. I så fall anger du följande variabler:
+   1. Ställer in miljövariabler för **mpirun**, och vissa ytterligare parametrar för att köra MPI-jobb via RDMA-nätverk. I detta fall anger du följande variabler:
       
       * I_MPI_FABRICS=shm:dapl
       * I_MPI_DAPL_PROVIDER=ofa-v2-ib0
       * I_MPI_DYNAMIC_CONNECTION=0
-   2. Skapar en värd-fil enligt miljön variabeln $CCP_NODES_CORES som anges av HPC-huvudnoden när jobbet är aktiverad.
+   2. Skapar en värd enligt miljön variabeln $CCP_NODES_CORES, vilket anges genom HPC-huvudnoden när jobbet har aktiverats.
       
       Formatet för $CCP_NODES_CORES följer detta mönster:
       
@@ -282,110 +282,110 @@ I det här steget skapar du en värd-fil (en lista över compute-noder) som den 
       där
       
       * `<Number of nodes>` -antalet noder som allokerats till det här jobbet.  
-      * `<Name of node_n_...>` -namnet på varje nod som allokerats till det här jobbet.
-      * `<Cores of node_n_...>` -antal kärnor på den nod som allokerats till det här jobbet.
+      * `<Name of node_n_...>` – namnet på varje nod som allokerats till det här jobbet.
+      * `<Cores of node_n_...>` -antalet kärnor på den nod som allokerats till det här jobbet.
       
-      Till exempel om jobbet måste två noder för att köra, liknar $CCP_NODES_CORES
+      Till exempel om jobbet behöver två noder för att köra, liknar $CCP_NODES_CORES
       
       ```
       2 SUSE12RDMA-LN1 8 SUSE12RDMA-LN2 8
       ```
-   3. Anrop av **mpirun** kommando och lägger till två parametrar på kommandoraden.
+   3. Anropar den **mpirun** kommando och lägger till två parametrar i kommandoraden.
       
-      * `--hostfile <hostfilepath>: <hostfilepath>` – sökvägen till värdfilen skapar skriptet
+      * `--hostfile <hostfilepath>: <hostfilepath>` – sökvägen till värdfilen skriptet skapar
       * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}` -en miljövariabel som angetts av huvudnod HPC Pack, som lagrar antalet Totalt antal kärnor som allokerats till det här jobbet. I det här fallet anger antalet processer för **mpirun**.
 
-## <a name="submit-an-openfoam-job"></a>Skicka ett OpenFOAM-jobb
-Nu kan du skicka ett jobb i HPC Cluster Manager. Du måste ange skript hpcimpirun.sh kommandorader för vissa av uppgifterna i jobbet.
+## <a name="submit-an-openfoam-job"></a>Skicka ett jobb för OpenFOAM
+Nu kan du skicka ett jobb i HPC Cluster Manager. Du måste skicka skript hpcimpirun.sh in kommandoraderna för några av uppgifterna för jobbet.
 
 1. Anslut till din klustrets huvudnod och starta HPC Cluster Manager.
-2. **I resurshantering**, kontrollera att datornoderna Linux finns i den **Online** tillstånd. Om du inte markerar du dem och klickar på **Anslut**.
+2. **I resurshantering**, kontrollera att Linux-beräkningsnoder finns i den **Online** tillstånd. Om du inte markerar du dem och klickar på **Anslut**.
 3. I **jobbhantering**, klickar du på **nytt jobb**.
 4. Ange ett namn för jobbet som *sloshingTank3D*.
    
    ![Jobbinformation][job_details]
-5. I **jobbet resurser**, Välj typ av resurs som ”nod” och ange minst till 2. Den här konfigurationen körs jobbet på två noder i Linux, var och en har åtta kärnor i det här exemplet.
+5. I **jobbet resurser**, Välj typ av resurs som ”nod” och ange ett lägsta värde till 2. Den här konfigurationen körs jobbet på två Linux-noder som har åtta kärnor i det här exemplet.
    
    ![Jobbresurser][job_resources]
-6. Klicka på **redigera uppgifter** i det vänstra navigeringsfönstret och klicka sedan på **Lägg till** att lägga till en aktivitet i jobbet. Lägga till fyra uppgifter i jobbet med följande kommandorader och inställningar.
+6. Klicka på **redigera uppgifter** i vänstra navigeringsfönstret och klicka sedan på **Lägg till** att lägga till en aktivitet i jobbet. Lägg till fyra aktiviteter i jobbet med följande kommandorader och inställningar.
    
    > [!NOTE]
-   > Kör `source /openfoam/settings.sh` ställer in OpenFOAM och MPI runtime miljöer så att var och en av följande uppgifter anropar den före kommandot OpenFOAM.
+   > Kör `source /openfoam/settings.sh` ställer in OpenFOAM och MPI körningsmiljöer, så att var och en av följande uppgifter anropar den före kommandot OpenFOAM.
    > 
    > 
    
-   * **Uppgift 1**. Kör **decomposePar** att generera filer för att köra **interDyMFoam** parallellt.
+   * **Uppgift 1**. Kör **decomposePar** att generera datafiler för att köra **interDyMFoam** parallellt.
      
-     * Tilldela en nod till aktiviteten
-     * **Kommandorad** - `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
-     * **Arbetskatalogen** -/ openfoam/sloshingTank3D
+     * Tilldela en nod till aktivitet
+     * **Från kommandoraden** - `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
+     * **Arbetskatalog** -/ openfoam/sloshingTank3D
      
-     I följande bild. Du konfigurerar de återstående uppgifterna på samma sätt.
+     I följande bild. Du konfigurerar de återstående aktiviteterna på samma sätt.
      
-     ![Uppgift 1 information][task_details1]
-   * **Uppgift 2**. Kör **interDyMFoam** parallellt att beräkna exemplet.
+     ![Uppgift 1-information][task_details1]
+   * **Uppgift 2**. Kör **interDyMFoam** parallellt för att beräkna exemplet.
      
-     * Tilldela aktiviteten två noder
-     * **Kommandorad** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh interDyMFoam -parallel > /openfoam/interDyMFoam${CCP_JOBID}.log`
-     * **Arbetskatalogen** -/ openfoam/sloshingTank3D
-   * **Uppgift 3**. Kör **reconstructPar** att koppla uppsättningar med tid-kataloger från varje processor_N_ katalog till en enda uppsättning.
+     * Tilldela två noder till aktivitet
+     * **Från kommandoraden** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh interDyMFoam -parallel > /openfoam/interDyMFoam${CCP_JOBID}.log`
+     * **Arbetskatalog** -/ openfoam/sloshingTank3D
+   * **Uppgift 3**. Kör **reconstructPar** att slå samman uppsättningar med tiden kataloger från varje processor_N_ katalog till en enda uppsättning.
      
-     * Tilldela en nod till aktiviteten
-     * **Kommandorad** - `source /openfoam/settings.sh && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`
-     * **Arbetskatalogen** -/ openfoam/sloshingTank3D
-   * **Uppgift 4**. Kör **foamToEnsight** parallellt konvertera OpenFOAM resultatet filerna till EnSight formatera och placera EnSight-filer i en katalog med namnet Ensight i katalogen case.
+     * Tilldela en nod till aktivitet
+     * **Från kommandoraden** - `source /openfoam/settings.sh && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`
+     * **Arbetskatalog** -/ openfoam/sloshingTank3D
+   * **Uppgift 4**. Kör **foamToEnsight** parallellt för att konvertera OpenFOAM resultatet filerna till EnSight formatera och placera EnSight-filer i en katalog med namnet Ensight i case-katalogen.
      
-     * Tilldela aktiviteten två noder
-     * **Kommandorad** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`
-     * **Arbetskatalogen** -/ openfoam/sloshingTank3D
-7. Lägga till beroenden i dessa uppgifter i stigande ordning.
+     * Tilldela två noder till aktivitet
+     * **Från kommandoraden** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`
+     * **Arbetskatalog** -/ openfoam/sloshingTank3D
+7. Lägga till beroenden till dessa aktiviteter i stigande ordning.
    
-   ![Aktivitetssamband][task_dependencies]
+   ![Aktivitetsberoenden][task_dependencies]
 8. Klicka på **skicka** jobbet ska köras.
    
-   Som standard skickar HPC Pack jobb som din aktuella inloggade användarkontot. När du klickar på **skicka**, du kan se en dialogruta där du uppmanas att ange användarnamn och lösenord.
+   Som standard skickar HPC Pack jobbet som ditt aktuella inloggade användaren-konto. När du klickar på **skicka**, visas en dialogruta där du uppmanas att ange användarnamn och lösenord.
    
    ![Jobbautentiseringsuppgifter][creds]
    
-   Under vissa förhållanden HPC Pack kommer ihåg användarinformationen du inkommande innan och inte visa den här dialogrutan. HPC Pack visa igen, ange följande kommando vid en kommandotolk och skicka jobbet.
+   Under vissa förhållanden HPC Pack kommer du ihåg användarinformationen du indata innan och inte visa den här dialogrutan. För att göra HPC Pack visar det igen, ange följande kommando i Kommandotolken och sedan skicka jobbet.
    
    ```
    hpccred delcreds
    ```
-9. Jobbet tar från flera minuter till flera timmar enligt de parametrar som du har angett för. Termisk karta visas i jobbet körs på Linux-noder. 
+9. Jobbet tar från tio minuter till flera timmar enligt de parametrar som du har angett för exemplet. I den termiska kartan ser du de jobb som körs på Linux-noder. 
    
    ![Termisk karta][heat_map]
    
    På varje nod startas åtta processer.
    
    ![Linux-processer][linux_processes]
-10. Hitta jobbresultaten i mappar under C:\OpenFoam\sloshingTank3D och loggfilerna på C:\OpenFoam när jobbet har slutförts.
+10. När jobbet har slutförts kan du hitta jobbresultaten i mappar under C:\OpenFoam\sloshingTank3D och loggfilerna på C:\OpenFoam.
 
 ## <a name="view-results-in-ensight"></a>Visa resultat i EnSight
-Du kan också använda [EnSight](https://www.ceisoftware.com/) att visualisera och analysera resultaten av OpenFOAM jobbet. Finns det mer information om visualisering och animeringen i EnSight [video guiden](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html).
+Du kan också använda [EnSight](https://www.ceisoftware.com/) att visualisera och analysera resultaten av OpenFOAM jobbet. Mer information om visuella effekter och animeringar inom EnSight finns i det här [video guiden](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html).
 
-1. När du har installerat EnSight på huvudnoden startar du den.
-2. Open C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.
+1. När du har installerat EnSight på huvudnoden, startar du den.
+2. Öppna C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.
    
    Du kan se en behållare i visningsprogrammet.
    
-   ![Tanken i EnSight][tank]
+   ![Tanknivå i EnSight][tank]
 3. Skapa en **Isosurface** från **internalMesh**, och välj sedan variabeln **alpha_water**.
    
    ![Skapa en isosurface][isosurface]
-4. Ange färgen för **Isosurface_part** skapade i föregående steg. Till exempel den till vattenstämplar blå.
+4. Ange färg för **Isosurface_part** skapade i föregående steg. Till exempel ange den till water blå.
    
    ![Redigera isosurface färg][isosurface_color]
 5. Skapa en **Iso-volym** från **väggar** genom att välja **väggar** i den **delar** panelen och klicka på den **Isosurfaces** i verktygsfältet.
-6. I dialogrutan Välj **typen** som **Isovolume** och ange det minsta värdet av **Isovolume intervallet** till 0,5. Klicka för att skapa isovolume **skapa med valda delar**.
-7. Ange färgen för **Iso_volume_part** skapade i föregående steg. Till exempel den till djup vattenstämplar blå.
-8. Ange färgen för **väggar**. Till exempel den transparent vit.
-9. Klicka på **spela upp** att se resultatet av simuleringen.
+6. I dialogrutan Välj **typ** som **Isovolume** och ange det minsta värdet av **Isovolume intervallet** till 0,5. Klicka för att skapa isovolume **skapa med valda delar**.
+7. Ange färg för **Iso_volume_part** skapade i föregående steg. Till exempel ange den till djupgående water blå.
+8. Ange färg för **väggar**. Till exempel ange den till transparent vit.
+9. Klicka på **spela upp** så visas resultaten för simuleringen.
    
-    ![Tanken resultat][tank_result]
+    ![Tanknivå resultat][tank_result]
 
-## <a name="sample-files"></a>Exempelfiler
-### <a name="sample-xml-configuration-file-for-cluster-deployment-by-powershell-script"></a>Exempel XML-konfigurationsfilen för kluster-distributionen med PowerShell-skript
+## <a name="sample-files"></a>Exempelfilerna
+### <a name="sample-xml-configuration-file-for-cluster-deployment-by-powershell-script"></a>Exemplet XML-konfigurationsfilen för distribution av kluster med PowerShell-skript
  ```
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
@@ -422,7 +422,7 @@ Du kan också använda [EnSight](https://www.ceisoftware.com/) att visualisera o
 </IaaSClusterConfig>
 ```
 
-### <a name="sample-credxml-file"></a>Exempelfilen cred.xml
+### <a name="sample-credxml-file"></a>Cred.xml exempelfil
 ```
 <ExtendedData>
   <PrivateKey>-----BEGIN RSA PRIVATE KEY-----

@@ -1,7 +1,7 @@
 ---
-title: Lägga till mallar för mönster i THOMAS appar | Microsoft Docs
+title: Lägga till mallar för mönstret i LUIS-appar | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur du lägger till mönster mallar i språk förstå (THOMAS) program för att förbättra förutsägelsefunktionen.
+description: Lär dig hur du lägger till mönstret mallar i program för Språkförståelse (LUIS) att förbättra förutsägelsefunktionen.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -10,78 +10,78 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 68c0ea1fd3f2e60e0adec631f33c8bd09a3d9960
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 9dd23fd5f8a0024f127b71160899d10042037a66
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35356390"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346016"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Hur du lägger till mönster för att förbättra förutsägelsefunktionen
-När en THOMAS app får endpoint utterances kan använda den [konceptet](luis-concept-patterns.md) av mönster för att förbättra förutsägelsefunktionen för utterances som avslöjar ett mönster i word ordning och val av word. Mönster Använd [entiteter](luis-concept-entity-types.md) och deras roller att extrahera data med hjälp av specifika mönster syntax. 
+När en LUIS-app tar emot endpoint yttranden, använda den [konceptet](luis-concept-patterns.md) av mönster förbättra prognosens noggrannhet för yttranden som avslöjar ett mönster i ordföljden och word valet. Mönster Använd [entiteter](luis-concept-entity-types.md) och deras roller för att extrahera data med hjälp av specifika mönstret syntax. 
 
-## <a name="add-template-utterance-to-create-pattern"></a>Lägg till mall utterance för att skapa mönster
-1. Öppna din app genom att markera namnet på **Mina appar** och väljer sedan **mönster** i den vänstra rutan under **förbättra prestanda för**.
+## <a name="add-template-utterance-to-create-pattern"></a>Lägg till mall-uttryck för att skapa mönstret
+1. Öppna din app genom att välja dess namn på **Mina appar** och välj sedan **mönster** i den vänstra panelen under **förbättra apprestanda**.
 
     ![Skärmbild av lista över mönster](./media/luis-how-to-model-intent-pattern/patterns-1.png)
 
-2. Välj rätt avsett för mönstret. 
+2. Välj rätt avsikten för mönstret. 
 
     ![Välj avsikt](./media/luis-how-to-model-intent-pattern/patterns-2.png)
 
-3. Ange mall-utterance i textrutan mall och välj RETUR. Använda rätt mönster entitet syntax när du vill ange entitetsnamnet. Börja med entiteten syntax för `{`. Lista över enheter visar. Välj rätt entiteten och välj sedan RETUR. 
+3. Ange mall-uttryck i textrutan mallen och välj RETUR. Använda rätt mönstret entitet syntax när du vill ange enhetens namn. Börja med entiteten syntax för `{`. Lista över entiteter visas. Välj rätt entiteten och tryck sedan på RETUR. 
 
-    ![Skärmbild av entiteten för.](./media/luis-how-to-model-intent-pattern/patterns-3.png)
+    ![Skärmbild av entitet för mönstret](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Om entiteten innehåller en roll, ange roll med ett enda kolon `:`när entiteten namn, till exempel `{Location:Origin}`. Lista över roller för entiteter visas i en lista. Välj rollen och välj sedan RETUR. 
+    Om din entitet innehåller en roll kan indikera vilken roll med ett enda kolon `:`efter att entiteten namnet, till exempel `{Location:Origin}`. I listan över roller för enheterna som visas i en lista. Välj rollen och tryck sedan på RETUR. 
 
     ![Skärmbild av entiteten med rollen](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 
-    När du har valt rätt entiteten har angett mönstret och välj sedan RETUR. När du är klar anger mönster [träna](luis-how-to-train.md) din app.
+    När du har valt rätt entiteten har angett mönstret och tryck sedan på RETUR. När du är klar att ange mönster [träna](luis-how-to-train.md) din app.
 
-    ![Skärmbild av angivna mönster med båda typer av enheter](./media/luis-how-to-model-intent-pattern/patterns-5.png)
+    ![Skärmbild av angivna mönstret med båda typerna av enheter](./media/luis-how-to-model-intent-pattern/patterns-5.png)
 
-## <a name="search-patterns"></a>Söksträngar
-Sökningen kan du söka efter mönster som innehåller vissa angiven text.  
+## <a name="search-patterns"></a>Sök efter mönster
+Sökningen kan du hitta de mönster som innehåller viss text.  
 
-1. Välj förstoringsglaset.
+1. Välj förstoringsglasikonen.
 
     ![Skärmbild av mönster sida med verktyget sökikonen markerat](./media/luis-how-to-model-intent-pattern/search-icon.png)
 
-    Skriv söktexten i sökrutan i det övre högra hörnet av listan över mönster och välj RETUR. Lista över mönster uppdateras för att visa de mönster som inklusive söktexten.
+    Skriv söktexten i sökrutan i det övre högra hörnet av listan över mönster och tryck RETUR. Lista över mönster har uppdaterats för att visa endast de mönster som inklusive söktexten.
 
-    ![Skärmbild av mönster sida med söktexten i sökrutan markerat](./media/luis-how-to-model-intent-pattern/search-text.png)
+    ![Skärmbild av mönster-sidan med söktext i sökrutan markerat](./media/luis-how-to-model-intent-pattern/search-text.png)
 
-    Ta bort söktexten som du har angett för att avbryta sökningen och återställa en fullständig lista över mönster.
+    Om du vill avbryta sökningen och återställer din fullständig lista över mönster, tar du bort den söktext som du har skrivit.
 
 <!-- TBD: should I be able to click on the magnifying glass again to close the search box? It doesn't reset the list. -->
 
 ## <a name="edit-a-pattern"></a>Redigera ett mönster
 1. Om du vill redigera ett mönster, väljer du tre punkter (...)-ikonen längst till höger på raden för mönstret och välj sedan **redigera**. 
 
-    ![Skärmbild av redigera menyalternativet i mönstret rad](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
+    ![Skärmbild av redigera menyalternativ i mönstret raden](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
 
-2. Ange eventuella ändringar i textrutan. Välj ange när du är klar. När du är klar Redigera mönster [träna](luis-how-to-train.md) din app.
+2. Ange eventuella ändringar i textrutan. När du är klar anger väljer du. När du är klar redigering mönster [träna](luis-how-to-train.md) din app.
 
     ![Skärmbild av Redigera mönster](./media/luis-how-to-model-intent-pattern/edit-pattern.png)
 
-## <a name="reassign-individual-pattern-to-different-intent"></a>Tilldela enskilda mönstret till olika
+## <a name="reassign-individual-pattern-to-different-intent"></a>Omtilldela enskilda mönstret till olika avsikt
 
-Markera kryssrutan avsiktshantering listan till höger om texten mönster för att tilldela ett enda mönster till olika och väljer olika.
+Att omtilldela en enda mönstret till en annan typ av avsikt, välj listrutan avsikt till höger om texten mönster och välj en annan typ av avsikt.
 
-![Skärmbild av omtilldela enskilda mönstret till olika](./media/luis-how-to-model-intent-pattern/reassign-individual-pattern.png)
+![Skärmbild av omtilldela enskilda mönstret till olika avsikt](./media/luis-how-to-model-intent-pattern/reassign-individual-pattern.png)
 
-## <a name="reassign-several-patterns-to-different-intent"></a>Tilldela om flera olika mönster
+## <a name="reassign-several-patterns-to-different-intent"></a>Tilldela flera mönster till olika avsikt
 
-Om du vill tilldela flera mönster till en annan typ av avsikt, markerar du kryssrutan till vänster om varje mönster eller markerar du kryssrutan översta. Den **omtilldela avsikt** visas i verktygsfältet. Välj rätt avsett för mönster. 
+För att tilldela flera mönster i en annan typ av avsikt, markerar du kryssrutan till vänster om varje mönster eller markera kryssrutan översta. Den **omtilldela avsikt** visas i verktygsfältet. Välj rätt avsikten för mönster. 
 
-![Skärmbild av omtilldela flera olika mönster](./media/luis-how-to-model-intent-pattern/reassign-many-patterns.png)
+![Skärmbild av omtilldela flera mönster till olika avsikt](./media/luis-how-to-model-intent-pattern/reassign-many-patterns.png)
 
 ## <a name="delete-a-single-pattern"></a>Ta bort ett enda mönster
 
 1. Om du vill ta bort ett mönster, väljer du tre punkter (...)-ikonen längst till höger på raden för mönstret och välj sedan **ta bort**. 
 
-    ![Skärmbild av ta bort utterance](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
+    ![Skärmbild av ta bort uttryck](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
 
 2. Välj **Ok** att bekräfta borttagningen.
 
@@ -89,50 +89,50 @@ Om du vill tilldela flera mönster till en annan typ av avsikt, markerar du krys
 
 ## <a name="delete-several-patterns"></a>Ta bort flera mönster
 
-1. Välj kryssrutan till vänster om varje mönster eller översta kryssrutan för att ta bort flera mönster. Den **ta bort mönster (s)** visas i verktygsfältet. Välj **ta bort mönster (s)**.  
+1. Om du vill ta bort flera mönster, markerar du kryssrutan till vänster om varje mönster eller markera kryssrutan längst upp. Den **ta bort mönster (s)** visas i verktygsfältet. Välj **ta bort mönster (s)**.  
 
-    ![Skärmbild av borttagning av flera mönster](./media/luis-how-to-model-intent-pattern/delete-many-patterns.png)
+    ![Skärmbild av att ta bort flera mönster](./media/luis-how-to-model-intent-pattern/delete-many-patterns.png)
 
 2. Den **ta bort mönster** bekräftelsedialogruta visas. Välj **Ok** att slutföra borttagningen.
 
-    ![Skärmbild av borttagning av flera mönster](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
+    ![Skärmbild av att ta bort flera mönster](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
 
-## <a name="filter-pattern-list-by-entity"></a>Filtrera mönster av enheten
+## <a name="filter-pattern-list-by-entity"></a>Filtrera enheter efter entitet
 
-Om du vill filtrera listan över mönster av en specifik enhet, Välj **entitet filter** i verktygsfältet ovanför mönster. 
+Om du vill filtrera listan över mönster av en specifik enhet, Välj **entitet filter** i verktygsfältet ovanför mönstren. 
 
-![Skärmbild av mönster för filtrering av enheten](./media/luis-how-to-model-intent-pattern/filter-entities-1.png)
+![Skärmbild av filtrering mönster av enhet](./media/luis-how-to-model-intent-pattern/filter-entities-1.png)
 
-När filtret används entitetsnamnet visas under verktygsfältet. 
+När filtret tillämpas entitetsnamnet visas ovanför verktygsfältet. 
 
-## <a name="filter-pattern-list-by-intent"></a>Filtrera mönster av avsikt
+## <a name="filter-pattern-list-by-intent"></a>Filtrera enheter efter avsikt
 
-Om du vill filtrera listan över mönster av en specifik avsikt, Välj **avsikt filtrerar** i verktygsfältet ovanför mönster. 
+Om du vill filtrera listan över mönster av en specifik avsikt, Välj **avsikt filtrerar** i verktygsfältet ovanför mönstren. 
 
-![Skärmbild av mönster för filtrering av avsikt](./media/luis-how-to-model-intent-pattern/filter-intents-1.png)
+![Skärmbild av filtrering mönster med avsikt](./media/luis-how-to-model-intent-pattern/filter-intents-1.png)
 
-När filtret tillämpas avsiktshantering namnet som visas under verktygsfältet. 
+När filtret tillämpas avsikt namnet visas ovanför verktygsfältet. 
 
-## <a name="remove-entity-or-intent-filter"></a>Ta bort enheten eller avsiktshantering filter
-När mönsterlistan filtreras visas entiteten eller avsiktshantering namn under verktygsfältet. Välj om du vill ta bort filtret.
+## <a name="remove-entity-or-intent-filter"></a>Ta bort entitet eller avsiktlig filter
+När filtreras mönsterlistan, enheten eller avsiktlig namn visas ovanför verktygsfältet. Välj namnet om du vill ta bort filtret.
 
-![Skärmbild av filtrerade mönster av enheten](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
+![Skärmbild av filtrerade mönster av enhet](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
-Filtret bort och visa alla mönster. 
+Filtret tas bort och visa alla mönster. 
 
-## <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>Lägg till mönster från befintliga utterance på avsikten eller entitet
-Du kan skapa ett mönster från en befintlig utterance på antingen den **avsikt** eller **entiteten** sidan. Alla utterances på en sida med avsikt eller enhet som visas i en lista med den högra kolumnen som ger tillgång till utterance nivå alternativ som **redigera**, **ta bort**, och **Lägg till som mönster**.
+## <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>Lägg till mönster från befintliga uttryck på avsikten eller entitet
+Du kan skapa ett mönster från en befintlig uttryck på antingen den **avsikt** eller **entitet** sidan. Alla uttryck på vilken avsikt eller enhet som visas i en lista med i den högra kolumnen att ge åtkomst till uttryck på servernivå alternativ som **redigera**, **ta bort**, och **Lägg till som mönster**.
 
-1. Markera de tre punkterna (...) till höger om utterance och välj på den markerade raden i utterance **Lägg till som mönster**.
+1. Välj de tre punkterna (...) till höger om uttryck på den valda raden i uttryck och välj **Lägg till som mönster**.
 
-    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Skärmbild av utterances tabellen med Lägg till mönster som markerats i alternativmenyn")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
+    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Skärmbild av yttranden tabell med Lägg till mönster som markerats i alternativmenyn")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
-2. Ändra mönster enligt den [syntaxregler](luis-concept-patterns.md#pattern-syntax). Om utterance som du har valt är märkt med entiteter har dessa enheter redan mönster med korrekt syntax.
+2. Ändra mönstret enligt den [syntaxregler](luis-concept-patterns.md#pattern-syntax). Om det uttryck som du har valt är märkt med entiteter, finns dessa entiteter redan i mönstret med rätt syntax.
 
-    ![Skärmbild av filtrerade mönster av enheten](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
+    ![Skärmbild av filtrerade mönster av enhet](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
 
-## <a name="train-your-app-after-changing-model-with-patterns"></a>Träna din app när du har ändrat modellen med mönster
-När du lägger till, redigera, ta bort eller tilldela om ett mönster [träna](luis-how-to-train.md) och [publicera](PublishApp.md) din app för att ändringarna ska påverka endpoint frågor. 
+## <a name="train-your-app-after-changing-model-with-patterns"></a>Träna din app när du har ändrat modell med mönster
+När du lägger till, redigera, ta bort eller omtilldela ett mönster [träna](luis-how-to-train.md) och [publicera](luis-how-to-publish-app.md) din app för ändringarna att påverka endpoint frågor. 
 
 ## <a name="next-steps"></a>Nästa steg
 

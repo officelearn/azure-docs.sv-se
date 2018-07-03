@@ -1,6 +1,6 @@
 ---
-title: SQL som värd för servrar på Azure-stacken | Microsoft Docs
-description: Hur du lägger till SQL-instanser för att etablera via SQL kortet resursprovidern.
+title: SQL som är värd för servrar i Azure Stack | Microsoft Docs
+description: Hur du lägger till SQL-instanser för etablering via SQL nätverkskort resursprovidern.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,172 +11,183 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 07/02/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 74d888ffe28e5428b47bfc73122518c22d0f0918
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.reviewer: jeffgo
+ms.openlocfilehash: e8dd425bbb5839b1c2f5ad4e217c61dc50b38ce1
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128715"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346832"
 ---
-# <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Lägg till värdservrar för SQL-resursprovidern
+# <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Lägg till värdservrar för SQL-resursprovider
 
-Du kan vara värd för en SQL-instans på en virtuell dator (VM) i [Azure Stack](azure-stack-poc.md), eller på en virtuell dator utanför Azure-stacken miljö, så länge resursprovidern SQL kan ansluta till instansen.
+Du kan ha en SQL-instans på en virtuell dator (VM) i [Azure Stack](azure-stack-poc.md), eller på en virtuell dator utanför Azure Stack-miljön, så länge som SQL-resursprovider kan ansluta till instansen.
 
 ## <a name="overview"></a>Översikt
 
 Granska följande obligatoriska och allmänna krav innan du lägger till en SQL på värdservern.
 
-**Obligatoriska krav**
+### <a name="mandatory-requirements"></a>Obligatoriskt krav
 
-* Aktivera SQL-autentisering för SQL Server-instansen. Eftersom SQL-resursprovidern VM inte är ansluten till en domän, kan den bara ansluta till en värdservern med SQL-autentisering.
-* Konfigurera IP-adresser för SQL-instanser som offentliga. Resursprovidern och användare, till exempel Web Apps kommunicerar via nätverket användaren så att anslutningen till SQL-instans på det här nätverket krävs.
+* Aktivera SQL-autentisering på SQL Server-instansen. Eftersom SQL-resursprovider VM inte är ansluten till en domän, kan den bara ansluta till en värdservern med SQL-autentisering.
+* Konfigurera IP-adresser för SQL-instanser som offentliga när installerade på Azure Stack. Resursprovidern och användare, t.ex Webbappar, kommunicera över nätverket användaren så anslutning till SQL-instansen på det här nätverket krävs.
 
-**Allmänna krav**
+### <a name="general-requirements"></a>Allmänna krav
 
-* Tilldela SQL-instansen för användning av resource provider och arbetsbelastningar. Du kan inte använda en SQL-instans som används av andra konsument. Den här begränsningen gäller även för Apptjänster.
-* Konfigurera ett konto med rätt behörighetsnivåer för resursprovidern.
-* Du ansvarar för att hantera SQL-instanser och deras värdar.  Till exempel resursprovidern inte tillämpa uppdateringar, hantera säkerhetskopieringar och hantera autentiseringsuppgifter rotation.
+* Anger den SQL-instansen för användning av resurs-providern och användaren arbetsbelastningar. Du kan inte använda en SQL-instans som används av andra konsument. Den här begränsningen gäller även för App Services.
+* Konfigurera ett konto med rätt behörighetsnivåer för resursprovidern (beskrivs nedan).
+* Du ansvarar för att hantera SQL-instanser och deras värdar.  Till exempel resursprovidern inte tillämpa uppdateringar, hantera säkerhetskopior eller hantera rotation av autentiseringsuppgifter.
 
-### <a name="sql-server-virtual-machine-images"></a>SQL Server-avbildningar för virtuell dator
+### <a name="sql-server-virtual-machine-images"></a>SQL Server-avbildningar
 
-SQL-IaaS avbildningar av virtuella datorer är tillgängliga via Marketplace-hanteringsfunktionen. Dessa avbildningar är desamma som de SQL virtuella datorer som är tillgängliga i Azure.
+SQL IaaS avbildningar av virtuella datorer är tillgängliga via Marketplace-hanteringsfunktionen. Dessa avbildningar är samma som den virtuella SQL-datorer som är tillgängliga i Azure.
 
-Se till att du alltid ladda ned den senaste versionen av den **SQL IaaS tillägget** innan du distribuerar en SQL VM som använder en Marketplace-objektet. IaaS-filtillägg och motsvarande portalen förbättringar tillhandahålla ytterligare funktioner såsom automatisk uppdatering och säkerhetskopiering. Mer information om det här tillägget finns [automatisera hanteringsuppgifter på Azure Virtual Machines med SQL Server Agent tillägget](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+Se till att du alltid hämta den senaste versionen av den **SQL IaaS-tillägget** innan du distribuerar en SQL-VM med hjälp av ett Marketplace-objekt. IaaS-tillägget och motsvarande portal förbättringar erbjuder ytterligare funktioner, till exempel automatisk uppdatering och säkerhetskopiering. Mer information om det här tillägget finns i [automatisera hanteringsuppgifter på Azure virtuella datorer med SQL Server Agent-tillägget](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
-Det finns andra alternativ för att distribuera SQL virtuella datorer, inklusive mallar i den [Azure Stack Snabbstartsgalleriet](https://github.com/Azure/AzureStack-QuickStart-Templates).
+Det finns andra alternativ för att distribuera SQL virtuella datorer, inklusive mallar i den [Azure Stack-Snabbstartsgalleriet](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
 > [!NOTE]
-> Värd-servrar som installerats på ett flernodigt Azure-stacken måste skapas från en prenumeration för användaren. De kan inte skapas från prenumerationen Standard Provider. De måste skapas från användarportalen eller från en PowerShell-session med en lämplig inloggning. Alla värdservrar fakturerbar virtuella datorer och måste ha rätt SQL-licenser. Tjänstens _kan_ vara ägare till den prenumerationen.
+> Värd-servrar som installerats på en Azure Stack för flera noder måste skapas från en användarprenumeration och inte som standard providern prenumerationen. De måste skapas från användarportalen eller från en PowerShell-session med en lämplig inloggning. Alla värdservrar är fakturerbara virtuella datorer och måste ha rätt SQL-licenser. Tjänstadministratören _kan_ vara ägare till den prenumerationen.
 
 ### <a name="required-privileges"></a>Behörigheter som krävs
 
-Du kan skapa en administrativ användare med lägre behörighet än en SQL-sysadmin. Användaren bara behöver behörighet för följande åtgärder:
+Du kan skapa en administrativ användare med lägre behörighet än en SQL-sysadmin. Användaren behöver bara behörigheter för följande åtgärder:
 
-* Databas: Skapa, ändra, med inneslutning (för Always On endast), Drop, säkerhetskopiera
+* Databas: Skapa, Alter, med inneslutning (för Always On endast), ta bort, säkerhetskopiera
 * Tillgänglighetsgruppen: Alter, ansluta, Lägg till/ta bort databasen
 * Inloggning: Skapa, Välj, Alter, Drop, återkalla
-* Välj Operations: \[master\].\[ sys\].\[ availability_group_listeners\] (AlwaysOn) sys.availability_replicas (AlwaysOn), sys.databases, \[master\].\[ sys\].\[ dm_os_sys_memory\], SERVERPROPERTY, \[master\].\[ sys\].\[ availability_groups\] (AlwaysOn) sys.master_files
+* Välj köras: \[master\].\[ sys\].\[ availability_group_listeners\] (AlwaysOn), sys.availability_replicas (AlwaysOn), sys.databases, \[master\].\[ sys\].\[ dm_os_sys_memory\], SERVERPROPERTY, \[master\].\[ sys\].\[ availability_groups\] (AlwaysOn), sys.master_files
+
+### <a name="additional-security-information"></a>Ytterligare säkerhetsinformation
+
+Följande information innehåller ytterligare vägledning:
+
+* Alla Azure Stack-lagring krypteras med BitLocker, så att alla SQL-instans på Azure Stack använder krypterad blob storage.
+* SQL-Resursprovider har fullständigt stöd för TLS 1.2. Kontrollera att SQL Server som hanteras via SQL RP är konfigurerad för att TLS 1.2 _endast_ och den ansvariga Personen som standard som. Alla versioner av SQL Server-stöd TLS 1.2 Se [TLS 1.2-stöd för Microsoft SQL Server](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+* Använd SQL Server Configuration Manager för att ange den **ForceEncryption** krypteras alltid alternativet för att se till att all kommunikation till SQLServer. Se [att konfigurera servern för att tvinga krypterade anslutningar](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections).
+* Se till att klientprogram kommunicerar också över en krypterad anslutning.
+* RP: N har konfigurerats för att lita på certifikat som används av SQL Server-instanserna.
 
 ## <a name="provide-capacity-by-connecting-to-a-standalone-hosting-sql-server"></a>Ange kapacitet genom att ansluta till en fristående värd för SQLServer
 
-Du kan använda fristående (icke-hög tillgänglighet) SQL-servrar med hjälp av en utgåva av SQL Server 2014 eller SQL Server 2016. Kontrollera att du har autentiseringsuppgifter för ett konto med systemadministratörs-behörighet.
+Du kan använda fristående (icke-hög tillgänglighet) SQL-servrar med hjälp av en utgåva av SQL Server 2014 eller SQL Server 2016. Kontrollera att du har autentiseringsuppgifterna för ett konto med behörighet som systemadministratör.
 
-Följ dessa steg för att lägga till en fristående värd-server som redan har konfigurerat:
+Följ dessa steg för att lägga till en fristående värd-server som redan har ställts in:
 
-1. Logga in på Azure-stacken operatorn portalen som tjänstadministratör.
+1. Logga in på Azure Stack-operator-portalen som tjänstadministratör.
 
-2. Välj **Bläddra** &gt; **administrativa resurser** &gt; **SQL som värd för servrar**.
+2. Välj **Bläddra** &gt; **administrativa resurser** &gt; **SQL som är värd för servrar**.
 
-   ![Värd för SQL-servrar](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
+   ![Som är värd för SQL-servrar](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   Under **värd för SQL-servrar**, kan du ansluta resursprovidern SQL till instanser av SQL Server som fungerar som den resursprovidern backend.
+   Under **som är värd för SQL-servrar**, kan du ansluta SQL-resursprovider till instanser av SQL Server som fungerar som serverdel för provider för nätverksresurser.
 
-   ![Instrumentpanel för SQL-kort](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+   ![SQL Adapter instrumentpanel](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
 
-3. På **lägga till en värd för SQL-Server**, ange anslutningsinformationen för SQL Server-instansen.
+3. På **lägga till en SQL Server som är värd för**, ange anslutningsinformationen för SQL Server-instansen.
 
    ![Lägg till en SQL på värdservern](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
-    Du kan också ange ett instansnamn och ange ett portnummer om instansen inte är tilldelad standardporten 1433.
+    Du kan också ange instansnamn och ange ett portnummer om instansen inte är tilldelad standardporten 1433.
 
    > [!NOTE]
-   > Så länge som SQL-instans kan användas av användare och Azure Resource Manager-administratören, kan den placeras under kontroll av resursprovidern. SQL-instansen __måste__ tilldelas enbart resursprovidern.
+   > Så länge som SQL-instansen kan användas av användare och Azure Resource Manager-administratör, kan den placeras under kontroll av resursprovidern. SQL-instansen __måste__ allokeras exklusivt till resursprovidern.
 
-4. När du lägger till servrar, måste du tilldela dem till en befintlig SKU eller skapa en ny SKU. Under **lägga till en Server som värd för**väljer **SKU: er**.
+4. När du lägger till servrar, måste du tilldela dem till en befintlig SKU eller skapa en ny SKU. Under **lägga till en Server som är värd för**väljer **SKU: er**.
 
    * Välj en tillgänglig SKU för att använda en befintlig SKU, och välj sedan **skapa**.
-   * Om du vill skapa en SKU **+ skapa nya SKU**. I **skapa SKU**, ange nödvändig information och välj sedan **OK**.
+   * Om du vill skapa en SKU, Välj **+ skapa nya SKU: N**. I **skapa SKU**, ange informationen som krävs och välj sedan **OK**.
 
      > [!IMPORTANT]
-     > Specialtecken, inklusive blanksteg och punkter, stöds inte i **namn** fältet. Använd exemplen i följande skärmbild för att ange värden för den **familj**, **nivå**, och **Edition** fält.
+     > Specialtecken, inklusive blanksteg och punkter, stöds inte i **namn** fält. Använd exemplen i följande skärmbild för att ange värden för den **familj**, **nivå**, och **Edition** fält.
 
      ![Skapa en SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
-      SKU: er kan ta upp till en timme att vara synliga i portalen. Användare kan inte skapa en databas tills SKU: N skapas fullständigt.
+## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Ge hög tillgänglighet med hjälp av SQL Always On-Tillgänglighetsgrupper
 
-### <a name="sku-notes"></a>SKU-information
+Konfigurera SQL Always On-instanser kräver ytterligare åtgärder och kräver tre virtuella datorer (eller fysiska datorer.) Den här artikeln förutsätter att du redan har en djupare förståelse för Always On-Tillgänglighetsgrupper. Mer information finns i följande artiklar:
 
-Du kan använda SKU: er för att skilja Tjänsterbjudanden. Du kan till exempel ha en SQL Enterprise-instans som har följande egenskaper:
-  
-* hög kapacitet
-* hög prestanda
-* Hög tillgänglighet
-
-Du kan skapa en SKU för föregående exempel, begränsa åtkomst till specifika grupper som behöver en databas med hög prestanda.
-
->[!TIP]
->Använd en SKU-namn som motsvarar beskriver funktionerna i servrar i SKU: N, till exempel kapacitet och prestanda. Namnet som fungerar som en hjälp för att hjälpa användare att distribuera sina databaser till lämplig SKU: N.
-
-Som bästa praxis, ska värdservrar i en SKU ha samma egenskaper för resursen och prestanda.
-
-## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Ger hög tillgänglighet med hjälp av SQL Always On-Tillgänglighetsgrupper
-
-Konfigurera SQL Always On instanser kräver ytterligare åtgärder och kräver tre virtuella datorer (eller fysiska datorer.) Den här artikeln förutsätter att du redan har en god förståelse av Always On-Tillgänglighetsgrupper. Mer information finns i följande artiklar:
-
-* [Introduktion till SQL Server Always On-Tillgänglighetsgrupper på Azure virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Introduktion till SQL Server Always On-Tillgänglighetsgrupper på virtuella Azure-datorer](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
 * [Always On-Tillgänglighetsgrupper (SQLServer)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
-> SQL-kort resursprovidern _endast_ stöder SQL 2016 SP1 Enterprise eller senare instanser för Always On. Den här konfigurationen för nätverkskort kräver nya SQL-funktioner som automatisk seeding.
+> SQL-adapter resursprovider _endast_ stöder SQL 2016 SP1 Enterprise eller senare instanser för Always On Tillgänglighetsgrupper. Den här konfigurationen för nätverkskort kräver nya SQL-funktioner som automatisk seeding.
 
 ### <a name="automatic-seeding"></a>Automatisk seeding
+
 Du måste aktivera [automatisk Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) på varje tillgänglighetsgrupp för varje instans av SQL Server.
 
 Om du vill aktivera automatisk seeding på alla instanser, redigera och kör följande SQL-kommando för varje instans:
 
-  ```
+  ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
       MODIFY REPLICA ON 'InstanceName'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```
 
-Redigera och kör följande SQL-kommando för varje instans på de sekundära instanserna:
+På sekundära instanserna, redigera och kör följande SQL-kommando för varje instans:
 
-  ```
+  ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
   GO
   ```
 
 ### <a name="configure-contained-database-authentication"></a>Konfigurera innesluten databas-autentisering
-Se till att alternativet innesluten databas authentication server har angetts till 1 på varje server-instansen som är värd för en tillgänglighetsreplik för tillgänglighetsgruppen innan du lägger till en innesluten databas till en tillgänglighetsgrupp. Mer information finns i [innehöll Databasautentisering Server Configuration Option](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
-Ange alternativ för innesluten databas autentisering för varje instans med hjälp av dessa kommandon:
+Innan du lägger till en innesluten databas till en tillgänglighetsgrupp, kontrollerar du att alternativet innesluten databas authentication server är inställd på 1 på varje server-instansen som är värd för en tillgänglighetsreplik för tillgänglighetsgruppen. Mer information finns i [innehöll Databasautentisering Serverkonfigurationsalternativet](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
-  ```
+Med dessa kommandon anger alternativet innesluten databas authentication server för varje instans:
+
+  ```sql
   EXEC sp_configure 'contained database authentication', 1
   GO
   RECONFIGURE
   GO
   ```
 
-### <a name="to-add-sql-always-on-hosting-servers"></a>Att lägga till SQL Always On värd för servrar
+### <a name="to-add-sql-always-on-hosting-servers"></a>Att lägga till SQL Always On som är värd för servrar
 
-1. Logga in på Azure Stack-administrationsportalen som en tjänstadministratör
+1. Logga in på Azure Stack-administrationsportalen som en tjänst.
 
-2. Välj **Bläddra** &gt; **administrativa resurser** &gt; **SQL som värd för servrar** &gt; **+ Lägg till**.
+2. Välj **Bläddra** &gt; **administrativa resurser** &gt; **SQL som är värd för servrar** &gt; **+ Lägg till**.
 
-   Under **värd för SQL-servrar**, kan du ansluta Resource Provider för SQL Server till faktiska instanser av SQL Server som fungerar som den resursprovidern backend.
+   Under **som är värd för SQL-servrar**, kan du ansluta SQL Server-Resursleverantör till själva instanserna av SQL Server som fungerar som serverdel för provider för nätverksresurser.
 
-3. Fyll i formuläret med anslutningsinformationen för SQL Server-instansen. Kontrollera att du använder FQDN-adressen för alltid på lyssnare (och valfritt portnummer.) Ange information för det konto som du har konfigurerat med sysadmin-behörigheter.
+3. Fyll i formuläret med anslutningsinformationen för SQL Server-instansen. Se till att du använder FQDN-adressen för alltid-lyssnare för (och valfritt portnummer.) Ange information för det konto som du konfigurerat med sysadmin-behörighet.
 
-4. Always On-Tillgänglighetsgruppen kryssrutan om du vill aktivera stöd för instanser av SQL Always On-Tillgänglighetsgruppen.
+4. Markera rutan Always On Availability Group om du vill aktivera stöd för SQL Always On Availability Group-instanser.
 
    ![Aktivera alltid på](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
-5. Lägga till en SQL Always On-instans till en SKU.
+5. Lägg till SQL Always On-instans till en SKU.
 
    > [!IMPORTANT]
-   > Du kan blanda fristående servrar med Always On-instanser i samma SKU: N. Ett försök görs att blanda typer när du lägger till de första värd servern resulterar i ett fel.
+   > Du kan inte blanda fristående servrar med Always On-instanser i samma SKU. Försök att blanda typer när du lägger till de första värdbaserade servern resulterar i ett fel.
 
-## <a name="make-the-sql-databases-available-to-users"></a>Göra SQL-databaser som är tillgängliga för användarna
+## <a name="sku-notes"></a>SKU-information
 
-Skapa planer och erbjudanden om du vill göra SQL-databaser som är tillgängliga för användare. Lägg till den **Microsoft.SqlAdapter** tjänst i planen och Lägg till standard kvot eller skapa en ny kvot.
+Du kan använda SKU: er för att skilja Tjänsterbjudanden. Du kan till exempel ha en SQL Enterprise-instans som har följande egenskaper:
+  
+* hög kapacitet
+* höga prestanda
+* hög tillgänglighet
 
-![Skapa planer och erbjudanden om du vill inkludera databaser](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
+SKU: er kan inte tilldelas till specifika användare eller grupper i den här versionen.
+
+ SKU: er kan ta upp till en timme att bli synliga i portalen. Användare kan inte skapa en databas tills SKU: N är färdigt.
+
+>[!TIP]
+>Använd en SKU-namnet som återspeglar beskriver funktionerna i servrar i SKU: N, till exempel kapacitet och prestanda. Namnet fungerar som en hjälp för att hjälpa användare att distribuera sina databaser till lämplig SKU: N.
+
+Som bästa praxis, bör värdservrar i en SKU ha samma resurs- och egenskaper.
+
+## <a name="make-the-sql-databases-available-to-users"></a>Gör SQL-databaser som är tillgängliga för användare
+
+Skapa planer och erbjudanden att tillgängliggöra SQL-databaser för användare. Lägg till den **Microsoft.SqlAdapter** service för att planen och skapa en ny kvot.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lägga till databaser](azure-stack-sql-resource-provider-databases.md)
+[Lägg till databaser](azure-stack-sql-resource-provider-databases.md)

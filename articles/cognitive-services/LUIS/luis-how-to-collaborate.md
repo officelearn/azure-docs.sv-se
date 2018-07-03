@@ -1,6 +1,6 @@
 ---
-title: Samarbeta med andra deltagare i THOMAS appar i Azure | Microsoft Docs
-description: Lär dig hur du samarbeta med andra deltagare i språk förstå (THOMAS) program.
+title: Samarbeta med andra deltagare på LUIS-appar i Azure | Microsoft Docs
+description: Lär dig hur du samarbeta med andra deltagare på Språkförståelse (LUIS) program.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,31 +9,33 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: v-geberr
-ms.openlocfilehash: c0451f7621a3c18dbf365f3a03934924c030092f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 55c50f5276e2cf97ac98d75b8fc2bd56f1c5d644
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354507"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340421"
 ---
-# <a name="collaborate-with-others-on-language-understanding-luis-apps"></a>Samarbeta med andra på språket förstå (THOMAS)-appar  
+# <a name="collaborate-with-others-on-language-understanding-luis-apps"></a>Samarbeta med andra appar för Språkförståelse (LUIS)  
 
-Du kan samarbeta med andra THOMAS appen. 
+Du kan samarbeta med andra på LUIS-appen. 
 
-## <a name="owner-and-collaborators"></a>Ägare och samarbetspartner
+## <a name="owner-and-collaborators"></a>Ägaren och medarbetare
 En app har en enda ägare men kan ha många medarbetare. 
 
-## <a name="add-collaborator"></a>Lägg till deltagare
+## <a name="add-collaborator"></a>Lägg till medarbetare
 
-Att tillåta medarbetare att redigera appen THOMAS på den **inställningar** sidan appen THOMAS anger du e-post i samarbetspartner och på **deltagare i Lägg till**.
+Att tillåta medarbetare att redigera din LUIS-app på den **inställningar** sidan för din LUIS-app, anger du e-postadress för medarbetare och klicka på **Lägg till medarbetare**.
 
-![Lägg till deltagare](./media/luis-how-to-collaborate/add-collaborator.png)
+![Lägg till medarbetare](./media/luis-how-to-collaborate/add-collaborator.png)
 
-* Medarbetare kan logga in och redigera din THOMAS-app samtidigt som du arbetar med appen. <!--If a collaborator edits the LUIS app, you see a notification at the top of the browser.-->
+* Medarbetare kan logga in och redigera din LUIS-app samtidigt som du arbetar med appen. <!--If a collaborator edits the LUIS app, you see a notification at the top of the browser.-->
 * Medarbetare kan inte lägga till andra medarbetare.
 
-## <a name="set-application-as-public"></a>Ange program som public
-Se [offentlig slutpunkt appåtkomst](luis-concept-security.md#public-app-endpoint-access) för mer information.
+Se [Azure Active Directory-klientanvändare](luis-how-to-account-settings.md#azure-active-directory-tenant-user) mer information om Active Directory-användarkonton. 
 
-### <a name="transfer-of-ownership"></a>Äganderätten
-Medan THOMAS inte stöder äganderätten, kan du exportera din app och en annan THOMAS användare kan importera appen. Det kan finnas mindre skillnader i THOMAS resultat mellan de två programmen. 
+## <a name="set-application-as-public"></a>Ange program som offentliga
+Se [offentliga slutpunkten appåtkomst](luis-concept-security.md#public-app-endpoint-access) för mer information.
+
+### <a name="transfer-of-ownership"></a>Överlåtelse av äganderätt
+Medan LUIS inte stöder för närvarande överlåtelse av äganderätt, du kan exportera din app och en annan LUIS-användare kan importera appen. Det kan finnas mindre skillnader i LUIS poäng mellan de två programmen. 

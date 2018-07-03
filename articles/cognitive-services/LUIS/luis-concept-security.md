@@ -1,6 +1,6 @@
 ---
-title: Förstå åtkomst till THOMAS - program i Azure | Microsoft Docs
-description: Lär dig att komma åt THOMAS redigering.
+title: Förstå åtkomst till LUIS-program – Azure | Microsoft Docs
+description: Lär dig hur du kommer åt LUIS redigering.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,18 +9,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 44380e12e6d095e8d40675af0b6b2fddc5e4c4e9
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: c581c26f867ca78a5ed12922c9e8760f5f903881
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264275"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345866"
 ---
-# <a name="authoring-and-endpoint-user-access"></a>Redigering och slutpunkten användaråtkomst
-Redigera åtkomst är tillgänglig för ägare och medarbetare. För en privat app är endpoint åtkomst tillgängliga för ägare och medarbetare. För en offentlig app har slutpunkt du tillgång till alla som har sina egna THOMAS konton och offentliga app-ID. 
+# <a name="authoring-and-endpoint-user-access"></a>Skriv- och slutpunkt användaråtkomst
+Redigera åtkomst är tillgänglig för ägare och medarbetare. För en privat app är slutpunkt för åtkomst tillgänglig för ägare och medarbetare. För en app för offentlig är åtkomst för slutpunkten tillgänglig för alla som har sina egna LUIS-konto och har den offentliga app-ID. 
 
 ## <a name="access-to-authoring"></a>Åtkomst till redigering
-Åtkomst till appen från den [THOMAS] [ LUIS] webbplats eller [redigering API: er](https://aka.ms/luis-authoring-apis) styrs av ägaren av appen. 
+Åtkomst till appen från den [LUIS] [ LUIS] webbplats eller [redigera API: er](https://aka.ms/luis-authoring-apis) styrs av ägaren till appen. 
 
 Ägare och alla medarbetare behörighet att redigera appen. 
 
@@ -28,39 +28,41 @@ Redigera åtkomst är tillgänglig för ägare och medarbetare. För en privat a
 |--|--|
 |Lägg till eller ta bort slutpunkten nycklar||
 |Exportera version||
-|Exportera endpoint loggar||
+|Exportloggar slutpunkt||
 |Importerar version||
-|Offentliggöra app|När en app är offentlig kan alla med en nyckel för redigering eller slutpunkt fråga appen.|
+|Gör appen offentlig|När en app är offentlig kan alla med en nyckel för redigering eller slutpunkt fråga appen.|
 |Ändra modellen|
 |Publicera|
-|Granska endpoint utterances för [active learning](label-suggested-utterances.md)|
-|Lär in|
+|Granska endpoint yttranden för [aktiv inlärning](label-suggested-utterances.md)|
+|Träna|
 
 ## <a name="access-to-endpoint"></a>Åtkomst till slutpunkten
-Åtkomsten till slutpunkten frågan THOMAS styrs av den **offentliga** inställningen av appen på den **inställningar** sidan. En privat app endpoint frågan är markerat för en auktoriserad nyckel med kvarvarande kvoten träffar. En offentlig app endpoint frågan har också ange en slutpunktsnyckel (från den som har att göra frågan) som också är markerat för återstående kvot träffar. 
+Åtkomst till slutpunkten så att frågan LUIS styrs av den **offentliga** inställningen av appen på den **inställningar** sidan. En privat app endpoint fråga är markerat för en auktoriserad nyckel med återstående kvot träffar. En offentlig app endpoint frågan måste du också ange en slutpunktsnyckeln (från den är att göra frågan) som också är markerat för återstående kvot träffar. 
 
-Nyckeln endpoint skickas antingen i frågesträngen för GET-begäran eller rubriken för POST-begäran.
+Slutpunktsnyckeln skickas antingen i frågesträngen för GET-begäran eller be rubriken för INLÄGGET.
 
-![Ange app offentlig](./media/luis-concept-security/set-application-as-public.png)
+![Set-app till att vara offentligt](./media/luis-concept-security/set-application-as-public.png)
 
-### <a name="private-app-endpoint-security"></a>Privata app slutpunktssäkerhet
-En privat app slutpunkten är bara tillgängligt för följande:
+### <a name="private-app-endpoint-security"></a>Privat app slutpunktssäkerhet
+En privat app slutpunkten är endast tillgänglig för följande:
 
-|Nyckeln och användare|Förklaring|
+|Nyckel och användare|Förklaring|
 |--|--|--|
 |Ägarens redigering nyckel| Upp till 1000 endpoint träffar|
-|Medarbetare redigering nycklar| Upp till 1000 endpoint träffar|
-|Slutpunkten nycklar som lagts till från **[publicera](publishapp.md)** sidan|Ägare och medarbetare Lägg till nycklar för slutpunkten|
+|Medarbetare authoring nycklar| Upp till 1000 endpoint träffar|
+|Slutpunkten nycklar har lagts till från **[publicera](luis-how-to-publish-app.md)** sidan|Ägaren och medarbetare kan lägga till slutpunkten nycklar|
 
 Andra redigering eller slutpunkt nycklar har **inga** åtkomst.
 
-### <a name="public-app-endpoint-access"></a>Åtkomst till offentliga appen slutpunkt
-Konfigurera appen som **offentliga** på den **inställningar** sida i appen. När en app har konfigurerats som public _alla_ giltig THOMAS redigering för eller THOMAS endpoint kan fråga din app, förutsatt att nyckeln inte har använt hela endpoint kvoten.
+### <a name="public-app-endpoint-access"></a>Offentliga slutpunkten för appåtkomst
+Konfigurera appen som **offentliga** på den **inställningar** sida i appen. När en app har konfigurerats som offentliga, _alla_ giltig LUIS redigering nyckel eller LUIS slutpunktsnyckeln kan fråga din app, så länge nyckeln inte har använt hela slutpunkt kvoten.
 
-En användare som inte är ägare eller deltagare, kan endast komma åt offentliga appen, om en app-ID. THOMAS saknar en offentlig _marknaden_ eller andra sätt att söka efter en offentlig app.  
+En användare som inte är ägare eller deltagare i, kan endast komma åt en offentlig appen, om en annan app-ID. LUIS saknar en offentlig _marknaden_ eller annat sätt att söka efter en offentlig app.  
 
 ## <a name="microsoft-user-accounts"></a>Microsoft-användarkonton
-Författare och medarbetare kan lägga till nycklar THOMAS på sidan Publicera. Det Microsoft-konto som skapar nyckeln THOMAS i Azure-portalen måste appen ägare eller deltagare i en app. 
+Författare och medarbetare kan lägga till nycklar LUIS på sidan Publicera. Det Microsoft-konto som skapas LUIS-nyckel i Azure-portalen måste appägare eller deltagare i en app. 
+
+Se [Azure Active Directory-klientanvändare](luis-how-to-account-settings.md#azure-active-directory-tenant-user) mer information om Active Directory-användarkonton. 
 
 <!--
 ### Individual consent
@@ -70,10 +72,10 @@ If the Microsoft user account is part of an Azure Active Directory (AAD), and th
 If the Microsoft user account is part of an Azure Active Directory (AAD), and the active directory doesn't allow users to give consent, then the administrator can give individual consent via the method discussed in this [blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/). 
 -->
 ## <a name="securing-the-endpoint"></a>Skydda slutpunkten 
-Du kan styra vem som kan se din THOMAS endpoint nyckel genom att anropa i en server till server-miljö. Om du använder THOMAS från en bot är anslutningen mellan bot och THOMAS redan skyddad. Om du anropar THOMAS slutpunkten direkt, bör du skapa en API för serversidan (till exempel en Azure [funktionen](https://azure.microsoft.com/services/functions/)) med kontrollerad åtkomst (som [AAD](https://azure.microsoft.com/services/active-directory/)). Skicka anrop till THOMAS om serversidan API kallas och autentisering och auktorisering har verifierats. När den här strategin inte förhindra att man-in-the-middle-attacker, den obfuscates slutpunkten från användarna, kan du spåra åtkomst, och du kan lägga till slutpunkten svar loggning (exempelvis [Programinsikter](https://azure.microsoft.com/services/application-insights/)).  
+Du kan styra vilka som får se din LUIS slutpunktsnyckeln genom att anropa den i en server till server-miljö. Om du använder LUIS från en robot är anslutningen mellan bot och LUIS redan säker. Om du anropar slutpunkten LUIS direkt, bör du skapa ett API för serversidan (till exempel en Azure [funktionen](https://azure.microsoft.com/services/functions/)) med kontrollerad åtkomst (till exempel [AAD](https://azure.microsoft.com/services/active-directory/)). När anropas från serversidan API och autentisering och auktorisering har verifierats, skicka anropet till LUIS. När den här strategin inte hindra man-in-the-middle-attacker, den obfuscates slutpunkten från användarna, kan du spåra åtkomst, och kan du lägga till slutpunkten svar loggning (till exempel [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
 
-## <a name="security-compliance"></a>Säkerhetsefterlevnaden
-THOMAS slutförts ISO 27001: 2013 och ISO 27018:2014 audit med noll avvikelser (resultat) i rapporten. Dessutom hämta THOMAS också CSA STAR certifikatutfärdare med högsta möjliga guld tilldelning för förfall kapaciteten assessment. Azure är den enda större offentliga molntjänstleverantören att detta certifikat. Mer information hittar du i THOMAS ingår i den uppdaterade scope-instruktionen i Azures huvudsakliga [översikt över kompatibilitet](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) dokument som refereras i [Säkerhetscenter](https://www.microsoft.com/en-us/trustcenter/compliance/iso-iec-27001) ISO-sidor.  
+## <a name="security-compliance"></a>Säkerhet
+LUIS slutförts ISO 27001: 2013 och ISO-granskningen 27018:2014 med noll avvikelser (resultat) i granskningsrapporten. Dessutom hämta LUIS också CSA STAR-certifiering med högsta möjliga guld utmärkelsen för mognad kapaciteten för utvärderingen. Azure är den enda stora offentliga molntjänstleverantören att vinna denna certifiering. Mer information hittar du LUIS ingår i den uppdaterade scope-instruktionen i Azures huvudsakliga [efterlevnad översikt](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) dokumentet som refereras i [Säkerhetscenter](https://www.microsoft.com/en-us/trustcenter/compliance/iso-iec-27001) ISO-sidor.  
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: Host.JSON referens för Azure Functions
-description: I referensdokumentationen för Azure Functions host.json filen.
+title: Host.JSON-referens för Azure Functions
+description: Referensdokumentation för Azure Functions host.json-filen.
 services: functions
 author: tdykstra
 manager: cfowler
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: d1dec6f2da4f6fcbeb38585fc6a1cfcd9d622c4a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d89170f796355b734facc5e08ad1815a2b865d49
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764595"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342100"
 ---
-# <a name="hostjson-reference-for-azure-functions"></a>Host.JSON referens för Azure Functions
+# <a name="hostjson-reference-for-azure-functions"></a>Host.JSON-referens för Azure Functions
 
-Den *host.json* metadatafil innehåller globala konfigurationsalternativ som påverkar alla funktioner för en funktionsapp. Den här artikeln innehåller de inställningar som är tillgängliga. JSON-schema är på http://json.schemastore.org/host.
+Den *host.json* metadatafilen innehåller globala konfigurationsalternativ som påverkar alla funktioner för en funktionsapp. Den här artikeln innehåller de inställningar som är tillgängliga. JSON-schemat är i http://json.schemastore.org/host.
 
 Det finns andra globala konfigurationsalternativ i [appinställningar](functions-app-settings.md) och i den [local.settings.json](functions-run-local.md#local-settings-file) fil.
 
-## <a name="sample-hostjson-file"></a>Exempelfilen host.json
+## <a name="sample-hostjson-file"></a>Exempelfilen för host.json
 
-I följande exempel *host.json* filen har alla angivna möjliga alternativ.
+I följande exempel *host.json* filen har alla möjliga alternativ som har angetts.
 
 ```json
 {
@@ -105,7 +105,7 @@ I följande avsnitt i den här artikeln beskrivs varje översta egenskap. Alla �
 
 ## <a name="aggregator"></a>Aggregator
 
-Anger hur många funktionsanrop sammanställs när [beräkna mått för Application Insights](functions-monitoring.md#configure-the-aggregator). 
+Anger hur många funktionsanrop är aggregeras när [beräkning av mätvärden för Application Insights](functions-monitoring.md#configure-the-aggregator). 
 
 ```json
 {
@@ -116,16 +116,16 @@ Anger hur många funktionsanrop sammanställs när [beräkna mått för Applicat
 }
 ```
 
-|Egenskap |Standard  | Beskrivning |
+|Egenskap  |Standard  | Beskrivning |
 |---------|---------|---------| 
-|batchSize|1000|Högsta antal begäranden ska aggregeras.| 
+|batchSize|1000|Maximalt antal begäranden ska aggregeras.| 
 |flushTimeout|00:00:30|Maximal tid period ska aggregeras.| 
 
-Funktionsanrop aggregeras när först av två begränsar har uppnåtts.
+Funktionsanrop räknas samman när först av två begränsar uppnås.
 
 ## <a name="applicationinsights"></a>applicationInsights
 
-Kontroller av [provtagning funktion i Application Insights](functions-monitoring.md#configure-sampling).
+Kontroller i [sampling funktion i Application Insights](functions-monitoring.md#configure-sampling).
 
 ```json
 {
@@ -138,10 +138,10 @@ Kontroller av [provtagning funktion i Application Insights](functions-monitoring
 }
 ```
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap   |Standard | Beskrivning |
 |---------|---------|---------| 
-|IsEnabled|true|Aktiverar eller inaktiverar provtagning.| 
-|maxTelemetryItemsPerSecond|5|Tröskelvärdet på vilka provtagning börjar.| 
+|isEnabled|true|Aktiverar eller inaktiverar sampling.| 
+|maxTelemetryItemsPerSecond|5|Tröskelvärdet på vilka sampling börjar.| 
 
 ## <a name="durabletask"></a>durableTask
 
@@ -159,27 +159,33 @@ Konfigurationsinställningar för [varaktiga funktioner](durable-functions-overv
     "MaxConcurrentOrchestratorFunctions": 10,
     "AzureStorageConnectionStringName": "AzureWebJobsStorage",
     "TraceInputsAndOutputs": false,
+    "LogReplayEvents": false,
     "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
-    "EventGridKeySettingName":  "EventGridKey"
+    "EventGridKeySettingName":  "EventGridKey",
+    "EventGridPublishRetryCount": 3,
+    "EventGridPublishRetryInterval": "00:00:30"
   }
 }
 ```
 
-Hubb aktivitetsnamn måste börja med en bokstav och endast bestå av bokstäver och siffror. Om inget anges är standardnamnet för aktiviteten hubb för en funktionsapp **DurableFunctionsHub**. Mer information finns i [uppgift hubbar](durable-functions-task-hubs.md).
+Namn på aktiviteten måste börja med en bokstav och bestå av endast bokstäver och siffror. Om inte anges är standardnamnet på uppgiften hub för en funktionsapp **DurableFunctionsHub**. Mer information finns i [uppgift hubs](durable-functions-task-hubs.md).
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap   |Standard | Beskrivning |
 |---------|---------|---------|
-|hubName|DurableFunctionsHub|Alternativa [aktivitet hubb](durable-functions-task-hubs.md) namn kan användas för att isolera flera beständiga funktioner program från varandra, även om de använder samma lagringserverdel.|
-|ControlQueueBatchSize|32|Antal meddelanden till pull från kontrollen kön i taget.|
-|PartitionCount |4|Antalet partitioner för kö för kontrollen. Kan vara ett positivt heltal mellan 1 och 16.|
-|ControlQueueVisibilityTimeout |5 minuter|Tidsgränsen för visning av meddelanden i kö togs bort från kön kontroll.|
-|WorkItemQueueVisibilityTimeout |5 minuter|Tidsgränsen för visning av meddelanden i kö för objektet togs bort från kön arbete.|
-|MaxConcurrentActivityFunctions |10 x antalet processorer på den aktuella datorn|Maximalt antal aktiviteten funktioner som kan bearbetas samtidigt på en enda värd-instans.|
-|MaxConcurrentOrchestratorFunctions |10 x antalet processorer på den aktuella datorn|Maximalt antal aktiviteten funktioner som kan bearbetas samtidigt på en enda värd-instans.|
-|AzureStorageConnectionStringName |AzureWebJobsStorage|Namnet på appinställningen med Azure Storage-anslutningssträngen som används för att hantera de underliggande resurserna i Azure Storage.|
-|TraceInputsAndOutputs |false|Ett värde som anger om du vill spåra indata och utdata för funktionsanrop. Standardbeteendet när spårning funktionen körning händelser är att inkludera antalet byte i serialiserade indata och utdata för funktionsanrop. Detta ger minimalt information om hur indata och utdata ut utan svullen buk loggarna eller exponera känslig information till loggar oavsiktligt. Den här egenskapen till true kommer funktionen Standardloggning logga hela innehållet i funktionen indata och utdata.|
-|EventGridTopicEndpoint ||URL till en Azure händelse rutnätet anpassade avsnittet slutpunkt. När den här egenskapen anges publiceras orchestration livscykel meddelandehändelser till den här slutpunkten.|
-|EventGridKeySettingName ||Namnet på appinställningen som innehåller den nyckel som används för att autentisera med Azure händelse rutnätet anpassade artikeln i `EventGridTopicEndpoint`.
+|HubName|DurableFunctionsHub|Alternativa [uppgift hub](durable-functions-task-hubs.md) namn kan användas för att isolera program för flera varaktiga funktioner från varandra, även om de använder samma lagringserverdel.|
+|ControlQueueBatchSize|32|Antal meddelanden att hämta från kön kontroll i taget.|
+|PartitionCount |4|Antalet partitioner för kön kontroll. Kan vara ett positivt heltal mellan 1 och 16.|
+|ControlQueueVisibilityTimeout |5 minuter|Synlighetstimeout för tagits bort från kön kontroll Kömeddelanden.|
+|WorkItemQueueVisibilityTimeout |5 minuter|Synlighetstimeout för tagits bort från kön work item Kömeddelanden.|
+|MaxConcurrentActivityFunctions |10 gånger antalet processorer på den aktuella datorn|Det maximala antalet Aktivitetsfunktioner som kan bearbetas samtidigt på en enda värd-instans.|
+|MaxConcurrentOrchestratorFunctions |10 gånger antalet processorer på den aktuella datorn|Det maximala antalet Aktivitetsfunktioner som kan bearbetas samtidigt på en enda värd-instans.|
+|AzureStorageConnectionStringName |AzureWebJobsStorage|Namnet på den appinställning som har Azure Storage-anslutningssträng som används för att hantera de underliggande Azure-lagringsresurserna.|
+|TraceInputsAndOutputs |false|Ett värde som anger om du vill spåra indata och utdata av funktionsanrop. Standardbeteende när spårning av händelser för körning av funktionen är att inkludera antalet byte i serialiserade indata och utdata för funktionsanrop. Detta ger minimalt med information om hur indata och utdata ut utan svullen buk loggarna eller av misstag exponera känslig information till loggarna. Denna egenskap anges till true kommer funktionen Standardloggning logga hela innehållet i funktionen indata och utdata.|
+|LogReplayEvents|false|Ett värde som anger om du vill skriva orchestration repetitionsattacker händelser till Application Insights.|
+|EventGridTopicEndpoint ||URL till en slutpunkt för Azure Event Grid-anpassat ämne. När den här egenskapen anges publiceras orchestration livscykel meddelandehändelser till den här slutpunkten. Den här egenskapen stöder Appinställningar skärmupplösning.|
+|EventGridKeySettingName ||Namnet på den appinställning som innehåller den nyckel som används för att autentisera med det anpassade ämnet Azure Event Grid på `EventGridTopicEndpoint`.|
+|EventGridPublishRetryCount|0|Det går inte att antalet gånger att försöka igen om publicering till Event Grid-ämne.|
+|EventGridPublishRetryInterval|5 minuter|Event Grid publicera återförsöksintervallet i den *: mm: ss* format.|
 
 Många av dessa är för att optimera prestanda. Mer information finns i [prestanda och skalning](durable-functions-perf-and-scale.md).
 
@@ -191,7 +197,7 @@ Konfigurationsinställningar för [Event Hub-utlösare och bindningar](functions
 
 ## <a name="functions"></a>functions
 
-En lista över funktioner som värd för jobbet ska köras. En tom matris innebär att köra alla funktioner. Avsedd att användas endast när [körs lokalt](functions-run-local.md). I funktionen appar använda den *function.json* `disabled` egenskapen i stället för den här egenskapen i *host.json*.
+En lista över funktioner som värd för jobbet ska köras. En tom matris innebär att köra alla funktioner. Avsedd att användas endast när [körs lokalt](functions-run-local.md). I funktionsappar, använder den *function.json* `disabled` egenskap i stället för den här egenskapen i *host.json*.
 
 ```json
 {
@@ -201,7 +207,7 @@ En lista över funktioner som värd för jobbet ska köras. En tom matris inneb�
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Anger timeout-varaktighet för alla funktioner. Det giltiga intervallet är mellan 1 sekund till 10 minuter i förbrukning planer, och standardvärdet är 5 minuter. Det finns ingen gräns i App Service-planer, och standardvärdet är null, vilket indikerar ingen tidsgräns.
+Anger timeout-varaktighet för alla funktioner. Det giltiga intervallet är mellan 1 sekund till 10 minuter i förbrukningsplaner, och standardvärdet är 5 minuter. Det finns ingen gräns i App Service-planer, och standardvärdet är null, vilket anger att ingen tidsgräns.
 
 ```json
 {
@@ -211,7 +217,7 @@ Anger timeout-varaktighet för alla funktioner. Det giltiga intervallet är mell
 
 ## <a name="healthmonitor"></a>healthMonitor
 
-Konfigurationsinställningar för [värden hälsoövervakning](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+Konfigurationsinställningar för [Övervakare för hälsa för värd](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
 
 ```
 {
@@ -225,13 +231,13 @@ Konfigurationsinställningar för [värden hälsoövervakning](https://github.co
 }
 ```
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap   |Standard | Beskrivning |
 |---------|---------|---------| 
 |aktiverad|true|Om funktionen är aktiverad. | 
-|healthCheckInterval|10 sekunder|Tidsintervallet mellan regelbunden hälsa kontrollerar. | 
-|healthCheckWindow|2 minuter|Ett skjutfönster tid används tillsammans med den `healthCheckThreshold` inställningen.| 
-|healthCheckThreshold|6|Maximalt antal gånger hälsotillståndskontroll kan misslyckas innan värden återvinning initieras.| 
-|counterThreshold|0,80|Tröskelvärdet som en prestandaräknare betraktas som ohälsosamt.| 
+|healthCheckInterval|10 sekunder|Tidsintervallet mellan regelbunden hälsotillståndet kontrollerar. | 
+|healthCheckWindow|2 minuter|En glidande tidsperiod som används tillsammans med den `healthCheckThreshold` inställningen.| 
+|healthCheckThreshold|6|Hur många gånger hälsokontrollen kan misslyckas innan återvinning värd har initierats.| 
+|counterThreshold|0.80|Tröskelvärdet som en prestandaräknare anses vara felaktiga.| 
 
 ## <a name="http"></a>http
 
@@ -241,9 +247,9 @@ Konfigurationsinställningar för [http-utlösare och bindningar](functions-bind
 
 ## <a name="id"></a>id
 
-Unikt ID för en värd för jobbet. Vara kan en gemen GUID med bindestreck bort. Krävs när du kör programmet lokalt. När den körs i Azure Functions ID skapas automatiskt om `id` utelämnas.
+Unikt ID för en värd för jobbet. Kan vara en gemen GUID med bindestreck tas bort. Krävs när du kör lokalt. När du kör i Azure Functions kan ett ID skapas automatiskt om `id` utelämnas.
 
-Om du delar ett lagringskonto över flera funktionen appar, se till att varje funktionsapp har en annan `id`. Du kan hoppa över den `id` egenskapen eller manuellt ange varje funktionsapp `id` till ett annat värde. Timer-utlösaren använder lagring Lås så att endast en timer-instans när en funktionsapp skalas ut till flera instanser. Om två funktionen appar med samma `id` och varje använder en timer som utlösare, körs bara en timer.
+Om du delar ett Storage-konto i flera funktionsappar, se till att varje funktionsapp har en annan `id`. Du kan utelämna den `id` egenskapen eller manuellt ange varje funktionsapp `id` på ett annat värde. Timer utlösaren använder ett storage-Lås för att se till att endast en timer-instans när en funktionsapp skalas ut till flera instanser. Om två funktionsappar delar samma `id` och var och en använder en timer som utlösare, endast en timer körs.
 
 
 ```json
@@ -252,9 +258,9 @@ Om du delar ett lagringskonto över flera funktionen appar, se till att varje fu
 }
 ```
 
-## <a name="logger"></a>Loggaren
+## <a name="logger"></a>loggaren
 
-Kontroller filtrering för loggar som skrivits av en [ILogger objekt](functions-monitoring.md#write-logs-in-c-functions) eller [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
+Kontroller som filtrering för loggar som skrivits av en [ILogger objekt](functions-monitoring.md#write-logs-in-c-functions) eller [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
 ```json
 {
@@ -271,27 +277,27 @@ Kontroller filtrering för loggar som skrivits av en [ILogger objekt](functions-
 }
 ```
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap   |Standard | Beskrivning |
 |---------|---------|---------| 
-|categoryFilter|Saknas|Anger att filtrera efter kategori| 
-|defaultLevel|Information|Alla kategorier som angetts i den `categoryLevels` kan skicka loggar på denna nivå och senare till Application Insights.| 
-|categoryLevels|Saknas|En matris med kategorier som anger den minsta loggnivån som skickas till Application Insights för varje kategori. Den kategori som anges här styr alla kategorier som börjar med samma värde, och längre värden företräde. I föregående exempel *host.json* -fil, alla kategorier som börjar med ”Host.Aggregator”-loggen på `Information` nivå. Alla kategorier som börjar med ”värd”, till exempel ”Host.Executor” logga in på `Error` nivå.| 
+|categoryFilter|Saknas|Anger du filtrerar efter kategori| 
+|defaultLevel|Information|För alla kategorier som angetts i den `categoryLevels` kan skicka loggar på den här nivån och senare till Application Insights.| 
+|categoryLevels|Saknas|En matris med kategorier som anger den minsta Loggnivå som skickas till Application Insights för varje kategori. Den kategori som anges här styr alla kategorier som börjar med samma värde och längre värden ha företräde. I det föregående exemplet *host.json* filen, alla kategorier som börjar med ”Host.Aggregator”-loggen på `Information` nivå. Alla kategorier som börjar med ”värd”, till exempel ”Host.Executor” logga in på `Error` nivå.| 
 
-## <a name="queues"></a>Köer
+## <a name="queues"></a>köer
 
-Konfigurationsinställningar för [lagring-utlösare och bindningar](functions-bindings-storage-queue.md).
+Konfigurationsinställningar för [Storage-kö-utlösare och bindningar](functions-bindings-storage-queue.md).
 
 [!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
-## <a name="servicebus"></a>ServiceBus
+## <a name="servicebus"></a>serviceBus
 
 Konfigurationsinställning för [Service Bus-utlösare och bindningar](functions-bindings-service-bus.md).
 
 [!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
 
-## <a name="singleton"></a>Singleton
+## <a name="singleton"></a>Singleton-instans
 
-Konfigurationsinställningar för Singleton låsa beteende. Mer information finns i [GitHub problemet om singleton-stöd](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
+Konfigurationsinställningar för Singleton-låsbeteende. Mer information finns i [GitHub-ärende om singleton-stöd](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
 {
@@ -305,17 +311,17 @@ Konfigurationsinställningar för Singleton låsa beteende. Mer information finn
 }
 ```
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap   |Standard | Beskrivning |
 |---------|---------|---------| 
-|lockPeriod|00:00:15|Den period som funktionen nivån Lås används för. Lås förnyelse automatisk.| 
+|lockPeriod|00:00:15|Den period som funktionen på Lås används för. Låsen den automatiska förnyelsen.| 
 |listenerLockPeriod|00:01:00|Den period som lyssnare Lås används för.| 
-|listenerLockRecoveryPollingInterval|00:01:00|Tidsintervall som används för lyssnare låsåterställning om inte det gick att hämta en lyssnare Lås vid start.| 
-|lockAcquisitionTimeout|00:01:00|Längsta tid körningsmiljön kommer att försöka skaffa ett lås.| 
+|listenerLockRecoveryPollingInterval|00:01:00|Tidsintervall som används för lyssnare låsåterställning om lyssnaren låsa inte det gick att hämta vid start.| 
+|lockAcquisitionTimeout|00:01:00|Längsta tid körningen kommer att försöka låsa.| 
 |lockAcquisitionPollingInterval|Saknas|Intervall mellan försök för anskaffning av Lås.| 
 
 ## <a name="tracing"></a>spårning
 
-Konfigurationsinställningar för loggarna som du skapar med hjälp av en `TraceWriter` objekt. Se [C# loggning](functions-reference-csharp.md#logging) och [Node.js loggning](functions-reference-node.md#writing-trace-output-to-the-console). 
+Konfigurationsinställningar för loggar som du skapar med hjälp av en `TraceWriter` objekt. Se [C# loggning](functions-reference-csharp.md#logging) och [Node.js loggning](functions-reference-node.md#writing-trace-output-to-the-console). 
 
 ```json
 {
@@ -326,14 +332,14 @@ Konfigurationsinställningar för loggarna som du skapar med hjälp av en `Trace
 }
 ```
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap   |Standard | Beskrivning |
 |---------|---------|---------| 
-|consoleLevel|Info|Spårning-nivå för konsolen loggning. Alternativen är: `off`, `error`, `warning`, `info`, och `verbose`.|
-|fileLoggingMode|debugOnly|Spårning-nivå för filen loggning. Alternativen är `never`, `always`, `debugOnly`.| 
+|consoleLevel|info|Spårningsnivån för konsolen loggning. Alternativen är: `off`, `error`, `warning`, `info`, och `verbose`.|
+|fileLoggingMode|debugOnly|Spårningsnivån för filen loggning. Alternativen är `never`, `always`, `debugOnly`.| 
 
 ## <a name="watchdirectories"></a>watchDirectories
 
-En uppsättning [delade kod kataloger](functions-reference-csharp.md#watched-directories) som bör övervakas för ändringar.  Garanterar att när koden i de här katalogerna ändras ändringarna fångas upp av dina funktioner.
+En uppsättning [delad kod kataloger](functions-reference-csharp.md#watched-directories) som ska övervakas avseende ändringar.  Säkerställer att när koden i dessa kataloger ändras ändringarna fångas upp av dina funktioner.
 
 ```json
 {

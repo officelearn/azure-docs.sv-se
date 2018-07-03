@@ -1,19 +1,22 @@
-I följande tabell visas de gränser som gäller för IoT-hubb enheten Etableringstjänsten resurser:
+I följande tabell visas de begränsningar som gäller för IoT Hub Device Provisioning Service-resurser:
 
 | Resurs | Gräns |
 | --- | --- |
-| Maximal enhet Provisioning Services per Azure-prenumeration | 10 |
-| Maximalt antal registreringar | 10 000 |
-| Maximalt antal registreringar | 10 000 |
-| Maximalt antal grupper för registrering | 100 |
-| Maximalt antal CA: er | 10 |
+| Maximal Enhetsetableringstjänster per Azure-prenumeration | 10 |
+| Maximalt antal registreringar | 500,000 |
+| Maximalt antal registreringar | 500,000 |
+| Maximalt antal registreringsgrupper | 100 |
+| Maximalt antal CA: er | 25 |
 
 > [!NOTE]
-> Du kan kontakta [Microsoft-supporten](https://azure.microsoft.com/support/options/) att öka antalet instanser i din prenumeration.
+> Du kan kontakta [Microsoft Support](https://azure.microsoft.com/support/options/) att öka antalet instanser i din prenumeration.
 
-Enheten Etableringstjänsten begränsar begäranden när följande kvoter överskrids:
+> [!NOTE]
+> Du kan kontakta [Microsoft Support](https://azure.microsoft.com/support/options/) att öka antalet registreringar och registreringar på din etableringstjänst.
 
-| Begränsning | Värde per service |
+Device Provisioning-tjänsten begränsar begärandena om följande kvoter överskrids:
+
+| Begränsning | Värde per tjänst |
 | --- | --- |
 | Åtgärder | 100 per minut |
-| Enheten registreringar | 100 per minut |
+| Enhetsregistreringar | 100 per minut |

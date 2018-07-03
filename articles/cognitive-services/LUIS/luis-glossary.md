@@ -1,6 +1,6 @@
 ---
-title: Ordlista för API-tjänsten språk förstå (THOMAS) | Microsoft Docs
-description: Ordlistan beskrivs de termer som kan uppstå när du arbetar med LUIS API Service.
+title: Ordlista för den API tjänst för Språkförståelse (LUIS) | Microsoft Docs
+description: Ordlistan beskrivs de termer som du kan stöta på när du arbetar med LUIS API Service.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -9,30 +9,30 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: d1b83432e925e4f6fd439ac78acfde56ad31ba52
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3016d1318d031494057f4a8ce61af37576a7c4f2
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128410"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346815"
 ---
 # <a name="glossary"></a>Ordlista
 
 ## <a name="active-version"></a>Aktiva versionen
 
-Den aktiva THOMAS-versionen är den version som tar emot alla ändringar i modellen. I den [THOMAS](luis-reference-regions.md) webbplats om du vill göra ändringar i en version som inte är den aktiva versionen måste du först ställa in den versionen som aktiv. 
+Den aktiva LUIS-versionen är den version som tar emot alla ändringar i modellen. I den [LUIS](luis-reference-regions.md) webbplats, om du vill göra ändringar i en version som inte är den aktiva versionen måste du först ställa in den här versionen som aktiv. 
 
 ## <a name="authoring"></a>Redigering
 
-Redigering är möjligheten att skapa, hantera och distribuera en [THOMAS app](#luis-app), antingen med hjälp av den [THOMAS](luis-reference-regions.md) webbplats eller [redigering API: er](https://aka.ms/luis-authoring-api). 
+Redigera är möjligheten att skapa, hantera och distribuera en [LUIS-app](#luis-app), antingen med hjälp av den [LUIS](luis-reference-regions.md) webbplats eller [redigera API: er](https://aka.ms/luis-authoring-api). 
 
 ## <a name="authoring-key"></a>Redigera nyckel
 
-Tidigare kallades ”Programmatic” nyckel. Används för att skapa appen. Används inte för produktion nivå endpoint frågor. Mer information finns i [nyckeln gränser](luis-boundaries.md#key-limits).   
+Tidigare kallades ”Programmatic” nyckel. Används för att redigera appen. Används inte för produktionsnivån endpoint-frågor. Mer information finns i [viktiga begränsningar](luis-boundaries.md#key-limits).   
 
 ## <a name="batch-test-json-file"></a>Batch text JSON-fil
 
-Kommandofilen är en JSON-matris. Varje element i matrisen har tre egenskaper: `text`, `intent`, och `entities`. Den `entities` är en matris. Matrisen får vara tomt. Om den `entities` matrisen inte är tom, som behövs för att identifiera enheterna.
+Batchfilen är en JSON-matris. Varje element i matrisen har tre egenskaper: `text`, `intent`, och `entities`. Den `entities` egenskapen är en matris. Matrisen kan vara tom. Om den `entities` matrisen är inte tom, som behövs för att korrekt identifiera entiteterna.
 
 ```JSON
 [
@@ -58,65 +58,65 @@ Kommandofilen är en JSON-matris. Varje element i matrisen har tre egenskaper: `
 ```
 
 
-## <a name="collaborator"></a>Deltagare
+## <a name="collaborator"></a>Medarbetare
 
-En samarbetspartner är inte den [ägare](#owner) av appen, men har samma behörigheter för att lägga till, redigera och ta bort avsikter, enheter, utterances.
+En medarbetare är inte den [ägare](#owner) av appen, men inte har samma behörigheter för att lägga till, redigera och ta bort avsikter, entiteter, yttranden.
 
 ## <a name="currently-editing"></a>Redigerar
 
-Samma som [aktiva versionen](#active-version)
+Samma som [active version](#active-version)
 
 ## <a name="domain"></a>Domän
 
-I kontexten THOMAS en **domän** är en del av informationen. Din domän är specifik för din app område. Detta kan vara ett allmänt område, till exempel appen resa agent. En resa agent-app kan också vara specifika för bara delarna av information för ditt företag, till exempel specifika geografiska platser, språk och tjänster. 
+I kontexten LUIS en **domän** är en del av kunskaper. Din domän är specifik för din app område. Detta kan vara ett allmänt område, till exempel appen resa agent. En resa agent-app kan också vara specifika för bara delarna av information för ditt företag, till exempel specifika geografiska platser, språken och tjänsterna. 
 
 ## <a name="endpoint"></a>Slutpunkt
 
-Den [THOMAS endpoint](https://aka.ms/luis-endpoint-apis) URL: en är där du kan skicka THOMAS frågor efter den [THOMAS app](#luis-app) har skapats och publicerats. Slutpunkts-URL innehåller regionen och publicerade appen som app-ID. Du kan hitta slutpunkten på den **[publicera](publishapp.md)** sidan i din app i tabellen resurser och nycklar eller om du kan hämta slutpunkts-URL från den [hämta App-Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+Den [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL: en är där du kan skicka LUIS frågor efter den [LUIS-app](#luis-app) har skapats och publicerats. Slutpunkts-URL innehåller regionen för den publicerade appen samt app-ID. Du hittar slutpunkten på den **[publicera](luis-how-to-publish-app.md)** sidan för din app, i tabellen resurser och nycklar eller du kan hämta slutpunkts-URL från den [hämta Appinfo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 Det ser ut som en exempel-slutpunkt:
 
 `https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionID>&verbose=true&timezoneOffset=0&q=<utterance>`
 
-|QueryString-parametern|description|
+|Frågeparametern|description|
 |--|--|
 |region| [publicerade region](luis-reference-regions.md#publishing-regions) |
-|appID | THOMAS app-ID |
-|prenumerations-ID | THOMAS slutpunkt (prenumeration) nyckeln som skapats i Azure-portalen |
-|Q | utterance |
+|appID | LUIS-app-ID |
+|prenumerations-ID | LUIS slutpunkt (prenumeration)-nyckel som skapas i Azure-portalen |
+|frågor och | Uttryck |
 |timezoneOffset| minutes|
 
-## <a name="entity"></a>entitet
+## <a name="entity"></a>Entitet
 
-[Entiteter](luis-concept-entity-types.md) är viktiga ord i [utterances](luis-concept-utterance.md) som beskriver information som är relevanta för den [avsikt](luis-concept-intent.md), och ibland de är mycket viktigt att den. En entitet är i grunden en datatyp i THOMAS. 
+[Entiteter](luis-concept-entity-types.md) är viktiga ord i [yttranden](luis-concept-utterance.md) som beskriver information som är relevanta för den [avsikt](luis-concept-intent.md), och ibland de är mycket viktigt att den. En entitet är i grunden en datatyp i LUIS. 
 
 ## <a name="f-measure"></a>F-mått
 
-I [batch testar][batch-testing], ett mått på den test noggrannhet.
+I [batch testning][batch-testing], ett mått på det test precision.
 
 ## <a name="false-negative"></a>FALSKT negativt (TN)
 
-I [batch testar][batch-testing], datapunkter representerar utterances som din app felaktigt förutsade avsaknaden av avsikt/målentiteten.
+I [batch testning][batch-testing], datapunkter representerar yttranden som din app felaktigt förutse avsaknad av avsikt/målentiteten.
 
-## <a name="false-positive"></a>Falsklarm (TP)
+## <a name="false-positive"></a>Falsk positiv identifiering (TP)
 
-I [batch testar][batch-testing], datapunkter representerar utterances som din app felaktigt förutsade förekomsten av avsikt/målentiteten.
+I [batch testning][batch-testing], datapunkter representerar yttranden som din app felaktigt förutse förekomsten av avsikt/målentiteten.
 
 ## <a name="features"></a>Funktioner
 
-I machine learning, en [funktionen](luis-concept-feature.md) är en särskiljande egenskap eller ett attribut av data där systemet.
+I machine learning, en [funktionen](luis-concept-feature.md) är en särskiljande egenskap eller ett attribut av data där dina system.
 
 ## <a name="intent"></a>Avsikten
 
-En [avsikt](luis-concept-intent.md) representerar en aktivitet eller åtgärd som användaren vill utföra. Det är ett syfte eller målet uttryckt i indata för en användare, till exempel Bokningstyp en svarta, betalar en faktura eller söka efter en nyhetsartikel i. I THOMAS utifrån hela utterance avsiktshantering förutsägelser. Entiteter, däremot är en utterance.
+En [avsikt](luis-concept-intent.md) representerar en aktivitet eller åtgärd som användaren vill utföra. Det är en syfte eller mål som är uttryckt i indata för en användare, till exempel en flygning för bokning, betala en faktura eller att söka efter en nyhetsartikel. LUIS, är avsiktlig förutsägelse baserad på hela uttryck. Entiteter, jämförelse, är ett uttryck.
 
-## <a name="labeling"></a>Etiketter
+## <a name="labeling"></a>Märkning
 
-Etiketter är en process för att associera ett ord eller en fras i en avsikt [utterance](#utterance) med en [entiteten](#entity) (datatype). 
+Etiketter är en process för att associera ett ord eller fraser i ett intent [uttryck](#utterance) med en [entitet](#entity) (datatype). 
 
-## <a name="luis-app"></a>THOMAS app
+## <a name="luis-app"></a>LUIS-app
 
-En THOMAS app är en tränad datamodell för behandling av naturligt språk inklusive [intents](#intent), [entiteter](#entity), och etiketter [utterances](#utterance).
+En LUIS-app är en tränad datamodell för bearbetning av naturligt språk, inklusive [avsikter](#intent), [entiteter](#entity), och märkta [yttranden](#utterance).
 
 ## <a name="owner"></a>Ägare
 
@@ -125,89 +125,89 @@ Varje app har en ägare som är den person som skapade appen. Ägare kan lägga 
 ## <a name="pattern"></a>Mönster
 Funktionen tidigare mönstret ersätts med [mönster](luis-concept-patterns.md). Använda mönster för att förbättra prognosens noggrannhet genom att tillhandahålla färre utbildning exempel. 
 
-## <a name="phrase-list"></a>Frasen lista
+## <a name="phrase-list"></a>Fras lista
 
-En [frasen listan](luis-concept-feature.md#what-is-a-phrase-list-feature) innehåller en uppsättning värden (ord eller fraser) som tillhör samma klass och måste behandlas på samma sätt (t.ex, namn på städer eller produkter). En lista för utbytbara behandlas som synonymer. 
+En [frasen lista](luis-concept-feature.md#what-is-a-phrase-list-feature) innehåller en grupp med värden (ord eller fraser) som tillhör samma klass och måste behandlas på samma sätt (t.ex, namn på städer eller produkter). En utbytbara lista behandlas som synonymer. 
 
 ## <a name="prebuilt-domains"></a>Fördefinierade domän
 
-En [färdiga domän](luis-how-to-use-prebuilt-domains.md) är en THOMAS app som konfigurerats för en specifik domän, till exempel hemma automation (HomeAutomation) eller restaurang reservationer (RestaurantReservation). Avsikter, utterances och enheter har konfigurerats för den här domänen. 
+En [fördefinierade domän](luis-how-to-use-prebuilt-domains.md) är en LUIS-app som har konfigurerats för en specifik domän, till exempel home automation (HomeAutomation) eller restaurang reservationer (RestaurantReservation). Den avsikter och yttranden entiteter har konfigurerats för den här domänen. 
 
 ## <a name="prebuilt-entity"></a>Fördefinierade entitet
 
-En [färdiga entiteten](pre-builtentities.md) är en entitet THOMAS ger för vanliga typer av information, till exempel antal, URL och e-post. Du vill lägga till en fördefinierad entitet i ditt program. 
+En [fördefinierade entitet](luis-prebuilt-entities.md) är en entitet som LUIS tillhandahåller för vanliga typer av information, till exempel antal, URL: en och e-post. Du kan välja att lägga till en fördefinierade entitet i ditt program. 
 
 ## <a name="precision"></a>Precision
-I [batch testar][batch-testing], precision (kallas även positivt värde) är del av relevanta utterances bland hämtade utterances.
+I [batch testning][batch-testing], precision (kallas även förutsägande positiv) är andelen av relevanta yttranden bland hämtade yttranden.
 
-## <a name="programmatic-key"></a>Programmässiga nyckel
+## <a name="programmatic-key"></a>Programmässig nyckel
 
-Bytt namn till [redigering nyckeln](#authoring-key). 
+Omdöpt till [redigering nyckeln](#authoring-key). 
 
 ## <a name="publish"></a>Publicera
 
-Publicera sätt att göra en THOMAS [aktiva versionen](#active-version) finns på den mellanlagring eller produktion [endpoint](#endpoint).  
+Publicera sätt som gör en LUIS [aktiva versionen](#active-version) finns på den mellanlagring eller produktion [endpoint](#endpoint).  
 
-## <a name="quota"></a>kvot
+## <a name="quota"></a>Kvot
 
-THOMAS kvot är att begränsa den [Azure-prenumeration nivå](https://aka.ms/luis-price-tier). THOMAS kvoten kan begränsas av båda begäranden per sekund (http-Status 429) och Totalt antal begäranden under en månad (http-Status 403). 
+LUIS kvoten är begränsningen av den [Azure-prenumeration nivå](https://aka.ms/luis-price-tier). LUIS-kvot kan begränsas av båda begäranden per sekund (http-Status 429) och Totalt antal begäranden under en månad (http-Status 403). 
 
-## <a name="recall"></a>Återkalla
-I [batch testar][batch-testing], återkalla (kallas även känslighet), är möjligheten för THOMAS att generalisera. 
+## <a name="recall"></a>Återkallande
+I [batch testning][batch-testing], återkalla (även kallad känslighet), är möjligheten för LUIS för att generalisera. 
 
-## <a name="semantic-dictionary"></a>Semantiska ordlista
-En semantiska ordlista finns på sidan entitet som sidan frasen. Den semantiska ordlistan innehåller förslag på ord baserat på den aktuella omfattningen.
+## <a name="semantic-dictionary"></a>Semantisk ordlista
+En semantiska ordlista finns på sidan med listan över entiteten samt sidan fras. Den semantiska innehåller förslag på ord baserat på den aktuella omfattningen.
 
-## <a name="sentiment-analysis"></a>Sentiment analys
-Sentiment analys ger positiva eller negativa värden för utterances som tillhandahålls av [textanalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/). 
+## <a name="sentiment-analysis"></a>Attitydanalys
+Attitydanalys ger positivt eller negativt värde av yttranden som tillhandahålls av [textanalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/). 
 
 ## <a name="speech-priming"></a>Tal promotor
 
-Tal promotor kan ditt tal tjänsten göras klar med THOMAS modellen för att användning. Se [aktivera tal promotor ](publishapp.md#enable-speech-priming).
+Tal promotor kan ditt taltjänsten vara förbereder sig med LUIS-modellen. Se [aktivera tal promotor ](luis-how-to-publish-app.md#enable-speech-priming).
 
 ## <a name="spelling-correction"></a>Stavningskontroll
 
-På sidan Publicera aktivera [Bing stavningskontrollen](publishapp.md#enable-bing-spell-checker) att korrigera stavningen i utterances innan förutsägelse. 
+På sidan Publicera aktivera [Bing-stavningskontroll](luis-how-to-publish-app.md#enable-bing-spell-checker) att korrigera felstavade ord. i yttranden innan förutsägelse. 
 
-## <a name="starter-key"></a>Start-nyckel
+## <a name="starter-key"></a>Starter-nyckel
 
-Samma som [programmässiga nyckeln](#programmatic-key), bytt namn till redigering nyckel.
+Samma som [programmässiga nyckeln](#programmatic-key), omdöpt till redigering nyckel.
 
-## <a name="subscription-key"></a>Prenumerationen nyckel
+## <a name="subscription-key"></a>Prenumerationsnyckel
 
-Prenumerationen nyckeln är den **endpoint** nyckeln som associeras med tjänsten THOMAS [du skapade i Azure](luis-how-to-azure-subscription.md). Den här nyckeln är inte den [redigering nyckeln](#programmatic-key). Om du har en slutpunktsnyckel kan användas för alla endpoint-förfrågningar i stället för nyckeln för redigering. Du kan se din aktuella endpoint-nyckel i slutpunkts-URL längst ned i [ **publicera appen** sidan](publishapp.md) i [THOMAS](luis-reference-regions.md) webbplats. Det är värdet för **prenumeration nyckeln** namn/värde-par. 
+Prenumerationsnyckeln är den **endpoint** nyckel som är associerad med tjänsten LUIS [du skapade i Azure](luis-how-to-azure-subscription.md). Den här nyckeln är inte den [redigering nyckeln](#programmatic-key). Om du har en slutpunktsnyckel kan användas för alla begäranden om slutpunkten i stället för nyckeln för redigering. Du kan se din aktuella slutpunktsnyckeln i slutpunkts-URL längst ned i [ **publicera appen** sidan](luis-how-to-publish-app.md) i [LUIS](luis-reference-regions.md) webbplats. Det är värdet för **prenumerationsnyckel** namn/värde-par. 
 
 ## <a name="test"></a>Test
 
-[Testa](interactive-test.md#test-your-app) en THOMAS app innebär att skicka en utterance till THOMAS och visa JSON resultat.
+[Testa](interactive-test.md#test-your-app) en LUIS-app innebär att skicka ett uttryck till LUIS och visa JSON-resultat.
 
-## <a name="timezoneoffset"></a>Förskjutning av tidszonen
+## <a name="timezoneoffset"></a>Förskjutning i tidszon
 
-Slutpunkten innehåller timezoneOffset. Detta är antalet minuter som du vill lägga till eller ta bort från datetimeV2 färdiga entitet. Till exempel om utterance är är ”vilken tid är den nu”?, datetimeV2 som returnerades den aktuella tiden för klientbegäran. Om klientens begäran kommer från en bot eller andra program som inte är samma som din bot användare, bör du överföra i förskjutningen mellan bot och användaren. 
+Slutpunkten innehåller timezoneOffset. Detta är antalet minuter som du vill lägga till eller ta bort från datetimeV2 fördefinierade entitet. Till exempel om uttryck är är ”vilken tid är det nu”?, datetimeV2 som returneras den aktuella tiden för klientbegäran. Om klientens begäran kommer från en bot eller andra program som inte är samma som din robot användare, bör du skicka in förskjutningen mellan roboten och användaren. 
 
-Se [ändra tidszon på fördefinierade datetimeV2 entiteten](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
+Se [ändra tidszon för fördefinierade datetimeV2 entitet](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
 ## <a name="token"></a>Token
-En token är den minsta enheten kan förses med i en entitet. Tokenisering baseras på programmets [kultur](luis-supported-languages.md#tokenization).
+En token är den minsta enheten som kan förses med i en entitet. Tokenisering baseras på programmets [kultur](luis-supported-languages.md#tokenization).
 
-## <a name="train"></a>Train
+## <a name="train"></a>Träna
 
-Utbildning är lära THOMAS om ändringar i [aktiva versionen](#active-version) sedan den senaste utbildningen.
+Utbildning är en process där du undervisar LUIS om ändringar av den [aktiva versionen](#active-version) sedan den senaste utbildningen.
 
-## <a name="true-negative"></a>True negativt (TN)
+## <a name="true-negative"></a>SANT negativt (TN)
 
-I [batch testar][batch-testing], datapunkter representerar utterances som din app korrekt förutsade avsaknaden av avsikt/målentiteten.
+I [batch testning][batch-testing], datapunkter representerar yttranden som din app korrekt förutse avsaknad av avsikt/målentiteten.
 
-## <a name="true-positive"></a>True positiv (TP)
+## <a name="true-positive"></a>Sann positiv händelse (TP)
 
-I [batch testar][batch-testing], datapunkter representerar utterances som din app korrekt förutsade förekomsten av avsikt/målentiteten.
+I [batch testning][batch-testing], datapunkter representerar yttranden som din app korrekt förutse förekomsten av avsikt/målentiteten.
 
-## <a name="utterance"></a>utterance
+## <a name="utterance"></a>Uttryck
 
-En utterance är ett naturligt språk, exempelvis ”book 2 biljetter till Seattle nästa tisdag”. Exempel utterances läggs till avsikten. 
+Ett uttryck är ett naturligt språk, exempelvis ”boken 2 tickets till Seattle nästa tisdag”. Exempel yttranden läggs till i avsikten. 
 
-## <a name="version"></a>version
+## <a name="version"></a>Version
 
-En THOMAS [version](luis-how-to-manage-versions.md) är en datamodell som är associerade med en THOMAS app-ID och publicerade slutpunkten. Varje THOMAS app har minst en version.
+En LUIS [version](luis-how-to-manage-versions.md) är en specifika datamodell som är associerade med en LUIS-app-ID och den publicerade slutpunkten. Varje LUIS-app har minst en version.
 
 [batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing

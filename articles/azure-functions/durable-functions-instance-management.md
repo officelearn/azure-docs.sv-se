@@ -14,28 +14,28 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3c6602bdd90c82568a50ad7354d7abb7c6a472ae
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 5cb3ccbc949f8250101fab6cb7899b859149fdfd
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287756"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341100"
 ---
-# <a name="manage-instances-in-durable-functions-azure-functions"></a>Hantera instanser i varaktiga funktioner (Azure-funktioner)
+# <a name="manage-instances-in-durable-functions-azure-functions"></a>Hantera instanser i varaktiga funktioner (Azure Functions)
 
-[Beständiga funktioner](durable-functions-overview.md) orchestration-instanser kan vara igång, avslutas, efterfrågas och skickas meddelandehändelser. Alla instanshantering görs med hjälp av den [orchestration klienten bindning](durable-functions-bindings.md). Den här artikeln gäller detaljer om varje instans management-åtgärd.
+[Varaktiga funktioner](durable-functions-overview.md) orchestration-instanser kan vara igång, avslutas, efterfrågas och skickas meddelanden. Alla instanshantering görs med hjälp av den [orkestreringsklient bindning](durable-functions-bindings.md). Den här artikeln går i detaljerna för varje instans management-åtgärd.
 
-## <a name="starting-instances"></a>Starta instanser
+## <a name="starting-instances"></a>Start instanser
 
-Den [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) -metoden i den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) startar en ny instans av en orchestrator-funktion. Instanser av den här klassen kan erhållas med hjälp av den `orchestrationClient` bindning. Internt, den här metoden enqueues meddelandet i kön kontroll som utlöser start för en funktion med det angivna namnet som använder den `orchestrationTrigger` utlösa bindning. 
+Den [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) metoden på den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) startar en ny instans av en orchestrator-funktion. Instanser av den här klassen kan fås med hjälp av den `orchestrationClient` bindning. Internt, den här metoden placerar det i kö ett meddelande till kön kontroll, som utlöser sedan början av en funktion med det angivna namnet som använder den `orchestrationTrigger` utlösa bindning. 
 
-Uppgiften har slutförts när orchestration-processen startas. Orchestration-processen ska starta inom 30 sekunder. Om det tar längre tid, en `TimeoutException` genereras. 
+Uppgiften slutförs när orchestration-processen startas. Orchestration-processen bör starta inom 30 sekunder. Om det tar längre tid, en `TimeoutException` genereras. 
 
 Parametrarna för [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) är följande:
 
-* **Namnet**: namnet på orchestrator-funktionen om du vill schemalägga.
-* **Inkommande**: JSON-serialiserbara data som ska skickas som indata till orchestrator-funktionen.
-* **InstanceId**: (valfritt) det unika ID: T för instansen. Om inget anges genereras ett slumpmässigt instans-ID.
+* **Namn på**: namnet på orchestrator-funktion för att schemalägga.
+* **Inkommande**: alla JSON-serialiserbara data som ska skickas som indata till orchestrator-funktion.
+* **InstanceId**: (valfritt) det unika ID: T för instansen. Om inte anges genereras ett slumpmässigt instans-ID.
 
 Här är ett enkelt C#-exempel:
 
@@ -51,7 +51,7 @@ public static async Task Run(
 }
 ```
 
-För icke-.NET-språk funktionen utdatabindning kan användas för att starta samt nya instanser. I det här fallet kan JSON-serialiserbara objekt som har ovanstående tre parametrar som fält användas. Tänk dig följande JavaScript-funktion:
+För icke-.NET-språk, funktionen utdatabindning kan användas för att starta nya instanser samt. I det här fallet kan JSON-serialiserbara objekt som har de ovanstående tre parametrarna som fält användas. Anta exempelvis att följande JavaScript-funktion:
 
 ```js
 module.exports = function (context, input) {
@@ -67,28 +67,29 @@ module.exports = function (context, input) {
 ```
 
 > [!NOTE]
-> Vi rekommenderar att du använder en slumpmässig identifierare för instansens ID. Detta bidrar till ett lika belastningsdistribution vid skalning orchestrator funktioner över flera virtuella datorer. Rätt tid att använda icke-slumpmässiga instans-ID: N är när ID: T måste komma från en extern källa eller när du implementerar den [singleton orchestrator](durable-functions-singletons.md) mönster.
+> Vi rekommenderar att du använder en slumpmässig identifierare för instans-ID. Detta bidrar till en lika med belastningsutjämning vid skalning orchestrator-funktioner mellan flera virtuella datorer. Rätt tid att använda icke-slumpmässiga instans-ID: N är när det ID: T måste komma från en extern källa eller när du implementerar den [singleton orchestrator](durable-functions-singletons.md) mönster.
 
-## <a name="querying-instances"></a>Frågar instanser
+## <a name="querying-instances"></a>Fråga instanser
 
-Den [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) -metoden i den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klassen frågar efter statusen för en orchestration-instans. Det tar en `instanceId` (obligatoriskt), `showHistory` (valfritt) och `showHistoryOutput` (valfritt) som parametrar. Om `showHistory` är inställd på `true`, svaret innehåller historiken för körning. Om `showHistoryOutput` är inställd på `true` , körning historiken innehåller aktivitetsutdata. Metoden returnerar ett objekt med följande egenskaper:
+Den [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) metoden på den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klass frågar efter statusen för en orchestration-instans. Det tar en `instanceId` (obligatoriskt), `showHistory` (valfritt) och `showHistoryOutput` (valfritt) som parametrar. Om `showHistory` är inställd på `true`, svaret innehåller körningshistorik. Om `showHistoryOutput` är inställd på `true` , körningshistorik innehåller aktivitetsutdata. Metoden returnerar ett objekt med följande egenskaper:
 
-* **Namnet**: namnet på orchestrator-funktion.
-* **InstanceId**: instans-ID för orchestration (ska vara samma som den `instanceId` indata).
-* **CreatedTime**: den tid då funktionen orchestrator började köras.
-* **LastUpdatedTime**: tidpunkt då orchestration senaste kontrollpunkt.
+* **Namn på**: namnet på orchestrator-funktion.
+* **InstanceId**: instans-ID för dirigering (bör vara samma som den `instanceId` indata).
+* **CreatedTime**: tidpunkten då startades orchestrator-funktion som körs.
+* **LastUpdatedTime**: tidpunkt då orchestration senaste med kontrollpunkt.
 * **Inkommande**: indata för funktionen som ett JSON-värde.
-* **CustomStatus**: anpassad orchestration status i JSON-format. 
-* **Utdata**: resultatet av funktionen som ett JSON-värde (om funktionen har slutförts). Om orchestrator-funktionen misslyckades, tas den här egenskapen information om felet. Om orchestrator-funktionen har avslutats tas den här egenskapen angivna orsak till uppsägningen (eventuella).
-* **RuntimeStatus**: ett av följande värden:
+* **CustomStatus**: anpassad orkestreringsstatus i JSON-format. 
+* **Utdata**: resultatet av funktionen som ett JSON-värde (om funktionen har slutförts). Om orchestrator-funktionen misslyckades, innehåller den här egenskapen information om felet. Om orchestrator-funktion har avslutats tas den tillhandahållna orsaken till att den här egenskapen (om sådan finns).
+* **RuntimeStatus**: något av följande värden:
+    * **Väntande**: instansen har schemalagts men inte har startats som körs.
     * **Kör**: instansen har startats.
-    * **Slutföra**: instansen har slutförts normalt.
-    * **ContinuedAsNew**: instansen har startats om sig själv med en lista. Detta är ett tillfälligt tillstånd.
+    * **Slutfört**: instansen har slutförts normalt.
+    * **ContinuedAsNew**: instansen har startats om själva med en lista. Det här är ett tillfälligt tillstånd.
     * **Det gick inte**: instansen misslyckades med ett fel.
     * **Avslutas**: instansen avbröts tvärt.
-* **Historik**: körningstiden för orchestration. Det här fältet fylls endast om `showHistory` är inställd på `true`.
+* **Historik**: körningshistorik för dirigering. Det här fältet fylls bara om `showHistory` är inställd på `true`.
     
-Den här metoden returnerar `null` om instansen finns inte eller har inte startats än körs.
+Den här metoden returnerar `null` om instansen finns inte eller inte har startats som körs.
 
 ```csharp
 [FunctionName("GetStatus")]
@@ -100,9 +101,9 @@ public static async Task Run(
     // do something based on the current status.
 }
 ```
-## <a name="querying-all-instances"></a>Frågar alla instanser
+## <a name="querying-all-instances"></a>Fråga alla instanser
 
-Du kan använda den `GetStatusAsync` metod för att fråga status för alla orchestration-instanser. Det tar inga parametrar eller skicka en `CancellationToken` objekt om du vill avbryta den. Metoden returnerar ett objekt med samma egenskaper som den `GetStatusAsync` metod med parametrar, förutom att det inte returnerar historik. 
+Du kan använda den `GetStatusAsync` metod för att fråga status för alla orchestration-instanser. Det tar inga parametrar eller du kan skicka en `CancellationToken` objekt om du vill avbryta den. Metoden returnerar ett objekt med samma egenskaper som den `GetStatusAsync` metoden med parametrar, förutom att den inte returnerar historik. 
 
 ```csharp
 [FunctionName("GetAllStatus")]
@@ -121,7 +122,7 @@ public static async Task Run(
 
 ## <a name="terminating-instances"></a>Avslutande instanser
 
-En instans som körs orchestration kan avslutas med hjälp av den [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) metod för den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klass. De två parametrarna är en `instanceId` och en `reason` sträng som skrivs till loggarna och instansens status. En avslutade instans stoppas när den når nästa `await` plats, eller så avslutas omedelbart om det redan finns på en `await`. 
+En orchestration-instans som körs avslutas med hjälp av den [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) -metoden för den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klass. De två parametrarna är en `instanceId` och en `reason` strängen, som skrivs till loggarna och status för instans. En avslutad instans stoppas när den når nästa `await` punkt, eller så avslutas omedelbart om det redan är på en `await`. 
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -135,17 +136,17 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Instansen avslutning sprida inte för närvarande. Aktiviteten funktioner och underordnade orkestreringarna körs klart oavsett om orchestration-instans som kallas dem har avslutats.
+> Instans-avslutning för närvarande inte spridas. Aktivitetsfunktioner och underordnade orkestreringar körs klart oavsett om orchestration-instans som kallas dem har avslutats.
 
-## <a name="sending-events-to-instances"></a>Skickar händelser till instanser
+## <a name="sending-events-to-instances"></a>Skicka händelser till instanser
 
-Händelsemeddelanden kan skickas till kör instanser som använder den [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) metod för den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klass. Instanser som kan hantera dessa händelser är de som väntar på ett anrop till [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). 
+Händelsemeddelanden kan skickas till kör instanser med hjälp av den [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) -metoden för den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klass. Instanser som kan hantera de här händelserna är de som väntar på ett anrop till [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). 
 
 Parametrarna för [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) är följande:
 
 * **InstanceId**: unikt ID för instansen.
 * **EventName**: namnet på händelsen att skicka.
-* **EventData**: nyttolast för ett JSON-serialiserbara att skicka till instansen.
+* **EventData**: en JSON-serialiserbara för att skicka till instansen.
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -161,25 +162,25 @@ public static Task Run(
 ```
 
 > [!WARNING]
-> Om det finns ingen orchestration-instans med det angivna *instans-ID* eller om instansen inte väntar på den angivna *händelsenamnet*, händelsemeddelandet ignoreras. Mer information om det här problemet finns på [GitHub problemet](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+> Om det finns ingen orchestration-instans med det angivna *instans-ID* eller om instansen inte väntar på den angivna *händelsenamn*, händelsemeddelandet ignoreras. Mer information om det här problemet finns i den [GitHub-ärende](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-## <a name="wait-for-orchestration-completion"></a>Vänta på slutförande orchestration
+## <a name="wait-for-orchestration-completion"></a>Vänta på orchestration-slutförande
 
-Den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klassen visar en [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) API som kan användas för att hämta synkront faktiska utdata från en orchestration-instans. Metoden använder standardvärdet 10 sekunder för `timeout` och 1 sekund för `retryInterval` när de har inte angetts.  
+Den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klassen visar en [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) API som kan användas för att hämta synkront faktiska utdata från en orchestration-instans. Metoden använder standardvärdet 10 sekunder tills `timeout` och 1 sekund för `retryInterval` när de har inte angetts.  
 
-Här är ett exempel på HTTP-utlösare funktion som visar hur du använder den här API:
+Här är ett exempel HTTP-utlösare-funktion som visar hur du använder den här API:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
 
-Funktionen kan anropas med följande rad med 2 sekunder timeout och 0,5 sekund återförsöksintervall:
+Funktionen kan anropas med följande rad med 2 sekunder timeout och återförsöksintervall för 0,5 sekund:
 
 ```bash
     http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
 ```
 
-Det finns två fall beroende på den tid som krävs för att få svar från orchestration-instans:
+Det finns två fall beroende på den tid som krävs för att få ett svar från orchestration-instans:
 
-1. Orchestration-instanser slutföras inom den angivna tidsgränsen (i det här fallet 2 sekunder), svaret är levereras synkront faktiska orchestration instans utdata:
+1. Orchestration-instanser slutförs inom den definierade tidsgränsen (i det här fallet 2 sekunder), svaret är faktiska orchestration instans utdata levereras synkront:
 
     ```http
         HTTP/1.1 200 OK
@@ -195,7 +196,7 @@ Det finns två fall beroende på den tid som krävs för att få svar från orch
         ]
     ```
 
-2. Orchestration-instanser kan inte slutföras inom den angivna tidsgränsen (i det här fallet 2 sekunder), svaret är standard en beskrivs i **HTTP-URL för API-identifiering**:
+2. Orchestration-instanser kan inte slutföras inom den definierade tidsgränsen (i det här fallet 2 sekunder), svaret är något som beskrivs i standard **HTTP-URL för API-identifiering**:
 
     ```http
         HTTP/1.1 202 Accepted
@@ -215,24 +216,24 @@ Det finns två fall beroende på den tid som krävs för att få svar från orch
     ```
 
 > [!NOTE]
-> Formatet på webhook-URL: er kan variera beroende på vilken version av Azure Functions-värden som du kör. I föregående exempel är för Azure Functions 2.0-värden.
+> Formatet för webhook-URL: er kan variera beroende på vilken version av Azure Functions-värden som du kör. I föregående exempel är för Azure Functions 2.0-värden.
 
-## <a name="retrieving-http-management-webhook-urls"></a>Hämtar URL: er för HTTP-Management-Webhook
+## <a name="retrieving-http-management-webhook-urls"></a>Hämtning av HTTP-hantering av Webhook-URL: er
 
-Externa system kan kommunicera med beständiga funktioner via webhook URL: er som är en del av Standardsvar som beskrivs i [HTTP-URL för API-identifiering](durable-functions-http-api.md). Dock webhook-URL: er också kan nås via programmering i orchestration-klienten eller i en aktivitet funktion via den [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) metod för den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)klass. 
+Externa systemen kan kommunicera med varaktiga funktioner via de webhook-URL: er som ingår i Standardsvaret som beskrivs i [HTTP-URL för API-identifiering](durable-functions-http-api.md). Dock webhook-URL: er även kan nås via programmering i orchestration-klienten eller i en aktivitet funktion via den [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) -metoden för den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)klass. 
 
 [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) har en parameter:
 
-* **InstanceId**: unikt ID för instansen.
+* **instanceId**: unikt ID för instansen.
 
 Metoden returnerar en instans av den [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) med följande strängegenskaper:
 
-* **ID**: instans-ID för orchestration (ska vara samma som den `InstanceId` indata).
-* **StatusQueryGetUri**: status Webbadressen till orchestration-instans.
+* **ID**: instans-ID för dirigering (bör vara samma som den `InstanceId` indata).
+* **StatusQueryGetUri**: status-URL: en för orchestration-instans.
 * **SendEventPostUri**: ”rera händelse” Webbadressen till orchestration-instans.
 * **TerminatePostUri**: ”avsluta” Webbadressen till orchestration-instans.
 
-Aktiviteten funktioner kan skicka en instans av [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) till externa system för att övervaka eller aktivera händelser till en orchestration:
+Aktivitetsfunktioner kan skicka en instans av [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) till externa system för att övervaka eller generera händelser till en orkestrering:
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"

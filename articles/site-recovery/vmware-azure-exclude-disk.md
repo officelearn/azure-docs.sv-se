@@ -1,21 +1,21 @@
 ---
-title: Exkludera diskar från skydd med hjälp av Azure Site Recovery | Microsoft Docs
+title: Undanta diskar från skydd med Azure Site Recovery | Microsoft Docs
 description: Beskriver varför och hur du undantar VM-diskar från replikering för VMware till Azure.
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/01/2018
 ms.author: nisoneji
-ms.openlocfilehash: 59c8d38d94604a9950693d6bb73b6263f9cdb23b
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 6a0b8891e25a764ecd0430696e155b2bd8e06e13
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285098"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342614"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>Undanta diskar från replikering för VMware till Azure-scenario
 
-Den här artikeln beskriver hur du exkludera diskar vid replikering av virtuella VMware-datorer till Azure. Det här undantaget kan optimera replikeringsbandbredden som används eller optimera resurser som används av dessa diskar på målsidan. Om du behöver information om undantag diskar för Hyper-V läser [den här artikeln](hyper-v-exclude-disk.md)
+Den här artikeln beskriver hur du undantar diskar när du replikerar virtuella VMware-datorer till Azure. Det här undantaget kan optimera replikeringsbandbredden som används eller optimera resurser som används av dessa diskar på målsidan. Om du behöver information om att undanta diskar för Hyper-V läser [i den här artikeln](hyper-v-exclude-disk.md)
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -50,7 +50,7 @@ Följ arbetsflödet i [Aktivera replikering](vmware-azure-enable-replication.md)
 
 >[!NOTE]
 >
-> * Du kan endast utesluta diskar som mobilitetstjänsten har installerats på. Du måste installera mobilitetstjänsten manuellt eftersom den endast installeras med push-mekanismen när replikering har aktiverats.
+> * Du kan endast utesluta diskar på virtuella datorer som redan har mobilitetstjänsten installerad. Du måste installera mobilitetstjänsten manuellt eftersom den endast installeras med push-mekanismen när replikering har aktiverats.
 > * Endast standarddiskar kan undantas från replikering. Du kan inte undanta operativsystemdiskar eller dynamiska diskar.
 > * När du har aktiverat replikering kan du inte lägga till eller ta bort diskar för replikering. Om du vill lägga till eller undanta en disk måste du inaktivera skyddet för datorn och sedan aktivera det igen.
 > * Om du undantar en disk som behövs för att ett program ska fungera efter redundansväxlingen till Azure måste du skapa disken manuellt i Azure så att det replikerade programmet kan köras. Du kan också integrera Azure Automation i en återställningsplan för att skapa disken under en redundansväxling av datorn.

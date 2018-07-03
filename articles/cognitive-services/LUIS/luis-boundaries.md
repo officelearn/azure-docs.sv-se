@@ -1,7 +1,7 @@
 ---
-title: Språk förstå (THOMAS) gränser | Microsoft Docs
+title: Gränser för språk Språkförståelse (LUIS) | Microsoft Docs
 titleSuffix: Azure
-description: Den här artikeln innehåller kända begränsningar för THOMAS.
+description: Den här artikeln innehåller kända begränsningar Luis.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -10,70 +10,70 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 52bda6a13422ce8f759c40bd454a6b15e92d7a5d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c1f49f88cb4772da636bd1396b09e5efd357fb60
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110304"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344129"
 ---
-# <a name="luis-boundaries"></a>THOMAS gränser
-THOMAS har flera gräns områden. Först är den [modellen gräns](#model-boundaries), som styr avsikter, enheter och funktioner i THOMAS. Det andra området är [kvotgränserna](#key-limits) baserat på nyckeltyp. En tredje gränser är den [tangentbord kombination](#keyboard-controls) för att styra THOMAS-webbplatsen. En fjärde området är den [world region mappning](luis-reference-regions.md) mellan THOMAS redigering av webbplatsen och THOMAS [endpoint](luis-glossary.md#endpoint) API: er. 
+# <a name="luis-boundaries"></a>LUIS gränser
+LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundaries), som styr avsikter, entiteter och funktioner i LUIS. Det andra området är [kvotgränser](#key-limits) baserat på nyckeltyp. Ett tredje område av gränser är den [tangentbord kombination](#keyboard-controls) för att styra LUIS-webbplatsen. En fjärde området är den [världen regionsmappning](luis-reference-regions.md) mellan LUIS redigering av webbplatsen och LUIS [endpoint](luis-glossary.md#endpoint) API: er. 
 
 
 ## <a name="model-boundaries"></a>Modellen gränser
 
 |Område|Gräns|
 |--|:--|--|
-| [Appnamn][luis-get-started-create-app] | * Standardformat för högsta antal tecken |
-| [Testa batch][batch-testing]| 10 datauppsättningar, 1000 utterances per dataset|
-| **[Sammansatt](./luis-concept-entity-types.md)|100 med upp till 10 underordnade |
+| [Appnamn][luis-get-started-create-app] | * Standardvärdet max |
+| [Batch-testning][batch-testing]| 10 datauppsättningar, 1000 yttranden per datauppsättning|
+| **[Sammansatta](./luis-concept-entity-types.md)|100 med upp till 10 underordnade |
 | Explicit lista | 50 per program|
 | **[Hierarkisk](./luis-concept-entity-types.md) |100 med upp till 10 underordnade |
-| [Avsikter][intents]|500 per program<br>[Dispatch-baserade](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) program har motsvarande 500 dispatch-källor|
-| [Lista över enheter](./luis-concept-entity-types.md) | Överordnad: 50, underordnad: 20 000 objekt. Kanoniskt namn är * maximalt antal tecken som standard. Synonymer har ingen begränsning för längd. |
-| [Mönster](luis-concept-patterns.md)|500 mönster per program.<br>Maximal längd på mönstret är 400 tecken.<br>3 Pattern.any entiteter per mönster<br>Högst 2 kapslade valfria texter i mönstret|
+| [Avsikter][intents]|500 per program<br>[Dispatch-baserade](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) programmet har motsvarande 500 dispatch-källor|
+| [Lista över entiteter](./luis-concept-entity-types.md) | Överordnad: 50, underordnad: 20 000 objekt. Kanoniskt namn är * maximalt antal tecken som standard. Synonymer har ingen begränsning av lösenordslängd. |
+| [Mönster](luis-concept-patterns.md)|500 mönster per program.<br>Maximal längd på mönstret är 400 tecken.<br>3 Pattern.any entiteter per mönster<br>Högst 2 kapslade valfritt texter i mönstret|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per program, 3 pattern.any entiteter per mönster |
-| [Frasen lista][phrase-list]|10 frasen listor, 5 000 poster per|
-| [Fördefinierade entiteter](./Pre-builtEntities.md) | Det finns ingen gräns|
-| [Reguljärt uttryck entiteter](./luis-concept-entity-types.md)|20 enheter<br>max 500 tecken. per enhet mönstret för reguljära uttryck|
+| [Fras lista][phrase-list]|10 fras listor, 5 000 poster per|
+| [Fördefinierade entiteter](./luis-prebuilt-entities.md) | ingen gräns|
+| [Reguljärt uttryck entiteter](./luis-concept-entity-types.md)|20 entiteter<br>max 500 tecken. per entitet mönster för reguljärt uttryck|
 | [roles](luis-concept-roles.md)|300 roller per program. 10 roller per enhet|
-| **[Enkel](./luis-concept-entity-types.md)| 100 enheter|
-| [utterance][utterances] | 500 tecken|
-| [Utterances][utterances] | 15 000 per program|
-| [Versionsnamnet][luis-how-to-manage-versions] | begränsad till alfanumeriska och period 10 tecken (.) |
+| **[Enkel](./luis-concept-entity-types.md)| 100 entiteter|
+| [Uttryck][utterances] | 500 tecken|
+| [Yttranden][utterances] | 15 000 per program|
+| [Versionsnamn][luis-how-to-manage-versions] | begränsad till alfanumeriska tecken och period 10 tecken (.) |
 
 * Standard tecknet max är 50 tecken. 
 
-** Totalt antal enkla, hierarkisk och sammansatta enheter får inte överskrida 100. Totalt antal hierarkiska entiteter, sammansatta entiteter, enkla enheter och hierarkiska underordnade entiteter får inte överskrida 330. 
+** Det totala antalet enkel-, hierarki- och sammansatta entiteter får inte överskrida 100. Det totala antalet hierarkiska entiteter, sammansatta entiteter, enkla enheter och hierarkisk underordnade entiteter får inte överskrida 330. 
 
-## <a name="intent-and-entity-naming"></a>Avsikten och namngivning av entitet
-Använd inte följande tecken i namn på avsikten och entitet:
+## <a name="intent-and-entity-naming"></a>Avsikt och namngivning av entiteten
+Använd inte följande tecken i avsikt och entiteten namn:
 
 |Tecken|Namn|
 |--|--|
-|`{`|Vänster klammerparenteser|
+|`{`|Vänster klammer|
 |`}`|Höger klammer|
 |`[`|Vänster hakparentes|
-|`]`|Höger hakparentes|
-|`\`|Omvänt|
+|`]`|Högerparentes|
+|`\`|Omvänt snedstreck|
 
 ## <a name="key-limits"></a>Viktiga begränsningar
-Redigering nyckel har olika gränser för redigering och slutpunkt. Slutpunkten för THOMAS tjänstnyckeln är endast giltig för slutpunkten frågor.
+Redigering nyckel har olika begränsningar för redigering och slutpunkten. Slutpunktsnyckeln LUIS-tjänsten är endast giltig för slutpunkten frågor.
 
 |Nyckel|Redigering|Slutpunkt|Syfte|
 |--|--|--|--|
-|Redigera/Starter|1 miljon/månad, 5/sekund|1 tusen/månad, 5/sekund|Redigera THOMAS appen|
-|[Prenumerationen] [ pricing] - F0 - kostnadsfri nivå |ogiltig|10 tusen/månad, 5/sekund|Fråga din THOMAS slutpunkt|
-|[Prenumerationen] [ pricing] - S0 – grundläggande nivån|ogiltig|50 per sekund|Fråga din THOMAS slutpunkt|
-|[Sentiment analysis-integrering](publishapp.md#enable-sentiment-analysis)|ogiltig|utan kostnad|Lägger till sentiment information, inklusive viktiga frasen data extrahering |
-|Dikterings-integrering|ogiltig|$5.50 USD/1 tusen endpoint begäranden|Konvertera talade utterance till utterance text och returnerar THOMAS resultat|
+|Redigera/Starter|1 miljon/månad, 5/sekund|1 tusen/månad, 5/sekund|Redigera LUIS-appen|
+|[Prenumeration] [ pricing] - F0 - kostnadsfri nivå |ogiltig|10 tusen/månad, 5/sekund|Fråga din LUIS-slutpunkt|
+|[Prenumeration] [ pricing] - S0 - Basic-nivån|ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
+|[Sentiment analysis-integrering](luis-how-to-publish-app.md#enable-sentiment-analysis)|ogiltig|utan kostnad|Att lägga till sentiment information, inklusive extrahering av diskussionsämne data |
+|Tal-integrering|ogiltig|5.50 USD/1 tusen endpoint begäranden|Konvertera talat uttryck till text-uttryck och returnerar LUIS resultat|
 
-## <a name="keyboard-controls"></a>Tangentbordskontroller
+## <a name="keyboard-controls"></a>Keyboard kontroller
 
 |Tangentbordsinmatning | Beskrivning | 
 |--|--|
-|Ctrl + E|växlar mellan token och entiteter på utterances lista|
+|Ctrl + E|växlar mellan token och entiteter på yttranden lista|
 
 ## <a name="website-sign-in-time-period"></a>Webbplatsen logga under en tidsperiod
 

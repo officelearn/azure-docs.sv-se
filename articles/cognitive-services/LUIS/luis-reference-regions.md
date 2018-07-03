@@ -1,7 +1,7 @@
 ---
-title: Språk förstå (THOMAS) regioner | Microsoft Docs
+title: Språk Språkförståelse (LUIS) regioner | Microsoft Docs
 titleSuffix: Azure
-description: Den här artikeln innehåller en lista över THOMAS regioner för THOMAS webbplats, Azure-prenumerationer och regioner.
+description: Den här artikeln innehåller en lista över regionerna som LUIS för LUIS-webbplats, Azure-prenumerationer och regioner.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -10,19 +10,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: v-geberr
-ms.openlocfilehash: 86a20770178707f72cf2991ca08b6b98eaeaf0cf
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d81fbc03689788066fb9275523a5e96647117c58
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36237290"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346463"
 ---
 # <a name="regions-and-keys"></a>Regioner och nycklar
 
-Den region där du publicerar appen THOMAS motsvarar den region eller plats som du anger i Azure-portalen när du skapar en nyckel för Azure THOMAS slutpunkt. När du [publicera en app](./PublishApp.md), THOMAS genererar automatiskt en slutpunkts-URL för den region som är associerade med nyckeln. Om du vill publicera en app THOMAS till flera regioner, behöver du minst en nyckeln per region. 
+Den region där du publicerar appen LUIS motsvarar den region eller plats som du anger i Azure-portalen när du skapar en Azure-LUIS slutpunktsnyckeln. När du [publicera en app](./luis-how-to-publish-app.md), LUIS genererar automatiskt en slutpunkts-URL för den region som är kopplat till nyckeln. Om du vill publicera en LUIS-app till flera regioner, behöver du minst en nyckel per region. 
 
-## <a name="luis-website"></a>THOMAS webbplats
-Det finns tre THOMAS webbplatser, baserat på region. Du måste skapa och publicera i samma region. 
+## <a name="luis-website"></a>LUIS-webbplats
+Det finns tre LUIS-webbplatser, baserat på region. Du måste skapa och publicera i samma region. 
 
 |LUIS|Region|
 |--|--|
@@ -31,13 +31,13 @@ Det finns tre THOMAS webbplatser, baserat på region. Du måste skapa och public
 |[EU.Luis.AI][eu.luis.ai]|Europa|
 
 
-## <a name="publishing-regions"></a>Publishing regioner
+## <a name="publishing-regions"></a>Publicera regioner
 
-THOMAS appar som har skapats på https://www.luis.ai kan publiceras till alla slutpunkter utom den [Europeiska](#publishing-to-europe) och [australiska](#publishing-to-australia) regioner. 
+LUIS-appar som skapats på https://www.luis.ai kan publiceras till alla slutpunkter utom den [Europeiska](#publishing-to-europe) och [Australien](#publishing-to-australia) regioner. 
 
-Redigering region appen kan bara publiceras till en motsvarande publicera region. Om din app för närvarande är i fel redigering region, exportera appen och importera den till rätt redigering regionen för din publishing region. 
+Appen redigering region kan bara publiceras till en motsvarande publicera region. Om din app är för närvarande i fel region för redigering, exportera en app och importera den till rätt redigering regionen för din publishing region. 
 
- Globala region | Redigering region | Publicera & frågar region   |   THOMAS webbplats | URL-format för slutpunkt   |
+ Global region | Redigera region | Publicera & fråga region   |   LUIS-webbplats | Slutpunkten URL-format   |
 |-----|------|------|------|------|
 | Asien | Västra USA| Östasien     | [www.Luis.AI][www.luis.ai] |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Asien | Västra USA| Sydostasien     | [www.Luis.AI][www.luis.ai] |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
@@ -54,16 +54,16 @@ Redigering region appen kan bara publiceras till en motsvarande publicera region
 
 ## <a name="publishing-to-europe"></a>Publicering till Europa
 
-Om du vill publicera till Europeiska områden måste du skapa THOMAS apparna på https://eu.luis.ai endast. Om du försöker publicera var som helst genom att använda en nyckel i Europa region visas THOMAS ett varningsmeddelande. Använd i stället https://eu.luis.ai. THOMAS appar som har skapats på [ https://eu.luis.ai ] [ eu.luis.ai] inte migrerar automatiskt till andra regioner. Exportera och importera sedan THOMAS appen för att migrera den.
+För att publicera till de europeiska regionerna måste du skapa LUIS appar i https://eu.luis.ai endast. Om du försöker publicera var som helst genom att använda en nyckel i regionen Europa, visas ett varningsmeddelande i LUIS. Använd i stället https://eu.luis.ai. LUIS-appar som skapats på [ https://eu.luis.ai ] [ eu.luis.ai] migreras inte automatiskt till andra regioner. Exportera och importera sedan LUIS-app för att migrera den.
 
 ## <a name="publishing-to-australia"></a>Publicering till Australien
 
-För att publicera till australisk regioner måste du skapa THOMAS apparna på https://au.luis.ai endast. Om du försöker publicera var som helst genom att använda en nyckel i australisk region visas THOMAS ett varningsmeddelande. Använd i stället https://au.luis.ai. THOMAS appar som har skapats på [ https://au.luis.ai ] [ au.luis.ai] inte migrerar automatiskt till andra regioner. Exportera och importera sedan THOMAS appen för att migrera den.
+För att publicera till australiensiska regioner måste du skapa LUIS appar på https://au.luis.ai endast. Om du försöker publicera var som helst genom att använda en nyckel i regionen australiensiska visas LUIS ett varningsmeddelande. Använd i stället https://au.luis.ai. LUIS-appar som skapats på [ https://au.luis.ai ] [ au.luis.ai] migreras inte automatiskt till andra regioner. Exportera och importera sedan LUIS-app för att migrera den.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Referens för färdiga entiteter](./luis-reference-prebuilt-entities.md)
+> [Fördefinierade entitetsreferenser](./luis-reference-prebuilt-entities.md)
 
  [www.luis.ai]: https://www.luis.ai
  [au.luis.ai]: https://au.luis.ai

@@ -1,6 +1,6 @@
 ---
 title: Säkerhetsbegrepp och kraven i Azure | Microsoft Docs
-description: Den här artikeln innehåller grundläggande information om grundläggande koncept för säkerhet och krav och information om Azure erbjuder i dessa olika områden.
+description: Den här artikeln innehåller grundläggande förklaringar om grundbegreppen nätverk säkerhet och krav och information om Azure-erbjudanden i var och en av dessa områden.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,185 +12,222 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 07/02/2018
 ms.author: terrylan
-ms.openlocfilehash: fbd589aedb955ee4bd61dc0ec754d8713a98179a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7533f9db25da8e69d3fcfa76a61a06af2f1bc78c
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365635"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345965"
 ---
-# <a name="azure-network-security-overview"></a>Översikt över säkerheten i Azure-nätverk
-Azure innehåller en stabil nätverksinfrastruktur för att stödja dina program och tjänsten anslutningskrav. Nätverksanslutningen är möjlig mellan resurser i Azure, mellan lokala och Azure värdbaserade resurser, och till och från internet och Azure.
+# <a name="azure-network-security-overview"></a>Översikt över Azure network security
 
-Syftet med den här artikeln är att förklara vad Azure erbjuder i området för nätverkssäkerhet. Du kan lära dig om förutom grundläggande information om grundläggande koncept för säkerhet och krav:
+Azure innehåller en stabil nätverksinfrastruktur för att stödja din program- och anslutningskrav för tjänsten. Nätverksanslutningen är mellan resurser i Azure, mellan lokala och Azure-värdbaserade resurser, och till och från internet och Azure.
+
+Den här artikeln beskriver några av de alternativ som Azure erbjuder i området för nätverkssäkerhet. Du kan lära dig om:
 
 * Azure-nätverk
-* Åtkomstkontrollen för nätverk
-* Säker åtkomst och mellan platser för fjärranslutningar
+* Åtkomstkontroll för nätverk
+* Skydda åtkomst och mellan lokala fjärranslutningar
 * Tillgänglighet
 * Namnmatchning
-* Perimeternätverk nätverksarkitekturen (DMZ)
+* Nätverksarkitektur i perimeternätverk (DMZ)
 * Övervakning och hotidentifiering
+* Azure DDoS Protection
 
 ## <a name="azure-networking"></a>Azure-nätverk
-Virtuella datorer måste nätverksanslutningen. För att uppfylla detta krav, kräver Azure virtuella datorer måste vara ansluten till Azure Virtual Network. Ett virtuellt nätverk är en logisk konstruktion som bygger på fysisk Azure nätverksinfrastruktur. Varje logiskt virtuella nätverk är isolerad från andra virtuella nätverk. Detta säkerställer att nätverkstrafik i din distribution inte är tillgänglig för andra Azure-kunder.
+
+Azure kräver virtuella datorer som ska anslutas till en Azure-nätverk. Ett virtuellt nätverk är en logisk konstruktion som bygger på den fysiska Azure nätverksresurserna. Varje virtuellt nätverk är isolerat från andra virtuella nätverk. Detta säkerställer att trafik i dina distributioner inte är tillgänglig för andra Azure-kunder.
 
 Läs mer:
 
 * [Översikt över virtuella nätverk](../virtual-network/virtual-networks-overview.md)
 
+## <a name="network-access-control"></a>Åtkomstkontroll för nätverk
 
-## <a name="network-access-control"></a>Åtkomstkontrollen för nätverk
-Åtkomstkontrollen för nätverk är att begränsa anslutning till och från specifika enheter och undernät i ett virtuellt nätverk. Målet med åtkomstkontrollen för nätverk är att begränsa åtkomst till virtuella datorer och tjänster till godkända användare och enheter. Åtkomstkontroller baseras på beslut att tillåta eller neka anslutningar till och från en virtuell dator eller tjänst.
+Åtkomstkontroll för nätverk är handling för att begränsa anslutning till och från specifika enheter eller undernät inom ett virtuellt nätverk. Målet med åtkomstkontrollen för nätverk är att begränsa åtkomst till dina virtuella datorer och tjänster till godkända användare och enheter. Åtkomstkontroller baseras på beslut att tillåta eller neka anslutningar till och från din virtuella dator eller tjänst.
 
-Azure har stöd för flera typer av åtkomstkontrollen för nätverket som:
+Azure har stöd för flera typer av åtkomstkontrollen för nätverk, till exempel:
 
-* Kontrollen av nätverkets lager
+* Layer-Klusternätverkets kontroll
 * Dirigera kontroll och Tvingad tunneltrafik
-* Säkerhetsenheter för virtuellt nätverk
+* Virtuella funktioner för nätverkssäkerhet
 
-### <a name="network-layer-control"></a>Kontrollen av nätverkets lager
-En säker distribution kräver vissa mått av åtkomstkontrollen för nätverket. Målet med åtkomstkontrollen för nätverk är att begränsa virtuella kommunikation till system som behövs. Andra kommunikation tillåts.
+### <a name="network-layer-control"></a>Layer-Klusternätverkets kontroll
 
-Om du behöver grundläggande nivån nätverksåtkomstkontroll (baserat på IP-adress och TCP- eller UDP-protokoll) kan använda du Nätverkssäkerhetsgrupper (NSG: er). En NSG är en grundläggande, stateful, paket filtrering brandväggen och du kan styra åtkomsten baserat på en [5-tuppel](https://www.techopedia.com/definition/28190/5-tuple). NSG: er ger inte programmet layer inspektion eller autentiserad åtkomstkontroller.
+En säker distribution kräver vissa mått på åtkomstkontroll för nätverk. Målet med åtkomstkontrollen för nätverk är att begränsa kommunikationen för virtuell dator till de nödvändiga system. Andra kommunikation tillåts.
+
+#### <a name="network-security-rules-nsgs"></a>Nätverkssäkerhetsregler (NSG)
+
+Om du behöver grundläggande nivå nätverksåtkomstkontroll (baserat på IP-adress och TCP eller UDP-protokoll), kan du använda Nätverkssäkerhetsgrupper (NSG). En NSG är en grundläggande, tillståndskänslig, paket filtrering brandvägg och gör att du kan styra åtkomst baserat på en [5-tuppel](https://www.techopedia.com/definition/28190/5-tuple). NSG: er är funktioner för att förenkla hanteringen och minska risken för konfiguration av misstag:
+
+* **Förhöjda säkerhetsregler** förenkla NSG Regeldefinitionen och låter dig skapa avancerade regler i stället för att behöva skapa flera enkla regler för att uppnå samma resultat.
+* **Tjänsttaggar** skapas Microsoft etiketter som representerar en grupp med IP-adresser. De uppdateras dynamiskt om du vill inkludera IP-adressintervall som uppfyller villkoren som definierar inkludering i etiketten. Om du vill skapa en regel som gäller för alla Azure-lagring i region Öst använda du till exempel Storage.EastUS
+* **Programsäkerhetsgrupper** kan du distribuera resurser till programgrupper och styra åtkomsten till dessa resurser genom att skapa regler som använder dessa programgrupper. Om du har webservers som distribuerats till 'Webservers' programgruppen skapa du till exempel en regel som gäller en NSG som tillåter 443 trafik från Internet till alla system i programgruppen 'Webservers'.
+
+NSG: er ger inte programmet layer inspektion eller autentiserad åtkomstkontroller.
 
 Läs mer:
 
 * [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md)
 
+#### <a name="asc-just-in-time-vm-access"></a>ASC just-in-time-åtkomst till virtuell dator
+
+[Azure security center](../security-center/security-center-just-in-time.md) kan hantera Nätverkssäkerhetsgrupper på virtuella datorer och låsa åtkomsten till den virtuella datorn förrän en användare med den lämpliga rollbaserad åtkomstkontrollen [RBAC](../role-based-access-control/overview.md) behörigheter begär åtkomst. När användaren har är gör auktoriserade ASC ändringar i NSG: er att tillåta åtkomst till valda portar för den tid som anges. När tiden upphör att gälla återställs NSG: erna till sina tidigare skyddat tillstånd.
+
+#### <a name="service-endpoints"></a>Tjänstslutpunkter
+
+Tjänstslutpunkter är ett annat sätt att få kontroll över din trafik. Du kan begränsa kommunikationen med tjänster som stöds till bara dina virtuella nätverk via en direktanslutning. Trafik från ditt VNet till den angivna Azure-tjänsten finns kvar i Microsoft Azure-stamnätverket.  
+
+Läs mer:
+
+* [Serviceslutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md#securing-azure-services-to-virtual-networks)
+
 ### <a name="route-control-and-forced-tunneling"></a>Dirigera kontroll och Tvingad tunneltrafik
-Möjlighet att styra dirigeringsbeteendet på dina virtuella nätverk är viktigt. Om routning är felaktigt konfigurerad, kan program och tjänster som finns på den virtuella datorn ansluta till obehöriga enheter, inklusive system ägs och drivs av potentiella angripare.
 
-Azure nätverk stöder möjligheten att anpassa dirigeringsbeteendet för nätverkstrafik i ditt virtuella nätverk. På så sätt kan du ändra standardvärdet routning tabellposter i ditt virtuella nätverk. Kontroll av dirigeringsbeteendet hjälper dig att se till att all trafik från en viss enhet eller grupp av enheter anländer till eller lämnar det virtuella nätverket via en viss plats.
+Möjlighet att styra routning beteende på dina virtuella nätverk är viktigt. Om routning är felaktigt konfigurerad, kan program och tjänster som finns på den virtuella datorn ansluta till obehöriga enheter, inklusive system ägs och drivs av potentiella angripare.
 
-Till exempel kanske en virtuell nätverksenhet för säkerhet på det virtuella nätverket. Du vill kontrollera att all trafik till och från det virtuella nätverket går genom den virtuella postsäkerhet. Du kan göra detta genom att konfigurera [användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md) (udr: er) i Azure.
+Azure-nätverk stöder möjligheten att anpassa beteendet routning för nätverkstrafik på dina virtuella nätverk. På så sätt kan du ändra standardvärdet routning tabellposter i ditt virtuella nätverk. Kontroll över routning beteende kan du se till att all trafik från en viss enhet eller enhetsgrupp anländer till eller lämnar det virtuella nätverket via en specifik plats.
 
-[Tvingad tunneltrafik](https://www.petri.com/azure-forced-tunneling) är en mekanism som du kan använda för att säkerställa att dina tjänster inte tillåts att initiera en anslutning till enheter på internet. Observera att detta skiljer sig från att acceptera inkommande anslutningar och sedan svara på dem. Frontend-webbservrar måste svara på begäranden från internet-värdar och så internet-källkod trafik tillåts inkommande till dessa servrar och webbservrar tillåts att svara.
+Du kan till exempel har en virtuell nätverkssäkerhetsinstallation i det virtuella nätverket. Du vill se till att all trafik till och från ditt virtuella nätverk går igenom den virtuella säkerhetsapparat. Du kan göra detta genom att konfigurera [användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md) (Udr) i Azure.
 
-Vad du inte vill tillåta är en klientwebbserver för att starta en utgående begäran. Sådana begäranden kan utgöra en säkerhetsrisk eftersom dessa anslutningar som kan användas för att hämta skadlig kod. Även om du vill att dessa servrar att initiera utgående förfrågningar till internet, kanske du vill tvinga dem att gå igenom din lokala webbproxyservrar. På så sätt kan du dra nytta av URL-filtrering och loggning.
+[Tvingad tunneltrafik](https://www.petri.com/azure-forced-tunneling) är en mekanism som du kan använda för att säkerställa att dina tjänster inte tillåts att initiera en anslutning till enheter på internet. Observera att detta skiljer sig från att acceptera inkommande anslutningar och sedan svara på dem. Frontend-webbservrar måste svara på begäranden från internet-värdar och så internet källkod trafik tillåts inkommande till dessa webbservrar och webbservrarna ska kunna svara.
 
-Du kan i stället att använda Tvingad tunneltrafik för att förhindra detta. När du aktiverar Tvingad tunneling tvingas alla anslutningar till internet via ditt lokala gateway. Du kan konfigurera Tvingad tunneling genom att utnyttja udr: er.
+Vad du inte vill tillåta är en klientwebbserver för att starta en utgående begäran. Sådana begäranden kan representera en säkerhetsrisk eftersom dessa anslutningar kan användas för att hämta skadlig kod. Även om du vill att dessa frontservrar initierar utgående begäranden till internet, kan du tvinga dem att gå igenom dina lokala webbproxyservrar. På så sätt kan du dra nytta av URL-filtrering och loggning.
+
+I stället kan du använda Tvingad tunneltrafik för att förhindra detta. När du aktiverar Tvingad tunneltrafik kan tvingas alla anslutningar till internet via en lokal gateway. Du kan konfigurera Tvingad tunneltrafik genom att utnyttja udr: er.
 
 Läs mer:
 
 * [Vad är användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md)
 
-### <a name="virtual-network-security-appliances"></a>Säkerhetsenheter för virtuellt nätverk
-Medan NSG: er, udr: er och Tvingad tunneling ger en hög säkerhetsnivå vid nätverks- och lager i den [OSI-modell](https://en.wikipedia.org/wiki/OSI_model), du kanske också vill aktivera säkerhet på programnivå som är högre än nätverket.
+### <a name="virtual-network-security-appliances"></a>Virtuella funktioner för nätverkssäkerhet
 
-Till exempel kan ditt säkerhetskrav innehålla:
+NSG, udr-vägar och Tvingad tunneltrafik tillhandahåller en säkerhetsnivå för Nätverks- och transport-lager av den [OSI-modell](https://en.wikipedia.org/wiki/OSI_model), du kanske också vill aktivera säkerhet på programnivå som är högre än nätverket.
 
-* Autentisering och auktorisering innan åtkomst beviljas till ditt program
-* Identifiering av adressintrång och intrångsidentifiering svar
-* Programmet layer-kontroll för övergripande protokoll
+Till exempel kan dina säkerhetskrav innehålla:
+
+* Autentisering och auktorisering innan åtkomst ges till ditt program
+* Intrångsdetektion och intrång svar
+* Application layer-kontroll för övergripande protokoll
 * URL-filtrering
-* Nätverket nivån antivirus eller antimalware
-* Skydd mot bot
+* Nätverk på virus och skadlig kod
+* Anti bot-skydd
 * Åtkomstkontroll för programmet
 * Ytterligare DDoS-skydd (ovanför DDoS-skydd som tillhandahålls av Azure-strukturen själva)
 
-Du kan komma åt dessa förbättrade funktioner för nätverkssäkerhet med hjälp av en Azure partnerlösning. Du hittar den senaste Azure partnernätverk säkerhetslösningar genom att besöka den [Azure Marketplace](https://azure.microsoft.com/marketplace/), och söka efter ”säkerhet” och ”nätverkssäkerhet”.
+Du kan komma åt de här förbättrade funktioner för nätverkssäkerhet med hjälp av en Azure-partner-lösning. Du hittar det senaste Azure-partner-nätverket säkerhetslösningar genom att besöka den [Azure Marketplace](https://azure.microsoft.com/marketplace/), och söka efter ”säkerhet” och ”nätverkssäkerhet”.
 
-## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Säker åtkomst och mellan platser för fjärranslutningar
-Installation, konfiguration och hantering av Azure-resurser behöver göras via fjärranslutning. Dessutom kanske du vill distribuera [hybrid IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) lösningar som har komponenter på lokalt och i det offentliga Azure-molnet. Dessa scenarier kräver säker fjärråtkomst.
+## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Skydda åtkomst och mellan lokala fjärranslutningar
 
-Azure nätverk stöder följande scenarion för säker fjärråtkomst:
+Installation, konfiguration och hantering av Azure-resurser behöver göras via en fjärranslutning. Dessutom kanske du vill distribuera [hybrid-IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) lösningar som har komponenter lokalt och i det offentliga Azure-molnet. De här scenarierna kräver säker fjärråtkomst.
 
-* Enskilda arbetsstationer kan anslutas till ett virtuellt nätverk
-* Ansluta det lokala nätverket till ett virtuellt nätverk med en VPN-anslutning
-* Ansluta det lokala nätverket till ett virtuellt nätverk med en fast WAN-länk
+Azure-nätverk stöder de följande scenarierna för säker fjärråtkomst:
+
+* Ansluta enskilda arbetsstationer till ett virtuellt nätverk
+* Ansluta ditt lokala nätverk till ett virtuellt nätverk med en VPN-anslutning
+* Ansluta ditt lokala nätverk till ett virtuellt nätverk med en dedikerad WAN-länk
 * Ansluta virtuella nätverk till varandra
 
-### <a name="connect-individual-workstations-to-a-virtual-network"></a>Enskilda arbetsstationer kan anslutas till ett virtuellt nätverk
-Du kanske vill aktivera enskilda utvecklare eller åtgärder personal att hantera virtuella datorer och tjänster i Azure. Anta exempelvis att du behöver åtkomst till en virtuell dator på ett virtuellt nätverk. Men säkerhetsprinciperna tillåter inte RDP eller SSH fjärråtkomst till enskilda virtuella datorer. I det här fallet kan du använda en punkt-till-plats VPN-anslutning.
+### <a name="connect-individual-workstations-to-a-virtual-network"></a>Ansluta enskilda arbetsstationer till ett virtuellt nätverk
 
-Punkt-till-plats VPN-anslutning använder den [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) protokollet så att du kan skapa en privat och säker anslutning mellan användaren och det virtuella nätverket. När VPN-anslutningen har upprättats kan användaren via RDP eller SSH via VPN-anslutning till en virtuell dator på det virtuella nätverket. (Detta förutsätter att användaren kan autentiseras och auktoriseras.)
+Du kanske vill aktivera enskilda utvecklare eller anställda att hantera virtuella datorer och tjänster i Azure. Anta exempelvis att du behöver åtkomst till en virtuell dator i ett virtuellt nätverk. Men säkerhetsprinciperna tillåter inte RDP eller SSH fjärråtkomst till enskilda virtuella datorer. I det här fallet kan du använda en punkt-till-plats VPN-anslutning.
+
+Punkt-till-plats VPN-anslutningen använder den [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) protokollet så att du kan skapa en privat och säker anslutning mellan användaren och det virtuella nätverket. När VPN-anslutningen har upprättats kan användaren kan RDP eller SSH via VPN-anslutning till en virtuell dator på det virtuella nätverket. (Detta förutsätter att användaren kan autentiseras och auktoriseras.)
 
 Läs mer:
 
 * [Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-vpn"></a>Ansluta det lokala nätverket till ett virtuellt nätverk med en VPN-anslutning
-Du kanske vill ansluta hela företagsnätverket, eller delar av det, till ett virtuellt nätverk. Detta är vanligt i hybrid IT scenarier där företag [utöka sina lokala datacenter till Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). I många fall värd organisationer delar av en tjänst i Azure och delar på lokalt. De kan till exempel göra det när en lösning innehåller frontend-webbservrar i Azure och backend-databaser lokalt. Dessa typer av ”anslutningar mellan platser” Se också hantering av Azure finns resurser mer säker och aktivera scenarier, till exempel utöka Active Directory-domänkontrollanter i Azure.
+### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-vpn"></a>Ansluta ditt lokala nätverk till ett virtuellt nätverk med en VPN-anslutning
 
-Ett sätt att uppnå detta är att använda en [plats-till-plats VPN](https://www.techopedia.com/definition/30747/site-to-site-vpn). Skillnaden mellan en plats-till-plats-VPN och en punkt-till-plats-VPN är att denna ansluter en enhet till ett virtuellt nätverk. En plats-till-plats-VPN ansluter hela nätverket (till exempel ditt lokala nätverk) till ett virtuellt nätverk. Plats-till-plats VPN till ett virtuellt nätverk används mycket säkert IPSec-tunnelläge VPN-protokoll.
+Du kanske vill ansluta hela företagsnätverket, eller delar av det, till ett virtuellt nätverk. Detta är vanligt i hybrid-IT scenarier där organisationer [utöka sina lokala datacenter till Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). I många fall vara delar av en tjänst i Azure, och delar en lokal värd för organisationer. De kan till exempel göra det när en lösning innehåller frontend-webbservrar i Azure och backend-databaser på plats. Dessa typer av ”anslutningar på flera platser” också göra hantering av Azure finns resurser blir säkrare och aktivera scenarier, till exempel utöka Active Directory-domänkontrollanter i Azure.
+
+Ett sätt att åstadkomma detta är att använda en [plats-till-plats VPN](https://www.techopedia.com/definition/30747/site-to-site-vpn). Skillnaden mellan en plats-till-plats-VPN och en punkt-till-plats-VPN är att det senare ansluter en enhet till ett virtuellt nätverk. En plats-till-plats-VPN ansluter hela nätverket (till exempel ditt lokala nätverk) till ett virtuellt nätverk. Plats-till-plats VPN: er till ett virtuellt nätverk använder mycket säkra IPSec-tunnelläge VPN-protokoll.
 
 Läs mer:
 
-* [Skapa ett VNet Resource Manager med en plats-till-plats VPN-anslutning med hjälp av Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Skapa ett VNet i Resource Manager med en plats-till-plats VPN-anslutning med Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Planering och design för VPN-gateway](../vpn-gateway/vpn-gateway-plan-design.md)
 
-### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-dedicated-wan-link"></a>Ansluta det lokala nätverket till ett virtuellt nätverk med en fast WAN-länk
-Punkt-till-plats och plats-till-plats VPN-anslutningar är effektiv för att aktivera korsanslutningar. Dock anser vissa organisationer att det har följande nackdelar:
+### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-dedicated-wan-link"></a>Ansluta ditt lokala nätverk till ett virtuellt nätverk med en dedikerad WAN-länk
 
-* VPN-anslutningar kan du flytta data över internet. Detta visar anslutningarna till potentiella säkerhetsproblem med flytta data över ett offentligt nätverk. Dessutom kan tillförlitlighet och tillgänglighet för internet-anslutningar inte garanteras.
-* VPN-anslutningar till virtuella nätverk kanske inte bandbredd för vissa program och syften som de högsta ut vid runt 200 Mbit/s.
+Punkt-till-plats och plats-till-plats VPN-anslutningar är effektiva för att aktivera anslutning mellan olika platser. Men anses vissa organisationer ha nackdelar:
 
-Organisationer som behöver den högsta nivån av säkerhet och tillgänglighet för sina anslutningar mellan platser normalt använda dedicerade WAN-länkar för att ansluta till fjärranslutna platser. Azure tillhandahåller möjligheten att använda en fast WAN-länk som du kan använda för att ansluta det lokala nätverket till ett virtuellt nätverk. Detta gör att Azure ExpressRoute.
+* VPN-anslutningar kan du flytta data via internet. Detta visar dessa anslutningar till potentiella säkerhetsproblem med flytta data via ett offentligt nätverk. Dessutom kan tillförlitlighet och tillgänglighet för internet-anslutningar inte garanteras.
+* VPN-anslutningar till virtuella nätverk kanske inte har bandbredden för vissa program och betecknas som de maximala ut med cirka 200 Mbit/s.
+
+Organisationer som behöver den högsta möjliga säkerhet och tillgänglighet för sina anslutningar mellan lokala normalt använda dedicerade WAN-länkar för att ansluta till fjärranslutna platser. Azure ger dig möjlighet att använda en dedikerad WAN-länken som du kan använda för att ansluta ditt lokala nätverk till ett virtuellt nätverk. Azure ExpressRoute kan detta.
 
 Läs mer:
 
 * [Teknisk översikt för ExpressRoute](../expressroute/expressroute-introduction.md)
 
 ### <a name="connect-virtual-networks-to-each-other"></a>Ansluta virtuella nätverk till varandra
-Det är möjligt att använda flera virtuella nätverk för din distribution. Det finns olika skäl varför du kan göra detta. Du kanske vill förenkla hanteringen eller så kanske du vill öka säkerheten. Oavsett skälet för att publicera resurser på olika virtuella nätverk, kan det finnas tillfällen när du vill att resurser på varje nätverk att ansluta till varandra.
 
-Ett alternativ är för tjänster i ett virtuellt nätverk att ansluta till tjänster på ett annat virtuellt nätverk genom att ”loopa tillbaka” via internet. Anslutningen startar i ett virtuellt nätverk går via internet och sedan kommer tillbaka till det virtuella målnätverket. Det här alternativet visar anslutningen till säkerhetsproblem som är inbyggd i alla internet-baserad kommunikation.
+Det är möjligt att använda flera virtuella nätverk för dina distributioner. Det finns olika orsaker till varför du kan göra detta. Du kanske vill förenkla hanteringen eller du ökad säkerhet. Oavsett skälet till att placera resurser på olika virtuella nätverk, kan det finnas tillfällen när du vill att resurser på var och en av de nätverk som ska anslutas till varandra.
 
-Ett bättre alternativ kan vara att skapa en plats-till-plats-VPN som ansluter mellan två virtuella nätverk. Den här metoden använder samma [IPSec-tunnelläge](https://technet.microsoft.com/library/cc786385.aspx) protokoll som nämns ovan mellan lokala plats-till-plats VPN-anslutning.
+Ett alternativ är för tjänster på ett virtuellt nätverk för att ansluta till tjänster på ett annat virtuellt nätverk genom att ”loopa tillbaka” via internet. Anslutningen startar på ett virtuellt nätverk, går via internet och sedan kommer tillbaka till det virtuella nätverket för målet. Det här alternativet visar anslutningen till säkerhetsfrågorna i alla internet-baserad kommunikation.
 
-Fördelen med den här metoden är att VPN-anslutningen har upprättats över Azure nätverksinfrastruktur, i stället för att ansluta via internet. Detta ger dig ett extra lager av säkerhet, jämfört med plats-till-plats VPN som ansluter via internet.
+Ett bättre alternativ kan vara att skapa en plats-till-plats-VPN som ansluter mellan två virtuella nätverk. Den här metoden använder samma [IPSec-tunnelläge](https://technet.microsoft.com/library/cc786385.aspx) protokoll som nämns ovan mellan lokala plats-till-plats VPN-anslutningen.
+
+Fördelen med den här metoden är att VPN-anslutningen har upprättats över Azure nätverksinfrastruktur, i stället för att ansluta via internet. Detta ger dig ett extra lager av säkerhet, jämfört med plats-till-plats-VPN som ansluter via internet.
 
 Läs mer:
 
 * [Konfigurera en VNet-till-VNet-anslutning med hjälp av Azure Resource Manager och PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
+Ett annat sätt att ansluta dina virtuella nätverk är [VNET-peering](../virtual-network/virtual-network-peering-overview.md). Den här funktionen kan du ansluta två Azure-nätverk så att kommunikationen mellan dem sker via Microsoft-stamnätsinfrastrukturen utan det någonsin gå via Internet. VNET-peering kan ansluta två virtuella nätverk inom samma region eller två virtuella nätverk i Azure-regioner. NSG: er kan användas för att begränsa anslutning mellan olika undernät eller system.
+
 ## <a name="availability"></a>Tillgänglighet
-Tillgänglighet är en viktig del av security-programmet. Om dina användare och datorer inte kan komma åt de behöver komma åt över nätverket, tjänsten kan ses komprometteras. Azure har nätverkstekniker som stöder följande metoder för hög tillgänglighet:
+
+Tillgänglighet är en viktig del av alla säkerhetsprogram. Om dina användare och system inte kan komma åt vad de behöver att komma åt över nätverket, tjänsten kan ses äventyras. Azure har nätverkstekniker som har stöd för följande mekanismer för hög tillgänglighet:
 
 * HTTP-baserade belastningsutjämning
-* Nivån för belastningsutjämning
-* Globala belastningsutjämning
+* Nivå för belastningsutjämning
+* Global belastningsbalansering
 
-Belastningsutjämning är en mekanism avsedd att fördela jämnt anslutningar mellan flera enheter. Målen med belastningsutjämning är:
+Utjämning av nätverksbelastning är en mekanism som utformats för att fördela jämnt anslutningar mellan flera enheter. Målen för Utjämning av nätverksbelastning är:
 
-* Att öka tillgängligheten. När du läser in saldo anslutningar på flera enheter, kan en eller flera av enheterna som vara tillgänglig utan att kompromissa med tjänsten. De tjänster som körs på de återstående online enheterna kan fortsätta att hantera innehåll från tjänsten.
-* Att öka prestandan. När du läser in saldo anslutningar på flera enheter är inte en enskild enhet hanteras all bearbetning. I stället krav och minnesresurser betjänar innehållet sprids över flera enheter.
+* Att öka tillgängligheten. När du läser in saldo anslutningar på flera enheter, kan en eller flera av enheterna som vara tillgänglig utan att kompromissa med tjänsten. De tjänster som körs på de återstående online enheterna kan fortsätta att leverera innehåll från tjänsten.
+* Att öka prestandan. När du läser in saldo anslutningar på flera enheter har inte en enskild enhet att hantera all bearbetning. I stället och minnesresurser kraven för att betjäna innehållet är fördelade på flera enheter.
 
 ### <a name="http-based-load-balancing"></a>HTTP-baserade belastningsutjämning
-Organisationer som kör webbaserade tjänster ofta vilja ha en HTTP-baserad belastningsutjämnare framför dessa webbtjänster. På så sätt försäkrar du dig lämpliga nivåer av prestanda och hög tillgänglighet. Traditionell, nätverksbaserade belastningsutjämnare förlitar sig på nätverket och transport layer-protokoll. HTTP-baserad belastningsutjämnare, se å andra sidan beslut baserat på egenskaperna för HTTP-protokollet.
 
-Azure Application Gateway ger belastningsutjämning för dina webbaserade tjänster i HTTP-baserade. Programgateway stöder:
+Organisationer som kör webbaserade tjänster ofta vilja ha en HTTP-baserad belastningsutjämnare framför de webbtjänsterna. Detta hjälper till att säkerställa tillräcklig nivåer av prestanda och hög tillgänglighet. Traditionella, nätverksbaserade belastningsutjämnare är beroende av nätverks- och transport layer-protokoll. HTTP-baserad belastningsutjämnare, å andra sidan, fatta beslut utifrån egenskaperna för HTTP-protokollet.
 
-* Cookie-baserad session tillhörighet. Den här funktionen ser till att anslutningar till en server bakom som belastningsutjämnare intakt mellan klienten och servern. Detta säkerställer att stabiliteten för transaktioner.
-* SSL-avlastning. När en klient ansluter med belastningsutjämnaren, krypteras den aktuella sessionen med hjälp av HTTPS (SSL)-protokollet. För att öka prestanda kan du dock använda protokollet HTTP (okrypterat) för att ansluta mellan belastningsutjämnaren och webbservern bakom belastningsutjämnaren. Detta kallas ”SSL-avlastning”, eftersom webbservrar bakom belastningsutjämnaren inte drabbas av processor overhead ingår i kryptering. Webbservrar kan därför serviceförfrågningar snabbare.
-* URL-baserade innehåll routning. Den här funktionen gör det möjligt för belastningsutjämnaren att fatta beslut om var ska vidarebefordra anslutningar baserat på mål-URL. Detta ger mycket större flexibilitet än lösningar som gör att läsa in belastningsutjämning beslut baserat på IP-adresser.
+Azure Application Gateway erbjuder belastningsutjämning för dina webbtjänster i HTTP-baserade. Application Gateway stöder:
+
+* Cookie-baserad sessionstillhörighet. Den här funktionen ser till att anslutningar till en av servrarna bakom den belastningsutjämnaren förblir intakta mellan klienten och servern. Detta säkerställer stabiliteten för transaktioner.
+* SSL-avlastning. När en klient ansluter med belastningsutjämnaren, är den aktuella sessionen krypterad med hjälp av HTTPS (SSL)-protokollet. För att öka prestanda använda du dock HTTP (okrypterat)-protokollet för att ansluta mellan belastningsutjämnare och webbservern bakom belastningsutjämnaren. Detta kallas ”SSL-avlastning”, eftersom webbservrar bakom belastningsutjämnaren inte stöter på processor arbetet med kryptering. Webbservrar kan därför hanterar begäranden snabbt.
+* URL-baserad innehållsroutning. Den här funktionen gör det möjligt för belastningsutjämnaren för att fatta beslut om var du vill vidarebefordra anslutningar baserat på mål-URL. Detta ger mycket bättre flexibilitet än lösningar som gör att läsa in belastningsutjämning beslut baserat på IP-adresser.
 
 Läs mer:
 
-* [Översikt över Gateway](../application-gateway/application-gateway-introduction.md)
+* [Översikt över Application Gateway](../application-gateway/application-gateway-introduction.md)
 
-### <a name="network-level-load-balancing"></a>Nivån för belastningsutjämning
-Till skillnad från HTTP-baserade belastningsutjämning, fattar belastningsutjämning i nivån beslut som baseras på IP-adressen och porten (TCP eller UDP) nummer.
-Du kan få fördelarna med nivå belastningsutjämning i Azure med hjälp av Azure belastningsutjämnare. Några viktiga egenskaper för belastningsutjämnare är:
+### <a name="network-level-load-balancing"></a>Nivå för belastningsutjämning
+
+Till skillnad från HTTP-baserade belastningsutjämning, gör belastningsutjämning i nivån beslut baserat på IP-adress och port (TCP eller UDP) nummer.
+Du kan få fördelarna med nivån för belastningsutjämning i Azure med hjälp av Azure Load Balancer. Några viktiga egenskaper för belastningsutjämnare är:
 
 * Belastningsutjämning i nivån baserat på IP-adress och port nummer.
-* Stöd för alla protokoll på applikationsnivå.
-* Om belastningsutjämning till Azure virtuella datorer och cloud services rollinstanser.
-* Kan användas för både internet-riktade (extern belastningsutjämning) och icke-internet facing (intern belastningsutjämning) program och virtuella datorer.
-* Slutpunkten som övervakning, som används för att avgöra om någon av dessa tjänster bakom belastningsutjämnaren har blivit tillgänglig.
+* Stöd för alla application layer protocol.
+* Belastningsutjämnar virtuella datorer i Azure och instanser av molntjänstroll.
+* Kan användas för både webbservergrupper på internet (extern belastningsutjämning) och icke-internet (intern belastningsutjämning) program och virtuella datorer som riktas mot.
+* Slutpunkt för övervakning, som används för att avgöra om någon av tjänsterna bakom belastningsutjämnaren har blivit otillgänglig.
 
 Läs mer:
 
-* [Internetriktade belastningsutjämnare mellan flera virtuella datorer eller tjänster](../load-balancer/load-balancer-internet-overview.md)
-* [Översikt över interna belastningsutjämnare](../load-balancer/load-balancer-internal-overview.md)
+* [Internetuppkopplad belastningsutjämnare mellan flera virtuella datorer eller tjänster](../load-balancer/load-balancer-internet-overview.md)
+* [Översikt över intern belastningsutjämnare](../load-balancer/load-balancer-internal-overview.md)
 
-### <a name="global-load-balancing"></a>Globala belastningsutjämning
-Vissa organisationer vill den högsta nivån för tillgänglighet som möjligt. Ett sätt att uppnå det här målet är som värd för program i globalt distribuerade datacenter. När ett program finns i datacenter finns i hela världen, är det möjligt för en hel geopolitiska region att bli tillgänglig och fortfarande har programmet och körs.
+### <a name="global-load-balancing"></a>Global belastningsbalansering
 
-Den här strategin för belastningsutjämning kan också ge prestandafördelarna. Du kan dirigera begäranden för tjänsten till datacenter som ligger närmast den enhet som begäran kommer ifrån.
+Vissa organisationer vill det möjligt för högsta möjliga tillgänglighet. Ett sätt att nå detta mål är att hantera program i globalt distribuerade datacenter. När ett program finns i datacenter runtom i världen, är det möjligt för en hel geopolitiska region blir otillgänglig och fortfarande ha programmet upp och körs.
+
+Den här strategin för belastningsutjämning kan även ge prestandafördelarna. Du kan dirigera begäranden för tjänsten till de datacenter som ligger närmast den enhet som ansvarar för att göra begäran.
 
 I Azure, kan du få fördelarna med globala belastningsutjämning med hjälp av Azure Traffic Manager.
 
@@ -198,19 +235,19 @@ Läs mer:
 
 * [Vad är Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
 
-
 ## <a name="name-resolution"></a>Namnmatchning
-Namnmatchning är en viktig funktion för alla tjänster som du har i Azure. Från ett säkerhetsperspektiv kan röjande av funktionen name resolution leda till en angripare omdirigera begäranden från dina platser till en angripares webbplats. Säker namnmatchning är ett krav för alla molnbaserade tjänster.
 
-Det finns två typer av namnmatchning som du behöver adressera:
+Namnmatchningen är en viktig funktion för alla tjänster du ha i Azure. Från ett säkerhetsperspektiv kan kompromettering av funktionen name resolution leda till en angripare omdirigera begäranden från dina webbplatser till en angripares webbplats. Säker namnmatchningen är ett krav för alla dina tjänster i molnet.
 
-* Intern namnmatchning. Det här används av tjänsterna i ditt virtuella nätverk, ditt lokala nätverk eller båda. Namn som används för intern namnmatchning för är inte tillgängliga via internet. För optimal säkerhet är det viktigt att ett internt namn upplösning schema inte är tillgänglig för externa användare.
-* Externa namnmatchning. Detta används av användare och enheter utanför ditt lokala nätverk och virtuella nätverk. Dessa är de namn som är synlig på internet, och används för att dirigera anslutning till dina molnbaserade tjänster.
+Det finns två typer av namnmatchning som du måste uppfylla:
+
+* Intern namnmatchning. Det här används av tjänsterna i ditt virtuella nätverk eller den lokala nätverk. Namn som används för intern namnmatchning är inte tillgängliga via internet. För optimal säkerhet är det viktigt att dina interna namnet lösning schema inte är tillgänglig för externa användare.
+* Externa namnmatchning. Detta används av personer och enheter utanför ditt lokala nätverk och virtuella nätverk. Det här är de namn som är synlig på internet och som används för att dirigera anslutning till dina molnbaserade tjänster.
 
 För intern namnmatchning har du två alternativ:
 
-* En DNS-server för virtuellt nätverk. När du skapar ett nytt virtuellt nätverk, skapas en DNS-server åt dig. Den här DNS-servern kan matcha namnen på de datorer som finns i det virtuella nätverket. DNS-servern kan inte konfigureras, hanteras av hanteraren för Azure-strukturen och därför kan hjälpa dig att skydda din name resolution lösning.
-* Skapa DNS-servern. Du har möjlighet att placera en DNS-server om du väljer själv i ditt virtuella nätverk. Den här DNS-servern kan vara en Active Directory-integrerade DNS-server eller en dedikerad DNS-server-lösning som tillhandahålls av en Azure-partner som du kan hämta från Azure Marketplace.
+* En DNS-server för virtuellt nätverk. När du skapar ett nytt virtuellt nätverk, skapas en DNS-server åt dig. Den här DNS-servern kan matcha namnen på de datorer som finns i det virtuella nätverket. Den här DNS-servern kan inte konfigureras, hanteras av hanteraren för Azure-infrastrukturen och kan därför hjälpa dig att skydda din name resolution-lösning.
+* Ta med din egen DNS-server. Du har möjlighet att placera en DNS-server om du väljer själv i det virtuella nätverket. Den här DNS-servern kan vara en Active Directory-integrerad DNS-server eller en särskild DNS serverlösning som tillhandahålls av en Azure-partner som du kan hämta från Azure Marketplace.
 
 Läs mer:
 
@@ -219,68 +256,89 @@ Läs mer:
 
 För externa namnmatchning har du två alternativ:
 
-* Värd för dina egna externa DNS-server lokalt.
-* Värd för externa DNS-servern med en tjänstprovider.
+* Vara värd för dina egna externa DNS-server lokalt.
+* Vara värd för externa DNS-servern med en tjänstleverantör.
 
-Många stora organisationer värd sina egna DNS-servrar lokalt. De kan göra detta eftersom de har expertisen nätverk och global närvaro gör.
+Stora organisationer vara värd för sina egna DNS-servrar på plats. De kan göra detta eftersom de har nätverk expertis och global närvaro gör.
 
-I de flesta fall är det bättre att vara värd för din DNS-namnmatchningstjänster med en tjänstleverantör. Dessa leverantörer har expertisen nätverk och global närvaro så mycket hög tillgänglighet för din namnmatchningstjänster. Tillgänglighet är nödvändigt för DNS-tjänster, eftersom om din namnmatchningstjänster misslyckas ingen kommer att kunna komma åt dina internet facing tjänster.
+I de flesta fall är det bättre att vara värd för dina DNS-tjänst med en tjänstleverantör. Dessa leverantörer har nätverk expertis och global närvaro så mycket hög tillgänglighet för din tjänst. Tillgänglighet är nödvändigt för DNS-tjänster, eftersom om din namnmatchningstjänster misslyckas, ingen kommer att kunna nå tjänster som riktas mot internet.
 
-Azure tillhandahåller du med hög tillgänglighet och performant externa DNS-lösning i form av Azure DNS. Externa name resolution lösningen drar nytta av hela världen Azure DNS-infrastruktur. På så sätt kan du vara värd för din domän i Azure, med samma autentiseringsuppgifter, API: er, verktyg och fakturering som andra Azure-tjänster. Som en del av Azure ärver också starkt säkerhetsåtgärder som är inbyggda i plattformen.
+Azure ger dig en hög tillgänglighet och hög prestanda externa DNS-lösning i form av Azure DNS. Den här lösningen för matchning av externa namn drar nytta av över hela världen Azure DNS-infrastrukturen. Det kan du använda din domän i Azure, med samma autentiseringsuppgifter, API: er, verktyg och fakturering som för dina andra Azure-tjänster. Som en del av Azure ärver även de starka säkerhetskontroller som är inbyggd i plattformen.
 
 Läs mer:
 
 * [Översikt över Azure DNS](../dns/dns-overview.md)
+* [Azure privata DNS-zoner](../dns/private-dns-overview.md) kan du konfigurera i stället automatiskt tilldelade namnen utan att behöva lägga till en anpassad DNS-lösning för privata DNS-namn för Azure-resurser.
 
-## <a name="perimeter-network-architecture"></a>Perimeternätverk nätverksarkitektur
-Många stora organisationer använder perimeternätverk för att segmentera sina nätverk och skapa en buffert zon mellan internet och sina tjänster. Perimeter-delen av nätverket anses vara en zon med låg säkerhet och inga värdefulla tillgångar placeras i det nätverkssegmentet. Du ser vanligtvis säkerhet nätverksenheter som har ett nätverksgränssnitt på perimeternätverket nätverkssegment. Ett annat nätverksgränssnitt är ansluten till ett nätverk som har virtuella datorer och tjänster som accepterar inkommande anslutningar från internet.
+## <a name="perimeter-network-architecture"></a>Nätverksarkitektur i perimeternätverket
 
-Du kan utforma perimeternätverk i ett antal olika sätt. Beslutet att distribuera ett perimeternätverk och vilken typ av perimeternätverk nätverk ska användas om du väljer att använda en, beror på ditt nätverkssäkerhetskrav.
+Stora organisationer använda perimeternätverk för att segmentera sina nätverk och skapa buffertzoner mellan internet och sina tjänster. Perimeter-delen av nätverket anses en zon med låg säkerhet och inga värdefulla tillgångar är placerade i det nätverkssegmentet. Normalt ser du security nätverksenheter som har ett nätverksgränssnitt i perimeternätverket nätverkssegment. Ett annat nätverksgränssnitt är ansluten till ett nätverk som har virtuella datorer och tjänster som tar emot inkommande anslutningar från internet.
+
+Du kan utforma perimeternätverk i ett antal olika sätt. Beslut att distribuera ett perimeternätverk och vilken typ av perimeternätverket nätverk ska användas om du vill använda en, beror på dina krav på säkerhet.
 
 Läs mer:
 
 * [Microsoft-molntjänster och nätverkssäkerhet](../best-practices-network-security.md)
 
-
 ## <a name="monitoring-and-threat-detection"></a>Övervakning och hotidentifiering
 
-Azure tillhandahåller funktioner som hjälper dig i den här nyckeln området med tidig upptäckt, övervakning, och samla in och granska nätverkstrafik.
+Azure tillhandahåller funktioner som hjälper dig i det här viktiga området med tidig upptäckt, övervakning, och samla in och granska nätverkstrafik.
 
-### <a name="azure-network-watcher"></a>Azure Nätverksbevakaren
-Azure Nätverksbevakaren kan hjälpa dig att felsöka, och innehåller en helt ny uppsättning av verktyg för att underlätta identifieringen av säkerhetsproblem.
+### <a name="azure-network-watcher"></a>Azure Network Watcher
 
-[Säkerhetsgrupp visa ](../network-watcher/network-watcher-security-group-view-overview.md) kan hjälpa dig med gransknings- och kompatibilitet för virtuella datorer. Använd denna funktion för att utföra programmässiga revisioner, jämföra baslinje-principer som definierats av organisationen för att effektivt regler för var och en av dina virtuella datorer. Detta kan hjälpa dig att identifiera eventuella konfigurationsavvikelser.
+Azure Network Watcher kan hjälpa dig att felsöka, och ger en helt ny uppsättning av verktyg som hjälper till med identifiering av säkerhetsproblem.
 
-[Paketinsamling](../network-watcher/network-watcher-packet-capture-overview.md) kan du avbilda nätverkstrafik till och från den virtuella datorn. Du kan samla in nätverksstatistik och felsöka programproblem som kan vara ovärderlig i undersökning av intrång i nätverket. Du kan också använda den här funktionen tillsammans med Azure Functions för att starta nätverksinsamlingar som svar på specifika Azure-aviseringar.
+[Säkerhetsgrupp visa](../network-watcher/network-watcher-security-group-view-overview.md) hjälper till med gransknings- och kompatibiliteten för virtuella datorer. Använd denna funktion för att utföra programmässiga granskningar, jämföra baslinje-principer som definierats av din organisation att gällande regler för var och en av dina virtuella datorer. Detta kan hjälpa dig att identifiera eventuella konfigurationsförändringar.
 
-Mer information om Nätverksbevakaren och hur du startar testerna några av funktionerna i din labs finns [Azure nätverksbevakaren översikt över övervakning](../network-watcher/network-watcher-monitoring-overview.md).
+[Paketfångsten](../network-watcher/network-watcher-packet-capture-overview.md) låter dig fånga nätverkstrafik till och från den virtuella datorn. Du kan samla in nätverksstatistik och felsöka programproblem som kan vara ovärderliga i undersökningen av intrång i nätverket. Du kan också använda den här funktionen tillsammans med Azure Functions för att starta nätverksinsamlingar som svar på specifika Azure-aviseringar.
+
+Läs mer om Network Watcher och hur du startar testerna några av funktionerna i dina labb [Azure network watcher Övervakningsöversikt](../network-watcher/network-watcher-monitoring-overview.md).
 
 >[!NOTE]
-De senaste meddelanden på tillgänglighet och status för den här tjänsten kontrollerar den [Azure uppdateringar](https://azure.microsoft.com/updates/?product=network-watcher).
+Aktuell information om tillgänglighet och status för den här tjänsten, kontrollera den [uppdateringar i Azure-sidan](https://azure.microsoft.com/updates/?product=network-watcher).
 
 ### <a name="azure-security-center"></a>Azure Security Center
-Azure Security Center hjälper dig att förebygga, upptäcka och åtgärda hot och ger du ökad insyn i, och kontroll över säkerheten för dina Azure-resurser. Det ger integrerad säkerhet övervaka och hantera principer för dina Azure-prenumerationer, och upptäcka hot som annars kanske skulle förbli oupptäckta, fungerar med en stor mängd lösningar för informationssäkerhet.
 
-Security Center hjälper dig att optimera och övervaka nätverkssäkerhet av:
+Azure Security Center hjälper dig att förhindra, upptäcka och svara på hot och ger dig ökad insyn i, och kontroll över säkerheten hos dina Azure-resurser. Det ger integrerad säkerhet övervaka och hantera principer för alla Azure-prenumerationer, upptäcka hot som kan annars oupptäckta och fungerar med ett stort antal säkerhetslösningar.
 
-* Att erbjuda säkerhetsrekommendationer för nätverk.
-* Övervaka status för din nätverkskonfiguration för säkerhet.
-* Varna dig för nätverket baserat hot, både på slutpunkten och nätverk.
+Security Center hjälper dig att optimera och övervaka nätverkssäkerhet genom att:
+
+* Att tillhandahålla säkerhetsrekommendationer för nätverk.
+* Övervaka tillståndet i konfigurationen av din nätverkssäkerhet.
+* Varna dig för nätverk baserade hot, både på slutpunkten och nätverk.
 
 Läs mer:
 
 * [Introduktion till Azure Security Center](../security-center/security-center-intro.md)
 
-
 ### <a name="logging"></a>Loggning
-Loggning på en nivå är en funktion för alla scenariot säkerhet för. I Azure, kan du logga information som erhålls för NSG: er att hämta nätverksnivån loggar information. Med NSG loggning får du information från:
 
-* [Aktivitetsloggar](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Använd de här loggarna om du vill visa alla åtgärder som skickats till din Azure-prenumerationer. Dessa loggar är aktiverade som standard och kan användas i Azure-portalen. De tidigare kallas granskningsläge eller operativa loggar.
-* Händelseloggar. Dessa loggar finns information om vilka NSG-regler har tillämpats.
-* Räknarloggar. Dessa loggar att du vet hur många gånger varje NSG regeln har tillämpats för att neka eller Tillåt trafiken.
+Loggning på nätverksnivå är en viktig funktion för alla scenarier för nätverk säkerhet. I Azure, kan du logga information som erhålls för NSG: er att hämta nätverksnivån loggar information. Med NSG loggning får du information från:
 
-Du kan också använda [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), ett verktyg för kraftfulla visualisering, visa och analysera dessa loggar.
+* [Aktivitetsloggar](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Använd de här loggarna om du vill visa alla åtgärder som har skickats till din Azure-prenumerationer. Dessa loggar är aktiverade som standard och kan användas i Azure-portalen. De tidigare kallas gransknings- eller driftloggar.
+* Händelseloggar. De här loggarna ger information om vilka NSG-regler har tillämpats.
+* Räknarloggar. Dessa loggar att du vet hur många gånger varje NSG-regel har tillämpats för att neka eller tillåta trafik.
+
+Du kan också använda [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), ett kraftfullt datavisualiseringsverktyg, visa och analysera dessa loggar.
+Läs mer:
+
+* [Log Analytics för Nätverkssäkerhetsgrupper (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
+
+
+## <a name="azure-ddos-protection"></a>Azure DDoS Protection
+
+Distribuerade attacker denial of service (DDoS) är några av de största tillgänglighet och säkerhet frågor mot kunder som migrerar sina program till molnet. DDoS-attacker försöker att få slut på ett programs resurser, som gör programmet tillgängligt för behöriga användare. DDoS-attacker kan riktas till valfri slutpunkt som kan nås offentligt via internet.
+Microsoft tillhandahåller DDoS protection kallas **grundläggande** som en del av Azure-plattformen. Detta kommer utan kostnad och omfattar alltid på övervaknings- och i realtid minskning av vanliga på nätverksnivå. Förutom de skydd som ingår i DDoS protection **grundläggande** kan du aktivera den **Standard** alternativet. DDoS Protection standardfunktioner omfattar:
+
+* **Inbyggd plattformsintegrering:** internt integrerade i Azure. Innehåller konfiguration via Azure portal. DDoS Protection Standard förstår dina resurser och resurskonfigurationer.
+* **NYCKELFÄRDIGT skydd:** förenklad konfiguration skyddar direkt alla resurser i ett virtuellt nätverk när DDoS Protection Standard är aktiverat. Det krävs inga åtgärder eller användaren definition. DDoS Protection Standard attacken omedelbart och automatiskt, när den identifieras.
+* **Ständigt aktiverad övervakning:** din mönster i programtrafiken övervakas 24 timmar per dag, 7 dagar i veckan letar du efter indikatorer för DDoS-attacker. Minskning utförs när appskyddsprinciper överskrids.
+* **Anpassningsbar justering:** Intelligent trafik profilering lär sig programmets trafik över tid, och väljer och uppdaterar den profil som är mest lämplig för din tjänst. Profilen justerar allt trafik ändras med tiden. Nivå 3 till nivå 7-skydd: ger fullständig stack DDoS-skydd, när det används med en brandvägg för webbaserade program.
+* **Omfattande minskning skala:** över 60 olika angreppstyper kan undvikas med globala kapacitet att skydda mot största kända DDoS-attacker.
+* **Angrepp mått:** Summarized mått från varje attack är tillgängliga via Azure Monitor.
+* **Attack avisering:** aviseringar kan konfigureras vid start och stopp av ett angrepp, och med hjälp av inbyggda attack mätvärden över den attack varaktighet. Aviseringar integrera i din operational programvara som Microsoft Azure Log Analytics, Splunk, Azure Storage, e-post och Azure-portalen.
+* **Kostnad garanti:** överföra Data och program skalbar tjänstkrediter för dokumenterad DDoS-attacker.
 
 Läs mer:
 
-* [Log Analytics för Nätverkssäkerhetsgrupper (NSG: er)](../virtual-network/virtual-network-nsg-manage-log.md)
+* [DDOS protection-översikt](../virtual-network/ddos-protection-overview.md)

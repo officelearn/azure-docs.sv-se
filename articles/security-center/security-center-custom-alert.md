@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 06/29/2018
 ms.author: terrylan
-ms.openlocfilehash: f950b6fef575e9dc2d637c17ba40b6f504d1f227
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 326b07a18b07f15850e0283ad51a05b42c1ef0ab
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284785"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341321"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Anpassade aviseringsregler i Azure Security Center (förhandsversion)
 I det här avsnittet berättar vi hur du skapar anpassade aviseringsregler i Azure Security Center.
@@ -31,7 +31,7 @@ Security Center innehåller en uppsättning fördefinierade [säkerhetsavisering
 Med hjälp av anpassade aviseringsregler i Security Center kan du definiera nya säkerhetsaviseringar baserat på data som redan har samlats in från miljön. Du kan skapa frågor och resultatet av dessa frågor kan användas som kriterier för den anpassade regeln, och regeln körs när dessa kriterier matchas. Du kan använda säkerhetshändelser för datorer, loggar från en partners säkerhetslösning eller data som inhämtas med hjälp av API:er för att skapa de anpassade frågorna.
 
 > [!NOTE]
-> Du behöver skrivbehörighet i arbetsytan som du väljer för att lagra anpassade aviseringen.
+> Anpassade aviseringar stöds inte i Security Center [undersökningsfunktionen](security-center-investigation.md).
 >
 >
 
@@ -52,7 +52,14 @@ Med hjälp av anpassade aviseringsregler i Security Center kan du definiera nya 
 5.  Ange en kort beskrivning som återspeglar syftet med denna regel i fältet **Beskrivning**.
 6.  Välj allvarlighetsgrad (hög, medel, låg) efter behov i fältet **Allvarlighetsgrad**.
 7.  I fältet **Prenumeration** väljer du den prenumeration där denna regel ska gälla.
-8.  Välj arbetsytan som du vill övervaka med den här regeln i den **arbetsytan** fältet, och i den **sökfråga** fältet den fråga som du vill använda för att få resultat. Du behöver skrivbehörighet i arbetsytan som du väljer för att lagra anpassade aviseringen. Frågans resultat utlöser aviseringen. Tänk på att när du skriver in en giltig fråga visas en grön bockmarkering i det högra hörnet av detta fält:
+8.  Välj den arbetsyta som du vill övervaka med den här regeln i den **arbetsytan** fält, och i den **sökfråga** fältet den fråga som du vill använda för att hämta resultaten.
+
+    > [!NOTE]
+    > Du behöver skrivbehörighet på arbetsytan som du väljer för att lagra din anpassade avisering.
+    >
+    >
+
+    Frågans resultat utlöser aviseringen. Tänk på att när du skriver in en giltig fråga visas en grön bockmarkering i det högra hörnet av detta fält:
 
     ![Fråga](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 

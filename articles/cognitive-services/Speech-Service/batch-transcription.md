@@ -1,5 +1,5 @@
 ---
-title: Azure Batch skrivfel API | Azure Microsoft Docs
+title: Azure Batch avskrift API | Azure Microsoft Docs
 description: Exempel
 services: cognitive-services
 author: PanosPeriorellis
@@ -9,36 +9,36 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: cf58f676be52aa16ce6de59c3566613c7ee9276d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 9dd7479ae95f74123d9b762e42ec95e8dbf25818
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084090"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346457"
 ---
-# <a name="batch-transcription"></a>Batch skrivfel
+# <a name="batch-transcription"></a>Batch-transkription
 
-Batch skrivfel är idealisk för användningsområden med stora mängder ljud. Det gör det möjligt för utvecklare att peka på ljudfiler och hämta transcriptions i asynkron läge.
+Batch avskrift är perfekt för användningsfall med stora mängder ljud. Det gör det möjligt för utvecklare att peka på ljudfiler och få tillbaka avskrifter i asynkron läge.
 
-## <a name="batch-transcription-api"></a>Batch skrivfel API
+## <a name="batch-transcription-api"></a>Batch avskrift API
 
-Batch-skrivfel API gör det möjligt att scenariot ovan. Den erbjuder asynkron tal till text skrivfel tillsammans med ytterligare funktioner.
+Batch-avskrift API gör det möjligt för scenariot ovan. Den erbjuder asynkron tal till text avskrift tillsammans med ytterligare funktioner.
 
 > [!NOTE]
-> Batch skrivfel API är idealisk för samtal som vanligtvis ackumuleras tusentals timmars ljud. Brand & Glöm principerna om API: N gör det enkelt att transkribera stora mängder ljudinspelningar.
+> Batch-avskrift API är perfekt för Call Center som vanligtvis ackumuleras tusentals timmars ljud. Fire & Glöm filosofin API gör det enkelt att transkribera stort antal ljudinspelningar.
 
 ### <a name="supported-formats"></a>Format som stöds
 
-Batch-skrivfel API syftar till att bli Tyskland-facto för alla offline call center-relaterade scenarier och erbjuda stöd för alla relaterade format. För närvarande stöds formaten:
+Batch-avskrift API syftar till att bli Tyskland-facto för alla offline anrop center-relaterade scenarier och erbjuder support för alla relaterade format. Format som för närvarande stöds:
 
 Namn| Kanal  |
 ----|----------|
-MP3 |   Mono   |   
-MP3 |  Stereo  | 
+MP3-filen |   Mono   |   
+MP3-filen |  Stereo  | 
 WAV |   Mono   |
 WAV |  Stereo  |
 
-För stereo ljudströmmar delas Batch skrivfel den vänstra och högra kanalen under utskrift. Två JSON-filer med resultatet skapas varje från en enda kanal. Tidsstämplar per utterance kan utvecklare att skapa en ordnad slutliga betyg. Följande JSON-exemplet visar resultatet för en kanal.
+För stereo ljudströmmar delar Batch avskrift kanalen vänster och höger under utskrift. De två JSON-filerna med resultatet skapas var och en från en enda kanal. Tidsstämplar per uttryck gör att utvecklare kan skapa en ordnad slutlig avskrift. I följande JSON-exempel visas resultatet av en kanal.
 
 ```json
        {
@@ -56,11 +56,11 @@ För stereo ljudströmmar delas Batch skrivfel den vänstra och högra kanalen u
 ```
 
 > [!NOTE]
-> Batch-skrivfel API använder en REST-tjänst för att begära transcriptions, status och associerade resultat. Den är baserad på .NET och har inte några externa beroenden. I nästa avsnitt beskrivs hur de används.
+> Batch-avskrift API använder en REST-tjänst för att begära avskrifter, deras status och associerade resultat. API: et kan användas från alla språk. I nästa avsnitt beskrivs hur de används.
 
 ## <a name="authorization-token"></a>Autentiseringstoken
 
-Som med alla funktioner i tjänsten Unified tal måste användaren att skapa en prenumeration nyckel från den [Azure-portalen](https://portal.azure.com). Dessutom måste en API-nyckel förvärvas från portalen tal. Stegen för att generera en API-nyckel:
+Som med alla funktioner i tjänsten enhetliga Speech användaren behöver för att skapa en prenumerationsnyckel från den [Azure-portalen](https://portal.azure.com). Dessutom kan måste en API-nyckel förvärvas från portalen tal. Stegen för att generera en API-nyckel:
 
 1. Logga in på https://customspeech.ai.
 
@@ -68,16 +68,16 @@ Som med alla funktioner i tjänsten Unified tal måste användaren att skapa en 
 
 3. Klicka på alternativet `Generate API Key`.
 
-    ![Överför vyn](media/stt/Subscriptions.jpg)
+    ![Ladda upp vyn](media/stt/Subscriptions.jpg)
 
-4. Kopiera och klistra in nyckeln i klientkod i exemplet nedan.
+4. Kopiera och klistra in nyckeln i klientkoden i exemplet nedan.
 
 > [!NOTE]
-> Om du planerar att använda en anpassad modellen måste ID för den modellen för. Observera att detta inte är distribution eller slutpunkts-ID som du hittar på slutpunkten Detaljvyn men modell-ID som du kan hämta när du klickar på information om att modellen
+> Om du planerar att använda en anpassad modell måste ID för den modellen för. Observera att detta inte är distributionen eller slutpunkts-ID som du hittar på slutpunkten detaljer, men modell-ID som du kan hämta när du klickar på information om den modellen
 
 ## <a name="sample-code"></a>Exempelkod
 
-Genom att utnyttja API: et är ganska enkelt. Exempelkoden nedan måste anpassas med en prenumeration nyckel och en API-nyckel, vilket i sin tur kan utvecklare att få en ägartoken som koden följande fragment visas:
+Genom att utnyttja API: et är ganska enkelt. Exempelkoden nedan måste uppgraderas till en prenumerationsnyckel och en API-nyckel, vilken i sin tur kan utvecklare hämta någon ägartoken, som i följande kodavsnitt visar:
 
 ```cs
     public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
@@ -94,7 +94,7 @@ Genom att utnyttja API: et är ganska enkelt. Exempelkoden nedan måste anpassas
         }
 ```
 
-När token som erhålls måste utvecklaren ange SAS-Uri som pekar på filen som kräver skrivfel. Resten av koden går igenom statusen bara och visar resultat.
+När token hämtas måste utvecklaren ange SAS-Uri som pekar på filen kräver avskrift. Resten av koden helt enkelt upprepas status och visar resultat.
 
 ```cs
    static async Task TranscribeAsync()
@@ -153,29 +153,29 @@ När token som erhålls måste utvecklaren ange SAS-Uri som pekar på filen som 
 ```
 
 > [!NOTE]
-> Nyckeln prenumeration enligt ovan kodfragmentet är nyckeln från Speech(Preview) resursen som du skapar på Azure-portalen. Nycklar från anpassade tal tjänstresurs fungerar inte.
+> Prenumerationsnyckel som nämns i kodfragmentet ovan är nyckeln från Speech(Preview) resursen som du skapar på Azure-portalen. Nycklar som hämtats från resursen Custom Speech Service fungerar inte.
 
 
-Observera asynkron inställningarna för bokföring ljud och ta emot skrivfel status. Klienten skapas är en NET Http-klient. Det finns en `PostTranscriptions` metod för att skicka information ljud- och en `GetTranscriptions` metoden för att hämta resultaten. `PostTranscriptions` Returnerar en referens och `GetTranscriptions` metoden använder den här referensen för att skapa en referens för att hämta status för skrivfel.
+Lägg märke till asynkron konfigurationen för att skicka ljud och ta emot avskrift status. Klienten som skapade är en .NET-Http-klient. Det finns en `PostTranscriptions` metod för att skicka ljud filinformation, och en `GetTranscriptions` metoden för att hämta resultaten. `PostTranscriptions` Returnerar en referens och `GetTranscriptions` metoden att använda den här hanteraren för att skapa en referens för att hämta statusen avskrift.
 
-Aktuella exempelkoden anger inte några anpassade modeller. Tjänsten använder baslinjen modeller för att skriva filen. Om användare vill ange modeller, överföra en på samma metod modelIDs för acoustic och språkmodell. 
+Aktuella exempelkoden anger inte några anpassade modeller. Tjänsten använder baslinjemodeller för att skriva av filen. Om du vill ange modeller, överföra en på samma metod modelIDs för akustiska och språkmodellen. 
 
-Om något inte vill använda baslinje, måste en klara modell-ID: N för både acoustic och språk-modeller.
-
-> [!NOTE]
-> För baslinjen saknar skrivfel användaren deklarera slutpunkter av baslinje-modeller. Om användaren vill använda anpassade modeller han skulle behöva ange sina slutpunkter-ID: N som den [exempel](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Om användaren vill använda ett ljud baslinjen med en baslinje språkmodell sedan behöver han bara deklarera anpassade modellen endpoint-ID. Internt kommer vårt system ta reda på partner baslinjen modellen (vara den ljud eller språk) och använda den för att uppfylla begäran skrivfel.
-
-### <a name="supported-storage"></a>Stöds
-
-För närvarande är stöds endast lagring Azure blob.
-
-## <a name="downloading-the-sample"></a>Hämta exemplet
-
-Exempel som visas här finns på [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+Om något inte vill använda baslinje, måste en klara modell-ID: N för språk- och språkdata-modeller.
 
 > [!NOTE]
-> Ett ljud skrivfel kräver normalt en tidsrymd som är lika med varaktigheten för ljudfilen plus en 2-3 minuter kostnader.
+> För baslinjen saknar avskrift användaren deklarera slutpunkterna för baslinjemodeller. Om du vill använda anpassade modeller han skulle behöva ange deras slutpunkter-ID som den [exempel](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Om användare vill använda en akustisk baslinje med en baslinje språkmodell sedan behöver han bara deklarera anpassade modellen endpoint-ID. Internt ska vårt system ta reda på partner baslinje-modellen (vara den akustiska eller språk) och använder dem för att uppfylla begäran avskrift.
+
+### <a name="supported-storage"></a>Lagring som stöds
+
+Den enda lagring som stöds är för närvarande Azure-blob.
+
+## <a name="downloading-the-sample"></a>Ladda ned exemplet
+
+I exemplet som visas här finns på [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+
+> [!NOTE]
+> En ljudutskrift kräver vanligtvis ett tidsintervall som är lika med varaktigheten för ljudfilen plus en 2 – 3 minuter kostnader.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta din utvärderingsprenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
+* [Få en kostnadsfri prenumeration tal](https://azure.microsoft.com/try/cognitive-services/)

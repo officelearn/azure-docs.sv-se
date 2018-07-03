@@ -1,6 +1,6 @@
 ---
-title: MySQL som värd för servrar på Azure-stacken | Microsoft Docs
-description: Hur du lägger till MySQL-instanser för etablering via Resursprovidern MySQL nätverkskort
+title: MySQL som är värd för servrar i Azure Stack | Microsoft Docs
+description: Hur du lägger till MySQL-instanser för etablering via MySQL-Resursprovider för nätverkskort
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,63 +11,74 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/02/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5522eb1b8b0398aeb6f1b0dd8578b906880b4e89
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 60f1978b4173f169ad14deb67b075a61f9e7f149
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938453"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344146"
 ---
-# <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Lägg till värdservrar för MySQL-resursprovidern
+# <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Lägg till värdservrar för MySQL-resursprovider
 
-Du kan vara värd för en MySQL-instans på en virtuell dator (VM) i [Azure Stack](azure-stack-poc.md), eller på en virtuell dator utanför Azure-stacken miljö, så länge resursprovidern MySQL kan ansluta till instansen.
+Du kan ha en MySQL-instans på en virtuell dator (VM) i [Azure Stack](azure-stack-poc.md), eller på en virtuell dator utanför Azure Stack-miljön, så länge MySQL-resursprovider kan ansluta till instansen.
+
+MySQL-version 5.6, 5.7 och 8.0 kan användas för värdbaserade servrar. MySQL RP stöder inte caching_sha2_password autentisering; som kommer att läggas till i nästa version. MySQL 8.0 servrar måste konfigureras för att använda mysql_native_password. MariaDB stöds också.
 
 ## <a name="connect-to-a-mysql-hosting-server"></a>Ansluta till en värd MySQL-server
 
-Kontrollera att du har autentiseringsuppgifter för ett konto med systemadministratörsprivilegier. Följ dessa steg om du vill lägga till en värd server:
+Kontrollera att du har autentiseringsuppgifter för ett konto med systemadministratörsprivilegier. Följ dessa steg för att lägga till en värdservern:
 
-1. Logga in på Azure-stacken operatorn portalen som en tjänstadministratör
+1. Logga in på portalen för Azure Stack-operator som en tjänst.
 2. Välj **fler tjänster**.
-3. Välj **administrativa resurser** > **MySQL som värd för servrar** > **+ Lägg till**. Då öppnas den **lägga till en värd MySQL-Server** dialogrutan som visas i följande skärmbild.
+3. Välj **administrativa resurser** > **MySQL som är värd för servrar** > **+ Lägg till**. Då öppnas det **lägga till en värd för MySQL-Server** dialogrutan som visas i följande skärmbild.
 
-   ![Konfigurera en server som värd](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
+   ![Konfigurera en värdservern](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
-4. Ange anslutningsinformation för MySQL-Server-instansen.
+4. Ange anslutningsinformation för din MySQL-Server-instans.
 
-   * För **MySQL värd servernamn**, ange det fullständigt kvalificerade domännamnet (FQDN) eller en giltig IPv4-adress. Använd inte det korta namnet för virtuell dator.
-   * En standardinstans MySQL inte anges, så du måste ange den **storlek för värd för Server i GB**. Ange en storlek som ligger nära kapacitet för databasservern.
-   * Behåll standardinställningen för **prenumeration**.
-   * För **resursgruppen**, skapa en ny eller Använd en befintlig grupp.
+   * För **MySQL som är värd för servernamnet**, ange det fullständigt kvalificerade domännamnet (FQDN) eller en giltig IPv4-adress. Använd inte det korta namnet för virtuell dator.
+   * En standardinstans för MySQL är inte anges, så du måste ange den **storlek av som är värd för Server i GB**. Ange en storlek som ligger nära kapaciteten för databasservern.
+   * Behålla standardinställningen för **prenumeration**.
+   * För **resursgrupp**, skapa en ny eller använda en befintlig grupp.
 
    > [!NOTE]
-   > Om MySQL-instans kan användas av klienten och Azure Resource Manager-administratören, kan du placera den under kontroll av resursprovidern. Men MySQL-instansen **måste** tilldelas enbart resursprovidern.
+   > Om MySQL-instans kan användas av klienten och Azure Resource Manager-administratör, kan du placera det kontrolleras av resursprovidern. Men, MySQL-instans **måste** allokeras exklusivt till resursprovidern.
 
 5. Välj **SKU: er** att öppna den **skapa SKU** dialogrutan.
 
    ![Skapa en MySQL-SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
-   SKU: N **namn** bör återspegla egenskaperna för SKU: N så att användarna kan distribuera sina databaser till lämplig SKU: N.
+   SKU: N **namn** bör återspegla egenskaperna för SKU: N så att användare kan distribuera sina databaser till lämplig SKU.
 
    >[!IMPORTANT]
    >Specialtecken, inklusive blanksteg och punkter, stöds inte i **namn** eller **nivå** när du skapar en SKU för MySQL-resursprovidern.
 
-6. Välj **OK** att skapa SKU: N.
-7. Under **lägga till en värd MySQL-Server**väljer **skapa**.
+6. Välj **OK** skapa SKU: N.
+> [!NOTE]
+> SKU: er kan ta upp till en timme att bli synliga i portalen. Du kan inte skapa en databas tills SKU: N har distribuerats och körs.
 
-När du lägger till servrar, kan du tilldela dem till en ny eller befintlig SKU för att särskilja Tjänsterbjudanden. Du kan till exempel ha en MySQL enterprise-instans som ger ökad databasen och automatisk säkerhetskopiering. Du kan reservera högpresterande servern för olika avdelningar i organisationen.
+7. Under **lägga till en värd för MySQL-Server**väljer **skapa**.
+
+När du lägger till servrar, kan du tilldela dem till en ny eller befintlig SKU skilja Tjänsterbjudanden. Du kan till exempel ha en enterprise MySQL-instans som ger ökad databasen och automatisk säkerhetskopiering. Du kan reservera den här servern för höga prestanda för olika avdelningar i organisationen.
+
+## <a name="security-considerations-for-mysql"></a>Säkerhetsöverväganden för MySQL
+
+Följande information gäller för RP och MySQL som är värd för servrar:
+
+* Kontrollera att alla värdservrar är konfigurerade för kommunikation med hjälp av TLS 1.2. Se [konfigurera MySQL om du vill använda krypterade anslutningar](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
+* Använda [Transparent datakryptering](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html).
+* MySQL RP stöder inte caching_sha2_password autentisering.
 
 ## <a name="increase-backend-database-capacity"></a>Öka kapaciteten för backend-databas
 
-Du kan öka kapaciteten för backend-databas genom att distribuera flera MySQL-servrar i Azure Stack-portalen. Lägg till dessa servrar till en ny eller befintlig SKU. Om du lägger till en server till en befintlig SKU se till att de server-egenskaperna är samma som de andra servrarna i SKU: N.
+Du kan öka kapaciteten för backend-databas genom att distribuera flera MySQL-servrar i Azure Stack-portalen. Lägg till dessa servrar till en ny eller befintlig SKU. Om du lägger till en server till en befintlig SKU, se till att de server-egenskaperna är samma som de andra servrarna i SKU.
 
-## <a name="make-mysql-database-servers-available-to-your-users"></a>Göra MySQL database-servrar som är tillgängliga för användarna
+## <a name="make-mysql-database-servers-available-to-your-users"></a>Gör MySQL database-servrar som är tillgängliga för dina användare
 
-Skapa planer och erbjudanden om du vill göra MySQL database-servrar som är tillgängliga för användare. Lägg till tjänsten Microsoft.MySqlAdapter planen, och Lägg till standard kvot eller skapa en ny kvot.
-
-![Skapa planer och erbjudanden för databaser](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
+Skapa planer och erbjudanden för att göra MySQL database-servrar som är tillgängliga för användare. Lägga till tjänsten Microsoft.MySqlAdapter i planen och skapa en ny kvot. MySQL tillåter inte begränsar storleken på databaserna.
 
 ## <a name="next-steps"></a>Nästa steg
 

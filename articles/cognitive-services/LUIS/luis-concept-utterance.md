@@ -1,6 +1,6 @@
 ---
-title: Utterances i THOMAS appar i Azure | Microsoft Docs
-description: Lägg till utterances i språk förstå Intelligent Service (THOMAS) appar.
+title: Yttranden i LUIS-appar i Azure | Microsoft Docs
+description: Lägg till yttranden i Language Understanding Intelligent Service (LUIS)-appar.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,68 +9,68 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 66a23876eebe177c767b20f60f86891c35da3385
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 9b8556a30169561488a7b46f93af87b31e049e7a
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301870"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345516"
 ---
-# <a name="utterances-in-luis"></a>Utterances i THOMAS
+# <a name="utterances-in-luis"></a>Yttranden i LUIS
 
-**Utterances** indata från användaren som din app behöver tolka. För att träna THOMAS att extrahera avsikter och entiteter från dem, är det viktigt att samla in en mängd olika indata för varje avsikt. Aktiva learning eller hur du fortsätter att träna på nya utterances är viktigt att datorn lärt dig intelligence THOMAS tillhandahåller.
+**Yttranden** indata från användaren som appen behöver att tolka. För att träna LUIS för att extrahera avsikter och entiteter från dem, är det viktigt att samla in en mängd olika indata för varje avsikt. Aktiv inlärning eller processen med att fortsätta att utbilda i nya yttranden är mycket viktigt att datorn lärt dig intelligens som innehåller LUIS.
 
-Samla in fraser som du tror att användarna ska ange. Inkludera utterances som betyda samma sak men är uppbyggda på olika sätt i word-längd och word placering. 
+Samla in fraser som du tror att användare ska ange. Inkludera yttranden som betyda samma sak, men är konstruerade på olika sätt i word längd och word placering. 
 
-## <a name="how-to-choose-varied-utterances"></a>Hur du väljer olika utterances
-När du först komma igång med [lägger du till exempel utterances] [ add-example-utterances] THOMAS modellen, här är några principer som du bör tänka på.
+## <a name="how-to-choose-varied-utterances"></a>Hur du väljer olika yttranden
+När du först komma igång genom [lägger du till exempel yttranden] [ add-example-utterances] till LUIS-modellen, här finns vissa principer att ha i åtanke.
 
-### <a name="utterances-arent-always-well-formed"></a>Utterances formaterad inte alltid korrekt.
-Det kan vara en mening, t.ex. ”bok mig en biljett till Paris” eller ett fragment i en mening, t.ex. ”boka” eller ”Paris svarta”.  Användare gör ofta stavfel. Överväg att oavsett om du stavningen användarindata vidare till THOMAS när du planerar din app. Den [Bing stavningskontroll kontrollera API] [ BingSpellCheck] kan integreras med THOMAS. Du kan associera appen THOMAS med en extern nyckel för Bing stavningskontroll kontrollera API när du publicerar den. Om du inte har angett kontrollera användaren utterances, bör du träna THOMAS på utterances som innehåller Skriv- och stavfel.
+### <a name="utterances-arent-always-well-formed"></a>Yttranden stöddata inte alltid
+Det kan vara en mening, till exempel ”boka mig en biljett till Paris” eller ett fragment i en mening, t.ex. ”bokning” eller ”Paris flygning”.  Användare kan du ofta göra stavfel. När du planerar din app bör du överväga att huruvida du stavningskontroll indata från användaren innan det skickas till LUIS. Den [stavningskontroll i Bing] [ BingSpellCheck] kan integreras med LUIS. Du kan associera LUIS-app med en nyckel som är externa för den stavningskontroll i Bing när du publicerar den. Om du inte stavningskontroll kontroll användaren yttranden, bör du tränar LUIS på yttranden som innehåller Skriv- och stavfel.
 
-### <a name="use-the-representative-language-of-the-user"></a>Använd representativt språket för användaren
-När du väljer utterances, Tänk på att du förväntar dig en vanliga ord eller en fras inte kanske till vanliga användare av ditt klientprogram. De kan inte ha domän upplevelse. Så var försiktig när du använder ord eller fraser som en användare bara säger om de vore en expert.
+### <a name="use-the-representative-language-of-the-user"></a>Använd språket som är representativ för användaren
+När du väljer yttranden, Tänk på att vad du tycker är en vanlig term eller frasen inte kanske för vanliga användare av ditt klientprogram. De kan inte ha domän upplevelse. Så var försiktig när du använder termer eller fraser som en användare bara skulle säger om de vore en expert.
 
-### <a name="choose-varied-terminology-as-well-as-phrasing"></a>Välj olika terminologi samt frasering
-Du kommer märka att även om du gör för att skapa olika meningen mönster kan du fortfarande upprepas vissa ordförråd.
+### <a name="choose-varied-terminology-as-well-as-phrasing"></a>Välj olika terminologi samt formulering
+Du kommer märka att även om du gör för att skapa olika mening mönster kan du fortfarande upprepas vissa ordförråd.
 
-Vidta dessa exempel utterances:
+Utföra dessa exempel yttranden:
 ```
 how do I get a computer?
 Where do I get a computer?
 I want to get a computer, how do I go about it?
 When can I have a computer? 
 ```
-Här, core termen ändras ”dator” inte. De kan säga stationär dator, bärbar dator, arbetsstation eller även bara datorn. THOMAS härleder Intelligent synonymer från kontexten, men när du skapar utterances för träning, är det fortfarande är bättre att variera dem.
+Här, core termen är ”dator” inte variera. De kan säga stationär dator, bärbar dator, arbetsstation eller även bara datorn. LUIS härleder smart synonymer från kontext, men när du skapar uttryck för träning, är det fortfarande är bättre att variera dem.
 
-## <a name="example-utterances-in-each-intent"></a>Exempel utterances i varje avsikt
-Varje avsikt måste ha exempel utterances, minst 10 – 15. Om du har syftet som inte har några exempel utterances kan du inte träna THOMAS. Om du har syftet med en eller mycket få exempel utterances kommer THOMAS inte förutse avsikten. 
+## <a name="example-utterances-in-each-intent"></a>Exempel yttranden i varje avsikt
+Varje avsikt måste ha exempel yttranden, minst 10 – 15. Om du har ett intent som inte har yttranden exempel kan du inte träna LUIS. Om du har en syftet med en eller mycket få exempel yttranden kommer LUIS inte korrekt förutse avsikten. 
 
-## <a name="add-small-groups-of-10-15-utterances-for-each-authoring-iteration"></a>Lägg till mindre grupper av 10 – 15 utterances för varje redigering upprepning
-Lägg inte till ett stort antal utterances i varje iteration av modellen. Lägg till utterances i mängder flera. [Train](luis-how-to-train.md), [publicera](publishapp.md), och [testa](interactive-test.md) igen.  
+## <a name="add-small-groups-of-10-15-utterances-for-each-authoring-iteration"></a>Lägg till små grupper med 10 – 15 yttranden för varje redigering upprepning
+Lägg inte till ett stort antal yttranden i varje iteration av modellen. Lägg till yttranden i mängder tiotals. [Träna](luis-how-to-train.md), [publicera](luis-how-to-publish-app.md), och [testa](interactive-test.md) igen.  
 
-THOMAS skapar effektiva modeller med utterances som väljs noggrant. Lägga till för många utterances är inte viktig eftersom förvirring.  
+LUIS skapar effektiva modeller med yttranden som väljs noggrant. Att lägga till för många uttryck är inte värdefulla eftersom förvirring.  
 
-Det är bättre att börja med ett par utterances sedan [granska endpoint utterances](label-suggested-utterances.md) för korrekt avsiktshantering prognoser och entiteten extrahering.
+Är det bättre att börja med ett par yttranden sedan [granska endpoint yttranden](label-suggested-utterances.md) för rätt avsikt extrahering av förutsägelser och entiteten.
 
 ## <a name="ignoring-words-and-punctuation"></a>Ignorerar ord och skiljetecken
-Om du vill ignorera specifika ord eller skiljetecken i exempel utterance använder en [mönster](luis-concept-patterns.md#pattern-syntax) med den _Ignorera_ syntax. 
+Om du vill ignorera vissa specifika ord eller skiljetecken i exempel-uttryck kan använda en [mönstret](luis-concept-patterns.md#pattern-syntax) med den _Ignorera_ syntax. 
 
-## <a name="training-utterances"></a>Utbildning utterances
-Utbildning är icke-deterministiska: utterance förutsägelser kan variera mellan versioner eller appar.
+## <a name="training-utterances"></a>Utbildning yttranden
+Utbildning är icke-deterministisk: uttryck förutsägelsen kan variera något mellan versioner eller appar.
 
-## <a name="testing-utterances"></a>Testa utterances 
+## <a name="testing-utterances"></a>Testa yttranden 
 
-Utvecklare bör börja testar sina THOMAS program med verkliga trafik genom att skicka utterances till slutpunkten. Dessa utterances används för att förbättra prestanda för avsikter och entiteter med [granska utterances](label-suggested-utterances.md). Tester som skickades med webbplatsen THOMAS testning fönstret skickas inte via slutpunkten och därför bidrar inte till aktiva utbildning. 
+Utvecklare bör börja testa sina LUIS-program med verklig trafik genom att skicka yttranden till slutpunkten. Dessa uttryck används för att förbättra prestandan för avsikter och entiteter med [granska yttranden](label-suggested-utterances.md). Tester som skickades med webbplatsen LUIS testning fönstret skickas inte via slutpunkten och därför bidrar inte till aktiv inlärning. 
 
-## <a name="review-utterances"></a>Granska utterances
-När din modell är utbildade publicerade och mottagande [endpoint](luis-glossary.md#endpoint) frågor, [granska utterances](label-suggested-utterances.md) föreslås av THOMAS. THOMAS väljer endpoint utterances som har låg poäng för avsikt eller entitet. 
+## <a name="review-utterances"></a>Granska yttranden
+När din modell är tränade publicerade och mottagande [endpoint](luis-glossary.md#endpoint) frågor, [granska talade](label-suggested-utterances.md) föreslås av LUIS. LUIS väljer endpoint yttranden som har låg poäng för avsikt eller entitet. 
 
 ## <a name="best-practices"></a>Bästa praxis
-Granska [metodtips](luis-concept-best-practices.md) vill veta mer.
+Granska [bästa praxis](luis-concept-best-practices.md) vill veta mer.
 
 ## <a name="next-steps"></a>Nästa steg
-Se [lägger du till exempel utterances] [ add-example-utterances] information om hur du tränar en THOMAS app att förstå användaren utterances.
+Se [lägger du till exempel yttranden] [ add-example-utterances] information om hur du tränar en LUIS-app för att förstå användaren yttranden.
 
 [add-example-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-example-utterances
 [BingSpellCheck]: https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/proof-text

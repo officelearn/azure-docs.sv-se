@@ -1,72 +1,79 @@
 ---
-title: 'Exempel: Skapa en anpassad kunskap i kognitiva Sök pipeline (Azure Search) | Microsoft Docs'
-description: Visar med API översätta Text i anpassade kunskaper som mappas till en kognitiva sökning indexering pipeline i Azure Search.
+title: 'Exempel: Skapa en anpassad färdighet i kognitiv sökning pipeline (Azure Search) | Microsoft Docs'
+description: Visar hur du använder Text översätta API i anpassade färdigheter som är mappad till en kognitiv sökning indexering pipeline i Azure Search.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: 056cff192b25068fa2e895fd46d143a834b7af0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dd9bb4cb2622651c2d1979166ad838b3b337d583
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641092"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342970"
 ---
-# <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exempel: Skapa en anpassad kunskap med API översätta Text
+# <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exempel: Skapa en anpassad kunskap med hjälp av översätta Text-API
 
-I det här exemplet lär du dig hur du skapar ett web API anpassade kunskaper som accepterar text på alla språk och översätts till engelska. I exemplet används en [Azure-funktion](https://azure.microsoft.com/services/functions/) att omsluta den [översätta API: et](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) så att den implementerar gränssnittet anpassade kunskaper.
+I det här exemplet lär du dig hur du skapar ett web API anpassade färdigheter som accepterar text på valfritt språk och översätts till engelska. I exemplet används en [Azure Function](https://azure.microsoft.com/services/functions/) du omsluter den [översätta Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) så att den implementerar gränssnittet anpassade färdigheter.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-+ Läs mer om [anpassade kunskaper gränssnittet](cognitive-search-custom-skill-interface.md) artikel om du inte är bekant med in-/ utdata-gränssnitt som en anpassad kunskap ska implementera.
++ Läs mer om [anpassade färdighet gränssnittet](cognitive-search-custom-skill-interface.md) artikel om du inte är bekant med indata/utdata-gränssnitt som en anpassad färdighet bör implementera.
 
-+ [Registrera dig för översättare Text API](../cognitive-services/translator/translator-text-how-to-signup.md), och få en API-nyckel för att använda den.
++ [Registrera dig för Translator Text API](../cognitive-services/translator/translator-text-how-to-signup.md), och få en API-nyckel för att använda den.
 
-+ Installera [Visual Studio 2017 version 15,5](https://www.visualstudio.com/vs/) eller senare, inklusive Azure-utveckling arbetsbelastningen.
++ Installera [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) eller senare, inklusive arbetsbelastningen Azure development.
 
 ## <a name="create-an-azure-function"></a>Skapa en Azure-funktion
 
-Även om det här exemplet används en Azure-funktion som värd för en webb-API, är det inte krävs.  Förutsatt att du uppfyller de [gränssnitt kraven för en kognitiva kunskap](cognitive-search-custom-skill-interface.md), en metod som du har betydelse. Azure Functions dock göra det enkelt att skapa en anpassad kunskap.
+Även om det här exemplet används en Azure-funktion som värd för ett webb-API, är det inte krävs.  Förutsatt att du uppfyller de [gränssnitt för en kognitiva kunskaper](cognitive-search-custom-skill-interface.md), den metod som du använder är utan betydelse. Azure Functions kan dock göra det enkelt att skapa en anpassad kunskap.
 
 ### <a name="create-a-function-app"></a>Skapa en funktionsapp
 
-1. I Visual Studio väljer **ny** > **projekt** från menyn Arkiv.
+1. I Visual Studio väljer **New** > **projekt** från menyn Arkiv.
 
-1. Välj i dialogrutan Nytt projekt **installerad**, expandera **Visual C#** > **moln**väljer **Azure Functions**, ange en Namn för ditt projekt och välj **OK**. Funktionsappens namn måste vara ett giltigt C#-namnområde. Du kan inte använda understreck, bindestreck eller andra icke-alfanumeriska tecken.
+1. I dialogrutan Nytt projekt väljer **installerad**, expandera **Visual C#** > **molnet**väljer **Azure Functions**, ange ett Namn för projektet och välj **OK**. Funktionsappens namn måste vara ett giltigt C#-namnområde. Du kan inte använda understreck, bindestreck eller andra icke-alfanumeriska tecken.
 
-1. Välj den typ som ska vara **http-utlösare**
+1. Välj den typ som ska vara **HTTP-utlösare**
 
-1. Du kan välja för Lagringskonto **ingen**, som du inte behöver all lagring för den här funktionen.
+1. För Storage-konto kan du välja **ingen**, som du inte behöver all lagring för den här funktionen.
 
-1. Välj **OK** skapa funktionen projekt och HTTP aktiveras funktionen.
+1. Välj **OK** skapa funktionen projekt och HTTP-utlöst funktion.
 
-### <a name="modify-the-code-to-call-the-translate-cognitive-service"></a>Ändra koden för att anropa tjänsten översätta kognitiva
+### <a name="modify-the-code-to-call-the-translate-cognitive-service"></a>Ändra koden för att anropa Cognitive Service översätta
 
 Visual Studio skapar ett projekt och i det en klass som innehåller formaterad exempelkod för den valda typen. Attributet *FunctionName* i metoden anger namnet på funktionen. Attributet *HttpTrigger* anger att funktionen utlöses av en HTTP-förfrågan.
 
-Ersätt hela innehållet i filen nu *Function1.cs* med följande kod:
+Nu kan byta ut all innehållet i filen *Function1.cs* med följande kod:
 
 ```csharp
+using System;
+using System.Net.Http;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.IO;
+using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
-using System.Net.Http;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Text;
 
 namespace TranslateFunction
 {
     // This function will simply translate messages sent to it.
     public static class Function1
     {
+        static string path = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0";
+
+        // NOTE: Replace this example key with a valid subscription key.
+        static string key = "<enter your api key here>";
+
         #region classes used to serialize the response
         private class WebApiResponseError
         {
@@ -92,21 +99,16 @@ namespace TranslateFunction
         }
         #endregion
 
-
-        /// <summary>
-        /// Note that this function can translate up to 1000 characters. If you expect to need to translate more characters, use 
-        /// the paginator skill before calling this custom enricher
-        /// </summary>
         [FunctionName("Translate")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequest req, 
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequest req,
             TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
 
             string recordId = null;
             string originalText = null;
-            string originalLanguage = null;
+            string toLanguage = null;
             string translatedText = null;
 
             string requestBody = new StreamReader(req.Body).ReadToEnd();
@@ -125,24 +127,15 @@ namespace TranslateFunction
 
             recordId = data?.values?.First?.recordId?.Value as string;
             originalText = data?.values?.First?.data?.text?.Value as string;
-            originalLanguage = data?.values?.First?.data?.language?.Value as string;
+            toLanguage = data?.values?.First?.data?.language?.Value as string;
 
             if (recordId == null)
             {
                 return new BadRequestObjectResult("recordId cannot be null");
             }
 
-            // Only translate records that actually need to be translated. 
-            if (!originalLanguage.Contains("en"))
-            {
-                translatedText = TranslateText(originalText, "en-us").Result;
-            }
-            else
-            {
-                // text is already in English.
-                translatedText = originalText;
-            }
-
+            translatedText = TranslateText(originalText, toLanguage).Result;
+        
             // Put together response.
             WebApiResponseRecord responseRecord = new WebApiResponseRecord();
             responseRecord.data = new Dictionary<string, object>();
@@ -153,59 +146,53 @@ namespace TranslateFunction
             response.values = new List<WebApiResponseRecord>();
             response.values.Add(responseRecord);
 
-            return (ActionResult)new OkObjectResult(response); 
+            return (ActionResult)new OkObjectResult(response);
         }
+
 
         /// <summary>
         /// Use Cognitive Service to translate text from one language to antoher.
         /// </summary>
-        /// <param name="myText">The text to translate</param>
-        /// <param name="destinationLanguage">The language you want to translate to.</param>
+        /// <param name="originalText">The text to translate.</param>
+        /// <param name="toLanguage">The language you want to translate to.</param>
         /// <returns>Asynchronous task that returns the translated text. </returns>
-        async static Task<string> TranslateText(string myText, string destinationLanguage)
+        async static Task<string> TranslateText(string originalText, string toLanguage)
         {
-            string host = "https://api.microsofttranslator.com";
-            string path = "/V2/Http.svc/Translate";
+            System.Object[] body = new System.Object[] { new { Text = originalText } };
+            var requestBody = JsonConvert.SerializeObject(body);
 
-            // NOTE: Replace this example key with a valid subscription key.
-            string key = "064d8095730d4a99b49f4bcf16ac67f8";
+            var uri = $"{path}&to={toLanguage}";
 
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+            string result = "";
 
-            List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>() {
-                new KeyValuePair<string, string>(myText, "en-us")
-            };
-
-            StringBuilder totalResult = new StringBuilder();
-
-            foreach (KeyValuePair<string, string> i in list)
+            using (var client = new HttpClient())
+            using (var request = new HttpRequestMessage())
             {
-                string uri = host + path + "?to=" + i.Value + "&text=" + System.Net.WebUtility.UrlEncode(i.Key);
+                request.Method = HttpMethod.Post;
+                request.RequestUri = new Uri(uri);
+                request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
+                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
-                HttpResponseMessage response = await client.GetAsync(uri);
+                var response = await client.SendAsync(request);
+                var responseBody = await response.Content.ReadAsStringAsync();
 
-                string result = await response.Content.ReadAsStringAsync();
+                dynamic data = JsonConvert.DeserializeObject(responseBody);
+                result = data?.First?.translations?.First?.text?.Value as string;
 
-                // Parse the response XML
-                System.Xml.XmlDocument xmlResponse = new System.Xml.XmlDocument();
-                xmlResponse.LoadXml(result);
-                totalResult.Append(xmlResponse.InnerText); 
             }
-
-            return totalResult.ToString();
+            return result;
         }
     }
 }
 ```
 
-Se till att ange egna *nyckeln* värde i den *TranslateText* metod baserat på den nyckel som du fick när du registrerar dig för API: et för översätta Text.
+Kontrollera att du anger din egen *nyckel* värde i den *TranslateText* metod baserat på den nyckel som du fick när du registrerar dig för översätta Text-API.
 
-Det här exemplet är en enkel enricher som fungerar bara på en post i taget. Detta är viktigt senare när du ställer in batchstorlek för kunskaper.
+Det här exemplet är en enkel enricher som fungerar bara på en post i taget. Detta blir viktigt senare när du ställer in batchstorlek för gruppens kunskaper avgör.
 
 ## <a name="test-the-function-from-visual-studio"></a>Testa funktionen från Visual Studio
 
-Tryck på **F5** att köra programmet och testa funktionen beteenden. Använd Postman eller Fiddler för att utfärda ett anrop som visas nedan:
+Tryck på **F5** att köra de program och testa funktionen beteenden. I det här fallet använder vi funktionen nedan för att översätta en text på spanska till engelska. Använda Postman eller Fiddler för att utfärda en uppmaning som liknar den nedan:
 
 ```http
 POST https://localhost:7071/api/Translate
@@ -219,7 +206,7 @@ POST https://localhost:7071/api/Translate
             "data":
             {
                "text":  "Este es un contrato en Inglés",
-               "language": "es"
+               "language": "en"
             }
         }
    ]
@@ -245,22 +232,22 @@ Du bör se ett svar som liknar följande exempel:
 
 ## <a name="publish-the-function-to-azure"></a>Publicera funktionen till Azure
 
-Du kan publicera när du är nöjd med funktionsbeteende.
+När du är nöjd med funktionsbeteende, kan du publicera den.
 
-1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**. Välj **skapa nya** > **publicera**.
+1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**. Välj **skapa en ny** > **publicera**.
 
-1. Om du inte har redan anslutit Visual Studio till ditt Azure-konto, Välj **Lägg till ett konto...**
+1. Om du inte redan anslutit Visual Studio till ditt Azure-konto, väljer **Lägg till ett konto...**
 
-1. Följer den instruktionerna på skärmen. Du uppmanas att ange det Azure-kontot, resursgruppen, värd planen och storage-konto som du vill använda. Du kan skapa en ny resursgrupp, en ny värd plan och storage-konto om du inte redan har dessa. När du är klar väljer **skapa**
+1. Följ den anvisningarna på skärmen. Du uppmanas att ange Azure-konto, resursgruppens namn, värdplanen och storage-konto som du vill använda. Du kan skapa en ny resursgrupp, en ny värdplan och ett lagringskonto om du inte redan har dessa. När du är klar väljer **skapa**
 
-1. När distributionen är klar kan du Observera webbplatsens URL. Det är adressen till appen funktionen i Azure. 
+1. När distributionen är klar kan du Observera webbplatsens URL. Det är adressen till funktionsappen i Azure. 
 
-1. I den [Azure-portalen](https://portal.azure.com), navigera till resursgruppen och leta efter översätta funktionen som du har publicerat. Under den **hantera** avsnitt, bör du se Värdnycklar. Välj den **kopiera** ikonen för den *standard* värdnyckel.  
+1. I den [Azure-portalen](https://portal.azure.com), navigera till resursgruppen och leta efter funktionen översätta du publicerat. Under den **hantera** avsnittet bör du se Värdnycklar. Välj den **kopia** ikonen för den *standard* värdnyckel.  
 
 
 ## <a name="test-the-function-in-azure"></a>Testa funktionen i Azure
 
-Nu när du har värden standardnyckeln testa din funktion på följande sätt:
+Nu när du har standard-värdnyckeln kan du testa din funktion på följande sätt:
 
 ```http
 POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]
@@ -274,17 +261,17 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
             "data":
             {
                "text":  "Este es un contrato en Inglés",
-               "language": "es"
+               "language": "en"
             }
         }
    ]
 }
 ```
 
-Detta bör ge en liknande resultatet med det som du såg tidigare när du kör funktionen i den lokala miljön.
+Detta bör ge liknande resultat som du såg tidigare när du kör funktionen i den lokala miljön.
 
 ## <a name="connect-to-your-pipeline"></a>Ansluta till din pipeline
-Nu när du har nya anpassade kunskaper kan du lägga till den dina kunskaper. Exemplet nedan visar hur du anropar kompetensen. Eftersom kompetensen kan inte hantera batchar, lägger du till en instruktion för Maximal batchstorlek ska bara ```1``` dokument att skicka en i taget.
+Nu när du har en ny anpassad kunskap kan du lägga till det din kompetens. Exemplet nedan visar hur du anropar färdigheten. Eftersom färdigheten kan inte hantera batchar, lägger du till en instruktion om att Maximal batchstorlek ska bara ```1``` att skicka dokument i taget.
 
 ```json
 {
@@ -303,7 +290,7 @@ Nu när du har nya anpassade kunskaper kan du lägga till den dina kunskaper. Ex
           },
           {
             "name": "language",
-            "source": "/document/languageCode"
+            "source": "/document/destinationLanguage"
           }
         ],
         "outputs": [
@@ -320,7 +307,7 @@ Nu när du har nya anpassade kunskaper kan du lägga till den dina kunskaper. Ex
 ## <a name="next-steps"></a>Nästa steg
 Grattis! Du har skapat din första anpassade enricher. Nu kan du följa samma mönster för att lägga till dina egna anpassade funktioner. 
 
-+ [Lägg till en anpassad kunskap för en pipeline kognitiva sökning](cognitive-search-custom-skill-interface.md)
-+ [Hur du definierar en kunskaper](cognitive-search-defining-skillset.md)
-+ [Skapa kunskaper (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Utökade mappning](cognitive-search-output-field-mapping.md)
++ [Lägg till en anpassad kompetens för en pipeline för kognitiv sökning](cognitive-search-custom-skill-interface.md)
++ [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)
++ [Skapa kompetens (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Avancerad och mappning](cognitive-search-output-field-mapping.md)

@@ -1,6 +1,6 @@
 ---
-title: Planera din THOMAS program | Microsoft Docs
-description: Beskriver relevanta appen avsikter och entiteter och skapa planer för programmet i språk förstå Intelligent tjänster (THOMAS).
+title: Planera din LUIS-program | Microsoft Docs
+description: Beskriver relevanta avsikter och entiteter och sedan skapa dina program-planer i Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: DeniseMak
 manager: hsalama
@@ -9,86 +9,86 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 7aec5d5b90ac7145ce9f337ec74c590b4b88c6b1
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: c67a2c16077c9033b52a909360b21cb7f88a5a9d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266370"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344996"
 ---
-# <a name="plan-your-luis-app"></a>Planera din THOMAS app
+# <a name="plan-your-luis-app"></a>Planera din LUIS-app
 
-Det är viktigt att planera din app innan du börjar skapa i THOMAS. Förbered en disposition eller schemat för möjliga avsikter och enheter som är relevant för avsnittet domänspecifika för programmet.  
+Det är viktigt att planera din app innan du börjar skapa i LUIS. Förbered en disposition eller schemat för möjliga avsikter och entiteter som är relevanta för domänspecifika avsnittet om ditt program.  
 
 ## <a name="identify-your-domain"></a>Identifiera din domän
-En THOMAS app är uppbyggd kring ett domänspecifika ämne.  Du kan till exempel ha en resa app som utför boka biljetter, flygplan, hotell och uthyrning bilar. En annan app kan ge innehåll som rör utöva, spårning lämplighet arbete och ställa in mål. 
+En LUIS-app är uppbyggd kring ett domänspecifika ämne.  Du kanske till exempel en reseapp som utför bokning av biljetter, flyg, hotell och uthyrning bilar. En annan app kan tillhandahålla innehåll som rör utöva, spåra arbete lämplighet och ange mål. 
 
 > [!TIP]
-> THOMAS erbjuder [färdiga domäner](luis-how-to-use-prebuilt-domains.md) för många vanliga scenarier.
-> Kontrollera om du kan använda en fördefinierad domän som en startpunkt för din app.
+> LUIS erbjuder [fördefinierade domäner](luis-how-to-use-prebuilt-domains.md) för många vanliga scenarier.
+> Kontrollera om du kan använda en fördefinierade domän som en startpunkt för din app.
 
 ## <a name="identify-your-intents"></a>Identifiera dina avsikter
-Tänk på hur den [intents](luis-concept-intent.md) som är viktiga för ditt program aktivitet. Låt oss ta exempel på en app på resor, med funktioner för att boka en svarta och kontrollera väder på användarens mål. Du kan definiera ”BookFlight” och ”GetWeather” avsikter för dessa åtgärder. Du har flera avsikter i en mer komplicerad app med flera funktioner och du definiera dem noga så att den inte är specifika för. Till exempel ”BookFlight” och ”BookHotel” kan behöva separata avsikter men ”BookInternationalFlight” och ”BookDomesticFlight” kan vara för liknande.
+Tänk på hur den [avsikter](luis-concept-intent.md) som är viktiga för ditt programs uppgift. Låt oss ta exempel på en reseapp med funktioner för att boka en flygning och kontrollera vädret vid användarens mål. Du kan definiera avsikterna ”BookFlight” och ”GetWeather” för dessa åtgärder. Du har flera avsikter i mer komplexa appar med fler funktioner, och du bör definiera dem noggrant så att den inte är specifika för. Till exempel ”BookFlight” och ”BookHotel” kan behöva vara separata avsikter men ”BookInternationalFlight” och ”BookDomesticFlight” kan vara för liknande.
 
 > [!NOTE]
-> Det är bäst att bara använda så många avsikter som behövs för att fungera som din app. Om du definierar för många avsikter, blir det svårare för THOMAS att klassificera utterances korrekt. Om du definierar för några, de kan vara allmän så att de vara överlappande.
+> Det är en bra idé att bara använda så många avsikter som behövs för att fungera som din app. Om du definierar för många avsikter, blir det svårare för LUIS för att klassificera yttranden korrekt. Om du definierar för några, de kan vara så allmänt att vara överlappande.
 
 
-## <a name="identify-your-entities"></a>Identifiera dina enheter
-För att boka en svarta måste viss information som mål, datum, flygbolag, biljett kategori och reser klass. Du kan lägga till dem som [entiteter](luis-concept-entity-types.md) eftersom de är viktiga för att köra syftet. 
+## <a name="identify-your-entities"></a>Identifiera dina entiteter
+För att boka en flygning behöver viss information som mål, datum, flygbolag, biljett kategori och reser klass. Du kan lägga till dessa som [entiteter](luis-concept-entity-types.md) eftersom de är viktiga för att utföra en avsikt. 
 
-När du bestämmer vilka enheter som ska användas i din app, Kom ihåg att det finns olika typer av enheter för att samla in relationer mellan olika typer av objekt. [Entiteter i THOMAS](luis-concept-entity-types.md) ger mer detaljerad information om olika typer.
+När du bestämmer vilka entiteter som ska använda i din app, Kom ihåg att det finns olika typer av enheter för att samla in relationer mellan olika typer av objekt. [Entiteter i LUIS](luis-concept-entity-types.md) innehåller mer information om de olika typerna.
 
-### <a name="simple-entity"></a>Enkel enhet
+### <a name="simple-entity"></a>Enkel entitet
 En enkel enhet beskriver ett enda koncept.
 
 ![enkel enhet](./media/luis-plan-your-app/simple-entity.png)
 
-Se [Data extrahering](luis-concept-data-extraction.md#simple-entity-data) vill veta mer om hur du extraherar den enkla enheten från slutpunkten JSON frågesvar. Försök enkel enhet [quickstart](luis-quickstart-primary-and-secondary-data.md) vill veta mer om hur du använder en enkel enhet.
+Se [Dataextrahering](luis-concept-data-extraction.md#simple-entity-data) mer information om hur du extraherar den enkla enheten från slutpunkten JSON frågesvaret. Testa enkel enhet [snabbstarten](luis-quickstart-primary-and-secondary-data.md) mer information om hur du använder en enkel enhet.
 
 ### <a name="hierarchical-entity"></a>Hierarkisk entitet
-En hierarkisk entitet är en särskild typ av en **enkel** entitet; definierar en kategori och dess medlemmar i form av överordnade-underordnade relationen.
+En hierarkisk entitet är en särskild typ av en **enkel** entitet, definiera en kategori och dess medlemmar i form av överordnad-underordnad-relation.
 
 ![hierarkisk entitet](./media/luis-plan-your-app/hierarchical-entity.png)
 
-Se [Data extrahering](luis-concept-data-extraction.md#hierarchical-entity-data) lära dig mer om att extrahera hierarkiska entiteten från slutpunkten JSON-svar för frågan. Försök hierarkiska entiteten [quickstart](luis-quickstart-intent-and-hier-entity.md) vill veta mer om hur du använder en hierarkisk entitet.
+Se [Dataextrahering](luis-concept-data-extraction.md#hierarchical-entity-data) mer information om hur du extraherar den hierarkiska entiteten från slutpunkten JSON frågesvaret. Försök hierarkisk entiteten [snabbstarten](luis-quickstart-intent-and-hier-entity.md) mer information om hur du använder en hierarkisk entitet.
 
 ### <a name="composite-entity"></a>Sammansatt entitet
-En sammansatt entitet består av andra entiteter som bildar delar av en helhet. 
+En sammansatt entitet består av andra entiteter som utgör delar av en helhet. 
 
 ![sammansatt entitet](./media/luis-plan-your-app/composite-entity.png)
 
-Se [Data extrahering](luis-concept-data-extraction.md#composite-entity-data) lära dig mer om att extrahera sammansatt entitet från slutpunkten JSON-svar för frågan. Försök sammansatta entiteten [kursen](luis-tutorial-composite-entity.md) vill veta mer om hur du använder en sammansatt entitet.
+Se [Dataextrahering](luis-concept-data-extraction.md#composite-entity-data) mer information om hur du extraherar den sammansatta entiteten från slutpunkten JSON frågesvaret. Försök sammansatta entiteten [självstudien](luis-tutorial-composite-entity.md) mer information om hur du använder en sammansatt entitet.
 
 ### <a name="prebuilt-entity"></a>Fördefinierade entitet
-THOMAS ger [färdiga entiteter](Pre-builtEntities.md) för vanliga typer som `Number`, som du kan använda för antal biljetter i en biljett ordning.
+LUIS ger [förskapade entiteter](luis-prebuilt-entities.md) för vanliga typer som `Number`, som du kan använda för antal ärenden i en biljett ordning.
 
-![Antalet färdiga entitet](./media/luis-plan-your-app/number-entity.png)
+![Antal fördefinierade entitet](./media/luis-plan-your-app/number-entity.png)
 
-Se [Data extrahering](luis-concept-data-extraction.md#prebuilt-entity-data) lära dig mer om att extrahera reguljärt uttryck entiteter från slutpunkten JSON-svar för frågan. 
+Se [Dataextrahering](luis-concept-data-extraction.md#prebuilt-entity-data) mer information om hur du extraherar reguljärt uttryck entiteter från slutpunkten JSON frågesvaret. 
 
 ### <a name="list-entity"></a>Lista entitet 
-En entitet i listan är en explicit angiven lista med värden. Varje värde består av en eller flera synonymer. Du kan välja att skapa en lista över entitet som representerar en flygplats namn i en resa-app.
+En lista över entitet är en explicit angiven lista med värden. Varje värde består av en eller flera synonymer. Du kan välja att skapa en lista över entitet som representerar en flygplats namnen i en reseapp.
 
 ![lista entitet](./media/luis-plan-your-app/list-entity.png)
 
-Se [Data extrahering](luis-concept-data-extraction.md#list-entity-data) lära dig mer om att extrahera listan entiteter från slutpunkten JSON-svar för frågan. Försök i [quickstart](luis-quickstart-intent-and-list-entity.md) vill veta mer om hur du använder en enhet i listan.
+Se [Dataextrahering](luis-concept-data-extraction.md#list-entity-data) mer information om extrahering av listan över entiteter från slutpunkten JSON frågesvaret. Prova den [snabbstarten](luis-quickstart-intent-and-list-entity.md) mer information om hur du använder en entitet i listan.
 
 ### <a name="regular-expression-entity"></a>Reguljärt uttryck entitet
-En entitet för reguljära uttryck kan THOMAS att extrahera data från en utterance baserat på en regex-uttrycket.
+En entitet i reguljära uttryck kan LUIS för att extrahera data från ett uttryck baserat på ett regex-uttryck.
 
 ![Reguljärt uttryck entitet](./media/luis-plan-your-app/regex-entity.png)
 
-Se [Data extrahering](luis-concept-data-extraction.md#regular-expression-entity-data) lära dig mer om att extrahera reguljärt uttryck entiteter från slutpunkten JSON-svar för frågan. Försök i [quickstart](luis-quickstart-intents-regex-entity.md) vill veta mer om hur du använder ett reguljärt uttryck för entiteten.
+Se [Dataextrahering](luis-concept-data-extraction.md#regular-expression-entity-data) mer information om hur du extraherar reguljärt uttryck entiteter från slutpunkten JSON frågesvaret. Prova den [snabbstarten](luis-quickstart-intents-regex-entity.md) mer information om hur du använder en entitet för reguljärt uttryck.
 
-## <a name="after-getting-endpoint-utterances"></a>När slutpunkten utterances
-När din app hämtar endpoint utterances, planerar att implementera förutsägelse förbättringar i [active learning](label-suggested-utterances.md), [fras listor](luis-concept-feature.md), och [mönster](luis-concept-patterns.md). 
+## <a name="after-getting-endpoint-utterances"></a>När slutpunkten yttranden
+När din app hämtar endpoint yttranden, planerar att implementera förutsägelse förbättringar med [aktiv inlärning](label-suggested-utterances.md), [fras listor](luis-concept-feature.md), och [mönster](luis-concept-patterns.md). 
 
 ### <a name="patternany-entity"></a>Pattern.any entitet
-Patterns.any är en platshållare för variabel längd som används i en [mönstret](luis-concept-patterns.md) mallen utterance Markera där entiteten börjar och slutar. Mallen utterances motsvara [korrekt syntax](luis-concept-patterns.md#pattern-syntax) att identifiera enheter och kan ignoreras text.
+Patterns.any är en platshållare för variabel längd som används endast i en [mönstret](luis-concept-patterns.md) mall-uttryck för att markera där entiteten börjar och slutar. Mallen yttranden överensstämmer med [korrekt syntax](luis-concept-patterns.md#pattern-syntax) att identifiera entiteter och ignorable text.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Se [skapa din första app språk förstå Intelligent tjänster (THOMAS)] [ luis-get-started-create-app] för en snabb genomgång av hur du skapar en THOMAS.
+* Se [skapa din första app Language Understanding Intelligent Service (LUIS)] [ luis-get-started-create-app] för en snabb genomgång av hur du skapar en LUIS-app.
 
 [luis-get-started-create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app

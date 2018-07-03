@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure Automation kör som-konton
+title: Skapa Azure Automation kör som-konton
 description: I den här artikeln beskrivs hur du uppdaterar ditt Automation-konto och skapar Kör som-konton med PowerShell eller från Portal.
 services: automation
 ms.service: automation
@@ -9,17 +9,17 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c9180b3f6bf6b151909ab681d0f33bc6b3583ce0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3f6f2768e13e85edb8a314359fef0b0312a8e84d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714671"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344911"
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Uppdatera autentiseringen av ditt Automation-konto med Kör som-konton 
 Du kan uppdatera ditt befintliga Automation-konto från Azure Portal eller med PowerShell om:
 
-* Du skapar ett Automation-konto men väljer att inte skapa Kör som-kontot.
+* Du skapar ett Automation-konto men skapa inte kör som-kontot.
 * Du redan har ett Automation-konto för att hantera Resource Manager-resurser och du vill uppdatera det med ett Kör som-konto för runbook-autentisering.
 * Du redan hanterar klassiska resurser med hjälp av ett Automation-konto och du vill uppdatera det och använda det klassiska Kör som-kontot i stället för att skapa ett nytt konto och migrera dina runbookflöden och tillgångar till det.   
 
@@ -52,7 +52,7 @@ Du hämtar värdena för *SubscriptionID*, *ResourceGroup* och *AutomationAccoun
 ### <a name="required-permissions-to-update-your-automation-account"></a>Behörigheter som krävs för att uppdatera ditt Automation-konto
 För att kunna uppdatera Automation-kontot och slutföra det här avsnittet måste du ha vissa behörigheter.   
  
-* AD-användarkontot måste läggas till en roll med behörigheter som motsvarar deltagarrollen för Microsoft.Automation resurser som beskrivs i artikel [rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md#contributor).  
+* Ditt AD-användarkonto måste du lägga till en roll med behörigheter motsvarande deltagarrollen för Microsoft.Automation-resurser enligt beskrivningen i artikeln [rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md#contributor).  
 * Användare som inte är administratörer i din Azure AD-klient kan [registrera AD-program](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) om alternativet **Användare kan registrera program** för Azure AD-klienten har angetts till **Ja** på sidan **Användarinställningar**. Om **Nej** har angetts för inställningen Appregistreringar måste användaren som utför den här åtgärden vara global administratör i Azure AD.
 
 Om du inte är medlem i prenumerationens Active Directory-instans innan du läggs till i rollen som global administratör/medadministratör för prenumerationen läggs du till i Active Directory som gäst. I så fall visas varningen ”Du har inte behörighet att skapa ...” på bladet **Lägg till Automation-konto**. Användare som har tilldelats rollen som global administratör/medadministratör kan tas bort från prenumerationens Active Directory-instans och sedan läggas till igen så att de blir fullständiga användare i Active Directory. Du kan kontrollera detta i rutan **Azure Active Directory** på Azure Portal genom att välja **Användare och grupper**, välja **Alla användare**, välja den specifika användaren och sedan välja **Profil**. Värdet för attributet **Användartyp** under användarens profil bör inte vara lika med **Gäst**.
@@ -272,19 +272,19 @@ Det här PowerShell-skriptet har stöd för följande konfigurationer:
 
 Notera följande när skriptet har körts:
 * Om du skapade ett klassiskt Kör som-konto med ett självsignerat offentligt certifikat (CER-fil) skapas och sparas det av skriptet i mappen för tillfälliga filer på datorn under användarprofilen *%USERPROFILE%\AppData\Local\Temp*, som du använde för att köra PowerShell-sessionen.
-* Om du skapade ett klassiskt Kör som-konto med ett offentligt företagscertifikat (CER-fil) använder du det här certifikatet. Följ instruktionerna för [ladda upp ett hanteringscertifikat API till Azure portal](../azure-api-management-certs.md), och sedan Validera konfigurationen för serveradministratörsautentisering med klassisk distributionsresurser med hjälp av den [exempelkod för autentisering med Azure klassiska distributionsresurser](automation-verify-runas-authentication.md#classic-run-as-authentication). 
+* Om du skapade ett klassiskt Kör som-konto med ett offentligt företagscertifikat (CER-fil) använder du det här certifikatet. Följ anvisningarna för [laddar upp ett hanterings-API-certifikat till Azure-portalen](../azure-api-management-certs.md), och sedan Validera konfigurationen av autentiseringsuppgifterna med klassiska distributionsresurserna med hjälp av den [exempelkoden för autentisering med klassiska Azure-resurser](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Om du *inte* skapade ett klassiskt Kör som-konto autentiserar du med Resource Manager-resurser och verifierar konfigurationen av autentiseringsuppgifterna med hjälp av [exempelkoden för autentisering med Service Management-resurser](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
 ## <a name="limiting-run-as-account-permissions"></a>Begränsar behörigheterna kör som-konto
 
-Om du vill styra meddelanderegler för automation mot resurser i Azure Automation, beviljas kör som-kontot som standard rättigheter som deltagare i prenumeration. Om du vill begränsa vad RunAs tjänstens huvudnamn kan göra du ta bort kontot från deltagarrollen till prenumerationen och Lägg till den som en deltagare till resursgrupper som du vill ange.
+Om du vill styra inriktning för automation mot resurser i Azure Automation beviljas kör som-kontot som standard rättigheter som deltagare i prenumeration. Om du vill begränsa vad RunAs tjänstens huvudnamn kan göra kan du ta bort kontot från deltagarrollen för prenumerationen och lägga till den som deltagare till resursgrupper som du vill ange.
 
-Välj i Azure-portalen **prenumerationer** och välj prenumerationen för Automation-konto. Välj **åtkomstkontroll (IAM)** och söka efter tjänstens huvudnamn för Automation-kontot (det ser ut som \<AutomationAccountName\>_unique identifierare). Välj kontot och klicka på **ta bort** ta bort den från prenumerationen.
+I Azure-portalen väljer du **prenumerationer** och välj prenumerationen för ditt Automation-konto. Välj **åtkomstkontroll (IAM)** och söka efter tjänstens huvudnamn för ditt Automation-konto (det ser ut som \<AutomationAccountName\>_unique identifierare). Välj kontot och klicka på **ta bort** du tar bort den från prenumerationen.
 
 ![Deltagare i prenumeration](media/automation-create-runas-account/automation-account-remove-subscription.png)
 
-Om du vill lägga till tjänstens huvudnamn i en resursgrupp, välja en resursgrupp i Azure portal och välj **åtkomstkontroll (IAM)**. Välj **Lägg till**, öppnas den **lägga till behörigheter** sidan. För **rollen**väljer **deltagare**. I den **Välj** text Skriv namnet på tjänstens huvudnamn för Kör som-konto och välj i listan. Klicka på **Spara** för att spara ändringarna. Gör detta för resursgrupper som du vill ge din Azure Automation kör som service principal åtkomst till.
+Om du vill lägga till tjänstens huvudnamn till en resursgrupp, Välj resursgruppen i Azure-portalen och välj **åtkomstkontroll (IAM)**. Välj **Lägg till**, öppnas den **Lägg till behörigheter** sidan. För **rollen**väljer **deltagare**. I den **Välj** text Skriv namnet på tjänstens huvudnamn för Kör som-kontot och väljer den i listan. Klicka på **Spara** för att spara ändringarna. Gör detta för de resursgrupper som du vill ge dina Azure Automation kör som tjänstens huvudnamn åtkomst till.
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om tjänstens huvudnamn [program och tjänstens huvudnamn objekt](../active-directory/active-directory-application-objects.md).
-* Mer information om certifikat och Azure-tjänster finns [certifikat översikt för Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
+* Läs mer om tjänstens huvudnamn, [programobjekt och tjänstobjekt](../active-directory/active-directory-application-objects.md).
+* Mer information om certifikat och Azure-tjänster finns i [Certifikatöversikt för Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).

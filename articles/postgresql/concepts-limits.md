@@ -1,28 +1,28 @@
 ---
-title: Begränsningar i Azure-databas för PostgreSQL
-description: Den här artikeln beskriver begränsningar i Azure-databas för PostgreSQL, till exempel antal anslutning och lagringsalternativ för motorn.
+title: Begränsningar i Azure Database för PostgreSQL
+description: Den här artikeln beskriver begränsningar i Azure Database för PostgreSQL, till exempel antalet anslutning och lagringsalternativ för motorn.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/04/2018
-ms.openlocfilehash: 5cd829236d8d8a58e68f7bf766790aa3f0cb656e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.date: 06/30/2018
+ms.openlocfilehash: dc1f8581df5dc7c5728094577298ba078cc2c527
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757424"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37343046"
 ---
-# <a name="limitations-in-azure-database-for-postgresql"></a>Begränsningar i Azure-databas för PostgreSQL
-I följande avsnitt beskrivs kapacitet och funktionella gränser i databastjänsten för.
+# <a name="limitations-in-azure-database-for-postgresql"></a>Begränsningar i Azure Database för PostgreSQL
+I följande avsnitt beskrivs kapacitet och funktionella begränsningar i databastjänsten.
 
 ## <a name="maximum-connections"></a>Maximalt antal anslutningar
-Det maximala antalet anslutningar per prisnivå och vCores är följande: 
+Det maximala antalet anslutningar per prisnivå och virtuella kärnor är följande: 
 
-|**Prisnivå**| **vCore(s)**| **Högsta antal anslutningar** |
+|**Prisnivå**| **virtuella kärnor**| **Högsta antal anslutningar** |
 |---|---|---|
 |Basic| 1| 50 |
 |Basic| 2| 100 |
@@ -36,27 +36,30 @@ Det maximala antalet anslutningar per prisnivå och vCores är följande:
 |Minnesoptimerad| 8| 480|
 |Minnesoptimerad| 16| 950|
 
-När anslutningar överskrider gränsen, får du följande fel:
-> Oåterkalleligt fel: Det gick tyvärr redan för många klienter
+När anslutningar överskrider gränsen, kan följande felmeddelande visas:
+> Oåterkalleligt fel: tyvärr redan för många klienter
 
-Azure systemet kräver fem anslutningar till övervaka Azure-databas för PostgreSQL-servern. 
+Azure-systemet kräver fem anslutningar att övervaka Azure Database for PostgreSQL-server. 
 
 ## <a name="functional-limitations"></a>Funktionella begränsningar
 ### <a name="scale-operations"></a>Skalningsåtgärder
-1.  Dynamisk skalning av servrar över prisnivåer stöds inte för närvarande. Att växla mellan nivåerna Basic, generella eller Minnesoptimerade.
-2.  Minska lagringsstorleken för server stöds inte för närvarande.
+- Dynamisk skalning till och från grundläggande prisnivåerna stöds för närvarande inte.
+- Minska lagringsstorlek server stöds för närvarande inte.
 
-### <a name="server-version-upgrades"></a>Version serveruppgraderingarna
-- Automatisk migrering mellan större database engine versioner stöds inte för närvarande.
+### <a name="server-version-upgrades"></a>Server-versionsuppgraderingar
+- Automatisk migrering mellan större database engine-versioner stöds för närvarande inte.
 
 ### <a name="subscription-management"></a>Prenumerationshantering
-- Dynamiskt flytta servrar över prenumerationer och resursgrupper stöds inte för närvarande.
+- Dynamiskt flytta servrar över prenumerationer och resursgrupper stöds för närvarande inte.
 
-### <a name="point-in-time-restore-pitr"></a>Punkt-i-tid-återställning (PITR)
-1.  När du använder funktionen PITR, skapas den nya servern med samma konfiguration som den är baserad på-servern.
-2.  Återställa en borttagen server stöds inte.
+### <a name="vnet-service-endpoints"></a>VNet-tjänstslutpunkter
+- Stöd för VNet-tjänstslutpunkter är endast för generell användning och Minnesoptimerad servrar.
+
+### <a name="point-in-time-restore-pitr"></a>Punkt i-återställning till tidpunkt (PITR)
+- När du använder funktionen PITR, skapas den nya servern med samma konfiguration som den är baserad på-servern.
+- När du återställer en borttagen server stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
-- Förstå [vad som är tillgängligt i varje prisnivå](concepts-pricing-tiers.md)
+- Förstå [vad som finns i varje prisnivå](concepts-pricing-tiers.md)
 - Lär dig mer om [PostgreSQL-databas-versioner som stöds](concepts-supported-versions.md)
-- Granska [säkerhetskopiera och återställa en server i Azure-databas för PostgreSQL med Azure-portalen](howto-restore-server-portal.md)
+- Granska [hur du säkerhetskopierar och återställer en server i Azure Database for PostgreSQL med Azure-portalen](howto-restore-server-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: Självstudier med en fras lista för att förbättra THOMAS förutsägelser - Azure | Microsoft Docs
-description: Lägga till en fras lista till en THOMAS app i den här självstudiekursen och se förbättring av poängsättningen.
+title: Självstudie som använder en fras-lista för att förbättra LUIS förutsägelser – Azure | Microsoft Docs
+description: Lägga till en fras-lista till en LUIS-app och se förbättring av poängen i de här självstudierna.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -9,48 +9,48 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: feb8acb674fd2dc62b62c26da6a6b42515f30242
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 9f12d9e8c9ee2038e7841cd05bb438421a5a8984
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265979"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345353"
 ---
-# <a name="tutorial-add-phrase-list-to-improve-predictions"></a>Självstudier: Lägg till fras lista för att förbättra förutsägelser
-I den här självstudiekursen förbättra avsiktshantering resultat och identifiera entiteter för ord som har samma betydelse (synonymer) genom att lägga till en utbytbara [frasen listfunktionen](./luis-concept-feature.md).
+# <a name="tutorial-add-phrase-list-to-improve-predictions"></a>Självstudie: Lägg till frasen lista för att förbättra förutsägelser
+I de här självstudierna förbättra avsikt poäng och identifiera entiteter för ord som har samma innebörd (synonymer) genom att lägga till en utbytbara [frasen lista funktionen](./luis-concept-feature.md).
 
 > [!div class="checklist"]
 * Importera en ny app  
-* Frågan slutpunkten med kända utterance 
-* Fråga slutpunkten med _okänd_ utterance
-* Lägg till fras lista för att förbättra okänd utterance poäng
-* Kontrollera entiteten finns när du använder frasen lista
+* Fråga slutpunkt med kända uttryck 
+* Fråga slutpunkt med _okänd_ uttryck
+* Lägg till frasen lista för att förbättra okänt uttryck poäng
+* Kontrollera att hitta enheten när du använder frasen lista
 
-För den här artikeln behöver du ett kostnadsfritt [THOMAS] [ LUIS] konto för att kunna redigera THOMAS programmet.
+För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
 
 ## <a name="import-a-new-app"></a>Importera en ny app
-1. Hämta den [exempel THOMAS app] [ LuisSampleApp] som är utformade för den här kursen. Du kan använda den i nästa steg. 
+1. Ladda ned den [exempel LUIS-app] [ LuisSampleApp] som har utformats för den här självstudiekursen. Du kan använda den i nästa steg. 
 
-2. Enligt beskrivningen i [skapa en app](Create-new-app.md#import-new-app), importera filen som du hämtade till den [THOMAS] [ LUIS] webbplatsen som en ny app. Namnet på appen är ”min frasen listan självstudiekurs”. Det har avsikter, enheter och utterances. 
+2. Mer information finns i [skapa en app](Create-new-app.md#import-new-app), importera filen som du hämtade till den [LUIS] [ LUIS] webbplatsen som en ny app. Appens namn är ”min frasen lista självstudiekurs”. Den har avsikter och entiteter yttranden. 
 
-3. [Train](luis-how-to-train.md) din app. Förrän den har installerats kan du inte [interaktivt testa](interactive-test.md#interactive-testing) den i den [THOMAS] [ LUIS] webbplats. 
+3. [Träna](luis-how-to-train.md) din app. Förrän den har installerats kan du inte [interaktivt testa](interactive-test.md#interactive-testing) den i den [LUIS] [ LUIS] webbplats. 
 
-4. På den [publicera](PublishApp.md) väljer den **inkludera alla förutsade avsiktshantering poäng** kryssrutan. När kryssrutan är markerad, returneras alla avsikter. När kryssrutan är avmarkerad returneras endast de översta avsikten. 
+4. På den [publicera](luis-how-to-publish-app.md) väljer den **inkludera alla förutse avsikt poäng** markerar du kryssrutan. När kryssrutan är markerad, returneras alla avsikter. När kryssrutan är avmarkerad, returneras endast det främsta syftet. 
 
-5. [Publicera](PublishApp.md) appen. Publicera appen kan du testa den med hjälp av HTTPS-slutpunkten. 
+5. [Publicera](luis-how-to-publish-app.md) appen. Publicera appen kan du testa den genom att använda HTTPS-slutpunkt. 
 
-## <a name="test-a-trained-utterance"></a>Testa en tränad utterance
-Använda publicerade slutpunkten för att fråga en utterance appen känner redan. Eftersom THOMAS redan känner av utterance, poängsättningen är hög och entiteten har identifierats.
+## <a name="test-a-trained-utterance"></a>Testa en tränad uttryck
+Du kan använda den publicerade slutpunkten för att fråga ett uttryck som appen känner redan. Eftersom LUIS redan vet att uttryck, poängen är hög och entiteten har identifierats.
 
-1. På den [språk förstå (THOMAS)] [ LUIS] webbplats på den **publicera** för den nya appen, Välj slutpunkts-URL i den **resurser och nycklar**avsnitt. 
+1. På den [Språkförståelse (LUIS)] [ LUIS] webbplats, på den **publicera** för den nya appen, Välj slutpunkts-URL i den **resurser och nycklar**avsnittet. 
 
     ![Publicera slutpunkts-URL](./media/luis-tutorial-interchangeable-phrase-list/luis-publish-url.png)
 
-2. Lägg till följande fråga efter i slutet av URL-Adressen i webbläsaren, den `q=`.
+2. Lägg till följande fråga efter i slutet av Webbadressen i webbläsaren, den `q=`.
 
     `I want a computer replacement`
 
-    Slutpunkten svarar med följande JSON:
+    Slutpunkten som svarar med följande JSON:
     
     ```JSON
     {
@@ -93,25 +93,25 @@ Använda publicerade slutpunkten för att fråga en utterance appen känner reda
     }
     ```
 
-    Avsiktshantering poängen för 0.973 och entiteten identifiering poängen för 0.846 är hög eftersom appen har tränas med den här utterance. Utterance är i THOMAS appen på sidan avsiktshantering för **GetHardware**. Den utterance text `computer`, är märkt som den **maskinvara** entitet. 
+    Avsiktshantering poängen för 0.973 och entiteten identifiering poängen för 0.846 är hög eftersom appen har lärt sig med den här uttryck. Uttryck som är i LUIS-appen på sidan avsiktshantering för **GetHardware**. Det uttryck text, `computer`, är märkta som den **maskinvara** entitet. 
     
     |Status|Word| Avsiktshantering poäng | Entiteten poäng |
     |--|--|--|--|
-    |Tränats| vill | 0.973 | 0.846 |
+    |Tränas| vill | 0.973 | 0.846 |
     
     
-## <a name="test-an-untrained-utterance"></a>Testa ett omdöme utterance
-Använd samma publicerade slutpunkten frågan med ett utterance som inte redan känner till appen i webbläsaren:
+## <a name="test-an-untrained-utterance"></a>Testa ett omdöme uttryck
+Använd samma publicerade slutpunkten så att frågan med ett uttryck som inte redan känner till appen i webbläsaren:
 
 `I require a computer replacement`
 
-Den här utterance använder en synonym för tidigare utterance:
+Den här uttryck använder en synonym för föregående uttryck:
 
-| Utbildade word | Omdöme synonymen |
+| Tränade word | Omdöme synonymen |
 |--|--|
-| vill | Kräver |
+| vill | Kräv |
 
-Svaret från slutpunkten är:
+Slutpunkt-svaret är:
 
 ```JSON
 {
@@ -148,35 +148,35 @@ Svaret från slutpunkten är:
 
 | Status | Word | Avsiktshantering poäng | Entiteten poäng |
 |--|--|--|--|
-| Tränats| vill | 0.973 | 0.846 |
-| Omdöme| Kräver | 0.840 | - |
+| Tränas| vill | 0.973 | 0.846 |
+| Omdöme| Kräv | 0.840 | - |
 
-Omdöme utterance avsiktshantering poäng är lägre än för märkt utterance eftersom THOMAS vet att meningen grammatiskt är samma. Men THOMAS vet inte att utterances har samma betydelse. Dessutom utan listan frasen den **maskinvara** entiteten finns inte.
+Omdöme uttryck avsikt poängen är lägre än för den märkta uttryck eftersom LUIS vet att meningen grammatiskt är samma. Men LUIS vet inte att talade har samma innebörd. Dessutom utan listan frasen den **maskinvara** entiteten finns inte.
 
-Du måste lära THOMAS som *vill* och *kräver* betyda samma sak i denna tillämpningsdomän eftersom ett ord som kan ha fler än en betydelse. 
+Du måste lära LUIS som *vill* och *kräver* betyda samma sak i den här appen domänen eftersom ett ord som kan ha fler än en betydelse. 
 
-## <a name="improve-the-score-of-untrained-utterance-with-phrase-list"></a>Förbättra resultatet av omdöme utterance med frasen lista 
-1. Lägg till en [frasen listan](luis-how-to-add-features.md) egenskapen med namnet **vill** med värdet för `want`, och välj sedan **RETUR**.
+## <a name="improve-the-score-of-untrained-utterance-with-phrase-list"></a>Förbättra resultatet av omdöme uttryck med frasen lista 
+1. Lägg till en [frasen lista](luis-how-to-add-features.md) funktion för **vill** med värdet för `want`, och välj sedan **RETUR**.
 
     > [!TIP]
-    > Efter varje ord eller en fras, Välj den **RETUR** nyckel. Ett ord eller en fras som har lagts till i den **fras listvärden** rutan när markören hålls i den **värdet** rutan. Du kan ange flera värden snabbt med den här funktionen.
+    > När du har varje ord eller fraser, väljer den **RETUR** nyckel. Ordet eller frasen läggs till i den **fras listvärden** rutan samtidigt som markören fortfarande är i den **värdet** box. Du kan ange flera värden snabbt med den här funktionen.
 
-2. Om du vill visa de ord som THOMAS rekommenderar **rekommenderar**. 
+2. Om du vill visa de ord som LUIS rekommenderar, Välj **rekommenderar**. 
 
     ![Rekommendera värden](./media/luis-tutorial-interchangeable-phrase-list/recommend.png)
 
-3. Lägg till alla ord. Om `require` är inte i den rekommenderade listan Lägg till den som ett obligatoriskt värde. 
+3. Lägg till alla orden. Om `require` är inte i listan med rekommenderade lägga till det som ett obligatoriskt värde. 
 
-4. Eftersom dessa ord synonymer kan hålla den *utbytbara* inställningen och välj sedan **spara**.
+4. Eftersom dessa ord är synonymer kan hålla den *utbytbara* inställning och välj sedan **spara**.
 
-    ![Frasen listvärden](./media/luis-tutorial-interchangeable-phrase-list/phrase-list-values.png)
+    ![Fras listvärden](./media/luis-tutorial-interchangeable-phrase-list/phrase-list-values.png)
 
-5. I det övre navigeringsfältet väljer **träna** för att träna appen, men inte publicera den. Nu har du två modeller. Du kan jämföra värdena i de två modellerna.
+5. I det övre navigeringsfältet väljer **träna** att träna appen, men inte publicerar den. Nu har du två modeller. Du kan jämföra värden i de två modellerna.
 
-## <a name="compare-the-phrase-list-model-to-the-published-model"></a>Jämför frasen listan modellen till publicerade modellen
-Publicerade modellen har inte tränats med synonymerna i den här appen. För närvarande redigerade modellen innehåller frasen listan över synonymer. Om du vill jämföra modeller, Använd [interaktiva testa](interactive-test.md#interactive-testing). 
+## <a name="compare-the-phrase-list-model-to-the-published-model"></a>Jämför listan frasen modellen till den publicerade modellen
+I den här appen är inte publicerade modellen tränas med synonymerna. Endast just redigerat modellen innehåller frasen lista med synonymer. Om du vill jämföra modeller, använda [interaktiva testning](interactive-test.md#interactive-testing). 
 
-1. Öppna den **Test** rutan och ange följande utterance:
+1. Öppna den **Test** fönstret och ange följande uttryck:
 
     `I require a computer replacement`
 
@@ -184,23 +184,23 @@ Publicerade modellen har inte tränats med synonymerna i den här appen. För n�
 
     ![Välj inspektera](./media/luis-tutorial-interchangeable-phrase-list/inspect-button.png)
 
-3. Om du vill jämföra publicerade modellen till den nya modellen i frasen listan, Välj **Jämför med publicerade**.
+3. Om du vill jämföra den publicerade modellen till den nya modellen i frasen listan, Välj **Jämför med publicerade**.
 
-    ![Inspektera publicerade jämfört med aktuella](./media/luis-tutorial-interchangeable-phrase-list/inspect.png)
+    ![Inspektera publicerade gentemot ström](./media/luis-tutorial-interchangeable-phrase-list/inspect.png)
 
-När du lägger till listan frasen ökad korrektheten i utterance och **maskinvara** hitta enheten. 
+När du lägger till listan frasen ökad riktighet i uttryck och **maskinvara** hitta enheten. 
 
-|Status | Frasen lista| Avsiktshantering poäng | Entiteten poäng |
+|Status | Fras lista| Avsiktshantering poäng | Entiteten poäng |
 |--|--|--|--|
 | Publicerad | - | 0,84 | - |
-| Redigerar |✔| 0.92 | Maskinvaruenhet som identifieras |
+| Redigerar |✔| 0.92 | Maskinvara person |
 
 > [!TIP]
-> * Med hjälp av [interaktiva testning](interactive-test.md#interactive-testing), kan du jämföra publicerade modellen på alla utbildade ändringar som görs när du har publicerat. 
-> * Med hjälp av [Endpoint testning](PublishApp.md#test-your-published-endpoint-in-a-browser), kan du visa det exakta svaret THOMAS JSON. 
+> * Med hjälp av [interaktiva testning](interactive-test.md#interactive-testing), kan du jämföra den publicerade modellen för att alla tränade ändringar som görs när du har publicerat. 
+> * Med hjälp av [Endpoint testning](luis-how-to-publish-app.md#test-your-published-endpoint-in-a-browser), du kan visa det exakta LUIS-svaret JSON. 
 
-## <a name="get-the-entity-score-with-the-endpoint-test"></a>Hämta entiteten poäng endpoint-test
-Visa entitet poäng, [publicera modellen](PublishApp.md) och fråga slutpunkten. 
+## <a name="get-the-entity-score-with-the-endpoint-test"></a>Hämta entity-poäng med slutpunkt-test
+Visa entitet poäng, [publicera modellen](luis-how-to-publish-app.md) och skicka frågor till slutpunkten. 
 
 `I require a computer replacement`
 
@@ -245,21 +245,21 @@ Visa entitet poäng, [publicera modellen](PublishApp.md) och fråga slutpunkten.
 }
 ```
 
-Den **maskinvara** entiteten visar ett resultat på 0.595 med frasen listan. Innan listan frasen fanns hittades entiteten inte. 
+Den **maskinvara** entiteten visar ett resultat på 0.595 innehåller frasen-listan. Innan det fanns listan frasen har entiteten inte identifierats. 
 
-|Status | Frasen lista| Avsiktshantering poäng | Entiteten poäng |
+|Status | Fras lista| Avsiktshantering poäng | Entiteten poäng |
 |--|--|--|--|
 | Publicerad | - | 0,84 | - |
 | Redigerar |✔| 0.92 | 0.595 |
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort THOMAS appen när de inte längre behövs. Om du vill göra det, väljer du menyn med tre punkter (...) till höger om appnamnet i applistan väljer **ta bort**. I popup-fönstret **ta bort appen?** väljer **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du menyn med tre punkter (...) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hämta utterance förutsägelse med slutpunkten fråga](luis-get-started-cs-get-intent.md)
+> [Hämta uttryck förutsägelse med slutpunkt-fråga](luis-get-started-cs-get-intent.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 [LuisFeatures]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature

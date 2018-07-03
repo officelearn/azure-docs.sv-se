@@ -1,54 +1,54 @@
 ---
-title: " Hantera konfigurationsservern för katastrofåterställning för fysisk server med Azure Site Recovery | Microsoft Docs"
-description: Den här artikeln beskriver hur du hanterar en befintlig server konfiguration för fysisk server katastrofåterställning till Azure med Azure Site Recovery-tjänsten.
+title: " Hantera konfigurationsservern för fysisk server haveriberedskap med Azure Site Recovery | Microsoft Docs"
+description: Den här artikeln beskriver hur du hanterar en befintlig konfigurationsservern för fysisk server haveriberedskap till Azure med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 07/01/2018
 ms.author: anoopkv
-ms.openlocfilehash: 580d32a51f6b38916ddccd46784b80b1179c29c4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0b30e4df71bae631366e81ebd2d4e1c467981fbe
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598871"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341968"
 ---
-# <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurationsservern för fysisk server katastrofåterställning
+# <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurationsservern för fysisk server disaster recovery
 
-Du konfigurerar en lokal konfigurationsservern när du använder den [Azure Site Recovery](site-recovery-overview.md) tjänsten för katastrofåterställning av fysiska servrar till Azure. Konfigurationsservern samordnar kommunikationen mellan lokala datorer och Azure och hanterar datareplikering. Den här artikeln beskrivs vanliga uppgifter för att hantera konfigurationsservern när de har distribuerats.
+Du ställer in en konfigurationsservern lokalt när du använder den [Azure Site Recovery](site-recovery-overview.md) för haveriberedskap för fysiska servrar till Azure. Konfigurationsservern samordnar kommunikationen mellan lokala datorer och Azure och hanterar datareplikering. Den här artikeln sammanfattas vanliga uppgifter för att hantera configuration server när det har distribuerats.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-I tabell sammanfattas de nödvändiga förutsättningar för distribution av den lokala configuration server-datorn.
+I tabell sammanfattas de nödvändiga förutsättningarna för att distribuera den lokala configuration server-datorn.
 
 | **Komponent** | **Krav** |
 | --- |---|
 | Processorkärnor| 8 |
 | RAM | 16 GB|
-| Antal diskar | 3, inklusive OS-disk, disk för processen server cache och kvarhållningsenhetens för återställning efter fel |
+| Antal diskar | 3, inklusive OS-disk, processerverns cachedisk och kvarhållningsenhet för återställning efter fel |
 | Ledigt diskutrymme (processerverns cacheminne) | 600 GB
 | Ledigt diskutrymme (kvarhållningsdisken) | 600 GB|
 | Operativsystem  | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Nationella inställningar för operativsystem | English (US)|
 | VMware vSphere PowerCLI-version | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Windows Server-roller | Aktivera inte dessa roller: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
-| Grupprinciper| Aktivera inte dessa grupp-principer: <br> -Förhindra åtkomst till via Kommandotolken <br> -Förhindra åtkomst till verktyg för redigering av registret <br> -Förtroende för bifogade filer <br> -Aktivera körning av skript <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-| IIS | -Ingen befintlig standardwebbplatsen <br> -Aktivera [anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) inställning  <br> -Ingen befintlig webbplats/program som lyssnar på port 443<br>|
-| NIC-typ | VMXNET3 (när distribueras som en VM VMware) |
+| Grupprinciper| Aktivera inte dessa grupp-principer: <br> -Förhindra åtkomst till kommandoprompten <br> -Förhindra åtkomst till registerredigeringsverktygen <br> -Förtroende för bifogade filer <br> -Aktivera körning av skript <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+| IIS | – Ingen befintlig standardwebbplatsen <br> -Aktivera [anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) inställningen  <br> – Ingen befintlig webbplats/program som lyssnar på port 443<br>|
+| Typ av nätverkskort | VMXNET3 (när distribueras som en VMware VM) |
 | IP-adresstyp | Statisk |
-| Internet-åtkomst | Servern behöver åtkomst till dessa webbadresser: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> -dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (krävs inte för skalbara servrar) <br> - time.nist.gov <br> - time.windows.com |
+| Internet-åtkomst | Servern måste ha åtkomst till dessa webbadresser: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> -dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (krävs inte för skala ut Processervrar) <br> - time.nist.gov <br> - time.windows.com |
 | Portar | 443 (kontrolkanalsorchestration)<br>9443 (dataöverföring)|
 
-## <a name="download-the-latest-installation-file"></a>Hämta installationsfilen för senaste
+## <a name="download-the-latest-installation-file"></a>Ladda ned den senaste klientinstallationsfilen
 
-Den senaste versionen av filen configuration server-installation finns i Site Recovery-portalen. Dessutom kan hämta direkt från den [Microsoft Download Center](http://aka.ms/unifiedsetup).
+Den senaste versionen av installationsfilen för configuration server är tillgänglig i Site Recovery-portalen. Dessutom kan den kan hämtas direkt från den [Microsoft Download Center](http://aka.ms/unifiedsetup).
 
-1. Logga in på Azure-portalen och bläddra till Recovery Services-ventilen.
+1. Logga in på Azure portal och bläddra till ditt Recovery Services-valv.
 2. Bläddra till **Site Recovery-infrastruktur** > **Konfigurationsservrar** (under för VMware och fysiska datorer).
 3. Klicka på den **+ servrar** knappen.
 4. På den **Lägg till Server** klickar du på knappen ladda ned för att ladda ned Registreringsnyckeln. Du behöver den här nyckeln under installationen av Configuration Server för att registrera den med Azure Site Recovery-tjänsten.
-5. Klicka på den **ladda ned Microsoft Azure Site Recovery Unified installationsprogram** länk för att hämta den senaste versionen av konfigurationsservern.
+5. Klicka på den **ladda ned Microsoft Azure Site Recovery enhetliga installationsprogrammet** länken för att hämta den senaste versionen av konfigurationsservern.
 
   ![Hämtningssidan](./media/physical-manage-configuration-server/downloadcs.png)
 
@@ -63,9 +63,9 @@ Den senaste versionen av filen configuration server-installation finns i Site Re
 3. I **Third Party Software License** (Licens för programvara från tredje part) klickar du på **I Accept** (Jag accepterar) för att ladda ned och installera MySQL.
 4. I **Internet Settings** (Internetinställningar) anger du hur providern som körs på konfigurationsservern ska ansluta till Azure Site Recovery via internet. Kontrollera att du har tillåtit URL: er som krävs.
 
-    - Om du vill ansluta till proxyservern som för närvarande har ställts in på datorn, väljer **Anslut till Azure Site Recovery via en proxyserver**.
-    - Om du vill att providern ska ansluta direkt väljer **Anslut direkt till Azure Site Recovery utan en proxyserver**.
-    - Om den befintliga proxyservern kräver autentisering, eller om du vill använda en anpassad proxyserver för Provider-anslutning väljer **Anslut med anpassade proxyinställningar**, och ange adress, port och autentiseringsuppgifter.
+    - Om du vill ansluta till proxyservern som för närvarande har ställts in på datorn väljer **Anslut till Azure Site Recovery med proxyserver**.
+    - Om du vill att providern ska ansluta direkt väljer **Anslut direkt till Azure Site Recovery utan proxyserver**.
+    - Om den befintliga proxyservern kräver autentisering, eller om du vill använda en anpassad proxyserver för provideranslutningen, väljer **Anslut med anpassade proxyinställningar**, och ange adressen, porten och autentiseringsuppgifterna.
      ![Brandvägg](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. I **Kravkontroll** körs en kontroll för att se till att installationen kan köras. Om det visas en varning om **synkroniseringskontrollen för global tid** kontrollerar du att systemklockans tid (inställningarna för **datum och tid**) är samma som tidszonen.
 
@@ -73,7 +73,7 @@ Den senaste versionen av filen configuration server-installation finns i Site Re
 7. I **MySQL Configuration** (MySQL-konfiguration) skapar du autentiseringsuppgifter för att logga in på den MySQL-serverinstans som är installerad.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
-8. I **Miljöinformation** väljer du om du ska replikera virtuella VMwares-datorer. Om du kan sedan kontrolleras att PowerCLI 6.0 är installerad.
+8. I **Miljöinformation** väljer du om du ska replikera virtuella VMwares-datorer. Om du kan sedan kontrollerar installationen att PowerCLI 6.0 är installerat.
 9. I **Installationsplats** väljer du om du vill installera binärfilerna och lagra cachen. Enheten du väljer måste ha minst 5 GB tillgängligt utrymme, men vi rekommenderar en cacheenhet med 600 GB eller mer ledigt utrymme.
 
     ![Installationsplats](./media/physical-manage-configuration-server/combined-wiz8.png)
@@ -98,7 +98,7 @@ Kör installationsfilen på följande sätt:
 
 ### <a name="sample-usage"></a>Exempel på användning
   ```
-  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted
   UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
   ```
@@ -125,7 +125,7 @@ Kör installationsfilen på följande sätt:
 
 
 
-### <a name="create-file-input-for-mysqlcredsfilepath"></a>Skapa filen indata för MYSQLCredsFilePath
+### <a name="create-file-input-for-mysqlcredsfilepath"></a>Skapa fil som indata för MYSQLCredsFilePath
 
 Parametern MySQLCredsFilePath använder en fil som indata. Skapa filen med följande format och skickar den som indataparameter till MySQLCredsFilePath.
 ```
@@ -133,8 +133,8 @@ Parametern MySQLCredsFilePath använder en fil som indata. Skapa filen med följ
 MySQLRootPassword = "Password>"
 MySQLUserPassword = "Password"
 ```
-### <a name="create-file-input-for-proxysettingsfilepath"></a>Skapa filen indata för ProxySettingsFilePath
-Parametern ProxySettingsFilePath använder en fil som indata. Skapa filen med följande format och skickar den som indataparameter till ProxySettingsFilePath.
+### <a name="create-file-input-for-proxysettingsfilepath"></a>Skapa fil som indata för ProxySettingsFilePath
+ProxySettingsFilePath parametern använder en fil som indata. Skapa filen med följande format och skickar den som indataparameter till ProxySettingsFilePath.
 
 ```
 [ProxySettings]
@@ -146,16 +146,16 @@ ProxyPassword="Password"
 ```
 ## <a name="modify-proxy-settings"></a>Ändra proxyinställningar för
 
-Du kan ändra proxyinställningar för den configuration server-datorn på följande sätt:
+Du kan ändra proxyinställningarna för configuration server-dator på följande sätt:
 
 1. Logga in på konfigurationsservern.
-2. Starta cspsconfigtool.exe med genvägen på din.
-3. Klicka på den **valvet registrering** fliken.
-4. Hämtar en ny fil i valvet registrering från portalen och ange den som indata till verktyget.
+2. Starta cspsconfigtool.exe hjälp genvägen på din.
+3. Klicka på den **Vault registrering** fliken.
+4. Hämta en ny fil i valvet registrering från portalen och ange den som indata för verktyget.
 
   ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Ange nya proxyinformationen och klicka på den **registrera** knappen.
-6. Öppna ett kommandofönster Admin PowerShell.
+6. Öppna en Admin PowerShell-kommandofönster.
 7. Kör följande kommando:
   ```
   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -165,16 +165,16 @@ Du kan ändra proxyinställningar för den configuration server-datorn på följ
   ```
 
   >[!WARNING]
-  Om du har ytterligare processer servrar som är kopplade till konfigurationsservern måste du [åtgärda proxyinställningarna på alla servrar som skalbara processen](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) i distributionen.
+  Om du har ytterligare processervrar som är anslutna till konfigurationsservern kan du behöva [åtgärda proxyinställningarna på alla processervrar som skalbara](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) i distributionen.
 
-## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Registrera en konfigurationsserver med samma valvet
-  1. Logga in på din av konfigurationsservern.
-  2. Starta cspsconfigtool.exe använder genvägen på skrivbordet.
-  3. Klicka på den **valvet registrering** fliken.
-  4. Hämtar en ny registreringsfil från portalen och ange den som indata till verktyget.
+## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Registrera en konfigurationsserver med samma valv
+  1. Logga in på konfigurationsservern.
+  2. Starta cspsconfigtool.exe hjälp genvägen på skrivbordet.
+  3. Klicka på den **Vault registrering** fliken.
+  4. Hämta en ny registreringsfil från portalen och ange den som indata för verktyget.
         ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-  5. Ange en proxyserver information och klicka på den **registrera** knappen.  
-  6. Öppna ett kommandofönster Admin PowerShell.
+  5. Ange proxyservern information och klicka på den **registrera** knappen.  
+  6. Öppna en Admin PowerShell-kommandofönster.
   7. Kör följande kommando
 
       ```
@@ -185,25 +185,25 @@ Du kan ändra proxyinställningar för den configuration server-datorn på följ
       ```
 
   >[!WARNING]
-  Om du har flera processervern, behöver du [registrera dem](vmware-azure-manage-process-server.md#reregister-a-process-server).
+  Om du har flera processervern kan du behöva [registrera om dem](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
-## <a name="register-a-configuration-server-with-a-different-vault"></a>Registrera en server configuration med ett annat valv
+## <a name="register-a-configuration-server-with-a-different-vault"></a>Registrera en konfigurationsserver med ett annat valv
 
 > [!WARNING]
-> Följande steg tar bort associationen konfigurationsservern från det aktuella valvet och replikering av alla skyddade virtuella datorer under konfigurationsservern har stoppats.
+> Följande steg tas konfigurationsservern från aktuella valvet och replikering av alla skyddade virtuella datorer under configuration server har stoppats.
 
 1. Logga in på konfigurationsservern
-2. Kör kommandot från en administratör i Kommandotolken:
+2. från Kommandotolken som administratör, kör du kommandot:
 
     ```
     reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
     net stop dra
     ```
-3. Starta cspsconfigtool.exe använder genvägen på skrivbordet.
-4. Klicka på den **valvet registrering** fliken.
-5. Hämtar en ny registreringsfil från portalen och ange den som indata till verktyget.
-6. Ange en proxyserver information och klicka på den **registrera** knappen.  
-7. Öppna ett kommandofönster Admin PowerShell.
+3. Starta cspsconfigtool.exe hjälp genvägen på skrivbordet.
+4. Klicka på den **Vault registrering** fliken.
+5. Hämta en ny registreringsfil från portalen och ange den som indata för verktyget.
+6. Ange proxyservern information och klicka på den **registrera** knappen.  
+7. Öppna en Admin PowerShell-kommandofönster.
 8. Kör följande kommando
     ```
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -216,68 +216,68 @@ Du kan ändra proxyinställningar för den configuration server-datorn på följ
 
 Du kan köra samlade uppdateringar för att uppdatera konfigurationsservern. Uppdateringar kan användas för upp till N-4 versioner. Exempel:
 
-- Om du kör 9.7 9.8, 9.9 eller 9.10 - kan du uppgradera direkt till 9.11.
+- Om du kör 9.7, 9.8, 9.9 eller 9.10 – kan du uppgradera direkt till 9.11.
 - Om du kör 9,6 eller tidigare och du vill uppgradera till 9.11, måste du först uppgradera till version 9.7. innan du 9.11.
 
-Länkar till samlade uppdateringar för uppgradering av alla versioner av konfigurationsservern är tillgängliga i den [uppdateringar wiki-sida](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+Länkar till samlade uppdateringar för att uppgradera till alla versioner av konfigurationsservern är tillgängliga i den [wiki-sida för uppdateringar](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
 
 Uppgradera servern på följande sätt:
 
-1. Hämta installationsfilen för uppdateringen till konfigurationsservern.
+1. Ladda ned installationsfilen för uppdateringen till konfigurationsservern.
 2. Dubbelklicka för att köra installationsprogrammet.
 3. Installationsprogrammet identifierar den aktuella versionen som körs på datorn.
 4. Klicka på **OK** att bekräfta och köra uppgraderingen. 
 
 
-## <a name="delete-or-unregister-a-configuration-server"></a>Ta bort eller avregistrera en konfigurationsserver
+## <a name="delete-or-unregister-a-configuration-server"></a>Ta bort eller Avregistrerar en konfigurationsserver
 
 > [!WARNING]
-> Kontrollera följande innan du börjar inaktivering av serverns konfiguration.
-> 1. [Inaktivera skyddet](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) för alla virtuella datorer under den här konfigurationen-servern.
-> 2. [Avassociera](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) och [ta bort](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) alla replikeringsprinciper från konfigurationsservern.
-> 3. [Ta bort](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) alla Vcenter-servrar/vSphere-värdar som är kopplade till konfigurationsservern.
+> Kontrollera följande innan du börjar ställa av konfigurationsservern.
+> 1. [Inaktivera skyddet](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) för alla virtuella datorer under den här konfigurationsservern.
+> 2. [Ta bort koppling till](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) och [ta bort](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) alla replikeringsprinciper från konfigurationsservern.
+> 3. [Ta bort](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) alla vCenters servrar/vSphere-värdar som är kopplade till konfigurationsservern.
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Ta bort konfigurationsservern från Azure-portalen
-1. Bläddra till i Azure-portalen **Site Recovery-infrastruktur** > **Konfigurationsservrar** på menyn valvet.
-2. Klicka på konfigurationsservern som du vill inaktivera.
-3. På den konfigurationsservern information klickar du på den **ta bort** knappen.
+1. I Azure-portalen bläddrar du till **Site Recovery-infrastruktur** > **Konfigurationsservrar** valvmenyn.
+2. Klicka på configuration server som du vill inaktivera.
+3. Konfigurationsserverns informationssidan, klicka på den **ta bort** knappen.
 4. Klicka på **Ja** att bekräfta borttagningen av servern.
 
-### <a name="uninstall-the-configuration-server-and-its-dependencies"></a>Avinstallera konfigurationsservern och dess beroenden
+### <a name="uninstall-the-configuration-server-and-its-dependencies"></a>Avinstallera configuration server och dess beroenden
   > [!TIP]
-  Om du tänker återanvända konfigurationsservern med Azure Site Recovery igen kan sedan du hoppa till steg 4 direkt
+  Om du planerar att återanvända konfigurationsservern med Azure Site Recovery igen kan hoppa du till steg 4 direkt
 
-1. Logga in på av konfigurationsservern som administratör.
+1. Logga in på konfigurationsservern som en administratör.
 2. Öppna Kontrollpanelen > Program > avinstallera program
 3. Avinstallera program i följande ordning:
   * Microsoft Azure Recovery Services-agent
-  * Microsoft Azure Site Recovery Mobility tjänsten eller Huvudtjänsten målservern
+  * Microsoft Azure Site Recovery Mobility Service/huvudmålservern
   * Microsoft Azure Site Recovery-providern
-  * Server-processen för Microsoft Azure Site Recovery konfigurationsservern
-  * Microsoft Azure Site Recovery Configuration Server beroenden
+  * Microsoft Azure Site Recovery Configuration Server/Processerver
+  * Microsoft Azure Site Recovery Configuration Serverberoenden
   * MySQL-Server 5.5
-4. Kör följande kommando från och admin-kommandotolk.
+4. Kör följande kommando från och kommandotolk för administratör.
   ```
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
   ```
 
-## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Ta bort eller avregistrera konfigurationsservern (PowerShell)
+## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Ta bort eller Avregistrerar en konfigurationsserver (PowerShell)
 
 1. [Installera](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell-modulen
-2. Logga in till ditt Azure-konto med hjälp av kommandot
+2. Logga in på till ditt Azure-konto med hjälp av kommandot
     
     `Connect-AzureRmAccount`
 3. Välj den prenumeration som valvet finns
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
-3.  Nu konfigurerat valvet-kontexten
+3.  Nu ställa in valvets sammanhang
     
     ```
     $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
     Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
     ```
-4. Hämta väljer din konfigurationsservern
+4. Hämta väljer konfigurationsservern
 
     `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Ta bort konfigurationsservern
@@ -285,23 +285,23 @@ Uppgradera servern på följande sätt:
     `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
 
 > [!NOTE]
-> Den **-tvinga** alternativ i Remove-AzureRmSiteRecoveryFabric kan användas för att Framtvinga borttagning/borttagning av konfigurationsservern.
+> Den **-tvinga** alternativ i Remove-AzureRmSiteRecoveryFabric kan användas för att Framtvinga borttagning av/borttagning av konfigurationsservern.
 
 ## <a name="renew-ssl-certificates"></a>Förnya SSL-certifikat
-Konfigurationsservern har en webbserver som samordnar aktiviteter för tjänsten Mobility, servrar och huvudmålservern servrar som är anslutna till den inbyggda. Webbservern använder ett SSL-certifikat för att autentisera klienter. Certifikatet upphör att gälla efter tre år och kan förnyas när som helst.
+Konfigurationsservern har en inbyggd webbserver som samordnar aktiviteter av Mobility service, processervrar och huvudmålservrar som är anslutna till den. Webbservern använder ett SSL-certifikat för att autentisera klienter. Certifikatet upphör att gälla efter tre år och kan förnyas när som helst.
 
-### <a name="check-expiry"></a>Kontrollera upphör att gälla
+### <a name="check-expiry"></a>Kontrollera förfallodatum
 
-För configuration-serverdistribution före maj 2016 har certifikatet upphör att gälla angetts till ett år. Om du har upphör ett certifikat att gälla, inträffar följande:
+Certifikatets förfallodatum angavs för configuration server-distributioner innan maj 2016, till ett år. Om du har upphör ett certifikat att gälla, inträffar följande:
 
 - När utgångsdatum är två månader eller mindre, tjänsten börjar skicka meddelanden i portalen och via e-post (om du prenumererar på Azure Site Recovery-meddelanden).
-- En meddelandebanderoll visas på sidan valvet resurs. Klicka på listen för mer information.
-- Om du ser en **uppgradera nu** knappen, anger detta att det finns vissa komponenter i din miljö som inte har uppgraderats till 9.4.xxxx.x eller senare versioner. Uppgradera komponenterna innan du förnya certifikatet. Du kan inte förnya på äldre versioner.
+- En meddelandebanderoll visas på resurssidan för valvet. Klicka på banderollen för mer information.
+- Om du ser en **uppgradera nu** knappen Detta indikerar att det finns vissa komponenter i din miljö som inte har uppgraderats till 9.4.xxxx.x eller senare versioner. Uppgradera komponenterna innan du förnyar certifikatet. Du kan inte förnya på äldre versioner.
 
 ### <a name="renew-the-certificate"></a>Förnya certifikatet
 
-1. Öppna i valvet, **Site Recovery-infrastruktur** > **konfigurationsservern**, och klicka på krävs konfigurationsservern.
-2. Utgångsdatum visas under **konfigurationsservern hälsa**
+1. Öppna i valvet, **Site Recovery-infrastruktur** > **konfigurationsservern**, och klicka på den obligatoriska konfiguration-servern.
+2. Utgångsdatum visas under **konfigurationsservern hälsotillstånd**
 3. Klicka på **förnya certifikat**. 
 
 
@@ -312,5 +312,5 @@ För configuration-serverdistribution före maj 2016 har certifikatet upphör at
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska självstudier för att ställa in katastrofåterställning av [fysiska servrar](tutorial-physical-to-azure.md) till Azure.
+Gå igenom självstudierna för att konfigurera haveriberedskap för [fysiska servrar](tutorial-physical-to-azure.md) till Azure.
 

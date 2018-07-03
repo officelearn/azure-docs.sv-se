@@ -1,7 +1,7 @@
 ---
-title: Profilering av en tjänst i molnet lokalt i Beräkningsemulatorn | Microsoft Docs
+title: Profilering av en molntjänst lokalt i Beräkningsemulatorn | Microsoft Docs
 services: cloud-services
-description: Undersöka prestandaproblem i molntjänster med Visual Studio-profiler
+description: Undersöka prestandaproblem i cloud services med Visual Studio profiler
 documentationcenter: ''
 author: mikejo
 manager: douge
@@ -15,35 +15,35 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 8ff7b88a3086488ab669288687c274237ca30b47
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ea46039583681bd89e254d153997e3a300041d4e
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30284565"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341362"
 ---
-# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testa prestanda för en tjänst i molnet lokalt i Azure-Beräkningsemulatorn med hjälp av Visual Studio-Profiler
+# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testa prestanda hos en molntjänst lokalt i Azure-Beräkningsemulatorn med hjälp av Visual Studio Profiler
 En mängd olika verktyg och tekniker som är tillgängliga för att testa prestanda för molntjänster.
-När du publicerar en tjänst i molnet till Azure kan du har Visual Studio samla in profileringsdata och analysera den lokalt, enligt beskrivningen i [profilering ett Azure-program][1].
-Du kan också använda diagnostik för att spåra ett antal prestandaräknare, enligt beskrivningen i [med hjälp av prestandaräknare i Azure][2].
-Du kanske också vill profilen programmet lokalt i beräkningsemulatorn innan du distribuerar den till molnet.
+När du publicerar en molnbaserad tjänst på Azure kan du har Visual Studio samlar in profildata och analysera den lokalt, enligt beskrivningen i [profilering ett Azure-program][1].
+Du kan också använda diagnostik för att spåra en mängd olika prestandaräknare, enligt beskrivningen i [med prestandaräknare i Azure][2].
+Du kanske också vill Profilera ditt program lokalt i beräkningsemulatorn innan du distribuerar den till molnet.
 
-Artikeln handlar om CPU-samplingsmetoden för profilering som kan göras lokalt i emulatorn. CPU-provtagning är en metod för profilering som inte är mycket påträngande. Vid ett avsedda exempelintervall tar profileraren en ögonblicksbild av anropsstacken. Data som samlas in under en viss tidsperiod och visas i en rapport. Den här metoden för profilering tenderar att ange där i ett beräkningsmässigt intensiva program mesta av arbetet CPU görs.  Detta ger dig möjlighet att fokusera på ”varm sökvägen” där programmet tillbringar mest tid.
+Artikeln handlar om CPU-samplingsmetoden för profilering som kan göras lokalt i emulatorn. CPU-sampling är en metod för profilering som inte är mycket påträngande. Vid ett avsedda exempelintervall tar profiler en ögonblicksbild av anropsstacken. Data som samlas in under en viss tidsperiod och visas i en rapport. Profileringsmetoden tenderar att ange var i ett beräkningsintensivt program de flesta av CPU-arbetet sker.  Detta ger dig möjlighet att fokusera på den ”heta sökvägen” där ditt program ödslar mest tid.
 
-## <a name="1-configure-visual-studio-for-profiling"></a>1: Konfigurera Visual Studio för profilering
-Det finns först ett fåtal konfigurationsalternativ för Visual Studio som kan vara användbara när profilering. Om du vill vara meningsfullt profilering rapporter behöver symboler (.pdb-filer) för programmet och även symboler för bibliotek. Du vill kontrollera att du refererar till de tillgängliga symbol-servrarna. Gör på den **verktyg** -menyn i Visual Studio väljer **alternativ**, Välj **Debugging**, sedan **symboler**. Kontrollera att Microsoft Symbol-servrar visas **Symbol filplatser (.pdb)**.  Du kan också referera http://referencesource.microsoft.com/symbols, som kan ha ytterligare symbol-filer.
+## <a name="1-configure-visual-studio-for-profiling"></a>1: Konfigurera Visual Studio för att profilera
+Det finns först ett fåtal konfigurationsalternativ för Visual Studio som kan vara användbar när Profileringen. Om du vill göra uppfattning om Profileringen rapporterna måste symboler (.pdb-filer) för ditt program och även symboler för-bibliotek. Du vill kontrollera att du hänvisar till de tillgängliga symbol-servrarna. Att göra detta på den **verktyg** i Visual Studio, Välj **alternativ**, välj sedan **Debugging**, sedan **symboler**. Se till att Microsoft Symbol-servrar visas **symbolen filplatser (.pdb)**.  Du kan också referera http://referencesource.microsoft.com/symbols, som kan ha andra filer.
 
 ![Symbolalternativ][4]
 
-Om du vill kan förenkla du de rapporter som profileraren genererar genom att ange bara min kod. Med bara min kod aktiverat, förenklas funktionen anropsstackar så att anrop helt interna för bibliotek och .NET Framework är dolda från rapporterna. På den **verktyg** -menyn, Välj **alternativ**. Expandera den **prestandaverktyg** nod, och välj **allmänna**. Markera kryssrutan för **aktivera bara min kod för profiler rapporter**.
+Om du vill kan förenkla du de rapporter som profiler genererar genom att ange bara min kod. Med bara min kod aktiverat förenklas funktionen anropsstackar så att anrop helt interna för bibliotek och .NET Framework är dolda från rapporterna. På den **verktyg** menyn, Välj **alternativ**. Expandera sedan den **prestandaverktyg** nod, och välj **Allmänt**. Markera kryssrutan för **aktivera bara min kod för profiler rapporter**.
 
-![Bara min kod alternativ][17]
+![Alternativ för bara min kod][17]
 
-Du kan använda dessa instruktioner med ett befintligt projekt eller med ett nytt projekt.  Om du skapar ett nytt projekt om du vill testa de tekniker som beskrivs nedan väljer du en C# **Azure Cloud Service** projektet och välj en **Webbroll** och en **Arbetsrollen**.
+Du kan använda dessa instruktioner med ett befintligt projekt eller med ett nytt projekt.  Om du skapar ett nytt projekt om du vill prova de metoder som beskrivs nedan, väljer du ett C# **Azure Cloud Service** projektet och välj en **Webbroll** och en **Arbetsroll**.
 
-![Azure Cloud Service Projektroller][5]
+![Azure Cloud Service-projekt-roller][5]
 
-Till exempel kan lägga till vissa kod projektet som tar mycket tid och visar vissa uppenbara prestandaproblem. Till exempel lägga till följande kod i en arbetsrollsprojektet:
+Betecknas Lägg exempelvis till lite kod i projektet som tar lång tid och visar några uppenbara prestandaproblem. Till exempel lägga till följande kod till en arbetsrollsprojektet:
 
 ```csharp
 public class Concatenator
@@ -61,7 +61,7 @@ public class Concatenator
 }
 ```
 
-Anropa den här koden från metoden RunAsync i worker-rollen RoleEntryPoint-härledd klass. (Ignorera varningen om metoden körs synkront.)
+Anropa den här koden från RunAsync-metod i worker-roll RoleEntryPoint-härledd klass. (Ignorera varningen om metoden körs synkront.)
 
 ```csharp
 private async Task RunAsync(CancellationToken cancellationToken)
@@ -75,23 +75,23 @@ private async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
-Skapa och köra Molntjänsten lokalt utan felsökning (Ctrl + F5) med konfigurationsuppsättning för lösningen att **versionen**. Detta säkerställer att alla filer och mappar skapas för att köra programmet lokalt, och säkerställer att alla emulatorerna har startats. Kontrollera att arbetsrollen körs börja Compute Emulator UI från Aktivitetsfältet.
+Skapa och köra din molntjänst lokalt utan felsökning (Ctrl + F5) med lösningskonfigurationen inställd **versionen**. Detta säkerställer att alla filer och mappar har skapats för att köra programmet lokalt och säkerställer att alla emulatorerna har startats. Kontrollera att din arbetsroll körs genom att börja Compute Emulator UI från Aktivitetsfältet.
 
 ## <a name="2-attach-to-a-process"></a>2: Anslut till en process
-Du måste koppla profileraren till en process som körs i stället för profilering programmet genom att starta från Visual Studio 2010 IDE. 
+Du måste koppla profiler till en process som körs i stället för profilering programmet genom att starta den från Visual Studio 2010 IDE. 
 
-Bifoga profileraren till en process på den **analysera** -menyn, Välj **Profiler** och **Lägg till/ta bort**.
+Att koppla profiler till en process på den **analysera** menyn, Välj **Profiler** och **bifoga till/ta bort**.
 
-![Koppla profil][6]
+![Bifoga profil][6]
 
-Hitta WaWorkerHost.exe processen för en arbetsroll.
+För en arbetsroll, hittar du WaWorkerHost.exe-processen.
 
 ![WaWorkerHost process][7]
 
-Om din projektmapp finns på en nätverksenhet, profileraren blir du ombedd att ange en annan plats om du vill spara profilering rapporter.
+Om din projektmapp, till exempel finns på en nätverksenhet, profiler blir du ombedd att ange en annan plats om du vill spara profilering rapporterna.
 
- Du kan också koppla till en webbroll genom att koppla till WaIISHost.exe.
-Om det finns flera arbetsprocesser roll i ditt program, måste du använder ett process-ID för att skilja dem. Du kan fråga processID via programmering genom att öppna processobjektet. Om du lägger till den här koden Run-metoden i klassen RoleEntryPoint-härledda i en roll kan tittar du till exempel på loggen i Compute Emulator UI veta vilken process för att ansluta till.
+ Du kan även bifoga i en webbroll genom att koppla till WaIISHost.exe.
+Om det finns flera arbetsprocesser roll i ditt program kan behöva du använda ett process-ID för att skilja dem. Du kan fråga processID programmässigt genom att öppna processobjektet. Om du lägger till den här koden Run-metoden i klassen RoleEntryPoint-härledd i en roll kan titta du exempelvis på loggen i Compute Emulator UI veta vilken process för att ansluta till.
 
 ```csharp
 var process = System.Diagnostics.Process.GetCurrentProcess();
@@ -103,35 +103,35 @@ Om du vill visa loggen starta Compute Emulator UI.
 
 ![Starta Compute Emulator UI][8]
 
-Öppna konsolfönstret worker-rollen logg i Compute Emulator UI genom att klicka på konsolen namnlist. Du kan se den process-ID i loggen.
+Öppna konsolfönstret för worker-rollen log i Compute Emulator UI genom att klicka på konsolen namnlist. Du kan se process-ID i loggen.
 
 ![Visa process-ID][9]
 
-Ett du har kopplat utför steg i programmets användargränssnitt (vid behov) för att återskapa scenariot.
+Något du har anslutit utför stegen i programmets användargränssnitt (vid behov) för att återskapa scenariot.
 
-När du vill stoppa profilering, välja den **stoppa profilering** länk.
+När du vill stoppa Profileringen, välja den **stoppa Profileringen** länk.
 
-![Stoppa profilering alternativet][10]
+![Stoppa Profileringen alternativet][10]
 
-## <a name="3-view-performance-reports"></a>3: Visa prestandarapporter
+## <a name="3-view-performance-reports"></a>3: Visa sestavy výkonu
 Systemprestanda-rapport för ditt program visas.
 
-Nu profileraren stoppas utförandet, sparar data i en .vsp-fil och visar en rapport som visar en analys av data.
+Nu profiler stoppar kör, sparar data i en .vsp-fil och visar en rapport som visar en analys av dessa data.
 
-![Profileraren rapport][11]
+![Profiler-rapport][11]
 
-Om du ser String.wstrcpy i varm sökvägen klickar du på bara min kod för att ändra vyn så att endast användarkod.  Om du ser String.Concat försök att trycka på knappen Visa All kod.
+Om du ser String.wstrcpy i den heta sökvägen, klickar du på bara min kod för att ändra vyn så att endast användarkod.  Om du ser String.Concat kan du prova att trycka på knappen Visa All kod.
 
 Du bör se sammanfoga metoden och String.Concat tar upp en stor del av körningstiden.
 
-![Analys av rapporten][12]
+![Analysen av rapporter][12]
 
-Om du har lagt till sträng sammanfogning koden i den här artikeln bör du se en varning i uppgiftslistan för detta. Du kan också se en varning om att det finns en orimlig mängd skräpinsamling beror på antalet strängar som skapas och tagits bort.
+Om du har lagt till sträng sammanfogning koden i den här artikeln bör du se en varning i uppgiftslistan för detta. Du kan också se en varning om att det finns en orimlig mängd skräpinsamling, som beror på antalet strängar som skapas och tas bort.
 
-![Prestanda varningar][14]
+![Prestanda-varningar][14]
 
-## <a name="4-make-changes-and-compare-performance"></a>4: gör ändringar och jämföra prestanda
-Du kan också jämföra prestanda före och efter en kodändring.  Stoppa processen och redigera koden för att ersättningsåtgärden sträng sammanfogning med hjälp av StringBuilder:
+## <a name="4-make-changes-and-compare-performance"></a>4: ändra och jämför resultat
+Du kan också jämföra prestanda före och efter en kodändring.  Stoppa processen och redigera koden för att ersätta strängen sammanfogning igen med hjälp av StringBuilder:
 
 ```csharp
 public static string Concatenate(int number)
@@ -146,28 +146,28 @@ public static string Concatenate(int number)
 }
 ```
 
-Göra en annan prestanda kör och jämför prestanda. I Utforskaren prestanda om körs i samma session, du kan bara markera båda rapporterna, öppna snabbmenyn och välj **jämför Prestandarapporterna**. Om du vill jämföra med en körning i en annan prestanda session, öppna den **analysera** -menyn och välj **jämför Prestandarapporterna**. Ange båda filerna i dialogrutan som visas.
+Göra en annan prestanda kör, och sedan jämföra prestanda. I Explorer prestanda om körningar som finns i samma session, du kan bara markera båda rapporterna, öppna snabbmenyn och välj **jämför prestandarapporter**. Om du vill jämföra med en körs i en annan session för prestanda, öppna den **analysera** -menyn och välj **jämför prestandarapporter**. Ange båda filerna i dialogrutan som visas.
 
-![Jämför prestanda rapporter alternativet][15]
+![Jämför Prestandaalternativ för rapporter][15]
 
-Rapporterna Markera skillnaderna mellan de två körs.
+Rapporterna markerar skillnaderna mellan de två körningarna.
 
-![Jämförelserapport][16]
+![Jämförelse av rapport][16]
 
-Grattis! Du har kommit igång med profileraren.
+Grattis! Du har kommit igång med profiler.
 
 ## <a name="troubleshooting"></a>Felsökning
 * Kontrollera att du profilering en slutversion och starta utan felsökning.
-* Om alternativet Lägg till/ta bort inte är aktiverat på menyn Profiler, kör du guiden prestanda.
+* Om alternativet Anslut till/ta bort inte är aktiverad på menyn Profiler, kör du guiden prestanda.
 * Använd Compute Emulator UI om du vill visa status för ditt program. 
-* Om du har problem med att starta program i emulatorn eller bifoga profiler kan stängas ned beräkningsemulatorn och starta om den. Om det inte löser problemet, startar du om datorn. Det här problemet kan inträffa om du använder Compute Emulator att inaktivera och ta bort körs distributioner.
-* Om du använder något av kommandona profilering från kommandoraden, särskilt de globala inställningarna, kontrollerar du att VSPerfClrEnv /globaloff har anropats och att VsPerfMon.exe har avslutats.
-* Om när provtagning, visas meddelandet ”PRF0025: inga data samlades in”, kontrollera att du har kopplat till processen har CPU-aktivitet. Program som inte gör några beräkningsarbete kan inte skapa några provtagning data.  Det är också möjligt att processen avslutades innan alla provtagning utfördes. Kontrollera att metoden Kör för en roll som du profilering inte avslutas.
+* Om du har problem med start av program i emulatorn eller koppla profiler, stänga ned beräkningsemulatorn och starta om den. Om det inte löser problemet, startar du om datorn. Det här problemet kan uppstå om du använder Compute-emulatorn att inaktivera och ta bort körs distributioner.
+* Om du har använt någon av Profileringen kommandon från kommandoraden, särskilt de globala inställningarna, se till att VSPerfClrEnv /globaloff har anropats och att VsPerfMon.exe har stängts av.
+* Om när sampling, visas meddelandet ”PRF0025: inga data har samlats in”, kontrollera att den process som du har bifogat har CPU-aktivitet. Program som inte genomför någon dataarbetet kan inte ge någon sampling av data.  Det är också möjligt att processen har avslutats innan alla sampling utfördes. Kontrollera att metoden Run för en roll som du Profileringen inte avslutar.
 
 ## <a name="next-steps"></a>Nästa steg
-Instrumentering Azure binärfiler i emulatorn stöds inte i Visual Studio-profiler, men om du vill testa minnesallokering kan du välja alternativet när profilering. Du kan också välja samtidighet profilering, som hjälper dig att avgöra om trådar slösa tid konkurrerar om Lås eller nivå interaktion profilering, vilket gör det möjligt att spåra prestandaproblem vid interaktion mellan nivåer för ett program, oftast mellan datanivå och en arbetsroll.  Du kan visa databasfrågor som genererar din app och använder profileringsdata för att förbättra din användning av databasen. Information om nivån interaktion profilering bloggposten [genomgång: med nivå interaktion profileraren i Visual Studio Team System 2010][3].
+Instrumentering av Azure-binärfiler i emulatorn stöds inte i Visual Studio-profiler, men om du vill testa minnesallokering du väljer det alternativet när Profileringen. Du kan också välja samtidighet profilering, som hjälper dig att avgöra om trådar slösa tid konkurrerande för lås, eller nivå interaktion profilering, som hjälper dig att spåra problem med prestanda när du interagerar mellan nivåer för ett program, mest ofta mellan datanivå och en arbetsroll.  Du kan visa databasfrågor som din app genererar och använder profileringsdata för att förbättra din användning av databasen. Information om nivån interaktion profilering, finns i bloggposten [genomgång: med nivån interaktion Profiler i Visual Studio Team System 2010][3].
 
-[1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
+[1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
 [2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
 [3]: http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png

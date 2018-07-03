@@ -1,6 +1,6 @@
 ---
-title: Använda Azure-diskarna med AKS
-description: Använda Azure-diskarna med AKS
+title: Använda Azure-diskar med AKS
+description: Använda Azure-diskar med AKS
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cfad5ebd1212df03cee86b71340d8a73c2594f57
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8aea56017d38b57d36f5f1d42e2d4e9ed1d809e5
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096101"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346101"
 ---
 # <a name="volumes-with-azure-disks"></a>Volymer med Azure-diskar
 
-Behållaren-baserade program behöver ofta åtkomst och spara data i en volym på externa data. Azure-diskar som kan användas som den här externa datalager. Den här artikeln information med hjälp av en Azure-disken som Kubernetes volymer i ett kluster med Azure Kubernetes Service (AKS).
+Behållarbaserade program behöver ofta åtkomst till och bevara data i en extern datavolym. Azure-diskar som kan användas som den här externa datalager. Den här artikeln beskriver hur man använder en Azure-disk som en Kubernetes-volym i ett kluster i Azure Kubernetes Service (AKS).
 
-Mer information om Kubernetes volymer finns [Kubernetes volymer][kubernetes-volumes].
+Mer information om Kubernetes volymer finns i [Kubernetes volymer][kubernetes-volumes].
 
-## <a name="create-an-azure-disk"></a>Skapa en Azure-disken
+## <a name="create-an-azure-disk"></a>Skapa en Azure-disk
 
-Innan du monterar en Azure-hanterade disk som en Kubernetes volym på disken måste finnas i AKS **nod** resursgruppen. Hämta resursgruppens namn med den [az resurs visa] [ az-resource-show] kommando.
+Innan du monterar en Azure-hanterade disk som en Kubernetes-volym, disken måste finnas i AKS **noden** resursgrupp. Hämta resursgruppens namn med den [az resource show] [ az-resource-show] kommando.
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
@@ -34,7 +34,7 @@ MC_myResourceGroup_myAKSCluster_eastus
 
 Använd den [az disk skapa] [ az-disk-create] kommando för att skapa Azure-disken.
 
-Uppdatera `--resource-group` med namnet på resursgruppen som samlats in i det sista steget, och `--name` till ett valfritt namn.
+Uppdatera `--resource-group` med namnet på resursgruppen som samlats in i det sista steget och `--name` till ett valfritt namn.
 
 ```azurecli-interactive
 az disk create \
@@ -44,17 +44,19 @@ az disk create \
   --query id --output tsv
 ```
 
-Du bör se utdata som liknar följande när disken har skapats. Det här värdet är disk-ID som används när du monterar disken.
+Du bör se utdata som liknar följande när du har skapat disken. Det här värdet är disk-ID som används vid montera disken.
 
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
+> [!NOTE]
+> Azure-hanterade diskar faktureras av SKU: N för en viss storlek. Dessa SKU: er mellan 32GiB för S4 eller P4 diskar och 4TiB för S50 eller P50 diskar. Dessutom är det dataflöde och IOPS-prestanda för en Premium managed disk beror på både SKU: N och instansstorleken för noderna i AKS-klustret. Se [priser och prestanda för hanterade diskar][managed-disk-pricing-performance].
 
-## <a name="mount-disk-as-volume"></a>Montera disk som volym
+## <a name="mount-disk-as-volume"></a>Montera disken som volym
 
-Montera Azure-disken till din baljor genom att konfigurera volymen i behållaren-specifikationen.
+Montera Azure-disken till din pod genom att konfigurera volymen i container-specifikationen.
 
-Skapa en ny fil med namnet `azure-disk-pod.yaml` med följande innehåll. Uppdatera `diskName` med namnet på den nya disken och `diskURI` med disk-ID. Dessutom anteckna den `mountPath`, vilket är sökvägen där Azure-disken har monterats i baljor.
+Skapa en ny fil med namnet `azure-disk-pod.yaml` med följande innehåll. Uppdatera `diskName` med namnet på den nya disken och `diskURI` med disk-ID. Dessutom ta del av den `mountPath`, vilket är den sökväg där Azure-disken är monterad i en pod.
 
 ```yaml
 apiVersion: v1
@@ -76,24 +78,25 @@ spec:
           diskURI: /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
 
-Använd kubectl för att skapa baljor.
+Använda kubectl för att skapa en pod.
 
 ```azurecli-interactive
 kubectl apply -f azure-disk-pod.yaml
 ```
 
-Nu har du en körs baljor med en Azure-disken monterats på den `/mnt/azure`.
+Nu har du en aktiv pod med en Azure-disk monterad på den `/mnt/azure`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Kubernetes volymer med Azure-diskarna.
+Läs mer om Kubernetes volymer med Azure-diskar.
 
 > [!div class="nextstepaction"]
-> [Kubernetes plugin-program för Azure-diskar][kubernetes-disks]
+> [Kubernetes-plugin för Azure-diskar][kubernetes-disks]
 
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
 [az-disk-list]: /cli/azure/disk#az_disk_list

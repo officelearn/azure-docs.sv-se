@@ -3,36 +3,41 @@ title: Undersöka incidenter och aviseringar i Azure Security Center | Microsoft
 description: Det här dokumentet hjälper dig att använda undersökningsfunktionen i Azure Security Center för att undersöka incidenter och aviseringar.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
-ms.author: yurid
-ms.openlocfilehash: bab7b64a1635639991d639fb838b7118e234aa5b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.date: 06/29/2018
+ms.author: terrylan
+ms.openlocfilehash: 010c641c247552a8994c9d1c945cd585148fadf9
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776490"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340798"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Undersöka incidenter och aviseringar i Azure Security Center (förhandsversion)
 Det här dokumentet hjälper dig att använda undersökningsfunktionen i Azure Security Center för att undersöka incidenter och aviseringar.
 
 ## <a name="what-is-investigation-in-security-center"></a>Vad är undersökning i Security Center?
 Med undersökningsfunktionen i Security Center kan du sortera, förstå omfattningen av och spåra rotorsaken till en potentiell [säkerhetsincident](https://docs.microsoft.com/azure/security-center/security-center-incident).
- 
+
 Avsikten är att underlätta undersökningsprocessen genom att länka alla entiteter ([säkerhetsaviseringar](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), användare, datorer och incidenter) som ingår i incidenten du undersöker.  Security Center kan göra detta genom att korrelera relevanta data med berörda entiteter och visa korrelationen i ett interaktivt diagram som hjälper dig att navigera bland objekten och visualisera relevant information.
+
+> [!NOTE]
+> [Anpassade aviseringar](security-center-custom-alert.md) stöds inte i undersökningsfunktionen i Security Center.
+>
+>
 
 
 ## <a name="how-investigation-works"></a>Hur fungerar undersökningen?
 Undersökningen består av ett diagram som upptar mitten av undersökningsinstrumentpanelen. Diagrammet fokuserar alltid på en specifik entitet och visar entiteterna som är relaterade till den. En entitet kan vara en säkerhetsavisering, användare, dator eller incident.
- 
+
 ![Karta](./media/security-center-investigation/security-center-investigation-fig1.png)
 
 Användaren kan gå från en entitet till en annan genom att klicka på den i diagrammet. Diagrammet centreras automatiskt på den valda entiteten och dess relaterade entiteter. Entiteter som inte längre är relevanta kan tas bort från diagrammet.
@@ -43,7 +48,7 @@ När användaren går till de olika entiteterna hjälper utredningssökvägen di
 ![Sökväg](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>Allmän information
-När en entitet presenteras i diagrammet visar flikarna mer information om den här entiteten. Fliken **Info** visar allmän information om entiteten från olika tillgängliga informationskällor. 
+När en entitet presenteras i diagrammet visar flikarna mer information om den här entiteten. Fliken **Info** visar allmän information om entiteten från olika tillgängliga informationskällor.
 
 ![Allmän information](./media/security-center-investigation/security-center-investigation-fig3.png)
 
@@ -71,7 +76,7 @@ På fliken **Utforskning** kan utredaren undersöka data relaterade till olika p
 
 ### <a name="timeline"></a>Tidslinje
 
-Det mesta av de data som visas i diagrammet och på de olika flikarna är relevanta under en viss tid. Den här tiden anges med hjälp av tidsomfattningsväljaren uppe till vänster i diagrammet. Utredaren har olika metoder för att välja tidsomfattningen. 
+Det mesta av de data som visas i diagrammet och på de olika flikarna är relevanta under en viss tid. Den här tiden anges med hjälp av tidsomfattningsväljaren uppe till vänster i diagrammet. Utredaren har olika metoder för att välja tidsomfattningen.
 
 ![Tidslinje](./media/security-center-investigation/security-center-investigation-fig7.png)
 
@@ -103,15 +108,14 @@ Du kan starta en undersökningen utifrån en säkerhetsincident eller från en a
 
     ![Instrumentpanelen Undersökning](./media/security-center-investigation/security-center-investigation-fig9.png)
 
-Nu kan du utforska entiteterna som ingick i den här incidenten och utforska mer information om var och en av dem. 
+Nu kan du utforska entiteterna som ingick i den här incidenten och utforska mer information om var och en av dem.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 I det här dokumentet har du lärt dig hur du använder undersökningsfunktionen i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Lär dig hur du hanterar aviseringar och åtgärdar säkerhetsincidenter i Security Center.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md). Lär dig att övervaka hälsotillståndet för dina Azure-resurser.
 * [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Läs mer om de olika typerna av säkerhetsaviseringar.
-* [Felsökningsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Lär dig hur du felsöker vanliga problem i Security Center. 
+* [Felsökningsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Lär dig hur du felsöker vanliga problem i Security Center.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md). Här finns vanliga frågor om att använda tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
-

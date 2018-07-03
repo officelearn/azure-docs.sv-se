@@ -1,6 +1,6 @@
 ---
-title: Autentisering, registrera, lösenordsåterställning i Azure Active Directory B2C | Microsoft Docs
-description: Hur du skapar ett webbprogram som har sign-upp/inloggning, Redigera profil och lösenordsåterställning med hjälp av Azure Active Directory B2C.
+title: Autentisering, registrera dig för återställning av lösenord i Azure Active Directory B2C | Microsoft Docs
+description: Hur du skapar ett webbprogram som har registrerings-registreringen/inloggning, profilredigering och lösenordsåterställning med Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -10,52 +10,54 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ec106b46097f9a35b9e41e08de4c18339f1b28f0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 090e85df2f4315e6a31d5f9da38483f7ec00be22
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710414"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345013"
 ---
-# <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Skapa en ASP.NET-webbapp med Azure Active Directory B2C profil för registrering, inloggning, redigera och återställning av lösenord
+# <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Skapa en ASP.NET-webbapp med Azure Active Directory B2C registrering, inloggning, profilredigering och återställning av lösenord
 
 I den här självstudiekursen lär du dig att:
 
 > [!div class="checklist"]
-> * Lägg till Azure AD B2C identitet funktioner i ditt webbprogram
-> * Registrera ditt webbprogram i din Azure AD B2C-katalog
-> * Skapa en användare sign-upp/inloggning, Redigera profil och principen för lösenordsåterställning för ditt webbprogram
+> * Lägg till Azure AD B2C identitetsfunktioner till din webbapp
+> * Registrera din webbapp i din Azure AD B2C-katalog
+> * Skapa en användare registrerings-registreringen/inloggning, profilredigering och principen för återställning av lösenord för din webbapp
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Din B2C-klient måste du ansluta till ett Azure-konto. Du kan skapa ett kostnadsfritt Azure-konto [här](https://azure.microsoft.com/).
-- Du behöver [Microsoft Visual Studio](https://www.visualstudio.com/) eller ett liknande program att visa och ändra exempelkoden.
+- Din B2C-klient måste du ansluta till ett Azure-konto. Du kan skapa ett kostnadsfritt konto [här](https://azure.microsoft.com/).
+- Du behöver [Microsoft Visual Studio](https://www.visualstudio.com/) eller ett liknande program visa och ändra exempelkoden.
 
-## <a name="create-an-azure-ad-b2c-directory"></a>Skapa en Azure AD B2C-katalog
+## <a name="create-an-azure-ad-b2c-tenant"></a>Skapa en Azure AD B2C-klient
 
-Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient. En katalog är en behållare för alla användare, appar, grupper och mer. Om du inte har någon redan skapar du en B2C-katalog innan du fortsätter i den här guiden.
+Innan du kan använda Azure AD B2C måste du skapa en klient. En klient är en behållare för alla användare, appar, grupper och mer. Om du inte har ett redan, kan du skapa en B2C-klient innan du fortsätter i den här guiden.
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
 > [!NOTE]
 > 
-> Du måste ansluta B2C-klient till din Azure-prenumeration. När du har valt **skapa**, Välj den **länka ett befintligt Azure AD B2C-klient till min Azure-prenumeration** alternativet, och klicka sedan på den **Azure AD B2C-klient** listrutan, Välj den klient som du vill associera.
+> Du måste ansluta Azure AD B2C-klient till din Azure-prenumeration. När du har valt **skapa**väljer den **länka en befintlig Azure AD B2C-Klientorganisation till min Azure-prenumeration** alternativet, och sedan i den **Azure AD B2C-klient** nedrullningsbar listruta, Välj den innehavaren som du vill associera.
 
 ## <a name="create-and-register-an-application"></a>Skapa och registrera ett program
 
-Därefter måste du skapa och registrera app i B2C-katalogen. Detta ger information som behöver för att kommunicera säkert med din app i Azure AD B2C. 
+Därefter måste du skapa och registrera appen i din Azure AD B2C-klient. Detta ger information som Azure AD B2C som krävs för säker kommunikation med din app. 
+
+Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**. Du bör nu använda den klient som du skapade tidigare.
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
-När du är klar har du både en API och det ursprungliga programmet i inställningarna för programmet.
+När du är klar har du både ett API och ett internt program i programinställningarna.
 
 ## <a name="create-policies-on-your-b2c-tenant"></a>Skapa principer på din B2C-klient
 
-I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Det här kodexemplet innehåller tre identitetsupplevelser: **registrering och inloggning i**, **profilen redigera**, och **lösenordsåterställning**.  Du måste skapa en princip av varje typ. Mer information finns i [referensartikeln om principer](active-directory-b2c-reference-policies.md). För varje princip Glöm inte att välja Visa name-attribut eller anspråk och kopiera ned namnet på din princip för senare användning.
+I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Det här kodexemplet innehåller tre identitetsupplevelser: **registrering och inloggning i**, **profilera redigera**, och **lösenordsåterställning**.  Du måste skapa en princip av varje typ. Mer information finns i [referensartikeln om principer](active-directory-b2c-reference-policies.md). För varje princip måste du välja Visa namnattributet eller anspråk och kopiera ned namnet på din princip för senare användning.
 
-### <a name="add-your-identity-providers"></a>Lägg till din identitetsleverantörer
+### <a name="add-your-identity-providers"></a>Lägg till dina Identitetsproviders
 
-Välj inställningarna för **identitetsleverantörer** och välj signup användarnamn eller e-registreringen.
+Dina inställningar, Välj **Identitetsprovidrar** och välj registrering för användarnamn eller e-postregistrering.
 
 ### <a name="create-a-sign-up-and-sign-in-policy"></a>Skapa en princip för registrering och inloggning
 
@@ -69,7 +71,7 @@ Välj inställningarna för **identitetsleverantörer** och välj signup använd
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
-När du har skapat dina principer är du redo att bygga din app.
+När du har skapat dina principer är du redo att skapa din app.
 
 ## <a name="download-the-sample-code"></a>Hämta exempelkoden
 
@@ -79,11 +81,11 @@ Koden för den här självstudiekursen finns på [GitHub](https://github.com/Azu
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-När du har laddat ned exempelkoden öppnar du SLN-filen i Visual Studio för att sätta igång. Lösningsfilen innehåller två projekt: `TaskWebApp` och `TaskService`. `TaskWebApp` är MVC-webbapp som användaren interagerar med. `TaskService` är appens backend-webb-API som lagrar varje användares att göra-lista. I den här artikeln beskrivs bara `TaskWebApp`-programmet. Mer information om hur du skapar `TaskService` med Azure AD B2C finns i [våra självstudier för .NET web api](active-directory-b2c-devquickstarts-api-dotnet.md).
+När du har laddat ned exempelkoden öppnar du SLN-filen i Visual Studio för att sätta igång. Lösningsfilen innehåller två projekt: `TaskWebApp` och `TaskService`. `TaskWebApp` är MVC-webbprogram som användaren interagerar med. `TaskService` är appens backend-webb-API som lagrar varje användares att göra-lista. I den här artikeln beskrivs bara `TaskWebApp`-programmet. Lär dig hur du skapar `TaskService` med Azure AD B2C finns i [våra .NET webb-api – självstudiekurs](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## <a name="update-code-to-use-your-tenant-and-policies"></a>Uppdatera koden för att använda din klient och principer
+## <a name="update-code-to-use-your-tenant-and-policies"></a>Uppdatera kod för att använda din klient och principer
 
-Det här exemplet är konfigurerat att använda principerna och klient-ID:t för vår demoklientorganisation. För att ansluta den till en egen klient, måste du öppna `web.config` i den `TaskWebApp` projektet och Ersätt följande värden:
+Det här exemplet är konfigurerat att använda principerna och klient-ID:t för vår demoklientorganisation. Om du vill ansluta den till en egen klient, måste du öppna `web.config` i den `TaskWebApp` projektet och Ersätt följande värden:
 
 * `ida:Tenant` med namnet på din klientorganisation
 * `ida:ClientId` med program-ID:t för din webbapp
@@ -93,35 +95,35 @@ Det här exemplet är konfigurerat att använda principerna och klient-ID:t för
 * `ida:ResetPasswordPolicyId` med namnet på din lösenordsåterställningsprincip
 
 ## <a name="launch-the-app"></a>Starta appen
-Starta appen från Visual Studio. Gå till fliken Uppgiftslista och skriver ner webbadressen: https://login.microsoftonline.com/ *YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*.....
+Starta appen från Visual Studio. Gå till fliken att göra-lista och notera URL: en är: https://login.microsoftonline.com/ *YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*.....
 
-Registrera dig för appen genom att använda din e-postadress eller användaren namn. Logga ut och sedan logga in igen och redigera profilen eller återställa lösenordet. Logga ut och logga in som en annan användare. 
+Registrera dig för appen med hjälp av namnet på din e-postadress eller användarnamn. Logga ut, och sedan logga in igen och redigera profilen eller återställa lösenordet. Logga ut och logga in som en annan användare. 
 
-## <a name="add-social-idps"></a>Lägg till sociala IDPs
+## <a name="add-social-idps"></a>Lägg till sociala IDP: er
 
-För närvarande appen stöder bara användaren registrering och inloggning med hjälp av **lokala konton**; konton som lagras i din B2C-katalog som använder ett användarnamn och lösenord. Med hjälp av Azure AD B2C kan du lägga till stöd för andra **identitetsleverantörer** (IDPs) utan att ändra någon av din kod.
+Appen stöder för närvarande bara användaren registrera dig och logga in med hjälp av **lokala konton**; konton som lagras i din B2C-katalog som använder ett användarnamn och lösenord. Med hjälp av Azure AD B2C kan du lägga till stöd för andra **identitetsprovidrar** (IDPs) utan att ändra någon av din kod.
 
-Börja genom att följa de detaljerade anvisningarna i de här artiklarna om du vill lägga till sociala IDPs i appen. För varje IDP som du vill använda, måste du registrera ett program i systemet och skaffa ett klient-ID.
+Börja genom att följa instruktionerna i följande artiklar om du vill lägga till sociala IDP: er i din app. För varje IDP som du vill kunna använda, måste du registrera ett program i systemet och få ett klient-ID.
 
 * [Konfigurera Facebook som en IDP](active-directory-b2c-setup-fb-app.md)
 * [Konfigurera Google som en IDP](active-directory-b2c-setup-goog-app.md)
-* [Ställa in Amazon som en IDP](active-directory-b2c-setup-amzn-app.md)
-* [Ställa in LinkedIn som en IDP](active-directory-b2c-setup-li-app.md)
+* [Konfigurera Amazon som en IDP](active-directory-b2c-setup-amzn-app.md)
+* [Konfigurera LinkedIn som en IDP](active-directory-b2c-setup-li-app.md)
 
-När du lägger till identitetsleverantörer din B2C-katalog, redigera var och en av dina tre principer att inkludera de nya IDPs som beskrivs i den [referensartikeln om principer](active-directory-b2c-reference-policies.md). Kör appen igen när du har sparat dina principer.  Du bör se nya IDPs läggas till som inloggning och registreringsalternativ i varje din identitet inträffar.
+När du lägger till identitetsprovidrarna som din B2C-katalog kan redigera var och en av dina tre principer att inkludera de nya IDP: er, enligt beskrivningen i den [referensartikeln om principer](active-directory-b2c-reference-policies.md). När du har sparat dina principer kan du köra appen igen.  Du bör se de nya IDP: er som har lagts till som inloggning och registreringsalternativ i var och en av din identitet inträffar.
 
-Du kan experimentera med dina principer och studera effekten på din exempelapp. Lägg till eller ta bort IDPs, manipulera programanspråken eller ändra registreringsattribut. Experimentera tills du kan se hur principer, autentiseringsbegäranden och OWIN knyta ihop.
+Du kan experimentera med dina principer och studera effekten på din exempelapp. Lägg till eller ta bort IDP: er, manipulera programanspråken eller ändra registreringsattribut. Experimentera tills du kan se hur principer, begäranden om autentisering och OWIN knyta ihop.
 
-## <a name="sample-code-walkthrough"></a>Exempel kod genomgång
-Följande avsnitt visar hur exempelkod för programmet är konfigurerat. Du kan använda den som en vägledning i framtida app-utveckling.
+## <a name="sample-code-walkthrough"></a>Kod exempelgenomgång
+I följande avsnitt visas hur programmet exempelkoden konfigureras. Du kan använda detta som en vägledning i din framtida apputveckling.
 
-### <a name="add-authentication-support"></a>Lägga till stöd för autentisering
+### <a name="add-authentication-support"></a>Lägg till stöd för autentisering
 
-Du kan nu konfigurera din app att använda Azure AD B2C. Appen kommunicerar med Azure AD B2C genom att skicka OpenID Connect autentiseringsbegäranden. Begäranden styr användarupplevelsen appen vill köra genom att ange principen. Du kan använda Microsofts OWIN-biblioteket för att skicka dessa begäranden, köra principer, hantera användarsessioner och mycket mer.
+Du kan nu konfigurera din app om du vill använda Azure AD B2C. Appen kan kommunicera med Azure AD B2C genom att skicka autentiseringsförfrågningar OpenID Connect. Begäranden bestämmer användarupplevelsen appen vill köra genom att ange principen. Du kan använda Microsofts OWIN-bibliotek för att skicka dessa begäranden, köra principer, hantera användarsessioner och mycket mer.
 
 #### <a name="install-owin"></a>Installera OWIN
 
-Om du vill börja lägga till OWIN mellanprogram NuGet-paket i projektet med hjälp av Visual Studio Package Manager-konsolen.
+Börja genom att lägga till OWIN-mellanprogrammet NuGet-paket i projektet med hjälp av Visual Studio Package Manager-konsolen.
 
 ```Console
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -151,9 +153,9 @@ public partial class Startup
 
 #### <a name="configure-the-authentication-middleware"></a>Konfigurera mellanprogram för autentisering
 
-Öppna filen `App_Start\Startup.Auth.cs` och genomföra den `ConfigureAuth(...)` metoden. De parametrar som du anger i `OpenIdConnectAuthenticationOptions` fungerar som koordinater för din app för att kommunicera med Azure AD B2C. Om du inte anger vissa parametrar används standardvärdet. Till exempel vi inte anger den `ResponseType` i det här exemplet därför standardvärdet `code id_token` kommer att användas i varje utgående begäran till Azure AD B2C.
+Öppna filen `App_Start\Startup.Auth.cs` och implementera den `ConfigureAuth(...)` metoden. De parametrar som du anger i `OpenIdConnectAuthenticationOptions` fungerar som koordinater för din app att kommunicera med Azure AD B2C. Om du inte anger vissa parametrar används standardvärdet. Exempelvis kan vi inte anger den `ResponseType` i det här exemplet så standardvärdet `code id_token` används i varje utgående begäran till Azure AD B2C.
 
-Du måste också konfigurera cookie-autentisering. Mellanprogram OpenID Connect använder cookies för att upprätthålla användarsessioner, bland annat.
+Du måste också konfigurera cookie-autentisering. OpenID Connect-mellanprogram använder cookies för att underhålla användarsessioner, bland annat.
 
 ```CSharp
 // App_Start\Startup.Auth.cs
@@ -203,13 +205,13 @@ public partial class Startup
 }
 ```
 
-I `OpenIdConnectAuthenticationOptions` ovan, vi definierar en uppsättning Återanropsfunktioner för specifika meddelanden som tas emot av mellanprogram OpenID Connect. Dessa beteenden definieras med hjälp av en `OpenIdConnectAuthenticationNotifications` objekt och lagras i den `Notifications` variabeln. I vårt exempel definierar vi tre olika återanrop beroende på händelsen.
+I `OpenIdConnectAuthenticationOptions` ovan, definierar vi en uppsättning återanropsfunktionerna för specifika meddelanden som tas emot av OpenID Connect-mellanprogram. Dessa beteenden definieras med hjälp av en `OpenIdConnectAuthenticationNotifications` objekt och lagras i den `Notifications` variabeln. I vårt exempel definierar vi tre olika återanrop beroende på händelsen.
 
 ### <a name="using-different-policies"></a>Med hjälp av olika principer
 
-Den `RedirectToIdentityProvider` avisering utlöses när en begäran skickas till Azure AD B2C. I Återanropsfunktionen `OnRedirectToIdentityProvider`, vi kontrollerar i utgående anropet om vi vill använda en annan princip. För att göra en återställning av lösenord eller redigera en profil som du behöver använda motsvarande princip som principen i stället för ”registrering eller inloggning” standardprincipen för återställning av lösenord.
+Den `RedirectToIdentityProvider` avisering utlöses när en begäran skickas till Azure AD B2C. I Återanropsfunktionen `OnRedirectToIdentityProvider`, vi checka in utgående anropet om vi vill använda en annan princip. För att göra en återställning av lösenord eller redigera en profil som du behöver använda motsvarande principen som principen i stället för ”registrering eller inloggning” standardprincipen för lösenordsåterställning.
 
-I vårt exempel, när en användare vill återställa lösenordet eller Redigera profil, vi lägga till principen som vi vill använda i kontexten OWIN. Som kan göras genom att göra följande:
+I vårt exempel när en användare vill återställa lösenordet eller redigera profilen måste vi lägga till principen vi föredrar att använda till samma kontext som OWIN. Detta kan göras genom att göra följande:
 
 ```CSharp
     // Let the middleware know you are trying to use the edit profile policy
@@ -238,13 +240,13 @@ private Task OnRedirectToIdentityProvider(RedirectToIdentityProviderNotification
 }
 ```
 
-### <a name="handling-authorization-codes"></a>Hantera auktoriseringskoder
+### <a name="handling-authorization-codes"></a>Hantering av auktoriseringskoder
 
-Den `AuthorizationCodeReceived` avisering utlöses när en Auktoriseringskoden tas emot. Mellanprogram OpenID Connect stöder inte utbyte koder för åtkomst-token. Du kan manuellt utväxla koden för token i en callback-funktion. Mer information finns i den [dokumentationen](active-directory-b2c-devquickstarts-web-api-dotnet.md) som förklarar hur.
+Den `AuthorizationCodeReceived` avisering utlöses när en auktoriseringskod tas emot. OpenID Connect-mellanprogram stöder inte utbyte koder för åtkomsttoken. Du kan manuellt byta koden för token i en återanropsfunktion. Mer information finns i [dokumentation](active-directory-b2c-devquickstarts-web-api-dotnet.md) som förklarar hur.
 
-### <a name="handling-errors"></a>Felhantering
+### <a name="handling-errors"></a>Hantera fel
 
-Den `AuthenticationFailed` avisering utlöses när autentiseringen misslyckas. Du kan hantera fel som du vill i dess Återanropsmetoden. Dock bör du lägga till en kontroll för felkoden `AADB2C90118`. Under körningen av principen ”registrering eller inloggning” användaren har möjlighet att välja en **har du glömt lösenordet?** länk. I den här händelsen skickar Azure AD B2C appen den felkod som att din app ska göra en förfrågan med en princip för lösenordsåterställning i stället.
+Den `AuthenticationFailed` avisering utlöses när autentiseringen misslyckas. Du kan hantera fel som du vill i dess motringningsmetoden. Dock bör du lägga till en kontroll för felkoden `AADB2C90118`. Under körningen av principen ”registrering eller inloggning” användaren har möjlighet att välja en **har du glömt lösenordet?** länk. I den här händelsen skickar Azure AD B2C appen den felkod som att din app ska göra en begäran i stället använda principen för lösenordsåterställning.
 
 ```CSharp
 /*
@@ -274,11 +276,11 @@ private Task OnAuthenticationFailed(AuthenticationFailedNotification<OpenIdConne
 }
 ```
 
-### <a name="send-authentication-requests-to-azure-ad"></a>Skicka autentiseringsbegäranden till Azure AD
+### <a name="send-authentication-requests-to-azure-ad"></a>Skicka autentiseringsförfrågningar till Azure AD
 
-Appen har nu konfigurerats korrekt för att kommunicera med Azure AD B2C genom att använda autentiseringsprotokollet OpenID Connect. OWIN hanterar information om utforma autentiseringsmeddelanden, verifiera token från Azure AD B2C och upprätthålla användarsessioner. Allt som återstår är att initiera flödet för varje användare.
+Din app är nu korrekt konfigurerad för att kommunicera med Azure AD B2C med hjälp av autentiseringsprotokollet OpenID Connect. OWIN hanterar autentiseringsmeddelanden, verifiera token från Azure AD B2C och upprätthålla användarsessioner. Allt som återstår är att starta flödet för varje användare.
 
-När en användare väljer **logga upp/inloggning**, **Redigera profil**, eller **Återställ lösenord** i webbapp associerade åtgärden anropas i `Controllers\AccountController.cs`:
+När en användare väljer **logga in/logga in**, **profilredigering**, eller **Återställ lösenord** i web-app associerade åtgärden anropas i `Controllers\AccountController.cs`:
 
 ```CSharp
 // Controllers\AccountController.cs
@@ -355,7 +357,7 @@ public void SignOut()
 }
 ```
 
-Förutom explicit anropar en princip, kan du använda en `[Authorize]` tagg i dina domänkontrollanter som kör en princip om användaren inte är inloggad. Öppna `Controllers\HomeController.cs` och lägga till den `[Authorize]` taggen till anspråk-styrenhet.  OWIN väljer den senaste principen konfigureras när den `[Authorize]` taggen med samma namn.
+Förutom att explicit anropa en princip, kan du använda en `[Authorize]` tagg i dina domänkontrollanter som kör en princip om användaren inte har loggat in. Öppna `Controllers\HomeController.cs` och lägga till den `[Authorize]` tagg till kontrollanten anspråk.  OWIN väljer den senaste principen konfigureras när den `[Authorize]` tagg med samma namn.
 
 ```CSharp
 // Controllers\HomeController.cs
@@ -369,7 +371,7 @@ public ActionResult Claims()
 
 ### <a name="display-user-information"></a>Visa användarinformation
 
-När du autentiserar användare med OpenID Connect Azure AD B2C returnerar en ID-token till appen som innehåller **anspråk**. Dessa är intyg om användaren. Du kan använda anspråk för att anpassa din app.
+När du autentiserar användare med hjälp av OpenID Connect, Azure AD B2C returnerar ett ID-token till appen som innehåller **anspråk**. Det här är intyg om användaren. Du kan använda anspråk för att anpassa din app.
 
 Öppna filen `Controllers\HomeController.cs`. Du kan komma åt användaranspråk i dina domänkontrollanter via den `ClaimsPrincipal.Current` säkerhetsobjekt.
 
@@ -385,4 +387,4 @@ public ActionResult Claims()
 }
 ```
 
-Du kan komma åt några anspråk som programmet tar emot på samma sätt.  En lista över alla appen tar emot anspråk som är tillgänglig för dig på den **anspråk** sidan.
+Du kan komma åt några anspråk som programmet tar emot på samma sätt.  En lista över alla anspråk som appen tar emot finns tillgänglig för på den **anspråk** sidan.

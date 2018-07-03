@@ -1,76 +1,77 @@
 ---
 title: Azure SQL Database-resurs begränsar översikt | Microsoft Docs
-description: Den här sidan beskrivs några vanliga DTU-baserade gränserna för enskilda databaser i Azure SQL Database.
+description: Den här sidan beskriver några vanliga DTU-baserade resursbegränsningar för enskilda databaser i Azure SQL Database.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: 6806b0c5b5e5ac5e1189f628786f0c8f9b223395
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 403490f47ac171d4a302d2b68af65375bbdc26cd
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750959"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345730"
 ---
-# <a name="overview-azure-sql-database-resource-limits"></a>Översikt över gränserna för Azure SQL Database 
+# <a name="overview-azure-sql-database-resource-limits"></a>Översikt över Azure SQL Database-resursgränser 
 
-Den här artikeln innehåller en översikt över Azure SQL Database-resursen begränsar och innehåller information om vad som händer när de gränserna nått eller överskridit.
+Den här artikeln innehåller en översikt över Azure SQL Database-resursen begränsar och ger information om vad som händer när de resursbegränsningar nått eller överskridit.
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Vad är det maximala antalet servrar och databaser?
 
 | Maximal | Värde |
 | :--- | :--- |
 | Databaser per server | 5000 |
-| Standardantal servrar per prenumeration i en region | 20 |
-| Max antal servrar per prenumeration i en region | 200 |
+| Standardvärdet för antal servrar per prenumeration i valfri region | 20 |
+| Maxantal servrar per prenumeration i valfri region | 200 |
+| DTU / eDTU kvot per server | 54,000 |
 |||
 
 > [!NOTE]
-> För att få mer serverkvoten än standardmängden som, kan du skicka en ny supportförfrågan i Azure portal för prenumerationen med typ av problem ”kvoten”.
+> Om du vill ha mer DTU-kvot /eDTU eller fler servrar än standardvärdet, kan du skicka en ny supportbegäran i Azure-portalen för prenumerationen med ärendetypen ”kvot”. DTU / eDTU-kvot och databas gränsen per server begränsar antalet elastiska pooler per server. 
 
 > [!IMPORTANT]
 > När antalet databaser som närmar sig gränsen per server, kan följande inträffa:
-> - Ökad latens i kör frågor mot master-databasen.  Detta inkluderar vyer av användningsstatistik för resurs, till exempel sys.resource_stats.
-> - Ökad latens i hanteringsåtgärder och återges portal åsikter som rör uppräkning databaser på servern.
+> - Öka fördröjning vid körning av frågor mot huvuddatabasen.  Detta inkluderar vyer av Resursstatistik, till exempel sys.resource_stats.
+> - Ökad svarstid i hanteringsåtgärder och rendering portal översiktsvyer som rör uppräkning av databaser på servern.
 
-## <a name="what-happens-when-database-resource-limits-are-reached"></a>Vad händer när databasen resource gränser?
+## <a name="what-happens-when-database-resource-limits-are-reached"></a>Vad händer när databasen resource har nått?
 
-### <a name="compute-dtus-and-edtus--vcores"></a>Beräkna (dtu: er och edtu: er / vCores)
+### <a name="compute-dtus-and-edtus--vcores"></a>Compute (dtu: er och edtu: er / virtuella kärnor)
 
-När databasen beräkning användning (mätt av dtu: er och edtu: er eller vCores) är hög, svarstid ökar och kan även timeout. Under dessa förhållanden frågor i kö av tjänsten och tillhandahålls resurser för körning som resursen bli ledig.
-När den påträffar hög beräkning användning inkluderar minskning alternativ:
+När beräkning databasanvändning (mätt av dtu: er och edtu: er eller v-kärnor) blir hög svarstid ökar och kan även timeout. Under dessa förhållanden frågor köas av tjänsten och tillhandahålls resurser för körning som resurs bli ledig.
+När den påträffar hög beräknings-användning, är minskning alternativen:
 
-- Öka prestandanivåerna för databasen eller elastisk pool för att tillhandahålla databasen med fler beräkningsresurser. Se [skala enskild databas](sql-database-single-database-scale.md) och [skala elastisk pool](sql-database-elastic-pool-scale.md).
-- Optimera frågor för att minska resursanvändningen för varje fråga. Mer information finns i [frågan finjustera/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
+- Ökning av prestandanivån för databasen eller elastisk pool för att tillhandahålla databasen med mer beräkningsresurser. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
+- Optimera frågor för att minska resursanvändningen för varje fråga. Mer information finns i [fråga justering/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ### <a name="storage"></a>Storage
 
-När databasutrymme används når den maximala storleksgränsen, infogas i databasen och uppdateringar som ökar storleken på data misslyckas och klienter tar emot en [felmeddelande](sql-database-develop-error-messages.md). Databasen väljer och BORTTAGNINGAR fortsätter att fungera.
+När databasutrymme används når den maximala storleksgränsen, databasen infogningar och uppdateringar som ökar storleken på data kan misslyckas och klienterna får en [felmeddelande](sql-database-develop-error-messages.md). Databasen väljer och BORTTAGNINGAR fortsätter att lyckas.
 
-När den påträffar hög användningen inkluderar minskning alternativ:
+När den påträffar hög användningen är minskning alternativen:
 
-- Öka max storleken på databasen eller elastisk pool eller Lägg till mer lagringsutrymme. Se [skala enskild databas](sql-database-single-database-scale.md) och [skala elastisk pool](sql-database-elastic-pool-scale.md).
+- Ökar den maximala storleken på databasen eller den elastiska poolens eller Lägg till mer lagringsutrymme. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
 - Om databasen är i en elastisk pool, kan sedan också databasen flyttas utanför poolen så att dess lagringsutrymme inte delas med andra databaser.
 
-### <a name="sessions-and-workers-requests"></a>Sessioner och personer (antal begäranden) 
+### <a name="sessions-and-workers-requests"></a>Sessioner och arbetare (begäranden) 
 
-Det maximala antalet sessioner och personer bestäms av tjänstnivå och prestandanivå servicenivån (dtu: er och edtu: er). Nya begäranden avvisas när sessionen eller worker gränser och klienter får ett felmeddelande. När antalet anslutningar som är tillgängliga kan styras av programmet, är antalet samtidiga arbetare ofta svårare att uppskatta och styra. Detta gäller särskilt under belastningsperioder när gränserna för databasen har uppnåtts och arbetare växer på grund av längre frågor som körs. 
+Det maximala antalet sessioner och arbetare bestäms av tjänstnivå och prestandanivå servicenivå (dtu: er och edtu: er). Nya begäranden avvisas när sessionen eller arbetare har nått och klienterna får ett felmeddelande. Antalet anslutningar som är tillgängliga kan styras av programmet, är antalet samtidiga arbetare ofta svårare att beräkna och styr. Detta gäller särskilt under belastningsperioder när databasen resource har nått och arbetare växer på grund av längre körning av frågor. 
 
-När den påträffar hög session eller worker användning inkluderar minskning alternativ:
-- Öka servicenivå för nivå eller prestanda för databasen eller elastisk pool. Se [skala enskild databas](sql-database-single-database-scale.md) och [skala elastisk pool](sql-database-elastic-pool-scale.md).
-- Optimera frågor för att minska resursanvändningen för varje fråga om orsaken till ökad worker belastningen beror på konkurrens om beräkningsresurser. Mer information finns i [frågan finjustera/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
+När den påträffar hög användning för sessionen eller arbete, är minskning alternativen:
+- Öka servicenivå för tjänstenivå eller prestandanivå för databasen eller den elastiska poolen. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
+- Optimera frågor för att minska resursanvändningen för varje fråga om orsaken till ökad worker användningen är på grund av konkurrens om beräkningsresurser. Mer information finns i [fråga justering/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-När den påträffar hög session eller worker användning inkluderar minskning alternativ:
-- Öka servicenivå för nivå eller prestanda på databasen. Se [skala enskild databas](sql-database-single-database-scale.md) och [skala elastisk pool](sql-database-elastic-pool-scale.md).
-- Optimera frågor för att minska resursanvändningen för varje fråga om orsaken till ökad worker belastningen beror på konkurrens om beräkningsresurser. Mer information finns i [frågan finjustera/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
+När den påträffar hög användning för sessionen eller arbete, är minskning alternativen:
+- Öka servicenivå för tjänstenivå eller prestandanivå för databasen. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
+- Optimera frågor för att minska resursanvändningen för varje fråga om orsaken till ökad worker användningen är på grund av konkurrens om beräkningsresurser. Mer information finns i [fråga justering/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [SQL-databasen med vanliga frågor om](sql-database-faq.md) för svar på vanliga frågor och svar.
-- Information om allmänna Azure gränser finns [Azure-prenumeration och tjänsten gränser, kvoter och begränsningar](../azure-subscription-service-limits.md).
-- Information om dtu: er och edtu: er finns [dtu: er och edtu: er](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
-- Information om storleksgränser för tempdb finns https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.
+- Se [SQL Database vanliga frågor och svar](sql-database-faq.md) svar på vanliga frågor och svar.
+- Information om allmänna Azure-begränsningar finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
+- Information om dtu: er och edtu: er finns i [dtu: er och edtu: er](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
+- Information om storleksgränser för tempdb finns i https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

@@ -63,7 +63,7 @@
           href: luis-quickstart-primary-and-secondary-data.md
         - name: 7. Lägga till keyPhrase-entitet
           href: luis-quickstart-intent-and-key-phrase.md
-        - name: 8. Lägg till attitydanalys
+        - name: 8. Lägga till attitydanalys
           href: luis-quickstart-intent-and-sentiment-analysis.md
     - name: Förbättra förutsägelse
       items:
@@ -136,7 +136,7 @@
 - name: Instruktionsguider
   items:
     - name: Planera din app
-      href: Plan-your-app.md
+      href: luis-how-plan-your-app.md
     - name: Starta en ny app
       href: Create-new-app.md
     - name: Skapa modell
@@ -200,7 +200,7 @@
         - name: Använda fördefinierade domäner
           href: luis-how-to-use-prebuilt-domains.md
         - name: Använda den färdiga Cortana-appen
-          href: Cortana-Prebuilt-App.md
+          href: luis-how-to-cortana-prebuilt-app.md
     - name: Hantera LUIS-appen
       items:
         - name: Använd instrumentpanelen
@@ -309,6 +309,8 @@
       href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
     - name: Textanalys
       href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+    - name: Recognizers-Text
+      href: 'https://github.com/Microsoft/Recognizers-Text'
 - name: Resurser
   items:
     - name: Azure-översikt

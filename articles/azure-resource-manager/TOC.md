@@ -2,15 +2,17 @@
 
 # Översikt
 ## [Vad är Resource Manager?](resource-group-overview.md)
-## [Resursproviders och resurstyper](resource-manager-supported-services.md)
 ## [Resource Manager och klassisk distribution](resource-manager-deployment-model.md)
-## [Prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance)
-## [Ordna resurser med hanteringsgrupper](management-groups-overview.md)
 
 # Kom igång
 ## [Skapa och distribuera mall](resource-manager-create-first-template.md)
 ## [VS Code-tillägg för mallar](resource-manager-vscode-extension.md)
 ## [Visual Studio med Resurshanteraren](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+
+# Begrepp
+## [Resursproviders och resurstyper](resource-manager-supported-services.md)
+## [Hanteringsgrupper](management-groups-overview.md)
+## [Prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 # Gör så här för att
 ## Skapa mallar

@@ -5,7 +5,6 @@
 ### Butiker  
 #### [Jämföra AppSource och Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
 #### [Låt din verksamhet växa med AzureSource](./grow-your-business-with-appsource.md) 
-#### [Önskade lösningar](./preferred-solutions.md)
 ##### [Skapa din landningssida](./build-your-landing-page.md)  
 ##### [Aktivera delning av lead](./enable-lead-sharing.md)  
 ##### [GTM-fördelar på Marketplace](./gtm-benefits.md)  
@@ -19,17 +18,17 @@
 ### Så här publicerar du i butiker på marknadsplatsen  
 #### [Bestäm listtyp för lösningen](./determine-your-listing-type.md)  
 #### [Publicera i webbutiker på marknadsplatsen](./become-publisher.md)  
-#### [Krav efter listtyp](./listing-type-requirements.md)  
+#### [Krav efter listtyp](./listing-type-requirements.md) 
+#### [Önskade lösningar](./preferred-solutions.md) 
 
 ### Publicera checklistor  
 #### [Publicera checklista för AppSource](./publishing-checklist-appsource.md)  
 #### [Publicera checklista för Azure Marketplace](./publishing-checklist-azure-marketplace.md)  
 
 ### Support  
-#### [Support för AppSource](./support-appsource.md)  
-#### [Support för Azure Marketplace](./support-azure-marketplace.md)  
+#### [Support för Azure Marketplace och AppSource](./support-azure-marketplace.md)  
 
-### Guider  
+### Publiceringsguider  
 #### [Azure Marketplace-konsulttjänst](consulting-services.md)  
 #### [Teknisk publiceringsguide om Azure Marketplace SaaS-appar](marketplace-saas-applications-technical-publishing-guide.md) 
 

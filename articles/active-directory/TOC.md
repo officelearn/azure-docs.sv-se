@@ -83,8 +83,8 @@
 ## [Hantera grupper och medlemmar](fundamentals/active-directory-manage-groups.md)
 ### Hantera grupper
 #### [Azure Portal](fundamentals/active-directory-groups-create-azure-portal.md)
-#### [Azure AD PowerShell för Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure AD PowerShell för Graph (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
 ### [Hantera gruppmedlemmar](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [Hantera gruppägare](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Hantera gruppmedlemskap](fundamentals/active-directory-groups-membership-azure-portal.md)
@@ -99,13 +99,13 @@
 ### [Konfigurera förfallodatum för Office 365-grupper](active-directory-groups-lifecycle-azure-portal.md)
 ### [Framtvinga en namnprincip för grupper](groups-naming-policy.md)
 ### [Visa alla grupper](fundamentals/active-directory-groups-view-azure-portal.md)
-### [Hantera gruppåtkomst till SaaS-appar](active-directory-accessmanagement-group-saasapps.md)
+### [Hantera gruppåtkomst till SaaS-appar](users-groups-roles/groups-saasapps.md)
 ### [Återställa en borttagen Office 365-grupp](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Hantera gruppinställningar](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Skapa avancerade regler
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
-### [Konfigurera självbetjäningsgrupper](active-directory-accessmanagement-self-service-group-management.md)
-### [Felsöka](active-directory-accessmanagement-troubleshooting.md)
+### [Konfigurera självbetjäningsgrupper](users-groups-roles/groups-self-service-management.md)
+### [Felsöka](users-groups-roles/groups-troubleshooting.md)
 
 ## [Hantera rapporter](active-directory-reporting-azure-portal.md)
 ### [Inloggningsaktiviteter](active-directory-reporting-activity-sign-ins.md)
@@ -363,7 +363,7 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Egna domännamn
 #### [Snabbstart](fundamentals/add-custom-domain.md)
-#### [Lägga till anpassade domännamn](active-directory-domains-manage-azure-portal.md)
+#### [Lägga till anpassade domännamn](users-groups-roles/domains-manage.md)
 ### [Administrera din katalog](fundamentals/active-directory-administer.md)
 ### [Ta bort en katalog](directory-delete-howto.md)
 ### [Flera kataloger](active-directory-licensing-directory-independence.md)
@@ -381,12 +381,12 @@
 
 ## Delegera åtkomst till resurser
 ### [Visa medlemmar av en administratörsroll](directory-manage-roles-portal.md)
-### [Administratörsroller](active-directory-assign-admin-roles-azure-portal.md)
+### [Administratörsroller](users-groups-roles/directory-assign-admin-roles.md)
 #### [Tilldela administratörsroll till en användare](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Jämföra behörigheter för medlemmar och gästanvändare](fundamentals/users-default-permissions.md)
 ### [Förstärka säkerheten för administratörsrollen](admin-roles-best-practices.md)  
-#### [Skapa administratörskonton för åtkomst vid akutfall](active-directory-admin-manage-emergency-access-accounts.md)
-### [Administrativa enheter](active-directory-administrative-units-management.md)
+#### [Skapa administratörskonton för åtkomst vid akutfall](users-groups-roles/directory-emergency-access.md)
+### [Administrativa enheter](users-groups-roles/directory-administrative-units.md)
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
 
 ## Åtkomstgranskningar
@@ -406,6 +406,7 @@
 #### Snabbstarter
 ##### [Konfigurera MFA per app](active-directory-conditional-access-app-based-mfa.md)
 ##### [Kräv att användningsvillkoren godkänns](active-directory-conditional-access-tou.md)
+##### [Blockera åtkomst när en sessionsrisk identifieras](active-directory-conditional-access-app-sign-in-risk.md)
 #### Självstudier
 ##### [Migrera en klassisk MFA-princip](active-directory-conditional-access-migration-mfa.md)
 #### Begrepp

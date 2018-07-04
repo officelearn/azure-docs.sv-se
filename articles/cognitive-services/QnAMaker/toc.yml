@@ -118,6 +118,8 @@
       href: glossary.md
 - name: Resurser
   items:
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prissättning

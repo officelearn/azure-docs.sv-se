@@ -33,7 +33,7 @@
       href: tutorials/spellcheck-source.md
 - name: Instruktionsguider
   items:
-    - name: Användnings- och visningskrav
+    - name: Använda och visa krav
       href: UseAndDisplayRequirements.md
     - name: Uppgradera från v5 till v7
       href: bing-spell-check-upgrade-guide-v5-to-v7.md
@@ -45,19 +45,21 @@
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference'
 - name: Resurser
   items:
+    - name: Analys för API för stavningskontroll i Bing
+      href: bing-spell-check-stats.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: bing-spell-check-resource-faq.md
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/bing-api'
-    - name: Språk som stöds
-      href: bing-spell-check-supported-languages.md
-    - name: Analys för API för stavningskontroll i Bing
-      href: bing-spell-check-stats.md
     - name: Prenumerationsnyckel
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api'
+    - name: Språk som stöds
+      href: bing-spell-check-supported-languages.md
     - name: Prova!
       href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'

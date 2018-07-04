@@ -1,9 +1,26 @@
+---
+title: ta med fil
+description: ta med fil
+services: service-bus-messaging
+author: sethmanheim
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 06/29/2018
+ms.author: sethm
+ms.custom: include file
+ms.openlocfilehash: 503a1db726483709c351ac9861c5d54913de55d3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37132015"
+---
 För att komma igång med Service Bus-meddelandeentiteter i Azure måste du först skapa ett namnområde med ett namn som är unikt i Azure. Ett namnområde innehåller en omfattningsbehållare för adressering av Service Bus-resurser i ditt program.
 
 Så här skapar du ett namnområde:
 
 1. Logga in på [Azure Portal][Azure portal].
-2. I det vänstra navigeringsfältet i portalen, klickar du på **+ Skapa en resurs**, därefter klickar du på **Enterprise-integration** och sedan på **Service Bus**.
+2. I det vänstra navigeringsfältet i portalen klickar du på **+ Skapa en resurs**, därefter klickar du på **Integration** och sedan på **Service Bus**.
 3. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
 4. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Basic, Standard eller Premium).
 5. I fältet **Prenumeration** väljer du en Azure-prenumeration för vilken du vill skapa namnområdet.
@@ -14,9 +31,10 @@ Så här skapar du ett namnområde:
 8. Klicka på **Skapa**. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
 
 ### <a name="obtain-the-management-credentials"></a>Hämta autentiseringsuppgifterna för hantering
+
 Om du skapar ett nytt namnområde så genereras en automatiskt en ursprunglig regel för signatur för delad åtkomst (SAS) med ett kopplat par med primära och sekundära nycklar som ger fullständig kontroll över alla namnområdets aspekter. Se [Service Bus – autentisering och auktorisering](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) för mer information om hur du skapar ytterligare regler med mer begränsade rättigheter för regelbundna sändare och mottagare. Gör så här om du vill kopiera den ursprungliga regeln: 
 
-1.  Klicka på **Alla resurser**, sedan klickar du på den nyligen skapade namnrymden.
+1. Klicka på **Alla resurser**, sedan klickar du på den nyligen skapade namnrymden.
 2. I namnområdesfönstret, klickar du på **Principer för delad åtkomst**.
 3. I fönstret **Principer för delad åtkomst**, klickar du på **RootManageSharedAccessKey**.
    

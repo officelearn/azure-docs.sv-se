@@ -508,6 +508,10 @@
     - name: Viktig information
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: Arkiverad viktig information
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Få hjälp i forumet

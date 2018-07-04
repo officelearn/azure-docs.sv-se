@@ -4,7 +4,7 @@
 ## [Vanliga frågor och svar](faq-classic.md)
 
 # Kom igång
-## [Skapa en virtuell Linux-dator med Azure Portal](createportal-classic.md)
+## [Skapa en virtuell Linux-dator](createportal-classic.md)
 
 # Gör så här för att
 ## Compute

@@ -1,6 +1,6 @@
 ---
-title: Skapa Azure webb- och arbetsroller roller för PHP
-description: En guide för att skapa roller för PHP webb- och arbetsroller i ett Azure-molntjänst och konfigurera PHP-körning.
+title: Skapa Azure webb- och arbetsroller för PHP
+description: En guide för att skapa PHP webb- och worker-roller i en Azure-molntjänst och konfigurera PHP-körning.
 services: ''
 documentationcenter: php
 author: msangapu
@@ -13,53 +13,59 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: b9f350870dde71666d269aaae9cb7c14aaac5aad
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 9d4be08e732127d6da12a9e0367383347f53c796
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34608907"
 ---
-# <a name="how-to-create-php-web-and-worker-roles"></a>Så här skapar du PHP webb- och arbetsroller roller
+# <a name="create-php-web-and-worker-roles"></a>Skapa PHP webb- och arbetsroller
+
 ## <a name="overview"></a>Översikt
-Den här guiden visar hur du skapar PHP webb eller arbetare roller i en Windows-utvecklingsmiljö, välja en viss version av PHP från ”inbyggd” versioner som är tillgängliga, ändra PHP-konfiguration, aktivera tillägg och slutligen kan distribuera till Azure. Det beskriver också hur du konfigurerar en webb- eller arbetarroll roll om du vill använda en PHP-körning (med anpassad konfiguration och tillägg) som du anger.
 
-## <a name="what-are-php-web-and-worker-roles"></a>Vad är PHP webb- och arbetsroller roller?
-Azure tillhandahåller tre beräkningsmodeller för program som körs: Azure App Service, Azure virtuella datorer och Azure Cloud Services. Alla tre modeller stöder PHP. Molntjänster som innehåller webb-och arbetsroller innehåller *plattform som en tjänst (PaaS)*. I en molntjänst tillhandahåller en webbroll en dedikerad Internet Information Services (IIS) webbserver som värd för frontend-webbservrar program. En arbetsroll kan köra asynkrona, tidskrävande eller beständiga uppgifter oberoende av användarinteraktion eller indata.
+Den här guiden visar hur du skapar PHP webb- eller worker-roller i en Windows-utvecklingsmiljö, välja en specifik version av PHP från ”inbyggd” versioner som är tillgängliga, ändra PHP-konfiguration, aktivera tillägg och slutligen kan distribuera till Azure. Det beskriver också hur du konfigurerar en web- eller worker-roll om du vill använda en PHP-körning (med anpassad konfiguration och tillägg) som du anger.
 
-Mer information om dessa alternativ finns [beräkning som värd för alternativen i Azure](cloud-services/cloud-services-choose-me.md).
+Azure har tre beräkningsmodeller för att köra program: Azure App Service, Azure virtuella datorer och Azure Cloud Services. Alla tre modeller stöder PHP. Molntjänster, vilket innefattar webb-och arbetsroller, erbjuder *plattform som en tjänst (PaaS)*. I en molntjänst tillhandahåller en webbroll en dedikerad webbserver för Internet Information Services (IIS) som värd frontend-webbprogram. En arbetsroll kan köra asynkrona, tidskrävande eller beständiga uppgifter oberoende av användarinteraktion eller indata.
+
+Mer information om alternativen finns i [Datorvärdalternativ från Azure](cloud-services/cloud-services-choose-me.md).
 
 ## <a name="download-the-azure-sdk-for-php"></a>Ladda ner Azure SDK för PHP
-Den [Azure SDK för PHP] består av flera komponenter. Den här artikeln använder två av dem: Azure PowerShell och Azure emulatorerna. Dessa två komponenter kan installeras via Microsoft Web Platform Installer. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 
-## <a name="create-a-cloud-services-project"></a>Skapa ett projekt med molntjänster
-Det första steget i att skapa en PHP-webbplats eller arbetsprocess roll är att skapa en Azure Service-projekt. Azure Service-projekt som fungerar som en logisk behållare för webb-och arbetsroller och innehåller projektets [service definition (.csdef)] och [tjänstkonfiguration (.cscfg)] filer.
+Den [Azure SDK för PHP](php-download-sdk.md) består av flera komponenter. Den här artikeln används två av dem: Azure PowerShell och Azure-emulatorer. Dessa två komponenter kan installeras via Microsoft Web Platform Installer. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 
-Skapa ett nytt projekt i Azure-tjänsten, köra Azure PowerShell som administratör och kör följande kommando:
+## <a name="create-a-cloud-services-project"></a>Skapa en Cloud Services-projekt
+
+Det första steget i att skapa en PHP web- eller worker-roll är att skapa ett Azure Service-projekt. ett Azure Service-projekt som fungerar som en logisk behållare för webb- och worker-roller och innehåller projektets [tjänstdefinitionsfilen (.csdef)] och [service-konfiguration (.cscfg)] filer.
+
+Skapa ett nytt Azure Service-projekt, köra Azure PowerShell som administratör och kör följande kommando:
 
     PS C:\>New-AzureServiceProject myProject
 
-Det här kommandot skapar en ny katalog (`myProject`) som du kan lägga till webb-och arbetsroller.
+Det här kommandot skapar en ny katalog (`myProject`) där du kan lägga till webb-och arbetsroller.
 
-## <a name="add-php-web-or-worker-roles"></a>Lägga till PHP-webbplats eller arbetsprocess roller
-Om du vill lägga till en PHP-webbroll till ett projekt, kör du följande kommando från i projektets rotkatalog:
+## <a name="add-php-web-or-worker-roles"></a>Lägga till PHP web- eller worker-roller
+
+Kör följande kommando från i projektets rotkatalog för att lägga till en PHP-webbroll till ett projekt:
 
     PS C:\myProject> Add-AzurePHPWebRole roleName
 
-Använd följande kommando för en arbetsroll:
+Använd följande kommando för en worker-roll:
 
     PS C:\myProject> Add-AzurePHPWorkerRole roleName
 
 > [!NOTE]
-> Den `roleName` parametern är valfri. Om det utelämnas ska rollnamnet skapas automatiskt. Första webbrollen skapat kommer att `WebRole1`, andra blir `WebRole2`och så vidare. Den första worker-rollen skapats kommer att `WorkerRole1`, andra blir `WorkerRole2`och så vidare.
+> Den `roleName` parametern är valfri. Om det utelämnas ska rollnamnet skapas automatiskt. Första webbrollen skapat kommer att `WebRole1`, andra blir `WebRole2`och så vidare. Den första worker-roll som skapas kommer att `WorkerRole1`, andra blir `WorkerRole2`och så vidare.
 >
 >
 
 ## <a name="specify-the-built-in-php-version"></a>Ange den inbyggda PHP-versionen
-När du lägger till en PHP-webbplats eller arbetsprocess roll till ett projekt ändras projektfiler konfiguration så att PHP kommer att installeras på varje webb eller arbetare instans av programmet när det distribueras. Om du vill se versionen av PHP som installeras som standard, kör du följande kommando:
+
+När du lägger till en PHP web- eller worker-roll till ett projekt ändras i projektets konfigurationsfiler så att PHP kommer att installeras på varje web- eller worker-instans av programmet när det distribueras. Om du vill se vilken version av PHP som kommer att installeras som standard, kör du följande kommando:
 
     PS C:\myProject> Get-AzureServiceProjectRoleRuntime
 
-Utdata från kommandot ovan ser ut ungefär som visas nedan. I det här exemplet i `IsDefault` -flaggan inställd på `true` för PHP 5.3.17, som anger att det är den standard PHP-version som installeras.
+Utdata från kommandot ovan ser ut ungefär som det som anges nedan. I det här exemplet på `IsDefault` är inställd på `true` för PHP 5.3.17, som anger att det är PHP-standardversionen installerad.
 
 ```
 Runtime Version     PackageUri                      IsDefault
@@ -73,7 +79,7 @@ PHP 5.3.17          http://nodertncu.blob.core...   True
 PHP 5.4.0           http://nodertncu.blob.core...   False
 ```
 
-Du kan ange PHP-körtidsversion för PHP-versioner som anges. Till exempel för att ange PHP-version (för en roll med namnet `roleName`) till 5.4.0, Använd följande kommando:
+Du kan ange PHP-körtidsversion till någon av PHP-versioner som listas. Till exempel vill ange PHP-version (för en roll med namnet `roleName`) till 5.4.0, använder du följande kommando:
 
     PS C:\myProject> Set-AzureServiceProjectRole roleName php 5.4.0
 
@@ -82,35 +88,38 @@ Du kan ange PHP-körtidsversion för PHP-versioner som anges. Till exempel för 
 >
 >
 
-## <a name="customize-the-built-in-php-runtime"></a>Anpassa inbyggda PHP-körning
-Du har fullständig kontroll över konfigurationen för PHP-körningen som installeras när du följer du stegen ovan, även ändringar av `php.ini` inställningar och aktivering av tillägg.
+## <a name="customize-the-built-in-php-runtime"></a>Anpassa den inbyggda PHP-körningen
+
+Du har fullständig kontroll över konfigurationen av PHP-körning som installeras när du följer du stegen ovan, även ändringar av `php.ini` inställningar och aktivering av tillägg.
 
 Följ dessa steg om du vill anpassa den inbyggda PHP-körningen:
 
-1. Lägg till en ny mapp med namnet `php`, i den `bin` katalogen för webbrollen. Lägga till rollens rotkatalogen för en arbetsroll.
-2. I den `php` mapp, skapa en annan mapp med namnet `ext`. Placera alla `.dll` tilläggsfiler (t.ex. `php_mongo.dll`) som du vill aktivera i den här mappen.
-3. Lägg till en `php.ini` filen till den `php` mapp. Aktivera alla anpassade tillägg och ange en PHP-direktiv i filen. Till exempel om du vill aktivera `display_errors` på och aktivera den `php_mongo.dll` tillägg, innehållet i din `php.ini` filen blir som följer:
+1. Lägg till en ny mapp som heter `php`, i den `bin` katalogen för webbrollen. Lägga till den till rollens rotkatalogen för worker-roll.
+2. I den `php` mapp, skapa en annan mapp med namnet `ext`. Placera någon `.dll` tilläggsfiler (t.ex. `php_mongo.dll`) som du vill aktivera i den här mappen.
+3. Lägg till en `php.ini` filen till den `php` mapp. Aktivera anpassade tillägg och konfigurera alla PHP-direktiv i den här filen. Exempel: Om du vill aktivera `display_errors` på och aktivera den `php_mongo.dll` tillägg, innehållet i din `php.ini` filen skulle vara följande:
 
         display_errors=On
         extension=php_mongo.dll
 
 > [!NOTE]
-> Alla inställningar som du inte uttryckligen anger i den `php.ini` filen som du anger kommer automatiskt anges till sina standardvärden. Tänk dock på att du kan lägga till en fullständig `php.ini` fil.
+> Alla inställningar som du inte uttryckligen anger i den `php.ini` fil att du anger kommer automatiskt anges till sina standardvärden. Men tänk på att du kan lägga till ett komplett `php.ini` fil.
 >
 >
 
-## <a name="use-your-own-php-runtime"></a>Använda din egen PHP-körning
-I vissa fall kan i stället för att välja en inbyggd PHP-körning och konfigurera det som beskrivs ovan, vill du ange egna PHP-körning. Exempelvis kan du använda samma PHP-körning i en webb- eller arbetarroll roll som du använder i din utvecklingsmiljö. På så sätt blir det lättare att se till att programmet inte att ändra beteende i din produktionsmiljö.
+## <a name="use-your-own-php-runtime"></a>Använd din egen PHP-körning
+
+I vissa fall kan i stället för att välja en inbyggd PHP-körning och konfigurera det som beskrivs ovan, kan du ange egna PHP-körning. Exempelvis kan du använda samma PHP-körning i en web- eller worker-roll som du använder i din utvecklingsmiljö. Detta gör det enklare att se till att programmet inte ändrar beteende i din produktionsmiljö.
 
 ### <a name="configure-a-web-role-to-use-your-own-php-runtime"></a>Konfigurera en webbroll om du vill använda din egen PHP-körning
+
 Följ dessa steg om du vill konfigurera en webbroll om du vill använda en PHP-körning som du anger:
 
 1. Skapa ett Azure Service-projekt och Lägg till en PHP-webbroll enligt beskrivningen tidigare i det här avsnittet.
-2. Skapa en `php` mapp i den `bin` mapp som finns i rotkatalogen för din webbroll och sedan lägga till PHP-körning (alla binärfiler, konfigurationsfiler, undermappar osv.) den `php` mapp.
-3. (VALFRITT) Om PHP-körning använder den [Drivers Microsoft för PHP för SQL Server][sqlsrv drivers], behöver du konfigurera din webbroll installera [SQL Server Native Client 2012] [ sql native client] när den har etablerats. Det gör du genom att lägga till den [sqlncli.msi x64 installer] till den `bin` mapp i rotkatalogen för din webbroll. Startskript som beskrivs i nästa steg körs tyst installationsprogrammet när rollen har etablerats. Om PHP-körning inte använder Microsoft Drivers för PHP för SQL Server, kan du ta bort följande rad från skriptet som visas i nästa steg:
+2. Skapa en `php` mapp i den `bin` mapp som finns i rotkatalogen för din webbroll och Lägg sedan till din PHP-körning (alla binärfiler, konfigurationsfiler, undermappar osv.) till den `php` mapp.
+3. (VALFRITT) Om din PHP-körning använder den [Drivers Microsoft för PHP för SQL Server][sqlsrv drivers], behöver du konfigurera din webbroll installera [SQL Server Native Client 2012] [ sql native client] när den har etablerats. Gör detta genom att lägga till den [sqlncli.msi x64 installer] till den `bin` mapp i rotkatalogen för din webbroll. Startskript som beskrivs i nästa steg körs tyst installationsprogrammet när rollen har etablerats. Om din PHP-körning inte använder Microsoft-Drivers för PHP för SQL Server, kan du ta bort följande rad från skriptet visas i nästa steg:
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
-4. Definiera en startåtgärd som konfigurerar [Internet Information Services (IIS)] [ iis.net] du använder PHP-körning för att hantera begäranden om `.php` sidor. Gör detta genom att öppna den `setup_web.cmd` fil (i den `bin` filen i rotkatalogen för din webbroll) i en textredigerare och Ersätt innehållet med följande skript:
+4. Definiera en startåtgärd som konfigurerar [Internet Information Services (IIS)] [ iis.net] du använder PHP-körning för att hantera begäranden för `.php` sidor. Gör detta genom att öppna den `setup_web.cmd` fil (i den `bin` filen rotkatalogen för din webbroll) i en textredigerare och Ersätt innehållet med följande skript:
 
     ```cmd
     @ECHO ON
@@ -130,22 +139,23 @@ Följ dessa steg om du vill konfigurera en webbroll om du vill använda en PHP-k
     %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /"[fullPath='%PHP_FULL_PATH%'].queueLength:50000"
     ```
 5. Lägger till programfiler till rotkatalogen för din webbroll. Det här är webbserverns rotkatalog.
-6. Publicera programmet som beskrivs i den [publicera programmet](#publish-your-application) nedan.
+6. Publicera programmet enligt beskrivningen i den [publicera programmet](#publish-your-application) nedan.
 
 > [!NOTE]
-> Den `download.ps1` skript (i det `bin` mapp i rotkatalogen för rollen webbserver) kan tas bort när du har följt stegen ovan för att använda din egen PHP-körning.
+> Den `download.ps1` skript (i den `bin` mappen web-roll rotkatalogen) kan tas bort när du har följt stegen ovan för att använda din egen PHP-körning.
 >
 >
 
-### <a name="configure-a-worker-role-to-use-your-own-php-runtime"></a>Konfigurera en arbetsroll om du vill använda din egen PHP-körning
-Följ dessa steg om du vill konfigurera en arbetsroll om du vill använda en PHP-körning som du anger:
+### <a name="configure-a-worker-role-to-use-your-own-php-runtime"></a>Konfigurera en arbetsroll fungerar för att använda din egen PHP-körning
+
+Följ dessa steg om du vill konfigurera en arbetsroll fungerar för att använda en PHP-körning som du anger:
 
 1. Skapa ett Azure Service-projekt och Lägg till en PHP-arbetsroll som beskrivs tidigare i det här avsnittet.
-2. Skapa en `php` mapp i rotkatalogen för worker-rollen och Lägg sedan till PHP-körning (alla binärfiler, konfigurationsfiler, undermappar osv.) den `php` mapp.
-3. (VALFRITT) Om PHP-körning använder [Drivers Microsoft för PHP för SQL Server][sqlsrv drivers], behöver du konfigurera worker-rollen för att installera [SQL Server Native Client 2012] [ sql native client] när den har etablerats. Det gör du genom att lägga till den [sqlncli.msi x64 installer] till den arbetsroll rotkatalogen. Startskript som beskrivs i nästa steg körs tyst installationsprogrammet när rollen har etablerats. Om PHP-körning inte använder Microsoft Drivers för PHP för SQL Server, kan du ta bort följande rad från skriptet som visas i nästa steg:
+2. Skapa en `php` mapp i rotkatalogen för worker-roll, och sedan lägga till PHP-körning (alla binärfiler, konfigurationsfiler, undermappar osv.) i den `php` mapp.
+3. (VALFRITT) Om din PHP-körning använder [Drivers Microsoft för PHP för SQL Server][sqlsrv drivers], behöver du konfigurera worker-roll för att installera [SQL Server Native Client 2012] [ sql native client] när den har etablerats. Gör detta genom att lägga till den [sqlncli.msi x64 installer] till rotkatalogen för worker-roll. Startskript som beskrivs i nästa steg körs tyst installationsprogrammet när rollen har etablerats. Om din PHP-körning inte använder Microsoft-Drivers för PHP för SQL Server, kan du ta bort följande rad från skriptet visas i nästa steg:
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
-4. Definiera en startåtgärd som lägger till din `php.exe` körbara till den arbetsroll PATH-miljövariabeln när rollen har etablerats. Det gör du genom att öppna den `setup_worker.cmd` filen (i rotkatalogen för worker-rollen) i en textredigerare och Ersätt innehållet med följande skript:
+4. Definiera en startåtgärd som lägger till din `php.exe` körbara till worker-roll PATH-miljövariabeln när rollen har etablerats. Gör detta genom att öppna den `setup_worker.cmd` (i rotkatalogen för worker-roll) i en textredigerare och Ersätt innehållet med följande skript:
 
     ```cmd
     @echo on
@@ -173,41 +183,43 @@ Följ dessa steg om du vill konfigurera en arbetsroll om du vill använda en PHP
     echo FAILED
     exit /b -1
     ```
-5. Lägger till programfiler till rotkatalogen för worker-rollen.
-6. Publicera programmet som beskrivs i den [publicera programmet](#publish-your-application) nedan.
+5. Lägger till programfiler till rotkatalogen för din arbetsroll.
+6. Publicera programmet enligt beskrivningen i den [publicera programmet](#publish-your-application) nedan.
 
-## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>Kör ditt program i emulatorerna beräkning och lagring
-Azure emulatorerna ange en lokal miljö där du kan testa din Azure-program innan du distribuerar den till molnet. Det finns några skillnader mellan emulatorerna och Azure-miljön. För att förstå det bättre se [Använd Azure storage-emulatorn för utveckling och testning](storage/common/storage-use-emulator.md).
+## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>Kör ditt program i beräknings- och emulatorer
 
-Observera att du måste ha installerat lokalt om du vill använda beräkningsemulatorn för PHP. Beräkningsemulatorn använder din lokala PHP-installation för att köra programmet.
+Azure-emulatorer tillhandahåller en lokal miljö där du kan testa ditt Azure-program innan du distribuerar den till molnet. Det finns några skillnader mellan emulatorerna och Azure-miljön. För att förstå det bättre se [använder Azure storage-emulatorn för utveckling och testning](storage/common/storage-use-emulator.md).
 
-Om du vill köra projektet i emulatorerna, kör du följande kommando från projektets rotkatalog:
+Observera att du måste ha installerats lokalt för att använda beräkningsemulatorn för PHP. Beräkningsemulatorn använder din lokala PHP-installation för att köra programmet.
+
+Kör projektet i emulatorerna genom att köra följande kommando från projektets rotkatalog:
 
     PS C:\MyProject> Start-AzureEmulator
 
-Du kommer se utdata som liknar detta:
+Du ser utdata som liknar detta:
 
     Creating local package...
     Starting Emulator...
     Role is running at http://127.0.0.1:81
     Started
 
-Du kan se ditt program som körs i emulatorn genom att öppna en webbläsare och bläddra till den lokala adressen visas (`http://127.0.0.1:81` i ovanstående exempel utdata).
+Du kan se ditt program som körs i emulatorn genom att öppna en webbläsare och gå till den lokala adressen som visas i utdata (`http://127.0.0.1:81` i ovanstående Exempelutdata).
 
 Om du vill stoppa emulatorerna, kör du kommandot:
 
     PS C:\MyProject> Stop-AzureEmulator
 
 ## <a name="publish-your-application"></a>Publicera programmet
-Om du vill publicera programmet måste du först importera dina publiceringsinställningar med hjälp av den [importera AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet. Sedan kan du publicera dina program med hjälp av den [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. Information om att logga in finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+
+För att publicera ditt program, måste du först importera dina publiceringsinställningar med hjälp av den [Import AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet. Och sedan publicera dina program med hjälp av den [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. Information om att logga in finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i [PHP Developer Center](/develop/php/).
 
-[Azure SDK för PHP]: /develop/php/common-tasks/download-php-sdk/
+Mer information finns i den [PHP Developer Center](https://azure.microsoft.com/develop/php/).
+
 [install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[service definition (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
-[tjänstkonfiguration (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[tjänstdefinitionsfilen (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
+[service-konfiguration (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
 [sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv

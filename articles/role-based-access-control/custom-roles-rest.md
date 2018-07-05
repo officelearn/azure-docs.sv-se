@@ -1,6 +1,6 @@
 ---
-title: Skapa anpassade roller med hjälp av REST API - Azure | Microsoft Docs
-description: Lär dig hur du skapar anpassade roller för rollbaserad åtkomstkontroll (RBAC) med hjälp av REST-API. Detta innefattar hur du visa, skapa, uppdatera och ta bort anpassade roller.
+title: Skapa anpassade roller med hjälp av REST-API – Azure | Microsoft Docs
+description: Lär dig hur du skapar anpassade roller för rollbaserad åtkomstkontroll (RBAC) med hjälp av REST-API. Detta omfattar att lista, skapa, uppdatera och ta bort anpassade roller.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -11,24 +11,24 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8267846fed30baf2c37dcddd453ae9ead9341da9
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8a1bbe8217e2d4a9846f56124e248e19cbe70b19
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36320592"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436070"
 ---
 # <a name="create-custom-roles-using-the-rest-api"></a>Skapa anpassade roller med hjälp av REST-API
 
-Om den [inbyggda roller](built-in-roles.md) inte uppfyller de specifika behoven i din organisation kan du skapa egna anpassade roller. Den här artikeln beskriver hur du skapar och hanterar anpassade roller med hjälp av REST API.
+Om de [inbyggda rollerna](built-in-roles.md) inte uppfyller organisationens specifika krav kan du skapa egna, anpassade roller. Den här artikeln beskriver hur du skapar och hanterar anpassade roller med hjälp av REST-API.
 
-## <a name="list-roles"></a>Lista roller
+## <a name="list-roles"></a>Visa roller
 
-Om du vill visa en lista över alla roller eller hämta information om en roll med hjälp av dess namn, Använd den [rolldefinitioner - listan](/rest/api/authorization/roledefinitions/list) REST API. För att anropa denna API, måste du ha åtkomst till den `Microsoft.Authorization/roleDefinitions/read` åtgärden definitionsområdet. Flera [inbyggda roller](built-in-roles.md) beviljas åtkomst till den här åtgärden.
+Om du vill visa en lista över alla roller eller hämta information om en roll med hjälp av dess visningsnamn, använder den [rolldefinitioner – lista](/rest/api/authorization/roledefinitions/list) REST API. För att anropa detta API, måste du ha åtkomst till den `Microsoft.Authorization/roleDefinitions/read` igen i omfånget. Flera [inbyggda roller](built-in-roles.md) beviljas åtkomst till den här åtgärden.
 
 1. Börja med följande begäran:
 
@@ -36,7 +36,7 @@ Om du vill visa en lista över alla roller eller hämta information om en roll m
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
     ```
 
-1. Inom URI, Ersätt *{scope}* med den omfattning som du vill visa en lista över roller.
+1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill visa en lista över rollerna.
 
     | Omfång | Typ |
     | --- | --- |
@@ -44,20 +44,20 @@ Om du vill visa en lista över alla roller eller hämta information om en roll m
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
 
-1. Ersätt *{filter}* med villkor som du vill använda för att filtrera listan roll.
+1. Ersätt *{filter}* med villkor som du vill använda för att filtrera listan med rollen.
 
     | Filter | Beskrivning |
     | --- | --- |
-    | `$filter=atScopeAndBelow()` | Lista över roller som är tillgängliga för tilldelning i det specificerade omfånget och alla dess underordnade omfång. |
-    | `$filter=roleName%20eq%20'{roleDisplayName}'` | Använd URL-kodade formatet exakt visningsnamnet för rollen. Till exempel `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+    | `$filter=atScopeAndBelow()` | Lista över roller som är tillgängliga för tilldelning i det specificerade omfånget eller några av dess underordnade scope. |
+    | `$filter=roleName%20eq%20'{roleDisplayName}'` | Använd URL-kodad form av exakta visningsnamnet för rollen. Till exempel `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
-### <a name="get-information-about-a-role"></a>Hämta information om en roll
+### <a name="get-information-about-a-role"></a>Få information om en roll
 
-Få information om en roll med dess identifierare för definition av rollen med hjälp av [rolldefinitioner - hämta](/rest/api/authorization/roledefinitions/get) REST API. För att anropa denna API, måste du ha åtkomst till den `Microsoft.Authorization/roleDefinitions/read` åtgärden definitionsområdet. Flera [inbyggda roller](built-in-roles.md) beviljas åtkomst till den här åtgärden.
+Om du vill ha information om en roll med dess identifierare för definition av rollen kan använda den [rolldefinitioner – hämta](/rest/api/authorization/roledefinitions/get) REST API. För att anropa detta API, måste du ha åtkomst till den `Microsoft.Authorization/roleDefinitions/read` igen i omfånget. Flera [inbyggda roller](built-in-roles.md) beviljas åtkomst till den här åtgärden.
 
-För att få information om en roll med hjälp av dess namn, se föregående [lista roller](custom-roles-rest.md#list-roles) avsnitt.
+Om du vill ha information om en roll med hjälp av dess visningsnamn kan se föregående [lista roller](custom-roles-rest.md#list-roles) avsnittet.
 
-1. Använd den [rolldefinitioner - listan](/rest/api/authorization/roledefinitions/list) REST API för att hämta GUID-identifierare för rollen. Inbyggda roller, du kan också få identifierare från [inbyggda roller](built-in-roles.md).
+1. Använd den [rolldefinitioner – lista](/rest/api/authorization/roledefinitions/list) REST API för att hämta GUID-identifierare för rollen. Inbyggda roller, du kan också få identifierare från [inbyggda roller](built-in-roles.md).
 
 1. Börja med följande begäran:
 
@@ -65,7 +65,7 @@ För att få information om en roll med hjälp av dess namn, se föregående [li
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-1. Inom URI, Ersätt *{scope}* med den omfattning som du vill visa en lista över roller.
+1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill visa en lista över rollerna.
 
     | Omfång | Typ |
     | --- | --- |
@@ -77,11 +77,11 @@ För att få information om en roll med hjälp av dess namn, se föregående [li
 
 ## <a name="create-a-custom-role"></a>Skapa en anpassad roll
 
-Du kan skapa en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](/rest/api/authorization/roledefinitions/createorupdate) REST API. För att anropa denna API, måste du ha åtkomst till den `Microsoft.Authorization/roleDefinitions/write` igen på alla de `assignableScopes`. I de inbyggda rollerna, endast [ägare](built-in-roles.md#owner) och [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) beviljas åtkomst till den här åtgärden. 
+Du kan skapa en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](/rest/api/authorization/roledefinitions/createorupdate) REST API. För att anropa detta API, måste du ha åtkomst till den `Microsoft.Authorization/roleDefinitions/write` åtgärden på alla de `assignableScopes`. Av de inbyggda rollerna, endast [ägare](built-in-roles.md#owner) och [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) beviljas åtkomst till den här åtgärden. 
 
-1. Granska listan över [resource provider operations](resource-provider-operations.md) som är tillgängliga skapar behörigheter för en anpassad roll.
+1. Granska listan över [åtgärder för resursprovider](resource-provider-operations.md) som är tillgängliga för att skapa behörigheter för din anpassade roll.
 
-1. Verktyget GUID för att generera en unik identifierare som används för anpassad roll-identifierare. Identifieraren har formatet: `00000000-0000-0000-0000-000000000000`
+1. Använd ett GUID-verktyg för att generera en unik identifierare som används för anpassad roll-ID. Identifieraren har formatet: `00000000-0000-0000-0000-000000000000`
 
 1. Börja med följande begäran och brödtext:
 
@@ -113,7 +113,7 @@ Du kan skapa en anpassad roll med den [rolldefinitioner – skapa eller uppdater
     }
     ```
 
-1. Inom URI, Ersätt *{scope}* med först `assignableScopes` för den anpassade rollen.
+1. I URI: N, Ersätt *{omfång}* med först `assignableScopes` av den anpassade rollen.
 
     | Omfång | Typ |
     | --- | --- |
@@ -123,15 +123,15 @@ Du kan skapa en anpassad roll med den [rolldefinitioner – skapa eller uppdater
 
 1. Ersätt *{roleDefinitionId}* med GUID-identifierare för den anpassade rollen.
 
-1. I begärandetexten, i den `assignableScopes` egenskapen ersätta *{roleDefinitionId}* med GUID-identifierare.
+1. I begärandetexten, i den `assignableScopes` egenskapen, Ersätt *{roleDefinitionId}* med GUID-identifierare.
 
-1. Ersätt *{subscriptionId}* med prenumerations-ID.
+1. Ersätt *{subscriptionId}* med ditt prenumerations-ID.
 
-1. I den `actions` egenskap, lägga till de åtgärder som rollen kan utföras.
+1. I den `actions` egenskapen, lägga till åtgärder som rollen kan utföras.
 
-1. I den `notActions` egenskap, lägga till de åtgärder som är undantagna från den tillåtna `actions`.
+1. I den `notActions` egenskapen, lägga till åtgärder som är undantagna från den tillåtna `actions`.
 
-1. I den `roleName` och `description` egenskaper, ange ett unikt rollnamn och en beskrivning. Mer information om egenskaperna som finns [anpassade roller](custom-roles.md).
+1. I den `roleName` och `description` egenskaper, ange ett unikt rollnamn och en beskrivning. Mer information om egenskaperna finns i [anpassade roller](custom-roles.md).
 
     Nedan visas ett exempel på en brödtext i begäran:
 
@@ -167,9 +167,9 @@ Du kan skapa en anpassad roll med den [rolldefinitioner – skapa eller uppdater
 
 ## <a name="update-a-custom-role"></a>Uppdatera en anpassad roll
 
-Uppdatera en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](/rest/api/authorization/roledefinitions/createorupdate) REST API. För att anropa denna API, måste du ha åtkomst till den `Microsoft.Authorization/roleDefinitions/write` igen på alla de `assignableScopes`. I de inbyggda rollerna, endast [ägare](built-in-roles.md#owner) och [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) beviljas åtkomst till den här åtgärden. 
+Uppdatera en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](/rest/api/authorization/roledefinitions/createorupdate) REST API. För att anropa detta API, måste du ha åtkomst till den `Microsoft.Authorization/roleDefinitions/write` åtgärden på alla de `assignableScopes`. Av de inbyggda rollerna, endast [ägare](built-in-roles.md#owner) och [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) beviljas åtkomst till den här åtgärden. 
 
-1. Använd den [rolldefinitioner - listan](/rest/api/authorization/roledefinitions/list) eller [rolldefinitioner - hämta](/rest/api/authorization/roledefinitions/get) REST API för att få information om den anpassade rollen. Mer information finns i den tidigare [lista roller](custom-roles-rest.md#list-roles) avsnitt.
+1. Använd den [rolldefinitioner – lista](/rest/api/authorization/roledefinitions/list) eller [rolldefinitioner – hämta](/rest/api/authorization/roledefinitions/get) REST API för att få information om den anpassade rollen. Mer information finns i den tidigare [lista roller](custom-roles-rest.md#list-roles) avsnittet.
 
 1. Börja med följande begäran:
 
@@ -177,7 +177,7 @@ Uppdatera en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-1. Inom URI, Ersätt *{scope}* med först `assignableScopes` för den anpassade rollen.
+1. I URI: N, Ersätt *{omfång}* med först `assignableScopes` av den anpassade rollen.
 
     | Omfång | Typ |
     | --- | --- |
@@ -187,7 +187,7 @@ Uppdatera en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](
 
 1. Ersätt *{roleDefinitionId}* med GUID-identifierare för den anpassade rollen.
 
-1. Baserat på information om den anpassade rollen, skapa en brödtext i begäran med följande format:
+1. Baserat på informationen om den anpassade rollen kan skapa en brödtext i begäran med följande format:
 
     ```json
     {
@@ -213,9 +213,9 @@ Uppdatera en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](
     }
     ```
 
-1. Uppdatera begärandetexten med ändringar som du vill kontrollera att den anpassade rollen.
+1. Uppdatera begärandetexten med ändringar som du vill göra till den anpassade rollen.
 
-    Nedan visas ett exempel på en brödtext i begäran med en ny diagnostikinställningar åtgärd som lagts till:
+    Nedan visas ett exempel på en brödtext i begäran med en ny åtgärd för diagnostikinställningar har lagts till:
 
     ```json
     {
@@ -250,9 +250,9 @@ Uppdatera en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](
 
 ## <a name="delete-a-custom-role"></a>Ta bort en anpassad roll
 
-Ta bort en anpassad roll genom att använda den [rolldefinitioner - ta bort](/rest/api/authorization/roledefinitions/delete) REST API. För att anropa denna API, måste du ha åtkomst till den `Microsoft.Authorization/roleDefinitions/delete` igen på alla de `assignableScopes`. I de inbyggda rollerna, endast [ägare](built-in-roles.md#owner) och [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) beviljas åtkomst till den här åtgärden. 
+Ta bort en anpassad roll genom att använda den [rolldefinitioner – ta bort](/rest/api/authorization/roledefinitions/delete) REST API. För att anropa detta API, måste du ha åtkomst till den `Microsoft.Authorization/roleDefinitions/delete` åtgärden på alla de `assignableScopes`. Av de inbyggda rollerna, endast [ägare](built-in-roles.md#owner) och [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) beviljas åtkomst till den här åtgärden. 
 
-1. Använd den [rolldefinitioner - listan](/rest/api/authorization/roledefinitions/list) eller [rolldefinitioner - hämta](/rest/api/authorization/roledefinitions/get) REST API för att hämta GUID-identifierare för den anpassade rollen. Mer information finns i den tidigare [lista roller](custom-roles-rest.md#list-roles) avsnitt.
+1. Använd den [rolldefinitioner – lista](/rest/api/authorization/roledefinitions/list) eller [rolldefinitioner – hämta](/rest/api/authorization/roledefinitions/get) REST API för att hämta GUID-identifierare för den anpassade rollen. Mer information finns i den tidigare [lista roller](custom-roles-rest.md#list-roles) avsnittet.
 
 1. Börja med följande begäran:
 
@@ -260,7 +260,7 @@ Ta bort en anpassad roll genom att använda den [rolldefinitioner - ta bort](/re
     DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-1. Inom URI, Ersätt *{scope}* med det omfång som du vill ta bort den anpassade rollen.
+1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill ta bort den anpassade rollen.
 
     | Omfång | Typ |
     | --- | --- |
@@ -273,5 +273,5 @@ Ta bort en anpassad roll genom att använda den [rolldefinitioner - ta bort](/re
 ## <a name="next-steps"></a>Nästa steg
 
 - [Anpassade roller i Azure](custom-roles.md)
-- [Hantera åtkomst med hjälp av RBAC och REST-API](role-assignments-rest.md)
+- [Hantera åtkomst med RBAC och REST API](role-assignments-rest.md)
 - [Azure REST API-referens](/rest/api/azure/)

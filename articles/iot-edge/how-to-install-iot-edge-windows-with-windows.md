@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: b2878f9d7aa32b2502487cdc081896e5ba306af1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 3d34628a5a47788bca8cdafcb6e199a0c2cb3bcc
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346384"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437849"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Installera Azure IoT Edge-körningen på Windows för användning med Windows-behållare
 
@@ -162,6 +162,12 @@ I PowerShell-fönstret skapar du en miljövariabel **IOTEDGE_HOST** med den **ma
 
 ```powershell
 [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
+```
+
+Spara miljövariabeln mellan omstarter.
+
+```powershell
+SETX /M IOTEDGE_HOST "http://<GATEWAY_ADDRESS>:15580"
 ```
 
 Kontrollera slutligen att den **nätverk:** inställningen **moby_runtime:** tagit bort kommentarstecken från och tilldelas **nat**

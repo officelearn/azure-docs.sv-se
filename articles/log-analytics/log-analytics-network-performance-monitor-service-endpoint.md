@@ -1,6 +1,6 @@
 ---
-title: Network Performance Monitor-lösning i Azure Log Analytics | Microsoft Docs
-description: Använda tjänsthanteraren för slutpunkt-funktionen i nätverket Prestandaövervakaren för att övervaka nätverksanslutning till någon slutpunkt som har en öppen TCP-port.
+title: Network Performance Monitor-lösningen i Azure Log Analytics | Microsoft Docs
+description: Använd funktionen för övervakning av tjänstens anslutning i Övervakare av nätverksprestanda för att övervaka nätverksanslutning till valfri slutpunkt som har en öppen TCP-port.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -15,37 +15,37 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: na
-ms.openlocfilehash: c260371043ddcb8a9ea5952760377282596fff7c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3c9352e8e4aee7817b1195c15f74503e86e597ea
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127201"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434927"
 ---
 # <a name="service-connectivity-monitor"></a>Övervakare av tjänstanslutning
 
-Du kan använda tjänsten anslutning bildskärmar i [Network Performance Monitor](log-analytics-network-performance-monitor.md) att övervaka nätverksanslutning till någon slutpunkt som har en öppen TCP-port. Dessa slutpunkter är webbplatser, SaaS-program, PaaS-program och SQL-databaser. 
+Du kan använda funktionen för tjänsten Anslutningsövervakare [Övervakare av nätverksprestanda](log-analytics-network-performance-monitor.md) att övervaka nätverksanslutningar till vilken slutpunkt som har en öppen TCP-port. Sådana slutpunkter är webbplatser, SaaS-program, PaaS-program och SQL-databaser. 
 
-Du kan utföra med anslutning Tjänstövervakare följande funktioner: 
+Du kan utföra följande funktioner med övervakning av tjänstens anslutning: 
 
-- Övervaka nätverksanslutningen till dina program och tjänster från flera kontor och avdelningskontor. Program och tjänster för nätverk innehåller Office 365, Dynamics CRM, interna line-of-business-program och SQL-databaser.
-- Använd inbyggda testerna för att övervaka nätverksanslutning till Office 365 och Dynamics 365 slutpunkter. 
-- Fastställa svarstid, nätverks-svarstid och paketförlust erfarna när du ansluter till slutpunkten.
-- Fastställ om dåliga prestanda på grund av nätverket eller på grund av vissa problem i programmet leverantörens end.
-- Identifiera aktiva punkter i nätverket som kan orsaka dåliga programmens prestanda genom att visa svarstid som har bidragit med varje hopp på en topologisk karta.
+- Övervaka nätverksanslutningar till dina program och nätverkstjänster från flera kontor och avdelningskontor. Program och nätverkstjänster omfattar Office 365, Dynamics CRM, interna line-of-business-program och SQL-databaser.
+- Använd inbyggda tester för att övervaka nätverksanslutningar till Office 365 och Dynamics 365-slutpunkter. 
+- Fastställa svarstid, nätverkssvarstid och paketförlust erfarna när du ansluter till slutpunkten.
+- Avgöra om dålig programprestanda finns på grund av nätverket eller på grund av vissa problem på program-leverantörens slutet.
+- Identifiera aktiva punkter i nätverket som kan orsaka dålig programprestanda genom att visa den svarstid som tillförts av varje hopp på en topologisk karta.
 
 
 ![Övervakare av tjänstanslutning](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Konfiguration 
-För att öppna konfigurationen för Network Performance Monitor, öppna den [Network Performance Monitor lösning](log-analytics-network-performance-monitor.md) och välj **konfigurera**.
+För att öppna konfigurationen för Övervakare av nätverksprestanda, öppna den [Network Performance Monitor-lösningen](log-analytics-network-performance-monitor.md) och välj **konfigurera**.
 
-![Konfigurera nätverket Prestandaövervakaren](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![Konfigurera Övervakare av nätverksprestanda](media/log-analytics-network-performance-monitor/npm-configure-button.png)
 
 
 ### <a name="configure-operations-management-suite-agents-for-monitoring"></a>Konfigurera Operations Management Suite-agenter för övervakning
-Aktivera följande brandväggsregler på alla noder som används för att övervaka så att lösningen kan identifiera topologin från noderna till tjänstslutpunkten: 
+Aktivera följande brandväggsregler på noder som används för att övervaka så att lösningen kan identifiera topologin från dina noder till tjänsteslutpunkt: 
 
 ```
 netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow 
@@ -58,77 +58,77 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 ### <a name="create-service-connectivity-monitor-tests"></a>Skapa tester för tjänsten anslutning övervakning 
 
-Börja skapa dina tester för att övervaka nätverksanslutning till Tjänsteslutpunkter.
+Börja skapa dina tester för att övervaka nätverksanslutningar till Tjänsteslutpunkter.
 
-1. Välj den **anslutning Tjänstövervakare** fliken.
-2. Välj **lägga till testa**, och ange test namn och beskrivning. 
+1. Välj den **Service Anslutningsövervakare** fliken.
+2. Välj **Lägg till testa**, och ange namn och beskrivning. 
 3. Välj typ av test:<br>
 
-    * Välj **Web** att övervaka anslutning till en tjänst som svarar på HTTP/S-begäranden, till exempel outlook.office365.com eller bing.com.<br>
-    * Välj **nätverk** att övervaka anslutning till en tjänst som svarar på TCP-förfrågningar men inte svarar på HTTP/S-begäranden, till exempel en SQLServer, FTP-servern eller SSH-port. 
-4. Ta bort om du inte vill utföra nätverket mått, till exempel svarstid för nätverk och paketförlust topologi identifiering av **utföra nätverket mätningar** kryssrutan. Behåll den markerad för att få största möjliga nytta av kapaciteten. 
-5. I **mål**, ange IP-URL-FQDN-adressen som du vill övervaka nätverksanslutning.
+    * Välj **Web** att övervaka anslutningen till en tjänst som svarar på HTTP/S-begäranden, till exempel outlook.office365.com eller bing.com.<br>
+    * Välj **nätverk** att övervaka anslutningen till en tjänst som svarar på förfrågningar TCP men inte svarar på HTTP/S-begäranden, till exempel en SQLServer, FTP-servern eller SSH-porten. 
+4. Om du inte vill att utföra nätverksmätningar som Nätverksfördröjningen, paketförlust och identifiering av topologi, avmarkera de **utför nätverksmätningar** markerar du kryssrutan. Behåll den markerad för att få största möjliga nytta från funktionen. 
+5. I **Target**, ange URL-Adressen/FQDN/IP-adressen som du vill övervaka nätverksanslutningar.
 6. I **portnummer**, ange portnumret för Måltjänsten. 
-7. I **testa frekvens**, ange ett värde för hur ofta du vill testa att köra. 
-8. Markera de noder som du vill övervaka nätverksanslutningen till tjänsten. 
+7. I **testa frekvens**, ange ett värde för hur ofta du vill att testet ska köras. 
+8. Markera de noder som du vill övervaka nätverksanslutningar till tjänsten. 
 
     >[!NOTE]
-    > För Windows server-baserade noder använder kapaciteten för TCP-baserade begäranden för att utföra nätverket mått. För Windows-klientbaserad noder använder kapaciteten ICMP-baserade begäranden för att utföra nätverket mått. I vissa fall blockerar målprogrammet inkommande ICMP-baserade begäranden när noderna är Windows-baserad klient. Lösningen är går inte att utföra nätverket mått. Vi rekommenderar att du använder Windows server-baserade noder i sådana fall. 
+    > För Windows server-baserade noderna använder funktionen för TCP-baserade förfrågningar för att utföra nätverksmätningar. För Windows klientbaserade noder använder funktionen för ICMP-baserade begäranden för att utföra nätverksmätningar. I vissa fall kan blockerar målprogrammet inkommande ICMP-baserade begäranden när noderna är Windows klientbaserade. Lösningen kan inte utföra nätverksmätningar. Vi rekommenderar att du använder Windows server-baserade noder i sådana fall. 
 
-9. Om du inte vill skapa hälsa händelser för objekt du väljer, rensa **aktivera övervakning av Säkerhetshälsa i mål som omfattas av det här testet**. 
-10. Välj övervakning villkor. Du kan ange anpassade tröskelvärden för health-händelse genereras genom att ange tröskelvärden. När värdet för villkoret går över dess valda tröskelvärdet för det valda nätverket eller undernätverk par, skapas en hälsohändelse. 
+9. Om du inte vill skapa health-händelser för objekt du väljer, rensa **aktivera hälsoövervakning för mål som omfattas av det här testet**. 
+10. Välj övervakning villkor. Du kan ange anpassade tröskelvärden för health händelsegenerering genom att ange tröskelvärden. När värdet för villkoret går över det valda tröskelvärdet för den valda nätverk eller undernätverk par, genereras en hälsotillståndshändelse. 
 11. Välj **spara** att spara konfigurationen. 
 
-    ![Tjänsten Endpoint övervakning test konfigurationer](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
+    ![Tjänsten Anslutningsövervakare testkonfigurationer](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
 
 
 
 ## <a name="walkthrough"></a>Genomgång 
 
-Gå till vyn Network Performance Monitor-instrumentpanelen. För att få en översikt över hälsotillståndet för de olika tester som du har skapat kan du titta på den **anslutning Tjänstövervakare** sidan. 
+Gå till instrumentpanelsvyn för övervakning av nätverksprestanda. För att få en översikt över hälsotillståndet för de olika testerna som du har skapat kan du titta på den **Service Anslutningsövervakare** sidan. 
 
-![Tjänsten Endpoint övervakning sida](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
+![Tjänsten Anslutningsövervakare sidan](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 
-Markera rutan för att visa information om testerna på den **testerna** sidan. Du kan visa i tidpunkt hälsotillstånd och värdet av svarstid för tjänsten, nätverks-svarstid och paketförlust för alla tester i tabellen till vänster. Använd nätverket tillstånd lådan kontrollen om du vill visa nätverk ögonblicksbilden vid ett senare tillfälle i förflutna. Välj testet i tabellen som du vill undersöka. Du kan visa historiska trender för dataförlust, svarstid och svar tidsvärden i diagram i rutan till höger. Välj den **Test information** länken för att visa prestanda från varje nod.
+Markera panelen för att visa information om testerna på den **tester** sidan. Du kan visa hälsotillstånd för point-in-time och värdet av tjänstens svarstid, nätverkssvarstid och paketförlust för alla tester i tabellen till vänster. Använda nätverket tillstånd Recorder kontrollen för att visa nätverk ögonblicksbilden vid ett senare tillfälle i förflutna. Välj testet i tabellen som du vill undersöka. Du kan visa historiska trenden för den förlust och fördröjning svar tidsvärden i diagrammen i rutan till höger. Välj den **Test information** länken för att visa prestanda från varje nod.
 
-![Tester för tjänsten Endpoint övervakning](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
+![Tester för tjänsten anslutning övervakning](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
 
-I den **Test noder** vy, kan du se nätverksanslutning mellan varje nod. Välj den nod som har försämrade prestanda. Detta är den nod där programmet observeras körs långsamt.
+I den **Testnoder** vy, kan du se nätverksanslutning från varje nod. Välj den nod som har försämrade prestanda. Det här är den nod där programmet observeras körs långsamt.
 
-Fastställ om dåliga prestanda på grund av nätverket eller ett problem i programmet leverantörens end genom att följa sambandet mellan svarstiden för programmet och nätverkslatensen. 
+Avgöra om dålig programprestanda finns på grund av nätverket eller ett problem på leverantören programmet att göra genom att följa sambandet mellan svarstiden för programmet och svarstiden i nätverk. 
 
-* **Problem med programmet:** en topp i antal svarstiden men konsekvens i nätverkslatensen föreslår att det fungerar bra och problemet kan bero på ett problem i program-end. 
+* **Problem med programmet:** en topp i svarstiden men konsekvens i Nätverksfördröjningen föreslår att nätverket fungerar bra och problemet kan bero på ett problem på slutet program. 
 
-    ![Tjänsten Endpoint övervakning programproblem](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
+    ![Tjänsten Anslutningsövervakare programproblem](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
 
-* **Nätverk problemet:** en topp svarstid tillsammans med en motsvarande topp i Nätverksfördröjningen föreslår att ökningen av svarstiden kan bero på en ökning av svarstid för nätverk. 
+* **Network problemet:** en topp i svarstid som åtföljs av en motsvarande topp i Nätverksfördröjningen tyder på att ökningen av svarstiden kan bero på en ökning av Nätverksfördröjningen. 
 
-    ![Tjänsten Endpoint övervakning nätverksproblem](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
+    ![Tjänsten Anslutningsövervakare nätverksproblem](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
 
-När du har bestämt att problemet ligger på grund av nätverket, Välj den **topologi** visningslänk för att identifiera program som krånglar hopp på topologisk karta. Ett exempel visas i följande bild. Out-of-total svarstid 105 ms mellan noden och programmet slutpunkten är 96 ms på grund av hopp markerat i rött. När du har identifierat de program som krånglar hopp kan du vidta lämpliga åtgärder. 
+När du har fastställt att problemet ligger på grund av nätverket, Välj den **topologi** visningslänk att identifiera problematiska hopp på topologisk karta. I följande bild visas ett exempel. Av den totala svarstiden 105 ms mellan noden och programslutpunkt beror 96 ms hopp markerat i rött. När du har identifierat det problematiska hoppet kan du vidta lämpliga åtgärder. 
 
-![Tester för tjänsten Endpoint övervakning](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
+![Tester för tjänsten anslutning övervakning](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnostik 
 
 Om du upptäcker en avvikelse, gör du följande:
 
-* Om svarstid för tjänsten, nätverksförluster och fördröjning visas som NA, kan en eller flera av följande orsaker vara orsaken:
+* Om den tjänstens svarstid, nätverksförluster och fördröjning visas som NA, kan en eller flera av följande orsaker vara orsaken:
 
-    - Programmet är inte tillgänglig.
-    - Den nod som används för att kontrollera nätverksanslutningen till tjänsten har stoppats.
-    - Målet anges i test-konfigurationen är felaktig.
+    - Programmet har stoppats.
+    - Noden som används för att kontrollera nätverksanslutningen till tjänsten har stoppats.
+    - Målet som angetts i testkonfigurationen är felaktig.
     - Noden har inte någon nätverksanslutning.
 
-* Om en giltig svarstid visas men nätverksförluster samt latens visas som NA, kan en eller flera av följande orsaker vara orsaken:
+* Om en giltig tjänstens svarstid visas men nätverksförluster samt svarstid visas som NA, kan en eller flera av följande orsaker vara orsaken:
 
-    - Om den nod som används för att kontrollera nätverksanslutningen till tjänsten är en Windows-klientdator, Måltjänsten blockerar ICMP-begäranden, eller en nätverksbrandvägg blockerar ICMP-förfrågningar som kommer från noden.
-    - Den **utföra nätverket mätningar** kryssrutan är tom i test-konfigurationen. 
+    - Om noden som används för att kontrollera nätverksanslutningen till tjänsten är en Windows-klientdator, Måltjänsten blockerar ICMP-begäranden, eller en brandvägg blockerar ICMP-begäranden som kommer från noden.
+    - Den **utför nätverksmätningar** kryssrutan är tom i testkonfigurationen. 
 
-* Om tjänsten svarstiden är NA men nätverksförluster samt svarstiden är giltiga, kanske inte Måltjänsten ett webbprogram. Redigera test-konfigurationen och välj testtypen som **nätverk** i stället för **Web**. 
+* Om tjänstens svarstid är NA men nätverksförluster samt svarstid är giltiga, kanske inte target-tjänsten ett webbprogram. Redigera testkonfigurationen och välj testtypen som **nätverk** i stället för **Web**. 
 
-* Om programmet körs långsamt kan du avgöra om dåliga programmens prestanda är på grund av nätverket eller ett problem i programmet leverantörens end.
+* Om programmet är långsamt, kan du avgöra om dålig programprestanda beror på att nätverket eller ett problem på leverantören programmet att göra.
 
 
 ## <a name="next-steps"></a>Nästa steg
-[Söka i loggar](log-analytics-log-searches.md) att visa detaljerad nätverket prestanda dataposter.
+[Söka loggarna](log-analytics-log-searches.md) att visa detaljerad nätverk prestanda dataposter.

@@ -1,6 +1,6 @@
 ---
 title: Övervaka Azure Kubernetes Service (AKS) hälsotillstånd (förhandsversion) | Microsoft Docs
-description: Den här artikeln beskriver hur du kan granska prestandan för din AKS behållare för att snabbt förstå användning av din värdmiljö Kubernetes enkelt.
+description: Den här artikeln beskrivs hur du kan enkelt granska prestanda för AKS-behållare för att snabbt förstå användningen av Kubernetes-miljön.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -12,91 +12,91 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2018
+ms.date: 07/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 23109a74fa707759cc3300896392dcc129f3e28c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e7d3fdf9e6f027ab1c23a057ad6e039d50cab9ad
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335762"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436430"
 ---
-# <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Övervaka Azure Kubernetes Service (AKS) behållaren hälsotillstånd (förhandsgranskning)
+# <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Övervaka hälsotillstånd för behållare i Azure Kubernetes Service (AKS) (förhandsversion)
 
-Den här artikeln beskriver hur du konfigurerar och använder Azure-Monitor behållaren hälsotillstånd för att övervaka prestanda för din arbetsbelastning distribueras till Kubernetes miljöer finns på Azure-Kubernetes (AKS).  Det är viktigt att du övervakar Kubernetes-behållarna och behållarna, särskilt när du kör ett produktionskluster i skala med flera program.
+Den här artikeln beskriver hur du konfigurerar och använder hälsotillstånd för behållare i Azure Monitor för att övervaka prestanda för dina arbetsbelastningar som distribueras till Kubernetes-miljöer finns på Azure Kubernetes Service (AKS).  Det är viktigt att du övervakar Kubernetes-behållarna och behållarna, särskilt när du kör ett produktionskluster i skala med flera program.
 
-Behållaren hälsotillstånd ger dig möjligheten genom att samla in minne och processor mått från domänkontrollanter, noder och behållare som är tillgängliga i Kubernetes via API: T för mått för prestandaövervakning.  När du har aktiverat behållaren hälsa de här måtten automatiskt samlas in med en av version av OMS-Agent för Linux och lagras i din [logganalys](../log-analytics/log-analytics-overview.md) arbetsytan.  Fördefinierade vyer som ingår visar residing behållare arbetsbelastningar och vad påverkar prestandahälsa för Kubernetes klustret så att du är medveten om:  
+Hälsotillstånd för behållare ger dig möjligheten genom att samla in minne och processor mått från domänkontrollanter, noder och behållare som är tillgängliga i Kubernetes via mått-API för prestandaövervakning.  När du har aktiverat hälsotillstånd för behållare, är de här måtten automatiskt samlas in för dig med en behållare version av OMS-agenten för Linux och lagras i din [Log Analytics](../log-analytics/log-analytics-overview.md) arbetsyta.  De fördefinierade vyer som ingår visas som förvaras behållararbetsbelastningar och vad påverkar prestanda hälsotillståndet för Kubernetes-klustret så att du kan förstå:  
 
-* Vilka behållare som körs på noden och deras genomsnittlig belastning för processor och minne att identifiera flaskhalsar för resurser
-* Identifiera där behållaren finns i en domänkontrollant och/eller skida att se den övergripande prestandan för en domänkontrollant eller baljor 
-* Granska resursanvändningen för arbetsbelastningar som körs på värden inte är relaterade till standardprocedurerna stöder baljor
-* Förstå beteendet för klustret under genomsnittliga och högsta belastning för att identifiera kapacitetsbehov och fastställa den maximala den kan klara 
+* Vilka behållare som körs på noden och deras genomsnittlig användning av processor och minne att identifiera flaskhalsar för resurser
+* Identifiera där behållaren finns i en domänkontrollant och/eller poddar att se den övergripande prestandan för en domänkontrollant eller en pod 
+* Granska arbetsbelastningar som körs på värden inte är relaterade till standardprocedurerna som stöd för poden Resursanvändning
+* Förstå beteendet för klustret vid genomsnittliga och högsta belastning för att identifiera kapacitetsbehov och avgöra den maximala belastningen som den kan klara 
 
-Om du vill övervaka och hantera dina Docker och Windows behållaren värdar för att visa konfiguration, granskning och resursutnyttjande, finns det [behållare övervakning](../log-analytics/log-analytics-containers.md).
+Om du vill övervaka och hantera Docker och Windows behållare-värdar att visa konfiguration, granskning och användningen av resurser finns i den [lösning för övervakning av behållare](../log-analytics/log-analytics-containers.md).
 
 ## <a name="requirements"></a>Krav 
 Granska följande information innan du startar, så du kan förstå krav som stöds.
 
-- En ny eller befintlig AKS kluster
-- En av OMS-agent för Linux-version microsoft / oms:ciprod04202018 och senare. Den här agenten installeras automatiskt när onboarding av behållare hälsa.  
-- En Log Analytics-arbetsyta.  Det kan skapas när du aktiverar övervakning av det nya klustret med AKS eller skapa ett till [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), eller från den [Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md).
-- Medlem deltagarrollen Log Analytics för att aktivera övervakning av behållare.  Mer information om hur du styr åtkomst till logganalys-arbetsytan finns [hantera arbetsytor](../log-analytics/log-analytics-manage-access.md).
+- En ny eller befintlig AKS-kluster
+- En behållare OMS-agenten för Linux-versionen microsoft / oms:ciprod04202018 och senare. Versionsnumret representeras av ett datum följande format: *mmddyyyy*.  Den installeras automatiskt under publiceringen av hälsotillstånd för behållare.  
+- En Log Analytics-arbetsyta.  Det kan skapas när du aktiverar övervakning av din nya AKS-kluster eller skapa ett till [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), eller från den [Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md).
+- Medlem i rollen som deltagare Log Analytics för att aktivera behållarövervakning av.  Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="components"></a>Komponenter 
 
-Den här funktionen är beroende av en av OMS-Agent för Linux samlar in prestanda- och händelsedata från alla noder i klustret.  Agenten är automatiskt distribueras och registreras den angivna logganalys-arbetsytan när du aktiverar övervakning av behållare. 
+Den här funktionen är beroende av en behållare OMS-agenten för Linux för att samla in prestanda- och händelsedata från alla noder i klustret.  Agenten har automatiskt distribuerat och registrerat med den angivna Log Analytics-arbetsytan när du aktiverar behållarövervakning. 
 
 >[!NOTE] 
->Om du redan har distribuerat ett AKS kluster, aktiverar du övervakning med hjälp av en tillhandahållna Azure Resource Manager-mall som visas nedan. Du kan inte använda `kubectl` om du vill uppgradera, ta bort, omdistribuera eller distribuera agenten.  
+>Om du redan har distribuerat ett AKS-kluster kan aktivera du övervakning med hjälp av en angiven Azure Resource Manager-mall som visas längre fram i den här artikeln. Du kan inte använda `kubectl` om du vill uppgradera, ta bort, omdistribuera eller distribuera agenten.  
 >
 
 ## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
-## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Aktivera behållare för övervakning av hälsotillstånd för ett nytt kluster
-Du kan bara aktivera övervakning av AKS klustret när du distribuerar från Azure-portalen.  Följ stegen i artikeln quickstart [distribuera ett kluster som Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md).  När du är på den **övervakning** väljer **Ja** för alternativet **aktivera övervakning** att aktivera, och sedan välja en befintlig eller skapa en ny logganalys-arbetsyta.  
+## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Aktivera övervakning av behållare hälsotillstånd för ett nytt kluster
+Du kan bara aktivera övervakning av AKS-klustret när du distribuerar den från Azure-portalen.  Följ stegen i snabbstartsartikeln [distribuera ett kluster i Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md).  När du är på den **övervakning** väljer **Ja** för alternativet **aktivera övervakning** att aktivera, och sedan välja en befintlig eller skapa en ny Log Analytics-arbetsyta.  
 
-När övervakning aktiveras alla konfigurationsuppgifter har slutförts kan du övervaka prestanda för klustret från ett av två sätt:
+När övervakning är aktiverat alla konfigurationsåtgärder har slutförts kan du övervaka prestanda för ditt kluster från en av två sätt:
 
-1. Direkt från klustret genom att välja AKS **hälsa** i den vänstra rutan.<br><br> 
-2. Genom att klicka på den **övervaka behållaren hälsotillstånd** panelen på sidan AKS kluster för det markerade klustret.  Välj i Azure-Monitor **hälsa** i den vänstra rutan.  
+1. Direkt från AKS-kluster genom att välja **hälsotillstånd** i den vänstra rutan.<br><br> 
+2. Genom att klicka på den **övervaka behållarens hälsa** panel på sidan AKS-kluster för det markerade klustret.  I Azure Monitor, Välj **hälsotillstånd** i den vänstra rutan.  
 
-![Alternativ för att markera behållaren hälsa i AKS](./media/monitoring-container-health/container-performance-and-health-select-01.png)
+![Alternativ att välja hälsotillstånd för behållare i AKS](./media/monitoring-container-health/container-performance-and-health-select-01.png)
 
-När övervakning är aktiverad, kan det ta cirka 15 minuter innan du kan visa användningsdata för klustret.  
+När övervakning har aktiverats kan ta det ungefär 15 minuter innan du kan se driftdata för klustret.  
 
-## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Aktivera behållare för övervakning av hälsotillstånd för befintliga hanterade kluster
-Aktivera övervakning av din AKS behållare som redan har distribuerats kan utföras från Azure-portalen eller med angivet Azure Resource Manager-mallen med hjälp av PowerShell-cmdleten **ny AzureRmResourceGroupDeployment** eller Azure CLI.  
+## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Aktivera övervakning av behållare hälsotillstånd för befintliga hanterade kluster
+Aktivera övervakning av din AKS-behållare som redan har distribuerats kan utföras från Azure portal eller med den angivna Azure Resource Manager-mallen med hjälp av PowerShell-cmdleten **New-AzureRmResourceGroupDeployment** eller Azure CLI.  
 
 
 ### <a name="enable-from-azure-portal"></a>Aktivera från Azure-portalen
-Utför följande steg om du vill aktivera övervakning av din AKS behållare från Azure-portalen.
+Utför följande steg om du vill aktivera övervakning av din AKS-behållare från Azure-portalen.
 
-1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser, skriver **behållare**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Kubernetes services**.<br><br> ![Azure Portal](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
+1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver **behållare**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Kubernetes-tjänster**.<br><br> ![Azure Portal](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
 2. Välj en behållare i din lista över behållare.
-3. På översiktssidan för behållaren väljer **övervaka behållaren hälsotillstånd** och **Onboarding till behållaren hälsa och loggar** visas.
-4. På den **Onboarding till behållaren hälsa och loggar** om du har en befintlig logganalys arbetsytan i samma prenumeration som klustret, väljer du den från den nedrullningsbara listan.  Listan förväljer standardarbetsytan och plats AKS behållaren distribueras till i prenumerationen. Du kan också välja **Skapa nytt** och ange en ny arbetsyta med samma prenumeration.<br><br> ![Aktivera AKS behållare för övervakning av hälsotillstånd](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+3. På översiktssidan behållaren väljer **övervaka behållarens hälsa** och **registrering för hälsotillstånd för behållare och loggar** visas.
+4. På den **registrering för hälsotillstånd för behållare och loggar** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration som klustret, markerar du den i den nedrullningsbara listan.  Listan förväljer standardarbetsytan och plats AKS behållaren distribueras till i prenumerationen. Du kan även välja **Skapa ny** och ange en ny arbetsyta i samma prenumeration.<br><br> ![Aktivera hälsoövervakning för AKS-behållare](./media/monitoring-container-health/container-health-enable-brownfield.png) 
 
-    Om du väljer **Skapa nytt**, **Skapa ny arbetsyta** visas. Den **Region** regionen som standard skapas behållaren resurs i och acceptera standardinställningarna eller välj en annan region och sedan ange ett namn för arbetsytan.  Klicka på **skapa** att acceptera valet.<br><br> ![Definiera för behållaren monintoring](./media/monitoring-container-health/create-new-workspace-01.png)  
+    Om du väljer **Skapa ny**, **Skapa ny arbetsyta** visas fönstret. Den **Region** standardvärdet är regionen som din behållarresursen skapas i och du kan acceptera standardinställningarna eller välj en annan region och sedan ange ett namn för arbetsytan.  Klicka på **skapa** att godkänna ditt val.<br><br> ![Definiera arbetsyta för behållaren monintoring](./media/monitoring-container-health/create-new-workspace-01.png)  
 
     >[!NOTE]
-    >Du kan bara välja en befintlig arbetsyta i området för tillfället du inte kan skapa en ny arbetsyta i region Väst centrala USA.  Trots att du kan välja den regionen i listan, distributionen startar, men detta misslyckas strax därefter.  
+    >Du inte kan skapa en ny arbetsyta i regionen västra centrala USA för närvarande kan du bara välja en befintlig arbetsyta i den regionen.  Trots att du kan välja den regionen i listan så startar distributionen men den misslyckas strax därefter.  
     >
  
-När övervakning är aktiverad, kan det ta cirka 15 minuter innan du kan visa användningsdata för klustret. 
+När övervakning har aktiverats kan ta det ungefär 15 minuter innan du kan se driftdata för klustret. 
 
 ### <a name="enable-using-azure-resource-manager-template"></a>Aktivera med hjälp av Azure Resource Manager-mall
-Den här metoden innehåller två JSON-mallar, en mall anger konfiguration för att aktivera övervakning och andra JSON-mallen innehåller parametervärden som du konfigurerar för att ange följande:
+Den här metoden innehåller två JSON-mallar, en mall anger konfigurationen för att aktivera övervakning och andra JSON-mallen innehåller parametervärden som du konfigurerar för att ange följande:
 
-* AKS behållaren resurs-ID 
-* Resursgruppen klustret distribueras i 
-* Log Analytics-arbetsyta och region om du vill skapa arbetsytan i 
+* Resurs-ID för AKS-behållare 
+* Resursgrupp klustret har distribuerats i 
+* Log Analytics-arbetsytan och region för att skapa arbetsytan i 
 
-Logganalys-arbetsytan måste skapas manuellt.  Om du vill skapa arbetsytan, du kan konfigurera något via [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), från den [Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md).
+Log Analytics-arbetsytan måste du skapa dem manuellt.  För att skapa arbetsytan, du kan konfigurera ett via [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), från den [Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md).
 
-Om du inte är bekant med principerna för att distribuera resurser med hjälp av en mall med PowerShell Se [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)eller Azure CLI finns [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
+Om du inte är bekant med principerna för att distribuera resurser med hjälp av en mall med PowerShell, se [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)eller Azure CLI finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
 
-Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt.  Det krävs att du använder Azure CLI version 2.0.27 eller senare. Kör `az --version` att identifiera versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt.  Det krävs att du kör Azure CLI version 2.0.27 eller senare. Kör `az --version` att identifiera versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 #### <a name="create-and-execute-template"></a>Skapa och köra mallen
 
@@ -213,7 +213,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
     }
     ```
 
-4. Redigera värdet för **aksResourceId**, **aksResourceLocation** med värden som du hittar på den **AKS översikt** för AKS-klustret.  Värdet för **workspaceResourceId** är fullständiga resurs-ID för logganalys-arbetsytan, som innehåller namnet på arbetsytan.  Även ange den plats där arbetsytan i för **workspaceRegion**.    
+4. Redigera värdet för **aksResourceId**, **aksResourceLocation** med värden som du hittar på den **översikt över AKS** för AKS-klustret.  Värdet för **workspaceResourceId** är fullständiga resurs-ID för Log Analytics-arbetsytan, som innehåller namnet på arbetsytan.  Även ange den plats som arbetsytan finns i för **workspaceRegion**.    
 5. Spara filen som **existingClusterParam.json** till en lokal mapp.
 6. Nu är det dags att distribuera den här mallen. 
 
@@ -222,7 +222,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
         ```powershell
         New-AzureRmResourceGroupDeployment -Name OnboardCluster -ResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
         ```
-        Konfigurationsändringen kan ta några minuter att slutföra. När den är klar visas ett meddelande som liknar följande som innehåller resultatet:
+        Konfigurationsändringen kan ta några minuter att slutföra. När den är klar kan du se ett meddelande som liknar följande som innehåller resultatet:
 
         ```powershell
         provisioningState       : Succeeded
@@ -236,17 +236,53 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
         az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
         ```
 
-        Konfigurationsändringen kan ta några minuter att slutföra. När den är klar visas ett meddelande som liknar följande som innehåller resultatet:
+        Konfigurationsändringen kan ta några minuter att slutföra. När den är klar kan du se ett meddelande som liknar följande som innehåller resultatet:
 
         ```azurecli
         provisioningState       : Succeeded
         ```
-När övervakning är aktiverad, kan det ta cirka 15 minuter innan du kan visa användningsdata för klustret.  
+När övervakning har aktiverats kan ta det ungefär 15 minuter innan du kan se driftdata för klustret.  
 
-## <a name="verify-agent-deployed-successfully"></a>Kontrollera agent har distribuerats
-Kontrollera OMS-agenten distribueras korrekt genom att köra följande kommando: `kubectl get ds omsagent --namespace=kube-system`.
+## <a name="verify-agent-deployed-successfully"></a>Verifiera agenten som har distribuerats
 
-Resultatet bör likna den följande som anger den distribuerades korrekt:
+### <a name="agent-version-06072018-and-higher"></a>Agentversion 06072018 och högre
+Kontrollera OMS agentversion *06072018* eller högre har distribuerats korrekt, kör följande kommandon: 
+
+```
+kubectl get ds omsagent --namespace=kube-system
+```
+
+Utdata bör likna för följande som anger den distribuerades korrekt:
+
+```
+User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
+NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
+omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+```  
+
+Om du vill kontrollera en ny distribution genom att köra följande kommando:
+
+```
+kubectl get deployment omsagent-rs -n=kube-system
+```
+
+Utdata bör likna för följande som anger den distribuerades korrekt:
+
+```
+User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
+NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
+omsagent   1         1         1            1            3h
+```
+
+### <a name="agent-version-earlier-than-06072018"></a>Tidigare än 06072018 agentversion
+
+Verifiera OMS-agent-version som getts ut före *06072018* har distribuerats korrekt, kör du följande kommando:  
+
+```
+kubectl get ds omsagent --namespace=kube-system
+```
+
+Utdata bör likna för följande som anger den distribuerades korrekt:  
 
 ```
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
@@ -255,122 +291,122 @@ omsagent   2         2         2         2            2           beta.kubernete
 ```  
 
 ## <a name="view-performance-utilization"></a>Visa prestanda användning
-När du öppnar behållaren hälsa anger sidan omedelbart prestanda utnyttjande av klusternoderna.  Visa information om AKS klustret är uppdelat i tre olika perspektiv:
+När du öppnar hälsotillstånd för behållare, anger sidan omedelbart prestanda utnyttjande av klusternoderna.  Visa information om AKS-klustret är uppdelad i tre perspektiv:
 
 - Noder 
 - Kontrollanter  
 - Behållare
 
-Hierarkin raden följer objektmodellen Kubernetes börjar med en nod i klustret.  Expandera noden och du ser en eller flera skida som körs på noden om det finns flera behållare grupperade till en baljor, visas de som den sista raden i hierarkin.<br><br> ![Exempel på Kubernetes nod hierarki i prestandavyn](./media/monitoring-container-health/container-performance-and-health-view-03.png)
+Rad hierarkin följer Kubernetes-objektmodell som börjar med en nod i klustret.  Expandera noden och du ser en eller flera poddar som körs på noden och om det finns flera behållare grupperade en pod, de visas som den sista raden i hierarkin.<br><br> ![Exempel Kubernetes Node-hierarkin i prestandavyn](./media/monitoring-container-health/container-performance-and-health-view-03.png)
 
-Du kan välja domänkontrollanter eller behållare från sidans överkant och granska status och resurs-belastningen för dessa objekt.  Använder du rutorna listrutan överst på skärmen för att filtrera efter namnområde, tjänst och noden. Om i stället du vill granska minnesanvändning, från den **mått** listrutan Välj **minne RSS** eller **minne arbetsminnet**.  **Minne RSS** stöds bara för Kubernetes version 1,8 och senare. I annat fall ser du värden för **AVG %** visas som *NaN %*, vilket är ett värde för typen av numeriska data som representerar ett odefinierat eller unrepresentable värde. 
+Du kan välja domänkontrollanter eller behållare högst upp på sidan och granska status och Resursanvändning för dessa objekt.  Använda rutorna listrutan överst på skärmen för att filtrera efter namnområde, tjänst och nod. Om istället du vill granska minnesanvändningen, från den **mått** listrutan Välj **minne RSS** eller **arbetsminne**.  **Minne RSS** har endast stöd för Kubernetes version 1.8 och senare. Annars ser du värdena för **Genomsnittlig %** dyker som *NaN %*, vilket är ett värde för typ av numeriska data som representerar en odefinierad eller inte går att representera värdet. 
 
 ![Behållaren prestandavy noder prestanda](./media/monitoring-container-health/container-performance-and-health-view-04.png)
 
-Som standard prestandadata baseras på de senaste sex timmarna men du kan ändra i fönstret med den **tidsintervall** listrutan hittades i det övre högra hörnet på sidan. För tillfället sidan inte automatisk uppdatering, så du måste manuellt uppdatera det. 
+Som standard prestandadata baseras på de senaste sex timmarna men du kan ändra i fönstret med den **tidsintervall** nedrullningsbara lista finns i det övre högra hörnet på sidan. För tillfället sidan inte automatisk uppdatering, så du måste manuellt uppdatera den. 
 
-I följande exempel Observera för noden *aks-agentpool-3402399-0*, värdet för **behållare** är 10, vilket är en sammanfattning av det totala antalet behållare som har distribuerats.<br><br> ![Insamling av behållare per nod-exempel](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> Det kan hjälpa dig att snabbt identifiera om du inte har rätt balans mellan behållare mellan noder i klustret.  
+I följande exempel du ser för noden *aks-agentpool-3402399-0*, värdet för **behållare** är 10, vilket är en sammanslagning av det totala antalet behållare som distribueras.<br><br> ![Sammanslagning av behållare per nod-exempel](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> Det kan du snabbt kan identifiera om du inte har en rätt balans mellan behållare mellan noderna i klustret.  
 
-I följande tabell beskrivs syftet med informationen när du visar noder.
+I följande tabell beskrivs den information som visas när du visar noder.
 
 | Kolumn | Beskrivning | 
 |--------|-------------|
 | Namn | Namnet på värden |
-| Status | Kubernetes vy över nod-status |
-| GENOMSNITTLIG % | Genomsnittlig nod procentandel baserat på valda måtten för den valda varaktigheten. |
-| GENOMSNITT | Genomsnittlig noder faktiskt värde baserat på valda måtten för den valda varaktigheten.  Medelvärdet mäts från processorminne/gränsen för en nod. Det är avg-värdet som rapporteras av värden för skida och behållare. |
+| Status | Kubernetes vy av nod-status |
+| % GENOMSN. | Genomsnittlig nod procent baserat på valda mått för den valda perioden. |
+| GENOMSNITT | Genomsnittlig noder faktiskt värde baserat på valda mått för den valda perioden.  Medelvärdet mäts från processor/minne gränsen för en nod. Det är genomsn värdet som rapporteras av värden för poddar och behållare. |
 | Behållare | Antal behållare. |
 | Drifttid | Representerar tid eftersom en nod startas eller startades om. |
-| Baljor | Endast för behållare. Den visar vilket pods den finns. |
-| Kontrollanter | Endast för behållare och skida. Den visar vilka styrenheten den. Inte alla skida blir en domänkontrollant så att vissa visar kanske saknas. | 
-| Trend AVG % | Stapeldiagram trend baserat på behållaren och noden avg mått %. |
+| Pod | Endast för behållare. Den visar vilket pods den som finns. |
+| Kontrollanter | Endast för behållare och poddar. Den visar vilken domänkontrollant som den är bosatt. Inte alla poddar ska finnas i en domänkontrollant så att vissa kan indikera att saknas. | 
+| Trend Genomsnittlig % | Stapeldiagram trend baserat på behållare och noden genomsnittlig mått %. |
 
 
-Selector, Välj **styrenheter**.<br><br> ![Välj domänkontrollanter vy](./media/monitoring-container-health/container-performance-and-health-view-08.png)
+Väljaren, Välj **styrenheter**.<br><br> ![Välj domänkontrollanter vy](./media/monitoring-container-health/container-performance-and-health-view-08.png)
 
-Här kan du se prestandahälsa för dina domänkontrollanter.<br><br> ![< namn > domänkontrollanter prestandavy](./media/monitoring-container-health/container-performance-and-health-view-05.png)
+Här kan du se hälsotillståndet för prestanda för dina domänkontrollanter.<br><br> ![< namn > domänkontrollanter prestandavy](./media/monitoring-container-health/container-performance-and-health-view-05.png)
 
-Hierarkin rad börjar med en domänkontrollant och expanderar domänkontrollanten och du ser en eller flera skida eller en eller flera behållare.  Expandera en baljor och den sista raden visa behållaren grupperade till baljor.  
+En rad hierarki börjar med en domänkontrollant och utökas kontrollanten så ser du en eller flera poddar eller en eller flera behållare.  Expandera en pod och den sista raden visa behållaren som grupperats till din pod.  
 
-I följande tabell beskrivs syftet med informationen när du visar domänkontrollanter.
-
-| Kolumn | Beskrivning | 
-|--------|-------------|
-| Namn | Namnet för enheten|
-| Status | Status för behållare när den har slutförts kör med status, till exempel *Uppsagd*, *misslyckades* *stoppad*, eller *pausad*. Om behållaren körs, men status har inte korrekt visas eller hämtades inte av agenten och har inte svarat mer än 30 minuter, status blir *okänd*. |
-| GENOMSNITTLIG % | Dyker upp medelvärdet för varje entitet för de valda måtten medel-%. |
-| GENOMSNITT | Dyker upp av Genomsnittlig CPU millicore eller minne prestanda för behållaren.  Medelvärdet mäts från processorminne/gränsen för en baljor. |
-| Behållare | Totalt antal behållare för domänkontrollant eller baljor. |
-| Startar om | Summera antalet omstart från behållare. |
-| Drifttid | Representerar tid eftersom en behållare har startat. |
-| Baljor | Endast för behållare. Den visar vilket pods den finns. |
-| Node | Endast för behållare och skida. Den visar vilka styrenheten den. | 
-| Trend AVG % | Stapeldiagram trend presentera genomsnittlig mått % på behållaren. |
-
-Selector, Välj **behållare**.<br><br> ![Visa Välj behållare](./media/monitoring-container-health/container-performance-and-health-view-09.png)
-
-Här kan vi se prestandahälsa för din behållare.<br><br> ![< namn > domänkontrollanter prestandavy](./media/monitoring-container-health/container-performance-and-health-view-06.png)
-
-I följande tabell beskrivs syftet med informationen när du visar behållare.
+I följande tabell beskrivs den information som visas när du visar domänkontrollanter.
 
 | Kolumn | Beskrivning | 
 |--------|-------------|
-| Namn | Namnet för enheten|
-| Status | Dyker upp status för behållare, om sådana finns. |
-| GENOMSNITTLIG % | Dyker upp medelvärdet för varje entitet för de valda måtten medel-%. |
-| GENOMSNITT | Dyker upp av Genomsnittlig CPU millicore eller minne prestanda för behållaren. Medelvärdet mäts från processorminne/gränsen för en baljor. |
+| Namn | Namnet på kontrollanten|
+| Status | Status för behållarna när den har slutförts kör med status, till exempel *Uppsagd*, *misslyckades* *stoppad*, eller *pausad*. Om behållaren körs, men status har inte korrekt visas eller hämtades inte av agenten och har inte svarat mer än 30 minuter, kommer status bli *okänd*. |
+| % GENOMSN. | Rulla upp medelvärdet för varje entitet för det valda måttet medel-%. |
+| GENOMSNITT | Samlar in den genomsnittliga CPU millicore eller minne prestanda för behållaren.  Medelvärdet mäts från processor/minne gränsen för en pod. |
+| Behållare | Totalt antal behållare för domänkontrollant eller pod. |
+| Startar om | Summera för omstart räkningen från behållare. |
+| Drifttid | Representerar tid efter att en behållare startades. |
+| Pod | Endast för behållare. Den visar vilket pods den som finns. |
+| Node | Endast för behållare och poddar. Den visar vilken domänkontrollant som den är bosatt. | 
+| Trend Genomsnittlig % | Stapeldiagram trend presentera genomsnittlig mått % av behållaren. |
+
+Väljaren, Välj **behållare**.<br><br> ![Välj behållare vy](./media/monitoring-container-health/container-performance-and-health-view-09.png)
+
+Här kan vi se prestandatillståndet för dina behållare.<br><br> ![< namn > domänkontrollanter prestandavy](./media/monitoring-container-health/container-performance-and-health-view-06.png)
+
+I följande tabell beskrivs den information som visas när du visar behållare.
+
+| Kolumn | Beskrivning | 
+|--------|-------------|
+| Namn | Namnet på kontrollanten|
+| Status | Samlar in statusen för behållare, om sådana. |
+| % GENOMSN. | Rulla upp medelvärdet för varje entitet för det valda måttet medel-%. |
+| GENOMSNITT | Samlar in den genomsnittliga CPU millicore eller minne prestanda för behållaren. Medelvärdet mäts från processor/minne gränsen för en pod. |
 | Behållare | Totalt antal behållare för styrenheten.|
-| Startar om | Representerar tid eftersom en behållare har startat. |
+| Startar om | Representerar tid efter att en behållare startades. |
 | Drifttid | Representerar tid eftersom en behållare startades eller startas om. |
-| Baljor | Baljor information där den finns. |
-| Node |  Nod där behållaren finns.  | 
-| Trend AVG % | Stapeldiagram trend presentera genomsnittlig mått % på behållaren. |
+| Pod | Pod information var den finns. |
+| Node |  Noden där behållaren finns.  | 
+| Trend Genomsnittlig % | Stapeldiagram trend presentera genomsnittlig mått % av behållaren. |
 
-## <a name="container-data-collection-details"></a>Behållaren information för samlingen
-Behållaren hälsotillstånd samlar in olika mått och logga prestandadata från behållaren värdar och behållare. Data samlas in tre minuters mellanrum.
+## <a name="container-data-collection-details"></a>Samling data-behållarinformation
+Hälsotillstånd för behållare samlar in olika mått och loggfiler prestandadata från behållare-värdar och behållare. Data som samlas in var tredje minut.
 
-### <a name="container-records"></a>Behållaren innehåller
+### <a name="container-records"></a>Behållarposter
 
-I följande tabell visas exempel på poster som samlas in av behållare hälsa och datatyper som visas i sökresultaten för loggen.
+I följande tabell visas exempel på poster som samlas in av hälsotillstånd för behållare och vilka datatyper av som visas i sökresultaten för loggen.
 
-| Datatyp | Datatypen i loggen Sök | Fält |
+| Datatyp | Datatypen i Loggsökning | Fält |
 | --- | --- | --- |
-| Prestanda för värdar och -behållare | `Perf` | Dator, objektnamn, CounterName &#40;läser MB tid i procent för Processor, Disk, Disk skriver MB minne användning MB nätverket tar emot byte, nätverket skicka byte, Processor användning s, nätverket&#41;, CounterValue, TimeGenerated, räknarsökväg, SourceSystem |
-| Behållaren inventering | `ContainerInventory` | TimeGenerated, dator, behållarnamn ContainerHostname, bild, ImageTag, ContainerState, ExitCode, EnvironmentVar, kommandot, CreatedTime, StartedTime, FinishedTime, SourceSystem, behållar-ID, ImageID |
-| Behållaren image inventering | `ContainerImageInventory` | TimeGenerated, dator, bild, ImageTag, ImageSize, VirtualSize, körs, pausas, stoppas, misslyckades, SourceSystem, ImageID, TotalContainer |
-| Behållaren logg | `ContainerLog` | TimeGenerated, dator, avbildnings-ID, behållarnamn LogEntrySource, LogEntry, SourceSystem, behållar-ID |
-| Behållaren loggfiler | `ContainerServiceLog`  | TimeGenerated, dator, TimeOfCommand, bild, kommandot, SourceSystem, behållar-ID |
-| Behållaren nod inventering | `ContainerNodeInventory_CL`| TimeGenerated, dator, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Behållaren process | `ContainerProcess_CL` | TimeGenerated, dator, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Inventering av skida i ett Kubernetes kluster | `KubePodInventory` | TimeGenerated, dator, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, Behållar-ID, ContainerName, namn, PodLabel, Namespace, PodStatus, klusternamn, PodIp, SourceSystem |
-| Inventering av noder tillhör ett kluster för Kubernetes | `KubeNodeInventory` | TimeGenerated, dator, klusternamn, ClusterId, LastTransitionTimeReady, etiketter, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
-| Kubernetes händelser | `KubeEvents_CL` | TimeGenerated, dator, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, meddelande, SourceSystem | 
-| Tjänster i Kubernetes klustret | `KubeServices_CL` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Prestandamått för noder i klustret Kubernetes | Perf &#124; där ObjectName == ”K8SNode” | Dator, objektnamn, CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec cpuAllocatableNanoCores, memoryAllocatableBytes cpuCapacityNanoCores, memoryCapacityBytes&#41;, CounterValue, TimeGenerated, räknarsökväg, SourceSystem | 
-| Prestandastatistik för behållare som en del av Kubernetes-kluster | Perf &#124; där ObjectName == ”K8SContainer” | CounterName &#40;cpuUsageNanoCores memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;, CounterValue, TimeGenerated, räknarsökväg, SourceSystem | 
+| Prestanda för värdar och behållare | `Perf` | Datorn, objektnamn, CounterName &#40;läser MB tid i procent för Processor, Disk, Disk skriver MB, MB för användning av minne, nätverk ta emot byte, nätverk skicka byte, Processor användning sek, Network&#41;, CounterValue, TimeGenerated, räknarsökväg, SourceSystem |
+| Behållare-inventering | `ContainerInventory` | TimeGenerated, dator, behållarnamn ContainerHostname, bild, ImageTag, ContainerState, ExitCode, EnvironmentVar, kommandot, CreatedTime, StartedTime, FinishedTime, SourceSystem, behållar-ID, ImageID |
+| Behållaravbildningar | `ContainerImageInventory` | TimeGenerated, dator, bild, ImageTag, ImageSize, VirtualSize, drift, pausad, stoppas, misslyckades, SourceSystem, ImageID, TotalContainer |
+| Behållarloggen | `ContainerLog` | TimeGenerated, dator, avbildnings-ID, namn, LogEntrySource, LogEntry, SourceSystem, behållar-ID |
+| Container service-logg | `ContainerServiceLog`  | TimeGenerated, dator, TimeOfCommand, bild, kommandot, SourceSystem, behållar-ID |
+| Behållarnodslager | `ContainerNodeInventory_CL`| TimeGenerated, dator, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
+| Behållarprocess | `ContainerProcess_CL` | TimeGenerated, dator, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
+| Inventering av poddar i ett Kubernetes-kluster | `KubePodInventory` | TimeGenerated, dator, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, Behållar-ID, ContainerName, namn, PodLabel, Namespace, PodStatus, klusternamn, PodIp, SourceSystem |
+| Inventering av noder tillhör ett Kubernetes-kluster | `KubeNodeInventory` | TimeGenerated, dator, klusternamn, ClusterId, LastTransitionTimeReady, etiketter, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
+| Kubernetes-händelser | `KubeEvents_CL` | TimeGenerated, dator, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, meddelande, SourceSystem | 
+| Tjänster i Kubernetes-kluster | `KubeServices_CL` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
+| Prestandamått för noder som en del av Kubernetes-kluster | Perf &#124; där ObjectName == ”K8SNode” | Datorn, objektnamn, CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes&#41;, CounterValue, TimeGenerated, räknarsökväg, SourceSystem | 
+| Prestandamått för behållare som en del av Kubernetes-kluster | Perf &#124; där ObjectName == ”K8SContainer” | CounterName &#40;cpuUsageNanoCores memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;, CounterValue, TimeGenerated, räknarsökväg, SourceSystem | 
 
-## <a name="search-logs-to-analyze-data"></a>Sökloggar att analysera data
-Logganalys kan hjälpa dig att leta efter trender, diagnostisera flaskhalsar, prognosen eller korrelera data som kan hjälpa dig att avgöra om den aktuella klusterkonfigurationen presterar optimalt.  Fördefinierad loggen sökningar tillhandahålls omedelbart börja använda eller anpassa för att returnera information som du vill. 
+## <a name="search-logs-to-analyze-data"></a>Sök i loggar att analysera data
+Log Analytics kan hjälpa dig att söka trender, diagnostisera flaskhalsar, prognoser och korrelera data som kan hjälpa dig att avgöra om den aktuella klusterkonfigurationen presterar optimalt.  Fördefinierade loggsökningar tillhandahålls till omedelbart börja använda eller anpassa för att returnera information som du vill. 
 
-Du kan utföra interaktiv dataanalys i arbetsytan genom att välja den **Visa logg** alternativet är tillgängligt på längst till höger när du expanderar en behållare.  **Logga Sök** visas rätt ovanför den sida du befann dig på i portalen.<br><br> ![Analysera data i logganalys](./media/monitoring-container-health/container-performance-and-health-view-logs-01.png)   
+Du kan utföra interaktiva analyser av data på arbetsytan genom att välja den **Visa logg** alternativet är tillgängligt längst till höger när du expanderar en behållare.  **Loggsöknings-** visas rätt ovan sidan du var på i portalen.<br><br> ![Analysera data i Log Analytics](./media/monitoring-container-health/container-performance-and-health-view-logs-01.png)   
 
-Behållaren loggar utdata vidarebefordras till logganalys är STDOUT och STDERR. Eftersom behållare health övervakar Azure hanterade Kubernetes (AKS), samlas inte Kube system idag på grund av stora mängder data som genereras.     
+Behållaren loggar utdata vidarebefordras till logganalys är STDOUT- och STDERR. Eftersom behållare health övervakar Azure hanterade Kubernetes (AKS), samlas Kube system inte in idag på grund av den stora mängden data som genereras.     
 
-### <a name="example-log-search-queries"></a>Exempel loggen sökfrågor
-Det vara bra att skapa frågor som börjar med ett exempel eller två och ändra dem så att de passar dina behov. Du kan experimentera med följande exempelfrågor som hjälper dig att skapa mer avancerade frågor.
+### <a name="example-log-search-queries"></a>Exempel loggsökningsfrågor
+Det är ofta bra att skapa frågor som börjar med ett exempel eller två och ändra dem efter dina behov. Du kan experimentera med följande Exempelfrågor för att skapa mer avancerade frågor.
 
 | Fråga | Beskrivning | 
 |-------|-------------|
-| ContainerInventory<br> &#124;projektet dator, namn, bild, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124;återge tabell | Visa en lista med alla behållare livscykel Information| 
-| KubeEvents_CL<br> &#124;där not(isempty(Namespace_s))<br> &#124;Sortera efter TimeGenerated desc<br> &#124;återge tabell | Kubernetes händelser|
-| ContainerImageInventory<br> &#124;Sammanfatta AggregatedValue = count() av avbildningen, ImageTag, körs | Bild-inventering | 
-| **Välj linjediagram i Advanced Analytics**:<br> Perf<br> &#124;där ObjectName == ”behållare” och CounterName == ”% processortid”<br> &#124;Sammanfatta AvgCPUPercent = avg(CounterValue) av bin (TimeGenerated, 30m), InstanceName | Behållaren CPU | 
-| **Välj linjediagram i Advanced Analytics**:<br> Perf &#124; där ObjectName == ”behållare” och CounterName == ”MB minne användning”<br> &#124;Sammanfatta AvgUsedMemory = avg(CounterValue) av bin (TimeGenerated, 30m), InstanceName | Behållaren minne |
+| ContainerInventory<br> &#124;projektet dator, namn, bild, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124;Rendera tabell | Visa Information om alla behållarens livstid| 
+| KubeEvents_CL<br> &#124;där not(isempty(Namespace_s))<br> &#124;Sortera efter TimeGenerated fall<br> &#124;Rendera tabell | Kubernetes-händelser|
+| ContainerImageInventory<br> &#124;Sammanfatta AggregatedValue = antal() efter bild, ImageTag, körs | Avbildningslager | 
+| **I Advanced Analytics väljer du linjediagram**:<br> Perf<br> &#124;där ObjectName == ”behållare” och CounterName == ”% processortid”<br> &#124;Sammanfatta AvgCPUPercent = avg(CounterValue) efter bin (TimeGenerated, 30m), instansnamn | Processorprestanda för behållare | 
+| **I Advanced Analytics väljer du linjediagram**:<br> Perf &#124; där ObjectName == ”behållare” och CounterName == ”Instansminne (MB) användning”<br> &#124;Sammanfatta AvgUsedMemory = avg(CounterValue) efter bin (TimeGenerated, 30m), instansnamn | Behållare-minne |
 
-## <a name="how-to-stop-monitoring-with-container-health"></a>Hur du stoppa övervakningen med behållaren hälsa
-När du aktiverar övervakning av AKS-behållare du beslutar att du inte längre vill övervaka den, kan du *avanmälas* med hjälp av angivna Azure Resource Manager-mallar med PowerShell-cmdleten  **Nya AzureRmResourceGroupDeployment** eller Azure CLI.  En JSON-mall anger konfigurationen till *avanmälas* och andra JSON-mall innehåller parametervärden som du konfigurerar för att ange AKS-ID: T och resurs klusterresursgruppen klustret distribueras i.  Om du inte är bekant med principerna för att distribuera resurser med hjälp av en mall med PowerShell Se [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) eller Azure CLI finns [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
+## <a name="how-to-stop-monitoring-with-container-health"></a>Hur du stoppar övervakningen med hälsotillstånd för behållare
+När du har aktiverat övervakningen av AKS-behållare som du beslutar att du inte längre vill övervaka den, kan du *avanmäla dig* med hjälp av de angivna Azure Resource Manager-mallarna med PowerShell-cmdlet  **Ny AzureRmResourceGroupDeployment** eller Azure CLI.  En JSON-mallen används för att konfigurationen av *avanmäla dig* och andra JSON-mallen innehåller parametervärden som du konfigurerar för att ange AKS-ID och resurs klusterresursgruppen klustret distribueras i.  Om du inte är bekant med principerna för att distribuera resurser med hjälp av en mall med PowerShell, se [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) eller Azure CLI finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
 
-Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt.  Det krävs att du använder Azure CLI version 2.0.27 eller senare. Kör `az --version` att identifiera versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt.  Det krävs att du kör Azure CLI version 2.0.27 eller senare. Kör `az --version` att identifiera versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ### <a name="create-and-execute-template"></a>Skapa och köra mallen
 
@@ -435,9 +471,9 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
     }
     ```
 
-4. Redigera värdet för **aksResourceId** och **aksResourceLocation** med värden för klustret AKS, som finns på den **egenskaper** sidan för det markerade klustret.<br><br> ![Sidan med egenskaper för behållaren](./media/monitoring-container-health/container-properties-page.png)<br>
+4. Redigera värdet för **aksResourceId** och **aksResourceLocation** med värdena för AKS-kluster som finns på den **egenskaper** sidan för det markerade klustret.<br><br> ![Egenskapssidan för behållare](./media/monitoring-container-health/container-properties-page.png)<br>
 
-    När du är på den **egenskaper** kan också kopiera den **arbetsytan resurs-ID**.  Det här värdet krävs om du vill ta bort logganalys arbetsytan senare, vilket inte utförs som en del av den här processen.  
+    När du är på den **egenskaper** kan också kopiera den **Arbetssyteresurs-ID**.  Det här värdet krävs om du vill ta bort Log Analytics-arbetsytan senare, vilket inte utförs som en del av den här processen.  
 
 5. Spara filen som **OptOutParam.json** till en lokal mapp.
 6. Nu är det dags att distribuera den här mallen. 
@@ -450,7 +486,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
         New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
         ```
 
-        Konfigurationsändringen kan ta några minuter att slutföra. Ett meddelande som liknar följande som innehåller resultatet returneras när den har slutförts:
+        Konfigurationsändringen kan ta några minuter att slutföra. När den är klar returneras ett meddelande som liknar följande som innehåller resultatet:
 
         ```powershell
         ProvisioningState       : Succeeded
@@ -464,31 +500,45 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
         az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
         ```
 
-        Konfigurationsändringen kan ta några minuter att slutföra. Ett meddelande som liknar följande som innehåller resultatet returneras när den har slutförts:
+        Konfigurationsändringen kan ta några minuter att slutföra. När den är klar returneras ett meddelande som liknar följande som innehåller resultatet:
 
         ```azurecli
         ProvisioningState       : Succeeded
         ```
 
-Om arbetsytan har skapats enbart för att stöd för övervakning av klustret och inte längre behövs, måste du manuellt ta bort den. Om du inte är bekant med hur du tar bort en arbetsyta finns [ta bort en Azure logganalys-arbetsytan med Azure-portalen](../log-analytics/log-analytics-manage-del-workspace.md).  Glöm inte att den **arbetsytan resurs-ID** vi kopierade i steg 4, ska du behövs.  
+Om arbetsytan har skapats enbart för att stöd för övervakning av klustret och inte längre behövs kan behöva du manuellt ta bort den. Om du inte är bekant med hur du tar bort en arbetsyta kan se [ta bort en Azure Log Analytics-arbetsyta med Azure portal](../log-analytics/log-analytics-manage-del-workspace.md).  Glöm inte att den **Arbetssyteresurs-ID** vi kopierade tidigare i steg 4, du kommer att behöva som.  
 
 ## <a name="troubleshooting"></a>Felsökning
-Det här avsnittet innehåller information för att felsöka problem med behållaren hälsa.
+Det här avsnittet innehåller information för att felsöka problem med hälsotillstånd för behållare.
 
-Om behållaren hälsa som har aktiverats och konfigurerats men du inte ser några statusinformation eller resulterar i logganalys när du utför en sökning i loggen kan du utföra följande steg för att diagnostisera problemet.   
+Om hälsotillstånd för behållare som har aktiverats och konfigurerats men du inte ser några statusinformation eller resultat i Log Analytics när du utför en loggsökning kan du utföra följande steg för att diagnostisera problemet.   
 
-1. Kontrollera statusen för agenten genom att köra följande kommando: `kubectl get ds omsagent --namespace=kube-system`
+1. Kontrollera statusen för agenten genom att köra följande kommando: 
 
-    Resultatet bör likna den följande som anger att agenten körs på alla noder i klustret.  Till exempel det här klustret har två noder och förväntat värde för lika många noder.  
+    `kubectl get ds omsagent --namespace=kube-system`
+
+    Utdata bör likna för följande som anger den distribuerades korrekt:
 
     ```
-    User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
+    User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-    ```
-2. Kontrollera status för baljor att verifiera att den körs eller inte genom att köra följande kommando: `kubectl get pods --namespace=kube-system`
+    ```  
+2. Kontrollera status för distributionen för agentversion *06072018* eller senare genom att köra följande kommando:
 
-    Resultatet bör likna följande med statusen *kör* för omsagent:
+    `kubectl get deployment omsagent-rs -n=kube-system`
+
+    Utdata bör likna för följande som anger den distribuerades korrekt:
+
+    ```
+    User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
+    NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
+    omsagent   1         1         1            1            3h
+    ```
+
+3. Kontrollera status för poden att verifiera att den körs eller inte genom att köra följande kommando: `kubectl get pods --namespace=kube-system`
+
+    Utdata bör likna följande med statusen *kör* för omsagent:
 
     ```
     User@aksuser:~$ kubectl get pods --namespace=kube-system 
@@ -500,9 +550,9 @@ Om behållaren hälsa som har aktiverats och konfigurerats men du inte ser någr
     omsagent-fkq7g                      1/1       Running   0          1d 
     ```
 
-3. Loggarna agent. När av agenten distribueras kör en snabb kontroll genom att köra OMI kommandon och visar vilken version av agenten och Docker-providern. Kör följande kommando för att se att agenten har publicerats eller så har: `kubectl logs omsagent-484hw --namespace=kube-system`
+4. Loggarna för agenten. När behållare agenten distribueras, kör en snabb kontroll genom att köra OMI kommandon och visar vilken version av agenten och Docker-providern. Om du vill se att agenten har integrerats har, kör du följande kommando: `kubectl logs omsagent-484hw --namespace=kube-system`
 
-    Status bör likna följande:
+    Statusen bör likna följande:
 
     ```
     User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
@@ -527,4 +577,4 @@ Om behållaren hälsa som har aktiverats och konfigurerats men du inte ser någr
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Söka i loggar](../log-analytics/log-analytics-log-search.md) att visa detaljerad behållaren hälsa och information om programprestanda.  
+[Söka loggarna](../log-analytics/log-analytics-log-search.md) att visa detaljerad behållare hälsotillstånd och information om programprestanda.  

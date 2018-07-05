@@ -1,60 +1,60 @@
 ---
-title: REST API-anspråk utbyte som en orchestration-steg i Azure Active Directory B2C | Microsoft Docs
-description: Ett avsnitt på Azure Active Directory B2C anpassade principer som integreras med en API.
+title: REST API-anspråk utbyten som en orkestreringssteg i Azure Active Directory B2C | Microsoft Docs
+description: Ett ämne på Azure Active Directory B2C anpassade principer som kan integreras med ett API.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0b8fff2e7a47ad84c146a02fb09b64931398b208
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 74a84a72b76a8095db69c5d2cf1cf21c9cdad0a6
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34710788"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447990"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Genomgång: Integrera utbyte av REST API-anspråk i din Azure AD B2C användaren resa som ett orchestration-steg
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Genomgång: Integrera utbyten av REST API-anspråk i din Azure AD B2C-användarresan som ett orchestration-steg
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den identitet upplevelse Framework (IEF) för Azure Active Directory B2C det (Azure AD B2C) gör det möjligt för identitet utvecklare att integrera en interaktion med en RESTful-API i en resa för användaren.  
+Den identitet upplevelse Framework (IEF) som ligger till grund Azure Active Directory B2C (Azure AD B2C) gör det möjligt för identity-utvecklare att integrera en interaktion med ett RESTful-API i en användarresa.  
 
-I slutet av den här genomgången kommer du att kunna skapa en Azure AD B2C användaren resa som interagerar med RESTful-tjänster.
+I slutet av den här genomgången kommer du att kunna skapa en Azure AD B2C-användarresa som interagerar med RESTful-tjänster.
 
-IEF skickar data i anspråk och tar emot data tillbaka i anspråk. REST API anspråk exchange:
+IEF skickar data i anspråk och tar emot data i anspråk. Anspråksutbytet som REST-API:
 
-- Kan utformas som en orchestration-steg.
-- Kan utlösa en extern åtgärd. Det kan till exempel logga en händelse i en extern databas.
+- Kan utformas som ett orchestration-steg.
+- Kan utlösa en extern åtgärd. Det kan exempelvis logga en händelse i en extern databas.
 - Kan användas för att hämta ett värde och sedan lagra den i databasen.
 
-Du kan använda mottagna anspråk senare ändra flödet av körningen.
+Du kan använda de mottagna anspråk senare ändra flödet av körningen.
 
-Du kan också utforma interaktionen som en verifieringsprofil. Mer information finns i [genomgång: integrera REST API-anspråk utbyte i din Azure AD B2C användaren resa som autentiserades på indata från användaren](active-directory-b2c-rest-api-validation-custom.md).
+Du kan också utforma interaktion som en profil. Mer information finns i [genomgång: integrera REST API-anspråk Utbytena i din Azure AD B2C-användarresa som verifiering på indata från användaren](active-directory-b2c-rest-api-validation-custom.md).
 
-Scenariot är att när användaren utför en profil-redigering, vi vill:
+Scenariot är att när en användare utför en profilredigering, vi vill:
 
 1. Leta upp användaren i ett externt system.
-2. Hämta den stad där användaren har registrerats.
-3. Returnera attributet till programmet som ett anspråk.
+2. Hämta staden där användaren har registrerats.
+3. Returnera attributet för programmet som ett anspråk.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure AD B2C-klient som konfigurerats för att slutföra ett lokalt konto sign-upp/inloggning, enligt beskrivningen i [komma igång](active-directory-b2c-get-started-custom.md).
-- En REST API-slutpunkt kan interagera med. Den här genomgången använder en enkel Azure funktionen app webhook som ett exempel.
-- *Rekommenderade*: Slutför den [REST API-anspråk exchange genomgång som en verifiering steg](active-directory-b2c-rest-api-validation-custom.md).
+- En Azure AD B2C-klient som konfigurerats för att slutföra ett lokalt konto registrerings-registreringen/inloggning, enligt beskrivningen i [komma igång](active-directory-b2c-get-started-custom.md).
+- En REST API-slutpunkt för att interagera med. Den här genomgången använder en enkel Azure-funktion app webhook som ett exempel.
+- *Rekommenderade*: Slutför den [REST API-anspråk exchange genomgång som en validerngssteg](active-directory-b2c-rest-api-validation-custom.md).
 
 ## <a name="step-1-prepare-the-rest-api-function"></a>Steg 1: Förbered REST API-funktion
 
 > [!NOTE]
-> Installationen av REST API-funktioner som ligger utanför omfånget för den här artikeln. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) ger en utmärkt toolkit för att skapa RESTful-tjänster i molnet.
+> Installationen av REST API-funktioner inte omfattas av den här artikeln. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) tillhandahåller en utmärkt toolkit för att skapa RESTful-tjänster i molnet.
 
-Vi har konfigurerat en Azure-funktion som tar emot ett anspråk som kallas `email`, och returnerar sedan anspråket `city` med tilldelade värdet för `Redmond`. Exemplet Azure funktionen finns på [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+Vi har konfigurerat en Azure-funktion som tar emot ett anspråk som kallas `email`, och returnerar sedan anspråket `city` med det tilldelade värdet för `Redmond`. Exemplet Azure-funktion som finns på [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
-Den `userMessage` anspråk som returnerar funktionen Azure är valfri i den här kontexten och IEF ignoreras den. Du kan eventuellt använda den som ett meddelande skickas till programmet och visas för användaren senare.
+Den `userMessage` anspråk som Azure-funktionen returnerar är valfri i den här kontexten och IEF ignorerar den. Du kan eventuellt använda den som ett meddelande skickas till programmet och visas för användaren senare.
 
 ```csharp
 if (requestContentAsJObject.email == null)
@@ -77,14 +77,14 @@ return request.CreateResponse<ResponseContent>(
     "application/json");
 ```
 
-En funktionsapp i Azure-gör det enkelt att hämta funktions-URL som innehåller identifierare för specifik funktion. I det här fallet URL-Adressen är: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Du kan använda den för att testa.
+En funktionsapp i Azure gör det enkelt att hämta funktions-URL som innehåller ID för specifik funktion. I det här fallet URL: en är: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Du kan använda den för att testa.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Steg 2: Konfigurera exchange för RESTful-API-anspråk som en teknisk profil i filen TrustFrameworExtensions.xml
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Steg 2: Konfigurera anspråksutbytet RESTful-API som en tekniska profil i filen TrustFrameworExtensions.xml
 
-En teknisk profil är den fullständiga konfigurationen av exchange önskad med RESTful-tjänsten. Öppna filen TrustFrameworkExtensions.xml och Lägg till följande XML-kodstycke i den `<ClaimsProvider>` element.
+Tekniska profilen är fullständig konfiguration av exchange som önskas med RESTful-tjänst. Öppna filen TrustFrameworkExtensions.xml och Lägg till följande XML-kodstycke i den `<ClaimsProvider>` element.
 
 > [!NOTE]
-> I följande XML RESTful-providern `Version=1.0.0.0` beskrivs som protokoll. Överväg att som den funktion som ska interagera med externa-tjänsten. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
+> I följande XML, RESTful-providern `Version=1.0.0.0` beskrivs som protokoll. Överväg att som den funktion som kommer att interagera med den externa tjänsten. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
 
 ```XML
 <ClaimsProvider>
@@ -110,13 +110,13 @@ En teknisk profil är den fullständiga konfigurationen av exchange önskad med 
 </ClaimsProvider>
 ```
 
-Den `<InputClaims>` elementet definierar vilka anspråk som skickas från IEF REST-tjänst. I det här exemplet innehållet i anspråket `givenName` kommer att skickas till REST-tjänst som anspråket `email`.  
+Den `<InputClaims>` elementet definierar vilka anspråk som skickas från IEF till REST-tjänst. I det här exemplet innehållet i anspråket `givenName` kommer att skickas till REST-tjänst som anspråket `email`.  
 
-Den `<OutputClaims>` elementet definierar vilka anspråk som IEF ska förvänta sig från REST-tjänst. Oavsett vilket antal anspråk som tas emot av IEF kommer att använda dem som anges här. I det här exemplet ett anspråk som tas emot som `city` kommer att mappas till en IEF anspråk som kallas `city`.
+Den `<OutputClaims>` elementet definierar vilka anspråk som förväntas innehålla IEF från REST-tjänst. Oavsett hur många anspråk som tas emot i IEF kommer att använda dem som anges här. I det här exemplet emot ett anspråk som `city` mappas till en IEF anspråk som kallas `city`.
 
-## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Steg 3: Lägg till nytt anspråk `city` i schemat för TrustFrameworkExtensions.xml-fil
+## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Steg 3: Lägg till nytt anspråk `city` schemat för din TrustFrameworkExtensions.xml-fil
 
-Anspråket `city` är ännu inte definierats var som helst i vår schemat. Lägg därför till en definition i elementet `<BuildingBlocks>`. Du hittar det här elementet i början av filen TrustFrameworkExtensions.xml.
+Anspråket `city` inte ännu har definierats var som helst i vår schemat. Lägg därför till en definition i elementet `<BuildingBlocks>`. Du hittar det här elementet i början av filen TrustFrameworkExtensions.xml.
 
 ```XML
 <BuildingBlocks>
@@ -133,14 +133,14 @@ Anspråket `city` är ännu inte definierats var som helst i vår schemat. Lägg
 </BuildingBlocks>
 ```
 
-## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Steg 4: Ta REST service anspråk exchange som en orchestration-steg i din profil Redigera användare resa i TrustFrameworkExtensions.xml
+## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Steg 4: Inkludera anspråksutbytet som REST-tjänsten som en orkestrering steg i din profil redigera användarresan i TrustFrameworkExtensions.xml
 
-Lägga till ett steg till profilen Redigera användare resan, efter att användaren har autentiserats (orchestration-steg 1 – 4 i följande XML) och användaren har angett informationen uppdaterade profilen (steg 5).
+Lägga till ett steg för att profilen redigera användarresa, när användaren har autentiserats (orchestration-steg 1-4 i följande XML) och användaren har tillhandahållit uppdaterade profilinformation (steg 5).
 
 > [!NOTE]
-> Det finns många användningsområden där REST API-anrop kan användas som ett orchestration-steg. Som ett orchestration-steg kan den användas som en uppdatering för ett externt system när en användare har slutfört en uppgift som första gången registrering eller som en uppdatering av spårningsprofil för att synkronisera informationen. I det här fallet används det att utöka informationen till programmet när profilen har redigerat.
+> Det finns många användningsområden där REST API-anrop kan användas som ett orchestration-steg. Som ett orchestration-steg kan användas den som en uppdatering till ett externt system när en användare har genomgått en aktivitet, som registrering för första gången eller som en Profiluppdatering av för att synkronisera informationen. I det här fallet används det att utöka informationen till programmet när profilen har redigerat.
 
-Kopiera profilen Redigera användare resa XML-koden från filen TrustFrameworkBase.xml i filen TrustFrameworkExtensions.xml inuti den `<UserJourneys>` element. Gör ändringar i steg 6.
+Kopiera profilen Redigera användare resa XML-kod från filen TrustFrameworkBase.xml i TrustFrameworkExtensions.xml-filen i den `<UserJourneys>` element. Sedan göra ändringen under steg 6.
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
@@ -151,9 +151,9 @@ Kopiera profilen Redigera användare resa XML-koden från filen TrustFrameworkBa
 ```
 
 > [!IMPORTANT]
-> Om ordern inte överensstämmer med din version, kontrollerar du att du infogar koden som steg innan den `ClaimsExchange` typen `SendClaims`.
+> Om ordningen som inte matchar din version, kontrollerar du infoga kod som ett steg före den `ClaimsExchange` typ `SendClaims`.
 
-Sista XML för transporten användare bör se ut så här:
+Sista XML för användarresan bör se ut så här:
 
 ```XML
 <UserJourney Id="ProfileEdit">
@@ -211,11 +211,11 @@ Sista XML för transporten användare bör se ut så här:
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Steg 5: Lägg till anspråket `city` till den förlitande parten princip filen så att begäran skickas till ditt program
+## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Steg 5: Lägg till anspråket `city` till den förlitande parten princip-fil så att anspråket skickas till ditt program
 
 Redigera filen ProfileEdit.xml förlitande part (RP) och ändra den `<TechnicalProfile Id="PolicyProfile">` element att lägga till följande: `<OutputClaim ClaimTypeReferenceId="city" />`.
 
-När du lägger till nya anspråk, tekniska profilen ser ut så här:
+När du lägger till nytt anspråk den tekniska profilen ser ut så här:
 
 ```XML
 <DisplayName>PolicyProfile</DisplayName>
@@ -232,13 +232,13 @@ När du lägger till nya anspråk, tekniska profilen ser ut så här:
 
 Skriv över de befintliga versionerna av principen.
 
-1.  (Valfritt:) Spara den befintliga versionen (genom att ladda ned) av tilläggsfilen innan du fortsätter. Om du vill behålla inledande komplexitet låg, rekommenderar vi att du inte överföra flera versioner av tilläggsfilen.
+1.  (Valfritt:) Spara den befintliga versionen (genom att ladda ned) i din tillägg fil innan du fortsätter. Om du vill behålla inledande komplexiteten med låg, rekommenderar vi att du inte ladda upp flera versioner av tilläggsfilen.
 2.  (Valfritt:) Byt namn på den nya versionen av princip-ID för att redigera filen genom att ändra `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
 3.  Ladda upp tilläggsfilen.
-4.  Överför principfilen redigera RP.
-5.  Använd **kör nu** att testa principen. Granska den token som IEF returnerar till programmet.
+4.  Ladda upp principen redigera RP-fil.
+5.  Använd **kör nu** att testa principen. Granska den token som IEF tillbaka till programmet.
 
-Om allt är korrekt konfigurerat, token tas nytt anspråk `city`, med värdet `Redmond`.
+Om allt är korrekt konfigurerad, token tas nytt anspråk `city`, med värdet `Redmond`.
 
 ```JSON
 {
@@ -258,6 +258,6 @@ Om allt är korrekt konfigurerat, token tas nytt anspråk `city`, med värdet `R
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Använd en REST-API som en verifiering steg](active-directory-b2c-rest-api-validation-custom.md)
+[Använd en REST API som ett steg för verifiering](active-directory-b2c-rest-api-validation-custom.md)
 
-[Ändra profil Redigera för att samla in ytterligare information från användarna](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+[Ändra profilredigering för att samla in ytterligare information från användarna](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)

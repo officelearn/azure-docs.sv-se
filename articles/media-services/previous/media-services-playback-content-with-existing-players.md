@@ -1,6 +1,6 @@
 ---
-title: Använd befintlig spelare att spela upp ditt innehåll - Azure | Microsoft Docs
-description: Det här avsnittet innehåller befintliga spelare som du kan använda att spela upp ditt innehåll.
+title: Använd befintliga spelare att spela upp ditt innehåll – Azure | Microsoft Docs
+description: Det här avsnittet listar befintliga spelare som du kan använda att spela upp ditt innehåll.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,20 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/02/2018
 ms.author: juliako
-ms.openlocfilehash: a64d32747371aab2bd927e53c5d43e30de9108f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3fe82b98163182c73a144b72da371e8aa195e8cf
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788482"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435865"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Spela upp ditt innehåll med befintliga spelare
-Azure Media Services stöder många populära strömmande format, till exempel Smooth Streaming HTTP Live Streaming och MPEG-Dash. Det här avsnittet hänvisar till befintliga spelare som du kan använda för att testa din dataströmmar.
+Azure Media Services har stöd för många populära strömmande format, till exempel Smooth Streaming, HTTP Live Streaming och MPEG-Dash. Det här avsnittet hänvisar till befintliga spelare som du kan använda för att testa dina strömmar.
 
 ### <a name="the-azure-portal-media-services-content-player"></a>I Azure portal Media Services-innehållsspelaren
-Den **Azure** portalen har en innehållsspelare som du kan använda för att testa videon.
+Den **Azure** portal har en innehållsspelare som du kan använda för att testa videon.
 
 Klicka på önskad video (se till att det var [publicerade](media-services-portal-publish.md)) och klicka på den **spela upp** längst ned i portalen.
 
@@ -41,32 +41,30 @@ Använd [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 * Smooth Streaming
 * MPEG DASH
 * HLS
-* Progressiv MP4
+* Progressiva MP4
 
 ### <a name="flash-player"></a>Flash Player
-#### <a name="aes-encrypted-with-token"></a>AES-kryptering med Token
+#### <a name="aes-encrypted-with-token"></a>AES-krypterad med Token
 [http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
-### <a name="silverlight-players"></a>Silverlight spelare
-#### <a name="monitoring"></a>Övervakning
-[http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
+### <a name="silverlight-players"></a>Silverlight-spelare
 
 #### <a name="playready-with-token"></a>PlayReady med Token
 [http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
 
-### <a name="dash-players"></a>STRECK spelare
+### <a name="dash-players"></a>DASH-spelare
 [http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
 
 [http://dashif.org](http://dashif.org)
 
 ### <a name="other"></a>Annat
-Så här testar HLS webbadresser som du kan också använda:
+Så här testar HLS-webbadresser som du kan också använda:
 
 * **Safari** på en iOS-enhet eller
-* **3ivx HLS Player** i Windows.
+* **3ivx HLS Player** på Windows.
 
 ## <a name="developing-video-players"></a>Utveckla videospelare
-Information om hur du utvecklar dina egna spelare finns [utveckla videospelare](media-services-develop-video-players.md)
+Information om hur du utvecklar dina egna spelare finns i [utveckla videospelare](media-services-develop-video-players.md)
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

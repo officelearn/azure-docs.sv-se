@@ -1,48 +1,48 @@
 ---
-title: Tillägg app i Azure Active Directory B2C | Microsoft Docs
-description: Återställer b2c-tillägg-app.
+title: Tilläggsapp i Azure Active Directory B2C | Microsoft Docs
+description: Återställer b2c-extensions-app.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 9/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ad908e7408c2d14a843af49bc091fea725bfba1d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ad3d459b1211d2777f57169f3ee896d2ab5618bc
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712291"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442832"
 ---
-# <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: Tillägg app
+# <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: Tilläggsapp
 
-När en Azure AD B2C-katalog har skapats kan en app kallas `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` skapas automatiskt i den nya katalogen. Den här appen, kallas de **b2c-tillägg-app**, visas i *App registreringar*. Den används av tjänsten Azure AD B2C för att lagra information om användare och anpassade attribut. Om appen tas bort, Azure AD B2C kommer inte att fungera på rätt sätt och produktionsmiljön kommer att påverkas.
+När en Azure AD B2C-katalog skapas en app kallas `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` skapas automatiskt i den nya katalogen. Den här appen, kallas de **b2c-extensions-app**, visas i *appregistreringar*. Den används av Azure AD B2C-tjänsten för att lagra information om användare och anpassade attribut. Om appen tas bort Azure AD B2C fungerar inte och kommer att påverkas din produktionsmiljö.
 
 > [!IMPORTANT]
-> Ta inte bort b2c-tillägg-app om du planerar att direkt ta bort din klient. Appen är borttagna mer än 30 dagar, kommer användarinformation att gå förlorade.
+> Ta inte bort b2c-extensions-app om du planerar att omedelbart ta bort din klient. Om appen är borttagna under mer än 30 dagar, går användarinformation förlorade permanent.
 
-## <a name="verifying-that-the-extensions-app-is-present"></a>Verifiera att appen tillägg finns
+## <a name="verifying-that-the-extensions-app-is-present"></a>Verifiera att tilläggsappen är tillgänglig
 
-Kontrollera att b2c-tillägg-appen är tillgänglig:
+För att verifiera att b2c-extensions-app finns:
 
 1. Klicka på på i din Azure AD B2C-klient **alla tjänster** i den vänstra navigeringsmenyn.
-1. Söka efter och öppna **App registreringar**.
-1. Leta efter en app som börjar med **b2c-tillägg-app**
+1. Sök efter och öppna **appregistreringar**.
+1. Leta efter en app som börjar med **b2c-extensions-app**
 
-## <a name="recover-the-extensions-app"></a>Återställa tillägg appen
+## <a name="recover-the-extensions-app"></a>Återställa tilläggsappen
 
-Om du av misstag tas bort b2c-tillägg-app har 30 dagar att återställa den. Du kan återställa appen med Graph-API:
+Om du av misstag har tagit bort b2c-extensions-app har 30 dagar att återställa den. Du kan återställa appen med Graph API:
 
 1. Bläddra till [ https://graphexplorer.azurewebsites.net/ ](https://graphexplorer.azurewebsites.net/).
-1. Logga in till webbplatsen som en global administratör för Azure AD B2C-katalog som du vill återställa den borttagna appen för. Den här global administratör måste ha en e-postadress som liknar följande: `username@{yourTenant}.onmicrosoft.com`.
-1. Utfärda en HTTP GET mot URL: en `https://graph.windows.net/myorganization/deletedApplications` = med api-version 1.6. Den här åtgärden visar en lista över alla program som har tagits bort under de senaste 30 dagarna.
-1. Sök efter programmet i listan var namnet börjar med ”b2c-tillägg-app” och kopiera dess `objectid` egenskapsvärde.
-1. Utfärda en HTTP POST mot URL: en `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore`. Ersätt den `{OBJECTID}` del av URL: en med den `objectid` från föregående steg. 
+1. Logga in på webbplatsen som global administratör för Azure AD B2C-katalog som du vill återställa den borttagna appen för. Den här global administratör måste ha en e-postadress som liknar följande: `username@{yourTenant}.onmicrosoft.com`.
+1. Utfärda en HTTP GET mot URL: en `https://graph.windows.net/myorganization/deletedApplications` med api-version = 1.6. Den här åtgärden visar en lista över alla program som har tagits bort under de senaste 30 dagarna.
+1. Hitta programmet i listan där namnet börjar med ”b2c-tillägg-app” och kopiera dess `objectid` egenskapsvärdet.
+1. Utfärda en HTTP POST mot URL: en `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore`. Ersätt den `{OBJECTID}` i URL-Adressen med den `objectid` från föregående steg. 
 
-Du bör nu kunna [ser återställda appen](#verifying-that-the-extensions-app-is-present) i Azure-portalen.
+Du bör nu kunna [finns i appen återställda](#verifying-that-the-extensions-app-is-present) i Azure-portalen.
 
 > [!NOTE]
-> Ett program kan endast återställas om det har tagits bort under de senaste 30 dagarna. Om det är mer än 30 dagar, blir data förlorade permanent. Filen ett supportärende för mer hjälp.
+> Ett program kan bara återställas om det har tagits bort inom de senaste 30 dagarna. Om det är mer än 30 dagar, går data förlorade permanent. Öppna ett supportärende för mer hjälp.

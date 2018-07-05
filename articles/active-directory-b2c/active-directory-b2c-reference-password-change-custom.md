@@ -1,38 +1,38 @@
 ---
-title: Självbetjäning lösenordsändring i Azure Active Directory B2C | Microsoft Docs
-description: Ett avsnitt som visar hur du ställer in ändring av lösenord för självbetjäning för dina användare i Azure Active Directory B2C.
+title: Ändring av lösenord för självbetjäning i Azure Active Directory B2C | Microsoft Docs
+description: Ett avsnitt som visar hur du ställer in ändring av lösenord via Självbetjäning för dina användare i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/05/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5474f469c6271a0c1348004664ead8b190de08c7
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 028d10b5c005be2db7cfd9c5ca5210ab55f0592a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34709146"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448143"
 ---
-# <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C: Konfigurera ändra lösenordet i anpassade principer  
+# <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C: Konfigurera lösenordsändring i anpassade principer  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Med funktionen för ändring av lösenord (med lokala konton) inloggade användare kan ändra sina lösenord utan att bevisa sin äkthetsbeviset av e-Postverifiering enligt beskrivningen i den [Självbetjäning för lösenordsåterställning flödet.](active-directory-b2c-reference-sspr.md) Om sessionen upphör att gälla efter den tid som får förändringsflödet för lösenord, uppmanas användaren att logga in igen. 
+Med funktionen för ändring av lösenord (med lokala konton) inloggade användare kan ändra sina lösenord utan att behöva bekräfta deras tillförlitlighet med e-Postverifiering enligt beskrivningen i den [lösenordsåterställning via självbetjäning flöde.](active-directory-b2c-reference-sspr.md) Om sessionen upphör att gälla efter den tid som får förändringsflödet för lösenord, uppmanas du att logga in igen. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-En Azure AD B2C-klient som konfigurerats för att slutföra ett lokalt konto sign-upp/inloggning, enligt beskrivningen i [komma igång](active-directory-b2c-get-started-custom.md).
+En Azure AD B2C-klient som konfigurerats för att slutföra ett lokalt konto registrerings-registreringen/inloggning, enligt beskrivningen i [komma igång](active-directory-b2c-get-started-custom.md).
 
 ## <a name="how-to-configure-password-change-in-custom-policy"></a>Så här konfigurerar du ändra lösenordet i anpassad princip
 
 Om du vill konfigurera lösenordsändring i anpassad princip gör följande ändringar i din framework tillägg förtroendeprincipen, 
 
-## <a name="define-a-claimtype-oldpassword"></a>Definiera ClaimType 'gammalt lösenord'
+## <a name="define-a-claimtype-oldpassword"></a>Definiera en ClaimType 'gammalt lösenord ”
 
-Övergripande strukturen för den anpassade principen måste innehålla en `ClaimsSchema`och definiera en ny `ClaimType` 'gammalt lösenord' som nedan. 
+Övergripande strukturen för den anpassade principen måste innehålla en `ClaimsSchema`och definiera en ny `ClaimType` oldPassword om du som nedan. 
 
 ```XML
   <BuildingBlocks>
@@ -49,18 +49,18 @@ Om du vill konfigurera lösenordsändring i anpassad princip gör följande änd
 
 Syftet med de här elementen är följande:
 
-- Den `ClaimsSchema` definierar vilka anspråk som ska verifieras.  I det här fallet verifieras det gamla lösenordet. 
+- Den `ClaimsSchema` definierar vilka anspråk verifieras.  I det här fallet kommer att valideras det gamla lösenordet. 
 
-## <a name="add-a-password-change-claims-provider-with-its-supporting-elements"></a>Lägg till en lösenord ändras anspråksprovider med dess element
+## <a name="add-a-password-change-claims-provider-with-its-supporting-elements"></a>Lägg till en lösenordet ändra anspråksprovider med dess element
 
-Lösenordet ändras anspråk providern
+Anspråk providern om lösenordsändring
 
 1. Autentisera användare mot det gamla lösenordet
-2. Och om 'nytt lösenord' matchar 'Bekräfta nytt lösenord', det här värdet lagras i B2C-datalagret och därför att lösenordet har ändrats. 
+2. Och om ”nytt lösenord” matchar ”Bekräfta nytt lösenord', det här värdet lagras i B2C-datalagret och därför att lösenordet har ändrats. 
 
 ![bild](images/passwordchange.jpg)
 
-Lägg till följande anspråksprovider din princip för tillägg. 
+Lägg till följande anspråksleverantören till din princip för tillägg. 
 
 ```XML
 <ClaimsProviders>
@@ -148,25 +148,25 @@ Lägg till följande anspråksprovider din princip för tillägg.
 
 
 
-### <a name="add-the-application-ids-to-your-custom-policy"></a>Lägg till program-ID: N i en anpassad princip
+### <a name="add-the-application-ids-to-your-custom-policy"></a>Lägg till program-ID: N i en egen princip
 
 Lägg till program-ID i tilläggsfilen (`TrustFrameworkExtensions.xml`):
 
-1. Hitta element i tilläggsfilen (TrustFrameworkExtensions.xml) `<TechnicalProfile Id="login-NonInteractive">` och `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
+1. Hitta elementet i tilläggsfilen (TrustFrameworkExtensions.xml) `<TechnicalProfile Id="login-NonInteractive">` och `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
 
-2. Ersätt alla förekomster av `IdentityExperienceFrameworkAppId` med program-ID för identitet upplevelse Framework-program som beskrivs i [komma igång](active-directory-b2c-get-started-custom.md). Här är ett exempel:
+2. Ersätt alla förekomster av `IdentityExperienceFrameworkAppId` med program-ID för programmet för Identitetsupplevelse enligt beskrivningen i [komma igång](active-directory-b2c-get-started-custom.md). Här är ett exempel:
 
    ```
    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 
-3. Ersätt alla förekomster av `ProxyIdentityExperienceFrameworkAppId` med program-ID för Proxy identitet upplevelse Framework-program som beskrivs i [komma igång](active-directory-b2c-get-started-custom.md).
+3. Ersätt alla förekomster av `ProxyIdentityExperienceFrameworkAppId` med program-ID för Proxy Identitetsramverk programmet enligt beskrivningen i [komma igång](active-directory-b2c-get-started-custom.md).
 
 4. Spara tilläggsfilen.
 
 
 
-## <a name="create-a-password-change-user-journey"></a>Skapa en lösenord ändras användaren resa
+## <a name="create-a-password-change-user-journey"></a>Skapa en användarresa för ändring av lösenord
 
 ```XML
  <UserJourneys>
@@ -200,20 +200,20 @@ Du är klar ändra tilläggsfilen. Spara och ladda upp den här filen. Se till a
 
 ## <a name="create-a-relying-party-rp-file"></a>Skapa en förlitande part (RP)-fil
 
-Därefter uppdaterar du filen förlitande part (RP) som initierar transporten användare som du skapade:
+Därefter uppdatera filen för förlitande part (RP) som initierar användarresa som du skapade:
 
-1. Gör en kopia av ProfileEdit.xml i arbetskatalogen. Sedan, byta namn på den (till exempel PasswordChange.xml).
-2. Öppna ny fil och uppdatera den `PolicyId` attribut för `<TrustFrameworkPolicy>` med ett unikt värde. Detta är namnet på principen (till exempel PasswordChange).
-3. Ändra den `ReferenceId` attribut i `<DefaultUserJourney>` så att den matchar den `Id` transporten för nya användare som du skapade (till exempel PasswordChange).
-4. Spara ändringarna och sedan ladda upp filen.
-5. Om du vill testa den anpassade principen som du överfört i Azure portal, gå till principbladet och klicka sedan på **kör nu**.
+1. Göra en kopia av ProfileEdit.xml i din arbetskatalog. Sedan, byta namn (till exempel PasswordChange.xml).
+2. Öppna i ny fil och uppdatera den `PolicyId` attributet för `<TrustFrameworkPolicy>` med ett unikt värde. Det här är namnet på din princip (till exempel PasswordChange).
+3. Ändra den `ReferenceId` attributet i `<DefaultUserJourney>` så att den matchar den `Id` för nya användarresa som du skapade (till exempel PasswordChange).
+4. Spara dina ändringar och överför sedan filen.
+5. Om du vill testa den anpassade principen som du laddade upp i Azure-portalen, gå till principbladet och klicka sedan på **kör nu**.
 
 
 
 
 ## <a name="link-to-password-change-sample-policy"></a>Länka till exempel för lösenordsändring
 
-Du kan hitta exempel principen [här](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change). 
+Du hittar exempel principen [här](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change). 
 
 
 

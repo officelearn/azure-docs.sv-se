@@ -1,43 +1,43 @@
 ---
 title: Auktoriseringskodflödet i Azure Active Directory B2C | Microsoft Docs
-description: Lär dig mer om att skapa webbprogram med hjälp av autentiseringsprotokollet Azure AD B2C och OpenID Connect.
+description: Lär dig hur du skapar webbappar med hjälp av Azure AD B2C och OpenID Connect-autentiseringsprotokollet.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0bb15fbc5461ec76a1450bbb9ca452a6f26c8d35
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6baeba9cc7e631c6dbdf2284db484dc5f95adcce
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711512"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444209"
 ---
-# <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0-auktoriseringskodflödet
-Du kan använda OAuth 2.0 auktorisering kod bevilja i appar som installeras på en enhet för att få åtkomst till skyddade resurser, till exempel web API: er. Med hjälp av Azure Active Directory B2C (Azure AD B2C) implementering av OAuth 2.0, kan du lägga till registrering, inloggning och andra Identitetshantering uppgifter till dina appar och program. Den här artikeln är språkoberoende. I artikeln beskrivs hur du skickar och tar emot HTTP-meddelanden utan att använda alla bibliotek med öppen källkod.
+# <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0-auktoriseringskodflöde
+Du kan använda OAuth 2.0-auktoriseringskod i appar som installerats på en enhet för att få åtkomst till skyddade resurser, till exempel webb API: er. Genom att använda den Azure Active Directory B2C (Azure AD B2C) implementering av OAuth 2.0, du kan lägga till registrering, inloggning och andra Identitetshantering uppgifter till dina appar och program. Den här artikeln är språkoberoende. I artikeln beskrivs hur du skickar och tar emot HTTP-meddelanden utan att använda alla bibliotek med öppen källkod.
 
 <!-- TODO: Need link to libraries -->
 
-OAuth 2.0-auktoriseringskodflödet beskrivs i [avsnittet 4.1 i OAuth 2.0-specifikationen](http://tools.ietf.org/html/rfc6749). Du kan använda för autentisering och auktorisering i de flesta apptyper, inklusive [webbappar](active-directory-b2c-apps.md#web-apps) och [internt installerade appar](active-directory-b2c-apps.md#mobile-and-native-apps). Du kan använda OAuth 2.0-auktoriseringskodflödet att på ett säkert sätt hämta *åtkomst till token* för dina appar som kan användas för att komma åt resurser som skyddas av en [auktorisering server](active-directory-b2c-reference-protocols.md#the-basics).
+OAuth 2.0-auktoriseringskodflödet beskrivs i [avsnitt 4.1 i OAuth 2.0-specifikationen](http://tools.ietf.org/html/rfc6749). Du kan använda för autentisering och auktorisering i de flesta apptyper, däribland [webbappar](active-directory-b2c-apps.md#web-apps) och [internt installerade appar](active-directory-b2c-apps.md#mobile-and-native-apps). Du kan använda OAuth 2.0-auktoriseringskodflödet att på ett säkert sätt hämta *åtkomsttoken* för dina appar som kan användas för att komma åt resurser som skyddas av en [auktoriseringsservern](active-directory-b2c-reference-protocols.md#the-basics).
 
-Den här artikeln fokuserar på de **offentliga klienter** OAuth 2.0-auktoriseringskodflödet. En offentlig klient är alla klientprogram som inte är betrott på ett säkert sätt Underhåll integriteten hos ett hemligt lösenord. Detta inkluderar mobilappar och skrivbordsappar i stort sett alla program som körs på en enhet och behöver få åtkomst-token. 
+Den här artikeln fokuserar på de **offentliga klienter** OAuth 2.0-auktoriseringskodflödet. En offentlig klient är klientprogram som inte är betrott för att upprätthålla integriteten hos ett hemligt lösenord på ett säkert sätt. Detta inkluderar mobilappar och skrivbordsappar i stort sett alla program som körs på en enhet och behöver få åtkomst-token. 
 
 > [!NOTE]
-> Lägg till Identitetshantering i ett webbprogram med hjälp av Azure AD B2C genom att använda [OpenID Connect](active-directory-b2c-reference-oidc.md) i stället för OAuth 2.0.
+> Lägg till Identitetshantering till en webbapp med hjälp av Azure AD B2C genom att använda [OpenID Connect](active-directory-b2c-reference-oidc.md) i stället för OAuth 2.0.
 
-Azure AD B2C utökar standard OAuth 2.0 flödar om du vill göra mer än enkel autentisering och auktorisering. Det inför den [parametern](active-directory-b2c-reference-policies.md). Med inbyggda principer, du kan använda OAuth 2.0 att lägga till användarupplevelser i din app som registrering, inloggning och profilhantering. I den här artikeln hur vi du använder OAuth 2.0 och principer för att implementera var och en av dessa upplevelser i dina interna program. Vi också hur du få åtkomst-token för åtkomst till webb-API: er.
+Azure AD B2C utökar standard OAuth 2.0 flöden för att göra mer än enkel autentisering och auktorisering. Det introducerar den [principparametern](active-directory-b2c-reference-policies.md). Med inbyggda principer kan du använda OAuth 2.0 att lägga till användarupplevelser i din app, till exempel registrering, inloggning och profilhantering. I den här artikeln visar vi dig hur du använder OAuth 2.0 och principer för att implementera var och en av dessa upplevelser i dina interna program. Vi visar också hur du hämtar åtkomsttoken för att komma åt webb API: er.
 
-I exempel HTTP-begäranden i den här artikeln använder vi våra exempel Azure AD B2C-katalog, **fabrikamb2c.onmicrosoft.com**. Vi använder också våra exempelprogrammet och principer. Du kan också försöka begäranden med hjälp av dessa värden eller ersätta dem med egna värden.
+I exemplet HTTP-begäranden i den här artikeln använder vi vår exempel Azure AD B2C-katalog **fabrikamb2c.onmicrosoft.com**. Vi använder våra exempelprogrammet och principer. Du kan också försöka begäranden med hjälp av dessa värden eller ersätta dem med dina egna värden.
 Lär dig hur du [hämta egna Azure AD B2C-katalog, program och principer](#use-your-own-azure-ad-b2c-directory).
 
-## <a name="1-get-an-authorization-code"></a>1. Hämta en auktoriseringskod för
-Auktoriseringskodflödet börjar med klienten dirigera användare till den `/authorize` slutpunkt. Detta är den interaktiva delen av flödet, där användaren vidtar åtgärder. I den här förfrågan klienten anger i den `scope` parametern de behörigheter som krävs för att hämta från användaren. I den `p` parametern anger principen som ska köras. Följande tre exempel (med radbrytningar för att läsa) varje använda en annan princip.
+## <a name="1-get-an-authorization-code"></a>1. Hämta en auktoriseringskod
+Auktoriseringskodsflödet börjar med klienten dirigera användare till den `/authorize` slutpunkt. Det här är den interaktiva delen av flödet, där användaren vidtar åtgärder. I den här begäran anger klienten i den `scope` parametern de behörigheter som krävs för att hämta från användaren. I den `p` parametern anger principen för att köra. I följande tre exempel (med radbrytningar för läsbarhet) varje används en annan princip.
 
-### <a name="use-a-sign-in-policy"></a>Använda en princip för inloggning
+### <a name="use-a-sign-in-policy"></a>Använd en inloggningsprincip
 ```
 GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -49,7 +49,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-### <a name="use-a-sign-up-policy"></a>Använda en princip för registrering
+### <a name="use-a-sign-up-policy"></a>Använda en registreringsprincip
 ```
 GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -75,18 +75,18 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parameter | Krävs? | Beskrivning |
 | --- | --- | --- |
-| client_id |Krävs |Det program-ID som har tilldelats din app i den [Azure-portalen](https://portal.azure.com). |
-| response_type |Krävs |Svarstyp som måste innehålla `code` för auktoriseringskodflödet. |
-| redirect_uri |Krävs |Omdirigerings-URI för din app, där autentisering svar skickas och tas emot av din app. Den måste matcha en omdirigerings-URI: er som du har registrerat i portalen, förutom att det måste vara URL-kodade. |
-| omfång |Krävs |En blankstegsavgränsad lista över scope. Ett enda scope-värde som anger till Azure Active Directory (AD Azure) båda de behörigheter som krävs. Med klient-ID som omfattningen visar att din app behöver ett åtkomsttoken som kan användas med tjänsten eller webb-API, som representeras av samma klient-ID.  Den `offline_access` scope visar att din app behöver en uppdateringstoken för långlivade åtkomst till resurser. Du kan också använda den `openid` scope för att begära en ID-token från Azure AD B2C. |
-| response_mode |Rekommenderas |Den metod som används för att skicka den resulterande Auktoriseringskoden tillbaka till din app. Det kan vara `query`, `form_post`, eller `fragment`. |
-| state |Rekommenderas |Ett värde som ingår i denna begäran som returneras i token svaret. Det kan vara en sträng med innehåll som du vill använda. Vanligtvis används ett slumpmässigt genererat unikt värde för att förhindra attacker med förfalskning av begäran. Tillståndet också används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade. Till exempel sidan användaren utfördes eller den princip som kördes. |
-| P |Krävs |Den princip som körs. Det är namnet på en princip som har skapats i Azure AD B2C-katalogen. Princip för namn-värde ska inledas med **b2c\_1\_**. Mer information om principer finns [Azure AD B2C inbyggda principer](active-directory-b2c-reference-policies.md). |
-| kommandotolk |Valfri |Typ av användarinteraktion som krävs. Det enda giltiga värdet är för närvarande `login`, som tvingar användaren att ange sina autentiseringsuppgifter på begäran. Enkel inloggning börjar inte gälla. |
+| client_id |Krävs |Program-ID som tilldelats din app i den [Azure-portalen](https://portal.azure.com). |
+| response_type |Krävs |Svarstypen som måste innehålla `code` för auktoriseringskodsflödet. |
+| redirect_uri |Krävs |Omdirigerings-URI för din app, där autentiseringssvaren skickas och tas emot av din app. Det måste exakt matcha en av omdirigerings-URI: er som du registrerade i portalen, förutom att det måste vara URL-kodade. |
+| omfång |Krävs |En blankstegsavgränsad lista med omfattningar. Ett enda scope-värde som anger till Azure Active Directory (Azure AD) båda av de behörigheter som tas emot. Med klient-ID som omfattningen visar att din app behöver en åtkomsttoken som kan användas mot din egen tjänst eller webb-API, som representeras av samma klient-ID.  Den `offline_access` omfång visar att din app behöver en uppdateringstoken för långlivade åtkomst till resurser. Du kan också använda den `openid` omfattning att begära en ID-token från Azure AD B2C. |
+| response_mode |Rekommenderas |Den metod som används för att skicka resulterande Auktoriseringskoden tillbaka till din app. Det kan vara `query`, `form_post`, eller `fragment`. |
+| state |Rekommenderas |Ett värde i begäran som returneras i token-svaret. Det kan vara en sträng med innehåll som du vill använda. Vanligtvis är används ett slumpmässigt genererat unikt värde till att förhindra attacker med förfalskning av begäran. Tillståndet också används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade. Exempelvis kan användaren var på sidan eller den princip som kördes. |
+| p |Krävs |Den princip som körs. Det är namnet på en princip som skapas i din Azure AD B2C-katalog. Namnet principvärdet måste inledas med **b2c\_1\_**. Mer information om principer finns [inbyggda principer för Azure AD B2C](active-directory-b2c-reference-policies.md). |
+| fråga |Valfri |Typ av interaktion från användaren som krävs. Det enda giltiga värdet är för närvarande `login`, vilket Tvingar användaren att ange sina autentiseringsuppgifter i begäran. Enkel inloggning börjar inte gälla. |
 
-Nu uppmanas användaren att slutföra arbetsflödet för den principen. Detta kan handla om användaren att ange sina användarnamn och lösenord, logga in med en sociala identitet registrerar sig för katalogen, eller en annan siffra steg. Användaråtgärder beror på hur principen har definierats.
+Nu kan uppmanas användaren att slutföra principens arbetsflöde. Detta kan handla om användaren skriver sitt användarnamn och lösenord, logga in med en sociala identitet, registrera dig för katalogen, eller en annan siffra steg. Användaråtgärder beror på hur principen som har definierats.
 
-När användaren uppfyller principen, Azure AD tillbaka ett svar på din app på värdet som du använde för `redirect_uri`. Den använder metoden som anges i den `response_mode` parameter. Svaret är exakt samma för alla användare åtgärd scenarier, oberoende av den princip som har utförts.
+När användaren uppfyller principen, Azure AD tillbaka ett svar till din app på värdet som du använde för `redirect_uri`. Den använder den metod som beskrivs i den `response_mode` parametern. Svaret är exakt detsamma för alla användare åtgärd scenarion, oberoende av den princip som har utförts.
 
 Ett lyckat svar som använder `response_mode=query` ser ut så här:
 
@@ -98,10 +98,10 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 
 | Parameter | Beskrivning |
 | --- | --- |
-| Koden |Auktoriseringskoden som begärts av appen. Appen kan använda Auktoriseringskoden för att begära en åtkomst-token för en målresurs. Auktoriseringskoder är mycket tillfällig. Vanligtvis de går ut efter 10 minuter. |
-| state |Se den fullständiga beskrivningen i tabellen i föregående avsnitt. Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i förfrågan och svar är identiska. |
+| Kod |Auktoriseringskod som appen har begärt. Appen kan använda Auktoriseringskoden för att begära en åtkomsttoken för en målresurs. Auktoriseringskoder är mycket tillfällig. Vanligtvis de går ut efter 10 minuter. |
+| state |Se den fullständiga beskrivningen i tabellen i föregående avsnitt. Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i begäran och svar är identiska. |
 
-Felsvar kan också skickas till omdirigerings-URI så att appen kan hantera dem på rätt sätt:
+Felsvar kan också skickas till omdirigeringen-URI så att appen kan hantera dem på rätt sätt:
 
 ```
 GET urn:ietf:wg:oauth:2.0:oob?
@@ -112,12 +112,12 @@ error=access_denied
 
 | Parameter | Beskrivning |
 | --- | --- |
-| fel |Ett felkod sträng som du kan använda för att klassificera typerna av fel som inträffar. Du kan också använda strängen att ta hänsyn till fel. |
-| error_description |Ett felmeddelande som kan hjälpa dig att identifiera orsaken till ett autentiseringsfel. |
-| state |Se den fullständiga beskrivningen i föregående tabell. Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i förfrågan och svar är identiska. |
+| fel |En felkodsträngen som du kan använda för att klassificera typerna av fel som uppstår. Du kan också använda strängen för att reagera på fel. |
+| error_description |Ett felmeddelande som kan hjälpa dig att identifiera de grundläggande orsakerna till ett autentiseringsfel. |
+| state |Se den fullständiga beskrivningen i tabellen ovan. Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i begäran och svar är identiska. |
 
 ## <a name="2-get-a-token"></a>2. Hämta en token
-Nu när du har skaffat ett auktoriseringskod, kan du lösa in den `code` för en token för den avsedda resursen genom att skicka en POST-begäran till den `/token` slutpunkt. I Azure AD B2C är den enda resursen som du kan begära en token för ditt Apps egen backend-webb-API. Konventionen som används för att begära en token till dig själv är att använda appens klient-ID som scope:
+Nu när du har skaffat en auktoriseringskod, kan du lösa in den `code` för en token för den avsedda resursen genom att skicka en POST-begäran till den `/token` slutpunkt. I Azure AD B2C är den enda resurs som du kan begära en token för din Apps egen backend-webb-API. Konventionen som används för att begära en token till dig själv är att använda appens klient-ID som omfång:
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
@@ -130,12 +130,12 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Parameter | Krävs? | Beskrivning |
 | --- | --- | --- |
-| P |Krävs |Den princip som användes för att hämta Auktoriseringskoden. Du kan inte använda en annan princip i den här förfrågan. Observera att du lägger till den här parametern till den *frågesträng*, inte i själva POST. |
-| client_id |Krävs |Det program-ID som har tilldelats din app i den [Azure-portalen](https://portal.azure.com). |
-| grant_type |Krävs |Typ av bevilja. För auktoriseringskodflödet, grant-typen måste vara `authorization_code`. |
-| omfång |Rekommenderas |En blankstegsavgränsad lista över scope. Ett enda scope-värde som anger till Azure AD båda de behörigheter som krävs. Med klient-ID som omfattningen visar att din app behöver ett åtkomsttoken som kan användas med tjänsten eller webb-API, som representeras av samma klient-ID.  Den `offline_access` scope visar att din app behöver en uppdateringstoken för långlivade åtkomst till resurser.  Du kan också använda den `openid` scope för att begära en ID-token från Azure AD B2C. |
-| Koden |Krävs |Auktoriseringskoden som du har införskaffade i den första del av flödet. |
-| redirect_uri |Krävs |Omdirigerings-URI för det program som du fick Auktoriseringskoden. |
+| p |Krävs |Den princip som användes för att hämta Auktoriseringskoden. Du kan inte använda en annan princip i den här begäran. Observera att du lägger till den här parametern till den *frågesträng*, inte i själva INLÄGGET. |
+| client_id |Krävs |Program-ID som tilldelats din app i den [Azure-portalen](https://portal.azure.com). |
+| _typ av beviljande |Krävs |Typ av beviljande. För auktoriseringskodflödet beviljandetypen måste vara `authorization_code`. |
+| omfång |Rekommenderas |En blankstegsavgränsad lista med omfattningar. Ett enda scope-värde som anger till Azure AD båda av de behörigheter som tas emot. Med klient-ID som omfattningen visar att din app behöver en åtkomsttoken som kan användas mot din egen tjänst eller webb-API, som representeras av samma klient-ID.  Den `offline_access` omfång visar att din app behöver en uppdateringstoken för långlivade åtkomst till resurser.  Du kan också använda den `openid` omfattning att begära en ID-token från Azure AD B2C. |
+| Kod |Krävs |Auktoriseringskod som du har köpt i den första delen i flödet. |
+| redirect_uri |Krävs |Omdirigerings-URI för programmet som du fick Auktoriseringskoden. |
 
 Ett lyckat svar för token som ser ut så här:
 
@@ -151,14 +151,14 @@ Ett lyckat svar för token som ser ut så här:
 ```
 | Parameter | Beskrivning |
 | --- | --- |
-| not_before |Den tid då token betraktas som giltigt epok tidpunkt. |
-| token_type |Tokentypen-värde. Den enda typen som har stöd för Azure AD är ägar. |
-| access_token |Den signerade JSON-Webbtoken (JWT) som du har begärt. |
-| omfång |Scope som gäller för token. Du kan också använda omfång cache-tokens för senare användning. |
-| expires_in |Hur lång tid som denna token är giltig (i sekunder). |
-| refresh_token |En token för uppdatering av OAuth 2.0. Appen kan använda denna token för att hämta ytterligare token när den aktuella token upphör att gälla. Uppdateringstoken är långlivade. Du kan använda dem för att få åtkomst till resurser för längre tid. Mer information finns i [Azure AD B2C tokenreferens](active-directory-b2c-reference-tokens.md). |
+| not_before |Den tid då token betraktas som giltigt i epoktid. |
+| token_type |Typ tokenu-värde. Den enda typen som har stöd för Azure AD är ägar. |
+| access_token |Den signerade JSON Web Token (JWT) som du har begärt. |
+| omfång |Scope som token är giltig för. Du kan också använda omfång cache-tokens för senare användning. |
+| expires_in |Hur lång tid som token är giltig (i sekunder). |
+| refresh_token |OAuth 2.0-uppdateringstoken. Appen kan använda den här token för att hämta ytterligare token när den aktuella token upphör att gälla. Uppdateringstoken är långlivade. Du kan använda dem om du vill få åtkomst till resurser för längre tid. Mer information finns i den [tokenreferens för Azure AD B2C](active-directory-b2c-reference-tokens.md). |
 
-Felsvar se ut så här:
+Felsvar ut så här:
 
 ```
 {
@@ -169,11 +169,11 @@ Felsvar se ut så här:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| fel |Ett felkod sträng som du kan använda för att klassificera typerna av fel som inträffar. Du kan också använda strängen att ta hänsyn till fel. |
-| error_description |Ett felmeddelande som kan hjälpa dig att identifiera orsaken till ett autentiseringsfel. |
+| fel |En felkodsträngen som du kan använda för att klassificera typerna av fel som uppstår. Du kan också använda strängen för att reagera på fel. |
+| error_description |Ett felmeddelande som kan hjälpa dig att identifiera de grundläggande orsakerna till ett autentiseringsfel. |
 
 ## <a name="3-use-the-token"></a>3. Använda token
-Nu när du har har skaffat ett åtkomsttoken, kan du använda token i begäranden till din backend-webb-API: er genom att inkludera den i den `Authorization` huvud:
+Nu när du har har skaffat en åtkomsttoken, du kan använda token i begäranden till ditt backend-webb-API: er genom att inkludera den i den `Authorization` rubrik:
 
 ```
 GET /tasks
@@ -182,7 +182,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ## <a name="4-refresh-the-token"></a>4. Uppdatera token
-Åtkomst-token och ID-token är tillfällig. När de upphör att gälla måste du uppdatera dem. Om du vill fortsätta att komma åt resurser. Det gör du genom att skicka en annan POST-begäran till den `/token` slutpunkt. Den här gången den `refresh_token` i stället för den `code`:
+Åtkomsttoken och ID-token är tillfällig. När de går ut måste du uppdatera dem om du vill fortsätta att få åtkomst till resurser. Gör detta genom att skicka in en annan POST-begäran till den `/token` slutpunkt. Den här gången den `refresh_token` i stället för den `code`:
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
@@ -194,13 +194,13 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 
 | Parameter | Krävs? | Beskrivning |
 | --- | --- | --- |
-| P |Krävs |Den princip som användes för att hämta den ursprungliga uppdateringstoken. Du kan inte använda en annan princip i den här förfrågan. Observera att du lägger till den här parametern till den *frågesträng*, inte i själva POST. |
-| client_id |Krävs |Det program-ID som har tilldelats din app i den [Azure-portalen](https://portal.azure.com). |
-| client_secret |Krävs |Client_secret som är associerade med din client_id i den [Azure-portalen](https://portal.azure.com). |
-| grant_type |Krävs |Typ av bevilja. För denna del av auktoriseringskodflödet grant-typen måste vara `refresh_token`. |
-| omfång |Rekommenderas |En blankstegsavgränsad lista över scope. Ett enda scope-värde som anger till Azure AD båda de behörigheter som krävs. Med klient-ID som omfattningen visar att din app behöver ett åtkomsttoken som kan användas med tjänsten eller webb-API, som representeras av samma klient-ID.  Den `offline_access` omfång anger att din app måste en uppdateringstoken för långlivade åtkomst till resurser.  Du kan också använda den `openid` scope för att begära en ID-token från Azure AD B2C. |
-| redirect_uri |Valfri |Omdirigerings-URI för det program som du fick Auktoriseringskoden. |
-| refresh_token |Krävs |Den ursprungliga uppdateringstoken som du har införskaffade i andra del av flödet. |
+| p |Krävs |Den princip som användes för att hämta den ursprungliga uppdateringstoken. Du kan inte använda en annan princip i den här begäran. Observera att du lägger till den här parametern till den *frågesträng*, inte i själva INLÄGGET. |
+| client_id |Krävs |Program-ID som tilldelats din app i den [Azure-portalen](https://portal.azure.com). |
+| client_secret |Krävs |Client_secret som är kopplad till din client_id i den [Azure-portalen](https://portal.azure.com). |
+| _typ av beviljande |Krävs |Typ av beviljande. För den här delen i auktoriseringskodsflödet beviljandetypen måste vara `refresh_token`. |
+| omfång |Rekommenderas |En blankstegsavgränsad lista med omfattningar. Ett enda scope-värde som anger till Azure AD båda av de behörigheter som tas emot. Med klient-ID som omfattningen visar att din app behöver en åtkomsttoken som kan användas mot din egen tjänst eller webb-API, som representeras av samma klient-ID.  Den `offline_access` omfång anger att din app behöver en uppdateringstoken för långlivade åtkomst till resurser.  Du kan också använda den `openid` omfattning att begära en ID-token från Azure AD B2C. |
+| redirect_uri |Valfri |Omdirigerings-URI för programmet som du fick Auktoriseringskoden. |
+| refresh_token |Krävs |Den ursprungliga uppdateringstoken som du har köpt i den andra delen i flödet. |
 
 Ett lyckat svar för token som ser ut så här:
 
@@ -216,14 +216,14 @@ Ett lyckat svar för token som ser ut så här:
 ```
 | Parameter | Beskrivning |
 | --- | --- |
-| not_before |Den tid då token betraktas som giltigt epok tidpunkt. |
-| token_type |Tokentypen-värde. Den enda typen som har stöd för Azure AD är ägar. |
+| not_before |Den tid då token betraktas som giltigt i epoktid. |
+| token_type |Typ tokenu-värde. Den enda typen som har stöd för Azure AD är ägar. |
 | access_token |Den signerade JWT som du har begärt. |
-| omfång |Scope som gäller för token. Du kan också använda omfång cache-tokens för senare användning. |
-| expires_in |Hur lång tid som denna token är giltig (i sekunder). |
-| refresh_token |En token för uppdatering av OAuth 2.0. Appen kan använda denna token för att hämta ytterligare token när den aktuella token upphör att gälla. Uppdatera token är långlivade och kan användas för att få åtkomst till resurser för längre tid. Mer information finns i [Azure AD B2C tokenreferens](active-directory-b2c-reference-tokens.md). |
+| omfång |Scope som token är giltig för. Du kan också använda omfång till token i cacheminnet för senare användning. |
+| expires_in |Hur lång tid som token är giltig (i sekunder). |
+| refresh_token |OAuth 2.0-uppdateringstoken. Appen kan använda den här token för att hämta ytterligare token när den aktuella token upphör att gälla. Uppdatera token är långlivade och kan användas för att behålla åtkomst till resurser i längre tid. Mer information finns i den [tokenreferens för Azure AD B2C](active-directory-b2c-reference-tokens.md). |
 
-Felsvar se ut så här:
+Felsvar ut så här:
 
 ```
 {
@@ -234,13 +234,13 @@ Felsvar se ut så här:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| fel |Ett felkod sträng som du kan använda för att klassificera typer av fel som inträffar. Du kan också använda strängen att ta hänsyn till fel. |
-| error_description |Ett felmeddelande som kan hjälpa dig att identifiera orsaken till ett autentiseringsfel. |
+| fel |En felkodsträngen som du kan använda för att klassificera typer av fel som uppstår. Du kan också använda strängen för att reagera på fel. |
+| error_description |Ett felmeddelande som kan hjälpa dig att identifiera de grundläggande orsakerna till ett autentiseringsfel. |
 
-## <a name="use-your-own-azure-ad-b2c-directory"></a>Använda din egen Azure AD B2C-katalog
-Utför följande steg om du vill testa dessa begäranden själv. Ersätt exempelvärden som vi använde i den här artikeln med egna värden.
+## <a name="use-your-own-azure-ad-b2c-directory"></a>Använd din egen Azure AD B2C-katalog
+Utför följande steg om du vill prova de här begärandena själv. Ersätt exempelvärden vi använde i den här artikeln med dina egna värden.
 
 1. [Skapa en Azure AD B2C-katalog](active-directory-b2c-get-started.md). Använd namnet på din katalog i begäranden.
-2. [Skapa ett program](active-directory-b2c-app-registration.md) att få ett program-ID och omdirigerings-URI. Inkludera en intern klient i din app.
-3. [Skapa dina principer](active-directory-b2c-reference-policies.md) att hämta principens namn.
+2. [Skapa ett program](active-directory-b2c-app-registration.md) att hämta ett program-ID och omdirigerings-URI. Inkludera en intern klient i din app.
+3. [Skapa principer](active-directory-b2c-reference-policies.md) att hämta din principnamn.
 

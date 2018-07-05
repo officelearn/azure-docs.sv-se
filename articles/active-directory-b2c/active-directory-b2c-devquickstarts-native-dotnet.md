@@ -1,24 +1,24 @@
 ---
-title: Autentisering, registrera, Redigera profil i Azure Active Directory B2C | Microsoft Docs
-description: Hur du skapar ett Windows-skrivbordsprogram som innehåller inloggning, registrering och profilhantering med hjälp av Azure Active Directory B2C.
+title: Autentisering, registrering för, Redigera profil i Azure Active Directory B2C | Microsoft Docs
+description: Hur du skapar ett Windows-skrivbordsprogram som innehåller inloggning, registrering, och profilhantering med hjälp av Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 980d554d96796a673db13bb369337d90088e8a75
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: bd504beabbb126db2cd90ac010dbc2757e571185
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711076"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441907"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Skapa en Windows-skrivbordsapp
-Med hjälp av Azure Active Directory (AD Azure) B2C kan du lägga till kraftfulla självbetjäning Identitetshantering i appen skrivbord i några korta steg. Den här artikeln visar hur du skapar ett .NET Windows Presentation Foundation (WPF) ”uppgiftslistan” som innehåller användarregistrering, inloggning och profilhantering. Appen tas stöd för registrering och inloggning med ett användarnamn eller e-post. Den omfattar också stöd för registrering och inloggning med hjälp av sociala konton, till exempel Facebook och Google.
+Med hjälp av Azure Active Directory (Azure AD) B2C kan du lägga till kraftfulla självbetjäning Identitetshantering till din skrivbordsapp i några korta steg. Den här artikeln visar hur du skapar en app för .NET Windows Presentation Foundation (WPF) ”uppgiftslista” som innehåller användarens registrering och inloggning och profilhantering. Appen innehåller stöd för registrering och inloggning med ett användarnamn eller e-post. Det omfattar även stöd för registrering och inloggning med konton i sociala medier, till exempel Facebook och Google.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Skaffa en Azure AD B2C-katalog
 Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient.  En katalog är en behållare för alla användare, appar, grupper och mer. Om du inte redan har en B2C-katalog [skapar du en](active-directory-b2c-get-started.md) innan du fortsätter den här guiden.
@@ -26,12 +26,12 @@ Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient.  En 
 ## <a name="create-an-application"></a>Skapa ett program
 Nu måste du skapa en app i B2C-katalogen. Det ger Azure AD den information som tjänsten behöver för att kommunicera säkert med din app. Du skapar en app genom att följa [dessa anvisningar](active-directory-b2c-app-registration.md).  Se till att:
 
-* Inkludera en **native client** i programmet.
+* Inkludera en **inbyggd klient** i programmet.
 * Kopiera den **omdirigerings-URI** `urn:ietf:wg:oauth:2.0:oob`. Den är standard-URL:en för det här kodexemplet.
 * Kopiera **program-ID:t** som har tilldelats din app. Du behöver den senare.
 
 ## <a name="create-your-policies"></a>Skapa principer
-I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Det här kodexemplet innehåller tre identitetsupplevelser: registrering, inloggning och profilredigering. Du måste skapa en princip för varje typ, enligt beskrivningen i den [referensartikeln om principer](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Tänk på följande när du skapar de tre principerna:
+I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Det här kodexemplet innehåller tre identitetsupplevelser: registrering, inloggning och profilredigering. Du behöver skapa en princip för varje typ. Mer information finns i den [referensartikeln om principer](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Tänk på följande när du skapar de tre principerna:
 
 * Välj antingen **Registrering med användar-ID** eller **Registrering med e-postadress** i bladet för identitetsproviders.
 * Välj **Visningsnamn** och andra registreringsattribut i registreringsprincipen.
@@ -51,12 +51,12 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 Den färdiga appen finns också [som en ZIP-fil](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) eller i `complete`-grenen för samma centrallager.
 
-När du har laddat ned exempelkoden öppnar du SLN-filen i Visual Studio för att sätta igång. Den `TaskClient` projektet är WPF-skrivbordsprogram som användaren interagerar med. Vid tillämpningen av den här självstudiekursen anropar en aktivitet för backend-webb-API, finns i Azure som lagrar varje användares att göra-lista.  Du behöver inte skapa webb-API, vi har redan det kör du.
+När du har laddat ned exempelkoden öppnar du SLN-filen i Visual Studio för att sätta igång. Den `TaskClient` projektet är WPF-program som användaren interagerar med. För den här självstudien anropas en backend-uppgift webb-API, Azure och lagrar varje användares att göra-lista.  Du behöver inte skapa webb-API, vi har redan det ska fungera för dig.
 
-Om du vill veta hur ett webb-API på ett säkert sätt autentiserar begäranden med hjälp av Azure AD B2C kan ta en titt på [webb-API komma igång artikel](active-directory-b2c-devquickstarts-api-dotnet.md).
+Om du vill veta hur ett webb-API på ett säkert sätt autentiserar begäranden med hjälp av Azure AD B2C kan ta en titt på [webb-API: komma igång artikel](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## <a name="execute-policies"></a>Köra principer
-Appen kommunicerar med Azure AD B2C genom att skicka meddelandena som anger den princip som ska köras som en del av HTTP-begäran. För .NET program kan du använda Förhandsgranska Microsoft Authentication Library (MSAL) för att skicka meddelanden för OAuth 2.0-autentisering, köra principer och hämta token som anropa webb-API: er.
+Appen kan kommunicera med Azure AD B2C genom att skicka autentiseringsmeddelanden som anger den princip som de vill att köra som en del av HTTP-begäran. För .NET skrivbordsprogram, kan du använda förhandsversionen av Microsoft Authentication Library (MSAL) för att skicka meddelanden för OAuth 2.0-autentisering, köra principer och hämta token som anropa webb-API: er.
 
 ### <a name="install-msal"></a>Installera MSAL
 Lägg till MSAL till den `TaskClient` projekt med hjälp av Visual Studio Package Manager-konsolen.
@@ -66,7 +66,7 @@ PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ```
 
 ### <a name="enter-your-b2c-details"></a>Ange din B2C-information
-Öppna filen `Globals.cs` och ersätter varje egenskapsvärden med dina egna. Den här klassen används i hela `TaskClient` till referens som ofta används värden.
+Öppna filen `Globals.cs` och Ersätt varje egenskapsvärden med dina egna. Denna klass används i hela `TaskClient` till som ofta används referensvärden.
 
 ```csharp
 public static class Globals
@@ -87,7 +87,7 @@ public static class Globals
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### <a name="create-the-publicclientapplication"></a>Skapa PublicClientApplication
-Den primära klassen för MSAL är `PublicClientApplication`. Den här klassen representerar ditt program i Azure AD B2C-system. När app-initalizes skapar en instans av `PublicClientApplication` i `MainWindow.xaml.cs`. Detta kan användas i hela fönstret.
+Den primära klassen av MSAL är `PublicClientApplication`. Den här klassen representerar ditt program i Azure AD B2C-system. När app-initalizes skapar en instans av `PublicClientApplication` i `MainWindow.xaml.cs`. Detta kan användas i hela fönstret.
 
 ```csharp
 protected async override void OnInitialized(EventArgs e)
@@ -104,8 +104,8 @@ protected async override void OnInitialized(EventArgs e)
     ...
 ```
 
-### <a name="initiate-a-sign-up-flow"></a>Initiera registrering flöde
-När en användare väljer att loggar in, som du vill initiera en anmälan flödet som använder registreringsprincipen som du skapade. Genom att använda MSAL kan du bara anropa `pca.AcquireTokenAsync(...)`. De parametrar som du skickar till `AcquireTokenAsync(...)` avgör vilka token felmeddelandet, den princip som används i begäran om autentisering och mycket mer.
+### <a name="initiate-a-sign-up-flow"></a>Starta ett flöde för registrering
+När en användare väljer att loggar in, som du vill initiera en registrering flöde som använder registreringsprincip som du skapade. Med MSAL kan du bara anropa `pca.AcquireTokenAsync(...)`. De parametrar som du skickar till `AcquireTokenAsync(...)` avgöra vilka token visas den princip som används i autentiseringsbegäran och mycket annat.
 
 ```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
@@ -155,8 +155,8 @@ private async void SignUp(object sender, RoutedEventArgs e)
 }
 ```
 
-### <a name="initiate-a-sign-in-flow"></a>Initiera ett flöde för inloggning
-Du kan starta ett flöde logga in på samma sätt som du startar en anmälan flöde. När en användare loggar in, göra samma anrop till MSAL, nu med hjälp av din princip för inloggning:
+### <a name="initiate-a-sign-in-flow"></a>Starta ett flöde för inloggning
+Du kan starta ett flöde som loggar in på samma sätt som du startar ett flöde för registrering. När en användare loggar in, att MSAL, samma anropa den här gången med hjälp av inloggnings-principen:
 
 ```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
@@ -170,7 +170,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
         ...
 ```
 
-### <a name="initiate-an-edit-profile-flow"></a>Initiera ett flöde för Redigera-profil
+### <a name="initiate-an-edit-profile-flow"></a>Starta ett flöde för Redigera-profil
 Igen, kan du köra en princip för Redigera-profil på samma sätt:
 
 ```csharp
@@ -184,10 +184,10 @@ private async void EditProfile(object sender, RoutedEventArgs e)
                     Globals.editProfilePolicy);
 ```
 
-I alla dessa fall returnerar MSAL antingen en token i `AuthenticationResult` eller genererar ett undantag. Varje gång du får en token från MSAL, som du kan använda den `AuthenticationResult.User` objektet uppdateras informationen i appen, till exempel Användargränssnittet. ADAL cachelagrar också token för användning i andra delar av programmet.
+Alla dessa fall MSAL antingen returnerar en token i `AuthenticationResult` eller genererar ett undantag. Varje gång du får en token från MSAL, som du kan använda den `AuthenticationResult.User` objektet uppdateras informationen i appen, till exempel Användargränssnittet. ADAL cachelagrar också token för användning i andra delar av programmet.
 
-### <a name="check-for-tokens-on-app-start"></a>Sök efter token på programstart
-Du kan också använda MSAL för att hålla reda på användarens inloggning tillstånd.  I den här appen som vi vill användaren förblir inloggad även när de stänga appen och öppna den igen.  Tillbaka i den `OnInitialized` åsidosätta använder MSAL'S `AcquireTokenSilent` metod för att söka efter cachelagrade token:
+### <a name="check-for-tokens-on-app-start"></a>Sök efter token på app-start
+Du kan också använda MSAL för att hålla reda på användarens inloggning status.  I den här appen vill vi att användaren ska förbli inloggade när de Stäng appen och öppnar det igen.  I den `OnInitialized` Åsidosätt, använder MSAL'S `AcquireTokenSilent` metod för att söka efter cachelagrade token:
 
 ```csharp
 AuthenticationResult result = null;
@@ -226,7 +226,7 @@ catch (MsalException ex)
 ```
 
 ## <a name="call-the-task-api"></a>Anropa aktivitetens API
-Du har nu för MSAL köra principer och hämta token.  När du vill använda en dessa token för att anropa aktivitetens API du igen kan använda MSAL'S `AcquireTokenSilent` metod för att söka efter cachelagrade token:
+Du har nu använt MSAL för att köra principer och hämta token.  Om du vill använda en dessa tokens för att anropa aktivitetens API kan du igen kan använda MSAL'S `AcquireTokenSilent` metod för att söka efter cachelagrade token:
 
 ```csharp
 private async void GetTodoList()
@@ -271,7 +271,7 @@ private async void GetTodoList()
     ...
 ```
 
-När anropet till `AcquireTokenSilentAsync(...)` lyckas och en token har hittats i cacheminnet, kan du lägga till token för att den `Authorization` rubriken för HTTP-begäran. Uppgiften webb-API använder det här sidhuvudet för att autentisera begäran att läsa användarens att göra-lista:
+När anropet till `AcquireTokenSilentAsync(...)` lyckas och en token har hittats i cacheminnet, du kan lägga till denna token till den `Authorization` till HTTP-huvud. Uppgiften webb-API kommer att använda den här rubriken för att autentisera begäran att läsa användarens att göra-lista:
 
 ```csharp
     ...
@@ -283,8 +283,8 @@ När anropet till `AcquireTokenSilentAsync(...)` lyckas och en token har hittats
     ...
 ```
 
-## <a name="sign-the-user-out"></a>Logga ut användaren
-Slutligen kan du använda MSAL för att avsluta en användarsession med appen när användaren väljer **logga ut**.  När du använder MSAL, kan detta åstadkommas genom att avmarkera alla token från token-cache:
+## <a name="sign-the-user-out"></a>Användaren logga ut
+Slutligen kan du kan använda MSAL för att avsluta en användarsession med appen när användaren väljer **logga ut**.  När du använder MSAL kan görs detta genom att avmarkera alla tokens från token-cache:
 
 ```csharp
 private void SignOut(object sender, RoutedEventArgs e)
@@ -306,22 +306,22 @@ private void SignOut(object sender, RoutedEventArgs e)
 ```
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen
-Slutligen skapar och köra exemplet.  Registrera dig för appen med hjälp av ett e-postadress eller användaren namn. Logga ut och logga in igen som samma användare. Redigera användarens profil. Logga ut och logga med hjälp av en annan användare.
+Slutligen skapar och kör exemplet.  Registrera dig för appen genom att använda en e-postadress eller användarnamn namn. Logga ut och logga in igen som samma användare. Redigera användarens profil. Logga ut och logga med hjälp av en annan användare.
 
-## <a name="add-social-idps"></a>Lägg till sociala IDPs
-För närvarande appen stöder endast användare registrering och inloggning med **lokala konton**. Dessa är konton som lagras i din B2C-katalog som använder ett användarnamn och lösenord. Med hjälp av Azure AD B2C kan du lägga till stöd för andra identitetsleverantörer (IDPs) utan att ändra någon av din kod.
+## <a name="add-social-idps"></a>Lägg till sociala IDP: er
+Appen stöder för närvarande endast användaren registrera sig och logga in som använder **lokala konton**. Det här är konton som lagras i din B2C-katalog som använder ett användarnamn och lösenord. Med hjälp av Azure AD B2C kan du lägga till stöd för andra identitetsleverantörer (IDP) utan att ändra någon av din kod.
 
-Börja genom att följa de detaljerade anvisningarna i de här artiklarna om du vill lägga till sociala IDPs i appen. För varje IDP som du vill använda, måste du registrera ett program i systemet och skaffa ett klient-ID.
+Börja genom att följa instruktionerna i följande artiklar om du vill lägga till sociala IDP: er i din app. För varje IDP som du vill kunna använda, måste du registrera ett program i systemet och få ett klient-ID.
 
 * [Konfigurera Facebook som en IDP](active-directory-b2c-setup-fb-app.md)
 * [Konfigurera Google som en IDP](active-directory-b2c-setup-goog-app.md)
-* [Ställa in Amazon som en IDP](active-directory-b2c-setup-amzn-app.md)
-* [Ställa in LinkedIn som en IDP](active-directory-b2c-setup-li-app.md)
+* [Konfigurera Amazon som en IDP](active-directory-b2c-setup-amzn-app.md)
+* [Konfigurera LinkedIn som en IDP](active-directory-b2c-setup-li-app.md)
 
-När du lägger till identitetsleverantörer din B2C-katalog, måste du redigera var och en av dina tre principer att inkludera de nya IDPs som beskrivs i den [referensartikeln om principer](active-directory-b2c-reference-policies.md). Kör appen igen när du har sparat dina principer. Du bör se nya IDPs läggas till som inloggning och registreringsalternativ i varje din identitet inträffar.
+När du lägger till identitetsleverantör man till din B2C-katalog måste du redigera var och en av dina tre principer att inkludera de nya IDP: er, enligt beskrivningen i den [referensartikeln om principer](active-directory-b2c-reference-policies.md). När du har sparat dina principer kan du köra appen igen. Du bör se de nya IDP: er som har lagts till som inloggning och registreringsalternativ i var och en av din identitet inträffar.
 
-Du kan experimentera med dina principer och studera effekten på din exempelapp. Lägg till eller ta bort IDPs, manipulera programanspråken eller ändra registreringsattribut. Experimentera tills du kan se hur principer och autentiseringsbegäranden MSAL knyta ihop.
+Du kan experimentera med dina principer och notera effekterna på din exempelapp. Lägg till eller ta bort IDP: er, manipulera programanspråken eller ändra registreringsattribut. Experimentera tills du kan se hur principer, begäranden om autentisering och MSAL knyta ihop.
 
-För referens anger det slutförda exemplet [har angetts som en .zip-fil](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). Du kan också klona det från GitHub:
+Referens är färdiga exemplet [tillhandahålls som en .zip-fil](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). Du kan också klona det från GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```

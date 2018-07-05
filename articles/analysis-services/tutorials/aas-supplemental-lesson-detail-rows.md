@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6e15788992e66fdb8e742b290e5bcf5bce8d20fb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 626258488afec4b3c3f025ae85bd3b5866aa0cf3
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596108"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443985"
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Kompletterande lektion – Detaljrader
 
@@ -25,19 +25,19 @@ Uppskattad tidsåtgång för den här lektionen: **10 minuter**
 Den här kompletterande lektionen ingår i en självstudiekurs om tabellmodeller. Innan du utför uppgifterna i den här kompletterande lektionen måste du ha slutfört alla föregående lektioner eller ha ett slutfört Adventure Works Internet Sales-exempelmodellprojekt.  
   
 ## <a name="whats-the-issue"></a>Vad är problemet?
-Nu ska vi titta på information om måttet InternetTotalSales innan du lägger till ett uttryck för information om rader.
+Nu ska vi titta på informationen för InternetTotalSales-mått innan du lägger till en standarduttryck för rader.
 
 1.  Klicka på menyn **Modell** > **Analysera i Excel** i SSDT för att öppna Excel och skapa en tom pivottabell.
   
-2.  I **Pivottabellfält** lägger du till måttet **InternetTotalSales** från tabellen FactInternetSales till **Values**, **CalendarYear** från tabellen DimDate till **Columns** och **EnglishCountryRegionName** till **Rows**. Pivottabellen kan nu en sammanlagda resultat från InternetTotalSales måttet av regioner och år. 
+2.  I **Pivottabellfält** lägger du till måttet **InternetTotalSales** från tabellen FactInternetSales till **Values**, **CalendarYear** från tabellen DimDate till **Columns** och **EnglishCountryRegionName** till **Rows**. Pivottabellen ger nu en aggregerade resultat från måttet InternetTotalSales per region och år. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. Dubbelklicka på ett aggregerat värde för ett år och ett regionnamn i pivottabellen. Värdet för Australien och år 2014. Ett nytt blad öppnas som innehåller data, men inte användbara data.
+3. Dubbelklicka på ett aggregerat värde för ett år och ett regionnamn i pivottabellen. Värdet för Australien år 2014. Ett nytt blad öppnas som innehåller data, men inte användbara data.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
-Avsikten är en tabell som innehåller kolumner och rader med data som bidrar till aggregerade resultatet av måttet InternetTotalSales. För att göra det lägger du till ett uttryck för information om rader som en egenskap för måttet.
+Målet här är en tabell med kolumner och rader med data som bidrar till det aggregerade resultatet av InternetTotalSales-mått. Gör detta genom att lägga till en standarduttryck för rader som en egenskap för måttet.
 
 ## <a name="add-a-detail-rows-expression"></a>Lägga till ett uttryck för rader med detaljerad information
 
@@ -76,6 +76,6 @@ Avsikten är en tabell som innehåller kolumner och rader med data som bidrar ti
 ## <a name="see-also"></a>Se också  
 
 [Funktionen SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
-[Kompletterande lektionen - dynamiska säkerhet](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[Kompletterande lektion – dynamisk säkerhet](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
 [Kompletterande lektion – Ojämna hierarkier](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
  

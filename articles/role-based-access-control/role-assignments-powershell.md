@@ -1,6 +1,6 @@
 ---
 title: Hantera åtkomst med RBAC och Azure PowerShell | Microsoft Docs
-description: Lär dig mer om att hantera åtkomst för användare, grupper och program, med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure PowerShell. Detta inkluderar listan åtkomst, bevilja åtkomst och ta bort åtkomst.
+description: Lär dig mer om att hantera åtkomst för användare, grupper och program, med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure PowerShell. Detta innefattar hur du listar åtkomst, ger åtkomst och tar bort åtkomst.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,35 +8,35 @@ manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1b75443f442affea2f1010605bb9aa330043336a
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: dcc324f3b6c5153b294719ff8939aed8a3e82b1c
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319591"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436843"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>Hantera åtkomst med RBAC och Azure PowerShell
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är på sätt som du hanterar åtkomst till resurser i Azure. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och Azure PowerShell.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är sättet som du hantera åtkomst till resurser i Azure. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och Azure PowerShell.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill hantera åtkomst, behöver du något av följande:
+För att hantera åtkomst, behöver du något av följande:
 
-* [PowerShell i Azure-molnet Shell](/azure/cloud-shell/overview)
+* [PowerShell i Azure Cloudshell](/azure/cloud-shell/overview)
 * [Azure PowerShell](/powershell/azure/install-azurerm-ps)
 
-## <a name="list-roles"></a>Lista roller
+## <a name="list-roles"></a>Visa roller
 
-### <a name="list-all-available-roles"></a>Visa en lista över alla tillgängliga roller
+### <a name="list-all-available-roles"></a>Lista över alla tillgängliga roller
 
-Lista RBAC-roller som är tillgängliga för tilldelning och inspektera de åtgärder som de beviljar åtkomst, använder [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+Att lista RBAC-roller som är tillgängliga för tilldelning och granska de åtgärder som de beviljar åtkomst, använder [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
 
 ```azurepowershell
 Get-AzureRmRoleDefinition | FT Name, Description
@@ -56,9 +56,9 @@ Automation Operator                               Automation Operators are able 
 ...
 ```
 
-### <a name="list-a-specific-role"></a>Visa en lista med en viss roll
+### <a name="list-a-specific-role"></a>Lista över en viss roll
 
-Om du vill visa en viss roll använder [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+Om du vill visa en viss roll, använda [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
 
 ```azurepowershell
 Get-AzureRmRoleDefinition <role name>
@@ -77,9 +77,9 @@ NotActions       : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/
 AssignableScopes : {/}
 ```
 
-### <a name="list-a-specific-role-in-json-format"></a>Visa en lista med en viss roll i JSON-format
+### <a name="list-a-specific-role-in-json-format"></a>Lista över en viss roll i JSON-format
 
-Om du vill visa en viss roll i JSON-format, Använd [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+Om du vill visa en viss roll i JSON-format, använda [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
 
 ```azurepowershell
 Get-AzureRmRoleDefinition <role name> | ConvertTo-Json
@@ -107,9 +107,9 @@ PS C:\> Get-AzureRmRoleDefinition "Contributor" | ConvertTo-Json
 }
 ```
 
-### <a name="list-actions-of-a-role"></a>Lista över åtgärder för en roll
+### <a name="list-actions-of-a-role"></a>Lista åtgärder för en roll
 
-Om du vill visa en lista med åtgärder för en viss roll, Använd [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+Om du vill visa åtgärder för en viss roll, använda [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
 
 ```azurepowershell
 Get-AzureRmRoleDefinition <role name> | FL Actions, NotActions
@@ -142,13 +142,13 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 ...
 ```
 
-## <a name="list-access"></a>Listan åtkomst
+## <a name="list-access"></a>Visar åtkomst
 
-RBAC anger lista åtkomst du i rolltilldelningar.
+I RBAC lista för att lista åtkomstförsök kommer du rolltilldelningar.
 
-### <a name="list-role-assignments-at-a-specific-scope"></a>Lista rolltilldelningar för ett visst område
+### <a name="list-role-assignments-at-a-specific-scope"></a>Lista rolltilldelningar i ett visst omfång
 
-Du kan se alla rolltilldelningar för en angiven prenumeration, resursgrupp eller resurs. Till exempel om du vill visa alla aktiva tilldelningar för en resursgrupp, använda [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Du kan se alla rolltilldelningar för en viss prenumeration, resursgrupp eller resurs. Till exempel om du vill se alla aktiva uppgifter för en resursgrupp, använda [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 ```azurepowershell
 Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>
@@ -170,9 +170,9 @@ RoleDefinitionName : Virtual Machine Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
 ```
 
-### <a name="list-role-assignments-for-a-user"></a>Lista rolltilldelningar för en användare
+### <a name="list-role-assignments-for-a-user"></a>Visa rolltilldelningar för en användare
 
-Om du vill visa en lista med alla de roller som har tilldelats en angiven användare använda [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Om du vill visa alla roller som har tilldelats en angiven användare använda [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 ```azurepowershell
 Get-AzureRmRoleAssignment -SignInName <user email>
@@ -186,7 +186,7 @@ RoleDefinitionName : BizTalk Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
 ```
 
-Om du vill visa en lista med alla de roller som har tilldelats en angiven användare och roller som är tilldelade till de grupper som användaren tillhör, Använd [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Om du vill visa alla roller som har tilldelats en angiven användare och roller som är tilldelade till de grupper som användaren tillhör, använda [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 ```azurepowershell
 Get-AzureRmRoleAssignment -SignInName <user email> -ExpandPrincipalGroups
@@ -198,7 +198,7 @@ Get-AzureRmRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroup
 
 ### <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Lista rolltilldelningar för klassiska tjänstadministratören och medadministratörer
 
-Använd om du vill visa rolltilldelningar för klassiska prenumerationer administratör och medadministratörer [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Använd om du vill visa rolltilldelningar för klassisk prenumerationsadministratör och medadministratörer [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 ```azurepowershell
 Get-AzureRmRoleAssignment -IncludeClassicAdministrators
@@ -206,29 +206,29 @@ Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
-I RBAC, för att bevilja åtkomst, skapar du en rolltilldelning.
+För att skapa åtkomst i RBAC skapar du rolltilldelningar.
 
 ### <a name="search-for-object-ids"></a>Sök efter objekt-ID
 
 Om du vill tilldela en roll som du behöver identifiera både objektet (användare, grupp eller program) och omfång.
 
-Om du inte vet prenumerations-ID, hittar du den i den **prenumerationer** bladet på Azure-portalen eller du kan använda [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+Om du inte vet prenumerations-ID, du kan hitta den i den **prenumerationer** bladet på Azure portal eller du kan använda [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
-Objekt-ID för en Azure AD-grupp, använda [Get-AzureRmADGroup](/powershell/module/azurerm.resources/get-azurermadgroup):
+Hämta objekt-ID för en Azure AD-grupp med [Get-AzureRmADGroup](/powershell/module/azurerm.resources/get-azurermadgroup):
 
 ```azurepowershell
 Get-AzureRmADGroup -SearchString <group name in quotes>
 ```
 
-För att få objekt-ID för ett huvudnamn för tjänsten i Azure AD eller ett program kan använda [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal).
+Hämta objekt-ID för ett Azure AD-tjänstobjekt eller ett program med [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal).
 
 ```azurepowershell
 Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 ```
 
-### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Skapa en rolltilldelning för ett program i omfånget för en prenumeration
+### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Skapa en rolltilldelning för ett program i ett omfång för prenumeration
 
-Om du vill bevilja åtkomst till ett program på prenumerationsomfattningen använder [ny AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
+Om du vill bevilja åtkomst till ett program prenumerationsområde använder [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
 
 ```azurepowershell
 New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
@@ -248,9 +248,9 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Skapa en rolltilldelning för en användare på en resurs Gruppomfång
+### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Skapa en rolltilldelning för en användare en resursgruppomfånget
 
-Om du vill bevilja åtkomst till en användare på Gruppomfång resurs, Använd [ny AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
+Om du vill bevilja åtkomst till en användare i resursgruppomfånget, använda [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
 
 ```azurepowershell
 New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
@@ -272,9 +272,9 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>Skapa en rolltilldelning för en grupp i omfånget för en resurs
+### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>Skapa en rolltilldelning för en grupp i ett omfång för resursen
 
-Om du vill bevilja åtkomst till en grupp definitionsområdet resurs, Använd [ny AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
+För att bevilja åtkomst till en grupp i omfånget för resursen, Använd [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
 
 ```azurepowershell
 New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
@@ -303,9 +303,9 @@ ObjectType         : Group
 CanDelegate        : False
 ```
 
-## <a name="remove-access"></a>Ta bort åtkomst
+## <a name="remove-access"></a>Tar bort åtkomst
 
-I RBAC, för att ta bort access kan du ta bort en rolltilldelning med [ta bort AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
+I RBAC, för att ta bort åtkomst måste du ta bort en rolltilldelning med hjälp av [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
 
 ```azurepowershell
 Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>

@@ -1,6 +1,6 @@
 ---
-title: Hantera åtkomst med hjälp av RBAC och Azure CLI | Microsoft Docs
-description: Lär dig mer om att hantera åtkomst för användare, grupper och program, med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure CLI. Detta inkluderar listan åtkomst, bevilja åtkomst och ta bort åtkomst.
+title: Hantera åtkomst med RBAC och Azure CLI | Microsoft Docs
+description: Lär dig mer om att hantera åtkomst för användare, grupper och program, med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure CLI. Detta innefattar hur du listar åtkomst, ger åtkomst och tar bort åtkomst.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,39 +8,39 @@ manager: mtillman
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 16577339f1aa33fbd1a8b90f4beaef1ee4ce806c
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 6d1e64c7630f3fd35124e6671476174ddfc16bb6
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316404"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437107"
 ---
-# <a name="manage-access-using-rbac-and-azure-cli"></a>Hantera åtkomst med hjälp av RBAC och Azure CLI
+# <a name="manage-access-using-rbac-and-azure-cli"></a>Hantera åtkomst med RBAC och Azure CLI
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är på sätt som du hanterar åtkomst till resurser i Azure. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och Azure CLI.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är sättet som du hantera åtkomst till resurser i Azure. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och Azure CLI.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill hantera åtkomst till något av följande behöver du:
+För att hantera åtkomst till något av följande behöver du:
 
-* [Bash i Azure-molnet Shell](/azure/cloud-shell/overview)
+* [Bash i Azure Cloudshell](/azure/cloud-shell/overview)
 * [Azure CLI](/cli/azure)
 
-## <a name="list-roles"></a>Lista roller
+## <a name="list-roles"></a>Visa roller
 
-Om du vill visa alla tillgängliga rolldefinitioner använda [az rollen definitionslista](/cli/azure/role/definition#az-role-definition-list):
+Om du vill visa alla tillgängliga rolldefinitioner använda [az role definition list](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list
 ```
 
-I följande exempel visar namn och beskrivning av alla tillgängliga rolldefinitioner:
+I följande exempel visas namn och beskrivning av alla tillgängliga rolldefinitioner:
 
 ```azurecli
 az role definition list --output json | jq '.[] | {"roleName":.roleName, "description":.description}'
@@ -63,7 +63,7 @@ az role definition list --output json | jq '.[] | {"roleName":.roleName, "descri
 ...
 ```
 
-I följande exempel visar alla de inbyggda rolldefinitioner:
+I följande exempel visar alla inbyggda rolldefinitionerna:
 
 ```azurecli
 az role definition list --custom-role-only false --output json | jq '.[] | {"roleName":.roleName, "description":.description, "roleType":.roleType}'
@@ -89,9 +89,9 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role"></a>Lista över åtgärder för en roll
+### <a name="list-actions-of-a-role"></a>Lista åtgärder för en roll
 
-Visa åtgärderna för en rolldefinition, Använd [az rollen definitionslista](/cli/azure/role/definition#az-role-definition-list):
+Om du vill visa åtgärderna för en rolldefinition använda [az role definition list](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list --name <role_name>
@@ -153,7 +153,7 @@ az role definition list --name "Contributor" --output json | jq '.[] | {"actions
 }
 ```
 
-I följande exempel visar åtgärder för den *Virtual Machine-deltagare* roll:
+I följande exempel visas åtgärder av den *virtuell Datordeltagare* roll:
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .permissions[0].actions'
@@ -177,19 +177,19 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 ]
 ```
 
-## <a name="list-access"></a>Listan åtkomst
+## <a name="list-access"></a>Visar åtkomst
 
-RBAC anger lista åtkomst du i rolltilldelningar.
+I RBAC lista för att lista åtkomstförsök kommer du rolltilldelningar.
 
-### <a name="list-role-assignments-for-a-user"></a>Lista rolltilldelningar för en användare
+### <a name="list-role-assignments-for-a-user"></a>Visa rolltilldelningar för en användare
 
-Om du vill visa rolltilldelningar för en viss användare, Använd [az rollen tilldelningslista](/cli/azure/role/assignment#az-role-assignment-list):
+Om du vill visa rolltilldelningar för en viss användare, Använd [az-rolltilldelningslista](/cli/azure/role/assignment#az-role-assignment-list):
 
 ```azurecli
 az role assignment list --assignee <assignee>
 ```
 
-Som standard visas endast tilldelningar som är begränsade till prenumerationen. Du kan visa tilldelningar begränsas per resurs eller grupp `--all`.
+Som standard visas endast de tilldelningar som är begränsade till prenumerationen. Du kan visa tilldelningar som omfattar resurs eller grupp `--all`.
 
 I följande exempel visar rolltilldelningar som tilldelas direkt till den *patlong@contoso.com* användare:
 
@@ -210,15 +210,15 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 }
 ```
 
-### <a name="list-role-assignments-for-a-resource-group"></a>Lista rolltilldelningar för en resursgrupp
+### <a name="list-role-assignments-for-a-resource-group"></a>Visa rolltilldelningar för en resursgrupp
 
-Om du vill visa rolltilldelningar som finns för en resursgrupp, Använd [az rollen tilldelningslista](/cli/azure/role/assignment#az-role-assignment-list):
+Om du vill visa rolltilldelningar som finns för en resursgrupp, använda [az-rolltilldelningslista](/cli/azure/role/assignment#az-role-assignment-list):
 
 ```azurecli
 az role assignment list --resource-group <resource_group>
 ```
 
-I följande exempel visar rolltilldelningar för den *pharma-försäljning-projectforecast* resursgrupp:
+I följande exempel visas rolltilldelningar för den *pharma-sales-projectforecast* resursgrupp:
 
 ```azurecli
 az role assignment list --resource-group pharma-sales-projectforecast --output json | jq '.[] | {"roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -239,17 +239,17 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
-I RBAC, för att bevilja åtkomst, skapar du en rolltilldelning.
+För att skapa åtkomst i RBAC skapar du rolltilldelningar.
 
 ### <a name="create-a-role-assignment-for-a-user"></a>Skapa en rolltilldelning för en användare
 
-Så här skapar du en rolltilldelning för en användare på resursen Gruppomfång [az rolltilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create):
+Använd för att skapa en rolltilldelning för en användare i resursgruppomfånget [az-rolltilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
 ```
 
-I följande exempel tilldelas den *Virtual Machine-deltagare* roll *patlong@contoso.com* användare på den *pharma-försäljning-projectforecast* resurs Gruppomfång:
+I följande exempel tilldelas den *virtuell Datordeltagare* rollen *patlong@contoso.com* användare vid den *pharma-sales-projectforecast* resource Gruppomfång:
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
@@ -257,19 +257,19 @@ az role assignment create --role "Virtual Machine Contributor" --assignee patlon
 
 ### <a name="create-a-role-assignment-for-a-group"></a>Skapa en rolltilldelning för en grupp
 
-Du kan skapa en rolltilldelning för en grupp med [az rolltilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create):
+Du kan skapa en rolltilldelning för en grupp med [az-rolltilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-I följande exempel tilldelas den *Reader* rollen till den *Ann Mack Team* med ID 22222222-2222-2222-2222-222222222222 definitionsområdet prenumeration. Du kan använda för att hämta ID för gruppen [az ad grupplistan](/cli/azure/ad/group#az-ad-group-list) eller [az ad-gruppen visa](/cli/azure/ad/group#az-ad-group-show).
+I följande exempel tilldelas den *läsare* rollen till den *Ann Mack Team* med ID 22222222-2222-2222-2222-222222222222 prenumerationsområde. Du kan använda för att hämta ID för gruppen [az ad group list](/cli/azure/ad/group#az-ad-group-list) eller [az ad group show](/cli/azure/ad/group#az-ad-group-show).
 
 ```azurecli
 az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
-I följande exempel tilldelas den *Virtual Machine-deltagare* rollen till den *Ann Mack Team* med ID 22222222-2222-2222-2222-222222222222 definitionsområdet resurs för ett virtuellt nätverk med namnet *pharma-försäljning-projekt-network*:
+I följande exempel tilldelas den *virtuell Datordeltagare* rollen till den *Ann Mack Team* med ID 22222222-2222-2222-2222-222222222222 definitionsområdet resurs för ett virtuellt nätverk med namnet *pharma-sales-projekt – network*:
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourcegroups/pharma-sales-projectforecast/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
@@ -277,33 +277,33 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ### <a name="create-a-role-assignment-for-an-application"></a>Skapa en rolltilldelning för ett program
 
-Du kan skapa en roll för ett program med [az rolltilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create):
+Du kan skapa en roll för ett program med [az-rolltilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-I följande exempel tilldelas den *Virtual Machine-deltagare* rollen till ett program med objekt-ID 44444444-4444-4444-4444-444444444444 på den *pharma-försäljning-projectforecast* resursgruppen. omfattningen. Du kan använda för att få objekt-ID för programmet, [az ad app-lista](/cli/azure/ad/app#az-ad-app-list) eller [az ad app visa](/cli/azure/ad/app#az-ad-app-show).
+I följande exempel tilldelas den *virtuell Datordeltagare* rollen till ett program med objekt-ID 44444444-4444-4444-4444-444444444444 på den *pharma-sales-projectforecast* resursgrupp omfattningen. Du kan använda för att hämta objekt-ID för programmet, [az ad app-lista](/cli/azure/ad/app#az-ad-app-list) eller [az ad app show](/cli/azure/ad/app#az-ad-app-show).
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
 ```
 
-## <a name="remove-access"></a>Ta bort åtkomst
+## <a name="remove-access"></a>Tar bort åtkomst
 
-I RBAC, för att ta bort access kan du ta bort en rolltilldelning med [az rolltilldelning ta bort](/cli/azure/role/assignment#az-role-assignment-delete):
+I RBAC, för att ta bort åtkomst måste du ta bort en rolltilldelning med hjälp av [az-rolltilldelning ta bort](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
 ```
 
-I följande exempel tar bort den *Virtual Machine-deltagare* rolltilldelningen från den *patlong@contoso.com* användare på den *pharma-försäljning-projectforecast* resurs grupp:
+I följande exempel tar bort den *virtuell Datordeltagare* rolltilldelning från den *patlong@contoso.com* användare på den *pharma-sales-projectforecast* resurs grupp:
 
 ```azurecli
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
 ```
 
-I följande exempel tar bort den *Reader* roll från den *Ann Mack Team* med ID 22222222-2222-2222-2222-222222222222 definitionsområdet prenumeration. Du kan använda för att hämta ID för gruppen [az ad grupplistan](/cli/azure/ad/group#az-ad-group-list) eller [az ad-gruppen visa](/cli/azure/ad/group#az-ad-group-show).
+I följande exempel tar bort den *läsare* rollen från den *Ann Mack Team* med ID 22222222-2222-2222-2222-222222222222 prenumerationsområde. Du kan använda för att hämta ID för gruppen [az ad group list](/cli/azure/ad/group#az-ad-group-list) eller [az ad group show](/cli/azure/ad/group#az-ad-group-show).
 
 ```azurecli
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111

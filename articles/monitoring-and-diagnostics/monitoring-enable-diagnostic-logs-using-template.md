@@ -1,6 +1,6 @@
 ---
-title: Aktivera automatiskt diagnostikinställningar med hjälp av en Resource Manager-mall
-description: Lär dig hur du skapar diagnostikinställningar som gör det möjligt att strömma dina diagnostikloggar i Händelsehubbar eller lagra dem i ett lagringskonto med hjälp av en Resource Manager-mall.
+title: Automatiskt aktivera diagnostikinställningar med Resource Manager-mall
+description: Lär dig hur du använder Resource Manager-mall för att skapa diagnostiska inställningar som gör att du kan strömma dina diagnostikloggar till Event Hubs eller lagra dem i ett lagringskonto.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,34 +8,34 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 6c202afaca893609d41384ee8302b0c4c6c4a6f6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: a69cefc3c9363c0e8378a90c44d6a466780402b1
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263396"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434495"
 ---
-# <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Aktivera automatiskt diagnostikinställningar när resursen skapas med hjälp av en Resource Manager-mall
-I den här artikeln visar vi hur du kan använda en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) Konfigurera diagnostikinställningar på en resurs när den skapas. På så sätt kan du starta strömning dina diagnostikloggar och mått i Händelsehubbar arkivering dem i ett Lagringskonto eller skicka dem till logganalys när en resurs skapas automatiskt.
+# <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Aktivera diagnostikinställningar automatiskt när en resurs skapas med en Resource Manager-mall
+I den här artikeln visar vi hur du kan använda en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera diagnostikinställningar på en resurs när den skapas. På så sätt kan du automatiskt starta direktuppspelning av dina diagnostikloggar och mått till Event Hubs, arkivera dem i ett Lagringskonto eller skicka dem till Log Analytics när en resurs skapas.
 
-Metoden för att aktivera diagnostikloggar med hjälp av en Resource Manager-mall beror på resurstypen.
+Metoden för att aktivera diagnostikloggar med en Resource Manager-mall beror på resurstypen.
 
-* **Icke-beräkning** resurser (till exempel Nätverkssäkerhetsgrupper Logic Apps Automation) [diagnostikinställningar som beskrivs i den här artikeln](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
-* **Beräkna** (BOMULLSTUSS/LAD-baserade) resurser den [BOMULLSTUSS/LAD konfigurationsfilen som beskrivs i den här artikeln](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* **Icke-Compute** resurser (till exempel Nätverkssäkerhetsgrupperna, Logic Apps, Automation) använder [diagnostikinställningar som beskrivs i den här artikeln](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
+* **Compute** (WAD/LAD-baserad) resurser i [WAD/LAD konfigurationsfilen som beskrivs i den här artikeln](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
 I den här artikeln beskriver vi hur du konfigurerar diagnostik med någon av metoderna.
 
-Stegen är följande:
+De grundläggande stegen är följande:
 
 1. Skapa en mall som en JSON-fil som beskriver hur du skapar resursen och aktivera diagnostik.
-2. [Distribuera mallen med hjälp av en distributionsmetod](../azure-resource-manager/resource-group-template-deploy.md).
+2. [Distribuera mallen med hjälp av valfri distributionsmetod](../azure-resource-manager/resource-group-template-deploy.md).
 
-Nedan kan vi ge ett exempel på mallen JSON-fil måste du generera för icke-beräknings- och beräkningsresurser.
+Nedan kan vi ge ett exempel på mall för JSON-filen måste du generera för icke-beräknings- och beräkningsresurser.
 
-## <a name="non-compute-resource-template"></a>Icke-beräkningsresurser mall
+## <a name="non-compute-resource-template"></a>Icke-beräkningsresurs mall
 För icke-beräkningsresurser behöver du göra två saker:
 
-1. Lägga till parametrar till blob med parametrar för lagringskontonamn, event hub auktorisering regel-ID och/eller logganalys arbetsyte-ID (aktivera arkivering av diagnostikloggar i ett lagringskonto, strömning av loggar för Händelsehubbar och/eller skicka loggar till logganalys).
+1. Lägg till parametrar till bloben parametrar för lagringskontonamn, regel-ID för event hub-auktorisering och/eller Log Analytics arbetsyte-ID (aktivera arkivering av diagnostikloggar i ett lagringskonto, strömning av loggar till Event Hubs och/eller skickar loggar till Log Analytics).
    
     ```json
     "settingName": {
@@ -69,13 +69,13 @@ För icke-beräkningsresurser behöver du göra två saker:
       }
     }
     ```
-2. Lägg till en resurs av typen i matrisen resurser på den resurs som du vill aktivera diagnostikloggar `[resource namespace]/providers/diagnosticSettings`.
+2. Lägg till en resurs av typen i matrisen resurser av den resurs som du vill aktivera diagnostikloggar `[resource namespace]/providers/diagnosticSettings`.
    
     ```json
     "resources": [
       {
         "type": "providers/diagnosticSettings",
-        "name": "Microsoft.Insights/[parameters('settingName')]",
+        "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
@@ -111,9 +111,9 @@ För icke-beräkningsresurser behöver du göra två saker:
     ]
     ```
 
-Egenskaper för blob för Diagnostikinställningen följer [det format som beskrivs i den här artikeln](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Att lägga till den `metrics` egenskapen gör att du kan även skicka resurs mått till dessa samma utdata, under förutsättning att [resursen stöder Azure-Monitor mått](monitoring-supported-metrics.md).
+Egenskaper för blob för Diagnostikinställningen följer [formatet som beskrivs i den här artikeln](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Att lägga till den `metrics` egenskapen gör att du kan också skicka Resursmått till dessa samma utdata, förutsatt att [resursen har stöd för Azure Monitor metrics](monitoring-supported-metrics.md).
 
-Här är ett fullständigt exempel som skapar en Logikapp och aktiverar direktuppspelning Händelsehubbar och lagring i ett lagringskonto.
+Här är ett fullständigt exempel som skapar en Logikapp och aktiverar direktuppspelning till Event Hubs och lagringsutrymme i ett lagringskonto.
 
 ```json
 
@@ -205,7 +205,7 @@ Här är ett fullständigt exempel som skapar en Logikapp och aktiverar direktup
       "resources": [
         {
           "type": "providers/diagnosticSettings",
-          "name": "Microsoft.Insights/[parameters('settingName')]",
+          "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],
@@ -246,21 +246,21 @@ Här är ett fullständigt exempel som skapar en Logikapp och aktiverar direktup
 
 ```
 
-## <a name="compute-resource-template"></a>Compute-resource-mall
-Om du vill aktivera diagnostik för en beräkning resurs, till exempel en virtuell dator eller Service Fabric-kluster måste du:
+## <a name="compute-resource-template"></a>Compute-resursmall
+Om du vill aktivera diagnostik på en beräkningsresurs, till exempel en virtuell dator eller Service Fabric-kluster måste du:
 
-1. Lägga till filnamnstillägget Azure Diagnostics resursdefinitionen VM.
-2. Ange en storage-konto och/eller händelse hubb som en parameter.
+1. Lägg till Azure Diagnostics-tillägget i VM-resursdefinitionen.
+2. Ange en storage-konto och/eller event hub som en parameter.
 3. Lägg till innehållet i filen WADCfg XML i egenskapen XMLCfg undantagstecken alla XML-tecknen korrekt.
 
 > [!WARNING]
-> Det sista steget kan vara svårt att få rätt. [Finns den här artikeln](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables) ett exempel som delar upp Konfigurationsschemat diagnostik i variabler som är undantagna och formaterats korrekt.
+> Det sista steget kan vara svårt att få rätt. [Se den här artikeln](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables) ett exempel som delar upp konfigurationsschema diagnostik i variabler som är undantagna och formaterats korrekt.
 > 
 > 
 
-Hela processen, inklusive exempel, beskrivs [i det här dokumentet](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Hela processen, inklusive exempel beskrivs [i det här dokumentet](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Läs mer om Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)
-* [Strömma Azure diagnostikloggar i Händelsehubbar](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Läs mer om Azure-diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)
+* [Stream Azure diagnostikloggar till Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 

@@ -2,22 +2,22 @@
 title: ta med fil
 description: ta med fil
 services: virtual-machines
-author: zivraf
+author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
-ms.author: zivr
+ms.date: 07/02/2018
+ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 9666a8fde808981dd798ff712b96a7c620c9003a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 782c855ff6d28f2cd96a87893ebf74023472badc
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958902"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437985"
 ---
-## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Visa VMs schemalagt underhåll i portalen
+## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Visa virtuella datorer som har schemalagts för underhåll i portalen
 
-När ett planerat underhåll wave schemaläggs och meddelanden skickas, kan du se listan över virtuella datorer som påverkas av kommande Underhåll wave. 
+Du kan se listan över virtuella datorer som påverkas av den kommande underhållet när planerade underhållet har schemalagts. 
 
 Du kan använda Azure portal och leta efter virtuella datorer som är schemalagda för underhåll.
 
@@ -25,47 +25,49 @@ Du kan använda Azure portal och leta efter virtuella datorer som är schemalagd
 
 2. I det vänstra navigeringsfönstret klickar du på **virtuella datorer**.
 
-3. Klicka på i fönstret virtuella datorer i **kolumner** knappen för att öppna listan över tillgängliga kolumner.
+3. I virtuella datorer-fönstret klickar du på den **kolumner** knappen för att öppna listan över tillgängliga kolumner.
 
 4. Välj och Lägg till följande kolumner:
 
-   **Underhåll** -visar Underhåll status för den virtuella datorn. Följande är möjliga värden:
+   **Underhåll**: Visar status för underhåll för den virtuella datorn. Följande är möjliga värden:
       
       | Värde | Beskrivning |
       |-------|-------------|
-      | Börja nu | Den virtuella datorn befinner sig i självbetjäningsunderhållsperioden som gör att du kan starta underhållet själv. Se nedan om hur du startar Underhåll på den virtuella datorn | 
-      | Har schemalagts | Den virtuella datorn är schemalagd för underhåll utan något alternativ för dig att starta underhållet. Du kan lära dig för underhåll genom att välja fönstret automatiskt schemalagda i den här vyn eller genom att klicka på den virtuella datorn | 
-      | Slutförd | Du har initierat och slutföra Underhåll på den virtuella datorn. | 
-      | Hoppades över| Du har valt att starta underhållet utan framgång. Du kommer inte att använda alternativet självbetjäning underhåll. Den virtuella datorn måste startas av Azure under fasen schemalagt underhåll. | 
+      | Börja nu | Virtuellt datorn i självbetjäningsunderhållsperioden som gör att du kan starta underhållet själv. Se nedan om hur du startar Underhåll på den virtuella datorn. | 
+      | Har schemalagts | Den virtuella datorn är schemalagd för underhåll utan något alternativ för dig att starta underhållet. Du kan lära dig om underhållsperioden genom att välja Underhåll – schemalagd period i den här vyn eller genom att klicka på den virtuella datorn. | 
+      | Redan uppdaterat | Den virtuella datorn har uppdaterats redan och ingen ytterligare åtgärd krävs just nu. | 
+      | Försök igen senare | Du har initierat underhållet utan framgång. Du kommer att kunna använda alternativet självbetjäningsunderhållet vid ett senare tillfälle. | 
+      | Försök nu | Du kan göra om en tidigare misslyckad lokal kundinitierat underhåll. | 
 
-   **Underhåll proaktiva** -visar tidsfönstret vid automatisk start Underhåll på dina virtuella datorer.
+   **Underhåll – självbetjäning period**: Visar på vilket tidsfönster då du själv kan starta Underhåll på dina virtuella datorer.
    
-   **Underhåll schemalagda** -visar tidsfönstret när Azure startar om den virtuella datorn för att kunna utföra underhåll. 
-
+   **Underhåll – schemalagd period**: visar tidsfönstret när Azure ska behålla den virtuella datorn för att kunna utföra underhåll. 
 
 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Meddelanden och aviseringar i portalen
 
-Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till prenumerationen ägare och Medägare gruppen. Du kan lägga till ytterligare mottagare och kanaler denna kommunikation genom att skapa Azure aktivitet loggen aviseringar. Mer information finns i [övervakaren prenumeration aktivitet med Azure-aktivitetsloggen] (... / articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till gruppen prenumeration ägare och Medägare. Du kan lägga till ytterligare mottagare och kanaler denna kommunikation genom att skapa aviseringar för Azure-aktivitet. Mer information finns i [övervaka prenumerationsaktivitet med Azure-aktivitetsloggen] (.. / articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj på menyn till vänster **övervakaren**. 
-3. I den **Monitor - aktivitetsloggen** väljer **aviseringar**.
-4. I den **Monitor - aviseringar** rutan klickar du på **+ Lägg till aktivitet loggen avisering**.
-5. Fyll i den **Lägg till aktivitet loggen avisering** sidan och se till att ange följande **kriterier**: **typen**: Underhåll **Status**: Alla (inte anger status till aktiv eller löst) **nivå**: alla
+2. I menyn till vänster väljer **övervakaren**. 
+3. I den **övervaka – aviseringar (klassisk)** fönstret klickar du på **+ Lägg till aktivitetsloggavisering**.
+5. Fyll i den **Lägg till aktivitetsloggavisering** sidan och se till att ange följande **kriterier**:
+   - **Händelsekategori**: Tjänstehälsa
+   - **Tjänster**: Virtual Machine Scale Sets och virtuella datorer
+   - **Typ**: planerat underhåll 
     
-Mer information om hur du konfigurerar aktivitet loggen aviseringar finns [och skapa aktiviteten Logga varningar](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
+Mer information om hur du konfigurerar aviseringar för aktivitetsloggar finns [skapa aviseringar för aktivitetsloggen](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md).
     
     
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Starta Underhåll på den virtuella datorn från portalen
 
-Du kommer att kunna se mer underhållsrelaterade information när du tittar på VM-information.  
-Längst upp i Detaljvyn VM läggs en ny avisering menyfliksområdet om den virtuella datorn ingår i ett planerat underhåll wave. Dessutom läggs ett nytt alternativ för att starta Underhåll när det är möjligt. 
+Medan de tittar på de Virtuella datorinformationen, kommer du att kunna se mer underhållsrelaterade information.  
+Högst upp i den detaljerade vyn för virtuell dator läggs en ny avisering menyflik om den virtuella datorn ingår i en planerade underhållet senare. Dessutom läggs ett nytt alternativ för att starta Underhåll när det är möjligt. 
 
 
-Klicka på Underhåll meddelandet om du vill se underhållssidan med mer information på planerat underhåll. Därifrån kommer du att kunna **starta Underhåll** på den virtuella datorn.
+Klicka på Underhåll meddelandet om du vill se underhållssidan med mer information om planerat underhåll. Därifrån kan du kommer att kunna **starta Underhåll** på den virtuella datorn.
 
-När du startar underhåll, den virtuella datorn kommer att startas om och underhåll status kommer att uppdateras för att återspegla resultatet inom några minuter.
+När du startar underhåll, den virtuella datorn kommer att finnas kvar och status för underhåll kommer att uppdateras för att återspegla resultatet inom några minuter.
 
-Om du har missat fönstret där du kan starta Underhåll att du fortfarande kunna se fönstret när den virtuella datorn kommer att startas om av Azure. 
+Om du missade fönstret självbetjäning kan att du fortfarande kunna se fönstret när den virtuella datorn kommer att finnas kvar av Azure. 

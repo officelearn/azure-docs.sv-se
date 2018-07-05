@@ -1,17 +1,17 @@
 ---
-title: Hyper-V-replikering till sekundära platsen arkitekturen i Azure Site Recovery | Microsoft Docs
+title: Hyper-V-replikering till sekundär plats arkitektur i Azure Site Recovery | Microsoft Docs
 description: Den här artikeln innehåller en översikt över arkitekturen för replikering av lokala virtuella Hyper-V-datorer till en sekundär System Center VMM-plats med Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 39a397edd17327a91882535fbd00222a4ae4dddc
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 11c80a1e1fa0d5afbb70eddd5adcd272d12f1c74
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894304"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437866"
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Hyper-V-replikering till en sekundär plats
 
@@ -20,7 +20,7 @@ Den här artikeln beskriver de komponenter och processer som ingår i replikerin
 
 ## <a name="architectural-components"></a>Arkitekturkomponenter
 
-Följande tabell och bild ger en övergripande bild av de komponenter som används för Hyper-V-replikering till en sekundär plats.
+Följande tabell och bild ger en översikt över de komponenter som används för Hyper-V-replikering till en sekundär plats.
 
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
@@ -29,7 +29,7 @@ Följande tabell och bild ger en övergripande bild av de komponenter som använ
 **Hyper-V-server** |  En eller flera Hyper-V-värdservrar i de primära och sekundära VMM-molnen. | Data replikeras mellan de primära och sekundära Hyper-V-värdservrarna via LAN eller VPN med hjälp av Kerberos eller certifikatautentisering.  
 **Virtuella Hyper-V-datorer** | På Hyper-V-värdservern. | Källvärdservern måste ha minst en virtuell dator som du vill replikera.
 
-**Lokal till lokal arkitektur**
+**Lokalt till lokalt arkitektur**
 
 ![Lokal till lokal](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
 
@@ -37,20 +37,20 @@ Följande tabell och bild ger en övergripande bild av de komponenter som använ
 
 1. När den inledande replikeringen utlöses en [Hyper-V VM-ögonblicksbild](https://technet.microsoft.com/library/dd560637.aspx) ögonblicksbilden tas.
 2. Virtuella hårddiskar på den virtuella datorn är replikeras en i taget, till den sekundära platsen.
-3. Om det inträffar under den inledande replikeringen pågår 
-4. När den inledande replikeringen är klar börjar deltareplikering. Hyper-V-replikering replikering spåraren spårar ändringar som Hyper-V-replikeringsloggar (.hrl). Dessa loggfiler finns i samma mapp som diskarna. Varje disk har en associerad hrl-fil som skickas till den sekundära platsen. Ögonblicksbilden och loggfilerna använder diskresurser när den inledande replikeringen pågår.
+3. Om diskändringar inträffar under den inledande replikeringen pågår, spårar ändringarna i den spårningsverktyget för Hyper-V-replikering som Hyper-V-replikeringsloggar (.hrl). Dessa loggfiler finns i samma mapp som diskarna. Varje disk har en associerad hrl-fil som skickas till den sekundära platsen. Ögonblicksbilden och loggfilerna använder diskresurser när den inledande replikeringen pågår.
+4. När den inledande replikeringen är klar tas VM-ögonblicksbilden bort och deltareplikering börjar.
 5. Diskförändringarna (delta) i loggen synkroniseras och sammanfogas till den överordnade disken.
 
 
 ## <a name="failover-and-failback-process"></a>Processen för redundans och återställning efter fel
 
-- Du kan växla över en enskild dator eller skapa återställningsplaner för att samordna växling vid fel på flera datorer.
-- Du kan köra en planerad eller oplanerad växling mellan lokala platser. Om du kör en planerad redundansväxling stängs de virtuella källdatorerna av för att säkerställa att inga data går förlorade.
-    - Om du gör en oplanerad redundansväxling till en sekundär plats när failover-datorer i den sekundära platsen inte är skyddade.
+- Du kan redundansväxla en enskild dator eller skapa återställningsplaner för att samordna redundans för flera datorer.
+- Du kan köra en planerad eller oplanerad redundans mellan lokala platser. Om du kör en planerad redundansväxling stängs de virtuella källdatorerna av för att säkerställa att inga data går förlorade.
+    - Om du utför en oplanerad redundansväxling till en sekundär plats efter att redundansdatorerna på den sekundära platsen inte är skyddade.
     - Om du utför en planerad redundans skyddas datorerna på den sekundära platsen efter redundansen.
-- Efter den inledande redundansen körs genomföra den för att starta åt arbetsbelastningen från replikerade virtuella datorn.
-- När den primära platsen är tillgänglig igen, kan du växla tillbaka.
-    - Du kan starta omvänd replikering för att starta replikering från den sekundära platsen till den primära servern. Omvänd replikering skyddar de virtuella datorerna, men det sekundära datacentret är fortfarande den aktiva platsen.
+- När den inledande redundansen körs etablerar du den för att få åtkomst till arbetsbelastningen från den Virtuella replikdatorn.
+- När den primära platsen är tillgänglig igen, kan du återställa dit.
+    - Du initiera omvänd replikering för att börja replikera från den sekundära platsen till primärt. Omvänd replikering skyddar de virtuella datorerna, men det sekundära datacentret är fortfarande den aktiva platsen.
     - För att göra den primära platsen till den aktiva platsen igen, initierar du en planerad redundans från sekundär till primär, följt av en till omvänd replikering.
 
 
@@ -58,4 +58,4 @@ Följande tabell och bild ger en övergripande bild av de komponenter som använ
 ## <a name="next-steps"></a>Nästa steg
 
 
-Följ [självstudierna](hyper-v-vmm-disaster-recovery.md) att aktivera Hyper-V-replikering mellan VMM-moln.
+Följ [den här självstudien](hyper-v-vmm-disaster-recovery.md) att aktivera Hyper-V-replikering mellan VMM-moln.

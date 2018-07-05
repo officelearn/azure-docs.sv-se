@@ -4,49 +4,49 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 931a45fdbb04d15f3080ee0a2c0546ab6e924b59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 76cadc453a696b8d19788525bfb69cf9cacd353d
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595724"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448245"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering med tjänstens huvudnamn
 
-Tjänstens huvudnamn är en resurs för Azure Active Directory-program du skapar i din klient att utföra obevakade resurs och nivå tjänståtgärder. De är en unik typ av *användaridentitet* med en program-ID och lösenord eller certifikat. Ett huvudnamn för tjänsten har endast de behörigheterna som krävs för att utföra åtgärder som de roller och behörigheter som den är tilldelad. 
+Tjänstens huvudnamn är en programresurs för Azure Active Directory som du skapar i din klient för att utföra obevakade åtgärder på resurs- och tjänstnivå. De är en unik form av *användaridentitet* med en program-ID och lösenord eller certifikat. Ett huvudnamn för tjänsten har endast de behörigheterna som krävs för att utföra uppgifter som definieras av roller och behörigheter som den är tilldelad. 
 
-I Analysis Services används tjänstens huvudnamn med Azure Automation, PowerShell obevakat läge, anpassade program och webbprogram för att automatisera vanliga uppgifter. Till exempel etablering servrar, distribuera modeller, datauppdatering, skala upp/ned och pausa/alla automatiseras med hjälp av tjänstens huvudnamn. Behörigheter som har tilldelats till tjänstens huvudnamn via rollmedlemskap ungefär som regelbundet UPN för Azure AD-konton.
+I Analysis Services används tjänstens huvudnamn med Azure Automation, PowerShell obevakat läge, anpassade klientprogram och web apps för att automatisera vanliga uppgifter. Till exempel etablering servrar, distribuerar modeller, datauppdatering, skala upp/ned och pausa/återuppta kan alla automatiseras med hjälp av tjänstens huvudnamn. Behörigheter har tilldelats till tjänstens huvudnamn via rollmedlemskap, ungefär som vanliga Azure AD UPN-konton.
 
 ## <a name="create-service-principals"></a>Skapa tjänsthuvudnamn
  
-Tjänstens huvudnamn kan skapas i Azure-portalen eller med hjälp av PowerShell. Du kan läsa mer här:
+Tjänstens huvudnamn kan skapas i Azure portal eller med hjälp av PowerShell. Du kan läsa mer här:
 
-[Skapa tjänstens huvudnamn - Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
+[Skapa tjänstens huvudnamn – Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
 [Skapa tjänstens huvudnamn – PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
-## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Lagring av autentiseringsuppgifter och certifikatet tillgångar i Azure Automation
+## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Store autentiseringsuppgifter och certifikat tillgångar i Azure Automation
 
-Tjänstens huvudnamn autentiseringsuppgifter och certifikat kan lagras på ett säkert sätt i Azure Automation för runbook-åtgärder. Du kan läsa mer här:
+Autentiseringsuppgifter för tjänstens huvudnamn och certifikat kan lagras på ett säkert sätt i Azure Automation för runbook-åtgärder. Du kan läsa mer här:
 
 [Inloggningstillgångar i Azure Automation](../automation/automation-credentials.md)   
 [Certifikattillgångar i Azure Automation](../automation/automation-certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Lägga till tjänstens huvudnamn i admin-serverrollen
 
-Innan du kan använda ett huvudnamn för tjänsten för hanteringsåtgärder för Analysis Services-server, måste du lägga till den administratörsrollen. Läs mer i [lägga till ett huvudnamn för tjänsten i serveradministratörsrollen](analysis-services-addservprinc-admins.md).
+Innan du kan använda ett huvudnamn för tjänsten för hanteringsåtgärder för Analysis Services-server, måste du lägga till det administratörsrollen. Mer information finns i [lägga till tjänstens huvudnamn till administratörsrollen för servern](analysis-services-addservprinc-admins.md).
 
 ## <a name="service-principals-in-connection-strings"></a>Tjänstens huvudnamn i anslutningssträngar
 
-Tjänstens huvudnamn appID och lösenordet eller certifikatet kan användas i anslutningen strängar ungefär samma sätt som ett UPN.
+Tjänstens huvudnamn appID och lösenord eller certifikat kan användas i anslutningen strängar ungefär samma sätt som ett UPN.
 
 ### <a name="powershell"></a>PowerShell
 
 När du använder ett huvudnamn för tjänsten för resursen hanteringsåtgärder med den [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) modul, Använd `Login-AzureRmAccount` cmdlet. När du använder ett huvudnamn för tjänsten för åtgärder med den [SQLServer](https://www.powershellgallery.com/packages/SqlServer) modul, Använd `Add-AzureAnalysisServicesAccount` cmdlet. 
 
-I följande exempel används appID och ett lösenord för att utföra en modell databasen uppdatering:
+I följande exempel används appID och ett lösenord för att utföra en uppdatering för modellen databasåtgärd:
 
 ```PowerShell
 Param (
@@ -66,9 +66,9 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO och ADOMD 
 
-När du ansluter med klientprogram och web apps [AMO och ADOMD klientbibliotek](analysis-services-data-providers.md) version 15.0.2 och högre installerbara paket från NuGet stöder tjänstens huvudnamn i anslutningssträngar med följande syntax: `app:AppID` och lösenord eller `cert:thumbprint`. 
+När du ansluter med klientprogram och web apps [AMO och ADOMD-klientbiblioteken](analysis-services-data-providers.md) version 15.0.2 och högre installerbart paket från NuGet stöd för tjänstens huvudnamn i anslutningssträngar med följande syntax: `app:AppID` och lösenord eller `cert:thumbprint`. 
 
-I följande exempel `appID` och en `password` används för att utföra en uppdatering databasåtgärd modellen:
+I följande exempel `appID` och en `password` används för att utföra en uppdatering för modellen databasåtgärd:
 
 ```C#
 string appId = "xxx";
@@ -84,4 +84,4 @@ db.Model.SaveChanges();
 
 ## <a name="next-steps"></a>Nästa steg
 [Logga in med Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
-[Lägg till ett huvudnamn för tjänsten server-administratör](analysis-services-addservprinc-admins.md)   
+[Lägga till tjänstens huvudnamn till administratörsrollen för servern](analysis-services-addservprinc-admins.md)   

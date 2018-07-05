@@ -1,29 +1,29 @@
 ---
-title: Lägga till inloggning till en Node.js-webbapp i Azure Active Directory B2C | Microsoft Docs
+title: Lägg till inloggning till en Node.js-webbapp i Azure Active Directory B2C | Microsoft Docs
 description: Hur du skapar en Node.js-webbapp som loggar in användare med Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/10/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b9c589f8bf8189961f88a6ae1d66f1fd9e17e9bc
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ee8dab24d53c7f3563d741ff74e49b0b87cda6da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711118"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442516"
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: Lägga till inloggning till en Node.js-webbapp
 
 **Passport** är ett mellanprogram för autentisering för Node.js. Modulbaserade Passport är flexibelt och kan diskret installeras i alla Express-baserade webbappar eller Restify-webbappar. En omfattande uppsättning strategier stöder autentisering med användarnamn och lösenord, Facebook, Twitter och mycket mer.
 
-För Azure Active Directory (Azure AD), kan installera den här modulen och lägger sedan till Azure AD `passport-azure-ad` plugin-programmet.
+För Azure Active Directory (AD Azure), kan installera den här modulen och lägger sedan till Azure AD `passport-azure-ad` plugin-programmet.
 
-Du behöver:
+Du måste:
 
 1. Registrera ett program med hjälp av Azure AD.
 2. Konfigurera din app att använda plugin-programmet `passport-azure-ad`.

@@ -1,68 +1,68 @@
 ---
-title: Med hjälp av ålder gating i Azure Active Directory B2C | Microsoft Docs
-description: Läs mer om hur du identifierar minderåriga använder ditt program.
+title: Använda åldershantering i Azure Active Directory B2C | Microsoft Docs
+description: Läs mer om hur du identifierar minderåriga använder programmet.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bbf885fbcca22e42b2ec0ad7ff4e7a70aa5f5828
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9d24e37642a41e4d60b33f42a60d7e56cb4b35b5
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711978"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446732"
 ---
-#<a name="using-age-gating-in-azure-ad-b2c"></a>Med hjälp av ålder gating i Azure AD B2C
+#<a name="using-age-gating-in-azure-ad-b2c"></a>Använda åldershantering i Azure AD B2C
 
 >[!IMPORTANT]
->Den här funktionen är i privat förhandsvisning.  Se vår [service blogg](https://blogs.msdn.microsoft.com/azureadb2c/) information som detta blir tillgänglig, eller kontakta AADB2CFeedback@microsoft.com.  Använd detta inte på produktion kataloger, med hjälp av dessa funktioner kan leda till förlust av data och kan ha oväntat ändringarna i beteendet förrän vi gå in allmän tillgänglighet.  
+>Den här funktionen är i privat förhandsversion.  Se våra [serviceblogg](https://blogs.msdn.microsoft.com/azureadb2c/) information eftersom det blir tillgängligt, eller kontakta AADB2CFeedback@microsoft.com.  Använd detta inte på produktion kataloger, använder de här nya funktionerna kan leda till förlust av data och kan ha oväntade ändringar i beteende tills vi gå in allmänt tillgängliga.  
 >
 
-##<a name="age-gating"></a>Ålder gating
-Ålder gating kan du använda Azure AD B2C för att identifiera minderåriga i ditt program.  Du kan välja att blockera användaren från att logga in på programmet eller att de kan gå tillbaka till programmet med ytterligare anspråk som identifierar användargrupp ålder och deras medgivandenivå status.  
+##<a name="age-gating"></a>Åldershantering
+Åldershantering kan du använda Azure AD B2C för att identifiera minderåriga i ditt program.  Du kan välja att blockera användaren från att logga in i programmet eller att de kan gå tillbaka till programmet med ytterligare anspråk som identifierar användarens åldersgrupp och deras medgivandenivå status.  
 
 >[!NOTE]
->Medgivandenivå spåras i ett användarattribut kallas `consentProvidedForMinor`.  Du kan uppdatera den här egenskapen via Graph-API och använder det här fältet när du uppdaterar `legalAgeGroupClassification`.
+>Medgivandenivå spåras i ett användarattribut som kallas `consentProvidedForMinor`.  Du kan uppdatera den här egenskapen via Graph API och den använder det här fältet när du uppdaterar `legalAgeGroupClassification`.
 >
 
-##<a name="setting-up-your-directory-for-age-gating"></a>Konfigurera din katalog för ålder gating
-För att kunna använda ålder gating i flödet för en användare, måste du konfigurera din katalog om du vill ha ytterligare egenskaper. Den här åtgärden kan göras via `Properties` i menyn (som är tillgängligt endast om du är en del av privat förhandsvisning).  
-1. I Azure AD B2C-tillägg, klickar du på den **egenskaper** för din klient på menyn till vänster.
-2. Under den **ålder gating** klickar du på den **konfigurera** knappen.
-3. Vänta tills åtgärden har slutförts och din katalog ska ställas in för ålder gating.
+##<a name="setting-up-your-directory-for-age-gating"></a>Hur du konfigurerar din katalog för åldershantering
+För att kunna använda åldershantering i ett användarflöde, måste du konfigurera din katalog om du vill ha ytterligare egenskaper. Den här åtgärden kan göras via `Properties` på menyn (som är tillgängligt endast om du är en del av den privata förhandsgranskningen).  
+1. I Azure AD B2C-tillägg, klickar du på den **egenskaper** för din klient i menyn till vänster.
+2. Under den **åldershantering** klickar du på den **konfigurera** knappen.
+3. Vänta tills åtgärden har slutförts och din katalog kommer att ställas in för åldershantering.
 
-##<a name="enabling-age-gating-in-your-user-flow"></a>Aktivera ålder gating i flödet för användaren
-När din katalog är konfigurerat att använda ålder gating kan använda du sedan den här funktionen i preview-version användaren flöden.  Den här funktionen kräver ändringar som gör att det är inte kompatibel med befintliga typerna av användaren.  Du aktiverar ålder gating med följande steg:
-1. Skapa en förhandsgranskning användaren flödet.
-2. När den har skapats, gå till **egenskaper** på menyn.
-3. I den **ålder gating** avsnittet genom att trycka på växlingsknappen för att aktivera funktionen.
+##<a name="enabling-age-gating-in-your-user-flow"></a>Aktivera åldershantering i ditt användarflöde
+När din katalog har konfigurerats att använda åldershantering, kan du sedan använda den här funktionen i preview-version användarflöden.  Den här funktionen kräver ändringar som gör att den är inte kompatibel med befintliga typer av användarflöden.  Du aktiverar åldershantering med följande steg:
+1. Skapa ett flöde för användare av förhandsversionen.
+2. När den har skapats går du till **egenskaper** på menyn.
+3. I den **åldershantering** avsnittet genom att trycka på växlingsknappen för att aktivera funktionen.
 4. Du kan sedan välja hur du vill hantera användare som identifierar som minderåriga.
 
-##<a name="what-does-enabling-age-gating-do"></a>Vad är aktivering ålder gating?
-När ålder gating är aktiverad i flödet för användaren, användarupplevelse ändringar.  På Logga in att användare nu ombeds deras födelsedatum och land där tillsammans med användarattribut som konfigurerats för användaren flödet.  Användare som inte har angetts tidigare födelsedatum och land där uppmanas du för den här informationen nästa gång de loggar in på Logga in.  Azure AD B2C kommer från dessa två värden, identifiera om användaren är en mindre och uppdatera den `ageGroup` fältet värdet kan vara `null`, `Undefined`, `Minor`, `Adult`, och `NotAdult`.  Den `ageGroup` och `consentProvidedForMinor` fält används sedan för att beräkna `legalAgeGroupClassification`. 
+##<a name="what-does-enabling-age-gating-do"></a>Vad gör att aktivera åldershantering?
+När åldershantering är aktiverad i ditt användarflöde, användarupplevelse ändringar.  På Logga in ombeds användare nu för sina födelsedatum och land där tillsammans med användarattribut som konfigurerats för användarflödet.  På Logga in ombeds användare som tidigare inte har angett en födelsedatum och land där för den här informationen nästa gång de loggar in.  Azure AD B2C kommer från dessa två värden, identifiera om användaren är en mindre och uppdatera den `ageGroup` fältet värdet kan vara `null`, `Undefined`, `Minor`, `Adult`, och `NotAdult`.  Den `ageGroup` och `consentProvidedForMinor` fält används sedan för att beräkna `legalAgeGroupClassification`. 
 
-##<a name="age-gating-options"></a>Ålder gating alternativ
-Du kan välja att har Azure AD B2C block minderåriga utan ditt medgivande som förälder eller låta dem och fatta beslut om vad du gör med dem. programmet.  
+##<a name="age-gating-options"></a>Hantera alternativ ålder
+Du kan välja att ha Azure AD B2C block minderåriga utan föräldrars tillstånd eller låta dem och få programmet att fatta beslut om vad du gör med dem.  
 
-###<a name="allowing-minors-without-parental-consent"></a>Att tillåta minderåriga utan ditt medgivande som förälder
-Du kan välja att tillåta minderåriga utan ditt medgivande till programmet för användarens flöden som tillåter antingen logga in, logga in eller båda.  De är tillåtna för minderåriga utan ditt medgivande som förälder att logga in eller registrera dig som normalt och Azure AD B2C utfärdar en ID-token med den `legalAgeGroupClassification` anspråk.  Genom att använda detta anspråk som du kan välja dem som dessa användare har exempelvis gå via en upplevelse av att samla in föräldrars tillstånd (och uppdatera den `consentProvidedForMinor` fält).
+###<a name="allowing-minors-without-parental-consent"></a>Så att minderåriga utan föräldrars tillstånd
+Du kan välja att tillåta minderåriga utan medgivande i ditt program för användarflöden som tillåter antingen logga in, logga in eller båda.  För minderåriga utan föräldrars tillstånd, som de har tillåtelse att logga in eller registrera dig som normalt och Azure AD B2C utfärdar en ID-token med den `legalAgeGroupClassification` anspråk.  Med hjälp av det här anspråket som du kan välja som dessa användare har, som går igenom en lösning för att samla in föräldrars tillstånd (och uppdatera den `consentProvidedForMinor` fältet).
 
-###<a name="blocking-minors-without-parental-consent"></a>Blockerar minderåriga utan ditt medgivande som förälder
-För användarens flöden som tillåter antingen logga in, logga in eller båda, kan du blockera minderåriga utan tillstånd från programmet.  Det finns två alternativ för hantering av blockerade användare i Azure AD B2C:
-* Skicka en JSON till programmet – det här alternativet skickar tillbaka ett svar till programmet att ett mindre har blockerats.
-* Visa en felsida - användaren visas en sida som informerar dem om att de inte komma åt programmet
+###<a name="blocking-minors-without-parental-consent"></a>Blockera minderåriga utan föräldrars tillstånd
+Du kan välja att blockera minderåriga utan medgivande från program för användarflöden som tillåter antingen logga in, logga in eller båda.  Det finns två alternativ för hantering av blockerade användare i Azure AD B2C:
+* Skicka en JSON tillbaka till programmet – det här alternativet för att skicka ett svar tillbaka till programmet att minderårig har blockerats.
+* Visa en felsida - användaren kommer att visas en sida som informerar dem om att de inte åtkomst till programmet
 
 ##<a name="known-issues"></a>Kända problem
-###<a name="format-for-the-response-when-a-minor-is-blocked"></a>Format för response när en mindre blockeras.
-Svaret för närvarande har inte rätt format, det här felet kommer att åtgärdas i en kommande uppdatering.
+###<a name="format-for-the-response-when-a-minor-is-blocked"></a>Format för svaret när minderårig blockeras.
+Svaret för närvarande har inte rätt format, den här buggen kommer att åtgärdas i en kommande uppdatering.
 
-###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>Ta bort specifika attribut som har lagts till under installationen kan du göra din katalog som inte kan använda ålder gating.
-I installationsprogrammet för ålder gating du konfigurerade din katalog via ett alternativ i din `Properties`.  Om du tar bort antingen `legalCountry` eller `dateOfBirth` via diagram, din katalog kan inte längre använda ålder gating och dessa egenskaper kan inte återskapas.
+###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>Tar bort specifika attribut som har lagts till under installationen kan göra din katalog som inte kan använda åldershantering.
+I installationsprogrammet för åldershantering, du har konfigurerat din katalog via ett alternativ i din `Properties`.  Om du tar bort antingen `legalCountry` eller `dateOfBirth` via Graph, din katalog kan inte längre använda åldershantering och de här egenskaperna kan inte skapas på nytt.
 
 ###<a name="list-of-countries-is-incomplete"></a>Lista över länder är ofullständig
-För närvarande lista över länder för legalCountry är ofullständig, vi lägger till resten av länderna i en kommande uppdatering.
+För närvarande lista över länder för attributen legalCountry är ofullständig, ska vi lägga till resten av de länder/regioner i en kommande uppdatering.

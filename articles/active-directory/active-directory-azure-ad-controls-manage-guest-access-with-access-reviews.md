@@ -1,6 +1,6 @@
 ---
-title: Hantera gästbehörighet med Azure AD åtkomst till granskningar | Microsoft Docs
-description: Hantera gästanvändare som medlemmar i en grupp eller ett program med Azure Active Directory access granskningar som tilldelats
+title: Hantera gäståtkomst med Azure AD åtkomstgranskningar | Microsoft Docs
+description: Hantera gästanvändare som medlemmar i en grupp eller tilldelats till ett program med Azure Active Directory-åtkomstgranskningar
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,27 +10,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: d593a59c9e190eda73497aef09d4259d0947eb24
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 71569da662c5d5e5ef5ad6c7d9783a69e307f2fa
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085114"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441190"
 ---
-# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Hantera gästbehörighet med Azure AD åtkomst till granskningar
+# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Hantera gäståtkomst med Azure AD åtkomstgranskningar
 
 
-Med Azure Active Directory (Azure AD), kan du enkelt aktivera samarbete över organisationens gränser med hjälp av den [Azure AD B2B-funktionen](active-directory-b2b-what-is-azure-ad-b2b.md). Gästanvändare från andra klienter kan vara [inbjuden administratörer](active-directory-b2b-admin-add-users.md) eller [andra användare](active-directory-b2b-how-it-works.md). Den här funktionen gäller även för sociala identiteter, till exempel Microsoft-konton.
+Med Azure Active Directory (AD Azure), kan du enkelt aktivera samarbete över organisationens gränser med hjälp av den [Azure AD B2B-funktionen](active-directory-b2b-what-is-azure-ad-b2b.md). Gästanvändare från andra klienter kan vara [bjuds in av administratörer](active-directory-b2b-admin-add-users.md) eller [andra användare](active-directory-b2b-how-it-works.md). Den här funktionen gäller även för sociala identiteter, till exempel Microsoft-konton.
 
-Du också kan enkelt se till att gästanvändare har lämplig åtkomst. Du kan be gästerna sig själva eller en beslutsfattare att delta i ett åtkomst granska och Godkänn (eller intygar) till den gäster åtkomst. Granskarna kan ge sin syn på varje användares behov för kontinuerlig åtkomst, baserat på förslag från Azure AD. När en åtkomst-granskning är klar kan du gör ändringar och ta bort åtkomst för gäster som inte längre behövs.
+Du också kan enkelt se till att gästanvändare har lämplig åtkomst. Du kan be gästerna själva, eller en beslutsfattare, att delta i en åtkomstgranskning och certifiera om (eller intygar genomförs) till den gästers åtkomst. Granskarna kan ge sin syn på varje användares behov för kontinuerlig åtkomst, baserat på förslag från Azure AD. När en åtkomstgranskning är klar kan du göra ändringar och ta bort åtkomst för gäster som inte längre behöver den.
 
 > [!NOTE]
-> Det här dokumentet fokuserar på att granska gästanvändare åtkomst. Om du vill granska alla användare åtkomst, inte bara gäster finns [hantera användarnas åtkomst med åtkomst granskningar](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md). Om du vill granska användarnas medlemskap i administrativa roller som global administratör, se [startar en åtkomst-granskning i Azure AD Privileged Identity Management](active-directory-privileged-identity-management-how-to-start-security-review.md). 
+> Det här dokumentet fokuserar på Granska gästanvändares åtkomst. Om du vill visa alla användares åtkomst, inte bara gäster, se [hantera användarnas åtkomst med åtkomstgranskningar](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md). Om du vill granska användarens medlemskap i administrativa roller som global administratör, se [starta en åtkomstgranskning i Azure AD Privileged Identity Management](active-directory-privileged-identity-management-how-to-start-security-review.md). 
 >
 >
 
@@ -39,85 +39,85 @@ Du också kan enkelt se till att gästanvändare har lämplig åtkomst. Du kan b
 
 Åtkomstgranskningar är tillgängliga med Premium P2-versionen av Azure AD, som ingår i Microsoft Enterprise Mobility + Security, E5. Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md). Varje användare som använder den här funktionen, inklusive för att skapa en granskning, fylla i en granskning eller bekräfta sin åtkomst, behöver en licens. 
 
-Om du planerar att be gästen användaren att granska sina egna åtkomst kan du läsa om gäst licenser. Mer information finns i [licensiering av Azure AD B2B-samarbete](active-directory-b2b-licensing.md).
+Om du planerar att ställa gästanvändare rätt att granska sin egen åtkomst, Läs mer om användarlicensiering i gästen. Mer information finns i [licensiering av Azure AD B2B-samarbete](active-directory-b2b-licensing.md).
 
-## <a name="create-and-perform-an-access-review-for-guests"></a>Skapa och utföra en åtkomst-granskning för gäster
+## <a name="create-and-perform-an-access-review-for-guests"></a>Skapa och utföra en åtkomstgranskning för gäster
 
-Först aktivera åtkomst granskningar ska visas på en granskare åtkomst paneler. Som en global administratör eller Användaradministratör konto går du till den [åtkomst går igenom sidan](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
+Först aktivera att åtkomstgranskningar ska visas på en granskares åtkomstpaneler. Som global administratör eller användarkonto-administratör går du till [sidan med åtkomstgranskningar](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
 
 Azure AD kan flera scenarier för att granska gästanvändare.
 
 Välj något av följande:
 
  - En grupp i Azure AD som har en eller flera gäster som medlemmar.
- - Ett program som är anslutna till Azure AD som har en eller flera gästanvändare som tilldelats. 
+ - Ett program som är anslutna till Azure AD som har en eller flera gästanvändare tilldelade till den. 
 
-Sedan kan du bestämma om du vill be varje gäst att granska sina egna åtkomst eller be en eller flera användare att granska varje gästbehörighet.
+Sedan kan du bestämma om du vill be varje gästen att granska sin egen åtkomst eller ställa en eller flera användare att granska varje gäståtkomst.
 
  Dessa scenarier beskrivs i följande avsnitt.
 
-### <a name="ask-guests-to-review-their-own-membership-in-a-group"></a>Be gäster att granska sina egna medlemskap i en grupp
+### <a name="ask-guests-to-review-their-own-membership-in-a-group"></a>Be gäster för att granska sin egen medlemskap i en grupp
 
-Du kan använda åtkomst granskningar så att användare som har bjudits in och lagts till i en grupp fortsätta behöver åtkomst. Du kan enkelt be gäster att granska sina egna medlemskap i gruppen.
+Du kan använda åtkomstgranskningar för att garantera att användare som har bjudits in och lagts till en grupp fortfarande behöver åtkomst. Du kan enkelt ställa gäster för att granska sin egen medlemskap i gruppen.
 
-1. Om du vill starta en åtkomst-granskning för gruppen, Välj granska gästen användaren medlemmar och medlemmar Läs sig själva. Mer information finns i [Skapa en åtkomstgranskning](active-directory-azure-ad-controls-create-access-review.md).
+1. För att starta en åtkomstgranskning för gruppen, markerar du granska Inkludera endast gästanvändarna och att medlemmar granskar själva. Mer information finns i [Skapa en åtkomstgranskning](active-directory-azure-ad-controls-create-access-review.md).
 
-2. Be varje gästen för att granska sina egna medlemskap. Som standard varje Gäst som har accepterat inbjudan tar emot ett e-postmeddelande från Azure AD med en länk till granskningen åtkomst. Azure AD innehåller anvisningar för gäster som beskriver hur du [granska deras åtkomst](active-directory-azure-ad-controls-perform-access-review.md).
+2. Be varje gästen för att granska sin egen medlemskap. Som standard varje gästoperativsystem som godkänt en inbjudan tar emot ett e-postmeddelande från Azure AD med en länk till åtkomstgranskningen. Azure AD innehåller anvisningar för gäster som beskriver hur du [granska åtkomsten](active-directory-azure-ad-controls-perform-access-review.md).
 
 3. När granskarna har framfört sina åsikter avslutar du åtkomstgranskningen och tillämpar ändringarna. Mer information finns i [Slutför en åtkomstgranskning](active-directory-azure-ad-controls-complete-access-review.md).
 
-4. Förutom användare som nekas sina egna behov av fortsatt åtkomst kan du ta bort användare som inte svarar. Icke-svarar användarna får eventuellt inte längre e-post.
+4. Förutom att användare som nekas sina egna behov för kontinuerlig åtkomst kan du ta bort användare som inte svarade. Icke-svarar användarna får eventuellt inte längre e-post.
 
-5. Om gruppen inte används för åtkomsthantering av bort du också användare som inte har valt att delta i granskningen eftersom de inte acceptera inbjudan. Accepterar inte kan indikera att inbjudna användarens e-postadress hade ett skrivfel. Om en grupp används som en distributionslista, inte var kanske vissa gästanvändare markerat delta eftersom de kontaktobjekt.
+5. Gruppen inte används för åtkomsthantering, du också ta bort användare som inte var markerat att delta i granskningen eftersom de inte accepterat sin inbjudan. Accepterar inte tyda på att den inbjudna användarens e-postadress hade ett skrivfel. Om en grupp används som en distributionslista, kanske vissa gästanvändare inte har valt att delta eftersom de kontaktobjekt.
 
 ### <a name="ask-a-sponsor-to-review-a-guests-membership-in-a-group"></a>Be en sponsor att granska en gäst medlemskap i en grupp
 
-Du kan begära en sponsor som ägare till en grupp att granska behovet av en gäst för fortsatt medlemskap i en grupp.
+Du kan be en sponsorn, till exempel en grupp, ägare att granska en gäst behovet av fortsatt medlemskap i en grupp.
 
-1. Om du vill starta en åtkomst-granskning för gruppen, Välj granska gästen användaren medlemmar ska inkluderas. Ange en eller flera granskare. Mer information finns i [Skapa en åtkomstgranskning](active-directory-azure-ad-controls-create-access-review.md).
-
-2. Be granskarna att komma med reflektioner. Som standard får alla ett e-postmeddelande från Azure AD med en länk till åtkomstpanelen där de ska [genomföra sin åtkomstgranskning](active-directory-azure-ad-controls-perform-access-review.md).
-
-3. När granskarna har framfört sina åsikter avslutar du åtkomstgranskningen och tillämpar ändringarna. Mer information finns i [Slutför en åtkomstgranskning](active-directory-azure-ad-controls-complete-access-review.md).
-
-### <a name="ask-guests-to-review-their-own-access-to-an-application"></a>Be gäster att granska sina egna åtkomst till ett program
-
-Du kan använda åtkomst granskningar så att användare som bjudits in för ett visst program fortsätta behöver åtkomst. Du kan enkelt fråga gäster sig att granska sina egna behöver för åtkomst.
-
-1. Välj granska att inkludera endast gäster och att användarna granska sina egna åtkomst för att starta en åtkomst-granskning för programmet. Mer information finns i [Skapa en åtkomstgranskning](active-directory-azure-ad-controls-create-access-review.md).
-
-2. Be varje gästen för att granska sina egna åtkomst till programmet. Som standard varje Gäst som har accepterat inbjudan tar emot ett e-postmeddelande från Azure AD med en länk till access granskningen i åtkomstpanelen för din organisation. Azure AD innehåller anvisningar för gäster som beskriver hur du [granska deras åtkomst](active-directory-azure-ad-controls-perform-access-review.md).
-
-3. När granskarna har framfört sina åsikter avslutar du åtkomstgranskningen och tillämpar ändringarna. Mer information finns i [Slutför en åtkomstgranskning](active-directory-azure-ad-controls-complete-access-review.md).
-
-4. Utöver användare som nekas sina egna behöver för fortsatt åtkomst, du kan också ta bort gästanvändare som inte svarar. Icke-svarar användarna får eventuellt inte längre e-post. Du kan också ta bort gästanvändare som inte var markerat delta, särskilt om de nyligen har bjudits in. Dessa användare accepterade sina inbjudan och kan därför inte tillgång till programmet. 
-
-### <a name="ask-a-sponsor-to-review-a-guests-access-to-an-application"></a>Be en sponsor att granska gästbehörighet till ett program
-
-Du kan begära en sponsor som ägare till ett program för att granska gästens behovet av fortsatt åtkomst till programmet.
-
-1. Välj granska att inkludera gäster endast om du vill starta en åtkomst-granskning för programmet. Ange en eller flera användare som granskare. Mer information finns i [Skapa en åtkomstgranskning](active-directory-azure-ad-controls-create-access-review.md).
+1. För att starta en åtkomstgranskning för gruppen, markerar du granska att inkludera endast gästanvändarna. Ange en eller flera granskare. Mer information finns i [Skapa en åtkomstgranskning](active-directory-azure-ad-controls-create-access-review.md).
 
 2. Be granskarna att komma med reflektioner. Som standard får alla ett e-postmeddelande från Azure AD med en länk till åtkomstpanelen där de ska [genomföra sin åtkomstgranskning](active-directory-azure-ad-controls-perform-access-review.md).
 
 3. När granskarna har framfört sina åsikter avslutar du åtkomstgranskningen och tillämpar ändringarna. Mer information finns i [Slutför en åtkomstgranskning](active-directory-azure-ad-controls-complete-access-review.md).
 
-### <a name="ask-guests-to-review-their-need-for-access-in-general"></a>Be gäster att granska deras behov av åtkomst i allmänhet
+### <a name="ask-guests-to-review-their-own-access-to-an-application"></a>Be gäster för att granska sin egen åtkomst till ett program
 
-I vissa organisationer kan gäster inte medveten om deras gruppmedlemskap.
+Du kan använda åtkomstgranskningar för att garantera att användare som har bjudits in för ett visst program fortfarande behöver åtkomst. Du kan enkelt ställa sig själva gäster att granska sin egen behöver åtkomst till.
+
+1. För att starta en åtkomstgranskning för programmet, markerar du granska Inkludera endast gäster och att användare ska granska sin egen åtkomst. Mer information finns i [Skapa en åtkomstgranskning](active-directory-azure-ad-controls-create-access-review.md).
+
+2. Be varje gästen för att granska sin egen åtkomst till programmet. Som standard varje gästoperativsystem som godkänt en inbjudan tar emot ett e-postmeddelande från Azure AD med en länk till åtkomstgranskning i åtkomstpanelen för din organisation. Azure AD innehåller anvisningar för gäster som beskriver hur du [granska åtkomsten](active-directory-azure-ad-controls-perform-access-review.md).
+
+3. När granskarna har framfört sina åsikter avslutar du åtkomstgranskningen och tillämpar ändringarna. Mer information finns i [Slutför en åtkomstgranskning](active-directory-azure-ad-controls-complete-access-review.md).
+
+4. Förutom att användare som nekas sina egna måste för fortsatt åtkomst, du kan också ta bort gästanvändare som inte svarade. Icke-svarar användarna får eventuellt inte längre e-post. Du kan också ta bort gästanvändare som inte var markerat att delta, särskilt om de inte nyligen har bjudit in. Dessa användare accepterat inte sin inbjudan och det inte har åtkomst till programmet. 
+
+### <a name="ask-a-sponsor-to-review-a-guests-access-to-an-application"></a>Be en sponsor att granska gäståtkomst till ett program
+
+Du kan be en sponsorn, till exempel ägaren av ett program, att granska gästens behov för kontinuerlig åtkomst till programmet.
+
+1. Välj granskningen att inkludera endast gäster för att starta en åtkomstgranskning för programmet. Ange sedan en eller flera användare som granskare. Mer information finns i [Skapa en åtkomstgranskning](active-directory-azure-ad-controls-create-access-review.md).
+
+2. Be granskarna att komma med reflektioner. Som standard får alla ett e-postmeddelande från Azure AD med en länk till åtkomstpanelen där de ska [genomföra sin åtkomstgranskning](active-directory-azure-ad-controls-perform-access-review.md).
+
+3. När granskarna har framfört sina åsikter avslutar du åtkomstgranskningen och tillämpar ändringarna. Mer information finns i [Slutför en åtkomstgranskning](active-directory-azure-ad-controls-complete-access-review.md).
+
+### <a name="ask-guests-to-review-their-need-for-access-in-general"></a>Be gäster för att granska deras behov av åtkomst, i allmänhet
+
+Gäster kanske inte kände till deras gruppmedlemskap i vissa organisationer.
 
 > [!NOTE]
-> Tidigare versioner av Azure portal som tillåter inte administrativ åtkomst av användare med UserType gäst. I vissa fall kan kan en administratör i din katalog ha ändrats en gäst UserType värde till medlem med hjälp av PowerShell. Om den här ändringen utfördes tidigare i din katalog, kanske inte den föregående frågan innehåller alla gästanvändare som tidigare har administrativa rättigheter. I detta fall behöver du ändra gästens UserType eller inkludera gästen manuellt i gruppmedlemskap.
+> Tidigare versioner av Azure-portalen tillåter inte administrativ åtkomst av användare med UserType gästen. I vissa fall kan kan en administratör i din katalog ha ändrats en gäst UserType värde till medlemmen med hjälp av PowerShell. Om den här ändringen utfördes tidigare i din katalog, kan den föregående frågan inte innehålla alla gästanvändare som tidigare har administrativa rättigheter. I det här fallet måste antingen ändra gästens UserType eller inkludera gästen manuellt i gruppmedlemskapet.
 
-1. Skapa en säkerhetsgrupp i Azure AD med gäster som medlemmar, om en lämplig grupp inte redan finns. Du kan exempelvis skapa en grupp med manuellt behålla medlemskap för gäster. Eller så kan du skapa en dynamisk grupp med ett namn, till exempel ”gäster för Contoso” för användare i Contoso-klienten har UserType-attributvärdet för gäst.  Effektivitet, kontrollera i gruppen är huvudsakligen gäster - inte markerar du en grupp med användare som inte behöver ses över.
+1. Skapa en säkerhetsgrupp i Azure AD med gäster som medlemmar, om en lämplig grupp inte redan finns. Du kan till exempel skapa en grupp med ett medlemskap som manuellt underhållen av gäster. Du kan också skapa en dynamisk grupp med ett namn, till exempel ”gäster av Contoso” för användare i Contoso-klienten som har UserType-attributvärdet för gäst.  Se till att gruppen är huvudsakligen gäster – inte välja en grupp med användare som behöver granskas för effektivitet.
 
-2. Om du vill starta en åtkomst-granskning för gruppen, Välj granskare att vara medlemmar i själva. Mer information finns i [Skapa en åtkomstgranskning](active-directory-azure-ad-controls-create-access-review.md).
+2. Välj granskare att vara medlemmar själva för att starta en åtkomstgranskning för gruppen. Mer information finns i [Skapa en åtkomstgranskning](active-directory-azure-ad-controls-create-access-review.md).
 
-3. Be varje gästen för att granska sina egna medlemskap. Som standard varje Gäst som har accepterat inbjudan tar emot ett e-postmeddelande från Azure AD med en länk till access granskningen i åtkomstpanelen för din organisation. Azure AD innehåller anvisningar för gäster som beskriver hur du [granska deras åtkomst](active-directory-azure-ad-controls-perform-access-review.md).  Dessa gäster som inte accepterade deras inbjudan visas i granska resultaten som ”meddelas inte”.
+3. Be varje gästen för att granska sin egen medlemskap. Som standard varje gästoperativsystem som godkänt en inbjudan tar emot ett e-postmeddelande från Azure AD med en länk till åtkomstgranskning i åtkomstpanelen för din organisation. Azure AD innehåller anvisningar för gäster som beskriver hur du [granska åtkomsten](active-directory-azure-ad-controls-perform-access-review.md).  Dessa gäster som inte godkände sin inbjudan visas i granskningsresultaten som ”meddelas inte”.
 
-4. När granskare ger indata kan stoppa åtkomst granska. Mer information finns i [Slutför en åtkomstgranskning](active-directory-azure-ad-controls-complete-access-review.md).
+4. När granskarna har framfört, åtkomstgranskningen. Mer information finns i [Slutför en åtkomstgranskning](active-directory-azure-ad-controls-complete-access-review.md).
 
-5. Ta bort gästbehörighet för gäster som nekades, inte slutföras granskningen eller accepterade tidigare deras inbjudan. Om några av gästerna kontakter som har valts för att delta i granskningen eller om de tidigare inte accepterat inbjudan, kan du inaktivera sina konton med hjälp av Azure-portalen eller PowerShell. Om gästen inte längre behöver åtkomst och inte är en kontakt, kan ta bort deras användarobjektet från katalogen med hjälp av Azure-portalen eller PowerShell att ta bort objektet gästen användaren.
+5. Ta bort gäståtkomst för gäster som nekades, inte slutfördes granskningen eller inte tidigare har accepterat sin inbjudan. Om några av gästerna är kontakter som har valts att delta i granskningen eller om de inte tidigare har accepterat inbjudan, kan du inaktivera sina konton med hjälp av Azure portal eller PowerShell. Om gästoperativsystemet inte längre behöver åtkomst och inte är en kontakt, kan ta bort deras användarobjektet från din katalog med hjälp av Azure portal eller PowerShell att ta bort användarobjektet gäst.
 
 ## <a name="next-steps"></a>Nästa steg
 

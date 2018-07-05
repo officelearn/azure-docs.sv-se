@@ -1,130 +1,130 @@
 ---
-title: Begär åtkomst-token i Azure Active Directory B2C | Microsoft Docs
-description: Den här artikeln visar hur du konfigurera ett klientprogram och få en åtkomst-token.
+title: Begär åtkomsttoken i Azure Active Directory B2C | Microsoft Docs
+description: Den här artikeln visar hur du konfigurera ett klientprogram och hämta en åtkomsttoken.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2da5d05767dddfe653e0a0ba65a21b7e755b3828
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 58a0a1e8be7ad5a119204b52b5263943dcef0192
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330726"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441234"
 ---
-# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Begär åtkomst-token
+# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Begär åtkomsttoken
 
-En åtkomst-token (betecknas som **åtkomst\_token** i svar från Azure AD B2C) är en typ av säkerhetstoken som en klient kan använda för att komma åt resurser som skyddas av en [auktorisering server](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), till exempel ett webb-API. Åtkomsttoken representeras som [JWTs](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) och innehåller information om den avsedda resursservern och beviljats behörighet till servern. När du anropar resursservern måste åtkomsttoken finnas i HTTP-begäran.
+En åtkomsttoken (betecknas som **åtkomst\_token** i svar från Azure AD B2C) är en typ av säkerhetstoken som en klient kan använda för att få åtkomst till resurser som skyddas av en [auktoriseringsservern](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), till exempel ett webb-API. Åtkomsttoken visas i form av [JWTs](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) och innehåller information om den avsedda resursservern och beviljade behörigheter till servern. När du anropar resursservern måste åtkomsttoken finnas i HTTP-begäran.
 
 Den här artikeln beskrivs hur du konfigurerar ett klientprogram och webb-API för att få en **åtkomst\_token**.
 
 > [!NOTE]
-> **Webb-API kedjor (On-Behalf-Of) stöds inte av Azure AD B2C.**
+> **Webb-API: et kedjor (On-Behalf-Of) stöds inte av Azure AD B2C.**
 >
-> Många arkitekturer har ett webb-API som måste anropa ett annat underordnat webb-API, både skyddas av Azure AD B2C. Det här scenariot är vanligt i interna klienter som har en webb-API-serverdel, som anropar en Microsoft online service som Azure AD Graph API.
+> Många arkitekturer har ett webb-API som måste anropa ett annat underordnat webb-API, båda skyddade med Azure AD B2C. Det här scenariot är vanligt i interna klienter som har ett webb-API-serverdel, som i sin tur anropar en Microsoft-onlinetjänst som Azure AD Graph API.
 >
-> Det här scenariot med länkade webb-API kan användas med hjälp av OAuth 2.0 JWT ägar autentiseringsuppgifter bevilja, även kallat On-Behalf-Of-flöde. Dock implementeras On-Behalf-Of-flöde för närvarande inte i Azure AD B2C.
+> Det här scenariot med länkade webb-API kan användas med hjälp av OAuth 2.0 JWT-Ägarautentisering Autentiseringsuppgiften bevilja, även kallat On-Behalf-Of-flöde. Dock är On-Behalf-Of-flöde inte implementerat i Azure AD B2C.
 
 ## <a name="register-a-web-api-and-publish-permissions"></a>Registrera ett webb-API och publicera behörigheter
 
-Innan du begär en åtkomst-token, måste du först registrera ett webb-API och publicera behörigheter (scope) som kan beviljas för klientprogrammet.
+Innan du begär en åtkomsttoken, måste du först registrera ett webb-API och publicera behörigheterna (omfång) som kan beviljas till klientprogrammet.
 
 ### <a name="register-a-web-api"></a>Registrera ett webb-API
 
-1. Klicka på menyn för Azure AD B2C-funktioner på Azure portal **program**.
-1. Klicka på **+ Lägg till** längst upp på menyn.
-1. Ange ett **namn** för programmet som beskriver det för konsumenterna. Du kan till exempel ange ”Contoso-API”.
+1. På menyn för Azure AD B2C-funktioner på Azure portal klickar du på **program**.
+1. Klicka på **+ Lägg till** högst upp på menyn.
+1. Ange ett **namn** för programmet som beskriver det för konsumenterna. Du kan till exempel skriva ”Contoso-API”.
 1. Ändra **Include web app/web API** (Ta med webbapp/webb-API) till **Ja**.
-1. Ange ett godtyckligt värde för den **Reply URL: er**. Ange till exempel `https://localhost:44316/`. Värdet har ingen betydelse eftersom en API inte bör emot token direkt från Azure AD B2C.
-1. Ange en **App-ID-URI**. Det här är identifieraren som används för ditt webb-API. Ange till exempel ”information” i rutan. Den **App-ID URI** blir `https://{tenantName}.onmicrosoft.com/notes`.
+1. Ange ett godtyckligt värde för den **Svarswebbadresser**. Ange till exempel `https://localhost:44316/`. Värdet har ingen betydelse eftersom ett API inte bör ta emot token direkt från Azure AD B2C.
+1. Ange en **App-ID-URI**. Det här är identifieraren som används för ditt webb-API. Ange till exempel ”information” i rutan. Den **Appidentitets-URI** blir `https://{tenantName}.onmicrosoft.com/notes`.
 1. Klicka på **Skapa** för att registrera ditt program.
 1. Klicka på det program som du just har skapat och kopiera det globalt unika **klient-ID:t** som du ska använda senare i koden.
 
-### <a name="publishing-permissions"></a>Publishing behörigheter
+### <a name="publishing-permissions"></a>Publicera behörigheter
 
-Scope, vilket är analoga med behörigheter krävs när din app anropar en API. ”Läsa” eller ”write” är några exempel på scope. Anta att du vill att webbplatsen eller inbyggda appen ”läsa” från en API. Appen skulle anropa Azure AD B2C och begär en åtkomst-token som ger tillgång till området ”läsa”. Appen måste ha behörigheten ”läsa” från det specifika API: et för Azure AD B2C att generera en åtkomsttoken. Om du vill göra detta behöver din API först publicera området ”läsa”.
+Scope, som är detsamma som behörighet, behövs när appen anropar ett API. Några exempel på scope är ”läsa” eller ”skriva”. Anta att du vill att dina webb- eller inbyggd app att ”läsa” från ett API. Din app skulle anropa Azure AD B2C och begär en åtkomsttoken som ger åtkomst till området ”läsa”. Appen måste ha behörighet att ”läsa” från den specifika API: et för Azure AD B2C att skapa en åtkomsttoken. Detta gör måste ditt API först publicera området ”Läs”.
 
 1. I Azure AD B2C **program** menyn Öppna webb-API-program (”Contoso-API”).
 1. Klicka på alternativet för **publicerade omfång**. Här definierar du behörigheterna (omfång) som kan beviljas till andra program.
-1. Lägg till **Scope-värden** vid behov (till exempel ”läsa”). Som standard definieras omfånget ”user_impersonation”. Du kan ignorera detta om du vill. Ange en beskrivning för detta scope i den **scopenamn** kolumn.
+1. Lägg till **omfångsvärden** vid behov (till exempel ”läsa”). Som standard definieras omfånget ”user_impersonation”. Du kan ignorera detta om du vill. Ange en beskrivning av detta scope i den **scopenamn** kolumn.
 1. Klicka på **Spara**.
 
 > [!IMPORTANT]
-> Den **scopenamn** är beskrivningen av den **Scope-värde**. När du använder omfång, se till att använda den **Scope-värde**.
+> Den **scopenamn** är beskrivningen av den **Omfattningsvärde**. När du använder området, se till att använda den **Omfattningsvärde**.
 
 ## <a name="grant-a-native-or-web-app-permissions-to-a-web-api"></a>Ge ett inbyggt eller web app-behörigheter till ett webb-API
 
-När en API är konfigurerad för att publicera scope, måste klientprogrammet beviljas sådana omfattningar via Azure portal.
+När ett API har konfigurerats för att publicera scope, måste klientprogrammet beviljas sådana omfattningar via Azure portal.
 
-1. Navigera till den **program** funktioner Azure AD B2C-menyn.
-1. Registrera ett klientprogram ([webbapp](active-directory-b2c-app-registration.md#register-a-web-app) eller [native client](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app)) om du inte redan har en. Om du följer den här guiden som startpunkt när behöver du registrera ett klientprogram.
+1. Navigera till den **program** menyn för Azure AD B2C-funktioner.
+1. Registrera ett klientprogram ([webbapp](active-directory-b2c-app-registration.md#register-a-web-app) eller [inbyggd klient](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app)) om du inte redan har en. Om du följer den här guiden som startpunkt när behöver du registrera ett klientprogram.
 1. Klicka på **API-åtkomst**.
 1. Klicka på **Lägg till**.
 1. Välj ditt webb-API och scope (behörigheter) som du vill bevilja.
 1. Klicka på **OK**.
 
 > [!NOTE]
-> Azure AD B2C ombeds du inte klienten programanvändare sitt samtycke. I stället som alla medgivande admin, baserat på de behörigheter som har konfigurerats mellan de program som beskrivs ovan. En bevilja behörighet för ett program har återkallats, kommer alla användare som tidigare har kunnat få behörigheten inte längre att göra detta.
+> Azure AD B2C ombeds du inte klienten programanvändare sitt samtycke. I stället tillhandahålls alla medgivande av administratören, baserat på de behörigheter som konfigurerats mellan de program som beskrivs ovan. En behörighetsbeviljande för ett program har återkallats, längre alla användare som har tidigare kan få behörighet inte kunna göra detta.
 
 ## <a name="requesting-a-token"></a>Begära ett token
 
-När du begär en åtkomst-token klientprogrammet måste ange de önskade behörigheterna i den **omfång** parameter för begäran. Till exempel för att ange den **Scope-värde** ”läsa” för API: N som har den **App-ID URI** av `https://contoso.onmicrosoft.com/notes`, omfattningen skulle vara `https://contoso.onmicrosoft.com/notes/read`. Nedan visas ett exempel på en begäran om tillstånd att den `/authorize` slutpunkt.
+När du begär en åtkomsttoken klientprogrammet måste ange de önskade behörigheterna i den **omfång** parameter för begäran. Till exempel vill ange den **Omfattningsvärde** ”läsa” för API som har den **Appidentitets-URI** av `https://contoso.onmicrosoft.com/notes`, omfattningen skulle vara `https://contoso.onmicrosoft.com/notes/read`. Nedan visas ett exempel på en begäran om godkännande för kod till den `/authorize` slutpunkt.
 
 > [!NOTE]
-> Anpassade domäner kan inte användas tillsammans med åtkomsttoken. Du måste använda tenantName.onmicrosoft.com domänen i begärande-URL.
+> Anpassade domäner stöds för närvarande inte tillsammans med åtkomsttoken. Du måste använda din tenantName.onmicrosoft.com domän i fråge-URL.
 
 ```
 https://login.microsoftonline.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
-Du får tillgång till flera behörigheter i samma begäran, du kan lägga till flera poster i enda **omfång** parameter, avgränsade med blanksteg. Exempel:
+Du får tillgång till flera behörigheter i samma begäran, kan du lägga till flera poster i en enda **omfång** parameter, avgränsade med blanksteg. Exempel:
 
-Avkoda URL:
+Avkoda-URL:
 
 ```
 scope=https://contoso.onmicrosoft.com/notes/read openid offline_access
 ```
 
-URL-kodade:
+URL-kodad:
 
 ```
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread%20openid%20offline_access
 ```
 
-Du kan begära flera scope (behörigheter) för en resurs än vad beviljas för klientprogrammet. När så är fallet lyckas anropet om minst en behörighet. Det resulterande **åtkomst\_token** har dess ”scp”-anspråk med de behörigheter som har beviljats.
+Du kan begära fler områden (behörigheter) för en resurs än vad som har beviljats för klientprogrammet. När så är fallet lyckas anropet om minst en behörighet har beviljats. Den resulterande **åtkomst\_token** har dess ”scp”-anspråk som fylls i med de behörigheter som har beviljats.
 
 > [!NOTE] 
-> Vi stöder inte begär behörighet mot två olika webbresurser i samma begäran. Den här typen av förfrågan misslyckas.
+> Vi stöder inte begär åtkomst mot två olika webbresurser i samma begäran. Den här typen av begäran misslyckas.
 
-### <a name="special-cases"></a>Särskilda fall
+### <a name="special-cases"></a>Specialfall
 
-Standard OpenID Connect anger flera särskilda ”omfång”-värden. Följande särskilda scope representerar behörigheten ”åtkomst till användarens profil”:
+OpenID Connect-standarden specificerar flera särskilda ””-omfångsvärden. Följande särskilda omfattningar representerar behörigheten ”åtkomst till användarens profil”:
 
 * **openid**: detta begär en ID-token
 * **offline\_åtkomst**: detta begär en uppdateringstoken (med hjälp av [Auth kod flödar](active-directory-b2c-reference-oauth-code.md)).
 
-Om den `response_type` parameter i en `/authorize` begäran innehåller `token`, `scope` parameter måste innehålla minst en resurs omfång (utom `openid` och `offline_access`) som kan beviljas. I annat fall den `/authorize` begäran avslutas med ett fel.
+Om den `response_type` parameter i en `/authorize` begäran innehåller `token`, `scope` parameter måste innehålla minst en resurs omfång (annat än `openid` och `offline_access`) som kommer att beviljas. I annat fall den `/authorize` förfrågan avslutas med ett fel.
 
-## <a name="the-returned-token"></a>Returnerade token
+## <a name="the-returned-token"></a>Den returnerade token
 
-I har minted **åtkomst\_token** (från antingen den `/authorize` eller `/token` endpoint), följande anspråk kommer att finnas:
+I en har minted **åtkomst\_token** (antingen från den `/authorize` eller `/token` slutpunkt), följande anspråken kommer att finnas:
 
 | Namn | Begär | Beskrivning |
 | --- | --- | --- |
-|Målgrupp |`aud` |Den **program-ID** av enskild resurs som token beviljar åtkomst till. |
+|Målgrupp |`aud` |Den **program-ID** av den enda som token ger åtkomst till. |
 |Omfång |`scp` |Behörigheterna för resursen. Flera beviljade behörigheter ska avgränsas med blanksteg. |
-|Auktoriserad part |`azp` |Den **program-ID** av klientprogram som initierade begäran. |
+|Auktoriserade part |`azp` |Den **program-ID** på det klientprogram som initierade begäran. |
 
-När din API tar emot den **åtkomst\_token**, den måste [Validera token](active-directory-b2c-reference-tokens.md) att bevisa att token är giltigt och har rätt anspråk.
+När ditt API tar emot den **åtkomst\_token**, den måste [Validera token](active-directory-b2c-reference-tokens.md) att bevisa att token är autentisk och har rätt anspråken.
 
-Vi är alltid öppna för feedback och förslag! Om du har problem med det här avsnittet inlägg på Stack Overflow med taggen ['azure-ad b2c-](https://stackoverflow.com/questions/tagged/azure-ad-b2c). För funktionsbegäranden, lägga till dem i [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Vi är alltid öppen för feedback och förslag! Om du har problem med det här avsnittet kan du publicera på Stack Overflow med taggen [”azure-ad-b2c”](https://stackoverflow.com/questions/tagged/azure-ad-b2c). Lägga till dem i för funktionsförfrågningar om [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Skapa ett web API med [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-* Skapa ett web API med [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+* Skapa en webb-API med hjälp av [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
+* Skapa en webb-API med hjälp av [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)

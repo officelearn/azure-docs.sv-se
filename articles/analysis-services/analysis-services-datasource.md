@@ -1,23 +1,23 @@
 ---
 title: Datakällor som stöds i Azure Analysis Services | Microsoft Docs
-description: Beskriver de datakällor som stöds för datamodeller i Azure Analysis Services.
+description: Beskriver datakällor som stöds för datamodeller i Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 06/21/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 60b6769dd3c15bbe628f60318cc08fcac78357ea
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: f6ad95eb45cc208fe2289cb2095214f98a0b250b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307970"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442397"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
-Datakällor och kopplingar som visas i hämta Data eller Importguiden i Visual Studio visas för både Azure Analysis Services och SQL Server Analysis Services. Dock inte alla datakällor och kopplingar som visas stöds i Azure Analysis Services. Typer av datakällor som du kan ansluta till beror på många faktorer som modellen kompatibilitetsnivå, tillgängliga data kopplingar, autentiseringstyp, leverantörer och stöd för lokala data gateway. 
+Datakällor och anslutningsappar som visas i hämta Data eller Importguiden i Visual Studio visas för både Azure Analysis Services och SQL Server Analysis Services. Men inte alla datakällor och anslutningsappar som visas stöds i Azure Analysis Services. Typer av datakällor som du kan ansluta beror på många faktorer som modell kompatibilitetsnivå, tillgängliga dataanslutningar, autentiseringstyp, leverantörer och stöd för lokala data gateway. 
 
 ## <a name="azure-data-sources"></a>Azure-datakällor
 
@@ -33,26 +33,26 @@ Datakällor och kopplingar som visas i hämta Data eller Importguiden i Visual S
 |Azure HDInsight Spark *     |   Ja       |   Nej       |
 ||||
 
-\* 1400 tabellmodeller endast.
+\* 1400-tabellmodeller endast.
 
 **Providern**   
-Använd .NET Framework Data Provider för SQL Server i minnet och DirectQuery-modeller som ansluter till Azure-datakällor.
+InMemory- och DirectQuery-modeller som ansluter till Azure-datakällor använder du .NET Framework Data Provider för SQL Server.
 
 ## <a name="on-premises-data-sources"></a>Lokala datakällor
 
-Ansluter till lokala datakällor från och Azure-AS-servern kräver en lokal gateway. När du använder en gateway, krävs en 64-bitars providers.
+Ansluta till lokala datakällor från och Azure-AS-servern kräver en lokal gateway. När du använder en gateway, krävs en 64-bitars providers.
 
-### <a name="in-memory-and-directquery"></a>I minnet och DirectQuery
+### <a name="in-memory-and-directquery"></a>InMemory- och DirectQuery
 
-|Datakälla | InMemory-provider | DirectQuery-provider |
+|Datakälla | InMemory-provider | DirectQuery-providern |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0 Microsoft OLE DB Provider för SQLServer, .NET Framework dataprovider för SQLServer | .NET framework dataprovider för SQLServer |
-| SQL Server Data Warehouse |SQL Server Native Client 11.0 Microsoft OLE DB Provider för SQLServer, .NET Framework dataprovider för SQLServer | .NET framework dataprovider för SQLServer |
+| SQL Server |SQL Server Native Client 11.0 Microsoft OLE DB Provider för SQLServer, .NET Framework-dataprovidern för SQLServer | .NET framework-dataprovidern för SQLServer |
+| SQL Server Data Warehouse |SQL Server Native Client 11.0 Microsoft OLE DB Provider för SQLServer, .NET Framework-dataprovidern för SQLServer | .NET framework-dataprovidern för SQLServer |
 | Oracle |Microsoft OLE DB Provider för Oracle, Oracle dataprovider för .NET |Oracle dataprovider för .NET | |
-| Teradata |OLE DB Provider för Teradata Teradata-dataprovidern för .NET |Teradata-dataprovidern för .NET | |
+| Teradata |OLE DB Provider för Teradata och Teradata Data Provider för .NET |Teradata Data Provider för .NET | |
 | | | |
 
-### <a name="in-memory-only"></a>I minnet enbart
+### <a name="in-memory-only"></a>InMemory-endast
 
 |Datakälla  |  
 |---------|---------|
@@ -65,14 +65,14 @@ Ansluter till lokala datakällor från och Azure-AS-servern kräver en lokal gat
 |Exchange*     |  
 |Mappen *     |
 |IBM Informix * (Beta) |
-|JSON-dokumentet *     |  
-|Rader från binary *     | 
+|JSON-dokument *     |  
+|Rader från binär *     | 
 |MySQL-databas     | 
 |OData-Feed *     |  
 |ODBC-fråga     | 
 |OLE DB     |   
-|Postgre SQL-databasen *    | 
-|Salesforce objekt * |  
+|Postgre SQL-databas *    | 
+|Salesforce-objekt * |  
 |Salesforce-rapporter * |
 |SAP HANA *    |  
 |SAP Business Warehouse *    |  
@@ -81,33 +81,33 @@ Ansluter till lokala datakällor från och Azure-AS-servern kräver en lokal gat
 |XML-tabellen *    |  
 |||
  
-\* 1400 tabellmodeller endast.
+\* 1400-tabellmodeller endast.
 
-## <a name="specifying-a-different-provider"></a>Ange en annan provider
+## <a name="specifying-a-different-provider"></a>Ange en annan leverantör
 
-Datamodeller i Azure Analysis Services kan kräva olika dataleverantörer vid anslutning till vissa datakällor. I vissa fall kan tabellmodeller som ansluter till datakällor med hjälp av inbyggda providrar, till exempel SQL Server Native Client (SQLNCLI11) returnerar ett fel. Om du använder inbyggda providers än SQLOLEDB, kanske du ser felmeddelandet: **providern 'SQLNCLI11.1' inte är registrerad**. Om du har en DirectQuery-modell som ansluter till lokala datakällor och du använder inbyggda providers, kan du läsa felmeddelande: **fel OLE DB raden skapades. Felaktig syntax nära 'LIMIT'**.
+Datamodeller i Azure Analysis Services kan kräva olika dataleverantörer när du ansluter till vissa datakällor. I vissa fall kan tabellmodeller som ansluter till datakällor med hjälp av inbyggda providers, till exempel SQL Server Native Client (SQLNCLI11) returnerar ett fel. Om du använder inbyggda providers än SQLOLEDB, kan du se felmeddelandet: **providern 'SQLNCLI11.1' inte är registrerad**. Eller, om du har en DirectQuery-modell ansluter till lokala datakällor och du använder inbyggda providers, kanske du ser felmeddelandet: **fel vid skapande av OLE DB rad set. Felaktig syntax nära 'LIMIT'**.
 
 När du migrerar en lokal SQL Server Analysis Services-tabellmodell till Azure Analysis Services, kan det vara nödvändigt att ändra providern.
 
 **Ange en provider**
 
-1. I SSDT > **Tabular modellen Explorer** > **datakällor**, högerklicka på anslutning till en datakälla och klicka sedan på **redigera datakällan**.
+1. I SSDT > **Tabellmodellutforskaren** > **datakällor**, högerklicka på anslutning till en datakälla och klicka sedan på **redigera datakällan**.
 2. I **Redigera anslutning**, klickar du på **Avancerat** att öppna fönstret Avancerade egenskaper.
-3. I **avancerade egenskaper för** > **Providers**, Välj lämplig provider.
+3. I **ange avancerade egenskaper** > **Providers**, välj sedan lämplig leverantör.
 
 ## <a name="impersonation"></a>Personifiering
-I vissa fall kan vara det nödvändigt att ange en annan personifieringskontot. Personifieringskontot kan anges i Visual Studio (SSDT) eller SSMS.
+I vissa fall kan det vara nödvändigt att ange en annan personifiering. Personifieringskontot kan anges i Visual Studio (SSDT) eller SSMS.
 
 För lokala datakällor:
 
-* Om du använder SQL-autentisering vara personifiering tjänstkontot.
-* Ange Windows användarlösenord om du använder Windows-autentisering. Windows-autentisering med en specifik personifieringskontot stöds endast för datamodeller i minnet för SQL Server.
+* Om du använder SQL-autentisering ska personifiering tjänstkonto.
+* Om du använder Windows-autentisering, ange Windows användare/lösenord. För SQL Server stöds Windows-autentisering med en specifik personifieringskontot endast för InMemory-datamodeller.
 
-För molnet datakällor:
+För cloud-datakällor:
 
-* Om du använder SQL-autentisering vara personifiering tjänstkontot.
+* Om du använder SQL-autentisering ska personifiering tjänstkonto.
 
 ## <a name="next-steps"></a>Nästa steg
-[Lokal gateway](analysis-services-gateway.md)   
+[En lokal gateway](analysis-services-gateway.md)   
 [Hantera servern](analysis-services-manage.md)   
 

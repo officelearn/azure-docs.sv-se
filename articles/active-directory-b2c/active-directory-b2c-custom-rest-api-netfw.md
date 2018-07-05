@@ -1,83 +1,83 @@
 ---
-title: Integrera utbyten av REST API anspråk i din Azure Active Directory B2C användaren resa | Microsoft Docs
-description: Integrera utbyten av REST API anspråk i din Azure AD B2C användaren resa som verifiering av indata från användaren.
+title: Integrera REST API anspråk Utbytena i din Azure Active Directory B2C-användarresa | Microsoft Docs
+description: Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering av indata från användaren.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e17647016da0e877bd8f21357a4bd38121820f22
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: ab91fd9ffac48a7fafbfd6e518e863ee057c6b43
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34709367"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448017"
 ---
-# <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera utbyte av REST API-anspråk i din Azure AD B2C användaren resa som verifiering av indata från användaren
+# <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering av indata från användaren
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Med Identity upplevelse Framework, som ligger till grund för Azure Active Directory B2C (Azure AD B2C) som du kan integrera med en RESTful-API i en resa för användaren. I den här genomgången får lära du dig hur Azure AD B2C samverkar med .NET Framework RESTful-tjänster (webb-API).
+Med Identitetsramverk, som ligger till grund för Azure Active Directory B2C (Azure AD B2C) som du kan integrera med en RESTful-API i en användarresa. I den här genomgången får du lära dig hur Azure AD B2C interagerar med .NET Framework RESTful-tjänster (webb-API).
 
 ## <a name="introduction"></a>Introduktion
-Med hjälp av Azure AD B2C kan du lägga till egna affärslogiken för en användare resa genom att anropa tjänsten RESTful. Identitet upplevelse Framework skickar data till RESTful-tjänst i ett *inkommande anspråk* samling och tar emot data från RESTful i en *utgående anspråk* samling. Med RESTful-tjänst-integration kan du:
+Med hjälp av Azure AD B2C kan du lägga till egen affärslogik en användarresa genom att anropa ditt eget RESTful-tjänst. Den Identitetsramverk skickar data till RESTful-tjänst i ett *inkommande anspråk* samling och tar emot data från RESTful i en *utgående anspråk* samling. Med RESTful-tjänst-integrering kan du:
 
-* **Validera inkommande användardata**: den här åtgärden förhindrar att felaktiga data beständighet till Azure AD. Om värdet från användaren inte är giltigt, returnerar ett felmeddelande som användaren uppmanas att ange någon post RESTful-tjänst. Du kan till exempel kontrollera att e-postadressen som anges av användaren finns i kundens databasen.
-* **Skriv över inkommande anspråk**: om en användare anger förnamnet i gemener och versaler bokstäverna kan du formatera namn med bara den första bokstaven versal.
-* **Utöka användardata genom att ytterligare integrera med företagets av branschspecifika program**: din RESTful-tjänst kan ta emot användarens e-postadress, frågar kundens databas och returnera användarens förmåner numret till Azure AD B2C. Returnerar anspråk som kan lagras i användarens Azure AD-kontot som utvärderas i nästa *Orchestration-steg*, eller ingår i den åtkomst-token.
-* **Kör anpassad affärslogik**: du kan skicka push-meddelanden, uppdatera företagets databaser, kör en process för migrering av användare, hantera behörigheter, gransknings-och databaser och utföra andra åtgärder.
+* **Verifiera användarens indata**: den här åtgärden förhindrar att felaktigt beständig lagring till Azure AD. Om värdet från användaren inte är giltigt, returnerar RESTful-tjänst ett felmeddelande som anger att användaren anger en post. Du kan till exempel kontrollera att den e-postadress som anges av användaren finns i din kunddatabas.
+* **Skriv över inkommande anspråk**: om en användare anger det första namnet i gemener och versaler bokstäverna kan du formatera namnet med bara den första bokstaven med versaler.
+* **Utöka användardata genom att ytterligare integrera med företagets line-of-business-program**: Your RESTful-tjänst kan ta emot användarens e-postadress, fråga kundens databas och returnera användarens lojalitet talet till Azure AD B2C. Avkastningen anspråk kan lagras i användarens Azure AD-konto utvärderas i nästa *Orchestration-steg*, eller ingår i åtkomsttoken.
+* **Kör anpassad affärslogik**: du kan skicka push-meddelanden, uppdatera företagets databaser, kör en process för migrering av användare, hantera behörigheter, granska databaser och utföra andra åtgärder.
 
 Du kan utforma integrering med RESTful-tjänster på följande sätt:
 
-* **Tekniska verifieringsprofil**: anropet till tjänsten RESTful sker inom tekniska verifieringsprofil för den angivna tekniska profilen. Tekniska verifieringsprofil verifierar användardefinierade data innan användaren transporten flyttas framåt. Med teknisk verifieringsprofil kan du:
+* **Teknisk verifieringsprofil**: anropet till RESTful-tjänst som sker inom den tekniska profilen verifieringen av den angivna tekniska profilen. Den tekniska profilen verifiering verifierar data från användare innan användarresa flyttar framåt. Med den tekniska profilen verifiering kan du:
    * Skicka inkommande anspråk.
    * Validera de inkommande anspråken och utlösa anpassade felmeddelanden.
    * Skicka tillbaka utgående anspråk.
 
-* **Exchange-anspråk**: den här designen liknar tekniska verifieringsprofil, men det sker inom ett orchestration-steg. Den här definitionen är begränsad till:
+* **Exchange-anspråk**: den här designen liknar den tekniska profilen verifiering, men det sker inom ett orchestration-steg. Den här definitionen är begränsat till:
    * Skicka inkommande anspråk.
    * Skicka tillbaka utgående anspråk.
 
 ## <a name="restful-walkthrough"></a>RESTful genomgång
-I den här genomgången kan du utveckla ett .NET Framework webb-API som validerar användarens indata och innehåller förmåner många användare. Programmet kan till exempel bevilja åtkomst till *Platina fördelar* baserat på antalet förmåner.
+I den här genomgången kan du utveckla en .NET Framework webb-API som verifierar indata från användaren och innehåller lojalitet flera användare. Till exempel ditt program kan använda för att bevilja åtkomst till *Platina fördelar* baserat på antalet lojalitet.
 
 Översikt:
 * Utveckla RESTful-tjänst (.NET Framework webb-API).
-* Använda tjänsten RESTful i användaren transporten.
+* Använda RESTful-tjänst i användarresan.
 * Skicka inkommande anspråk och läsa dem i din kod.
 * Verifiera användarens förnamn.
-* Skicka tillbaka ett förmåner tal. 
-* Lägg till förmåner numret till en JSON-Webbtoken (JWT).
+* Skicka tillbaka ett lojalitet tal. 
+* Lägg till lojalitet numret till en JSON Web Token (JWT).
 
 ## <a name="prerequisites"></a>Förutsättningar
-Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) artikel.
+Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) artikeln.
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>Steg 1: Skapa ett ASP.NET webb-API
 
-1. Skapa ett projekt i Visual Studio genom att välja **filen** > **ny** > **projekt**.
+1. Skapa ett projekt i Visual Studio genom att välja **filen** > **New** > **projekt**.
 
-2. I den **nytt projekt** väljer **Visual C#** > **Web** > **ASP.NET-webbprogram (.NET Framework)**.
+2. I den **nytt projekt** väljer **Visual C#** > **Web** > **ASP.NET-Webbtillämpningsprogram (.NET Framework)**.
 
-3. I den **namn** Skriv ett namn för programmet (till exempel *Contoso.AADB2C.API*), och välj sedan **OK**.
+3. I den **namn** skriver ett namn för programmet (till exempel *Contoso.AADB2C.API*), och välj sedan **OK**.
 
     ![Skapa nya visual studio-projekt](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
 
-4. I den **nytt ASP.NET-webbprogram** väljer en **Web API** eller **Azure API-app** mall.
+4. I den **nytt ASP.NET-webbprogram** väljer en **webb-API** eller **Azure API-app** mall.
 
     ![Välj mall för webb-API](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
 
-5. Se till att autentiseringen har angetts till **ingen autentisering**.
+5. Se till att autentiseringen är inställd på **ingen autentisering**.
 
 6. Välj **OK** att skapa projektet.
 
-## <a name="step-2-prepare-the-rest-api-endpoint"></a>Steg 2: Förbered REST API-slutpunkt
+## <a name="step-2-prepare-the-rest-api-endpoint"></a>Steg 2: Förbereda REST API-slutpunkt
 
 ### <a name="step-21-add-data-models"></a>Steg 2.1: Lägg till datamodeller
-Modeller representerar de inkommande anspråken och utgående anspråk data i RESTful-tjänst. Koden läser indata med avserialisering av inkommande anspråk modellen från en JSON-sträng till ett C#-objekt (din modell). ASP.NET web API deserializes automatiskt utgående anspråk modellen tillbaka till JSON och skriver sedan serialiserade data till i brödtexten för HTTP-svarsmeddelandet. 
+Modellerna representerar de inkommande anspråken och utgående anspråk data i dina RESTful-tjänst. Din kod läser indata med deserialisering av inkommande anspråk modellen från en JSON-sträng till ett C#-objekt (din modell). ASP.NET-webb-API deserializes automatiskt utgående anspråk modellen tillbaka till JSON och sedan skriver den serialiserade informationen och i brödtexten för HTTP-svarsmeddelande. 
 
 Skapa en modell som representerar inkommande anspråk genom att göra följande:
 
@@ -86,7 +86,7 @@ Skapa en modell som representerar inkommande anspråk genom att göra följande:
 
     ![Lägg till modell](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
 
-3. Klassen namnet `InputClaimsModel`, och Lägg sedan till följande egenskaper för att den `InputClaimsModel` klass:
+3. Namnge klassen `InputClaimsModel`, och Lägg sedan till följande egenskaper för att den `InputClaimsModel` klass:
 
     ```csharp
     namespace Contoso.AADB2C.API.Models
@@ -112,7 +112,7 @@ Skapa en modell som representerar inkommande anspråk genom att göra följande:
     }
     ```
 
-5. Skapa en mer modell `B2CResponseContent`, där du vill utlösa indata-validering felmeddelanden. Lägg till följande egenskaper för att den `B2CResponseContent` klassen anger referenser som saknas och sedan spara filen:
+5. Skapa en mer modell, `B2CResponseContent`, som du använder för att utlösa verifieringsfel för inkommande meddelanden. Lägg till följande egenskaper för att den `B2CResponseContent` klassen anger referenser som saknas och spara filen:
 
     ```csharp
     namespace Contoso.AADB2C.API.Models
@@ -133,24 +133,24 @@ Skapa en modell som representerar inkommande anspråk genom att göra följande:
     }
     ```
 
-### <a name="step-22-add-a-controller"></a>Steg 2.2: Lägg till en domänkontrollant
-I webb-API, en _domänkontrollant_ är ett objekt som hanterar HTTP-begäranden. Returnerar domänkontrollanten utgående anspråk eller om det första namnet inte är giltigt, genererar ett felmeddelande för HTTP-konflikt.
+### <a name="step-22-add-a-controller"></a>Steg 2.2: Lägga till en kontrollant
+I webb-API, en _controller_ är ett objekt som hanterar HTTP-begäranden. Kontrollanten returnerar utdata anspråk eller om det första namnet inte är giltig, utlöser en konflikt HTTP-felmeddelande.
 
 1. I Solution Explorer högerklickar du på mappen **Styrenheter**. Välj sedan **Lägg till** och sedan **Styrenhet**.
 
-    ![Lägga till nya styrenhet](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
+    ![Lägg till ny kontrollant](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
 
 2. I den **Lägg till Kodskelett** väljer **Web API-styrenhet – tom**, och välj sedan **Lägg till**.
 
-    ![Välj Web API 2 styrenhet – tom](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
+    ![Välj webb-API 2 styrenhet – tom](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
 
-3. I den **Lägg till styrenhet** och namn på kontrollanten **IdentityController**, och välj sedan **Lägg till**.
+3. I den **Lägg till styrenhet** fönstret namn kontrollanten **IdentityController**, och välj sedan **Lägg till**.
 
     ![Skriv domänkontrollantens namn](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
 
-    Den scaffold-teknik som skapar en fil med namnet *IdentityController.cs* i den *domänkontrollanter* mapp.
+    Ställningarna skapar en fil med namnet *IdentityController.cs* i den *domänkontrollanter* mapp.
 
-4. Om den *IdentityController.cs* filen inte är öppen redan, dubbelklicka på den och Ersätt Koden i filen med följande kod:
+4. Om den *IdentityController.cs* filen är inte öppen redan, dubbelklicka på den och Ersätt Koden i filen med följande kod:
 
     ```csharp
     using Contoso.AADB2C.API.Models;
@@ -203,30 +203,30 @@ I webb-API, en _domänkontrollant_ är ett objekt som hanterar HTTP-begäranden.
     }
     ```
 
-## <a name="step-3-publish-the-project-to-azure"></a>Steg 3: Publicera projektet till Azure
+## <a name="step-3-publish-the-project-to-azure"></a>Steg 3: Publicera projektet på Azure
 1. I Solution Explorer högerklickar du på den **Contoso.AADB2C.API** projektet och välj sedan **publicera**.
 
     ![Publicera till Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
 
 2. I den **publicera** väljer **Microsoft Azure App Service**, och välj sedan **publicera**.
 
-    ![Skapa ny Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
+    ![Skapa nya Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
 
-    Den **skapa App Service** öppnas. I det skapar du alla nödvändiga Azure-resurser för att köra ASP.NET-webbapp i Azure.
+    Den **skapa App Service** öppnas. I den, kan du skapa alla Azure-resurser för att köra ASP.NET-webbapp i Azure.
 
     > [!NOTE]
-    >Mer information om hur du publicerar finns [skapa en ASP.NET-webbapp i Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >Mer information om hur du publicerar finns i [skapa en ASP.NET-webbapp i Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
-3. I den **Webbprogramnamnet** Skriv ett unikt appnamn (giltiga tecken är a-z, 0-9 och bindestreck (-). URL: en för webbappen är http://<app_name>.azurewebsites.NET, där *programnamn* är namnet på ditt webbprogram. Du kan godkänna namnet som genereras automatiskt och som är unikt.
+3. I den **Webbappnamnet** skriver du ett unikt appnamn (giltiga tecken är a – z, 0-9 och bindestreck (-). URL: en för webbappen är http://<app_name>.azurewebsites.NET, där *app_name* är namnet på din webbapp. Du kan godkänna namnet som genereras automatiskt och som är unikt.
 
-    ![Ange egenskaper för Apptjänst](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
+    ![Ange egenskaper för App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
 
-4. Om du vill skapa Azure-resurser, Välj **skapa**.  
-    När ASP.NET-webbprogram har skapats, guiden publicerar till Azure och startar appen i standardwebbläsaren.
+4. Om du vill börja skapa Azure-resurser, Välj **skapa**.  
+    När ASP.NET-webbappen har skapats, guiden publicerar den till Azure och sedan startar appen i standardwebbläsaren.
 
 6. Kopiera webbappens URL.
 
-## <a name="step-4-add-the-new-loyaltynumber-claim-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Steg 4: Lägg till de nya `loyaltyNumber` anspråk i schemat för TrustFrameworkExtensions.xml-fil
+## <a name="step-4-add-the-new-loyaltynumber-claim-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Steg 4: Lägg till den nya `loyaltyNumber` anspråk i schemat för din TrustFrameworkExtensions.xml-fil
 Den `loyaltyNumber` anspråk ännu inte har definierats i vår schemat. Lägg till en definition i den `<BuildingBlocks>` element som du hittar i början av den *TrustFrameworkExtensions.xml* fil.
 
 ```xml
@@ -241,20 +241,20 @@ Den `loyaltyNumber` anspråk ännu inte har definierats i vår schemat. Lägg ti
 </BuildingBlocks>
 ```
 
-## <a name="step-5-add-a-claims-provider"></a>Steg 5: Lägg till en anspråksprovider 
-Varje anspråksprovider måste ha en eller flera tekniska profiler som avgör slutpunkter och protokoll som behövs för att kommunicera med anspråksprovidern. 
+## <a name="step-5-add-a-claims-provider"></a>Steg 5: Lägga till en anspråksprovider 
+Varje anspråksprovidern måste ha en eller flera tekniska profiler som avgör de slutpunkter och protokoll som behövs för att kommunicera med anspråksprovidern. 
 
-En anspråksprovider kan ha flera tekniska profiler för olika skäl. Till exempel definieras flera tekniska profiler eftersom anspråksprovidern stöder flera protokoll, slutpunkter kan ha olika funktioner eller versioner kan innehålla anspråk som har flera olika förtroendenivåer. Det kan vara godtagbar att släppa känsliga anspråk i en användare resa men inte i en annan. 
+En anspråksprovider kan ha flera tekniska profiler för olika anledningar. Flera tekniska profiler kan exempelvis definieras eftersom anspråksprovidern stöder flera protokoll, slutpunkter kan ha olika funktioner eller versioner kan innehålla anspråk som har en mängd olika förtroendenivåer. Det kan vara att frigöra känsliga anspråk i en användarresa men inte i en annan. 
 
-Följande XML-kodstycke innehåller en nod för providern av anspråk med två tekniska profiler:
+Följande XML-kodstycke innehåller en anspråk providern nod med två tekniska profiler:
 
-* **TechnicalProfile Id = ”REST-API-SignUp”**: definierar RESTful-tjänst. 
+* **Tekniska Id = ”REST-API-SignUp”**: definierar RESTful-tjänst. 
    * `Proprietary` beskrivs som protokoll för en RESTful-baserade provider. 
-   * `InputClaims` definierar vilka anspråk som skickas från Azure AD B2C REST-tjänst. 
+   * `InputClaims` definierar vilka anspråk som skickas från Azure AD B2C till REST-tjänst. 
 
-   I det här exemplet innehållet anspråkets `givenName` skickar till REST-tjänst som `firstName`, innehållet i anspråket `surname` skickar till REST-tjänst som `lastName`, och `email` skickar eftersom. Den `OutputClaims` elementet definierar vilka anspråk som hämtas från RESTful-tjänst tillbaka till Azure AD B2C.
+   I det här exemplet innehållet i anspråket `givenName` skickar till REST-tjänst som `firstName`, innehållet i anspråket `surname` skickar till REST-tjänst som `lastName`, och `email` skickar skick. Den `OutputClaims` elementet definierar vilka anspråk som hämtas från RESTful-tjänst tillbaka till Azure AD B2C.
 
-* **TechnicalProfile Id = ”LocalAccountSignUpWithLogonEmail”**: lägger till en profil för validering av teknisk i en befintlig tekniska profil (definieras i grundläggande princip). Under registreringen transporten anropar tekniska verifieringsprofil föregående tekniska profilen. Om tjänsten RESTful returnerar ett HTTP-fel 409 (en konflikt fel), visas ett felmeddelande för användaren. 
+* **Tekniska Id = ”LocalAccountSignUpWithLogonEmail”**: lägger till en profil för tekniska i en befintlig tekniska profil (definieras i basprincipen). Under registreringen vägen anropar den tekniska profilen verifiering föregående tekniska profil. Om tjänsten RESTful returnerar ett HTTP-fel 409 (en konflikt fel), visas ett felmeddelande för användaren. 
 
 Leta upp den `<ClaimsProviders>` nod, och Lägg sedan till följande XML-kodstycke under den `<ClaimsProviders>` nod:
 
@@ -297,10 +297,10 @@ Leta upp den `<ClaimsProviders>` nod, och Lägg sedan till följande XML-kodstyc
 </ClaimsProvider>
 ```
 
-## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Steg 6: Lägg till den `loyaltyNumber` anspråk till den förlitande part princip-filen så att begäran skickas till ditt program
-Redigera din *SignUpOrSignIn.xml* förlitande part (RP) filen och ändra TechnicalProfile-Id = ”PolicyProfile” element för att lägga till följande: `<OutputClaim ClaimTypeReferenceId="loyaltyNumber" />`.
+## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Steg 6: Lägg till den `loyaltyNumber` anspråk till din förlitande part principfil därför anspråket skickas till ditt program
+Redigera din *SignUpOrSignIn.xml* förlitande part (RP) filen och ändra tekniska-Id = ”PolicyProfile”-element för att lägga till följande: `<OutputClaim ClaimTypeReferenceId="loyaltyNumber" />`.
 
-När du lägger till nya anspråk, förlitande part koden ser ut så här:
+När du lägger till nytt anspråk förlitande part-koden ser ut så här:
 
 ```xml
 <RelyingParty>
@@ -323,39 +323,39 @@ När du lägger till nya anspråk, förlitande part koden ser ut så här:
 </TrustFrameworkPolicy>
 ```
 
-## <a name="step-7-upload-the-policy-to-your-tenant"></a>Steg 7: Överför principen till din klient
+## <a name="step-7-upload-the-policy-to-your-tenant"></a>Steg 7: Ladda upp principen till din klient
 
-1. I den [Azure-portalen](https://portal.azure.com), växla till den [kontext för din Azure AD B2C-klient](active-directory-b2c-navigate-to-b2c-context.md), och sedan öppna **Azure AD B2C**.
+1. I den [Azure-portalen](https://portal.azure.com), växla till den [kontext som din Azure AD B2C-klient](active-directory-b2c-navigate-to-b2c-context.md), och öppna sedan **Azure AD B2C**.
 
-2. Välj **identitet upplevelse Framework**.
+2. Välj **Identitetsramverk**.
 
 3. Öppna **alla principer**. 
 
 4. Välj **överföra princip**.
 
-5. Välj den **skriva över principen om den finns** kryssrutan.
+5. Välj den **Skriv över principen om den finns** markerar du kryssrutan.
 
-6. Överföra filen TrustFrameworkExtensions.xml och se till att den har klarat valideringen.
+6. Överföra filen TrustFrameworkExtensions.xml och se till att den godkänns vid.
 
-7. Upprepa det föregående steget med filen SignUpOrSignIn.xml.
+7. Upprepa föregående steg med SignUpOrSignIn.xml-fil.
 
-## <a name="step-8-test-the-custom-policy-by-using-run-now"></a>Steg 8: Testa den anpassade principen genom att använda Kör nu
-1. Välj **Azure AD B2C inställningar**, och gå till **identitet upplevelse Framework**.
+## <a name="step-8-test-the-custom-policy-by-using-run-now"></a>Steg 8: Testa den anpassade principen med hjälp av kör nu
+1. Välj **Azure AD B2C-inställningar**, och gå till **Identitetsramverk**.
 
     > [!NOTE]
-    > **Kör nu** kräver minst ett program till preregistered för innehavaren. Om du vill lära dig mer om att registrera program, finns i Azure AD B2C [Kom igång](active-directory-b2c-get-started.md) artikel eller [appregistrering](active-directory-b2c-app-registration.md) artikel.
+    > **Kör nu** kräver minst ett program att vara förväg registrerade på klienten. Läs hur du registrerar program i Azure AD B2C [börjar](active-directory-b2c-get-started.md) artikel eller [programregistrering](active-directory-b2c-app-registration.md) artikeln.
 
-2. Öppna **B2C_1A_signup_signin**, förlitande part (RP) anpassade principer som du överfört och välj sedan **kör nu**.
+2. Öppna **B2C_1A_signup_signin**, den förlitande part (RP) anpassa princip som du överförde och väljer sedan **kör nu**.
 
     ![Fönstret B2C_1A_signup_signin](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
 
-3. Testa processen genom att skriva **Test** i den **Förnamn** rutan.  
+3. Testa processen genom att skriva **Test** i den **Förnamn** box.  
     Azure AD B2C visar ett felmeddelande visas överst i fönstret.
 
     ![Testa din princip](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4.  I den **Förnamn** Skriv ett namn (andra än ”Test”).  
-    Azure AD B2C registrerar sig användaren och skickar sedan en loyaltyNumber till ditt program. Observera antalet i den här JWT.
+4.  I den **Förnamn** skriver ett namn (andra än ”Test”).  
+    Azure AD B2C registrerar sig användaren och skickar sedan en loyaltyNumber till ditt program. Observera antalet i det här JWT.
 
 ```
 {
@@ -378,10 +378,10 @@ När du lägger till nya anspråk, förlitande part koden ser ut så här:
 }
 ```
 
-## <a name="optional-download-the-complete-policy-files-and-code"></a>(Valfritt) Hämta fullständig principfiler och kod
-* När du har slutfört den [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) genomgång, rekommenderar vi att du skapar ditt scenario genom att använda en anpassad princip för filerna. Referens, har vi angett [exempel principfiler](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw).
+## <a name="optional-download-the-complete-policy-files-and-code"></a>(Valfritt) Ladda ned fullständig principfiler och kod
+* När du har slutfört den [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md) genomgången ska vi rekommenderar att du skapar ditt scenario genom att använda din egen anpassade principfiler. För referens har vi samlat [exempel principfiler](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw).
 * Du kan hämta den fullständiga koden från [exempel Visual Studio-lösning för referens](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
     
 ## <a name="next-steps"></a>Nästa steg
-* [Skydda din RESTful-API med grundläggande autentisering (användarnamn och lösenord)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
-* [Skydda din RESTful-API med klientcertifikat](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+* [Skydda ditt RESTful-API med grundläggande autentisering (användarnamn och lösenord)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+* [Skydda ditt RESTful-API med klientcertifikat](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

@@ -1,6 +1,6 @@
 ---
 title: Anslutningstillgångar i Azure Automation
-description: Anslutningstillgångar i Azure Automation innehåller den information som krävs för att ansluta till en extern tjänst eller program från en runbook eller DSC-konfigurationen. Den här artikeln beskriver hur du anslutningar och hur du arbetar med dem i både text och grafiska redigering.
+description: Anslutningstillgångar i Azure Automation innehåller den information som krävs för att ansluta till en extern tjänst eller program från en runbook eller DSC-konfiguration. Den här artikeln beskrivs detaljer om anslutningar och hur du arbetar med dem i både textbaserade och grafisk redigering.
 services: automation
 ms.service: automation
 ms.component: shared-capabilities
@@ -9,104 +9,107 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 88baa1385bfd64cab08299bc31a6f003f6b87e48
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: d5b31529c9ccfdc5d7871ec860a97d964ece69f8
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019323"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435704"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Anslutningstillgångar i Azure Automation
 
-Ett Automation-anslutningstillgång innehåller den information som krävs för att ansluta till en extern tjänst eller program från en runbook eller DSC-konfigurationen. Detta kan inkludera information som krävs för autentisering, till exempel användarnamn och lösenord förutom anslutningsinformation, till exempel en URL eller en port. Värdet för en anslutning hindrar alla egenskaper för att ansluta till ett visst program i en tillgång i stället för att skapa flera variabler. Användaren kan redigera värdena för en anslutning i en enda plats och du kan ange namnet på en anslutning till en runbook eller DSC-konfigurationen i en parameter. Egenskaperna för en anslutning kan nås i runbook eller DSC-konfigurationen med den **Get-AutomationConnection** aktivitet. 
+En Automation-anslutningstillgång innehåller den information som krävs för att ansluta till en extern tjänst eller program från en runbook eller DSC-konfiguration. Detta kan inkludera information som krävs för autentisering, t.ex ett användarnamn och lösenord utöver anslutningsinformation, till exempel en URL eller en port. Värdet för en anslutning är att hålla alla egenskaper för att ansluta till ett visst program i en tillgång till skillnad från skapar flera variabler. Du kan redigera värdena för en anslutning på samma plats och du kan skicka namnet på en anslutning till en runbook eller DSC-konfiguration i en enda parameter. Egenskaperna för en anslutning kan nås i runbook eller DSC-konfiguration med den **Get-AutomationConnection** aktivitet. 
 
-När du skapar en anslutning måste du ange en *anslutningstypen*. Anslutningstypen är en mall som definierar en uppsättning egenskaper. Anslutningen definierar värden för varje egenskap som definierats i dess anslutningstypen. Anslutningstyper läggs till Azure Automation i integreringsmoduler eller skapats med den [Azure Automation API](http://msdn.microsoft.com/library/azure/mt163818.aspx) om integrationsmodulen innehåller en anslutningstyp och importeras till ditt Automation-konto. I annat fall behöver du skapa en metadatafil om du vill ange ett Automation-anslutningstypen.  Mer information om detta finns [integreringsmoduler](automation-integration-modules.md).  
+När du skapar en anslutning måste du ange en *anslutningstypen*. Anslutningstypen är en mall som definierar en uppsättning egenskaper. Anslutningen definierar värden för varje egenskap som definierats i dess anslutningstyp. Anslutningstyper som läggs till Azure Automation i integreringsmoduler eller skapats med den [Azure Automation API](http://msdn.microsoft.com/library/azure/mt163818.aspx) om integration-modulen innehåller en anslutningstyp och importeras till ditt Automation-konto. I annat fall behöver du skapa en metadatafil om du vill ange en Automation-anslutningstyp.  Ytterligare information om detta finns i [integreringsmoduler](automation-integration-modules.md).  
 
 >[!NOTE]
->Säkra tillgångar i Azure Automation inkluderar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa tillgångar krypteras och lagras i Azure Automation med en unik nyckel som skapas för varje automation-konto. Den här nyckeln lagras i Nyckelvalvet. Innan de lagras en säker resurs som lästs in från Nyckelvalvet nyckeln och sedan används för att kryptera tillgången.
+>Säkra tillgångar i Azure Automation omfattar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa tillgångar krypteras och lagras i Azure Automation med en unik nyckel som skapas för varje automation-konto. Den här nyckeln lagras i Key Vault. Innan du lagrar en säker resurs som lästs in från Key Vault nyckeln och sedan används för att kryptera tillgången.
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell-Cmdlets
 
-Cmdlets i följande tabell används för att skapa och hantera anslutningar för Automation med Windows PowerShell. De levereras som en del av den [Azure PowerShell-modulen](/powershell/azure/overview) som är tillgänglig för användning i Automation-runbooks och DSC-konfigurationer.
+Cmdlets i följande tabell används för att skapa och hantera anslutningar för Automation med Windows PowerShell. De levereras som en del av den [Azure PowerShell-modulen](/powershell/azure/overview) som är tillgängligt för användning i Automation-runbooks och DSC-konfigurationer.
 
 |Cmdlet|Beskrivning|
 |:---|:---|
-|[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Hämtar en anslutning. Innehåller en hash-tabell med värdena i den anslutningen.|
+|[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Hämtar en anslutning. Innehåller en hash-tabell med värdena för anslutningens fält.|
 |[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Skapar en ny anslutning.|
 |[Remove-AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|Ta bort en befintlig anslutning.|
 |[Set-AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|Anger värdet för ett visst fält för en befintlig anslutning.|
 
 ## <a name="activities"></a>Aktiviteter
 
-Aktiviteterna i följande tabell används för att komma åt anslutningar i en runbook eller DSC-konfigurationen.
+Aktiviteterna i följande tabell används för att komma åt anslutningar i en runbook eller DSC-konfiguration.
 
 |Aktiviteter|Beskrivning|
 |---|---|
-|[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Hämtar en anslutning för användning. Returnerar en hash-tabell med egenskaperna för anslutningen.|
+|[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Hämtar en anslutning som ska användas. Returnerar en hash-tabell med egenskaperna för anslutningen.|
 
 >[!NOTE] 
->Du bör undvika att använda variabler med – Name-parametern i **Get - AutomationConnection** eftersom detta kan göra det svårare att hitta beroenden mellan runbooks eller DSC-konfigurationer och anslutningstillgångar i designläge.
+>Du bör undvika att använda variabler med – Name-parametern i **Get - AutomationConnection** eftersom detta kan göra det svårare att hitta beroenden mellan runbooks eller DSC-konfigurationer och anslutningstillgångar vid designtillfället.
 
  
-## <a name="python2-functions"></a>Python2 funktioner 
-Funktionen i följande tabell används för att komma åt anslutningar i en Python2 runbook. 
+## <a name="python2-functions"></a>Python2-funktioner 
+Funktionen i följande tabell används för att komma åt anslutningar i en Python2-runbook. 
 
 | Funktion | Beskrivning | 
 |:---|:---| 
-| automationassets.get_automation_connection | Hämtar en anslutning. Returnerar en ordlista med egenskaperna för anslutningen. | 
+| automationassets.get_automation_connection | Hämtar en anslutning. Returnerar en ordlista med egenskaper för anslutningen. | 
 
 > [!NOTE] 
-> Du måste importera modulen ”automationassets” längst upp i Python-runbook för att komma åt funktionerna tillgång.
+> Du måste importera modulen ”automationassets” överst i Python-runbook för att komma åt funktionerna för tillgången.
 
 ## <a name="creating-a-new-connection"></a>Skapa en ny anslutning
 
-### <a name="to-create-a-new-connection-with-the-azure-portal"></a>Skapa en ny anslutning med Azure-portalen
+### <a name="to-create-a-new-connection-with-the-azure-portal"></a>Skapa en ny anslutning med Azure portal
 
-1. Från ditt automation-konto klickar du på den **tillgångar** del för att öppna den **tillgångar** bladet.
-2. Klicka på den **anslutningar** del för att öppna den **anslutningar** bladet.
-3. Klicka på **lägga till en anslutning** längst upp på bladet.
-4. I den **typen** listrutan, Välj typ av anslutning som du vill skapa. Formuläret visas egenskaperna för den här typen.
+1. Från ditt automation-konto klickar du på den **tillgångar** en del för att öppna den **tillgångar** bladet.
+2. Klicka på den **anslutningar** en del för att öppna den **anslutningar** bladet.
+3. Klicka på **lägga till en anslutning** överst på bladet.
+4. I den **typ** listrutan, Välj typ av anslutning som du vill skapa. Formuläret visar egenskaperna för den här typen.
 5. Fyll i formuläret och klicka på **skapa** att spara den nya anslutningen.
 
-### <a name="to-create-a-new-connection-with-windows-powershell"></a>Skapa en ny anslutning med Windows PowerShell
+### <a name="to-create-a-new-connection-with-windows-powershell"></a>Att skapa en ny anslutning med Windows PowerShell
 
-Skapa en ny anslutning med Windows PowerShell med den [ny AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet. Denna cmdlet har en parameter med namnet **ConnectionFieldValues** som förväntar sig en [hash-tabell](http://technet.microsoft.com/library/hh847780.aspx) Definiera värden för var och en av de egenskaper som definierats av anslutningstypen.
+Skapa en ny anslutning med Windows PowerShell med den [New AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet. Denna cmdlet har en parameter med namnet **ConnectionFieldValues** som förväntar sig en [hash-tabell](http://technet.microsoft.com/library/hh847780.aspx) Definiera värden för var och en av egenskaperna som definierats av anslutningstypen.
 
-Om du är bekant med automatisering [kör som-konto](automation-sec-configure-azure-runas-account.md) för att autentisera runbooks med tjänstens huvudnamn PowerShell-skriptet som tillhandahålls som ett alternativ till att skapa kör som-konto från portalen, skapas en ny anslutning tillgångsinformation med hjälp av följande exempelkommandon.  
+Om du är bekant med Automation [kör som-konto](automation-sec-configure-azure-runas-account.md) för att autentisera runbooks med tjänstens huvudnamn, PowerShell-skriptet som anges som ett alternativ till att skapa kör som-kontot från portalen, skapar en ny anslutning tillgång med följande exempelkommandon.  
 
 ```powershell
 $ConnectionAssetName = "AzureRunAsConnection"
 $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
-New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
+New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-Du kan använda skript för att skapa anslutningen tillgången eftersom när du skapar ditt Automation-konto kan den automatiskt innehåller flera globala moduler som standard tillsammans med anslutningstypen **AzureServicePrincipal** till skapa den **AzureRunAsConnection** anslutningstillgång.  Detta är viktigt att tänka på, eftersom om du försöker skapa en ny anslutningstillgång för att ansluta till en tjänst eller program med en annan autentiseringsmetod det misslyckas eftersom typen inte redan har definierats i Automation-kontot.  Mer information om hur du skapar egna anslutningstypen för anpassad eller modul från den [PowerShell-galleriet](https://www.powershellgallery.com), se [integreringsmoduler](automation-integration-modules.md)
+Du kan använda skript för att skapa anslutningstillgången eftersom när du skapar ditt Automation-konto kan den automatiskt innehåller flera globala modulerna som standard tillsammans med anslutningstypen **AzureServicePrincipal** till skapa den **AzureRunAsConnection** anslutningstillgång.  Detta är viktigt att tänka på, eftersom om du försöker skapa en ny anslutningstillgång för att ansluta till en tjänst eller program med en annan autentiseringsmetod, går det inte eftersom anslutningstypen inte redan har definierats i ditt Automation-konto.  Mer information om hur du skapar dina egna anslutningstyp för din anpassade eller modul från den [PowerShell-galleriet](https://www.powershellgallery.com), se [integreringsmoduler](automation-integration-modules.md)
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Med hjälp av en anslutning i en runbook eller DSC-konfiguration
 
-Du kan hämta en anslutning i en runbook eller DSC-konfigurationen med den **Get-AutomationConnection** cmdlet.  Du kan inte använda den [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Get-AzureRmAutomationConnection?redirectedfrom=msdn) aktivitet.  Den här aktiviteten hämtar värdena för olika fält i anslutningen och returnerar dem som en [hash-tabell](http://go.microsoft.com/fwlink/?LinkID=324844) som sedan kan användas med lämpliga kommandon i runbook eller DSC-konfigurationen.
+Du hämtar en anslutning i en runbook eller DSC-konfiguration med den **Get-AutomationConnection** cmdlet.  Du kan inte använda den [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Get-AzureRmAutomationConnection?redirectedfrom=msdn) aktivitet.  Den här aktiviteten hämtar fältvärdena i olika fält i anslutningen och returnerar dem som en [hash-tabell](http://go.microsoft.com/fwlink/?LinkID=324844) som sedan kan användas med lämpliga kommandon i runbook eller DSC-konfiguration.
 
-### <a name="textual-runbook-sample"></a>Text-runbook-exempel
+### <a name="textual-runbook-sample"></a>Textbaserade runbook-exempel
 
-Följande exempelkommandon visar hur du använder Kör som-kontot tidigare nämnts för att autentisera med Azure Resource Manager-resurser i din runbook.  Den använder anslutningstillgång som representerar det kör som-konto som refererar till certifikatbaserad tjänstens huvudnamn, inte autentiseringsuppgifter.  
+Följande exempelkommandon visar hur du använder Kör som-kontot tidigare nämnda för att autentisera med Azure Resource Manager-resurser i din runbook.  Anslutningstillgången som representerar det kör som-konto som refererar till certifikatbaserad tjänstens huvudnamn, inte autentiseringsuppgifter används.  
 
 ```powershell
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
 Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 ```
 
+> [!IMPORTANT]
+> **Add-AzureRmAccount** är nu ett alias för **Connect-AzureRMAccount**. När sökningen biblioteket objekt, om du inte ser **Connect-AzureRMAccount**, du kan använda **Add-AzureRmAccount**, eller så kan du uppdatera dina moduler i ditt Automation-konto.
+
 ### <a name="graphical-runbook-samples"></a>Grafiska runbook-exempel
 
-Du lägger till en **Get-AutomationConnection** aktivitet till en grafisk runbook genom att högerklicka på anslutningen i rutan bibliotek över grafiska redigerare och välja **Lägg till arbetsytan**.
+Du lägger till en **Get-AutomationConnection** aktivitet för att en grafisk runbook genom att högerklicka på anslutningen i rutan bibliotek över den grafiska redigeraren och välja **Lägg till på ytan**.
 
 ![](media/automation-connections/connection-add-canvas.png)
 
-Följande bild visar ett exempel på hur du använder en anslutning i en grafisk runbook.  Detta är det här exemplet ovan för att autentisera med hjälp av kör som-kontot med text-runbook.  Det här exemplet används den **konstantvärde** datauppsättning för den **hämta RunAs-anslutning** aktivitet som använder ett anslutningsobjekt för autentisering.  En [pipelinelänk](automation-graphical-authoring-intro.md#links-and-workflow) används här eftersom parameteruppsättning ServicePrincipalCertificate förväntar sig ett enskilt objekt.
+Följande bild visar ett exempel på hur du använder en anslutning i en grafisk runbook.  Det här är det här exemplet som visas ovan för att autentisera med hjälp av kör som-konto med en textbaserade runbook.  Det här exemplet används den **konstantvärde** datauppsättning efter den **hämta RunAs-anslutning** aktivitet som använder ett anslutningsobjekt för autentisering.  En [pipelinelänk](automation-graphical-authoring-intro.md#links-and-workflow) kan användas här eftersom parameteruppsättningen ServicePrincipalCertificate förväntar ett enskilt objekt.
 
 ![](media/automation-connections/automation-get-connection-object.png)
 
 ### <a name="python2-runbook-sample"></a>Python2 runbook-exempel
-I följande exempel visas hur du autentiserar med hjälp av kör som-anslutningen i en Python2 runbook.
+I följande exempel visas hur man autentiserar med Kör som-anslutningen i en Python2-runbook.
 
 ```python
 """ Tutorial to show how to authenticate against Azure resource manager resources """
@@ -148,6 +151,6 @@ azure_credential = get_automation_runas_credential(runas_connection)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [länkar i grafiska redigering](automation-graphical-authoring-intro.md#links-and-workflow) att förstå hur du direkt och styr flödet av logiken i dina runbooks.  
+- Granska [länkar i grafisk redigering](automation-graphical-authoring-intro.md#links-and-workflow) vill lära dig att dirigera och styra flödet av logiken i dina runbooks.  
 
-- Mer information om hur Azure Automation använder PowerShell-moduler och bästa praxis för att skapa egna PowerShell-moduler för att fungera som integreringsmoduler i Azure Automation finns [integreringsmoduler](automation-integration-modules.md).  
+- Läs mer om hur Azure Automation använder PowerShell-moduler och bästa praxis för att skapa egna PowerShell-moduler fungerar som integreringsmoduler i Azure Automation i [integreringsmoduler](automation-integration-modules.md).  

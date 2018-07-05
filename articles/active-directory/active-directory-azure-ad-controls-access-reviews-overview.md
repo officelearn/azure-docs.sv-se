@@ -3,23 +3,24 @@ title: Azure AD-åtkomstgranskningar| Microsoft Docs
 description: Du kan kontrollera gruppmedlemskap och programåtkomst så att du följer principer för förvaltning, riskhantering och regelefterlevnad i organisationen genom att använda Azure Active Directory-åtkomstgranskningar.
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/02/2018
 ms.author: rolyon
-ms.openlocfilehash: 31f3ce4ae7915ef463a557a9be60c651acdbabe6
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
-ms.translationtype: HT
+ms.reviewer: mwahl
+ms.openlocfilehash: 0180968d85fffcaf1ee5e224e72864d2ab0511ca
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233279"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446073"
 ---
 # <a name="azure-ad-access-reviews"></a>Azure AD-åtkomstgranskningar
 

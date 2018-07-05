@@ -1,52 +1,52 @@
 ---
-title: REST API-anspråk utbyte som verifiering i Azure Active Directory B2C | Microsoft Docs
-description: Ett avsnitt på Azure Active Directory B2C anpassade principer.
+title: REST API-anspråk utbyten som verifiering i Azure Active Directory B2C | Microsoft Docs
+description: Ett ämne på Azure Active Directory B2C anpassade principer.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2c8b676ffff0f95a0966bfe18ce171de888265b9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b4fda38834782be502e2581b7b3d1097000b07bb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34709180"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440671"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Genomgång: Integrera utbyte av REST API-anspråk i din Azure AD B2C användaren resa som autentiserades på indata från användaren
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Genomgång: Integrera utbyten av REST API-anspråk i din Azure AD B2C-användarresan som verifiering på indata från användaren
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den identitet upplevelse Framework (IEF) för Azure Active Directory B2C det (Azure AD B2C) gör det möjligt för identitet utvecklare att integrera en interaktion med en RESTful-API i en resa för användaren.  
+Den identitet upplevelse Framework (IEF) som ligger till grund Azure Active Directory B2C (Azure AD B2C) gör det möjligt för identity-utvecklare att integrera en interaktion med ett RESTful-API i en användarresa.  
 
-I slutet av den här genomgången kommer du att kunna skapa en Azure AD B2C användaren resa som interagerar med RESTful-tjänster.
+I slutet av den här genomgången kommer du att kunna skapa en Azure AD B2C-användarresa som interagerar med RESTful-tjänster.
 
-IEF skickar data i anspråk och tar emot data tillbaka i anspråk. Interaktion med API:
+IEF skickar data i anspråk och tar emot data i anspråk. Interaktion med API:
 
-- Kan utformas som en REST API anspråk exchange eller verifieringsprofil som görs i ett orchestration-steg.
-- Vanligtvis verifierar indata från användaren. Om värdet från användaren avvisas kan användaren försöka igen att ange ett giltigt värde med möjlighet att returnera ett felmeddelande.
+- Kan utformas som en REST API-anspråksutbytet eller som en verifieringsprofil som sker i orchestration-steg.
+- Vanligtvis verifierar indata från användaren. Om värdet från användaren avvisas, kan användaren försöka igen att ange ett giltigt värde med möjlighet att returnera ett felmeddelande.
 
-Du kan också utforma interaktionen som ett orchestration-steg. Mer information finns i [genomgång: integrera REST API-anspråk utbyte i din Azure AD B2C användaren resa som ett orchestration-steg](active-directory-b2c-rest-api-step-custom.md).
+Du kan också utforma interaktion som ett orchestration-steg. Mer information finns i [genomgång: integrera REST API-anspråk Utbytena i din Azure AD B2C-användarresa som ett orchestration-steg](active-directory-b2c-rest-api-step-custom.md).
 
-Exempelvis den verifiering profil använder vi profil Redigera användare resa i pack startfil ProfileEdit.xml.
+Exempelvis den verifiering profil använder vi profilen redigera användarresa i pack startfil ProfileEdit.xml.
 
-Vi kan kontrollera att namnet som användaren i profilen Redigera inte är en del av en undantagslista.
+Vi kan kontrollera att namnet anges av användaren i profilredigering inte är en del av en undantagslista.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure AD B2C-klient som konfigurerats för att slutföra ett lokalt konto sign-upp/inloggning, enligt beskrivningen i [komma igång](active-directory-b2c-get-started-custom.md).
-- En REST API-slutpunkt kan interagera med. Den här genomgången vi har konfigurerat en demo-webbplatsen som heter [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) med en REST API-tjänst.
+- En Azure AD B2C-klient som konfigurerats för att slutföra ett lokalt konto registrerings-registreringen/inloggning, enligt beskrivningen i [komma igång](active-directory-b2c-get-started-custom.md).
+- En REST API-slutpunkt för att interagera med. Den här genomgången ska vi har konfigurerat en demo-webbplatsen som heter [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) med en REST API-tjänst.
 
 ## <a name="step-1-prepare-the-rest-api-function"></a>Steg 1: Förbered REST API-funktion
 
 > [!NOTE]
-> Installationen av REST API-funktioner som ligger utanför omfånget för den här artikeln. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) ger en utmärkt toolkit för att skapa RESTful-tjänster i molnet.
+> Installationen av REST API-funktioner inte omfattas av den här artikeln. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) tillhandahåller en utmärkt toolkit för att skapa RESTful-tjänster i molnet.
 
-Vi har skapat en Azure-funktion som tar emot ett anspråk som den förväntas som `playerTag`. Funktionen verifierar om detta anspråk finns. Du har åtkomst till fullständig Azure Funktionskoden i [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+Vi har skapat en Azure-funktion som tar emot ett anspråk som det förväntar sig som `playerTag`. Funktionen kontrollerar om det här kravet finns. Du kan komma åt fullständig Azure function-koden i [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
 ```csharp
 if (requestContentAsJObject.playerTag == null)
@@ -73,14 +73,14 @@ if (playerTag == "mcvinny" || playerTag == "msgates123" || playerTag == "revcott
 return request.CreateResponse(HttpStatusCode.OK);
 ```
 
-IEF förväntar sig den `userMessage` anspråk som returnerar funktionen Azure. Det här anspråket visas som en sträng till användaren om valideringen misslyckas, till exempel när status 409 konflikt returneras i föregående exempel.
+IEF förväntar sig den `userMessage` anspråk som Azure function returnerar. Det här anspråket visas igen som en sträng till användaren om verifieringen misslyckas, till exempel när statusen 409 konflikt returneras i föregående exempel.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Steg 2: Konfigurera exchange för RESTful-API-anspråk som en teknisk profil i filen TrustFrameworkExtensions.xml
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Steg 2: Konfigurera anspråksutbytet RESTful-API som en tekniska profil i filen TrustFrameworkExtensions.xml
 
-En teknisk profil är den fullständiga konfigurationen av exchange önskad med RESTful-tjänsten. Öppna filen TrustFrameworkExtensions.xml och Lägg till följande XML-kodstycke i den `<ClaimsProviders>` element.
+Tekniska profilen är fullständig konfiguration av exchange som önskas med RESTful-tjänst. Öppna filen TrustFrameworkExtensions.xml och Lägg till följande XML-kodstycke i den `<ClaimsProviders>` element.
 
 > [!NOTE]
-> I följande XML RESTful-providern `Version=1.0.0.0` beskrivs som protokoll. Överväg att som den funktion som ska interagera med externa-tjänsten. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
+> I följande XML, RESTful-providern `Version=1.0.0.0` beskrivs som protokoll. Överväg att som den funktion som kommer att interagera med den externa tjänsten. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
 
 ```xml
 <ClaimsProvider>
@@ -108,26 +108,26 @@ En teknisk profil är den fullständiga konfigurationen av exchange önskad med 
 </ClaimsProvider>
 ```
 
-Den `InputClaims` elementet definierar vilka anspråk som skickas från IEF REST-tjänst. I det här exemplet innehållet i anspråket `givenName` kommer att skickas till REST-tjänst som `playerTag`. I detta exempel förväntar på IEF sig inte anspråk tillbaka. I stället väntar på svar från REST-tjänst och åtgärder baserat på statuskoder som tas emot.
+Den `InputClaims` elementet definierar vilka anspråk som skickas från IEF till REST-tjänst. I det här exemplet innehållet i anspråket `givenName` kommer att skickas till REST-tjänst som `playerTag`. I det här exemplet på IEF förväntar sig inte anspråk tillbaka. I stället väntar det på svar från REST-tjänst och åtgärder baserat på de statuskoder som den tar emot.
 
-## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>Steg 3: Inkludera RESTful-tjänst anspråk exchange i själva uppgavs tekniska profil där du vill verifiera användardata
+## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>Steg 3: Inkludera anspråksutbytet RESTful-tjänst i självkontrollerad tekniska profil där du vill verifiera användardata
 
-De vanligaste används steget verifiering i interaktion med användaren. All interaktion där användaren förväntas ge indata är *själva vars tekniska profiler*. I det här exemplet ska vi lägga till valideringen oberoende Asserted ProfileUpdate tekniska profilen. Det här är tekniska profil som förlitande part (RP) principfilen `Profile Edit` använder.
+Den vanligaste tillämpningen stegets verifiering är i interaktionen med en användare. All interaktion där användaren förväntas som indata är *lokal verifieringsvillkor tekniska profiler*. I det här exemplet vi lägger till verifieringen av den tekniska profilen Klientportal Asserted ProfileUpdate. Det här är tekniska profil som förlitande part (RP) principfilen `Profile Edit` använder.
 
-Lägga till anspråk exchange till själva uppgavs tekniska profilen:
+Lägga till anspråksutbytet självkontrollerad tekniska profil:
 
 1. Öppna filen TrustFrameworkBase.xml och Sök efter `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
-2. Granska konfigurationen av den här tekniska profilen. Se hur exchange med användaren har definierats som anspråk som blir ombedd av användaren (inkommande anspråk) och anspråk som förväntas från själva uppgavs providern (utgående anspråk).
-3. Sök efter `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`, och Lägg märke till att den här profilen anropas som orchestration-steg 4 i `<UserJourney Id="ProfileEdit">`.
+2. Granska konfigurationen av den här tekniska profilen. Se hur exchange med användaren som har definierats som anspråk som blir ombedd av användaren (inkommande anspråk) och anspråk som kommer att förväntas från självkontrollerad providern (utgående anspråk).
+3. Sök efter `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`, och Lägg märke till att den här profilen har anropats som orchestration-steg 4 för `<UserJourney Id="ProfileEdit">`.
 
-## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Steg 4: Överför och testa redigera RP princip profilfilen
+## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Steg 4: Ladda upp och testa principfilen som profilen redigera RP
 
 1. Ladda upp den nya versionen av filen TrustFrameworkExtensions.xml.
-2. Använd **kör nu** att testa profilen redigera RP principfilen.
-3. Testa verifieringen genom att tillhandahålla en av de befintliga (till exempel mcvinny) i den **Förnamn** fältet. Om allt är korrekt konfigurerat, kan du bör få ett meddelande som meddelar användaren att taggen player används redan.
+2. Använd **kör nu** att testa profilen redigera RP-principfil.
+3. Testa verifieringen genom att ange någon av de befintliga (till exempel mcvinny) i den **Förnamn** fält. Om allt är korrekt konfigurerad, bör du få ett meddelande som meddelar användaren att taggen player används redan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Ändra profil redigera och användaren registrering för att samla in ytterligare information från användarna](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+[Ändra profil redigerings- och registreringen för att samla in ytterligare information från användarna](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 
-[Genomgång: Integrera utbyte av REST API-anspråk i din Azure AD B2C användaren resa som ett orchestration-steg](active-directory-b2c-rest-api-step-custom.md)
+[Genomgång: Integrera utbyten av REST API-anspråk i din Azure AD B2C-användarresan som ett orchestration-steg](active-directory-b2c-rest-api-step-custom.md)

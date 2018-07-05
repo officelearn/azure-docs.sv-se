@@ -1,68 +1,68 @@
 ---
-title: Konfigurera resurs ägare lösenord autentiseringsuppgifter flödet i Azure Active Directory B2C | Microsoft Docs
-description: Lär dig hur du konfigurerar resurs ägare lösenord autentiseringsuppgifter flödet i Azure AD B2C.
+title: Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azure Active Directory B2C | Microsoft Docs
+description: Lär dig hur du konfigurerar resursägarens lösenord autentiseringsuppgifter flöde i Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 073af4a57d55eb8b2f3608482159b57c7b408f3b
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 5d68f8fe28b7f029d19a0ed0c03e5324c32f29c0
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102752"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446817"
 ---
-# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera resurs ägare lösenord autentiseringsuppgifter flödet i Azure AD B2C
+# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azure AD B2C
 
-Flödet resurs ägare lösenord autentiseringsuppgifter (ROPC) är ett OAuth standardautentisering flöde där programmet, även kallat den förlitande parten utbyten giltiga autentiseringsuppgifter, till exempel användar-ID och lösenord för en ID-token, åtkomst-token och en uppdateringstoken. 
+Resursägarens lösenord autentiseringsuppgifter (ROPC) flöde är en flöde för OAuth-standardautentisering där programmet, även kallat den förlitande parten, utbyter giltiga autentiseringsuppgifter, till exempel användar-ID och lösenord för ett ID-token, åtkomst-token och en uppdateringstoken. 
 
 > [!NOTE]
 > Den här funktionen är en förhandsversion.
 
-I Azure Active Directory (AD Azure) B2C stöds följande alternativ:
+I Azure Active Directory (Azure AD) B2C stöds följande alternativ:
 
-- **Native Client**: användarinteraktion under autentiseringen sker när koden körs på en enhet för användaren på klientsidan. Enheten kan vara ett mobilt program som körs i ett operativsystem, till exempel Android, eller som körs i en webbläsare, till exempel JavaScript.
-- **Offentliga flödet**: endast användarautentiseringsuppgifter, samlas in av ett program, skickas i API-anrop. Autentiseringsuppgifterna för programmet skickas inte.
-- **Lägga till nya anspråk**: ID-token innehållet kan ändras om du vill lägga till nya anspråk. 
+- **Native Client**: interaktion från användaren under autentiseringen sker när koden körs på en enhet för användaren sida. Enheten kan vara ett mobilt program som körs i ett operativsystem, till exempel Android, eller körs i en webbläsare, till exempel JavaScript.
+- **Offentliga klientflödet**: endast användarens autentiseringsuppgifter, samlas in av ett program, skickas i API-anrop. Autentiseringsuppgifterna för programmet skickas inte.
+- **Lägga till nya anspråk**: ID-token innehållet kan ändras för att lägga till nya anspråk. 
 
-Följande flödena stöds inte:
+Följande flöden stöds inte:
 
-- **Server-till-server**: skydd identitetssystem måste en tillförlitlig IP-adress som samlats in från anroparen (native client) som en del av interaktionen. I ett API-anrop för serversidan används bara serverns IP-adress. Om en dynamiskt tröskelvärde för misslyckad har överskridits kan skydd identitetssystem identifiera en IP-adress med upprepade som en angripare.
-- **Konfidentiell flödet**: programmet klient-ID har verifierats, men hemligheten som programmet har inte verifierats.
+- **Server-till-server**: identity protection systemet behöver en tillförlitlig IP-adress som samlats in från anroparen (intern klient) som en del av interaktionen. I ett API-anrop för serversidan används bara serverns IP-adress. Om ett dynamiskt tröskelvärde för misslyckade autentiseringar överskrids kan identity protection systemet identifiera en upprepad IP-adress som en angripare.
+- **Konfidentiellt klientflödet**: programmets klient-ID har verifierats, men programhemlighet har inte verifierats.
 
 ##  <a name="create-a-resource-owner-policy"></a>Skapa en princip för resurs-ägare
 
-1. Logga in på Azure-portalen som global administratör för din Azure AD B2C-klient.
-2. Om du vill växla till din Azure AD B2C-klient, Välj B2C-katalogen i övre högra hörnet av portalen.
-3. Under **principer**väljer **resursägare principer**.
-4. Ange ett namn för principen som *ROPC_Auth*, och välj sedan **Programanspråk**.
-5. Välj programmet anspråk som du behöver för ditt program som *visningsnamn*, *e-postadress*, och *identitetsleverantör*.
+1. Logga in på Azure Portal som global administratör för din Azure AD B2C-klient.
+2. Om du vill växla till din Azure AD B2C-klient, väljer du B2C-katalogen i det övre högra hörnet i portalen.
+3. Under **principer**väljer **Resursägaren principer**.
+4. Ange ett namn för principen, till exempel *ROPC_Auth*, och välj sedan **Programanspråk**.
+5. Välj Programanspråk som du behöver för ditt program, till exempel *visningsnamn*, *e-postadress*, och *identitetsprovider*.
 6. Välj **OK** och sedan **Skapa**.
 
-   En slutpunkt som det här exemplet visas sedan:
+   Du ser därefter en slutpunkt som det här exemplet:
 
    `https://login.microsoftonline.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_ROPC_Auth`
 
 
 ## <a name="register-an-application"></a>Registrera ett program
 
-1. Välj i B2C-inställningar **program**, och välj sedan **Lägg till**.
+1. I B2C-inställningar, väljer **program**, och välj sedan **Lägg till**.
 2. Ange ett namn för programmet, till exempel *ROPC_Auth_app*.
 3. Välj **nr** för **Web App/Web API**, och välj sedan **Ja** för **Native client**.
-4. Lämna alla värden som de är och välj sedan **skapa**.
-5. Markera det nya programmet och notera det program-ID för senare användning.
+4. Lämna övriga värden som de är och välj sedan **skapa**.
+5. Välj det nya programmet och notera program-ID för senare användning.
 
 ## <a name="test-the-policy"></a>Testa principen
 
-Använd din favorit-API-utveckling program för att generera ett API-anrop och granska svaret för att felsöka principen. Skapa ett anrop så här med informationen i följande tabell som en del av POST-begäran:
+Använd din favorit-API-program för utveckling för att generera ett API-anrop och granska svaret för att felsöka din princip. Skapa ett anrop som det här med informationen i följande tabell som en del av POST-begäran:
 - Ersätt  *\<yourtenant.onmicrosoft.com >* med namnet på din B2C-klient.
 - Ersätt  *\<B2C_1A_ROPC_Auth >* med det fullständiga namnet på din resurs ägare autentiseringsuppgifter lösenordsprincip.
-- Ersätt  *\<bef2222d56 552f-4a5b-b90a-1988a7d634c3 >* med program-ID från din registrering.
+- Ersätt  *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3 >* med program-ID från din registrering.
 
 `https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
 
@@ -70,14 +70,14 @@ Använd din favorit-API-utveckling program för att generera ett API-anrop och g
 | --- | ----- |
 | användarnamn | leadiocl@outlook.com |
 | lösenord | Passxword1 |
-| grant_type | lösenord |
-| omfång | openid \<bef2222d56 552f-4a5b-b90a-1988a7d634c3 > offline_access |
-| client_id | \<bef2222d56 552f-4a5b-b90a-1988a7d634c3 > |
+| _typ av beviljande | lösenord |
+| omfång | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
 | response_type | token id_token |
 
-*Client_id* är det värde som du antecknade tidigare som program-ID. *Offline_access* är valfritt om du vill få en uppdateringstoken. 
+*Client_id* är det värde som du antecknade tidigare som program-ID *Offline_access* är valfritt om du vill få en uppdateringstoken. 
 
-Den faktiska POST-begäranden som ser ut som följande:
+Den faktiska POST-begäran som ser ut som följande:
 
 ```
 POST /yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
@@ -88,7 +88,7 @@ username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=o
 ```
 
 
-Ett lyckat svar med offline-åtkomst som ser ut som i följande exempel:
+Ett lyckat svar med offlineåtkomst ser ut som i följande exempel:
 
 ```
 { 
@@ -102,25 +102,25 @@ Ett lyckat svar med offline-åtkomst som ser ut som i följande exempel:
 
 ## <a name="redeem-a-refresh-token"></a>Lösa in en uppdateringstoken
 
-Skapa en POST-anrop som det visas här med informationen i följande tabell som en del av begäran:
+Skapa en POST-anrop som den som visas här med informationen i följande tabell som en del av begäran:
 
 `https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
 
 | Nyckel | Värde |
 | --- | ----- |
-| grant_type | refresh_token |
+| _typ av beviljande | refresh_token |
 | response_type | id_token |
-| client_id | \<bef2222d56 552f-4a5b-b90a-1988a7d634c3 > |
-| resurs | \<bef2222d56 552f-4a5b-b90a-1988a7d634c3 > |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
+| resurs | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
-*Client_id* och *resurs* är de värden som du antecknade tidigare som program-ID. *Refresh_token* är token som du fick i authentication-samtal som tidigare nämnts.
+*Client_id* och *resource* är de värden som du antecknade tidigare som program-ID *Refresh_token* är token som du fick i authentication-samtal som tidigare nämnts.
 
-## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementera din önskade intern SDK eller använda App-autentisering
+## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementera med dina önskade intern SDK eller använda App Auth
 
-Azure AD B2C-implementeringen uppfyller OAuth 2.0-standarder för lösenordsinformation för offentliga klienten resurs-ägare och ska vara kompatibla med de flesta SDK-klienten. Vi har testat det här flödet i stor utsträckning, i produktion med AppAuth för iOS och AppAuth för Android. Den senaste informationen finns [inbyggd App SDK för OAuth 2.0 och OpenID Connect implementera moderna metodtips](https://appauth.io/).
+Azure AD B2C-implementeringen uppfyller OAuth 2.0-standarder för lösenord-autentiseringsuppgifterna för offentlig klient-ägare och bör vara kompatibla med de flesta klient-SDK: er. Vi har testat det här flödet i stor utsträckning, i produktion med AppAuth för iOS och AppAuth för Android. Den senaste informationen finns i [inbyggd App-SDK för OAuth 2.0 och OpenID Connect implementera moderna metodtips](https://appauth.io/).
 
-Hämta exempel som fungerar som har konfigurerats för användning med Azure AD B2C från GitHub, [för Android](https://aka.ms/aadb2cappauthropc) och [för iOS](https://aka.ms/aadb2ciosappauthropc).
+Ladda ned fungerande exempel som har konfigurerats för användning med Azure AD B2C från GitHub, [för Android](https://aka.ms/aadb2cappauthropc) och [för iOS](https://aka.ms/aadb2ciosappauthropc).
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Översikt över säkerheten i Azure service fabric | Microsoft Docs
+title: Säkerhetsöversikt för Azure Service Fabric | Microsoft Docs
 description: Den här artikeln innehåller en översikt över Azure Service Fabric-säkerhet.
 services: security
 documentationcenter: na
@@ -14,182 +14,146 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 19e4e55c4bd63e5d7a9ef6ea3b0bf6ae63f929d5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 629b6fba9ced5fa2ccf22f473fe25c87d1cc4818
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895671"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436818"
 ---
-# <a name="azure-service-fabric-security-overview"></a>Översikt över säkerheten i Azure Service Fabric
-[Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) är en plattform för distribuerade system som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster. Service Fabric löser betydande problem för utveckling och hantering av molnprogram. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara.
+# <a name="azure-service-fabric-security-overview"></a>Säkerhetsöversikt för Azure Service Fabric
+[Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster. Service Fabric hanterar utmaningarna i att utveckla och hantera molnprogram. Utvecklare och administratörer kan undvika komplicerade infrastrukturproblem och fokusera på att implementera verksamhetskritiska och krävande arbetsbelastningar som är skalbara och tillförlitliga.
 
-Den här Azure Service Fabric-säkerhet översiktsartikeln fokuserar på följande områden:
-
--   Skydda ditt kluster
--   Förstå övervakning och diagnostik
--   Skapa säkrare miljöer med hjälp av certifikat
--   Använda rollbaserad åtkomstkontroll (RBAC)
--   Skydda kluster med hjälp av Windows-säkerhet
--   Konfigurera programsäkerhet i Service Fabric
--   Säker kommunikation för tjänster i Azure Service Fabric 
+Den här artikeln är en översikt över säkerhetsaspekter för en Service Fabric-distribution.
 
 ## <a name="secure-your-cluster"></a>Säkra ditt kluster
-Azure Service Fabric samordnar tjänster i ett kluster på datorer. Kluster måste skyddas för att förhindra att obehöriga användare från att ansluta till dem, särskilt när de kör produktionsarbetsbelastningar. Även om det är möjligt att skapa ett oskyddat kluster, kan detta att anonyma användare kan ansluta till den (om det visar hanteringsslutpunkter till internet).
+Azure Service Fabric dirigerar tjänster i ett kluster med datorer. Kluster måste skyddas för att förhindra att obehöriga användare från att ansluta till dem, särskilt när de kör produktionsarbetsbelastningar. Även om det är möjligt att skapa ett oskyddat kluster, kan det att anonyma användare att ansluta till klustret (om den exponerar hanteringsslutpunkter till det offentliga internet).
 
-Det här avsnittet innehåller en översikt över säkerhetsscenarier för kluster som kör antingen fristående eller i Azure. Här beskrivs också de olika tekniker som används för att implementera de scenarierna. Säkerhetsscenarier för klustret är:
+För kluster som kör antingen fristående eller i Azure finns två scenarier för att tänka på nod till nod-säkerhet och klient-till-nod-säkerhet. Du kan använda olika tekniker för att implementera dessa scenarier.
 
--   Säkerhet för nod till nod
--   Klient-till-nod-säkerhet
+### <a name="node-to-node-security"></a>Nod-till-nod-säkerhet
+Nod-till-nod-säkerhet gäller för kommunikation mellan virtuella datorer eller datorer i ett kluster. Med nod-till-nod-säkerhet, kan endast datorer som har behörighet att ansluta till klustret delta i som är värd för program och tjänster i klustret.
 
-### <a name="node-to-node-security"></a>Säkerhet för nod till nod
-Nod till nod säkerhet skyddar kommunikationen mellan virtuella datorer eller datorer i ett kluster. Bara datorer som har behörighet att ansluta till klustret kan delta i värd för program och tjänster i klustret med nod till noden säkerhet.
+Kluster som körs på Azure eller fristående kluster som körs på Windows kan använda antingen [certifikat security](https://msdn.microsoft.com/library/ff649801.aspx) eller [Windows security](https://msdn.microsoft.com/library/ff649396.aspx) för Windows Server-datorer.
 
-Kluster som körs på Azure eller fristående kluster som körs på Windows kan använda antingen [certifikat säkerhet](https://msdn.microsoft.com/library/ff649801.aspx) eller [Windows-säkerhet](https://msdn.microsoft.com/library/ff649396.aspx) för Windows Server-datorer.
+#### <a name="node-to-node-certificate-security"></a>För nod-till-nod-Certifikatsäkerhet
 
-**Förstå nod till nod Certifikatsäkerhet**
+Service Fabric använder X.509-servercertifikat som du anger när du skapar ett kluster. En snabb överblick över vad de här certifikaten är och hur du kan hämta eller skapa dem, se [arbeta med certifikat](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates).
 
-Service Fabric använder X.509-servercertifikat som du anger när du skapar ett kluster. En snabb överblick över dessa certifikat är och hur du kan hämta eller skapa dem finns [arbetar med certifikat](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates).
-
-Du konfigurerar Certifikatsäkerhet när du skapar klustret, antingen via Azure-portalen, Azure Resource Manager-mallar eller en fristående JSON-mall. Du kan ange ett certifikat för primär och en valfri sekundärt certifikat som används för certifikatet överrullningar. De primära och sekundära certifikat som du anger bör vara ett annat än administratörsklient och skrivskyddad klientcertifikat som du anger för [klient-till-nod säkerhet](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
+Du kan konfigurera Certifikatsäkerhet när du skapar kluster via Azure portal, Azure Resource Manager-mallar eller en fristående JSON-mall. Du kan ange ett certifikat för primär och en valfri sekundärt certifikat som används för certifikatet överrullningar. De primära och sekundära certifikat som du anger ska skilja sig från admin-klienten och skrivskyddade klientcertifikat som du anger för [klient-till-nod-säkerhet](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
 
 ### <a name="client-to-node-security"></a>Klient-till-nod-säkerhet
-Du kan konfigurera säkerhet för klient-till-nod med hjälp av klienten identiteter. För att upprätta förtroende mellan en klient och ett kluster, måste du konfigurera klustret så att du vet vilken klient identiteter som den kan lita på. Detta kan göras på två olika sätt:
+Du konfigurerar klient-till-nod-säkerhet med hjälp av identiteter för klienten. För att upprätta förtroende mellan en klient och ett kluster, måste du konfigurera klustret om du vill veta vilken klient identiteter som den kan lita på.
 
--   Ange de gruppanvändare som kan ansluta. 
--   Ange nod domänanvändare som kan ansluta.
+Service Fabric stöder två typer av åtkomstkontroll för klienter som är anslutna till ett Service Fabric-kluster:
 
-Service Fabric stöder två typer av olika åtkomstkontroll för klienter som är anslutna till ett Service Fabric-kluster:
+-   **Administratören**: fullständig åtkomst till funktioner för hantering, inklusive Läs-och skrivbehörighet.
+-   **Användaren**: endast läsbehörighet till funktioner för hantering (till exempel frågefunktioner) och möjligheten att lösa program och tjänster.
 
--   Administratör
--   Användare
+Klusteradministratörer kan begränsa åtkomsten till vissa typer av klusteråtgärder med hjälp av åtkomstkontroll. På så sätt blir klustret säkrare.
 
-Med hjälp av åtkomstkontroll kan klusteradministratörer begränsa åtkomsten till vissa typer av klusteråtgärder. Detta gör att klustret är säkrare.
+#### <a name="client-to-node-certificate-security"></a>För klient-till-nod-Certifikatsäkerhet
 
- Administratörer har fullständig åtkomst till funktioner för hantering (inklusive funktioner för läsning och skrivning). Användare, har som standard bara läsbehörighet till funktioner för hantering (till exempel frågefunktioner) och möjligheten att lösa program och tjänster.
+Du kan konfigurera för klient-till-nod-Certifikatsäkerhet när du skapar ett kluster via Azure portal, Resource Manager-mallar eller en fristående JSON-mall. Du måste ange ett klientcertifikat för administratör och/eller ett klientcertifikat. Kontrollera att certifikaten skiljer sig från de primära och sekundära certifikat som du anger för nod-till-nod-säkerhet.
 
-**Förstå säkerheten för klient-till-nod-certifikat**
+Klienter som ansluter till klustret med hjälp av admin-certifikatet har fullständig åtkomst till funktioner för hantering. Klienter som ansluter till klustret med hjälp av klientcertifikatet skrivskyddad användare har bara läsbehörighet till hanteringsfunktioner. Med andra ord används dessa certifikat för rollbaserad åtkomstkontroll (RBAC).
 
-Du kan konfigurera Certifikatsäkerhet för klient-till-nod när du skapar ett kluster via Azure portal, Resource Manager-mallar eller en fristående JSON-mall. Du måste ange ett klientcertifikat för admin och/eller ett klientcertifikat. 
+Läs hur du konfigurerar certifikat säkerheten i ett kluster i [konfigurera ett kluster med hjälp av en Azure Resource Manager-mall](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm).
 
-Admin klient- och klientcertifikat som du anger måste skilja sig från de primära och sekundära certifikat som du anger för nod till nod säkerhet.
+#### <a name="client-to-node-azure-active-directory-security"></a>Azure Active Directory-säkerhetsgrupp för klient-till-nod
 
-Klienter som ansluter till klustret med hjälp av admin-certifikatet har fullständig åtkomst till hanteringsmöjligheter. Klienter som ansluter till klustret med hjälp av klientcertifikatet skrivskyddade användaren har läsbehörighet till hanteringsmöjligheter. Med andra ord används dessa certifikat för RBAC.
+Kluster som körs på Azure kan även skydda åtkomst till management-slutpunkter med hjälp av Azure Active Directory (AD Azure). Information om hur du skapar nödvändiga Azure Active Directory-artefakter, hur du fylla dem när klustret skapas och hur du ansluter till dessa kluster finns i [konfigurera ett kluster med hjälp av en Azure Resource Manager-mall](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm).
 
-Information om hur du konfigurerar Certifikatsäkerhet i ett kluster, se [ställer in ett kluster med en Azure Resource Manager-mall](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm).
+Azure AD kan organisationer (kallas även klienter) för att hantera åtkomst till program. Det finns program med en webbaserad inloggning användargränssnitt och program med en intern klient-upplevelse.
 
-**Förstå klient-till-nod Azure Active Directory-säkerhet på Azure**
+Service Fabric-kluster erbjuder flera startpunkter för dess hanteringsfunktioner, inklusive webbaserade Service Fabric Explorer och Visual Studio. Därför kan du skapa två Azure AD-program för att styra åtkomsten till klustret: ett webbprogram och ett internt program.
 
-Kluster som körs på Azure kan också säker åtkomst till management-slutpunkter med hjälp av Azure Active Directory (AD Azure). Information om hur du skapar nödvändiga Azure Active Directory-artefakter, hur du fylla i dem när klustret skapas och hur du ansluter till dessa kluster finns i [ställer in ett kluster med en Azure Resource Manager-mall](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm).
+Azure-kluster kan rekommenderar vi att du använder Azure AD-säkerhetsgrupper för att autentisera klienter och certifikat för nod-till-nod-säkerhet.
 
-Azure AD kan organisationer (kallas även klienter) för att hantera användarnas åtkomst till program. Det finns program med en webbaserad inloggning användargränssnitt och program med en native client-upplevelse.
+För fristående Windows Server-kluster med Windows Server 2012 R2 och Active Directory rekommenderar vi att du använder Windows-säkerhet med grupphanterade tjänstkonton (gMSAs). Annars kan du använda Windows-säkerhet med Windows-konton.
 
-Ett Service Fabric-kluster erbjuder flera startpunkter till dess hanteringsfunktioner, inklusive webbaserade Service Fabric Explorer och Visual Studio. Därför kan du skapa två Azure AD-program för att styra åtkomsten till klustret: ett webbprogram och en programspecifika.
-
-För Azure kluster rekommenderar vi att du använder Azure AD-säkerhetsgrupp för att autentisera klienter och certifikat för nod till nod säkerhet.
-
-För fristående Windows Server-kluster med Windows Server 2012 R2 och Active Directory rekommenderar vi att du använder Windows-säkerhet med hanterade konton.  Annars använder du Windows-säkerhet med Windows-konton.
-
-## <a name="understand-monitoring-and-diagnostics-in-azure-service-fabric"></a>Förstå övervakning och diagnostik i Azure Service Fabric
-[Övervaknings- och diagnostikfunktionerna](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview) är viktigt att utveckla, testa och distribuera program och tjänster i en miljö. Service Fabric-lösningar som fungerar bäst när du implementerar övervakning och diagnostik för att säkerställa att program och tjänster fungerar som förväntat i en miljö för lokal utveckling eller i produktion.
+## <a name="understand-monitoring-and-diagnostics-in-service-fabric"></a>Förstå övervakning och diagnostik i Service Fabric
+[Övervakning och diagnostik](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview) är viktiga för att utveckla, testa och distribuera program och tjänster i alla miljöer. Service Fabric lösningar fungerar bäst när du implementerar övervakning och diagnostik så att program och tjänster fungerar som förväntat i en lokal utvecklingsmiljö eller i produktion.
 
 Från ett säkerhetsperspektiv är de huvudsakliga målen med övervakning och diagnostik
 
--   Identifiera och diagnostisera problem med maskinvaran och infrastrukturen som kan orsakas av en säkerhetshändelse.
--   Identifiera problem med programvara och appar som kan vara en indikator för kompromettering (IoC).
--   Förstå resursanvändningen för att förhindra oavsiktlig DOS-attacker.
+-   Identifiera och diagnostisera problem med maskinvara och infrastruktur som kan orsakas av en säkerhetshändelse.
+-   Identifiera programvara och app-problem som kan vara ett tecken på kompromettering (IoC).
+-   Förstå resursförbrukning för att förhindra oavsiktlig DOS-attack.
 
-Det totala arbetsflödet för övervakning och diagnostik består av tre steg:
+Arbetsflöde för övervakning och diagnostik består av tre steg:
 
--   **Händelsegenerering:** händelsegenerering innefattar händelser (loggar, spårningar, anpassade händelser) på både infrastruktur (kluster) och program/tjänst-nivå. Läs mer om [infrastrukturnivå händelser](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) och [på programnivå händelser](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) att förstå vad som tillhandahålls och hur du lägger till ytterligare instrumentation.
+1.  **Händelsegenerering**: händelsegenerering inkluderar händelser (loggar, spårningar, anpassade händelser) på både infrastrukturnivå (kluster) och program/tjänst-nivå. Läs mer om [infrastrukturnivå händelser](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) och [händelser på programnivå](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) att förstå vad som tillhandahålls och hur du lägger till ytterligare instrumentation.
 
--   **Händelsen aggregering:** Generated händelser behöver samlas in och sammanställs innan de kan visas. Vi rekommenderar vanligtvis använder [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (liknar agent-baserade Logginsamling) eller [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (pågående Logginsamling).
+2.  **Händelsen aggregering**: händelser som genereras behöver samlas in och sammanställs innan de kan visas. Bör du vanligtvis använda [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (liknar agentbaserad Logginsamling) eller [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (pågående Logginsamling).
 
--   **Analys:** händelser måste vara visualiserade och tillgänglig i vissa format för analys och visa. Det finns flera plattformar för analys och visualisering av data för övervakning och diagnostik. De två rekommenderar vi är [logganalys](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) och [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) på grund av deras bra integrering med Service Fabric.
+3.  **Analysis**: händelser måste vara visualiserade och är tillgänglig i vissa format, för analys och visning. Det finns flera plattformar för analys och visualisering av data för övervakning och diagnostik. Vi rekommenderar att [Azure Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) och [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) eftersom de kan integreras även med Service Fabric.
 
-Du kan också använda [Azure-Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) att övervaka många av de Azure-resurser som en Service Fabric-klustret har skapats.
+Du kan också använda [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) att övervaka många av de Azure-resurser som Service Fabric-kluster har skapats.
 
-En watchdog är en separat tjänst som kan titta på hälsa, läsa in tjänster och rapportera hälsa för något i hierarkin hälsa modellen. Med hjälp av en watchdog kan du förhindra fel som inte skulle kunna identifieras baserat på vyn för en enskild tjänst. 
+En watchdog är en separat tjänst som kan titta på hälsotillståndet och läsa in i tjänster och rapporten hälsotillstånd för vad som helst i hierarkin hälsotillstånd modellen. Med hjälp av en watchdog kan du förhindra fel som inte skulle kunna identifieras baserat på vyn för en enskild tjänst. 
 
-Watchdogs är också bra att värd-kod som utför vidtar åtgärder utan interaktion från användaren (t.ex, rensa loggfiler i lagring vid vissa intervall). Du kan hitta exempel watchdog service genomförandet på [Azure Service Fabric watchdog exempel](https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/).
+Watchdogs är också ett bra ställe att värdhantera kod som utför korrigerande åtgärder utan användaråtgärder. Ett exempel rensa loggfiler i storage vid visst tidsintervall. Du hittar en exemplet watchdog implementering på [Azure Service Fabric watchdog exempel](https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/).
 
-## <a name="understand-how-to-secure-communication-by-using-certificates"></a>Förstå hur för säker kommunikation med hjälp av certifikat
-Certifikat för att skydda kommunikationen mellan olika noder för din fristående Windows-kluster. Du kan autentisera klienter som ansluter till det här klustret med hjälp av X.509-certifikat. Detta säkerställer att endast behöriga användare har åtkomst till klustret. Vi rekommenderar att du aktiverar ett certifikat på klustret när du skapar den.
+## <a name="secure-communication-by-using-certificates"></a>Säker kommunikation med hjälp av certifikat
+Certifikat för att skydda kommunikationen mellan de olika noderna i ditt fristående Windows-kluster. Du kan också autentisera klienter som ansluter till det här klustret genom att använda X.509-certifikat. Detta säkerställer att endast behöriga användare har åtkomst till klustret. Vi rekommenderar att du aktiverar ett certifikat på klustret när du skapar den.
 
-### <a name="x509-certificates-and-service-fabric"></a>X.509-certifikat och Service Fabric
-Digitala X.509-certifikat används ofta för att autentisera klienter och servrar. De används också för att kryptera och digitalt signera meddelanden.
+Digitala X.509-certifikat används ofta för att autentisera klienter och servrar. De också används för att kryptera och digitalt signera meddelanden.
 
 I följande tabell visas de certifikat som du behöver på din konfiguration:
 
 |Inställning för certifikat |Beskrivning|
 |-------------------------------|-----------|
-|ClusterCertificate|    Detta certifikat krävs för att skydda kommunikationen mellan noder i ett kluster. Du kan använda två olika certifikat: ett certifikat för primär och sekundär för uppgradering.|
-|ServerCertificate| Det här certifikatet visas till klienten när den försöker ansluta till det här klustret. Du kan använda två olika servercertifikat: ett certifikat för primär och sekundär för uppgradering.|
-|ClientCertificateThumbprints|  Det här är en uppsättning certifikat som ska installeras på de autentiserade klienterna.|
-|ClientCertificateCommonNames|  Detta är nätverksnamnet för det första klientcertifikatet för CertificateCommonName. CertificateIssuerThumbprint är tumavtrycket för den här certifikatutfärdaren.|
-|ReverseProxyCertificate|   Detta är ett valfritt certifikat som kan anges för att skydda din [omvänd proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy).|
+|ClusterCertificate|    Detta certifikat krävs för att skydda kommunikationen mellan noderna i ett kluster. Du kan använda två klustercertifikat: ett certifikat för primär och sekundär för uppgradering.|
+|ServerCertificate| Det här certifikatet visas för klienten när den försöker ansluta till det här klustret. Du kan använda två servercertifikat: ett certifikat för primär och sekundär för uppgradering.|
+|ClientCertificateThumbprints|  Det här är en uppsättning certifikat som installeras på de autentiserade klienterna.|
+|ClientCertificateCommonNames|  Det här är vanliga namnet på det första klientcertifikatet för CertificateCommonName. CertificateIssuerThumbprint är tumavtrycket för den här certifikatutfärdaren.|
+|ReverseProxyCertificate|   Det här är ett valfritt certifikat som du kan ange om du vill skydda din [omvänd proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy).|
 
-Mer information om hur du skyddar certifikat finns [skydda ett fristående kluster på Windows med X.509-certifikat](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security).
+Mer information om hur du skyddar certifikat finns i [skydda ett fristående kluster i Windows genom att använda X.509-certifikat](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security).
 
 ## <a name="understand-role-based-access-control"></a>Förstå rollbaserad åtkomstkontroll
-Åtkomstkontroll kan Klusteradministratören att begränsa åtkomsten till vissa klusteråtgärder för olika grupper av användare, vilket gör klustringen säkrare. Två olika åtkomstkontroll typer stöds för klienter som ansluter till ett kluster: 
+Du anger klientroller administratörs- och vid tidpunkten för klustret skapas med separata identiteter (inklusive certifikat) för var och en. Mer information om standardinställningarna för kontroll av åtkomst och hur du ändrar standardinställningarna finns i [rollbaserad åtkomstkontroll för Service Fabric-klienter](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles).
 
-- Administratörsrollen
-- användarroll
+## <a name="secure-standalone-clusters-by-using-windows-security"></a>Skydda fristående kluster med hjälp av Windows-säkerhet
+För att förhindra obehörig åtkomst till Service Fabric-kluster, måste du skydda klustret. Säkerhet är särskilt viktigt när klustret kör produktionsarbetsbelastningar. Du kan konfigurera säkerheten för nod-till-nod och klient-till-nod med hjälp av Windows-säkerhet i filen ClusterConfig.JSON.
 
-Administratörer har fullständig åtkomst till funktioner för hantering (inklusive funktioner för läsning och skrivning). Användare, har som standard bara läsbehörighet till funktioner för hantering (till exempel frågefunktioner) och möjligheten att lösa program och tjänster.
+När Service Fabric måste köras under ett gMSA, konfigurerar du nod till nod-säkerhet genom att ange [ClustergMSAIdentity](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security). Om du vill skapa betrodda relationer mellan noder, måste du se dem medveten om varandra.
 
-Du anger rollerna administratörs- och klienten när klustret har skapats med olika identiteter (inklusive certifikat) för varje. Läs mer om inställningar för åtkomstkontroll standard och hur du ändrar standardinställningarna [rollbaserad åtkomstkontroll för Service Fabric-klienter](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles).
+Om du vill använda en datorgrupp i en Active Directory-domän kan konfigurera du nod till nod-säkerhet genom att ange ClusterIdentity. Mer information finns i [skapar en datorgrupp i Active Directory](https://msdn.microsoft.com/library/aa545347).
 
-## <a name="secure-standalone-cluster-by-using-windows-security"></a>Skydda fristående kluster med hjälp av Windows-säkerhet
-För att förhindra obehörig åtkomst till ett Service Fabric-kluster, måste du skydda klustret. Säkerhet är särskilt viktigt när klustret körs produktionsarbetsbelastningar. Det beskriver hur du konfigurerar säkerhet nod till nod och klient-till-nod med hjälp av Windows-säkerhet i filen ClusterConfig.JSON.
-
-**Konfigurera Windows-säkerhet med hjälp av gMSA**
-
-När Service Fabric måste köras under gMSA, konfigurerar du nod till nod säkerhet genom att ange [ClustergMSAIdentity](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security). Om du vill skapa betrodda relationer mellan noder, måste de göras medveten om varandra.
-
-Du kan konfigurera säkerhet för klient-till-nod med hjälp av ClientIdentities. Om du vill upprätta förtroende mellan en klient och klustret måste du konfigurera klustret för att identifiera vilka klienten identiteter som den kan lita på.
-
-**Konfigurera Windows-säkerhet med hjälp av en grupp datorer**
-
-Om du vill använda en grupp datorer inom en Active Directory-domän kan du konfigurera säkerhet för nod till nod genom att ange ClusterIdentity. Mer information finns i [skapar en datorgruppen i Active Directory](https://msdn.microsoft.com/library/aa545347).
-
-Du kan konfigurera säkerhet för klient-till-nod med hjälp av ClientIdentities. Om du vill upprätta förtroende mellan en klient och klustret måste du konfigurera klustret för att identifiera klienten identiteter som kan lita på klustret. Du kan upprätta förtroende på två olika sätt:
+Du konfigurerar klient-till-nod-säkerhet med hjälp av ClientIdentities. Du måste konfigurera klustret för att identifiera vilka identiteter för klienten som den kan lita på. Du kan upprätta förtroende på två sätt:
 
 -   Ange de gruppanvändare som kan ansluta.
--   Ange nod domänanvändare som kan ansluta.
+-   Ange noden domänanvändare som kan ansluta.
 
 ## <a name="configure-application-security-in-service-fabric"></a>Konfigurera programsäkerhet i Service Fabric
 ### <a name="manage-secrets-in-service-fabric-applications"></a>Hantera hemligheter i Service Fabric-program
-Den här metoden kan hantera hemligheter i ett Service Fabric-program. Hemligheter kan vara känslig information, till exempel storage-anslutningssträngar, lösenord eller andra värden som inte ska hanteras i oformaterad text.
+Hemligheter kan vara känslig information, till exempel storage-anslutningssträngar, lösenord och andra värden som inte ska hanteras i oformaterad text.
 
-Den här metoden använder [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) att hantera nycklar och hemligheter. Med hjälp av hemligheter i ett program är dock plattformsoberoende i molnet. Detta innebär att program kan distribueras till ett kluster som är värd för var som helst. Det finns fyra steg i det här flödet:
+Du kan använda [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) att hantera nycklar och hemligheter. Men användningen av hemligheter i ett program inte förlita dig på en specifik plattform. Du kan distribuera program till ett kluster som är värdbaserade på olika platser. Det finns fyra steg i det här flödet:
 
--   Skaffa ett certifikat för chiffrering av data.
--   Installera certifikatet på klustret.
--   Kryptera hemliga värden när du distribuerar ett program med certifikatet och mata in dem i en tjänst Settings.xml konfigurationsfilen.
--   Läsa krypterade värden utanför Settings.xml genom att dekryptera dem med samma chiffrering av certifikat.
+1.  Få en chiffreringscertifikatet för data.
+2.  Installera certifikatet i klustret.
+3.  Kryptera hemliga värden när du distribuerar ett program med certifikatet och placera dem i en tjänst Settings.xml konfigurationsfilen.
+4.  Läsa krypterade värden utanför Settings.xml genom att dekryptera dem med samma chiffreringscertifikatet.
 
->[!NOTE]
->Lär dig mer om [hantera hemligheter i Service Fabric program](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management).
+Mer information finns i [hantera hemligheter i Service Fabric-program](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management).
 
-### <a name="configure-security-policies-for-your-application"></a>Konfigurera säkerhetsprinciper för ditt program
-Med hjälp av Azure Service Fabric-säkerhet kan du säkra program som körs i kluster under olika användarkonton. Service Fabric säkerhet hjälper också till att skydda resurser som används av program vid tidpunkten för distribution under användarkonton – till exempel, filer, kataloger och certifikat. Det gör att program som körs, även i en delad värdmiljö säkrare.
+### <a name="configure-security-policies-for-an-application"></a>Ställer in säkerhetsprinciper för ett program
+Med hjälp av Azure Service Fabric-säkerhet kan du säkra program som körs i klustret under olika användarkonton. Service Fabric-säkerhet kan du också skydda resurser som program använder vid tidpunkten för distribution under användarkonton – till exempel, filer, kataloger och certifikat. Detta gör program som körs, även i en delad miljö, säkrare.
 
-Stegen omfattar:
+Uppgifterna för att konfigurera säkerhetsprinciper är:
 
--   Konfigurera principen för en startpunkt för installationen av tjänsten.
--   Starta PowerShell-kommandon från en startpunkt för installationen.
--   Med hjälp av konsolomdirigering för lokala felsökning.
--   Konfigurera en princip för servicepaket kod.
--   Tilldela en säkerhetsprincip åtkomst för HTTP och HTTPS-slutpunkter.
+-   Konfigurera principen för en tjänstens konfigurationsstartpunkt
+-   Starta PowerShell-kommandon från en startpunkt för installationen
+-   Använda omdirigering av konsol för lokal felsökning
+-   Konfigurera en princip för tjänsten kodpaket
+-   Tilldela en säkerhetsåtkomstprincip för HTTP och HTTPS-slutpunkter
 
-## <a name="secure-communication-for-services-in-azure-service-fabric-security"></a>Säker kommunikation för tjänster i Azure Service Fabric-säkerhet
-Säkerhet är en av de viktigaste aspekterna av kommunikation. Application framework Reliable Services innehåller några fördefinierade kommunikation stackar och verktyg som kan användas för att förbättra säkerheten.
-
--   [Skydda en tjänst när du använder tjänsten fjärrkommunikation](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication)
--   [Skydda en tjänst när du använder en WCF-baserad kommunikation stack](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication#help-secure-a-service-when-youre-using-a-wcf-based-communication-stack)
+## <a name="secure-communication-for-services"></a>Säker kommunikation för tjänster
+Säkerhet är en av de viktigaste aspekterna av kommunikation. Reliable Services application framework innehåller några fördefinierade kommunikation stackar och verktyg som du kan använda för att förbättra säkerheten. Mer information finns i [säkra kommunikationer för fjärrkommunikation för en tjänst](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication).
 
 ## <a name="next-steps"></a>Nästa steg
-- Konceptuell information om säkerhet i klustret finns [skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) och [Azure-portalen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal).
-- Mer information om Klustersäkerhet i Service Fabric finns [Service Fabric-Klustersäkerhet](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
+- Konceptuell information om Klustersäkerhet finns i [skapa Service Fabric-kluster med hjälp av Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) och [skapa Service Fabric-kluster med hjälp av Azure-portalen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal).
+- Mer information om Klustersäkerhet i Service Fabric finns [säkerhetsscenarier för Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).

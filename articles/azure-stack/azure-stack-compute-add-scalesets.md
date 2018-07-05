@@ -1,86 +1,62 @@
 ---
-title: Kontrollera virtuella skalningsuppsättningarna tillgängliga i Azure-stacken | Microsoft Docs
-description: Lär dig hur en moln-operator lägger till virtuella datorn till stacken Azure Marketplace
+title: Tillgängliggöra Virtual Machine Scale Sets i Azure Stack | Microsoft Docs
+description: Lär dig hur en molnoperator kan lägga till VM-Skalningsuppsättningar i Azure Stack Marketplace
 services: azure-stack
 author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: 12425ab53ca16bb985a0a8658b5058998565b01a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: ddde2e6bad8a373df405ac05e78a5dbccd0257fc
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "34800648"
 ---
-# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Använda skalningsuppsättningar i virtuella datorer i Azure-stacken
+# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Tillgängliggöra Virtual Machine Scale Sets i Azure Stack
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Skaluppsättningar för den virtuella datorn är en Azure-stacken beräkningsresurser. Du kan använda dem för att distribuera och hantera en uppsättning identiska virtuella datorer. Med alla virtuella datorer konfigureras på samma sätt, skaluppsättningar behöver före etablering av virtuella datorer. Det är enklare att bygga storskaliga tjänster som är riktade till stor beräkning och stordata av arbetsbelastningar.
+VM-skalningsuppsättningar är en beräkningsresurs för Azure Stack. Du kan använda dem för att distribuera och hantera en uppsättning identiska virtuella datorer. För alla virtuella datorer konfigureras på samma sätt, skalningsuppsättningar som inte kräver företablering av virtuella datorer. Det är enklare att skapa storskaliga tjänster som riktar sig mot big compute, stordata och arbetsbelastningar i behållare.
 
-Den här artikeln guidar dig genom processen för att tillhandahålla skalningsuppsättningar i stacken Azure Marketplace. När du har slutfört den här proceduren kan användarna lägga till virtuella skalningsuppsättningarna för sina prenumerationer.
+Den här artikeln vägleder dig genom processen att tillgängliggöra skalningsuppsättningar i Azure Stack Marketplace. När du har slutfört den här proceduren kan användarna lägga till VM-skalningsuppsättningar till sina prenumerationer.
 
-Skaluppsättningar för virtuell dator på Azure-stacken är som skalningsuppsättningar i virtuella datorer i Azure. Mer information finns i följande videoklipp:
+VM-skalningsuppsättningar i Azure Stack är som VM-skalningsuppsättningar i Azure. Mer information finns i följande videoklipp:
 * [Mark Russinovich berättar om Azure-skalningsuppsättningar](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
 * [Skaluppsättningar för virtuell dator med Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-Skaluppsättningar för den virtuella datorn stöder inte Autoskala på Azure-stacken. Du kan lägga till flera instanser på en skala som anges med Azure Stack-portalen, Resource Manager-mallar eller PowerShell.
+På Azure Stack stöder skalningsuppsättningar för virtuella datorer inte automatisk skalning. Du kan lägga till fler instanser till en skalningsuppsättning med Resource Manager-mallar, CLI eller PowerShell.
 
 ## <a name="prerequisites"></a>Förutsättningar
-* **PowerShell och verktyg**
 
-   Installera och konfigurerade PowerShell för Azure-stacken och Azure Stack-verktyg. Se [komma igång med PowerShell i Azure-stacken](azure-stack-powershell-configure-quickstart.md).
+- **Marketplace-syndikering**  
+    Registrera Azure Stack med globala Azure för att möjliggöra Marketplace syndikering. Följ instruktionerna i [registrera Azure Stack med Azure](azure-stack-registration.md).
+- **Avbildning av operativsystemet**  
+    Om du inte har lagt till en operativsystemavbildning på Azure Stack Marketplace kan se [Lägg till ett Azure Stack marketplace-objekt från Azure](asdk/asdk-marketplace-item.md).
 
-   När du har installerat Azure Stack-verktyg, se till att du importera följande PowerShell-modulen (sökväg i förhållande till den. \ComputeAdmin mappen i mappen AzureStack verktyg master):
-  ````PowerShell
-        Import-Module .\AzureStack.ComputeAdmin.psm1
-  ````
+## <a name="add-the-virtual-machine-scale-set"></a>Lägg till virtuella datorns Skalningsuppsättning
 
-* **Avbildning av operativsystemet**
+1. Öppna Azure Stack Marketplace och Anslut till Azure. Välj **Marketplace management**> **+ Lägg till från Azure**.
 
-   Om du inte har lagt till en operativsystemavbildning till din Azure-stacken Marketplace, se [lägga till Windows Server 2016 VM-avbildning i Azure Stack-marketplace](azure-stack-add-default-image.md).
+    ![Marketplace-hantering](media/azure-stack-compute-add-scalesets/image01.png)
 
-   För Linux-support, hämta Ubuntu Server 16.04 och lägga till den med hjälp av ```Add-AzsPlatformImage``` med följande parametrar: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+2. Lägg till och hämta Virtual Machine Scale Sets marketplace-objekt.
 
+    ![Skalningsuppsättning för virtuell dator](media/azure-stack-compute-add-scalesets/image02.png)
 
-## <a name="add-the-virtual-machine-scale-set"></a>Lägg till virtuella datorns skaluppsättning
+## <a name="update-images-in-a-virtual-machine-scale-set"></a>Uppdatera avbildningar i Virtual Machine Scale Sets
 
-Redigera följande PowerShell-skript för din miljö och sedan köra den att lägga till en virtuell dator skala inställd på Azure Stack-Marketplace. 
+När du skapar en VM-skalningsuppsättning kan kan användare uppdatera avbildningar i skalningsuppsättningen utan skalningsuppsättningen behöva återskapas. Processen för att uppdatera en bild är beroende av följande scenarier:
 
-``$User`` är det konto som används för att ansluta administratörsportalen. Till exempel serviceadmin@contoso.onmicrosoft.com.
+1. Distributionsmall för VM-skalningsuppsättningen **anger senaste** för *version*:  
 
-````PowerShell  
-$Arm = "https://adminmanagement.local.azurestack.external"
-$Location = "local"
+   När den *version* har angetts som **senaste** i den *imageReference* avsnitt i mallen för en skalbar, skala upp åtgärder på scale set användningen av den senaste tillgängliga versionen Anger instanser av avbildningen för skalan. När en uppskalning är klar kan du ta bort äldre VM scale sets-instanser.  (Värdena för *publisher*, *erbjuder*, och *sku* förblir oförändrade). 
 
-Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint $Arm
-
-$Password = ConvertTo-SecureString -AsPlainText -Force "<your Azure Stack administrator password>"
-
-$User = "<your Azure Stack service administrator user name>"
-
-$Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
-
-$AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
-$AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
-
-Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
-
-Add-AzsVMSSGalleryItem -Location $Location
-````
-
-## <a name="update-images-in-a-virtual-machine-scale-set"></a>Uppdatera avbildningar i en skaluppsättning för virtuell dator 
-Användare kan uppdatera avbildningar i skaluppsättningen utan skaluppsättningen behöva återskapas när du har skapat en skaluppsättning för virtuell dator. Processen för att uppdatera en bild är beroende av följande scenarier:
-
-1. Skaluppsättning för virtuell dator Distributionsmall **anger senaste** för *version*:  
-
-   När den *version* har angetts som **senaste** i den *imageReference* avsnitt i mallen för en skala ange, skala upp åtgärder på skalan använder den senaste tillgängliga versionen Anger instanser av bilden för skalan. När en skala upp är klar kan du ta bort äldre virtuella skala anger instanser.  (Värdena för *publisher*, *erbjuder*, och *sku* förblir oförändrade). 
-
-   Följande är ett exempel på hur du anger *senaste*:  
+   Följande är ett exempel på att ange *senaste*:  
 
     ```Json  
     "imageReference": {
@@ -91,32 +67,32 @@ Användare kan uppdatera avbildningar i skaluppsättningen utan skaluppsättning
         }
     ```
 
-   Innan skalas upp kan använda en ny avbildning, måste du hämta den nya avbildningen:  
+   Innan du skala upp kan använda en ny avbildning, måste du hämta den nya avbildningen:  
 
-   - När avbildningen på Marketplace är en senare version än bilden i skaluppsättning: hämta den nya avbildningen som ersätter äldre bild. När avbildningen har bytts ut kan kan en användare fortsätta att skala upp. 
+   - När avbildningen på Marketplace är en senare version än avbildningen i skalningsuppsättningen: ladda ned den nya avbildningen som ersätter äldre avbildningen. När avbildningen har ersatts kan kan en användare fortsätta att skala upp. 
 
-   - När avbildningen versionen på Marketplace är samma som på bilden i skaluppsättning: ta bort den bild som används i skaluppsättning och sedan hämta den nya avbildningen. Du kan skala upp under tiden mellan borttagning av den ursprungliga avbildningen och hämtning av den nya avbildningen. 
+   - När versionsnumret för avbildningen på Marketplace är samma som på bilden i skalningsuppsättningen: ta bort den avbildningen som används i skalningsuppsättningen och ladda ned den nya avbildningen. Under tiden mellan borttagning av den ursprungliga bilden och hämtning av den nya avbildningen kan du skala upp. 
       
-     Den här processen krävs för att resyndicate avbildningar som gör användning av sparse-fil-format, som introducerades i version 1803. 
+     Den här processen måste anges till resyndicate avbildningar som gör användning av sparse-fil-format, som introducerades i version 1803. 
  
 
-2. Skaluppsättning för virtuell dator Distributionsmall **anger inte senaste** för *version* och anger ett versionsnummer i stället:  
+2. Distributionsmall för VM-skalningsuppsättningen **anger inte senaste** för *version* och anger ett versionsnummer i stället:  
 
-     Om du hämtar en bild med en nyare version (som ändras den tillgängliga versionen) kan skaluppsättning skala upp. Detta är avsiktligt som bildversionen som angavs i mallen scale set måste vara tillgängliga.  
+    Om du har hämtat en avbildning med en nyare version (som ändrar den tillgängliga versionen), det går inte att skalningsuppsättningen skala upp. Detta är avsiktligt eftersom versionsnumret för avbildningen som angetts i mallen för skalningsuppsättningen måste vara tillgängliga.  
 
-Mer information finns i [operativsystemet diskar och bilder](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+Mer information finns i [operativsystemsdiskar och avbildningar](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
 
 
-## <a name="remove-a-virtual-machine-scale-set"></a>Ta bort en virtuella datorns skaluppsättning
+## <a name="remove-a-virtual-machine-scale-set"></a>Ta bort en VM-Skalningsuppsättning
 
-Skala set galleriobjektet om du vill ta bort en virtuell dator, kör följande PowerShell-kommando:
+Skala set galleri-objekt för att ta bort en virtuell dator, kör du följande PowerShell-kommando:
 
 ```PowerShell  
-    Remove-AzsVMSSGalleryItem
+    Remove-AzsGalleryItem
 ````
 
 > [!NOTE]
-> Galleriobjektet kan inte tas bort omedelbart. Du natt måste uppdatera portalen flera gånger innan objektet visas som tas bort från på Marketplace.
+> Galleri-objekt kan inte tas bort omedelbart. Natt måste du uppdatera portalen flera gånger innan objektet visas som tas bort från Marketplace.
 
 ## <a name="next-steps"></a>Nästa steg
-[Vanliga frågor om Azure-stacken](azure-stack-faq.md)
+[Vanliga frågor om Azure Stack](azure-stack-faq.md)

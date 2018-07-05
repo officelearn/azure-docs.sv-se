@@ -1,6 +1,6 @@
 ---
-title: Bild klassificering med CNTK i Azure Machine Learning arbetsstationen | Microsoft Docs
-description: Träna, utvärdera och distribuera en anpassad avbildning klassificering modellen med hjälp av Azure ML-arbetsstationen.
+title: Bildklassificering med hjälp av CNTK i Azure Machine Learning Workbench | Microsoft Docs
+description: Träna, utvärdera och distribuera en modell för klassificering av anpassad avbildning med hjälp av Azure ML Workbench.
 services: machine-learning
 documentationcenter: ''
 author: PatrickBue
@@ -8,111 +8,111 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 5ff6502b0ed023f6fe8a9475a0e81991a9918cc5
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
-ms.translationtype: HT
+ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850179"
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35622219"
 ---
-# <a name="image-classification-using-azure-machine-learning-workbench"></a>Bild klassificering med Azure Machine Learning arbetsstationen
+# <a name="image-classification-using-azure-machine-learning-workbench"></a>Klassificering av avbildning med hjälp av Azure Machine Learning Workbench
 
-Metoder för klassificering av avbildningen kan användas för att lösa ett stort antal datorn Vision problem.
-Dessa omfattar att skapa modeller som besvara frågor som: *är ett objekt som finns i avbildningen?* där OBJEKTET kunde till exempel *hund*, *bilen*, eller  *leverera*. Eller mer komplexa frågor som: *vilken klass av öga sjukdom allvarlighetsgrad evinced av den här tålamod retinal genomsökning?*.
+Metoder för klassificering av avbildning kan användas för att lösa många problem för visuellt innehåll.
+Dessa omfattar att skapa modeller som svar på frågor som: *är ett objekt som finns i bild?* om OBJEKTET till exempel skulle kunna vara *hund*, *bil*, eller  *leverera*. Eller mer komplexa frågor som: *vilken klass av öga sjukdomar allvarlighetsgrad evinced av den här patientens retinal genomsökning?*.
 
-Den här självstudiekursen adresser lösa dessa problem. Visar vi hur du träna, utvärdera och distribuera din egen avbildning klassificering modellen med hjälp av den [Microsoft kognitiva Toolkit (CNTK) ](https://docs.microsoft.com/cognitive-toolkit/) för djup.
-Exempel avbildningar finns, men läsaren kan också ta med sina egna dataset och träna sina egna anpassade modeller.
+Den här självstudiekursen adresser lösa dessa problem. Visar vi hur du tränar, utvärdera och distribuera dina egna avbildningen klassificering modellen med hjälp av den [Microsoft Cognitive Toolkit (CNTK) ](https://docs.microsoft.com/cognitive-toolkit/) för djupinlärning.
+Exempel-avbildningar tillhandahålls, men läsaren kan också ta med sina egna datauppsättningen och skapa egna anpassade modeller.
 
-Datorn Vision lösningar krävs traditionellt goda kunskaper för att identifiera och implementera s.k. manuellt *funktioner*, vilket Markera önskad information i bilder.
-Den här manuella metoden ändras i 2012 med den berömda [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) [1] djup papper, och för närvarande, djupa Neurala nätverk (DNN) används för att automatiskt söka efter dessa funktioner.
-DNNs ledde till en enorm förbättring i fältet inte bara för avbildningen klassificering, utan även för andra dator Vision problem, till exempel identifiering av objekt och avbildningen likhet.
+Visuellt lösningar krävs traditionellt goda kunskaper för att identifiera och implementera s.k. manuellt *funktioner*, vilket Markera önskad information i bilder.
+Den här manuella metoden ändras i 2012 med det berömda [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) [1] Deep Learning papper, och för närvarande, djupa Neurala nätverk (DNN) används för att automatiskt hitta de här funktionerna.
+Dnn: er fick en enorm förbättring i fältet inte bara för klassificering av avbildning, men också för andra problem med visuellt innehåll, till exempel objektidentifiering och avbildning likhet.
 
 
-## <a name="link-to-the-gallery-github-repository"></a>Länka till GitHub-lagringsplatsen galleri
+## <a name="link-to-the-gallery-github-repository"></a>Länka till GitHub-lagringsplatsen galleriet
 [https://github.com/Azure/MachineLearningSamples-ImageClassificationUsingCNTK](https://github.com/Azure/MachineLearningSamples-ImageClassificationUsingCNTK)
 
 ## <a name="overview"></a>Översikt
 
-Den här kursen är uppdelat i tre delar:
+Den här självstudien är uppdelat i tre delar:
 
-- Del 1 visar hur du träna, utvärdera och distribuera en avbildning klassificeringssystem med en före utbildade DNN som featurizer och utbildning en SVM på dess utdata.
-- Del 2 visar hur du noggrannhet kan förbättras av, till exempel förfina DNN i stället för att använda det som en fast featurizer.
-- Del 3 beskriver hur du använder en egen datauppsättning i stället för de angivna exempel avbildningarna och om det behövs, så att skapa en egen datauppsättning av skrapning bilder från nätverket.
+- Del 1 visar hur du tränar, utvärdera och distribuera ett bildklassificeringssystem med ett förtränade DNN som upplärda och utbildning en SVM på dess utdata.
+- Del 2 visar sedan hur du kan förbättra noggrannheten av, till exempel förfina DNN i stället för att använda det som en fast upplärda.
+- Del 3 beskriver hur du använder en egen datauppsättning i stället för de angivna exempel avbildningarna och om det behövs, hur du skapar en egen datauppsättning genom skrapning bilder från net.
 
-Tidigare erfarenhet av machine learning och CNTK inte krävs, är det lättare att förstå de underliggande principerna. Noggrannhet siffror utbildning tid, etc. som rapporteras i kursen är endast för referens och de faktiska värdena när du kör koden sannolikt skiljer.
+Det inte krävs tidigare erfarenhet av maskininlärning och CNTK, är det användbart för att förstå de underliggande principerna. Precision siffror, utbildning tid, etc. som rapporteras i självstudien finns endast som referens de faktiska värdena när du kör koden skiljer sig sannolikt.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Förutsättningar för att kunna köra det här exemplet är följande:
 
-1. En [Azure-konto](https://azure.microsoft.com/free/) (gratisutvärderingar finns).
-2. Den [Azure Machine Learning arbetsstationen](../service/overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](../service/quickstart-installation.md) att installera programmet och skapa en arbetsyta.  
-3. En Windows-dator. Windows-Operativsystemet är nödvändigt eftersom arbetsstationen stöder endast Windows och MacOS när Microsofts kognitiva Toolkit (som vi använder som djup learning bibliotek) stöder endast Windows och Linux.
-4. En dedikerad GPU krävs inte att köra SVM utbildning del 1, men det är nödvändigt för att förfina av DNN som beskrivs i del 2. Om du saknar en stark GPU vill träna på flera GPU-kort eller har inte en Windows-dator, bör du använda Azures djup Learning virtuell dator med Windows-operativsystem. Se [här](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) för en 1-Klicka Distributionsguide. Distribution kan ansluta till den virtuella datorn via en anslutning till fjärrskrivbord, installera arbetsstationen det och kör kod lokalt från den virtuella datorn.
-5. Olika Python-bibliotek, till exempel OpenCV behöver installeras. Klicka på *öppnar du kommandotolken* från den *filen* -menyn i arbetsstationen och kör följande kommandon för att installera dessa beroenden:  
+1. En [Azure-konto](https://azure.microsoft.com/free/) (kostnadsfria utvärderingsversioner är tillgängliga).
+2. Den [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](../service/quickstart-installation.md) att installera programmet och skapa en arbetsyta.  
+3. En Windows-dator. Windows OS är nödvändigt eftersom Workbench stöder endast Windows och MacOS när Microsofts Cognitive Toolkit (som vi använder som deep learning-biblioteket) stöder endast Windows och Linux.
+4. En dedikerad GPU krävs inte att köra SVM utbildning i del 1, men det behövs för att förfina av DNN som beskrivs i del 2. Om du saknar en stark GPU, vill utbilda i flera GPU: er eller inte har en Windows-dator, bör du använda Azures Deep Learning Virtual Machine med Windows-operativsystem. Se [här](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) för en 1-Klicka Distributionsguide. När distribuerats ansluter till den virtuella datorn via en anslutning till fjärrskrivbord, installera Workbench det och kör kod lokalt från den virtuella datorn.
+5. Olika Python-biblioteken, till exempel OpenCV måste vara installerade. Klicka på *öppna Kommandotolken* från den *filen* menyn i Workbench och kör följande kommandon för att installera dessa beroenden:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` När du har hämtat OpenCV rulla från http://www.lfd.uci.edu/~gohlke/pythonlibs/ (exakt filnamnet och version kan ändra)
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` När du hämtat OpenCV snurra från http://www.lfd.uci.edu/~gohlke/pythonlibs/ (det exakta filnamnet och den version kan ändra)
     - `conda install pillow`
     - `pip install -U numpy`
     - `pip install bqplot`
     - `jupyter nbextension enable --py --sys-prefix bqplot`
     - `jupyter nbextension enable --py widgetsnbextension`
 
-### <a name="troubleshooting--known-bugs"></a>Felsökning / kända fel
-- En GPU krävs för del 2 och annars felet ”Batch normalisering utbildning på CPU inte har implementerats ännu” returneras vid försök att förfina DNN.
+### <a name="troubleshooting--known-bugs"></a>Felsökning / kända buggar
+- En GPU krävs för en del 2 och annars felet ”Batch normalisering utbildning på processor inte har implementerats ännu” genereras vid försök att förfina DNN.
 - Minnet är slut fel under DNN utbildning kan undvikas genom att minska storleken minibatch (variabeln `cntk_mb_size` i `PARAMETERS.py`).
-- Koden har testats med CNTK 2.2 och bör köras även på äldre (upp till v2.0) och senare versioner utan att någon eller bara mindre ändringar.
-- Vid tidpunkten som skrivs hade i Azure Machine Learning-arbetsstationen problem med visar bärbara datorer som är större än 5 MB. Bärbara datorer i den här stora kan inträffa om den bärbara datorn sparas med alla celler utdata som visas. Om du får felet och sedan öppna Kommandotolken från Arkiv-menyn i arbetsstationen, köra `jupyter notebook`, öppna anteckningsboken, avmarkera alla utdata och spara den bärbara datorn. När du utför dessa steg måste öppnas anteckningsboken korrekt i Azure Machine Learning arbetsstationen igen.
-- Alla skript som angetts i det här exemplet måste köras lokalt, och inte på t.ex. en docker fjärrmiljö. Alla bärbara datorer måste köras med kernel inställd på lokalt projekt kernel med namnet ”PROJEKTNAMN lokala” (t.ex. ”myImgClassUsingCNTK lokala”).
+- Koden har testats med CNTK 2.2 och bör också köras på äldre (upp till v2.0) och senare versioner utan någon eller bara mindre ändringar.
+- Vid tidpunkten för skrivning gick Azure Machine Learning Workbench inte att visa anteckningsböcker som är större än 5 MB. Anteckningsböcker för den här stora storleken kan inträffa om anteckningsboken sparas med alla celler utdata visas. Om du får det här felet och sedan öppna Kommandotolken från menyn Arkiv i Workbench, köra `jupyter notebook`, öppna anteckningsboken, rensa alla utdata och spara den bärbara datorn. När du har utfört dessa steg, öppnas anteckningsboken korrekt i Azure Machine Learning Workbench igen.
+- Alla skript som angetts i det här exemplet måste köras lokalt, och inte på t.ex. en docker remote-miljö. Alla bärbara datorer måste köras med kernel som har angetts till lokala projektet kernel med namnet ”PROJECTNAME lokala” (t.ex. ”myImgClassUsingCNTK lokala”).
 
     
-## <a name="create-a-new-workbench-project"></a>Skapa ett nytt projekt arbetsstationen
+## <a name="create-a-new-workbench-project"></a>Skapa ett nytt workbench-projekt
 
-Skapa ett nytt projekt med det här exemplet som mall:
+Skapa ett nytt projekt med det här exemplet som en mall:
 1.  Öppna Azure Machine Learning Workbench.
 2.  På den **projekt** klickar du på den **+** och markera **nytt projekt**.
 3.  I den **Skapa nytt projekt** rutan, fyller du i informationen för det nya projektet.
-4.  I den **Sök projektmallar** sökrutan, skriv ”bild klassificering” och välj mallen.
+4.  I den **Sök efter projektmallar** sökrutan skriver du ”Bildklassificering” och väljer mallen.
 5.  Klicka på **Skapa**.
 
-Utför dessa åtgärder skapar projektstrukturen som visas nedan. Projektkatalogen är begränsad till vara mindre än 25 MB eftersom Azure Machine Learning arbetsstationen skapar en kopia av den här mappen efter varje körning (för att aktivera körningshistorik). Därför måste alla avbildningen och temporära filer sparas till och från katalogen *~/Desktop/imgClassificationUsingCntk_data* (kallas *DATA_DIR* i det här dokumentet).
+Utför de här stegen skapar projektstruktur som visas nedan. Projektkatalogen är begränsad till att vara mindre än 25 MB eftersom Azure Machine Learning Workbench skapar en kopia av den här mappen efter varje körning (för att aktivera körningshistoriken). Därför alla avbildningen och temporära filer sparas till och från katalogen *~/Desktop/imgClassificationUsingCntk_data* (kallas *DATA_DIR* i det här dokumentet).
 
   Mapp| Beskrivning
   ---|---
-  aml_config /|                           Katalogen som innehåller konfigurationsfiler Azure Machine Learning arbetsstationen
+  aml_config /|                           Katalogen som innehåller konfigurationsfilerna för Azure Machine Learning Workbench
   bibliotek /|                              Katalogen som innehåller alla Python och Jupyter hjälpfunktioner
-  bärbara datorer /|                              Katalogen som innehåller alla bärbara datorer
-  resurser /|                              Katalogen som innehåller alla resurser (till exempel url sätt bilder)
+  anteckningsböcker /|                              Katalogen som innehåller alla anteckningsböcker
+  resurser /|                              Katalogen som innehåller alla resurser (till exempel URL: en för dirigering bilder)
   skript /|                              Katalogen som innehåller alla skript
-  PARAMETERS.py|                       Python-skriptet som anger att alla parametrar
-  Readme.md|                           Den här filen Viktigt
+  PARAMETERS.py|                       Python-skriptet att ange alla parametrar
+  Readme.md|                           Det här readme-dokumentet
 
 
-## <a name="data-description"></a>Beskrivning av data
+## <a name="data-description"></a>Databeskrivning
 
-Den här kursen används som kör exempel en övre brödtext kläder struktur datauppsättning som består av upp till 428 bilder. Varje avbildning kommenteras som en av tre olika strukturer (prickad, stripe, leopard). Vi förvaras antalet avbildningar små så att den här kursen kan utföras snabbt. Koden är väl testade och fungerar med tiotusentals bilder eller mer. Alla bilder har skrapats Bing avbildningen sökning och hand kommenteras som beskrivs i [del 3](#using-a-custom-dataset). Den bild som visas i URL: er med deras respektive attribut i */resources/fashionTextureUrls.tsv* fil.
+Den här självstudien använder som kör exempel en övre brödtext kläder struktur datauppsättning som består av upp till 428 avbildningar. Varje avbildning kommenteras som en av tre olika strukturer (prickad, stripe, leopard). Vi behöll antalet bilder små så att den här självstudien kan utföras snabbt. Koden är väl testad och fungerar med tiotusentals bilder eller mer. Alla avbildningar har skrapats med bildsökning i Bing och hand kommenteras som förklaras i [del 3](#using-a-custom-dataset). Bilden visas URL: er med deras respektive attribut i den */resources/fashionTextureUrls.tsv* fil.
 
-Skriptet `0_downloadData.py` hämtar alla avbildningar till de *fashionTexture-DATA_DIR/bilder/* directory. Vissa av 428 URL: er är sannolikt brutna. Detta är inte ett problem och betyder bara att vi har något lägre avbildningar för träning och testning. Alla skript som angetts i det här exemplet måste köras lokalt, och inte på t.ex. en docker fjärrmiljö.
+Skriptet `0_downloadData.py` laddar ned alla avbildningar till den *DATA_DIR/bilder/fashionTexture/* directory. Vissa av de 428 URL: er är sannolikt bruten. Detta är inte ett problem och innebär bara att vi har något lägre avbildningar för träning och testning. Alla skript som angetts i det här exemplet måste köras lokalt, och inte på t.ex. en docker remote-miljö.
 
-Följande bild visar exempel på de attribut (till vänster), prickad stripe (mellannivå) och leopard (höger). Anteckningar har utfärdat enligt det övre brödtext kläder objektet.
+Följande bild visar exempel på attributen prickade (vänster), stripe (mitten) och leopard (höger). Anteckningar har utförts enligt övre brödtext kläder objektet.
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/examples_all.jpg"  alt="alt text" width="700">
 </p>
 
 
-## <a name="part-1---model-training-and-evaluation"></a>Del 1 - modellen träning och utvärdering
+## <a name="part-1---model-training-and-evaluation"></a>Del 1 – utforma träning och utvärdering av
 
-I den första delen av den här kursen vi utbildning ett system som används, men inte ändra en före utbildade djupa neurala nätverk. Den här före utbildade DNN används som en featurizer och en linjär SVM tränats att förutsäga attributet (prickad, stripe-volymer eller leopard) av en viss bild.
+I den första delen av den här självstudiekursen vi utbildning ett system som använder, men inte ändra ett förtränade djupa neurala nätverk. Den här förtränade DNN används som en upplärda och en linjär SVM har tränats att förutsäga attributet (prickade, stripe-volymer eller leopard) för en viss avbildning.
 
-Vi nu beskrivs den här metoden i steg, detaljer och visa vilka skript som behöver utföras. Vi rekommenderar efter varje steg för att kontrollera vilka filer skrivs och där de skrivs till.
+Vi nu beskrivs den här metoden i detalj, steg för steg och visa vilka skript måste köras. Vi rekommenderar efter varje steg att inspektera vilka filer skrivs och där de skrivs till.
 
-Alla viktiga parametrar har angetts och en kort förklaring finns i en enda plats: den `PARAMETERS.py` filen.
+Alla viktiga parametrar har angetts och en kort beskrivning anges i en och samma plats: den `PARAMETERS.py` filen.
 
 
 
@@ -120,12 +120,12 @@ Alla viktiga parametrar har angetts och en kort förklaring finns i en enda plat
 ### <a name="step-1-data-preparation"></a>Steg 1: Förberedelse av Data
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-Anteckningsboken `showImages.ipynb` kan användas för att visualisera avbildningar och korrigera sina anteckningen efter behov. För att köra den bärbara datorn, öppna den i Azure Machine Learning Workbench, klicka på ”börja anteckningsboken Server” om det här alternativet visas ändras till kernel lokala projektet med namnet ”PROJEKTNAMN lokala” (t.ex. ”myImgClassUsingCNTK lokal”), och sedan köra alla celler i den bärbar dator. Om du får ett felmeddelande klagande att anteckningsboken är för stor för att visa finns i felsökningsavsnittet i det här dokumentet.
+Anteckningsboken `showImages.ipynb` kan användas för att visualisera bilderna och korrigera sina anteckning efter behov. Om du vill köra anteckningsboken, öppna den i Azure Machine Learning Workbench, klicka på ”Starta Notebook Server” om det här alternativet visas ändrar till kernel lokalt projekt med namnet ”PROJECTNAME lokala” (t.ex. ”myImgClassUsingCNTK lokal”), och sedan köra alla celler i den bärbar dator. Se avsnittet om felsökning i det här dokumentet om du får ett felmeddelande som klagar att anteckningsboken är för stor som ska visas.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
 
-Nu köra skript som heter `1_prepareData.py`, vilket tilldelas alla bilder till antingen utbildning eller testet. Tilldelningen är ömsesidigt uteslutande - ingen utbildning bild används också för att testa eller vice versa. Som standard slumpmässig 75 procent av avbildningar från varje attributklassen tilldelas utbildning och de återstående 25% tilldelas testning. Alla data som genereras av skriptet sparas i den *fashionTexture-DATA_DIR/proc/* mapp.
+Nu kör skriptet med namnet `1_prepareData.py`, vilket tilldelar alla avbildningar till antingen utbildning inställt eller testet inställt. Den här tilldelningen är ömsesidigt uteslutande – ingen utbildning bild används också för att testa eller vice versa. Som standard en slumpmässig 75% av avbildningar från varje attributklassen tilldelas till utbildning och resterande 25% är tilldelade till testning. Alla data som genereras av skriptet sparas i den *DATA_DIR/proc/fashionTexture/* mapp.
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/output_script_1_white.jpg" alt="alt text" width="700"/>
@@ -133,33 +133,33 @@ Nu köra skript som heter `1_prepareData.py`, vilket tilldelas alla bilder till 
 
 
 
-### <a name="step-2-refining-the-deep-neural-network"></a>Steg 2: Förfina djupa Neurala nätverket
+### <a name="step-2-refining-the-deep-neural-network"></a>Steg 2: Förfina djupa Neurala nätverk
 `Script: 2_refineDNN.py`
 
-Som vi förklaras i del 1 av den här kursen före utbildade DNN hålls fast (dvs, det är inte förfinade). Dock skriptet med namnet `2_refineDNN.py` körs fortfarande i del 1, som laddas före utbildade [ResNet](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) [2]-modell och ändrar det, till exempel om du vill tillåta högre bildupplösningen som indata. Det här steget är snabb (sekunder) och kräver inte en GPU.
+Som vi förklaras i del 1 av självstudien förtränade DNN sparas fast (dvs, det är inte förfinade). Dock skriptet med namnet `2_refineDNN.py` körs fortfarande i del 1, som laddas en förtränade [ResNet](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) [2] modell och ändrar det, till exempel om du vill tillåta för högre bildupplösningen som indata. Det här steget är (sekunder) för snabb och kräver inte en GPU.
 
-Del 2 av kursen en ändring i PARAMETERS.py filen orsaker i `2_refineDNN.py` skript för att också förfina före utbildade DNN. Som standard kör vi 45 utbildning epoker under förfining.
+I del 2 av självstudiekursen en ändring av PARAMETERS.py filen orsaker i `2_refineDNN.py` skript för att också förfina förtränade DNN. Som standard kör vi 45 utbildning epoker under förfining.
 
-I båda fallen sista modellen sedan skrivs till filen *DATA_DIR/proc/fashionTexture/cntk_fixed.model*.
+I båda fallen skrivs sedan den slutliga modellen till filen *DATA_DIR/proc/fashionTexture/cntk_fixed.model*.
 
-### <a name="step-3-evaluate-dnn-for-all-images"></a>Steg 3: Utvärdera DNN för alla bilder
+### <a name="step-3-evaluate-dnn-for-all-images"></a>Steg 3: Utvärdera DNN för alla avbildningar
 `Script: 3_runDNN.py`
 
-Vi kan nu använda (möjligen förfinade) DNN från det sista steget att featurize våra bilder. En avbildning är som indata till DNN, utdata 512 flyttal vector från det näst sista lagret av modellen. Den här vector är mycket mindre dimensionell än bilden. Dock bör den innehålla (och även markera) all information i bilden som är relevanta för att identifiera avbildningens attribut som är, om kläder artikeln har ett punktavgränsat stripe-volymer, eller leopard struktur.
+Vi kan nu använda (eventuellt förfinade) DNN från det sista steget att förtränade våra avbildningar. En bild som indata för DNN får är utdata 512 flyttal vektor från näst sista lagret av modellen. Den här vektor är mycket mindre dimensionell än avbildningen som själva. Dock måste det innehålla (och även markera) all information i avbildningen som är relevanta för att identifiera avbildningens attribut, som, om kläder objektet har en prickad fördelas, eller leopard struktur.
 
-Alla garantier för DNN avbildningen sparas i filen *DATA_DIR/proc/fashionTexture/cntkFiles/features.pickle*.
+Alla garantier för DNN-avbildningen sparas i filen *DATA_DIR/proc/fashionTexture/cntkFiles/features.pickle*.
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/output_script_4_white.jpg" alt="alt text" width="700"/>
 </p>
 
 
-### <a name="step-4-support-vector-machine-training"></a>Steg 4: Support Vector Machine utbildning
+### <a name="step-4-support-vector-machine-training"></a>Steg 4: Dator för Vektorstöd utbildning
 `Script: 4_trainSVM.py`
 
-512-flyttal garantier beräknad i det sista steget används nu för att träna en SVM klassificeraren: få en bild som indata i SVM matar ut en poäng för varje attribut måste finnas. I vårt exempel dataset innebär en poäng för 'stripe', 'prickad' och för 'leopard'.
+512-flyttal garantier beräknade det sista steget används nu för att träna en SVM klassificerare: en bild som indata får SVM matar ut en poäng för varje attribut måste finnas. I vårt exempel datauppsättning innebär en poäng för 'stripe', 'prickad ”, och” leopard'.
 
-Skriptet `4_trainSVM.py` laddar utbildning bilder, tränar en SVM för olika värden för parametern regularization (slack) C och behåller SVM med högsta noggrannhet. Klassificering noggrannhet skrivs ut på konsolen och ritas i arbetsstationen. För de angivna struktur data bör värdena vara cirka 100% och 88% respektive. Slutligen utbildade SVM skrivs till filen *DATA_DIR/proc/fashionTexture/cntkFiles/svm.np*.
+Skriptet `4_trainSVM.py` läser in bilder för utbildning, träna en SVM för olika värden för parametern regularisering (slack) C och håller SVM med bästa noggrannheten. Klassificering noggrannheten skrivs ut på konsolen och ritas i Workbench. För de angivna struktur data bör värdena vara cirka 100% och 88% respektive. Slutligen tränade SVM skrivs till filen *DATA_DIR/proc/fashionTexture/cntkFiles/svm.np*.
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/vienna_svm_log_zoom.jpg" alt="alt text" width="700"/>
@@ -170,21 +170,21 @@ Skriptet `4_trainSVM.py` laddar utbildning bilder, tränar en SVM för olika vä
 ### <a name="step-5-evaluation-and-visualization"></a>Steg 5: Utvärdering och visualisering
 `Script: 5_evaluate.py. Notebook: showResults.ipynb`
 
-Riktighet klassificeraren utbildade avbildningen kan mätas med skriptet `5_evaluate.py`. Skriptet poängen alla testbilder med utbildade SVM klassificeraren tilldelas varje bild attributet med den högsta poängen och jämför de förväntade attribut med grunden sanningen anteckningar.
+Riktighet tränade bild klassificeraren kan mätas med hjälp av skriptet `5_evaluate.py`. Skriptet poängen alla test-avbildningar med hjälp av den tränade SVM klassificeraren, tilldelar varje bild attributet med högst poäng och jämför de förväntade attribut med grunden sanningen anteckningar.
 
-Utdata från skriptet `5_evaluate.py` visas nedan. Noggrannheten klassificering för varje enskild klass beräknas samt precisionen för för hela uppsättningen (övergripande precision) och genomsnittliga över enskilda noggrannhet ('övergripande klass, ett genomsnitt noggrannhet'). 100% motsvarar den bästa möjliga noggrannheten och 0% till sämst. Slumpmässiga gissa i genomsnitt resulterar i en klass, ett genomsnitt riktighet 1 över antalet attribut: i det här fallet noggrannheten skulle vara 33,33%. De här resultaten returneras avsevärt förbättra när du använder en högre inkommande upplösning som `rf_inputResoluton = 1000`, men på bekostnad av längre DNN beräkning gånger.
+Utdata från skriptet `5_evaluate.py` visas nedan. Noggrannheten klassificering för varje enskild klass beräknas samt precisionen för fullständig testning set (övergripande precision) och medelvärdet över enskilda noggrannhet (”totala klass i genomsnitt noggrannheten”). 100% motsvarar den bästa möjliga precision och 0% till värst. Slumpmässig gissa i genomsnitt resulterar i en klass i genomsnitt riktighet 1 över antalet attribut: i vårt fall noggrannheten skulle vara 33,33%. De här resultaten returneras avsevärt förbättra när du använder en högre indataupplösningen som `rf_inputResoluton = 1000`, men på bekostnad av längre DNN beräkning gånger.
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/output_script_6_white.jpg" alt="alt text" width="700"/>
 </p>
 
-Förutom Precision ritas ROC-kurvan med respektive område-under-kurvan (vänster). och matrisen förvirring visas (höger):
+Förutom noggrannhet ritas ROC-kurvan med respektive området-under-kurva (vänster). och felmatrisen visas (höger):
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Slutligen anteckningsboken `showResults.py` tillhandahålls för att rulla igenom testbilder och visualisera resultat för deras respektive klassificering. Enligt beskrivningen i steg 1, måste alla bärbara datorer i det här exemplet använder kernel lokala projektet med namnet ”PROJEKTNAMN lokala”:
+Slutligen anteckningsboken `showResults.py` tillhandahålls för att bläddra igenom avbildningar för testning och visualisera sina respektive klassificering poäng. Enligt beskrivningen i steg 1, måste alla datorer i det här exemplet använder kerneln lokalt projekt med namnet ”PROJECTNAME lokala”:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -196,99 +196,100 @@ Slutligen anteckningsboken `showResults.py` tillhandahålls för att rulla igeno
 ### <a name="step-6-deployment"></a>Steg 6: distribution
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Systemets utbildade kan nu publiceras som en REST-API. Distribution förklaras i anteckningsboken `deploy.ipynb`, och baserat på funktionerna i Azure Machine Learning arbetsstationen (Kom ihåg att ange kernel kernel lokala projektet med namnet ”lokal PROJEKTNAMN”). Se även avsnittet utmärkt distributionen i den [IRIS kursen](tutorial-classifying-iris-part-3.md) för distribution av mer relaterad information.
+Tränade systemet kan nu publiceras som en REST-API. Distribution förklaras i anteckningsboken `deploy.ipynb`, och baseras på funktionen i Azure Machine Learning Workbench (Kom ihåg att ange som kernel kernel lokalt projekt med namnet ”lokal PROJECTNAME”). Se även avsnittet utmärkt distributionen i den [IRIS, självstudie](tutorial-classifying-iris-part-3.md) för distribution av mer relaterad information.
 
-När har distribuerats, webbtjänsten kan anropas med skriptet `6_callWebservice.py`. Observera att IP-adressen (lokalt eller i molnet) för webbtjänsten måste anges först i skriptet. Anteckningsboken `deploy.ipynb` förklarar hur du hittar den här IP-adress.
-
-
+När distribuerats webbtjänsten kan anropas med hjälp av skriptet `6_callWebservice.py`. Observera att IP-adressen (lokalt eller i molnet) för webbtjänsten måste anges först i skriptet. Anteckningsboken `deploy.ipynb` förklarar hur du hittar den här IP-adressen.
 
 
 
 
 
 
-## <a name="part-2---accuracy-improvements"></a>Del 2 - förbättringar av noggrannhet
 
-Del 1 visade vi hur du klassificerar en bild av utbildning en linjär Support Vector Machine på 512 flyttal utdata från ett djupa Neurala nätverk. Den här DNN var före utbildade på miljontals avbildningar och näst sista lagret returneras som funktionen vector. Den här metoden är snabb eftersom DNN används som-är, men ändå ofta får goda resultat.
 
-Vi nu finns flera sätt att förbättra modellen från del 1. Vi förfinar framför allt DNN i stället för att hålla den fasta.
+## <a name="part-2---accuracy-improvements"></a>Del 2 - förbättringar av Precision
+
+I del 1 visade vi hur du klassificerar en avbildning genom att träna en linjär dator för Vektorstöd på 512 flyttal resultatet av ett djupt Neuralt nätverk. Den här DNN var förtränade miljontals avbildningar och näst sista lagret returneras som funktionen vektor. Den här metoden är snabb eftersom DNN används som – är, men ändå ofta ger bra resultat.
+
+Nu presenterar vi flera olika sätt att förbättra modellen från del 1. Vi förfina framför DNN i stället för att hålla det åtgärdat.
 
 ### <a name="dnn-refinement"></a>DNN förfining
 
-I stället för en SVM något kan du göra klassificeringen direkt i det neurala nätverket. Detta uppnås genom att lägga till ett nytt senaste lager före utbildade DNN, som tar 512-flyttal från det näst sista lagret som indata. Fördelen med att göra klassificering i DNN är nu kan retrained hela nätverket med hjälp av backpropagation. Den här metoden leder ofta till mycket bättre klassificering noggrannhet jämfört med före utbildade DNN som-är, men på bekostnad av mycket längre tid för träning (även med GPU).
+I stället för en SVM göra en klassificeringen direkt i det neurala nätverket. Detta uppnås genom att lägga till ett nytt senaste lager förtränade DNN, som tar 512-flyttal från näst sista lagret som indata. Fördelen med att göra klassificeringen i DNN har som nu kan modellkomponenten hela nätverket med hjälp av backpropagation. Den här metoden leder ofta till mycket bättre klassificering noggrannhet jämfört med användningen av förtränade DNN som – är, men på bekostnad av mycket längre tid för träning (även med GPU).
 
-Tränar det Neurala nätverket i stället för en SVM görs genom att ändra variabeln `classifier` i `PARAMETERS.py` från `svm` till `dnn`. Sedan enligt beskrivningen i del 1 måste alla skript förutom förberedelse av data (steg 1) och SVM utbildning (steg 4) köras igen. DNN förfining kräver en GPU. Om inga GPU hittades eller om GPU är låst (till exempel av en tidigare körning av CNTK) sedan skriptet `2_refineDNN.py` genererar ett fel. DNN utbildning orsaka fel om minnet är slut på vissa GPU-kort, som kan undvikas genom att minska storleken minibatch (variabeln `cntk_mb_size` i `PARAMETERS.py`).
+Tränar det Neurala nätverket i stället för en SVM görs genom att ändra variabeln `classifier` i `PARAMETERS.py` från `svm` till `dnn`. Sedan, enligt beskrivningen i del 1, alla skript förutom förberedelse av data (steg 1) och SVM utbildning (steg 4) måste köras igen. DNN förfining kräver en GPU. Om inga GPU hittades eller om GPU är låst (till exempel av en tidigare körning CNTK) sedan skriptet `2_refineDNN.py` genererar ett fel. DNN utbildning orsaka fel om minnet är slut på vissa GPU: er, som kan undvikas genom att minska storleken minibatch (variabeln `cntk_mb_size` i `PARAMETERS.py`).
 
-När utbildning är klar förfinade modellen har sparats till *DATA_DIR/proc/fashionTexture/cntk_refined.model*, och en rityta ritas som visar hur träning och testning klassificering felen ändras vid träning. Observera i den ritytans felet på träningsmängden är mycket mindre än test-mängd. Problemet så kallade över passningsåtgärderna kan minskas, till exempel med ett högre värde för den annullerad hastigheten `rf_dropoutRate`.
+När det är klart att utbildning, förfinade modellen har sparats till *DATA_DIR/proc/fashionTexture/cntk_refined.model*, och en rityta ritas som visar hur träning och testning klassificering felen ändras under utbildningen. Observera att i den diagram som felet för träningsmängden är mycket mindre än i test-grupp. Problemet så kallade över passningsåtgärderna kan minskas, till exempel med hjälp av ett högre värde för det annullerad priset `rf_dropoutRate`.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/output_script_3_plot.png" alt="alt text" height="300"/>
 </p>
 
-Kan ses i området nedan är noggrannhet med DNN förfining för den angivna datauppsättningen 92.35% jämfört med 88.92% innan (del 1). I synnerhet förbättra 'prickad' avbildningar avsevärt, med en ROC området under kurvan för 0,98 med förfining vs. 0.94 innan. Vi använder en liten datamängd och därför faktiska noggrannhet Kör koden är olika. Skillnaden är på grund av stokastisk effekter, till exempel slumpmässiga delningen av avbildningar till träning och testning uppsättningar.
+Som kan ses i området nedan, är det arbete du utfört med hjälp av DNN förfining på den angivna datauppsättningen 92.35% rabatt jämfört med 88.92% innan (del 1). I synnerhet förbättra 'prickad ”avbildningar mycket, med en ROC området under kurva för 0,98 med förfining vs. 0.94 innan. Vi använder en liten datamängd och kan därför faktiska noggrannhet Kör koden är olika. Skillnaden är på grund av stokastisk effekter, till exempel slumpmässiga delningen av avbildningarna i utbildning och testningsuppsättningar.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/roc_confMat_dnn.jpg" alt="alt text" width="700"/>
 </p>
 
 ### <a name="run-history-tracking"></a>Kör spårning av logg
 
-Azure Machine Learning arbetsstationen butiker historiken för var och en körs på Azure att jämförelse av två eller flera kör som är även veckor från varandra. Detta beskrivs i detalj i den [Iris kursen](tutorial-classifying-iris-part-2.md). Illustreras också i följande skärmbilderna där vi jämföra två körningar av skriptet `5_evaluate.py`, med hjälp av antingen DNN förfining som är `classifier = "dnn"`(kör tal 148) eller SVM utbildning som är `classifier = "svm"` (kör tal 150).
+Azure Machine Learning Workbench butiker historiken för var och en körs på Azure för att tillåta jämförelse av två eller flera körningar som är även veckor ifrån varandra. Detta förklaras i detalj i de [Iris, självstudie](tutorial-classifying-iris-part-2.md). Den också illustreras i följande skärmbilder där vi jämföra två körningar av skriptet `5_evaluate.py`, med hjälp av antingen DNN förfining det vill säga `classifier = "dnn"`(körningsnumret 148) eller SVM utbildning det vill säga `classifier = "svm"` (körningsnumret 150).
 
-I den första skärmbilden leder DNN förfining till att bättre noggrannhet än SVM utbildning för alla klasser. Andra skärmbilden visar alla mått som spåras, inklusive klassificeraren har. Den här spårning görs i skriptet `5_evaluate.py` genom att anropa loggaren Azure Machine Learning-arbetsstationen. Dessutom skriptet också sparar ROC-kurvan och förvirring matris till den *matar ut* mapp. Detta *matar ut* mappen är speciellt i att innehållet också spåras av funktionen tidigare arbetsstationen och därför utdatafilerna kan nås när som helst, oavsett om det har skrivits över lokala kopior.
+I den första skärmbilden leder DNN förfining till bättre noggrannhet än SVM utbildning för alla klasser. Andra skärmbilden visar alla mått som spåras, inklusive klassificeraren har. Den här spårning görs i skriptet `5_evaluate.py` genom att anropa Azure Machine Learning Workbench loggaren. Dessutom skriptet sparar ROC-kurvan och förvirring matris att även den *matar ut* mapp. Detta *matar ut* mappen är speciell eftersom dess innehåll också spåras av funktionen Workbench historik och kan därför utdatafilerna kan nås när som helst, oavsett om det har skrivits över lokala kopior.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/> </p>
+<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/>
+</p>
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/run_comparison2b.jpg" alt="alt text" width="700"/>
 </p>
 
 
-### <a name="parameter-tuning"></a>Parametern justera
+### <a name="parameter-tuning"></a>Parametern justering
 
-Som gäller för de flesta maskininlärning projekt, kräver hämta goda resultat för en ny datamängd noggrann parametern justera samt att utvärdera olika designbeslut. Om du vill hjälpa till med dessa uppgifter, alla viktiga parametrar har angetts och en kort förklaring finns i en enda plats: den `PARAMETERS.py` filen.
+Som gäller för de flesta machine learning-projekt, kräver få bra resultat för en ny datauppsättning noggrann parametern justering som utvärderar olika designbeslut. För att hjälpa till med dessa uppgifter, alla viktiga parametrar har angetts och en kort beskrivning anges i en och samma plats: den `PARAMETERS.py` filen.
 
 Några av de mest lovande vägar för förbättringar är:
 
-- DQS: Kontrollera uppsättningar för träning och testning har hög kvalitet. Som är avbildningar är kommenterade korrekt, tvetydig bilder tas bort (till exempel kläder artiklar med såväl stripe punkter) och attribut är ömsesidigt uteslutande (det vill säga valt så att varje avbildning som hör till exakt ett attribut).
+- DQS: se till att uppsättningar för träning och testning har hög kvalitet. Det vill säga bilderna är korrekt kommenterad, tvetydig avbildningar tas bort (till exempel kläder objekt med både stripe och punkter) och attribut kan inte användas samtidigt (det vill säga att du valt så att varje avbildning som hör till exakt ett attribut).
 
-- Om objektet av intresse är liten bild kända metoder för klassificering av bilden inte ska fungera väl. I sådana fall Överväg att använda en metod för identifiering av objekt som beskrivs i det här [kursen](https://github.com/Azure/ObjectDetectionUsingCntk).
-- DNN förfining: parametern tvekan viktigaste få rätt är inlärningsfrekvensen `rf_lrPerMb`. Om noggrannhet på utbildning (första bilden i del 2) är inte nära 0-5%, troligen är på grund av ett fel inlärningsfrekvensen. De parametrar som börjar med `rf_` är mindre viktiga. Utbildning fel bör normalt minska exponentiellt och vara nära 0% efter utbildning.
+- Om objekt av intresse är liten bild sedan Bildklassificering metoder är känt att inte fungera. I sådana fall att överväga att använda en metod för identifiering av objekt som beskrivs i det här [självstudien](https://github.com/Azure/ObjectDetectionUsingCntk).
+- DNN förfining: parametern är utan tvekan viktigast att få rätt är inlärningsfrekvensen `rf_lrPerMb`. Om det arbete du utfört på utbildningen ange (första bilden i del 2) inte är nära 0 och 5%, mest sannolikt det är på grund av ett fel inlärningsfrekvensen. De andra parametrarna från och med `rf_` är mindre viktiga. Utbildning fel bör normalt minska exponentiellt och vara nära 0% efter utbildning.
 
-- Ange upplösning: standard bildupplösningen är 224 x 224 bildpunkter. Med högre upplösning (parameter: `rf_inputResoluton`), till exempel 448 x 448 eller 896 x 896 pixlar ofta betydande förbättrar noggrannhet men långsammare DNN förfining. **Med högre upplösning är nästan gratislunch och nästan alltid förstärker noggrannhet**.
+- Ange upplösning: standard bildupplösningen är 224 x 224 bildpunkter. Med högre upplösning (parameter: `rf_inputResoluton`), till exempel 448 x 448 eller 896 x 896 pixlar ofta betydande förbättrar precisionen men saktar ned DNN förfining. **Med högre upplösning är nästan är gratis och nästan alltid ökar noggrannheten**.
 
-- DNN över passning: undvika ett stort mellanrum mellan utbildning och testa noggrannhet under DNN förfining (först figur i del 2). Luckan kan minskas med annullerad priser `rf_dropoutRate` minst 0,5 och genom att öka vikten regularizer `rf_l2RegWeight`. Med en hög annullerad frekvens kan vara användbar om DNN inkommande bildupplösningen är hög.
+- DNN över montering: undvika ett stort mellanrum mellan träning och testning noggrannheten under DNN förfining (först figur i del 2). Luckan kan minskas annullerad enligt taxan för `rf_dropoutRate` minst 0,5 och genom att öka vikten regularizer `rf_l2RegWeight`. Med en hög annullerad frekvens kan vara särskilt användbart om DNN inkommande bildupplösningen är hög.
 
-- Försök med djupare DNNs genom att ändra `rf_pretrainedModelFilename` från `ResNet_18.model` antingen `ResNet_34.model` eller `ResNet_50.model`. Resnet 50 modellen är inte bara djupare, men dess utdata från näst sista lagret är av storleken 2048 flyttal (vs. 512 flyttal ResNet 18 och ResNet 34 modeller). Ökad dimensionen kan vara särskilt bra när utbildning SVM-klassificerare.
+- Försök med djupare dnn: er genom att ändra `rf_pretrainedModelFilename` från `ResNet_18.model` antingen `ResNet_34.model` eller `ResNet_50.model`. Resnet-50 modellen är inte bara bättre, men dess utdata från det näst sista lagret tillhör storleken 2048 flyttal (jämfört med 512 flyttal med ResNet-18 och ResNet-34 modeller). Den här ökade dimensionen kan vara särskilt bra när utbildning en SVM klassificerare.
 
-## <a name="part-3---custom-dataset"></a>Del 3 - anpassad datauppsättning
+## <a name="part-3---custom-dataset"></a>Del 3 – anpassad datauppsättning
 
-Del 1 och 2 vi tränas och utvärderas en modell för klassificering av avbildning med hjälp av angivna övre brödtext kläder strukturer avbildningar. Vi kan nu visa hur du använder en anpassad datauppsättning för användaren i stället. Eller, om det är inte tillgänglig, så att generera och kommentera exempelvis en datamängd med Bing avbildningen Sök.
+I del 1 och 2 får vi tränas och utvärderas en modell för klassificering av avbildning med hjälp av angiven text för övre kläder strukturer avbildningar. Nu visar vi hur du använder en anpassad datauppsättning för användaren i stället. Eller, om det är inte tillgänglig, hur att generera och anteckna, till exempel en datauppsättning med Bing söka i avbildningen.
 
 ### <a name="using-a-custom-dataset"></a>Med hjälp av en anpassad datauppsättning
 
-Först ska vi ta en titt på mappstrukturen för kläder struktur data. Observera hur alla bilder för olika attribut i respektive undermappar *prickad*, * leopard, och *stripe* på *fashionTexture-DATA_DIR/bilder/*. Observera också hur mappnamnet avbildningen ingår även i den `PARAMETERS.py` filen:
+Först ska vi ta en titt på mappstrukturen för kläder struktur data. Observera hur alla avbildningar för olika attribut är i respektive undermappar *prickad*, * leopard, och *stripe* på *DATA_DIR/bilder/fashionTexture/*. Observera också hur mappen Avbildningsnamnet också sker i den `PARAMETERS.py` fil:
 ```python
 datasetName = "fashionTexture"
 ```
 
-Med hjälp av en anpassad datauppsättning är så enkelt som efterliknar här mappstrukturen där alla bilder är i undermappar enligt deras attribut och kopiera dessa mappar till en ny katalog som användaren har angett *newDataSetName-DATA_DIR/bilder/*. Endast kodändring som krävs är att ange den `datasetName` variabeln *newDataSetName*. Skript 1-5 kan sedan köras i ordning och alla mellanliggande skrivs *newDataSetName-DATA_DIR/proc/*. Det krävs några andra ändringar i koden.
+Med hjälp av en anpassad datauppsättning är lika enkelt som att återge den här mappstrukturen där alla avbildningar finns i undermappar enligt deras attribut och kopiera dessa undermappar till en ny katalog för användardefinierade *DATA_DIR/bilder/newDataSetName/*. Den enda måste koden ändras är att ange den `datasetName` variabeln *newDataSetName*. Skript 1-5 kan sedan köras i ordning och alla mellanliggande filer skrivs till *DATA_DIR/proc/newDataSetName/*. Det krävs inga kodändringar alls.
 
-Det är viktigt att varje avbildning kan tilldelas exakt ett attribut. Till exempel vore det fel ha attribut för 'djuret' och 'leopard', eftersom en avbildning av 'leopard' skulle också tillhör 'djuret'. Dessutom är det bäst att ta bort avbildningar som är tvetydig och därför svårt att lägga till anteckningar.
+Det är viktigt att varje avbildning kan tilldelas till exakt ett attribut. Till exempel vore det fel ha attribut för 'djur' och 'leopard', eftersom en ”leopard' avbildning skulle också tillhör” djur ”. Dessutom är det bäst att ta bort avbildningar som är tvetydig och därför svåra att kommentera.
 
 
 
-### <a name="image-scraping-and-annotation"></a>Bild skrapning och anteckningar
+### <a name="image-scraping-and-annotation"></a>Bild skrapning och anteckning
 
-Kan vara svårt att samla in ett tillräckligt stort antal kommenterade avbildningar för träning och testning. Ett sätt att lösa problemet är att skrapa bilder från Internet. Se exempelvis nedan sökresultatet Bing avbildningen för frågan *t-shirt stripe*. Som förväntat, de flesta bilder verkligen stripe t-shirts. Några fel eller är tvetydig avbildningar (t.ex kolumn 1, rad 1; eller kolumn 3, rad 2) kan identifieras och svårt att ta bort:
+Kan vara svårt att samla in tillräckligt många kommenterade avbildningar träning och testning. Ett sätt att lösa problemet är att skrapa bilder från Internet. Se exempelvis nedan bildsökning i Bing resultatet för frågan *t-shirt stripe används*. Som förväntat, de flesta avbildningar verkligen stripe t-shirts. Några fel eller är tvetydig avbildningar (t.ex kolumn 1, rad 1; eller kolumn 3, rad 2) kan identifieras och svårt att ta bort:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/bing_search_striped.jpg" alt="alt text" width="600"/>
 </p>
 
-Flera frågor ska användas för att generera en stor och olika dataset. Till exempel 7\*3 = 21 frågor kan syntetiskt automatiskt med alla kombinationer av kläder {BLUS, hoodie, tröja, tröja, shirt, t-shirt, undertröjor} och {stripe, prickad, leopard}-attribut. Sedan hämtar upp 50 bilder per fråga skulle leda till högst 21 * 50 = 1050 bilder.
+Flera frågor ska användas för att generera en stor och skilda datauppsättning. Till exempel 7\*3 = 21 frågor kan syntetiseras automatiskt med alla kombinationer av kläder {BLUS, hoodie, tröja, tröja, skjorta, t-shirt, innehav} och {stripe, prickad, leopard}-attribut. Sedan hämtar upp 50 bilder per fråga skulle leda till högst 21 * 50 = 1050 avbildningar.
 
-I stället för att manuellt hämtar bilder från Bing Image-sökning, är det mycket enklare att i stället använda den [kognitiva Services Bing-API för sökning av avbildningen](https://www.microsoft.com/cognitive-services/bing-image-search-api) som returnerar en uppsättning bild-URL: er får en frågesträng.
+I stället för att manuellt hämta avbildningar från bildsökning i Bing, är det mycket enklare att i stället använda den [Cognitive Services bildsökning i Bing](https://www.microsoft.com/cognitive-services/bing-image-search-api) som returnerar en uppsättning webbadresser till bilder får en frågesträng.
 
-Vissa av de hämta bilderna är exakt eller nära dubbletter (till exempel skiljer sig bara avbildningen lösning eller jpg artefakter). Dessa dubbletter bör tas bort så att dela träning och testning inte innehåller samma bilder. Tar bort dubbletter bilder kan uppnås med hjälp av en hash-baserade metod som fungerar i två steg: (i) först hash-sträng har beräknats för alla avbildningar. (ii) i ett andra steg över avbildningar behålls endast dessa bilder med en hash-sträng som ännu inte har visats. Alla avbildningar ignoreras. Påträffades i `dhash` metod i Python-bibliotek `imagehash` och som beskrivs i det här [blogg](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html) att utföra, med parametern `hash_size` anges till 16. Det är OK att felaktigt tar bort vissa icke-dubblett-avbildningar, så länge som flesta verkliga dubbletter av tas bort.
+Vissa av de hämta avbildningarna är exakt eller nära dubbletter (till exempel skiljer sig bara bild lösning eller jpg artefakter). Dessa dubbletter ska tas bort så att träning och testning delningen inte innehåller samma avbildningar. Tar bort duplicerade bilder kan uppnås med hjälp av en hash-baserade metod, som fungerar i två steg: (i) först hash-sträng beräknas för alla avbildningar. (ii) i ett andra steg över avbildningarna hålls endast dessa avbildningar med en hash-sträng som ännu inte har påträffats. Alla andra avbildningar tas bort. Vi hittade den `dhash` metoden i Python-bibliotek `imagehash` och beskrivs i det här [blogg](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html) att utföra, med parametern `hash_size` inställd på 16. Det är OK att felaktigt ta bort vissa icke-dubblett-avbildningar, så länge som flesta verkliga dubbletterna komma bort.
 
 
 
@@ -296,14 +297,14 @@ Vissa av de hämta bilderna är exakt eller nära dubbletter (till exempel skilj
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Vissa viktiga markeringar i det här exemplet är:
-- Kod för att träna, utvärdera och distribuera avbildningen klassificering modeller.
-- Demo-avbildningar som angavs, men enkelt anpassningsbar (en rad ändra) att använda egna avbildning dataset.
-- Den senaste expert implementerade funktioner för att träna hög noggrannhet modeller baserat på Överför Learning.
-- Interaktiva modellen utveckling med Azure Machine Learning arbetsstationen och Jupyter-anteckningsbok.
+Vissa viktiga höjdpunkter i det här exemplet är:
+- Kod för att träna, utvärdera och distribuera avbildningsklassificeringsmodeller.
+- Demo-avbildningarna som tillhandahålls, men enkelt anpassningsbar (en rad ändra) att använda egna bilden datauppsättning.
+- Den senaste experten funktioner implementeras för att skapa modeller för hög precision baserat på överföra Learning.
+- Interaktiv modellen utveckling med Azure Machine Learning Workbench och Jupyter-anteckningsboken.
 
 
 ## <a name="references"></a>Referenser
 
-[1] Alex Krizhevsky och Ilya Sutskever Geoffrey E. Hinton [ _ImageNet klassificering med Convolutional djupa Neurala nätverk_](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf). NIPS 2012.  
-[2] Kaiming han, Xiangyu Madsen, Shaoqing Ren och Jian Sun, [ _djupt kvarvarande Learning för avbildningen Recognition_](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf). CVPR 2016.
+[1] Alex Krizhevsky och Ilya Sutskever Geoffrey E. Hinton [ _ImageNet klassificering med djupgående Convolutional Neural Networks_](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf). NIPS 2012.  
+[2] Kaiming He, Xiangyu Madsen, Shaoqing Ren och Jian Sun, [ _resterande djupgående utbildning för Bildigenkänning_](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf). CVPR 2016.

@@ -1,6 +1,6 @@
 ---
 title: Analysera Twitter-data med Hadoop i HDInsight - Azure | Microsoft Docs
-description: Lär dig hur du använder Hive för att analysera Twitter-data med Hadoop i HDInsight för att hitta frekvensen för användning av ett visst ord.
+description: Lär dig hur du använder Hive för att analysera Twitter-data med Hadoop i HDInsight för att hitta användningsfrekvenser för ett visst ord.
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -13,34 +13,34 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 35f8937ddef54d407a6e3c83566225ca8ede8bd9
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 6b47e54e56b12a2975c44ab3b87b023d20a769c3
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960135"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436172"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analysera Twitter-data med Hive i HDInsight
-Sociala webbplatser är en av större Drivande faktorer för stordata införande. Offentliga API: er som tillhandahålls av webbplatser som Twitter är en användbar datakälla för att analysera och förstå populära trender.
-I den här självstudiekursen kommer du få tweets med hjälp av en Twitter streaming API och sedan använda Apache Hive på Azure HDInsight för att hämta en lista över Twitter-användare som skickade de flesta tweets som innehöll ett visst ord.
+Sociala webbplatser är en av större Drivande faktorer för big data-införande. Offentliga API: er som tillhandahålls av webbplatser som Twitter är en bra källa till data för att analysera och förstå populära trender.
+I de här självstudierna kommer du få tweets med ett Twitter API för strömning och sedan använda Apache Hive på Azure HDInsight till att hämta en lista över Twitter-användare som skickade de flesta tweets som innehåller ett visst ord.
 
 > [!IMPORTANT]
-> Stegen i det här dokumentet kräver ett Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Åtgärder som är specifika för ett Linux-baserade kluster, se [analysera Twitter-data med hjälp av Hive i HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
+> Stegen i det här dokumentet kräver ett Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Anvisningar om specifika till ett Linux-baserade kluster finns i [analysera Twitter-data med Hive i HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar de här självstudierna måste du ha:
 
-* **En arbetsstation** med Azure PowerShell installeras och konfigureras.
+* **En arbetsstation** med Azure PowerShell installerad och konfigurerad.
 
-    Om du vill köra Windows PowerShell-skript, måste du köra Azure PowerShell som administratör och ange körningsprincipen som *RemoteSigned*. Se [kör Windows PowerShell-skript][powershell-script].
+    För att köra Windows PowerShell-skript, måste du köra Azure PowerShell som administratör och ange körningsprincipen till *RemoteSigned*. Se [kör Windows PowerShell-skript][powershell-script].
 
-    Kontrollera att du är ansluten till din Azure-prenumeration med hjälp av följande cmdlet innan du kör Windows PowerShell-skript:
+    Innan du kör Windows PowerShell-skript måste du kontrollera att du är ansluten till din Azure-prenumeration med hjälp av följande cmdlet:
 
     ```powershell
     Connect-AzureRmAccount
     ```
 
-    Om du har flera Azure-prenumerationer, använder du följande cmdlet för att ange den aktuella prenumerationen:
+    Om du har flera Azure-prenumerationer, kan du använda följande cmdlet för att ställa in den aktuella prenumerationen:
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionID <Azure Subscription ID>
@@ -51,55 +51,55 @@ Innan du påbörjar de här självstudierna måste du ha:
     >
     > Följ stegen i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs) för att installera den senaste versionen av Azure PowerShell. Om du har skript som behöver ändras för att använda de nya cmdletarna som fungerar med Azure Resource Manager, hittar du mer information i [Migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
-* **Ett Azure HDInsight-kluster**. Mer information om klusteretablering finns [komma igång med HDInsight] [ hdinsight-get-started] eller [etablera HDInsight-kluster][hdinsight-provision]. Klusternamnet måste senare under kursen.
+* **Ett Azure HDInsight-kluster**. Anvisningar för att etablera klustret finns i [komma igång med HDInsight] [ hdinsight-get-started] eller [etablera HDInsight-kluster][hdinsight-provision]. Klusternamnet måste senare under kursen.
 
-I följande tabell visas de filer som används i den här självstudiekursen:
+I följande tabell visas de filer som används i den här självstudien:
 
 | Filer | Beskrivning |
 | --- | --- |
-| /tutorials/Twitter/data/tweets.txt |Källdata för Hive-jobb. |
-| /tutorials/Twitter/Output |Den utgående mappen för Hive-jobb. Hive-jobbet utdata Standardfilnamnet är **000000_0**. |
-| tutorials/Twitter/Twitter.hql |HiveQL skriptfilen. |
-| /tutorials/Twitter/JobStatus |Hadoop-jobbstatus. |
+| /tutorials/Twitter/data/tweets.txt |Hive-jobb i källdata. |
+| /tutorials/Twitter/Output |Utdatamappen för Hive-jobb. Hive-jobb utdata Standardfilnamnet är **000000_0**. |
+| tutorials/Twitter/Twitter.hql |Skriptfilen HiveQL. |
+| /tutorials/Twitter/JobStatus |Hadoop jobbets status. |
 
-## <a name="get-twitter-feed"></a>Get Twitter-flöde
-I den här kursen använder du den [Twitter-API: er för strömning][twitter-streaming-api]. Specifika Twitter streaming API som du ska använda är [statusar/filter][twitter-statuses-filter].
+## <a name="get-twitter-feed"></a>Hämta Twitter-flöde
+I den här självstudien använder du den [Twitter-API: er för direktuppspelning][twitter-streaming-api]. Specifika Twitter strömmande API som du använder är [statusar/filter][twitter-statuses-filter].
 
 > [!NOTE]
-> En fil som innehåller 10 000 tweets och Hive-skriptfil (beskrivs i nästa avsnitt) har laddats upp i en offentlig blobbbehållare. Du kan hoppa över det här avsnittet om du vill använda de överförda filerna.
+> En fil som innehåller 10 000 tweets och Hive-skriptfilen (beskrivs i nästa avsnitt) har laddats upp i en offentlig blobbehållare. Du kan hoppa över det här avsnittet om du vill använda de uppladdade filerna.
 
-Tweets data lagras i formatet JavaScript Object Notation (JSON) som innehåller en komplex kapslade struktur. I stället för att skriva många rader med kod med hjälp av en konventionell programmeringsspråk, kan du omvandla den här kapslade strukturen i en Hive-tabell så att den kan efterfrågas av en SQL Structured Query Language ()-som språk som kallas HiveQL.
+Tweets data lagras i JavaScript Object Notation (JSON)-format som innehåller en komplex kapslade struktur. Istället för att skriva många rader med kod med hjälp av ett vanliga programmeringsspråk, kan du omvandla den här kapslade strukturen i en Hive-tabell, så att den kan ta emot av en SQL Structured Query Language ()-likt språk som kallas HiveQL.
 
-Twitter använder OAuth för auktoriserad åtkomst till dess API. OAuth är ett autentiseringsprotokoll som tillåter användare att godkänna program fungerar åt utan att dela sina lösenord. Mer information finns på [oauth.net](http://oauth.net/) eller i den utmärkt [Nybörjarguide till OAuth](http://hueniverse.com/oauth/) från Hueniverse.
+Twitter använder OAuth för att tillhandahålla auktoriserad åtkomst till dess API. OAuth är ett autentiseringsprotokoll som tillåter användare att godkänna program så att den fungerar för deras räkning utan att dela sina lösenord. Mer information finns på [oauth.net](http://oauth.net/) eller i den utmärkt [Nybörjarguide till OAuth](http://hueniverse.com/oauth/) från Hueniverse.
 
-Det första steget att använda OAuth är att skapa ett nytt program på webbplatsen Twitter-utvecklare.
+Det första steget att använda OAuth är att skapa ett nytt program i Twitter-utvecklarwebbplatsen.
 
 **Skapa ett Twitter-program**
 
-1. Logga in på [ https://apps.twitter.com/ ](https://apps.twitter.com/). Klicka på den **registrera nu** länk om du inte har ett Twitter-konto.
+1. Logga in på [ https://apps.twitter.com/ ](https://apps.twitter.com/). Klicka på den **registrera dig nu** länkar om du inte har ett Twitter-konto.
 2. Klicka på **Skapa ny App**.
-3. Ange **namn**, **beskrivning**, **webbplats**. Du kan göra upp en URL för den **webbplats** fältet. I följande tabell visas några exempelvärden som ska användas:
+3. Ange **namn**, **beskrivning**, **webbplats**. Du kan göra upp en URL för den **webbplats** fält. I följande tabell visas några exempelvärden som ska användas:
 
    | Fält | Värde |
    | --- | --- |
    |  Namn |MyHDInsightApp |
    |  Beskrivning |MyHDInsightApp |
    |  Webbplats |http://www.myhdinsightapp.com |
-4. Kontrollera **Ja, jag godkänner**, och klicka sedan på **skapa programmet Twitter**.
-5. Klicka på den **behörigheter** fliken. Standardbehörigheten är **skrivskyddad**. Detta är tillräcklig för den här kursen.
-6. Klicka på den **nycklar och åtkomst-token** fliken.
-7. Klicka på **skapa åtkomst-token**.
+4. Kontrollera **Ja, jag godkänner**, och klicka sedan på **skapa ditt Twitter-program**.
+5. Klicka på den **behörigheter** fliken. Standardbehörigheten är **skrivskyddad**. Det här är tillräcklig för den här självstudiekursen.
+6. Klicka på den **nycklar och åtkomsttoken** fliken.
+7. Klicka på **Skapa min åtkomsttoken**.
 8. Klicka på **Test OAuth** i det övre högra hörnet på sidan.
-9. Skriv ned **konsumenten nyckeln**, **konsumenthemlighet**, **åtkomsttoken**, och **åtkomst-token hemlighet**. Du behöver värdena senare under kursen.
+9. Anteckna **använda nyckeln**, **konsumenthemligheten**, **åtkomsttoken**, och **åtkomsttokenhemligheten**. Du behöver värdena senare under kursen.
 
-I den här kursen använder du Windows PowerShell för att anropa webbtjänsten. Andra populära verktyget göra webbtjänstanrop [ *Curl*][curl]. CURL kan hämtas från [här][curl-download].
+I den här självstudien använder du Windows PowerShell för att göra-webbtjänstanrop. Det andra populära verktyget för att göra de tjänstanrop för web är [ *Curl*][curl]. CURL kan laddas ned från [här][curl-download].
 
 > [!NOTE]
 > När du använder curl-kommando i Windows, Använd dubbla citattecken i stället för enkla citattecken för värden för alternativ.
 
-**Få tweets**
+**Att hämta tweets**
 
-1. Öppna Windows PowerShell Integrated Scripting Environment (ISE). (Ange på startskärmen för Windows 8 **PowerShell_ISE** och klicka sedan på **Windows PowerShell ISE**. Se [starta Windows PowerShell på Windows 8 och Windows][powershell-start].)
+1. Öppna Windows-PowerShell Integrated Scripting Environment (ISE). (På startskärmen i Windows 8, skriver **PowerShell_ISE** och klicka sedan på **Windows PowerShell ISE**. Se [starta Windows PowerShell i Windows 8 och Windows](https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
 2. Kopiera följande skript i skriptfönstret:
 
     ```powershell
@@ -228,41 +228,41 @@ I den här kursen använder du Windows PowerShell för att anropa webbtjänsten.
     Write-Host "Completed!" -ForegroundColor Green
     ```
 
-3. Ange först fem till åtta variabler i skriptet:
+3. Ange första fem till åtta variabler i skriptet:
 
     Variabel|Beskrivning
     ---|---
-    $clusterName|Detta är namnet på HDInsight-klustret där du vill köra programmet.
-    $oauth_consumer_key|Detta är det Twitter-programmet **konsumenten nyckeln** du skrivit tidigare när du skapade Twitter-programmet.
-    $oauth_consumer_secret|Detta är det Twitter-programmet **konsumenthemlighet** du skrev ned tidigare.
-    $oauth_token|Detta är det Twitter-programmet **åtkomsttoken** du skrev ned tidigare.
-    $oauth_token_secret|Detta är det Twitter-programmet **åtkomst-token hemlighet** du skrev ned tidigare.
-    $destBlobName|Detta är blob utdatanamn. Standardvärdet är **tutorials/twitter/data/tweets.txt**. Om du ändrar standardvärdet, behöver du uppdateras också Windows PowerShell-skript.
-    $trackString|Webbtjänsten returneras tweets som rör nyckelorden. Standardvärdet är **Azure moln, HDInsight**. Om du ändrar standardvärdet, uppdaterar du Windows PowerShell-skript i enlighet med detta.
-    $lineMax|Värdet anger hur många tweets skriptet läses. Det tar cirka tre minuter för att läsa 100 tweets. Du kan ange ett större värde, men det tar längre tid att hämta.
+    $clusterName|Det här är namnet på HDInsight-klustret där du vill köra programmet.
+    $oauth_consumer_key|Detta är ett Twitter-program **använda nyckeln** du skrev ned tidigare när du skapade Twitter-programmet.
+    $oauth_consumer_secret|Detta är ett Twitter-program **konsumenthemligheten** du skrev ned tidigare.
+    $oauth_token|Detta är ett Twitter-program **åtkomsttoken** du skrev ned tidigare.
+    $oauth_token_secret|Detta är ett Twitter-program **åtkomsttokenhemligheten** du skrev ned tidigare.
+    $destBlobName|Det här är utdata-blob-namnet. Standardvärdet är **tutorials/twitter/data/tweets.txt**. Om du ändrar standardvärdet, behöver du uppdatera Windows PowerShell-skript på samma sätt.
+    $trackString|Webbtjänsten returnerar tweets som rör dessa nyckelord. Standardvärdet är **Azure, molnet, HDInsight**. Om du ändrar standardvärdet uppdateras Windows PowerShell-skript på lämpligt sätt.
+    $lineMax|Värdet anger hur många tweets som skriptet läser. Det tar cirka tre minuter för att läsa 100 tweets. Du kan ange fler, men det tar längre tid att hämta.
 
-1. Tryck **F5** för att köra skriptet. Om du stöter på problem, som en tillfällig lösning kan du markera alla rader och tryck sedan på **F8**.
+1. Tryck **F5** för att köra skriptet. Om du stöter på problem, som en lösning kan du markera alla rader och tryck sedan på **F8**.
 2. Du bör se ”Slutför”! i slutet av utdata. Eventuella felmeddelanden visas i rött.
 
-Du kan kontrollera filen, som en valideringsproceduren **/tutorials/twitter/data/tweets.txt**, på ditt Azure Blob storage med hjälp av en Azure Lagringsutforskaren eller Azure PowerShell. En Windows PowerShell-exempelskript för att lista filer, se [använda Blob storage med HDInsight][hdinsight-storage-powershell].
+Du kan kontrollera utdatafilen, som en valideringsproceduren **/tutorials/twitter/data/tweets.txt**, på Azure Blob storage med hjälp av en Azure storage explorer eller Azure PowerShell. En Windows PowerShell-exempelskript för att lista filer, se [använda Blob storage med HDInsight][hdinsight-storage-powershell].
 
 ## <a name="create-hiveql-script"></a>Skapa HiveQL-skript
-Med Azure PowerShell kan du köra flera HiveQL-instruktioner en i taget eller paketet HiveQL-instruktionen i en skriptfil. I den här självstudiekursen skapar du en HiveQL-skript. Skriptfilen måste överföras till Azure Blob storage. I nästa avsnitt ska du köra skriptfilen med hjälp av Azure PowerShell.
+Med Azure PowerShell kan du köra flera HiveQL-instruktioner en i taget eller paketera HiveQL-instruktionen i en skriptfil. I de här självstudierna skapar du en HiveQL-skript. Skriptfilen måste överföras till Azure Blob storage. I nästa avsnitt ska du köra skriptfilen med hjälp av Azure PowerShell.
 
 > [!NOTE]
-> Hive skriptfilen och en fil som innehåller 10 000 tweets har laddats upp i en offentlig blobbbehållare. Du kan hoppa över det här avsnittet om du vill använda de överförda filerna.
+> Hive-skriptfilen och en fil som innehåller 10 000 tweets har laddats upp i en offentlig blobbehållare. Du kan hoppa över det här avsnittet om du vill använda de uppladdade filerna.
 
 HiveQL-skript kommer att utföra följande:
 
 1. **Ta bort tabellen tweets_raw** om tabellen redan finns.
-2. **Skapa Hive-tabell tweets_raw**. Hive strukturerade registret innehåller data för ytterligare extrahering, transformering och laddning (ETL) bearbetning. Mer information om partitioner finns [Hive kursen][apache-hive-tutorial].
-3. **Läs in data** från källmappen /tutorials/twitter/data. Stora tweets datauppsättningen i kapslade JSON-format har nu tagits omvandlas till en tillfällig Hive tabellstruktur.
+2. **Skapa Hive-tabell tweets_raw**. Den här tillfälliga strukturerade Hive-tabellen innehåller data för ytterligare extrahering, transformering och inläsning (ETL) bearbetning. Information om partitioner finns [Hive självstudien][apache-hive-tutorial].
+3. **Läsa in data** från källmappen /tutorials/twitter/data. Stora tweets datauppsättningen i kapslad JSON-format har nu tagits omvandlas till en tillfällig Hive-tabellstruktur.
 4. **Ta bort tabellen tweets** om tabellen redan finns.
-5. **Skapa tabellen tweets**. Innan du kan fråga mot tweets dataset med hjälp av Hive, måste du kör en annan ETL-processen. ETL-processen definierar en mer detaljerad tabellschemat för de data som du har lagrat i tabellen ”twitter_raw”.
-6. **Skriv över för infoga**. Det här komplexa Hive-skriptet kommer startar en uppsättning lång MapReduce-jobb med Hadoop-kluster. Detta kan ta ungefär 10 minuter beroende på datamängden och storleken på ditt kluster.
-7. **Infoga skriva över katalogen**. Kör en fråga och utdatauppsättningen till en fil. Den här frågan returnerar en lista över Twitter-användare som skickade de flesta tweets som innehåller ordet ”Azure”.
+5. **Skapa tabellen tweets**. Innan du kan fråga mot datauppsättningen tweets med hjälp av Hive, måste du köra en annan ETL-processen. Den här ETL-processen definierar en mer detaljerad tabellschemat för de data som du har lagrat i tabellen ”twitter_raw”.
+6. **Infoga överskrivning tabell**. Det här komplexa Hive-skriptet startar en uppsättning lång MapReduce-jobb med Hadoop-kluster. Detta kan ta cirka 10 minuter beroende på din datauppsättning och storleken på ditt kluster.
+7. **Infoga skriva över katalogen**. Kör en fråga och utdatauppsättning till en fil. Den här frågan returnerar en lista över Twitter-användare som skickade de flesta tweets som innehåller ordet ”Azure”.
 
-**Skapa en Hive-skript och överföra det till Azure**
+**Skapa en Hive-skript och överför det till Azure**
 
 1. Öppna Windows PowerShell ISE.
 2. Kopiera följande skript i skriptfönstret:
@@ -441,24 +441,24 @@ HiveQL-skript kommer att utföra följande:
 
    | Variabel | Beskrivning |
    | --- | --- |
-   |  $clusterName |Ange klusternamnet HDInsight där du vill köra programmet. |
+   |  $clusterName |Ange HDInsight-klusternamnet där du vill köra programmet. |
    |  $subscriptionID |Ange ditt Azure-prenumeration-ID. |
    |  $sourceDataPath |Azure Blob storage plats där Hive-frågor kommer att läsa data från. Du behöver inte ändra den här variabeln. |
-   |  $outputPath |Azure Blob storage plats där Hive-frågor kommer skriver resultatet. Du behöver inte ändra den här variabeln. |
+   |  $outputPath |Azure Blob storage plats där Hive-frågor kommer matar ut resultaten. Du behöver inte ändra den här variabeln. |
    |  $hqlScriptFile |Sökvägen och filnamnet för filen HiveQL-skript. Du behöver inte ändra den här variabeln. |
-4. Tryck **F5** för att köra skriptet. Om du stöter på problem, som en tillfällig lösning kan du markera alla rader och tryck sedan på **F8**.
+4. Tryck **F5** för att köra skriptet. Om du stöter på problem, som en lösning kan du markera alla rader och tryck sedan på **F8**.
 5. Du bör se ”Slutför”! i slutet av utdata. Eventuella felmeddelanden visas i rött.
 
-Du kan kontrollera filen, som en valideringsproceduren **/tutorials/twitter/twitter.hql**, på ditt Azure Blob storage med hjälp av en Azure Lagringsutforskaren eller Azure PowerShell. En Windows PowerShell-exempelskript för att lista filer, se [använda Blob storage med HDInsight][hdinsight-storage-powershell].
+Du kan kontrollera utdatafilen, som en valideringsproceduren **/tutorials/twitter/twitter.hql**, på Azure Blob storage med hjälp av en Azure storage explorer eller Azure PowerShell. En Windows PowerShell-exempelskript för att lista filer, se [använda Blob storage med HDInsight][hdinsight-storage-powershell].
 
 ## <a name="process-twitter-data-by-using-hive"></a>Bearbeta Twitter-data med hjälp av Hive
-Du är klar med alla förberedelse av arbetet. Nu kan du anropa Hive-skript och kontrollera resultaten.
+Du är klar med alla förberedelse. Nu har du anropar Hive-skriptet och kontrollera resultaten.
 
 ### <a name="submit-a-hive-job"></a>Skicka ett Hive-jobb
-Använd följande Windows PowerShell-skript för att köra Hive-skript. Du måste ange den första variabeln.
+Du kan använda följande Windows PowerShell-skript för att köra Hive-skriptet. Du behöver du ange den första variabeln.
 
 > [!NOTE]
-> Om du vill använda tweets och HiveQL-skript som du har överfört i de sista två avsnitt, tilldelas $hqlScriptFile ”/ tutorials/twitter/twitter.hql”. Om du vill använda de som har överförts till en offentlig blob du värdet $hqlScriptFile ”wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql”.
+> Om du vill använda tweets och HiveQL-skript som du laddade upp i de sista två avsnitten, inställd $hqlScriptFile ”/ tutorials/twitter/twitter.hql”. Om du vill använda de som har överförts till en offentlig blob du inställd $hqlScriptFile ”wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql”.
 
 ```powershell
 #region variables and constants
@@ -497,7 +497,7 @@ Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $jobID -DefaultCo
 ```
 
 ### <a name="check-the-results"></a>Kontrollera resultaten
-Använd följande Windows PowerShell-skript för att kontrollera utdata för Hive-jobb. Du måste ställa in de första två variablerna.
+Du kan använda följande Windows PowerShell-skript för att kontrollera utdata för Hive-jobb. Du måste ange de första två variablerna.
 
 ```powershell
 #region variables and constants
@@ -536,15 +536,15 @@ Write-Host "==================================" -ForegroundColor Green
 > [!NOTE]
 > Hive-tabell använder \001 som fältavgränsaren. Avgränsaren visas inte i utdata.
 
-När de har placerats i Azure Blob storage, kan du exportera data till en Azure SQL-databas/SQL server, exportera data till Excel med hjälp av Power Query eller ansluta programmet till data med hjälp av Hive ODBC-drivrutinen. Mer information finns i [använda Sqoop med HDInsight][hdinsight-use-sqoop], [analysera svarta fördröjning data med HDInsight][hdinsight-analyze-flight-delay-data], [ Anslut Excel till HDInsight med Power Query][hdinsight-power-query], och [ansluter Excel till HDInsight med Microsoft Hive ODBC-drivrutinen][hdinsight-hive-odbc].
+När analysresultaten har placerats i Azure Blob storage, kan du exportera data till en Azure SQL database/SQL server, exportera data till Excel med Power Query eller Anslut ditt program till data med hjälp av Hive ODBC-drivrutinen. Mer information finns i [Använd Sqoop med HDInsight][hdinsight-use-sqoop], [analysera flygförseningsdata med HDInsight][hdinsight-analyze-flight-delay-data], [ Ansluta Excel till HDInsight med Power Query][hdinsight-power-query], och [ansluta Excel till HDInsight med Microsoft Hive ODBC-drivrutin][hdinsight-hive-odbc].
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen har vi sett hur att omvandla en ostrukturerad datauppsättning JSON till en strukturerad Hive-tabell för att fråga, utforska och analysera data från Twitter med HDInsight på Azure. Du kan läsa mer här:
+I den här självstudien har vi sett hur du kan omvandla en Ostrukturerade JSON-datauppsättning till en strukturerade Hive-tabell för att fråga, utforska och analysera data från Twitter med hjälp av HDInsight på Azure. Du kan läsa mer här:
 
-* [Komma igång med HDInsight][hdinsight-get-started]
-* [Analysera svarta fördröjning data med HDInsight][hdinsight-analyze-flight-delay-data]
-* [Anslut Excel till HDInsight med Power Query][hdinsight-power-query]
-* [Anslut Excel till HDInsight med Microsoft Hive ODBC-drivrutin][hdinsight-hive-odbc]
+* [Kom igång med HDInsight][hdinsight-get-started]
+* [Analysera flygförseningsdata med HDInsight][hdinsight-analyze-flight-delay-data]
+* [Ansluta Excel till HDInsight med Power Query][hdinsight-power-query]
+* [Ansluta Excel till HDInsight med Microsoft Hive ODBC-drivrutin][hdinsight-hive-odbc]
 * [Använda Sqoop med HDInsight][hdinsight-use-sqoop]
 
 [curl]: http://curl.haxx.se

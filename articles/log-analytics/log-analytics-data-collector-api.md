@@ -1,6 +1,6 @@
 ---
-title: Logga Analytics HTTP datainsamlaren API | Microsoft Docs
-description: 'Du kan använda Log Analytics HTTP Data Collector API för att lägga till POST JSON-data i logganalys-databasen från klienter som kan anropa REST-API. Den här artikeln beskriver hur du använder API: et och har exempel på hur du publicerar data med hjälp av olika programmeringsspråk.'
+title: Logga Analytics http-API för datainsamling | Microsoft Docs
+description: 'Du kan använda Log Analytics HTTP Data Collector API för att lägga till POST JSON-data i Log Analytics-databasen från alla klienter som kan anropa REST-API. Den här artikeln beskriver hur du använder API: et och har exempel på hur du publicerar data med hjälp av olika programmeringsspråk.'
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,34 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 07/03/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 1125cdb5b1cc6829345c71537582816d020edc53
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a2aab89bcd550cc2b1dcc4f980f09b5c1e0e9464
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133025"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436387"
 ---
-# <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Skicka data till logganalys med HTTP-Data Collector API (förhandsversion)
-Den här artikeln visar hur du använder HTTP-Data Collector API för att skicka data till logganalys från en REST API-klient.  Det beskriver hur du formatera data som samlas in av skript eller program, inkludera den i en begäran och har den begäran som auktoriserad genom logganalys.  Exempel för för PowerShell, C# och Python.
+# <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Skicka data till Log Analytics med HTTP Data Collector API (förhandsversion)
+Den här artikeln visar hur du använder HTTP Data Collector API för att skicka data till Log Analytics från en REST API-klient.  Den beskriver hur du formatera data som samlas in från dina skript eller ett program, inkludera den i en begäran och få den begäran som auktoriserats av Log Analytics.  Exempel tillhandahålls för PowerShell, C# och Python.
 
 > [!NOTE]
-> Log Analytics HTTP Data Collector API är tillgänglig som förhandsversion.
+> Log Analytics HTTP Data Collector API finns i offentlig förhandsversion.
 
 ## <a name="concepts"></a>Begrepp
-Du kan använda HTTP Data Collector-API: et för att skicka data till logganalys från klienter som kan anropa REST-API.  Detta kan bero på en runbook i Azure Automation som samlar in hantering av data från Azure eller ett annat moln, eller så kan vara ett alternativ-system som använder Log Analytics för att sammanställa och analysera data.
+Du kan använda HTTP Data Collector API för att skicka data till Log Analytics från alla klienter som kan anropa en REST-API.  Det kan vara en runbook i Azure Automation som samlar in hantering av data från Azure eller ett annat moln, eller så kanske ett alternativt system som använder Log Analytics att konsolidera och analysera data.
 
-Alla data i logganalys-databasen lagras som en post med en viss posttyp.  Du kan formatera dina data ska skickas till http-Data Collector API som flera poster i JSON.  När du skickar data, skapas en enskild post i databasen för varje post i nyttolasten i begäran.
-
-
-![Översikt över HTTP-datainsamlare](media/log-analytics-data-collector-api/overview.png)
+Alla data i Log Analytics-databasen lagras som en post med en viss posttyp.  Du kan formatera dina data att skicka till HTTP Data Collector API som flera poster i JSON.  När du skickar in data, skapas en enskild post i databasen för varje post i nyttolasten för begäran.
 
 
+![HTTP Data Collector översikt](media/log-analytics-data-collector-api/overview.png)
 
-## <a name="create-a-request"></a>Skapa en förfrågan
-Om du vill använda HTTP Data Collector-API: et kan du skapa en POST-begäran som innehåller data som ska skickas i JavaScript Object Notation (JSON).  I följande tre tabeller anges de attribut som krävs för varje begäran. Vi beskriver varje attribut i detalj senare i artikeln.
+
+
+## <a name="create-a-request"></a>Skapa en begäran
+Om du vill använda HTTP Data Collector API måste skapa du en POST-begäran som innehåller data som skickas i JavaScript Object Notation (JSON).  I följande tre tabeller anges de attribut som krävs för varje begäran. Vi beskriver varje attribut i detalj senare i artikeln.
 
 ### <a name="request-uri"></a>Förfrågans URI
 | Attribut | Egenskap  |
@@ -48,33 +48,33 @@ Om du vill använda HTTP Data Collector-API: et kan du skapa en POST-begäran so
 | URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Innehållstyp |application/json |
 
-### <a name="request-uri-parameters"></a>URI-parametrar för begäran
+### <a name="request-uri-parameters"></a>Begäran-URI-parametrar
 | Parameter | Beskrivning |
 |:--- |:--- |
-| CustomerID |Den unika identifieraren för logganalys-arbetsytan. |
+| CustomerID |Den unika identifieraren för Log Analytics-arbetsytan. |
 | Resurs |Resursnamnet API: / api/logs. |
-| API-version |Versionen av API: et för användning med denna begäran. Det är för närvarande 2016-04-01. |
+| API-version |Versionen av API för användning med den här begäran. Det är för närvarande 2016-04-01. |
 
 ### <a name="request-headers"></a>Begärandehuvud
 | Sidhuvud | Beskrivning |
 |:--- |:--- |
-| Auktorisering |Signaturen för auktorisering. Senare i artikeln kan du läsa om hur du skapar ett HMAC SHA256-huvud. |
-| Typ |Ange posttyp för de data som skickas. Loggtyp stöder för närvarande endast alfanumeriska tecken. Stöder inte siffror eller specialtecken. Storleksgränsen för den här parametern är 100 tecken. |
+| Auktorisering |Signatur för auktorisering. Senare i artikeln kan du läsa om hur du skapar en HMAC-SHA256-rubrik. |
+| Loggtyp |Ange posttypen för de data som skickas. Loggtypen stöder för närvarande endast alfanumeriska tecken. Det stöder inte numeriska värden eller specialtecken. Storleksgränsen för den här parametern är 100 tecken. |
 | x-ms-date |Det datum då begäran bearbetades i RFC 1123 format. |
-| tid genererade fält |Namnet på ett fält i de data som innehåller dataobjektet tidsstämpel. Om du anger ett fält och dess innehåll används för **TimeGenerated**. Om det här fältet har inte angetts, standard för **TimeGenerated** är den tid som meddelandet inhämtas. Innehållet i fältet meddelande bör följa ISO 8601-formatet ÅÅÅÅ-MM-ddTHH. |
+| tid genererade fält |Namnet på ett fält i de data som innehåller tidsstämpeln för dataobjektet. Om du anger ett fält så att innehållet används för **TimeGenerated**. Om det här fältet har inte angetts standard för **TimeGenerated** är den tid som matas in meddelandet. Innehållet i fältet meddelande bör följa ISO 8601-formatet ÅÅÅÅ-MM-: ssZ. |
 
 ## <a name="authorization"></a>Auktorisering
-Alla förfrågningar till Log Analytics HTTP Data Collector API måste innehålla ett authorization-huvud. För att autentisera en begäran, måste du registrera begäran med primärt eller den sekundära nyckeln för den arbetsyta som begäran kommer ifrån. Sedan överföra signaturen som en del av begäran.   
+Varje Log Analytics HTTP Data Collector API-begäran måste innehålla en auktoriseringsrubrik. För att autentisera en begäran, måste du logga på begäran med antingen primärt eller sekundära nyckeln för den arbetsyta som gör begäran. Skicka sedan den signaturen som en del av begäran.   
 
-Här är formatet för authorization-huvud:
+Här är formatet för auktoriseringsrubriken:
 
 ```
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* är den unika identifieraren för logganalys-arbetsytan. *Signaturen* är en [hashbaserad meddelandeautentiseringskod (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) som skapas från begäran och sedan beräknas med hjälp av den [SHA256-algoritmen](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Sedan, koda den med hjälp av Base64-kodning.
+*WorkspaceID* är den unika identifieraren för Log Analytics-arbetsytan. *Signaturen* är en [hashbaserad meddelandeautentiseringskod (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) som skapas från begäran och sedan beräknas med hjälp av den [SHA256-algoritmen](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Sedan kan kodar du den med hjälp av Base64-kodning.
 
-Använd följande format för att koda den **SharedKey** signatur sträng:
+Använd det här formatet för att koda den **SharedKey** signatur sträng:
 
 ```
 StringToSign = VERB + "\n" +
@@ -90,16 +90,16 @@ Här är ett exempel på en signatur-sträng:
 POST\n1024\napplication/json\nx-ms-date:Mon, 04 Apr 2016 08:00:00 GMT\n/api/logs
 ```
 
-När du har en signatur-sträng, koda med hjälp av HMAC SHA256-algoritmen på UTF-8-kodad sträng och koda resultatet som Base64. Använd följande format:
+När du har signatur-strängen kan koda med hjälp av HMAC-SHA256-algoritmen på UTF-8-kodad sträng och koda resultatet som Base64. Använd det här formatet:
 
 ```
 Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 ```
 
-Exemplen i nästa avsnitt har exempelkod för att skapa ett authorization-huvud.
+Exemplen i nästa avsnitt har exempelkod för att skapa en auktoriseringsrubrik.
 
 ## <a name="request-body"></a>Begärandetext
-Innehållet i meddelandet måste vara i JSON. Det måste innehålla en eller flera poster med egenskapen namn och värdepar i det här formatet:
+Meddelandets brödtext måste vara i JSON. Det måste innehålla en eller flera poster med egenskapen namn och värdepar i följande format:
 
 ```
 [
@@ -112,7 +112,7 @@ Innehållet i meddelandet måste vara i JSON. Det måste innehålla en eller fle
 ]
 ```
 
-Du kan batch flera poster tillsammans i en enskild begäran med hjälp av följande format. Alla poster måste vara samma posttyp.
+Du kan batch flera poster i en enskild begäran med hjälp av följande format. Alla poster måste vara samma posttyp.
 
 ```
 [
@@ -132,24 +132,24 @@ Du kan batch flera poster tillsammans i en enskild begäran med hjälp av följa
 ```
 
 ## <a name="record-type-and-properties"></a>Posttyp och egenskaper
-Du kan definiera en anpassad posttyp när du skickar data via Log Analytics HTTP Data Collector API. För närvarande skrivning inte av data till befintliga-posttyper som har skapats av andra typer av data och lösningar. Logganalys läser inkommande data och skapar sedan egenskaper som matchar datatyper med värden som du anger.
+Du kan definiera en anpassad posttyp när du skickar data med hjälp av Log Analytics HTTP Data Collector API. Du kan inte för närvarande kan skriva data till befintliga posttyper som har skapats av andra datatyper och lösningar. Log Analytics läser inkommande data och skapar sedan egenskaper som matchar datatyperna för de värden som du anger.
 
-Varje begäran Log Analytics-API: et måste innehålla en **loggtyp** huvud med namnet för typ av post. Suffixet **_CL** läggs automatiskt till namnet du anger för att skilja den från andra typer av loggen som en anpassad logg. Om du anger namnet till exempel **MyNewRecordType**, logganalys skapas en post med typen **MyNewRecordType_CL**. Detta säkerställer att det inte finns några konflikter mellan användarskapade typnamn och de levereras i aktuellt eller framtida Microsoft solutions.
+Varje begäran till Log Analytics-API måste innehålla en **loggtyp** rubrik med namnet för posttypen. Suffixet **_CL** läggs automatiskt till namnet som du anger för att skilja den från andra loggtyper som en anpassad logg. Exempel: Om du anger namnet **MyNewRecordType**, Log Analytics skapas en post med typen **MyNewRecordType_CL**. Detta hjälper till att säkerställa att det inte finns några konflikter mellan användarskapade namn och de levereras i aktuellt eller framtida Microsoft-lösningar.
 
-Lägger till ett suffix till egenskapsnamnet för att identifiera en egenskapens datatyp logganalys. Om en egenskap innehåller ett null-värde, ingår inte egenskapen i posten. Den här tabellen innehåller egenskapsdatatyp och motsvarande suffix:
+Lägger till ett suffix till egenskapsnamnet för att identifiera datatypen för en egenskap, Log Analytics. Om en egenskap innehåller ett null-värde, ingår inte egenskapen i posten. Den här tabellen anger typ av egenskapsdata och motsvarande suffix:
 
-| Datatypen för egenskapen | Suffix |
+| Typ av egenskapsdata | Suffix |
 |:--- |:--- |
 | Sträng |_S |
 | Boolesk |_b |
-| Dubbel |_D |
+| Double-värde |_D |
 | Datum/tid |_Tätt |
 | GUID |_g |
 
 Datatypen som Log Analytics använder för varje egenskap beror på om posttypen för den nya posten redan finns.
 
-* Om typ av post inte finns, skapar en ny logganalys. Log Analytics använder JSON-typhärledning för att fastställa datatypen för varje egenskap för den nya posten.
-* Om typ av post finns försöker logganalys skapa en ny post baserat på befintliga egenskaper. Om datatypen för en egenskap i den nya posten matchar inte och kan inte konverteras till den befintliga typen, eller om posten innehåller en egenskap som inte finns, Log Analytics skapar en ny egenskap som har suffixet relevanta.
+* Om posttypen inte finns, skapar en ny Log Analytics. Log Analytics använder inferens för JSON-typ för att fastställa datatypen av för varje egenskap för den nya posten.
+* Om typ av post finns försöker Log Analytics skapa en ny post baserat på befintliga egenskaper. Om datatypen för en egenskap i den nya posten matchar inte och kan inte konverteras till den befintliga typen, eller om posten innehåller en egenskap som inte finns, Log Analytics skapar en ny egenskap som har det relevanta suffixet.
 
 Skicka posten skulle till exempel skapa en post med tre egenskaper **number_d**, **boolean_b**, och **string_s**:
 
@@ -159,63 +159,63 @@ Om du sedan skickat den här nästa post med alla värden som är formaterade so
 
 ![Exempelpost 2](media/log-analytics-data-collector-api/record-02.png)
 
-Men om du har gjort den här nästa skickas sedan Log Analytics skapar nya egenskaper **boolean_d** och **string_d**. Dessa värden kan inte konverteras:
+Men om du har gjort den här nästa skickas sedan Log Analytics skapar de nya egenskaperna **boolean_d** och **string_d**. Dessa värden kan inte konverteras:
 
 ![Exempelpost 3](media/log-analytics-data-collector-api/record-03.png)
 
-Om du sedan skickat följande post innan typ av post skapades logganalys skulle skapa en post med tre egenskaper **antal_l**, **boolean_s**, och **string_s**. I den här posten formateras var och en av de initiala värdena som en sträng:
+Om du skickat sedan följande post innan typ av post skapades, Log Analytics skulle skapa en post med tre egenskaper **antal_l**, **boolean_s**, och **string_s**. I den här posten formateras var och en av de initiala värdena som en sträng:
 
 ![Exempelpost 4](media/log-analytics-data-collector-api/record-04.png)
 
 ## <a name="data-limits"></a>Databegränsningar
-Det finns vissa begränsningar runt data som skickats till samlingen Log Analytics-Data API.
+Det finns vissa begränsningar kring data som skickats till Log Analytics-Data samling API: et.
 
-* Högst 30 MB per post till Log Analytics Data Collector API: et. Det här är en storleksgräns för en enskild post. Om data från en enda bokför som överskrider 30 MB, bör du dela upp data till mindre storlek segment och skicka dem samtidigt.
-* Högst 32 KB-gränsen för fältvärden. Om värdet är större än 32 KB, kommer data att trunkeras.
+* Högst 30 MB per post till Log Analytics Data Collector API. Det här är en storleksgräns för ett enskilt inlägg. Om data från en enda bokför som överskrider 30 MB, bör du dela upp data till mindre storlek segment och skicka dem samtidigt.
+* Högst 32 KB-gränsen för fältvärden. Om fältets värde är större än 32 KB trunkeras data.
 * Rekommenderade maximala antalet fält för en viss typ är 50. Det här är en praktisk gräns från en användbarhet och Sök upplevelse perspektiv.  
 
 ## <a name="return-codes"></a>Returkoder
-HTTP-statuskod 200 innebär att begäran har tagits emot för bearbetning. Detta anger att åtgärden har slutförts.
+HTTP-statuskod 200 innebär att förfrågan har tagits emot för bearbetning. Detta anger att åtgärden har slutförts.
 
-Den här tabellen innehåller en fullständig uppsättning statuskoder som tjänsten kan returnera:
+Den här tabellen innehåller en fullständig uppsättning med statuskoder som kan returnera tjänsten:
 
 | Kod | Status | Felkod | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | 200 |Ok | |Begäran har accepterats. |
 | 400 |Felaktig förfrågan |InactiveCustomer |Arbetsytan har stängts. |
-| 400 |Felaktig förfrågan |InvalidApiVersion |API-version som du angett kunde inte identifieras av tjänsten. |
-| 400 |Felaktig förfrågan |InvalidCustomerId |Arbetsyte-ID som angetts är ogiltigt. |
-| 400 |Felaktig förfrågan |InvalidDataFormat |Ogiltigt JSON har skickats. Svarstexten kan innehålla mer information om hur du åtgärdar felet. |
-| 400 |Felaktig förfrågan |InvalidLogType |Loggtypen som angetts innehåller specialtecken eller siffror. |
+| 400 |Felaktig förfrågan |InvalidApiVersion |API-version som du angav kändes inte av tjänsten. |
+| 400 |Felaktig förfrågan |InvalidCustomerId |Arbetsyte-ID som angetts är ogiltig. |
+| 400 |Felaktig förfrågan |InvalidDataFormat |Ogiltig JSON har skickats. Svarstexten kan innehålla mer information om hur du åtgärdar felet. |
+| 400 |Felaktig förfrågan |InvalidLogType |Loggtypen anges inneslutna specialtecken eller siffror. |
 | 400 |Felaktig förfrågan |MissingApiVersion |API-versionen har inte angetts. |
-| 400 |Felaktig förfrågan |MissingContentType |Content-type har inte angetts. |
-| 400 |Felaktig förfrågan |MissingLogType |Loggtyp obligatoriskt värde har angetts. |
-| 400 |Felaktig förfrågan |UnsupportedContentType |Content-type har inte angetts **application/json**. |
-| 403 |Förbjudna |InvalidAuthorization |Det gick inte att autentisera begäran. Kontrollera att arbetsytans ID och anslutningen är giltig. |
-| 404 |Kunde inte hittas | | Antingen den URL som är felaktig eller begäran är för stor. |
-| 429 |För många begäranden | | En stor mängd data från ditt konto har uppstått med tjänsten. Försök begäran senare. |
-| 500 |Internt serverfel |UnspecifiedError |Ett internt fel inträffade i tjänsten. Försök att utföra begäran. |
-| 503 |Tjänsten är inte tillgänglig |ServiceUnavailable |Tjänsten är för närvarande inte ta emot begäranden. Försök att utföra din begäran. |
+| 400 |Felaktig förfrågan |MissingContentType |Innehållstypen har inte angetts. |
+| 400 |Felaktig förfrågan |MissingLogType |Loggtyp obligatoriskt värde har inte angetts. |
+| 400 |Felaktig förfrågan |UnsupportedContentType |Innehållstyp angavs inte **application/json**. |
+| 403 |Förbjudna |InvalidAuthorization |Tjänsten kunde inte autentisera begäran. Kontrollera att arbetsytenyckeln-ID och anslutningen är giltiga. |
+| 404 |Kunde inte hittas | | Antingen av Webbadressen som tillhandahålls är felaktig eller begäran är för stor. |
+| 429 |För många begäranden | | En stor mängd data från ditt konto har uppstått med tjänsten. Försök begäran igen senare. |
+| 500 |Internt serverfel |UnspecifiedError |Ett internt fel inträffade i tjänsten. Försök med förfrågan. |
+| 503 |Tjänsten är inte tillgänglig |ServiceUnavailable |Tjänsten är för närvarande inte ta emot begäranden. Försök igen. |
 
 ## <a name="query-data"></a>Frågedata
-Att fråga efter data skickas av Log Analytics HTTP Data Collector API, söka efter poster med **typen** som är lika med den **LogType** värde som du angav läggas till med **_CL**. Om du använde exempelvis **MyCustomLog**, och du vill returnera alla poster med **typ = MyCustomLog_CL**.
+Att köra frågor mot data som skickats av den Log Analytics HTTP Data Collector API, söka efter poster med **typ** som är lika med den **LogType** värde som du angav läggas till med **_CL**. Exempel: Om du använde **MyCustomLog**, och du kommer att returnera alla poster med **typ = MyCustomLog_CL**.
 
 >[!NOTE]
-> Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), sedan frågan ovan skulle ändra till följande.
+> Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), och sedan frågan ovan skulle ändras till följande.
 
 > `MyCustomLog_CL`
 
-## <a name="sample-requests"></a>Exempel begäranden
-I följande avsnitt hittar du exempel på hur du skickar data till Log Analytics HTTP Data Collector API med hjälp av olika programmeringsspråk.
+## <a name="sample-requests"></a>Exempelförfrågan
+I nästa avsnitt hittar du exempel på hur du skickar data till Log Analytics HTTP Data Collector API med hjälp av olika programmeringsspråk.
 
-För varje prov gör du dessa steg för att ange variabler för authorization-huvud:
+För varje prov, gör du dessa steg för att ange variabler för auktoriseringsrubriken:
 
-1. Leta upp logganalys-arbetsytan i Azure-portalen.
+1. Leta upp din Log Analytics-arbetsyta i Azure-portalen.
 2. Välj **avancerade inställningar** och sedan **anslutna källor**.
-2. Till höger om **arbetsyte-ID**kopiera-ikonen och välj sedan klistra in ID som värde för den **kund-ID** variabeln.
-3. Till höger om **primärnyckel**kopiera-ikonen och välj sedan klistra in ID som värde för den **delad nyckel** variabeln.
+2. Till höger om **arbetsyte-ID**, väljer du ikonen för kopiera och klistra in ID: T som värde för den **kund-ID** variabeln.
+3. Till höger om **primärnyckel**, väljer du ikonen för kopiera och klistra in ID: T som värde för den **delad nyckel** variabeln.
 
-Du kan också ändra variablerna för den typ av och JSON-data.
+Du kan också ändra variablerna för loggtyp och JSON-data.
 
 ### <a name="powershell-sample"></a>PowerShell-exempel
 ```
@@ -279,7 +279,6 @@ Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
         -sharedKey $sharedKey `
         -date $rfc1123date `
         -contentLength $contentLength `
-        -fileName $fileName `
         -method $method `
         -contentType $contentType `
         -resource $resource
@@ -387,7 +386,7 @@ namespace OIAPIExample
 
 ```
 
-### <a name="python-2-sample"></a>Python-2-exempel
+### <a name="python-2-sample"></a>Python 2-exempel
 ```
 import json
 import requests
@@ -471,4 +470,4 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Använd den [loggen Sök API](log-analytics-log-search-api.md) att hämta data från logganalys-databasen.
+- Använd den [Loggsöknings-API](log-analytics-log-search-api.md) att hämta data från Log Analytics-databasen.

@@ -1,26 +1,26 @@
 ---
-title: Autentiseringsprotokoll i Azure Active Directory B2C | Microsoft Docs
-description: Hur man skapar appar direkt med hjälp av protokoll som stöds av Azure Active Directory B2C.
+title: Protokoll för autentisering i Azure Active Directory B2C | Microsoft Docs
+description: Hur du skapar appar direkt med hjälp av de protokoll som stöds av Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 09b76cd2235663d76b9973ff722ec6a515c30285
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e6f722afead39c8a0ba940d9e2cb54d1f197d143
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709690"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442288"
 ---
-# <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Autentiseringsprotokoll
-Azure Active Directory B2C (Azure AD B2C) tillhandahåller som en tjänst för dina appar genom att stödja två standardprotokollen: OpenID Connect och OAuth 2.0. Tjänsten är standardkompatibel, men två implementeringar av dessa protokoll kan ha vissa skillnader. 
+# <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Protokoll för autentisering
+Azure Active Directory B2C (Azure AD B2C) erbjuder identitet som en tjänst för dina appar genom att stödja två protokoll av branschstandardtyp: OpenID Connect och OAuth 2.0. Tjänsten är standardkompatibla, men alla två implementeringen av dessa protokoll kan ha vissa skillnader. 
 
-Informationen i den här guiden är användbart om du kan skriva koden genom att skicka direkt och HTTP-begäranden, i stället för med hjälp av ett bibliotek med öppen källkod. Vi rekommenderar att du läser den här sidan innan du fördjupa dig i information om varje specifik protokoll. Men om du redan är bekant med Azure AD B2C kan du gå direkt till [protokollet referens guider](#protocols).
+Informationen i den här guiden är användbart om du skriver koden genom att skicka direkt och hantering av HTTP-begäranden, i stället för ett bibliotek med öppen källkod. Vi rekommenderar att du läser den här sidan innan du fördjupar dig i detaljerna för varje specifik protokoll. Men om du redan är bekant med Azure AD B2C kan du gå direkt till [referenshandböcker protokollet](#protocols).
 
 <!-- TODO: Need link to libraries above -->
 
@@ -28,52 +28,52 @@ Informationen i den här guiden är användbart om du kan skriva koden genom att
 Alla appar som använder Azure AD B2C måste registreras i din B2C-katalog i den [Azure-portalen](https://portal.azure.com). Registreringsprocessen samlar in och tilldelar några värden till din app:
 
 * Ett **program-ID** som identifierar din app unikt.
-* En **omdirigerings-URI** eller **paketet identifierare** som kan användas för att dirigera svar tillbaka till din app.
-* Några andra scenariespecifika-värden. Mer information lär du dig [att registrera ditt program](active-directory-b2c-app-registration.md).
+* En **omdirigerings-URI** eller **paketera identifierare** som kan användas för att dirigera svar tillbaka till din app.
+* Några andra scenariespecifika-värden. Mer information lär du dig [registrera ditt program](active-directory-b2c-app-registration.md).
 
-När du har registrerat appen kommunicerar med Azure Active Directory (AD Azure) genom att skicka förfrågningar till slutpunkten:
+När du har registrerat din app, kommunicerar den med Azure Active Directory (Azure AD) för genom att skicka förfrågningar till slutpunkten:
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 ```
 
-I nästan alla OAuth och OpenID Connect flöden ingår fyra parter i exchange:
+Nästan alla flöden som OAuth och OpenID Connect är fyra parter involverade i exchange:
 
 ![OAuth 2.0-roller](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
-* Den **auktorisering server** är Azure AD-slutpunkt. Den hanterar på ett säkert sätt allt som rör användarinformation och åtkomst till. Den hanterar också förtroenderelationer mellan parterna i ett flöde. Den ansvarar för att verifiera användarens identitet, bevilja och återkalla åtkomst till resurser och utfärdar token. Det är även känd som identitetsleverantören.
+* Den **auktoriseringsservern** är Azure AD-slutpunkten. Den hanterar på ett säkert sätt att något som är kopplat till användarinformation och åtkomst. Den hanterar också förtroenderelationer mellan parterna i ett flöde. Det är ansvarig för att verifiera användarens identitet, bevilja och återkalla åtkomst till resurser och utfärda token. Det kallas även för identitetsprovidern.
 
-* Den **resursägare** är vanligtvis användaren. Det är den part som äger datan och har möjlighet att tillåta att tredje part att komma åt data eller resurs.
+* Den **resursägaren** är vanligtvis användaren. Det är den part som äger data och den har rätt att tillåta tredje part att få åtkomst till den data- eller resursen.
 
-* Den **OAuth-klient** är din app. Den identifieras av dess program-ID. Det är vanligtvis den part som slutanvändarna interagera med. Begär den också token från servern auktorisering. Resursägare måste ge klienten åtkomstbehörighet till resursen.
+* Den **OAuth klienten** använder din app. Det har identifierats av dess program-ID. Det är vanligtvis den part som slutanvändarna interagera med. Det kan också begär token från auktoriseringsservern. Resursägaren måste ge klienten behörighet till resursen.
 
-* Den **resursservern** är där resursen och data finns. Litar auktorisering servern för att autentisera och auktorisera OAuth-klient på ett säkert sätt. Dessutom används ägar åtkomst-token så att du kan få åtkomst till en resurs.
+* Den **resursservern** är där resursen eller data finns. Litar auktoriseringsservern för att autentisera och auktorisera OAuth-klienten på ett säkert sätt. Ägar-åtkomsttoken används också att se till att du kan få åtkomst till en resurs.
 
 ## <a name="policies"></a>Principer
-Azure AD B2C principer är tvekan, de viktigaste funktionerna i tjänsten. Azure AD B2C utökar OAuth 2.0 och OpenID Connect standardprotokoll genom att introducera principer. Dessa gör det möjligt för Azure AD B2C att utföra mycket mer än enkel autentisering och auktorisering. 
+Azure AD B2C-principer är utan tvekan, de viktigaste funktionerna i tjänsten. Azure AD B2C utökar OAuth 2.0 och OpenID Connect standardprotokoll genom att introducera principer. De här alternativen kan Azure AD B2C att utföra mycket mer än enkel autentisering och auktorisering. 
 
-Principer fullständigt beskriver konsumenten identitetsupplevelser, inklusive registrering, inloggning, och redigera-profilen. Principer kan definieras i en administrativa Gränssnittet. De kan köras med hjälp av en särskild frågeparameter i HTTP-begäranden om autentisering. 
+Principer helt beskriver kundupplevelser för identitet, inklusive registrering, inloggning, och profilera redigering. Principer kan definieras i en administrativa Gränssnittet. De kan köras med hjälp av en särskild frågeparameter i HTTP-begäranden om autentisering. 
 
-Principer är inte standardfunktioner i OAuth 2.0 och OpenID Connect, så du bör ta reda på dem. Mer information finns i [referenshandbok för Azure AD B2C princip](active-directory-b2c-reference-policies.md).
+Principer kan inte standardfunktioner för OAuth 2.0 och OpenID Connect, så du bör ta dig tid att förstå hur de. Mer information finns i den [referensguiden för Azure AD B2C-princip](active-directory-b2c-reference-policies.md).
 
 ## <a name="tokens"></a>Token
-Azure AD B2C-implementering av OAuth 2.0 och OpenID Connect gör ägar-token, inklusive ägar-token som visas i form av JSON web token (JWTs) används. Ett ägartoken är en förenklad säkerhetstoken som ger ”ägar” åtkomst till en skyddad resurs.
+Azure AD B2C-implementeringen av OAuth 2.0 och OpenID Connect gör omfattande användning av ägar-token, inklusive ägar-token som representeras som JSON web token (JWTs). En ägartoken är en förenklad säkerhetstoken som ger ”ägar” åtkomst till en skyddad resurs.
 
-Innehavaren är någon part som kan ge token. Azure AD måste de först autentisera en part innan det kan ta emot ett ägartoken. Men om de nödvändiga stegen inte vidtas för att skydda token i överföringen och lagringen, den kan snappas upp och används av en oavsiktlig part.
+Innehavaren är en part som kan utgöra en token. Azure AD måste först autentisera en part innan det kan ta emot en ägartoken. Men om steg som krävs inte vidtas för att skydda token i överföring och lagring, den kan fångas upp och används av en oavsiktlig part.
 
-Vissa säkerhetstoken har inbyggda mekanismer som förhindrar att obehöriga personer använder dem, men ägar-token har inte den här mekanismen. De måste transporteras i en säker kanal, till exempel en transport layer security (HTTPS). 
+Vissa säkerhetstoken har inbyggda mekanismer som förhindrar att obehöriga personer som använder dem, men ägar-token har inte den här mekanismen. De måste transporteras i en säker kanal, till exempel en transport layer security (HTTPS). 
 
-Om ett ägartoken överförs utanför en säker kanal, kan en skadlig part använda en man-in-the-middle-attack och hämta token som du kan använda den för att få obehörig åtkomst till en skyddad resurs. Samma säkerhetsprinciper tillämpas när ägar-token lagras eller cachelagras för senare användning. Se alltid till att appen skickar och lagrar ägar-token på ett säkert sätt.
+Om en ägartoken överförs utanför en säker kanal, kan en obehörig part använda en man-in-the-middle-attack för att hämta token och använda den för att få obehörig åtkomst till en skyddad resurs. Samma säkerhetsprinciper gäller när ägar-token lagras eller cachen för senare användning. Se alltid till att appen överför och lagrar ägar-token på ett säkert sätt.
 
-Ytterligare ägar-token säkerheten finns [RFC 6750 avsnitt 5](http://tools.ietf.org/html/rfc6750).
+Ytterligare ägar-token-säkerhetsaspekter finns [RFC 6750 avsnitt 5](http://tools.ietf.org/html/rfc6750).
 
-Mer information om olika typer av token som används i Azure AD B2C finns i [Azure AD-tokenreferens](active-directory-b2c-reference-tokens.md).
+Mer information om olika typer av token som används i Azure AD B2C finns i [tokenreferens för Azure AD](active-directory-b2c-reference-tokens.md).
 
 ## <a name="protocols"></a>Protokoll
-När du är redo att granska vissa exempel förfrågningar kan starta du med något av följande kurser. Var motsvarar en viss autentiseringsscenariot. Om du behöver hjälp med att fastställa vilka flödet är rätt för dig, kolla [typerna av appar som du kan skapa med hjälp av Azure AD B2C](active-directory-b2c-apps.md).
+När du är redo att gå igenom några exempel begäranden, kan du börja med någon av följande självstudier. Var motsvarar ett visst autentiseringsscenario. Om du behöver hjälp med att fastställa vilka flödet som passar dig kan du kolla [typer av appar som du kan skapa med hjälp av Azure AD B2C](active-directory-b2c-apps.md).
 
 * [Skapa mobila och interna program med hjälp av OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
 * [Skapa webbappar med OpenID Connect](active-directory-b2c-reference-oidc.md)
-* [Skapa en sida appar med hjälp av det implicita flödet för OAuth 2.0](active-directory-b2c-reference-spa.md)
+* [Skapa enkelsidiga appar med hjälp av OAuth 2.0 implicit flöde](active-directory-b2c-reference-spa.md)
 

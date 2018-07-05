@@ -1,48 +1,48 @@
 ---
-title: Skydda din RESTful-tjänster med hjälp av grundläggande HTTP-autentisering i Azure Active Directory B2C | Microsoft Docs
-description: Skydda din anpassade REST API anspråk utbyte i din Azure AD B2C med grundläggande HTTP-autentisering.
+title: Skydda RESTful-tjänster med hjälp av grundläggande HTTP-autentisering i Azure Active Directory B2C | Microsoft Docs
+description: Skydda dina anpassade REST API anspråk Utbytena i din Azure AD B2C med hjälp av grundläggande HTTP-autentisering.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 18aeeef1aa2ef322f78e7e10118464d542926e59
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 02dfec1ff572f846463b27a2ca0d91916fbee5ae
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34709802"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444913"
 ---
-# <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Skydda din RESTful-tjänster med hjälp av grundläggande HTTP-autentisering
+# <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Skydda RESTful-tjänster med hjälp av grundläggande HTTP-autentisering
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-I en [relaterade Azure AD B2C-artikeln](active-directory-b2c-custom-rest-api-netfw.md), du skapar en RESTful-tjänst (webb-API) som kan integreras med Azure Active Directory B2C (Azure AD B2C) användaren resor utan autentisering. 
+I en [relaterade Azure AD B2C-artikeln](active-directory-b2c-custom-rest-api-netfw.md), skapar du en RESTful tjänst (webb-API) som kan integreras med Azure Active Directory B2C (Azure AD B2C) användaren resor utan autentisering. 
 
-I den här artikeln får du lägger till grundläggande HTTP-autentisering RESTful-tjänst så att endast verifieras användare, inklusive B2C, kan komma åt din API. Grundläggande HTTP-autentisering anger du användarens autentiseringsuppgifter (app-ID och app secret) i en anpassad princip. 
+I den här artikeln får du lägga till grundläggande HTTP-autentisering till RESTful-tjänsten så att endast kontrollerade användare, inklusive B2C, kan komma åt ditt API. Med grundläggande HTTP-autentisering anger du autentiseringsuppgifter (app-ID och apphemlighet) i en egen princip. 
 
 Mer information finns i [grundläggande autentisering i ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
 ## <a name="prerequisites"></a>Förutsättningar
-Utför stegen i den [integrera REST API-anspråk utbyte i din Azure AD B2C användaren resa](active-directory-b2c-custom-rest-api-netfw.md) artikel.
+Utför stegen i den [integrera REST API-anspråk Utbytena i din Azure AD B2C-användarresa](active-directory-b2c-custom-rest-api-netfw.md) artikeln.
 
 ## <a name="step-1-add-authentication-support"></a>Steg 1: Lägg till stöd för autentisering
 
-### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>Steg 1.1: Lägg till tillämpningsinställningar web.config-filen för ditt projekt
-1. Öppna Visual Studio-projekt som du skapade tidigare. 
+### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>Steg 1.1: Lägg till tillämpningsinställningar till ditt projekts web.config-filen
+1. Öppna Visual Studio-projektet som du skapade tidigare. 
 
-2. Lägg till följande programinställningarna i web.config-filen under den `appSettings` element:
+2. Lägg till följande programinställningar i web.config-filen under den `appSettings` element:
 
     ```XML
     <add key="WebApp:ClientId" value="B2CServiceUserAccount" />
     <add key="WebApp:ClientSecret" value="your secret" />
     ```
 
-3. Skapa ett lösenord och ange sedan den `WebApp:ClientSecret` värde.
+3. Skapa ett lösenord och sedan ange den `WebApp:ClientSecret` värde.
 
     Kör följande PowerShell-kod för att generera ett komplext lösenord. Du kan använda ett godtyckligt värde.
 
@@ -55,7 +55,7 @@ Utför stegen i den [integrera REST API-anspråk utbyte i din Azure AD B2C anvä
     ```
 
 ### <a name="step-12-install-owin-libraries"></a>Steg 1.2: Installera OWIN-bibliotek
-Om du vill börja lägga till OWIN mellanprogram NuGet-paket i projektet med hjälp av Visual Studio Package Manager-konsolen:
+Om du vill börja, Lägg till OWIN-mellanprogrammet NuGet-paket i projektet med hjälp av Visual Studio Package Manager-konsolen:
 
 ```
 PM> Install-Package Microsoft.Owin
@@ -63,18 +63,18 @@ PM> Install-Package Owin
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
-### <a name="step-13-add-an-authentication-middleware-class"></a>Steg 1.3: Lägg till en autentisering mellanprogram klass
+### <a name="step-13-add-an-authentication-middleware-class"></a>Steg 1.3: Lägg till en autentisering mellanprogram-klass
 Lägg till den `ClientAuthMiddleware.cs` klassen den *App_Start* mapp. Gör så här:
 
-1. Högerklicka på den *App_Start* mapp, Välj **Lägg till**, och välj sedan **klassen**.
+1. Högerklicka på den *App_Start* mapp, Välj **Lägg till**, och välj sedan **klass**.
 
    ![Lägg till ClientAuthMiddleware.cs klass i mappen App_Start](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup-auth1.png)
 
 2. I den **namn** skriver **ClientAuthMiddleware.cs**.
 
-   ![Skapa ny klass C#](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup-auth2.png)
+   ![Skapa ny C#-klass](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup-auth2.png)
 
-3. Öppna den *App_Start\ClientAuthMiddleware.cs* filen och ersätter filen innehåll med följande kod:
+3. Öppna den *App_Start\ClientAuthMiddleware.cs* filen och ersätta filen innehåll med följande kod:
 
     ```csharp
     
@@ -188,11 +188,11 @@ Lägg till den `ClientAuthMiddleware.cs` klassen den *App_Start* mapp. Gör så 
 
 ### <a name="step-14-add-an-owin-startup-class"></a>Steg 1.4: Lägg till en OWIN-startklass
 Lägg till en OWIN-startklass med namnet `Startup.cs` -API: et. Gör så här:
-1. Högerklicka på projektet, Välj **Lägg till** > **nytt objekt**, och sök sedan efter **OWIN**.
+1. Högerklicka på projektet, Välj **Lägg till** > **nytt objekt**, och söker sedan efter **OWIN**.
 
    ![Lägga till en OWIN-startklass](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup.png)
 
-2. Öppna den *Startup.cs* filen och ersätter filen innehåll med följande kod:
+2. Öppna den *Startup.cs* filen och ersätta filen innehåll med följande kod:
 
     ```csharp
     using Microsoft.Owin;
@@ -212,30 +212,30 @@ Lägg till en OWIN-startklass med namnet `Startup.cs` -API: et. Gör så här:
     ```
 
 ### <a name="step-15-protect-the-identity-api-class"></a>Steg 1.5: Skydda identitet API-klass
-Öppna Controllers\IdentityController.cs och Lägg till den `[Authorize]` tagg i kontrollantklassen. Den här taggen begränsar åtkomsten till att kontrollanten kan användare som uppfyller kraven på tillstånd.
+Öppna Controllers\IdentityController.cs och Lägg till den `[Authorize]` tagg i kontrollantklassen. Den här taggen begränsar åtkomsten till domänkontrollanten för användare som uppfyller kraven för auktorisering.
 
-![Lägg till taggen auktorisera till styrenhet](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-authorize.png)
+![Lägga till taggen auktorisera till kontrollanten](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-authorize.png)
 
 ## <a name="step-2-publish-to-azure"></a>Steg 2: Publicera till Azure
 Om du vill publicera ditt projekt i Solution Explorer högerklickar du på den **Contoso.AADB2C.API** projektet och välj sedan **publicera**.
 
-## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>Steg 3: Lägg till app RESTful-tjänster hemlighet ID och app i Azure AD B2C
-När tjänsten RESTful skyddas av klient-ID (användarnamn) och hemlighet, måste du lagra autentiseringsuppgifterna i din Azure AD B2C-klient. Den anpassade principen ger autentiseringsuppgifter när du anropar den RESTful-tjänster. 
+## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>Steg 3: Lägga till RESTful-tjänster app-ID och app hemlighet till Azure AD B2C
+När ditt RESTful-tjänst är skyddade med klient-ID (användarnamn) och hemlighet, måste du lagra autentiseringsuppgifter i din Azure AD B2C-klient. Den anpassade principen innehåller autentiseringsuppgifterna som när den anropar RESTful-tjänster. 
 
-### <a name="step-31-add-a-restful-services-client-id"></a>Steg 3.1: Lägg till en RESTful-tjänster klient-ID
-1. Välj i din Azure AD B2C-klient **B2C inställningar** > **identitet upplevelse Framework**.
+### <a name="step-31-add-a-restful-services-client-id"></a>Steg 3.1: Lägg till ett RESTful-tjänster klient-ID
+1. I din Azure AD B2C-klient väljer **B2C inställningar** > **Identitetsramverk**.
 
 
-2. Välj **princip nycklar** att visa de nycklar som är tillgängliga i din klient.
+2. Välj **Principnycklar** att visa de nycklar som är tillgängliga i din klient.
 
 3. Välj **Lägg till**.
 
 4. För **alternativ**väljer **manuell**.
 
-5. För **namn**, typen **B2cRestClientId**.  
+5. För **namn**, typ **B2cRestClientId**.  
     Prefixet *B2C_1A_* kan läggas till automatiskt.
 
-6. I den **hemlighet** ange app-ID som du angav tidigare.
+6. I den **hemlighet** anger app-ID som du angav tidigare.
 
 7. För **nyckelanvändning**väljer **hemlighet**.
 
@@ -243,19 +243,19 @@ När tjänsten RESTful skyddas av klient-ID (användarnamn) och hemlighet, måst
 
 9. Bekräfta att du har skapat den `B2C_1A_B2cRestClientId` nyckel.
 
-### <a name="step-32-add-a-restful-services-client-secret"></a>Steg 3.2: Lägg till en klienthemlighet RESTful-tjänster
-1. Välj i din Azure AD B2C-klient **B2C inställningar** > **identitet upplevelse Framework**.
+### <a name="step-32-add-a-restful-services-client-secret"></a>Steg 3.2: Lägg till en klienthemlighet för RESTful-tjänster
+1. I din Azure AD B2C-klient väljer **B2C inställningar** > **Identitetsramverk**.
 
-2. Välj **princip nycklar** att visa nycklarna som är tillgängliga i din klient.
+2. Välj **Principnycklar** att visa nycklarna som är tillgängliga i din klient.
 
 3. Välj **Lägg till**.
 
 4. För **alternativ**väljer **manuell**.
 
-5. För **namn**, typen **B2cRestClientSecret**.  
+5. För **namn**, typ **B2cRestClientSecret**.  
     Prefixet *B2C_1A_* kan läggas till automatiskt.
 
-6. I den **hemlighet** ange app-hemlighet som du angav tidigare.
+6. I den **hemlighet** anger du den apphemlighet som du angav tidigare.
 
 7. För **nyckelanvändning**väljer **hemlighet**.
 
@@ -263,8 +263,8 @@ När tjänsten RESTful skyddas av klient-ID (användarnamn) och hemlighet, måst
 
 9. Bekräfta att du har skapat den `B2C_1A_B2cRestClientSecret` nyckel.
 
-## <a name="step-4-change-the-technical-profile-to-support-basic-authentication-in-your-extension-policy"></a>Steg 4: Ändra tekniska profilen för att stödja grundläggande autentisering i din princip för tillägg
-1. Öppna filen för princip för tillägg (TrustFrameworkExtensions.xml) i arbetskatalogen.
+## <a name="step-4-change-the-technical-profile-to-support-basic-authentication-in-your-extension-policy"></a>Steg 4: Ändra den tekniska profilen för att stödja grundläggande autentisering i din princip för tillägg
+1. Öppna filen över princip tillägget (TrustFrameworkExtensions.xml) i din arbetskatalog.
 
 2. Sök efter den `<TechnicalProfile>` nod som innehåller `Id="REST-API-SignUp"`.
 
@@ -275,7 +275,7 @@ När tjänsten RESTful skyddas av klient-ID (användarnamn) och hemlighet, måst
     <Item Key="AuthenticationType">Basic</Item>
     ```
 
-5. Omedelbart efter avslutningen `<Metadata>` element, Lägg till följande XML-kodstycke: 
+5. Direkt efter avslutande `<Metadata>` element, Lägg till följande XML-fragment: 
 
     ```xml
     <CryptographicKeys>
@@ -283,39 +283,39 @@ När tjänsten RESTful skyddas av klient-ID (användarnamn) och hemlighet, måst
         <Key Id="BasicAuthenticationPassword" StorageReferenceId="B2C_1A_B2cRestClientSecret" />
     </CryptographicKeys>
     ```
-    När du har lagt till kodavsnittet tekniska profilen bör se ut som följande XML-kod:
+    När du har lagt till kodfragmentet dina tekniska profilen bör se ut som följande XML-kod:
     
-    ![Lägga till XML-element för grundläggande autentisering](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
+    ![Lägga till XML-element som grundläggande autentisering](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
 
-## <a name="step-5-upload-the-policy-to-your-tenant"></a>Steg 5: Överför principen till din klient
+## <a name="step-5-upload-the-policy-to-your-tenant"></a>Steg 5: Ladda upp principen till din klient
 
-1. I den [Azure-portalen](https://portal.azure.com), växla till den [kontext för din Azure AD B2C-klient](active-directory-b2c-navigate-to-b2c-context.md), och sedan öppna **Azure AD B2C**.
+1. I den [Azure-portalen](https://portal.azure.com), växla till den [kontext som din Azure AD B2C-klient](active-directory-b2c-navigate-to-b2c-context.md), och öppna sedan **Azure AD B2C**.
 
-2. Välj **identitet upplevelse Framework**.
+2. Välj **Identitetsramverk**.
 
 3. Öppna **alla principer**.
 
 4. Välj **överföra princip**.
 
-5. Välj den **skriva över principen om den finns** kryssrutan.
+5. Välj den **Skriv över principen om den finns** markerar du kryssrutan.
 
-6. Överför den *TrustFrameworkExtensions.xml* filen och sedan kontrollera att den har klarat valideringen.
+6. Ladda upp den *TrustFrameworkExtensions.xml* filen och kontrollera att den godkänns vid.
 
-## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>Steg 6: Testa den anpassade principen genom att använda Kör nu
-1. Öppna **Azure AD B2C inställningar**, och välj sedan **identitet upplevelse Framework**.
+## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>Steg 6: Testa den anpassade principen med hjälp av kör nu
+1. Öppna **Azure AD B2C-inställningar**, och välj sedan **Identitetsramverk**.
 
     >[!NOTE]
-    >Kör nu kräver minst ett program till preregistered för innehavaren. Om du vill lära dig mer om att registrera program, finns i Azure AD B2C [Kom igång](active-directory-b2c-get-started.md) artikel eller [appregistrering](active-directory-b2c-app-registration.md) artikel.
+    >Kör nu kräver minst ett program att vara förväg registrerade på klienten. Läs hur du registrerar program i Azure AD B2C [börjar](active-directory-b2c-get-started.md) artikel eller [programregistrering](active-directory-b2c-app-registration.md) artikeln.
 
-2. Öppna **B2C_1A_signup_signin**, förlitande part (RP) anpassade principer som du överfört och välj sedan **kör nu**.
+2. Öppna **B2C_1A_signup_signin**, den förlitande part (RP) anpassa princip som du överförde och väljer sedan **kör nu**.
 
-3. Testa processen genom att skriva **Test** i den **Förnamn** rutan.  
+3. Testa processen genom att skriva **Test** i den **Förnamn** box.  
     Azure AD B2C visar ett felmeddelande visas överst i fönstret.
 
     ![Testa din identitet API](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
-4. I den **Förnamn** Skriv ett namn (andra än ”Test”).  
-    Azure AD B2C registrerar sig användaren och skickar sedan en förmåner numret för ditt program. Anteckna numret i det här exemplet:
+4. I den **Förnamn** skriver ett namn (andra än ”Test”).  
+    Azure AD B2C registrerar sig användaren och skickar sedan ett lojalitet tal till ditt program. Observera antalet i det här exemplet:
 
     ```
     {
@@ -338,10 +338,10 @@ När tjänsten RESTful skyddas av klient-ID (användarnamn) och hemlighet, måst
     }
     ```
 
-## <a name="optional-download-the-complete-policy-files-and-code"></a>(Valfritt) Hämta fullständig principfiler och kod
-* När du har slutfört den [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) genomgång, rekommenderar vi att du skapar ditt scenario genom att använda en anpassad princip för filerna. Referens, har vi angett [exempel principfiler](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic).
+## <a name="optional-download-the-complete-policy-files-and-code"></a>(Valfritt) Ladda ned fullständig principfiler och kod
+* När du har slutfört den [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md) genomgången ska vi rekommenderar att du skapar ditt scenario genom att använda din egen anpassade principfiler. För referens har vi samlat [exempel principfiler](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic).
 * Du kan hämta den fullständiga koden från [exempel Visual Studio-lösning för referens](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Använda klientcertifikat för att skydda din RESTful-API](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+* [Använda certifikat för att skydda ditt RESTful-API](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 

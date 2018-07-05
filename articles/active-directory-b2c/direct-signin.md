@@ -1,35 +1,35 @@
 ---
-title: Ställ in direkt loggar du in med Azure Active Directory B2C | Microsoft Docs
-description: Lär dig mer om att fylla i inloggningsnamn eller omdirigera direkt till en sociala identitetsleverantör.
+title: Ställ in direkt inloggning med Azure Active Directory B2C | Microsoft Docs
+description: Lär dig mer om att fylla inloggningsnamnet eller omdirigera direkt till en social identitetsprovider.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cc3baa8fe4139acec94a722bf8c2bccb708a9470
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 62ded87067bf597a2f40ec8e8405142297d4fb78
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102696"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440544"
 ---
-# <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Ställ in direkt loggar du in med Azure Active Directory B2C
+# <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Ställ in direkt inloggning med Azure Active Directory B2C
 
-När du ställer in logga in för ditt program med hjälp av Azure Active Directory (AD) B2C, kan du ange inloggningsnamn eller direkt logga in på en specifik sociala identitetsleverantör, till exempel Facebook, LinkedIn eller ett Microsoft-konto. 
+När du konfigurerar inloggning för ditt program med Azure Active Directory (AD) B2C, kan du förkonfigurera inloggningsnamn eller direkt inloggning till en viss social identitetsprovider, till exempel Facebook, LinkedIn eller ett Microsoft-konto. 
 
-## <a name="prepopulate-the-sign-in-name"></a>Fylla i inloggningsnamn
+## <a name="prepopulate-the-sign-in-name"></a>Fylla inloggningsnamnet
 
-När en användare loggar in resa kan en förlitande partsprogram mål ett specifikt namn för användare eller domän. När måldatorn en användare, ett program kan ange i auktoriseringsbegäran i `login_hint` Frågeparametern med inloggning användarnamn. Azure AD B2C fyller automatiskt inloggningsnamnet, medan användaren bara behöver ange lösenordet.
+Under en inloggning användarresa, kan en förlitande partsprogram rikta en specifik användare eller domän namn. När du riktar in sig på en användare, ett program kan ange i auktoriseringsbegäran, den `login_hint` frågeparameter med inloggningsnamnet för användaren. Azure AD B2C fyller automatiskt inloggningsnamnet, medan användaren bara behöver ange lösenordet.
 
 ![med hjälp av inloggningen tips](./media/direct-signin/login-hint.png) 
 
 Användaren kan ändra värdet i textrutan inloggning.
 
-Om du använder en anpassad princip kan åsidosätta den `SelfAsserted-LocalAccountSignin-Email` tekniska profil. I den `<InputClaims>` avsnittet genom att ange DefaultValue för signInName anspråket till `{OIDC:LoginHint}`. Den `{OIDC:LoginHint}` variabeln innehåller värdet för den `login_hint` parameter. Azure AD B2C läser signInName anspråkets värde och före fylls textrutan signInName.
+Om du använder en anpassad princip kan åsidosätta den `SelfAsserted-LocalAccountSignin-Email` tekniska profilen. I den `<InputClaims>` anger DefaultValue signInName anspråket till `{OIDC:LoginHint}`. Den `{OIDC:LoginHint}` variabeln innehåller värdet för den `login_hint` parametern. Azure AD B2C läser signInName anspråkets värde och förväg fylls signInName textrutan.
 
 ```xml
 <ClaimsProvider>
@@ -45,13 +45,13 @@ Om du använder en anpassad princip kan åsidosätta den `SelfAsserted-LocalAcco
 </ClaimsProvider>
 ```
 
-## <a name="redirect-sign-in-to-a-social-provider"></a>Omdirigera inloggning till en sociala provider
+## <a name="redirect-sign-in-to-a-social-provider"></a>Omdirigera loggar in till en social provider
 
-Om du har konfigurerat resan för ditt program att inkludera sociala konton, till exempel Facebook, LinkedIn eller Google, kan du ange den `domain_hint` parameter. Den här Frågeparametern ger en ledtråd till Azure AD B2C om sociala identitetsleverantören som ska användas för inloggning. Om programmet anger till exempel `domain_hint=facebook.com`, går direkt till sidan för Facebook-inloggning.
+Om du har konfigurerat resa logga in för ditt program att inkludera konton i sociala medier, till exempel Facebook, LinkedIn eller Google, kan du ange den `domain_hint` parametern. Den här Frågeparametern ger en ledtråd till Azure AD B2C om social identitetsprovider som ska användas för att logga in. Exempel: om programmet anger `domain_hint=facebook.com`, går du direkt till sidan för Facebook-inloggning.
 
-![med hjälp av domän tips](./media/direct-signin/domain-hint.png) 
+![med hjälp av tips för domänen](./media/direct-signin/domain-hint.png) 
 
-Om du använder en anpassad princip, kan du konfigurera det namn med den `<Domain>domain name</Domain>` XML-elementet för någon `<ClaimsProvider>`. 
+Om du använder en anpassad princip, kan du konfigurera en domän namn med hjälp av den `<Domain>domain name</Domain>` XML-element för någon `<ClaimsProvider>`. 
 
 ```xml
 <ClaimsProvider>

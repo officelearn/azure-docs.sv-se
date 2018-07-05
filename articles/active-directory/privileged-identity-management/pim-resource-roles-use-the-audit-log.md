@@ -1,6 +1,6 @@
 ---
 title: Granska resursroller för Azure-resurser med hjälp av Privileged Identity Management | Microsoft Docs
-description: Beskriver hur du kan få en överblick över alla aktiviteter i rollen för den angivna resursen.
+description: Beskriver hur du få en överblick över alla aktiviteter i rollen för den en viss resurs.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -9,40 +9,40 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 211b8c69a1462f7efdcb4002269d96d1d5cf2ae6
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2740297337e1de0d041a80c7860324175413c833
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233792"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447721"
 ---
 # <a name="audit-resource-roles-for-azure-resources-by-using-privileged-identity-management"></a>Granska resursroller för Azure-resurser med hjälp av Privileged Identity Management 
 
-Granskning för resursen ger dig en överblick över alla aktiviteter i rollen för resursen. Du kan filtrera informationen genom att använda ett fördefinierat datum eller ett anpassat intervall.
+Resursgranskning ger dig en överblick över alla roll-aktivitet för resursen. Du kan filtrera informationen med ett fördefinierat datum eller ett anpassat intervall.
 ![Filtrera information](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-Resursen audit också ger snabb åtkomst till en användarens aktivitet information. Under **granska typen**väljer **aktivera**. Välj **(aktivitet)** att se användarens åtgärder i Azure-resurser.
-![Information om aktiviteten](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+Resursgranskning tillhandahåller även snabb åtkomst till aktivitetsinformation för en användare. Under **granskningstyp**väljer **aktivera**. Välj **(aktivitet)** att se användarens åtgärder i Azure-resurser.
+![Aktivitetsinformation](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
-![Mer information för aktiviteten](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+![Mer information om klientaktivitet](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 # <a name="my-audit"></a>Min granskning
 
-Min granskning ger en översikt över aktivitet för en användares personliga roll. Du kan filtrera informationen genom att använda ett fördefinierat datum eller ett anpassat intervall.
+Min granskning ger en översikt över en användares personliga rollen aktivitet. Du kan filtrera informationen med ett fördefinierat datum eller ett anpassat intervall.
 ![Personliga rollen aktivitet](media/azure-pim-resource-rbac/my-audit-time.png)
 
-## <a name="view-activation-and-azure-resource-activity"></a>Visa aktivering och Azure-resurshanteraren aktivitet
+## <a name="view-activation-and-azure-resource-activity"></a>Visa aktivering och aktivitet för Azure-resurs
 
-Du kan granska aktiviteten Azure-resurs som är associerad med en viss aktiveringsperioden om du vill se vilka åtgärder som en viss användare tog i olika resurser. Starta genom att välja en användare från den **medlemmar** vy eller från listan över medlemmar i en viss roll. Resultatet visar en grafisk vy av användarens åtgärder i Azure-resurser efter datum. Den visar även senaste rollen aktiveringar via samma tidsperioden.
+Om du vill se vilka åtgärder som en viss användare har gjort i olika resurser, kan du granska aktiviteten Azure-resurs som är associerat med en viss aktiveringsperioden. Starta genom att välja en användare från den **medlemmar** vy eller från listan över medlemmar i en viss roll. Resultatet visar en grafisk vy av användarens åtgärder i Azure-resurser efter datum. Den visar även de senaste rollaktiveringar under den samma tidsperioden.
 
 ![Användarinformationen](media/azure-pim-resource-rbac/rbac-user-details.png)
 
-Att välja en specifik rollaktivering visar rollinformation för aktivering och motsvarande Azure-resurs-aktivitet som inträffade medan användaren var aktiv.
+Att välja en specifik rollaktivering visar rollaktiveringsinformation och motsvarande Azure-resurs-aktivitet som inträffade när användaren var aktiv.
 
 ![Välj rollaktivering](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 

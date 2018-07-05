@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM-storlekar - HPC | Microsoft Docs
-description: Listar de olika storlekarna som är tillgängliga för Linux med höga prestanda virtuella datorer i Azure. Visar information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredd för storlekar i den här serien.
+title: Azure Linux VM-storlekar – HPC | Microsoft Docs
+description: Visar en lista över de olika storlekarna för Linux-datorer i Azure. Visar information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredd för storlekar i den här serien.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: a24cb03cd30b212650a36cd5ac40977de5eea11e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 441e99b86e9560d47af8ea18a2633e3f37a05e94
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34653849"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Högpresterande compute storlekar för virtuella datorer
 
@@ -32,41 +33,41 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="mpi"></a>MPI 
 
-Endast Intel MPI 5.x-versioner som stöds. Senare versioner (2017, 2018) av Intel MPI-körningsbiblioteket är inte kompatibla med Azure Linux RDMA-drivrutiner.
+Endast Intel MPI 5.x-versioner som stöds. Senare versioner (2017, 2018) på Intel MPI runtime-biblioteket är inte kompatibla med Azure Linux RDMA-drivrutiner.
 
 
 ### <a name="distributions"></a>Distributioner
  
-Distribuera en beräkningsintensiva virtuell dator från en av avbildningarna i Azure Marketplace som stöder RDMA-anslutningar:
+Distribuera en beräkningsintensiv virtuell dator från en avbildning i Azure Marketplace som stöder RDMA-anslutning:
   
-* **Ubuntu** -Ubuntu Server 16.04 LTS. Konfigurera RDMA drivrutiner på den virtuella datorn och registrera med Intel hämta Intel MPI:
+* **Ubuntu** – Ubuntu Server 16.04 LTS. Konfigurera RDMA drivrutiner på den virtuella datorn och registrera med Intel att ladda ned Intel MPI:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **SUSE Linux Enterprise Server** -SLES 12 SP3 för HPC SLES 12 SP3 för HPC-kluster (Premium) SLES 12 SP1 för HPC SLES 12 SP1 för HPC (Premium). RDMA drivrutiner och Intel MPI paket distribueras på den virtuella datorn. Installera MPI genom att köra följande kommando:
+* **SUSE Linux Enterprise Server** -SLES 12 SP3 för HPC, SLES 12 SP3 för HPC (Premium), SLES 12 SP1 för HPC, SLES 12 SP1 för HPC (Premium). RDMA-drivrutiner är installerade och Intel MPI paket distribueras på den virtuella datorn. Installera MPI genom att köra följande kommando:
 
   ```bash
   sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
   ```
     
-* **CentOS-baserade HPC** -CentOS-baserade 6.5 HPC eller en senare version (för H-serien, version 7.1 eller senare rekommenderas). RDMA-drivrutiner och Intel MPI 5.1 är installerade på den virtuella datorn.  
+* **CentOS-baserade HPC** -CentOS-baserade 6,5 HPC eller en senare version (H-serien, version 7.1 eller senare rekommenderas). RDMA-drivrutiner och Intel MPI 5.1 är installerade på den virtuella datorn.  
  
   > [!NOTE]
-  > CentOS-baserade HPC-avbildningar i kernel-uppdateringarna har inaktiverats i den **yum** konfigurationsfilen. Detta beror på att drivrutinerna Linux RDMA distribueras som en RPM-paket och drivrutinsuppdateringar kanske inte fungerar om kernel har uppdaterats.
+  > På CentOS-baserade HPC-avbildningar, inaktiveras kernel-uppdateringar i den **yum** konfigurationsfilen. Detta beror på Linux RDMA-drivrutiner har distribuerats som en RPM-paket och drivrutinsuppdateringar kanske inte fungerar om kerneln är uppdaterad.
   > 
  
 ### <a name="cluster-configuration"></a>Klusterkonfiguration 
     
-Ytterligare konfiguration krävs för att köra MPI-jobb på klustrade virtuella datorer. Till exempel i ett kluster för virtuella datorer behöver du upprätta förtroende mellan compute-noder. Vanliga inställningar Se [ställa in ett Linux RDMA-kluster som kör MPI program](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Ytterligare konfiguration krävs för att köra MPI-jobb på klustrade virtuella datorer. Till exempel i ett kluster av virtuella datorer kan behöva du upprätta förtroende mellan compute-noder. Vanliga inställningar Se [konfigurera ett Linux RDMA-kluster för att köra MPI-program](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ### <a name="network-topology-considerations"></a>Topologiöverväganden för nätverk
-* Eth1 är reserverat för RDMA-nätverkstrafik på RDMA-aktiverade Linux virtuella datorer i Azure. Ändra inte Eth1 inställningar eller information i konfigurationsfilen som hänvisar till det här nätverket. Eth0 är reserverat för vanliga Azure nätverkstrafik.
+* Eth1 är reserverad för nätverkstrafik för RDMA i RDMA-aktiverade virtuella Linux-datorer i Azure. Ändra inte Eth1 inställningar eller all information i konfigurationsfilen som refererar till det här nätverket. Eth0 är reserverad för vanliga Azure nätverkstrafik.
 
-* RDMA-nätverk i Azure reserverar adressutrymme 172.16.0.0/16. 
+* RDMA-nätverk i Azure reserverar adress utrymme 172.16.0.0/16. 
 
 
 ## <a name="using-hpc-pack"></a>Med HPC Pack
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), Microsofts ledigt HPC-kluster och jobbet hanteringslösningen, är ett alternativ som du kan använda beräkningsintensiva instanser med Linux. De senaste versionerna av HPC Pack stöd flera Linux-distributioner som ska köras på compute-noder som är distribuerad i virtuella Azure-datorer hanteras av en Windows Server-huvudnod. Med RDMA-kompatibla Linux datornoderna kör MPI Intel, HPC Pack schemalägga och köra Linux MPI program som kommer åt nätverket RDMA. Se [komma igång med Linux compute-noder i ett HPC Pack kluster i Azure](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), Microsofts kostnadsfria HPC-kluster och jobb hanteringslösning, är ett alternativ som du kan använda beräkningsintensiva instanser med Linux. De senaste versionerna av HPC Pack-stöd flera Linux-distributioner att köras på beräkningsnoder som distribueras i Azure-datorer som hanteras av en huvudnod för Windows Server. Med RDMA-kompatibla Linux-beräkningsnoder som kör Intel MPI, HPC Pack schemalägga och köra Linux MPI-program som har åtkomst till RDMA-nätverk. Se [Kom igång med Linux-beräkningsnoder i ett HPC Pack-kluster i Azure](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="other-sizes"></a>Andra storlekar
 - [Generellt syfte](sizes-general.md)
@@ -74,13 +75,13 @@ Ytterligare konfiguration krävs för att köra MPI-jobb på klustrade virtuella
 - [Minnesoptimerad](sizes-memory.md)
 - [Lagringsoptimerad](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
-
+- [Tidigare versioner](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill komma igång distribuerar och använder beräkningsintensiva storlekar med RDMA på Linux, se [ställa in ett Linux RDMA-kluster som kör MPI program](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+- Kom igång distributionen och användningen av beräkningsintensiva storlekar med RDMA på Linux, se [konfigurera ett Linux RDMA-kluster för att köra MPI-program](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-- Läs mer om hur [Azure compute-enheter (ACU)](acu.md) kan hjälpa dig att jämföra beräkning prestanda över Azure SKU: er.
+- Läs mer om hur [Azure-beräkningsenheter (ACU)](acu.md) kan hjälpa dig att jämföra prestanda för databearbetning mellan Azure SKU: er.
 
 
 

@@ -1,40 +1,40 @@
 ---
-title: Anropa en skyddad ASP.NET web api i Azure Active Directory B2C | Microsoft Docs
-description: 'Hur du skapar ett .NET-webbprogram och anropa ett webb-API: et med Azure Active Directory B2C och OAuth 2.0-åtkomsttoken.'
+title: Anropa en säker ASP.NET webb-api i Azure Active Directory B2C | Microsoft Docs
+description: Hur du skapar en webbapp med .NET och anropa ett webb-api med Azure Active Directory B2C och OAuth 2.0-åtkomsttoken.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 39603cf103a8ff2656c76843aeae36b17936d13a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 0fd00672e53d0b0148b70b364df5959ced1e554a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712410"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442466"
 ---
-# <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: Anropa .NET-webb-API från en .NET-webbapp
+# <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: Anropa ett .NET webb-API från en .NET-webbapp
 
-Med hjälp av Azure AD B2C kan du lägga till kraftfulla Identitetshantering till ditt webbprogram och webb-API: er. Den här artikeln beskriver hur du begär åtkomst-token och se anrop från en .NET ”uppgiftslistan” webbapp till en .NET webb-api.
+Med hjälp av Azure AD B2C kan du kan lägga till kraftfulla identitetsfunktioner för hantering av dina webbappar och webb-API: er. Den här artikeln beskrivs hur du begär åtkomsttoken och kontrollera anrop från en webbapp med .NET ”att göra-lista till en .NET webb-api.
 
-Den här artikeln beskriver inte hur du implementerar inloggning, registrering och profilhantering med Azure AD B2C. Den fokuserar på anropande webb-API: er när användaren redan autentiserats. Om du inte redan gjort bör du:
+Den här artikeln beskriver inte hur du implementerar inloggning, registrering och profilhantering med Azure AD B2C. Den fokuserar på anropande webb-API: er när användaren redan har autentiserats. Om du inte redan gjort bör du:
 
 * Kom igång med en [.NET-webbapp](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 * Kom igång med en [.NET webb-api](active-directory-b2c-devquickstarts-api-dotnet.md)
 
 ## <a name="prerequisite"></a>Krav
 
-Att skapa en webbapp som anropar ett webb-api, som du behöver:
+Skapa ett webbprogram som anropar ett webb-API: et, måste du:
 
 1. [Skapa en Azure AD B2C-klient](active-directory-b2c-get-started.md).
-2. [Registrera ett web api](active-directory-b2c-app-registration.md#register-a-web-api).
-3. [Registrera en webbapp](active-directory-b2c-app-registration.md#register-a-web-app).
-4. [Konfigurera principer](active-directory-b2c-reference-policies.md).
-5. [Bevilja webben appen behörighet att använda Internet api](active-directory-b2c-access-tokens.md#publishing-permissions).
+2. [Registrera ett webb-API: et](active-directory-b2c-app-registration.md#register-a-web-api).
+3. [Registrera ett webbprogram](active-directory-b2c-app-registration.md#register-a-web-app).
+4. [Konfigurera principer för](active-directory-b2c-reference-policies.md).
+5. [Tilldela webben behörighet att använda webb-API: et](active-directory-b2c-access-tokens.md#publishing-permissions).
 
 > [!IMPORTANT]
 > Klientprogrammet och webb-API:et måste använda samma Azure AD B2C-katalog.
@@ -48,16 +48,16 @@ Koden för den här självstudiekursen finns på [GitHub](https://github.com/Azu
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-När du har laddat ned exempelkoden öppnar du SLN-filen i Visual Studio för att sätta igång. Lösningsfilen innehåller två projekt: `TaskWebApp` och `TaskService`. `TaskWebApp` är en MVC-webbapp som användaren interagerar med. `TaskService` är appens backend-webb-API som lagrar varje användares att göra-lista. Den här artikeln täcker inte skapa den `TaskWebApp` webbprogram eller `TaskService` webb-api. Information om hur du skapar .NET-webbapp med Azure AD B2C finns våra [.NET-självstudiekurs om web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md). Information om hur du skapar .NET-webb-API som kan skyddas med Azure AD B2C finns våra [.NET-självstudiekurs om webb-API](active-directory-b2c-devquickstarts-api-dotnet.md).
+När du har laddat ned exempelkoden öppnar du SLN-filen i Visual Studio för att sätta igång. Lösningsfilen innehåller två projekt: `TaskWebApp` och `TaskService`. `TaskWebApp` är ett MVC-webbprogram som användaren interagerar med. `TaskService` är appens backend-webb-API som lagrar varje användares att göra-lista. Den här artikeln beskriver inte att skapa den `TaskWebApp` webbapp eller `TaskService` webb-api. Information om hur du skapar .NET-webbapp med hjälp av Azure AD B2C finns i vår [webbappsjälvstudier](active-directory-b2c-devquickstarts-web-dotnet-susi.md). Information om hur du skapar .NET-webb-API som skyddas med hjälp av Azure AD B2C finns i vår [.NET webb-API-självstudiekurs](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ### <a name="update-the-azure-ad-b2c-configuration"></a>Uppdatera Azure AD B2C-konfigurationen
 
-Det här exemplet är konfigurerat att använda principerna och klient-ID:t för vår demoklientorganisation. Om du vill använda en egen klient:
+Det här exemplet är konfigurerat att använda principerna och klient-ID:t för vår demoklientorganisation. Om du vill använda din egen klientorganisation:
 
 1. Öppna `web.config` i `TaskService`-projektet och ersätt värdena för
 
     * `ida:Tenant` med namnet på din klientorganisation
-    * `ida:ClientId` med web api program-ID
+    * `ida:ClientId` med webb-API: et program-ID
     * `ida:SignUpSignInPolicyId` med namnet på din registrerings- eller inloggningsprincip
 
 2. Öppna `web.config` i `TaskWebApp`-projektet och ersätt värdena för
@@ -71,13 +71,13 @@ Det här exemplet är konfigurerat att använda principerna och klient-ID:t för
 
 
 
-## <a name="requesting-and-saving-an-access-token"></a>Begär och spara en åtkomst-token
+## <a name="requesting-and-saving-an-access-token"></a>Begär och spara en åtkomsttoken
 
 ### <a name="specify-the-permissions"></a>Ange behörigheter
 
-För att göra anropet till webb-API du behöver att autentisera användaren (med din sign-upp/inloggningsprincip) och [få en åtkomsttoken](active-directory-b2c-access-tokens.md) från Azure AD B2C. För att få en åtkomsttoken som måste först du ange de behörigheter som du vill bevilja åtkomst-token. Behörigheterna som har angetts i den `scope` parameter när du gör en begäran om att den `/authorize` slutpunkt. Till exempel för att få en åtkomst-token med behörigheten ”läsa” till resursprogram som har URI: N för App-ID för `https://contoso.onmicrosoft.com/tasks`, omfattningen skulle vara `https://contoso.onmicrosoft.com/tasks/read`.
+För att göra anrop till webb-API, måste du autentisera användaren (med din registrerings-registreringen/inloggningsprincip) och [få en åtkomsttoken](active-directory-b2c-access-tokens.md) från Azure AD B2C. För att få en åtkomsttoken måste först du ange de behörigheter som du vill att bevilja åtkomst-token. Behörigheterna som anges i den `scope` parameter när du gör begäran till den `/authorize` slutpunkt. Till exempel för att hämta en åtkomsttoken med behörigheten ”läsa” till resursprogrammet med URI: N för App-ID för `https://contoso.onmicrosoft.com/tasks`, omfattningen skulle vara `https://contoso.onmicrosoft.com/tasks/read`.
 
-Öppna filen för att ange omfånget i vårt exempel, `App_Start\Startup.Auth.cs` och definiera de `Scope` variabeln i OpenIdConnectAuthenticationOptions.
+Öppna filen för att ange omfånget i vårt exempel, `App_Start\Startup.Auth.cs` och definiera den `Scope` variabel i OpenIdConnectAuthenticationOptions.
 
 ```CSharp
 // App_Start\Startup.Auth.cs
@@ -94,9 +94,9 @@ För att göra anropet till webb-API du behöver att autentisera användaren (me
 }
 ```
 
-### <a name="exchange-the-authorization-code-for-an-access-token"></a>Exchange auktoriseringskod för en åtkomst-token
+### <a name="exchange-the-authorization-code-for-an-access-token"></a>Byta auktoriseringskod för en åtkomsttoken
 
-När en användare har slutförts registrering eller inloggning erfarenhet får din app en Auktoriseringskoden från Azure AD B2C. Mellanprogram OWIN OpenID Connect lagrar koden, men kommer inte exchange för en åtkomst-token. Du kan använda den [MSAL biblioteket](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) att exchange. I vårt exempel vi har konfigurerat ett återanrop i OpenID Connect mellanprogram när en Auktoriseringskoden tas emot. I återanropet använder vi MSAL för exchange-koden för en token och spara token i cacheminnet.
+När en användare har slutförts registrering eller inloggning erfarenhet, får appen en auktoriseringskod från Azure AD B2C. Mellanprogram OWIN OpenID Connect lagrar koden, men kommer inte att byta den för en åtkomsttoken. Du kan använda den [MSAL biblioteket](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) att exchange. I vårt exempel vi har konfigurerat ett återanrop för frågeavisering till OpenID Connect-mellanprogram när en auktoriseringskod tas emot. I återanropet använder vi MSAL för exchange-koden för en token och spara token i cacheminnet.
 
 ```CSharp
 /*
@@ -121,11 +121,11 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 
 ## <a name="calling-the-web-api"></a>Anropa webb-API
 
-Det här avsnittet beskrivs hur du använder den token som togs emot under sign-upp/inloggning med Azure AD B2C för att komma åt webb-API.
+Det här avsnittet beskrivs hur du använder den token som togs emot under registrerings-registreringen/logga in med Azure AD B2C för att komma åt webb-API.
 
-### <a name="retrieve-the-saved-token-in-the-controllers"></a>Hämta det sparade token i domänkontrollanter
+### <a name="retrieve-the-saved-token-in-the-controllers"></a>Hämta sparad token i styrenheterna
 
-Den `TasksController` ansvarar för att kommunicera med webb-API och för HTTP-begäranden skickas till API för att läsa, skapa och ta bort uppgifter. Eftersom API skyddas av Azure AD B2C måste du först hämta token som du sparade i steget ovan.
+Den `TasksController` ansvarar för att kommunicera med webb-API och för att skicka HTTP-begäranden till API för att läsa, skapa och ta bort uppgifter. Eftersom API: et skyddas av Azure AD B2C, måste du först hämta en token som du sparade i ovanstående steg.
 
 ```CSharp
 // Controllers\TasksController.cs
@@ -152,7 +152,7 @@ private async void acquireToken(String[] scope)
 
 ### <a name="read-tasks-from-the-web-api"></a>Läsa uppgifter från webb-API
 
-När du har en token kan du koppla den till HTTP `GET` begäran i den `Authorization` sidhuvudet på ett säkert sätt anropa `TaskService`:
+När du har en token kan du koppla den till HTTP `GET` begär i den `Authorization` sidhuvudet på ett säkert sätt anropa `TaskService`:
 
 ```CSharp
 // Controllers\TasksController.cs
@@ -178,9 +178,9 @@ public async Task<ActionResult> Index()
 
 ### <a name="create-and-delete-tasks-on-the-web-api"></a>Skapa och ta bort uppgifter på webb-API
 
-Följer samma mönster när du skickar `POST` och `DELETE` förfrågningar till webb-API, använda MSAL för att hämta den åtkomst-token från cacheminnet.
+Följer samma mönster när du skickar `POST` och `DELETE` begäranden till webb-API, med MSAL för att hämta åtkomsttoken från cachen.
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen
 
-Slutligen skapar och kör både appar. Logga och logga in och skapa aktiviteter för den inloggade användaren. Logga ut och logga in som en annan användare. Skapa aktiviteter för användaren. Lägg märke till hur uppgifterna lagras per användare i API: et eftersom det extraherar användarens identitet från token tas emot. Prova också spelar med scope. Ta bort behörighet att ”write” och försök sedan att lägga till en aktivitet. Kontrollera att logga ut varje gång du ändrar omfånget.
+Slutligen skapar och kör båda apparna. Registrera dig och logga in och skapa aktiviteter för den inloggade användaren. Logga ut och logga in som en annan användare. Skapa aktiviteter för den användaren. Observera hur uppgifter som är lagrade per användare i API: et eftersom extraherar användarens identitet från den token som tas emot. Prova också spela med säkerhetsomfattningarna. Ta bort behörigheten ”Skriva” och sedan försöka lägga till en uppgift. Se bara till att logga ut varje gång du ändrar omfånget.
 

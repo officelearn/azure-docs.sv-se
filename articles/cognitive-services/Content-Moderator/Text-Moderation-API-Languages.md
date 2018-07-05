@@ -1,6 +1,6 @@
 ---
-title: Språk som stöds av Azure innehåll kontrollant | Microsoft Docs
-description: Här är en lista över språk som stöds av innehåll kontrollanten.
+title: Språk som stöds av Azure Content Moderator | Microsoft Docs
+description: Här är en lista över språk som stöds av Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,22 +9,22 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: sajagtap
-ms.openlocfilehash: 0fb9f92e736e598662f66ae3d283ba02f715e3af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 973e4efcbe9d0627ca261def2449a237819559ad
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352719"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441156"
 ---
-# <a name="text-moderation---supported-languages-by-feature"></a>Text avbrottsmoderering - språk som stöds av funktionen
+# <a name="text-moderation---supported-languages-by-feature"></a>Textmoderering - språk som stöds av funktionen
 
 > [!NOTE]
-> För den **språk** parameter, tilldela `eng` eller lämna det tomt om du vill se dator-stödd **klassificering** svar (förhandsgranskningsfunktion). **Den här funktionen engelska har endast stöd för**.
+> För den **språk** parameter, tilldela `eng` eller lämna det tomt om du vill se den maskinassisterad **klassificering** svar (förhandsgranskningsfunktion). **Den här funktionen stöder endast engelska**.
 >
-> För **svordomar villkoren** identifiering, Använd den [ISO 639-3-kod](http://www-01.sil.org/iso639-3/codes.asp) språk som stöds anges i den här artikeln eller lämna det tomt.
+> För **svordomar villkoren** identifiering, Använd den [ISO 639-3-kod](http://www-01.sil.org/iso639-3/codes.asp) språk som stöds visas i den här artikeln eller lämna det tomt.
 
 
-| Språkspårning | Svordomar   | OCR    | Automatisk korrigering     |
+| Språkspårning | Olämpligt språk   | OCR    | Autokorrigering     |
 | -------------------- |-------------|--------|---------------------|
 | Arabiska (Romanized)   | Afrikaans   | Arabiska   | Arabiska
 | Balinese | Albanska | Förenklad kinesiska    | Danska
@@ -33,64 +33,64 @@ ms.locfileid: "35352719"
 | Buhid | Armeniska | Danska                     | Finska
 | Carian | Assamesiska | Nederländska                     | Franska
 | Förenklad kinesiska | Azerbajdzjanska | Svenska  | Grekiska (modern)
-| Traditionell kinesiska | Bangla - Bangladesh | Finska  | Italienska
-| Kyrka (slavisk) | Bangla - Indien | Franska     | Koreanska
+| Traditionell kinesiska | Bengali - Bangladesh | Finska  | Italienska
+| Kyrka (Slaviska) | Bengali - Indien | Franska     | Koreanska
 | Koptiska | Baskiska | Tyska                      | Norska
-| Dhivehi | Vitryska | Grekiska (modern)         | Polska
-| Farsi | Bosniska - kyrillisk | Ungerska        | Portugisiska
-| Grekiska | Bosniska - Latin | Italienska             | Rumänska
-| Haitiska (Creole) | Bretonska [icke GeoPol] | Japanska  | Ryska
-| Hebreiska | Bulgariska | Koreanska                        | Slovakiska
-| Hmong | Katalanska | Norska                        | Spanska
-| Kurdiska (arabiska) | Central kurdiska | Polska        | Turkiska
-| Kurdiska (latinsk) | Cherokee | Portugisiska
-| Lepcha | Förenklad kinesiska | Rumänska
-| Limbu | Kinesiska (traditionell) - Hongkong SAR | Ryska
-| Lu | Kinesiska (traditionell) - Taiwan | Serbiska kyrillisk
-| Lycian | Kroatiska | Serbiska Latin
-| Lydian | Tjeckiska | Slovakiska
-| Mycenaean (grekiska) | Danska | Spanska
-| Nko | Dari | Svenska
-| Norska (bokmål) | Nederländska | Turkiska
-| Norska (nynorsk) | Svenska 
-| Gamla (Persian) | Estniska 
-| Afghanska | Filippinska
-| Punjabi | Finska
-| Rejang | Franska
-| Santali | Galiciska
-| Sasak | Georgiska
-| Saurashtra | Tyska
-| Serbiska (kyrillisk) | Grekiska
-| Serbiska (latinsk) | Gujarati
-| Sinhala | Hausa
-| Slovenska | Hebreiska
-| Sylheti | Hindi
-| Syriska | Ungerska
-| Tagbanwa | Isländska
-| Pilslut (Nua) | Igbo
-| Tamashek | Indonesiska
-| Ugaritisk skrift | Inuktitut
-| Uzbekiska (kyrillisk) | Iriska
-| Uzbekiska (latinsk) | Xhosa
-| Vai | Zulu
-| Yi | Italienska
-| Zhuang Chuang | Japanska
-| | Kannada
-| | Kazakiska
-| | Khmer
-| | Quiché
-| | Rwanda
-| | Kiswahili
-| | Konkani
-| | Koreanska
-| | Kirgisiska
-| | Laotiska
-| | Lettiska
-| | Litauiska
-| | Luxemburgiska
-| | Makedonska
-| | Malajiska
-| | Malayalam
+| Tjeckiska |  Vitryska | Grekiska (modern)         | Polska
+| Dhivehi | Bosniska - kyrilliska | Ungerska      | Portugisiska
+| Nederländska | Bosniska - Latin | Italienska             | Rumänska
+| Svenska | (Creole) | Bretonska [icke GeoPol] | Japanska  | Ryska
+| Farsi | Bulgariska | Koreanska                        | Slovakiska
+| Franska | Katalanska | Norska                        | Spanska
+| Tyska | Centralkurdiska | Polska        | Turkiska
+| Grekiska | Cherokesiska | Portugisiska
+| Haitiska | Förenklad kinesiska | Rumänska
+| Hebreiska | Kinesiska (traditionell) - Hongkong SAR | Ryska
+| Hindi | Kinesiska (traditionell) - Taiwan | Serbiska-kyrilliska
+| Hmong | Kroatiska | Serbiska-Latin
+| Ungerska | Tjeckiska | Slovakiska
+| Italienska | Danska | Spanska
+| Japanska | Dari | Svenska
+| Koreanska | Nederländska | Turkiska
+| Kurdiska (arabiska) | Svenska
+| Kurdiska (latinsk) | Estniska
+| Lepcha | Filippinska
+| Limbu | Finska
+| Lu | Franska
+| Lycian | Galiciska
+| Lydian | Georgiska
+| Mycenaean (grekiska) | Tyska
+| Nko | Grekiska
+| Norska (bokmål) | Gujarati
+| Norska (nynorsk) |  Hausa
+| Gamla (persiska) | Hebreiska
+| Afghanska | Hindi
+| Polska | Ungerska
+| Portugisiskt | Isländska
+| Punjabi | Igbo
+| Rejang | Indonesiska
+| Ryska | Inuktitut
+| Santali | Iriska
+| Sasak | Xhosa
+| Saurashtra | Zulu
+| Serbiska (kyrillisk) | Italienska
+| Serbiska (latinsk) | Japanska
+| Sinhala | Kannada
+| Slovenska | Kazakiska
+| Spanska | Khmer
+| Svenska | Quiché
+| Sylheti | Rwanda
+| Syriska | Kiswahili
+| Tagbanwa | Konkani
+| Pilslut (Nua) | Koreanska
+| Tamashek | Kirgisiska
+| Turkiska | Laotiska
+| Ugaritisk skrift | Lettiska
+| Uzbekiska (kyrillisk) | Litauiska
+| Uzbekiska (latinsk) | Luxemburgiska
+| Vai | Makedonska
+| Yi | Malajiska
+| Zhuang Chuang | Malayalam
 | | Maltesiska
 | | Maori
 | | Marathi
@@ -102,8 +102,8 @@ ms.locfileid: "35352719"
 | | Afghanska
 | | Persiska
 | | Polska
-| | Portugisiska – Brasilien
-| | Portugisiska – Portugal
+| | Portugisiska - Brasilien
+| | Portugisiska - Portugal
 | | Pulaar
 | | Punjabi
 | | Punjabi (Pakistan)
@@ -135,7 +135,7 @@ ms.locfileid: "35352719"
 | | Urdu
 | | Uiguriska
 | | Uzbekiska
-| | Valencian
+| | Valencianska
 | | Vietnamesiska
 | | Walesiska
 | | Wolof

@@ -1,77 +1,77 @@
 ---
 title: Felsöka anpassade principer i Azure Active Directory B2C | Microsoft Docs
-description: Mer information om metoder för att lösa fel när du arbetar med anpassade principer i Azure Active Directory B2C.
+description: Läs mer om metoder för att lösa fel när du arbetar med anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 22e7bc7bd275769f78ac2e482cb1af11e9404222
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 61f2dfcada0f7e03d8043d9b8f1b6dadf7027c8b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709622"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441173"
 ---
-# <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Felsöka Azure AD B2C anpassade principer och identitet upplevelse Framework
+# <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Felsöka Azure AD B2C anpassade principer och Identitetsupplevelse
 
-Om du använder Azure Active Directory B2C (Azure AD B2C) anpassade principer, kan det uppstå problem konfigurera identitet får ramverk i dess princip språk XML-format.  Lär dig att skriva anpassade principer kan vara som Lär dig ett nytt språk. I den här artikeln beskrivs verktyg och tips som hjälper dig att snabbt identifiera och lösa problem. 
+Om du använder Azure Active Directory B2C (Azure AD B2C) anpassade principer, kan du uppleva utmaningarna med att ställa in identiteten uppleva ramverket i dess princip språk XML-format.  Lär dig att skriva anpassade principer kan vara så att lära dig ett nytt språk. I den här artikeln beskriver vi verktyg och tips som hjälper dig att snabbt identifiera och lösa problem. 
 
 > [!NOTE]
-> Den här artikeln fokuserar på att felsöka konfigurationen av Azure AD B2C anpassad princip. Den adressen inte förlitande partsprogram eller dess identitet-biblioteket.
+> Den här artikeln handlar om hur du felsöker din konfiguration för Azure AD B2C-anpassad princip. Den upp inte förlitande partsprogram eller dess identity-bibliotek.
 
 ## <a name="xml-editing"></a>XML-redigering
 
-De vanligaste fel i Konfigurera anpassade principer är felaktigt formaterad XML. En bra XML-redigerare är nästan viktigt. En bra XML-redigerare visar XML internt, färgkodar innehåll, prefills vanliga termer, håller XML-element som indexeras och kan valideras med schemat. Här följer två av våra favorit XML-redigerare:
+De vanligaste fel i hur du konfigurerar anpassade principer är felaktigt formaterad XML. En bra XML-redigerare är nästan viktigt. En bra XML-redigerare visar XML internt, färgkodar innehåll, prefills vanliga termer, ser till att XML-element som indexeras och kan verifiera med schema. Här följer två av våra favorit XML-redigerare:
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Anteckningar ++](https://notepad-plus-plus.org/)
 
-XML-schemavalideringen identifierar fel innan du laddar upp XML-filen. Hämta XML-schemadefinitionen TrustFrameworkPolicy_0.3.0.0.xsd i rotmappen på startpaket. Mer information i dokumentationen för XML-redigerare, leta efter *XML-verktyg* och *XML-verifiering*.
+XML-schemavalideringen identifierar fel innan du laddar upp din XML-fil. I rotmappen på startpaket, får du XML-schemadefinitionen TrustFrameworkPolicy_0.3.0.0.xsd. Mer information i dokumentationen för XML-redigerare, leta efter *XML-verktyg* och *XML-verifiering*.
 
-En granskning av XML-regler kan vara användbara. Azure AD B2C avvisar alla XML-formatering fel som upptäcks. Ibland kan kan felaktigt formaterad XML orsaka missvisande felmeddelanden.
+Du kan vara användbara en granskning av XML-regler. Azure AD B2C avvisar alla XML formateringsfel som upptäcks. Ibland kan kan felaktigt formaterad XML leda till felmeddelanden som är vilseledande.
 
-## <a name="upload-policies-and-policy-validation"></a>Överför principer och Principverifiering
+## <a name="upload-policies-and-policy-validation"></a>Ladda upp principer och verifieringen av användarprinciper
 
- XML-filen överför valideringen är automatisk. De flesta fel orsakar överföringen misslyckas. Verifieringen inkluderar principfilen som överförs. Den innehåller också en kedja av filer som överför filen refererar till (förlitande part principfilen tilläggsfilen och filen base). 
+ Verifiera uppladdning av XML-filen är automatisk. De flesta fel orsakar att överföringen kommer att misslyckas. Verifieringen den principfil som överförs. Den innehåller också en kedja av filer som uppladdningsfilen avser (förlitande part principfilen tilläggsfilen och grundläggande filen). 
  
- Följande finns vanliga valideringsfel.
+ Vanliga verifieringsfel inkluderar följande.
 
 Fel utdrag: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
-* ClaimType värdet kan vara felstavat eller finns inte i schemat.
-* ClaimType värden måste definieras i minst en av filerna i principen. 
+* ClaimType-värdet kan vara felstavad, eller så finns inte i schemat.
+* ClaimType-värden måste definieras i minst en av filerna i principen. 
     Exempel: ` <ClaimType Id="socialIdpUserId">`
-* Om ClaimType definieras i tilläggsfilen, men det används också i ett TechnicalProfile värde i filen grundläggande, resulterar ladda upp filen grundläggande i ett fel.
+* Om ClaimType definieras i tilläggsfilen, men den används också i TechnicalProfile-värdet i filen grundläggande, resulterar ladda upp filen grundläggande i ett fel.
 
 Fel utdrag: `...makes a reference to a ClaimsTransformation with id...`
-* Orsaker till felet kan vara desamma som för ClaimType-fel.
+* Orsaker till felet kan vara samma som för ClaimType-fel.
 
 Fel utdrag: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
-* Kontrollera att TenantId värde i den **\<TrustFrameworkPolicy\>** och **\<BasePolicy\>** element matcha mål Azure AD B2C-klient.  
+* Kontrollera att TenantId värde i den **\<TrustFrameworkPolicy\>** och **\<BasePolicy\>** element matchar din target Azure AD B2C-klient.  
 
-## <a name="troubleshoot-the-runtime"></a>Felsökning av körningsmiljön
+## <a name="troubleshoot-the-runtime"></a>Felsöka körningen
 
-* Använd `Run Now` och `https://jwt.io` att testa din principer oberoende av webb- eller mobila program. Den här webbplatsen fungerar som ett förlitande partsprogram. Den visar innehållet i den Token JWT (JSON Web) som genereras av Azure AD B2C-principen. Om du vill skapa ett testprogram i Identity upplevelse Framework, använder du följande värden:
+* Använd `Run Now` och `https://jwt.io` att testa din principer oberoende av dina webb- och mobilprogram. Den här webbplatsen fungerar som ett förlitande partsprogram. Den visar innehållet i den JSON Web Token (JWT) som genereras av din Azure AD B2C-princip. Om du vill skapa ett testprogram i Identitetsramverk, använder du följande värden:
     * Namn: TestApp
     * Webbapp/webb API: Nej
-    * -Klienten: Nej
+    * Inbyggd klient: Nej
 
-* Om du vill spåra utbyte av meddelanden mellan klientens webbläsare och Azure AD B2C, Använd [Fiddler](http://www.telerik.com/fiddler). Det kan hjälpa dig få en indikation på om dina användare resa misslyckas i orchestration-steg.
+* Om du vill spåra ett utbyte av meddelanden mellan klientens webbläsare och Azure AD B2C använder [Fiddler](http://www.telerik.com/fiddler). Det kan hjälpa dig få en indikation där användarresan misslyckas i orchestration-steg.
 
-* I **utvecklingsläge**, använda **Programinsikter** att spåra aktiviteten hos din identitet upplevelse Framework användaren resa. I **utvecklingsläge**, du kan se utbyten av anspråk mellan identitet upplevelse Framework och de Anspråksproviders som definieras av teknisk profiler, till exempel identitetsleverantörer, API-baserade tjänster i Azure AD B2C användarkatalog och andra tjänster som Azure flera-Factor-autentisering.  
+* I **utvecklingsläge**, använda **Application Insights** att spåra aktivitet på resan Identitetsramverk användare. I **utvecklingsläge**, du kan se utbyten av anspråk mellan den Identitetsramverk och de olika Anspråksproviders som definieras av tekniska profiler, till exempel identitetsleverantörer, API-baserade tjänster i Azure AD B2C-användarkatalog och andra tjänster som Azure Multi-Factor Authentication.  
 
 ## <a name="recommended-practices"></a>Rekommenderade metoder
 
-**Spara flera versioner av dina scenarier. Gruppera dem i ett projekt med ditt program.** Bas, tillägg och förlitande part filer är direkt beroende av varandra. Spara dem som en grupp. När nya funktioner läggs till dina principer ha olika fungerande-versioner. Steget fungerar versioner i din egen filsystem med programkod som de nyttjar.  Dina program kan anropa många olika förlitande part principer i en klient. De kan bli beroende på vilka anspråk som de förväntar sig från principer för Azure AD B2C.
+**Spara flera versioner av dina scenarier. Gruppera dem i ett projekt med ditt program.** Den bas, tillägg och förlitande part-filer är direkt beroende av varandra. Spara dem som en grupp. När nya funktioner läggs till dina principer, håll separat fungerande versioner. Steg fungerande versioner i din egen filsystem med programkod som de interagerar med.  Dina program kan anropa många olika förlitande part principer i en klient. De kan bli beroende på vilka anspråk som de förväntar sig från dina Azure AD B2C-principer.
 
-**Utveckla och testa teknisk profiler med kända användare resor.** Använd testade starter pack principer för att konfigurera dina tekniska profiler. Testa dem separat innan du lägga till dem i din egen resor för användaren.
+**Utveckla och testa tekniska profiler med kända användare resor.** Använd testade starter pack principer för att konfigurera dina tekniska profiler. Testa dem separat innan du lägga till dem i din egen utbildning för användaren.
 
-**Utveckla och testa användare resor med testade tekniska profiler.** Ändra orchestration-steg för en användare resa inkrementellt. Skapa progressivt din avsedda scenarier.
+**Utveckla och testa användare körning med testade tekniska profiler.** Ändra orchestration-steg i en användarresa inkrementellt. Progressivt skapa din avsedda scenarier.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Hämta [active-directory-b2c-custom-policy-starterpack] i GitHub (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ZIP-filen.
+* Ladda ned [active-directory-b2c-custom-policy-starterpack] i GitHub (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip-filen.

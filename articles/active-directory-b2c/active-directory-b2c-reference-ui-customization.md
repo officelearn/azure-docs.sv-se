@@ -1,53 +1,53 @@
 ---
 title: Anpassning av användargränssnitt (UI) i Azure Active Directory B2C | Microsoft Docs
-description: Ett avsnitt på användaren användargränssnittet (UI) anpassningsfunktionerna i Azure Active Directory B2C.
+description: Ett ämne på funktioner för anpassning av användargränssnitt (UI) i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 00f1dc8c9cffbff240f96fed3d2f09888c041301
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 385c13194063761d6449fafa49714d8627f6c6fc
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754594"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447061"
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Anpassa Azure AD B2C-användargränssnittet (UI)
 
-Användarupplevelsen är ytterst viktigt i en kundinriktade program.  Utöka kunden grundläggande genom att utforma användarupplevelser med utseendet och känslan av ditt varumärke. Azure Active Directory B2C (Azure AD B2C) kan du anpassa profil för registrering, inloggning, redigering och sidor med pixel perfekt kontroll för återställning av lösenord.
+Användarupplevelsen är avgörande i ett kundorienterade program.  Utöka din kund grundläggande genom att utforma användarupplevelser med utseendet och känslan av ditt varumärke. Azure Active Directory B2C (Azure AD B2C) kan du anpassa registrering, inloggning, profilredigering och sidor med utseende kontroll för återställning av lösenord.
 
 > [!NOTE]
-> Sidan anpassning gränssnittsfunktionen beskrivs i den här artikeln gäller inte för inloggning endast principen, dess tillhörande sidan för återställning av lösenord och verifiering e-postmeddelanden.  Använda funktionerna i [funktionen för företagsanpassning](../active-directory/fundamentals/customize-branding.md) i stället.
+> Sidan Användargränssnittet anpassning av funktionen som beskrivs i den här artikeln gäller inte för den enda inloggningsprincip dess tillhörande sidan för återställning av lösenord och verifiering e-postmeddelanden.  Dessa funktioner använder den [funktionen för företagsanpassning](../active-directory/fundamentals/customize-branding.md) i stället.
 >
-> På liknande sätt, om en användare intiates en redigera profilprincip *innan* logga in användaren omdirigeras till en sida som kan anpassas med hjälp av den [funktionen för företagsanpassning](../active-directory/fundamentals/customize-branding.md).
+> På samma sätt, om en användare intiates en redigera profilprincip *innan* loggar in användaren omdirigeras till en sida som kan anpassas med hjälp av den [funktionen för företagsanpassning](../active-directory/fundamentals/customize-branding.md).
 
 Den här artikeln innehåller följande avsnitt:
 
 * Sidan anpassning gränssnittsfunktionen.
-* Ett verktyg för överföring av HTML-innehåll till Azure Blob Storage för användning med sidan anpassning gränssnittsfunktionen.
-* De UI-element som används av Azure AD B2C som du kan anpassa med sammanhängande formatmallar (CSS).
-* Bästa metoder när du använder den här funktionen.
+* Ett verktyg för att ladda upp HTML-innehåll till Azure Blob Storage för användning med sidan anpassning gränssnittsfunktionen.
+* UI-element som används av Azure AD B2C som du kan anpassa med sammanhängande formatmallar (CSS).
+* Metodtips för att passa på att använda den här funktionen.
 
 ## <a name="the-page-ui-customization-feature"></a>Sidan anpassning gränssnittsfunktionen
 
-Du kan anpassa utseende och känslan av kunden registrering, inloggning (se ovan för undantag som rör anpassning), återställning av lösenord och redigering av profilen sidor (genom att konfigurera [principer](active-directory-b2c-reference-policies.md)). Kunderna får en integrerad upplevelse när navigera mellan programmet och sidor som hanteras av Azure AD B2C.
+Du kan anpassa utseende och känslan av kunden registrering, inloggning (se ovan Obs för undantag som rör anpassning), återställning av lösenord och profilredigering sidor (genom att konfigurera [principer](active-directory-b2c-reference-policies.md)). Dina kunder får en sömlös upplevelse när du navigerar mellan programmet och sidor som hanteras av Azure AD B2C.
 
 Till skillnad från andra tjänster där gränssnittsalternativ, Azure AD B2C använder en enkel och moderna metod för anpassning av Användargränssnittet.
 
-Här är hur det fungerar: Azure AD B2C Kör koden i kundens webbläsare och använder en modern metod som kallas [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/).  Vid körning, innehållet har lästs in från en URL som du anger i en princip. Du kan ange olika URL: er för olika sidor. När innehåll lästes in från URL: en är sammanfogat med ett HTML-avsnitt från Azure AD B2C, visas sidan till kunden. Allt du behöver göra är att:
+Så här fungerar det: Azure AD B2C körs koden i din kunds webbläsare och använder en modern lösning som kallas [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/).  Vid körning laddas innehåll från en URL som du anger i en princip. Du kan ange olika URL: er för olika sidor. När innehåll som lästs in från din URL är sammanfogat med ett HTML-avsnitt infogas från Azure AD B2C, visas sidan för kunden. Allt du behöver göra är att:
 
-1. Skapa korrekt HTML5 innehåll med en tom `<div id="api"></div>` elementet finns någonstans i den `<body>`. Det här elementet märken där Azure AD B2C innehållet infogas.
-1. Värd för ditt innehåll på en HTTPS-slutpunkt (med CORS tillåtna). Observera både hämta och alternativ metodbegäranden måste vara aktiverat när du konfigurerar CORS.
-1. Använd CSS för att style-UI-element som infogas av Azure AD B2C.
+1. Skapa välformulerad HTML5 innehåll med en tom `<div id="api"></div>` element finns någonstans i den `<body>`. Det här elementet som hämtas där Azure AD B2C-innehåll läggs till.
+1. Vara värd för ditt innehåll på en HTTPS-slutpunkt (med CORS tillåts). Observera att både hämta och alternativ metodbegäranden måste vara aktiverat när du konfigurerar CORS.
+1. Använd CSS för att stil UI-element som infogar i Azure AD B2C.
 
-### <a name="a-basic-example-of-customized-html"></a>Ett grundläggande exempel på anpassade HTML
+### <a name="a-basic-example-of-customized-html"></a>Grundläggande exempel på anpassade HTML
 
-I följande exempel är den mest grundläggande HTML-innehåll som du kan använda för att testa den här funktionen. Använd den [helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) överför och konfigurerar det här innehållet i Azure Blob storage. Du kan kontrollera den grundläggande, icke-snygg knappar & formulärfält på varje sida som visas och fungerar.
+I följande exempel är den mest grundläggande HTML-innehåll som du kan använda för att testa den här funktionen. Använd den [hjälpverktyg](active-directory-b2c-reference-ui-customization-helper-tool.md) att ladda upp och konfigurera det här innehållet på din Azure Blob storage. Du kan sedan kontrollera att den grundläggande, icke-snygg knappar & formulärfält på varje sida är visas och fungerar.
 
 ```HTML
 <!DOCTYPE html>
@@ -63,19 +63,19 @@ I följande exempel är den mest grundläggande HTML-innehåll som du kan använ
 
 ## <a name="test-out-the-ui-customization-feature"></a>Testa funktionen för anpassning av Användargränssnittet
 
-Om du vill testa funktionen för anpassning av Användargränssnittet med hjälp av våra exempel HTML och CSS innehåll?  Vi har lagt [helper-verktyget](active-directory-b2c-reference-ui-customization-helper-tool.md) som överför och konfigurerar exemplen på Azure Blob storage.
+Vill du prova att använda funktionen för anpassning av Användargränssnittet med hjälp av våra exempel HTML och CSS innehåll?  Vi har lagt [en hjälpverktyg](active-directory-b2c-reference-ui-customization-helper-tool.md) som överför och konfigurerar exemplen på Azure Blob storage.
 
 > [!NOTE]
-> Du kan vara värd för ditt användargränssnitt innehåll var som helst: på webbservrar, CDN-nät, AWS S3, dela filsystem, osv. Så länge innehållet finns på en offentligt tillgängliga HTTPS-slutpunkt med CORS aktiverat, är du redo att börja. Vi använder Azure Blob storage som endast illustration.
+> Du kan vara värd för ditt användargränssnitt innehåll var som helst: på webbservrar, CDN, AWS S3, dela filsystem, osv. Så länge som innehållet finns på en offentligt tillgänglig HTTPS-slutpunkt med CORS aktiverat, är du redo att börja. Vi använder Azure Blob storage som endast illustration.
 >
 
-## <a name="the-ui-fragments-embedded-by-azure-ad-b2c"></a>UI-fragment inbäddade av Azure AD B2C
+## <a name="the-ui-fragments-embedded-by-azure-ad-b2c"></a>UI-fragment som bäddats in av Azure AD B2C
 
-Följande avsnitt listar HTML5-fragment som Azure AD B2C sammanfogar till den `<div id="api"></div>` element finns i ditt innehåll. **Infoga inte dessa fragment i HTML 5-innehåll.** Tjänsten Azure AD B2C infogas i vid körning. Använd dessa fragment som referens när du skapar egna sammanhängande formatmallar (CSS).
+Följande avsnitt listar HTML5-fragment som Azure AD B2C sammanfogar i den `<div id="api"></div>` element finns i ditt innehåll. **Infoga inte dessa fragment i ditt innehåll i HTML5.** Azure AD B2C-tjänsten infogar dem i vid körning. Använd dessa fragment som referens när du utformar dina egna sammanhängande formatmallar (CSS).
 
-### <a name="fragment-inserted-into-the-identity-provider-selection-page"></a>Fragment infogas i ”identitet providern sidan”
+### <a name="fragment-inserted-into-the-identity-provider-selection-page"></a>Fragment som infogas i den ”identitet sidan för val av”
 
-Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja bland under registrering eller inloggning. Knapparna omfattar sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton (baserat på e-adress eller användare).
+Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja mellan vid registrering eller inloggning. Knapparna omfattar sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton (baserat på e-postadress eller användarnamn namn).
 
 ```HTML
 <div id="api" data-name="IdpSelections">
@@ -99,9 +99,9 @@ Den här sidan innehåller en lista över identitetsleverantörer som användare
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-local-account-sign-up-page"></a>Fragment infogas i ”lokala konton registreringssidan”
+### <a name="fragment-inserted-into-the-local-account-sign-up-page"></a>Fragment som infogats i ”lokalt konto registreringssidan”
 
-Den här sidan innehåller ett formulär för lokalt konto baserat på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika inkommande kontroller, till exempel textrutan inmatningsfält för lösenord, knappen, enkelval listrutorna och välja flera kryssrutor.
+Den här sidan innehåller ett formulär för lokalt konto registrering baserat på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika indatakontroller, till exempel textinmatningsrutan, lösenordsruta, alternativknappen, flervals-listrutorna och välja flera kryssrutor.
 
 ```HTML
 <div id="api" data-name="SelfAsserted">
@@ -214,13 +214,13 @@ Den här sidan innehåller ett formulär för lokalt konto baserat på en e-post
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>Fragment infogas i ”sociala konto registreringssidan”
+### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>Fragment som infogats i ”socialt konto registreringssidan”
 
-Den här sidan visas när du loggar med ett befintligt konto från en sociala identitetsleverantören, till exempel Facebook eller Google +.  Den används när ytterligare information måste samlas in från slutanvändaren genom att använda en registreringsformuläret. Den här sidan liknar lokalt konto registreringssidan (visas i föregående avsnitt) med undantag för transaktionen lösenordsfält.
+Den här sidan visas när du registrerar dig med ett befintligt konto från en social identitetsprovider, till exempel Facebook eller Google +.  Den används när ytterligare information måste samlas in från användaren med hjälp av en fyllt i registreringsformuläret. Den här sidan liknar lokalt konto registreringssidan (visas i föregående avsnitt) med undantag för inmatningsfält för lösenord.
 
-### <a name="fragment-inserted-into-the-unified-sign-up-or-sign-in-page"></a>Fragment infogas i ”Unified registrering eller inloggning sidan”
+### <a name="fragment-inserted-into-the-unified-sign-up-or-sign-in-page"></a>Fragment som infogats i ”enhetliga registrering eller inloggning sidan”
 
-Den här sidan hanterar både registrering och inloggning av användare kan använda sociala identitetsleverantörer, till exempel Facebook eller Google + eller lokala konton.
+Den här sidan hanterar registrering och inloggning i av kunder, som kan använda sociala identitetsleverantörer, till exempel Facebook eller Google + eller lokala konton.
 
 ```HTML
 <div id="api" data-name="Unified">
@@ -271,7 +271,7 @@ Den här sidan hanterar både registrering och inloggning av användare kan anv�
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-multi-factor-authentication-page"></a>Fragment infogas i ”Multi-Factor authentication-page”
+### <a name="fragment-inserted-into-the-multi-factor-authentication-page"></a>Fragment som infogats i ”multifaktorautentisering page”
 
 Användare kan verifiera sina telefonnummer (med text eller röst) under registrering eller inloggning på den här sidan.
 
@@ -315,7 +315,7 @@ Användare kan verifiera sina telefonnummer (med text eller röst) under registr
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-error-page"></a>Fragment infogas i sidan ”fel”
+### <a name="fragment-inserted-into-the-error-page"></a>Fragment som infogats i sidan ”fel”
 
 ```HTML
 <div id="api" class="error-page-content" data-name="GlobalException">
@@ -330,29 +330,29 @@ Användare kan verifiera sina telefonnummer (med text eller röst) under registr
 </div>
 ```
 
-## <a name="localizing-your-html-content"></a>Lokalisera HTML-innehåll
+## <a name="localizing-your-html-content"></a>Lokalisera din HTML-innehåll
 
-Det finns två sätt att lokalisera HTML-innehåll. Ett sätt är att aktivera [språk anpassning](active-directory-b2c-reference-language-customization.md). Den här funktionen aktiveras kan Azure AD B2C att vidarebefordra parametern öppna ID Connect `ui-locales`, till slutpunkten.  Innehållsservern kan använda den här parametern för att tillhandahålla anpassade HTML-sidor som språkspecifika.
+Det finns två sätt att lokalisera din HTML-innehåll. Ett sätt är att aktivera [språkanpassning](active-directory-b2c-reference-language-customization.md). Den här funktionen aktiveras kan Azure AD B2C att vidarebefordra parametern öppna ID Connect `ui-locales`, till slutpunkten.  Innehållsservern kan använda den här parametern för att tillhandahålla anpassade HTML-sidor som språkspecifika.
 
-Alternativt kan du hämtar innehåll från olika platser som är baserade på det språk som används. Du kan ställa in en mappstruktur som värd för innehåll för specifika språk i din CORS-aktiverad slutpunkt. Du måste anropa rätt om du använder jokertecknet `{Culture:RFC5646}`.  Anta exempelvis att det här är en anpassad sida URI:
+Du kan också hämta innehåll från olika platser baserat på det språk som används. Du kan ställa in en mappstruktur som värd för innehåll för specifika språk i din CORS-aktiverad slutpunkt. Du ringer upp rätt om du använder jokertecknet `{Culture:RFC5646}`.  Anta exempelvis att det här är din URI för anpassad sida:
 
 ```
 https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
 ```
-Du kan läsa in sidan i `fr`. När sidan hämtar HTML- och CSS innehåll, det dra från:
+Du kan läsa in sidan i `fr`. När sidan hämtar HTML och CSS innehåll, det hämta från:
 ```
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
 ## <a name="things-to-remember-when-building-your-own-content"></a>Kom ihåg följande när du skapar ditt eget innehåll
 
-Om du planerar att använda sidan anpassning gränssnittsfunktionen granska följande metodtips:
+Om du planerar att använda funktionen sida Användargränssnittet anpassning, kan du granska följande metoder:
 
-* Inte kopiera innehållet i Azure AD B2C standard och försök att ändra den. Det är bäst att skapa ditt HTML5-innehåll från början och Använd standardinnehåll som referens.
-* Av säkerhetsskäl att inte vi du kan använda alla JavaScript i ditt innehåll. De flesta av vad du behöver ska vara tillgänglig direkt. Om inte, Använd [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) att begära nya funktioner.
-* Versioner av webbläsare som stöds:
-  * Internet Explorer 11, 10, kant
+* Inte kopiera Azure AD B2C standardinnehållet och försök att ändra den. Det är bäst att skapa HTML5 innehållet från grunden och använda standardinnehållet som referens.
+* Av säkerhetsskäl tillåter vi inte du inkludera alla JavaScript i ditt innehåll. De flesta av vad du behöver ska vara tillgängliga direkt. Om inte, Använd [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) att begära nya funktioner.
+* Webbläsarversioner som stöds:
+  * Internet Explorer 11, 10, Edge
   * Begränsat stöd för Internet Explorer 9, 8
   * Google Chrome 42.0 och senare
   * Mozilla Firefox 38.0 och senare
-* Se till att du inte inkluderar `<form>` i din HTML-taggar som detta stör POST-åtgärder som genererats av inmatat HTML från Azure AD B2C.
+* Se till att du inte inkluderar `<form>` i din HTML-taggar som detta stör POST-åtgärder som genererats av inmatade HTML från Azure AD B2C.

@@ -1,10 +1,10 @@
 ---
 title: Stöd för AppSource | Azure
-description: Stöder information och länkar för AppSource.
+description: Supportinformation och länkar till AppSource.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor: ''
 ms.assetid: ''
 ms.service: marketplace
@@ -12,26 +12,26 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 07/02/2018
 ms.author: ellacroi
-ms.openlocfilehash: b2ca55456a735a19f4739b20d7c7530efc357621
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 447453abb59507e0f3a8505410ceb52640914f22
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825241"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436584"
 ---
 # <a name="support-for-appsource"></a>Stöd för AppSource  
 Supportalternativ för AppSource.  
 
 ## <a name="technical"></a>Teknik  
 
-| Stöd för kanalen | Beskrivning |  
+| Supportkanal | Beskrivning |  
 |:--- |:--- |  
-| MSDN-formulär: Azure Active Directory finns i [social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD "Azure AD i MSDN-forum") | Forum för Microsoft Developer Network. |  
-| StackOverflow: Azure Active Directory finns i [stackoverflow.com/questions/tagged/azure-active-directory](https://stackoverflow.com/questions/tagged/azure-active-directory "Azure AD på stackoverflow") | Stacken spill miljö för att få lösningar och ställa frågor om allt som rör till Azure Active Directory (AD Azure). |  
+| MSDN-formulär: Azure Active Directory finns på [social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD "Azure AD i MSDN-forum") | Microsoft Developer Network-forum. |  
+| StackOverflow: Azure Active Directory finns på [stackoverflow.com/questions/tagged/azure-active-directory](https://stackoverflow.com/questions/tagged/azure-active-directory "Azure AD på stackoverflow") | Stack Overflow-miljö för att få ut lösningar och ställa frågor om allt som rör Azure Active Directory (AD Azure). |  
 
 ## <a name="next-steps"></a>Nästa steg
-*   Besök den [Azure Marketplace och AppSource Publisher Guide](./marketplace-publishers-guide.md) sidan.  
+Gå till den [Azure Marketplace och AppSource Publiceringsguiden](./marketplace-publishers-guide.md) sidan.  
  
 ---  

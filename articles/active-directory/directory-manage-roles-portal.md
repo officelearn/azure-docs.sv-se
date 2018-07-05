@@ -14,12 +14,12 @@ ms.date: 07/02/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: e8aaf828d366db0f008e842ba1b0f76907aa8791
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 39f7d69482845af48b1dce8c2e51f4acf77bf4fb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347081"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448068"
 ---
 # <a name="view-all-members-of-an-administrator-role-in-azure-active-directory"></a>Visa alla medlemmar i en administratörsroll i Azure Active Directory
 
@@ -45,5 +45,5 @@ När du visar en rollmedlemmar, Välj **beskrivning** att se den fullständiga l
 ## <a name="next-steps"></a>Nästa steg
 
 * Passa på att dela med oss på den [Azure AD-forum för administrativa roller](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Mer information om roller och administratören rolltilldelning finns i [Tilldela administratörsroller](active-directory-assign-admin-roles-azure-portal.md).
+* Mer information om roller och administratören rolltilldelning finns i [Tilldela administratörsroller](users-groups-roles/directory-assign-admin-roles.md).
 * Standardinställningar för användarbehörigheter, finns en [jämförelse av standard-Gäst och medlemmen användarbehörigheter](./fundamentals/users-default-permissions.md).

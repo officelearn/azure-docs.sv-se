@@ -1,47 +1,47 @@
 ---
 title: Vanliga frågor om Azure Active Directory B2C | Microsoft Docs
-description: Vanliga frågor (FAQ) om Azure Active Directory B2C.
+description: Vanliga frågor (och svar FAQ) om Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 11335079373b627bab923f63eda148b0a74307ea
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: eb9e4c58343e1f628ff862009b1d12dad07a1c91
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100529"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442448"
 ---
-# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (FAQ) 
-Den här sidan svar på vanliga frågor om Azure Active Directory (AD Azure) B2C. Hålla kontroll för uppdateringar.
+# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (och svar FAQ) 
+Den här sidan får du svar på vanliga frågor om Azure Active Directory (Azure AD) B2C. Kontrollera tillbaka för uppdateringar.
 
-### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Kan jag använda Azure AD B2C-funktioner i Mina befintliga, medarbetare-baserad Azure AD-klient?
-Azure AD och Azure AD B2C separat produkterbjudanden och kan inte finnas i samma klientorganisation.  En Azure AD-klient representerar en organisation.  En Azure AD B2C-klient representerar en samling med identiteter som ska användas med förlitande parters program.  Azure AD B2C kan federera till Azure AD som tillåter autentisering för anställda i en organisation med anpassade principer (i förhandsversion).
+### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Kan jag använda Azure AD B2C-funktioner i min befintliga, anställd-baserad Azure AD-klient?
+Azure AD och Azure AD B2C är separata produkterbjudanden och kan inte finnas i samma klient.  En Azure AD-klient representerar en organisation.  En Azure AD B2C-klient representerar en samling med identiteter som ska användas med förlitande parters program.  Azure AD B2C kan federera Azure AD att tillåta autentisering av anställda i en organisation med anpassade principer (i allmänt tillgänglig förhandsversion).
 
-### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Kan jag använda Azure AD B2C för att tillhandahålla inloggning via sociala medier (Facebook och Google +) i Office 365?
-Azure AD B2C kan inte användas för att autentisera användare för Microsoft Office 365.  Azure AD är Microsofts lösning för hantering av medarbetarnas åtkomst till SaaS-appar och funktioner som är utformade för detta ändamål, till exempel licensiering och villkorlig åtkomst.  Azure AD B2C innehåller en identitets- och plattform för att skapa webb- och mobilprogram.  När Azure AD B2C är konfigurerad för att federera till en Azure AD-klient, hanterar Azure AD-klienten medarbetarnas åtkomst till program som förlitar sig på Azure AD B2C.
+### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Kan jag använda Azure AD B2C för att tillhandahålla social inloggning (Facebook och Google +) i Office 365?
+Azure AD B2C kan inte användas för att autentisera användare för Microsoft Office 365.  Azure AD är Microsofts lösning för hantering av personalens åtkomst till SaaS-appar och har funktioner som utformats för detta ändamål, till exempel licensierings- och villkorlig åtkomst.  Azure AD B2C tillhandahåller en plattform för identitets- och för att skapa webbprogram och mobilappar.  När Azure AD B2C är konfigurerad för att federera till en Azure AD-klient, hanterar Azure AD-klienten Medarbetaråtkomst till program som förlitar sig på Azure AD B2C.
 
-### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Vad är lokala konton i Azure AD B2C? Vad är de från arbets-eller skolkonton i Azure AD?
-I en Azure AD-klient användare som tillhör innehavaren logga in med en e-postadress i formatet `<xyz>@<tenant domain>`.  Den `<tenant domain>` är en av de verifierade domänerna i innehavaren eller första `<...>.onmicrosoft.com` domän. Den här typen av konto är ett konto för arbetet eller skolan.
+### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Vad är lokala konton i Azure AD B2C? Hur skiljer de från arbets-eller skolkonton i Azure AD?
+I en Azure AD-klient, användare som tillhör klientorganisationen logga in med en e-postadress i formatet `<xyz>@<tenant domain>`.  Den `<tenant domain>` är en av de verifierade domänerna i klienten eller första `<...>.onmicrosoft.com` domän. Den här typen av konto är ett arbets- eller skolkonto konto.
 
-De flesta appar i Azure AD B2C-klient vill användaren att logga in med en godtycklig e-postadress (till exempel joe@comcast.net, bob@gmail.com, sarah@contoso.com, eller jim@live.com). Den här typen av konto är ett lokalt konto.  Vi stöder också godtycklig användarnamn som lokala konton (till exempel joe bob, Sara eller jim). Du kan välja något av dessa två kontotyper av lokala när du konfigurerar identitetsleverantörer för Azure AD B2C i Azure-portalen. I din Azure AD B2C-klient klickar du på **identitetsleverantörer** och välj sedan **användarnamn** under lokala konton. 
+I en Azure AD B2C-klient, de flesta appar vill att användaren ska logga in med valfri godtycklig e-postadress (till exempel joe@comcast.net, bob@gmail.com, sarah@contoso.com, eller jim@live.com). Den här typen av konto är ett lokalt konto.  Vi stöder också godtyckliga användarnamn som lokala konton (till exempel Johan, bob, sarah eller jim). Du kan välja något av dessa två typer av lokala konton när du konfigurerar identitetsprovidrar för Azure AD B2C i Azure-portalen. I din Azure AD B2C-klient klickar du på **identitetsprovidrar** och välj sedan **användarnamn** under lokala konton. 
 
-Användarkonton för program måste alltid skapas via en principen för registrering, registrering eller inloggning – i princip eller genom att använda Azure AD Graph API. Användarkonton som skapats i Azure portal används bara för administration av klienten.
+Användarkonton för program måste alltid skapas via en registreringsprincip registrering eller inloggning – i principen eller genom att använda Azure AD Graph API. Användarkonton som skapats i Azure-portalen används bara för att administrera klienten.
 
-### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Vilka sociala identitetsleverantörer du stöder nu? Vilka som planerar att stödja i framtiden?
-Vi stöder för närvarande Facebook, Google +, LinkedIn, Amazon, Twitter (förhandsgranskning), WeChat (förhandsgranskning), Weibo (förhandsversion) och QT (förhandsversion). Vi lägger till stöd för andra populära sociala identitetsleverantörer baserat på kundernas behov.
+### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Vilka leverantörer via sociala du stöder nu? Vilka som kommer att stödja i framtiden?
+Vi stöder för närvarande Facebook, Google +, LinkedIn, Amazon, Twitter (förhandsversion), WeChat (förhandsversion), Weibo (förhandsversion) och QT (förhandsversion). Vi lägger till stöd för andra populära sociala identitetsleverantörer baserat på kundernas behov.
 
-Azure AD B2C också har lagt till stöd för [anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Dessa [anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) att en utvecklare att skapa sina egna princip som med alla identitetsleverantör som stöder [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) eller SAML. 
+Azure AD B2C har också lagt till stöd för [anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Dessa [anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) att en utvecklare att skapa sina egna princip som med alla identitetsprovider som stöder [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) eller SAML. 
 
-Kom igång med anpassade principer genom att checka ut våra [anpassad princip startpaket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
+Kom igång med anpassade principer genom att läsa vår [anpassad princip startpaket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
-### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Kan jag konfigurera scope för att samla in mer information om användare från olika sociala identitetsleverantörer?
-Nej, men den här funktionen finns på vår översikt. Standard-omfattningar som används för våra uppsättning sociala identitetsleverantörer som stöds är:
+### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Kan jag konfigurera omfång för att samla in mer information om användare från olika leverantörer via sociala?
+Nej, men den här funktionen finns i vår översikt. Standard-omfattningar som används för vår uppsättning sociala identitetsleverantörer som stöds är:
 
 * Facebook: e-post
 * Google +: e-post
@@ -49,81 +49,81 @@ Nej, men den här funktionen finns på vår översikt. Standard-omfattningar som
 * Amazon: profil
 * LinkedIn: r_emailaddress, r_basicprofile
 
-### <a name="does-my-application-have-to-be-run-on-azure-for-it-work-with-azure-ad-b2c"></a>Har mitt program att köras i Azure för den fungerar med Azure AD B2C?
-Nej, kan du värd för ditt program var som helst (i molnet eller lokalt). Allt som behövs för att interagera med Azure AD B2C är möjligheten att skicka och ta emot HTTP-förfrågningar på offentligt tillgänglig slutpunkter.
+### <a name="does-my-application-have-to-be-run-on-azure-for-it-work-with-azure-ad-b2c"></a>Har mitt program att köras på Azure för att den fungerar med Azure AD B2C?
+Nej, kan du vara värd för ditt program var som helst (i molnet eller lokalt). Allt som behövs för att interagera med Azure AD B2C är möjligheten att skicka och ta emot HTTP-förfrågningar på offentligt tillgängliga slutpunkter.
 
-### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Jag har flera innehavare av Azure AD B2C. Hur kan jag hantera dem på Azure portal?
-Innan du öppnar 'Azure AD B2C ”i vänster-menyn i Azure portal, måste du växla till den katalog som du vill hantera.  Växla kataloger genom att klicka på din identitet i övre högra hörnet i Azure-portalen och sedan välja en katalog i listrutan som visas.  En stegvis med bilder, finns i [navigera till Azure AD B2C inställningar](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
+### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Jag har flera Azure AD B2C-klienter. Hur kan jag hantera dem på Azure portal?
+Innan du öppnar ”Azure AD-B2C” i menyn till vänster på Azure-portalen, måste du växla till den katalog som du vill hantera.  Växla kataloger genom att klicka på din identitet uppe till höger på Azure-portalen och välj sedan en katalog i nedrullningsbara menyn som visas.  Ett steg för steg med avbildningar finns i [navigera till Azure AD B2C-inställningar](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
-### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Hur anpassa bekräftelsemeddelanden (innehållet och ”från”: fältet) skickas av Azure AD B2C?
-Du kan använda den [funktionen för företagsanpassning](../active-directory/fundamentals/customize-branding.md) att anpassa innehållet i e-post för verifiering. Mer specifikt kan du anpassa dessa två element för e-postmeddelandet:
+### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Hur anpassar jag verifiering e-postmeddelanden (innehållet och ”från”: fält) skickas av Azure AD B2C?
+Du kan använda den [funktionen för företagsanpassning](../active-directory/fundamentals/customize-branding.md) att anpassa innehållet i e-postmeddelanden för verifiering. Mer specifikt kan du anpassa dessa två element för e-postmeddelandet:
 
-* **Banderoll logotypen**: visas längst ned till höger.
+* **Banderoll logotyp**: visas längst ned till höger.
 * **Bakgrundsfärg**: visas högst upp.
 
-    ![Skärmbild av en anpassad e-postmeddelandet](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
+    ![Skärmbild av ett anpassat bekräftelsemeddelande](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
-E-signatur som innehåller namnet på Azure AD B2C-klient som du angav när du först skapade Azure AD B2C-klient. Du kan ändra namnet använder dessa instruktioner:
+E-signaturen innehåller Azure AD B2C-klientens namn som du angav när du först skapade Azure AD B2C-klient. Du kan ändra namnet med de här anvisningarna:
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) som Global administratör.
 1. Öppna den **Azure Active Directory** bladet.
 1. Klicka på den **egenskaper** fliken.
-1. Ändra den **namn** fältet.
+1. Ändra den **namn** fält.
 1. Klicka på **spara** överst på sidan.
 
-Det finns för närvarande inget sätt att ändra den ”från”: i e-postmeddelandet. Rösta på [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) du är intresserad av att anpassa brödtexten i e-postmeddelandet.
+Det finns för närvarande inget sätt att ändra den ”från”: i e-postmeddelandet. Rösta på [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) du är intresserad av att anpassa brödtexten i bekräftelsemeddelandet.
 
-### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Hur kan jag migrera Mina befintliga användarnamn, lösenord och profiler från databasen till Azure AD B2C?
-Du kan använda Azure AD Graph API för att skriva Migreringsverktyget för. Finns det [användaren Migreringsguide](active-directory-b2c-user-migration.md) mer information.
+### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Hur kan jag migrera min befintliga användarnamn, lösenord och profiler från min databas till Azure AD B2C?
+Du kan använda Azure AD Graph API för att skriva din Migreringsverktyg. Se den [användaren Migreringsguide](active-directory-b2c-user-migration.md) mer information.
 
 ### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Vilka lösenordsprincip används för lokala konton i Azure AD B2C?
-Azure AD B2C lösenordsprincip för lokala konton baseras på principen för Azure AD. Azure AD B2C s registrering, registrering eller inloggning och lösenord och Återställ principer använder ”starka” lösenordssäkerhet och inte ut eventuella lösenord. Läs den [Azure AD-lösenordsprincip](https://msdn.microsoft.com/library/azure/jj943764.aspx) för mer information.
+Lösenordsprinciper för lokala konton för Azure AD B2C bygger på principen för Azure AD. Azure AD B2C användarens registrering, registrering eller inloggning och lösenord och Återställ principer använder ”starka” lösenordssäkerhet och löper ut eventuella lösenord. Läs den [Azure AD-lösenordsprincip](https://msdn.microsoft.com/library/azure/jj943764.aspx) för mer information.
 
-### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Kan jag använda Azure AD Connect för att migrera konsumenten identiteter som lagras på min lokala Active Directory till Azure AD B2C?
-Nej, Azure AD Connect är inte avsedd att fungera med Azure AD B2C. Överväg att använda den [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) för användarmigrering.  Finns det [användaren Migreringsguide](active-directory-b2c-user-migration.md) mer information.
+### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Kan jag använda Azure AD Connect för att migrera konsumentidentiteter som lagras på min lokala Active Directory till Azure AD B2C?
+Nej, Azure AD Connect är inte avsedd att fungera med Azure AD B2C. Överväg att använda den [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) för användarmigrering.  Se den [användaren Migreringsguide](active-directory-b2c-user-migration.md) mer information.
 
-### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>Öppnar min app in Azure AD B2C sidor i en iFrame?
-Nej, av säkerhetsskäl, Azure AD B2C-sidor kan inte öppnas en iFrame.  Vår tjänst kommunicerar med webbläsare för att förhindra iFrames.  Säkerhets-community och OAUTH2-specifikationen rekommenderar mot med iFrames för identitetsupplevelser på grund av risken för Klicka fästpunkter.
+### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>Öppnar min app in Azure AD B2C-sidor i en iFrame?
+Nej, kan Azure AD B2C sidor inte öppnas i en iFrame av säkerhetsskäl.  Vår tjänst kommunicerar med webbläsaren om du vill förbjuda iFrames.  Säkerhets-communityn i allmän och en OAUTH2-specifikationen rekommenderar mot att använda iFrames för identitetsupplevelser på grund av risken för Klicka fästpunkter.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Fungerar Azure AD B2C med till exempel Microsoft Dynamics CRM-system?
 Integrering med Microsoft Dynamics 365-portalen är tillgänglig.  Se [konfigurerar Dynamics 365-portalen att använda Azure AD B2C för autentisering](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
-### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Har Azure AD B2C fungerar med SharePoint lokalt 2016 eller tidigare?
+### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Har Azure AD B2C fungerar med lokal SharePoint 2016 eller tidigare?
 Azure AD B2C är inte avsedd för SharePoint extern delning av partner scenariot; Se [Azure AD B2B](https://cloudblogs.microsoft.com/enterprisemobility/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview/) i stället.
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>Bör jag använda Azure AD B2C eller B2B för att hantera externa identiteter?
-Den här artikeln om [externa identiteter](../active-directory/active-directory-b2b-compare-external-identities.md) att lära dig mer om att tillämpa lämpliga funktioner till externa identity-scenarier.
+Den här artikeln om [externa identiteter](../active-directory/active-directory-b2b-compare-external-identities.md) vill veta mer om att tillämpa lämpliga funktioner på dina externa identity-scenarier.
 
-### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Vilka rapportering och granskning funktioner Azure AD B2C ger? Är de samma som i Azure AD Premium?
-Nej, stöder inte Azure AD B2C samma uppsättning rapporter som Azure AD Premium. Det finns emellertid många gemensamma utformning gör:
+### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Vilka rapporterings- och granskning funktioner Azure AD B2C tillhandahåller? Är de samma som Azure AD Premium?
+Nej, stöder inte Azure AD B2C med samma uppsättning rapporter som Azure AD Premium. Men det finns många gemensamma utformning gör:
 
-* **Logga in rapporter** innehåller en post för varje inloggning med nedsatt information.
-* **Granska rapporter** inkluderar både administratörsaktivitet samt programaktivitet. 
-* **Användningsrapporter** är antalet användare, antal inloggningar och volym för Multifaktorautentisering. 
+* **Logga in rapporter** ger en post för varje inloggning med minskad information.
+* **Granskningsrapporter** är både administrativa aktiviteter samt programaktivitet. 
+* **Användningsrapporter** är antalet användare, antal inloggningar och mängden MFA. 
 
-### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Kan jag lokalisera Användargränssnittet för sidor som hanteras av Azure AD B2C? Vilka språk som stöds?
-Visst!  Läs mer om [språk anpassning](active-directory-b2c-reference-language-customization.md), som är tillgänglig som förhandsversion.  Vi ger översättningar för 36 språk och du kan åsidosätta valfri sträng så att de passar dina behov.
+### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Kan jag översätter Användargränssnittet för sidor som hanteras av Azure AD B2C? Vilka språk stöds?
+Visst!  Läs mer om [språkanpassning](active-directory-b2c-reference-language-customization.md), vilket är i offentlig förhandsversion.  Vi ger översättningar för 36 språk och du kan åsidosätta valfri sträng för att passa dina behov.
 
-### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>Kan jag använda min egen URL: er på sidorna registrering och inloggning som hanteras av Azure AD B2C? Till exempel ändrar URL: en från login.microsoftonline.com till login.contoso.com?
-För närvarande inte. Den här funktionen finns på vår översikt. Verifiera din domän i den **domäner** fliken i Azure-portalen inte utför det här målet.
+### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>Kan jag använda min egen URL: er i min registrering och inloggning sidor som hanteras av Azure AD B2C? Exempelvis kan jag ändra URL: en från login.microsoftonline.com till login.contoso.com?
+För närvarande inte. Den här funktionen finns i vår översikt. Verifiera din domän i den **domäner** fliken i Azure-portalen inte uppnå det här målet.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Hur tar jag bort min Azure AD B2C-klient?
 Följ dessa steg för att ta bort din Azure AD B2C-klient:
 
-1. Följ dessa steg för att [navigera till Azure AD B2C inställningar](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) på Azure-portalen.
-1. Navigera till den **program**, **identitetsleverantörer**, och **alla principer** och ta bort alla poster i var och en av dem.
-1. Nu logga in på den [Azure-portalen](https://portal.azure.com/) som administratör för prenumerationen. (Använda samma arbets- eller skolkonto eller samma Microsoft-konto som du använde för att registrera dig för Azure.)
+1. Följ dessa steg för att [navigera till inställningarna för Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) på Azure portal.
+1. Navigera till den **program**, **identitetsprovidrar**, och **alla principer** och ta bort alla poster i var och en av dem.
+1. Nu logga in på den [Azure-portalen](https://portal.azure.com/) som administratör för prenumerationen. (Använd samma arbets- eller skolkonto eller samma Microsoft-konto som användes för att registrera dig för Azure.)
 1. Växla till Azure AD B2C-klient som du vill ta bort.
-2. Gå till menyn Active Directory till vänster.
+2. Gå till Active Directory-menyn till vänster.
 3. Välj **användare och grupper**.
-4. Markera varje användare i sin tur (exkludera du för närvarande är inloggad som administratör för prenumeration användaren). Klicka på **ta bort** längst ned på sidan och klicka på **Ja** när du tillfrågas.
-5. Klicka på den **App registreringar**.
-6. Välj program kallat **b2c-tillägg-app**. Klicka på **ta bort** och på **Ja** när du tillfrågas.
+4. Markera varje användare i sin tur (Uteslut du för närvarande är inloggad som administratör för prenumerationen användaren). Klicka på **ta bort** längst ned på sidan och klicka på **Ja** när du tillfrågas.
+5. Klicka på den **appregistreringar**.
+6. Välj program, kallat **b2c-extensions-app**. Klicka på **ta bort** och klicka på **Ja** när du tillfrågas.
 7. Välj **Översikt**.
-8. Klicka på **ta bort katalogen**. Följ instruktionerna på skärmen för att slutföra processen.
+8. Klicka på **ta bort katalogen**. Följ anvisningarna på skärmen för att slutföra processen.
 
-### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Kan jag få Azure AD B2C som en del av Enterprise Mobility Suite?
-Nej, Azure AD B2C är en betala per användning i Azure-tjänsten och är inte en del av Enterprise Mobility Suite.
+### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Får jag Azure AD B2C som en del av Enterprise Mobility Suite?
+Nej, Azure AD B2C är en betala per användning Azure-tjänsten och är inte en del av Enterprise Mobility Suite.
 
-### <a name="how-do-i-report-issues-with-azure-ad-b2c"></a>Hur rapporterar problem med Azure AD B2C?
-Se [filbegäranden stöd för Azure Active Directory B2C](active-directory-b2c-support.md).
+### <a name="how-do-i-report-issues-with-azure-ad-b2c"></a>Hur gör jag för att rapportera problem med Azure AD B2C?
+Se [filen supportbegäranden för Azure Active Directory B2C](active-directory-b2c-support.md).

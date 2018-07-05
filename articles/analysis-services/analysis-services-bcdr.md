@@ -1,37 +1,37 @@
 ---
-title: Azure Analysis Services hög tillgänglighet | Microsoft Docs
+title: Azure Analysis Services, hög tillgänglighet | Microsoft Docs
 description: Säkerställa hög tillgänglighet för Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: db8f8b9b5af1583662418f774b2eb141bea53ffa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42e270f26a4576014d3a08a0ab3c59808c65fc56
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596744"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445474"
 ---
 # <a name="analysis-services-high-availability"></a>Hög tillgänglighet för Analysis Services
-Den här artikeln beskriver garantera hög tillgänglighet för Azure Analysis Services-servrar. 
+Den här artikeln beskriver säkerställa hög tillgänglighet för Azure Analysis Services-servrar. 
 
 
-## <a name="assuring-high-availability-during-a-service-disruption"></a>Säkerställa hög tillgänglighet vid ett avbrott i tjänsten
-När det är sällsynt, kan ett Azure-Datacenter ha ett avbrott. När ett avbrott inträffar gör en business-avbrott som kan senaste några minuter eller kan senaste timmar. Hög tillgänglighet uppnås ofta med server redundans. Du kan uppnå redundans med Azure Analysis Services genom att skapa ytterligare sekundära servrar i en eller flera regioner. När du skapar redundanta servrar för att garantera data och metadata på dessa servrar är synkroniserad med servern i en region som är offline, kan du:
+## <a name="assuring-high-availability-during-a-service-disruption"></a>Säkerställa hög tillgänglighet under ett avbrott i tjänsten
+När det är sällsynt, kan ett Azure-Datacenter ha ett avbrott. När ett avbrott uppstår orsakar det ett verksamhetsavbrott som kan vara några få minuter eller flera timmar. Hög tillgänglighet uppnås oftast med server-redundans. Du kan få redundans genom att skapa ytterligare, sekundära servrar i en eller flera regioner med Azure Analysis Services. När du skapar redundanta servrar om du vill säkerställa data och metadata på dessa servrar är synkroniserat med servern i en region som är offline, kan du:
 
-* Distribuera modeller till redundanta servrar i andra regioner. Den här metoden kräver databearbetning på både primära servern och redundanta servrar i parallellt, så alla servrar är synkroniserad.
+* Distribuera modeller till redundanta servrar i andra regioner. Den här metoden kräver att bearbetningsdata på både primära servern och redundanta servrar i parallella, avveckla alla servrar är synkroniserade.
 
-* [Säkerhetskopiering](analysis-services-backup.md) databaser från den primära servern och återställning på redundanta servrar. Du kan till exempel automatisera säkerhetskopieringar till Azure-lagring och återställa till andra redundant servrar i andra regioner. 
+* [Backup](analysis-services-backup.md) databaser från din primära servern och återställning på redundanta servrar. Exempelvis kan du automatisera säkerhetskopieringar till Azure storage och återställa till andra redundanta servrar i andra regioner. 
 
-Om den primära servern skulle få ett avbrott i båda fallen måste du ändra anslutningssträngar i reporting klienter att ansluta till servern i ett annat regionala datacenter. Den här ändringen ska betraktas som en sista utväg och endast om ett oåterkalleligt regionala data center avbrott inträffar. Det är troligt att en data center avbrott som värd för den primära servern skulle komma online igen innan du kan uppdatera anslutningar på alla klienter. 
+Om den primära servern uppstår ett avbrott i båda fallen måste du ändra anslutningssträngar i reporting-klienter att ansluta till servern i ett annat regionala datacenter. Den här ändringen ska betraktas som en sista utväg och endast om ett oåterkalleligt regionalt avbrott på datacentret sker. Det är troligare att avbrott i datacentret som är värd för den primära servern är online igen innan du kan uppdatera anslutningar på alla klienter. 
 
-Om du vill undvika att behöva ändra anslutningssträngar på reporting klienter, kan du skapa en server [alias](analysis-services-server-alias.md) för den primära servern. Om den primära servern kraschar, kan du ändra alias att peka till en redundant server i en annan region. Du kan automatisera alias namn genom att skriva en slutpunkt hälsokontroll på den primära servern. Om hälsokontrollen misslyckas, kan samma slutpunkten direkt till en redundant server i en annan region. 
+Om du vill undvika att behöva ändra anslutningssträngar på felrapporteringsklienterna, kan du skapa en server [alias](analysis-services-server-alias.md) för den primära servern. Om den primära servern slutar fungera kan ändra du alias så att den pekar till en redundant server i en annan region. Du kan automatisera alias namn genom att skriva en hälsokontroll för slutpunkten på den primära servern. Om hälsokontrollen misslyckas, kan samma slutpunkt dirigera till en redundant server i en annan region. 
 
 ## <a name="related-information"></a>Relaterad information
 [Säkerhetskopiering och återställning](analysis-services-backup.md)   
 [Hantera Azure Analysis Services](analysis-services-manage.md)   
-[Alias servernamn](analysis-services-server-alias.md) 
+[Aliasnamn för servern](analysis-services-server-alias.md) 
 

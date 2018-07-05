@@ -8,36 +8,36 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 508b2f615819f20a717065d8fff25beff64957d5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0f3f2347dd277cb155bf5edf3f8c30da34788b65
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263437"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437767"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arkivera Azure-aktivitetsloggen
-I den här artikeln visar vi hur du kan använda Azure-portalen, PowerShell-Cmdlets och plattformsoberoende CLI för att arkivera dina [ **Azure-aktivitetsloggen** ](monitoring-overview-activity-logs.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla din aktivitetsloggen som är längre än 90 dagar (med fullständig kontroll över bevarandeprincipen) för granskning, statiska analys eller säkerhetskopiering. Om du bara behöver lagra dina händelser i 90 dagar eller mindre och du behöver inte konfigurera arkivering till ett lagringskonto eftersom aktivitetsloggen händelser lagras i Azure-plattformen i 90 dagar utan att aktivera arkivering.
+I den här artikeln visar vi hur du kan använda Azure-portalen, PowerShell-Cmdlets och plattformsoberoende CLI för att arkivera dina [ **Azure-aktivitetsloggen** ](monitoring-overview-activity-logs.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla din aktivitetslogg som är längre än 90 dagar (med fullständig kontroll över bevarandeprincipen) för granskning, statiska analys eller säkerhetskopiering. Om du behöver bara att behålla dina händelser i 90 dagar eller mindre du behöver inte konfigurera arkivering till ett lagringskonto eftersom aktivitetslogghändelser finns kvar i Azure-plattformen i 90 dagar utan att aktivera arkivering.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du börjar måste du [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) som du kan arkivera dina aktivitetsloggen. Vi rekommenderar starkt att du inte använder ett befintligt lagringskonto som har andra, icke-övervakning data som lagras i den så att du bättre kan styra åtkomsten till övervakningsdata. Men om du även arkiverar diagnostikloggar och mått till ett lagringskonto, kan det vara bra att använda detta lagringskonto för aktivitetsloggen samt för att hålla alla övervakningsdata på en central plats. Storage-konto som du använder måste vara ett allmänt lagringskonto inte ett blob storage-konto. Storage-konto behöver inte finnas i samma prenumeration som prenumerationen avger loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC åtkomst till båda prenumerationer.
+Innan du börjar måste du [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) som du kan arkivera din aktivitetslogg. Vi rekommenderar starkt att du inte använder ett befintligt lagringskonto som har andra, icke-övervakning av data som lagras i den så att du kan få bättre kontroll över åtkomsten till övervakningsdata. Om du även arkiverar diagnostikloggar och mått till ett lagringskonto, men kan det vara klokt du använder det lagringskontot för din aktivitetslogg så att alla övervakningsdata på en central plats. Storage-kontot behöver inte finnas i samma prenumeration som prenumerationen för loggarna så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
 
 > [!NOTE]
->  Du kan inte arkivera data till en lagringsplats för kontot som bakom skyddade virtuella nätverk.
+>  Du kan inte arkivera data till en storage-konto som bakom ett skyddat virtuellt nätverk.
 
-## <a name="log-profile"></a>Log-profil
-Om du vill arkivera aktivitetsloggen med någon av metoderna nedan kan du ange den **loggen profil** för en prenumeration. Log-profil definierar typ av händelser som lagras eller strömmas och utdata – lagring konto och/eller event hub. Den definierar även bevarandeprincip (antal dagar att behålla) för händelser som lagras i ett lagringskonto. Om bevarandeprincipen anges till noll, som händelser lagras på obestämd tid. I annat fall kan detta anges till ett värde mellan 1 och 2147483647. Bevarandeprinciper är tillämpade per dag, så i slutet av dagen (UTC) loggar från den dagen är nu utöver kvarhållning princip kommer att tas bort. Till exempel om du har en bevarandeprincip på en dag skulle i början av dagen idag loggar från dag före igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar för loggar som ska tas bort från ditt lagringskonto. [Du kan läsa mer om loggen profiler här](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
+## <a name="log-profile"></a>Loggprofil
+Om du vill arkivera aktivitetsloggen med någon av metoderna nedan, anger du den **Loggprofil** för en prenumeration. Log-profil definierar vilken typ av händelser som lagras eller strömmas och utdata – storage-konto och/eller event hub. Den definierar även bevarandeprincipen (antal dagar) för händelser som lagras i ett lagringskonto. Om policyn för datalagring i anges till noll, lagras händelser på obestämd tid. I annat fall kan detta anges till ett värde mellan 1 och 2147483647. Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto. [Du kan läsa mer om log profiler här](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>Arkivera aktivitetsloggen med hjälp av portalen
-1. I portalen klickar du på den **aktivitetsloggen** länk i navigeringen till vänster. Om du inte ser en länk för aktivitetsloggen, klickar du på den **alla tjänster** länka först.
+1. I portalen klickar du på den **aktivitetsloggen** länk navigeringen till vänster. Om du inte ser en länk för aktivitetsloggen, klickar du på den **alla tjänster** länka först.
    
-    ![Navigera till bladet för aktivitetsloggen](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
+    ![Gå till bladet aktivitetslogg](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
 2. Överst på bladet klickar du på **exportera**.
    
     ![Klicka på knappen Export](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
-3. I bladet som visas, markera kryssrutan för **exportera till ett lagringskonto** och välj ett lagringskonto.
+3. På bladet som visas, markerar du kryssrutan för **exportera till ett lagringskonto** och välj ett lagringskonto.
    
     ![Ange ett lagringskonto](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
-4. Med hjälp av skjutreglaget eller textruta, definiera ett antal dagar som aktiviteten logghändelser ska behållas i ditt lagringskonto. Om du vill ha dina data kvar i lagringskontot på obestämd tid genom att ange siffran noll.
+4. Med hjälp av skjutreglaget eller textruta, definiera ett antal dagar (0 till 365) som aktivitetslogghändelser ska behållas i ditt storage-konto. Om du vill ha dina data sparas i lagringskontot på obestämd tid, anges numret till noll. Om du vill ange hur många dagar som är mer än 365 kan du använda PowerShell eller CLI-metoder som beskrivs nedan.
 5. Klicka på **Spara**.
 
 ## <a name="archive-the-activity-log-via-powershell"></a>Arkivera aktivitetsloggen via PowerShell
@@ -59,10 +59,10 @@ Om du vill arkivera aktivitetsloggen med någon av metoderna nedan kan du ange d
 
 | Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
-| StorageAccountId |Ja |Resurs-ID för Storage-konto som aktivitetsloggar ska sparas. |
-| Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser för aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med `(Get-AzureRmLocation).Location`. |
-| retentionInDays |Nej |Antal dagar för vilka händelser som ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
-| Kategorier |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva och ta bort åtgärd.  Om inte anges, antas alla möjliga värden |
+| StorageAccountId |Ja |Resurs-ID för det Lagringskonto där aktivitetsloggar ska sparas. |
+| Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `(Get-AzureRmLocation).Location`. |
+| RetentionInDays |Nej |Antal dagar för vilka händelser ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
+| Kategorier |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder.  Om det inte anges, antas alla möjliga värden |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Arkivera aktivitetsloggen via CLI
 
@@ -72,31 +72,31 @@ Om du vill arkivera aktivitetsloggen med någon av metoderna nedan kan du ange d
 
 | Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
-| namn |Ja |Namnet på loggen profilen. |
-| Storage-konto-id |Ja |Resurs-ID för Storage-konto som aktivitetsloggar ska sparas. |
-| Platser |Ja |Blankstegsavgränsad lista över regioner som du vill samla in händelser för aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med `az account list-locations --query [].name`. |
-| dagar |Ja |Antal dagar för vilka händelser som ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid).  Om noll, sedan parametern aktiverade ska anges till true. |
-|aktiverad | Ja |SANT eller FALSKT.  Används för att aktivera eller inaktivera bevarandeprincipen.  Om värdet är True måste dagar-parametern vara ett värde som är större än 0.
-| kategorier |Ja |Blankstegsavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva och ta bort åtgärd. |
+| namn |Ja |Namnet på din loggprofil. |
+| Storage-konto-id |Ja |Resurs-ID för det Lagringskonto där aktivitetsloggar ska sparas. |
+| platser |Ja |Blankstegsavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `az account list-locations --query [].name`. |
+| dagar |Ja |Antal dagar för vilka händelser ska behållas, mellan 1 och 2147483647. Värdet noll kommer att lagra loggarna på obestämd tid (alltid).  Om noll, sedan parametern aktiverade ska anges till true. |
+|aktiverad | Ja |SANT eller FALSKT.  Används för att aktivera eller inaktivera bevarandeprincipen.  Om värdet är True måste dagsparametern vara ett värde som är större än 0.
+| kategorier |Ja |Blankstegsavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder. |
 
 ## <a name="storage-schema-of-the-activity-log"></a>Storage-schemat för aktivitetsloggen
-När du har konfigurerat arkivering, skapas en lagringsbehållare i storage-konto så snart aktivitetsloggen händelse inträffar. Blobbar i behållaren följer samma format i aktivitetsloggen och diagnostikloggar. Strukturen för de här blobbar är:
-
-> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{prenumerations-ID}/y={fyrsiffrigt årtal}/m={månad med två siffror}/d={dag med två siffror}/h={24-timmarsklocka med två siffror}/m=00/PT1H.json
-> 
-> 
-
-Till exempel kan en blobbnamnet vara:
-
-> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.json
-> 
-> 
-
-Varje PT1H.json blobb innehåller en JSON-blob av händelser som inträffade inom en timme som anges i blob-URL (t.ex. h = 12). Under den aktuella timmen läggs händelser till i filen PT1H.json allt eftersom de inträffar. Minuten (m = 00) är alltid 00, eftersom aktiviteten logghändelser delas upp i enskilda blobbar per timme.
-
-Varje händelse lagras i filen PT1H.json i matrisen ”innehåller” följa det här formatet:
+När du har konfigurerat arkivering, skapas en lagringsbehållare i lagringskontot när en aktivitetslogghändelsen inträffar. Blobbar i behållaren följer samma namngivningskonvention för aktivitetsloggar och diagnostiska loggar som visas här:
 
 ```
+insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
+
+Till exempel kan ett blobbnamn vara:
+
+```
+insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.json
+```
+
+Varje PT1H.json-blob innehåller en JSON-blob med händelser som inträffade inom den angivna timmen i blob-URL (t.ex. h = 12). Under den aktuella timmen läggs händelser till i filen PT1H.json allt eftersom de inträffar. Minutvärdet (m = 00) är alltid 00, eftersom aktivitetslogghändelser delas upp i enskilda blobar per timme.
+
+Varje händelse som lagras i filen pt1h.JSON i matrisen ”poster” efter det här formatet:
+
+``` JSON
 {
     "records": [
         {
@@ -155,28 +155,28 @@ Varje händelse lagras i filen PT1H.json i matrisen ”innehåller” följa det
 
 | Elementnamn | Beskrivning |
 | --- | --- |
-| time |Tidsstämpel när händelsen skapades av tjänsten Azure motsvarande händelsen begäran bearbetades. |
-| resourceId |Resurs-ID för resursen påverkas. |
+| time |Tidsstämpel när händelsen skapades av tjänsten Azure behandlingen av begäran som motsvarande händelsen. |
+| resourceId |Resurs-ID för resursen som påverkas. |
 | operationName |Åtgärdens namn. |
-| category |Kategori för åtgärden, t.ex. Skrivning, Läs, åtgärden. |
-| resultType |Typ av resultat, t.ex. Lyckades, fel, Start |
+| category |Kategori för åtgärden, t.ex. Skriva, Läs, åtgärd. |
+| resultType |Vilken typ av resultatet, t.ex. Klart, fel, Start |
 | resultSignature |Beror på resurstypen. |
-| durationMs |Varaktighet för åtgärden i millisekunder |
-| callerIpAddress |IP-adressen för den användare som utförde åtgärden, UPN-anspråk eller SPN-anspråk baserat på tillgänglighet. |
-| correlationId |Vanligtvis ett GUID i strängformatet. Händelser som delar en correlationId tillhöra samma uber åtgärd. |
-| identity |JSON-blob som beskriver auktoriserings- och anspråk. |
-| Auktorisering |BLOB RBAC egenskaper för händelsen. Inkluderar vanligtvis egenskaperna ””, ”roll” och ”omfattning”. |
-| nivå |Nivå av händelsen. Ett av följande värden: ”kritiska”, ”Error”, ”varning”, ”information” och ”utförlig” |
+| durationMs |Varaktighet i millisekunder |
+| callerIpAddress |IP-adressen för den användare som har utfört den åtgärden eller UPN-anspråket SPN-anspråk baserat på tillgänglighet. |
+| correlationId |Vanligtvis ett GUID i formatet för strängen. Händelser som delar en correlationId tillhöra samma uber åtgärd. |
+| identity |JSON-blob som beskriver auktorisering och anspråk. |
+| Auktorisering |BLOB för RBAC egenskaper för händelsen. Vanligtvis inkluderar egenskaper för ”action”, ”roll” och ”omfång”. |
+| nivå |Nivån på händelsen. Något av följande värden: ”kritisk”, ”fel”, ”varning”, ”information” och ”utförlig” |
 | location |Region i platsen uppstod (eller global). |
-| properties |En uppsättning `<Key, Value>` par (d.v.s. ordlista) som beskriver information om händelsen. |
+| properties |Uppsättning `<Key, Value>` par (d.v.s. ordlista) som beskriver informationen om händelsen. |
 
 > [!NOTE]
-> Egenskaper och användning av dessa egenskaper kan variera beroende på resursen.
+> Egenskaper och användningen av dessa egenskaper kan variera beroende på resurs.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Ladda ned blobbar för analys](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-* [Dataströmmen aktivitetsloggen i Händelsehubbar](monitoring-stream-activity-logs-event-hubs.md)
+* [Ladda ned blobar för analys](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+* [Stream aktivitetsloggen till Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 * [Läs mer om aktivitetsloggen](monitoring-overview-activity-logs.md)
 

@@ -5,27 +5,27 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 03/19/2018
+ms.date: 06/19/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 3267f649e360c512a5523ce1d5948719a1969934
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4bec8c8ea29c10b8c0d0351a41ebc9183bb45d4f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32297594"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449519"
 ---
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 
-* Tillgängligheten för virtuella datorer N-serien finns [produkter som är tillgängliga efter region](https://azure.microsoft.com/regions/services/).
+* Tillgängligheten för virtuella datorer i N-serien finns [produkttillgänglighet per region](https://azure.microsoft.com/regions/services/).
 
-* N-serien virtuella datorer kan bara distribueras i Resource Manager-distributionsmodellen.
+* Virtuella datorer i N-serien kan bara distribueras i Resource Manager-distributionsmodellen.
 
-* N-serien virtuella datorer skiljer sig i typ av Azure Storage som de har stöd för deras diskar. NC och NV virtuella datorer stöder bara Virtuella diskar som backas upp av Standard Disk lagring (HDD). NCv2, ND och NCv3 virtuella datorer stöder bara Virtuella diskar som backas upp av Premium Disk lagring (SSD).
+* N-serien virtuella datorer skiljer sig åt i Azure-lagringstyp som de har stöd för deras diskar. NC- och NV-datorer stöder bara Virtuella diskar som backas upp av Standard Disk Storage (HDD). NCv2, ND och virtuella datorer i NCv3 stöder bara Virtuella diskar som backas upp av Premium Disk Storage (SSD).
 
-* Om du vill distribuera flera virtuella datorer N-serien du en prenumeration med användningsbaserad betalning eller andra köpalternativ. Om du använder ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) kan du bara använda ett begränsat antal Azure Compute-kärnor.
+* Om du vill distribuera flera virtuella datorer i N-serien, Överväg en användningsbaserad prenumeration eller andra alternativ. Om du använder ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) kan du bara använda ett begränsat antal Azure Compute-kärnor.
 
-* Du kan behöva öka kvoten kärnor (per region) i din Azure-prenumeration och öka separat kvoten för NC NCv2, NCv3, ND eller NV kärnor. Att begära en ökad kvot [öppna en supportbegäran online customer](../articles/azure-supportability/how-to-create-azure-support-request.md) utan kostnad. Standardgränser kan variera beroende på din prenumerationskategori.
+* Du kan behöva öka kärnkvoten (per region) i din Azure-prenumeration och öka kärnkvoten för NC, NCv2, NCv3, ND eller NV separat. En kvot, [öppna en supportbegäran online-kund](../articles/azure-supportability/how-to-create-azure-support-request.md) utan kostnad. Standardgränser kan variera beroende på din prenumerationskategori.
 
 
 

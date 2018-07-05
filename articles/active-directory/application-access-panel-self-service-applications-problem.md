@@ -1,6 +1,6 @@
 ---
-title: Problemet med hjälp av självbetjäning programåtkomst | Microsoft Docs
-description: Felsöka problem som rör självbetjäning programåtkomst
+title: Problemet med hjälp av programåtkomst via självbetjäning | Microsoft Docs
+description: Felsöka problem som rör självbetjäningsåtkomsten
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -15,87 +15,87 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 35abd97072f2156424bb910d68923be18f917792
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cdd554b71cc17019d7818e2b509433df621da84f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331265"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446834"
 ---
-# <a name="problem-using-self-service-application-access"></a>Problemet med hjälp av självbetjäning programåtkomst
+# <a name="problem-using-self-service-application-access"></a>Problemet med hjälp av självbetjäningsåtkomsten
 
-Självbetjäning programåtkomst är ett bra sätt att tillåta användarna att identifiera program, automatisk låta affärsgruppen att godkänna åtkomst till dessa program. Du kan tillåta affärsgruppen att hantera de autentiseringsuppgifter som tilldelats till användare för höger lösenord enkel inloggning på program från deras åtkomst paneler.
+Självbetjäning för programåtkomst är ett bra sätt så att användarna kan identifiera lokal program, låta affärsgrupp att godkänna åtkomst till dessa program. Du kan tillåta affärsgrupp att hantera de autentiseringsuppgifter som har tilldelats till de användarna av lösenord för enkel inloggning på program direkt från sina åtkomstpaneler.
 
-Innan användarna kan själva identifiera program från deras åtkomstpanelen, måste du aktivera **självbetjäning programåtkomst** för program som du vill tillåta användare att identifiera själv och begära åtkomst till.
+Innan användarna kan själva upptäcka program från sina åtkomstpaneler, måste du aktivera **självbetjäningsåtkomsten** för program som du vill tillåta användare att identifiera själv och begära åtkomst till.
 
-## <a name="general-issues-to-check-first"></a>Allmänna problem med att kontrollera först
+## <a name="general-issues-to-check-first"></a>Allmänna problem att kontrollera först
 
--   Kontrollera att självbetjäning programåtkomst är korrekt konfigurerad. Se ”hur du konfigurerar självbetjäning programåtkomst”.
+-   Kontrollera att självbetjäningsåtkomsten är rätt konfigurerad. Se ”hur du konfigurerar självbetjäningsåtkomsten”.
 
--   Kontrollera att användaren eller gruppen har aktiverats för att begära självbetjäning programåtkomst.
+-   Kontrollera att användaren eller gruppen har aktiverats för att begära åtkomst för självbetjäningsprogram.
 
--   Kontrollera att användaren besöker på rätt plats för självbetjäning programåtkomst. användare kan navigera till deras [programmet åtkomstpanelen](https://myapps.microsoft.com/) och klicka på den **+ Lägg till** för att hitta de appar som du har aktiverat självbetjäning åtkomst.
+-   Kontrollera att användaren är att gå till rätt plats för självbetjäning för programåtkomst. användare kan navigera till sina [Programåtkomstpanelen](https://myapps.microsoft.com/) och klicka på den **+ Lägg till** för att hitta de appar som du har aktiverat åtkomst med självbetjäning.
 
--   Om självbetjäning programåtkomst konfigurerades har nyligen, försök att logga in och ut igen i användarens åtkomstpanelen efter några minuter att se om ändringarna självbetjäning åtkomst har visats.
+-   Om självbetjäningsåtkomsten konfigurerades nyligen, försök logga in och ut igen i åtkomstpanelen för användarens efter ett par minuter att se om självbetjäningsåtkomst ändringarna har visats.
 
-## <a name="how-to-configure-self-service-application-access"></a>Konfigurera självbetjäning programåtkomst
+## <a name="how-to-configure-self-service-application-access"></a>Så här konfigurerar du självbetjäningsåtkomsten
 
-Följ stegen nedan om du vill aktivera självbetjäning programmet åtkomst till ett program:
+Följ stegen nedan om du vill aktivera självbetjäningsprogram åtkomst till ett program:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
 2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory vänstra navigeringsmenyn.
+4.  Klicka på **företagsprogram** från Azure Active Directory-vänstra navigeringsmenyn.
 
-5.  Klicka på **alla program** att visa en lista över alla program.
+5.  Klicka på **alla program** att visa en lista över alla dina program.
 
-  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla Program.**
+  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
-6.  Välj det program som du vill aktivera självbetjäning åtkomst till i listan.
+6.  Välj det program som du vill ge åtkomst till i listan.
 
-7.  När programmet läses in klickar du på **självbetjäning** från programmets vänstra navigeringsmenyn.
+7.  När programmet har lästs in klickar du på **självbetjäning** från programmets vänstra navigeringsmenyn.
 
-8.  Om du vill aktivera självbetjäning programåtkomst för det här programmet, aktivera den **Tillåt användare att begära åtkomst till det här programmet?** växla till **Ja.**
+8.  Om du vill aktivera självbetjäningsåtkomsten för det här programmet, aktivera den **Tillåt användare att begära åtkomst till det här programmet?** växla till **Ja.**
 
-9.  Klicka sedan på selector bredvid etiketten för att välja gruppen till vilken användare som begär åtkomst till det här programmet ska läggas till, **vilken grupp ska tilldelade användare läggas?** och välja en grupp.
+9.  Klicka sedan på väljaren bredvid etiketten för att välja gruppen till vilken användare som begär åtkomst till det här programmet ska läggas till, **till vilken grupp ska tilldelade användare läggas?** och välj en grupp.
 
-10. **Valfritt:** om du vill kräva en business godkännande innan användare tillåts åtkomst genom att ange den **kräver godkännande innan åtkomst beviljas till det här programmet?** växla till **Ja**.
+10. **Valfritt:** om du inte vill att kräva ett företag godkännande innan användarna får åtkomst genom att ange den **kräver godkännande innan du beviljar åtkomst till det här programmet?** växla till **Ja**.
 
-11. **Valfritt: för program som använder enkel inloggning för lösenord på endast** om du vill att dessa företag godkännare att ange de lösenord som skickas till det här programmet för godkända användare måste ange den **Tillåt godkännare att ange användarens lösenord för det här programmet?**  växla till **Ja**.
+11. **Valfritt: för program som använder lösenord för enkel inloggning på endast** om du vill att dessa företagsgodkännaren att ange de lösenord som skickas till det här programmet för godkända användare kan ställa in den **godkännare ha tillåtelse att ange användarens lösenord för det här programmet?**  växla till **Ja**.
 
-12. **Valfritt:** om du vill ange godkännare för företag som har behörighet att godkänna åtkomst till det här programmet, klickar du på väljaren bredvid etiketten **som har tillåtelse att godkänna åtkomst till det här programmet?** att välja upp till 10 person företag godkännare.
+12. **Valfritt:** för att ange den företagsgodkännaren som har behörighet att bevilja åtkomst till det här programmet, klickar du på väljaren bredvid etiketten **som har behörighet att bevilja åtkomst till det här programmet?** att välja upp till 10 person företagsgodkännaren.
 
  >[!NOTE]
  > Grupper stöds inte.
  >
  >
 
-13. **Valfritt:** **för program som exponera roller**, om du vill tilldela en roll godkända Självbetjäningsanvändare, klickar du på väljaren bredvid den **vilken roll ska användare tilldelas i det här programmet?** att välja rollen som användarna ska tilldelas.
+13. **Valfritt:** **för program som exponera roller**, om du vill tilldela självbetjäning godkända användare till en roll, klickar du på väljaren bredvid den **till vilken roll ska användarna tilldelas i det här programmet?** att välja rollen som dessa användare ska tilldelas.
 
-14. Klicka på den **spara** längst upp på bladet för att avsluta.
+14. Klicka på den **spara** längst upp på bladet för att slutföra.
 
-När du har slutfört självbetjäning programkonfigurationen användare kan navigera till deras [programmet åtkomstpanelen](https://myapps.microsoft.com/) och klicka på den **+ Lägg till** för att hitta de appar som du har aktiverat självbetjäning åtkomst. Företag godkännare också se ett meddelande i sina [programmet åtkomstpanelen](https://myapps.microsoft.com/). Du kan aktivera ett e-postmeddelande till dem när en användare har begärt åtkomst till ett program som kräver godkännande. 
+När du har slutfört konfigurationen av programåtkomst via självbetjäning kan användare navigera till sina [Programåtkomstpanelen](https://myapps.microsoft.com/) och klicka på den **+ Lägg till** för att hitta de appar som du har aktiverat självbetjäning åtkomst. Företagsgodkännaren får även ett meddelande i sina [Programåtkomstpanelen](https://myapps.microsoft.com/). Du kan aktivera ett e-postmeddelande om när en användare har begärt åtkomst till ett program som kräver godkännande. 
 
-Dessa godkännanden stöd för godkännande endast arbetsflöden, vilket innebär att om du anger flera godkännare alla godkännare godkänna åtkomst till programmet.
+Dessa godkännanden har stöd för enkel godkännandearbetsflöden, vilket innebär att en enda godkännare kan godkänna åtkomst till programmet om du anger flera godkännare.
 
-## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Om felsökningen inte löser problemet 
+## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Om de här felsökningsstegen inte löser problemet 
 
 Öppna ett supportärende med följande information om de är tillgängliga:
 
--   Fel-ID för korrelation
+-   Korrelations-ID för fel
 
 -   UPN (användarens e-postadress)
 
--   Klient-ID
+-   TenantID
 
 -   Typ av webbläsare
 
--   Tidszon och tid/tidsperioden under fel inträffar
+-   Tidszon och tid/tidsramen under fel inträffar
 
--   Fiddler spårningar
+-   Fiddler-spårningar
 
 ## <a name="next-steps"></a>Nästa steg
-[Konfigurera Azure Active Directory för grupphantering via självbetjäning](active-directory-accessmanagement-self-service-group-management.md)
+[Konfigurera Azure Active Directory för grupphantering via självbetjäning](users-groups-roles/groups-self-service-management.md)

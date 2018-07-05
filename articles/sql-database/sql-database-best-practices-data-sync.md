@@ -1,183 +1,184 @@
 ---
-title: Metodtips för Azure SQL-datasynkronisering | Microsoft Docs
-description: Lär dig mer om metodtips för att konfigurera och köra Azure SQL-datasynkronisering.
+title: Metodtips för Azure SQL Data Sync | Microsoft Docs
+description: Läs mer om bästa praxis för att konfigurera och köra Azure SQL Data Sync.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 07/03/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: b53c72f1df4f2fc2509d91220d08aff4682b6620
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: c8b8455dac9aa1a9f7747cada4ce85644162e331
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025961"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445168"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Regelverk för SQL Data Sync 
 
-Den här artikeln beskrivs bästa praxis för Azure SQL-datasynkronisering.
+Den här artikeln beskriver Metodtips för Azure SQL Data Sync.
 
-En översikt över SQL datasynkronisering finns [synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](sql-database-sync-data.md).
+En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a> Säkerhet och tillförlitlighet
 
 ### <a name="client-agent"></a>Klientagenten
 
--   Installera klientagenten med lägsta möjliga användarkonto som har tjänsten nätverksåtkomst.  
--   Installera klientagenten på en dator som inte är lokal SQL Server-datorn.  
+-   Installera klientagenten med lägsta möjliga användarkonto som har tjänsten för nätverksåtkomst.  
+-   Installera klientagenten på en dator som inte är en lokal SQL Server-datorn.  
 -   Inte registrera en lokal databas med mer än en agent.    
     -   Undvik detta även om du synkroniserar olika tabeller för olika synkroniseringsgrupper.  
-    -   Registrerar en lokal databas med flera klienten agenter utgör utmaningar när du tar bort någon av grupperna synkronisering.
+    -   Registrera en lokal databas med flera klienten agenter utgör utmaningar när du tar bort en av synkroniseringsgrupper.
 
-### <a name="database-accounts-with-least-required-privileges"></a>Databasen konton med lägsta behörighet som krävs
+### <a name="database-accounts-with-least-required-privileges"></a>Databaskonton med lägsta behörighet
 
--   **För Konfigurera synkronisering**. Skapa/ändra tabellen; ALTER Database; Skapa proceduren; Välj / Alter Schema. Skapa User-Defined Type.
+-   **För synkroniseringsinställningen**. Skapa/ändra tabellen. ALTER databas. Skapa proceduren; Välj / Alter Schema; Skapa användardefinierade typer.
 
--   **För en pågående synkronisering**. Välj / Infoga / Uppdatera / ta bort för tabeller som har valts för synkronisering och på synka metadata och spåra tabeller. Körbehörighet på lagrade procedurer som skapats av tjänsten. Körningsbehörighet användardefinierade tabelltyper.
+-   **För pågående synkronisering**. Välj / Infoga / Uppdatera / ta bort för tabeller som har valts för synkronisering och på synka metadata och spåra tabeller. Körbehörighet om lagrade procedurer som skapats av tjänsten. Körbehörighet på användardefinierade tabelltyper.
 
--   **För avetablering**. Ändra på tabeller som en del av sync; Välj / Ta bort på Synkronisera metadatatabeller. Kontrollera på synkronisering spårning tabeller, lagrade procedurer och användardefinierade typer.
+-   **För avetableringar**. Ändra på tabeller som en del av synkronisering; Välj / Ta bort på Synkronisera metadata-tabeller. Styra vid synkronisering spåra tabeller, lagrade procedurer och användardefinierade typer.
 
 Azure SQL Database stöder bara en enda uppsättning autentiseringsuppgifter. Överväg följande alternativ för att utföra dessa uppgifter i den här begränsningen:
 
 -   Ändra autentiseringsuppgifterna för olika faser (till exempel *credentials1* för installation och *credentials2* för pågående).  
--   Ändra behörigheter för autentiseringsuppgifterna (d.v.s. Ändra behörighet när synkronisering har konfigurerats).
+-   Ändra behörighet av autentiseringsuppgifter (dvs, ändra behörighet när synkronisering har konfigurerats).
 
 ## <a name="setup"></a>Konfiguration
 
-### <a name="database-considerations-and-constraints"></a> Överväganden för databasen och begränsningar
+### <a name="database-considerations-and-constraints"></a> Databasen överväganden och begränsningar
 
-#### <a name="sql-database-instance-size"></a>Storlek på SQL-databas
+#### <a name="sql-database-instance-size"></a>SQL Database-instansstorlek
 
-När du skapar en ny instans av SQL-databas, ange den maximala storleken så att den alltid är större än databasen som du distribuerar. Om du inte anger den maximala storleken till större än den distribuerade databasen, misslyckas synkronisering. Även om SQL-datasynkronisering inte erbjuda automatisk ökning, kan du köra den `ALTER DATABASE` kommando för att öka storleken på databasen när den har skapats. Se till att du hålla storleksbegränsningarna SQL Database-instans.
+När du skapar en ny SQL Database-instans, ange den maximala storleken så att den alltid är större än databasen som du distribuerar. Om du inte anger den maximala storleken till större än den distribuerade databasen, misslyckas synkronisering. Även om automatisk ökning inte omfattas av SQL Data Sync, kan du köra den `ALTER DATABASE` kommando för att öka storleken på databasen när den har skapats. Se till att du håller dig inom storleksgränser för SQL Database-instans.
 
 > [!IMPORTANT]
-> SQL-datasynkronisering lagrar ytterligare metadata med varje databas. Se till att du ta hänsyn till dessa metadata när du beräknar utrymmet som krävs. Mängden ytterligare kostnader som är relaterad till bredd tabeller (till exempel smala tabeller kräver mer resurser) och mängden trafik.
+> SQL Data Sync lagrar ytterligare metadata med varje databas. Se till att du ta hänsyn till dessa metadata när du beräknar utrymmet som krävs. Mängden ytterligare kostnader som är relaterad till bredden på tabellerna (till exempel smal tabeller kräver mer resurser) och mängden trafik.
 
-### <a name="table-considerations-and-constraints"></a> Tabell överväganden och begränsningar
+### <a name="table-considerations-and-constraints"></a> Tabellen överväganden och begränsningar
 
 #### <a name="selecting-tables"></a>Om du väljer register
 
-Du behöver ta med alla tabeller i en databas i en grupp för synkronisering. Tabellerna som inkluderas i en grupp för synkronisering påverka effektiviteten och kostnader. Inkludera tabeller och tabeller som de är beroende av, i en grupp för synkronisering endast om affärsbehov kräver detta.
+Du behöver att inkludera alla tabeller som finns i en databas i en synkroniseringsgrupp. Tabeller som inkluderas i en synkroniseringsgrupp påverkar effektiviteten och kostnader. Innehålla tabeller och de tabeller som de är beroende av, i en synkroniseringsgrupp endast om affärsbehov kräver detta.
 
-#### <a name="primary-keys"></a>Primära nycklar
+#### <a name="primary-keys"></a>Primärnycklar
 
-Varje tabell i en grupp för synkronisering måste ha en primärnyckel. Datasynkronisering för SQL-tjänsten kan inte synkronisera en tabell som inte har en primärnyckel.
+Varje tabell i en synkroniseringsgrupp måste ha en primärnyckel. SQL Data Sync-tjänsten kan inte synkronisera en tabell som inte har en primärnyckel.
 
-Innan du använder SQL datasynkronisering i produktion, testprestanda inledande och pågående synkronisering.
+Innan du använder SQL Data Sync i produktion, prestandatestning inledande och pågående synkronisering.
 
-### <a name="provisioning-destination-databases"></a> Etablerar mål databaser
+### <a name="provisioning-destination-databases"></a> Etablering av mål-databaser
 
-SQL-datasynkronisering ger autoprovisioning basic-databas.
+SQL Data Sync ger autoprovisioning basic-databas.
 
-Det här avsnittet beskrivs begränsningar för etablering i SQL-datasynkronisering.
+Det här avsnittet beskriver begränsningar för etablering i SQL Data Sync.
 
 #### <a name="autoprovisioning-limitations"></a>Autoprovisioning begränsningar
 
-SQL-datasynkronisering har följande begränsningar på autoprovisioning:
+SQL Data Sync har följande begränsningar på autoprovisioning:
 
--   Markera de kolumner som har skapats i måltabellen.  
-    Alla kolumner som inte tillhör gruppen synkronisering etablerats inte i mål-tabeller.
+-   Markera de kolumner som skapas i tabellen.  
+    Alla kolumner som inte ingår i synkroniseringsgruppen är inte etablerad i måltabeller.
 -   Index skapas endast för de markerade kolumnerna.  
-    Om käll-Tabellindex har kolumner som inte ingår i gruppen synkronisering, etableras inte dessa index i mål-tabeller.  
--   Index för kolumner av typen XML etableras inte.  
--   Kontrollbegränsningar etableras inte.  
--   Befintliga utlösare på källtabellerna etableras inte.  
+    Om Tabellindex källa har kolumner som inte ingår i synkroniseringsgruppen, är inte dessa index etablerad i måltabeller.  
+-   Index för kolumner av typen XML är inte etablerat.  
+-   Kontrollbegränsningar etablerats inte.  
+-   Befintliga utlösare källtabellerna etablerats inte.  
 -   Vyer och lagrade procedurer skapas inte till måldatabasen.
+-   PÅ UPDATE CASCADE och ON DELETE CASCADE återskapas inte åtgärder på sekundärnyckelrestriktioner i måltabellerna.
 
 #### <a name="recommendations"></a>Rekommendationer
 
--   Använda SQL datasynkronisering autoprovisioning funktionen endast när du testar tjänsten.  
+-   Använda SQL Data Sync autoprovisioning funktionen endast när du provar på att använda tjänsten.  
 -   Etablera databasschemat för produktion.
 
-### <a name="locate-hub"></a> Var ska NAV-databas
+### <a name="locate-hub"></a> Var du vill placera hubb-databasen
 
-#### <a name="enterprise-to-cloud-scenario"></a>Enterprise-to-cloud-scenario
+#### <a name="enterprise-to-cloud-scenario"></a>Scenario för företag till molnet
 
-Låt hubb databasen nära största koncentrationen av gruppen synkronisera databastrafik för att minimera svarstider.
+Behåll hubbdatabasen nära största koncentrationen av synkroniseringsgruppen databastrafik minska svarstiden.
 
-#### <a name="cloud-to-cloud-scenario"></a>Scenariot molnet till molnet
+#### <a name="cloud-to-cloud-scenario"></a>Moln-till-moln-scenario
 
--   När alla databaser i en grupp för synkronisering är i ett datacenter, måste navet finnas i samma datacenter. Den här konfigurationen minskar latens och kostnaden för att överföra data mellan datacenter.
--   När databaser i en grupp för synkronisering har flera Datacenter kan måste navet finnas i samma datacenter som flesta databaser och databastrafik.
+-   När alla databaser i en synkroniseringsgrupp är i ett datacenter, måste hubben finnas i samma datacenter. Den här konfigurationen minskar svarstiden och kostnaden för dataöverföring mellan datacenter.
+-   När databaser i en synkroniseringsgrupp finns i flera datacenter, måste hubben finnas i samma datacenter som flesta av de databaser och databastrafik.
 
-#### <a name="mixed-scenarios"></a>Blandat scenarier
+#### <a name="mixed-scenarios"></a>Blandade scenarier
 
-Riktlinjerna ovan gäller komplexa sync konfigurationer, till exempel de som är en blandning av enterprise-to-cloud och moln-to-cloud-scenarier.
+Gäller ovanstående riktlinjer komplexa synkronisering gruppkonfigurationer, till exempel de som är en blandning av enterprise-till-moln-och molnet till molnet.
 
 ## <a name="sync"></a>Sync
 
-### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Undvika långsamt och kostsamt inledande synkronisering
+### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Undvika långsamma och kostsamma inledande synkronisering
 
-I det här avsnittet diskuterar vi den första synkroniseringen av en grupp för synkronisering. Lär dig hur du vill förhindra att en inledande synkronisering från tar längre tid och som kostar mer än nödvändigt.
+I det här avsnittet diskuterar vi hur den första synkroniseringen av en synkroniseringsgrupp. Lär dig hur du kan förhindra en initial synkronisering från tar längre tid och är dyrare än nödvändigt.
 
 #### <a name="how-initial-sync-works"></a>Hur den första synkroniseringen fungerar
 
-När du skapar en grupp för synkronisering, börja med data i en enda databas. Om du har data i flera databaser behandlar SQL datasynkronisering varje rad som en konflikt som måste lösas. Den här konfliktlösning gör den första synkroniseringen gå långsamt. Om du har data i flera databaser kan inledande synkronisering ta mellan flera dagar och flera månader, beroende på databasstorleken.
+När du skapar en synkroniseringsgrupp kan du börja med data i endast en databas. Om du har data i flera databaser, behandlar varje rad i SQL Data Sync som en konflikt som måste lösas. Den här konfliktlösning gör den inledande synkroniseringen att gå långsamt. Om du har data i flera databaser, ta den inledande synkroniseringen mellan flera dagar och flera månader, beroende på databasens storlek.
 
-Om databaserna är i olika datacenter, måste varje rad färdas mellan olika datacenter. Detta ökar kostnaden för en inledande synkronisering.
+Om databaserna är i olika datacenter, måste varje rad åka mellan olika datacenter. Detta ökar kostnaden för en inledande synkronisering.
 
 #### <a name="recommendation"></a>Rekommendation
 
-Starta om möjligt med data i endast en av gruppen synkronisera databaser.
+Starta om det är möjligt med data i endast en av synkroniseringsgruppen databaser.
 
-### <a name="design-to-avoid-synchronization-loops"></a> Design så att loopar undviks synkronisering
+### <a name="design-to-avoid-synchronization-loops"></a> Design för att undvika slingor för synkronisering
 
-En loop sync uppstår vid cirkelreferenser i en grupp för synkronisering. I det scenariot replikeras varje ändring i en databas oändlighet och cirkulärt via databaserna i gruppen synkronisering.   
+En synkronisering loop uppstår vid cirkelreferenser inom en synkroniseringsgrupp. I det här scenariot kan replikeras varje ändring i en databas oändlighet och cirkulärt via databaserna i synkroniseringsgruppen.   
 
-Se till att du inte synkronisera slingor, eftersom de prestanda försämras och kan avsevärt öka kostnaderna.
+Se till att du undviker att synkronisera slingor, eftersom de orsakar försämrade prestanda och kan ta avsevärt längre kostnader.
 
-### <a name="handling-changes-that-fail-to-propagate"></a> Ändringar som inte kan sprida
+### <a name="handling-changes-that-fail-to-propagate"></a> Ändringar som inte spridits
 
-#### <a name="reasons-that-changes-fail-to-propagate"></a>Det gick inte att sprida skäl som ändras
+#### <a name="reasons-that-changes-fail-to-propagate"></a>Det gick inte att sprida orsaker som ändras
 
-Ändringar kanske inte kan sprida av något av följande skäl:
+Ändringar kan misslyckas att sprida för någon av följande orsaker:
 
--   Schema-datatyp inkompatibilitet.
--   Lägga till null i icke-nullbara kolumner.
+-   Schemat/datatype inkompatibilitet.
+-   Infoga null i icke-nullbara kolumner.
 -   Brott mot sekundärnyckelbegränsningar.
 
 #### <a name="what-happens-when-changes-fail-to-propagate"></a>Vad händer när det gick inte att sprida ändringarna?
 
--   Synkronisera gruppen visar att det är i ett **varning** tillstånd.
--   Information visas i portalen UI-Loggvisaren.
--   Om problemet kvarstår för 45 dagar databasen börjar bli inaktuell.
+-   Synkronisera gruppen visar att den är i en **varning** tillstånd.
+-   Information finns i Loggvisaren för portalens användargränssnitt.
+-   Om problemet kvarstår 45 dagar blir databasen inaktuell.
 
 > [!NOTE]
-> De här ändringarna sprida aldrig. Det enda sättet att återställa i det här scenariot är att skapa gruppen synkronisera igen.
+> Dessa ändringar att aldrig spridas. Det enda sättet att återställa i det här scenariot är att skapa synkroniseringsgruppen.
 
 #### <a name="recommendation"></a>Rekommendation
 
-Övervaka hälsan för synkronisering grupp och databasen regelbundet via Företagsportalen och logga gränssnitt.
+Övervaka hälsan för synkronisering grupp och databasen regelbundet via gränssnittet och logga.
 
 
 ## <a name="maintenance"></a>Underhåll
 
-### <a name="avoid-out-of-date-databases-and-sync-groups"></a> Undvika inaktuella databaser och synkronisera grupper
+### <a name="avoid-out-of-date-databases-and-sync-groups"></a> Undvik att gamla databaser och synkronisera grupper
 
-En sync-grupp eller en databas i en grupp för synkronisering kan bli inaktuell. När en synkronisering Gruppstatus är **inaktuella**, slutar att fungera. När en databas status är **inaktuella**, data kan gå förlorade. Det är bäst att undvika det här scenariot istället för att försöka återställa från den.
+En synkroniseringsgrupp eller en databas i en synkroniseringsgrupp kan bli inaktuell. När en synkroniseringsgrupp statusen är **inaktuella**, den slutar fungera. När statusen för en databas är **inaktuella**, data kan gå förlorade. Det är bäst att undvika det här scenariot istället för att försöka att återställa från kontot.
 
-#### <a name="avoid-out-of-date-databases"></a>Undvika inaktuella databaser
+#### <a name="avoid-out-of-date-databases"></a>Undvik att gamla databaser
 
-En databas har statusen **inaktuella** när det har varit offline i 45 dagar eller mer. Att undvika ett **inaktuella** status på en databas, kontrollera att ingen av databaserna är offline i 45 dagar eller mer.
+En databas har statusen **inaktuella** när det har varit offline under 45 dagar eller mer. Att undvika ett **inaktuella** status på en databas, se till att ingen av databaserna är offline i 45 dagar eller mer.
 
-#### <a name="avoid-out-of-date-sync-groups"></a>Undvika inaktuella synkroniseringsgrupper
+#### <a name="avoid-out-of-date-sync-groups"></a>Undvik att gamla synkroniseringsgrupper
 
-En sync-grupp har statusen **inaktuella** när ändringar i gruppen synkronisering inte spridas till resten av gruppen synkronisering i 45 dagar eller mer. Att undvika ett **inaktuella** status på en grupp för synkronisering, regelbundet kontrollera gruppen sync-händelseloggen. Se till att alla konflikter löses och att har ändringar i hela synkronisera grupp databaser.
+En synkroniseringsgrupp status anges **inaktuella** när ändringar i synkroniseringsgruppen inte gick att spridas till resten av synkroniseringsgruppen i 45 dagar eller mer. Att undvika ett **inaktuella** status på en synkroniseringsgrupp regelbundet kontrollera händelseloggen för synkroniseringsgruppen. Kontrollera att alla konflikter löses, och att ändringarna har spridits i hela synkronisera grupp databaser.
 
-En grupp för synkronisering kanske inte kan tillämpa en ändring för något av följande skäl:
+En synkroniseringsgrupp misslyckas med att tillämpa en ändring för något av följande skäl:
 
 -   Schemainkompatibilitet mellan tabeller.
 -   Data inkompatibilitet mellan tabeller.
 -   Infoga en rad med ett null-värde i en kolumn som inte tillåter null-värden.
--   Uppdatera en rad med ett värde som bryter mot villkoret för en sekundärnyckel.
+-   Uppdaterar en rad med ett värde som bryter mot en sekundärnyckelbegränsning.
 
-För att förhindra inaktuella synkroniseringsgrupper:
+Att förhindra att inaktuella synkroniseringsgrupper:
 
--   Uppdatera schemat så att de värden som finns i de felaktiga raderna.
--   Uppdatera sekundärnyckelvärden för att inkludera de värden som finns i de felaktiga raderna.
--   Uppdatera datavärdena i raden misslyckade så att de är kompatibla med det schema eller den externa nycklar i måldatabasen.
+-   Uppdatera schemat så att de värden som finns i de misslyckade raderna.
+-   Uppdatera sekundärnyckelvärden för att inkludera de värden som finns i de misslyckade raderna.
+-   Uppdatera datavärdena i den misslyckade raden så att de är kompatibla med schema eller sekundärnycklar i måldatabasen.
 
 ### <a name="avoid-deprovisioning-issues"></a> Undvika avetablering problem
 
@@ -185,31 +186,31 @@ I vissa fall kan det orsaka synkronisering misslyckas att avregistrera en databa
 
 #### <a name="scenario"></a>Scenario
 
-1. Synkronisera grupp A har skapats med hjälp av en instans av SQL-databas och en lokal SQL Server-databas som är kopplat till lokal agent 1.
-2. Samma lokala databas har registrerats med lokal agent 2 (den här agenten inte är associerad med någon synkronisering grupp).
-3. Avregistrerar den lokala databasen från lokal agent 2 tar bort spårning och meta tabeller för synkronisera grupp A för den lokala databasen.
+1. Synkroniseringsgruppen A har skapats med hjälp av en SQL-databasinstans och en lokal SQL Server-databas som är associerad med lokal agent 1.
+2. Samma lokala databas har registrerats med lokal agent 2 (den här agenten inte är kopplad till någon synkroniseringsgruppen).
+3. Avregistrera en lokal databas från lokal agent 2 tar bort spårning och meta tabeller för synkronisera grupp A för den lokala databasen.
 4. Synkronisera gruppera en operations-misslyckas med felet: ”den aktuella åtgärden kunde inte slutföras eftersom databasen inte har etablerats för synkronisering eller du har inte behörighet att synkronisera configuration tabeller”.
 
 #### <a name="solution"></a>Lösning
 
 För att undvika det här scenariot kan inte registrera en databas med mer än en agent.
 
-För att återställa från det här scenariot:
+Återställa från det här scenariot:
 
-1. Ta bort databasen från varje sync-grupp som den tillhör.  
-2. Lägga till databasen i varje sync-grupp som du har tagit bort den från igen.  
-3. Distribuera varje berörda sync-grupp (den här åtgärden etablerar databasen).  
+1. Ta bort databasen från varje synkroniseringsgrupp som den tillhör.  
+2. Lägga till databasen i varje synkroniseringsgrupp som du har tagit bort den från igen.  
+3. Distribuera varje berörda synkroniseringsgruppen (den här åtgärden etableras databasen).  
 
-### <a name="modifying-your-sync-group"></a> Ändra en grupp för synkronisering
+### <a name="modifying-your-sync-group"></a> Ändra en synkroniseringsgrupp
 
-Försök inte att ta bort en databas från en grupp för synkronisering och sedan redigera gruppen sync utan att först distribuera en av ändringarna.
+Försök inte att ta bort en databas från en synkroniseringsgrupp och sedan redigera synkroniseringsgruppen utan att distribuera förstnämnda ändringar.
 
-I stället först ta bort en databas från en grupp för synkronisering. Sedan distribuerar ändringen och vänta tills borttagning för att avsluta. När avetablering är klar kan du redigera gruppen synkronisera och distribuera ändringarna.
+I stället först ta bort en databas från en synkroniseringsgrupp. Sedan distribuerar ändringen och vänta tills avetablering för att slutföra. När avetablering är klar kan du redigera synkroniseringsgruppen och distribuera ändringarna.
 
-Om du försöker ta bort en databas och sedan redigera en sync-grupp utan att först distribuera en ändringar misslyckas en eller den andra åtgärden. Gränssnittet portal kan bli inkonsekvent. Om det händer, uppdatera sidan om du vill återställa rätt tillstånd.
+Om du försöker ta bort en databas och sedan redigera en synkroniseringsgrupp utan att distribuera förstnämnda ändringar, misslyckas en eller den andra åtgärden. Portalgränssnittet kan bli inkonsekvent. Om det händer kan du uppdatera sidan om du vill återställa rätt tillstånd.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om SQL-datasynkronisering finns:
+Mer information om SQL Data Sync finns:
 
 -   [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
 -   [Konfigurera Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
@@ -220,7 +221,7 @@ Mer information om SQL-datasynkronisering finns:
     -   [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)  
 -   [Ladda ned REST API-dokumentation för SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
-Mer information om SQL-databas finns i:
+Mer information om SQL-databas finns:
 
--   [Översikt över SQL-databas](sql-database-technical-overview.md)
--   [Livscykelhantering för databasen](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Översikt över SQL Database](sql-database-technical-overview.md)
+-   [Livscykelhantering för databas](https://msdn.microsoft.com/library/jj907294.aspx)

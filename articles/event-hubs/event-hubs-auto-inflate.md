@@ -1,6 +1,6 @@
 ---
-title: Automatiskt skala upp Azure Event Hubs genomflödesenheter | Microsoft Docs
-description: Aktivera automatisk ökar på ett namnområde för att automatiskt skala upp enheter
+title: Skala automatiskt upp Azure Event Hubs-dataflödesenheter | Microsoft Docs
+description: Aktivera automatisk ökning på ett namnområde för att automatiskt skala upp genomflödesenheter.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -12,52 +12,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 20ee0e6cff2a07cbd62a79799eada5708c7a0f07
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 46ed6acc14356221eaf24b03dfa37dc4c76efcbc
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28018617"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434648"
 ---
-# <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Automatiskt skala upp Azure Event Hubs genomflödesenheter
+# <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Skala automatiskt upp Azure Event Hubs-dataflödesenheter
 
-Händelsehubbar i Azure är en mycket skalbar dataströmning plattform. Händelsehubbar användning ökar därför ofta när du börjar använda tjänsten. Sådan användning kräver öka förbestämt genomflödesenheter om du vill skala Event Hubs och hantera större överföringshastighet. Den *automatiskt öka* funktion i Händelsehubbar skalas automatiskt antalet genomflödesenheter användning behov. Öka genomflödesenheter förhindrar begränsning scenarier där:
+Azure Event Hubs är en mycket skalbar dataströmningsplattform. Event Hubs användning ökar därför ofta när du börjar använda tjänsten. Denna användning kräver ökar den förinställt [genomflödesenheter](event-hubs-features.md#throughput-units) att skalas Event Hubs och hantera större överföringshastighet. Den **automatisk ökning** i Event Hubs automatiskt skalar upp genom att öka antalet dataflödesenheter, för användning behov. Öka genomflödesenheter förhindrar begränsningsscenarier där:
 
-* Ingång överföringshastighet överskrida uppsättning enheter.
-* Överföringshastighet för utgående begäran överskrider uppsättning enheter.
+* Ingående datataxa överskrida set-dataflödesenheter.
+* Datataxa utgående begäran överskrider set-dataflödesenheter.
 
-## <a name="how-auto-inflate-works"></a>Så här fungerar automatiskt öka
+## <a name="how-auto-inflate-works"></a>Så här fungerar automatisk ökning
 
-Event Hubs trafik styrs av genomflödesenheter. En genomflödesenhet kan 1 MB per sekund på inkommande trafik och två gånger att mängden utgång. Standard händelsehubbar kan konfigureras med 1-20 genomflödesenheter. Öka automatiskt kan du börja litet med minsta obligatoriska genomflödesenheter. Funktionen skalas sedan automatiskt till den maximala gränsen på genomflödesenheter du behöver, beroende på ökade trafiken. Automatiskt öka ger följande fördelar:
+Trafik för Event Hubs styrs av [genomflödesenheter](event-hubs-features.md#throughput-units). En genomflödesenhet kan 1 MB per sekund för ingångshändelser och två gånger det beloppet utgående data. Standard händelsehubbar kan konfigureras med 1 – 20 dataflödesenheter. Automatisk ökning kan du börja i liten skala med de minsta nödvändiga dataflödesenheter som du väljer. Funktionen skalas sedan automatiskt till den maximala gränsen på dataflödesenheter som du behöver, beroende på ökade trafiken. Automatisk ökning ger följande fördelar:
 
-- En effektiv skalning mekanism börja litet och skala upp medan du växer.
-- Skala automatiskt till den angivna övre gränsen utan begränsning problem.
-- Mer kontroll över skalning, som du styr när och hur mycket skala.
+- En effektiv skalning mekanism för att börja i liten skala och skala upp när företaget växer.
+- Skala automatiskt till den angivna övre gränsen utan begränsning av problem.
+- Mer kontroll över skalning, eftersom du styra när och hur mycket skala.
 
-## <a name="enable-auto-inflate-on-a-namespace"></a>Aktivera automatisk ökar på ett namnområde
+## <a name="enable-auto-inflate-on-a-namespace"></a>Aktivera automatisk ökning på ett namnområde
 
-Du kan aktivera eller inaktivera automatisk ökar på ett namnområde för Händelsehubbar med någon av följande metoder:
+Du kan aktivera eller inaktivera automatisk ökning på ett namnområde för Event Hubs med hjälp av någon av följande metoder:
 
-1. Den [Azure-portalen](https://portal.azure.com).
-2. En Azure Resource Manager-mall.
+- Den [Azure-portalen](https://portal.azure.com).
+- En [Azure Resource Manager-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate).
 
-### <a name="enable-auto-inflate-through-the-portal"></a>Aktivera automatisk öka via portalen
+### <a name="enable-auto-inflate-through-the-portal"></a>Aktivera automatisk ökning via portalen
 
-När du skapar ett namnområde för Händelsehubbar kan du aktivera funktionen automatiskt öka:
+Du kan aktivera funktionen för automatisk ökning när du skapar ett namnområde för Event Hubs:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
-Med det här alternativet är aktiverat, kan du börja litet på dina enheter och skala upp som kräver din användning. Den övre gränsen för inflationen påverkar omedelbart inte prissättning, vilken beror på hur många genomflödesenheter som används per timme.
+Det här alternativet, kan du börja i liten skala med dina dataflödesenheter och skala upp som kräver din användning. Den övre gränsen för inflationen påverkar direkt inte prissättning, beroende på antalet dataflödesenheter som används per timme.
 
-Du kan också aktivera automatisk-ökar med hjälp av den **skala** alternativet i rutan inställningar i portalen:
+Du kan också aktivera automatisk ökning med hjälp av den **skala** alternativ i inställningsfönstret i portalen:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
 
-### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Aktivera automatisk-ökar med en Azure Resource Manager-mall
+### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Aktivera automatisk ökning med en Azure Resource Manager-mall
 
-Du kan aktivera automatisk ökar under en Azure Resource Manager för malldistribution. Till exempel den `isAutoInflateEnabled` egenskapen **SANT** och ange `maximumThroughputUnits` till 10.
+Du kan aktivera automatisk ökning under en malldistribution för Azure Resource Manager. Till exempel den `isAutoInflateEnabled` egenskap **SANT** och ange `maximumThroughputUnits` till 10. Exempel:
 
 ```json
 "resources": [
@@ -100,7 +100,7 @@ Du kan aktivera automatisk ökar under en Azure Resource Manager för malldistri
     ]
 ```
 
-Fullständig mallen finns i [skapa Händelsehubbar namnområde och aktivera ökar](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) mall på GitHub.
+Läs den fullständiga mallen, den [skapa Event Hubs-namnområdet och aktivera ökning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) mall på GitHub.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,43 +1,43 @@
 ---
-title: Application Insights för felsökning av anpassade principer i Azure Active Directory B2C | Microsoft Docs
-description: hur du konfigurerar Application Insights för att spåra körningen av anpassade principer.
+title: Application Insights för att felsöka anpassade principer i Azure Active Directory B2C | Microsoft Docs
+description: Så här konfigurerar du Application Insights för att spåra körning av anpassade principer.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ef39ea51fb7d12e27ce689d01517c520ab6d8684
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e4b33552c4b070164b55a84f1d8586422aced2f8
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710608"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446681"
 ---
-# <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Insamling av loggar
+# <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Samla in loggar
 
-Den här artikeln innehåller steg för att samla in loggar från Azure AD B2C så att du kan felsöka problem med din anpassade principer.
+Den här artikeln innehåller steg för att samla in loggar från Azure AD B2C så att du kan diagnostisera problem med din anpassade principer.
 
 >[!NOTE]
->För närvarande är utformade för detaljerad aktivitetsloggar som beskrivs här **bara** vid utveckling av anpassade principer. Använd inte utvecklingsläge i produktion.  Loggar samla in alla anspråk som skickas till och från identitetsleverantörer under utvecklingen.  Om används i produktionen ansvarar utvecklaren för personligt identifierbar information (privat identifierbar Information) som samlas in i loggen för App Insights som de äger.  Dessa detaljerade loggar samlas endast in när principen är placerad **UTVECKLINGSLÄGE**.
+>För närvarande detaljerad aktivitetsloggar som beskrivs här är utformade **endast** att underlätta utvecklingen av anpassade principer. Använd inte utvecklingsläge i produktion.  Loggar samla in alla anspråk som skickas till och från identitetsleverantör man under utvecklingen.  Om används i produktion, ansvara utvecklaren för personligt identifierbar information (privat identifierbar Information) som samlas in i loggen för App Insights som de äger.  De här detaljerade loggar samlas endast när principen placeras på **UTVECKLINGSLÄGE**.
 
 
 ## <a name="use-application-insights"></a>Använda Application Insights
 
-Azure AD B2C stöder en funktion för att skicka data till Application Insights.  Application Insights är ett sätt att diagnostisera undantag och visualisera prestandaproblem i programmet.
+Azure AD B2C har stöd för en funktion för att skicka data till Application Insights.  Application Insights erbjuder ett sätt att diagnostisera undantag och visualisera problem med programprestanda.
 
-### <a name="setup-application-insights"></a>Installera Application Insights
+### <a name="setup-application-insights"></a>Konfigurera Application Insights
 
-1. Gå till [Azure-portalen](https://portal.azure.com). Se till att du är i klienten med din Azure-prenumeration (inte din Azure AD B2C-klient).
+1. Gå till [Azure-portalen](https://portal.azure.com). Kontrollera att du har klienten med din Azure-prenumeration (inte din Azure AD B2C-klient).
 1. Klicka på **+ ny** i den vänstra navigeringsmenyn.
-1. Söka efter och välja **Programinsikter**, klicka på **skapa**.
-1. Fyll i formuläret och klicka på **skapa**. Välj **allmänna** för den **programtyp**.
+1. Sök efter och välj **Programinsikter**, klicka sedan på **skapa**.
+1. Fyll i formuläret och klicka på **skapa**. Välj **Allmänt** för den **programtyp**.
 1. När resursen har skapats kan du öppna Application Insights-resursen.
-1. Hitta **egenskaper** i vänster-menyn och klicka på den.
-1. Kopiera den **Instrumentation nyckeln** och spara den för nästa avsnitt.
+1. Hitta **egenskaper** i den vänstra menyn och klicka på det.
+1. Kopiera den **Instrumenteringsnyckeln** och spara den till nästa avsnitt.
 
 ### <a name="set-up-the-custom-policy"></a>Konfigurera en anpassad princip
 
@@ -49,16 +49,16 @@ Azure AD B2C stöder en funktion för att skicka data till Application Insights.
   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
   ```
 
-1. Om den inte redan finns, lägger du till en underordnad nod `<UserJourneyBehaviors>` till den `<RelyingParty>` nod. Det måste finnas omedelbart efter den `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
-2. Lägg till följande nod som är underordnad den `<UserJourneyBehaviors>` element. Ersätt `{Your Application Insights Key}` med den **Instrumentation nyckeln** som du fick från Application Insights i föregående avsnitt.
+1. Om den inte redan finns, lägger du till en underordnad nod `<UserJourneyBehaviors>` till den `<RelyingParty>` noden. Det måste finnas direkt efter den `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
+2. Lägg till följande nod som en underordnad den `<UserJourneyBehaviors>` element. Ersätt `{Your Application Insights Key}` med den **Instrumenteringsnyckeln** som du fick från Application Insights i föregående avsnitt.
 
   ```XML
   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
   ```
 
-  * `DeveloperMode="true"` Anger ApplicationInsights att påskynda telemetri via pipeline bearbetning bra för utveckling, men begränsad vid stora volymer.
-  * `ClientEnabled="true"` skickar klientskript ApplicationInsights för spårning av klientsidan och visa sidfel (behövs inte).
-  * `ServerEnabled="true"` skickar befintliga UserJourneyRecorder JSON som en anpassad händelse till Application Insights.
+  * `DeveloperMode="true"` Visar ApplicationInsights att skicka frekvensvärde via process-pipelinen bra för utveckling, men begränsad vid stora volymer.
+  * `ClientEnabled="true"` skickar klientskript ApplicationInsights för att spåra vy och klientsidan sidfel (behövs inte).
+  * `ServerEnabled="true"` skickar den befintliga UserJourneyRecorder JSON som en anpassad händelse till Application Insights.
 Exempel:
 
   ```XML
@@ -79,9 +79,9 @@ Exempel:
   </TrustFrameworkPolicy>
   ```
 
-3. Överför principen.
+3. Ladda upp principen.
 
-### <a name="see-the-logs-in-application-insights"></a>Se loggarna i Application Insights
+### <a name="see-the-logs-in-application-insights"></a>Se loggar i Application Insights
 
 >[!NOTE]
 > Det finns en kort fördröjning (mindre än fem minuter) innan du kan se nya loggar i Application Insights.
@@ -89,29 +89,29 @@ Exempel:
 1. Öppna Application Insights-resursen som du skapade i den [Azure-portalen](https://portal.azure.com).
 1. I den **översikt** -menyn klickar du på **Analytics**.
 1. Öppna en ny flik i Application Insights.
-1. Här är en lista över frågor som du kan använda för att visa loggar
+1. Här är en lista med frågor som du kan använda för att se loggar
 
 | Fråga | Beskrivning |
 |---------------------|--------------------|
-spår | Visa alla loggar som genereras av Azure AD B2C |
-spår \| där tidsstämpel > ago(1d) | Visa alla loggar som genereras av Azure AD B2C för den sista dagen
+spårningar | Se alla loggar som genereras av Azure AD B2C |
+spårningar \| där timestamp > ago(1d) | Se alla loggar som genereras av Azure AD B2C för den sista dagen
 
 Posterna kan vara långt.  Exportera till CSV för en närmare titt.
 
-Du kan lära dig mer om verktyget Analytics [här](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
+Du kan läsa mer om verktyget Analytics [här](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
 >[!NOTE]
->Gemenskapen har utvecklat ett användaren resa visningsprogram att hjälpa utvecklare att identitet.  Den är inte stöds av Microsoft och göras tillgänglig strikt som-är.  Det läser från Application Insights-instans och innehåller en väl strukturerade för användaren resa händelser.  Du hämta källkoden och distribuerar den i din egen lösning.
+>Communityn har tagit fram ett användaren resa visningsprogram för att hjälpa utvecklare identitet.  Det är inte stöds av Microsoft och tillgänglig strikt som – är.  Den läser från din Application Insights-instans och innehåller en välstrukturerade av användaren resa händelser.  Du hämta källkoden och distribuera den på din egen lösning.
 
 Versionen av visningsprogrammet som läser händelser från Application Insights finns [här](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
 
 >[!NOTE]
->För närvarande är utformade för detaljerad aktivitetsloggar som beskrivs här **bara** vid utveckling av anpassade principer. Använd inte utvecklingsläge i produktion.  Loggar samla in alla anspråk som skickas till och från identitetsleverantörer under utvecklingen.  Om används i produktionen ansvarar utvecklaren för personligt identifierbar information (privat identifierbar Information) som samlas in i loggen för App Insights som de äger.  Dessa detaljerade loggar samlas endast in när principen är placerad **UTVECKLINGSLÄGE**.
+>För närvarande detaljerad aktivitetsloggar som beskrivs här är utformade **endast** att underlätta utvecklingen av anpassade principer. Använd inte utvecklingsläge i produktion.  Loggar samla in alla anspråk som skickas till och från identitetsleverantör man under utvecklingen.  Om används i produktion, ansvara utvecklaren för personligt identifierbar information (privat identifierbar Information) som samlas in i loggen för App Insights som de äger.  De här detaljerade loggar samlas endast när principen placeras på **UTVECKLINGSLÄGE**.
 
-[Github-lagringsplatsen för exempel på stöds inte anpassade princip och relaterade verktyg](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
+[Github-lagringsplatsen för stöds inte anpassade princip exempel och relaterade verktyg](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska data i Application Insights som hjälper dig att förstå hur identitet upplevelse ramen underliggande B2C fungerar för att leverera din egen identitet upplevelsen.
+Utforska data i Application Insights för att hjälpa dig att förstå hur Identitetsramverk underliggande B2C fungerar för att leverera din egen identitet inträffar.

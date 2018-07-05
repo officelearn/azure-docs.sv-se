@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 6/28/2018
+ms.date: 07/03/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: fb870cbfbc233725752b3d97fc0ad048a7c14040
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341740"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446983"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum blockchain-lösningsmallar
 
@@ -69,7 +69,7 @@ Mallen consortium ledare konfigurerar den första medlemmen fotavtryck i nätver
     ADMINUSERNAME | Administratörens användarnamn för varje distribuerad virtuell dator | 1 – 64 tecken | gethadmin
     ADMINPASSWORD (autentiseringstyp = lösenord)| Lösenordet för administratörskontot för var och en av de virtuella datorerna som distribueras. Lösenordet måste innehålla 3 av följande krav: 1 versal bokstav, 1 gemen bokstav, 1 siffra och 1 specialtecken. <br />Även om alla virtuella datorer har ursprungligen samma lösenord, kan du ändra lösenordet när du har etablerat.|12 – 72 tecken|
     ADMINSSHKEY (autentiseringstyp = sshPublicKey) | SSH-nyckel som används för fjärrinloggning. | |
-    GENESISBLOCK | JSON-sträng som representerar anpassade genesis block. | |
+    GENESISBLOCK | JSON-sträng som representerar anpassade genesis block.  Ange ett värde för den här parametern är valfri. | |
     ETHEREUMACCOUNTPSSWD | Administratörslösenordet som används för att skydda Ethereum-konto. | |
     ETHEREUMACCOUNTPASSPHRASE | Lösenfras som används för att generera den privata nyckeln som är associerade med Ethereum-konto. | |
     ETHEREUMNETWORKID | Nätverks-ID för consortium. | Använd ett värde mellan 5 och 999,999,999 | 72

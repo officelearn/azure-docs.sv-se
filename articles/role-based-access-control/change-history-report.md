@@ -1,6 +1,6 @@
 ---
 title: Visa aktivitetsloggar för RBAC ändringar i Azure | Microsoft Docs
-description: Visa aktivitet ändringar i loggen för rollbaserad åtkomstkontroll (RBAC) under de senaste 90 dagarna.
+description: Visa aktivitet ändringar i loggen för rollbaserad åtkomstkontroll (RBAC) för de senaste 90 dagarna.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,27 +8,27 @@ manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c82c24c6d652a65f5ba851de66a1f2fe595a46a5
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 10e0df78d75763dfcf8636983c9f9092b78b9c3b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293395"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437661"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Visa aktivitetsloggar för RBAC ändringar
 
-Ibland behöver du information om ändringar för rollbaserad åtkomstkontroll (RBAC), såsom för granskning eller felsökning. När någon försöker göra ändringar i rolltilldelningar eller rolldefinitioner i dina prenumerationer ändringarna får loggas [Azure-aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Du kan visa aktivitetsloggar om du vill se alla RBAC ändringar under de senaste 90 dagarna.
+Ibland behöver du information om rollbaserad åtkomstkontroll (RBAC) ändringar, till exempel för granskning eller felsökning. Varje gång någon gör ändringar i rolltilldelningar eller rolldefinitioner dina prenumerationer, ändringarna loggas [Azure-aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Du kan visa aktivitetsloggar för att se alla ändringar som RBAC för de senaste 90 dagarna.
 
 ## <a name="operations-that-are-logged"></a>Åtgärder som är inloggad
 
-Här följer RBAC-relaterade åtgärder som loggas i aktivitetsloggen:
+Här följer de RBAC-relaterade åtgärder som ska loggas i aktivitetsloggen för:
 
 - Skapa rolltilldelning
 - Ta bort rolltilldelning
@@ -53,21 +53,21 @@ Läs mer om aktivitetsloggar [visa händelser i aktivitetsloggen](/azure/azure-r
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Om du vill visa aktivitetsloggar med Azure PowerShell, Använd den [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) kommando.
+Du kan visa aktivitetsloggar med Azure PowerShell på [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) kommando.
 
-Detta kommando visar ändringarna för tilldelningen av alla roll i en prenumeration under de senaste sju dagarna:
+Det här kommandot visar alla tilldelningsändringarna för rollen i en prenumeration under de senaste sju dagarna:
 
 ```azurepowershell
 Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
 ```
 
-Det här kommandot visar alla rollen definitionsändringar i en resursgrupp under de senaste sju dagarna:
+Det här kommandot visar alla rollen definitionsändringar i en resursgrupp för de senaste sju dagarna:
 
 ```azurepowershell
 Get-AzureRmLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
-Det här kommandot visar alla rolltilldelning och rollen definitionsändringar i en prenumeration under de senaste sju dagarna och visar resultatet i en lista:
+Det här kommandot visar en lista över alla rolltilldelning och rollen definitionsändringar i en prenumeration under de senaste sju dagarna och visar resultatet i en lista:
 
 ```azurepowershell
 Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
@@ -92,15 +92,15 @@ Properties              :
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Om du vill visa aktivitetsloggar med Azure CLI, använder den [az övervaka aktivitetsloggen listan](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) kommando.
+Du kan visa aktivitetsloggar med Azure CLI i [az monitor-aktivitetsloggen lista](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) kommando.
 
-Det här kommandot listar aktivitetsloggar i en resursgrupp eftersom starttiden:
+Det här kommandot visar aktivitetsloggar i en resursgrupp sedan starttid:
 
 ```azurecli
 az monitor activity-log list --resource-group pharma-sales-projectforecast --start-time 2018-04-20T00:00:00Z
 ```
 
-Detta kommando visar aktivitetsloggarna för resursprovidern tillstånd eftersom starttiden:
+Det här kommandot visar aktivitetsloggar för resursprovidern auktorisering sedan starttid:
 
 ```azurecli
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
@@ -108,26 +108,26 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Azure logganalys](../log-analytics/log-analytics-overview.md) är ett annat verktyg som du kan använda för att samla in och analysera RBAC ändringar för alla dina Azure-resurser. Logganalys har följande fördelar:
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md) är ett annat verktyg som du kan använda för att samla in och analysera RBAC ändringar för alla dina Azure-resurser. Log Analytics har följande fördelar:
 
 - Skriva komplexa frågor och logik
 - Integrera med aviseringar, Power BI och andra verktyg
 - Spara data i längre kvarhållningsperioder
-- Korsreferens med andra loggar, till exempel säkerhet, virtuell dator och anpassade
+- Korsreferens med andra loggar som säkerhet, virtuell dator och anpassade
 
 Här är de grundläggande stegen för att komma igång:
 
-1. [Skapa en logganalys-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md).
+1. [Skapa en Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md).
 
-1. [Konfigurera aktiviteten logganalys lösningen](../log-analytics/log-analytics-activity.md#configuration) för din arbetsyta.
+1. [Konfigurera Activity Log Analytics-lösningen](../log-analytics/log-analytics-activity.md#configuration) för arbetsytan.
 
-1. [Visa aktivitetsloggarna](../log-analytics/log-analytics-activity.md#using-the-solution). Ett snabbt sätt att gå till sidan Översikt över aktivitet Log Analytics är att klicka på den **logganalys** alternativet.
+1. [Visa aktivitetsloggar](../log-analytics/log-analytics-activity.md#using-the-solution). Ett snabbt sätt att gå till sidan Översikt över aktivitet Log Analytics är att klicka på den **Log Analytics** alternativet.
 
    ![Log Analytics-alternativet i portalen](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Du kan också använda den [loggen Sök](../log-analytics/log-analytics-log-search.md) sidan eller [Advanced Analytics portal](https://docs.loganalytics.io/docs/Learn) att fråga efter och visa loggfilerna. Mer information om de här två alternativen finns [loggen söksidan eller Advanced Analytics-portalen](../log-analytics/log-analytics-log-search-portals.md).
+1. Du kan också använda den [Loggsökning](../log-analytics/log-analytics-log-search.md) sidan eller [Advanced Analytics-portalen](https://docs.loganalytics.io/docs/Learn) att fråga efter och visa loggarna. Mer information om de här två alternativen finns i [loggsökningssidan eller Advanced Analytics-portalen](../log-analytics/log-analytics-log-search-portals.md).
 
-Här är en fråga som returnerar nya rolltilldelningar ordnade efter resursprovidern för mål:
+Här är en fråga som returnerar nya rolltilldelningar ordnade efter mål-resursprovidern:
 
 ```
 AzureActivity
@@ -145,8 +145,8 @@ AzureActivity
 | render timechart
 ```
 
-![Aktivitetsloggar med Advanced Analytics-portalen – skärmbild](./media/change-history-report/azure-log-analytics.png)
+![Aktivitetsloggar med hjälp av Advanced Analytics-portalen – skärmbild](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Visa händelser i aktivitetsloggen](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
-* [Övervakaraktiviteten i prenumerationen med Azure-aktivitetsloggen](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
+* [Övervaka aktivitet om prenumeration med Azure-aktivitetsloggen](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)

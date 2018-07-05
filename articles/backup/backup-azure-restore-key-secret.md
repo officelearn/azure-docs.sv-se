@@ -1,39 +1,39 @@
 ---
-title: Återställa Key Vault-nyckel och Hemlig för krypterade virtuella datorer med Azure Backup
-description: Lär dig hur du återställer Key Vault-nyckel och hemlig i Azure Backup med hjälp av PowerShell
+title: Återställa Key Vault-nyckel och hemlighet för krypterade virtuella datorer med Azure Backup
+description: Lär dig att återställa Key Vault-nyckel och hemlighet i Azure Backup med hjälp av PowerShell
 services: backup
-author: JPallavi
+author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
-ms.author: pajosh
+ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b703b4511f9fefb48546b23feaa33ca7da34da1f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 52024dc414b7f1d420b8196792eeb91bb9a4be6f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606111"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441122"
 ---
-# <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Återställa Key Vault-nyckel och Hemlig för krypterade virtuella datorer med Azure Backup
-Den här artikeln handlar om att använda Azure VM säkerhetskopiering för att utföra återställning av krypterade virtuella Azure-datorer om din nyckel och Hemlig inte finns i nyckelvalvet. De här stegen kan också användas om du vill upprätthålla en separat kopia av nyckel (nyckel krypteringsnyckeln) och hemlighet (BitLocker-krypteringsnyckeln) för den återställda virtuella datorn.
+# <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Återställa Key Vault-nyckel och hemlighet för krypterade virtuella datorer med Azure Backup
+Den här artikeln berättar om hur du använder Azure VM Backup för att utföra återställning av krypterade virtuella Azure-datorer om din nyckel och hemlighet inte finns i nyckelvalvet. De här stegen kan också användas om du vill upprätthålla en separat kopia av nyckel (Nyckelkrypteringsnyckel) och en hemlighet (BitLocker-krypteringsnyckel) för den återställda virtuella datorn.
 
 ## <a name="prerequisites"></a>Förutsättningar
-* **Säkerhetskopiering krypterade VMs** - krypterade virtuella Azure-datorer har säkerhetskopierats med Azure Backup. Läs artikeln [hantera säkerhetskopiering och återställning av virtuella Azure-datorer med hjälp av PowerShell](backup-azure-vms-automation.md) mer information om hur du säkerhetskopierar krypterade virtuella Azure-datorer.
-* **Konfigurera Azure Key Vault** – Kontrollera att nyckelvalvet som nycklar och hemligheter ska återställas finns redan. Läs artikeln [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md) mer information om hantering av nyckelvalvet.
-* **Återställa disk** -Kontrollera att du har utlösts återställningsjobbet för återställning av diskar där krypterade VM [PowerShell steg](backup-azure-vms-automation.md#restore-an-azure-vm). Det beror på att jobbet genererar en JSON-fil i ditt lagringskonto som innehåller nycklar och hemligheter för den kryptera virtuella datorn ska återställas.
+* **Säkerhetskopiera krypterade virtuella datorer** – krypterade virtuella Azure-datorer har säkerhetskopierats med Azure Backup. Se artikeln [hantera säkerhetskopiering och återställning av virtuella Azure-datorer med hjälp av PowerShell](backup-azure-vms-automation.md) mer information om hur du säkerhetskopierar krypterade virtuella Azure-datorer.
+* **Konfigurera Azure Key Vault** – se till att det nyckelvalv som nycklar och hemligheter måste återställas finns redan. Se artikeln [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md) mer information om hantering av nyckelvalv.
+* **Återställa disk** – se till att du har utlöst återställningsjobbet för att återställa diskar för krypterade virtuella datorn med [steg för PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm). Det beror på att det här jobbet genererar en JSON-fil i ditt storage-konto som innehåller nycklar och hemligheter för den krypterade virtuella datorn som ska återställas.
 
-## <a name="get-key-and-secret-from-azure-backup"></a>Hämta nyckel och Hemlig från Azure Backup
+## <a name="get-key-and-secret-from-azure-backup"></a>Hämta nyckel och hemlighet från Azure Backup
 
 > [!NOTE]
-> När disken har återställts av krypterade VM, kan du se till att:
-> 1. $details fylls med jobbinformation för återställning disk som anges i [PowerShell steg för återställning avsnittet diskar](backup-azure-vms-automation.md#restore-an-azure-vm)
-> 2. VM ska skapas från återställda diskar **när nyckel och Hemlig har återställts i nyckelvalvet**.
+> När disken har återställts för den krypterade virtuella datorn, kan du se till att:
+> 1. $details fylls med återställning för jobbet diskinformation som vi nämnde i [PowerShell steg i Restore-avsnittet diskar](backup-azure-vms-automation.md#restore-an-azure-vm)
+> 2. Virtuell dator bör skapas från återställda diskar **när nyckel och hemlighet har återställts till nyckelvalvet**.
 >
 >
 
-Fråga om återställda disk egenskaperna för Jobbinformationen.
+Fråga återställda disken egenskaperna för Jobbinformationen.
 
 ```
 PS C:\> $properties = $details.properties
@@ -42,7 +42,7 @@ PS C:\> $containerName = $properties["Config Blob Container Name"]
 PS C:\> $encryptedBlobName = $properties["Encryption Info Blob Name"]
 ```
 
-Konfigurera Azure storage-kontexten och återställa JSON-konfigurationsfil som innehåller nyckel och Hemlig information för krypterade VM.
+Konfigurera Azure storage-kontext och återställa JSON-konfigurationsfil som innehåller nyckeln och hemliga information för krypterade virtuella datorn.
 
 ```
 PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName '<rg-name>'
@@ -52,7 +52,7 @@ PS C:\> $encryptionObject = Get-Content -Path $destination_path  | ConvertFrom-J
 ```
 
 ## <a name="restore-key"></a>Återställ nyckeln
-När JSON-filen har genererats i målsökväg som nämns ovan, generera nyckel blob-fil från JSON och feed det för att återställa nyckeln cmdlet för att placera nyckel (KEK) tillbaka i nyckelvalvet.
+När JSON-filen har genererats i den målsökväg som nämns ovan, generera nyckel blob-fil från JSON-filen och skicka för att återställa viktiga cmdlet om du vill placera nyckel (KEK) tillbaka i nyckelvalvet.
 
 ```
 PS C:\> $keyDestination = 'C:\keyDetails.blob'
@@ -61,7 +61,7 @@ PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile
 ```
 
 ## <a name="restore-secret"></a>Återställa hemlighet
-Använd JSON-filen som skapas ovan för att hämta det hemliga namnet och värdet och feed det om du vill ange hemliga för att placera hemligheten (BEK) tillbaka i nyckelvalvet. **Använda dessa cmdletar om den virtuella datorn är krypterad med BEK och KEK.**
+Använd JSON-fil som genererats ovan för att hämta hemliga namn och värde och skicka om du vill ange hemlig cmdlet för att placera hemlighet (BEK) tillbaka i nyckelvalvet. **Använd dessa cmdletar om din virtuella dator har krypterats med BEK och KEK.**
 
 ```
 PS C:\> $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
@@ -71,7 +71,7 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-Om den virtuella datorn är **krypteras med BEK endast**, generera hemliga blob-fil från JSON och feed återställs hemliga cmdlet för att placera hemligheten (BEK) i nyckelvalvet.
+Om den virtuella datorn är **krypterats med BEK endast**, generera hemliga blob-fil från JSON-filen och skicka om du vill återställa hemliga cmdlet om du vill placera hemlighet (BEK) tillbaka i nyckelvalvet.
 
 ```
 PS C:\> $secretDestination = 'C:\secret.blob'
@@ -80,19 +80,19 @@ PS C:\> Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputF
 ```
 
 > [!NOTE]
-> 1. Värdet för $secretname kan erhållas genom att referera till utdataporten för $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl och text efter hemligheter / t.ex. utdata hemliga URL är https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 och hemliga namnet är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
-> 2. Värdet för taggen DiskEncryptionKeyFileName är samma som det hemliga namnet.
+> 1. Värdet för $secretname kan erhållas genom refererar till utdatan från $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl och använda text efter hemligheter / t.ex. utdata hemliga URL: en är https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 och hemliga namn är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> 2. Värdet för taggen DiskEncryptionKeyFileName är samma som namn på hemlighet.
 >
 >
 
-## <a name="create-virtual-machine-from-restored-disk"></a>Skapa virtuell dator från återställda disk
-Om du har säkerhetskopierat krypterade VM som använder Azure VM säkerhetskopiering av PowerShell-cmdlets som nämns ovan hjälp du återställa nyckel och hemliga tillbaka till nyckelvalvet. När du återställer dem finns i artikeln [hantera säkerhetskopiering och återställning av virtuella Azure-datorer med hjälp av PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) skapa krypterade virtuella datorer från återställda disk, nyckel och hemlig.
+## <a name="create-virtual-machine-from-restored-disk"></a>Skapa virtuell dator från återställda disken
+Om du har säkerhetskopierat krypterade virtuella datorn med hjälp av Azure VM Backup PowerShell-cmdlets som nämns ovan kan du återställa nyckel och hemliga tillbaka till nyckelvalvet. Efter återställning dem, finns i artikeln [hantera säkerhetskopiering och återställning av virtuella Azure-datorer med hjälp av PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) skapar krypterade virtuella datorer från återställda disken, nyckel och hemlighet.
 
-## <a name="legacy-approach"></a>Äldre metod
-Den metod som nämns ovan fungerar för alla återställningspunkter. Dock är äldre metod för att få nyckel och Hemlig information från återställningspunkten giltig för återställningspunkter som är äldre än 11 juli 2017 för virtuella datorer som har krypterats med BEK och KEK. När disken Återställningsjobbet har slutförts för krypterade VM med hjälp av [PowerShell steg](backup-azure-vms-automation.md#restore-an-azure-vm), se till att $rp fylls med ett giltigt värde.
+## <a name="legacy-approach"></a>Äldre metoden
+Den metod som nämns ovan skulle fungera för alla återställningspunkter. Den äldre metoden för att få nyckel och Hemlig information från återställningspunkten, skulle dock vara giltigt för återställningspunkter som är äldre än den 11 juli 2017 för virtuella datorer som har krypterats med BEK och KEK. När disken Återställningsjobbet har slutförts för krypterade virtuella datorn med [steg för PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm), se till att $rp fylls med ett giltigt värde.
 
 ### <a name="restore-key"></a>Återställ nyckeln
-Använda följande cmdletar för att hämta information om nyckel (KEK) från återställningspunkten och feed det för att återställa nyckeln cmdlet för att placera den i nyckelvalvet.
+Du kan använda följande cmdletar för att hämta nyckel (KEK) information från återställningspunkten och skicka om du vill återställa viktiga cmdlet om du vill placera den i nyckelvalvet.
 
 ```
 PS C:\> $rp1 = Get-AzureRmRecoveryServicesBackupRecoveryPoint -RecoveryPointId $rp[0].RecoveryPointId -Item $backupItem -KeyFileDownloadLocation 'C:\Users\downloads'
@@ -100,7 +100,7 @@ PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile
 ```
 
 ### <a name="restore-secret"></a>Återställa hemlighet
-Använda följande cmdletar för att hämta information om hemliga (BEK) från återställningspunkten och feed det om du vill ange hemliga för att placera den i nyckelvalvet.
+Du kan använda följande cmdletar för att hämta hemlig (BEK) information från återställningspunkten och skicka om du vill ange hemlig cmdlet för att placera den i nyckelvalvet.
 
 ```
 PS C:\> $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
@@ -111,11 +111,11 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 ```
 
 > [!NOTE]
-> 1. Värdet för $secretname kan erhållas genom att referera till utdata för $rp1. KeyAndSecretDetails.SecretUrl och via SMS efter hemligheter / t.ex. utdata hemlighet URL är https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 och hemliga namnet är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
-> 2. Värdet för taggen DiskEncryptionKeyFileName är samma som det hemliga namnet.
-> 3. Värdet för DiskEncryptionKeyEncryptionKeyURL kan hämtas från nyckelvalvet efter återställning av nycklar tillbaka och använder [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx) cmdlet
+> 1. Värdet för $secretname kan hämtas genom att referera till utdata för $rp1. KeyAndSecretDetails.SecretUrl och använda text efter hemligheter / t.ex. utdata hemlighet URL: en är https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 och hemliga namn är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> 2. Värdet för taggen DiskEncryptionKeyFileName är samma som namn på hemlighet.
+> 3. Värdet för DiskEncryptionKeyEncryptionKeyURL kan hämtas från key vault efter återställning av nycklar tillbaka och använder [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx) cmdlet
 >
 >
 
 ## <a name="next-steps"></a>Nästa steg
-När du återställer nyckel och hemliga tillbaka till nyckelvalvet, finns i artikeln [hantera säkerhetskopiering och återställning av virtuella Azure-datorer med hjälp av PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) skapa krypterade virtuella datorer från återställda disk, nyckel och hemlig.
+När du återställer nyckel och hemliga tillbaka till nyckelvalvet, finns i artikeln [hantera säkerhetskopiering och återställning av virtuella Azure-datorer med hjälp av PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) skapar krypterade virtuella datorer från återställda disken, nyckel och hemlighet.

@@ -1,39 +1,39 @@
 ---
 title: Migrera användare med sociala identiteter i Azure Active Directory B2C | Microsoft Docs
-description: Diskutera grundbegrepp på migrering av användare med sociala identiteter i Azure AD B2C med Graph API.
+description: Diskutera grundläggande begrepp om migrering av användare med sociala identiteter till Azure AD B2C med Graph API.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7c83afba1f027771b3407aecf94fefffdc951664
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: b9378face28b4d053dcd5f01b8f87126457cf339
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710567"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445151"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migrera användare med sociala identiteter
-När du planerar att migrera din identitetsleverantör till Azure AD B2C kan du också behöva Migrera användare med sociala identiteter. Den här artikeln beskrivs hur du migrerar befintliga sociala identiteter konton, exempel: Facebook, LinkedIn, Microsoft och Google-konton till Azure AD B2C. Den här artikeln gäller även för federerade identiteter, men dessa migreringar är mindre vanliga.
+När du planerar att migrera din identitetsprovider till Azure AD B2C kan du också behöva Migrera användare med sociala identiteter. Den här artikeln beskrivs hur du migrerar befintliga konton i sociala identiteter, till exempel: Facebook, LinkedIn, Microsoft och Google-konton till Azure AD B2C. Den här artikeln gäller även för federerade identiteter, men dessa migreringar är mindre vanliga.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här artikeln är en förlängning av användaren migrering artikeln och fokuserar på sociala identitet migrering. Innan du börjar läsa [användarmigrering](active-directory-b2c-user-migration.md).
+Den här artikeln är en förlängning av användaren migrering artikeln och fokuserar på sociala migrering. Innan du börjar läser [användarmigrering](active-directory-b2c-user-migration.md).
 
-## <a name="social-identities-migration-introduction"></a>Introduktion av sociala identiteter migrering
+## <a name="social-identities-migration-introduction"></a>Introduktion för migrering av sociala identiteter
 
-* I Azure AD B2C **lokala konton** inloggningsnamn (användarnamn eller e-postadress) lagras i den `signInNames` samling i användarposten. Den `signInNames` innehåller en eller flera `signInName` poster som anger inloggningsnamn för användaren. Varje inloggningsnamn måste vara unikt inom innehavaren.
+* I Azure AD B2C **lokala konton** inloggningsnamn (användarnamn eller e-postadress) lagras i den `signInNames` samling i användarposten. Den `signInNames` innehåller en eller flera `signInName` poster som anger inloggningsnamn för användaren. Varje inloggningsnamn måste vara unikt inom klienten.
 
-* **Sociala konton** identiteter lagras i `userIdentities` samling. Posten anger den `issuer` (identity providernamn), till exempel facebook.com och `issuerUserId`, vilket är ett unikt ID för utfärdaren. Den `userIdentities` attributet innehåller en eller flera poster för användaridentiteten som anger typen av sociala och unikt användar-ID från sociala identitetsleverantören.
+* **Sociala konton** identiteter lagras i `userIdentities` samling. Posten anger den `issuer` (namn på identitetsprovider), till exempel facebook.com och `issuerUserId`, som är unikt användar-ID för utgivaren. Den `userIdentities` attributet innehåller en eller flera UserIdentity-poster som anger typen sociala och unika användaridentifieraren från sociala identitetsprovidern.
 
-* **Kombinera lokalt konto med sociala identitet**. Som tidigare nämnts kan lagras lokalt konto inloggningsnamn och sociala konto identiteter i olika attribut. `signInNames` är används för lokala kontot, medan `userIdentities` för sociala konto. Ett enskilt konto i Azure AD B2C kan vara ett lokalt konto, sociala konto, eller kombinera ett lokalt konto med sociala identitet i en användarpost. Det här problemet kan du hantera ett enda konto när en användare kan logga in med det lokala kontot credential(s) eller med sociala identiteter.
+* **Kombinera lokalt konto med sociala**. Som tidigare nämnts kan lagras lokalt konto inloggningsnamn och sociala kontoidentiteter i olika attribut. `signInNames` är används för lokalt konto, medan `userIdentities` för socialt konto. Ett enda Azure AD B2C-konto kan vara ett lokalt konto, socialt konto eller kombinera ett lokalt konto med sociala i en användarpost. Det här beteendet kan du hantera ett enda konto när en användare kan logga in med lokalt konto credential(s) eller med sociala identiteter.
 
-* `UserIdentity` Typ - innehåller information om identiteten för ett sociala användarkonto i en Azure AD B2C-klient:
-    * `issuer` Strängrepresentation av identitetsleverantören som utfärdade användar-ID, till exempel facebook.com.
-    * `issuerUserId` Den unika användaridentifierare som används av sociala identitetsleverantören i base64-format.
+* `UserIdentity` Typ - innehåller information om identiteten för en användare för socialt konto i en Azure AD B2C-klient:
+    * `issuer` Den sträng som innehåller den identitetsprovider som utfärdade användaridentifierare, till exempel facebook.com.
+    * `issuerUserId` Den unika användare-identifieraren som används av den sociala identitetsprovidern i base64-format.
 
     ```JSON
     "userIdentities": [{
@@ -43,35 +43,35 @@ Den här artikeln är en förlängning av användaren migrering artikeln och fok
     ]
     ```
 
-* Beroende på identitetsleverantören den **sociala användar-ID** är ett unikt värde för en viss användare per program- eller konto. Konfigurera Azure AD B2C-princip med samma program-ID som tidigare har tilldelats av sociala providern. Eller ett annat program inom samma konto för utveckling.
+* Beroende på identitetsprovidern, och den **sociala användar-ID** är ett unikt värde för en viss användare per program-eller utveckling. Konfigurera Azure AD B2C-princip med samma program-ID som tilldelades tidigare av sociala providern. Eller ett annat program inom samma konto för utveckling.
 
-## <a name="use-graph-api-to-migrate-users"></a>Använd Graph API för att migrera användare
-Du skapar Azure AD B2C användarkonto via [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). För att kommunicera med Graph API måste måste du först ha ett tjänstkonto med administratörsbehörighet. I Azure AD kan registrera du ett program och autentisering till Azure AD. Autentiseringsuppgifterna som programmet är program-ID och Apphemligheten. Programmet fungerar som själva inte som en användare att anropa Graph API. Följ anvisningarna i steg 1 i [användarmigrering](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) artikel.
+## <a name="use-graph-api-to-migrate-users"></a>Använda Graph API för att migrera användare
+Du skapar Azure AD B2C-användarkonto via [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). För att kommunicera med Graph API kan ha du först ett tjänstkonto med administrativa privilegier. I Azure AD kan registrera du ett program och autentisering till Azure AD. Program-autentiseringsuppgifterna är program-ID och hemlighet för programmet. Programmet fungerar som själva inte som en användare att anropa Graph API. Följ instruktionerna i steg 1 i [användarmigrering](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) artikeln.
 
 ## <a name="required-properties"></a>Nödvändiga egenskaper
 I följande lista visas de egenskaper som krävs när du skapar en användare.
 * **accountEnabled** – SANT
-* **displayName** -namnet som visas i adressboken för användaren.
-* **passwordProfile** -profilen lösenord för användaren. 
+* **displayName** -namnet ska visas i adressboken för användaren.
+* **passwordProfile** -lösenordsprofil för användaren. 
 
 > [!NOTE]
-> För sociala konto endast (utan autentiseringsuppgifter för lokala konton) Ange du fortfarande lösenordet. Azure AD B2C ignorerar lösenordet som du anger för sociala konton.
+> För socialt konto endast (utan autentiseringsuppgifterna för lokalt konto) Ange du fortfarande lösenordet. Azure AD B2C ignorerar det lösenord som du anger för konton i sociala medier.
 
-* **userPrincipalName** -användarens huvudnamn (someuser@contoso.com). Användarens huvudnamn måste innehålla en av de verifierade domänerna för klienten. Om du vill ange UPN generera nya GUID-värde, sammanfoga med `@` och innehavarens namn.
-* **mailNickname** -e postalias för användaren. Det här värdet kan vara samma ID som du använder för userPrincipalName. 
-* **signInNames** -en eller flera SignInName-poster som anger inloggningsnamn för användaren. Varje inloggningsnamn måste vara unikt inom företaget/innehavaren. Sociala tjänstkontot kan kan den här egenskapen lämnas tomt.
-* **userIdentities** -en eller flera poster för användaridentiteten som anger sociala kontotyp och unikt användar-ID från sociala identitetsleverantören.
-* [valfritt] **otherMails** - för sociala konto endast användarens e-postadresser 
+* **userPrincipalName** -användarens huvudnamn (someuser@contoso.com). Användarens huvudnamn måste innehålla en av de verifierade domänerna för klienten. Om du vill ange UPN, generera nya GUID-värde, sammanfoga med `@` och namnet på din klientorganisation.
+* **mailNickname** -e-postalias för användaren. Det här värdet kan vara samma ID som du använder för userPrincipalName. 
+* **signInNames** -en eller flera SignInName-poster som anger inloggningsnamn för användaren. Varje inloggningsnamnet måste vara unikt inom företaget/klient. För socialt konto, kan den här egenskapen vara tom.
+* **userIdentities** -en eller flera UserIdentity-poster som anger sociala kontotyp och unika användaridentifieraren från sociala identitetsprovidern.
+* [valfritt] **otherMails** – för socialt konto endast användarens e-postadresser 
 
-Mer information finns: [Graph API-referens](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+Mer information finns i: [Graph API-referens](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## <a name="migrate-social-account-only"></a>Migrera sociala konto (endast)
-Att skapa, sociala konto utan lokala autentiseringsuppgifter. Skicka HTTPS POST-begäran till Graph API. Begärandetexten innehåller egenskaper för det sociala kontot till att skapa. Du måste ange de obligatoriska egenskaperna minimum. 
+Skapa sociala kontot, utan att autentiseringsuppgifterna för lokalt konto. Skicka HTTPS-POST-begäran till Graph API. Begärandetexten innehåller egenskaperna för det sociala kontot till att skapa. Du måste ange de nödvändiga egenskaperna för ett minimum. 
 
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
-Skicka följande formulärdata: 
+Skicka följande formulär-data: 
 
 ```JSON
 {
@@ -98,7 +98,7 @@ Skicka följande formulärdata:
 }
 ```
 ## <a name="migrate-social-account-with-local-account"></a>Migrera sociala konto med lokalt konto
-Att skapa en kombinerad lokalt konto med sociala identiteter. Skicka HTTPS POST-begäran till Graph API. Begärandetexten innehåller egenskaper för det sociala kontot till att skapa. Du måste ange de obligatoriska egenskaperna minimum. 
+Att skapa ett lokalt konto för kombinerad med sociala identiteter. Skicka HTTPS-POST-begäran till Graph API. Begärandetexten innehåller egenskaperna för det sociala kontot till att skapa. Du måste ange de nödvändiga egenskaperna för ett minimum. 
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
@@ -134,23 +134,23 @@ Skicka följande formulär-data:
 ```
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-### <a name="how-can-i-know-the-issuer-name"></a>Hur vet Utfärdarens namn?
-Utfärdarens namn eller providernamn identitet har konfigurerats i principen. Om du inte vet det värde som anger i `issuer`, följer du proceduren:
-1. Logga in med något av sociala konton
-2. Kopiera från JWT-token i `sub` värde. Den `sub` innehåller vanligtvis användarens objekt-ID i Azure AD B2C. Eller från Azure-portalen öppnar du egenskaperna för användarens och kopiera objekt-ID.
-3. Öppna [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net)
+### <a name="how-can-i-know-the-issuer-name"></a>Hur vet jag Utfärdarens namn?
+Utfärdarens namn eller providernamn identitet har konfigurerats i principen. Om du inte vet värdet som ska anges i `issuer`, följ den här proceduren:
+1. Logga in med ett socialt konto
+2. Kopiera från JWT-token i `sub` värde. Den `sub` innehåller normalt användarens objekt-ID i Azure AD B2C. Eller från Azure-portalen, öppna egenskaperna för användarens och kopiera objekt-ID.
+3. Öppna [Azure AD Graph-testaren](https://graphexplorer.azurewebsites.net)
 4. Logga in med din administratör. N
 5. Kör följande GET-begäran. Ersätt userObjectId med det användar-ID som du kopierade. **HÄMTA** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
-6. Leta upp den `userIdentities` -element inuti JSON tillbaka från Azure AD B2C.
+6. Leta upp den `userIdentities` element i JSON-returnera från Azure AD B2C.
 7. [Valfritt] Du kanske också vill avkoda den `issuerUserId` värde.
 
 > [!NOTE]
-> Använd ett administratörskonto för B2C-klient som är lokala för B2C-klient. Namnsyntaxen konto är admin@tenant-name.onmicrosoft.com.
+> Använd ett administratörskonto för B2C-klient som är lokala för B2C-klient. Konto Namnsyntaxen är admin@tenant-name.onmicrosoft.com.
 
-### <a name="is-it-possible-to-add-social-identity-to-an-existing-local-account"></a>Är det möjligt att lägga till sociala identitet till ett befintligt lokalt konto?
+### <a name="is-it-possible-to-add-social-identity-to-an-existing-local-account"></a>Är det möjligt att lägga till sociala i ett befintligt lokalt konto?
 Ja. Du kan lägga till sociala identitet när det lokala kontot har skapats. Kör HTTPS PATCH-begäran. Ersätt userObjectId med det användar-ID som du vill uppdatera. 
 
-**KORRIGERING** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
+**PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 
 Skicka följande formulär-data: 
 
@@ -166,9 +166,9 @@ Skicka följande formulär-data:
 ```
 
 ### <a name="is-it-possible-to-add-multiple-social-identities"></a>Är det möjligt att lägga till flera sociala identiteter?
-Ja. Du kan lägga till flera sociala identiteter för ett enskilt konto i Azure AD B2C. Kör HTTPS PATCH-begäran. Ersätt userObjectId med användar-ID. 
+Ja. Du kan lägga till flera sociala identiteter för ett enda Azure AD B2C-konto. Kör HTTPS PATCH-begäran. Ersätt userObjectId med användar-ID. 
 
-**KORRIGERING** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
+**PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 
 Skicka följande formulär-data: 
 
@@ -187,16 +187,16 @@ Skicka följande formulär-data:
 }
 ```
 
-## <a name="optional-user-migration-application-sample"></a>[Valfritt] Användaren migrering programmet exempel
-[Hämta och kör exempelappen V2](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration). Exempelappen V2 använder en JSON-fil som innehåller dummy användardata, inklusive: lokalt konto, sociala konto och lokala & sociala identiteter i samma konto.  Redigera JSON-filen genom att öppna den `AADB2C.UserMigration.sln` Visual Studio-lösning. I den `AADB2C.UserMigration` projektet öppnar den `UsersData.json` filen. Filen innehåller en lista över enheter som användaren. Varje enhet som användaren har följande egenskaper:
-* **signInName** - för lokala konton, e-postadress för att logga in
-* **displayName** -användarens namn
+## <a name="optional-user-migration-application-sample"></a>[Valfritt] Exempel på användaren migrering för program
+[Ladda ned och kör exempelappen V2](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration). V2-exempelappen använder en JSON-fil som innehåller data för dummy-användare, inklusive: lokalt konto, sociala konto och lokal och sociala identiteter i samma konto.  Om du vill redigera JSON-filen, öppna den `AADB2C.UserMigration.sln` Visual Studio-lösning. I den `AADB2C.UserMigration` projektet öppnar den `UsersData.json` filen. Filen innehåller en lista över användarentiteter. Varje entitet har följande egenskaper:
+* **signInName** – för lokalt konto, e-postadress för att logga in
+* **displayName** -användarens visningsnamn
 * **Förnamn** -användarens förnamn
 * **Efternamn** -användarens efternamn
-* **lösenordet** för lokalt konto, användarens lösenord (kan vara tom)
-* **utfärdaren** – för sociala konto, providernamn identitet
-* **issuerUserId** - för sociala konto, den unika användaridentifierare som används av sociala identitetsleverantören. Värdet måste vara i klartext. Exempelappen kodar det här värdet till base64.
-* **e-post** för sociala konto endast (inte kombinerade), användarens e-postadress
+* **lösenord** för lokalt konto, användarens lösenord (kan vara tom)
+* **utfärdaren** – för socialt konto, namnet på identitetsprovider
+* **issuerUserId** – för socialt konto, unika användaridentifieraren används av den sociala identitetsprovidern. Värdet ska vara i klartext. Exempelappen kodar det här värdet till base64.
+* **e-post** för socialt konto endast (inte kombinerade), användarens e-postadress
 
 ```JSON
 {
@@ -234,6 +234,6 @@ Skicka följande formulär-data:
 ```
 
 > [!NOTE]
-> Om du inte uppdaterar filen UsersData.json i exemplet med dina data, du kan logga in med de lokala kontoautentiseringsuppgifterna exempel men inte med sociala konto exemplen. Ange verkliga data för att migrera dina sociala konton.
+> Om du inte uppdaterar filen UsersData.json i exemplet med dina data, du kan logga in med autentiseringsuppgifterna för exemplet lokalt konto men inte med exemplen sociala kontot. Om du vill migrera dina konton i sociala medier, ger verkliga data.
 
-Mer information hur du använder exempelappen finns [Azure Active Directory B2C: migrering av användare](active-directory-b2c-user-migration.md)
+Mer information hur du använder exempelappen finns i [Azure Active Directory B2C: användarmigrering](active-directory-b2c-user-migration.md)

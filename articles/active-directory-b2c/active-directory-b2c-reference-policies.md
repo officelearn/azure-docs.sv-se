@@ -1,36 +1,36 @@
 ---
 title: Inbyggda principer i Azure Active Directory B2C | Microsoft Docs
-description: Ett avsnitt på expanderbara principramverk av Azure Active Directory B2C och hur du skapar olika principtyper.
+description: Ett ämne på utökningsbart principramverk för Azure Active Directory B2C och om hur du skapar olika principtyper.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 840de51f2aeff2c14cba0f90fe9072ba7ceb7fcf
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5c89f39b2f94309ea3d99230f5265d834c7093d9
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712121"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444839"
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: Inbyggda principer
 
 
-Expanderbara principramverk av Azure Active Directory (AD Azure) B2C är core styrkan hos tjänsten. Principer fullständigt beskriver konsumenten identitetsupplevelser som registrering, inloggning eller Redigera profil. Till exempel kan en princip för registrering du styra beteenden genom att konfigurera följande inställningar:
+Utökningsbart principramverk för Azure Active Directory (Azure AD) B2C är core styrkan hos tjänsten. Principer helt beskriver konsument identitetsupplevelser som registrering, inloggning och profilredigering. Exempelvis kan låter en registreringsprincip dig styra beteenden genom att konfigurera följande inställningar:
 
-* Kontotyper (sociala konton som Facebook) eller lokala konton, till exempel e-postadresser som konsumenterna kan använda för att registrera dig för programmet
-* Attribut (till exempel förnamn, postnummer och sko storlek) som ska samlas in från konsumenten under registreringen
+* Kontotyper (konton i sociala medier, till exempel Facebook) eller lokala konton, till exempel e-postadresser som användare kan använda för att registrera dig för programmet
+* Attribut (till exempel förnamn, postnummer och sko storlek) ska samlas in från konsumenten under registreringen
 * Användning av Azure Multi-Factor Authentication
-* Utseendet och känslan av alla anmälan sidor
-* Information (som visar som anspråk i en token) att programmet tar emot när principen Kör slutförs
+* Utseendet på alla sidor i registrera dig
+* Information (som manifest som anspråk i en token) som programmet tar emot när principen Kör har slutförts
 
-Du kan skapa flera principer för olika typer i din klient och använda dem i dina program efter behov. Principer kan återanvändas i program. Den här flexibiliteten gör att utvecklare kan definiera och ändra konsumenten identitetsupplevelser med minimal eller utan ändringar av koden.
+Du kan skapa flera principer för olika typer i din klient och använda dem i dina program, vid behov. Principer kan återanvändas i program. Den här flexibiliteten gör att utvecklare kan definiera och ändra konsument identitetsupplevelser med minimala kodändringar eller inga ändringar i koden.
 
-Principer kan användas via en enkel developer-gränssnittet. Programmet utlöser en princip med hjälp av en standard HTTP autentiseringsbegäran (skicka en princip för parameter i begäran) och får en anpassad token som svar. Till exempel är den enda skillnaden mellan förfrågningar som anropar en princip för registrering och förfrågningar som anropar en princip för inloggning principnamn som används i ”p” frågesträngparametern:
+Principer kan användas via en enkel developer-gränssnittet. Programmets utlöser en princip med hjälp av en standard HTTP-autentiseringsbegäran (skicka en principparametern i begäran) och får en anpassad token som svar. Den enda skillnaden mellan begäranden som anropar en registreringsprincip och begäranden som anropar en inloggningsprincip är till exempel namnet på principen som används i ”p” för frågesträngparametern:
 
 ```
 
@@ -62,15 +62,15 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Skapa en registrerings- eller inloggningsprincip
 
-Den här principen hanterar upplevelser för registrering och inloggning i båda konsumenten med en enda konfiguration. Konsumenterna ledde till rätt sökvägen (registrering eller inloggning) beroende på kontext. Här beskrivs också innehållet i token som programmet ska ta emot lyckats logga in eller inloggningar.  En kodexempel för den **registrering eller inloggning** policy [tillgänglig här](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Det rekommenderas att du använder den här principen via en **anmälan** princip eller en **inloggning** princip.  
+Den här principen hanterar upplevelser för registrering och inloggning i både konsument med en enda konfiguration. Konsumenter leds av rätt väg (registrera dig eller logga in) beroende på kontext. Här beskrivs också innehållet i de token som programmet tar emot vid genomförda registreringar eller inloggningar.  Ett kodexempel för den **registrering eller inloggning** principen är [tillgänglig här](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Vi rekommenderar att du använder den här principen över en **registrering** princip eller en **inloggning** princip.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
-## <a name="create-a-sign-up-policy"></a>Skapa en princip för registrering
+## <a name="create-a-sign-up-policy"></a>Skapa en registreringsprincip
 
 [!INCLUDE [active-directory-b2c-create-sign-up-policy](../../includes/active-directory-b2c-create-sign-up-policy.md)]
 
-## <a name="create-a-sign-in-policy"></a>Skapa en princip för inloggning
+## <a name="create-a-sign-in-policy"></a>Skapa en inloggningsprincip
 
 [!INCLUDE [active-directory-b2c-create-sign-in-policy](../../includes/active-directory-b2c-create-sign-in-policy.md)]
 
@@ -82,25 +82,25 @@ Den här principen hanterar upplevelser för registrering och inloggning i båda
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
-## <a name="preview-policies"></a>Principer för förhandsgranskning
+## <a name="preview-policies"></a>Förhandsversion av principer
 
-Som vi versionen av nya funktioner, kanske vissa av dessa inte tillgänglig på befintliga principer.  Vi planerar att ersätta äldre versioner med den senaste versionen av samma typ när dessa principer ange GA.  De befintliga principerna ändras inte och du behöver skapa nya principer för att kunna dra nytta av de nya funktionerna.
+Allteftersom vi släpper nya funktioner, kanske vissa av dessa inte tillgänglig på befintliga principer.  Vi planerar att ersätta äldre versioner med senast av samma typ när dessa principer anger GA.  De befintliga principerna ändras inte och du behöver skapa nya principer för att kunna dra nytta av de här nya funktionerna.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Hur länkar en princip för registrering eller inloggning med en princip för lösenordsåterställning?
-När du skapar en **registrering eller inloggning** princip (med lokala konton) som du ser en **har du glömt lösenordet?** länk på den första sidan i miljön. Klicka på den här länken återställs inte utlösaren lösenord automatiskt princip. 
+### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Hur länkar jag en princip för registrering eller inloggning med en princip för återställning av lösenord?
+När du skapar en **registrering eller inloggning** princip (med lokala konton), som du ser en **har du glömt lösenordet?** länk på första sidan i miljön. Klicka på den här länken återställs inte utlösare ett lösenord automatiskt principen. 
 
-I stället felkoden **`AADB2C90118`** returneras till din app. Din app behöver hantera felet genom att aktivera en specifik princip för lösenordsåterställning. Mer information finns i en [exempel som visar metoden länka principer för](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+I stället felkoden **`AADB2C90118`** returneras till din app. Din app behöver hantera felet genom att aktivera en specifik princip för lösenordsåterställning. Mer information finns i en [exempel som visar metoden för länkning principer](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
-### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Bör jag använda en princip för registrering eller inloggning eller en princip för registrering och en princip för inloggning?
-Vi rekommenderar att du använder en **registrering eller inloggning** principen via en **registrering** princip och en **inloggning** princip.  
+### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Ska jag använda en princip för registrering eller inloggning eller en registreringsprincip och en inloggningsprincip?
+Vi rekommenderar att du använder en **registrering eller inloggning** princip över en **registrering** princip och en **inloggning** princip.  
 
 Den **registrering eller inloggning** principen har fler funktioner än den **inloggning** princip. Dessutom kan du använda sidan anpassningar och har bättre stöd för lokalisering. 
 
-Den **inloggning** princip rekommenderas om du inte behöver localize dina principer endast behöver mindre anpassningsmöjligheter för anpassning och vill lösenord återställning som är inbyggda i den.
+Den **inloggning** princip rekommenderas om du inte behöver att hitta dina principer endast måste mindre anpassningsmöjligheter för anpassning och vill lösenord återställning som är inbyggda i den.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Token, session och konfiguration för enkel inloggning](active-directory-b2c-token-session-sso.md)
-* [Inaktivera e-Postverifiering under konsumenten registrering](active-directory-b2c-reference-disable-ev.md)
+* [Token-, sessions- och konfiguration för enkel inloggning](active-directory-b2c-token-session-sso.md)
+* [Inaktivera e-Postverifiering under konsument registrering](active-directory-b2c-reference-disable-ev.md)
 

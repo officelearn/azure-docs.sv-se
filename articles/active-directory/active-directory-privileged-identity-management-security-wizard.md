@@ -1,43 +1,43 @@
 ---
 title: Azure AD Privileged Identity Management-säkerhetsguiden
-description: Första gången du använder Azure Active Directory Privileged Identity Management-tillägg visas med en säkerhetsguiden. Den här artikeln beskriver stegen för att med hjälp av guiden.
+description: Första gången du använder Azure Active Directory Privileged Identity Management-tillägget visas med en säkerhetsguiden. Den här artikeln beskriver steg för att använda guiden.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 02/27/2017
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
-ms.openlocfilehash: cb08e5143814db29a7bec8c46226f07a26e51d25
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: d380c8076fbe1a6c9e06acb6f583d719f43aaba4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233028"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448602"
 ---
 # <a name="using-the-security-wizard-in-azure-ad-privileged-identity-management"></a>Guiden Säkerhet i Azure AD Privileged Identity Management 
-Om du är den första personen att köra Azure Privileged Identity Management (PIM) för din organisation, visas en guide. Guiden hjälper dig att förstå säkerhetsriskerna med Privilegierade identiteter och hur du använder PIM för att minska riskerna. Du behöver inte göra ändringar i befintliga rolltilldelningar i guiden om du vill göra det senare.
+Om du är den första personen som kör Azure Privileged Identity Management (PIM) för din organisation kan visas med en guide. Guiden hjälper dig att förstå säkerhetsriskerna med Privilegierade identiteter och hur du använder PIM för att minska riskerna. Du behöver inte göra ändringar i befintliga rolltilldelningar i guiden om du vill göra det senare.
 
 ## <a name="what-to-expect"></a>Vad du kan förvänta dig
-Innan din organisation kan börja använda PIM, alla rolltilldelningar är permanenta: användarna är alltid i dessa roller även om de inte för närvarande behöver sina privilegier.  Det första steget i guiden visar en lista över privilegierad roller och hur många användare som för närvarande rollerna. Du kan öka detaljnivån en viss roll för mer information om användare om en eller flera av dem är okänd.
+Innan din organisation kan börja använda PIM, alla rolltilldelningar vara permanenta: användarna är alltid i dessa roller även om de för närvarande inte behöver sina privilegier.  Det första steget i guiden visar en lista över privilegierad roller och hur många användare som för närvarande i dessa roller. Du kan öka detaljnivån i en viss roll och Läs mer om användare om en eller flera av dem är okänd.
 
-Det andra steget i guiden får du möjlighet att ändra administratörens rolltilldelningar.  
+Det andra steget i guiden ger dig möjlighet att ändra administratörens rolltilldelningar.  
 
 > [!WARNING]
-> Det är viktigt att du har minst en global administratör och mer än en administratör av Privilegierade roller med ett organisationskonto (inte ett Microsoft-konto). Om det finns bara en administratör av Privilegierade roller, organisationen inte kan hantera PIM om kontot tas bort.
-> Kom också rolltilldelningar permanent om en användare har ett Microsoft-konto (ett konto som de använder för att logga in på Microsoft-tjänster som Skype och Outlook.com). Om du planerar att kräva MFA för aktivering för rollen utelåst användaren.
+> Det är viktigt att du har minst en global administratör och mer än en privilegierad rolladministratör med ett organisationskonto (inte ett Microsoft-konto). Om det finns bara en administratör av Privilegierade roller måste organisationen inte kan hantera PIM om kontot tas bort.
+> Håll också nere rolltilldelningar permanent om en användare har ett Microsoft-konto (ett konto som de använder för att logga in på Microsoft-tjänster som Skype och Outlook.com). Om du planerar att kräva MFA för aktivering för rollen, kommer användaren utelåst.
 > 
 > 
 
-När du har gjort ändringar i guiden kommer inte längre att visas. Nästa gång du eller en annan administratör av Privilegierade roller använder PIM, visas PIM-instrumentpanelen.  
+När du har gjort ändringar, visas inte längre i guiden. Nästa gång du eller en annan administratör av Privilegierade roller kan du använda PIM, visas PIM-instrumentpanel.  
 
-* Om du vill lägga till eller ta bort användare från roller eller ändra tilldelningar från permanent till berättigade Läs mer på [lägga till eller ta bort en användarroll](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
-* Om du vill ge flera användare åtkomst till hantera PIM Läs mer på [ge åtkomst för att hantera i PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
+* Om du vill lägga till eller ta bort användare från roller eller ändra tilldelningar från permanent berättigad, Läs mer i [lägga till eller ta bort en användarroll](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
+* Om du vill ge fler användare åtkomst till att hantera PIM Läs mer i [ge åtkomst till att hantera i PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

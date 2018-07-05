@@ -1,9 +1,9 @@
 ---
 title: Hur du använder Azure API Management med virtuella nätverk
-description: Lär dig mer om att skapa en anslutning till ett virtuellt nätverk i Azure API Management och åtkomst till webbtjänster genom den.
+description: Lär dig hur du konfigurerar en anslutning till ett virtuellt nätverk i Azure API Management och åtkomst till webbtjänster via den.
 services: api-management
 documentationcenter: ''
-author: antonba
+author: vlvinogr
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 223fa9bc4a19264cc1dcba9830726b30b0f7446c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 11af7a7a8acde263ad278239546e145245343581
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355091"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437203"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
-Virtuella Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett routeable-internet-nätverk som du styr åtkomst till. Dessa nätverk kan sedan vara ansluten till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks startar med den här informationen: [Azure översikt över virtuella nätverk](../virtual-network/virtual-networks-overview.md).
+Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks börjar med den här informationen: [Azure översikt över Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-Azure API Management kan distribueras i det virtuella nätverket (VNET), så att den har åtkomst till backend-tjänster i nätverket. Developer-portalen och API-gateway kan konfigureras för att vara tillgänglig från Internet eller i det virtuella nätverket.
+Azure API Management kan distribueras i virtuella nätverk (VNET), så att den kan komma åt backend-tjänster i nätverket. Developer-portalen och API-gateway kan konfigureras för att vara tillgänglig från Internet eller endast i det virtuella nätverket.
 
 > [!NOTE]
-> Azure API Management stöder både klassiska och Azure Resource Manager Vnet.
+> Azure API Management har stöd för både klassiska och Azure Resource Manager-nätverk.
 >
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -37,37 +37,37 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ En APIM-instans. Mer information finns i [skapa en instans av Azure API Management](get-started-create-service-instance.md).
-+ VNET-anslutningen finns i Premium- och Developer nivåerna endast. Växla till en av dessa nivåer genom att följa anvisningarna i den [uppgradera och skala](upgrade-and-scale.md#upgrade-and-scale) avsnittet.
++ En APIM-instansen. Mer information finns i [skapa en Azure API Management-instans](get-started-create-service-instance.md).
++ VNET-anslutning är tillgängligt på Premium- och Developer nivåerna endast. Växla till en av de här nivåerna genom att följa anvisningarna i den [uppgradera och skala](upgrade-and-scale.md#upgrade-and-scale) avsnittet.
 
-## <a name="enable-vpn"> </a>Aktivera anslutning till virtuellt nätverk
+## <a name="enable-vpn"> </a>Aktivera anslutning mellan virtuella nätverk
 
-### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Aktivera VNET-anslutning med hjälp av Azure portal
+### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Aktivera VNET-anslutning med Azure portal
 
-1. Navigera till din APIM instans i den [Azure-portalen](https://portal.azure.com/).
+1. Navigera till APIM-instansen i den [Azure-portalen](https://portal.azure.com/).
 2. Välj **virtuellt nätverk**.
 3. Konfigurera API Management-instans som ska distribueras i ett virtuellt nätverk.
 
-    ![Virtuellt nätverk-menyn i API Management][api-management-using-vnet-menu]
-4. Välj typ av åtkomst:
-    
-    * **Externa**: API Management gateway och developer portal är tillgänglig från internet via en extern belastningsutjämnare. Gatewayen kan komma åt resurser i det virtuella nätverket.
-    
+    ![Meny för virtuellt nätverk med API Management][api-management-using-vnet-menu]
+4. Välj typ av lägga till:
+
+    * **Externa**: portalen för API Management gateway och utvecklarportal är tillgängliga från det offentliga internet via en extern belastningsutjämnare. Gatewayen kan komma åt resurser i det virtuella nätverket.
+
     ![Offentlig peering][api-management-vnet-public]
-    
-    * **Internt**: API Management gateway och developer portal är enbart tillgänglig från det virtuella nätverket via en intern belastningsutjämnare. Gatewayen kan komma åt resurser i det virtuella nätverket.
-    
+
+    * **Interna**: portalen för API Management gateway och utvecklarportal är enbart tillgänglig från det virtuella nätverket via en intern belastningsutjämnare. Gatewayen kan komma åt resurser i det virtuella nätverket.
+
     ![Privat peering][api-management-vnet-private]`
 
-    Nu visas en lista över alla regioner där API Management-tjänsten har etablerats. Välj en VNET och undernät för varje region. I listan fylls med både klassiska och Resource Manager virtuella nätverk som är tillgängliga i din Azure-prenumerationer som har konfigurerats i den region som du konfigurerar.
-    
+    Du kommer nu se en lista över alla regioner där API Management-tjänsten har etablerats. Välj ett virtuellt nätverk och undernät för varje region. I listan fylls med både klassiska och Resource Manager-nätverk som är tillgängliga i dina Azure-prenumerationer som har konfigurerats i den region som du konfigurerar.
+
     > [!NOTE]
-    > **Tjänstslutpunkten** i ovanstående diagram innehåller Gateway-proxyn, Azure-portalen, Developer-portalen, GIT och direkt hantering av slutpunkten.
-    > **Hanteringsslutpunkten** i ovanstående diagram är den slutpunkt som värd för tjänsten för att hantera konfiguration via Azure portal och Powershell.
-    > Tänk också på, att, även om diagrammet visar IP-adresser för olika, API Management-tjänsten **endast** svarar på dess konfigurerade värdnamn.
-    
+    > **Tjänsteslutpunkt** innehåller Gateway/Proxy, Azure-portalen, Developer-portalen, GIT och direkt av programvara i ovanstående diagram.
+    > **Hanteringsslutpunkten** i ovanstående diagram är den slutpunkt som finns på tjänsten för att hantera konfiguration via Azure portal och Powershell.
+    > Observera också, att, även om diagrammet visar IP-adresser för olika, API Management-tjänsten **endast** svarar på dess konfigurerade värdnamn.
+
     > [!IMPORTANT]
-    > När du distribuerar en Azure API Management-instans till en Resource Manager-VNET, måste tjänsten vara i ett dedikerat undernät som innehåller några resurser förutom Azure API Management-instanser. Om ett försök görs att distribuera en Azure API Management-instans till en Resource Manager VNET-undernät som innehåller andra resurser, distributionen misslyckas.
+    > När du distribuerar en Azure API Management-instans till ett Resource Manager-VNET, måste tjänsten vara i ett dedikerat undernät som innehåller inga andra resurser förutom Azure API Management-instanser. Vid ett försök att distribuera en Azure API Management-instans till ett Resource Manager-VNET-undernät som innehåller andra resurser kan distributionen misslyckas.
     >
 
     ![Välj VPN][api-management-setup-vpn-select]
@@ -75,108 +75,116 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 5. Klicka på **spara** överst på skärmen.
 
 > [!NOTE]
-> VIP-adressen för API Management-instansen kommer att ändras varje gång virtuella nätverk är aktiverad eller inaktiverad.  
-> VIP-adressen ändras samtidigt när API Management flyttas från **externa** till **internt** eller tvärtom
+> VIP-adressen för API Management-instans ändrar varje gång VNET är aktiverat eller inaktiverat.
+> VIP-adressen ändras också när API Management har flyttats från **externa** till **internt** eller tvärtom
 >
 
 > [!IMPORTANT]
-> Om du ta bort API-hantering från ett VNET eller ändrar en distribuerad i kan tidigare VNET förbli låsta för upp till två timmar. Under denna tid går det inte att ta bort VNET eller distribuera en ny resurs till den.
+> Om du tar bort API Management från ett virtuellt nätverk eller ändra den som den har distribuerats i kan det tidigare virtuella nätverket vara låst för upp till två timmar. Under den här perioden kommer det inte vara möjligt att ta bort det virtuella nätverket eller distribuera en ny resurs till den.
 
-## <a name="enable-vnet-powershell"> </a>Aktivera anslutning till VNET med PowerShell-cmdlets
-Du kan också aktivera VNET-anslutning med hjälp av PowerShell-cmdlets
+## <a name="enable-vnet-powershell"> </a>Aktivera VNET-anslutning med PowerShell-cmdletar
+Du kan också aktivera VNET-anslutning med PowerShell-cmdletar
 
-* **Skapa en API Management-tjänst i ett VNET**: Använd cmdlet [ny AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) att skapa en Azure API Management-tjänst i ett virtuellt nätverk.
+* **Skapa en API Management-tjänst i ett virtuellt nätverk**: Använd cmdlet [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) att skapa en Azure API Management-tjänsten i ett virtuellt nätverk.
 
-* **Distribuera en befintlig API Management-tjänst i ett VNET**: Använd cmdlet [uppdatering AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) att flytta en befintlig Azure API Management-tjänst i ett virtuellt nätverk.
+* **Distribuera en befintlig API Management-tjänst i ett virtuellt nätverk**: Använd cmdlet [uppdatering AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) att flytta en befintlig Azure API Management-tjänst i ett virtuellt nätverk.
 
 ## <a name="connect-vnet"> </a>Ansluta till en webbtjänst som finns inom ett virtuellt nätverk
-När din API Management-tjänst är ansluten till VNET, är åtkomst till backend-tjänster i den inte annorlunda än att komma åt offentliga tjänster. Skriv i den lokala IP-adressen eller värdnamnet (om en DNS-server är konfigurerad för VNET) för webbtjänsten i den **-webbtjänstens URL** fältet när du skapar ett nytt API eller redigerar en befintlig.
+När API Management-tjänsten är ansluten till det virtuella nätverket, är åtkomst till backend-tjänster inom den inte skiljer sig från att komma åt offentliga tjänster. Skriver i den lokala IP-adressen eller värdnamnet (om en DNS-server har konfigurerats för det virtuella nätverket) för webbtjänsten i den **-webbtjänstens URL** fältet när du skapar ett nytt API eller redigera en befintlig.
 
 ![Lägg till API från VPN][api-management-setup-vpn-add-api]
 
-## <a name="network-configuration-issues"> </a>Vanliga problem med nätverket konfiguration
-Nedan följer en lista över vanliga problem som kan uppstå vid distribution av API Management-tjänsten till ett virtuellt nätverk.
+## <a name="network-configuration-issues"> </a>Vanliga problem för konfiguration av nätverk
+Följande är en lista över vanliga felkonfigurationsproblem som kan uppstå när du distribuerar API Management-tjänsten till ett virtuellt nätverk.
 
-* **Anpassade DNS-serverinstallation**: I API Management-tjänsten är beroende av flera Azure-tjänster. När API-hantering finns i ett VNET med en anpassad DNS-server, måste den matcha värdnamn för de Azure-tjänsterna. Följ [detta](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) vägledning om anpassade DNS-inställningarna. Se tabellen portar och andra krav som referens.
+* **Installationen av anpassad DNS-server**: The API Management-tjänsten är beroende av flera Azure-tjänster. När API Management finns i ett virtuellt nätverk med en anpassad DNS-server, måste den matcha värdnamnen för de Azure-tjänsterna. Följ [detta](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) vägledning för installationen av anpassad DNS. Se tabellen portar och andra krav som referens.
 
 > [!IMPORTANT]
-> Om du planerar att använda en anpassad DNS-servrar för VNET, bör du konfigurera den **innan** distribuera en API Management-tjänsten till den. Annars måste du uppdatera API Management-tjänsten varje gång du ändrar DNS-servrar genom att köra den [gäller åtgärden för konfiguration](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Om du planerar att använda en anpassad DNS-servrar för det virtuella nätverket, bör du konfigurera den **innan** distribuera API Management-tjänsten till den. Annars måste du uppdatera API Management-tjänsten varje gång du ändrar DNS-servrar genom att köra den [gäller åtgärden för konfiguration](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
-* **Portar som behövs för API Management**: inkommande och utgående trafik i undernätet som API Management har distribuerats kan kontrolleras med [Nätverkssäkerhetsgruppen][Network Security Group]. Om någon av dessa portar är otillgängliga API Management kanske inte fungerar korrekt och kan inte komma åt. Med en eller flera av de här portarna blockeras är ett annat vanligt felkonfiguration problem när du använder API-hantering med ett VNET.
+* **Portar som krävs för API Management**: inkommande och utgående trafik till undernätet där API Management har distribuerats kan kontrolleras med hjälp av [Nätverkssäkerhetsgrupp][Network Security Group]. Om någon av de här portarna är otillgängliga API Management kanske inte fungerar korrekt och kan bli otillgängliga. Med en eller flera av de här portarna blockerad är ett annat vanligt felkonfiguration problem när du använder API Management med ett virtuellt nätverk.
 
-När en instans för API Management-tjänsten är värd för ett virtuellt nätverk, används portarna i följande tabell.
+När en instans för API Management finns i ett virtuellt nätverk, används portarna i följande tabell.
 
-| Källan / målet portar | Riktning | Transportprotokoll | Källan / målet | Syfte (*) | Typ för virtuella nätverk |
+| Källa / målportar | Riktning | Transport-protokoll | Källa / mål | Syfte (*) | Typ av virtuellt nätverk |
 | --- | --- | --- | --- | --- | --- |
-| * / 80, 443 |Inkommande |TCP |INTERNET / VIRTUAL_NETWORK|Klientkommunikation till API-hantering|Extern |
+| * / 80, 443 |Inkommande |TCP |INTERNET / VIRTUAL_NETWORK|Klientkommunikation till API Management|Extern |
 | * / 3443 |Inkommande |TCP |INTERNET / VIRTUAL_NETWORK|Hanteringsslutpunkten för Azure-portalen och Powershell |Intern |
-| * / 80, 443 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|**Beroendet av Azure Storage**, Azure Service Bus och Azure Active Directory (om tillämplig).|Externa och interna | 
+| * / 80, 443 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|**Beroende på Azure Storage**, Azure Service Bus och Azure Active Directory (om tillämpligt).|Externa och interna |
 | * / 1433 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|**Åtkomst till Azure SQL-slutpunkter** |Externa och interna |
-| * / 5672 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Beroende för inloggning till Event Hub-principen och övervakningsagent |Externa och interna |
-| * / 445 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Beroende på Azure-filresursen för GIT |Externa och interna |
-| * / 1886 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Krävs för att publicera hälsostatus till Resurshälsa |Externa och interna |
-| * / 25028 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Ansluta till SMTP-Relay för att skicka e-post |Externa och interna |
-| * / 6381 - 6383 |Inkommande och utgående |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Åtkomst till Redis-cacheinstanser mellan RoleInstances |Externa och interna |
-| * / \* | Inkommande |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure-infrastrukturen belastningsutjämnare |Externa och interna |
+| * / 5672 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Beroende för logg till Event Hub-principen och övervakningsagent |Externa och interna |
+| * / 445 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Beroende på Azure-filresurs för GIT |Externa och interna |
+| * / 1886 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Krävs för att publicera hälsostatus till Resource Health |Externa och interna |
+| * / 25028 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Ansluta till SMTP-relä för att skicka e-postmeddelanden |Externa och interna |
+| * / 6381 - 6383 |Inkommande och utgående |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Åtkomst till Redis Cache-instanser mellan RoleInstances |Externa och interna |
+| * / \* | Inkommande |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Belastningsutjämnare för Azure-infrastrukturen |Externa och interna |
 
 >[!IMPORTANT]
-> Portar som de *syfte* är **fetstil** krävs för API Management-tjänsten distribueras. De andra portarna blockeras kommer men försämras i möjligheten att använda och övervaka tjänsten körs.
+> Portar som de *syfte* är **fetstil** krävs för API Management-tjänsten ska distribueras. Blockera andra portar men medför försämring i möjligheten att använda och övervaka tjänsten som körs.
 
-* **SSL-funktionen**: att bygga kedja för SSL-certifikat och validering API Management-tjänsten måste utgående nätverksanslutning till ocsp.msocsp.com, mscrl.microsoft.com och crl.microsoft.com. Detta beroende är inte krävs, om något av de certifikat som du överför till API Management innehåller hela kedjan rot-CA: N.
+* **SSL-funktionen**: aktivera Kedjebyggande för SSL-certifikat och verifiering API Management-tjänsten måste utgående nätverksanslutning till ocsp.msocsp.com, mscrl.microsoft.com och crl.microsoft.com. Det här beroendet är inte nödvändigt, om alla certifikat som du överför till API Management innehåller fullständig kedja till rot-CA: N.
 
-* **DNS-åtkomst**: utgående åtkomst på port 53 krävs för kommunikation med DNS-servrar. Om en anpassad DNS-server finns på den andra änden av en VPN-gateway, måste DNS-servern vara nåbar från det undernät som är värd för API-hantering.
+* **DNS-åtkomst**: utgående åtkomst på port 53 krävs för kommunikation med DNS-servrar. Om en anpassad DNS-server finns på den andra änden av en VPN-gateway, måste DNS-servern vara nåbar från det undernät som är värd för API Management.
 
-* **Mått och hälsoövervakning**: utgående nätverksanslutning till Azure-övervakning slutpunkter som löser under följande domäner: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, Prod.warmpath.msftcloudes.com prod3 black.prod3.metrics.nsatc.net och prod3 red.prod3.metrics.nsatc.net.
+* **Mått och hälsoövervakning**: utgående nätverksanslutning till Azure Monitoring slutpunkter, vilket löser under följande domäner: 
 
-* **Expressinstallationen väg**: en gemensam konfiguration av customer är att definiera egna standardvägen (0.0.0.0/0) som tvingar utgående Internet-trafiken flöda lokalt i stället. Den här trafikflöde bryts utan undantag anslutningen till Azure API Management eftersom utgående trafik är antingen blockerade lokalt eller NAT skulle med ett okänt uppsättning adresser som inte längre att fungera med olika Azure-slutpunkter. Lösningen är att definiera en (eller flera) användardefinierade vägar ([udr: er][UDRs]) i undernät som innehåller Azure API Management. En UDR definierar undernät-specifika vägar som ska användas i stället för standardväg.
-  Om möjligt bör du använder följande konfiguration:
- * ExpressRoute-konfigurationen annonserar 0.0.0.0/0 och som standard kraft tunnlar all utgående trafik lokalt.
- * UDR tillämpad på undernätet som innehåller Azure API Management definierar 0.0.0.0/0 med ett nexthop-typ för Internet.
- Den kombinerade effekten av dessa steg är att undernätverksnivån UDR företräde framför den ExpressRoute Tvingad tunneltrafik tillse utgående Internetåtkomst från Azure API Management.
+    | Azure-miljön | Slutpunkter |
+    | --- | --- |
+    | Azure Public | <ul><li>Prod.warmpath.msftcloudes.com</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li><li>prod3 black.prod3.metrics.nsatc.net</li><li>prod3 red.prod3.metrics.nsatc.net</li></ul> |
+    | Azure Government | <ul><li>fairfax.warmpath.usgovcloudapi.NET</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul> |
+    | Azure Kina | <ul><li>mooncake.warmpath.chinacloudapi.CN</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul> |
 
-* **Routning via nätverket virtuella installationer**: blockerar konfigurationer som använder en UDR med en standardväg (0.0.0.0/0) för att dirigera internet avsedda trafik från undernätet som API-hantering via en virtuell nätverksenhet som körs i Azure av hanteringstrafik som kommer från Internet till API Management service-instans distribueras i det virtuella nätverket. Den här konfigurationen stöds inte.
+* **Expressinstallation väg**: en vanlig kund-konfiguration är att definiera egna standardväg (0.0.0.0/0) vilket tvingar utgående Internet-trafiken flöda lokalt i stället. Det här flödet i nätverkstrafiken delar utan undantag anslutning med Azure API Management eftersom den utgående trafiken är antingen blockerade lokalt eller NAT skulle med ett okänt uppsättning adresser som inte längre att fungera med olika Azure-slutpunkter. Lösningen är att definiera en (eller mer) användardefinierade vägar ([Udr][UDRs]) i det undernät som innehåller Azure API Management. En UDR definierar undernät-specifika vägar som kommer att användas i stället för standardväg.
+  Om det är möjligt rekommenderar vi att du använder du följande konfiguration:
+ * ExpressRoute-konfigurationen annonserar 0.0.0.0/0 och som standard tunnlar tvinga all utgående trafik lokalt.
+ * Den användardefinierade vägen som tillämpas på undernät som innehåller Azure API Management definierar 0.0.0.0/0 med ett nexthop-typ för Internet.
+ Den kombinerade effekten av de här stegen är att undernätverksnivån UDR har företräde framför ExpressRoute Tvingad tunneltrafik, vilket säkerställer utgående Internetåtkomst från Azure API Management.
 
->[!WARNING]  
->Azure API Management stöds inte med ExpressRoute-konfigurationer som **felaktigt cross-annonsera vägar från offentlig peering sökvägen att privat peering sökväg**. ExpressRoute-konfigurationer som har konfigurerats, offentlig peering får vägannonser från Microsoft för ett stort antal Microsoft Azure IP-adressintervall. Om dessa adressintervall felaktigt cross-annonseras i privat peering sökväg, är slutresultatet att alla utgående paket från Azure API Management-instans undernät felaktigt kraft tunnlar kundens lokala nätverkets infrastruktur. Det här nätverket flödet bryts Azure API Management. Lösning på problemet är att stoppa mellan reklam vägar från offentlig peering sökvägen att privat peering sökväg.
+* **Routning via nätverkets virtuella installationer**: konfigurationer som använder en UDR med en standardväg (0.0.0.0/0) för att dirigera internet är avsedd trafik från undernätet i API Management genom ett nätverks virtuella installation som körs i Azure blockerar av hanteringstrafik som kommer från Internet till API Management-tjänstinstans som är distribuerat i virtuella nätverkets undernät. Konfigurationen stöds inte.
+
+>[!WARNING]
+>Azure API Management stöds inte med ExpressRoute-konfigurationer som **felaktigt korsannonserar vägar från den offentliga peering-sökvägen till den privata peering-sökvägen**. ExpressRoute-konfigurationer som har offentlig peering har konfigurerats, kommer få vägannonseringar från Microsoft för ett stort antal Microsoft Azure IP-adressintervall. Om dessa adressintervallen korsannonseras felaktigt på den privata peering-sökvägen, är slutresultatet att alla utgående nätverkspaket från undernätet för Azure API Management-instans är felaktigt tvingas med tunneltrafik till en kunds lokala nätverk infrastruktur. Det här nätverksflödet delar Azure API Management. Lösning på problemet är att stoppa korsannonsering vägar från den offentliga peering-sökvägen till den privata peering-sökvägen.
 
 
 ## <a name="troubleshooting"> </a>Felsökning
-* **Inledande installationen**: när den initiala distributionen av API Management-tjänsten i ett undernät inte lyckas är det bäst att först distribuera en virtuell dator i samma undernät. Nästa fjärrskrivbord till den virtuella datorn och kontrollera att det finns en anslutning till en av varje resurs nedan i din azure-prenumeration 
+* **Den inledande installationen**: när den första distributionen av API Management-tjänsten i ett undernät inte lyckas är det bäst att först distribuera en virtuell dator i samma undernät. Nästa fjärrskrivbord till den virtuella datorn och verifiera att det finns anslutning till en av varje resurs nedan i din azure-prenumeration
     * Azure Storage-blob
     * Azure SQL Database
 
  > [!IMPORTANT]
- > När du har validerat anslutningen, se till att ta bort alla resurser som har distribuerats i undernätet, innan du distribuerar API-hantering till undernätet.
+ > När du har godkänt anslutningen, se till att ta bort alla resurser som har distribuerats i undernätet, innan du distribuerar API Management till undernätet.
 
-* **Inkrementella uppdateringar**: när du gör ändringar i nätverket referera till [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), för att verifiera att API Management-tjänsten inte har tillgång till någon av de viktiga resurser som den är beroende av. Statusen ska uppdateras var 15: e minut.
+* **Inkrementella uppdateringar**: när du gör ändringar i nätverket, referera till [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), för att verifiera att API Management-tjänsten inte har förlorat åtkomst till någon av de viktiga resurser som den är beroende. Statusen ska uppdateras var 15: e minut.
 
-* **Resursnavigeringslänkar**: vid distribution i Resource Manager style vnet subnet API Management reserverar undernät, genom att skapa en resurs navigering länk. Om undernätet innehåller redan en resurs från en annan leverantör, distributionen ska **misslyckas**. När du flyttar en API Management-tjänst till ett annat undernät eller ta bort den på samma sätt tar vi bort resurs navigering länken. 
+* **Resursnavigeringslänkar**: när du distribuerar till Resource Manager style vnet-undernät, API Management reserverar undernät, genom att skapa en länk-resursnavigeringen. Om undernätet innehåller redan en resurs från en annan leverantör, distributionen ska **misslyckas**. När du flyttar en API Management-tjänsten till ett annat undernät eller ta bort det, kommer vi på samma sätt kan ta bort den resursnavigeringslänken.
 
-## <a name="subnet-size"> </a> Kravet undernät
-Azure reserverar vissa IP-adresser inom varje undernät, och dessa adresser kan inte användas. De första och sista IP-adresserna undernät är reserverade för överensstämmelse med protokollet, tillsammans med tre flera adresser som används för Azure-tjänster. Mer information finns i [finns det några begränsningar med hjälp av IP-adresser inom dessa undernät?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+* **API: et testning från Azure portal**: när du testar ett API från Azure portal och API Management-instansen är integrerad med ett internt virtuellt nätverk, DNS-servrar som konfigurerats på det virtuella nätverket ska användas för namnmatchning. Om du får ett 404 när du testar från Azure-portalen kan du kontrollera att DNS-servrar för det virtuella nätverket korrekt kan matcha namnet på din API Management-instans. 
 
-Förutom IP-adresser som används av den virtuella Azure-infrastrukturen, använder varje Api Management-instans i undernät två IP-adresser per enhet för Premium-SKU: N eller en IP-adress för utvecklare SKU: N. Varje instans reserverar en ytterligare IP-adress för den externa belastningsutjämnaren. När du distribuerar till interna virtuella nätverk, kräver ytterligare en IP-adress för den interna belastningsutjämnaren.
+## <a name="subnet-size"> </a> Nödvändiga storleken för undernät
+Azure reserverar vissa IP-adresser i varje undernät och det går inte att använda dessa adresser. Första och sista IP-adresserna i undernäten är reserverade för protokollöverensstämmelse, tillsammans med tre fler adresser som används för Azure-tjänster. Mer information finns i [finns det några begränsningar med IP-adresser inom dessa undernät?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-Beräkningen ovanför den minsta storleken till undernätet där API-hantering kan distribueras är /29 som ger 3 IP-adresser.
+Förutom IP-adresser som används av infrastrukturen som virtuella Azure-nätverket, använder varje Api Management-instans i undernätet två IP-adresser per enhet för Premium-SKU eller en IP-adress i Developer-SKU: n. Varje instans reserverar ytterligare IP-adress för den externa belastningsutjämnaren. När du distribuerar i internt vnet kräver ytterligare IP-adress för den interna belastningsutjämnaren.
+
+Beräkningen ovan minimistorleken på undernätet, där du kan distribuera API Management är /29 som ger 3 IP-adresser.
 
 ## <a name="routing"> </a> Routning
-+ Utjämning av nätverksbelastning offentlig IP-adress (VIP) reserveras för att ge åtkomst till alla slutpunkter.
-+ En IP-adress från ett intervall med IP-undernät (DIP) används för att komma åt resurser inom vnet och en offentlig IP-adress (VIP) används för att få åtkomst till resurser utanför vnet.
-+ Belastningsutjämnade offentlig IP adress finns på bladet översikt/Essentials i Azure-portalen.
++ En belastningsutjämnad offentlig IP-adress (VIP) kommer att reserveras för att ge åtkomst till alla tjänstslutpunkter.
++ En IP-adress från ett undernät på en IP-adressintervall (DIP) används för att komma åt resurser i det virtuella nätverket och en offentlig IP-adress (VIP) som används för att få åtkomst till resurser utanför det virtuella nätverket.
++ Belastningsutjämnad offentlig IP-adressen finns på bladet översikt/Essentials i Azure-portalen.
 
 ## <a name="limitations"> </a>Begränsningar
-* Ett undernät som innehåller API Management-instanser får inte innehålla andra Azure-resurs-typer.
+* Ett undernät som innehåller API Management-instanser får inte innehålla några andra Azure-resurstyper.
 * Undernätet och API Management-tjänsten måste vara i samma prenumeration.
 * Ett undernät som innehåller API Management-instanser kan inte flyttas mellan prenumerationer.
-* För flera regioner API Management-distributioner konfigurerad i internt virtuellt nätverk läge, ansvarar användare för att hantera belastningsbalansering över flera regioner som de äger routning.
-* Anslutningen från en resurs i ett globalt peered VNET i en annan region till API Management-tjänsten intern läge fungerar inte på grund av plattform begränsning. Mer information finns i [resurser i ett virtuellt nätverk inte kan kommunicera med Azure interna belastningsutjämnare i peerkoppla virtuellt nätverk](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)
+* För flera regioner API Management-distributioner konfigurerad i läget för internt virtuellt nätverk, ansvarar användarna för att hantera belastningsutjämning i flera regioner som de äger routning.
+* Anslutningen från en resurs i ett globalt peer-kopplade VNET i en annan region till API Management-tjänsten internt läge fungerar inte på grund av plattformsbegränsning. Mer information finns i [resurser i ett virtuellt nätverk kan inte kommunicera med Azure intern belastningsutjämnare i peerkopplade virtuella nätverk](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)
 
 
 ## <a name="related-content"> </a>Relaterat innehåll
-* [Ansluta ett virtuellt nätverk till backend med hjälp av Vpn-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
+* [Anslut ett virtuellt nätverk till serverdelen med Vpn-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Ansluta ett virtuellt nätverk från olika distributionsmodeller](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
-* [Hur du använder API-Inspector för att spåra anropar i Azure API Management](api-management-howto-api-inspector.md)
-* [Vanliga frågor om virtuellt nätverk](../virtual-network/virtual-networks-faq.md)
+* [Hur du använder API: et Inspector att spåra anropar i Azure API Management](api-management-howto-api-inspector.md)
+* [Virtuellt nätverk vanliga frågor och svar](../virtual-network/virtual-networks-faq.md)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png

@@ -1,38 +1,38 @@
 ---
-title: Användning reporting API samples och definitioner i Azure Active Directory B2C | Microsoft Docs
-description: Guiden och exempel på att få rapporter om Azure AD B2C-klient användare, autentiseringar och Multi-Factor Authentication.
+title: Användning reporting API-exempel och definitioner i Azure Active Directory B2C | Microsoft Docs
+description: Guiden och exempel på att få rapporter för Azure AD B2C-klientorganisation, användare, autentiseringar och multifaktorautentiseringar.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dc7f18e29367a3979a2650a87465366d9727cff6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 544b0618f9135b684846c42bb7edeb37cf599883
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711638"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445542"
 ---
-# <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Åtkomst till användningsrapporter i Azure AD B2C via reporting API
+# <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Åtkomst till användningsrapporter i Azure AD B2C via rapporterings-API
 
-Azure Active Directory B2C (Azure AD B2C) ger autentisering baserat på användarens inloggning och Azure Multi-Factor Authentication. Autentisering har angetts för slutanvändare i din familj program över identitetsleverantörer. När du vet hur många användare som har registrerats i innehavaren, providers som används för att registrera och antalet autentiseringar med typen kan du svara på frågor som:
-* Hur många användare från varje typ av identitetsleverantör (till exempel en Microsoft eller LinkedIn-konto) har registrerats under de senaste 10 dagarna?
-* Hur många autentiseringar med Multi-Factor Authentication har slutförts i den senaste månaden?
-* Hur många tecken i baserade autentiseringar har slutfört den här månaden? Per dag? Per program?
-* Hur kan jag för att beräkna den förväntade månatliga kostnaden för aktiviteten min Azure AD B2C-klient?
+Azure Active Directory B2C (Azure AD B2C) tillhandahåller autentisering baserat på användare logga in och Azure Multi-Factor Authentication. Autentisering har angetts för slutanvändare i din familj för program över identitetsleverantörer. När du vet hur många användare som har registrerats i klientorganisationen, providers som används för att registrera och antalet autentiseringar efter typ, kan du besvara frågor som:
+* Hur många användare från varje typ av identitetsprovider (till exempel en Microsoft och LinkedIn-konto) har registrerats under de senaste 10 dagarna?
+* Hur många autentiseringar med Multi-Factor Authentication har slutförts under den senaste månaden?
+* Hur många logga-i-baserade autentiseringar har slutfört den här månaden? Per dag? Per program?
+* Hur beräknar jag förväntade månadskostnaden för min Azure AD B2C-klientaktivitet?
 
-Den här artikeln fokuserar på rapporter som är knutna till fakturering aktivitet som baseras på antalet användare, fakturerbar logga-baserat autentiseringar och Multi-Factor Authentication.
+Den här artikeln fokuserar på rapporter som är kopplad till faktureringen som baseras på antalet användare, fakturerbara logga-i-baserade autentiseringar och multifaktorautentiseringar.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du börjar måste du slutföra stegen i [krav för att få åtkomst till Azure AD reporting API: er](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Skapa ett program, skaffa en hemlighet för den och ge det åtkomst rättigheter till din Azure AD B2C-klient-rapporter. *Bash skriptet* och *Python-skriptet* exempel tillhandahålls också här. 
+Innan du börjar måste du slutföra stegen i [krav för att få åtkomst till Azure AD reporting API: er](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Skapa ett program, hämta en hemlighet för den och ge det åtkomst rättigheter till din Azure AD B2C-klient-rapporter. *Bash-skript* och *Python-skriptet* exempel tillhandahålls även här. 
 
 ## <a name="powershell-script"></a>PowerShell-skript
-Det här skriptet visar skapandet av fyra användningsrapporter med hjälp av den `TimeStamp` parameter och `ApplicationId` filter.
+Det här skriptet visar skapandet av fyra användningsrapporter med hjälp av den `TimeStamp` parametern och `ApplicationId` filter.
 
 ```powershell
 # This script will require the Web Application and permissions setup in Azure Active Directory
@@ -96,33 +96,33 @@ if ($oauth.access_token -ne $null) {
 ```
 
 
-## <a name="usage-report-definitions"></a>Användning rapportdefinitioner
-* **tenantUserCount**: antalet användare i innehavaren av typ av identitetsleverantör per dag under de senaste 30 dagarna. (Du kan också en `TimeStamp` filtret innehåller användaren antal från det angivna datumet till dagens datum). Den här rapporten innehåller:
+## <a name="usage-report-definitions"></a>Användning-rapportdefinitioner
+* **tenantUserCount**: antalet användare i klienten efter typ av identitetsprovider per dag under de senaste 30 dagarna. (Du kan också en `TimeStamp` -filtret innehåller antalet användare från ett visst datum till aktuellt datum). Rapporten innehåller:
   * **TotalUserCount**: antalet alla användarobjekt.
-  * **OtherUserCount**: antalet Azure Active Directory-användare (inte Azure AD B2C-användare).
-  * **LocalUserCount**: antal användarkonton för Azure AD B2C lokala till Azure AD B2C-klient skapas med autentiseringsuppgifter.
+  * **OtherUserCount**: Azure Active Directory-användare (inte Azure AD B2C-användare).
+  * **LocalUserCount**: antal användarkonton för Azure AD B2C skapas med autentiseringsuppgifter för lokal till Azure AD B2C-klient.
 
-* **AlternateIdUserCount**: antalet Azure AD B2C-användare som har registrerats med externa identitetsleverantörer (till exempel Facebook, ett Microsoft-konto eller ett annat Azure Active Directory-klient, kallas även en `OrgId`).
+* **AlternateIdUserCount**: Azure AD B2C-användare som har registrerats med externa indentitetsprovidrar (till exempel Facebook, ett Microsoft-konto eller en annan Azure Active Directory-klient, kallas även en `OrgId`).
 
-* **b2cAuthenticationCountSummary**: Sammanfattning av dagliga antalet fakturerbar autentiseringar under de senaste 30 dagarna, per dag och typ av autentiseringsflödet.
+* **b2cAuthenticationCountSummary**: Sammanfattning av det dagliga antalet fakturerbara autentiseringar under de senaste 30 dagarna, per dag och typ av autentiseringsflödet.
 
-* **b2cAuthenticationCount**: Antal autentiseringar inom en angiven tidsperiod. Standardvärdet är de senaste 30 dagarna.  (Valfritt: början och slutet `TimeStamp` parametrar som definierar en viss tidsperiod.) Utdata innehåller `StartTimeStamp` (tidigaste datumet för aktiviteten för den här klienten) och `EndTimeStamp` (senaste uppdatering).
+* **b2cAuthenticationCount**: antalet autentiseringar inom en tidsperiod. Standardvärdet är de senaste 30 dagarna.  (Valfritt: början och slutet `TimeStamp` parametrar definiera en viss tidsperiod.) Utdata innehåller `StartTimeStamp` (tidigaste datum för aktivitet för den här klienten) och `EndTimeStamp` (senaste uppdatering).
 
-* **b2cMfaRequestCountSummary**: Sammanfattning av dagliga antalet Multi-Factor Authentication per dag och typ (SMS eller röst).
+* **b2cMfaRequestCountSummary**: Sammanfattning av det dagliga antalet multifaktorautentiseringar per dag och typ (SMS eller röst).
 
 
 ## <a name="limitations"></a>Begränsningar
-Antal användardata uppdateras var 24 till 48 timmar. Autentiseringar uppdateras flera gånger om dagen. När du använder den `ApplicationId` filter, ett tomt rapporten svar kan bero på något av följande villkor:
-  * Program-ID finns inte i klientorganisationen. Kontrollera att den är korrekt.
-  * Program-ID finns, men inga data hittades under rapporteringsperioden. Granska parametrarna datum/tid.
+Antal användardata uppdateras var 24 till 48 timmar. Autentiseringar uppdateras flera gånger per dag. När du använder den `ApplicationId` filter, en tom rapport response kan bero på något av följande villkor:
+  * Program-ID finns inte i klienten. Kontrollera att den är korrekt.
+  * Program-ID finns, men inga data hittades i rapporteringsperioden. Granska parametrarna datum/tid.
 
 
 ## <a name="next-steps"></a>Nästa steg
 ### <a name="monthly-bill-estimates-for-azure-ad"></a>Månadsfaktura beräknar för Azure AD
-När den kombineras med [senaste Azure AD B2C prissättning tillgängliga](https://azure.microsoft.com/pricing/details/active-directory-b2c/), du kan beräkna dagliga, veckovisa och månatliga Azure-förbrukningen.  En uppskattning är särskilt användbart när du planerar för ändringar i klient-funktioner som kan påverka övergripande kostnader. Du kan granska faktiska kostnader i din [länkade Azure-prenumeration](active-directory-b2c-how-to-enable-billing.md).
+När de kombineras med [de senaste Azure AD B2C priserna tillgängliga](https://azure.microsoft.com/pricing/details/active-directory-b2c/), du kan beräkna dagliga, veckovisa och månatliga Azure-förbrukning.  En uppskattning är särskilt användbart när du planerar för ändringar i klient-beteende som kan påverka sammanlagda kostnaden. Du kan granska faktiska kostnader i din [länkad Azure-prenumeration](active-directory-b2c-how-to-enable-billing.md).
 
 ### <a name="options-for-other-output-formats"></a>Alternativ för andra utdataformat
-Följande kod visar exempel för att skicka utdata till JSON, en lista med namn på värden och XML:
+Följande kod visar exempel på skicka utdata till JSON, en lista med namn på värden och XML:
 ```powershell
 # to output to JSON use following line in the PowerShell sample
 $myReport.Content | Out-File -FilePath name-your-file.json -Force

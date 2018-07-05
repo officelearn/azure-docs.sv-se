@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 6/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dad35f26496306558a6e0105db86321c497a8306
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: d44ea5afca15519fee1bc8a4ebd6c2ba1f36d760
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342971"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448636"
 ---
 # <a name="provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts-using-azure-ad-b2c"></a>Ange registrera dig och logga in till kunder med Twitter-konton med hjälp av Azure AD B2C
 
@@ -26,7 +26,7 @@ För att använda Twitter som identitetsprovider i Azure Active Directory (Azure
 1. Gå till den [Twitter appar](https://apps.twitter.com/) och logga in med dina autentiseringsuppgifter.
 2. Klicka på **Skapa ny App**.
 3. I formuläret anger du ett värde för den **namn**, **beskrivning**, och **webbplats**.
-4. För den **Motringnings-URL**, ange `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`. Ersätt **{klient}** med klientens namn (exempel: contosob2c.onmicrosoft.com) och {policyId} med princip-id (till exempel b2c_1_policy).  Den här återanrop URL: en måste finnas i alla gemener. Du bör lägga till en Motringnings-URL för alla principer som använder Twitter-inloggning. Se till att använda `b2clogin.com` i stället för ` login.microsoftonline.com` om du använder den i ditt program.
+4. För den **Motringnings-URL**, ange `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`. Ersätt **{klient}** med klientens namn (exempel: contosob2c.onmicrosoft.com) och **{policyId}** med princip-id (till exempel b2c_1_policy).  **Motringningen URL: en måste finnas i alla gemener.** Du bör lägga till en Motringnings-URL för alla principer som använder Twitter-inloggning. Se till att använda `b2clogin.com` i stället för ` login.microsoftonline.com` om du använder den i ditt program.
 5. Markera kryssrutan för att godkänna den **Developer-avtalet** och klicka på **skapa ditt Twitter-program**.
 6. När appen har skapats, markerar du den i listan, väljer den **inställningar** fliken och klicka sedan på **uppdatera inställningarna för**.
 7. Välj den **nycklar och åtkomsttoken** fliken.

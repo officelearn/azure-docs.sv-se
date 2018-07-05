@@ -1,6 +1,6 @@
 ---
-title: Utför åtkomst granskningar i Azure-resurser med hjälp av Privileged Identity Management | Microsoft Docs
-description: Beskriver hur du startar en åtkomst-granskning i Privileged Identity Management för Azure-resurser
+title: Utföra åtkomstgranskningar i Azure-resurser med hjälp av Privileged Identity Management | Microsoft Docs
+description: Beskriver hur du startar en åtkomstgranskning i Privileged Identity Management för Azure-resurser
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -9,65 +9,65 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b5c2f13386a996a6c7895bd4755b6cf609a5df72
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: f963e63aa92e15205f20ecb3e502065b8dd2c58c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233262"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443077"
 ---
-# <a name="perform-access-reviews-in-azure-resources-by-using-privileged-identity-management"></a>Utför åtkomst granskningar i Azure-resurser med hjälp av Privileged Identity Management
-Rolltilldelningar blir ”inaktiva” när användare privilegierad åtkomst som de inte behöver längre. För att minska risken för att associeras med dessa inaktuella rolltilldelningar bör Privilegierade rollen administratörer regelbundet granska roller. Det här dokumentet beskriver steg för att starta en åtkomst-granskning i Privileged Identity Management (PIM) för Azure-resurser.
+# <a name="perform-access-reviews-in-azure-resources-by-using-privileged-identity-management"></a>Utföra åtkomstgranskningar i Azure-resurser med hjälp av Privileged Identity Management
+Rolltilldelningar blir ”inaktuell” när användarna har privilegierad åtkomst som de inte behöver längre. För att minska risken som associeras med de här rolltilldelningarna som inaktuella, Privilegierade rolladministratörer bör regelbundet läsa igenom roller. Det här dokumentet beskriver steg för att starta en åtkomstgranskning i Privileged Identity Management (PIM) för Azure-resurser.
 
-PIM programmet huvudsidan, gå till:
+Gå till från PIM programmet huvudsidan:
 
-* **Åtkomst till granskningar** > **Lägg till**
+* **Åtkomstgranskningar** > **Lägg till**
 
-![Lägg till åtkomst granskningar](media/azure-pim-resource-rbac/rbac-access-review-home.png)
+![Lägg till åtkomstgranskningar](media/azure-pim-resource-rbac/rbac-access-review-home.png)
 
-När du väljer den **Lägg till** knappen, den **skapa en åtkomst-granska** bladet visas. Konfigurera granskning med ett namn och en tid, Välj en roll för att granska och sedan bestämmer vem som gör att granskningen på det här bladet.
+När du väljer den **Lägg till** knapp, den **skapa en åtkomstgranskning** bladet visas. Konfigurera granskningen med ett namn och en tidsgräns på det här bladet, Välj en roll att granska och sedan bestämmer vem som gör att granskningen.
 
 ![Skapa en åtkomstgranskning](media/azure-pim-resource-rbac/rbac-create-access-review.png)
 
-### <a name="configure-the-review"></a>Konfigurera granskning
-Om du vill skapa en åtkomst-granskning först namnet och ange sedan start-och slutpunkt.
+### <a name="configure-the-review"></a>Konfigurera granskningen
+Om du vill skapa en åtkomstgranskning Döp först och ange sedan ett start- och datum.
 
 ![Konfigurera granskning – skärmbild](media/azure-pim-resource-rbac/rbac-access-review-setting-1.png)
 
-Kontrollera längden på Granska tillräckligt länge för användare att slutföra den. Om de avslutas innan slutdatum slutar de alltid vid granskningen tidigt.
+Kontrollera längden på Granska tillräckligt länge för användare att slutföra den. Om de är klara före slutdatumet, kan de alltid stoppa granskningen tidigt.
 
-### <a name="choose-a-role-to-review"></a>Välj en roll för att granska
-Varje granska fokuserar på endast en roll. Såvida du inte startade granskningen åtkomst från en viss roll-bladet, måste du välja en roll nu.
+### <a name="choose-a-role-to-review"></a>Välj en roll att granska
+Varje recension fokuserar på endast en roll. Såvida du inte startade åtkomstgranskningen från en viss roll-bladet, måste du välja en roll nu.
 
 1. Gå till **granska rollmedlemskap**
    
     ![Granska rollmedlemskap – skärmbild](media/azure-pim-resource-rbac/rbac-access-review-setting-2.png)
 2. Välj en roll i listan.
 
-### <a name="decide-who-will-perform-the-review"></a>Bestämma vem som utför granskningen
-Det finns tre alternativ för att utföra en granskning. Du kan tilldela granskningen till någon annan att slutföra, så kan du göra det själv eller varje användare kan granska sina egna åtkomst.
+### <a name="decide-who-will-perform-the-review"></a>Bestämma vem som ska utföra granskningen
+Det finns tre alternativ för att utföra en granskning. Du kan tilldela granskningen till någon annan att slutföra, du kan göra det själv eller varje användare kan granska sin egen åtkomst.
 
 1. Välj något av alternativen:
    
-   * **Markerade användare**: Använd det här alternativet när du inte vet vem som behöver åtkomst. Med det här alternativet kan du tilldela granskningen till en resursägare eller grupp manager för att slutföra.
-   * **Tilldelade (self)**: Använd det här alternativet för att be användarna att granska sina egna rolltilldelningar.
+   * **Markerade användare**: Använd det här alternativet om du inte vet vilka som behöver åtkomst. Med det här alternativet kan du tilldela granskningen till en resursägaren eller gruppansvarig för att slutföra.
+   * **Tilldelad (själv)**: Använd det här alternativet för att be användarna granska sin egen rolltilldelningar.
    
-2. Gå till **Markera granskare**.
+2. Gå till **Välj granskare**.
    
     ![Välj granskare – skärmbild](media/azure-pim-resource-rbac/rbac-access-review-setting-3.png)
 
 ### <a name="start-the-review"></a>Starta granskningen
-Slutligen kan du kräva att användare anger en anledning för att godkänna åtkomst. Lägg till en beskrivning för granska om du vill. Välj sedan **starta**.
+Slutligen kan du kräva att användare måste ange en anledning för att godkänna åtkomst. Lägg till en beskrivning av granskningen om du vill. Välj sedan **starta**.
 
-Kontrollera att du ger användarna om att det finns en åtkomst-granskning väntar på dem och visa dem [hur du utför en åtkomst-granskning](pim-resource-roles-perform-access-review.md).
+Kontrollera att du ger användarna vet att det finns en åtkomstgranskning som väntar på dem och visa dem [så här utför du en åtkomstgranskning](pim-resource-roles-perform-access-review.md).
 
-## <a name="manage-the-access-review"></a>Hantera åtkomst-granskning
-Du kan följa förloppet när granskare Slutför granskningarna i instrumentpanelen i Azure PIM-resurser. Ingen behörighet har ändrats i katalogen tills [granskningen har slutförts](pim-resource-roles-complete-access-review.md).
+## <a name="manage-the-access-review"></a>Hantera åtkomstgranskningen
+Du kan spåra förloppet när granskarna har slutfört sina granskningar i instrumentpanelen för PIM-Azure-resurser. Ingen behörighet har ändrats i katalogen tills [granskningen har slutförts](pim-resource-roles-complete-access-review.md).
 
-Tills omprövningsperioden är över, du påminna användare att slutföra granskning eller stoppa granska tidigt från avsnittet åtkomst granskningar.
+Tills granskningsperioden är över, kan du påminna användarna om att slutföra sina granskningar eller stoppa granskningen tidigt från avsnittet om åtkomst granskningar.
 

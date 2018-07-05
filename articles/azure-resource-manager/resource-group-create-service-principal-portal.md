@@ -1,5 +1,5 @@
 ---
-title: Skapa en identitet för Azure-app i portalen | Microsoft Docs
+title: Skapa för Azure-app i portalen | Microsoft Docs
 description: Beskriver hur du skapar en ny Azure Active Directory-program och tjänstens huvudnamn som kan användas med rollbaserad åtkomstkontroll i Azure Resource Manager för att hantera åtkomst till resurser.
 services: azure-resource-manager
 documentationcenter: na
@@ -13,61 +13,61 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a8784a8e29e65d8abea566b5a2bf41a2ae6cadf0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359636"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441581"
 ---
-# <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Använda portalen för att skapa ett Azure Active Directory-program och tjänstens huvudnamn som har åtkomst till resurser
+# <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Använda portalen för att skapa ett Azure Active Directory-program och tjänstens huvudnamn som kan komma åt resurser
 
-När du har kod som behöver komma åt eller ändra resurser måste du ställa in ett program i Azure Active Directory (AD). Tilldela behörigheterna som krävs för att AD-program. Den här metoden är bättre att köra appen enligt dina autentiseringsuppgifter eftersom du kan tilldela behörigheter till app-identitet som skiljer sig från din egen behörighet. Vanligen är dessa behörigheter begränsade till exakt vad appen behöver göra.
+När du har kod som behöver åtkomst till eller ändra resurser kan ställa du in ett Azure Active Directory (AD)-program. Du kan tilldela behörigheterna som krävs för att AD-program. Den här metoden är bättre att köra appen enligt dina autentiseringsuppgifter eftersom du kan tilldela behörigheter till appen identiteten som skiljer sig från dina egna behörigheter. Vanligen är dessa behörigheter begränsade till exakt vad appen behöver göra.
 
-Den här artikeln visar hur du utför dessa åtgärder via portalen. Den fokuserar på en enskild klient program där programmet är avsett att köras i en enda organisation. Du använder vanligtvis stöd för en innehavare program för line-of-business-program som körs i din organisation.
+Den här artikeln visar hur du utför de här stegen via portalen. Den fokuserar på en enda klient program där programmet är avsett att köras i endast en organisation. Du använder vanligtvis enda klient program för line-of-business-program som körs i din organisation.
 
 > [!IMPORTANT]
 > Överväg att använda Azure AD hanterad tjänstidentitet som tillämpningsprogrammets identitet i stället för att skapa ett huvudnamn för tjänsten. Azure AD MSI är en funktion för förhandsversion av Azure Active Directory som gör det enklare att skapa en identitet för koden. Om din kod körs på en tjänst som stöder Azure AD MSI och har åtkomst till resurser som stöder Azure Active Directory-autentisering, är Azure AD MSI ett bättre alternativ för dig. Läs mer om Azure AD MSI, inklusive tjänster som stöds för närvarande under avsnittet om [hanterade tjänstidentiteter för Azure-resurser](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
-För att slutföra den här artikeln, måste du har behörighet att registrera ett program med Azure AD-klienten och tilldela program till en roll i din Azure-prenumeration. Vi behöver kontrollera att du har rätt behörighet för att utföra dessa steg.
+För att slutföra den här artikeln, måste du har behörighet att registrera ett program med Azure AD-klienten och tilldela programmet till en roll i Azure-prenumerationen. Nu ska vi Kontrollera att du har rätt behörighet för att utföra de här stegen.
 
-### <a name="check-azure-active-directory-permissions"></a>Kontrollera behörigheter för Azure Active Directory
+### <a name="check-azure-active-directory-permissions"></a>Kontrollera Azure Active Directory-behörigheter
 
 1. Välj **Azure Active Directory**.
 
    ![välj azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-1. Välj i Azure Active Directory, **användarinställningar**.
+1. Välj **Användarinställningar** i Azure Active Directory.
 
    ![Välj användarinställningar](./media/resource-group-create-service-principal-portal/select-user-settings.png)
 
-1. Kontrollera den **App registreringar** inställningen. Om värdet **Ja**, icke-administratörer kan registrera AD-appar. Den här inställningen innebär att alla användare i Azure AD-klient kan registrera en app. Du kan fortsätta att [Kontrollera Azure-Prenumerationsbehörigheter](#check-azure-subscription-permissions).
+1. Kontrollera den **appregistreringar** inställningen. Om inställd **Ja**, icke-administratörer kan registrera AD-appar. Den här inställningen innebär att alla användare i Azure AD-klientorganisationen kan registrera en app. Du kan fortsätta att [Kontrollera Azure-Prenumerationsbehörighet](#check-azure-subscription-permissions).
 
-   ![Visa appen registreringar](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
+   ![Visa app-registreringar](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. Om app-registreringar inställningen är inställd på **nr**, endast [globala administratörer](../active-directory/active-directory-assign-admin-roles-azure-portal.md) kan registrera appar. Kontrollera om ditt konto är administratör för Azure AD-klient. Välj **översikt** och granska din användarinformation. Om ditt konto har tilldelats rollen, men registrering appinställningen (från föregående steg) är begränsad till administrativa användare, kan du be administratören att antingen tilldela rollen global administratör, eller så att användarna kan registrera appar.
+1. Om inställningen appregistreringar anges till **nr**, endast [globala administratörer](../active-directory/users-groups-roles/directory-assign-admin-roles.md) kan registrera appar. Kontrollera om ditt konto är en administratör för Azure AD-klient. Välj **översikt** och titta på din användarinformation. Om ditt konto har tilldelats till rollen, men registreringen appinställningen (från föregående steg) är begränsad till administratörer, kan du be din administratör att antingen tilldela dig till rollen som global administratör eller så att användarna kan registrera appar.
 
    ![Sök efter användare](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
 ### <a name="check-azure-subscription-permissions"></a>Kontrollera behörigheter för Azure-prenumeration
 
-Kontot måste ha i din Azure-prenumeration `Microsoft.Authorization/*/Write` åtkomst att tilldela en AD-app till en roll. Den här åtgärden beviljas genom den [ägare](../role-based-access-control/built-in-roles.md#owner) roll eller [administratör för användaråtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator) roll. Om ditt konto är kopplat till den **deltagare** roll, du har inte tillräcklig behörighet. Du får ett fel vid försök att tilldela en roll tjänstens huvudnamn.
+I Azure-prenumerationen, måste kontot ha `Microsoft.Authorization/*/Write` åtkomst till tilldelar en AD-app till en roll. Den här åtgärden beviljas genom rollen [Ägare](../role-based-access-control/built-in-roles.md#owner) eller [Administratör för användaråtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator). Om ditt konto tilldelas den **deltagare** roll, du har inte tillräcklig behörighet. Du får ett fel vid försök att tilldela en roll med tjänstens huvudnamn.
 
-För att kontrollera din Prenumerationsbehörigheter:
+Att kontrollera dina Prenumerationsbehörigheter:
 
-1. Välj ditt konto i det övre högra hörnet och välj **min behörighet**.
+1. Välj ditt konto i det övre högra hörnet och välj **Mina behörigheter**.
 
-   ![Välj användarbehörighet](./media/resource-group-create-service-principal-portal/select-my-permissions.png)
+   ![Välj användarbehörigheter](./media/resource-group-create-service-principal-portal/select-my-permissions.png)
 
 1. Välj prenumerationen från den nedrullningsbara listan. Välj **Klicka här om du vill visa fullständig åtkomst information för den här prenumerationen**.
 
    ![Sök efter användare](./media/resource-group-create-service-principal-portal/view-details.png)
 
-1. Visa tilldelade rollerna och kontrollera om du har tillräcklig behörighet för att tilldela en AD-app till en roll. Om inte, be administratören att lägga till dig till rollen Administratör för användaråtkomst prenumeration. I följande bild tilldelas användaren rollen som ägare, vilket innebär att användaren har tillräcklig behörighet.
+1. Visa dina tilldelade roller och avgör om du har tillräcklig behörighet för att tilldela en AD-app till en roll. Annars kan du be systemadministratören att lägga till dig till rollen Administratör för användaråtkomst. I följande bild tilldelas användaren rollen ägare, vilket innebär att användaren har tillräcklig behörighet.
 
-   ![Visa behörighet](./media/resource-group-create-service-principal-portal/view-user-role.png)
+   ![Visa behörigheter](./media/resource-group-create-service-principal-portal/view-user-role.png)
 
 ## <a name="create-an-azure-active-directory-application"></a>Skapa ett Azure Active Directory-program
 
@@ -84,13 +84,13 @@ För att kontrollera din Prenumerationsbehörigheter:
 
    ![lägg till app](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Ange ett namn och en URL för programmet. Välj **Webbapp/API** för den programtyp som du vill skapa. Du kan inte skapa autentiseringsuppgifter för en [programspecifika](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); därför att typen inte fungerar för ett automatiserat program. När du har angett värden, Välj **skapa**.
+1. Ange ett namn och en URL för programmet. Välj **Webbapp/API** för den programtyp som du vill skapa. Du kan inte skapa autentiseringsuppgifter för en [programspecifik](../active-directory/manage-apps/application-proxy-configure-native-client-application.md)därför att typen inte fungerar för ett automatiserat program. När du har angett värdena, Välj **skapa**.
 
    ![namnprogram](./media/resource-group-create-service-principal-portal/create-app.png)
 
 Du har skapat ditt program.
 
-## <a name="get-application-id-and-authentication-key"></a>Hämta program-ID och autentisering nyckel
+## <a name="get-application-id-and-authentication-key"></a>Hämta nyckel för program-ID och autentiseringsnyckel
 
 När du loggar in med programmet behöver du programmets ID och en autentiseringsnyckel. Hämta dessa värden med följande steg:
 
@@ -134,19 +134,19 @@ När du loggar in med programmet måste du skicka klientorganisations-ID:t med d
 
    ![klientorganisations-ID](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
 
-## <a name="assign-application-to-role"></a>Tilldela program till rollen
+## <a name="assign-application-to-role"></a>Tilldela program till roll
 
-Om du vill komma åt resurser i din prenumeration måste du tilldela program till en roll. Bestäm vilken roll representerar rätt behörigheter för programmet. Mer information om tillgängliga roller, se [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md).
+För att komma åt resurser i din prenumeration, måste du tilldela programmet till en roll. Bestäm vilken roll representerar rätt behörigheter för programmet. Läs om tillgängliga roller i [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md).
 
-Du kan ange omfånget för prenumerationen, resursgruppen eller resursen. Behörigheter ärvs på lägre nivåer i omfånget. Till exempel innebär lägga till ett program rollen Läsare för en resursgrupp att den kan läsa resursgruppen och alla resurser som den innehåller.
+Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Behörigheter ärvs till lägre nivåer av omfång. Till exempel lägga till ett program till rollen Läsare för en resursgrupp innebär att den kan läsa resursgruppen och alla resurser som den innehåller.
 
-1. Navigera till den nivå av omfång som du vill tilldela program till. Välj till exempel om du vill tilldela en roll på prenumerationsomfattningen **prenumerationer**. Du kan i stället välja en resursgrupp eller resurs.
+1. Navigera till den nivå av omfång som du vill tilldela programmet till. Om du vill tilldela en roll prenumerationsområde, väljer du exempelvis **prenumerationer**. Du kan i stället välja en resursgrupp eller resurs.
 
    ![Välj prenumeration](./media/resource-group-create-service-principal-portal/select-subscription.png)
 
-1. Välj den vissa prenumerationen (resursgrupp eller resurs) om du vill tilldela programmet till.
+1. Välj den specifika prenumerationen (resursgrupp eller resurs) för att tilldela programmet till.
 
-   ![Välj prenumerationen för tilldelning](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
+   ![Välj prenumeration för tilldelning](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
 
 1. Välj **åtkomstkontroll (IAM)**.
 
@@ -156,17 +156,17 @@ Du kan ange omfånget för prenumerationen, resursgruppen eller resursen. Behör
 
    ![Välj Lägg till](./media/resource-group-create-service-principal-portal/select-add.png)
 
-1. Markera den roll som du vill tilldela till programmet. Följande bild visar den **Reader** roll.
+1. Välj den roll som du vill tilldela till programmet. Följande bild visar den **läsare** roll.
 
-   ![Välj rollen](./media/resource-group-create-service-principal-portal/select-role.png)
+   ![Välj roll](./media/resource-group-create-service-principal-portal/select-role.png)
 
-1. Som standard visas inte Azure Active Directory-program i de tillgängliga alternativen. Du måste ange namnet på den i Sök-fältet för att hitta programmet. Markera den.
+1. Som standard visas inte Azure Active Directory-program i de tillgängliga alternativen. Du måste ange namnet på den i sökfältet för att hitta ditt program. Markera den.
 
    ![Sök efter app](./media/resource-group-create-service-principal-portal/search-app.png)
 
 1. Välj **spara** Slutför tilldela rollen. Du ser ditt program i listan över användare som har tilldelats en roll för detta omfång.
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du vill konfigurera ett program med flera innehavare, se [Utvecklarhandbok tillstånd med Azure Resource Manager API](resource-manager-api-authentication.md).
+* Om du vill konfigurera ett program med flera innehavare, se [utvecklarguiden för auktorisering med Azure Resource Manager API](resource-manager-api-authentication.md).
 * Läs om hur du anger säkerhetsprinciper i [Azure rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md).  
-* En lista över tillgängliga åtgärder som kan beviljas eller nekas till användare finns [Azure Resource Manager Resource Provider operations](../role-based-access-control/resource-provider-operations.md).
+* En lista över tillgängliga åtgärder som kan beviljas eller nekas till användare finns i [Azure Resource Manager Resource Provider operations](../role-based-access-control/resource-provider-operations.md).

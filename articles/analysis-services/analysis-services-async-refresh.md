@@ -5,22 +5,22 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a20e8460e0243e2f6f2f258e26374a2cd716206c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 883d03b9ffebf85815da7ae62546f75b3d72442f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601623"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441462"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
-Genom att använda alla programmeringsspråk som har stöd för REST-anrop kan utföra du datauppdatering asynkrona åtgärder på Azure Analysis Services-tabellmodeller. Detta inkluderar synkronisering av skrivskyddade repliker för frågan skalbar. 
+Genom att använda valfritt programmeringsspråk som har stöd för REST-anrop kan utföra du asynkrona datauppdateringsåtgärder på din Azure Analysis Services-tabellmodeller. Detta inkluderar synkronisering av skrivskyddade repliker för frågeutskalning. 
 
-Datauppdatering åtgärder kan ta lite tid beroende på ett antal faktorer, bland annat datavolym för optimering med partitioner etc. Dessa åtgärder traditionellt har anropats med befintliga metoder som använder [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model) [PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) cmdlets eller [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) (Tabellmodell Skript Language). Dessa metoder kräver dock ofta instabilt, långvariga HTTP-anslutningar.
+Datauppdateringsåtgärder kan ta lite tid beroende på ett antal faktorer, bland annat datavolym för optimering med partitioner etc. De här åtgärderna traditionellt har anropats med befintliga metoder, till exempel med hjälp av [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), [PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) cmdlet: ar, eller [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) (Tabular-modell Scripting Language). Dessa metoder kräver dock ofta otillförlitliga, långvariga HTTP-anslutningar.
 
-REST-API: et för Azure Analysis Services kan datauppdatering åtgärder utföras asynkront. Med hjälp av REST API är långvariga HTTP-anslutningar från klientprogram inte behövs. Det finns även andra inbyggda funktioner för tillförlitlighet, till exempel automatiska omförsök och gruppbaserad genomföranden.
+REST-API för Azure Analysis Services kan datauppdateringsåtgärder utföras asynkront. Med hjälp av REST-API är tidskrävande HTTP-anslutningar från klientprogram inte behövs. Det finns även andra inbyggda funktioner för tillförlitlighet, bland annat automatiska återförsök och gruppbaserade incheckningar.
 
 ## <a name="base-url"></a>Grundläggande URL
 
@@ -30,27 +30,27 @@ Den grundläggande Webbadressen följer det här formatet:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Anta till exempel att en modell med namnet AdventureWorks på servern minserver, finns i West US Azure-region. Servernamnet är:
+Anta exempelvis att en modell med namnet AdventureWorks på en server med namnet myserver, finns i västra USA Azure-region. Servernamnet är:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
 ```
 
-Bas-URL för det här Servernamnet är:
+Den grundläggande Webbadressen för det här Servernamnet är:
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/ 
 ```
 
-Genom att använda en bas-URL, resurser och åtgärder som kan läggas baserat på följande parametrar: 
+Genom att använda en bas-URL kan kan resurser och åtgärder läggas utifrån följande parametrar: 
 
-![Async-uppdatering](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
+![Asynkron uppdatering](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
-- Allt som slutar i **s** är en samling.
+- Allt som slutar med **s** är en samling.
 - Allt som slutar med **()** är en funktion.
-- Allt annat är en resursobjektet.
+- Allt annat är en resurs /-objekt.
 
-Du kan till exempel använda verbet POST på samlingen uppdateras för att utföra en uppdatering:
+Du kan till exempel använda verbet INLÄGG på samlingen uppdateras för att utföra en uppdatering:
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
@@ -58,22 +58,22 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 ## <a name="authentication"></a>Autentisering
 
-Alla anrop måste autentiseras med en giltig Azure Active Directory (OAuth 2)-token i auktoriseringshuvudet och uppfylla följande krav:
+Alla anrop måste autentiseras mot en giltig Azure Active Directory (OAuth 2)-token i auktoriseringshuvudet och måste uppfylla följande krav:
 
-- Token måste vara en användartoken eller ett program tjänstens huvudnamn.
-- Token måste ha rätt målgrupp inställd på `https://*.asazure.windows.net`.
-- Användaren eller programmet måste ha tillräckliga behörigheter på servern eller i modellen för att begärda ringa. Behörighetsnivån bestäms av roller i modellen eller administratörsgruppen på servern.
+- Token måste vara antingen en användartoken eller ett tjänstobjekt för programmet.
+- Token måste ha rätt målgrupp inställd `https://*.asazure.windows.net`.
+- Användarens eller programmets måste ha tillräcklig behörighet på servern eller modell för att göra det begärda anropet. Behörighetsnivå bestäms av roller i modellen eller administratörsgruppen på servern.
 
     > [!IMPORTANT]
-    > För närvarande **serveradministratören** rollbehörigheter krävs.
+    > För närvarande **serveradministratör** rollbehörighet krävs.
 
-## <a name="post-refreshes"></a>Bokför /refreshes
+## <a name="post-refreshes"></a>POST /refreshes
 
-Om du vill utföra en uppdatering, använder du verbet POST på samlingen /refreshes att lägga till ett nytt uppdatera objekt i samlingen. Plats-huvudet i svaret innehåller uppdatera-ID. Klientprogrammet kan koppla från och kontrollera status senare vid behov eftersom den är asynkron.
+Om du vill utföra en uppdatering, använder du INLÄGGET verbet i den /refreshes-samlingen att lägga till ett nytt uppdatera objekt i samlingen. Location-huvudet i svaret innehåller uppdatering-ID. Klientprogrammet kan koppla från och kontrollera status senare om det behövs eftersom det är asynkrona.
 
-Endast en uppdateringsåtgärden accepteras samtidigt för en modell. Om det finns en aktuell körs uppdateringsåtgärden och en annan skickas, returneras 409 konflikt HTTP-statuskoden.
+Endast en uppdateringsåtgärden accepteras i taget för en modell. Om det finns en aktuell åtgärd som körs uppdatering och en annan skickas, returneras 409 konflikt HTTP-statuskoden.
 
-Innehållet kan likna följande:
+Brödtexten kan likna följande:
 
 ```
 {
@@ -94,24 +94,24 @@ Innehållet kan likna följande:
 ```
 
 ### <a name="parameters"></a>Parametrar
-Det är inte nödvändigt att ange parametrar. Standardvärdet används.
+Att ange parametrar är inte obligatoriskt. Standard tillämpas.
 
 |Namn  |Typ  |Beskrivning  |Standard  |
 |---------|---------|---------|---------|
-|Typ     |  Enum       |  Typ av bearbetning som ska utföras. Typerna ligger i linje med TMSL [kommandot Uppdatera](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typer: full, clearValues, beräkna dataOnly, automatiskt, och defragmentera. Lägg till typen inte stöds.      |   Automatisk      |
-|CommitMode     |  Enum       |  Anger om objekt sparas i batchar eller bara när du är klar. Lägen omfattar: standard transactional, partialBatch.  |  transaktionell       |
-|MaxParallelism     |   Int      |  Det här värdet anger det maximala antalet trådar som ska köras bearbetning kommandon parallellt. Det här värdet justerad med egenskapen MaxParallelism som kan anges i TMSL [aktivitetssekvensen kommandot](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) eller använda andra metoder.       | 10        |
-|retryCount    |    Int     |   Anger antalet gånger som kommer att försöka igen innan åtgärden misslyckas.      |     0    |
-|Objekt     |   Matris      |   En matris med objekt som ska bearbetas. Varje objekt omfattar: ”table” vid bearbetning av hela tabellen eller ”table” och ”partition” vid bearbetning av en partition. Om inga objekt har angetts uppdateras hela modellen. |   Bearbeta hela modellen      |
+|Typ     |  Enum       |  Typ av bearbetning som ska utföras. Typerna ligger i linje med TMSL [kommandot Uppdatera](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typer: full, clearValues, beräkna, dataOnly, automatisk, och defragmentera. Lägg till typen inte stöds.      |   Automatisk      |
+|CommitMode     |  Enum       |  Anger om objekt genomförs i batchar eller bara när du är klar. Inkludera lägen: standard transaktioner partialBatch.  |  transaktionell       |
+|MaxParallelism     |   Int      |  Det här värdet anger det maximala antalet trådar som ska köras bearbetningskommandon parallellt. Det här värdet i linje med egenskapen MaxParallelism som kan ställas in i TMSL [Sekvensera kommandot](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) eller använda andra metoder.       | 10        |
+|RetryCount    |    Int     |   Anger hur många gånger som åtgärden kommer att försöka igen innan åtgärden misslyckas.      |     0    |
+|Objekt     |   Matris      |   En matris med objekt som ska bearbetas. Varje objekt innehåller: ”tabell” vid bearbetning av hela tabellen eller ”tabell” och ”partition” vid bearbetning av en partition. Om inga objekt har angetts, uppdateras hela modellen. |   Bearbeta hela modellen      |
 
-CommitMode är lika med partialBatch. Den används när du gör en inledande inläsningen av stora datamängder som kan ta timmar. Om uppdateringen misslyckas när du utför en eller flera batchar har skickats batchar förblir allokerat (det kan inte återställa har bekräftats batchar).
+CommitMode är lika med partialBatch. Den används när du gör en inledande inläsningen av stora datauppsättningar kan ta timmar. Om uppdateringen misslyckas efter att transaktionen har en eller flera batchar har bekräftats batchar förblir allokerade (den återställer inte har bekräftats batchar).
 
 > [!NOTE]
-> Batchstorleken är MaxParallelism värdet vid tiden för skrivning, men det här värdet kan ändras.
+> Batchstorleken är MaxParallelism värdet vid tidpunkten för skrivning, men det här värdet kan ändra.
 
 ## <a name="get-refreshesrefreshid"></a>GET-/refreshes/\<refreshId >
 
-Om du vill kontrollera status för en uppdatering, använder du GET-verbet på Uppdatera-ID. Här är ett exempel på brödtext för svar. Om åtgärden pågår **inProgress** returneras status.
+Om du vill kontrollera status för en uppdatering, använder du GET-verbet på Uppdatera-ID. Här är ett exempel på svarstexten. Om åtgärden pågår **inProgress** returneras i status.
 
 ```
 {
@@ -137,10 +137,10 @@ Om du vill kontrollera status för en uppdatering, använder du GET-verbet på U
 
 ## <a name="get-refreshes"></a>Hämta /refreshes
 
-Om du vill hämta en lista över historiska uppdateringsåtgärder för en modell, använder du GET-verbet i /refreshes-samling. Här är ett exempel på brödtext för svar. 
+Om du vill hämta en lista över historiska uppdateringsåtgärder för en modell, använder du GET-verbet i /refreshes-samling. Här är ett exempel på svarstexten. 
 
 > [!NOTE]
-> Vid tiden för skrivning de senaste 30 dagarna av uppdateringsåtgärder lagras och returneras, men det här antalet kan ändras.
+> När skrivs de senaste 30 dagarna av uppdateringsåtgärder lagras och returneras, men det här talet kan ändra.
 
 ```
 [
@@ -161,15 +161,15 @@ Om du vill hämta en lista över historiska uppdateringsåtgärder för en model
 
 ## <a name="delete-refreshesrefreshid"></a>Ta bort /refreshes/\<refreshId >
 
-Om du vill avbryta en pågående uppdatering använder du ta bort verbet på Uppdatera-ID.
+Om du vill avbryta en pågående uppdateringsåtgärden använder du ta bort verbet på Uppdatera-ID.
 
 ## <a name="post-sync"></a>POST/Sync
 
-Utföra av uppdateringsåtgärder vara det nödvändigt att synkronisera nya data med repliker för frågan skalbar. Om du vill utföra en synkronisering för en modell, använder du verbet POST för/Sync-funktionen. Plats-huvudet i svaret innehåller sync åtgärds-ID.
+Genom att utföra uppdateringsåtgärder, kan det vara nödvändigt att synkronisera nya data med repliker för frågeutskalning. Använd verbet INLÄGG på/Sync-funktionen om du vill utföra en synkroniseringsåtgärden för en modell. Location-huvudet i svaret innehåller sync åtgärds-ID.
 
 ## <a name="get-sync-status"></a>Hämta/Sync-status
 
-Använd GET-verbet skickar åtgärds-ID som en parameter för att kontrollera status för en synkroniseringsåtgärd. Här är ett exempel på brödtext för svar:
+Använd GET-verbet skicka åtgärds-ID som en parameter för att kontrollera status för en synkroniseringsåtgärden. Här är ett exempel på svarstexten:
 
 ```
 {
@@ -184,37 +184,37 @@ Använd GET-verbet skickar åtgärds-ID som en parameter för att kontrollera st
 
 Värden för `syncstate`:
 
-- 0: replikeras. Databasfilerna replikeras till en målmapp.
-- 1: återställning. Databasen är att återställd på skrivskyddad server-instanser.
-- 2: slutförts. Synkronisera åtgärden har slutförts.
+- 0: replikera. Databasfilerna replikeras till en målmapp.
+- 1: återuppväcks. Databasen extraheras på skrivskyddade server-instanser.
+- 2: har slutförts. Synkroniseringsåtgärden har slutförts.
 - 3: misslyckades. Det gick inte att synkronisera.
-- 4: Slutför. Sync-åtgärden har slutförts men utförs Rensa.
+- 4: Slutför. Synkroniseringsåtgärden slutfördes men utför Rensa.
 
 ## <a name="code-sample"></a>Kodexempel
 
-Här är en C# kodexempel för att komma igång, [RestApiSample på GitHub](https://github.com/Microsoft/Analysis-Services/tree/master/RestApiSample).
+Här är ett C#-kodexempel som hjälper dig igång, [RestApiSample på GitHub](https://github.com/Microsoft/Analysis-Services/tree/master/RestApiSample).
 
-### <a name="to-use-the-code-sample"></a>Att använda kodexemplet
+### <a name="to-use-the-code-sample"></a>Du använder kodexemplet
 
-1.  Klona eller hämta lagringsplatsen. Öppna RestApiSample-lösningen.
-2.  Hitta raden **klienten. BaseAddress =...** och ange din [bas-URL](#base-url).
+1.  Klona eller ladda ned lagringsplatsen. Öppna RestApiSample lösningen.
+2.  Leta reda på raden **klienten. BaseAddress =...** och ange din [bas-URL](#base-url).
 
 Kodexemplet kan använda interaktiv inloggning, användarnamn/lösenord eller [tjänstens huvudnamn](#service-principal).
 
 #### <a name="interactive-login-or-usernamepassword"></a>Interaktiv inloggning eller användarnamn/lösenord
 
-Den här typen av autentisering kräver ett Azure-program skapas med de behörigheter som krävs av API tilldelad. 
+Den här typen av autentisering kräver ett Azure-program skapas med nödvändiga API-behörigheter. 
 
-1.  I Azure-portalen klickar du på **skapar du en resurs** > **Azure Active Directory** > **App registreringar**  >   **Nya appregistrering**.
+1.  I Azure-portalen klickar du på **skapa en resurs** > **Azure Active Directory** > **appregistreringar**  >   **Ny programregistrering**.
 
-    ![Ny appregistrering](./media/analysis-services-async-refresh/aas-async-app-reg.png)
+    ![Ny programregistrering](./media/analysis-services-async-refresh/aas-async-app-reg.png)
 
 
-2.  I **skapa**, ange ett namn, Välj **interna** programtyp. För **omdirigerings-URI**, ange **urn: ietf:wg:oauth:2.0:oob**, och klicka sedan på **skapa**.
+2.  I **skapa**, anger du ett namn, Välj **interna** programtypen. För **omdirigerings-URI**, ange **urn: ietf:wg:oauth:2.0:oob**, och klicka sedan på **skapa**.
 
     ![Inställningar](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
 
-3.  Markera appen och sedan kopiera och spara den **program-ID**.
+3.  Välj din app och sedan kopiera och spara den **program-ID**.
 
     ![Kopiera program-ID](./media/analysis-services-async-refresh/aas-async-app-id.png)
 
@@ -222,24 +222,24 @@ Den här typen av autentisering kräver ett Azure-program skapas med de behörig
 
     ![Lägg till API-åtkomst](./media/analysis-services-async-refresh/aas-async-add.png)
 
-5.  I **väljer en API**, typen **Azure Analysis Services** i sökningen och välj sedan den.
+5.  I **Välj en API**, typ **Azure Analysis Services** i sökfältet och väljer den.
 
     ![Välj API](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
-6.  Välj **läsa och skriva alla modeller**, och klicka sedan på **Välj**. När båda är markerade klickar du på **klar** att lägga till behörigheter. Det kan ta några minuter att sprida.
+6.  Välj **läsa och skriva alla modeller**, och klicka sedan på **Välj**. När båda alternativen är markerade, klickar du på **klar** att lägga till behörigheter. Det kan ta några minuter att sprida.
 
     ![Välj läsa och skriva alla modeller](./media/analysis-services-async-refresh/aas-async-select-read.png)
 
-7.  I kodexemplet kan hitta den **UpdateToken()** metod. Se innehållet i den här metoden.
-8.  Hitta **string clientID =...** , och ange sedan den **program-ID** du kopierade från steg 3.
+7.  I kodexemplet, hitta den **UpdateToken()** metod. Se innehållet i den här metoden.
+8.  Hitta **sträng clientID =...** , och ange sedan den **program-ID** du kopierade från steg 3.
 9.  Kör exemplet.
 
 #### <a name="service-principal"></a>Tjänstens huvudnamn
 
-Se [skapa tjänstens huvudnamn - Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md) och [lägga till ett huvudnamn för tjänsten i serveradministratörsrollen](analysis-services-addservprinc-admins.md) för mer information om hur du ställer in ett huvudnamn för tjänsten och tilldela behörighet i Azure som . När du har slutfört stegen, utför följande åtgärder:
+Se [skapa tjänstens huvudnamn – Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md) och [lägga till tjänstens huvudnamn till administratörsrollen för servern](analysis-services-addservprinc-admins.md) för mer information om hur du konfigurerar ett tjänstobjekt och tilldela nödvändiga behörigheter i Azure som . När du har slutfört stegen, utför följande åtgärder:
 
-1.  I kodexemplet kan hitta **string myndigheten =...** , Ersätt **vanliga** med organisationens klient-ID.
-2.  Kommentar/ta bort kommentarerna så ClientCredential klassen används för att initiera Använ-objekt. Se till att den \<App-ID > och \<Appkey > värden används på ett säkert sätt eller använda certifikatbaserad autentisering för tjänstens huvudnamn.
+1.  I kodexemplet, hitta **sträng authority =...** , Ersätt **vanliga** med organisationens klient-ID.
+2.  Kommenterar/avkommenterar så att klassen ClientCredential används för att skapa en instans av objektet Använ. Se till att den \<App-ID > och \<Appnyckeln > värden används på ett säkert sätt eller använda certifikatbaserad autentisering för tjänstens huvudnamn.
 3.  Kör exemplet.
 
 

@@ -12,30 +12,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 8fd70380dbb88f379789e1a4730934dcd38cac5a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4f74b0f90795362d3e509fdbd33e5f358227f147
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29393226"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436879"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Ta emot händelser från Azure Event Hubs med .NET Framework
 
 ## <a name="introduction"></a>Introduktion
 
-Händelsehubbar är en tjänst som bearbetar stora mängder händelsedata (telemetri) från anslutna enheter och program. När du har samlat in data i händelsehubbar kan du lagra dem med ett lagringskluster eller omvandla dem med hjälp av en leverantör av realtidsanalys. Den här storskaliga händelseinsamlingen och bearbetningsfunktionen är en viktig komponent inom moderna programarkitekturer som t.ex. sakernas internet.
+Azure Event Hubs är en tjänst som bearbetar stora mängder händelsedata (telemetri) från anslutna enheter och program. När du har samlat in data i händelsehubbar kan du lagra dem med ett lagringskluster eller omvandla dem med hjälp av en leverantör av realtidsanalys. Den här storskaliga händelseinsamlingen och bearbetningsfunktionen är en viktig komponent inom moderna programarkitekturer som t.ex. sakernas internet.
 
-I den här självstudien får du lära dig att skriva ett .NET Framework-konsolprogram som tar emot meddelanden från en Event Hub med **[värden för händelsebearbetning][EventProcessorHost]**. För att skicka händelser med .NET Framework kan du läsa artikeln [Skicka händelser till Azure Event Hubs med .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) eller klicka på ditt avsändarspråk till vänster i innehållsförteckningen.
+I den här självstudien får du lära dig att skriva ett .NET Framework-konsolprogram som tar emot meddelanden från en Event Hub med **[värden för händelsebearbetning][Event Processor Host]**. För att skicka händelser med .NET Framework kan du läsa artikeln [Skicka händelser till Azure Event Hubs med .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) eller klicka på ditt avsändarspråk till vänster i innehållsförteckningen.
 
-[EventProcessorHost][EventProcessorHost] är en .NET-klass som förenklar mottagandet av händelser från händelsehubbar genom att hantera permanenta kontrollpunkter och parallella mottaganden från händelsehubbar. Med hjälp av [EventProcessorHost][Event Processor Host] kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. Det här exemplet visas hur man använder [EventProcessorHost][EventProcessorHost] för en enda mottagare. Exemplet på att [skala ut händelsebearbetning][Scale out Event Processing with Event Hubs] visar hur man använder [EventProcessorHost][EventProcessorHost] med flera mottagare.
+[EventProcessorHost][EventProcessorHost] är en .NET-klass som förenklar mottagandet av händelser från händelsehubbar genom att hantera permanenta kontrollpunkter och parallella mottaganden från händelsehubbar. Med värden för händelsebearbetning kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. Det här exemplet visar hur du använder Eventprocessorhost för en enda mottagare. Den [Utskalad händelsebearbetning] [ Scale out Event Processing with Event Hubs] exemplet visar hur du använder värden för händelsebearbetning med flera mottagare.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
-* [Microsoft Visual Studio 2015 eller senare](http://visualstudio.com). För skärmdumparna i de här självstudierna används Visual Studio 2017.
+* [Microsoft Visual Studio 2017 eller senare](http://visualstudio.com).
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett utan kostnad på ett par minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett namnområde för Event Hubs och en händelsehubb
@@ -46,15 +46,19 @@ Det första steget är att använda [Azure Portal](https://portal.azure.com) til
 
 För att kunna använda [EventProcessorHost][EventProcessorHost] behöver du ett [Azure Storage-konto][Azure Storage account]:
 
-1. Logga in på den [Azure-portalen][Azure portal], och klicka på **skapar du en resurs** på upp till vänster på skärmen.
+1. Logga in på den [Azure-portalen][Azure portal], och klicka på **skapa en resurs** på upp till vänster på skärmen.
+
 2. Klicka på **Lagring** och sedan på **Lagringskonto**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
-3. I den **skapa lagringskonto** rutan Ange ett namn för lagringskontot. Välj en Azure-prenumeration, resursgrupp och plats där du vill skapa resursen. Klicka sedan på **Skapa**.
+
+3. I den **skapa lagringskonto** fönstret anger du ett namn för lagringskontot. Välj en Azure-prenumeration, resursgrupp och plats där du vill skapa resursen. Klicka sedan på **Skapa**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+
 4. Klicka på det nyligen skapade lagringskontot i listan över lagringskonton.
-5. I fönstret storage-konto klickar du på **åtkomstnycklar**. Kopiera värdet för **nyckel1** och använd det senare i de här självstudierna.
+
+5. I rutan för lagring klickar du på **åtkomstnycklar**. Kopiera värdet för **nyckel1** och använd det senare i de här självstudierna.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
@@ -168,7 +172,7 @@ Grattis! Du har nu fått meddelanden från en händelsehubb med värden för hä
 
 Nu när du har skapat ett fungerande program som skapar en händelsehubb och skickar och tar emot data kan du lära dig mer genom att besöka följande länkar:
 
-* [Värd för händelsebearbetning][Event Processor Host]
+* [Översikt över Event Processor Host][Event Processor Host]
 * [Översikt av händelsehubbar][Event Hubs overview]
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
 
@@ -179,10 +183,10 @@ Nu när du har skapat ett fungerande program som skapar en händelsehubb och ski
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[EventProcessorHost]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Event Hubs overview]: event-hubs-about.md
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Event Hubs Programming Guide]: event-hubs-programming-guide.md
 [Azure Storage account]:../storage/common/storage-create-storage-account.md
-[Event Processor Host]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Event Processor Host]: event-hubs-event-processor-host.md
 [Azure portal]: https://portal.azure.com

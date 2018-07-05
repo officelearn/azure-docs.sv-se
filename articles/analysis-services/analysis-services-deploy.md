@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5cbad33bf98e4138b94916a8f87cc7e34901b3da
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9a3b969af861d6fb750b8aad666f2e1dfb7c8a3d
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595666"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447293"
 ---
 # <a name="deploy-a-model-from-ssdt"></a>Distribuera en modell från SSDT
 När du har skapat en server i din Azure-prenumeration är du redo att distribuera en tabellmodelldatabas till den. Du kan använda SQL Server Data Tools (SSDT) för att skapa och distribuera ett tabellmodellprojekt som du arbetar med. 
@@ -30,7 +30,7 @@ Du behöver följande för att komma igång:
 > 
 > 
 
-## <a name="get-the-server-name"></a>Hämta namnet på servern
+## <a name="get-the-server-name"></a>Hämta namnet på
 
 Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera servernamnet.
    

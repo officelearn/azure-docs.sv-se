@@ -1,106 +1,123 @@
 ---
-title: Hantera användarnas åtkomst i Azure AD B2C | Microsoft Docs
-description: Lär dig att identifiera minderåriga, samla in datum för födelsedatum och land data och få godkännande av villkor för användning i ditt program med hjälp av Azure AD B2C.
+title: Hantera användarnas åtkomst i Azure Active Directory B2C | Microsoft Docs
+description: Lär dig att identifiera minderåriga, samla in datum födelsedatum och land data och få godkännande av villkor för användning i ditt program med hjälp av Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: davidmu
-ms.openlocfilehash: c44135a3069966b14d8760e4daa009ab8d39ccca
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.component: B2C
+ms.openlocfilehash: adf2f555e907976f8b8efa863f255aa283098be9
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37450026"
 ---
 # <a name="manage-user-access-in-azure-ad-b2c"></a>Hantera användarnas åtkomst i Azure AD B2C
 
-Den här artikeln innehåller information om hur du kan hantera åtkomst till dina program med Azure Active Directory (AD) B2C. Åtkomsthantering i ditt program innehåller:
+Den här artikeln beskrivs hur du hanterar användarnas åtkomst till dina program med hjälp av Azure Active Directory (Azure AD) B2C. Hantering av ditt program innehåller:
 
-- Identifiera minderåriga och hur du styr åtkomst till ditt program
-- Kräver medgivandenivå för minderåriga att använda dina program
-- Datainsamlingen av födelsedatum och land data från användaren
-- Använder du sparandet villkoren i avtalet och gating åtkomst
+- Identifiera minderåriga och styra användarnas åtkomst till ditt program.
+- Kräver att medgivandenivå för minderåriga använda dina program.
+- Samla in födelsedatum och land data från användare.
+- Samla in ett avtal för villkor för användning och hantera åtkomsten.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 >[!Note] 
->Den här artikeln innehåller information som kan användas för att stödja din skyldigheter enligt BNPR. Om du letar efter allmän information om BNPR finns i [BNPR avsnitt av tjänsten förtroende portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+>Den här artikeln innehåller information som du kan använda för att stödja dina skyldigheter enligt GDPR. Om du letar efter allmän information om GDPR hittar du det i [GDPR-avsnittet på Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## <a name="control-minor-access"></a>Lägre behörighet
 
-Program och organisationer kan välja att blockera minderåriga från att använda program och tjänster som inte är riktade till målgruppen. Du kan också program och organisationer kan välja att acceptera minderåriga och sedan hantera medgivandenivå och leverera tillåtna upplevelser för minderåriga enligt affärsregler och tillåts av förordning. 
+Program och organisationer kan välja att blockera minderåriga från att använda program och tjänster som inte är riktade till målgruppen. Du kan också program och organisationer kan välja att acceptera minderåriga och därefter hantera föräldrars tillstånd och leverera tillåtna upplevelser för minderåriga enligt affärsregler och tillåts av förordning. 
 
-Om en användare identifieras som en mindre anges användaren flödet i Azure AD B2C till ett av tre alternativ:
+Om en användare identifieras som en mindre, kan du ange användarflödet i Azure AD B2C till något av tre alternativ:
 
-- **Skicka en signerad JWT id_token tillbaka till programmet** – användaren har registrerats i katalogen och en token tillbaka till programmet. Sedan fortsätter med hjälp av affärsregler. Programmet kan gå vidare med en medgivandenivå process. Om du vill göra detta måste du välja att få den **ageGroup** och **consentProvidedForMinor** anspråk från programmet.
-- **Skicka en osignerad JSON-token till programmet** -Azure AD B2C meddelar programmet att användaren är en mindre och ger status för användarens medgivandenivå. Sedan fortsätter med hjälp av affärsregler. En JSON-token slutförs inte autentiseringen med programmet. Programmet måste bearbeta oautentiserad användare enligt de anspråk som ingår i JSON-token, som kan innehålla **namn**, **e-post**, **ageGroup**, och **consentProvidedForMinor**.
-- **Blockera användaren** - om användaren är en mindre och medgivandenivå har inte angetts.  Azure AD B2C kan sedan presentera en skärm för användaren som informerar av blockeras.  Inga token utfärdas, blockeras åtkomst och användarkontot har inte skapats under en registration resa. Om du vill använda den här kan du ange en lämplig HTML/CSS-innehållssida för att informera användaren och finns lämpliga alternativ. Ingen ytterligare åtgärd krävs av programmet för nya registreringar.
+- **Skicka en signerad JWT-id_token tillbaka till programmet**: användaren har registrerats i katalogen och en token returneras till programmet. Sedan fortsätter genom att använda affärsregler. Exempelvis kan programmet fortsätta med en medgivandenivå process. Om du vill använda den här metoden måste du välja att ta emot den **ageGroup** och **consentProvidedForMinor** anspråk från programmet.
 
-## <a name="get-parental-consent"></a>Hämta ditt medgivande som förälder
+- **Skicka en osignerad JSON-token till programmet**: Azure AD B2C meddelar programmet att användaren är en mindre och som visar status för användarens föräldrars tillstånd. Sedan fortsätter genom att använda affärsregler. En JSON-token inte att slutföra en lyckad autentisering med programmet. Programmet måste bearbeta oautentiserad användare enligt de anspråk som ingår i JSON-token som kan innehålla **namn**, **e-post**, **ageGroup**, och **consentProvidedForMinor**.
 
-Beroende på programmet förordning, kan det krävas medgivandenivå för att beviljas åtkomst av en användare som har verifierats som vuxen.  Azure AD B2C tillhandahåller inte en upplevelse för att kontrollera en persons ålder och tillåta en verifierad vuxen att ge ditt medgivande som förälder till ett mindre.  Det här upplevelsen måste tillhandahållas av programmet eller en annan leverantör.
+- **Blockera användaren**: om en användare är en mindre och föräldrars tillstånd har inte angetts, Azure AD B2C kan meddela användaren att han eller hon är blockerad. Ingen token utfärdas, blockeras åtkomsten och användarkontot har inte skapats under en registrerings-resa. För att implementera det här meddelandet, kan du ange en lämplig HTML/CSS-innehållssida för att informera användaren och finns lämpliga alternativ. Ingen ytterligare åtgärd krävs av programmet för nya registreringar.
 
-Följande är ett exempel på ett flöde för användaren för att samla in föräldrars tillstånd:
+## <a name="get-parental-consent"></a>Hämta föräldrars tillstånd
 
-1. En [Azure Active Directory Graph API](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog) åtgärden identifierar användare som en mindre och returnerar informationen till programmet i form av en osignerad JSON-token.
-2. Programmet bearbetar JSON-token och visar en skärm som är mindre meddela den medgivandenivå krävs och begär tillstånd för en överordnad online. 
-3. Azure AD B2C visar en inloggning-resa där användaren får logga in normalt och utfärdar en token till det program som anges för att inkludera **legalAgeGroupClassification = ”minorWithParentalConsent”** programmet samlar in den e-postadressen till överordnat och verifierar överordnat är en vuxen med hjälp av en betrodd källa som en nationella ID office, Licensverifiering eller bevis kreditkort. Om det lyckas, uppmanar programmet mindre att logga in med Azure AD B2C användaren flödet. Om ditt medgivande nekades (t.ex. **legalAgeGroupClassification = ”minorWithoutParentalConsent”**, Azure AD B2C returnerar en JSON-token (inte en inloggning) till programmet för att starta om processen för medgivande. Det går eventuellt att anpassa flödet användare innebär en mindre eller en vuxen kan få åtkomst till en mindre konto genom att skicka en Registreringskod till den mindre e-postadress eller det vuxen e-postadress på posten.
-4. Programmet ger möjlighet att mindre att upphäva ditt medgivande.
-5. När mindre eller vuxen återkallar medgivande, Azure AD Graph API kan användas för att ändra **consetProvidedForMinor** till **nekad**. Programmet kan också välja att ta bort en mindre vars godkännande har återkallats. Det går eventuellt att anpassa flödet användaren där autentiserade mindre (eller överordnade med den mindre konto) kan upphäva ditt medgivande. Azure AD B2C poster **consentProvidedForMinor** som **nekad**.
+Beroende på program förordning behöva medgivandenivå beviljas av en användare som har verifierats som vuxen. Azure AD B2C tillhandahåller inte en upplevelse för att verifiera en persons ålder och låt en verifierad vuxen du beviljar minderårig föräldrars tillstånd. Den här upplevelsen måste tillhandahållas med programmet eller en annan tjänstleverantör.
 
-Mer information om den **legalAgeGroupClassification**, **consentProvidedForMinor**, och **ageGroup**, se [användaren resurstypen](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/user). Mer information om anpassade attribut finns [Använd anpassade attribut för att samla in information om dina användare](active-directory-b2c-reference-custom-attr.md). När du adresserar utökade attribut med hjälp av Azure AD Graph API lång version av attributet måste användas, till exempel ”extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth” ”: 2011-01-01T00:00:00Z”
+Följande är ett exempel på ett användarflöde för att samla in föräldrars tillstånd:
 
-## <a name="gather-date-of-birth-and-country-data"></a>Samla in datum för födelsedatum och land data
+1. En [Azure Active Directory Graph API](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog) åtgärden identifierar användaren som minderårig och returnerar användarens data till programmet i form av en osignerad JSON-token.
 
-Program kan förlita sig på Azure AD B2C för att samla in födelsedatum (DOB) och land från alla användare under registreringen. Om DOB eller landsinformation inte redan finns, det kan du bli uppmanad för användaren under nästa transporten authentication (logga in). Användare kommer inte att kunna fortsätta utan att ange DOB och land. Beroende på land och DOB tillhandahålls, anger Azure AD B2C om enskilda betraktas som en mindre enligt standarderna för landet i fråga. 
+2. Programmet bearbetar JSON-token och visar en skärm till mindre, meddela honom eller henne att föräldrars tillstånd krävs och begära medgivande från en överordnad online. 
 
-En anpassad flöde kan samla in DOB och landsinformation och använda Azure AD B2C anspråk omvandling att fastställa den **ageGroup** och spara resultatet (eller bevara land och DOB information direkt) i katalogen.
+3. Azure AD B2C visar en inloggning resa att användaren kan logga in på normalt och utfärdar en token till det program som har angetts att inkludera **legalAgeGroupClassification = ”minorWithParentalConsent”**. Programmet samlar in e-postadressen till överordnat och kontrollerar att överordnat är en vuxen. Om du vill göra det använder en betrodd källa, till exempel en nationell ID office, Licensverifiering eller kreditkort bevis. Om verifieringen lyckas uppmanar programmet mindre att logga in med hjälp av Azure AD B2C-användarflödet. Om medgivande nekas (till exempel om **legalAgeGroupClassification = ”minorWithoutParentalConsent”**), Azure AD B2C returnerar en JSON-token (inte en inloggning) i program för att starta om processen för medgivande. Det är också möjligt att anpassa användarflödet så att en mindre eller en vuxen kan få åtkomst till en mindre konto genom att skicka en Registreringskod till det mindre e-postadress eller det vuxen e-postadress på posten.
 
-Följande steg visar logiken som används för att beräkna **ageGroup** från Födelsedatum:
+4. Programmet ger möjlighet till mindre att återkalla medgivande.
 
-1. Försök att hitta landet av landskoden i listan. Om det gick inte att hitta landet, återgår till att **standard**.
-2. Om den **MinorConsent** noden finns i det land-elementet:  <br>a. Beräkna det tidigaste datum som användaren fick du föddes på för att ses som en vuxen. Exempel: födelsedatum är 3-14/2015 och **MinorConsent** är 18, att det minsta födelsedatum 2000-3-14.
-    <br>b. Jämför minsta födelsedatumet med det faktiska födelsedatumet. Om det minsta födelsedatumet är innan användarens födelsedatum beräkningen returnerar **mindre** som ålder gruppberäkningar.
-3. Om den **MinorNoConsentRequired** noden finns i land element, Upprepa steg 2a och 2b med värdet från **MinorNoConsentRequired**. Returnerar resultatet av 2b **MinorNoConsentRequired** om det minsta födelsedatumet är före användarens födelsedatum. 
-4. Om varken beräkningar returnerade värdet true, beräkningen returnerar **vuxna**.
+5. När mindre eller vuxen återkallar ditt medgivande, Azure AD Graph API kan användas för att ändra **consentProvidedForMinor** till **nekas**. Programmet kan också välja att ta bort minderårig vars godkännande har återkallats. Det är också möjligt att anpassa användarflödet så att den autentiserade mindre (eller överordnade som använder den mindre konto) kan återkalla medgivande. Azure AD B2C-poster **consentProvidedForMinor** som **nekas**.
 
-Om ett program har på ett tillförlitligt sätt insamlade DOB eller landsspecifika data med andra metoder, kan programmet använda GRAPH API för att uppdatera användarposten med den här informationen. Exempel:
+Mer information om **legalAgeGroupClassification**, **consentProvidedForMinor**, och **ageGroup**, se [användarresurstyp](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/user). Läs mer om anpassade attribut, [Använd anpassade attribut för att samla in information om dina användare](active-directory-b2c-reference-custom-attr.md). När du har gått utökade attribut med hjälp av Azure AD Graph-API måste du använda den långa versionen av attributet, som *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
-- Om en användare är känt att en vuxen, uppdatera attributet directory **ageGroup** med värdet **vuxna**.
-- Om en användare är känt att en mindre uppdatera attributet directory **ageGroup** med värdet **mindre** och ange **consentProvidedForMinor** efter behov.
+## <a name="gather-date-of-birth-and-country-data"></a>Samla in datumet för födelsedatum och land
 
-Läs mer om datainsamling DOB [med ålder gating i Azure AD B2C](basic-age-gating.md).
+Program kan förlita sig på Azure AD B2C för att samla in födelsedatum (DOB) och landspecifik information från alla användare under registreringen. Om den här informationen inte redan finns, kan programmet begära den från användaren under nästa authentication (logga in) resan. Användare kan inte fortsätta utan att ange sina DOB och land. Azure AD B2C använder informationen för att avgöra om enskilda betraktas som minderårig enligt regelverk i det landet. 
+
+En anpassad användarflödet kan samla in DOB och landspecifik information och använda Azure AD B2C anspråk omvandlingen att fastställa den **ageGroup** och spara resultatet (eller kvar DOB och landspecifik information direkt) i katalogen.
+
+Följande steg visar logiken som används för att beräkna **ageGroup** från användarens Födelsedatum:
+
+1. Försök att hitta landet genom landskoden i listan. Om landet inte hittas, återgår till att **standard**.
+
+2. Om den **MinorConsent** noden finns i det land-elementet:
+
+    a. Beräkna det datum då användaren måste vara född på för att anses vara en vuxen. Exempel: om dagens datum är 14 mars 2015 och **MinorConsent** är 18, födelsedatumet måste vara senare än 14 mars 2000.
+
+    b. Jämför det minsta födelsedatumet med det faktiska födelsedatumet. Om är det minsta födelsedatumet innan användarens födelsedatum, beräkningen returnerar **mindre** som åldersgrupp beräkningen.
+
+3. Om den **MinorNoConsentRequired** noden finns i land element, upprepar du steg 2a och 2b med värdet från **MinorNoConsentRequired**. Returnerar resultatet av 2b **MinorNoConsentRequired** om det minsta födelsedatumet är före användarens födelsedatum. 
+
+4. Om varken beräkningen returneras true, beräkningen returnerar **vuxet**.
+
+Om ett program har på ett tillförlitligt sätt insamlade DOB eller landdata med andra metoder, kan programmet använda Graph API för att uppdatera användarposten med den här informationen. Exempel:
+
+- Om en användare är känd måste vara vuxen, uppdatera attributet directory **ageGroup** med värdet **vuxet**.
+- Om en användare har visat sig vara minderårig, uppdatera attributet directory **ageGroup** med värdet **mindre** och ange **consentProvidedForMinor**efter behov.
+
+Läs mer om datainsamling DOB [använda åldershantering i Azure AD B2C](basic-age-gating.md).
 
 ## <a name="capture-terms-of-use-agreement"></a>Samla in villkor för användning
 
-När du utvecklar programmet vanligtvis avbilda användaren godkännande av villkor för användning i sina program utan, eller endast små medverkan från användarkatalogen för.  Det är möjligt, men om du vill använda en Azure AD B2C användaren flöda till samla in licensvillkoren för villkor för användning, begränsa åtkomst om godkännande har beviljats och tillämpa godkännande av framtida ändringar användningsvillkoren baserat på datumet för senaste godkännande och datumet för senaste bakåtkompileringen n av användningsvillkoren.
+När du utvecklar ditt program kan du avbilda normalt användarnas godkännande av villkor för användning i sina program utan eller endast små deltagare från katalogen för användaren. Det är dock möjligt att använda en Azure AD B2C-användarflödet att samla in en användares godkännande av användningsvillkor, begränsa åtkomst om godkännande inte beviljas och genomdriva godkännande av användningsvillkor, baserat på datumet för senaste godkännande och datumet för framtida ändringar i  senaste versionen av användningsvillkoren.
 
-**Villkor för användning av** också innefatta ”samtycker till att dela data med tredje part”.  Positivt godkännande av dessa villkor från en användare kan tekniskt samlas in som kombineras eller användaren kan ta emot en och inte en beroende på lokala föreskrifter och affärsregler.
+**Användningsvillkor** också innefatta ”samtycker till att dela data med tredje part”. Du kan samla in en användares godkännande av båda villkoren kombineras beroende på lokala föreskrifter och affärsregler, eller du kan tillåta att användaren godkänner ett villkor och inte på den andra.
 
-Följande steg beskriver funktioner för hantering av villkor för användning:
+Följande steg beskriver hur du kan hantera användningsvillkor:
 
-1. Registrera godkännande av villkor för användning och datum för godkännande av med Graph API och utökade attribut. Detta kan göras med hjälp av både inbyggda och anpassade användaren flöden. Vi rekommenderar att du skapar och använder den **extension_termsOfUseConsentDateTime** och **extension_termsOfUseConsentVersion** attribut.
-2. Skapa en obligatorisk kryssruta med namnet ”acceptera användningsvillkoren” och registrera resultatet under registreringen. Detta kan göras med hjälp av både inbyggda och anpassade användaren flöden.
-3. Azure AD B2C lagrar villkoren för användning och samtycke. Graph API kan användas för att fråga efter status för alla användare genom att läsa attributet för anknytning som används för att registrera svaret, till exempel läsa **termsOfUseTestUpdateDateTime**. Detta kan göras med hjälp av både inbyggda och anpassade användaren flöden.
-4. Kräv godkännande av uppdaterade användningsvillkoren genom att jämföra dag då datumet för den senaste versionen av användningsvillkoren. Detta kan endast göras med hjälp av en anpassad användare flöde. Använd det utökade attributet **extension_termsOfUseConsentDateTime** och jämför värdet till anspråk av **termsOfUseTextUpdateDateTime**om godkännande är gammal och framtvinga sedan en ny godkännande automatisk vars skärmen, annars att blockera åtkomst med hjälp av principlogik.
-5. Kräv godkännande av uppdaterade användningsvillkoren genom att jämföra versionsnumret för godkännande till senaste godkända versionsnummer. Detta kan endast göras med hjälp av en anpassad användare flöde. Använd det utökade attributet **extension_termsOfUseConsentDateTime** och jämför värdet till anspråk av **extension_termsOfUseConsentVersion**om godkännande är gammal och framtvinga sedan en ny godkännande automatisk vars skärmen, annars att blockera åtkomst med hjälp av principlogik.
+1. Registrera godkännande av villkor för användning och dag då med hjälp av Graph API och utökade attribut. Du kan göra det med hjälp av både inbyggda och anpassade användarflöden. Vi rekommenderar att du skapar och använder den **extension_termsOfUseConsentDateTime** och **extension_termsOfUseConsentVersion** attribut.
 
-Samla in villkor för användning samtycke kan visas för användaren under följande scenarier:
+2. Skapa en obligatorisk kryssruta med namnet ”godkänna användningsvillkoren” och registrera resultatet under registreringen. Du kan göra det med hjälp av både inbyggda och anpassade användarflöden.
 
-- En ny användare loggar. Användningsvillkoren visas resultatet medgivande lagras.
-- En användare loggar in och redan tidigare har accepterat ditt medgivande för senaste eller aktiva villkoren i avtalet. Villkor för användning visas inte.
-- En användare loggar in och har redan accepterades inte ditt medgivande för senaste eller aktiva användningsvillkoren. Användningsvillkoren visas resultatet medgivande lagras.
-- En användare loggar in och har redan accepterats godkännande för en äldre villkor för användning som har uppdaterats till en senare version. Användningsvillkoren visas resultatet medgivande lagras.
+3. Azure AD B2C lagrar villkoren i avtalet för användning och användarens godkännande. Du kan använda Graph-API för att fråga för status för alla användare genom att läsa attributet anknytning som används för att registrera svaret (till exempel läsa **termsOfUseTestUpdateDateTime**). Du kan göra det med hjälp av både inbyggda och anpassade användarflöden.
 
-Följande bild visar rekommenderade användaren flöde:
+4. Kräv godkännande av uppdaterade användningsvillkoren genom att jämföra dag då att datumet för den senaste versionen av användningsvillkoren. Du kan jämföra datum med ett anpassat användarflöde. Använda EA **extension_termsOfUseConsentDateTime**, och jämför värdet till anspråk av **termsOfUseTextUpdateDateTime**. Framtvinga ett nytt godkännande genom att visa en självkontrollerad skärm om godkännande är gammal. Annars kan blockera åtkomst med hjälp av principlogik.
 
-![flöde för godkännande av användare](./media/manage-user-access/user-flow.png) 
+5. Kräv godkännande av uppdaterade användningsvillkoren genom att jämföra det lägre versionsnumret för godkännande till den senaste godkända versionsnumret. Du kan jämföra versionsnummer med ett anpassat användarflöde. Använda EA **extension_termsOfUseConsentDateTime**, och jämför värdet till anspråk av **extension_termsOfUseConsentVersion**. Framtvinga ett nytt godkännande genom att visa en självkontrollerad skärm om godkännande är gammal. Annars kan blockera åtkomst med hjälp av principlogik.
 
-Följande är ett exempel på en DateTime baserat villkor för godkännande för användning i ett anspråk:
+Du kan avbilda användningsvillkor Använd godkännande under följande scenarier:
+
+- En ny användare loggar. Användningsvillkoren visas och godkännande resultatet lagras.
+- En användare loggar in som tidigare har accepterat villkoren i avtal senaste eller aktiv. Användningsvillkoren visas inte.
+- En användare loggar in som inte har redan accepterat användningsvillkoren för senaste eller aktiv. Användningsvillkoren visas och godkännande resultatet lagras.
+- En användare loggar in som redan har godkänt en äldre version av villkoren, som nu har uppdaterats till den senaste versionen. Användningsvillkoren visas och godkännande resultatet lagras.
+
+Följande bild visar rekommenderade användarflödet:
+
+![Policy för godkännande](./media/manage-user-access/user-flow.png) 
+
+Följande är ett exempel på en DateTime-baserade villkor medgivande för användningsvillkor i ett anspråk:
 
 ```
 <ClaimsTransformations>
@@ -123,7 +140,7 @@ Följande är ett exempel på en DateTime baserat villkor för godkännande för
 </ClaimsTransformations>
 ```
 
-Följande är ett exempel på en Version baserat villkor för godkännande för användning i ett anspråk:
+Följande är ett exempel på en Version baserad villkoren medgivande för användningsvillkor i ett anspråk:
 
 ```
 <ClaimsTransformations>
@@ -161,4 +178,4 @@ Följande är ett exempel på en Version baserat villkor för godkännande för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du tar bort och exportera användardata i [hanterar användardata](manage-user-data.md)
+- Läs hur du tar bort och exportera användardata i [hanterar användardata](manage-user-data.md).

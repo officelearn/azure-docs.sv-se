@@ -1,28 +1,28 @@
-Jobbet producerar en JSON-utdata-fil som innehåller metadata om identifierade och spårade ytor. Metadata innehåller koordinater som anger platsen för ytor, samt ett ansikte ID-nummer som indikerar spårning av att enskilda. Ansikts-ID-nummer är lätt att återställa i fall när de främre står inför tappas bort eller överlappas i RAM, vilket resulterar i några personer komma tilldelade flera ID: N.
+Jobbet producerar en JSON-utdata-fil som innehåller metadata om identifierade och spårade ansikten. Metadata innehåller koordinater som anger platsen för ansikten, samt ett face ID-nummer som indikerar spårningen av den individen. Face ID-nummer är lätt att återställa under omständigheter när främre ansiktet förloras eller överlappas i RAM, vilket resulterar i vissa personer komma tilldelats flera ID: N.
 
 Utdata JSON innehåller följande element:
 
-### <a name="root-json-elements"></a>Roten JSON-element
+### <a name="root-json-elements"></a>Rot JSON-element
 
 | Element | Beskrivning |
 | --- | --- |
 | version |Detta refererar till versionen av Video-API. |
-| tidsrymd |”Tick” per sekund i videon. |
-| förskjutning |Detta är tidsförskjutningen för tidsstämplar. I version 1.0 av API: er för Video att detta alltid vara 0. I framtiden scenarier som vi stöder det här värdet kan ändras. |
-| bredden, High |Bredden och High utdata video ramens, i bildpunkter.|
+| tidsskalan |”Ticken” per sekund av videon. |
+| förskjutning |Det här är tidsförskjutningen för tidsstämplar. Det kommer alltid ske 0 i version 1.0 av Video-API: er. I framtiden scenarier som vi har stöd för det här värdet kan ändras. |
+| bredd, High |Bredden och High för utdata video ramen, i bildpunkter.|
 | ramhastighet |Bildrutor per sekund av videon. |
-| [fragment](#fragments-json-elements) |Metadata är chunked upp till olika segment som kallas fragment. Varje avsnitt innehåller en start, varaktighet, antalet och händelse(r). |
+| [fragment](#fragments-json-elements) |Metadata är segmentvis upp i olika segment som kallas fragment. Varje fragment innehåller en start, varaktighet, antalet och händelse(r). |
 
 ### <a name="fragments-json-elements"></a>Fragment JSON-element
 
 |Element|Beskrivning|
 |---|---|
-| start |Starttiden för den första händelsen i ”tick”. |
-| Varaktighet |Längden på ett fragment, i ”tick”. |
-| index | (Gäller bara för Azure Media Redactor) definierar ram index för den aktuella händelsen. |
-| interval |Intervallet för varje händelsepost i avsnittet i ”tick”. |
-| evenemang |Varje händelse innehåller ytor identifieras och spåras inom den varaktigheten. Det är en matris av händelser. Yttre matrisen representerar ett tidsintervall. Den interna matrisen består av 0 eller fler händelser som skedde vid den punkten i tid. En tom hakparentes [] innebär att inga ytor upptäcktes. |
-| id |ID för de står inför som spåras. Det här antalet kan oavsiktligt ändra om ett ansikte blir oupptäckt. En viss person ska ha samma ID i hela övergripande video, men det går inte att garantera på grund av begränsningar i identifieringsalgoritm (är spärrat, etc.). |
-| x, y |Det övre vänstra hörnet X och Y-koordinaterna för de står inför angränsande ruta i en normaliserade skala av 0,0 till 1,0. <br/>-X och Y koordinater är relativa till liggande alltid, så om du har en stående video (eller upp och ned, när det gäller iOS), måste du därför transponera koordinaterna. |
-| bredd, höjd |Bredden och höjden på de står inför angränsande ruta i en normaliserade skala av 0,0 till 1,0. |
-| facesDetected |Detta har hittats i slutet av JSON-resultaten och sammanfattar antal ytor algoritmen upptäcktes när videon. Eftersom dessa ID: N kan du återställa oavsiktligt om ett ansikte blir oupptäckt (t.ex. de står inför går utanför skärmen ser ut direkt) kan det här antalet kan inte alltid lika med true antal ytor i videon. |
+| start |Starttiden för den första händelsen i ”ticken”. |
+| varaktighet |Längden på ett fragment, i ”ticken”. |
+| index | (Gäller bara för Azure Media Redactor) definierar ramens index för den aktuella händelsen. |
+| interval |Intervallet för varje händelsepost i avsnittet i ”ticken”. |
+| evenemang |Varje händelse innehåller ansikten har identifierats och spåras inom den varaktigheten. Det är en matris med händelser. Yttre matrisen representerar en viss tidsperiod. Den inre matrisen består av 0 eller fler händelser som inträffade vid den tidpunkten i tid. En tom hakparentes [] innebär inga ansikten har identifierats. |
+| id |ID för ansiktet som spåras. Det här talet ändras oavsiktligt om ett ansikte blir oidentifierade. En viss person bör ha samma ID i hela den övergripande videon, men detta kan inte garanteras på grund av begränsningar i identifieringsalgoritm (ocklusion, osv.). |
+| x, y |Övre vänstra hörnet X och Y-koordinaterna för de står inför angränsande ruta i en normaliserad skala av 0,0 till 1,0. <br/>-X- och Y koordinaterna är relativ till liggande alltid, så om du har en stående video (eller upp och ned, när det gäller iOS), måste du transponera koordinaterna i enlighet med detta. |
+| bredd, höjd |Bredden och höjden på ansiktet angränsande ruta i en normaliserad skala av 0,0 till 1,0. |
+| facesDetected |Detta finns i slutet av JSON-resultaten och sammanfattar hur många ansikten som algoritmen har identifierats under videon. Eftersom de ID: N kan återställas oavsiktligt om ett ansikte blir oidentifierade (t.ex. de står inför går utanför skärmen ser direkt), det här antalet kan inte alltid lika med SANT antalet ansikten i videon. |

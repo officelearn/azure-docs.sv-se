@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 08ff4b2190b26471d7b1ac1850ce89f889b8c256
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 10ccb80dd74606d2ad40ab5d7993aed8cd71725e
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814738"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329679"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generera filen för begäran om certifikatsignering
 APNS (Apple Push Notification Service) använder sig av certifikat för att autentisera dina push-meddelanden. Följ de här instruktionerna för att skapa nödvändiga push-certifikat för att skicka och ta emot meddelanden. Mer information om de här koncepten finns i den officiella [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584)-dokumentationen.
@@ -38,7 +38,7 @@ Därefter registrerar du din app med Apple, aktivera push-meddelanden och laddar
 ## <a name="register-your-app-for-push-notifications"></a>Registrera din app för push-meddelanden
 För att kunna skicka push-meddelanden till en iOS-app måste du registrera programmet med Apple och registrera dig för push-meddelanden.  
 
-1. Om du inte redan har registrerat din app, navigerar du till <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> i Apple Developer Center, loggar in med ditt Apple-ID, klickar på **Identifierare**, klickar sedan på **App-ID:n** och klickar slutligen på **+** logga in för att registrera en ny app.
+1. Om du inte redan har registrerat din app så navigerar du till <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> i Apple Developer Center, loggar in med ditt Apple-ID, klickar först på **Identifierare**, sedan på **App-ID:n** och slutligen på **+** Logga in för att registrera en ny app.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
       

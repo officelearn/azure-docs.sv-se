@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f18e94b6f788609dc5a0466e9d8ffa0c02056b1e
-ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
+ms.openlocfilehash: 199998f193f375137d499913e9ce966f85ed863c
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35678063"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753803"
 ---
 ### <a name="supportedclientos"></a>Vilka klientoperativsystem kan jag använda med punkt-till-plats?
 
@@ -93,7 +93,7 @@ När du konfigurerar både SSTP och IKEv2 i en blandad miljö (som består av Wi
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>För vilka andra plattformar förutom Windows och Mac har Azure stöd för P2S VPN?
 
-Azure har endast stöd för Windows och Mac för P2S-VPN.
+Azure har stöd för Windows, Mac och Linux för P2S-VPN.
 
 ### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Jag har redan en Azure VPN Gateway distribuerad. Kan jag aktivera RADIUS och/eller IKEv2 VPN på den?
 

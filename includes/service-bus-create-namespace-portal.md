@@ -5,15 +5,15 @@ services: service-bus-messaging
 author: sethmanheim
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 06/29/2018
+ms.date: 07/03/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 503a1db726483709c351ac9861c5d54913de55d3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a110998505ed49c36e1ec722b1dfbf0969def060
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132015"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449566"
 ---
 För att komma igång med Service Bus-meddelandeentiteter i Azure måste du först skapa ett namnområde med ett namn som är unikt i Azure. Ett namnområde innehåller en omfattningsbehållare för adressering av Service Bus-resurser i ditt program.
 
@@ -22,7 +22,7 @@ Så här skapar du ett namnområde:
 1. Logga in på [Azure Portal][Azure portal].
 2. I det vänstra navigeringsfältet i portalen klickar du på **+ Skapa en resurs**, därefter klickar du på **Integration** och sedan på **Service Bus**.
 3. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
-4. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Basic, Standard eller Premium).
+4. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Basic, Standard eller Premium). Om du vill använda [ämnen och prenumerationer](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) ska du välja antingen Standard eller Premium. Ämnen/prenumerationer stöds inte på Basic-prisnivån.
 5. I fältet **Prenumeration** väljer du en Azure-prenumeration för vilken du vill skapa namnområdet.
 6. I fältet **Resursgrupp** väljer du en befintlig resursgrupp där namnområdet ska finnas eller skapar en ny.      
 7. I **Plats** väljer du land eller region där namnområdet ska finnas.

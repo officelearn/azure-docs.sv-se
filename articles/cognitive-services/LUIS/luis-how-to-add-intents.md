@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
 ms.service: cognitive-services
-ms.openlocfilehash: f004a0a1726ca6c513e2cb4c137f82ae40e31a01
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 479fa450b86d19032e75ef6aa511a7bdca608d75
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344335"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869060"
 ---
 # <a name="manage-intents"></a>Hantera avsikter 
 Lägg till [avsikter](luis-concept-intent.md) till din LUIS-app för att identifiera grupper av frågor eller kommandon som har samma avsikt. 
@@ -75,9 +75,9 @@ Se [Lägg till mönster från befintliga uttryck på avsikten eller entitet](lui
 
 ## <a name="edit-an-utterance-on-intent-page"></a>Redigera ett uttryck på avsikt sida
 
-Om du vill redigera ett uttryck, väljer du tre punkter (...)-ikonen längst till höger på raden för den uttryck och välj sedan **redigera**. Ändra texten och tryck på RETUR på tangentbordet.
+Om du vill redigera ett uttryck, Välj ellipsen (***...*** ) längst till höger på raden för den uttryck och välj sedan **redigera**. Ändra texten och tryck på RETUR på tangentbordet.
 
-![Skärmbild av avsikter detaljsidan med tre punkter ikon markerat](./media/luis-how-to-add-intents/edit-utterance.png) 
+![Skärmbild av avsikter detaljsidan med knappen med tre punkter markerat](./media/luis-how-to-add-intents/edit-utterance.png) 
 
 ## <a name="reassign-utterances-on-intent-page"></a>Omtilldela yttranden på avsikt sida
 Du kan ändra syftet med en eller flera yttranden genom att tilldela dem till en annan avsikt. 
@@ -92,7 +92,7 @@ Om du vill ändra syftet med flera yttranden, markerar du kryssrutorna till vän
 
 ## <a name="delete-utterances-on-intent-page"></a>Ta bort yttranden på avsikt sida
 
-Välj ikonen tre punkter (...) längst till höger på raden för den uttryck för att ta bort ett uttryck, och välj sedan **ta bort**. Uttryck tas bort från listan och LUIS-app.
+Om du vill ta bort ett uttryck, Välj ellipsen (***...*** ) längst till höger på raden för den uttryck och välj sedan **ta bort**. Uttryck tas bort från listan och LUIS-app.
 
 ![Skärmbild av avsikter sidan, med alternativet Ta bort markerade](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
 

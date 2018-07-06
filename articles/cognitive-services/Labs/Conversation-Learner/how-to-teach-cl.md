@@ -1,7 +1,7 @@
 ---
-title: Hur de ska lära med konversation deltagaren - kognitiva Microsoft-tjänster | Microsoft Docs
+title: Hur de ska lära med Konversationsdeltagare - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig mer om att utbilda med konversation deltagaren.
+description: Lär dig att lära med Konversationsdeltagare.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,66 +10,66 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 639fea64fc8eeb2c1f6e6240c4eb26efc68febbd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 06fd547ff87263b660e697693c65d9ac1a907628
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353970"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866733"
 ---
-# <a name="how-to-teach-with-conversation-learner"></a>Hur de ska lära med konversation deltagaren 
+# <a name="how-to-teach-with-conversation-learner"></a>Så här lär du ut med Conversation Learner 
 
-Det här dokumentet förklarar vad signalerar konversation deltagaren är medveten om och beskriver hur den lär sig.  
+Det här dokumentet beskriver vad signalerar Konversationsdeltagare är medveten om och beskriver hur den lär sig.  
 
-Lärare kan delas upp i två steg: entitet extrahering och val av åtgärd.
+Undervisning kan delas upp i två steg: entitetextrahering och val av åtgärd.
 
-## <a name="entity-extraction"></a>Entiteten extrahering
+## <a name="entity-extraction"></a>Entitetextrahering
 
-Under försättsbladen, konversation deltagaren använder [THOMAS](https://www.luis.ai) för extrahering av entiteten.  Om du är bekant med THOMAS som uppleva gäller entitet extrahering i konversationen deltagaren.
+Under försättsbladen, Konversationsdeltagare använder [LUIS](https://www.luis.ai) för entitetextrahering.  Om du är bekant med LUIS upplevelse avser entitetextrahering i Konversationsdeltagare.
 
-Entiteten extrahering modeller är medveten om den *innehåll* och *kontexten* inom en utterance för användaren.  Om ordet ”Seattle” har tagits med etiketten som en ort i en utterance som till exempel ”vad är väder i Seattle” är entitet extrahering kan identifiera samma innehåll (”Seattle”) som en ort i en annan utterance, till exempel ”ifyllning av Seattle”, även om den utterances är mycket annat.  Däremot om ”Carl” har tagits tolkas som ett namn i ”schemat möte med Carl” och sedan ett nytt tidigare överblivna namn kan identifieras i en liknande kontext som ”ställa in ett möte med Robin”.  Maskininlärning härleder när du ska delta i innehåll, kontext eller både och, baserat på utbildning exempel.
+Entiteten extrahering modeller är medvetna om de *innehåll* och *kontext* inom en användare-uttryck.  Om ordet ”Seattle” har fått en etikett som en stad i ett uttryck som till exempel ”vad är vädret i Seattle”, entitetextrahering kan känna igen samma innehåll (”Seattle”) som en stad i ett annat uttryck, till exempel ”ifyllning av Seattle” även om den yttranden skiljer sig mycket.  Däremot om ”Carl” har blivit erkänt som ett namn i ”schema ett möte med Carl”, och sedan ett nytt namn som tidigare kan identifieras i en liknande kontext, t.ex. ”ställa in ett möte med Robin”.  Maskininlärning härleder när du ska delta i innehållet, kontext eller båda, baserat på utbildning exempel.
 
-Entiteten extraheringen är för närvarande bara medveten om innehållet i den aktuella utterance.  Till skillnad från åtgärden markeringen (nedan) är det inte medveten om dialogrutan historik som tidigare system aktiverar, föregående användare aktiverar eller tidigare identifierade enheter.  Därför är beteendet för extrahering av entiteten ”delad” över alla utterances.  Till exempel om användaren-utterance ”jag vill Apple” finns ”Apple” märkta som entitetstypen ”frukter” i en användare utterance entitet extrahering modellen förväntar sig att den här utterance (”jag vill Apple”) bör alltid ha ”Apple” med etiketten ”frukter”.
+Entitetextrahering har för närvarande endast om innehållet i den aktuella uttryck.  Till skillnad från åtgärdsval (nedan) är det inte medveten om dialogrutan historik som tidigare system aktiverar, tidigare användare aktiverar eller tidigare identifierade enheter.  Därför är beteendet för entitetextrahering ”delade” över alla yttranden.  Till exempel om användaren-uttryck som ”jag vill Apple” har ”äpple” märkta som entitetstypen ”frukt” i ett uttryck för användaren, entiteten extrahering modellen kommer förväntar sig att den här uttryck (”jag vill Apple”) bör alltid ha ”äpple” märkta som ”frukt”.
 
-Om entiteten extrahering inte uppför som förväntat, är här möjliga lösningar:
+Om entitetextrahering inte fungerar som förväntat, är här möjliga lösningar:
 
-- Det första du försök är att lägga till fler utbildning exempel--särskilt exempel som avslöjar vanliga entitet kontext (omgivande ord) eller undantag
-- Överväg att lägga till en ”förväntades” entitetsegenskap till en åtgärd om det är lämpligt.  Se kursen på förväntat entiteter för mer information.
-- Även om det är möjligt att lägga till manuell bearbetning till `EntityExtractionCallback` om du vill extrahera enheter med hjälp av koden, detta är den minsta rekommenderade metoden eftersom den inte drar nytta av förbättringar i machine learning då systemet utvecklas.
+- Det första du ska testa är att lägga till fler utbildning-exempel – särskilt exempel som avslöjar vanliga entitet kontext (omgivande ord) eller undantag
+- Överväg att lägga till en ”förväntades entitet”-egenskap till en åtgärd som, om det är lämpligt.  Se självstudien på förväntat entiteter finns mer information.
+- Det är möjligt att lägga till manuell bearbetning till `EntityExtractionCallback` för att extrahera entiteter med hjälp av kod, detta är den minst rekommenderade metoden eftersom den inte kan dra nytta av förbättringar i maskininlärning när systemet utvecklas.
 
 ## <a name="action-selection"></a>Val av åtgärd
 
-Val av åtgärd använder ett återkommande neurala nätverk, vilket tar alla konversationen som indata.  Val av åtgärd är alltså en tillståndskänslig process som är medveten om föregående användare utterances, entiteten värden och utterances system.  
+Val av åtgärd använder ett återkommande neurala nätverk som tar alla tidigare konversationer som indata.  Val av åtgärd är alltså en tillståndskänslig process som känner av föregående användare yttranden och entitetsvärden system yttranden.  
 
-Vissa signaler naturligt föredrar learning-processen.  Med andra ord om konversationen deltagaren förklaras beslut om en åtgärd med mer ”prioriterade” signaler, kommer det; Om den kan inte används mindre ”prioriterade” signaler.
+Vissa signaler naturligt föredrar learning processen.  Med andra ord om Konversationsdeltagare förklara beslut om en åtgärd med mer ”primära” signaler, kommer det att; Om den inte använder mindre ”primära” signaler.
 
-Här är en tabell som visar alla signaler i konversationen deltagaren och vilka som används av val av åtgärd.  Observera att word ordning i användaren utterances ignoreras.
+Här är en tabell som visar alla signaler i Konversationsdeltagare och vilka som används av val av åtgärd.  Observera att word ordning i användaren yttranden ignoreras.
 
 Signal | Inställningar (1 = mest föredragna) | Anteckningar
 --- | --- | --- 
-Åtgärd i föregående Stäng | 1 | 
-Enheter som finns i aktuella Stäng | 1 | 
-Om detta är den första Stäng | 1 |
-Exakt matchning av orden i den aktuella användaren utterance | 2 | 
-Liknar betydelse ord i den aktuella användaren utterance | 3 | 
-Aktivera systemåtgärder innan tidigare | 4 |
-Enheter som finns i sin tur före aktuell Stäng | 4 | 
-Aktivera användare utterances före aktuell | 5 | 
+Systemåtgärd i föregående sin tur | 1 | 
+Entiteter i aktuella aktivera | 1 | 
+Om detta är den första tur. | 1 |
+Exakt matchning av orden i den aktuella användaren uttryck | 2 | 
+Ett liknande sätt betydelse orden i den aktuella användaren uttryck | 3 | 
+Aktivera systemåtgärder före tidigare | 4 |
+Entiteter i sin tur före aktuella aktivera | 4 | 
+Aktivera användare yttranden före aktuell | 5 | 
 
-Observera att val av åtgärd innehållet i systemåtgärder--text, kort innehåll eller API-namnet eller beteende--endast identiteten för systemåtgärd.  Därför kan påverkar ändra innehållet i en åtgärd inte beteendet för åtgärden val av modellen.
+Observera att åtgärdsval inte ta innehållet i systemåtgärder--text, kortinnehåll eller API-namn eller beteende – endast identiteten för systemåtgärd.  Därför kan påverkar ändra innehållet i en åtgärd inte beteendet för åtgärden val av modellen.
 
-Dessutom används Observera att innehållet/värdena för enheter som inte--bara sådana förekomst/saknas.
+Ytterligare, Observera att innehållet/värden för entiteter inte är använda--endast sådana närvaro/saknas.
 
 Om val av åtgärd inte fungerar som förväntat, är här möjliga lösningar:
 
-- Lägg till mer train dialogrutor, särskilt dialogrutor som visar vilka signalerar val av åtgärd bör med hänsyn till.  Till exempel om val av åtgärd bör föredrar en signal över en annan, ger exempel på önskade signalen att den finns i samma tillstånd och de andra signaler variera.  Vissa sekvenser kan ta en handfull utbildning dialogrutorna för att lära dig.
-- Lägg till ”krävs” och ”diskvalificera” entiteter åtgärd definitioner.  Den här gränser när åtgärder är tillgängliga och kan vara användbara för snabb affärsregler och vissa vanliga meningsfullt mönster. 
+- Lägg till mer träna dialogrutor, särskilt dialogrutor som illustrerar vilka signaler val av åtgärd bör var uppmärksam på.  Till exempel om val av åtgärd bör föredrar en signal framför en annan, ge exempel som visar önskade signalen i samma tillstånd och de andra signaler varierande.  Vissa sekvenser kan ta en handfull utbildning dialogrutorna för att lära dig.
+- Lägg till ”obligatorisk” och ”diskvalificera” entiteter för att åtgärdsdefinitioner.  Den här gränser när åtgärder är tillgängliga och kan vara användbara för uttryckliga affärsregler och vissa sunt förnuft mönster. 
 
 ## <a name="updates-to-models"></a>Uppdateringar av modeller
 
-När du lägger till eller redigera en entitet, åtgärder eller train-dialogrutan i Användargränssnittet för genererar detta en begäran om att träna nytt både entitet extrahering modell och åtgärden val av modellen.  Denna begäran har placerats i en kö och utbildning igen görs asynkront.  När det finns en ny modell används den från den tidpunkten och senare för entiteten extrahering och åtgärden val.  Nytt utbildning processen ofta tar cirka 5 sekunder, men det kan vara längre om modellen är komplex, eller om belastningen på Utbildningstjänsten är hög.
+Varje gång du lägger till eller redigera en entitet, åtgärd eller träna dialogrutan i Användargränssnittet för genererar detta en begäran om att omskola både entitet extrahering modellen och modellen för val av åtgärd.  Den här förfrågan är placerad i kö och återkommande utbildning utförs asynkront.  Om det finns en ny modell för den används från den tidpunkten och senare för extrahering och åtgärd av.  Nytt utbildning processen ofta tar cirka 5 sekunder, men det kan vara längre om modellen är komplexa, eller om belastningen på Utbildningstjänsten är hög.
 
-Eftersom utbildning görs asynkront, är det möjligt att du har gjort ändringar inte visas direkt.  Om extrahering eller åtgärd av inte uppför som förväntat baserat på ändringar som du har gjort i de senaste 5-10 sekunderna, kan detta bero på.
+Eftersom utbildning utförs asynkront, är det möjligt att du har gjort ändringar inte visas direkt.  Om utdrag eller åtgärd av inte fungerar som förväntat baserat på ändringar som du har gjort de senaste 5 – 10 sekunderna, kan detta vara orsaken.
 
 ## <a name="next-steps"></a>Nästa steg
 

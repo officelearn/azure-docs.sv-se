@@ -1,6 +1,6 @@
 ---
-title: Batch testa appen THOMAS - Azure | Microsoft Docs
-description: Använd språk förstå (THOMAS) batch testning för att hitta utterances med felaktigt avsikter och enheter.
+title: Batch testa LUIS-appen – Azure | Microsoft Docs
+description: Använd Språkförståelse (LUIS) batch testning för att hitta yttranden med felaktig avsikter och entiteter.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,55 +9,55 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: 822fb1e2d5b13941527d242e8501b423bd6b81cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 0844ec9c421afd4cd1e9e8b2e6ab5fbe93b23d04
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265521"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868913"
 ---
-# <a name="batch-testing"></a>Testa batch
- Testa batch är ett omfattande test på din aktuella tränad modell att mäta prestanda i THOMAS. 
+# <a name="batch-testing"></a>Batch-testning
+ Testning av batch är en omfattande test på din aktuella tränade modellen att mäta prestanda i LUIS. 
 
 <a name="batch-testing"></a>
-## <a name="import-a-dataset-file-for-batch-testing"></a>Importera en dataset-fil för att testa batch
+## <a name="import-a-dataset-file-for-batch-testing"></a>Importera en datauppsättning-fil för att testa batch
 
-1. Välj **Test** i övre, och välj sedan **Batch-tester panelen**.
+1. Välj **Test** längst upp och sedan väljer **Batch-testning panelen**.
 
-    ![Testa batch-länk](./media/luis-how-to-batch-test/batch-testing-link.png)
+    ![Batch Testa länk](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. Välj **importera dataset**. Den **Importera nya dataset** dialogrutan visas. Välj **Välj fil** och leta upp den [JSON](luis-concept-batch-test.md#batch-file-format) -fil som innehåller *mer än 1 000* utterances att testa.
+2. Välj **importera datauppsättningen**. Den **importera ny datauppsättning** dialogrutan visas. Välj **Välj fil** och leta upp en JSON-fil med rätt [JSON-format](luis-concept-batch-test.md#batch-file-format) som innehåller *mer än 1 000* yttranden att testa.
 
-    ![Importera Dataset-filen](./media/luis-how-to-batch-test/batchtest-importset.png)
+    ![Importera datauppsättningen fil](./media/luis-how-to-batch-test/batchtest-importset.png)
 
-    Importera fel rapporteras i en röd meddelandefält längst upp i webbläsaren. När en import har fel, skapas ingen datauppsättning. Mer information finns i [vanliga fel](luis-concept-batch-test.md#common-errors-importing-a-batch).
+    Importfel rapporteras i en röd meddelandefältet längst upp i webbläsaren. När en import har fel, skapas inte någon datauppsättning. Mer information finns i [vanliga fel](luis-concept-batch-test.md#common-errors-importing-a-batch).
 
-3. I den **Dataset-namnet** , ange ett namn för dataset-fil. Dataset-filen innehåller en **matris med utterances** inklusive den *etikett avsikt* och *entiteter*. Granska de [exempel kommandofil](luis-concept-batch-test.md#batch-file-format) för syntax. 
+3. I den **Datamängdsnamn** fältet, anger du ett namn för din datauppsättning. Dataset-filen innehåller en **matris med yttranden** , inklusive den *märkta avsikt* och *entiteter*. Granska den [batch-exempelfil](luis-concept-batch-test.md#batch-file-format) syntax. 
 
-4. Välj **klar**. Dataset-fil har lagts till.
+4. Välj **Done** (Klar). Datauppsättningsfilen har lagts till.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Kör, byta namn på, exportera eller ta bort datauppsättning
-Om du vill köra, byta namn på, exportera eller ta bort datauppsättningen, använder du de tre punkterna (**...** ) i slutet av raden dataset.
+Om du vill köra, byta namn på, exportera eller ta bort datauppsättningen, använder du de tre punkterna (***...*** ) i slutet av raden för datauppsättningen.
 
-![DataSet-åtgärder](./media/luis-how-to-batch-test/batch-testing-options.png)
+![Åtgärder för datauppsättning](./media/luis-how-to-batch-test/batch-testing-options.png)
 
-## <a name="run-a-batch-test-on-your-trained-app"></a>Köra ett batch-test på utbildade appen
+## <a name="run-a-batch-test-on-your-trained-app"></a>Köra ett batch-test på din tränade app
 
-Välj dataset-namnet för att köra testet. När testet är klart visas den här raden testresultat för dataset.
+Kör testet genom att markera datauppsättningens namn. När testet är klart visar den här raden testresultatet av datauppsättningen.
 
 ![Testresultat för batch](./media/luis-how-to-batch-test/run-test.png)
 
-Nedladdningsbar dataset är samma fil som laddades upp för batch-testning.
+Nedladdningsbara datauppsättningen är samma fil som har överförts för att testa batch.
 
 |Status|Betydelse|
 |--|--|
-|![Lyckad grön cirkel testikon](./media/luis-how-to-batch-test/batch-test-result-green.png)|Alla utterances är lyckas.|
-|![Test röd x-ikon](./media/luis-how-to-batch-test/batch-test-result-red.png)|Minst en utterance avsikt matchade inte förutsägelser.|
-|![Redo att testa ikon](./media/luis-how-to-batch-test/batch-test-result-blue.png)|Testet är klart att köras.|
+|![Testet lyckats grön cirkel ikon](./media/luis-how-to-batch-test/batch-test-result-green.png)|Alla yttranden har lyckats.|
+|![Misslyckade test röda x-ikonen](./media/luis-how-to-batch-test/batch-test-result-red.png)|Minst ett uttryck avsikt matchade inte förutsägelser.|
+|![Redo att testa ikon](./media/luis-how-to-batch-test/batch-test-result-blue.png)|Testning är redo att köra.|
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
-## <a name="view-batch-test-results"></a>Visa testresultaten för batch 
-Om du vill läsa igenom testresultaten batch, Välj **se resultatet**.
+## <a name="view-batch-test-results"></a>Visa testresultat för batch 
+Om du vill granska resultaten av batch, Välj **se resultat**.
 
 ![Testresultat för batch](./media/luis-how-to-batch-test/run-test-results.png)
 
@@ -71,9 +71,9 @@ The filtering panel on the right side of the screen displays a list of all inten
 -->
 
 
-<a name="filter-chart-results-by-intent-or-entity"></a> ## Filtrera resultaten för diagram
+<a name="filter-chart-results-by-intent-or-entity"></a> ## Filtrera diagrammet resultat
 
-Välj avsikt eller enhet på panelen höger filtrering för att filtrera diagram av en specifik avsikt eller enhet. Uppdatering i diagrammet enligt ditt val datapunkter och distribution. 
+Välj avsikt eller entitet i panelen höger filtrering för att filtrera diagrammet efter ett specifikt syfte eller en enhet. Uppdatera i diagrammet enligt ditt val av datapunkter och deras distribution. 
  
 ![Testresultat för visualiserade Batch](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
@@ -84,33 +84,33 @@ Data points on the **[False Positive][false-positive]** and **[False Negative][f
 
 The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
 -->
-## <a name="view-single-point-utterance-data"></a>Visa enda punkt utterance data
-Hovra över en datapunkt för att se säkerhet poängen för dess förutsägelse i diagrammet. Välj en datapunkt för att hämta dess motsvarande utterance i listan utterances längst ned på sidan. 
+## <a name="view-single-point-utterance-data"></a>Visa enda punkt uttryck data
+I diagrammet, hovrar du över en datapunkt för att se säkerhet poängen för dess förutsägelse. Välj en datapunkt för att hämta dess motsvarande uttryck i listan yttranden längst ned på sidan. 
 
-![Valda utterance](./media/luis-how-to-batch-test/selected-utterance.png)
+![Valda uttryck](./media/luis-how-to-batch-test/selected-utterance.png)
 
 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
 ## <a name="view-section-data"></a>Visa avsnittet data
-I diagrammet fyra avsnitt, Välj avsnittsnamn, exempelvis **falska positiva** på upp till höger om diagrammet. Under diagrammet visa alla utterances i avsnittet under diagrammet i en lista. 
+I diagrammet är fyra avsnitt, välja avsnittsnamn, till exempel **falskt positivt** på upp till höger i diagrammet. Under diagrammet visas alla uttryck i avsnittet under diagrammet i en lista. 
 
-![Valda utterances avsnittet](./media/luis-how-to-batch-test/selected-utterances-by-section.png)
+![Valda yttranden avsnittet](./media/luis-how-to-batch-test/selected-utterances-by-section.png)
 
-I föregående bilden, utterance `switch on` är märkt med TurnAllOn syfte, men tog emot förutsägelser ingen avsiktshantering. Det här är en indikation på att avsikten TurnAllOn måste flera exempel utterances för att kunna göra förväntade förutsägelse. 
+I den här föregående bild, uttryck `switch on` är märkt med TurnAllOn avsikt, men tog emot förutsägelsen NONE avsikt. Detta är en indikation om att TurnAllOn avsikten måste flera exempel yttranden för att göra den förväntade förutsägelsen. 
 
-Två avsnitt i diagrammet i rött anger utterances som inte matchade den förväntade förutsägelsen. De visar utterances vilka THOMAS behöver mer utbildning. 
+De två avsnitten i diagrammet i rött anger yttranden som inte matchade den förväntade förutsägelsen. De visar yttranden vilka LUIS behöver mer utbildning. 
 
-Två avsnitt i diagrammet i grönt matchade den förväntade förutsägelsen.
+De två avsnitten i diagrammet i grönt matchade den förväntade förutsägelsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om testning visar att appen THOMAS inte kan identifiera rätt avsikter och enheter, kan du arbeta för att förbättra appen THOMAS prestanda genom etiketter mer utterances eller lägga till funktioner. 
+Om testningen visar att LUIS-appen inte kan identifiera rätt avsikter och entiteter, kan du arbeta för att förbättra prestanda för dina LUIS-app genom märkning mer yttranden eller lägga till funktioner. 
 
-* [Etiketten föreslagna utterances med THOMAS](Label-Suggested-Utterances.md) 
-* [Använda funktioner för att förbättra appen THOMAS prestanda](luis-how-to-add-features.md) 
-* [Förstå batch tester med den här självstudiekursen](luis-tutorial-batch-testing.md)
-* [Lär dig testa begrepp batch](luis-concept-batch-test.md).
+* [Etiketten föreslagna yttranden med LUIS](Label-Suggested-Utterances.md) 
+* [Använda funktioner för att förbättra prestanda för dina LUIS-app](luis-how-to-add-features.md) 
+* [Förstå batch testning med den här självstudien](luis-tutorial-batch-testing.md)
+* [Lär dig batch testning begrepp](luis-concept-batch-test.md).
 
 [true-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-positive
 [true-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-negative

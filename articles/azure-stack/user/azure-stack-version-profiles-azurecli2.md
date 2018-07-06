@@ -1,6 +1,6 @@
 ---
-title: Ansluta till Azure-stacken med CLI | Microsoft Docs
-description: Lär dig hur du använder plattformsoberoende kommandoradsgränssnittet (CLI) för att hantera och distribuera resurser i Azure-stacken
+title: Anslut till Azure Stack med CLI | Microsoft Docs
+description: Lär dig hur du använder plattformsoberoende kommandoradsgränssnittet (CLI) för att hantera och distribuera resurser i Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -13,20 +13,20 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: eb01d31d00177560aca3aa71750cd2d1ec096f8f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1b59409e43a23dd63a6697a44a20df079a751516
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938447"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866866"
 ---
-# <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Använd API-version profiler med Azure CLI 2.0 i Azure-stacken
+# <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Använd API-versionsprofiler med Azure CLI 2.0 i Azure Stack
 
-Du kan följa stegen i den här artikeln för att ställa in den Azure kommandoradsgränssnittet (CLI) att hantera Azure-stacken Development Kit resurser från Linux, Mac och Windows-klientplattformar.
+Du kan följa stegen i den här artikeln för att ställa in Azure kommandoradsgränssnitt (CLI) att hantera Azure Stack Development Kit-resurser från Linux, Mac och Windows-klientplattformar.
 
 ## <a name="install-cli"></a>Installera CLI
 
-Logga in på utvecklingsdatorn och installera CLI. Azure-stacken kräver version 2.0 av Azure CLI. Du kan installera som med hjälp av stegen som beskrivs i den [installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) artikel. Öppna en terminal eller Kommandotolken för att verifiera om installationen har lyckats, och kör följande kommando:
+Logga in på utvecklingsdatorn och installera CLI. Azure Stack kräver version 2.0 av Azure CLI. Du kan installera som med hjälp av stegen som beskrivs i den [installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) artikeln. Kontrollera om installationen lyckades, öppna en terminal eller Kommandotolken och kör följande kommando:
 
 ```azurecli
 az --version
@@ -34,21 +34,21 @@ az --version
 
 Du bör se versionen av Azure CLI och andra beroende bibliotek som är installerade på datorn.
 
-## <a name="trust-the-azure-stack-ca-root-certificate"></a>Lita på Azure-stacken Certifikatutfärdarens rotcertifikat
+## <a name="trust-the-azure-stack-ca-root-certificate"></a>Lita på Azure Stack Certifikatutfärdarens rotcertifikat
 
-1. Hämta Azure Stack Certifikatutfärdarens rotcertifikat från [Azure Stack-operatorn](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) och litar på den. Om du vill lita på Azure-stacken Certifikatutfärdarens rotcertifikat, lägger du till dem i det befintliga certifikatet Python.
+1. Hämta Azure Stack Certifikatutfärdarens rotcertifikat från [Azure Stack-operatör](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) och lita på den. Om du vill lita på rotcertifikatet för Azure Stack-CA, lägger du till dem i det befintliga certifikatet för Python.
 
-2. Hitta certifikat plats på din dator. Platsen kan variera beroende på om du har installerat Python. Du måste ha [pip](https://pip.pypa.io) och [certifi](https://pypi.org/project/certifi/) module installerad. Du kan använda kommandot Python från bash-prompten:
+2. Hitta certifikatsplats på din dator. Platsen kan variera beroende på var du har installerat Python. Du måste ha [pip](https://pip.pypa.io) och [certifi](https://pypi.org/project/certifi/) -modulen installerad. Du kan använda följande Python-kommandot från bash-Kommandotolken:
 
   ```bash  
     python -c "import certifi; print(certifi.where())"
   ```
 
-  Anteckna certifikatsplatsen för. Till exempel `~/lib/python3.5/site-packages/certifi/cacert.pem`. Din sökväg beror på ditt operativsystem och version av Python som du har installerat.
+  Anteckna certifikatsplatsen. Till exempel `~/lib/python3.5/site-packages/certifi/cacert.pem`. Viss sökvägen beror på ditt operativsystem och vilken version av Python som du har installerat.
 
-### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>Ange sökväg för en utvecklingsdator i molnet
+### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>Ange sökvägen för en utvecklingsdator i molnet
 
-Om du kör CLI från en Linux-dator som har skapats i Azure Stack-miljön, kör du kommandot bash med sökvägen till ditt certifikat.
+Om du kör CLI från en Linux-dator som har skapats i Azure Stack-miljön, kör följande kommando för bash med sökvägen till ditt certifikat.
 
 ```bash
 sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
@@ -56,13 +56,13 @@ sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
 
 ### <a name="set-the-path-for-a-development-machine-outside-the-cloud"></a>Ange sökväg för en utvecklingsdator utanför molnet
 
-Om du kör CLI från en dator **utanför** Azure Stack-miljö:  
+Om du kör CLI från en dator **utanför** Azure Stack-miljön:  
 
-1. Du måste ställa in [VPN-anslutning till Azure-stacken](azure-stack-connect-azure-stack.md).
+1. Du måste konfigurera [VPN-anslutning till Azure Stack](azure-stack-connect-azure-stack.md).
 
-2. Kopiera PEM-certifikat som du har fått från Azure-stacken operatorn och Anteckna platsen för filen (PATH_TO_PEM_FILE).
+2. Kopiera det PEM-certifikat som du fick från Azure Stack-operatör och Anteckna platsen för filen (PATH_TO_PEM_FILE).
 
-3. Kör följande kommandon, beroende sista på arbetsstationen development OS.
+3. Kör följande kommandon, beroende slutar på arbetsstationen utveckling OS.
 
 #### <a name="linux"></a>Linux
 
@@ -107,18 +107,18 @@ Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-package
 Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
 
-## <a name="get-the-virtual-machine-aliases-endpoint"></a>Hämta alias virtuell datorslutpunkt
+## <a name="get-the-virtual-machine-aliases-endpoint"></a>Hämta virtuella datorns alias-slutpunkt
 
-Innan användare kan skapa virtuella datorer med hjälp av CLI, måste de kontakta Azure Stack-operatorn och hämta virtuella datorn alias slutpunkten URI. Till exempel Azure använder du följande URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. Molnadministratören bör ställa in en liknande slutpunkt för Azure-stacken med bilder som är tillgängliga i stacken för Azure marketplace. Användare behöver skicka slutpunkten URI till den `endpoint-vm-image-alias-doc` parametern till den `az cloud register` som visas i nästa avsnitt. 
+Innan användare kan skapa virtuella datorer med hjälp av CLI, måste de kontakta Azure Stack-operatör och hämta virtuella datorns alias slutpunkt URI. Till exempel Azure använder du följande URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. Molnadministratören bör ställa in en liknande slutpunkt för Azure Stack med bilder som är tillgängliga i Azure Stack marketplace. Användare behöver skicka slutpunkten URI: N till den `endpoint-vm-image-alias-doc` parametern till den `az cloud register` kommandot som du ser i nästa avsnitt. 
    
 
 ## <a name="connect-to-azure-stack"></a>Anslut till Azure Stack
 
 Använd följande steg för att ansluta till Azure Stack:
 
-1. Registrera Azure Stack-miljö genom att köra den `az cloud register` kommando.
+1. Registrera Azure Stack-miljön genom att köra den `az cloud register` kommando.
    
-   a. Att registrera den *moln administrativa* miljö, Använd:
+   a. Att registrera den *molnet administrativa* miljö, Använd:
 
       ```azurecli
       az cloud register \ 
@@ -140,9 +140,9 @@ Använd följande steg för att ansluta till Azure Stack:
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-2. Ange den aktiva miljön med hjälp av följande kommandon.
+2. Konfigurera active miljön med hjälp av följande kommandon.
 
-   a. För den *moln administrativa* miljö, Använd:
+   a. För den *molnet administrativa* miljö, Använd:
 
       ```azurecli
       az cloud set \
@@ -156,16 +156,16 @@ Använd följande steg för att ansluta till Azure Stack:
         -n AzureStackUser
       ```
 
-3. Uppdatera din miljö konfiguration om du vill använda Azure Stack API-version profilen. Uppdatera konfigurationen genom att köra följande kommando:
+3. Uppdatera din miljökonfiguration om du vill använda Azure Stack-profil för versionen av specifika API: et. Uppdatera konfigurationen genom att köra följande kommando:
 
    ```azurecli
    az cloud update \
      --profile 2017-03-09-profile
    ```
 
-4. Logga in på Azure Stack-miljö med hjälp av den `az login` kommando. Du kan logga in på Azure Stack-miljö som en användare eller som en [tjänstens huvudnamn](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
+4. Logga in på Azure Stack-miljön med hjälp av den `az login` kommando. Du kan logga in på Azure Stack-miljön som en användare eller som en [tjänstens huvudnamn](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-   * Logga in som en *användare*: du kan antingen ange användarnamn och lösenord direkt i den `az login` kommando eller autentisera med hjälp av en webbläsare. Du behöver göra det senare om ditt konto har multifaktorautentisering aktiveras.
+   * Logga in som en *användaren*: du kan antingen ange användarnamnet och lösenordet direkt inom den `az login` kommandot eller autentisera med hjälp av en webbläsare. Du måste göra det senare om ditt konto har aktiverat multifaktorautentisering.
 
       ```azurecli
       az login \
@@ -174,9 +174,9 @@ Använd följande steg för att ansluta till Azure Stack:
       ```
 
       > [!NOTE]
-      > Om ditt användarkonto har multifaktorautentisering aktiverad, kan du använda den `az login command` utan att ange den `-u` parameter. Kör kommandot ger dig en URL och en kod som du måste använda för att autentisera.
+      > Om ditt konto har aktiverat multifaktorautentisering, kan du använda den `az login command` utan att ange den `-u` parametern. Kör kommandot ger dig en URL och en kod som du måste använda för att autentisera.
    
-   * Logga in som en *tjänstens huvudnamn*: innan du loggar in, [skapa ett huvudnamn för tjänsten via Azure portal](azure-stack-create-service-principals.md) eller CLI och tilldela den en roll. Nu kan logga in med hjälp av följande kommando:
+   * Logga in som en *tjänstens huvudnamn*: innan du loggar in, [skapa ett huvudnamn för tjänsten via Azure portal](azure-stack-create-service-principals.md) eller CLI och tilldela den till en roll. Nu kan logga in med hjälp av följande kommando:
 
       ```azurecli
       az login \
@@ -188,28 +188,28 @@ Använd följande steg för att ansluta till Azure Stack:
 
 ## <a name="test-the-connectivity"></a>Testa anslutningen
 
-Nu när vi har allt installationsprogrammet, ska vi använda CLI för att skapa resurser i Azure-stacken. Du kan till exempel skapa en resursgrupp för ett program och lägga till en virtuell dator. Använd följande kommando för att skapa en resursgrupp med namnet ”MyResourceGroup”:
+Nu när vi har allt konfigurera, ska vi använda CLI för att skapa resurser i Azure Stack. Du kan till exempel skapa en resursgrupp för ett program och lägga till en virtuell dator. Använd följande kommando för att skapa en resursgrupp med namnet ”MyResourceGroup”:
 
 ```azurecli
 az group create \
   -n MyResourceGroup -l local
 ```
 
-Om resursgruppen har skapats, utdata följande egenskaper för den nyligen skapade resursen i det föregående kommandot:
+Om resursgruppen har skapats, visar följande egenskaper för den nyligen skapade resursen i det föregående kommandot:
 
-![Resursgruppen skapa utdata](media/azure-stack-connect-cli/image1.png)
+![Resursgrupp skapa utdata](media/azure-stack-connect-cli/image1.png)
 
 ## <a name="known-issues"></a>Kända problem
-Det finns några kända problem som du måste vara medveten om när du använder CLI i Azure Stack:
+Det finns några kända problem som du måste tänka på när du använder CLI i Azure Stack:
 
- - CLI interaktivt läge engångsfaktorautentisering den `az interactive` kommandot stöds inte ännu i Azure-stacken.
- - Om du vill hämta listan över tillgängliga i Azure-stacken avbildningar av virtuella datorer använder den `az vm images list --all` kommandot i stället för den `az vm image list` kommando. Ange den `--all` alternativet ser till att svaret returnerar bara de avbildningar som är tillgängliga i Azure Stack-miljö.
- - Virtuella avbildningen alias som är tillgängliga i Azure kan inte tillämpas på Azure-stacken. När du använder avbildningar av virtuella datorer, måste du använda parametern hela URN (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) i stället för det bild aliaset. Den här URN måste matcha avbildningen specifikationer som härletts från den `az vm images list` kommando.
+ - CLI interaktivt läge dvs den `az interactive` kommandot stöds inte ännu i Azure Stack.
+ - Hämta listan över avbildningar av virtuella datorer som är tillgängliga i Azure Stack med den `az vm images list --all` kommandot i stället för den `az vm image list` kommando. Anger den `--all` alternativet ser till att svaret returnerar endast de avbildningar som är tillgängliga i Azure Stack-miljön.
+ - VM-avbildning alias som är tillgängliga i Azure kan inte tillämpas på Azure Stack. När du använder avbildningar av virtuella datorer, måste du använda parametern hela URN (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) i stället för alias för avbildningen. Den här URN måste matcha bild-specifikationer som härletts från den `az vm images list` kommando.
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Distribuera mallar med Azure CLI](azure-stack-deploy-template-command-line.md)
 
-[Aktivera Azure CLI för Azure-stacken användare (Operator)](..\azure-stack-cli-admin.md)
+[Aktivera Azure CLI för Azure Stack-användare (operatorn)](..\azure-stack-cli-admin.md)
 
 [Hantera användarbehörigheter](azure-stack-manage-permissions.md)

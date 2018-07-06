@@ -1,25 +1,25 @@
 ---
-title: Vidarebefordra Azure Blob storage-händelser till en anpassad webbplats slutpunkt - Powershell | Microsoft Docs
+title: Dirigera Azure Blob storage-händelser till en anpassad webbslutpunkt – Powershell | Microsoft Docs
 description: Använd Azure Event Grid för att prenumerera på Blob Storage-händelser.
 services: storage,event-grid
 keywords: ''
 author: david-stanford
 ms.author: dastanfo
-ms.date: 05/24/2018
+ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: b6764ffa0e7cfbc888f11c22af855d48d8160372
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2c61c58398b8c095002db4bc59afed1c95e3550f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650510"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865428"
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Vidarebefordra Blob storage-händelser till en anpassad webbplats slutpunkt med PowerShell
+# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Dirigera Blob storage-händelser till en anpassad webbslutpunkt med PowerShell
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder Azure PowerShell för att prenumerera på Blob storage-händelser, utlösa en händelse och visa resultatet. 
 
-Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och åtgärder. Men för att förenkla den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
+Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
 
 När du är klar kan se du att händelsedata som har skickats till webbappen.
 
@@ -38,9 +38,9 @@ Connect-AzureRmAccount
 ```
 
 > [!NOTE]
-> Tillgänglighet för Storage-händelser som är knutna till händelse rutnätet [tillgänglighet](../../event-grid/overview.md) och ska vara tillgänglig i andra regioner som händelsen rutnätet.
+> Tillgänglighet för Storage-händelser är knuten till Event Grid [tillgänglighet](../../event-grid/overview.md) och blir tillgängliga i andra regioner som Event Grid.
 
-Det här exemplet används **westus2** och lagrar markeringen i en variabel för hela.
+Det här exemplet används **westus2** och lagrar markeringen i en variabel som ska användas i hela.
 
 ```powershell
 $location = "westus2"
@@ -61,12 +61,12 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Om du vill använda Blob storage-händelser, måste du antingen en [Blob-lagringskonto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) eller en [Allmänt v2 lagringskonto](../common/storage-account-options.md#general-purpose-v2). **Allmänna syften v2 (GPv2)** är lagringskonton som stöder alla funktioner för alla lagringstjänster, inklusive Blobbar, filer, köer och tabeller. En **Blob-lagringskonto** är ett specialiserat lagringskonto för att lagra Ostrukturerade data som blobbar (objekt) i Azure Storage. BLOB storage-konton fungerar som allmänna lagringskonton och dela alla bra hållbarhet, tillgänglighet, skalbarhet och prestanda funktioner du använder idag, inklusive 100 procent konsekvent API för blockblobar och tilläggsblobar. För program som bara behöver lagring av block- eller tilläggsblobbar, rekommenderar vi att du använder Blob-lagringskonton.  
+Om du vill använda Blob Storage-händelser behöver du antingen ett [Blob Storage-konto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) eller ett [GPv2-konto (General Purpose v2)](../common/storage-account-options.md#general-purpose-v2). **GPv2-konton (General Purpose v2)** är lagringskonton som stöder alla funktionerna för alla lagringstjänster, som blobbar, filer, köer och tabeller. Ett **Blob Storage-konto** är ett specialiserat lagringskonto för lagring av ostrukturerade data som blobbar (objekt) i Azure Storage. Blob Storage-konton liknar allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. För program som bara behöver lagring av block- eller tilläggsblobbar, rekommenderar vi att du använder Blob-lagringskonton.  
 
-Skapa ett Blob storage-konto med LRS replikering [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), hämta kontexten för lagringskontot som definierar lagringskontot som ska användas. När du arbetar med lagringskonton refererar du till kontexten i stället för att ange autentiseringsuppgifterna flera gånger. Det här exemplet skapar ett lagringskonto som kallas **gridstorage** med lokalt redundant lagring (LRS). 
+Skapa ett Blob storage-konto med LRS replikering med hjälp av [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), hämta lagringskontokontexten som definierar lagringskontot som ska användas. När du arbetar med lagringskonton refererar du till kontexten i stället för att ange autentiseringsuppgifterna flera gånger. Det här exemplet skapar ett lagringskonto med namnet **gridstorage** med lokalt redundant lagring (LRS). 
 
 > [!NOTE]
-> Namn på lagringskonton finns i ett globalt namnområde så du behöver lägga till vissa slumpmässiga tecken i namnet i skriptet.
+> Lagringskontonamn är i en global namnrymd så du måste lägga till vissa slumpmässiga tecken till det namn som i det här skriptet.
 
 ```powershell
 $storageName = "gridstorage"
@@ -82,9 +82,9 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 
-Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. Slutpunkten tar vanligtvis åtgärder baserat på informationen om händelsen. För att förenkla den här snabbstarten kan du distribuera en [förskapad webbprogrammet](https://github.com/dbarkol/azure-event-grid-viewer) som visar meddelanden om händelser. Distribuerade lösningen innehåller en apptjänstplan, en App Service webbapp och källkod från GitHub.
+Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. Slutpunkten utför vanligtvis åtgärder baserat på informationen om händelsen. För att förenkla den här snabbstarten kan du distribuera en [förskapad webbapp](https://github.com/dbarkol/azure-event-grid-viewer) som visar meddelanden om händelser. Den distribuerade lösningen innehåller en App Service-plan,en webbapp för App Service och källkod från GitHub.
 
-Ersätt `<your-site-name>` med ett unikt namn för ditt webbprogram. Webbprogramnamnet måste vara unikt eftersom den ingår i DNS-posten.
+Ersätt `<your-site-name>` med ett unikt namn för din webbapp. Webbappnamnet måste vara unikt eftersom det är en del av DNS-posten.
 
 ```powershell
 $sitename="<your-site-name>"
@@ -96,13 +96,15 @@ New-AzureRmResourceGroupDeployment `
   -hostingPlanName viewerhost
 ```
 
-Distributionen kan ta några minuter att slutföra. Efter distributionen har slutförts kan du visa webbappen för att kontrollera att den körs. I en webbläsare, navigerar du till: `https://<your-site-name>.azurewebsites.net`
+Det kan ta några minuter att slutföra distributionen. Efter distributionen har slutförts kan du visa webbappen för att kontrollera att den körs. I en webbläsare navigerar du till: `https://<your-site-name>.azurewebsites.net`
 
-Du bör se platsen med inga meddelanden som visas.
+Webbplatsen bör visas utan några meddelanden.
+
+[!INCLUDE [event-grid-register-provider-powershell.md](../../../includes/event-grid-register-provider-powershell.md)]
 
 ## <a name="subscribe-to-your-storage-account"></a>Prenumerera på ditt lagringskonto
 
-Du prenumererar på ett ämne för att ange för Event Grid vilka händelser du vill följa. I följande exempel prenumererar på storage-konto som du har skapat och överför URL: en från ditt webbprogram som slutpunkt för händelseavisering. Slutpunkten för ditt webbprogram måste innehålla suffixet `/api/updates/`.
+Du prenumererar på ett ämne för att ange för Event Grid vilka händelser du vill följa. I följande exempel prenumererar vi på det lagringskonto du skapade, och URL: en från din webbapp som slutpunkt för händelseavisering. Slutpunkten för ditt webbprogram måste innehålla suffixet `/api/updates/`.
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
@@ -114,13 +116,13 @@ New-AzureRmEventGridSubscription `
   -ResourceId $storageId
 ```
 
-Visa ditt webbprogram igen och Observera att en händelse för verifieringen av prenumerationen har skickats till den. Välj ikonen ögat att utöka informationen om händelsen. Händelsen rutnätet skickar händelsen validering så att slutpunkten kan kontrollera att den vill ta emot händelsedata. Webbprogrammet inkluderar den kod för att verifiera prenumerationen.
+Visa ditt webbprogram igen och observera att en händelse för verifieringen av prenumerationen har skickats till den. Välj ögonikonen för att utöka informationen om händelsen. Händelserutnätet skickar valideringshändelsen så att slutpunkten kan bekräfta att den vill ta emot händelsedata. Webbappen inkluderar kod för att verifiera prenumerationen.
 
-![Visa prenumeration händelse](./media/storage-blob-event-quickstart-powershell/view-subscription-event.png)
+![Visa prenumerationshändelse](./media/storage-blob-event-quickstart-powershell/view-subscription-event.png)
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Utlösa en händelse från Blob Storage
 
-Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Först ska vi skapa en behållare och ett objekt. Sedan vi överföra objektet till behållaren.
+Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Först måste vi skapa en behållare och ett objekt. Sedan ska vi överföra objektet till behållaren.
 
 ```powershell
 $containerName = "gridcontainer"
@@ -131,7 +133,7 @@ echo $null >> gridTestFile.txt
 Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
-Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt du konfigurerade när du startade prenumerationen. Visa ditt webbprogram om du vill se den händelse som du har skickat.
+Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt du konfigurerade när du startade prenumerationen. Visa din webbapp om du vill se händelsen som du har skickat.
 
 ```json
 [{

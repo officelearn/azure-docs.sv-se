@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d9d58d12e8b2060fe6062118e639dd4f4a7504f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445573"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865241"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Skapa aktivitetssamband för att köra uppgifter som är beroende av andra aktiviteter
 
@@ -117,7 +117,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ``` 
 
 ### <a name="task-id-range"></a>ID-intervall för uppgift
-I ett beroende av en serie överordnade aktiviteter, en uppgift som beror på den slutförande av uppgifter vars ID: N finns inom ett intervall.
+I ett beroende på en serie överordnade aktiviteter beroende en uppgift slutförs uppgifter vars ID: N finns inom ett intervall.
 Om du vill skapa beroendet, ange först och sista aktivitets-ID: N i intervallet till den [TaskDependencies][net_taskdependencies].[ OnIdRange] [ net_onidrange] statisk metod när du ska fylla i [DependsOn] [ net_dependson] egenskapen för [CloudTask] [ net_cloudtask].
 
 > [!IMPORTANT]

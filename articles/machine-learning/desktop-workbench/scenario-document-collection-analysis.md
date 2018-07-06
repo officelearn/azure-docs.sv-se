@@ -1,143 +1,143 @@
 ---
-title: Dokumentera samling analys - Azure | Microsoft Docs
-description: Så här sammanfatta och analysera en stor mängd dokument, inklusive tekniker som frasen learning, avsnittet modellering och avsnittet modellen analysis använder Azure ML-arbetsstationen.
+title: Dokumentera analys – Azure | Microsoft Docs
+description: Så här att sammanfatta och analysera en stor samling dokument, inklusive tekniker som frasen learning, avsnittet modellering och avsnittet modellen analys med Azure ML Workbench.
 services: machine-learning
 author: kehuan
 ms.author: kehuan
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 60d65b17d4cbe8a45ff3fb62b06852d7b945e8f1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832867"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37861926"
 ---
-# <a name="document-collection-analysis"></a>Dokumentet samling analys
+# <a name="document-collection-analysis"></a>Analys av dokumentsamling
 
-Det här scenariot visar hur du sammanfatta och analysera en stor mängd dokument, inklusive tekniker som frasen learning, avsnittet modellering och avsnittet modellen analysis använder Azure ML-arbetsstationen. Azure Machine Learning arbetsstationen tillhandahåller för att enkelt skala upp för mycket stora dokumentsamlingen och ger metoder för att träna och finjustera modeller i en mängd olika kontexter för beräkning, allt från lokala beräkning till datavetenskap virtuella datorer till Spark-kluster. Enkel utveckling tillhandahålls via Jupyter-anteckningsböcker Azure Machine Learning-arbetsstationen.
+Det här scenariot visar hur du sammanfatta och analysera en stor samling dokument, inklusive tekniker som frasen learning, avsnittet modellering och avsnittet modellen analys med Azure ML Workbench. Azure Machine Learning Workbench tillhandahåller för att enkelt skala upp för mycket stora dokumentsamling och tillhandahåller mekanismer för att träna och finjustera modeller i en mängd olika beräkningskontext sträcker sig från lokala beräkning till virtuella datorer för datavetenskap till Spark-kluster. Enkel utveckling tillhandahålls via Jupyter notebooks i Azure Machine Learning Workbench.
 
 ## <a name="link-to-the-gallery-github-repository"></a>Länka till galleriet GitHub-lagringsplatsen
 
-Offentliga GitHub-lagringsplatsen för den här verkligt scenario innehåller alla material, inklusive kodexempel som behövs för det här exemplet:
+Offentliga GitHub-lagringsplatsen för den här verkligt scenario innehåller allt material, inklusive kodexempel som behövs för det här exemplet:
 
 [https://github.com/Azure/MachineLearningSamples-DocumentCollectionAnalysis](https://github.com/Azure/MachineLearningSamples-DocumentCollectionAnalysis)
 
 ## <a name="overview"></a>Översikt
 
-Med en stor mängd data (särskilt Ostrukturerade textdata) som samlas in varje dag, är en betydande utmaning att ordna, söka och förstå stora mängder texter. Det här dokumentet samling analys scenariot visar en effektiv och automatisk slutpunkt till slutpunkt-arbetsflöde för analys av stora dokumentsamlingen och aktiverar underordnade NLP uppgifter.
+Med en stor mängd data (särskilt ostrukturerad textdata) som samlas in varje dag, är en stor utmaning att sortera, söka och förstå enorma mängder texter. Det här dokumentet samling dataanalysscenario visar ett effektivt och automatiserade slutpunkt till slutpunkt-arbetsflöde för att analysera stora dokumentsamling och aktivera nedströms NLP-aktiviteter.
 
-De viktigaste beståndsdelarna som levereras av det här scenariot är:
+De viktigaste elementen som levereras av det här scenariot är:
 
-1. Learning viktigaste flera ord frasen dokument.
+1. Learning viktigaste flera ord fras från dokument.
 
-1. Identifiering av underliggande avsnitt presenteras i dokumentsamlingen.
+1. Identifiering av underliggande ämnen som presenteras i dokumentsamlingen.
 
-1. Som representerar dokument av aktuell distribution.
+1. Som representerar dokument med lokal distribution.
 
-1. Presentera metoder för att ordna, söka och sammanfatta dokument baserat på aktuell innehållet.
+1. Presentera metoder för att ordna, söka och sammanfatta dokument baserat på lokal innehållet.
 
-De metoder som visas i det här scenariot kan aktivera olika kritiska industriella arbetsbelastningar, t.ex identifiering av avsnittet trender avvikelseidentifiering, dokumentet samling sammanfattningen och liknande dokument Sök. Det kan tillämpas på många olika typer av dokument analys, till exempel statliga lagar, nyheter, produktgranskningar, kunden feedback och forskning artiklar.
+De metoder som visas i det här scenariot möjliggör en mängd olika industriella arbetsbelastningar, till exempel identifiering av avsnittet trender avvikelseidentifiering, dokumentet samling sammanfattning och liknande Dokumentsökning. Det kan tillämpas på många olika typer av dokument analys, till exempel statliga lagar, nyheter, produktrecensioner, kundernas feedback och vetenskaplig forskning artiklar.
 
 De tekniker/maskininlärningsalgoritmer används i det här scenariot omfattar:
 
 1. Bearbetning av text och rensning
 
-1. Frasen Learning
+1. Fras Learning
 
 1. Avsnittet modellering
 
 1. Kristi sammanfattning
 
-1. Aktuell trender och avvikelseidentifiering
+1. Ämnes trender och avvikelseidentifiering
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Förutsättningar för att kunna köra det här exemplet är följande:
 
-* Kontrollera att du har installerat korrekt [Azure Machine Learning arbetsstationen](../service/overview-what-is-azure-ml.md) genom att följa den [installera och skapa Quickstart](../service/quickstart-installation.md).
+* Se till att du har installerat korrekt [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) genom att följa den [installera snabbstarten och skapa](../service/quickstart-installation.md).
 
-* Det här exemplet skulle kunna köras på valfri beräknings-kontext. Men det rekommenderas att köra den på en dator med flera kärnor med minst 16GB minne och 5GB ledigt diskutrymme.
+* Det här exemplet kan köras på alla beräkningskontexten. Men det rekommenderas att köra den på en dator med flera kärnor med minst 16GB minne och 5GB ledigt diskutrymme.
 
-## <a name="create-a-new-workbench-project"></a>Skapa ett nytt projekt arbetsstationen
+## <a name="create-a-new-workbench-project"></a>Skapa ett nytt Workbench-projekt
 
-Skapa ett nytt projekt med det här exemplet som mall:
-1.  Öppna Azure Machine Learning-arbetsstationen
+Skapa ett nytt projekt med hjälp av det här exemplet som en mall:
+1.  Öppna Azure Machine Learning Workbench
 2.  På den **projekt** klickar du på den **+** och markera **nytt projekt**
 3.  I den **Skapa nytt projekt** rutan, fyller du i informationen för det nya projektet
-4.  I den **Sök projektmallar** sökrutan, Skriv ”dokumentet samling Analysis” och välj mallen
+4.  I den **Sök efter projektmallar** sökrutan skriver du ”analys av dokumentsamling” och väljer mallen
 5.  Klicka på **Skapa**
 
-## <a name="data-description"></a>Beskrivning av data
+## <a name="data-description"></a>Databeskrivning
 
-Dataset som används i detta scenario innehåller text sammanfattningar och associerade metadata för varje rättsliga åtgärder som vidtas av Congress oss. Data samlas in från [GovTrack.us](https://www.govtrack.us/), som spårar aktiviteter för USA Congress och hjälper Americans delta i sina nationella lagstiftningen. Stora mängder data kan hämtas [länken](https://www.govtrack.us/data/congress/) med hjälp av en manuell skript som inte ingår i det här scenariot. Information om hur du hämtar data hittades i den [GovTrack API-dokumentationen](https://www.govtrack.us/developers/api).
+Den datauppsättning som används i det här scenariot innehåller text sammanfattningar och associerade metadata för varje lagstiftande åtgärd som den oss den amerikanska kongressen och. Data samlas in från [GovTrack.us](https://www.govtrack.us/), som spårar aktiviteter för den amerikanska kongressen och USA och hjälper till att Amerikanarna delta i sina nationella lagstiftningen. Stora mängder data kan hämtas [den här länken](https://www.govtrack.us/data/congress/) med hjälp av en manuell skript som inte ingår i det här scenariot. Information om hur du hämtar data hittades i den [GovTrack API-dokumentation](https://www.govtrack.us/developers).
 
 ### <a name="data-source"></a>Datakälla
 
-I det här scenariot rådata som samlas in är en serie rättsliga åtgärder som introducerades av den oss Congress (föreslagna fakturor och lösningar) från 1973 till juni 2017 (93rd till 115th kongresser). Insamlade data är i JSON-format och innehåller en omfattande uppsättning information om de rättsliga åtgärderna. Referera till [GitHub länken](https://github.com/unitedstates/congress/wiki/bills) detaljerad beskrivning av datafält. För demonstration ändamål i det här scenariot, bara en del av datafält extraherades från JSON-filer. En tidigare kompilerade TVS fil `CongressionalDataAll_Jun_2017.tsv` som innehåller poster för dessa rättsliga åtgärder finns i det här scenariot. Filen TVS kan laddas ned automatiskt genom de bärbara datorerna `1_Preprocess_Text.ipynb` under anteckningsboksmappen eller `preprocessText.py` i Python-paketet.
+I det här scenariot rådata som samlas in är en serie rättsliga åtgärder som introducerats av det oss den amerikanska kongressen och (föreslagna fakturor och lösningar) från 1973 i juni 2017 (93rd till 115th kongresser). Data som samlas in i JSON-format och innehåller en omfattande uppsättning information om rättsliga åtgärder. Referera till [GitHub länken](https://github.com/unitedstates/congress/wiki/bills) detaljerad beskrivning av datafält. Demonstration syfte i det här scenariot, endast en delmängd av datafält extraherades från JSON-filerna. En förkompilerad TSV-fil `CongressionalDataAll_Jun_2017.tsv` som innehåller poster för dessa rättsliga åtgärder finns i det här scenariot. TSV-fil kan laddas ned automatiskt antingen genom att de bärbara datorerna `1_Preprocess_Text.ipynb` under anteckningsboksmappen eller `preprocessText.py` i Python-paketet.
 
 ### <a name="data-structure"></a>Datastruktur
 
-Det finns nio datafält i datafilen. Namnen på data och beskrivningar finns på följande sätt.
+Det finns nio datafält i datafilen. Namnen på data och beskrivningar visas på följande sätt.
 
 | Fältnamn | Typ | Beskrivning | Innehåller värden som saknas |
 |------------|------|-------------|---------------|
-| `ID` | Sträng | ID för faktura/lösning. Formatet på det här fältet är [bill_type] [nummer]-[congress]. Till exempel ”hconres1-93” innebär faktura är ”hconres” (stöd för House samtidiga upplösning, referera till [det här dokumentet](https://github.com/unitedstates/congress/wiki/bills#basic-information)), faktura-värdet är ”1” och congress talet är ' 93 ”. | Nej |
-| `Text` | Sträng | Innehållet i faktura/lösning. | Nej |
-| `Date` | Sträng | Det datum som ursprungligen föreslagna faktura/lösning. I formatet ”åååå-mm-dd'. | Nej |
-| `SponsorName` | Sträng | Namnet på den primära sponsor som föreslås faktura/lösning. | Ja |
-| `Type` | Sträng | Rubrik-typ av primärt sponsra 'rep' (representant) eller 'Skic' (senator). | Ja |
+| `ID` | Sträng | ID för fakturan/lösning. Formatet för det här fältet är [bill_type] [antal]-[den amerikanska kongressen och]. Till exempel ”hconres1 93” innebär faktura är ”hconres” (står för House samtidiga upplösning, referera till [det här dokumentet](https://github.com/unitedstates/congress/wiki/bills#basic-information)), faktura-värdet är ”1” och den amerikanska kongressen och talet är ' 93 ”. | Nej |
+| `Text` | Sträng | Innehållet i på fakturan/lösningen. | Nej |
+| `Date` | Sträng | Det datum då fakturan/lösning föreslagna inledningsvis. I formatet ”åååå-mm-dd'. | Nej |
+| `SponsorName` | Sträng | Namnet på primär sponsor som föreslås faktura/lösning. | Ja |
+| `Type` | Sträng | Rubrik-typ av primärt sponsra 'rep ”(representant) eller” skicka ”(senator). | Ja |
 | `State` | Sträng | Tillståndet för den primära sponsorn. | Ja |
-| `District` | Integer | Distrikt antal primära sponsor om rubriken för sponsorn är ett ombud. | Ja |
-| `Party` | Sträng | Part för den primära sponsorn. | Ja |
-| `Subjects` | Sträng | Ämne villkoren läggs kumulativt av biblioteket Congress till växeln. Villkoren sammanfogas med kommatecken. Dessa villkor är skrivna med en mänskliga i biblioteket Congress och finns inte vanligtvis när information om växeln först publiceras. De kan läggas till när som helst. I slutet av livslängden för en faktura därför vissa ämne inte relevanta längre. | Ja |
+| `District` | Integer | Distrikt antal primära sponsor om rubriken för sponsor är en representant. | Ja |
+| `Party` | Sträng | Parten primära sponsor. | Ja |
+| `Subjects` | Sträng | Ämne villkoren läggs till kumulativt av i biblioteket för den amerikanska kongressen och att fakturan. Villkoren sammanfogas med kommatecken. Dessa villkor skrivs av en människa i i biblioteket för den amerikanska kongressen och och är inte vanligtvis tillgängliga när information om fakturan publiceras först. De kan läggas till när som helst. I slutet av en faktura livslängd därför vissa ämne inte relevanta längre. | Ja |
 
 ## <a name="scenario-structure"></a>Scenario-struktur
 
-Dokumentet samling analys exempel är uppdelad i två typer av produkterna. Den första typen är en serie iPython anteckningsböcker som visar detaljerade beskrivningar av hela arbetsflödet. Den andra typen är en Python-paket som koden exempel på hur du använder det paketet. Python-paket är generisk att hantera många användningsområden.
+Samling analysis-exemplet för dokumentet är uppdelad i två typer av slutprodukter. Den första typen är en serie iPython-anteckningsböcker som visar de stegvisa beskrivningarna i hela arbetsflödet. Den andra typen är en Python-paketet samt vissa kodexempel på hur du använder det paketet. Python-paketet är tillräckligt generisk för att hantera många användningsområden.
 
-Filerna i det här exemplet är uppdelade enligt följande.
+Så här organiseras filerna i det här exemplet.
 
 | Filnamn | Typ | Beskrivning |
 |-----------|------|-------------|
-| `aml_config` | Mapp | Azure Machine Learning arbetsstationen konfigurationsmappen avser [denna dokumentation](./experimentation-service-configuration-reference.md) för detaljerad experiment körning konfiguration |
-| `Code` | Mapp | Mappen kod används för att spara Python-skript och Python-paket |
-| `Data` | Mapp | Datamappen används för att spara mellanliggande filer |
+| `aml_config` | Mapp | Azure Machine Learning Workbench konfigurationsmappen avser [den här dokumentationen](./experimentation-service-configuration-reference.md) för detaljerad experiment köra konfiguration |
+| `Code` | Mapp | Mappen kod används för att spara Python-skript och Python-paketet |
+| `Data` | Mapp | Den datamapp som används för att spara mellanliggande filer |
 | `notebooks` | Mapp | Mappen Jupyter-anteckningsböcker |
-| `Code/documentAnalysis/__init__.py` | Python-fil | Python package init-fil |
-| `Code/documentAnalysis/configs.py` | Python-fil | Konfigurationsfilen som används av dokumentet analysen Python-paket, inklusive fördefinierade konstanter |
-| `Code/documentAnalysis/preprocessText.py` | Python-fil | Python-fil som används för att Förbearbeta data för underordnade aktiviteter |
-| `Code/documentAnalysis/phraseLearning.py` | Python-fil | Python-fil som används för att lära dig fraser från data och transformera rådata |
-| `Code/documentAnalysis/topicModeling.py` | Python-fil | Python-fil som används för att träna en modell för avsnittet Latenta Dirichlet allokering (LDA) |
-| `Code/step1.py` | Python-fil | Steg 1 av dokumentet samling analys: Förbearbeta text |
-| `Code/step2.py` | Python-fil | Steg 2 av dokumentet samling analys: fras learning |
-| `Code/step3.py` | Python-fil | Steg 3 i dokumentet samling analys: träna och utvärdera LDA avsnittet modellen |
-| `Code/runme.py` | Python-fil | Exempel på köra alla steg i en fil |
-| `notebooks/1_Preprocess_Text.ipynb` | iPython bärbara datorer | Förbearbeta text och transformera rådata |
-| `notebooks/2_Phrase_Learning.ipynb` | iPython bärbara datorer | Läs fraser från textdata (efter Transformera data) |
-| `notebooks/3_Topic_Model_Training.ipynb` | iPython bärbara datorer | Träningsmodell LDA avsnittet |
-| `notebooks/4_Topic_Model_Summarization.ipynb` | iPython bärbara datorer | Sammanfatta innehållet i dokumentsamlingen baserat på en tränad LDA avsnittet modell |
-| `notebooks/5_Topic_Model_Analysis.ipynb` | iPython bärbara datorer | Analysera aktuell innehållet i en mängd textdokument och korrelera aktuell information mot andra metadata som associeras med dokumentsamlingen |
-| `notebooks/6_Interactive_Visualization.ipynb` | iPython bärbara datorer | Interaktiva visualisering av inlärda avsnittet modellen |
+| `Code/documentAnalysis/__init__.py` | Python-fil | Python-paketet init-fil |
+| `Code/documentAnalysis/configs.py` | Python-fil | Konfigurationsfilen som används av dokumentet analysen Python-paketet, inklusive fördefinierade konstanterna |
+| `Code/documentAnalysis/preprocessText.py` | Python-fil | Python-filen som används för att Förbearbeta data för nedströms aktiviteter |
+| `Code/documentAnalysis/phraseLearning.py` | Python-fil | Python-filen som används för att lära dig fraser från data och transformera rådata |
+| `Code/documentAnalysis/topicModeling.py` | Python-fil | Python-filen som används för att träna en modell för avsnittet av Latent Dirichlet allokering (LDA) |
+| `Code/step1.py` | Python-fil | Steg 1 av analys av dokumentsamling: Förbearbeta text |
+| `Code/step2.py` | Python-fil | Steg 2 av analys av dokumentsamling: fras learning |
+| `Code/step3.py` | Python-fil | Steg 3 av analys av dokumentsamling: träna och utvärdera LDA avsnittet modell |
+| `Code/runme.py` | Python-fil | Exempel på Kör alla steg i en fil |
+| `notebooks/1_Preprocess_Text.ipynb` | iPython Notebook | Förbearbeta text och transformera rådata |
+| `notebooks/2_Phrase_Learning.ipynb` | iPython Notebook | Lär dig fraser från textdata (efter Datatransformering) |
+| `notebooks/3_Topic_Model_Training.ipynb` | iPython Notebook | Träningsmodell LDA avsnittet |
+| `notebooks/4_Topic_Model_Summarization.ipynb` | iPython Notebook | Sammanfatta innehållet i dokumentsamling baserat på en LDA avsnittet träningsmodell |
+| `notebooks/5_Topic_Model_Analysis.ipynb` | iPython Notebook | Analysera ämnes innehållet i en samling av dokument och korrelera ämnes informationen mot andra metadata som är associerade med dokumentsamlingen |
+| `notebooks/6_Interactive_Visualization.ipynb` | iPython Notebook | Interaktiv visualisering av inlärda avsnittet modell |
 | `notebooks/winprocess.py` | Python-fil | Python-skriptet för Fleruppdragskörning som används av bärbara datorer |
 | `README.md` | Markdown-fil | Filen Viktigt markdown |
 
-### <a name="data-ingestion-and-transformation"></a>Datapåfyllning och omvandling
+### <a name="data-ingestion-and-transformation"></a>Datainmatning och transformering
 
-Den kompilerade datamängden `CongressionalDataAll_Jun_2017.tsv` sparas i Blob Storage och är tillgänglig både från i de bärbara datorerna och Python-skript. Det finns två steg för datapåfyllning och omvandling: förbearbetning textdata och frasen learning.
+Den kompilerade datauppsättningen `CongressionalDataAll_Jun_2017.tsv` sparas i Blob Storage och är tillgänglig både från inom de bärbara datorerna och Python-skript. Det finns två steg för datainmatning och transformering: Förbearbeta textdata och frasen learning.
 
 #### <a name="preprocess-text-data"></a>Förbearbeta textdata
 
-Steget förbearbetning gäller bearbetning av naturligt språk tekniker för att rensa och förbereda rådata textdata. Den fungerar som en ozonbildande för oövervakade frasen learning och Latenta avsnittet modellering. Detaljerade steg för steg-beskrivningen finns i anteckningsboken `1_Preprocess_Text.ipynb`. Det finns också en Python-skriptet `step1.py` motsvarar anteckningsboken.
+Förbearbetning steget gäller tekniker för bearbetning av naturligt språk för att rensa och förbereda data rå text. Den fungerar som en tidigare för oövervakade frasen learning och latent avsnittet modellering. Detaljerade steg för steg-beskrivningen kan hittas i anteckningsboken `1_Preprocess_Text.ipynb`. Det finns också en Python-skriptet `step1.py` motsvarar den här anteckningsboken.
 
-I det här steget datafilen TVS hämtas från Azure Blob Storage och importeras som en Pandas DataFrame. Varje rad-element i DataFrame är en enda sammanhängande lång sträng eller ett dokument. Varje dokument delas sedan in textblock som kommer att vara meningar, fraser eller subphrases. Uppdelningen av är utformat för att förhindra frasen learning processen från med hjälp av cross-mening eller mellan fras word strängar när learning fraser.
+I det här steget datafilen TSV hämtas från Azure Blob Storage och importeras som en Pandas-DataFrame. Varje rad-element i DataFrame är en enda sammanhängande lång sträng med text eller ett dokument. Varje dokument är sedan indelat i segment om text som sannolikt kommer att vara meningar, fraser eller subphrases. Uppdelningen av är utformad för att förhindra frasen inlärningsprocessen från att använda flera meningen eller mellan frasen word strängar när learning fraser.
 
-Det finns flera funktioner som är definierade för förbearbetning steg både i anteckningsboken och Python-paketet. Merparten av jobbet kan uppnås genom att anropa dessa två rader med koder.
+Det finns flera funktioner som definierats för förbearbetning steg både i anteckningsboken och Python-paketet. Merparten av jobbet kan uppnås genom att anropa dessa två rader med koder.
 
 ```python
 # Read raw data into a Pandas DataFrame
@@ -147,13 +147,13 @@ textDF = getData()
 cleanedDataFrame = CleanAndSplitText(textDF, saveDF=True)
 ```
 
-#### <a name="phrase-learning"></a>Frasen learning
+#### <a name="phrase-learning"></a>Fras learning
 
-Steget frasen learning implementerar ett ramverk för grundläggande information om viktiga fraser mellan en stor mängd dokument. Beskrivningen i dokumentet har rätt ”[Modeling Multiword fraser med begränsad fraser-träd för förbättrad avsnittet modellering av vardagliga samtalsuttryck tal](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf)”, som ursprungligen angavs i 2012 IEEE Workshop på talas språk Teknik. Detaljerad implementeringen av frasen learning steg visas i iPython anteckningsboken `2_Phrase_Learning.ipynb` och Python-skriptet `step2.py`.
+Steget fras learning implementerar en grundläggande ramverket för att lära dig viktiga fraser bland ett stort antal dokument. Det beskrivs i dokumentet berättigade ”[modellering Multiword fraser med begränsad fraser-träd för förbättrad avsnittet modellering av Konversationsanpassade tal](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf)”, som ursprungligen angavs i 2012 IEEE-Workshop om talat språk Teknik. Detaljerad implementeringen av frasen learning steg visas i iPython Notebook `2_Phrase_Learning.ipynb` och Python-skriptet `step2.py`.
 
-Det här steget tar rensade texten som indata och lär sig de mest viktigaste fraserna som finns i en stor mängd dokument. Frasen learning är en återkommande process som kan delas in i tre uppgifter: antal n gram rangordnas möjliga fraser av viktat Pointwise ömsesidig informationen för sina ingående ord och omarbetning frasen till text. De tre aktiviteterna körs sekventiellt i flera iterationer tills de angivna fraserna har lärt.
+Det här steget tar rensad text som indata och lär sig de mest viktigaste fraserna som finns i ett stort antal dokument. Fras-utbildning är en iterativ process som kan delas in i tre uppgifter: antal n-gram, rangordnas möjliga fraser genom viktad Pointwise ömsesidig Information om deras konstituerande ord och Skriv frasen till text. Dessa tre aktiviteter utförs sekventiellt i flera iterationer tills de angivna fraserna har har lärt dig.
 
-I dokumentet analysis-Python-paketet, en Python-klass `PhraseLearner` har definierats i den `phraseLearning.py` filen. Nedan visas ett kodfragment som används för att lära dig fraser.
+I dokumentet analysis-Python-paketet, en Python-klass `PhraseLearner` definieras i den `phraseLearning.py` filen. Nedan visas i kodfragmentet som används för att lära dig fraser.
 
 ```python
 # Instantiate a PhraseLearner and run a configuration
@@ -172,26 +172,26 @@ phraseLearner.RunConfiguration(textData,
 ```
 
 > [!NOTE]
-> Steget frasen learning har implementerats med flera. Dock mer CPU-kärnor gör **inte** innebär en snabbare körningstid. I våra tester bättre prestanda inte med mer än åtta kärnor på grund av arbetet med Fleruppdragskörning. Det tog ungefär två och en halv timme för att lära dig 25 000 fraser på en dator med åtta kärnor (3,6 GHz).
+> Steget fras learning implementeras med flera. Men mer CPU-kärnor göra **inte** innebär en snabbare körningstid. I våra tester kan förbättras prestanda inte med fler än åtta kärnor på grund av arbetet med Fleruppdragskörning. Det tog ungefär två och en halv timme för att lära dig 25 000 fraser på en dator med åtta kärnor (3.6 GHz).
 >
 
 ### <a name="topic-modeling"></a>Avsnittet modellering
 
-Lär dig en Latenta avsnittet modellen använder är LDA det tredje steget i det här scenariot. Den [gensim](https://radimrehurek.com/gensim/) Python-paketet krävs i det här steget för att lära dig ett [LDA avsnittet modellen](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation). Motsvarande anteckningsboken för det här steget är `3_Topic_Model_Training.ipynb`. Du kan också läsa `step3.py` för hur du använder dokumentet analys paketet.
+Learning en latent avsnittet modellen använder är LDA det tredje steget i det här scenariot. Den [gensim](https://radimrehurek.com/gensim/) Python-paketet krävs i det här steget för att lära dig en [LDA avsnittet modellen](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation). Motsvarande anteckningsboken för det här steget är `3_Topic_Model_Training.ipynb`. Du kan även gå till `step3.py` för hur du använder dokumentet analysis-paketet.
 
-I det här steget är viktigaste uppgift att lära sig en LDA avsnittet modell och justera parametrarna hyper. Det finns flera parametrar behöver justeras när träna en LDA modell, men parametern viktigaste är antalet avsnitt. För få avsnitt kanske inte har insyn i dokumentsamlingen; När du väljer för leder många ”över samordna” en Kristi i många små, hög liknande ämnen. Syftet med det här scenariot är att visa hur du ställer in antalet hjälpavsnitt. Azure Machine Learning arbetsstationen ger friheten att köra experiment med annan konfiguration på olika beräkning sammanhang.
+I det här steget är den huvudsakliga uppgiften att lära dig en LDA avsnittet modell och justera parametrarna hyper. Det finns flera parametrar behöver justeras när träna en modell för LDA, men den viktigaste parametern är antalet ämnen. För få ämnen kanske inte har insyn i dokumentsamlingen; När du väljer för leder många den ”över kluster” av en Kristi i många små, mycket liknande ämnen. Syftet med det här scenariot är att visa hur du ställer in antalet ämnen. Azure Machine Learning Workbench erbjuder dig friheten att köra experiment med olika parametern konfiguration på olika beräkningskontext.
 
-I dokumentet analys Python-paketet, några funktioner har definierats för att hjälpa användarna ta reda på det bästa antalet avsnitt. Det första tillvägagångssättet är att utvärdera samordning av avsnittet. Det finns fyra utvärdering matriser stöds: `u_mass`, `c_v`, `c_uci`, och `c_npmi`. Information om de fyra mätvärdena diskuteras i [det här dokumentet](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf). Det andra sättet är att utvärdera perplexity på en hålls out Kristi.
+I Python-paketet dokumentet analysis några funktioner har definierats för att hjälpa användarna ta reda på det bästa antalet ämnen. Den första metoden är genom att utvärdera enhetligheten i avsnittet modellen. Det finns fyra utvärdering matriser stöds: `u_mass`, `c_v`, `c_uci`, och `c_npmi`. Information om dessa fyra mätvärdena diskuteras i [det här dokumentet](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf). Den andra metoden är att utvärdera perplexity på en hålls ut Kristi.
 
-För utvärdering perplexity förväntas en ”U” form kurva ta reda på det bästa antalet avsnitt. Den vinkel positionen är det bästa valet. Det rekommenderas att utvärdera flera gånger med olika slumpmässiga startvärde och hämta medelvärdet. Utvärdera enhetligheten förväntas vara en ”n” form, vilket innebär att den enhetliga ökar med ökande antal avsnitt och minskar. En exempel-område för perplexity och `c_v` enhetlighet visas på följande sätt.
+För perplexity-utvärdering förväntas en ”U” form kurva ta reda på det bästa antalet ämnen. Och den vinkel positionen är det bästa valet. Vi rekommenderar att utvärdera flera gånger med olika slumpmässig dirigering och få medelvärdet. Utvärdera enhetligheten förväntas vara ett x forma, vilket innebär att konsekvens ökar med öka antalet ämnen och sedan minskar. Ett exempel exempeldiagram av perplexity och `c_v` konsekvens visas på följande sätt.
 
 ![Perplexity](./media/scenario-document-collection-analysis/Perplexity_Value.png)
 
-![c_v överensstämmelse](./media/scenario-document-collection-analysis/c_v_Coherence.png)
+![c_v konsekvens](./media/scenario-document-collection-analysis/c_v_Coherence.png)
 
-I det här scenariot ökar i perplexity avsevärt efter 200 ämnen, medan enhetlighet värdet minskar avsevärt efter samt 200 avsnitt. Baserat på dessa diagram och önskan för mer allmän information jämfört med över klustrade avsnitt, Välj 200 avsnitt ska vara ett bra alternativ.
+I det här scenariot ökar i perplexity avsevärt efter 200 ämnen, medan konsekvens värdet minskar avsevärt efter samt 200 ämnen. Baserat på dessa diagram och önskan om mer allmän information jämfört med över klustrade ämnen, Välj 200 avsnitt ska vara ett bra alternativ.
 
-Du kan lära LDA avsnittet modellen i ett experiment kör, eller träna och utvärdera flera LDA modeller med olika avsnittet nummer konfigurationer i en enda körningen av experimentet. Det rekommenderas att köra flera gånger för en konfiguration och sedan hämta den genomsnittliga konsekvens och/eller perplexity utvärderingen. Information om hur du använder dokumentet analys paketet finns i `step3.py` fil. Ett exempel kodstycke är som följer.
+Du kan träna en LDA avsnittet modell i ett experiment körs, eller träna och utvärdera flera LDA modeller med olika avsnittet antal konfigurationer i ett enda experiment som kör. Vi rekommenderar att köra flera gånger för en konfiguration och sedan hämta de genomsnittliga konsekvens och/eller perplexity utvärderingarna. Information om hur du använder dokumentet analysis-paketet finns i `step3.py` fil. Ett exempel kodfragment är som följer.
 
 ```python
 topicmodeler = TopicModeler(docs,
@@ -218,35 +218,35 @@ perplex = topicmodeler.EvaluatePerplexity(lda)
 ```
 
 > [!NOTE]
-> Körningstid för att träna en LDA avsnittet modell beror på flera faktorer, till exempel storleken på Kristi, hyper parametern konfiguration, samt antalet kärnor på datorn. Med hjälp av flera processorkärnor tränar en modell snabbare. Men med samma hyper-parametern innebär anger flera kärnor färre uppdateringar vid träning. Det rekommenderas att du har **minst 100 uppdateringar för att träna modellen för konvergerade LDA**. Förhållandet mellan antalet uppdateringar och hyper parametrar beskrivs i [inlägget](https://groups.google.com/forum/#!topic/gensim/ojySenxQHi4) och [inlägget](http://miningthedetails.com/blog/python/lda/GensimLDA/). I våra tester tog ca 3 timmar för att träna modellen en LDA med 200 avsnitt med konfigurationen av `workers=15`, `passes=10`, `chunksize=1000` på en dator med 16 kärnor (2,0 GHz).
+> Körningstid för att träna en modell för LDA avsnittet är beroende av flera faktorer, till exempel storleken på Kristi, hyper parametern konfiguration, samt antalet kärnor på datorn. Med hjälp av flera processorkärnor träna en modell som är snabbare. Men med samma hyper parametern innebär ställa in fler kärnor färre uppdateringar vid träning. Vi rekommenderar att ha **minst 100 uppdateringar för att träna en modell för konvergerade LDA**. Förhållandet mellan antalet uppdateringar och hyper parametrar beskrivs i [det här inlägget](https://groups.google.com/forum/#!topic/gensim/ojySenxQHi4) och [det här inlägget](http://miningthedetails.com/blog/python/lda/GensimLDA/). I våra tester kan det tog cirka 3 timmar för att träna en modell för LDA med 200 ämnen med hjälp av konfigurationen av `workers=15`, `passes=10`, `chunksize=1000` på en dator med 16 kärnor (2,0 GHz).
 >
 
-### <a name="topic-summarization-and-analysis"></a>Avsnittet sammanfattningen och analys
+### <a name="topic-summarization-and-analysis"></a>Avsnittet Sammanfattning och analys
 
-Avsnittet sammanfattningen och analys består av två bärbara datorer, medan det finns inga motsvarande funktioner i dokumentet analys paketet.
+Avsnittet Sammanfattning och analys består av två notebooks, det finns inga motsvarande funktioner i dokumentet analysis-paketet.
 
-I `4_Topic_Model_Summarization.ipynb`, visas hur du sammanfatta innehållet i dokument baserat på en tränad LDA avsnittet modell. Sammanfattningen tillämpas på en modell för avsnittet av LDA lärt dig i steg 3. Den visar hur du mäter prioritet eller kvaliteten på ett avsnitt med avsnittet för att dokumentet renhet mått. Det här måttet renhet förutsätts Latenta avsnitt som dominerar dokument som de visas mer semantiskt viktigt än Latenta information som är svagt fördelade på flera dokument. Detta begrepp introducerades i dokumentet ”[Latenta avsnittet modellering för ljud Kristi sammanfattning](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf)”.
+I `4_Topic_Model_Summarization.ipynb`, den visar hur du summerar innehållet i dokument baserat på en träningsmodell i LDA avsnittet. Sammanfattningen tillämpas på en modell för avsnittet av LDA lärt dig i steg 3. Den visar hur du använder prioritet eller kvaliteten på ett ämne med avsnittet för att dokumentet renhet mått. Det här måttet renhet förutsätter att latent ämnen som dominerar dokument som de visas är mer semantiskt viktigt än latent ämnen som är svagt sprids över flera dokument. Det här konceptet introducerades i dokumentet ”[Latent avsnittet modellering för ljud Kristi sammanfattning](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf)”.
 
-Bärbar dator `5_Topic_Model_Analysis.ipynb` visar hur du analyserar aktuell innehållet i en samling dokument och korrelera aktuell information mot andra metadata som associeras med dokumentsamlingen. Några områden införs i den här anteckningsboken för att bättre förstå inlärda avsnittet och dokumentsamlingen användarna.
+Anteckningsboken `5_Topic_Model_Analysis.ipynb` visar hur du analyserar ämnes innehållet i en samling dokument och korrelera ämnes informationen mot andra metadata som är associerade med dokumentsamlingen. Ett par områden införs i den här anteckningsboken för att hjälpa användarna att bättre förstå inlärda ämnet och dokumentsamlingen.
 
-Bärbar dator `6_Interactive_Visualization.ipynb` visar hur du interaktivt visualisera inlärda avsnittet modellen. Den omfattar fyra interaktiva visualiseringen uppgifter.
+Anteckningsboken `6_Interactive_Visualization.ipynb` visar hur du interaktivt visualisera inlärda avsnittet modellen. Den innehåller fyra interaktiv visualisering aktiviteter.
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Den här verkligt scenario illustrerar hur du använder välkänd text analytics metoder (i det här fallet frasen learning och LDA avsnittet modellering) som ger en robust modell och Azure Machine Learning arbetsstationen hur spåra modellen prestanda och köras utan problem inlärning på högre nivå. I större detalj:
+Den här verkligt scenario illustrerar hur du använder välkända text analytics-tekniker (i det här fallet frasen learning och LDA avsnittet modellering) för att skapa en robust modell och hur Azure Machine Learning Workbench kan hjälpa dig spåra modellprestanda och köra elever i hög skala. I detalj:
 
-* Använd frasen learning och avsnittet modellering att bearbeta en samling dokument och skapa en stabil modell. Om samlingen av dokument är stort, Azure Machine Learning arbetsstationen enkelt skala det in och ut. Användare har dessutom friheten att köra experiment på olika beräkning kontexten enkelt från Azure Machine Learning-arbetsstationen.
+* Använd frasen learning och avsnittet modellering för att bearbeta en samling dokument och skapa en robust modell. Om insamling av dokument är stor, Azure Machine Learning Workbench kan enkelt skala upp och ut. Dessutom kan har användare frihet att köra experiment på olika beräkningskontext direkt i Azure Machine Learning Workbench.
 
-* Azure Machine Learning arbetsstationen innehåller båda alternativen för att köra bärbara datorer i en steg-för-steg sätt och Python-skriptet att köra ett hela experiment.
+* Azure Machine Learning Workbench innehåller båda alternativen för att köra anteckningsböcker i ett steg för steg sätt och Python-skriptet att köra ett hela experiment.
 
-* Hyper-parametern prestandajustering med Azure Machine Learning-arbetsstationen för att hitta det bästa antalet avsnitt behövs för att lära dig. Azure Machine Learning arbetsstationen kan du spåra modellen prestanda och sömlöst kör olika inlärning på högre nivå.
+* Hyper-parametern prestandajustering med Azure Machine Learning Workbench för att hitta det bästa antalet ämnen behövs för att lära dig. Azure Machine Learning Workbench kan spåra modellens prestanda och köra olika inlärning i hög skala.
 
-* Azure Machine Learning arbetsstationen kan hantera körningshistorik och inlärda modeller. Den gör att data forskare att snabbt identifiera det bästa utför modeller och hitta skript och data som används för att generera dessa.
+* Azure Machine Learning Workbench kan hantera körningshistorik och inlärda modeller. Det gör det möjligt för dataexperter att snabbt identifiera den bästa modeller och hitta de skript och data som används för att generera dem.
 
 ## <a name="references"></a>Referenser
 
-* **David J. Hazen, Fred Richardson**, [ _Modeling Multiword fraser med begränsad fraser träd för förbättrad avsnittet modellering av vardagliga samtalsuttryck tal_](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf). Talas teknik Workshop (SLT), 2012 IEEE. IEEE 2012.
+* **David J. Hazen, Fred Richardson**, [ _modellering Multiword fraser med begränsad fraser-träd för förbättrad avsnittet modellering Konversationsanpassade tal_](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf). Talat språk teknik Workshop (SLT), 2012 IEEE. IEEE 2012.
 
-* **David J. Hazen**, [ _Latenta avsnittet modellering för ljud Kristi sammanfattning_](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf). 12 årliga konferens internationella tal kommunikation kopplingen. 2011.
+* **David J. Hazen**, [ _Latent avsnittet modellering för ljud Kristi sammanfattning_](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf). 12: e årliga konferensen internationella tal kommunikation kopplingen. 2011.
 
-* **Michael Roder, Andreas båda, Alexander Hinneburg**, [ _utforska utrymme för avsnittet enhetlighet åtgärder_](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf). Förfarandet för ACM åttonde internationella konferens om webbsökning och datautvinning. ACM 2015.
+* **Michael Roder, Andreas båda, Alexander Hinneburg**, [ _utforska utrymme för avsnittet konsekvens mått_](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf). Handlingar från den åttonde ACM internationella konferensen om webbsökning och datautvinning. ACM 2015.

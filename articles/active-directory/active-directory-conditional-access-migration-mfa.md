@@ -1,6 +1,6 @@
 ---
-title: Migrera en klassiska princip som kräver multifaktorautentisering i Azure portal | Microsoft Docs
-description: Den här artikeln visar hur du migrerar en klassiska princip som kräver multifaktorautentisering i Azure-portalen.
+title: Migrera en klassisk princip som kräver Multi-Factor authentication i Azure portal | Microsoft Docs
+description: Den här artikeln visar hur du migrerar en klassiska princip som kräver Multi-Factor authentication i Azure-portalen.
 services: active-directory
 keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
 documentationcenter: ''
@@ -14,40 +14,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 52d4297d2e86ad67672d38f1c527041b813f8d61
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6190a8ee90855223779751373bf16ca3db0fe761
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723695"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37872544"
 ---
-# <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migrera en klassiska princip som kräver multifaktorautentisering i Azure-portalen 
+# <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migrera en klassisk princip som kräver Multi-Factor authentication i Azure portal 
 
-Den här artikeln visar hur du migrerar en klassiska princip som kräver **multifaktorautentisering** för en molnapp. Även om det inte är en förutsättning, rekommenderar vi att du läser [migrera klassiska principer i Azure portal](active-directory-conditional-access-migration.md) innan du börjar migrera dina klassiska principer.
+Den här artikeln visar hur du migrerar en klassiska princip som kräver **multifaktorautentisering** för en molnapp. Även om det inte är en förutsättning, rekommenderar vi att du läser [migrera klassiska principer i Azure-portalen](active-directory-conditional-access-migration.md) innan du börjar migrera din klassiska principer.
 
 
  
 ## <a name="overview"></a>Översikt 
 
-Scenario i den här artikeln visar hur du migrerar en klassiska princip som kräver **multifaktorautentisering** för en molnapp. 
+Scenariot i den här artikeln visar hur du migrerar en klassiska princip som kräver **multifaktorautentisering** för en molnapp. 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
 
 
 Migreringen består av följande steg:
 
-1. [Öppna principen klassiska](#open-a-classic-policy) att hämta den konfigurationsinställningarna.
-2. Skapa en ny princip för villkorlig åtkomst i Azure AD att ersätta din klassiska princip. 
-3. Inaktivera klassiska principen.
+1. [Öppna den klassiska principen](#open-a-classic-policy) att hämta konfigurationsinställningarna.
+2. Skapa en ny princip för villkorlig åtkomst i Azure AD att ersätta din klassiska principen. 
+3. Inaktivera den klassiska principen.
 
 
 
-## <a name="open-a-classic-policy"></a>Öppna en klassiska princip
+## <a name="open-a-classic-policy"></a>Öppna den klassiska principen
 
-1. I den [Azure-portalen](https://portal.azure.com), klicka på den vänstra navigeringsfält för, **Azure Active Directory**.
+1. I den [Azure-portalen](https://portal.azure.com), i det vänstra navigeringsfältet, klickar du på **Azure Active Directory**.
 
     ![Azure Active Directory](./media/active-directory-conditional-access-migration-mfa/01.png)
 
@@ -55,7 +55,7 @@ Migreringen består av följande steg:
 
     ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration-mfa/02.png)
 
-3. I den **hantera** klickar du på **klassisk principer (förhandsgranskning)**.
+3. I den **hantera** klickar du på **klassiska principer (förhandsversion)**.
 
     ![Klassiska principer](./media/active-directory-conditional-access-migration-mfa/12.png)
 
@@ -67,7 +67,7 @@ Migreringen består av följande steg:
 ## <a name="create-a-new-conditional-access-policy"></a>Skapa en ny princip för villkorlig åtkomst
 
 
-1. I den [Azure-portalen](https://portal.azure.com), klicka på den vänstra navigeringsfält för, **Azure Active Directory**.
+1. I den [Azure-portalen](https://portal.azure.com), i det vänstra navigeringsfältet, klickar du på **Azure Active Directory**.
 
     ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
 
@@ -77,11 +77,11 @@ Migreringen består av följande steg:
 
 
 
-3. På den **villkorlig åtkomst** sidan för att öppna den **ny** i verktygsfältet högst upp på sidan klickar du på **Lägg till**.
+3. På den **villkorlig åtkomst** sidan för att öppna den **New** , i verktygsfältet högst upp, klickar du på **Lägg till**.
 
     ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/03.png)
 
-4. På den **ny** sidan den **namn** textruta, ange ett namn för principen.
+4. På den **New** sidan den **namn** textrutan anger du ett namn för principen.
 
     ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/29.png)
 
@@ -89,21 +89,19 @@ Migreringen består av följande steg:
 
     ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/05.png)
 
-    a. Om du har alla användare som har valts i den klassiska principen, klickar du på **alla användare**. 
+    a. Om du har valt alla användare i din klassiska principen, klickar du på **alla användare**. 
 
     ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/35.png)
 
-    b. Om du har grupper som väljs i den klassiska principen, klickar du på **Välj användare och grupper**, och välj sedan de nödvändiga användare och grupper.
+    b. Om du har valt i den klassiska principen grupper klickar du på **Välj användare och grupper**, och välj sedan de nödvändiga användare och grupper.
 
     ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/36.png)
 
-    c. Om du har de undantagna grupperna klickar du på den **undanta** och välj sedan de nödvändiga användare och grupper. 
+    c. Om du har de exkluderade grupperna, klickar du på den **undanta** fliken och välj sedan de nödvändiga användare och grupper. 
 
     ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/37.png)
 
-6. På den **ny** sidan för att öppna den **Molnappar** sidan den **tilldelning** klickar du på **Molnappar**.
-
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
+6. På den **New** sidan för att öppna den **Molnappar** sidan den **tilldelning** klickar du på **Molnappar**.
 
 8. På den **Molnappar** utför följande steg:
 
@@ -113,13 +111,13 @@ Migreringen består av följande steg:
 
     b. Klicka på **Välj**.
 
-    c. På den **Välj** , Välj en molnapp i, och klickar sedan på **Välj**.
+    c. På den **Välj** sidan, Välj din molnapp och klicka sedan på **Välj**.
 
     d. På den **Molnappar** klickar du på **klar**.
 
 
 
-9. Om du har **kräver Multi-Factor authentication** valda:
+9. Om du har **kräva multifaktorautentisering** valda:
 
     ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/26.png)
 
@@ -127,7 +125,7 @@ Migreringen består av följande steg:
 
     ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/27.png)
 
-    b. På den **bevilja** klickar du på **bevilja åtkomst**, och klicka sedan på **kräver Multi-Factor authentication**.
+    b. På den **bevilja** klickar du på **bevilja åtkomst**, och klicka sedan på **kräva multifaktorautentisering**.
 
     c. Klicka på **Välj**.
 
@@ -138,9 +136,9 @@ Migreringen består av följande steg:
 
 
 
-## <a name="disable-the-classic-policy"></a>Inaktivera klassiska principen
+## <a name="disable-the-classic-policy"></a>Inaktivera den klassiska principen
 
-Om du vill inaktivera din princip för klassiska **inaktivera** i den **information** vyn.
+Om du vill inaktivera din klassiska principen, klickar du på **inaktivera** i den **information** vy.
 
 ![Klassiska principer](./media/active-directory-conditional-access-migration-mfa/14.png)
 
@@ -148,9 +146,9 @@ Om du vill inaktivera din princip för klassiska **inaktivera** i den **informat
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om migrering klassiska princip finns [migrera klassiska principer i Azure portal](active-directory-conditional-access-migration.md).
+- Mer information om den klassiska principen migrering finns i [migrera klassiska principer i Azure-portalen](active-directory-conditional-access-migration.md).
 
 
-- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns [Kom igång med villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
-- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö finns i [bästa praxis för villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa den [bästa praxis för villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-best-practices.md). 

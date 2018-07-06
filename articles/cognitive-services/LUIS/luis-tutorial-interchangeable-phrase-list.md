@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 9f12d9e8c9ee2038e7841cd05bb438421a5a8984
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2fd53225a455a34d03772487a10f62a94ac86735
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345353"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868981"
 ---
 # <a name="tutorial-add-phrase-list-to-improve-predictions"></a>Självstudie: Lägg till frasen lista för att förbättra förutsägelser
 I de här självstudierna förbättra avsikt poäng och identifiera entiteter för ord som har samma innebörd (synonymer) genom att lägga till en utbytbara [frasen lista funktionen](./luis-concept-feature.md).
@@ -254,7 +254,7 @@ Den **maskinvara** entiteten visar ett resultat på 0.595 innehåller frasen-lis
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du menyn med tre punkter (...) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. Om du vill göra det, Välj ellipsen (***...*** ) till höger om appnamnet i programlistan, Välj **ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 

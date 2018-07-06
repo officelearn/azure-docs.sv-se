@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: 106c4796bde838e28b91771454e971f9999194e1
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436618"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860680"
 ---
 Om du är bekant med MSI kan ta en titt på [hanterad tjänstidentitet översikt](~/articles/active-directory/managed-service-identity/overview.md), och **bör du granska den [skillnaden mellan en automatiskt genererad och användartilldelade MSI](~/articles/active-directory/managed-service-identity/overview.md#how-does-it-work)** . Om du inte redan har ett Azure-konto, [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.

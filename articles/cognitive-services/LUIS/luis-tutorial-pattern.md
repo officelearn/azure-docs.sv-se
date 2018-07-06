@@ -1,7 +1,7 @@
 ---
-title: Självstudier med mönster för att förbättra THOMAS förutsägelser - Azure | Microsoft Docs
+title: Självstudier med mönster för att förbättra LUIS förutsägelser – Azure | Microsoft Docs
 titleSuffix: Azure
-description: I den här kursen Använd mönster för avsikter för att förbättra THOMAS avsikt och entitet förutsägelser.
+description: I den här självstudien använder du mönstret för avsikter för att förbättra LUIS avsikt och entiteten förutsägelser.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -10,78 +10,78 @@ ms.technology: luis
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: ff5572366be548132b28e5ce03b9595e7f98128c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 9793b98c384346dc0de68061d42b4bcb3c513ed4
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265324"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866210"
 ---
 # <a name="tutorial-use-patterns-to-improve-predictions"></a>Självstudier: Använda mönster för att förbättra förutsägelser
 
-I den här självstudiekursen att använda mönster för att öka avsikt och entitet förutsägelse.  
+Använda mönster i de här självstudierna för att öka avsikt och entiteten förutsägelse.  
 
 > [!div class="checklist"]
-* Så här identifierar du att ett mönster hjälper din app
+* Så här identifierar du att ett mönster vill hjälpa din app
 * Så här skapar du ett mönster 
-* Använda fördefinierade och anpassade entiteter i ett mönster 
-* Så här kontrollerar du mönstret förutsägelse förbättringar
-* Hur du lägger till en roll till en entitet att hitta sammanhang-baserade enheter
-* Hur du lägger till en Pattern.any för att hitta Friform entiteter
+* Hur du använder fördefinierade och anpassade entiteter i ett mönster 
+* Så här verifierar du mönstret förutsägelse förbättringar
+* Hur du lägger till en roll till en entitet att hitta sammanhangsmässigt-baserade enheter
+* Hur du lägger till en Pattern.any för att hitta fri form entiteter
 
-För den här artikeln behöver du ett kostnadsfritt [THOMAS] [ LUIS] konto för att kunna redigera THOMAS programmet.
+För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
 
-## <a name="import-humanresources-app"></a>Importera personal app
-Den här självstudiekursen importerar en personal-app. Appen har tre avsikter: None, GetEmployeeOrgChart, GetEmployeeBenefits. Appen har två entiteter: färdiga antal och medarbetare. Medarbetare entiteten är en enkel enhet att extrahera en anställds namn. 
+## <a name="import-humanresources-app"></a>Importera ska appen
+Den här självstudien importerar en app ska. Appen har tre avsikter: Ingen, GetEmployeeOrgChart, GetEmployeeBenefits. Appen har två entiteter: fördefinierade tal och medarbetare. Medarbetaren entiteten är en enkel enhet att extrahera en medarbetares namn. 
 
-1. Skapa en ny THOMAS appfil och ger den namnet `HumanResources.json`. 
+1. Skapa en ny LUIS-app-fil och ge den namnet `HumanResources.json`. 
 
-2. Kopiera följande app definition till filen:
+2. Kopiera följande app-definition i filen:
 
    [!code-json[Add the LUIS model](~/samples-luis/documentation-samples/tutorial-patterns/HumanResources.json?range=1-164 "Add the LUIS model")]
 
-3. På THOMAS **appar** väljer **Importera nya app**. 
+3. På LUIS **appar** väljer **importera ny app**. 
 
-4. I den **Importera nya app** markerar den `HumanResources.json` fil som du skapade i steg 1.
+4. I den **importera ny app** dialogrutan den `HumanResources.json` fil som du skapade i steg 1.
 
-5. Välj den **GetEmployeeOrgChart** avsikt och sedan ändra från **entiteter visa** till **Tokens visa**. Flera exempel utterances visas. Varje utterance innehåller ett namn som är en medarbetare entitet. Observera att namnen är olika och att placering av ordval är olika för varje utterance. Dessa skilda hjälper THOMAS lär du dig en mängd olika utterances.
+5. Välj den **GetEmployeeOrgChart** avsikt, och sedan ändra från **entiteter visa** till **Tokens visa**. Flera exempel yttranden visas. Varje uttryck innehåller ett namn som är en anställd entitet. Observera att namnen är olika och att ordningen för texten är olika för varje uttryck. Den här mångfald hjälper LUIS Lär dig en mängd olika yttranden.
 
-    ![Skärmbild av avsikt sida med entiteter vy växlas](media/luis-tutorial-pattern/utterances-token-view.png)
+    ![Skärmbild av avsikt sida med entiteter visa växlas](media/luis-tutorial-pattern/utterances-token-view.png)
 
-6. Välj **träna** i det övre navigeringsfältet för att träna appen. Vänta tills fältet grön lyckades.
+6. Välj **träna** i det övre navigeringsfältet för att träna appen. Vänta tills fältet grönt.
 
-7. Välj **Test** i den övre panelen. Ange `Who does Patti Owens report to?` och sedan anger du väljer. Välj **granska** under utterance vill se mer information om testet.
+7. Välj **Test** i den övre panelen. Ange `Who does Patti Owens report to?` och sedan anger du väljer. Välj **granska** under uttryck att se mer information om testet.
     
-    Namnet på medarbetare, Patti Owens har inte använts i en exempel-utterance ännu. Detta är ett test för att se hur väl THOMAS lärt dig den här utterance avser den `GetEmployeeOrgChart` avsikt och medarbetare entiteten ska vara `Patti Owens`. Resultatet bör vara mindre än 50% (. 50) för den `GetEmployeeOrgChart` avsikt. Avsikten är korrekt är poängsättningen låg. Den anställde också korrekt identifieras som `Patti Owens`. Mönster öka det här första förutsägelse resultatet. 
+    Medarbetarnamn, Patti Owens har inte använts i en exempel-uttryck ännu. Det här är ett test för att se hur väl LUIS lärt dig den här uttryck avser den `GetEmployeeOrgChart` avsikt och entiteten anställda ska vara `Patti Owens`. Resultatet bör vara mindre än 50% (. 50) för den `GetEmployeeOrgChart` avsikt. Avsikten är rätt, är att resultatet låg. Den anställdas också korrekt identifieras som `Patti Owens`. Mönster öka det här första förutsägelse resultatet. 
 
     ![Skärmbild av Test-panelen](media/luis-tutorial-pattern/original-test.png)
 
-8. Stäng test-panelen genom att välja den **testa** knappen i det övre navigeringsfältet. 
+8. Stänga panelen test genom att välja den **testa** knappen i det övre navigeringsfältet. 
 
-## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>Mönster utbilda THOMAS vanliga utterances med färre exempel
-På grund av uppbyggnad personal domänen finns det några vanliga sätt att be om medarbetaren relationer i organisationer. Exempel:
+## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>Mönster Lär LUIS vanliga yttranden med färre exempel
+På grund av mänskliga resursdomänen finns det några vanliga sätt att be om medarbetaren relationer i organisationer. Exempel:
 
 ```
 Who does Mike Jones report to?
 Who reports to Mike Jones? 
 ```
 
-Dessa utterances är för Stäng för att fastställa kontextuella är unikt för varje utan att ange många utterance exempel. Lär sig vanliga utterance mönster för syftet utan att ange många utterance exempel genom att lägga till ett mönster för syftet, THOMAS. 
+Dessa uttryck är för Stäng om du vill fastställa sammanhangsberoende unikhet för var och en utan att ange många uttryck exemplen. Lär sig vanliga mönster för uttryck för en avsikt utan att ange många uttryck exempel genom att lägga till ett mönster för en avsikt, LUIS. 
 
-Exempel mallen utterances till detta avsiktshantering är:
+Exempel mallen yttranden avsikt följande:
 
 ```
 Who does {Employee} report to?
 Who reports to {Employee}? 
 ```
 
-Mönstret är en kombination av matchning med reguljära uttryck och maskininlärning. Därefter innehåller vissa mallen utterance exempel för THOMAS Läs mönstret. De här exemplen, tillsammans med avsiktshantering utterances ger THOMAS bättre förståelse för vilka utterances passar avsikten och där, inom utterance entiteten finns. <!--A pattern is specific to an intent. You can't duplicate the same pattern on another intent. That would confuse LUIS, which lowers the prediction score. -->
+Mönstret är en kombination av matchning med reguljära uttryck och machine learning. Ange därefter vissa mall uttryck exempel för LUIS för att lära dig mönstret. De här exemplen, tillsammans med avsikt yttranden ger LUIS bättre förståelse för vilka yttranden passar avsikten och där, i uttryck, entiteten finns. <!--A pattern is specific to an intent. You can't duplicate the same pattern on another intent. That would confuse LUIS, which lowers the prediction score. -->
 
-## <a name="add-the-template-utterances"></a>Lägg till mall utterances
+## <a name="add-the-template-utterances"></a>Lägg till mall-yttranden
 
-1. I det vänstra navigeringsfönstret under **förbättra prestanda för**väljer **mönster** från det vänstra navigeringsfönstret.
+1. I det vänstra navigeringsfönstret under **förbättra apprestanda**väljer **mönster** i det vänstra navigeringsfönstret.
 
-2. Välj den **GetEmployeeOrgChart** avsikt, ange följande utterances från mall, en i taget, välja RETUR efter varje mall utterance:
+2. Välj den **GetEmployeeOrgChart** avsikt, ange följande uttryck från mall, en i taget, att välja returtangenten efter varje mall-uttryck:
 
     ```
     Does {Employee} have {number} subordinates?
@@ -92,32 +92,32 @@ Mönstret är en kombination av matchning med reguljära uttryck och maskininlä
     Who are {Employee}'s subordinates?
     ```
 
-    Den `{Employee}` syntax markerar entitet plats i mallen utterance som samt vilken entitet som den är. 
+    Den `{Employee}` syntax markerar entitet plats i mallen-uttryck som samt vilken entitet som det är. 
 
-    ![Skärmbild av hur du anger mallen utterances för avsikt](./media/luis-tutorial-pattern/enter-pattern.png)
+    ![Skärmbild av hur du anger mallen yttranden för avsikt](./media/luis-tutorial-pattern/enter-pattern.png)
 
-3. Välj **Train** i det övre navigeringsfältet. Vänta tills fältet grön lyckades.
+3. Välj **träna** i det övre navigeringsfältet. Vänta tills fältet grönt.
 
-4. Välj **Test** i den övre panelen. Ange `Who does Patti Owens report to?` i textrutan. Välj ange. Det här är samma utterance testas i föregående avsnitt. Resultatet bör vara högre för den `GetEmployeeOrgChart` avsikt. 
+4. Välj **Test** i den övre panelen. Ange `Who does Patti Owens report to?` i textrutan. Välj ange. Det här är samma uttryck testas i föregående avsnitt. Resultatet bör vara högre för den `GetEmployeeOrgChart` avsikt. 
 
-    Poängen är nu mycket bättre. THOMAS lärt dig mönstret som är relevanta för avsikten utan att ange många exempel.
+    Poängen är nu mycket bättre. LUIS lärt dig mönstret rör avsikten utan att ange många exemplen.
 
-    ![Skärmbild av Test-panel med högsta poäng leda](./media/luis-tutorial-pattern/high-score.png)
+    ![Skärmbild av Test panelen Poängrekord resultera](./media/luis-tutorial-pattern/high-score.png)
 
-    Entiteten finns först och sedan mönstret påträffas, som anger syftet. Du måste lägga till fler exempel utterances på avsikten (inte mönstret) om du har ett testresultat där enheten identifieras inte och därför mönstret hittas inte. 
+    Entiteten finns först och sedan mönstret påträffas, som anger syftet. Om du har ett testresultat där entiteten identifieras inte och därför hittas inte mönstret som du behöver lägga till fler exempel yttranden på avsikten (inte mönstret). 
 
-5. Stäng test-panelen genom att välja den **testa** knappen i det övre navigeringsfältet.
+5. Stänga panelen test genom att välja den **testa** knappen i det övre navigeringsfältet.
 
-## <a name="use-an-entity-with-a-role-in-a-pattern"></a>Använda en enhet med en roll i ett mönster
-THOMAS appen används för att flytta anställda från en plats till en annan. Ett exempel utterance är `Move Bob Jones from Seattle to Los Colinas`. Varje plats i utterance har en annan betydelse. Seattle är den ursprungliga platsen och Los Colinas är målplatsen för flytten. För att kunna skilja mellan dessa platser i mönstret i följande avsnitt du skapar en enkel enhet för plats med två roller: ursprung och destination. 
+## <a name="use-an-entity-with-a-role-in-a-pattern"></a>Använda en entitet med en roll i ett mönster
+LUIS-appen används för att flytta anställda från en plats till en annan. En exempel-uttryck är `Move Bob Jones from Seattle to Los Colinas`. Varje plats i uttryck har en annan betydelse. Seattle är den ursprungliga platsen och Los Colinas är målplatsen för flytten. För att skilja mellan dessa platser i mönstret i följande avsnitt du skapar en enkel enhet för platsen med två roller: original och beskrivning. 
 
-### <a name="create-a-new-intent-for-moving-people-and-assets"></a>Skapa en ny avsett för att flytta personer och tillgångar
-Skapa en ny avsett för alla utterances som rör personer eller tillgångar.
+### <a name="create-a-new-intent-for-moving-people-and-assets"></a>Skapa en ny avsikt för att flytta personer och tillgångar
+Skapa ett nytt syfte med yttranden som är i färd glidande personer eller tillgångar.
 
-1. Välj **Intents** från vänstra navigeringsfönstret
+1. Välj **avsikter** i vänstra navigeringsfönstret
 2. Välj **skapa nya avsikt**
 3. Namn på ny avsikten `MoveAssetsOrPeople`
-4. Lägg till exempel utterances:
+4. Lägg till exempel yttranden:
 
     ```
     Move Bob Jones from Seattle to Los Colinas
@@ -126,79 +126,79 @@ Skapa en ny avsett för alla utterances som rör personer eller tillgångar.
     Move Jill Benson from Boston to London
     Move Travis Hinton from Portland to Orlando
     ```
-    ![Skärmbild av exempel utterance för MoveAssetsOrPeople avsikt](./media/luis-tutorial-pattern/intent-moveasserts-example-utt.png)
+    ![Skärmbild av exempel uttryck för MoveAssetsOrPeople avsikt](./media/luis-tutorial-pattern/intent-moveasserts-example-utt.png)
 
-    Syftet med exempel utterances är att ge tillräckligt med exempel. Om du senare i det här testet plats entiteten är inte identifierats och därför mönstret inte identifierats, gå tillbaka till det här steget och Lägg till fler exempel. Sedan träna och testa igen. 
+    Syftet med exempel yttranden är att ge tillräckligt med exempel. Om du senare i testet, plats entiteten är inte identifierats och därför mönstret är inte har identifierats, gå tillbaka till det här steget och lägga till fler exempel. Sedan träna och testa igen. 
 
-5. Markera entiteter i exempel utterances med entiteten medarbetare genom att välja förnamn sedan efternamnet i en utterance och därefter välja medarbetare entiteten i listan.
+5. Markera entiteter i exempel-uttryck med entitet som anställd genom att välja förnamn sedan efternamn i ett uttryck och välja entiteten medarbetare i listan.
 
-    ![Skärmbild av utterances i MoveAssetsOrPeople som markerats med medarbetare entitet](./media/luis-tutorial-pattern/intent-moveasserts-employee.png)
+    ![Skärmbild av yttranden i MoveAssetsOrPeople som markerats med medarbetare entitet](./media/luis-tutorial-pattern/intent-moveasserts-employee.png)
 
-6. Markera texten `portland` i utterance `move travis hinton from portland to orlando`. Ange det nya namnet i popup-fönstret `Location`, och välj **Skapa ny entitet**. Välj den **enkel** entitetstypen och välj **klar**.
+6. Markera texten `portland` i uttryck `move travis hinton from portland to orlando`. Ange det nya namnet i standardarbetsytan i dialogrutan `Location`, och välj **Skapa ny entitet**. Välj den **enkel** entitetstypen och välj **klar**.
 
-    ![Skärmbild för att skapa en ny plats entitet](./media/luis-tutorial-pattern/create-new-location-entity.png)
+    ![Skärmbild av den nya platsen entitet skapas](./media/luis-tutorial-pattern/create-new-location-entity.png)
 
-    Markera resten av platsnamn i utterances. 
+    Markera resten av platsnamn i talade. 
 
     ![Skärmbild av alla enheter som har markerats](./media/luis-tutorial-pattern/moveasset-all-entities-labeled.png)
 
-    Mönstret för word val och ordning är uppenbara i föregående bild. Om du **inte** med mönster och utterances på avsikten har ett uppenbart mönster som är en bra indikation på bör du använda mönster. 
+    Mönstret för val av word och ordning är uppenbart i föregående bild. Om du skulle **inte** med hjälp av mönster och yttranden på avsikten har ett uppenbart mönster som är en bra indikation på bör du använda mönster. 
 
-    Om du förväntar dig en mängd olika utterances i stället för ett mönster skulle dessa vara fel exempel utterances. I så fall vill du ofta varierande utterances i termen eller word val, utterance längd och placering för entiteten. 
+    Om du förväntar dig en mängd olika yttranden, i stället för ett mönster, skulle dessa vara fel exempel yttranden. I så fall skulle du vill ha många olika yttranden i termen eller word val, uttryck längd och placering för entiteten. 
 
 <!--TBD: what guidance to move from hier entities to patterns with roles -->
 <!--    The [Hierarchical entity quickstart](luis-quickstart-intent-and-hier-entity.md) uses the  same idea of location but uses child entities to find origin and destination locations. 
 -->
 ### <a name="add-role-to-location-entity"></a>Lägg till plats entitet 
-Roller kan bara användas för mönster. Lägg till roller och mål i plats-entiteten. 
+Roller kan bara användas för mönster. Lägg till rollerna för original och beskrivning i plats-entiteten. 
 
-1. Välj **entiteter** i navigeringsfältet till vänster, sedan **plats** från listan över enheter.
+1. Välj **entiteter** i det vänstra navigeringsfönstret, sedan **plats** från listan över entiteter.
 
 2. Lägg till `Origin` och `Destination` roller till entiteten.
 
     ![Skärmbild av ny entitet med roller](./media/luis-tutorial-pattern/location-entity.png)
 
-    Rollerna som inte har markerats på sidan MoveAssetsOrPeople avsiktshantering eftersom roller som inte finns på avsiktshantering utterances. De finns bara på mönstret mallen utterances. 
+    Rollerna som inte har markerats på sidan MoveAssetsOrPeople avsikt eftersom roller som inte finns på avsikt yttranden. De finns bara på mönstret mall yttranden. 
 
-### <a name="add-template-utterances-that-uses-location-and-destination-roles"></a>Lägg till mall utterances som använder plats-och mål
-Lägg till mall utterances som använder den nya entiteten.
+### <a name="add-template-utterances-that-uses-location-and-destination-roles"></a>Lägg till mall yttranden som använder plats-och mål
+Lägg till mall yttranden som använder den nya entiteten.
 
-1. Välj **mönster** från det vänstra navigeringsfönstret.
+1. Välj **mönster** i det vänstra navigeringsfönstret.
 
 2. Välj den **MoveAssetsOrPeople** avsikt.
 
-3. Ange en ny mall utterance med hjälp av den nya entiteten `Move {Employee} from {Location:Origin} to {Location:Destination}`. Syntax för en enhet och en roll i en mall utterance `{entity:role}`.
+3. Ange en ny mall-uttryck med hjälp av den nya entiteten `Move {Employee} from {Location:Origin} to {Location:Destination}`. Syntaxen för en enhet och en roll i en mall-uttryck är `{entity:role}`.
 
     ![Skärmbild av ny entitet med roller](./media/luis-tutorial-pattern/pattern-moveassets.png)
 
-4. Träna app för nya avsikt, entitet och mönster.
+4. Träna appen för den nya avsikt, entitet och mönster.
 
-### <a name="test-the-new-pattern-for-role-data-extraction"></a>Testa det nya mönstret för rollen data parameterextrahering
-Validera det nya mönstret med ett test.
+### <a name="test-the-new-pattern-for-role-data-extraction"></a>Testa det nya mönstret för rollen extrahering av data
+Verifiera det nya mönstret med ett test.
 
 1. Välj **Test** i den övre panelen. 
-2. Ange utterance `Move Tammi Carlson from Bellingham to Winthrop`.
-3. Välj **granska** under resultat för att se testresultaten för entiteten och avsikt.
+2. Ange uttryck `Move Tammi Carlson from Bellingham to Winthrop`.
+3. Välj **granska** under resultat för att se testresultaten för entitet och avsikt.
 
     ![Skärmbild av ny entitet med roller](./media/luis-tutorial-pattern/test-with-roles.png)
 
-    Entiteterna finns först och sedan mönstret påträffas, som anger syftet. Du måste lägga till fler exempel utterances på avsikten (inte mönstret) om du har ett testresultat där enheterna identifieras inte och därför mönstret hittas inte. 
+    Entiteterna finns först och sedan mönstret påträffas, som anger syftet. Om du har ett testresultat där entiteterna identifieras inte och därför hittas inte mönstret som du behöver lägga till fler exempel yttranden på avsikten (inte mönstret). 
 
-4. Stäng test-panelen genom att välja den **testa** knappen i det övre navigeringsfältet.
+4. Stänga panelen test genom att välja den **testa** knappen i det övre navigeringsfältet.
 
-## <a name="use-a-patternany-entity-to-find-free-form-entities-in-a-pattern"></a>Använda en Pattern.any entitet för att hitta Friform entiteter i ett mönster
-Den här appen personal hjälper också att anställda hitta företagets formulär. Många av formulär som har som varierande längd. Olika längd innehåller fraser som kan förvirrande THOMAS om där formulärets namn slutar. Med hjälp av en **Pattern.any** entiteten i ett mönster kan du ange början och slutet på formuläret så THOMAS korrekt extraherar formulärets namn. 
+## <a name="use-a-patternany-entity-to-find-free-form-entities-in-a-pattern"></a>Använd en Pattern.any entitet för att hitta fri form entiteter i ett mönster
+Den här appen ska hjälper också att anställda hitta företagets formulär. Många av formulär har som varierande längd. Varierande längd innehåller fraser som kan förvirra LUIS om var formulärnamnet slutar. Med hjälp av en **Pattern.any** entitet i arbetsprofilen kan du ange början och slutet av formulärnamnet så LUIS korrekt extraherar formulärnamnet. 
 
-### <a name="create-a-new-intent-for-the-form"></a>Skapa en ny avsett för formuläret
-Skapa en ny avsett för utterances som söker efter formulär.
+### <a name="create-a-new-intent-for-the-form"></a>Skapa en ny avsikt för formuläret
+Skapa ett nytt syfte med yttranden som söker efter formulär.
 
-1. Välj **Intents** från vänstra navigeringsfönstret.
+1. Välj **avsikter** i vänstra navigeringsfönstret.
 
-2. Välj **skapa nya avsikt**.
+2. Välj **Create new intent** (Skapa ny avsikt).
 
 3. Namnge den nya avsikten `FindForm`.
 
-4. Lägg till en exempel-utterance.
+4. Lägg till en exempel-uttryck.
 
     ```
     `Where is the form What to do when a fire breaks out in the Lab and who needs to sign it after I read it?`
@@ -206,50 +206,50 @@ Skapa en ny avsett för utterances som söker efter formulär.
 
     ![Skärmbild av ny entitet med roller](./media/luis-tutorial-pattern/intent-findform.png)
 
-    Formuläret rubriken är `What to do when a fire breaks out in the Lab`. Utterance frågar efter platsen för formuläret och även frågar som måste signera den verifierar medarbetaren läsa den. Utan en Pattern.any enhet, skulle det vara svårt att förstå var rubriken slutar och extrahera rubriken som en entitet av utterance.
+    Formulärets rubrik är `What to do when a fire breaks out in the Lab`. Uttryck frågar efter plats i formatet och även ber som behöver för att registrera den verifierar medarbetaren läsa den. Utan en Pattern.any entitet, skulle det vara svårt att förstå var formulärrubrik slutar och extrahera rubriken som en enhet med uttryck.
 
-### <a name="create-a-patternany-entity-for-the-form-title"></a>Skapa en entitet Pattern.any för formulärrubrik
-Entiteten Pattern.any tillåter för entiteter med olika längd. Den fungerar bara i ett mönster eftersom mönstret markerar början och slutet av entiteten. Om du tycker att din mönster, om den innehåller en Pattern.any, extrakt entiteterna felaktigt, används en [explicit lista](luis-concept-patterns.md#explicit-lists) att lösa problemet. 
+### <a name="create-a-patternany-entity-for-the-form-title"></a>Skapa en Pattern.any entitet för formulärets rubrik
+Entiteten Pattern.any möjliggör entiteter med olika längd. Det fungerar bara i ett mönster eftersom mönstret som markerar början och slutet av entiteten. Om du tycker att din mönstret när det innehåller en Pattern.any, extraherar entiteterna felaktigt, används en [explicit lista](luis-concept-patterns.md#explicit-lists) att lösa problemet. 
 
 1. Välj **entiteter** i det vänstra navigeringsfönstret.
 
-2. Välj **Skapa ny entitet**. 
+2. Välj **Create new entity** (Skapa ny entitet). 
 
-3. Namnet på entiteten `FormName` med typen **Pattern.any**. För den här specifika självstudiekursen behöver inte lägga till några roller i entiteten.
+3. Namnge entiteten `FormName` med typen **Pattern.any**. Den här specifika självstudien behöver inte lägga till några roller i entiteten.
 
-    ![Bild av dialogrutan för enhetsnamn och typ av enhet](./media/luis-tutorial-pattern/create-entity-pattern-any.png)
+    ![Bild av dialogrutan för enhetens namn och typ av enhet](./media/luis-tutorial-pattern/create-entity-pattern-any.png)
 
 ### <a name="add-a-pattern-that-uses-the-patternany"></a>Lägga till ett mönster som använder Pattern.any
 
-1. Välj **mönster** från det vänstra navigeringsfönstret.
+1. Välj **mönster** i det vänstra navigeringsfönstret.
 
 2. Välj den **FindForm** avsikt.
 
-3. Ange en mall utterance ny entitet `Where is the form {FormName} and who needs to sign it after I read it?`
+3. Ange ett mall-uttryck med hjälp av den nya entiteten `Where is the form {FormName} and who needs to sign it after I read it?`
 
-    ![Skärmbild av mallen utterance pattern.any entitet](./media/luis-tutorial-pattern/pattern.any-template-utterance.png)
+    ![Skärmbild av mallen uttryck pattern.any entitet](./media/luis-tutorial-pattern/pattern.any-template-utterance.png)
 
-4. Träna app för nya avsikt, entitet och mönster.
+4. Träna appen för den nya avsikt, entitet och mönster.
 
-### <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Testa det nya mönstret för extrahering av data i fritt format
-1. Välj **testa** från att öppna panelen test översta raden. 
+### <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Testa det nya mönstret för extrahering av data för fritt format
+1. Välj **testa** från det översta fältet för att öppna panelen test. 
 
-2. Ange utterance `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`.
+2. Ange uttryck `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`.
 
-3. Välj **granska** under resultat för att se testresultaten för entiteten och avsikt.
+3. Välj **granska** under resultat för att se testresultaten för entitet och avsikt.
 
-    ![Skärmbild av mallen utterance pattern.any entitet](./media/luis-tutorial-pattern/test-pattern.any-results.png)
+    ![Skärmbild av mallen uttryck pattern.any entitet](./media/luis-tutorial-pattern/test-pattern.any-results.png)
 
-    Entiteten finns först och sedan mönstret påträffas, som anger syftet. Du måste lägga till fler exempel utterances på avsikten (inte mönstret) om du har ett testresultat där enheterna identifieras inte och därför mönstret hittas inte.
+    Entiteten finns först och sedan mönstret påträffas, som anger syftet. Om du har ett testresultat där entiteterna identifieras inte och därför hittas inte mönstret som du behöver lägga till fler exempel yttranden på avsikten (inte mönstret).
 
-4. Stäng test-panelen genom att välja den **testa** knappen i det övre navigeringsfältet.
+4. Stänga panelen test genom att välja den **testa** knappen i det övre navigeringsfältet.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort THOMAS appen när de inte längre behövs. Om du vill göra det, väljer du menyn med tre punkter (...) till höger om appnamnet i applistan väljer **ta bort**. I popup-fönstret **ta bort appen?** väljer **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. Om du vill göra det, Välj ellipsen (***...*** ) till höger om appnamnet i programlistan, Välj **ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Använd frasen listan för att förbättra förutsägelserna](luis-tutorial-interchangeable-phrase-list.md)
+> [Använd frasen listan för att förbättra förutsägelse](luis-tutorial-interchangeable-phrase-list.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

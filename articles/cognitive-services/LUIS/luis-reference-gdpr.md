@@ -1,6 +1,6 @@
 ---
-title: Export och borttagning av kundinformation - THOMAS - kognitiva Azure-tjänster. Microsoft Docs
-description: Referens för export och borttagning av kundinformation från språk förstå service (THOMAS).
+title: Export och borttagning av kunddata - LUIS - Azure Cognitive Services || Microsoft Docs
+description: Referens för export och borttagning av kunddata från tjänst för Språkförståelse (LUIS).
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,40 +9,40 @@ ms.technology: luis
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: v-geberr;
-ms.openlocfilehash: f684b8ab875e2fbb774dc4a29bce25be41b24e6d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8b4f9c17557b405bc5f4e78947952826724fc784
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355446"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865070"
 ---
-# <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportera och ta bort din kundinformation i språk förstå (THOMAS) i kognitiva Services
+# <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportera och ta bort dina kunddata i Språkförståelse (LUIS) i Cognitive Services
 
-## <a name="summary-of-customer-data-request-features"></a>Sammanfattning av kunden datafunktioner för begäran
-Språk förstå Intelligent Service (THOMAS) bevarar kunden innehåll för att använda tjänsten, men THOMAS användaren har full kontroll över visa, exportera och ta bort deras data. Detta kan göras via webben THOMAS [portal](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions) eller [THOMAS programmässiga API: er](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+## <a name="summary-of-customer-data-request-features"></a>Sammanfattning av kundens datafunktioner
+Language Understanding Intelligent Service (LUIS) bevarar kunden innehåll att driva tjänsten, men LUIS-användaren har fullständig kontroll över visa, exportera och ta bort sina data. Detta kan göras via webben LUIS [portal](luis-reference-regions.md) eller [LUIS programmatisk API: er](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-Kunden innehåll lagras krypterade i Microsoft regionala Azure storage, inklusive följande:
+Kunden innehåll lagras krypterade i Microsoft regionala Azure-lagring, inklusive följande:
 
-- Kontot användarinnehåll som samlas in vid registreringen
-- Utbildningsdata som krävs för att bygga modeller (d.v.s. avsikt & enheter)
-- Användarfrågor loggas vid körning för att förbättra användaren modeller
-  - Användare kan stänga av loggning av frågor genom att lägga till `&log=false` på begäran information [här](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-resources-faq#how-can-i-disable-the-logging-of-utterances)
+- Användarinnehåll för kontot som samlas in vid registrering
+- Träningsdata som krävs för att skapa modeller (d.v.s. avsikt & entiteter)
+- Användarfrågor loggas vid körning för att förbättra användare-modeller
+  - Användare kan stänga av loggning av frågor genom att lägga till `&log=false` på begäran, beskriver [här](luis-resources-faq.md#how-can-i-disable-the-logging-of-utterances)
 
-## <a name="deleting-customer-data"></a>Om du tar bort kundinformation
-THOMAS användare har fullständig behörighet att ta bort allt användarinnehåll, antingen via webbportalen THOMAS eller THOMAS programmässiga API: er. I följande tabell visas länkar hjälpa till med båda:
+## <a name="deleting-customer-data"></a>Tar bort kunddata
+LUIS-användare har fullständig behörighet att ta bort allt användarinnehåll, antingen via webbportalen LUIS eller LUIS programmatisk API: er. I följande tabell visas länkar som hjälper till med båda:
 
-| | **Användarkonto** | **Programmet** | **Utterance(s)** | **Slutanvändarens frågor** |
+| | **Användarkonto** | **Programmet** | **Utterance(s)** | **Slutanvändaren frågor** |
 | --- | --- | --- | --- | --- |
-| **Portal** | [Länk](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-account-settings) | [Länk](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app#delete-app) | [Länk](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app#delete-app) | [Länk](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app#delete-app) |
-| **API:er** | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
+| **Portal** | [Länk](luis-how-to-account-settings.md) | [Länk](create-new-app.md#delete-app) | [Länk](create-new-app.md#delete-app) | [Länk](create-new-app.md#delete-app) |
+| **API:er** | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
-## <a name="exporting-customer-data"></a>Exportera kundinformation
-THOMAS användare har fullständig behörighet att visa information på portalen, men den måste exporteras via THOMAS programmässiga API: er. I följande tabell visas länkar hjälpa till med export av data via THOMAS programmässiga API: er:
+## <a name="exporting-customer-data"></a>Exportera kunddata
+LUIS-användare har fullständig behörighet att visa data i portal, men den måste exporteras via LUIS programmatisk API: er. I följande tabell visas länkar som hjälper till med data export LUIS-programmatisk API: er:
 
-| | **Användarkonto** | **Programmet** | **Utterance(s)** | **Slutanvändarens frågor** |
+| | **Användarkonto** | **Programmet** | **Utterance(s)** | **Slutanvändaren frågor** |
 | --- | --- | --- | --- | --- |
 | **API:er** | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 
@@ -50,4 +50,4 @@ THOMAS användare har fullständig behörighet att visa information på portalen
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [THOMAS regioner referens](./luis-reference-regions.md)
+> [LUIS regioner referens](./luis-reference-regions.md)

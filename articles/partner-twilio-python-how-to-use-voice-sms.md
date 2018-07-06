@@ -1,5 +1,5 @@
 ---
-title: Hur du använder Twilio för röst- och SMS (Python) | Microsoft Docs
+title: Använda Twilio för röst- och SMS (Python) | Microsoft Docs
 description: Lär dig att ringa ett telefonsamtal och skicka ett SMS-meddelande med Twilio-API-tjänsten på Azure. Kodexempel som skrivits i Python.
 services: ''
 documentationcenter: python
@@ -14,109 +14,109 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: f4a02bb7a7c46e7a0e3c75b870c522eae8294339
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 62e7c601b70f3560dcc324c28f10f7d8e00bb9ed
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23866144"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865339"
 ---
-# <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Hur du använder Twilio för röst- och SMS-funktioner i Python
-Den här guiden visar hur du utför vanliga programmeringsuppgifter med Twilio-API-tjänsten på Azure. Scenarier som tas upp inkluderar att ringa och ett kort meddelande (SMS Service)-meddelande skickas. Mer information om Twilio och använder röst- och SMS i dina program finns i [nästa steg](#NextSteps) avsnitt.
+# <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Använda Twilio för röst- och SMS-funktioner i Python
+Den här guiden visar hur du utför vanliga programmeringsspråk uppgifter med Twilio-API-tjänsten på Azure. Scenarier som omfattas är ringa ett samtal och skicka ett meddelande om tjänsten SMS (Short Message). Mer information om Twilio och använda röst och SMS i dina program finns i den [nästa steg](#NextSteps) avsnittet.
 
 ## <a id="WhatIs"></a>Vad är Twilio?
-Twilio startar framtiden för kommunikation med, så att utvecklare kan bädda in röst, VoIP och meddelanden i program. De virtualisera alla infrastruktur som behövs i en molnbaserad, globala miljö, exponera den via Twilio kommunikation API-plattformen. Programmen är enkla att skapa och skalbara. Få flexibilitet med lön-som-dig gå priser och dra nytta av molnet tillförlitlighet.
+Twilio driva framtidens business-kommunikation, så att utvecklare kan bädda in röst, VoIP och meddelanden i program. De virtualisera all infrastruktur som behövs i en molnbaserad och global miljö kan exponera den via Twilio kommunikation API-plattformen. Program är enkel att bygga och skalbar. Få flexibilitet med betala per användning-som-du gå priser och dra nytta av molnet tillförlitlighet.
 
-**Twilio röst** gör att dina program att göra och ta emot telefonsamtal.
-**Twilio SMS** gör att programmet kan skicka och ta emot textmeddelanden.
-**Twilio klienten** kan du se VoIP-anrop från telefon, surfplatta eller webbläsare och stöder WebRTC.
+**Twilio-röst** kan dina program kan ringa och ta emot samtal.
+**Twilio-SMS** gör att programmet kan skicka och ta emot textmeddelanden.
+**Twilio-klienten** kan du se VoIP-anrop från valfri telefon, surfplatta eller webbläsare och har stöd för WebRTC.
 
-## <a id="Pricing"></a>Priser för Twilio och specialerbjudanden
-Azure-kunder får en [specialerbjudande] [ special_offer] $10 Twilio kredit när du uppgraderar ditt Twilio-konto. Den här Twilio-kredit kan tillämpas på alla Twilio-användning ($10 kredit motsvarar upp till 1 000 SMS-meddelanden skickas eller tas emot upp till 1 000 inkommande röst minuter beroende på platsen för ditt mål för telefon och meddelandet eller samtal). Lösa detta [Twilio kredit] [ special_offer] och komma igång.
+## <a id="Pricing"></a>Twilio priser och specialerbjudanden
+Azure-kunder får en [specialerbjudande] [ special_offer] $10 Twilio kredit när du uppgraderar ditt Twilio-konto. Den här Twilio-kredit kan tillämpas på all Twilio-användning (10 USD kredit motsvarar skicka upp till 1 000 SMS-meddelanden eller ta emot upp till 1 000 inkommande röst minuter beroende på platsen för din telefon och meddelandet eller anrop mål). Lös in detta [Twilio kredit] [ special_offer] och komma igång.
 
-Twilio är en betalning per användning. Det finns inga avgifter för installation och du kan stänga ditt konto när som helst. Du hittar mer information i [Twilio priser][twilio_pricing].
+Twilio är en betala per tjänst. Det finns inga avgifter för konfiguration och du kan avsluta ditt konto när som helst. Du hittar mer information finns på [Twilio priser][twilio_pricing].
 
 ## <a id="Concepts"></a>Begrepp
-Twilio-API är en RESTful-API som tillhandahåller röst- och SMS-funktioner för program. Klientbibliotek är tillgängliga på flera språk. en lista, se [Twilio-API-bibliotek][twilio_libraries].
+Twilio-API är ett RESTful-API med röst och SMS-funktioner för program. Klientbibliotek är tillgängliga på flera språk. en lista i [Twilio-API-bibliotek][twilio_libraries].
 
-Viktiga aspekter av Twilio-API: et är Twilio verb och Twilio Markup Language (TwiML).
+Viktiga aspekter av Twilio-API: et är Twilio-verb och Twilio Markup Language (TwiML).
 
 ### <a id="Verbs"></a>Twilio-verb
-API: et tillämpar Twilio verb; till exempel den  **&lt;säg&gt;**  verb instruerar Twilio att hörbart leverera ett meddelande på ett samtal.
+API: et gör använda Twilio verb; till exempel den **&lt;Say&gt;** verb instruerar Twilio hörbart uppfyller ett meddelande på ett anrop.
 
-Följande är en lista över Twilio verb. Lär dig mer om vilka verb och funktioner via [Markup Language Twilio dokumentationen][twiml].
+Här följer en lista över Twilio-verb. Läs mer om andra verb och funktioner i form av [Twilio Markup Language dokumentation][twiml].
 
-* **&lt;Ring&gt;**: anroparen ansluter till en annan telefon.
-* **&lt;Samla in&gt;**: samlar in siffror som anges på telefon tangentbordet.
+* **&lt;Uppringning&gt;**: anroparen ansluter till en annan telefon.
+* **&lt;Samla in&gt;**: samlar in siffror som anges på telefon-tangentbordet.
 * **&lt;Koppla ned&gt;**: slutar ett anrop.
 * **&lt;Pausa&gt;**: tyst väntar på ett angivet antal sekunder.
-* **&lt;Spela upp&gt;**: spelar en ljudfil.
+* **&lt;Spela upp&gt;**: spelar upp en ljudfil.
 * **&lt;Kön&gt;**: lägga till den till en kö med anropare.
-* **&lt;Posten&gt;**: registrerar röst anroparen och returnerar en URL för en fil som innehåller inspelningen.
+* **&lt;Post&gt;**: registrerar anroparen röst och returnerar en URL för en fil som innehåller inspelningen.
 * **&lt;Omdirigera&gt;**: Överför kontroll över ett samtal eller SMS till TwiML på en annan URL.
-* **&lt;Avvisa&gt;**: avvisar ett inkommande samtal till Twilio-nummer utan fakturering du.
-* **&lt;Säg&gt;**: konverterar text till tal, som görs på ett samtal.
+* **&lt;Avvisa&gt;**: avvisar ett inkommande samtal till din Twilio-nummer utan fakturering du.
+* **&lt;Anta att&gt;**: konverterar text till tal som görs på ett anrop.
 * **&lt;SMS&gt;**: skickar ett SMS-meddelande.
 
 ### <a id="TwiML"></a>TwiML
-TwiML är en uppsättning XML-baserade instruktioner baserat på de Twilio-verb som informerar Twilio för att behandla ett samtal eller SMS.
+TwiML är en uppsättning XML-baserade instruktionerna baserat på de Twilio-verb som meddelar Twilio av behandla ett samtal eller SMS.
 
-Följande TwiML skulle exempelvis Omvandla text **Hello World** till tal.
+Till exempel följande TwiML konverteras texten **Hello World** till tal.
 
     <?xml version="1.0" encoding="UTF-8" ?>
     <Response>
       <Say>Hello World</Say>
     </Response>
 
-När programmet anropar Twilio-API, är en av parametrarna API den URL som returnerar TwiML-svar. Du kan använda Twilio-tillhandahållna URL: er för utveckling, ange TwiML-svar som används av dina program. Du kan också vara värd för din egen URL: er för att skapa TwiML-svar och ett annat alternativ är att använda den `TwiMLResponse` objekt.
+När programmet anropar Twilio-API, är en av parametrarna API den URL som returnerar TwiML svaret. Du kan använda Twilio-angivna URL: er för utveckling, för att ge TwiML-svar som används av dina program. Du kan också vara värd för din egen URL: er för att skapa TwiML-svar och ett annat alternativ är att använda den `TwiMLResponse` objekt.
 
-Läs mer om Twilio verb, deras attribut och TwiML [TwiML][twiml]. Mer information om Twilio-API finns [Twilio API][twilio_api].
+Läs mer om Twilio-verb, deras attribut och TwiML [TwiML][twiml]. Mer information om Twilio-API finns i [Twilio-API][twilio_api].
 
 ## <a id="CreateAccount"></a>Skapa ett Twilio-konto
-När du är redo att skaffa ett Twilio-konto kan logga på [försök Twilio][try_twilio]. Du kan börja med ett kostnadsfritt konto och uppgradera ditt konto senare.
+När du är redo att få ett Twilio-konto, registrera dig på [försök Twilio][try_twilio]. Du kan börja med ett kostnadsfritt konto och uppgradera ditt konto senare.
 
-När du registrerar dig för ett Twilio-konto får du ett SID-konto och en token för autentisering. Både behövs för att göra Twilio API-anrop. För att förhindra obehörig åtkomst till ditt konto, skydda din token för autentisering. Ditt konto SID och autentiseringstoken kan visas i den [Twilio konsolen][twilio_console], i fälten med etiketten **konto SID** och **AUTH TOKEN**respektive.
+När du registrerar dig för ett Twilio-konto får du ett SID-konto och en autentiseringstoken. Båda krävs för att göra Twilio-API-anrop. För att förhindra obehörig åtkomst till ditt konto måste skydda din autentiseringstoken. Ditt konto SID och autentiseringstoken kan visas i den [Twilio-konsolen][twilio_console], i fälten med etiketten **konto-SID** och **AUTENTISERINGSTOKEN**respektive.
 
 ## <a id="create_app"></a>Skapa en Python-program
-En Python-program som använder tjänsten Twilio och körs i Azure är inte annorlunda än andra Python-program som använder Twilio-tjänsten. När Twilio är REST-baserad och kan anropas från Python på flera sätt, den här artikeln fokuserar på hur du använder Twilio-tjänster med [Twilio-biblioteket för Python från GitHub][twilio_python]. Mer information om hur du använder Twilio-biblioteket för Python finns [http://readthedocs.org/docs/twilio-python/en/latest/index.html][twilio_lib_docs].
+Ett Python-program som använder Twilio-tjänsten och körs i Azure är inte skiljer sig från andra Python-program som använder Twilio-tjänsten. Twilio-tjänster är REST-baserade och kan anropas från Python på flera olika sätt, i den här artikeln fokuserar på hur du använder Twilio-tjänster med [Twilio-bibliotek för Python från GitHub][twilio_python]. Mer information om hur du använder Twilio-bibliotek för Python finns i [ http://readthedocs.org/docs/twilio-python/en/latest/index.html ] [ twilio_lib_docs].
 
-Första [ställa in en ny Azure Linux VM] [azure_vm_setup] för att fungera som värd för din nya Python-webbprogram. När den virtuella datorn körs, måste du exponera dina program på en offentlig port som beskrivs nedan.
+Första, [ställa in en ny virtuell Linux-dator] [azure_vm_setup] att fungera som värd för din nya Python-webbprogram. När den virtuella datorn körs, måste du exponera dina program på en offentlig port enligt beskrivningen nedan.
 
 ### <a name="add-an-incoming-rule"></a>Lägg till en inkommande regel
-  1. Gå till sidan [Nätverkssäkerhetsgruppen] [azure_nsg].
-  2. Välj Nätverkssäkerhetsgruppen som överensstämmer med den virtuella datorn.
-  3. Lägg till och **utgående regel** för **port 80**. Se till att tillåta inkommande från alla adresser.
+  1. Gå till sidan [Nätverkssäkerhetsgrupp] [azure_nsg].
+  2. Välj den Nätverkssäkerhetsgrupp som motsvarar med din virtuella dator.
+  3. Lägg till och **utgående regel** för **port 80**. Var noga med att tillåta inkommande från alla adresser.
 
 ### <a name="set-the-dns-name-label"></a>Ange DNS-namnetikett
-  1. Gå till sidan [den offentliga IP-postadresser] [azure_ips].
-  2. Välj offentlig IP-Adressen som correspends med den virtuella datorn.
-  3. Ange den **DNS-namnetikett** i den **Configuration** avsnitt. I det här exemplet den ser ut ungefär så här *din domän etikett*. centralus.cloudapp.azure.com
+  1. Gå till sidan [den offentliga IP-adresser] [azure_ips].
+  2. Välj den offentliga IP-Adressen som correspends med din virtuella dator.
+  3. Ange den **DNS-Namnetiketten** i den **Configuration** avsnittet. Det här exemplet ska det se ut ungefär så här *your domänetiketten*. centralus.cloudapp.azure.com
 
-När du ska kunna ansluta via SSH till den virtuella datorn kan du installera webbramverk önskat (de mest kända i Python som två [Flask](http://flask.pocoo.org/) och [Django](https://www.djangoproject.com)). Du kan installera någon av dem genom att köra den `pip install` kommando.
+När du har möjlighet att ansluta via SSH till den virtuella datorn kan du installera webbramverk valfri (de mest välkända i Python som två [Flask](http://flask.pocoo.org/) och [Django](https://www.djangoproject.com)). Du kan installera någon av dem genom att köra den `pip install` kommando.
 
-Tänk på att vi har konfigurerat den virtuella datorn för att tillåta trafik på port 80. Så se till att konfigurera programmet att använda den här porten.
+Tänk på att vi har konfigurerat den virtuella datorn för att tillåta trafik på port 80. Så se till att konfigurera programmet till att använda den här porten.
 
 ## <a id="configure_app"></a>Konfigurera programmet att använda Twilio-bibliotek
-Du kan konfigurera tillämpningsprogrammet till att använda Twilio-biblioteket för Python på två sätt:
+Du kan konfigurera ditt program använder Twilio-bibliotek för Python på två sätt:
 
-* Installera Twilio-biblioteket för Python som Pip-paket. Den kan installeras med följande kommandon:
+* Installera Twilio-bibliotek för Python som ett Pip-paket. Den kan installeras med följande kommandon:
    
         $ pip install twilio
 
     ELLER
 
-* Hämta Twilio-biblioteket för Python från GitHub ([https://github.com/twilio/twilio-python][twilio_python]) och installera den så här:
+* Hämta Twilio-bibliotek för Python från GitHub ([https://github.com/twilio/twilio-python][twilio_python]) och installera den så här:
 
         $ python setup.py install
 
-När du har installerat Twilio-biblioteket för Python, kan du sedan `import` i Python-filer:
+När du har installerat Twilio-bibliotek för Python, kan du sedan `import` den i Python-filer:
 
         import twilio
 
-Mer information finns i [https://github.com/twilio/twilio-python/blob/master/README.md][twilio_github_readme].
+Mer information finns i [ https://github.com/twilio/twilio-python/blob/master/README.md ] [ twilio_github_readme].
 
-## <a id="howto_make_call"></a>Så här: göra en utgående anrop
-Nedan visas hur du skapar ett utgående anrop. Den här koden används även en webbplats med angivna Twilio för att returnera svaret Twilio Markup Language (TwiML). Ersätt värdena för den **from_number** och **to_number** telefonnummer och se till att du har bekräftat att den **from_number** telefonnummer för ditt Twilio-konto innan du kör koden.
+## <a id="howto_make_call"></a>Så här: göra ett externt anrop
+Nedan visas hur du gör en utgående samtal. Den här koden använder också en Twilio-angivna plats för att returnera Twilio Markup Language (TwiML)-svaret. Ersätt värdena för den **from_number** och **to_number** telefonnummer och se till att du har kontrollerat det **from_number** telefonnummer för ditt Twilio-konto innan du kör koden.
 
     from urllib.parse import urlencode
 
@@ -127,7 +127,7 @@ Nedan visas hur du skapar ett utgående anrop. Den här koden används även en 
     account_sid = "your_twilio_account_sid"
     auth_token = "your_twilio_authentication_token"
 
-    # The number of the phone initiating the the call.
+    # The number of the phone initiating the call.
     # This should either be a Twilio number or a number that you've verified
     from_number = "NNNNNNNNNNN"
 
@@ -149,10 +149,10 @@ Nedan visas hur du skapar ett utgående anrop. Den här koden används även en 
                                url=url + urlencode({'Message': message}))
     print(call.sid)
 
-Som tidigare nämnts kan används den här koden en angivna Twilio plats för att returnera TwiML svaret. Du kan använda din egen webbplats i stället för att tillhandahålla TwiML svaret; Mer information finns i [hur du ger TwiML svar från din egen webbplats](#howto_provide_twiml_responses).
+Som tidigare nämnts använder den här koden en Twilio-angivna plats för att returnera TwiML-svar. Du kan i stället använda en egen plats för att tillhandahålla TwiML svaret; Mer information finns i [hur du ger TwiML svar från din egen webbplats](#howto_provide_twiml_responses).
 
 ## <a id="howto_send_sms"></a>Så här: skicka ett SMS-meddelande
-Här visas hur du skickar ett SMS-meddelande med den `TwilioRestClient` klass. Den **from_number** nummer tillhandahålls av Twilio för utvärderingskonton att skicka SMS-meddelanden. Den **to_number** numret måste verifieras för ditt Twilio-konto innan du kör koden.
+Följande visar hur du skicka ett SMS-meddelande med den `TwilioRestClient` klass. Den **from_number** tal kommer från Twilio för utvärderingskonton att skicka SMS-meddelanden. Den **to_number** tal måste verifieras för ditt Twilio-konto innan du kör koden.
 
     # Import the Twilio Python Client.
     from twilio.rest import TwilioRestClient
@@ -174,11 +174,11 @@ Här visas hur du skickar ett SMS-meddelande med den `TwilioRestClient` klass. D
                                      body=message)
 
 ## <a id="howto_provide_twiml_responses"></a>Så här: Ange TwiML svar från din egen webbplats
-När ditt program initierar ett anrop till Twilio-API, skickar Twilio din begäran till en URL som förväntas returnera ett TwiML svar. I exemplet ovan används URL: en som tillhandahålls av Twilio [http://twimlets.com/message][twimlet_message_url]. (När TwiML är avsedd för användning av Twilio, kan du visa den i webbläsaren. Klicka till exempel [http://twimlets.com/message] [ twimlet_message_url] att se en tom `<Response>` element; Klicka på ett annat exempel är [http://twimlets.com/message?Message%5B0%5D=Hello%20World] [ twimlet_message_url_hello_world] att se en `<Response>` element som innehåller en `<Say>` element.)
+När ditt program initierar ett anrop till Twilio-API, skickar Twilio din begäran till en URL som förväntas returnera ett TwiML svar. I exemplet ovan används URL: en med Twilio-angivna [ http://twimlets.com/message ] [ twimlet_message_url]. (Medan TwiML är avsedd för användning av Twilio, kan du visa den i webbläsaren. Klicka till exempel [ http://twimlets.com/message ] [ twimlet_message_url] att se en tom `<Response>` elementet; Klicka på ett annat exempel är [ http://twimlets.com/message?Message%5B0%5D=Hello%20World ] [ twimlet_message_url_hello_world]att se en `<Response>` element som innehåller en `<Say>` element.)
 
-I stället för på den angivna Twilio URL, kan du skapa din egen webbplats som returnerar HTTP-svar. Du kan skapa webbplatsen på alla språk som returnerar XML-svar; Det här avsnittet förutsätter att du kommer att använda Python för att skapa TwiML.
+I stället för en Twilio-angivna URL: en, kan du skapa en egen plats som returnerar HTTP-svar. Du kan skapa webbplatsen på valfritt språk som returnerar XML-svar; Det här avsnittet förutsätter att du kommer att använda Python för att skapa TwiML.
 
-I följande exempel kommer utdata TwiML svar som säger **Hello World** på anropet.
+I följande exempel kommer utdata svar TwiML där det står **Hello World** på anropet.
 
 Med Flask:
 
@@ -195,7 +195,7 @@ Med Django:
         xml = '<Response><Say>Hello world.</Say></Response>'
         return HttpResponse(xml, content_type='text/xml')
 
-Du ser i exemplet ovan, är TwiML svaret bara ett XML-dokument. Twilio-bibliotek för Python innehåller klasser som ska generera TwiML för dig. Exemplet nedan skapar motsvarande svaret som ovan, men använder den `twiml` modul i Twilio-biblioteket för Python:
+Som du ser i exemplet ovan är TwiML svaret helt enkelt ett XML-dokument. Twilio-bibliotek för Python innehåller klasser som ska generera TwiML åt dig. Exemplet nedan skapar motsvarande svaret enligt ovan, men använder den `twiml` modul i Twilio-bibliotek för Python:
 
     from twilio import twiml
 
@@ -203,9 +203,9 @@ Du ser i exemplet ovan, är TwiML svaret bara ett XML-dokument. Twilio-bibliotek
     response.say("Hello world.")
     print(str(response))
 
-Läs mer om TwiML [https://www.twilio.com/docs/api/twiml][twiml_reference].
+Läs mer om TwiML [ https://www.twilio.com/docs/api/twiml ] [ twiml_reference].
 
-När du har Python programmet ställts in för att ange TwiML svar använder URL för programmet som URL som skickades till den `client.calls.create` metoden. Till exempel om du har ett webbprogram med namnet **MyTwiML** distribueras till en Azure-värdtjänsten tjänsten, kan du använda webbadressen som webhook som visas i följande exempel:
+När du har ditt Python-program som ställts in för att ge TwiML svar använder URL: en för programmet som URL: en som skickades till den `client.calls.create` metoden. Exempel: Om du har en webbapp med namnet **MyTwiML** distribueras till en Azure-värdtjänsten tjänsten, du kan använda URL: en som webhook, enligt följande exempel:
 
     from twilio.rest import TwilioRestClient
 
@@ -225,16 +225,16 @@ När du har Python programmet ställts in för att ange TwiML svar använder URL
     print(call.sid)
 
 ## <a id="AdditionalServices"></a>Så här: använda ytterligare Twilio-tjänster
-Förutom de exempel som visas här, erbjuder Twilio webbaserade API: er som du kan använda för att utnyttja ytterligare funktioner för Twilio från Azure-program. Fullständig information finns i [Twilio-API-dokumentationen][twilio_api].
+Förutom de exempel som visas här, erbjuder Twilio webbaserade API: er som du kan använda för att utnyttja ytterligare Twilio-funktioner från ditt Azure-program. Fullständig information finns i [Twilio-API-dokumentation][twilio_api].
 
 ## <a id="NextSteps"></a>Nästa steg
-Nu när du har lärt dig grunderna i Twilio-tjänsten kan du följa dessa länkar om du vill veta mer:
+Nu när du har lärt dig grunderna för Twilio-tjänsten kan du följa dessa länkar om du vill veta mer:
 
 * [Riktlinjer för Twilio-säkerhet][twilio_security_guidelines]
-* [Twilio ta guider och exempelkod][twilio_howtos]
-* [Twilio snabbstarten självstudier][twilio_quickstarts]
+* [Twilio HowTo guider och exempelkod][twilio_howtos]
+* [Twilio Snabbstartsguider][twilio_quickstarts]
 * [Twilio på GitHub][twilio_on_github]
-* [Prata med Twilio-Support][twilio_support]
+* [Tala med Twilio-stöd][twilio_support]
 
 [special_offer]: http://ahoy.twilio.com/azure
 [twilio_python]: https://github.com/twilio/twilio-python

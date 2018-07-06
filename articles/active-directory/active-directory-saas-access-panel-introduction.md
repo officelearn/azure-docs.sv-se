@@ -15,12 +15,12 @@ ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc05ff8c6961cd9389a12ff9c082867eecb79bca
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: eff93b37be2ff770b90518f886bd4b54fa0ca2a1
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450323"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868998"
 ---
 # <a name="what-is-the-access-panel"></a>Vad är åtkomstpanelen?
 
@@ -104,6 +104,10 @@ För att använda företagets interna URL: er samtidigt remote med hjälp av til
 2. [Publicera programmet](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) och URL: en via programproxy.
 3. Installera tillägget och logga in till den genom att välja inloggning att komma igång.
 4. Nu kan du bläddra till interna företagets URL även under remote.
+
+> [!NOTE]
+> Du kan också stänga av automatisk omdirigering till företagets URL: er genom att välja kugghjulet på huvudmenyn och välja **av** för företagets interna URL: en omdirigering av alternativet.
+
 
 ## <a name="mobile-app-support"></a>Stöd för mobila appar
 

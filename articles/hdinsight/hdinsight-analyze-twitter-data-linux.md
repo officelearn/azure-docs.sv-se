@@ -1,6 +1,6 @@
 ---
 title: Analysera Twitter-data med Apache Hive - Azure HDInsight | Microsoft Docs
-description: Lär dig använda Hive och Hadoop i HDInsight för att omvandla TWitter rådata till en sökbar Hive-tabell.
+description: Lär dig hur du använder Hive och Hadoop på HDInsight för att omvandla rådata till TWitter till en sökbara Hive-tabell.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,19 +14,19 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f48aa68838ff8cac0119f66f168fce6008d388bc
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 0c6643e167f43c2524a4d00a209c5a5db22076a8
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959030"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865322"
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analysera Twitter-data med Hive och Hadoop på HDInsight
 
-Lär dig hur du använder Apache Hive att processen Twitter-data. Resultatet är en lista över Twitter-användare som skickade de flesta tweets som innehåller ett visst ord.
+Lär dig hur du använder Apache Hive för att bearbeta Twitter-data. Resultatet är en lista över Twitter-användare som skickade de flesta tweets som innehåller ett visst ord.
 
 > [!IMPORTANT]
-> Stegen i det här dokumentet har testats på HDInsight 3,6.
+> Stegen i det här dokumentet har testats på HDInsight 3.6.
 >
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
@@ -36,11 +36,11 @@ Twitter kan du hämta data för varje tweet som JavaScript Object Notation (JSON
 
 ### <a name="create-a-twitter-application"></a>Skapa ett Twitter-program
 
-1. Logga in från en webbläsare på [ https://apps.twitter.com/ ](https://apps.twitter.com/). Klicka på den **registrering nu** länk om du inte har ett Twitter-konto.
+1. Från en webbläsare, logga in på [ https://apps.twitter.com/ ](https://apps.twitter.com/). Klicka på den **registrera dig nu** länkar om du inte har ett Twitter-konto.
 
 2. Klicka på **Skapa ny App**.
 
-3. Ange **namn**, **beskrivning**, **webbplats**. Du kan göra upp en URL för den **webbplats** fältet. I följande tabell visas några exempelvärden som ska användas:
+3. Ange **namn**, **beskrivning**, **webbplats**. Du kan göra upp en URL för den **webbplats** fält. I följande tabell visas några exempelvärden som ska användas:
 
    | Fält | Värde |
    |:--- |:--- |
@@ -48,21 +48,21 @@ Twitter kan du hämta data för varje tweet som JavaScript Object Notation (JSON
    | Beskrivning |MyHDInsightApp |
    | Webbplats |http://www.myhdinsightapp.com |
 
-4. Kontrollera **Ja, jag godkänner**, och klicka sedan på **skapa programmet Twitter**.
+4. Kontrollera **Ja, jag godkänner**, och klicka sedan på **skapa ditt Twitter-program**.
 
 5. Klicka på den **behörigheter** fliken. Standardbehörigheten är **skrivskyddad**.
 
-6. Klicka på den **nycklar och åtkomst-token** fliken.
+6. Klicka på den **nycklar och åtkomsttoken** fliken.
 
-7. Klicka på **skapa åtkomst-token**.
+7. Klicka på **Skapa min åtkomsttoken**.
 
 8. Klicka på **Test OAuth** i det övre högra hörnet på sidan.
 
-9. Skriv ned **konsumenten nyckeln**, **konsumenthemlighet**, **åtkomsttoken**, och **åtkomst-token hemlighet**.
+9. Anteckna **använda nyckeln**, **konsumenthemligheten**, **åtkomsttoken**, och **åtkomsttokenhemligheten**.
 
 ### <a name="download-tweets"></a>Hämta tweets
 
-Följande Python-kod hämtar 10 000 tweets från Twitter och spara dem till en fil med namnet **tweets.txt**.
+Följande Python-koden hämtar 10 000 tweets från Twitter och spara dem till en fil med namnet **tweets.txt**.
 
 > [!NOTE]
 > Följande steg utförs på HDInsight-klustret eftersom Python redan är installerad.
@@ -75,7 +75,7 @@ Följande Python-kod hämtar 10 000 tweets från Twitter och spara dem till en f
 
     Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
-3. Använd följande kommandon för att installera [Tweepy](http://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2), och andra nödvändiga paket:
+3. Använd följande kommandon för att installera [Tweepy](http://www.tweepy.org/), [förloppsindikatorn](https://pypi.python.org/pypi/progressbar/2.2), och andra paket som krävs:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
@@ -159,33 +159,33 @@ Följande Python-kod hämtar 10 000 tweets från Twitter och spara dem till en f
     > * `access_token_secret`
 
     > [!TIP]
-    > Justera filtret avsnitt på den sista raden att spåra populära nyckelord. Med hjälp av nyckelord populära när du kör skriptet ger snabbare insamlingen av data.
+    > Justera filtret ämnen på den sista raden att spåra populära nyckelord. Om du använder populära nyckelord när du kör skriptet får snabbare insamlingen av data.
 
 6. Använd **Ctrl + X**, sedan **Y** att spara filen.
 
-7. Använd följande kommando för att köra filen och hämta tweets:
+7. Använd följande kommando för att köra filen och ladda ned tweets:
 
     ```bash
     python gettweets.py
     ```
 
-    En förloppsindikator. Räknar upp till 100% som tweets hämtas.
+    En förloppsindikator visas. Den räknar upp till 100% eftersom tweets laddas ned.
 
    > [!NOTE]
-   > Om det tar lång tid för förloppsindikatorn att avancera, bör du ändra filtret för att spåra trender avsnitt. När det finns många tweets om ämnet i filtret, kan du snabbt få 10000 tweets behövs.
+   > Om det tar lång tid för förloppsindikatorn att gå vidare, bör du ändra filtret för att spåra populära ämnen. När det finns många tweets om ämnet i filtret, kan du snabbt få 10000 tweets som behövs.
 
-### <a name="upload-the-data"></a>Överföra data
+### <a name="upload-the-data"></a>Ladda upp data
 
-Använd följande kommandon för att överföra data till HDInsight lagring:
+Använd följande kommandon för att ladda upp data till HDInsight storage:
 
 ```bash
 hdfs dfs -mkdir -p /tutorials/twitter/data
 hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 ```
 
-Dessa kommandon lagra data på en plats som har åtkomst till alla noder i klustret.
+Dessa kommandon kan du lagra data på en plats som har åtkomst till alla noder i klustret.
 
-## <a name="run-the-hiveql-job"></a>Kör jobb för HiveQL
+## <a name="run-the-hiveql-job"></a>Kör jobbet HiveQL
 
 1. Använd följande kommando för att skapa en fil som innehåller HiveQL-instruktioner:
 
@@ -308,9 +308,9 @@ Dessa kommandon lagra data på en plats som har åtkomst till alla noder i klust
    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
-    Det här kommandot Kör den den **twitter.hql** fil. När frågan har slutförts kan du se en `jdbc:hive2//localhost:10001/>` prompt.
+    Det här kommandot Kör den **twitter.hql** fil. När frågan har slutförts kan du se en `jdbc:hive2//localhost:10001/>` prompten.
 
-4. Använd följande fråga för att verifiera att data importerades från beeline-prompten:
+4. Använd följande fråga om för att verifiera att data har importerats från beeline-prompten:
 
    ```hiveql
    SELECT name, screen_name, count(1) as cc
@@ -323,14 +323,14 @@ Dessa kommandon lagra data på en plats som har åtkomst till alla noder i klust
     Den här frågan returnerar högst 10 tweets som innehåller ordet **Azure** i meddelandetexten.
 
     > [!NOTE]
-    > Om du har ändrat filter i den `gettweets.py` skript genom att ersätta **Azure** med ett av filtren som du använde.
+    > Om du har ändrat filtret i den `gettweets.py` skriptet och Ersätt **Azure** med någon av filter som du använde.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har lärt dig hur du omvandlar en ostrukturerad datauppsättning JSON till en strukturerad Hive-tabell. Mer information om Hive i HDInsight finns i följande dokument:
+Du har lärt dig att omvandla en Ostrukturerade JSON-datauppsättning till en strukturerade Hive-tabell. Mer information om Hive på HDInsight finns i följande dokument:
 
-* [Komma igång med HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Analysera svarta fördröjning data med HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Kom igång med HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* [Analysera flygförseningsdata med HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
 
 [curl]: http://curl.haxx.se
 [curl-download]: http://curl.haxx.se/download.html

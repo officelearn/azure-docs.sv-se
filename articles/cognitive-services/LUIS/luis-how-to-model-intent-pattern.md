@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 9dd23fd5f8a0024f127b71160899d10042037a66
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 26fb9c6349b46e0c920506c39ba53b26f215d330
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346016"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867196"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Hur du lägger till mönster för att förbättra förutsägelsefunktionen
 När en LUIS-app tar emot endpoint yttranden, använda den [konceptet](luis-concept-patterns.md) av mönster förbättra prognosens noggrannhet för yttranden som avslöjar ett mönster i ordföljden och word valet. Mönster Använd [entiteter](luis-concept-entity-types.md) och deras roller för att extrahera data med hjälp av specifika mönstret syntax. 
@@ -57,7 +57,7 @@ Sökningen kan du hitta de mönster som innehåller viss text.
 <!-- TBD: should I be able to click on the magnifying glass again to close the search box? It doesn't reset the list. -->
 
 ## <a name="edit-a-pattern"></a>Redigera ett mönster
-1. Om du vill redigera ett mönster, väljer du tre punkter (...)-ikonen längst till höger på raden för mönstret och välj sedan **redigera**. 
+1. Om du vill redigera ett mönster, Välj ellipsen (***...*** ) knappen längst till höger på raden för mönstret och välj **redigera**. 
 
     ![Skärmbild av redigera menyalternativ i mönstret raden](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
 
@@ -79,7 +79,7 @@ För att tilldela flera mönster i en annan typ av avsikt, markerar du kryssruta
 
 ## <a name="delete-a-single-pattern"></a>Ta bort ett enda mönster
 
-1. Om du vill ta bort ett mönster, väljer du tre punkter (...)-ikonen längst till höger på raden för mönstret och välj sedan **ta bort**. 
+1. Om du vill ta bort ett mönster, Välj ellipsen (***...*** ) knappen längst till höger på raden för mönstret och välj **ta bort**. 
 
     ![Skärmbild av ta bort uttryck](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
 
@@ -123,7 +123,7 @@ Filtret tas bort och visa alla mönster.
 ## <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>Lägg till mönster från befintliga uttryck på avsikten eller entitet
 Du kan skapa ett mönster från en befintlig uttryck på antingen den **avsikt** eller **entitet** sidan. Alla uttryck på vilken avsikt eller enhet som visas i en lista med i den högra kolumnen att ge åtkomst till uttryck på servernivå alternativ som **redigera**, **ta bort**, och **Lägg till som mönster**.
 
-1. Välj de tre punkterna (...) till höger om uttryck på den valda raden i uttryck och välj **Lägg till som mönster**.
+1. På den valda raden i uttryck, Välj ellipsen (***...*** ) till höger om uttryck och välj **Lägg till som mönster**.
 
     [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Skärmbild av yttranden tabell med Lägg till mönster som markerats i alternativmenyn")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 

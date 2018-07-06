@@ -1,6 +1,6 @@
 ---
-title: Visa THOMAS användning från Azure Cloud Shell | Microsoft Docs
-description: Lär dig mer om att hämta information om användning i Azure Cloud Shell för THOMAS.
+title: Visa LUIS användning från Azure Cloud Shell | Microsoft Docs
+description: Lär dig mer om att hämta information om användningen i Azure Cloud Shell för LUIS.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,45 +9,45 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: v-geberr
-ms.openlocfilehash: 2de25645e5377efdd53bcc980695804d34db5ee2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8dfe5b2363fbf9b89947956f212d8d4e1ef5d82a
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354567"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867043"
 ---
-# <a name="manage-luis-service-from-azure-cloud-shell"></a>Hantera THOMAS tjänsten från Azure Cloud Shell
-Azure-portalen kan du använda PowerShell-cmdlets för att arbeta med THOMAS resurser. 
+# <a name="manage-luis-service-from-azure-cloud-shell"></a>Hantera LUIS-tjänsten från Azure Cloud Shell
+Azure-portalen kan du använda PowerShell-cmdlets för att arbeta med LUIS-resurser. 
 
-Dessa cmdletar kan du [skapa](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) THOMAS-prenumeration, hämta information om prenumerationen, inklusive [användning](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), och [ta bort](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) prenumerationen. 
+Dessa cmdletar kan du [skapa](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) en LUIS-prenumeration, hämta information om prenumerationen, inklusive [användning](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), och [ta bort](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) prenumerationen. 
 
-## <a name="cloud-shell-storage-account-and-authentication"></a>Molnet shell storage-konto och autentisering
-För att kunna använda PowerShell i Azure portal [molnet shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell), måste du ha ett Azure storage-konto. Om du inte har en [lagringskonto](https://docs.microsoft.com/en-us/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share), uppmanas du att skapa en. Storage-konto kan du spara PowerShell-skript i molnet-gränssnittet.  
+## <a name="cloud-shell-storage-account-and-authentication"></a>Cloud shell storage-konto och autentisering
+För att kunna använda PowerShell i Azure-portalen [cloud shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell), måste du ha ett Azure storage-konto. Om du inte har en [lagringskonto](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share), uppmanas du att skapa en. Storage-konto kan du spara PowerShell-skript i cloudshell.  
 
-Du måste också att autentisera till Azure i molnet shell åtkomst till resurser. 
+Du måste också autentisera till Azure i cloudshell för att komma åt några resurser. 
 
-När du har ett lagringskonto och autentiseras, kan du köra PowerShell-cmdlets.
+När du har ett lagringskonto och har autentiserats kan köra du PowerShell-cmdletar.
 
 ## <a name="open-cloud-shell"></a>Öppna Cloud Shell
-När du använder Azure portal cloud-gränssnittet kan är du alltid den senaste versionen av PowerShell. 
+När du använder Azure portal cloudshell är du alltid den mest aktuella versionen av PowerShell. 
 
-Använd den **starta molnet Shell** för att öppna moln-gränssnittet eller öppna en webbläsare med [ https://shell.azure.com ](https://shell.azure.com). 
+Använd den **starta Cloud Shell** knappen för att öppna Cloud Shell eller öppna en webbläsare med [ https://shell.azure.com ](https://shell.azure.com). 
 
 <a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 
-## <a name="luis-endpoint-usage-information"></a>THOMAS endpoint användningsinformation
+## <a name="luis-endpoint-usage-information"></a>Användning av LUIS slutpunktsinformation
 
-PowerShell-cmdlet för 6.x `Get-AzureRmCognitiveServicesAccountUsage`, innehåller information om Microsoft kognitiva tjänster, inklusive THOMAS användning. [Get-AzureRmCognitiveServicesAccountUsage](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0) kräver resursgrupp och resursnamn av tjänsten. 
+PowerShell-cmdleten för 6.x `Get-AzureRmCognitiveServicesAccountUsage`, innehåller användningsinformation om för Microsoft Cognitive Services, inklusive LUIS. [Get-AzureRmCognitiveServicesAccountUsage](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0) kräver resursgruppen och resursnamnet för tjänsten. 
 
-Kommandosyntaxen är:
+Kommandosyntax är:
 
 ```
 Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName my-resource-group -Name my-luis-service-name
 ```
 
-I följande exempel resursgruppens namn är `luis-westus-rg` och THOMAS prenumeration tjänstnamnet är `luis-westus-1`. Båda dessa namn är valt när tjänsten THOMAS skapas. 
+I följande exempel, resursgruppens namn är `luis-westus-rg` och LUIS prenumeration tjänstnamnet är `luis-westus-1`. Båda dessa namn är valt när LUIS-tjänst skapas. 
 
-Cmdlet returnerar information om användning av 16 i 10 000 endpoint träffar som används i en 30-dagarsperiod med perioden som slutar på 7 juni:
+Cmdleten returnerar information om användningen av 16 i 10 000 endpoint träffar som används i en 30 dagars period med perioden som slutar på 7 juni:
 
 ```
 CurrentValue  : 16
@@ -59,10 +59,10 @@ QuotaPeriod   : 30.00:00:00
 NextResetTime : 2018-06-07T18:28:52Z
 ```
 
-Spara kommandot som en PowerShell-fil, *.ps1 i Azure storage-konto som är kopplade till molnet shell och kör när som helst. 
+Spara kommandot som *.ps1 i Azure storage-kontot som är associerade med cloudshell en PowerShell-fil och kör när som helst. 
 
-![Kör skriptet från lagring](./media/luis-how-to-manage-from-powershell/run-script-from-storage.png)
+![Köra skript från storage](./media/luis-how-to-manage-from-powershell/run-script-from-storage.png)
 
-När skriptet har sparats på molnet-enhet kan kan du köra PowerShell-skriptet från Azure phone app molnet shell. 
+När skriptet har sparats på cloud enhet, kan du köra PowerShell-skriptet från Azure phone app-molnskalet. 
 
-![Kör skriptet från lagring i telefonapp](./media/luis-how-to-manage-from-powershell/phone-app.png)
+![Köra skript från storage i telefonapp](./media/luis-how-to-manage-from-powershell/phone-app.png)

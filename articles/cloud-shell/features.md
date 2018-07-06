@@ -1,6 +1,6 @@
 ---
-title: Bash i Azure Cloud Shell funktioner | Microsoft Docs
-description: Översikt över funktionerna i Bash i Azure Cloud Shell
+title: Bash i Azure Cloud Shell-funktioner | Microsoft Docs
+description: Översikt över funktioner i Bash i Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: jluk
@@ -12,65 +12,67 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 06/13/2018
 ms.author: juluk
-ms.openlocfilehash: b61dda5b56ca3cc8ef827a06aaedac701ca79f8f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: f0be50a3e8328c26651e0db5c8fae708518a0ea1
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850210"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37861896"
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funktioner och verktyg för Bash i Azure Cloud Shell
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
-> [!TIP]
-> Funktioner och verktyg i [PowerShell](features-powershell.md) är också tillgänglig.
-
-Bash i molnet Shell körs på `Ubuntu 16.04 LTS`.
+Azure Cloud Shell som körs på `Ubuntu 16.04 LTS`.
 
 ## <a name="features"></a>Funktioner
 
 ### <a name="secure-automatic-authentication"></a>Säker automatisk autentisering
 
-Bash i molnet Shell autentiserar på ett säkert sätt och automatiskt kontoåtkomst för Azure CLI 2.0.
+Cloudshell autentiserar på ett säkert sätt och automatiskt kontoåtkomst för Azure CLI 2.0 och Azure PowerShell.
 
-### <a name="ssh-into-azure-linux-virtual-machines"></a>SSH i virtuella Azure Linux-datorer
+### <a name="home-persistence-across-sessions"></a>$Home bevarad mellan sessioner
 
-Skapa en Linux VM från Azure CLI 2.0 kan skapa en standard SSH-nyckel och placera den i din `$Home` directory. Placera SSH-nycklar i `$Home` möjliggör SSH-anslutningar till virtuella Azure Linux-datorer direkt från molnet Shell. Nycklar förvaras i acc_<user>.img i din filresurs använder bästa metoder när du använder eller dela åtkomst till filresursen eller nycklar.
+För att spara filer mellan sessioner, vägleder dig genom att koppla en Azure-filresurs vid första start i Cloud Shell.
+När klar koppla Cloud Shell automatiskt din lagring (monterats som `$Home\clouddrive`) för alla framtida sessioner.
+Dessutom kan din `$Home` directory sparas som en .img i din Azure-filresurs.
+Filer utanför `$Home` och datorn är inte beständiga mellan sessioner. Följ rekommenderade säkerhetsmetoder när du lagrar hemligheter som SSH-nycklar. Tjänster såsom [Azure Key Vault har självstudier för installation](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
-### <a name="home-persistence-across-sessions"></a>$Home beständiga mellan sessioner
+[Läs mer om bevara filer i Cloud Shell.](persisting-shell-storage.md)
 
-För att bevara filer mellan sessioner vägleder dig genom att koppla en Azure-filresursen startas för första i molnet Shell.
-När slutfört, koppla molnet Shell automatiskt din lagring (monterade som `$Home\clouddrive`) för alla framtida sessioner.
-Dessutom i Bash i molnet Shell din `$Home` directory sparas som en .img i Azure-filresurs.
-Filer utanför `$Home` och datorns tillstånd är inte beständiga mellan sessioner.
+### <a name="azure-drive-azure"></a>Azure-enheten (Azure:)
 
-[Läs mer om spara filer i Bash i molnet Shell.](persisting-shell-storage.md)
+PowerShell i Cloud Shell (förhandsversion) startar du i Azure-enheten (`Azure:`).
+Azure-enhetslagringen kan enkelt hitta och navigering i Azure-resurser som beräkning, nätverk, lagring osv liknar filsystem navigering.
+Du kan fortsätta att använda vanliga [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure) hantera dem oavsett den enhet som du tillhör.
+Ändringar som görs till Azure-resurser, antingen direkt i Azure-portalen eller via Azure PowerShell-cmdletar, återspeglas i Azure-enheten.  Du kan köra `dir -Force` att uppdatera dina resurser.
 
-### <a name="integration-with-open-source-tooling"></a>Integrering med öppen källkod verktygsuppsättning
+![](media/features-powershell/azure-drive.png)
 
-Bash i molnet Shell innehåller förkonfigurerade autentisering för öppen källkod verktyg som Terraform, Ansible och InSpec Chef. Prova från exempel genomgång.
+### <a name="deep-integration-with-open-source-tooling"></a>Djupgående integrering med verktyg för öppen källkod
+
+Cloudshell innehåller förkonfigurerade autentisering för open source-verktyg som Terraform, Ansible och InSpec Chef. Prova från exempel-genomgångar.
 
 ## <a name="tools"></a>Verktyg
 
 |Kategori   |Namn   |
 |---|---|
-|Linux-verktyg            |Bash<br> del<br> tmux<br> gräva<br>               |
+|Linux-verktyg            |Bash<br> zsh<br> SH<br> tmux<br> fördjupa<br>               |
 |Azure-verktyg            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) och [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
 |Textredigerare           |VIM<br> nano<br> emacs       |
-|Källkontrollen         |Git                    |
+|Källkontroll         |git                    |
 |Skapa verktyg            |Kontrollera<br> maven<br> npm<br> PIP         |
-|Behållare             |[Docker CLI](https://github.com/docker/cli)/[Docker-dator](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
-|Databaser              |MySQL-klient<br> PostgreSql-klient<br> [SQLCMD-verktyget](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Annat                  |iPython klienten<br> [Molnet Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)| 
+|Behållare             |[Docker CLI](https://github.com/docker/cli)/[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
+|Databaser              |MySQL-klienten<br> PostgreSql-klient<br> [SQLCMD-verktyget](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
+|Annat                  |iPython klienten<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)| 
 
 ## <a name="language-support"></a>Språkstöd
 
 |Språk   |Version   |
 |---|---|
-|.NET       |2.0.0       |
+|.NET Core  |2.0.0       |
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
@@ -78,5 +80,7 @@ Bash i molnet Shell innehåller förkonfigurerade autentisering för öppen käl
 |Python     |2.7 och 3.5 (standard)|
 
 ## <a name="next-steps"></a>Nästa steg
-[Bash i molnet Shell Snabbstart](quickstart.md) <br>
-[Lär dig mer om Azure CLI 2.0](https://docs.microsoft.com/cli/azure/)
+[Bash i Cloud Shell-Snabbstart](quickstart.md) <br>
+[PowerShell i Snabbstarta Cloud Shell (förhandsversion)](quickstart-powershell.md) <br>
+[Lär dig mer om Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Lär dig mer om Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

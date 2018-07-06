@@ -1,0 +1,31 @@
+---
+title: Azure Active Directory service gränser och begränsningar
+description: Begränsningarna för användning och andra tjänstebegränsningar för Azure Active Directory-tjänsten
+services: active-directory
+documentationcenter: ''
+author: curtand
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.component: users-groups-roles
+ms.topic: article
+ms.workload: identity
+ms.date: 06/28/2018
+ms.author: curtand
+ms.custom: aaddev;it-pro
+ms.reviewer: jeffsta
+ms.openlocfilehash: 86f6aa0de177196bb78ecdd855b21b3158b9c672
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37872502"
+---
+# <a name="azure-ad-service-limits-and-restrictions"></a>Azure AD-tjänsten gränser och begränsningar
+Den här artikeln innehåller begränsningarna för användning och andra tjänstebegränsningar för tjänsten Azure Active Directory (AD Azure). Om du letar efter en fullständig uppsättning begränsningar för Microsoft Azure-tjänster, se [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../../azure-subscription-service-limits.md).
+
+[!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
+
+## <a name="whats-next"></a>Nästa steg
+* [Registrera dig för Azure som en organisation](../fundamentals/sign-up-organization.md)
+* [Hur Azure-prenumerationer är associerade med Azure AD](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

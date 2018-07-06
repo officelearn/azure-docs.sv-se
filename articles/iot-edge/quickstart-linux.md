@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 86bf28249321a705e8855de35121611b05009854
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 27e5b7fed227248d9d60c8ede460c9ecc65ca52d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063501"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096282"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux x64-enhet
 
@@ -49,9 +49,9 @@ Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
 Starta snabbstarten genom att skapa din IoT Hub i Azure Portal.
 ![Skapa IoT Hub][3]
 
-Den kostnadsfria nivån för IoT Hub fungerar för den här snabbstarten. Om du har använt IoT Hub tidigare och redan har skapat en kostnadsfri hubb kan du den. Varje prenumeration kan bara ha en kostnadsfri IoT Hub. 
+Den kostnadsfria nivån för IoT Hub fungerar för den här snabbstarten. Om du har använt IoT Hub tidigare och redan har skapat en kostnadsfri hubb kan du använda den. Varje prenumeration kan bara ha en kostnadsfri IoT Hub. 
 
-1. Skapa en resursgrupp i Azure Cloud Shell. I följande exempel skapas en resursgrupp med namnet **TestResources** i regionen **USA, västra**. Genom att lägga alla resurser för snabbstarten och självstudierna i en grupp, kan du hantera dem tillsammans. 
+1. Skapa en resursgrupp i Azure Cloud Shell. I följande exempel skapas en resursgrupp med namnet **TestResources** i regionen **USA, västra**. Genom att lägga alla resurser för snabbstarten och självstudierna i en grupp kan du hantera dem tillsammans. 
 
    ```azurecli-interactive
    az group create --name TestResources --location westus
@@ -94,11 +94,11 @@ IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponen
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Registrera din enhet för att använda programvarudatabasen
 
-De paket som du behöver för att köra IoT Edge-körningen hanteras i en programvarudatabas. Konfigurera din IoT Edge-enhet för att få åtkomst till den här databasen. 
+De paket som du behöver för IoT Edge-körningen hanteras i en programvarudatabas. Konfigurera din IoT Edge-enhet för att få åtkomst till den här databasen. 
 
 Stegen i det här avsnittet gäller enheter som kör **Ubuntu 16.04**. För att komma åt programvarudatabasen i andra versioner av Linux kan du läsa [Installera Azure IoT Edge-körning på Linux (x64)](how-to-install-iot-edge-linux.md) eller [Installera Azure IoT Edge-körning på Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
-1. Installera databaskonfigurationen på den dator som du använder som IoT Edge-enhet.
+1. Installera databaskonfigurationen på den dator du använder som IoT Edge-enhet.
 
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
@@ -160,7 +160,7 @@ Denna säkerhetsdaemon installeras som en systemtjänst så att IoT Edge-körnin
    sudo systemctl status iotedge
    ```
 
-   ![Se att Edge Daemon körs som en systemtjänst](./media/quickstart-linux/iotedged-running.png)
+   ![Kontrollera att Edge Daemon körs som en systemtjänst](./media/quickstart-linux/iotedged-running.png)
 
    Du kan också visa loggar från Edge säkerhetsdaemon genom att köra följande kommando:
 
@@ -171,8 +171,10 @@ Denna säkerhetsdaemon installeras som en systemtjänst så att IoT Edge-körnin
 6. Visa de moduler som körs på din enhet: 
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+
+   Efter en utloggning och inloggning krävs inte *sudo* för kommandot ovan.
 
    ![Visa en modul på din enhet](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -190,8 +192,9 @@ I den här snabbstarten skapade du en ny IoT Edge-enhet och installerade IoT Edg
 Öppna kommandotolken igen på den dator som kör den simulerade enheten. Kontrollera att modulen distribuerades från molnet som körs på IoT Edge-enheten:
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+   Efter en utloggning och inloggning krävs inte *sudo* för kommandot ovan.
 
    ![Visa tre moduler på enheten](./media/quickstart-linux/iotedge-list-2.png)
 
@@ -204,14 +207,14 @@ Efter en utloggning och inloggning krävs inte *sudo* för kommandot ovan.
 
 ![Visa data från modulen](./media/quickstart-linux/iotedge-logs.png)
 
-Temperatursensormodulen kan vänta på att ansluta till Edge Hub om den sista raden i loggen är `Using transport Mqtt_Tcp_Only`. Avbryt modulen och låt Edge-agenten starta om den. Du kan avsluta den med kommandot `sudo docker stop tempSensor`.
+Temperatursensormodulen kanske väntar på att ansluta till Edge Hub om den sista raden i loggen är `Using transport Mqtt_Tcp_Only`. Avbryt modulen och låt Edge-agenten starta om den. Du kan avsluta den med kommandot `sudo docker stop tempSensor`.
 
 Du kan visa telemetri som enheten skickar med hjälp av [verktyget IoT Hub Explorer][lnk-iothub-explorer] eller [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill fortsätta vidare med IoT Edge-självstudierna kan du använda den enhet som du registrerade och konfigurerade i den här snabbstarten. Om du vill ta bort installationerna från enheten kan du använda följande kommandon.  
+Om du vill fortsätta med IoT Edge-självstudierna kan du använda enheten du registrerade och konfigurerade i den här snabbstarten. Om du vill ta bort installationerna från din enhet kan du använda följande kommandon.  
 
 Ta bort IoT Edge-körningen.
 
@@ -231,7 +234,7 @@ Ta bort körmiljön för behållaren.
    sudo apt-get remove --purge moby
    ```
 
-När du inte längre behöver de Azure-resurser som du har skapat kan du ta bort resursgruppen och alla associerade resurser med följande kommando:
+Du kan använda följande kommando för att ta bort resursgruppen som du skapade och alla resurser som är kopplade till den när du inte längre behöver Azure-resurserna som du skapade:
 
    ```azurecli-interactive
    az group delete --name TestResources

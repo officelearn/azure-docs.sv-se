@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 06/27/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 9c562f1ce938e5f5d9371cbccf032c0eb1d67125
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3e7fcde204966e5a6a8154ab307807652cfa0419
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055038"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37086219"
 ---
 En av de viktigaste funktionerna i Azure IoT Edge är möjligheten att distribuera moduler till IoT Edge-enheter från molnet. En IoT Edge-modul är ett körbart paket som implementeras som en behållare. I det här avsnittet ska du distribuera en modul som genererar telemetri för din simulerade enhet. 
 
 1. Gå till din IoT-hubb på Azure Portal.
-1. Gå till **IoT Edge** och välj IoT Edge-enhet.
+1. Gå till **IoT Edge** och välj din IoT Edge-enhet.
 1. Välj **Ange moduler**.
 1. I avsnittet **Distributionsmoduler** på sidan klickar du på **Lägg till** och väljer **IoT Edge-modul**.
-1. I **Namn**-fältet skriver du `tempsensor`. 
+1. I **Namn**-fältet skriver du `tempSensor`. 
 1. I **URI för avbildning**-fältet skriver du `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. 
 1. Lämna de andra inställningarna som de är och välj **Spara**.
 

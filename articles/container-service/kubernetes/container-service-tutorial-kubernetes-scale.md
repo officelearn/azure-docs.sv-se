@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f643c09f00b23cd14e85e83ed0cf7ab7a13c7646
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 478c6dcaa6afd67742df91366021c6186fc1427e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162831"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098540"
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Skala ut Kubernetes-poddar och Kubernetes-infrastrukturen
 
@@ -39,7 +39,7 @@ Om du inte har gjort det här och vill följa med återgår du till [Självstudi
 
 ## <a name="manually-scale-pods"></a>Skala poddar manuellt
 
-Hittills har vi distribuerat klientdelen av Azure Vote och Redisinstansen, var och en med en enda replik. Du kan kontrollera detta genom att köra programmet [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get).
+Hittills har vi distribuerat klientdelen av Azure Vote och Redisinstansen, var och en med en enda replik. Du kan kontrollera detta genom att köra programmet [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get).
 
 ```azurecli-interactive
 kubectl get pods
@@ -53,13 +53,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Ändra antalet poddar i `azure-vote-front`-distributionen manuellt med kommandot [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale). I det här exemplet ökas antalet till 5.
+Ändra antalet poddar i `azure-vote-front`-distributionen manuellt med kommandot [kubectl scale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale). I det här exemplet ökas antalet till 5.
 
 ```azurecli-interactive
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Kör [kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) om du vill verifiera att Kubernetes skapar poddarna. Efter ungefär en minut körs de nya poddarna:
+Kör [kubectl get pods](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) om du vill verifiera att Kubernetes skapar poddarna. Efter ungefär en minut körs de nya poddarna:
 
 ```azurecli-interactive
 kubectl get pods
@@ -91,7 +91,7 @@ resources:
      cpu: 500m
 ```
 
-I följande exempel används kommandot [kubectl autoscale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) till att automatiskt skala antalet poddar i `azure-vote-front`-distributionen. Om processoranvändningen överskrider 50 % ökar autoskalningen antalet poddar till högst 10.
+I följande exempel används kommandot [kubectl autoscale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale) till att automatiskt skala antalet poddar i `azure-vote-front`-distributionen. Om processoranvändningen överskrider 50 % ökar autoskalningen antalet poddar till högst 10.
 
 
 ```azurecli-interactive

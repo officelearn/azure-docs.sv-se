@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e27d7f75dd3d0391f45805f4424248c8eac483c7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: df808078ffe6eedf8abaa32a94edaaf1355b7fc6
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847625"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129912"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
 
@@ -175,7 +175,7 @@ Följande tips kan vara till hjälp när du felsöker problem med Azure CLI:
 * Använd `-v` och `-vv` till att visa **utförliga** utdata från kommandon. När du tar med flaggan `-vv` visas faktiska REST-begäranden och -svar i Azure CLI. Växlarna är användbara för att visa fullständiga utdata vid fel.
 * Du kan visa **-kommandoutdata som JSON-** med `--json`-alternativet. Till exempel visar `az batch pool show pool001 --json` pool001:s egenskaper i JSON-format. Du kan sedan kopiera och ändra dessa utdata och använda dem i en `--json-file` (se [JSON-filer](#json-files) tidigare i den här artikeln).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-* [Batch-forumet][batch_forum] övervakas av medlemmar i Batch-teamet. Du kan ställa frågor där om du får problem eller behöver hjälp med en viss åtgärd.
+
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -183,7 +183,6 @@ Följande tips kan vara till hjälp när du felsöker problem med Azure CLI:
 * Mer information om Batch-resurser finns i [Utveckla storskaliga parallella beräkningslösningar med Batch](batch-api-basics.md).
 * Mer information om hur du använder Batch-mallar för att skapa pooler, jobb och uppgifter utan att skriva kod, finns i [Använda Azure Batch CLI-mallar och filöverföring (förhandsversion)](batch-cli-templates.md).
 
-[batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx

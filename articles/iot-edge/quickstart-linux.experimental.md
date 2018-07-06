@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6b63c10a8c092d6568f8caf9842f007a5dc9c027
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0e0d22b3363b00c81be5091fd12773f9e486c09e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049170"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099193"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux x64-enhet
 
@@ -53,13 +53,13 @@ Registrera en IoT Edge-enhet med den IoT Hub som du nyss skapade.
 Installera och starta Azure IoT Edge-körningen på enheten. 
 ![Registrera en enhet][5]
 
-IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponenter. **IoT Edges säkerhetsdaemon** startas varje gång en Edge-enhet startar. Enheten startas genom att IoT Edge-agenten startas. **IoT Edge-agenten** underlättar distribution och övervakning av moduler på IoT Edge-enheten, inklusive IoT Edge-hubb. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten, samt mellan enheten och IoT Hub. 
+IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponenter. **IoT Edge säkerhetsdaemon** startas varje gång en Edge-enhet startar. Enheten startas genom att IoT Edge-agenten startas. **IoT Edge-agenten** underlättar distribution och övervakning av moduler på IoT Edge-enheten, inklusive IoT Edge-hubb. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten, samt mellan enheten och IoT Hub. 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Registrera din enhet för att använda programvarudatabasen
 
 De paket som du behöver för IoT Edge-körningen hanteras i en programvarudatabas. Konfigurera din IoT Edge-enhet för att få åtkomst till den här databasen. 
 
-Stegen i det här avsnittet gäller enheter som kör **Ubuntu 16.04**. För att komma åt programvarudatabasen i andra versioner av Linux kan du läsa [Installera Azure IoT Edge-körningen på Linux (x64)](how-to-install-iot-edge-linux.md) eller [Installera Azure IoT Edge-körningen på Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
+Stegen i det här avsnittet gäller enheter som kör **Ubuntu 16.04**. För att komma åt programvarudatabasen i andra versioner av Linux kan du läsa [Installera Azure IoT Edge-körning på Linux (x64)](how-to-install-iot-edge-linux.md) eller [Installera Azure IoT Edge-körning på Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 1. Installera databaskonfigurationen på den dator du använder som IoT Edge-enhet.
 
@@ -77,7 +77,7 @@ Stegen i det här avsnittet gäller enheter som kör **Ubuntu 16.04**. För att 
 
 ### <a name="install-a-container-runtime"></a>Installera en körmiljö för behållare
 
-IoT Edge-körningen är en uppsättning behållare och logiken du distribuerar till IoT Edge-enheten är paketerad som behållare. Förbered din enhet för dessa komponenter genom att installera en körmiljö för behållare.
+IoT Edge-körning är en uppsättning behållare, och den logik som du distribuerar till IoT Edge-enheten är paketerad som behållare. Förbered din enhet för dessa komponenter genom att installera en körmiljö för behållare.
 
 Uppdatera **apt-get**.
 
@@ -85,7 +85,7 @@ Uppdatera **apt-get**.
    sudo apt-get update
    ```
 
-Installera Moby, en körmiljö för behållare och dess CLI-kommandon. 
+Installera Moby (en körmiljö för behållare) och dess CLI-kommandon. 
 
    ```bash
    sudo apt-get install moby-engine
@@ -103,7 +103,7 @@ Denna säkerhetsdaemon installeras som en systemtjänst så att IoT Edge-körnin
    sudo apt-get install iotedge
    ```
 
-2. Öppna konfigurationsfilen för IoT Edge. Det är en skyddad fil, så du kan behöva använda förhöjd behörighet att komma åt den.
+2. Öppna konfigurationsfilen för IoT Edge. Konfigurationsfilen är skyddad, så du kan behöva använda förhöjd behörighet att komma åt den.
    
    ```bash
    sudo nano /etc/iotedge/config.yaml
@@ -134,8 +134,9 @@ Denna säkerhetsdaemon installeras som en systemtjänst så att IoT Edge-körnin
 6. Visa de moduler som körs på din enhet: 
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+Efter en utloggning och inloggning krävs inte *sudo* för kommandot ovan.
 
    ![Visa en modul på din enhet](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -154,16 +155,19 @@ I den här snabbstarten skapade du en ny IoT Edge-enhet och installerade IoT Edg
 Öppna kommandotolken igen på den dator som kör den simulerade enheten. Kontrollera att modulen distribuerades från molnet som körs på IoT Edge-enheten:
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+Efter en utloggning och inloggning krävs inte *sudo* för kommandot ovan.
 
    ![Visa tre moduler på enheten](./media/quickstart-linux/iotedge-list-2.png)
 
 Visa meddelanden som skickas från modulen tempSensor:
 
-   ```bash
-   iotedge logs tempSensor -f 
+  ```bash
+   sudo iotedge logs tempSensor -f 
    ```
+
+Efter en utloggning och inloggning krävs inte *sudo* för kommandot ovan.
 
 ![Visa data från modulen](./media/quickstart-linux/iotedge-logs.png)
 

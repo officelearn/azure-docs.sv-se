@@ -2,33 +2,31 @@
 title: Självstudie om Kubernetes i Azure – Uppdatera program
 description: Självstudie om AKS – Uppdatera program
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 97d8c4bd179edc59d97914f86e2aa139681e739a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934064"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101038"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Självstudie: Uppdatera ett program i Azure Kubernetes Service (AKS)
 
 När ett program har distribuerats i Kubernetes kan du uppdatera det genom att ange en ny behållaravbildning eller avbildningsversion. När du gör det mellanlagras uppdateringen så att endast en del av distributionen uppdateras samtidigt. Den här mellanlagrade uppdateringen gör att programmet kan fortsätta att köras under uppdateringen. Det ger också en mekanism för återställning om ett distributionsfel inträffar.
 
-I den här självstudien, del sex av åtta, uppdateras Azure Vote-exempelappen. Uppgifter som du kan slutföra inkluderar:
+I den här självstudien, som är del sex av sju, uppdateras Azure Vote-exempelappen. Här är några av uppgifterna:
 
 > [!div class="checklist"]
 > * Uppdatera klientdelens programkod
 > * Skapa en uppdaterad behållaravbildning
 > * Push-överföra behållaravbildningen till Azure Container Registry
 > * Distribuera den uppdaterade behållaravbildningen
-
-I senare självstudier konfigureras Log Analytics för att övervaka Kubernetes-klustret.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

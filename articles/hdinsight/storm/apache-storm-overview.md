@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 7defb860ab526824492ddeb1fddf8ce037ec39ae
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1179a1556d47c22d4f0055dff3e94ca1bc49e939
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29686531"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128378"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Vad är Apache Storm på Azure HDInsight?
 
@@ -149,7 +149,7 @@ Mer information finns i [Garantier om databearbetning](https://storm.apache.org/
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-Ett vanligt mönster är att läsa en inkommande tuppel, sända noll eller flera tupplar och sedan kvittera den inkommande tuppeln omedelbart i slutet av metoden. Storm innehåller ett [IBasicBolt](https://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/topology/IBasicBolt.html)-gränssnitt för att automatisera detta mönster.
+Ett vanligt mönster är att läsa en inkommande tuppel, sända noll eller flera tupplar och sedan kvittera den inkommande tuppeln omedelbart i slutet av metoden. Storm innehåller ett [IBasicBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html)-gränssnitt för att automatisera detta mönster.
 
 ### <a name="joins"></a>Kopplingar
 

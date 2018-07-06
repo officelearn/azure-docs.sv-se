@@ -3,7 +3,7 @@ title: Skriptexempel för Azure CLI – Installera IIS | Microsoft Docs
 description: Skriptexempel för Azure CLI – Installera IIS
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/28/2017
-ms.author: nepeters
-ms.openlocfilehash: 691c04d002b345b532bc5d5a37ce7d8f1dcab124
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: iainfou
+ms.openlocfilehash: 341006a352898c7dfab36804ab91b0efd304c656
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654274"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097224"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Snabbskapa en virtuell dator med Azure CLI
 
@@ -34,11 +34,11 @@ Med det här skriptet skapas en virtuell Azure-dator som kör Windows Server 201
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-windows-iis/create-vm-windows-iis.sh "Quick Create VM")]
 
-## <a name="clean-up-deployment"></a>Rensa distribution 
+## <a name="clean-up-deployment"></a>Rensa distribution
 
 Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

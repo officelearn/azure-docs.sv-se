@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 51dd957a94d1e10658678d9123e9cce6183c0ab0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 8726aae7545809573b63f29cd8ef568c34aee5b4
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776609"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109179"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Beredskapsöversikt för Azure Security Center
 I det här dokumentet får du en beredskapsöversikt som hjälper dig att komma igång med Azure Security Center.
@@ -117,7 +117,7 @@ Artiklar
 * [Metodtips för identitetssäkerhet](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
 * [Metodtips för nätverkssäkerhet](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [PaaS-rekommendationer](https://docs.microsoft.com/azure/security/security-paas-deployments)
-* [Efterlevnad](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
+* [Efterlevnad](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
 * [Nu kan OMS-kunder använda Azure Security Center för att skydda sina hybridmolns arbetsbelastningar](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Community-resurser

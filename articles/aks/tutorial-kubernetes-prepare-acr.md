@@ -2,23 +2,23 @@
 title: Självstudie om Kubernetes i Azure – förbereda ACR
 description: AKS-självstudie – förbereda ACR
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1ffa6ed801f5e261e79b0f7ca505d869fa3b2532
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e72ec06f7c682e68ca94ba5d4044d1d9974b0b24
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935828"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101039"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Självstudier: Distribuera och använda Azure Container Registry
 
-Azure Container Registry (ACR) är ett Azure-baserat och privat register för Docker-behållaravbildningar. I den här självstudien, som är del två av åtta, får du hjälp att distribuera en instans av Azure Container Registry och att push-överföra en behållaravbildning till den. Det här är några av stegen:
+Azure Container Registry (ACR) är ett Azure-baserat och privat register för Docker-behållaravbildningar. I den här självstudien, som är del två av sju, får du hjälp att distribuera en instans av Azure Container Registry och att push-överföra en behållaravbildning till den. Det här är några av stegen:
 
 > [!div class="checklist"]
 > * distribuera en ACR-instans (Azure Container Registry)

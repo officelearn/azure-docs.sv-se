@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 38f75b8fc48f6fdcafd4c6ae25ec0f52641b2c05
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 7254e8d1b5a525c3ab06230837bd368e17911dbe
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869632"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100287"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Användarportal för Azure Multi-Factor Authentication-servern
 
@@ -30,7 +30,7 @@ Beroende på din miljö kan du distribuera användarportalen på samma server so
 ![MFA-användarportal](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
-> Användarportalen är endast tillgänglig med Multi-Factor Authentication-servern. Om du använder Multi-Factor Authentication i molnet ska du hänvisa användarna till [Set up your account for two-step verification](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md) (Konfigurera ditt konto för tvåstegsverifiering) eller [Manage your settings for two-step verification](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md) (Hantera dina inställningar för tvåstegsverifiering).
+> Användarportalen är endast tillgänglig med Multi-Factor Authentication-servern. Om du använder Multi-Factor Authentication i molnet ska du hänvisa användarna till [Set up your account for two-step verification](end-user/current/multi-factor-authentication-end-user-first-time.md) (Konfigurera ditt konto för tvåstegsverifiering) eller [Manage your settings for two-step verification](end-user/current/multi-factor-authentication-end-user-manage-settings.md) (Hantera dina inställningar för tvåstegsverifiering).
 
 ## <a name="install-the-web-service-sdk"></a>Installera webbtjänst-SDK
 

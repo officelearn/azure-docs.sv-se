@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/26/2018
 ms.author: terrylan
-ms.openlocfilehash: dc362306e20b4d39aa73a552e47cbcbd3037edbd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 434b73d4625f86fab195dbda1fed9c841791f5b6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063399"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099467"
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Övervakning av säkerhetshälsa i Azure Security Center
 I den här artikeln berättar vi hur du använder övervakningsfunktionerna i Azure Security Center för att övervaka att fastställda principer efterlevs.
@@ -84,7 +84,7 @@ Den här tabellen är sorterad (virtuella datorer och undernät) efter allvarlig
 * Orange: medelhög prioritet och bör åtgärdas så snart som möjligt
 * Grön (längst ned): god status
 
-I den här topologiska vyn har du [virtuella nätverk](../virtual-network/virtual-networks-overview.md), [virtuella nätverksgatewayer](/vpn-gateway/vpn-gateway-site-to-site-create.md) och [virtuella nätverk (klassiska)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md) på översta nivån. På andra nivån hittar du undernät och på den tredje de virtuella datorer som finns på dessa undernät. I den högra kolumnen visas aktuell status för resursernas nätverkssäkerhetsgrupper, som i följande exempel:
+I den här topologiska vyn har du [virtuella nätverk](../virtual-network/virtual-networks-overview.md), [virtuella nätverksgatewayer](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) och [virtuella nätverk (klassiska)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) på översta nivån. På andra nivån hittar du undernät och på den tredje de virtuella datorer som finns på dessa undernät. I den högra kolumnen visas aktuell status för resursernas nätverkssäkerhetsgrupper, som i följande exempel:
 
 ![Status för nätverkssäkerhetsgruppen i avsnittet Nätverkstopologi](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 

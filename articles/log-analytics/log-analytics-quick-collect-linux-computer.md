@@ -3,7 +3,7 @@ title: Samla in data från lokala Linux-datorer med Azure Log Analytics | Micros
 description: Lär dig hur du distribuerar Log Analytics-agenten för Linux och aktiverar insamling av data från det OS med Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -15,12 +15,13 @@ ms.topic: quickstart
 ms.date: 04/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: af385a7cbf97ff15156cc78c77f8b54e2f79badb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: aca8ee7305f919068733dfa3cb636a0f9bad7b05
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637641"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127177"
 ---
 # <a name="collect-data-from-linux-computer-hosted-in-your-environment"></a>Samla in data från Linux-datorer i din miljö
 Med [Azure Log Analytics](log-analytics-overview.md) kan du samla in data direkt från fysiska eller virtuella Linux-datorer och andra resurser i din miljö till en enda lagringsplats för detaljerad analys och korrelation.  Den här snabbstarten visar hur du konfigurerar och samlar in data från Linux-datorer med några enkla steg.  För virtuella Linux-datorer, se avsnittet [Samla in data om virtuella datorer i Azure](log-analytics-quick-collect-azurevm.md).  

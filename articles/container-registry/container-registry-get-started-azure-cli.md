@@ -2,24 +2,25 @@
 title: Snabbstart – skapa ett privat Docker-register i Azure med Azure CLI
 description: Lär dig snabbt att skapa ett privat Docker-behållarregister med Azure CLI.
 services: container-registry
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: ed5c2d0b925d92f318b36b36d060ebc923499ee5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 745cfbb6ee72ac69ab5452701e654306e9645eb7
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100703"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>Snabbstart: Skapa ett behållarregister med hjälp av Azure CLI
 
 Azure Container Registry är en hanterad Docker-behållarregistertjänst som används för att lagra privata Docker-behållaravbildningar. I den här guiden får du lära dig att skapa en Azure Container Registry-instans med hjälp av Azure CLI, push-överföra en behållaravbildning till registret och distribuera behållaren från ditt register till Azure Container Instances (ACI).
 
-För den här snabbstarten krävs att du kör Azure CLI version 2.0.27 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0][azure-cli].
+För den här snabbstarten krävs att du kör Azure CLI version 2.0.27 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
 Du måste också ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac][docker-mac]-, [Windows][docker-windows]- eller [Linux][docker-linux]-dator.
 

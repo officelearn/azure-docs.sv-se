@@ -3,7 +3,7 @@ title: Azure PowerShell-skriptexempel – WordPress | Microsoft Docs
 description: Azure PowerShell-skriptexempel – WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ba1138d4c26b7fbcdda50b2f4ba45745a018e855
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b19c03fea7f376a5a16a2eb77e3ebf1cc8189bb6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655862"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098370"
 ---
 # <a name="create-a-wordpress-vm-with-powershell"></a>Skapa en virtuell WordPress-dator med PowerShell
 
-Det här skriptet skapar en virtuell dator och använder sedan tillägget för Azure VM-anpassat skript för att installera Wordpress. När skriptet har körts, du kan komma åt webbplatsen för WordPress-konfiguration på `http://<public IP of VM>/wordpress`. 
+Det här skriptet skapar en virtuell dator och använder sedan tillägget för Azure VM-anpassat skript för att installera Wordpress. När skriptet har körts, du kan komma åt webbplatsen för WordPress-konfiguration på `http://<public IP of VM>/wordpress`.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -35,7 +35,7 @@ Det här skriptet skapar en virtuell dator och använder sedan tillägget för A
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.ps1 "Create VM WordPress")]
 
-## <a name="clean-up-deployment"></a>Rensa distribution 
+## <a name="clean-up-deployment"></a>Rensa distribution
 
 Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 

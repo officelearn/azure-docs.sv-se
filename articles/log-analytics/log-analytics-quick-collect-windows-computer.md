@@ -3,7 +3,7 @@ title: Samla in data från lokala Windows-datorer med Azure Log Analytics | Micr
 description: Lär dig hur du distribuerar Log Analytics-agenten för Windows som körs på datorer utanför Azure och aktiverar insamling av data med Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -15,12 +15,13 @@ ms.topic: quickstart
 ms.date: 04/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: ec85f2c473fa0c4ac4d69599a24b878278309577
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: b3c3e020a685147411fc784c41d9eca8b7dd8db0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637236"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131001"
 ---
 # <a name="collect-data-from-windows-computers-hosted-in-your-environment"></a>Samla in data från Windows-datorer i din miljö
 Med [Azure Log Analytics](log-analytics-overview.md) kan du samla in data direkt från fysiska eller virtuella Windows-datorer och andra resurser i din miljö till en enda lagringsplats för detaljerad analys och korrelation.  Den här snabbstarten visar hur du konfigurerar och samlar in data från Windows-datorer med några enkla steg.  För virtuella Azure Windows-datorer kan du se avsnittet [Samla in data om virtuella datorer i Azure](log-analytics-quick-collect-azurevm.md).  

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: 2d1f93e839d4ad2d7c857916996f2ad5d09626c5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: be8b99f8cf291d2e09187344aa458420db92364e
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796595"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082333"
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: Komma igång med SQL API:et och .NET Core
 > [!div class="op_single_selector"]
@@ -25,9 +25,7 @@ ms.locfileid: "34796595"
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Node.js för MongoDB](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
->  
+> * [Java](sql-api-java-get-started.md)  
 > 
 
 Välkommen till självstudiekursen för SQL API för Azure Cosmos DB för att komma igång med .NET Core! När du har genomfört den här självstudiekursen har du ett konsolprogram som skapar och skickar frågor till Azure Cosmos DB-resurser.

@@ -10,12 +10,12 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79d64a5a7eb339c6904fe026209292202632f640
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342019"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867961"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
 
@@ -57,6 +57,7 @@ Använd följande steg för att konfigurera filspårning på Linux-datorer:
 |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
 |Använda Sudo     | Den här inställningen styr om sudo ska användas vid sökningen efter objektet.         |
 |Länkar     | Den här inställningen styr hur symboliska länkar ska hanteras när de passerar kataloger.<br> **Ignorera** – ignorerar symboliska länkar och inkluderar inte refererade filer/kataloger.<br>**Följ** – följer de symboliska länkarna under rekursion och dessutom ingår refererade filer/kataloger.<br>**Hantera** – följer de symboliska länkarna och tillåter ändring av returnerat innehåll.     |
+|Ladda upp innehåll för alla inställningar| Aktiverar eller inaktivera filen innehållsuppladdning på spårade ändringar. Tillgängliga alternativ: **SANT** eller **FALSKT**.|
 
 > [!NOTE]
 > Länkalternativet ”Hantera” rekommenderas inte. Hämtning av filinnehåll stöds inte.
@@ -75,6 +76,13 @@ Använd följande steg för att konfigurera filer spårning på Windows-datorer:
 |Objektnamn     | Eget namn på filen som ska spåras.        |
 |Grupp     | Ett gruppnamn för att gruppera filer logiskt.        |
 |Ange sökväg     | Sökvägen för att söka efter filen Till exempel: ”c:\temp\myfile.txt”       |
+|Ladda upp innehåll för alla inställningar| Aktiverar eller inaktivera filen innehållsuppladdning på spårade ändringar. Tillgängliga alternativ: **SANT** eller **FALSKT**.|
+
+## <a name="configure-file-content-tracking"></a>Konfigurera filinnehåll spårning
+
+Du kan visa den innehållet före och efter en ändring av en fil med filen innehåll ändringsspårning. Detta är tillgänglig för Windows och Linux-filer för varje ändring i filen, innehållet i filen lagras i ett lagringskonto och visar filen före och efter ändringen, infogade eller sida vid sida. Mer information finns i [visa innehållet i en spårade fil](change-tracking-file-contents.md).
+
+![Visa ändringar i en fil](./media/change-tracking-file-contents/view-file-changes.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Konfigurera Windows registernycklar för att spåra
 

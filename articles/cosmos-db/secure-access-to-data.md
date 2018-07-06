@@ -1,6 +1,6 @@
 ---
-title: Lär dig hur du skyddar åtkomsten till data i Azure Cosmos DB | Microsoft Docs
-description: Lär dig mer om access control begrepp i Azure Cosmos-databasen, inklusive huvudnycklar, skrivskyddade nycklar, användare och behörigheter.
+title: Lär dig att skydda åtkomsten till data i Azure Cosmos DB | Microsoft Docs
+description: Läs mer om åtkomstkontrollkoncept i Azure Cosmos DB, såsom huvudnycklar, skrivskyddade nycklar, användare och behörigheter.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2017
 ms.author: sngun
-ms.openlocfilehash: 079cbff3a1669efb7ba7cd7a97da9256dbbfe9f8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eddfce08711043f81cee0b1c8d7ee8c6c02f6a45
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613225"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858746"
 ---
-# <a name="securing-access-to-azure-cosmos-db-data"></a>Skydda åtkomst till Azure Cosmos DB data
-Den här artikeln innehåller en översikt över skydda åtkomsten till data som lagras i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
+# <a name="securing-access-to-azure-cosmos-db-data"></a>Skydda åtkomst till Azure Cosmos DB-data
+Den här artikeln innehåller en översikt över att skydda åtkomsten till data som lagras i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
-Azure Cosmos-DB använder två typer av nycklar för att autentisera användare och ge tillgång till dess data och resurser. 
+Azure Cosmos DB använder två typer av nycklar för att autentisera användare och ge åtkomst till dess data och resurser. 
 
 |Nyckeltyp|Resurser|
 |---|---|
 |[Huvudnycklar](#master-keys) |Används för administrativa resurser: databasen konton, databaser, användare och behörigheter|
-|[Resurs-token](#resource-tokens)|Används för programresurser: samlingar, dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er|
+|[Resurstokens](#resource-tokens)|Används för programresurser: behållare, dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er|
 
 <a id="master-keys"></a>
 
@@ -32,25 +32,25 @@ Azure Cosmos-DB använder två typer av nycklar för att autentisera användare 
 
 Huvudnycklar ger åtkomst till alla de administrativa resurserna för databaskontot. Huvudnycklar:  
 - Ger åtkomst till konton, databaser, användare och behörigheter. 
-- Kan inte användas för att ge detaljerade åtkomst till samlingar och dokument.
+- Kan inte användas för att ge detaljerad åtkomst till behållare och dokument.
 - Skapas när du skapar ett konto.
-- Genereras när som helst.
+- Kan återskapas när som helst.
 
-Varje konto består av två huvudnycklar: en primärnyckel och sekundärnyckel. Syftet med dubbla nycklar är så att du kan återskapa eller återställa nycklar, ger kontinuerlig tillgång till ditt konto och data. 
+Varje konto består av två huvudnycklar: en primärnyckel och sekundärnyckel. Syftet med dubbla nycklar är så att du kan återskapa eller återställa nycklar, vilket ger kontinuerlig åtkomst till ditt konto och dina data. 
 
-Förutom de två huvudnycklarna för Cosmos-DB-kontot finns två skrivskyddade nycklar. Nycklarna skrivskyddat tillåter endast läsåtgärder på kontot. Skrivskyddade nycklar ger inte behörighet att läsa behörigheter resurser.
+Förutom de två huvudnycklarna för Cosmos DB-kontot finns två skrivskyddade nycklar. Dessa skrivskyddade nycklar endast tillåta läsåtgärder på kontot. Skrivskyddade nycklar ger inte tillgång för att läsa behörigheter resurser.
 
-Primära, sekundära, skrivskyddad och skrivskyddad huvudnycklar kan hämtas och återskapas med hjälp av Azure portal. Instruktioner finns i [visa, kopiera och generera åtkomstnycklar](manage-account.md#keys).
+Primär, sekundär, skrivskyddad och läs-och huvudnycklar kan hämtas och återskapas med hjälp av Azure portal. Anvisningar finns i [visa, kopiera och återskapa åtkomstnycklar](manage-account.md#keys).
 
 ![Åtkomstkontroll (IAM) i Azure portal – visar NoSQL database-säkerhet](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
-Processen för att rotera din huvudnyckeln är enkelt. Navigera till den Azure-portalen att hämta den sekundära nyckeln, Ersätt primärnyckel med din sekundärnyckeln i ditt program och rotera primärnyckeln i Azure-portalen.
+Processen för att rotera din huvudnyckel är enkelt. Navigera till Azure portal för att hämta den sekundära nyckeln och Ersätt den primära nyckeln med din sekundära nyckel i ditt program och rotera den primära nyckeln i Azure-portalen.
 
-![Huvudnyckeln rotation i Azure portal – visar NoSQL database-säkerhet](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
+![Huvudnyckel rotation i Azure portal – visar NoSQL database-säkerhet](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
 
 ### <a name="code-sample-to-use-a-master-key"></a>Kodexempel för att använda en huvudnyckel
 
-Följande kodexempel illustrerar hur du använder en Cosmos-DB konto slutpunkt och huvudnyckeln för att skapa en instans av en DocumentClient och skapa en databas. 
+Följande kodexempel visar hur du använder en slutpunkten för Cosmos DB-konto och huvudnyckeln för att skapa en instans av en DocumentClient och skapa en databas. 
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -72,42 +72,42 @@ Database database = await client.CreateDatabaseAsync(
 
 <a id="resource-tokens"></a>
 
-## <a name="resource-tokens"></a>Resurs-token
+## <a name="resource-tokens"></a>Resurstokens
 
-Resursen token ger åtkomst till resursen i en databas. Resurs-token:
-- Ger åtkomst till specifika samlingar, partitionsnycklar, dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er.
-- Skapas när en [användare](#users) beviljas [behörigheter](#permissions) för en viss resurs.
-- Återskapas när en resurs behörighet är efterlevts på av POST, hämta eller skicka anrop.
-- Använda en hash-resurs-token som skapats specifikt för användare, resurser och behörighet.
-- Är Tidsbundna med en anpassningsbara giltighetsperiod. Standard giltigt timespan är en timme. Livslängd för token, men kan uttryckligen anges, upp till högst fem timmar.
-- Ange en säker alternativ till att du lämnar ut huvudnyckeln. 
-- Att klienter ska kunna läsa, skriva och ta bort resurser i kontot Cosmos DB enligt de behörigheter som de har beviljats.
+Resurstokens ger åtkomst till resursen i en databas. Resurstokens:
+- Ger åtkomst till specifika behållare, partitionsnycklar, dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er.
+- Skapas när en [användaren](#users) beviljas [behörigheter](#permissions) till en viss resurs.
+- Återskapas när en resurs med behörighet är efterlevts på av POST eller GET PUT-anrop.
+- Använd en hash-Resurstoken särskilt konstruerade för användaren, resurs och behörighet.
+- Är Tidsbundna med en anpassningsbar giltighetsperiod. Standard giltiga timespan är en timme. Livslängd för token, men kan anges explicit, upp till fem timmar.
+- Ange en säker alternativ till att lämna ut huvudnyckeln. 
+- Att klienter ska kunna läsa, skriva och ta bort resurser i Cosmos DB-kontot enligt de behörigheter som de har beviljats.
 
-Du kan använda en resurs-token (genom att skapa Cosmos-DB-användare och behörigheter) när du vill ge åtkomst till resurser i ditt Cosmos-DB-konto till en klient som inte är tillförlitliga med huvudnyckel.  
+Du kan använda en Resurstoken (genom att skapa Cosmos DB-användare och behörigheter) när du vill ge åtkomst till resurser i ditt Cosmos DB-konto till en klient som inte är betrott med huvudnyckeln.  
 
-Cosmos DB resurs token är en säker alternativ som gör att klienter kan läsa, skriva och ta bort resurser i Cosmos-DB-kontot enligt de behörigheter som du har beviljat och utan krävs en master eller Läs bara viktiga.
+Cosmos DB-resurstokens är en säker alternativ som gör att klienter kan läsa, skriva och ta bort resurser i Cosmos DB-kontot enligt de behörigheter som du har beviljat och utan behov av en master eller Läs bara viktiga.
 
-Här är en typisk designmönstret där resursen token kan begärde, skapas och levereras till klienter:
+Här är ett vanliga designmönster där resurstokens kan begäras, genereras och levereras till klienter:
 
-1. En tjänst halva nivå ställs in för att hantera ett mobilt program att dela Användarfoton. 
-2. Tjänsten halva nivå har huvudnyckeln för Cosmos-DB-konto.
-3. Foto-app är installerad på slutanvändarens mobila enheter. 
-4. Du loggar in upprättar foto-app till identiteten på användaren med tjänsten halva nivå. Den här mekanismen för identitet etablering är rent upp till programmet.
-5. När identiteten har upprättats halva nivå-tjänstbegäranden behörigheter baserat på användarens identitet.
-6. Tjänsten halva nivån skickar en resurs token tillbaka till phone-app.
-7. Phone-app kan fortsätta att använda resursen token direkt åtkomst till Cosmos-DB-resurser med de behörigheter som definierats av resurs-token och för intervallet som tillåts av resurs-token. 
-8. När resource-token upphör att gälla, får ett 401 obehörig undantag efterföljande förfrågningar.  Nu phone app återupprättar identitet och begär en ny resurs-token.
+1. En medelnivån tjänst har ställts in för att hantera en hanteringsprincip för mobilprogram att dela Användarfoton. 
+2. Tjänsten medelnivån har huvudnyckeln för Cosmos DB-kontot.
+3. Foto-appen är installerad på slutanvändarens mobila enheter. 
+4. På inloggning etablerar foto-appen identiteten hos användaren med tjänsten medelnivån. Den här mekanismen för identitet upprätta är helt och hållet upp till programmet.
+5. När identiteten har upprättats kan begär tjänsten medelnivån behörighet baserat på användarens identitet.
+6. Tjänsten medelnivån skickar en Resurstoken tillbaka till appen.
+7. Appen kan fortsätta att använda Resurstoken för direkt åtkomst till Cosmos DB-resurser med de behörigheter som definierats av Resurstoken och för intervallet som tillåts av Resurstoken. 
+8. När Resurstoken upphör att gälla får efterföljande förfrågningar en 401, obehörig undantag.  Då appen återupprättar identiteten och begär en ny Resurstoken.
 
-    ![Azure DB Cosmos-resurs tokens arbetsflöde](./media/secure-access-to-data/resourcekeyworkflow.png)
+    ![Azure Cosmos DB-arbetsflöde för resurs-token](./media/secure-access-to-data/resourcekeyworkflow.png)
 
-Resurs-token generering och hantering hanteras av inbyggda Cosmos-DB-klientbibliotek; Om du använder REST måste du skapa huvuden för begäran-autentisering. Mer information om hur du skapar autentiseringshuvuden för REST finns [åtkomstkontroll på Cosmos DB resurser](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) eller [källkoden för våra SDK](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+Generering av resursen och hantering hanteras av de inbyggda Cosmos DB-klientbibliotek; Om du använder REST måste du skapa begäran-/ autentiseringshuvuden. Läs mer om hur du skapar autentiseringshuvuden resten [åtkomstkontroll på Cosmos DB-resurser](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) eller [källkoden för våra SDK: er](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
 
-Ett exempel på en mellannivå-tjänst som används för att generera eller token för resursen för koordinatortjänst finns i [ResourceTokenBroker app](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
+Ett exempel på en mellannivå-tjänst som används för att generera eller mäkla resurstokens finns i den [ResourceTokenBroker app](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
 <a id="users"></a>
 
 ## <a name="users"></a>Användare
-Cosmos DB användare har associerats med en Cosmos-DB-databas.  Varje databas kan innehålla noll eller flera Cosmos-DB-användare.  Följande kodexempel visar hur du skapar en Cosmos-DB användarresurs.
+Cosmos DB-användare är kopplade till en Cosmos DB-databas.  Varje databas kan innehålla noll eller flera Cosmos DB-användare.  Följande kodexempel visar hur du skapar en Cosmos DB-användarresurs.
 
 ```csharp
 //Create a user.
@@ -120,27 +120,27 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 ```
 
 > [!NOTE]
-> Varje Cosmos-DB-användare har en PermissionsLink-egenskap som kan användas för att hämta listan över [behörigheter](#permissions) som är associerade med användaren.
+> Varje Cosmos DB-användare har en PermissionsLink-egenskap som kan användas för att hämta listan över [behörigheter](#permissions) som är associerade med användaren.
 > 
 > 
 
 <a id="permissions"></a>
 
 ## <a name="permissions"></a>Behörigheter
-En Cosmos-DB behörighet resurs är associerad med en Cosmos-DB-användare.  Varje användare kan innehålla noll eller flera Cosmos-DB-behörigheter.  En behörighet för resursen ger åtkomst till en säkerhetstoken som användaren måste när du försöker komma åt en resurs för specifika program.
-Det finns två tillgängliga åtkomstnivåer som kan tillhandahållas av en behörighet:
+En behörighet Cosmos DB-resurs är associerad med en Cosmos DB-användare.  Varje användare kan innehålla noll eller flera Cosmos DB-behörigheter.  En behörighet resurs ger åtkomst till en säkerhetstoken som användaren behöver vid åtkomst till en specifik resurs.
+Det finns två tillgängliga åtkomstnivåer som kan utföras av en resurs för behörighet:
 
 * Alla: Användaren har fullständig behörighet på resursen.
-* Läs: Användaren endast kan läsa innehållet i resursen men kan inte utföra skrivåtgärder-, update- eller delete-åtgärder på resursen.
+* Läs: Användaren endast kan läsa innehållet i resursen men det går inte att utföra skrivåtgärder, update eller delete-åtgärder på resursen.
 
 > [!NOTE]
-> För att kunna köra Cosmos-DB-lagrade procedurer som användaren måste ha behörigheten All i den samling där den lagrade proceduren körs.
+> Lagrade procedurer som användaren måste ha alla behörigheter för behållaren där den lagrade proceduren körs för att köra Cosmos DB.
 > 
 > 
 
-### <a name="code-sample-to-create-permission"></a>Kodexempel för att skapa behörighet
+### <a name="code-sample-to-create-permission"></a>Kodexempel för att skapa behörigheten
 
-Följande kodexempel visar hur du skapar en resurs för behörighet, läsa resurs token av resursen behörighet och associera behörigheter med den [användaren](#users) skapade ovan.
+Följande kodexempel visar hur du skapar en resurs med behörighet läser Resurstoken för resursen behörighet och koppla behörigheter med den [användaren](#users) skapade ovan.
 
 ```csharp
 // Create a permission.
@@ -155,11 +155,11 @@ docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db"
 Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
 ```
 
-Om du har angett en partitionsnyckel för samlingen, måste behörigheten för insamling, dokument och resurser för bifogad fil också att inkludera ResourcePartitionKey utöver ResourceLink.
+Om du har angett en partitionsnyckel för din samling, måste behörigheten för samlingen, dokument och bilaga resurser även att inkludera ResourcePartitionKey utöver ResourceLink.
 
-### <a name="code-sample-to-read-permissions-for-user"></a>Kodexemplet läsa behörigheter för användare
+### <a name="code-sample-to-read-permissions-for-user"></a>Kodexempel för att läsa behörigheter för användare
 
-För att enkelt få alla resurser som är associerade med en viss användare, Cosmos DB tillgängliggör en behörighet för varje användarobjekt.  Följande kodavsnitt visar hur du hämtar behörigheten som är associerade med användaren som skapade ovan, skapa en behörighetslista och skapa en instans av en ny Dokumentklient för användarens räkning.
+För att enkelt få behörighet för alla resurser som är associerade med en viss användare, Cosmos DB gör tillgängliga en behörighet för varje användarobjekt-flöde.  Följande kodfragment visar hur du hämtar den behörighet som är associerad med användaren som skapades ovan, konstruera en behörighetslistan och skapa en instans av en ny Dokumentklient användarens räkning.
 
 ```csharp
 //Read a permission feed.
@@ -176,6 +176,6 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om Cosmos DB databassäkerhet i [Cosmos DB: databasen säkerhet](database-security.md).
-* Läs om hur du hanterar master och skrivskyddade nycklar i [så här hanterar du ett konto i Azure Cosmos DB](manage-account.md#keys).
-* Information om hur du skapar Azure Cosmos DB auktorisering token finns [åtkomstkontroll på Azure Cosmos DB resurser](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).
+* Läs mer om Cosmos DB database-säkerhet i [Cosmos DB: databasen security](database-security.md).
+* Läs om hur du hanterar huvudnycklar och skrivskyddade nycklar i [så här hanterar du ett Azure Cosmos DB-konto](manage-account.md#keys).
+* Läs hur du skapar Azure Cosmos DB-auktoriseringstoken i [åtkomstkontroll på Azure Cosmos DB-resurser](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

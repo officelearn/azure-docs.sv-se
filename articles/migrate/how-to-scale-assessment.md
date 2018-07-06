@@ -1,34 +1,59 @@
 ---
-title: Skala identifiering och bedömning med hjälp av Azure migrera | Microsoft Docs
-description: Beskriver hur du utvärdera stort antal lokala datorer med hjälp av Azure migrera tjänsten.
+title: Skala identifiering och en utvärdering med hjälp av Azure Migrate | Microsoft Docs
+description: Beskriver hur du avgör stort antal lokala datorer med hjälp av Azure Migrate-tjänsten.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: dd7524c0114589e0c145cb4c03b0f531d58ce950
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: dbd2ef6270d0f270dabb6a1f5461e09fc37102db
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214699"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859599"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
-Azure migrera har en gräns på 1 500 datorer per projekt, men den här artikeln beskriver hur du utvärdera stort antal lokala virtuella datorer (VM) med hjälp av [Azure migrera](migrate-overview.md).   
+Azure Migrate har en gräns på 1500 datorer per projekt, den här artikeln beskrivs hur du avgör stort antal lokala virtuella datorer (VM) med hjälp av [Azure Migrate](migrate-overview.md).   
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- **VMware**: på virtuella datorer som du planerar att migrera måste hanteras av vCenter Server version 5.5, 6.0 eller 6.5. Du måste dessutom en ESXi-värd kör version 5.0 eller senare distribution insamlaren VM.
-- **vCenter konto**: du behöver ett konto för skrivskyddad åtkomst till vCenter-servern. Azure Migrate använder kontot till att identifiera de lokala virtuella datorerna.
-- **Behörigheter**: I vCenter Server som du behöver behörighet att skapa en virtuell dator genom att importera en fil i ägg format.
-- **Inställningar för statistik**: statistik inställningarna för vCenter-servern ska vara inställd på nivå 3 innan du börjar distributionen. Om nivån är lägre än 3 bedömning fungerar, men kommer inte att samlas in prestandadata för lagring och nätverk. Rekommendationer för storlek baseras i det här fallet på prestandadata för CPU och minne och konfigurationsdata för disk och nätverkskort.
+- **VMware**: de virtuella datorer som du planerar att migrera måste hanteras av vCenter Server version 5.5, 6.0 eller 6.5. Du måste även en ESXi-värd som kör version 5.0 eller senare för att distribuera den Virtuella insamlardatorn.
+- **vCenter-kontot**: du behöver ett konto för skrivskyddad åtkomst till vCenter-servern. Azure Migrate använder kontot till att identifiera de lokala virtuella datorerna.
+- **Behörigheter**: I vCenter-servern, behöver du behörighet att skapa en virtuell dator genom att importera en fil i OVA-formatet.
+- **Inställningar för statistik**: statistikinställningarna för vCenter-servern bör vara inställda på nivå 3 innan du påbörjar distributionen. Om kompatibilitetsnivå är lägre än 3 fungerar utvärderingen, men prestandadata för lagring och nätverk samlas inte in. Storleksrekommendationer som baseras i det här fallet på prestandadata för CPU och minne och konfigurationsdata för disk och nätverkskort.
 
-## <a name="plan-your-migration-projects-and-discoveries"></a>Planera migrering projekt och identifieringar
 
-En enda Azure migrera insamlare stöder identifiering från flera vCenter-servrar (efter varandra) och också stöd för identifiering av flera migrering projekt (efter varandra). Insamlaren fungerar i en brand och glömmer modellen när identifiering är klar kan du använda samma insamlaren att samla in data från en annan vCenter-Server eller skicka det till ett annat migreringsprojekt.
+### <a name="set-up-permissions"></a>Konfigurera behörigheter
 
-Planera identifieringar och utvärderingar baserat på följande begränsningar:
+Azure Migrate måste ha åtkomst till VMware-servrar för att automatiskt kunna identifiera virtuella datorer för utvärdering. VMware-kontot måste ha följande behörigheter:
+
+- Användartyp: Minst en skrivskyddad användare
+- Behörigheter: Datacenter-objekt –> Sprid till underordnat objekt, roll = skrivskyddad
+- Information: Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.
+- Om du vill begränsa åtkomsten tilldelar du rollen Ingen åtkomst med Sprid till underordnat objekt till underordnade objekt (vSphere-värdar, datalager, virtuella datorer och nätverk).
+
+Om du distribuerar i en miljö organisationer, är här ett sätt att konfigurera detta:
+
+1.  Skapa en användare per klient och och använder [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), tilldela läsbehörighet till Virtuella datorer som tillhör en viss klient. Sedan Använd dessa autentiseringsuppgifter för identifiering. RBAC säkerställer att motsvarande vCenter-användaren har åtkomst till endast specifika VM-klient.
+2. Du konfigurerar RBAC för olika klientanvändare enligt beskrivningen i följande exempel för användaren nr 1 och 2 för användaren:
+
+    - I **användarnamn** och **lösenord**, anger du de skrivskyddade kontoautentiseringsuppgifter som insamlaren använder för att identifiera virtuella datorer i 
+    - Datacenter1 - ge läsbehörighet till 1 användare och användare #2. Inte Sprid dessa behörigheter till alla underordnade objekt eftersom du ska ange behörigheter för enskilda Virtuella datorer.
+    
+      - VM1 (klient #1) (endast läsbehörighet till användare #1)
+      - VM2 (klient #1) (endast läsbehörighet till användare #1)
+      - VM3 (klient #2) (endast läsbehörighet till användaren nr. 2)
+      - VM4 (klient #2) (endast läsbehörighet till användaren nr. 2)
+
+   - Om du utför identifieringen med autentiseringsuppgifter för användare #1 kan sedan identifieras endast VM1 och VM2.
+
+## <a name="plan-your-migration-projects-and-discoveries"></a>Planera ditt migreringsprojekt och identifieringar
+
+En enda Azure Migrate collector stöder identifiering från flera vCenter-servrar (efter varandra) och stöder flera migreringsprojekt identifieringen (efter varandra). Insamlaren fungerar i fire and -forget-modell, när identifiering är klar kan du använda samma insamlaren för att samla in data från en annan vCenter-Server eller skicka det till en annan migreringsprojekt.
+
+Planera dina upptäckter och utvärderingar som baseras på följande begränsningar:
 
 | **Entitet** | **Gränsen för datorn** |
 | ---------- | ----------------- |
@@ -36,60 +61,60 @@ Planera identifieringar och utvärderingar baserat på följande begränsningar:
 | Identifiering  | 1,500             |
 | Utvärdering | 1,500             |
 
-Tänk på följande överväganden:
+Tänk på dessa överväganden:
 
-- När du gör en identifiering med hjälp av Azure migrera insamlaren kan ange du identifieringsomfånget till en mapp för vCenter-Server, datacenter, kluster eller en värddator.
-- Kontrollera i vCenter Server som de virtuella datorerna som du vill identifiera i mappar, Datacenter, kluster eller värdar som har stöd för begränsning av 1 500 datorer om du vill göra mer än en identifiering.
-- Vi rekommenderar att vid bedömningen, du behåller datorer med beroenden inom samma projekt och assessment. Kontrollera att beroende datorer finns i samma mapp, datacenter eller kluster för att bedöma i vCenter Server.
+- När du gör en identifiering med hjälp av Azure Migrate collector kan du ange identifieringsomfånget till en vCenter Server-mapp, datacenter, kluster eller en värddator.
+- Om du vill göra mer än en identifiering, verifiera i vCenter Server som de virtuella datorerna som du vill identifiera i mappar, Datacenter, kluster eller värdar som har stöd för begränsning av 1 500 datorer.
+- Vi rekommenderar att för utvärdering, du behåller datorer med beroenden inom samma projekt och utvärdering. Kontrollera att beroende datorer finns i samma mapp, datacenter eller kluster för utvärdering i vCenter Server.
 
-Beroende på scenario kan dela du din identifieringar som anges nedan:
+Beroende på ditt scenario kan du dela upp dina identifieringar enligt nedan:
 
-### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>Flera vCenter-servrar med färre än 1500 virtuella datorer
+### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>Flera vCenter-servrar med mindre än 1 500 virtuella datorer
 
-Om du har flera vCenter-servrar i din miljö, och det totala antalet virtuella datorer är mindre än 1 500, kan du använda en enda insamlare och ett enda migreringsprojekt för att identifiera alla virtuella datorer över alla vCenter-servrar. Eftersom insamlaren identifierar en vCenter-Server åt gången, kan du köra samma insamlaren mot alla vCenter-servrar, efter varandra och peka samma migreringsprojekt insamlaren. När alla identifieringar är klar kan skapa du sedan bedömningar för datorer.
+Om du har flera vCenter-servrar i din miljö och det totala antalet virtuella datorer är mindre än 1500, kan du använda en enda insamlare och en enda migreringsprojekt för att identifiera alla virtuella datorer mellan alla vCenter-servrar. Eftersom insamlaren identifierar en vCenter-Server i taget, kan du köra samma insamlaren mot alla vCenter-servrar, efter varandra och peka insamlaren på samma migreringsprojekt. När alla identifieringar är klar kan skapa du sedan utvärderingar för datorer.
 
-### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Flera vCenter-servrar med mer än 1500 virtuella datorer
+### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Flera vCenter-servrar med mer än 1 500 virtuella datorer
 
-Om du har flera vCenter-servrar med färre än 1500 virtuella datorer per vCenter-servern, men mer än 1500 virtuella datorer mellan alla vCenter fungerar, måste du skapa flera migrering projekt (en migreringsprojekt kan innehålla endast 1500 VMs). Du kan åstadkomma detta genom att skapa ett migreringsprojekt per vCenter-servern och dela identifieringarna. Du kan använda en enda insamlare för att identifiera varje vCenter-Server (efter varandra). Om du vill identifieringar att starta samtidigt kan du distribuera flera installationer och parallell körning av identifieringar.
+Om du har flera vCenter-servrar med mindre än 1 500 virtuella datorer per vCenter-servern, men mer än 1 500 virtuella datorer mellan alla vCenter-servrar kan behöva du skapa flera migration-projekt (en migration-projekt kan innehålla endast 1 500 virtuella datorer). Du kan åstadkomma detta genom att skapa ett migreringsprojekt per vCenter-servern och dela identifieringar. Du kan använda en enda insamlare för att identifiera varje vCenter-Server (efter varandra). Om du vill identifieringar att starta på samma gång, kan du också distribuera flera enheter och köra identifieringar parallellt.
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Mer än 1500 datorer i en enda vCenter-Server
 
-Om du har mer än 1500 virtuella datorer i en enda vCenter-Server, måste du dela identifieringen i flera projekt för migrering. Om du vill dela identifieringar kan du utnyttja fältet Scope i anordningen och anger värden, kluster, mappar eller datacenter som du vill identifiera. Om du har två mappar i vCenter Server, en med 1000 till exempel virtuella datorer (Mapp1) och andra med 800 virtuella datorer (mapp2) du kan använda en enda insamlare och utföra två identifieringar. I den första identifieringen du anger Mapp1 som scope och peka till projektet migrering när den första identifieringen är klar, du kan använda samma insamlaren, ändra sitt omfång till Mapp2 och migrering av informationen i andra migrering projektet och göra andra identifieringen.
+Om du har fler än 1 500 virtuella datorer i en enda vCenter-Server, måste du dela upp identifieringen i flera migreringsprojekt. Om du vill dela identifieringar, kan du utnyttja fältet omfång i installationen och anger värden, kluster, mapp eller datacenter som du vill identifiera. Exempel: Om du har två mappar i vCenter Server, en med 1000 virtuella datorer (Mapp1) och andra med 800 virtuella datorer (mapp2), du kan använda en enda insamlare och utföra två identifieringar. I den första identifieringen kan du ange Mapp1 som omfång och peka den första migreringsprojekt när den första identifieringen är klar, du kan använda samma insamlaren genom att ändra sitt omfång till Mapp2 och migrering projektinformation till andra migreringsprojekt och göra andra identifiering.
 
-### <a name="multi-tenant-environment"></a>Klientmiljön
+### <a name="multi-tenant-environment"></a>Miljö för flera innehavare
 
-Om du har en miljö som delas mellan klienter och du inte vill identifiera de virtuella datorerna i en klient i en annan innehavarens prenumeration, kan du använda fältet Scope i insamlaren anordningen att definiera omfattningen av identifieringen. Om klienterna delar värdar, skapar du autentiseringsuppgifter som har skrivskyddad åtkomst till endast de virtuella datorerna som hör till specifika klienten och använder dessa autentiseringsuppgifter i anordningen insamlaren och ange omfånget som värd för att göra identifieringen. Alternativt kan du också skapa mappar i vCenter Server (anta att Mapp1 för tenant1 och mapp2 för tenant2), under delade värden, flytta de virtuella datorerna för tenant1 i Mapp1 och tenant2 till Mapp2 och omfång identifieringar i insamlaren i enlighet med detta genom att ange rätt mapp.
+Om du har en miljö som delas mellan klienter och du inte vill identifiera de virtuella datorerna i en klient i en annan klient prenumeration, kan du använda fältet omfång i insamlingsprogrammet att definiera omfattningen av identifieringen. Om klienterna delar värdar, skapar du autentiseringsuppgifter som har skrivskyddad åtkomst till endast de virtuella datorerna som hör till specifik klient och använda den här autentiseringsuppgiften i insamlingsprogrammet och ange omfång som värden för att göra identifieringen. Du kan också du kan också skapa mappar i vCenter Server (vi antar att Mapp1 för tenant1 och mapp2 för tenant2), under den dela värden, flytta de virtuella datorerna för tenant1 i Mapp1 och tenant2 till Mapp2 och omfång identifieringar i insamlaren i enlighet med detta genom att ange mappen.
 
 ## <a name="discover-on-premises-environment"></a>Identifiera lokala miljö
 
-När du är klar med planen kan sedan starta identifiering av lokala virtuella datorer:
+Du kan sedan starta identifiering av lokala virtuella datorer när du är klar med din plan:
 
 ### <a name="create-a-project"></a>Skapa ett projekt
 
-Skapa ett Azure migrera projekt utifrån dina behov:
+Skapa ett Azure Migrate-projekt utifrån dina behov:
 
-1. Välj i Azure-portalen **skapar du en resurs**.
+1. I Azure-portalen väljer du **skapa en resurs**.
 2. Sök efter **Azure Migrate** och välj tjänsten **Azure Migrate (förhandsversion)** i sökresultaten. Välj sedan **Skapa**.
-3. Ange ett projektnamn och Azure-prenumeration för projektet.
+3. Ange ett projektnamn och Azure-prenumerationen för projektet.
 4. Skapa en ny resursgrupp.
-5. Ange platsen där du vill skapa projektet och välj sedan **skapa**. Observera att du fortfarande kan utvärdera dina virtuella datorer för en annan målplats. Den angivna platsen för projektet används för att lagra metadata som samlats in från lokala virtuella datorer.
+5. Ange platsen där du vill skapa projektet och välj sedan **skapa**. Observera att du kan fortfarande utvärdera dina virtuella datorer för en annan målplats. Den angivna platsen för projektet används för att lagra de metadata som samlats in från lokala virtuella datorer.
 
-### <a name="set-up-the-collector-appliance"></a>Ställ in insamlaren-enhet
+### <a name="set-up-the-collector-appliance"></a>Konfigurera insamlingsprogrammet
 
-Azure Migrate skapar en lokal virtuell dator som kallas för insamlarprogram. Den här virtuella datorn identifierar lokala virtuella VMware-datorer och skickar metadata om dem till tjänsten Azure migrera. Om du vill konfigurera insamlaren anordningen hämtningen ägg och importera dem till den lokala vCenter Server-instansen.
+Azure Migrate skapar en lokal virtuell dator som kallas för insamlarprogram. Den här virtuella datorn identifierar lokala virtuella VMware-datorer och skickar den metadata om dem till Azure Migrate-tjänsten. Om du vill konfigurera insamlingsprogrammet hämta OVA-filen och importera den till en lokal vCenter Server-instansen.
 
 #### <a name="download-the-collector-appliance"></a>Hämta insamlingsprogrammet
 
-Om du har flera projekt måste du hämta insamlaren anordningen bara en gång till vCenter-servern. När du hämtar och ställa in anordningen du kör den för varje projekt och du ange unika projekt-ID och nyckel.
+Om du har flera projekt kan behöva du hämta insamlingsprogrammet bara en gång till vCenter Server. När du laddar ned och konfigurera installationen kan du köra den för varje projekt och anger du unika projekt-ID och nyckel.
 
-1. Markera i projektet Azure migrera **komma igång** > **Discover & Bedöm** > **identifiera datorer**.
-2. I **identifiera datorer**väljer **hämta**, för att hämta filen ägg.
-3. I **Kopiera projekt autentiseringsuppgifterna**, kopiera ID: T och nyckeln för projektet. Du behöver dem när du konfigurerar insamlaren.
+1. I Azure Migrate-projekt väljer **komma igång** > **identifiera och utvärdera** > **identifiera datorer**.
+2. I **identifiera datorer**väljer **hämta**, för att hämta OVA-filen.
+3. I **kopiera projektautentiseringsuppgifterna**, kopiera-ID och nyckel för projektet. Du behöver dem när du konfigurerar insamlaren.
 
 
 #### <a name="verify-the-collector-appliance"></a>Kontrollera insamlingsprogrammet
 
-Kontrollera att filen ägg är säker innan du distribuerar det:
+Kontrollera att OVA-filen är säker innan du distribuerar den:
 
 1. Öppna ett kommandofönster för administratör på den dator som du laddade ned filen till.
 
@@ -99,7 +124,7 @@ Kontrollera att filen ägg är säker innan du distribuerar det:
 
    Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
-3. Kontrollera att den genererade hashen matchar följande inställningar.
+3. Se till att den genererade hashen matchar följande inställningar.
 
     För OVA-version 1.0.9.8
 
@@ -135,86 +160,86 @@ Kontrollera att filen ägg är säker innan du distribuerar det:
 
 ### <a name="create-the-collector-vm"></a>Skapa den virtuella insamlardatorn
 
-Importera den hämta filen till vCenter-servern:
+Importera den nedladdade filen till vCenter Server:
 
-1. Välj i vSphere-klientkonsolen **filen** > **distribuera OVF mallen**.
+1. I vSphere-klientkonsolen väljer **filen** > **distribuera OVF-mall**.
 
     ![Distribuera OVF](./media/how-to-scale-assessment/vcenter-wizard.png)
 
-2. I guiden Distribuera OVF mall > **källa**, ange platsen för filen ägg.
+2. I guiden Distribuera OVF-mall > **källa**, ange platsen för OVA-filen.
 3. I **Namn** och **Plats** anger du ett eget namn för den virtuella insamlardatorn och lagerobjektet där den virtuella datorn kommer att finnas.
 4. I **Värd/kluster** anger du den värd eller det kluster där den virtuella insamlardatorn körs.
 5. Ange lagringsplats för den virtuella insamlardatorn i lagringen.
 6. I **Diskformat** anger du disktyp och storlek.
-7. I **Nätverksmappning** anger du det nätverk som den virtuella insamlardatorn kommer att ansluta till. Nätverket måste internet-anslutning för att skicka metadata till Azure.
-8. Granska och bekräfta inställningarna och markera **Slutför**.
+7. I **Nätverksmappning** anger du det nätverk som den virtuella insamlardatorn kommer att ansluta till. Nätverket måste ha en Internetanslutning för att skicka metadata till Azure.
+8. Granska och bekräfta inställningarna och välj sedan **Slutför**.
 
 ### <a name="identify-the-id-and-key-for-each-project"></a>Identifiera-ID och nyckel för varje projekt
 
-Om du har flera projekt måste du identifiera-ID och nyckel för varje kriterium. Du måste nyckeln när du kör insamlaren för att identifiera de virtuella datorerna.
+Om du har flera projekt måste du identifiera-ID och nyckel för var och en. Du behöver nyckeln när du kör insamlaren att identifiera de virtuella datorerna.
 
-1. I projektet, Välj **komma igång** > **Discover & Bedöm** > **identifiera datorer**.
-2. I **Kopiera projekt autentiseringsuppgifterna**, kopiera ID: T och nyckeln för projektet.
-    ![Kopiera projekt autentiseringsuppgifter](./media/how-to-scale-assessment/copy-project-credentials.png)
+1. I projektet, väljer **komma igång** > **identifiera och utvärdera** > **identifiera datorer**.
+2. I **kopiera projektautentiseringsuppgifterna**, kopiera-ID och nyckel för projektet.
+    ![Kopiera projektautentiseringsuppgifterna](./media/how-to-scale-assessment/copy-project-credentials.png)
 
-### <a name="set-the-vcenter-statistics-level"></a>Att ställa in vCenter statistik
-Följande är en lista över prestandaräknare som samlas in under identifieringen. Räknarna är som standard som är tillgängliga på olika nivåer i vCenter Server.
+### <a name="set-the-vcenter-statistics-level"></a>Ange statistiknivån
+Följande är listan över prestandaräknare som samlas in under identifieringen. Räknarna ingår som standard som är tillgängliga på olika nivåer i vCenter Server.
 
-Vi rekommenderar att du vanliga filegenskaper (3) för statistik nivån så att alla räknare samlas in korrekt. Om du har vCenter på en lägre nivå kan bara några räknare samlas helt, med de övriga anges som 0. Bedömning kan sedan visa ofullständiga data.
+Vi rekommenderar att du ställer in vanliga filegenskaper (3) för statistik nivå så att alla prestandaräknare som samlas in korrekt. Om du har satt till en lägre nivå vCenter, kan endast några räknare samlas helt, med resten har angetts till 0. Utvärderingen kan sedan visa ofullständiga data.
 
-I följande tabell visas också utvärderingsresultat som kommer att påverkas om räknaren inte samlas in.
+I följande tabell visas även utvärderingsresultat som kommer att påverkas om en särskild räknare inte har samlats in.
 
-| Räknare                                 | Nivå | Nivå per enhet | Bedömning påverkan                    |
+| Räknare                                 | Nivå | Nivå per enhet | Utvärdering av påverkan                    |
 | --------------------------------------- | ----- | ---------------- | ------------------------------------ |
-| CPU.Usage.Average                       | 1     | Ej tillämpligt               | Rekommenderade VM-storlek och kostnad         |
-| Mem.Usage.Average                       | 1     | Ej tillämpligt               | Rekommenderade VM-storlek och kostnad         |
-| virtualDisk.read.average                | 2     | 2                | Diskstorleken och lagringskostnaden är VM-storlek |
-| virtualDisk.write.average               | 2     | 2                | Diskstorleken och lagringskostnaden är VM-storlek |
-| virtualDisk.numberReadAveraged.average  | 1     | 3                | Diskstorleken och lagringskostnaden är VM-storlek |
-| virtualDisk.numberWriteAveraged.average | 1     | 3                | Diskstorleken och lagringskostnaden är VM-storlek |
-| NET.Received.Average                    | 2     | 3                | VM-storlek och nätverket kostnad             |
-| NET.Transmitted.Average                 | 2     | 3                | VM-storlek och nätverket kostnad             |
+| CPU.Usage.Average                       | 1     | Ej tillämpligt               | Rekommenderad storlek och kostnad         |
+| Mem.Usage.Average                       | 1     | Ej tillämpligt               | Rekommenderad storlek och kostnad         |
+| virtualDisk.read.average                | 2     | 2                | Diskens storlek, kostnaden för lagring och VM-storlek |
+| virtualDisk.write.average               | 2     | 2                | Diskens storlek, kostnaden för lagring och VM-storlek |
+| virtualDisk.numberReadAveraged.average  | 1     | 3                | Diskens storlek, kostnaden för lagring och VM-storlek |
+| virtualDisk.numberWriteAveraged.average | 1     | 3                | Diskens storlek, kostnaden för lagring och VM-storlek |
+| NET.Received.Average                    | 2     | 3                | VM-storlek och nätverk kostnad             |
+| NET.Transmitted.Average                 | 2     | 3                | VM-storlek och nätverk kostnad             |
 
 > [!WARNING]
-> Om du precis har högre statistik, tar det till en dag att generera prestandaräknare. Därför rekommenderar vi att du kör identifieringen efter en dag.
+> Om du precis har högre statistik, ska det ta upp till en dag att generera prestandaräknare. Därför rekommenderar vi att du kör identifieringen efter en dag.
 
 ### <a name="run-the-collector-to-discover-vms"></a>Kör insamlaren för att identifiera virtuella datorer
 
-För varje identifiering som du behöver utföra kör insamlaren för att identifiera virtuella datorer i området krävs. Kör identifierade en efter en. Samtidiga identifieringar stöds inte och varje identifiering måste ha ett annat omfång.
+För varje typ av upptäckt du behöver utföra, kör insamlaren för att identifiera virtuella datorer i det nödvändiga omfånget. Kör identifieringar som efter varandra. Samtidiga identifieringar stöds inte och varje identifiering måste ha ett annat omfång.
 
 1.  Högerklicka på den virtuella datorn i vSphere-klientkonsolen > **Öppna konsol**.
 2.  Ange språk, tidszon och lösenordsinställningar för produkten.
-3.  På skrivbordet, Välj den **kör insamlaren** genväg.
-4.  Öppna i Azure migrera-insamlaren **uppfylla krav** och sedan:
+3.  På skrivbordet, Välj den **kör insamlare** genväg.
+4.  Öppna i Azure Migrate-insamlaren **konfigurera förhandskraven** och sedan:
 
     a. Acceptera licensvillkoren och läs informationen från tredje part.
 
     Insamlaren kontrollerar att den virtuella datorn har Internetåtkomst.
 
-    b. Om den virtuella datorn har åtkomst till internet via en proxyserver, väljer **proxyinställningar**, och ange proxyadress och lyssningsport. Ange autentiseringsuppgifter om proxyn kräver autentisering.
+    b. Om den virtuella datorn har åtkomst till internet via en proxyserver, väljer **proxyinställningar**, och anger proxyadress och lyssningsport. Ange autentiseringsuppgifter om proxyn kräver autentisering.
 
     Insamlaren kontrollerar att insamlingstjänsten körs. Tjänsten installeras som standard på den virtuella insamlardatorn.
 
     c. Ladda ned och installera VMware PowerCLI.
 
 5.  Gör följande i **Specify vCenter Server details** (Ange vCenter Server-information):
-    - Ange namn (FQDN) eller IP-adressen för vCenter-servern.
-    - I **användarnamn** och **lösenord**, ange de skrivskyddade kontoautentiseringsuppgifter som insamlaren använder för att identifiera virtuella datorer i vCenter Server.
+    - Ange namn (FQDN) eller IP-adress för vCenter-servern.
+    - I **användarnamn** och **lösenord**, anger du de skrivskyddade kontoautentiseringsuppgifter som insamlaren använder för att identifiera virtuella datorer i vCenter Server.
     - I **Välj omfattning** väljer du en omfattning för identifieringen av virtuella datorer. Insamlaren kan identifiera virtuella datorer i angivet omfång. Omfånget kan anges till en viss mapp, ett datacenter eller ett kluster. Det får inte innehålla fler än 1 000 virtuella datorer.
 
-6.  I **ange migrering projektet**anger ID: T och nyckeln för projektet. Om du inte kopierar dem, öppna Azure-portalen från VM-insamlaren. På projektets **översikt** väljer **identifiera datorer** och kopiera värdena.  
-7.  I **Visa förloppet för samlingen**, övervaka identifieringsprocessen och kontrollera att metadata som samlas in från de virtuella datorerna är i ett omfång. Insamlaren visar en ungefärlig identifieringstid.
+6.  I **ange migreringsprojekt**, ange ID och nyckel för projektet. Om du inte kopierade dem öppnar du Azure-portalen från den Virtuella insamlardatorn. På projektets **översikt** väljer **identifiera datorer** och kopierar värdena.  
+7.  I **visa insamlingsförloppet**, övervaka identifieringsprocessen och kontrollera att metadata som samlas in från de virtuella datorerna är i omfattningen. Insamlaren visar en ungefärlig identifieringstid.
 
 
 #### <a name="verify-vms-in-the-portal"></a>Verifiera virtuella datorer i portalen
 
-Identifieringstiden beror på hur många virtuella datorer du identifierar. Normalt för 100 virtuella datorer kan identifieringen är klar runt en timme när insamlaren är klar.
+Identifieringstiden beror på hur många virtuella datorer du identifierar. 100 virtuella datorer har vanligtvis identifiering cirka en timme när insamlaren är klar.
 
-1. Markera i projektet migrering Planner **hantera** > **datorer**.
+1. Välj i projektet Migreringshanteraren **hantera** > **datorer**.
 2. Kontrollera att de virtuella datorer som du vill identifiera visas i portalen.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [skapar du en grupp](how-to-create-a-group.md) för utvärdering.
+- Lär dig hur du [skapa en grupp](how-to-create-a-group.md) för utvärdering.
 - [Läs mer](concepts-assessment-calculation.md) om hur utvärderingar beräknas.

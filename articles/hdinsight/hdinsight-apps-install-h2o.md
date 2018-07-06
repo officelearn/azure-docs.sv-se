@@ -1,6 +1,6 @@
 ---
-title: Installera publicerade program - H2O mousserande vattenstämplar - Azure HDInsight | Microsoft Docs
-description: Installera och använda Hadoop-programmet H2O mousserande vattenstämplar från tredje part.
+title: Installera publicerad program – H2O Sparkling Water - Azure HDInsight | Microsoft Docs
+description: Installera och använda Hadoop-program H2O Sparkling Water från tredje part.
 services: hdinsight
 documentationcenter: ''
 author: ashishthaps
@@ -14,88 +14,88 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 9a03588b3327c3ab231f5c2cae17488f4d63bde7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e3c80fe824d87c15a710b133c8e6cddf4ee0e096
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402115"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856563"
 ---
-# <a name="install-published-application---h2o-sparkling-water"></a>Installera programmet - H2O mousserande vattenstämplar
+# <a name="install-published-application---h2o-sparkling-water"></a>Installera publicerad program – H2O Sparkling Water
 
-Den här artikeln beskriver hur du installerar och kör den [H20 mousserande vattenstämplar](http://www.h2o.ai/) publicerade Hadoop-program på Azure HDInsight. En översikt över HDInsight-programplattformen och en lista över tillgängliga oberoende leverantör (ISV) publicerade program finns i [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md). Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
+Den här artikeln beskrivs hur du installerar och kör den [H20 Sparkling Water](http://www.h2o.ai/) publicerat Hadoop-program på Azure HDInsight. En översikt över HDInsight-programplattform och en lista över tillgängliga oberoende programvaruleverantör (ISV) publicerade program finns i [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md). Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
 
-## <a name="about-h2o-sparkling-water"></a>Om H2O mousserande vattenstämplar
+## <a name="about-h2o-sparkling-water"></a>Om H2O Sparkling Water
 
-H2O mousserande vattenstämplar är en öppen källkod, distribuerade i minnet machine learning plattform med Linjär skalbarhet. H2O mousserande vattenstämplar kan du kombinera de snabba och skalbara maskininlärningsalgoritmer för H2O med funktionerna i Spark. Med mousserande vattenstämplar enheten användare beräkning från Scala, R och Python med hjälp av H2O flöda Användargränssnittet.
+H2O Sparkling Water är en öppen källkod, fullständigt distribuerad minnesintern maskininlärningsplattform med Linjär skalbarhet. H2O Sparkling Water kan du kombinera de snabba, skalbara maskininlärningsalgoritmerna i H2O med funktionerna i Spark. Med Sparkling Water kan användarna förbättra beräkningen från Scala, R och Python med H2O Flow-Användargränssnittet.
 
-H2O mousserande vattenstämplar innehåller:
+H2O Sparkling Water innehåller:
 
-* **Lätt att använda WebUI och bekant gränssnitt** – Ställ in och komma igång snabbt med hjälp av antingen H2O intuitiva webbaserade flöda GUI eller programmeringsmiljöer som R, Python, Java, Scala, JSON och H2O-API: er.
-* **Data-oberoende stöd för alla vanliga typer av databasen och filen** – enkelt utforska och modellerar Big Data från i Microsoft Excel, R Studio, Tableau och mycket mer. Ansluta till data från HDFS, S3, SQL och NoSQL-datakällor.
-* **Mycket skalbar Stordata munging och analys** – H2O stort kopplingar kan utföra 7 x snabbare än R data.table åtgärder och skalas linjärt till 10 miljarder x 10 miljarder raden kopplingar.
-* **Realtidsdata bedömningen** – snabbt distribuera modeller till produktionsmiljön med oformaterad gamla Java objects (POJO), modell-optimerad Java objects (MOJO) eller H2O REST API.
+* **Enkel att använda webbgränssnittet och välbekanta gränssnitten** – ange dig och kom igång snabbt med hjälp av antingen H2O intuitiva webbaserade Flow GUI eller programmeringsmiljöer som R, Python, Java, Scala, JSON och H2O-API: er.
+* **Data-oberoende stöd för alla vanliga typer av databasen och filen** – enkelt utforska och modellera Big Data inifrån Microsoft Excel, R Studio, Tableau och mer. Anslut till data från HDFS, S3, SQL och NoSQL-datakällor.
+* **Mycket skalbar munging för Stordata och analys** – H2O stora kopplingar kan utföra 7 x snabbare än R data.table åtgärder och skalas linjärt till 10 miljarder x 10 miljarder rad kopplingar.
+* **Data i realtid bedömning** – snabbt distribuera modeller till produktion med hjälp av oformaterad gamla Java-objekt (POJO), modell-optimerade Java-objekt (MOJO) eller H2O REST API.
 
 ### <a name="resource-links"></a>Resurslänkar
 
-* [Översikt över H2O.AI-tekniker](https://jira.h2o.ai/)
-* [Startsida för H2O.AI](http://www.h2o.ai/)
+* [H2O.AI teknisk översikt](http://jira.h2o.ai/)
+* [H2O.AI hem](http://www.h2o.ai/)
 * [H2O.AI dokumentation](http://docs.h2o.ai/)
 * [H2O.AI Support](https://support.h2o.ai/)
-* [H2O.AI öppen källkod Codebase](https://github.com/h2oai/)
+* [H2O.AI öppen källkod kodbas](https://github.com/h2oai/)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill installera den här appen på en ny HDInsight-kluster eller ett befintligt kluster, måste du ha följande konfiguration:
+Om du vill installera den här appen på ett nytt HDInsight-kluster eller ett befintligt kluster, måste du ha följande konfiguration:
 
-* Klustret tier(s): Standard eller Premium
-* Kluster-typ: Spark
-* Kluster-versioner: 3.5 eller 3,6
+* Kluster tier(s): Standard eller Premium
+* Typ av kluster: Spark
+* Kluster-versioner: 3.5 eller 3.6
 
-## <a name="install-the-h2o-sparkling-water-published-application"></a>Installera H2O mousserande vattenstämplar publicerat program
+## <a name="install-the-h2o-sparkling-water-published-application"></a>Installera H2O Sparkling Water publicerad program
 
-Stegvisa instruktioner om hur du installerar det här och andra tillgängliga ISV-program läsa [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md).
+Stegvisa instruktioner om hur du installerar det här och andra tillgängliga ISV-program finns [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md).
 
-## <a name="launch-h2o-sparkling-water"></a>Starta H2O mousserande vattenstämplar
+## <a name="launch-h2o-sparkling-water"></a>Starta H2O Sparkling Water
 
-1. Efter installationen kan du kan börja använda H2O mousserande vattenstämplar (h2o sparklingwater) från ditt kluster i Azure-portalen genom att öppna Jupyter-anteckningsböcker (`https://<ClusterName>.azurehdinsight.net/jupyter`). Du kan också få Jupyter genom att välja **klusterinstrumentpanel** från klustret rutan i portalen, sedan välja **Jupyter-anteckningsbok**. Du uppmanas att ange dina autentiseringsuppgifter. Ange klustrets Hadoop autentiseringsuppgifter som anges på klustret skapas.
+1. Efter installationen kan du kan börja använda H2O Sparkling Water (h2o sparklingwater) från ditt kluster i Azure-portalen genom att öppna Jupyter-anteckningsböcker (`https://<ClusterName>.azurehdinsight.net/jupyter`). Du kan också öppna Jupyter genom att välja **klusterinstrumentpanel** från fönstret kluster i portalen, väljer **Jupyter Notebook**. Du uppmanas att ange dina autentiseringsuppgifter. Ange klustrets Hadoop-autentiseringsuppgifter som anges på klustret skapas.
 
-2. Jupyter, visas i tre mappar: H2O-PySparkling-exempel, PySpark exempel och Scala exempel. Välj den **H2O-PySparkling-exempel** mapp.
+2. I Jupyter, visas tre mappar: H2O-PySparkling-exempel, exempel PySpark och Scala-exempel. Välj den **H2O-PySparkling-exempel** mapp.
 
-    ![Jupyter-anteckningsböcker hemnätverk](./media/hdinsight-apps-install-h2o/jupyter-home.png)
+    ![Startsida för Jupyter-anteckningsböcker](./media/hdinsight-apps-install-h2o/jupyter-home.png)
 
-3. Det första steget när du skapar en ny anteckningsbok är att konfigurera Spark-miljö. Den här informationen ingår i den **Sentiment_analysis_with_Sparkling_Water** exempel. När du konfigurerar Spark-miljön, måste du använda rätt jar och ange IP-adressen som tillhandahålls av utdata från den första cellen.
+3. Det första steget när du skapar en ny anteckningsbok är att konfigurera Spark-miljö. Den här informationen ingår i den **Sentiment_analysis_with_Sparkling_Water** exempel. När du konfigurerar Spark-miljö, måste du använda rätt jar och ange IP-adressen som tillhandahålls av utdata från den första cellen.
 
-    ![Jupyter-anteckningsböcker hemnätverk](./media/hdinsight-apps-install-h2o/spark-config.png)
+    ![Startsida för Jupyter-anteckningsböcker](./media/hdinsight-apps-install-h2o/spark-config.png)
 
-4. Starta H2O klustret.
+4. Starta H2O-kluster.
 
-    ![Starta klustret](./media/hdinsight-apps-install-h2o/start-cluster.png)
+    ![Starta kluster](./media/hdinsight-apps-install-h2o/start-cluster.png)
 
-5. När klustret H2O är igång, öppna H2O flöda genom att gå till **`https://<ClusterName>-h2o.apps.azurehdinsight.net:443`**.
+5. När H2O klustret är igång, öppna H2O Flow genom att gå till **`https://<ClusterName>-h2o.apps.azurehdinsight.net:443`**.
 
     > [!NOTE]
-    > Om det inte går att öppna H2O flöda kan du prova att rensa webbläsarens cacheminne. Om du fortfarande inte nå den, du förmodligen inte har tillräckligt med resurser på ditt kluster. Försök att öka antalet arbetarnoder under den **kluster** alternativet i klustret-fönstret.
+    > Om du inte kan öppna H2O Flow, försök rensa webbläsarens cacheminne. Om du fortfarande det går inte att nå den, du förmodligen inte har tillräckligt med resurser i ditt kluster. Prova att öka antalet arbetarnoder under den **skala kluster** alternativet i kluster-fönstret.
 
-    ![H2O flöda instrumentpanelen](./media/hdinsight-apps-install-h2o/h2o-flow.png)
+    ![H2O Flow instrumentpanel](./media/hdinsight-apps-install-h2o/h2o-flow.png)
 
-6. Välj den **Million_Songs.flow** exempel på menyn till höger. När du uppmanas att göra med en varning klickar du på **belastningen anteckningsboken**. Den här demon är avsedd att köras på några minuter med hjälp av verkliga data. Målet är att förutsäga från data om Låt gavs ut före eller efter 2004 med hjälp av binär klassificering.
+6. Välj den **Million_Songs.flow** exempel på menyn till höger. När du uppmanas att göra med en varning klickar du på **belastningen Notebook**. Den här demon är avsedd att köras på några minuter med hjälp av verkliga data. Målet är att förutsäga från data om Låt gavs ut före eller efter 2004 med hjälp av binär klassificering.
 
     ![Välj Million_Songs.flow](./media/hdinsight-apps-install-h2o/million-songs.png)
 
-7. Den sökväg som innehåller **milsongs-cls-train.csv.gz**, och Ersätt hela sökvägen med **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**.
+7. Hitta den sökväg som innehåller **milsongs-cls-train.csv.gz**, och Ersätt hela sökvägen med **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**.
 
-8. Den sökväg som innehåller **milsongs-cls-test.csv.gz** och Ersätt den med **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**.
+8. Hitta den sökväg som innehåller **milsongs-cls-test.csv.gz** och Ersätt den med **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**.
 
-9. Om du vill köra alla instruktioner i cellerna bärbara datorer, Välj den **kör alla** i verktygsfältet.
+9. För att köra alla instruktioner i anteckningsboken cellerna, Välj den **kör alla** i verktygsfältet.
 
-    ![Kör alla](./media/hdinsight-apps-install-h2o/run-all.png)
+    ![Köra alla](./media/hdinsight-apps-install-h2o/run-all.png)
 
-10. Du bör se utdata som liknar följande efter några minuter.
+10. Du bör se utdata som liknar följande efter ett par minuter.
 
     ![Resultat](./media/hdinsight-apps-install-h2o/output.png)
 
-Klart! Du har harnessed styrs av datorn i Spark inom några minuter. Du kan nu utforska fler exempel som visar olika typer av maskininlärningsalgoritmer i H2O flöda.
+Klart! Du har harnessed artificiell intelligens i Spark inom några minuter. Nu kan du utforska fler exempel som visar hur olika typer av machine learning-algoritmer i H2O Flow.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -103,5 +103,5 @@ Klart! Du har harnessed styrs av datorn i Spark inom några minuter. Du kan nu u
 * [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md): Lär dig hur du distribuerar ett Opublicerat HDInsight-program till HDInsight.
 * [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): information om hur du publicerar anpassade HDInsight-program på Azure Marketplace.
 * [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): information om hur du definierar HDInsight-program.
-* [Anpassa Linux-baserat HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md): Lär dig hur du använder skriptåtgärd till att installera fler program.
-* [Använd tom edge-noder i HDInsight](hdinsight-apps-use-edge-node.md): Lär dig hur du använder en tom kantnod för åtkomst till HDInsight-kluster och för att testa och värd för HDInsight-program.
+* [Anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md): Lär dig hur du använder skriptåtgärd till att installera fler program.
+* [Använda tomma kantnoder i HDInsight](hdinsight-apps-use-edge-node.md): Lär dig hur du använder en tom edge-nod för att komma åt HDInsight-kluster och för testning och som är värd för HDInsight-program.

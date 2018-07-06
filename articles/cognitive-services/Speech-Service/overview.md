@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ccdcdeeaf4ac8730be4f9e3ee648dc41c2a02641
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2c1fce35749dee12caec0bcd15a9eccdf81b8d1d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345166"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856781"
 ---
 # <a name="what-is-the-speech-service-preview"></a>Vad är taltjänst (förhandsversion)?
 
@@ -60,7 +60,7 @@ Du kan anpassa tal till Text akustiska och språkmodeller för att anpassa speci
 
 Den [Text till tal](text-to-speech.md) (text till tal), eller talsyntes, API konverterar oformaterad text till tal för naturlig standardrösttyper, levereras till ditt program i en ljudfil. Flera röster, varierande i kön eller accent, är tillgängliga för många språk som stöds.
 
-API: et stöder tal syntes Markup Language (SSML) taggar, så att du kan ange exakta Fonetiskt uttal för problematiska orden. SSML kan även ange talegenskaper (inklusive betoning, hastighet, volym, kön och tonläge) direkt i texten.
+API: et stöder [tal syntes Markup Language (SSML)](speech-synthesis-markup.md) taggar, så att du kan ange exakta Fonetiskt uttal för problematiska orden. SSML kan även ange talegenskaper (inklusive betoning, hastighet, volym, kön och tonläge) direkt i texten.
 
 Här följer några vanliga användningsområden för Text till tal-API.
 
@@ -68,7 +68,7 @@ Här följer några vanliga användningsområden för Text till tal-API.
 * Röst fråga om bilar program som t.ex navigering
 * Konversationsanpassad användargränssnitt tillsammans med tal till Text-API
 
-Om du behöver en dialekt som inte stöds eller bara vill ha en unik röst för ditt program, stöder anpassade röst modeller Text till tal-API.
+Om du behöver en dialekt som inte stöds eller bara vill ha en unik röst för ditt program, Text till tal-API stöder [anpassade röst modeller](how-to-customize-voice-font.md).
 
 ## <a name="speech-translation"></a>Talöversättning
 

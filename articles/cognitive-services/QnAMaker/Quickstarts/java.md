@@ -1,6 +1,6 @@
 ---
-title: Java-Snabbstart för Microsoft frågor och svar om Maker API (v4) - kognitiva Azure-tjänster | Microsoft Docs
-description: Hämta information och exempel på kod för att snabbt komma igång med Microsoft översättare Text API i kognitiva Microsoft-tjänster i Azure.
+title: Snabbstart för Java för API (v4) – Azure Cognitive Services för Microsoft QnA Maker | Microsoft Docs
+description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med Microsoft Translator Text API i Microsoft Cognitive Services på Azure.
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
@@ -9,38 +9,38 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 36d8e5a1d9f86da94fbdbe4ff01e93ba32ce6af6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: d8df77d43441331bdda38814e4bddfb29d1576c1
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301469"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868406"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>Snabbstart för Microsoft frågor och svar om Maker API med Java 
+# <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>Snabbstart för Microsoft QnA Maker API med Java 
 <a name="HOLTop"></a>
 
-Den här artikeln visar hur du använder den [Microsoft frågor och svar om Maker API](../Overview/overview.md) med Java att göra följande.
+Den här artikeln visar hur du använder den [Microsoft QnA Maker API](../Overview/overview.md) med Java för att göra följande.
 
-- [Skapa en ny knowledge base.](#Create)
-- [Uppdatera en befintlig knowledge base.](#Update)
-- [Hämta status för en begäran om att skapa eller uppdatera en knowledge base.](#Status)
-- [Publicera en befintlig knowledge base.](#Publish)
-- [Ersätt innehållet i en befintlig knowledge base.](#Replace)
-- [Hämta innehållet i en knowledge base.](#GetQnA)
-- [Få svar på en fråga med en knowledge base.](#GetAnswers)
-- [Hämta information om en knowledge base.](#GetKB)
-- [Hämta information om alla knowledge baser som hör till den angivna användaren.](#GetKBsByUser)
-- [Ta bort en knowledge base.](#Delete)
-- [Hämta aktuella endpoint nycklarna.](#GetKeys)
-- [Generera aktuella endpoint-nycklar.](#PutKeys)
-- [Hämta den aktuella uppsättningen word ändringar.](#GetAlterations)
-- [Ersätt den aktuella mängden word ändringar.](#PutAlterations)
+- [Skapa en ny kunskapsbas.](#Create)
+- [Uppdatera en befintlig kunskapsbas.](#Update)
+- [Hämta status för en begäran om att skapa eller uppdatera en kunskapsbas.](#Status)
+- [Publicera en befintlig kunskapsbas.](#Publish)
+- [Ersätt innehållet i en befintlig kunskapsbas.](#Replace)
+- [Ladda ned innehållet i en kunskapsbas.](#GetQnA)
+- [Få svar på en fråga med en kunskapsbas.](#GetAnswers)
+- [Få information om en kunskapsbas.](#GetKB)
+- [Få information om alla kunskapsbaser som hör till den angivna användaren.](#GetKBsByUser)
+- [Ta bort en kunskapsbas.](#Delete)
+- [Hämta de aktuella endpoint-nycklarna.](#GetKeys)
+- [Återskapa de aktuella endpoint-nycklarna.](#PutKeys)
+- [Hämta den aktuella uppsättningen word förändras.](#GetAlterations)
+- [Ersätt den aktuella uppsättningen word förändras.](#PutAlterations)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) att kompilera och köra den här koden. Du kan använda en Java-IDE om du har en favorit, men det räcker en textredigerare.
+Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) att kompilera och köra den här koden. Du kan använda en Java-IDE om du har en favorit, men en textredigerare räcker.
 
-Du måste ha en [kognitiva Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft frågor och svar om Maker API**. Du behöver en betald prenumeration nyckeln från din [Azure instrumentpanelen](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft QnA Maker API**. Du behöver en betald prenumerationsnyckel från din [Azure-instrumentpanelen](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 <a name="Create"></a>
 
@@ -48,9 +48,9 @@ Du måste ha en [kognitiva Services API-konto](https://docs.microsoft.com/azure/
 
 Följande kod skapar en ny knowledge base med hjälp av den [skapa](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) metod.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE.
+1. Skapa ett nytt Java-projekt i din favorit-IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig snabbtangent för din prenumeration.
+3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```java
@@ -259,7 +259,7 @@ public class CreateKB {
 }
 ```
 
-**Skapa knowledge base-svar**
+**Skapa kunskapsbas svar**
 
 Ett lyckat svar returneras i JSON, som visas i följande exempel: 
 
@@ -296,11 +296,11 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 ## <a name="update-knowledge-base"></a>Uppdatera kunskapsbas
 
-Följande kod uppdaterar en bas med hjälp av befintliga kunskaper i [uppdatering](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) metod.
+Följande kod uppdaterar en grundläggande, med hjälp av befintliga kunskaper i [uppdatering](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) metod.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE.
+1. Skapa ett nytt Java-projekt i din favorit-IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig snabbtangent för din prenumeration.
+3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```java
@@ -568,7 +568,7 @@ public class UpdateKB {
 }
 ```
 
-**Uppdatera knowledge base-svar**
+**Uppdatera kunskapsbas svar**
 
 Ett lyckat svar returneras i JSON, som visas i följande exempel: 
 
@@ -596,9 +596,9 @@ Press any key to continue.
 
 <a name="Status"></a>
 
-## <a name="get-request-status"></a>Hämta status för tjänstbegäran
+## <a name="get-request-status"></a>Hämta status för begäran
 
-Du kan anropa den [åtgärden](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) metod för att kontrollera status för en begäran om att skapa eller uppdatera en knowledge base. Om du vill se hur den här metoden används, se exempelkod för den [skapa](#Create) eller [uppdatering](#Update) metod.
+Du kan anropa den [åtgärden](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) metoden för att kontrollera status för en begäran om att skapa eller uppdatera en kunskapsbas. Om du vill se hur den här metoden används, se exempelkod för den [skapa](#Create) eller [uppdatering](#Update) metod.
 
 [Överst på sidan](#HOLTop)
 
@@ -606,11 +606,11 @@ Du kan anropa den [åtgärden](https://westus.dev.cognitive.microsoft.com/docs/s
 
 ## <a name="publish-knowledge-base"></a>Publicera kunskapsbas
 
-Följande kod publicerar en bas med hjälp av befintliga kunskaper i [publicera](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) metod.
+Följande kod publicerar en grundläggande, med hjälp av befintliga kunskaper i [publicera](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) metod.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE.
+1. Skapa ett nytt Java-projekt i din favorit-IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig snabbtangent för din prenumeration.
+3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```java
@@ -719,7 +719,7 @@ public class PublishKB {
 }
 ```
 
-**Publicera knowledge base-svar**
+**Publicera kunskapsbas svar**
 
 Ett lyckat svar returneras i JSON, som visas i följande exempel: 
 
@@ -735,11 +735,11 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 ## <a name="replace-knowledge-base"></a>Ersätt kunskapsbas
 
-Följande kod ersätter innehållet i angivna grundläggande med hjälp av informationen i [ersätta](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) metod.
+Följande kod ersätter innehållet i den angivna kunskapen kodbas, med hjälp av den [Ersätt](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) metod.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE.
+1. Skapa ett nytt Java-projekt i din favorit-IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig snabbtangent för din prenumeration.
+3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```java
@@ -889,7 +889,7 @@ public class ReplaceKB {
 }
 ```
 
-**Ersätt knowledge base-svar**
+**Ersätt kunskapsbas svar**
 
 Ett lyckat svar returneras i JSON, som visas i följande exempel: 
 
@@ -903,13 +903,13 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 <a name="GetQnA"></a>
 
-## <a name="download-the-contents-of-a-knowledge-base"></a>Hämta innehållet i en kunskapsbas
+## <a name="download-the-contents-of-a-knowledge-base"></a>Ladda ned innehållet i en kunskapsbas
 
-Följande kod hämtar innehållet i angivna grundläggande med hjälp av informationen i [hämta kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) metod.
+Följande kod laddar ned innehållet i den angivna kunskapen kodbas, med hjälp av den [hämta kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) metod.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE.
+1. Skapa ett nytt Java-projekt i din favorit-IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig snabbtangent för din prenumeration.
+3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```java
@@ -1008,7 +1008,7 @@ public class GetQnA {
 }
 ```
 
-**Hämta knowledge base-svar**
+**Ladda ned kunskapsbas svar**
 
 Ett lyckat svar returneras i JSON, som visas i följande exempel: 
 
@@ -1049,13 +1049,13 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 ## <a name="get-answers-to-a-question-by-using-a-knowledge-base"></a>Få svar på en fråga med hjälp av en kunskapsbas
 
-Följande kod hämtar svar på en fråga med hjälp av angivna kunskapsbasen, med hjälp av **Generera svar** metod.
+Följande kod hämtar svar på en fråga med hjälp av angivna kunskapsbasen, med den **Generera svar** metod.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE.
+1. Skapa ett nytt Java-projekt i din favorit-IDE.
 1. Lägg till koden nedan.
-1. Ersätt den `host` värdet med namnet på webbplatsen för prenumerationen frågor och svar om Maker. Mer information finns i [skapar du en tjänst för frågor och svar om Maker](../How-To/set-up-qnamaker-service-azure.md).
-1. Ersätt den `endpoint_key` värde med en giltig slutpunktsnyckel för din prenumeration. Observera att detta inte är samma som din prenumeration nyckel. Du kan hämta dina nycklar för slutpunkten med hjälp av den [hämta endpoint nycklar](#GetKeys) metod.
-1. Ersätt den `kb` värdet med det ID för i knowledge base om du vill fråga efter svar. Observera att den här kunskapsbas måste redan har publicerats med hjälp av den [publicera](#Publish) metod.
+1. Ersätt den `host` värdet med namnet på webbplatsen för QnA Maker-prenumeration. Mer information finns i [skapa QnA Maker-tjänsten](../How-To/set-up-qnamaker-service-azure.md).
+1. Ersätt den `endpoint_key` värde med en giltig slutpunkt-nyckel för din prenumeration. Observera att detta inte är samma som din prenumerationsnyckel. Du kan hämta din slutpunkt-nycklar med hjälp av den [hämta slutpunkten nycklar](#GetKeys) metod.
+1. Ersätt den `kb` värdet med ID: T för kunskapsbas som du vill fråga efter svar. Observera att den här kunskapsbas måste redan har publicerats med hjälp av den [publicera](#Publish) metod.
 1. Kör programmet.
 
 ```java
@@ -1164,7 +1164,7 @@ public class GetAnswers {
 }
 ```
 
-**Få svar svar**
+**Få svar-svar**
 
 Ett lyckat svar returneras i JSON, som visas i följande exempel: 
 
@@ -1190,13 +1190,13 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 <a name="GetKB"></a>
 
-## <a name="get-information-about-a-knowledge-base"></a>Hämta information om en kunskapsbas
+## <a name="get-information-about-a-knowledge-base"></a>Få information om en kunskapsbas
 
-Följande kod hämtar information om den angivna knowledge base med hjälp av den [hämta information om kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) metod.
+Följande kod hämtar information om den angivna knowledge base med hjälp av den [kunskapsbas information](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) metod.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE.
+1. Skapa ett nytt Java-projekt i din favorit-IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig snabbtangent för din prenumeration.
+3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```java
@@ -1291,7 +1291,7 @@ public class GetKB {
 }
 ```
 
-**Kunskapsbasen information svar**
+**Hämta kunskapsbas information svar**
 
 Ett lyckat svar returneras i JSON, som visas i följande exempel: 
 
@@ -1317,13 +1317,13 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 <a name="GetKBsByUser"></a>
 
-## <a name="get-all-knowledge-bases-for-a-user"></a>Hämta alla knowledge baser för en användare
+## <a name="get-all-knowledge-bases-for-a-user"></a>Hämta alla kunskapsbaser för en användare
 
-Följande kod hämtar information om alla knowledge baser för en viss användare med hjälp av den [hämta knowledge grunderna för användaren](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) metod.
+Följande kod hämtar information om alla kunskapsbaser för en viss användare med hjälp av den [hämta kunskapsbaser för användaren](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) metod.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE.
+1. Skapa ett nytt Java-projekt i din favorit-IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig snabbtangent för din prenumeration.
+3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```java
@@ -1415,7 +1415,7 @@ public class GetKBsByUser {
 }
 ```
 
-**Hämta knowledge baser för användarens svar**
+**Hämta kunskapsbaser för användarsvar**
 
 Ett lyckat svar returneras i JSON, som visas i följande exempel: 
 
@@ -1459,11 +1459,11 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>Ta bort en kunskapsbas
 
-Följande kod tar bort angivna grundläggande med hjälp av informationen i [ta bort kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) metod.
+Följande kod tar du bort den angivna kunskapen kodbas, med hjälp av den [ta bort kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) metod.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE.
+1. Skapa ett nytt Java-projekt i din favorit-IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig snabbtangent för din prenumeration.
+3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```java
@@ -1564,7 +1564,7 @@ public class DeleteKB {
 }
 ```
 
-**Ta bort knowledge base-svar**
+**Ta bort kunskapsbas svar**
 
 Ett lyckat svar returneras i JSON, som visas i följande exempel: 
 
@@ -1578,13 +1578,13 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 <a name="GetKeys"></a>
 
-## <a name="get-endpoint-keys"></a>Hämta nycklar för slutpunkten
+## <a name="get-endpoint-keys"></a>Hämta slutpunkten nycklar
 
-Följande kod hämtar de aktuella endpoint-nycklar med hjälp av den [hämta endpoint nycklar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) metod.
+Följande kod hämtar de aktuella endpoint-nycklar med den [hämta slutpunkten nycklar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) metod.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE.
+1. Skapa ett nytt Java-projekt i din favorit-IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig snabbtangent för din prenumeration.
+3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```java
@@ -1676,7 +1676,7 @@ public class GetEndpointKeys {
 }
 ```
 
-**Hämta endpoint nycklar svar**
+**Hämta slutpunkten nycklar svar**
 
 Ett lyckat svar returneras i JSON, som visas i följande exempel: 
 
@@ -1693,11 +1693,11 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 ## <a name="refresh-endpoint-keys"></a>Uppdatera slutpunkten nycklar
 
-Följande kod återskapar de aktuella endpoint-nycklar med hjälp av den [uppdatera slutpunkten nycklar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) metod.
+Följande kod återskapar de aktuella endpoint-nycklar med den [uppdatera slutpunkten nycklar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) metod.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE.
+1. Skapa ett nytt Java-projekt i din favorit-IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig snabbtangent för din prenumeration.
+3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```java
@@ -1857,11 +1857,11 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 ## <a name="get-word-alterations"></a>Hämta word ändringar
 
-Följande kod hämtar de aktuella word-ändringar, med hjälp av den [hämta ändringar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) metod.
+Följande kod hämtar de aktuella word-ändringar, med hjälp av den [hämta förändras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) metod.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE.
+1. Skapa ett nytt Java-projekt i din favorit-IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig snabbtangent för din prenumeration.
+3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```java
@@ -1953,7 +1953,7 @@ public class GetAlterations {
 }
 ```
 
-**Hämta word eller svar**
+**Hämta word förändras svar**
 
 Ett lyckat svar returneras i JSON, som visas i följande exempel: 
 
@@ -1976,11 +1976,11 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 ## <a name="replace-word-alterations"></a>Ersätt word ändringar
 
-Följande kod ersätter de aktuella word-ändringar, med hjälp av den [ersätta eller](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) metod.
+Följande kod ersätter de aktuella word-ändringar, med hjälp av den [Ersätt förändras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) metod.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE.
+1. Skapa ett nytt Java-projekt i din favorit-IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig snabbtangent för din prenumeration.
+3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```java
@@ -2110,7 +2110,7 @@ public class PutAlterations {
 }
 ```
 
-**Ersätt word eller svar**
+**Ersätt word förändras svar**
 
 Ett lyckat svar returneras i JSON, som visas i följande exempel: 
 
@@ -2125,8 +2125,8 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Frågor och svar om Maker (V4) REST API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [QnA Maker (V4) REST API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 
 ## <a name="see-also"></a>Se också 
 
-[Frågor och svar om Maker översikt](../Overview/overview.md)
+[Översikt över QnA Maker](../Overview/overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Licens Självbetjäning för återställning av lösenord – Azure Active Directory
-description: Azure AD Självbetjäning för lösenordsåterställning licenskrav
+title: Licens lösenordsåterställning via självbetjäning – Azure Active Directory
+description: Licensieringskrav för återställning av lösenord för självbetjäning av Azure AD
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,25 +10,25 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 64c12177e5cf6c82018731b493c0da22e1895b7f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292567"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855532"
 ---
-# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Återställ Licensieringskrav för självbetjäning Azure AD-lösenord
+# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Återställning av Licensieringskrav för lösenord för självbetjäning i Azure AD
 
-För lösenordsåterställning till funktionen, Azure Active Directory (AD Azure) du *måste ha minst en licens för i din organisation* för användaren. En riktig licens krävs om en användare direkt eller indirekt utnyttjar någon funktion som omfattas av den licensen.
+För Azure Active Directory (Azure AD)-lösenordsåterställning ska fungera du *måste ha minst en engångslicens tilldelad inom organisationen* för användaren. En riktig licens krävs om en användare direkt eller indirekt utnyttjar någon funktion som omfattas av den licensen.
 
-* **Endast molnbaserad användare**: Office 365 någon betald SKU eller Azure AD Basic
+* **Molnexklusiva användare**: Office 365 någon betalda SKU: N eller Azure AD Basic
 * **Molnet** eller **lokala användare**: Azure AD Premium P1 eller P2, Enterprise Mobility + Security (EMS) eller Microsoft 365
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Licensieringskrav för tillbakaskrivning av lösenord
 
-**Självbetjäning lösenord återställning/ändra/Lås upp med lokala tillbakaskrivning är en funktion för premium Azure AD**. Mer information om licensiering finns i [Azure Active Directory priser plats](https://azure.microsoft.com/pricing/details/active-directory/).
+**Självbetjäning lösenord återställning/ändring/upplåsning med lokal tillbakaskrivning är en premiumfunktion i Azure AD**. Mer information om licensiering finns i den [priser platsen för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Om du vill använda tillbakaskrivning av lösenord, måste du ha en av de följande licenser som har tilldelats din klient:
+Om du vill använda tillbakaskrivning av lösenord, måste du ha en av de följande licenser som tilldelats på din klient:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
@@ -39,21 +39,21 @@ Om du vill använda tillbakaskrivning av lösenord, måste du ha en av de följa
 * Microsoft 365 F1
 
 > [!WARNING]
-> Fristående Office 365-licensiering planer *tillbakaskrivning av lösenord stöder inte* och kräver att du har något av föregående planer för den här funktionen ska fungera.
+> Fristående Office 365 licensiering planer *inte har stöd för tillbakaskrivning av lösenord* och kräver att du har en av de föregående prenumerationerna för den här funktionen ska fungera.
 >
 
-Ytterligare licensinformation, inklusive kostnader, kan hittas på följande sidor:
+Ytterligare information om licenser går inklusive kostnader, kan hittas på följande sidor:
 
-* [Azure Active Directory priser för platsen](https://azure.microsoft.com/pricing/details/active-directory/)
-* [Azure Active Directory-funktioner och funktioner](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
+* [Priser platsen för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Azure Active Directory-funktioner och egenskaper](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Aktivera grupp eller användarbaserade licensiering
 
-Azure AD nu stöder gruppbaserade licensiering. Administratörer kan tilldela licenser gruppvis till en grupp med användare i stället för att tilldela dem en i taget. Mer information finns i [tilldela kontrollerar och lösa problem med licenser](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).
+Azure AD nu stöder gruppbaserad licensiering. Administratörer kan tilldela licenser till en grupp med användare i stället för att tilldela dem en i taget. Mer information finns i [tilldela kontrollerar och lösa problem med licenser](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
-Vissa Microsoft-tjänster är inte tillgängliga på alla platser. Innan en användare kan tilldelas en licens, administratören måste ange den **användningsplats** egenskapen för användaren. Tilldelning av licenser kan göras den **användare** > **profil** > **inställningar** avsnitt i Azure-portalen. *När du använder gruppen licenstilldelning ärver alla användare utan en användningsplats anges platsen för katalogen.*
+Vissa Microsoft-tjänster är inte tillgängliga på alla platser. Innan en användare kan tilldelas en licens, administratören måste ange den **användningsplats** egenskapen på användaren. Tilldelning av licenser kan göras den **användaren** > **profil** > **inställningar** avsnitt i Azure-portalen. *När du använder gruppen licenstilldelning ärver alla användare utan att användningsplats angetts platsen för katalogen.*
 
 ## <a name="next-steps"></a>Nästa steg
 

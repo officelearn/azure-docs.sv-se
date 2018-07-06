@@ -1,6 +1,6 @@
 ---
 title: Azure Cloud Shell-felsökning | Microsoft Docs
-description: Felsöka Azure-molnet Shell
+description: Felsöka Azure Cloudshell
 services: azure
 documentationcenter: ''
 author: maertendMSFT
@@ -12,147 +12,145 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 07/03/2018
 ms.author: damaerte
-ms.openlocfilehash: cffa67509690f4c594182fbe8104f0620da56bee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 21bc0633a9cc607325b48998791cb12631ecd0d7
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608958"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856495"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Felsökning av & begränsningar i Azure Cloud Shell
 
-Kända lösningar för att felsöka problem i Azure Cloud Shell inkluderar:
+Kända lösningar för att felsöka problem i Azure Cloud Shell omfattar:
 
 ## <a name="general-troubleshooting"></a>Allmän felsökning
 
-### <a name="early-timeouts-in-firefox"></a>Tidig tidsgränser Firefox
-- **Information om**: molnet Shell använder en öppen websocket att skicka in-/ utdata till webbläsaren. FireFox har förinställda principer som kan stänga websocket tidigt orsakar timeout för tidigt i molnet Shell.
-- **Lösning**: öppna FireFox och gå till ”om: config” i rutan URL. Sök efter ”network.websocket.timeout.ping.request” och ändra värdet från 0 till 10.
+### <a name="early-timeouts-in-firefox"></a>Tidig tidsgränser i FireFox
+- **Information om**: Cloud Shell använder en öppen websocket att skicka indata/utdata till din webbläsare. FireFox har förinställda principer som kan stänga websocket tidigt orsakar tidig tidsgränser i Cloud Shell.
+- **Lösning**: öppna FireFox och navigera till ”om: config” i dialogrutan. Sök efter ”network.websocket.timeout.ping.request” och ändra värdet från 0 till 10.
 
-### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Lagring dialogruta - fel: 403 RequestDisallowedByPolicy
-- **Information om**: när du skapar ett lagringskonto via molnet Shell, är det misslyckas på grund av en Azure-princip placeras av din administratör. Felmeddelande innehåller: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **Lösning**: Kontakta Azure-administratören om du vill ta bort eller uppdatera Azure principen neka lagring skapas.
+### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Storage-dialogruta - fel: 403 RequestDisallowedByPolicy
+- **Information om**: när du skapar ett lagringskonto via Cloud Shell, är det misslyckades på grund av en Azure policy placeras av din administratör. Felmeddelandet innehåller: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Lösning**: Kontakta Azure-administratören om du vill ta bort eller uppdatera Azure policy nekar skapa lager.
 
-### <a name="storage-dialog---error-400-disallowedoperation"></a>Lagring dialogruta - fel: 400 DisallowedOperation
- - **Information om**: när du använder en prenumeration på Azure Active Directory, du kan inte skapa lagring.
- - **Lösning**: använda en Azure-prenumeration kan skapa lagringsresurser. Azure AD-prenumerationer går inte att skapa Azure-resurser.
+### <a name="storage-dialog---error-400-disallowedoperation"></a>Storage-dialogruta - fel: 400 DisallowedOperation
+ - **Information om**: när du använder Azure Active Directory-prenumeration kan du kan inte skapa lagring.
+ - **Lösning**: använda en Azure-prenumeration kan skapa lagringsresurser. Azure AD-prenumerationer kan inte skapa Azure-resurser.
 
-### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminal utdata - fel: Det gick inte att ansluta en terminal: websocket kan inte upprättas. Tryck på `Enter` återansluta.
- - **Information om**: molnet Shell kräver möjlighet att upprätta en websocket-anslutning till molnet Shell-infrastruktur.
- - **Lösning**: Kontrollera att du har konfigurerat inställningarna för att aktivera skicka https-förfrågningar och websocket-begäranden till domäner på *. console.azure.com.
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminal utdata - fel: Det gick inte att ansluta terminal: går inte att upprätta websocket. Tryck på `Enter` återansluta.
+ - **Information om**: Cloud Shell kräver möjligheten att upprätta en websocket-anslutning till Cloud Shell-infrastruktur.
+ - **Lösning**: Kontrollera att du har konfigurerat dina nätverksinställningar för att aktivera skicka https-begäranden och websocket-förfrågningar till domäner på *. console.azure.com.
 
-## <a name="bash-troubleshooting"></a>Bash felsökning
+## <a name="bash-troubleshooting"></a>Bash-felsökning
 
 ### <a name="cannot-run-the-docker-daemon"></a>Det går inte att köra docker-daemon
 
-- **Information om**: molnet Shell använder en behållare som värd för din miljö för shell, kör därför daemon är inte tillåtet.
-- **Lösning**: använda [docker-datorn](https://docs.docker.com/machine/overview/), som installeras som standard för att hantera behållare med docker från en fjärrvärd med Docker.
+- **Information om**: Cloud Shell använder en behållare för att vara värd för miljön shell, som ett resultat som kör daemon är inte tillåtet.
+- **Lösning**: använda [docker-dator](https://docs.docker.com/machine/overview/), som installeras som standard för att hantera docker-behållare från en fjärransluten Docker-värd.
 
 ## <a name="powershell-troubleshooting"></a>Felsökning av PowerShell
 
-### <a name="no-home-directory-persistence"></a>No $Home directory beständiga
-
-- **Information**: data programmet (exempel: git vim och andra) skriver till `$Home` inte beständig i PowerShell-sessioner.
-- **Lösning**: skapa en symbolisk länk till specifika program-mappen i i profilen för PowerShell `clouddrive` till $Home.
-
-### <a name="ctrlc-doesnt-exit-out-of-a-cmdlet-prompt"></a>CTRL + C Avsluta inte Kommandotolken Cmdlet
-
-- **Information**: när du försöker avsluta Kommandotolken Cmdlet `Ctrl+C` inte avslutas i prompten.
-- **Lösning**: Om du vill avsluta Kommandotolken, tryck på `Ctrl+C` sedan `Enter`.
-
 ### <a name="gui-applications-are-not-supported"></a>GUI-program stöds inte
 
-- **Information om**: om en användare startar en GUI-app, frågan inte returnerar. När en användare klonar en privat GitHub-repo-som är aktiverad för tvåfaktorsautentisering, till exempel visas en dialogruta för att slutföra två faktorautentisering.  
+- **Information om**: om en användare startar en GUI-app, returnerar inte meddelandet. När en användare klonar en privat GitHub-lagringsplats som har tvåfaktorautentisering aktiverat, exempelvis visas en dialogruta för att slutföra autentisering med två faktorer.  
 - **Lösning**: Stäng och öppna gränssnittet.
 
-### <a name="get-help--online-does-not-open-the-help-page"></a>Get-Help - online går inte att öppna hjälpsidan
+### <a name="get-help--online-does-not-open-the-help-page"></a>Get-Help - online inte öppnas hjälpsidan
 
 - **Information om**: om en användare anger `Get-Help Find-Module -online`, något som ser ett felmeddelande visas: `Starting a browser to display online Help failed. No program or browser is associated to open the URI http://go.microsoft.com/fwlink/?LinkID=398574.`
 - **Lösning**: Kopiera webbadressen och öppna den manuellt i din webbläsare.
 
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Felsökning av fjärrhantering av virtuella Azure-datorer
 
-- **Information om**: på grund av Windows-brandväggen standardinställningarna för WinRM kan användaren se följande fel: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Lösning**: se till att den virtuella datorn körs. Du kan köra `Get-AzureRmVM -Status` ta reda på VM-statusen.  Lägg sedan till en ny brandväggsregel på fjärranslutna VM att tillåta WinRM anslutningar från alla undernät, t.ex.
+- **Information om**: på grund av Windows-brandväggen standardinställningarna för WinRM att användaren kan se följande fel: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+- **Lösning**: kör `Enable-AzureRmVMPSRemoting` att aktivera alla aspekter av PowerShell-fjärrkommunikation på måldatorn.
+ 
 
- ``` Powershell
- New-NetFirewallRule -Name 'WINRM-HTTP-In-TCP-PSCloudShell' -Group 'Windows Remote Management' -Enabled True -Protocol TCP -LocalPort 5985 -Direction Inbound -Action Allow -DisplayName 'Windows Remote Management - PSCloud (HTTP-In)' -Profile Public
- ```
- Du kan använda [tillägget för anpassat skript för Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript) att undvika att logga in på din fjärranslutna VM för att lägga till nya brandväggsregeln.
- Du kan spara skriptet till en fil, säg `addfirerule.ps1`, och överföra den till Azure storage-behållare.
- Försök sedan följande kommando:
-
- ``` Powershell
- Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
- ```
-
-### <a name="dir-caches-the-result-in-azure-drive"></a>`dir` cachelagrar resultatet i Azure-enhet
+### <a name="dir-caches-the-result-in-azure-drive"></a>`dir` cachelagrar resultatet i Azure-enheten
 
 - **Information om**: resultatet av `dir` cachelagras i Azure-enheten.
-- **Lösning**: när du skapar eller ta bort en resurs i vyn Azure enhet kör `dir -force` att uppdatera.
+- **Lösning**: när du skapar eller ta bort en resurs i vyn Azure-enheten kör `dir -force` att uppdatera.
 
 ## <a name="general-limitations"></a>Allmänna begränsningar
 Azure Cloud Shell har följande kända begränsningar:
 
-### <a name="system-state-and-persistence"></a>Systemtillstånd och beständiga
+### <a name="system-state-and-persistence"></a>Systemtillstånd och persistence
 
-Den dator som innehåller molnet Shell sessionen är temporär och den återanvänds när sessionen har varit inaktiv i 20 minuter. Molnet Shell kräver en Azure-filresurs som ska monteras. Därför kan måste din prenumeration kunna ställa in lagringsresurser för att få åtkomst till molnet Shell. Andra överväganden omfattar:
+Den dator som ger Cloud Shell-sessionen är tillfälligt och den återanvänds när sessionen är inaktiv i 20 minuter. Cloudshell kräver en Azure-filresurs som ska monteras. Prenumerationen måste därför att kunna konfigurera lagringsresurser för att komma åt Cloud Shell. Annat att tänka på är:
 
-* Med monterade storage kan endast ändringar i den `clouddrive` directory sparas. I Bash, din `$Home` directory sparas också.
+* Med monterade lagringen, endast ändringar i den `clouddrive` directory sparas. I Bash, din `$Home` katalogen bevaras också.
 * Azure-filresurser kan monteras endast från din [tilldelade region](persisting-shell-storage.md#mount-a-new-clouddrive).
   * Kör i Bash, `env` att hitta din region som `ACC_LOCATION`.
-* Azure Files stöder endast lokalt redundant lagring och konton för geo-redundant lagring.
+* Azure Files stöder endast lokalt redundant lagring och ra-GRS-konton.
 
-### <a name="browser-support"></a>Stöd för webbläsare
+### <a name="browser-support"></a>Webbläsarstöd
 
-Molnet Shell stöder de senaste versionerna av Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox och Apple Safari. Safari i privat läge stöds inte.
+Cloudshell har stöd för de senaste versionerna av Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox och Apple Safari. Safari i privat läge stöds inte.
 
 ### <a name="copy-and-paste"></a>Kopiera och klistra in
 
 [!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Endast en shell för en viss användare kan vara aktiv
+### <a name="for-a-given-user-only-one-shell-can-be-active"></a>För en viss användare kan endast en shell vara aktiv
 
-Användare kan endast starta en typ av shell samtidigt, antingen **Bash** eller **PowerShell**. Du kan dock ha flera instanser av Bash eller PowerShell körs samtidigt. Växla mellan Bash eller PowerShell orsaker molnet Shell måste startas om, vilket avslutar befintliga sessioner.
+Användarna kan bara starta en typ av gränssnittet i taget, antingen **Bash** eller **PowerShell**. Du kan dock ha flera instanser av Bash eller PowerShell som körs på en gång. Växlar mellan Bash eller PowerShell orsaker Cloud Shell för att starta om, vilket avslutar befintliga sessioner.
 
 ### <a name="usage-limits"></a>Användningsgränser
 
-Moln-gränssnittet är avsedd för interaktiva användningsfall. Därför kan avslutas alla icke-interaktiv tidskrävande sessioner utan varning.
+Cloudshell är avsedd för interaktiva användningsfall. Därför kan avslutas alla tidskrävande icke-interaktiva sessioner utan varning.
 
 ## <a name="bash-limitations"></a>Bash-begränsningar
 
 ### <a name="user-permissions"></a>Användarbehörigheter
 
-Behörigheterna anges som en vanlig användare utan åtkomst till sudo. En installation utanför din `$Home` directory sparas inte.
+Behörigheter har angetts som vanliga användare utan sudo-åtkomst. Valfri installation utanför din `$Home` directory behålls inte.
 
 ### <a name="editing-bashrc"></a>Redigera .bashrc
 
-Vara försiktig när du redigerar .bashrc, gör det kan orsaka oväntade fel i moln Shell.
+Vara försiktig när du redigerar .bashrc, detta kan orsaka oväntade fel i Cloud Shell.
 
 ## <a name="powershell-limitations"></a>PowerShell-begränsningar
 
-### <a name="slow-startup-time"></a>Långsam starten
+### <a name="azuread-module-name"></a>`AzureAD` Modulnamn
 
-PowerShell Azure Cloud Shell (förhandsversion) kan ta upp till 60 sekunder att initiera under förhandsgranskningen.
+Den `AzureAD` Modulnamn är för närvarande `AzureAD.Standard.Preview`, modulen fungerar på samma sätt.
 
-### <a name="default-file-location-when-created-from-azure-drive"></a>Standardplatsen för när de skapas från Azure enhet:
+### <a name="sqlserver-module-functionality"></a>`SqlServer` modulfunktioner
 
-Med PowerShell-cmdlets, kan användare inte skapa filer under Azure enhet. När användarna skapar nya filer med andra verktyg, till exempel vim eller nano, sparas filerna i mappen C:\Users som standard. 
+Den `SqlServer` modulen som ingår i Cloud Shell har endast förhandsversioner stöd för PowerShell Core. I synnerhet `Invoke-SqlCmd` är inte tillgänglig än.
+
+### <a name="default-file-location-when-created-from-azure-drive"></a>Standardplatsen för när de skapas från Azure-enheten:
+
+Med hjälp av PowerShell-cmdletar, kan användare inte skapa filer under Azure-enheten. När användarna skapar nya filer med andra verktyg, till exempel vim eller nano filerna sparas i den `$HOME` som standard. 
 
 ### <a name="gui-applications-are-not-supported"></a>GUI-program stöds inte
 
-Om användaren som kör ett kommando som skulle skapa en Windows-dialogruta som `Connect-AzureAD` eller `Connect-AzureRmAccount`, något som ser ett felmeddelande visas: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Om du kör ett kommando som skapar en Windows-dialogruta som `Connect-AzureAD` eller `Connect-AzureRmAccount`, något som ser ett felmeddelande visas: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
-## <a name="gdpr-compliance-for-cloud-shell"></a>BNPR kompatibilitet för molnet Shell
+### <a name="tab-completion-crashes-psreadline"></a>Tabbifyllning kraschar PSReadline
 
-Azure Cloud Shell allvarligt tar personliga data, data skapas och lagras av Azure Cloud Shell-tjänsten används för att ange standardvärden för din upplevelse som de senast använda shell, önskad storlek, önskade teckensnitt, och filresursen information den bakre clouddrive. Bör du vill exportera eller ta bort data, har vi tagit med följande instruktioner.
+Om användarens EditMode i PSReadline har angetts till Emacs användaren försöker att visa alla möjligheter via tabbifyllning, och fönsterstorleken är för liten för att visa alla möjligheter, PSReadline kraschar.
+
+### <a name="large-gap-after-displaying-progress-bar"></a>Stort mellanrum efter visar förloppsindikator
+
+Om användaren utför en åtgärd som visar en förloppsindikator, en sådan flik Slutför när i den `Azure:` enhet, så är det möjligt att markören inte är korrekt en lucka visas där förloppsindikatorn var tidigare.
+
+### <a name="random-characters-appear-inline"></a>Slumpmässiga tecken visas infogade
+
+Markörens position sekvensen kodar `5;13R`, kan visas i användardata.  Tecknen kan tas bort manuellt.
+
+## <a name="personal-data-in-cloud-shell"></a>Personliga data i Cloud Shell
+
+Personliga data tar allvarligt i Azure Cloud Shell, data inhämtas och lagras av Azure Cloud Shell-tjänsten används för att ange standardvärden för din upplevelse som de senast använda shell, önskad storlek, önskade teckensnitt och filen dela information som molnbaserad tillbaka enheten. Om du vill exportera eller ta bort data, har vi inkluderat följande instruktioner.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ### <a name="export"></a>Exportera
-För att **exportera** användarinställningar molnet Shell som sparar du önskade shell, storlek och teckensnitt som kör följande kommandon.
+För att **exportera** användarinställningarna Cloud Shell gör du till exempel önskad shell, storlek och teckensnitt som kör följande kommandon.
 
-1. Starta Bash i molnet Shell
+1. Starta Bash i Cloudshell
 2. Kör följande kommandon:
 ```
 user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
@@ -160,11 +158,11 @@ user@Azure:~$ curl https://management.azure.com/providers/Microsoft.Portal/users
 ```
 
 ### <a name="delete"></a>Ta bort
-För att **ta bort** dina inställningar molnet Shell som sparar du önskade shell, storlek och teckensnitt som kör följande kommandon. Nästa gång du startar molnet Shell blir du ombedd att publicera en filresurs igen. 
+För att **ta bort** användarinställningarna Cloud Shell gör du till exempel önskad shell, storlek och teckensnitt som kör följande kommandon. Nästa gång du startar Cloud Shell blir du ombedd att publicera en filresurs igen. 
 
-De faktiska Azure filer resurs inte tas bort om du tar bort dina inställningar, gå till Azure-filer för att slutföra åtgärden.
+Den faktiska Azure Files resurs inte tas bort om du tar bort dina inställningar, gå till Azure Files för att slutföra åtgärden.
 
-1. Starta Bash i molnet Shell
+1. Starta Bash i Cloudshell
 2. Kör följande kommandon:
 ```
 user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"

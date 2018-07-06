@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: c1ddb6beec3f7c41fa49f62a3ed9baa17c515fbd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 30ebe4f990dc65e53c34673f0948d3aa2240385c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445525"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859708"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB vanliga frågor och svar
 ## <a name="azure-cosmos-db-fundamentals"></a>Grunderna i Azure Cosmos DB
@@ -136,12 +136,16 @@ Exempel för SQL-API: T [.NET](sql-api-dotnet-samples.md), [Java](https://github
 Ja, SQL-API kan appar lagrar godtyckliga JSON-dokument utan schemadefinitioner eller tips. Data är omedelbart tillgängliga för frågor via Azure Cosmos DB SQL-gränssnitt.  
 
 ### <a name="does-the-sql-api-support-acid-transactions"></a>Stöder SQL API ACID-transaktioner?
-Ja, SQL-API: et stöder transaktioner mellan dokument uttryckta som JavaScript-lagrade procedurer och utlösare. Transaktioner är begränsade till en enda partition inom varje samling och utförs med ACID-semantik som ”allt eller inget”, isolerade från andra kod och andra användarförfrågningar som körs samtidigt. Om undantag utlöses via serversidan körning av JavaScript-appkoden, återställs hela transaktionen. Mer information om transaktioner finns [databasen programtransaktionerna](programming.md#database-program-transactions).
+Ja, SQL-API: et stöder transaktioner mellan dokument uttryckta som JavaScript-lagrade procedurer och utlösare. Transaktioner är begränsade till en enda partition inom varje behållare och utförs med ACID-semantik som ”allt eller inget”, isolerade från andra kod och andra användarförfrågningar som körs samtidigt. Om undantag utlöses via serversidan körning av JavaScript-appkoden, återställs hela transaktionen. Mer information om transaktioner finns [databasen programtransaktionerna](programming.md#database-program-transactions).
 
-### <a name="what-is-a-collection"></a>Vad är en samling?
-En samling är en uppsättning dokument och deras associerade JavaScript-programlogik. En samling är en fakturerbar enhet där den [kostnaden](performance-levels.md) bestäms av dataflödet och används för lagring. Samlingar kan sträcka sig över en eller flera partitioner eller servrar och kan skalas för att hantera praktiskt taget obegränsade volymer av lagring eller dataflöde.
+### <a name="what-is-a-container"></a>Vad är en behållare?
+En behållare är en uppsättning dokument och deras associerade JavaScript-programlogik. En behållare är en fakturerbar enhet där den [kostnaden](performance-levels.md) bestäms av dataflödet och används för lagring. Behållare kan sträcka sig över en eller flera partitioner eller servrar och kan skalas för att hantera praktiskt taget obegränsade volymer av lagring eller dataflöde. 
 
-Samlingar är också faktureringsenheterna för Azure Cosmos DB. Varje samling faktureras per timme, baserat på dataflöden och använt lagringsutrymme. Mer information finns i [priser för Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+* För SQL- och MongoDB API-konton mappar en behållare till en samling. 
+* För Cassandra och tabell-API-konton mappar en behållare till en tabell. 
+* För Gremlin-API-konton mappar en behållare till ett diagram. 
+
+Behållare är också faktureringsenheterna för Azure Cosmos DB. Varje behållare debiteras per timme, baserat på dataflöden och använt lagringsutrymme. Mer information finns i [priser för Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Hur skapar jag en databas?
 Du kan skapa databaser med hjälp av den [Azure-portalen](https://portal.azure.com), enligt beskrivningen i [Lägg till en samling](create-sql-api-dotnet.md#create-collection), någon av de [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md), eller [REST API: er](/rest/api/cosmos-db/). 
@@ -170,7 +174,7 @@ Du kan-massinfogning dokument till Azure Cosmos DB på något av följande sätt
 * Datamigreringsverktyget som beskrivs i [verktyg för Azure Cosmos DB](import-data.md).
 * Lagrade procedurer, enligt beskrivningen i [programmering av serversidan JavaScript för Azure Cosmos DB](programming.md).
 
-### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>Jag har installationen min samling som ska användas lazy indexering, visas att frågorna inte returnerar förväntade resultat. 
+### <a name="i-have-setup-my-container-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>Jag har installationen min behållare att använda lazy indexering, visas att frågorna inte returnerar förväntade resultat. 
 Enligt beskrivningen i avsnittet indexering kan lazy indexering resultera i det här beteendet. Du bör alltid använda konsekvent indexering för alla program. 
 
 
@@ -185,7 +189,7 @@ Detta är begränsning JavaScript-kod. JavaScript använder dubbel precision med
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Där tillåts behörigheter i objekthierarkin?
 
-Skapa behörigheter med hjälp av ResourceTokens tillåts på samlingsnivå och dess underordnade (t.ex dokument, bifogade filer). Detta innebär att försök att skapa en behörighet på databasen eller kontonivå tillåts inte för närvarande.
+Skapa behörigheter med hjälp av ResourceTokens tillåts på behållarenivån och dess underordnade (t.ex dokument, bifogade filer). Detta innebär att försök att skapa en behörighet på databasen eller kontonivå tillåts inte för närvarande.
 
 
 ## <a name="develop-against-the-api-for-mongodb"></a>Utveckla mot ett API för MongoDB

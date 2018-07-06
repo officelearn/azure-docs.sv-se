@@ -1,6 +1,6 @@
 ---
-title: Distribuera Azure Log Analytics munstycket för övervakning av molnet Foundry | Microsoft Docs
-description: Stegvisa anvisningar om hur du distribuerar Cloud Foundry loggregator munstycket för Azure logganalys. Använd munstycket för att övervaka system molnet Foundry mått hälsotillstånd och prestanda.
+title: Distribuera Azure Log Analytics Nozzle för Cloud Foundry övervakning | Microsoft Docs
+description: Stegvisa anvisningar för att distribuera Cloud Foundry loggregator Nozzle för Azure Log Analytics. Använd Nozzle för att övervaka den Cloud Foundry systemmått hälsa och prestanda.
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
@@ -15,103 +15,103 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 687356b60ad0bbc469d67e071ce3bccc8b61ebd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c58c2b255d269aef7e8b3fea62d003ad0c16ef0a
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609009"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868134"
 ---
-# <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuera Azure Log Analytics munstycket för molnet Foundry systemövervakning
+# <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuera Azure Log Analytics Nozzle för Cloud Foundry systemövervakning
 
-[Azure logganalys](https://azure.microsoft.com/services/log-analytics/) är en tjänst i Azure. Det hjälper dig att samla in och analysera data som genereras från molnet och lokala miljöer.
+[Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) är en tjänst i Azure. Det hjälper dig att samla in och analysera data som genereras från molnet och lokala miljöer.
 
-Log Analytics munstycket (munstycket) är en komponent i molnet Foundry (CF), som vidarebefordrar mått från den [moln Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose till logganalys. Med munstycket, kan du samla in, visa och analysera dina CF system hälsotillstånd och prestanda statistik, och över flera distributioner.
+Log Analytics Nozzle (Nozzle) är en komponent för Cloud Foundry (CF), som vidarebefordrar mått från den [Cloud Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose till Log Analytics. Du kan använda Nozzle, för att samla in, visa och analysera dina CF hälsotillstånd och prestanda systemmått, mellan flera distributioner.
 
-Lär dig hur du distribuerar munstycket till CF-miljön och komma åt data från konsolen logganalys i det här dokumentet.
+I det här dokumentet har du lära dig hur du distribuerar Nozzle för CF-miljö och komma åt data från Log Analytics-konsolen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Följande är krav för distribution av munstycket.
+Följande är krav för distribution av Nozzle.
 
-### <a name="1-deploy-a-cf-or-pivotal-cloud-foundry-environment-in-azure"></a>1. Distribuera en CF eller spela en central molnet Foundry miljö i Azure
+### <a name="1-deploy-a-cf-or-pivotal-cloud-foundry-environment-in-azure"></a>1. Distribuera CF eller Pivotal Cloud Foundry-miljö i Azure
 
-Du kan använda munstycket med en öppen källkod CF distribution eller en spela en central molnet Foundry (PCF)-distribution.
+Du kan använda Nozzle med en öppen källkod CF distribution eller en Pivotal Cloud Foundry PCF ()-distribution.
 
-* [Distribuera moln Foundry på Azure](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md)
+* [Distribuera Cloud Foundry på Azure](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md)
 
-* [Distribuera spela en central molnet Foundry på Azure](https://docs.pivotal.io/pivotalcf/1-11/customizing/azure.html)
+* [Distribuera Pivotal Cloud Foundry på Azure](https://docs.pivotal.io/pivotalcf/1-11/customizing/azure.html)
 
-### <a name="2-install-the-cf-command-line-tools-for-deploying-the-nozzle"></a>2. Installera CF kommandoradsverktyg för att distribuera munstycket
+### <a name="2-install-the-cf-command-line-tools-for-deploying-the-nozzle"></a>2. Installera CF kommandoradsverktyg för att distribuera Nozzle
 
-Munstycket körs som ett program i CF miljö. Du måste CF CLI för att distribuera programmet.
+Nozzle körs som ett program i CF miljö. Du behöver CF CLI för att distribuera programmet.
 
-Munstycket måste också behörighet till loggregator firehose och moln-styrenhet. Om du vill skapa och konfigurera användaren, behöver du användarkontot och autentisering (USA)-tjänst.
+Nozzle måste också behörighet till loggregator firehose och Cloud-styrenhet. För att skapa och konfigurera användaren måste tjänsten användarkonto och autentisering (USA).
 
-* [Installera molnet Foundry CLI](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
+* [Installera Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
 
-* [Installera molnet Foundry UAA kommandorads-klient](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
+* [Installera Cloud Foundry UAA kommandoradsklient](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
 
-Kontrollera att Rubygems är installerade innan du installerar klienten UAA kommandoraden.
+Se till att Rubygems har installerats innan du konfigurerar UAA kommandoradsklient.
 
-### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Skapa en logganalys-arbetsytan i Azure
+### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Skapa en Log Analytics-arbetsyta i Azure
 
-Du kan skapa logganalys-arbetsytan manuellt eller genom att använda en mall. Mallen kommer att distribuera en installation av förkonfigurerade OMS KPI-vyer och aviseringar för OMS-konsolen. 
+Du kan skapa Log Analytics-arbetsytan manuellt eller genom att använda en mall. Mallen distribuerar en inställning av förkonfigurerade OMS KPI-vyer och aviseringar för OMS-konsolen. 
 
-#### <a name="to-create-the-workspace-manually"></a>Skapa arbetsytan manuellt:
+#### <a name="to-create-the-workspace-manually"></a>Att skapa arbetsytan manuellt:
 
-1. Sök i listan över tjänster i Azure Marketplace i Azure-portalen och välj sedan logganalys.
+1. Sök i listan över tjänster på Azure Marketplace i Azure-portalen och välj sedan Log Analytics.
 2. Välj **skapa**, och välj sedan alternativ för följande objekt:
 
-   * **OMS-arbetsytan**: Ange ett namn för din arbetsyta.
-   * **Prenumerationen**: Om du har flera prenumerationer kan välja den som är samma som CF distributionen.
-   * **Resursgruppen**: du kan skapa en ny resursgrupp eller Använd samma med CF distributionen.
+   * **OMS-arbetsyta**: Skriv ett namn för din arbetsyta.
+   * **Prenumeration**: Om du har flera prenumerationer väljer du det som är samma som din CF-distribution.
+   * **Resursgrupp**: du kan skapa en ny resursgrupp eller Använd samma med CF distributionen.
    * **Plats**: Ange platsen.
-   * **Prisnivån**: Välj **OK** ska slutföras.
+   * **Prisnivå**: Välj **OK** att slutföra.
 
-Mer information finns i [Kom igång med logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+Mer information finns i [Kom igång med Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Skapa OMS-arbetsytan via mallen OMS övervakning från Azure-marknadsplatsen:
+#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Skapa OMS-arbetsytan via OMS övervakning mallen från Azure Marketplace:
 
 1. Öppna Azure-portalen.
 2. Klicka på tecknet ”+” eller ”skapa en resurs” i det övre vänstra hörnet.
-3. Skriv ”moln Foundry” i fönstret och välj ”OMS Foundry övervakning Molnlösning”.
-4. OMS Cloud-Foundry övervakning lösning främre mallsida som har lästs in, klickar du på ”Skapa” för att starta bladet mallen.
+3. Skriv ”Cloud Foundry” i sökfönstret och välj ”OMS Cloud Foundry lösning för övervakning av”.
+4. OMS Cloud Foundry som övervakning lösning front mallsidan har lästs in, klicka på ”Skapa” om du vill starta bladet mall.
 5. Ange de obligatoriska parametrarna:
-    * **Prenumerationen**: Välj en Azure-prenumeration för OMS-arbetsyta, vanligtvis samma med molnet Foundry distribution.
-    * **Resursgruppen**: Välj en befintlig resursgrupp eller skapa en ny för OMS-arbetsytan.
-    * **Resursgruppsplats**: Välj platsen för resursgruppen.
-    * **OMS_Workspace_Name**: Ange ett Arbetsytenamn på, om inte finns på arbetsytan mallen skapas en ny.
-    * **OMS_Workspace_Region**: Välj plats för arbetsytan.
-    * **OMS_Workspace_Pricing_Tier**: Välj OMS-arbetsyta SKU. Finns det [priser vägledning](https://azure.microsoft.com/pricing/details/log-analytics/) referens.
-    * **Juridiska villkor**: Klicka på juridiska villkor, klicka på ”Skapa” vid accepterande av juridiska villkor.
-- Klicka på ”Skapa” för att distribuera mallen när alla parametrar har angetts. När distributionen är klar visas status på fliken meddelande.
+    * **Prenumeration**: Välj en Azure-prenumeration för OMS-arbetsyta, vanligtvis samma med Cloud Foundry-distribution.
+    * **Resursgrupp**: Välj en befintlig resursgrupp eller skapa en ny nyckel för OMS-arbetsytan.
+    * **Plats för resursgruppen**: Välj platsen för resursgruppen.
+    * **OMS_Workspace_Name**: Ange ett namn för arbetsytan om arbetsytan inte finns, mallen skapar en ny.
+    * **OMS_Workspace_Region**: Välj en plats för arbetsytan.
+    * **OMS_Workspace_Pricing_Tier**: välja OMS-arbetsyta SKU. Se den [priser vägledning](https://azure.microsoft.com/pricing/details/log-analytics/) referens.
+    * **Juridiska villkor**: Klicka på juridiska villkor, och klicka sedan på ”Skapa” vid accepterande av juridiska villkor.
+- När alla parametrar anges, klickar du på ”Skapa” om du vill distribuera mallen. När distributionen är klar visas status på fliken meddelande.
 
 
-## <a name="deploy-the-nozzle"></a>Distribuera munstycket
+## <a name="deploy-the-nozzle"></a>Distribuera Nozzle
 
-Det finns ett par olika sätt att distribuera munstycket: som en panel PCF eller som en CF-program.
+Det finns ett par olika sätt att distribuera Nozzle: som en PCF-panel eller ett program för CF.
 
-### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>Distribuera munstycket som en panel PCF Ops Manager
+### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>Distribuera Nozzle som en panel på PCF Ops Manager
 
-Följ stegen för att [installera och konfigurera Azure Log Analytics munstycket för PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Detta är en förenklad metod, PCF Ops manager panelen automatiskt att konfigurera och push munstycket. 
+Följ stegen för att [installera och konfigurera Azure Log Analytics Nozzle för PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Det här är förenklad metod, PCF Ops manager panelen automatiskt att konfigurera och skicka nozzle. 
 
-### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>Distribuera manuellt munstycket som ett CF-program
+### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>Distribuera Nozzle manuellt som ett program för CF
 
-Om du inte använder PCF Ops Manager kan du distribuera munstycket som ett program. I följande avsnitt beskrivs den här processen.
+Om du inte använder PCF Ops Manager kan du distribuera Nozzle som ett program. I följande avsnitt beskrivs den här processen.
 
-#### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>Logga in som administratör via CF CLI CF distributionen
+#### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>Logga in på din CF distribution via CF CLI-administratör
 
 Kör följande kommando:
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
 
-”SYSTEM_DOMAIN” är CF domännamnet. Du kan hämta den genom att söka efter ”SYSTEM_DOMAIN” i manifestfilen CF distribution. 
+”SYSTEM_DOMAIN” är CF domännamnet. Du kan hämta den genom att söka ”SYSTEM_DOMAIN” i manifestfilen CF distribution. 
 
-”CF_User” är CF admin-namn. Du kan hämta namn och lösenord genom att söka igenom avsnittet ”scim”, söker efter namn och ”cf_admin_password” i manifestfilen CF distribution.
+”CF_User” är CF admin-namn. Du kan hämta namn och lösenord genom att söka i avsnittet ”scim”, letar efter namnet och ”cf_admin_password” i manifestfilen CF distribution.
 
-#### <a name="create-a-cf-user-and-grant-required-privileges"></a>Skapa en CF användare och bevilja behörigheter som krävs
+#### <a name="create-a-cf-user-and-grant-required-privileges"></a>Skapa en CF-användare och tilldela de behörigheter som krävs
 
 Kör följande kommandon:
 ```
@@ -122,9 +122,9 @@ uaac member add cloud_controller.admin ${FIREHOSE_USER}
 uaac member add doppler.firehose ${FIREHOSE_USER}
 ```
 
-”SYSTEM_DOMAIN” är CF domännamnet. Du kan hämta den genom att söka efter ”SYSTEM_DOMAIN” i manifestfilen CF distribution.
+”SYSTEM_DOMAIN” är CF domännamnet. Du kan hämta den genom att söka ”SYSTEM_DOMAIN” i manifestfilen CF distribution.
 
-#### <a name="download-the-latest-log-analytics-nozzle-release"></a>Hämta den senaste versionen av Log Analytics munstycket
+#### <a name="download-the-latest-log-analytics-nozzle-release"></a>Ladda ned den senaste versionen av Log Analytics Nozzle
 
 Kör följande kommando:
 ```
@@ -134,7 +134,7 @@ cd oms-log-analytics-firehose-nozzle
 
 #### <a name="set-environment-variables"></a>Ange miljövariabler
 
-Du kan nu ange miljövariabler i filen manifest.yml i den aktuella katalogen. Nedan visas appmanifestet för munstycket. Ersätt värden med din specifika information för logganalys-arbetsytan.
+Du kan nu ange miljövariabler i filen manifest.yml i den aktuella katalogen. Nedan visas appmanifestet för Nozzle. Ersätt värdena med din specifika information för Log Analytics-arbetsytan.
 
 ```
 OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
@@ -157,95 +157,95 @@ LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log 
 
 ### <a name="push-the-application-from-your-development-computer"></a>Push-programmet på utvecklingsdatorn
 
-Kontrollera att du är under mappen oms-log-analytics-firehose-munstycket. Kör följande kommando:
+Kontrollera att du är under mappen oms-log-analytics-firehose-nozzle. Kör följande kommando:
 ```
 cf push
 ```
 
-## <a name="validate-the-nozzle-installation"></a>Verifiera munstycket installationen
+## <a name="validate-the-nozzle-installation"></a>Verifiera installationen Nozzle
 
 ### <a name="from-apps-manager-for-pcf"></a>Från appar Manager (för PCF)
 
 1. Logga in till Ops Manager och kontrollera att panelen visas på instrumentpanelen för installation.
-2. Logga in på appar Manager, kontrollera det utrymme som du har skapat för munstycket visas i användningsrapporter och bekräfta att status är normal.
+2. Logga in på appar Manager, kontrollera att det utrymme som du har skapat för Nozzle finns på användningsrapporten och bekräfta att statusen är normalt.
 
-### <a name="from-your-development-computer"></a>På utvecklingsdatorn
+### <a name="from-your-development-computer"></a>Från utvecklingsdatorn
 
-I fönstret CF CLI skriver du:
+CF CLI-fönstret skriver du:
 ```
 cf apps
 ```
-Kontrollera att OMS munstycket programmet körs.
+Kontrollera att OMS Nozzle programmet körs.
 
 ## <a name="view-the-data-in-the-oms-portal"></a>Visa data i OMS-portalen
 
-Om du har distribuerat OMS övervakningslösning via mallen marknadsplatsen gå till Azure-portalen och finns OMS-lösning. Du hittar lösningen i den resursgrupp som du angav i mallen. Klicka på lösningen, bläddra till ”OMS-konsolen”, förkonfigurerade vyer visas med högsta molnet Foundry system KPI: er, programdata, aviseringar och VM hälsa mått. 
+Om du har distribuerat OMS övervakningslösning via Marketplace-mall, gå till Azure portal och finns OMS-lösning. Du hittar lösningen i resursgruppen som du angav i mallen. Klicka på lösningen, bläddra till ”OMS-konsolen”, förkonfigurerade vyer visas i listan med översta Cloud Foundry system KPI: er, programdata, aviseringar och VM-hälsa mått. 
 
 Om du har skapat OMS-arbetsytan manuellt, följer du stegen nedan för att skapa vyer och aviseringar:
 
 ### <a name="1-import-the-oms-view"></a>1. Importera OMS-vy
 
-Bläddra till OMS-portalen **Vydesigner** > **importera** > **Bläddra**, och välj en av filerna omsview. Välj exempelvis *moln Foundry.omsview*, och spara vyn. Nu visas en sida vid sida på den **översikt** sidan. Välj den för att se visualiserade mått.
+Från OMS-portalen bläddrar du till **Vydesigner** > **Import** > **Bläddra**, och välj en av filerna omsview. Välj exempelvis *molnet Foundry.omsview*, och spara vyn. Nu visas en panel på den **översikt** sidan. Välj den för att se visualiserade mått.
 
 Du kan anpassa dessa vyer eller skapa nya vyer via **Vydesigner**.
 
-Den *”moln Foundry.omsview”* är en förhandsversion av molnet Foundry OMS visa mall. Det här är en helt konfigurerade standardmall. Om du har förslag eller feedback om mallen skicka dem till den [utfärda avsnittet](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
+Den *”molnet Foundry.omsview”* är en förhandsversion av Cloud Foundry OMS visa mall. Det här är en fullständigt konfigurerad standardmall. Om du har förslag eller feedback om mallen kan du skicka dem till den [utfärda avsnittet](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
 
 ### <a name="2-create-alert-rules"></a>2. Skapa aviseringsregler
 
-Du kan [skapa aviseringar](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts), och anpassa frågor och tröskelvärden efter behov. Följande rekommenderas aviseringar:
+Du kan [skapa aviseringarna](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts), och anpassa frågor och tröskelvärden efter behov. Följande är rekommenderade aviseringar:
 
 | Sökfråga                                                                  | Generera avisering baserat på | Beskrivning                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
-| Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Antalet resultat < 1   | **BBS. Domain.CF appar** anger om domänen cf appar är uppdaterad. Det innebär att CF App begäranden från molnet Controller synkroniseras till bbs. LRPsDesired (Diego önskad AIs) för körning. Inga data tas emot innebär cf apps-domän inte är uppdaterad under den angivna tidsperioden. |
-| Typ = CF_ValueMetric_CL Origin_s = rep Name_s = UnhealthyCell Value_d > 1            | Antalet resultat > 0   | 0 betyder felfri för Diego celler och 1 innebär feltillstånd. Ange aviseringen om flera ohälsosamt Diego celler identifieras under den angivna tidsperioden. |
-| Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Antalet resultat > 0 | 1 innebär att systemet är felfri och 0 innebär att systemet inte är felfri. |
-| Typ = CF_ValueMetric_CL Origin_s = route_emitter Name_s = ConsulDownMode Value_d > 0 | Antalet resultat > 0   | Konsuln skickar med jämna mellanrum dess hälsostatus. 0 innebär att systemet är felfri och 1 innebär att vägen sändare upptäcker att konsuln ned. |
-| Typ = CF_CounterEvent_CL Origin_s = DopplerServer (Name_s="TruncatingBuffer.DroppedMessages” eller Name_s="doppler.shedEnvelopes”) Delta_d > 0 | Antalet resultat > 0 | Delta antal meddelanden som utelämnats avsiktligt av Doppler på grund av ligger. |
-| Typ = CF_LogMessage_CL SourceType_s = LGR MessageType_s = fel                      | Antalet resultat > 0   | Loggregator avger **LGR** att indikera problem med hur loggning. Ett exempel på sådana problem är när meddelandet loggutdata är för högt. |
-| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Antalet resultat > 0   | När munstycket tar emot en avisering om långsam konsumenten från loggregator, skickas den **slowConsumerAlert** ValueMetric till logganalys. |
-| Typ = CF_CounterEvent_CL Job_s = munstycket Name_s = förlorade händelser Delta_d > 0              | Antalet resultat > 0   | Om antalet förlorade händelser delta når ett tröskelvärde, innebär det att munstycket kan ha problem med att köra. |
+| Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Antal resultat < 1   | **BBS. Domain.CF appar** om cf-apps-domän är uppdaterad. Det innebär att CF-App-begäranden från molnet domänkontrollant är synkroniserade till bbs. LRPsDesired (Diego önskade AIs) för körning. Inga data har mottagits innebär cf-apps-domän inte är uppdaterad under den angivna tidsperioden. |
+| Typ = CF_ValueMetric_CL Origin_s = rep Name_s = UnhealthyCell Value_d > 1            | Antal resultat > 0   | 0 betyder felfri för Diego celler och 1 innebär feltillstånd. Ange aviseringen om flera felaktiga Diego celler har identifierats under den angivna tidsperioden. |
+| Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Antal resultat > 0 | 1 innebär att systemet är felfritt och 0 innebär att systemet inte är felfri. |
+| Typ = CF_ValueMetric_CL Origin_s = route_emitter Name_s = ConsulDownMode Value_d > 0 | Antal resultat > 0   | Konsuln skickar regelbundet dess hälsostatus. 0 innebär att systemet är felfri och 1 innebär att vägen sändare identifierar att konsuln är igång. |
+| Typ = CF_CounterEvent_CL Origin_s = DopplerServer (Name_s="TruncatingBuffer.DroppedMessages” eller Name_s="doppler.shedEnvelopes”) Delta_d > 0 | Antal resultat > 0 | Delta antal meddelanden som avsiktligt utelämnats av Doppler på grund av tryck. |
+| Typ = CF_LogMessage_CL SourceType_s = LGR MessageType_s = fel                      | Antal resultat > 0   | Loggregator genererar **LGR** som visar problem med hur loggning. Ett exempel på sådana problem är när meddelandet loggutdata är för hög. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Antal resultat > 0   | När Nozzle tar emot en avisering om långsam konsument från loggregator, skickas den **slowConsumerAlert** ValueMetric till Log Analytics. |
+| Typ = CF_CounterEvent_CL Job_s = nozzle Name_s = förlorade händelser Delta_d > 0              | Antal resultat > 0   | Om delta antalet förlorade händelser når ett tröskelvärde, innebär det att Nozzle kan ha problem med att köra. |
 
 ## <a name="scale"></a>Skala
 
-Du kan skala munstycket och loggregator.
+Du kan skala Nozzle och loggregator.
 
-### <a name="scale-the-nozzle"></a>Skala munstycket
+### <a name="scale-the-nozzle"></a>Skala Nozzle
 
-Du måste starta med minst två instanser av munstycket. Firehose distribuerar arbetsbelastningen över alla instanser av munstycket.
-Kontrollera att munstycket kan klara av datatrafik från firehose genom att ställa in den **slowConsumerAlert** avisering (visas i föregående avsnitt, ”skapa Varningsregler”). När du har fått notifieringar följer den [vägledning för långsam munstycket](https://docs.pivotal.io/pivotalcf/1-11/loggregator/log-ops-guide.html#slow-noz) att avgöra om skalning behövs.
-Om du vill skala upp munstycket använda appar Manager eller CF CLI för att öka instans tal eller resurser minne eller diskutrymme för munstycket.
+Du bör börja med minst två instanser av Nozzle. Firehose distribuerar arbetsbelastningen över alla instanser av Nozzle.
+Om du vill se till att Nozzle kan hålla jämna steg med datatrafik från firehose, ställa in den **slowConsumerAlert** avisering (visas i föregående avsnitt, ”skapa Varningsregler”). När du har blivit aviserad, följer du de [vägledning för långsam Nozzle](https://docs.pivotal.io/pivotalcf/1-11/loggregator/log-ops-guide.html#slow-noz) att avgöra om skalning krävs.
+Om du vill skala upp Nozzle, använder du appar Manager eller CF CLI för att öka instans siffror eller resurserna som minne eller diskutrymme för Nozzle.
 
 ### <a name="scale-the-loggregator"></a>Skala loggregator
 
-Loggregator skickar en **LGR** loggmeddelande att indikera problem med hur loggning. Du kan övervaka aviseringen för att avgöra om loggregator behöver skalas upp.
-Om du vill skala upp loggregator, öka buffertstorleken på som Doppler eller lägga till ytterligare Doppler server-instanser i manifestet CF. Mer information finns i [riktlinjer för att skala loggregator](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling).
+Loggregator skickar en **LGR** loggmeddelande som visar problem med hur loggning. Du kan övervaka aviseringen för att avgöra om loggregator måste skalas upp.
+Om du vill skala upp loggregator, öka den Doppler buffertstorleken eller lägga till ytterligare Doppler server-instanser i CF manifestet. Mer information finns i [riktlinjer för att skala loggregator](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling).
 
 ## <a name="update"></a>Uppdatering
 
-Om du vill uppdatera munstycket med en nyare version, hämta den nya versionen munstycket, följer du stegen i föregående avsnitt ”distribuera munstycket” och push-programmet igen.
+Om du vill uppdatera Nozzle med en nyare version, ladda ned den nya versionen Nozzle, följer du stegen i det föregående avsnittet ”distribuera Nozzle” och push-programmet igen.
 
-### <a name="remove-the-nozzle-from-ops-manager"></a>Ta bort munstycket från Ops Manager
+### <a name="remove-the-nozzle-from-ops-manager"></a>Ta bort Nozzle från Ops Manager
 
 1. Logga in till Ops Manager.
-2. Leta upp den **Microsoft Azure Log Analytics munstycket för PCF** panelen.
-3. Välj ikonen skräp och bekräfta borttagningen.
+2. Leta upp den **Microsoft Azure Log Analytics Nozzle för PCF** panelen.
+3. Välj ikonen för skräpinsamling och bekräfta borttagningen.
 
-### <a name="remove-the-nozzle-from-your-development-computer"></a>Ta bort munstycket på utvecklingsdatorn
+### <a name="remove-the-nozzle-from-your-development-computer"></a>Ta bort Nozzle från utvecklingsdatorn
 
-I fönstret CF CLI, skriver du:
+Din CF CLI-fönstret skriver du:
 ```
 cf delete <App Name> -r
 ```
 
-Om du tar bort munstycket är inte data i OMS-portalen bort automatiskt. Det går ut utifrån dina inställningar för kvarhållning av logganalys.
+Om du tar bort Nozzle bort data i OMS-portalen inte automatiskt. Det går ut baserat på din Log Analytics-kvarhållningsinställning.
 
 ## <a name="support-and-feedback"></a>Support och feedback
 
-Azure Log Analytics munstycket är öppna ursprung. Skicka frågor och feedback till den [GitHub-avsnitt](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues). Om du vill öppna en Azure-supportbegäran väljer du ”virtuell dator som kör molnet Foundry” som tjänstekategori. 
+Azure Log Analytics Nozzle är öppen källkod. Skicka dina frågor och feedback till den [GitHub avsnittet](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues). Välj ”virtuell dator som kör Cloud Foundry” som tjänstekategori för att öppna en supportförfrågan för Azure. 
 
 ## <a name="next-step"></a>Nästa steg
 
-Från PCF2.0, är VM prestandamått överförda till Azure log analytics munstycket genom systemet mått vidarebefordrare och integrerade i OMS-arbetsyta. Du inte längre behöver OMS-agent för den Virtuella prestandamåtten. Du kan emellertid fortfarande använda OMS-agenten att samla in information för Syslog. OMS-agent installeras som en Bosh kan läggas till dina CF virtuella datorer. 
+Från PCF2.0, är VM-prestandamått överförs till Azure log analytics nozzle med System mått vidarebefordrare och integrerade i OMS-arbetsytan. Du behöver inte längre OMS-agenten för VM-prestandamått. Du kan dock fortfarande använda OMS-agenten att samla in Syslog-information. OMS-agenten har installerats som en Bosh tillägg till dina CF virtuella datorer. 
 
-Mer information finns i [distribuera OMS-agent till molnet Foundry distributionen](https://github.com/Azure/oms-agent-for-linux-boshrelease).
+Mer information finns i [distribuera OMS-agent till Cloud Foundry-distributionen](https://github.com/Azure/oms-agent-for-linux-boshrelease).

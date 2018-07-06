@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 9b9f72812b1a1f0e30379c32e10d316fcbf71d3b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 3c5629dc1ad87456583f5a713f16e696bc9b7b1e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345597"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858671"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Övervaka och felsöka med mått i Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Den vanligaste felkoden är 429 (Betygsätt begränsar/begränsning), vilket inn
 
 ## <a name="determining-the-throughput-distribution-across-partitions"></a>Bestämma fördelningen dataflöde över partitioner
 
-Att ha en bra Kardinaliteten för din partitionsnycklar är viktigt för alla skalbara program. För att fastställa dataflöde distributionen av en partitionerad samling uppdelat efter partitioner, navigera till den **måttbladet** i den [Azure-portalen](https://portal.azure.com). I den **dataflöde** fliken analys på detaljnivå för lagring visas i den **Max konsumerade RU/sekund av respektive fysisk partition** diagram. Följande bild illustrerar ett exempel på en dålig fördelning av data, vilket framgår av skeva partitionen längst till vänster. 
+Att ha en bra Kardinaliteten för din partitionsnycklar är viktigt för alla skalbara program. För att fastställa dataflöde distributionen av alla partitionerad behållare uppdelat efter partitioner, navigera till den **måttbladet** i den [Azure-portalen](https://portal.azure.com). I den **dataflöde** fliken analys på detaljnivå för lagring visas i den **Max konsumerade RU/sekund av respektive fysisk partition** diagram. Följande bild illustrerar ett exempel på en dålig fördelning av data, vilket framgår av skeva partitionen längst till vänster. 
 
 ![Enskild partition ser tung användning klockan 3:05](media/use-metrics/metrics-17.png)
 
@@ -47,7 +47,7 @@ En ojämn dataflöde fördelning kan orsaka *frekvent* partitioner, vilket kan l
 
 ## <a name="determining-the-storage-distribution-across-partitions"></a>Bestämma fördelningen lagring över partitioner
 
-Att ha en bra Kardinaliteten för partitionen är viktigt för alla skalbara program. För att fastställa dataflöde distributionen av en partitionerad samling uppdelat efter partitioner, gå till bladet mått i den [Azure-portalen](https://portal.azure.com). På fliken dataflöde visas analys på detaljnivå för lagring i Max konsumerade RU/sekund efter varje fysisk partition-diagram. Följande bild illustrerar en dålig fördelning av data, vilket framgår av skeva partitionen längst till vänster. 
+Att ha en bra Kardinaliteten för partitionen är viktigt för alla skalbara program. För att fastställa dataflöde distributionen av alla partitionerad behållare uppdelat efter partitioner, gå till bladet mått i den [Azure-portalen](https://portal.azure.com). På fliken dataflöde visas analys på detaljnivå för lagring i Max konsumerade RU/sekund efter varje fysisk partition-diagram. Följande bild illustrerar en dålig fördelning av data, vilket framgår av skeva partitionen längst till vänster. 
 
 ![Exempel på dålig Datadistribution](media/use-metrics/metrics-07.png)
 
@@ -55,7 +55,7 @@ Du kan rotorsak vilka partitionsnyckel skeva distributionen genom att klicka på
 
 ![Partitionsnyckeln skeva distributionen](media/use-metrics/metrics-05.png)
 
-Efter att identifiera vilka partitionsnyckel orsakar skeva i distributionen, kan du behöva partitionera om din samling med en fler distribuerade partitionsnyckel. Mer information om partitionering i Azure Cosmos DB finns i [partitionera och skala i Azure Cosmos DB](./partition-data.md).
+Efter att identifiera vilka partitionsnyckel orsakar skeva i distributionen, kan du behöva partitionera om din behållare med en fler distribuerade partitionsnyckel. Mer information om partitionering i Azure Cosmos DB finns i [partitionera och skala i Azure Cosmos DB](./partition-data.md).
 
 ## <a name="comparing-data-size-against-index-size"></a>Jämföra datastorlek mot Indexstorlek
 

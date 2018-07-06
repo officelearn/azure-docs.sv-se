@@ -1,43 +1,43 @@
 ---
-title: Batch testa appen THOMAS - Azure | Microsoft Docs
-description: Använda batch testning kontinuerligt arbetar med ditt program att modifiera den och förbättra sin kunskap för språk.
+title: Batch testa LUIS-appen – Azure | Microsoft Docs
+description: Använda batch testning för att arbeta kontinuerligt för ditt program för att förfina och förbättra dess språkförståelse.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 07/05/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3803df32d6431b8413e8df0837ed62b2e4344cdc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f0366e805c9ae809a2800b0f4be53d08d9fc3d60
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353349"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857916"
 ---
-# <a name="batch-testing-in-luis"></a>Testa i THOMAS batch
+# <a name="batch-testing-in-luis"></a>Batch testa i LUIS
 
-Testa batch verifierar din [active](luis-concept-version.md#active-version) tränade modellen att mäta dess prognosens noggrannhet kan förbättras. Med hjälp av ett batch-test kan du visa korrektheten i varje avsikt och entiteten i din aktuella tränad modell i ett diagram. Granska resultaten för att vidta lämpliga åtgärder för att förbättra Precision, till exempel lägga till fler exempel utterances syftet om din app ofta inte kan identifiera rätt avsikten batch.
+Batch testning validerar din [active](luis-concept-version.md#active-version) tränade modellen att mäta dess prognosens noggrannhet kan förbättras. Ett batch-test kan du visa det arbete du utfört varje avsikt och entiteten i din aktuella tränade modellen i ett diagram. Granska resultaten av batch för att vidta lämpliga åtgärder för att förbättra noggrannhet, som att lägga till fler exempel yttranden till en avsikt om din app ofta inte kan identifiera rätt avsikten.
 
-## <a name="group-data-for-batch-test"></a>Gruppera data för batch
-Det är viktigt att utterances som används för att testa batch har använt THOMAS. Om du har en datauppsättning för utterances dela utterances i tre olika: utterances som lagts till i en avsikt, utterances togs emot från publicerade slutpunkten och utterances som används för att testa batch THOMAS när den har installerats. 
+## <a name="group-data-for-batch-test"></a>Gruppera data för batch-test
+Det är viktigt att yttranden som används för att testa batch har LUIS. Om du har en datauppsättning för yttranden dela yttranden i tre grupper: yttranden som lagts till i en avsikt, yttranden som togs emot från den publicerade slutpunkten och yttranden som används för att testa batch LUIS när den har installerats. 
 
-## <a name="a-dataset-of-utterances"></a>En datauppsättning för utterances
-Skicka en batchfil av utterances, kallas även en *dataset*, för att testa batch. Dataset är en JSON-formaterad fil som innehåller högst 1 000 märkta **icke-dubblett** utterances. I en app kan du testa upp till 10 datauppsättningar. Om du behöver testa flera ta bort en datauppsättning och sedan lägga till ett nytt.
+## <a name="a-dataset-of-utterances"></a>En datauppsättning för yttranden
+Skicka en kommandofil av yttranden som kallas en *datauppsättning*, för att testa batch. Datauppsättningen är en JSON-formaterad fil som innehåller högst 1 000 märkta **icke dubblett** yttranden. Du kan testa upp till 10 datauppsättningar i en app. Om du vill testa mer, ta bort en datauppsättning och sedan lägga till en ny.
 
 |**Regler**|
 |--|
-|* Inga dubbla utterances|
-|Inga underordnade hierarkiska entitet|
-|1000 utterances eller mindre|
+|* Inga dubbla yttranden|
+|Inga underordnade hierarkisk entitet|
+|1000 yttranden eller mindre|
 
-* Dubbletter betraktas som matchar exakt sträng, inte matchar är tokeniserad först. 
+* Dubbletter anses exakta strängen matchar, inte matchningar som är tokeniserad först. 
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
 ## <a name="batch-file-format"></a>Batch-filformat
-Kommandofilen består av utterances. Varje utterance måste ha en förväntade avsiktshantering förutsägelse tillsammans med någon [datorn inlärda entiteter](luis-concept-entity-types.md#types-of-entities) du förväntar dig att identifieras. 
+Kommandofilen består av yttranden. Varje uttryck måste ha en förväntade avsikt förutsägelse tillsammans med eventuella [datorn lärt dig entiteter](luis-concept-entity-types.md#types-of-entities) du förväntar dig att identifieras. 
 
 Ett exempel på kommandofil följande:
 
@@ -47,31 +47,32 @@ Ett exempel på kommandofil följande:
 ## <a name="common-errors-importing-a-batch"></a>Vanliga fel som importerar en batch
 Vanliga fel är: 
 
-> * Mer än 1 000 utterances
-> * En utterance JSON-objekt som inte har en egenskap för enheter
+> * Fler än 1 000 yttranden
+> * Ett uttryck JSON-objekt som inte har en egenskap för entiteter
+> * Ord som är märkt i flera entiteter
 
 ## <a name="batch-test-state"></a>Batch testtillstånd
-THOMAS spårar tillståndet för varje dataset senaste testet. Detta inkluderar datum för senaste körning storlek (antal utterances i batchen) och senaste resultat (antal har förväntade utterances).
+LUIS spårar tillståndet för varje datauppsättning senaste testet. Detta inkluderar storleken (antal yttranden i batchen) för senaste körning datum och senaste resultat (antal har förväntade yttranden).
 
 <a name="sections-of-the-results-chart"></a>
 ## <a name="batch-test-results"></a>Testresultat för batch
-Testresultat för batch är ett punktdiagram kallas en matris med fel. Det här diagrammet är ett 4-vägs jämförelse av utterances i filen och den aktuella modellen förväntade avsikt och enheter. 
+Testresultat för batch är ett punktdiagram som kallas en matris med fel. Det här diagrammet är en 4-vägs-jämförelse av yttranden i filen och den aktuella modellen förväntade avsikten och entiteter. 
 
-Data som pekar på den **falska positiva** och **falska negativa** avsnitt visar fel, som bör undersökas. Om alla datapunkter är på den **SANT positivt** och **SANT negativt** avsnitten appens noggrannhet är perfekt för den här datauppsättningen.
+Data som pekar på den **falskt positivt** och **falska negativa** avsnitt visar fel, som bör undersökas. Om alla datapunkter som finns på den **sanna positiva** och **SANT negativt** avsnitt, och sedan din app är perfekt för den här datauppsättningen.
 
-![Fyra avsnitt i diagrammet](./media/luis-concept-batch-test/chart-sections.png)
+![Fyra delar av diagram](./media/luis-concept-batch-test/chart-sections.png)
 
-Det här diagrammet hjälper dig att hitta utterances som beräknar THOMAS felaktigt baserat på dess aktuella utbildning. Resultatet visas per region i diagrammet. Välj enskilda felpunkter på diagrammet att granska informationen om utterance eller välj regionnamn och granska resultatet från utterance i den regionen.
+Det här diagrammet hjälper dig att hitta yttranden som beräknar LUIS felaktigt baserat på dess aktuella utbildning. Resultaten visas per region i diagrammet. Välj enskilda datapunkter på grafen för att granska informationen om uttryck eller välj namnet på georegionen och granska resultatet från uttryck i den regionen.
 
-![Testa batch](./media/luis-concept-batch-test/batch-testing.png)
+![Batch-testning](./media/luis-concept-batch-test/batch-testing.png)
 
 ## <a name="errors-in-the-results"></a>Fel i resultaten
-Fel i batch-testet visar avsikter som inte beräknas enligt beskrivningen i kommandofilen. Fel visas i rött två avsnitt i diagrammet. 
+Fel i batch-testet visar avsikter som inte är förväntad som anges i kommandofilen. Fel indikeras i de två red avsnitten i diagrammet. 
 
-Avsnittet falska positiva anger att en utterance matchar en avsikt eller enhet när det inte borde ha. FALSKT negativt anger en utterance inte överensstämmer med en avsikt eller enhet när den ska ha. 
+Avsnittet falskt positivt anger att ett uttryck matchade en avsikt eller enhet när den inte får ha. Det falska negativt anger ett uttryck inte matchade en avsikt eller enhet när den ska ha. 
 
-## <a name="fixing-batch-errors"></a>Korrigera batch-fel
-Om det finns fel i batch-testning, du kan antingen lägga till flera utterances syftet och/eller etikett mer utterances med entiteten för att göra diskriminering avsikter THOMAS. Om du har lagt till utterances och märkta dem och fortfarande get förutsägelse fel i batch testning kan du lägga till en [frasen listan](luis-concept-feature.md) funktion med domänspecifika ordförråd att THOMAS Lär dig snabbare. 
+## <a name="fixing-batch-errors"></a>Åtgärda fel
+Om det uppstår fel i testet med batch kan du kan antingen lägga till flera uttryck i ett intent och/eller märka mer yttranden med entiteten för att göra diskriminering avsikter LUIS. Om du har lagt till yttranden och märkta dem och fortfarande få förutsägelse fel i testet med batch kan du lägga till en [frasen lista](luis-concept-feature.md) funktionen med domänspecifika ordförråd för att LUIS Lär dig snabbare. 
 
 ## <a name="next-steps"></a>Nästa steg
 

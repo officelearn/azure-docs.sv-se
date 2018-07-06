@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: c5f3904621dcc4fe992b2c2f8293ad706b01f713
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d2a63a1a9b335b7765c5eaf8c90e1d755b2ce9c9
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446783"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867128"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept strategibok: komponenter
 
@@ -42,7 +42,7 @@ Här följer några förutsättningar som krävs för alla POC med Azure AD Prem
 | Förhandskrav | Resurser |
 | --- | --- |
 | Azure AD-klient som definierats med en giltig Azure-prenumeration | [Skaffa en Azure Active Directory-klient](active-directory-howto-tenant.md)<br/>**Obs:** om du redan har en miljö med Azure AD Premium-licenser kan du få en noll cap-prenumeration genom att gå till https://aka.ms/accessaad <br/>Läs mer på: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ och https://technet.microsoft.com/library/dn832618.aspx |
-| Domäner som har definierats och verifierats | [Lägga till ett anpassat domännamn i Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Obs:** vissa arbetsbelastningar som till exempel Power BI kunde har etablerat en azure AD-klient under försättsbladen. Om du vill kontrollera om en viss domän är kopplade till en klient, navigera till https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Om du får ett lyckat svar och sedan domänen har redan tilldelats en klient och ta över kan behövas. I så fall kan du kontakta Microsoft för ytterligare vägledning. Mer information om de gäller alternativ på: [självbetjäningsregistrering för Azure?](active-directory-self-service-signup.md) |
+| Domäner som har definierats och verifierats | [Lägga till ett anpassat domännamn i Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Obs:** vissa arbetsbelastningar som till exempel Power BI kunde har etablerat en azure AD-klient under försättsbladen. Om du vill kontrollera om en viss domän är kopplade till en klient, navigera till https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Om du får ett lyckat svar och sedan domänen har redan tilldelats en klient och ta över kan behövas. I så fall kan du kontakta Microsoft för ytterligare vägledning. Mer information om de gäller alternativ på: [självbetjäningsregistrering för Azure?](users-groups-roles/directory-self-service-signup.md) |
 | Azure AD Premium eller EMS utvärdering aktiverad | [Azure Active Directory Premium kostnadsfritt i en månad](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Du har tilldelat Azure AD Premium eller EMS-licenser till PoC-användare | [Licensiera själv och dina användare i Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
 | Autentiseringsuppgifter för Azure AD Global administratör | [Tilldela administratörsroller i Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md) |
@@ -125,11 +125,11 @@ Ungefärlig tid att Slutför: 10 minuter
 | Steg | Resurser |
 | --- | --- |
 | Gå till bladet för licenser i Azure AD-hanteringsportalen | [Azure AD-hanteringsportalen: licensiering](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) |
-| Tilldela licenser till gruppen med POC-användare. | [Tilldela licenser till en grupp av användare i Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md) |
+| Tilldela licenser till gruppen med POC-användare. | [Tilldela licenser till en grupp av användare i Azure Active Directory](users-groups-roles/licensing-groups-assign.md) |
 
 ### <a name="considerations"></a>Överväganden
 
-Vid eventuella problem går du till [scenarier, begränsningar och kända problem med att använda grupper för att hantera licensiering i Azure Active Directory](active-directory-licensing-group-advanced.md)
+Vid eventuella problem går du till [scenarier, begränsningar och kända problem med att använda grupper för att hantera licensiering i Azure Active Directory](users-groups-roles/licensing-group-advanced.md)
 
 ## <a name="saas-federated-sso-configuration"></a>Konfiguration för SaaS-federerad enkel inloggning
 

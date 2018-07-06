@@ -1,6 +1,6 @@
 ---
-title: Konfigurera ingång med Azure Kubernetes Service (AKS)-kluster
-description: Installera och konfigurera en domänkontrollant för en NGINX-ingång i ett kluster med Azure Kubernetes Service (AKS).
+title: Konfigurera inkommande med kluster Azure Kubernetes Service (AKS)
+description: Installera och konfigurera en ingress-kontrollanten för NGINX i ett kluster i Azure Kubernetes Service (AKS).
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -9,30 +9,30 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9bee80ebbaf0568706428d673d584819b1daa143
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: bd223e9eebac495d7336c618b831528505c30959
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096996"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857403"
 ---
-# <a name="https-ingress-on-azure-kubernetes-service-aks"></a>HTTPS-ingång i Azure Kubernetes-tjänster (AKS)
+# <a name="https-ingress-on-azure-kubernetes-service-aks"></a>HTTPS-Ingress på Azure Kubernetes Service (AKS)
 
-En domänkontrollant för en ingång är en typ av programvara som tillhandahåller omvänd proxy, konfigurera trafikroutning och TLS upphörande för Kubernetes tjänster. Kubernetes ingång resurser används för att konfigurera regler för inkommande trafik och vägar för enskilda Kubernetes-tjänster. Med hjälp av en domänkontrollant för en inkommande trafik och regler för inkommande trafik, kan en extern adress användas att dirigera trafik till flera tjänster i ett Kubernetes kluster.
+Ingress-kontrollant är en del av programvaran som tillhandahåller omvänd proxy, konfigurerbara trafikroutning och TLS-Avslut för Kubernetes-tjänster. Kubernetes ingress-resurser används för att konfigurera de inkommande regler och vägar för enskilda Kubernetes-tjänster. Med hjälp av en ingress-kontrollanten och ingående regler, kan en extern adress användas för att dirigera trafik till flera tjänster i ett Kubernetes-kluster.
 
-Det här dokumentet vägleder genom en exempeldistribution av den [NGINX ingång controller] [ nginx-ingress] i ett kluster med Azure Kubernetes Service (AKS). Dessutom kan den [certifikathanterare] [ cert-manager] för att automatiskt generera och konfigurera [vi kryptera] [ lets-encrypt] certifikat. Slutligen körs flera program i klustret AKS, som är tillgänglig via en adress.
+Det här dokumentet beskriver en exempeldistribution av den [ingress-kontrollanten för NGINX] [ nginx-ingress] i ett kluster i Azure Kubernetes Service (AKS). Dessutom kan den [certifikathanterare] [ cert-manager] projektet används för att automatiskt generera och konfigurera [vi kryptera] [ lets-encrypt] certifikat. Slutligen kan körs flera program i AKS-kluster som är tillgänglig via en adress.
 
-## <a name="install-an-ingress-controller"></a>Installera ett meddelande om ingångs-domänkontrollant
+## <a name="install-an-ingress-controller"></a>Installera en ingress-kontrollant
 
-Använd Helm för att installera NGINX ingång domänkontrollant. Finns NGINX ingång controller [dokumentationen] [ nginx-ingress] detaljerad distributionsinformation.
+Använd Helm för att installera NGINX ingress-kontrollant. Se ingress-kontrollanten för NGINX [dokumentation] [ nginx-ingress] detaljerad distributionsinformation.
 
-Det här exemplet installerar domänkontrollant i den `kube-system` namnområde, kan du ändra det till ett namnområde som du väljer. Lägg till om AKS klustret inte RBAC aktiverat `--set rbac.create=false` i kommandot. Mer information finns i [nginx-ingång diagram][nginx-ingress].
+Det här exemplet installerar controller i den `kube-system` namnområdet, kan du ändra det till ett namnområde av ditt val. Om AKS-klustret inte RBAC aktiverat lägger du till `--set rbac.create=false` i kommandot. Mer information finns i den [nginx-ingress diagrammet][nginx-ingress].
 
 ```bash
 helm install stable/nginx-ingress --namespace kube-system
 ```
 
-Under installationen skapas en Azure offentliga IP-adress för meddelande om ingångs-styrenhet. Använd kommandot kubectl get-tjänsten för att hämta den offentliga IP-adressen. Det kan ta lite tid innan IP-adress tilldelas till tjänsten.
+Under installationen skapas en Azure offentlig IP-adress för ingress-kontrollant. Använd kommandot kubectl get service för att hämta den offentliga IP-adressen. Det kan ta lite tid innan IP-adress tilldelas till tjänsten.
 
 ```console
 $ kubectl get service -l app=nginx-ingress --namespace kube-system
@@ -42,13 +42,13 @@ eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.
 eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
 ```
 
-Eftersom inga meddelanden om ingångs-regler har skapats om du bläddrar till den offentliga IP-adressen, dirigeras till NGINX ingång domänkontrollanter standard 404-sidan.
+Eftersom inga inkommande regler har skapats, om du bläddrar till offentliga IP-adress, dirigeras till NGINX ingress-styrenheter 404-webbsidan.
 
-![Standard NGINX-serverdelen](media/ingress/default-back-end.png)
+![Standard NGINX-serverdel](media/ingress/default-back-end.png)
 
 ## <a name="configure-dns-name"></a>Konfigurera DNS-namn
 
-Eftersom du använder HTTPS-certifikat, måste du konfigurera ett FQDN-namn för ingång domänkontrollanter IP-adress. I det här exemplet skapas en Azure-FQDN med Azure CLI. Uppdatera skriptet med IP-adressen för meddelanden om ingångs-domänkontrollant och det namn som du vill använda i FQDN.
+Eftersom du använder HTTPS-certifikat, måste du konfigurera ett FQDN-namn för ingress-styrenheter IP-adress. I det här exemplet skapas en Azure-FQDN med Azure CLI. Uppdatera skriptet med IP-adressen för ingress-kontrollanten och det namn som du vill använda i det fullständiga Domännamnet.
 
 ```bash
 #!/bin/bash
@@ -66,13 +66,13 @@ PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ip
 az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
 ```
 
-Nu bör ingång controller tillgängligt via FQDN.
+Ingress-kontrollanten ska nu vara tillgänglig via det fullständiga Domännamnet.
 
 ## <a name="install-cert-manager"></a>Installera certifikathanterare
 
-NGINX ingång styrenhet stöder TLS-avslutning. Det finns flera sätt att hämta och konfigurera certifikat för HTTPS, det här dokumentet visas hur du använder [certifikathanterare][cert-manager], vilket ger automatisk [kan kryptera] [ lets-encrypt] certifikat generation och hanteringsfunktioner.
+Ingress-kontrollanten för NGINX stöder TLS-avslutning. Det finns flera sätt att hämta och konfigurera certifikat för HTTPS, det här dokumentet visar hur du använder [certifikathanterare][cert-manager], som tillhandahåller automatiska [kan kryptera] [ lets-encrypt] certifikat generation och hanteringsfunktioner.
 
-Använd kommandot installera Helm om du vill installera certifikathanterare styrenhet.
+Använd kommandot installera Helm för att installera den certifikathanterare styrenheten.
 
 ```bash
 helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-prod --set ingressShim.defaultIssuerKind=ClusterIssuer
@@ -88,13 +88,13 @@ helm install stable/cert-manager \
   --set serviceAccount.create=false
 ```
 
-Mer information om certifikathanterare konfiguration finns i [-certifikathanterare projekt][cert-manager].
+Mer information om certifikathanterare konfigurationen finns i den [certifikathanterare projektet][cert-manager].
 
-## <a name="create-ca-cluster-issuer"></a>Skapa CA klustret utfärdare
+## <a name="create-ca-cluster-issuer"></a>Skapa utfärdare för CA-kluster
 
-Innan du kan utfärda certifikat certifikathanterare kräver en [utfärdaren] [ cert-manager-issuer] eller [ClusterIssuer] [ cert-manager-cluster-issuer] resurs. Resurserna är identiska i funktionen `Issuer` fungerar i en enda namnrymd där `ClusterIssuer` fungerar även över alla namnområden. Mer information finns i [certifikathanterare utfärdaren] [ cert-manager-issuer] dokumentation.
+Innan certifikat kan utfärdas, certifikathanterare kräver en [utfärdare] [ cert-manager-issuer] eller [ClusterIssuer] [ cert-manager-cluster-issuer] resurs. Resurserna är identiska i funktionen `Issuer` fungerar i ett enda namnområde där `ClusterIssuer` fungerar över alla namnområden. Mer information finns i den [certifikathanterare utfärdare] [ cert-manager-issuer] dokumentation.
 
-Skapa en utfärdare för klustret med hjälp av följande manifestet. Uppdatera e-postadressen med en giltig adress från din organisation.
+Skapa en utfärdare för kluster med hjälp av följande manifestet. Uppdatera den e-postadressen med en giltig adress från din organisation.
 
 ```yaml
 apiVersion: certmanager.k8s.io/v1alpha1
@@ -112,9 +112,9 @@ spec:
 
 ## <a name="create-certificate-object"></a>Skapa certifikatobjekt
 
-Därefter måste du skapa en resurs för certifikatet. Certifikat-resursen definierar önskade X.509-certifikat. Mer information finns i, [certifikathanterare certifikat][cert-manager-certificates].
+Därefter måste du skapa en resurs för certifikatet. Certifikatresursen definierar det önskade X.509-certifikatet. Mer information finns i, [certifikathanterare certifikat][cert-manager-certificates].
 
-Skapa resursen certifikat med följande manifestet.
+Skapa certifikat-resurs med följande manifestet.
 
 ```yaml
 apiVersion: certmanager.k8s.io/v1alpha1
@@ -138,11 +138,11 @@ spec:
 
 ## <a name="run-application"></a>Kör program
 
-Ett meddelande om ingångs-styrenhet och en lösning för hantering av certifikat har nu konfigurerats. Nu köra några program i klustret AKS.
+Ingress-kontrollanten och en lösning för hantering av certifikat har nu konfigurerats. Kör nu några program för AKS-klustret.
 
-I det här exemplet används Helm för att köra flera instanser av en enkel hello world-programmet.
+I det här exemplet används Helm för att köra flera instanser av ett enkelt hello world-program.
 
-Lägg till Azure-exempel Helm databasen i utvecklingssystemet innan du kör programmet.
+Lägg till Helm-lagringsplatsen Azure-exempel i utvecklingssystemet innan du kör programmet.
 
 ```bash
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
@@ -154,21 +154,21 @@ Kör AKS hello world diagram med följande kommando:
 helm install azure-samples/aks-helloworld
 ```
 
-Nu installera en andra instans av programmet hello world.
+Nu installera en andra instans av hello world-program.
 
-Ange ett nytt namn för den andra instansen så att de två programmen är visuellt distinkta. Du måste också ange ett unikt namn. De här konfigurationerna kan ses i följande kommando.
+Ange ett nytt namn för den andra instansen så att de två programmen är visuellt åtskilda. Du måste också ange ett unikt namn. De här konfigurationerna kan ses i följande kommando.
 
 ```bash
 helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
 ```
 
-## <a name="create-ingress-route"></a>Skapa meddelande om ingångs-väg
+## <a name="create-ingress-route"></a>Skapa inkommande väg
 
-Båda programmen är nu körs på klustret Kubernetes men har konfigurerats med en tjänst av typen `ClusterIP`. Därför är programmen inte tillgänglig från internet. Skapa en Kubernetes ingång resurs för att göra den tillgänglig. Resursen ingång konfigurerar regler som dirigerar trafik till en av de två programmen.
+Båda programmen finns nu som körs på ett Kubernetes-kluster, men har konfigurerats med en tjänst av typen `ClusterIP`. Därför måste är programmen inte tillgänglig från internet. Skapa en Kubernetes ingress-resurs för att göra dem tillgängliga. Ingress-resursen konfigurerar regler som vidarebefordrar trafik till en av de två programmen.
 
 Skapa ett filnamn `hello-world-ingress.yaml` och kopiera följande YAML.
 
-Notera som trafiken till adressen `https://demo-aks-ingress.eastus.cloudapp.azure.com/` dirigeras till tjänsten med namnet `aks-helloworld`. Trafik till adressen `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two` dirigeras till den `ingress-demo` service.
+Anteckna som trafiken till adressen `https://demo-aks-ingress.eastus.cloudapp.azure.com/` dirigeras till tjänsten med namnet `aks-helloworld`. Trafik till adressen `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two` dirigeras till den `ingress-demo` service.
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -198,32 +198,32 @@ spec:
           servicePort: 80
 ```
 
-Skapa meddelande om ingångs-resursen med det `kubectl apply` kommando.
+Skapa ingående resursen med den `kubectl apply` kommando.
 
 ```console
 kubectl apply -f hello-world-ingress.yaml
 ```
 
-## <a name="test-the-ingress-configuration"></a>Testa konfigurationen ingång
+## <a name="test-the-ingress-configuration"></a>Testa ingress-konfiguration
 
-Bläddra till det fullständiga Domännamnet för din Kubernetes ingång styrenhet, bör du se programmet hello world.
+Bläddra till det fullständiga Domännamnet för din Kubernetes ingress-kontrollant, bör du se hello world-program.
 
 ![Exempel på en](media/ingress/app-one.png)
 
-Nu bläddra till FQDN för meddelanden om ingångs-styrenhet med den `/hello-world-two` sökväg, bör du se programmet hello world med anpassad rubrik.
+Gå till FQDN för ingress-kontrollanten med den `/hello-world-two` sökväg, bör du se hello world-program med anpassade rubriken.
 
 ![Exempel på två](media/ingress/app-two.png)
 
 Observera också att anslutningen är krypterad och att ett certifikat utfärdat av vi kryptera används.
 
-![Kan kryptera certifikat](media/ingress/certificate.png)
+![Gör att kryptera certifikat](media/ingress/certificate.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om programmet visas i det här dokumentet.
+Läs mer om den programvara som visas i det här dokumentet.
 
-- [Helm CLI][helm-cli]
-- [NGINX ingång domänkontrollant][nginx-ingress]
+- [Azure CLI][helm-cli]
+- [Ingress-kontrollanten för NGINX][nginx-ingress]
 - [certifikathanterare][cert-manager]
 
 <!-- LINKS - external -->

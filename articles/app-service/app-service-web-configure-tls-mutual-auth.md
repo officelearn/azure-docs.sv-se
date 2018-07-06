@@ -1,6 +1,6 @@
 ---
 title: Konfigurera TLS ömsesidig autentisering för webbapp
-description: Lär dig hur du konfigurerar ditt webbprogram om du vill använda klientcertifikatautentisering på TLS.
+description: Lär dig mer om att konfigurera webbappen för att använda autentisering med klientcertifikat på TLS.
 services: app-service
 documentationcenter: ''
 author: naziml
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-ms.openlocfilehash: db69852cffd1ff331ac4a640b04ea4360d00bf75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdf8731b2a5028f47c2baf6f164d75123f716ebb
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23836310"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857647"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Konfigurera TLS ömsesidig autentisering för webbapp
 ## <a name="overview"></a>Översikt
-Du kan begränsa åtkomsten till din Azure-webbapp genom att aktivera olika typer av autentisering för den. Ett sätt att göra detta är att autentisera med ett klientcertifikat när begäran är över TLS/SSL. Den här mekanismen kallas TLS ömsesidig autentisering eller autentisering och den här artikeln kommer innehåller information om hur du ställer in ditt webbprogram om du vill använda klientcertifikatautentisering klientcertifikat.
+Du kan begränsa åtkomsten till Azure-webbappen genom att aktivera olika typer av autentisering för den. Ett sätt att göra detta är att autentisera med ett klientcertifikat när begäran hålls över TLS/SSL. Den här mekanismen kallas ömsesidig TLS-autentisering eller autentisering och den här artikeln beskriver detaljerat hur du konfigurerar webbappen att använda autentisering med klientcertifikat klientcertifikat.
 
-> **Obs:** om du har åtkomst till webbplatsen via HTTP och HTTPS inte visas inte alla klientcertifikat. Så om ditt program kräver klientcertifikat bör du inte tillåta begäranden till ditt program via HTTP.
+> **Obs:** om du har åtkomst till webbplatsen via HTTP och HTTPS inte visas inte alla klientcertifikat. Så om programmet kräver klientcertifikat bör du inte tillåta begäranden till ditt program via HTTP.
 > 
 > 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="configure-web-app-for-client-certificate-authentication"></a>Konfigurera Webbappen för autentisering av klientcertifikat
-Om du vill konfigurera ditt webbprogram för att kräva klientcertifikat måste du lägga till clientCertEnabled-platsinställningen för ditt webbprogram och angetts till true. Den här inställningen är inte tillgänglig via hanteringen av portalen och REST-API behöver för att åstadkomma detta.
+## <a name="configure-web-app-for-client-certificate-authentication"></a>Konfigurera Webbapp för autentisering av klientcertifikat
+Om du vill konfigurera webbappen för att kräva klientcertifikat, måste du lägga till inställningen clientCertEnabled plats för din webbapp och ge den värdet true. Den här inställningen kan också konfigureras i Azure-portalen under bladet för SSL-certifikat.
 
-Du kan använda den [ARMClient verktyget](https://github.com/projectkudu/ARMClient) att göra det enkelt att skapa REST API-anrop. När du har loggat in med verktyget måste du följande kommando:
+Du kan använda den [ARMClient verktyget](https://github.com/projectkudu/ARMClient) att göra det enkelt att skapa REST API-anrop. När du loggar in med verktyget måste du utfärda följande kommando:
 
     ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
 
-Ersätt allt i {} med information för ditt webbprogram och skapa en fil med namnet enableclientcert.json med följande JSON innehåll:
+Ersätt allt innehåll i {} med information för din web app och skapa en fil kallas enableclientcert.json med följande JSON innehåll:
 
     {
         "location": "My Web App Location",
@@ -47,19 +47,19 @@ Ersätt allt i {} med information för ditt webbprogram och skapa en fil med nam
         }
     }
 
-Se till att ändra värdet för ”plats” till var ditt webbprogram finns t.ex. norra centrala USA eller västra USA osv.
+Se till att ändra värdet för ”plats” till var din webbapp finns till exempel USA, norra centrala eller västra USA osv.
 
-Du kan också använda https://resources.azure.com för att vända de `clientCertEnabled` egenskapen `true`.
+Du kan också använda https://resources.azure.com bilden ska vändas den `clientCertEnabled` egenskap `true`.
 
-> **Obs:** om du kör ARMClient från Powershell, behöver du undanta den @-tecknet för JSON-fil med en bakre skalstreck '.
+> **Obs:** om du kör ARMClient från Powershell, behöver du att undanta den @-tecknet för JSON-fil med en backend skalstreck '.
 > 
 > 
 
-## <a name="accessing-the-client-certificate-from-your-web-app"></a>Åtkomst till klientens certifikat från ditt webbprogram
-Om du använder ASP.NET och konfigurera din app om du vill använda klientcertifikatautentisering certifikatet blir tillgängliga via den **HttpRequest.ClientCertificate** egenskapen. Andra program stackar ska cert klienten vara tillgänglig i appen genom en base64-kodad värdet i resurshuvudet ”X-ARR-ClientCert”. Ditt program kan skapa ett certifikat från det här värdet och sedan använda datorn för autentisering och auktorisering ändamål i ditt program.
+## <a name="accessing-the-client-certificate-from-your-web-app"></a>Komma åt klientcertifikatet från Webbappen
+Om du använder ASP.NET och konfigurera din app om du vill använda klientcertifikatautentisering certifikatet blir tillgängliga via den **HttpRequest.ClientCertificate** egenskapen. För andra programstackar blir klientcertifikatet tillgänglig i din app genom en base64-kodad värde i rubriken ”X-ARR-ClientCert”. Ditt program kan skapa ett certifikat från det här värdet och sedan använda den för autentisering och auktorisering i ditt program.
 
-## <a name="special-considerations-for-certificate-validation"></a>Speciella överväganden vid valideringen av servercertifikatet
-Det klientcertifikat som skickas till programmet går inte via en verifiering av Azure Web Apps-plattformen. Verifiera det här certifikatet ansvarar för webbappen. Här är exempelkod för ASP.NET som validerar egenskaper för certifikat för autentisering.
+## <a name="special-considerations-for-certificate-validation"></a>Att tänka på för certifikatverifiering
+Det klientcertifikat som skickas till programmet går inte via valfri verifiering av Azure Web Apps-plattformen. Verifiera det här certifikatet är ansvar för webbappen. Här är exempelkod för ASP.NET som validerar egenskaper för certifikat för autentisering.
 
     using System;
     using System.Collections.Specialized;

@@ -1,6 +1,6 @@
 ---
-title: Tillägg för virtuell Azure-dator och funktioner | Microsoft Docs
-description: Lär dig vad Azure VM-tillägg anre använda dem med virtuella Azure-datorer
+title: Azure virtuella datorer, tillägg och funktioner | Microsoft Docs
+description: Lär dig vilka anre för Azure VM-tillägg du använder dem med Azure-datorer
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
@@ -15,45 +15,45 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
-ms.openlocfilehash: 04f6d68feccf4a9b2bf2fa0f03ad8bd978cf5f17
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1fd4e1a67b6aa4cc66e62822c34606e2769890f8
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653271"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866499"
 ---
-# <a name="azure-virtual-machine-extensions-and-features"></a>Tillägg för virtuell Azure-dator och funktioner
-Virtuell Azure-dator (VM)-tillägg är små program som innehåller efter distributionen konfiguration och automatisering av uppgifter på Azure Virtual Machines, kan du använda befintliga avbildningar och sedan anpassa dem som en del av din distribution, hämtar du out-of-business av anpassade skapande av avbildningen.
+# <a name="azure-virtual-machine-extensions-and-features"></a>Azure virtuella datorer, tillägg och funktioner
+Azure-dator (VM)-tillägg är litet program som ger efter distributionen konfiguration och automatisering av uppgifter på Azure Virtual Machines, du kan använda befintliga avbildningar och sedan anpassa dem som en del av distributionen, hämta din verksamhet för anpassad att skapa avbildningen.
 
-Azure-plattformen är värd för många tillägg från VM-konfiguration, övervakning, säkerhet och verktyget program. Utgivare ta ett tillämpningsprogram, sedan skriva den till ett tillägg och förenkla installationen, så att allt du behöver göra är att ange obligatoriska parametrar. 
+Azure-plattformen är värd för många tillägg mellan VM-konfiguration, övervakning, säkerhet och verktyget program. Utgivare ta ett program, sedan skriva det till ett tillägg och förenkla installationen, så allt du behöver göra är att tillhandahålla obligatoriska parametrar. 
 
- Det finns ett stort urval av första och tredje parts tillägg om programmet i tilläggscentrallagret inte finns och du kan använda tillägget för anpassat skript och konfigurera den virtuella datorn med dina egna skript och kommandon.
+ Det finns ett stort urval av första och tredje part-tillägg, om programmet i tilläggscentrallagret inte finns och du kan använda tillägget för anpassat skript och konfigurera din virtuella dator med dina egna skript och kommandon.
 
-Exempel på viktiga scenarier som du använder tillägg:
-* VM-konfiguration, du kan använda Powershell DSC (Desired State Configuration), Chef, Puppet och anpassade tillägg som skriptet att installera agenter för VM-konfiguration och konfigurera den virtuella datorn. 
-* AV produkter, t.ex Symantec TERSTÄLL.
-* Verktyg för VM säkerhetsproblem, till exempel Qualys, Rapid7, HPE.
-* VM och Appövervakning verktygsuppsättning som DynaTrace, Azure Nätverksbevakaren, Site24x7 och Stackify.
+Exempel på viktiga scenarier som tillägg används för:
+* Konfiguration av virtuell dator, du kan använda Powershell DSC (Desired State Configuration), Chef, Puppet och anpassade skripttillägg installera VM-agenter för konfiguration och konfigurera den virtuella datorn. 
+* AV produkter, t.ex Symantec, ESET.
+* Verktyg för virtuell dator säkerhetsproblem, till exempel Qualys, Rapid7, HPE.
+* Virtuell dator och Appövervakning, verktyg, till exempel DynaTrace, Azure Network Watcher, Site24x7 och Stackify.
 
-Tillägg kan kopplas samman med en ny VM-distribution. De kan exempelvis vara en del av en större distribution konfigurerar program på VM etablera eller köra mot någon stöds tillägget drivas system efter distributionen.
+Tillägg kan kopplas samman med en ny VM-distribution. De kan till exempel vara en del av en större distribution, konfigurera program på VM-etablera eller kör mot alla stöds tillägget drivs system efter distribution.
 
-## <a name="how-can-i-find-what-extensions-are-available"></a>Hur hittar jag vilka tillägg som är tillgängliga?
-Du kan visa tillgängliga tillägg i VM-blad i portalen under tillägg, representerar bara ett litet för en fullständig lista kan du använda CLI-verktygen, se [identifiering av VM-tillägg för Linux](features-linux.md) och [ Identifiering av VM-tillägg för Windows](features-windows.md).
+## <a name="how-can-i-find-what-extensions-are-available"></a>Hur hittar jag vilka tillägg som finns tillgängliga?
+Du kan visa tillgängliga tillägg i VM-bladet i portalen under tillägg, representerar bara lite, för en fullständig lista kan du använda CLI-verktyg, se [identifiering av VM-tillägg för Linux](features-linux.md) och [ Identifiering av VM-tillägg för Windows](features-windows.md).
 
-## <a name="how-can-i-install-an-extension"></a>Hur kan jag installera tillägget?
-Azure VM-tillägg kan hanteras med hjälp av Azure CLI 2.0, Azure PowerShell, Azure Resource Manager-mallar och Azure-portalen. Om du vill prova ett tillägg, kan du gå till Azure portal, Välj tillägget för anpassat skript, skicka in ett kommando / skript och köra tillägg.
+## <a name="how-can-i-install-an-extension"></a>Hur kan jag installera ett tillägg?
+Azure VM-tillägg kan hanteras med hjälp av Azure CLI 2.0, Azure PowerShell, Azure Resource Manager-mallar och Azure-portalen. Om du vill prova ett tillägg, kan du gå till Azure portal, Välj det anpassade Skripttillägget, skicka in ett kommando / skript och köra tillägg.
 
-Om du vill att samma filnamnstillägg som du lade till i den portal med CLI eller Resource Manager-mallen finns dokumentationen för olika tillägg som [Windows-tillägget för anpassat skript](custom-script-windows.md) och [tilläggetförLinuxanpassatskript](custom-script-linux.md).
+Om du vill att samma filnamnstillägg som du lade till i portalen med CLI eller Resource Manager-mall, se annat tillägg dokumentation, till exempel [Windows-tillägget för anpassat skript](custom-script-windows.md) och [Linux anpassade skripttillägg](custom-script-linux.md).
 
-## <a name="how-do-i-manage-extension-application-lifecycle"></a>Hur hanterar livscykeln för tillägget program?
-Du behöver inte att ansluta till en virtuell dator direkt för att installera eller ta bort tillägget. Eftersom Azure-tillägget programmet livscykel hanteras utanför den virtuella datorn och integrerat i Azure-plattformen, får du också integrerad status för tillägget.
+## <a name="how-do-i-manage-extension-application-lifecycle"></a>Hur hanterar livscykeln för tillägget?
+Du behöver inte att ansluta till en virtuell dator direkt för att installera eller ta bort tillägget. När Azure-tillägget programmets hela livscykel hanteras utanför den virtuella datorn och integreras i Azure-plattformen kan få du också integrerad status för tillägget.
 
 ## <a name="anything-else-i-should-be-thinking-about-for-extensions"></a>Något annat jag borde överväga för tillägg?
-Tillägg installera program, som alla program som det finns vissa krav för tillägg till det är en lista över Windows och Linux OSes som stöds och du behöver ha Azure VM agenterna. Vissa enskilda VM-tillägget program kan ha sina egna miljöförutsättningar, till exempel åtkomst till en slutpunkt.
+Tillägg installera program, som alla program som det finns vissa krav för tillägg till det är en lista över stöds Windows och Linux-OSes och du måste ha Azure VM-agenter som installerats. Vissa enskilda VM-tillägg-program kan ha sina egna miljöförutsättningar, till exempel åtkomst till en slutpunkt.
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om hur Linux-Agent och tillägg fungerar finns [Azure VM-tillägg och funktioner för Linux](features-linux.md).
-* Mer information om hur Windows-Gästagenten och tillägg fungerar finns [Azure VM-tillägg och funktioner för Windows](features-windows.md).  
-* Om du vill installera Windows Gästagenten [översikt över Azure Windows virtuella Agent ](agent-windows.md).  
-* Om du vill installera Linux-agenten finns [översikt över Azure Linux virtuella datorer Agent ](agent-linux.md).  
+* Mer information om hur Linux-agenten och tillägg fungerar finns i [Azure VM-tillägg och funktioner i Linux](features-linux.md).
+* Mer information om hur Windows-Gästagenten och tillägg fungerar finns i [Azure VM-tillägg och funktioner i Windows](features-windows.md).  
+* Om du vill installera Windows-Gästagenten, se [översikt över Azure Windows VM-agenten ](agent-windows.md).  
+* Om du vill installera Linux-agenten finns i [översikt över Azure Linux VM-agenten ](agent-linux.md).  
 

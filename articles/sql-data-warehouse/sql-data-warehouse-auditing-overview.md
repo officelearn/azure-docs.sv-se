@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 306032ece4feda0e8132db1e95c4a229472e6c04
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3630d4d694452f2c619e707d1e2e58f1bfe71c0e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34643506"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858960"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Granskning i Azure SQL Data Warehouse
 
@@ -52,8 +52,9 @@ En granskningsprincip kan definieras för en specifik databas eller som en stand
 > * Du vill använda en annan *lagringskonto* eller *kvarhållningsperioden* för en viss databas.
 > * Du vill granska händelsetyper eller kategorier för en viss databas som skiljer sig från resten av databaser på servern. Du kan till exempel ha tabellen infogningar som behöver granskas endast för en viss databas.
 > * Du vill använda Hotidentifiering, vilket är för närvarande stöds endast med granskning på databasnivå.
->
 
+> [!IMPORTANT]
+>Aktivera granskning på en Azure SQL Data Warehouse eller på en server som har en Azure SQL Data Warehouse, **leder till datalagret återtas**, även i de fall där det tidigare pausades. **Glöm inte att pausa informationslagret igen när du har aktiverat granskning**.
 
 ## <a id="subheading-5"></a>Konfigurera serverniv för alla databaser
 

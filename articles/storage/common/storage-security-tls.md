@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/25/2018
 ms.author: fryu
-ms.openlocfilehash: 5c21df2b3bdeee6ac7c3956fe1cafa4f947dd6dd
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 6c313b6015a8a6dcc4ca5befb5fef70b047d0410
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036435"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866533"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Aktivera säker TLS för Azure Storage-klient
 
-När du behöver granska dina tjänster med Azure Storage baserat på senaste kompatibilitet och säkerhetskrav, SSL 1.0, 2.0, 3.0 och TLS 1.0 identifieras som icke-kompatibla kommunikationsprotokoll.
+När du vill granska dina tjänster i med hjälp av Azure Storage baserat på senaste efterlevnads- och säkerhetskrav, SSL 1.0, 2.0, 3.0 och TLS 1.0 betraktas som icke-kompatibla kommunikationsprotokoll.
 
-SSL version 1.0, 2.0 och 3.0 har befunnits vara utsatt. De har förbjudits av RFC. TLS 1.0 blir osäker för användning av osäker blockchiffer (DES CBC och RC2 CBC) och dataströmmen cipher (RC4). PCI council föreslog migreringen till högre TLS-version. Mer information hittar du [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
+SSL 1.0, 2.0 och 3.0 har hittats sårbara. De har förbjudits av RFC. TLS 1.0 blir osäkert för att använda osäkert blockchiffer (DES CBC och RC2 CBC) och Stream cipher (RC4). PCI-rådet föreslås också migreringen till högre TLS-version. Mer information kan du se [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
 
-Azure Storage har stoppats SSL 3.0 sedan 2015 och använder TLS 1.2 på offentliga HTTPs-slutpunkter men TLS 1.0- och TLS 1.1 som fortfarande stöds för bakåtkompatibilitet.
+Azure Storage har stoppats SSL 3.0 sedan 2015 och använder TLS 1.2 på offentliga HTTPs-slutpunkter, men TLS 1.0 och TLS 1.1 kan fortfarande användas för bakåtkompatibilitet.
 
-För att säkerställa säker och kompatibla anslutningen till Azure Storage, måste du Aktivera TLS 1.2 på klienten innan du skickar begäranden till fungerar Azure Storage-tjänst.
+För att säkerställa säker och kompatibel anslutning till Azure Storage kan behöva du Aktivera TLS 1.2 på klientsidan innan du skickar begäranden om att använda Azure Storage-tjänsten.
 
-## <a name="enable-tls-12-in-net-client"></a>Aktivera TLS 1.2 i .NET-klienten
+## <a name="enable-tls-12-in-net-client"></a>Aktivera TLS 1.2 på .NET-klient
 
-Både behöver stöd för TLS 1.2 för klienten att förhandla TLS 1.2, Operativsystemet och .NET Framework-version. Se mer information i [stöd för TLS 1.2](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12).
+För att klienten kan förhandla TLS 1.2, Operativsystemet och .NET Framework-version måste både du stöd för TLS 1.2. Se mer information finns i [stöd för TLS 1.2](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12).
 
-I följande exempel visas hur du aktiverar TLS 1.2 i .NET-klienten.
+I följande exempel visas hur du aktiverar TLS 1.2 .NET-klienten.
 
 ```csharp
 
@@ -54,9 +54,9 @@ I följande exempel visas hur du aktiverar TLS 1.2 i .NET-klienten.
 
 ```
 
-## <a name="enable-tls-12-in-powershell-client"></a>Aktivera TLS 1.2 i PowerShell-klienten
+## <a name="enable-tls-12-in-powershell-client"></a>Aktivera TLS 1.2 i PowerShell-klient
 
-I följande exempel visas hur du aktiverar TLS 1.2 i PowerShell-klienten.
+I följande exempel visas hur du aktiverar TLS 1.2 PowerShell-klienten.
 
 ```powershell
 
@@ -75,14 +75,15 @@ $listOfContainers
 
 ```
 
-## <a name="verify-tls-12-connection"></a>Verifiera TLS 1.2-anslutning
+## <a name="verify-tls-12-connection"></a>Verifiera TLS 1.2-anslutningen
 
-Du kan använda Fiddler för att kontrollera om TLS 1.2 är faktiskt används. Öppna Fiddler att börja samla in nätverkstrafik för klienten och sedan köra ovanstående exempel. Sedan hittar TLS-version i den anslutning som gör att provet.
+Du kan använda Fiddler för att verifiera om TLS 1.2 används faktiskt. Öppna Fiddler för att börja samla in nätverkstrafik för klienten och sedan köra ovan exemplet. Sedan kan du hitta TLS-version i den anslutning som gör provet.
 
 Följande skärmbild visas ett exempel för verifiering.
 
-![Skärmbild av verifiera TLS version i Fiddler](./media/storage-security-tls/storage-security-tls-verify-in-fiddler.png)
+![Skärmbild med att verifiera TLS-version i Fiddler](./media/storage-security-tls/storage-security-tls-verify-in-fiddler.png)
 
 ## <a name="see-also"></a>Se också
 
 * [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
+* [Aktivera TLS i Java-klient](https://www.java.com/en/configure_crypto.html)

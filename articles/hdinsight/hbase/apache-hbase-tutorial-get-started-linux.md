@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: b9298b081baf94350ab19a5d9a8af2705327eed6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a77724bd5ed14bf8eb91bf64a1837ce7106edd06
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102372"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867903"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Kom igång med ett Apache HBase-exempel i HDInsight
 
@@ -35,7 +35,7 @@ Innan du testar det här HBase-exemplet måste du ha följande objekt:
 * [curl](http://curl.haxx.se/download.html).
 
 ## <a name="create-hbase-cluster"></a>Skapa HBase-kluster
-Följande procedur använder en Azure Resource Manager-mall för att skapa ett HBase-kluster och det beroende standardkontot för Azure Storage. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Läs mer om hur du använder Data Lake lagring Gen2 [Snabbstart: Skapa kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+Följande procedur använder en Azure Resource Manager-mall för att skapa ett HBase-kluster och det beroende standardkontot för Azure Storage. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Läs mer om hur du använder Data Lake Storage Gen2 [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Klicka på följande bild för att öppna mallen i Azure Portal. Mallen finns i [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/).
    
@@ -43,7 +43,7 @@ Följande procedur använder en Azure Resource Manager-mall för att skapa ett H
 2. Från bladet **Anpassad distribution** anger du följande värden:
    
    * **Prenumeration**: Välj den Azure-prenumeration som kommer användas för att skapa klustret.
-   * **Resursgruppen**: skapa en Azure-resurshanteraren hanteringsgrupp eller använda en befintlig.
+   * **Resursgrupp**: skapa en Azure Resource management-grupp eller Använd en befintlig.
    * **Plats**: Ange platsen för resursgruppen. 
    * **Klusternamn**: Ange ett namn för HBase-klustret.
    * **Klustrets inloggningsnamn och lösenord**: Inloggningsnamnet är som standard **admin**.
@@ -248,7 +248,7 @@ HBase i HDInsight levereras med ett webbgränssnitt för övervakning av kluster
 
 **Så här får du åtkomst till HBase Master UI**
 
-1. Logga in på Ambari-webbgränssnittet på https://&lt;Clustername>.azurehdinsight.net.
+1. Logga in på Ambari-webbgränssnittet på https://&lt;klusternamn >. azurehdinsight.net.
 2. Klicka på **HBase** på den vänstra menyn.
 3. Klicka på **Snabblänkar** överst på sidan, peka på den aktiva Zookeeper-nodlänken och klicka sedan på **HBase Master UI**.  Gränssnittet har öppnats i en annan webbläsarflik:
 

@@ -1,6 +1,6 @@
 ---
 title: Kopiera data till och från Oracle med hjälp av Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från stöds källa lagrar till en Oracle-databas eller Oracle stöds sink butiker med hjälp av Data Factory.
+description: Lär dig hur du kopierar data från stöds butiker till en Oracle-databas eller från Oracle till mottagarens datalager med Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 6a232787793f9f4992a4dece821ae0bcc9059afc
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5039399ac875add02319e1a745d99344956c7bee
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059118"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860222"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Aktuell version](connector-oracle.md)
 
-Den här artikeln beskrivs hur du använder Kopieringsaktiviteten i Azure Data Factory för att kopiera data från och till en Oracle-databas. Den bygger på den [Kopieringsaktiviteten översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över aktiviteten kopia.
+Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från och till en Oracle-databas. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över kopieringsaktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från en Oracle-databas till alla stöds sink-datalagret. Du kan också kopiera data från alla datalager stöds källa till en Oracle-databas. En lista över datalager som stöds som datakällor eller sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från en Oracle-databas till alla datalager för mottagare som stöds. Du kan också kopiera data från alla dataarkiv till en Oracle-databas. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Mer specifikt stöder denna koppling Oracle följande versioner av en Oracle-databas. Det stöder också grundläggande eller OID autentiseringar:
+Mer specifikt stöder Oracle-anslutningsapp följande versioner av en Oracle-databas. Det stöder också grundläggande eller OID autentiseringar:
 
 - Oracle 12c R1 (12.1)
 - Oracle 11g R1, R2 (11.1, 11.2)
@@ -44,23 +44,26 @@ Mer specifikt stöder denna koppling Oracle följande versioner av en Oracle-dat
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill kopiera data från och till en Oracle-databas som inte är offentligt tillgänglig, måste du konfigurera en Self-hosted integrering Runtime. Mer information om integration runtime finns [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md). Integration runtime innehåller en inbyggd Oracle-drivrutin. Därför behöver du inte installera en drivrutin manuellt när du kopierar data från och till Oracle.
+För att kopiera data från och till en Oracle-databas som inte är offentligt tillgänglig, måste du konfigurera en lokal Integration Runtime. Mer information om integration runtime finns i [lokal Integration Runtime](create-self-hosted-integration-runtime.md). Integration runtime får en inbyggd drivrutin för Oracle. Därför behöver du inte installera en drivrutin manuellt när du kopierar data från och till Oracle.
 
 ## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Oracle-anslutningstjänsten.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Oracle-anslutningsapp.
 
-## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för Oracle länkade tjänsten.
+Följande egenskaper har stöd för Oracle-länkade tjänsten.
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type måste anges till **Oracle**. | Ja |
-| connectionString | Anger information som behövs för att ansluta till Oracle-databasinstansen. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Stöd för anslutningstypen**: du kan använda **Oracle SID** eller **Oracle tjänstnamnet** att identifiera din databas:<br>– Om du använder SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Om du använder namn på tjänst: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
-| connectVia | Den [integrering runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime eller Azure Integration Runtime (om datalager är offentligt tillgänglig). Om inget anges används standard-Azure Integration Runtime. |Nej |
+| typ | Type-egenskapen måste anges till **Oracle**. | Ja |
+| connectionString | Anger information som behövs för att ansluta till Oracle Database-instans. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Stöd för anslutningstypen**: du kan använda **Oracle-SID** eller **Oracle-tjänstnamn** att identifiera din databas:<br>– Om du använder SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Om du använder tjänstens namn: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
+| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
+
+>[!TIP]
+>Om du stöter på fel som säger ”ORA-01025: UPI parametern är utanför intervallet” och din Oracle är av version 8i, lägga till `WireProtocolMode=1` till din anslutningssträng och försök igen.
 
 **Exempel:**
 
@@ -85,13 +88,13 @@ Följande egenskaper har stöd för Oracle länkade tjänsten.
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns på [datauppsättningar](concepts-datasets-linked-services.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-datauppsättningen.
 
-Ange typegenskapen för dataset för att kopiera data från och till Oracle, **OracleTable**. Följande egenskaper stöds.
+För att kopiera data från och till Oracle, ange typegenskapen på datauppsättningen till **OracleTable**. Följande egenskaper stöds.
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för dataset måste anges till **OracleTable**. | Ja |
+| typ | Type-egenskapen för datauppsättningen måste anges till **OracleTable**. | Ja |
 | tableName |Namnet på tabellen i Oracle-databas som den länkade tjänsten refererar till. | Ja |
 
 **Exempel:**
@@ -115,18 +118,18 @@ Ange typegenskapen för dataset för att kopiera data från och till Oracle, **O
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-källa och mottagare.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-källa och mottagare.
 
-### <a name="oracle-as-a-source-type"></a>Oracle som typ av datakälla
+### <a name="oracle-as-a-source-type"></a>Oracle som en typ av datakälla
 
-Om du vill kopiera data från Oracle, anger du källa i kopieringsaktiviteten till **OracleSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt.
+För att kopiera data från Oracle, ange typ av datakälla i kopieringsaktiviteten till **OracleSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet.
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för aktiviteten kopieringskälla måste anges till **OracleSource**. | Ja |
+| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till **OracleSource**. | Ja |
 | oracleReaderQuery | Använda anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`. | Nej |
 
-Om du inte anger ”oracleReaderQuery” kolumner som har definierats i avsnittet ”struktur” i dataset används för att skapa en fråga (`select column1, column2 from mytable`) att köra mot Oracle-databasen. Om datauppsättningsdefinitionen inte har ”struktur”, markeras alla kolumner från tabellen.
+Om du inte anger ”oracleReaderQuery”, de kolumner som definierats i avsnittet ”struktur” av datauppsättningen som används för att skapa en fråga (`select column1, column2 from mytable`) ska köras på Oracle-databasen. Om definitionen för datauppsättningen inte har ”struktur”, markeras alla kolumner från tabellen.
 
 **Exempel:**
 
@@ -160,16 +163,16 @@ Om du inte anger ”oracleReaderQuery” kolumner som har definierats i avsnitte
 ]
 ```
 
-### <a name="oracle-as-a-sink-type"></a>Oracle som en Mottagartypen
+### <a name="oracle-as-a-sink-type"></a>Oracle som en Mottagartyp
 
-Om du vill kopiera data till Oracle, anger du sink i kopieringsaktiviteten till **OracleSink**. Följande egenskaper stöds i kopieringsaktiviteten **sink** avsnitt.
+Om du vill kopiera data till Oracle, ange Mottagartyp i kopieringsaktiviteten till **OracleSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet.
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för kopiera aktivitet sink måste anges till **OracleSink**. | Ja |
-| writeBatchSize | Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är heltal (antalet rader). |Nej (standardvärdet är 10 000-tal) |
-| writeBatchTimeout | Vänta tills batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är Timespan. Ett exempel är 00:30:00 (30 minuter). | Nej |
-| preCopyScript | Ange en SQL-fråga för kopieringsaktiviteten ska köras innan data skrivs till Oracle i varje körning. Du kan använda den här egenskapen för att rensa förinstallerade data. | Nej |
+| typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **OracleSink**. | Ja |
+| writeBatchSize | Infogar data i SQL-tabell när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är heltal (antal rader). |Nej (standardvärdet är 10 000) |
+| writeBatchTimeout | Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är tidsintervallet. Ett exempel är 00:30:00 (30 minuter). | Nej |
+| preCopyScript | Ange en SQL-fråga för kopieringsaktiviteten ska köras innan du skriver data till Oracle i varje körning. Du kan använda den här egenskapen för att rensa upp de förinstallerade data. | Nej |
 
 **Exempel:**
 
@@ -202,11 +205,11 @@ Om du vill kopiera data till Oracle, anger du sink i kopieringsaktiviteten till 
 ]
 ```
 
-## <a name="data-type-mapping-for-oracle"></a>Mappning för Oracle-datatyp
+## <a name="data-type-mapping-for-oracle"></a>Datatypen mappning för Oracle
 
-När du kopierar data från och till Oracle, används följande mappningar från Oracle-datatyper till Data Factory tillfälliga datatyper. Läs om hur kopieringsaktiviteten mappar källtypen schema och data till sink i [Schema- och Skriv mappningar](copy-activity-schema-and-type-mapping.md).
+När du kopierar data från och till Oracle, används följande mappningar från Oracle-datatyper till Data Factory tillfälliga-datatyper. Mer information om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren, se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md).
 
-| Oracle-datatyp | Data Factory tillfälliga datatyp |
+| Oracle-datatypen | Data Factory tillfälliga datatyp |
 |:--- |:--- |
 | BFILE |Byte] |
 | BLOB |Byte]<br/>(endast kan användas på Oracle 10g och senare) |
@@ -216,23 +219,23 @@ När du kopierar data från och till Oracle, används följande mappningar från
 | FLYTTAL |Decimal, sträng (om precision > 28) |
 | HELTAL |Decimal, sträng (om precision > 28) |
 | LÅNG |Sträng |
-| LÅNGT RÅDATA |Byte] |
+| LÄNGE RÅDATA |Byte] |
 | NCHAR |Sträng |
 | NCLOB |Sträng |
 | ANTAL |Decimal, sträng (om precision > 28) |
 | NVARCHAR2 |Sträng |
 | RÅDATA |Byte] |
-| ROWID |Sträng |
+| RAD-ID |Sträng |
 | TIDSSTÄMPEL |DateTime |
 | TIDSSTÄMPEL MED LOKALA TIDSZON |Sträng |
 | TIDSSTÄMPEL MED TIDSZON |Sträng |
-| OSIGNERAT HELTAL |Tal |
+| HELTALET |Tal |
 | VARCHAR2 |Sträng |
 | XML |Sträng |
 
 > [!NOTE]
-> Datatyperna intervall år till månad och intervall dag till andra stöds inte.
+> Datatyperna intervall år till månad och INTERVALLET dag till andra stöds inte.
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Data Factory finns [stöds datalager](copy-activity-overview.md##supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

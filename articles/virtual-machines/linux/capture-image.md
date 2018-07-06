@@ -1,6 +1,6 @@
 ---
-title: Hämta en avbildning av en Linux VM i Azure med hjälp av CLI 2.0 | Microsoft Docs
-description: Hämta en avbildning av en Azure VM ska användas för masslagring distributioner som använder Azure CLI 2.0.
+title: Spara en avbildning av en Linux-VM i Azure med hjälp av CLI 2.0 | Microsoft Docs
+description: Spara en avbildning av en Azure-dator som ska användas för drivrutiner för masslagring distributioner med Azure CLI 2.0.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,40 +15,40 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: bb70b3ff84392797ce0d93b8cf5d4018ff8ebdd8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ea202cad06130cfaaa134cad94ac08bede2f41a9
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941977"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867709"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Så här skapar du en avbildning av en virtuell dator eller virtuell Hårddisk
 
 <!-- generalize, image - extended version of the tutorial-->
 
-Om du vill skapa flera kopior av en virtuell dator (VM) ska användas i Azure, en avbildning av den virtuella datorn eller OS-VHD. Om du vill skapa en avbildning måste du ta bort personlig information som gör det säkrare att distribuera flera gånger. I följande steg du ta bort etableringen av en befintlig virtuell dator frigöra och skapa en avbildning. Du kan använda den här avbildningen för att skapa virtuella datorer på en resursgrupp i din prenumeration.
+Om du vill skapa flera kopior av en virtuell dator (VM) för att använda i Azure, hämta en avbildning av den virtuella datorn eller OS-VHD. Om du vill skapa en avbildning måste du ta bort personlig information som gör det säkrast att distribuera flera gånger. I följande steg avetablera en befintlig virtuell dator du, frigöra och skapa en avbildning. Du kan använda den här bilden för att skapa virtuella datorer mellan alla resursgrupper i din prenumeration.
 
-Om du vill skapa en kopia av din befintliga Linux-VM för säkerhetskopiering eller felsökning, eller överför en särskild Linux VHD från en lokal virtuell dator, se [överför och skapa en Linux VM från anpassade diskavbildning](upload-vhd.md).  
+Om du vill skapa en kopia av din befintliga Linux-VM för säkerhetskopiering och felsökning, eller ladda upp en specialiserad Linux-VHD från en lokal virtuell dator kan du läsa [ladda upp och skapa en Linux VM från anpassad diskavbildning](upload-vhd.md).  
 
-Du kan också använda **förpackaren** att skapa en anpassad konfiguration. Mer information om hur du använder förpackaren finns [använda förpackaren för att skapa avbildningar av Linux virtuella datorer i Azure](build-image-with-packer.md).
+Du kan också använda **Packer** att skapa din egen konfiguration. Läs mer om hur du använder Packer [hur du använder Packer för att skapa Linux-avbildningar i Azure](build-image-with-packer.md).
 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Se till att du uppfyller följande krav:
 
-* Du behöver en Azure VM som skapats i Resource Manager-distributionsmodellen med hjälp av hanterade diskar. Om du inte har skapat en Linux VM, kan du använda den [portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md), eller [Resource Manager-mallar](create-ssh-secured-vm-from-template.md). Konfigurera den virtuella datorn. Till exempel [lägga till datadiskar](add-disk.md), tillämpa uppdateringar och installera program. 
+* Du behöver en Azure-dator som skapats i Resource Manager-distributionsmodellen som använder hanterade diskar. Om du inte har skapat en Linux VM, kan du använda den [portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md), eller [Resource Manager-mallar](create-ssh-secured-vm-from-template.md). Konfigurera den virtuella datorn efter behov. Till exempel [lägga till datadiskar](add-disk.md), tillämpa uppdateringar och installera program. 
 
-* Du måste också har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och logga in till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).
+* Du måste också ha senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och vara inloggad på ett Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
 ## <a name="quick-commands"></a>Snabbkommandon
 
-En förenklad version av det här avsnittet för att testa, utvärderar eller Lär dig mer om virtuella datorer i Azure finns [skapa en anpassad avbildning av en virtuell Azure-dator med hjälp av CLI](tutorial-custom-images.md).
+En förenklad version av det här avsnittet för att testa, utvärderar eller lära dig om virtuella datorer i Azure finns [skapa en anpassad avbildning av en Azure-dator med hjälp av CLI](tutorial-custom-images.md).
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Steg 1: Ta bort etableringen av den virtuella datorn
-Du ta bort etableringen av den virtuella datorn med Virtuella Azure-agenten att ta bort specifika filer och data. Använd den `waagent` kommandot med de *-deprovision + användare* parameter på käll-Linux VM. Mer information finns i [Användarguide för Azure Linux Agent](../extensions/agent-linux.md).
+Du avetablera den virtuella datorn, med hjälp av Azure VM-agenten att ta bort specifika filer och data. Använd den `waagent` med den *-avetablering + användare* parametern på källan Linux VM. Mer information finns i [Användarguide för Azure Linux Agent](../extensions/agent-linux.md).
 
-1. Ansluta till din Linux VM som använder en SSH-klient.
+1. Anslut till din Linux-VM med hjälp av en SSH-klient.
 2. I fönstret SSH skriver du följande kommando:
    
     ```bash
@@ -56,15 +56,15 @@ Du ta bort etableringen av den virtuella datorn med Virtuella Azure-agenten att 
     ```
 <br>
    > [!NOTE]
-   > Endast köra kommandot på en virtuell dator som du vill samla in som en bild. Är det inte säkert att avbildningen är avmarkerad av all känslig information eller lämpar sig för omfördelning. Den *+ användaren* parametern tar också bort det senaste kontot för etablerad användare. Om du vill behålla autentiseringsuppgifter i den virtuella datorn bara använda *-deprovision* lämna användarkontot på plats.
+   > Kör bara det här kommandot på en virtuell dator som du vill spara som en bild. Det garanterar inte att avbildningen är avmarkerad av all känslig information eller lämpar sig för Vidaredistribution. Den *+ användare* parametern tar också bort senast etablerade användarkontot. Om du vill behålla autentiseringsuppgifter i den virtuella datorn kan bara använda *-avetablering* och ha kvar användarkontot datorn.
  
-3. Typen **y** att fortsätta. Du kan lägga till den **-tvinga** parametern för att undvika det här steget bekräftelse.
-4. När kommandot har slutförts genom att skriva **avsluta**. Det här steget stänger SSH-klienten.
+3. Typ **y** att fortsätta. Du kan lägga till den **-tvinga** parametern för att undvika det här steget för bekräftelse.
+4. När kommandot har slutförts, skriver **avsluta**. Det här steget stängs SSH-klienten.
 
 ## <a name="step-2-create-vm-image"></a>Steg 2: Skapa VM-avbildning
-Använda Azure CLI 2.0 för att markera den virtuella datorn som generaliserad och spara avbildningen. Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar *myResourceGroup*, *myVnet*, och *myVM*.
+Använda Azure CLI 2.0 för att markera den virtuella datorn som generaliserad och spara avbildningen. I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen inkluderar *myResourceGroup*, *myVnet*, och *myVM*.
 
-1. Frigör den virtuella datorn som du avetableras med [az vm frigöra](/cli//azure/vm#deallocate). I följande exempel tar bort den virtuella datorn med namnet *myVM* i resursgrupp med namnet *myResourceGroup*:
+1. Frigör den virtuella datorn som du tagit bort etableringen med [az vm deallocate](/cli//azure/vm#deallocate). I följande exempel bort den virtuella datorn med namnet *myVM* i resursgruppen med namnet *myResourceGroup*:
    
     ```azurecli
     az vm deallocate \
@@ -72,7 +72,7 @@ Använda Azure CLI 2.0 för att markera den virtuella datorn som generaliserad o
       --name myVM
     ```
 
-2. Markera den virtuella datorn som generaliserad med [az vm generalisera](/cli//azure/vm#generalize). Följande exempel märken på den virtuella datorn med namnet *myVM* i resursgrupp med namnet *myResourceGroup* som generaliserad:
+2. Markera den virtuella datorn som generaliserad med [az vm generalize](/cli//azure/vm#generalize). I följande exempel markeras den virtuella datorn med namnet *myVM* i resursgruppen med namnet *myResourceGroup* som generaliserad:
    
     ```azurecli
     az vm generalize \
@@ -80,7 +80,7 @@ Använda Azure CLI 2.0 för att markera den virtuella datorn som generaliserad o
       --name myVM
     ```
 
-3. Nu skapa en avbildning av den Virtuella datorresursen med [az bild skapa](/cli/azure/image#az_image_create). I följande exempel skapas en bild med namnet *myImage* i resursgrupp med namnet *myResourceGroup* med hjälp av den Virtuella datorresursen med namnet *myVM*:
+3. Nu skapa en avbildning av den Virtuella datorresursen med [az bild skapa](/cli/azure/image#az_image_create). I följande exempel skapas en avbildning med namnet *myImage* i resursgruppen med namnet *myResourceGroup* med hjälp av VM-resurs med namnet *myVM*:
    
     ```azurecli
     az image create \
@@ -89,12 +89,12 @@ Använda Azure CLI 2.0 för att markera den virtuella datorn som generaliserad o
     ```
    
    > [!NOTE]
-   > Bilden har skapats i samma resursgrupp som ditt Virtuella källdatorn. Du kan skapa virtuella datorer i valfri resursgrupp i din prenumeration från den här avbildningen. Ur management kan du skapa en viss resursgrupp för VM-resurser och bilder.
+   > Avbildningen skapas i samma resursgrupp som den Virtuella källdatorn. Du kan skapa virtuella datorer i valfri resursgrupp i din prenumeration från den här avbildningen. Du kanske vill skapa en specifik resursgrupp för VM-resurser och bilder från en management-perspektiv.
    >
-   > Om du vill lagra avbildningen i zonen flexibel måste du skapa i en region som stöder [tillgänglighet zoner](../../availability-zones/az-overview.md) och inkludera den `--zone-resilient true` parameter.
+   > Om du vill lagra avbildningen i zonen flexibel lagring måste du skapa den i en region som har stöd för [tillgänglighetszoner](../../availability-zones/az-overview.md) och inkludera den `--zone-resilient true` parametern.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Steg 3: Skapa en virtuell dator från avbildningen
-Skapa en virtuell dator med hjälp av den avbildning som du skapat med [az vm skapa](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVMDeployed* från avbildningen med namnet *myImage*:
+Skapa en virtuell dator med hjälp av den avbildning som du skapade med [az vm skapa](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVMDeployed* från avbildningen med namnet *myImage*:
 
 ```azurecli
 az vm create \
@@ -107,7 +107,7 @@ az vm create \
 
 ### <a name="creating-the-vm-in-another-resource-group"></a>Skapa den virtuella datorn i en annan resursgrupp 
 
-Du kan skapa virtuella datorer från en avbildning i valfri resursgrupp i din prenumeration. Ange fullständiga resurs-ID i avbildningen för att skapa en virtuell dator i en annan resursgrupp än avbildningen. Använd [az bildlista](/cli/azure/image#az_image_list) att visa en lista över avbildningar. Utdata ser ut ungefär så här:
+Du kan skapa virtuella datorer från en avbildning i alla resursgrupper i din prenumeration. Om du vill skapa en virtuell dator i en annan resursgrupp än avbildningen som du ange fullständigt resurs-ID i avbildningen. Använd [az bildlista](/cli/azure/image#az_image_list) att visa en lista över avbildningar. Utdata ser ut ungefär så här:
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -115,7 +115,7 @@ Du kan skapa virtuella datorer från en avbildning i valfri resursgrupp i din pr
    "name": "myImage",
 ```
 
-I följande exempel används [az vm skapa](/cli/azure/vm#az_vm_create) att skapa en virtuell dator i en annan resursgrupp än källbilden genom att ange Bildresursen:
+I följande exempel används [az vm skapa](/cli/azure/vm#az_vm_create) skapa en virtuell dator i en annan resursgrupp än avbildningen som källa genom att ange resurs-ID för avbildningen:
 
 ```azurecli
 az vm create \
@@ -127,9 +127,9 @@ az vm create \
 ```
 
 
-## <a name="step-4-verify-the-deployment"></a>Steg 4: Verifiera distributionen
+## <a name="step-4-verify-the-deployment"></a>Steg 4: Kontrollera distributionen
 
-Nu SSH till den virtuella datorn som du skapade för att kontrollera distributionen och börja använda den nya virtuella datorn. För att ansluta via SSH, hitta IP-adress eller FQDN för den virtuella datorn med [az vm visa](/cli/azure/vm#az_vm_show):
+Nu SSH till den virtuella datorn som du skapade för att verifiera distributionen och börja använda den nya virtuella datorn. För att ansluta via SSH, hitta IP-adress eller FQDN för den virtuella datorn med [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \
@@ -139,11 +139,11 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan skapa flera virtuella datorer från din datakälla VM-avbildning. Om du behöver göra ändringar i avbildningen: 
+Du kan skapa flera virtuella datorer från din käll-avbildning. Om du behöver göra ändringar i din avbildning: 
 
-- Skapa en virtuell dator från en avbildning.
-- Se några uppdateringar eller ändringar i konfigurationen.
-- Följ stegen igen för att ta bort etableringen, frigöra, generalisera och skapa en avbildning.
-- Använd den här nya avbildningen för framtida distributioner. Om du vill ta bort den ursprungliga avbildningen.
+- Skapa en virtuell dator utifrån din avbildning.
+- Se några uppdateringar eller konfigurationsändringar.
+- Följ stegen igen för att avetablera, frigöra, generalisera och skapa en avbildning.
+- Använd den nya avbildningen för framtida distributioner. Om du vill kan du ta bort den ursprungliga avbildningen.
 
-Mer information om hur du hanterar dina virtuella datorer med CLI finns [Azure CLI 2.0](/cli/azure).
+Mer information om hur du hanterar dina virtuella datorer med CLI finns i [Azure CLI 2.0](/cli/azure).

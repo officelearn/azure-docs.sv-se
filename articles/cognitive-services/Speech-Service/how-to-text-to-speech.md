@@ -1,6 +1,6 @@
 ---
-title: Använd Text till tal med tal services | Microsoft Docs
-description: Lär dig använda använda Text till tal i tjänsten tal.
+title: Använd Text till tal med taltjänster | Microsoft Docs
+description: Lär dig hur du använder använda Text till tal i Speech-tjänsten.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -10,26 +10,26 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6c358b5a40b1d8e91c2e1af5eb493b13604cf82e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0ace89e04baf81776f82edd002b93b944c752051
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045066"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860140"
 ---
-# <a name="use-text-to-speech-in-speech-service"></a>Använd ”Text till tal” i tal service
+# <a name="use-text-to-speech-in-speech-service"></a>Använd ”Text till tal” i Speech service
 
-Tjänsten tal innehåller Text till tal-funktion via en enkel HTTP-begäran. Du efter texten som ska läsas till lämplig slutpunkten och tjänsten returnerar en ljudfil (`.wav`) som innehåller syntetiskt tal. Programmet kan sedan använda den här ljud som den gillar.
+Med taltjänsten innehåller Text till tal-funktioner via en enkel HTTP-begäran. Du PUBLICERAR texten som ska läsas till lämplig slutpunkt och tjänsten returnerar en ljudfil (`.wav`) som innehåller syntetiskt tal. Programmet kan sedan använda den här ljud som den gillar.
 
-Begäran om programvaruprinciptext för efter Text till tal kan vara oformaterad text (ASCII- eller UTF8) eller ett [SSML](speech-synthesis-markup.md) dokumentet. Oformaterad text begäranden talas med en standard-röst. I de flesta fall som du vill använda en SSML-brödtext. HTTP-begäran måste innehålla en autentiseringstoken. 
+Begäran om programvaruprinciptext för INLÄGGET Text till tal kan vara oformaterad text (ASCII eller UTF8) eller ett [SSML](speech-synthesis-markup.md) dokumentet. Oformaterad text begäranden läses med en standard-röst. I de flesta fall som du vill använda en SSML brödtext. HTTP-begäran måste innehålla en [auktorisering](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#authentication) token. 
 
-Regional Text till tal-slutpunkter som visas här. Använd en lämplig till din prenumeration.
+Regionala Text till tal-slutpunkter visas här. Använd en lämplig till din prenumeration.
 
 [!include[](includes/endpoints-text-to-speech.md)]
 
 ## <a name="specify-a-voice"></a>Ange en röst
 
-Om du vill ange en röst använder den `<voice>` [SSML](speech-synthesis-markup.md) tagg. Exempel:
+Om du vill ange en röst, använda den `<voice>` [SSML](speech-synthesis-markup.md) tagg. Exempel:
 
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
@@ -39,23 +39,23 @@ Om du vill ange en röst använder den `<voice>` [SSML](speech-synthesis-markup.
 </speak>
 ```
 
-Se [Text till tal-röster](supported-languages.md#text-to-speech) en lista över tillgängliga röster och deras namn.
+Se [Text till tal röster](supported-languages.md#text-to-speech) en lista över tillgängliga röster och deras namn.
 
-## <a name="make-a-request"></a>Gör en förfrågan
+## <a name="make-a-request"></a>Gör en begäran
 
-En Text till tal HTTP-begäran görs i POST-läge med texten som ska talas i brödtexten i begäran. Den maximala längden på texten på HTTP-begäran är 1024 tecken. Förfrågan måste ha följande huvuden: 
+En Text till tal HTTP-begäran skickas i POST-läge med texten som ska talas i brödtexten i begäran. Den maximala längden på HTTP-begärandetexten är 1024 tecken. Begäran måste ha följande huvuden: 
 
 Sidhuvud|Värden|Kommentarer
 -|-|-
-|`Content-Type` | `application/ssml+xml` | Indata-format.
+|`Content-Type` | `application/ssml+xml` | Indata-text-format.
 |`X-Microsoft-OutputFormat`|     `raw-16khz-16bit-mono-pcm`<br>`audio-16khz-16kbps-mono-siren`<br>`riff-16khz-16kbps-mono-siren`<br>`riff-16khz-16bit-mono-pcm`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | Ljudformatet utdata.
-|`User-Agent`   |Programnamn | Programnamn krävs och måste vara färre än 255 tecken.
-| `Authorization`   | Autentiseringstoken som erhålls genom att presentera din prenumeration nyckel till tjänsten token. Varje token är giltig i tio minuter. Se [REST API: er: autentisering](rest-apis.md#authentication).
+|`User-Agent`   |Programnamn | Programnamnet är obligatoriskt och måste vara färre än 255 tecken.
+| `Authorization`   | Auktoriseringstoken som erhålls genom att presentera din prenumerationsnyckel till token-tjänsten. Varje token är giltig i tio minuter. Se [REST API: er: autentisering](rest-apis.md#authentication).
 
 > [!NOTE]
-> Om din rösten och utdataformat har olika bithastigheter, samplas ljuduppspelningen efter behov. 24khz röster stöder inte `audio-16khz-16kbps-mono-siren` och `riff-16khz-16kbps-mono-siren` utdataformat. 
+> Om din valda röst- och utdataformat har olika bithastigheter, samplas ljudet efter behov. 24khz röster stöder inte `audio-16khz-16kbps-mono-siren` och `riff-16khz-16kbps-mono-siren` utdataformat. 
 
-Ett exempel på begäran visas nedan.
+En exempelförfrågan visas nedan.
 
 ```xml
 POST /cognitiveservices/v1
@@ -72,7 +72,7 @@ Authorization: (authorization token)
 </voice> </speak>
 ```
 
-Svarstexten med status 200 innehåller ljud i angivet utdataformat.
+Svarstexten med statusen 200 innehåller ljud i angivet utdataformat.
 
 ```
 HTTP/1.1 200 OK
@@ -82,18 +82,18 @@ Content-Type: audio/x-wav
 Response audio payload
 ```
 
-Om ett fel inträffar, används statuskoder nedan. Svarstexten efter fel innehåller också en beskrivning av problemet.
+Om ett fel inträffar, används statuskoder nedan. Svarstexten för felet innehåller också en beskrivning av problemet.
 
 |Kod|Beskrivning|Problem|
 |-|-|-|
-400 |Felaktig förfrågan |En obligatorisk parameter är tom, null eller saknas. Eller värdet som skickas till antingen en obligatorisk eller valfri parameter är ogiltig. Ett vanligt problem som är en rubrik som är för lång.
-401|Behörighet saknas |Begäran är inte auktoriserad. Kontrollera att din prenumeration nyckel eller token är giltig.
-413|Om Begärandeenheten är för stor|SSML-indata är längre än 1024 tecken.
-|502|Felaktig gateway    | Problem med nätverket eller servern. Kan också indikera ogiltig huvuden.
+400 |Felaktig begäran |En obligatorisk parameter är tom, null eller saknas. Eller värdet som skickas till antingen en obligatorisk eller valfri parameter är ogiltig. Ett vanligt problem är en rubrik som är för lång.
+401|Behörighet saknas |Begäran har inte behörighet. Kontrollera att din prenumerationsnyckel eller token är giltig.
+413|Begäran om entiteten är för stor|SSML-indata är längre än 1024 tecken.
+|502|Felaktig gateway    | Problem med nätverket eller servern. Kan också vara ogiltiga sidhuvuden.
 
-Mer information om Text till tal REST-API finns [REST API: er](rest-apis.md#text-to-speech).
+Mer information om Text till tal REST-API finns i [REST API: er](rest-apis.md#text-to-speech).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hämta din utvärderingsprenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
-- [Identifiera tal i C#](quickstart-csharp-windows.md)
+- [Få en kostnadsfri prenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
+- [Känna igen tal i C#](quickstart-csharp-windows.md)

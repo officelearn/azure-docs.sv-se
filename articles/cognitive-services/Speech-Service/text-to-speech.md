@@ -10,36 +10,36 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 84baf03c83bb63883b80982056cdf6e1e25b3fb7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d7ec8648a8428558264c9bfd4d923523b90cce07
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355632"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855948"
 ---
 # <a name="about-the-text-to-speech-api"></a>Om Text till tal-API
 
-Den **Text till tal** (TTS) API för tjänsten tal konverterar-indata till låta naturliga tal (kallas även *tal sammanfattande*).
+Den **Text till tal** (text till tal-) API: et för Speech-tjänsten konverterar indata text till tal för naturlig standardrösttyper (kallas även *talsyntes*).
 
-Om du vill generera tal, skickar programmet HTTP POST-förfrågningar till tal-tjänst. Det, text syntetiskt till mänskliga låta tal och returneras som en ljudfil. En mängd olika röster och språk som stöds.
+För att generera tal, skickar programmet HTTP POST-förfrågningar till tal-tjänst. Där texten är syntetiskt till mänskliga standardrösttyper tal och returneras som en ljudfil. En mängd olika röster och språk som stöds.
 
-I vilken tal sammanfattande som antas scenarier är:
+Scenarier i vilka tal syntes används är:
 
-* *Förbättra tillgängligheten:* **Text till tal** tekniken möjliggör innehållsägare och utgivare att svara på olika sätt personer interagera med deras innehåll. Personer med visual försämring eller läsa svårigheter uppskattar att kunna använda innehåll aurally. Röst utdata också gör det enklare för personer som ska få textinnehåll, till exempel tidningar eller bloggar på mobila enheter när pendling eller utöva.
+* *Förbättra tillgängligheten:* **Text till tal** teknik kan innehållsägare och utgivare att svara på de olika sätt interagera med sitt innehåll. Personer med visual nedskrivningar eller läsa svårigheter uppskattar att kunna använda innehåll aurally. Röst utdata också gör det enklare för personer som gillar textinnehåll, till exempel newspapers eller bloggar på mobila enheter när du roamar eller utöva.
 
-* *Svara i scenarier med samtidig körning:* **Text till tal** gör det möjligt att snabbt och lätt upptar viktig information vid körning eller på annat sätt läsa miljö utanför en praktisk. Navigering är en vanlig tillämpning i det här området. 
+* *Svara i scenarier för flerprogramskörning:* **Text till tal** gör det möjligt för personer att absorbera viktig information snabbt och bekvämt vid körning eller annars utanför en praktisk läsning av miljö. Navigering är en vanlig tillämpning i det här området. 
 
-* *Utöka learning med flera lägen:* olika personer veta bäst på olika sätt. Onlineinlärning experter har visat att tillhandahåller röst- och tillsammans hjälper gör lättare att lära sig och behålla informationen.
+* *Förbättra inlärning med flera lägen:* olika personer Lär dig bästa på olika sätt. Utbildning online experter har visat att tillsammans att tillhandahålla röst- och text kan underlätta information att lära sig och behålla.
 
-* *Leverera intuitiva robotar eller assistenter:* möjligheten att prata kan vara en integrerad del av en intelligent chatt bot eller en virtuell Installationsassistenten. Fler och fler företag utvecklar chatt robotar för att ge spännande customer service upplevelser för sina kunder. Röst lägger till en annan dimension genom att låta den bot svar som tas emot aurally (till exempel av phone).
+* *Leverera intuitiva robotar eller assistenter:* möjligheten att prata kan vara en del av en intelligent chattrobot eller virtuella assistenter. Fler och fler företag utvecklar chatt robotar för att tillhandahålla engagerade service upplevelser för sina kunder. Röst lägger till en annan dimension genom att låta robotens svar tas emot aurally (till exempel av telefon).
 
-## <a name="voice-support"></a>Röst-support
+## <a name="voice-support"></a>Stöd för röst
 
-Microsoft **text till tal** tjänst erbjuder mer än 75 röster i mer än 45 språk och nationella inställningar. Om du vill använda dessa standard ”röst teckensnitt” behöver du bara ange röst-namn med några andra parametrar när du anropar tjänstens REST API. Mer information om röster som stöds finns i [språk som stöds](supported-languages.md). 
+Microsofts **text till tal** tjänsten erbjuder mer än 75 röster i mer än 45 språk och nationella inställningar. Om du vill använda dessa standard ”rösttyper”, behöver du bara ange voice-namn med några andra parametrar när du anropar tjänstens REST API. Information om röster som stöds, se [språk som stöds](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/supported-languages#text-to-speech). 
 
-Om du vill använda en unik röst för ditt program kan du skapa [anpassade röst teckensnitt](how-to-customize-voice-font.md) från tal exempel.
+Om du vill ha en unik röst för ditt program, kan du skapa [anpassade rösttyper](how-to-customize-voice-font.md) från din egen tal-exempel.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta din utvärderingsprenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
-* [Se hur du identifierar tal i C#](quickstart-csharp-windows.md)
+* [Få en kostnadsfri prenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
+* [Se hur du kan känna igen tal i C#](quickstart-csharp-windows.md)

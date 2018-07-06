@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.openlocfilehash: b4502dfc8f856516989326c8d748a5d13fdba02b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4b4b193751606883548e25e731dcece4ae72ba7b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634598"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858372"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Kom igång med IoT Hub-modulidentitet och modultvilling med portalen och .NET-enhet
 
@@ -26,12 +26,12 @@ I den här kursen lär du dig
 2. hur du använder .NET-enhetens SDK för att uppdatera modultvillingen från din enhet.
 
 > [!NOTE]
-> [Azure IoT SDKs][lnk-hub-sdks] innehåller information om Azure IoT SDK:er som du kan använda för att skapa båda programmen så att de kan köras på enheter och på lösningens backend-server.
+> Artikeln om [Azure IoT SDK:er][lnk-hub-sdks] innehåller information om Azure IoT SDK:er som du kan använda för att skapa båda programmen så att de kan köras på enheter och på lösningens backend-server.
 
 För att kunna genomföra den här kursen behöver du följande:
 
 * Visual Studio 2015 eller Visual Studio 2017.
-* Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [free account][lnk-free-trial] på bara några minuter.)
+* Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnadsfritt konto][lnk-free-trial] på bara några minuter.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -39,25 +39,25 @@ För att kunna genomföra den här kursen behöver du följande:
 
 Nu har du din IoT Hub. Öppna [portalen](https://portal.azure.com) och gå till IoT-hubben. Klicka på IoT-enheter och sedan på Lägg till för att skapa en enhetsidentitet. Ge den namnet **MyFirstDevice**. 
 
-![Create device identity][8]
+![Skapa enhetsidentitet][8]
 
 När du har sparat kan du se att MyFirstDevice-identiteten har skapats i din lista över enhetsidentiteter.
 
-![Device id created][11]
+![Enhets-id som skapats][11]
 
 Klicka nu på raden. Du ser information om enheten.
 
-![Device details][10]
+![Enhetsinformation][10]
 
 ## <a name="create-a-module-identity-in-the-portal"></a>Skapa en modulidentitet i portalen
 
 Inom en enhetsidentitet kan du skapa upp till 20 modulidentiteter. Klicka på knappen **Add Module Identity** (Lägg till modulidentitet) högst upp för att skapa din första modulidentitet som heter **myFirstModule**. 
 
-![Device details][9]
+![Enhetsinformation][9]
 
 Spara och klicka på modulidentiteten du nyss skapade. Du kan se information om modulidentiteten. Spara anslutningssträngen – primärnyckeln. Den kommer att användas i nästa avsnitt där du konfigurerar modulen på enheten.
 
-![Device details][12]
+![Enhetsinformation][12]
 
 <a id="D2C_csharp"></a>
 ## <a name="update-the-module-twin-using-net-device-sdk"></a>Uppdatera modultvillingen med SDK för .NET-enheter
@@ -66,15 +66,15 @@ Du har skapat modulidentiteten i din IoT Hub. Försök kommunicera till molnet f
 
 1. **Skapa ett Visual Studio-projekt**I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den befintliga lösningen med hjälp av projektmallen **Console App (.NET Framework)**. Kontrollera att .NET Framework-versionen är 4.6.1 eller senare. Ge projektet namnet **UpdateModuleTwinReportedProperties**.
 
-    ![Create a visual studio project][13]
+    ![Skapa ett Visual Studio-projekt][13]
 
-2. **Installera den senaste Azure IoT-hubb .NET enheten SDK** -modulen identitets- och modulen dubbla är tillgänglig som förhandsversion. Den finns bara tillgänglig i IoT Hub-förhandsversionens enhets-SDK:er. I Visual Studio öppnar du Verktyg > Nuget-pakethanteraren > Hantera NuGet-paket för lösningen. Sök efter Microsoft.Azure.Devices.Client. Se till att du markerar kryssrutan för att inkludera förhandsversion. Välj den senaste versionen och installera. Nu har du åtkomst till alla modulfunktioner. 
+2. **Installera den senaste Azure IoT Hub .NET-enheten-SDK** -modultvilling för identitets- och modulen finns i offentlig förhandsversion. Den finns bara tillgänglig i IoT Hub-förhandsversionens enhets-SDK:er. I Visual Studio öppnar du Verktyg > Nuget-pakethanteraren > Hantera NuGet-paket för lösningen. Sök efter Microsoft.Azure.Devices.Client. Se till att du markerar kryssrutan för att inkludera förhandsversion. Välj den senaste versionen och installera. Nu har du åtkomst till alla modulfunktioner. 
 
-    ![Install Azure IoT Hub .NET service SDK V1.16.0-preview-005][14]
+    ![Installera Azure IoT Hub .NET-tjänstens SDK V1.16.0-preview-005][14]
 
-3. **Hämta modulens anslutningssträng** – nu om du loggar in på [Azure portal][lnk-portal]. Gå till din IoT Hub och klicka på IoT-enheter. Leta rätt på myFirstDevice och öppna den, så ser du att myFirstModule har skapats. Kopiera modulens anslutningssträng. Den behövs i nästa steg.
+3. **Hämta modulens anslutningssträng** – nu om du loggar in på [Azure-portalen][lnk-portal]. Gå till din IoT Hub och klicka på IoT-enheter. Leta rätt på myFirstDevice och öppna den, så ser du att myFirstModule har skapats. Kopiera modulens anslutningssträng. Den behövs i nästa steg.
 
-    ![Azure portal module detail][15]
+    ![Information om Azure-portalmodulen][15]
 
 4. **Skapa UpdateModuleTwinReportedProperties-konsolapp** Lägg till följande `using`-instruktioner överst i **Program.cs**-filen:
 
@@ -143,18 +143,17 @@ Du har skapat modulidentiteten i din IoT Hub. Försök kommunicera till molnet f
     ```
 
     Det är kodexemplet visar hur du hämtar modultvillingen och uppdaterar rapporterade egenskaper med AMQP-protokollet. I offentlig förhandsversion stöder vi endast AMQP för modultvillingåtgärder.
-    ```
 
-## Run the apps
+## <a name="run-the-apps"></a>Kör apparna
 
-You are now ready to run the apps. In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for the console app. And then press F5 to start both apps running. 
+Nu är det dags att köra apparna. Högerklicka på din lösning i Solution Explorer i Visual Studio och klicka sedan på **Ange startprojekt**. Välj **Multiple startup projects** (Starta flera projekt) och välj **Starta** som åtgärd för konsolappen. Och tryck på F5 för att starta båda apparna. 
 
-## Next steps
+## <a name="next-steps"></a>Nästa steg
 
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
+Mer information om hur du kan komma igång med IoT Hub och utforska andra IoT-scenarier finns här:
 
-* [Get started with IoT Hub module identity and module twin using .NET backup and .NET device][lnk-csharp-csharp-getstarted]
-* [Getting started with IoT Edge][lnk-iot-edge]
+* [Kom igång med IoT Hub identitets- och modulen modultvilling med hjälp av .NET säkerhetskopierings- och .NET-enhet][lnk-csharp-csharp-getstarted]
+* [Komma igång med IoT Edge][lnk-iot-edge]
 
 
 <!-- Images. -->

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 06/29/2018
 ms.author: rolyon
-ms.openlocfilehash: f22190d81d8ffbb91e9573974d93d4b1ad35af18
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444352"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856424"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkor för Azure AD.
@@ -30,7 +30,7 @@ Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisa
 Användningsvillkor för Azure AD gör att du kan göra följande:
 - Kräva att anställda eller gäster accepterar dina användningsvillkor innan de får åtkomst.
 - Presentera allmänna användningsvillkor för alla användare i din organisation.
-- Specifika användningsvillkor baserat på användarattribut (t.ex. läkare jämfört med sjuksköterskor eller inhemska jämfört med internationella medarbetare, via [dynamiska grupper](active-directory-groups-dynamic-membership-azure-portal.md)).
+- Specifika användningsvillkor baserat på användarattribut (t.ex. läkare jämfört med sjuksköterskor eller inhemska jämfört med internationella medarbetare, via [dynamiska grupper](users-groups-roles/groups-dynamic-membership.md)).
 - Presentera specifika användningsvillkor vid åtkomst till affärskritiska program, t.ex. Salesforce.
 - Presentera användningsvillkor på olika språk.
 - Visa vem som har eller inte har godkänt dina användningsvillkor.

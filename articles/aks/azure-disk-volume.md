@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8aea56017d38b57d36f5f1d42e2d4e9ed1d809e5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f807264dc2c2e07ccd175fb1b0427b7ce9e9f524
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346101"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868253"
 ---
 # <a name="volumes-with-azure-disks"></a>Volymer med Azure-diskar
 
@@ -51,6 +51,10 @@ Du bör se utdata som liknar följande när du har skapat disken. Det här värd
 ```
 > [!NOTE]
 > Azure-hanterade diskar faktureras av SKU: N för en viss storlek. Dessa SKU: er mellan 32GiB för S4 eller P4 diskar och 4TiB för S50 eller P50 diskar. Dessutom är det dataflöde och IOPS-prestanda för en Premium managed disk beror på både SKU: N och instansstorleken för noderna i AKS-klustret. Se [priser och prestanda för hanterade diskar][managed-disk-pricing-performance].
+
+> [!NOTE]
+> Om du vill skapa disken i en separat resursgrupp kan du också behöva lägga till Azure Kubernetes Service (AKS) tjänstens huvudnamn för ditt kluster i resursgruppen som innehåller disken med den `Contributor` roll. 
+>
 
 ## <a name="mount-disk-as-volume"></a>Montera disken som volym
 

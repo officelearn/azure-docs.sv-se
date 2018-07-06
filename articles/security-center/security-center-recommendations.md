@@ -1,9 +1,9 @@
 ---
 title: Hantera säkerhetsrekommendationer i Azure Security Center | Microsoft Docs
-description: Det här dokumentet vägleder dig igenom hur i Azure Security Center hjälper dig att skydda dina Azure-resurser och vara kompatibla med säkerhetsprinciper.
+description: Det här dokumentet vägleder dig genom hur rekommendationerna i Azure Security Center hjälpa dig att skydda dina Azure-resurser och uppfyller säkerhetsprinciper.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
-ms.author: terrylan
-ms.openlocfilehash: 72070f46309adb526901192752fe421a3846398b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 04/07/2018
+ms.author: rkarlin
+ms.openlocfilehash: 7bb7f36338fe117a3e31834570b3ee5c3ae1b83b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364258"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856441"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Hantera säkerhetsrekommendationer i Azure Security Center
-Det här dokumentet vägleder dig igenom hur du använder rekommendationer i Azure Security Center som hjälper dig att skydda dina Azure-resurser.
+Det här dokumentet vägleder dig genom hur du använder rekommendationer i Azure Security Center för att hjälpa dig att skydda dina Azure-resurser.
 
 > [!NOTE]
 > I det här dokumentet beskrivs tjänsten genom en exempeldistribution.  Det här dokumentet är inte en stegvis guide.
@@ -32,20 +32,20 @@ Det här dokumentet vägleder dig igenom hur du använder rekommendationer i Azu
 ## <a name="what-are-security-recommendations"></a>Vad är säkerhetsrekommendationer?
 Security Center analyserar regelbundet säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer. Via rekommendationerna får du hjälp att ställa in de kontrollfunktioner som behövs.
 
-## <a name="implementing-security-recommendations"></a>Utföra säkerhetsrekommendationerna
+## <a name="implementing-security-recommendations"></a>Implementera säkerhetsrekommendationer
 ### <a name="set-recommendations"></a>Set-rekommendationer
-I [ställa in säkerhetsprinciper i Azure Security Center](security-center-policies.md), du lär dig hur du:
+I [ange säkerhetsprinciper i Azure Security Center](security-center-policies.md), lär du dig att:
 
 * Konfigurera säkerhetsprinciper.
 * Aktivera insamling av data.
 * Välj vilka rekommendationer för att se som en del av din säkerhetsprincip.
 
-Aktuella rekommendationer principcenter runt systemuppdateringar, baslinjeregler, program mot skadlig kod, [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) på undernät och nätverksgränssnitt, SQL database auditing, SQL database transparent datakryptering och webbprogrammet brandväggar.  [Ställa in säkerhetsprinciper](security-center-policies.md) innehåller en beskrivning av varje rekommendation alternativ.
+Aktuella rekommendationer principcentret runt systemuppdateringar, baslinjeregler, program, [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) på undernät och nätverksgränssnitt, SQL database-granskning, SQL database transparent datakryptering, och brandväggar för webbaserade program.  [Ange säkerhetsprinciper](security-center-policies.md) innehåller en beskrivning av varje rekommendation alternativ.
 
-### <a name="monitor-recommendations"></a>Övervakaren rekommendationer
-När du har angett en säkerhetsprincip analyseras säkerhetstillståndet för resurserna i Azure i Security Center för upptäckt av eventuella säkerhetsrisker. Den **rekommendationer** panelen **översikt** bedömer det totala antalet rekommendationer som identifieras av Security Center.
+### <a name="monitor-recommendations"></a>Övervakare för rekommendationer
+När du har angett en säkerhetsprincip analyseras säkerhetstillståndet för resurserna i Azure i Security Center för upptäckt av eventuella säkerhetsrisker. Den **rekommendationer** panelen **översikt** gör att du vet att det totala antalet rekommendationer identifierades av Security Center.
 
-![Rekommendationer sida vid sida][1]
+![Panel för rekommendationer][1]
 
 Om du vill se information om varje rekommendation, Välj den **rekommendationer panelen** under **översikt**. **Rekommendationer** öppnas.
 
@@ -53,61 +53,88 @@ Om du vill se information om varje rekommendation, Välj den **rekommendationer 
 
 Rekommendationerna visas i tabellformat där varje rad motsvarar en viss rekommendation. Kolumner i den här tabellen är:
 
-* **Beskrivning**: förklarar rekommendationen och vad som måste göras för att åtgärda detta.
-* **RESURSEN**: Visar en lista över de resurser som gäller för den här rekommendationen.
+* **Beskrivning av**: förklarar rekommendationen och vad som behöver göras för att åtgärda detta.
+* **RESURSEN**: Visar en lista över de resurser som den här rekommendationen gäller.
 * **TILLSTÅND**: beskriver det aktuella tillståndet för rekommendationen:
   * **Öppna**: rekommendationen har inte utförts än.
-  * **Pågående**: rekommendationen används för närvarande i resurser och ingen åtgärd krävs av dig.
-  * **Matcha**: rekommendationen har redan slutförts (i det här fallet raden är nedtonad).
+  * **Pågår**: rekommendationen håller på att resurserna och ingen åtgärd krävs av dig.
+  * **Löst**: rekommendationen har redan slutförts (i det här fallet raden är nedtonat).
 * **SEVERITY (ALLVARLIGHETSGRAD)**: Här visas hur viktig rekommendationen är.
-  * **Hög**: ett säkerhetsproblem finns i en viktig resurs (till exempel ett program, en virtuell dator eller en nätverkssäkerhetsgrupp) som måste åtgärdas.
-  * **Medel**: det finns ett säkerhetsproblem och icke-kritiska eller ytterligare åtgärder krävs att eliminera den eller för att slutföra en process.
-  * **Låg**: det finns ett säkerhetsproblem som bör åtgärdas, men inte kräver omedelbara uppmärksamhet. (Låg rekommendationer visas inte som standard men du kan filtrera på låg rekommendationer om du vill se dem.)
+  * **Hög**: en säkerhetsrisk finns en viktig resurs (till exempel ett program, en virtuell dator eller en nätverkssäkerhetsgrupp) som måste åtgärdas.
+  * **Medel**: det finns ett säkerhetsproblem och icke-kritiska eller ytterligare åtgärder som krävs för att eliminera den eller för att slutföra en process.
+  * **Låg**: det finns en säkerhetsrisk som bör åtgärdas, men inte kräver omedelbar åtgärd. (Låg rekommendationer är inte visas som standard, men du kan filtrera fram om du vill se dem.)
 
-Använd tabellen nedan som referens för att hjälpa dig att förstå rekommendationerna som är tillgängliga och hur var och en fungerar om du använder den.
+Använd tabellen nedan som referens för att förstå rekommendationerna som är tillgängliga och vad var och en gör om du använder den.
 
 > [!NOTE]
-> Du vill förstå den [klassisk och Resource Manager distributionsmodellerna](../azure-classic-rm.md) för Azure-resurser.
+> Du vill förstå den [klassiska och Resource Manager-distributionsmodeller](../azure-classic-rm.md) för Azure-resurser.
 >
 >
 
 | Rekommendation | Beskrivning |
 | --- | --- |
-| [Aktivera insamling av data för prenumerationer](security-center-enable-data-collection.md) |Rekommenderar att du aktiverar datainsamling i säkerhetsprincipen för var och en av dina prenumerationer och alla virtuella Azure-datorer (VM) och Azure-datorer. |
-| [Åtgärda säkerhetskonfigurationer](security-center-remediate-os-vulnerabilities.md) |Rekommenderar att du justera OS-konfigurationer med de rekommenderade konfigurationen säkerhetsreglerna, till exempel, tillåter inte lösenord ska sparas. |
-| [Tillämpa systemuppdateringar](security-center-apply-system-updates.md) |Rekommenderar att du distribuerar saknas system säkerhetsuppdateringar och viktiga uppdateringar till Windows och Linux virtuella datorer och datorer. |
-| [Tillämpa Just-In-Time nätverk åtkomstkontroll](security-center-just-in-time.md) | Rekommenderar att du installerar just-in-time VM-åtkomst. Den bara i tiden funktionen är i förhandsvisning och finns på standardnivån av Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md). |
+| [Aktivera insamling av data för prenumerationer](security-center-enable-data-collection.md) |Rekommenderar att du aktiverar datainsamling i säkerhetsprincipen för var och en av dina prenumerationer och alla Azure-datorer (VM) och icke-Azure-datorer. |
+| [Åtgärda säkerhetskonfigurationer](security-center-remediate-os-vulnerabilities.md) |Rekommenderar att du justera operativsystem enligt rekommenderade security konfigurationsregler, till exempel, lösenord ska sparas. |
+| [Tillämpa systemuppdateringar](security-center-apply-system-updates.md) |Rekommenderar att du distribuerar saknas systemsäkerhet och viktiga uppdateringar till Windows och Linux-datorer och datorer. |
+| [Tillämpa en Just-In-Time nätverksåtkomstkontroll](security-center-just-in-time.md) | Rekommenderar att du tillämpar just-in-time-åtkomst till virtuell dator. Den bara i tid funktionen är en förhandsversion och är tillgängliga på standardnivån i Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md). |
 | [Starta om datorn efter uppdateringarna](security-center-apply-system-updates.md#reboot-after-system-updates) |Rekommenderar att du startar om en virtuell dator för att slutföra processen med att tillämpa uppdateringar. |
-| [Lägga till en brandvägg för webbappar](security-center-add-web-application-firewall.md) |Rekommenderar att du distribuerar en brandvägg för webbaserade program (Brandvägg) för web-slutpunkter. En Brandvägg rekommendation visas för alla offentliga Internetriktade IP-adresser (instans nivå IP eller Load belastningsutjämnade IP) som har en nätverkssäkerhetsgrupp med öppna webbplats för inkommande portar (80,443). </br>Security Center rekommenderar att du etablerar en Brandvägg för att skydda mot attacker målobjekt för webbaserade program på virtuella datorer samt på Apptjänst-miljö. En App Service miljö (ASE) är en [Premium](https://azure.microsoft.com/pricing/details/app-service/) service plan alternativet för Azure App Service som tillhandahåller en helt isolerad och dedikerad miljö för Azure App Service-program som körs på ett säkert sätt. Mer information om ASE finns i [dokumentationen till App Service-miljö](../app-service/environment/intro.md).</br>Du kan skydda flera webbprogram i Security Center genom att lägga till dessa program till din befintliga Brandvägg-distributioner. |
-| [Slutför programskydd](security-center-add-web-application-firewall.md#finalize-application-protection) |Om du vill slutföra konfigurationen av en Brandvägg måste trafik dirigeras till Brandvägg-enhet. Efter den här rekommendationen är klar nödvändiga ändringar. |
-| [Lägga till en nästa generations brandvägg](security-center-add-next-generation-firewall.md) |Rekommenderar att du lägger till en nästa generations Brandvägg från en Microsoft-partner att öka din säkerhetsskydd. |
-| [Dirigera trafiken endast via NGFW](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) |Rekommenderar att du konfigurerar (NSG) regler för nätverkssäkerhetsgrupper som tvingar inkommande trafik till den virtuella datorn via din nästa generations Brandvägg. |
+| [Lägga till en brandvägg för webbappar](security-center-add-web-application-firewall.md) |Rekommenderar att du distribuerar en brandvägg för webbaserade program (WAF) för webb-slutpunkter. En WAF-rekommendation visas för valfri offentlig IP-adress (instans nivå IP eller belastningsutjämnade IP-Load) som har en nätverkssäkerhetsgrupp med öppna inkommande webbportar (80,443). </br>Security Center rekommenderar att du etablerar en WAF för att skydda mot hot mot dina webbprogram på virtuella datorer och på App Service Environment. App Service Environment (ASE) är en [Premium](https://azure.microsoft.com/pricing/details/app-service/) tjänsten Prenumerationsalternativ i Azure App Service som innehåller en helt isolerad och dedikerad miljö för säker körning av Azure App Service-appar. Mer information om ASE finns i [dokumentation för App Service Environment](../app-service/environment/intro.md).</br>Du kan skydda flera webbprogram i Security Center genom att lägga till dessa program till din befintliga WAF-distributioner. |
+| [Slutför programskydd](security-center-add-web-application-firewall.md#finalize-application-protection) |Om du vill slutföra konfigurationen av en WAF måste trafik dirigeras om till den WAF-installationen. Efter den här rekommendationen Slutför de nödvändiga ändringarna. |
+| [Lägga till en nästa generations brandvägg](security-center-add-next-generation-firewall.md) |Rekommenderar att du lägger till en nästa Generation Firewall (NGFW) från en Microsoft-partner att öka din säkerhetsskydd. |
+| [Dirigera trafiken endast via NGFW](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) |Rekommenderar att du konfigurerar nätverkssäkerhetsgrupper (NSG) Nätverkssäkerhetsregler som tvingar inkommande trafik till den virtuella datorn via din NGFW. |
 | [Installera slutpunktsskydd](security-center-install-endpoint-protection.md) |Rekommenderar att du etablerar program mot skadlig kod för virtuella datorer (endast virtuella Windows-datorer). |
-| [Aktivera Nätverkssäkerhetsgrupper för undernät eller virtuella datorer](security-center-enable-network-security-groups.md) |Rekommenderar att du aktiverar NSG: er på undernät eller virtuella datorer. |
-| [Begränsa åtkomst via Internetuppkopplad slutpunkt](security-center-restrict-access-through-internet-facing-endpoints.md) |Rekommenderar att du konfigurerar regler för inkommande trafik för NSG: er. |
-| [Aktivera granskning och hotidentifiering på SQL-servrar](security-center-enable-auditing-on-sql-servers.md) |Rekommenderar att du aktiverar granskning och hotidentifiering identifiering för Azure SQL-servrar. (Endast azure SQL-tjänsten. Inkluderar inte SQL som körs på virtuella datorer.) |
-| [Aktivera granskning och hotidentifiering på SQL-databaser](security-center-enable-auditing-on-sql-databases.md) |Rekommenderar att du aktiverar granskning och hotidentifiering identifiering för Azure SQL-databaser. (Endast azure SQL-tjänsten. Inkluderar inte SQL som körs på virtuella datorer.) |
-| [Aktivera Transparent datakryptering på SQL-databaser](security-center-enable-transparent-data-encryption.md) |Rekommenderar att du aktiverar kryptering för SQL-databaser. (Endast azure SQL-tjänsten.) |
-| [Aktivera VM-Agent](security-center-enable-vm-agent.md) |Du kan se vilka virtuella datorer som kräver VM-agenten. VM-agenten måste installeras på virtuella datorer för att etablera korrigering genomsökning baslinjen genomsökning och program mot skadlig kod. VM-agenten installeras som standard för virtuella datorer som distribueras från Azure Marketplace. Artikeln [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (VM-agenter och tillägg – del 2) innehåller information om hur VM-agenten ska installeras. |
+| [Aktivera Nätverkssäkerhetsgrupper på undernät eller virtuella datorer](security-center-enable-network-security-groups.md) |Rekommenderar att du aktiverar NSG: er på undernät eller virtuella datorer. |
+| [Begränsa åtkomst via slutpunkt mot Internet](security-center-restrict-access-through-internet-facing-endpoints.md) |Rekommenderar att du konfigurerar regler för inkommande trafik för NSG: er. |
+| [Aktivera granskning och hotidentifiering på SQL-servrar](security-center-enable-auditing-on-sql-servers.md) |Rekommenderar att du aktiverar granskning och hotidentifiering för Azure SQL-servrar. (Endast azure SQL-tjänsten. Omfattar inte SQL som körs på dina virtuella datorer.) |
+| [Aktivera granskning och hotidentifiering på SQL-databaser](security-center-enable-auditing-on-sql-databases.md) |Rekommenderar att du aktiverar granskning och hotidentifiering för Azure SQL-databaser. (Endast azure SQL-tjänsten. Omfattar inte SQL som körs på dina virtuella datorer.) |
+| [Aktivera Transparent datakryptering på SQL-databaser](security-center-enable-transparent-data-encryption.md) |Rekommenderar att du aktiverar kryptering för SQL-databaser. (Endast azure SQL-tjänst.) |
+| [Aktivera VM-Agent](security-center-enable-vm-agent.md) |Du kan se vilka virtuella datorer som kräver VM-agenten. VM-agenten måste installeras på virtuella datorer för att etablera korrigeringsgenomsökning, baslinjegenomsökning och program mot skadlig kod. VM-agenten installeras som standard för virtuella datorer som distribueras från Azure Marketplace. Artikeln [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (VM-agenter och tillägg – del 2) innehåller information om hur VM-agenten ska installeras. |
 | [Tillämpa diskkryptering](security-center-apply-disk-encryption.md) |Rekommenderar att krypterar dina VM-diskar med Azure Disk Encryption (virtuella Windows- och Linux-datorer). Kryptering rekommenderas både för OS- och datavolymer på den virtuella datorn. |
-| [Ange säkerhetskontaktinformation](security-center-provide-security-contact-details.md) |Rekommenderar att du ger säkerhet kontaktinformation för var och en av dina prenumerationer. Kontaktinformation är en e-postadress och telefonnummer. Informationen används för att kontakta dig om vår säkerhetsteam hittar att dina resurser komprometteras. |
-| [Uppdatera OS-versionen](security-center-update-os-version.md) |Rekommenderar att du uppdaterar versionen av operativsystemet (OS) för din molntjänst till den senaste versionen för OS-familjen.  Mer information om molntjänster finns i [översikt över molntjänster](../cloud-services/cloud-services-choose-me.md). |
+| [Ange säkerhetskontaktinformation](security-center-provide-security-contact-details.md) |Rekommenderar att du anger säkerhet kontaktinformation för var och en av dina prenumerationer. Kontaktinformation är ett e-postadress och telefonnummer tal. Informationen används för att kontakta dig om vårt säkerhetsteam skulle upptäcka att dina resurser äventyras. |
+| [Uppdatera OS-versionen](security-center-update-os-version.md) |Rekommenderar att du uppdaterar versionen av operativsystemet (OS) för din molntjänst till den senaste versionen som är tillgängliga för din OS-familj.  Mer information om molntjänster finns det [översikt över Cloud Services](../cloud-services/cloud-services-choose-me.md). |
 | [Sårbarhetsbedömning inte installerad](security-center-vulnerability-assessment-recommendations.md) |Rekommenderar att du installerar en lösning för sårbarhetsbedömning på den virtuella datorn. |
 | [Åtgärda sårbarheter](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Gör att du kan visa system- och säkerhetssårbarheter som identifieras av sårbarhetsbedömningen som är installerad på den virtuella datorn. |
-| [Aktivera kryptering för Azure Storage-konto](security-center-enable-encryption-for-storage-account.md) | Rekommenderar att du aktiverar Azure Storage Service-kryptering för data i vila. Kryptering för lagring-tjänsten (SSE) fungerar genom att kryptera data när de skrivs till Azure-lagring och dekrypterar före hämtning. SSE är endast tillgänglig för Azure Blob-tjänsten och kan användas för blockblobbar, sidblobbar, och tilläggsblobar. Läs mer i [Lagringstjänstens kryptering av vilande data](../storage/common/storage-service-encryption.md).</br>SSE stöds endast i hanteraren för filserverresurser storage-konton. |
+| [Aktivera kryptering för Azure Storage-konto](security-center-enable-encryption-for-storage-account.md) | Rekommenderar att du aktiverar Azure Storage Service Encryption för vilande data. Storage Service Encryption (SSE) fungerar genom att kryptera data när den skrivs till Azure-lagring och dekrypterar före hämtning. SSE är för närvarande endast tillgänglig för Azure Blob service och kan användas för blockblobbar, sidblobbar och tilläggsblobbar. Mer information finns i [Storage Service Encryption för vilande data](../storage/common/storage-service-encryption.md).</br>SSE stöds bara på Resource Manager-lagringskonton. |
+| App Service bör endast vara tillgängligt via HTTPS | Rekommenderar att du begränsar åtkomst till App Service via HTTPS endast. |
+| Webbsockets bör inaktiveras för webbprogram| Rekommenderar att du noggrant läser användningen av Web Sockets i webbappar.  Web Sockets-protokollet är utsatt för olika typer av säkerhetshot. |
+| Använd anpassade domäner för ditt webbprogram | Rekommenderar att du använder anpassade domäner för att skydda ett webbprogram mot vanliga attacker som nätfiske och andra DNS-relaterade attacker. |
+| Konfigurera IP-begränsningar för webbprogram | Du bör definiera en lista över IP-adresser som ska kunna komma åt ditt program.  Användning av IP-restriktioner skyddar du webbappar mot vanliga attacker. |
+| Tillåt inte alla ('* ') resurser för att komma åt ditt program | Rekommenderar att du inte anger parametern website_load_certificates. den ”*”. Ställa in parametern '*”innebär att alla certifikat läses till din web program personliga certifikatarkiv.  Detta kan leda till missbruk av principen om lägsta behörighet eftersom det är osannolikt att webbplatsen behöver åtkomst till alla certifikat vid körning. |
+| CORS bör inte bevilja alla resurser åtkomst till ditt program | Rekommenderar att du tillåter endast nödvändiga domäner att interagera med ditt webbprogram. Mellan ursprung ska sharing (CORS) inte tillåta alla domäner får åtkomst till ditt webbprogram. |
+| Använd senast stöds .NET Framework för webbprogram | Rekommenderar att du använder den senaste versionen av .NET Framework för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
+| Använd den senaste Java versionen för webbprogram | Rekommenderar att du använder den senaste Java-versionen för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
+| Använd den senaste PHP versionen för webbprogram | Rekommenderar att du använder den senaste PHP-versionen för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
+| [Lägga till en brandvägg för webbappar](security-center-add-web-application-firewall.md) |Rekommenderar att du distribuerar en brandvägg för webbaserade program (WAF) för webb-slutpunkter. En WAF-rekommendation visas för valfri offentlig IP-adress (instans nivå IP eller belastningsutjämnade IP-Load) som har en nätverkssäkerhetsgrupp med öppna inkommande webbportar (80,443).</br></br>Security Center rekommenderar att du etablerar en WAF för att skydda mot hot mot dina webbprogram på virtuella datorer och på App Service Environment. App Service Environment (ASE) är en [Premium](https://azure.microsoft.com/pricing/details/app-service/) tjänsten Prenumerationsalternativ i Azure App Service som innehåller en helt isolerad och dedikerad miljö för säker körning av Azure App Service-appar. Mer information om ASE finns i [dokumentation för App Service Environment](../app-service/environment/intro.md).</br></br>Du kan skydda flera webbprogram i Security Center genom att lägga till dessa program till din befintliga WAF-distributioner. |
+| [Slutför programskydd](security-center-add-web-application-firewall.md#finalize-application-protection) |Om du vill slutföra konfigurationen av en WAF måste trafik dirigeras om till den WAF-installationen. Efter den här rekommendationen Slutför de nödvändiga ändringarna. |
+| Använd den senaste Node.js versionen för webbprogram | Rekommenderar att du använder den senaste versionen av Node.js för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
+| CORS bör inte bevilja alla resurser att få åtkomst till din Funktionsapp | Rekommenderar att du tillåter endast nödvändiga domäner att interagera med ditt webbprogram. Mellan ursprung ska sharing (CORS) inte tillåta alla domäner åtkomst till ditt funktionsprogram. |
+| Använd anpassade domäner för Funktionsappen | Rekommenderar att du använder anpassade domäner för att skydda en funktionsapp från vanliga attacker som nätfiske och andra DNS-relaterade attacker. |
+| Konfigurera IP-begränsningar för Funktionsappen | Du bör definiera en lista över IP-adresser som ska kunna komma åt ditt program. Användning av IP-restriktioner skyddar en funktionsapp från vanliga attacker. |
+| Funktionen App bör enbart vara åtkomliga via HTTPS | Rekommenderar att du begränsar åtkomst till funktionsappar via HTTPS endast. |
+| Fjärrfelsökning bör stängas av för Funktionsappen | Rekommenderar att du stänger av felsökning för Funktionsappen om du inte längre behöver använda den. Fjärrfelsökning kräver att inkommande portar öppnas på en Funktionsapp. |
+| Webbsockets bör inaktiveras för Funktionsappen | Rekommenderar att du noggrant läser användningen av Web Sockets i Funktionsappar. Web Sockets-protokollet är utsatt för olika typer av säkerhetshot. |
+| Ange mer än en ägare av din prenumeration | Rekommenderar att du anger mer än en prenumerationsägare för att du har administratörsåtkomst. |
+| Ange upp till 3 ägare av din prenumeration | Rekommenderar att du anger färre än 3 prenumerationsägare för att minska risken för intrång genom en komprometterad ägare. |
+| Aktivera MFA för konton med ägarbehörigheter för din prenumeration | Rekommenderar att du aktiverar Multi-Factor Authentication (MFA) för alla prenumerationskonton med administratörsbehörighet för att förhindra att överträdelser görs avseende konton och resurser. |
+| Aktivera MFA för konton med skrivbehörigheter för din prenumeration | Rekommenderar att du aktiverar Multi-Factor Authentication (MFA) för alla prenumerationskonton med skrivbehörighet för att förhindra att överträdelser görs avseende konton och resurser. |
+| Aktivera MFA för konton med läsbehörigheter för din prenumeration | Rekommenderar att du aktiverar Multi-Factor Authentication (MFA) för alla prenumerationskonton med läsbehörighet för att förhindra att överträdelser görs avseende konton och resurser. |
+| Ta bort externa konton med läsbehörigheter från prenumerationen | Rekommenderar att du tar bort externa konton med läsprivilegier från din prenumeration för att förhindra oövervakad åtkomst. |
+| Ta bort externa konton med skrivbehörigheter från prenumerationen | Rekommenderar att du tar bort externa konton med skrivprivilegier från din prenumeration för att förhindra oövervakad åtkomst. |
+| Ta bort externa konton med ägarbehörigheter från prenumerationen | Rekommenderar att du tar bort externa konton med ägarbehörigheter från prenumerationen för att förhindra oövervakad åtkomst. |
+| Ta bort inaktuella konton från prenumerationen | Rekommenderar att du tar bort inaktuella konton från dina prenumerationer. |
+| Ta bort inaktuella konton med ägarbehörigheter från prenumerationen | Rekommenderar att du tar bort inaktuella konton med ägarbehörigheter från dina prenumerationer. |
+Du kan filtrera och stänga rekommendationer.
 
-Du kan filtrera och ignorera rekommendationer.
+1. Välj **Filter** på den **rekommendationer** bladet. Den **Filter** bladet öppnas och du kan välja allvarlighetsgrad och status du vill se.
 
-1. Välj **Filter** på den **rekommendationer** bladet. Den **Filter** blad öppnas och du väljer allvarlighetsgrad och status värdena som du vill se.
+2. Om du har fastställt att en rekommendation inte är tillämplig, kan du ignorera rekommendationen och filtrera bort vyn den. Det finns två sätt att avvisa en rekommendation. Ett sätt är att högerklicka på ett objekt och välj sedan **Stäng**. Den andra är att hovra över ett objekt, klickar du på de tre punkterna som visas till höger och välj sedan **Stäng**. Du kan visa avvisade rekommendationer genom att klicka på **Filter**, och sedan välja **avvisat**.
 
-2. Om du upptäcker att en rekommendation inte är tillämplig, kan du stänga rekommendationen och filtrera bort vyn. Det finns två sätt att avvisa en rekommendation. Ett sätt är att högerklicka på ett objekt och välj sedan **Ignorera**. Den andra är hovra över ett objekt genom att klicka på de tre punkterna till höger och välj sedan **Ignorera**. Du kan visa Avvisad rekommendationer genom att klicka på **Filter**, och sedan välja **avvisat**.
-
-    ![Ignorera rekommendation][3]
+    ![Ignorera rekommendationen][3]
 
 ### <a name="apply-recommendations"></a>Tillämpa rekommendationer
-När du har granskat Bestäm alla rekommendationer som du bör använda först. Vi rekommenderar att du använder allvarlighetsgraden som parametern huvudsakligen för att utvärdera vilka rekommendationer som ska användas först.
+När du har granskat avgör alla rekommendationer vilken du bör använda först. Vi rekommenderar att du använder risknivån eftersom parametern huvudsakliga för att utvärdera vilka rekommendationer ska tillämpas först.
 
-Välj en rekommendation i tabellen i rekommendationerna ovan och gå igenom den som ett exempel på hur du har tillämpat en rekommendation.
+Välj en rekommendation i tabellen i rekommendationerna ovan och gå igenom den som ett exempel på hur du tillämpar en rekommendation.
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet berättade säkerhetsrekommendationer i Security Center. I följande avsnitt kan du lära dig mer om Security Center:

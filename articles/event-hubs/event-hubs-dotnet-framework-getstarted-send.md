@@ -12,18 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: feb4332f8f6b5ab26067b5c80a376cdee62c7739
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0886c220dfe926c7dfd9fa378ebb3c13fc900cbf
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984994"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860045"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Skicka händelser till Azure Event Hubs med .NET Framework
-
-## <a name="introduction"></a>Introduktion
 
 Händelsehubbar är en tjänst som bearbetar stora mängder händelsedata (telemetri) från anslutna enheter och program. När du har samlat in data i händelsehubbar kan du lagra dem med ett lagringskluster eller omvandla dem med hjälp av en leverantör av realtidsanalys. Den här storskaliga händelseinsamlingen och bearbetningsfunktionen är en viktig komponent inom moderna programarkitekturer som t.ex. sakernas internet.
 
@@ -31,7 +29,7 @@ I den här kursen får du lära dig att skapa en händelsehubb i [Azure Portal](
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
-* [Microsoft Visual Studio 2015 eller senare](http://visualstudio.com). För skärmdumparna i de här självstudierna används Visual Studio 2017.
+* [Microsoft Visual Studio 2017 eller senare](http://visualstudio.com).
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett utan kostnad på ett par minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett namnområde för Event Hubs och en händelsehubb
@@ -40,7 +38,7 @@ Det första steget är att använda [Azure Portal](https://portal.azure.com) til
 
 ## <a name="create-a-sender-console-application"></a>Skapa ett avsändarkonsolprogram
 
-I det här avsnittet kan du skriva en Windows-konsolapp som skickar händelser till din event hub.
+I det här avsnittet ska skriva du en Windows-konsolapp som skickar händelser till din event hub.
 
 1. I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av projektmallen **Konsolprogram**. Namnge projektet **Avsändare**.
    
@@ -60,8 +58,8 @@ I det här avsnittet kan du skriva en Windows-konsolapp som skickar händelser t
 5. Lägg till följande fält i klassen **Program**, och ersätt platshållarvärdena med namnet på den händelsehubb du skapade i föregående avsnitt samt anslutningssträngen på namnområdesnivå som du sparat tidigare.
    
   ```csharp
-  static string eventHubName = "{Event Hub name}";
-  static string connectionString = "{send connection string}";
+  static string eventHubName = "Your Event Hub name";
+  static string connectionString = "namespace connection string";
   ```
 6. Lägg till följande metod i klassen **Program**:
    
@@ -103,6 +101,7 @@ I det här avsnittet kan du skriva en Windows-konsolapp som skickar händelser t
 Grattis! Du har nu skickat meddelanden till en händelsehubb.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Nu när du har skapat ett fungerande program som skapar en händelsehubb och skickar data kan du gå vidare till följande scenarier:
 
 * [Ta emot händelser med hjälp av värd för händelsebearbetning](event-hubs-dotnet-framework-getstarted-receive-eph.md)

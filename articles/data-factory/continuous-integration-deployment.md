@@ -1,6 +1,6 @@
 ---
 title: Kontinuerlig integrering och distribution i Azure Data Factory | Microsoft Docs
-description: Lär dig hur du använder kontinuerlig integrering och distribution för att flytta Data Factory pipelines från en miljö (utveckling, test, produktion) till en annan.
+description: Lär dig hur du använder kontinuerlig integrering och distribution för att flytta Data Factory-pipeliner från en miljö (utveckling, testning, produktion) till en annan.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,76 +12,76 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: douglasl
-ms.openlocfilehash: febd43586ab3006303143ca04ce8a37941a6fd60
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ee01980229495d9b3f372ec85ee874955c291e5c
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268166"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868328"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Kontinuerlig integrering och distribution i Azure Data Factory
 
-Kontinuerlig Integration är praxis för att testa varje ändring så att din codebase och automatiskt så snart som möjligt. Kontinuerlig distribution följer testning som sker under kontinuerlig Integration och skickar ändringarna till ett system för mellanlagring och produktion.
+Kontinuerlig integrering är metoden att testa varje ändring som klar för att din kodbas automatiskt och så tidigt som möjligt. Kontinuerlig distribution följer testning som händer under kontinuerlig integrering och skickar ändringarna till ett system för mellanlagring eller produktion.
 
-För Azure Data Factory innebär kontinuerlig integration & distribution att flytta Data Factory pipelines från en miljö (utveckling, test, produktion) till en annan. Du kan använda Data Factory UI-integrering med Azure Resource Manager-mallar för att göra kontinuerlig integrering och distribution. Data Factory-Gränssnittet kan generera en Resource Manager-mall när du väljer den **ARM-mallen** alternativ. När du väljer **exportera ARM-mallen**, portalen genererar Resource Manager-mall för data factory och en konfigurationsfil som innehåller alla anslutningar strängar och andra parametrar. Du måste sedan skapa en konfigurationsfil för varje miljö (utveckling, test, produktion). Huvudfilen för Resource Manager-mallen är densamma för alla miljöer.
+Innebär att flytta Data Factory-pipeliner från en miljö (utveckling, testning, produktion) till en annan för Azure Data Factory, kontinuerlig integration och distribution. Du kan använda Användargränssnittet för Data Factory integration med Azure Resource Manager-mallar för att göra kontinuerlig integration och distribution. Användargränssnittet för Data Factory kan generera en Resource Manager-mall när du väljer den **ARM-mallen** alternativ. När du väljer **exportera ARM-mallen**, portalen genererar Resource Manager-mall för data factory och en konfigurationsfil som innehåller alla anslutningar strängar och andra parametrar. Du måste sedan skapa en konfigurationsfil för varje miljö (utveckling, testning, produktion). Huvudfilen för Resource Manager-mall förblir densamma för alla miljöer.
 
-Titta på följande videoklipp för en minut nio introduktion och demonstration av den här funktionen:
+Titta på följande videoklipp för en nio minuters introduktion och demonstration av den här funktionen:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>Skapa en Resource Manager-mall för varje miljö
-Välj **exportera ARM-mallen** att exportera Resource Manager-mall för din data factory i utvecklingsmiljön.
+Välj **exportera ARM-mallen** att exportera Resource Manager-mallen för din datafabrik i utvecklingsmiljön.
 
 ![](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-Gå till din test data factory och produktion data factory och välj sedan **importera ARM-mallen**.
+Gå till din datafabrik för testning och produktion data factory och välj sedan **Import ARM-mallen**.
 
 ![](media/continuous-integration-deployment/continuous-integration-image2.png)
 
-Den här åtgärden tar dig till Azure-portalen där du kan importera den exporterade mallen. Välj **skapa egna mallar i redigeraren** och sedan **Läs in fil** och välj den genererade Resource Manager-mallen. Ange inställningarna och data factory och hela pipelinen har importerats i produktionsmiljön.
+Den här åtgärden tar dig till Azure-portalen där du kan importera den exporterade mallen. Välj **skapa din egen mall i redigeringsprogrammet** och sedan **Läs in fil** och välj den genererade Resource Manager-mallen. Ange inställningarna och data factory och hela pipelinen har importerats i din produktionsmiljö.
 
 ![](media/continuous-integration-deployment/continuous-integration-image3.png)
 
 ![](media/continuous-integration-deployment/continuous-integration-image4.png)
 
-Välj **Läs in fil** att välja den exporterade Resource Manager-mallen och ange alla konfigurationsvärden (till exempel länkade tjänster).
+Välj **Läs in fil** och markerar den exporterade Resource Manager-mallen som du kan få alla konfigurationsvärden (t.ex, länkade tjänster).
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
-## <a name="continuous-integration-lifecycle"></a>Kontinuerlig integration livscykel
-Här är hela livscykeln för kontinuerlig integrering och distribution som du kan använda när du har aktiverat VSTS GIT-integrering i Data Factory-Användargränssnittet:
+## <a name="continuous-integration-lifecycle"></a>Livscykel för kontinuerlig integrering
+Här är hela livscykeln för kontinuerlig integration och distribution som du kan använda när du har aktiverat VSTS GIT-integrering i Användargränssnittet för Data Factory:
 
-1.  Skapa en datafabrik för utveckling med VSTS där alla utvecklare kan skriva Data Factory-resurser som pipelines, datauppsättningar och så vidare.
+1.  Konfigurera en data factory för utveckling med VSTS där alla utvecklare kan skapa Data Factory-resurser som pipelines, datauppsättningar och så vidare.
 
-2.  Utvecklare kan sedan ändra resurser, till exempel pipelines. Som de gör sina ändringar kan de välja **felsöka** att se hur pipelinen körs med de senaste ändringarna.
+2.  Utvecklare kan sedan ändra resurser, till exempel pipelines. När de gör ändringarna kan de välja **felsöka** att se hur pipelinekörningarna med de senaste ändringarna.
 
-3.  När utvecklare är nöjd med ändringarna kan skapa de en pull-begäran från sin gren till mastergrenen (eller grenen samarbete) för att hämta sina ändringar granskas av peer-datorer.
+3.  När utvecklare är nöjd med ändringarna, kan de skapa en pull-begäran från deras gren till mastergrenen (eller grenen samarbete) för att hämta ändringarna granskas av peer-datorer.
 
-4.  När det finns ändringar i mastergrenen, de kan publicera till fabriken utveckling genom att välja **publicera**.
+4.  När det finns ändringar i huvudgrenen, de publicerar till utveckling factory genom att välja **publicera**.
 
-5.  När teamet är redo att befordra ändringar av fabriken test och produktion fabriken, kan de exportera Resource Manager-mall från mastergrenen eller andra utgår ifrån om deras mastergrenen säkerhetskopierar live utvecklingen Data Factory.
+5.  När teamet är redo att göra ändringar i fabriken för testning och produktion fabriken, kan de exportera Resource Manager-mallen från huvudgrenen eller från andra grenen om deras huvudgrenen säkerhetskopierar live utvecklingen Data Factory.
 
-6.  Den exporterade Resource Manager-mallen kan distribueras med annan filer till test-fabriken och produktion fabriken.
+6.  Den exporterade Resource Manager-mallen kan distribueras med olika parameterfiler fabriken för testning och produktion fabriken.
 
-## <a name="automate-continuous-integration-with-vsts-releases"></a>Automatisera kontinuerlig integration med VSTS versioner
+## <a name="automate-continuous-integration-with-vsts-releases"></a>Automatisera kontinuerlig integrering med VSTS-versioner
 
-Här följer stegen för att ställa in en VSTS version så att du kan automatisera distributionen av en datafabrik till flera miljöer.
+Här följer stegen för att konfigurera en VSTS-version så att du kan automatisera distributionen av en data factory till flera miljöer.
 
-![Diagram över kontinuerlig integration med VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagram över kontinuerlig integrering med VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Krav
 
--   En Azure-prenumeration som är kopplad till Team Foundation Server eller VSTS med hjälp av den [ *Azure Resource Manager tjänstslutpunkten*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   En Azure-prenumeration som är länkad till Team Foundation Server eller VSTS med hjälp av den [ *Azure Resource Manager-tjänstslutpunkt*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
 -   En Datafabrik med VSTS Git konfigurerats.
 
 -   En [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) som innehåller hemligheterna.
 
-### <a name="set-up-a-vsts-release"></a>Konfigurera en VSTS version
+### <a name="set-up-a-vsts-release"></a>Konfigurera en VSTS-version
 
-1.  Gå till sidan VSTS i samma projekt som konfigurerats med Data Factory.
+1.  Gå till din VSTS-sida i samma projekt som konfigurerats med Data Factory.
 
-2.  Klicka på den översta menyn **bygga och släpper** &gt; **versioner** &gt; **skapa versionen definition**.
+2.  Klicka på den översta menyn **Build and Release** &gt; **versioner** &gt; **skapa versionsdefinition**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -89,41 +89,41 @@ Här följer stegen för att ställa in en VSTS version så att du kan automatis
 
 4.  Ange namnet på din miljö.
 
-5.  Lägg till en Git-artefakt och välj på samma lagringsplats som konfigurerats med Data Factory. Välj `adf_publish` som standardförgrening med senaste standardversionen.
+5.  Lägg till en Git-artefakt och välj på samma lagringsplats som konfigurerats med Data Factory. Välj `adf_publish` som standardgren med senaste standardversionen.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-7.  Lägg till en aktivitet med Azure Resource Manager-distribution:
+7.  Lägg till en uppgift för Azure Resource Manager-distribution:
 
-    a.  Skapa en ny uppgift, söka efter **Azure Resource distribution**, och lägger till den.
+    a.  Skapa en ny uppgift, Sök efter **Azure Resursgruppsdistribution**, och lägger till den.
 
-    b.  Välj den prenumeration, resursgrupp och plats för mål Data Factory i aktiviteten för distribution och ange autentiseringsuppgifter om det behövs.
+    b.  Välj den prenumeration, resursgrupp och plats för mål Data Factory i aktiviteten distribution och ange autentiseringsuppgifter om det behövs.
 
     c.  Välj den **skapa eller uppdatera resursgruppen** åtgärd.
 
-    d.  Välj **...** i den **mallen** fältet. Bläddra efter Resource Manager-mall (*ARMTemplateForFactory.json*) som har skapats med åtgärden Publicera i portalen. Leta efter den här filen i mappen `<FactoryName>` av den `adf_publish` grenen.
+    d.  Välj **...** i den **mall** fält. Bläddra efter Resource Manager-mall (*ARMTemplateForFactory.json*) som har skapats av publiceringsåtgärden i portalen. Leta efter den här filen i mappen `<FactoryName>` av den `adf_publish` gren.
 
     e.  Gör samma sak för parameterfilen. Välj rätt fil beroende på om du har skapat en kopia eller du använder standardfilen *ARMTemplateParametersForFactory.json*.
 
-    f.  Välj **...** bredvid den **åsidosätta mallparametrar** fältet och fyller i informationen för mål Data Factory. Autentiseringsuppgifterna som kommer från nyckelvalvet, Använd samma namn för hemligheten som i följande format: förutsatt att den hemlighet namn är `cred1`, ange `"$(cred1)"` (mellan citattecken).
+    f.  Välj **...** bredvid den **åsidosätta mallparametrar** fältet och Fyll i informationen för målet Data Factory. För de autentiseringsuppgifter som kommer från key vault använder samma namn för hemligheten i följande format: förutsatt att den hemliga namn är `cred1`, ange `"$(cred1)"` (mellan citattecken).
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-8.  Spara definition för versionen.
+8.  Spara versionsdefinitionen.
 
-9.  Skapa en ny version från den här versionen definition.
+9.  Skapa en ny version från den här versionsdefinitionen.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
-### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Valfritt - hämta hemligheterna från Azure Key Vault
+### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Valfritt – som får hemligheterna från Azure Key Vault
 
-Om du har hemligheter att skicka in en Azure Resource Manager-mall, bör du använda Azure Key Vault VSTS-versionen.
+Om du har hemligheter för att skicka in en Azure Resource Manager-mall, bör du använda Azure Key Vault med VSTS-versionen.
 
 Det finns två sätt att hantera hemligheterna:
 
-1.  Lägg till hemligheterna i parameterfilen. Mer information finns i [Använd Azure Key Vault för att skicka säkra parametervärdet under distributionen av](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+1.  Lägg till hemligheterna i parameterfilen. Mer information finns i [använda Azure Key Vault för att skicka säkra parametervärdet under distributionen](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
-    -   Skapa en kopia av filen parametrar som överförs till grenen publicera och ange värden för parametrarna som du vill hämta från nyckelvalvet med följande format:
+    -   Skapa en kopia av filen parametrar som har överförts till grenen publicera och ange värden för parametrar som du vill hämta från key vault med följande format:
 
     ```json
     {
@@ -140,29 +140,29 @@ Det finns två sätt att hantera hemligheterna:
     }
     ```
 
-    -   När du använder den här metoden är hemligheten som hämtas från nyckelvalvet automatiskt.
+    -   När du använder den här metoden hämtas hemligheten från nyckelvalvet automatiskt.
 
     -   Parameterfilen måste vara i grenen publicera.
 
-2.  Lägg till en [Azure Key Vault uppgiften](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) innan Azure Resource Manager-distribution som beskrivs i föregående avsnitt:
+2.  Lägg till en [Azure Key Vault uppgift](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) innan Azure Resource Manager-distribution som beskrivs i föregående avsnitt:
 
-    -   Välj den **uppgifter** , skapa en ny uppgift och söka efter **Azure Key Vault** och lägga till den.
+    -   Välj den **uppgifter** fliken, skapa en ny uppgift, Sök efter **Azure Key Vault** och lägga till den.
 
-    -   Välj den prenumeration där du skapade nyckelvalvet i Key Vault-aktivitet, ange autentiseringsuppgifter om det behövs och välj sedan nyckelvalvet.
+    -   I Key Vault-uppgiften väljer du den prenumeration där du skapade nyckelvalvet, ange autentiseringsuppgifter om det behövs och välj sedan nyckelvalvet.
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-vsts-agent"></a>Bevilja behörighet till VSTS-agent
-Azure Key Vault-uppgiften misslyckas med felmeddelandet åtkomst nekad första gången. Hämta loggar för versionen och leta upp den `.ps1` fil med kommandot för att ge behörighet till VSTS agenten. Du kan köra kommandot direkt eller kopiera säkerhetsobjekt-ID från filen och lägga till åtkomstprincipen manuellt i Azure-portalen. (*Hämta* och *lista* är de minsta behörigheter som krävs).
+### <a name="grant-permissions-to-the-vsts-agent"></a>Bevilja behörigheter till VSTS-agent
+Azure Key Vault-uppgiften misslyckas för första gången med ett felmeddelande om nekad. Hämta loggar för versionen och leta upp den `.ps1` filen med kommandot för att ge behörighet till VSTS-agenten. Du kan köra kommandot direkt, eller du kan kopiera huvudkonto-ID från filen och lägga till åtkomstprincipen manuellt i Azure-portalen. (*Hämta* och *lista* är den lägsta behörigheten som krävs).
 
 ### <a name="update-active-triggers"></a>Uppdatera active utlösare
-Distributionen kan misslyckas om du försöker uppdatera active utlösare. För att uppdatera active utlösare, måste du manuellt stoppa dem och starta dem efter distributionen. Du kan lägga till en Azure Powershell-aktivitet för detta ändamål som visas i följande exempel:
+Distributionen kan misslyckas om du försöker uppdatera active utlösare. För att uppdatera active utlösare, måste du manuellt stoppa dem och starta dem efter distributionen. Du kan lägga till en Azure Powershell-uppgift för detta ändamål som visas i följande exempel:
 
-1.  I fliken uppgifter i VSTS versionen, söker du efter **Azure Powershell** och lägga till den.
+1.  I fliken uppgifter i VSTS-versionen, söker du efter **Azure Powershell** och lägga till den.
 
-2.  Välj **Azure Resource Manager** som anslutningen skriver och välja din prenumeration.
+2.  Välj **Azure Resource Manager** som anslutningen skriver och välj din prenumeration.
 
-3.  Välj **infogat skript** som skriptet skriver och ange sedan koden. Följande exempel stoppar utlösare:
+3.  Välj **infogat skript** som skriptet som skriver och ange sedan din kod. Följande exempel stoppar utlösare:
 
     ```powershell
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -172,15 +172,15 @@ Distributionen kan misslyckas om du försöker uppdatera active utlösare. För 
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-Du kan följa liknande steg och använda liknande kod (med den `Start-AzureRmDataFactoryV2Trigger` funktionen) starta om utlösare efter distributionen.
+Du kan följa liknande steg och använda liknande kod (med den `Start-AzureRmDataFactoryV2Trigger` funktionen) starta om utlösarna efter distributionen.
 
-## <a name="sample-template-and-script"></a>Exempelmall och skript
-Här är två exempel som du kan använda för att komma igång med kontinuerlig integrering och distribution för Data Factory:
+## <a name="sample-template-and-script"></a>Exempel på en mall och skript
+Här följer två exempel som du kan använda för att komma igång med kontinuerlig integrering och distribution för Data Factory:
 
--   En distribution exempelmall som du kan importera i VSTS.
+-   En exempel-Distributionsmall som du kan importera i VSTS.
 -   Ett exempelskript som du vill sluta utlösare före distributionen och starta om utlöser efteråt. Skriptet innehåller också koden för att ta bort resurser som har tagits bort.
 
-Här är en exempelmall distribution som du kan importera i VSTS.
+Här är en exempelmall för distribution som du kan importera i VSTS.
 
 ```json
 {
@@ -794,3 +794,94 @@ else {
     $deletedintegrationruntimes | ForEach-Object { Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
 }
 ```
+
+## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Använda anpassade parametrar med Resource Manager-mall
+
+Du kan definiera anpassade parametrar för Resource Manager-mallen. Du behöver bara har en fil med namnet `arm-template-parameters-definition.json` i rotmappen på lagringsplatsen. (Namnet på filen måste matcha det namn som visas här exakt.) Data Factory försöker läsa filen från den gren du arbetar i, inte bara från grenen samarbete. Om ingen fil hittas, använder Data Factory standarddefinitioner.
+
+I följande exempel visas en exempelfil för parametrar. Använd det här exemplet som referens för att skapa dina egna anpassade parameterfilen. Om filen som du anger inte är rätt JSON-format, Data Factory matar ut ett felmeddelande visas i webbläsarens konsol och återgår till standarddefinitioner som visas i Användargränssnittet för Data Factory.
+
+```json
+{
+    "Microsoft.DataFactory/factories/pipelines": {},
+    "Microsoft.DataFactory/factories/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "ssisProperties": {
+                    "catalogInfo": {
+                        "catalogServerEndpoint": "=",
+                        "catalogAdminUserName": "=",
+                        "catalogAdminPassword": {
+                            "value": "-::secureString"
+                        }
+                    },
+                    "customSetupScriptProperties": {
+                        "sasToken": {
+                            "value": "-::secureString"
+                        }
+                    }
+                },
+                "linkedInfo": {
+                    "key": {
+                        "value": "-::secureString"
+                    }
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "userName": "=",
+                    "accessKeyId": "=",
+                    "servicePrincipalId": "=",
+                    "userId": "=",
+                    "clientId": "=",
+                    "clusterUserName": "=",
+                    "clusterSshUserName": "=",
+                    "hostSubscriptionId": "=",
+                    "clusterResourceGroup": "=",
+                    "subscriptionId": "=",
+                    "resourceGroupName": "=",
+                    "tenant": "=",
+                    "dataLakeStoreUri": "=",
+                    "baseUrl": "=",
+                    "connectionString": {
+                        "secretName": "="
+                    }
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/datasets": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "folderPath": "=",
+                    "fileName": "="
+                }
+            }
+        }
+    }
+}
+```
+

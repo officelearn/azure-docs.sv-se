@@ -1,6 +1,6 @@
 ---
-title: Vad är anpassad röst? -Kognitiva azure-tjänster | Microsoft Docs
-description: Den här artikeln översikter Microsoft Text till tal röst anpassning, där du kan skapa en går att känna igen, en för en slag varumärken röst.
+title: Vad är anpassade röst? – Azure Cognitive Services | Microsoft Docs
+description: Den här artikeln översikter Microsoft Text till tal röst anpassning, där du kan skapa en identifierbara, en av-unika varumärkesröst.
 services: cognitive-services
 author: noellelacharite
 manager: nolach
@@ -8,50 +8,40 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: ad5af799fd46dc51b85432999f986de8cdb056ec
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9f7fbcc804229de69c3c72fb33ae03c88af70145
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355095"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857505"
 ---
-# <a name="creating-custom-voice-fonts"></a>Skapa anpassade röst teckensnitt
+# <a name="creating-custom-voice-fonts"></a>Skapa anpassade rösttyper
 
-Microsoft Text till tal (TTS) röst anpassning kan du skapa en röst för att känna igen, en av en typ för ditt varumärke: en *röst teckensnitt.* 
+Microsoft Text till-tal röst anpassning kan du skapa en identifierbara, en av en typ ton för ditt varumärke: en *rösttyp.* 
 
-För att skapa din röst teckensnitt, gör en studio registrering och ladda upp de associerade skript som utbildning data. Tjänsten skapar sedan en unik röst modell inställda för din registrering. Du kan sedan använda det här teckensnittet röst för att syntetisera tal. 
+För att skapa din rösttyp du gör en studio-registrering och ladda upp de associerade skript som träningsdata. Tjänsten skapar sedan en unik röst modell koll på inspelningen. Du kan sedan använda den här rösttyp för att syntetisera tal. 
 
-Du kan komma igång med en liten mängd data för ett konceptbevis. Men ju mer data du tillhandahålla, desto naturliga och professional låter din röst.
+Du kan komma igång med en liten mängd data för ett konceptbevis. Men ju mer data du tillhandahålla, desto mer naturliga och professional låter din röst.
 
 Röst anpassning är tillgängliga för amerikansk engelska (en-US) och fastlandet kinesiska (zh-CN).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Text till tal röst anpassning av funktionen är för tillfället i privat förhandsvisning. [Fyll i formuläret programmet](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) beaktas för åtkomst.
+Text till tal röst anpassning av funktionen är för tillfället i privat förhandsvisning. [Fyll i formuläret programmet](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) övervägas för åtkomst.
 
-Du behöver också:
+Du behöver också en Azure-konto och en prenumeration på Speech-tjänsten. [Skapa ett] (https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) om du inte redan har gjort. Anslut din prenumeration till anpassad Voice-portalen på följande sätt.
 
-* Ett Azure-konto ([registrera dig för gratis](https://azure.microsoft.com/free/ai/) om du ännu inte har en).
+1. Logga in på den [anpassad röst portal](https://customvoice.ai) med samma Microsoft-konto som du använde för att tillämpa för åtkomst.
 
-* En prenumeration på tjänsten tal. [Skapa en](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) om du inte redan har gjort.
-
-    ![Skapa panelen](media/custom-voice/create-panel.png)
-
-När du har skapat prenumerationen hittar du två prenumeration nycklar på panelen för Snabbstart eller översikt av den nya prenumerationen. Du kan använda antingen nyckel.
-
-Slutligen ansluta din prenumeration till anpassad röst-portal på följande sätt.
-
-1. Logga in på den [anpassad röst portal](https://customvoice.ai) med samma Microsoft-konto som du använde för att använda för åtkomst.
-
-2. Gå till prenumerationer om du under namnet på ditt konto på upp till höger.
+2. Gå till ”Subscriptions” under kontonamnet på ditt längst upp till höger.
 
     ![Prenumerationer](media/custom-voice/subscriptions.png)
 
-3. Välj Anslut befintliga prenumeration på '' prenumerationssidan.
+3. På sidan ”Subscriptions” väljer du Anslut befintlig prenumeration.
 
      ![Ansluta befintliga prenumeration](media/custom-voice/connect-existing-sub.png)
 
-4. Klistra in din prenumeration nyckel i tabellen, enligt nedan.
+4. Klistra in din prenumerationsnyckel i tabellen, enligt nedan. Varje prenumeration har två nycklar och du kan använda någon av dessa.
 
      ![Lägg till prenumeration](media/custom-voice/add-subscription.png)
 
@@ -59,36 +49,36 @@ Du är redo att sätta igång!
 
 ## <a name="prepare-recordings-and-transcripts"></a>Förbereda inspelningar och betyg
 
-En röst utbildning dataset består av en uppsättning ljudfiler, tillsammans med en textfil som innehåller betyg i alla dessa ljudfiler.
+En datauppsättning för träning röst består av en uppsättning ljudfiler, tillsammans med en textfil som innehåller avskrifter av alla dessa ljudfiler.
 
-Du kan förbereda filerna i vardera riktning: antingen skriva ett skript och läses av röst användare eller använda offentligt tillgängliga ljud och transkribera dem till text. Redigera disfluencies från ljudfiler, till exempel ”um” och andra information ljud, hackar, mumbled ord eller mispronunciations i det senare fallet.
+Du kan förbereda dessa filer i båda riktningarna: antingen skriva ett skript och läses av röst talanger, eller använda offentligt tillgängliga ljud och effektiv dem till text. Redigera disfluencies från ljudfiler, till exempel ”um” och andra information ljud, hackar, mumbled ord eller mispronunciations i det senare fallet.
 
-För att skapa ett bra röst teckensnitt, är det viktigt att inspelningen är klar i ett tyst rum med en mikrofon av hög kvalitet. Konsekvent volym tala hastighet, tala breddsteg och lättfattliga maner, ovanor av tal är nödvändiga för att skapa en bra digitala röst. Om du vill skapa en röst för produktion, rekommenderar vi att du använder en professional spela in studio och röst användare.
+För att skapa en bra rösttyp, är det viktigt att inspelningen är klar i en tyst rum med en mikrofon av hög kvalitet. Konsekvent volym talar pris, samtalsstil motivation och lättfattliga maner, ovanor tal är nödvändiga för att skapa en fantastisk digital röst. Om du vill skapa en röst för användning i produktion, rekommenderar vi att du använder en professionell inspelning studio och röst personal.
 
 ### <a name="audio-files"></a>Ljudfiler
 
-Varje ljudfil ska innehålla en enda utterance (till exempel en mening eller en enda Stäng dialogrutan System). Alla filer måste vara på samma språk (flerspråkig anpassade röster inte stöds). Ljudfiler måste också ha ett unikt numeriska filnamn med filnamnstillägget `.wav`.
+Varje ljudfil ska innehålla en enda uttryck (till exempel en mening eller en enda aktivera för ett system för dialogrutan). Alla filer måste finnas i samma språk (flerspråkig anpassade röster inte stöds). Ljudfiler måste också ha ett unikt numeriska filnamn med filnamnstillägget `.wav`.
 
-Ljudfiler bör vara beredd på följande sätt. Andra format stöds inte och ignorerades.
+Ljudfiler bör vara beredd på följande sätt. Andra format stöds inte och kommer att avvisas.
 
 | **Egenskap** | **Värde** |
 | ------------ | --------- |
 | Filformat  | RIFF (WAV)|
-| Samplingsfrekvens| 16 000 Hz |
-| Kanaler     | 1 (monophonic)  |
-| Exempel-Format| PCM, 16-bitars |
+| Samplingsfrekvens| minst 16 000 Hz |
+| Exempelformat| PCM, 16-bitars |
 | Filnamn    | Numeriska med `.wav` tillägg |
-| Arkivformat| ZIP-      |
-| Maximal arkivstorlek|200 MB|
+| Arkivformat| Zip      |
+| Maximal arkivstorlek|200 MB|
 
-Placera uppsättningen ljudfiler i en enda mapp utan underkataloger och hela uppsättningen som ett enda filarkiv ZIP-paketet.
+Placera uppsättningen ljudfiler i en enda mapp utan underkataloger och paketera hela uppsättningen som ett enda ZIP-arkiv för filen.
 
 > [!NOTE]
-> Portalen för närvarande importerar ZIP arkiveras upp till 200 MB. Flera Arkiv kan laddas upp. Det maximala antalet tillåtna datauppsättningar är 10 ZIP kostnadsfritt filer användare och 50 för standard användare.
+> Wave-filer med en lägre än 16 000 Hz samplingsfrekvensen avvisas. I de fall där en zip-fil innehåller vågor med med olika samplingshastigheter, importeras endast dessa lika med eller högre än 16 000 Hz.
+> Portalen för närvarande importerar ZIP arkiverar upp till 200 MB. Dock kan du överföra flera Arkiv. Det maximala antalet datauppsättningar som tillåts är 10 ZIP-filer utan kostnad användare och 50 för standard användare.
 
-### <a name="transcripts"></a>Betyg
+### <a name="transcripts"></a>Avskrifter
 
-Skrivfel-filen är en vanlig Unicode-textfil (lite UTF-16-endian). Varje rad i filen skrivfel måste ha namnet på en ljudfil, följt av ett tabbtecken (kodpunkt 9) och slutligen dess betyg. Inga tomma rader är tillåtna.
+Transkription-filen är en vanlig textfil (ANSI/UTF-8/UTF-8-BOM/UTF-16-LE/UTF-16-BE). Varje rad i filen avskrift måste ha namnet på en ljudfil, följt av ett tabbtecken (kodpunkt 9) och slutligen dess avskrift. Några tomma rader tillåts.
 
 Exempel:
 
@@ -98,17 +88,17 @@ Exempel:
 0000000003  It was Janet Maslin.
 ```
 
-Anpassade röst systemet normaliserar betyg genom konvertera texten till gemener och ta bort överflödig skiljetecken. Det är viktigt att betyg är 100% korrekt med motsvarande ljudinspelningar.
+Anpassade röst systemet normaliserar avskrifter genom att omvandla text till gemener och ta bort överflödig skiljetecken. Det är viktigt att avskrifter är 100% korrekt till motsvarande ljudinspelningar.
 
 > [!TIP]
-> När skapa produktion text till tal röster, Välj utterances (eller skriva skript) med tanke på både fonetisk täckning och effektivitet.
+> Om att skapa text till tal röster, väljer yttranden (eller skriva skript) som överväger både fonetiska täckning och effektivitet.
 
 ## <a name="upload-your-datasets"></a>Ladda upp dina datauppsättningar
 
-När du har förberett din ljudfil arkivet och betyg överför dem via den [anpassad röst Tjänstportalen](https://customvoice.ai).
+När du har förberett din ljudfil arkivering och avskrifter, överföra dem via den [anpassad röst leverantörer](https://customvoice.ai).
 
 > [!NOTE]
-> Datauppsättningar kan inte ändras när de har överförts. Om du har glömt att inkludera betyg på några av ljudfilerna, till exempel eller oavsiktligt väljer fel kön, måste du överföra hela datamängden igen. Kontrollera dina dataset och inställningar noggrant innan du börjar överföringen.
+> Datauppsättningar kan inte redigeras när de har överförts. Om du glömmer att inkludera avskrifter av några av ljudfilerna, till exempel eller råkar välja fel kön måste du ladda upp hela datauppsättningen igen. Kontrollera dina inställningar och datauppsättningen noggrant innan du börjar överföringen.
 
 1. Logga in på portalen.
 
@@ -116,134 +106,134 @@ När du har förberett din ljudfil arkivet och betyg överför dem via den [anpa
 
     ![Mina projekt](media/custom-voice/my-projects.png)
 
-    Min röst tabellen visas. Den är tom om du inte ännu har överfört en röst datauppsättningar.
+    Tabellen Mina Voice-Data visas. Den är tom om du inte har ännu har överfört röst datauppsättningar.
 
-3. Klicka på **dataimport** och gå till sidan för att hämta en ny datamängd.
+3. Klicka på **dataimport** att öppna sidan för att ladda upp en ny datauppsättning.
 
     ![Importera Voice-Data](media/custom-voice/import-voice-data.png)
 
-4. Ange ett namn och en beskrivning i fälten. 
+4. Ange ett namn och beskrivning i fälten. 
 
-5. Välj språk för röst-teckensnitt. Kontrollera att språkinformationen matchar språket för spela in data och skript. 
+5. Välj språk för din rösttyper. Kontrollera att språkinformationen matchar språket i spela in data och skripten. 
 
-6. Välj kön på högtalaren vars röst som du använder.
+6. Välj kön talaren vars röst som du använder.
 
-7. Välj skript och ljudfiler att överföra. 
+7. Välj skript och ljudfiler för att ladda upp. 
 
-8. Klicka på **importera** att överföra data. För större datamängder kan det ta flera minuter att importera.
+8. Klicka på **Import** att ladda upp data. För större datamängder kan det ta flera minuter att importera.
 
 > [!NOTE]
-> Kostnadsfri prenumeration som användarna kan ladda upp två datamängder i taget. Vanliga användare kan samtidigt överföra fem datauppsättningar. Om du når gränsen, vänta tills minst en av dina datauppsättningar har importerats och försök igen.
+> Kostnadsfria användare kan ladda upp två datauppsättningar i taget. Standard-prenumerationsanvändare kan samtidigt överföra fem datauppsättningar. Om du når gränsen, vänta tills minst en av dina datauppsättningar har importerats, försök sedan igen.
 
-När överföringen är klar visas Mina röst tabellen igen. Du bör se en post som motsvarar din bara upp DataSet. 
+När överföringen är klar, visas tabellen Mina Voice-Data igen. Du bör se en post som motsvarar till din datauppsättning precis överförs. 
 
-Datauppsättningar verifieras automatiskt efter överföringen. Dataverifiering innehåller en rad kontroller på ljudfiler att verifiera sina filformat, storlek och samplingsfrekvensen. Kontroller av skrivfel filerna Kontrollera filformatet och utföra vissa text normalisering. Utterances är sätt med hjälp av taligenkänning och den resulterande texten jämförs med betyg som du angav.
+Datauppsättningar verifieras automatiskt efter överföringen. Dataverifiering innehåller en rad kontroller på ljudfiler att verifiera sina filformat, storlek och samplingsfrekvensen. Kontrollerar om filerna som taltranskription verifiera filformatet och utföra vissa text normalisering. Talade transkriberas använder taligenkänning och den resulterande texten jämförs med avskrift som du angav.
 
-![Mina Voice-Data](media/custom-voice/my-voice-data.png)
+![Min Voice-Data](media/custom-voice/my-voice-data.png)
 
-Följande tabell innehåller de bearbetning för importerade datauppsättningar. 
+I följande tabell visas bearbetning tillstånden för importerade datauppsättningar. 
 
 | Status | Betydelse
 | ----- | -------
-| `NotStarted` | Datamängden har tagits emot och är i kö för bearbetning
-| `Running` | Datauppsättningens verifieras
-| `Succeeded` | Datamängden har verifierats och kan nu användas för att bygga en röst teckensnitt
+| `NotStarted` | Din datauppsättning har tagits emot och är i kö för bearbetning
+| `Running` | Din datauppsättning verifieras
+| `Succeeded` | Din datauppsättning har verifierats och kan nu användas för att skapa en rösttyp
 
-När verifieringen är klar kan se du det totala antalet matchade utterances för var och en av dina datauppsättningar i kolumnen Utterance.
+När verifieringen är klar visas det totala antalet matchande yttranden för var och en av dina datauppsättningar i kolumnen uttryck.
 
-Du kan hämta en rapport för att kontrollera uttal poängen och nivån bruset för var och en av dina inspelningar. Uttal poäng intervall från 0 till 100. en poäng nedan 70 betyder vanligen att ett tal fel eller ett skript-matchningsfel. En tung accent kan minska uttal poängen och påverkar den genererade digitala rösten.
+Du kan hämta en rapport för att kontrollera uttal poängen och bruset nivån för var och en av dina inspelningar. Uttal av poängen anges från 0 till 100. en poäng under 70 betyder vanligen att ett tal fel eller ett skript-matchningsfel. En tung accent kan minska dina uttal poäng och påverka genererade digitala röst.
 
-Ett högre signal-brus-förhållande (SNR) anger lägre bruset i ljudenheten. Vanligtvis kan du nå 50 + SNR genom registrering via professional studios. Ljud med en SNR nedan 20 kan leda till uppenbara bruset i rösten genererade.
+Högre signal-brus förhållande (SNR) anger lägre bruset i dina ljud. Normalt kan du nå en 50 + SNR genom inspelningen via professionella studios. Ljud med en SNR nedan 20 kan leda till uppenbara bruset i din röst när du genererade.
 
-Överväg att inspelningen eventuella utterances med låg uttal resultat eller dålig signal brus förhållanden. Om det inte går att inspelningen, kan du undanta dessa utterances från datamängden.
+Överväg att inspelningen yttranden med låg uttal poäng eller dålig signal brus förhållanden. Om det inte går att spela in igen, kan du undanta dessa yttranden från din datauppsättning.
 
-## <a name="build-your-voice-font"></a>Skapa din röst teckensnitt
+## <a name="build-your-voice-font"></a>Skapa din rösttyp
 
-När din datauppsättning har verifierats, kan du använda den för att skapa anpassade röst-teckensnitt. 
+När din datauppsättning har verifierats, kan du använda den för att skapa din anpassad rösttyp. 
 
-1. Välj **modeller** i listrutan ”anpassad röst”. 
+1. Välj **modeller** i listrutan ”anpassade röst”. 
  
-    Tabellen min röst teckensnitt visas med eventuella anpassade röst teckensnitt som du redan har skapat.
+    Mina Rösttyper tabellen visas med alla anpassade rösttyper som du redan har skapat.
 
-1. Klicka på **skapa röster** under rubriken för tabellen. 
+1. Klicka på **skapa röster** under rubriken tabell. 
 
-    Sidan för att skapa en röst teckensnitt visas. Språket visas i den första raden i tabellen. Ändra språk för att skapa en röst på ett annat språk. Språk måste vara samma som de datauppsättningar som används för att skapa rösten.
+    Sidan för att skapa en rösttyp visas. De aktuella nationella inställningarna visas i den första raden i tabellen. Ändra språk för att skapa en röst i ett annat språk. De nationella inställningarna måste vara samma som de datauppsättningar som används för att skapa röst.
 
-1. Ange ett namn och en beskrivning som hjälper dig att identifiera den här modellen som du gjorde när du har överfört din datauppsättning. 
+1. Ange ett namn och beskrivning för att identifiera den här modellen som du gjorde när du har laddat upp din datauppsättning. 
 
-    Namnet som du anger här kommer att namnet du använder för att ange röst i din begäran om tal sammanfattande som en del av SSML-indata, så Välj noggrant. Endast bokstäver, siffror och skiljetecken tecken som '-', '_' '(',')' är tillåtna.
+    Namnet du anger här blir namnet som du använder för att ange röst i din begäran för talsyntes som en del av SSML indata, så du väljer noggrant. Endast bokstäver, siffror och skiljetecken tecken som '-', '_' '(',')' tillåts.
 
-    Ett vanligt användningsområde för beskrivningsfältet är att anteckna namnen på de datamängder som användes för att skapa modellen.
+    Ett vanligt användningsområde för beskrivningsfältet är att anteckna namnen på de datauppsättningar som har använts för att skapa modellen.
 
-1. Välj kön för röst-teckensnitt. Den måste matcha kön för datauppsättningen.
+1. Välj din rösttyp kön. Det måste matcha kön för datauppsättningen.
 
-1. Välj datauppsättning/ar som du vill använda för att träna teckensnittet röst. Alla datauppsättningar som används måste vara från samma högtalaren.
+1. Välj de datauppsättningar som du vill använda för att träna rösttyp. Alla datauppsättningar som används måste komma från samma API.
 
-1. Klicka på **skapa** att börja skapa röst-teckensnitt.
+1. Klicka på **skapa** att börja skapa din rösttyp.
 
     ![Skapa modell](media/custom-voice/create-model.png)
 
-Din nya modell visas i tabellen min röst teckensnitt. 
+Den nya modellen visas i tabellen Mina Rösttyper. 
 
-![Röst teckensnitt](media/custom-voice/my-voice-fonts.png)
+![Min Rösttyper](media/custom-voice/my-voice-fonts.png)
 
-Status visas visar att konvertera din datauppsättning till en röst teckensnitt som visas här.
+Det visade statusvärdet visar att konvertera datauppsättningen till en rösttyp som visas här.
 
 | Status | Betydelse
 | ----- | -------
 | `NotStarted` | Din begäran för att skapa en röst teckensnittet är i kö för bearbetning
-| `Running` | Teckensnittet röst skapas
-| `Succeeded` | Teckensnittet röst har skapats och kan distribueras
+| `Running` | Din rösttyp håller på att skapas
+| `Succeeded` | Din rösttyp har skapats och kan distribueras
 
-Utbildning tid varierar beroende på mängden bearbetade ljud data. Vanliga gånger intervallet om 30 minuter för hundratals utterances till 40 timmar för 20 000 utterances.
+Utbildning tiden varierar beroende på mängden bearbetade ljud data. Vanliga gånger mellan om 30 minuter för hundratals yttranden och 40 timmar för 20 000 yttranden.
 
 > [!NOTE]
-> Fria användare kan träna två röst teckensnitt i taget. Vanliga användare kan träna tre röster samtidigt. Om du når gränsen, vänta tills minst en röst teckensnitt är färdigt utbildning och försök igen.
+> Kostnadsfria användare kan träna en rösttyp i taget. Standard-prenumerationsanvändare kan träna tre röster samtidigt. Om du når gränsen, vänta tills minst en av dina rösttyper är klar utbildning och försök igen.
 
-## <a name="test-your-voice-font"></a>Testa din röst teckensnitt
+## <a name="test-your-voice-font"></a>Testa din rösttyp
 
-När röst teckensnittet är har skapat kan testa du den innan du distribuerar den för användning. Klicka på **Test** i kolumnen åtgärder. Testsidan visas för det valda rösten teckensnittet. Tabellen är tom om du ännu inte har skickats alla test-förfrågningar för röst.
+När din rösttyp har har skapats, kan du testa den innan du distribuerar den för användning. Klicka på **Test** i kolumnen åtgärder. Testsidan visas för den valda rösttyp. Tabellen är tom om du ännu inte har skickat alla test-begäranden för röst.
 
-![Min röst teckensnitt, del 2](media/custom-voice/my-voice-fonts2.png)
+![Min Rösttyper, del 2](media/custom-voice/my-voice-fonts2.png)
 
-Klicka på **Test med text** knappen under rubriken tabellen ska visas ett popup-menyn för att skicka begäranden som text. Du kan skicka testbegäran i oformaterad text eller SSML. Maximal inkommande storlek är 1 024 tecken, inklusive alla taggar för SSML-begäran. Språket i texten måste vara samma som språket för röst-teckensnitt.
+Klicka på **Test med text** knappen under tabelltitel så visas en popup-meny för att skicka begäranden om text. Du kan skicka din begäran för testning i oformaterad text eller SSML. Den maximala storleken för indata är 1 024 tecken, inklusive alla taggar för SSML begäran. Språk i texten måste vara samma som din rösttyp språk.
 
-![Röst teckensnitt testning](media/custom-voice/voice-font-testing.png)
+![Röst teckensnitt för testning](media/custom-voice/voice-font-testing.png)
 
-När du fyller i textrutan och bekräfta det inkommande läget, klickar du på **Ja** att skicka testbegäran och återgå till testsidan. Tabellen innehåller nu en post som motsvarar din begäran om ny och välbekanta status-kolumnen. Det kan ta några minuter att syntetisera tal. När i statuskolumnen läser lyckades, kan du hämta text-indata (en `.txt` filen) och ljuduppspelning (en `.wav` filen) och lyssna denna för kvalitet.
+När du fyller i textrutan och bekräftar läget som indata, klickar du på **Ja** att skicka din begäran för testning och återgå till testsidan. Tabellen innehåller nu en post som motsvarar din nya förfrågan och välbekanta statuskolumnen. Det kan ta några minuter att syntetisera tal. När statuskolumnen läser lyckades, du kan ladda ned textinmatningen (en `.txt` fil) och ljuduppspelning (en `.wav` fil) och lyssna det senare för kvalitet.
 
 ![Röst teckensnitt testning, del 2](media/custom-voice/voice-font-testing2.png)
 
 ## <a name="create-and-use-a-custom-endpoint"></a>Skapa och använda en anpassad slutpunkt
 
-När du har skapat och testat din röst-modell, distribuerar du den i en anpassad Text till tal-slutpunkt. Du kan sedan använda den här slutpunkten i stället för vanliga slutpunkten vid Text till tal-begäranden via REST API. Din anpassade slutpunkt kan bara anropas av den prenumeration som du använde för att distribuera teckensnitt.
+När du har skapat och testat din röst-modell, distribuerar du den i en anpassad Text till tal-slutpunkt. Du kan sedan använda den här slutpunkten i stället för slutpunkten som vanligt när Text till tal-förfrågningar via REST API. Din anpassade slutpunkt kan anropas bara av den prenumeration som du använde för att distribuera teckensnittet.
 
-Om du vill skapa en ny anpassad slutpunkt, Välj **slutpunkter** på menyn anpassade röst överst på sidan. Sidan distributionen visas med sin tabell aktuella anpassade röst slutpunkter, eventuella.
+Om du vill skapa en ny anpassad slutpunkt, Välj **slutpunkter** anpassade röst-menyn längst upp på sidan. Sidan distributionen visas med sin tabell av den aktuella anpassade röst slutpunkter, om sådana.
 
-Klicka på den **distribuera röster** för att skapa en ny slutpunkt. I skapa-slutpunkten ”sidan språket avspeglas i den första raden i tabellen. Ändra visas om du vill skapa en distribution för ett annat språk. (Den måste matcha den rösten som du distribuerar.) Ange namn och beskrivning av din anpassade slutpunkt.
+Klicka på den **distribuera röster** för att skapa en ny slutpunkt. I skapa slutpunkten ”sidan de aktuella nationella inställningarna visas i den första raden i tabellen. Ändra det visade språket om du vill skapa en distribution för ett annat språk. (Det måste matcha röst du distribuerar.) Ange namn och beskrivning av din anpassade slutpunkt.
 
-Välj den prenumeration som du vill använda på menyn prenumeration. Kostnadsfri prenumeration som användare kan ha endast en modell som har distribuerats i taget. Vanliga användare kan skapa upp till 20 slutpunkter, var och en med sin egen anpassade röst.
+Välj den prenumeration som du vill använda på menyn prenumeration. Kostnadsfria användare kan ha endast en modell som distribuerats i taget. Standard användare kan skapa upp till 20 slutpunkter, var och en med sin egen anpassade röst.
 
-![Skapa slutpunkten](media/custom-voice/create-endpoint.png)
+![Skapa slutpunkt](media/custom-voice/create-endpoint.png)
 
-När du har valt modellen som ska distribueras, klickar du på **skapa**. Sidan distribution igen nu med en post för din nya slutpunkt. Det kan ta några minuter att skapa en instans av en ny slutpunkt. Slutpunkten är redo för användning när statusen för distributionen är klar.
+När du har valt modellen distribueras, klickar du på **skapa**. Sidan distributionen igen nu innehåller en post för din nya slutpunkt. Det kan ta några minuter att skapa en instans av en ny slutpunkt. När statusen för distributionen är slutfört är slutpunkten redo att användas.
 
 ![Min distribuerade röster](media/custom-voice/my-deployed-voices.png)
 
-När distributionsstatusen är klar slutpunkten för distribuerade röst teckensnittet visas i den distribuerade röster tabellen. Du kan använda den här URI direkt i en HTTP-begäran.
+När distributionsstatusen är slutfört slutpunkten för din distribuerade rösttyp visas i den distribuerade röster tabellen. Du kan använda den här URI: N direkt i en HTTP-begäran.
 
-Online testning av slutpunkten är också tillgängliga via den anpassa röst-portalen. Om du vill testa din slutpunkt, Välj **slutpunkter testning** från listrutan anpassad röst. Slutpunkten testa sidan visas. Välj en röst som du har distribuerat och ange texten som ska läsas (i oformaterad text eller SSML-format) i textrutan.
+Online testning av slutpunkten är också tillgängligt via portalen anpassade röst. Om du vill testa din slutpunkt, Välj **slutpunkter testning** anpassad röst nedrullningsbara menyn. Slutpunkten testning sida visas. Välj en röst som du har distribuerat och ange vilken text som ska läsas (i oformaterad text eller SSML format) i textrutan.
 
 > [!NOTE] 
 > När du använder SSML, den `<voice>` taggen måste ange det namn du gav din anpassade röst när du skapade den.
 
-Klicka på **spela upp** höra texten talas i din anpassade röst teckensnitt.
+Klicka på **spela upp** att höra texten som sägs i din anpassad rösttyp.
 
-![Testning av slutpunkten](media/custom-voice/endpoint-testing.png)
+![Slutpunkt för testning](media/custom-voice/endpoint-testing.png)
 
-Anpassade slutpunkten är funktionellt identiskt med standardslutpunkten används för text till tal-begäranden. Se [REST API](rest-apis.md) för mer information.
+Anpassad slutpunkt är funktionellt identisk standard slutpunkten som används för text till tal-begäranden. Se [REST API](rest-apis.md) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hämta din utvärderingsprenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
-- [Identifiera tal i C#](quickstart-csharp-windows.md)
+- [Få en kostnadsfri prenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
+- [Känna igen tal i C#](quickstart-csharp-windows.md)

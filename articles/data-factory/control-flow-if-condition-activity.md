@@ -1,6 +1,6 @@
 ---
-title: Om villkoret aktivitet i Azure Data Factory | Microsoft Docs
-description: Aktiviteten om villkoret kan du styra flödet bearbetning baserat på ett villkor.
+title: Om Villkorsaktivitet i Azure Data Factory | Microsoft Docs
+description: If-villkoret kan du styra dataflödet för bearbetning som baserat på ett villkor.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 0141694b87664a83872f7b270631d454f863d5a8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5077982bdef4d0e8fbf1ab485566909b4dc97a8a
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046174"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857386"
 ---
-# <a name="if-condition-activity-in-azure-data-factory"></a>Om aktiviteten i Azure Data Factory-villkor
+# <a name="if-condition-activity-in-azure-data-factory"></a>Om Villkorsaktivitet i Azure Data Factory
 If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk. Det utvärderar en uppsättning aktiviteter om villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till `false`. 
 
 ## <a name="syntax"></a>Syntax
@@ -63,23 +63,23 @@ If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk.
 }
 ```
 
-## <a name="type-properties"></a>Typegenskaper
+## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
 Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namnet på aktiviteten om villkoret. | Sträng | Ja
-typ | Måste anges till **IfCondition** | Sträng | Ja
-uttryck | Uttryck som måste utvärderas till true eller false | Ja
-ifTrueActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `true`. | Ja
-ifFalseActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `false`. | Ja
+namn | Namnet på if-villkoret. | Sträng | Ja
+typ | Måste vara inställt på **IfCondition** | Sträng | Ja
+uttryck | Uttryck som måste utvärderas till true eller false | Uttryck med resultat skriver booleskt värde | Ja
+ifTrueActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `true`. | Matris | Ja
+ifFalseActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `false`. | Matris | Ja
 
 ## <a name="example"></a>Exempel
-Pipeline i det här exemplet kopierar data från en inkommande mapp till en utdatamapp. Den utgående mappen bestäms av värdet för parametern pipeline: routeSelection. Om värdet för routeSelection är true, kopieras data till outputPath1. Och om värdet för routeSelection är FALSKT data kopieras till outputPath2. 
+Pipelinen i det här exemplet kopierar data från en Indatamappen till en utdatamapp. Utdatamappen bestäms av värdet för pipeline-parameter: routeSelection. Om värdet för routeSelection är true, kopieras data till outputPath1. Och om värdet för routeSelection är FALSKT, data kopieras till outputPath2. 
 
 > [!NOTE]
-> Det här avsnittet innehåller definitioner av JSON och exempel PowerShell-kommandon för att köra pipelinen. En genomgång med stegvisa anvisningar för att skapa Data Factory-pipelinen med hjälp av Azure PowerShell-och JSON finns [Självstudier: skapa en datafabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Det här avsnittet innehåller JSON-definitioner och exempel PowerShell-kommandon för att köra pipelinen. En genomgång med stegvisa instruktioner för att skapa Data Factory-pipeline med hjälp av Azure PowerShell och JSON-definitioner finns i [självstudie: skapa en datafabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pipeline med om villkoret aktivitet (Adfv2QuickStartPipeline.json)
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pipeline med IF-villkoret (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -190,7 +190,7 @@ Ett annat exempel för uttrycket är:
 ```
 
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure länkade lagringstjänsten (AzureStorageLinkedService.json)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage-länkade tjänst (AzureStorageLinkedService.json)
 
 ```json
 {
@@ -207,8 +207,8 @@ Ett annat exempel för uttrycket är:
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametriserade Azure-blobbdatauppsättning (BlobDataset.json)
-Pipeline-anger den **folderPath** till värdet för antingen **outputPath1** eller **outputPath2** parametern av pipeline. 
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametriserade Azure Blob-datauppsättning (BlobDataset.json)
+Pipeline-uppsättningar på **folderPath** till värdet för antingen **outputPath1** eller **outputPath2** parameter i pipelinen. 
 
 ```json
 {
@@ -234,7 +234,7 @@ Pipeline-anger den **folderPath** till värdet för antingen **outputPath1** ell
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parametern JSON (PipelineParameters.json)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parameter JSON (PipelineParameters.json)
 
 ```json
 {
@@ -246,7 +246,7 @@ Pipeline-anger den **folderPath** till värdet för antingen **outputPath1** ell
 ```
 
 ### <a name="powershell-commands"></a>PowerShell-kommandon
-Kommandona förutsätter att du har sparat JSON-filer i mappen: C:\ADF. 
+Kommandona förutsätter att du har sparat JSON-filerna till mappen: C:\ADF. 
 
 ```powershell
 Connect-AzureRmAccount
@@ -288,7 +288,7 @@ $result.Error -join "`r`n"
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se annan kontrollflödesaktiviteter som stöds av Data Factory: 
+Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
 
 - [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)

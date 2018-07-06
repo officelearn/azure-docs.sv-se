@@ -1,6 +1,6 @@
 # Översikt
 ## [Vad är Azure AD PIM?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Säker privilegierad åtkomst](../admin-roles-best-practices.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Säker privilegierad åtkomst](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Katalogroller i PIM](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [PIM för Azure-resurser](azure-pim-resource-rbac.md)
 ## [Arbetsflöde för godkännande av PIM](azure-ad-pim-approval-workflow.md)

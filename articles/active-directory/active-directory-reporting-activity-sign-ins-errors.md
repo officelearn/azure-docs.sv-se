@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cc5b4955d6bd239f99a9be0ab158ac8003f67ddf
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 8892f9a2699d18fbaf9161ffb01906a071ab2243
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110529"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856764"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Rapporter om inloggningfelkoder i Azure Active Directory-portalen
 
@@ -75,6 +75,7 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |50008|SAML-kontrollen saknas eller är felkonfigurerad i token. Kontakta den federerade providern.|
 |50010|Verifiering av målgrupps-URI för programmet misslyckades eftersom ingen tokenmålgrupp har konfigurerats. Kontakta programägaren|
 |50011|Svarsadressen saknas, är felkonfigurerad eller matchar inte svarsadresserna som har konfigurerats för programmet. Prova att använda lösningen som listas vid [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Kontakta programägaren eller appadministratören om du fortfarande har problem|
+|50012| Det här är ett allmänt felmeddelande som anger att autentiseringen misslyckades. Detta kan inträffa av skäl som saknas eller är ogiltig autentiseringsuppgifter eller anspråk i begäran. Se till att begäran skickas med rätt autentiseringsuppgifter och anspråk. |
 |50013|Kontrollen är ogiltig av olika skäl – tokenutfärdaren matchar inte API-versionen inom det giltiga tidsintervallet – har upphört att gälla – felaktig – uppdateringstoken i försäkran är inte en primär uppdateringstoken.|
 |50017|Verifieringen av certifikatutfärdaren misslyckades, av följande skäl:<ul><li>Det går inte att hitta utfärdarcertifikatet i listan med betrodda certifikat</li><li>Det gick inte att hitta förväntat CrlSegment</li><li>Det går inte att hitta utfärdarcertifikatet i listan med betrodda certifikat</li><li>Delta CRL-distributionspunkten har konfigurerats utan motsvarande CRL-distributionspunkt</li><li>Det gick inte att hämta giltiga CRL-segment på grund av timeout-problem</li><li>Det gick inte att ladda ned CRL</li></ul>Kontakta administratören för klientorganisationen.|
 |50020|Användaren är autentiserad – det går inte att utfärda token på grund av versionsproblem – utfärdarens namn har inte angetts – problem med utfärdarnamnet (null – max. längd). Kontakta appägaren|
@@ -173,7 +174,9 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |81001|Användarens Kerberos-biljett är för stor. Detta kan inträffa om användaren har för många grupper och Kerberos-biljetten därmed innehåller för många gruppmedlemskap. Minska användarens gruppmedlemskap och försök igen.|
 |81005|Autentiseringspaketet stöds inte|
 |81007|Klienten har inte aktiverats för sömlös SSO|
-
+|90014| Ett obligatoriskt fält för ett protokollmeddelande var saknas, Kontakta programmets ägare. Om du är programmets ägare kan du kontrollera att du har alla nödvändiga parametrar för inloggningsbegäran. 
+|90072| Kontot måste läggas till som en extern användare i klientorganisationen först. Logga ut och logga in igen med en annan Azure AD konto.|
+|90094| Beviljande måste ha administratörsbehörighet. Be klientorganisationens administratör att ge medgivande för det här programmet.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 320eef05faec6b3e399e5a1289e3ee076823c921
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c78de020e3cbaae6fccf2f981bb3601269ceba58
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346322"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859841"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Installera Azure IoT Edge-körningen på Linux (ARM32v7/armhf)
 
@@ -131,6 +131,9 @@ Och listan körs moduler med:
 ```cmd/sh
 sudo iotedge list
 ```
+>[!NOTE]
+>Begränsad enheter som RaspberryPi på resursen, vi rekommenderar starkt som *OptimizeForPerformance* miljövariabeln anges till *FALSKT* enligt anvisningarna i den [ felsökningsguide för.][lnk-trouble]
+
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -139,6 +142,7 @@ Om du har problem med Edge-körningen installeras korrekt, Kolla in den [felsök
 <!-- Links -->
 [lnk-dcs]: how-to-register-device-portal.md
 [lnk-dps]: how-to-auto-provision-simulated-device-linux.md
+[lnk-trouble]: https://review.docs.microsoft.com/en-us/azure/iot-edge/troubleshoot#stability-issues-on-resource-constrained-devices
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md

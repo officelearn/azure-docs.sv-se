@@ -5,28 +5,28 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 03/26/2018
-ms.author: jeking
+ms.date: 07/03/2018
+ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 0347d6ca951b75c385b138487f58b85a809c6805
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 056007ba9d28280a6055ca3312e2aa53e635d1d3
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076671"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859800"
 ---
-Zonen Redundant lagring (ZRS) replikerar synkront data mellan tre (3) lagringskluster i en region. Varje lagringsklustret separeras fysiskt från de andra och finns i en egen tillgänglighet zon (AZ). Varje zon för tillgänglighet och ZRS-kluster i denna är självständiga, med separata verktyg och nätverksfunktioner.
+Zonredundant lagring (ZRS) replikerar dina data synkront i tre lagringskluster i en enda region. Varje lagringskluster är fysiskt avgränsade från de andra och ligger i sin egen tillgänglighetszon (AZ). Varje tillgänglighetszon och ZRS-klustret i denna är autonoma med olika verktyg och nätverksfunktioner.
 
-Lagra data i ett konto för ZRS garanterar att du kommer att använda och hantera dina data i händelse av att en zon blir otillgänglig. ZRS ger utmärkt prestanda och mycket låg latens. I själva verket ZRS har samma [skalbarhetsmål](../articles/storage/common/storage-scalability-targets.md) som LRS.
+Lagra data i ett ZRS-konto säkerställer att du kan få åtkomst till och hantera dina data i händelse av att en zon blir otillgänglig. ZRS ger utmärkt prestanda och låg fördröjning. ZRS ger samma [skalbarhetsmål](../articles/storage/common/storage-scalability-targets.md) som [lokalt redundant lagring (LRS)](../articles/storage/common/storage-redundancy-lrs.md).
 
-Överväg att ZRS för scenarier som kräver stark konsekvens, starkt hållbarhet och hög tillgänglighet, även om ett avbrott eller en naturkatastrof återgivningar zonal Datacenter inte tillgänglig. ZRS ger hållbarhet för lagringsobjekt minst 99.9999999999% (12 9's) över ett visst år.
+Överväg ZRS för scenarier som kräver stark konsekvens, stark hållbarhet och hög tillgänglighet, även om ett avbrott eller en naturkatastrof återger ett zonindelad Datacenter inte tillgänglig. ZRS ger hållbarhet för lagringsobjekt på minst 99,9999999999% (12 9) under ett givet år.
 
-Mer information om tillgänglighet zoner finns [tillgänglighet zoner översikt](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Läs mer om tillgänglighetszoner [Tillgänglighetszoner översikt](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-## <a name="support-coverage-and-regional-availability"></a>Stöd för täckning och regional tillgänglighet
-ZRS stöder för närvarande [ **standard, generell v2 (GPv2)** ](../articles/storage/common/storage-account-options.md#general-purpose-v2) kontotyp. ZRS är tillgängligt för blockblobbar, sidblobbar-disk, filer, tabeller och köer. Dessutom alla dina [Storage Analytics](../articles/storage/common/storage-analytics.md) loggar och [Storage-mätvärden](../articles/storage/common/storage-enable-and-view-metrics.md)
+## <a name="support-coverage-and-regional-availability"></a>Supporttäckning och regional tillgänglighet
+ZRS stöder för närvarande standard [generell användning v2 (GPv2)](../articles/storage/common/storage-account-options.md#general-purpose-v2) kontotyper. ZRS är tillgänglig för blockblob-objekt, sidblob-disk, filer, tabeller och köer. Dessutom alla dina [Lagringsanalys](../articles/storage/common/storage-analytics.md) loggar och [Lagringsmått](../articles/storage/common/storage-enable-and-view-metrics.md)
 
-ZRS är **allmänt tillgänglig** inom följande områden:
+ZRS är allmänt tillgängligt i följande regioner:
 
 - Östra USA 2
 - Centrala USA
@@ -35,58 +35,58 @@ ZRS är **allmänt tillgänglig** inom följande områden:
 - Frankrike, centrala
 - Sydostasien
 
-Microsoft fortsätter att aktivera ZRS i andra Azure-regioner och kommer att uppdatera den här listan när detta sker. Vi kommer också att göra sådana meddelanden via standard kanaler som den [Azure Service uppdaterar](https://azure.microsoft.com/updates/) sidan eller e-postmeddelanden Azure-prenumeration ägare och administratörer.
+Microsoft fortsätter att aktivera ZRS i ytterligare Azure-regioner. Kontrollera den [tjänstuppdateringar för Azure](https://azure.microsoft.com/updates/) regelbundet för information om nya regioner.
 
 ## <a name="what-happens-when-a-zone-becomes-unavailable"></a>Vad händer när en zon blir otillgänglig?
 
-Dina data förblir flexibel om en zon blir otillgänglig. Microsoft rekommenderar att du fortsätter att följa metoder för att tillfälligt fel hantering, till exempel implementera principer för återförsök med exponentiell inte. När en zon inte är tillgänglig åtar uppdateringar, till exempel DNS-repointing i Azure. Dessa uppdateringar kan påverka ditt program om du ansluter till dina data innan de har slutförts.
+Dina data förblir återhämtas om en zon blir otillgänglig. Microsoft rekommenderar att du fortsätter att följa metoder för hantering av, till exempel implementera principer för återförsök med exponentiell backoff tillfälliga fel. När en zon är otillgänglig, utför Azure uppdateringar, till exempel DNS-repointing. De här uppdateringarna kan påverka ditt program om du får åtkomst till dina data innan de har slutförts.
 
-ZRS kan inte skydda dina data mot en regionala katastrof där flera zoner permanent påverkas. ZRS ger i stället återhämtning för dina data när det gäller temporala inte finns. För skydd mot regionala katastrofer Microsoft rekommenderar att du använder [Geo-redundant lagring (GRS): mellan regionala replikering för Azure Storage](../articles/storage/common/storage-redundancy-grs.md).
+ZRS kan inte skydda dina data mot ett regionalt haveri där flera zoner permanent som påverkas. ZRS ger i stället återhämtning för dina data om det blir tillfälligt otillgänglig. Microsoft rekommenderar för skydd mot regionala problem med hjälp av geo-redundant lagring (GRS). Läs mer om GRS [Geo-redundant lagring (GRS): tvärregional replikering för Azure Storage](../articles/storage/common/storage-redundancy-grs.md).
 
 ## <a name="converting-to-zrs-replication"></a>Konvertera till ZRS-replikering
-Idag är det är enkelt att ändra mellan LRS-, GRS- och RA-GRS - du använda portalen eller API. Med ZRS, men är det inte som intuitivt eftersom den omfattar fysiska data flyttas från en enda lagringsstämpel till flera stämplar i en region. Därmed kan du har två primära alternativ - manuellt kopiera/flytta data till ett nytt konto ZRS från ditt befintliga konto eller be en Direktmigrering. Vi rekommenderar starkt att du utför en manuell migrering eftersom vi kan inte garantera att när en Direktmigrering ska slutföras. Det finns många faktorer som påverkar slutförandet av ett migreringsjobb direkt eller indirekt. 
+Du kan idag använda Azure portal eller API: T för Storage Resource Provider för att ändra typ av lagringsredundans för ditt konto, så länge som du migrerar till eller från LRS, GRS och RA-GRS. Med ZRS, men är migreringen inte som intuitivt eftersom den omfattar fysiska dataförflyttning från en enda lagringsstämpeln till flera stämplar inom en region. 
 
-Om du vill utföra en manuell migrering, har du en mängd alternativ:
-- Använd befintliga verktygsuppsättning som AzCopy, lagrings-SDK, tillförlitlig tredjepartsverktyg osv.
-- Om du är bekant med Hadoop eller HDInsight, kan du bifoga både källa och mål (ZRS) kontot till klustret och använda något som liknar DistCp att massivt parallelize kopia av data
-- Skapa din egen verktygsuppsättning som utnyttjar en lagrings-SDK-varianten
+Du har två huvudsakliga alternativ för migrering till eller från ZRS. Du kan manuellt kopiera eller flytta data till ett nytt ZRS-konto från ditt befintliga konto. Du kan också begära en Direktmigrering. Microsoft rekommenderar att du utför en manuell migrering eftersom det finns ingen garanti om när en Direktmigrering slutförs. En manuell migrering väg ger bättre flexibilitet än en Direktmigrering gör och du har kontroll över tidpunkten för migreringen.
 
-Som nämnts tidigare, rekommenderar vi att du går vägen manuell migrering eftersom den ger dig större flexibilitet än en Direktmigrering gör. Du finns också i fullständig kontroll över när migreringen sker.
+Om du vill utföra en manuell migrering, har du en rad alternativ:
+- Använd befintliga verktyg som AzCopy, lagrings-SDK, verktyg för tillförlitlig från tredje part, osv.
+- Om du är bekant med Hadoop- eller HDInsight, kan du bifoga både källa och mål (ZRS)-konto till ditt kluster och använda något som DistCp till mycket parallellisera kopieringsprocessen data
+- Skapa dina egna verktyg för att använda en version av SDK: er för storage
 
-Om dock en manuell migrering medför några driftavbrott och det inte går att upptar som på din slutpunkt, ger vi ett alternativ för Direktmigrering. En Direktmigrering är en Direktmigrering som gör att du kan fortsätta använda ditt befintliga lagringskonto när data flyttas mellan käll- och storage-stämplar. Under migreringen, kommer du fortfarande ha samma nivå av hållbarhet och tillgänglighet SLA som du brukar göra.
+Om en manuell migrering leder till vissa driftstopp i programmet men det inte går att absorbera som från din sida, tillhandahåller Microsoft ett alternativ för Direktmigrering. En Direktmigrering är en plats-migrering där du kan fortsätta att använda ett befintligt lagringskonto medan dina data migreras mellan käll- och storage-stämplar. Under migreringen, kommer du fortfarande har samma nivå av hållbarhet och tillgänglighet som du brukar göra.
 
-Direktmigrering kommer dock med vissa begränsningar. De anges nedan.
+Direktmigrering kommer dock vissa begränsningar. De listas nedan.
 
-- Medan vi att behandla din begäran om Direktmigrering omedelbart, vi inte garantera när migreringen kommer att slutföra. Om du behöver dina data i ZRS genom att en viss tid, bör du göra en manuell migrering. Vanligtvis har mer data i ditt konto, desto längre tid det tar för att migrera data. 
-- Du kan bara direktmigrera från ett konto med LRS- och GRS replikering. Om du har RA-GRS måste först ändra till en av dessa typer av replikering innan du fortsätter. Det här mellanliggande steget säkerställer att sekundär skrivskyddad slutpunkt som RA-GRS tillhandahåller är tas bort när du är klar.
-- Ditt konto måste vara tomt.
-- Endast intra-region migreringar stöds. Om du vill migrera dina data till ett ZRS-konto finns i en region som skiljer sig källkonto måste du utföra en manuell migrering.
-- Standardlagring endast kontotyper. Du kan inte migrera från ett premiumlagringskonto.
+- Microsoft tar upp din begäran om Direktmigrering utan dröjsmål, finns men det ingen garanti avseende när migreringen slutförs. Om du behöver dina data finnas i ZRS inom en viss tid, bör du göra en manuell migrering. Allmänt, Ju mer data du har i ditt konto, desto längre tid tar det för att migrera data. 
+- Du kan bara utföra en Direktmigrering från ett konto med LRS eller GRS-replikering. Om ditt konto använder RA-GRS, måste du först migrerar till en av de här typerna av replikering innan du fortsätter. Det här mellanliggande steget säkerställer att den sekundära skrivskyddade slutpunkten som RA-GRS ger tas bort före migreringen.
+- Ditt konto måste innehålla data.
+- Endast intra-region migreringar stöds. Om du vill migrera dina data till ett ZRS-konto finns i en region som är annorlunda än källkontot, måste du utföra en manuell migrering.
+- Endast standard storage-kontotyper stöds. Du kan inte migrera från ett premium storage-konto.
 
-Direktmigrering begäranden gå igenom stöd för Azure-portalen. Storage-konto som du vill konvertera till ZRS välja portal kan du.
+Direktmigrering begäranden går via supporten för Azure-portalen. Från portalen kan välja du storage-konto som du vill konvertera till ZRS.
 1. Klicka på **ny supportbegäran**
 2. Kontrollera grunderna. Klicka på **Nästa**. 
 3. På den **problemet** avsnittet 
-    - Lämna allvarlighetsgrad som-är.
+    - Lämna allvarlighetsgrad som – är.
     - Problemtyp = **datamigrering**
     - Kategori = **migrera till ZRS inom en region**
     - Rubrik = **ZRS konto migrering** (eller något beskrivande)
-    - Information = jag vill migrera till ZRS från [LRS GRS] i ___ region. 
+    - Information om = jag skulle vilja migrera till ZRS från [LRS, GRS] i regionen ___. 
 4. Klicka på **Nästa**.
-5. Kontrollera att den kontaktinformation är korrekt i bladet kontaktinformation.
+5. Kontrollera att den kontaktinformation är korrekt på bladet kontaktinformation.
 6. Klicka på **skicka**.
 
-Supportpersonal kommer sedan att har kontakt med du. Den personen som kommer att kunna ge någon hjälp du kan behöva. 
+Supporttekniker kommer sedan att vi kontaktar dig. Den personen kommer att kunna tillhandahålla den hjälp du behöver. 
 
-## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>ZRS klassisk: Ett äldre alternativ för redundans för block-BLOB
+## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>ZRS Classic: Ett äldre alternativ för block BLOB-redundans
 > [!NOTE]
-> ZRS klassiska konton planeras för nödvändiga migrering 31 mars 2021 och utfasningen. Microsoft skickar mer information till den klassiska ZRS kunder innan utfasningen. Microsoft planerar att tillhandahålla en process för automatisk migrering från den klassiska ZRS till ZRS i framtiden.
+> ZRS Classic-konton är tänkta att utfasning och nödvändiga migrering på den 31 mars 2021. Microsoft skickar information till ZRS Classic kunder innan utfasning. Microsoft planerar att tillhandahålla en process för automatisk migrering från ZRS Classic till ZRS i framtiden.
 
 >[!NOTE]
-> När ZRS är [allmänt tillgänglig](#support-coverage-and-regional-availability) i en region kommer du inte längre att kunna skapa ett ZRS klassiska konto från portalen i samma regionen. Men kan du fortfarande skapa en på annat sätt som Microsoft PowerShell och Azure CLI, som är tills ZRS klassiska är föråldrad.
+> När ZRS är [allmänt tillgänglig](#support-coverage-and-regional-availability) i en region, kommer du inte längre att kunna skapa ett ZRS Classic-konto från portalen i den samma regionen. Men kan du fortfarande skapa en på annat sätt som Microsoft PowerShell och Azure CLI, det vill säga tills ZRS Classic är inaktuell.
 
-ZRS klassiska replikerar data asynkront mellan datacenter inom en till två regioner. En replik kanske inte är tillgänglig om inte Microsoft initierar sekundär redundans. ZRS klassiska är bara tillgängligt för **blockblobbar** i [allmänna V1 (GPv1)](../articles/storage/common/storage-account-options.md#general-purpose-v1) storage-konton. Ett ZRS Classic-konto går inte att konvertera till eller från LRS eller GRS, och har inte kapacitet för mått eller loggning.
+ZRS Classic replikerar data asynkront mellan datacenter i en eller två regioner. En replik kanske inte är tillgänglig om inte Microsoft initierar sekundär redundans. ZRS Classic är endast tillgänglig för **blockblobbar** i [general-purpose V1 (GPv1)](../articles/storage/common/storage-account-options.md#general-purpose-v1) storage-konton. Ett ZRS Classic-konto går inte att konvertera till eller från LRS eller GRS, och har inte kapacitet för mått eller loggning.
 
-ZRS klassiska konton kan inte konverteras till eller från LRS-, GRS- eller RA-GRS. ZRS klassiska konton stöder inte heller mått eller loggning.
+ZRS Classic-konton kan inte konverteras till eller från LRS, GRS eller RA-GRS. ZRS Classic-konton stöder inte heller mått eller loggning.
 
-Om du vill migrera ZRS kontodata manuellt till eller från ett LRS-, ZRS klassiska, GRS eller RA-GRS-konto, Använd AzCopy, Azure Lagringsutforskaren, Azure PowerShell eller Azure CLI. Du kan också skapa din egen migreringslösning med en Azure Storage-klientbibliotek för.
+Om du vill migrera manuellt ZRS-kontodata till eller från ett LRS, ZRS Classic, GRS eller RA-GRS-konto, använder du AzCopy, Azure Storage Explorer, Azure PowerShell eller Azure CLI. Du kan också skapa egna migreringslösning med någon av Azure Storage-klientbibliotek.

@@ -1,6 +1,6 @@
 ---
-title: Stöds resurser för nyare Azure övervaka mått aviseringar
-description: Referens för support mått och loggfiler för nyare Azure nära realtid mått aviseringar.
+title: Stöds resurser för nyare måttaviseringar i Azure Monitor
+description: Referens support mått och loggar för nyare Azure aviseringar i nära realtid mått.
 author: snehithm
 services: monitoring
 ms.service: azure-monitor
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: d5eaa4dafc9c155d3e6f85bc67c578c8a12da7cf
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 01c0b5897ab47a2a5091646aed1977779cf0234c
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264518"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868039"
 ---
 # <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>Metoder som stöds mått och skapa nya mått aviseringar
-Azure övervakaren nu stöder en [nya mått aviseringstyp](monitoring-overview-unified-alerts.md) som har betydande fördelar över den äldre [klassiska mått aviseringar](insights-alerts-portal.md). Stöd för äldre aviseringar en [stora listan över mått](monitoring-supported-metrics.md). En (växande) delmängd av listan större stöd för nyare aviseringar. Den här artikeln innehåller dessa användare. 
+Azure Monitor nu stöder en [nya måttaviseringstypen](monitoring-overview-unified-alerts.md) som har betydande fördelar över den äldre [klassiska måttaviseringar](insights-alerts-portal.md). Stöd för äldre aviseringarna en [lång lista med mått](monitoring-supported-metrics.md). En (växande) delmängd av större listan har stöd för nyare aviseringar. Den här artikeln innehåller dessa användare. 
 
-## <a name="portal-powershell-cli-rest-support"></a>Portalen PowerShell, CLI, REST-stöd
-För närvarande kan du kan skapa nyare mått aviseringar endast i Azure-portalen [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) eller [Resource Manager-mallar](monitoring-create-metric-alerts-with-templates.md). Stöd för att konfigurera nya aviseringar med PowerShell och Azure-kommandoradsgränssnittet (Azure CLI 2.0) kommer snart.
+## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST-stöd
+För närvarande kan du kan skapa nyare måttaviseringar endast i Azure-portalen [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) eller [Resource Manager-mallar](monitoring-create-metric-alerts-with-templates.md). Stöd för att konfigurera nyare aviseringar med PowerShell och kommandoradsgränssnittet (Azure CLI 2.0) kommer snart.
 
 ## <a name="metrics-and-dimensions-supported"></a>Mått och dimensioner som stöds
-Nyare mått aviseringar stöder aviseringar för mått som använder dimensioner. Du kan använda dimensioner för att filtrera dina mått för rätt nivå. Alla stöds mått tillsammans med tillämpliga dimensioner kan utforskade och visualiseras från [Azure-Monitor - Metrics Explorer (förhandsgranskning)](monitoring-metric-charts.md).
+Nyare måttaviseringar stöd för aviseringar för mått med dimensioner. Du kan använda dimensioner för att filtrera dina mått till rätt nivå. Alla mått som stöds för tillsammans med tillämpliga dimensioner kan utforskas och visualiseras från [Azure Monitor - Metrics Explorer (förhandsversion)](monitoring-metric-charts.md).
 
-Här är en fullständig lista över Azure övervakaren mått källor som stöds av de nyare aviseringarna:
+Här är en fullständig lista över Azure monitor mått källor som stöds av de nyare aviseringarna:
 
 |Resurstyp  |Dimensioner som stöds  | Tillgängliga mått|
 |---------|---------|----------------|
@@ -33,117 +33,117 @@ Här är en fullständig lista över Azure övervakaren mått källor som stöds
 |Microsoft.Batch/batchAccounts | Gäller inte| [Batch-konton](monitoring-supported-metrics.md#microsoftbatchbatchaccounts)|
 |Microsoft.Cache/Redis     |    Gäller inte     |[Redis Cache](monitoring-supported-metrics.md#microsoftcacheredis)|
 |Microsoft.Compute/virtualMachines     |    Gäller inte     | [Virtual Machines](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
-|Microsoft.Compute/virtualMachineScaleSets     |   Gäller inte      |[Skaluppsättningar för den virtuella datorn](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.Compute/virtualMachineScaleSets     |   Gäller inte      |[VM-skalningsuppsättningar](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
 |Microsoft.ContainerInstance/containerGroups | Ja| [Behållargrupper](monitoring-supported-metrics.md#microsoftcontainerinstancecontainergroups)|
-|Microsoft.DataFactory/datafactories| Ja| [Data fabriker V1](monitoring-supported-metrics.md#microsoftdatafactorydatafactories)|
-|Microsoft.DataFactory/factories     |   Ja     |[Data fabriker V2](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
-|Microsoft.DBforMySQL/servers     |   Gäller inte      |[DB för MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
-|Microsoft.DBforPostgreSQL/servers     |    Gäller inte     | [DB för PostgreSQL](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
+|Microsoft.DataFactory/datafactories| Ja| [Datafabriker V1](monitoring-supported-metrics.md#microsoftdatafactorydatafactories)|
+|Microsoft.DataFactory/factories     |   Ja     |[Datafabriker V2](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
+|Microsoft.DBforMySQL/servers     |   Gäller inte      |[Databas för MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
+|Microsoft.DBforPostgreSQL/servers     |    Gäller inte     | [Databas för PostgreSQL](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
 |Microsoft.EventHub/namespaces     |  Ja      |[Event Hubs](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
 |Microsoft.KeyVault/vaults| Nej | [Valv](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     Gäller inte    |[Logic Apps](monitoring-supported-metrics.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    Gäller inte     | [Programgatewayer](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/dnsZones | Gäller inte| [DNS-zoner](monitoring-supported-metrics.md#microsoftnetworkdnszones) |
 |Microsoft.Network/loadBalancers (endast för Standard-SKU: er)| Ja| [Belastningsutjämnare](monitoring-supported-metrics.md#microsoftnetworkloadbalancers) |
-|Microsoft.Network/publicipaddresses     |  Gäller inte       |[Offentliga IP-Addreses](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
-|Microsoft.PowerBIDedicated/capacities | Gäller inte | [Kapacitet](monitoring-supported-metrics.md#microsoftpowerbidedicatedcapacities)|
-|Microsoft.Search/searchServices     |   Gäller inte      |[Search-tjänster](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
+|Microsoft.Network/publicipaddresses     |  Gäller inte       |[Offentlig IP-adress Addreses](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.PowerBIDedicated/capacities | Gäller inte | [Kapaciteter](monitoring-supported-metrics.md#microsoftpowerbidedicatedcapacities)|
+|Microsoft.Search/searchServices     |   Gäller inte      |[Söktjänster](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namespaces     |  Ja       |[Service Bus](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
 |Microsoft.Storage/storageAccounts     |    Ja     | [Lagringskonton](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|
-|Microsoft.Storage/storageAccounts/services     |     Ja    | [BLOB-tjänster](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [Filtjänster](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [kö Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) och [tabell tjänster](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
+|Microsoft.Storage/storageAccounts/services     |     Ja    | [BLOB-tjänster](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [Filtjänster](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [kö tjänster](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) och [tabellen tjänster](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  Gäller inte       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
 |Microsoft.CognitiveServices/accounts     |    Gäller inte     | [Cognitive Services](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
-|Microsoft.OperationalInsights/workspaces (förhandsgranskning) | Ja|[Log Analytics arbetsytor](#log-analytics-logs-as-metrics-for-alerting)|
+|Microsoft.OperationalInsights/workspaces (förhandsversion) | Ja|[Log Analytics-arbetsytor](#log-analytics-logs-as-metrics-for-alerting)|
 
 
-## <a name="log-analytics-logs-as-metrics-for-alerting"></a>Logganalys loggar som mätvärden för aviseringar 
+## <a name="log-analytics-logs-as-metrics-for-alerting"></a>Log Analytics-loggar som mått för aviseringar 
 
-Du kan också använda nyare mått aviseringar på populära logganalys loggarna extraherat som mått som en del av mätvärden från förhandsversionen av loggar.  
+Du kan också använda nyare måttaviseringar på den populära Log Analytics loggar extraherade som mått som en del av mått från aktivitetsloggar i förhandsutgåvan.  
 - [Prestandaräknare](../log-analytics/log-analytics-data-sources-performance-counters.md) för Windows och Linux-datorer
-- [Heartbeat-poster för Agenthälsa](../operations-management-suite/oms-solution-agenthealth.md)
-- [Uppdateringshantering](../operations-management-suite/oms-solution-update-management.md) poster
+- [Pulsslagsposter för Agenthälsa](../operations-management-suite/oms-solution-agenthealth.md)
+- [Hantering av uppdateringar](../operations-management-suite/oms-solution-update-management.md) poster
  
 > [!NOTE]
-> Specifikt mått och/eller dimension visas bara om det finns data för den valda perioden. De här måtten är tillgängliga för kunder med arbetsytor i östra USA, västra centrala USA och Västeuropa som har valts i förhandsgranskningen. Om du vill ska vara en del av den här förhandsgranskningen kan logga med [undersökningen](https://aka.ms/MetricLogPreview).
+> Specifika mått och/eller dimension endast visas om det finns data för den valda perioden. De här måtten är tillgängliga för kunder med arbetsytor i östra USA, västra centrala USA och Europa, västra som har valts i förhandsversionen. Om du vill ska vara en del av den här förhandsversionen kan registrera dig med [undersökningen](https://aka.ms/MetricLogPreview).
 
-I följande lista över logganalys loggbaserade mått källor stöds:
+Följande lista med Log Analytics loggbaserade mått källor stöds:
 
-Mått Namnuppgifter  |Dimensioner som stöds  | Typ av logg  |
+Tjänstmåttets namn/uppgifter  |Dimensioner som stöds  | Typ av logg  |
 |---------|---------|---------|
-|Average_Avg. Disk sek/läsning     |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Windows-prestandaräknare      |
-| Average_Avg. Disk sek/skrivning     |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Windows-prestandaräknare      |
-| Average_Current diskkölängd   |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Windows-prestandaräknare      |
-| Average_Disk Diskläsningar/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Windows-prestandaräknare      |
-| Average_Disk disköverföringar/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Windows-prestandaräknare      |
-|   Average_ % ledigt utrymme    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Windows-prestandaräknare      |
-| Average_Available megabyte     |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Windows-prestandaräknare      |
-| Average_ % allokerade byte som används    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Windows-prestandaräknare      |
-| Average_Bytes/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Windows-prestandaräknare      |
-|  Average_Bytes per sekund    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Windows-prestandaräknare      |
-|  Average_Bytes totalt/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Windows-prestandaräknare      |
-|  Average_ % processortid    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Windows-prestandaräknare      |
-|   Average_Processor Kölängd    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Windows-prestandaräknare      |
-|   Average_ % Ledigai   |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_ % ledigt utrymme   |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_ används i procent  |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Använt utrymme i procent för Average_   |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Disk lästa byte/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Disk Diskläsningar/sek |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Disk disköverföringar/sek |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Disk skrivna byte/s   |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Disk Diskskrivningar/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Free megabyte |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Logical Disk byte/sek |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_ tillgängligt minne i procent |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Tillgängligt växlingsutrymme i Average_ % |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Använt minne i procent för Average_  |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_ % använt växlingsutrymme  |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Available minne i megabyte    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Available megabyte växlingsutrymme  |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Page Diskläsningar/sek |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Page Diskskrivningar/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Pages per sekund  |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Used megabyte växlingsutrymme |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Used minne i megabyte |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Total byte som överförs    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Total mottagna byte   |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Total byte    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Total antal skickade paket  |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Total paket som tagits emot |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Total Rx fel    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Total Tx-fel    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Total kollisioner   |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Avg. Disk sek/läsning |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Avg. Disk sek/disköverföring |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Avg. Disk sek/skrivning    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Physical Disk byte/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Privilegierad tid i Average_Pct    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Användartid i Average_Pct  |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Used minne Kbyte |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Virtual delat minne  |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_ % DPC-tid |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_ inaktivitetstid i procent    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_ avbrottstid i procent   |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_ %-i/o-väntetid |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_ Nice Time    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Privilegierad tid i procent för Average_  |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_ % processortid   |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_ Användartid i procent    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Free fysiskt minne   |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Free utrymme i växlingsfiler |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Free virtuellt minne    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Processes  |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Size lagrad i växlingsfiler    |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Uptime |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Average_Users  |     Ja - dator, objektnamn, InstanceName, räknarsökväg & SourceSystem    |   Linux-prestandaräknare      |
-|    Pulsslag  |     Ja - dator, OSType, Version och SourceComputerId    |   Heartbeat-poster |
-|    Uppdatering |     Ja - dator, produkt, klassificering, UpdateState valfria & godkända    |   Uppdateringshantering |
+|Average_Avg. S/diskläsning     |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Windows-prestandaräknare      |
+| Average_Avg. S/diskskrivning     |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Windows-prestandaräknare      |
+| Average_Current diskkölängd   |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Windows-prestandaräknare      |
+| Average_Disk Diskläsningar/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Windows-prestandaräknare      |
+| Average_Disk disköverföringar/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Windows-prestandaräknare      |
+|   Average_ % ledigt utrymme    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Windows-prestandaräknare      |
+| Average_Available megabyte     |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Windows-prestandaräknare      |
+| Average_ % allokerade byte som används    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Windows-prestandaräknare      |
+| Average_Bytes per sekund    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Windows-prestandaräknare      |
+|  Average_Bytes/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Windows-prestandaräknare      |
+|  Average_Bytes totalt/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Windows-prestandaräknare      |
+|  Average_ % processortid    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Windows-prestandaräknare      |
+|   Average_Processor Kölängd    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Windows-prestandaräknare      |
+|   Average_ % Ledigai   |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_ % ledigt utrymme   |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_ % Användai-noder  |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Använt utrymme i procent för Average_   |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Disk lästa byte/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Disk Diskläsningar/sek |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Disk disköverföringar/sek |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Disk skrivna byte/sek   |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Disk Diskskrivningar/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Free megabyte |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Logical Disk byte/sek |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_ tillgängligt minne i procent |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Tillgängligt växlingsutrymme i Average_ % |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Använt minne i procent för Average_  |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_ % använt växlingsutrymme  |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Available minne i megabyte    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Available megabyte växlingsutrymme  |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Page Diskläsningar/sek |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Page Diskskrivningar/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Pages/sek  |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Used megabyte växlingsutrymme i procent |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Used minne i megabyte |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Överförda Average_Total byte    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Total byte som tagits emot   |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Total byte    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Total antal skickade paket  |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Total paket som tas emot |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Total Rx fel    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Total Tx-fel    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Total kollisioner   |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Avg. S/diskläsning |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Avg. S/disköverföring |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Avg. S/diskskrivning    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Physical Disk byte/sek    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Privilegierad tid i Average_Pct    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Pct användartid  |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Used minne kB |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Virtual delat minne  |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_ % DPC-tid |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_ inaktivitetstid i procent    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_ avbrottstid i procent   |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_ % / o-väntetid |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_ Nice Time    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Privilegierad tid i procent för Average_  |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_ % processortid   |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_ Användartid i procent    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Free fysiskt minne   |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Free utrymme i växlingsfiler |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Free virtuellt minne    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Processes  |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Size lagrad i växlingsfiler    |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Uptime |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Average_Users  |     Ja - dator, objektnamn, InstanceName, räknarsökväg och SourceSystem    |   Prestandaräknare för Linux      |
+|    Pulsslag  |     Ja - dator, OSType, Version och SourceComputerId    |   Pulsslagsposter |
+|    Uppdatering |     Ja - dator, produkt, klassificering, UpdateState valfritt & godkända    |   Uppdateringshantering |
 
 
 
-## <a name="payload-schema"></a>Nyttolasten i schemat
+## <a name="payload-schema"></a>Nyttolast-schema
 
-POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla nära nyare mått varningar när en korrekt konfigurerad [grupp](monitoring-action-groups.md) används:
+POST-åtgärd innehåller följande JSON-nyttolast och schemat för alla nära nyare måttaviseringar när en korrekt konfigurerad [åtgärdsgrupp](monitoring-action-groups.md) används:
 
 ```json
 {"schemaId":"AzureMonitorMetricAlert","data":
@@ -196,5 +196,5 @@ POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla nära
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om den nya [aviseringar upplevelse](monitoring-overview-unified-alerts.md).
-* Lär dig mer om [Logga varningar i Azure](monitor-alerts-unified-log.md).
+* Lär dig mer om [loggaviseringar i Azure](monitor-alerts-unified-log.md).
 * Lär dig mer om [aviseringar i Azure](monitoring-overview-alerts.md).

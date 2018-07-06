@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 87381a27a59d6719f4bfff9ed367598932c1985c
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: b2cdb88ba71b4a3d3005ec9d64b6e94cdb1d1c55
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436411"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857539"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Spara och konfigurera din API Management-tjänstkonfigurationen med Git
 
@@ -227,7 +227,7 @@ Den `apis` mappen innehåller en mapp för varje API i tjänstinstansen som inne
 Den `groups` mappen innehåller en mapp för varje grupp som definierats i tjänstinstansen.
 
 * `groups\<group name>\configuration.json` -Detta är konfigurationen för gruppen. Det här är samma information som skulle returneras om du anropar den [hämta en specifik grupp](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) igen.
-* `groups\<group name>\description.html` -Detta är beskrivningen av gruppen och motsvarar den `description` egenskapen för den [gruppen entitet](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
+* `groups\<group name>\description.html` -Detta är beskrivningen av gruppen och motsvarar den `description` egenskapen för den [gruppen entitet](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>för principmappen
 Den `policies` mappen innehåller principrapporter för din tjänstinstans.

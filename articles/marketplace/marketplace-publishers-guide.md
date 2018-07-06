@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: ff78a7ed700506625761b0b1060040548b4a3ea1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 0572caa1cd09c164d6c5a53bfe1c143bccffd535
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344822"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859096"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace och AppSource Publiceringsguiden  
 
@@ -75,27 +75,18 @@ När du [skicka din lösning](https://azuremarketplace.microsoft.com/sell/signup
 Mer information om Microsoft go-to-market-fördelar och sätt att utöka verksamheten på marketplace finns på [Microsoft Go-To-Market Services sidan](https://partner.microsoft.com/reach-customers/gtm).
 
 ---  
+## <a name="marketplace-and-storefronts"></a>Marketplace och butiker 
 
-## <a name="storefronts"></a>Butiker  
-Microsoft tillhandahåller två distinkta butiker på marketplace. Butiker kan du lista erbjudanden, aktivera utvärderingsversioner och transact direkt med Microsoft-kunder.  
-*   Jämföra AppSource och Azure Marketplace
-    *   Mer information om butiker finns i AppSource jämföra och Azure Marketplace-sidan finns på [jämföra AppSource och Azure Marketplace](./comparing-appsource-azure-marketplace.md).
-*   AppSource 
-    *   Mer information om AppSource finns utvidga din verksamhet med AppSource sidan finns på [Låt företaget växa med AppSource](./grow-your-business-with-appsource.md).  
-*   Azure Marketplace 
-    *   Mer information om Azure Marketplace finns utvidga din verksamhet med Azure Marketplace-sidan finns på [Låt företaget växa med Azure Marketplace](./grow-your-business-with-azure-marketplace.md).  
+Microsoft tillhandahåller två distinkta butiker på vår marknadsplats: AppSource och Azure Marketplace. Molnmarknadsplatsen justeras till publik och Microsoft-molnprodukter för att hjälpa kunder att enkelt hitta exakt vad de behöver. 
 
-De butikerna gör det möjligt att hitta, prova och köpa appar och tjänster som kan påskynda den digitala omvandlingen. Butiker hjälper dig att växa ditt företag genom att öka åtkomst till Microsofts kunder och partner.  
- 
-Varje butik innehåller särskilda alternativ för att maximera din investering i publicering. I följande tabell sammanfattas de här alternativen.  
+Om du väljer en butik börjar med att identifiera vilken målgrupp för din lösning. Använd tabellen nedan för att bestämma: 
 
-|  | AppSource | Azure Marketplace |  
-|:--- |:--- |:--- |  
-| Målgrupp | Line-of-business-beslutsfattare<table> <tr> <th>Specialist roller </th> </tr> <tr> <td>Redovisning</td> </tr> <tr> <td>Inköp</td> </tr> <tr> <td>Tillverkning</td> </tr> </table> | IT-proffs och utvecklare<table> <tr> <th>Specialist roller </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>Databasadministratörer</td> </tr> <tr> <td>SecOps</td> </tr> </table> |  
+|  | AppSource | Azure Marketplace |
+|:--- |:--- |:--- |
+| Målgrupp | Line-of-business-beslutsfattare | IT-proffs och utvecklare | 
 | Skapats med eller utöka | Azure<br />Dynamics 365<br />Office 365<br />Power BI<br />PowerApps | Azure |  
-| Typer av lösningar och tjänster | Klar line-of-business-molnappar<br />Office 365-tillägg | Infrastrukturlösningar<br />Professionella tjänster |  
-| Erbjudandetyp | Konsulttjänster<br />Kontakta mig<br />Kostnadsfri utvärderingsversion<br />Hämta nu<br />Testkör | Azure-appar: Principhanterade appar<br />Azure-appar: lösningsmallar<br />Konsulttjänster<br />Kontakta mig<br />Utvärdering<br />virtuell dator |  
-| I appen för att ge användare åtkomst<br />till appar och tjänster i samband med<br />din app | Dynamics 365<br />Office 365<br />Office-klientappar<br />Power BI | Azure Portal<br />Azure Resource Manager-CLI |  
+
+Varje butik innehåller särskilda alternativ och funktioner för att maximera din affärsmöjligheten. En mer detaljerad jämförelse av våra butiker finns [jämföra AppSource och Azure Marketplace](./comparing-appsource-azure-marketplace.md). 
 
 ---   
 

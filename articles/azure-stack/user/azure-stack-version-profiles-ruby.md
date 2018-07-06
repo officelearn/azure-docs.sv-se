@@ -1,6 +1,6 @@
 ---
-title: Med hjälp av API-version profiler med Ruby i Azure-stacken | Microsoft Docs
-description: Lär dig mer om att använda profiler för API-version med Ruby i Azure-stacken.
+title: Med hjälp av API-versionsprofiler med Ruby i Azure Stack | Microsoft Docs
+description: Lär dig mer om hur du använder API-versionsprofiler med Ruby i Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,46 +15,46 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: dd8130ac12f9c7c2095f9329dc4ce8a34187cf62
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 4d62c192b4e74980fc8cd8a671a702ba2ddfdbcb
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011228"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866601"
 ---
-# <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Använda profiler för API-version med Ruby i Azure-stacken
+# <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Använd API-versionsprofiler med Ruby i Azure Stack
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-## <a name="ruby-and-api-version-profiles"></a>Profiler för Ruby och API-version
+## <a name="ruby-and-api-version-profiles"></a>Ruby- och API-versionsprofiler
 
-Ruby-SDK för Azure Stack Resource Manager innehåller verktyg som hjälper dig att skapa och hantera infrastrukturen. Resursproviders i SDK innehåller beräkning, virtuella nätverk och lagring med Ruby språk. API-profiler i SDK för Ruby aktivera hybrid cloud utveckling genom att hjälpa dig att växla mellan globala Azure-resurser och resurser på Azure-stacken.
+Ruby SDK för Azure Stack Resource Manager innehåller verktyg som hjälper dig att skapa och hantera infrastrukturen. Resursprovidrar i SDK innehåller beräkning, virtuella nätverk och lagring med Ruby-språket. API-profiler i Ruby SDK aktivera hybrid molnutveckling genom att hjälpa dig att växla mellan globala Azure-resurser och resurser på Azure Stack.
 
-En API-profil är en kombination av resursleverantörer och service-versioner. Du kan använda en API-profil för att kombinera olika resurstyper.
+En API-profil är en kombination av resursprovidrar och tjänstversioner. Du kan använda en API-profil för att kombinera olika resurstyper.
 
- - För att använda de senaste versionerna av alla tjänster som använder den **senaste** profil av Azure SDK samlad symbolen.
- - Om du vill använda tjänsterna som är kompatibla med Azure-stacken, den **V2017_03_09** profil av Azure SDK samlad symbolen.
- - Om du vill använda den senaste api-versionen av en tjänst i **senaste** profilen för specifika symbolen. Till exempel om du vill använda den senaste api-versionen av beräkning service enbart använda de **senaste** profilen för den **Compute** symbolen.
- - Om du vill använda specifika api-versionen för en tjänst använder du specifika API-versioner som definierats i symbolen.
+ - Att göra använder de senaste versionerna av alla tjänster kan använda den **senaste** profilen för Azure SDK samlad gem.
+ - Om du vill använda tjänsterna som är kompatibla med Azure Stack, använda den **V2017_03_09** profilen för Azure SDK samlad gem.
+ - Om du vill använda den senaste api-versionen av en tjänst, använda den **senaste** profilen för den specifika gem. Till exempel om du vill använda den senaste api-versionen av beräkningstjänst enbart använda de **senaste** profilen för den **Compute** gem.
+ - Om du vill använda specifika api-versionen för en tjänst, använder du de specifika API-versioner som definierats i symbolen.
 
 > [!Note]   
 > Du kan kombinera alla alternativ i samma program.
 
 ## <a name="install-the-azure-ruby-sdk"></a>Installera Azure SDK för Ruby
 
- - Följ officiella instruktionerna för att installera [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
- - Följ officiella instruktionerna för att installera [Ruby](https://www.ruby-lang.org/en/documentation/installation/).
+ - Följ officiella anvisningarna för att installera [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+ - Följ officiella anvisningarna för att installera [Ruby](https://www.ruby-lang.org/en/documentation/installation/).
     - När du installerar väljer **lägga till Ruby PATH-variabeln**
-    - Installera Dev kit under Ruby installationen när du tillfrågas.
+    - Installera Dev-paket under Ruby-installationen när du tillfrågas.
     - Installera bundler med följande kommando:  
       `Gem install bundler`
- - Om det inte finns kan du skapa en prenumeration och spara prenumerations-ID som ska användas senare. Instruktioner för att skapa en prenumeration är [här](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
- - Skapa ett huvudnamn för tjänsten och spara dess ID och hemlighet. Instruktioner för att skapa ett huvudnamn för tjänsten för Azure-stacken är [här](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals). 
- - Kontrollera att din tjänstens huvudnamn har deltagare/ägarrollen på din prenumeration. Instruktioner om hur du tilldelar rollen till tjänstens huvudnamn är [här](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
+ - Om det inte finns skapar du en prenumeration och spara prenumerations-ID som ska användas senare. Instruktioner för att skapa en prenumeration är [här](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
+ - Skapa ett huvudnamn för tjänsten och spara dess ID och hemlighet. Instruktioner för att skapa ett huvudnamn för tjänsten för Azure Stack är [här](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals). 
+ - Kontrollera att din tjänstens huvudnamn har rollen deltagare/ägare av prenumerationen. Instruktioner om hur du tilldelar roll till tjänstens huvudnamn är [här](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
 ## <a name="install-the-rubygem-packages"></a>Installera rubygem-paket
 
-Du kan installera azure rubygem paket direkt.
+Du kan installera azure rubygem-paket direkt.
 
 ````Ruby  
 gem install azure_mgmt_compute
@@ -68,11 +68,11 @@ gem 'azure_mgmt_resources'
 gem 'azure_mgmt_network'
 ````
 
-Tänk på Azure Resource Manager Ruby SDK är en förhandsversion och kommer troligen har bryta gränssnittet ändras i kommande versioner. Många i delversion kan indikera viktiga förändringar.
+Tänk Ruby SDK för Azure Resource Manager är en förhandsversion och kommer troligen att ha större ändringar i användargränssnittet i kommande versioner. Fler och fler i delversion kan tyda på större ändringar.
 
-## <a name="usage-of-the-azuresdk-gem"></a>Användning av azure_sdk symbolen
+## <a name="usage-of-the-azuresdk-gem"></a>Användning av azure_sdk gem
 
-Symbolen azure_sdk, är en sammanfattning av alla stöds gems i Ruby-SDK. Den här symbolen består av en **senaste** profil som har stöd för den senaste versionen av alla tjänster. Det inför en profil för en ny version **V2017_03_09** profil som är utformat för Azure-stacken.
+Symbolen azure_sdk, är en sammanslagning av alla stöds gems i Ruby SDK. Den här symbolen består av en **senaste** -profil som har stöd för den senaste versionen av alla tjänster. Det inför en profil för en ny version **V2017_03_09** -profil som har skapats för Azure Stack.
 
 Du kan installera azure_sdk samlad symbolen med följande kommando:  
 
@@ -82,28 +82,28 @@ Du kan installera azure_sdk samlad symbolen med följande kommando:
 
 ## <a name="prerequisite"></a>Krav
 
-För att kunna använda Azure SDK för Ruby med Azure-stacken, måste du ange följande värden och ange sedan värden med miljövariabler. Se anvisningarna efter tabellen för operativsystemet på inställningen i miljövariabler. 
+För att kunna använda Azure SDK för Ruby med Azure Stack, måste du ange följande värden och ange sedan värden med miljövariabler. Se anvisningarna efter tabellen för operativsystemet på ställa in miljövariabler. 
 
 | Värde | Miljövariabler | Beskrivning | 
 | --- | --- | --- | --- |
-| Klient-ID:t | AZURE_TENANT_ID | Värdet för Azure-stacken [klient-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview). |
-| Klient-ID | AZURE_CLIENT_ID | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn skapades i föregående avsnitt i det här dokumentet.  |
-| Prenumerations-ID:t | AZURE_SUBSCRIPTION_ID | Den [prenumerations-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) är hur du kommer åt erbjudanden i Azure-stacken. |
-| Klienthemlighet | AZURE_CLIENT_SECRET | Huvudnamn tjänstprogrammet hemlighet sparas när tjänstens huvudnamn skapades. |
-| Resource Manager-slutpunkt | ARM_ENDPOINT | Se [i Azure-stacken resource manager endpoin](#The-azure-stack-resource-manager-endpoint).  |
+| Klient-ID:t | AZURE_TENANT_ID | Värdet för Azure Stack [klient-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview). |
+| Klient-ID | AZURE_CLIENT_ID | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn har skapats i föregående avsnitt i det här dokumentet.  |
+| Prenumerations-ID:t | AZURE_SUBSCRIPTION_ID | Den [prenumerations-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) är hur du kommer åt erbjudanden i Azure Stack. |
+| Klienthemlighet | AZURE_CLIENT_SECRET | Huvudnamn tjänstprogrammet hemlighet sparas när tjänstens huvudnamn har skapats. |
+| Resource Manager-slutpunkten | ARM_ENDPOINT | Se [The Azure Stack resource manager endpoin](#The-azure-stack-resource-manager-endpoint).  |
 
-### <a name="the-azure-stack-resource-manager-endpoint"></a>Stacken för Azure resource manager-slutpunkt
+### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack resource manager-slutpunkt
 
-Microsoft Azure Resource Manager är ett ramverk för hantering som gör att administratörer kan distribuera, hantera och övervaka Azure-resurser. Azure Resource Manager kan hantera dessa uppgifter som en grupp i stället för individuellt, i en enda åtgärd.
+Microsoft Azure Resource Manager är en management-ramverk som gör att administratörer kan distribuera, hantera och övervaka Azure-resurser. Azure Resource Manager kan hantera dessa uppgifter som en grupp i stället, i en enda åtgärd.
 
-Du kan hämta metadata-information från Resource Manager-slutpunkten. Slutpunkten returnerar en JSON-fil med den information som krävs för att köra din kod.
+Du kan hämta metadata-information från Resource Manager-slutpunkten. Slutpunkten som returnerar en JSON-fil med den information som krävs för att köra din kod.
 
   > [!Note]  
   > Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/`  
-  > Den **ResourceManagerUrl** i integrerade system är: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+  > Den **ResourceManagerUrl** integrerade system är: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
-  JSON-exempelfil:
+  JSON-exempelfilen:
 
   ```json
   { "galleryEndpoint": "https://portal.local.azurestack.external:30015/",  
@@ -116,30 +116,30 @@ Du kan hämta metadata-information från Resource Manager-slutpunkten. Slutpunkt
   }
   ```
 
-### <a name="set-environmental-variables"></a>Uppsättning miljövariabler
+### <a name="set-environmental-variables"></a>Ange miljövariabler
 
 **Microsoft Windows**  
-Om du vill ange miljövariabler, i Windows kommandotolk, använder du följande format:  
+Ange miljövariabler, i Windows kommandotolk genom att använda följande format:  
 `set AZURE_TENANT_ID=<YOUR_TENANT_ID>`
 
 **macOS, Linux och Unix-baserade system**  
-För Unix-baserade datorer, kan du använda kommandot som:  
+I Unix-baserat system, kan du använda kommandot som:  
 `export AZURE_TENANT_ID=<YOUR_TENANT_ID>`
 
 ## <a name="existing-api-profiles"></a>Befintliga API-profiler
 
-Azure_sdk samlad symbolen har följande två profiler:
+Azure_sdk samlad gem har följande två profiler:
 
 1. **V2017_03_09**  
-  Profil som skapats för Azure-stacken. Använd den här profilen för tjänster för att vara mest kompatibel med Azure-stacken.
-2. **senaste**  
+  Profil som skapats för Azure Stack. Använd den här profilen för tjänster som är mest kompatibla med Azure Stack.
+2. **Senaste**  
   Profil består av senaste versionerna av alla tjänster. Använd de senaste versionerna av alla tjänster.
 
-Mer information om Azure-stacken och API-profiler finns en [sammanfattning av API-profiler](azure-stack-version-profiles.md#summary-of-api-profiles).
+Mer information om Azure Stack och API-profiler finns i en [sammanfattning av API-profiler](azure-stack-version-profiles.md#summary-of-api-profiles).
 
-## <a name="azure-ruby-sdk-api-profile-usage"></a>Användning av Azure Ruby SDK API-profil
+## <a name="azure-ruby-sdk-api-profile-usage"></a>Användningen av Azure Ruby SDK API-profil
 
-Följande rader ska användas för att skapa en instans av en profil-klient. Den här parametern är endast krävs för Azure Stack eller andra privata moln. Globala Azure har redan inställningarna som standard.
+Följande rader ska användas för att skapa en instans av en profil-klient. Den här parametern är endast krävs för Azure Stack eller andra privata moln. Global Azure har redan inställningarna som standard.
 
 ````Ruby  
 active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
@@ -162,7 +162,7 @@ options = {
 client = Azure::Resources::Profiles::V2017_03_09::Mgmt::Client.new(options)
 ````
 
-Profil-klienten kan användas för att få åtkomst till en enskild resursleverantörer, till exempel bearbetning, lagring och nätverk.
+Profil-klienten kan användas för åtkomst till enskilda resource-leverantörer, till exempel beräkning, lagring och nätverk.
 
 ````Ruby  
 # To access the operations associated with Compute
@@ -178,7 +178,7 @@ purchase_plan_obj = Azure::Profiles::V2017_03_09::Compute::Mgmt::Models::Purchas
 
 ## <a name="define-azurestack-environment-setting-functions"></a>Definiera AzureStack miljö inställningen funktioner
 
-Om du vill autentisera tjänstens huvudnamn i Azure Stack-miljön, definiera slutpunkter med hjälp av **get_active_directory_settings()**. Den här metoden använder den **ARM_Endpoint** miljövariabel som du ställer in när din miljövariabler.
+För att autentisera tjänstobjektet i Azure Stack-miljön, definiera slutpunkter med **get_active_directory_settings()**. Den här metoden använder den **ARM_Endpoint** miljövariabeln som du anger när din miljövariabler.
 
 ````Ruby  
 # Get Authentication endpoints using Arm Metadata Endpoints
@@ -198,22 +198,22 @@ def get_active_directory_settings(armEndpoint)
 end
 ````
 
-## <a name="samples-using-api-profiles"></a>Exempel som använder API-profiler
+## <a name="samples-using-api-profiles"></a>Exempel med hjälp av API-profiler
 
-Du kan använda i följande exempel finns i GitHub repositoreis som referens skapa lösningar med Ruby och Azure-stacken API-profiler:
+Du kan använda följande exempel finns i GitHub repositoreis som en referens som skapar lösningar med Ruby- och API: T för Azure Stack-profiler:
 
  - [Hantera Azure-resurser och -resursgrupper med Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)
- - [Hantera virtuella datorer med Ruby](https://github.com/Azure-Samples/compute-ruby-manage-vm/tree/master/Hybrid)
+ - [Hantera virtuella datorer med hjälp av Ruby](https://github.com/Azure-Samples/compute-ruby-manage-vm/tree/master/Hybrid)
  - [Distribuera en SSH aktiverad virtuell dator med en mall i Ruby](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/tree/master/Hybrid)
 
-### <a name="sample-resource-manager-and-groups"></a>Exempel Resource Manager och grupper
+### <a name="sample-resource-manager-and-groups"></a>Exemplet Resource Manager och grupper
 
-Se till att du har installerat Ruby om du vill köra exemplet. Om du använder Visual Studio Code kan hämta SDK för Ruby som ett tillägg samt. 
+Se till att du har installerat Ruby för att köra exemplet. Om du använder Visual Studio Code, hämta Ruby SDK: N som en utökning av samt. 
 
 > [!Note]  
-> Du kan hämta databasen för exempel på ”[hantera Azure-resurser och resursgrupper med Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)”.
+> Du kan hämta lagringsplatsen för exemplet på ”[hantera Azure-resurser och resursgrupper med Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)”.
 
-1. Klona lagringsplatsen.
+1. Klona databasen.
 
     ````Bash
     git clone https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups.git
@@ -226,37 +226,37 @@ Se till att du har installerat Ruby om du vill köra exemplet. Om du använder V
     bundle install
     ````
 
-3. Skapa ett Azure tjänstens huvudnamn med hjälp av PowerShell och hämta de värden som behövs. 
+3. Skapa ett tjänstobjekt i Azure med hjälp av PowerShell och hämta de värden som behövs. 
 
-  Anvisningar om hur du skapar ett huvudnamn för tjänsten finns [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten med ett certifikat](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
+  Anvisningar om hur du skapar ett huvudnamn för tjänsten finns i [med Azure PowerShell för att skapa ett huvudnamn för tjänsten med ett certifikat](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
   Värden som behövs är:
   - Klient-ID:t
   - Klient-ID
   - Klienthemlighet
   - Prenumerations-ID:t
-  - Resource Manager-slutpunkt
+  - Resource Manager-slutpunkten
 
-  Ange följande miljövariablerna med hjälp av information som du hämtade från tjänstens huvudnamn du skapat.
+  Ange följande miljövariabler med hjälp av informationen som du hämtade från tjänstens huvudnamn du skapade.
 
-  - Exportera AZURE_TENANT_ID = {din klient-id}
-  - Exportera AZURE_CLIENT_ID = {klient-id}
+  - Exportera AZURE_TENANT_ID = {ditt klient-id}
+  - Exportera AZURE_CLIENT_ID = {din klient-id}
   - Exportera AZURE_CLIENT_SECRET = {klienthemlighet}
   - Exportera AZURE_SUBSCRIPTION_ID = {ditt prenumerations-id}
-  - Exportera ARM_ENDPOINT = {AzureStack Resource manager URL: en}
+  - Exportera ARM_ENDPOINT = {din AzureStack Resource manager-url}
 
   > [!Note]  
-  > I Windows, Använd i stället för export.
+  > På Windows, Använd i stället för export.
 
-4. Kontrollera plats-variabeln anges till AzureStack-plats. Till exempel lokala = ”lokalt”
+4. Kontrollera plats-variabeln anges till din AzureStack plats. Till exempel lokala = ”local”
 
-5. Lägg till i följande rad med kod om du använder Azure Stack eller andra privata moln som mål rätt active directory-slutpunkter.
+5. Lägga till i följande rad med kod om du använder Azure Stack eller andra privata moln och ange rätt active directory-slutpunkter.
 
   ````Ruby  
   active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
   ````
 
-6. Lägga till inställningarna för active directory och den grundläggande Webbadressen för att arbeta med Azure-stacken i variabeln alternativ. 
+6. Lägga till inställningarna för active directory och den grundläggande Webbadressen ska fungera med Azure Stack i alternativ-variabeln. 
 
   ````Ruby  
   options = {
@@ -267,13 +267,13 @@ Se till att du har installerat Ruby om du vill köra exemplet. Om du använder V
   }
   ````
 
-7. Skapa profil klienten som riktas mot Azure Stack-profil:
+7. Skapa profil-klient som riktar sig mot Azure Stack-profil:
 
   ````Ruby  
     client = Azure::Resources::Profiles::V2017_03_09::Mgmt::Client.new(options)
   ````
 
-8. För att autentisera tjänstens huvudnamn med Azure Stack slutpunkterna ska definieras med **get_active_directory_settings()**. Den här metoden använder den **ARM_Endpoint** miljövariabel som du ställer in när din miljövariabler.
+8. För att autentisera tjänstens huvudnamn med Azure Stack slutpunkterna ska definieras med hjälp av **get_active_directory_settings()**. Den här metoden använder den **ARM_Endpoint** miljövariabeln som du anger när din miljövariabler.
 
   ````Ruby  
   def get_active_directory_settings(armEndpoint)
@@ -303,4 +303,4 @@ Se till att du har installerat Ruby om du vill köra exemplet. Om du använder V
 ## <a name="next-steps"></a>Nästa steg
 
 * [Installera PowerShell för Azure Stack](azure-stack-powershell-install.md)
-* [Konfigurera Azure Stack användarens PowerShell-miljö](azure-stack-powershell-configure-user.md)  
+* [Konfigurera PowerShell-miljö för Azure Stack-användare](azure-stack-powershell-configure-user.md)  

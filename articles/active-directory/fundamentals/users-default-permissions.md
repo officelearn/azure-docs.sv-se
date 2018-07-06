@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
-ms.openlocfilehash: 991feaa61a73d5ac96159fbd6a7dd1fdd420fd3c
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: e2571a6854d2c3de2425547b69c5435286182ef7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291420"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448160"
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Standardbehörigheter för användare i Azure Active Directory
 
@@ -50,8 +50,8 @@ Standardbehörigheter för medlemmsanvändare kan begränsas på följande sätt
 
 Behörighet | Förklaring av inställning
 ---------- | ------------
-Möjlighet att skapa säkerhetsgrupper | När den här inställningen är inställd på Nej kan användare inte skapa säkerhetsgrupper. Globala administratörer eller användarkontoadministratörer kan fortfarande skapa säkerhetsgrupper. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../active-directory-accessmanagement-groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
-Får skapa Office 365-grupper | Om det här alternativet är Nej får användare inte skapa Office 365-grupper. Om det här alternativet är Vissa får en uppsättning användare skapa Office 365-grupper. Globala administratörer eller användarkontoadministratörer kommer fortfarande att kunna skapa grupper för Office 365. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../active-directory-accessmanagement-groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
+Möjlighet att skapa säkerhetsgrupper | När den här inställningen är inställd på Nej kan användare inte skapa säkerhetsgrupper. Globala administratörer eller användarkontoadministratörer kan fortfarande skapa säkerhetsgrupper. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
+Får skapa Office 365-grupper | Om det här alternativet är Nej får användare inte skapa Office 365-grupper. Om det här alternativet är Vissa får en uppsättning användare skapa Office 365-grupper. Globala administratörer eller användarkontoadministratörer kommer fortfarande att kunna skapa grupper för Office 365. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
 Begränsa åtkomst till Azure AD-administrationsportalen | Om det här alternativet är Nej kan användare inte komma åt Azure Active Directory-portalen.
 Möjlighet att läsa andra användare | Den här inställningen är endast tillgänglig i PowerShell. Om den är $false får inga icke-administratörer läsa användarinformation från katalogen. Detta förhindrar inte läsning av användarinformation i andra Microsofttjänster, till exempel Exchange Online. Den här inställningen är avsedd för särskilda omständigheter och det rekommenderas inte att ställa in den på $false.
 

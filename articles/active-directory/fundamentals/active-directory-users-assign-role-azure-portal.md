@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 06/25/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: 7ed564d5954841f96109568b33183908d25bb8be
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: ec30f1507bfa45c29709a7f4b7dc1e91aa25ca57
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939560"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440756"
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller till en användare i Azure Active Directory
 Den här artikeln beskriver hur du tilldelar administratörsroller till en användare i Azure Active Directory (AD Azure). Information om hur du lägger till nya användare i din organisation finns i [Lägga till nya användare i Azure Active Directory](../add-users-azure-active-directory.md). Tillagda användare har inte administratörsbehörighet som standard, men du kan tilldela roller till dem när som helst.
@@ -30,7 +30,7 @@ Den här artikeln beskriver hur du tilldelar administratörsroller till en anvä
 
     ![Öppna användarhantering](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 
-3. För den valda användaren väljer du **Directory role** (Katalogroll), **Add role**, (Lägg till roll) och sedan lämpliga administratörsroller i listan **Directory roles** (Katalogroll), till exempel **Conditional access administrator** (Administratör med villkorlig åtkomst). Mer information om administrativa roller finns i [Tilldela administratörsroller i Azure AD](../active-directory-assign-admin-roles-azure-portal.md). 
+3. För den valda användaren väljer du **Directory role** (Katalogroll), **Add role**, (Lägg till roll) och sedan lämpliga administratörsroller i listan **Directory roles** (Katalogroll), till exempel **Conditional access administrator** (Administratör med villkorlig åtkomst). Mer information om administrativa roller finns i [Tilldela administratörsroller i Azure AD](../users-groups-roles/directory-assign-admin-roles.md). 
 
     ![Tilldela en användare till en roll](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 

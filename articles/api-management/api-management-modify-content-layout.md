@@ -3,7 +3,7 @@ title: Ändra sidinnehåll på utvecklarportalen i Azure API Management | Micros
 description: Lär dig hur du redigerar sidinnehåll på utvecklarportalen i Azure API Management.
 services: api-management
 documentationcenter: ''
-author: antonba
+author: vlvinogr
 manager: vlvinogr
 editor: ''
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
-ms.author: antonba
-ms.openlocfilehash: bcf48ab8dd3b57ace70fa713074b13a992940002
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: vlvinogr
+ms.openlocfilehash: 4a372b54ace87816b9e7cccbd38466331b5ebfc7
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29377807"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437604"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Ändra innehåll och layout för sidorna på utvecklarportalen i Azure API Managment
 Det finns tre grundläggande metoder för att anpassa utvecklarportalen i Azure API Management:
@@ -34,7 +34,7 @@ Utvecklarportalen baseras på ett innehållshanteringssystem. Sidlayouten bygger
 
 ![Sidstruktur för utvecklarportalen][api-management-customization-widget-structure]
 
-Alla widgetar kan redigeras. 
+Alla widgetar kan redigeras.
 * Huvudinnehållet för varje specifik sida finns i innehållswidgeten. När du redigerar en sida redigerar du alltså innehållet i widgeten.
 * Alla övriga layoutelement på sidan finns även de som widgetar. Om du gör en ändring i en sådan widget slår detta igenom på samtliga sidor. De kallas därför layoutwidgetar.
 
@@ -42,12 +42,12 @@ Under vardagligt redigeringsarbete gör man normalt sett bara ändringar i inneh
 
 ## <a name="modify-layout-widget"> </a>Ändra innehållet i en layoutwidget
 
-Developer-portalen är tillgänglig på Azure Portal. 
+Developer-portalen är tillgänglig på Azure Portal.
 
 1. Klicka på **utgivarportalen** i API Management-instansens verktygsfält.
-2. Om du vill redigera innehållet i widgetar klickar du på ikonen som består av två penslar på menyn **Utvecklare** till vänster på portalen. 
+2. Om du vill redigera innehållet i widgetar klickar du på ikonen som består av två penslar på menyn **Utvecklare** till vänster på portalen.
 3. Om du vill ändra rubrikens innehåll bläddrar du till avsnittet **Rubrik** på listan till vänster.
-    
+
     Widgetarna går att redigera inifrån fälten.
 4. När du är redo att publicera ändringarna klickar du på **Publicera** längst ned på sidan.
 

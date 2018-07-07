@@ -1,20 +1,20 @@
 ---
-title: Hantera Azure DC/OS-kluster med Marathon-Gränssnittet
+title: Hantera Azure DC/OS-kluster med Användargränssnittet för Marathon
 description: Distribuera behållare till en klustertjänst i Azure Container Service med Marathons webbgränssnitt.
 services: container-service
-author: dlepow
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: danlep
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 43407d40db0aab2772cb1baeab3471be68aee2ab
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a22bddf48f97d961d481e2aedb42f7d645f3e678
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166991"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903089"
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Hantera ett Azure Container Service DC/OS-kluster via webbgränssnittet för Marathon
 
@@ -30,16 +30,16 @@ Innan du börjar med de här exemplen behöver du ett DC/OS-kluster som har konf
 * [Ansluta till ett Azure Container Service-kluster](../container-service-connect.md)
 
 > [!NOTE]
-> Den här artikeln förutsätter att du använder tunneltrafik DC/OS-klustret via en lokal port 80.
+> Den här artikeln förutsätter att du använder tunneltrafik i DC/OS-klustret via en lokal port 80.
 >
 
 ## <a name="explore-the-dcos-ui"></a>Utforska gränssnittet för DC/OS
-Med en tunnel SSH (Secure Shell) [upprätta](../container-service-connect.md), bläddra till http://localhost/. Då läses webbgränssnittet för DC/OS in och du kan se information om klustret, till exempel använda resurser, aktiva agenter och tjänster som körs.
+Med en Secure Shell (SSH)-tunnel [upprättats](../container-service-connect.md), bläddra till http://localhost/. Då läses webbgränssnittet för DC/OS in och du kan se information om klustret, till exempel använda resurser, aktiva agenter och tjänster som körs.
 
 ![DC/OS-gränssnitt:](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Utforska Marathon-gränssnittet
-Om du vill visa Gränssnittet i Marathon, bläddra till http://localhost/marathon. Från den här skärmbilden kan du starta en ny behållare eller ett annat program på DC/OS-klustret för Azure Container Service. Du kan även se information om att köra behållare och program.  
+Om du vill se Användargränssnittet för Marathon, bläddra till http://localhost/marathon. Från den här skärmbilden kan du starta en ny behållare eller ett annat program på DC/OS-klustret för Azure Container Service. Du kan även se information om att köra behållare och program.  
 
 ![Gränssnittet i Marathon](./media/container-service-mesos-marathon-ui/dcos3.png)
 
@@ -83,7 +83,7 @@ Tillbaka på huvudsidan för Marathon kan du se distributionsstatusen för behå
 
 ![Marathon-huvudsidans gränssnitt 0 behållarens distributionsstatus](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-När du växlar tillbaka till DC/OS-webbgränssnitt (http://localhost/), visas att en aktivitet (i det här fallet en Docker-formaterad behållare) körs på DC/OS-klustret.
+När du växlar tillbaka till DC/OS-webbgränssnitt (http://localhost/), du ser att en aktivitet (i det här fallet en Docker-formaterad behållare) körs på DC/OS-klustret.
 
 ![DC/OS-webbgränssnitt – aktivitet som körs på klustret](./media/container-service-mesos-marathon-ui/dcos8.png)
 
@@ -91,9 +91,9 @@ Du kan visa klusternoden som uppgiften körs på genom att klicka på fliken **N
 
 ![DC/OS-webbgränssnitt – klusternod](./media/container-service-mesos-marathon-ui/dcos9.png)
 
-## <a name="reach-the-container"></a>Nå behållaren
+## <a name="reach-the-container"></a>Nå ut till behållaren
 
-Programmet körs i detta exempel på en offentlig agent-nod. Du når programmet från internet genom att bläddra till agenten klustrets FQDN-namn: `http://[DNSPREFIX]agents.[REGION].cloudapp.azure.com`, där:
+Programmet körs i det här exemplet på en offentlig agent-nod. Du kan komma åt programmet från internet genom att bläddra till agenten FQDN för klustret: `http://[DNSPREFIX]agents.[REGION].cloudapp.azure.com`, där:
 
 * **DNSPREFIX** är det DNS-prefix som du angav när du distribuerade klustret.
 * **REGION** är den region där resursgruppen finns.

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera MSI på en virtuell dator i Azure skaluppsättningen med Azure-portalen
-description: Steg för steg-instruktioner för hur du konfigurerar en hanterad tjänst identitet (MSI) på Azure VMSS, med hjälp av Azure portal.
+title: Konfigurera MSI för en Azure VM-skalningsuppsättning med Azure portal
+description: Steg för steg-instruktioner för att konfigurera en hanterad tjänstidentitet (MSI) på Azure VMSS, med hjälp av Azure portal.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,73 +9,73 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: c915c692a12781538e10d367d40e3efe473a6853
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1ba9f827abeb0c0cf6430089e1fb504288550737
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33929052"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37900471"
 ---
-# <a name="configure-a-vmss-managed-service-identity-msi-using-the-azure-portal"></a>Konfigurera en VMSS hanteras Service identitet (MSI) med Azure-portalen
+# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Konfigurera en virtuell dator scale Sets hanterad tjänstidentitet (MSI) med Azure portal
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Hanterade tjänstidentiteten ger Azure-tjänster med en automatiskt hanterade identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering utan autentiseringsuppgifter i koden. 
+Hanterad tjänstidentitet ger Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering utan autentiseringsuppgifter i din kod. 
 
-I den här artikeln får du lära dig hur du aktiverar och inaktiverar tilldelats identitet för en VMSS med Azure-portalen. Tilldela och ta bort användare som tilldelats identiteter från en Azure-VMSS stöds inte för närvarande via Azure Portal.
+I den här artikeln får du lära dig hur du aktiverar och inaktiverar systemtilldelad identitet för en VM-skalningsuppsättning med Azure portal. Tilldela och ta bort användartilldelade identiteter från en skalningsuppsättning för virtuella Azure-datorer stöds inte för närvarande via Azure portal.
 
 > [!NOTE]
-> För närvarande stöds inte användaren som har tilldelats identitet åtgärder via Azure Portal. Sök igen efter uppdateringar.
+> Användartilldelad identitet åtgärder stöds för närvarande inte via Azure-portalen. Kolla igen senare.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 
-- Om du är bekant med hanterade tjänstidentiteten kan ta en titt på [översiktsavsnittet](overview.md).
-- Om du inte redan har ett Azure-konto [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
+- Om du är bekant med hanterad tjänstidentitet kan ta en titt på [översiktsavsnittet](overview.md).
+- Om du inte redan har ett Azure-konto, [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 
-## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Hanterade tjänstidentiteten under skapandet av en skaluppsättning för virtuell Azure-dator
+## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Hanterad tjänstidentitet under skapandet av en Azure VM-skalningsuppsättning
 
-Skapa en virtuell dator via Azure portal stöder för närvarande inte hanteras tjänstidentiteten åtgärder. I stället finns i följande virtuella Azure-datorn scale set skapa Quickstart artikel först skapa en skaluppsättning för virtuell dator i Azure:
+Skapa en virtuell dator via Azure portal stöder för närvarande inte hanterad tjänstidentitet åtgärder. I stället finns följande Azure-dator scale set skapas snabbstartsartikeln du först skapa en Azure VM-skalningsuppsättning:
 
-- [Skapa en Virtual Machine Scale Set i Azure-portalen](../../virtual-machine-scale-sets/quick-create-portal.md)  
+- [Skapa en VM-Skalningsuppsättning i Azure portal](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
-Gå sedan vidare till nästa avsnitt för mer information om hur du aktiverar MSI på virtuella datorns skaluppsättning.
+Gå sedan vidare till nästa avsnitt för information om hur du aktiverar MSI på virtuella datorns skalningsuppsättning.
 
-## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>Aktivera hanterade tjänstidentiteten på en befintlig Azure-VMMS
+## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>Aktivera hanterad tjänstidentitet på en befintlig Azure-VMMS
 
-Tilldelad identiteten på en virtuell dator som ursprungligen var etablerad utan den så att systemet:
+För att aktivera systemtilldelad identitet på en virtuell dator som ursprungligen etablerades utan den:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumeration som innehåller virtuella datorns skaluppsättning.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning.
 
-2. Navigera till önskade virtuella datorns skaluppsättning.
+2. Navigera till önskade virtuella datorns skalningsuppsättning.
 
-3. Aktivera som tilldelats Systemidentiteten på den virtuella datorn genom att välja ”Ja” under ”hanterade tjänstidentiteten” och klicka sedan på **spara**. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
+3. Aktivera systemtilldelad identitet på den virtuella datorn genom att välja ”Ja” under ”hanterad tjänstidentitet” och klicka sedan på **spara**. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
 
-   [![Konfiguration av sidan skärmbild](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
+   [![Skärmbild av konfiguration av sidan](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
-## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Ta bort hanterade tjänstidentiteten från en skaluppsättning för virtuell Azure-dator
+## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Ta bort hanterad tjänstidentitet från en Azure VM-skalningsuppsättning
 
-Om du har en skaluppsättning för virtuell dator som inte längre behöver en MSI:
+Om du har en skalningsuppsättning för virtuella datorer som inte längre behöver en MSI:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumeration som innehåller virtuella datorns skaluppsättning. Kontrollera också att ditt konto hör till en roll som ger dig skrivbehörighet på virtuella datorns skaluppsättning.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning. Kontrollera också att ditt konto tillhör en roll som ger dig skrivbehörighet på virtuella datorns skalningsuppsättning.
 
-2. Navigera till önskade virtuella datorns skaluppsättning.
+2. Navigera till önskade virtuella datorns skalningsuppsättning.
 
-3. Inaktivera tilldelats identiteten på den virtuella datorn genom att välja ”Nej” under ”hanterade tjänstidentiteten” och sedan på Spara. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
+3. Inaktivera systemtilldelad identitet på den virtuella datorn genom att välja ”Nej” under ”hanterad tjänstidentitet” och sedan på Spara. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
 
-   ![Konfiguration av sidan skärmbild](../media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
+   ![Skärmbild av konfiguration av sidan](../media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
 
 ## <a name="related-content"></a>Relaterat innehåll
 
-- En översikt över hanterade tjänstidentiteten finns [översikt](overview.md).
+- En översikt av hanterad tjänstidentitet finns [översikt](overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Med Azure-portalen, ge en virtuell dator i Azure skaluppsättning MSI [åtkomst till en annan Azure-resurs](howto-assign-access-portal.md).
+- Med Azure portal, ge en Azure VM-skalningsuppsättningen MSI [åtkomst till en annan Azure-resurs](howto-assign-access-portal.md).
 
-Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och utforma innehållet.
+Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och forma vårt innehåll.

@@ -1,6 +1,6 @@
 ---
 title: Använda Azure-fil med AKS
-description: Använda Azure-diskarna med AKS
+description: Använda Azure-diskar med AKS
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 25ae0e508223b50219e40245cc9dfbc407b96bba
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 0479e4d80b7490db170255d47ef3190bb744d2d8
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096704"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901501"
 ---
-# <a name="volumes-with-azure-files"></a>Volymer med Azure-filer
+# <a name="volumes-with-azure-files"></a>Volymer med Azure files
 
-Behållaren-baserade program behöver ofta åtkomst och spara data i en volym på externa data. Azure-filer kan användas som den här externa datalager. Den här artikeln information med hjälp av Azure filer som en Kubernetes volym i Azure Kubernetes Service.
+Behållarbaserade program behöver ofta åtkomst till och bevara data i en extern datavolym. Azure files kan användas som den här externa datalager. Den här artikeln beskriver hur man använder Azure files som en Kubernetes-volym i Azure Kubernetes Service.
 
-Mer information om Kubernetes volymer finns [Kubernetes volymer][kubernetes-volumes].
+Mer information om Kubernetes volymer finns i [Kubernetes volymer][kubernetes-volumes].
 
 ## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
 
-Innan du använder en Azure-filresurs som en Kubernetes volym, måste du skapa ett Azure Storage-konto och filresursen. Följande skript kan användas för att utföra dessa uppgifter. Notera eller uppdatera parametervärden, vissa av dessa krävs när du skapar Kubernetes volymen.
+Innan du använder en Azure-filresurs som en Kubernetes-volym, måste du skapa ett Azure Storage-konto och filresursen. Följande skript kan användas för att utföra dessa uppgifter. Anteckna eller uppdatera parametervärdena kan vissa av dessa behövs när du skapar Kubernetes-volym.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -52,22 +52,22 @@ STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_G
 
 # Echo storage account name and key
 echo Storage account name: $AKS_PERS_STORAGE_ACCOUNT_NAME
-echo Storgae account key: $STORAGE_KEY
+echo Storage account key: $STORAGE_KEY
 ```
 
-## <a name="create-kubernetes-secret"></a>Skapa Kubernetes hemlighet
+## <a name="create-kubernetes-secret"></a>Skapa Kubernetes-hemlighet
 
-Kubernetes måste autentiseringsuppgifter för åtkomst till filresursen. Autentiseringsuppgifterna lagras i en [Kubernetes hemlighet][kubernetes-secret], som refereras till när du skapar en Kubernetes baljor.
+Kubernetes behöver autentiseringsuppgifter för att komma åt filresursen. Dessa autentiseringsuppgifter lagras i en [Kubernetes-hemlighet][kubernetes-secret], som refereras till när du skapar en Kubernetes-pod.
 
-Använd följande kommando för att skapa hemligheten. Ersätt `STORAGE_ACCOUNT_NAME` med namnet på ditt lagringskonto, och `STORAGE_ACCOUNT_KEY` med din nyckel för säkerhetslagring.
+Använd följande kommando för att skapa hemligheten. Ersätt `STORAGE_ACCOUNT_NAME` med namnet på ditt lagringskonto, och `STORAGE_ACCOUNT_KEY` med lagringskontots åtkomstnyckel.
 
 ```console
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=STORAGE_ACCOUNT_KEY
 ```
 
-## <a name="mount-file-share-as-volume"></a>Montera filresursen som volym
+## <a name="mount-file-share-as-volume"></a>Montera en filresurs som volym
 
-Montera filer för Azure-resurs i din baljor genom att konfigurera volymen i dess-specifikationen. Skapa en ny fil med namnet `azure-files-pod.yaml` med följande innehåll. Uppdatera `aksshare` dela med namnet på Azure-filer.
+Montera Azure Files-resurs i din pod genom att konfigurera volymen i dess spec. Skapa en ny fil med namnet `azure-files-pod.yaml` med följande innehåll. Uppdatera `aksshare` med namnet på Azure Files dela.
 
 ```yaml
 apiVersion: v1
@@ -89,20 +89,20 @@ spec:
       readOnly: false
 ```
 
-Använd kubectl för att skapa en baljor.
+Använda kubectl för att skapa en pod.
 
 ```azurecli-interactive
 kubectl apply -f azure-files-pod.yaml
 ```
 
-Nu har du en behållare som körs med din Azure-filresursen monterat i den `/mnt/azure` directory.  Du kan se volymen montera vid inspektion av din baljor via `kubectl describe pod azure-files-pod`.
+Nu har du en fungerande behållare med Azure-filresursen monteras i den `/mnt/azure` directory.  Du kan se volymen montera vid kontroll av din pod via `kubectl describe pod azure-files-pod`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Kubernetes volymer med Azure-filer.
+Läs mer om Kubernetes volymer med Azure Files.
 
 > [!div class="nextstepaction"]
-> [Kubernetes plugin-program för Azure-filer][kubernetes-files]
+> [Kubernetes-plugin-programmet för Azure Files][kubernetes-files]
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create

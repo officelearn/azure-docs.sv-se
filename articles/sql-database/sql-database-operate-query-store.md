@@ -1,5 +1,5 @@
 ---
-title: Operativsystemet Query Store i Azure SQL-databas
+title: Använda Query Store i Azure SQL Database
 description: Lär dig hur du använder Query Store i Azure SQL Database
 services: sql-database
 author: bonova
@@ -9,51 +9,51 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: bonova
-ms.openlocfilehash: 92e4180f1efe62d2dae9778f70e25f1bb0273b7f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 37cb77b6738ba1354034dcf77d22a19b96c4ef23
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649891"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903106"
 ---
-# <a name="operating-the-query-store-in-azure-sql-database"></a>Operativsystemet Query Store i Azure SQL-databas
-Query Store i Azure är en helt hanterad databasfunktion som samlar in kontinuerligt och Detaljerad historisk information om alla frågor. Du kan se om Query Store som liknar ett flygplan svarta data lådan som avsevärt förenklar frågeprestanda felsökning av både för molnet och lokala kunder. Den här artikeln förklarar vissa aspekter av operativsystem Query Store i Azure. Med den här före insamlade fråga efter data snabbt diagnostisera och lösa problem med prestanda och därmed ägna mer tid åt att fokusera på verksamheten. 
+# <a name="operating-the-query-store-in-azure-sql-database"></a>Använda Query Store i Azure SQL Database
+Query Store i Azure är en fullständigt hanterad databas-funktion som kontinuerligt samlas in och Detaljerad historisk information om alla frågor. Du kan tänka Query Store som liknar ett flygplan svart data låda som avsevärt förenklar frågeprestanda felsökning både för moln och lokala kunder. Den här artikeln beskriver specifika aspekter av operativsystem Query Store i Azure. Med dessa data i förväg insamlade fråga kan du snabbt diagnostisera och lösa problem med prestanda och därför lägga mer tid på kärnverksamheten. 
 
-Query Store har [globalt tillgänglig](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) i Azure SQL Database sedan November 2015. Query Store är grunden för analys av minnesprestanda och finjustera funktioner, t.ex [SQL Database Advisor och prestanda instrumentpanel](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). För närvarande för publicering av den här artikeln körs Query Store i mer än 200 000 databaserna i Azure, insamling av frågan-relaterad information för flera månader utan avbrott.
+Query Store har [globalt tillgänglig](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) i Azure SQL Database sedan November 2015. Query Store är grunden för prestandaanalys och justeringsfunktioner, till exempel [SQL Database Advisor och prestanda instrumentpanel](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). För tillfället för publiceringen av den här artikeln körs Query Store i mer än 200 000 användardatabaser i Azure, samla in frågan-relaterad information i flera månader utan avbrott.
 
 > [!IMPORTANT]
 > Microsoft håller på att aktivera Query Store för alla Azure SQL-databaser (befintliga och nya). 
 > 
 > 
 
-## <a name="optimal-query-store-configuration"></a>Optimal Query Store-konfiguration
-Det här avsnittet beskrivs bästa konfigurationen standardvärden som är utformade för att säkerställa att tillförlitliga Query Store och beroende funktioner som [SQL Database Advisor och prestanda instrumentpanel](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Standardkonfigurationen är optimerad för kontinuerlig datainsamling som är minimal tid i OFF/READ_ONLY tillstånd.
+## <a name="optimal-query-store-configuration"></a>Optimala Query Store-konfiguration
+Det här avsnittet beskrivs standardvärdena för optimal konfiguration som är utformade för att säkerställa tillförlitlig drift Query Store och beroende funktioner, till exempel [SQL Database Advisor och prestanda instrumentpanel](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Standardkonfigurationen är optimerat för kontinuerlig datainsamling som är minimal tid i OFF/READ_ONLY tillstånd.
 
 | Konfiguration | Beskrivning | Standard | Kommentar |
 | --- | --- | --- | --- |
-| MAX_STORAGE_SIZE_MB |Anger gränsen för datautrymme Query Store kan göra i kunddatabasen |100 |För nya databaser |
-| INTERVAL_LENGTH_MINUTES |Definierar storleken på tidsperioden under vilken insamlade körningsstatistik för frågeplaner sammanställs och beständig. Alla aktiva frågeplan innehåller högst en rad under en tidsperiod som definierats med den här konfigurationen |60 |För nya databaser |
-| STALE_QUERY_THRESHOLD_DAYS |Tidsbaserade Rensa princip som styr loggperioden beständiga körningsstatistik och inaktiva frågor |30 |För nya databaser och databaser med föregående standard (367) |
-| SIZE_BASED_CLEANUP_MODE |Anger om automatisk Datarensning sker när Query Store datastorleken närmar sig gränsen |AUTOMATISK |För alla databaser |
-| QUERY_CAPTURE_MODE |Anger om alla frågor eller endast en delmängd av frågor spåras |AUTOMATISK |För alla databaser |
-| FLUSH_INTERVAL_SECONDS |Anger maximal period under vilken avbildas runtime statistik hålls i minnet, innan till disk |900 |För nya databaser |
+| MAX_STORAGE_SIZE_MB |Anger gränsen för datautrymme som Query Store kan vidta i kunddatabasen |100 |Tillämpas för nya databaser |
+| INTERVAL_LENGTH_MINUTES |Definierar storleken på tidsperioden under vilken insamlade körningsstatistik för frågeplaner aggregeras och sparas. Varje aktiv frågeplan har högst en rad under en tidsperiod som definierats med den här konfigurationen |60 |Tillämpas för nya databaser |
+| STALE_QUERY_THRESHOLD_DAYS |Tidsbaserade upprensningsprincip som styr kvarhållningsperioden för beständiga körningsstatistik och inaktiva frågor |30 |Tillämpas för nya databaser och databaser med föregående standard (367) |
+| SIZE_BASED_CLEANUP_MODE |Anger om automatisk slutfasen i rensningen sker när Query Store datastorlek närmar sig gränsen |AUTOMATISK |Gäller för alla databaser |
+| QUERY_CAPTURE_MODE |Anger om alla frågor eller endast en delmängd av frågor spåras |AUTOMATISK |Gäller för alla databaser |
+| FLUSH_INTERVAL_SECONDS |Anger maximal tidsperiod under vilken avbildas runtime statistik sparas i minnet, innan till disk |900 |Tillämpas för nya databaser |
 |  | | | |
 
 > [!IMPORTANT]
-> Dessa standardvärden används automatiskt i det sista steget i Query Store aktivering i alla Azure SQL-databaser (se föregående viktigt). Efter den här ljus upp ändrar Azure SQL Database inte konfigurationsvärden som angetts av kunder, om inte de påverkas negativt primära arbetsbelastning eller tillförlitlig drift av Query Store.
+> Dessa standardinställningar tillämpas automatiskt i det sista steget i Query Store-aktivering i alla Azure SQL-databaser (se föregående viktigt meddelande). Efter den här lyser ändra Azure SQL Database inte konfigurationsvärden som angetts av kunder, om inte de försämrade primära arbetsbelastning eller tillförlitliga åtgärder av Query Store.
 > 
 > 
 
-Om du vill behålla dina anpassade inställningar, använda [ALTER DATABASE med alternativ för Query Store](https://msdn.microsoft.com/library/bb522682.aspx) att återställa konfigurationen till det tidigare tillståndet. Checka ut [metodtips med Frågearkivet](https://msdn.microsoft.com/library/mt604821.aspx) för att lära dig hur upp väljer optimala konfigurationsparametrar.
+Om du vill hålla dig med de anpassade inställningarna kan använda [ALTER DATABASE med Query Store alternativ](https://msdn.microsoft.com/library/bb522682.aspx) att återställa konfigurationen till föregående tillstånd. Kolla in [bästa praxis med Query Store](https://msdn.microsoft.com/library/mt604821.aspx) för att lära dig hur upp valde optimala konfigurationsparametrar.
 
 ## <a name="next-steps"></a>Nästa steg
-[SQL-databas Performance Insight](sql-database-performance.md)
+[SQL Database Performance Insight](sql-database-performance.md)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
-För mer information checka ut i följande artiklar:
+Mer information finns i följande artiklar:
 
-* [En svarta lådan för data för databasen](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
-* [Övervakning av prestanda genom att använda Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
-* [Query Store Användningsscenarier](https://msdn.microsoft.com/library/mt614796.aspx)
-* [Övervakning av prestanda genom att använda Query Store](https://msdn.microsoft.com/library/dn817826.aspx) 
+* [En svart låda för data för din databas](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
+* [Övervakning av prestanda med hjälp av Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+* [Query Store-Användningsscenarier](https://msdn.microsoft.com/library/mt614796.aspx)
+ 
 

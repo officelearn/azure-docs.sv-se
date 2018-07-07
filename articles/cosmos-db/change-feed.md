@@ -1,7 +1,7 @@
 ---
-title: Arbeta med ändringen feeds stöd i Azure Cosmos DB | Microsoft Docs
-description: Använda Azure Cosmos DB ändra feed stöd för att spåra ändringar i dokument och utföra händelsebaserat bearbetning som utlösare och uppdatera cacheminnen och analyser system kontinuerligt.
-keywords: Ändra feed
+title: Arbeta med ändringen feed support i Azure Cosmos DB | Microsoft Docs
+description: Använd feed support för Azure Cosmos DB-ändring för att spåra ändringar i dokument och utföra händelsebaserade bearbetning som utlösare och uppdatera cacheminnen- och analyssystem kontinuerligt.
+keywords: Ändra flöde
 services: cosmos-db
 author: rafats
 manager: kfile
@@ -10,93 +10,93 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 6b0aaa075b8b2881e269d79a67e75528d0d9a86a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e53f1e62b9265d2eec2f49537cc05c865e1436f3
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129866"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902970"
 ---
-# <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Arbeta med ändringen feeds stöd i Azure Cosmos DB
+# <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Arbeta med stöd för ändringsflödet i Azure Cosmos DB
 
-[Azure Cosmos-DB](../cosmos-db/introduction.md) är ett snabbt och flexibel globalt replikerad databas, väl lämpade för IoT, återförsäljnings, spel och operativa loggningsprogram. En gemensam designmönstret i dessa program är att använda ändringar av data till startar ytterligare åtgärder. Dessa ytterligare åtgärder kan vara något av följande: 
+[Azure Cosmos DB](../cosmos-db/introduction.md) är en snabb och flexibel globalt replikerade passar bra för IoT, spel, återförsäljnings, databasen och operativa loggningsprogram. Ett vanliga designmönster i dessa program är att använda ändringar av data för att sätta igång ytterligare åtgärder. Dessa ytterligare åtgärder kan vara något av följande: 
 
-* Utlösa en avisering eller ett anrop till en API när ett dokument infogas eller ändras.
-* Dataströmmen för IoT bearbetades eller utföra analyser.
-* Flytt av ytterligare data genom att synkronisera med en cache, sökmotor eller datalagret eller arkivering av data till kyla.
+* Utlösa en avisering eller ett anrop till ett API när ett dokument infogas eller ändras.
+* Stream bearbetning för IoT eller analyser.
+* Ytterligare dataförflyttning genom att synkronisera med en cache, en sökmotor eller ett datalager eller arkivering av data till kall lagring.
 
-Den **ändra feed stöd** i Azure Cosmos DB gör att du kan skapa skalbara lösningar för var och en av dessa mönster som visas i följande bild:
+Den **stöd för ändringsfeed** i Azure Cosmos DB gör att du kan bygga skalbara lösningar för var och en av dessa mönster som du ser i följande bild:
 
-![Med hjälp av Azure Cosmos DB ändra feed power analys i realtid och händelsedriven datascenarier](./media/change-feed/changefeedoverview.png)
+![Med hjälp av Azure Cosmos DB ändringen feed power realtidsanalys och händelsedrivna scenarier för högprestandaberäkning](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Ändra feed support tillhandahålls för alla datamodeller och behållare i Azure Cosmos DB. Ändra feeden läses med hjälp av SQL-klienten och Serialiserar objekt i JSON-format. På grund av formatering, JSON MongoDB klienter får ett matchningsfel mellan BSON formaterade dokument och JSON-formaterad ändra feed.
+> Ändringsfeed support tillhandahålls för alla datamodeller och behållare i Azure Cosmos DB. Ändringsflöde läses med hjälp av SQL-klienten och Serialiserar objekt till JSON-format. På grund av formatering, JSON MongoDB klienter får ett matchningsfel mellan BSON formaterade dokument och JSON-formaterad ändringsflödet.
 
-I följande videoklipp visar Azure Cosmos DB Programhanteraren Andrew Liu hur Azure Cosmos DB ändringen feed fungerar.
+I följande videoklipp visar Azure Cosmos DB-Programhanteraren Andrew Liu hur Azure Cosmos DB ändringsfeed fungerar.
 
 > [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
 >
 >
 
-## <a name="how-does-change-feed-work"></a>Hur feed arbete av ändringen?
+## <a name="how-does-change-feed-work"></a>Hur ändringsfeed arbete?
 
-Ändra feed-stöd i Azure Cosmos DB fungerar genom att lyssna på en Azure DB som Cosmos-samling som eventuella ändringar. Därefter visas den sorterade listan över dokument som har ändrats i den ordning som de har ändrats. Ändringarna sparas kan bearbetas asynkront och inkrementellt och utdata kan fördelas på en eller flera konsumenter för parallell bearbetning. 
+Stöd för ändringsfeed i Azure Cosmos DB fungerar genom att lyssna på en Azure Cosmos DB-samling efter ändringar. Sedan returnerar den sorterade listan över dokument som har ändrats i den ordning som de har ändrats. Ändringarna sparas kan bearbetas asynkront och stegvis och utdata kan distribueras på en eller flera konsumenter för parallell bearbetning. 
 
-Du kan läsa ändringen feed på tre olika sätt, enligt beskrivningen nedan:
+Du kan läsa ändringsflödet på tre olika sätt, vilket beskrivs senare i den här artikeln:
 
-*   [Med hjälp av Azure Functions](#azure-functions)
+*   [Använd Azure Functions](#azure-functions)
 *   [Med hjälp av Azure Cosmos DB SDK](#sql-sdk)
-*   [Med hjälp av Azure Cosmos DB ändringen feed processor-bibliotek](#change-feed-processor)
+*   [Med hjälp av Azure Cosmos DB-ändringen feed processor-biblioteket](#change-feed-processor)
 
-Ändra feeden är tillgängligt för varje partitionsnyckelintervallet inom dokumentsamlingen och därför kan fördelas på en eller flera konsumenter för parallell bearbetning som visas i följande bild.
+Ändringsflöde är tillgänglig för varje partitionnyckelintervall inom dokumentsamlingen och därför kan distribueras på en eller flera konsumenter för parallell bearbetning, enligt följande bild.
 
-![Distribuerad bearbetning av Azure Cosmos DB ändra feed](./media/change-feed/changefeedvisual.png)
+![Distribuerad bearbetning av Azure Cosmos DB-ändringsflödet](./media/change-feed/changefeedvisual.png)
 
 Ytterligare information:
-* Ändra feeden är aktiverad som standard för alla konton.
-* Du kan använda din [etablerat dataflöde](request-units.md) i din region skrivning eller någon [läsa region](distribute-data-globally.md) för att läsa från ändringen feed, precis som andra Azure DB som Cosmos-åtgärden.
-* Ändra feeden innehåller infogningar och uppdateringsåtgärder som gjorts i dokument i samlingen. Du kan avbilda borttagningar genom att ange en ”soft-ta bort” flagga i dokument i stället för borttagningar. Alternativt kan du ställa en begränsad utgångsperioden för dina dokument via den [TTL kapaciteten](time-to-live.md), till exempel 24 timmar och Använd värdet för egenskapen att avbilda borttagningar. Med den här lösningen har att bearbeta ändringar inom ett kortare tidsintervall än förfalloperiod TTL-värde.
-* Varje ändring i ett dokument visas en gång i ändringen feed och klienter hantera sina kontrollpunkter logik. Ändra feed processor biblioteket innehåller automatiska kontrollpunkter och ”minst en gång” semantik.
-* Den senaste ändringen för ett visst dokument ingår i ändringsloggen. Mellanliggande ändringar kan inte användas.
-* Ändra feeden sorteras ordning ändras inom varje partitionsnyckelvärde. Det finns ingen garanterad ordning över partitionsnyckel värden.
-* Ändringar som kan synkroniseras från alla i tidpunkt, det är ingen fast Datalagringsperiod ändringar är tillgängliga.
-* Ändringar är tillgängliga i mängder partition nyckelintervall. Den här funktionen kan ändringar från stora samlingar som kan bearbetas parallellt i flera konsumenter-servrar.
-* Program kan begära flera ändra feeds samtidigt på samma samling.
-* ChangeFeedOptions.StartTime kan användas för att tillhandahålla en inledande startpunkten, till exempel, för att hitta den fortsättningstoken som motsvarar den angivna tiden. ContinuationToken, wins om anges över värdena StartTime och StartFromBeginning. Precisionen för ChangeFeedOptions.StartTime är ~ 5 sekunder. 
+* Ändringsfeed aktiveras som standard för alla konton.
+* Du kan använda din [etablerat dataflöde](request-units.md) i skrivregion eller någon [läsa region](distribute-data-globally.md) för att läsa från den ändringsflödet, precis som alla andra åtgärder i Azure Cosmos DB.
+* Ändringsflöde innehåller INSERT och update-åtgärder som utförs till dokument i samlingen. Du kan avbilda borttagningar genom att ange en ”mjuk borttagning”-flagga i dina dokument i stället för borttagningar. Du kan också ange en begränsad utgångstiden för dina dokument via den [TTL funktionen](time-to-live.md), till exempel 24 timmar och Använd värdet för egenskapen att samla in borttagningar. Med den här lösningen har att bearbeta ändringar inom ett kortare tidsintervall än TTL giltighetsperiod.
+* Varje ändring till ett dokument visas exakt en gång i den ändringsflödet och klienter hantera deras kontrollpunkter logik. Biblioteket för change feed processor tillhandahåller automatiska kontrollpunkter och ”minst en gång” semantik.
+* Den senaste ändringen för ett visst dokument ingår i ändringsloggen. Mellanliggande ändringar är kanske inte tillgänglig.
+* Ändringsflöde sorteras begäran av ändring av inom varje partitionsnyckelvärde. Det finns ingen garanterad ordning över partitionsnyckel värden.
+* Ändringar kan synkroniseras från alla point-in-time, det är ingen fast Datalagringsperiod ändringar är tillgängliga.
+* Ändringar är tillgängliga i segment om viktiga partitionsintervall. Den här funktionen kan ändringar från stora samlingar som ska bearbetas parallellt med flera konsumenter/servrar.
+* Program kan begära flera ändringen flöden samtidigt på samma samling.
+* ChangeFeedOptions.StartTime kan användas för att ge en första startpunkt, till exempel, för att hitta fortsättningstoken motsvarande en given clock-tid. ContinuationToken, vinner om anges över värdena StartTime och StartFromBeginning. Precisionen för ChangeFeedOptions.StartTime är ~ 5 sekunder. 
 
-## <a name="use-cases-and-scenarios"></a>Användningsfall och scenarier
+## <a name="use-cases-and-scenarios"></a>Användningsområden och scenarier
 
-Ändra feeden kan effektiv bearbetning av stora datamängder med en stor volym med skrivningar och ett alternativ till att fråga en hela datamängden för att identifiera vad som har ändrats. 
+Ändringsflöde möjliggör effektiv bearbetning av stora datauppsättningar med ett stort antal skrivningar och erbjuder ett alternativ till att fråga en hel datauppsättning för att identifiera vad som har ändrats. 
 
-Till exempel med en feed, kan du utföra följande uppgifter effektivt:
+Till exempel med en ändringsflödet utföra du följande uppgifter effektivt:
 
-* Uppdatera ett cacheminne, sökindex eller ett datalager med data som lagras i Azure Cosmos DB.
-* Implementera programnivå data lagringsnivåer och arkivering, som är ”varm data” lagras i Azure Cosmos DB och föråldrade ”kalldata” för att [Azure Blob Storage](../storage/common/storage-introduction.md) eller [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
-* Utföra noll driftstopp migrering till ett annat Azure DB som Cosmos-konto med en annan partitioneringsschema.
-* Implementera [lambda pipelines på Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) med Azure Cosmos DB. Azure Cosmos-DB tillhandahåller en skalbar databaslösning som kan hantera både införandet och fråga och implementera lambda arkitekturer med låg TCO. 
-* Ta emot och lagrar händelsedata från enheter, sensorer, infrastruktur och program och bearbeta händelserna i realtid med [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/storm/apache-storm-overview.md), eller [Apache Spark](../hdinsight/spark/apache-spark-overview.md). 
+* Uppdatera en cache, search-index eller ett informationslager med data som lagras i Azure Cosmos DB.
+* Implementera programnivå data lagringsnivåer och arkivering, det vill säga datalagring ”frekvent” i Azure Cosmos DB och föråldrade ”kalla data” för att [Azure Blob Storage](../storage/common/storage-introduction.md) eller [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
+* Utföra noll driftstopp migrering till ett annat Azure Cosmos DB-konto med ett annat partitioneringsschema.
+* Implementera [lambda pipelines på Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) med Azure Cosmos DB. Azure Cosmos DB tillhandahåller en lösning för skalbar databas som kan hantera både skrivbelastning och frågeprestanda och implementera lambda-arkitektur med låg total Ägandekostnad. 
+* Tar emot och lagring av händelsedata från enheter, sensorer, infrastruktur och program och bearbetar dessa händelser i realtid med [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/storm/apache-storm-overview.md), eller [Apache Spark](../hdinsight/spark/apache-spark-overview.md). 
 
-Följande bild visar hur lambda pipelines som båda mata in och frågan med hjälp av Azure Cosmos DB kan använda ändra feed stöd: 
+Följande bild visar hur lambda-pipelines som både mata in och fråga med hjälp av Azure Cosmos DB kan använda för att ändra feed support: 
 
-![Azure DB Cosmos-baserade lambda pipeline för införandet och fråga](./media/change-feed/lambda.png)
+![Azure Cosmos DB-baserade lambda-pipeline för skrivbelastning och frågeprestanda](./media/change-feed/lambda.png)
 
-Dessutom inom din [serverlösa](http://azure.com/serverless) webb- och mobilappar kan du spåra händelser, till exempel ändringar i kundens profil, inställningar eller plats för att aktivera vissa åtgärder som att skicka push-meddelanden till sina enheter med hjälp av [Azure Functions](#azure-functions). Om du använder Azure Cosmos DB för att skapa ett spel, kan du, till exempel använda ändra feed att implementera realtid ledartavlor baserat på resultat från slutförda spel.
+Dessutom inom din [serverlös](http://azure.com/serverless) webbprogram och mobilappar, kan du spåra händelser som ändringar av din kunds profil, inställningar eller plats att utlösa vissa åtgärder som att skicka push-meddelanden till sina enheter med hjälp av [Azure Functions](#azure-functions). Om du använder Azure Cosmos DB för att skapa ett spel, kan du, till exempel använda ändringsflödet att implementera i realtid rankningslistor baserat på poäng från färdiga spel.
 
 <a id="azure-functions"></a>
-## <a name="using-azure-functions"></a>Med hjälp av Azure Functions 
+## <a name="using-azure-functions"></a>Använd Azure Functions 
 
-Om du använder Azure Functions, är det enklaste sättet att ansluta till en Azure Cosmos DB ändra feed att lägga till en Azure DB som Cosmos-utlösare i appen Azure Functions. När du skapar en Azure DB som Cosmos-utlösare i en app i Azure Functions, väljer du Azure DB som Cosmos-samlingen för att ansluta till och funktionen utlöses när en ändring i samlingen. 
+Om du använder Azure Functions, är det enklaste sättet att ansluta till en Azure Cosmos DB-ändringsflödet att lägga till en Azure Cosmos DB-utlösare i din Azure Functions-app. När du skapar en Azure Cosmos DB-utlösare i en Azure Functions-app kan du välja Azure Cosmos DB-samling för att ansluta till och funktionen som utlöses när en ändring i samlingen görs. 
 
-Utlösare kan skapas i Azure Functions-portalen i Azure DB som Cosmos-portalen eller programmässigt. Mer information finns i [Azure Cosmos DB: serverlösa databasen datoranvändning med hjälp av Azure Functions](serverless-computing-database.md).
+Utlösare kan skapas i Azure Functions-portalen i Azure Cosmos DB-portalen eller via programmering. Mer information finns i [Azure Cosmos DB: databas utan Server databehandling med Azure Functions](serverless-computing-database.md).
 
 <a id="sql-sdk"></a>
 ## <a name="using-the-sdk"></a>Med SDK
 
-Den [SQL SDK](sql-api-sdk-dotnet.md) för Azure Cosmos DB kan du alla kan läsa och hantera en ändring feed. Men med bra power kommer många ansvarsområden för. Om du vill hantera kontrollpunkter, hantera dokument sekvensnummer och detaljerad kontroll över partitionsnycklar kan med SDK vara rätt metod.
+Den [SQL SDK](sql-api-sdk-dotnet.md) för Azure Cosmos DB ger dig all kraft att läsa och hantera en ändringsflödet. Men med stora krafter kommer många av ansvarsområden, för. Om du vill hantera kontrollpunkter, hantera dokument sekvensnummer och få detaljerad kontroll över partitionsnycklar kan med SDK: N vara den rätta inställningen.
 
-Det här avsnittet går igenom hur du använder SQL-SDK ska fungera med en feed.
+Det här avsnittet beskriver hur du använder SQL-SDK för att arbeta med en ändringsflödet.
 
-1. Börja med att läsa följande resurser från appconfig. Instruktioner om hur du hämtar nyckeln slutpunkt och auktorisering finns i [uppdatera anslutningssträngen](create-sql-api-dotnet.md#update-your-connection-string).
+1. Börja med att läsa följande resurser från appconfig. Instruktioner om hur du hämtar nyckeln slutpunkt och auktoriseringsnyckel finns i [uppdatera din anslutningssträng](create-sql-api-dotnet.md#update-your-connection-string).
 
     ``` csharp
     DocumentClient client;
@@ -115,7 +115,7 @@ Det här avsnittet går igenom hur du använder SQL-SDK ska fungera med en feed.
     }
     ```
 
-3. Hämta partitionen viktiga områden:
+3. Hämta partitionen nyckelintervall:
 
     ```csharp
     FeedResponse pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
@@ -127,7 +127,7 @@ Det här avsnittet går igenom hur du använder SQL-SDK ska fungera med en feed.
     pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
     ```
 
-4. Anropa ExecuteNextAsync för varje partitionsnyckelintervallet:
+4. Anropa ExecuteNextAsync för varje partitionsnyckelintervall:
 
     ```csharp
     foreach (PartitionKeyRange pkRange in partitionKeyRanges){
@@ -158,75 +158,75 @@ Det här avsnittet går igenom hur du använder SQL-SDK ska fungera med en feed.
     ```
 
 > [!NOTE]
-> I stället för `ChangeFeedOptions.PartitionKeyRangeId`, kan du använda `ChangeFeedOptions.PartitionKey` att ange en enskild partitionsnyckel som du vill hämta en ändring feed. Till exempel `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
+> I stället för `ChangeFeedOptions.PartitionKeyRangeId`, du kan använda `ChangeFeedOptions.PartitionKey` att ange en enda partitionsnyckel som du vill hämta en ändringsflödet. Till exempel `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
 > 
 >
 
-Om du har flera läsare, kan du använda **ChangeFeedOptions** att distribuera skrivskyddade inläsning till olika trådar eller olika klienter.
+Om du har flera läsare kan du använda **ChangeFeedOptions** att distribuera skrivskyddade belastning till olika trådar eller olika klienter.
 
-Och som är det, med dessa några rader kod kan du börja läsa ändra feeden. Du kan hämta den fullständiga koden som används i denna artikel från den [GitHub-repo-](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
+Och det var allt – med de här några rader kod kan du börja läsa ändringsflöde. Du kan hämta den fullständiga koden som används i den här artikeln från den [GitHub-lagringsplatsen](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 
-I koden i steg 4 ovan, den **ResponseContinuation** under senaste raden innehåller den sista logiska sekvensnumret (LSN) av dokument som du ska använda nästa gång du läsa nya dokument efter den här sekvensnummer. Med hjälp av den **StartTime** av den **ChangeFeedOption** utvidga din net för att hämta dokumenten. I så fall om din **ResponseContinuation** är null, men din **StartTime** går tillbaka i tiden och sedan får du alla dokument som ändrats sedan den **StartTime**. Men om din **ResponseContinuation** har ett värde system får du alla dokument eftersom den LSN.
+I koden i steg 4 ovan, den **ResponseContinuation** under senaste raden innehåller det sista logiska sekvensnumret (LSN) i dokumentet som du ska använda nästa gång du läser nya dokument efter den här sekvensnummer. Med hjälp av den **StartTime** av den **ChangeFeedOption** så kan du utvidga din net för att hämta dokument. Om din **ResponseContinuation** är null, men din **StartTime** går tillbaka i tiden och sedan får du alla dokument som har ändrats sedan den **StartTime**. Men om din **ResponseContinuation** har ett värde så att systemet får du alla dokument sedan den LSN.
 
-Så hindrar kontrollpunkt matrisen bara LSN för varje partition. Men om du inte vill hantera partitionerna kontrollpunkter, LSN, starttid, etc. enklare alternativet är att använda ändringen feed processor-biblioteket.
+Checkpoint-matris hindrar därför bara LSN för varje partition. Men om du inte vill hantera partitionerna kontrollpunkter, LSN, starttid, etc. enklare alternativ är att använda ändringsflödet processor-biblioteket.
 
 <a id="change-feed-processor"></a>
-## <a name="using-the-change-feed-processor-library"></a>Med hjälp av ändringen feed processor-bibliotek 
+## <a name="using-the-change-feed-processor-library"></a>Med hjälp av ändringen feed processor-biblioteket 
 
-Den [Azure Cosmos DB ändra feed processor biblioteket](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) kan hjälpa dig att enkelt distribuera händelsebearbetning mellan flera användare. Det här biblioteket förenklar läsning ändringar i partitioner och flera trådar som arbetar parallellt.
+Den [processor-biblioteket för Azure Cosmos DB-ändringsfeed](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) kan hjälpa dig att enkelt distribuera händelsebearbetning bland olika konsumenter. Det här biblioteket förenklar läsning ändringar i partitioner och flera trådar som arbetar parallellt.
 
-Den största fördelen av ändra feed processor-biblioteket är att du inte behöver hantera varje partition och fortsättningstoken och du behöver inte söka varje samling manuellt.
+Den största fördelen med biblioteket change feed processor är att du inte behöver hantera varje partition och fortsättningstoken och du behöver inte avsöka varje samling manuellt.
 
-Ändra feed processor bibliotek förenklar läsning ändringar i partitioner och flera trådar som arbetar parallellt.  Den hanterar automatiskt läsning ändringar över partitioner som använder en mekanism för lånet. Som du ser i följande bild, om du startar två klienter som använder ändringen feed processor bibliotek, delar de arbete sinsemellan. När du fortsätter att öka klienterna behålla de dividera arbete sinsemellan.
+Biblioteket för change feed processor förenklar läsning ändringar i partitioner och flera trådar som arbetar parallellt.  Den hanterar automatiskt läsning ändringar mellan partitioner som använder en mekanism för lånet. Som du ser i följande bild, om du startar två klienter som använder ändringsflödet processor-biblioteket kan de dela upp arbete sinsemellan. När du fortsätter att öka klienterna behålla de dividera arbete sinsemellan.
 
-![Distribuerad bearbetning av Azure Cosmos DB ändra feed](./media/change-feed/change-feed-output.png)
+![Distribuerad bearbetning av Azure Cosmos DB-ändringsflödet](./media/change-feed/change-feed-output.png)
 
-Vänster klienten startades första och den startade övervakningen alla partitioner och andra klienten startades och sedan först släpper vissa lån till andra klienten. Du kan se det här är bra sätt att distribuera arbete mellan olika datorer och klienter.
+Vänstra klienten startades första och det igång med att övervaka alla partitionerna och andra klienten har startats och sedan först släpper några av lån till andra klienter. Som du ser det här är bra sätt att fördela arbetet mellan olika datorer och klienter.
 
-Observera att om du har två serverlösa Azure funktioner som krävs för övervakning i samma samling och använder samma lånet och sedan de två funktionerna kan få olika dokument, beroende på hur processor-biblioteket beslutar att åtgärd partitionerna.
+Observera att om du har två serverlösa Azure funktioner som krävs för övervakning i samma samling och använder samma lånet och sedan de två funktionerna kan få olika dokument, beroende på hur processor-biblioteket beslutar att processen partitionerna.
 
 <a id="understand-cf"></a>
-### <a name="understanding-the-change-feed-processor-library"></a>Förstå ändringen feed processor-bibliotek
+### <a name="understanding-the-change-feed-processor-library"></a>Förstå ändringen feed processor-biblioteket
 
-Det finns fyra huvudsakliga komponenter för att implementera ändra feed processor biblioteket: samlingen övervakade, lån samlingen, värd för händelsebearbetning och konsumenterna. 
+Det finns fyra huvudsakliga komponenter för att implementera biblioteket för change feed processor: övervakade samlingen, lånsamling, värd för händelsebearbetning och konsumenter. 
 
 > [!WARNING]
 > Det finns priseffekter med att skapa en samling eftersom du reserverar genomströmning för programmet för att kommunicera med Azure Cosmos DB. Mer information finns på [prissättningssidan](https://azure.microsoft.com/pricing/details/cosmos-db/)
 > 
 > 
 
-**Insamling av övervakade:** övervakade samlingen är data som ändras feeden genereras. Alla infogningar och ändringar i övervakade samlingen återspeglas i feeden ändring i mängden. 
+**Insamling av övervakade:** övervakade samlingen är data som genereras ändringsflöde. Alla infogningar och ändringar i övervakade samlingen återspeglas i ändringsflödet i samlingen. 
 
-**Insamling av lånet:** lån samling koordinaterna ändringen feed över flera arbetare bearbetas. En separat samling används för att lagra lån med en leasing per partition. Är det fördelaktigt för att lagra samlingen lån på ett annat konto med området skrivåtgärder närmare till där ändringen feed processor körs. Ett lån-objekt innehåller följande attribut: 
+**Lånsamling:** lånet samling koordinaterna bearbetning ändringsflöden över flera arbetare. En separat samling används som omfattar lånen med ett lån per partition. Nu är det bra att lagra den här lånsamling på ett annat konto med skrivningsregionen närmare till där ändringsflödet processor körs. Ett lån-objekt innehåller följande attribut: 
 * Ägare: Anger den värd som äger lånet
-* Fortsättning: Anger placeringen (fortsättningstoken) i ändra flödet för en viss partition
-* Tidsstämpel: Tid för senaste lån uppdaterades; tidsstämpeln kan användas för att kontrollera om lånet betraktas som upphört att gälla 
+* Fortsättning: Anger placeringen (fortsättningstoken) i ändringsflödet för en viss partition
+* Tidsstämpel: Senast lånet har uppdaterats; tidsstämpeln som kan användas för att kontrollera om lånet tas i beaktande har upphört att gälla 
 
-**Värd för händelsebearbetning:** varje värd anger hur många partitioner att bearbeta baserat på hur många andra instanser av värdar har aktiva lån. 
-1.  När en värd startas, skaffar lån för att utjämna belastningen över alla värdar. En värd förnyas regelbundet lån, så att förbli lån. 
-2.  En värd kontrollpunkter senaste fortsättningstoken till lånet för varje läsa. För att säkerställa säkerheten för samtidighet, kontrollerar en värd ETag för varje lease-uppdatering. Andra kontrollpunkt strategier stöds också.  
-3.  En värd släpper alla lån vid avstängning men behålls fortsättning-information så att den kan återupptas senare läsning från den lagrade kontrollpunkten. 
+**Värd för händelsebearbetning:** varje värd avgör hur många partitioner för att bearbeta baserat på hur många andra instanser av värdar har aktiva lån. 
+1.  När en värd startas, skaffar lån för att balansera arbetsbelastningen över alla värdar. En värd förnyas regelbundet lån, så lån är aktiva. 
+2.  En värd kontrollpunkter senaste fortsättningstoken att lånet för varje läsa. För att säkerställa säkerheten för samtidighet, kontrollerar en värd ETag för varje uppdatering för lånet. Andra strategier för kontrollpunkt stöds också.  
+3.  Vid avstängning, en värd släpper alla lån men behålls fortsättning-information så att den kan återuppta läsning från den lagrade kontrollpunkten senare. 
 
-Antalet värdar kan inte vara större än antalet partitioner (lån) just nu.
+Antalet värdar får inte vara större än antalet partitioner (lån) just nu.
 
-**Konsumenterna:** konsumenter eller arbetare, är trådar som behandlar ändra feed initieras av varje värd. Varje värd för händelsebearbetning kan ha flera konsumenter. Varje konsument läser ändringen feed från partitionen tilldelas och meddela dess värden för ändringar och gått lån.
+**Konsumenter:** konsumenter eller arbeten är trådar som utför bearbetningen ändringsflödet initieras av varje värd. Varje värd för händelsebearbetning kan ha flera konsumenter. Varje konsument läser ändringen flöde från den partition som den är tilldelad till och meddelar dess värden för ändringar och upphört att gälla lån.
 
-För att bättre förstå hur dessa fyra element i ändra feed processor arbete tillsammans ska vi titta på ett exempel i följande diagram. Samlingen övervakade lagrar dokument och använder ”stad” som partitionsnyckel. Vi kan se att den blå partitionen innehåller dokument med fältet ”Ort” från ”A E” och så vidare. Det finns två värdar med två konsumenter läsning från de fyra partitionerna parallellt. Pilarna visar konsumenterna läsning från en specifik plats i ändringen feed. I den första partitionen representerar mörkare blå oläst ändringar medan lätta blå representerar redan skrivskyddade ändringarna på ändringen feed. Värdarna använda lån-samlingen för att lagra ett värde för ”fortsättning” för att hålla reda på den aktuella positionen för läsning för varje konsument. 
+För att bättre förstå hur dessa fyra element i ändringsfeed processor fungerar tillsammans, nu ska vi titta på ett exempel i följande diagram. Övervakade samlingen lagrar dokument och använder ”stad” som partitionsnyckel. Vi kan se att den blå partitionen innehåller dokument med fältet ”Stad” från ”A-E” och så vidare. Det finns två värdar med två konsumenter att läsa från de fyra partitionerna parallellt. Pilarna visar konsumenterna läsning från en specifik plats i den ändringsflödet. I den första partitionen representerar mörkare blå olästa ändringar medan ljusblått representerar redan Läs ändringar på den ändringsflödet. Värdarna använda lease-samlingen för att lagra ett värde för ”fortsättning” för att hålla reda på den aktuella läsning positionen för varje konsument. 
 
-![Med hjälp av Azure Cosmos DB ändringen feed värd för händelsebearbetning](./media/change-feed/changefeedprocessornew.png)
+![Med hjälp av Azure Cosmos DB-ändringen feed värden för händelsebearbetning](./media/change-feed/changefeedprocessornew.png)
 
-### <a name="working-with-the-change-feed-processor-library"></a>Arbeta med ändringen feed processor-bibliotek
+### <a name="working-with-the-change-feed-processor-library"></a>Arbeta med ändringsflödet processor-biblioteket
 
-Innan du installerar ändra feed processor NuGet-paketet först installera: 
+Innan du installerar ändringen feed processor NuGet-paketet, installera först: 
 
-* Microsoft.Azure.DocumentDB senaste versionen.
+* Microsoft Azure documentdb, senaste versionen.
 * Newtonsoft.Json, senaste versionen
 
-Installera sedan den [Microsoft.Azure.DocumentDB.ChangeFeedProcessor Nuget-paketet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) och inkludera den som en referens.
+Installera sedan den [Microsoft.Azure.DocumentDB.ChangeFeedProcessor Nuget-paketet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) och inkludera den som referens.
 
-Att genomföra ändringen feed processor biblioteket som du behöver göra följande:
+Att implementera i biblioteket för change feed processor som du behöver göra följande:
 
-1. Implementera en **DocumentFeedObserver** -objekt som implementerar **IChangeFeedObserver**.
+1. Implementera en **DocumentFeedObserver** objekt som implementerar **IChangeFeedObserver**.
     ```csharp
     using System;
     using System.Collections.Generic;
@@ -299,7 +299,7 @@ Att genomföra ändringen feed processor biblioteket som du behöver göra följ
     }
     ```
 
-2. Implementera en **DocumentFeedObserverFactory**, som implementerar en **IChangeFeedObserverFactory**.
+2. Implementera en **DocumentFeedObserverFactory**, vilka implementerar en **IChangeFeedObserverFactory**.
     ```csharp
      using Microsoft.Azure.Documents.ChangeFeedProcessor.FeedProcessing;
 
@@ -335,7 +335,7 @@ Att genomföra ändringen feed processor biblioteket som du behöver göra följ
     private readonly ChangeFeedProcessorBuilder builder = new ChangeFeedProcessorBuilder();
     ```
 
-5. skapa den **ChangeFeedProcessorBuilder** när du har definierat relevanta objekt 
+5. skapa den **ChangeFeedProcessorBuilder** när du har definierat med motsvarande objekt 
 
     ```csharp
             string hostName = Guid.NewGuid().ToString();
@@ -383,89 +383,89 @@ Att genomföra ändringen feed processor biblioteket som du behöver göra följ
             await result.StartAsync();
             Console.Read();
             await result.StopAsync();    
-            ```
+    ```
 
-That’s it. After these few steps documents will start showing up into the **DocumentFeedObserver.ProcessChangesAsync** method.
+Det är allt. Efter de här stegen för några dokument startar visas i den **DocumentFeedObserver.ProcessChangesAsync** metod.
 
-Above code is for illustration purpose to show different kind of objects and their interaction. You have to define proper variables and initiate them with correct values. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessorV2).
+Ovanför kod finns i bild syfte att visa olika slags objekt och deras interaktion. Du måste ange rätt variabler och starta dem med rätt värden. Du kan hämta den fullständiga koden som används i den här artikeln från den [GitHub-lagringsplatsen](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessorV2).
 
 > [!NOTE]
-> You should never have a master key in your code or in config file as shown in above code. Please see [how to use Key-Vault to retrive the keys](https://sarosh.wordpress.com/2017/11/23/cosmos-db-and-key-vault/).
+> Du bör aldrig ha en huvudnyckel i koden eller i konfigurationsfilen som ovan i kod. Se [hur du använder Key Vault att läsa nycklarna](https://sarosh.wordpress.com/2017/11/23/cosmos-db-and-key-vault/).
 
 
-## FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-### What are the different ways you can read Change Feed? and when to use each method?
+### <a name="what-are-the-different-ways-you-can-read-change-feed-and-when-to-use-each-method"></a>Vilka är de olika sätt som du kan läsa Change Feed? och när du använder varje metod?
 
-There are three options for you to read change feed:
+Det finns tre alternativ att läsa ändringsfeed:
 
-* **[Using Azure Cosmos DB SQL API .NET SDK](#sql-sdk)**
+* **[Med hjälp av Azure Cosmos DB SQL API .NET SDK](#sql-sdk)**
    
-   By using this method, you get low level of control on change feed. You can manage the checkpoint, you can access a particular partition key etc. If you have multiple readers, you can use [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) to distribute read load to different threads or different clients. .
+   Med den här metoden kan få du låg nivå av kontroll på ändringsfeed. Du kan hantera kontrollpunkten kan du komma åt en viss partition viktiga osv. Om du har flera läsare kan du använda [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) att distribuera skrivskyddade belastning till olika trådar eller olika klienter. .
 
-* **[Using the Azure Cosmos DB change feed processor library](#change-feed-processor)**
+* **[Med hjälp av Azure Cosmos DB-ändringen feed processor-biblioteket](#change-feed-processor)**
 
-   If you want to outsource lot of complexity of change feed then you can use change feed processor library. This library hides lot of complexity, but still gives you complete control on change feed. This library follows an [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern), your processing function is called by the SDK. 
+   Om du vill flytta över mycket av komplexiteten med ändringsflödet kan du använda biblioteket change feed processor. Det här biblioteket döljer komplexiteten mycket, men fortfarande ger dig fullständig kontroll på ändringsflödet. Det här biblioteket följer en [Övervakare mönstret](https://en.wikipedia.org/wiki/Observer_pattern), bearbetning av funktionen anropas av SDK: N. 
 
-   If you have a high throughput change feed, you can instantiate multiple clients to read the change feed. Because you are using “change feed processor library”, it will automatically divide the load among different clients. You do not have to do anything. All the complexity is handled by SDK. However, if you want to have your own load balancer, then you can implement IParitionLoadBalancingStrategy for custom partition strategy. Implement IPartitionProcessor – for custom processing changes on a partition. However, with SDK, you can process a partition range but if you want to process a particular partition key then you have to use SDK for SQL API.
+   Om du har en hög genomströmning ändringsflödet kan du kan skapa en instans av flera klienter för att läsa ändringsflöde. Eftersom du använder ”change feed processor-biblioteket”, kommer den automatiskt dela belastningen mellan olika klienter. Du behöver inte göra något. Alla komplexitet hanteras av SDK. Men om du vill ha en egen belastningsutjämnare kan du implementera IParitionLoadBalancingStrategy för Anpassad partitionering strategi. Implementera IPartitionProcessor – för anpassad bearbetning ändringar på en partition. Med SDK, men du kan bearbeta flera partitioner men om du vill bearbeta en viss partitionsnyckel du att behöva använda SDK för SQL-API.
 
-* **[Using Azure Functions](#azure-functions)** 
+* **[Använd Azure Functions](#azure-functions)** 
    
-   The last option Azure Function is the simplest option. We recommend using this option. When you create an Azure Cosmos DB trigger in an Azure Functions app, you select the Azure Cosmos DB collection to connect to and the function is triggered whenever a change to the collection is made. watch a [screen cast](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s) of using Azure function and change feed
+   Det sista alternativet Azure-funktion är det enklaste alternativet. Vi rekommenderar att du använder det här alternativet. När du skapar en Azure Cosmos DB-utlösare i en Azure Functions-app kan du välja Azure Cosmos DB-samling för att ansluta till och funktionen som utlöses när en ändring i samlingen görs. Titta på en [skärmen cast](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s) med att använda Azure fungerar och ändringsflödet
 
-   Triggers can be created in the Azure Functions portal, in the Azure Cosmos DB portal, or programmatically. Visual Studio and VS Code has great support to write Azure Function. You can write and debug the code on your desktop, and then deploy the function with one click. For more information, see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md) article.
+   Utlösare kan skapas i Azure Functions-portalen i Azure Cosmos DB-portalen eller via programmering. Visual Studio och VS Code har bra stöd för att skriva Azure-funktion. Du kan skriva och felsöka koden på skrivbordet och sedan distribuera en funktion med ett enda klick. Mer information finns i [Azure Cosmos DB: databas utan Server databehandling med Azure Functions](serverless-computing-database.md) artikeln.
 
-### What is the sort order of documents in change feed?
+### <a name="what-is-the-sort-order-of-documents-in-change-feed"></a>Vad är sorteringsordningen för dokument i ändringsflödet?
 
-Change feed documents comes in order of their modification time. This sort order is guaranteed only per partition.
+Ändringsfeed dokument kommer efter deras ändringstid. Den här sorteringsordningen garanteras per partition.
 
-### For a multi-region account, what happens to the change feed when the write-region fails-over? Does the change feed also failover? Would the change feed still appear contiguous or would the fail-over cause change feed to reset?
+### <a name="for-a-multi-region-account-what-happens-to-the-change-feed-when-the-write-region-fails-over-does-the-change-feed-also-failover-would-the-change-feed-still-appear-contiguous-or-would-the-fail-over-cause-change-feed-to-reset"></a>För ett konto för flera regioner, vad händer med ändringsflödet när den skrivregionen misslyckas över? Ändringen feed också redundans? Ändringsfeed fortfarande visas sammanhängande eller skulle round orsaken ändringsflödet att återställa?
 
-Yes, change feed will work across the manual failover operation and it will be contiguous.
+Ja, ändringsfeed fungerar i åtgärden manuell växling vid fel och det ska vara sammanhängande.
 
-### How long change feed persist the changed data if I set the TTL (Time to Live) property for the document to -1?
+### <a name="how-long-change-feed-persist-the-changed-data-if-i-set-the-ttl-time-to-live-property-for-the-document-to--1"></a>Hur länge ändringsfeed spara ändrade data om jag anger egenskapen TTL (Time to Live) för dokumentet till-1?
 
-Change feed will persist forever. If data is not deleted, it will remain in change feed.
+Ändringsfeed behålls alltid. Om data inte tas bort, förblir den i ändringsfeed.
 
-### How can I configure Azure functions to read from a particular region, as change feed is available in all the read regions by default?
+### <a name="how-can-i-configure-azure-functions-to-read-from-a-particular-region-as-change-feed-is-available-in-all-the-read-regions-by-default"></a>Hur kan jag konfigurera Azure functions för att läsa från en viss region, eftersom ändringsfeed är tillgängliga i alla skrivskyddade regioner som standard?
 
-Currently it’s not possible to configure Azure Functions to read from a particular region. There is a GitHub issue in the Azure Functions repo to set the preferred regions of any Azure Cosmos DB binding and trigger.
+Det är för närvarande inte möjligt att konfigurera Azure Functions för att läsa från en viss region. Det finns ett GitHub-ärende i Azure Functions-lagringsplatsen för att ange de önskade regionerna för alla Azure Cosmos DB-bindning och utlösare.
 
-Azure Functions uses the default connection policy. You can configure connection mode in Azure Functions and by default, it reads from the write region, so it is best to co-locate Azure Functions on the same region.
+Azure Functions använder standardprincipen för anslutningen. Du kan konfigurera anslutningsläge i Azure Functions och som standard, den läsningar från skrivregionen så det är bäst att samplacera Azure Functions i samma region.
 
-### What is the default size of batches in Azure Functions?
+### <a name="what-is-the-default-size-of-batches-in-azure-functions"></a>Vad är standardstorleken för batchar i Azure Functions?
 
-100 documents at every invocation of Azure Functions. However, this number is configurable within the function.json file. Here is complete [list of configuration options](../azure-functions/functions-run-local.md). If you are developing locally, update the application settings within the [local.settings.json](../azure-functions/functions-run-local.md) file.
+100 dokument vid varje anrop av Azure Functions. Det här talet kan dock konfigureras i function.json-filen. Här är klar [lista med konfigurationsalternativ](../azure-functions/functions-run-local.md). Om du utvecklar lokalt, uppdatera programinställningar inom den [local.settings.json](../azure-functions/functions-run-local.md) fil.
 
-### I am monitoring a collection and reading its change feed, however I see I am not getting all the inserted document, some documents are missing. What is going on here?
+### <a name="i-am-monitoring-a-collection-and-reading-its-change-feed-however-i-see-i-am-not-getting-all-the-inserted-document-some-documents-are-missing-what-is-going-on-here"></a>Jag övervakar en samling och läsa dess ändringen feed, men jag ser jag inte får infogad dokumentet, några dokument saknas. Vad som händer här?
 
-Please make sure that there is no other function reading the same collection with the same lease collection. It happened to me, and later I realized the missing documents are processed by my other Azure functions, which is also using the same lease.
+Kontrollera att det inte finns någon funktion som läser i samma samling med samma lånsamling. Det hände till mig och senare jag insåg saknas dokumenten bearbetas av min andra Azure functions, som också använder samma lånet.
 
-Therefore, if you are creating multiple Azure Functions to read the same change feed then they must use different lease collection or use the “leasePrefix” configuration to share the same collection. However, when you use change feed processor library you can start multiple instances of your function and SDK will divide the documents between different instances automatically for you.
+Därför, om du skapar flera Azure Functions för att läsa samma ändringsflödet och de måste använda olika lånsamling eller använda ”leasePrefix”-konfigurationen för att dela samma samling. När du använder biblioteket change feed processor du kan starta flera instanser av din funktion och SDK: N delar dokument mellan olika instanser automatiskt åt dig.
 
-### My document is updated every second, and I am not getting all the changes in Azure Functions listening to change feed.
+### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>Dokumentet uppdateras varje sekund och jag får inte alla ändringar i Azure Functions lyssnar om du vill ändra feed.
 
-Azure Functions polls change feed for every 5 seconds, so any changes made between 5 seconds are lost. Azure Cosmos DB stores just one version for every 5 seconds so you will get the 5th change on the document. However, if you want to go below 5 second, and want to poll change Feed every second, You can configure the polling time “feedPollTime”, see [Azure Cosmos DB bindings](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). It is defined in milliseconds with a default of 5000. Below 1 second is possible but not advisable, as you will start burning more CPU.
+Azure Functions enkäter ändringsfeed i varje 5 sekunder så försvinner alla ändringar mellan 5 sekunder. Azure Cosmos DB lagrar bara en version för var femte sekund, så du får 5 ändringen på dokumentet. Om du vill gå under 5 sekund och vill du hämta ändringsflödet varje sekund kan du konfigurera avsökningstiden ”feedPollTime”, se [Azure Cosmos DB-bindningar](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). Den har definierats i millisekunder med standardvärdet 5000. Är möjliga men inte lämpligt när du startar bränna mer Processorkraft nedan 1 sekund.
 
-### I inserted a document in the Mongo API collection, but when I get the document in change feed, it shows a different id value. What is wrong here?
+### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>Jag har infogat ett dokument i samlingen Mongo-API, men när jag hämta dokumentet i ändringsfeed visas ett annat id-värde. Vad är problemet här?
 
-Your collection is Mongo API collection. Remember, change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed. You are seeing is the representation of a BSON document in JSON. If you use binary attributes in a Mongo accounts, they are converted to JSON.
+Samlingen är Mongo-API-samling. Kom ihåg att ändringsfeed läses med hjälp av SQL-klienten och Serialiserar objekt till JSON-format. På grund av formatering, JSON MongoDB klienter får ett matchningsfel mellan BSON formaterade dokument och JSON-formaterad ändringsflödet. Du ser är en representation av ett BSON-dokument i JSON. Om du använder binära attribut i en Mongo-konton måste konverteras de till JSON.
 
-### Is there a way to control change feed for updates only and not inserts?
+### <a name="is-there-a-way-to-control-change-feed-for-updates-only-and-not-inserts"></a>Det är ett sätt att styra ändringsflödet för endast uppdateringar och infogar inte?
 
-Not today, but this functionality is on roadmap. Today, you can add a soft marker on the document for updates.
+Inte idag, men den här funktionen är våra planer. Idag kan du lägga till en mjuk markör på dokumentet för uppdateringar.
 
-### Is there a way to get deletes in change feed?
+### <a name="is-there-a-way-to-get-deletes-in-change-feed"></a>Finns det ett sätt att hämta borttagningar i ändringsfeed?
 
-Currently change feed doesn’t log deletes. Change feed is continuously improving, and this functionality is on roadmap. Today, you can add a soft marker on the document for delete. Add an attribute on the document called “deleted” and set it to “true” and set a TTL on the document so that it can be automatically deleted.
+För närvarande logga inte ändringsfeed borttagningar. Ändringsfeed förbättrar kontinuerligt och den här funktionen finns i översikten. Idag kan du lägga till en mjuk markör på dokumentet för borttagning. Lägg till ett attribut med dokumentet kallas ”borttagen” och ge den värdet ”true” och ange ett TTL-värde för dokumentet så att den kan tas bort automatiskt.
 
-### Can I read change feed for historic documents(for example, documents that were added 5 years back) ?
+### <a name="can-i-read-change-feed-for-historic-documentsfor-example-documents-that-were-added-5-years-back-"></a>Kan jag läsa ändringsflöden för historiska dokument (till exempel dokument som har lagts till 5 år sedan)?
 
-Yes, if the document is not deleted you can read the change feed as far as the origin of your collection.
+Ja, om dokumentet inte tas bort kan du läsa ändringen feed ur ursprung för din samling.
 
-### Can I read change feed using JavaScript?
+### <a name="can-i-read-change-feed-using-javascript"></a>Kan jag läsa ändringsflödet med hjälp av JavaScript?
 
-Yes, Node.js SDK initial support for change feed is recently added. It can be used as shown in the following example, please update documentdb module to current version before you run the code:
+Ja, Node.js SDK inledande stöd för ändringsfeed nyligen lagts till. Den kan användas som visas i följande exempel uppdatera documentdb-modulen till aktuella versionen innan du kör koden:
 
 ```js
 
@@ -502,54 +502,54 @@ query.executeNext((err, results, headers) =&gt; {
 
 ```
 
-### <a name="can-i-read-change-feed-using-java"></a>Kan jag läsa ändra feed använder Java?
+### <a name="can-i-read-change-feed-using-java"></a>Kan jag läsa ändringsflödet med Java?
 
-Java-bibliotek för att läsa ändra feed är tillgänglig i [Github-lagringsplatsen](https://github.com/Azure/azure-documentdb-changefeedprocessor-java). För närvarande finns Java-bibliotek dock några versioner bakom .NET-biblioteket. Båda biblioteken kommer snart att synkroniserade.
+Java-bibliotek för att läsa ändringsfeed är tillgänglig i [Github-lagringsplatsen](https://github.com/Azure/azure-documentdb-changefeedprocessor-java). För närvarande finns Java-bibliotek dock några versioner bakom .NET-biblioteket. Båda biblioteken kommer snart att vara synkroniserade.
 
-### <a name="can-i-use-etag-lsn-or-ts-for-internal-bookkeeping-which-i-get-in-response"></a>Kan jag använda _etag, _lsn eller _ts för interna bokföring som visas i svaret?
+### <a name="can-i-use-etag-lsn-or-ts-for-internal-bookkeeping-which-i-get-in-response"></a>Kan jag använda _etag, _lsn eller _ts för interna bokföring som jag får som svar?
 
-_etag format är intern och du bör inte beroende av den (inte att parsa den) eftersom den kan ändras när som helst.
+_etag format är intern och du bör inte lita på den (inte att parsa den) eftersom den kan ändras när som helst.
 _ts är ändring eller skapa en tidsstämpel. Du kan använda _ts kronologisk jämförelse.
-_lsn är är en batch-id som läggs endast för ändra feed, representerar transaktions-id från arkivet... Många dokument kan ha samma _lsn.
-En sak att notera ETag på FeedResponse skiljer sig från _etag som du ser på dokumentet. _etag är en intern identifierare och används för att samtidighet, ta reda på om versionen av dokumentet och ETag för ordningsföljd feeden.
+_lsn är är ett batch-id som läggs endast för ändringsfeed, representerar transaktions-id från store... Många dokument kan ha samma _lsn.
+En sak att notera ETag på FeedResponse skiljer sig från _etag som du ser på dokumentet. _etag är en intern identifierare och används för samtidighet, meddelar om versionen av dokumentet och ETag används för ordningsföljd feeden.
 
-### <a name="does-reading-change-feed-add-any-additional-cost-"></a>Lägger du till eventuella ytterligare kostnader genom att läsa ändra feed?
+### <a name="does-reading-change-feed-add-any-additional-cost-"></a>Lägger du till extra kostnad genom att läsa ändringsfeed?
 
-Du debiteras för RU används i d.v.s. data flyttas till och från Azure Cosmos DB samlingar alltid använda RU. Användare kommer att debiteras för RU som används av samlingen lån.
+Du debiteras för RU: er används dvs. data flyttas till och från Azure Cosmos DB-samlingar använder alltid RU. Användare kommer att debiteras för RU som förbrukas av samlingen lånet.
 
-### <a name="can-multiple-azure-functions-read-one-collections-change-feed"></a>Flera Azure Functions kan läsa en samling ändra feed?
+### <a name="can-multiple-azure-functions-read-one-collections-change-feed"></a>Flera Azure Functions kan läsa en samling ändringsfeed?
 
-Ja. Flera Azure Functions kan läsa samma samling ändra feed. Azure Functions måste dock ha en separat leaseCollectionPrefix som definierats.
+Ja. Flera Azure Functions kan läsa ändringsfeed i samma samling. Azure Functions måste dock ha en separat leaseCollectionPrefix som definierats.
 
-### <a name="should-the-lease-collection-be-partitioned"></a>Vill du partitionerade lån samlingen?
+### <a name="should-the-lease-collection-be-partitioned"></a>Bör lånsamling partitioneras?
 
-Nej, lån samling kan åtgärdas. Partitionerade lån samling behövs inte och stöds inte för närvarande.
+Nej, lånsamling kan åtgärdas. Partitionerade lånsamling behövs inte och den för närvarande inte stöds.
 
-### <a name="can-i-read-change-feed-from-spark"></a>Kan jag läsa ändra feed från Spark?
+### <a name="can-i-read-change-feed-from-spark"></a>Kan jag läsa ändringen feed från Spark?
 
-Ja, det kan du. Se [Azure Cosmos DB Spark Connector](spark-connector.md). Här är en [skärmen omvandlingen](https://www.youtube.com/watch?v=P9Qz4pwKm_0&t=1519s) visar hur du kan bearbeta ändring feed som en strukturerad dataström.
+Ja, det kan du. Se [Azure Cosmos DB Spark Connector](spark-connector.md). Här är en [skärmen cast](https://www.youtube.com/watch?v=P9Qz4pwKm_0&t=1519s) som visar hur du kan bearbeta ändringsflödet som en strukturerad dataström.
 
-### <a name="if-i-am-processing-change-feed-by-using-azure-functions-say-a-batch-of-10-documents-and-i-get-an-error-at-7th-document-in-that-case-the-last-three-documents-are-not-processed-how-can-i-start-processing-from-the-failed-documentie-7th-document-in-my-next-feed"></a>Om det bearbetar ändra feed med hjälp av Azure Functions, säg en batch med 10 dokument och ett felmeddelande visas vid 7 dokumentet. I så fall bearbetas de tre sista dokument inte hur kan jag börja bearbeta från det misslyckade dokumentet (dvs 7 dokument) i min nästa feed?
+### <a name="if-i-am-processing-change-feed-by-using-azure-functions-say-a-batch-of-10-documents-and-i-get-an-error-at-7th-document-in-that-case-the-last-three-documents-are-not-processed-how-can-i-start-processing-from-the-failed-documentie-7th-document-in-my-next-feed"></a>Om jag bearbetar ändringsflödet med Azure Functions, säg en batch med 10 dokument och det uppstår ett fel vid 7 dokumentet. I så fall bearbetas de tre sista dokument inte hur startar jag bearbetning från det misslyckade dokumentet (dvs.) 7 dokument) i mitt nästa flödet?
 
-Om du vill hantera felet är rekommenderade mönster du omsluter din kod med försök catch-block. Catch-felet och placera dokumentet i kön (obeställbara) och definierar logik för att hantera dokument som fel. Med den här metoden om du har en 200-dokumentet batch och endast ett av dokumenten misslyckades, behöver du inte kasta bort hela gruppen.
+Om du vill hantera felet är rekommenderat mönster du omsluter din kod med trycatch-block. Fånga felet och placera det dokumentet i en kö (förlorade) och sedan definiera logik för att hantera dokument som fel. Med den här metoden om du har en 200-dokumentet batch och ett enda dokument som misslyckades och behöver du inte slänga hela batchen.
 
-Om felet inte ska du spola check point tillbaka till början kommer annan du kan får dessa dokument från ändra feed. Kom ihåg att ändra feed behåller den senaste slutliga snapin som visar dokument på grund av det du kan förlora den tidigare ögonblicksbilden på dokumentet. Ändra feed håller bara en senaste versionen av dokumentet och mellan andra processer kan komma och ändra dokumentet.
+Om felet inte ska du bakåt kontrollpunkt tillbaka till början kommer annars du kan ständigt dessa dokument från ändringsfeed. Kom ihåg att ändra feed är fortfarande den senaste sista snapin som visar dokument, på grund av det du kan förlora tidigare ögonblicksbild på dokumentet. ändringsfeed ser till att endast en senaste versionen av dokumentet och mellan andra processer kan komma och ändra dokumentet.
 
-Som du hålla korrigerat koden, hittar du snart inga dokument på obeställbara meddelanden.
-Azure Functions anropas automatiskt genom att ändra feed system och kontrollera punkt osv hanteras internt av Azure-funktion. Om du vill återställa Kontrollera platsen och styra alla aspekter av det, bör du använda ändra feed Processor SDK.
+Som du hålla åtgärda koden, hittar du snart inga dokument på obeställbara meddelanden.
+Azure Functions kallas automatiskt genom att ändra feed system och kontrollera återställningspunkt etc underhålls internt av Azure-funktion. Om du vill återställa kontrollpunkt och styra alla aspekter av det, bör du med hjälp av ändringen feed Processor SDK.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder Azure Cosmos DB med Azure Functions finns [Azure Cosmos DB: serverlösa databasen datoranvändning med hjälp av Azure Functions](serverless-computing-database.md).
+Läs mer om hur du använder Azure Cosmos DB med Azure Functions [Azure Cosmos DB: databas utan Server databehandling med Azure Functions](serverless-computing-database.md).
 
-Mer information om hur du använder ändringen feed processor biblioteket använder du följande resurser:
+Använd följande resurser för mer information om hur du använder ändringsflödet processor-biblioteket:
 
-* [Informationssidan](sql-api-sdk-dotnet-changefeed.md) 
+* [På sidan med information](sql-api-sdk-dotnet-changefeed.md) 
 * [Nuget-paketet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [Exempelkod som visar steg 1 – 6 ovan](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Ytterligare exempel på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
-Mer information om hur du använder ändringen feed via SDK använder du följande resurser:
+Mer information om hur du använder ändringsflödet via SDK använder du följande resurser:
 
-* [Informationssidan om SDK](sql-api-sdk-dotnet.md)
+* [Informationssidan för SDK](sql-api-sdk-dotnet.md)

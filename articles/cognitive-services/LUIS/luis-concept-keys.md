@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: v-geberr
-ms.openlocfilehash: fe6bd0803098854c7ced1a7d816ebbc8cce23b09
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: eb3487a304ec2e4045ff76253c456dc4b6ee19b5
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340621"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888631"
 ---
 # <a name="keys-in-luis"></a>Nycklar i LUIS
 LUIS använder två nycklar: [redigering](#programmatic-key) och [endpoint](#endpoint-key). Redigering nyckeln skapas automatiskt åt dig när du skapar ditt Understanding Intelligent Service-konto. När du är redo att publicera LUIS-appen kan du behöva [skapa slutpunktsnyckeln](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [tilldela den](luis-how-to-manage-keys.md#assign-endpoint-key) till din LUIS-app och [använder den med slutpunkt-frågan](#use-endpoint-key-in-query). 
@@ -31,7 +31,7 @@ Det är viktigt att skapa LUIS-appar i [regioner](luis-reference-regions.md#publ
 
 En redigering nyckel, även kallat en starter-nyckel, skapas automatiskt när du skapar en LUIS-konto och det är gratis. Du har en nyckel för redigering i alla dina LUIS-appar för varje redigering [region](luis-reference-regions.md). Redigering nyckeln tillhandahålls skriva LUIS-appen eller för att testa endpoint frågor. 
 
-För att hitta nyckeln redigering, logga in på [LUIS] [ LUIS] och klicka på namnet på kontot i det övre högra navigeringsfältet för att öppna **kontoinställningar**.
+För att hitta nyckeln redigering, logga in på [LUIS](luis-reference-regions.md#luis-website) och klicka på namnet på kontot i det övre högra navigeringsfältet för att öppna **kontoinställningar**.
 
 ![Redigera nyckel](./media/luis-concept-keys/programatic-key.png)
 
@@ -70,10 +70,8 @@ Se [viktiga begränsningar](luis-boundaries.md#key-limits) och [Azure-regioner](
 Publicera regioner skiljer sig från redigering regioner. Kontrollera att du skapar en app i redigering region motsvarande att publicera region som du vill.
 
 ## <a name="key-limit-errors"></a>Gräns för fel
-Om du överskrider din per sekund kvot du får ett HTTP 429-fel. Om du överskrider din per månad kvot du får felmeddelandet HTTP 403. Åtgärda felen genom att hämta en LUIS [endpoint](#endpoint-key) nyckel, [tilldela](luis-how-to-manage-keys.md#assign-endpoint-key) nyckeln till appen på den **publicera** för den [LUIS] [ LUIS] webbplats.
+Om du överskrider din per sekund kvot du får ett HTTP 429-fel. Om du överskrider din per månad kvot du får felmeddelandet HTTP 403. Åtgärda felen genom att hämta en LUIS [endpoint](#endpoint-key) nyckel, [tilldela](luis-how-to-manage-keys.md#assign-endpoint-key) nyckeln till appen på den **publicera** för den [LUIS](luis-reference-regions.md#luis-website) webbplats.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig [begrepp](luis-how-to-manage-keys.md#assign-endpoint-key) om nycklar för redigering och slutpunkt.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: c7c90a2e24d8dbe7764825abe18c5a1e73b67499
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 1d3089052a67b899e2e4b38123145bd4ae51693f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868746"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902307"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>SAP HANA-säkerhetskopia baserat på ögonblicksbilder av lagring
 
@@ -90,7 +90,8 @@ Information om var du vill kopiera dessa skript och information om hur Azure Bac
 
 - [Planera din infrastruktur för VM-säkerhetskopiering i Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
 - [Konsekvent programkonsekvent säkerhetskopiering av virtuella Linux-datorer](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
-- 
+
+
 
 Vid denna tidpunkt, inte Microsoft har publicerat förbereda skript och efter ögonblicksbilden skript för SAP HANA. Som kund eller system integrator skulle du behöva skapa dessa skript och konfigurera den procedur som bygger på dokumentation som anges ovan.
 
@@ -99,7 +100,7 @@ Vid denna tidpunkt, inte Microsoft har publicerat förbereda skript och efter ö
 Återställningsprocessen för en programkonsekvent säkerhetskopiering tas av Azure backup finns i artikeln [återställa filer från säkerhetskopiering av Azure virtuella datorer](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm). 
 
 > [!IMPORTANT]
-> I artikeln [återställa filer från säkerhetskopiering av Azure virtuella datorer](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm), det finns en lista över undantag och stegen när du använder disk stripe-uppsättningar. Stripe diskar finns troligen vanliga VM-konfigurationen för SAP HANA. Det är därför viktigt att läsa artikeln och testa återställningsprocessen för sådana fall som anges i artikeln. 
+> I artikeln [återställa filer från säkerhetskopiering av Azure virtuella datorer](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm) är en lista över undantag och steg visas när du använder disk stripe-uppsättningar. Stripe diskar finns troligen vanliga VM-konfigurationen för SAP HANA. Det är därför viktigt att läsa artikeln och testa återställningsprocessen för sådana fall som anges i artikeln. 
 
 
 

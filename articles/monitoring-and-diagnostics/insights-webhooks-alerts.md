@@ -1,19 +1,19 @@
 ---
 title: Har en klassisk måttavisering meddela en icke-Azure-system med en webhook
 description: Lär dig att dirigera om Azure måttaviseringar till andra, icke-Azure-system.
-author: johnkemnetz
+author: snehithm
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: johnkem
+ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 429c68c009e3784546b15dbcc1286d551274d2be
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 74a4066e3d30b1e91fe558fcfeb6f39220e41c02
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856281"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887352"
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Konfigurera en webhook i en Azure metrisk varning
 Du kan använda webhooks för att dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade åtgärder. Du kan använda en webhook på en avisering och dirigerar den till tjänster som skickar SMS-meddelanden, logga buggar, för att meddela ett team via chatt eller meddelandetjänster eller för olika åtgärder. 

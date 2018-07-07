@@ -115,6 +115,8 @@
   items:
     - name: VANLIGA FRÅGOR OCH SVAR
       href: FAQs.md
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator'
     - name: Exportera eller ta bort kontodata

@@ -1,6 +1,6 @@
 ---
-title: Skapa, visa och ta bort en användare som tilldelats (MSI) med hjälp av Azure PowerShell
-description: Steg för steg tilldelas instruktioner om hur du skapar, visa och ta bort användaren hanterade tjänstidentiteten som använder Azure PowerShell.
+title: Hur du skapar, lista och ta bort en Användartilldelad (MSI) med Azure PowerShell
+description: Steg för steg tilldelas instruktioner om hur du skapar, lista och ta bort användaren hanterad tjänstidentitet med hjälp av Azure PowerShell.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,66 +9,66 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: d413e5821aff8cf26dfc9ba03e6ec9d4134af76e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ca0493d43abb5d1e79ffb28e45b427eef0432b9e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698952"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904113"
 ---
-# <a name="create-list-or-delete-a-user-assigned-identity-using-azure-powershell"></a>Skapa, visa eller ta bort en som tilldelats användaridentitet med hjälp av Azure PowerShell
+# <a name="create-list-or-delete-a-user-assigned-identity-using-azure-powershell"></a>Skapa, visa eller ta bort en Användartilldelad identitet med hjälp av Azure PowerShell
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Hanterade tjänstidentiteten ger Azure-tjänster med en hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva autentiseringsuppgifter i din kod. 
+Hanterad tjänstidentitet ger Azure-tjänster med en hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva autentiseringsuppgifter i din kod. 
 
-I den här artikeln lär du dig att skapa, visa och ta bort en som tilldelats användaridentitet med hjälp av Azure PowerShell.
+I den här artikeln får du lära dig skapa, visa och ta bort en Användartilldelad identitet med hjälp av Azure PowerShell.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Om du är bekant med hanterade tjänstidentiteten kan ta en titt på [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan ett system som har tilldelats och användaren som har tilldelats identitet](overview.md#how-does-it-work)**.
-- Om du inte redan har ett Azure-konto [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
+- Om du är bekant med hanterad tjänstidentitet kan ta en titt på [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en systemtilldelad och Användartilldelad identitet](overview.md#how-does-it-work)**.
+- Om du inte redan har ett Azure-konto, [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - Installera [den senaste versionen av Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) om du inte redan har gjort.
-- Om du väljer att installera och använda PowerShell lokalt kursen krävs av Azure PowerShell Modulversion 5.7.0 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+- Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-Modulversion 5.7.0-installationsprogram eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 
-## <a name="create-a-user-assigned-identity"></a>Skapa en användare som tilldelats identitet
+## <a name="create-a-user-assigned-identity"></a>Skapa en Användartilldelad identitet
 
-Använd för att skapa en identitet för användaren som har tilldelats den [ny AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) kommando. Den `ResourceGroupName` parametern anger resursgruppen var att skapa den tilldelade identitet och `-Name` parametern anger dess namn. Ersätt den `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` parametervärden med egna värden:
+Du kan skapa en Användartilldelad identitet med den [New AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) kommando. Den `ResourceGroupName` parametern anger resursgruppens namn var du vill skapa en Användartilldelad identitet, och `-Name` parametern anger dess namn. Ersätt den `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` parametervärden med dina egna värden:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
  ```azurepowershell-interactive
 New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
 ```
-## <a name="list-user-assigned-identities"></a>Lista över användare som tilldelats identiteter
+## <a name="list-user-assigned-identities"></a>Lista användartilldelade identiteter
 
-Använd om du vill visa en lista med användaridentiteter tilldelas den [Get-AzureRmUserAssigned](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity) kommando.  Den `-ResourceGroupName` parametern anger resursgruppen där användaren som har tilldelats identitet har skapats.  Ersätt den `<RESOURCE GROUP>` med ett eget värde:
+Använd om du vill visa användartilldelade identiteter i [Get-AzureRmUserAssigned](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity) kommando.  Den `-ResourceGroupName` parametern anger resursgruppen där Användartilldelad identitet har skapats.  Ersätt den `<RESOURCE GROUP>` med ditt eget värde:
 
 ```azurepowershell-interactive
 Get-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP>
 ```
-I svaret, användaridentiteter har `"Microsoft.ManagedIdentity/userAssignedIdentities"` returvärdet för nyckeln, `Type`.
+I svaret, användaridentiteter har `"Microsoft.ManagedIdentity/userAssignedIdentities"` värdet som returneras för nyckel `Type`.
 
 `Type :Microsoft.ManagedIdentity/userAssignedIdentities`
 
-## <a name="delete-a-user-assigned-identity"></a>Tar bort en användare som tilldelats identitet
+## <a name="delete-a-user-assigned-identity"></a>Ta bort Användartilldelad identitet
 
-Ta bort en användaridentitet genom att använda den [ta bort AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity) kommando.  Den `-ResourceGroupName` parametern anger resursgruppen där användaren som har tilldelats identitet har skapats och `-Name` parametern anger dess namn.  Ersätt den `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` värden för parametrar med egna värden:
+Om du vill ta bort en användaridentitet, använda den [Remove-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity) kommando.  Den `-ResourceGroupName` parametern anger resursgruppen där Användartilldelad identitet har skapats och `-Name` parametern anger dess namn.  Ersätt den `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` parametervärdena med dina egna värden:
 
  ```azurecli-interactive
 Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USER ASSIGNED IDENTITY NAME>
 ```
 > [!NOTE]
-> Ta bort en användare som tilldelats identitet tas inte bort referens, från alla resurser som den tilldelats. Identitet tilldelningar måste tas bort separat.
+> Tar bort en Användartilldelad identitet kommer inte att ta bort referensen, från alla resurser som tilldelades till. Identitet tilldelningar måste tas bort separat.
 
 ## <a name="related-content"></a>Relaterat innehåll
 
-Mer information om Azure PowerShell MSI-kommandon och en fullständig lista finns [AzureRM.ManagedServiceIdentity](/powershell/module/azurerm.managedserviceidentity#managed_service_identity).
+En fullständig lista och mer information om MSI för Azure PowerShell-kommandon finns i [AzureRM.ManagedServiceIdentity](/powershell/module/azurerm.managedserviceidentity#managed_service_identity).
 
 
  

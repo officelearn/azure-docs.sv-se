@@ -1,6 +1,6 @@
 ---
-title: Förstå begrepp för förändring i THOMAS - Azure | Microsoft Docs
-description: Lär dig hur du kan ändra data innan förutsägelser språk förstå (THOMAS)
+title: Förstå begrepp för ändring av data i LUIS - Azure | Microsoft Docs
+description: Lär dig hur data kan ändras innan förutsägelser i Språkförståelse (LUIS)
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,22 +9,22 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: v-geberr
-ms.openlocfilehash: ab9b9fe5c34c334fd65971f9040c8e43467aa242
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ab70839b4fa8f2064a3ff929034a6ffcb8fc7788
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112158"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887750"
 ---
 # <a name="data-alterations"></a>Ändringar av data
-THOMAS finns olika sätt att manipulera utterance före eller under förutsägelser. 
+LUIS innehåller olika sätt att manipulera uttryck före eller under förutsägelser. 
 
-## <a name="correct-spelling-errors-in-utterance"></a>Rätt stavfel i utterance
-THOMAS använder [Bing stavningskontroll kontrollera API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) att korrigera stavfel i utterance. THOMAS måste nyckeln som associeras med den tjänsten. Skapa nyckeln och sedan lägga till nyckeln som en querystring-parametern i den [endpoint](https://aka.ms/luis-endpoint-apis). 
+## <a name="correct-spelling-errors-in-utterance"></a>Rätta stavfel i uttryck
+LUIS använder [Bing stavningskontroll kontrollera API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) att rätta stavfel i uttryck. LUIS måste den nyckel som associeras med den tjänsten. Skapa nyckeln och sedan lägga till nyckeln som en frågesträngsparameter på den [endpoint](https://aka.ms/luis-endpoint-apis). 
 
-Du kan också korrigera stavfel i den **Test** panelen av [ange nyckeln](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Nyckeln sparas som en sessionsvariabel i webbläsaren för panelen Test. Lägga till nyckeln i panelen Test i varje webbläsarsession som du vill att stavningen åtgärdat. 
+Du kan också korrigera stavfel i den **Test** panelen av [att ange nyckeln](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Nyckeln sparas som en sessionsvariabel i webbläsaren till Test-panelen. Lägga till nyckeln i panelen Test i varje webbläsarsession som du vill att stavning korrigerats. 
 
-Användning av nyckeln i panelen test och vid slutpunkten räknas in i [nyckelanvändning](https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/) kvoten. THOMAS implementerar Bing stavningskontroll gränser för textens längd. 
+Användning av nyckeln på panelen test och på slutpunkten räknas in i den [nyckelanvändning](https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/) kvot. LUIS implementerar stavningskontroll i Bing gränser för textlängd. 
 
 Slutpunkten kräver två parametrar för stavningskorrigeringar ska fungera:
 
@@ -33,7 +33,7 @@ Slutpunkten kräver två parametrar för stavningskorrigeringar ska fungera:
 |`spellCheck`|boolesk|
 |`bing-spell-check-subscription-key`|[Bing stavningskontroll kontrollera API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) slutpunktsnyckel|
 
-När [Bing stavningskontroll kontrollera API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) upptäcker ett fel och den ursprungliga utterance korrigerade utterance returneras tillsammans med förutsägelser från slutpunkten.
+När [Bing stavningskontroll kontrollera API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) upptäcker ett fel och den ursprungliga uttryck korrigerad uttryck returneras tillsammans med förutsägelser från slutpunkten.
 
 ```JSON
 {
@@ -47,29 +47,29 @@ När [Bing stavningskontroll kontrollera API V7](https://azure.microsoft.com/ser
 }
 ```
  
-## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Ändra tidszon på fördefinierade datetimeV2 entiteten
-När en THOMAS app använder fördefinierade datetimeV2 entiteten, returneras ett datetime-värde i svaret förutsägelse. Tidszonen för begäran används för att fastställa rätt datetime som ska returneras. Om begäran kommer från en bot eller ett annat centraliserad program innan du hämtar till THOMAS, korrigera tidszonen THOMAS använder. 
+## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Ändra tidszonen för fördefinierade datetimeV2 entitet
+När en LUIS-app använder fördefinierade datetimeV2 entiteten, kan ett datetime-värde returneras i svaret förutsägelse. Tidszonen för begäran används för att fastställa rätt datum/tid att returnera. Om förfrågan kommer från en bot eller ett annat centraliserad program innan du kommer till LUIS, korrigera tidszonen LUIS använder. 
 
-### <a name="endpoint-querystring-parameter"></a>Slutpunkten querystring-parametern
-Tidszonen är åtgärdat genom att lägga till användarens tidszon för den [endpoint](https://aka.ms/luis-endpoint-apis) med hjälp av den `timezoneOffset` param. Värdet för `timezoneOffset` måste vara positivt eller negativt tal, i minuter, för att ändra tiden.  
+### <a name="endpoint-querystring-parameter"></a>Frågeparametern slutpunkt
+Tidszonen korrigeras genom att lägga till användarens tidszon för den [endpoint](https://aka.ms/luis-endpoint-apis) med hjälp av den `timezoneOffset` param. Värdet för `timezoneOffset` ska vara positivt eller negativt tal, på bara några minuter att ändra tiden.  
 
 |Param|Värde|
 |--|--|
-|`timezoneOffset`|positivt eller negativt tal, i minuter|
+|`timezoneOffset`|positivt eller negativt tal på bara några minuter|
 
-### <a name="daylight-savings-example"></a>Daylight besparingar exempel
-Om du behöver returnerade färdiga datetimeV2 att justera för sommartid, bör du använda den `timezoneOffset` querystring parameter med en +/-värde i minuter för den [endpoint](https://aka.ms/luis-endpoint-apis) frågan.
+### <a name="daylight-savings-example"></a>Sommartid besparingar exempel
+Om du behöver den returnerade fördefinierade datetimeV2 att justera för sommartid, bör du använda den `timezoneOffset` Frågeparametern med en +/-värdet i minuter för den [endpoint](https://aka.ms/luis-endpoint-apis) fråga.
 
 Lägg till 60 minuter: 
 
-https://{region}.API.cognitive.microsoft.com/Luis/v2.0/Apps/{appId}?q=TURN indikeringar på? **timezoneOffset = 60**& utförlig = {boolesk} & stavningskontroll = {boolesk} & mellanlagring = {boolesk} & bing-stavningskontroll-check-prenumeration-nyckel = {sträng} & Logga = {boolesk}
+https://{region}.API.cognitive.microsoft.com/Luis/v2.0/Apps/{appId}?q=TURN lamporna på? **timezoneOffset = 60**& utförlig = {boolesk} & stavningskontroll = {boolesk} & mellanlagring = {boolesk} & bing-stavningskontroll-kontroll-subscription-key = {sträng} & logg = {boolesk}
 
 Ta bort 60 minuter: 
 
-https://{region}.API.cognitive.microsoft.com/Luis/v2.0/Apps/{appId}?q=TURN indikeringar på? **= timezoneOffset-60**& utförlig = {boolesk} & stavningskontroll = {boolesk} & mellanlagring = {boolesk} & bing-stavningskontroll-check-prenumeration-nyckel = {sträng} & Logga = {boolesk}
+https://{region}.API.cognitive.microsoft.com/Luis/v2.0/Apps/{appId}?q=TURN lamporna på? **timezoneOffset = – 60**& utförlig = {boolesk} & stavningskontroll = {boolesk} & mellanlagring = {boolesk} & bing-stavningskontroll-kontroll-subscription-key = {sträng} & logg = {boolesk}
 
 ## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>C#-kod anger rätt värde för timezoneOffset
-Följande C#-kod används den [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo?view=netframework-4.7.1) klassens [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=netframework-4.7.1#examples) metod för att bestämma rätt `timezoneOffset` baserat på tid:
+Följande C#-kod använder den [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo?view=netframework-4.7.1) klassens [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=netframework-4.7.1#examples) metod för att fastställa rätt `timezoneOffset` baserat på systemtid:
 
 ```CSharp
 // Get CST zone id
@@ -88,6 +88,4 @@ int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Rätt stavfel med den här självstudiekursen](luis-tutorial-bing-spellcheck.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+> [Rätt stavfel i den här självstudiekursen](luis-tutorial-bing-spellcheck.md)

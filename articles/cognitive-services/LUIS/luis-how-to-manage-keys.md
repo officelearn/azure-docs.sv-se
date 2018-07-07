@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 80064584468c109d0bad49f1a22c485fa9cce846
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 99ba867b10c82d226948b13fda448cd24a33c553
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344526"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888736"
 ---
 # <a name="manage-your-luis-keys"></a>Hantera LUIS-nycklar
 En nyckel kan du skapa och publicera LUIS-appen eller fråga din slutpunkt. 
@@ -72,5 +72,3 @@ Läs mer om hur du publicerar [regioner](luis-reference-regions.md) inklusive pu
 ## <a name="next-steps"></a>Nästa steg
 
 Använd din nyckel för att publicera din app i den **publicera app** sidan. Mer information om publicering finns i [publicera app](luis-how-to-publish-app.md).
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

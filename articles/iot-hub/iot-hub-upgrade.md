@@ -1,6 +1,6 @@
 ---
-title: Uppgradera Azure IoT-hubb | Microsoft Docs
-description: Ändra prissättnings- och skalningsnivå för IoT-hubb att hämta ytterligare hanteringsfunktioner för meddelanden och enhet.
+title: Uppgradera med Azure IoT Hub | Microsoft Docs
+description: Ändra priser och skalning nivå för IoT Hub för att få fler funktioner för hantering av meddelande- och enhetshantering.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -8,46 +8,46 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 472115f166adc5385b6f46b2f3ac5ef75a6cde92
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f60b7d30c073c49d5e0a7d35e7263c2181ed744
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637284"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903072"
 ---
-# <a name="how-to-upgrade-your-iot-hub"></a>Så här uppgraderar du din IoT-hubb
+# <a name="how-to-upgrade-your-iot-hub"></a>Uppgradera din IoT-hubb
 
-IoT-lösningen växer är Azure IoT Hub redo att hjälpa dig att skala upp. Azure IoT-hubb erbjuder två nivåer, basic (B) och standard (S) för kunder som vill använda olika funktioner. Varje nivå består av tre storlekar (1, 2 och 3) som bestämmer hur många meddelanden som kan skickas varje dag. 
+När din IoT-lösning växer kan är Azure IoT Hub klar kan du skala upp. Azure IoT Hub har två nivåer, (B), basic och standard (S), för att hantera kunder som vill använda olika funktioner. Inom varje nivå är tre storlekar (1, 2 och 3) som avgör hur många meddelanden som kan skickas varje dag. 
 
-När du har flera enheter och måste flera funktioner, finns det tre sätt att anpassa din IoT-hubb så att de passar dina behov:
+När du har flera enheter, och du behöver fler funktioner, finns det tre sätt att justera din IoT-hubb så att den passar dina behov:
 
-* Lägg till enheter i IoT-hubben. Varje ytterligare enhet i en B1 IoT-hubb kan till exempel en ytterligare 400 000 meddelanden per dag. 
-* Ändra storlek på IoT-hubben. Till exempel migrera från B1 nivå B2-nivån för att öka mängden meddelanden som har stöd för varje enhet per dag.
-* Uppgradera till en högre nivå. Till exempel uppgradera från B1 lager S1-nivån för samma asynkrona kapacitet men med de avancerade funktionerna som ingår i standardnivån.
+* Lägg till enheterna i IoT hub. Varje enhet i en B1 IoT-hubb kan till exempel en ytterligare 400 000 meddelanden per dag. 
+* Ändra storlek på IoT-hubben. Migrera till exempel från B1-nivån till B2-nivån för att öka mängden meddelanden som har stöd för varje enhet per dag.
+* Uppgradera till en högre nivå. Uppgradera till exempel från B1-nivå S1-nivån för samma meddelanden kapaciteten men med de avancerade funktionerna som ingår i standard-nivån.
 
-Dessa förändringar kan uppstå utan att avbryta befintliga drift.
+Dessa ändringar kan inträffa utan att avbryta befintliga åtgärder.
 
-Om du vill nedgradera din IoT-hubb kan du ta bort enheter och minska storleken på IoT-hubben. Du kan dock Nedgradera till en lägre nivå. Du kan exempelvis flytta från lager S2 S1-nivån, men inte från S2 nivå B1-nivån. 
+Om du vill nedgradera din IoT-hubb, kan du ta bort enheter och minska storleken på IoT-hubben. Men kan inte du Nedgradera till en lägre nivå. Du kan exempelvis flytta från på nivån S2 till S1-nivån, men inte från S2-nivån till B1-nivå. 
 
-Exemplen är avsedda att hjälpa dig att förstå hur du justerar din IoT-hubb som ändringarna lösning. Mer information om funktioner för varje nivå bör du alltid referera till [Azure IoT Hub-priser](https://azure.microsoft.com/pricing/details/iot-hub/). 
+De här exemplen är avsedda att hjälpa dig att förstå hur du ändrar din IoT-hubb som dina ändringar i lösningen. Detaljerad information om varje nivå funktioner du bör alltid använda [priser för Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/). 
 
 ## <a name="upgrade-your-existing-iot-hub"></a>Uppgradera din befintliga IoT-hubb 
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) och navigera till din IoT-hubb. 
-2. Välj **priser och skalning**. 
+2. Välj **pris- och**. 
 
    ![Priser och skalning](./media/iot-hub-upgrade/pricing-scale.png)
 
-3. Om du vill ändra nivån för din hubb, Välj **priser och skalnivå**. Välj ny nivå och klicka sedan på **Välj**.
+3. Om du vill ändra nivå för din hubb, Välj **pris- och skalnivåer**. Välj den nya nivån och klicka sedan på **Välj**.
 
    ![Priser och skalning](./media/iot-hub-upgrade/select-tier.png)
 
-4. Om du vill ändra antalet enheter i din hubb, ange ett nytt värde under **IoT-hubbenheter**. 
-5. Välj **spara** att spara ändringarna. 
+4. Om du vill ändra antalet enheter i din hubb, ange ett nytt värde under **IoT Hub-enheter**. 
+5. Välj **spara** att spara dina ändringar. 
 
-IoT-hubb justeras nu och konfigurationerna har inte ändrats. 
+IoT-hubben justeras nu och dina konfigurationer är oförändrade. Observera att partitionsgränsen för basic-nivån IoT Hub är 8. Den här gränsen kommer ändras inte när du migrerar från basic-nivån till standardnivån.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Få mer information [hur du väljer rätt IoT-hubb nivån](iot-hub-scaling.md). 
+Läs mer om [välja rätt nivå för IoT Hub](iot-hub-scaling.md). 
 

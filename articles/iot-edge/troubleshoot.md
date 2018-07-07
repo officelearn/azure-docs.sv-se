@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d814bed6f126cb3b81d85c4e797a22d2ac22ddfb
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 4862e3aa976287512fd69fdfe9295e3f3328d5a7
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856213"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887784"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
@@ -245,9 +245,13 @@ Edge hub, vilket är en del av edge-körningen är optimerad för prestanda som 
 ### <a name="resolution"></a>Lösning
 För edge hub för att ange en miljövariabel **OptimizeForPerformance** till **FALSKT**. Det finns två sätt att göra detta:
 
-I Användargränssnittet: I portalen från *enhetsinformation*->*ange moduler*->*konfigurera avancerade Edge-körningsinställningar*, skapa en miljö variabel med namnet *OptimizeForPerformance* som har angetts till *FALSKT* för den *Edge Hub*.
+I Användargränssnittet: 
+
+På portalen från *enhetsinformation*->*ange moduler*->*konfigurera avancerade Edge-körningsinställningar*, skapa en miljövariabel kallas *OptimizeForPerformance* som har angetts till *FALSKT* för den *Edge Hub*.
 
 ![optimizeforperformance][img-optimize-for-perf]
+
+**OR**
 
 I manifestet distribution:
 

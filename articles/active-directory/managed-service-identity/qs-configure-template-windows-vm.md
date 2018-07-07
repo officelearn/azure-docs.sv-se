@@ -1,6 +1,6 @@
 ---
-title: Hur du konfigurerar MSI på en virtuell dator i Azure med hjälp av en mall
-description: Stegvisa instruktioner för att konfigurera en hanterad tjänst identitet (MSI) på en Azure-dator med en Azure Resource Manager-mall.
+title: Hur du konfigurerar MSI på en Azure-dator med hjälp av en mall
+description: Stegvisa instruktioner för att konfigurera en hanterad tjänstidentitet (MSI) på en Azure-dator med en Azure Resource Manager-mall.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,59 +9,59 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 05859187a5734d982b750e287c3ecd375ed1da2f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 30e186c86d9947c5d0ef609a1c447dc6ed938c35
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723753"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902419"
 ---
-# <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Konfigurera en virtuell dator hanteras tjänstidentitet med hjälp av en mall
+# <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Konfigurera en virtuell dator hanterad tjänstidentitet med hjälp av en mall
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Hanterade tjänstidentiteten ger Azure-tjänster med en automatiskt hanterade identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering utan autentiseringsuppgifter i koden. 
+Hanterad tjänstidentitet ger Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering utan autentiseringsuppgifter i din kod. 
 
-Lär dig hur du utför följande åtgärder för hanterade tjänstidentiteten på en Azure VM, med hjälp av Azure Resource Manager-mall för distribution i den här artikeln:
+I den här artikeln får du lära dig hur du utför följande åtgärder för hanterad tjänstidentitet på en Azure-dator med hjälp av Azure Resource Manager-mall för distribution:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Om du är bekant med hanterade tjänstidentiteten kan ta en titt på [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan ett system som har tilldelats och användaren som har tilldelats identitet](overview.md#how-does-it-work)**.
-- Om du inte redan har ett Azure-konto [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
+- Om du är bekant med hanterad tjänstidentitet kan ta en titt på [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en systemtilldelad och Användartilldelad identitet](overview.md#how-does-it-work)**.
+- Om du inte redan har ett Azure-konto, [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
-Precis som med Azure portal och skript, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) mallar tillhandahåller möjligheten att distribuera nya eller ändrade resurser som definierats i en Azure-resursgrupp. Flera alternativ är tillgängliga för redigering och distribution, både lokala och portal-baserade, inklusive:
+Precis som med Azure-portalen och skript, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) mallar tillhandahåller möjligheten att distribuera nya eller ändrade resurser som definierats av en Azure-resursgrupp. Flera alternativ är tillgängliga för redigering och distribution, både lokala och portalbaserad, inklusive:
 
-   - Med hjälp av en [anpassad mall från Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), där du kan skapa en mall från början eller baseras på en befintlig gemensamma eller [QuickStart mallen](https://azure.microsoft.com/documentation/templates/).
-   - Härleds från en befintlig resursgrupp genom att exportera en mall från antingen [den ursprungliga distributionen av](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), eller från den [aktuell status för distributionen](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
-   - Använda en lokal [JSON-redigerare (till exempel VS-kod)](../../azure-resource-manager/resource-manager-create-first-template.md), och sedan ladda upp och distribuera med hjälp av PowerShell eller CLI.
-   - Med Visual Studio [Azure-resursgruppsprojekt](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) både skapa och distribuera en mall.  
+   - Med hjälp av en [anpassad mall från Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), där du kan skapa en mall från början eller basera den på en befintlig common eller [snabbstartsmall](https://azure.microsoft.com/documentation/templates/).
+   - Som härleds från en befintlig resursgrupp genom att exportera en mall från antingen [den ursprungliga distributionen](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), eller från den [aktuell status för distributionen](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
+   - Med hjälp av en lokal [JSON-redigerare (till exempel VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), överföring och distribution med hjälp av PowerShell eller CLI.
+   - Med Visual Studio [Azure-resursgruppsprojekt](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) att både skapa och distribuera en mall.  
 
-Oavsett vilket alternativ du väljer, är det under första distributionen och Omdistributionen i mallens syntax. Aktivera system eller användaren som har tilldelats identiteten på en ny eller befintlig virtuell dator görs på samma sätt. Dessutom som standard, Azure Resource Manager har en [stegvis uppdatering](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) för distributioner.
+Oavsett vilket alternativ som väljs, är densamma under den första distributionen och omdistribution i mallens syntax. Aktiverar en system- eller Användartilldelad identitet på en ny eller befintlig virtuell dator görs på samma sätt. Dessutom som standard Azure Resource Manager har en [inkrementell uppdatering](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) till distributioner.
 
-## <a name="system-assigned-identity"></a>Tilldelats identitet
+## <a name="system-assigned-identity"></a>Systemtilldelad identitet
 
-I det här avsnittet ska du aktivera och inaktivera ett system som tilldelats identitet med hjälp av en Azure Resource Manager-mall.
+I det här avsnittet ska du aktivera och inaktivera en systemtilldelad identitet med en Azure Resource Manager-mall.
 
-### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Aktivera system för tilldelade identitet vid skapandet av en virtuell dator i Azure eller på en befintlig virtuell dator
+### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Aktivera systemtilldelad identitet när du skapar en Azure-dator eller på en befintlig virtuell dator
 
-1. Om du loggar in till Azure lokalt eller via Azure portal, kan du använda ett konto som är associerade med Azure-prenumeration som innehåller den virtuella datorn. Se också till att ditt konto tillhör en roll som ger dig skrivbehörighet på den virtuella datorn (till exempel roll ”Virtual Machine-deltagare”).
+1. Om du loggar in till Azure lokalt eller via Azure portal kan du använda ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn. Se också till att ditt konto tillhör en roll som ger dig skrivbehörighet på den virtuella datorn (till exempel rollen ”virtuell Datordeltagare”).
 
-2. Efter att läsa in mallen i en textredigerare, leta upp den `Microsoft.Compute/virtualMachines` resurs av intresse inom den `resources` avsnitt. Din kan skilja sig något från följande skärmbild, beroende på hur du använder redigeraren och om du redigerar en mall för en ny distribution eller befintlig.
+2. Efter inläsning av mallen i ett redigeringsprogram för att leta upp den `Microsoft.Compute/virtualMachines` resource intressanta inom den `resources` avsnittet. Själv kan skilja sig från följande skärmbild, beroende på redigerare som du använder och om du redigerar en mall för en ny distribution eller befintlig.
 
    >[!NOTE] 
    > Det här exemplet förutsätter variabler som `vmName`, `storageAccountName`, och `nicName` har definierats i mallen.
    >
 
-   ![Skärmbild av mall - hitta VM](../media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![Skärmbild av mall - Leta upp virtuell dator](../media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
-3. Aktivera tilldelats identitet genom att lägga till den `"identity"` egenskapen på samma nivå som den `"type": "Microsoft.Compute/virtualMachines"` egenskapen. Använd följande syntax:
+3. Om du vill aktivera systemtilldelad identitet, lägger du till den `"identity"` egenskapen på samma nivå som den `"type": "Microsoft.Compute/virtualMachines"` egenskapen. Använd följande syntax:
 
    ```JSON
    "identity": { 
@@ -69,10 +69,10 @@ I det här avsnittet ska du aktivera och inaktivera ett system som tilldelats id
    },
    ```
 
-4. (Valfritt) Lägg till VM MSI-tillägget som en `resources` element. Det här steget är valfritt eftersom du kan använda Azure instans Metadata Service (IMDS) identitet slutpunkt, för att hämta token samt.  Använd följande syntax:
+4. (Valfritt) Lägg till VM MSI-tillägget som en `resources` element. Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS) identitet slutpunkten, för att hämta token samt.  Använd följande syntax:
 
    >[!NOTE] 
-   > Följande exempel förutsätter en Windows VM-tillägget (`ManagedIdentityExtensionForWindows`) som ska distribueras. Du kan också konfigurera för Linux med hjälp av `ManagedIdentityExtensionForLinux` i stället för den `"name"` och `"type"` element.
+   > I följande exempel förutsätter att en Windows VM-tillägg (`ManagedIdentityExtensionForWindows`) som ska distribueras. Du kan också konfigurera för Linux med hjälp av `ManagedIdentityExtensionForLinux` i stället för den `"name"` och `"type"` element.
    >
 
    ```JSON
@@ -97,31 +97,31 @@ I det här avsnittet ska du aktivera och inaktivera ett system som tilldelats id
    }
    ```
 
-5. När du är klar bör mallen likna följande:
+5. När du är klar bör se din mall ut ungefär så här:
 
-   ![Skärmbild av mallen efter uppdateringen](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
+   ![Skärmbild av mall efter uppdateringen](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
-### <a name="disable-a-system-assigned-identity-from-an-azure-vm"></a>Inaktivera ett system som tilldelats identitet från en Azure VM
+### <a name="disable-a-system-assigned-identity-from-an-azure-vm"></a>Inaktivera systemtilldelad identitet från en Azure virtuell dator
 
 > [!NOTE]
-> Inaktivera hanterade tjänstidentiteten från en virtuell dator stöds inte för närvarande. Under tiden kan växla du mellan att använda System tilldelade och tilldelade användaridentiteter.
+> Inaktiverar hanterad tjänstidentitet från en virtuell dator stöds för närvarande inte. Under tiden kan växla du mellan att använda System tilldelas och tilldelade användaridentiteter.
 
-Om du har en virtuell dator som inte längre behöver en hanterade tjänstidentiteten:
+Om du har en virtuell dator som inte längre behövs en hanterad tjänstidentitet:
 
-1. Om du loggar in till Azure lokalt eller via Azure portal, kan du använda ett konto som är associerade med Azure-prenumeration som innehåller den virtuella datorn. Se också till att ditt konto tillhör en roll som ger dig skrivbehörighet på den virtuella datorn (till exempel roll ”Virtual Machine-deltagare”).
+1. Om du loggar in till Azure lokalt eller via Azure portal kan du använda ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn. Se också till att ditt konto tillhör en roll som ger dig skrivbehörighet på den virtuella datorn (till exempel rollen ”virtuell Datordeltagare”).
 
 2. Ändra identitetstypen till `UserAssigned`.
 
-## <a name="user-assigned-identity"></a>Användaren som har tilldelats identitet
+## <a name="user-assigned-identity"></a>Användartilldelad identitet
 
-I det här avsnittet tilldelar du en identitet för användaren som har tilldelats till en virtuell dator i Azure med hjälp av Azure Resource Manager-mall.
+I det här avsnittet ska tilldela du en Användartilldelad identitet till en Azure virtuell dator med hjälp av Azure Resource Manager-mall.
 
 > [!Note]
-> Om du vill skapa en identitet för användaren som har tilldelats med hjälp av en Azure Resource Manager-mall finns [skapa en identitet för användaren som har tilldelats](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
+> För att skapa en Användartilldelad identitet med en Azure Resource Manager-mall, se [skapar du en Användartilldelad identitet](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
 
- ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Tilldela en användare som tilldelats en Azure VM identitet
+ ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Tilldela Användartilldelad identitet till en Azure virtuell dator
 
-1. Under den `resources` element, Lägg till följande post för att tilldela en identitet för användaren som har tilldelats till den virtuella datorn.  Se till att ersätta `<USERASSIGNEDIDENTITY>` med namnet på användaren som har tilldelats identiteten som du skapade.
+1. Under den `resources` element, Lägg till följande post om du vill tilldela en Användartilldelad identitet till den virtuella datorn.  Se till att ersätta `<USERASSIGNEDIDENTITY>` med namnet på Användartilldelad identitet som du skapade.
     ```json
     {
         "apiVersion": "2017-12-01",
@@ -136,7 +136,7 @@ I det här avsnittet tilldelar du en identitet för användaren som har tilldela
         },
     ```
     
-2. (Valfritt) Sedan under den `resources` element, Lägg till följande post för att tilldela hanterade identity-tillägget till den virtuella datorn. Det här steget är valfritt eftersom du kan använda Azure instans Metadata Service (IMDS) identitet slutpunkt, för att hämta token samt. Använd följande syntax:
+2. (Valfritt) Sedan under den `resources` element, Lägg till följande post om du vill tilldela hanterad identitet tillägget till den virtuella datorn. Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS) identitet slutpunkten, för att hämta token samt. Använd följande syntax:
     ```json
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -158,12 +158,12 @@ I det här avsnittet tilldelar du en identitet för användaren som har tilldela
     }
     ```
     
-3.  När du är klar bör mallen likna följande:
+3.  När du är klar bör se din mall ut ungefär så här:
 
-      ![Skärmbild av användaren som har tilldelats identitet](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
+      ![Skärmbild av Användartilldelad identitet](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
 
 
 ## <a name="related-content"></a>Relaterat innehåll
 
-- Ett bredare perspektiv om MSI läsa den [hanterade tjänstidentiteten översikt](overview.md).
+- Ett bredare perspektiv om MSI läsa den [hanterad tjänstidentitet översikt](overview.md).
 

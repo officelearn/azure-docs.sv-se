@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: b7e8bf9046d432bd830f65e1934704ec5036fd1c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: af5079e8c448a0df6b1109f5f23e3e3a2871a167
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346638"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887274"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Web App-robot med LUIS-mall för C#
 
@@ -47,7 +47,7 @@ Skapa en chattrobot med integrerade tjänster för språkförståelse.
     * Ange **appnamn** till din robot namn. Namnet används som underdomänen när din robot distribueras till molnet (exempelvis mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Välj prenumerationen [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service-plan och [plats](https://azure.microsoft.com/regions/).
     * Välj den **språkförståelse (C#)** mallen för den **Bot mallen** fält.
-    * Välj den **LUIS platsen**. Det här är redigeringen [region] [ LUIS] appen skapas i.
+    * Välj den **LUIS platsen**. Det här är redigeringen [region](luis-reference-regions.md) appen skapas i.
     * Markera kryssrutan bekräftelse för juridiskt meddelande. Villkoren i juridiskt meddelande är lägre än kryssrutan.
 
     ![Robottjänst](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
@@ -170,7 +170,6 @@ Lägg till LUIS avsikter och Bot service dialogrutor för hantering av **hjälpa
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[AssignedEndpointDoc]: https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-manage-keys
 [VisualStudio]: https://www.visualstudio.com/
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+
 <!-- tested on Win10 -->

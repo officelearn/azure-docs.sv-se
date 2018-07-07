@@ -1,7 +1,7 @@
 ---
-title: Skapa en THOMAS app programmässigt med Node.js | Microsoft Docs
+title: Skapa en LUIS-app via programmering med hjälp av Node.js | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur du skapar en THOMAS app programmässigt från befintliga data i CSV-format med hjälp av THOMAS redigering API.
+description: Lär dig hur du skapar en LUIS-app via programmering från befintliga data i CSV-format med hjälp av redigering LUIS-API.
 services: cognitive-services
 author: DeniseMak
 manager: rstand
@@ -10,45 +10,45 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: e97dc184266bc9518ee5f909891bd97f7c71804b
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 54c7565dd00305d3ce1faba5d7cc5616c53dd026
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113064"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888171"
 ---
-# <a name="build-a-luis-app-programmatically-using-nodejs"></a>Skapa en THOMAS app programmässigt med Node.js
+# <a name="build-a-luis-app-programmatically-using-nodejs"></a>Skapa en LUIS-app via programmering med hjälp av Node.js
 
-THOMAS innehåller ett programmässiga API som allt fungerar som den [THOMAS] [ LUIS] webbplats har. Detta sparar tid när du har befintliga data och det går snabbare att skapa en THOMAS app programmässigt än genom att ange informationen manuellt. 
+LUIS ger en programmatisk API som gör allt som den [LUIS](luis-reference-regions.md) webbplats har. Det här kan spara tid när du har befintliga data och det skulle vara snabbare att skapa en LUIS-app via programmering än genom att ange informationen manuellt. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Logga in på den [THOMAS] [ LUIS] webbplats och hitta din [redigering nyckeln](luis-concept-keys.md#authoring-key) i inställningarna för kontot. Du kan använda den här nyckeln för att anropa API: er redigering.
+* Logga in på den [LUIS](luis-reference-regions.md) webbplats och hitta din [redigering nyckeln](luis-concept-keys.md#authoring-key) i inställningarna för kontot. Du kan använda den här nyckeln för att anropa API: er redigering.
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-* Den här kursen börjar med en CSV-fil för ett hypotetiskt företags loggfiler användarförfrågningar. Hämta den [här](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv).
-* Installera den senaste Node.js med NPM. Ladda ner det från [här](https://nodejs.org/en/download/).
-* **(Rekommenderas)**  Visual Studio-koden för IntelliSense och felsökning, ladda ner det från [här](https://code.visualstudio.com/) kostnadsfritt.
+* Den här självstudien utgår från en CSV-fil för ett hypotetiskt företag loggfiler för användarbegäranden. Ladda ned den [här](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv).
+* Installera den senaste Node.js med NPM. Ladda ned det från [här](https://nodejs.org/en/download/).
+* **(Rekommenderas)**  Visual Studio Code för IntelliSense och felsökning kan du hämta det från [här](https://code.visualstudio.com/) utan kostnad.
 
-## <a name="map-preexisting-data-to-intents-and-entities"></a>Mappa befintliga data till avsikter och enheter
-Även om du har ett system som inte har skapats med THOMAS i åtanke, om den innehåller textdata som mappas till olika saker användare vill kanske du använder en mappning från de befintliga kategorierna för avsikter i THOMAS indata från användaren. Om du kan identifiera viktiga ord eller fraser i vad användarna sagt, mappa dessa ord till entiteter.
+## <a name="map-preexisting-data-to-intents-and-entities"></a>Mappa befintliga data till avsikter och entiteter
+Även om du har ett system som inte har skapats med LUIS i åtanke, om den innehåller textdata som mappas till olika saker användare vill göra kanske du kan få fram en mappning från de befintliga kategorierna av användarens indata till avsikter i LUIS. Om du kan identifiera viktiga ord eller fraser i vad användarna sägs, mappa dessa ord till entiteter.
 
-Öppna filen `IoT.csv`. Den innehåller en logg över användarfrågor till en hypotetiska hem automation-tjänsten, inklusive hur de kategoriserat vad användaren SA och vissa kolumner med användbar information som hämtas från dem. 
+Öppna filen `IoT.csv`. Den innehåller en logg över användarfrågor ett hypotetiskt home automation-tjänsten, inklusive hur de har kategoriserat vad användaren sägs och vissa kolumner med användbar information som hämtas från dem. 
 
 ![CSV-fil](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
-Du ser som den **RequestType** kolumn kan vara avsikter, och **begära** kolumnen visar ett exempel utterance. De andra fälten kan vara enheter om de sker i utterance. Eftersom det finns avsikter, enheter och exempel utterances kan ha kraven för en enkel, exempelapp.
+Ser du att den **RequestType** kolumn kan vara avsikter, och **begära** kolumnen visar en exempel-uttryck. I andra fält kan vara entiteter om de sker i uttryck. Eftersom det finns avsikter och entiteter exempel yttranden kan ha kraven för en enkel, exempelapp.
 
-## <a name="steps-to-generate-a-luis-app-from-non-luis-data"></a>Steg för att generera en THOMAS app från icke-THOMAS data
-Om du vill skapa en ny THOMAS-app från källfilen först analysera data från CSV-fil och konvertera data till ett format som du kan överföra till THOMAS med Authoring-API. Från tolkade data du samla in information om vilka avsikter och enheter är det. Sedan du API-anrop för att skapa appen och Lägg till avsikter och enheter som har samlats in från tolkade data. När du har skapat THOMAS app måste du lägga till exempel utterances från tolkade data. Du kan se detta flöde i den sista delen av följande kod. Kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/index.js) denna kod och spara det i `index.js`.
+## <a name="steps-to-generate-a-luis-app-from-non-luis-data"></a>Steg för att skapa en LUIS-app från icke-LUIS-data
+Om du vill generera en ny LUIS-app från källfilen först parsa data från CSV-filen och omvandla dessa data till ett format som du kan överföra till LUIS med hjälp av API för redigering. Från den tolkade data du samla in information om vilka avsikter och entiteter är det inte. Sedan du göra API-anrop för att skapa appen och Lägg till avsikter och entiteter som har samlats in från tolkade data. När du har skapat LUIS-app, kan du lägga till exempel yttranden från tolkade data. Du kan se det här flödet i den sista delen av följande kod. Kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/index.js) denna kod och spara den i `index.js`.
 
    [!code-javascript[Node.js code for calling the steps to build a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/index.js)]
 
 
 ## <a name="parse-the-csv"></a>Parsa CSV
 
-Transaktionerna kolumn som innehåller utterances i CSV-filen har parsas till en JSON-format som THOMAS kan förstå. Den här JSON-format måste innehålla en `intentName` fält som identifierar syftet med utterance. Det måste också innehålla ett `entityLabels` som kan vara tom om det finns inga entiteter i utterance. 
+Kolumnposter som innehåller yttranden i CSV-filen måste parsas till en JSON-format som LUIS kan förstå. Det här JSON-format måste innehålla en `intentName` fält som identifierar syftet med uttryck. Måste den också innehålla en `entityLabels` fält som kan vara tom om det finns inga entiteter i uttryck. 
 
-Till exempel på posten ”aktivera indikeringar” mappar till den här JSON:
+Till exempel posten för ”tänd lamporna” mappas till JSON:
 
 ```json
         {
@@ -69,33 +69,33 @@ Till exempel på posten ”aktivera indikeringar” mappar till den här JSON:
         }
 ```
 
-I det här exemplet i `intentName` kommer från användarbegäran under den **begäran** kolumnrubrik i CSV-filen och `entityName` kommer från andra kolumner med viktig information. Om det finns en post för till exempel **åtgärden** eller **enhet**, och att strängen återkommer i den faktiska begäranden sedan den kan är märkt som en entitet. Följande kod visar detta vid parsning av process. Du kan kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_parse.js) det och spara den till `_parse.js`.
+I det här exemplet på `intentName` kommer från användarförfrågan under den **begäran** kolumnrubrik i CSV-filen och `entityName` kommer från de andra kolumnerna med viktig information. Exempel: om det finns en post för **åtgärden** eller **enhet**, och att strängen återkommer i den faktiska begäran och sedan den kan är märkt som en entitet. Följande kod visar detta vid parsning av process. Du kan kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_parse.js) den och spara den i `_parse.js`.
 
    [!code-javascript[Node.js code for parsing a CSV file to extract intents, entities, and labeled utterances](~/samples-luis/examples/build-app-programmatically-csv/_parse.js)]
 
 
 
-## <a name="create-the-luis-app"></a>Skapa THOMAS-app
-När data har tolkats till JSON, lägga till en THOMAS app. Följande kod skapar THOMAS appen. Kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_create.js) , och spara det i `_create.js`.
+## <a name="create-the-luis-app"></a>Skapa LUIS-app
+När data har tolkats till JSON, lägga till en LUIS-app. Följande kod skapar LUIS-app. Kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_create.js) , och spara den i `_create.js`.
 
    [!code-javascript[Node.js code for creating a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/_create.js)]
 
 
 ## <a name="add-intents"></a>Lägg till avsikter
-När du har en app kan behöva du avsikter till den. Följande kod skapar THOMAS appen. Kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_intents.js) , och spara det i `_intents.js`.
+När du har en app kan behöva du avsikter till den. Följande kod skapar LUIS-app. Kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_intents.js) , och spara den i `_intents.js`.
 
    [!code-javascript[Node.js code for creating a series of intents](~/samples-luis/examples/build-app-programmatically-csv/_intents.js)]
 
 
 ## <a name="add-entities"></a>Lägg till entiteter
-Följande kod lägger till entiteterna THOMAS appen. Kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_entities.js) , och spara det i `_entities.js`.
+Följande kod lägger till entiteterna LUIS-app. Kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_entities.js) , och spara den i `_entities.js`.
 
    [!code-javascript[Node.js code for creating entities](~/samples-luis/examples/build-app-programmatically-csv/_entities.js)]
    
 
 
 ## <a name="add-utterances"></a>Lägg till yttranden
-När entiteter och avsikter har definierats i appen THOMAS, kan du lägga till utterances. I följande kod används den [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API, där du kan lägga till upp till 100 utterances i taget.  Kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_upload.js) , och spara det i `_upload.js`.
+När de entiteter och avsikter har definierats i LUIS-app, kan du lägga till talade. I följande kod används den [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API där du kan lägga till upp till 100 yttranden i taget.  Kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_upload.js) , och spara den i `_upload.js`.
 
    [!code-javascript[Node.js code for adding utterances](~/samples-luis/examples/build-app-programmatically-csv/_upload.js)]
 
@@ -110,8 +110,8 @@ Installera Node.js-beroenden från NPM i terminal/kommandoraden.
 > npm install
 ````
 
-### <a name="change-configuration-settings"></a>Ändra konfigurationsinställningar
-För att kunna använda det här programmet måste du ändra värdena i index.js-filen till din egen slutpunktsnyckel, och ange det namn du vill att appen har. Du kan också ange appens kultur eller ändra versionsnumret.
+### <a name="change-configuration-settings"></a>Ändra konfigurationsinställningarna
+För att kunna använda det här programmet, måste du ändra värdena i filen index.js till dina egna slutpunktsnyckeln och ange det namn som du vill att appen ska ha. Du kan också ange appens kultur eller ändra versionsnumret.
 
 Öppna filen index.js och ändra dessa värden överst i filen.
 
@@ -123,8 +123,8 @@ const LUIS_appName = "Sample App";
 const LUIS_appCulture = "en-us"; 
 const LUIS_versionId = "0.1";
 ````
-### <a name="run-the-script"></a>Kör skriptet
-Kör skriptet från en terminal/kommandorad med Node.js.
+### <a name="run-the-script"></a>Kör skript
+Kör skriptet från en terminal/kommandoraden med Node.js.
 
 ````
 > node index.js
@@ -134,8 +134,8 @@ eller
 > npm start
 ````
 
-### <a name="application-progress"></a>Programmet pågår
-Medan programmet körs kommandoraden visar förloppet. Kommandoradens utdata innehåller svar från THOMAS format.
+### <a name="application-progress"></a>Program pågår
+När programmet körs kommandoraden visar förloppet. Utdata från kommandoraden innehåller formatet på svar från LUIS.
 
 ````
 > node index.js
@@ -162,8 +162,8 @@ upload done
 
 
 
-## <a name="open-the-luis-app"></a>Öppna appen THOMAS
-När skriptet har slutförts, du kan logga in till [THOMAS] [ LUIS] och se THOMAS appen som du skapade under **Mina appar**. Du ska kunna se utterances som du lagt till under den **aktivera**, **avstängning**, och **ingen** avsikter.
+## <a name="open-the-luis-app"></a>Öppna LUIS-app
+När skriptet har slutförts kan du logga in på [LUIS](luis-reference-regions.md) och se LUIS-app som du skapade under **Mina appar**. Du bör kunna se yttranden som du har lagt till under den **aktivera**, **avstängning**, och **ingen** avsikter.
 
 ![Aktivera avsikt](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 
@@ -171,15 +171,12 @@ När skriptet har slutförts, du kan logga in till [THOMAS] [ LUIS] och se THOMA
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Testa och träna din app i THOMAS webbplats](interactive-test.md)
+> [Testa och träna din app i LUIS-webbplats](interactive-test.md)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 Det här exempelprogrammet använder följande LUIS APIs:
 - [Skapa app](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
 - [Lägg till avsikter](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
-- [lägga till enheter](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
-- [Lägg till utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
-
+- [Lägg till entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
+- [Lägg till yttranden](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)

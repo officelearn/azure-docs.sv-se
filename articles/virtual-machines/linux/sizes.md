@@ -1,6 +1,6 @@
 ---
 title: Linux VM-storlekar i Azure | Microsoft Docs
-description: Listar de olika storlekarna som är tillgängliga för Linux virtuella datorer i Azure.
+description: Visar en lista över de olika storlekarna som är tillgängliga för Linux-datorer i Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -13,62 +13,62 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 3d5311bda4fd0133bea57fee245386d451deb5c4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5ee3d29ceada238c5e4a633b501f63ed307ba76e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34653900"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37900875"
 ---
-# <a name="sizes-for-linux-virtual-machines-in-azure"></a>Storlekar för virtuella Linux-datorer i Azure
-Den här artikeln beskriver tillgängliga storlekar och alternativ för Azure virtuella datorer som du kan använda för att köra dina Linux appar och arbetsbelastningar. Det ger också överväganden vid distribution för att vara medveten om när du planerar att använda dessa resurser. Den här artikeln är också tillgängligt för [virtuella Windows-datorer](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+# <a name="sizes-for-linux-virtual-machines-in-azure"></a>Storlekar för Linux-datorer i Azure
+Den här artikeln beskrivs tillgängliga storlekar och alternativ för Azure-datorer som du kan använda för att köra Linux-appar och arbetsbelastningar. Det ger också distributionsöverväganden ska tänka på när du planerar att använda de här resurserna. Den här artikeln är också tillgängligt för [Windows virtuella datorer](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 | Typ                     | Storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Generellt syfte](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2  | Balanserat förhållande mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. |
 | [Beräkningsoptimerad](sizes-compute.md)        | Fsv2, Fs, F             | Högt förhållande mellan processor och minne. Bra för webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar.        |
-| [Minnesoptimerad](sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, Dv2  | Förhållandet mellan hög minne till CPU. Utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
+| [Minnesoptimerad](sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, Dv2  | Högt minne att CPU-förhållande. Utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
 | [Lagringsoptimerad](sizes-storage.md)        | Ls                | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
-| [GPU](sizes-gpu.md)            | NV, NC, NCv2, NCv3, ND            | Särskilda virtuella datorer för tunga grafisk återgivning och redigera video samt modellen utbildning och inferencing (IV) med djup learning. Tillgängligt med en eller flera GPU-kort.       |
+| [GPU](sizes-gpu.md)            | NV, NC, NCv2, NCv3, ND            | Särskilda virtuella datorer avsedda för tung grafisk rendering och videoredigering samt modellera utbildnings- och inferensjobb (IV) med djupinlärning. Tillgängligt med en eller flera GPU: er.       |
 | [Databehandling med höga prestanda](sizes-hpc.md) | H       | Våra virtuella datorer med de snabbaste och mest kraftfulla processorerna med nätverksgränssnitt för stora dataflöden (RDMA). 
 
 <br>
 
-- Information om priser med olika storlekar, se [prissättning för Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
-- Tillgängligheten för VM-storlekar i Azure-regioner finns [produkter som är tillgängliga efter region](https://azure.microsoft.com/regions/services/).
-- Allmänna begränsningar på Azure Virtual Machines finns [Azure-prenumeration och tjänsten gränser, kvoter och begränsningar](../../azure-subscription-service-limits.md).
-- Läs mer om hur [Azure compute-enheter (ACU)](acu.md) kan hjälpa dig att jämföra beräkning prestanda över Azure SKU: er.
+- Information om prissättning i olika storlekar finns i [prissättning för Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
+- Tillgängligheten för VM-storlekar i Azure-regioner, se [produkttillgänglighet per region](https://azure.microsoft.com/regions/services/).
+- Allmänna begränsningar på Azure Virtual Machines finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../../azure-subscription-service-limits.md).
+- Läs mer om hur [Azure-beräkningsenheter (ACU)](acu.md) kan hjälpa dig att jämföra prestanda för databearbetning mellan Azure SKU: er.
 
 
 ## <a name="rest-api"></a>REST-API
 
-Information om hur du använder REST-API för att fråga storlekar på VM finns i:
+Information om hur du använder REST-API för att fråga för VM-storlekar finns i följande:
 
-- [Visa en lista med tillgängliga virtuella datorstorlekar för storleksändring](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
-- [Visa en lista med tillgängliga virtuella datorstorlekar för en prenumeration](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall)
-- [Visa en lista med tillgängliga virtuella datorstorlekar i en tillgänglighetsuppsättning](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
+- [Lista över tillgängliga VM-storlekar för storleksändring](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
+- [Lista över tillgängliga VM-storlekar för en prenumeration](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall)
+- [Lista över tillgängliga VM-storlekar i en tillgänglighetsuppsättning](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
 
 ## <a name="acu"></a>ACU
 
-Läs mer om hur [Azure compute-enheter (ACU)](acu.md) kan hjälpa dig att jämföra beräkning prestanda över Azure SKU: er.
+Läs mer om hur [Azure-beräkningsenheter (ACU)](acu.md) kan hjälpa dig att jämföra prestanda för databearbetning mellan Azure SKU: er.
 
 ## <a name="benchmark-scores"></a>Benchmark-poäng
 
-Lär dig mer om compute prestanda för virtuella Linux-datorer med hjälp av den [CoreMark benchmark poäng](compute-benchmark-scores.md).
+Lär dig mer om compute prestanda för virtuella Linux-datorer med hjälp av den [CoreMark benchmark-poäng](compute-benchmark-scores.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om de olika VM-storlekar som är tillgängliga:
+Läs mer om de olika storlekar som är tillgängliga:
 - [Generellt syfte](sizes-general.md)
 - [Beräkningsoptimerad](sizes-compute.md)
 - [Minnesoptimerad](sizes-memory.md)
 - [Lagringsoptimerad](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
-- Kontrollera den [föregående generation](sizes-previous-gen.md) för Standard A Dv1 (D1 4 och D11 14 v1), och A8 A11 serien
+- Kontrollera den [föregående generations](sizes-previous-gen.md) för A Standard, Dv1 (D1 – 4 och D11 – 14 v1), och A8 – A11-serien
 
 
 

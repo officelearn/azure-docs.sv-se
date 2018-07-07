@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 3512753487a215e2bbec15ca8ab8419027af7686
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 32d61367790a2b0b43e92c427a366f58e3c12ae9
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436131"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888991"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Hantera meddelanden planerat underhåll för Windows-datorer
 
 Azure utför regelbundet uppdateringar för att förbättra tillförlitligheten, prestanda och säkerheten för infrastrukturen för värd för virtuella datorer. Uppdateringarna är ändringar som uppdatering värdmiljön eller uppgradera och inaktivering av maskinvara. En majoritet av dessa uppdateringar genomförs utan någon inverkan på de virtuella datorerna. Men finns det fall där uppdateringar påverka:
 
-- Om underhållet inte kräver en omstart, använder Azure migrering på plats för att pausa den virtuella datorn när värden har uppdaterats.
+- Om underhållet inte kräver en omstart, använder Azure migrering på plats för att pausa den virtuella datorn när värden har uppdaterats. Dessa icke rebootful underhållsåtgärder är tillämpad feldomän av feldomän och förloppet stoppas om någon varning hälsotillstånd signaler tas emot. 
 
 - Om en omstart krävs för underhåll, får du ett meddelande om när det planerade underhållet. I dessa fall kan ges ett tidsfönster som där du kan starta underhållet själv när det passar dig.
 
@@ -51,21 +51,25 @@ Följande riktlinjer hjälper dig att bestämma om du vill använda den här fun
 
 
 Självbetjäningsunderhållet rekommenderas inte för distributioner med **tillgänglighetsuppsättningar** eftersom dessa är högtillgänglig inställningarna, där endast en uppdateringsdomän påverkas vid en given tidpunkt. 
-    - Låt Azure utlösare underhållet, men tänk på att ordningen för de uppdateringsdomäner som påverkas inte nödvändigtvis sker sekventiellt och att det finns en 30-minuters paus mellan uppdateringsdomäner.
-    - Om en temporär förlust av några av din kapacitet (1/uppdatera antalet) är ett problem, det kan enkelt kompenseras genom att allokera ytterligare instanser under underhållsperioden **inte** använder självbetjäningsunderhållet i följande scenarier: 
-    - Om du stänger av dina virtuella datorer, antingen manuellt, med DevTest Labs med hjälp av automatisk avstängning eller enligt ett schema, det kan återställa status för underhåll och därför orsakar ytterligare driftstopp.
-    - På tillfällig virtuella datorer tas att du känner till bort innan underhållet är slut. 
-    - För arbetsbelastningar med en stor tillstånd som lagras på hårddisken (tillfälliga) som är det önskade bevaras vid uppdatering. 
-    - I de fall där du ändrar storlek på den virtuella datorn ofta, som det kunde återställa status för underhåll. 
-    - Om du har valt schemalagda händelser som möjliggör proaktiv redundans eller avslutning av din arbetsbelastning 15 minuter innan Underhåll avstängning
+- Låt Azure utlöser underhåll. För underhåll som kräver omstart, Tänk på att underhållet görs uppdateringsdomän av uppdateringsdomänen och att uppdateringsdomäner inte nödvändigtvis får underhållet sekventiellt, och att det finns en 30-minuters paus mellan uppdateringsdomäner. 
+- Om en temporär förlust av några av din kapacitet (1/uppdatera antalet) är ett problem, kan det enkelt kompenseras genom att allokera ytterligare instanser under underhållsperioden.
+- Underhåll som inte kräver omstart, uppdateringar tillämpas på domännivå fel.
+    
+**Inte** använder självbetjäningsunderhållet i följande scenarier: 
+- Om du stänger av dina virtuella datorer, antingen manuellt, med DevTest Labs med hjälp av automatisk avstängning eller enligt ett schema, det kan återställa status för underhåll och därför orsakar ytterligare driftstopp.
+- På tillfällig virtuella datorer tas att du känner till bort innan underhållet är slut. 
+- För arbetsbelastningar med en stor tillstånd som lagras på hårddisken (tillfälliga) som är det önskade bevaras vid uppdatering. 
+- I de fall där du ändrar storlek på den virtuella datorn ofta, som det kunde återställa status för underhåll.
+- Om du har valt schemalagda händelser som möjliggör proaktiv redundans eller avslutning av din arbetsbelastning 15 minuter innan Underhåll avstängning
 
 **Använd** självbetjäningsunderhållet, om du planerar att köra den virtuella datorn utan avbrott under fasen för schemalagt underhåll och ingen av de avdelningar uppgifter som nämns ovan gäller. 
 
 Det är bäst att använda självbetjäningsunderhållet i följande fall:
-    - Du måste kommunicera en exakt underhållsperiod till hantering eller end-kund. 
-    - Du måste du ha slutfört underhållet med ett visst datum. 
-    - Du behöver styra sekvensen av underhåll, till exempel flernivåapp att garantera säker omstart.
-    - Du behöver mer än 30 minuter från tiden för återställning av virtuell dator mellan två uppdateringsdomäner (ud). För att styra tiden mellan uppdateringsdomäner, måste du utlöser Underhåll på dina virtuella datorer en uppdateringsdomän (UD) i taget.
+
+- Du måste kommunicera en exakt underhållsperiod till hantering eller end-kund. 
+- Du måste du ha slutfört underhållet med ett visst datum. 
+- Du behöver styra sekvensen av underhåll, till exempel flernivåapp att garantera säker omstart.
+- Du behöver mer än 30 minuter från tiden för återställning av virtuell dator mellan två uppdateringsdomäner (ud). För att styra tiden mellan uppdateringsdomäner, måste du utlöser Underhåll på dina virtuella datorer en uppdateringsdomän (UD) i taget.
 
  
 

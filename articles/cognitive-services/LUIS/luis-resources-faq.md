@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: eb8e55b3763c66dd2c8aabe92376bcb1278a0f45
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 291eb9ef7d8d089b443b55ac181e9fdd65fcb413
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346764"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888865"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding vanliga frågor och svar
 
@@ -183,7 +183,7 @@ Artiklar som tidigare fanns i delen av självstudiekursen är nu i avsnittet How
 |Skapa en LUIS-app genom programmering med [Node.js](luis-tutorial-node-import-utterances-csv.md)|
 |Använd [sammansatt entitet](luis-tutorial-composite-entity.md) att extrahera grupperade data|
 |Lägg till [lista entitet](luis-tutorial-list-entity.md) för ökad entitet med hjälp av Node.js|
-|Förbättra förutsägelsefunktionen med en [frasen lista](luis-tutorial-interchangeable-phrase-list.md), [mönster](luis-tutorial-pattern.md), och [batch testning](luis-tutorial-batch-testing.md)|
+|Förbättra förutsägelsefunktionen med en [frasen lista](luis-quickstart-primary-and-secondary-data.md), [mönster](luis-tutorial-pattern.md), och [batch testning](luis-tutorial-batch-testing.md)|
 |[Stavningskontroll](luis-tutorial-batch-testing.md) med API för stavningskontroll i Bing v7
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Jag har hört talas om en funktion för Language Understanding eller demo men jag inte kommer ihåg vad den anropades på Build-konferensen för 2018? 
@@ -213,5 +213,3 @@ Projekt:
 Mer information om LUIS finns i följande resurser:
 * [Stack Overflow frågor som taggats med LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [MSDN Språkförståelse Intelligent Services (LUIS)-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

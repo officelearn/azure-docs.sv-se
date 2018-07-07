@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 9793b98c384346dc0de68061d42b4bcb3c513ed4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 12105829f62b988760d3bbf18000466fd27b9aff
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866210"
+ms.locfileid: "37888340"
 ---
 # <a name="tutorial-use-patterns-to-improve-predictions"></a>Självstudier: Använda mönster för att förbättra förutsägelser
 
@@ -29,7 +29,7 @@ Använda mönster i de här självstudierna för att öka avsikt och entiteten f
 * Hur du lägger till en roll till en entitet att hitta sammanhangsmässigt-baserade enheter
 * Hur du lägger till en Pattern.any för att hitta fri form entiteter
 
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
+För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md) för att kunna redigera LUIS-programmet.
 
 ## <a name="import-humanresources-app"></a>Importera ska appen
 Den här självstudien importerar en app ska. Appen har tre avsikter: Ingen, GetEmployeeOrgChart, GetEmployeeBenefits. Appen har två entiteter: fördefinierade tal och medarbetare. Medarbetaren entiteten är en enkel enhet att extrahera en medarbetares namn. 
@@ -250,6 +250,4 @@ Ta bort LUIS-appen när den inte längre behövs. Om du vill göra det, Välj el
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Använd frasen listan för att förbättra förutsägelse](luis-tutorial-interchangeable-phrase-list.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+> [Läs om bästa praxis för LUIS-appar](luis-concept-best-practices.md)

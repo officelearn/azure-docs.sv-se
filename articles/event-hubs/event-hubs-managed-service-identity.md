@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: sethm
-ms.openlocfilehash: 7c8f7fff5e3cf7334ce30a3fa90ae950f841662c
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: abff3f715a1fccba172147f02b83f7209f87cf9e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865305"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902524"
 ---
 # <a name="managed-service-identity-preview"></a>Hanterad tjänstidentitet (förhandsgranskning)
 
@@ -60,6 +60,9 @@ Den hanterade tjänstidentiteten för webbprogrammet nu har åtkomst till Event 
 ### <a name="run-the-app"></a>Kör appen
 
 Nu ändra standardsidan för ASP.NET-programmet som du skapade. Du kan också använda web programkoden från [den här GitHub-lagringsplatsen](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp). 
+
+>[!NOTE] 
+> MSI-funktionen är i förhandsversion, måste du använda den [förhandsversionen av Service Bus-bibliotek](https://www.nuget.org/packages/WindowsAzure.ServiceBus/4.2.2-preview) för att komma åt den nya API: er. 
 
 När du startar appen, pekar EventHubsMSIDemo.aspx din webbläsare. Du kan också ange den som din startsida. Koden finns i filen EventHubsMSIDemo.aspx.cs. Resultatet är ett minimalt webbprogram med några fält och **skicka** och **får** knappar som ansluter till Event Hubs antingen skicka eller ta emot händelser. 
 

@@ -5,35 +5,36 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
-ms.author: azcspmt;jonbeck;cynthn
+ms.date: 05/29/2018
+ms.author: azcspmt;jonbeck;cynthn;danlep
 ms.custom: include file
-ms.openlocfilehash: ee32886ddb74bdbbe0f240310629c8ef26230a68
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 296e92d803bb69376f286aa60cfb4a955b08010f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "34669362"
 ---
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
-* **Azure-prenumeration** – för att distribuera flera instanser av beräkningsintensiva bör du överväga att en prenumeration med användningsbaserad betalning eller andra köpalternativ. Om du använder ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) kan du bara använda ett begränsat antal Azure Compute-kärnor.
+* **Azure-prenumeration** – för att distribuera mer än ett par beräkningsintensiva instanser, Överväg att en användningsbaserad prenumeration eller andra alternativ. Om du använder ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) kan du bara använda ett begränsat antal Azure Compute-kärnor.
 
-* **Priser och tillgänglighet** -storlekar för dessa Virtuella erbjuds endast i vanlig prisnivån. Kontrollera [produkter som är tillgängliga efter region] (https://azure.microsoft.com/regions/services/) för tillgänglighet i Azure-regioner. 
-* **Kärnor kvoten** – du kan behöva öka kvoten kärnor i din Azure-prenumeration från standardvärdet. Din prenumeration kan också begränsa antal kärnor som du kan distribuera i vissa VM storlek familjer, inklusive H-serien. Att begära en ökad kvot [öppna en supportbegäran online customer](../articles/azure-supportability/how-to-create-azure-support-request.md) utan kostnad. (Standardgränser kan variera beroende på din prenumerationskategori.)
+* **Priser och tillgänglighet** -dessa VM-storlekar finns bara i Standard prisnivå. Kontrollera [produkttillgänglighet per region] (https://azure.microsoft.com/regions/services/) för tillgänglighet i Azure-regioner. 
+* **Kärnkvot** – du kan behöva öka kärnkvoten i din Azure-prenumeration från standardvärdet. Din prenumeration kan också begränsa hur många kärnor du kan distribuera i vissa storleksfamiljer VM, inklusive H-serien. En kvot, [öppna en supportbegäran online-kund](../articles/azure-supportability/how-to-create-azure-support-request.md) utan kostnad. (Standardgränser kan variera beroende på din prenumerationskategori.)
   
   > [!NOTE]
-  > Kontakta Azure-supporten om du har stora kapacitetsbehov. Azure-kvoter är kredit begränsar inte kapacitet garantier. Oavsett din kvot endast debiteras du för kärnor att du använder.
+  > Kontakta Azure-supporten om du har storskaliga kapacitetsbehoven. Azure-kvoter är kredit begränsar inte kapacitet garantier. Oavsett din kvot debiteras du bara för kärnor att du använder.
   > 
   > 
-* **Virtuellt nätverk** – en Azure [virtuellt nätverk](https://azure.microsoft.com/documentation/services/virtual-network/) inte krävs för att använda beräkningsintensiva instanser. Däremot för många distributioner behöver du minst en molnbaserad Azure virtuellt nätverk eller en plats-till-plats-anslutning om du behöver få åtkomst till lokala resurser. Skapa ett nytt virtuellt nätverk för att distribuera instanser vid behov. Lägga till beräkningsintensiva virtuella datorer till ett virtuellt nätverk i en tillhörighetsgrupp stöds inte.
-* **Ändra storlek på** – på grund av deras speciell maskinvara, du kan bara ändra storlek beräkningsintensiva instanser inom samma familj (H-serien eller beräkningsintensiva A-serien) i storlek. Du kan till exempel bara ändra en H-serien virtuell dator från en H-storlek till en annan. Dessutom stöds storleksändring från en icke-beräkningsintensiva storlek till en beräkningsintensiva storlek inte.  
+* **Virtuellt nätverk** – ett Azure [virtuellt nätverk](https://azure.microsoft.com/documentation/services/virtual-network/) inte krävs för att använda beräkningsintensiva instanser. Men för många distributioner behöver du minst en molnbaserad Azure-nätverk eller en plats-till-plats-anslutning om du behöver komma åt lokala resurser. Skapa ett nytt virtuellt nätverk för att distribuera instanser när de behövs. Att lägga till beräkningsintensiva virtuella datorer i ett virtuellt nätverk i en tillhörighetsgrupp stöds inte.
+* **Ändra storlek på** – på grund av deras specialiserad maskinvara kan du bara ändra storlek beräkningsintensiva instanser inom samma storleksfamilj (H-serien och beräkningsintensiva A-serien). Du kan till exempel bara ändra en H-serien virtuell dator från en H-serien storlek till en annan. Dessutom kan stöds ändra storlek på från en icke-beräkningsintensiva storlek till en storlek för beräkningsintensiva inte.  
 
-## <a name="rdma-capable-instances"></a>RDMA-kompatibla instanser
-En delmängd av beräkningsintensiva instanser (H16r, H16mr, A8 och A9) har ett nätverksgränssnitt för remote direct memory access (RDMA)-anslutning. (Valda N-serien storlekar betecknats med ”r”, till exempel NC24r är också RDMA-kompatibla.) Det här gränssnittet är utöver standard Azure nätverksgränssnittet tillgänglig för andra storlekar på VM. 
+## <a name="rdma-capable-instances"></a>RDMA-kompatibla förekomster
+En delmängd av beräkningsintensiva instanser (H16r, H16mr, A8 och A9) har ett nätverksgränssnitt för direkt fjärråtkomst till minne minnesåtkomst (RDMA)-anslutning. (Storlekar för valda N-serien betecknas med ”r”, till exempel NC24r är också RDMA-kompatibla.) Det här gränssnittet är ett tillägg till standard Azure nätverksgränssnittet tillgängliga för andra storlekar på Virtuella datorer. 
   
-Du kan använda RDMA-kompatibla instanserna kommunicera InfiniBand (IB) nätverk, arbetar med FDR priser för H16r, H16mr och RDMA-kompatibla N-serien virtuella datorer och QDR priser för A8 och A9 virtuella datorer i gränssnittet. Dessa funktioner för RDMA kan öka den skalbarhet och prestanda för vissa program för Message Passing Interface (MPI).
+Det här gränssnittet kan RDMA-kompatibla förekomster att kommunicera över ett nätverk med InfiniBand (IB), med priserna för FDR för H16r, H16mr och RDMA-kompatibla N-serien virtuella datorer, och QDR för A8 och A9-datorer. Dessa funktioner för RDMA kan öka skalbarheten och prestandan i vissa program med Message Passing Interface (MPI).
 
 > [!NOTE]
-> IP över IB stöds inte i Azure. Endast RDMA över IB stöds.
+> IP över IB stöds inte i Azure. Endast RDMA over IB stöds.
 >
 
-Distribuera RDMA-kompatibla HPC virtuella datorer i samma tillgänglighetsuppsättning eller skaluppsättningen för virtuell dator (när du använder Azure Resource Manager-distributionsmodellen) eller samma tjänst i molnet (när du använder den klassiska distributionsmodellen). Ytterligare krav för RDMA-kompatibla HPC virtuella datorer får åtkomst till Azure RDMA-nätverket följer.
+Distribuera RDMA-kompatibla HPC virtuella datorer i samma tillgänglighetsuppsättning eller VM-skalningsuppsättning (när du använder Azure Resource Manager-distributionsmodellen) eller samma molntjänst (när du använder den klassiska distributionsmodellen). Om du använder en VM-skalningsuppsättning kan du se till att du begränsa distributionen till en enda placeringsgrupp; till exempel i en Resource Manager-mall, ange den *singlePlacementGroup* egenskap *SANT*. Ytterligare krav för RDMA-kompatibla HPC virtuella datorer till Azure RDMA-nätverk följer.

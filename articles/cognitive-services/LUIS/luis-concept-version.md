@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 694b195440936a6eb42520c3343b6ff13194cc79
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f897a3c85bebff3c4534679d45e8af49aacba44a
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346339"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888124"
 ---
 # <a name="versions"></a>Versioner
 Skapa olika modeller av samma app med [versioner](luis-how-to-manage-versions.md). 
@@ -26,7 +26,7 @@ Versions-ID som består av tecken, siffror eller '.' och får inte vara längre 
 Den första versionen (0,1) är den aktiva standard-versionen. 
 
 ## <a name="active-version"></a>Aktiva versionen
-Att [ange en version](luis-how-to-manage-versions.md#set-active-version) som aktivt innebär att det är för närvarande redigeras och testas i den [LUIS] [ LUIS] webbplats. Ange en version som aktiv för att få åtkomst till dess data bör du kontrollera uppdateringar, samt att testa och publicera den.
+Att [ange en version](luis-how-to-manage-versions.md#set-active-version) som aktivt innebär att det är för närvarande redigeras och testas i den [LUIS](luis-reference-regions.md) webbplats. Ange en version som aktiv för att få åtkomst till dess data bör du kontrollera uppdateringar, samt att testa och publicera den.
 
 Namnet på den aktiva versionen visas i den övre, vänstra panelen efter appnamnet. 
 
@@ -62,5 +62,3 @@ Tränade versioner är inte automatiskt tillgängliga i din app [endpoint](luis-
 Se hur du lägger till [versionshantering](luis-how-to-manage-versions.md) på inställningssidan. 
 
 Lär dig hur du utformar [avsikter](luis-concept-intent.md) i modellen.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

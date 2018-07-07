@@ -1,6 +1,6 @@
 ---
-title: Lägga till Active Directory på klientsidan | Microsoft Docs
-description: Det här avsnittet beskrivs hur du infogar annonser på klientsidan.
+title: Infoga annonser på klientsidan | Microsoft Docs
+description: Det här avsnittet visar hur du infoga annonser på klientsidan.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 57cb06fcee029f72dd1cf81ef086985fdda3f45f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0ca9c7ff1ac4cfbb50f251679286a933429bf03f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788972"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903055"
 ---
-# <a name="inserting-ads-on-the-client-side"></a>Lägga till Active Directory på klientsidan
+# <a name="inserting-ads-on-the-client-side"></a>Infoga annonser på klientsidan
 Den här artikeln innehåller information om hur du infogar olika typer av annonser på klientsidan.
 
-Information om stängd textning och ad-stöd i direktsänd strömning videor finns [stöds textning och Ad infogning standarder](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).
+Information om dold textning och ad-stöd i Live direktuppspelning videor finns i [stöds textning och Ad-insättning standarder](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).
 
 > [!NOTE]
 > Azure Media Player stöder för närvarande inte annonser.
 > 
 > 
 
-## <a id="insert_ads_into_media"></a>Lägga till Ads i Media
-Azure Media Services tillhandahåller support för ad infogning via Windows Media-plattformen: Spelarramverk. Spelarramverk med stöd för ad är tillgängliga för Windows 8, Silverlight, Windows Phone 8 och iOS-enheter. Varje player framework innehåller exempelkod som visar hur du implementerar en player-programmet. Det finns tre olika typer av annonser som du kan infoga i media: listan.
+## <a id="insert_ads_into_media"></a>Infoga annonser i dina Media
+Azure Media Services har stöd för ad-insättning via Windows Media Platform: Spelarramverk. Spelarramverk med stöd för ad är tillgängliga för Windows 8, Silverlight, Windows Phone 8 och iOS-enheter. Varje player framework innehåller exempelkod som visar hur du implementerar en player-program. Det finns tre olika typer av annonser som du kan lägga till i din media: lista.
 
-* **Linjär** – fullständig ram annonser som pausa huvudsakliga videon.
-* **Linjära** – överlägget annonser som visas när den huvudsakliga videon spelas, vanligtvis en logotyp eller andra statisk avbildning visas i Windows Media player.
-* **Medföljande** – annonser som visas utanför Windows Media player.
+* **Linjär** – fullständig ramens annonser som pausa huvudsakliga videon.
+* **Icke-linjära** – överlägget annonser som visas när huvudsakliga videon spelas, vanligtvis en logotyp eller annan statisk bild visas Mediaspelaren.
+* **Tillhörande** – annonser som visas utanför spelaren.
 
-Annonser kan placeras på valfri plats i tidslinjen för den huvudsakliga video. Du måste se Windows Media player när spela upp ad och vilka annonser som ska spelas upp. Detta görs med hjälp av en uppsättning XML-baserade standardfiler: Video Ad Service mall (VAST), Digital Video flera Ad spelningslista (VMAP), Media abstrakt ordningsföljd mall (MAST) och Digital Video Player Ad Interface Definition (VPAID). STORA filer ange vilka annonser ska visas. VMAP filer ange när att spela upp olika annonser och innehålla stora XML. MAST filer är ett annat sätt att sekvens annonser som även kan innehålla stora XML. VPAID filer definierar ett gränssnitt mellan videospelaren och ad eller ad-server.
+Annonser kan placeras när som helst i tidslinjen för den huvudsakliga video. Du måste meddela spelaren när du vill spela upp ad och vilka annonser att spela upp. Detta görs med hjälp av en uppsättning XML-baserade standardfiler: Video Ad Service-mall (VAST), Digital Video flera Ad spellistan (VMAP), Media abstrakt ordningsföljd mallen (MAST) och Digital Video Player Ad Interface Definition (VPAID). STORA filer ange vilka annonser att visa. VMAP anger när du vill spela upp olika annonser och innehålla stora XML. MAST filer är ett annat sätt att sekvens annonser som även kan innehålla stora XML. VPAID filer definierar ett gränssnitt mellan videospelaren och ad eller ad-servern.
 
-Varje player framework fungerar annorlunda och varje omfattas i sin egen artikeln. Den här artikeln beskriver de grundläggande mekanismer som används för att infoga annonser. Videospelarprogram begära annonser från en ad-server. Ad-server kan svara på ett antal olika sätt:
+Varje player framework fungerar på olika sätt och var och en kommer att tas upp i sin egen artikeln. Den här artikeln beskriver de grundläggande mekanismer som används för att infoga annonser. Videospelarprogram begär annonser från en ad-server. Ad-server kan svara på flera olika sätt:
 
-* Returnera en omfattande fil
+* Returnera en stor fil
 * Returnera en VMAP-fil (med inbäddade VAST)
 * Returnera en MAST-fil (med inbäddade VAST)
-* Returnera en omfattande fil med VPAID annonser
+* Returnera en stor fil med VPAID annonser
 
-### <a name="using-a-video-ad-service-template-vast-file"></a>Med hjälp av en Video Ad-tjänsten (VAST) mallfil
-En omfattande fil anger vilka ad eller ads ska visas. Följande XML-filen är ett exempel på en omfattande fil för en linjär ad:
+### <a name="using-a-video-ad-service-template-vast-file"></a>Med hjälp av en Video Ad-tjänsten (VAST)-mallfil
+En stor fil anger vilka ad eller annonser att visa. Följande XML är ett exempel på en stor fil för en linjär ad:
 
 ```xml
     <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
@@ -94,9 +94,9 @@ En omfattande fil anger vilka ad eller ads ska visas. Följande XML-filen är et
     </VAST>
 ```
 
-Linjär ad beskrivs av den <**linjär**> element. Den varaktighet för ad klickar du på Spåra händelser via klickar du på spårning och ett antal **MediaFile** element. Spåra händelser som har angetts i den <**TrackingEvents**> element och tillåta en ad-server att spåra olika händelser som inträffar när du visar ad. I det här fallet start-och mittpunkten, klar och expandera händelser som spåras. Starta händelsen inträffar när annonsen visas. Mittpunkten händelsen inträffar när minst 50% av den ad tidslinjen har visats. Complete-händelsen inträffar när en annons har körts i slutet. Expandera händelsen inträffar när användaren expanderar videospelaren till hela skärmen. Clickthroughs anges med en <**Klickningsförflyttningsrapport**> element i en <**VideoClicks**> element och anger en URI för en resurs ska visas när användaren klickar på ad. ClickTracking har angetts i en <**ClickTracking**> element, även i den <**VideoClicks**> element och anger en spårning resurs så begär när användaren klickar på ad . Den <**MediaFile**> element ange information om en viss kodning av en annons. Om det finns fler än en <**MediaFile**> element i videospelare kan välja den bästa kodningen för plattformen. 
+Linjär ad beskrivs i den <**linjär**> element. Den anger hur länge av ad, spårning av händelser, klicka dig igenom klickspårning och ett antal **MediaFile** element. Spårningshändelser har angetts i den <**TrackingEvents**> element och tillåta en ad-servern för att spåra olika händelser som inträffar när du visar ad. I det här fallet mittpunkten, klar, startar och expandera händelser som spåras. Starta händelsen inträffar när annonsen visas. Mittpunkten händelsen inträffar när minst 50% av den ad tidslinjen har visats. Den fullständiga händelsen inträffar när ad har körts i slutet. Expandera händelsen inträffar när användaren expanderar videospelaren till hela skärmen. Clickthroughs anges med en <**genomklickning**> element i en <**VideoClicks**> element och anger en URI till en resurs ska visas när användaren klickar på ad. ClickTracking har angetts i en <**ClickTracking**> element, även i den <**VideoClicks**> element och anger en spårning resurs för spelaren att begära när användaren klickar på ad . Den <**MediaFile**> element anger du information om en specifik kodning av en annons. När det finns fler än en <**MediaFile**> elementet videospelaren kan välja den bästa kodningen för plattformen. 
 
-Linjär annonser kan visas i en angiven ordning. Det gör du genom att lägga till ytterligare <Ad> element till VAST filen och ange vilken ordning med attributet sekvens. I följande exempel visar detta:
+Linjär annonser kan visas i en angiven ordning. Gör detta genom att lägga till ytterligare <Ad> element till VAST filen och ange vilken ordning med hjälp av attributet sekvens. I följande exempel illustrerar detta:
 
 ```xml
     <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
@@ -143,7 +143,7 @@ Linjär annonser kan visas i en angiven ordning. Det gör du genom att lägga ti
     </VAST>
 ```
 
-Linjära annonser som har angetts i en <Creative> -element. Följande exempel visar en <Creative> element som beskriver en linjära ad.
+Icke-linjära annonser som har angetts i en <Creative> -element. I följande exempel visas en <Creative> element som beskriver en icke-linjära ad.
 
 ```xml
     <Creative id="video" sequence="1" AdID="">
@@ -160,20 +160,20 @@ Linjära annonser som har angetts i en <Creative> -element. Följande exempel vi
     </Creative>
 ```
 
-Den <**NonLinearAds**>-element kan innehålla en eller flera <**NonLinear**>-element, som kan beskriva linjära ad. Den <**NonLinear**>-element anger resursen för den linjära ad. Resursen kan vara en <**StaticResouce**>, <**IFrameResource**>, eller en <**HTMLResouce**>. <**StaticResource**> beskriver en HTML-resurs och definierar ett creativeType-attribut som anger hur resursen visas:
+Den <**NonLinearAds**> element kan innehålla en eller flera <**NonLinear**>-element, som kan beskriva en icke-linjära ad. Den <**NonLinear**> elementet anger resurs för den icke-linjära ad. Resursen kan vara en <**StaticResouce**>, en <**IFrameResource**>, eller en <**HTMLResouce**>. <**StaticResource**> beskriver en icke-HTML-resurs och definierar ett creativeType-attribut som anger hur resursen visas:
 
-Bild/GIF-, image/jpeg, bild/png – resursen visas i ett HTML-<**img**> taggen.
+Bild/gif, bild/jpeg, bild/png – resursen visas i en HTML <**img**> taggen.
 
-Program/x-javascript-resursen visas i ett HTML-<**skriptet**> taggen.
+Application/x-javascript – resursen visas i en HTML <**skriptet**> taggen.
 
-Program/x-shockwave-flash-resursen visas i Flash player.
+Application/x-shockwave-flash-resursen visas i en Flash player.
 
-**IFrameResource** beskriver en HTML-resurs som kan visas i en IFrame. **HTMLResource** beskriver en typ av HTML-kod som kan infogas i en webbsida. **TrackingEvents** ange spårning av händelser och URI: N att begära när händelsen inträffar. I det här exemplet spåras händelserna acceptInvitation och komprimera. Mer information om den **NonLinearAds** elementet och dess underordnade finns IAB.NET/VAST. Observera att den **TrackingEvents** element finns i den **NonLinearAds** element snarare än den **NonLinear** element.
+**IFrameResource** beskriver en HTML-resurs som kan visas i en IFrame. **HTMLResource** beskriver en del av HTML-kod som kan läggas till en webbsida. **TrackingEvents** ange spårningshändelser och URI: N att begära när händelsen inträffar. I det här exemplet spåras händelserna acceptInvitation och Dölj. Mer information om den **NonLinearAds** elementet och dess underordnade Se IAB.NET/VAST. Observera att den **TrackingEvents** element är belägen inom den **NonLinearAds** elementet snarare än **NonLinear** element.
 
-Medföljande ads definieras inom ett <CompanionAds> element. Den <CompanionAds> -element kan innehålla en eller flera <Companion> element. Varje <Companion> element beskriver en tillhörande ad och kan innehålla en <StaticResource>, <IFrameResource>, eller <HTMLResource> som anges på samma sätt som i en icke-linjära ad. En omfattande fil kan innehålla flera tillhörande annonser och player-programmet kan välja den lämpligaste ad ska visas. Läs mer om VAST [stora 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
+Tillhörande annonser definieras i en <CompanionAds> element. Den <CompanionAds> element kan innehålla en eller flera <Companion> element. Varje <Companion> element beskriver en tillhörande ad och kan innehålla en <StaticResource>, <IFrameResource>, eller <HTMLResource> som anges på samma sätt som i en icke-linjära ad. En stor fil kan innehålla flera tillhörande annonser och player-program kan välja den lämpligaste ad för att visa. Läs mer om VAST [stora 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
 
-### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>Med hjälp av en Digital Video flera Ad spelningslista (VMAP)-fil
-En VMAP-fil kan du ange när ad avbrott inträffar, hur länge varje break är, hur många annonser kan visas i en paus och vilka typer av annonser kanske visas under en paus. Följande i en exempel VMAP-fil som definierar en enda ad-break:
+### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>Med hjälp av en Digital Video flera Ad spellistan (VMAP)-fil
+En VMAP-fil kan du ange när ad radbrytningar inträffar, hur lång tid varje break är, hur många annonser kan visas i en radbrytning och vilka typer av annonser kanske visas under ett avbrott. Följande i en exempelfil VMAP som definierar en enda ad-break:
 
 ```xml
     <vmap:VMAP xmlns:vmap="http://www.iab.net/vmap-1.0" version="1.0">
@@ -224,34 +224,34 @@ En VMAP-fil kan du ange när ad avbrott inträffar, hur länge varje break är, 
     </vmap:VMAP>
 ```
 
-En VMAP-fil som börjar med en <VMAP> element som innehåller en eller flera <AdBreak> element som definierar ett ad-break. Varje ad-break anger en break-typ, break-ID och tidsförskjutningen. Attributet breakType anger vilken typ av ad kan spelas upp under pausen: linjär, linjära, eller visa. Visa annonser karta till stora tillhörande annonser. Fler än en ad-typ kan anges i en kommaavgränsad (inga blanksteg) lista. BreakID är ett valfritt ID för ad. TimeOffset anger när ad ska visas. Det kan anges i något av följande sätt:
+En VMAP-fil som börjar med en <VMAP> element som innehåller en eller flera <AdBreak> element, vart och ett definierar en ad-break. Varje ad-break anger en break-typ, break-ID och förskjutning. Attributet breakType anger vilken typ av ad som kan spelas upp under pausen: linjär, icke-linjära, eller visa. Visa annonser karta till stora tillhörande annonser. Mer än en ad-typ kan anges i en lista med kommaavgränsade (utan blanksteg). BreakID är ett valfritt identifieraren för ad. TimeOffset anger när ad ska visas. Det kan anges i något av följande sätt:
 
-1. Tid-formatet: mm: ss eller hh:mm:ss.mmm där .mmm är millisekunder. Värdet för det här attributet anger tiden från början av video tidslinjen till början av ad-break.
-2. – N % format där n är procentandelen av video tidslinjen att spela upp innan spelar ad
-3. Börja/sluta – anger att en annons ska visas före eller efter att videon har visats
-4. Placera – anger ad radbrytningar vid tidpunkten för ad-radbrytningar är okänd, till exempel direktsänd strömning. Ordningen för varje ad-break anges i formatet #n där n är ett heltal som är 1 eller högre. 1 innebär det att ad som ska spelas vid första tillfälle 2 innebär det att ad som ska spelas andra som möjligt och så vidare.
+1. Tid –: mm: ss eller hh:mm:ss.mmm format där .mmm är millisekunder. Värdet för det här attributet anger tiden från början av video tidslinje i början av ad-break.
+2. – N % format där n är procentandelen av video tidslinjen att spela upp innan du spelar ad
+3. Start/slut – anger att en annons ska visas före eller efter videon har visats
+4. Placera – anger ordningen för ad-radbrytningar när tidsinställningen för ad-radbrytningar är okänd, till exempel direktsänd strömning. Ordningen på varje ad-break anges i formatet #n där n är ett heltal som är minst 1. 1 innebär det att ad som ska spelas på den första möjligheten 2 innebär det att ad ska spelas vid andra tillfälle och så vidare.
 
-I den <AdBreak> element, det kan finnas ett <**AdSource**> element. Den <**AdSource**> elementet innehåller följande attribut:
+I den <AdBreak> element, det kan finnas en <**AdSource**> element. Den <**AdSource**> elementet innehåller följande attribut:
 
-1. -ID – anger en identifierare för ad-källa
+1. -ID – anger ett ID för ad-källa
 2. allowMultipleAds – ett booleskt värde som anger om flera annonser kan visas under ad-break
-3. followRedirects – ett booleskt värde som anger om videospelaren bör respektera omdirigerar inom ett ad-svar
+3. followRedirects – ett booleskt värde som anger om videospelaren ska behandla omdirigerar inom ett ad-svar
 
 Den <**AdSource**>-elementet har spelaren ett infogat ad svar eller en referens till ett ad-svar. Det kan innehålla något av följande element:
 
-* <VASTAdData> Anger om ad svar är inbäddad i filen VMAP
-* <AdTagURI> en URI som refererar till ett ad-svar från en annan dator
+* <VASTAdData> Anger ett ENORMT ad-svar är inbäddad i filen VMAP
+* <AdTagURI> en URI som refererar till ett ad-svar från ett annat system
 * <CustomAdData> -en godtycklig sträng som representerar ett icke-stora svar
 
-I det här exemplet anges en infogad ad-svar med en <VASTAdData> element som innehåller en omfattande ad-svar. Mer information om andra element finns [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
+I det här exemplet anges ett infogat ad-svar med en <VASTAdData> element som innehåller ett omfattande ad-svar. Läs mer om de andra elementen [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
-Den <**AdBreak**>-elementet kan också innehålla ett <**TrackingEvents**> element. Den <**TrackingEvents**>-elementet kan du spåra början eller slutet av en ad-break eller om ett fel uppstod under ad-break. Den <**TrackingEvents**> elementet innehåller ett eller flera <**spårning**>-element, som anger en spårning händelse och spårning URI. Spårning av möjliga händelser är:
+Den <**AdBreak**> element kan också innehålla en <**TrackingEvents**> element. Den <**TrackingEvents**> element kan du spåra början eller slutet av en ad-break eller om ett fel uppstod under ad-break. Den <**TrackingEvents**> elementet innehåller ett eller flera <**spårning**>-element, som anger en spårningshändelsen och en spårning av URI: N. Möjliga spårningshändelsedefinitionen är:
 
 1. breakStart – spårar i början av en ad-break
 2. breakEnd – spåra slutförandet av en ad-break
 3. fel – spårar ett fel som uppstod under ad-break
 
-I följande exempel visas en VMAP-fil som anger spårning av händelser
+I följande exempel visas en VMAP-fil som anger spårningshändelser
 
 ```xml
     <vmap:VMAP xmlns:vmap="http://www.iab.net/vmap-1.0" version="1.0">
@@ -276,10 +276,10 @@ I följande exempel visas en VMAP-fil som anger spårning av händelser
     </vmap:VMAP>
 ```
 
-Mer information om den <**TrackingEvents**>-elementet och dess underordnade finns http://iab.org/VMAP.pdf
+Mer information om den <**TrackingEvents**>-elementet och dess underordnade finns i http://iab.net/VMAP.pdf
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>Med hjälp av en Media abstrakt ordningsföljd mallfilen (MAST)
-En MAST-fil kan du ange utlösare som definierar när en annons visas. Följande är ett exempel MAST-fil som innehåller utlösare för en sammanslagning pre-annons, en halva sammanslagning ad och en efter sammanslagning ad.
+En MAST-fil kan du ange utlösare som definierar när ett ad visas. Följande är ett exempel MAST-fil som innehåller utlösare för en i förväg sammanslagning ad, en mellannivå sammanslagning ad och en ad efter distributionen.
 
 ```xml
     <MAST xsi:schemaLocation="http://openvideoplayer.sf.net/mast http://openvideoplayer.sf.net/mast/mast.xsd" xmlns="http://openvideoplayer.sf.net/mast" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -325,16 +325,16 @@ En MAST-fil kan du ange utlösare som definierar när en annons visas. Följande
 ```
 
 
-En MAST fil börjar med en **MAST** element som innehåller en **utlösare** element. Den <triggers> elementet innehåller ett eller flera **utlösaren** element som definierar när en annons ska spelas upp. 
+En MAST-fil som börjar med en **MAST** element som innehåller en **utlösare** element. Den <triggers> elementet innehåller ett eller flera **utlösaren** element som definierar när en annons ska spelas upp. 
 
-Den **utlösaren** elementet innehåller ett **startConditions** element som anger när en annons ska börja spela upp. Den **startConditions** elementet innehåller ett eller flera <condition> element. När varje <condition> utvärderas till SANT en utlösare initieras eller återkallas beroende på om den <condition> ingår i en **startConditions** eller **endConditions** element respektive. När flera <condition> element finns, de behandlas som en implicit eller, eventuella villkor som utvärderar TRUE kommer utlösaren som startar. <condition> element kan kapslas. När underordnade <condition> element är förinställda, de behandlas som en implicit och alla villkor måste utvärderas till sant att initiera utlösaren. Den <condition> elementet innehåller följande attribut som definierar villkoret: 
+Den **utlösaren** elementet innehåller ett **startConditions** element som anger när du ska starta en annons att spela upp. Den **startConditions** elementet innehåller ett eller flera <condition> element. När varje <condition> utvärderas till SANT en utlösare initieras eller återkallas beroende på om den <condition> ingår i en **startConditions** eller **endConditions** element respektive. När flera <condition> element finns, hanteras de som en implicit OR, eventuella villkor som utvärderar till true genereras utlösaren att initiera. <condition> element kan kapslas. När underordnade <condition> element är förinställda, de behandlas som en implicit och alla villkor måste utvärderas till sant att initiera utlösaren. Den <condition> elementet innehåller följande attribut som definierar villkoret: 
 
-1. **typen** – anger vilken typ av villkor, händelse eller egenskap
-2. **namnet** – namnet på egenskapen eller händelsen som ska användas under utvärderingen
+1. **typ** – anger vilken typ av villkor, händelser eller egenskapen
+2. **namn på** – namnet på det egenskapen eller den händelse som ska användas under utvärderingen
 3. **värdet** – det värde som en egenskap som ska utvärderas mot
 4. **operatorn** – används under utvärderingen: EQ (lika), NEQ (inte lika med), GTR (större), GEQ (större eller lika med), LT (mindre än), LEQ (mindre än eller lika med), MOD (modulo)
 
-**endConditions** också innehålla <condition> element. När villkoret utvärderas till true utlösaren återställs. Den <trigger> elementet innehåller också en <sources> element som innehåller en eller flera <source> element. Den <source> element definiera URI: N för ad-svar och typen av ad-svar. I det här exemplet får en URI för stora svar. 
+**endConditions** också innehålla <condition> element. När ett villkor utvärderas till true utlösaren återställs. Den <trigger> elementet innehåller också en <sources> element som innehåller en eller flera <source> element. Den <source> element definiera URI: N för ad-svar och typ av ad-svar. I det här exemplet ges en URI till ett ENORMT svar. 
 
 ```xml
     <trigger id="postroll" description="postroll"  >
@@ -349,10 +349,10 @@ Den **utlösaren** elementet innehåller ett **startConditions** element som ang
     </trigger>
 ```
 
-### <a name="using-video-player-ad-interface-definition-vpaid"></a>Med hjälp av Video Player-Ad gränssnittsdefinition (VPAID)
-VPAID är en API för att aktivera körbara ad enheter att kommunicera med en videospelare. Detta gör att interaktiva ad upplevelser. Användaren kan interagera med ad och ad kan svara på åtgärder som vidtas av visningsprogrammet. En annons kan till exempel visa knappar som används att visa mer information eller en längre version av ad. Videospelaren måste stödja VPAID-API och körbara ad måste implementera API: et. När en spelare begär en annons från en server med ad servern svarar med ett omfattande svar som innehåller en VPAID ad.
+### <a name="using-video-player-ad-interface-definition-vpaid"></a>Med Video Player-Ad-gränssnittsdefinitionen (VPAID)
+VPAID är en API för att aktivera körbara ad-enheter att kommunicera med en videospelare. På så sätt kan interaktiva ad upplevelser. Användaren kan interagera med ad och ad kan svara på åtgärder som vidtas av visningsprogrammet. En annons kan till exempel visa knappar som gör att användaren kan visa mer information eller en längre version av ad. Videospelaren måste ha stöd för VPAID API: et och körbara ad måste implementera API: et. När en spelare begär en annons från en server med ad servern svarar med ett omfattande svar som innehåller en VPAID ad.
 
-En körbara ad skapas i koden som måste köras i en körningsmiljö som Adobe Flash™ eller JavaScript som kan utföras i en webbläsare. När en ad-servern returnerar ett omfattande svar som innehåller en VPAID ad, värdet för apiFramework attribut i den <MediaFile> elementet måste vara ”VPAID”. Det här attributet anger att den befintliga ad är en VPAID körbara ad. Typ av attribut måste anges till MIME-typ för den körbara filen, till exempel ”application/x-shockwave-flash” eller ”application/x-javascript”. I följande XML-fragment visas den <MediaFile> element från en omfattande svar som innehåller en VPAID körbara ad. 
+En körbar ad skapas i koden som måste köras i en körningsmiljö om du till exempel Adobe Flash™ eller JavaScript som kan utföras i en webbläsare. När en ad-servern returnerar ett ENORMT svar som innehåller en VPAID ad, värdet för apiFramework attribut i den <MediaFile> elementet måste vara ”VPAID”. Det här attributet anger att den inneslutna ad är en VPAID körbara ad. Attributet type måste anges till MIME-typen för den körbara filen, till exempel ”application/x-shockwave-flash” eller ”application/x-javascript”. I följande XML-fragment visas den <MediaFile> element från ett omfattande svar som innehåller en VPAID körbara ad. 
 
 ```xml
     <MediaFiles>
@@ -363,27 +363,27 @@ En körbara ad skapas i koden som måste köras i en körningsmiljö som Adobe F
     </MediaFiles>
 ```
 
-En körbara ad kan initieras med hjälp av den <AdParameters> element i den <Linear> eller <NonLinear> element i ett omfattande svar. Mer information om den <AdParameters> element, se [stora 3.0](http://www.iab.net/media/file/VASTv3.0.pdf). Mer information om VPAID-API finns [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
+En körbar ad kan initieras med hjälp av den <AdParameters> element i den <Linear> eller <NonLinear> element i ett ENORMT svar. Mer information om den <AdParameters> element, se [stora 3.0](http://www.iab.net/media/file/VASTv3.0.pdf). Läs mer om API VPAID [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
 ## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>Implementera en Windows- eller Windows Phone 8 Player med stöd för Ad
-Microsoft Media-plattform: Player Framework för Windows 8 och Windows Phone 8 innehåller en samling exempelprogram som visar hur du implementerar en videospelare-program med hjälp av ramverket. Du kan hämta Player Framework och prover från [Player Framework för Windows 8 och Windows Phone 8](https://playerframework.codeplex.com).
+Microsoft Media Platform: Player Framework för Windows 8 och Windows Phone 8 innehåller en samling av exempelprogram som visar hur du implementerar en videospelare program med hjälp av ramverket. Du kan ladda ned Player Framework och exempel från [Player Framework för Windows 8 och Windows Phone 8](https://playerframework.codeplex.com).
 
-När du öppnar Microsoft.PlayerFramework.Xaml.Samples-lösning, visas ett antal mappar i projektet. Mappen reklam innehåller exempelkod som är relevanta för att skapa en videospelare med stöd för ad. I marknadsföring är mappen ett antal XAML/cs filer som visar hur du infogar annonser på olika sätt. I följande lista beskrivs var:
+När du öppnar Microsoft.PlayerFramework.Xaml.Samples-lösning, visas ett antal mappar i projektet. Reklam-mappen innehåller exempelkod som är relevanta för att skapa en videospelare med stöd för ad. I reklam är mappen ett antal XAML/cs filer som visar hur du infoga annonser på ett annat sätt. I följande lista beskrivs var och en:
 
-* AdPodPage.xaml visar hur du visar en ad-baljor.
+* AdPodPage.xaml visar hur du vill visa en ad-pod.
 * AdSchedulingPage.xaml visar hur du schemalägger annonser.
-* FreeWheelPage.xaml visar hur du använder FreeWheel plugin-programmet för att schemalägga annonser.
+* FreeWheelPage.xaml visar hur du använder plugin-programmet FreeWheel för att schemalägga annonser.
 * MastPage.xaml visar hur du schemalägger annonser med en MAST-fil.
-* ProgrammaticAdPage.xaml visar hur du schemalägger programmässigt annonser i en video.
-* ScheduleClipPage.xaml visar hur du schemalägger en annons utan en omfattande fil.
+* ProgrammaticAdPage.xaml visar hur du programmässigt schemalägger annonser i en video.
+* ScheduleClipPage.xaml visar hur du schemalägger en annons utan en stor fil.
 * VastLinearCompanionPage.xaml visar hur du infogar en linjär och tillhörande ad.
-* VastNonLinearPage.xaml visar hur du infogar en icke-linjär ad.
+* VastNonLinearPage.xaml visar hur du infogar en icke-linjära ad.
 * VmapPage.xaml visar hur du anger annonser med en VMAP-fil.
 
-Var och en av de här exemplen använder Media Player-klass som definieras av player-ramverket. De flesta prover använda plugin-program som lägger till stöd för olika format för ad-svar. ProgrammaticAdPage provet samverkar programmässigt med en MediaPlayer-instans.
+Var och en av de här exemplen använder Media Player-klassen som definieras av player framework. De flesta exempel Använd plugin-program som lägger till stöd för olika format för ad-svar. ProgrammaticAdPage exemplet interagerar programmatiskt med Media Player-instans.
 
-### <a name="adpodpage-sample"></a>AdPodPage-exempel
-Det här exemplet använder AdSchedulerPlugin för att definiera när du ska visa en annons. I det här exemplet kommer en annons halva sammanslagning att spelas upp efter fem sekunder. Ad-baljor (en grupp i Active Directory för att visa i ordning) har angetts i en omfattande fil som returneras från en ad-server. URI: N till stora filen har angetts i den <RemoteAdSource> element.
+### <a name="adpodpage-sample"></a>AdPodPage exempel
+Det här exemplet använder AdSchedulerPlugin för att definiera när du vill visa en annons. I det här exemplet kommer en mellannivå sammanslagning annons att spelas upp efter fem sekunder. Ad-pod (en grupp av annonser ska visas i ordning) har angetts i en omfattande fil som har returnerats från en ad-server. URI: N till stora filen har angetts i den <RemoteAdSource> element.
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -405,10 +405,10 @@ Det här exemplet använder AdSchedulerPlugin för att definiera när du ska vis
     </mmppf:MediaPlayer>
 ```
 
-Mer information om AdSchedulerPlugin finns [annonserar i Player Framework på Windows 8 och Windows Phone 8](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
+Läs mer om AdSchedulerPlugin [annonserar i Player Framework på Windows 8 och Windows Phone 8](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
 
 ### <a name="adschedulingpage"></a>AdSchedulingPage
-Det här exemplet använder också AdSchedulerPlugin. Den schemaläggs tre annonser, en före sammanslagning ad, en halva sammanslagning ad och en efter sammanslagning ad. URI: N till VAST för varje ad har angetts i en <RemoteAdSource> element.
+Det här exemplet använder också AdSchedulerPlugin. Det schemalägger tre annonser, en före distributionen ad, en mellannivå sammanslagning ad och en ad efter distributionen. URI som VAST för varje annons har angetts i en <RemoteAdSource> element.
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -442,7 +442,7 @@ Det här exemplet använder också AdSchedulerPlugin. Den schemaläggs tre annon
 ```
 
 ### <a name="freewheelpage"></a>FreeWheelPage
-Det här exemplet använder FreeWheelPlugin som anger ett källattribut som anger en URI som pekar på en SmartXML-fil som anger ad innehåll samt ad schemainformation.
+Det här exemplet används FreeWheelPlugin som anger ett källattribut som anger en URI som pekar på en SmartXML-fil som anger ad innehåll samt ad schemainformation.
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -454,7 +454,7 @@ Det här exemplet använder FreeWheelPlugin som anger ett källattribut som ange
 ```
 
 ### <a name="mastpage"></a>MastPage
-Det här exemplet använder MastSchedulerPlugin som gör det möjligt att använda en MAST-fil. Källattributet anger platsen för filen MAST.
+Det här exemplet används MastSchedulerPlugin som gör det möjligt att använda en MAST-fil. Källattributet anger platsen där filen MAST.
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
@@ -465,13 +465,13 @@ Det här exemplet använder MastSchedulerPlugin som gör det möjligt att använ
 ```
 
 ### <a name="programmaticadpage"></a>ProgrammaticAdPage
-Det här exemplet samverkar programmässigt med den Media Player. Filen ProgrammaticAdPage.xaml instansierar MediaPlayer:
+Det här exemplet interagerar programmatiskt med den Media Player. Filen ProgrammaticAdPage.xaml skapar en instans av den Media Player:
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4"/>
 ```
 
-Filen ProgrammaticAdPage.xaml.cs skapar en AdHandlerPlugin lägger till en TimelineMarker att ange när en annons ska visas och lägger sedan till en hanterare för händelsen MarkerReached som läser in en RemoteAdSource att ange en URI för en omfattande fil och sedan spelar ad.
+Filen ProgrammaticAdPage.xaml.cs skapar en AdHandlerPlugin lägger till en TimelineMarker att ange när en annons ska visas och lägger sedan till en hanterare för händelsen MarkerReached som läser in en RemoteAdSource att ange en URI till en stor fil och sedan spelar ad.
 
 ```csharp
     public sealed partial class ProgrammaticAdPage : Microsoft.PlayerFramework.Samples.Common.LayoutAwarePage
@@ -504,7 +504,7 @@ Filen ProgrammaticAdPage.xaml.cs skapar en AdHandlerPlugin lägger till en Timel
 ```
 
 ### <a name="scheduleclippage"></a>ScheduleClipPage
-Det här exemplet använder AdSchedulerPlugin för att schemalägga en halva sammanslagning ad genom att ange en .wmv-fil som innehåller ad.
+Det här exemplet används AdSchedulerPlugin för att schemalägga en mitten sammanslagning ad genom att ange en .wmv-fil som innehåller ad.
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.cloudapp.net/html5/media/bigbuck.mp4">
@@ -530,7 +530,7 @@ Det här exemplet använder AdSchedulerPlugin för att schemalägga en halva sam
 ```
 
 ### <a name="vastlinearcompanionpage"></a>VastLinearCompanionPage
-Det här exemplet illustrerar hur du använder AdSchedulerPlugin för att schemalägga en linjär ad halva sammanslagning med en tillhörande ad. Den <RemoteAdSource> elementet anger platsen för filen stora.
+Det här exemplet illustrerar hur du använder AdSchedulerPlugin för att schemalägga en linjär ad mitten sammanslagning med en tillhörande ad. Den <RemoteAdSource> elementet anger platsen där filen stora.
 
 ```xml
     <mmppf:MediaPlayer Grid.Row="1"  x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -552,7 +552,7 @@ Det här exemplet illustrerar hur du använder AdSchedulerPlugin för att schema
 ```
 
 ### <a name="vastlinearnonlinearpage"></a>VastLinearNonLinearPage
-Det här exemplet använder AdSchedulerPlugin att schemalägga en linjär och en icke-linjär ad. Om filens plats har angetts med den <RemoteAdSource> element.
+Det här exemplet använder AdSchedulerPlugin att schemalägga en linjär och en icke-linjära ad. STORA filens plats har angetts med den <RemoteAdSource> element.
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -574,7 +574,7 @@ Det här exemplet använder AdSchedulerPlugin att schemalägga en linjär och en
 ```
 
 ### <a name="vmappage"></a>VMAPPage
-Det här exemplet använder VmapSchedulerPlugin för att schemalägga Active Directory med hjälp av en VMAP-fil. URI: N till filen VMAP har angetts i källattributet för den <VmapSchedulerPlugin> element.
+Det här exemplet används VmapSchedulerPlugin för att schemalägga annonser med hjälp av en VMAP-fil. URI: N till filen VMAP har angetts i källattributet för den <VmapSchedulerPlugin> element.
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -585,11 +585,11 @@ Det här exemplet använder VmapSchedulerPlugin för att schemalägga Active Dir
             </mmppf:MediaPlayer>
 ```
 
-## <a name="implementing-an-ios-video-player-with-ad-support"></a>Implementera en iOS videospelare med stöd för Ad
-Microsoft Media-plattform: Player ramverket för iOS innehåller en samling exempelprogram som visar hur du implementerar en videospelare-program med hjälp av ramverket. Du kan hämta Player Framework och prover från [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). Github-sidan har en länk till en Wiki som innehåller ytterligare information om player framework och en introduktion till player-exempel: [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+## <a name="implementing-an-ios-video-player-with-ad-support"></a>Implementera en iOS Video Player med stöd för Ad
+Microsoft Media Platform: Player Framework för iOS innehåller en samling av exempelprogram som visar hur du implementerar en videospelare program med hjälp av ramverket. Du kan ladda ned Player Framework och exempel från [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). Github-sidan har en länk till en Wiki som innehåller ytterligare information om player framework och en introduktion till player-exempel: [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
-### <a name="scheduling-ads-with-vmap"></a>Schemalägga annonser med VMAP
-I följande exempel visas hur du schemalägger Active Directory med hjälp av en VMAP-fil.
+### <a name="scheduling-ads-with-vmap"></a>Schemaläggning av annonser med VMAP
+I följande exempel visas hur du schemalägger annonser med hjälp av en VMAP-fil.
 
 ```csharp
     // How to schedule an Ad using VMAP.
@@ -609,7 +609,7 @@ I följande exempel visas hur du schemalägger Active Directory med hjälp av en
             }
 ```
 
-### <a name="scheduling-ads-with-vast"></a>Schemalägga annonser med VAST
+### <a name="scheduling-ads-with-vast"></a>Schemaläggning av annonser med VAST
 I följande exempel visas hur du schemalägger en sen bindning stora ad.
 
 
@@ -669,7 +669,7 @@ I följande exempel visas hur du schemalägger en sen bindning stora ad.
     }
 ```
 
-I följande exempel visas hur du infogar en ad med hjälp av grov klipp ut redigering (m)
+I följande exempel visas hur du infogar en ad med hjälp av grov klipp ut Redigera (m)
 
 ```csharp
     //Example:1 How to use RCE.
@@ -687,7 +687,7 @@ I följande exempel visas hur du infogar en ad med hjälp av grov klipp ut redig
     }
 ```
 
-I följande exempel visas hur du schemalägger en ad-baljor.
+I följande exempel visas hur du schemalägger en ad-pod.
 
 ```csharp
     //Example:5 Schedule an ad Pod.
@@ -717,7 +717,7 @@ I följande exempel visas hur du schemalägger en ad-baljor.
     }
 ```
 
-I följande exempel visas hur du schemalägger en icke-Fäst halva sammanslagning ad. En icke-Fäst ad spelas endast när oavsett eventuella sökning visningsprogrammet utför.
+I följande exempel visas hur du schemalägger en icke-sticky mitten sammanslagning ad. En icke-sticky ad spelas endast när oavsett eventuella söker visningsprogrammet utför.
 
 ```csharp
     //Example:6 Schedule a single non sticky mid roll Ad
@@ -746,7 +746,7 @@ I följande exempel visas hur du schemalägger en icke-Fäst halva sammanslagnin
     }
 ```
 
-I följande exempel visas hur du schemalägger en Fäst halva sammanslagning ad. Fäst ad visas varje gång den angivna punkten på video tidslinjen har uppnåtts.
+I följande exempel visas hur du schemalägger en Fäst mitten sammanslagning ad. En Fäst ad visas varje gång som den angivna punkten på video tidslinjen har nåtts.
 
 ```csharp
     //Example:7 Schedule a single sticky mid roll Ad
@@ -772,7 +772,7 @@ I följande exempel visas hur du schemalägger en Fäst halva sammanslagning ad.
     }
 ```
 
-I följande exempel visas hur du schemalägger en efter sammanslagning ad.
+I följande exempel visas hur du schemalägger en ad efter distributionen.
 
 ```csharp
     //Example:8 Schedule Post Roll Ad
@@ -794,7 +794,7 @@ I följande exempel visas hur du schemalägger en efter sammanslagning ad.
     }
 ```
 
-I följande exempel visas hur du schemalägger en före sammanslagning ad.
+I följande exempel visas hur du schemalägger en ad före distributionen.
 
 ```csharp
     //Example:9 Schedule Pre Roll Ad
@@ -816,7 +816,7 @@ I följande exempel visas hur du schemalägger en före sammanslagning ad.
     }
 ```
 
-I följande exempel visas hur du schemalägger en halva sammanslagning överlägget ad.
+I följande exempel visas hur du schemalägger en mitten sammanslagning överlägget ad.
 
 ```csharp
     // Example10: Schedule a Mid Roll overlay Ad

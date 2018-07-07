@@ -1,6 +1,6 @@
 ---
-title: Testa appen THOMAS - Azure | Microsoft Docs
-description: Använda språk förstå (THOMAS) kontinuerligt arbetar med ditt program att modifiera den och förbättra sin kunskap för språk.
+title: Testa LUIS-appen – Azure | Microsoft Docs
+description: Använd Språkförståelse (LUIS) för att fungera kontinuerligt för ditt program för att förfina och förbättra dess språkförståelse.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,54 +9,52 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: 8c702d2adbadd2736eed05c7580e8aabf69affbf
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 6c9bd93cf6e67aa815d289260f2b37bd3189c1d1
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266336"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887597"
 ---
-# <a name="testing-in-luis"></a>Testa i THOMAS
+# <a name="testing-in-luis"></a>Testa i LUIS
 
-Testning är en process för att tillhandahålla exempel utterances THOMAS och får ett svar av THOMAS identifieras avsikter och enheter. 
+Testning är processen med att tillhandahålla exempel yttranden till LUIS och hämtar ett svar av LUIS-identifieras avsikter och entiteter. 
 
-Du kan [testa](interactive-test.md) THOMAS interaktivt, en utterance samtidigt, eller ange en [batch](luis-concept-batch-test.md) av utterances. Testar kan du jämföra aktuellt [active](luis-concept-version.md#active-version) modellen till publicerade modellen. 
+Du kan [testa](interactive-test.md) LUIS interaktivt, ett uttryck i taget, eller ange en [batch](luis-concept-batch-test.md) av yttranden. Testar kan du jämföra aktuellt [active](luis-concept-version.md#active-version) modeller till den publicerade modellen. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
 <a name="E-(exponent)-notation"></a>
-## <a name="what-is-a-score-in-testing"></a>Vad är ett resultat i tester?
-Se [förutsägelse poäng](luis-concept-prediction-score.md) begrepp för mer information om förutsägelse resultat.
+## <a name="what-is-a-score-in-testing"></a>Vad är en poäng i testning?
+Se [förutsägelse poäng](luis-concept-prediction-score.md) begrepp om du vill veta mer om poäng för förutsägelse.
 
-## <a name="interactive-testing"></a>Interaktiva testning
-Interaktiva testning från den **Test** panelen på webbplatsen. Du kan ange en utterance om du vill se hur avsikter och enheter identifieras och bedömas. Om THOMAS inte förutsäga avsikter och enheter som du förväntar dig på en utterance i fönstret tester, kopierar du den till den **avsikt** sida som en ny utterance. Sedan etikett delar av den utterance och träna THOMAS. 
+## <a name="interactive-testing"></a>Interaktiv testning
+Interaktiv tester utförs från den **Test** panelen på webbplatsen. Du kan ange ett uttryck för att se hur avsikter och entiteter identifieras och poängsätts. Om LUIS inte är att förutsäga avsikter och entiteter som förväntat på ett uttryck i fönstret testning, kopiera den till den **avsikt** sidan som en ny uttryck. Sedan märka delar av den uttryck och träna LUIS. 
 
-## <a name="batch-testing"></a>Testa batch
-Se [batch testning](luis-concept-batch-test.md) om du testar mer än en utterance i taget.
+## <a name="batch-testing"></a>Batch-testning
+Se [batch testning](luis-concept-batch-test.md) om du vill testa flera uttryck i taget.
 
-## <a name="endpoint-testing"></a>Testning av slutpunkten
-Du kan testa med hjälp av den [endpoint](luis-glossary.md#endpoint) med högst två versioner av appen. Med din primära eller live version av appen som den **produktion** slutpunkt, lägga till en andra version till den **mellanlagring** slutpunkt. Den här metoden ger tre versioner av en utterance: den aktuella modellen i rutan för den [THOMAS] [ LUIS] webbplats och de två versionerna på två olika slutpunkter. 
+## <a name="endpoint-testing"></a>Slutpunkt för testning
+Du kan testa med den [endpoint](luis-glossary.md#endpoint) med högst två versioner av din app. Med din huvudsakliga eller live-version av appen som den **produktion** slutpunkt, lägga till en andra version till den **mellanlagring** slutpunkt. Den här metoden får du tre versioner av ett uttryck: den aktuella modellen i rutan av den [LUIS](luis-reference-regions.md) webbplats och de två versionerna på två olika slutpunkter. 
 
-Alla endpoint tester antal mot din kvot. 
+Alla endpoint testet räknas mot din kvot. 
 
 ## <a name="do-not-log-tests"></a>Logga inte tester
-Om du testar mot en slutpunkt och inte vill att utterance loggas, Kom ihåg att använda den `logging=false` frågan sträng konfiguration.
+Om du testa mot en slutpunkt och inte vill att de uttryck som loggas, Kom ihåg att använda den `logging=false` konfigurera frågesträngar.
 
-## <a name="where-to-find-utterances"></a>Var du hittar utterances
-THOMAS lagrar alla loggade utterances i loggfilen för hämtas den [THOMAS] [ LUIS] webbplats **appar** sidan, samt THOMAS [redigering API: er ](https://aka.ms/luis-authoring-apis). 
+## <a name="where-to-find-utterances"></a>Var du hittar yttranden
+LUIS lagrar alla loggade yttranden i loggfilen för frågor, tillgänglig för hämtning på den [LUIS](luis-reference-regions.md) webbplats **appar** listsidan, samt LUIS [redigera API: er](https://aka.ms/luis-authoring-apis). 
 
-Alla utterances THOMAS är osäker på visas i den **[granska endpoint utterances](label-suggested-utterances.md)** sida av den [THOMAS] [ LUIS] webbplats. 
+Yttranden LUIS är osäker på visas i den **[granska endpoint yttranden](label-suggested-utterances.md)** för den [LUIS](luis-reference-regions.md) webbplats. 
 
-![Granska endpoint utterances](./media/luis-concept-test/review-endpoint-utterances.png)
+![Granska slutpunktsyttranden](./media/luis-concept-test/review-endpoint-utterances.png)
  
 ## <a name="remember-to-train"></a>Kom ihåg att träna
-Kom ihåg att [träna](luis-how-to-train.md) THOMAS när du gör ändringar i modellen. Ändringar i appen THOMAS visas inte i tester tills appen tränats. 
+Kom ihåg att [träna](luis-how-to-train.md) LUIS när du gör ändringar i modellen. Ändringar av LUIS-app visas inte i testet tills appen har tränats. 
 
 ## <a name="best-practices"></a>Bästa praxis
-Läs [metodtips](luis-concept-best-practices.md).
+Lär dig [bästa praxis](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [testning](interactive-test.md) din utterances.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+* Läs mer om [testning](interactive-test.md) din yttranden.

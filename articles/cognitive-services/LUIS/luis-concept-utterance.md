@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 9b8556a30169561488a7b46f93af87b31e049e7a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 4a3571acade7b7bd304c91eadc90b1a9f6e53860
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345516"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37886849"
 ---
 # <a name="utterances-in-luis"></a>Yttranden i LUIS
 
@@ -23,7 +23,7 @@ ms.locfileid: "37345516"
 Samla in fraser som du tror att användare ska ange. Inkludera yttranden som betyda samma sak, men är konstruerade på olika sätt i word längd och word placering. 
 
 ## <a name="how-to-choose-varied-utterances"></a>Hur du väljer olika yttranden
-När du först komma igång genom [lägger du till exempel yttranden] [ add-example-utterances] till LUIS-modellen, här finns vissa principer att ha i åtanke.
+När du först komma igång genom [lägger du till exempel yttranden](luis-how-to-add-example-utterances.md) till LUIS-modellen, här finns vissa principer att ha i åtanke.
 
 ### <a name="utterances-arent-always-well-formed"></a>Yttranden stöddata inte alltid
 Det kan vara en mening, till exempel ”boka mig en biljett till Paris” eller ett fragment i en mening, t.ex. ”bokning” eller ”Paris flygning”.  Användare kan du ofta göra stavfel. När du planerar din app bör du överväga att huruvida du stavningskontroll indata från användaren innan det skickas till LUIS. Den [stavningskontroll i Bing] [ BingSpellCheck] kan integreras med LUIS. Du kan associera LUIS-app med en nyckel som är externa för den stavningskontroll i Bing när du publicerar den. Om du inte stavningskontroll kontroll användaren yttranden, bör du tränar LUIS på yttranden som innehåller Skriv- och stavfel.
@@ -70,7 +70,6 @@ När din modell är tränade publicerade och mottagande [endpoint](luis-glossary
 Granska [bästa praxis](luis-concept-best-practices.md) vill veta mer.
 
 ## <a name="next-steps"></a>Nästa steg
-Se [lägger du till exempel yttranden] [ add-example-utterances] information om hur du tränar en LUIS-app för att förstå användaren yttranden.
+Se [lägger du till exempel yttranden](luis-how-to-add-example-utterances.md) information om hur du tränar en LUIS-app för att förstå användaren yttranden.
 
-[add-example-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-example-utterances
 [BingSpellCheck]: https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/proof-text

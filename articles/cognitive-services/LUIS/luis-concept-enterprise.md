@@ -1,6 +1,6 @@
 ---
-title: Enterprise-begrepp för en THOMAS app - Azure | Microsoft Docs
-description: Förstå designbegrepp för stora THOMAS appar.
+title: Enterprise-begrepp för en LUIS-app – Azure | Microsoft Docs
+description: Information om design-principerna för stora LUIS-appar.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,62 +9,61 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: v-geberr
-ms.openlocfilehash: f5d1cf61ca7b8d8eeaed52fc3f45f8d4847ddda9
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: aca67db88255585355bc59a29e53639bc5eca717
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37108696"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37886764"
 ---
-# <a name="enterprise-strategies-for-a-luis-app"></a>Enterprise strategier för en THOMAS app
-Granska strategierna designen för din företagsapp.
+# <a name="enterprise-strategies-for-a-luis-app"></a>Enterprise-strategier för en LUIS-app
+Granska dessa design-strategier för din enterprise-app.
 
-## <a name="when-you-expect-luis-requests-beyond-the-quota"></a>När du förväntar dig THOMAS begäranden utöver kvoten
-Om din THOMAS app förfrågningar överskrider den tillåtna [kvot hastighet](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/), sprida belastningen till flera THOMAS appar med den [samma app definition](#use-multiple-apps-with-same-app-definition) eller skapa och [tilldela flera nycklar](#assign-multiple-luis-keys-to-same-app) till den App. 
+## <a name="when-you-expect-luis-requests-beyond-the-quota"></a>När du förväntar dig LUIS begäranden utöver kvoten
+Om dina LUIS app begäran överskrider den tillåtna [kvot rate](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/), sprida belastningen till mer LUIS-appar med den [samma app-definition](#use-multiple-apps-with-same-app-definition) eller skapa och [tilldela flera nycklar](#assign-multiple-luis-keys-to-same-app) till den App. 
 
-### <a name="use-multiple-apps-with-same-app-definition"></a>Använda flera appar med samma app definition
-Exportera ursprungliga THOMAS appen och sedan importera appen tillbaka till separata appar. Varje app har sin egen app-ID. Skapa en separat nyckel för varje app när du publicerar, istället för att använda samma nyckel i alla appar. Utjämna belastningen över alla appar så att ingen enskild appen blir överbelastad till följd. Lägg till [Programinsikter](luis-tutorial-bot-csharp-appinsights.md) att övervaka förbrukningen. 
+### <a name="use-multiple-apps-with-same-app-definition"></a>Använda flera appar med samma app-definition
+Exportera den ursprungliga LUIS-appen och sedan importera appen tillbaka till separata appar. Varje app har sin egen app-ID. När du publicerar, istället för att använda samma nyckel över alla appar, skapa en separat nyckel för varje app. Balansera belastningen över alla appar så att ingen enskild app blir överbelastad till följd. Lägg till [Application Insights](luis-tutorial-bot-csharp-appinsights.md) att övervaka användningen. 
 
-Kontrollera att avsiktshantering förutsägelser mellan den första och andra avsikten är litet att THOMAS inte är förväxlas, ger olika resultat mellan appar för mindre variationer i utterances för att få samma översta avsikten mellan alla appar. 
+Kontrollera avsikt förutsägelsen mellan första och andra avsikten är liten att LUIS inte är blandas ihop, vilket ger olika resultat mellan appar för smärre variationer i uttryck för att få samma främsta syftet mellan alla appar. 
 
-Ange en enda app som huvudserver. Alla utterances som föreslås för granskning ska läggas till appen master sedan flyttas tillbaka till andra appar. Detta är antingen en fullständig export av appen, eller läsa in märkt utterances från master till underordnade. Läser in kan göras från antingen den [THOMAS] [ LUIS] webbplats eller redigering API för en [enkel utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) eller för en [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
+Ange en enda app som huvudserver. Yttranden som föreslås för granskning bör vara i appen master och därefter flyttas tillbaka till alla andra appar. Det här är antingen en fullständig export av appen eller läser in taggade yttranden från huvudmålservern till underordnade. Läser in kan göras från antingen den [LUIS](luis-reference-regions.md) webbplats eller redigering API: et för en [enkel uttryck](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) eller för en [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
 
-Schemalägga en regelbunden [granskning av slutpunkten utterances](label-suggested-utterances.md) för aktiva, till exempel varannan vecka, sedan träna om och publicera på nytt. 
+Schemalägga en regelbunden [granskning av slutpunkten yttranden](label-suggested-utterances.md) för aktiv inlärning, till exempel varannan vecka, träna och publicera. 
 
-### <a name="assign-multiple-luis-keys-to-same-app"></a>Tilldela flera THOMAS nycklar till samma app
-Om appen THOMAS tar emot flera endpoint träffar än din enda nyckel kvoten tillåter skapar och tilldelar appen THOMAS flera nycklar. Skapa en traffic manager eller belastningsutjämnare för att hantera endpoint frågor över endpoint-nycklar. 
+### <a name="assign-multiple-luis-keys-to-same-app"></a>Tilldela flera LUIS nycklar till samma app
+Om LUIS-appen tar emot mer endpoint träffar än din enda nyckel kvoten kan skapa och tilldela fler nycklar till LUIS-app. Skapa en traffic manager eller belastningsutjämnare för att hantera endpoint-frågor över slutpunkt-nycklar. 
 
-## <a name="when-your-monolithic-app-returns-wrong-intent"></a>När appen monolitisk returnerar fel avsikt
-Om din app är avsedd att förutsäga ett stort antal användare utterances, Överväg att implementera den [dispatch modellen](#dispatch-tool-and-model). Dela upp en monolitisk app kan THOMAS fokus identifiering mellan avsikter har i stället för förvirrande mellan avsikter över appen överordnade och underordnade appar. 
+## <a name="when-your-monolithic-app-returns-wrong-intent"></a>När en monolitisk app returnerar fel avsikt
+Om din app är avsedd att förutsäga ett stort antal användare yttranden, Överväg att implementera den [dispatch modellen](#dispatch-tool-and-model). Dela upp en monolitisk app kan LUIS fokus identifiering mellan avsikter har i stället för förvirrande mellan avsikter över appen överordnade och underordnade appar. 
 
-Schemalägga en regelbunden [granskning av slutpunkten utterances](label-suggested-utterances.md) för aktiva, till exempel varannan vecka, sedan träna om och publicera på nytt. 
+Schemalägga en regelbunden [granskning av slutpunkten yttranden](label-suggested-utterances.md) för aktiv inlärning, till exempel varannan vecka, träna och publicera. 
 
-## <a name="when-you-need-to-have-more-than-500-intents"></a>När du behöver ha fler än 500 avsikter
-Anta exempelvis att du utvecklar en office-assistent med än 500 avsikter. Om 200 avsikter avser schemalägga möten 200 finns om påminnelser, 200 är om att få information om kollegor och 200 är för att skicka e-post, gruppen avsikter så att varje grupp i en enda app sedan skapa en översta app som innehåller varje avsikt. Använd den [Sänd verktyget och arkitektur](#dispatch-tool-and-model) att bygga appen på den översta nivån. Ändra din bot för att använda sammanhängande anrop som visas i den [dispatch kursen][dispatcher-application-tutorial]. 
+## <a name="when-you-need-to-have-more-than-500-intents"></a>När du behöver ha fler än 500 intentioner
+Anta exempelvis att du utvecklar en office-assistent som har över 500 intentioner. Om 200 avsikter relaterade till att schemalägga möten, 200 är i färd påminnelser, 200 är om att få information om kollegor, och 200 är för att skicka e-post, gruppen avsikter så att varje grupp är i samma app, sedan skapa en översta app som innehåller varje avsikt. Använd den [skicka verktyget och arkitektur](#dispatch-tool-and-model) att bygga appen på översta nivån. Ändra din robot för att använda sammanhängande anropet som visas i den [dispatch självstudien][dispatcher-application-tutorial]. 
 
-## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>När du behöver kombinera flera THOMAS och frågor och svar om maker appar
-Om du har flera THOMAS och frågor och svar om maker-appar som måste svara på bot, Använd den [dispatch verktyget](#dispatch-tool-and-model) att bygga appen på den översta nivån. Ändra din bot för att använda sammanhängande anrop som visas i den [dispatch kursen][dispatcher-application-tutorial]. 
+## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>När du behöver att kombinera flera LUIS och QnA maker-appar
+Om du har flera LUIS och QnA maker-appar som måste svara på en robot, Använd den [dispatch verktyget](#dispatch-tool-and-model) att bygga appen på översta nivån. Ändra din robot för att använda sammanhängande anropet som visas i den [dispatch självstudien][dispatcher-application-tutorial]. 
 
-## <a name="dispatch-tool-and-model"></a>Sändning av verktyget och modell
-Använd den [Dispatch] [ dispatch-tool] kommandoradsverktyg, finns i [BotBuilder verktyg](https://github.com/Microsoft/botbuilder-tools) kombinera flera THOMAS och/eller frågor och svar om Maker appar till en överordnad THOMAS app. Den här metoden kan du ha en överordnad domän inklusive alla ämnen och olika underordnade ämnesdomäner i separata appar. 
+## <a name="dispatch-tool-and-model"></a>Dispatch-verktyget och modell
+Använd den [Dispatch] [ dispatch-tool] kommandoradsverktyg, finns i [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) att kombinera flera LUIS och/eller QnA Maker appar i en överordnad LUIS-app. Den här metoden låter dig ha en överordnad domän, inklusive alla ämnen och olika underordnade ämnesdomäner i separata appar. 
 
 ![Bild av dispatch-arkitektur](./media/luis-concept-enterprise/dispatch-architecture.png)
 
-Den överordnade domänen som anges i THOMAS som en **V Dispatch** app. 
+Den överordnade domänen som anges i LUIS som en **V Dispatch** app. 
 
-![Skärmbild av THOMAS applista med THOMAS app som skapats av dispatch-verktyget](./media/luis-concept-enterprise/dispatch.png)
+![Skärmbild av LUIS applistan med LUIS-app som skapats av dispatch-verktyget](./media/luis-concept-enterprise/dispatch.png)
 
-Chatbot tar emot utterance, och skickar sedan till överordnat THOMAS app för förutsägelse. Högsta förväntade avsikten från överordnad app avgör vilka underordnade THOMAS app anropas nästa. Chatbot skickar utterance till appen underordnade för en mer specifik förutsägelse.
+Chattrobot för den tar emot uttryck och sedan skickar till överordnat LUIS-app för förutsägelse. Främsta förväntade avsikten från överordnade appen anger vilka underordnade LUIS-app kallas därefter. Chattrobot skickar uttryck i appen underordnade för en mer specifik förutsägelse.
 
-Förstå hur den här hierarkin för anrop görs från Bot Builder v4 [dispatcher--självstudien][dispatcher-application-tutorial].  
+Förstå hur den här hierarkin för anrop görs från Bot Builder-v4 [dispatcher-program-tutorial][dispatcher-application-tutorial].  
 
 ### <a name="intent-limits-in-dispatch-model"></a>Avsiktshantering gränser i dispatch-modellen
-En dispatch-programmet har 500 dispatch-källor, motsvarar 500 avsikter som maximum. 
+En dispatch-programmet har 500 dispatch-källor, motsvarar 500 intentioner som maximum. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du [testa en batch](luis-how-to-batch-test.md)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
 [dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch

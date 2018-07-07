@@ -1,6 +1,6 @@
 ---
-title: Värd för en Ruby på spår webbplats på en Linux-VM | Microsoft Docs
-description: Ställ in och vara värd för en Ruby på spår-baserade webbplats på Azure med hjälp av en virtuell Linux-dator.
+title: Vara värd för en Ruby on Rails-webbplats på en Linux VM | Microsoft Docs
+description: Ställ in och vara värd för en Ruby on Rails-baserad webbplats på Azure med en Linux-dator.
 services: virtual-machines-linux
 documentationcenter: ruby
 author: rmcmurray
@@ -15,49 +15,49 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: fa19f3dc7dded712102d4ba9b66dd4df1bfd20dd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6ea1d249b7f9aec3a45923b162a97ce7f83d0d31
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29397605"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901161"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Ruby on Rails-webbprogram på en virtuell Azure-dator
-Den här kursen visar hur som värd för en Ruby på spår webbplats på Azure med hjälp av en virtuell Linux-dator.  
+Den här självstudien visar hur du vara värd för en Ruby on Rails-webbplats på Azure med hjälp av en Linux-dator.  
 
-Den här självstudiekursen har verifierats med hjälp av Ubuntu Server 14.04 LTS. Om du använder en annan Linux distributionsplats kan behöva du ändra steg för att installera spår.
+Den här självstudien har verifierats med hjälp av Ubuntu Server 14.04 LTS. Om du använder en annan Linux-distribution kan behöva du ändra stegen för att installera Rails.
 
 > [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md).  Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 >
 
-## <a name="create-an-azure-vm"></a>Skapa en virtuell dator i Azure
-Börja med att skapa en virtuell dator i Azure med en Linux-avbildning.
+## <a name="create-an-azure-vm"></a>Skapa en Azure virtuell dator
+Börja med att skapa en Azure-dator med en Linux-avbildning.
 
-Du kan använda Azure-portalen eller Azure-kommandoradsgränssnittet (CLI) för att skapa den virtuella datorn.
+Du kan använda Azure portal eller Azure-kommandoradsgränssnittet (CLI) för att skapa den virtuella datorn.
 
 ### <a name="azure-portal"></a>Azure Portal
 1. Logga in på den [Azure-portalen](https://portal.azure.com)
-2. Klicka på **skapar du en resurs**, Skriv ”Ubuntu Server 14.04” i sökrutan. Klicka på posten som returneras av sökningen. Distributionsmodell, Välj **klassiska**, klicka på ”Skapa”.
-3. Ange värden för de obligatoriska fälten i bladet grundläggande: namn (VM), användarnamn, autentiseringstyp och autentiseringsuppgifter för motsvarande Azure-prenumeration, resursgrupp och plats.
+2. Klicka på **skapa en resurs**, Skriv ”Ubuntu Server 14.04” i sökrutan. Klicka på posten som returneras av sökningen. Distributionsmodellen, Välj **klassiska**, klicka på ”Skapa”.
+3. På bladet grundläggande inställningar anger du värden för fälten som krävs: namn (för den virtuella datorn), användarnamn, autentiseringstyp och autentiseringsuppgifterna som motsvarande Azure-prenumeration, resursgrupp och plats.
 
    ![Skapa en ny Ubuntu-avbildning](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)
 
-4. När den virtuella datorn har etablerats klickar du på namnet på virtuella datorn och klickar på **slutpunkter** i den **inställningar** kategori. Hitta SSH-slutpunkt, som visas under **fristående**.
+4. När den virtuella datorn har etablerats visas klickar du på virtuella datorns namn och klickar på **slutpunkter** i den **inställningar** kategori. Hitta SSH-slutpunkt som visas under **fristående**.
 
    ![Standardslutpunkten](./media/virtual-machines-linux-classic-ruby-rails-web-app/endpointsnewportal.png)
 
 ### <a name="azure-cli"></a>Azure CLI
-Följ stegen i [skapa en virtuell dator kör Linux][vm-instructions].
+Följ stegen i [skapa en virtuell dator som kör Linux][vm-instructions].
 
 När den virtuella datorn har etablerats kan du hämta SSH-slutpunkten genom att köra följande kommando:
 
     azure vm endpoint list <vm-name>  
 
-## <a name="install-ruby-on-rails"></a>Installera Ruby spår
+## <a name="install-ruby-on-rails"></a>Installera Ruby on Rails
 1. Använda SSH för att ansluta till den virtuella datorn.
-2. Använd följande kommandon för att installera Ruby på den virtuella datorn från SSH-session:
+2. Använd följande kommandon för att installera Ruby på den virtuella datorn från SSH-sessionen:
 
         sudo apt-get update -y
         sudo apt-get upgrade -y
@@ -69,16 +69,16 @@ När den virtuella datorn har etablerats kan du hämta SSH-slutpunkten genom att
         > [!TIP]
         > The brightbox repository contains the current Ruby distribution.
 
-    Installationen kan ta några minuter. När den har slutförts använder du följande kommando för att verifiera att Ruby har installerats:
+    Installationen kan ta några minuter. När den är klar använder du följande kommando för att verifiera att Ruby är installerad:
 
         ruby -v
 
-3. Använd följande kommando för att installera spår:
+3. Använd följande kommando för att installera Rails:
 
         sudo gem install rails --no-rdoc --no-ri -V
 
-    Använd--Nej rdoc och--Nej ri flaggorna att hoppa över installerar dokumentation, vilket går snabbare.
-    Det här kommandot kommer förmodligen ta lång tid att köra, så att lägga till V - Visar information om installationsförloppet.
+    Använd--no-rdoc och--no-ri flaggor att hoppa över installationen i dokumentationen som är snabbare.
+    Det här kommandot kommer förmodligen ta lång tid att köra, så att lägga till V - Visar information om under installationen.
 
 ## <a name="create-and-run-an-app"></a>Skapa och köra en app
 När du är inloggad fortfarande via SSH, kör du följande kommandon:
@@ -87,7 +87,7 @@ När du är inloggad fortfarande via SSH, kör du följande kommandon:
     cd myapp
     rails server -b 0.0.0.0 -p 3000
 
-Den [nya](http://guides.rubyonrails.org/command_line.html#rails-new) kommando skapar en ny app spår. Den [server](http://guides.rubyonrails.org/command_line.html#rails-server) kommando startar webbservern WEBrick som medföljer spår. (För produktion, du förmodligen vill använda en annan server, till exempel Unicorn eller passagerare.)
+Den [nya](http://guides.rubyonrails.org/command_line.html#rails-new) kommandot skapar en ny Rails-app. Den [server](http://guides.rubyonrails.org/command_line.html#rails-server) kommando startar WEBrick webbservern som medföljer Rails. (För användning i produktion, skulle förmodligen du använder en annan server, till exempel Unicorn eller passagerartrafik.)
 
 Du bör se utdata som liknar följande.
 
@@ -102,42 +102,42 @@ Du bör se utdata som liknar följande.
 ## <a name="add-an-endpoint"></a>Lägga till en slutpunkt
 1. Gå till [Azure-portalen] [https://portal.azure.com] och välj den virtuella datorn.
 
-2. Välj **SLUTPUNKTER** i den **inställningar** längs vänster kant sidan.
+2. Välj **SLUTPUNKTER** i den **inställningar** på vänster edge-sidan.
 
 3. Klicka på **lägga till** överst på sidan.
 
-4. I den **lägga till slutpunkten** dialogrutan anger du följande information:
+4. I den **Lägg till slutpunkt** dialogrutan anger du följande information:
 
-   * **Namnet**: HTTP
+   * **Namn på**: HTTP
    * **Protokollet**: TCP
    * **Offentlig port**: 80
    * **Privat port**: 3000
    * **Flytande PI adress**: inaktiverad
-   * **ACL - ordning**: 1001 eller ett annat värde som anger prioritet för den här regeln.
-   * **ACL - namnet**: allowHTTP
-   * **ACL - åtgärd**: Tillåt
-   * **ACL - fjärrundernät**: 1.0.0.0/16
+   * **Åtkomstkontrollistan - ordning**: 1001 eller ett annat värde som anger prioriteten för Åtkomstregeln.
+   * **Åtkomstkontrollistan - namnet**: allowHTTP
+   * **Åtkomstkontrollistan - åtgärd**: Tillåt
+   * **Åtkomstkontrollistan - fjärrundernätet**: 1.0.0.0/16
 
-     Den här slutpunkten har en offentlig port 80 som dirigerar trafik till den privata porten 3000, där spår servern lyssnar. Regeln för åtkomstkontrollista tillåter offentliga trafik på port 80.
+     Den här slutpunkten har en offentlig port 80 som dirigerar trafik till den privata porten 3000, där Rails-servern lyssnar. Regeln för åtkomstkontrollista tillåter offentlig trafik på port 80.
 
      ![new-endpoint](./media/virtual-machines-linux-classic-ruby-rails-web-app/createendpoint.png)
 
 5. Klicka på OK om du vill spara slutpunkten.
 
-6. Ett meddelande visas som anger **sparar den virtuella datorslutpunkten**. När det här meddelandet försvinner är slutpunkten aktiv. Du kan nu testa programmet genom att gå till DNS-namnet på den virtuella datorn. Webbplatsen ska se ut ungefär så här:
+6. Ett meddelande visas som anger **sparar den virtuella datorslutpunkten**. När det här meddelandet försvinner är slutpunkten aktivt. Du kan nu testa ditt program genom att gå till DNS-namnet på den virtuella datorn. Webbplatsen ska se ut ungefär så här:
 
-    ![spår standardsida][default-rails-cloud]
+    ![rails-standardsida][default-rails-cloud]
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen har de flesta av stegen manuellt. I en produktionsmiljö skulle du skriva din app på en utvecklingsdator och distribuera den till Azure-VM. De flesta produktionsmiljöer värd också spår program tillsammans med en annan server-processen, till exempel Apache eller NginX, som hanterar begäran routning till flera instanser av programmet spår och betjänar statiska resurser. Mer information finns i http://rubyonrails.org/deploy/.
+I de här självstudierna har de flesta stegen manuellt. I en produktionsmiljö skulle du skriva din app på en utvecklingsdator och distribuera Azure-datorn. Dessutom de flesta produktionsmiljöer vara värd för Rails-program tillsammans med en annan serverprocess, till exempel Apache eller NginX, som hanterar begäran routning till flera instanser av Rails-program och betjänar statiska resurser. Mer information finns i http://guides.rubyonrails.org/routing.html.
 
-Läs mer om Ruby spår den [Ruby på spår guider][rails-guides].
+Mer information om Ruby on Rails, på den [Ruby on Rails-guider][rails-guides].
 
-Om du vill använda Azure-tjänster från tillämpningsprogrammet Ruby, se:
+Om du vill använda Azure-tjänster från din Ruby-App, se:
 
-* [Lagra Ostrukturerade data med blobbar][blobs]
-* [Lagra nyckel/värde-par med tabeller][tables]
-* [Hög bandbredd innehåll med innehållet Delivery Network][cdn-howto]
+* [Store Ostrukturerade data i blobbar][blobs]
+* [Store nyckel/värde-par med tabeller][tables]
+* [Leverera innehåll med hög bandbredd med Content Delivery Network][cdn-howto]
 
 <!-- WA.com links -->
 [blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md

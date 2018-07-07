@@ -1,6 +1,6 @@
 ---
-title: Azure Windows VM-storlekar - tidigare generationer | Microsoft Docs
-description: Visar en lista över tidigare versioner av den tillgängliga storlekar för virtuella Windows-datorer i Azure. Visar information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredd för storlekar i den här serien.
+title: Azure Windows Virtuella datorer – tidigare versioner | Microsoft Docs
+description: Visar en lista över tidigare versioner av storlekar som är tillgängliga för Windows-datorer i Azure. Visar information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredd för storlekar i den här serien.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 834f3e5e58f9beb06edf9234ce05ce915e759ad6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f0397acaa39ca91280285d9bd5135b0f0d3cf7c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661145"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902568"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tidigare versioner av storlekar för virtuella datorer
 
@@ -40,5 +40,5 @@ ms.locfileid: "34661145"
 
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om hur [Azure compute-enheter (ACU)](acu.md) kan hjälpa dig att jämföra beräkning prestanda över Azure SKU: er.
+Läs mer om hur [Azure-beräkningsenheter (ACU)](acu.md) kan hjälpa dig att jämföra prestanda för databearbetning mellan Azure SKU: er.
 

@@ -1,29 +1,29 @@
 ---
-title: Azure händelse rutnätet Händelseschema
-description: Beskriver de egenskaper som har angetts för händelser med Azure händelse rutnätet
+title: Schema för Azure Event Grid-händelse
+description: Beskriver de egenskaper som har angetts för händelser med Azure Event Grid
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 04/17/2018
+ms.date: 07/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 3e0b7fd825b8e985cea2c32301986b3a7f8bb619
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 266ddced5f1949fa72508d914f76953101a7aac6
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34304070"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902239"
 ---
-# <a name="azure-event-grid-event-schema"></a>Azure händelse rutnätet Händelseschema
+# <a name="azure-event-grid-event-schema"></a>Schema för Azure Event Grid-händelse
 
-Den här artikeln beskriver egenskaper och scheman som är tillgängliga för alla händelser. Händelser som består av en uppsättning med fem krävs strängegenskaper och ett objekt för data som krävs. Egenskaper är gemensamma för alla händelser från alla utgivare. Dataobjekt som innehåller egenskaper som är specifika för varje utgivare. De här egenskaperna är specifika för resursleverantör, till exempel Azure Storage eller Azure Event Hubs för system-avsnitt.
+Den här artikeln beskriver egenskaper och scheman som är tillgängliga för alla händelser. Händelser som består av en uppsättning med fem obligatoriska strängegenskaper och ett nödvändiga data-objekt. Egenskaperna är vanliga i alla händelser från valfri utgivare. Dataobjektet har egenskaper som är specifika för varje utgivare. De här egenskaperna är specifika för resursleverantör, till exempel Azure Storage eller Azure Event Hubs för system-ämnen.
 
-Händelsekällan skicka händelser till Azure händelse rutnät i en matris som kan innehålla flera händelseobjekt. Matrisen kan skicka händelser till en händelse rutnätet ämne ha en total storlek på upp till 1 MB. Varje händelse i matrisen är begränsat till 64 KB. Om en händelse eller matrisen överskrider storleksgränser, visas svaret **413 nyttolasten är för stor**.
+Händelsekällor används för att skicka händelser till Azure Event Grid i en matris som kan ha flera händelseobjekt. När skicka händelser till en event grid-ämne kan matrisen ha en total storlek på upp till 1 MB. Varje händelse i matrisen är begränsat till 64 KB. Om en händelse eller matrisen är större än storleksgränserna, får du svaret **413 nyttolasten är för stor**.
 
-Händelsen rutnätet skickar händelser till prenumeranter i en matris som innehåller en enstaka händelse. Detta kan ändras i framtiden.
+Event Grid skickar händelser till prenumeranter i en matris som har en enda händelse. Det här beteendet kan ändras i framtiden.
 
-Du kan hitta JSON-schema för händelsen rutnätet händelsen och varje Azure utgivare datanyttolasten i den [Händelseschema store](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
+Du kan hitta JSON-schemat för Event Grid-händelse och varje Azure utgivare datanyttolasten i den [Händelseschema store](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 
 ## <a name="event-schema"></a>Händelseschema
 
@@ -46,7 +46,7 @@ I följande exempel visas de egenskaper som används av alla utgivare:
 ]
 ```
 
-Schemat för en Azure Blob storage-händelse är till exempel:
+Schemat som publicerats för en Azure Blob storage-händelse är till exempel:
 
 ```json
 [
@@ -78,35 +78,36 @@ Schemat för en Azure Blob storage-händelse är till exempel:
 
 ## <a name="event-properties"></a>Egenskaper för händelse
 
-Alla händelser som innehåller samma följande översta data:
+Alla händelser har samma följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Avsnittet | sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. Händelsen rutnätet innehåller det här värdet. |
-| Ämne | sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
-| Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekälla. |
-| EventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
+| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
+| Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
+| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | sträng | Unik identifierare för händelsen. |
 | data | objekt | Händelsedata är specifika för resursprovidern. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversionen. |
-| metadataVersion | sträng | Schemaversion för händelsemetadata. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
+| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
-Läs om egenskaperna i dataobjektet i händelsekällan:
+Mer information om egenskaperna i dataobjektet, se händelsekällan:
 
-* [Azure-prenumerationer (hanteringsåtgärder)](event-schema-subscriptions.md)
+* [Azure-prenumerationer (åtgärder)](event-schema-subscriptions.md)
 * [Blob Storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
-* [Service Bus](event-schema-service-bus.md)
 * [IoT Hub](event-schema-iot-hub.md)
-* [Resursgrupper (hanteringsåtgärder)](event-schema-resource-groups.md)
+* [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+* [Resursgrupper (åtgärder)](event-schema-resource-groups.md)
+* [Service Bus](event-schema-service-bus.md)
 
-För anpassade avsnitt avgörs händelse dataobjektet. Informationen på den översta nivån ska innehålla samma fält som standard resurs användardefinierade händelser.
+För anpassade ämnen anger händelseutfärdaren dataobjektet. Översta data bör ha samma fält som standard resurs-definierade händelser.
 
-När du publicerar händelser till anpassade avsnitt, skapa ämnen för händelserna som gör det enkelt för prenumeranter att veta om de är intresserad av händelsen. Prenumeranter använda ämnet att filtrera och väg händelser. Överväg att ange sökvägen för vilket händelsen inträffade, så prenumeranter kan filtrera efter segment i sökvägen. Sökvägen kan prenumeranter att snävare eller brett Filtrera händelser. Om du anger en sökväg för tre segment som till exempel `/A/B/C` prenumeranter kan filtrera efter det första segmentet i ämnet, `/A` att hämta en bred uppsättning händelser. Dessa prenumeranter får händelser med ämnen som `/A/B/C` eller `/A/D/E`. Andra prenumeranter kan filtrera efter `/A/B` att hämta en mindre uppsättning händelser.
+När du publicerar händelser till anpassade ämnen, skapa ämnen för händelser som gör det enkelt för prenumeranter att veta om de är intresserad av händelsen. Prenumeranter använda ämne på filtret och dirigera händelser. Ställ in sökvägen för där händelsen har inträffat, så prenumeranter kan filtrera efter segment i sökvägen. Sökvägen kan prenumeranter att snävare eller brett Filtrera händelser. Exempel: Om du anger en sökväg för tre segment som `/A/B/C` på ämnesraden prenumeranter kan filtrera efter det första segmentet `/A` att hämta en rad olika händelser. Dessa prenumeranter får händelser med ämnen som `/A/B/C` eller `/A/D/E`. Andra prenumeranter kan filtrera efter `/A/B` att hämta en smalare uppsättning händelser.
 
-Ibland måste ämnet mer information om vad som hänt. Till exempel den **Lagringskonton** publisher innehåller ämnet `/blobServices/default/containers/<container-name>/blobs/<file>` när en fil har lagts till i en behållare. En prenumerant kan filtrera efter sökvägen `/blobServices/default/containers/testcontainer` att hämta alla händelser för behållaren men inte andra behållare i storage-konto. En prenumerant kan även filtrera eller flödet av suffixet `.txt` fungerar bara med textfiler.
+Ibland behöver dina mer information om vad som hände. Till exempel den **Lagringskonton** publisher innehåller ämnesraden `/blobServices/default/containers/<container-name>/blobs/<file>` när en fil läggs till i en behållare. En prenumerant kan filtrera efter sökvägen `/blobServices/default/containers/testcontainer` att hämta alla händelser för den behållaren men inte andra behållare i lagringskontot. En prenumerant kan också filtrera eller dirigera efter suffixet `.txt` till fungerar bara med textfiler.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure händelse rutnätet finns [vad är händelsen rutnätet?](overview.md)
-* Mer information om hur du skapar en prenumeration på Azure händelse rutnätet finns [händelse rutnätet prenumeration schemat](subscription-creation-schema.md).
+* En introduktion till Azure Event Grid finns i [vad är Event Grid?](overview.md)
+* Läs mer om hur du skapar en Azure Event Grid-prenumeration, [Event Grid prenumerationsschema](subscription-creation-schema.md).

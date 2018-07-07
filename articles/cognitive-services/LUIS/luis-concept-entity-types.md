@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3b87f89c8f0cb6a5b22923513d78fff9085f3598
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 83e5a8db9162ef1587664c0a353252c04ade45d8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345336"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887811"
 ---
 # <a name="entities-in-luis"></a>Entiteter i LUIS
 
@@ -197,7 +197,7 @@ Sammansatta entiteter representerar delar av en helhet. En sammansatt entitet me
 
 LUIS innehåller också listtypen för entiteten som inte dator-lära sig, men tillåter LUIS-app att ange en fast lista med värden. Se [LUIS gränser](luis-boundaries.md) referens till granska gränserna för listtypen för entiteten. 
 
-Om du har tänkt hierarkisk, sammansatta, och lista över entiteter och behöver mer än gränsen, kontakta supporten. Samla in detaljerad information om datorn för att göra det, går du till den [LUIS] [ LUIS] webbplats och väljer sedan **Support**. Om din Azure-prenumeration innehåller supporttjänster, kontakta [teknisk support för Azure](https://azure.microsoft.com/support/options/). 
+Om du har tänkt hierarkisk, sammansatta, och lista över entiteter och behöver mer än gränsen, kontakta supporten. Samla in detaljerad information om datorn för att göra det, går du till den [LUIS](luis-reference-regions.md#luis-website) webbplats och väljer sedan **Support**. Om din Azure-prenumeration innehåller supporttjänster, kontakta [teknisk support för Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="best-practices"></a>Bästa praxis
 
@@ -216,5 +216,3 @@ Se [bästa praxis](luis-concept-best-practices.md) för mer information.
 Lär dig mer begrepp om bra [yttranden](luis-concept-utterance.md). 
 
 Se [Lägg till entiteter](luis-how-to-add-entities.md) mer information om hur du lägger till entiteter i din LUIS-app.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

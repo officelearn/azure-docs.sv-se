@@ -1,135 +1,136 @@
 ---
-title: Upptäckt av realtidsskyddet bedrägerier med Azure Stream Analytics
-description: Lär dig hur du skapar en lösning för identifiering av realtidsskyddet bedrägeri med Stream Analytics. Använd en händelsehubb för händelsebearbetning i realtid.
+title: Identifiering av bedrägerier i realtid med Azure Stream Analytics
+description: Lär dig hur du skapar en lösning för identifiering av bedrägerier i realtid med Stream Analytics. Använda en händelsehubb för händelsebearbetning i realtid.
 services: stream-analytics
-author: jasonwhowell
-ms.author: jasonh
+author: mamccrea
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 4da848b9d7765b11db67973226a056e73ca5cced
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e0d430ced1dbddbfca79806591c83c33e732eefd
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824769"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901722"
 ---
-# <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Komma igång med Azure Stream Analytics: att upptäcka bedrägerier i realtid
+# <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Komma igång med Azure Stream Analytics: bedrägerier i realtid
 
-Den här självstudiekursen innehåller en slutpunkt till slutpunkt illustration av hur du använder Azure Stream Analytics. Lär dig att: 
+Den här självstudien innehåller en illustration av hur du använder Azure Stream Analytics. Lär dig att: 
 
-* Ta strömning händelser till en instans av Händelsehubbar i Azure. I den här kursen ska du använda en app som vi tillhandahåller som simulerar en dataström med metadata för mobiltelefon poster.
+* Ta med direktuppspelning av händelser till en instans av Händelsehubbar i Azure. I den här självstudien använder du en app som simulerar en dataström med mobiltelefon metadataposterna.
 
-* Skriva SQL-liknande Stream Analytics-frågor för att omvandla data, samla information eller söker efter mönster. Du ser hur du använder en fråga för att undersöka den inkommande dataströmmen och leta efter anrop som kan vara falsk.
+* Skriva SQL-liknande Stream Analytics-frågor för att omvandla data, samla information eller söker efter mönster. Du ser hur du använder en fråga för att kontrollera inkommande dataströmmen och leta efter anrop som kan vara bedrägliga.
 
-* Skicka resultaten till utdatamottagare (lagring) som du kan analysera för ytterligare information. I så fall måste skickar du anropsdata misstänkta till Azure Blob storage.
+* Skicka resultaten till en utdatamottagare (lagring) som du kan analysera ytterligare insikter. I så fall skickar du anropsdata misstänkta till Azure Blob storage.
 
-I den här självstudiekursen använda vi exemplet med baserat på telefonsamtal data att upptäcka realtid bedrägerier. Men den teknik som beskriver vi är passar också för andra typer av att upptäcka bedrägerier, till exempel kreditkort bedrägeri eller identitetsstöld. 
+Den här självstudien används ett exempel på bedrägerier i realtid baserat på data för telefonsamtal. Tekniken illustreras är passar också för andra typer av bedrägerier, till exempel kreditkort bedrägeri eller identitetsstöld. 
 
-## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>Scenario: Telekommunikation och SIM att upptäcka bedrägerier i realtid
+## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>Scenario: Telekommunikation och SIM identifiering av bedrägerier i realtid
 
-Ett telekommunikation företag har stora mängder data för inkommande samtal. Företaget vill identifiera bedrägliga anrop i realtid så att de kan meddela kunder eller stänga av tjänsten för ett visst tal. En typ av SIM bedrägeri innebär att flera anrop från samma identitet vid ungefär samma tidpunkt men sig på geografiskt skilda platser. För att identifiera den här typen av bedrägerier, måste företaget att granska inkommande phone poster och leta efter specifika mönster – i det här fallet för anrop som görs vid ungefär samma tidpunkt i olika länder. Alla telefonen poster som tillhör den här kategorin skrivs till lagring för efterföljande analys.
+En telekomföretaget har en stor mängd data för inkommande anrop. Företaget vill identifiera bedrägliga samtal i realtid så att de kan meddela kunder eller stänga av tjänsten för ett specifikt nummer. En typ av SIM bedrägeri innebär att flera anrop från samma identitet ungefär samma tidpunkt men geografiskt olika platser. För att identifiera den här typen av bedrägerier, måste företaget att granska inkommande phone poster och leta efter särskilda mönster – i det här fallet för anrop som görs ungefär samma tidpunkt i olika länder. Alla poster i telefon som tillhör den här kategorin skrivs till lagring för efterföljande analys.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-I den här självstudiekursen kommer du simulera telefonsamtal data med hjälp av ett klientprogram som genererar exempel telefonsamtal metadata. Vissa av posterna som ger appen ser ut som bedrägliga anrop. 
+I de här självstudierna kommer du simulera telefonsamtal data med hjälp av en klientapp som genererar exempel telefonsamtal metadata. Vissa av posterna som tillverkar appen ser ut som bedrägliga samtal. 
 
 Se till att du har följande innan du börjar:
 
 * Ett Azure-konto.
-* Anropet händelse generator app. Du kan få detta genom att hämta den [TelcoGenerator.zip filen](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) från Microsoft Download Center. Packa upp paketet till en mapp på datorn. Om du vill visa källan Platskod och kör appen i en felsökare kan du få app källkod från [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* Anropet-händelsegeneratorappen, [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), som kan laddas ned från Microsoft Download Center. Packa upp det här paketet till en mapp på datorn. Om du vill se source code och kör appen i en felsökare kan du hämta app-källkoden från [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
 
     >[!NOTE]
-    >Windows kan blockera hämtade ZIP-filen. Om du går inte att packa upp den, högerklicka på filen och välj **egenskaper**. Om meddelandet ”den här filen kommer från en annan dator och kan ha blockerats för att skydda den här datorn”, väljer du den **avblockera** alternativ och klickar sedan på **tillämpa**.
+    >Windows kan blockera hämtade ZIP-filen. Om du det går inte att packa upp den, högerklicka på filen och välj **egenskaper**. Om du ser meddelandet ”den här filen kommer från en annan dator och blockeras för att skydda den här datorn” väljer du den **avblockera** alternativ och klickar sedan på **tillämpa**.
 
-Om du vill granska resultatet av Streaming Analytics-jobbet måste du också ett verktyg för att visa innehållet i en Azure Blob Storage-behållare. Om du använder Visual Studio, kan du använda [Azure Tools för Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) eller [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Du kan också installera fristående verktyg som [Azure Lagringsutforskaren](http://storageexplorer.com/) eller [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
+Om du vill granska resultaten för Streaming Analytics-jobb måste du också ett verktyg för att visa innehållet i en Azure Blob Storage-behållare. Om du använder Visual Studio kan du använda [Azure Tools för Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) eller [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Du kan också installera fristående verktyg som [Azure Storage Explorer](http://storageexplorer.com/) eller [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
 
-## <a name="create-an-azure-event-hubs-to-ingest-events"></a>Skapa ett Azure event hubs för att mata in händelser
+## <a name="create-an-azure-event-hubs-to-ingest-events"></a>Skapa en Azure Event Hubs för att mata in händelser
 
-Att analysera en dataström du *infognings-* till Azure. Ett vanligt sätt att mata in data är att använda [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), där du kan mata in miljontals händelser per sekund och sedan bearbeta och lagra händelseinformationen om. För den här självstudiekursen skapar en händelsehubb och har appen anropet händelse generator skicka anropsdata till den event hub. Mer information om händelsehubbar finns i [Azure Service Bus-dokumentationen](https://docs.microsoft.com/azure/service-bus/).
+Att analysera en dataström du *mata in* den i Azure. Ett vanligt sätt att mata in data är att använda [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), där du kan hantera flera miljoner händelser per sekund och sedan bearbeta och lagra händelseinformationen. I den här självstudiekursen kommer du skapar en event hub och har anrop-händelsegeneratorappen skickar samtalsdata till den händelsehubben. Mer information om händelsehubbar finns i den [dokumentation för Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
 
 >[!NOTE]
->En mer detaljerad version av den här proceduren finns [skapa ett namnområde för Händelsehubbar och en händelsehubb med hjälp av Azure portal](../event-hubs/event-hubs-create.md). 
+>En mer detaljerad version av den här proceduren finns [skapa ett Event Hubs-namnområde och en event hub med Azure-portalen](../event-hubs/event-hubs-create.md). 
 
-### <a name="create-a-namespace-and-event-hub"></a>Skapa ett namnområde och händelse-hubb
-I den här proceduren du först skapa en event hub-namnområde och sedan lägga till en händelsehubb i detta namnområde. Event hub namnområden används för att gruppera relaterade händelser-bussen instanser. 
+### <a name="create-a-namespace-and-event-hub"></a>Skapa ett namnområde och en händelsehubb
+I den här proceduren måste du först skapa ett händelsehubbnamnområde och sedan du lägga till en händelsehubb i namnområdet. Händelsehubbnamnområden som används för att gruppera relaterade event bus instanser. 
 
-1. Logga in på Azure portal och klicka på **skapar du en resurs** > **Sakernas Internet** > **Händelsehubb**. 
+1. Logga in på Azure-portalen och klicka på **skapa en resurs** > **Internet of Things** > **Event Hub**. 
 
-2. I den **skapa namnområdet** rutan Ange ett namn för namnområdet som `<yourname>-eh-ns-demo`. Du kan använda valfritt namn för namnområdet, men namnet måste vara giltigt för en URL och det måste vara unikt i Azure. 
+2. I den **skapa namnområde** rutan Ange ett namn för namnområdet som `<yourname>-eh-ns-demo`. Du kan använda ett namn för namnområdet, men namnet måste vara giltig för en URL och det måste vara unikt i Azure. 
     
-3. Välj en prenumeration och skapa eller välja en resursgrupp och sedan klicka på **skapa**. 
+3. Välj en prenumeration och skapa eller välj en resursgrupp och sedan klicka på **skapa**.
 
-    ![Skapa ett namnområde för event hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png)
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="drawing" width="300px"/>
+
+4. När namnområdet har slutfört distributionen, hitta händelsehubbens namnområde i din lista över Azure-resurser. 
+
+5. Klicka på det nya namnområdet och i fönstret namnområdet på **Event Hub**.
+
+   ![Lägg till Event Hub-knappen för att skapa en ny händelsehubb ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
-4. När namnområdet distribution har slutförts, kan du hitta event hub namnområdet i din lista över Azure-resurser. 
+6. Namnge den nya händelsehubben `asa-eh-frauddetection-demo`. Du kan använda ett annat namn. Om du gör notera av det, eftersom du behöver namnet senare. Du behöver inte ange några andra alternativ för event hub just nu.
 
-5. Klicka på det nya namnområdet och i fönstret namnområdet på **Händelsehubb**.
-
-    ![Knappen Lägg till Händelsehubben för att skapa en ny händelsehubb ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
- 
-6. Namn på ny händelsehubb `sa-eh-frauddetection-demo`. Du kan använda ett annat namn. Om du vill anteckna, eftersom du måste ha namnet senare. Du behöver inte ange andra alternativ för händelsehubben just nu.
-
-    ![Bladet för att skapa en ny händelsehubb](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="drawing" width="400px"/>
     
  
 7. Klicka på **Skapa**.
+
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Bevilja åtkomst till händelsehubben och få en anslutningssträng
 
-Innan en process kan skicka data till en händelsehubb, måste händelsehubben ha en princip som tillåter åtkomstbehörighet. Åtkomstprincipen producerar en anslutningssträng som inkluderar auktoriseringsinformation.
+Innan en process kan skicka data till en händelsehubb, måste event hub ha en princip som tillåter lämplig åtkomst. Åtkomstprincipen producerar en anslutningssträng som inkluderar auktoriseringsinformation.
 
-1.  Klicka på i fönstret händelse namnområde **Händelsehubbar** och klicka sedan på namnet på den nya händelsehubben.
+1.  Klicka på i fönstret händelse namnområde **Händelsehubbar** och klicka sedan på namnet på din nya event hub.
 
 2.  Klicka på i fönstret event hub **principer för delad åtkomst** och klicka sedan på  **+ &nbsp;Lägg till**.
 
     >[!NOTE]
-    >Kontrollera att du arbetar med händelsehubb, inte event hub namnområde.
+    >Kontrollera att du arbetar med event hub inte händelsehubbens namnområde.
 
-3.  Lägg till en princip med namnet `sa-policy-manage-demo` och **anspråk**väljer **hantera**.
+3.  Lägg till en princip med namnet `sa-policy-manage-demo` och för **anspråk**väljer **hantera**.
 
-    ![Bladet för att skapa en ny händelse hubb princip](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png)
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="drawing" width="300px"/>
  
 4.  Klicka på **Skapa**.
 
-5.  När principen har distribuerats, klickar du på den i listan med principer för delad åtkomst.
+5.  När principen har distribuerats, klickar du på den i listan över principer för delad åtkomst.
 
-6.  I listrutan **sträng-primära ANSLUTNINGSNYCKEL** och klicka på kopieringsknappen bredvid anslutningssträngen. 
-    
-    ![Kopiera den primära anslutning strängnyckeln från principen för åtkomst](./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png)
+6.  I listrutan **ANSLUTNINGSSTRÄNG – primär nyckel** och klicka på kopieringsknappen bredvid anslutningssträngen. 
+
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="drawing" width="300px"/>
  
-7.  Klistra in anslutningssträngen i en textredigerare. Du behöver den här anslutningssträngen för nästa avsnitt, när du har mindre ändringar.
+7.  Klistra in anslutningssträngen i en textredigerare. Du behöver den här anslutningssträngen för nästa avsnitt när du har gjort mindre ändringar till den.
 
     Anslutningssträngen ser ut så här:
 
-        Endpoint=sb://YOURNAME-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=sa-policy-manage-demo;SharedAccessKey=Gw2NFZwU1Di+rxA2T+6hJYAtFExKRXaC2oSQa0ZsPkI=;EntityPath=sa-eh-frauddetection-demo
+        Endpoint=sb://YOURNAME-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=Gw2NFZwU1Di+rxA2T+6hJYAtFExKRXaC2oSQa0ZsPkI=;EntityPath=asa-eh-frauddetection-demo
 
-    Observera att anslutningssträngen innehåller flera nyckel-värdepar, avgränsade med semikolon: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey`, och `EntityPath`.  
+    Observera att anslutningssträngen innehåller flera nyckel / värde-par, avgränsade med semikolon: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey`, och `EntityPath`.  
 
-## <a name="configure-and-start-the-event-generator-application"></a>Konfigurera och starta programmet händelse generator
+## <a name="configure-and-start-the-event-generator-application"></a>Konfigurera och starta händelsegeneratorprogrammet
 
-Innan du börjar TelcoGenerator app måste konfigurera du den så att den ska skicka anrop poster till event hub du skapat.
+Innan du startar appen TelcoGenerator måste du konfigurera den så att anropet poster skickas till händelsehubben som du skapade.
 
-### <a name="configure-the-telcogeneratorapp"></a>Konfigurera TelcoGeneratorapp
+### <a name="configure-the-telcogenerator-app"></a>Konfigurera TelcoGenerator-appen
 
-1.  I Redigeraren för dit du kopierade anslutningssträngen, notera den `EntityPath` värdet och ta sedan bort den `EntityPath` par (inte glöm att ta bort semikolonet som föregår den). 
+1.  I redigeraren där du har kopierat anslutningssträngen, notera den `EntityPath` värdet och ta sedan bort den `EntityPath` par (inte glöm att ta bort semikolonet som föregår det). 
 
-2.  Öppna filen telcodatagen.exe.config i en textredigerare i mappen där du unzipped TelcoGenerator.zip-filen. (Det finns fler än en .config-fil, så att du öppnat rätt.)
+2.  Öppna filen telcodatagen.exe.config i en redigerare i mappen där du har packat TelcoGenerator.zip-filen. (Det finns fler än en .config-filen, så var noga med att du öppnar rätt.)
 
 3.  I den `<appSettings>` element:
 
-    * Värdet för den `EventHubName` nyckeln till händelsehubbens namn (det vill säga till värdet för entiteten sökvägen).
-    * Ange värdet för den `Microsoft.ServiceBus.ConnectionString` nyckel i anslutningssträngen. 
+    * Ange värdet för den `EventHubName` avgörande för att namnet på händelsehubben (det vill säga till värdet för entitetssökväg).
+    * Ange värdet för den `Microsoft.ServiceBus.ConnectionString` avgörande för att anslutningssträngen. 
 
-    Den `<appSettings>` avsnitt ser ut som i följande exempel. (För tydlighetens skull vi omsluten raderna och ta bort vissa tecken från autentiseringstoken.)
+    Den `<appSettings>` avsnittet kommer att se ut som i följande exempel. (För tydlighetens skull raderna omsluts och vissa tecken har tagits bort från autentiseringstoken.)
 
-    ![Konfigurationsfilen för TelcoGenerator app visar namn och -anslutningssträngen för hubben](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
+   ![Konfigurationsfilen för TelcoGenerator-appen som visar namn och -anslutningssträngen för hubben](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
 4.  Spara filen. 
 
 ### <a name="start-the-app"></a>Starta appen
-1.  Öppna ett kommandofönster och gå till mappen där appen TelcoGenerator är uppackade.
+1.  Öppna ett kommandofönster och gå till mappen där appen TelcoGenerator är uppzippade.
 2.  Ange följande kommando:
 
         telcodatagen.exe 1000 0.2 2
@@ -137,12 +138,12 @@ Innan du börjar TelcoGenerator app måste konfigurera du den så att den ska sk
     Parametrarna är: 
 
     * Antal skivor per timme. 
-    * SIM-kort bedrägeri sannolikhet: Hur ofta som en procentandel av alla anrop, att appen ska simulera ett bedrägliga anrop. Värdet 0,2 innebär som cirka 20% av anrop poster ser falska.
-    * Varaktighet i timmar. Antal timmar som appen ska köras. Du kan även stoppa appen helst genom att trycka på Ctrl + C på kommandoraden.
+    * Sannolikhet för bedrägeri av SIM-kort: Hur ofta som en procentandel av alla anrop, att appen ska simulera ett bedrägligt samtal. Värdet 0,2 innebär som cirka 20% av anropsposterna ser bedrägliga ut.
+    * Varaktighet i timmar. Antal timmar som appen ska köras. Du kan också stoppa appen när som helst genom att trycka på Ctrl + C på kommandoraden.
 
     Efter några sekunder börjar appen visa telefonsamtalsposter på skärmen och skickar dem till en händelsehubb.
 
-Vissa viktiga fält som du ska använda i realtid bedrägeri identifiering programmet är följande:
+Några av de viktiga fält som du kommer att använda i det här programmet för identifiering av bedrägerier i realtid är följande:
 
 |**Spela in**|**Definition**|
 |----------|--------------|
@@ -151,82 +152,82 @@ Vissa viktiga fält som du ska använda i realtid bedrägeri identifiering progr
 |`CallingNum`|Uppringarens telefonnummer. |
 |`CallingIMSI`|International Mobile Subscriber Identity (IMSI). Det här är den unika identifieraren för anroparen. |
 |`CalledNum`|Telefonnumret till mottagaren. |
-|`CalledIMSI`|International Mobile Subscriber Identity (IMSI). Det här är den unika identifieraren för anropet mottagaren. |
+|`CalledIMSI`|International Mobile Subscriber Identity (IMSI). Det här är den unika identifieraren för mottagaren. |
 
 
 ## <a name="create-a-stream-analytics-job-to-manage-streaming-data"></a>Skapa ett Stream Analytics-jobb för att hantera strömmande data
 
-Nu när du har en dataström med anropet händelser kan ställa du in ett Stream Analytics-jobb. Jobbet ska läsa data från event hub som du skapat. 
+Nu när du har en ström av anropshändelser kan du konfigurera ett Stream Analytics-jobb. Jobbet kommer att läsa data från händelsehubben som du har konfigurerat. 
 
 ### <a name="create-the-job"></a>Skapa jobbet 
 
-1. I Azure-portalen klickar du på **skapar du en resurs** > **Sakernas Internet** > **Stream Analytics-jobbet**.
+1. I Azure-portalen klickar du på **skapa en resurs** > **Internet of Things** > **Stream Analytics-jobbet**.
 
-2. Namnge jobbet `sa_frauddetection_job_demo`, ange en prenumeration, resursgrupp och plats.
+2. Namnge jobbet `asa_frauddetection_job_demo`, ange en prenumeration, resursgrupp och plats.
 
-    Det är en bra idé att placera jobbet och händelsehubben i samma region för bästa prestanda och så att du inte betala för att överföra data mellan regioner.
+    Det är en bra idé att placera jobbet och händelsehubben i samma region för bästa prestanda och så att du inte behöver betala att överföra data mellan regioner.
 
-    ![Skapa nytt Stream Analytics-jobb](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png)
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="drawing" width="300px"/>
 
 3. Klicka på **Skapa**.
 
-    Jobbet har skapats och portalen visar jobbinformation. Inget kör ännu, men – du måste konfigurera jobbet innan den kan startas.
+    Jobbet har skapats och i portalen visas jobbinformation. Inget körs ännu, men – du måste konfigurera jobbet innan den kan startas.
 
 ### <a name="configure-job-input"></a>Konfigurera jobbindata
 
-1. I instrumentpanelen eller **alla resurser** rutan, lokaliserar och markerar den `sa_frauddetection_job_demo` Stream Analytics-jobbet. 
-2. I den **jobbet topologi** avsnitt i fönstret Stream Analytics-jobbet klickar du på den **indata** rutan.
+1. I instrumentpanelen eller **alla resurser** fönstret, lokaliserar och markerar den `asa_frauddetection_job_demo` Stream Analytics-jobb. 
+2. I den **översikt** avsnittet i Stream Analytics-jobbfönstret klickar du på den **indata** box.
 
-    ![Textrutan under topologi i fönstret Streaming Analytics-jobb](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
+   ![Textrutan under topologi i Streaming Analytics-jobbfönstret](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
  
-3. Klicka på  **+ &nbsp;Lägg till** och fyll sedan i fönstret med dessa värden:
+3. Klicka på **Lägg till strömindata** och välj **Event Hub**. Fyll sedan den nya inkommande sidan med följande information:
 
-    * **Ett inmatat alias**: Använd namnet `CallStream`. Om du använder ett annat namn, notera den eftersom du behöver senare.
-    * **Typ av datakälla**: Välj **dataströmmen**. (**Referensdata** refererar till statisk sökning data som du inte använder i den här självstudiekursen.)
-    * **Källan**: Välj **händelsehubb**.
-    * **Importera alternativet**: Välj **Använd händelsehubb från aktuell prenumeration**. 
-    * **Service bus-namnrymd**: Välj händelsen hubb namnområdet som du skapade tidigare (`<yourname>-eh-ns-demo`).
-    * **Händelsehubb**: Välj händelsehubben som du skapade tidigare (`sa-eh-frauddetection-demo`).
-    * **Namnet på händelsehubben princip**: Välj den åtkomstprincip som du skapade tidigare (`sa-policy-manage-demo`).
+   |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
+   |---------|---------|---------|
+   |Inmatat alias  |  CallStream   |  Ange ett namn som identifierar jobbets indata.   |
+   |Prenumeration   |  \<Din prenumeration\> |  Välj den prenumeration som har den Händelsehubb som du skapade.   |
+   |Namnområde för händelsehubb  |  asa-FT-ns-demo |  Ange namnet på namnområdet för Händelsehubben.   |
+   |Namn på händelsehubb  | asa-FT-frauddetection-demo | Välj namnet på din Event Hub.   |
+   |Principnamn för Event Hub  | asa-princip-hantera-demo | Välj den åtkomstprincip som du skapade tidigare.   |
+    </br>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="drawing" width="300px"/>
 
-    ![Skapa nya indata för Streaming Analytics-jobbet](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png)
 
 4. Klicka på **Skapa**.
 
-## <a name="create-queries-to-transform-real-time-data"></a>Skapa frågor för att omvandla data i realtid
+## <a name="create-queries-to-transform-real-time-data"></a>Skapa frågor och transformera data i realtid
 
-Du har nu ett Stream Analytics-jobb som ställts in för att läsa en inkommande dataström. Nästa steg är att skapa en omvandling som analyserar data i realtid. Det gör du genom att skapa en fråga. Stream Analytics stöder en enkel, deklarativ frågemodell som beskriver omvandlingarna för realtidsbearbetning. Frågorna använder en SQL-liknande språk som har vissa tillägg som är specifika för stream analytics. 
+Nu har du ett Stream Analytics-jobb som inställningar för att läsa en inkommande dataström. Nästa steg är att skapa en fråga som analyserar data i realtid. Stream Analytics stöder en enkel, deklarativ frågemodell som beskriver transformationer för bearbetning i realtid. Frågorna använder en SQL-liknande språk som har vissa tillägg som är specifika för Stream Analytics. 
 
-En enkel fråga kan bara läsa alla inkommande data. Men skapa du ofta frågor som ser ut för specifika data eller relationer i data. I det här avsnittet av kursen, skapa och testa flera frågor för att lära dig några sätt som du kan omvandla en indataström för analys. 
+En enkel fråga kan bara läsa alla inkommande data. Men skapar du ofta förfrågningar som söker efter specifika data eller för relationer i data. I det här avsnittet av självstudiekursen ska du skapa och testa flera frågor för att lära dig några sätt som du kan omvandla en indataström för analys. 
 
-Frågor som du skapar här visas bara omvandlade data på skärmen. I ett senare avsnitt får du konfigurera utdatamottagare och en fråga som skriver omvandlade data till som mottagare.
+De frågor som du skapar här visas bara omvandlade data på skärmen. I ett senare avsnitt får du konfigurera en utdatamottagare och en fråga som skriver transformerade data till den mottagaren.
 
-Mer information om språk finns i [referens för Azure Stream Analytics Query Language](https://msdn.microsoft.com/library/dn834998.aspx).
+Mer information om språk finns i [Frågespråksreferens för Azure Stream Analytics](https://msdn.microsoft.com/library/dn834998.aspx).
 
 ### <a name="get-sample-data-for-testing-queries"></a>Hämta exempeldata för att testa frågor
 
-TelcoGenerator appen skickar poster för anrop till händelsehubben och Stream Analytics-jobbet har konfigurerats för att läsa från event hub. Du kan använda en fråga för att testa jobbet att se till att läsa på rätt sätt. Om du vill testa en fråga i Azure-konsolen behöver exempeldata. Den här genomgången ska du extrahera exempeldata från strömmen som kommer till händelsehubben.
+Appen TelcoGenerator skickar anrop poster till event hub och ditt Stream Analytics-jobb är konfigurerad för att läsa från event hub. Du kan använda en fråga för att testa jobbet att se till att den hämtar korrekt. Du behöver exempeldata för att testa en fråga i Azure-konsolen. Den här genomgången ska extrahera du exempeldata från strömmen som kommer till händelsehubben.
 
-1. Se till att appen TelcoGenerator körs och producerar anropet poster.
-2. Gå tillbaka till fönstret Streaming Analytics-jobbet i portalen. (Om du har stängt fönstret kan du söka efter `sa_frauddetection_job_demo` i den **alla resurser** fönstret.)
-3. Klicka på den **frågan** rutan. Azure visar in- och utgångar som är konfigurerade för jobbet och kan du skapa en fråga som kan du omvandla Indataströmmen som skickas till utdata.
-4. I den **frågan** rutan klickar du på punkter bredvid den `CallStream` indata och välj sedan **exempeldata från indata**.
+1. Kontrollera att TelcoGenerator-appen körs och producerar anrop poster.
+2. Gå tillbaka till jobbfönstret för Streaming Analytics i portalen. (Om du har stängt rutan Sök efter `asa_frauddetection_job_demo` i den **alla resurser** fönstret.)
+3. Klicka på den **fråga** box. Azure listar indata och utdata som är konfigurerade för jobbet, och kan du skapa en fråga som låter dig omvandla Indataströmmen som skickas till utdata.
+4. I den **fråga** fönstret, klicka på punkterna bredvid den `CallStream` indata och väljer sedan **exempeldata från indata**.
 
-    ![Menyn Alternativ exempeldata för posten Streaming Analytics-jobb med ”exempeldata från indata” markerad](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sample-data-from-input.png)
+   ![Menyn Alternativ för att använda exempeldata för posten Streaming Analytics-jobb med ”exempeldata från indata” valt](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sample-data-from-input.png)
 
-    Då öppnas ett fönster där du kan ange hur mycket exempeldata som kan definieras enligt hur lång tid för att läsa Indataströmmen.
 
 5. Ange **minuter** till 3 och klicka sedan på **OK**. 
     
-    ![Alternativ för provtagning Indataströmmen, med ”3 minuter” markerad.](./media/stream-analytics-real-time-fraud-detection/stream-analytics-input-create-sample-data.png)
+   ![Alternativ för sampling Indataströmmen, med ”3 minuter” som valts.](./media/stream-analytics-real-time-fraud-detection/stream-analytics-input-create-sample-data.png)
 
-    Azure exempel 3 minuter kan du se från Indataströmmen och meddelar dig när exempeldata är klar. (Detta tar en stund.) 
+    Azure-exempel 3 minuter leverantör av data från Indataströmmen och meddelar dig när exempeldata är klara. (Detta tar en liten stund.) 
 
 Exempeldata lagras tillfälligt och är tillgängliga medan du har frågefönstret öppet. Om du stänger frågefönstret ignoreras exempeldata och du måste skapa en ny uppsättning exempeldata. 
 
-Alternativt kan du hämta en JSON-fil som innehåller exempeldata [från GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json), och sedan ladda upp den JSON-fil som ska användas som exempeldata för den `CallStream` indata. 
+Alternativt kan du hämta en JSON-fil som innehåller exempeldata i den [från GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json), och sedan ladda upp .json-filen ska användas som exempeldata för den `CallStream` indata. 
 
-### <a name="test-using-a-pass-through-query"></a>Testa med en direktfråga
+### <a name="test-using-a-pass-through-query"></a>Testa med hjälp av en direktfråga
 
 Du kan använda en direktfråga för att läsa alla fält i nyttolasten för händelsen om du vill arkivera varje händelse.
 
@@ -238,23 +239,23 @@ Du kan använda en direktfråga för att läsa alla fält i nyttolasten för hä
             CallStream
 
     >[!NOTE]
-    >Precis som med SQL, nyckelord är inte skiftlägeskänsliga och blanksteg är inte viktig.
+    >Precis som med SQL, nyckelord är inte skiftlägeskänsliga och blanksteg är inte särskilt stor.
 
-    I den här frågan `CallStream` är alias som du angav när du skapade indata. Om du använde ett annat alias kan du använda det namnet i stället.
+    I den här frågan `CallStream` är det alias som du angav när du skapade indata. Om du använde ett annat alias kan du använda det namnet i stället.
 
 2. Klicka på **Test**.
 
-    Stream Analytics-jobbet körs frågan mot exempeldata och visar utdata längst ned i fönstret. Du ser att händelsehubben och Streaming Analytics-jobbet är korrekt konfigurerade. (Som anges senare ska du skapa utdatamottagare som frågan kan skriva data till.)
+    Stream Analytics-jobbet körs frågan mot exempeldata och visar resultatet längst ned i fönstret. Resultatet indikerar att Event Hub och Streaming Analytics-jobbet är korrekt konfigurerade. (Enligt vad som anges, senare ska du skapa en utdatamottagare som frågan kan skriva data till.)
 
-    ![Stream Analytics-jobbet på utdata som visar 73 poster som skapas](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output.png)
+   ![Stream Analytics-jobbutdata, som visar 73 poster som genererats](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output.png)
 
-    Det exakta antalet poster som visas beror på hur många poster som har hämtats i ditt exempel 3 minuter.
+    Det exakta antalet poster som visas beror på hur många poster har hämtats i ditt exempel 3 minuter.
  
-### <a name="reduce-the-number-of-fields-using-a-column-projection"></a>Minska antalet fält med en kolumn projektion
+### <a name="reduce-the-number-of-fields-using-a-column-projection"></a>Minska antalet fält med hjälp av en kolumn-projektion
 
-I många fall måste inte dina analyser alla kolumner i Indataströmmen. Du kan använda en fråga för att projicera en mindre uppsättning returnerade fält än i direktfrågan.
+I många fall behöver din analys inte alla kolumner från Indataströmmen. Du kan använda en fråga för att projicera en mindre uppsättning returnerade fält än i direktfrågan.
 
-1. Ändra frågan i kodredigeraren för till följande:
+1. Ändra frågan i kodredigeraren till följande:
 
         SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum 
         FROM 
@@ -262,15 +263,15 @@ I många fall måste inte dina analyser alla kolumner i Indataströmmen. Du kan 
 
 2. Klicka på **Test** igen. 
 
-    ![Stream Analytics-jobbet utdata för projektion som visar 25 poster som genereras](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
+   ![Stream Analytics-jobbutdata för projektion, som visar 25 poster som genererats](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
  
 ### <a name="count-incoming-calls-by-region-tumbling-window-with-aggregation"></a>Antal inkommande anrop per region: rullande fönster med aggregering
 
-Anta att du vill räkna antalet inkommande anrop per region. När du vill utföra mängdfunktioner som inventering, med strömmande data, måste du segmentera dataströmmen i temporal enheter (eftersom dataströmmen själva är effektivt oändliga). Du gör detta med hjälp av en Streaming Analytics [fönstret funktionen](stream-analytics-window-functions.md). Du kan arbeta med data i fönstret som en enhet.
+Anta att du vill räkna antalet inkommande anrop per region. När du vill utföra mängdfunktioner som inventering, i strömmande data måste du segmentera strömmen i den temporala enheter (eftersom själva dataströmmen är effektivt oändliga). Du gör detta med hjälp av ett Streaming Analytics [fönsterfunktion används](stream-analytics-window-functions.md). Du kan sedan arbeta med data i fönstret som en enhet.
 
-Den här omvandlingen du vill ha en sekvens av temporala windows som inte överlappar varandra – varje fönster har en separat uppsättning data som du kan gruppera och aggregering. Den här typen av fönstret kallas en *rullande fönster* . I fönstret rullande du antalet inkommande samtal grupperade efter `SwitchNum`, som motsvarar det land där anropet kommer från. 
+Den här omvandlingen du vill ha en sekvens av temporala windows som inte överlappar varandra – varje panel kan ha en diskret uppsättning data som du kan gruppera och aggregera. Den här typen av fönstret kallas en *rullande fönster*. Du kan hämta ett antal inkommande samtal grupperade efter i fönstret rullande `SwitchNum`, som representerar det land där anropet har sitt ursprung. 
 
-1. Ändra frågan i kodredigeraren för till följande:
+1. Ändra frågan i kodredigeraren till följande:
 
         SELECT 
             System.Timestamp as WindowEnd, SwitchNum, COUNT(*) as CallCount 
@@ -278,25 +279,25 @@ Den här omvandlingen du vill ha en sekvens av temporala windows som inte överl
             CallStream TIMESTAMP BY CallRecTime 
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
 
-    Den här frågan använder den `Timestamp By` nyckelord i den `FROM` -sats för att ange vilka tidsstämpelfältet i Indataströmmen definition rullande fönster. I det här fallet fönstret delas upp data i segment av den `CallRecTime` i varje post. (Om inget fält har angetts används den tid som varje händelse anländer till händelsehubben med fönsterhantering igen. Se ”tid Vs programmet ankomsttid” i [strömma Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
+    Den här frågan använder den `Timestamp By` nyckelord i den `FROM` -satsen för att ange vilka tidsstämpelsfält i Indataströmmen du använder för att definiera utlösare för rullande fönster. I det här fallet fönstret delar in data i segment av den `CallRecTime` i varje post. (Om inget fält anges, används den tid som varje händelse anländer till event hub med fönsterhantering igen. Se ”tid Vs programmet ankomsttid” i [Stream Analytics Frågespråksreferens](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
 
-    Projektionen som innehåller `System.Timestamp`, som returnerar en tidsstämpel för slutet av varje fönster. 
+    Projektionen innehåller `System.Timestamp`, som returnerar en tidsstämpel för slutet av varje fönster. 
 
-    Om du vill ange att du vill använda en rullande fönster som du använder den [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) fungera i den `GROUP BY `satsen. I funktionen anger du en tidsenhet (var som helst från en mikrosekundnivå till en dag) och en fönsterstorlek (hur många enheter). I det här exemplet består rullande fönster av 5 sekunder intervall, så du får ett antal per land för samtal som var femte sekund.
+    Om du vill ange att du vill använda ett rullande fönster som du använder den [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) fungera i den `GROUP BY `satsen. I funktionen anger du en tidsenhet (var som helst från en databehandlingsnoder till en dag) och en fönsterstorleken (hur många enheter). I det här exemplet rullande fönster som består av 5-sekunder intervall, så du får ett antal per land för anrop som var femte sekund.
 
-2. Klicka på **Test** igen. Observera att i resultaten tidsstämplar under **WindowEnd** finns i steg 5 sekunder.
+2. Klicka på **Test** igen. Observera att i resultaten tidsstämplar under **WindowEnd** finns i steg om 5-sekundersintervall.
 
-    ![Stream Analytics-jobbet utdata för aggregering, visar 13 poster som genereras](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
+   ![Stream Analytics-jobbutdata för aggregering, som visar 13 poster som genererats](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
  
-### <a name="detect-sim-fraud-using-a-self-join"></a>Identifiera SIM bedrägeri med hjälp av en självkoppling
+### <a name="detect-sim-fraud-using-a-self-join"></a>Identifiera SIM bedrägerier med hjälp av en självkoppling
 
-I det här exemplet Vi anser att bedrägliga användning ska anrop som kommer från samma användare men på olika platser inom 5 sekunder från varandra. Samma användare kan till exempel inte legitimt ringa ett samtal från USA och Australien samtidigt. 
+Överväg att bedrägliga användning ska vara anrop som kommer från samma användare men på olika platser inom 5 sekunder från varandra i det här exemplet. Samma användare kan till exempel inte legitimt ringa ett samtal från USA och Australien samtidigt. 
 
-Om du vill söka efter dessa fall, du kan använda en självkoppling för strömmande data att ansluta till dataströmmen till sig själv baserat på den `CallRecTime` värde. Du kan sedan söka efter anropet poster där den `CallingIMSI` värde (det ursprungliga nummer) är detsamma, men `SwitchNum` värdet (land för ursprung) är inte samma.
+Om du vill söka efter dessa fall, du kan använda en självkoppling för strömmande data att ansluta till dataströmmen till sig själv baserad på den `CallRecTime` värde. Du kan sedan leta efter poster där den `CallingIMSI` värdet (det ursprungliga numret) är detsamma, men `SwitchNum` värdet (ursprungsland) är inte samma.
 
-När du använder en koppling med strömmande data måste kopplingen ange vissa begränsningar på hur långt matchande rader kan delas upp i tid. (Som tidigare nämnts strömmande data är effektivt oändlig.) Tid gränser för relationen har angetts i den `ON` -satsen för en koppling med hjälp av den `DATEDIFF` funktion. I det här fallet baseras kopplingen på ett samtal data 5 sekunder tidsintervall.
+När du använder en koppling med strömmande data måste kopplingen tillhandahålla samma begränsningar för hur långt matchningsraderna kan delas upp i tid. (Som tidigare nämnts strömmande data är effektivt oändliga.) Tidsgränserna för relationen har angetts i den `ON` -satsen för kopplingen, med hjälp av den `DATEDIFF` funktion. I det här fallet baseras kopplingen på ett intervall för 5-sekundersintervall med samtalsdata.
 
-1. Ändra frågan i kodredigeraren för till följande: 
+1. Ändra frågan i kodredigeraren till följande: 
 
         SELECT  System.Timestamp as Time, 
             CS1.CallingIMSI, 
@@ -310,106 +311,97 @@ När du använder en koppling med strömmande data måste kopplingen ange vissa 
             AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5 
         WHERE CS1.SwitchNum != CS2.SwitchNum
 
-    Den här frågan är precis som alla SQL-koppling utom för den `DATEDIFF` funktionen i kopplingen. Detta är en version av `DATEDIFF` som är specifika för Streaming Analytics och det måste visas i den `ON...BETWEEN` satsen. Parametrarna är en tidsenhet (sekunder i det här exemplet) och alias två källor för kopplingen. (Detta skiljer sig från standard SQL `DATEDIFF` funktionen.) 
+    Den här frågan är som alla SQL-koppling förutom för de `DATEDIFF` funktion i kopplingen. Den här versionen av `DATEDIFF` är specifik för Streaming Analytics och måste visas i den `ON...BETWEEN` satsen. Parametrarna är en tidsenhet (sekunder i det här exemplet) och alias två källor för kopplingen. Detta skiljer sig från standard SQL `DATEDIFF` funktion.
 
-    Den `WHERE` -instruktionen innehåller villkor som flaggar bedrägliga anropet: de ursprungliga växlarna inte är samma. 
+    Den `WHERE` satsen innehåller villkor som flaggar bedrägligt samtal: de ursprungliga växlarna inte är desamma. 
 
 2. Klicka på **Test** igen. 
 
-    ![Stream Analytics-jobbet utdata för självkoppling, visar 6 poster som genereras](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-self-join.png)
+   ![Stream Analytics-jobbutdata för självkoppling, visar 6 poster som genererats](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-self-join.png)
 
-3. Klicka på **Spara**. Detta sparar självkoppling frågan som en del av Streaming Analytics-jobbet. (Den inte spara exempeldata.)
+3. Klicka på **spara** att spara frågan självkoppling som en del av Streaming Analytics-jobbet. (Det inte att spara exempeldata.)
 
-    ![Spara Stream Analytics-jobbet](./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png)
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="drawing" width="300px"/>
 
-## <a name="create-an-output-sink-to-store-transformed-data"></a>Skapa utdatamottagare för att lagra omvandlade data
+## <a name="create-an-output-sink-to-store-transformed-data"></a>Skapa en utdatamottagare för att lagra transformerade data
 
-Du har definierat en händelseström, en händelsehubb som indata för att mata in händelser och en fråga för att genomföra en omvandling över dataströmmen. Det sista steget är att definiera utdatamottagare för jobbet – det vill säga en plats för att skriva transformerade dataström till. 
+Du har definierat en händelseström, en händelsehubb som indata för att mata in händelser och en fråga för att utföra en omvandling dataströmmen. Det sista steget är att definiera en utdatamottagare för jobbet – det vill säga en plats för att skriva transformerade dataström till. 
 
-Du kan använda många resurser som utdata sänkor – SQL Server-databasen, tabellagring, Data Lake lagring, Power BI och en annan händelsehubb. För den här kursen ska du skriva dataströmmen till Azure Blob Storage, vilket är ett vanliga alternativ för att samla in händelseinformation för senare analys, eftersom den innehåller Ostrukturerade data.
+Du kan använda många resurser som utdatamottagarna – en SQL Server-databas, table storage, Data Lake-lagring, Power BI och även en annan händelsehubb. Den här självstudien skriver du strömmen till Azure Blob Storage, vilket är vanligt för att samla in händelseinformation för senare analys, eftersom den innehåller Ostrukturerade data.
 
-Om du har en befintlig blob storage-konto kan använda du som. För den här kursen finns visar om hur du skapar ett nytt lagringskonto för den här kursen.
+Om du har ett befintligt blob storage-konto kan använda du som. För den här självstudien får du lära dig hur du skapar ett nytt lagringskonto.
 
 ### <a name="create-an-azure-blob-storage-account"></a>Skapa ett Azure Blob Storage-konto
 
-1. Gå tillbaka till fönstret Streaming Analytics-jobb på Azure-portalen. (Om du har stängt fönstret kan du söka efter `sa_frauddetection_job_demo` i den **alla resurser** fönstret.)
-2. I den **jobbet topologi** klickar du på den **utdata** rutan. 
-3. I den **utdata** rutan klickar du på  **+ &nbsp;Lägg till** och fyll sedan i fönstret med dessa värden:
+1. Välj **Skapa en resurs** > **Lagring** > **Lagringskonto** i det övre vänstra hörnet i Azure-portalen. Fyll jobbsidan för Lagringskontot med **namn** inställd på ”asaehstorage” **plats** inställd på ”östra USA”, **resursgrupp** inställd på ”asa-FT-ns-rg” (host lagringskontot i samma resursgrupp som Streaming-jobbet för bättre prestanda). Återstående inställningar kan ha kvar standardvärdena.  
 
-    * **Ett utdataalias**: Använd namnet `CallStream-FraudulentCalls`. 
-    * **Sink**: Välj **Blob storage**.
-    * **Importalternativ**: Välj **använda blob storage från aktuell prenumeration**.
-    * **Lagringskontot**. Välj **Skapa nytt lagringskonto.**
-    * **Lagringskontot** (andra rutan). Ange `YOURNAMEsademo`, där `YOURNAME` är ditt namn eller en annan unik sträng. Namnet kan använda bara gemena bokstäver och siffror, och den måste vara unikt i Azure. 
-    * **Behållaren**. Ange `sa-fraudulentcalls-demo`.
-    Lagringskontonamn och behållarnamn används tillsammans för att ge en URI för blobblagring, så här: 
+   ![Skapa lagringskonto](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
 
-    `http://yournamesademo.blob.core.windows.net/sa-fraudulentcalls-demo/...`
+2. Gå tillbaka till jobbfönstret för Streaming Analytics i Azure-portalen. (Om du har stängt rutan Sök efter `asa_frauddetection_job_demo` i den **alla resurser** fönstret.)
+
+3. I den **Jobbtopologi** klickar du på den **utdata** box.
+
+4. I den **utdata** fönstret klickar du på **Lägg till** och välj **Blob-lagring**. Fyll sedan den nya utdata-sidan med följande information:
+
+   |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
+   |---------|---------|---------|
+   |Utdataalias  |  CallStream-FraudulentCalls   |  Ange ett namn som identifierar jobbets utdata.   |
+   |Prenumeration   |  \<Din prenumeration\> |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
+   |Lagringskonto  |  asaehstorage |  Ange namnet på det lagringskonto du skapade. |
+   |Behållare  | asa-fraudulentcalls-demo | Välj Skapa nytt och ange ett behållarnamn. |
+    <br/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="drawing" width="300px"/>
     
-    ![”Nya utdata” fönstret för Stream Analytics-jobbet](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png)
-    
-4. Klicka på **Skapa**. 
+5. Klicka på **Spara**. 
 
-    Azure skapar lagringskontot och skapar automatiskt en nyckel. 
-
-5. Stäng den **utdata** fönstret. 
 
 ## <a name="start-the-streaming-analytics-job"></a>Starta Streaming Analytics-jobbet
 
-Jobbet har nu konfigurerats. Du har angett indata (händelsehubben), en omvandling (frågan ska sökas efter bedrägliga anrop) och utdata (blobblagring). Nu kan du starta jobbet. 
+Jobbet har nu konfigurerats. Du har angett indata (händelsehubb), en transformation (frågan för att leta efter bedrägliga samtal) och utdata (blob storage). Du kan nu starta jobbet. 
 
-1. Kontrollera att TelcoGenerator appen körs.
+1. Kontrollera att TelcoGenerator-appen körs.
 
-2. Klicka på i fönstret jobb **starta**.
+2. I jobbfönstret klickar du på **starta**. I den **startjobb** fönstret för jobbets utdata starttid, väljer **nu**. 
 
-    ![Starta Stream Analytics-jobbet](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-output.png)
+   ![Starta Stream Analytics-jobbet](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start.png)
 
-3. I den **startjobb** fönstret för utdata starttid, Välj **nu**. 
 
-4. Klicka på **starta**. 
 
-    ![”Starta jobbet” fönstret för Stream Analytics-jobbet](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-job-blade.png)
+## <a name="examine-the-transformed-data"></a>Granska transformerade data
 
-    Azure meddelar dig när jobbet har startat och i fönstret jobb visas status som **kör**.
+Nu har du en fullständig Streaming Analytics-jobbet. Jobbet undersöka en dataström med telefonsamtal metadata, letar du efter bedrägliga samtal i realtid och skriva information om dessa bedrägliga samtal till lagring. 
 
-    ![Stream Analytics-jobbstatusen, visar ”körs”](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-running-status.png)
-    
+Den här kursen kan du titta på de data som inhämtas av Streaming Analytics-jobbet. Data skrivs till Azure BLOB-lagring i segment (filer). Du kan använda ett verktyg som läser Azure Blob Storage. Enligt vad som anges i avsnittet förutsättningar, du kan använda Azure-tillägg i Visual Studio eller du kan använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com/) eller [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
 
-## <a name="examine-the-transformed-data"></a>Granska omvandlade data
+När du undersöker innehållet i en fil i blob storage, se något som liknar följande:
 
-Nu har du en fullständig Streaming Analytics-jobbet. Jobbet undersöka en dataström med metadata för telefonsamtal, söker efter bedrägliga telefonsamtal i realtid och skriva information om dessa falska anrop till lagring. 
-
-Du kanske vill titta på de data som fångas av Streaming Analytics-jobb för den här kursen. Data skrivs till Azure-bloggen Storage i segment (filer). Du kan använda ett verktyg som läser Azure Blob Storage. Enligt beskrivningen i avsnittet förutsättningar, du kan använda Azure tillägg i Visual Studio och du kan använda ett verktyg som [Azure Lagringsutforskaren](http://storageexplorer.com/) eller [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
-
-När du undersöker innehållet i en fil i blob storage finns något som liknar följande:
-
-![Azure blob storage med Streaming Analytics-utdata](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-blob-storage-view.png)
+   ![Azure blob storage med Streaming Analytics-utdata](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-blob-storage-view.png)
  
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Vi har ytterligare artiklar som fortsätta med scenario för upptäckt av bedrägerier och som använder de resurser som du har skapat i den här kursen. Om du vill fortsätta finns förslag under **nästa steg** senare.
+Det finns andra artiklar som fortsätta med scenariot för identifiering av bedrägerier och använda de resurser som du har skapat i den här självstudien. Om du vill fortsätta se förslag under **nästa steg**.
 
-Men om du är klar och du inte behöver de resurser som du har skapat, du kan ta bort dem så att du inte debiteras onödiga Azure. Vi rekommenderar i så fall kan du göra följande:
+Om du är klar och du inte behöver resurserna som du har skapat, du kan dock ta bort dem så att du inte debiteras onödiga Azure. I så fall föreslår vi att du gör följande:
 
-1. Stoppa Streaming Analytics-jobbet. I den **jobb** rutan klickar du på **stoppa** längst upp.
-2. Stoppa anger Generator app. Tryck på Ctrl + C i kommandofönstret som du startade appen.
-3. Ta bort om du har skapat en ny blob storage-konto för den här kursen. 
+1. Stoppa Streaming Analytics-jobbet. I den **jobb** fönstret klickar du på **stoppa** högst upp.
+2. Stoppa Telco Generator-app. Tryck på Ctrl + C i kommandofönstret där du startade appen.
+3. Om du har skapat en ny blob storage-konto för den här självstudien kan du ta bort den. 
 4. Ta bort Streaming Analytics-jobbet.
 5. Ta bort händelsehubben.
-6. Ta bort namnområdet event hub.
+6. Ta bort händelsehubbens namnområde.
 
 ## <a name="get-support"></a>Få support
 
-För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+För mer hjälp kan du prova den [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan fortsätta den här självstudiekursen med följande artikel:
+Du kan fortsätta den här självstudien med följande artikel:
 
-* [Strömma analyser och Power BI: en analys i realtid instrumentpanel för strömmande data](stream-analytics-power-bi-dashboard.md). Den här artikeln visar hur du skickar utdata till Stream Analytics-jobb anger till Power BI för visualisering i realtid och analys.
+* [Stream Analytics och Power BI: en instrumentpanel för analys i realtid för strömmande data](stream-analytics-power-bi-dashboard.md). Den här artikeln visar hur du skickar TelCo utdata från Stream Analytics-jobb till Power BI för visualisering i realtid och analys.
 
-Mer information om Stream Analytics i allmänhet finns dessa artiklar:
+Mer information om Stream Analytics i allmänhet finns i följande artiklar:
 
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)

@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: b87838a80c7c7706b9af2bd4ea274335d04a5c52
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: e8e41c51b6df9962e561d56be75108ba9cd76377
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751521"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901627"
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
-Funktionen säkerhetskopiering och återställning i [Azure App Service](app-service-web-overview.md) kan du enkelt skapa app säkerhetskopiering manuellt eller enligt ett schema. Du kan återställa appen till en ögonblicksbild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app. 
+Funktionen för säkerhetskopiering och återställning i [Azure App Service](app-service-web-overview.md) kan du lätt skapa säkerhetskopior av appar manuellt eller enligt ett schema. Du kan återställa appen till en ögonblicksbild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app. 
 
-Information om hur du återställer en app från en säkerhetskopia finns [återställa en app i Azure](web-sites-restore.md).
+Information om hur du återställer en app från säkerhetskopia finns i [Återställ en app i Azure](web-sites-restore.md).
 
 <a name="whatsbackedup"></a>
 
 ## <a name="what-gets-backed-up"></a>Vad säkerhetskopieras
-Apptjänst kan säkerhetskopiera följande information till en Azure storage-konto och behållare som du har konfigurerat din app ska använda. 
+App Service kan säkerhetskopiera följande information till en Azure-lagringskonto och en behållare som du har konfigurerat din app ska använda. 
 
 * Appkonfiguration
 * Filinnehåll
-* Databas som är ansluten till din app
+* Databasen som är ansluten till din app
 
-Följande databaslösningar stöds med funktionen för säkerhetskopiering: 
+Följande databaslösningar stöds med säkerhetskopieringsfunktionen: 
    - [SQL Database](https://azure.microsoft.com/services/sql-database/)
-   - [Azure-databas för MySQL (förhandsgranskning)](https://azure.microsoft.com/services/mysql)
-   - [Azure-databas för PostgreSQL (förhandsgranskning)](https://azure.microsoft.com/services/postgresql)
-   - [MySQL i appen](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
+   - [Azure Database for MySQL (förhandsversion)](https://azure.microsoft.com/services/mysql)
+   - [Azure Database för PostgreSQL (förhandsversion)](https://azure.microsoft.com/services/postgresql)
+   - [MySQL via app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 
 > [!NOTE]
@@ -49,117 +49,121 @@ Följande databaslösningar stöds med funktionen för säkerhetskopiering:
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Krav och begränsningar
-* Funktionen säkerhetskopiering och återställning kräver App Service-plan i den **Standard** nivå eller **Premium** nivå. Läs mer om att skala din programtjänstplan att använda en högre nivå, [skala upp en app i Azure](web-sites-scale.md).  
-  **Premium** nivå kan ett större antal daglig säkerhetskopiering än **Standard** nivå.
-* Du behöver ett Azure storage-konto och behållaren i samma prenumeration som den app som du vill säkerhetskopiera. Mer information om Azure storage-konton finns i [länkar](#moreaboutstorage) i slutet av den här artikeln.
-* Säkerhetskopieringar kan vara upp till 10 GB app- och innehåll. Om säkerhetskopians storlek överskrider denna gräns, inträffar ett fel.
+* Funktionen för säkerhetskopiering och återställning kräver App Service-plan i den **Standard** nivå eller **Premium** nivå. Läs mer om att skala din App Service-plan för att använda en högre nivå, [skala upp en app i Azure](web-sites-scale.md).  
+  **Premium** nivån kan ett större antal dagliga säkerhetskopior än **Standard** nivå.
+* Du behöver ett Azure storage-konto och en behållare i samma prenumeration som den app som du vill säkerhetskopiera. Mer information om Azure storage-konton finns i den [länkar](#moreaboutstorage) i slutet av den här artikeln.
+* Säkerhetskopieringar kan vara upp till 10 GB av app- och innehåll. Om säkerhetskopians storlek överskrider den här gränsen kan få du ett felmeddelande.
+* Säkerhetskopior av SSL aktiverat Azure Database för MySQL inte stöds. Om en säkerhetskopiering konfigureras, får du säkerhetskopieringar.
+* Säkerhetskopior av SSL aktiverat Azure Database för PostgreSQL inte stöds. Om en säkerhetskopiering konfigureras, får du säkerhetskopieringar.
+* Med hjälp av en brandvägg, aktiverat lagringskonto som mål för dina säkerhetskopior inte stöds. Om en säkerhetskopiering konfigureras, får du säkerhetskopieringar.
+
 
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>Skapa en manuell säkerhetskopia
-1. I den [Azure-portalen](https://portal.azure.com)navigerar du till appens sida, Välj **säkerhetskopieringar**. Den **säkerhetskopieringar** visas.
+1. I den [Azure-portalen](https://portal.azure.com)inloggningsinformationen för din app, markera **säkerhetskopior**. Den **säkerhetskopior** visas.
    
-    ![Säkerhetskopieringar sida][ChooseBackupsPage]
+    ![Sidan för säkerhetskopior][ChooseBackupsPage]
    
    > [!NOTE]
-   > Om följande meddelande visas klickar du på den för att uppgradera din programtjänstplan innan du kan fortsätta med säkerhetskopiering.
+   > Om följande meddelande visas klickar du på den för att uppgradera din App Service-plan innan du kan fortsätta med säkerhetskopieringar.
    > Mer information finns i [skala upp en app i Azure](web-sites-scale.md).  
    > ![Välj lagringskonto](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
 
-2. I den **säkerhetskopiering** sidan, klicka på **konfigurera**
-![Klicka på Konfigurera](./media/web-sites-backup/ClickConfigure1.png)
-3. I den **konfigurering av säkerhetskopiering** klickar du på **lagring: inte konfigurerat** att konfigurera ett lagringskonto.
+2. I den **Backup** klickar du på **konfigurera**
+![klickar du på Konfigurera](./media/web-sites-backup/ClickConfigure1.png)
+3. I den **Säkerhetskopieringskonfigurationen** klickar du på **lagring: inte konfigurerat** att konfigurera ett lagringskonto.
    
     ![Välj lagringskonto][ChooseStorageAccount]
-4. Välj ditt mål för säkerhetskopian genom att välja en **Lagringskonto** och **behållare**. Storage-konto måste tillhöra samma prenumeration som den app du vill säkerhetskopiera. Om du vill kan skapa du ett nytt lagringskonto eller en ny behållare i respektive sidor. När du är klar klickar du på **Välj**.
+4. Välj ditt mål för säkerhetskopian genom att välja en **Lagringskonto** och **behållare**. Storage-kontot måste tillhöra samma prenumeration som den app du vill säkerhetskopiera. Om du vill kan skapa du ett nytt lagringskonto eller en ny behållare i respektive sidor. När du är klar klickar du på **Välj**.
    
     ![Välj lagringskonto](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
-5. I den **konfigurering av säkerhetskopiering** som lämnas fortfarande öppen kan du konfigurera **Backup Database**, sedan väljer du databaserna som du vill inkludera i säkerhetskopiering (SQL-databas eller MySQL) och sedan på **OK**.  
+5. I den **Säkerhetskopieringskonfigurationen** som lämnas fortfarande öppna kan du konfigurera **Backup Database**, sedan väljer du databaserna som du vill ska ingå i säkerhetskopiering (SQL-databas eller MySQL) och sedan på **OK**.  
    
     ![Välj lagringskonto](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > För en databas ska visas i den här listan sin anslutningssträng måste finnas i den **anslutningssträngar** avsnitt i den **programinställningar** för din app.
+   > För en databas ska visas i den här listan, sin anslutningssträng måste finnas i den **anslutningssträngar** delen av den **programinställningar** för din app.
    > 
    > 
-6. I den **konfigurering av säkerhetskopiering** klickar du på **spara**.    
-7. I den **säkerhetskopieringar** klickar du på **säkerhetskopiering**.
+6. I den **Säkerhetskopieringskonfigurationen** klickar du på **spara**.    
+7. I den **säkerhetskopior** klickar du på **Backup**.
    
-    ![Knappen BackUpNow][BackUpNow]
+    ![BackUpNow knappen][BackUpNow]
    
-    Du kan se något pågående meddelande under säkerhetskopieringen.
+    Du ser något pågående meddelande under säkerhetskopieringen.
 
-När lagringskontot och behållaren har konfigurerats kan starta du en manuell säkerhetskopiering när som helst.  
+När lagringskontot och behållaren har konfigurerats kan initiera du en manuell säkerhetskopiering när som helst.  
 
 <a name="automatedbackups"></a>
 
-## <a name="configure-automated-backups"></a>Konfigurera automatisk säkerhetskopiering
-1. I den **Säkerhetskopieringskonfigurationen** ställer du in **schemalagd säkerhetskopiering** till **på**. 
+## <a name="configure-automated-backups"></a>Konfigurera automatiska säkerhetskopieringar
+1. I den **Säkerhetskopieringskonfiguration** ställer du in **schemalagd säkerhetskopiering** till **på**. 
    
     ![Välj lagringskonto](./media/web-sites-backup/05ScheduleBackup1.png)
-2. Ange schemat för säkerhetskopiering alternativ visas, **schemalagd säkerhetskopiering** till **på**, konfigurerar schemat för säkerhetskopiering enligt önskemål och klickar på **OK**.
+2. Schema för säkerhetskopiering alternativ visas, ange **schemalagd säkerhetskopiering** till **på**, konfigurera schemat för säkerhetskopiering som du vill och klicka på **OK**.
    
-    ![Aktivera automatisk säkerhetskopiering][SetAutomatedBackupOn]
+    ![Aktivera automatiska säkerhetskopieringar][SetAutomatedBackupOn]
 
 <a name="partialbackups"></a>
 
 ## <a name="configure-partial-backups"></a>Konfigurera partiella säkerhetskopieringar
-Ibland vill du säkerhetskopiera allt på din app. Några exempel:
+Ibland vill du inte säkerhetskopiera allt på din app. Några exempel:
 
 * Du [konfigurera veckovisa säkerhetskopior](web-sites-backup.md#configure-automated-backups) för din app med statiskt innehåll som aldrig ändras, till exempel gamla blogginlägg eller bilder.
-* Appen har över 10 GB innehåll (som är den högsta du kan säkerhetskopiera i taget).
+* Din app har över 10 GB av innehåll (som är den maximala du kan säkerhetskopiera i taget).
 * Du vill inte säkerhetskopiera filerna.
 
 Partiella säkerhetskopior kan du välja exakt vilka filer som du vill säkerhetskopiera.
 
 ### <a name="exclude-files-from-your-backup"></a>Undanta filer från säkerhetskopian
-Anta att du har en app som innehåller loggfiler och statiska bilder som har säkerhetskopiera en gång och inte kommer att ändras. I sådana fall kan utesluta du de mappar och filer som lagras i dina framtida säkerhetskopieringar. Om du vill undanta filer och mappar från säkerhetskopiorna, skapa en `_backup.filter` filen i den `D:\home\site\wwwroot` mappen för din app. Ange en lista över filer och mappar som ska läggas till i den här filen. 
+Anta att du har en app som innehåller loggfiler och statiska bilder som har varit säkerhetskopierade en gång och inte kommer att ändras. I sådana fall kan undanta du dessa mappar och filer som lagras i dina framtida säkerhetskopieringar. Om du vill undanta filer och mappar från dina säkerhetskopior, skapa en `_backup.filter` fil i den `D:\home\site\wwwroot` -mappen i appen. Ange en lista över filer och mappar som ska läggas till i den här filen. 
 
-Ett enkelt sätt att komma åt dina filer är att använda Kudu. Klicka på **avancerade verktyg -> Gå** för ditt webbprogram att komma åt Kudu.
+Ett enkelt sätt att komma åt dina filer är att använda Kudu. Klicka på **avancerade verktyg -> Go** för din webbapp till Kudu.
 
 ![Kudu med hjälp av portalen][kudu-portal]
 
-Identifiera de mappar som du vill undanta från säkerhetskopiorna.  Till exempel att du vill filtrera bort de markerade kataloger och filer.
+Identifiera de mappar som du vill undanta från säkerhetskopiorna.  Exempelvis kan du filtrera bort den markerade mappen och filer.
 
-![Mappen avbildningar][ImagesFolder]
+![Bildmappen][ImagesFolder]
 
-Skapa en fil med namnet `_backup.filter` och placera listan ovan i filen, men ta bort `D:\home`. Ange en mapp eller fil per rad. Så att innehållet i filen bör vara:
+Skapa en fil med namnet `_backup.filter` och lägga till den föregående listan i filen, men ta bort `D:\home`. Lista en mapp eller fil per rad. Innehållet i filen bör vara:
  ```bash
     \site\wwwroot\Images\brand.png
     \site\wwwroot\Images\2014
     \site\wwwroot\Images\2013
 ```
 
-Överför `_backup.filter` filen till den `D:\home\site\wwwroot\` för din webbplats med [ftp](app-service-deploy-ftp.md) eller någon annan metod. Om du vill kan du skapa filen direkt med Kudu `DebugConsole` och infoga det innehållet.
+Ladda upp `_backup.filter` filen till den `D:\home\site\wwwroot\` för din webbplats med hjälp av [ftp](app-service-deploy-ftp.md) eller någon annan metod. Om du vill kan du skapa filen direkt med Kudu `DebugConsole` och infoga det innehållet.
 
-Köra säkerhetskopieringar på samma sätt som du skulle göra det, [manuellt](#create-a-manual-backup) eller [automatiskt](#configure-automated-backups). Nu alla filer och mappar som anges i `_backup.filter` är exkluderad från framtida säkerhetskopieringar schemalagd eller manuell start. 
+Köra säkerhetskopieringar på samma sätt som du skulle göra det, [manuellt](#create-a-manual-backup) eller [automatiskt](#configure-automated-backups). Nu alla filer och mappar som anges i `_backup.filter` är exkluderad från framtida säkerhetskopieringar schemalagda eller initieras manuellt. 
 
 > [!NOTE]
-> Du kan återställa partiella säkerhetskopior av din webbplats på samma sätt som [återställa en säkerhetskopia av vanliga](web-sites-restore.md). Återställningen har rätta.
+> Du har återställt partiella säkerhetskopior av webbplatsen på samma sätt som du skulle [återställa en säkerhetskopia av regelbundna](web-sites-restore.md). Återställningsprocessen uppnår rätt mål.
 > 
-> När en fullständig säkerhetskopia återställs ersätts allt innehåll på webbplatsen med säkerhetskopieringen. Om en fil på platsen, men inte i säkerhetskopian tas bort. Men när en partiell säkerhetskopia återställs allt innehåll som finns i en av de svartlistat katalogerna eller en svartlistat fil är kvar.
+> När en fullständig säkerhetskopia återställs ersätts allt innehåll på webbplatsen med säkerhetskopieringen. Om en fil finns på webbplatsen, men inte i säkerhetskopian av den tas bort. Men när en partiell säkerhetskopia återställs allt innehåll som finns i någon av de svartlistade katalogerna eller en fil kan svartlistade, lämnas skick.
 > 
 
 
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>Hur säkerhetskopior lagras
-När du har gjort en eller flera säkerhetskopieringar för din app, säkerhetskopiorna är synliga på den **behållare** i ditt lagringskonto och din app. Storage-konto varje säkerhetskopiering består av en`.zip` -fil som innehåller den säkerhetskopiera informationen och en `.xml` -fil som innehåller ett manifest för den `.zip` filinnehåll. Du kan packa och bläddra bland dessa filer om du vill komma åt dina säkerhetskopieringar utan att faktiskt utföra en app-återställning.
+När du har gjort en eller flera säkerhetskopieringar för din app, säkerhetskopiorna som är synliga på den **behållare** i ditt storage-konto och din app. I storage-konto varje säkerhetskopiering består av en`.zip` -fil som innehåller den säkerhetskopierade data och en `.xml` -fil som innehåller ett manifest för den `.zip` filinnehåll. Du kan packa upp och bläddra bland dessa filer om du vill komma åt dina säkerhetskopior utan att faktiskt utföra en återställning för appen.
 
-Säkerhetskopieringen av databasen för appen lagras i roten på ZIP-filen. För en SQL-databas är en BACPAC-fil (utan filtillägget) och kan importeras. Om du vill skapa en SQL-databas som är baserat på BACPAC export finns [importera en BACPAC-fil för att skapa en ny databas](http://technet.microsoft.com/library/hh710052.aspx).
+Säkerhetskopian av databasen för appen lagras i roten på .zip-filen. För en SQL-databas, detta är en BACPAC-fil (utan filtillägget) och kan importeras. Om du vill skapa en SQL-databas utifrån BACPAC-export [importera en BACPAC-fil för att skapa en ny användardatabas](http://technet.microsoft.com/library/hh710052.aspx).
 
 > [!WARNING]
-> Ändra alla filer i din **websitebackups** behållare kan orsaka att säkerhetskopieringen blir ogiltigt och därför icke-återställningsbara.
+> Ändra någon av filerna i din **websitebackups** behållare kan orsaka att säkerhetskopiera till blir ogiltiga och därför icke-återställningsbara.
 > 
 > 
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 
-Du kan automatisera säkerhetskopieringen hantering med skript, med hjälp av den [Azure CLI](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/overview).
+Du kan automatisera hantering av säkerhetskopiering med skript med hjälp av den [Azure CLI](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/overview).
 
-Exempel på finns:
+Exempel finns här:
 
 - [Azure CLI-exempel](app-service-cli-samples.md)
 - [Azure PowerShell-exempel](app-service-powershell-samples.md)
@@ -167,7 +171,7 @@ Exempel på finns:
 <a name="nextsteps"></a>
 
 ## <a name="next-steps"></a>Nästa steg
-Information om hur du återställer en app från en säkerhetskopia finns [återställa en app i Azure](web-sites-restore.md). 
+Information om hur du återställer en app från en säkerhetskopia finns i [Återställ en app i Azure](web-sites-restore.md). 
 
 
 <!-- IMAGES -->

@@ -1,6 +1,6 @@
 ---
-title: Skapa och distribuera en modell för klassificering av avbildning med hjälp av Azure Machine Learning-paketet för datorn Vision.
-description: Lär dig mer om att skapa, träna, testa och distribuera en vision avbildningen klassificering datormodell med Azure Machine Learning-paketet för datorn Vision.
+title: Skapa och distribuera en modell för klassificering av avbildning med hjälp av Azure Machine Learning-paket för visuellt innehåll.
+description: Lär dig mer om att skapa, träna, testa och distribuera en avbildning klassificeringsmodellen för visuellt innehåll med hjälp av Azure Machine Learning-paketet för visuellt innehåll.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,68 +9,62 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 2c988f8651d0ae9a8662b502ca2ba2dbabb2defe
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 6b7f73573cb1465b89e54e30894b3549153e4acb
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37116185"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888440"
 ---
-# <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Skapa och distribuera avbildningen klassificering modeller med Azure Machine Learning
+# <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Skapa och distribuera avbildningsklassificeringsmodeller med Azure Machine Learning
 
-I den här artikeln lär du dig hur du använder **Azure Machine Learning-paketet för datorn Vision** (AMLPCV) för att träna, testa och distribuera en modell för klassificering av avbildningen. 
+I den här artikeln lär du dig hur du använder **Azure Machine Learning-paket för visuellt innehåll** (AMLPCV) för att träna, testa och distribuera en modell för klassificering av avbildning. 
 
-Ett stort antal problem i datorn vision domänen kan lösas med hjälp av klassificering för avbildningen. Dessa problem är bygga modeller som besvara frågor som:
-+ _Finns ett objekt i bilden? Till exempel ”hund”, ”bil”, ”levereras” och så vidare_
-+ _Vilken klass av öga sjukdom allvarlighetsgrad evinced av den här tålamod retinal genomsökning?_
+Ett stort antal problem i datordomän för visuellt innehåll kan lösas med hjälp av klassificering av avbildning. Dessa problem är att skapa modeller som svar på frågor som:
++ _Är ett objekt i bilden? Till exempel ”hund”, ”bil”, ”skicka” och så vidare_
++ _Vilken klass av öga sjukdomar allvarlighetsgrad evinced av den här patientens retinal genomsökning med?_
 
 När du skapar och distribuerar den här modellen med AMLPCV, gå igenom följande steg:
 1. Skapa en datauppsättning
-2. Bild anteckningar och visualisering
-3. Bild förstärkning
-4. Definition av modellen för djupa Neurala nätverk (DNN)
+2. Visualisering och anteckning
+3. Bild Tokenomvandling
+4. Modell-Definition för djupa Neurala nätverk (DNN)
 5. Klassificerare utbildning
 6. Utvärdering och visualisering
 7. Webbtjänsten distribution
-8. Läs in testning-webbtjänst
+8. Webbtjänsten belastningstest
 
-[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) används som djup learning-ramverk utbildning utförs lokalt på en GPU påslagen dator som den ([djup learning datavetenskap VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), och distributionen använder Azure ML Operationalization CLI.
+[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) används som deep learning-ramverk utbildning utförs lokalt på en GPU-baserade dator som den ([Deep learning virtuell dator för datavetenskap](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), och distributionen använder Azure ML driftsättning CLI.
 
-Läs den [paketet referensdokumentationen](https://aka.ms/aml-packages/vision) för detaljerad för varje modul och klass.
+Läs den [paketera referensdokumentation](https://aka.ms/aml-packages/vision) för detaljerade referenser för varje modul och klass.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 1. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-1. Följande konton och programmet måste ställas in och installerat:
+1. Följande konton och programmet måste ställas in och installerad:
    - Ett konto för Machine Learning-experimentering 
-   - Ett konto i Azure Machine Learning modellen Management
+   - Ett konto i Azure Machine Learning-modellhantering
    - Azure Machine Learning Workbench installerat
 
-   Om dessa tre är ännu inte skapats eller installerats, så den [installationen av Azure Machine Learning Quickstart och arbetsstationen](../service/quickstart-installation.md) artikel. 
+   Om dessa tre är ännu inte skapats eller installerats följer den [installationen av Azure Machine Learning-Quickstart och Workbench](../service/quickstart-installation.md) artikeln. 
 
-1. Azure Machine Learning-paketet för datorn Vision måste installeras. Lär dig hur du [installationspaket här](https://aka.ms/aml-packages/vision).
+1. Azure Machine Learning-paket för visuellt innehåll måste installeras. Lär dig hur du [installera det här paketet här](https://aka.ms/aml-packages/vision).
 
-## <a name="sample-data-and-notebook"></a>Exempeldata och bärbara datorer
+## <a name="sample-data-and-notebook"></a>Exempeldata och notebook
 
 ### <a name="get-the-jupyter-notebook"></a>Hämta Jupyter-anteckningsbok
 
-Ladda ned anteckningsboken för att köra exemplet beskrivs här själv.
+Ladda ned anteckningsboken för att köra exemplet som beskrivs här själv.
 
 > [!div class="nextstepaction"]
 > [Hämta Jupyter-anteckningsbok](https://aka.ms/aml-packages/vision/notebooks/image_classification)
 
-### <a name="load-the-sample-data"></a>Läs in exempeldata
+### <a name="load-the-sample-data"></a>Läsa in exempeldata
 
-I följande exempel används en datamängd som består av 63 Bords bilder. Varje avbildning är märkt som tillhör någon av fyra olika klasser (skål, cup, bestick, platta). Antalet avbildningar i det här exemplet är liten så att det här exemplet kan utföras snabbt. I praktiken måste minst 100 bilder per klass anges. Alla avbildningar finns i *”... /sample_data/imgs_recycling / ”* i underkataloger som kallas” skål ”,” cup ”,” bestick ”och” skylt ”.
+I följande exempel används en datauppsättning som består av 63 Bords avbildningar. Varje bild är märkta som tillhör en av fyra olika klasser (bowl, cup, bestick, lj). Antalet bilder i det här exemplet är liten så att det här exemplet kan utföras snabbt. I praktiken måste minst 100 bilder per klass anges. Alla avbildningar finns på *”... /sample_data/imgs_recycling / ”*, i underkataloger som kallas” bowl ”,” cup ”,” bestick ”och” skylt ”.
 
-![Azure Machine Learning-datamängd](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
-
-## <a name="storage-context"></a>Storage-kontexten
-
-Storage-kontexten används för att fastställa där olika utdata, till exempel förhöjd bilder eller DNN modellfiler ska lagras. Mer information om lagring kontexter finns i [StorageContext dokumentationen](https://review.docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-python&branch=smoke-test). 
-
-Normalt behöver inte lagring innehållet anges explicit. Men för att undvika gränsen 25 MB på Projektstorlek som införts av Azure Machine Learning-arbetsstationen ange katalogen utdata för Azure Machine Learning-paketet för datorn Vision till en plats utanför Azure Machine Learning-projektet (”... /.. /.. /.. / cvtk_output ”). Glöm inte att ta bort katalogen ”cvtk_output” när den inte längre behövs.
+![Azure Machine Learning-datauppsättning](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
 
 
 ```python
@@ -84,49 +78,39 @@ from sklearn import svm
 from cvtk import ClassificationDataset, CNTKTLModel, Context, Splitter, StorageContext
 from cvtk.augmentation import augment_dataset
 from cvtk.core.classifier import ScikitClassifier
-from cvtk.evaluation import ClassificationEvaluation, graph_roc_curve, graph_pr_curve, graph_confusion_matrix, basic_plot
+from cvtk.evaluation import ClassificationEvaluation, graph_roc_curve, graph_pr_curve, graph_confusion_matrix
 import matplotlib.pyplot as plt
+
+from classification.notebook.ui_utils.ui_annotation import AnnotationUI
+from classification.notebook.ui_utils.ui_results_viewer import ResultsUI
+from classification.notebook.ui_utils.ui_precision_recall import PrecisionRecallUI
+
 %matplotlib inline
 
 # Disable printing of logging messages
 from azuremltkbase.logging import ToolkitLogger
 ToolkitLogger.getInstance().setEnabled(False)
-
-# Set storage context.
-out_root_path = "../../../cvtk_output"
-Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_path=out_root_path)
 ```
-
-
-
-
-    {
-        "storage": {
-            "outputs_path": "../../../cvtk_output",
-            "persistent_path": "../../../cvtk_output",
-            "temp_path": "../../../cvtk_output"
-        }
-    }
 
 
 
 ## <a name="create-a-dataset"></a>Skapa en datamängd
 
-När du har importerat beroenden och ange sedan kontexten för lagring, kan du skapa dataset-objekt.
+När du har importerat beroenden och ange sedan kontexten för lagring, kan du skapa datamängdsobjektet.
 
-Ange rotkatalogen för avbildningar för att skapa objektet med Azure Machine Learning-paket för datorn Vision, på den lokala disken. Den här katalogen måste följa samma allmänna strukturen som Bords-dataset som, innehålla underkataloger med själva bilderna:
+För att skapa objektet med Azure Machine Learning-paket för visuellt innehåll, ange rotkatalogen för bilderna på den lokala disken. Den här katalogen måste följer samma allmänna strukturen som Bords datauppsättningen, det vill säga, innehålla underkataloger med själva bilderna:
 - rot
     - Etikett 1
     - etiketten 2
     - ...
     - etikett n
   
-Tränar en modell för klassificering av avbildningen till en annan dataset är lika enkelt som att ändra rotsökvägen `dataset_location` i följande kod så att den pekar på olika bilder.
+Träna en modell för klassificering av avbildning för en annan datauppsättning är lika enkelt som att ändra rotsökvägen `dataset_location` i följande kod så att den pekar på olika bilder.
 
 
 ```python
-# Root image directory 
-dataset_location = os.path.abspath(os.path.join(os.getcwd(), "../sample_data/imgs_recycling"))
+# Root image directory
+dataset_location = os.path.abspath("classification/sample_data/imgs_recycling")
 
 dataset_name = 'recycling'
 dataset = ClassificationDataset.create_from_dir(dataset_name, dataset_location)
@@ -140,9 +124,9 @@ print("Select information for image 2: name={}, label={}, unique id={}.".format(
     Dataset consists of 63 images with 4 labels.
     Select information for image 2: name=msft-plastic-bowl20170725152154282.jpg, label=bowl, unique id=3.
 
-Dataset-objekt innehåller funktioner för att hämta bilder med den [Bing avbildningen Sök API](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/). 
+Datamängdsobjektet tillhandahåller funktioner för att ladda ned bilder med hjälp av den [bildsökning i Bing](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/). 
 
-Två typer av sökningar stöds: 
+Två typer av sökfrågor stöds: 
 + Vanlig textfrågor
 + Bild-URL-frågor
 
@@ -171,31 +155,30 @@ De här frågorna tillsammans med etiketten klass måste anges i en JSON-kodad t
 }
 ```
 
-Dessutom måste du uttryckligen skapa ett kontextobjekt innehåller Bing avbildningen Sök API-nyckeln. Detta kräver en Bing avbildningen Sök API-prenumeration.
+Dessutom måste du uttryckligen skapa en Context-objektet för att innehålla bildsökning i Bing-nyckel. Detta kräver en prenumeration för bildsökning i Bing.
 
 ## <a name="visualize-and-annotate-images"></a>Visualisera och kommentera bilder
 
-Du kan visualisera avbildningar och rätt etiketter i dataset-objektet med hjälp av följande widgeten. 
+Du kan visualisera bilder och rätt etiketter på datamängdsobjektet med hjälp av följande widgeten. 
 
-Om du får felet ”Widget Javascript inte identifieras” kör detta kommando för att lösa det:
+Om du får felet ”Widget Javascript inte identifierats”, kör du följande kommando för att lösa det:
 <br>`jupyter nbextension enable --py --sys-prefix widgetsnbextension`
 
 
 ```python
-from ui_utils.ui_annotation import AnnotationUI
 annotation_ui = AnnotationUI(dataset, Context.get_global_context())
 display(annotation_ui.ui)
 ```
 
-![Azure Machine Learning-datamängd](media/how-to-build-deploy-image-classification-models/image_annotation.png)
+![Azure Machine Learning-datauppsättning](media/how-to-build-deploy-image-classification-models/image_annotation.png)
 
-## <a name="augment-images"></a>Utöka bilder
+## <a name="augment-images"></a>Utöka avbildningar
 
-Den [ `augmentation` modulen](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) innehåller funktioner för att utöka funktionerna i ett dataset-objekt med hjälp av alla omvandlingar som beskrivs i den [imgaug](https://github.com/aleju/imgaug) bibliotek. Bildfiler kan grupperas i en enkel rörledning då alla konverteringar i pipelinen används samtidigt varje avbildning. 
+Den [ `augmentation` modulen](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) tillhandahåller funktioner för att utöka en dataset-objektet med alla transformeringar som beskrivs i den [imgaug](https://github.com/aleju/imgaug) biblioteket. Bildfiler kan grupperas i en enda pipeline, vilket innebär alla transformeringar i pipelinen tillämpas samtidigt varje avbildning. 
 
-Om du vill använda olika förstärkning steg separat, eller på något annat sätt, kan du definiera flera pipelines och skicka dem till den *augment_dataset* funktion. Mer information och exempel på bilden förstärkning finns i [imgaug dokumentationen](https://github.com/aleju/imgaug).
+Om du vill använda olika tokenomvandling separat eller i något annat sätt, kan du definiera flera pipelines och skickar dem till den *augment_dataset* funktion. Mer information och exempel på bild tokenomvandling finns i den [imgaug dokumentation](https://github.com/aleju/imgaug).
 
-Lägga till förhöjd bilder i träningsmängden det är särskilt praktiskt för små datauppsättningar. Eftersom DNN utbildning processen är långsammare på grund av ökade antalet utbildning bilder, rekommenderar vi att du börjar experiment utan förstärkning.
+Lägga till förhöjda bilder i träningsmängden är särskilt bra för små datauppsättningar. Eftersom DNN utbildning processen är långsammare på grund av det större antalet inlärningsbilder, rekommenderar vi att du startar experimentering utan tokenomvandling.
 
 
 ```python
@@ -225,20 +208,20 @@ else:
     train_set = train_set_orig  
 ```
 
-## <a name="define-dnn-models"></a>Definiera DNN modeller
+## <a name="define-dnn-models"></a>Definiera DNN-modeller
 
-Följande pretrained djupa Neurala nätverket modeller stöds med det här paketet: 
-+ Resnet 18
-+ Resnet 34
-+ Resnet 50
-+ Resnet 101
-+ Resnet 152
+Följande pretrained djupt Neuralt nätverk modeller stöds med det här paketet: 
++ Resnet-18
++ Resnet-34
++ Resnet-50
++ Resnet-101
++ Resnet-152
 
-Dessa DNNs kan användas som klassificerare eller som featurizer. 
+Dessa dnn: er kan användas som klassificerare eller som upplärda. 
 
-Mer information om nätverk finns [här](https://github.com/Microsoft/CNTK/blob/master/PretrainedModels/Image.md), och är en grundläggande introduktion till överför utbildning [här](https://blog.slavv.com/a-gentle-intro-to-transfer-learning-2c0b674375a0).
+Mer information om nätverken finns [här](https://github.com/Microsoft/CNTK/blob/master/PretrainedModels/Image.md), och är en grundläggande introduktion till överföra Learning [här](https://blog.slavv.com/a-gentle-intro-to-transfer-learning-2c0b674375a0).
 
-Standardparametrar för avbildningen klassificering för det här paketet är 224 x 224 pixelupplösning och en Resnet 18 DNN. Dessa parametrar har valts för att fungera på en mängd olika uppgifter. Precisionen kan ofta förbättras, till exempel genom att öka bildupplösningen till 500 x 500 bildpunkter och/eller välja en djupare modell (Resnet 50). Ändra parametrarna kan dock finnas på en signifikant ökning utbildning. Se artikeln på [hur vi kan förbättra noggrannhet](https://docs.microsoft.com/azure/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models).
+Standardparametrar för avbildningen som klassificering för det här paketet är 224 x 224 pixelupplösning och ett Resnet-18-DNN. Dessa parametrar har valts för att fungera på en mängd olika uppgifter. Precision kan ofta förbättras, till exempel genom att öka bildupplösningen till 500 x 500 bildpunkter och/eller att välja en djupare modell (Resnet-50). Ändra parametrarna kan dock komma vid en kraftig ökning i utbildning. Läsa artikeln om [hur vi kan förbättra noggrannheten](https://docs.microsoft.com/azure/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models).
 
 
 ```python
@@ -266,16 +249,16 @@ dnn_model = CNTKTLModel(train_set.labels,
 
 ## <a name="train-the-classifier"></a>Träna klassificeraren
 
-Du kan välja något av följande metoder för före utbildade DNN.
+Du kan välja något av följande metoder för förtränade DNN.
 
-  - **DNN Förfining**, som tränar DNN att utföra klassificeringen direkt. DNN utbildning är långsam, leder den normalt till bästa resultat eftersom alla nätverk vikterna kan förbättras under utbildning för att ge bästa noggrannhet.
+  - **DNN Förfining**, vilket träna DNN att utföra klassificeringen direkt. DNN-utbildning är långsam, leder den normalt till bästa resultat eftersom alla nätverk vikterna kan förbättras under utbildning för att ge bästa noggrannhet.
 
-  - **DNN featurization**, som körs DNN som-är att hämta en lägre endimensionell representation av en bild (512, 2048 eller 4096 flyter). Den representationen används sedan som indata för att träna en separat klassificerare. Eftersom DNN hålls oförändrade, den här metoden är mycket snabbare jämfört med DNN förfining men precisionen inte är lika bra. Dock kan tränar en extern klassificerare, till exempel en linjär SVM (som visas i följande kod) Ange en stark baslinje och hjälp med att förstå möjligheten att ett problem.
+  - **DNN funktionalisering**, som kör DNN som – är att få en lägre-dimensionell representation av en avbildning (512 eller 2048 4096 flyter). Att representation sedan används som indata för att träna en separat klassificerare. Eftersom DNN förblir oförändrat, den här metoden är mycket snabbare jämfört med DNN förfining, men inte är lika bra ut. Dock kan träna en extern klassificerare, till exempel en linjär SVM (som visas i följande kod) ge en stark baslinje och hjälp med att förstå möjligheten att ett problem.
   
 TensorBoard kan användas för att visualisera utbildning förloppet. Aktivera TensorBoard:
-1. Lägger till parametern `tensorboard_logdir=PATH` som visas i följande kod
+1. Lägg till parameter `tensorboard_logdir=PATH` som visas i följande kod
 1. Starta TensorBoard klienten med hjälp av kommandot `tensorboard --logdir=PATH` i en ny konsol.
-1. Öppna en webbläsare som finns beskrivet av TensorBoard, vilket som standard är localhost:6006. 
+1. Öppna en webbläsare enligt instruktionerna i TensorBoard, vilket som standard är localhost:6006. 
 
 
 ```python
@@ -356,15 +339,15 @@ if classifier_name == "dnn":
 ![PNG](media/how-to-build-deploy-image-classification-models/output_17_0.png)
 
 
-## <a name="evaluate-and-visualize-model-performance"></a>Utvärdera och visualisera modellen prestanda
+## <a name="evaluate-and-visualize-model-performance"></a>Utvärdera och visualisera modellprestanda
 
-Du kan utvärdera prestanda hos den tränade modellen på ett oberoende testdata med hjälp av modulen utvärdering. Utvärderingen-mått som beräknar bland annat:
+Du kan utvärdera prestanda hos den tränade modellen på en oberoende test-datauppsättning med hjälp av modulen utvärdering. Några av utvärderingsmått beräknar är:
  
-+ Precision (som standard ett genomsnitt av klassen)
-+ PR kurva
++ Precision (som standard klass i genomsnitt)
++ PR-kurva
 + ROC-kurvan
 + Området under kurva
-+ Förvirring matris
++ Felmatris
 
 
 ```python
@@ -407,12 +390,11 @@ labels = [l.name for l in dataset.labels]
 pred_scores = ce.scores #classification scores for all images and all classes
 pred_labels = [labels[i] for i in np.argmax(pred_scores, axis=1)]
 
-from ui_utils.ui_results_viewer import ResultsUI
 results_ui = ResultsUI(test_set, Context.get_global_context(), pred_scores, pred_labels)
 display(results_ui.ui)
 ```
 
-![Azure Machine Learning-datamängd](media/how-to-build-deploy-image-classification-models/Image_Classification_Results.png)
+![Azure Machine Learning-datauppsättning](media/how-to-build-deploy-image-classification-models/Image_Classification_Results.png)
 
 
 ```python
@@ -420,35 +402,34 @@ display(results_ui.ui)
 precisions, recalls, thresholds = ce.compute_precision_recall_curve() 
 thresholds = list(thresholds)
 thresholds.append(thresholds[-1])
-from ui_utils.ui_precision_recall import PrecisionRecallUI
 pr_ui = PrecisionRecallUI(100*precisions[::-1], 100*recalls[::-1], thresholds[::-1])
 display(pr_ui.ui) 
 ```
 
-![Azure Machine Learning-datamängd](media/how-to-build-deploy-image-classification-models/image_precision_curve.png)
+![Azure Machine Learning-datauppsättning](media/how-to-build-deploy-image-classification-models/image_precision_curve.png)
 
-## <a name="operationalization-deploy-and-consume"></a>Operationalization: distribuera och använda
+## <a name="operationalization-deploy-and-consume"></a>Driftsättning: distribuera och använda
 
-Operationalization är hur du publicerar modeller och kod som webbtjänster och användningen av tjänsterna gav inga resultat för företag. 
+Driftsättning är hur du publicerar modeller och kod som webbtjänster och användningen av dessa tjänster för att producera affärsresultat. 
 
-När din modell tränas, kan du distribuera den modellen som en webbtjänst för användning med [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Modeller kan distribueras till din lokala dator eller kluster i Azure Container Service (ACS). Med ACS kan du skala webbtjänsten manuellt eller använda funktionen autoskalning.
+När din tränas, du kan distribuera den modellen som en webbtjänst för användning med hjälp av [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Modeller kan distribueras till din lokala dator eller kluster i Azure Container Service (ACS). Med ACS kan du skala din webbtjänst manuellt eller använda funktionen för automatisk skalning.
 
 **Logga in med Azure CLI**
 
-Med hjälp av en [Azure](https://azure.microsoft.com/) konto med en giltig prenumeration måste du logga in med följande CLI-kommando:
+Med hjälp av en [Azure](https://azure.microsoft.com/) konto med en giltig prenumeration, logga in med hjälp av följande CLI-kommando:
 <br>`az login`
 
 + Om du vill växla till en annan Azure-prenumeration, använder du kommandot:
 <br>`az account set --subscription [your subscription name]`
 
-+ Om du vill visa det aktuella modellen management kontot, använder du kommandot:
++ Om du vill se aktuella modellhanteringskontot, använder du kommandot:
   <br>`az ml account modelmanagement show`
 
-**Skapa och ange din miljö för distribution av kluster**
+**Skapa och ange klustermiljön för distribution**
 
-Du behöver bara ange din distributionsmiljö av en gång. Om du inte har någon ännu, konfigurera din distributionsmiljö som använder [instruktionerna](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
+Du behöver bara ange en distributionsmiljö en gång. Om du inte har något ännu kan ställa in en distributionsmiljö nu med [instruktionerna](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
 
-Om du vill se din miljö för aktiv distribution, kan du använda kommandot CLI:
+Visa miljön aktiv distribution, använda följande CLI-kommando:
 <br>`az ml env show`
    
 Exempel på Azure CLI-kommando för att skapa och ställa in distributionsmiljön
@@ -462,25 +443,25 @@ az ml env set -n [environment name] -g [resource group]
 az ml env cluster
 ```
     
-### <a name="manage-web-services-and-deployments"></a>Hantera webbtjänster och distributioner
+### <a name="manage-web-services-and-deployments"></a>Hantera webbtjänster och -distributioner
 
 Följande API: er kan användas för att distribuera modeller som webbtjänster, hantera dessa webbtjänster och hantera distributioner.
 
 |Aktivitet|API|
 |----|----|
-|Skapa distributionsobjektet|`deploy_obj = AMLDeployment(deployment_name=deployment_name, associated_DNNModel=dnn_model, aml_env="cluster")`
-|Distribuera webbtjänsten|`deploy_obj.deploy()`|
+|Skapa distributionsobjekt|`deploy_obj = AMLDeployment(deployment_name=deployment_name, associated_DNNModel=dnn_model, aml_env="cluster")`
+|Distribuera webbtjänst|`deploy_obj.deploy()`|
 |Poäng bild|`deploy_obj.score_image(local_image_path_or_image_url)`|
 |Ta bort webbtjänst|`deploy_obj.delete()`|
-|Skapa docker bild utan webbtjänst|`deploy_obj.build_docker_image()`|
-|Visa en lista med befintliga distributionen|`AMLDeployment.list_deployment()`|
+|Skapa docker-avbildning utan webbtjänst|`deploy_obj.build_docker_image()`|
+|Lista över befintlig distribution|`AMLDeployment.list_deployment()`|
 |Ta bort om tjänsten finns med distributionens namn|`AMLDeployment.delete_if_service_exist(deployment_name)`|
 
-**API-dokumentationen:** kontakta den [paketet referensdokumentationen](https://aka.ms/aml-packages/vision) för detaljerad för varje modul och klass.
+**API-dokumentation:** läser den [paketera referensdokumentation](https://aka.ms/aml-packages/vision) för detaljerade referenser för varje modul och klass.
 
-**CLI-referens:** för mer avancerade åtgärder som rör distribution avser den [modell management CLI referens](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
+**CLI-referens:** mer avancerade åtgärder relaterade till distribution, finns i den [modellhantering CLI-referensen](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
 
-**Distributionshantering i Azure-portalen**: du kan spåra och hantera dina distributioner i den [Azure-portalen](https://ms.portal.azure.com/). Hitta din Machine Learning modellen Management kontosida använda dess namn från Azure-portalen. Gå till sidan för modellen konto > modellen Management > tjänster.
+**Distributionshantering av i Azure-portalen**: du kan spåra och hantera dina distributioner i den [Azure-portalen](https://ms.portal.azure.com/). Hitta din kontosida för Machine Learning-modellhantering använda dess namn i Azure Portal. Gå sedan till sidan för modellhantering > modellhantering > tjänster.
 
 
 ```python
@@ -535,17 +516,17 @@ deploy_obj.deploy()
 print("Deployment DONE")
 ```
 
-### <a name="consume-the-web-service"></a>Använda webbtjänsten 
+### <a name="consume-the-web-service"></a>Förbruka webbtjänsten 
 
-När du distribuerar modellen som en webbtjänst kan poängsätta du avbildningar till webbtjänsten genom att använda någon av följande metoder:
+När du distribuerar modellen som en webbtjänst kan bedöma du bilder med webbtjänsten med hjälp av någon av följande metoder:
 
-- Poängsätta webbtjänsten direkt med distribution objekt med `deploy_obj.score_image(image_path_or_url)`
+- Bedöma webbtjänsten direkt med distribution objekt med `deploy_obj.score_image(image_path_or_url)`
 
-- Använd Service endpoint URL-Adressen och tjänsten nyckel (ingen för lokala distribution) med: `AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
+- Använd tjänstens URL och tjänsten slutpunktsnyckeln (ingen för lokal distribution) med: `AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
 
-- Formuläret HTTP-begäranden direkt för att samla in webbtjänstslutpunkt. Det här alternativet är för avancerade användare.
+- Utgör din HTTP-begäranden direkt till poäng web service-slutpunkt. Det här alternativet är för avancerade användare.
 
-### <a name="score-with-existing-deployment-object"></a>Poängsätta med befintliga distributionsobjektet
+### <a name="score-with-existing-deployment-object"></a>Poäng med befintliga distributionsobjektet
 
 ```
 deploy_obj.score_image(image_path_or_url)
@@ -591,7 +572,7 @@ for img_index, img_obj in enumerate(test_set.images[:10]):
     print(return_json)
 ```
 
-### <a name="score-with-service-endpoint-url-and-service-key"></a>Poängsätta med tjänsten slutpunkts-url och nyckeln för tjänsten
+### <a name="score-with-service-endpoint-url-and-service-key"></a>Poäng med slutpunkts-url och nyckel för tjänstens
 
 `AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
 
@@ -614,7 +595,7 @@ serialized_result_in_json = AMLDeployment.score_existing_service_with_image(imag
 print("serialized_result_in_json:", serialized_result_in_json)
 ```
 
-### <a name="score-endpoint-with-http-request-directly"></a>Poäng slutpunkten med HTTP-begäran direkt
+### <a name="score-endpoint-with-http-request-directly"></a>Poäng slutpunkt med http-begäran direkt
 
 Följande exempelkod utgör HTTP-begäran direkt i Python. Du kan dock göra det i andra programmeringsspråk.
 
@@ -667,9 +648,9 @@ images = [test_set.images[0].storage_path, test_set.images[1].storage_path] # A 
 score_image_list_with_http(images, service_endpoint_url, service_key)
 ```
 
-### <a name="parse-serialized-result-from-web-service"></a>Parsa serialiserade resultatet från webbtjänsten
+### <a name="parse-serialized-result-from-web-service"></a>Parsa serialiserade resultatet från webbtjänst
 
-Utdata från webbtjänsten är en JSON-sträng. Du kan parsa den här JSON-strängen med olika DNN modellen klasser.
+Utdata från webbtjänsten är en JSON-sträng. Du kan parsa den här JSON-sträng med olika DNN modellklasser.
 
 
 ```python
@@ -695,12 +676,12 @@ print("Class label:", dnn_model.class_map[class_index])
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure Machine Learning-paketet för datorn Vision i de här artiklarna:
+Läs mer om Azure Machine Learning-paket för visuellt innehåll i de här artiklarna:
 
 + Lär dig hur du [förbättra den här modellen](how-to-improve-accuracy-for-computer-vision-models.md).
 
-+ Läs den [paketet översikt och lära dig hur du installerar det](https://aka.ms/aml-packages/vision).
++ Läs den [paketera översikt och lär dig hur du installerar den](https://aka.ms/aml-packages/vision).
 
-+ Utforska den [refererar dokumentationen](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) för det här paketet.
++ Utforska den [referensdokumentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) för det här paketet.
 
 + Lär dig mer om [andra Python-paket för Azure Machine Learning](reference-python-package-overview.md).

@@ -15,163 +15,176 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309864"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901144"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory-enhetshantering vanliga frågor och svar
 
 
 
-**F: hur registrera en macOS enhet?**
+**F: hur kan jag registrera en macOS-enhet?**
 
-**S:** registrerar macOS enhet:
+**S:** att registrera macOS-enhet:
 
 1.  [Skapa en efterlevnadsprincip](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [Definiera en princip för villkorlig åtkomst för macOS enheter](active-directory-conditional-access-azure-portal.md) 
+2.  [Definiera principer för villkorlig åtkomst för macOS-enheter](active-directory-conditional-access-azure-portal.md) 
 
 **Anmärkning:**
 
 - Användare som ingår i din princip för villkorlig åtkomst måste en [version av Office som stöds för macOS](active-directory-conditional-access-technical-reference.md#client-apps-condition) att komma åt resurser. 
 
-- Under det första anslutningsförsöket uppmanas användarna att registrera enheten med hjälp av Företagsportalen.
+- Under den första åtkomstförsök uppmanas användarna att registrera enheten med hjälp av Företagsportalen.
 
 ---
 
-**F: jag registrerade nyligen enheten. Varför ser inte enheten under Mina användarinformation i Azure portal?**
+**F: Jag har registrerat enheten nyligen. Varför visas inte enheten under Mina användarinformation i Azure-portalen?**
 
 **S:** Windows 10-enheter som är hybrid Azure AD-anslutna visas inte under användarenheterna.
-Du måste använda vyn för alla enheter i Azure-portalen. Du kan också använda PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
+Du måste använda vy över alla enheter i Azure portal. Du kan också använda PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
-Följande enheter visas under användarenheterna:
+Endast följande enheter visas under användarenheterna:
 
-- Alla personliga enheter som inte är Azure AD-hybridlösning ansluten. 
+- Alla personliga enheter som inte är hybrid Azure AD-anslutna. 
 - Alla icke - Windows 10 / Windows Server 2016-enheter.
-- Alla Windows-enheter 
+- Alla icke-Windows-enheter 
 
 --- 
 
-**F: hur vet jag Enhetsstatus för registrering av klienten är?**
+**F: hur vet jag enhetstillstånd för registrering av klienten är?**
 
-**S:** använda Azure portal, gå till alla enheter och söka efter enheten med enhets-ID. Kontrollera värdet under typen kopplingskolumn.
+**S:** du kan använda Azure-portalen, gå till alla enheter och Sök efter enheten med enhets-ID. Kontrollera värdet under typen kopplingskolumn.
 
 Om du vill kontrollera det lokala enheten registreringstillståndet från en registrerad enhet:
 
 - Kör dsregcmd.exe/status för Windows 10 och Windows Server 2016 eller senare enheter.
-- Kör ”%programFiles%\Microsoft arbetsplats Join\autoworkplace.exe” för äldre OS-versioner
+- För äldre OS-versioner, ”%programFiles%\Microsoft arbetsplats Join\autoworkplace.exe” som kör
 
 ---
 
-**F: Jag har tagits bort i Azure-portalen eller via Windows PowerShell, men det lokala tillståndet på enheten säger att den fortfarande är registrerad?**
+**F: Jag har tagits bort i Azure portal eller via Windows PowerShell, men det lokala tillståndet på enheten säger att den fortfarande är registrerad?**
 
-**S:** detta är avsiktligt. Enheten har inte åtkomst till resurser i molnet. 
+**S:** det här är avsiktligt. Enheten har inte åtkomst till resurser i molnet. 
 
-Om du vill registrera igen måste vara en manuell åtgärd som ska vidtas på enheten. 
+Om du vill registrera igen, måste vara en manuell åtgärd som ska vidtas på enheten. 
 
-Ta bort anslutningstillståndet från Windows 10 och Windows Server 2016 som är lokala AD-domänansluten:
+Rensa anslutningstillståndet från Windows 10 och Windows Server 2016 som är lokal AD som är anslutna till en domän:
 
 1.  Öppna Kommandotolken som administratör.
 
 2.  Typ `dsregcmd.exe /debug /leave`
 
-3.  Logga ut och logga in att utlösa den schemalagda aktiviteten som registrerar enheten med Azure AD igen. 
+3.  Logga ut och logga in att utlösa den schemalagda aktiviteten som registreras med Azure AD igen. 
 
-För äldre Windows OS-versioner som är lokala AD-domänansluten:
+För äldre Windows OS-versioner som är en lokal AD-ansluten till domänen:
 
 1.  Öppna Kommandotolken som administratör.
 2.  Skriv `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
 3.  Skriv `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
-** F: Hur jag frånkoppling från en Azure AD-ansluten enhet lokalt på enheten?
-**S:** 
-- För hybrid Se enheter som har anslutits med Azure AD, till att inaktivera automatisk registrering så att den schemalagda aktiviteten inte registrera enheten igen. Därefter öppnar du Kommandotolken som administratör och skriv `dsregcmd.exe /debug /leave`. Alternativt kan du köra det här kommandot som ett skript på flera enheter att koppla från gruppvis.
+**F: hur jag frånkoppling från en enhet i Azure AD har anslutits lokalt på enheten?**
 
-- För ren Azure AD-anslutits enheter, kontrollera att du har offline lokal administratör konto eller skapa ett, som du inte kommer att kunna logga in med autentiseringsuppgifter för alla Azure AD-användare. Gå sedan till **inställningar** > **konton** > **åtkomst arbetet eller skolan**. Välj ditt konto och klicka på **frånkoppling**. Följ anvisningarna och ange autentiseringsuppgifter för lokal administratör när du tillfrågas. Starta om enheten för att slutföra processen frånkoppling.
+**S:** 
+- För enheter för hybrid Azure AD har anslutits kan du se till att inaktivera automatisk registrering, så att den schemalagda aktiviteten inte registrera enheten igen. Därefter öppnar du Kommandotolken som administratör och skriv `dsregcmd.exe /debug /leave`. Det här kommandot kan också köras som ett skript på flera enheter vid frånkoppling från gruppvis.
+
+- För ren Azure AD har anslutits enheter, kontrollera att du har en offline lokal administratör konto eller skapa ett, som du kan inte logga in med autentiseringsuppgifter för alla Azure AD-användare. Gå sedan till **inställningar** > **konton** > **åtkomst till arbete eller skola**. Välj ditt konto och klicka på **Disconnect**. Följ anvisningarna och ange autentiseringsuppgifterna som lokal administratör när du tillfrågas. Starta om enheten för att slutföra processen frånkoppling.
 
 ---
 
-**F: Varför visas dubblettenhet poster i Azure-portalen?**
+**F: Mina användare kan inte söka efter skrivare från Azure AD har anslutits enheter. Hur kan jag aktivera utskrift från Azure AD har anslutits enheter?**
+
+**S:** distribuera skrivare för Azure AD har anslutits enheter finns i [Hybrid cloud utskrifts](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Du behöver en lokal Windows Server att distribuera hybrid cloud utskrifts. Molnbaserad utskriftstjänster är för närvarande inte tillgänglig. 
+
+---
+
+**F: Varför ser jag dubblettenheten poster i Azure-portalen?**
 
 **S:**
 
--   För Windows 10 och Windows Server 2016, om det finns upprepade försök att koppla från och ansluta igen samma enhet, kan det finnas dubbla poster. 
+-   För Windows 10 och Windows Server 2016, om det finns upprepade försök att frånkoppling från och ansluta igen till samma enhet, kan det finnas dubblettposter. 
 
--   Om du har använt Lägg till arbets- eller Skolkonto, skapas en ny enhetspost med samma enhetsnamn varje windowsanvändare som använder Lägg till arbets- eller Skolkonto.
+-   Om du har använt Lägg till arbets- eller Skolkonto, skapas en ny enhetspost med samma enhetsnamn i varje windowsanvändare som använder Lägg till arbets- eller Skolkonto.
 
--   För äldre Windows OS-versioner som är lokala skapar AD som ingår i domänen med hjälp av automatisk registrering en ny enhetspost med samma enhetsnamn för varje domänanvändare som loggar in på enheten. 
+-   För äldre Windows OS-versioner som är en lokal skapar AD ansluten till domänen med hjälp av automatisk registrering en ny enhetspost med samma enhetsnamn för varje domänanvändare som loggar in på enheten. 
 
--   En domänansluten dator i Azure AD som har rensats, installeras igen och ansluten igen med samma namn kommer att visas som en annan post med samma enhetsnamn.
+-   En domänansluten dator i Azure AD som har rensats, ominstallerat och anslutits igen med samma namn, visas som en annan post med samma enhetsnamn.
 
 ---
 
-**F: Varför kan en användare fortfarande komma åt resurser från en enhet som jag har inaktiverats i Azure portal?**
+**F: Varför kan en användare fortfarande komma åt resurser från en enhet som jag har inaktiverats i Azure-portalen?**
 
 **S:** det kan ta upp till en timme innan en återkalla som ska användas.
 
 >[!Note] 
->För registrerade enheter rekommenderar vi att rensa enheten så att användarna inte kommer åt resurserna. Mer information finns i [registrera enheter för hantering i Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>För registrerade enheter rekommenderar vi att rensa en enhet för att säkerställa att användarna inte kan komma åt resurserna. Mer information finns i [registrera enheter för hantering i Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 
 ---
 
-**F: Varför Mina användare ser inte ”du kan hämta det här”?**
+**F: Varför Mina användare ser ”du inte kan ta dig dit härifrån”?**
 
-**S:** om du har konfigurerat vissa regler för villkorlig åtkomst för att kräva tillstånd för en specifik enhet och enheten inte uppfyller kriterierna som användare blockeras och detta meddelande. Utvärdera principregler villkorlig åtkomst och se till att enheten kan uppfyller kriterierna för att undvika det här meddelandet.
-
----
-
-
-**F: jag finns enheten under användarinformation i Azure-portalen och kan se status som har registrerats på enheten. Kan jag in korrekt för att använda villkorlig åtkomst?**
-
-**S:** anslutningstillståndet enheten speglas av deviceID, måste matcha med Azure AD och utvärdering kriterier för villkorlig åtkomst. Mer information finns i [Kom igång med Azure Active Directory Device Registration](active-directory-device-registration.md).
+**S:** om du har konfigurerat vissa regler för villkorlig åtkomst för att kräva en specifik enhetstillstånd och enheten inte uppfyller villkoren, användare blockeras och ser det här meddelandet. Utvärdera princip-regler för villkorlig åtkomst och se till att enheten ska kunna uppfylla kriterier för att undvika det här meddelandet.
 
 ---
 
-**F: Varför visas meddelandet ”användarnamnet eller lösenordet är felaktigt” för en enhet som jag bara har anslutit till Azure AD?**
+**F: Varför gör vissa av Mina användare inte get MFA anvisningarna på Azure AD-anslutna enheter?**
 
-**S:** vanliga orsaker till det här scenariot är:
+**S:** om användaren ansluter till eller registrerar en enhet med Azure AD med hjälp av Multi-Factor Authentication kan själva enheten kommer att bli en betrodd andra faktor för en viss användare. Därefter när samma användare loggar in på enheten och har åtkomst till ett program, Azure AD tar hänsyn till enheten som en andra faktor och gör att användaren sömlöst kan komma åt sina program utan ytterligare MFA-frågor. Det här beteendet gäller inte för alla användare som loggar in på den aktuella enheten så att alla andra användare med åtkomst till enheten skulle fortfarande en fråga med en MFA-kontrollen innan åtkomst till program som kräver MFA.
 
-- Användarens autentiseringsuppgifter är inte längre giltig.
+---
+
+**F: jag se enhetspost under användarinformation i Azure portal och kan se tillståndet som registrerats på enheten. Kan jag in korrekt för att använda villkorlig åtkomst?**
+
+**S:** anslutningstillståndet enheten visas deviceID, måste överensstämma med den i Azure AD och utvärderingen kriterier för villkorlig åtkomst. Mer information finns i [Kom igång med Azure Active Directory Device Registration](active-directory-device-registration.md).
+
+---
+
+**F: Varför visas ett meddelande om ”användarnamnet eller lösenordet är felaktigt” för en enhet som jag precis har anslutit till Azure AD?**
+
+**S:** vanliga orsaker till det här scenariot:
+
+- Dina autentiseringsuppgifter är inte längre giltig.
 
 - Datorn kan inte kommunicera med Azure Active Directory. Sök efter eventuella problem med nätverksanslutningen.
 
-- Azure AD Join kraven har inte uppfyllts. Se till att du har följt stegen för att [utöka molnfunktioner till Windows 10-enheter via Azure Active Directory Join](active-directory-azureadjoin-overview.md).  
+- Azure AD Join förutsättningar uppfylldes inte. Kontrollera att du har följt stegen för att [utöka molnkapaciteten till Windows 10-enheter via Azure Active Directory Join](active-directory-azureadjoin-overview.md).  
 
-- Federerad inloggningar kräver federationsservern för att stödja en aktiv WS-Trust-slutpunkt. 
+- Federerad inloggningar kräver federationsservern för att stödja en aktiv slutpunkt för WS-Trust. 
 
-- Du har aktiverat passerar autentisering och användaren har ett tillfälligt lösenord som behöver ändras vid inloggning.
-
----
-
-**F: Varför visas den ”Oops... Det uppstod ett fel”! dialogrutan när jag försöker göra Azure AD join min dator?**
-
-**S:** detta beror på hur du konfigurerar Azure Active Directory-registrering med Intune. Kontrollera att användaren försöker göra Azure AD-anslutning har rätt Intune-licens. Mer information finns i [konfigurera enhetshantering för Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+- Du har aktiverat Pass via autentisering och användaren har ett tillfälligt lösenord som måste ändras vid inloggning.
 
 ---
 
-**F: varför min försök att ansluta en dator inte även om jag inte får någon information om fel?**
+**F: Varför visas den ”Oops... uppstod ett fel”! dialogrutan när jag försöker göra Azure AD join min dator?**
 
-**S:** en trolig orsak är att användaren är inloggad på enheten med det inbyggda lokala administratörskontot. Skapa ett annat lokalt konto innan du använder Azure Active Directory Join för att slutföra installationen. 
+**S:** detta beror på hur du konfigurerar Azure Active Directory-registrering med Intune. Kontrollera att den användare som försöker att göra Azure AD-anslutning har rätt Intune-licens. Mer information finns i [konfigurera enhetshantering för Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+
+---
+
+**F: varför min försöker ansluta en dator växlar även om jag inte får någon information om fel?**
+
+**S:** en trolig orsak är att användaren är inloggad till enheten med det inbyggda lokala administratörskontot. Skapa ett annat lokala konto innan du använder Azure Active Directory Join för att slutföra installationen. 
 
 ---
 
 **F: var kan jag hitta instruktioner för installationen av automatisk enhetsregistrering?**
 
-**S:** detaljerade instruktioner finns [hur du konfigurerar automatisk registrering av Windows-domänanslutna enheter med Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
+**S:** detaljerade anvisningar finns i [så här konfigurerar du automatisk registrering av Windows-domänanslutna enheter med Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ---
 
 **F: var kan jag hitta felsökning information om automatisk enhetsregistrering?**
 
-**S:** information om felsökning, se:
+**S:** information om felsökning finns:
 
-- [Felsökning av automatisk registrering av domän domänanslutna datorer till Azure AD – Windows 10 och Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
+- [Felsöka automatisk registrering av domän domänanslutna datorer till Azure AD – Windows 10 och Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
 
-- [Felsökning av automatisk registrering av domän domänanslutna datorer till Azure AD för äldre Windows-klienter](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+- [Felsöka automatisk registrering av domän domänanslutna datorer till Azure AD för Windows-klientversioner](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
+
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Lär dig hur mönster öka förutsägelsefunktionen | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig mer om designmönster för att öka avsiktshantering förutsägelse resultat och hitta entiteter.
+description: Lär dig mer om designmönster för att öka avsikt förutsägelse poäng och hitta entiteter.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -10,118 +10,116 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: c3c0d12bbbeec85d2cbf0daead49ee16ca7728fb
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4a23ebddc29c6c519e68a00ef6cbff107061c341
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046266"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888287"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättra prognosens noggrannhet
-Mönster ger bättre precision när flera utterances liknar. Genom att ange ett mönster för utterance kan THOMAS ha en hög konfidensnivå i förutsägelser. 
+Mönster är utformade för att förbättra noggrannheten när flera uttryck är mycket lika. LUIS kan ha en hög exakthet i förutsägelsen genom att tillhandahålla ett mönster i uttryck. 
 
-## <a name="patterns-solve-low-intent-confidence"></a>Mönster lösa låg avsiktshantering förtroende
-Överväg att en app för personal som rapporterar om Organisationsschema i förhållande till en medarbetare. Baserat på en anställds namn och relationen, returnerar THOMAS anställda ingår. Överväga en medarbetare, Tom, med en hanterare namn Alice och en grupp av underordnade med namnet: Michael och Rebecca Carl.
+## <a name="patterns-solve-low-intent-confidence"></a>Mönster lösa låg avsikt förtroende
+Överväg en personalapp som rapporterar om Organisationsschema i förhållande till en medarbetare. Baserat på en medarbetares namn och relationen, returnerar LUIS anställda som ingår. Överväg att en anställd, Tom, med en chef namn Alice och ett team med underordnade med namnet: Michael och Rebecca Carl.
 
 ![Bild av organisationsschema](./media/luis-concept-patterns/org-chart.png)
 
-|Yttranden|Avsikten förutsade|Avsiktshantering poäng|
+|Yttranden|Avsikten förutse|Avsiktshantering poäng|
 |--|--|--|
-|Vem är Toms underordnat?|GetOrgChart|.30|
+|Vem är Toms underordnad server?|GetOrgChart|.30|
 |Vem är Tom underordnat?|GetOrgChart|.30|
 
-Om en app har mellan 10 och 20 utterances med olika längder meningen och annan word ordning med olika ord (synonymer ”underordnade”, ”hantera”, ”report”), kan THOMAS returnera en låg förtroende poäng. Skapa ett mönster för att hjälpa THOMAS förstå vikten av word ordning. 
+Om en app har mellan 10 och 20 yttranden med olika längd av mening och olika ordföljden med olika ord (synonymer ”underordnad”, ”hantera”, ”report”), kan LUIS returnera ett låga förtroenderesultat. Skapa ett mönster för att hjälpa att LUIS förstår vikten av word-ordning. 
 
 Mönster lösa följande situationer: 
 
-* När det avsiktshantering resultatet är låg
-* När rätt avsikten är inte den översta poängen men för nära den översta poängen. 
+* När den avsikt poängen är låg
+* När rätt avsikten är inte den främsta poängen men för nära övre poängen. 
 
-## <a name="patterns-are-not-a-guarantee-of-intent"></a>Mönster är inte av avsikt
-Mönster med en blandning av tekniker för förutsägelse. Ange en utterance en mall som används i ett mönster är inte av avsiktshantering förutsägelser men det är en stark signal. 
+## <a name="patterns-are-not-a-guarantee-of-intent"></a>Mönster är inte en garanti för avsikt
+Mönster använder en blandning av tekniker för förutsägelse. Ange ett syfte med en mall för uttryck i ett mönster är ingen garanti för avsiktlig förutsägelser men det är en stark signal. 
 
-## <a name="patterns-do-not-improve-entity-detection"></a>Mönster förbättrar inte entiteten identifiering
-Medan mönster kräver entiteter, ett mönster hjälper inte att identifiera enheten. Ett mönster är bara tänkt att hjälpa förutsägelser med avsikter och roller.  
+## <a name="patterns-do-not-improve-entity-detection"></a>Mönster förbättras inte entiteten identifiering
+Medan mönster kräver entiteter, hjälper arbetsprofilen inte identifiera entiteten. Ett mönster är endast avsedd att hjälpa förutsägelser med avsikter och roller.  
 
-## <a name="patterns-use-entity-roles"></a>Mönster använda entiteten roller
-Om två eller flera enheter i ett mönster är sammanhang relaterade, mönster använda entiteten [roller](luis-concept-roles.md) att extrahera detaljerad information om entiteter. Detta motsvarar hierarkiska entitet underordnade, men är **endast** tillgängliga i mönster. 
+## <a name="patterns-use-entity-roles"></a>Mönster använder entiteten
+Om två eller flera entiteter i ett mönster är sammanhangsmässigt relaterade, mönster använda entiteten [roller](luis-concept-roles.md) extrahera sammanhangsberoende information om entiteter. Detta motsvarar hierarkisk entitet barn, men är **endast** tillgängliga i ett mönster. 
 
-## <a name="prediction-scores-with-and-without-patterns"></a>Förutsägelse resultat med och utan mönster
-Får tillräckligt med exempel utterances skulle THOMAS kunna öka förutsägelse förtroende utan mönster. Mönster öka förtroende poäng utan att ange så många utterances.  
+## <a name="prediction-scores-with-and-without-patterns"></a>Förutsägelse poäng med och utan mönster
+Med tillräckligt med exempel yttranden kan skulle LUIS kunna öka förutsägelsen utan mönster. Mönster öka förtroendepoäng utan att behöva tillhandahålla så många yttranden.  
 
 ## <a name="pattern-matching"></a>Mönstermatchning
-Ett mönster matchas baserat på identifiera enheter i mönstret först och sedan Validera resten av orden och word ordning av mönstret. Enheter som krävs i mönstret för ett mönster som matchar. 
+Ett mönster matchas baserat på identifiera entiteterna i mönstret först och sedan validerar resten av orden och ordföljden i mönstret. Entiteter krävs i mönstret för ett mönster som ska matchas. 
 
 ## <a name="pattern-syntax"></a>Mönstret syntax
-Mönstret syntax är en mall för en utterance. Mallen bör innehålla ord och enheter som du vill matcha samt ord och skiljetecken som du vill ignorera. Det är **inte** ett reguljärt uttryck. 
+Mönstret syntaxen är en mall för ett uttryck. Mallen bör innehålla ord och entiteter som du vill matcha samt ord och skiljetecken som du vill ignorera. Det är **inte** ett reguljärt uttryck. 
 
-Entiteter i mönster omges av klammerparenteser, `{}`. Mönster kan innehålla entiteter och entiteter med roller. Pattern.any är en entitet som används endast för mönster. Syntaxen beskrivs i följande avsnitt.
+Entiteter i mönster omges av klammerparenteser, `{}`. Mönster kan innehålla entiteter och entiteter med roller. Pattern.any är en entitet som endast används i mönster. Syntaxen beskrivs i följande avsnitt.
 
-### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Syntax för att lägga till en entitet i en mall för mönster
-Om du vill lägga till en entitet i mönstret mallen omger entitetsnamnet med klammerparenteser som `Who does {Employee} manage?`. 
+### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Syntaxen för att lägga till en entitet i en mall för mönstret
+Om du vill lägga till en entitet i mallen mönstret omger entitetsnamn med klammerparenteser, till exempel `Who does {Employee} manage?`. 
 
 ```
 Who does {Employee} manage?
 ```
 
-### <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>Syntax för att lägga till en enhet och en roll i en mall för mönster
-En entitet roll är angiven som `{entity:role}` med entitetsnamnet följt av ett kolon och sedan rollnamnet. Om du vill lägga till en entitet med en roll i mönstret mallen omger enhetsnamnet och rollnamn med klammerparenteser som `Book a ticket from {Location:Origin} to {Location:Destination}`. 
+### <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>Syntaxen för att lägga till en enhet och en roll i en mall för mönstret
+En entitet roll är angiven som `{entity:role}` med enhetens namn följt av ett kolon och sedan namnet på rollen. Om du vill lägga till en entitet med en roll i mallen mönstret omger enhetsnamnet och rollnamn med klammerparenteser, till exempel `Book a ticket from {Location:Origin} to {Location:Destination}`. 
 
 ```
 Book a ticket from {Location:Origin} to {Location:Destination}
 ```
 
-### <a name="syntax-to-add-a-patternany-to-pattern-template"></a>Syntax för att lägga till en pattern.any mönster för mallen
-Entiteten Pattern.any kan du lägga till en entitet av varierande längd i mönstret. Så länge mallen mönster följs kan av pattern.any innehålla. 
+### <a name="syntax-to-add-a-patternany-to-pattern-template"></a>Syntaxen för att lägga till en pattern.any mönster för mallen
+Entiteten Pattern.any kan du lägga till en entitet med varierande längd i mönstret. Så länge som mallen mönster följs kan pattern.any vara valfri längd. 
 
-Att lägga till en **Pattern.any** entiteten i mallen mönster omger Pattern.any entiteten med klammerparenteser som `How much does {Booktitle} cost and what format is it available in?`.  
+Att lägga till en **Pattern.any** entiteten i mallen mönstret omger Pattern.any entiteten med klammerparenteser, till exempel `How much does {Booktitle} cost and what format is it available in?`.  
 
 ```
 How much does {Booktitle} cost and what format is it available in?
 ```
 
-|Book titlar i mönstret|
+|Bok rubriker i mönstret|
 |--|
-|Hur mycket kostar **stjäla boken** kostnaden och vilket format som är tillgängliga i?|
-|Hur mycket kostar **be** kostnaden och vilket format som är tillgängliga i?|
-|Hur mycket kostar **i nyfiken Incident av hund på natten tid** kostnaden och vilket format som är tillgängliga i?| 
+|Hur mycket **stjäla den här boken** kostnaden och vilket format är tillgängliga i?|
+|Hur mycket **be** kostnaden och vilket format är tillgängliga i?|
+|Hur mycket **The nyfiken Incident av hund på natten-tiden** kostnaden och vilket format är tillgängliga i?| 
 
-I exemplen book rubrik är inte de kontextuella ord rubrikens book förvirrande för THOMAS. THOMAS vet där book rubrik slutar eftersom den är i ett mönster och markeras med en Pattern.any entitet.
+I det här boken rubrik är sammanhangsberoende orden i rubriken för boken inte förvirrande för LUIS. LUIS vet var Bokens titel slutar eftersom den är i ett mönster och markeras med en Pattern.any entitet.
 
 ### <a name="explicit-lists"></a>Explicit listor
-Om mönstret innehåller en Pattern.any och mönster syntax gör möjligheten för en felaktig entity-extrahering baserat på utterance, skapa en [Explicit lista](https://aka.ms/ExplicitList) via redigering API för att tillåta undantag. 
+Om mönstret innehåller en Pattern.any och syntaxen mönstret gör möjligheten för ett ogiltigt entitetextrahering baserat på uttryck kan skapa en [Explicit lista](https://aka.ms/ExplicitList) via redigering API för att tillåta undantag. 
 
-Anta att du har ett mönster som innehåller både valfria syntax `[]`, och entiteten syntax `{}`, kombinerade på ett sätt att extrahera data felaktigt.
+Anta exempelvis att du har ett mönster som innehåller både valfria syntax `[]`, och entiteten syntax `{}`, kombinerade på ett sätt att extrahera data felaktigt.
 
-Att kartlägga mönstret ”[Sök efter] e-post om {ämne} [från {namn}]. I följande utterances den **ämne** och **person** entitet extraheras felaktigt och på rätt sätt:
+Att kartlägga mönstret ”[Sök efter] e-post om {ämne} [från {namn}]. I följande uttryck i **ämne** och **person** entitet extraheras korrekt och felaktigt:
 
 |Yttrande|Entitet|Korrekt extrahering|
 |--|--|:--:|
-|e-post om hund från Chris|ämne = hund<br>person = Chris|✔|
-|e-post om man från La Mancha|ämne = man<br>person = La Mancha|X|
+|e-post om hundar från Chris|ämne = hundar<br>person = Chris|✔|
+|e-post om man från La Mancha|ämne = mannen<br>person = La Mancha|X|
 
-I föregående tabell är utterance `email about the man from La Mancha`, ämne bör vara `the man from La Mancha` (en bok rubrik) men eftersom ämnet innehåller valfria ordet `from`, titeln felaktigt förutsade. 
+I den föregående tabellen gäller uttryck `email about the man from La Mancha`, ämnet bör vara `the man from La Mancha` (en bok rubrik) men eftersom ämnet innehåller valfria ordet `from`, rubriken felaktigt förväntas. 
 
-Åtgärda det här undantaget i mönstret genom att lägga till `the man from la mancha` som en explicit lista matchning för entiteten {ämne} med den [redigering API för explicit lista](https://aka.ms/ExplicitList).
+Åtgärda det här undantaget i mönstret genom att lägga till `the man from la mancha` som en explicit lista matchning för entiteten {subject} med den [redigering API för explicit lista](https://aka.ms/ExplicitList).
 
-### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Syntax för att markera valfri text i en mall utterance
-Markera valfri text i utterance med hjälp av syntaxen för reguljära uttryck hakparentes, `[]`. Valfri text kan kapsla hakparenteser upp till två hakparenteser.
+### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Syntaxen för att markera valfri text i en mall-uttryck
+Markera valfri text i uttryck som använder syntax för reguljära uttryck hakparentes, `[]`. Valfri text kan kapsla hakparenteser upp till två hakparenteser.
 
 ```
 [find] email about {subject} [from {person}]
 ```
 
-Skiljetecken som `.`, `!`, och `?` kan ignoreras i hakparentes. För att ignorera dessa märken måste varje markering vara i ett separat mönster. Valfria syntaxen stöds för närvarande inte ignoreras ett objekt i en lista i flera artiklar.
+Skiljetecken som `.`, `!`, och `?` kan ignoreras med hakparenteser. För att ignorera dessa märken måste varje mark vara i ett separat. Valfria syntax stöd för närvarande inte ignorerar ett objekt i en lista över flera objekt.
 
 ## <a name="patterns-only"></a>Endast mönster
-THOMAS kan en app utan några exempel utterances i avsikt. Denna användning är bara tillåtet om mönster används. Mönster kräver minst en entitet i varje mönster. För en endast mönster app innehålla mönstret inte datorn inlärda entiteter eftersom de kräver exempel utterances. 
+LUIS kan en app utan yttranden exempel i avsikt. Den här användningen är bara tillåtet om mönster används. Mönster kräver minst en entitet i varje mönster. För en app för endast mönstret ska mönstret inte innehålla datorn lärt dig entiteter eftersom dessa kräver exempel yttranden. 
 
 ## <a name="best-practices"></a>Bästa praxis
-Läs [metodtips](luis-concept-best-practices.md).
+Lär dig [bästa praxis](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du implementerar mönster i den här självstudiekursen](luis-tutorial-pattern.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+> [Lär dig hur du implementerar mönster i den här självstudien](luis-tutorial-pattern.md)

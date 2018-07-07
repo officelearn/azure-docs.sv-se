@@ -1,6 +1,6 @@
 ---
-title: Distribuera förhandsversionen av Azure AD lösenord protection
-description: Distribuera Azure AD lösenord skydd förhandsgranskning för att förbjuda felaktiga lösenord på lokalt
+title: Distribuera Azure AD-lösenord protection preview
+description: Distribuera Azure AD lösenord protection förhandsgranskningen om du vill förbjuda felaktiga lösenord på plats
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,90 +10,90 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6fda373f832d6e24d1252587a19c88b0f464dda6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5065399f161bcaee2f9518236a28f0f5faa0ea5b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232419"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902035"
 ---
-# <a name="preview-deploy-azure-ad-password-protection"></a>Förhandsversion: Distribuera lösenordsskydd för Azure AD
+# <a name="preview-deploy-azure-ad-password-protection"></a>Förhandsversion: Distribuera Azure AD-lösenordsskydd
 
 |     |
 | --- |
-| Azure AD-lösenordsskydd och lösenordslistan över anpassade förbjudna är förhandsversion funktioner i Azure Active Directory. Läs mer om förhandsgranskningar [kompletterande användningsvillkor för Microsoft Azure-förhandsgranskningar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure AD-lösenordsskydd och listan över anpassade förbjudna lösenord är funktioner i offentlig förhandsversion av Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-Nu när vi har en förståelse av [metod för tvingande skyddet av Azure AD-lösenord för Windows Server Active Directory](concept-password-ban-bad-on-premises.md), nästa steg är att planera och köra distributionen.
+Nu när vi har en förståelse för [för tvingande Azure AD-lösenordsskydd för Windows Server Active Directory](concept-password-ban-bad-on-premises.md), nästa steg är att planera och köra distributionen.
 
 ## <a name="deployment-strategy"></a>Distributionsstrategi
 
-Föreslår vi att alla distributionen startar i granskningsläge. Granskningsläget är den första standardinställningen om lösenord kan fortsätta att vara satt och något som skulle blockera skapa poster i händelseloggen. När fullständigt proxyservrar och DC agenter distribueras i granskningsläge regular övervakning ska göras för att avgöra vilken inverkan lösenordsprincip tvingande skulle få på användare och miljön om principen har tvingats fram.
+Föreslår vi att alla distributioner startar i granskningsläge. Granskningsläget är den första standardinställningen där lösenord kan fortsätta att ställas in och något som skulle blockeras skapa poster i händelseloggen. När proxyservrar och DC agenter distribueras helt i granskningsläge, regular övervakning ska göras för att avgöra vilken inverkan lösenordsprincip tvingande skulle ha på användare och miljön om principen har tvingats fram.
 
-Många organisationer hitta under steget granskning:
+Under fasen audit hitta många organisationer:
 
 * De behöver för att förbättra befintliga operativa processer för att använda fler säkra lösenord.
-* Känner igen att regelbundet välja osäkra lösenord
-* De behöver för att informera användare om den kommande ändringen i säkerhet tvingande, hur det kan ha på dem och hjälpa dem att bättre förstå hur de kan välja mer säkra lösenord.
+* Användarna är vana vid att regelbundet välja oskyddat lösenord
+* De behöver för att informera användarna om den kommande ändringen i security tvingande, hur det kan ha på dem och hjälpa dem att bättre förstå hur de kan välja säkrare lösenord.
 
-När funktionen har körts i granskningsläge i rimlig tid, tvingande konfiguration kan bläddra från **granska** till **framtvinga** vilket kräver mer säkra lösenord. Fokuserad övervakning under denna tid är en bra idé.
+När funktionen har körts i granskningsläge i rimlig tid, tvingande konfiguration kan bläddra från **granska** till **tvinga** vilket kräver mer säkra lösenord. Fokuserade övervakning under denna tid är en bra idé.
 
-## <a name="known-limitation"></a>Kända begränsningar
+## <a name="known-limitation"></a>Känd begränsning
 
-Det finns en känd begränsning i av förhandsversionen av Azure AD lösenord skydd proxy. Användning av innehavaradministratörskonton som kräver MFA stöds inte. En framtida uppdatering av Azure AD lösenord skydd proxy stöder Proxyregistrering med administratörskonton som kräver MFA.
+Det finns en känd begränsning i förhandsversionen av Azure AD lösenord protection proxy. Användning av klient-administratörskonton som kräver MFA stöds inte. En framtida uppdatering av Azure AD lösenord protection proxy stöder Proxyregistrering med administratörskonton som kräver MFA.
 
-## <a name="single-forest-deployment"></a>En enkel skog distribution
+## <a name="single-forest-deployment"></a>Enkel skog distribution
 
-Förhandsversionen av Azure AD-lösenordsskydd distribueras med proxytjänsten på upp till två servrar och DC-agenttjänsten inkrementellt kan distribueras till alla domänkontrollanter i Active Directory-skogen.
+Förhandsversionen av Azure AD-lösenordsskydd distribueras med proxytjänsten på upp till två servrar och DC-agenttjänsten stegvis kan distribueras till alla domänkontrollanter i Active Directory-skogen.
 
-![Hur arbetar tillsammans för Azure AD lösenordskomponenter för skydd](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+![Hur Azure AD-lösenord protection komponenter fungerar tillsammans](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
 ### <a name="download-the-software"></a>Ladda ned programvaran
 
-Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd som kan hämtas från den [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=57071)
+Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd som kan laddas ned från den [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=57071)
 
-### <a name="install-and-configure-the-azure-ad-password-protection-proxy-service"></a>Installera och konfigurera Azure AD lösenord skydd proxy-tjänsten
+### <a name="install-and-configure-the-azure-ad-password-protection-proxy-service"></a>Installera och konfigurera Azure AD lösenord protection proxy-tjänsten
 
-1. Välj en eller flera servrar i Azure AD lösenord skydd proxy-tjänsten.
-   * Varje dessa tjänster kan endast ange lösenordsprinciper för en enskild skog och värddatorn måste vara domänansluten till en domän (rot- och underordnade både lika stöds) i den skogen. För Azure AD lösenord protection proxy service att utföra sitt uppdrag, måste det finnas nätverksanslutningen mellan minst en Domänkontrollant i varje domän i skogen och värddator för Azure AD lösenord skydd Proxy.
-   * Det finns stöd för att installera och köra Azure AD lösenord skydd proxy-tjänsten på en domänkontrollant i testsyfte men kräver internet-anslutning.
+1. Välj en eller flera servrar som värd för Azure AD lösenord protection proxy-tjänsten.
+   * Varje sådan tjänst kan endast ange lösenordsprinciper för en enda skog och värddatorn måste vara domänansluten till en domän (rot- och underordnade både lika stöds) i den skogen. För Azure AD lösenord protection proxy-tjänsten att utföra sitt uppdrag, måste det finnas nätverksanslutning mellan minst en Domänkontrollant i varje domän i skogen och värddatorn för Azure AD lösenord protection Proxy.
+   * Det finns stöd för att installera och köra Azure AD lösenord protection proxy-tjänsten på en domänkontrollant i testsyfte men kräver Internetanslutning.
 
    > [!NOTE]
-   > Förhandsversion stöder högst två (2)-proxyservrar per skog.
+   > Den offentliga förhandsversionen stöder högst två (2) proxy-servrar per skog.
 
-2. Installera tjänsten för lösenord för Proxy-programvara med AzureADPasswordProtectionProxy.msi MSI-paketet.
-   * Installationen av programmet kräver inte en omstart. Installationen av programmet kan automatiseras med hjälp av MSI standardprocedurerna, till exempel: `msiexec.exe /i AzureADPasswordProtectionProxy.msi /quiet /qn`
+2. Installera programvara lösenord Policy Proxy-tjänsten med hjälp av AzureADPasswordProtectionProxy.msi MSI-paketet.
+   * Installationen av programmet kräver inte en omstart. Programinstallationen kan automatiseras med hjälp av MSI standardprocedurerna, till exempel: `msiexec.exe /i AzureADPasswordProtectionProxy.msi /quiet /qn`
 
 3. Öppna ett PowerShell-fönster som administratör.
-   * Azure AD-lösenordsskydd Proxy programvaran innehåller en ny PowerShell-modulen med namnet AzureADPasswordProtection. Följande steg baseras på kör olika cmdletar från PowerShell-modulen och förutsätter att du har öppnat en ny PowerShell-fönster och importerade ny modul på följande sätt:
+   * Azure AD-lösenordsskydd proxyprogrammet innehåller en ny PowerShell-modulen med namnet AzureADPasswordProtection. Följande steg är baserade på kör olika cmdletar från PowerShell-modulen och förutsätter att du har öppnat ett nytt PowerShell-fönster och att du har importerat den nya modulen enligt följande:
       * `Import-Module AzureADPasswordProtection`
 
       > [!NOTE]
-      > Installationen av programvaran ändrar den värddatorn PSModulePath miljövariabeln. Du kan behöva öppna ett nytt PowerShell-konsolfönster för den här ändringen ska börja gälla så att powershell-modulen AzureADPasswordProtection kan importeras och användas.
+      > Installationen av programvaran ändrar den värddatorn PSModulePath-miljövariabeln. Du kan behöva öppna en helt ny PowerShell-konsolfönster för den här ändringen ska börja gälla så att powershell-modulen AzureADPasswordProtection kan importeras och användas.
 
-   * Kontrollera att tjänsten körs med följande PowerShell-kommando: `Get-Service AzureADPasswordProtectionProxy | fl`.
-      * Resultatet bör ge upphov till ett resultat med den **Status** ett ”körs” resultat returneras.
+   * Kontrollera att tjänsten körs med hjälp av följande PowerShell-kommando: `Get-Service AzureADPasswordProtectionProxy | fl`.
+      * Resultatet bör producera ett resultat med den **Status** ”körs” resultatet returneras.
 
 4. Registrera proxyn.
-   * När steg 3 har slutförts Azure AD lösenord skydd proxy-tjänsten körs på datorn, men ännu har inte de behörighet som krävs för att kommunicera med Azure AD. Registrering med Azure AD som krävs för att aktivera denna möjlighet med hjälp av den `Register-AzureADPasswordProtectionProxy` PowerShell-cmdlet. Cmdlet måste global administratör autentiseringsuppgifter för din Azure-klient som lokal administratörsbehörighet för Active Directory-domänen i rotdomänen i skogen. När den har slutförts för en viss proxy-tjänst, ytterligare anrop för `Register-AzureADPasswordProtectionProxy` att fungera, men behövs inte.
-      * Cmdleten kan köras på följande sätt:
+   * När steg 3 har slutförts på Azure AD lösenord protection proxy-tjänsten körs på datorn, men ännu har inte de behörighet som krävs för att kommunicera med Azure AD. Registrering med Azure AD som krävs för att aktivera den möjligheten med hjälp av den `Register-AzureADPasswordProtectionProxy` PowerShell-cmdlet. Cmdlet: en kräver global administratör autentiseringsuppgifter för din Azure-klient som en lokal administratörsbehörighet för Active Directory-domänen i rotdomänen i skogen. När den har slutförts för en viss proxy-tjänst, ytterligare funktionsanrop i `Register-AzureADPasswordProtectionProxy` fortsätta att lyckas men är onödiga.
+      * Cmdlet: en kan köras på följande sätt:
 
          ```
          $tenantAdminCreds = Get-Credential
          Register-AzureADPasswordProtectionProxy -AzureCredential $tenantAdminCreds
          ```
 
-         Exemplet fungerar bara om den inloggade användaren också är administratör för Active Directory-domän för rotdomänen. Ett alternativ är att ange autentiseringsuppgifter för nödvändiga domänen via den `-ForestCredential` parameter.
+         Exemplet fungerar bara om den inloggade användaren också är administratör för Active Directory-domän för rotdomänen. Ett alternativ är att ange autentiseringsuppgifter för nödvändiga domänen via den `-ForestCredential` parametern.
 
    > [!TIP]
-   > Det kan finnas en betydande fördröjning (antal sekunder) första gången denna cmdlet har körts för en viss Azure-klient innan cmdleten är slutfört. Om ett fel rapporteras bör inte den här fördröjningen anses oroväckande.
+   > Det kan finnas en avsevärd fördröjning (antal sekunder) första gången den här cmdleten körs för en viss Azure-klient innan cmdleten är slutfört. Om inte ett fel rapporteras ska inte den här fördröjningen betraktas oroväckande.
 
    > [!NOTE]
-   > Registreringen av tjänsten Azure AD lösenord protection proxy förväntas vara ett enstaka steg av tjänsten. Proxytjänsten utför automatiskt andra nödvändiga maintainenance från och med nu och senare. När den har slutförts för en viss skog ytterligare anrop av 'Registrera AzureADPasswordProtectionProxy' att fungera men är onödiga.
+   > Registrering av Azure AD lösenord protection proxy-tjänsten förväntas vara ett enstaka steg av tjänsten. Proxy-tjänsten utför automatiskt andra nödvändiga maintainenance från och med nu och senare. När den har slutförts för en viss skog, ytterligare anrop för ”registrera AzureADPasswordProtectionProxy' fortsätta att lyckas men är onödiga.
 
 5. Registrera skogen.
-   * Lokala Active Directory-skogen måste initieras med autentiseringsuppgifterna som krävs för att kommunicera med Azure med hjälp av `Register-AzureADPasswordProtectionForest` Powershell-cmdlet. Cmdlet måste global administratör autentiseringsuppgifter för din Azure-klient som lokal administratörsbehörighet för Active Directory-domänen i rotdomänen i skogen. Det här steget körs en gång per skog.
-      * Cmdleten kan köras på följande sätt:
+   * Den lokala Active Directory-skogen måste initieras med autentiseringsuppgifterna som krävs för att kommunicera med Azure med hjälp av den `Register-AzureADPasswordProtectionForest` Powershell-cmdlet. Cmdlet: en kräver global administratör autentiseringsuppgifter för din Azure-klient som en lokal administratörsbehörighet för Active Directory-domänen i rotdomänen i skogen. Det här steget körs en gång per skog.
+      * Cmdlet: en kan köras på följande sätt:
 
          ```
          $tenantAdminCreds = Get-Credential
@@ -103,17 +103,17 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd s
          Exemplet fungerar bara om den inloggade användaren också är administratör för Active Directory-domän för rotdomänen. Ett alternativ är att ange autentiseringsuppgifter för nödvändiga domänen via parametern - ForestCredential.
 
          > [!NOTE]
-         > Det spelar ingen roll vilken proxyserver som ovan ovan körs när om flera proxyservrar är installerade i din miljö.
+         > Om flera proxyservrar är installerade i din miljö, spelar ingen roll vilken proxyserver har angetts i proceduren ovan.
 
          > [!TIP]
-         > Det kan finnas en betydande fördröjning (antal sekunder) första gången denna cmdlet har körts för en viss Azure-klient innan cmdleten är slutfört. Om ett fel rapporteras bör inte den här fördröjningen anses oroväckande.
+         > Det kan finnas en avsevärd fördröjning (antal sekunder) första gången den här cmdleten körs för en viss Azure-klient innan cmdleten är slutfört. Om inte ett fel rapporteras ska inte den här fördröjningen betraktas oroväckande.
 
    > [!NOTE]
-   > Registrering av Active Directory-skogen förväntas vara ett enstaka steg av skogen. Domain controller agenter som körs i skogen utför automatiskt andra nödvändiga maintainenance från och med nu och senare. När den har slutförts för en viss skog ytterligare anrop av `Register-AzureADPasswordProtectionForest` att fungera, men behövs inte.
+   > Registrering av Active Directory-skogen förväntas vara ett enstaka steg i livslängden för skogen. Domain controller-agenter som körs i skogen utför automatiskt andra nödvändiga maintainenance från och med nu och senare. När den har slutförts för en viss skog ytterligare funktionsanrop i `Register-AzureADPasswordProtectionForest` fortsätta att lyckas men är onödiga.
 
-6. Valfritt: Konfigurera Azure AD lösenord skydd proxy-tjänsten för att lyssna på en viss port.
-   * RPC via TCP används av Azure AD-lösenordsskydd DC Agentprogrammet på domänkontrollanter för att kommunicera med Azure AD lösenord skydd proxy-tjänsten. Som standard lyssnar Azure AD-lösenordsskydd lösenord princip Proxy-tjänsten på alla tillgängliga dynamiska RPC-slutpunkt. Om det behövs på grund av nätverkstopologin eller krav för brandväggen konfigureras tjänsten i stället så att den lyssnar på en viss TCP-port.
-      * Använd för att konfigurera tjänsten körs under en statisk port i `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
+6. Valfritt: Konfigurera Azure AD lösenord protection proxy-tjänsten för att lyssna på en specifik port.
+   * RPC via TCP används av Azure AD-lösenordsskydd DC-agentprogramvaran på domänkontrollanterna för att kommunicera med Azure AD lösenord protection proxy-tjänsten. Azure AD-lösenordsskydd lösenord princip Proxy-tjänsten lyssnar på alla tillgängliga dynamiska RPC-slutpunkt som standard. Om det behövs på grund av nätverkets topologi eller krav på Brandvägg för konfigureras tjänsten i stället för att lyssna på en specifik TCP-port.
+      * För att konfigurera tjänsten körs under en statisk port, använda den `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
          ```
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
@@ -121,7 +121,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd s
          > [!WARNING]
          > Du måste stoppa och starta om tjänsten för att ändringarna ska börja gälla.
 
-      * För att konfigurera tjänsten körs under en dynamisk port, Använd samma procedur men StaticPort tillbaka till noll, t.ex:
+      * För att konfigurera tjänsten körs under en dynamisk port, Använd samma procedur men nollställs StaticPort, t.ex:
          ```
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```
@@ -130,9 +130,9 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd s
          > Du måste stoppa och starta om tjänsten för att ändringarna ska börja gälla.
 
    > [!NOTE]
-   > Azure AD lösenord skydd proxy-tjänsten kräver en manuell omstart efter varje ändring i portkonfigurationen för. Du behöver inte starta om programmet DC agent-tjänsten körs på domänkontrollanter efter konfigurationsändringar av den här typen.
+   > Azure AD lösenord protection proxy-tjänsten kräver en manuell omstart efter varje ändring i portkonfiguration. Du behöver inte starta om den DC service-agentprogramvaran som körs på domänkontrollanter när du har gjort ändringar i konfigurationen av den här typen.
 
-   * Den aktuella konfigurationen av tjänsten kan efterfrågas med den `Get-AzureADPasswordProtectionProxyConfiguration` som visas i följande exempel:
+   * Den aktuella konfigurationen av tjänsten kan efterfrågas med hjälp av den `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet enligt följande exempel:
 
       ```
       Get-AzureADPasswordProtectionProxyConfiguration | fl
@@ -142,34 +142,34 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd s
       StaticPort  : 0 
       ```
 
-### <a name="install-the-azure-ad-password-protection-dc-agent-service"></a>Installera Azure AD lösenord skydd DC agent-tjänsten
+### <a name="install-the-azure-ad-password-protection-dc-agent-service"></a>Installera Azure AD lösenord protection DC-Agenttjänst
 
-* Installera Azure AD lösenord skydd DC agent service programvara med hjälp av den `AzureADPasswordProtectionDCAgent.msi` MSI-paketet:
-   * Programvaruinstallationen kräver en omstart på Installera och avinstallera på grund av kravet på operativsystem att lösenord filter-DLL: er endast läsas in eller minnet på en omstart.
-   * Det går för att installera tjänsten DC-agent på en dator som inte ännu är en domänkontrollant. I det här fallet startar tjänsten och kör men ska annars inaktiveras tills när datorn befordras en domänkontrollant.
+* Installera Azure AD lösenord protection DC agenten service programvara med hjälp av den `AzureADPasswordProtectionDCAgent.msi` MSI-paketet:
+   * Programvaruinstallationen kräver en omstart vid installation och avinstallera på grund av kravet på operativsystem att lösenord filter DLL: er endast läsa in eller tas bort från minnet vid en omstart.
+   * Det går för att installera tjänsten DC-agent på en dator som inte ännu är en domänkontrollant. I det här fallet tjänsten startar och kör men ska annars inaktiveras tills när datorn är tillfrågas för att vara en domänkontrollant.
 
-   Installationen av programmet kan automatiseras med hjälp av MSI standardprocedurerna, till exempel:  `msiexec.exe /i AzureADPasswordProtectionDCAgent.msi /quiet /qn`
+   Programinstallationen kan automatiseras med hjälp av MSI standardprocedurerna, till exempel:  `msiexec.exe /i AzureADPasswordProtectionDCAgent.msi /quiet /qn`
 
    > [!WARNING]
-   > Detta kommando msiexec leder till att startas; Detta kan undvikas genom att ange den `/norestart` flaggan.
+   > Detta kommando msiexec leder startas om direkt; Detta kan undvikas genom att ange den `/norestart` flaggan.
 
-När du installerade på en domänkontrollant och startas om, har Azure AD-lösenordsskydd DC Agent Programvaruinstallation slutförts. Ingen konfiguration är obligatorisk eller möjligt.
+När installerats på en domänkontrollant och startas om, har Azure AD-lösenordsskydd DC agenten installationen slutförts. Ingen konfiguration är obligatorisk eller möjligt.
 
-## <a name="multiple-forest-deployments"></a>Distributioner med flera skogar
+## <a name="multiple-forest-deployments"></a>Flera skogar distributioner
 
-Det finns inga ytterligare krav för att distribuera Azure AD-lösenordsskydd över flera skogar. Varje skog konfigureras separat enligt beskrivningen i avsnittet skog distribution. Varje Azure AD-lösenordsskydd Proxy stöder bara domänkontrollanter från skogen som den är ansluten till. Azure AD lösenord protection-programmet i en viss skog är inte medveten om av Azure AD lösenord protection program som distribueras i en annan skog oavsett konfigurationer för Active Directory-förtroende.
+Det finns inga ytterligare krav för att distribuera Azure AD-lösenordsskydd i flera skogar. Varje skog konfigureras oberoende enligt beskrivningen i avsnittet skog distribution. Varje Azure AD-lösenordsskydd Proxy har endast stöd för domänkontrollanter i skogen som den är ansluten till. Azure AD lösenord protection-programmet i en viss skog är inte medveten om av Azure AD lösenord protection program som distribueras i en annan skog oavsett förtroendekonfigurationer i Active Directory.
 
 ## <a name="read-only-domain-controllers"></a>Skrivskyddade domänkontrollanter
 
-Lösenordet changes\sets aldrig bearbetas och sparat på skrivskyddade domänkontrollanter (RODC) i stället överförs dessa till skrivbara domänkontrollanter. Det finns därför behöver du inte installera DC-agenten på skrivskyddade domänkontrollanter.
+Lösenord changes\sets aldrig bearbetas och sparas på skrivskyddade domänkontrollanter (RODC); i stället vidarebefordras de till skrivbara domänkontrollanter. Det finns därför behöver inte installera DC-agentprogramvaran på skrivskyddade domänkontrollanter.
 
 ## <a name="high-availability"></a>Hög tillgänglighet
 
-Det största problemet med att säkerställa hög tillgänglighet av Azure AD-lösenordsskydd är tillgängligheten för proxy-servrar när domänkontrollanter i en skog försöker ladda ned nya principer eller andra data från Azure. Förhandsversion stöder högst två proxyservrar per skog. Varje DC-agenten använder en algoritm för enkelt resursallokering format när du bestämmer vilka proxyserver för att anropa och hoppar över proxy-servrar som inte svarar.
-Vanliga problem med hög tillgänglighet begränsas avsiktligt av Agentprogrammet som Domänkontrollant. DC-agentens ett lokalt cacheminne med den nyligen hämtade lösenordsprincipen. DC-agenterna fortsätter att genomdriva sin cachelagrade lösenordsprincip även om alla registrerade proxyservrar inaktiveras av någon anledning. En rimlig uppdateringsfrekvensen för lösenordsprinciper i en stor distribution är vanligtvis på ordern dagar inte timmar eller mindre.   Därför orsakar kort avbrott i proxyservrar inte betydande påverkan på användningen av Azure AD-lösenord skyddsfunktionen eller dess säkerhetsfördelarna.
+Det största problemet för att säkerställa hög tillgänglighet för Azure AD-lösenordsskydd är tillgängligheten för proxy-servrar när domänkontrollanter i en skog försöker hämta nya principer eller andra data från Azure. Den offentliga förhandsversionen stöder högst två proxyservrar per skog. Varje DC-agenten använder en algoritm för enkelt resursallokering format när du bestämmer vilken proxyserver för att anropa och hoppar över över proxyservrar som inte svarar.
+Vanliga problem med hög tillgänglighet begränsas av utformningen av DC-agentprogramvaran. DC-agentens har ett lokalt cacheminne med den nyligen hämtade lösenordsprincipen. DC-agenter fortsätter att genomdriva sin cachelagrade lösenordsprincip även om alla registrerade proxy-servrar som blir otillgänglig av någon anledning. En rimlig uppdateringsfrekvensen för lösenordsprinciper i en stor distribution är vanligtvis på för dagar, inte timmar eller mindre.   Därför orsakar kort avbrott av proxy-servrar inte betydande påverkan på driften av Azure AD-lösenord skyddsfunktionen eller dess säkerhetsfördelarna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har installerat de tjänster som krävs för skydd av Azure AD-lösenord på lokala servrar kan du slutföra de [efter installera konfiguration och rapportinformation samla](howto-password-ban-bad-on-premises-operations.md) att slutföra din distribution.
+Nu när du har installerat de tjänster som krävs för Azure AD-lösenordsskydd på dina lokala servrar kan du slutföra de [efter installera konfigurations- och samla rapportinformation](howto-password-ban-bad-on-premises-operations.md) att slutföra distributionen.
 
 [Översikt över Azure AD-lösenordsskydd](concept-password-ban-bad-on-premises.md)

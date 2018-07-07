@@ -1,28 +1,28 @@
 ---
-title: Azure-tjänster som stöder hanterade tjänstidentiteten
-description: Lista över tjänster som stöder hanterade tjänstidentiteten och Azure AD-autentisering
+title: Azure-tjänster som har stöd för hanterad tjänstidentitet
+description: Lista över tjänster som har stöd för hanterad tjänstidentitet och Azure AD-autentisering
 services: active-directory
 author: daveba
 ms.author: daveba
 ms.date: 06/27/2018
-ms.topic: reference
+ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: b39d5144eacfe6d621dae54da66b1306db516476
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: cdef4cf16fc688b61f367a77267be821ee84bf56
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060162"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902018"
 ---
-# <a name="services-that-support-managed-service-identity"></a>Tjänster som stöder hanterade tjänstidentiteten 
+# <a name="services-that-support-managed-service-identity"></a>Tjänster som stöder hanterad tjänstidentitet 
 
-Hanterade tjänstidentiteten ger Azure-tjänster med en automatiskt hanterade identitet i Azure Active Directory. Med hjälp av en hanterad identitet, kan du autentisera till alla tjänster som stöder Azure AD-autentisering utan autentiseringsuppgifter i koden. Vi håller på att integrera MSI och Azure AD authentication i Azure. Kontrollera tillbaka ofta för uppdateringar.
+Hanterad tjänstidentitet ger Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Med hjälp av en hanterad identitet, kan du autentisera till en tjänst som stöder Azure AD-autentisering utan autentiseringsuppgifter i din kod. Vi håller på att integrera MSI och Azure AD-autentisering i Azure. Kontrollera tillbaka ofta för uppdateringar.
 
-## <a name="azure-services-that-support-managed-service-identity"></a>Azure-tjänster som stöder hanterade tjänstidentiteten
+## <a name="azure-services-that-support-managed-service-identity"></a>Azure-tjänster som har stöd för hanterad tjänstidentitet
 
-Hanterade tjänstidentiteten stöd för följande Azure-tjänster.
+Hanterad tjänstidentitet stöd för följande Azure-tjänster.
 
 | Tjänst | Status | Date | Konfigurera | Hämta en token |
 | ------- | ------ | ---- | --------- | ----------- |

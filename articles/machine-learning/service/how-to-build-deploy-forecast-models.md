@@ -1,6 +1,6 @@
 ---
-title: Skapa och distribuera en prognosmodellen med Azure Machine Learning-paketet för Prognosticering.
-description: Lär dig mer om att skapa, träna, testa och distribuera en prognosmodellen med Azure Machine Learning-paketet för Prognosticering.
+title: Skapa och distribuera en prognosmodell med hjälp av Azure Machine Learning-paket för prognostisering.
+description: Lär dig mer om att skapa, träna, testa och distribuera en prognosmodell med hjälp av Azure Machine Learning-paketet för prognostisering.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,49 +9,49 @@ ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 05/07/2018
-ms.openlocfilehash: 320a7cf4a34657138c9096cdc4b573170be376e9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 44093dfde926b92d1617b85d27e362a8e40e5c56
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036641"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888678"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Skapa och distribuera prognosmodellen modeller med Azure Machine Learning
 
-I den här artikeln lär du dig hur du använder **Azure Machine Learning-paketet för Prognosticering** (AMLPF) för att snabbt skapa och distribuera en prognosmodellen. Arbetsflödet är följande:
+I den här artikeln lär du dig hur du använder **Azure Machine Learning-paket för prognostisering** (AMLPF) för att snabbt bygga och distribuera en prognosmodell. Arbetsflödet är följande:
 
 1. Läsa in och utforska data
 2. Skapa funktioner
-3. Träna och välja bästa modell
-4. Distribuera modellen och använda webbtjänsten
+3. Träna och välja modellen med bäst
+4. Distribuera modellen och förbrukar webbtjänsten
 
-Läs den [paketet referensdokumentationen](https://aka.ms/aml-packages/forecasting) för en fullständig lista över transformatorer och modeller som närmare för varje modul och klass.
+Läs den [paketera referensdokumentation](https://aka.ms/aml-packages/forecasting) för en fullständig lista över transformatorer och modeller samt detaljerade referenser för varje modul och klass.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 1. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-1. Följande konton och programmet måste ställas in och installerat:
+1. Följande konton och programmet måste ställas in och installerad:
    - Ett konto för Machine Learning-experimentering 
-   - Ett konto i Azure Machine Learning modellen Management
+   - Ett konto i Azure Machine Learning-modellhantering
    - Azure Machine Learning Workbench installerat 
 
-    Om dessa tre är ännu inte skapats eller installerats, så den [installationen av Azure Machine Learning Quickstart och arbetsstationen](../service/quickstart-installation.md) artikel.
+    Om dessa tre är ännu inte skapats eller installerats följer den [installationen av Azure Machine Learning-Quickstart och Workbench](../service/quickstart-installation.md) artikeln.
 
-1. Azure Machine Learning-paketet för Prognosticering måste installeras. Lär dig hur du [installationspaket här](https://aka.ms/aml-packages/forecasting).
+1. Azure Machine Learning-paket för prognostisering måste installeras. Lär dig hur du [installera det här paketet här](https://aka.ms/aml-packages/forecasting).
 
 ## <a name="sample-data-and-jupyter-notebook"></a>Exempeldata och Jupyter-anteckningsbok
 
 ### <a name="sample-workflow"></a>Exempelarbetsflöde 
-Exemplet följer arbetsflödet:
+I exempel följer arbetsflödet:
  
-1. **Mata in Data**: läsa in datauppsättningen och omvandla dem till TimeSeriesDataFrame. Den här dataframe är en serie tidsdata struktur som tillhandahålls av Azure Machine Learning-paketet för Prognosticering, här kallat **AMLPF**.
+1. **Mata in Data**: läsa in datauppsättningen och omvandla dem till TimeSeriesDataFrame. Den här dataframe är en time series-data struktur som tillhandahålls av Azure Machine Learning-paket för prognostisering, här kallat **AMLPF**.
 
-2. **Skapa funktioner**: använda olika featurization transformatorer som tillhandahålls av AMLPF för att skapa funktioner.
+2. **Skapa funktioner**: använda olika funktionalisering transformatorer som tillhandahålls av AMLPF för att skapa funktioner.
 
-3. **Tåg och välja bästa modell**: jämför prestanda för olika endimensionell tid serie modeller och machine learning. 
+3. **Träna upp och välj den bästa modellen**: jämföra prestanda för olika endimensionell time series-modeller och maskininlärningsmodeller. 
 
-4. **Distribuera modellen**: distribuera pipelinen tränade modellen som en webbtjänst via Azure Machine Learning arbetsstationen så att den kan användas av andra.
+4. **Distribuera modell**: distribuera pipelinen tränade modellen som en webbtjänst via Azure Machine Learning Workbench så att den kan användas av andra.
 
 ### <a name="get-the-jupyter-notebook"></a>Hämta Jupyter-anteckningsbok
 
@@ -62,7 +62,7 @@ Ladda ned anteckningsboken för att köra kodexempel som beskrivs häri själv.
 
 ### <a name="explore-the-sample-data"></a>Utforska exempeldata
 
-Maskininlärning prognoser exemplen i koden Följ exempel förlitar sig på den [University i Chicago's Dominick ökad livsmedel dataset](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) framtida apelsinjuice försäljning. Dominicks var en privata kedja i Chicago Stockholm.
+Maskininlärning prognoser exempel i följande kod exempel förlitar sig på den [University i Chicago's Dominick finare Foods datauppsättning](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) till att prognostisera apelsinjuice försäljning. Dominicks var en livsmedelskedja kedja i Stockholm Chicago.
 
 ### <a name="import-any-dependencies-for-this-sample"></a>Importera alla beroenden för det här exemplet
 
@@ -105,7 +105,7 @@ print('imports done')
 
 ## <a name="load-data-and-explore"></a>Läs in data och utforska
 
-Det här kodstycket visas den vanliga processen för att starta med en rå datauppsättning i det här fallet den [data från Dominicks ökad livsmedel](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Du kan också använda funktionen bekvämlighet [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
+Det här kodstycket visar hur vanliga börjar med en rå datauppsättning i det här fallet den [data från Dominicks finare livsmedel](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Du kan också använda funktionen bekvämlighet [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
 
 
 ```python
@@ -123,14 +123,14 @@ whole_df.head()
     <tr style="text-align: right;">
       <th></th>
       <th>lagra</th>
-      <th>varumärken</th>
+      <th>varumärke</th>
       <th>vecka</th>
       <th>logmove</th>
       <th>prestation</th>
       <th>price</th>
       <th>AGE60</th>
       <th>EDUC</th>
-      <th>ETNISKT</th>
+      <th>GRUPP</th>
       <th>INTÄKTER</th>
       <th>HHLARGE</th>
       <th>WORKWOM</th>
@@ -247,11 +247,11 @@ whole_df.head()
 
 
 
-Informationen består av varje vecka försäljning per märke och store. Logaritmen för Såld kvantitet finns i den _logmove_ kolumn. Informationen omfattar även vissa demografisk kund-funktioner. 
+Data består av veckovisa försäljning per varumärke och store. Logaritmen för Såld kvantitet som tillhör den _logmove_ kolumn. Informationen omfattar även vissa kundernas demografiska funktioner. 
 
-För att modellera tidsserier, måste du hämta följande element från den här dataframe: 
-+ Ett datum/tid-axeln 
-+ Antalet som försäljning ska vara en prognos
+För att modellera tidsserien, måste du extrahera följande element från den här dataframe: 
++ Ett datum/tid-axel 
++ Antalet som försäljning för att skapa prognoser för att
 
 
 ```python
@@ -279,7 +279,7 @@ whole_df[['store','brand','WeekLastDay','Quantity']].head()
     <tr style="text-align: right;">
       <th></th>
       <th>lagra</th>
-      <th>varumärken</th>
+      <th>varumärke</th>
       <th>WeekLastDay</th>
       <th>Antal</th>
     </tr>
@@ -334,11 +334,11 @@ print('{} time series in the data frame.'.format(nseries))
     249 time series in the data frame.
     
 
-Data innehåller ungefär 250 olika kombinationer av store och märke i en data-ram. Varje kombination definierar egna tidsserier av försäljning. 
+Data innehåller cirka 250 olika kombinationer av lagring och en dataram varumärke. Varje kombination definierar en egen tidsserier med försäljning. 
 
-Du kan använda den [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) klassen lätt modellera flera serier i ett enda data struktur med den _grain_. Grain anges av den `store` och `brand` kolumner.
+Du kan använda den [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) klassen för att modellera bekvämt flera serier i en enda struktur med den _grain_. Grain anges av den `store` och `brand` kolumner.
 
-Skillnaden mellan _grain_ och _grupp_ är att grain alltid fysiskt betydelse i den verkliga världen, medan gruppen inte behöver vara. Internt paketet funktioner använda gruppen för att skapa en modell från flera tidsserier om användaren tror att den här grupperingen hjälper till att förbättra prestanda för modellen. Som standard anges grupp ska vara lika med grain och en modell är utformat för varje grain. 
+Skillnaden mellan _grain_ och _grupp_ är att grain alltid är fysiskt betydelse i den verkliga världen, medan grupp inte behöver vara. Intern paketet functions använder gruppen för att skapa en enkel modell från flera tidsserier om du tror att den här grupperingen hjälper till att förbättra modellprestanda. Som standard grupp anges så att det motsvarar grain och en enda modell har skapats för varje grain. 
 
 
 ```python
@@ -369,7 +369,7 @@ whole_tsdf[['Quantity']].head()
     <tr>
       <th>WeekLastDay</th>
       <th>lagra</th>
-      <th>varumärken</th>
+      <th>varumärke</th>
       <th></th>
     </tr>
   </thead>
@@ -409,7 +409,7 @@ whole_tsdf[['Quantity']].head()
 
 
 
-TimeSeriesDataFrame-återgivning tidsaxeln och grain är nu en del av data ram index och ger åtkomst till pandas datetime segmentering funktioner.
+I TimeSeriesDataFrame-representation tidsaxeln och grain är nu en del av ramens dataIndex och ger åtkomst till pandas datetime uppdelning funktioner.
 
 
 ```python
@@ -434,7 +434,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
     <tr>
       <th>WeekLastDay</th>
       <th>lagra</th>
-      <th>varumärken</th>
+      <th>varumärke</th>
       <th></th>
     </tr>
   </thead>
@@ -476,7 +476,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
       <td>25344</td>
     </tr>
     <tr>
-      <th>12-09-1990 23:59:59</th>
+      <th>1990-09-12 23:59:59</th>
       <th>2</th>
       <th>dominicks</th>
       <td>10752</td>
@@ -498,7 +498,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-Den [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) funktionen genererar en sammanfattande rapport tidsram för data i serien. Rapporten innehåller både en beskrivning av allmänna data samt statistik som är specifika för tid series-data. 
+Den [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) funktionen genererar en omfattande rapport med tidsram för data i serien. Rapporten innehåller både en beskrivning av allmänna data samt statistik som är specifika för time series-data. 
 
 
 ```python
@@ -663,11 +663,16 @@ whole_tsdf.ts_report()
 
 ![PNG](./media/how-to-build-deploy-forecast-models/output_15_6.png)
 
+![PNG](./media/how-to-build-deploy-forecast-models/output_59_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_61_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_63_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_63_1.png)
+ 
 
 
 ## <a name="integrate-with-external-data"></a>Integrera med externa data
 
-Ibland är det bra att integrera externa data som ytterligare funktioner för Prognosticering. I det här kodexemplet ansluter TimeSeriesDataFrame med externa data som rör väder.
+Ibland är det praktiskt att integrera externa data som ytterligare funktioner för prognostisering. I det här kodexemplet delta TimeSeriesDataFrame med externa data som rör väder.
 
 
 ```python
@@ -714,7 +719,7 @@ whole_tsdf.head()
       <th>price</th>
       <th>AGE60</th>
       <th>EDUC</th>
-      <th>ETNISKT</th>
+      <th>GRUPP</th>
       <th>INTÄKTER</th>
       <th>HHLARGE</th>
       <th>WORKWOM</th>
@@ -733,7 +738,7 @@ whole_tsdf.head()
     <tr>
       <th>WeekLastDay</th>
       <th>lagra</th>
-      <th>varumärken</th>
+      <th>varumärke</th>
       <th></th>
       <th></th>
       <th></th>
@@ -839,8 +844,8 @@ whole_tsdf.head()
       <td>7.49</td>
       <td>1</td>
       <td>1.59</td>
-      <td>0,12</td>
-      <td>0,32.</td>
+      <td>0.12</td>
+      <td>0.32</td>
       <td>0.05</td>
       <td>10.92</td>
       <td>0.10</td>
@@ -863,8 +868,8 @@ whole_tsdf.head()
       <td>8.35</td>
       <td>0</td>
       <td>2,99</td>
-      <td>0,12</td>
-      <td>0,32.</td>
+      <td>0.12</td>
+      <td>0.32</td>
       <td>0.05</td>
       <td>10.92</td>
       <td>0.10</td>
@@ -887,14 +892,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Förbearbeta data och sedan imputera värden som saknas
 
-Starta genom att dela data i träningsmängden och en testning med den [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) verktygsfunktionen. Det resulterande testning uppsättningen innehåller 40 senaste observationer av varje tidsserier. 
+Börja med att dela data i träningsmängden och en testning med den [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) verktygsfunktionen. Den resulterande testning set innehåller de senast 40 observationerna för varje tidsserie. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Grundläggande tid serie modeller kräver sammanhängande tidsserier. Kontrollera om serien Normal, vilket innebär att de har ett tid index provtagning med jämna mellanrum, med hjälp av den [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) funktion.
+Grundläggande time series modeller kräver sammanhängande tidsserier. Kontrollera om serien är Normal, vilket innebär att de har ett index för tid som samplas med jämna mellanrum, med hjälp av den [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) funktion.
 
 
 ```python
@@ -969,7 +974,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-Du kan se att de flesta av serier (213 av 249) är felaktiga. En [uppräkning transformeringen](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) krävs för att fylla i saknade värden och antal. Det finns många alternativ för uppräkning, används följande exempelkod linjär interpolerade.
+Du kan se att de flesta av serien (213 av 249) är oregelbunden. En [uppräkning transformeringen](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) krävs för att fylla i saknade värden och antal. Det finns många alternativ för uppräkning, använder följande exempelkod linjär interpolation.
 
 
 ```python
@@ -982,7 +987,7 @@ imputer = TimeSeriesImputer(input_column='Quantity',
 train_imputed_tsdf = imputer.transform(train_tsdf)
 ```
 
-När uppräkning koden körs har alla serierna en vanlig frekvens:
+När uppräkning koden körs har alla serien en vanlig frekvens:
 
 
 ```python
@@ -995,18 +1000,18 @@ print(ts_regularity_imputed[ts_regularity_imputed['regular'] == False])
     Index: []
     
 
-## <a name="univariate-time-series-models"></a>Endimensionell tid serie modeller
+## <a name="univariate-time-series-models"></a>Endimensionell time series-modeller
 
-Nu när du har rensat data, kan du börja modellering.  Börja med att skapa tre endimensionell modeller: modellen ”naïve”, ”säsongsbaserade naïve”-modell och en ”ARIMA”-modell.
-* Naive prognosmodellen algoritmen använder faktiska variabeln målvärdet för den senaste perioden som prognostiserat värde för den aktuella perioden.
+Nu när du har rensat datan kan du börja modellering.  Börja med att skapa tre endimensionell modeller: ”naïve”-modellen och modellen ”säsongens naïve” en ”ARIMA”-modell.
+* Prognosticeringsalgoritm som Naive använder faktiska variabeln målvärdet för den senaste perioden som prognostiserade värdet för den aktuella perioden.
 
-* När Naive algoritmen använder faktiska variabeln målvärdet för samma tidpunkt av föregående säsongen som prognostiserat värde för aktuell tidpunkt. Några exempel med det faktiska värdet för samma månad föregående år framtida månader från det aktuella året. Använd igår samma timme för att bedöma timmar idag. 
+* Säsongens Naive algoritmen använder faktiska variabeln målvärdet för samma tidpunkt av föregående säsongen som prognostiserade värdet för aktuell tidpunkt. Några exempel är med hjälp av det faktiska värdet för samma månad föregående år till att prognostisera månader med det aktuella året; Använd en och samma timme av i går att skapa prognoser för timmar idag. 
 
-* Algoritmen exponentiell utjämningsläget (ETS) genererar prognoser av computing vägda genomsnitt av senaste observationer med vikter avtagande exponentiellt som anmärkningar hämta äldre. 
+* Algoritmen exponentiell utjämning (ETS) genererar prognoser av computing Viktat genomsnitt av tidigare observationer och med vikterna avtagande exponentiellt allteftersom observationerna får äldre. 
 
-* Algoritmen AutoRegressive integrerad glidande medelvärde (ARIMA) samlar in autocorrelation i tid series-data. Läs mer om ARIMA [den här länken](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
+* Algoritmen Autoregressivt integrerat glidande medelvärde (ARIMA) samlar in autocorrelation i time series-data. Läs mer om ARIMA [den här länken](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
 
-Börja med att vissa modellparametrarna baserat på din datagranskning. 
+Börja med att vissa Modellparametrar baserat på din datautforskning. 
 
 
 ```python
@@ -1035,7 +1040,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Kombinera flera modeller
 
-Den [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) exteriörbedömning kan du kombinera flera estimators och anpassa/förutsäga på dem med hjälp av en rad med kod.
+Den [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) estimator kan du kombinera flera estimators och anpassa/förutsäga på dem med hjälp av en rad med kod.
 
 
 ```python
@@ -1046,27 +1051,27 @@ forecaster_union = ForecasterUnion(
 
 ### <a name="fit-and-predict"></a>Anpassa och förutsäga
 
-Estimators i AMLPF följer samma API som scikit-Läs estimators: en anpassad metod för modellen utbildning och ett predict-metoden för att generera prognoser. 
+Estimators i AMLPF följer du samma API som scikit-Läs estimators: en anpassad metod för träning och en predict-metod för att skapa prognoser. 
 
-**Träna modeller**  
-Eftersom dessa modeller är alla endimensionell modeller, anpassa en modell till varje grain av data. Med AMLPF kan alla 249 modeller vara lämpligt med bara ett funktionsanrop.
+**Skapa modeller**  
+Eftersom dessa modeller är modeller för alla endimensionell, anpassa en modell till varje grain av data. Med hjälp av AMLPF, kan alla 249 modeller vara lämpligt med bara ett funktionsanrop.
 
 
 ```python
 forecaster_union_fitted = forecaster_union.fit(train_imputed_tsdf)
 ```
 
-**Försäljningsprognoser på testdata**  
-Liknar metoden val, kan du skapa förutsägelser för alla 249 serier i testmängden data med ett anrop till den `predict` funktion. 
+**Skapa prognos för försäljningen på testdata**  
+Liknar metoden anpassa, kan du skapa förutsägelser för alla 249 serier i testmängden data med ett anrop till den `predict` funktion. 
 
 
 ```python
 forecaster_union_prediction = forecaster_union_fitted.predict(test_tsdf, retain_feature_column=True)
 ```
 
-**Utvärdera modellen prestanda**   
+**Utvärdera modellprestanda**   
 
-Nu kan du beräkna prognosen felen på test-uppsättningen. Här kan du använda medelvärde absolut procentandel fel (MAPE). MAPE är den absoluta procent fel i förhållande till de faktiska värdena för försäljning. Den ```calc_error``` funktionen innehåller några inbyggda funktioner för vanliga fel mått. Du kan också definiera vårt anpassade fel-funktionen för att beräkna MedianAPE och skickar den till argumentet err_fun.
+Du kan nu beräkna prognoser felen i test-grupp. Här kan du använda mean absolut procentandel fel (MAPE). MAPE är den absoluta procent fel i förhållande till de faktiska värdena för försäljning. Den ```calc_error``` innehåller några inbyggda funktioner för vanliga felmått. Du kan också definiera våra anpassade fel-funktion för att beräkna MedianAPE och skickar den till argumentet err_fun.
 
 
 ```python
@@ -1145,14 +1150,14 @@ univariate_model_errors
 
 ## <a name="build-machine-learning-models"></a>Skapa machine learning-modeller
 
-Utöver traditionella endimensionell modeller kan Azure Machine Learning-paketet för Prognosticering du också skapa machine learning-modeller.
+Utöver traditionella endimensionell modeller kan Azure Machine Learning-paket för prognostisering du också skapa machine learning-modeller.
 
 Börja med att skapa funktioner för dessa modeller.
 
-### <a name="feature-engineering"></a>Funktionen tekniker
+### <a name="feature-engineering"></a>Funktionsframställning
 
 **Transformatorer**   
-Paketet innehåller många transformatorer för serien tidsdata förbearbetning och featurization. Exemplen nedan visar några av de förbearbetning och featurization funktioner.
+Paketet innehåller många transformatorer för time series-data Förbearbeta och funktionalisering. Exemplen nedan visar några av de Förbearbeta och funktionalisering funktionerna.
 
 
 ```python
@@ -1182,7 +1187,7 @@ grain_featurizer = GrainIndexFeaturizer(overwrite_columns=True, ts_frequency=oj_
 ```
 
 **Pipelines**   
-Pipeline-objekt gör det enkelt att spara en uppsättning steg så att de kan användas om och om igen till olika objekt. Pipeline-objekt kan också pickled så att de enkelt bärbar till andra datorer för distribution. Du kan länka alla transformatorer som du har skapat hittills med hjälp av en pipeline. 
+Pipelineobjekt gör det enkelt att spara en uppsättning steg så att de kan användas om och om igen på olika objekt. Dessutom kan du pickled pipelineobjekt för att de enkelt bärbar för andra datorer för distribution. Du kan länka alla transformatorer som du har skapat hittills med hjälp av en pipeline. 
 
 
 ```python
@@ -1249,7 +1254,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-Den [RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) funktionen radbryts sklearn regression estimators så att de kan få utbildning på TimeSeriesDataFrame. Omslutna prognosmodell kan varje grupp i det här fallet arkivet till samma modell. Prognosmodell Lär dig en modell för en serie som bedömdes liknande och kan grupperas tillsammans. En modell för en grupp av serien använder ofta data från längre serie för att förbättra prognoser för kort serien. Du kan använda dessa modeller för alla andra modeller i biblioteket som stöder regression. 
+Den [RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) funktionen omsluter sklearn regression estimators så att de kan vara tränats på TimeSeriesDataFrame. Den omslutna prognosmodell också placerar varje grupp i det här fallet arkivet i samma modell. Prognosmodell kan lära dig en modell för en grupp i serie som bedömdes som liknande och kan delas tillsammans. En modell för en grupp av serien använder ofta data från längre serie för att förbättra prognoser för kort-serien. Du kan ersätta dessa modeller för alla andra modeller i biblioteket som har stöd för regression. 
 
 
 ```python
@@ -1363,13 +1368,13 @@ all_errors.sort_values('MedianAPE')
 
 
 
-Vissa machine learning-modeller kunde dra nytta av nya funktioner och likheter mellan serier få bättre prognosens noggrannhet.
+Vissa maskininlärningsmodeller kunde dra nytta av nya funktioner och likheter mellan serien för att få bättre prognosens noggrannhet.
 
-**Korsvalidering och parametern omfattande**    
+**Korsvalidering och parametern oinskränkt**    
 
-Paketet anpassas vissa traditionella maskininlärning funktioner för ett prognosmodellen program.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator) har korsvalidering närvarande, respektera vad skulle och skulle inte känd i prognosmodellen framework. 
+Paketet anpassas efter vissa traditionella machine learning-funktioner för ett program med prognostisering.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator) har korsvalidering tillfälligt, följer vad skulle och skulle inte känd i ett ramverk för prognostisering. 
 
-I figuren nedan representerar varje ruta data från en tidpunkt. De blå rutorna representerar utbildning och orange rutor representerar testning i varje vikning. Testa data måste komma från tidpunkter efter den största utbildning tidpunkten. Annars har framtida data läckts i träningsdata som orsakar modellen utvärderingen blir ogiltiga. 
+I figuren nedan visas representerar varje ruta data från en tidpunkt. Blå rutor representerar utbildning och orange rutor representerar testar i varje vikningsantalet. Testdata måste komma från tidpunkter när du har den största utbildning tidpunkten. I annat fall läckts framtida data i träningsdata som orsakar modellen utvärderingen ska bli ogiltig. 
 
 ![PNG](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
@@ -1391,8 +1396,8 @@ print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
     Best paramter: {'estimator__n_estimators': 100}
     
 
-**Skapa den slutliga pipelinen**   
-Nu när du har identifierat den bästa modellen kan du skapa och passar din sista pipeline med alla transformatorer och bästa modellen. 
+**Skapa den slutgiltiga pipelinen**   
+Nu när du har identifierat den bästa modellen kan du skapa och anpassa din slutliga pipeline med alla transformatorer och modellen med bäst. 
 
 
 ```python
@@ -1411,13 +1416,13 @@ print('Median of APE of final pipeline: {0}'.format(final_median_ape))
     Median of APE of final pipeline: 42.54336821266968
     
 
-## <a name="operationalization-deploy-and-consume"></a>Operationalization: distribuera och använda
+## <a name="operationalization-deploy-and-consume"></a>Driftsättning: distribuera och använda
 
-I det här avsnittet kan du distribuera en pipeline som Azure Machine Learning-webbtjänst och använda för träning och bedömningen. Bedömningen distribuerade webbtjänsten retrains modellen och skapar prognoser för nya data.
+I det här avsnittet ska du distribuera en pipeline som Azure Machine Learning-webbtjänst och använda för träning och bedömning. Bedömning av den distribuerade webbtjänsten retrains modellen och genererar prognoser för nya data.
 
-### <a name="set-model-deployment-parameters"></a>Ange parametrar för distribution av modellen
+### <a name="set-model-deployment-parameters"></a>Ställa in parametrar för distribution av modellen
 
-Ändra följande parametrar till egna värden. Kontrollera att din Azure Machine Learning-miljö, hanteringskontot för modellen och resursgruppen finns i samma region.
+Ändra följande parametrar till dina egna värden. Se till att din Azure Machine Learning-miljö, konto för modellhantering och resursgruppen finns i samma region.
 
 
 ```python
@@ -1491,9 +1496,9 @@ aml_deployment = ForecastWebserviceFactory(deployment_name=deployment_name,
 aml_deployment.deploy()
 ```
 
-### <a name="score-the-web-service"></a>Poängsätta webbtjänsten
+### <a name="score-the-web-service"></a>Bedöma webbtjänsten
 
-För att poängsätta en liten datamängd, Använd den [poäng](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) metod för att skicka en webbtjänst anropa för alla data.
+För att bedöma en liten datamängd, använda den [poäng](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) metod för att skicka en webbtjänst anropa för alla data.
 
 
 ```python
@@ -1514,7 +1519,7 @@ aml_web_service = aml_deployment.get_deployment()
 results = aml_web_service.score(score_context=score_context)
 ```
 
-För att poängsätta en stor datamängd, Använd den [parallella bedömningen](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) läge för att skicka flera webbtjänst-anrop, ett för varje grupp med data.
+För att bedöma en stor datauppsättning, använder den [parallella bedömning](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) läge för att skicka flera webbtjänst-anrop, en för varje grupp av data.
 
 
 ```python
@@ -1523,10 +1528,10 @@ results = aml_web_service.score(score_context=score_context, method='parallel')
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure Machine Learning-paketet för Prognosticering i de här artiklarna:
+Läs mer om Azure Machine Learning-paket för prognostisering i de här artiklarna:
 
-+ Läs den [paketet översikt och lära dig hur du installerar det](https://aka.ms/aml-packages/forecasting).
++ Läs den [paketera översikt och lär dig hur du installerar den](https://aka.ms/aml-packages/forecasting).
 
-+ Utforska den [referera docs](https://aka.ms/aml-packages/forecasting) för det här paketet.
++ Utforska den [referera till docs](https://aka.ms/aml-packages/forecasting) för det här paketet.
 
 + Lär dig mer om [andra Python-paket för Azure Machine Learning](reference-python-package-overview.md).

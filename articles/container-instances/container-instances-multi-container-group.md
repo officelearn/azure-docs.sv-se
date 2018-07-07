@@ -1,42 +1,42 @@
 ---
-title: Distribuera flera behållare grupper i Azure Container instanser
-description: Lär dig hur du distribuerar en behållare grupp med flera behållare i Azure Container instanser.
+title: Distribuera grupper med flera behållare i Azure Container Instances
+description: Lär dig hur du distribuerar en behållargrupp med flera behållare i Azure Container Instances.
 services: container-instances
-author: iainfoulds
+author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: iainfou
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 6d337c9ed23ac9af884f4113b046a8e9756fd441
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ecc4484eddd6541c1407e1ed816ba8830030d7c8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097112"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888205"
 ---
-# <a name="deploy-a-container-group"></a>Distribuera en behållare grupp
+# <a name="deploy-a-container-group"></a>Distribuera en behållargrupp
 
-Azure Behållarinstanser stöder distribution av flera behållare till en enda värd med en [behållargruppen](container-instances-container-groups.md). Detta är användbart när du skapar ett program sidovagn för loggning, övervakning eller någon annan konfiguration där en tjänst behöver en andra anslutna process.
+Azure Container Instances stöder distribution av flera behållare till en enda värd med hjälp av en [behållargruppen](container-instances-container-groups.md). Detta är användbart när du skapar ett program sidovagn för loggning, övervakning eller en annan konfiguration där en tjänst behöver en andra anslutna process.
 
-Det finns två metoder för att distribuera flera behållare grupper med hjälp av Azure CLI:
+Det finns två metoder för att distribuera grupper med flera behållare med Azure CLI:
 
-* Malldistribution för hanteraren för filserverresurser (den här artikeln)
-* [Distribution av YAML](container-instances-multi-container-yaml.md)
+* För malldistribution av resurshanteraren (den här artikeln)
+* [YAML-fildistribution](container-instances-multi-container-yaml.md)
 
-Distribution med en Resource Manager-mall rekommenderas när du behöver distribuera ytterligare Azure serviceresurser (till exempel en resurs för Azure-filer) på behållaren instans distributionen. På grund av formatet YAML kortare karaktär distribution med en YAML-fil rekommenderas om din distribution innehåller *endast* behållarinstanser.
+Distribution med en Resource Manager-mall rekommenderas när du behöver distribuera ytterligare Azure-tjänstresurser (till exempel en Azure Files-resurs) vid tidpunkten för distribution av behållarinstanser. På grund av YAML-format kortare natur, distribution med en YAML-fil rekommenderas när distributionen omfattar *endast* behållarinstanser.
 
 > [!NOTE]
-> Flera behållare grupper är för närvarande begränsad till Linux-behållare. Under tiden som vi arbetar för att göra alla funktioner tillgängliga för Windows-behållare kan du se de nuvarande skillnaderna mellan plattformarna i informationen om [kvoter och regional tillgänglighet för Azure Container Instances](container-instances-quotas.md).
+> Grupper med flera behållare är för närvarande begränsade till Linux-behållare. Under tiden som vi arbetar för att göra alla funktioner tillgängliga för Windows-behållare kan du se de nuvarande skillnaderna mellan plattformarna i informationen om [kvoter och regional tillgänglighet för Azure Container Instances](container-instances-quotas.md).
 
 ## <a name="configure-the-template"></a>Konfigurera mallen
 
-Avsnitten i den här artikeln beskriver hur du kör en enkel flera behållare sidovagn konfiguration genom att distribuera en Azure Resource Manager-mall.
+Avsnitten i den här artikeln vägleder dig genom att köra en enkel flera behållare sidovagn konfiguration genom att distribuera en Azure Resource Manager-mall.
 
-Börja med att skapa en fil med namnet `azuredeploy.json`, kopierar följande JSON till den.
+Börja med att skapa en fil med namnet `azuredeploy.json`, kopiera följande JSON till den.
 
-Resource Manager-mallen definierar en behållare grupp med två behållare, en offentlig IP-adress och två exponerade portar. Första behållaren i gruppen körs ett mot internet-program. Behållaren andra sidvagn, gör en HTTP-begäran till webbprogrammet huvudsakliga via gruppens lokala nätverk.
+Resource Manager-mallen definierar en behållargrupp med två behållare, en offentlig IP-adress och två portar. Den första behållaren i gruppen kör ett program för webbservergrupper på internet. Den andra behållaren, sidovagnen, gör en HTTP-förfrågan till det huvudsakliga webbprogrammet via gruppens lokala nätverk.
 
 ```JSON
 {
@@ -124,7 +124,7 @@ Resource Manager-mallen definierar en behållare grupp med två behållare, en o
 }
 ```
 
-Om du vill använda ett privat behållaren image register att lägga till ett objekt i JSON-dokumentet med följande format. Exempel på implementering av den här konfigurationen, finns det [ACI Resource Manager mallreferensen] [ template-reference] dokumentation.
+Lägga till ett objekt till JSON-dokument med följande format om du vill använda ett privat behållarregister för avbildningen. Ett exempel på en implementering av den här konfigurationen, finns det [ACI Resource Manager-mallreferensen] [ template-reference] dokumentation.
 
 ```JSON
 "imageRegistryCredentials": [
@@ -144,7 +144,7 @@ Skapa en resursgrupp med kommandot [az group create][az-group-create].
 az group create --name myResourceGroup --location eastus
 ```
 
-Distribuera mallen med den [az distribution skapa] [ az-group-deployment-create] kommando.
+Distribuera mallen med den [az group deployment skapa] [ az-group-deployment-create] kommando.
 
 ```azurecli-interactive
 az group deployment create --resource-group myResourceGroup --template-file azuredeploy.json
@@ -152,15 +152,15 @@ az group deployment create --resource-group myResourceGroup --template-file azur
 
 Inom några sekunder bör du få ett första svar från Azure.
 
-## <a name="view-deployment-state"></a>Visa status för distributionen
+## <a name="view-deployment-state"></a>Visa status för distribution
 
-Om du vill visa status för distributionen, Använd följande [az behållaren visa] [ az-container-show] kommando:
+Om du vill visa statusen för distributionen, använder du följande [az container show] [ az-container-show] kommando:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Om du vill visa programmet som körs, navigerar du till dess IP-adress i webbläsaren. IP-Adressen är till exempel `52.168.26.124` i detta exempel på utdata:
+Om du vill visa programmet som körs, navigerar du till dess IP-adress i webbläsaren. IP-Adressen är till exempel `52.168.26.124` i följande Exempelutdata:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location
@@ -170,7 +170,7 @@ myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-helloworld
 
 ## <a name="view-logs"></a>Visa loggar
 
-Visa loggutdata från en behållare med hjälp av den [az behållaren loggar] [ az-container-logs] kommando. Den `--container-name` argumentet anger behållaren som hämtar loggarna. Den första behållaren har angetts i det här exemplet.
+Visa loggutdata för behållaren med den [az behållarloggarna] [ az-container-logs] kommando. Den `--container-name` argumentet anger behållaren som du vill hämta loggar från. Den första behållaren har angetts i det här exemplet.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -185,7 +185,7 @@ listening on port 80
 ::1 - - [09/Jan/2018:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Om du vill se loggar för behållaren sida bilen köra samma kommando anger andra behållarens namn.
+Kör samma kommando anger andra behållarens namn om du vill visa loggarna för behållaren sidvagn.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -211,11 +211,11 @@ Date: Tue, 09 Jan 2018 23:25:11 GMT
 Connection: keep-alive
 ```
 
-Som du kan se göra sidovagn regelbundet en HTTP-begäran till huvudsakliga webb-applikationen via gruppens lokala nätverk så att den körs. Det här exemplet sidovagn kan expanderas för att utlösa en avisering om det tog emot en HTTP-svarskoden än 200 OK.
+Som du ser är sidovagnen regelbundet att en HTTP-förfrågan till det huvudsakliga webbprogrammet via gruppens lokala nätverk så att den körs. Det här exemplet sidovagn kan utökas för att utlösa en avisering om den har fått en HTTP-svarskoden än 200 OK.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln beskrivs de steg som krävs för att distribuera en instans av flera behållare Azure-behållaren. En slutpunkt till slutpunkt Azure Behållarinstanser upplevelse finns i Azure Container instanser kursen.
+Den här artikeln beskrivs de steg som krävs för att distribuera en flera behållare, Azure container-instans. En Azure Container Instances-upplevelse för slutpunkt till slutpunkt, finns i självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Självstudie för Azure Container Instances][aci-tutorial]

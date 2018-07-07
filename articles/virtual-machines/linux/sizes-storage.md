@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM-storlekar - Storage | Microsoft Docs
-description: Listar de olika optimerade lagringsstorlekar tillgängligt för Linux virtuella datorer i Azure. Visar information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredd för storlekar i den här serien.
+title: Azure Linux VM-storlekar – lagring | Microsoft Docs
+description: Visar en lista över de olika lagringsoptimerade storlekarna för Linux-datorer i Azure. Visar information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredd för storlekar i den här serien.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/11/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 70c478923b2311eb22e7bf66e62d5e8b5b9fe2de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e96a5fa15c531819f58c4d54b2dc933c686122b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653135"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903367"
 ---
-# <a name="storage-optimized-virtual-machine-sizes"></a>Storage optimerat storlekar för virtuella datorer
+# <a name="storage-optimized-virtual-machine-sizes"></a>Lagringsoptimerade storlekar för virtuella datorer
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
 
@@ -37,4 +37,4 @@ ms.locfileid: "34653135"
 - [Tidigare versioner](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om hur [Azure compute-enheter (ACU)](acu.md) kan hjälpa dig att jämföra beräkning prestanda över Azure SKU: er.
+Läs mer om hur [Azure-beräkningsenheter (ACU)](acu.md) kan hjälpa dig att jämföra prestanda för databearbetning mellan Azure SKU: er.

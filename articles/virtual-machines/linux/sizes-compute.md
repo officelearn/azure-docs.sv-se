@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM-storlekar - beräkning optimerade | Microsoft Docs
-description: Visar en lista över storlekar för olika beräkning som är optimerade för Linux virtuella datorer i Azure. Visar information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredd för storlekar i den här serien.
+title: Azure Linux VM-storlekar – beräkningsoptimerade | Microsoft Docs
+description: Visar en lista över de olika beräkningsoptimerad storlekarna för Linux-datorer i Azure. Visar information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredd för storlekar i den här serien.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 1a13efb271713ea4f47469b4261b278e1b350650
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 4733a4c92a5bdfe2eabd2144a1c6c8738ac6693e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34654529"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902460"
 ---
-# <a name="compute-optimized-virtual-machine-sizes"></a>Beräkning optimerade storlekar för virtuella datorer
+# <a name="compute-optimized-virtual-machine-sizes"></a>Optimerad databehandling storlekar för virtuella datorer
 
 [!INCLUDE [virtual-machines-common-sizes-compute](../../../includes/virtual-machines-common-sizes-compute.md)]
 
@@ -38,4 +38,4 @@ ms.locfileid: "34654529"
 - [Tidigare versioner](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om hur [Azure compute-enheter (ACU)](acu.md) kan hjälpa dig att jämföra beräkning prestanda över Azure SKU: er.
+Läs mer om hur [Azure-beräkningsenheter (ACU)](acu.md) kan hjälpa dig att jämföra prestanda för databearbetning mellan Azure SKU: er.

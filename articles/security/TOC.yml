@@ -164,8 +164,16 @@
           href: azure-operational-security-checklist.md
 - name: Styrning och efterlevnad
   items:
-    - name: Ekonomiska tjänster för reglerade arbetsbelastningar
-      href: ./blueprints/financial-services-regulated-workloads.md
+    - name: FFIEC
+      items:
+        - name: Datanalys
+          href: ./blueprints/ffiec-analytics-overview.md
+        - name: Informationslager
+          href: ./blueprints/ffiec-dw-overview.md
+        - name: IaaS-webbprogram
+          href: ./blueprints/ffiec-iaaswa-overview.md
+        - name: PaaS-webbprogram
+          href: ./blueprints/ffiec-paaswa-overview.md
     - name: GDPR
       items:
         - name: Datanalys
@@ -187,34 +195,15 @@
         - name: PaaS-webbprogram
           href: ./blueprints/fedramp-paaswa-overview.md
     - name: PCI DSS
-      href: ./blueprints/payment-processing-blueprint.md
       items:
-        - name: Översikt över krav
-          href: ./blueprints/pci-dss-requirements-overview.md
-        - name: Krav 1 – brandväggar
-          href: ./blueprints/pci-dss-requirement-1-firewall.md
-        - name: Krav 2 – lösenord
-          href: ./blueprints/pci-dss-requirement-2-password.md
-        - name: Krav 3 – CHD
-          href: ./blueprints/pci-dss-requirement-3-chd.md
-        - name: Krav 4 – kryptering
-          href: ./blueprints/pci-dss-requirement-4-encryption.md
-        - name: Krav 5 – skadlig kod
-          href: ./blueprints/pci-dss-requirement-5-malware.md
-        - name: Krav 6 – säkra system
-          href: ./blueprints/pci-dss-requirement-6-secure-system.md
-        - name: Krav 7 – åtkomst
-          href: ./blueprints/pci-dss-requirement-7-access.md
-        - name: Krav 8 – identitet
-          href: ./blueprints/pci-dss-requirement-8-identity.md
-        - name: Krav 9 – fysisk åtkomst
-          href: ./blueprints/pci-dss-requirement-9-physical-access.md
-        - name: Krav 10 – övervakning
-          href: ./blueprints/pci-dss-requirement-10-monitoring.md
-        - name: Krav 11 – testning
-          href: ./blueprints/pci-dss-requirement-11-testing.md
-        - name: Krav 12 – princip
-          href: ./blueprints/pci-dss-requirement-12-policy.md
+        - name: Datanalys
+          href: ./blueprints/pcidss-analytics-overview.md
+        - name: Informationslager
+          href: ./blueprints/pcidss-dw-overview.md
+        - name: IaaS-webbprogram
+          href: ./blueprints/pcidss-iaaswa-overview.md
+        - name: PaaS-webbprogram
+          href: ./blueprints/pcidss-paaswa-overview.md
     - name: UK NHS
       items:
         - name: Datanalys

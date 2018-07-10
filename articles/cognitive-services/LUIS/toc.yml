@@ -71,8 +71,6 @@
           href: luis-tutorial-review-endpoint-utterances.md
         - name: Med mönster
           href: luis-tutorial-pattern.md
-        - name: Med en fraslista
-          href: luis-tutorial-interchangeable-phrase-list.md
 - name: Exempel
   items:
     - name: Kodexempel

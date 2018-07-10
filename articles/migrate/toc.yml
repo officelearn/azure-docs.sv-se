@@ -36,6 +36,10 @@
           href: contoso-migration-rehost-linux-vm.md
         - name: 8. Contoso – Byta värd för en Linux-app på virtuella Azure-datorer och Azure MySQL
           href: contoso-migration-rehost-linux-vm-mysql.md
+        - name: 9. Contoso – Omstrukturera en app på Azure Web Apps och Azure SQL Database
+          href: contoso-migration-refactor-web-app-sql.md
+        - name: 10. Contoso – Omstrukturera en Linux-app på Azure Web Apps och Azure MySQL
+          href: contoso-migration-refactor-linux-app-service-mysql.md
     - name: Utforska och utvärdera en stor miljö
       href: how-to-scale-assessment.md
     - name: Gruppera datorer

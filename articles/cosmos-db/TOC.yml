@@ -73,7 +73,7 @@ items:
     items:
       - name: Global distribution
         href: distribute-data-globally.md
-      - name: Konfiguration med flera huvudservrar
+      - name: Flera huvudservrar
         href: multi-region-writers.md
       - name: Partitionering
         href: partition-data.md
@@ -172,8 +172,6 @@ items:
                 href: bulk-executor-dot-net.md
               - name: BulkExecutor – Java
                 href: bulk-executor-java.md
-              - name: Hantera Storage Explorer
-                href: storage-explorer.md
               - name: Fråga
                 items:
                   - name: Utför SQL-frågor
@@ -184,8 +182,6 @@ items:
                 href: indexing-policies.md
               - name: SQL-datapartitionering
                 href: sql-api-partition-data.md
-              - name: 'Lagrade procedurer, utlösare och UDF:er'
-                href: programming.md
               - name: Ändringsfeed
                 href: change-feed.md
               - name: Datatyper
@@ -262,8 +258,6 @@ items:
                 href: sql-api-sql-query-reference.md
           - name: Resurser
             items:
-              - name: Hantera Storage Explorer
-                href: storage-explorer.md
               - name: Visual Studio Code-tillägg
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: SQL-spelplan
@@ -328,12 +322,8 @@ items:
                 href: mongodb-ttl.md
               - name: Visualisera din information med Power BI
                 href: powerbi-visualize.md
-              - name: Hantera Storage Explorer
-                href: storage-explorer.md
           - name: Resurser
             items:
-              - name: Hantera Storage Explorer
-                href: storage-explorer.md
               - name: Visual Studio Code-tillägg
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Graph API-dokument
@@ -352,12 +342,8 @@ items:
             items:
               - name: Grafpartitionering
                 href: graph-partitioning.md
-              - name: Hantera Storage Explorer
-                href: storage-explorer.md
           - name: Resurser
             items:
-              - name: Hantera Storage Explorer
-                href: storage-explorer.md
               - name: Visual Studio Code-tillägg
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Dokument för tabell-API
@@ -410,8 +396,6 @@ items:
                 href: table-sdk-python.md
           - name: Resurser
             items:
-              - name: Hantera Storage Explorer
-                href: storage-explorer.md
               - name: Översikt över tabellagring
                 href: table-storage-overview.md
               - name: Designguide för tabellagring
@@ -450,6 +434,8 @@ items:
         href: regional-failover.md
       - name: Diagnostikloggning
         href: logging.md
+      - name: 'Lagrade procedurer, utlösare och UDF:er'
+        href: programming.md
       - name: Översikt över BulkExecutor
         href: bulk-executor-overview.md
       - name: Kostnadseffektiva läsningar och skrivningar
@@ -460,12 +446,10 @@ items:
         href: manage-account-with-powershell.md
       - name: Hantera Storage Explorer
         href: storage-explorer.md
-      - name: Skrivare för flera regioner
+      - name: Konfiguration med flera huvudservrar
         href: multi-master-workaround.md
   - name: Resurser
     items:
-      - name: Hantera Storage Explorer
-        href: storage-explorer.md
       - name: Översiktsblad för frågor
         href: query-cheat-sheet.md
       - name: 20 dagars tips

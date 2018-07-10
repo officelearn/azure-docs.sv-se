@@ -98,7 +98,7 @@
 
 ### Utökade IoT-scenarier
 #### [Hantera meddelanden mellan enheter och molnet med iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-#### [Spara meddelanden från IoT Hub i datalagring för Azure](iot-hub-store-data-in-azure-table-storage.md)
+#### [Spara IoT Hub-meddelanden i Azure Blob Storage](iot-hub-store-data-in-azure-table-storage.md)
 #### [Datavisualisering i Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Datavisualisering med Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Väderprognoser med hjälp av Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)

@@ -4,22 +4,11 @@
 ### Översikt och fördelar  
 ### Butiker  
 #### [Jämföra AppSource och Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
-#### [Låt din verksamhet växa med AzureSource](./grow-your-business-with-appsource.md) 
-##### [Skapa din landningssida](./build-your-landing-page.md)  
-##### [Aktivera delning av lead](./enable-lead-sharing.md)  
-##### [GTM-fördelar på Marketplace](./gtm-benefits.md)  
-##### [Marknadsför din verksamhet med Microsoft](./promote-your-business-with-microsoft.md)  
-#### [Låt din verksamhet växa med Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  
-##### [Skapa din landningssida](./build-your-landing-page.md)  
-##### [Aktivera delning av lead](./enable-lead-sharing.md)  
-##### [GTM-fördelar på Marketplace](./gtm-benefits.md)  
-##### [Marknadsför din verksamhet med Microsoft](./promote-your-business-with-microsoft.md)  
 
 ### Så här publicerar du i butiker på marknadsplatsen  
 #### [Bestäm listtyp för lösningen](./determine-your-listing-type.md)  
 #### [Publicera i webbutiker på marknadsplatsen](./become-publisher.md)  
 #### [Krav efter listtyp](./listing-type-requirements.md) 
-#### [Önskade lösningar](./preferred-solutions.md) 
 
 ### Publicera checklistor  
 #### [Publicera checklista för AppSource](./publishing-checklist-appsource.md)  
@@ -38,6 +27,9 @@
 #### [Lägg till bank- och skatteinformation](./add-bank-tax-info.md)  
 #### [Aktivera utvärderingsversionen med Azure AD](./enable-trial-using-azure-ad.md)  
 #### [Faktureringsalternativ för Azure Marketplace](./billing-options-azure-marketplace.md)  
+
+### [Låt din verksamhet växa genom marknadsplatsen](./grow-your-business-with-azure-marketplace.md)  
+#### [Önskade lösningar](./preferred-solutions.md) 
 
 ## [Partnerportalen i molnet](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
 

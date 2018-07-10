@@ -5,13 +5,12 @@
 ## [PowerShell – snabbstart](quickstart-powershell.md)
 
 # Funktioner och verktyg
-## [Bash – funktioner och verktyg](features.md)
-## [PowerShell – funktioner och verktyg](features-powershell.md)
+## [Funktioner och verktyg](features.md)
 
 # Så här gör du
-## [Bash – bestående lagring](persisting-shell-storage.md)
-## [PowerShell – bestående lagring](persisting-shell-storage-powershell.md)
+## [Bestående lagring](persisting-shell-storage.md)
 ## [Använda fönstret](using-the-shell-window.md)
+## [PowerShell Cloud Shell för Windows-användare](cloud-shell-windows-users.md)
 
 # Exempel
 ## [Bash – skapa resurser med Terraform](example-terraform-bash.md)

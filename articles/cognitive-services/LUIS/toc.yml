@@ -65,8 +65,10 @@
           href: luis-quickstart-intent-and-key-phrase.md
         - name: 8. Lägga till attitydanalys
           href: luis-quickstart-intent-and-sentiment-analysis.md
-    - name: Förbättra förutsägelse
+    - name: Förbättra appen
       items:
+        - name: Granska slutpunktsyttranden
+          href: luis-tutorial-review-endpoint-utterances.md
         - name: Med mönster
           href: luis-tutorial-pattern.md
         - name: Med en fraslista
@@ -313,6 +315,8 @@
       href: 'https://github.com/Microsoft/Recognizers-Text'
 - name: Resurser
   items:
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Azure-översikt
       href: 'https://aka.ms/luis-roadmap'
     - name: Ordlista
@@ -326,7 +330,7 @@
     - name: UserVoice
       href: 'https://aka.ms/luis-uservoice-forum'
     - name: Search
-      href: 'https://docs.microsoft.com/en-us/search/index?search=LUIS'
+      href: 'https://docs.microsoft.com/search/index?search=LUIS'
     - name: Blogg
       href: 'https://blog.botframework.com/category/luis/'
     - name: Kunskapsbas

@@ -14,14 +14,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/01/2018
   ms.author: carlrab
-  ms.openlocfilehash: 64c6bd7ee69f443f819676d1605aa679066e2e84
-  ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+  ms.openlocfilehash: c159eec7a8674e57e6f7a815040527ed60966f46
+  ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37063357"
+  ms.lasthandoff: 07/06/2018
+  ms.locfileid: "37887291"
 abstract:
-  description: Azure SQL Database är en relationsdatabas-som-tjänst som bygger på den senaste stabila versionen av Microsoft SQL Server Database-motorn. SQL Database är en högpresterande, tillförlitlig och säker databas som du kan använda för att skapa datadrivna program och webbplatser i valfritt programmeringsspråk, utan att behöva hantera infrastrukturen. Lär dig hur du använder SQL Database med våra snabbstarter, självstudier och exempel.
+  description: Azure SQL Database är en relationsdatabas-som-en-tjänst (DBaaS) som bygger på den senaste stabila versionen av Microsoft SQL Server Database-motorn. SQL Database är en högpresterande, tillförlitlig och säker databas som du kan använda för att skapa datadrivna program och webbplatser i valfritt programmeringsspråk, utan att behöva hantera infrastrukturen. Lär dig hur du använder SQL Database med våra snabbstarter, självstudier och exempel.
   aside:
     image:
       alt: 
@@ -32,6 +32,42 @@ abstract:
     href: https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/
     width: 250
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/sql-database/sql-database-technical-overview
+      html: <p>PaaS-databas med <a href="/azure/sql-database/sql-database-high-availability">hög tillgänglighet</a> som alltid körs på den senaste stabila versionen av SQL Server Database-motorn och ett uppdaterat operativsystem med <a href="/azure/sql-database/sql-database-automated-backups">automatisk säkerhetskopia av databas</a>.</p>
+      image:
+        src: media/index/i_managed.svg
+      title: Fullständigt hanterat
+    - href: /azure/sql-database/sql-database-service-tiers
+      html: <p>Skräddarsy pris-/prestandakvoten efter dina behov med <a href="/azure/sql-database/sql-database-service-tiers">flexibla prestandanivåer</a> som finns tillgängliga från prisvärda 5 USD/månad till kraftfulla 80-kärniga databaser.</p>
+      image:
+        src: media/index/i_perftier.svg
+      title: Pris-/prestandanivåer
+    - href: /azure/sql-database/sql-database-single-database-scale
+      html: <p>Du kan enkelt <a href="/azure/sql-database/sql-database-single-database-scale">skala upp</a>, <a href="/azure/sql-database/sql-database-read-scale-out">skala ut</a> eller dela upp dina databaser efter behov och därmed förbättra programmets prestanda.</p>
+      image:
+        src: media/index/i_scale.svg
+      title: Skalbarhet och elasticitet
+    - href: /azure/sql-database/sql-database-automatic-tuning
+      html: <p>Släpp in inbyggd intelligens i tjänsten och <a href="/azure/sql-database/sql-database-automatic-tuning">justera databasprestandan automatiskt</a> och <a href="/azure/sql-database/sql-advanced-threat-protection">identifiera hot</a> och <a href="/azure/sql-database/sql-vulnerability-assessment">sårbarheter</a> i databasen.</p>
+      image:
+        src: media/index/i_intelligence.svg
+      title: Inbyggd intelligens
+    - href: /azure/sql-database/sql-database-servers-databases
+      html: <p>Använd <a href="/azure/sql-database/sql-database-managed-instance">den enskilda databasen som hanteras av logiska servrar</a> för dina <a href="/azure/sql-database/saas-tenancy-app-design-patterns">SaaS-program</a> och mikrotjänster som behöver en enkel databas med förutsägbara prestanda.</p>
+      image:
+        src: media/index/i_db.svg
+      title: Enkel databas
+    - href: /azure/sql-database/sql-database-managed-instance
+      html: <p>Använd <a href="/azure/sql-database/sql-database-managed-instance">Hanterad instans</a> och <a href="azure/sql-database/sql-database-managed-instance-migrate">migrera enkelt dina lokala databaser</a> till Azure PaaS med minimala eller inga kodändringar i databasen.</p>
+      image:
+        src: media/index/i_mi.svg
+      title: Managed Instance
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
@@ -48,27 +84,34 @@ sections:
     - image:
         src: media/index/logo_powershell.svg
       title: PowerShell
+    - image:
+        src: media/index/logo_arm.svg
+      title: Azure Resource Manager-mall
     rows:
     - title: Skapa en enskild SQL Database
       values:
       - href: /azure/sql-database/sql-database-get-started-portal
       - href: /azure/sql-database/sql-database-get-started-cli
       - href: /azure/sql-database/sql-database-get-started-powershell
+      - href: 
     - title: Skapa hanterad SQL-instans
       values:
       - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
       - href: 
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: 
     - title: Skapa elastisk SQL-pool
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
     - title: Skala en enskild SQL Database
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
+      - href: 
     - title: Skala elastisk SQL-pool
       values:
       - href: 
@@ -79,11 +122,13 @@ sections:
       - href: 
       - href: 
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
+      - href: 
     - title: Konfigurera Azure-nätverk för hanterad instans
       values:
       - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
       - href: 
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
 - title: Steg för steg-självstudier
   items:
   - type: paragraph

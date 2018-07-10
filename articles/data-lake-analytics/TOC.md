@@ -40,12 +40,11 @@
 #### [Kognitiva tillägg](data-lake-analytics-u-sql-cognitive.md)
 #### [Programmeringsguide](data-lake-analytics-u-sql-programmability-guide.md)
 
-### U-SQL SDK
-#### [Lokal körning och felsökning](data-lake-analytics-data-lake-tools-local-run.md)
-#### [Köra och testa](data-lake-analytics-u-sql-sdk.md) 
-
 ### Visual Studio
 #### [Installera](data-lake-analytics-data-lake-tools-install.md)
+#### [Lokal körning](data-lake-analytics-data-lake-tools-local-run.md)
+#### [Lokal felsökning](data-lake-analytics-data-lake-tools-local-debug.md)
+#### [Utveckla U-SQL-databaser](data-lake-analytics-data-lake-tools-develop-usql-database.md)
 #### [Bläddra och visa jobb](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Felsöka anpassad C#-kod](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Felsöka återkommande jobb](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
@@ -59,6 +58,11 @@
 #### [Redigering](data-lake-analytics-data-lake-tools-for-vscode.md)
 #### [Anpassad kod](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Lokal körning och felsökning](data-lake-tools-for-vscode-local-run-and-debug.md)
+
+### Kontinuerlig integrering och distribution
+#### [Översikt](data-lake-analytics-cicd-overview.md)
+#### [Konfigurera tester](data-lake-analytics-cicd-test.md)
+#### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 
 # Referens
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)

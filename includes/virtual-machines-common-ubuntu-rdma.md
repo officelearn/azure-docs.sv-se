@@ -7,7 +7,7 @@
 
   ```
 
-2. Aktivera RDMA i /etc/waagent.conf, av uncommenting följande konfigurationsrader. Du måste rotåtkomst att redigera filen.
+2. Aktivera RDMA på/etc/waagent.conf, av uncommenting följande konfigurationsrader. Du behöver rotåtkomst att redigera den här filen.
   
   ```
   OS.EnableRDMA=y
@@ -15,7 +15,7 @@
   OS.UpdateRdmaDriver=y
   ```
 
-3. Lägg till eller ändra följande minnesinställningar i KB i filen /etc/security/limits.conf. Du måste rotåtkomst att redigera filen. Du kan ange memlock till obegränsad för testning. Till exempel: `<User or group name>   hard    memlock   unlimited`.
+3. Lägg till eller ändra följande minnesinställningar i KB i filen /etc/security/limits.conf. Du behöver rotåtkomst att redigera den här filen. I testsyfte kan du ange memlock till obegränsad. Till exempel: `<User or group name>   hard    memlock   unlimited`.
 
   ```
   <User or group name> hard    memlock <memory required for your application in KB>
@@ -23,7 +23,7 @@
   <User or group name> soft    memlock <memory required for your application in KB>
   ```
   
-4. Installera Intel MPI-biblioteket. Antingen [köpa och ladda ned](https://software.intel.com/intel-mpi-library/) bibliotek från Intel eller hämtning av [kostnadsfri utvärderingsversion](https://registrationcenter.intel.com/en/forms/?productid=1740).
+4. Installera Intel MPI-biblioteket. Antingen [köpa och ladda ned](https://software.intel.com/intel-mpi-library/) biblioteket från Intel eller ladda ned den [gratisversion](https://registrationcenter.intel.com/en/forms/?productid=1740).
 
   ```bash
   wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/9278/l_mpi_p_5.1.3.223.tgz
@@ -31,9 +31,9 @@
  
  Endast Intel MPI 5.x körningar stöds.
  
- Anvisningar för installation finns den [Intel MPI biblioteket installationsguiden](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
+ Anvisningar för installation finns i den [installationsguide för Intel MPI biblioteket](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
 
-5. Aktivera ptrace för icke-felsökare processer (behövs för de senaste versionerna av Intel MPI).
+5. Aktivera ptrace för icke-felsökare processer (som behövs för de senaste versionerna av Intel MPI).
  
   ```bash
   echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope

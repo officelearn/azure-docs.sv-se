@@ -9,111 +9,111 @@ ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: f403e060859df6d1de96a3c0d478d57df2677eee
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "31531063"
 ---
-Nedan följer vanliga scenarier för allokering som gör en begäran om minnesallokering för att fästa. Vi kommer fördjupa dig i varje scenario senare i den här artikeln.
+Här följer några vanliga scenarier för allokering som orsakar en begäran om minnesallokering till fästas. Vi kommer att fördjupa dig i varje scenario senare i den här artikeln.
 
-- Ändra storlek på en virtuell dator eller lägga till VM: ar eller rollinstanser i en befintlig molntjänst
-- Starta om delvis stoppats (frigjorts) virtuella datorer
-- Starta om fullständigt stoppats (frigjorts) virtuella datorer
+- Ändra storlek på en virtuell dator eller lägga till virtuella datorer eller rollinstanser i en befintlig molntjänst
+- Starta om delvis stoppad (frigjord) virtuella datorer
+- Starta om fullständigt Stoppad (frigjord) virtuella datorer
 - Mellanlagring och produktion distributioner (plattform som en tjänst endast)
 - Tillhörighetsgruppen (virtuell dator eller tjänst närhet)
 - Tillhörighet – grupp-baserat virtuellt nätverk
 
-När du får ett Allokeringsfel, kontrollera om någon av de listade scenarierna gäller för din fel. Använd Allokeringsfel som returneras av Azure-plattformen att identifiera motsvarande scenario. Om din begäran fästs avlägsna fästa begränsningarna för att öppna din förfrågan om att flera kluster, vilket ökar risken för allokering lyckades.
-Om felet inte tillstånd att ”den begärda VM-storleken inte stöds”, kan du i allmänhet alltid försök vid ett senare tillfälle. Det beror på att tillräckligt med resurser kan ha frigjorts i klustret för att hantera din förfrågan. Om problemet är att den begärda VM-storleken inte stöds, kan du prova en annan VM-storlek. Annars är det enda alternativet att ta bort fästa begränsningen.
+När du får ett Allokeringsfel kan du kontrollera om någon av de listade scenarierna gäller för din fel. Använd Allokeringsfel som returneras av Azure-plattformen för att identifiera motsvarande scenario. Om din begäran är fäst, kan du ta bort några av de fästa restriktioner för att öppna din begäran om att flera kluster, vilket ökar risken för allokering.
+I allmänhet om felet inte tillstånd att ”den begärda storleken inte stöds”, du kan alltid försöka igen vid ett senare tillfälle. Det beror på att tillräckligt med resurser kan ha frigjorts i klustret för att hantera din förfrågan. Om problemet är att den begärda storleken inte stöds kan du prova en annan VM-storlek. Annars är det enda alternativet att ta bort fästa begränsningen.
 
-Två vanliga scenarier är relaterade till tillhörighetsgrupper. En tillhörighetsgrupp som användes för att ange närhet av virtuella datorer och instanser av tjänsten tidigare eller användes för att skapa ett virtuellt nätverk. Tillhörighetsgrupper är inte längre krävs för att skapa ett virtuellt nätverk med introduktionen av regionala virtuella nätverk. Rekommendationen att använda tillhörighetsgrupper för virtuella datorer eller tjänsten närhet har ändrats med för att minska Nätverksfördröjningen i Azure-infrastrukturen.
+Två vanliga felscenarier är relaterade till tillhörighetsgrupper. Tidigare var en tillhörighetsgrupp som användes för att tillhandahålla nära till virtuella datorer och instanser av tjänsten eller den har använts för att aktivera skapandet av ett virtuellt nätverk. Med introduktionen av regionala virtuella nätverk är tillhörighetsgrupper inte längre krävs för att skapa ett virtuellt nätverk. Med minskning av svarstid för nätverk i Azure-infrastrukturen, har rekommenderar vi att använda tillhörighetsgrupper för virtuella datorer eller tjänsten närhet ändrats.
 
-Följande Diagram visar taxonomi (fast) fördelning scenarier. 
+I följande Diagram visas taxonomi (Fäst) allokering-scenarier. 
 
 ![Fäst allokering taxonomi](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
-## <a name="resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Ändra storlek på en virtuell dator eller lägga till VM: ar eller rollinstanser i en befintlig molntjänst
+## <a name="resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Ändra storlek på en virtuell dator eller lägga till virtuella datorer eller rollinstanser i en befintlig molntjänst
 **Fel**
 
 Upgrade_VMSizeNotSupported eller GeneralError
 
-**Orsaken till klustret fästning**
+**Orsaken till att fästa klustret**
 
-En begäran att ändra storlek på en virtuell dator eller lägga till en virtuell dator eller en rollinstans i en befintlig molntjänst måste göras i det ursprungliga klustret som är värd för befintlig molntjänst. Skapa en ny molntjänst kan Azure-plattformen att hitta ett annat kluster som har lediga resurser eller stöder VM-storlek som du har begärt.
+En begäran om att ändra storlek på en virtuell dator eller lägga till en virtuell dator eller en rollinstans i en befintlig molntjänst måste göras i det ursprungliga klustret som är värd för den befintliga Molntjänsten. Skapa en ny molntjänst kan Azure-plattformen för att hitta ett annat kluster som har kostnadsfria resurser eller stöder VM-storleken som du har begärt.
 
 **Lösning**
 
-Om felet är Upgrade_VMSizeNotSupported *, kan du prova en annan VM-storlek. Om du använder en annan VM-storlek inte är ett alternativ, men om det är tillåtet att använda en annan virtuell IP-adress (VIP), skapa en ny molntjänst för att vara värd för den nya virtuella datorn och Lägg till ny molntjänst regionalt virtuellt nätverk med de befintliga virtuella datorerna som kör. Om en befintlig molntjänst inte använder ett regionalt virtuellt nätverk du kan fortfarande skapa ett nytt virtuellt nätverk för den nya Molntjänsten och sedan ansluta din [befintligt virtuellt nätverk till ett nytt virtuellt nätverk](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Läs mer [regionala virtuella nätverk](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Om felet är Upgrade_VMSizeNotSupported *, prova en annan VM-storlek. Om du använder en annan VM-storlek inte är ett alternativ, men det går att använda en annan virtuell IP-adress (VIP), kan du skapa en ny molntjänst för att vara värd för den nya virtuella datorn och Lägg till ny molntjänst till regionala virtuella nätverk där de befintliga virtuella datorerna körs. Om din befintliga Molntjänsten inte använder ett regionalt virtuellt nätverk kan du fortfarande skapa ett nytt virtuellt nätverk för den nya Molntjänsten och sedan ansluta din [befintligt virtuellt nätverk till det nya virtuella nätverket](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Läs mer om [regionala virtuella nätverk](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-Om felet GeneralError *, är det troligt att typ av resurs (till exempel en viss VM-storlek) stöds av klustret, men klustret saknar lediga resurser för tillfället. Liknar scenariot ovan lägger du till den önskade beräkningsresursen genom att skapa en ny molntjänst (Observera att nya Molntjänsten måste använda en annan VIP) och ett regionalt virtuellt nätverk för att ansluta dina molntjänster.
+Om felet är GeneralError *, är det troligt att typ av resurs (till exempel en viss VM-storlek) stöds av klustret, men klustret inte har kostnadsfria resurser för tillfället. Lägg till önskade beräkningsresursen genom att skapa en ny molntjänst (Observera att den nya Molntjänsten måste använda en annan VIP) för liknande sätt för scenariot ovan och använda ett regionalt virtuellt nätverk för att ansluta dina molntjänster.
 
-## <a name="restart-partially-stopped-deallocated-vms"></a>Starta om delvis stoppats (frigjorts) virtuella datorer
+## <a name="restart-partially-stopped-deallocated-vms"></a>Starta om delvis stoppad (frigjord) virtuella datorer
 **Fel**
 
 GeneralError *
 
-**Orsaken till klustret fästning**
+**Orsaken till att fästa klustret**
 
-Flyttningen är delvis innebär att du har stoppats (frigjorts) en eller mer, men inte alla virtuella datorer i en molntjänst. När du stoppar (frigöra) en VM, associerade resurser släpps. Starta om den stoppats (frigjorts) VM är därför en ny begäran om minnesallokering. Starta om virtuella datorer i en delvis frigjord molntjänst är detsamma som att lägga till virtuella datorer i en befintlig molntjänst. Begäran om minnesallokering måste göras i det ursprungliga klustret som är värd för befintlig molntjänst. Skapa en annan molntjänst kan Azure-plattformen att hitta ett annat kluster som har fri resurs eller stöder VM-storlek som du har begärt.
+Flyttningen är delvis innebär att du stoppat (frigjort) en eller mer, men inte alla virtuella datorer i en molntjänst. När du stoppar (frigöra) en virtuell dator, de associerade resurserna blir tillgängliga. Starta om den Stoppad (frigjord) virtuell datorn är därför en ny begäran om minnesallokering. Starta om virtuella datorer i en delvis frigjort molntjänst är detsamma som att lägga till virtuella datorer i en befintlig molntjänst. Begäran om minnesallokering måste göras i det ursprungliga klustret som är värd för den befintliga Molntjänsten. Skapa en annan molntjänst kan Azure-plattformen för att hitta ett annat kluster som har en kostnadsfri resurs eller stöder VM-storleken som du har begärt.
 
 **Lösning**
 
-Om det går att använda en annan VIP, ta bort de stoppats (frigjorts) virtuella datorerna (men behålla de associera diskarna) och lägga till de virtuella datorerna tillbaka via en annan molntjänst. Använd ett regionalt virtuellt nätverk för att ansluta dina molntjänster:
+Om det går att använda en annan VIP, ta bort de Stoppad (frigjord) virtuella datorerna (men behåll de associera diskarna) och Lägg till de virtuella datorerna tillbaka via en annan molntjänst. Använd ett regionalt virtuellt nätverk för att ansluta cloud services:
 
-* Om en befintlig molntjänst använder ett regionalt virtuellt nätverk kan bara lägga till ny molntjänst till samma virtuella nätverk.
-* Om en befintlig molntjänst inte använder ett regionalt virtuellt nätverk, skapa ett nytt virtuellt nätverk för den nya Molntjänsten och sedan [ansluta befintliga virtuella nätverket till ett nytt virtuellt nätverk](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Läs mer [regionala virtuella nätverk](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+* Om din befintliga Molntjänsten använder ett regionalt virtuellt nätverk kan bara lägga till ny molntjänst till samma virtuella nätverk.
+* Om din befintliga Molntjänsten inte använder ett regionalt virtuellt nätverk skapar du ett nytt virtuellt nätverk för den nya Molntjänsten och sedan [Anslut det befintliga virtuella nätverket till det nya virtuella nätverket](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Läs mer om [regionala virtuella nätverk](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-## <a name="restart-fully-stopped-deallocated-vms"></a>Starta om fullständigt stoppats (frigjorts) virtuella datorer
+## <a name="restart-fully-stopped-deallocated-vms"></a>Starta om fullständigt Stoppad (frigjord) virtuella datorer
 **Fel**
 
 GeneralError *
 
-**Orsaken till klustret fästning**
+**Orsaken till att fästa klustret**
 
-Fullständig flyttningen innebär att du har stoppats frigjorts () alla virtuella datorer från en tjänst i molnet. Av allokeringsbegäranden att starta om dessa virtuella datorer måste göras i det ursprungliga klustret som är värd för Molntjänsten. Skapa en ny molntjänst kan Azure-plattformen att hitta ett annat kluster som har lediga resurser eller stöder VM-storlek som du har begärt.
+Flyttningen är fullständig innebär att du stoppat frigjord () alla virtuella datorer från en tjänst i molnet. Allokeringsbegäranden att starta om de virtuella datorerna måste göras i det ursprungliga klustret som är värd för Molntjänsten. Skapa en ny molntjänst kan Azure-plattformen för att hitta ett annat kluster som har kostnadsfria resurser eller stöder VM-storleken som du har begärt.
 
 **Lösning**
 
-Om det går att använda en annan VIP, ta bort de ursprungliga stoppats (frigjorts) virtuella datorerna (men behåll de associera diskarna) och ta bort motsvarande Molntjänsten (associerade beräkningsresurser har redan getts ut när du stoppats (frigjorts) de virtuella datorerna). Skapa en ny molntjänst för att lägga till de virtuella datorerna tillbaka.
+Om det går att använda en annan VIP, ta bort de ursprungliga Stoppad (frigjord) virtuella datorerna (men behåll de associera diskarna) och ta bort motsvarande Molntjänsten (de associera beräkningsresurserna har redan getts ut när du stoppat (frigjort) de virtuella datorerna). Skapa en ny molntjänst för att lägga till de virtuella datorerna tillbaka.
 
-## <a name="stagingproduction-deployments-platform-as-a-service-only"></a>Förproduktion/Produktionsdistribution (plattform som en tjänst endast)
+## <a name="stagingproduction-deployments-platform-as-a-service-only"></a>Mellanlagrings-/ Produktionsdistribution (plattform som en tjänst endast)
 **Fel**
 
-New_General * eller * New_VMSizeNotSupported
+New_General * eller New_VMSizeNotSupported *
 
-**Orsaken till klustret fästning**
+**Orsaken till att fästa klustret**
 
-Fristående distributionen och Produktionsdistribution av en tjänst i molnet finns i samma kluster. När du lägger till den andra distributionen görs motsvarande allokeringsbegäran i samma kluster som är värd för den första distributionen.
+Mellanlagringsplatser distributionen och Produktionsdistribution av en molnbaserad tjänst finns i samma kluster. När du lägger till den andra distributionen görs motsvarande begäran om minnesallokering i samma kluster som är värd för den första distributionen.
 
 **Lösning**
 
-Ta bort den första distributionen och ursprungligt Molntjänsten och distribuera Molntjänsten. Den här åtgärden kan hamna den första distributionen i ett kluster som har tillräckligt med lediga resurser för att få plats båda distributionerna eller i ett kluster som stöder VM-storlekar som du har begärt.
+Ta bort den första distributionen och den ursprungliga Molntjänsten och distribuera om Molntjänsten. Den här åtgärden kan hamnar den första distributionen i ett kluster som har tillräckligt med lediga resurser så att de passar båda distributionerna eller i ett kluster som har stöd för VM-storlekar som du har begärt.
 
-## <a name="affinity-group-vmservice-proximity"></a>Tillhörighetsgruppen (VM-tjänsten närhet)
+## <a name="affinity-group-vmservice-proximity"></a>Tillhörighetsgruppen (VM/tjänst närhet)
 **Fel**
 
-New_General * eller * New_VMSizeNotSupported
+New_General * eller New_VMSizeNotSupported *
 
-**Orsaken till klustret fästning**
+**Orsaken till att fästa klustret**
 
-Att beräkna någon resurs som tilldelats en tillhörighetsgrupp som är kopplat till ett kluster. Nya beräkningsresurser begäranden i den tillhörighetsgrupp görs i samma kluster där de befintliga resurserna finns. Detta är SANT om nya resurser som har skapats via en ny molntjänst eller en befintlig molntjänst.
+Någon compute-resurs som tilldelats en tillhörighetsgrupp som är kopplat till ett kluster. Ny beräkningsresurs begäranden i den tillhörighetsgrupp görs i samma kluster där de befintliga resurserna finns. Det här gäller oavsett om de nya resurserna har skapats via en ny molntjänst eller en befintlig molntjänst.
 
 **Lösning**
 
-Om en tillhörighetsgrupp inte är nödvändigt, inte använda en tillhörighetsgrupp, eller gruppera dina beräkningsresurser i flera tillhörighetsgrupper.
+Om en tillhörighetsgrupp inte behövs, inte använda en tillhörighetsgrupp eller gruppera dina beräkningsresurser i flera tillhörighetsgrupper.
 
-## <a name="affinity-group-based-virtual-network"></a>Mappning mellan en gruppbaserad virtuellt nätverk
+## <a name="affinity-group-based-virtual-network"></a>Mappning mellan och-grupp-baserat virtuellt nätverk
 **Fel**
 
-New_General * eller * New_VMSizeNotSupported
+New_General * eller New_VMSizeNotSupported *
 
-**Orsaken till klustret fästning**
+**Orsaken till att fästa klustret**
 
-Innan regionala virtuella nätverk har introducerats var du tvungen att koppla ett virtuellt nätverk med en tillhörighetsgrupp. Därför kan beräkna resurser placeras i en tillhörighetsgrupp som är bundna av samma begränsningar som beskrivs i den ”allokering scenario: tillhörighetsgrupp (VM-tjänsten närhet)” ovan. Beräkningsresurserna är knutna till ett kluster.
+Innan regionala virtuella nätverk har introducerats tvungen du att koppla ett virtuellt nätverk med en tillhörighetsgrupp. Därför compute resurser placeras i en tillhörighetsgrupp som är bundna av samma begränsningar som beskrivs i den ”allokering scenario: tillhörighetsgrupp (VM/tjänst närhet)” ovan. Beräkningsresurserna är knutna till ett kluster.
 
 **Lösning**
 
-Om du inte behöver en tillhörighetsgrupp, skapa ett nytt regionalt virtuellt nätverk för de nya resurser som du vill lägga till, och sedan [ansluta befintliga virtuella nätverket till ett nytt virtuellt nätverk](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Läs mer [regionala virtuella nätverk](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Om du inte behöver en tillhörighetsgrupp, skapa en ny regionalt virtuellt nätverk för de nya resurserna som du vill lägga till, och sedan [Anslut det befintliga virtuella nätverket till det nya virtuella nätverket](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Läs mer om [regionala virtuella nätverk](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-Du kan också [migrera tillhörighet-grupp-baserat virtuellt nätverk till ett regionalt virtuellt nätverk](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), och Lägg sedan till önskade resurser.
+Du kan också [migrera ditt tillhörighet-grupp-baserade virtuella nätverk till ett regionalt virtuellt nätverk](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), och Lägg sedan till önskade resurser.

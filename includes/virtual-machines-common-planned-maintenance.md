@@ -9,13 +9,13 @@ ms.date: 07/05/2018
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: abf10177f8ce86309043da92d1f2b690775b6d89
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "37909934"
 ---
-Azure utför regelbundet uppdateringar för att förbättra tillförlitligheten, prestanda och säkerheten för infrastrukturen för värd för virtuella datorer. Dessa uppdateringar mellan korrigeringar programvarukomponenter i värdmiljön (till exempel operativsystem, hypervisor och olika agenter som har distribuerats på värden), uppgraderar nätverkskomponenter, till maskinvara ta ur drift. Flesta av dessa uppdateringar genomförs utan någon inverkan på de virtuella datorerna. Men finns det fall där uppdateringar påverka:
+Azure utför med jämna mellanrum uppdateringar för att förbättra värdinfrastrukturens tillförlitlighet, prestanda och säkerhet för virtuella datorer. Dessa uppdateringar omfattar allt från korrigeringar av programvarukomponenter i värdmiljön (som operativsystem, hypervisor-program och olika agenter som distribuerats på värddatorn), uppdateringar av nätverkskomponenter till att ta maskinvara ur drift. Flesta av dessa uppdateringar genomförs utan någon inverkan på de virtuella datorerna. Men finns det fall där uppdateringar påverka:
 
 - Om en omstart utan uppdatering är möjligt, använder Azure minne bevarande Underhåll för att pausa den virtuella datorn när värden har uppdaterats eller den virtuella datorn flyttas till en värd som redan är uppdaterad helt och hållet.
 

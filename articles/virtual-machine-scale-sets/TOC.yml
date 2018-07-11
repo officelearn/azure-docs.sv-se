@@ -55,10 +55,6 @@
           href: tutorial-autoscale-powershell.md
         - name: Mall
           href: tutorial-autoscale-template.md
-    - name: Distribuera appar till en skalningsuppsättning för en virtuell Azure-dator med en anpassad Packer-avbildning
-      items:
-        - name: Azure CLI 2.0
-          href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: Exempel
   items:
     - name: Azure CLI 2.0

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/2018
+ms.date: 07/08/2018
 ms.author: magoedte
-ms.openlocfilehash: e7d3fdf9e6f027ab1c23a057ad6e039d50cab9ad
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a94f7289c75a4f4d466542c608d81cf5b954f4b1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436430"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37917357"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Övervaka hälsotillstånd för behållare i Azure Kubernetes Service (AKS) (förhandsversion)
 
@@ -54,7 +54,7 @@ Den här funktionen är beroende av en behållare OMS-agenten för Linux för at
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Aktivera övervakning av behållare hälsotillstånd för ett nytt kluster
-Du kan bara aktivera övervakning av AKS-klustret när du distribuerar den från Azure-portalen.  Följ stegen i snabbstartsartikeln [distribuera ett kluster i Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md).  När du är på den **övervakning** väljer **Ja** för alternativet **aktivera övervakning** att aktivera, och sedan välja en befintlig eller skapa en ny Log Analytics-arbetsyta.  
+Du kan aktivera övervakning av ett nytt AKS-kluster under distributionen från Azure-portalen.  Följ stegen i snabbstartsartikeln [distribuera ett kluster i Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md).  När du är på den **övervakning** väljer **Ja** för alternativet **aktivera övervakning** att aktivera, och sedan välja en befintlig eller skapa en ny Log Analytics-arbetsyta.  
 
 När övervakning är aktiverat alla konfigurationsåtgärder har slutförts kan du övervaka prestanda för ditt kluster från en av två sätt:
 
@@ -66,7 +66,7 @@ När övervakning är aktiverat alla konfigurationsåtgärder har slutförts kan
 När övervakning har aktiverats kan ta det ungefär 15 minuter innan du kan se driftdata för klustret.  
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Aktivera övervakning av behållare hälsotillstånd för befintliga hanterade kluster
-Aktivera övervakning av din AKS-behållare som redan har distribuerats kan utföras från Azure portal eller med den angivna Azure Resource Manager-mallen med hjälp av PowerShell-cmdleten **New-AzureRmResourceGroupDeployment** eller Azure CLI.  
+Du kan aktivera övervakning av ett AKS-kluster som redan har distribuerats från Azure portal eller med den angivna Azure Resource Manager-mallen med hjälp av PowerShell-cmdleten **New-AzureRmResourceGroupDeployment** eller Azure CLI.  
 
 
 ### <a name="enable-from-azure-portal"></a>Aktivera från Azure-portalen
@@ -75,13 +75,11 @@ Utför följande steg om du vill aktivera övervakning av din AKS-behållare fr�
 1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver **behållare**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Kubernetes-tjänster**.<br><br> ![Azure Portal](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
 2. Välj en behållare i din lista över behållare.
 3. På översiktssidan behållaren väljer **övervaka behållarens hälsa** och **registrering för hälsotillstånd för behållare och loggar** visas.
-4. På den **registrering för hälsotillstånd för behållare och loggar** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration som klustret, markerar du den i den nedrullningsbara listan.  Listan förväljer standardarbetsytan och plats AKS behållaren distribueras till i prenumerationen. Du kan även välja **Skapa ny** och ange en ny arbetsyta i samma prenumeration.<br><br> ![Aktivera hälsoövervakning för AKS-behållare](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+4. På den **registrering för hälsotillstånd för behållare och loggar** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration som klustret, markerar du den i den nedrullningsbara listan.  Listan förväljer standardarbetsytan och plats AKS behållaren distribueras till i prenumerationen.<br><br> ![Aktivera hälsoövervakning för AKS-behållare](./media/monitoring-container-health/container-health-enable-brownfield-02.png) 
 
-    Om du väljer **Skapa ny**, **Skapa ny arbetsyta** visas fönstret. Den **Region** standardvärdet är regionen som din behållarresursen skapas i och du kan acceptera standardinställningarna eller välj en annan region och sedan ange ett namn för arbetsytan.  Klicka på **skapa** att godkänna ditt val.<br><br> ![Definiera arbetsyta för behållaren monintoring](./media/monitoring-container-health/create-new-workspace-01.png)  
-
-    >[!NOTE]
-    >Du inte kan skapa en ny arbetsyta i regionen västra centrala USA för närvarande kan du bara välja en befintlig arbetsyta i den regionen.  Trots att du kan välja den regionen i listan så startar distributionen men den misslyckas strax därefter.  
-    >
+>[!NOTE]
+>Om du vill skapa en ny Log Analytics-arbetsyta för att lagra övervakningsdata från klustret, följer du stegen i [Cretae Log Analytics-arbetsytan](../log-analytics/log-analytics-quick-create-workspace.md) och se till att skapa arbetsytan i samma prenumeration som AKS-behållare distribuerat till.  
+>
  
 När övervakning har aktiverats kan ta det ungefär 15 minuter innan du kan se driftdata för klustret. 
 
@@ -243,10 +241,11 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
         ```
 När övervakning har aktiverats kan ta det ungefär 15 minuter innan du kan se driftdata för klustret.  
 
-## <a name="verify-agent-deployed-successfully"></a>Verifiera agenten som har distribuerats
+## <a name="verify-agent-and-solution-deployment"></a>Kontrollera distributionen av agenten och lösning
+Med agentversion *06072018* och högre, du kan kontrollera att både agenten och lösningen har distribuerats.  Du kan bara kontrollera distributionen av agenten med tidigare versioner av agenten.
 
 ### <a name="agent-version-06072018-and-higher"></a>Agentversion 06072018 och högre
-Kontrollera OMS agentversion *06072018* eller högre har distribuerats korrekt, kör följande kommandon: 
+Kör följande kommando för att kontrollera att agenten har distribuerats.   
 
 ```
 kubectl get ds omsagent --namespace=kube-system
@@ -260,7 +259,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
-Om du vill kontrollera en ny distribution genom att köra följande kommando:
+Kontrollera distributionen av lösningen genom att köra följande kommando:
 
 ```
 kubectl get deployment omsagent-rs -n=kube-system
@@ -524,7 +523,7 @@ Om hälsotillstånd för behållare som har aktiverats och konfigurerats men du 
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
     ```  
-2. Kontrollera status för distributionen för agentversion *06072018* eller senare genom att köra följande kommando:
+2. Kontrollera distributionsstatusen lösning med agentversion *06072018* eller senare genom att köra följande kommando:
 
     `kubectl get deployment omsagent-rs -n=kube-system`
 

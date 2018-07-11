@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: dkshir
 ms.openlocfilehash: d0063ff79a0bda88fffb486f03286f6784ece7fa
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "34637607"
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>PowerShell-skript för att hantera CA-signerade X.509-certifikat

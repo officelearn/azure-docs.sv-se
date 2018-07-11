@@ -1,7 +1,7 @@
 ---
-title: Hur du arbetar med serverdelen .NET SDK för Mobile Apps | Microsoft Docs
-description: Lär dig hur du arbetar med serverdelen .NET SDK för Azure Apptjänst Mobilappar.
-keywords: App service, azure app service, mobilapp, mobiltjänsten, skala, skalbara och app-distribution, azure app-distribution
+title: Hur du arbetar med SDK för .NET-serverdelen för Mobile Apps | Microsoft Docs
+description: Lär dig hur du arbetar med SDK för .NET-serverdelen för Azure App Service Mobile Apps.
+keywords: App service, azure apptjänst, mobilapp, mobiltjänsten, skala, skalbar distribution, azure app appdistribution
 services: app-service\mobile
 documentationcenter: ''
 author: conceptdev
@@ -16,75 +16,75 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 8216dafdd846f10ca1c8fc33b710a093aca20c7b
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "31589636"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Arbeta med SDK för .NET-serverdelar för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
-Det här avsnittet visar hur du använder .NET-serverdelen SDK i Azure Apptjänst Mobilappar scenarier. Azure Mobile Apps-SDK hjälper dig att arbeta med mobila klienter från ASP.NET-programmet.
+Det här avsnittet visar hur du använder .NET-serverdelen SDK i Azure App Service Mobile Apps nyckelscenarier. SDK för Azure Mobile Apps kan du arbeta med mobila klienter från ASP.NET-programmet.
 
 > [!TIP]
-> Den [server .NET SDK för Azure Mobile Apps] [ 2] är öppen källkod på GitHub. Databasen innehåller all källkod inklusive hela servern SDK enhet test suite och vissa exempelprojekt.
+> Den [.NET server SDK för Azure Mobile Apps] [ 2] är öppen källkod på GitHub. Databasen innehåller all källkod inklusive testsvit för hela servern SDK-enhet och vissa exempelprojekt.
 >
 >
 
 ## <a name="reference-documentation"></a>Referensdokumentation
-Referensdokumentationen för SDK-servern finns här: [.NET-referens för Azure Mobile Apps][1].
+Referensdokumentation för SDK-servern finns här: [Azure Mobile Apps .NET-referens][1].
 
-## <a name="create-app"></a>Så här: skapa en .NET-mobilappsserverdel
-Om du startar ett nytt projekt, kan du skapa ett program för användning med antingen den [Azure Portal] eller Visual Studio. Du kan köra programmet Apptjänst lokalt eller publicera projektet till molnbaserade Apptjänst mobilappen.
+## <a name="create-app"></a>Så här: skapa en Mobilapp för .NET-serverdel
+Om du startar ett nytt projekt, kan du skapa en App Service-programmet med hjälp av antingen den [Azure Portal] eller Visual Studio. Du kan köra App Service-programmet lokalt eller publicera projektet på molnbaserad Apptjänst mobilappen.
 
-Om du lägger till mobila funktioner till ett befintligt projekt, finns det [ladda ned och initiera SDK](#install-sdk) avsnitt.
+Om du lägger till mobilfunktioner i ett befintligt projekt kan se den [ladda ned och initiera SDK](#install-sdk) avsnittet.
 
 ### <a name="create-a-net-backend-using-the-azure-portal"></a>Skapa en .NET-serverdel i Azure Portal
-Så skapar du en Apptjänst mobilserverdel antingen den [Snabbstartsguide] [ 3] eller följa dessa steg:
+Så skapar du en App Service-mobilserverdel antingen den [snabbsjälvstudien] [ 3] eller Följ dessa steg:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
-I den *Kom igång* bladet under **skapa en tabell API**, Välj **C#** som din **språk för serverdel**. Klicka på **hämta**extrahera de komprimerade projektfilerna till den lokala datorn och öppna lösningen i Visual Studio.
+I den *Kom igång* bladet under **skapa ett tabell-API**, Välj **C#** som din **serverdelsspråk**. Klicka på **hämta**, extrahera de komprimerade projektfilerna till den lokala datorn och öppnar du lösningen i Visual Studio.
 
-### <a name="create-a-net-backend-using-visual-studio-2017"></a>Skapa en .NET-serverdel med hjälp av Visual Studio 2017
+### <a name="create-a-net-backend-using-visual-studio-2017"></a>Skapa en .NET-serverdel som använder Visual Studio 2017
 
-Installera Azure arbetsbelastningen via Visual Studio-installationsprogrammet för att publicera till Azure Mobile Apps-projekt från Visual Studio. När du har installerat SDK kan du skapa ett ASP.NET-program med följande steg:
+Installera Azure-arbetsbelastning via installationsprogrammet för Visual Studio för att publicera till Azure Mobile Apps-projekt från Visual Studio. När du har installerat SDK kan du skapa ett ASP.NET-program med följande steg:
 
-1. Öppna den **nytt projekt** dialogrutan (från **filen** > **ny** > **projekt...** ).
+1. Öppna den **nytt projekt** dialogrutan (från **filen** > **New** > **projekt...** ).
 2. Expandera **Visual C#** och välj **Web**.
-3. Välj **ASP.NET-webbprogram (.NET Framework)**.
+3. Välj **ASP.NET-Webbtillämpningsprogram (.NET Framework)**.
 4. Fyll i projektets namn. Klicka sedan på **OK**.
-5. Välj **Azure Mobile App** från listan över mallar.
+5. Välj **Azure-Mobilapp** i listan med mallar.
 6. Klicka på **OK** att skapa lösningen.
-7. Högerklicka på projektet i den **Solution Explorer** och välj **publicera...** , Välj **Apptjänst** som publishing mål.
-8. Följ anvisningarna för att autentisera och välj en ny eller befintlig Azure App Service att publicera.
+7. Högerklicka på projektet i den **Solution Explorer** och välj **publicera...** , välj sedan **Apptjänst** som publiceringsmålet.
+8. Följ anvisningarna för att autentisera och välj en ny eller befintlig Azure App Service för att publicera.
 
-### <a name="create-a-net-backend-using-visual-studio-2015"></a>Skapa en .NET-serverdel med hjälp av Visual Studio 2015
+### <a name="create-a-net-backend-using-visual-studio-2015"></a>Skapa en .NET-serverdel som använder Visual Studio 2015
 
-Installera den [Azure SDK för .NET] [ 4] (version 2.9.0 eller senare) att skapa ett Azure Mobile Apps-projekt i Visual Studio. När du har installerat SDK kan du skapa ett ASP.NET-program med följande steg:
+Installera den [Azure SDK för .NET] [ 4] (version 2.9.0 eller senare) att skapa en Azure Mobile Apps-projekt i Visual Studio. När du har installerat SDK kan du skapa ett ASP.NET-program med följande steg:
 
-1. Öppna den **nytt projekt** dialogrutan (från **filen** > **ny** > **projekt...** ).
+1. Öppna den **nytt projekt** dialogrutan (från **filen** > **New** > **projekt...** ).
 2. Expandera **mallar** > **Visual C#**, och välj **Web**.
 3. Välj **ASP.NET-webbprogram**.
 4. Fyll i projektets namn. Klicka sedan på **OK**.
-5. Under *ASP.NET 4.5.2-mallen mallar*väljer **Azure Mobile App**. Kontrollera **värd i molnet** du skapar en mobilserverdel i molnet som du kan publicera det här projektet.
+5. Under *ASP.NET 4.5.2-mallar mallar*väljer **Azure-Mobilapp**. Kontrollera **värd i molnet** att skapa en mobilserverdel i molnet som du kan publicera det här projektet.
 6. Klicka på **OK**.
 
 ## <a name="install-sdk"></a>Så här: hämta och initiera SDK
-SDK är tillgänglig på [NuGet.org]. Det här paketet innehåller grundläggande funktioner som krävs för att komma igång med SDK. Om du vill initiera SDK, som du behöver utföra åtgärder på den **HttpConfiguration** objekt.
+SDK är tillgänglig på [NuGet.org]. Det här paketet innehåller den grundläggande funktion som krävs för att komma igång med SDK: N. Om du vill initiera SDK som du behöver utföra åtgärder på den **HttpConfiguration** objekt.
 
 ### <a name="install-the-sdk"></a>Installera SDK:n
-För att installera SDK: N, högerklicka på serverprojekt i Visual Studio, markera **hantera NuGet-paket**, söka efter den [Microsoft.Azure.Mobile.Server] paketet och klicka sedan på **installera**.
+Om du vill installera SDK: N, högerklickar du på serverprojekt i Visual Studio väljer **hantera NuGet-paket**, Sök efter den [Microsoft.Azure.Mobile.Server] paketet och klicka sedan på **installera** .
 
 ### <a name="server-project-setup"></a> Initiera serverprojektet
-Ett .NET-serverdel serverprojekt initieras liknar andra ASP.NET-projekt genom att lägga till en OWIN-startklass. Se till att du har refererade NuGet-paketet `Microsoft.Owin.Host.SystemWeb`. Högerklicka på serverprojektet för att lägga till den här klassen i Visual Studio och välj **Lägg till** >
-**nytt objekt**, sedan **Web** > **allmänna** > **OWIN-startklass**.  En klass skapas med följande attribut:
+En server för .NET serverdelsprojekt initieras liknar andra ASP.NET-projekt genom att inkludera en OWIN-startklass. Se till att du har refererar till NuGet-paketet `Microsoft.Owin.Host.SystemWeb`. Högerklicka på serverprojektet för att lägga till den här klassen i Visual Studio och välj **Lägg till** >
+**nytt objekt**, sedan **Web**  >  ** Allmän** > **OWIN-startklass**.  En klass skapas med följande attribut:
 
     [assembly: OwinStartup(typeof(YourServiceName.YourStartupClassName))]
 
-I den `Configuration()` metod för din OWIN-startklass, Använd en **HttpConfiguration** objekt för att konfigurera Azure Mobile Apps.
-I följande exempel initierar serverprojekt med inga extra funktioner:
+I den `Configuration()` -metoden för din OWIN-startklass, Använd en **HttpConfiguration** objekt för att konfigurera Azure Mobile Apps-miljö.
+I följande exempel initieras serverprojekt med inga nya funktioner:
 
     // in OWIN startup class
     public void Configuration(IAppBuilder app)
@@ -98,13 +98,13 @@ I följande exempel initierar serverprojekt med inga extra funktioner:
         app.UseWebApi(config);
     }
 
-Om du vill aktivera enskilda funktioner, måste du anropa tilläggsmetoder på den **MobileAppConfiguration** objektet innan du anropar **gällafoderråvaran**. Till exempel följande kod lägger till standardvägar till alla API-domänkontrollanter som har attributet `[MobileAppController]` under initieringen:
+Om du vill aktivera enskilda funktioner måste du anropa tilläggsmetoder på den **MobileAppConfiguration** objektet innan du anropar **gällafoderråvaran**. Till exempel följande kod lägger till standardvägar till alla API-kontrollenheter som har attributet `[MobileAppController]` under initieringen:
 
     new MobileAppConfiguration()
         .MapApiControllers()
         .ApplyTo(config);
 
-Server-Snabbstart från Azure portal anrop **UseDefaultConfiguration()**. Det här motsvarar följande inställningar:
+Server-Snabbstart från Azure-portalen anrop **UseDefaultConfiguration()**. Det här motsvarar följande inställningar:
 
         new MobileAppConfiguration()
             .AddMobileAppHomeController()             // from the Home package
@@ -120,53 +120,53 @@ Server-Snabbstart från Azure portal anrop **UseDefaultConfiguration()**. Det h�
 
 Tillägget metoderna är:
 
-* `AddMobileAppHomeController()` ger standardstartsida för Azure Mobile Apps.
-* `MapApiControllers()` innehåller anpassade API-funktioner för WebAPI domänkontrollanter dekorerad med den `[MobileAppController]` attribut.
-* `AddTables()` innehåller en mappning av den `/tables` slutpunkter till domänkontrollanter för tabellen.
-* `AddTablesWithEntityFramework()` är en kort hand för mappning av `/tables` slutpunkter som använder Entity Framework-baserade domänkontrollanter.
-* `AddPushNotifications()` ger en enkel metod för att registrera enheter för Notification Hubs.
+* `AddMobileAppHomeController()` innehåller standardstartsidan för Azure Mobile Apps.
+* `MapApiControllers()` tillhandahåller anpassade API-funktioner för WebAPI-styrenheter dekorerad med den `[MobileAppController]` attribut.
+* `AddTables()` innehåller en mappning av den `/tables` slutpunkter till tabellen domänkontrollanter.
+* `AddTablesWithEntityFramework()` är en kort hand för mappning av den `/tables` slutpunkter med Entity Framework-baserade domänkontrollanter.
+* `AddPushNotifications()` ger en enkel metod för att registrera enheter för Notification hub.
 * `MapLegacyCrossDomainController()` innehåller standard CORS-huvuden för lokal utveckling.
 
 ### <a name="sdk-extensions"></a>SDK-tillägg
-Följande NuGet-baserade tilläggspaket har olika mobila funktioner som kan användas av ditt program. Du aktiverar tillägg under initiering med hjälp av den **MobileAppConfiguration** objekt.
+Följande NuGet-baserade tilläggspaket har olika mobila funktioner som kan användas av ditt program. Du aktiverar tillägg under initieringen med hjälp av den **MobileAppConfiguration** objekt.
 
-* [Microsoft.Azure.Mobile.Server.Quickstart] stöder grundläggande Mobile Apps-inställningar. Lagts till i konfigurationen genom att anropa den **UseDefaultConfiguration** tilläggsmetoden under initieringen. Det här tillägget ingår följande tillägg: meddelanden, autentisering, enhet, tabeller, domäner och Home paket. Det här paketet används av Mobile Apps Quickstart tillgängliga på Azure-portalen.
-* [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) implementerar standard *mobila appen är igång sidan* för roten för webbplatsen. Lägg till i konfigurationen genom att anropa den **AddMobileAppHomeController** metod.
-* [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) innehåller klasser för att arbeta med data och anger upp data pipeline. Lägg till i konfigurationen genom att anropa den **AddTables** metod.
-* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) aktiverar av Entity Framework att komma åt data i SQL-databasen. Lägg till i konfigurationen genom att anropa den **AddTablesWithEntityFramework** metod.
-* [Microsoft.Azure.Mobile.Server.Authentication] aktiverar autentisering och anger upp OWIN-mellanprogram som används för att validera token. Lägg till i konfigurationen genom att anropa den **AddAppServiceAuthentication** och **IAppBuilder**. **UseAppServiceAuthentication** tilläggsmetoder.
-* [Microsoft.Azure.Mobile.Server.Notifications] aktiverar push-meddelanden och definierar en slutpunkt för push-registrering. Lägg till i konfigurationen genom att anropa den **AddPushNotifications** metod.
-* [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) skapar en domänkontrollant som levererar data till äldre webbläsare från din Mobilapp. Lägg till i konfigurationen genom att anropa den **MapLegacyCrossDomainController** metod.
-* [Microsoft.Azure.Mobile.Server.Login] ger metoden AppServiceLoginHandler.CreateToken(), som är en statisk metod som används under scenarier för anpassad autentisering.
+* [Microsoft.Azure.Mobile.Server.Quickstart] har stöd för den grundläggande Mobile Apps-installationen. Lagts till i konfigurationen genom att anropa den **UseDefaultConfiguration** tilläggsmetod under initieringen. Det här tillägget ingår följande tillägg: meddelanden, autentisering, entiteten, tabeller, mellan domäner och Home-paket. Det här paketet används av den Snabbstart för mobila appar på Azure-portalen.
+* [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) implementerar standard *den här mobilappen är igång sidan* för rot-webbplats. Lägg till i konfigurationen genom att anropa den **AddMobileAppHomeController** tilläggsmetod.
+* [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) innehåller klasser för att arbeta med data och uppsättningar av datapipelinen. Lägg till i konfigurationen genom att anropa den **AddTables** tilläggsmetod.
+* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) gör det möjligt att komma åt data i SQL-databasen Entity Framework. Lägg till i konfigurationen genom att anropa den **AddTablesWithEntityFramework** tilläggsmetod.
+* [Microsoft.Azure.Mobile.Server.Authentication] aktiverar autentisering och uppsättningar av OWIN-mellanprogrammet som används för att validera token. Lägg till i konfigurationen genom att anropa den **AddAppServiceAuthentication** och **IAppBuilder**. **UseAppServiceAuthentication** tilläggsmetoder.
+* [Microsoft.Azure.Mobile.Server.Notifications] aktiverar push-meddelanden och definierar en slutpunkt för registrering av push. Lägg till i konfigurationen genom att anropa den **AddPushNotifications** tilläggsmetod.
+* [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) skapar en kontrollant som skickar data till äldre webbläsare från din Mobilapp. Lägg till i konfigurationen genom att anropa den **MapLegacyCrossDomainController** tilläggsmetod.
+* [Microsoft.Azure.Mobile.Server.Login] AppServiceLoginHandler.CreateToken() metoden, vilket är en statisk metod som används under Anpassad autentiseringsscenarier.
 
 ## <a name="publish-server-project"></a>Så här: publicera serverprojektet
-Det här avsnittet visar hur du publicerar serverdelsprojektet .NET från Visual Studio. Du kan också distribuera projektet backend med [Git](../app-service/app-service-deploy-local-git.md) eller någon av de andra metoder tillgängliga där.
+Det här avsnittet visar hur du publicerar din .NET serverdelsprojekt från Visual Studio. Du kan också distribuera projektet serverdelen med [Git](../app-service/app-service-deploy-local-git.md) eller någon av de andra metoder tillgängliga där.
 
-1. Bygg projektet om du vill återställa NuGet-paket i Visual Studio.
-2. Högerklicka på projektet i Solution Explorer, klicka på **publicera**. Första gången du publicerar måste du definiera en publiceringsprofilen. När du redan har en profil som har definierats, markerar du den och klicka på **publicera**.
-3. Om du uppmanas att välja ett publiceringsmål, klickar du på **Microsoft Azure App Service** > **nästa**, och sedan (vid behov) logga in med dina autentiseringsuppgifter för Azure.
-   Visual Studio hämtar och lagrar på ett säkert sätt dina publiceringsinställningar direkt från Azure.
+1. Återskapa projektet om du vill återställa NuGet-paket i Visual Studio.
+2. Högerklicka på projektet i Solution Explorer, klicka på **publicera**. Första gången du publicerar, som du behöver definiera en publiceringsprofil. När du redan har en profil som har definierats kan du markera den och klicka på **publicera**.
+3. Om du uppmanas att välja en publiceringsmål, klickar du på **Microsoft Azure App Service** > **nästa**, och sedan (vid behov) logga in med dina autentiseringsuppgifter för Azure.
+   Visual Studio laddar ned och lagrar på ett säkert sätt dina publiceringsinställningar direkt från Azure.
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
-4. Välj din **prenumeration**väljer **resurstypen** från **visa**, expandera **Mobilapp**, och serverdelen för Mobilappen klickar **OK**.
+4. Välj din **prenumeration**väljer **resurstyp** från **visa**, expandera **Mobilapp**, och välj din mobilappsserverdel och klicka på **OK**.
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)
-5. Kontrollerar profilinformation publicera och klickar på **publicera**.
+5. Kontrollera publicera profilinformation och klicka på **publicera**.
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-3.png)
 
-    När din mobilappsserverdel har publicerats visas en landningssida som anger lyckades.
+    När din mobilappsserverdel har publicerats visas en landningssida som visar att det lyckades.
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-## <a name="define-table-controller"></a> Så här: definiera en tabell-styrenhet
-Definiera en tabell domänkontrollant om du vill exponera en SQLtabell för mobila klienter.  Konfigurera en tabell Controller kräver tre steg:
+## <a name="define-table-controller"></a> Så här: definiera en
+Definiera en Tabellkontrollanten om du vill exponera en SQL-tabell för mobila klienter.  Konfigurera en kräver tre steg:
 
 1. Skapa en klass för Data Transfer objekt (DTO).
 2. Konfigurera en tabellreferens i Mobile DbContext-klassen.
-3. Skapa en tabell-styrenhet.
+3. Skapa en.
 
-En Data Transfer objekt (DTO) är ett vanligt C#-objekt som ärver från `EntityData`.  Exempel:
+Data Transfer objekt (DTO) är en vanlig C#-objekt som ärver från `EntityData`.  Exempel:
 
     public class TodoItem : EntityData
     {
@@ -174,7 +174,7 @@ En Data Transfer objekt (DTO) är ett vanligt C#-objekt som ärver från `Entity
         public bool Complete {get; set;}
     }
 
-DTO används för att definiera tabell i SQL-databasen.  Om du vill skapa en post i databasen, lägger du till en `DbSet<>` egenskapen DbContext som du använder.  I projektet standardmallen för Azure Mobile Apps i DbContext kallas `Models\MobileServiceContext.cs`:
+DTO används för att definiera tabell i SQL-databasen.  Om du vill skapa databasposten, lägger du till en `DbSet<>` egenskap DbContext som du använder.  I projektet standardmallen för Azure Mobile Apps i DbContext kallas `Models\MobileServiceContext.cs`:
 
     public class MobileServiceContext : DbContext
     {
@@ -195,50 +195,50 @@ DTO används för att definiera tabell i SQL-databasen.  Om du vill skapa en pos
         }
     }
 
-Om du har installerat Azure SDK kan skapa du nu en mall för tabellen domänkontrollant på följande sätt:
+Om du har installerat SDK för Azure kan skapa du nu en mall tabellkontrollanten på följande sätt:
 
-1. Högerklicka på mappen domänkontrollanter och välj **Lägg till** > **domänkontrollant...** .
-2. Välj den **Azure Mobile Apps tabell Controller** alternativ och klicka sedan på **Lägg till**.
+1. Högerklicka på mappen domänkontrollanter och välj **Lägg till** > **Controller...** .
+2. Välj den **Azure Mobile Apps Table Controller** och sedan klicka på **Lägg till**.
 3. I den **Lägg till styrenhet** dialogrutan:
-   * I den **Modellklass** listrutan, Välj din nya DTO.
-   * I den **DbContext** listrutan, Välj mobila tjänsten DbContext-klassen.
+   * I den **Modellklass** listrutan, Välj ditt nya DTO.
+   * I den **DbContext** listrutan Välj Mobile Service DbContext-klassen.
    * Domänkontrollantens namn skapas åt dig.
 4. Klicka på **Lägg till**.
 
 Server snabbstartsprojektet innehåller ett exempel på en enkel **TodoItemController**.
 
-### <a name="adjust-pagesize"></a>Så här: justera tabellen växlingsfilens storlek
-Som standard returnerar Azure Mobile Apps 50 poster per begäran.  Sidindelning garanterar att klienten inte binder upp sina UI-tråden eller servern under för lång tid att säkerställa en bra användarupplevelse. Om du vill ändra tabellens växlingsfilens storlek ökar serversidan ”tillåtna storleken för frågan” och klientsidan sidstorlek serversidan ”tillåtna storleken för frågan” justeras med hjälp av den `EnableQuery` attribut:
+### <a name="adjust-pagesize"></a>Så här: justera sidindelning tabellstorleken
+Som standard returnerar Azure Mobile Apps 50 poster per begäran.  Växling säkerställer att klienten inte binder upp sina UI-tråden eller servern för länge, säkerställer en bra användarupplevelse. För att ändra tabellen växlingsfilens storlek, öka ”tillåten frågestorlek” serversidan och klientsidan sidan Ändra storlek på serversidan ”tillåten frågestorlek” justeras med hjälp av den `EnableQuery` attribut:
 
     [EnableQuery(PageSize = 500)]
 
-Kontrollera PageSize samma eller större än den storlek som begärs av klienten.  Referera till specifika klienten ta dokumentationen för mer information om hur du ändrar storleken på klienten.
+Se till att PageSize är samma eller större än den storlek som begärs av klienten.  Referera till specifika klient HOWTO-dokumentationen för mer information om hur du ändrar storleken på klienten.
 
-## <a name="how-to-define-a-custom-api-controller"></a>Så här: definiera en anpassad API-styrenhet
-Anpassade API-kontrollanten ger den mest grundläggande funktionen till din mobilappsserverdel genom att exponera en slutpunkt. Du kan registrera en mobil-specifika API-kontrollanten med attributet [MobileAppController]. Den `MobileAppController` attributet registrerar flödet, ställer in Mobile Apps JSON-serialisering och aktiverar [klienten versionskontroll](app-service-mobile-client-and-server-versioning.md).
+## <a name="how-to-define-a-custom-api-controller"></a>Så här: definiera en anpassad API-kontroll
+Den anpassade API-kontrollen ger den mest grundläggande funktionen till din mobilappsserverdel genom att exponera en slutpunkt. Du kan registrera en mobil-specifika API-kontroll med attributet [MobileAppController]. Den `MobileAppController` attributet registrerar vägen, ställer in Mobile Apps JSON-serialisering och aktiverar [klientens kontroll av version](app-service-mobile-client-and-server-versioning.md).
 
-1. Högerklicka på mappen domänkontrollanter i Visual Studio och klicka sedan på **Lägg till** > **domänkontrollant**väljer **Web API 2-styrenhet&mdash;tom** och på **Lägg till**.
-2. Ange en **Kontrollnamn**, som `CustomController`, och klicka på **Lägg till**.
+1. Högerklicka på mappen domänkontrollanter i Visual Studio och klicka sedan på **Lägg till** > **Controller**väljer **Web API 2 Controller&mdash;tom** och Klicka på **Lägg till**.
+2. Ange en **Kontrollnamn**, till exempel `CustomController`, och klicka på **Lägg till**.
 3. I den nya domänkontrollant klassfilen lägger du till följande med instruktionen:
 
         using Microsoft.Azure.Mobile.Server.Config;
-4. Tillämpa den **[MobileAppController]** attribut till API-styrenhet klassdefinitionen, som i följande exempel:
+4. Tillämpa den **[MobileAppController]** attributet API controller klassdefinitionen, som i följande exempel:
 
         [MobileAppController]
         public class CustomController : ApiController
         {
               //...
         }
-5. App_Start/Startup.MobileApp.cs filen, lägga till ett anrop till den **MapApiControllers** metod, som i följande exempel:
+5. I App_Start/Startup.MobileApp.cs-filen lägger du till ett anrop till den **MapApiControllers** tilläggsmetod, som i följande exempel:
 
         new MobileAppConfiguration()
             .MapApiControllers()
             .ApplyTo(config);
 
-Du kan också använda den `UseDefaultConfiguration()` metod i stället för `MapApiControllers()`. Alla domänkontrollanter som inte har **MobileAppControllerAttribute** tillämpas kan fortfarande användas av klienter, men det kanske inte korrekt förbrukas av klienter som använder en Mobilapp klient-SDK.
+Du kan också använda den `UseDefaultConfiguration()` tilläggsmetod i stället för `MapApiControllers()`. Alla domänkontrollanter som inte har **MobileAppControllerAttribute** tillämpas kan fortfarande användas av klienter, men det kanske inte korrekt användas av klienter med valfri Mobilapp-klient SDK.
 
 ## <a name="how-to-work-with-authentication"></a>Så här: arbeta med autentisering
-Azure Mobile Apps använder App Service-autentisering / auktorisering för att skydda din mobila serverdel.  Det här avsnittet visar hur du utför följande autentisering-relaterade uppgifter i projektet .NET backend-servern:
+Azure Mobile Apps använder App Service-autentisering / auktorisering för att skydda din mobila serverdelstjänst.  Det här avsnittet visar hur du utför följande uppgifter för autentiseringsrelaterade i serverprojektet .NET-serverdelen:
 
 * [Så här: Lägg till autentisering i ett serverprojekt](#add-auth)
 * [Så här: Använd anpassad autentisering för ditt program](#custom-auth)
@@ -246,26 +246,26 @@ Azure Mobile Apps använder App Service-autentisering / auktorisering för att s
 * [Så här: begränsa åtkomst till data för behöriga användare](#authorize)
 
 ### <a name="add-auth"></a>Så här: Lägg till autentisering i ett serverprojekt
-Du kan lägga till autentisering i serverprojektet genom att utöka den **MobileAppConfiguration** objekt och konfigurera OWIN mellanprogram. När du installerar den [Microsoft.Azure.Mobile.Server.Quickstart] paket- och anrop i **UseDefaultConfiguration** metod, du kan gå vidare till steg 3.
+Du kan lägga till autentisering i serverprojektet genom att utöka den **MobileAppConfiguration** objekt och konfigurera OWIN-mellanprogrammet. När du installerar den [Microsoft.Azure.Mobile.Server.Quickstart] paketet och anropa den **UseDefaultConfiguration** tilläggsmetod, du kan gå vidare till steg 3.
 
-1. I Visual Studio, installera den [Microsoft.Azure.Mobile.Server.Authentication] paketet.
+1. I Visual Studio, installerar den [Microsoft.Azure.Mobile.Server.Authentication] paketet.
 2. Lägg till följande kodrad i projektfilen Startup.cs i början av den **Configuration** metoden:
 
         app.UseAppServiceAuthentication(config);
 
-    Den här OWIN mellanprogram komponenten verifierar token som utfärdats av en associerad App Service-gateway.
-3. Lägg till den `[Authorize]` attributet till domänkontrollanten eller metoden som kräver autentisering.
+    Den här komponenten för OWIN-mellanprogrammet verifierar token som utfärdas av tillhörande App Service-gateway.
+3. Lägg till den `[Authorize]` attributet till valfri domänkontrollant eller en metod som kräver autentisering.
 
-Läs om hur du autentiserar klienter till din Mobile Apps-serverdel i [Lägg till autentisering i appen](app-service-mobile-ios-get-started-users.md).
+Läs mer om hur du autentiserar klienter till din Mobile Apps-serverdel, i [Lägg till autentisering i din app](app-service-mobile-ios-get-started-users.md).
 
 ### <a name="custom-auth"></a>Så här: Använd anpassad autentisering för ditt program
 > [!IMPORTANT]
-> För att aktivera anpassad autentisering måste du först aktivera App Service-autentisering utan att välja en provider för din Apptjänst i Azure-portalen. Detta aktiverar miljövariabeln WEBSITE_AUTH_SIGNING_KEY när finns.
+> För att aktivera anpassad autentisering, måste du först aktivera App Service-autentisering utan att välja en provider för App Service i Azure-portalen. Detta aktiverar miljövariabeln WEBSITE_AUTH_SIGNING_KEY när de ligger.
 > 
 > 
-Du kan implementera inloggningen systemet om du inte vill använda en av leverantörerna för autentisering/auktorisering i Apptjänst. Installera den [Microsoft.Azure.Mobile.Server.Login] paketet för att underlätta autentisering-token generering.  Ange egen kod vid verifiering av autentiseringsuppgifter. Du kan exempelvis kontrollera mot saltat och hashformaterats lösenord i en databas. I exemplet nedan är de `isValidAssertion()` metod (definierat någon annanstans) ansvarar för dessa kontroller.
+Om du inte vill använda en App Service autentisering/auktorisering provider kan du implementera inloggningen systemet. Installera den [Microsoft.Azure.Mobile.Server.Login] paket som hjälper till med generering av autentisering.  Ange din egen kod för att verifiera användarens autentiseringsuppgifter. Du kan exempelvis söka mot saltat och hashade lösenord i en databas. I exemplet nedan, den `isValidAssertion()` metod (definieras någon annanstans) ansvarar för dessa kontroller.
 
-Anpassad autentisering exponeras genom att skapa en ApiController och exponera `register` och `login` åtgärder. Klienten bör använda ett anpassat gränssnitt för att samla in information från användaren.  Informationen skickas sedan till API: et med ett standard HTTP POST-anrop. När servern verifierar kontrollen, ett token utfärdas med hjälp av den `AppServiceLoginHandler.CreateToken()` metoden.  ApiController **bör inte** använder den `[MobileAppController]` attribut.
+Anpassad autentisering exponeras genom att skapa en ApiController och exponera `register` och `login` åtgärder. Klienten bör använda ett anpassat gränssnitt för att samla in information från användaren.  Informationen skickas sedan till API med en HTTP POST-standardanrop. När servern validerar kontrollen, ett token utfärdas med hjälp av den `AppServiceLoginHandler.CreateToken()` metoden.  ApiController **bör inte** använder den `[MobileAppController]` attribut.
 
 Ett exempel `login` åtgärd:
 
@@ -290,7 +290,7 @@ Ett exempel `login` åtgärd:
             }
         }
 
-I föregående exempel är LoginResult och LoginResultUser serialiserbara objekt med synliga nödvändiga egenskaper. Klienten förväntar sig inloggningen svar returneras som JSON-objekt i formatet:
+I föregående exempel är LoginResult och LoginResultUser serialiserbara objekt med synliga nödvändiga egenskaper. Klienten förväntar sig svar för denna inloggning som ska returneras som JSON-objekt i formatet:
 
         {
             "authenticationToken": "<token>",
@@ -299,31 +299,31 @@ I föregående exempel är LoginResult och LoginResultUser serialiserbara objekt
             }
         }
 
-Den `AppServiceLoginHandler.CreateToken()` metoden innehåller en *målgruppen* och en *utfärdaren* parameter. Båda parametrarna har angetts till URL-Adressen för din programrot med HTTPS-schema. På samma sätt bör du ange *secretKey* ska värdet för ditt program signeringsnyckel. Distribuera inte signeringsnyckeln i en klient som kan användas för att myntverket nycklar och Personifiera användare. Du kan hämta signeringsnyckeln medan finns i App Service genom att referera till den *webbplats\_AUTH\_signering\_NYCKELN* miljövariabeln. Om det behövs i en kontext som lokala felsökning, följ instruktionerna i den [lokala felsökning med autentisering](#local-debug) avsnittet för att hämta nyckeln och spara den som en programinställning.
+Den `AppServiceLoginHandler.CreateToken()` metoden innehåller en *målgrupp* och en *utfärdare* parametern. Båda parametrarna är inställda på Webbadressen till din programrot med hjälp av HTTPS-schema. På samma sätt bör du ange *secretKey* vara signeringsnyckeln för värdet för ditt program. Distribuera inte signeringsnyckeln i en klient som den kan användas för att myntverket nycklar och Personifiera användare. Du kan hämta signeringsnyckeln medan finns i App Service genom att referera till den *webbplats\_AUTH\_signering\_nyckel* miljövariabeln. Om det behövs i en lokal felsökning kontext, följer du anvisningarna i den [lokal felsökning med autentisering](#local-debug) avsnitt för att hämta nyckeln och spara den som en programinställning.
 
-Utfärdad token kan också omfatta andra anspråk och upphör att gälla.  Utfärdad token måste åtminstone innehålla ett ämne (**sub**) anspråk.
+Utfärdad token kan också omfatta andra anspråk och ett förfallodatum.  Minimalt, utfärdad token måste innehålla ett ämne (**sub**) anspråk.
 
-Du kan använda standard klienten `loginAsync()` metoden av överbelastning flöde för autentisering.  Om klienten anropar `client.loginAsync('custom');` för att logga in rutten måste vara `/.auth/login/custom`.  Du kan ange väg för anpassad autentisering domänkontrollanten med `MapHttpRoute()`:
+Du kan använda standard klienten `loginAsync()` metoden genom att överbelasta autentisering vägen.  Om klienten anropar `client.loginAsync('custom');` för att logga in färdvägen måste vara `/.auth/login/custom`.  Du kan ange rutten för anpassad autentisering domänkontrollern med `MapHttpRoute()`:
 
     config.Routes.MapHttpRoute("custom", ".auth/login/custom", new { controller = "CustomAuth" });
 
 > [!TIP]
-> Med den `loginAsync()` metoden gör att autentiseringstoken är ansluten till varje efterföljande anrop till tjänsten.
+> Med hjälp av den `loginAsync()` sätt säkerställs att autentiseringstoken är kopplad till varje efterföljande anrop till tjänsten.
 >
 >
 
 ### <a name="user-info"></a>Så här: hämta autentiserad användarinformation
-När en användare autentiseras av App Service, kan du komma åt tilldelade användar-ID och annan information i serverdelskoden .NET. Informationen kan användas för att göra auktoriseringsbeslut i serverdelen. Följande kod hämtar användar-ID som är associerade med en begäran:
+När en användare autentiseras av App Service kan du komma åt tilldelade användar-ID och annan information i din kod för .NET-serverdel. Användarinformationen kan användas för att göra auktoriseringsbeslut i serverdelen. Följande kod hämtar användar-ID som är associerade med en begäran:
 
     // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-SID är härledd från provider-specifik användar-ID och är statisk för en viss användare och inloggningen provider.  SID är null för ogiltig autentiseringstoken.
+SID härleds från provider-specifik användar-ID och är statisk för en viss användare och inloggningsprovider.  SID är null för ogiltig autentiseringstoken.
 
-Apptjänst kan du begära specifika anspråk från leverantören inloggningen. Varje identitetsleverantör kan ge mer information med hjälp av identitetsleverantör SDK.  Du kan till exempel använda Facebook Graph API vänner information.  Du kan ange anspråk som begärs i bladet provider i Azure-portalen. Vissa anspråk kräva ytterligare konfiguration med identitetsleverantören.
+App Service kan du be din inloggningsprovider specifika anspråk. Varje identitetsprovidern kan ge mer information med identitetsprovider SDK.  Du kan till exempel använda av Facebook Graph API för vänner information.  Du kan ange anspråk som begärs på provider-bladet i Azure-portalen. Vissa anspråk kräva ytterligare konfiguration med identitetsprovidern.
 
-Följande koden anropar den **GetAppServiceIdentityAsync** metod att hämta autentiseringsuppgifter för inloggning, bland annat åtkomst-token som behövs för att göra förfrågningar mot Facebook Graph API:
+I följande kod anropar den **GetAppServiceIdentityAsync** tilläggsmetod att hämta de autentiseringsuppgifter för inloggning, bland annat åtkomst-token som behövs för att göra förfrågningar mot ett Facebook Graph API:
 
     // Get the credentials for the logged-in user.
     var credentials =
@@ -347,10 +347,10 @@ Följande koden anropar den **GetAppServiceIdentityAsync** metod att hämta aute
         var fbInfo = await resp.Content.ReadAsStringAsync();
     }
 
-Lägg till en med hjälp av instruktionen för `System.Security.Principal` att tillhandahålla den **GetAppServiceIdentityAsync** metod.
+Lägg till en med hjälp av instruktionen för `System.Security.Principal` att tillhandahålla den **GetAppServiceIdentityAsync** tilläggsmetod.
 
 ### <a name="authorize"></a>Så här: begränsa åtkomst till data för behöriga användare
-I det föregående avsnittet visade vi hur du hämtar användar-ID för en autentiserad användare. Du kan begränsa åtkomsten till data och andra resurser baserat på det här värdet. Till exempel är lägga till en kolumn för användar-ID i tabeller och filtrera frågeresultat av användar-ID ett enkelt sätt att begränsa returnerade data till auktoriserade användare. Följande kod returnerar rader med data endast när SID matchar värdet i kolumnen användar-ID i tabellen TodoItem:
+I det föregående avsnittet visade vi hur du hämtar det användar-ID för en autentiserad användare. Du kan begränsa åtkomsten till data och andra resurser baserat på det här värdet. Till exempel är att lägga till en användar-ID-kolumn i tabeller och filtrera resultatet av frågan genom att det användar-ID ett enkelt sätt att begränsa data som returneras till auktoriserade användare. Följande kod returnerar rader med data endast när SID matchar värdet i kolumnen UserId i TodoItem-tabellen:
 
     // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
@@ -359,20 +359,20 @@ I det föregående avsnittet visade vi hur du hämtar användar-ID för en auten
     // Only return data rows that belong to the current user.
     return Query().Where(t => t.UserId == sid);
 
-Den `Query()` metoden returnerar en `IQueryable` som kan hanteras av LINQ to hantera filtrering.
+Den `Query()` metoden returnerar en `IQueryable` som kan ändras av LINQ att hantera filtrering.
 
 ## <a name="how-to-add-push-notifications-to-a-server-project"></a>Så här: Lägg till push-meddelanden till ett serverprojekt
-Lägg till push-meddelanden i serverprojektet genom att utöka den **MobileAppConfiguration** objektet och skapar en klient med Notification Hubs.
+Lägg till push-meddelanden i serverprojektet genom att utöka den **MobileAppConfiguration** objektet och skapa en Notification Hub-klient.
 
-1. Högerklicka på serverprojekt i Visual Studio och klicka på **hantera NuGet-paket**, söka efter `Microsoft.Azure.Mobile.Server.Notifications`, klicka på **installera**.
-2. Upprepa det här steget för att installera den `Microsoft.Azure.NotificationHubs` paket som innehåller klientbiblioteket Notification Hubs.
-3. I App_Start/Startup.MobileApp.cs, och Lägg till ett anrop till den **AddPushNotifications()** tilläggsmetoden under initieringen:
+1. I Visual Studio högerklickar du på serverprojektet och klicka på **hantera NuGet-paket**, Sök efter `Microsoft.Azure.Mobile.Server.Notifications`, klicka sedan på **installera**.
+2. Upprepa steget för att installera den `Microsoft.Azure.NotificationHubs` paket som innehåller klientbiblioteket för Meddelandehubbar.
+3. I App_Start/Startup.MobileApp.cs, och Lägg till ett anrop till den **AddPushNotifications()** tilläggsmetod under initieringen:
 
         new MobileAppConfiguration()
             // other features...
             .AddPushNotifications()
             .ApplyTo(config);
-4. Lägg till följande kod som skapar en Meddelandehubbar klient:
+4. Lägg till följande kod som skapar en Notification Hub-klient:
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -388,15 +388,15 @@ Lägg till push-meddelanden i serverprojektet genom att utöka den **MobileAppCo
         NotificationHubClient hub = NotificationHubClient
             .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-Du kan nu använda Notification Hubs-klienten för att skicka push-meddelanden till registrerade enheter. Mer information finns i [Lägg till push-meddelanden i appen](app-service-mobile-ios-get-started-push.md). Mer information om Notification Hubs finns [översikt över Notification Hubs](../notification-hubs/notification-hubs-push-notification-overview.md).
+Du kan nu använda Notification Hubs-klienten för att skicka push-meddelanden till registrerade enheter. Mer information finns i [Lägg till push-meddelanden till din app](app-service-mobile-ios-get-started-push.md). Läs mer om Meddelandehubbar i [översikt över Notification Hubs](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ## <a name="tags"></a>Så här: aktivera riktade push med hjälp av taggar
-Notification Hubs kan du skicka riktade meddelanden till specifika registreringar med hjälp av taggar. Flera etiketter skapas automatiskt:
+Meddelandehubbar kan du skicka riktade meddelanden till specifika registreringar med hjälp av taggar. Flera taggar skapas automatiskt:
 
 * Installations-ID identifierar en specifik enhet.
-* Det användar-Id som är baserat på den autentiserade SID identifierar en specifik användare.
+* Det användar-Id som baseras på autentiserade SID identifierar en specifik användare.
 
-Installationen ID kan nås från den **installationId** egenskapen på den **MobileServiceClient**.  I följande exempel visas hur du använder ett installations-ID för att lägga till en tagg i en viss Meddelandehubbar-installation:
+Installationen ID kan nås från den **installationId** egenskap på den **MobileServiceClient**.  I följande exempel visas hur du använder ett installations-ID för att lägga till en tagg till en specifik installation i Meddelandehubbar:
 
     hub.PatchInstallation("my-installation-id", new[]
     {
@@ -408,12 +408,12 @@ Installationen ID kan nås från den **installationId** egenskapen på den **Mob
         }
     });
 
-Alla taggar som angetts av klienten under registreringen av push-meddelanden ignoreras av serverdelen när du skapar installationen. Om du vill aktivera en klient för att lägga till taggar i installationen måste du skapa en anpassad API som lägger till taggar i föregående mönstret.
+Taggar som anges av klienten vid push-meddelanderegistreringen ignoreras av serverdelen när du skapar installationen. Om du vill aktivera en klient för att lägga till taggar i installationen, måste du skapa en anpassad API som lägger till taggar med hjälp av föregående mönstret.
 
-Se [klienten tillagda push notification taggar] [ 5] i Apptjänst Mobilappar slutförda quickstart provet ett exempel.
+Se [klienten lagt till push-meddelande taggar] [ 5] i App Service Mobile Apps slutfört snabbstarten exemplet ett exempel.
 
 ## <a name="push-user"></a>Så här: skicka push-meddelanden till en autentiserad användare
-När en autentiserad användare registrerar för push-meddelanden, läggs en tagg för användar-ID automatiskt till registreringen. Du kan skicka push-meddelanden till alla enheter som registrerats som personen med hjälp av den här taggen. Följande kod hämtar SID för användaren som skickar förfrågan och skickar en mall för push-meddelanden till varje registrering av enheten för den personen:
+När en autentiserad användare registrerar för push-meddelanden, läggs en användartagg ID automatiskt till registreringen. Du kan skicka push-meddelanden till alla enheter som registrerats av personen med hjälp av den här taggen. Följande kod hämtar SID för användaren som skickar förfrågan och skickar en push-meddelande från en mall till varje enhetsregistrering för den personen:
 
     // Get the current user SID and create a tag for the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
@@ -426,21 +426,21 @@ När en autentiserad användare registrerar för push-meddelanden, läggs en tag
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
 
-När du registrerar dig för push-meddelanden från en autentiserad klient, se till att autentiseringen har slutförts innan du försöker utföra registreringen. Mer information finns i [push-installera användarna] [ 6] i Apptjänst Mobilappar slutförda quickstart provet för .NET-serverdel.
+Vid registrering av push-meddelanden från en autentiserad klient, se till att autentiseringen har slutförts innan du försöker registrera. Mer information finns i [Push till användare] [ 6] i App Service Mobile Apps-exemplet för slutförda Snabbstart för .NET-serverdel.
 
-## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>Så här: felsöka och felsöka SDK för .NET-Server
-Azure App Service tillhandahåller flera felsökning och felsökningsmetoder för ASP.NET-program:
+## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>Så här: felsöka och felsöka .NET Server SDK
+Azure App Service tillhandahåller flera felsökning och felsökningstekniker för ASP.NET-program:
 
-* [Övervaka en Azure Apptjänst](../app-service/web-sites-monitor.md)
-* [Aktivera diagnostikloggning i Azure App Service](../app-service/web-sites-enable-diagnostic-log.md)
-* [Felsöka en Azure Apptjänst i Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md)
+* [Övervaka en Azure App Service](../app-service/web-sites-monitor.md)
+* [Aktivera Diagnostisk loggning i Azure App Service](../app-service/web-sites-enable-diagnostic-log.md)
+* [Felsöka en Azure App Service i Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md)
 
 ### <a name="logging"></a>Loggning
-Du kan skriva till diagnostikloggarna för Apptjänst med hjälp av standard ASP.NET trace skrivning. Innan du kan skriva till loggar, måste du aktivera diagnostik i din mobilappsserverdel.
+Du kan skriva till diagnostikloggar för App Service med hjälp av standard ASP.NET-spårning skrivning. Innan du kan skriva till loggar, måste du aktivera diagnostik i din mobilappsserverdel.
 
 Aktivera diagnostik och skriva till loggar:
 
-1. Följ stegen i [hur du aktiverar diagnostik](../app-service/web-sites-enable-diagnostic-log.md#enablediag).
+1. Följ stegen i [så här aktiverar du diagnostik](../app-service/web-sites-enable-diagnostic-log.md#enablediag).
 2. Lägg till följande med instruktionen i kodfilen:
 
         using System.Web.Http.Tracing;
@@ -448,15 +448,15 @@ Aktivera diagnostik och skriva till loggar:
 
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
-4. Publicera serverprojektet och komma åt serverdelen för Mobilappen för att köra kodsökväg med loggning.
-5. Hämta och utvärdera loggarna, enligt beskrivningen i [så här: hämta loggar](../app-service/web-sites-enable-diagnostic-log.md#download).
+4. Publicera serverprojektet och komma åt serverdelen för Mobilappen för att köra kodsökvägar med loggning.
+5. Ladda ned och utvärdera loggarna, enligt beskrivningen i [så här: hämta loggar](../app-service/web-sites-enable-diagnostic-log.md#download).
 
-### <a name="local-debug"></a>Lokala felsökning med autentisering
-Du kan köra programmet lokalt för att testa ändringar innan du publicerar dem till molnet. Tryck på för de flesta Azure Mobile Apps serverdelar *F5* medan i Visual Studio. Det finns dock några ytterligare överväganden när du använder autentisering.
+### <a name="local-debug"></a>Lokal felsökning med autentisering
+Du kan köra programmet lokalt för att testa ändringarna innan du publicerar dem till molnet. För de flesta Azure Mobile Apps-serverdelen, trycker du på *F5* när den är i Visual Studio. Det finns dock några ytterligare överväganden när du använder autentisering.
 
-Du måste ha en molnbaserad mobilapp med autentisering/auktorisering i Apptjänst konfigurerats och klienten måste ha molnslutpunkt som angetts som alternativt inloggnings-värden. Finns i dokumentationen för din klientplattform för de specifika steg som krävs.
+Du måste ha en molnbaserad mobilappen med App Service autentisering/auktorisering konfigurerad och klienten måste ha molnslutpunkten anges som alternativa inloggnings-värden. Finns i dokumentationen för din klientplattform för de specifika steg som krävs.
 
-Kontrollera att din mobila serverdel har [Microsoft.Azure.Mobile.Server.Authentication] installerad. Sedan, i ditt program OWIN-startklass Lägg till följande, efter `MobileAppConfiguration` har kopplats till din `HttpConfiguration`:
+Kontrollera att din mobila serverdelstjänst har [Microsoft.Azure.Mobile.Server.Authentication] installerad. Sedan, i ditt programs OWIN-startklass, Lägg till följande, efter `MobileAppConfiguration` har tillämpats på din `HttpConfiguration`:
 
         app.UseAppServiceAuthentication(new AppServiceAuthenticationOptions()
         {
@@ -466,15 +466,15 @@ Kontrollera att din mobila serverdel har [Microsoft.Azure.Mobile.Server.Authenti
             TokenHandler = config.GetAppServiceTokenHandler()
         });
 
-I föregående exempel, bör du konfigurera den *authAudience* och *authIssuer* programinställningar i din Web.config-filen till varje URL: en för din programrot med hjälp av HTTPS-schema. På samma sätt bör du ange *authSigningKey* ska värdet för ditt program signeringsnyckel.
+I föregående exempel, bör du konfigurera den *authAudience* och *authIssuer* programinställningar i din Web.config filen till varje vara URL för din programrot med hjälp av HTTPS-schema. På samma sätt bör du ange *authSigningKey* vara signeringsnyckeln för värdet för ditt program.
 Du kan hämta signeringsnyckeln:
 
-1. Navigera till din app i den [Azure Portal]
+1. Gå till din app i den [Azure Portal]
 2. Klicka på **verktyg**, **Kudu**, **Gå**.
-3. Klicka på hantering av Kudu-plats **miljö**.
+3. I hantering av Kudu-webbplatsen klickar du på **miljö**.
 4. Hitta värdet för *webbplats\_AUTH\_signering\_NYCKELN*.
 
-Använd signeringsnyckeln för den *authSigningKey* parameter i din lokala program config.  Din mobila serverdel är nu utrustad att validera token när du kör lokalt, som klienten hämtar token från slutpunkten molnbaserade.
+Använda signeringsnyckeln för den *authSigningKey* parameter i config lokalt program.  Din mobila serverdelstjänst är nu utrustad att validera token vid lokal körning som klienten hämtar token från den molnbaserade slutpunkten.
 
 [1]: https://msdn.microsoft.com/library/azure/dn961176.aspx
 [2]: https://github.com/Azure/azure-mobile-apps-net-server

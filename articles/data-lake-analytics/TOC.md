@@ -59,10 +59,10 @@
 #### [Anpassad kod](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Lokal körning och felsökning](data-lake-tools-for-vscode-local-run-and-debug.md)
 
-### Kontinuerlig integrering och distribution
-#### [Översikt](data-lake-analytics-cicd-overview.md)
-#### [Konfigurera tester](data-lake-analytics-cicd-test.md)
-#### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
+## Kontinuerlig integrering och distribution
+### [Översikt](data-lake-analytics-cicd-overview.md)
+### [Konfigurera tester](data-lake-analytics-cicd-test.md)
+### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 
 # Referens
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)

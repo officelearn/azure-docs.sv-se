@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: ayolubek
 ms.openlocfilehash: f2ad92118c00f08e5dcdd4a8a12f007308b3fbd1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "34645801"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Haveriberedskap för en SaaS-program med hjälp av database geo-replikering
@@ -90,8 +90,8 @@ Senare, i ett separat hemtransport steg växlar över katalog- och klienttrafik 
 Granska det normala felfritt tillståndet innan du startar återställningsprocessen.
 1. Öppna i webbläsaren, Evenemangshubben Wingtip biljetter (http://events.wingtip-dpt.&lt; användare&gt;. trafficmanager.net - Ersätt &lt;användaren&gt; med värdet för användarnamn för din distribution).
     * Bläddra längst ned på sidan och Lägg märke till katalogen servernamnet och en plats i sidfoten. Platsen är den region där du har distribuerat appen.
-    *Tips: Pekar på platsen för att visa. * 
-     ![Händelser hub felfritt tillstånd i ursprungliga region](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
+    *Tips: Pekar på platsen för att visa.*
+    ![Händelser hub felfritt tillstånd i ursprungliga region](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Klicka på Contosos Konserthall-klient och öppna appens sida för händelsen.
     * Observera klient servernamnet i sidfoten. Platsen ska vara samma som den katalogservern plats.

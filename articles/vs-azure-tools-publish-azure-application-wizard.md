@@ -1,6 +1,6 @@
 ---
 title: Med Visual Studio Publiceringsguiden för Azure-program | Microsoft Docs
-description: Lär dig att konfigurera olika inställningar i Visual Studio publicera Azure guiden program
+description: Lär dig att konfigurera olika inställningar i Visual Studio Azure Application Publiceringsguiden
 services: visual-studio-online
 author: ghogen
 manager: douge
@@ -12,113 +12,113 @@ ms.topic: conceptual
 ms.date: 03/21/2017
 ms.author: ghogen
 ms.openlocfilehash: 02d38f49a1bfe490acbcfee95a8a703cf0d7594f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "31795987"
 ---
 # <a name="using-the-visual-studio-publish-azure-application-wizard"></a>Med Visual Studio Publiceringsguiden för Azure-program
 
-När du utvecklar ett program i Visual Studio, kan du publicera programmet till en Azure-molntjänst med hjälp av den **publicera Azure-programmet** guiden.
+När du utvecklar ett webbprogram i Visual Studio kan du publicera programmet till en Azure-molntjänst med hjälp av den **publicera Azure-program** guiden.
 
 > [!Note]
-> Den här artikeln handlar om hur du distribuerar till molntjänster, inte till webbplatser. Information om hur du distribuerar till webbplatser finns [hur du distribuerar en Azure-webbplats](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
+> Den här artikeln handlar om att distribuera till molntjänster, inte till webbplatser. Information om hur du distribuerar till webbplatser finns i [hur du distribuerar en Azure Web Site](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
 
 ## <a name="accessing-the-publish-azure-application-wizard"></a>Åtkomst till guiden Publicera Azure-program
 
-Du kan öppna guiden Publicera Azure-program på två sätt beroende på vilken typ av Visual Studio-projekt som du har.
+Du kan komma åt guiden Publicera Azure-program på två sätt beroende på vilken typ av Visual Studio-projekt som du har.
 
-**Om du har en Azure cloud service-projekt:**
-
-1. Skapa eller öppna ett Azure cloud service-projekt i Visual Studio.
-
-1. I **Solution Explorer**, högerklicka på projektet och, från snabbmenyn, Välj **publicera**.
-
-**Om du har ett webbprojekt för program som inte är aktiverad för Azure:**
+**Om du har ett Azure cloud service-projekt:**
 
 1. Skapa eller öppna ett Azure cloud service-projekt i Visual Studio.
 
-1. I **Solution Explorer**, högerklicka på projektet och, från snabbmenyn, Välj **konvertera** > **konvertera till Azure Molntjänstprojekt**. 
+1. I **Solution Explorer**, högerklicka på projektet och, från snabbmenyn väljer **publicera**.
 
-1. I **Solution Explorer**, högerklicka på det nyligen skapade Azure-projektet och, från snabbmenyn väljer **publicera**.
+**Om du har ett webbprogramsprojekt som inte är aktiverad för Azure:**
 
-## <a name="sign-in-page"></a>Inloggningssidan
+1. Skapa eller öppna ett Azure cloud service-projekt i Visual Studio.
 
-![Inloggningssidan](./media/vs-azure-tools-publish-azure-application-wizard/sign-in.png)
+1. I **Solution Explorer**, högerklicka på projektet och, från snabbmenyn väljer **konvertera** > **konvertera till Azure-Molntjänstprojekt**. 
+
+1. I **Solution Explorer**och högerklicka på det nyligen skapade Azure-projektet, på snabbmenyn väljer **publicera**.
+
+## <a name="sign-in-page"></a>På inloggningssidan
+
+![På inloggningssidan](./media/vs-azure-tools-publish-azure-application-wizard/sign-in.png)
 
 **Kontot** – Välj ett konto eller välj **Lägg till ett konto** i listrutan för kontot.
 
-**Välj din prenumeration** -Välj prenumeration för din distribution.
+**Välj din prenumeration** – Välj prenumerationen som ska användas för distributionen.
 
-## <a name="settings-page---common-settings-tab"></a>Inställningssidan - gemensamma inställningar
+## <a name="settings-page---common-settings-tab"></a>Inställningssidan - fliken vanliga inställningar
 
 ![Vanliga inställningar](./media/vs-azure-tools-publish-azure-application-wizard/settings-common-settings.png)
 
-**Molntjänsten** -med hjälp av listrutan, Välj antingen en befintlig molnet tjänsten eller välj  **&lt;Skapa nytt >**, och skapa en tjänst i molnet. Datacenter visas inom parentes för varje tjänst i molnet. Du rekommenderas att data center platsen för Molntjänsten vara samma som data center platsen för lagringskontot (avancerade inställningar).
+**Molntjänst** -med hjälp av listrutan, väljer du antingen ett befintligt moln tjänst eller välj  **&lt;Skapa nytt >**, och skapa en tjänst i molnet. Datacentret visas inom parentes för varje tjänst i molnet. Du rekommenderas att data datacenterplats för Molntjänsten vara samma som datacenterplats för storage-konto (avancerade inställningar).
 
-**Miljö** -väljer du antingen **produktion** eller **mellanlagring**. Välj mellanlagringsmiljön om du vill distribuera programmet i en testmiljö. 
+**Miljö** – Välj antingen **produktion** eller **mellanlagring**. Välj mellanlagringsmiljön om du vill distribuera programmet i en testmiljö. 
 
-**Skapa configuration** -väljer du antingen **felsöka** eller **versionen**.
+**Konfigurace buildu** – Välj antingen **felsöka** eller **versionen**.
 
-**Tjänstkonfigurationen** -väljer du antingen **moln** eller **lokala**.
+**Tjänstkonfigurationen** – Välj antingen **molnet** eller **lokala**.
 
-**Aktivera Fjärrskrivbord för alla roller** – Välj det här alternativet om du vill kunna fjärransluta till tjänsten. Det här alternativet används främst för felsökning. Mer information finns i [aktivera anslutning till fjärrskrivbord för en roll i Azure Cloud Services med Visual Studio](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md).
+**Aktivera Fjärrskrivbord för alla roller** – Välj det här alternativet om du vill kunna fjärransluta till tjänsten. Det här alternativet används främst för felsökning. Mer information finns i [aktivera anslutning till fjärrskrivbord för en roll i Azure Cloud Services med hjälp av Visual Studio](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md).
 
-**Aktivera webbdistribution för alla webbprogram roller** – Välj det här alternativet om du vill aktivera web distributionen för tjänsten. Du måste också välja den **aktivera Fjärrskrivbord för alla roller** alternativet att använda den här funktionen. Mer information finns i [publicering av en tjänst i molnet med hjälp av Visual Studio](vs-azure-tools-publishing-a-cloud-service.md).
+**Aktivera webbdistribution för alla webbroller** – Välj det här alternativet för att aktivera webbdistribution för tjänsten. Du måste också välja den **aktivera Fjärrskrivbord för alla roller** alternativet att använda den här funktionen. Mer information finns i [publicerar en molntjänst med Visual Studio](vs-azure-tools-publishing-a-cloud-service.md).
 
-## <a name="settings-page---advanced-settings-tab"></a>Inställningssidan - inställningar fliken Avancerat
+## <a name="settings-page---advanced-settings-tab"></a>Sidan för inställningar - fliken Inställningar under Avancerat
 
 ![Avancerade inställningar](./media/vs-azure-tools-publish-azure-application-wizard/settings-advanced-settings.png)
 
-**Distributionsetiketten** – Använd standardnamnet eller ange ett namn du väljer. Lägger till datumet i distributionsetiketten lämnar du kryssrutan är markerad. 
+**Distributionsetiketten** – Använd standardnamnet eller ange ett namn du väljer. Om du vill lägga till det datum då distributionsetiketten, lämnar du kryssrutan markerad. 
 
-**Lagringskontot** -Välj lagringskonto för den här distributionen **&lt;Skapa nytt > Skapa ett lagringskonto. Datacenter visas inom parentes för varje storage-konto. Du rekommenderas att data center platsen för lagringskontot är densamma som data center platsen för Molntjänsten (vanliga inställningar).
+**Storage-konto** – Välj lagringskontot som ska användas för den här distributionen **&lt;Skapa nytt > att skapa ett lagringskonto. Datacentret visas inom parentes för varje lagringskonto. Du rekommenderas att datacenterplats för lagringskontot är samma som datacenterplats för Molntjänsten (vanliga inställningar).
 
-Azure storage-konto lagras paketet för programdistributionen. När programmet distribueras tas paketet bort från lagringskontot.
+Azure storage-kontot lagrar paketet för programdistributionen. När programmet distribueras tas paketet bort från lagringskontot.
 
-**Ta bort distributionen på fel** – Välj det här alternativet för att distributionen tas bort om fel uppstår vid publicering. Ska den vara avmarkerad om du vill behålla en konstant virtuella IP-adressen för din molntjänst.
+**Ta bort distributionen vid misslyckande** – Välj det här alternativet för att distributionen tas bort om det uppstår några fel vid publicering. Om du vill upprätthålla en konstant virtuella IP-adress för din molntjänst bör detta vara avmarkerad.
 
-**Uppdatering av programdistribution** – Välj det här alternativet om du vill distribuera endast uppdaterade komponenter. Den här typen av distribution kan vara snabbare än en fullständig distribution. Detta ska kontrolleras om du vill behålla en konstant virtuella IP-adressen för din molntjänst. 
+**Uppdatering av programdistribution** – Välj det här alternativet om du vill distribuera endast uppdaterade komponenter. Den här typen av distribution kan vara snabbare än en fullständig distribution. Alternativet ska vara markerat om du vill upprätthålla en konstant virtuella IP-adress för din molntjänst. 
 
-**Uppdatering av programdistribution - inställningar** -den här dialogrutan används för att specificera hur du vill att rollerna som ska uppdateras. Om du väljer **stegvis uppdatering**, varje instans av programmet uppdateras efter varandra, så att programmet alltid är tillgängligt. Om du väljer **samtidig uppdatering**, alla instanser av programmet uppdateras samtidigt. Samtidig uppdatering är snabbare, men tjänsten kanske inte är tillgängliga under uppdateringen.
+**Uppdatering av programdistribution - inställningar** – den här dialogrutan används för att specificera hur du vill att rollerna som ska uppdateras. Om du väljer **inkrementell uppdatering**, varje instans av ditt program har uppdaterats efter varandra, så att programmet alltid är tillgänglig. Om du väljer **samtidig uppdatering**, alla instanser av programmet uppdateras samtidigt. Samtidig uppdatering är snabbare, men tjänsten kanske inte är tillgängliga under uppdateringen.
 
-![Inställningar för distribution](./media/vs-azure-tools-publish-azure-application-wizard/deployment-settings.png)
+![Distributionsinställningar](./media/vs-azure-tools-publish-azure-application-wizard/deployment-settings.png)
 
-**Aktivera IntelliTrace** -ange om du vill aktivera IntelliTrace. Med IntelliTrace, kan du logga omfattande felsökningsinformation för en rollinstans när den körs i Azure. Om du behöver ta reda på orsaken till ett problem kan du använda IntelliTrace-loggar för att stega igenom koden från Visual Studio som om den kördes i Azure. Läs mer om hur du använder IntelliTrace [felsökning en publicerade Azure cloud service med Visual Studio och IntelliTrace](./vs-azure-tools-intellitrace-debug-published-cloud-services.md).
+**Aktivera IntelliTrace** – ange om du vill aktivera IntelliTrace. Med IntelliTrace, kan du logga omfattande felsökningsinformation för en rollinstans när den körs i Azure. Om du vill ta reda på orsaken ett problem kan använda du IntelliTrace-loggar för att gå igenom koden från Visual Studio som om den kördes i Azure. Läs mer om hur du använder IntelliTrace [felsökning en publicerade Azure-molntjänst med Visual Studio och IntelliTrace](./vs-azure-tools-intellitrace-debug-published-cloud-services.md).
 
-**Aktivera profilering** -ange om du vill aktivera prestanda profilering. Visual Studio-profiler kan du få en detaljerad analys av beräkningar aspekter av hur Molntjänsten körs. Mer information om hur du använder Visual Studio-profiler finns [testa prestanda för en Azure-molntjänst](./vs-azure-tools-performance-profiling-cloud-services.md).
+**Aktivera profilering** – ange om du vill aktivera prestanda-profilering. Visual Studio profiler kan du få en detaljerad analys av databaserad aspekter av hur din molntjänst körs. Mer information om hur du använder Visual Studio-profiler finns i [testa prestanda hos en Azure-molntjänst](./vs-azure-tools-performance-profiling-cloud-services.md).
 
-**Aktivera Remote felsökare för alla roller** -ange om du vill aktivera fjärrfelsökning. Mer information om hur du felsöker molntjänster med hjälp av Visual Studio finns [felsökning en Azure-molntjänst eller en virtuell dator i Visual Studio](./vs-azure-tools-debug-cloud-services-virtual-machines.md).
+**Aktivera Fjärrfelsökningsprogrammet för alla roller** – ange om du vill aktivera fjärrfelsökning. Mer information om hur du felsöker molntjänster med Visual Studio finns i [felsökning av en Azure-molntjänst eller virtuell dator i Visual Studio](./vs-azure-tools-debug-cloud-services-virtual-machines.md).
 
-## <a name="diagnostics-settings-page"></a>Sidan Inställningar för diagnostik
+## <a name="diagnostics-settings-page"></a>Inställningssidan för diagnostik
 
 ![Diagnostikinställningar](./media/vs-azure-tools-publish-azure-application-wizard/diagnostic-settings.png)
 
-Diagnostiken kan du felsöka en Azure-molntjänst (eller virtuella Azure-datorn). Information om diagnostik finns [konfigurera diagnostik för virtuella datorer och Azure Cloud Services](./vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). Information om Application Insights finns [vad är Application Insights?](./application-insights/app-insights-overview.md).
+Diagnostik kan du felsöka en Azure-molntjänst (eller Azure-dator). Läs om hur diagnostik [konfigurera diagnostik för Azure Cloud Services och virtuella datorer](./vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). Information om Application Insights finns i [vad är Application Insights?](./application-insights/app-insights-overview.md).
 
 ## <a name="summary-page"></a>Sammanfattningssida
 
 ![Sammanfattning](./media/vs-azure-tools-publish-azure-application-wizard/summary.png)
 
-**Rikta profil** -du kan välja att skapa en publiceringsprofil från inställningarna som du har valt. Du kan till exempel skapa en profil för en testmiljö och en annan för produktion. Om du vill spara den här profilen, Välj den **spara** ikon. Guiden skapar profilen och sparar den i Visual Studio-projekt. Om du vill ändra namnet på profilen, öppna den **mål profil** listan och väljer sedan  **&lt;hantera... &gt;**.
+**Målprofilen** – du kan välja att skapa en publiceringsprofil från inställningarna som du har valt. Du kan till exempel skapa en profil för en testmiljö och ett annat för produktion. Om du vill spara den här profilen, Välj den **spara** ikon. Guiden skapar profilen och sparar den i Visual Studio-projektet. Om du vill ändra namnet på profilen, öppna den **målprofilen** och välj sedan  **&lt;hantera... &gt;**.
 
    > [!Note]
-   > Publiceringsprofilen som visas i Solution Explorer i Visual Studio och profilinställningarna skrivs till en fil med filnamnstillägget .azurePubxml. Inställningarna sparas som attribut till XML-taggar.
+   > Publiceringsprofilen som visas i Solution Explorer i Visual Studio och profilinställningarna skrivs till en fil med filnamnstillägget .azurePubxml. Inställningarna har sparats som attribut till XML-taggar.
 
 ## <a name="publishing-your-application"></a>Publicering av programmet
 
-När du konfigurerar alla inställningar för ditt projekt distribution, välja **publicera** längst ned i dialogrutan. Du kan övervaka statusen för processen i den **utdata** fönstret i Visual Studio.
+När du konfigurerar alla inställningar för distribution av ditt projekt väljer **publicera** längst ned i dialogrutan. Du kan övervaka statusen för processen i den **utdata** fönstret i Visual Studio.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Migrera och publicera ett program till en Azure-molntjänst från Visual Studio](./vs-azure-tools-migrate-publish-web-app-to-cloud-service.md)
+- [Migrera och publicera en Webbapp till en Azure-molntjänst från Visual Studio](./vs-azure-tools-migrate-publish-web-app-to-cloud-service.md)
 
-- [Lär dig använda Visual Studio för att publicera ett Azure-molntjänst](./vs-azure-tools-publishing-a-cloud-service.md)
+- [Lär dig hur du använder Visual Studio för att publicera en Azure-molntjänst](./vs-azure-tools-publishing-a-cloud-service.md)
 
-- [Felsökning av en publicerad Azure cloud service med Visual Studio och IntelliTrace](./vs-azure-tools-intellitrace-debug-published-cloud-services.md)
+- [Felsöka en publicerad Azure-molntjänst med Visual Studio och IntelliTrace](./vs-azure-tools-intellitrace-debug-published-cloud-services.md)
 
-- [Testa prestanda för en Azure-molntjänst](./vs-azure-tools-performance-profiling-cloud-services.md)
+- [Testa prestanda hos en Azure-molntjänst](./vs-azure-tools-performance-profiling-cloud-services.md)
 
 - [Konfigurera diagnostik för Azure-molntjänster och virtuella datorer](./vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Underhålla resursprovidern SQL Azure-stacken | Microsoft Docs
-description: Lär dig hur du kan upprätthålla tjänsten SQL resource provider på Azure-stacken.
+title: Underhåll av SQL-resursprovider i Azure Stack | Microsoft Docs
+description: Lär dig hur du kan underhålla SQL resource provider-tjänsten på Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -15,51 +15,51 @@ ms.date: 06/20/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ms.openlocfilehash: ad899739dab1dc51d64368d2136ab87f73f6f3a0
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "36300918"
 ---
-# <a name="sql-resource-provider-maintenance-operations"></a>Underhållsåtgärder för SQL resource provider
+# <a name="sql-resource-provider-maintenance-operations"></a>Underhåll-åtgärder för SQL-resursprovider
 
-SQL-resursprovidern körs på virtuella låst. Om du vill aktivera underhållsåtgärder som du behöver uppdatera den virtuella datorns säkerhet. Om du vill göra detta med hjälp av principen om minsta behörighet, kan du använda [PowerShell bara tillräckligt Administration JEA ()](https://docs.microsoft.com/en-us/powershell/jea/overview) endpoint *DBAdapterMaintenance*. Installationspaketet för resource provider innehåller ett skript för den här åtgärden.
+SQL-resursprovider körs på en låst virtuell dator. Om du vill aktivera underhållsåtgärder som du behöver uppdatera den virtuella datorns säkerhet. Om du vill göra detta med hjälp av principen om lägsta behörighet, kan du använda [PowerShell tillräckligt Administration JEA ()](https://docs.microsoft.com/en-us/powershell/jea/overview) endpoint *DBAdapterMaintenance*. Installationspaketet resource provider innehåller ett skript för den här åtgärden.
 
-## <a name="patching-and-updating"></a>Uppdateringsverktyg och uppdatera
+## <a name="patching-and-updating"></a>Uppdatering
 
-SQL-resursprovidern är inte underhålls som en del av Azure-stacken eftersom det är en tilläggskomponent. Microsoft tillhandahåller uppdateringar till SQL-resursprovidern vid behov. När ett uppdaterats SQL-kort släpps, tillhandahålls ett skript för att installera uppdateringen. Det här skriptet skapar en ny resurs provider VM, migrera tillståndet för den gamla providern VM till den nya virtuella datorn. Mer information finns i [uppdatera resursprovidern SQL](azure-stack-sql-resource-provider-update.md).
+SQL-resursprovider underhålls inte som en del av Azure Stack eftersom det är en tilläggskomponent som. Microsoft tillhandahåller uppdateringar till SQL-resursprovider som det behövs. När ett uppdaterade SQL-kort har släppts tillhandahålls ett skript för att installera uppdateringen. Det här skriptet skapar en ny resursprovider VM, migrera tillståndet för den gamla VM-providern till den nya virtuella datorn. Mer information finns i [uppdatera SQL-resursprovider](azure-stack-sql-resource-provider-update.md).
 
 ### <a name="provider-virtual-machine"></a>Providern virtuell dator
 
-Eftersom resursprovidern körs på en *användaren* virtuell dator, måste du använda de nödvändiga korrigeringarna och programvaruuppdateringarna när de ges ut. Du kan använda uppdateringspaket för Windows som tillhandahålls som en del av korrigeringsfil och uppdateringscykeln för att installera uppdateringar för den virtuella datorn.
+Eftersom resursprovidern körs på en *användaren* virtuell dator som du ska använda de uppdateringar som krävs och uppdateringarna när de ges ut. Du kan använda Windows update-paket som tillhandahålls som en del av korrigeringen och uppdateringscykeln för att tillämpa uppdateringar för den virtuella datorn.
 
-## <a name="backuprestoredisaster-recovery"></a>Säkerhetskopiering/återställning/Disaster Recovery
+## <a name="backuprestoredisaster-recovery"></a>Säkerhetskopiering och återställning/Haveriberedskap
 
- Eftersom det är en tilläggskomponent säkerhetskopieras resursprovidern SQL inte som en del av en Azure Stack Business Continuity Disaster Recovery BCDR-process. Skript kommer att tillhandahållas för följande åtgärder:
+ Eftersom det är en tilläggskomponent som, säkerhetskopieras SQL-resursprovider inte som en del av en process för Azure Stack Business Continuity Disaster Recovery (BCDR). Skript kommer att tillhandahållas för följande åtgärder:
 
-- Säkerhetskopiera statusinformation (som lagras i ett Azure-stacken storage-konto.)
-- Återställer resursprovidern om återställning av en fullständig stack krävs.
+- Säkerhetskopiering av information om tillstånd (lagras i ett Azure Stack-lagringskonto).
+- Återställer resursprovidern om en fullständig stack återställning krävs.
 
 >[!NOTE]
->Om du behöver göra en återställning måste databasservrar återställas innan resursprovidern återställs.
+>Om du behöver göra en återställning måste databasservrar återställas innan resursprovidern har återställts.
 
-## <a name="updating-sql-credentials"></a>Uppdatera autentiseringsuppgifterna för SQL
+## <a name="updating-sql-credentials"></a>Uppdatering av SQL-autentiseringsuppgifter
 
-Du är ansvarig för att skapa och hantera konton sysadmin på SQL-servrar. Resursprovidern måste ha ett konto med dessa behörigheter för att hantera databaser för användare, men behöver inte åtkomst till användarnas data. Om du behöver uppdatera lösenorden sysadmin på SQL-servrar kan du använda gränssnittet för resurs-providerns administrator för att ändra ett lagrade lösenord. Lösenord lagras i ett Nyckelvalv på Azure Stack-instansen.
+Du är ansvarig för att skapa och underhålla sysadmin konton på SQL-servrar. Resursprovidern måste ha ett konto med dessa privilegier för att hantera databaser för användare, men det behöver inte åtkomst till användarnas data. Om du behöver uppdatera lösenorden sysadmin på SQL-servrar kan du kan använda provider för nätverksresurser administratörsgränssnittet för att ändra ett lagrade lösenord. Lösenorden lagras i Key Vault på Azure Stack-instansen.
 
-Om du vill ändra inställningarna, Välj **Bläddra** &gt; **ADMINISTRATIONSRESURSER** &gt; **värd för SQL-servrar** &gt; **SQL-inloggningar** och välj ett användarnamn. Den måste ändras för SQL-instans först (och alla repliker, om det behövs.) Under **inställningar**väljer **lösenord**.
+Om du vill ändra inställningarna, Välj **Bläddra** &gt; **ADMINISTRATIONSRESURSER** &gt; **som är värd för SQL-servrar** &gt; **SQL-inloggningar** och välj ett användarnamn. Ändringen måste göras på SQL-instansen först (och alla repliker, om det behövs.) Under **inställningar**väljer **lösenord**.
 
 ![Uppdatera administratörslösenordet](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 ## <a name="secrets-rotation"></a>Hemligheter rotation
 
-*Dessa anvisningar gäller endast för Azure-stacken integrerad System Version 1804 och senare. Försök inte att rotera hemligheter i pre-1804 Azure Stack versioner.*
+*Dessa anvisningar gäller endast för Azure Stack integrerade system Version 1804 och senare. Försök inte att rotera hemligheter i förväg 1804 Azure Stack-versioner.*
 
-När med Azure-stacken resursproviders SQL och MySQL integrerat system, kan du rotera följande infrastruktur (distribution) hemligheter:
+När du använder resursprovidrar SQL- och MySQL med Azure Stack integrerade system, kan du rotera hemligheterna för följande infrastruktur (distribution):
 
-- Externa SSL-certifikat [anges under distributionen](azure-stack-pki-certs.md).
+- Externt SSL-certifikat [angav under distributionen](azure-stack-pki-certs.md).
 - Resource provider VM lokala administratörslösenordet anges under distributionen.
-- Resource provider diagnostiska användare (dbadapterdiag) lösenord.
+- Resource provider diagnostik (dbadapterdiag) lösenord.
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>PowerShell-exempel för att rotera hemligheter
 
@@ -86,7 +86,7 @@ När med Azure-stacken resursproviders SQL och MySQL integrerat system, kan du r
     –DiagnosticsUserPassword  $passwd
 ```
 
-**Ändra lösenordet för Virtuella lokala administratörskontot.**
+**Ändra lösenordet för VM-lokala administratörskontot.**
 
 ```powershell
 .\SecretRotationSQLProvider.ps1 `
@@ -96,7 +96,7 @@ När med Azure-stacken resursproviders SQL och MySQL integrerat system, kan du r
     -VMLocalCredential $localCreds
 ```
 
-**Ändra lösenordet för SSL-certifikat.**
+**Ändra lösenord för SSL-certifikat.**
 
 ```powershell
 .\SecretRotationSQLProvider.ps1 `
@@ -111,11 +111,11 @@ När med Azure-stacken resursproviders SQL och MySQL integrerat system, kan du r
 
 |Parameter|Beskrivning|
 |-----|-----|
-|AzCredential|Azure-stacken tjänstadministratör kontoautentisering.|
-|CloudAdminCredential|Azure Stack molnet admin domän autentiseringsuppgifter för tjänstekontot.|
-|PrivilegedEndpoint|Privilegierade slutpunkter för åtkomst till Get-AzureStackStampInformation.|
-|DiagnosticsUserPassword|Diagnostik för lösenord.|
-|VMLocalCredential|Lokala administratörskontot på MySQLAdapter VM.|
+|AzCredential|Autentiseringsuppgifter för Azure Stack-tjänstadministratör-konto.|
+|CloudAdminCredential|Azure Stack molnet admin inloggningsuppgift för domänkontot.|
+|PrivilegedEndpoint|Privilegierad slutpunkt för åtkomst till Get-AzureStackStampInformation.|
+|DiagnosticsUserPassword|Diagnostik lösenord.|
+|VMLocalCredential|Konto för lokal administratör på MySQLAdapter VM.|
 |DefaultSSLCertificatePassword|Standard SSL-certifikat (* pfx) lösenord.|
 |DependencyFilesLocalPath|Beroende filer lokal sökväg.|
 |     |     |
@@ -123,7 +123,7 @@ När med Azure-stacken resursproviders SQL och MySQL integrerat system, kan du r
 ### <a name="known-issues"></a>Kända problem
 
 **Problemet**: hemligheter rotation loggar.<br>
-Loggar för hemligheter rotation inte samlas in automatiskt om hemliga rotation anpassat skript misslyckas när den körs.
+Loggar för hemligheter rotation inte samlas in automatiskt om det anpassade skriptet hemliga rotation misslyckas när den körs.
 
 **Lösning**:<br>
 Använd cmdleten Get-AzsDBAdapterLogs för att samla in alla loggar för resource provider, inklusive AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, sparas i C:\Logs.
@@ -132,30 +132,30 @@ Använd cmdleten Get-AzsDBAdapterLogs för att samla in alla loggar för resourc
 
 Använd någon av följande metoder för att uppdatera operativsystemet för virtuell dator.
 
-- Installera den senaste providern resurspaket med en för närvarande korrigeringsfil Windows Server 2016 Core-bild.
-- Installera ett paket för Windows Update under installationen av eller uppdatera till resursprovidern.
+- Installera det senaste providern resurspaketet med en för närvarande uppdaterad avbildning för Windows Server 2016 Core.
+- Installera en uppdatering för Windows-paketet under installationen av eller uppdatera till resursprovidern.
 
-## <a name="update-the-virtual-machine-windows-defender-definitions"></a>Uppdatera definitioner för virtuella Windows Defender
+## <a name="update-the-virtual-machine-windows-defender-definitions"></a>Uppdatera Windows Defender-definitioner för virtuell dator
 
-Uppdatera definitioner för Windows Defender:
+Att uppdatera Windows Defender-definitioner:
 
-1. Hämta Windows Defender-definitioner uppdatera från [Windows Defender Definition](https://www.microsoft.com/en-us/wdsi/definitions).
+1. Ladda ned Windows Defender-definitioner uppdatera från [Windows Defender Definition](https://www.microsoft.com/en-us/wdsi/definitions).
 
-   Uppdatera sidan och rulla ned till ”hämta och installera manuellt definitionerna” av definitionerna. Hämta filen ”Windows Defender Antivirus för Windows 10 och Windows 8.1” 64-bitars.
+   Uppdatera sidan och bläddra ned till ”manuellt hämta och installera definitionerna” av definitionerna. Ladda ned filen ”Windows Defender Antivirus för Windows 10 och Windows 8.1” 64-bitars.
 
-   Du kan också använda [denna Direktlänk](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) att hämta/köra filen fpam fe.exe.
+   Du kan också använda [den här Direktlänk](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) download/kör fpam fe.exe-filen.
 
-2. Skapa en PowerShell-session till den SQL resource provider kortet virtuella datorns Underhåll slutpunkten.
+2. Skapa en PowerShell-session till den SQL resource provider nätverkskort virtuella datorns Underhåll slutpunkt.
 
-3. Kopiera filen definitioner uppdateringen till den virtuella datorn med Underhåll endpoint sessionen.
+3. Kopiera filen definitioner uppdatering till den virtuella datorn med Underhåll endpoint sessionen.
 
-4. Kör på Underhåll PowerShell-session på *uppdatering DBAdapterWindowsDefenderDefinitions* kommando.
+4. På Underhåll PowerShell-session och kör den *uppdatering DBAdapterWindowsDefenderDefinitions* kommando.
 
-5. När du har installerat definitioner, rekommenderar vi att du tar bort uppdateringsfilen definitioner genom att använda den *ta bort ItemOnUserDrive* kommando.
+5. När du har installerat definitionerna rekommenderar vi att du tar bort uppdateringsfilen definitioner genom att använda den *Remove-ItemOnUserDrive* kommando.
 
-**Exempel PowerShell-skript för uppdatering av definitioner.**
+**PowerShell-Skriptexemplet för att uppdatera definitioner.**
 
-Du kan redigera och kör följande skript för att uppdatera definitioner för Defender. Ersätt värdena i skriptet med värden från din miljö.
+Du kan redigera och kör följande skript för att uppdatera Defender-definitioner. Ersätt värdena i skriptet med värden från din miljö.
 
 ```powershell
 # Set credentials for local admin on the resource provider VM.
@@ -189,28 +189,28 @@ $session | Remove-PSSession
 
 ## <a name="collect-diagnostic-logs"></a>Samla in diagnostikloggar
 
-Du kan använda PowerShell bara tillräckligt Administration JEA ()-slutpunkten för att samla in loggar från låst virtuella *DBAdapterDiagnostics*. Den här slutpunkten innehåller följande kommandon:
+Du kan använda PowerShell tillräckligt Administration JEA ()-slutpunkten för att samla in loggar från den virtuella datorn som låst *DBAdapterDiagnostics*. Den här slutpunkten tillhandahåller följande kommandon:
 
-- **Get-AzsDBAdapterLog**. Det här kommandot skapar en zip-paketet resource provider diagnostik loggar och sparar filen på den sessionen enheten. Du kan köra det här kommandot utan några parametrar och de sista fyra timmarna loggar samlas in.
-- **Ta bort AzsDBAdapterLog**. Detta kommando tar bort den befintliga loggen paket på resursprovidern VM.
+- **Get-AzsDBAdapterLog**. Det här kommandot skapar ett zip-paket med resource provider-diagnostikloggar och sparar filen på den sessionen enheten. Du kan köra det här kommandot utan några parametrar och de sista fyra timmarna loggar samlas in.
+- **Ta bort AzsDBAdapterLog**. Det här kommandot tar bort den befintliga log paket på resursprovidern VM.
 
 ### <a name="endpoint-requirements-and-process"></a>Slutpunkten kraven och processen
 
-När en resursleverantör installerades eller uppdaterades, den **dbadapterdiag** användarkontot skapas. Det här kontot ska du använda för att samla in diagnostikloggar.
+När en resursprovider installerades eller uppdaterades, den **dbadapterdiag** användarkonto har skapats. Du använder det här kontot för att samla in diagnostikloggar.
 
 >[!NOTE]
->Dbadapterdiag kontolösenord är detsamma som det lösenord som används för lokal administratör på den virtuella datorn som skapas under en provider-distribution eller uppdatering.
+>Lösenordet för dbadapterdiag är samma som det lösenord som används för lokal administratör på den virtuella datorn som skapas under en provider-distribution eller uppdatering.
 
-Att använda den *DBAdapterDiagnostics* kommandon, skapa PowerShell-fjärrsession till resource provider virtuella datorn och kör den **Get-AzsDBAdapterLog** kommando.
+Du använder den *DBAdapterDiagnostics* kommandon, skapa en PowerShell-fjärrsession till resource provider virtuella datorn och kör den **Get-AzsDBAdapterLog** kommando.
 
-Du ställer in tidsintervallet för Logginsamling med den **FromDate** och **ToDate** parametrar. Om du inte anger något eller båda av dessa parametrar, används följande standardinställningar:
+Du ställer in tidsintervallet för loggar in med hjälp av den **FromDate** och **ToDate** parametrar. Om du inte anger någon eller båda av dessa parametrar, används följande standardinställningar:
 
 - FromDate är fyra timmar före aktuell tid.
 - ToDate är den aktuella tiden.
 
-**Exempel PowerShell-skript för insamling av loggar.**
+**PowerShell-Skriptexemplet för insamling av loggar.**
 
-Följande skript visar hur du samlar in diagnostikloggar från resursprovidern VM.
+Följande skript visar hur du samlar in diagnostiska loggar från resursprovidern VM.
 
 ```powershell
 # Create a new diagnostics endpoint session.
@@ -242,4 +242,4 @@ $session | Remove-PSSession
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lägg till SQL Server som värd för servrar](azure-stack-sql-resource-provider-hosting-servers.md)
+[Lägg till SQL Server som är värd för servrar](azure-stack-sql-resource-provider-hosting-servers.md)

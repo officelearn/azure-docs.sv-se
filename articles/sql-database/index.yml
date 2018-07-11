@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/01/2018
   ms.author: carlrab
-  ms.openlocfilehash: c159eec7a8674e57e6f7a815040527ed60966f46
-  ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+  ms.openlocfilehash: 5fcfe7b12acc943224d3c3158f2b39b4c35de1ee
+  ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 07/06/2018
-  ms.locfileid: "37887291"
+  ms.lasthandoff: 07/09/2018
+  ms.locfileid: "37916157"
 abstract:
   description: Azure SQL Database är en relationsdatabas-som-en-tjänst (DBaaS) som bygger på den senaste stabila versionen av Microsoft SQL Server Database-motorn. SQL Database är en högpresterande, tillförlitlig och säker databas som du kan använda för att skapa datadrivna program och webbplatser i valfritt programmeringsspråk, utan att behöva hantera infrastrukturen. Lär dig hur du använder SQL Database med våra snabbstarter, självstudier och exempel.
   aside:
@@ -48,12 +48,12 @@ sections:
       image:
         src: media/index/i_perftier.svg
       title: Pris-/prestandanivåer
-    - href: /azure/sql-database/sql-database-single-database-scale
+    - href: /azure/sql-database/sql-database-scale-resources
       html: <p>Du kan enkelt <a href="/azure/sql-database/sql-database-single-database-scale">skala upp</a>, <a href="/azure/sql-database/sql-database-read-scale-out">skala ut</a> eller dela upp dina databaser efter behov och därmed förbättra programmets prestanda.</p>
       image:
         src: media/index/i_scale.svg
       title: Skalbarhet och elasticitet
-    - href: /azure/sql-database/sql-database-automatic-tuning
+    - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
       html: <p>Släpp in inbyggd intelligens i tjänsten och <a href="/azure/sql-database/sql-database-automatic-tuning">justera databasprestandan automatiskt</a> och <a href="/azure/sql-database/sql-advanced-threat-protection">identifiera hot</a> och <a href="/azure/sql-database/sql-vulnerability-assessment">sårbarheter</a> i databasen.</p>
       image:
         src: media/index/i_intelligence.svg

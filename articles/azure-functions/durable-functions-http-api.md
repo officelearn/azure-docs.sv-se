@@ -15,42 +15,42 @@ ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
 ms.openlocfilehash: 3c000e268c4c926991c3f1928f226065a436c6d2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "36264893"
 ---
-# <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i varaktiga funktioner (Azure-funktioner)
+# <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i varaktiga funktioner (Azure Functions)
 
-Beständiga Task-tillägget visar en uppsättning HTTP-APIs som kan användas för att utföra följande uppgifter:
+Tillägget varaktiga uppgift visar en uppsättning HTTP-APIs som kan användas för att utföra följande uppgifter:
 
 * Hämta status för en orchestration-instans.
-* Skicka en händelse till en väntande orchestration-instans.
+* Skicka en händelse till en väntar orchestration-instans.
 * Avsluta en orchestration-instans som körs.
 
 
-Var och en av dessa HTTP APIs är en webhook-åtgärd som hanteras direkt av beständiga Task-tillägget. De är inte specifik för en funktion i appen funktion.
+Var och en av dessa HTTP APIs är en webhook-åtgärd som hanteras direkt av tillägget varaktiga uppgift. De är inte specifik för en funktion i funktionsappen.
 
 > [!NOTE]
-> Dessa åtgärder kan också anropas direkt med instanshantering API: er på den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klass. Mer information finns i [Instanshantering](durable-functions-instance-management.md).
+> Dessa åtgärder kan också anropas direkt med hjälp av API: er för instanshantering på den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klass. Mer information finns i [Instanshantering](durable-functions-instance-management.md).
 
 ## <a name="http-api-url-discovery"></a>HTTP-URL för API-identifiering
 
-Den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klassen visar en [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_) API som kan användas för att generera en HTTP-svar-nyttolast som innehåller länkar till alla åtgärder som stöds. Här är ett exempel på HTTP-utlösare funktion som visar hur du använder den här API:
+Den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klassen visar en [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_) API som kan användas för att generera en HTTP-svarsnyttolasten som innehåller länkar till alla åtgärder som stöds. Här är ett exempel HTTP-utlösare-funktion som visar hur du använder den här API:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
-Funktionen exempel genererar följande data för JSON-svar. Datatypen för alla fält är `string`.
+Den här funktionen exempel genererar följande JSON-data som svar. Datatypen för alla fält är `string`.
 
 | Fält             |Beskrivning                           |
 |-------------------|--------------------------------------|
 | id                |ID för orchestration-instans. |
 | statusQueryGetUri |Status för Webbadressen till orchestration-instans. |
-| sendEventPostUri  |”Rera händelse” URL till orchestration-instans. |
-| terminatePostUri  |”Avsluta” URL till orchestration-instans. |
+| sendEventPostUri  |”Rera händelse” Webbadressen till orchestration-instans. |
+| terminatePostUri  |”Avsluta” Webbadressen till orchestration-instans. |
 
-Här är ett exempelsvar:
+Här är ett exempel på ett svar:
 
 ```http
 HTTP/1.1 202 Accepted
@@ -66,52 +66,52 @@ Location: https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a2
 }
 ```
 > [!NOTE]
-> Formatet på webhook-URL: er kan variera beroende på vilken version av Azure Functions-värden som du kör. I exemplet ovan är för Azure Functions 2.0-värden.
+> Formatet för webhook-URL: er kan variera beroende på vilken version av Azure Functions-värden som du kör. I exemplet ovan är för Azure Functions 2.0-värden.
 
-## <a name="async-operation-tracking"></a>Asynkron åtgärd spårning
+## <a name="async-operation-tracking"></a>En asynkron åtgärd spårning
 
-HTTP-svar som tidigare nämnts är utformade för att implementera tidskrävande HTTP asynkrona API: er med beständiga funktioner. Detta ibland kallas den *avsökning Konsumentmönster*. Klient/server-flöde fungerar på följande sätt:
+HTTP-svar som tidigare nämnts är utformad för att implementera tidskrävande HTTP async API: er med varaktiga funktioner. Detta är kallas ibland den *avsökning Konsumentmönster*. Klient/server-flödet fungerar på följande sätt:
 
-1. Klienten skickar en HTTP-begäran att starta en tidskrävande process, till exempel en orchestrator-funktion.
-2. Mål HTTP-utlösaren returnerar ett HTTP-202 svar med en `Location` huvud med den `statusQueryGetUri` värde.
-3. Klienten avsöker URL-Adressen i den `Location` rubrik. Den fortsätter att se 202 HTTP-svar med en `Location` huvud.
-4. När instansen är klar (eller misslyckas), slutpunkt i den `Location` huvud returnerar HTTP 200.
+1. Klienten skickar en HTTP-begäran för att starta en tidskrävande process, till exempel en orchestrator-funktion.
+2. Target HTTP-utlösaren returnerar ett HTTP 202-svar med en `Location` huvud med den `statusQueryGetUri` värde.
+3. Klienten söker URL: en i den `Location` rubrik. Det fortsätter att se HTTP 202-svar med en `Location` rubrik.
+4. När instansen har slutförts (eller misslyckas), slutpunkt i den `Location` rubrik returnerar 200 HTTP.
 
-Det här protokollet kan samordna tidskrävande processer med externa klienter eller tjänster som stöder avsöka en HTTP-slutpunkt och följa den `Location` rubrik. Grundläggande uppgifter är redan inbyggd i varaktiga funktioner http-API: erna.
+Det här protokollet kan samordna tidskrävande processer med externa klienter eller tjänster som stöder avsöka en HTTP-slutpunkt och följa den `Location` rubrik. De grundläggande delarna är redan inbyggd i varaktiga funktioner http-API: erna.
 
 > [!NOTE]
-> Som standard är alla HTTP-baserade åtgärder som tillhandahålls av [Azure Logikappar](https://azure.microsoft.com/services/logic-apps/) standard asynkron åtgärd mönster. Den här funktionen gör det möjligt att bädda in en tidskrävande varaktiga funktion som en del av ett arbetsflöde för Logic Apps. Mer information om Logic Apps stöd för asynkron HTTP mönster kan hittas i den [Azure Logikappar åtgärder och utlösare dokumentationen](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
+> Som standard alla HTTP-baserade åtgärder som tillhandahålls av [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) stöder standard asynkron åtgärd mönstret. Den här funktionen gör det möjligt att bädda in en hållbar tidskrävande-funktion som en del av ett Logic Apps-arbetsflöde. Mer information om Logic Apps stödet för asynkrona HTTP-mönster finns i den [Azure Logic Apps arbetsflöde åtgärder och utlösare dokumentation](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
 
-## <a name="http-api-reference"></a>HTTP-API-referens
+## <a name="http-api-reference"></a>HTTP API-referens
 
-Alla HTTP APIs som implementerats av tillägget vidta följande parametrar. Datatypen för alla parametrar är `string`.
+Alla HTTP APIs som implementeras av tillägget Gör följande parametrar. Datatypen för alla parametrar är `string`.
 
-| Parameter  | Parametertypen  | Beskrivning |
+| Parameter  | Parametertyp  | Beskrivning |
 |------------|-----------------|-------------|
-| InstanceId | URL             | ID för orchestration-instans. |
-| taskHub    | Frågesträng    | Namnet på den [aktivitet hubb](durable-functions-task-hubs.md). Om inget annat anges, antas hubbnamnet för den aktuella funktionsapp aktivitet. |
-| anslutning | Frågesträng    | Den **namn** av anslutningssträngen för lagringskontot. Om inget annat anges, antas standardanslutningssträngen för funktionen appen. |
+| instanceId | URL             | ID för orchestration-instans. |
+| taskHub    | Frågesträng    | Namnet på den [uppgift hub](durable-functions-task-hubs.md). Om inte anges, antas hubbnamnet för den aktuella funktionsapp uppgift. |
+| anslutning | Frågesträng    | Den **namn** av anslutningssträngen för lagringskontot. Om inte anges, antas standardanslutningssträngen för funktionsappen. |
 | systemKey  | Frågesträng    | Auktoriseringsnyckeln som krävs för att anropa API: et. |
-| showHistory| Frågesträng    | Valfri parameter. Om värdet `true`, körningstiden orchestration ska inkluderas i svaret nyttolast.| 
-| showHistoryOutput| Frågesträng    | Valfri parameter. Om värdet `true`, aktiviteten matar ut tas med i historiken för orchestration-körning.| 
+| showHistory| Frågesträng    | Valfri parameter. Om inställd `true`, orchestration-körningshistorik tas med i svarets nyttolast.| 
+| showHistoryOutput| Frågesträng    | Valfri parameter. Om inställd `true`, aktiviteten matar ut tas med i orchestration-körningshistorik.| 
 
-`systemKey` är auktoriseringsnyckel genereras automatiskt av Azure Functions-värden. Den mer specifikt ger åtkomst till varaktiga Task-tillägget API: er och kan hanteras på samma sätt som [andra auktorisering nycklar](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Det enklaste sättet att identifiera den `systemKey` värdet är med hjälp av den `CreateCheckStatusResponse` API tidigare nämnts.
+`systemKey` är en auktoriseringsnyckeln automatiskt genererade av Azure Functions-värden. Den mer specifikt ger åtkomst till tillägget varaktiga uppgift API: er och kan hanteras på samma sätt som [andra auktorisering nycklar](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Det enklaste sättet att identifiera den `systemKey` värdet är med hjälp av den `CreateCheckStatusResponse` API tidigare nämnts.
 
-De följande avsnitten upp det specifika HTTP APIs stöds av tillägget och innehåller exempel på hur de kan användas.
+Följande avsnitt beskriver den specifika HTTP APIs stöds av tillägget och innehåller exempel på hur de kan användas.
 
-### <a name="get-instance-status"></a>Hämta instansens status
+### <a name="get-instance-status"></a>Här är en exempelbegäran som avslutar en instans som körs och anger en anledning för buggy:
 
-Hämtar status för en angiven orchestration-instans.
+Lär dig att hantera fel
 
 #### <a name="request"></a>Förfrågan
 
-För funktioner 1.0 är det begärandeformatet:
+För Functions 1.0 är format för förfrågan på följande sätt:
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
-Funktioner 2.0-format har samma parametrar, men har ett något annorlunda URL-prefix:
+Functions 2.0-formatet har samma parametrar, men har ett något annorlunda URL-prefix:
 
 ```http
 GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
@@ -119,26 +119,26 @@ GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 
 #### <a name="response"></a>Svar
 
-Flera möjliga kod statusvärden kan returneras.
+Flera möjliga status code-värden kan returneras.
 
 * **HTTP 200 (OK)**: den angivna instansen är i slutfört tillstånd.
 * **HTTP 202 (accepterad)**: den angivna instansen pågår.
 * **HTTP 400 (felaktig begäran)**: den angivna instansen misslyckades eller avbröts.
-* **HTTP 404 (inget hittas)**: den angivna instansen finns inte eller har inte startats.
+* **HTTP 404 (hittades inte)**: den angivna instansen finns inte eller har inte startats.
 
-Nyttolasten i svar för den **HTTP 200** och **HTTP 202** fall är en JSON-objekt med följande fält:
+Svarets nyttolast för den **HTTP 200** och **HTTP 202** fall är en JSON-objekt med följande fält:
 
 | Fält           | Datatyp | Beskrivning |
 |-----------------|-----------|-------------|
 | runtimeStatus   | sträng    | Körningsstatus för instansen. Värden är *kör*, *väntande*, *misslyckades*, *avbruten*, *Uppsagd*, *Slutförts*. |
 | indata           | JSON      | JSON-data som används för att initiera instansen. |
-| customStatus    | JSON      | JSON-data som används för anpassad orchestration status. Det här fältet är `null` om inte är aktiverad. |
+| customStatus    | JSON      | JSON-data som används för anpassad orkestreringsstatus. Det här fältet är `null` om det inte angetts. |
 | utdata          | JSON      | JSON-utdata för instansen. Det här fältet är `null` om instansen inte är i slutfört tillstånd. |
-| createdTime     | sträng    | Tiden då instansen har skapats. Använder ISO 8601 utökad notation. |
-| LastUpdatedTime | sträng    | Tiden då instansen senast sparade. Använder ISO 8601 utökad notation. |
-| historyEvents   | JSON      | En JSON-matris som innehåller körningstiden orchestration. Det här fältet är `null` såvida inte den `showHistory` frågesträngparametern är inställd på `true`.  | 
+| createdTime     | sträng    | Den tid då instansen har skapats. Använder ISO 8601 utökade notation. |
+| lastUpdatedTime | sträng    | Den tid då instansen senast sparade. Använder ISO 8601 utökade notation. |
+| historyEvents   | JSON      | En JSON-matris som innehåller orchestration-körningshistorik. Det här fältet är `null` såvida inte den `showHistory` frågesträngparametern anges till `true`.  | 
 
-Här är ett exempel svar nyttolast inklusive orchestration körning historik och aktivitet utdata (formaterad för att läsa):
+Här är ett exempel svarsnyttolasten inklusive orchestration historik och aktivitetens utdata från körningen (formaterad för läsbarhet):
 
 ```json
 {
@@ -197,17 +197,17 @@ Den **HTTP 202** svaret innehåller också en **plats** svarshuvud som refererar
 
 ### <a name="get-all-instances-status"></a>Hämta status för alla instanser
 
-Du kan också fråga status för alla instanser. Ta bort den `instanceId` i 'Get-instansens status-begäran. Parametrarna är samma som ”Get instansens status”. 
+Du kan också fråga status för alla instanser. Ta bort den `instanceId` i 'Hämta status för instans-begäran. Parametrarna är samma som ”Get-instans status”. 
 
 #### <a name="request"></a>Förfrågan
 
-För funktioner 1.0 är det begärandeformatet:
+För Functions 1.0 är format för förfrågan på följande sätt:
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
-Funktioner 2.0-format har samma parametrar, men ett något annorlunda URL-prefix: 
+Functions 2.0-formatet har samma parametrar men ett något annorlunda URL-prefix: 
 
 ```http
 GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
@@ -215,7 +215,7 @@ GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connecti
 
 #### <a name="response"></a>Svar
 
-Här är ett exempel på svar nyttolaster inklusive orchestration-status (formaterad för att läsa):
+Här är ett exempel på svar-nyttolaster som inkluderar orkestreringsstatus (formaterad för läsbarhet):
 
 ```json
 [
@@ -267,22 +267,22 @@ Här är ett exempel på svar nyttolaster inklusive orchestration-status (format
 ```
 
 > [!NOTE]
-> Den här åtgärden kan vara väldigt dyr vad gäller Azure Storage i/o, om det finns en mängd rader i tabellen instanser. Mer information om instansen tabellen finns i den [prestanda och skalning i varaktiga funktioner (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-perf-and-scale#instances-table) dokumentation.
+> Den här åtgärden kan vara väldigt kostsamt när det gäller Azure Storage i/o, om det finns många rader i tabellen instanser. Mer information om instansen tabellen finns i den [prestanda och skalning i varaktiga funktioner (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-perf-and-scale#instances-table) dokumentation.
 > 
 
-### <a name="raise-event"></a>Generera en händelse
+### <a name="raise-event"></a>Generera händelser
 
-Skickar en händelse för meddelande till en orchestration-instans som körs.
+Skickar en händelse-meddelande till en orchestration-instans som körs.
 
 #### <a name="request"></a>Förfrågan
 
-För funktioner 1.0 är det begärandeformatet:
+För Functions 1.0 är format för förfrågan på följande sätt:
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
-Funktioner 2.0-format har samma parametrar, men har ett något annorlunda URL-prefix:
+Functions 2.0-formatet har samma parametrar, men har ett något annorlunda URL-prefix:
 
 ```http
 POST /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
@@ -293,18 +293,18 @@ Parametrar för detta API innehåller en standarduppsättning som tidigare nämn
 | Fält       | Parametertyp  | Data tType | Beskrivning |
 |-------------|-----------------|-----------|-------------|
 | EventName   | URL             | sträng    | Namnet på den händelse som orchestration målinstansen väntar på. |
-| {innehåll}   | Begär innehåll | JSON      | JSON-formaterad händelsenyttolasten. |
+| {innehåll}   | Begära innehåll | JSON      | JSON-formaterad händelsenyttolast. |
 
 #### <a name="response"></a>Svar
 
-Flera möjliga kod statusvärden kan returneras.
+Flera möjliga status code-värden kan returneras.
 
-* **HTTP 202 (accepterad)**: upphöjt händelsen togs emot för bearbetning.
+* **HTTP 202 (accepterad)**: händelsen aktiverades togs emot för bearbetning.
 * **HTTP 400 (felaktig begäran)**: innehållet i begäran var inte av typen `application/json` eller är inte giltig JSON.
-* **HTTP 404 (inget hittas)**: Det gick inte att hitta den angivna instansen.
-* **HTTP 410 (Gone)**: den angivna instansen har slutförts eller misslyckats och det går inte att bearbeta upphöjt händelser.
+* **HTTP 404 (hittades inte)**: Det gick inte att hitta den angivna instansen.
+* **HTTP 410 ()**: den angivna instansen har slutförts eller misslyckats och det går inte att bearbeta alla händelser som har aktiverats.
 
-Här är en exempelbegäran som skickar JSON-strängen `"incr"` till en instans som väntar på att en händelse med namnet **åtgärden**:
+Här är en exempelbegäran som skickar JSON-sträng `"incr"` till en instans som väntar på en händelse med namnet **åtgärden**:
 
 ```
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
@@ -322,33 +322,33 @@ Avbryter en orchestration-instans som körs.
 
 #### <a name="request"></a>Förfrågan
 
-För funktioner 1.0 är det begärandeformatet:
+För Functions 1.0 är format för förfrågan på följande sätt:
 
 ```http
 DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
-Funktioner 2.0-format har samma parametrar, men har ett något annorlunda URL-prefix:
+Functions 2.0-formatet har samma parametrar, men har ett något annorlunda URL-prefix:
 
 ```http
 DELETE /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
-Begäran om parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parameter.
+Begära parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parameter.
 
-| Fält       | Parametertypen  | Datatyp | Beskrivning |
+| Fält       | Parametertyp  | Datatyp | Beskrivning |
 |-------------|-----------------|-----------|-------------|
-| orsak      | Frågesträng    | sträng    | Valfri. Orsak till avslutar orchestration-instans. |
+| orsak      | Frågesträng    | sträng    | Valfri. Orsak för att avsluta orchestration-instans. |
 
 #### <a name="response"></a>Svar
 
-Flera möjliga kod statusvärden kan returneras.
+Flera möjliga status code-värden kan returneras.
 
-* **HTTP 202 (accepterad)**: avsluta begäran accepterades för bearbetning.
-* **HTTP 404 (inget hittas)**: Det gick inte att hitta den angivna instansen.
-* **HTTP 410 (Gone)**: den angivna instansen har slutförts eller misslyckats.
+* **HTTP 202 (accepterad)**: avslutningsbegäran togs emot för bearbetning.
+* **HTTP 404 (hittades inte)**: Det gick inte att hitta den angivna instansen.
+* **HTTP 410 ()**: den angivna instansen har slutförts eller misslyckats.
 
-Här är en exempelbegäran som avslutar en instans som körs och anger en orsaken till **buggy**:
+Här är en exempelbegäran som avslutar en instans som körs och anger en anledning för **buggy**:
 
 ```
 DELETE /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX

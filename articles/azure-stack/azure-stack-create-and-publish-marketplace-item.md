@@ -1,6 +1,6 @@
 ---
-title: Skapa och publicera en Marketplace-objektet i Azure-stacken | Microsoft Docs
-description: Skapa och publicera en Marketplace-objektet i Azure-stacken.
+title: Skapa och publicera ett Marketplace-objekt i Azure Stack | Microsoft Docs
+description: Skapa och publicera ett Marketplace-objekt i Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -11,22 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5e0349d6bae9295e7a0ba9f366f84753ebd838c2
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 101686149c0e3faaf442c58f4002cbbfe0e72eaa
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "35647225"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Skapa och publicera ett Marketplace-objekt
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
 ## <a name="create-a-marketplace-item"></a>Skapa ett Marketplace-objekt
-1. [Hämta](http://www.aka.ms/azurestackmarketplaceitem) verktyget Azure-galleriet Paketeraren och exempel Azure Stack Marketplace-objektet.
-2. Öppna exempel Marketplace-objektet och Byt namn på den **SimpleVMTemplate** mapp. (Till exempel använda samma namn som din Marketplace-objekt – **Contoso.TodoList**.) Den här mappen innehåller:
+1. [Ladda ned](http://www.aka.ms/azurestackmarketplaceitem) verktyget Azure-galleriet Packager och exemplet Azure Stack Marketplace-objekt.
+2. Öppna exemplet Marketplace-objekt och Byt namn på den **SimpleVMTemplate** mapp. (Använd samma namn som din Marketplace-objekt – till exempel **Contoso.TodoList**.) Den här mappen innehåller:
    
        /Contoso.TodoList/
        /Contoso.TodoList/Manifest.json
@@ -34,18 +35,22 @@ ms.lasthandoff: 05/12/2018
        /Contoso.TodoList/Icons/
        /Contoso.TodoList/Strings/
        /Contoso.TodoList/DeploymentTemplates/
-3. [Skapa en Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) eller välj en mall från GitHub. Marketplace-objektet använder den här mallen för att skapa en resurs.
-4. Kontrollera att resursen kan distribueras genom att testa mallen med Microsoft Azure Stack-API: er.
-5. Om din mall är beroende av en avbildning av virtuell dator, följ instruktionerna för att [lägga till en avbildning av virtuell dator i Azure stapel](azure-stack-add-vm-image.md).
-6. Spara mallen Azure Resource Manager i den **/Contoso.TodoList/DeploymentTemplates/** mapp.
-7. Välj ikoner och text för Marketplace-objektet. Lägga till ikoner till den **ikoner** mapp, och lägga till text i den **resurser** filen i den **strängar** mapp. Använd liten, Medium, Large och Wide Namngivningskonventionen för ikoner. Se [Marketplace-objektet gränssnittsreferens](#reference-marketplace-item-ui) en detaljerad beskrivning.
+3. [Skapa en Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) eller välj en mall från GitHub. Marketplace-objekt använder den här mallen för att skapa en resurs.
+
+    > [!Note]  
+    > Aldrig hårt koda alla hemligheter som produktnycklar, lösenord eller kund identifierbar information i Azure Resource Manager-mallen. Mall för json-filerna är tillgängliga utan att använda autentisering när publicerat i galleriet.  Store alla hemligheter i [Key Vault](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-keyvault-parameter) och anropa dem från i mallen.
+
+4. Testa mallen med Microsoft Azure Stack-API: er för att säkerställa att resursen kan distribueras.
+5. Om din mall är beroende av en avbildning av virtuell dator, följer du anvisningarna för att [lägga till en avbildning av virtuell dator i Azure Stack](azure-stack-add-vm-image.md).
+6. Spara din Azure Resource Manager-mall i den **/Contoso.TodoList/DeploymentTemplates/** mapp.
+7. Välj ikoner och text för Marketplace-objekt. Lägg till ikoner i den **ikoner** mapp, och Lägg till text till den **resurser** fil i den **strängar** mapp. Använd Small, Medium, stor eller hela Namngivningskonventionen för ikoner. Se [Marketplace-objekt gränssnittsreferens](#reference-marketplace-item-ui) en detaljerad beskrivning.
    
    > [!NOTE]
-   > Alla fyra ikonstorlekar (small, medium, stora bred) krävs för att skapa Marketplace-objektet på rätt sätt.
+   > Alla fyra ikonstorlekar (liten, medel, stor eller hela) krävs för att skapa Marketplace-objekt på rätt sätt.
    > 
    > 
-8. I den **manifest.json** fil, ändra **namn** till namnet på din Marketplace-objektet. Ändra **publisher** till ditt namn eller företag.
-9. Under **artefakter**, ändra **namn** och **sökväg** Azure Resource Manager-mallen som du med rätt information.
+8. I den **manifest.json** filen, ändra **namn** till namnet på din Marketplace-objekt. Även ändra **publisher** till ditt namn eller organisation.
+9. Under **artefakter**, ändra **namn** och **sökväg** till rätt information för Azure Resource Manager-mall som du har lagt till.
    
          "artifacts": [
             {
@@ -54,52 +59,58 @@ ms.lasthandoff: 05/12/2018
                 "path": "DeploymentTemplates\\Type your path",
                 "isDefault": true
             }
-10. Ersätt **Mina Marketplace-objekt** med en lista över kategorier där Marketplace-objektet ska visas.
+10. Ersätt **Mina Marketplace-objekt** med en lista med de kategorier som var din Marketplace-objekt ska visas.
     
              "categories":[
                  "My Marketplace Items"
               ],
-11. För ytterligare redigeringar manifest.json, referera till [referens: Marketplace objektet manifest.json](#reference-marketplace-item-manifestjson).
-12. För att paketera mappar till en .azpkg-fil, öppna en kommandotolk och kör följande kommando:
+11. Alla ytterligare ändringar till manifest.json finns [referens: Marketplace objekt manifest.json](#reference-marketplace-item-manifestjson).
+12. Om du vill paketera mapparna i en .azpkg-fil, öppna en kommandotolk och kör följande kommando:
     
         AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
     
     > [!NOTE]
-    > Den fullständiga sökvägen till paketet utdata måste finnas. Om sökvägen för utdata är C:\MarketPlaceItem\yourpackage.azpkg, finnas exempelvis mappen C:\MarketPlaceItem.
+    > Den fullständiga sökvägen till utdata-paketet måste finnas. Exempelvis om sökvägen för utdata är C:\MarketPlaceItem\yourpackage.azpkg, måste mappen C:\MarketPlaceItem finnas.
     > 
     > 
 
 ## <a name="publish-a-marketplace-item"></a>Publicera ett Marketplace-objekt
-1. Använd PowerShell eller Azure Lagringsutforskaren för att överföra din Marketplace-objektet (.azpkg) till Azure Blob storage. Du kan överföra till lokal lagring i Azure Stack eller överför till Azure Storage. (Det är en tillfällig plats för paketet.) Kontrollera att blob är allmänt tillgänglig.
-2. Kontrollera att PowerShell-sessionen har ställts in med dina administratörsautentiseringsuppgifter för tjänsten på den virtuella klientdatorn i Microsoft Azure Stack-miljö. Du hittar anvisningar för hur du autentiserar PowerShell i Azure-stacken i [distribuera en mall med PowerShell](user/azure-stack-deploy-template-powershell.md).
-3. Använd den **Lägg till AzureRMGalleryItem** PowerShell-cmdlet för att publicera Marketplace-objektet till Azure-stacken. Exempel:
+1. Använda PowerShell eller Azure Storage Explorer för att överföra dina Marketplace-objekt (.azpkg) till Azure Blob storage. Du kan ladda upp till lokal lagring i Azure Stack eller överför till Azure Storage. (Det är en tillfällig plats för paketet.) Kontrollera att bloben är allmänt tillgänglig.
+2. Kontrollera att din PowerShell-session har ställts in med dina autentiseringsuppgifter för tjänsten på den virtuella klientdatorn i Microsoft Azure Stack-miljön. Du hittar anvisningar för hur du autentiserar PowerShell i Azure Stack i [distribuera en mall med PowerShell](user/azure-stack-deploy-template-powershell.md).
+3. När du använder [PowerShell 1.3.0]( azure-stack-powershell-install.md) eller senare, kan du använda den **Lägg till AzsGalleryItem** PowerShell-cmdlet för att publicera Marketplace-objekt till Azure Stack. Innan du använder PowerShell 1.3.0, använder du cmdlet **Lägg till AzureRMGalleryitem** i stället för **Lägg till AzsGalleryItem**.  Till exempel när du använder PowerShell 1.3.0 eller senare:
    
-       Add-AzureRMGalleryItem -GalleryItemUri `
+       Add-AzsGalleryItem -GalleryItemUri `
        https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
    
    | Parameter | Beskrivning |
    | --- | --- |
-   | Prenumerations-ID |Admin prenumerations-ID. Du kan hämta den med hjälp av PowerShell. Om du föredrar att hämta i portalen går du till providern prenumerationen och kopiera prenumerations-ID. |
-   | GalleryItemUri |BLOB-URI för gallery-paket som redan har överförts till lagring. |
+   | prenumerations-ID |Administratören prenumerations-ID. Du kan hämta den med hjälp av PowerShell. Om du vill hämta den i portalen, gå till providerprenumeration och kopiera prenumerations-ID. |
+   | GalleryItemUri |BLOB-URI för din gallery-paket som har redan överförts till lagring. |
    | Apiversion |Ange som **2015-04-01**. |
-4. Gå till portalen. Du kan nu se Marketplace-objektet i portalen--som operatör eller som en användare.
+4. Gå till portalen. Du kan nu se Marketplace-objekt i portalen – som en operatör eller som en användare.
    
    > [!NOTE]
    > Paketet kan ta flera minuter innan den visas.
    > 
    > 
-5. Marketplace-objektet har nu sparats på Azure Marketplace för stacken. Du kan välja att ta bort den från din lagringsplats för Blob.
-6. Du kan ta bort en Marketplace-objektet med hjälp av den **ta bort AzureRMGalleryItem** cmdlet. Exempel:
+5. Marketplace-objekt sparades nu på Azure Stack Marketplace. Du kan välja att ta bort den från din Blob storage-plats.
+    > [!Caution]  
+    > Alla standard-galleriet artefakter och artefakterna anpassat galleri är nu tillgängliga utan autentisering under följande webbadresser:  
+`https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`  
+`https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`  
+`https://systemgallery.blob.[Region].[external FQDN]/dev20161101-microsoft-windowsazure-gallery/[Template Name]/UiDefinition.json`
+
+6. Du kan ta bort ett Marketplace-objekt med hjälp av den **Remove-AzureRMGalleryItem** cmdlet. Exempel:
    
         Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    
    > [!NOTE]
-   > Marketplace-Gränssnittet kan indikera ett fel när du tar bort ett objekt. Åtgärda felet genom att klicka på **inställningar** i portalen. Markera **ignorera ändringar** under **Portal anpassning**.
+   > Marketplace-Användargränssnittet kan indikera ett fel när du har tagit bort ett objekt. Åtgärda felet genom att klicka på **inställningar** i portalen. Välj **ta bort ändringar** under **Portal anpassning**.
    > 
    > 
 
-## <a name="reference-marketplace-item-manifestjson"></a>Referens: Marketplace objektet manifest.json
-### <a name="identity-information"></a>Identitetsinformation
+## <a name="reference-marketplace-item-manifestjson"></a>Referens: Marketplace objekt manifest.json
+### <a name="identity-information"></a>ID-information
 | Namn | Krävs | Typ | Villkor | Beskrivning |
 | --- | --- | --- | --- | --- |
 | Namn |X |Sträng |[A-Za-z0-9]+ | |
@@ -109,29 +120,29 @@ ms.lasthandoff: 05/12/2018
 ### <a name="metadata"></a>Metadata
 | Namn | Krävs | Typ | Villkor | Beskrivning |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Sträng |Rekommendation av 80 tecken |Portalen kanske inte visar dina objektnamnet avslutas om det är längre än 80 tecken. |
-| PublisherDisplayName |X |Sträng |Rekommendation 30 tecken |Portalen kanske inte visar utgivarens namn utan problem om det är längre än 30 tecken. |
+| DisplayName |X |Sträng |Rekommendation på 80 tecken |Portalen kanske inte visar dina objektnamn utan problem om det är mer än 80 tecken. |
+| PublisherDisplayName |X |Sträng |Rekommendationen 30 tecken |Portalen kanske inte visar utgivarens namn utan problem om det är längre än 30 tecken. |
 | PublisherLegalName |X |Sträng |Maximalt 256 tecken | |
 | Sammanfattning |X |Sträng |60 och 100 tecken | |
-| LongSummary |X |Sträng |140 256 tecken |Inte ännu är tillämpliga i Azure-stacken. |
-| Beskrivning |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 till 5 000 tecken | |
+| Underordnat LongSummary |X |Sträng |140 till 256 tecken |Inte ännu är tillämpliga i Azure Stack. |
+| Beskrivning |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 5 000 tecken | |
 
 ### <a name="images"></a>Avbildningar
 Marketplace använder följande ikoner:
 
 | Namn | Bredd | Höjd | Anteckningar |
 | --- | --- | --- | --- |
-| Wide |255 px |115 px |Krävs alltid |
+| Brett |255 px |115 px |Krävs alltid |
 | Stor |115 px |115 px |Krävs alltid |
-| Medel |90 px |90 px |Krävs alltid |
-| Liten |40 px |40 px |Krävs alltid |
+| Medel |90 bildpunkter |90 bildpunkter |Krävs alltid |
+| Liten |40 bildpunkter |40 bildpunkter |Krävs alltid |
 | Skärmbild |533 px |32 bildpunkter |Valfri |
 
 ### <a name="categories"></a>Kategorier
-Varje Marketplace-objektet ska vara taggade med en kategori som identifierar där objektet visas på portalens användargränssnitt. Du kan välja något av de befintliga kategorierna i Azure-stacken (beräkning, Data + lagring, etc.) eller välj en ny.
+Varje Marketplace-objekt bör taggas med en kategori som identifierar där objektet visas på portalens användargränssnitt. Du kan välja något av de befintliga kategorierna i Azure Stack (beräkning, Data + lagring, o.s.v.) eller välja ett nytt.
 
 ### <a name="links"></a>Länkar
-Varje Marketplace-objekt kan innehålla olika länkar till ytterligare innehåll. Länkarna har angetts som en lista med namn och URI: er.
+Varje Marketplace-objekt kan innehålla olika länkar till ytterligare innehåll. Länkarna anges som en lista med namn och URI: er.
 
 | Namn | Krävs | Typ | Villkor | Beskrivning |
 | --- | --- | --- | --- | --- |
@@ -139,24 +150,24 @@ Varje Marketplace-objekt kan innehålla olika länkar till ytterligare innehåll
 | URI |X |URI | | |
 
 ### <a name="additional-properties"></a>Ytterligare egenskaper
-Utöver föregående metadata innehåller Marketplace författare anpassade nyckel/värde-par data i följande format:
+Utöver föregående metadata, kan Marketplace författare ge anpassad nyckel/värde-par data i följande format:
 
 | Namn | Krävs | Typ | Villkor | Beskrivning |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sträng |Högst 25 tecken | |
 | Värde |X |Sträng |Maximalt 30 tecken | |
 
-### <a name="html-sanitization"></a>HTML-rensning
-För alla fält som gör att HTML tillåts följande element och attribut:
+### <a name="html-sanitization"></a>Gemensamt för HTML
+För alla fält som gör att HTML, tillåts följande element och attribut:
 
-H1, h2, h3, h4, h5, p, ol, ul, li, en [target | href], br, starkt, em, b, jag
+H1, h2, h3, h4, h5, p, ol, ul, li, en [target | href], br, stark, em, b, jag
 
-## <a name="reference-marketplace-item-ui"></a>-Referens: UI Marketplace-objektet
+## <a name="reference-marketplace-item-ui"></a>Referens: Marketplace-objekt UI
 Ikoner och text för Marketplace-objekt som visas i Azure Stack-portalen är som följer.
 
 ### <a name="create-blade"></a>Bladet Skapa
 ![Bladet Skapa](media/azure-stack-marketplace-item-ui-reference/image1.png)
 
-### <a name="marketplace-item-details-blade"></a>Marketplace-objektet informationsbladet
-![Marketplace-objektet informationsbladet](media/azure-stack-marketplace-item-ui-reference/image3.png)
+### <a name="marketplace-item-details-blade"></a>Informationsblad för Marketplace-objekt
+![Informationsblad för Marketplace-objekt](media/azure-stack-marketplace-item-ui-reference/image3.png)
 

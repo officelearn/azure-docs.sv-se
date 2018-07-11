@@ -1,7 +1,7 @@
 ---
 title: Importera data till Machine Learning Studio | Microsoft Docs
-description: Hur du importerar data till Azure Machine Learning Studio från olika datakällor. Lär dig mer om vilka typer av data och dataformat stöds.
-keywords: Importera data, dataformatet, datatyper, datakällor, träningsdata
+description: Hur du importerar dina data till Azure Machine Learning Studio från olika datakällor. Lär dig vilka datatyper och dataformat stöds.
+keywords: Importera data, dataformat, datatyper, datakällor, utbildningsdata
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -17,63 +17,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.openlocfilehash: a5750555802489b41b007831164767beb953ebc4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "34837471"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importera dina utbildningsdata till Azure Machine Learning Studio från olika datakällor
-Om du vill använda dina egna data i Machine Learning Studio för att utveckla och träna en förutsägelseanalys, kan du: 
+Om du vill använda dina egna data i Machine Learning Studio för att utveckla och träna en lösning för förutsägelseanalys, kan du: 
 
-* överföra data från en **lokal fil** i förväg från hårddisken för att skapa en dataset-modul i arbetsytan
-* åtkomst till data från ett av flera **online datakällor** medan experimentet körs med hjälp av den [importera Data] [ import-data] modul 
-* använda data från en annan Azure Machine learning **experimentera** sparas som en datamängd
+* ladda upp data från en **lokal fil** förväg från hårddisken för att skapa en datauppsättning-modulen i din arbetsyta
+* komma åt data från ett av flera **onlinedatakällor** när experimentet körs med hjälp av den [importera Data] [ import-data] modul 
+* använda data från en annan Azure Machine learning **experimentera** sparas som en datauppsättning
 * använda data från en lokal **SQL Server-databas**
 
-Dessa alternativ beskrivs i något av avsnitt på menyn nedan. Dessa avsnitt visar hur man importerar data från dessa olika datakällor som ska användas i Machine Learning Studio. 
+Var och en av dessa alternativ beskrivs i avsnitt i menyn nedan. De här avsnitten visar hur du importerar data från dessa olika datakällor som ska användas i Machine Learning Studio. 
 
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 > [!NOTE]
-> Det finns ett antal provdatauppsättningar i Machine Learning Studio som du kan använda för träningsdata. Mer information om dessa finns [använder provdatauppsättningar i Azure Machine Learning Studio](use-sample-datasets.md)).
+> Det finns ett antal provdatauppsättningar i Machine Learning Studio som du kan använda för träningsdata. Information om dessa finns i [Använd exemplen på datauppsättningar i Azure Machine Learning Studio](use-sample-datasets.md)).
 > 
 > 
 
-Den här inledande avsnittet beskrivs hur du hämtar data redo för användning i Machine Learning Studio också och beskriver vilka dataformat och datatyper som stöds. 
+Den här inledande avsnittet beskrivs hur du förbereder data för användning i Machine Learning Studio också och beskriver vilka dataformat och datatyper som stöds. 
 
 > [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 > 
 > 
 
-## <a name="get-data-ready-for-use-in-azure-machine-learning-studio"></a>Hämta data som är redo för användning i Azure Machine Learning Studio
-Machine Learning Studio är avsedd att fungera med rektangulär eller tabular data, till exempel textdata som avgränsade eller strukturerade data från en databas, men i vissa fall icke-rektangulärt område data kan användas.
+## <a name="get-data-ready-for-use-in-azure-machine-learning-studio"></a>Förbereda data för användning i Azure Machine Learning Studio
+Machine Learning Studio är utformad för att arbeta med rektangulär eller tabular data, till exempel textdata som har avgränsade eller strukturerade data från en databas, men i vissa fall icke-rektangulär data kan användas.
 
 Det är bäst om dina data är relativt ren. Det vill säga vill du ta hand om problem som till exempel ociterade strängar innan du laddar upp data i experimentet.
 
-Det finns dock moduler som är tillgängliga i Machine Learning Studio som gör att vissa manipulation av data i experimentet. Beroende på de maskininlärningsalgoritmer du ska använda, kanske måste du bestämma hur du ska hantera data strukturella problem, till exempel värden som saknas och null-optimerade data och det finns moduler som kan hjälpa dig med som. Leta i den **Data Transformation** avsnitt i modulpaletten för moduler som utför dessa funktioner.
+Det finns dock moduler som är tillgängliga i Machine Learning Studio som gör att vissa manipulation av data i experimentet. Beroende på de machine learning-algoritmer som du ska använda, kanske måste du bestämma hur du ska hantera strukturella problem med till exempel värden som saknas och null-optimerade data och det finns moduler som kan hjälpa dig med som. Titta i den **Dataomvandling** avsnittet på modulpaletten för moduler som utför dessa funktioner.
 
-Du kan visa eller hämta data som produceras av en modul genom att klicka på utdataporten när som helst i experimentet. Det kan finnas olika hämtningsalternativ beroende på modulen, eller kanske du vill visualisera data i din webbläsare i Machine Learning Studio.
+Du kan visa eller ladda ned de data som produceras av en modul genom att klicka på utdataporten när som helst i experimentet. Det kan finnas olika hämtningsalternativ beroende på modulen eller du kan visualisera data i din webbläsare i Machine Learning Studio.
 
-## <a name="data-formats-and-data-types-supported"></a>Format och datatyper som stöds
-Du kan importera ett antal datatyper i experimentet, beroende på vilken metod du använder för att importera data och där det kommer från:
+## <a name="data-formats-and-data-types-supported"></a>Data-format och -datatyper som stöds
+Du kan importera en rad olika datatyper till ditt experiment, beroende på vilken metod du använder för att importera data och där det kommer från:
 
-* Oformaterad text (txt)
-* Fil med kommaavgränsade värden (CSV med ett huvud (.csv) eller utan) (. nh.csv)
-* Tabbavgränsade värden (TVS med ett huvud (TSV) eller utan) (. nh.tsv)
+* Oformaterad text (.txt)
+* Fil med kommaavgränsade värden (CSV med en rubrik (.csv) eller utan) (. nh.csv)
+* Tabbavgränsade värden (TVS med en rubrik (TSV) eller utan) (. nh.tsv)
 * Excel-fil
 * Azure-tabell
 * Hive-tabell
 * SQL-databastabell
 * OData-värden
 * SVMLight data (.svmlight) (se den [SVMLight definition](http://svmlight.joachims.org/) information format)
-* Attributet Relation File Format ARFF ()-data (.arff) (se den [ARFF definition](http://weka.wikispaces.com/ARFF) information format)
+* Attributet ARFF Relation File Format ()-data (.arff) (se den [ARFF definition](http://weka.wikispaces.com/ARFF) information format)
 * ZIP-filen (.zip)
-* R-objekt eller arbetsytan-fil (. RData)
+* R-objekt eller arbetsyta-fil (. RData)
 
-Om du importerar data i ett format till exempel ARFF som innehåller metadata använder dessa metadata definiera rubrik och datatypen för varje kolumn i Machine Learning Studio.
+Om du importerar data i ett format till exempel ARFF som innehåller metadata, använder Machine Learning Studio metadata för att definiera rubrik och datatypen för varje kolumn.
 
-Om du importerar data, till exempel TVS eller CSV-format som inte innehåller dessa metadata härleder Machine Learning Studio datatypen för varje kolumn av provtagning data. Om data inte har kolumnrubriker, tillhandahåller Machine Learning Studio standardnamn.
+Om du importerar data, till exempel TSV- eller CSV-format som inte innehåller metadata härleder Machine Learning Studio datatypen för varje kolumn genom att samlar data. Om data inte också har kolumnrubriker, tillhandahåller Machine Learning Studio standardnamn.
 
 Du kan uttryckligen ange eller ändra rubriker och datatyper för kolumner med hjälp av den [redigera Metadata][edit-metadata].
 
@@ -81,17 +81,17 @@ Följande **datatyper** som identifieras av Machine Learning Studio:
 
 * Sträng
 * Integer
-* dubbla
+* Double-värde
 * Boolesk
 * DateTime
-* TimeSpan
+* Tidsintervall
 
-Machine Learning Studio använder en intern datatyp som kallas ***datatabell*** att överföra data mellan moduler. Du kan uttryckligen konvertera data till tabellen format med hjälp av den [konvertera till Dataset] [ convert-to-dataset] modulen.
+Machine Learning Studio använder en intern datatyp som kallas ***datatabell*** att överföra data mellan moduler. Du kan uttryckligen omvandla dina data till datatabell format med hjälp av den [konvertera till datauppsättningen] [ convert-to-dataset] modulen.
 
-Alla moduler som accepterar format än datatabell konverterar data till tabellen tyst vidare till nästa modul.
+Alla moduler som format än datatabell konverterar data till datatabell tyst vidare till nästa modul.
 
-Om det behövs kan konvertera du datatabell format tillbaka till CSV, TVS, ARFF eller SVMLight format med hjälp av andra moduler för konvertering.
-Leta i den **Format datakonvertering** avsnitt i modulpaletten för moduler som utför dessa funktioner.
+Om det behövs kan konvertera du tabellformat med Data tillbaka till CSV, TVS, ARFF eller SVMLight format med hjälp av andra moduler för konvertering.
+Titta i den **Format datakonvertering** avsnittet på modulpaletten för moduler som utför dessa funktioner.
 
 <!-- Module References -->
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/

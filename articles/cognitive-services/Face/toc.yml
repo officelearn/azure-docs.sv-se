@@ -25,12 +25,14 @@
       href: QuickStarts/Python.md
     - name: Ruby
       href: QuickStarts/Ruby.md
+- name: Självstudier
+  items:
+    - name: 'C#'
+      href: Tutorials/FaceAPIinCSharpTutorial.md
 - name: Guider
   items:
     - name: Första appar för Ansikts-API
       items:
-        - name: 'C#'
-          href: Tutorials/FaceAPIinCSharpTutorial.md
         - name: Java för Android
           href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
         - name: Python

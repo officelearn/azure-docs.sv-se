@@ -21,9 +21,9 @@ Azure utför med jämna mellanrum uppdateringar för att förbättra värdinfras
 
 - Om en omstart krävs för underhåll, får du ett meddelande om när det planerade underhållet. I dessa fall kan också får du ett tidsfönster som där du kan starta underhållet själv, samtidigt som passar dig.
 
-Den här sidan beskriver hur Microsoft Azure utför båda typerna av underhåll. Mer information om oplanerade händelser (avbrott) finns i Hantera tillgängligheten för virtuella datorer för [Windows] (.. / articles/virtual-machines/windows/manage-availability.md) eller [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Den här sidan beskriver hur Microsoft Azure utför båda typerna av underhåll. Mer information om oplanerade händelser (avbrott) finns i Hantera tillgängligheten för virtuella datorer för [Windows] (.. /articles/virtual-machines/windows/manage-availability.md) eller [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Program som körs på en virtuell dator kan samla in information om kommande uppdateringar med hjälp av Azure Metadata Service för [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) eller [Linux] (.. / articles/virtual-machines/linux/instance-metadata-service.md).
+Program som körs på en virtuell dator kan samla in information om kommande uppdateringar med hjälp av Azure Metadata Service för [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) eller [Linux] (.. /articles/virtual-machines/linux/instance-metadata-service.md).
 
 ”” Instruktioner om hur du hanterar planerat underhåll, finns i ”Hantera meddelanden planerat underhåll” för [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) eller [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 

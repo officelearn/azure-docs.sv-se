@@ -8,16 +8,21 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 99f150b2c62331a63e5bd4377f51fd11359628ab
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a0146c0bf2b5a10f27cb59e32978aa6dff8f5982
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436036"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916334"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arkivera Azure diagnostikloggar
 
 I den här artikeln visar vi hur du kan använda Azure portal, PowerShell-Cmdlets, CLI eller REST API för att arkivera dina [Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla dina diagnostikloggar med en princip för valfri kvarhållningstid för granskning, statiska analys eller säkerhetskopiering. Storage-kontot behöver inte finnas i samma prenumeration som resursen loggarna så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
+
+> [!WARNING]
+> Formatet för loggdata i storage-kontot ändras till JSON-rader 1 november 2018. [Se den här artikeln för en beskrivning av inverkan och hur du uppdaterar ditt verktyg för att hantera det nya formatet.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 ## <a name="prerequisites"></a>Förutsättningar
 

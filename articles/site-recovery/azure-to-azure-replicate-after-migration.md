@@ -1,46 +1,46 @@
 ---
-title: Konfigurera katastrofåterställning för virtuella Azure-datorer efter migrering till Azure med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du förbereda datorer för att ställa in katastrofåterställning mellan Azure-regioner efter migrering till Azure med Azure Site Recovery.
+title: Konfigurera haveriberedskap för virtuella Azure-datorer efter migrering till Azure med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du förbereder du datorer för att konfigurera haveriberedskap mellan Azure-regioner efter migrering till Azure med hjälp av Azure Site Recovery.
 services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: c42a997560ee40eb0a587b81a6f191f372e0dd26
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 85ebb141390e0fa6b4dfbd77d7b7d3f6844950d7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716014"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916470"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Konfigurera katastrofåterställning för virtuella Azure-datorer efter migrering till Azure 
+# <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Konfigurera haveriberedskap för virtuella Azure-datorer efter migrering till Azure 
 
 
-Använd den här artikeln när du har [migreras lokala datorer till virtuella datorer i Azure](tutorial-migrate-on-premises-to-azure.md) med hjälp av den [Site Recovery](site-recovery-overview.md) service. Den här artikeln hjälper dig att förbereda virtuella Azure-datorer för att konfigurera återställning till en sekundär Azure region med Site Recovery.
+Använd den här artikeln när du har [migreras lokala datorer till virtuella Azure-datorer](tutorial-migrate-on-premises-to-azure.md) med hjälp av den [Site Recovery](site-recovery-overview.md) service. Den här artikeln hjälper dig att förbereda virtuella Azure-datorer för att konfigurera haveriberedskap till en sekundär Azure-region med Site Recovery.
 
 
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Kontrollera att migreringen har slutförts korrekt innan du konfigurerar katastrofåterställning. Om du vill för att slutföra en migrering efter växling vid fel, bör du välja den **slutföra migreringen** alternativet för varje dator som du vill migrera. 
+Innan du konfigurerar haveriberedskap, se till att migreringen har slutförts som förväntat. För att slutföra en migrering, efter redundansen, ska du välja den **fullständig migrering** alternativet för varje dator som du vill migrera. 
 
 
 
 ## <a name="install-the-azure-vm-agent"></a>Installera Azure VM-agenten
 
-Azure [VM-agenten](../virtual-machines/extensions/agent-windows.md) måste vara installerat på den virtuella datorn så att Site Recovery kan replikera den.
+Azure [VM-agenten](../virtual-machines/extensions/agent-windows.md) måste installeras på den virtuella datorn, så att Site Recovery kan replikera den.
 
 
-1. Om du vill installera den Virtuella datoragenten på virtuella datorer som kör Windows, hämta och köra den [installationsprogrammet för agenten](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du behöver administratörsrättigheter på den virtuella datorn för att slutföra installationen.
-2. Om du vill installera den Virtuella datoragenten på virtuella datorer som kör Linux, installera senast [Linux-agenten](../virtual-machines/extensions/agent-linux.md). Du måste ha administratörsbehörighet för att slutföra installationen. Vi rekommenderar att du installerar från databasen för din distribution. Vi rekommenderar inte installation av Linux VM-agenten direkt från GitHub. 
+1. Installera VM-agenten på virtuella datorer som kör Windows genom att ladda ned och kör den [agentinstalleraren](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du behöver admin-behörighet på den virtuella datorn för att slutföra installationen.
+2. Om du vill installera VM-agenten på datorer som kör Linux, installera senast [linuxagenten](../virtual-machines/extensions/agent-linux.md). Du måste ha administratörsbehörighet för att slutföra installationen. Vi rekommenderar att du installerar från din lagringsplats för distribution. Vi rekommenderar inte att du installerar Linux VM-agenten direkt från GitHub. 
 
 
 ## <a name="validate-the-installation-on-windows-vms"></a>Verifiera installationen på virtuella Windows-datorer
 
-1. Du bör se filen WaAppAgent.exe på Azure VM, i mappen C:\WindowsAzure\Packages.
-2. Högerklicka på filen och i **egenskaper**, Välj den **information** fliken.
-3. Kontrollera att den **produktversionen** fältet visar 2.6.1198.718 eller högre.
+1. Du bör se filen WaAppAgent.exe på Azure-dator, i mappen C:\WindowsAzure\Packages.
+2. Högerklicka på filen, och i **egenskaper**väljer den **information** fliken.
+3. Kontrollera att den **produktversion** fältet visar 2.6.1198.718 eller högre.
 
 
 
@@ -48,14 +48,14 @@ Azure [VM-agenten](../virtual-machines/extensions/agent-windows.md) måste vara 
 
 Observera att om du migrerar lokala virtuella VMware-datorer (eller fysiska servrar) till Azure:
 
-- Du behöver bara installera den Virtuella Azure-agenten om mobilitetstjänsten installeras på den migrerade datorn är v9.6 eller tidigare.
-- På virtuella Windows-datorer kör version 9.7.0.0 mobilitetstjänsten och senare, installerar service installationsprogrammet senaste tillgängliga Virtuella Azure-agenten. När du migrerar uppfylla dessa virtuella datorer redan installationen av nödvändiga för alla VM-tillägg, inklusive tillägget Site Recovery.
-- Du måste avinstallera mobilitetstjänsten manuellt från Azure VM, med någon av följande metoder. Starta om den virtuella datorn innan du konfigurerar replikering.
-    - För Windows i Kontrollpanelen > **Lägg till/ta bort program**, avinstallera **Microsoft Azure Site Recovery Mobility tjänsten eller Huvudtjänsten målservern**. Kör vid en upphöjd kommandotolk:
+- Du behöver bara installera Azure VM-agenten om mobilitetstjänsten installerad på den migrerade datorn är v9.6 eller tidigare.
+- På Windows virtuella datorer som kör version 9.7.0.0 av mobilitetstjänsten och senare, installerar installationsprogrammet service senaste tillgängliga Azure VM-agenten. När du migrerar uppfyller de virtuella datorerna redan kraven för alla VM-tillägg, inklusive Site Recovery-tillägget agentinstallationen.
+- Du måste avinstallera mobilitetstjänsten manuellt från Azure-dator, med någon av följande metoder. Starta om den virtuella datorn innan du konfigurerar replikering.
+    - För Windows i Kontrollpanelen > **Lägg till/ta bort program**, avinstallera **Microsoft Azure Site Recovery Mobility Service/huvudmålservern**. Kör i en upphöjd kommandotolk:
         ```
         MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
         ```
-    - För Linux, logga in en rotanvändare. Gå till i en terminal **/user/local/ASR**, och kör följande kommando:
+    - För Linux, logga in en rotanvändare. I en terminal, går du till **/user/local/ASR**, och kör följande kommando:
         ```
         uninstall.sh -Y
         ```
@@ -63,4 +63,4 @@ Observera att om du migrerar lokala virtuella VMware-datorer (eller fysiska serv
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Replikera snabbt](azure-to-azure-quickstart.md) en Azure VM till en sekundär region.
+[Replikera snabbt](azure-to-azure-quickstart.md) en Azure-dator till en sekundär region.

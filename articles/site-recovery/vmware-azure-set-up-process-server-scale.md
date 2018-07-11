@@ -1,65 +1,65 @@
 ---
-title: Ställ in en processerver i Azure för VM VMware och fysiska servrar återställning med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du ställer in en processerver i Azure, återställa virtuella Azure-datorer för VMware.
+title: Konfigurera en processerver i Azure för VMware VM och fysisk återställning efter fel med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du ställer in en processerver i Azure för återställning efter fel virtuella datorer i Azure till VMware.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/10/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 3e53954341136a293052f9af755515a5552432fe
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: MT
+ms.openlocfilehash: ade47c59a8db673869ce8c60a062a2a6a6656ca2
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300855"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916317"
 ---
-# <a name="set-up-additional-process-servers-for-scalability"></a>Konfigurera ytterligare servrar för skalbarhet
+# <a name="set-up-additional-process-servers-for-scalability"></a>Konfigurera ytterligare processervrar för skalbarhet
 
-Som standard när du replikera virtuella VMware-datorer eller fysiska servrar till Azure med hjälp av [Site Recovery](site-recovery-overview.md), en processerver är installerad på configuration server-datorn och används för att samordna dataöverföring mellan Site Recovery och lokal infrastruktur. Om du vill öka kapaciteten och skala upp replikeringsdistributionen, kan du lägga till ytterligare fristående servrar. Den här artikeln beskriver hur du gör detta.
+Som standard när du replikerar virtuella VMware-datorer eller fysiska servrar till Azure med hjälp av [Site Recovery](site-recovery-overview.md), en processerver är installerad på configuration server-datorn och används för att samordna data som överförs mellan Site Recovery och den lokala infrastrukturen. För att öka kapacitet och skala upp replikeringsdistributionen kan du lägga till ytterligare fristående processervrar. Den här artikeln beskriver hur du gör detta.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
 ### <a name="capacity-planning"></a>Kapacitetsplanering
 
-Kontrollera att du har utfört [kapacitetsplanering](site-recovery-plan-capacity-vmware.md) för VMware-replikering. Detta hjälper dig att identifiera hur och när du ska distribuera ytterligare servrar.
+Kontrollera att du har utfört [kapacitetsplanering](site-recovery-plan-capacity-vmware.md) för VMware-replikering. Detta hjälper dig att identifiera hur och när du ska distribuera ytterligare processervrar.
 
-### <a name="sizing-requirements"></a>Storlek för krav 
+### <a name="sizing-requirements"></a>Storlekskraven 
 
-Kontrollera storlek kraven sammanfattas i tabellen. Om du behöver skala distributionen till fler än 200 källdatorer eller du har totalt dagligen omsättningsuppdateringar av mer än 2 TB, måste du i allmänhet ytterligare servrar att hantera trafikvolymen.
+Kontrollera storlekskraven sammanfattas i tabellen. Om du behöver skala distributionen till fler än 200 källdatorer, eller så har du totalt dagligen dataomsättningsfrekvensen på mer än 2 TB, måste du i allmänhet ytterligare processervrar att hantera trafik.
 
-| **Ytterligare processervern** | **Cachestorleken för disk** | **Dataändringshastighet** | **Skyddade datorer** |
+| **Kompletterande processervern** | **Cachestorleken för disk** | **Dataändringshastigheten** | **Skyddade datorer** |
 | --- | --- | --- | --- |
-|4 vCPUs (2 sockets * 2 kärnor @ 2,5 GHz), 8 GB minne |300 GB |250 GB eller mindre |Replikera 85 eller mindre datorer. |
-|8 vCPUs (2 sockets * 4 kärnor @ 2,5 GHz), 12 GB minne |600 GB |250 GB till 1 TB |Replikera mellan 85 150 datorer. |
-|12 vCPUs (2 sockets * 6 kärnor @ 2,5 GHz) 24 GB minne |1 TB |1 TB till 2 TB |Replikera mellan 150 225 datorer. |
+|4 virtuella processorer (2 platser * 2 kärnor @ 2,5 GHz), 8 GB minne |300 GB |250 GB eller mindre |Replikera datorer 85 eller mindre. |
+|8 virtuella processorer (2 platser * 4 kärnor @ 2,5 GHz), 12 GB minne |600 GB |250 GB till 1 TB |Replikera mellan 85 150 datorer. |
+|12 virtuella processorer (2 platser * @ 2,5 GHz-6 kärnor) 24 GB minne |1 TB |1 TB till 2 TB |Replikera mellan 150 225 datorer. |
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-Krav för ytterligare processervern sammanfattas i följande tabell.
+Krav för den kompletterande processervern sammanfattas i tabellen nedan.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
-## <a name="download-installation-file"></a>Hämta installationsfilen
+## <a name="download-installation-file"></a>Ladda ned installationsfilen
 
-Hämta installationsfilen för processervern på följande sätt:
+Hämta installationsfilen för processervern enligt följande:
 
-1. Logga in på Azure-portalen och bläddra till Recovery Services-ventilen.
+1. Logga in på Azure portal och bläddra till ditt Recovery Services-valv.
 2. Öppna **Site Recovery-infrastruktur** > **VMWare och fysiska datorer** > **Konfigurationsservrar** (under för VMware och fysiska Datorer).
-3. Välj konfigurationsservern och öka detaljnivån till serverinformation. Klicka på **+ Processervern**.
-4. I **lägga till processervern** >  **Välj där du vill distribuera processervern**väljer **distribuera en skalbar Processerver lokala**.
+3. Välj configuration server att granska nedåt i server-information. Klicka sedan på **+ Processervern**.
+4. I **lägga till processerver** >  **Välj där du vill distribuera processervern**väljer **distribuera en skalbar Processerver lokalt**.
 
-  ![Lägg till servrar på sidan](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
-1. Klicka på **ladda ned Microsoft Azure Site Recovery Unified installationsprogrammet**. Här kan du hämta den senaste versionen av installationsfilen.
+  ![Lägg till servrar sida](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+1. Klicka på **ladda ned Microsoft Azure Site Recovery ett enhetligt installationsprogram**. Då hämtas den senaste versionen av installationsfilen.
 
   > [!WARNING]
-  Processerverversionen installation ska vara samma som, eller tidigare än har configuration server-version du kör. Ett enkelt sätt att kontrollera versionskompatibiliteten är att använda samma installationsprogram som senast användes för att installera eller uppdatera din konfigurationsservern.
+  Processerverversionen för installation måste vara samma som, eller tidigare än, configuration server-version du har som körs. Ett enkelt sätt att kontrollera versionskompatibiliteten är att använda samma installationsprogram som senast användes för att installera eller uppdatera konfigurationsservern.
 
 ## <a name="install-from-the-ui"></a>Installera från Användargränssnittet
 
-Installera på följande sätt. När du har installerat på servern, kan du migrera källdatorer för att använda den.
+Installera på följande sätt. När du skapat servern kan migrera du källdatorer för att använda den.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-add-process-server.md)]
 
@@ -85,7 +85,7 @@ UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /
 ```
 ### <a name="create-a-proxy-settings-file"></a>Skapa en fil med proxyinställningar
 
-Om du behöver konfigurera en proxyserver använder parametern ProxySettingsFilePath en fil som indata. Du kan skapa filen enligt följande och överför den som indataparameter till ProxySettingsFilePath.
+Om du vill konfigurera en proxyserver använder parametern ProxySettingsFilePath en fil som indata. Du kan skapa filen på följande sätt och skicka dem som indataparameter till ProxySettingsFilePath.
 
 ```
 * [ProxySettings]

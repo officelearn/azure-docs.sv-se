@@ -1,87 +1,87 @@
 ---
 title: Replikera virtuella Hyper-V-datorer med PowerShell och Azure Resource Manager | Microsoft Docs
-description: Automatisera replikering av Hyper-V virtuella datorer till Azure med Azure Site Recovery med PowerShell och Azure Resource Manager.
+description: Automatisera replikeringen av Hyper-V-datorer till Azure med Azure Site Recovery med PowerShell och Azure Resource Manager.
 services: site-recovery
 author: bsiva
 manager: abhiag
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: 18ed9566cd265ef851f914a59e10f6973bdc0d86
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 13456dc53f85f6f26aab222ab0cb499aabb7d1cc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31596712"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916239"
 ---
-# <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Ställ in återställning till Azure för Hyper-V virtuella datorer med PowerShell och Azure Resource Manager
+# <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Konfigurera katastrofåterställning till Azure för Hyper-V-datorer med PowerShell och Azure Resource Manager
 
-[Azure Site Recovery](site-recovery-overview.md) bidrar till din affärskontinuitet och haveriberedskap (BCDR) genom att samordna replikering, redundans och återställning av virtuella Azure-datorer (VM), och lokala virtuella datorer och fysiska servrar.
+[Azure Site Recovery](site-recovery-overview.md) bidrar till verksamhetskontinuitet och haveriberedskap (BCDR) genom att samordna replikering, redundans och återställning av virtuella Azure-datorer (VM) och lokala datorer och fysiska servrar.
 
-Den här artikeln beskriver hur du använder Windows PowerShell, tillsammans med Azure Resource Manager för att replikera virtuella Hyper-V-datorer till Azure. Exemplet i den här artikeln visar hur du replikerar en enda virtuell dator körs på en Hyper-V-värd till Azure.
+Den här artikeln beskriver hur du använder Windows PowerShell, tillsammans med Azure Resource Manager för att replikera Hyper-V-datorer till Azure. Exemplet i den här artikeln visar hur du replikerar en enda virtuell dator som körs på en Hyper-V-värd till Azure.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell tillhandahåller för att hantera Azure med hjälp av Windows PowerShell-cmdlets. Site Recovery PowerShell-cmdletar tillgängliga med Azure PowerShell för Azure Resource Manager hjälpa dig att skydda och återställa dina servrar i Azure.
+Azure PowerShell tillhandahåller cmdletar för att hantera Azure med hjälp av Windows PowerShell. Site Recovery PowerShell-cmdletar, tillgängliga med Azure PowerShell för Azure Resource Manager kan hjälpa dig att skydda och återställa dina servrar i Azure.
 
-Du behöver inte vara en expert PowerShell att använda den här artikeln, men du behöver förstå grundläggande begrepp som moduler, cmdletar och sessioner. Läs [komma igång med Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx), och [med hjälp av Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
+Du behöver inte vara en expert PowerShell att använda den här artikeln, men du behöver att förstå grundläggande begrepp, t.ex moduler, cmdlets och sessioner. Läs [komma igång med Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx), och [med hjälp av Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 > [!NOTE]
-> Microsoft-partner i Cloud Solution Providers (CSP)-program kan konfigurera och hantera skydd av kunden servrar till sina respektive CSP-prenumerationer (klient subscriptions).
+> Microsoft-partner i programmet Cloud Solution Provider (CSP) kan konfigurera och hantera skydd av kunden servrar till sina respektive CSP-prenumerationer (klient-prenumerationer).
 >
 >
 
 ## <a name="before-you-start"></a>Innan du börjar
-Kontrollera att du har dessa krav är uppfyllda:
+Kontrollera att du har dessa krav på plats:
 
 * En [Microsoft Azure](https://azure.microsoft.com/) konto. Du kan börja med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/). Dessutom kan du läsa om [priser för Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
-* Azure PowerShell 1.0. Information om den här versionen och hur du installerar det finns [Azure PowerShell 1.0.](https://azure.microsoft.com/)
+* Azure PowerShell 1.0. Information om den här versionen och hur du installerar den finns i [Azure PowerShell 1.0.](https://azure.microsoft.com/)
 * Den [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) och [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) moduler. Du kan hämta de senaste versionerna av dessa moduler från den [PowerShell-galleriet](https://www.powershellgallery.com/)
 
-Dessutom har specifika exempel som beskrivs i den här artikeln följande krav:
+Specifika exemplet som beskrivs i den här artikeln har dessutom följande krav:
 
-* En Hyper-V-värd som kör Windows Server 2012 R2 eller Microsoft Hyper-V Server 2012 R2 som innehåller en eller flera virtuella datorer. Hyper-V-servrar ska vara ansluten till Internet, antingen direkt eller via en proxyserver.
-* De virtuella datorerna som du vill replikera måste uppfylla [förutsättningarna](hyper-v-azure-support-matrix.md#replicated-vms).
+* Hyper-V-värd som kör Windows Server 2012 R2 eller Microsoft Hyper-V Server 2012 R2 som innehåller en eller flera virtuella datorer. Hyper-V-servrar bör vara ansluten till Internet, antingen direkt eller via en proxyserver.
+* De virtuella datorerna som du vill replikera bör överensstämma med [förutsättningarna](hyper-v-azure-support-matrix.md#replicated-vms).
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Steg 1: Logga in på ditt Azure-konto
 
-1. Öppna ett PowerShell-konsolen och kör det här kommandot för att logga in på ditt Azure-konto. Cmdlet öppnar en webbsida uppmanar dig att dina autentiseringsuppgifter: **Connect-AzureRmAccount**.
-    - Alternativt kan du inkludera autentiseringsuppgifterna för ditt konto som en parameter i den **Connect-AzureRmAccount** cmdlet, med hjälp av den **-autentiseringsuppgifter** parameter.
-    - Om du är CSP-partner som arbetar för en klient måste du ange kunden som en klient med hjälp av deras primära domännamn tenantID eller klienten. Till exempel: **Connect-AzureRmAccount-klient ”fabrikam.com”**
-2. Koppla den prenumeration som du vill använda med konto, eftersom ett konto kan ha flera prenumerationer:
+1. Öppna en PowerShell-konsol och kör detta kommando för att logga in på ditt Azure-konto. Cmdlet: en som öppnas en webbsida uppmanar dig att autentiseringsuppgifterna för ditt konto: **Connect-AzureRmAccount**.
+    - Alternativt kan du kan inkludera autentiseringsuppgifterna för ditt konto som en parameter i den **Connect-AzureRmAccount** cmdlet, med hjälp av den **-Credential** parametern.
+    - Om du är CSP-partner som arbetar för en klient kan du ange kunden som en klient med hjälp av deras primära domännamn tenantID eller -klient. Till exempel: **Connect-AzureRmAccount-klient ”fabrikam.com”**
+2. Koppla den prenumeration du vill använda med konto, eftersom ett konto kan ha flera prenumerationer:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
 
-3. Kontrollera att prenumerationen är registrerad för att använda Azure-providers för återställningstjänster och Site Recovery med dessa kommandon:
+3. Kontrollera att din prenumeration har registrerats för att använda Azure-providers för Recovery Services- och Site Recovery kan använda följande kommandon:
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
 
-4. Kontrollera att kommandots utdata den **RegistrationState** är inställd på **registrerade**, du kan gå vidare till steg 2. Om så inte är fallet, bör du registrera providern saknas i din prenumeration genom att köra följande kommandon:
+4. Kontrollera att i utdata från kommandot den **RegistrationState** är inställd på **registrerad**, Fortsätt till steg 2. Om inte, du bör registrera saknas-providern i din prenumeration genom att köra följande kommandon:
 
     `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery` `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
-5. Kontrollera att de registrerats, med följande kommandon:
+5. Kontrollera att Providers, registrerad med följande kommandon:
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
 
 ## <a name="step-2-set-up-the-vault"></a>Steg 2: Konfigurera valvet
 
-1. Skapa en resursgrupp i Azure Resource Manager att skapa valvet, eller Använd en befintlig resursgrupp. Skapa en ny resursgrupp på följande sätt. Variabeln $ResourceGroupName innehåller namnet på resursgruppen som du vill skapa och variabeln $Geo innehåller Azure-region där du vill skapa resursgrupp (till exempel ”södra”).
+1. Skapa en Azure Resource Manager-resursgrupp där du vill skapa valvet eller Använd en befintlig resursgrupp. Skapa en ny resursgrupp på följande sätt. $ResourceGroupName variabeln som innehåller namnet på resursgruppen som du vill skapa och variabeln $Geo innehåller Azure-region där du vill skapa en resursgrupp (till exempel ”södra Brasilien”).
 
     `New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Geo` 
 
-2. Hämta en lista över resursgrupper i din prenumeration kör den **Get-AzureRmResourceGroup** cmdlet.
-2. Skapa ett nytt Azure Recovery Services-valv enligt följande:
+2. Att erhålla en lista över resursgrupper i prenumerationen som kör den **Get-AzureRmResourceGroup** cmdlet.
+2. Skapa ett nytt Azure Recovery Services-valv på följande sätt:
 
         $vault = New-AzureRmRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
     Du kan hämta en lista över befintliga valv med den **Get-AzureRmRecoveryServicesVault** cmdlet.
 
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>Steg 3: Ange kontext för Recovery Services-valvet
+## <a name="step-3-set-the-recovery-services-vault-context"></a>Steg 3: Ange kontext för Recovery Services-valv
 
-Ange valvet kontexten enligt följande:
+Ange valvkontexten på följande sätt:
 
 `Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault`
 
@@ -92,30 +92,30 @@ Ange valvet kontexten enligt följande:
         $sitename = "MySite"                #Specify site friendly name
         New-AzureRmSiteRecoverySite -Name $sitename
 
-2. Denna cmdlet startar ett Site Recovery-jobb för att skapa en plats och returnerar ett jobbobjekt för Site Recovery. Vänta tills jobbet har slutförts och kontrollera att jobbet har slutförts.
-3. Använd den **cmdlet Get-AzureRmSiteRecoveryJob**, för att hämta objektet och kontrollera aktuell status för jobbet.
-4. Generera och ladda ned en registreringsnyckel för platsen, på följande sätt:
+2. Denna cmdlet startar ett Site Recovery-jobb för att skapa platsen och returnerar ett jobbobjekt för Site Recovery. Vänta tills jobbet slutförts och kontrollera att jobbet har slutförts.
+3. Använd den **cmdlet Get-AzureRmSiteRecoveryJob**, för att hämta objektet och kontrollera den aktuella statusen för jobbet.
+4. Skapa och ladda ned en registreringsnyckel för platsen, på följande sätt:
 
     ```
     $SiteIdentifier = Get-AzureRmSiteRecoverySite -Name $sitename | Select -ExpandProperty SiteIdentifier
         Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName $sitename -Path $Path
     ```
 
-5. Kopiera den nedladdade nyckeln till Hyper-V-värden. Du behöver för att registrera Hyper-V-värden till platsen.
+5. Kopiera den nedladdade nyckeln till Hyper-V-värden. Du behöver för att registrera Hyper-V-värden till webbplatsen.
 
 ## <a name="step-5-install-the-provider-and-agent"></a>Steg 5: Installera providern och agenten
 
 1. Hämta installationsprogrammet för den senaste versionen av providern från [Microsoft](https://aka.ms/downloaddra).
 2. Kör installationsprogrammet på theHyper-V-värd.
-3. I slutet av installationen fortsätter du till steg registrering.
-4. När du uppmanas, ange den hämta nyckeln och slutföra registreringen av Hyper-V-värden.
-5. Kontrollera att Hyper-V-värden är registrerad på platsen på följande sätt:
+3. Fortsätta att registreringssteget i slutet av installationen.
+4. När du uppmanas, ange den hämta nyckeln och slutför registreringen av Hyper-V-värden.
+5. Kontrollera att Hyper-V-värd har registrerats till webbplatsen på följande sätt:
 
         $server =  Get-AzureRmSiteRecoveryServer -FriendlyName $server-friendlyname
 
 ## <a name="step-6-create-a-replication-policy"></a>Steg 6: Skapa en replikeringsprincip
 
-Innan du börjar, Observera att storage-konto som angetts ska vara i samma Azure-region som valvet och ska ha geo-replikering aktiverat.
+Innan du börjar bör du Observera att det angivna lagringskontot ska vara i samma Azure-region som valvet och ska ha geo-replikering aktiverat.
 
 1. Skapa en replikeringsprincip enligt följande:
 
@@ -126,29 +126,29 @@ Innan du börjar, Observera att storage-konto som angetts ska vara i samma Azure
 
         $PolicyResult = New-AzureRmSiteRecoveryPolicy -Name $PolicyName -ReplicationProvider “HyperVReplicaAzure” -ReplicationFrequencyInSeconds $ReplicationFrequencyInSeconds  -RecoveryPoints $Recoverypoints -ApplicationConsistentSnapshotFrequencyInHours 1 -RecoveryAzureStorageAccountId $storageaccountID
 
-2. Kontrollera returnerade jobbet för att säkerställa att replikeringen princip skapandet lyckas.
+2. Kontrollera det returnerade jobbet för att säkerställa att skapandet en replikeringsprincip lyckas.
 
 3. Hämta skyddsbehållaren som motsvarar platsen, på följande sätt:
 
         $protectionContainer = Get-AzureRmSiteRecoveryProtectionContainer
-3. Koppla skyddsbehållaren till replikeringsprincipen, enligt följande:
+3. Associera skyddsbehållaren med replikeringsprincipen, enligt följande:
 
-     $Policy = get-AzureRmSiteRecoveryPolicy - FriendlyName $PolicyName $associationJob = Start AzureRmSiteRecoveryPolicyAssociationJob-princip $Policy - PrimaryProtectionContainer $protectionContainer
+     $Policy = get-AzureRmSiteRecoveryPolicy - FriendlyName $PolicyName $associationJob = Start AzureRmSiteRecoveryPolicyAssociationJob-principen $Policy - PrimaryProtectionContainer $protectionContainer
 
-4. Vänta tills jobbet association ska slutföras.
+4. Vänta tills jobbet är kopplingen har slutförts.
 
-## <a name="step-7-enable-vm-protection"></a>Steg 7: Aktivera skydd av Virtuella datorer
+## <a name="step-7-enable-vm-protection"></a>Steg 7: Aktivera skydd av virtuell dator
 
-1. Hämta entiteten skydd som motsvarar den virtuella datorn som du vill skydda på följande sätt:
+1. Hämta protection entiteten som motsvarar den virtuella datorn som du vill skydda på följande sätt:
 
         $VMFriendlyName = "Fabrikam-app"                    #Name of the VM
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
-2. Skydda den virtuella datorn. Om den virtuella datorn som du skyddar innehåller mer än en disk ansluten till den, anger du operativsystemdisk med hjälp av den *OSDiskName* parameter.
+2. Skydda den virtuella datorn. Om den virtuella datorn som du skyddar innehåller mer än en disk som är kopplade till den, anger du operativsystemets disk med hjälp av den *OSDiskName* parametern.
 
         $Ostype = "Windows"                                 # "Windows" or "Linux"
         $DRjob = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity -Policy $Policy -Protection Enable -RecoveryAzureStorageAccountId $storageaccountID  -OS $OStype -OSDiskName $protectionEntity.Disks[0].Name
 
-3. Vänta tills de virtuella datorerna till ett skyddat läge efter den inledande replikeringen. Detta kan ta en stund, beroende på faktorer som mängden data som ska replikeras och den överordnade bandbredden till Azure. När ett skyddat läge är på plats, uppdateras jobbets status och StateDescription på följande sätt: 
+3. Vänta tills de virtuella datorerna ska nå ett skyddat läge efter den första replikeringen. Det kan ta en stund, beroende på faktorer som mängden data som ska replikeras och den tillgängliga bandbredden för uppströms till Azure. När ett skyddat läge är på plats, uppdateras jobbstatus och StateDescription på följande sätt: 
 
         PS C:\> $DRjob = Get-AzureRmSiteRecoveryJob -Job $DRjob
 
@@ -157,7 +157,7 @@ Innan du börjar, Observera att storage-konto som angetts ska vara i samma Azure
 
         PS C:\> $DRjob | Select-Object -ExpandProperty StateDescription
         Completed
-4. Uppdatera recovery egenskaper (till exempel Virtuella-rollstorlek) och Azure-nätverk som du vill bifoga VM NIC efter växling vid fel.
+4. Uppdatera recovery egenskaper (till exempel VM-rollstorlek) och Azure-nätverk som du vill koppla VM NIC efter en redundansväxling.
 
         PS C:\> $nw1 = Get-AzureRmVirtualNetwork -Name "FailoverNw" -ResourceGroupName "MyRG"
 
@@ -192,17 +192,17 @@ Innan du börjar, Observera att storage-konto som angetts ska vara i samma Azure
 
 
 ## <a name="step-8-run-a-test-failover"></a>Steg 8: Köra ett redundanstest
-1. Köra ett redundanstest på följande sätt:
+1. Kör ett redundanstest på följande sätt:
 
         $nw = Get-AzureRmVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group
 
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -FriendlyName $VMFriendlyName -ProtectionContainer $protectionContainer
 
         $TFjob = Start-AzureRmSiteRecoveryTestFailoverJob -ProtectionEntity $protectionEntity -Direction PrimaryToRecovery -AzureVMNetworkId $nw.Id
-2. Kontrollera att testet VM har skapats i Azure. Testa redundans jobb pausas när du har skapat den Virtuella testdatorn i Azure.
-3. Om du vill rensa och slutför redundanstestet, kör du:
+2. Kontrollera att testet VM skapas i Azure. Testjobb för redundans är inaktiverad när du har skapat den Virtuella testdatorn i Azure.
+3. Om du vill rensa och utför redundanstestet, kör du:
 
         $TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
 ## <a name="next-steps"></a>Nästa steg
-[Lär dig mer](https://msdn.microsoft.com/library/azure/mt637930.aspx) om Azure Site Recovery med Azure Resource Manager PowerShell-cmdlets.
+[Läs mer](https://msdn.microsoft.com/library/azure/mt637930.aspx) om Azure Site Recovery med Azure Resource Managers PowerShell-cmdletar.

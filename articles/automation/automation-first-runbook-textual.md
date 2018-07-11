@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4f91cfcce3643d96f241cb5408efc2455367c336
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 32ad5ef4f297a64f0925febb247ccb117dffedf0
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435712"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928598"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Min första PowerShell Workflow-runbook
 
@@ -113,7 +113,10 @@ du har testat och publicerat din runbook, men hittills gör den egentligen inget
    ```
 
    > [!IMPORTANT]
-   > **Add-AzureRmAccount** och **Login-AzureRmAccount** är nu alias för **Connect-AzureRMAccount**. Om den **Connect-AzureRMAccount** cmdlet inte finns kan du använda **Add-AzureRmAccount** eller **Login-AzureRmAccount**, eller så kan du uppdatera dina moduler i ditt Automation Hänsyn till de senaste versionerna.
+   > **Add-AzureRmAccount** och **Login-AzureRmAccount** är nu alias för **Connect-AzureRMAccount**. Om den **Connect-AzureRMAccount** cmdlet inte finns kan du använda **Add-AzureRmAccount** eller **Login-AzureRmAccount**, eller så kan du [uppdatera dina moduler ](automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. 
+
+> [!NOTE]
+> Du kan behöva [uppdatera dina moduler](automation-update-azure-modules.md) även om du just har skapat ett nytt automation-konto.
 
 5. Klicka på **Testfönster** så att du kan testa runbooken.
 6. Starta testet genom att klicka på **Starta**. När testet är klart visas utdata som liknar de nedan, med grundläggande information från ditt konto. Detta bekräftar att autentiseringsuppgifterna är giltiga.<br><br> ![Autentisera](media/automation-first-runbook-textual/runbook-auth-output.png)

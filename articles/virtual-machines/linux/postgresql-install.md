@@ -1,9 +1,9 @@
 ---
-title: Ställ in PostgreSQL på en Linux-VM | Microsoft Docs
-description: Lär dig hur du installerar och konfigurerar PostgreSQL på en Linux-dator i Azure
+title: Konfigurera PostgreSQL på en Linux VM | Microsoft Docs
+description: Lär dig att installera och konfigurera PostgreSQL på en Linux-dator i Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,35 +14,35 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
-ms.author: iainfou
-ms.openlocfilehash: 7741f861c5697da1e453c0d613b4b762511cf555
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: cynthn
+ms.openlocfilehash: 903e94cfa932ddd93a931caa8888d93f1bdfe365
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30241019"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932739"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installera och konfigurera PostgreSQL på Azure
-PostgreSQL är en avancerad liknande Oracle och DB2 databas med öppen källkod. Den innehåller funktioner för enterprise-redo som fullständig ACID kompatibilitet, tillförlitlig transaktionell bearbetning och flera version samtidighetskontroll. Det stöder också standarder, till exempel ANSI SQL och SQL/MED (inklusive externa data omslutningar för Oracle, MySQL, MongoDB och många andra). Det är mycket utökningsbart med stöd för över 12 procedurmässig språk, GIN och GiST index, stöd för spatial data och flera NoSQL-liknande funktioner för JSON- eller key-värde-baserade program.
+PostgreSQL är en avancerad databas för öppen källkod liknar Oracle och DB2. Den innehåller företagsklara funktioner, till exempel fullständig ACID efterlevnad, tillförlitlig transaktionsbearbetning och flera versioner samtidighetskontroll. Det stöder även standarder som ANSI SQL och SQL/MED (inklusive externa data omslutningar för Oracle, MySQL, MongoDB och många andra). Det är mycket utökningsbart med stöd för över 12 procedurmässig språk, GIN och GiST index, stöd för spatialdata och flera NoSQL-liknande funktioner för JSON eller nyckel-värde-baserade program.
 
-I den här artikeln får du lära dig hur du installerar och konfigurerar PostgreSQL på en Azure-dator som kör Linux.
+I den här artikeln får lära du dig att installera och konfigurera PostgreSQL på Azure-datorer som kör Linux.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="install-postgresql"></a>Installera PostgreSQL
 > [!NOTE]
-> Du måste redan ha en Azure-dator som kör Linux för att kunna slutföra den här kursen. Om du vill skapa och konfigurera en Linux-VM innan du fortsätter, finns det [virtuella Azure Linux-datorn kursen](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Du måste redan ha en Azure virtuell dator som kör Linux för att kunna slutföra den här självstudien. Om du vill skapa en Linux VM innan du fortsätter se den [virtuell Linux-dator självstudien](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
-I det här fallet Använd port 1999 som PostgreSQL-port.  
+I så fall använda port 1999 som PostgreSQL-port.  
 
-Ansluta till Linux VM som du skapade via PuTTY. Om du använder en Azure Linux VM Se [hur du använder SSH med Linux på Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) information om hur du använder PuTTY för att ansluta till en Linux-VM.
+Ansluta till Linux-dator som du skapade via PuTTY. Om detta är första gången du använder en virtuell Linux-dator, se [hur du använder SSH med Linux på Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) att lära dig hur du använder PuTTY för att ansluta till en Linux-VM.
 
 1. Kör följande kommando för att växla till roten (admin):
    
         # sudo su -
-2. Vissa distributioner har beroenden som måste installeras innan du installerar PostgreSQL. Kontrollera om din distro i listan och köra ett kommando:
+2. Vissa distributioner har beroenden som måste installeras innan du installerar PostgreSQL. Sök efter din distribution i den här listan och kör lämpligt kommando:
    
    * Red Hat grundläggande Linux:
      
@@ -53,14 +53,14 @@ Ansluta till Linux VM som du skapade via PuTTY. Om du använder en Azure Linux V
    * SUSE Linux:
      
            # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
-3. Hämta PostgreSQL i rotkatalogen och packa upp paketet:
+3. Ladda ned PostgreSQL till rotkatalogen och packa upp paketet:
    
         # wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
    
         # tar jxvf  postgresql-9.3.5.tar.bz2
    
-    Detta är ett exempel. Du kan hitta mer detaljerad hämta adressen i den [Index/pub/källa /](https://ftp.postgresql.org/pub/source/).
-4. Du börjar bygga genom att köra följande kommandon:
+    Ovanstående är ett exempel. Du hittar mer detaljerad download-adressen i den [Index/pub/källa /](https://ftp.postgresql.org/pub/source/).
+4. Om du vill starta bygget kör du följande kommandon:
    
         # cd postgresql-9.3.5
    
@@ -89,10 +89,10 @@ Ansluta till Linux VM som du skapade via PuTTY. Om du använder en Azure Linux V
         # su - postgres
    
    > [!NOTE]
-   > Av säkerhetsskäl använder en rotanvändare PostgreSQL för att initiera, starta eller stänga av databasen.
+   > Av säkerhetsskäl använder en icke-rotanvändare PostgreSQL för att starta, starta eller stänga av databasen.
    > 
    > 
-4. Redigera den *bash_profile* filen genom att ange nedanstående kommandon. Dessa rader läggs till i slutet av den *bash_profile* fil:
+4. Redigera den *bash_profile* filen genom att ange kommandona nedan. De här raderna som ska läggas till i slutet av den *bash_profile* fil:
    
         cat >> ~/.bash_profile <<EOF
         export PGPORT=1999
@@ -106,14 +106,14 @@ Ansluta till Linux VM som du skapade via PuTTY. Om du använder en Azure Linux V
         alias rm='rm -i'
         alias ll='ls -lh'
         EOF
-5. Köra den *bash_profile* fil:
+5. Kör den *bash_profile* fil:
    
         $ source .bash_profile
 6. Verifiera installationen med hjälp av följande kommando:
    
         $ which psql
    
-    Om installationen lyckas visas följande meddelande:
+    Om installationen lyckas visas följande svar:
    
         /opt/pgsql/bin/psql
 7. Du kan också kontrollera PostgreSQL-version:
@@ -123,11 +123,11 @@ Ansluta till Linux VM som du skapade via PuTTY. Om du använder en Azure Linux V
    
         $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
    
-    Du bör få följande utdata:
+    Du får följande utdata:
 
-![Bild](./media/postgresql-install/no1.png)
+![image](./media/postgresql-install/no1.png)
 
-## <a name="set-up-postgresql"></a>Ställ in PostgreSQL
+## <a name="set-up-postgresql"></a>Konfigurera PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
 
 Kör följande kommandon:
@@ -142,7 +142,7 @@ Kör följande kommandon:
 
     # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![Bild](./media/postgresql-install/no2.png)
+![image](./media/postgresql-install/no2.png)
 
 Ändra så att den körbara filen:
 
@@ -158,22 +158,22 @@ Kontrollera om slutpunkten för PostgreSQL finns på:
 
 Du bör se följande utdata:
 
-![Bild](./media/postgresql-install/no3.png)
+![image](./media/postgresql-install/no3.png)
 
 ## <a name="connect-to-the-postgres-database"></a>Ansluta till databasen Postgres
 Växla till postgres användaren igen:
 
     # su - postgres
 
-Skapa en Postgres databas:
+Skapa en Postgres-databas:
 
     $ createdb events
 
-Anslut till databasen händelser som du just har skapat:
+Anslut till databasen för händelser som du nyss skapade:
 
     $ psql -d events
 
-## <a name="create-and-delete-a-postgres-table"></a>Skapa och ta bort en Postgres tabell
+## <a name="create-and-delete-a-postgres-table"></a>Skapa och ta bort en Postgres-tabell
 Nu när du har anslutit till databasen kan skapa du tabeller i den.
 
 Till exempel skapa en ny exempel Postgres tabell med hjälp av följande kommando:
@@ -182,29 +182,29 @@ Till exempel skapa en ny exempel Postgres tabell med hjälp av följande kommand
 
 Du har nu konfigurerat en tabell med fyra kolumner med följande kolumnnamn och begränsningar:
 
-1. Kolumnen ”namn” begränsade av kommandot VARCHAR ska vara mindre än 20 tecken.
-2. Kolumnen ”mat” anger mat-objekt som kommer att få varje person. VARCHAR begränsar texten för att vara under 30 tecken.
-3. Kolumnen ”bekräftad” innehåller information om personen som har svarat på knytkalas. Godkända värden är ”Y” och ”N”.
-4. I ”dag” kolumnen visas när de registrerar sig för händelsen. Postgres kräver att skrivas datum som åååå-mm-dd.
+1. Kolumnen ”name” har varit begränsade av VARCHAR-kommando för att vara mindre än 20 tecken.
+2. Kolumnen ”mat” anger mat-objekt som varje person kommer att få. VARCHAR begränsar texten för att vara 30 tecken.
+3. Kolumnen ”bekräftad” innehåller information om personen har svarat på knytkalas. Godkända värden är ”Y” och ”N”.
+4. ”Datum” kolumnen visas när de registrerat sig för händelsen. Postgres kräver att datum skrivs som åååå-mm-dd.
 
 Om din tabell har skapats bör du se följande:
 
-![Bild](./media/postgresql-install/no4.png)
+![image](./media/postgresql-install/no4.png)
 
 Du kan också kontrollera tabellstrukturen med hjälp av följande kommando:
 
-![Bild](./media/postgresql-install/no5.png)
+![image](./media/postgresql-install/no5.png)
 
-### <a name="add-data-to-a-table"></a>Lägg till data i en tabell
-Börja lägga till information i en rad:
+### <a name="add-data-to-a-table"></a>Lägga till data i en tabell
+Först lägga till information i en rad:
 
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
 
 Du bör se dessa utdata:
 
-![Bild](./media/postgresql-install/no6.png)
+![image](./media/postgresql-install/no6.png)
 
-Du kan lägga till några fler personer tabellen. Här följer några alternativ eller skapa egna:
+Du kan lägga till några fler personer samt i tabellen. Här följer några alternativ eller skapa egna:
 
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Sandy', 'Key Lime Tarts', 'N', '2012-04-14');
 
@@ -213,13 +213,13 @@ Du kan lägga till några fler personer tabellen. Här följer några alternativ
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Tina', 'Salad', 'Y', '2012-04-18');
 
 ### <a name="show-tables"></a>Visa tabeller
-Använd följande kommando om du vill visa en tabell:
+Använd följande kommando för att visa en tabell:
 
     select * from potluck;
 
 Utdata är:
 
-![Bild](./media/postgresql-install/no7.png)
+![image](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>Ta bort data i en tabell
 Använd följande kommando för att ta bort data i en tabell:
@@ -228,14 +228,14 @@ Använd följande kommando för att ta bort data i en tabell:
 
 Detta tar bort all information på raden ”John”. Utdata är:
 
-![Bild](./media/postgresql-install/no8.png)
+![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Uppdatera data i en tabell
-Använd följande kommando för att uppdatera data i en tabell. För den här har Sandy bekräftat att hon deltar, så vi ändrar sin RSVP från ”N” till ”Y”:
+Använd följande kommando för att uppdatera data i en tabell. För den här en har Sandy bekräftat att hon var med oss, så vi ändrar sin RSVP från ”N” till ”Y”:
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 
 
-## <a name="get-more-information-about-postgresql"></a>Mer information om PostgreSQL
-Nu när du har slutfört installationen av PostgreSQL i en Azure Linux-dator kan få du med i Azure. Mer information om PostgreSQL finns i [PostgreSQL webbplats](http://www.postgresql.org/).
+## <a name="get-more-information-about-postgresql"></a>Få mer information om PostgreSQL
+Nu när du har slutfört installationen av PostgreSQL i en virtuell Linux-dator, kan du är nöjd med den i Azure. Om du vill veta mer om PostgreSQL kan du gå till den [PostgreSQL webbplats](http://www.postgresql.org/).
 

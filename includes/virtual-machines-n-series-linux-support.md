@@ -8,33 +8,33 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 0264f92fa10bd503a2811ce40ee0b8d4edd5f3b1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1813367a2d143f75fb51a3160dd00219c709c57b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34669840"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37935804"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distributioner och drivrutiner som stöds
 
-### <a name="nvidia-cuda-drivers"></a>NVIDIA CUDA drivrutiner
+### <a name="nvidia-cuda-drivers"></a>NVIDIA CUDA-drivrutiner
 
-NVIDIA CUDA drivrutiner för NC, NCv2, NCv3 och ND-serien virtuella datorer (valfritt för NV-serien) stöds endast på Linux-distributioner som visas i följande tabell. CUDA drivrutinsinformation är aktuella vid tiden för publikationen. De senaste drivrutinerna för CUDA, finns det [NVIDIA](https://developer.nvidia.com/cuda-zone) webbplats. Se till att du installerar eller uppgraderar till de senaste drivrutinerna för CUDA för din distribution. 
+NVIDIA CUDA-drivrutiner för NC, NCv2, NCv3 och ND-serien virtuella datorer (valfritt för NV-serien) stöds endast på Linux-distributioner som visas i följande tabell. CUDA drivrutinsinformation är aktuella vid tidpunkten för publiceringen. De senaste drivrutinerna för CUDA, finns det [NVIDIA](https://developer.nvidia.com/cuda-zone) webbplats. Se till att du installerar eller uppgraderar till de senaste drivrutinerna för CUDA för din distribution. 
 
 > [!TIP]
-> Du kan distribuera en Azure som ett alternativ till manuell installation av CUDA på en Linux-VM [datavetenskap virtuella](../articles/machine-learning/data-science-virtual-machine/overview.md) bild. DSVM utgåvor för Ubuntu 16.04 LTS eller CentOS 7.4 förinstallation NVIDIA CUDA drivrutiner, nätverksbibliotek CUDA djupa Neurala och andra verktyg.
+> Som ett alternativ till manuell installation av CUDA på en Linux VM kan du distribuera en Azure [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) bild. DSVM-versioner för Ubuntu 16.04 LTS och CentOS 7.4 förinstallation NVIDIA CUDA-drivrutiner, CUDA djupa Neurala nätverksbibliotek och andra verktyg.
 
 | Distribution | Drivrutin |
 | --- | -- | 
 | Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 eller 7.4<br/><br/> CentOS-baserade 7.3 eller 7.4, CentOS-baserade 7.4 HPC | NVIDIA CUDA 9.1, drivrutinen gren R390 |
 
-### <a name="nvidia-grid-drivers"></a>NVIDIA RUTNÄTET drivrutiner
+### <a name="nvidia-grid-drivers"></a>NVIDIA GRID-drivrutiner
 
-Microsoft distribuerar NVIDIA RUTNÄTET drivrutinen installationsprogram för NV-serien VMs användas som virtuella arbetsstationer eller för virtuella program. Installera endast drivrutinerna RUTNÄTET på Azure NV VMs endast för distributioner som visas i följande tabell. De här drivrutinerna inkluderar licensiering för RUTNÄTET virtuella GPU-programvara i Azure.
+Microsoft distribuerar NVIDIA GRID drivrutinen installationsprogram för NV-serien virtuella datorer som används som virtuella arbetsstationer eller till virtuella program. Installera endast de här drivrutinerna RUTNÄTET på NV virtuella datorer i Azure, endast för distributioner som visas i följande tabell. Dessa faktorer är licensiering för GRID virtuella GPU-programvara i Azure.
 
 | Distribution | Drivrutin |
 | --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 eller 7.4<br/><br/>CentOS 7.3 eller 7.4 | NVIDIA RUTNÄTET 6.0, drivrutinen gren R390|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 eller 7.4<br/><br/>CentOS-baserade 7.3 eller 7.4 | NVIDIA GRID 6.2, drivrutinen gren R390|
 
 
 

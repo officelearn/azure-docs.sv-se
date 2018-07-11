@@ -1,9 +1,9 @@
 ---
-title: Distribuera virtuella Linux-datorer i Azure | Microsoft Docs
-description: Hur du distribuerar virtuella Linux-datorer i Azure för att minimera SSH-anslutningsproblem.
+title: Distribuera om Linux-datorer i Azure | Microsoft Docs
+description: Så här att distribuera om Linux-datorer i Azure för att minimera SSH-anslutningsproblem.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 tags: azure-resource-manager,top-support-issue
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
@@ -13,39 +13,39 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
-ms.author: iainfou
-ms.openlocfilehash: 484e23f7f5800faf4a1d83c2386e0c766c3a1f2d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: cynthn
+ms.openlocfilehash: 1bd13c35ed49aeaab1a4f4aa94c984dc28f6c111
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29849315"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931556"
 ---
-# <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Distribuera virtuell Linux-dator till den nya noden i Azure
-Om du står inför svårigheter felsökning SSH eller kan bidra till att programmet åtkomst till en Linux-dator (VM) i Azure, omdistribuera den virtuella datorn. När du distribuerar en virtuell dator, flyttar den virtuella datorn till en ny nod i Azure-infrastrukturen och sedan aktiveras den tillbaka. Alla konfigurationsalternativ och associerade resurser bevaras. Den här artikeln visar hur du distribuerar en virtuell dator med hjälp av Azure CLI eller Azure-portalen.
+# <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Distribuera om virtuell Linux-dator till nya Azure-nod
+Om du stöter på problem med felsökning av SSH eller programmet åtkomst till en Linux-dator (VM) i Azure, distribuera om den virtuella datorn kan hjälpa. När du distribuerar om en virtuell dator, flyttas den virtuella datorn till en ny nod i Azure-infrastrukturen och aktiverar den igen. Alla konfigurationsalternativ och associerade resurser finns kvar. Den här artikeln visar hur du distribuera om en virtuell dator med Azure CLI eller Azure-portalen.
 
 > [!NOTE]
-> När du distribuerar en virtuell dator tillfälliga disken går förlorad och dynamiska IP-adresser som är kopplade till virtuella nätverksgränssnittet har uppdaterats. 
+> När du distribuerar om en virtuell dator, den temporära disken går förlorad och den dynamiska IP-adresser som är associerade med virtuella nätverksgränssnittet har uppdaterats. 
 
-Du kan distribuera en virtuell dator med någon av följande alternativ. Du behöver bara välja ett alternativ för att distribuera om den virtuella datorn:
+Du kan distribuera om en virtuell dator med något av följande alternativ. Du behöver bara välja ett alternativ att distribuera om den virtuella datorn:
 
 - [Azure CLI 2.0](#azure-cli-20)
 - [Azure CLI 1.0](#azure-cli-10)
 - [Azure Portal](#using-azure-portal)
 
 ## <a name="use-the-azure-cli-20"></a>Använda Azure CLI 2.0
-Installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till din Azure med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).
+Installera senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in på Azure med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
-Distribuera den virtuella datorn med [az vm Omdistributionen](/cli/azure/vm#az_vm_redeploy). I följande exempel återdistribuerar den virtuella datorn med namnet *myVM* i resursgrupp med namnet *myResourceGroup*:
+Distribuera om den virtuella datorn med [az vm omdistribution](/cli/azure/vm#az_vm_redeploy). I följande exempel distribuerar om den virtuella datorn med namnet *myVM* i resursgruppen med namnet *myResourceGroup*:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 
 ```
 
 ## <a name="use-the-azure-cli-10"></a>Använda Azure CLI 1.0
-Installera den [senaste Azure CLI 1.0](../../cli-install-nodejs.md) och logga in på ditt Azure-konto. Kontrollera att du är i läget Resource Manager (`azure config mode arm`).
+Installera den [senaste Azure CLI 1.0](../../cli-install-nodejs.md) och logga in på ditt Azure-konto. Se till att du är i Resource Manager-läge (`azure config mode arm`).
 
-I följande exempel återdistribuerar den virtuella datorn med namnet *myVM* i resursgrupp med namnet *myResourceGroup*:
+I följande exempel distribuerar om den virtuella datorn med namnet *myVM* i resursgruppen med namnet *myResourceGroup*:
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
@@ -54,5 +54,5 @@ azure vm redeploy --resource-group myResourceGroup --vm-name myVM
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Om du har problem med anslutningen till den virtuella datorn kan du hittar detaljerad hjälp på [felsökning av SSH-anslutningar](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [detaljerad SSH felsökningssteg](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Om du inte kommer åt ett program som körs på den virtuella datorn, du kan också läsa [felsökning av problem med programmet](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Om du har problem med att ansluta till den virtuella datorn kan du hittar detaljerad hjälp på [felsökning av SSH-anslutningar](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [detaljerad SSH felsökningssteg](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Om du inte kommer åt ett program som körs på den virtuella datorn, du kan också läsa [felsökning av problem med programmet](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

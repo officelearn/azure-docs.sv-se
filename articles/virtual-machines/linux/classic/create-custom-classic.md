@@ -1,9 +1,9 @@
 ---
 title: Skapa en klassisk virtuell Linux-dator med hjälp av Azure CLI 1.0 | Microsoft Docs
-description: Lär dig hur du skapar en virtuell Linux-dator med Azure CLI-1.0 med hjälp av den klassiska distributionsmodellen
+description: Lär dig hur du skapar en Linux-dator med Azure CLI 1.0 med hjälp av den klassiska distributionsmodellen
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -15,30 +15,30 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
-ms.author: iainfou
-ms.openlocfilehash: 6d3f0dd0c82ad32df4d6e17058d9b1bea57c301f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: cynthn
+ms.openlocfilehash: 13d0ef93c3828c514e46e37494a66f7003eac827
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841443"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931626"
 ---
 # <a name="how-to-create-a-classic-linux-vm-with-the-azure-cli-10"></a>Så här skapar du en klassisk virtuell Linux-dator med Azure CLI 1.0
 > [!IMPORTANT] 
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Resource Manager-version finns [här](../create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Resource Manager-version finns [här](../create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Det här avsnittet beskriver hur du skapar en Linux-dator (VM) med Azure CLI-1.0 med hjälp av den klassiska distributionsmodellen. Vi använder en Linux-avbildning från de tillgängliga **bilder** på Azure. Azure CLI 1.0-kommandona ger följande konfigurationsalternativ, bland annat:
+Det här avsnittet beskriver hur du skapar en Linux-dator (VM) med Azure CLI 1.0 med hjälp av den klassiska distributionsmodellen. Vi använder en Linux-avbildning från de tillgängliga **AVBILDNINGAR** på Azure. Azure CLI 1.0-kommandon ger följande konfigurationsalternativ, bland annat:
 
 * Ansluta den virtuella datorn till ett virtuellt nätverk
 * Att lägga till den virtuella datorn till en befintlig molntjänst
 * Att lägga till den virtuella datorn till ett befintligt lagringskonto
-* Lägger till den virtuella datorn till en tillgänglighetsuppsättning eller plats
+* Lägga till den virtuella datorn till en tillgänglighetsuppsättning eller plats
 
 > [!IMPORTANT]
-> Om du vill att den virtuella datorn använder ett virtuellt nätverk så att du kan ansluta till den direkt av värdnamn eller konfigurera anslutningar mellan platser, kontrollera att du anger det virtuella nätverket när du skapar den virtuella datorn. En virtuell dator kan konfigureras för att ansluta ett virtuellt nätverk endast när du skapar den virtuella datorn. Mer information om virtuella nätverk finns [Azure översikt över virtuella nätverk](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+> Om du vill att den virtuella datorn ska använda ett virtuellt nätverk så att du kan ansluta till den direkt av värdnamn eller konfigurera anslutningar mellan platser, kontrollera att du anger det virtuella nätverket när du skapar den virtuella datorn. En virtuell dator kan konfigureras för att ansluta till ett virtuellt nätverk endast när du skapar den virtuella datorn. Mer information om virtuella nätverk finns [Azure översikt över Virtual Network](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 > 
 > 
 
-## <a name="how-to-create-a-linux-vm-using-the-classic-deployment-model"></a>Så här skapar du en Linux VM som använder den klassiska distributionsmodellen
+## <a name="how-to-create-a-linux-vm-using-the-classic-deployment-model"></a>Så här skapar du en Linux VM med hjälp av den klassiska distributionsmodellen
 [!INCLUDE [virtual-machines-create-LinuxVM](../../../../includes/virtual-machines-create-linuxvm.md)]
 

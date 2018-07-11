@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 774d429b960e56e998e9d964b9de1e6461816734
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 5ca70b085b5ac9db4d108966fa695f042c20489d
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901705"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920519"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Skapa, ändra eller ta bort en grupp
 
@@ -253,21 +253,25 @@ Du kan inte ta bort en programsäkerhetsgrupp om den har alla nätverksgränssni
 
 För att utföra uppgifter på nätverkssäkerhetsgrupper, säkerhetsregler och programsäkerhetsgrupper måste ditt konto tilldelas till den [nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som är tilldelade den behörighet som visas i följande tabell:
 
-### <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
+### <a name="network-security-group"></a>Nätverkssäkerhetsgrupp
 
 | Åtgärd                                                        |   Namn                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
-| Microsoft.Network/ruleTables/read                             |   Hämta nätverkssäkerhetsgrupp                                          |
-| Microsoft.Network/ruleTables/write                            |   Skapa eller uppdatera nätverkssäkerhetsgrupp                             |
-| Microsoft.Network/ruleTables/delete                           |   Ta bort nätverkssäkerhetsgruppen                                       |
-| Microsoft.Network/ruleTables/join/action                      |   Associera en nätverkssäkerhetsgrupp till ett undernät eller ett gränssnitt |
-| Microsoft.Network/ruleTables/rules/read                       |   Hämta regel                                                            |
-| Microsoft.Network/ruleTables/rules/write                      |   Skapa eller uppdatera regel                                               |
-| Microsoft.Network/ruleTables/rules/delete                     |   Ta bort regel                                                         |
-| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   Hämta Network Interface effektiva nätverkssäkerhetsgrupp              |
-| Microsoft.Network/networkWatchers/nextHop/action              |   Hämtar nästa hopp från en virtuell dator                                         |
+| Microsoft.Network/networkSecurityGroups/read                  |   Hämta nätverkssäkerhetsgrupp                                          |
+| Microsoft.Network/networkSecurityGroups/write                 |   Skapa eller uppdatera nätverkssäkerhetsgrupp                             |
+| Microsoft.Network/networkSecurityGroups/delete                |   Ta bort nätverkssäkerhetsgruppen                                       |
+| Microsoft.Network/networkSecurityGroups/join/action           |   Associera en nätverkssäkerhetsgrupp till ett undernät eller ett gränssnitt 
 
-### <a name="application-security-groups"></a>Programsäkerhetsgrupper
+
+### <a name="network-security-group-rule"></a>Regel för nätverkssäkerhetsgrupp
+
+| Åtgärd                                                        |   Namn                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/networkSecurityGroups/rules/read            |   Hämta regel                                                            |
+| Microsoft.Network/networkSecurityGroups/rules/write           |   Skapa eller uppdatera regel                                               |
+| Microsoft.Network/networkSecurityGroups/rules/delete          |   Ta bort regel                                                         |
+
+### <a name="application-security-group"></a>Programsäkerhetsgruppen
 
 | Åtgärd                                                                     | Namn                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |

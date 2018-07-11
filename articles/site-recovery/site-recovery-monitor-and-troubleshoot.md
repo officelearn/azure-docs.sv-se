@@ -1,6 +1,6 @@
 ---
 title: Övervaka och felsöka Azure Site Recovery | Microsoft Docs
-description: Övervaka och felsöka problem med Azure Site Recovery replikering och åtgärder med hjälp av portalen
+description: Övervaka och felsöka problem med Azure Site Recovery-replikering och åtgärder med hjälp av portalen
 services: site-recovery
 documentationcenter: ''
 author: bsiva
@@ -12,35 +12,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: 9a979cc940e2133e3dff3bb7dd4c5f2ec53fea7a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 84b5bf3be09083a69216802fc7f557de1a7f0ee6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109509"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917541"
 ---
-# <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>Övervakning och felsökning av Azure Site Recovery
+# <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>Övervaka och felsöka Azure Site Recovery
 
 I den här artikeln får du lära dig hur du använder Azure Site Recovery i inbyggda övervakningsfunktioner för övervakning och felsökning. Lär dig att:
 > [!div class="checklist"]
-> - Använd Azure Site Recovery-instrumentpanelen (valvet översiktssidan)
+> - Använd instrumentpanelen för Azure Site Recovery (vault översiktssidan)
 > - Övervaka och felsöka replikeringsproblem
-> - Övervaka Azure Site Recovery jobb /-åtgärder
+> - Övervaka Azure Site Recovery-jobb /-åtgärder
 > - Prenumerera på e-postaviseringar
 
-## <a name="using-the-azure-site-recovery-dashboard"></a>Med hjälp av Azure Site Recovery-instrumentpanelen
+## <a name="using-the-azure-site-recovery-dashboard"></a>Med hjälp av Azure Site Recovery-instrumentpanel
 
-Azure Site Recovery-instrumentpanelen på översiktssidan valvet konsoliderar alla övervakningsinformation för valvet på en enda plats. Börja med valvet instrumentpanelen och gå på djupet att få mer information genom att navigera genom delar av instrumentpanelen. De huvudsakliga delarna i Azure Site Recovery-instrumentpanelen är följande:
+Azure Site Recovery-instrumentpanel på översiktssidan för valvet sammanför alla övervakningsinformation för valvet på en enda plats. Starta på instrumentpanelen för valvet och dive djupare för att få mer information genom att gå igenom delarna av instrumentpanelen. De huvudsakliga delarna i instrumentpanelen för Azure Site Recovery är följande:
 
 ### <a name="1-switch-between-azure-backup-and-azure-site-recovery-dashboards"></a>1. Växla mellan Azure Backup och Azure Site Recovery instrumentpaneler
 
-Växeln växla överst på översiktssidan kan du växla mellan instrumentpanelssidor för Site Recovery och säkerhetskopiering. Det här urvalet när gjort sparas och nästa gång du öppnar översiktssidan för valvet som standard. Välj alternativet Site Recovery för att se Site Recovery-instrumentpanelen. 
+Växlingsreglaget överst på översiktssidan kan du växla mellan instrumentpanelssidor för Site Recovery och säkerhetskopiering. Det här alternativet, görs en gång, sparas och standard till nästa gång du öppnar översiktssidan för valvet. Välj alternativet Site Recovery för att se Site Recovery-instrumentpanelen. 
 
-De olika delarna i Azure Site Recovery instrumentpanelssida uppdateras var 10: e minut så att instrumentpanelen visar den senaste tillgängliga informationen.
+De olika delarna i Azure Site Recovery-instrumentpanelssidan uppdateras var tionde minut, så att instrumentpanelen återspeglar den senaste tillgängliga informationen.
 
-![Övervakningsfunktioner på översiktssidan för Azure Site Recovery](media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png)
+![Övervakningsfunktionerna i Azure Site Recovery-översiktssidan](media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png)
 
 ### <a name="2-replicated-items"></a>2. Replikerade objekt
 
@@ -49,131 +49,131 @@ Avsnittet replikerade objekt i instrumentpanelen visar en översikt över hälso
 <table>
 <tr>
     <td>Felfri</td>
-    <td>Replikering pågår normalt för servrarna och inga fel eller varning problem har upptäckts.</td>
+    <td>Replikeringen körs normalt för dessa servrar och inget fel eller varning symptom har identifierats.</td>
 </tr>
 <tr>
     <td>Varning </td>
-    <td>En eller flera varning problem som kan påverka replikering eller tyda på att replikering inte är klar normalt har upptäckts för dessa servrar.</td>
+    <td>En eller flera varningar problem som kan påverka replikering eller tyda på att replikeringen inte går normalt har identifierats för dessa servrar.</td>
 </tr>
 <tr>
     <td>Kritiska</td>
-    <td>En eller flera fel inträffa kritisk replikering har identifierats för dessa servrar. Problemen fel är vanligtvis indikatorer att replikeringen är antingen fastnat eller inte fortlöper snabb data ändra frekvensen för dessa servrar.</td>
+    <td>En eller flera kritisk replikering Fel Symptom har identifierats för dessa servrar. Problemen fel är vanligtvis indikatorer att replikeringen fastnar antingen eller är inte så snabbt som dataändringshastighet för dessa servrar.</td>
 </tr>
 <tr>
     <td>Inte tillämpligt</td>
-    <td>Servrar som inte är för närvarande förväntas replikeras till exempel servrar som inte över.</td>
+    <td>Servrar som inte är för närvarande förväntas vara replikerar, till exempel servrar som har redundansväxlats.</td>
 </tr>
 </table>
 
-Om du vill se en lista över skyddade servrar filtreras efter replikeringshälsa klickar du på replikering hälsa beskrivning bredvid ringen. Visa alla länka nära avsnittsrubriken är en genväg till sidan replikerade objekt för valvet. Använd vyn alla länkar om du vill se en lista över alla servrar i valvet.
+Om du vill se en lista över skyddade servrar som filtreras efter replikeringshälsan, klickar du på replikering hälsotillstånd beskrivning bredvid ringen. Visa alla länkar i avsnittsrubriken är en genväg till sidan replikerade objekt för valvet. Använd vyn alla länk för att se en lista över alla servrar i valvet.
 
-### <a name="3-failover-test-success"></a>3. Redundans testet lyckades
+### <a name="3-failover-test-success"></a>3. Redundanstestet lyckades
 
-Avsnittet redundans testet lyckas i instrumentpanelen visar en uppdelning av virtuella datorer i valvet baserat på status för testa redundans. 
+Avsnittet redundans testet lyckades på instrumentpanelen visar en uppdelning av virtuella datorer i valvet baserat på status för testning. 
 
 <table>
 <tr>
     <td>Test som rekommenderas</td>
-    <td>Virtuella datorer som inte har lyckats testa redundans sedan de uppnått ett skyddat läge.</td>
+    <td>Virtuella datorer som inte har haft en lyckad redundanstestning sedan de nått ett skyddat läge.</td>
 </tr>
 <tr>
     <td>Genomfördes</td>
-    <td>Virtuella datorer som har fått en eller flera lyckade redundanstestning.</td>
+    <td>Virtuella datorer som har haft en eller flera lyckad redundanstestning.</td>
 </tr>
 <tr>
     <td>Inte tillämpligt</td>
-    <td>Virtuella datorer som inte är för närvarande är berättigad till ett redundanstest. Exempel: Det gick inte över servrar, servrar för vilka den inledande replikeringen är i pågår, servrar som en växling pågår, servrar för vilka ett redundanstest pågår redan.</td>
+    <td>Virtuella datorer som inte är för närvarande är berättigade till ett redundanstest. Exempel: Det gick inte över servrar, servrar för vilka den inledande replikeringen är i förlopp, servrar för vilka en redundansväxling pågår, servrar för vilka ett redundanstest pågår redan.</td>
 </tr>
 </table>
 
-Klicka på Testa redundans status bredvid ringen, så se en lista över skyddade servrar baserat på deras testa redundans status.
+Klicka på Testa redundans status bredvid ringen, så se listan över skyddade servrar baserat på status för test av redundans.
  
 > [!IMPORTANT]
-> Som bästa praxis rekommenderas det att du utför ett redundanstest på dina skyddade servrar minst en gång var sjätte månad. Utför ett redundanstest är ett icke störande sätt att testa redundans för dina servrar och program till en isolerad miljö och hjälper dig att utvärdera dina business continuity beredskap.
+> Som bästa praxis rekommenderar vi att du utför ett redundanstest på dina skyddade servrar minst en gång var sjätte månad. Utför ett redundanstest är ett icke störande sätt att testa redundans för dina servrar och program i en isolerad miljö och hjälper dig att utvärdera din nya beredskapsfunktioner kontinuitet för företag.
 
- En redundanstestet på en server eller en återställningsplan anses lyckade förrän både redundanstestet och rensa redundanstestet har slutförts.
+ En redundanstestet på en server eller en återställningsplan anses lyckas förrän både redundanstestet och rensa redundanstestet har slutförts.
 
 ### <a name="4-configuration-issues"></a>4. Konfigurationsproblem
 
-Konfigurationsavsnittet problem visar en lista över problem som kan påverka möjligheten att har redundans virtuella datorer. De problem som anges i det här avsnittet är:
- - **Konfigurationer som saknas:** skyddade servrar som saknar nödvändiga konfigurationer, till exempel ett nätverk för återställning eller en resursgrupp för återställning.
- - **Resurser saknas:** konfigurerade mål/återställning resurser hittas inte eller är inte tillgängliga i prenumerationen. Resursen har tagits bort eller migrerats till en annan prenumeration eller resursgrupp. Följande konfigurationer för mål/återställning övervakas för tillgänglighet: målresursgruppen, virtuella nätverk och undernät, loggen/mål-lagringskontot mål tillgänglighet måluppsättningen, mål-IP-adress.
- - **Prenumerationens kvoter:** tillgänglig prenumeration kvoten resursbalansen jämförs saldo som krävs för att kunna redundansväxla alla virtuella datorer i valvet. Om det finns inte tillräckligt saldot, rapporteras kvoten för otillräckligt saldo. Kvoter för följande resurser i Azure övervakas: kärnor för antal virtuella datorer, antal virtuella datorer i familjen kärnor, antal nätverkskort (NIC)-gränssnittet.
+Problem med konfigurationsavsnittet visar en lista över problem som kan påverka din möjlighet att har redundansväxling för virtuella datorer. Typer av problem som beskrivs i det här avsnittet är:
+ - **Konfigurationer som saknas:** skyddade servrar som saknar nödvändiga konfigurationer, till exempel återställningsnätverk eller en resursgrupp för återställning.
+ - **Resurser som saknas:** konfigurerade mål/återställning resurser hittades inte eller inte tillgängliga i prenumerationen. Resursen har tagits bort eller har migrerats till en annan prenumeration eller resursgrupp. Följande konfigurationer för mål-/ återställning övervakas för tillgänglighet: målresursgruppen, virtuella nätverk och undernät, logg-/ mållagringskontot storage-konto, mål måltillgänglighetsuppsättning, mål-IP.
+ - **Prenumerationskvoten:** tillgänglig prenumeration kvot resursbalansen jämförs balans som krävs för att kunna redundansväxla alla virtuella datorer i valvet. Otillräcklig kvot saldo rapporteras om saldot hittas inte tillräckligt med. Kvoter för följande Azure-resurser övervakas: antal för VM-kärnor, antal för VM-familjen kärnor, antal nätverkskort (NIC)-gränssnittet.
  - **Programuppdateringar:** tillgängligheten för nya programuppdateringar upphör att gälla programvaruversioner.
 
-Konfigurationsproblem (andra än tillgänglighet av programuppdateringar) identifieras av en återkommande verifieraren åtgärd som körs var 12: e timme som standard. Du kan tvinga verifieraren åtgärden att köra omedelbart genom att klicka på ikonen bredvid den *konfigurationsproblem* avsnittsrubriken.
+Konfigurationsproblem (andra än tillgänglighet av programuppdateringar) identifieras av en regelbunden verifieraren åtgärd som körs var 12: e timme som standard. Du kan tvinga verifieraren åtgärden att köra omedelbart genom att klicka på Uppdatera-ikonen bredvid den *konfigurationsproblem* avsnittsrubriken.
 
-Klicka på länkarna för att få mer information om listan problem och virtuella datorer som påverkas av dem. Om problem som påverkar specifika virtuella datorer, kan du få mer information genom att klicka på den **behöver åtgärdas** länken under kolumnen mål konfigurationer för den virtuella datorn. Informationen omfattar rekommendationer om hur du kan åtgärda identifierade problem.
+Klicka på länkarna för att få mer information om de listade problem och virtuella datorer som påverkas av dem. För problem som påverkar specifika virtuella datorer, kan du få mer information genom att klicka på den **behöver åtgärdas** länken under kolumnen mål konfigurationer för den virtuella datorn. Informationen innehåller rekommendationer om hur du kan åtgärda identifierade problem.
 
 ### <a name="5-error-summary"></a>5. Sammanfattning av fel vid
 
-Översikt över felavsnittet visas för närvarande är aktiv replikering fel problem som kan påverka replikering av servrar i valvet, tillsammans med antalet berörda enheter på grund av varje fel.
+Sammanfattning av felavsnittet visas för tillfället aktiv replikering fel problemen som kan påverka replikering av servrar i valvet, tillsammans med antalet berörda entiteter på grund av varje fel.
 
-Replikering fel inträffa för servrar i ett kritiskt eller varningshälsotillstånd replikering hälsotillstånd kan ses i sammanfattningen av fel. 
+Replikering fel symptomen för servrar i ett kritiskt eller varningshälsotillstånd replikering hälsotillstånd kan ses i sammanfattningen av fel. 
 
-- Fel som påverkar lokalt infrastrukturkomponenter, till exempel inte emot något pulsslag från Azure Site Recovery-providern körs på den lokala konfigurationsservern, VMM-servern eller Hyper-V-värden visas i början av fel sammanfattning avsnittet
-- Replikering fel inträffa påverka skyddade servrar visas bredvid. Sammanfattningstabell felposter sorteras i fallande ordning efter allvarlighetsgrad fel och sedan i fallande ordning efter antalet servrar som påverkas.
+- Fel som påverkar den lokala infrastrukturkomponenter, t.ex icke-mottagandet av pulsslag från Azure Site Recovery-providern som körs på den lokala konfigurationsservern, VMM-servern eller Hyper-V-värden visas i början av felsammanfattning avsnittet
+- Replikering Fel Symptom påverka skyddade servrar visas härnäst. Sammanfattningstabell felposter sorteras i fallande ordning efter allvarlighetsgrad för fel och sedan i fallande ordning efter antalet berörda servrar.
  
 
 > [!NOTE]
 > 
->  Flera replikering fel problem kan observeras på en enskild server. Om det finns flera fel inträffa på en enskild server räknas varje fel symtom servern i listan över de berörda servrarna. När det underliggande problemet, vilket resulterar i ett fel symtom är fast, förbättra replikeringsparametrarna och felet rensas från den virtuella datorn.
+>  Flera replikering fel symptom kan observeras på en enskild server. Om det finns flera fel symptom på en enskild server räknas varje fel symtom servern i listan över de berörda servrarna. När det underliggande problemet, vilket resulterar i ett fel symtom är fast, förbättra replikeringsparametrarna och felet har raderats från den virtuella datorn.
 >
 > > [!TIP]
-> Antal berörda servrarna är ett bra sätt att förstå om en enda underliggande problem kan påverka flera servrar. Till exempel kan ett nätverk tekniskt problem påverka alla servrar som replikerar från en lokal plats till Azure. Den här vyn ger snabbt att åtgärda en underliggande problem korrigerar replikering för flera servrar.
+> Antalet berörda servrar är ett bra sätt att förstå om ett enda underliggande problem kan påverka flera servrar. Till exempel kan ett nätverk glapp påverka alla servrar som replikeras från en lokal plats till Azure. Den här vyn ger snabbt att åtgärda ett underliggande problem korrigerar replikering för flera servrar.
 >
 
-### <a name="6-infrastructure-view"></a>6. Visa infrastruktur
+### <a name="6-infrastructure-view"></a>6. Infrastruktur-vy
 
-Vyn infrastruktur innehåller en scenariot klokt visuell representation av de infrastrukturella komponenterna som ingår i replikeringen. Den visar även visuellt hälsotillståndet för anslutningen mellan de olika servrarna och mellan servrarna och Azure-tjänster ingår i replikeringen. 
+Infrastruktur-vy innehåller en scenariot klokt visuell representation av infrastrukturen komponenterna som ingår i replikeringen. Den visar även visuellt hälsotillståndet för anslutningen mellan de olika servrarna och mellan servrar och de Azure-tjänsterna som ingår i replikeringen. 
 
-En grön linje anger att anslutningen är felfri, medan en röd linje med putsade felikonen anger förekomsten av en eller flera fel inträffa som påverkar anslutningen mellan komponenter som ingår. Hovra muspekaren över felikonen på raden visar felet och antalet enheter som påverkas. 
+En grön linje visar att anslutningen är felfri, medan en röd linje med putsade felikonen anger förekomsten av en eller flera fel inträffa som påverkar anslutningen mellan komponenterna som ingår. Hovra muspekaren över felikonen på raden visar felet och antal berörda entiteter. 
 
-Klicka på felikonen visas en filtrerad lista över påverkade entiteter för felmeddelandena.
+Att klicka på felikonen visar en filtrerad lista över berörda entiteter för felmeddelandena.
 
-![Site Recovery infrastruktur vyn (valvet)](media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
+![Site Recovery infrastruktur-vy (valv)](media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
 > [!TIP]
-> Se till att lokalt infrastrukturkomponenter (konfigurationsservern och ytterligare processer servrar replikera virtuella VMware-datorer, Hyper-V-värdar, VMM-servrar) kör den senaste versionen av Azure Site Recovery-programvara. Om du vill kunna använda alla funktioner i vyn infrastruktur du behöver köra [Update rollup 22](https://support.microsoft.com/help/4072852) eller senare för Azure Site Recovery
+> Se till att den lokala infrastrukturkomponenter (konfigurationsserver, ytterligare processervrar replikera virtuella VMware-datorer, Hyper-V-värdar, VMM-servrar) kör den senaste versionen av Azure Site Recovery-programvaran. Om du vill kunna använda alla funktioner i infrastrukturvyn du måste köra [samlad 22 uppdatering](https://support.microsoft.com/help/4072852) eller senare för Azure Site Recovery
 
-Om du vill använda vyn infrastruktur, Välj lämplig replikering scenario (virtuella Azure-datorer, VMware-datorer/fysiska server eller Hyper-V) beroende på din källmiljö. Vyn infrastruktur som visas på översiktssidan för valvet är en samlad vy för valvet. Du kan gå vidare nedåt till de enskilda komponenterna genom att klicka på rutorna.
+Om du vill använda infrastruktur-vy, Välj lämplig replikeringsscenariot (Azure-datorer, virtuella datorer/fysiska VMware-server eller Hyper-V) beroende på din källmiljö. Infrastruktur-vy som visas på översiktssidan för valvet är en sammansatt vy för valvet. Du kan öka detaljnivån ned vidare till enskilda komponenter genom att klicka på rutorna.
 
-Vyn infrastruktur omfattar kontexten för en enskild dator för replikering är tillgänglig på översiktssidan replikerade objekt. Gå till översiktssidan för en replikeringsservrarna går du till replikerade objekt från valvet-menyn och Välj server och visa information för.
+En infrastruktur-vy som är begränsade till sammanhanget på en replikerande dator är tillgänglig på översiktssidan för replikerade objektet. Gå till översiktssidan för en replikerande server genom att gå till replikerade objekt valvmenyn och välj servern för att se information om.
 
-### <a name="infrastructure-view---faq"></a>Visa infrastruktur - vanliga frågor och svar
+### <a name="infrastructure-view---faq"></a>Infrastruktur-vy – vanliga frågor och svar
 
-**F.** Varför ser jag vyn infrastruktur för den virtuella datorn inte? </br>
-**S.** Infrastruktur visa funktionen är endast tillgänglig för virtuella datorer som replikerar till Azure. Funktionen är för närvarande inte tillgängligt för virtuella datorer som replikerar mellan lokala platser.
+**F.** Varför ser jag infrastruktur-vy för den virtuella datorn inte? </br>
+**S.** Infrastruktur visa funktionen är endast tillgänglig för virtuella datorer som replikerar till Azure. Funktionen är för närvarande inte tillgänglig för virtuella datorer som replikerar mellan lokala platser.
 
-**F.** Varför visas antalet virtuella datorer i valvet infrastruktur vyn skiljer sig från det totala antalet i ringen för replikerade objekt?</br>
-**S.** Vyn valvet infrastruktur omfattas av replikeringarna. Endast virtuella datorer som ingår i det markerade replikering scenariot tas med i antalet virtuella datorer visas i vyn infrastruktur. För det valda scenariot ingår också endast virtuella datorer som är konfigurerade för att replikera till Azure i antal virtuella datorer visas i vyn infrastruktur (för exempel: misslyckades för virtuella datorer, virtuella datorer som replikeras tillbaka på en lokal plats ingår inte i vyn infrastruktur.)
+**F.** Varför visas antalet virtuella datorer i infrastrukturvyn valv skiljer sig från det totala antalet i ringdiagrammet replikerade objekt?</br>
+**S.** Infrastruktur-vy valvet är begränsad av replikeringsscenarier. Endast virtuella datorer som deltar i det markerade replikeringsscenariot ingår i antalet virtuella datorer visas i infrastrukturvyn. För det valda scenariot ingår dessutom endast virtuella datorer som är konfigurerade för att replikera till Azure i antal virtuella datorer som visas i infrastrukturvyn (Fo exempel: redundansväxlade virtuella datorer, virtuella datorer som replikeras tillbaka till en lokal plats ingår inte i infrastrukturvyn.)
 
-**F.** Varför är antalet replikerade objekt visas i essentials lådan på översiktssidan skiljer sig från det totala antalet replikerade objekt visas i ringdiagram på instrumentpanelen?</br>
-**S.** Endast de virtuella datorerna för vilka den inledande replikeringen har slutförts tas med i antalet som visas i lådan essentials. Den totala replikerade objekt ringen innehåller alla virtuella datorer i valvet inklusive servrar för vilka den inledande replikeringen pågår.
+**F.** Varför är antalet replikerade objekt som visas i lådan essentials på översiktssidan skiljer sig från det totala antalet replikerade objekt som visas i ringdiagrammet på instrumentpanelen?</br>
+**S.** Endast de virtuella datorerna för vilka den inledande replikeringen har slutförts som ingår i antalet som visas i essentials-lådan. Den totala ringen för replikerade objekt som innehåller alla virtuella datorer i valvet inklusive servrar för vilka den inledande replikeringen pågår.
 
-**F.** Vilka replikeringarna finns vyn infrastruktur för? </br>
+**F.** Vilka replikeringsscenarier är tillgänglig för infrastruktur-vy? </br>
 **S.**
 >[!div class="mx-tdBreakAll"]
->|Scenario för replikering  | Tillstånd för virtuell dator  | Infrastruktur visa tillgängliga  |
+>|Replikeringsscenario  | Tillstånd för virtuell dator  | Infrastruktur-vy som är tillgängliga  |
 >|---------|---------|---------|
 >|Virtuella datorer som replikeras mellan två lokala platser     | -        | Nej      |
->|Alla     | Det gick inte över         |  Nej       |
->|Virtuella datorer som replikeras mellan två Azure-regioner     | Inledande replikering pågår eller skyddade         | Ja         |
->|Replikera till Azure virtuella VMware-datorer     | Inledande replikering pågår eller skyddade        | Ja        |
->|Replikera till Azure virtuella VMware-datorer     | Det gick inte över virtuella datorer som replikeras tillbaka till en lokal VMware-plats         | Nej        |
->|Hyper-V virtuella datorer som replikeras till Azure     | Inledande replikering pågår eller skyddade        | Ja       |
->|Hyper-V virtuella datorer som replikeras till Azure     | Det gick inte via / återställning efter fel pågår        |  Nej       |
+>|Alla     | Redundansväxlats         |  Nej       |
+>|Virtuella datorer som replikeras mellan två Azure-regioner     | Den inledande replikeringen pågår eller skyddade         | Ja         |
+>|VMware virtuella datorer som replikeras till Azure     | Den inledande replikeringen pågår eller skyddade        | Ja        |
+>|VMware virtuella datorer som replikeras till Azure     | Redundansväxlade virtuella datorer som replikeras tillbaka till en lokal VMware-webbplats         | Nej        |
+>|Hyper-V virtuella datorer som replikeras till Azure     | Den inledande replikeringen pågår eller skyddade        | Ja       |
+>|Hyper-V virtuella datorer som replikeras till Azure     | Redundans / återställning efter fel pågår        |  Nej       |
 
 
 ### <a name="7-recovery-plans"></a>7. Återställningsplaner
 
-Avsnittet planer visar antalet återställningsplaner i valvet. Klicka på siffran om du vill se en lista över återställningsplaner, skapa återställningsplaner för nya eller redigera befintliga. 
+Avsnittet planer visar antalet av återställningsplaner i valvet. Klicka på siffran för att se en lista över återställningsplaner, skapa nya återställningsplaner eller redigera befintliga. 
 
 ### <a name="8-jobs"></a>8. Jobb
 
-Azure Site Recovery-jobb spåra statusen för Azure Site Recovery-åtgärder. De flesta åtgärder i Azure Site Recovery körs asynkront, med ett jobb för spårning som används för att spåra förloppet för åtgärden.  Information om hur du övervakar statusen för en åtgärd, finns det [övervakaren Azure Site Recovery-jobb/åtgärder](#monitor-azure-site-recovery-jobsoperations) avsnitt.
+Azure Site Recovery-jobb spåra statusen för Azure Site Recovery-åtgärder. De flesta åtgärder i Azure Site Recovery utförs asynkront, med ett spårnings-jobb som används för att följa förloppet för åtgärden.  Läs hur du övervakar statusen för en åtgärd i den [övervaka Azure Site Recovery-jobb/åtgärder](#monitor-azure-site-recovery-jobsoperations) avsnittet.
 
-Det här avsnittet för jobb på instrumentpanelen innehåller följande information:
+Det här avsnittet för jobb i instrumentpanelen ger följande information:
 
 <table>
 <tr>
@@ -186,62 +186,62 @@ Det här avsnittet för jobb på instrumentpanelen innehåller följande informa
 </tr>
 <tr>
     <td>Väntar på indata</td>
-    <td>Azure Site Recovery-jobb som är pausad för tillfället väntar på indata från användaren.</td>
+    <td>Azure Site Recovery-jobb som för närvarande har pausats väntar på indata från användaren.</td>
 </tr>
 </table>
 
-Visa alla länken bredvid avsnittsrubriken är en genväg för att gå till sidan jobb.
+Visa alla länken bredvid avsnittsrubriken är en genväg för att gå till sidan med listan över jobb.
 
 ## <a name="monitor-and-troubleshoot-replication-issues"></a>Övervaka och felsöka replikeringsproblem
 
-Utöver informationen i valvet instrumentpanelens sida, kan du få ytterligare information och information om felsökning i sidan virtuella datorer och informationssidan för virtuell dator. Du kan visa listan över skyddade virtuella datorer i valvet genom att välja den **replikerade objekt** alternativ på menyn valvet. Alternativt kan du till en filtrerad lista över skyddade objekt genom att klicka på någon av begränsade genvägar som är tillgänglig på sidan valvet instrumentpanelen.
+Du kan få ytterligare information och felsökningsinformation i sidan med listan över virtuella datorer och sidan virtuell dator utöver informationen i valvet instrumentpanelssidan. Du kan visa listan över skyddade virtuella datorer i valvet genom att välja den **replikerade objekt** alternativet valvmenyn. Alternativt kan får du en filtrerad lista över de skyddade objekten genom att klicka på någon av begränsade genvägar som är tillgänglig på sidan för instrumentpanelen för valvet.
 
 ![Site Recovery replikerade objekt listvy](media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
-Filteralternativet på sidan replikerade objekt kan du använda olika filter, till exempel replikeringshälsa och replikeringsprincipen. 
+Filteralternativet på sidan med replikerade objekt kan du använda olika filter, till exempel replikeringshälsa och replikeringsprincip. 
 
-Kolumnen selector-alternativet kan du ange ytterligare kolumner som ska visas som Återställningspunktsmål, mål konfigurationsproblem och replikeringsfel. Du kan initiera åtgärder på en virtuell dator eller visa fel som påverkar den virtuella datorn genom att högerklicka på en viss rad i listan med datorer.
+Alternativet kolumn Väljaren kan du ange ytterligare kolumner som ska visas som RPO, mål konfigurationsproblem och replikeringsfel. Du kan initiera åtgärder på en virtuell dator eller visa fel som påverkar den virtuella datorn genom att högerklicka på en viss rad i listan över datorer.
 
-Om du vill öka detaljnivån ytterligare, väljer du en virtuell dator genom att klicka på den. Informationssidan om virtuell dator öppnas. På översiktssidan under information om den virtuella datorn innehåller en instrumentpanel där du hittar ytterligare information som rör datorn. 
+Om du vill öka detaljnivån ytterligare, väljer du en virtuell dator genom att klicka på den. Då öppnas sidan virtuell dator. Översiktssidan översikt under information om den virtuella datorn innehåller en instrumentpanel där du hittar ytterligare information som hör till datorn. 
 
-På översiktssidan för replikering datorn hittar du:
-- RPO (mål för återställningspunkt): aktuella Återställningspunktmålet för den virtuella datorn och den tid då Återställningspunktmålet senast beräknad.
+På översiktssidan för replikerande dator hittar du:
+- RPO (mål för återställningspunkt): aktuell RPO för den virtuella datorn och den tid då beräknades senast rpo-MÅLET.
 - Senaste tillgängliga återställningspunkter för datorn
-- Konfigurationsproblem om eventuella som kan påverka beredskap för växling vid fel för datorn. Klicka på länken om du vill ha mer information.
-- Information om felet: lista av replikering fel inträffa som för närvarande observerats på datorn tillsammans med möjliga orsaker och rekommenderade reparationer
-- Händelser: En kronologisk lista över senaste händelser som påverkar datorn. Felinformation visar för närvarande synliga fel inträffa på datorn, händelser är en tidigare post för olika händelser som kan ha påverkat den datorn inklusive fel inträffa som kanske tidigare har såg för datorn.
-- Visa infrastruktur för datorer som replikeras till Azure
+- Konfigurationsproblem om någon som kan påverka redundansberedskap för datorn. Klicka på länken om du vill ha mer information.
+- Felinformation: lista över replikering fel symtomen för närvarande observerats på datorn tillsammans med möjliga orsaker och rekommenderade reparationer
+- Händelser: En kronologisk lista över de senaste händelserna som påverkar datorn. Felinformation visar för närvarande synliga fel symptom på datorn, händelser är en historisk post av olika händelser som kan påverka den datorn inklusive fel inträffa som kanske tidigare har såg för datorn.
+- Infrastruktur-vy för datorer som replikeras till Azure
 
-![Site Recovery replikerade objekt information/översikt](media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+![Site Recovery replikerade objekt information/overview](media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
-Åtgärd-menyn överst på sidan innehåller alternativ för att utföra olika åtgärder som testa redundans på den virtuella datorn. Knappen fel information på Åtgärd-menyn kan du visa alla aktiva fel replikeringsfel, konfigurationsproblem och bästa praxis baserat konfigurationsvarningar för den virtuella datorn.
+Åtgärd-menyn överst på sidan ger alternativ för att utföra olika åtgärder som redundanstest på den virtuella datorn. Knappen fel information på Åtgärd-menyn kan du se alla aktiva fel inklusive replikeringsfel, konfigurationsproblem och bästa praxis baserat konfigurationsvarningar för den virtuella datorn.
 
 > [!TIP]
-> Hur skiljer sig mål för Återställningspunktmål eller återställning från den senaste tillgängliga återställningspunkten?
+> Hur skiljer sig rpo-mål eller recovery point objective från den senaste tillgängliga återställningspunkten?
 > 
->Azure Site Recovery använder en asynkron process i flera steg för att replikera virtuella datorer till Azure. I det näst sista steget i replikering kopieras ändringar på den virtuella datorn tillsammans med metadata i ett lagringskonto för logg-cache. När ändringarna tillsammans med taggen för att identifiera en återställningsbara har skrivits till lagringskonto i målregionen, har informationen som behövs för att generera en återställningsbara punkt för den virtuella datorn i Azure Site Recovery. Återställningspunktmålet har nu uppfyllts så att ändringarna har överförts till lagringskontot hittills. Återställningspunktmålet för den virtuella datorn nu uttryckt i tidsenheter, med andra ord är lika med tiden förflutit från tidsstämpel som motsvarar den återställningsbara punkten.
+>Azure Site Recovery använder en asynkron process i flera steg för att replikera virtuella datorer till Azure. I det näst sista steget av replikering kopieras de senaste ändringarna på den virtuella datorn tillsammans med metadata till en logg-/ cachelagringskontot. När dessa ändringar tillsammans med taggen för att identifiera en återställningsbara har skrivits till lagringskonto i målregionen, har Azure Site Recovery informationen som behövs för att generera en återställningsbara tidpunkt för den virtuella datorn. Återställningspunktmålet har nu är uppfyllda för att ändringarna överförs till storage-konto än så länge. Återställningspunktmålet för den virtuella datorn nu uttrycks i tidsenheter, med andra ord är lika lång tid det tar från tidsstämpel som motsvarar den återställningsbara punkten.
 >
->Azure Site Recovery-tjänsten som körs i bakgrunden, hämtar överförda data från storage-konto och använder dem till replik-diskar som skapats för den virtuella datorn. Den genererar en återställningspunkt och gör den här punkten tillgängliga för återställning under växling vid fel. Den senaste tillgängliga återställningspunkten anger tidsstämpel som motsvarar den senaste återställningspunkten som redan har bearbetats och tillämpas på repliken diskar.
+>Azure Site Recovery-tjänsten, i bakgrunden, hämtar överförda data från storage-kontot och använder dem till replikeringsdiskar som har skapats för den virtuella datorn. Den genererar en återställningspunkt och gör den här punkten tillgängliga för återställning vid en redundansväxling. Den senaste tillgängliga återställningspunkten anger tidsstämpeln som motsvarar den senaste återställningspunkten som redan har bearbetats och tillämpas på repliken diskarna.
 >> [!WARNING]
-> En skeva klockan eller felaktig systemklockan på källdatorn replikering eller infrastrukturservrar lokalt kommer skeva beräknade värde för Återställningspunktsmål. För att säkerställa att korrekt rapportering av Återställningspunktmål Kontrollera värden att systemklockan på servrarna som ingår i replikeringen är korrekt. 
+> En skeva klockan eller felaktig systemklockan på den replikerande källdatorn eller infrastrukturservrar lokala kommer ge skeva beräknade värde för Återställningspunktmål. För att säkerställa att korrekt rapportering av RPO Kontrollera värden att systemklockan på servrar som ingår i replikeringen är korrekt. 
 >
 
-## <a name="monitor-azure-site-recovery-jobsoperations"></a>Övervaka Azure Site Recovery jobb /-åtgärder
+## <a name="monitor-azure-site-recovery-jobsoperations"></a>Övervaka Azure Site Recovery-jobb /-åtgärder
 
-Azure Site Recovery utför de åtgärder som du anger asynkront. Exempel på åtgärder du kan utföra är Aktivera replikering, skapa återställningsplan, testa redundans, uppdatera replikeringsinställningar osv. Varje sådan åtgärd har ett motsvarande jobb som har skapats för att spåra och granska igen. Jobbobjektet har all nödvändig information som krävs att spåra status och förlopp för åtgärden. Du kan spåra statusen för olika Site Recovery-åtgärder för valvet från sidan jobb. 
+Azure Site Recovery utför de åtgärder som du anger asynkront. Exempel på åtgärder du kan utföra är Aktivera replikering, skapa en återställningsplan, testa redundans, uppdatera replikeringsinställningarna osv. Varje sådan åtgärd har ett motsvarande jobb som skapas för att spåra och granska igen. Objektet har all nödvändig information som krävs att spåra status och förlopp för åtgärden. Du kan spåra statusen för de olika Site Recovery-åtgärderna för valvet från sidan jobb. 
 
-Lista över Site Recovery-jobb för valvet gå finns i **övervakning och rapporter** avsnitt i valvet-menyn och välj jobb > Site Recovery-jobb. Välj ett jobb i listan över jobb på sidan genom att klicka på den för att få mer information i det angivna jobbet. Om ett jobb inte har slutförts eller har fel kan se du mer information om reparationen för fel och möjliga genom att klicka på knappen fel information längst upp i jobbet informationssidan (också tillgänglig från sidan jobb genom att högerklicka på den misslyckade jobb.) Du kan använda filteralternativet Åtgärd-menyn överst sidan jobb för att filtrera listan baserat på ett visst villkor och Använd exportera-knappen för att exportera information om de valda jobben till en excel. Du kan också använda listvyn jobb från genvägen på instrumentpanelssidan Site Recovery. 
+Att se en lista över Site Recovery-jobb för valvet går den **övervakning och rapporter** avsnittet i menyn och välj jobb > Site Recovery-jobb. Välj ett jobb i listan över jobb på sidan genom att klicka på den för att få mer information om det angivna jobbet. Om ett jobb inte har slutförts eller innehåller fel kan se du mer information på fel och möjliga åtgärder genom att klicka på knappen fel information högst upp på jobbet informationssidan (även tillgänglig från sidan jobb genom att högerklicka på den misslyckade jobbet.) Du kan använda filteralternativet Åtgärd-menyn överst på sidan för jobb-listan för att filtrera listan baserat på ett visst villkor Använd knappen exportera för att exportera information om de valda jobben till en excel. Du kan även använda listvyn jobb från genvägen på instrumentpanelssidan Site Recovery. 
 
- För åtgärder som du utför i Azure Portal kan skapade jobbet och dess aktuella status också spåras från avsnittet meddelanden (klockikonen längst upp till höger) i Azure-portalen.
+ För åtgärder som du utför från Azure-portalen, kan skapade jobbet och aktuell status också spåras från meddelandeavsnittet (klockikonen längst upp till höger) i Azure-portalen.
 
 ## <a name="subscribe-to-email-notifications"></a>Prenumerera på e-postaviseringar
 
-Inbyggda e-postaviseringsfunktionen kan du prenumerera på e-postmeddelanden för kritiska händelser. Om du prenumererar på, skickas e-postaviseringar för följande händelser:
-- Hälsotillstånd för replikering av en replikering dator försämring till kritiskt.
-- Ingen anslutning mellan infrastrukturkomponenter lokalt och Azure Site Recovery-tjänsten. Anslutning till Site Recovery-tjänsten från lokala infrastrukturkomponenter som konfigurationsservern (VMware) eller System Center Virtual Machine Manager(Hyper-V) registrerad för valvet har identifierats med hjälp av en mekanism för pulsslag.
-- Redundans åtgärden fel om en sådan.
+Inbyggd e-postaviseringsfunktionen kan du prenumerera på e-postmeddelanden för kritiska händelser. Om du prenumererar på, skickas e-postmeddelanden för följande händelser:
+- Tillståndet för en replikdator försämra till kritiskt replikeringen.
+- Ingen anslutning mellan lokala infrastrukturkomponenter och Azure Site Recovery-tjänsten. Anslutning till Site Recovery-tjänsten från en lokal infrastrukturkomponenter, t.ex konfigurationsservern (VMware) eller System Center Virtual Machine Manager(Hyper-V) registrerad för valvet har identifierats med hjälp av en mekanism för pulsslag.
+- Redundans åtgärden fel om några.
 
-Om du vill prenumerera på e-postmeddelanden för Azure Site Recovery, går den **övervakning och rapporter** på valvet-menyn och:
+Om du vill prenumerera på e-postmeddelanden för Azure Site Recovery, går den **övervakning och rapporter** på menyn för valvet och:
 1. Välj aviseringar och händelser > Site Recovery-händelser.
-2. Välj ”e-postmeddelanden” på menyn ovanpå sidan händelser som har öppnats.
-3. Använd guiden e-postavisering för att aktivera eller inaktivera e-postmeddelanden och Välj mottagare av meddelanden. Du kan ange att alla prenumerationsadministratörer skickas meddelanden, och/eller ange en lista över e-postadresser du skickar meddelanden till. 
+2. Välj ”e-postmeddelanden” på menyn på sidan för evenemang som öppnas.
+3. Använd guiden e-postavisering att aktivera eller inaktivera e-postmeddelanden och Välj mottagare av meddelanden. Du kan ange att alla prenumerationsadministratörer skickas meddelanden, och/eller ange en lista över e-postadresser du skickar meddelanden till. 

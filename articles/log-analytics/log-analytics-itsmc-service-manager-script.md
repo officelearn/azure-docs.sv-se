@@ -1,6 +1,6 @@
 ---
-title: Automatiserade skript för att skapa webbprogram för Service Manager att ansluta med IT Service Management-anslutningstjänsten i Azure | Microsoft Docs
-description: Skapa en webbapp för Service Manager med ett automatiserat skript för att ansluta med IT Service Management-anslutningstjänsten i Azure, och centralt övervaka och hantera arbetsobjekt ITSM.
+title: Automatiserade skript för att skapa Service Manager Web app för att ansluta med IT Service Management Connector i Azure | Microsoft Docs
+description: Skapa en webbapp för Service Manager med hjälp av ett automatiserat skript för att ansluta med IT Service Management Connector i Azure, och centralt övervaka och hantera ITSM-arbetsuppgifter.
 services: log-analytics
 documentationcenter: ''
 author: jyothirmaisuri
@@ -15,34 +15,34 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.component: na
-ms.openlocfilehash: 15626a9dd2e889470477e34d6f1ebd47cce1411b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 0fe987b00da669daf3830e903d53793d9d1edab6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128664"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950132"
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script"></a>Skapa Service Manager-webbprogram med hjälp av automatiserade skript
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>Skapa Service Manager-webbapp med hjälp av automatiserade skript
 
-Använd följande skript för att skapa webbprogram för Service Manager-instansen. Mer information om Service Manager-anslutningen finns här: [Service Manager-webbprogram](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Använd följande skript för att skapa webbappen för Service Manager-instans. Mer information om Service Manager-anslutningen finns här: [Service Manager-webbapp](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
-Kör skript genom att tillhandahålla följande obligatoriska uppgifter:
+Kör skriptet genom att tillhandahålla följande nödvändiga data:
 
-- Information om Azure-prenumeration
+- Prenumerationsinformation för Azure
 - Resursgruppsnamn
 - Plats
-- Information om Service Manager (servernamnet, domän, användarnamn och lösenord)
-- Platsen namnprefixet för ditt webbprogram
-- ServiceBus-Namespace.
+- Service Manager server-information (namn, domän, användarnamn och lösenord)
+- Plats-namnprefixet för din webbapp
+- ServiceBus Namespace.
 
-Skriptet skapar webbappen med hjälp av namnet som du angav (tillsammans med några ytterligare strängar som gör det unikt). Den genererar den **Webbappens URL**, **klient-ID**, och **klienthemlighet**.
+Skriptet skapar webbappen med namnet som du har angett (tillsammans med några ytterligare strängar som gör det unikt). Den genererar den **Webbappens URL**, **klient-ID**, och **klienthemlighet**.
 
-Spara dessa värden behöver du dessa värden när du skapar en anslutning med IT Service Management-anslutningstjänsten.
+Spara värdena behöver du dessa värden när du skapar en anslutning med IT Service Management Connector.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
  Windows Management Framework 5.0 eller senare.
-Windows 10 har 5.1 som standard. Du kan hämta framework från [här](https://www.microsoft.com/download/details.aspx?id=53347):
+Windows 10 har 5.1 som standard. Du kan hämta framework från [här](https://www.microsoft.com/download/details.aspx?id=50395):
 
 Använd följande skript:
 
@@ -323,4 +323,4 @@ if(!$err)
 
 ```
 ## <a name="next-steps"></a>Nästa steg
-[Konfigurera anslutningen Hybrid](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+[Konfigurera hybridanslutningen](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).

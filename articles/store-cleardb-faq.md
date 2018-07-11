@@ -11,12 +11,12 @@ ms.workload: data-management
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.openlocfilehash: 5e6acf59410099ba36bfa6fa89a576d83b61cf00
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: ff36a67cd09dd1e5cb5635be17d1dd76fc824d1a
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341512"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917082"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Vanliga frågor och svar om ClearDB MySql-databaser med Azure App Service
 HÄR får du svar på vanliga frågor om hur du använder och köpa ClearDB MySQL databaser för Azure Web Apps.
@@ -44,7 +44,6 @@ Detta beror på vilken typ av prenumeration som du använder. Här följer någr
 * [Kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/): omfattar krediter för användning med Microsoft Azure-tjänster, men tillåter inte köp av resurser från tredje part. Aktiverat prenumeration om du vill köpa tjänster från tredje part eller en betald MySQL-databas måste du använda ett kreditkort. Du kan skapa en kostnadsfri ClearDB MySQL-databas för Web Apps.
 * [MSDN-prenumeration](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) och **MSDN Dev-Test betala**: liknar kostnadsfri utvärderingsversion, MSDN-prenumeration måste du ha ett kreditkort för att köpa en betald MySQL-lösning från ClearDB.
 * [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): EA-kunder debiteras mot deras EA varje kvartal för alla sina Azure Marketplace-köp (från tredje part) på en separat, konsoliderade faktura. Du debiteras utanför den summa i förskott för alla marketplace-köp. Observera att för tillfället Azure Store inte är tillgängligt för kunder som har registrerats i Azerbajdzjan, Kroatien, Norge och Puerto Rico. 
-* [DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99): du kan skapa endast kostnadsfria ClearDB databaser för Web Apps. Det finns ingen gräns för hur många kostnadsfria ClearDB MySQL-databaser som du kan skapa. Observera att gratisdatabaserna är inte ska användas för produktion web apps, som den här tjänsten är endast avsedd för utvärdering.
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Varför har jag debiterats $3.50 för en webbapp + MySQL från Azure Marketplace?
 Standard-databasalternativet är Titan, vilket är $3.50. Vi Visa inte kostnaden under skapande av databas och du kan köpa en databas som du inte hade för avsikt att av misstag. Vi försöker hitta ett sätt att förbättra upplevelsen men fram till dess måste du kontrollera alla dina valda prisnivåer för webbappen och databasen innan du klickar på **skapa** och starta distributionen av resurser.

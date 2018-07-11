@@ -1,9 +1,9 @@
 ---
-title: Hur du skapar Windows Azure VM-avbildningar med förpackaren | Microsoft Docs
-description: Lär dig hur du använder förpackaren för att skapa avbildningar av virtuella Windows-datorer i Azure
+title: Hur du skapar Windows Azure VM-avbildningar med Packer | Microsoft Docs
+description: Lär dig hur du använder Packer för att skapa avbildningar av Windows-datorer i Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
-ms.author: iainfou
-ms.openlocfilehash: b7f07ec8736086483f91746512f10118ee90762d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: cynthn
+ms.openlocfilehash: 5f19a6cb356332e95f96484953f1be3df006dd09
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333173"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931930"
 ---
-# <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Hur du använder förpackaren för att skapa virtuella Windows-avbildningar i Azure
-Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar Windows-distributionen och OS-version. Avbildningar kan innehålla förinstallerade program och konfigurationer. Azure Marketplace innehåller många första och tredje parts avbildningar för de vanligaste operativsystem och miljöer eller skapa egna anpassade avbildningar som är anpassade efter era behov. Den här artikeln beskriver hur du använder verktyget öppen källkod [förpackaren](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
+# <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Hur du använder Packer för att skapa Windows-avbildningar i Azure
+Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar den Windows-distribution och operativsystemsversion. Bilder kan innehålla förinstallerade program och konfigurationer. Azure Marketplace erbjuder många avbildningar av första och tredje part för de vanligaste OS och programmiljöer, eller skapa dina egna anpassade avbildningar som är specialanpassade utifrån dina behov. Den här artikeln beskriver hur du använder Verktyg för öppen källkod [Packer](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
 
 
 ## <a name="create-azure-resource-group"></a>Skapa Azure-resursgrupp
-När du skapar skapar förpackaren tillfälliga Azure-resurser som den skapar den Virtuella källdatorn. För att avbilda den Virtuella källdatorn som ska användas som en avbildning måste du definiera en resursgrupp. Utdata från processen för att bygga förpackaren lagras i den här resursgruppen.
+När du skapar skapar Packer tillfällig Azure-resurser som den bygger den Virtuella källdatorn. För att avbilda den Virtuella källdatorn för användning som en avbildning måste du definiera en resursgrupp. Utdata från skapandeprocessen Packer lagras i den här resursgruppen.
 
 Skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
@@ -37,9 +37,9 @@ New-AzureRmResourceGroup -Name $rgName -Location $location
 ```
 
 ## <a name="create-azure-credentials"></a>Skapa autentiseringsuppgifter för Azure
-Packare autentiserar med Azure med hjälp av ett huvudnamn för tjänsten. En Azure-tjänstens huvudnamn är en säkerhetsidentitet som du kan använda med appar, tjänster och verktyg för automatisering som förpackaren. Du styr och definiera behörigheter för vilka åtgärder som tjänstens huvudnamn kan utföra i Azure.
+Packer autentiserar med Azure med ett huvudnamn för tjänsten. Ett huvudnamn för Azure-tjänsten är en säkerhetsidentitet som du kan använda med appar, tjänster och automatiseringsverktyg som Packer. Du kontrollerar och definiera behörigheter om vilka åtgärder som tjänstens huvudnamn kan utföra i Azure.
 
-Skapa en tjänstens huvudnamn med [ny AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) och tilldela behörigheter att skapa och hantera resurser med tjänstens huvudnamn [ny AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
+Skapa ett tjänstobjekt med [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) och tilldela behörigheter för tjänstens huvudnamn att skapa och hantera resurser med [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
 
 ```powershell
 $sp = New-AzureRmADServicePrincipal -DisplayName "AzurePacker" `
@@ -48,7 +48,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-För att autentisera till Azure måste du också behöva hämta din Azure-klient och prenumerations-ID med [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription):
+Om du vill autentisera till Azure måste du också behöva hämta dina Azure-klient och prenumeration ID: N med [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription):
 
 ```powershell
 $sub = Get-AzureRmSubscription
@@ -59,20 +59,20 @@ $sub.SubscriptionId[0]
 Du kan använda dessa två ID: N i nästa steg.
 
 
-## <a name="define-packer-template"></a>Definiera förpackaren mall
-För att skapa avbildningar, skapa en mall som en JSON-fil. I mallen definierar du builders och provisioners som utför faktiska skapar. Förpackaren har en [builder för Azure](https://www.packer.io/docs/builders/azure.html) som kan du definiera Azure-resurser, t.ex. de huvudsakliga Tjänstereferenser som skapade i föregående steg.
+## <a name="define-packer-template"></a>Definiera Packer-mall
+Avbildningar skapa måste du en mall som en JSON-fil. I mallen definierar du builders och provisioners som utför den faktiska skapandeprocessen. Packer har en [builder för Azure](https://www.packer.io/docs/builders/azure.html) som gör det möjligt att definiera Azure-resurser, t.ex. autentiseringsuppgifterna för tjänstobjektet skapade i föregående steg.
 
-Skapa en fil med namnet *windows.json* och klistra in följande innehåll. Ange egna värden för följande:
+Skapa en fil med namnet *windows.json* och klistra in följande innehåll. Ange dina egna värden för följande:
 
-| Parameter                           | Var kan hämtas |
+| Parameter                           | Var de kan hämtas |
 |-------------------------------------|----------------------------------------------------|
-| *client_id*                         | Visa service ägar-ID med `$sp.applicationId` |
+| *client_id*                         | Visa ID för tjänstens huvudnamn med `$sp.applicationId` |
 | *client_secret*                     | Lösenordet du angav i `$securePassword` |
 | *tenant_id*                         | Utdata från `$sub.TenantId` kommando |
-| *PRENUMERATIONSID*                   | Utdata från `$sub.SubscriptionId` kommando |
-| *object_id*                         | Visa service principal objekt-ID med `$sp.Id` |
+| *subscription_id*                   | Utdata från `$sub.SubscriptionId` kommando |
+| *object_id*                         | Visa tjänstens huvudnamn objekt-ID med `$sp.Id` |
 | *managed_image_resource_group_name* | Namnet på resursgruppen som du skapade i det första steget |
-| *managed_image_name*                | Namn för den hanterade diskavbildning som har skapats |
+| *managed_image_name*                | Namn för den hantera diskavbildningen som har skapats |
 
 ```json
 {
@@ -118,19 +118,19 @@ Skapa en fil med namnet *windows.json* och klistra in följande innehåll. Ange 
 }
 ```
 
-Den här mallen skapar du en Windows Server 2016 VM, installerar IIS och generalisering den virtuella datorn med Sysprep. Installera IIS visar hur du kan använda PowerShell provisioner för att köra ytterligare kommandon. Den slutliga förpackare bilden innehåller programvara som krävs installation och konfiguration.
+Den här mallen skapar en virtuell Windows Server 2016-dator, installerar IIS och sedan generaliserar den virtuella datorn med Sysprep. Installationen av IIS visar hur du kan använda PowerShell-provisioner köra ytterligare kommandon. Den slutliga Packer-avbildningen innehåller nödvändig programvara installation och konfiguration.
 
 
-## <a name="build-packer-image"></a>Skapa förpackaren bild
-Om du inte redan har förpackaren installerad på din lokala dator [Följ installationsanvisningarna förpackaren](https://www.packer.io/docs/install/index.html).
+## <a name="build-packer-image"></a>Skapa Packer-avbildning
+Om du inte redan har Packer som installerats på den lokala datorn [Följ installationsanvisningarna Packer](https://www.packer.io/docs/install/index.html).
 
-Skapa avbildningen genom att ange din förpackaren mallfilen på följande sätt:
+Skapa avbildningen genom att ange din Packer mallfilen på följande sätt:
 
 ```bash
 ./packer build windows.json
 ```
 
-Ett exempel på utdata från föregående kommandona är följande:
+Ett exempel på utdata från föregående kommandon är följande:
 
 ```bash
 azure-arm output will be in this color.
@@ -204,11 +204,11 @@ ManagedImageName: myPackerImage
 ManagedImageLocation: eastus
 ```
 
-Det tar några minuter för förpackaren att bygga den virtuella datorn körs provisioners och rensa distributionen.
+Det tar några minuter för Packer att skapa den virtuella datorn, kör provisioners och rensa distributionen.
 
 
-## <a name="create-a-vm-from-the-packer-image"></a>Skapa en virtuell dator från förpackaren avbildningen
-Nu kan du skapa en virtuell dator från avbildningen med [ny AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Stödjande nätverksresurser skapas om de inte redan finns. När du uppmanas, anger du ett administrativa användarnamn och lösenord som ska skapas på den virtuella datorn. I följande exempel skapas en virtuell dator med namnet *myVM* från *myPackerImage*:
+## <a name="create-a-vm-from-the-packer-image"></a>Skapa en virtuell dator från Packer-avbildning
+Du kan nu skapa en virtuell dator från avbildningen med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Stödnätverksresurser skapas om de inte redan finns. När du uppmanas, anger du ett administratörsanvändarnamn och lösenord som ska skapas på den virtuella datorn. I följande exempel skapas en virtuell dator med namnet *myVM* från *myPackerImage*:
 
 ```powershell
 New-AzureRmVm `
@@ -223,9 +223,9 @@ New-AzureRmVm `
     -Image "myPackerImage"
 ```
 
-Om du vill skapa virtuella datorer i en annan resursgrupp eller region än förpackaren avbildningen ange avbildnings-ID i stället för namn. Du kan hämta avbildnings-ID med [Get-AzureRmImage](/powershell/module/AzureRM.Compute/Get-AzureRmImage).
+Om du vill skapa virtuella datorer i en annan resursgrupp eller region än din Packer-avbildning, ange avbildnings-ID i stället för namnet på avbildningen. Du kan hämta avbildnings-ID med [Get-AzureRmImage](/powershell/module/AzureRM.Compute/Get-AzureRmImage).
 
-Det tar några minuter att skapa den virtuella datorn från förpackaren avbildningen.
+Det tar några minuter att skapa den virtuella datorn från en Packer-avbildning.
 
 
 ## <a name="test-vm-and-webserver"></a>Testa virtuell dator och webbserver
@@ -237,12 +237,12 @@ Get-AzureRmPublicIPAddress `
     -Name "myPublicIPAddress" | select "IpAddress"
 ```
 
-Ange den offentliga IP-adressen i till en webbläsare om du vill se den virtuella datorn, som innehåller IIS-installationen från förpackaren-provisioner i åtgärden.
+Ange den offentliga IP-adressen i en webbläsare om du vill se den virtuella datorn, som innefattar installationen av IIS från Packer-provisioner i praktiken.
 
 ![Standardwebbplatsen i IIS](./media/build-image-with-packer/iis.png) 
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här exemplet används förpackaren för att skapa en VM-avbildning med IIS är redan installerad. Du kan använda den här Virtuella datorn tillsammans med befintliga arbetsflöden för distribution, som att distribuera din app till virtuella datorer skapas från avbildningen med Team Services, Ansible, Chef eller Puppet.
+I det här exemplet används Packer för att skapa en VM-avbildning med IIS är redan installerad. Du kan använda den här Virtuella datorn tillsammans med befintliga arbetsflöden för distribution, till exempel att distribuera din app till virtuella datorer som skapats från avbildningen med Team Services, Ansible, Chef eller Puppet.
 
-Ytterligare exempel förpackaren mallar för andra Windows-distributioner, se [GitHub-repo](https://github.com/hashicorp/packer/tree/master/examples/azure).
+Ytterligare exempel Packer på mallar för andra Windows-distributioner, se [denna GitHub-lagringsplats](https://github.com/hashicorp/packer/tree/master/examples/azure).

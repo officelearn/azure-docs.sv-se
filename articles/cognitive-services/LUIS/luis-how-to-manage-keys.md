@@ -1,5 +1,5 @@
 ---
-title: Hantera dina nycklar i LUIS | Microsoft Docs
+title: Hantera dina nycklar för slutpunkten i LUIS | Microsoft Docs
 description: Använda Språkförståelse (LUIS) för att hantera din programmatisk API, slutpunkt och externa nycklar.
 titleSuffix: Azure
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 99ba867b10c82d226948b13fda448cd24a33c553
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 288c1456979ff9214b2f333768da65bd3da1a734
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888736"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917803"
 ---
-# <a name="manage-your-luis-keys"></a>Hantera LUIS-nycklar
+# <a name="manage-your-luis-endpoint-keys"></a>Hantera dina LUIS endpoint-nycklar
 En nyckel kan du skapa och publicera LUIS-appen eller fråga din slutpunkt. 
 
 <a name="programmatic-key" ></a>

@@ -1,33 +1,33 @@
 ---
-title: Azure Site Recovery-distribution Planner för Hyper-V-till-Azure | Microsoft Docs
-description: Den här artikeln beskriver analys av en genererad rapport från Azure Site Recovery-distribution Planner för Hyper-V till Azure-scenariot.
+title: Distributionshanteraren för Azure Site Recovery för Hyper-V till Azure| Microsoft Docs
+description: I den här artikeln beskrivs analyser av genererade rapporter från distributionshanteraren för Azure Site Recovery för scenariot Hyper-V till Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 060d51406f67ad8a55cdf61506cd66f5390ebe4c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 78350f8e0ab86c7c87c321397bd4e4a4849368b6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29467214"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918857"
 ---
-# <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analysera Azure Site Recovery-distribution Planner rapporten
-Den här artikeln beskriver de blad i Excel-rapport som genererats av Azure Site Recovery-distribution Planner för Hyper-V till Azure-scenariot.
+# <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analysera rapporten för distributionshanteraren för Azure Site Recovery
+I den här artikeln diskuteras bladen i Excel-rapporterna som genereras av distributionshanteraren för Azure Site Recovery för scenariot Hyper-V till Azure.
 
 ## <a name="on-premises-summary"></a>Lokal sammanfattning
-Lokala sammanfattning kalkylbladet innehåller en översikt över profilerad Hyper-V-miljön.
+Bladet med lokal sammanfattning ger en översikt över den profilerade Hyper-V-miljön.
 
 ![Lokal sammanfattning](media/hyper-v-deployment-planner-analyze-report/on-premises-summary-h2a.png)
 
-**Startdatum** och **slutdatum**: start- och slutdatum för profileringsdata för skapa rapporter. Som standard är startdatumet det datum då profileringen startades och slutdatumet är det datum när profileringen avslutades. Den här informationen kan vara ”StartDate” och ”EndDate” värden om rapporten genereras med följande parametrar.
+**Startdatum** och **Slutdatum**: Start- och slutdatum för de profileringsdata som ingår i rapportgenereringen. Som standard är startdatumet det datum då profileringen startades och slutdatumet är det datum när profileringen avslutades. Den här informationen kan vara värdena ”StartDate” och ”EndDate” om rapporten genererades med dessa parametrar.
 
 **Total number of profiling days** (Totalt antal dagar för profilering): Det totala antalet profileringsdagar mellan start- och slutdatumen som rapporten genererats för.
 
-**Antal kompatibla virtuella datorer**: det totala antalet kompatibla virtuella datorer för vilken krävs nätverkets bandbredd, antal lagringskonton och Azure kärnor beräknas.
+**Number of compatible virtual machines** (Antal kompatibla virtuella datorer): Det totala antalet kompatibla virtuella datorer som nödvändig nätverksbandbredd, nödvändigt antal lagringskonton och antal Azure-kärnor beräknas för.
 
 **Total number of disks across all compatible virtual machines (Totalt antal diskar för samtliga kompatibla virtuella datorer)**: Det totala antalet diskar för samtliga kompatibla virtuella datorer.
 
@@ -35,9 +35,9 @@ Lokala sammanfattning kalkylbladet innehåller en översikt över profilerad Hyp
 
 **Average disk size (GB)** (Genomsnittlig diskstorlek (GB)): Den genomsnittliga diskstorleken beräknad för samtliga kompatibla virtuella datorer.
 
-**Önskad Återställningspunktmål (minuter)**: antingen standard återställningspunkt mål eller värdet som skickades för parametern ”DesiredRPO” vid tidpunkten för rapportgenerering att beräkna bandbredd som krävs.
+**Desired RPO (minutes)** (Önskat RPO-mål (minuter)): Antingen standardvärdet för RPO-mål eller det värde som angavs för parametern ”DesiredRPO” när rapporten genererades för att uppskatta nödvändig bandbredd.
 
-**Önskad bandbredd (Mbps)**: värdet som du överfört för parametern ”bandbredd” vid tidpunkten för rapporten genereras och beräkna hastigheterna återställningspunktmål (RPO).
+**Desired bandwidth (Mbps)** (Önskad bandbredd (Mbit/s)): Det värde du angav för parametern ”Bandbredd” när du genererade rapporten för att uppskatta vilket RPO-mål som kan uppnås.
 
 **Observed typical data churn per day (GB)** (Observerad normal dataomsättning per dag (GB)) är den genomsnittliga dataomsättning som observerats under alla profileringsdagar.
 
@@ -49,38 +49,38 @@ Rekommendationsbladet för Hyper-V till Azure-rapporten innehåller följande in
 ### <a name="profile-data"></a>Profildata
 ![Profildata](media/hyper-v-deployment-planner-analyze-report/profile-data-h2a.png)
 
-**Profiled data period** (Profileringsdataperiod): Den period då profileringen kördes. Som standard innehåller verktyget alla profilerade data i beräkningen. Om du har använt alternativet StartDate och EndDate i rapportgenerering genererar rapporten för den specifika perioden. 
+**Profiled data period** (Profileringsdataperiod): Den period då profileringen kördes. Som standard innehåller verktyget alla profilerade data i beräkningen. Om du använde alternativet StartDate och EndDate i rapportgenereringen, genereras rapporten för den specifika perioden. 
 
-**Antalet Hyper-V-servrar i listan**: antalet Hyper-V-servrar vars VMs rapporten genereras. Välj att visa namnet på Hyper-V-servrar. Lokala lagringsbehov blad öppnas för att visa alla servrar tillsammans med deras lagringskrav. 
+**Number of Hyper-V servers profiled** (Antal profilerade Hyper-V-servrar): Antalet Hyper-V-servrar vars VM-rapport genereras. Välj en siffra för att visa namnet på Hyper-V-servrarna. Detta öppnar bladet On-premises Storage Requirement (Krav för lokal lagring), där alla servrar finns angivna tillsammans med sina lagringskrav. 
 
-**Desired RPO** (Önskat återställningspunktmål): Återställningspunktmålet för din distribution. Som standard beräknas vilken nätverksbandbredd som krävs för RPO-värden på 15, 30 respektive 60 minuter. De aktuella värdena på bladet uppdateras baserat på vad du väljer. Om du har använt parametern DesiredRPOinMin när rapporten genererades visas värdet i önskad Återställningspunktmål resultatet.
+**Desired RPO** (Önskat återställningspunktmål): Återställningspunktmålet för din distribution. Som standard beräknas vilken nätverksbandbredd som krävs för RPO-värden på 15, 30 respektive 60 minuter. De aktuella värdena på bladet uppdateras baserat på vad du väljer. Om du använde parametern DesiredRPOinMin när du genererade rapporten så visas det här värdet i resultatet Desired RPO (Önskat RPO-mål).
 
 ### <a name="profiling-overview"></a>Profileringsöversikt
 ![Profileringsöversikt](media/hyper-v-deployment-planner-analyze-report/profiling-overview-h2a.png)
 
-**Total Profiled Virtual Machines** (Totalt antal profilerade virtuella datorer): Det totala antalet virtuella datorer som det finns profileringsdata för. Om VMListFile har namnen på virtuella datorer som inte var profileras startas, betraktas inte som i rapportgenereringen dessa virtuella datorer och är undantagna från det totala antalet för profilerad virtuella datorer.
+**Total Profiled Virtual Machines** (Totalt antal profilerade virtuella datorer): Det totala antalet virtuella datorer som det finns profileringsdata för. Om VMListFile innehåller namn på virtuella datorer som inte har profilerats så beaktas inte dessa virtuella datorer i rapporten och de ingår inte i värdet för antalet virtuella datorer som har profilerats.
 
-**Compatible Virtual Machines** (Kompatibla virtuella datorer): Det antal virtuella datorer som kan skyddas i Azure med Azure Site Recovery. Det är det totala antalet kompatibla virtuella datorer för vilken krävs nätverkets bandbredd, antal lagringskonton och antal Azure kärnor beräknas. Information om varje kompatibel virtuell dator finns i avsnittet ”Kompatibla virtuella datorer”.
+**Compatible Virtual Machines** (Kompatibla virtuella datorer): Det antal virtuella datorer som kan skyddas i Azure med Azure Site Recovery. Det här är det totala antalet kompatibla virtuella datorer som nödvändig nätverksbandbredd, antal lagringskonton och antal Azure-kärnor beräknas för. Information om varje kompatibel virtuell dator finns i avsnittet ”Kompatibla virtuella datorer”.
 
-**Incompatible Virtual Machines** (Inkompatibla virtuella datorer): Antalet profilerade virtuella datorer som inte kan skyddas med Site Recovery. Orsaken till inkompatibiliteten beskrivs i avsnittet Inkompatibla virtuella datorer. Om VMListFile har namnen på virtuella datorer som inte var profileras startas, är dessa virtuella datorer undantagna från antalet inkompatibla virtuella datorer. Dessa virtuella datorer visas under Data not found (Inga data hittades) i slutet av avsnittet Incompatible VMs (Inkompatibla virtuella datorer).
+**Incompatible Virtual Machines** (Inkompatibla virtuella datorer): Antalet profilerade virtuella datorer som inte kan skyddas med Site Recovery. Orsaken till inkompatibiliteten beskrivs i avsnittet Inkompatibla virtuella datorer. Om VMListFile innehåller namnen på virtuella datorer som inte har profilerats undantas dessa virtuella datorer från antalet inkompatibla virtuella datorer. Dessa virtuella datorer visas under Data not found (Inga data hittades) i slutet av avsnittet Incompatible VMs (Inkompatibla virtuella datorer).
 
-**Desired RPO** (Önskat återställningspunktmål): Önskat mål för återställningspunkten (RPO) i minuter. Rapporten genereras för tre värden för återställningspunktmål: 15 (standard), 30 respektive 60 minuter. Rekommendationen bandbredd i rapporten ändras baserat på ditt val i den **önskad Återställningspunktmål** listrutan i övre högra hörnet på bladet. Om du genererade rapporten genom att använda parametern - DesiredRPO med ett anpassat värde anpassade värdet visar som standard i den **önskad Återställningspunktmål** listrutan.
+**Desired RPO** (Önskat återställningspunktmål): Önskat mål för återställningspunkten (RPO) i minuter. Rapporten genereras för tre värden för återställningspunktmål: 15 (standard), 30 respektive 60 minuter. Rekommendationen angående bandbredd i rapporten förändras baserat på vad du väljer i listrutan **Desired RPO** (Önskat RPO-mål) uppe till höger på bladet. Om du genererade rapporten med ett anpassat värde för parametern -DesiredRPO visas det här anpassade värdet som standardvärde i listrutan **Desired RPO** (Önskat återställningspunktmål).
 
 ### <a name="required-network-bandwidth-mbps"></a>Required Network Bandwidth (Mbps) (Nödvändig nätverksbandbredd (Mbit/s))
 ![Nödvändig nätverksbandbredd](media/hyper-v-deployment-planner-analyze-report/required-network-bandwidth-h2a.png)
 
-**Att uppfylla Återställningspunktmål 100% av tiden**: rekommenderade bandbredd i Mbit/s kan tilldelas för att uppfylla dina önskade Återställningspunktmål 100 procent av tiden. Den här mängden bandbredd måste vara reserverad för stabil deltareplikering av samtliga kompatibla virtuella datorer om du helt ska undvika överträdelser av RPO-målet.
+**För att nå RPO-målet 100 % av gångerna**: Det här är den rekommenderade bandbredd i Mbit/s som du bör allokera om RPO-målet ska nås 100 % av tiden. Den här mängden bandbredd måste vara reserverad för stabil deltareplikering av samtliga kompatibla virtuella datorer om du helt ska undvika överträdelser av RPO-målet.
 
-**Att uppfylla Återställningspunktmål 90% av tiden**: kanske på grund av bredband priser eller en annan orsak kan du inte ange den bandbredd som behövs för att uppfylla dina önskade Återställningspunktmål 100 procent av tiden. Om så är fallet kan du använda en lägre bandbreddsinställning som uppfyller dina önskade Återställningspunktmål 90 procent av tiden. I rapporten ges även en ”tänk om”-analys av hur många RPO-överträdelser du kan förvänta dig och deras varaktighet, så att du bättre ska förstå vad som kan hända om du tilldelar den här lägre bandbredden.
+**För att nå RPO-målet 90 % av gångerna**: Om bandbreddspriserna är för höga eller om du av någon annan anledning inte kan tilldela den bandbredd som krävs för att uppnå RPO-målet 100 % av gångerna. I det här fallet kan du välja att tilldela en lägre bandbredd som gör att du uppnår önskat RPO 90 % av gångerna. I rapporten ges även en ”tänk om”-analys av hur många RPO-överträdelser du kan förvänta dig och deras varaktighet, så att du bättre ska förstå vad som kan hända om du tilldelar den här lägre bandbredden.
 
-**Uppnås genomströmning**: genomströmning från den server som du kör kommandot GetThroughput till Azure-regionen där lagringskontot finns. Siffran genomströmning anger den uppskattade nivå som du kan få när du skyddar kompatibla virtuella datorer med hjälp av Site Recovery. Hyper-V server lagring och nätverk egenskaper måste vara samma som på den server där du kör verktyget.
+**Uppnått dataflöde**: Dataflödet från servern där du körde kommandot GetThroughput till den Azure-region där lagringskontot finns. Dataflödesvärdet är en uppskattning av den nivå du kan uppnå när du skyddar de kompatibla virtuella datorerna med Site Recovery. Hyper-V-serverlagring och nätverksegenskaperna måste vara samma som på den server du kör verktyget från.
 
 För alla företagsdistributioner av Site Recovery bör du använda [ExpressRoute](https://aka.ms/expressroute).
 
 ### <a name="required-storage-accounts"></a>Nödvändiga lagringskonton
 I följande diagram visas hur många lagringskonton (standard och premium) som behövs för att skydda alla kompatibla virtuella datorer. Om du vill veta vilket lagringskonto som ska användas för varje virtuell dator kan du läsa avsnittet ”Placering av VM-lagring”.
 
-![Krävs för Azure storage-konton](media/hyper-v-deployment-planner-analyze-report/required-storage-accounts-h2a.png)
+![Nödvändiga Azure Storage-konton](media/hyper-v-deployment-planner-analyze-report/required-storage-accounts-h2a.png)
 
 ### <a name="required-number-of-azure-cores"></a>Nödvändigt antal Azure-kärnor
 Resultatet är det totala antalet kärnor som ska konfigureras före redundansväxling eller redundanstest av alla kompatibla virtuella datorer. Om det inte finns tillräckligt många kärnor tillgängliga i prenumerationen kan inte Site Recovery skapa virtuella datorer vid redundanstestet eller redundansväxlingen.
@@ -90,62 +90,62 @@ Resultatet är det totala antalet kärnor som ska konfigureras före redundansv�
 
 ### <a name="additional-on-premises-storage-requirement"></a>Ytterligare krav för lokal lagring
 
-Den totala ledigt utrymme som krävs på Hyper-V-servrar för inledande replikering som lyckades och deltareplikering för att säkerställa att alla oönskade driftstopp för dina program i produktion inte VM-replikering. Mer information om krav för varje volym är tillgänglig i [lokala lagringsbehov](#on-premises-storage-requirement). 
+Det totala lediga lagringsutrymmet som krävs för Hyper-V-servrar för en lyckad initial replikering och deltareplikering för att garantera att VM-replikeringen inte orsakar några oönskade driftstopp för dina produktionsprogram. Mer information om varje volymkrav finns i [krav för lokal lagring](#on-premises-storage-requirement). 
 
-För att förstå varför ledigt utrymme som krävs för replikering, se den [lokala lagringsbehov](#why-do-i-need-free-space-on-the-hyper-v-server-for-the-replication) avsnitt.
+Läs mer om varför det krävs ledigt utrymme för replikeringen i avsnittet [Krav för lokal lagring](#why-do-i-need-free-space-on-the-hyper-v-server-for-the-replication).
 
-![Lokal lagring krav och kopiera frekvens](media/hyper-v-deployment-planner-analyze-report/on-premises-storage-and-copy-frequency-h2a.png)
+![Krav för lokal lagring och kopieringsfrekvens](media/hyper-v-deployment-planner-analyze-report/on-premises-storage-and-copy-frequency-h2a.png)
 
 ### <a name="maximum-copy-frequency"></a>Maximal kopieringsfrekvens
-Den rekommenderade maximala kopieringsfrekvensen måste anges för replikeringen för att önskad RPO ska uppnås. Standardvärdet är 5 minuter. Du kan ange kopieringsfrekvensen till 30 sekunder för att få bättre Återställningspunktmål.
+Den rekommenderade maximala kopieringsfrekvensen måste anges för replikeringen för att önskad RPO ska uppnås. Standardvärdet är 5 minuter. Du kan ställa in kopieringsfrekvensen till 30 sekunder för att få bättre RPO (mål för återställningspunkt).
 
 ### <a name="what-if-analysis"></a>Konsekvensanalys
-![Vad händer om analysis](media/hyper-v-deployment-planner-analyze-report/what-if-analysis-h2a.png) analysen beskrivs hur många överträdelser kan uppstå under den profilering tidsperiod när du ställer in en mindre bandbredd för önskad Återställningspunktmålet vara uppfyllda 90 procent av tiden. En eller flera överträdelser av återställningspunktmålen kan inträffa på en viss dag. Grafen visar toppåterställningspunktmålet för dagen. Utifrån den här analysen kan du avgöra om du kan godta antalet RPO-överträdelser och dagens största RPO-överträdelse sett till den lägre bandbredden. Om du accepterar, kan du allokera låg bandbredd för replikering. Om det är acceptabelt att allokera högre bandbredd enligt förslaget att uppfylla önskade Återställningspunktmålet 100 procent av tiden. 
+![Konsekvensanalys](media/hyper-v-deployment-planner-analyze-report/what-if-analysis-h2a.png) I den här analysen beskrivs hur många överträdelser som kan inträffa under profileringsperioden när du tilldelar en lägre bandbredd för att önskat RPO-mål ska uppfyllas bara 90 % av gångerna. En eller flera överträdelser av återställningspunktmålen kan inträffa på en viss dag. Grafen visar toppåterställningspunktmålet för dagen. Utifrån den här analysen kan du avgöra om du kan godta antalet RPO-överträdelser och dagens största RPO-överträdelse sett till den lägre bandbredden. Du kan allokera den lägre bandbredden för replikering, om det är godtagbart. Om det inte är godtagbart, måste du allokera högre bandbredd enligt förslaget för att uppfylla önskad RPO 100 % av tiden. 
 
 ### <a name="recommendation-for-successful-initial-replication"></a>Rekommendation för lyckad initial replikering
-Det här avsnittet beskrivs hur många batchar där de virtuella datorerna ska skyddas och den minsta bandbredden som krävs för att slutföra den inledande replikeringen (IR). 
+I det här avsnittet diskuterar vi antalet batchar i vilka de virtuella datorerna ska skyddas och den minsta bandbredd som krävs för att slutföra den initiala replikeringen (IR). 
 
 ![IR-batchbearbetning](media/hyper-v-deployment-planner-analyze-report/ir-batching-h2a.png)
 
-Virtuella datorer måste skyddas i ordningen de angivna batch. Varje grupp har en specifik lista med virtuella datorer. Batch 1 virtuella datorer måste skyddas innan Batch 2 virtuella datorer. Batch 2 virtuella datorer måste skyddas innan Batch 3 virtuella datorer och så vidare. Du kan aktivera replikering för Batch 2 virtuella datorer efter första replikeringen av de virtuella datorerna 1 Batch har slutförts. På liknande sätt när inledande replikering av Batch 2 virtuella datorer har slutförts kan kan du aktivera replikering för Batch 3 virtuella datorer, och så vidare. 
+Virtuella datorer måste skyddas i angiven batchordning. Varje batch har en specifik lista över virtuella datorer. Virtuella datorer i batch 1 måste skyddas före batch 2. Virtuella datorer i batch 2 måste skyddas före batch 3 och så vidare. När den inledande replikeringen av de virtuella datorerna i batch 1 är klar kan du aktivera replikering för virtuella datorer i batch 2. På samma sätt kan du när den inledande replikeringen av de virtuella datorerna i batch 2 är klar aktivera replikering för virtuella datorer i batch 3, och så vidare. 
 
-Om batch-ordning inte följs kanske tillräckligt med bandbredd för inledande replikering inte tillgängliga för de virtuella datorerna som är skyddade senare. Resultatet är att antingen virtuella datorer aldrig Slutför den inledande replikeringen eller några skyddade virtuella datorerna kan försättas i omsynkronisering läget. IR-batchbearbetning för det valda RPO-arket innehåller detaljerad information om vilka virtuella datorer som ska ingå i varje batch.
+Om batchordningen inte följs kanske det inte finns tillräckligt med bandbredd för inledande replikering för virtuella datorer som ska skyddas senare. Det leder antingen till att de virtuella datorerna aldrig slutför den inledande replikeringen eller till att några få skyddade virtuella datorer försätts i läget för omsynkronisering. IR-batchbearbetning för det valda RPO-arket innehåller detaljerad information om vilka virtuella datorer som ska ingå i varje batch.
 
-Diagrammet här visar bandbreddsfördelningen för inledande replikering och deltareplikering i batchar i den angivna batchordningen. När du skyddar första batch för virtuella datorer är full bandbredd tillgänglig för inledande replikering. När den inledande replikeringen är klar för den första batchen, krävs en del av bandbredden för deltareplikering. Den återstående bandbredden är tillgänglig för inledande replikering av andra batch för virtuella datorer. 
+Diagrammet här visar bandbreddsfördelningen för inledande replikering och deltareplikering i batchar i den angivna batchordningen. När du skyddar virtuella datorer i den första batchen är fullständig bandbredd tillgänglig för inledande replikering. När den inledande replikeringen är slutförd för den första batchen krävs en del av bandbredden för deltareplikering. Återstående bandbredd kommer att vara tillgänglig för inledande replikering för virtuella datorer i den andra batchen. 
 
-Fältet för batch 2 visar den bandbredd som krävs för deltareplikering för virtuella datorer i batch 1 och den tillgängliga bandbredden för inledande replikering av virtuella datorer i batch 2. På liknande sätt visar Batch 3-fältet den bandbredd som krävs för deltareplikering för föregående batchar (Batch 1 och Batch 2 virtuella datorer) och den tillgängliga bandbredden för inledande replikering för Batch 3 och så vidare. När inledande replikering av alla batchar är klar, visas det senaste fältet bandbredd som krävs för deltareplikering för alla skyddade virtuella datorer.
+Fältet för batch 2 visar den bandbredd som krävs för deltareplikering för virtuella datorer i batch 1 och den tillgängliga bandbredden för inledande replikering av virtuella datorer i batch 2. På samma sätt visar fältet för batch 3 den bandbredd som krävs för deltareplikering av föregående batchar (virtuella datorer i batch 1 och 2) och tillgänglig bandbredd för inledande replikering för batch 3 och så vidare. När inledande replikering av alla batchar är klar visar det senaste fältet bandbredden som krävs för deltareplikering för alla skyddade virtuella datorer.
 
 **Varför behöver jag inledande batchbearbetning av replikering?**
 Tidsåtgången för den inledande replikeringen med avseende på den virtuella datorns diskstorlek, förbrukat diskutrymme och tillgängligt dataflöde i nätverket. Informationen finns i IR-batchbearbetning för ett valt RPO-ark.
 
 ### <a name="cost-estimation"></a>Kostnadsuppskattning
-Diagrammet visar sammanfattning av kostnaden för beräknade totala disaster recovery (DR) till Azure för din valda målregionen och valutor som du angav för rapportgenerering av.
+I diagrammet visas en sammanfattning av den uppskattade totala kostnaden för haveriberedskap (DR) till Azure för din valda målregion och i den valuta du har angett för rapporten.
 
 ![Sammanfattning av kostnadsuppskattning](media/hyper-v-deployment-planner-analyze-report/cost-estimation-summary-h2a.png)
 
-Sammanfattningen hjälper dig att förstå kostnaden som behövs för att betala för lagring, beräkning, nätverk och licensiering när du skyddar alla dina kompatibla virtuella datorer till Azure med Site Recovery. Den beräknade kostnaden för kompatibla virtuella datorer och inte på alla profilerad virtuella datorer. 
+Sammanfattningen hjälper dig att förstå den kostnad du behöver betala för lagring, beräkning, nätverk och licenser när du skyddar alla dina kompatibla virtuella datorer till Azure med Site Recovery. Kostnaden beräknas för kompatibla virtuella datorer och inte för alla profilerade virtuella datorer. 
  
 Du kan visa kostnaden per månad eller per år. Läs mer om [målregioner som stöds](./hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) och [valutor som stöds](./hyper-v-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Kostnaden med komponenter**: den totala kostnaden för Katastrofåterställning är indelat i fyra komponenter: bearbetning, lagring, nätverk och Site Recovery licens kostnaden. Kostnaden beräknas baserat på förbrukningen som uppstår vid replikering och DR ökad samtidigt. Beräkning, lagring (premium och standard), ExpressRoute/VPN som har konfigurerats mellan lokal plats och Azure Site Recovery-licens används för beräkningar.
+**Komponentkostnader**: Den totala DR-kostnaden delas upp i fyra komponenter: beräkning, lagring, nätverk och Site Recovery-licenskostnad. Kostnaden beräknas baserat på förbrukningen som uppstår vid replikering och DR-testtiden. Beräkning, lagring (premium och standard), ExpressRoute/VPN som konfigurerats mellan lokal plats och Azure samt Site Recovery-licenser används för beräkningar.
 
-**Kostnad utfärda**: Totalt antal disaster recovery kostnaden kategoriseras baserat på två olika lägen: replikering och DR-test. 
+**Cost by states** (Kostnad per tillstånd): Den totala kostnaden för haveriberedskap är kategorier baserat på två olika tillstånd – replikering och DR-test. 
 
-**Replikering kostnaden**: kostnaden som uppstår vid replikering. Det täcker kostnaden för lagring, nätverk och Site Recovery-licens. 
+**Replication cost** (Replikeringskostnad): Kostnaden som tillkommer under replikering. Det här täcker kostnaden för lagring, nätverk och Site Recovery-licensen. 
 
-**Kostnaden för DR-Återställningsgranskning**: kostnaden som uppstår under redundanstestning. Site Recovery startar virtuella datorer under redundanstestningen. DR ökad kostnaden omfattar körs VMs kostnaden för beräkning och lagring. 
+**DR-Drill cost** (DR-testkostnad): Kostnaden som tillkommer under redundansväxlingstest. Site Recovery startar virtuella datorer under redundanstest. DR-testkostnaden täcker kostnaden för beräkning och lagring för de virtuella datorer som körs. 
 
-**Azure Storage kostnad per år-månad-**: liggande diagram visar den totala lagringsutrymme kostnad som uppstår för premium och standardlagring för replikering och DR-test. Du kan visa en detaljerad kostnadsanalys per VM på arket [Cost Estimation](hyper-v-deployment-planner-cost-estimation.md) (Kostnadsuppskattning).
+**Azure Storage Cost per Month/Year** (Azure Storage-kostnad per månad/år): Diagrammet visar den totala lagringskostnad som tillkommer för premium- och standardlagring för replikering och DR-test. Du kan visa en detaljerad kostnadsanalys per VM på arket [Cost Estimation](hyper-v-deployment-planner-cost-estimation.md) (Kostnadsuppskattning).
 
 ### <a name="growth-factor-and-percentile-values-used"></a>Tillväxtfaktor och percentilvärde som används
-Det här avsnittet längst ned på bladet visar percentilvärdet används för alla prestandaräknare profilerad virtuella (standard är 95: e percentilen). Den visar även tillväxtfaktor (standardvärdet är 30 procent) som används i alla beräkningar.
+I det här avsnittet, längst ned på bladet, visas vilket percentilvärde som använts för prestandaräknarna för de profilerade virtuella datorerna (standardvärdet är den 95:e percentilen). Det visar även tillväxtfaktorn (standardvärdet är 30 %) som används i alla beräkningar.
 
 ![Tillväxtfaktor och percentilvärde som används](media/hyper-v-deployment-planner-run/growth-factor-max-percentile-value.png)
 
 ## <a name="recommendations-with-available-bandwidth-as-input"></a>Rekommendationer med tillgänglig bandbredd som indata
 ![Profileringsöversikt med bandbreddsindata](media/hyper-v-deployment-planner-analyze-report/profiling-overview-bandwidth-input-h2a.png)
 
-Du kan ha en situation där du vet att du inte kan ange en bandbredd på mer än x Mbps för Site Recovery replikering. Du kan använda verktyget för att ange tillgänglig bandbredd (med hjälp av bandbredd parametern - under rapportgenerering) och hämta hastigheterna Återställningspunktmålet i minuter. Med detta är möjligt värde för Återställningspunktsmål, kan du bestämma om du behöver att etablera ytterligare bandbredd eller om du är nöjd med en lösning för katastrofåterställning med den här Återställningspunktmål.
+Du kan ha en situation där du vet att du inte kan ange en bandbredd på mer än x Mbit/s för Site Recovery-replikering. Du kan använda verktyget för att ange tillgänglig bandbredd (med parametern -Bandbredd när du genererar rapporten) och få det värde för RPO-målet i minuter du kan uppnå. Utifrån det här möjliga RPO-värdet kan du avgöra om du måste distribuera ytterligare bandbredd eller om du nöjer dig med en lösning för haveriberedskap med det aktuella RPO-värdet.
 
 ![Möjligt återställningspunktmål (RPO)](media/hyper-v-deployment-planner-analyze-report/achivable-rpo-h2a.PNG)
 
@@ -162,30 +162,30 @@ Du kan ha en situation där du vet att du inte kan ange en bandbredd på mer än
 
 **Suggested Log Account Name** (Föreslaget loggkontonamn): Namnet på lagringsloggkontot när du inkluderar det föreslagna prefixet. Ersätt namnet inom hakparenteser (< och >) med egna indata.
 
-**Placement Summary** (Placeringsöversikt): En översikt över den totala virtuella datorbelastningen på lagringskontot vid replikeringen samt vid redundanstest/redundansväxling. Sammanfattningen innehåller den:
+**Placement Summary** (Placeringsöversikt): En översikt över den totala virtuella datorbelastningen på lagringskontot vid replikeringen samt vid redundanstest/redundansväxling. Sammanfattningen innehåller:
 
-* Totalt antal virtuella datorer som är mappad till lagringskontot. 
-* Totalt antal läsning och skrivning IOPS över alla virtuella datorer placeras i det här lagringskontot.
-* Totalt antal skrivna (replikering) IOPS.
-* Installationsprogrammet för total storlek över alla diskar.
+* Totalt antal virtuella datorer som är mappade till lagringskontot. 
+* Totalt antal läs- och skrivåtgärder (IOPS) för de virtuella datorer som placeras på lagringskontot.
+* Totalt antal skrivåtgärder (replikering) IOPS.
+* Total installationsstorlek över alla diskar.
 * Totalt antal diskar.
 
-**Virtuella datorer på plats**: en lista över alla virtuella datorer som ska placeras på det angivna lagringskontot för optimala prestanda och användning.
+**Virtuella datorer att placera ut**: En lista över de virtuella datorer som ska placeras på det angivna lagringskontot för att prestanda och användningsgrad ska vara optimala.
 
 ## <a name="compatible-vms"></a>Compatible VMs (Kompatibla virtuella datorer)
-Excel-rapport som genererats av Site Recovery-distribution Planner innehåller alla kompatibla virtuella datorer information i ”kompatibla virtuella datorer”-bladet.
+Excel-rapporten som genereras av distributionshanteraren för Site Recovery innehåller information om alla kompatibla virtuella datorer på bladet ”Compatible VMs” (Kompatibla virtuella datorer).
 
 ![Compatible VMs (Kompatibla virtuella datorer)](media/hyper-v-deployment-planner-analyze-report/compatible-vms-h2a.png)
 
 **VM Name** (Namn på virtuell dator): Den virtuella datorns namn som används i VMListFile när en rapport skapas. I den här kolumnen visas även de diskar (VHD:er) som är kopplade till de virtuella datorerna. Namnen inkluderar de Hyper-V-värdnamn där de virtuella datorerna placerades när verktyget upptäckte de under profileringsperioden.
 
-**VM-kompatibilitet**: Värdena är **Ja** och **Ja**\*. **Ja** \* avser instanser där den virtuella datorn är en anpassning för [Azure premium-lagring](https://aka.ms/premium-storage-workload). Här ryms den profilerade höga omsättningen eller IOPS-disken i en högre premiumdiskstorlek än storleken som är mappad till disken. Lagringskontot bestämmer vilka premium storage disktyp att mappa en disk till, baserat på dess storlek: 
+**VM-kompatibilitet**: Värdena är **Ja** och **Ja**\*. **Ja**\* för instanser där den virtuella datorn är en anpassning för [Azure Premium Storage](https://aka.ms/premium-storage-workload). Här ryms den profilerade höga omsättningen eller IOPS-disken i en högre premiumdiskstorlek än storleken som är mappad till disken. Lagringskontot avgör vilken Premium Storage-disktyp som en disk ska mappas till, baserat på dess storlek: 
 * < 128 GB är en P10.
 * 128 GB till 256 GB är en P15.
 * 256 till 512 GB är en P20.
-* 512 GB till 1 024 GB är en P30.
-* 1,025 GB till 2 048 GB är en P40.
-* 2,049 GB till 4,095 GB är en p 50.
+* 512 till 1024 GB är en P30.
+* 1025 till 2048 GB är en P40.
+* 2049 till 4095 GB är en P50.
 
 Om exempelvis arbetsbelastningsegenskaperna för en disk placerar den i kategorin P20 eller P30, men storleken mappar den till en lägre Premium Storage-disktyp, markerar verktyget den här virtuella datorn som **Ja**\*. Verktyget rekommenderar också att du antingen ändrar källdiskens storlek så att den passar den rekommenderade Premium Storage-disktypen eller ändrar måldisktypen efter redundansväxling.
 
@@ -195,15 +195,15 @@ Om exempelvis arbetsbelastningsegenskaperna för en disk placerar den i kategori
 
 **Lagringskontot**: Namnet med prefixet till det föreslagna lagringskontot.
 
-**Belastning läs-/ skrivåtkomst IOPS (med tillväxtfaktor)**: den belastning arbetsbelastning läsning och skrivningen IOPS på disken (standard är 95: e percentilen) tillsammans med framtida tillväxt faktor (standardvärdet är 30 procent). Totalt antal läsning och skrivning IOPS för en virtuell dator är inte alltid summan av den virtuella datorn individuella diskar läsning och skrivning IOPS. Belastning läsning och skrivning IOPS för den virtuella datorn är belastning av summan av dess enskilda diskar läsning och skrivning IOPS under minuten profilering perioden.
+**R/W IOPS (with Growth Factor)** (R/W IOPS (med tillväxtfaktor)): Den högsta IOPS-arbetsbelastningen för läsning/skrivning på disken (standardvärdet är den 95:e percentilen), inklusive faktorn för framtida tillväxt (standardvärdet är 30 %). Det totala antalet läs- och skrivåtgärder (IOPS) för en virtuell dator är inte alltid summan av den virtuella datorns individuella läs- och skrivåtgärder (IOPS). Den högsta läs/skriv-IOPS för den virtuella datorn är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
 
-**Belastning Data Omsättningsuppdateringar i MB/s (med tillväxtfaktor)**: Toppvärde omsättningsuppdateringar hastighet på disken (standard är 95: e percentilen) tillsammans med framtida tillväxt faktor (standardvärdet är 30 procent). Den totala dataomsättningen av den virtuella datorn inte alltid är summan av den virtuella datorn individuella diskar dataomsättningen. Dataomsättningen belastning av den virtuella datorn är belastning av summan av dess enskilda diskar omsättning under minuten profilering perioden.
+**Högsta dataomsättning i MB/s (med tillväxtfaktor)**: Den högsta dataomsättningsfrekvensen på disken (standardvärdet är den 95:e percentilen) tillsammans med faktorn för framtida tillväxt (standardvärdet är 30 %). Den totala dataomsättningen för den virtuella datorn är inte alltid summan av den virtuella datorns individuella dataomsättning. Den högsta dataomsättningen för den virtuella datorn är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
 
-**Azure VM-storlek**: perfekt mappade Azure Cloud Services VM-storlek för det lokala VM. Mappningen baserat på den lokala Virtuella datorns minne, antalet diskar-kärnor-nätverkskort och läsning/skrivning IOPS. Rekommendationen är alltid den lägsta virtuella Azure-datorstorlek som matchar alla lokala virtuella datoregenskaper.
+**Storlek på Azure-VM**: Lämplig mappad storlek på den virtuella Azure Cloud Services-datorn för den här lokala virtuella datorn. Mappningen baseras på det lokala virtuella datorminnet, antalet diskar/kärnor/nätverkskort och läs- och skrivåtgärder (IOPS). Rekommendationen är alltid den lägsta virtuella Azure-datorstorlek som matchar alla lokala virtuella datoregenskaper.
 
 **Number of Disks** (Antal diskar): Det totala antalet virtuella datordiskar (VHD:er) på den virtuella datorn.
 
-**Storlek (GB)-disken**: den totala storleken på alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
+**Diskstorlek (GB)**: Total storlek för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
 
 **Kärnor**: Antalet processorkärnor i den virtuella datorn.
 
@@ -211,10 +211,10 @@ Om exempelvis arbetsbelastningsegenskaperna för en disk placerar den i kategori
 
 **Nätverkskort**: Antalet nätverkskort på den virtuella datorn.
 
-**Starta typen**: typen Start av den virtuella datorn. Den kan vara BIOS eller EFI.
+**Starttyp**: Den virtuella datorns starttyp. Den kan vara BIOS eller EFI.
 
 ## <a name="incompatible-vms"></a>Incompatible VMs (Inkompatibla virtuella datorer)
-Excel-rapport som genererats av Site Recovery-distribution Planner innehåller alla inkompatibla VMs information i ”inkompatibla VMs”-bladet.
+Excel-rapporten som genereras av distributionshanteraren för Site Recovery innehåller information om alla inkompatibla virtuella datorer i bladet ”Incompatible VMs” (Inkompatibla virtuella datorer).
 
 ![Incompatible VMs (Inkompatibla virtuella datorer)](media/hyper-v-deployment-planner-analyze-report/incompatible-vms-h2a.png)
 
@@ -222,43 +222,43 @@ Excel-rapport som genererats av Site Recovery-distribution Planner innehåller a
 
 **VM Compatibility** (VM-kompatibilitet): Anger varför den här virtuella datorn inte kan skyddas med Site Recovery. Anledningarna beskrivs för varje inkompatibel disk av den virtuella datorn och kan, baserat på publicerade [lagringsgränser](https://aka.ms/azure-storage-scalbility-performance), vara något av följande:
 
-* Disken är större än 4,095 GB. Azure Storage stöder för närvarande inte data diskstorlekar som är större än 4,095 GB.
+* Disken är större än 4095 GB. Azure Storage har för närvarande inte stöd för diskar som är större än 4095 GB.
 
-* OS-disken är större än 2,047 GB för generation 1 (BIOS starta typen) VM. Site Recovery stöder inte OS-diskens storlek överstiger 2,047 GB för virtuella datorer i generation 1.
+* OS-disken är större än 2047 GB för virtuella datorer i generation 1 (BIOS-starttyp). Site Recovery stöder inte OS-diskstorlekar på över 2047 GB för virtuella datorer i generation 1.
 
-* OS-disken är större än 300 GB för generation 2 (EFI-Start typ) VM. Site Recovery stöder inte OS diskens storlek är större än 300 GB för generation 2 virtuella datorer.
+* OS-disken är större än 300 GB för virtuella datorer i generation 2 (EFI-starttyp). Site Recovery stöder inte OS-diskstorlekar på över 300 GB för virtuella datorer i generation 2.
 
-* Namn på en virtuell dator stöds inte med något av följande tecken ”:” [] '. Verktyget kan inte hämta profilerad data för virtuella datorer som har något av följande tecken i namnet. 
+* Inget stöd för virtuella datorer med namn som innehåller något av följande tecken: “” [] `. Verktyget kan inte hämta profilerade data för virtuella datorer som har sådana tecken i sina namn. 
 
-* En virtuell Hårddisk delas av två eller flera virtuella datorer. Azure stöder inte virtuella datorer med en delad virtuell Hårddisk.
+* VHD delas av minst två virtuella datorer. Azure stöder inte virtuella datorer med delad VHD.
 
-* En virtuell dator med Virtual Fiber Channel stöds inte. Site Recovery stöder inte virtuella datorer med Virtual Fiber Channel.
+* Virtuella datorer med Virtual Fiber Channel stöds inte. Site Recovery stöder inte virtuella datorer med Virtual Fiber Channel.
 
-* Hyper-V-kluster innehåller inte en koordinator för replikering. Site Recovery stöder inte en virtuell dator i Hyper-V-kluster om Hyper-V Replica Broker har inte konfigurerats för klustret.
+* Hyper-V-kluster innehåller inte en koordinatortjänst för replikering. Site Recovery stöder inte virtuella datorer i ett Hyper-V-kluster om koordinatortjänsten för Hyper-V inte är konfigurerad för klustret.
 
-* En virtuell dator är inte hög tillgänglighet. Site Recovery stöder inte en virtuell dator på en klusternod för Hyper-V vars virtuella hårddiskarna lagras på den lokala disken i stället för på klusterdisken. 
+* Den virtuella datorn har inte hög tillgänglighet. Site Recovery stöder inte en virtuell dator om Hyper-V-klusternodens VHD är lagrade på den lokala disken istället för på klusterdisken. 
 
-* Total storlek på Virtuellt minne (replikering + testa redundans) överskrider storleksgränsen för stöds premium storage-konto (35 TB). Den här inkompatibiliteten uppstår vanligen när en enskild disk i den virtuella datorn har en prestandaegenskap som överskrider den maxgräns som stöds av Azure- eller Site Recovery-gränserna för standardlagring. Denna instans skickar den virtuella datorn till Premium Storage-zonen. Den maximala storleken som stöds för ett premiumlagringskonto är dock 35 TB. En enda skyddad virtuell dator kan inte skyddas över flera lagringskonton. 
+* Total storlek för den virtuella datorn (replikering + redundanstest) överskrider den gräns för den storlek på premiumlagringskonto som stöds (35 TB). Den här inkompatibiliteten uppstår vanligen när en enskild disk i den virtuella datorn har en prestandaegenskap som överskrider den maxgräns som stöds av Azure- eller Site Recovery-gränserna för standardlagring. Denna instans skickar den virtuella datorn till Premium Storage-zonen. Den maximala storleken som stöds för ett premiumlagringskonto är dock 35 TB. En enda skyddad virtuell dator kan inte skyddas över flera lagringskonton. 
 
-    När ett redundanstest körs på en skyddad virtuell dator och en ohanterad disk är konfigurerad för att testa redundans körs i samma lagringskonto där replikering pågår. I detta fall krävs ytterligare samma mängd lagringsutrymme som för replikering. Den garanterar att replikeringen ska gå vidare och att redundanstest ska lyckas parallellt. När en hanterad disk konfigureras för att testa redundans behöver ingen ytterligare utrymme redovisas med redundanstestningen VM.
+    När ett redundanstest körs på en skyddad virtuell dator och om den ohanterade disken är konfigurerad för att köra redundanstest, körs det på samma lagringskonto där replikeringen körs. I den här instansen krävs ytterligare samma mängd lagringsutrymme som för replikeringen. Den garanterar att replikeringen ska gå vidare och att redundanstest ska lyckas parallellt. När hanterade diskar konfigureras för testredundans behövs inget ytterligare utrymme redovisas för VM-testredundans.
 
-* Källan IOPS är längre än stöds IOPS 7,500 per disk.
+* Käll-IOPS överskrider IOPS-gränsen för lagring på 7500 per disk.
 
-* Källan IOPS är längre än stöds IOPS 80,000 per virtuell dator.
+* Käll-IOPS överskrider IOPS-gränsen för lagring på 80 000 per virtuell dator.
 
-* Källan VM genomsnittlig omsättning är längre än stöds Site Recovery data omsättning 10 MB/s för genomsnittlig i/o-storlek.
+* Den genomsnittliga dataomsättningen för virtuella källdatorer överskrider den dataomsättningsgräns som stöds av Site Recovery på 10 MB/s för den genomsnittliga I/O-storleken.
 
-* Källan VM genomsnittlig effektiv skriva IOPS är längre än stöds Site Recovery IOPS 840.
+* Genomsnittligt antal effektiva skrivåtgärder (IOPS) för den virtuella källdatorn överskrider gränsen i Site Recovery på 840.
 
 * Beräknat lagringsutrymme för ögonblicksbilder överskrider gränsen på 10 TB.
 
-**Belastning läs-/ skrivåtkomst IOPS (med tillväxtfaktor)**: belastning arbetsbelastningen IOPS på disken (standard är 95: e percentilen) tillsammans med framtida tillväxt faktor (standardvärdet är 30 procent). Totalt antal läsning och skrivning IOPS för den virtuella datorn inte alltid är summan av den virtuella datorn individuella diskar läsning och skrivning IOPS. Belastning läsning och skrivning IOPS för den virtuella datorn är belastning av summan av dess enskilda diskar läsning och skrivning IOPS under minuten profilering perioden.
+**Peak R/W IOPS (with Growth Factor)** (Högsta R/W IOPS (med tillväxtfaktor)): Den högsta IOPS-arbetsbelastningen på disken (standardvärdet är den 95:e percentilen), tillsammans med faktorn för framtida tillväxt (standardvärdet är 30 %). Det totala antalet läs- och skrivåtgärder (IOPS) för en virtuell dator är inte alltid summan av den virtuella datorns individuella läs- och skrivåtgärder (IOPS). Den högsta antalet läs-och skrivåtgärder (IOPS) för den virtuella datorn är den högsta summan av de enskilda diskarnas läs-och skrivåtgärder (IOPS) under varje minut av profileringsperioden.
 
-**Belastning Data Omsättningsuppdateringar (MB/s) (med tillväxtfaktor)**: Toppvärde omsättningsuppdateringar hastighet på disken (standard är 95: e percentilen) tillsammans med framtida tillväxt faktor (standardvärdet är 30 procent). Observera att den totala dataomsättningen av den virtuella datorn inte alltid är summan av den virtuella datorn individuella diskar dataomsättningen. Dataomsättningen belastning av den virtuella datorn är belastning av summan av dess enskilda diskar omsättning under minuten profilering perioden.
+**Högsta dataomsättning i MB/s (med tillväxtfaktor)**: Den högsta dataomsättningsfrekvensen på disken (standardvärdet är den 95:e percentilen) tillsammans med faktorn för framtida tillväxt (standardvärdet är 30 %). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av den virtuella datorns individuella dataomsättning. Den högsta dataomsättningen för den virtuella datorn är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
 
 **Number of Disks** (Antal diskar): Det totala antalet VHD:er på den virtuella datorn.
 
-**Storlek (GB)-disken**: installationsprogrammet för totala storleken på alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
+**Diskstorlek (GB)**: Total installationsstorlek för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
 
 **Kärnor**: Antalet processorkärnor i den virtuella datorn.
 
@@ -266,35 +266,35 @@ Excel-rapport som genererats av Site Recovery-distribution Planner innehåller a
 
 **Nätverkskort**: Antalet nätverkskort på den virtuella datorn.
 
-**Starta typen**: typen Start av den virtuella datorn. Den kan vara BIOS eller EFI.
+**Starttyp**: Den virtuella datorns starttyp. Den kan vara BIOS eller EFI.
 
 ## <a name="azure-site-recovery-limits"></a>Gränser för Azure Site Recovery
-Följande tabell innehåller gränserna som Site Recovery. Gränsvärdena baseras på tester, men de kan omfatta alla möjliga program i/o-kombinationer. De faktiska resultaten kan variera beroende på blandningen av I/O i ditt program. För bästa resultat bör även efter att planera distribution, utför omfattande programmet testning genom att utfärda ett redundanstest för att hämta bilden true prestanda för programmet.
+Följande tabell innehåller gränserna för Site Recovery. Dessa gränser är baserade på tester, men de täcker inte alla möjliga kombinationer av I/O i programmet. De faktiska resultaten kan variera beroende på blandningen av I/O i ditt program. För bästa resultat även efter distributionsplaneringen bör du köra omfattande programtester med redundanstest för att få en bild av verklig prestanda för programmet.
  
-**Replication Storage Target** (Lagringsmål för replikering) | **Källan VM genomsnittlig i/o-storlek** |**Källan VM genomsnittlig omsättning** | **Total dataomsättning per dag för virtuell källdisk**
+**Replication Storage Target** (Lagringsmål för replikering) | **Genomsnittlig I/O-storlek för virtuell källdator** |**Genomsnittlig dataomsättning för virtuell källdator** | **Total dataomsättning per dag för virtuell källdisk**
 ---|---|---|---
 Standard Storage | 8 kB | 2 MB/s per virtuell dator | 168 GB per virtuell dator
 Premium Storage | 8 kB  | 5 MB/s per virtuell dator | 421 GB per virtuell dator
 Premium Storage | 16 kB eller mer| 10 MB/s per virtuell dator | 842 GB per virtuell dator
 
-Gränserna är genomsnittliga värden baserade på en I/O-överlappning på 30 procent. Site Recovery kan hantera högre dataflöden med annan överlappning, större skrivningsstorlek och verkligt I/O-beteende under arbetsbelastningen. Föregående antal antar en typisk eftersläpning på cirka fem minuter. Det vill säga när data överförs den bearbetas och skapa en återställningspunkt inom fem minuter.
+Gränserna är genomsnittliga värden baserade på en I/O-överlappning på 30 procent. Site Recovery kan hantera högre dataflöden med annan överlappning, större skrivningsstorlek och verkligt I/O-beteende under arbetsbelastningen. Föregående antal antar en typisk eftersläpning på cirka fem minuter. Det vill säga, när data har överförts bearbetas de och en återställningspunkt skapas inom fem minuter.
 
 ## <a name="on-premises-storage-requirement"></a>Krav för lokal lagring
 
-Kalkylbladet tillhandahåller kravet på totalt ledigt diskutrymme för varje volym på Hyper-V-servrarna (där VHD:er finns) för lyckad inledande replikering och deltareplikering. Innan du aktiverar replikering, kan du lägga till nödvändiga lagringsutrymme på volymer att säkerställa att replikeringen inte några oönskade driftstopp för dina program i produktion. 
+Kalkylbladet tillhandahåller kravet på totalt ledigt diskutrymme för varje volym på Hyper-V-servrarna (där VHD:er finns) för lyckad inledande replikering och deltareplikering. Innan du aktiverar replikering lägger du till det lagringsutrymme som krävs för volymerna för att se till att replikeringen inte orsakar några oönskade driftstopp för dina produktionsprogram. 
 
-  Site Recovery-distribution Planner identifierar det optimala lagring kravet på diskutrymme baserat på den virtuella Hårddisken storlek och nätverksbandbredden som används för replikering.
+  Distributionshanteraren för Site Recovery identifierar kravet på optimalt lagringsutrymme baserat på VHD-storleken och nätverksbandbredden som används för replikeringen.
 
 ![Krav för lokal lagring](media/hyper-v-deployment-planner-analyze-report/on-premises-storage-requirement-h2a.png)
 
 ### <a name="why-do-i-need-free-space-on-the-hyper-v-server-for-the-replication"></a>Varför behöver jag ledigt utrymme på Hyper-V-servern för replikeringen?
-* När du aktiverar replikering av en virtuell dator tar en ögonblicksbild av varje virtuell Hårddisk på den virtuella datorn för den inledande replikeringen med Site Recovery. När den inledande replikeringen pågår skrivs nya ändringar till diskar i programmet. Site Recovery spårar ändringarna delta i loggfiler, som kräver ytterligare lagringsutrymme. Loggfilerna lagras lokalt tills den inledande replikeringen är klar. 
+* När du aktiverar replikering av en virtuell dator tar Site Recovery en ögonblicksbild av varje VHD för den virtuella datorn för inledande replikering. När den inledande replikeringen pågår skrivs nya ändringar till diskar i programmet. Site Recovery spårar dessa deltaändringar i loggfiler, som kräver ytterligare lagringsutrymme. Tills den inledande replikeringen är klar lagras loggfilerna lokalt. 
 
-    Om tillräckligt med utrymme är inte tillgängligt för loggfiler och ögonblicksbild (AVHDX) replikeringen hamnar i läget omsynkronisering och replikeringen aldrig är klar. I värsta fall behöver du ytterligare 100 procent ledigt utrymme för VHD-storlek för inledande replikering.
-* När den inledande replikeringen är klar startar deltareplikering. Site Recovery spårar ändringarna delta i loggfiler som lagras på volymen där de virtuella hårddiskarna för den virtuella datorn finns. Dessa loggfiler replikeras till Azure med en frekvens som konfigurerade kopia. Det kan ta lite tid att replikera loggfilerna till Azure, baserat på den tillgängliga nätverksbandbredden. 
+    Om det inte finns tillräckligt med utrymme för loggfilerna och ögonblicksbilden (AVHDX) hamnar replikeringen i läget för omsynkronisering och replikeringen slutförs aldrig. I värsta fall behöver du 100 % ytterligare ledigt utrymme av samma storlek som VHD:n för inledande replikering.
+* När den inledande replikeringen är klar startar deltareplikeringen. Site Recovery spårar dessa deltaändringar i loggfilerna som lagras på volymen där den virtuella datorns virtuella hårddiskar (VHD) finns. Dessa loggfiler replikeras till Azure vid en konfigurerad koperingsfrekvens. Det kan ta lite tid att replikera loggfilerna till Azure, baserat på den tillgängliga nätverksbandbredden. 
 
-    Om det inte tillräckligt med ledigt utrymme som är tillgänglig för att lagra loggfilerna, har replikeringen pausats. Sedan blir replikeringsstatus för den virtuella datorn ”omsynkronisering krävs”.
-* Om nätverksbandbredden inte är tillräckligt för att skicka filerna till Azure, hämta loggfilerna piled på volymen. I ett scenario med sämsta när de loggfiler storlek ökas till 50 procent av storleken på VHD blir replikeringen av den virtuella datorn ”omsynkronisering krävs”. I värsta fall behöver du ytterligare 50 procent ledigt utrymme för VHD-storlek för deltareplikering.
+    Om det inte finns tillräckligt med ledigt utrymme för att lagra loggfilerna pausas replikeringen. Sedan går replikeringsstatusen för den virtuella datorn till läget ”omsynkronisering krävs”.
+* Om nätverksbandbredden inte är tillräcklig för att skicka loggfilerna till Azure staplas loggfilerna på volymen. När en loggfils storlek ökar till 50 % av VHD-storleken försätts replikeringen av den virtuella datorn i värsta fall i läget ”omsynkronisering krävs”. I värsta fall behöver du 50 % ytterligare ledigt utrymme av samma storlek som VHD:n för deltareplikering.
 
 **Hyper-V-värd**: Listan över profilerade Hyper-V-servrar. Om en server är en del av ett Hyper-V-kluster grupperas alla klusternoder ihop.
 
@@ -302,57 +302,57 @@ Kalkylbladet tillhandahåller kravet på totalt ledigt diskutrymme för varje vo
 
 **Tillräckligt ledigt utrymme (GB)**: Tillgängligt ledigt utrymme på volymen.
 
-**Totalt lagringsutrymme som krävs på volymen (GB)**: det totala lediga utrymmet som krävs på volymen för inledande replikering som lyckades och deltareplikering. 
+**Totalt lagringsutrymme som krävs på volymen (GB)**: Det totala lediga utrymmet som krävs för volymen för lyckad inledande replikering och deltareplikering. 
 
-**Totalt antal ytterligare lagringsutrymme som ska etableras på volymen för replikering som lyckades (GB)**: det totala ytterligare utrymmet som måste etableras på volymen för inledande replikering som lyckades och deltareplikering rekommenderar.
+**Total mängd ytterligare lagring som ska etableras på volymen för lyckad replikering (GB)**: Det rekommenderar det totala ytterligare utrymmet som måste etableras på volymen för lyckad inledande replikering och deltareplikering.
 
 ## <a name="initial-replication-batching"></a>Inledande batchbearbetning av replikering 
 
-### <a name="why-do-i-need-initial-replication-batching"></a>Varför jag behöver inledande replikering batchbearbetning?
-Om de virtuella datorerna skyddas på samma gång, är krav för ledigt utrymme mycket högre. Om det inte finns tillräckligt med lagringsutrymme som är tillgänglig, övergår replikeringen av de virtuella datorerna i läget för omsynkronisering. Nätverksbandbredd är också mycket högre för att slutföra inledande replikering av alla virtuella datorer tillsammans. 
+### <a name="why-do-i-need-initial-replication-batching"></a>Varför behöver jag inledande batchbearbetning av replikering?
+Om de virtuella datorerna skyddas på samma gång, blir kravet på ledigt utrymme mycket högre. Om det inte finns tillräckligt med lagringsutrymme övergår replikeringen av de virtuella datorerna till läget för omsynkronisering. Kravet på nätverksbandbredd skulle också bli mycket högre för att slutföra inledande replikering av alla virtuella datorer samtidigt. 
 
 ### <a name="initial-replication-batching-for-a-selected-rpo"></a>Inledande batchbearbetning av replikering för en vald RPO
-Det här kalkylbladet innehåller detaljerad vy av varje batch för IR. För varje RPO skapas ett separat IR-batchbearbetningsark. 
+Det här kalkylbladet innehåller en detaljerad vy för varje batch för inledande IR. För varje RPO skapas ett separat IR-batchbearbetningsark. 
 
-När du har följt lokal lagring krav rekommendation för varje volym är vad du behöver för att replikera lista över virtuella datorer som kan skyddas parallellt. Dessa virtuella datorer är grupperade i en batch och det kan finnas flera batchar. Skydda virtuella datorer i ordningen de angivna batch. Skydda först Batch 1 virtuella datorer. När den inledande replikeringen är klar, skydda Batch 2 virtuella datorer och så vidare. Du kan hämta listan över batchar och motsvarande virtuella datorer från det här bladet. 
+När du har följt rekommendationerna för lokal lagring för varje volym finns den viktigaste informationen du behöver för att replikera i listan över virtuella datorer som kan skyddas parallellt. Dessa virtuella datorer är grupperade i en batch och det kan finnas flera batchar. Skydda virtuella datorer i den angivna batchordningen. Skydda först virtuella datorer i batch 1. När den inledande replikeringen är klar skyddar du virtuella datorer i batch 2 och så vidare. Du kan hämta listan över batchar och motsvarande virtuella datorer från det här bladet. 
 
-![IR batchbearbetning information](media/hyper-v-deployment-planner-analyze-report/ir-batching-for-rpo-h2a.png)
+![Information om IR-batchbearbetning](media/hyper-v-deployment-planner-analyze-report/ir-batching-for-rpo-h2a.png)
 
-![Ytterligare IR batchbearbetning information](media/hyper-v-deployment-planner-analyze-report/ir-batching-for-rpo2-h2a.png)
+![Ytterligare information om IR-batchbearbetning](media/hyper-v-deployment-planner-analyze-report/ir-batching-for-rpo2-h2a.png)
 
 ### <a name="each-batch-provides-the-following-information"></a>Varje batch innehåller följande information 
 **Hyper-V-värd**: Hyper-V-värden för den virtuella datorn som ska skyddas.
 
-**Virtuella**: den virtuella datorns som ska skyddas. 
+**Virtuell dator**: Den virtuella dator som ska skyddas. 
 
-**Kommentarer**: Om det krävs någon åtgärd för en specifik volym på en virtuell dator anges kommentaren här. Om tillräckligt med ledigt utrymme är inte tillgängligt på en volym, till exempel kommentaren säger ”Lägg till ytterligare lagringsutrymme för att skydda den här virtuella datorn”.
+**Kommentarer**: Om det krävs någon åtgärd för en specifik volym på en virtuell dator anges kommentaren här. Om det exempelvis inte finns tillräckligt med ledigt utrymme på en volym visas kommentaren ”Add additional storage to protect this VM” (Lägg till ytterligare lagringsutrymme för att skydda den här virtuella datorn).
 
-**Volymen (VHD-sökväg)**: namn på volymer där den Virtuella datorns virtuella hårddiskar finns. 
+**Volym (VHD-sökväg)**: Volymens namn där den virtuella datorns VHD:er finns. 
 
-**Ledigt utrymme på volymen (GB)**: ledigt diskutrymme på volymen för den virtuella datorn. Vid beräkningen av ledigt utrymme på volymerna övervägs det använda diskutrymmet för deltareplikering av de virtuella datorerna för föregående batchar vars VHD:er finns på samma volym. 
+**Ledigt utrymme på volymen (GB)**: Ledigt diskutrymme på volymen för den virtuella datorn. Vid beräkningen av ledigt utrymme på volymerna övervägs det använda diskutrymmet för deltareplikering av de virtuella datorerna för föregående batchar vars VHD:er finns på samma volym. 
 
-Till exempel VM1, VM2 och VM3 som finns på en volym kan säga E:\VHDpath. Ledigt utrymme på volymen är 500 GB före replikering. VM1 är en del av Batch-1, VM2 är en del av Batch-2 och VM3 är en del av Batch3. För VM1 är det lediga tillgängliga utrymmet 500 GB. För VM2 är det lediga utrymmet 500 – nödvändiga diskutrymmet för deltareplikering för VM1. Om VM1 kräver 300 GB diskutrymme för deltareplikering, är det lediga utrymmet för VM2 500 GB – 300 GB = 200 GB. På samma sätt kräver VM2 300 GB för deltareplikering. Ledigt utrymme för VM3 är 200 GB-300 GB =-100 GB.
+Exempelvis kan VM1, VM2 och VM3 finnas på volymen E:\VHDpath. Ledigt utrymme på volymen är 500 GB före replikering. VM1 är en del av batch 1, VM2 är en del av batch 2 och VM3 är en del av batch3. För VM1 är det lediga tillgängliga utrymmet 500 GB. För VM2 blir det lediga tillgängliga utrymmet 500 – diskutrymmet som krävs för deltareplikering för VM1. Om vi säger att VM1 kräver 300 GB utrymme för deltareplikering blir det lediga tillgängliga utrymmet för VM2 500 GB – 300 GB = 200 GB. På samma sätt kräver VM2 300 GB för deltareplikering. Det lediga tillgängliga utrymmet för VM3 skulle bli 200 GB - 300 GB = -100 GB.
 
 **Lagring som krävs på volymen för inledande replikering (GB)**: Det lediga utrymmet som krävs för VM-volymen för lyckad inledande replikering.
 
-**Lagringsutrymme som krävs på volymen för deltareplikering (GB)**: det lediga utrymmet på volymen som krävs för den virtuella datorn för deltareplikering.
+**Lagring som krävs på volymen för deltareplikering (GB)**: Det lediga utrymmet som krävs för VM-volymen för lyckad deltareplikering.
 
-**Ytterligare lagring som krävs baserat på brist för att undvika replikeringsfel (GB)**: Ytterligare lagringsutrymme som krävs på volymen för den virtuella datorn. Det är max för inledande replikering och delta replikering lagring kravet på diskutrymme minus det lediga utrymmet på volymen.
+**Ytterligare lagring som krävs baserat på brist för att undvika replikeringsfel (GB)**: Ytterligare lagringsutrymme som krävs på volymen för den virtuella datorn. Det är maximum för den inledande replikeringens och deltareplikeringens utrymmeskrav minus det fria utrymmet på volymen.
 
 **Minsta bandbredd som krävs för inledande replikering (Mbit/s)**: Den minsta bandbredd som krävs för inledande replikering för den virtuella datorn.
 
-**Minsta bandbredd som krävs för deltareplikering (Mbps)**: minsta bandbredd som krävs för deltareplikering för den virtuella datorn.
+**Minsta bandbredd som krävs för deltareplikering (Mbit/s)**: Den minsta bandbredd som krävs för deltareplikering för den virtuella datorn.
 
 ### <a name="network-utilization-details-for-each-batch"></a>Information om nätverksanvändning för varje batch 
 Varje batchtabell innehåller en sammanfattning av nätverksanvändningen för varje batch.
 
-**Tillgänglig bandbredd för batch**: den tillgängliga bandbredden för gruppen efter att hänsyn tagits till den föregående batchen delta replikering bandbredd.
+**Tillgänglig bandbredd för batch**: Den tillgängliga bandbredden för batchen efter att hänsyn tagits till den föregående batchens deltareplikeringsbandbredd.
 
 **Uppskattad tillgänglig bandbredd för inledande replikering av batch**: Den tillgängliga bandbredden för inledande replikering av batchens virtuella datorer. 
 
 **Ungefärlig förbrukad bandbredd för deltareplikering av batch**: Den bandbredd som krävs för deltareplikering av batchens virtuella datorer. 
 
-**Uppskattad tid för inledande replikering för batch (hh: mm)**: den uppskattade den inledande replikeringstid i timmar: minuter.
+**Uppskattad inledande replikeringstid för batch (HH:MM)**: Uppskattad inledande replikeringstid i timmar:minuter.
 
 
 

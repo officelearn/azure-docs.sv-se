@@ -1,9 +1,9 @@
 ---
-title: Hitta och ta bort ej anslutna Azure nätverkskort | Microsoft Docs
+title: Hitta och ta bort ej anslutna nätverkskort i Azure | Microsoft Docs
 description: Hitta och ta bort Azure-nätverkskort som inte är kopplade till virtuella datorer med Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
-ms.author: iainfou
-ms.openlocfilehash: c730866fe73305a37b37038699a7f729085a16aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: cynthn
+ms.openlocfilehash: 54315b2b66b9fb11ae904593c285eb7623cccdbb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31427319"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930519"
 ---
-# <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Hitta och ta bort beräkningsfunktionen nätverksgränssnittet kort (NIC) för virtuella Azure-datorer
-När du tar bort en virtuell dator (VM) i Azure, raderas inte nätverkskort (NIC) som standard. Om du skapar och ta bort flera virtuella datorer fortsätta oanvända nätverkskorten att använda de interna IP-adresser. När du skapar andra Virtuella nätverkskort kan kanske de inte att hämta ett IP-adresslån i undernätet adressutrymme. Den här artikeln visar hur du hittar och ta bort ej anslutna nätverkskort.
+# <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Hitta och ta bort icke anslutna nätverksgränssnittet kort (NIC) för virtuella Azure-datorer
+När du tar bort en virtuell dator (VM) i Azure, raderas inte nätverkskort (NIC) som standard. Om du skapar och ta bort flera virtuella datorer är oanvända nätverkskort att fortsätta att använda de interna IP-adresser. När du skapar andra VM-nätverkskort kan kanske de inte att hämta ett IP-adresslån i adressutrymmet för undernätet. Den här artikeln visar hur du hitta och ta bort ej anslutna nätverkskort.
 
 ## <a name="find-and-delete-unattached-nics"></a>Hitta och ta bort ej anslutna nätverkskort
 
-Den *virtualMachine* egenskap för ett nätverkskort sparar gruppen ID och resursen i det Virtuella nätverkskortet som är kopplad till. Följande skript loop genom alla nätverkskort i en prenumeration och kontrollerar om den *virtualMachine* -egenskapen är null. Om den här egenskapen är null, är nätverkskortet inte kopplad till en virtuell dator.
+Den *virtualMachine* egenskap för ett nätverkskort sparar gruppen ID och resurs för den virtuella datorn som nätverkskortet är kopplat till. Följande skript igenom alla nätverkskort i en prenumeration och kontrollerar om den *virtualMachine* -egenskapen är null. Om den här egenskapen är null, är nätverkskortet inte kopplat till en virtuell dator.
 
-Om du vill visa alla ej anslutna nätverkskort, den har rekommenderar för första gången du kör skriptet med den *deleteUnattachedNics* variabeln *0*. Kör skriptet med att ta bort alla nätverkskort som när du har granskat listan utdata, *deleteUnattachedNics* till *1*.
+Om du vill visa alla ej anslutna nätverkskort, det har rekommenderar första kör skriptet med den *deleteUnattachedNics* variabeln *0*. Ta bort alla ej anslutna nätverkskort när du har läst bland listans utdata genom att köra skriptet med *deleteUnattachedNics* till *1*.
 
 ```azurecli
 # Set deleteUnattachedNics=1 if you want to delete unattached NICs
@@ -53,4 +53,4 @@ done
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du skapar och hanterar virtuella nätverk i Azure finns [skapa och hantera Virtuella datornätverk](tutorial-virtual-network.md).
+Mer information om hur du skapar och hanterar virtuella nätverk i Azure finns i [skapa och hantera Virtuella datornätverk](tutorial-virtual-network.md).

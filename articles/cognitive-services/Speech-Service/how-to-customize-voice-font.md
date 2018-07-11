@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 9f7fbcc804229de69c3c72fb33ae03c88af70145
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b9218600db8bd3e20528e61e411bb64c10dd9c84
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857505"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917643"
 ---
 # <a name="creating-custom-voice-fonts"></a>Skapa anpassade rösttyper
 
@@ -51,9 +51,9 @@ Du är redo att sätta igång!
 
 En datauppsättning för träning röst består av en uppsättning ljudfiler, tillsammans med en textfil som innehåller avskrifter av alla dessa ljudfiler.
 
-Du kan förbereda dessa filer i båda riktningarna: antingen skriva ett skript och läses av röst talanger, eller använda offentligt tillgängliga ljud och effektiv dem till text. Redigera disfluencies från ljudfiler, till exempel ”um” och andra information ljud, hackar, mumbled ord eller mispronunciations i det senare fallet.
+Du kan förbereda dessa filer i båda riktningarna: antingen skriva ett skript och läses av röst talanger, eller använda offentligt tillgängliga ljud och transkribera till text. Redigera disfluencies från ljudfiler, till exempel ”um” och andra information ljud, hackar, mumbled ord eller mispronunciations i det senare fallet.
 
-För att skapa en bra rösttyp, är det viktigt att inspelningen är klar i en tyst rum med en mikrofon av hög kvalitet. Konsekvent volym talar pris, samtalsstil motivation och lättfattliga maner, ovanor tal är nödvändiga för att skapa en fantastisk digital röst. Om du vill skapa en röst för användning i produktion, rekommenderar vi att du använder en professionell inspelning studio och röst personal.
+För att skapa en bra rösttyp, är det viktigt att inspelningen är klar i en tyst rum med en mikrofon av hög kvalitet. Konsekvent volym talar pris, samtalsstil motivation och lättfattliga maner, ovanor tal är nödvändiga för att skapa en fantastisk digital röst. Om du vill skapa en röst för användning i produktion, rekommenderar vi att du använder en professionell inspelning studio och röst personal. Mer information finns i [så spela in röst-exempel för en anpassad röst](record-custom-voice-samples.md).
 
 ### <a name="audio-files"></a>Ljudfiler
 

@@ -9,18 +9,18 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: e416eec29ff9f4ac96eabf11c87424abeba0c75b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 4144db7474f20f464d14722431d5d4a2546a8c5a
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855725"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949857"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Aktivera aktiv inlärning genom att granska endpoint yttranden
 Aktiv inlärning är en av tre strategier för att förbättra förutsägelsefunktionen och enklast. 
 
 ## <a name="what-is-active-learning"></a>Vad är aktiv inlärning
-Aktiv inlärning är en tvåstegsprocess. Först väljer LUIS yttranden som tas emot i appens slutpunkten som behöver verifiering. Det andra steget utförs av appägare eller deltagare för att verifiera de valda yttranden för [granska](label-suggested-utterances.md), inklusive rätt avsikten och alla entiteter i avsikten. När du har granskat talade, träna och publicera appen igen. 
+Aktiv inlärning är en tvåstegsprocess. Först väljer LUIS yttranden som tas emot i appens slutpunkten som behöver verifiering. Det andra steget utförs av appägare eller deltagare för att verifiera de valda yttranden för [granska](luis-how-to-review-endoint-utt.md), inklusive rätt avsikten och alla entiteter i avsikten. När du har granskat talade, träna och publicera appen igen. 
 
 ## <a name="which-utterances-are-on-the-review-list"></a>Vilka yttranden finns med i listan för granskning
 LUIS lägger till yttranden granska listan när upp aktiveringen syftet har en låg poäng eller övre två avsikter är för Stäng. 
@@ -39,4 +39,4 @@ Om din app är stor, kan du välja att granska vissa yttranden och ta bort reste
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [granska](Label-Suggested-Utterances.md) endpoint yttranden
+* Lär dig hur du [granska](luis-how-to-review-endoint-utt.md) endpoint yttranden

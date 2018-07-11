@@ -1,9 +1,9 @@
 ---
-title: Använd Ansible för att skapa en fullständig Linux VM i Azure | Microsoft Docs
-description: Lär dig hur du använder Ansible för att skapa och hantera en fullständig miljö med Linux virtuella datorer i Azure
+title: Använda Ansible till att skapa en fullständig Linux-VM i Azure | Microsoft Docs
+description: Lär dig hur du använder Ansible för att skapa och hantera en komplett Linux virtuell dator i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
@@ -14,33 +14,33 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/30/2018
-ms.author: iainfou
-ms.openlocfilehash: d3514b57b5dc3541dd0a3c0f584fd689749ada7c
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: cynthn
+ms.openlocfilehash: 63228f8bf8729f1bf3796a77516490ae7088d5ed
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716466"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930852"
 ---
-# <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Skapa en miljö med fullständiga Linux virtuella datorer i Azure med Ansible
-Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina virtuella datorer (VM) i Azure, samma som någon annan resurs. Den här artikeln visar hur du skapar en komplett Linux-miljö och ge support för resurser med Ansible. Du kan också lära dig hur du [skapa en grundläggande virtuell dator med Ansible](ansible-create-vm.md).
+# <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Skapa en fullständig miljö för Linux-dator i Azure med Ansible
+Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina virtuella datorer (VM) i Azure, samma precis som alla andra resurser. Den här artikeln visar hur du skapar en fullständig Linux-miljö och stödresurser med Ansible. Du kan också lära dig hur du [skapa en grundläggande virtuell dator med Ansible](ansible-create-vm.md).
 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Om du vill hantera Azure-resurser med Ansible, behöver du följande:
+För att hantera Azure-resurser med Ansible, behöver du följande:
 
-- Ansible och Azure SDK för Python-moduler som har installerats på värdsystemet.
+- Ansible och Azure Python SDK-moduler som installerats på värdsystemet.
     - Installera Ansible på [CentOS 7.4](ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), och [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
-- Konfigurera om du använder dessa autentiseringsuppgifter för Azure och Ansible.
-    - [Skapa autentiseringsuppgifter för Azure och konfigurera Ansible](ansible-install-configure.md#create-azure-credentials)
+- Azure-autentiseringsuppgifter och Ansible som konfigurerats för att använda dem för.
+    - [Skapa Azure-autentiseringsuppgifter och konfigurera Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. 
-    - Om du behöver uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). Du kan också använda [moln Shell](/azure/cloud-shell/quickstart) från din webbläsare.
+    - Om du behöver uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). Du kan också använda [Cloud Shell](/azure/cloud-shell/quickstart) från din webbläsare.
 
 
 ## <a name="create-virtual-network"></a>Skapa det virtuella nätverket
-Nu ska vi titta på varje avsnitt i en Ansible playbook och skapa enskilda Azure-resurser. Fullständig playbook finns [det här avsnittet av artikeln](#complete-ansible-playbook).
+Nu ska vi titta på varje avsnitt i en Ansible-spelbok och skapa enskilda Azure-resurser. Fullständig spelbok kan se [det här avsnittet av artikeln](#complete-ansible-playbook).
 
-Följande avsnitt i en Ansible playbook skapar ett virtuellt nätverk med namnet *myVnet* i den *10.0.0.0/16* adressutrymmet:
+Följande avsnitt i en Ansible-spelbok skapar ett virtuellt nätverk med namnet *myVnet* i den *10.0.0.0/16* adressutrymme:
 
 ```yaml
 - name: Create virtual network
@@ -50,7 +50,7 @@ Följande avsnitt i en Ansible playbook skapar ett virtuellt nätverk med namnet
     address_prefixes: "10.0.0.0/16"
 ```
 
-Om du vill lägga till ett undernät, nedan skapar ett undernät med namnet *mySubnet* i den *myVnet* virtuellt nätverk:
+Om du vill lägga till ett undernät, avsnittet nedan skapar ett undernät med namnet *mySubnet* i den *myVnet* virtuellt nätverk:
 
 ```yaml
 - name: Add subnet
@@ -63,7 +63,7 @@ Om du vill lägga till ett undernät, nedan skapar ett undernät med namnet *myS
 
 
 ## <a name="create-public-ip-address"></a>Skapa offentlig IP-adress
-Skapa och tilldela en offentlig IP-adress till den virtuella datorn kan komma åt resurser via Internet. Följande avsnitt i en Ansible playbook skapar en offentlig IP-adress med namnet *myPublicIP*:
+Skapa och tilldela en offentlig IP-adress till den virtuella datorn för att komma åt resurser via Internet. Följande avsnitt i en Ansible-spelbok skapar en offentlig IP-adress med namnet *myPublicIP*:
 
 ```yaml
 - name: Create public IP address
@@ -75,7 +75,7 @@ Skapa och tilldela en offentlig IP-adress till den virtuella datorn kan komma å
 
 
 ## <a name="create-network-security-group"></a>Skapa Nätverkssäkerhetsgrupp
-Nätverkssäkerhetsgrupper styra flödet i nätverkstrafiken till och från den virtuella datorn. Följande avsnitt i en Ansible playbook skapar en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup* och definierar en regel för att tillåta SSH-trafik på TCP-port 22:
+Nätverkssäkerhetsgrupper styra flödet av nätverkstrafik och från den virtuella datorn. Följande avsnitt i en Ansible-spelbok skapar en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup* och definierar en regel för att tillåta SSH-trafik på TCP-port 22:
 
 ```yaml
 - name: Create Network Security Group that allows SSH
@@ -93,7 +93,7 @@ Nätverkssäkerhetsgrupper styra flödet i nätverkstrafiken till och från den 
 
 
 ## <a name="create-virtual-network-interface-card"></a>Skapa virtuella nätverkskort
-Ett virtuellt nätverkskort (NIC) ansluter den virtuella datorn till ett givet virtuellt nätverk, offentlig IP-adress och nätverkssäkerhetsgruppen. Följande avsnitt i en Ansible playbook skapar ett virtuellt nätverkskort med namnet *myNIC* anslutna till de virtuella nätverksresurser som du har skapat:
+Ett virtuellt nätverkskort (NIC) ansluter den virtuella datorn till ett givet virtuellt nätverk, offentliga IP-adressen och nätverkssäkerhetsgruppen. Följande avsnitt i en Ansible-spelbok skapar ett virtuellt nätverkskort med namnet *myNIC* är anslutna till de virtuella nätverksresurser som du har skapat:
 
 ```yaml
 - name: Create virtual network inteface card
@@ -108,7 +108,7 @@ Ett virtuellt nätverkskort (NIC) ansluter den virtuella datorn till ett givet v
 
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
-Det sista steget är att skapa en virtuell dator och använda de resurser som skapades. Följande avsnitt i en Ansible playbook skapar en virtuell dator med namnet *myVM* och bifogar det virtuella nätverkskortet med namnet *myNIC*. Ange dina egna fullständig offentliga nyckel data i den *key_data* koppla på följande sätt:
+Det sista steget är att skapa en virtuell dator och använda de resurser som skapades. Följande avsnitt i en Ansible-spelbok skapar en virtuell dator med namnet *myVM* och ansluter det virtuella nätverkskortet med namnet *myNIC*. Ange din egen fullständiga offentliga viktiga data i den *key_data* para ihop på följande sätt:
 
 ```yaml
 - name: Create VM
@@ -129,8 +129,8 @@ Det sista steget är att skapa en virtuell dator och använda de resurser som sk
       version: latest
 ```
 
-## <a name="complete-ansible-playbook"></a>Slutföra Ansible playbook
-Skapa en Ansible playbook med namnet för att samordna dessa avsnitt *azure_create_complete_vm.yml* och klistra in följande innehåll. Ange dina egna fullständig offentliga nyckel data i den *key_data* par:
+## <a name="complete-ansible-playbook"></a>Slutföra Ansible-spelbok
+Skapa en Ansible-spelbok med namnet för att samordna alla dessa avsnitt *azure_create_complete_vm.yml* och klistra in följande innehåll. Ange din egen fullständiga offentliga viktiga data i den *key_data* par:
 
 ```yaml
 - name: Create Azure VM
@@ -190,13 +190,13 @@ Skapa en Ansible playbook med namnet för att samordna dessa avsnitt *azure_crea
         version: latest
 ```
 
-Ansible måste distribuera alla resurser i en resursgrupp. Skapa en resursgrupp med [az group create](/cli/azure/group#az-group-create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Ansible behöver en resursgrupp att distribuera dina resurser i. Skapa en resursgrupp med [az group create](/cli/azure/group#az-group-create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-För att skapa fullständiga Virtuella miljön med Ansible, kör du playbook på följande sätt:
+Om du vill skapa en fullständig miljö för virtuella datorer med Ansible, kör du spelboken enligt följande:
 
 ```bash
 ansible-playbook azure_create_complete_vm.yml
@@ -233,4 +233,4 @@ localhost                  : ok=7    changed=6    unreachable=0    failed=0
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Det här exemplet skapas en fullständig VM-miljö inklusive de nödvändiga resurserna för virtuella nätverk. En mer direkt exempel skapa en virtuell dator i befintliga nätverksresurser med standardalternativen finns [skapa en virtuell dator](ansible-create-vm.md).
+Det här exemplet skapas en fullständig miljö för virtuella datorer, inklusive de nödvändiga virtuella nätverksresurser. En mer direkt exempel att skapa en virtuell dator i befintliga nätverksresurser med standardalternativen finns i [skapa en virtuell dator](ansible-create-vm.md).

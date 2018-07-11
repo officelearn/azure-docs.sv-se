@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 66964e4ed0877cc47dd7d2b5f3c6a62f4fa006b1
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 336e6e163178cd6d244460dbf9bee2a5bc9d714e
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348192"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37935805"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -91,7 +91,7 @@ Hanterade diskar stöder tre viktiga standardroller:
 
 **Finns det ett sätt att jag kan kopiera eller exportera en hanterad disk till en privat storage-konto?**
 
-Du kan generera en skrivskyddad delad åtkomstsignatur (SAS) URI för den hantera disken och använda den för att kopiera innehållet till ett privat konto eller en lokal lagring. Du kan använda SAS-URI med hjälp av Azure portal, Azure PowerShell, Azure CLI eller [AzCopy](../articles/storage/common/storage-use-azcopy.md)
+Du kan generera en skrivskyddad delad åtkomstsignatur (SAS) URI för den hantera disken och använda den för att kopiera innehållet till ett privat konto eller en lokal lagring. Du kan använda SAS-URI med Azure portal, Azure PowerShell, Azure CLI, eller [AzCopy](../articles/storage/common/storage-use-azcopy.md)
 
 **Kan jag skapa en kopia av min hanterad disk?**
 
@@ -125,6 +125,10 @@ Nej. Du kan inte uppdatera egenskapen name för datorn. Den nya virtuella datorn
 **Var hittar jag exempel Azure Resource Manager-mallar för att skapa virtuella datorer med hanterade diskar?**
 * [Lista över mallar med Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
+
+**Kan jag placera ohanterade och hanterade diskar på samma virtuella dator?**
+
+Nej.
 
 ## <a name="standard-ssd-disks-preview"></a>Standard SSD-diskar (förhandsversion)
 
@@ -286,7 +290,7 @@ Partitionstypen som stöds av Azure för en operativsystemdisk är master boot r
 
 **Vad är den största sidblobens storlek som stöds?**
 
-Största sidblobens storlek som stöds av Azure är 8 TB (8191 GB). Maxmium blogg sidstorleken när ansluten till en virtuell dator som data eller operativsystemdiskar är 4 TB (4095 GB).
+Största sidblobens storlek som stöds av Azure är 8 TB (8191 GB). Den maximala blogg sidstorleken när ansluten till en virtuell dator som data eller operativsystemdiskar är 4 TB (4095 GB).
 
 **Måste jag använda en ny version av Azure-verktyg för att skapa, ansluta, ändra storlek på och ladda upp diskar som är större än 1 TB?**
 

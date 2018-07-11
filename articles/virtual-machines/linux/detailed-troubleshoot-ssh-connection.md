@@ -1,10 +1,10 @@
 ---
-title: Detaljerad felsökning av SSH för en virtuell dator i Azure | Microsoft Docs
-description: Mer detaljerad SSH felsökningssteg för problem som ansluter till en virtuell Azure-dator
-keywords: SSH anslutningen nekades, ssh fel, azure ssh, SSH-anslutning misslyckades
+title: Detaljerad felsökning av SSH för en Azure-dator | Microsoft Docs
+description: Mer detaljerad SSH felsökningssteg för problem med anslutning till en Azure virtuell dator
+keywords: SSH anslutningen nekades, ssh fel, azure ssh, SSH-anslutningen misslyckades
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,120 +15,120 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: iainfou
-ms.openlocfilehash: 88f3ca3202359f9f45f5b9a5054ab95b40558520
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: cynthn
+ms.openlocfilehash: 425bb5bc7e6a1bc877041d447e999e9270dd3bfb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365499"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932032"
 ---
-# <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Detaljerad SSH felsökningssteg för problem som ansluter till en Linux-VM i Azure
-Det finns många möjliga orsaker till att SSH-klienten inte kanske kan nå SSH-tjänsten på den virtuella datorn. Om du har följt via mer [allmänna SSH felsökningssteg](troubleshoot-ssh-connection.md), du behöver ytterligare felsöka problemet. Den här artikeln hjälper dig att detaljerade felsökningssteg för att fastställa om SSH-anslutningen inte fungerar och hur man löser problemet.
+# <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Detaljerad SSH felsökningssteg för problem med anslutning till en Linux-VM i Azure
+Det finns många möjliga orsaker till att SSH-klienten inte kanske kan nå SSH-tjänsten på den virtuella datorn. Om du har följt via mer [allmän SSH felsökningssteg](troubleshoot-ssh-connection.md), du behöver ytterligare felsökning av problem med anslutning. Den här artikeln vägleder dig genom detaljerade felsökningsanvisningar för att fastställa där SSH-anslutningen inte fungerar och hur det ska lösas.
 
-## <a name="take-preliminary-steps"></a>Vidta åtgärder för preliminär
-I följande diagram visas de komponenter som ingår.
+## <a name="take-preliminary-steps"></a>Gör preliminär
+I följande diagram visas komponenterna som ingår.
 
-![Diagram som visar komponenter för SSH-tjänsten](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot1.png)
+![Diagram som visar komponenterna i SSH-tjänsten](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot1.png)
 
-Följande steg hjälper dig identifiera orsaken till felet och lösningar eller lösningar.
+Följande steg hjälper dig att isolera orsaken till felet och ta reda på lösningar eller åtgärder.
 
 1. Kontrollera status för den virtuella datorn i portalen.
-   I den [Azure-portalen](https://portal.azure.com)väljer **virtuella datorer** > *namn på virtuell*.
+   I den [Azure-portalen](https://portal.azure.com)väljer **virtuella datorer** > *namn på virtuell dator*.
 
-   Panelen status för den virtuella datorn ska visa **kör**. Rulla Visa senaste aktiviteten för bearbetning, lagring och nätverksresurser.
+   Panelen status för den virtuella datorn ska visa **kör**. Rulla ned till Visa senaste aktiviteter för beräkning, lagring och nätverksresurser.
 
 2. Välj **inställningar** att undersöka slutpunkter, IP-adresser, nätverkssäkerhetsgrupper och andra inställningar.
 
-   Den virtuella datorn ska ha en slutpunkt som definierats för SSH-trafik som du kan visa i **slutpunkter** eller  **[nätverkssäkerhetsgruppen](../../virtual-network/security-overview.md)**. Slutpunkter i virtuella datorer som har skapats med hjälp av hanteraren för filserverresurser lagras i en nätverkssäkerhetsgrupp. Kontrollera att reglerna som har tillämpats för nätverkssäkerhetsgruppen och refereras till i undernätet.
+   Den virtuella datorn ska ha en slutpunkt som definierats för SSH-trafik som du kan visa i **slutpunkter** eller  **[nätverkssäkerhetsgrupp](../../virtual-network/security-overview.md)**. Slutpunkter i virtuella datorer som har skapats med hjälp av Resource Manager lagras i en nätverkssäkerhetsgrupp. Kontrollera att reglerna har tillämpats på den nya nätverkssäkerhetsgruppen och refereras till i undernätet.
 
-Om du vill kontrollera nätverksanslutningen konfigurerade slutpunkter och se om du kan ansluta till den virtuella datorn med ett annat protokoll, till exempel http- eller en annan tjänst.
+Kontrollera de konfigurerade slutpunkterna för att kontrollera nätverksanslutningen och se om du kan ansluta till den virtuella datorn med ett annat protokoll som HTTP och en annan tjänst.
 
-Försök SSH-anslutningen igen efter de här stegen.
+Testa SSH-anslutningen igen efter de här stegen.
 
-## <a name="find-the-source-of-the-issue"></a>Hitta källan till problemet
-SSH-klienten på datorn kanske inte kan ansluta till SSH-tjänsten på den virtuella Azure-datorn på grund av problem eller felaktiga konfigurationer inom följande områden:
+## <a name="find-the-source-of-the-issue"></a>Hitta orsaken till problemet
+SSH-klienten på datorn kan inte ansluta till SSH-tjänsten på Azure-VM på grund av problem eller felkonfigurationer inom följande områden:
 
 * [SSH-klientdatorn](#source-1-ssh-client-computer)
-* [Gränsenheten för organisationen](#source-2-organization-edge-device)
-* [Molnet tjänstslutpunkten och åtkomstkontrollista (ACL)](#source-3-cloud-service-endpoint-and-acl)
+* [Organisation edge-enhet](#source-2-organization-edge-device)
+* [Tjänsteslutpunkt i molnet och få åtkomst till åtkomstkontrollistor (ACL)](#source-3-cloud-service-endpoint-and-acl)
 * [Nätverkssäkerhetsgrupper](#source-4-network-security-groups)
-* [Linux-baserade Azure VM](#source-5-linux-based-azure-virtual-machine)
+* [Linux-baserade virtuella datorer i Azure](#source-5-linux-based-azure-virtual-machine)
 
-## <a name="source-1-ssh-client-computer"></a>Datakällan 1: SSH klientdatorn
-Kontrollera att det kan göra att SSH-anslutningar till en annan lokal Linux-baserade datorn för att ta bort datorn som källa för felet.
+## <a name="source-1-ssh-client-computer"></a>Källa 1: SSH klientdatorn
+Kontrollera att det kan göra SSH-anslutningar till en annan lokal plats, Linux-baserade datorn för att ta bort datorn är orsaken till felet.
 
-![Diagram som visar SSH komponenter för klientdatorer](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot2.png)
+![Diagram som visar datorkomponenter för SSH-klient](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot2.png)
 
-Om anslutningen misslyckas, Sök efter följande problem på datorn:
+Om anslutningen misslyckas kan du söka efter följande problem på datorn:
 
 * En inställning för lokal brandvägg som blockerar inkommande eller utgående SSH-trafik (TCP 22)
-* Lokalt installerat klientprogramvaran för proxy som hindrar SSH-anslutningar
+* Lokalt installerat klientprogrammet för proxy som hindrar SSH-anslutningar
 * Lokalt installerad programvara som hindrar SSH-anslutningar för nätverksövervakning
-* Andra typer av säkerhetsprogram som övervaka trafik eller tillåta/neka vissa typer av trafik
+* Andra typer av säkerhetsprogram som antingen övervaka trafik eller tillåta/neka vissa typer av trafik
 
-Om något av dessa villkor gäller tillfälligt inaktivera programmen och en SSH-anslutning till en lokal dator att ta reda på orsaken till anslutningen blockeras på datorn. Sedan arbeta med administratören att åtgärda Programvaruinställningar för att tillåta SSH-anslutningar.
+Om något av dessa villkor gäller tillfälligt inaktivera programvaran och försök en SSH-anslutning till en lokal dator för att ta reda på orsaken anslutningen blockeras på datorn. Arbeta sedan med nätverksadministratören för att korrigera inställningarna för programvara för att tillåta SSH-anslutningar.
 
-Om du använder certifikatautentisering kan du kontrollera att du har följande behörigheter till .ssh-mappen i din hemkatalog:
+Om du använder autentisering med datorcertifikat, kontrollerar du att du har dessa behörigheter till .ssh-mappen i din arbetskatalog:
 
 * Chmod 700 ~/.ssh
-* Chmod 644 ~/.ssh/\*pub
-* Chmod 600 ~/.ssh/id_rsa (eller andra filer som har dina privata nycklar lagras i dem)
+* Chmod 644 ~/.ssh/\*.pub
+* Chmod 600 ~/.ssh/id_rsa (eller andra filer som har dina privata nycklar som lagras i dem)
 * Chmod 644 ~/.ssh/known_hosts (innehåller värdar som du har anslutit till via SSH)
 
-## <a name="source-2-organization-edge-device"></a>Källan 2: Gränsenheten organisation
-Kontrollera att en dator som är direkt ansluten till Internet kan göra SSH-anslutningar till den virtuella Azure-datorn för att ta bort gränsenheten för din organisation som källa för felet. Om du ansluter till den virtuella datorn via ett plats-till-plats-VPN eller Azure ExpressRoute-anslutning, går du till [källa 4: Nätverkssäkerhetsgrupper](#nsg).
+## <a name="source-2-organization-edge-device"></a>Källan 2: Organisation edge-enhet
+Kontrollera att en dator som är direkt ansluten till Internet kan göra SSH-anslutningar till den virtuella Azure-datorn för att ta bort din organisation edge-enhet är orsaken till felet. Om du får åtkomst till den virtuella datorn via plats-till-plats VPN eller Azure ExpressRoute-anslutning, gå vidare till [källa 4: Nätverkssäkerhetsgrupper](#nsg).
 
-![Diagram som visar gränsenheten för organisationen](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
+![Diagram som visar organisation edge-enhet](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-Om du inte har en dator som är direkt anslutna till Internet, skapa en ny Azure VM i sin egen resursgrupp eller Molntjänsten och använda den nya virtuella datorn. Mer information finns i [skapa en virtuell dator som kör Linux i Azure](quick-create-cli.md). Ta bort den resursgrupp eller VM-och moln när du är klar med din testning.
+Om du inte har en dator som är direkt ansluten till Internet, skapa en ny virtuell Azure-dator i en egen resursgrupp eller molntjänst och använda den nya virtuella datorn. Mer information finns i [skapa en virtuell dator som kör Linux i Azure](quick-create-cli.md). Ta bort resursgrupp eller virtuella datorer och molntjänster service när du är klar med testet.
 
-Om du kan skapa en SSH-anslutning med en dator som är direkt ansluten till Internet, kontrollera din organisation insticksenhet för:
+Om du kan skapa en SSH-anslutning med en dator som är direkt ansluten till Internet, kontrollera din organisation edge-enhet för:
 
-* En intern brandvägg som blockerar trafik SSH med Internet
-* En proxyserver som förhindrar att SSH-anslutningar
-* Intrångsidentifiering eller program som körs på enheter i nätverket kant som hindrar SSH-anslutningar för nätverksövervakning
+* En intern brandvägg som blockerar SSH-trafik med Internet
+* En proxyserver som hindrar SSH-anslutningar
+* Intrångsidentifiering eller programvara som körs på enheter i nätverket edge som hindrar SSH-anslutningar för nätverksövervakning
 
-Arbeta med nätverksadministratören för att korrigera inställningarna för enheter som din organisation för att tillåta trafik SSH med Internet.
+Arbeta med nätverksadministratören för att korrigera inställningarna för din organisation edge-enheter för att tillåta SSH-trafik med Internet.
 
-## <a name="source-3-cloud-service-endpoint-and-acl"></a>Källa 3: Molnet tjänstslutpunkten och ACL
+## <a name="source-3-cloud-service-endpoint-and-acl"></a>Källa 3: Molnet tjänstslutpunkt och ACL
 > [!NOTE]
-> Den här källan gäller bara för virtuella datorer som har skapats med hjälp av den klassiska distributionsmodellen. För virtuella datorer som har skapats med hjälp av hanteraren för filserverresurser kan gå vidare till [datakällan 4: Nätverkssäkerhetsgrupper](#nsg).
+> Den här källan gäller bara för virtuella datorer som har skapats med hjälp av den klassiska distributionsmodellen. För virtuella datorer som har skapats med hjälp av Resource Manager kan gå vidare till [source 4: Nätverkssäkerhetsgrupper](#nsg).
 
-Kontrollera att en annan virtuell Azure-dator i samma virtuella nätverk kan ansluta via SSH för att ta bort molnet tjänstslutpunkten och ACL som källa för felet.
+Kontrollera att en annan virtuell Azure-dator i samma virtuella nätverk kan ansluta med SSH för att ta bort molnet tjänstslutpunkt och ACL är orsaken till felet.
 
-![Diagram som illustrerar molnet tjänstslutpunkten och ACL](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
+![Diagram som illustrerar tjänstslutpunkt för molnet och ACL](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
-Om du inte har en annan virtuell dator i samma virtuella nätverk kan skapa du enkelt en. Mer information finns i [skapar en Linux-VM på Azure med hjälp av CLI](quick-create-cli.md). Ta bort extra VM när du är klar med din testning.
+Om du inte har en annan virtuell dator i samma virtuella nätverk kan skapa du enkelt en. Mer information finns i [skapar en Linux-VM på Azure med hjälp av CLI](quick-create-cli.md). Ta bort de extra virtuella datorn när du är klar med testet.
 
 Om du kan skapa en SSH-anslutning med en virtuell dator i samma virtuella nätverk, kontrollerar du följande områden:
 
-* **Slutpunktskonfigurationen för SSH-trafik på mål-VM.** Den privata TCP-porten för slutpunkten ska matcha den TCP-port som avlyssnas SSH-tjänsten på den virtuella datorn. (Standardporten är 22). Kontrollera SSH TCP-portnummer i Azure-portalen genom att välja **virtuella datorer** > *namn på virtuell* > **inställningar**  >   **Slutpunkter**.
-* **ACL för slutpunkten för SSH-trafik på den virtuella måldatorn.** En ACL kan du ange tillåts eller nekas inkommande trafik från Internet, baserat på dess IP-adress. Felkonfigurerad ACL: er kan förhindra att inkommande SSH-trafik till slutpunkten. Kontrollera din ACL: er för att säkerställa att inkommande trafik från de offentliga IP-adresserna för proxyservern eller andra gränsservern tillåts. Mer information finns i [om nätverksåtkomst åtkomstkontrollistor (ACL)](../../virtual-network/virtual-networks-acl.md).
+* **Konfigurationen av slutpunkten för SSH-trafik på den Virtuella måldatorn.** Den privata TCP-porten för slutpunkten ska matcha TCP-port som SSH-tjänsten på den virtuella datorn lyssnar. (Standardporten är 22). Kontrollera SSH TCP-portnumret i Azure portal genom att välja **virtuella datorer** > *namn på virtuell dator* > **inställningar**  >   **Slutpunkter**.
+* **ACL för slutpunkten för SSH-trafik på den virtuella måldatorn.** En ACL kan du ange tillåts eller nekas inkommande trafik från Internet, baserat på dess IP-källadressen. Felkonfigurerad ACL: er kan förhindra att inkommande SSH-trafik till slutpunkten. Kontrollera din ACL: er för att säkerställa att den inkommande trafiken från offentliga IP-adresser för proxyservern eller andra edge-servern tillåts. Mer information finns i [om nätverksåtkomst åtkomstkontrollistor (ACL)](../../virtual-network/virtual-networks-acl.md).
 
-Ta bort den aktuella slutpunkten för att ta bort slutpunkten som orsaken till problemet, skapa en annan slutpunkt och ange SSH-namn (TCP-port 22 för offentliga och privata portnumret). Mer information finns i [konfigurera slutpunkter på en virtuell dator i Azure](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Ta bort den aktuella slutpunkten, skapar en annan slutpunkt ange SSH-namn (TCP-port 22 för offentliga och privata portnumret) för att ta bort slutpunkten som en orsaken till problemet. Mer information finns i [ställer du in slutpunkter på en virtuell dator i Azure](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 <a id="nsg"></a>
 
-## <a name="source-4-network-security-groups"></a>Datakällan 4: Nätverkssäkerhetsgrupper
-Nätverkssäkerhetsgrupper kan du ha mer detaljerad kontroll över tillåtna inkommande och utgående trafik. Du kan skapa regler som sträcker sig över undernät och molntjänster i Azure-nätverk. Kontrollera dina regler för nätverkssäkerhetsgrupper för att se till att SSH-trafik till och från Internet tillåts.
+## <a name="source-4-network-security-groups"></a>Källa 4: Nätverkssäkerhetsgrupper
+Nätverkssäkerhetsgrupper kan du ha mer detaljerad kontroll över tillåten inkommande och utgående trafik. Du kan skapa regler som sträcker sig över undernät och molntjänster i Azure-nätverk. Kontrollera dina regler för nätverkssäkerhetsgrupper för att säkerställa att SSH-trafik till och från Internet tillåts.
 Mer information finns i [om nätverkssäkerhetsgrupper](../../virtual-network/security-overview.md).
 
-Du kan också använda IP-Kontrollera för att validera NSG-konfigurationen. Mer information finns i [Azure nätverksövervakning översikt](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
+Du kan också använda IP-Kontrollera för att validera NSG-konfiguration. Mer information finns i [Azure-nätverk Övervakningsöversikt](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
-## <a name="source-5-linux-based-azure-virtual-machine"></a>Källa 5: Linux-baserade virtuell Azure-dator
-Senaste källan för möjliga problem är den virtuella Azure-datorn sig själv.
+## <a name="source-5-linux-based-azure-virtual-machine"></a>Källa 5: Linux-baserade Azure-dator
+Senaste källan för möjliga problem är Azure-datorer själva.
 
-![Diagram som visar Linux-baserade virtuell Azure-dator](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
+![Diagram som visar Linux-baserade Azure-dator](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-Om du inte redan har gjort så, följ instruktionerna [att återställa ett lösenord för Linux-baserade virtuella datorer](reset-password.md).
+Om du inte redan gjort det, följer du anvisningarna [att återställa ett lösenord för Linux-baserade virtuella datorer](reset-password.md).
 
-Försök ansluta igen från datorn. Om det fortfarande inte följer några möjliga problem:
+Försök ansluta igen från datorn. Om det fortfarande inte är följande några av de möjliga problemen:
 
 * SSH-tjänsten körs inte på den virtuella måldatorn.
-* SSH-tjänsten lyssnar inte på TCP-port 22. Att testa, installera en telnet-klienten på den lokala datorn och köra ”telnet *cloudServiceName*. cloudapp.net 22”. Det här steget anger om den virtuella datorn tillåter inkommande och utgående kommunikation till SSH-slutpunkten.
-* Den lokala brandväggen på den virtuella måldatorn har regler som hindrar inkommande eller utgående SSH-trafik.
-* Intrångsidentifiering eller program som körs på Azure-dator för nätverksövervakning som hindrar SSH-anslutningar.
+* SSH-tjänsten lyssnar inte på TCP-port 22. Testa, installera en telnet-klient på den lokala datorn och köra ”telnet *cloudServiceName*. cloudapp.net 22”. Det här steget anger om den virtuella datorn tillåter inkommande och utgående kommunikation till SSH-slutpunkten.
+* Den lokala brandväggen på den virtuella måldatorn har regler som förhindrar inkommande eller utgående SSH-trafik.
+* Intrångsidentifiering eller programvara som körs på virtuella Azure-datorer för nätverksövervakning som hindrar SSH-anslutningar.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
-Mer information om hur du felsöker programåtkomst finns [Felsök åtkomst till ett program som körs på en virtuell Azure-dator](troubleshoot-app-connection.md)
+Läs mer om hur du felsöker programåtkomst [Felsök åtkomst till ett program som körs på virtuella Azure-datorer](troubleshoot-app-connection.md)

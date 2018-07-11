@@ -1,9 +1,9 @@
 ---
-title: Ställ in MySQL på en Linux-VM i Azure | Microsoft Docs
-description: Lär dig hur du installerar MySQL-stacken på en virtuell Linux-dator (Ubuntu eller RedHat familjen OS) i Azure
+title: Konfigurera MySQL på en Linux-VM i Azure | Microsoft Docs
+description: Lär dig att installera MySQL-stacken på en Linux-dator (Ubuntu eller Red Hat-familjen OS) i Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
-ms.author: iainfou
-ms.openlocfilehash: d91f8cf8455a60d3e0afb2f209ba07933bcdee1c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: cynthn
+ms.openlocfilehash: c8043064ac1df40eaa31ae56e9ec31c0152e0130
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30239182"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37934264"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Så installerar du MySQL på Azure
-I den här artikeln får lära du dig att installera och konfigurera MySQL på en Azure-dator som kör Linux.
+I den här artikeln får lära du dig att installera och konfigurera MySQL på Azure-datorer som kör Linux.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="install-mysql-on-your-virtual-machine"></a>Installera MySQL på den virtuella datorn
 > [!NOTE]
-> Du måste redan ha en Microsoft Azure-dator som kör Linux för att kunna slutföra den här kursen. Finns det [virtuella Azure Linux-datorn kursen](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) att skapa och konfigurera en Linux-VM med `mysqlnode` som namnet på virtuella datorn och `azureuser` som användare innan du fortsätter.
+> Du måste redan ha en Microsoft Azure-dator som kör Linux för att kunna slutföra den här självstudien. Finns det [virtuell Linux-dator självstudien](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) att skapa och konfigurera en Linux VM med `mysqlnode` som VM-namnen och `azureuser` som användare innan du fortsätter.
 > 
 > 
 
-I det här fallet Använd 3306 port som MySQL-port.  
+I så fall använda port 3306 som MySQL-port.  
 
-Ansluta till Linux VM som du skapade via putty. Om det här är första gången du använder virtuella Azure Linux-datorn, se hur du använder putty ansluta till en Linux-VM [här](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ansluta till Linux-dator som du skapade via putty. Om det här är första gången du använder virtuell Linux-dator, se hur du använder putty ansluta till en Linux VM [här](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Vi använder databasen paketet för att installera MySQL5.6 som ett exempel i den här artikeln. Faktiskt har MySQL5.6 flera förbättringar i prestanda än MySQL5.5.  Mer information [här](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/).
+Vi använder databasen paket för att installera MySQL5.6 som ett exempel i den här artikeln. MySQL5.6 har alltså flera förbättringar i prestanda än MySQL5.5.  Mer information [här](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/).
 
 ### <a name="how-to-install-mysql56-on-ubuntu"></a>Hur du installerar MySQL5.6 på Ubuntu
 Vi använder Linux VM med Ubuntu från Azure här.
@@ -46,36 +46,36 @@ Vi använder Linux VM med Ubuntu från Azure här.
   
             #[azureuser@mysqlnode:~]sudo su -
   
-    Installera server 5.6 mysql:
+    Installera mysql-server 5.6:
   
             #[root@mysqlnode ~]# apt-get update
             #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
   
-    Under installationen visas en dialogruta fönstret poping upp till som ber du ställa in MySQL rotlösenordet nedan, och du måste ange lösenordet här.
+    Under installationen visas en dialogruta fönstret poping upp till som ber dig att ange lösenordet för MySQL-roten nedan, och du måste ange lösenord här.
   
-    ![Bild](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
+    ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 
     Ange lösenordet igen för att bekräfta.
 
-    ![Bild](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
+    ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
 
 * Steg 2: Logga in MySQL-Server
   
-    När du är klar MySQL-serverinstallation startas MySQL-tjänsten automatiskt. Du kan logga in MySQL-Server med `root` användare.
-    Använd den nedan kommando för att logga in och indata lösenord.
+    När du MySQL server-installationen är klar kommer MySQL-tjänsten att startas automatiskt. Du kan logga in MySQL-Server med `root` användare.
+    Använd den nedanstående kommando till lösenord för inloggning och indata.
   
              #[root@mysqlnode ~]# mysql -uroot -p
-* Steg 3: Hantera MySQL-tjänst som körs
+* Steg 3: Hantera tjänsten som körs MySQL
   
-    (a) Hämta status för MySQL-tjänst
+    (a) Hämta status för MySQL-tjänsten
   
              #[root@mysqlnode ~]# service mysql status
   
-    (b) Start MySQL Service
+    (b) starta MySQL-tjänsten
   
              #[root@mysqlnode ~]# service mysql start
   
-    (c) Stoppa MySQL-tjänst
+    (c) Stoppa MySQL-tjänsten
   
              #[root@mysqlnode ~]# service mysql stop
   
@@ -83,18 +83,18 @@ Vi använder Linux VM med Ubuntu från Azure här.
   
              #[root@mysqlnode ~]# service mysql restart
 
-### <a name="how-to-install-mysql-on-red-hat-os-family-like-centos-oracle-linux"></a>Så här installerar du MySQL för Red Hat OS-familjen som CentOS, Oracle Linux
+### <a name="how-to-install-mysql-on-red-hat-os-family-like-centos-oracle-linux"></a>Så här installerar du MySQL på Red Hat OS-familj som CentOS, Oracle Linux
 Vi använder Linux VM med CentOS eller Oracle Linux här.
 
-* Steg 1: Lägg till MySQL Yum-databas växeln till `root` användare:
+* Steg 1: Lägg till MySQL Yum lagringsplats växel till `root` användare:
   
             #[azureuser@mysqlnode:~]sudo su -
   
-    Hämta och installera versionspaket MySQL:
+    Hämta och installera MySQL-versionspaketet:
   
             #[root@mysqlnode ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
             #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm
-* Steg 2: Redigera nedan filen för att aktivera MySQL-databasen för att ladda ned paketet MySQL5.6.
+* Steg 2: Redigera nedan konfigureringsfilen för att aktivera MySQL-databasen för att ladda ned paketet MySQL5.6.
   
             #[root@mysqlnode ~]# vim /etc/yum.repos.d/mysql-community.repo
   
@@ -112,18 +112,18 @@ Vi använder Linux VM med CentOS eller Oracle Linux här.
         gpgcheck=1
   
         gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
-* Steg 3: Installera MySQL från MySQL-databas installera MySQL:
+* Steg 3: Installera MySQL från MySQL-databasen installera MySQL:
   
            #[root@mysqlnode ~]#yum install mysql-community-server
   
     MySQL-RPM-paket och alla relaterade paket kommer att installeras.
-* Steg 4: Hantera MySQL-tjänst som körs
+* Steg 4: Hantera tjänsten som körs MySQL
   
-    (a) kontrollera status för tjänsten för MySQL-servern:
+    (a) kontrollera status för tjänsten på den MySQL-servern:
   
            #[root@mysqlnode ~]#service mysqld status
   
-    (b) kontrollera om port MySQL standardservern körs:
+    (b) kontrollera om standard-port av MySQL-servern körs:
   
            #[root@mysqlnode ~]#netstat  –tunlp|grep 3306
 
@@ -131,21 +131,21 @@ Vi använder Linux VM med CentOS eller Oracle Linux här.
 
            #[root@mysqlnode ~]#service mysqld start
 
-    (d) Stoppa MySQL-servern:
+    (d) Stoppa MySQL-server:
 
            #[root@mysqlnode ~]#service mysqld stop
 
-    (e) Ange MySQL att starta när uppstart system:
+    (e) set MySQL att starta när systemet uppstart:
 
            #[root@mysqlnode ~]#chkconfig mysqld on
 
 
-### <a name="how-to-install-mysql-on-suse-linux"></a>Hur du installerar MySQL på SUSE Linux
+### <a name="how-to-install-mysql-on-suse-linux"></a>Så här installerar du MySQL på SUSE Linux
 Vi använder Linux VM med OpenSUSE här.
 
 * Steg 1: Hämta och installera MySQL-Server
   
-    Växla till `root` användare via nedan kommando:  
+    Växla till `root` användaren med kommandot nedan:  
   
            #sudo su -
   
@@ -154,13 +154,13 @@ Vi använder Linux VM med OpenSUSE här.
            #[root@mysqlnode ~]# zypper update
   
            #[root@mysqlnode ~]# zypper install mysql-server mysql-devel mysql
-* Steg 2: Hantera MySQL-tjänst som körs
+* Steg 2: Hantera tjänsten som körs MySQL
   
-    (a) kontrollera status för MySQL-servern:
+    (a) kontrollera status för MySQL-server:
   
            #[root@mysqlnode ~]# rcmysql status
   
-    (b) kontrollera om standardporten MySQL-servern:
+    (b) kontrollera om standardporten för MySQL-servern:
   
            #[root@mysqlnode ~]# netstat  –tunlp|grep 3306
 
@@ -168,14 +168,14 @@ Vi använder Linux VM med OpenSUSE här.
 
            #[root@mysqlnode ~]# rcmysql start
 
-    (d) Stoppa MySQL-servern:
+    (d) Stoppa MySQL-server:
 
            #[root@mysqlnode ~]# rcmysql stop
 
-    (e) Ange MySQL att starta när uppstart system:
+    (e) set MySQL att starta när systemet uppstart:
 
            #[root@mysqlnode ~]# insserv mysql
 
 ### <a name="next-step"></a>Nästa steg
-Mer information om MySQL och användning finns [här](https://www.mysql.com/).
+Hitta fler användning och information om MySQL [här](https://www.mysql.com/).
 

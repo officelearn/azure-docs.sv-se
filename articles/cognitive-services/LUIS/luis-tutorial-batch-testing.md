@@ -8,21 +8,22 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 07/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 27d6bbc628ac3183032a90d8f3ad98998c76a957
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 962f33a178048c459e8c6c2948eb17f0e78904ae
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888838"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930998"
 ---
-# <a name="use-batch-testing-to-find-prediction-accuracy-issues"></a>Använda batch testning för att hitta förutsägelse Precision problem
+# <a name="improve-app-with-batch-test"></a>Förbättra app med batch-test
 
 Den här självstudien visar hur du använder batch testning för att hitta uttryck förutsägelse problem.  
 
 I den här guiden får du lära dig hur man:
 
+<!-- green checkmark -->
 > [!div class="checklist"]
 * Skapa en batchfil för testning 
 * Köra ett batch-test
@@ -30,359 +31,169 @@ I den här guiden får du lära dig hur man:
 * Åtgärda fel för avsikter
 * Testa om batch
 
-## <a name="prerequisites"></a>Förutsättningar
+För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
 
-> [!div class="checklist"]
-> * För den här artikeln får du också ha en [LUIS](luis-reference-regions.md) konto för att skapa ditt LUIS-program.
+## <a name="before-you-begin"></a>Innan du börjar
+Om du inte har personalapp från den [granska endpoint yttranden](luis-tutorial-review-endpoint-utterances.md) självstudien [importera](luis-how-to-start-new-app.md#import-new-app) JSON-koden i en ny app i den [LUIS](luis-reference-regions.md#luis-website) webbplats. Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json)-GitHub-lagringsplatsen.
 
-> [!Tip]
-> Om du inte redan har en prenumeration kan du registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/).
+Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `batchtest`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
-## <a name="create-new-app"></a>Skapa ny app
-Den här artikeln använder fördefinierade domänen HomeAutomation. Fördefinierade domänen har avsikter och entiteter yttranden för att styra HomeAutomation enheter, till exempel ljus. Skapa appen, lägga till domänen, träna och publicera.
+## <a name="purpose-of-batch-testing"></a>Syftet med batch-testning
+Batch-testning kan du kontrollera tillstånd för en modell med en känd uppsättning av test yttranden och märkt med entiteter. I JSON-formaterade kommandofilen, Lägg till talade och ange etiketter för entiteten som du behöver förutse inuti uttryck. 
 
-1. I den [LUIS](luis-reference-regions.md) webbplatsen, skapa en ny app genom att välja **Skapa ny app** på den **MyApps** sidan. 
+Rekommenderade test-strategin för LUIS använder tre separata uppsättningar av data: exempel yttranden till modellen, batch test yttranden och slutpunkten yttranden. Kontrollera att du inte använder yttranden från antingen exempel yttranden (läggs till ett intent) eller slutpunkten yttranden i den här självstudien. 
 
-    ![Skapa ny app](./media/luis-tutorial-batch-testing/create-app-1.png)
+Kontrollera din batch test yttranden mot exempel yttranden och slutpunkten yttranden [exportera](luis-how-to-start-new-app.md#export-app) appen och [hämta](luis-how-to-start-new-app.md#export-endpoint-logs) frågeloggen. Jämför app exempel uttryck och fråga log yttranden till batch test yttranden. 
 
-2. Ange namnet `Batchtest-HomeAutomation` i dialogrutan.
+Krav för att testa batch:
 
-    ![Ange appnamn](./media/luis-tutorial-batch-testing/create-app-2.png)
+* 1000 yttranden per test. 
+* Inga dubbletter. 
+* Entitetstyper tillåts: enkel och sammansatta.
 
-3. Välj **fördefinierade domäner** i nedre vänstra hörnet. 
+## <a name="create-a-batch-file-with-utterances"></a>Skapa en batchfil med yttranden
+1. Skapa `HumanResources-jobs-batch.json` i en textredigerare som [VSCode](https://code.visualstudio.com/). Eller ladda ned [filen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json) från LUIS-Samples Github-lagringsplatsen.
 
-    ![Välj fördefinierade domän](./media/luis-tutorial-batch-testing/prebuilt-domain-1.png)
-
-4. Välj **Lägg till domän** för HomeAutomation.
-
-    ![Lägg till HomeAutomation domän](./media/luis-tutorial-batch-testing/prebuilt-domain-2.png)
-
-5. Välj **träna** i det övre högra navigeringsfältet.
-
-    ![Knappen Välj Train](./media/luis-tutorial-batch-testing/train-button.png)
-
-## <a name="batch-test-criteria"></a>Batch testkriterium
-Batch-testning kan du testa upp till 1 000 yttranden i taget. Batch ska inte ha dubbletter. [Exportera](create-new-app.md#export-app) appen för att se en lista över aktuella yttranden.  
-
-Test-strategin för LUIS använder tre olika uppsättningar av data: modellen utterances, batch test utterances och slutpunkten utterances. Kontrollera att du inte använder yttranden från antingen modellen yttranden (läggs till ett intent) eller slutpunkten yttranden i den här självstudien. 
-
-Använd inte någon av talade redan i appen för batch-test:
-
-```
-'breezeway on please',
-'change temperature to seventy two degrees',
-'coffee bar on please',
-'decrease temperature for me please',
-'dim kitchen lights to 25 .',
-'fish pond off please',
-'fish pond on please',
-'illuminate please',
-'living room lamp on please',
-'living room lamps off please',
-'lock the doors for me please',
-'lower your volume',
-'make camera 1 off please',
-'make some coffee',
-'play dvd',
-'set lights bright',
-'set lights concentrate',
-'set lights out bedroom',
-'shut down my work computer',
-'silence the phone',
-'snap switch fan fifty percent',
-'start master bedroom light .',
-'theater on please',
-'turn dimmer off',
-'turn off ac please',
-'turn off foyer lights',
-'turn off living room light',
-'turn off staircase',
-'turn off venice lamp',
-'turn on bathroom heater',
-'turn on external speaker',
-'turn on my bedroom lights .',
-'turn on the furnace room lights',
-'turn on the internet in my bedroom please',
-'turn on thermostat please',
-'turn the fan to high',
-'turn thermostat on 70 .' 
-```
-
-## <a name="create-a-batch-to-test-intent-prediction-accuracy"></a>Skapa en batch för att testa avsikt prognosens noggrannhet
-1. Skapa `homeauto-batch-1.json` i en textredigerare som [VSCode](https://code.visualstudio.com/). 
-
-2. Lägg till yttranden med den **avsikt** du vill att förväntade i testet. Den här självstudien om du vill göra det enkelt, ta yttranden i den `HomeAutomation.TurnOn` och `HomeAutomation.TurnOff` och växla den `on` och `off` text i talade. För den `None` avsikt, lägga till ett par yttranden som inte är en del av den [domän](luis-glossary.md#domain) (ämnesområde). 
-
-    Lägg till endast sex avsikter för att förstå hur resultaten av batch motsvarar batch JSON.
+2. Lägg till yttranden med i JSON-formaterade kommandofilen, den **avsikt** du vill att förväntade i testet. 
 
     ```JSON
     [
         {
-          "text": "lobby on please",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": []
+        "text": "Are there any janitorial jobs currently open?",
+        "intent": "GetJobInformation",
+        "entities": []
         },
         {
-          "text": "change temperature to seventy one degrees",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": []
+        "text": "I would like a fullstack typescript programming with azure job",
+        "intent": "GetJobInformation",
+        "entities": []
         },
         {
-          "text": "where is my pizza",
-          "intent": "None",
-          "entities": []
+        "text": "Is there a database position open in Los Colinas?",
+        "intent": "GetJobInformation",
+        "entities": []
         },
         {
-          "text": "help",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "breezeway off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": []
-        },
-        {
-          "text": "coffee bar off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": []
+        "text": "Can I apply for any database jobs with this resume?",
+        "intent": "GetJobInformation",
+        "entities": []
         }
     ]
     ```
 
 ## <a name="run-the-batch"></a>Kör om gruppen
+
 1. Välj **Test** i det övre navigeringsfältet. 
 
-    ![Välj Test i navigeringsfältet](./media/luis-tutorial-batch-testing/test-1.png)
+    [ ![Skärmbild av LUIS-app med Test som markerats i övre, högra navigeringsfältet](./media/luis-tutorial-batch-testing/hr-first-image.png)](./media/luis-tutorial-batch-testing/hr-first-image.png#lightbox)
 
 2. Välj **Batch-testning panelen** i den högra panelen. 
 
-    ![Välj Batch test](./media/luis-tutorial-batch-testing/test-2.png)
+    [ ![Skärmbild av LUIS-app med Batch test panelen markerat](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
 3. Välj **importera datauppsättningen**.
 
-    ![Välj Importera datauppsättningen](./media/luis-tutorial-batch-testing/test-3.png)
+    [ ![Skärmbild av LUIS-app med importera datauppsättningen markerat](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
-4. Välj system sökvägen till den `homeauto-batch-1.json` filen.
+4. Välj system sökvägen till den `HumanResources-jobs-batch.json` filen.
 
-5. Namnge datauppsättningen `set 1`.
+5. Namnge datauppsättningen `intents only` och välj **klar**.
 
-    ![Välj fil](./media/luis-tutorial-batch-testing/test-4.png)
+    ![Välj fil](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
 6. Klicka på knappen **Kör**. Vänta tills testet är klart.
 
-    ![Välj Kör](./media/luis-tutorial-batch-testing/test-5.png)
+    [ ![Skärmbild av LUIS-app med markerat som körs](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
 
 7. Välj **se resultat**.
 
-    ![Visa resultat](./media/luis-tutorial-batch-testing/test-6.png)
-
 8. Granska resultatet i diagram och legend.
 
-    ![Batch-resultat](./media/luis-tutorial-batch-testing/batch-result-1.png)
+    [ ![Skärmbild av LUIS-app med testresultaten för batch](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## <a name="review-batch-results"></a>Granska resultatet från batch
-Batch-resultat finns i två avsnitt. Den övre delen finns i diagrammet och förklaringen. Den undre delen visar yttranden när du väljer en områdesnamn i diagrammet.
+Batch-diagrammet visar fyra quadrants resultat. Är ett filter till höger om diagrammet. Filtret är som standard första avsikten i listan. Filtret innehåller alla avsikter och endast enkla, hierarkisk (överordnade endast), och sammansatta entiteter. När du väljer en del av diagrammet eller en punkt i diagrammet visas de associerade utterance(s) under diagrammet. 
 
-Eventuella fel markeras med röd färg. Diagrammet är i fyra delar med två av de avsnitt som visas i rött. **Dessa finns i avsnitt fokuserar på**. 
+Vid hovring över diagrammet, ett mushjul förstora eller minska visas i diagrammet. Detta är användbart när det finns många saker i diagrammet klustrade nära tillsammans. 
 
-Längst upp till höger avsnittet anger testet felaktigt förutse förekomsten av en avsikt eller enhet. Den nedre vänstra sidan anger testet felaktigt förutse avsaknad av en avsikt eller enhet.
+Diagrammet är i fyra quadrants med två av de avsnitt som visas i rött. **Dessa finns i avsnitt fokuserar på**. 
 
-### <a name="homeautomationturnoff-test-results"></a>HomeAutomation.TurnOff testresultat
-I förklaringen, Välj den `HomeAutomation.TurnOff` avsikt. Den har ett grönt ikonen till vänster om namnet i förklaringen. Det finns inga fel för den här. 
+### <a name="applyforjob-test-results"></a>ApplyForJob testresultat
+Den **ApplyForJob** test visas i filtret visar att 1 av fyra förutsägelser lyckades. Välj namnet **falsklarm** över övre högra quadrant att se yttranden under diagrammet. 
 
-![Batch-resultat](./media/luis-tutorial-batch-testing/batch-result-1.png)
+![LUIS batch test yttranden](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
 
-### <a name="homeautomationturnon-and-none-intents-have-errors"></a>HomeAutomation.TurnOn och inget avsikter innehåller fel
-De andra två metoderna innehåller fel, vilket innebär att testa förutsägelser inte matchade förväntningar för batch-fil. Välj den `None` avsikt i förklaringen för att granska det första felet. 
+Tre talade hade en främsta syftet med **ApplyForJob**. Avsikten som anges i batchfilen hade en lägre poäng. Varför hände detta? Två avsikter relaterade mycket nära när det gäller word val och word placering. Det finns dessutom nästan tre gånger så många exempel för **ApplyForJob** än **GetJobInformation**. Den här ojämnheter av exempel yttranden väger **ApplyForJob** avsikts fördel. 
 
-![Ingen avsikt](./media/luis-tutorial-batch-testing/none-intent-failures.png)
+Lägg märke till att båda avsikter har samma antal fel: 
 
-Fel visas i diagrammet i avsnitten red: **falskt positivt** och **falska negativa**. Välj den **falska negativa** avsnittsnamn i diagrammet för att se misslyckade talade under diagrammet. 
+![LUIS batch test filterfel](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
 
-![Falska negativa fel](./media/luis-tutorial-batch-testing/none-intent-false-negative.png)
+Det uttryck som motsvarar den övre punkten i den **falsklarm** avsnittet är `Can I apply for any database jobs with this resume?`. Ordet `resume` har endast används i **ApplyForJob**. 
 
-Misslyckas-uttryck `help` förväntades som en `None` avsikt men testet förutse `HomeAutomation.TurnOn` avsikt.  
-
-Det finns två fel, en i HomeAutomation.TurnOn och en inget. Båda orsakades av uttryck `help` eftersom det inte uppfyllde förväntar sig inget och det var en oväntat matchning för HomeAutomation.TurnOn avsikten. 
-
-Att ta reda på varför den `None` yttranden misslyckas kan du granska för närvarande i talade `None`. 
-
-## <a name="review-none-intents-utterances"></a>Granska ingen avsikt är yttranden
-
-1. Stäng den **Test** panelen genom att välja den **Test** knappen i det övre navigeringsfältet. 
-
-2. Välj **skapa** från panelen övre navigeringsfältet. 
-
-3. Välj **ingen** avsikt från listan över avsikter.
-
-4. Välj kontrollen + E för att visa talade token 
-    
-    |Ingen avsikt är yttranden|Förutsägelseresultat|
-    |--|--|
-    |”minska temperatur för mig”.|0.44|
-    |”dim Se lamporna till 25”.|0.43|
-    |”sänka volymen”|0.46|
-    |”Slå på internet i min sovrum mer”|0.28|
-
-## <a name="fix-none-intents-utterances"></a>Åtgärda ingen avsikt är yttranden
-    
-Yttranden i `None` bör finnas utanför app-domänen. Dessa uttryck är i förhållande till HomeAutomation, så att de är i fel avsikten. 
-
-LUIS ger även utterances mindre än 50% (<.50) förutsägelse poäng. Om du tittar på yttranden i de andra två metoderna, ser du mycket högre poäng för förutsägelse. När LUIS har låg poäng för exempel utterances som är en bra indikation är på utterances förvirrande för LUIS mellan aktuella avsikten och andra avsikter. 
-
-Åtgärda appen yttranden för närvarande i den `None` avsikt som behöver flyttas till rätt avsikten och `None` avsikt behöver ny, lämplig avsikter. 
-
-Tre av yttranden i den `None` avsikten är avsedda att sänka automation enhetsinställningarna. De använda ord som `dim`, `lower`, eller `decrease`. Den fjärde uttryck frågar att slå på internet. Eftersom alla fyra yttranden om att aktivera eller ändra graden av power till en enhet, bör de flyttas till den `HomeAutomation.TurnOn` avsikt. 
-
-Detta är bara en lösning. Du kan också skapa en ny syftet med `ChangeSetting` och flytta talade med hjälp av dimension, lägre och minska till detta nya syfte. 
+De andra två punkterna i diagrammet hade mycket lägre poäng för fel avsikt, vilket innebär att de är närmare till rätt avsikt. 
 
 ## <a name="fix-the-app-based-on-batch-results"></a>Åtgärda appen baserat på batch-resultat
-Flytta fyra yttranden till den `HomeAutomation.TurnOn` avsikt. 
+Målet med det här avsnittet är att ha tre yttranden som var felaktigt förväntas **ApplyForJob** till att korrekt förutse för **GetJobInformation**, när appen har lösts. 
 
-1. Markera kryssrutan ovanför listan uttryck så att alla yttranden har valts. 
+En till synes snabb korrigering är att lägga till dessa batch filen yttranden till rätt avsikt. Det är inte vad du vill göra om. Vill du LUIS för att förutsäga dessa yttranden utan att lägga till dem som exempel. 
 
-2. I den **omtilldela avsikt** listrutan, väljer `HomeAutomation.TurnOn`. 
+Du kanske också undrar om att ta bort yttranden från **ApplyForJob** tills antalet uttryck är samma som **GetJobInformation**. Som kan åtgärdas testresultaten men skulle hindra LUIS från att förutsäga detta syfte korrekt nästa gång. 
 
-    ![Flytta yttranden](./media/luis-tutorial-batch-testing/move-utterances.png)
+Första korrigeringen är att lägga till fler yttranden till **GetJobInformation**. Andra korrigeringen är att minska vikten för ordet `resume` mot den **ApplyForJob** avsikt. 
 
-    När fyra talade tilldelas uttryck lista för den `None` avsikten är tom.
+### <a name="add-more-utterances-to-getjobinformation"></a>Lägg till mer yttranden till **GetJobInformation**
+1. Stänga panelen batch test genom att välja den **testa** knappen i övre navigeringsfönstret. 
 
-3. Lägg till fyra nya avsikter för avsiktlig ingen:
+    [ ![Skärmbild av LUIS med testknappen markerat](./media/luis-tutorial-batch-testing/hr-close-test-panel.png)](./media/luis-tutorial-batch-testing/hr-close-test-panel.png#lightbox)
 
-    ```
-    "fish"
-    "dogs"
-    "beer"
-    "pizza"
-    ```
+2. Välj **GetJobInformation** från listan över avsikter. 
 
-    Dessa uttryck är definitivt utanför domänen för HomeAutomation. När du anger varje uttryck kan du titta på poängen för den. Poängen kan vara låg eller även mycket låg (med en röd ram runt den). När du tränar appen, i steg 8 är poängen mycket högre. 
+    [ ![Skärmbild av LUIS med testknappen markerat](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
-7. Ta bort alla etiketter genom att välja den blå etiketten i uttryck och välj **ta bort etikett**.
-
-8. Välj **träna** i det övre högra navigeringsfältet. Poängen för varje uttryck är mycket högre. Alla resultat för den `None` avsikt ska finnas på.80 nu. 
-
-## <a name="verify-the-fix-worked"></a>Verifiera korrigeringen fungerade
-För att verifiera att yttranden i batch-testet korrekt förutse för den **ingen** avsikt, kör batch-testet igen.
-
-1. Välj **Test** i det övre navigeringsfältet. 
-
-2. Välj **Batch-testning panelen** i den högra panelen. 
-
-3. Välj ellipsen (***...*** ) till höger om batch-namn och välj **kör datauppsättning**. Vänta tills det batch-testet är klart.
-
-    ![Kör datauppsättning](./media/luis-tutorial-batch-testing/run-dataset.png)
-
-4. Välj **se resultat**. Avsikter ska ha grön ikonerna till vänster om avsiktlig namnen. Med rätt typ av filter inställd på `HomeAutomation.Turnoff` avsikt, Välj gröna punkt i den övre högra panelen som är närmast mitten av diagrammet. Namnet på uttryck som visas i tabellen under diagrammet. Poängen för `breezeway off please` är mycket låg. En valfri aktivitet är att lägga till flera uttryck i syfte att öka det här resultatet. 
-
-    ![Kör datauppsättning](./media/luis-tutorial-batch-testing/turnoff-low-score.png)
-
-<!--
-    The Entities section of the legend may have errors. That is the next thing to fix.
-
-## Create a batch to test entity detection
-1. Create `homeauto-batch-2.json` in a text editor such as [VSCode](https://code.visualstudio.com/). 
-
-2. Utterances have entities identified with `startPos` and `endPost`. These two elements identify the entity before [tokenization](luis-glossary.md#token), which happens in some [cultures](luis-supported-languages.md#tokenization) in LUIS. If you plan to batch test in a tokenized culture, learn how to [extract](luis-concept-data-extraction.md#tokenized-entity-returned) the non-tokenized entities.
-
-    Copy the following JSON into the file:
+3. Lägg till mer yttranden som varieras för längd, word val och word placering, se till att inkludera villkoren `resume` och `c.v.`:
 
     ```JSON
-    [
-        {
-          "text": "lobby on please",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Room",
-              "startPos": 0,
-              "endPos": 4
-            }
-          ]
-        },
-        {
-          "text": "change temperature to seventy one degrees",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Operation",
-              "startPos": 7,
-              "endPos": 17
-            }
-          ]
-        },
-        {
-          "text": "where is my pizza",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "help",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "breezeway off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Room",
-              "startPos": 0,
-              "endPos": 9
-            }
-          ]
-        },
-        {
-          "text": "coffee bar off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Device",
-              "startPos": 0,
-              "endPos": 10
-            }
-          ]
-        }
-      ]
+    Is there a new job in the warehouse for a stocker?
+    Where are the roofing jobs today?
+    I heard there was a medical coding job that requires a resume.
+    I would like a job helping college kids write their c.v.s. 
+    Here is my resume, looking for a new post at the community college using computers.
+    What positions are available in child and home care?
+    Is there an intern desk at the newspaper?
+    My C.v. shows I'm good at analyzing procurement, budgets, and lost money. Is there anything for this type of work?
+    Where are the earth drilling jobs right now?
+    I've worked 8 years as an EMS driver. Any new jobs?
+    New food handling jobs?
+    How many new yard work jobs are available?
+    Is there a new HR post for labor relations and negotiations?
+    I have a masters in library and archive management. Any new positions?
+    Are there any babysitting jobs for 13 year olds in the city today?
     ```
 
-3. Import the batch file, following the [same instructions](#run-the-batch) as the first import, and name the dataset `set 2`. Run the test.
+4. Träna appen genom att välja **träna** i det övre högra navigeringsfältet.
 
-## Possible entity errors
-Since the intents in the right-side filter of the test panel still pass the test, this section focuses on correct entity identification. 
+## <a name="verify-the-fix-worked"></a>Verifiera korrigeringen fungerade
+För att verifiera att yttranden i batch-testet är korrekt förutse, kör du batch-testet igen.
 
-Entity testing is diferrent than intents. An utterance will have only one top scoring intent, but it may have several entities. An utterance's entity may be correctly identified, may be incorrectly identified as an entity other than the one in the batch test, may overlap with other entities, or not identified at all. 
+1. Välj **Test** i det övre navigeringsfältet. Om batch-resultat är fortfarande öppen väljer **tillbaka till listan**.  
 
-## Review entity errors
-1. Select `HomeAutomation.Device` in the filter panel. The chart changes to show a single false positive and several true negatives. 
+2. Välj ellipsen (***...*** ) till höger om batch-namn och välj **kör datauppsättning**. Vänta tills det batch-testet är klart. Observera att den **se resultat** är nu grön. Det innebär att hela batchen har körts.
 
-2. Select the False positive section name. The utterance for this chart point is displayed below the chart. The labeled intent and the predicted intent are the same, which is consistent with the test -- the intent prediction is correct. 
+3. Välj **se resultat**. Avsikter ska ha grön ikonerna till vänster om avsiktlig namnen. 
 
-    The issue is that the HomeAutomation.Device was detected but the batch expected HomeAutomation.Room for the utterance "coffee bar off please". `Coffee bar` could be a room or a device, depending on the environment and context. As the model designer, you can either enforce the selection as `HomeAutomation.Room` or change the batch file to use `HomeAutomation.Device`. 
+    [ ![Skärmbild av LUIS med batch resulterar knappen markerad](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png#lightbox)
 
-    If you want to reinforce that coffee bar is a room, you nee to add an utterances to LUIS that help LUIS decide a coffee bar is a room. 
 
-    The most direct route is to add the utterance to the intent but that to add the utterance for every entity detection error is not the machine-learned solution. Another fix would be to add an utterance with `coffee bar`.
+## <a name="what-has-this-tutorial-accomplished"></a>Vad har den här självstudien göra detta?
+Den här appen förutsägelsefunktionen har ökat genom att söka efter fel i batchen och åtgärda modellen genom att lägga till fler exempel yttranden rätt avsikten och utbildning. 
 
-## Add utterance to help extract entity
-1. Select the **Test** button on the top navigation to close the batch test panel.
+## <a name="clean-up-resources"></a>Rensa resurser
+Ta bort LUIS-appen när den inte längre behövs. Välj **Mina appar** på menyn längst upp till vänster. Välj ellipsen **...**  till höger om appnamnet i programlistan, Välj **ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
-2. On the `HomeAutomation.TurnOn` intent, add the utterance, `turn coffee bar on please`. The uttterance should have all three entities detected after you select enter. 
 
-3. Select **Train** on the top navigation panel. Wait until training completes successfully.
-
-3. Select **Test** on the top navigation panel to open the Batch testing pane again. 
-
-4. If the list of datasets is not visible, select **Back to list**. Select the ellipsis (***...***) button at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
-
-5. Select **See results** to review the test results.
-
-6. 
--->
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Mer information om exempel yttranden](luis-how-to-add-example-utterances.md)
+> [Lär dig mer om mönster](luis-tutorial-pattern.md)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

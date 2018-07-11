@@ -3,7 +3,7 @@ title: Log Analytics för tjänsteleverantörer | Microsoft Docs
 description: Log Analytics kan hjälpa att Managed Service Providers (MSP), stora företag oberoende programvara-leverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens on-premises eller molninfrastruktur.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
+author: MeirMen
 manager: jochan
 editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/05/2018
 ms.author: meirm
 ms.component: na
-ms.openlocfilehash: 13f36f67e76b75176940a0f36121be30ba27d519
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: ad0a3b8e0ee5f1114ea1db95cfe2f4176b8e2ddb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340873"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931998"
 ---
-# <a name="log-analytics-features-for-service-providers"></a>Log Analytics-funktioner för tjänsteleverantörer
+# <a name="log-analytics-for-service-providers"></a>Logganalys för tjänsteleverantörer
 Log Analytics kan leverantörer av hanterade tjänster (MSP), stora företag, oberoende programvaruleverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens on-premises eller molninfrastruktur. 
 
 Stora företag dela många likheter med leverantörer, särskilt när det finns en central IT-teamet som ansvarar för att hantera IT för många olika affärsenheter. För enkelhetens skull det här dokumentet använder termen *tjänstleverantör* men samma funktion är också tillgängligt för företag och andra kunder.
@@ -61,7 +61,8 @@ Fördelarna med den här arkitekturen är:
 * Tjänstleverantören kan utföra analyser för alla kunder.
 
 Nackdelarna med den här arkitekturen är:
-* Det är svårt att dela data mellan kunderna. Metoden endast bra att göra detta är att använda datorns domännamn.
+* Den här arkitekturen används endast för agentbaserad VM-data, täcker inte PaaS, SaaS och Azure fabric-datakällor.
+* Det kan vara svårt att dela data mellan kunder när de infogas i en enda arbetsyta. Metoden endast bra att göra detta är att använda datorns fullständigt kvalificerade domännamnet (FQDN) eller via Azure-prenumeration-ID. 
 * Alla data från alla kunder kommer att lagras i samma region med en enda faktura och samma inställningar för kvarhållning och konfiguration.
 * Azure-infrastrukturen och PaaS-tjänster som Azure Diagnostics och Azure granskning kräver arbetsytan för att vara i samma klient som resursen så de inte kan skicka loggarna till arbetsytan central.
 * Alla VM-agenter från alla kunder autentiseras till arbetsytan cental samma arbetsyte-ID och nyckel. Det finns ingen metod för att blockera loggar från en viss kund utan att störa andra kunder.

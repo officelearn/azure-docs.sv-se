@@ -1,31 +1,31 @@
 ---
 title: Replikera och redundansväxla virtuella VMware-datorer till Azure med PowerShell i Azure Site Recovery | Microsoft Docs
-description: Lär dig hur du ställer in replikering och redundans till Azure för VMwares virtuella datorer med PowerShell i Azure Site Recovery.
+description: Lär dig hur du konfigurerar replikering och redundans till Azure för virtuella VMware-datorer med hjälp av PowerShell i Azure Site Recovery.
 services: site-recovery
 author: bsiva
 ms.service: site-recovery
+ms.date: 07/06/2018
 ms.topic: conceptual
-ms.date: 06/20/2018
 ms.author: bsiva
-ms.openlocfilehash: 051bc3a0e1c0126826e96b49ff0a4e8008c88006
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a826817b8f2b4ebff8442da1fbee79a95990a9e8
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287862"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917820"
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Replikera och redundansväxla virtuella VMware-datorer till Azure med PowerShell
 
-I den här artikeln visas hur du replikerar och redundans virtuella VMware-datorer till Azure med Azure PowerShell. 
+I den här artikeln visas hur du replikerar och redundans VMware-datorer till Azure med hjälp av Azure PowerShell. 
 
 Lär dig att:
 
 > [!div class="checklist"]
-> - Skapa ett Recovery Services-valv och ange valvet kontext.
-> - Validera registrera servern i valvet.
+> - Skapa ett Recovery Services-valv och ange valvets sammanhang.
+> - Verifiera registrera servern i valvet.
 > - Konfigurera replikering, inklusive en replikeringsprincip. Lägg till vCenter-servern och identifiera virtuella datorer. > – Lägg till en vCenter-server och identifiera 
-> - Skapa storage-konton för att lagra data för replikering och replikera de virtuella datorerna.
-> - Utför en växling vid fel. Konfigurera inställningar för växling vid fel, utföra en e-postinställningar för replikering av virtuella datorer.
+> - Skapa lagringskonton för att lagra data för replikering och replikera de virtuella datorerna.
+> - Utföra en redundansväxling. Konfigurera inställningar för växling vid fel, utföra en e-postinställningar för replikering av virtuella datorer.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -33,23 +33,23 @@ Innan du börjar:
 
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](vmware-azure-architecture.md).
 - Granska [kraven för stöd](site-recovery-support-matrix-to-azure.md) för alla komponenter.
-- Du har version 5.0.1 eller större på AzureRm PowerShell-modulen. Om du behöver installera eller uppgradera Azure PowerShell följer detta [Guide för att installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
+- Du har version 5.0.1 eller senare av AzureRm PowerShell-modulen. Om du behöver installera eller uppgradera Azure PowerShell kan du följa den här [guide om hur du installerar och konfigurerar Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="log-into-azure"></a>Logga in på Azure
 
-Logga in på din Azure-prenumeration med hjälp av cmdlet Connect-AzureRmAccount:
+Logga in på din Azure-prenumeration med hjälp av cmdleten Connect-AzureRmAccount:
 
 ```azurepowershell
 Connect-AzureRmAccount
 ```
-Välj den Azure-prenumeration du vill replikera dina virtuella datorer i VMware till. Använd cmdleten Get-AzureRmSubscription för att hämta listan över Azure-prenumerationer som du har åtkomst till. Välj den Azure-prenumerationen att arbeta med hjälp av cmdleten Select-AzureRmSubscription.
+Ange den prenumeration du vill replikera dina VMware-datorer till. Använd cmdleten Get-AzureRmSubscription för att hämta listan över Azure-prenumerationer som du har åtkomst till. Ange prenumerationen du arbetar med hjälp av cmdleten Select-AzureRmSubscription.
 
 ```azurepowershell
 Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 ```
 ## <a name="set-up-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
-1. Skapa en resursgrupp att skapa Recovery Services-valvet. I exemplet nedan resursgruppen heter VMwareDRtoAzurePS och skapas i Östasien region.
+1. Skapa en resursgrupp som du skapar Recovery Services-valvet. I exemplet nedan heter VMwareDRtoAzurePS resursgruppen och de har skapats i regionen östra Asien.
 
    ```azurepowershell
    New-AzureRmResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
@@ -62,7 +62,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
 ```
    
-2. Skapa ett Recovery services-valv. I exemplet nedan Recovery services-ventilen heter VMwareDRToAzurePs och skapas i Östasien region och i resursgruppen som du skapade i föregående steg.
+2. Skapa ett Recovery services-valv. I exemplet nedan Recovery services-valv heter VMwareDRToAzurePs och har skapats i regionen östra Asien, och i resursgruppen som skapades i föregående steg.
 
    ```azurepowershell
    New-AzureRmRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"
@@ -77,7 +77,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
    ``` 
 
-3. Hämta valvregistreringsnyckeln för valvet. Valvregistreringsnyckeln används för att registrera konfigurationsservern lokalt för det här valvet. Registreringen är en del av konfigurationsservern Programvaruinstallation.
+3. Ladda ned valvregistreringsnyckeln för valvet. Valvregistreringsnyckeln används för att registrera den lokala konfigurationsservern till det här valvet. Registreringen är en del av installationen för Configuration Server-programvara.
 
    ```azurepowershell
    #Get the vault object by name and resource group and save it to the $vault PowerShell variable 
@@ -92,18 +92,18 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials
    ```
 
-4. Använd hämtade valvregistreringsnyckeln och följ stegen i artiklar som anges nedan för att slutföra installationen och registrering av konfigurationsservern.
+4. Använd hämtade valvregistreringsnyckeln och följ stegen i artiklar som anges nedan för att slutföra installationen och registreringen av konfigurationsservern.
    - [Välja skyddsmål](vmware-azure-set-up-source.md#choose-your-protection-goals)
    - [Konfigurera källmiljön](vmware-azure-set-up-source.md#set-up-the-configuration-server) 
 
-### <a name="set-the-vault-context"></a>Ange valvet-kontext
+### <a name="set-the-vault-context"></a>Ange valvets sammanhang
 
-Ange valvet samband med cmdlet Set-ASRVaultContext. När utförs efterföljande Azure Site Recovery-åtgärder i PowerShell-sessionen i kontexten för det valda valvet.
+Anger du valvkontexten med hjälp av cmdleten Set-ASRVaultContext. När utförs efterföljande Azure Site Recovery-åtgärder i PowerShell-sessionen i kontexten för det valda valvet.
 
 > [!TIP]
-> Azure Site Recovery PowerShell-modulen (AzureRm.RecoveryServices.SiteRecovery modul) levereras med lättanvända alias för de flesta cmdlets. Cmdletar i modulen vara i formatet  *\<åtgärden >-**AzureRmRecoveryServicesAsr**\<objekt >* och ha motsvarande alias som utformas  *\<Åtgärden >-**ASR**\<objekt >*. Den här artikeln använder cmdlet-alias för att underlätta läsning.
+> Azure Site Recovery PowerShell-modulen (AzureRm.RecoveryServices.SiteRecovery modul) levereras med lättanvända alias för de flesta cmdletarna. Cmdlets i modulen vara i formatet  *\<åtgärden >-**AzureRmRecoveryServicesAsr**\<objekt >* och har motsvarande alias som vara i formatet  *\<Åtgärden >-**ASR**\<objekt >*. Den här artikeln använder cmdlet-alias för enklare läsning.
 
-I exemplet nedan, valvet information från $vault används variabeln för att ange valvet kontexten för PowerShell-session.
+I exemplet nedan, valvinformationen från $vault används variabeln för att ange valvets sammanhang för PowerShell-session.
 
    ```azurepowershell
    Set-ASRVaultContext -Vault $vault
@@ -114,23 +114,23 @@ I exemplet nedan, valvet information från $vault används variabeln för att an
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Som ett alternativ till cmdlet Set-ASRVaultContext använda en också cmdleten Import AzureRmRecoveryServicesAsrVaultSettingsFile för att ange valvet kontext. Ange sökvägen där valvet registreringsnyckelfilen finns som parametern - path till cmdleten Import AzureRmRecoveryServicesAsrVaultSettingsFile. Exempel:
+Som ett alternativ till cmdlet Set-ASRVaultContext använda en också cmdleten Import-AzureRmRecoveryServicesAsrVaultSettingsFile att ställa in valvets sammanhang. Ange sökvägen där nyckelfilen för valvregistrering finns som parametern - path till Import-AzureRmRecoveryServicesAsrVaultSettingsFile-cmdlet. Exempel:
 
    ```azurepowershell
    Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
    Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
    ```
-Nedanstående avsnitt i den här artikeln förutsätter att kontexten valv för Azure Site Recovery-åtgärder har ställts in.
+Följande avsnitt i den här artikeln förutsätter att valvets sammanhang för Azure Site Recovery-åtgärder har ställts in.
 
-## <a name="validate-vault-registration"></a>Verifiera registrering valvet
+## <a name="validate-vault-registration"></a>Verifiera registrering av valvet
 
 I det här exemplet har vi följande:
 
-- En server configuration (**ConfigurationServer**) har registrerats för det här valvet.
-- En ytterligare processer server (**ScaleOut process**) har registrerats på *ConfigurationServer*
-- Konton (**vCenter_account**, **WindowsAccount**, **LinuxAccount**) har ställts in på konfigurationsservern. Dessa konton som används för att lägga till vCenter-servern, att identifiera virtuella datorer, och push-installera programvaran för tjänsten mobility på Windows- och Linux-servrar som ska replikeras.
+- En konfigurationsserver (**ConfigurationServer**) har registrerats i valvet.
+- En ytterligare processerver (**ScaleOut-process**) har registrerats på *ConfigurationServer*
+- Konton (**vCenter_account**, **WindowsAccount**, **LinuxAccount**) har ställts in på konfigurationsservern. Dessa konton används för att lägga till vCenter-servern, att identifiera virtuella datorer och för att push-installation mobilitetstjänstprogramvaran på Windows och Linux-servrar som ska replikeras.
 
-1. Registrerade konfigurationsservrar representeras av ett fabric-objekt i Site Recovery. Hämta en lista över fabric objekt i valvet och identifiera konfigurationsservern.
+1. Registrerade konfigurationsservrar representeras av ett fabric-objekt i Site Recovery. Hämta listan över fabric objekt i valvet och identifiera konfigurationsservern.
 
    ```azurepowershell
    # Verify that the Configuration server is successfully registered to the vault
@@ -155,7 +155,7 @@ I det här exemplet har vi följande:
    FabricSpecificDetails : Microsoft.Azure.Commands.RecoveryServices.SiteRecovery.ASRVMWareSpecificDetails
    ```
 
-2. Identifiera de servrar som kan användas för att replikera virtuella datorer.
+2. Identifiera processervrar som kan användas för att replikera virtuella datorer.
 
    ```azurepowershell
    $ProcessServers = $ASRFabrics[0].FabricSpecificDetails.ProcessServers
@@ -168,7 +168,7 @@ I det här exemplet har vi följande:
    1     ConfigurationServer
    ```
 
-   Från resultatet ovan ***$ProcessServers [0]*** motsvarar *ScaleOut process* och ***$ProcessServers [1]*** motsvarar rollen Processervern på *ConfigurationServer*
+   Från utdatan ovan ***$ProcessServers [0]*** motsvarar *ScaleOut-process* och ***$ProcessServers [1]*** motsvarar Process Server-rollen på *ConfigurationServer*
 
 3. Identifiera konton som har ställts in på konfigurationsservern.
 
@@ -185,14 +185,14 @@ I det här exemplet har vi följande:
    3         LinuxAccount
    ```
 
-   Från resultatet ovan ***$AccountHandles [0]*** kontots *vCenter_account*, ***$AccountHandles [1]*** konto *WindowsAccount*, och ***$AccountHandles [2]*** konto *LinuxAccount*
+   Från utdatan ovan ***$AccountHandles [0]*** kontots *vCenter_account*, ***$AccountHandles [1]*** till kontot *WindowsAccount*, och ***$AccountHandles [2]*** till kontot *LinuxAccount*
 
 ## <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
 
-I det här steget skapas två replikeringsprinciper. En princip för att replikera virtuella VMware-datorer till Azure och den andra att replikera misslyckades över virtuella datorer som körs i Azure tillbaka till lokala VMware-platsen.
+I det här steget skapas två replikeringsprinciper. En policy för att replikera virtuella VMware-datorer till Azure och det andra att replikera redundansväxlade virtuella datorer som körs i Azure tillbaka till den lokala VMware-webbplatsen.
 
 > [!NOTE]
-> De flesta Azure Site Recovery-åtgärder körs asynkront. När du initierar en åtgärd utförs en Azure Site Recovery-jobbet har skickats och ett jobb spåra objekt returneras. Det här jobbet spåra objektet kan användas för att övervaka status för åtgärden.
+> De flesta Azure Site Recovery-åtgärder körs asynkront. När du har initierat en åtgärd kan en Azure Site Recovery-jobb skickas och ett jobb spåra objekt returneras. Det här jobbet spåra objekt kan användas för att övervaka status för åtgärden.
 
 1. Skapa en replikeringsprincip med namnet *ReplicationPolicy* att replikera virtuella VMware-datorer till Azure med de angivna egenskaperna.
 
@@ -228,15 +228,15 @@ I det här steget skapas två replikeringsprinciper. En princip för att replike
    Errors           : {}
    ```
 
-2. Skapa en replikeringsprincip för återställning efter fel från Azure till lokala VMware-platsen.
+2. Skapa en replikeringsprincip för återställning efter fel från Azure till lokalt VMware-webbplatsen.
 
    ```azurepowershell
    $Job_FailbackPolicyCreate = New-ASRPolicy -AzureToVMware -Name "ReplicationPolicy-Failback" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
    ```
 
-   Använd Jobbinformationen i *$Job_FailbackPolicyCreate* att spåra åtgärden att slutföras.
+   Använda Jobbinformationen i *$Job_FailbackPolicyCreate* att spåra åtgärden att slutföras.
 
-   * Skapa en skyddsbehållare för att mappa replikeringsprinciper med konfigurationsservern.
+   * Skapa en skyddsbehållarmappning för att mappa replikeringsprinciper med konfigurationsservern.
 
    ```azurepowershell
    #Get the protection container corresponding to the Configuration Server
@@ -275,7 +275,7 @@ I det här steget skapas två replikeringsprinciper. En princip för att replike
 
 ## <a name="add-a-vcenter-server-and-discover-vms"></a>Lägg till en vCenter-server och identifiera virtuella datorer
 
-Lägg till en vCenter-Server med IP-adress eller värdnamn. Den **-port** parametern anger vilken port på vCenter-servern kan ansluta till **-namnet** parametern anger ett eget namn för vCenter-servern och **-konto** parametern anger referensen kontot på konfigurationsservern du använder för att identifiera virtuella datorer som hanteras av vCenter-servern.
+Lägg till en vCenter-Server med IP-adress eller värdnamn. Den **-port** parametern anger porten på vCenter-servern för att ansluta till, **-namnet** parametern anger ett eget namn för vCenter-servern och **-konto** parametern anger referensen kontot på konfigurationsservern ska användas för identifiering av virtuella datorer som hanteras av vCenter-servern.
 
 ```azurepowershell
 # The $AccountHandles[0] variable holds details of vCenter_account
@@ -310,12 +310,12 @@ Tasks            : {Adding vCenter server}
 Errors           : {}
 ```
 
-## <a name="create-storage-accounts-for-replication"></a>Skapa storage-konton för replikering
+## <a name="create-storage-accounts-for-replication"></a>Skapa lagringskonton för replikering
 
-I det här steget skapas storage-konton som ska användas för replikering. Dessa storage-konton används senare för att replikera virtuella datorer. Se till att storage-konton skapas i samma Azure-region som valvet. Du kan hoppa över det här steget om du planerar att använda ett befintligt lagringskonto för replikering.
+I det här steget skapas storage-konton som ska användas för replikering. Dessa konton används senare för att replikera virtuella datorer. Se till att lagringskontona som skapas i samma Azure-region som valvet. Du kan hoppa över det här steget om du planerar att använda ett befintligt lagringskonto för replikering.
 
 > [!NOTE]
-> Du måste ange en ytterligare standardlagringskonto (loggen storage-konto) för att replikera lokala virtuella datorer till ett premiumlagringskonto. Storage-konto loggen innehåller replikeringsloggar som en mellanliggande arkivet tills loggarna kan tillämpas på målet för premium-lagring.
+> Att replikera lokala virtuella datorer till ett premium storage-konto, måste du ange ett ytterligare standard storage-konto (logglagringskontot). Logglagringskontot sparar replikeringsloggar som en mellanliggande arkivet tills loggarna kan tillämpas på målet för premium-lagring.
 >
 
 ```azurepowershell
@@ -329,26 +329,26 @@ $ReplicationStdStorageAccount= New-AzureRmStorageAccount -ResourceGroupName "VMw
 
 ## <a name="replicate-vmware-vms"></a>Replikera virtuella VMware-datorer
 
-Det tar ungefär 15-20 minuter för virtuella datorer som ska identifieras från vCenter-servern. När identifieras, skapas ett skyddsobjekt objekt i Azure Site Recovery för varje identifierad virtuell dator. I det här steget replikeras tre av de identifierade virtuella datorerna till Azure Storage-konton som har skapats i föregående steg.
+Det tar cirka 15-20 minuter för virtuella datorer som ska identifieras från vCenter-servern. När kan identifieras, skapas ett objekt för objekt som kan skyddas i Azure Site Recovery för varje identifierad virtuell dator. I det här steget replikeras tre av de identifierade virtuella datorerna till Azure Storage-konton som har skapats i föregående steg.
 
 Du behöver följande information för att skydda en identifierad virtuell dator:
 
 * Skyddsobjekt replikeras.
-* Lagringskontot för att replikera den virtuella datorn till. Dessutom kan behövs en logg lagring för att skydda virtuella datorer till ett premiumlagringskonto.
-* Process-Server som ska användas för replikering. Listan över tillgängliga servrar har hämtats och sparats i den ***$ProcessServers [0]****(ScaleOut-process)* och ***$ProcessServers [1]*** *(ConfigurationServer)* variabler.
-* Kontot du använder för att push-installation Mobility service programvara på datorerna. Listan med tillgängliga konton har hämtats och lagras i den ***$AccountHandles*** variabeln.
-* Skyddsbehållare för replikeringsprincip som ska användas för replikering.
-* Resursgruppen där virtuella datorer måste skapas för växling vid fel.
+* Lagringskontot för att replikera den virtuella datorn. Dessutom kan behövs en logglagring för att skydda virtuella datorer till ett premium storage-konto.
+* Processervern som ska användas för replikering. I listan över tillgängliga servrar har hämtats och sparats i den ***$ProcessServers [0]****(ScaleOut-process)* och ***$ProcessServers [1]*** *(ConfigurationServer)* variabler.  
+* Vilket konto du använder för att push-installera mobilitetstjänsten på datorerna. Listan över tillgängliga konton har hämtats och lagras i den ***$AccountHandles*** variabeln.
+* Skyddsbehållarmappning för replikeringsprincipen som ska användas för replikering.
+* Den resursgrupp där virtuella datorer måste skapas vid redundansväxling.
 * Du kan också Azure-nätverk och undernät som den redundansväxlade virtuella datorn ska anslutas.
 
-Replikera nu följande virtuella datorer med hjälp av inställningarna i den här tabellen
+Nu replikera följande virtuella datorer med hjälp av inställningarna i den här tabellen
 
 
-|Virtuell dator  |Processervern        |Lagringskonto              |Logga Storage-konto  |Princip           |Konto för installation av Mobilitetstjänsten service|Målresursgruppen  | Mål virtuellt nätverk  |Mål-undernät  |
+|Virtuell dator  |Processervern        |Lagringskonto              |Logglagringskontot  |Princip           |Konto för installation av Mobilitetstjänsten|Målresursgrupp  | Virtuellt Målnätverk  |Målundernät  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
-|Win2K12VM1       |ScaleOut-process|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Undernät 1       |
-|CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| Gäller inte                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Undernät 1       |   
-|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| Gäller inte                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Undernät 1       |   
+|Win2K12VM1       |ScaleOut-process|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
+|CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| Gäller inte                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| Gäller inte                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
 
  
 ```azurepowershell
@@ -383,9 +383,9 @@ $Job_EnableRepication3 = New-ASRReplicationProtectedItem -VMwareToAzure -Protect
 
 ```
 
-När jobbet aktivera replikeringen är klar startas inledande replikering för virtuella datorer. Den inledande replikeringen kan ta en stund beroende på mängden data som ska replikeras och den tillgängliga bandbredden för replikering. Den virtuella datorn flyttas till ett skyddat läge när den inledande replikeringen är klar. När den virtuella datorn når ett skyddat läge kan du utföra ett test av redundansen för den virtuella datorn, lägger du till den återställningsplaner osv.
+Efter att aktivera replikeringen är klar startas den inledande replikeringen för virtuella datorer. Den inledande replikeringen kan ta en stund beroende på mängden data som ska replikeras och den tillgängliga bandbredden för replikering. När den inledande replikeringen har slutförts flyttar den virtuella datorn till ett skyddat läge. När den virtuella datorn når ett skyddat läge som du kan utföra ett redundanstest för den virtuella datorn kan du lägga till den i återställningsplaner osv.
 
-Du kan kontrollera replikeringsstatus och replikeringshälsa för den virtuella datorn med cmdleten Get-ASRReplicationProtectedItem.
+Du kan kontrollera replikeringsstatus och tillståndet för den virtuella datorn med cmdleten Get-ASRReplicationProtectedItem replikeringen.
 
 ```azurepowershell
 Get-ASRReplicationProtectedItem -ProtectionContainer $ProtectionContainer | Select FriendlyName, ProtectionState, ReplicationHealth
@@ -400,15 +400,15 @@ Win2K12VM1   Protected                       Normal
 
 ## <a name="configure-failover-settings"></a>Konfigurera inställningar för växling vid fel
 
-Inställningar för växling vid fel för skyddade datorer kan uppdateras med cmdlet Set-ASRReplicationProtectedItem. Några av de inställningar som kan uppdateras via denna cmdlet är:
-* Namnet på den virtuella datorn skapas vid växling vid fel
-* VM-storlek för den virtuella datorn skapas vid växling vid fel
-* Azure-nätverk och undernät som nätverkskort för den virtuella datorn ska anslutas till på redundanskluster
-* Växling till hanterade diskar
-* Använd Azure Hybrid Använd förmån
-* Tilldela en statisk IP-adress från det virtuella målnätverket som ska tilldelas den virtuella datorn på växling vid fel.
+Inställningar för växling vid fel för skyddade datorer kan uppdateras med hjälp av cmdleten Set-ASRReplicationProtectedItem. Några av de inställningar som kan uppdateras via denna cmdlet är:
+* Namnet på den virtuella datorn skapas vid redundans
+* VM-storlek för den virtuella datorn skapas vid redundans
+* Azure-nätverk och undernät som nätverkskort för den virtuella datorn ska anslutas till vid redundans
+* Redundans till hanterade diskar
+* Använda Azure Hybrid-förmånen
+* Tilldela en statisk IP-adress från virtuellt Målnätverk som ska tilldelas till den virtuella datorn vid redundansväxling.
 
-I det här exemplet vi uppdatera VM-storlek för den virtuella datorn skapas vid växling vid fel för den virtuella datorn *Win2K12VM1* och ange att den virtuella datorn Använd hanterade diskar på växling vid fel.
+I det här exemplet vi uppdatera VM-storleken för den virtuella datorn skapas vid redundans för den virtuella datorn *Win2K12VM1* och ange att den virtuella datorn Använd hanterade diskar vid redundansväxling.
 
 ```azurepowershell
 $ReplicatedVM1 = Get-ASRReplicationProtectedItem -FriendlyName "Win2K12VM1" -ProtectionContainer $ProtectionContainer
@@ -448,9 +448,9 @@ Errors           : {}
    #Start the test failover operation
    $TFOJob = Start-ASRTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
    ```
-2. När testjobbet för växling vid fel är klar ser du att en virtuell dator med suffixet *”-Test”* (Win2K12VM1-Test i detta fall) till dess namn har skapats i Azure.
-3. Nu kan du ansluta till testet redundansväxlade virtuella datorn och verifiera redundanstestningen.
-4. Rensa redundanstestet cmdleten Start-ASRTestFailoverCleanupJob. Den här åtgärden tar bort den virtuella datorn skapas som en del av redundanstestet.
+2. När testjobbet för redundans är klar ser du att en virtuell dator suffix med *”-testa”* (Win2K12VM1-Test i det här fallet) till dess namn har skapats i Azure.
+3. Du kan nu ansluta till test-redundansväxlade virtuella datorn och verifiera redundanstestningen.
+4. Rensa redundanstestet med hjälp av cmdleten Start-ASRTestFailoverCleanupJob. Den här åtgärden tar bort den virtuella datorn som skapades som en del av redundanstestet.
 
    ```azurepowershell
    $Job_TFOCleanup = Start-ASRTestFailoverCleanupJob -ReplicationProtectedItem $ReplicatedVM1
@@ -458,9 +458,9 @@ Errors           : {}
 
 ## <a name="fail-over-to-azure"></a>Växla över till Azure
 
-I det här steget misslyckas under den virtuella datorn Win2K12VM1 till en specifik återställningspunkt.
+I det här steget ska vi inte över den virtuella datorn Win2K12VM1 till en specifik återställningspunkt.
 
-1. Hämta en lista över tillgängliga återställningspunkter som ska användas för redundans:
+1. Hämta en lista över tillgängliga återställningspunkter som ska användas för redundansen:
    ```azurepowershell
    # Get the list of available recovery points for Win2K12VM1
    $RecoveryPoints = Get-ASRRecoveryPoint -ReplicationProtectedItem $ReplicatedVM1
@@ -483,7 +483,7 @@ I det här steget misslyckas under den virtuella datorn Win2K12VM1 till en speci
    Succeeded
    ```
 
-2. När växlas vid fel, du kan commit Redundansåtgärden och konfigurera omvänd replikering från Azure tillbaka till lokala VMware-platsen.
+2. När redundansväxlats, du kan commit igen och konfigurera omvänd replikering från Azure tillbaka till den lokala VMware-webbplatsen.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig att automatisera fler aktiviteter med hjälp av den [Azure Site Recovery PowerShell-referens ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).
+Lär dig hur du automatiserar flera uppgifter med hjälp av den [referens för Azure Site Recovery PowerShell ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).

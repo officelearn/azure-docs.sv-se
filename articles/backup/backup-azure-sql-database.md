@@ -13,19 +13,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/04/2018
+ms.date: 7/6/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 13876991583292ec04120b9d59fb150ad236e864
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 32f45b66c4b1d22da3ffc4310a8a47c17319301f
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858569"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918058"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Säkerhetskopiera SQL Server-databas i Azure
 
-SQL Server-databaser är verksamhetskritiska arbetsbelastningar som kräver låg mål för återställningspunkt (RPO) och långsiktig kvarhållning. Azure Backup är en lösning för SQL Serverbackup som kräver ingen infrastruktur, vilket innebär att ingen komplexa säkerhetskopieringsserver, ingen hanteringsagent eller lagring av säkerhetskopior att hantera. Azure Backup tillhandahåller centraliserad hantering av dina säkerhetskopior på alla SQL-servrar, eller med olika arbetsbelastningar.
+SQL Server-databaser är verksamhetskritiska arbetsbelastningar som kräver låg mål för återställningspunkt (RPO) och långsiktig kvarhållning. Azure Backup är en lösning för säkerhetskopiering SQL Server som kräver ingen infrastruktur, vilket innebär att ingen komplexa säkerhetskopieringsserver, ingen hanteringsagent eller lagring av säkerhetskopior att hantera. Azure Backup tillhandahåller centraliserad hantering av dina säkerhetskopior på alla SQL-servrar, eller med olika arbetsbelastningar.
 
  I den här artikeln lär du dig:
 
@@ -78,7 +78,7 @@ Följande är kända begränsningar för den offentliga förhandsversionen.
 
 ## <a name="supported-operating-systems-and-versions-of-sql-server"></a>Operativsystem som stöds och versioner av SQLServer
 
-Följande operativsystem som stöds och versioner av SQL Server som gäller för marketplace SQL Azure-datorer och inte finns på marketplace virtuella datorer (där SQL Server manuellt installeras).
+Följande operativsystem stöds. SQL-marketplace Azure-datorer och inte finns på marketplace-datorer (där SQL Server är manuellt installerad), stöds.
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
@@ -131,7 +131,7 @@ Rätt balans mellan alternativen är: hanterbarhet, detaljerad kontroll och kost
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Ange behörigheter för virtuella datorer inte finns i marketplace med SQL
 
-Om du vill säkerhetskopiera en virtuell dator, Azure Backup kräver den **AzureBackupWindowsWorkload** att installera tillägget. Om du använder Azure marketplace-datorer kan gå vidare till [identifiera SQL server-databaser](backup-azure-sql-database.md#discover-sql-server-databases). Om den virtuella datorn som är värd för dina SQL-databaser inte har skapats från Azure marketplace, slutför du följande avsnitt för att installera tillägget och ange lämpliga behörigheter. Förutom den **AzureBackupWindowsWorkload** tillägg, Azure Backup kräver SQL sysadmin-behörighet för att skydda SQL-databaser. Vid identifiering av databaser på den virtuella datorn, skapar ett konto, NT Service\AzureWLBackupPluginSvc i Azure Backup. För Azure Backup för att identifiera SQL-databaser, måste NT Service\AzureWLBackupPluginSvc-kontot ha SQL inloggningen, SQL sysadmin-behörighet. Följande procedur beskriver hur du anger dessa behörigheter.
+Om du vill säkerhetskopiera en virtuell dator, Azure Backup kräver den **AzureBackupWindowsWorkload** att installera tillägget. Om du använder Azure marketplace-datorer kan gå vidare till [identifiera SQL server-databaser](backup-azure-sql-database.md#discover-sql-server-databases). Om den virtuella datorn som är värd för dina SQL-databaser inte har skapats från Azure marketplace, slutför du följande avsnitt för att installera tillägget och ange lämpliga behörigheter. Förutom den **AzureBackupWindowsWorkload** tillägg, Azure Backup kräver SQL sysadmin-behörighet för att skydda SQL-databaser. Vid identifiering av databaser på den virtuella datorn, skapar ett konto, NT Service\AzureWLBackupPluginSvc i Azure Backup. För Azure Backup för att identifiera SQL-databaser, NT Service\AzureWLBackupPluginSvc-kontot måste ha SQL och SQL sysadmin-behörighet. Följande procedur beskriver hur du anger dessa behörigheter.
 
 Konfigurera behörigheter:
 
@@ -168,7 +168,7 @@ När du kopplar databasen med Recovery Services-valvet, nästa steg är att [kon
 
 ### <a name="fixing-sql-sysadmin-permissions"></a>Åtgärda SQL sysadmin-behörighet
 
-Under installationen, om du ser felet, **UserErrorSQLNoSysadminMembership**, logga in i SQL Server Management Studio (SSMS) med ett konto som har SQL sysadmin-behörighet. Om du inte behöver särskilda behörigheter, bör du kunna använda Windows-autentisering för att identifiera kontot.
+Under installationen, om du ser felet, **UserErrorSQLNoSysadminMembership**, använda ett konto med SQL sysadmin-behörighet för att logga in till SQL Server Management Studio (SSMS). Om du inte behöver särskilda behörigheter, ska Windows-autentisering fungera.
 
 1. På SQL-Server öppnar du den **Security/inloggningar** mapp.
 
@@ -335,7 +335,7 @@ Konfigurera skydd för SQL-databasen:
 
 En princip för säkerhetskopiering definierar en matris över när säkerhetskopiorna tas och hur länge säkerhetskopiorna ska bevaras. Du kan använda Azure Backup för att schemalägga tre typer av säkerhetskopiering för SQL-databaser:
 
-* Fullständig säkerhetskopiering – en fullständig säkerhetskopia säkerhetskopierar hela databasen. En fullständig säkerhetskopia innehåller alla data i en specifik databas eller en uppsättning filgrupper eller filer och tillräckligt med loggfiler att återställa dessa data. Du kan endast utlösa en fullständig säkerhetskopiering per dag. Du kan välja att ta en fullständig säkerhetskopiering med dagliga och veckovisa intervall. 
+* Fullständig säkerhetskopiering – en fullständig säkerhetskopia säkerhetskopierar hela databasen. En fullständig säkerhetskopia innehåller alla data i en specifik databas eller uppsättning filgrupper eller filer och tillräckligt med loggfiler att återställa dessa data. Du kan endast utlösa en fullständig säkerhetskopiering per dag. Du kan välja att ta en fullständig säkerhetskopiering med dagliga och veckovisa intervall. 
 * Differentiell säkerhetskopiering – en differentiell säkerhetskopiering baseras på den senaste, föregående fullständig säkerhetskopieringen. En differentiell säkerhetskopiering fångar endast de data som har ändrats sedan den fullständiga säkerhetskopian. Du kan endast utlösa en differentiell säkerhetskopiering per dag. Du kan inte konfigurera en fullständig säkerhetskopia och en differentiell säkerhetskopiering på samma dag.
 * Säkerhetskopiering av transaktionsloggen – en säkerhetskopiering av loggen kan point-in-time-återställning upp till en specifik sekund. Du kan högst, konfigurera transaktionell loggsäkerhetskopior var 15: e minut.
 
@@ -394,13 +394,16 @@ Skapa en princip för säkerhetskopiering
 
 8. När du har gjort alla ändringar till princip för säkerhetskopiering, klickar du på **OK**. 
 
-   ![differentiell Kvarhållningsintervall](./media/backup-azure-sql-database/differential-backup-policy.png)
+   ![Acceptera ny princip](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>Återställa en SQL-databas
 
 Azure Backup innehåller funktioner för att återställa enskilda databaser till ett visst datum eller tid, upp till en specifik andra med säkerhetskopieringar av transaktionsloggen. Baserat på återställningstiderna som du anger kan Azure Backup bestämmer automatiskt de aktuella fullständig, differentiell och kedja av loggsäkerhetskopior som krävs för att återställa dina data.
 
 Du kan även välja en fullständig eller Differentiell säkerhetskopia att återställa till en specifik återställningspunkt i stället för en viss tid.
+ > [!Note]
+ > Innan du aktiverar återställning av ”master”-databasen starta SQL Server i enanvändarläge med startalternativ ”-m AzureWorkloadBackup”. Argumentet för -m är namnet på klienten, endast den här klienten ska tillåtas att öppna anslutningen. Stoppa tjänsten SQL Agent innan du aktiverar återställning för alla systemdatabaser (modell, master, msdb). Stäng alla program som kan försöka stjäla en anslutning till någon av dessa databaser.
+>
 
 Du återställer en databas
 
@@ -613,7 +616,7 @@ Det här avsnittet innehåller information om de olika Azure Backup hanteringså
 ### <a name="monitor-jobs"></a>Övervaka jobb
 Azure Backup är en lösning för klassen innehåller avancerade säkerhetskopiering aviseringar och meddelanden efter fel (Se säkerhetskopiering aviseringar nedan). Om du vill övervaka specifika jobb kan du använda någon av följande alternativ efter behov:
 
-#### <a name="using-azure-portal---recovery-services-vault-for-all-ad-hoc-operations"></a>Med hjälp av Azure portal -> Recovery Services-valv för alla ad hoc-åtgärder
+#### <a name="use-azure-portal-for-all-adhoc-operations"></a>Använd Azure-portalen för alla ad hoc-åtgärder
 Azure Backup visar utlöses alla manuellt eller ad hoc,-jobb i portalen för Backup-jobb. Jobb som är tillgängliga i portalen Inkluderingen: alla konfigurera säkerhetskopieringsåtgärder manuellt utlöses säkerhetskopieringsåtgärder, återställningsåtgärder, registrering och identifiera databasåtgärder och stoppa säkerhetskopiering. 
 ![menyn för avancerad konfiguration](./media/backup-azure-sql-database/jobs-list.png)
 
@@ -621,10 +624,10 @@ Azure Backup visar utlöses alla manuellt eller ad hoc,-jobb i portalen för Bac
 > Alla schemalagda säkerhetskopieringsjobb inklusive fullständiga, differentiella och Loggbaserade säkerhetskopiering kommer inte att visas i portalen och kan övervakas med SQL Server Management Studio enligt beskrivningen nedan.
 >
 
-#### <a name="using-sql-server-management-studio-ssms-for-backup-jobs"></a>Med hjälp av SQL Server Management Studio (SSMS) för säkerhetskopieringsjobb
-Azure Backup använder SQL interna API: er för alla säkerhetskopieringsåtgärder. Med den interna API: er kan du hämta alla jobbinformation från den [SQL-tabell för säkerhetskopian](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) i msdb-databasen. 
+#### <a name="use-sql-server-management-studio-for-backup-jobs"></a>Använd SQL Server Management Studio för säkerhetskopieringsjobb
+Azure Backup använder SQL interna API: er för alla säkerhetskopieringsåtgärder. Med inbyggda API: er, kan du hämta alla jobbinformation från den [SQL-tabell för säkerhetskopian](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) i msdb-databasen.
 
-Du kan använda den nedanför fråga som exempel för att hämta alla säkerhetskopieringsjobb för en viss databas med namnet ”DB1”. Du kan anpassa den nedanför fråga mer avancerad övervakning.
+I följande exempel är en fråga för att hämta alla säkerhetskopieringsjobb för en databas med namnet, **DB1**. Anpassa frågan för mer avancerad övervakning.
 ```
 select CAST (
 Case type
@@ -745,6 +748,42 @@ Avregistrera en SQLServer när du tar bort skydd, men innan du tar bort valvet
 5. Högerklicka på den skyddade servern på skyddade servrar-menyn och välj **ta bort**. 
 
    ![återuppta databasskyddet](./media/backup-azure-sql-database/delete-protected-server.png)
+
+## <a name="sql-database-backup-faq"></a>SQL database säkerhetskopiering vanliga frågor och svar
+
+Följande avsnitt innehåller ytterligare information om säkerhetskopiering för SQL-databas.
+
+### <a name="can-i-throttle-the-speed-of-the-sql-backup-policy-so-it-minimizes-impact-on-the-sql-server"></a>Jag kan begränsa hastigheten på SQL-principen för säkerhetskopiering så att den minimerar påverkan på SQLServer
+
+Ja, kan du begränsa den hastighet med vilken principen för säkerhetskopiering körs. Ändra inställningen:
+
+1. På SQL-Server i den `C:\Program Files\Azure Workload Backup\bin` mappen öppnar **TaskThrottlerSettings.json**.
+
+2. I den **TaskThrottlerSettings.json** filen, ändra **DefaultBackupTasksThreshold** till ett lägre värde, till exempel 5.
+
+3. Spara ändringarna och stäng filen.
+
+4. Öppna Aktivitetshanteraren på SQL-Server och starta om den **Azure Backup arbetsbelastning Coordinator-tjänsten**.
+
+### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Jag kan köra en fullständig säkerhetskopiering från en sekundär replik
+
+Nej, den här funktionen stöds inte.
+
+### <a name="do-successful-backup-jobs-create-alerts"></a>Skapar lyckad säkerhetskopieringsjobb aviseringar
+
+Nej. Lyckade jobb genererar inte aviseringar. Aviseringar skickas bara för säkerhetskopieringsjobb som misslyckas.
+
+### <a name="are-scheduled-backup-job-details-shown-in-the-jobs-menu"></a>Information om schemalagda säkerhetskopieringsjobb visas i menyn jobb
+
+Nej. Menyn jobb visar information om ad hoc, men visar inte schemalagda säkerhetskopieringsjobb. Om alla schemalagda säkerhetskopieringsjobb misslyckas, hittar du all information i aviseringar för misslyckade jobbet. Om du vill övervaka alla schemalagda och adhoc-säkerhetskopieringsjobb, [använder SQL Server Management Studio](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs).
+
+### <a name="if-i-select-a-sql-server-will-future-databases-automatically-be-added"></a>Om jag väljer en SQLServer framtida databaser automatiskt till
+
+Nej. När du konfigurerar skydd för en SQL-server om du markerar kryssrutan på servernivå, läggs alla databaser. Men om du lägger till databaser till SQLServer när du har konfigurerat skyddet, du måste manuellt lägga till nya databaser för att skydda dem. Databaserna finns inte inkluderas i det konfigurera skyddet.
+
+### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>Hur startar jag skydd om jag ändrar återställningsmodellen
+
+Om du ändrar återställningsmodellen kan aktivera en fullständig säkerhetskopiering och säkerhetskopieringar börjar som förväntat.
 
 ## <a name="next-steps"></a>Nästa steg
 

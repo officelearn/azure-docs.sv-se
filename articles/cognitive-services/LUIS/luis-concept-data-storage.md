@@ -9,24 +9,24 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: 24e179e24423412a5ff25a64157e273b1a025a6f
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 515bcf4e06de562d1c83082824daa4dca0b54226
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888702"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950523"
 ---
 # <a name="data-storage-and-removal"></a>Datalagring och borttagning
 LUIS lagrar krypterade i ett Azure datalager som motsvarar den region som anges av nyckeln. Dessa data lagras i 30 dagar. 
 
 ## <a name="export-and-delete-app"></a>Exportera och ta bort appen
-Användarna har full kontroll över [exportera](create-new-app.md#export-app) och [tar bort](create-new-app.md#delete-app) appen. 
+Användarna har full kontroll över [exportera](luis-how-to-start-new-app.md#export-app) och [tar bort](luis-how-to-start-new-app.md#delete-app) appen. 
 
 ## <a name="utterances-in-an-intent"></a>Yttranden i ett intent
 Ta bort exempel yttranden som används för träning [LUIS](luis-reference-regions.md). Om du tar bort en exempel-uttryck från LUIS-appen tas bort från LUIS-webbtjänsten och är inte tillgänglig för export.
 
 ## <a name="utterances-in-review"></a>Yttranden i granskning
-Du kan ta bort yttranden från listan över användare yttranden som LUIS föreslår i den  **[granskningssidan endpoint yttranden](label-suggested-utterances.md)**. Tar bort yttranden i den här listan förhindrar du att de ska visas som förslag, men ta bort inte dem från loggar.
+Du kan ta bort yttranden från listan över användare yttranden som LUIS föreslår i den  **[granskningssidan endpoint yttranden](luis-how-to-review-endoint-utt.md)**. Tar bort yttranden i den här listan förhindrar du att de ska visas som förslag, men ta bort inte dem från loggar.
 
 ## <a name="accounts"></a>Konton
 Om du tar bort ett konto raderas alla appar, och deras exempel yttranden och loggar. Dessa data hålls kvar i 60 dagar innan kontot och data tas bort permanent.
@@ -44,4 +44,4 @@ För datakvarhållning och borttagning, kan en inaktiv LUIS-app på _Microsofts 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om att exportera och ta bort en app](create-new-app.md)
+> [Lär dig mer om att exportera och ta bort en app](luis-how-to-start-new-app.md)

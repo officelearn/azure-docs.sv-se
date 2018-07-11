@@ -1,6 +1,6 @@
 ---
 title: Starta och stoppa Azure Stack | Microsoft Docs
-description: Lär dig mer om att starta och stänga av Azure-stacken.
+description: Lär dig mer om att starta och stänga av Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -15,47 +15,50 @@ ms.topic: article
 ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 53015ba5c282bbe9c7b8185b080ffb6d834b6c75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dd1e64d5ad6982c85a8205e3036d30a2ede92f7c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31391141"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930298"
 ---
 # <a name="start-and-stop-azure-stack"></a>Starta och stoppa Azure Stack
-Du bör följa procedurerna i den här artikeln Stäng och starta om tjänsterna Azure Stack korrekt. 
+Du bör följa procedurerna i den här artikeln för att korrekt stänger och startar om Azure Stack-tjänster. Avstängning avstängning fysiskt hela Azure Stack-miljön. Start aktiveras alla infrastrukturroller för och returnerar klientens resurser till energinivån de befann sig i före avstängning.
 
 ## <a name="stop-azure-stack"></a>Stoppa Azure Stack 
 
-Stänga av Azure-stacken med följande steg:
+Stäng av Azure Stack med följande steg:
 
-1. Öppna en privilegierad Endpoint Session (program) från en dator med nätverksåtkomst till Azure-stacken ERCS virtuella datorer. Instruktioner finns i [med Privilegierade slutpunkten i Azure-stacken](azure-stack-privileged-endpoint.md).
+1. Förbered alla arbetsbelastningar som körs på Azure Stack-miljön klientresurser för kommande avstängningen. 
 
-2. Kör från detta program:
+2. Öppna en privilegierad slutpunkt Session (program) från en dator med nätverksåtkomst till Azure Stack ERCS virtuella datorer. Anvisningar finns i [med hjälp av privilegierad slutpunkt i Azure Stack](azure-stack-privileged-endpoint.md).
+
+3. Kör från detta program:
 
     ```powershell
       Stop-AzureStack
     ```
 
-3. Vänta tills alla fysiska noder som Azure Stack att stänga av.
+4. Vänta tills alla fysiska Azure Stack-noder till en strömkälla av.
 
 > [!Note]  
-> Du kan kontrollera status för en fysisk nod power genom att följa anvisningarna från OEM-tillverkaren (OEM) som tillhandahåller Azure Stack-maskinvara. 
+> Du kan kontrollera energistatusen på en fysisk nod genom att följa instruktionerna från Original Equipment Manufacturer (OEM) som tillhandahåller Azure Stack-maskinvara. 
 
-## <a name="start-azure-stack"></a>Starta Azure-stacken 
+## <a name="start-azure-stack"></a>Starta Azure Stack 
 
-Starta Azure-stacken med följande steg. Följ dessa steg oavsett hur Azure-stacken stoppades.
+Starta Azure Stack med följande steg. Följ dessa steg oavsett hur Azure Stack stoppats.
 
-1. Slå på varje fysisk nod i Azure Stack-miljö. Kontrollera slå på instruktioner för fysiska noder genom att följa anvisningarna från OEM-tillverkaren (OEM) som angetts av maskinvaran för Azure-stacken.
+1. Slå på varje fysisk nod i Azure Stack-miljön. Kontrollera ström på instruktioner för fysisk nod genom att följa instruktionerna från Original Equipment Manufacturer (OEM) som tillhandahåller maskinvaran för Azure Stack.
 
-2. Vänta tills Stack Azure infrastrukturtjänster startar. Azure infrastrukturtjänster för stacken kan kräva två timmar att slutföra startprocessen. Du kan kontrollera status för start av Azure-stacken med den [ **Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
+2. Vänta tills Azure Stack-infrastruktur-tjänster startar. Azure Stack-infrastrukturtjänster kan kräva två timmar att slutföra startprocessen. Du kan kontrollera status för Azure Stack med start den [ **Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
 
+3. Se till att alla dina klientresurser har kommit tillbaka till det tillstånd som de befann sig i före avstängning. Arbetsbelastningar som körs på klientens resurser kan behöva konfigureras efter starten av hanteraren för arbetsbelastning.
 
-## <a name="get-the-startup-status-for-azure-stack"></a>Hämta Start-status för Azure-stacken
+## <a name="get-the-startup-status-for-azure-stack"></a>Hämta status för start för Azure Stack
 
-Hämta starten för rutinen Azure Stack startades med följande steg:
+Hämta Start för Azure Stack-rutin för start med följande steg:
 
-1. Öppna en privilegierad Endpoint-Session från en dator med nätverksåtkomst till Azure-stacken ERCS virtuella datorer.
+1. Öppna en privilegierad slutpunkt-Session från en dator med nätverksåtkomst till Azure Stack ERCS virtuella datorer.
 
 2. Kör från detta program:
 
@@ -63,11 +66,11 @@ Hämta starten för rutinen Azure Stack startades med följande steg:
       Get-ActionStatus Start-AzureStack
     ```
 
-## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Felsöka start och stopp av Azure-stacken
+## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Felsöka start och stopp av Azure Stack
 
-Utför följande steg om infrastruktur- och -tjänster inte att starta 2 timmar efter du power på Azure-stacken miljön. 
+Utför följande steg om infrastruktur- och klienttrafik tjänsterna inte att starta 2 timmar efter att du power på Azure Stack-miljön. 
 
-1. Öppna en privilegierad Endpoint-Session från en dator med nätverksåtkomst till Azure-stacken ERCS virtuella datorer.
+1. Öppna en privilegierad slutpunkt-Session från en dator med nätverksåtkomst till Azure Stack ERCS virtuella datorer.
 
 2. Kör: 
 
@@ -75,7 +78,7 @@ Utför följande steg om infrastruktur- och -tjänster inte att starta 2 timmar 
       Test-AzureStack
       ```
 
-3. Granska utdata och åtgärda eventuella fel i hälsa. Mer information finns i [kör ett verifieringstest i Azure-stacken](azure-stack-diagnostic-test.md).
+3. Granska utdata och lös eventuella problem med hälsotillståndet. Mer information finns i [kör ett verifieringstest av Azure Stack](azure-stack-diagnostic-test.md).
 
 4. Kör:
 
@@ -83,8 +86,8 @@ Utför följande steg om infrastruktur- och -tjänster inte att starta 2 timmar 
       Start-AzureStack
     ```
 
-5. Om du kör **Start AzureStack** resulterar i ett fel kontaktar Microsoft Support Services. 
+5. Om kör **Start AzureStack** resulterar i ett fel, kontakta Microsofts kundsupport för tjänster. 
 
 ## <a name="next-steps"></a>Nästa steg 
 
-Lär dig mer om Azure-stacken diagnosverktyg och utfärda loggning, se [Azure Stack diagnosverktyg](azure-stack-diagnostics.md).
+Läs mer om Azure Stack diagnostikverktyg och utfärda loggning, se [diagnostiska verktyg för Azure Stack](azure-stack-diagnostics.md).

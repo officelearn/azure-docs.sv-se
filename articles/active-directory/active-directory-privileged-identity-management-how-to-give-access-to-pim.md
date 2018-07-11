@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8d52469e11ac508ee8b353311f6040ac9d6f2e4e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 85bea1b042eb9b882022118d36e5a55a802a1bdc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447157"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950571"
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Ge åtkomst till att hantera Azure AD Privileged Identity Management
 Den globala administratören som gör Azure AD Privileged Identity Management (PIM) för en organisation att automatiskt få rolltilldelningar och åtkomst till PIM. Ingen annan hämtar skrivåtkomst som standard, men även andra globala administratörer. Andra globala administratörer, säkerhetsadministratörer och säkerhetsläsare har skrivskyddad åtkomst till Azure AD PIM. Om du vill ge åtkomst till PIM, kan den första användaren tilldela andra användare till den **privilegierad rolladministratör** roll.
@@ -34,10 +34,10 @@ Kontrollera att det finns alltid minst två användare i en roll för administra
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) och välj den **Azure AD Privileged Identity Management** app på instrumentpanelen.
 2. Välj **hantera Privilegierade roller** > **privilegierad rolladministratör** > **Lägg till**.
    
-    ![Lägg till Privilegierade rolladministratörer – skärmbild][1]
+    ![Lägg till Privilegierade rolladministratörer – skärmbild](./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png)
 3. Steg 1 har redan slutförts på bladet Lägg till hanterade användare. Välj steg 2, **Välj användare** och Sök efter den användare som du vill lägga till.
    
-    ![Välj användare – skärmbild][2]
+    ![Välj användare – skärmbild](./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png)
 4. Välj användaren i sökresultatet och klicka på **klar**.
 5. Klicka på **OK** att spara ditt val. Användare som du har valt visas i listan över Privilegierade rolladministratörer.
    
@@ -55,8 +55,3 @@ Innan du tar bort någon från en administratör för privilegierade roller kan 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png

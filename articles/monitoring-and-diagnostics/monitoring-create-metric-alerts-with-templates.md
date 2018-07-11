@@ -1,6 +1,6 @@
 ---
 title: Skapa en metrisk varning med en Resource Manager-mall
-description: Lär dig hur du använder en Resource Manager-mall för att skapa en mått.
+description: Lär dig hur du använder Resource Manager-mall för att skapa en metrisk varning.
 author: snehithm
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,31 @@ ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 0a4e6c2ebb57aca13a53a8ff12953f0c7a90bc61
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4dba3d182c7c2927aa4feb88e70fe5711fcc6818
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263454"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932219"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en metrisk varning med en Resource Manager-mall
-Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera [nyare mått aviseringar](monitoring-near-real-time-metric-alerts.md) i Azure-Monitor. Resource Manager-mallar kan du vill konfigurera aviseringar på ett konsekvent sätt reproduceras i dina miljöer. Nyare mått aviseringar är tillgängliga på [denna uppsättning resurstyper](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) konfigurera [nyare måttaviseringar](monitoring-near-real-time-metric-alerts.md) i Azure Monitor. Resource Manager-mallar kan du programmässigt ställa in aviseringar på ett konsekvent och reproducerbara sätt i alla dina miljöer. Nyare måttaviseringar finns för närvarande på [den här uppsättningen resurstyper](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
 
-Stegen är följande:
-
-1. Använd någon av mallar nedan som en JSON-fil som beskriver hur du skapar en avisering.
-2. Redigera och använda motsvarande parameterfilen som ett JSON för att anpassa aviseringen
-3. Distribuera mallen med hjälp av [alla distributionsmetoden](../azure-resource-manager/resource-group-template-deploy.md).
+> [!IMPORTANT]
+> Resource Manager-mall som angetts för måttavisering inte fungerar för resurstypen: Microsoft.OperationalInsights/workspaces; stöd för mått från Log Analytics finns i förhandsversion. Användare som vill använda förhandsversionsfunktionerna med resursmall kan kontakta [Feedback för Azure-aviseringar](mailto:azurealertsfeedback@microsoft.com)
 
 
-## <a name="resource-manager-template-for-a-simple-metric-alert"></a>Resource Manager-mall för en enkel mått avisering
-När du skapar en avisering med en Resource Manager-mall kan du skapa en resurs av typen `Microsoft.Insights/metricAlerts` och Fyll i alla relaterade egenskaper. Nedan visas en exempelmall som skapar ett mått varningsregel.
+De grundläggande stegen är följande:
 
-Spara json nedan som simplemetricalert.json för den här genomgång.
+1. Använd någon av mallarna nedan som en JSON-fil som beskriver hur du skapar aviseringen.
+2. Redigera och använda motsvarande parameterfilen som en JSON för att anpassa aviseringen
+3. Distribuera mallen med hjälp av [alla distributionsmetod](../azure-resource-manager/resource-group-template-deploy.md).
+
+
+## <a name="resource-manager-template-for-a-simple-metric-alert"></a>Resource Manager-mall för en enkel måttavisering
+Om du vill skapa en avisering med en Resource Manager-mall, skapar du en resurs av typen `Microsoft.Insights/metricAlerts` och Fyll i alla relaterade egenskaper. Nedan visas ett exempel på mall som skapar en måttaviseringsregel.
+
+Spara json nedanför som simplemetricalert.json i den här genomgången.
 
 ```json
 {
@@ -180,11 +184,11 @@ Spara json nedan som simplemetricalert.json för den här genomgång.
 }
 ```
 
-En förklaring av schemat och egenskaperna för en aviseringsregel [finns här](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate).
+En förklaring av schemat och egenskaper för en varningsregel [finns här](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate).
 
-Du kan ange värden för parametrar på kommandoraden eller via en parameterfil. En exempelfil för parametern finns nedan. 
+Du kan ange värden för parametrarna på kommandoraden eller via en parameterfil. En parameter-exempelfil finns nedan. 
 
-Spara json nedan som simplemetricalert.parameters.json och ändra vid behov.
+Spara json nedanför som simplemetricalert.parameters.json och ändra det efter behov.
 
 ```json
 {
@@ -226,7 +230,7 @@ Spara json nedan som simplemetricalert.parameters.json och ändra vid behov.
 ```
 
 
-Du kan skapa mått aviseringen med hjälp av filen mall och parametrar med PowerShell eller Azure CLI.
+Du kan skapa metrisk varning med hjälp av mall och parametrar filen med hjälp av PowerShell eller Azure CLI.
 
 Använda Azure PowerShell
 
@@ -253,12 +257,12 @@ az group deployment create \
 
 > [!NOTE]
 >
-> Medan mått aviseringen kunde skapas i en annan resursgrupp till målresursen, rekommenderar vi använder samma resursgrupp som din målresursen.
+> Även metrisk varning skapas i en annan resursgrupp till målresursen, rekommenderar vi använder samma resursgrupp som din målresursen.
 
-## <a name="resource-manager-template-for-a-more-advanced-metric-alert"></a>Resource Manager-mall för en mer avancerad mått avisering
-Varna vid flerdimensionella mått som stöder flera villkor stöd för nyare mått aviseringar. Du kan använda följande mall för att skapa en mer avancerad mått på dimensionell mått och ange flera villkor.
+## <a name="resource-manager-template-for-a-more-advanced-metric-alert"></a>Resource Manager-mall för en mer avancerade metrisk varning
+Nyare måttaviseringar stöd avisering för flerdimensionella mått samt stöd för flera villkor. Du kan använda följande mall för att skapa en mer avancerad metrisk varning på endimensionella mått och ange flera villkor.
 
-Spara json nedan som advancedmetricalert.json för den här genomgång.
+Spara json nedanför som advancedmetricalert.json i den här genomgången.
 
 ```json
 {
@@ -376,7 +380,7 @@ Spara json nedan som advancedmetricalert.json för den här genomgång.
 
 Du kan använda mallen ovan tillsammans med parameterfilen som anges nedan. 
 
-Spara och ändra json nedan som advancedmetricalert.parameters.json för den här genomgång.
+Spara och ändra json nedanför som advancedmetricalert.parameters.json i den här genomgången.
 
 ```json
 {
@@ -443,7 +447,7 @@ Spara och ändra json nedan som advancedmetricalert.parameters.json för den hä
 ```
 
 
-Du kan skapa mått avisering med hjälp av filen mall och parametrar med PowerShell eller Azure CLI från din aktuella arbetskatalogen
+Du kan skapa metrisk varning med hjälp av mall och parametrar filen med hjälp av PowerShell eller Azure CLI från din aktuella arbetskatalog
 
 Använda Azure PowerShell
 ```powershell
@@ -470,8 +474,8 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Medan mått aviseringen kunde skapas i en annan resursgrupp till målresursen, rekommenderar vi använder samma resursgrupp som din målresursen.
+> Även metrisk varning skapas i en annan resursgrupp till målresursen, rekommenderar vi använder samma resursgrupp som din målresursen.
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om [aviseringar i Azure](monitoring-overview-unified-alerts.md)
-* Lär dig hur du [skapa en grupp med Resource Manager-mallar](monitoring-create-action-group-with-resource-manager-template.md)
+* Lär dig hur du [skapa en åtgärdsgrupp med Resource Manager-mallar](monitoring-create-action-group-with-resource-manager-template.md)

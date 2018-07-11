@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 58ff2b5bbf338f3af78b693aef57cf6293dc08b7
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 899e5dc13dfaf7d7545955e7b4b73939c3275d3f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436516"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930315"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks som körs på en Hybrid Runbook Worker
 
@@ -158,7 +158,7 @@ Spara den *Export RunAsCertificateToHybridWorker* runbook på datorn med en `.ps
 
 ## <a name="job-behavior"></a>Jobbet beteende
 
-Jobb hanteras något annorlunda på Hybrid Runbook Worker än de är när de körs på Azure sandbox-miljöer. En viktig skillnad är att det finns ingen gräns på varaktighet för jobb på Hybrid Runbook Worker. Om du har en tidskrävande runbook som du vill se till att det kan stå emot möjliga omstart, till exempel om den dator som är värd för Hybrid worker startar om. Om värddatorn för Hybrid worker startar om datorn startar alla runbook-jobb som körs från början eller från den senaste kontrollpunkten för PowerShell Workflow-runbooks. Om en runbook-jobbet har startats om mer än 3 gånger sedan pausas den.
+Jobb hanteras något annorlunda på Hybrid Runbook Worker än de är när de körs på Azure sandbox-miljöer. En viktig skillnad är att det finns ingen gräns på varaktighet för jobb på Hybrid Runbook Worker. Runbooks som kördes i Azure sandbox-miljöer är begränsade till tre timmar på grund av [rättmätiga del](automation-runbook-execution.md#fair-share). Om du har en tidskrävande runbook som du vill se till att det kan stå emot möjliga omstart, till exempel om den dator som är värd för Hybrid worker startar om. Om värddatorn för Hybrid worker startar om datorn startar alla runbook-jobb som körs från början eller från den senaste kontrollpunkten för PowerShell Workflow-runbooks. Om en runbook-jobbet har startats om mer än 3 gånger sedan pausas den.
 
 ## <a name="troubleshoot"></a>Felsöka
 

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: d4f00e2470bac08c333411646dca90b3e2105073
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 0e484a6cae1b56983c4854664088ada8aa504568
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900488"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918823"
 ---
 # <a name="batch-testing-in-luis"></a>Batch testa i LUIS
 
@@ -33,6 +33,10 @@ Skicka en kommandofil av yttranden som kallas en *datauppsättning*, för att te
 |1000 yttranden eller mindre|
 
 * Dubbletter anses exakta strängen matchar, inte matchningar som är tokeniserad först. 
+
+## <a name="entities-allowed-in-batch-tests"></a>Entiteter som tillåts i batch-tester
+Entiteter är enkel, hierarkisk föräldrar och sammansatta. Alla entiteter av de här typerna visas i filtret batch test entiteter även om det finns inga motsvarande entiteter i batchfilen.
+
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 237a19b76268e1207c9de438a4f79d3dc8382476
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c2a7278f4ee6861a1e47610c06fdc6ffcec52247
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903817"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931090"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central
 
@@ -82,7 +82,8 @@ Visa/Dölj inställningar
 | Typ            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
 | Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
-| Text            | Plats     | location   | Gäller inte       |
+| Enhetsegenskap | Enhetsplats   | location  | location    |
+| Text            | Tillverkas på     | manufacturedIn   | Gäller inte       |
 
 
 ### <a name="add-a-real-device"></a>Lägga till en riktig enhet
@@ -152,19 +153,24 @@ Du kan visa telemetri mätning av faktisk användning och rapporterade egenskaps
 
 1. Använd **Device Explorer** att navigera till den **mätningar av** för verkliga MXChip enheten som du har lagt till:
 
-    ![Gå till riktig enhet](media/howto-connect-devkit/realdevice.png)
+    ![Gå till riktig enhet](media/howto-connect-devkit/realdevicenew.png)
 
 1. På den **mätningar av** kan du se telemetri som kommer från MXChip-enhet:
 
-    ![Visa telemetri från riktig enhet](media/howto-connect-devkit/realtelemetry.png)
+    ![Visa telemetri från riktig enhet](media/howto-connect-devkit/devicetelemetrynew.png)
 
-1. På den **egenskaper** kan du visa den senaste nummer rapporteras av enheten:
+1. På den **egenskaper** kan du visa den senaste nummer och enhetens plats som rapporteras av enheten:
 
-    ![Visa egenskaper för enhet](media/howto-connect-devkit/deviceproperties.png)
+    ![Visa egenskaper för enhet](media/howto-connect-devkit/devicepropertynew.png)
 
 1. På den **inställningar** kan du uppdatera inställningarna på enheten MXChip:
 
-    ![Visa Enhetsinställningar](media/howto-connect-devkit/settings.png)
+    ![Visa Enhetsinställningar](media/howto-connect-devkit/devicesettingsnew.png)
+
+1. På den **instrumentpanelen** kan du se platsen mappa
+
+    ![Visa instrumentpanelen](media/howto-connect-devkit/devicedashboardnew.png)
+
 
 ## <a name="download-the-source-code"></a>Ladda ned källkoden
 

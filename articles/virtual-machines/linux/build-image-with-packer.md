@@ -1,9 +1,9 @@
 ---
-title: Hur du skapar Linux Azure VM-avbildningar med förpackaren | Microsoft Docs
-description: Lär dig mer om förpackaren skapa avbildningar av virtuella Linux-datorer i Azure
+title: Så här skapar du Linux Azure VM-avbildningar med Packer | Microsoft Docs
+description: Lär dig hur du använder Packer för att skapa avbildningar av virtuella Linux-datorer i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,20 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/03/2018
-ms.author: iainfou
-ms.openlocfilehash: 7d7ba6a493cca3dd14829e6527136af6df424c05
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: cynthn
+ms.openlocfilehash: f84626c5a487d52f53a2c8bf492a124c87599ed0
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778192"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932402"
 ---
-# <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Hur du använder förpackaren för att skapa avbildningar av Linux virtuella datorer i Azure
-Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar distribution för Linux och OS-version. Avbildningar kan innehålla förinstallerade program och konfigurationer. Azure Marketplace innehåller många första och tredje parts avbildningar för programmet miljöer och de vanligaste distributioner eller skapa egna anpassade avbildningar som är anpassade efter era behov. Den här artikeln beskriver hur du använder verktyget öppen källkod [förpackaren](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
+# <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Hur du använder Packer för att skapa Linux-avbildningar i Azure
+Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar Linux-distribution och operativsystemsversion. Bilder kan innehålla förinstallerade program och konfigurationer. Azure Marketplace innehåller många avbildningar av första och tredje part för de vanligaste distributioner och programmiljöer eller du kan skapa dina egna anpassade avbildningar som är specialanpassade utifrån dina behov. Den här artikeln beskriver hur du använder verktyg med öppen källkod [Packer](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
 
 
 ## <a name="create-azure-resource-group"></a>Skapa Azure-resursgrupp
-När du skapar skapar förpackaren tillfälliga Azure-resurser som den skapar den Virtuella källdatorn. För att avbilda den Virtuella källdatorn som ska användas som en avbildning måste du definiera en resursgrupp. Utdata från processen för att bygga förpackaren lagras i den här resursgruppen.
+När du skapar skapar Packer tillfällig Azure-resurser som den bygger den Virtuella källdatorn. För att avbilda den Virtuella källdatorn för användning som en avbildning måste du definiera en resursgrupp. Utdata från skapandeprocessen Packer lagras i den här resursgruppen.
 
 Skapa en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
@@ -37,15 +37,15 @@ az group create -n myResourceGroup -l eastus
 
 
 ## <a name="create-azure-credentials"></a>Skapa autentiseringsuppgifter för Azure
-Packare autentiserar med Azure med hjälp av ett huvudnamn för tjänsten. En Azure-tjänstens huvudnamn är en säkerhetsidentitet som du kan använda med appar, tjänster och verktyg för automatisering som förpackaren. Du styr och definiera behörigheter för vilka åtgärder som tjänstens huvudnamn kan utföra i Azure.
+Packer autentiserar med Azure med ett huvudnamn för tjänsten. Ett huvudnamn för Azure-tjänsten är en säkerhetsidentitet som du kan använda med appar, tjänster och automatiseringsverktyg som Packer. Du kontrollerar och definiera behörigheter om vilka åtgärder som tjänstens huvudnamn kan utföra i Azure.
 
-Skapa en tjänstens huvudnamn med [az ad sp skapa-för-rbac](/cli/azure/ad/sp#create-for-rbac) och utdata autentiseringsuppgifterna som förpackaren måste:
+Skapa ett tjänstobjekt med [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) och matar ut de autentiseringsuppgifter som Packer behöver:
 
 ```azurecli
 az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
 ```
 
-Ett exempel på utdata från föregående kommandona är följande:
+Ett exempel på utdata från föregående kommandon är följande:
 
 ```azurecli
 {
@@ -55,7 +55,7 @@ Ett exempel på utdata från föregående kommandona är följande:
 }
 ```
 
-Om du vill autentisera till Azure måste du också behöva hämta ditt Azure prenumerations-ID med [az konto visa](/cli/azure/account#az_account_show):
+Om du vill autentisera till Azure måste du också behöva hämta ditt Azure-prenumeration-ID med [az konto show](/cli/azure/account#az_account_show):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -64,19 +64,19 @@ az account show --query "{ subscription_id: id }"
 Du kan använda utdata från dessa två kommandon i nästa steg.
 
 
-## <a name="define-packer-template"></a>Definiera förpackaren mall
-För att skapa avbildningar, skapa en mall som en JSON-fil. I mallen definierar du builders och provisioners som utför faktiska skapar. Förpackaren har en [provisioner för Azure](https://www.packer.io/docs/builders/azure.html) som kan du definiera Azure-resurser, t.ex. de huvudsakliga Tjänstereferenser som skapade i föregående steg.
+## <a name="define-packer-template"></a>Definiera Packer-mall
+Avbildningar skapa måste du en mall som en JSON-fil. I mallen definierar du builders och provisioners som utför den faktiska skapandeprocessen. Packer har en [provisioner för Azure](https://www.packer.io/docs/builders/azure.html) som gör det möjligt att definiera Azure-resurser, t.ex. autentiseringsuppgifterna för tjänstobjektet skapade i föregående steg.
 
-Skapa en fil med namnet *ubuntu.json* och klistra in följande innehåll. Ange egna värden för följande:
+Skapa en fil med namnet *ubuntu.json* och klistra in följande innehåll. Ange dina egna värden för följande:
 
-| Parameter                           | Var kan hämtas |
+| Parameter                           | Var de kan hämtas |
 |-------------------------------------|----------------------------------------------------|
-| *client_id*                         | Första raden i utdata från `az ad sp` skapa kommando - *appId* |
-| *client_secret*                     | Andra raden på utdata från `az ad sp` skapa kommando - *lösenord* |
-| *Tenant_id*                         | Tredje raden på utdata från `az ad sp` skapa kommando - *klient* |
-| *PRENUMERATIONSID*                   | Utdata från `az account show` kommando |
+| *client_id*                         | Första raden i utdata från `az ad sp` skapa command - *appId* |
+| *client_secret*                     | Andra raden på utdata från `az ad sp` skapa command - *lösenord* |
+| *tenant_id*                         | Tredje raden på utdata från `az ad sp` skapa command - *klient* |
+| *subscription_id*                   | Utdata från `az account show` kommando |
 | *managed_image_resource_group_name* | Namnet på resursgruppen som du skapade i det första steget |
-| *managed_image_name*                | Namn för den hanterade diskavbildning som har skapats |
+| *managed_image_name*                | Namn för den hantera diskavbildningen som har skapats |
 
 
 ```json
@@ -120,23 +120,23 @@ Skapa en fil med namnet *ubuntu.json* och klistra in följande innehåll. Ange e
 }
 ```
 
-Den här mallen bygger en avbildning Ubuntu 16.04 LTS, installerar NGINX och deprovisions den virtuella datorn.
+Den här mallen skapar en Ubuntu 16.04 LTS-avbildning, installerar NGINX och sedan deprovisions den virtuella datorn.
 
 > [!NOTE]
-> Om du expanderar på den här mallen för att etablera användarens autentiseringsuppgifter, justera kommandot provisioner som deprovisions Azure-agenten att läsa `-deprovision` snarare än `deprovision+user`.
+> Om du expanderar på den här mallen för att etablera användarens autentiseringsuppgifter, justerar du kommandot provisioner som deprovisions Azure-agenten för att läsa `-deprovision` snarare än `deprovision+user`.
 > Den `+user` flaggan tar bort alla användarkonton från den Virtuella källdatorn.
 
 
-## <a name="build-packer-image"></a>Skapa förpackaren bild
-Om du inte redan har förpackaren installerad på din lokala dator [Följ installationsanvisningarna förpackaren](https://www.packer.io/docs/install/index.html).
+## <a name="build-packer-image"></a>Skapa Packer-avbildning
+Om du inte redan har Packer som installerats på den lokala datorn [Följ installationsanvisningarna Packer](https://www.packer.io/docs/install/index.html).
 
-Skapa avbildningen genom att ange din förpackaren mallfilen på följande sätt:
+Skapa avbildningen genom att ange din Packer mallfilen på följande sätt:
 
 ```bash
 ./packer build ubuntu.json
 ```
 
-Ett exempel på utdata från föregående kommandona är följande:
+Ett exempel på utdata från föregående kommandon är följande:
 
 ```bash
 azure-arm output will be in this color.
@@ -197,11 +197,11 @@ ManagedImageName: myPackerImage
 ManagedImageLocation: eastus
 ```
 
-Det tar några minuter för förpackaren att bygga den virtuella datorn körs provisioners och rensa distributionen.
+Det tar några minuter för Packer att skapa den virtuella datorn, kör provisioners och rensa distributionen.
 
 
 ## <a name="create-vm-from-azure-image"></a>Skapa virtuell dator från Azure-avbildning
-Nu kan du skapa en virtuell dator från avbildningen med [az vm skapa](/cli/azure/vm#az_vm_create). Ange den avbildning som du skapade med den `--image` parameter. I följande exempel skapas en virtuell dator med namnet *myVM* från *myPackerImage* och genererar SSH-nycklar, om de inte redan finns:
+Du kan nu skapa en virtuell dator från avbildningen med [az vm skapa](/cli/azure/vm#az_vm_create). Ange den avbildning som du skapade med den `--image` parametern. I följande exempel skapas en virtuell dator med namnet *myVM* från *myPackerImage* och genererar SSH-nycklar om de inte redan finns:
 
 ```azurecli
 az vm create \
@@ -212,9 +212,9 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Om du vill skapa virtuella datorer i en annan resursgrupp eller region än förpackaren avbildningen ange avbildnings-ID i stället för namn. Du kan hämta avbildnings-ID med [az bilden visar](/cli/azure/image#az-image-show).
+Om du vill skapa virtuella datorer i en annan resursgrupp eller region än din Packer-avbildning, ange avbildnings-ID i stället för namnet på avbildningen. Du kan hämta avbildnings-ID med [az image show](/cli/azure/image#az-image-show).
 
-Det tar några minuter att skapa den virtuella datorn. När den virtuella datorn har skapats, notera den `publicIpAddress` visas av Azure CLI. Den här adressen används för åtkomst till NGINX-webbplatsen via en webbläsare.
+Det tar några minuter att skapa den virtuella datorn. När du har skapat den virtuella datorn, ta del av den `publicIpAddress` visas av Azure CLI. Den här adressen används för att komma åt NGINX-webbplats via en webbläsare.
 
 För att låta webbtrafik nå din virtuella dator öppnar du port 80 från Internet med [az vm open-port](/cli/azure/vm#open-port):
 
@@ -226,12 +226,12 @@ az vm open-port \
 ```
 
 ## <a name="test-vm-and-nginx"></a>Testa virtuell dator och NGINX
-Nu kan du öppna en webbläsare och ange `http://publicIpAddress` i adressfältet. Ange din offentliga IP-adress från skapandeprocessen av den virtuella datorn. Sidan NGINX visas som i följande exempel:
+Nu kan du öppna en webbläsare och ange `http://publicIpAddress` i adressfältet. Ange din offentliga IP-adress från skapandeprocessen av den virtuella datorn. NGINX-standardsida visas som i följande exempel:
 
 ![NGINX-standardwebbplats](./media/build-image-with-packer/nginx.png) 
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här exemplet används förpackaren för att skapa en VM-avbildning med NGINX som redan har installerats. Du kan använda den här Virtuella datorn tillsammans med befintliga arbetsflöden för distribution, som att distribuera din app till virtuella datorer skapas från avbildningen med Ansible, Chef eller Puppet.
+I det här exemplet används Packer för att skapa en VM-avbildning med NGINX är redan installerat. Du kan använda den här Virtuella datorn tillsammans med befintliga arbetsflöden för distribution, till exempel att distribuera din app till virtuella datorer som skapats från avbildningen med Ansible, Chef eller Puppet.
 
-Ytterligare exempel förpackaren mallar för andra Linux-distributioner, se [GitHub-repo](https://github.com/hashicorp/packer/tree/master/examples/azure).
+Ytterligare exempel Packer på mallar för andra Linux-distributioner, se [denna GitHub-lagringsplats](https://github.com/hashicorp/packer/tree/master/examples/azure).

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: ec023ad796c57141cb35cce15b3d982adf2b8659
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: bd586c6abb27ae0c07ac7c832fba7c1f38e4e5c6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887767"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950167"
 ---
 # <a name="batch-testing"></a>Batch-testning
  Testning av batch är en omfattande test på din aktuella tränade modellen att mäta prestanda i LUIS. 
@@ -100,7 +100,7 @@ De två avsnitten i diagrammet i grönt matchade den förväntade förutsägelse
 
 Om testningen visar att LUIS-appen inte kan identifiera rätt avsikter och entiteter, kan du arbeta för att förbättra prestanda för dina LUIS-app genom märkning mer yttranden eller lägga till funktioner. 
 
-* [Etiketten föreslagna yttranden med LUIS](Label-Suggested-Utterances.md) 
+* [Etiketten föreslagna yttranden med LUIS](luis-how-to-review-endoint-utt.md) 
 * [Använda funktioner för att förbättra prestanda för dina LUIS-app](luis-how-to-add-features.md) 
 * [Förstå batch testning med den här självstudien](luis-tutorial-batch-testing.md)
 * [Lär dig batch testning begrepp](luis-concept-batch-test.md).

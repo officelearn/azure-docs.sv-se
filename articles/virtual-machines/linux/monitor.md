@@ -1,9 +1,9 @@
 ---
 title: Övervaka din virtuella Linux-datorer i Azure | Microsoft Docs
-description: Lär dig mer om övervakning av alternativ för Linux virtuella datorer i Azure.
+description: Läs mer om alternativ för Linux-datorer i Azure för övervakning.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 08/14/2017
-ms.author: iainfou
-ms.openlocfilehash: 63734f3d4d84de0049bbf7f233b8b296dcc3de81
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: cynthn
+ms.openlocfilehash: 693138451feee1771dd1927c238ffe7703856802
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179658"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930876"
 ---
-# <a name="how-to-monitor-virtual-machines-in-azure"></a>Övervaka virtuella datorer i Azure
+# <a name="how-to-monitor-virtual-machines-in-azure"></a>Så här övervakar du virtuella datorer i Azure
 
 [!INCLUDE [virtual-machines-monitor](../../../includes/virtual-machines-monitor.md)]

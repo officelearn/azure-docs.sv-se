@@ -1,8 +1,7 @@
 ---
-title: Anpassa HDInsight-kluster med skriptåtgärder - Azure | Microsoft Docs
-description: Lär dig hur du anpassar HDInsight-kluster med skriptåtgärder.
+title: Anpassa HDInsight-kluster med skriptåtgärder – Azure | Microsoft Docs
+description: Lär dig mer om att anpassa HDInsight-kluster med skriptåtgärd.
 services: hdinsight
-documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,65 +13,65 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 15fa3e7738810ada48f471a685f79a82445ad70c
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 50ef40b3ea3bc8c768e8b4266ef50ad02e02f026
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808867"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950622"
 ---
-# <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Anpassa Windows-baserade HDInsight-kluster med skriptåtgärder
-**Script åtgärd** kan användas för att anropa [anpassade skript](hdinsight-hadoop-script-actions.md) när klustret skapas för att installera ytterligare programvara på ett kluster.
+# <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Anpassa Windows-baserade HDInsight-kluster med skriptåtgärd
+**Skripta åtgärd** kan användas för att anropa [anpassade skript](hdinsight-hadoop-script-actions.md) när klustret skapas för att installera ytterligare programvara på ett kluster.
 
-Informationen i den här artikeln är specifik för Windows-baserade HDInsight-kluster. Linux-baserade kluster, se [anpassa Linux-baserade HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
+Informationen i den här artikeln är specifik för Windows-baserade HDInsight-kluster. Linux-baserade kluster, se [anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md).
 
 > [!IMPORTANT]
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-HDInsight-kluster kan anpassas i en mängd andra sätt, till exempel inklusive ytterligare Azure Storage-konton, ändringar i Hadoop konfigurationsfiler (core-site.xml, hive-site.xml osv.), eller lägga till delade bibliotek (t.ex. Hive, Oozie) till vanliga platser i klustret. Dessa anpassningar kan göras via Azure PowerShell, Azure HDInsight .NET SDK eller Azure-portalen. Mer information finns i [skapa Hadoop-kluster i HDInsight][hdinsight-provision-cluster].
+HDInsight-kluster kan anpassas i en mängd andra sätt, till exempel ytterligare Azure Storage-konton och ändra Hadoop konfigurationsfiler (core-site.xml, hive-site.xml osv.), eller att lägga till delade bibliotek (t.ex., Hive, Oozie) i vanliga platser i klustret. Dessa anpassningar kan göras via Azure PowerShell, Azure HDInsight .NET SDK eller Azure-portalen. Mer information finns i [skapa Hadoop-kluster i HDInsight][hdinsight-provision-cluster].
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
-## <a name="script-action-in-the-cluster-creation-process"></a>Skriptåtgärder i klusterskapandeprocessen
-Skriptåtgärder används endast när ett kluster som håller på att skapas. Följande diagram illustrerar när skriptet körs under skapandeprocessen:
+## <a name="script-action-in-the-cluster-creation-process"></a>Skriptåtgärd i klustret skapas
+Skriptåtgärd används endast när ett kluster håller på att skapas. Följande diagram illustrerar när skriptåtgärd körs när du skapar:
 
-![HDInsight-kluster anpassning och faserna när klustret skapas][img-hdi-cluster-states]
+![HDInsight-kluster anpassning och steg när klustret skapas][img-hdi-cluster-states]
 
-När skriptet körs klustret försätts den **ClusterCustomization** steget. I det här skedet skriptet körs under kontot system admin parallellt på noderna i klustret, och ger fullständig admin-privilegier på noderna.
+När skriptet körs försätts klustret i den **ClusterCustomization** steg. I det här skedet skriptet körs under kontot system admin parallellt på alla angivna noder i klustret, och ger fullständig admin-behörighet på noderna.
 
 > [!NOTE]
-> Eftersom du har administratörsrättigheter på klusternoder under den **ClusterCustomization** skede, du kan använda skriptet för att utföra åtgärder som att stoppa och starta tjänster, inklusive Hadoop-relaterade tjänster. Därför som en del av skript, måste du kontrollera att tjänsterna Ambari och andra Hadoop-relaterade tjänster är igång innan körningen för skriptet. De här tjänsterna krävs har kännedom om hälsa och tillstånd för klustret medan det skapas. Om du ändrar någon konfiguration på det kluster som påverkar dessa tjänster måste du använda hjälpfunktioner som tillhandahålls. Läs mer om hjälpfunktioner [utveckla skriptåtgärd skript för HDInsight][hdinsight-write-script].
+> Eftersom du har administratörsbehörigheter på klusternoderna under den **ClusterCustomization** steg, du kan använda skriptet för att utföra åtgärder som att stoppa och starta tjänster, inklusive Hadoop-relaterade tjänster. Därför som en del av skriptet, måste du kontrollera att Ambari-tjänster och andra Hadoop-relaterade tjänster är igång innan körningen för skriptet. Dessa tjänster krävs för att fastställa har hälsotillstånd och status för klustret medan det skapas. Om du ändrar någon konfiguration på det kluster som påverkar dessa tjänster måste du använda hjälpfunktioner som tillhandahålls. Läs mer om hjälpfunktioner [utveckla skriptåtgärder skript till HDInsight][hdinsight-write-script].
 >
 >
 
-Utdata och i felloggarna för skriptet lagras i standardkontot för lagring som du angav för klustret. Loggfilerna lagras i en tabell med namnet **u < \cluster-name-fragment >< \time-stamp > setuplog**. Det här är sammanställda loggar från skriptet köras på alla noder (huvudnod och arbetarnoder) i klustret.
+Utdata och felloggarna för skriptet lagras i standardkontot för lagring som du angav för klustret. Loggfilerna lagras i en tabell med namnet **u < \cluster-name-fragment >< \time-stamp > setuplog**. Det här är sammanställa loggar från skriptet köras på alla noder (huvudnoden och arbetsnoder) i klustret.
 
-Varje kluster kan acceptera flera skriptåtgärder som anropas i den ordning som de har angetts. Ett skript kan vara kördes på huvudnoden, arbetsnoderna eller båda.
+Varje kluster kan acceptera flera skriptåtgärder som anropas i den ordning som de anges. Kan köra ett skript på huvudnoden, arbetsnoderna eller båda.
 
-HDInsight tillhandahåller flera skript för att installera följande komponenter i HDInsight-kluster:
+HDInsight innehåller flera skript för att installera följande komponenter på HDInsight-kluster:
 
 | Namn | Skript |
 | --- | --- |
-| **Installera Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Se [installera och använda Spark i HDInsight-kluster][hdinsight-install-spark]. |
-| **Installera R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Se [installera och använda R i HDInsight-kluster] [hdinsight-installation-r]. |
-| **Installera Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Se [installerar och använder Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md). |
-| - **Installera Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Se [installerar och använder Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md). |
-| **Läsa in Hive-bibliotek** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Se [lägga till Hive-bibliotek i HDInsight-kluster](hdinsight-hadoop-add-hive-libraries.md) |
+| **Installera Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Se [installera och använda Spark på HDInsight-kluster][hdinsight-install-spark]. |
+| **Installera R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. Se [installera och använda R i HDInsight-kluster](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
+| **Installera Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Se [installera och använda Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md). |
+| **Installera Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Se [installera och använda Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md). |
+| **Förhandsladda Hive-bibliotek** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Se [lägga till Hive-bibliotek på HDInsight-kluster](hdinsight-hadoop-add-hive-libraries.md) |
 
-## <a name="call-scripts-using-the-azure-portal"></a>Anropa skript med hjälp av Azure portal
-**Från Azure-portalen**
+## <a name="call-scripts-using-the-azure-portal"></a>Anropa skript med hjälp av Azure-portalen
+**Från Azure portal**
 
-1. Skapa ett kluster, enligt beskrivningen i [skapa Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-2. Under valfri konfiguration för den **skriptåtgärder** bladet, klickar du på **lägga till skriptåtgärd** att ge information om skriptåtgärd, enligt nedan:
+1. Börja skapa ett kluster, enligt beskrivningen i [skapa Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+2. Under valfri konfiguration för den **skriptåtgärder** bladet klickar du på **lägga till skriptåtgärd** att ge information om skriptåtgärd, enligt nedan:
 
-    ![Använd skriptåtgärder för att anpassa ett kluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Använd skriptåtgärder att anpassa ett kluster")
+    ![Använda skriptåtgärder för att anpassa ett kluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Använd skriptåtgärder för att anpassa ett kluster")
 
     <table border='1'>
         <tr><th>Egenskap </th><th>Värde</th></tr>
         <tr><td>Namn</td>
             <td>Ange ett namn för skriptåtgärden.</td></tr>
         <tr><td>Skript-URI</td>
-            <td>Ange URI till det skript som anropas för att anpassa klustret. S</td></tr>
+            <td>Ange URI: N till det skript som anropas om du vill anpassa klustret. S</td></tr>
         <tr><td>HEAD/Worker</td>
             <td>Ange noderna (**Head** eller **Worker**) som anpassning skriptet körs.</b>.
         <tr><td>Parametrar</td>
@@ -80,7 +79,7 @@ HDInsight tillhandahåller flera skript för att installera följande komponente
     </table>
 
     Tryck på RETUR för att lägga till fler än en skriptåtgärd för att installera flera komponenter i klustret.
-3. Klicka på **Välj** spara skriptet åtgärd konfigurationen och fortsätta med skapa ett kluster.
+3. Klicka på **Välj** spara skriptet åtgärd konfigurationen och fortsätta med Skapa kluster.
 
 ## <a name="call-scripts-using-azure-powershell"></a>Anropa skript med hjälp av Azure PowerShell
 Den här följande PowerShell-skript visar hur du installerar Spark på Windows-baserat HDInsight-kluster.  
@@ -165,14 +164,14 @@ Den här följande PowerShell-skript visar hur du installerar Spark på Windows-
             -Config $config
 
 
-Om du vill installera andra program, måste du ersätta skriptfilen i skriptet:
+Om du vill installera annan programvara, måste du ersätta skriptfilen i skriptet:
 
 När du uppmanas, anger du autentiseringsuppgifterna för klustret. Det kan ta flera minuter innan klustret har skapats.
 
 ## <a name="call-scripts-using-net-sdk"></a>Anropa skript med hjälp av .NET SDK
 I följande exempel visar hur du installerar Spark på Windows-baserat HDInsight-kluster. Om du vill installera annan programvara som behöver du ersätta skriptfilen i koden.
 
-**Så här skapar du ett HDInsight-kluster med Spark**
+**Skapa ett HDInsight-kluster med Spark**
 
 1. Skapa ett C#-konsolprogram i Visual Studio.
 2. Kör följande kommando från Nuget Package Manager-konsolen.
@@ -180,7 +179,7 @@ I följande exempel visar hur du installerar Spark på Windows-baserat HDInsight
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
-3. Använd följande using-instruktioner i filen Program.cs:
+3. Använd följande using-satser i filen Program.cs:
 
         using System;
         using System.Security;
@@ -191,7 +190,7 @@ I följande exempel visar hur du installerar Spark på Windows-baserat HDInsight
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
-4. Placera koden i klassen med följande:
+4. Placerar ut koden i klassen med följande:
 
         private static HDInsightManagementClient _hdiManagementClient;
 
@@ -283,35 +282,35 @@ I följande exempel visar hur du installerar Spark på Windows-baserat HDInsight
         }
 5. Tryck på **F5** för att köra programmet.
 
-## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Stöd för öppen källkod programvara som används i HDInsight-kluster
-Tjänsten Microsoft Azure HDInsight är en flexibel plattform som låter dig skapa stordataprogram i molnet med hjälp av ett ekosystem med öppen källkod tekniker formaterat runt Hadoop. Microsoft Azure tillhandahåller en allmän supportnivå för öppen källkod tekniker som beskrivs i den **stöd för Scope** avsnitt i den <a href="http://azure.microsoft.com/support/faq/" target="_blank">Azure Support FAQ webbplats</a>. HDInsight-tjänst ger ytterligare en säkerhetsnivå för stöd för några av komponenterna som beskrivs nedan.
+## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Stöd för öppen källkod-programvara som används i HDInsight-kluster
+Tjänsten Microsoft Azure HDInsight är en flexibel plattform som gör det möjligt att bygga program för stordata i molnet med hjälp av ett ekosystem med öppen källkod-tekniker som skapats på rätt sätt runt Hadoop. Microsoft Azure tillhandahåller en allmän supportnivå för tekniker med öppen källkod, som beskrivs i den **supportens omfattning** delen av den <a href="http://azure.microsoft.com/support/faq/" target="_blank">Azure Support FAQ webbplats</a>. Tjänsten HDInsight ger en extra nivå av support för några av komponenterna som beskrivs nedan.
 
-Det finns två typer av komponenter som öppen källkod som är tillgängliga i HDInsight-tjänst:
+Det finns två typer av öppen källkod-komponenter som är tillgängliga i HDInsight-tjänsten:
 
-* **Inbyggda komponenter** -komponenterna är förinstallerat på HDInsight-kluster och tillhandahåller huvudfunktionerna i klustret. Till exempel YARN ResourceManager Hive-frågespråket (HiveQL) och Mahout biblioteket som hör till den här kategorin. En fullständig lista över komponenter i serverkluster finns i [vad är nytt i Hadoop-klusterversioner som tillhandahålls av HDInsight?](hdinsight-component-versioning.md) </a>.
-* **Anpassade komponenter** -kan du som användare i klustret, installera eller använda i din arbetsbelastning någon komponent som är tillgängliga i communityn eller skapades av du.
+* **Inbyggda komponenterna** -komponenterna är förinstallerade på HDInsight-kluster och tillhandahåller huvudfunktionerna i klustret. Till exempel YARN ResourceManager, Hive-frågespråket (HiveQL) och Mahout-biblioteket som hör till den här kategorin. En fullständig lista över komponenter i serverkluster finns i [vad är nytt i de Hadoop-klusterversioner som tillhandahålls av HDInsight?](hdinsight-component-versioning.md) </a>.
+* **Anpassade komponenter** -du, som en användare i klustret, kan installera eller använda i din arbetsbelastning någon komponent som är tillgänglig i diskussionsgruppen eller skapats av dig.
 
-Inbyggda komponenter stöds fullt ut och Microsoft-supporten hjälper att isolera och lösa problem relaterade till komponenterna.
+Inbyggda komponenterna stöds fullt ut och Microsoft Support hjälper till att isolera och lösa problem relaterade till dessa komponenter.
 
 > [!WARNING]
-> Komponenter som ingår i HDInsight-kluster stöds fullt ut och Microsoft-supporten hjälper att isolera och lösa problem relaterade till komponenterna.
+> Komponenter som tillhandahålls med HDInsight-kluster stöds fullt ut och Microsoft Support hjälper till att isolera och lösa problem relaterade till dessa komponenter.
 >
-> Anpassade komponenter få kommersiellt rimliga stöd för att hjälpa dig att felsöka problemet ytterligare. Detta kan resultera i att lösa problemet eller där du uppmanas att engagera tillgängliga kanaler för öppen källkod där djup expertis för att teknik finns. Det finns till exempel många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache-projekt har också project-webbplatser [ http://apache.org ](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att felsöka problemet ytterligare. Detta kan resultera i att lösa problemet eller där du uppmanas att engagera tillgängliga kanaler för tekniker med öppen källkod som där djup kompetens för den tekniken hittas. Det finns exempelvis många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Även Apache-projekt har project-webbplatser på [ http://apache.org ](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 >
 >
 
-HDInsight-tjänst finns flera sätt att använda anpassade komponenter. Oavsett hur en komponent används eller installeras i klustret, gäller samma nivå av support. Nedan visas en lista över de vanligaste sätten att anpassade komponenter kan användas på HDInsight-kluster:
+Tjänsten HDInsight finns flera sätt att använda anpassade komponenter. Oavsett hur en komponent som används eller installeras i klustret, gäller samma nivå av support. Nedan visas en lista över de vanligaste sätten att anpassade komponenter kan användas på HDInsight-kluster:
 
-1. Jobbet - Hadoop och andra typer av jobb som kör eller använda anpassade komponenter kan skickas till klustret.
-2. Anpassning av kluster - när klustret skapas som du kan ange ytterligare inställningar och anpassade komponenter som ska installeras på klusternoderna.
-3. Exempel - för populära anpassade komponenter, Microsoft och andra kan ge exempel på hur du kan använda de här komponenterna i HDInsight-kluster. De här exemplen tillhandahålls utan stöd.
+1. Jobböverföring - Hadoop eller andra typer av jobb som kör eller använda anpassade komponenter kan skickas till klustret.
+2. Anpassning av kluster - när du skapar klustret som du kan ange ytterligare inställningar och anpassade komponenter som ska installeras på noderna i klustret.
+3. Exempel – för populära anpassade komponenter, Microsoft och andra kan ge exempel på hur du kan använda dessa komponenter på HDInsight-kluster. De här exemplen tillhandahålls utan stöd.
 
-## <a name="develop-script-action-scripts"></a>Utveckla skriptåtgärd skript
-Se [utveckla skriptåtgärd skript för HDInsight][hdinsight-write-script].
+## <a name="develop-script-action-scripts"></a>Utveckla skriptåtgärder skript
+Se [utveckla skriptåtgärder skript till HDInsight][hdinsight-write-script].
 
 ## <a name="see-also"></a>Se också
 * [Skapa Hadoop-kluster i HDInsight] [ hdinsight-provision-cluster] innehåller instruktioner om hur du skapar ett HDInsight-kluster med hjälp av andra anpassade alternativ.
-* [Utveckla skriptåtgärd skript för HDInsight][hdinsight-write-script]
+* [Utveckla skriptåtgärder skript för HDInsight][hdinsight-write-script]
 * [Installera och använda Spark på HDInsight-kluster][hdinsight-install-spark]
 * [Installera och använda Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md).
 * [Installera och använda Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md).

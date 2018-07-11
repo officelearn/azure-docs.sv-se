@@ -10,17 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: v-geberr
-ms.openlocfilehash: fe035c744e7cbc291fa392205239f331410412dc
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 45289b712a127e70636e225778d7a36578b34fa5
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866339"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931636"
 ---
 # <a name="prebuilt-domain-reference"></a>Fördefinierad domänreferens
 Den här referensen innehåller information om den [fördefinierade domäner](luis-how-to-use-prebuilt-domains.md), som är färdiga samlingar med avsikter och entiteter som LUIS erbjuder.
 
-[Anpassade domäner](create-new-app.md), däremot starta utan avsikter och modeller. Du kan lägga till några fördefinierade domän avsikter och entiteter till en anpassad modell.
+[Anpassade domäner](luis-how-to-start-new-app.md), däremot starta utan avsikter och modeller. Du kan lägga till några fördefinierade domän avsikter och entiteter till en anpassad modell.
 
 ## <a name="list-of-prebuilt-domains"></a>Lista över fördefinierade domäner
 LUIS erbjuder 20 fördefinierade domäner. 
@@ -154,7 +154,7 @@ Underhållning domän ger avsikter och entiteter relaterade till att söka efter
 | ContentRating | Media innehållsklassificering som G eller R för filmer.|Barn video.<br/>PG görs.|
 | Genre | Genre för en film, spel, appar eller låt.|Comedies<br/>Dramas<br/>Rolig|
 | Nyckelord| En allmän sökord som du anger ett attribut i finns inte på de mer specifika både media.|Ljudspår<br/>Månfas floden<br/>Amelia Earhart|
-| Språk | Media innehållsklassificering som G eller R för filmer.|Franska<br/>Svenska<br/>Koreanska|
+| Språk | Språk som används i medier, till exempel film eller låt talat språk.|Franska<br/>Svenska<br/>Koreanska|
 | MediaFormat | Ytterligare särskilda tekniska typen där mediet formateras.|HD-filmer<br/>3D-filmer<br/>Nedladdningsbara|
 | MediaSource | Store eller marketplace för att hämta media.|Netflix<br/>Prime|
 | MediaSubTypes| Medietyper som är mindre än filmer och spel.|Demonstrationer<br/>DLC<br/>Släpfordon|

@@ -1,7 +1,7 @@
 ---
-title: Azure Apptjänst i Linux vanliga frågor och svar | Microsoft Docs
-description: Azure Apptjänst i Linux vanliga frågor och svar.
-keywords: Azure apptjänst, webbprogram, vanliga frågor och svar, linux, oss, webbprogram för behållare, flera behållare, multicontainer
+title: Azure App Service i Linux vanliga frågor och svar | Microsoft Docs
+description: Azure App Service i Linux vanliga frågor och svar.
+keywords: Azure apptjänst, webbapp, vanliga frågor och svar, linux, oss, webbapp för behållare, flera behållare, multicontainer
 services: app-service
 documentationCenter: ''
 author: yili
@@ -15,68 +15,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: yili
-ms.openlocfilehash: a35f3d428674c3398497cd43465e0bd501f5c3fc
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: ea2e9d9fd1d9390cdd689b4f33b72cd471feeb8c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131500"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916864"
 ---
-# <a name="azure-app-service-on-linux-faq"></a>Azure Apptjänst i Linux vanliga frågor och svar
+# <a name="azure-app-service-on-linux-faq"></a>Azure App Service i Linux vanliga frågor och svar
 
-Vi arbetar med lanseringen av Apptjänst i Linux, lägger till funktioner och gör ständigt förbättringar att vår plattform. Den här artikeln innehåller svar på frågor som våra kunder har efterfrågat oss nyligen.
+Med lanseringen av App Service i Linux arbetar vi på att lägga till funktioner och att göra förbättringar på vår plattform. Den här artikeln innehåller svar på frågor att våra kunder har efterfrågat oss nyligen.
 
-Kommentera den här artikeln om du har en fråga.
+Om du har en fråga kan du kommentera den här artikeln.
 
-## <a name="built-in-images"></a>Inbyggda bilder
+## <a name="built-in-images"></a>Inbyggda avbildningar
 
-**Jag vill duplicera de inbyggda Docker-behållare som plattformen erbjuder. Var hittar jag dessa filer?**
+**Jag vill Förgrena inbyggda Docker-behållare som i plattformen. Var hittar jag dessa filer?**
 
-Du hittar alla Docker-filer på [GitHub](https://github.com/azure-app-service). Du hittar alla behållare i Docker på [Docker-hubb](https://hub.docker.com/u/appsvc/).
+Du hittar alla Docker-filer på [GitHub](https://github.com/azure-app-service). Du hittar alla Docker-behållare på [Docker Hub](https://hub.docker.com/u/appsvc/).
 
-**Vilka är de förväntade värdena för avsnittet startfil när jag konfigurera runtime-stacken?**
+**Vilka är de förväntade värdena för avsnittet startfil när jag konfigurerar körningsstack?**
 
-För Node.js anger du PM2 konfigurationsfilen eller skriptfilen. Ange ditt kompilerade DLL-namn som för .NET Core `dotnet <myapp>.dll`. För Ruby, kan du ange Ruby skriptet som du vill initiera en app med.
+För Node.js anger du PM2-konfigurationsfilen eller skriptfilen. För .NET Core, anger du ditt kompilerade DLL-namn som `dotnet <myapp>.dll`. För Ruby, kan du ange det Ruby-skript som du vill initiera din app med.
 
 ## <a name="management"></a>Hantering
 
-**Vad händer när jag trycka på omstartningsknappen i Azure portal?**
+**Vad händer när jag trycker på knappen Starta om i Azure-portalen?**
 
 Den här åtgärden är samma som en Docker-omstart.
 
-**Kan jag använda SSH (Secure Shell) för att ansluta till appen behållaren virtuell dator (VM)?**
+**Kan jag använda SSH (Secure Shell) för att ansluta till appen behållare virtuell dator (VM)?**
 
-Ja, kan du göra det via källplatsen kontrollen management (SCM).
+Ja, kan du göra det via källplatsen control management (SCM).
 
 > [!NOTE]
 > Du kan också ansluta till appbehållaren direkt från din lokala utvecklingsdator med SSH, SFTP eller Visual Studio Code (för livefelsökning av Node.js-appar). Mer information finns i [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug) (Fjärrfelsökning och SSH i App Service på Linux).
 >
 
-**Hur skapar jag en Linux App Service-plan via en SDK eller en Azure Resource Manager-mall**
+**Hur kan jag skapa en Linux App Service-plan via ett SDK eller en mall för Azure Resource Manager?**
 
-Du bör ange den **reserverade** i apptjänst ska *SANT*.
+Du bör ange den **reserverade** i app service för att *SANT*.
 
 ## <a name="continuous-integration-and-deployment"></a>Kontinuerlig integrering och distribution
 
-**Webbappen använder fortfarande en gamla Docker behållare avbildningen när jag har uppdaterat avbildningen på Docker-hubben. Har du stöd för kontinuerlig integrering och distribution av anpassade behållare?**
+**Min webbapp använder fortfarande ett gamla Docker-behållaravbildning när jag har uppdaterat avbildning på Docker Hub. Har du stöd för kontinuerlig integrering och distribution av anpassade behållare?**
 
-Ja, om du vill ställa in kontinuerlig integration/distribution för Azure-behållare registret eller DockerHub, genom att följa [kontinuerlig distribution med webbprogrammet för behållare](./app-service-linux-ci-cd.md). Du kan uppdatera behållaren genom att stoppa och starta ditt webbprogram för privata register. Eller kan du ändra eller lägga till en dummy programinställning att framtvinga en uppdatering av din behållare.
+Ja, om du vill konfigurera kontinuerlig integrering/distribution för Azure Container Registry eller DockerHub, genom att följa [kontinuerlig distribution med Web App for Containers](./app-service-linux-ci-cd.md). Du kan uppdatera behållaren genom att stoppa och sedan starta webbappen privat register. Eller du kan ändra eller lägga till en dummy programinställning du tvingar fram en uppdatering av din behållare.
 
-**Stöder fristående datorn?**
+**Stöder mellanlagringsmiljön?**
 
 Ja.
 
-**Kan jag använda *webbdistribution* att distribuera webbappen?**
+**Kan jag använda *WebDeploy/MSDeploy* distribuera min webbapp?**
 
-Ja, du måste ange en app inställningen kallas `WEBSITE_WEBDEPLOY_USE_SCM` till *FALSKT*.
+Ja, du måste ange en app som heter `WEBSITE_WEBDEPLOY_USE_SCM` till *FALSKT*.
 
-**Git-distribution för Mina program misslyckas när du använder Linux-webbprogram. Hur kan komma runt problemet?**
+**Git-distribution av mitt program misslyckas när du använder Linux-webbapp. Hur kan jag undvika problemet?**
 
-Om det inte går att ditt webbprogram för Linux Git-distribution, Välj något av följande alternativ för att distribuera din programkod:
+Om det inte går att webbappen Linux Git-distribution, väljer du något av följande alternativ för att distribuera din programkod:
 
-- Använd funktionen kontinuerlig leverans (förhandsversion): du kan lagra appens källkod i ett Team Services Git repo eller GitHub-repo-att använda Azure kontinuerlig leverans. Mer information finns i [hur du konfigurerar kontinuerlig leverans för Linux-webbprogrammet](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Använda funktionen för kontinuerlig leverans (förhandsversion): du kan lagra källkoden för din app i ett Team Services Git-lagringsplats eller GitHub-lagringsplatsen att använda Azure kontinuerlig leverans. Mer information finns i [konfigurera kontinuerlig leverans för Linux-webbapp](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Använd den [ZIP distribuera API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): du använder detta API [SSH till ditt webbprogram](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) och gå till mappen där du vill distribuera din kod. Kör följande kod:
+- Använd den [ZIP distribuera API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): att använda detta API [SSH till din webbapp](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) och gå till mappen där du vill distribuera din kod. Kör följande kod:
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
@@ -86,9 +86,9 @@ Om det inte går att ditt webbprogram för Linux Git-distribution, Välj något 
 
 ## <a name="language-support"></a>Språkstöd
 
-**Jag vill använda web sockets i Node.js-program, några särskilda inställningar eller konfigurationer för att ställa in?**
+**Jag vill använda webbsockets i mitt Node.js-program, eventuella specialinställningar eller konfigurationer för att ställa in?**
 
-Ja, inaktivera `perMessageDeflate` i din Node.js-kod på serversidan. Om du använder socket.io du till exempel använda följande kod:
+Ja, inaktivera `perMessageDeflate` i din Node.js-kod på serversidan. Till exempel om du använder socket.io, Använd följande kod:
 
 ```nodejs
 var io = require('socket.io')(server,{
@@ -96,102 +96,102 @@ var io = require('socket.io')(server,{
 });
 ```
 
-**Stöder Okompilerade .NET Core appar?**
+**Stöder Okompilerade .NET Core-appar?**
 
 Ja.
 
-**Stöder du Composer som en beroende-hanterare för PHP-appar?**
+**Det stöd för kompositör som en beroendehanterare för PHP-appar?**
 
-Ja, under en Git-distribution Kudu bör känner av att du distribuerar ett PHP-program (tack vare förekomsten av en composer.lock-fil) och Kudu utlöser sedan en composer-installation.
+Ja, under en Git-distribution Kudu bör identifierar att du distribuerar en PHP-program (tack vare förekomsten av en composer.lock-fil) och Kudu utlöser sedan en composer-installation.
 
-## <a name="custom-containers"></a>Anpassade behållare
+## <a name="custom-containers"></a>Anpassad behållare
 
-**Jag använder egna anpassade container. Jag vill plattform att montera en SMB-resurs till den `/home/` directory.**
+**Jag använder en egen anpassad behållare. Jag vill ha den plattform du monterar en SMB-filresurs till den `/home/` directory.**
 
-Du kan göra det genom att ange den `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appinställningen *SANT*. Tänk på att detta innebär att behållaren omstarter när lagringsplatsen plattform genomgår en ändring.
+Du kan göra det genom att ange den `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appinställningen *SANT*. Tänk på att detta innebär att behållaren startas om när plattformen storage går igenom en ändring.
 
 >[!NOTE]
->Om den `WEBSITES_ENABLE_APP_SERVICE_STORAGE` inställningen är Ospecificerad eller inställd på *FALSKT*, `/home/` directory inte delas mellan skala instanser och filer som skrivs det sparas inte mellan olika omstarter.
+>Om den `WEBSITES_ENABLE_APP_SERVICE_STORAGE` inställningen är Ospecificerad eller inställd på *FALSKT*, `/home/` directory delas inte mellan instanser för skalning och filer som skrivs det sparas inte mellan omstarter.
 
-**Min anpassade container tar lång tid att starta och plattformen startar om behållaren innan den är klar startas.**
+**Min anpassade behållaren tar lång tid att starta och plattformen startar om behållaren innan den är klar startar.**
 
-Du kan konfigurera tidsperiod som plattformen väntar startar din behållare. Gör du genom att ange den `WEBSITES_CONTAINER_START_TIME_LIMIT` appinställningen till önskat värde. Standardvärdet är 230 sekunder och det maximala värdet är 1 800 sekunder.
+Du kan konfigurera tidsperiod som plattformen väntar innan den startar om din behållare. Du gör detta genom att ange den `WEBSITES_CONTAINER_START_TIME_LIMIT` appinställningen till det värde du vill. Standardvärdet är 230 sekunder och det högsta värdet är 1 800 sekunder.
 
-**Vad är formatet för privata registret serverns URL?**
+**Vad är formatet för privat register-Serveradress?**
 
-Ange en fullständig registret URL inklusive `http://` eller `https://`.
+Ange URL som fullständig registret, inklusive `http://` eller `https://`.
 
-**Vad är namnformat för bilden i alternativet privata registret?**
+**Vad är formatet för avbildningens namn på privat register-alternativet?**
 
-Lägg till fullständig Avbildningsnamnet, inklusive privata registret URL (till exempel myacr.azurecr.io/dotnet:latest). Avbildningar som använder en anpassad port [kan inte anges via portalen](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Ange `docker-custom-image-name`, använda den [ `az` kommandoradsverktyget](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
+Lägg till den fullständiga avbildningsnamn, inklusive privat register-URL (till exempel myacr.azurecr.io/dotnet:latest). Avbildningar som använder en anpassad port [kan inte anges via portalen](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Ange `docker-custom-image-name`, använda den [ `az` kommandoradsverktyget](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
 
-**Exponerar jag mer än en port på min anpassade container avbildning?**
+**Kan jag lägga upp mer än en port på min anpassade behållaravbildning?**
 
 Vi stöder för närvarande inte exponera mer än en port.
 
-**Kan jag använda min egen storage?**
+**Kan jag använda min egen lagring?**
 
-Vi stöder för närvarande inte ta fram egna lagring.
+Vi stöder för närvarande inte tar med egna lagring.
 
-**Varför kan jag Bläddra mitt anpassade container filen system eller som kör processer från SCM-platsen?**
+**Varför kan jag Bläddra min anpassade behållare file system eller som kör processer från SCM-webbplatsen?**
 
-SCM-webbplatsen körs i en separat behållare. Du kan inte kontrollera filen system eller som kör processer på app-behållaren.
+SCM-webbplatsen körs i en separat behållare. Du kan inte kontrollera file system eller som kör processer på app-behållaren.
 
-**Min anpassade container lyssnar på en annan port än port 80. Hur kan jag konfigurera min app att skicka begäranden till porten?**
+**Min anpassade behållare lyssnar på en annan port än port 80. Hur kan jag konfigurera min app att dirigera begäranden till den porten?**
 
-Vi har port automatiskt. Du kan också ange en app inställningen kallas *WEBSITES_PORT* och ge den värdet för det förväntade portnummer. Tidigare den plattform som används av *PORT* appinställningen. Vi planerar att inaktualisera appinställningen och använda *WEBSITES_PORT* exklusivt.
+Vi har port automatiskt. Du kan också ange en app som heter *WEBSITES_PORT* och ge den värdet för det förväntade portnummer. Tidigare den plattform som används i *PORT* appinställningen. Vi planerar att avverka den här appinställningen och använda *WEBSITES_PORT* exklusivt.
 
-**Behöver jag implementera HTTPS i min anpassade container?**
+**Behöver jag implementera HTTPS i min anpassade behållare?**
 
-Nej, plattformen hanterar HTTPS-avslutning på delade frontwebbservrarna.
+Plattformen hanterar Nej, HTTPS-avslutning på de delade klientdelar.
 
 ## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Flera behållare med Docker Compose och Kubernetes
 
-**Hur konfigurerar Azure Container registret (ACR) ska användas med flera behållare?**
+**Hur konfigurerar jag Azure Container Registry (ACR) ska användas med flera behållare?**
 
-För att kunna använda ACR med flera behållare **alla behållare bilder** måste finnas på samma server för ACR-registret. När de är på samma server i registret, behöver du skapa inställningar för program och uppdatera sedan Docker Compose eller Kubernetes konfigurationsfil för att inkludera ACR avbildningens namn.
+För att kunna använda ACR med flera behållare **alla behållaravbildningar** måste finnas på samma server för ACR-registret. När de är på samma server i registret, måste du skapa inställningar för program och sedan uppdatera konfigurationsfilen för att inkludera namnet på ACR-avbildning för Docker Compose- eller Kubernetes.
 
 Skapa följande programinställningar för:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (fullständig URL, ex: https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_URL (fullständig URL, t.ex.: https://<server-name>.azurecr.io)
 - DOCKER_REGISTRY_SERVER_PASSWORD (aktivera administratörsåtkomst i inställningarna för ACR)
 
-I konfigurationsfilen, referera till ACR bilden som i följande exempel:
+I konfigurationsfilen, referera till din ACR-avbildning som i följande exempel:
 
 ```yaml
 image: <server-name>.azurecr.io/<image-name>:<tag>
 ```
 
-**Hur vet jag vilka behållare är tillgänglig internet?**
+**Hur vet jag vilka behållare är åtkomlig via internet?**
 
-- Endast en behållare kan vara öppen för åtkomst
-- Endast port 80 och 8080 är tillgänglig (exponerade portar)
+- Endast en behållare kan vara öppna för åtkomst
+- Endast port 80 och 8080 är tillgänglig (portar)
 
-Här följer reglerna för att fastställa vilken behållare är tillgänglig – i den ordning som prioritet:
+Här följer reglerna för att fastställa vilka behållare som är tillgänglig – i den ordning som prioritet:
 
-- Inställningen `WEBSITES_WEB_CONTAINER_NAME` inställd på behållarens namn
-- Den första behållaren för att definiera port 80 eller 8080
-- Om inget av ovanstående stämmer första behållaren som definieras i filen kommer att komma åt (exponeras)
+- Tillämpningsinställning `WEBSITES_WEB_CONTAINER_NAME` inställd på behållarens namn
+- Den första behållaren att definiera port 80 eller 8080
+- Om inget av ovanstående stämmer den första behållaren som definieras i filen kommer att komma åt (exponeras)
 
 ## <a name="pricing-and-sla"></a>Priser och SLA
 
-**Vad är prissättning, nu när tjänsten är allmänt tillgängligt?**
+**Vad är priser, nu när tjänsten är allmänt tillgänglig?**
 
-Du debiteras normala Azure App Service prissättning för antalet timmar som appen körs.
+Du debiteras normal Azure App Service priset för antalet timmar som appen körs.
 
 ## <a name="other-questions"></a>Andra frågor
 
-**Vad är stöds tecknen i programnamn inställningar?**
+**Vilka är tecken som stöds i inställningarna för programnamn?**
 
-Du kan använda endast bokstäver (A-Z, a-z), siffror (0-9) och understreck (_) för programinställningar.
+Du kan använda endast bokstäver (A-Z, a – z), siffror (0-9) och understreck (_) för programinställningar.
 
-**Var kan jag begära nya funktioner?**
+**Var hittar jag nya funktioner?**
 
-Du kan skicka din idé på den [Web Apps Feedbackforum](https://aka.ms/webapps-uservoice). Lägg till ”[Linux]” i rubriken för din idé.
+Du kan skicka in din idé på den [Web Apps-Feedbackforum](https://aka.ms/webapps-uservoice). Lägg till ”[Linux]” i rubriken för din idé.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är Azure App Service på Linux?](app-service-linux-intro.md)
+- [Vad är Azure App Service i Linux?](app-service-linux-intro.md)
 - [Konfigurera mellanlagringsmiljöer i Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Kontinuerlig distribution med webbprogrammet för behållare](./app-service-linux-ci-cd.md)
+- [Kontinuerlig distribution med Webbapp for Containers](./app-service-linux-ci-cd.md)

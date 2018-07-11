@@ -1,7 +1,7 @@
 ---
-title: Den färdiga THOMAS entiteter datetimeV2 referens - Azure | Microsoft Docs
+title: LUIS fördefinierade datetimeV2 entitetsreferenser – Azure | Microsoft Docs
 titleSuffix: Azure
-description: Den här artikeln har datetimeV2 färdiga entitetsinformation i språk förstå (THOMAS).
+description: Den här artikeln har datetimeV2 fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -10,22 +10,22 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: v-geberr
-ms.openlocfilehash: 261f6f27c39c280efdcd070888d735374a473c85
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: c72c17fe683b771d01e619ba7889f46424ee9158
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321892"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916959"
 ---
-# <a name="datetimev2-entity"></a>DatetimeV2 entitet
+# <a name="datetimev2-entity"></a>DatetimeV2-entitet
 
-Den **datetimeV2** färdiga entitet hämtar värden för datum och tid. Dessa värden matcha ett standardiserat format för klientprogram kan använda. När en utterance har ett datum eller klockslag som inte är klar, THOMAS innehåller _både tidigare och framtida värden_ endpoint-svar. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel utterances som innehåller datetimeV2 till programmet avsikter. 
+Den **datetimeV2** fördefinierade entitet extraherar värdena för datum och tid. Dessa värden lösa i ett standardformat för klientprogram kan använda. När ett uttryck har datum och tid som inte är klar, LUIS innehåller _både tidigare och framtida värden_ reaktion slutpunkt. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller datetimeV2 till programmet avsikter. 
 
 ## <a name="types-of-datetimev2"></a>Typer av datetimeV2
-DatetimeV2 hanteras från den [identifierare text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) Github-lagringsplatsen
+DatetimeV2 hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) Github-lagringsplats
 
-## <a name="example-json"></a>Exempel JSON 
-I följande exempel JSON-svar har en `datetimeV2` entitet med en undertyp till `datetime`. Exempel på andra typer av datetimeV2 enheter finns [undertyper av datetimeV2](#subtypes-of-datetimev2)</a>.
+## <a name="example-json"></a>Exempel på JSON 
+I följande exempel JSON-svar finns en `datetimeV2` entitet med en undertyp till `datetime`. Exempel på andra typer av datetimeV2 entiteter finns [undertyper till datetimeV2](#subtypes-of-datetimev2)</a>.
 
 ```JSON
 "entities": [
@@ -47,20 +47,20 @@ I följande exempel JSON-svar har en `datetimeV2` entitet med en undertyp till `
 ]
   ```
 
-## <a name="json-property-descriptions"></a>JSON-Egenskapsbeskrivningar
+## <a name="json-property-descriptions"></a>Beskrivningar av JSON-egenskapen
 
 |Egenskapsnamn |Egenskapstypen och beskrivning|
 |---|---|
-|Entitet|**strängen** -Text som hämtats från utterance med typen av datum, tid, datumintervall eller tidsintervall.|
-|typ|**strängen** – en av de [undertyper av datetimeV2](#subtypes-of-datetimev2)
-|startIndex|**int** -index i utterance som entiteten börjar.|
-|endIndex|**int** -index i utterance som entiteten slutar.|
-|lösning|Har en `values` matris som har en, två eller fyra [värdena för matchning av](#values-of-resolution).|
-|slut|Slutvärdet för en tid eller datumintervall i samma format som `value`. Används endast om `type` är `daterange`, `timerange`, eller `datetimerange`|
+|Entitet|**sträng** -Text som extraherats från uttryck med typen av datum, tid, datum eller tidsintervall.|
+|typ|**sträng** – en av de [undertyper till datetimeV2](#subtypes-of-datetimev2)
+|startIndex|**int** -index i uttryck då entiteten börjar.|
+|endIndex|**int** -index i uttryck då entiteten har upphört.|
+|lösning|Har en `values` matris som har en, två eller fyra [värdena för lösning](#values-of-resolution).|
+|slut|Slutvärdet för en tid eller ett intervall, i samma format som `value`. Används endast om `type` är `daterange`, `timerange`, eller `datetimerange`|
 
-## <a name="subtypes-of-datetimev2"></a>Undertyper av datetimeV2
+## <a name="subtypes-of-datetimev2"></a>Undertyper till datetimeV2
 
-Den **datetimeV2** färdiga entiteten har följande undertyper och exempel på varje finns i tabellen nedan:
+Den **datetimeV2** fördefinierade entitet har följande undertyper och exempel på var och en finns i tabellen nedan:
 * `date`
 * `time`
 * `daterange`
@@ -69,39 +69,39 @@ Den **datetimeV2** färdiga entiteten har följande undertyper och exempel på v
 * `duration`
 * `set`
 
-## <a name="values-of-resolution"></a>Värdena för upplösning
-* Matrisen innehåller ett element om datum och tid i utterance är helt angivna och entydigt.
-* Matrisen innehåller två element om datetimeV2-värdet är tvetydig. Tvetydighet innehåller bristande visst år, tid eller tidsintervall. Se [tvetydiga datum](#ambiguous-dates) exempel. När tiden är tvetydigt för am. eller P.M., båda värdena ingår.
-* Matrisen innehåller fyra element om utterance innehåller två element med tvetydighet. Den här tvetydigheten innehåller element som har:
-  * Ett datum eller datumintervall är tvetydig på år
-  * En tid eller tidsintervall som är tvetydig om klockan eller PM Exempel 3:00 den 3 April.
+## <a name="values-of-resolution"></a>Värdena för lösning
+* Matrisen innehåller ett element om datum och tid i uttryck är helt angivna och entydiga.
+* Matrisen innehåller två element om datetimeV2-värdet är tvetydig. Tvetydighet innehåller brist på specifika år, en tid eller tidsintervall. Se [tvetydiga datum](#ambiguous-dates) exempel. När tiden är tvetydig för am. eller körs båda värdena ingår.
+* Matrisen har fyra element om uttryck innehåller två element med tvetydighet. Denna tvetydighet innehåller element som har:
+  * Ett datum eller ett intervall som är tvetydig avseende år
+  * En tid eller ett tidsintervall som är tvetydig avseende A.M. eller PM Till exempel 3:00 den 3 April.
 
 Varje element i den `values` matris kan ha följande fält: 
 
-|Egenskapsnamn|Egenskapsbeskrivning|
+|Egenskapsnamn|Beskrivning av egenskap|
 |--|--|
-|Timex|tid, datum eller datumintervall uttryckt TIMEX-format som inte följer den [ISO 8601-standarden](https://en.wikipedia.org/wiki/ISO_8601) och TIMEX3 attribut för anteckningens med TimeML språket. Den här anteckningen beskrivs i den [TIMEX riktlinjer](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
-|typ|Undertyp som kan vara något av följande objekt: datetime, datum, tid, daterange, timerange, datetimerange, varaktighet, uppsättningen.|
-|värde|**Valfritt.** Ett datetime-objekt i formatet yyyy:MM:dd (datum): mm: SS (time) yyyy:MM:dd: mm: SS (datetime). Om `type` är `duration`, värdet är antalet sekunder (varaktighet) <br/> Används endast om `type` är `datetime` eller `date`, `time`, eller ”varaktighet.|
+|Timex|tid, datum eller ett intervall som är uttryckt i TIMEX-format som följer den [ISO 8601-standarden](https://en.wikipedia.org/wiki/ISO_8601) och TIMEX3 attribut för anteckningens med TimeML språk. Den här anteckningen beskrivs i den [TIMEX riktlinjer](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
+|typ|Undertypen, som kan vara något av följande objekt: datetime, datum, tid, daterange, timerange, datetimerange, varaktighet, set.|
+|värde|**Valfritt.** Ett datetime-objekt i formatet yyyy:MM:dd (datum): mm: SS (tid) yyyy:MM:dd: mm: SS (datetime). Om `type` är `duration`, värdet är antalet sekunder (varaktighet) <br/> Används endast om `type` är `datetime` eller `date`, `time`, eller ”varaktighet.|
 
-## <a name="valid-date-values"></a>Giltiga värden
+## <a name="valid-date-values"></a>Ogiltigt datum
 
 Den **datetimeV2** stöder datumen mellan följande intervall:
 
 | Min | Max |
 |----------|-------------|
-| 1 januari 1900   | den 31 December 2099 |
+| den 1 januari 1900   | den 31 December 2099 |
 
 ## <a name="ambiguous-dates"></a>Tvetydiga datum
 
-Om datumet kan vara i förflutna eller framtida, THOMAS innehåller båda värdena. Ett exempel är en utterance som innehåller månaden och dagen utan året.  
+Om datumet kan vara i förflutna eller framtida, LUIS innehåller båda värdena. Ett exempel är ett uttryck som innehåller månad och datum utan året.  
 
-Till exempel få utterance ”maj 2”:
-* Om dagens datum är kan 3 2017, innehåller THOMAS både ”2017-05-02” och ”2018-05-02” som värden. 
-* Om dagens datum är kan 1 2017, innehåller THOMAS både ”2016-05-02” och ”2017-05-02” som värden.
+Till exempel få uttryck ”maj 2nd”:
+* Om dagens datum är den 3 2017, innehåller LUIS både ”2017-05-02” och ”2018-05-02” som värden. 
+* När dagens datum är den 1 maj 2017, innehåller LUIS både ”2016-05-02” och ”2017-05-02” som värden.
 
-I följande exempel visas lösning av entiteten ”maj 2”. Denna lösning förutsätter att dagens datum är ett datum mellan maj 2 2017 och kan 1 2018.
-Fält med `X` i den `timex` fältet är delar av datumet som inte uttryckligen anges i utterance.
+I följande exempel visas av lösningen på entitet som är ”maj 2”. Denna lösning förutsätter att dagens datum är ett datum mellan den 2 2017 och den 1 2018.
+Fält med `X` i den `timex` fält är delar av datumet som inte uttryckligen anges i uttryck.
 
 ```JSON
   "entities": [
@@ -128,9 +128,9 @@ Fält med `X` i den `timex` fältet är delar av datumet som inte uttryckligen a
   ]
 ```
 
-## <a name="date-range-resolution-examples-for-numeric-date"></a>Datum intervallet upplösning exempel numeriska datum
+## <a name="date-range-resolution-examples-for-numeric-date"></a>Datum intervallet upplösning exempel för numeriska datum
 
-Den `datetimeV2` entiteten extraherar intervall för datum och tid. Den `start` och `end` anger början och slutet av intervallet. För utterance ”maj 2 till 5 maj”, THOMAS ger **daterange** värden för både det aktuella året och nästa år. I den `timex` fältet den `XXXX` värden anger tvetydighet på året. `P3D` Anger hur lång tid som är tre dagar lång.
+Den `datetimeV2` entiteten extraherar datum- och tidsintervall. Den `start` och `end` anger början och slutet av intervallet. För uttryck ”2 maj till 5 maj”, THOMAS ger **daterange** värden för både det aktuella året och nästa år. I den `timex` fält, de `XXXX` värden anger tvetydighet på året. `P3D` Anger hur lång tid är tre dagar långa.
 
 ```JSON
 "entities": [
@@ -159,9 +159,9 @@ Den `datetimeV2` entiteten extraherar intervall för datum och tid. Den `start` 
   ]
 ```
 
-## <a name="date-range-resolution-examples-for-day-of-week"></a>Datum intervallet upplösning exempel veckodag
+## <a name="date-range-resolution-examples-for-day-of-week"></a>Datum intervallet upplösning exempel för dag i veckan
 
-I följande exempel visas hur THOMAS använder **datetimeV2** att lösa utterance ”tisdag till torsdag”. I det här exemplet är det aktuella datumet 19 juni. THOMAS innehåller **daterange** värden för båda datumintervall som före och efter det aktuella datumet.
+I följande exempel visas hur LUIS använder **datetimeV2** att lösa uttryck ”tisdag till torsdag”. I det här exemplet är det aktuella datumet 19 juni. LUIS innehåller **daterange** värden för båda datumintervall som före och efter det aktuella datumet.
 
 ```JSON
   "entities": [
@@ -190,11 +190,11 @@ I följande exempel visas hur THOMAS använder **datetimeV2** att lösa utteranc
   ]
 ```
 ## <a name="ambiguous-time"></a>Tvetydig tid
-Värden matrisen har två tidselement om tid eller tidsintervallet är tvetydig. När det är en tvetydig, har värden båda kl. och. gånger.
+Värden matrisen har två tidselement om den tid, eller tidsintervallet är tvetydig. Om det finns en tvetydig tid, har värden båda kl. och. gånger.
 
 ## <a name="time-range-resolution-example"></a>Exempel på tid intervallet namnmatchning
 
-I följande exempel visas hur THOMAS använder **datetimeV2** att matcha utterance som har ett tidsintervall.
+I följande exempel visas hur LUIS använder **datetimeV2** att lösa det uttryck som har ett tidsintervall.
 
 ```
   "entities": [
@@ -217,16 +217,16 @@ I följande exempel visas hur THOMAS använder **datetimeV2** att matcha utteran
   ]
 ```
 
-## <a name="deprecated-prebuilt-datetime"></a>Föråldrad färdiga datetime
+## <a name="deprecated-prebuilt-datetime"></a>Föråldrad fördefinierade datum/tid
 
-Den `datetime` färdiga entiteten är föråldrad och ersättas med [ `datetimeV2` ](#builtindatetimev2). 
+Den `datetime` fördefinierade entiteten är inaktuell och ersatts av **datetimeV2**. 
 
-Ersätt `datetime` med `datetimeV2` i appen THOMAS gör du följande:
+Ersätt `datetime` med `datetimeV2` i din LUIS-app, gör du följande:
 
-1. Öppna den **entiteter** rutan THOMAS webbgränssnitt. 
-2. Ta bort den **datetime** färdiga entitet.
-3. Klicka på **lägga till färdiga entitet**
-4. Välj **datetimeV2** och på **spara**.
+1. Öppna den **entiteter** rutan i LUIS-webbgränssnittet. 
+2. Ta bort den **datetime** fördefinierade entitet.
+3. Klicka på **Lägg till fördefinierade entitet**
+4. Välj **datetimeV2** och klicka på **spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: Installera och konfigurera PowerShell för Azure-stacken quickstart | Microsoft Docs
-description: Läs mer om hur du installerar och konfigurerar PowerShell för Azure-stacken.
+title: Installera och konfigurera PowerShell för Azure Stack-Snabbstart | Microsoft Docs
+description: Läs mer om att installera och konfigurera PowerShell för Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 66598bda7ca1fcf5c6e05ab47232236b740177a6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 70c1fd72df437ade3bc12cd23db923f6d449e7fb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075246"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465751"
 ---
-# <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Komma igång med PowerShell i Azure-stacken
+# <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Kom igång med PowerShell i Azure Stack
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Den här snabbstarten hjälper dig att installera och konfigurera en Azure-Stack-miljö med PowerShell. Skriptet som vi tillhandahåller i den här artikeln är begränsad till den **Azure Stack operatorn** endast.
+Den här snabbstarten hjälper dig att installera och konfigurera en Azure Stack-miljön med PowerShell. Skriptet som vi tillhandahåller i den här artikeln är begränsad till den **Azure Stack-operatör** endast.
 
-Den här artikeln är en komprimerad version av stegen som beskrivs i den [installera PowerShell]( azure-stack-powershell-install.md), [hämta verktyg]( azure-stack-powershell-download.md), och [konfigurera operatorn Stack Azure PowerShell-miljö]( azure-stack-powershell-configure-admin.md) artiklar. Genom att använda skript i det här avsnittet kan ställa du in PowerShell för Azure Stack-miljöer som distribueras med Azure Active Directory eller Active Directory Federation Services (AD FS).  
+Den här artikeln är en komprimerad version av stegen som beskrivs i den [installera PowerShell]( azure-stack-powershell-install.md), [ladda ned verktyg]( azure-stack-powershell-download.md), och [konfigurera Azure Stack-operatör PowerShell-miljö]( azure-stack-powershell-configure-admin.md) artiklar. Genom att använda skripten i det här avsnittet kan konfigurera du PowerShell för Azure Stack-miljöer som distribueras med Azure Active Directory eller Active Directory Federation Services (AD FS).  
 
 
 ## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Konfigurera PowerShell för Azure Active Directory-baserade distributioner
 
-Logga in på ditt Azure-stacken Development Kit eller en extern Windows-baserad klient om du är ansluten via VPN. Öppna en upphöjd PowerShell ISE-session och kör följande skript. Se till att uppdatera den **TenantName**, **ArmEndpoint**, och **GraphAudience** variabler som krävs i din miljö konfiguration:
+Logga in på Azure Stack Development Kit eller en extern Windows-baserad klient om du är ansluten via VPN. Öppna en upphöjd PowerShell ISE-session och kör sedan följande skript. Se till att uppdatera den **TenantName**, **ArmEndpoint**, och **GraphAudience** variabler som krävs för din miljökonfiguration:
 
 ```powershell
 # Specify Azure Active Directory tenant name.
@@ -100,7 +100,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 ## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>Konfigurera PowerShell för AD FS-baserade distributioner
 
-Du kan använda följande skript om du använder Azure Stack när du är ansluten till internet. Men om du använder Azure-stacken utan Internetanslutning, använder den [frånkopplad sätt att installera PowerShell](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) och cmdletar för att konfigurera PowerShell ska vara samma som det visas i det här skriptet. Logga in på ditt Azure-stacken Development Kit eller en extern Windows-baserad klient om du är ansluten via VPN. Öppna en upphöjd PowerShell ISE-session och kör följande skript. Se till att uppdatera den **ArmEndpoint** och **GraphAudience** variabler som krävs i din miljö konfiguration:
+Du kan använda följande skript om du använder Azure Stack när du är ansluten till internet. Men om du använder Azure Stack utan Internetanslutning, använda den [frånkopplad sätt att installera PowerShell](azure-stack-powershell-install.md) och cmdletar för att konfigurera PowerShell förblir samma som visas i det här skriptet. Logga in på Azure Stack Development Kit eller en extern Windows-baserad klient om du är ansluten via VPN. Öppna en upphöjd PowerShell ISE-session och kör sedan följande skript. Se till att uppdatera den **ArmEndpoint** och **GraphAudience** variabler som krävs för din miljökonfiguration:
 
 ```powershell
 
@@ -173,9 +173,9 @@ New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
 > [!note]  
-> Om du vill ange en resursgrupp, behöver du ha en resursgrupp i din prenumeration. Mer information om prenumerationer finns [Plan, erbjudande, kvoter och prenumeration översikt](azure-stack-plan-offer-quota-overview.md)
+> Om du vill ange en resursgrupp, måste du ha en resursgrupp i din prenumeration. Mer information om prenumerationer finns i [översikt över Plan, erbjudande, kvot och prenumeration](azure-stack-plan-offer-quota-overview.md)
 
-När resursgruppen har skapats kan den **Etableringsstatus** egenskap är inställd på **lyckades**.
+När resursgruppen har skapats kan den **Etableringsstatus** är inställd på **lyckades**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -39,8 +39,10 @@
       href: how-to-customize-language-model.md
     - name: Anpassa uttal
       href: how-to-customize-pronunciation.md
-    - name: Anpassa rösttyper (Bot Brand Voice)
+    - name: Anpassa rösttyper (bot brand voice)
       href: how-to-customize-voice-font.md
+    - name: Spela in röstexempel
+      href: record-custom-voice-samples.md
     - name: Förbered avskrifter
       href: prepare-transcription.md
     - name: Använda anpassade ljudströmmar

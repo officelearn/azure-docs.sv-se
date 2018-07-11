@@ -84,8 +84,6 @@
           href: sql-database-service-tiers-dtu.md
         - name: Resursbegränsningar
           href: sql-database-resource-limits.md
-    - name: Hög tillgänglighet
-      href: sql-database-high-availability.md
     - name: Logiska servrar och enkla databaser
       items:
         - name: Logiska servrar och enkla databaser
@@ -128,8 +126,46 @@
           href: sql-database-managed-instance-connect-app.md
         - name: T-SQL-skillnader
           href: sql-database-managed-instance-transact-sql-information.md
-    - name: Vanliga funktioner i SQL Server
-      href: sql-database-features.md
+    - name: Verksamhetskontinuitet
+      items:
+        - name: Verksamhetskontinuitet
+          href: sql-database-business-continuity.md
+        - name: Hög tillgänglighet
+          href: sql-database-high-availability.md
+        - name: Säkerhetskopior av databasen
+          href: sql-database-automated-backups.md
+        - name: Långsiktig kvarhållning av säkerhetskopior
+          itmes:
+            - name: Långsiktig kvarhållning av säkerhetskopior
+              href: sql-database-long-term-retention.md
+            - name: Konfigurera långsiktig kvarhållning av säkerhetskopior – SQL-lagring
+              href: sql-database-long-term-backup-retention-configure.md
+            - name: Konfigurera långsiktig kvarhållning av säkerhetskopior – Azure-valv (inaktuellt)
+              href: sql-database-long-term-backup-retention-configure-vault.md
+        - name: Redundansgrupper och geo-replikering
+          items:
+            - name: Redundansgrupper och geo-replikering
+              href: sql-database-geo-replication-overview.md
+            - name: Konfigurera geo-replikering – Portal
+              href: sql-database-geo-replication-portal.md
+            - name: Konfigurera säkerhet för repliker
+              href: sql-database-geo-replication-security-config.md
+        - name: Återställning av databaser
+          items:
+            - name: Återställning av databaser
+              href: sql-database-recovery-using-backups.md
+            - name: Återställa från driftavbrott
+              href: sql-database-disaster-recovery.md
+            - name: Utföra återställningstest
+              href: sql-database-disaster-recovery-drills.md
+        - name: Apputformning
+          items:
+            - name: Utforma för haveriberedskap
+              href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
+            - name: Utforma för elastiska pooler
+              href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
+            - name: Utforma för appuppgraderingar
+              href: sql-database-manage-application-rolling-upgrade.md
     - name: Säkerhet
       items:
         - name: Säkerhet
@@ -192,76 +228,56 @@
               href: sql-database-always-encrypted.md
             - name: Använda Azure-nyckelvalvet
               href: sql-database-always-encrypted-azure-key-vault.md
-    - name: Verksamhetskontinuitet
+    - name: Elastisk skalbarhet
       items:
-        - name: Verksamhetskontinuitet
-          href: sql-database-business-continuity.md
-        - name: Säkerhetskopior av databasen
-          href: sql-database-automated-backups.md
-        - name: Långsiktig kvarhållning av säkerhetskopior
-          itmes:
-            - name: Långsiktig kvarhållning av säkerhetskopior
-              href: sql-database-long-term-retention.md
-            - name: Konfigurera långsiktig kvarhållning av säkerhetskopior – SQL-lagring
-              href: sql-database-long-term-backup-retention-configure.md
-            - name: Konfigurera långsiktig kvarhållning av säkerhetskopior – Azure-valv (inaktuellt)
-              href: sql-database-long-term-backup-retention-configure-vault.md
-        - name: Redundansgrupper och geo-replikering
+        - name: Resursskalbarhet
+          href: sql-database-scale-resources.md
+        - name: Lässkalbarhet
+          href: sql-database-read-scale-out.md
+        - name: Horisontell partitionering av databas
           items:
-            - name: Redundansgrupper och geo-replikering
-              href: sql-database-geo-replication-overview.md
-            - name: Konfigurera geo-replikering – Portal
-              href: sql-database-geo-replication-portal.md
-            - name: Konfigurera säkerhet för repliker
-              href: sql-database-geo-replication-security-config.md
-        - name: Återställning av databaser
-          items:
-            - name: Återställning av databaser
-              href: sql-database-recovery-using-backups.md
-            - name: Återställa från driftavbrott
-              href: sql-database-disaster-recovery.md
-            - name: Utföra återställningstest
-              href: sql-database-disaster-recovery-drills.md
-        - name: Apputformning
-          items:
-            - name: Utforma för haveriberedskap
-              href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
-            - name: Utforma för elastiska pooler
-              href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
-            - name: Utforma för appuppgraderingar
-              href: sql-database-manage-application-rolling-upgrade.md
-    - name: Migrera till SQL Database
-      items:
-        - name: Migrera till SQL Database
-          href: sql-database-cloud-migrate.md
-        - name: Migrera till Managed Instance
-          href: sql-database-managed-instance-migrate.md
-        - name: Hantera SQL Database efter migrering
-          href: sql-database-manage-after-migration.md
-    - name: Läs in och flytta data
-      items:
-        - name: Kopiera en databas inom Azure
-          href: sql-database-copy.md
-        - name: Importera en databas från en BACPAC-fil
-          href: sql-database-import.md
-        - name: Exportera en databas till en BACPAC-fil
-          href: sql-database-export.md
-        - name: Datasynkronisering
-          items:
-            - name: SQL Data Sync
-              href: sql-database-sync-data.md
-            - name: Replikera schemaändringar
-              href: sql-database-update-sync-schema.md
-            - name: Övervaka med OMS
-              href: sql-database-sync-monitor-oms.md
-            - name: Metodtips för Data Sync
-              href: sql-database-best-practices-data-sync.md
-            - name: Felsöka Data Sync
-              href: sql-database-troubleshoot-data-sync.md
-        - name: Läs in data med BCP
-          href: sql-database-load-from-csv-with-bcp.md
-        - name: Läs in data med ADF
-          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
+            - name: Horisontell partitionering av databas
+              href: sql-database-elastic-scale-introduction.md
+            - name: Elastiskt klientbibliotek – konsolidering
+              href: sql-database-elastic-database-client-library.md
+            - name: Uppgradera klientbibliotek för elastiska databaser
+              href: sql-database-elastic-scale-upgrade-client-library.md
+            - name: Shardkartor
+              href: sql-database-elastic-scale-shard-map-management.md
+            - name: Routning för frågor
+              href: sql-database-elastic-scale-data-dependent-routing.md
+            - name: Hantera autentiseringsuppgifter
+              href: sql-database-elastic-scale-manage-credentials.md
+            - name: Shardfrågor
+              href: sql-database-elastic-scale-multishard-querying.md
+            - name: Elastiska verktyg
+              href: sql-database-elastic-scale-glossary.md
+            - name: Flytta shardade data
+              href: sql-database-elastic-scale-overview-split-and-merge.md
+            - name: Elastiskt klientbibliotek – Dapper
+              href: sql-database-elastic-scale-working-with-dapper.md
+            - name: Vanliga frågor och svar om elastiska verktyg
+              href: sql-database-elastic-scale-faq.md
+            - name: Skapa shardad app
+              href: sql-database-elastic-scale-get-started.md
+            - name: Fråga vågrätt shardade data
+              href: sql-database-elastic-query-getting-started.md
+            - name: Flytta shardade data
+              href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
+            - name: Säkerhetskonfiguration
+              href: sql-database-elastic-scale-split-merge-security-configuration.md
+            - name: Lägg till en shard
+              href: sql-database-elastic-scale-add-a-shard.md
+            - name: Lösa problem i shardkarta
+              href: sql-database-elastic-database-recovery-manager.md
+            - name: Migrera shardad databas
+              href: sql-database-elastic-convert-to-use-elastic-tools.md
+            - name: Skapa räknare
+              href: sql-database-elastic-database-perf-counters.md
+            - name: Använda Entity Framework
+              href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
+    - name: Jämförelse av SQL-funktioner
+      href: sql-database-features.md
     - name: Övervaka och finjustera
       items:
         - name: Övervaka och finjustera
@@ -318,52 +334,6 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
-    - name: Skala ut
-      items:
-        - name: Lässkalbarhet
-          href: sql-database-read-scale-out.md
-        - name: Horisontell partitionering av databas
-          items:
-            - name: Horisontell partitionering av databas
-              href: sql-database-elastic-scale-introduction.md
-            - name: Elastiskt klientbibliotek – konsolidering
-              href: sql-database-elastic-database-client-library.md
-            - name: Uppgradera klientbibliotek för elastiska databaser
-              href: sql-database-elastic-scale-upgrade-client-library.md
-            - name: Shardkartor
-              href: sql-database-elastic-scale-shard-map-management.md
-            - name: Routning för frågor
-              href: sql-database-elastic-scale-data-dependent-routing.md
-            - name: Hantera autentiseringsuppgifter
-              href: sql-database-elastic-scale-manage-credentials.md
-            - name: Shardfrågor
-              href: sql-database-elastic-scale-multishard-querying.md
-            - name: Elastiska verktyg
-              href: sql-database-elastic-scale-glossary.md
-            - name: Flytta shardade data
-              href: sql-database-elastic-scale-overview-split-and-merge.md
-            - name: Elastiskt klientbibliotek – Dapper
-              href: sql-database-elastic-scale-working-with-dapper.md
-            - name: Vanliga frågor och svar om elastiska verktyg
-              href: sql-database-elastic-scale-faq.md
-            - name: Skapa shardad app
-              href: sql-database-elastic-scale-get-started.md
-            - name: Fråga vågrätt shardade data
-              href: sql-database-elastic-query-getting-started.md
-            - name: Flytta shardade data
-              href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
-            - name: Säkerhetskonfiguration
-              href: sql-database-elastic-scale-split-merge-security-configuration.md
-            - name: Lägg till en shard
-              href: sql-database-elastic-scale-add-a-shard.md
-            - name: Lösa problem i shardkarta
-              href: sql-database-elastic-database-recovery-manager.md
-            - name: Migrera shardad databas
-              href: sql-database-elastic-convert-to-use-elastic-tools.md
-            - name: Skapa räknare
-              href: sql-database-elastic-database-perf-counters.md
-            - name: Använda Entity Framework
-              href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: Åtgärder mellan databaser
       items:
         - name: Elastic Database-jobb
@@ -424,6 +394,40 @@
           href: sql-database-temporal-tables-retention-policy.md
         - name: Konfigurera minnesintern
           href: sql-database-in-memory-oltp-migration.md
+- name: Instruktionsguider
+  items:
+    - name: Migrera till SQL Database
+      items:
+        - name: Migrera till SQL Database
+          href: sql-database-cloud-migrate.md
+        - name: Migrera till Managed Instance
+          href: sql-database-managed-instance-migrate.md
+        - name: Hantera SQL Database efter migrering
+          href: sql-database-manage-after-migration.md
+    - name: Läs in och flytta data
+      items:
+        - name: Kopiera en databas inom Azure
+          href: sql-database-copy.md
+        - name: Importera en databas från en BACPAC-fil
+          href: sql-database-import.md
+        - name: Exportera en databas till en BACPAC-fil
+          href: sql-database-export.md
+        - name: Datasynkronisering
+          items:
+            - name: SQL Data Sync
+              href: sql-database-sync-data.md
+            - name: Replikera schemaändringar
+              href: sql-database-update-sync-schema.md
+            - name: Övervaka med OMS
+              href: sql-database-sync-monitor-oms.md
+            - name: Metodtips för Data Sync
+              href: sql-database-best-practices-data-sync.md
+            - name: Felsöka Data Sync
+              href: sql-database-troubleshoot-data-sync.md
+        - name: Läs in data med BCP
+          href: sql-database-load-from-csv-with-bcp.md
+        - name: Läs in data med ADF
+          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
     - name: Utveckla appar
       items:
         - name: Anslutning
@@ -448,8 +452,6 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
-- name: Instruktionsguider
-  items:
     - name: Referensarkitektur för SaaS med flera klientorganisationer
       items:
         - name: Exempel på Wingtip-biljetter

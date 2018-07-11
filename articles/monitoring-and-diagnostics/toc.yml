@@ -103,6 +103,8 @@
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Aktivera diagnostikinställningar med Resource Manager-mallar
           href: monitoring-enable-diagnostic-logs-using-template.md
+        - name: Förbered för JSON Lines-format för diagnostikloggar
+          href: monitor-diagnostic-logs-append-blobs.md
     - name: Använda aktivitetslogg
       items:
         - name: Visa händelser i aktivitetsloggen

@@ -127,11 +127,13 @@
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
-
 ### Felsöka
 #### [Granskningsdata som saknas](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Data som saknas i nedladdningar](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Fel i innehållspaket för Azure Active Directory-aktivitetsloggar](active-directory-reporting-troubleshoot-content-pack.md)
+#### [Fel i API för Azure Active Directory-rapportering](active-directory-reporting-troubleshoot-graph-api.md)
+
+
 ### [Programmässig åtkomst](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Förutsättningar](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Granska exempel](active-directory-reporting-api-audit-samples.md)

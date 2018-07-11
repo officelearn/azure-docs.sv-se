@@ -1,6 +1,6 @@
 ---
-title: Bokför distributionskonfigurationer för Azure Stack Development Kit (ASDK) | Microsoft Docs
-description: Beskriver de rekommenderade konfigurationsändringarna som gör när du har installerat Azure Stack Development Kit (ASDK).
+title: Publicera distributionskonfigurationer för Azure Stack Development Kit (ASDK) | Microsoft Docs
+description: Beskriver rekommenderade konfigurationsändringarna ska göra när du har installerat Azure Stack Development Kit (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: ec5947bc68ba95a7b1e1588c444f4b28a7435f1c
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 23d99c498c139da3a145a1df230f419b4591b256
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801558"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598449"
 ---
-# <a name="post-asdk-installation-configuration-tasks"></a>Publicera ASDK installation konfigurationsuppgifter
+# <a name="post-asdk-installation-configuration-tasks"></a>Publicera konfigurationsuppgifter för ASDK installation
 
-Efter [installerar Azure Stack Development Kit (ASDK)](asdk-install.md), måste du ändra en vissa rekommenderade konfiguration efter installationen.
+Efter [installerar Azure Stack Development Kit (ASDK)](asdk-install.md), behöver du ändra en vissa rekommenderade konfiguration efter installationen.
 
 ## <a name="install-azure-stack-powershell"></a>Installera Azure Stack PowerShell
 
-Azure Stack kompatibla Azure PowerShell-moduler som krävs för att arbeta med Azure-stacken.
+Azure Stack-kompatibla Azure PowerShell-moduler som krävs för att arbeta med Azure Stack.
 
-PowerShell-kommandon för Azure-stacken installeras via PowerShell-galleriet. Öppna en upphöjd PowerShell-session för att registrera PSGallery databasen och kör följande kommando:
+PowerShell-kommandon för Azure Stack installeras via PowerShell-galleriet. Att registrera PSGallery databasen, öppna en upphöjd PowerShell-session och kör följande kommando:
 
 ``` Powershell
 Set-PSRepository `
@@ -38,14 +38,14 @@ Set-PSRepository `
   -InstallationPolicy Trusted
 ```
 
-Du kan använda profiler för API-version för att ange Azure-stacken kompatibel AzureRM moduler.  Profiler för API-versionen är ett sätt att hantera skillnaderna mellan Azure och Azure-stacken. En profil för API-versionen är en uppsättning AzureRM PowerShell-moduler med specifika API-versioner. Den **AzureRM.Bootstrapper** modul som finns tillgängliga via PowerShell-galleriet tillhandahåller PowerShell-cmdlets som krävs för att arbeta med profiler för API-version.
+Du kan använda API-versionsprofiler för att ange Azure Stack-kompatibla AzureRM-moduler.  API-versionsprofiler är ett sätt att hantera skillnaderna mellan Azure och Azure Stack. En profil för API-versionen är en uppsättning AzureRM PowerShell-moduler med specifika API-versioner. Den **AzureRM.Bootstrapper** modulen som är tillgänglig via PowerShell-galleriet innehåller PowerShell-cmdlets som krävs för att arbeta med API-versionsprofiler.
 
 Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Internet-anslutning till värddatorn ASDK:
 
 > [!IMPORTANT]
-> Innan du installerar versionen som krävs, se till att du [avinstallera alla befintliga Azure PowerShell-moduler](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell).
+> Innan du installerar versionen som krävs, se till att du [avinstallera alla befintliga Azure PowerShell-moduler](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-the-azure-stack-powershell-modules).
 
-- **Med en Internetanslutning** från värddatorn ASDK. Kör följande PowerShell-skript för att installera dessa moduler på development kit installationen:
+- **Med en Internetanslutning** från värddatorn ASDK. Kör följande PowerShell-skript för att installera dessa moduler på din development kit-installation:
 
   ``` PowerShell
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
@@ -61,9 +61,9 @@ Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Inte
 
   ```
 
-  Om installationen lyckas visas AzureRM och AzureStack-moduler i utdata.
+  Om installationen lyckas visas AzureRM- och AzureStack-moduler i utdata.
 
-- **Utan Internetanslutning** från värddatorn ASDK. I ett frånkopplat scenario måste du först hämta PowerShell-moduler för en dator som är ansluten till internet med hjälp av följande PowerShell-kommandon:
+- **Utan Internetanslutning** från värddatorn ASDK. I ett scenario med frånkopplade måste du först hämta PowerShell-moduler på en dator som är ansluten till internet med hjälp av följande PowerShell-kommandon:
 
   ```PowerShell
   $Path = "<Path that is used to save the packages>"
@@ -86,7 +86,7 @@ Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Inte
     -RequiredVersion 1.3.0
   ```
 
-  Därefter kopiera de hämta paketen till ASDK datorn och registrera platsen till standarddatabas och installera modulerna AzureRM och AzureStack från den här lagringsplatsen:
+  Sedan kopiera de hämta paketen till ASDK-dator och registrera platsen som standard-databasen och installerar AzureRM- och AzureStack-moduler från den här lagringsplatsen:
 
     ```PowerShell  
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
@@ -104,9 +104,9 @@ Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Inte
       -Repository $RepoName
     ```
 
-## <a name="download-the-azure-stack-tools"></a>Hämta Azure Stack-verktyg
+## <a name="download-the-azure-stack-tools"></a>Ladda ned Azure Stack-verktyg
 
-[AzureStack verktyg](https://github.com/Azure/AzureStack-Tools) är en GitHub-lagringsplats som är värd för PowerShell-moduler för att hantera och distribuera resurser till Azure-stacken. Om du vill hämta verktygen klona GitHub-lagringsplatsen eller hämta mappen AzureStack verktyg genom att köra följande skript:
+[Verktyg för AzureStack](https://github.com/Azure/AzureStack-Tools) är en GitHub-lagringsplats som är värd för PowerShell-moduler för att hantera och distribuera resurser till Azure Stack. Klona GitHub-databasen för att få dessa verktyg eller ladda ned mappen AzureStack verktyg genom att köra följande skript:
 
   ```PowerShell
   # Change directory to the root directory. 
@@ -128,45 +128,45 @@ Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Inte
   ```
 
 ## <a name="validate-the-asdk-installation"></a>Verifiera installationen ASDK
-Du kan använda cmdleten Test-AzureStack genom att följa dessa steg för att säkerställa att distributionen ASDK lyckades:
+För att säkerställa att ASDK distributionen har lyckats, kan du använda cmdleten Test-AzureStack genom att följa dessa steg:
 
 1. Logga in som AzureStack\AzureStackAdmin på värddatorn ASDK.
 2. Öppna PowerShell som administratör (inte PowerShell ISE).
 3. Kör: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
 4. Kör: `Test-AzureStack`
 
-Testerna ta några minuter att slutföra. Om installationen har lyckats resultatet ser ut ungefär så:
+Testerna ta ett par minuter att slutföra. Om installationen slutfördes korrekt visas utdata ser ut ungefär så:
 
 ![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
-Om ett fel uppstod, följ felsökningsstegen för att få hjälp.
+Om det uppstod ett fel, följer du anvisningarna för att få hjälp.
 
-## <a name="activate-the-administrator-and-tenant-portals"></a>Aktivera portaler administratör och klient
-Du måste aktivera både Azure Stack-administratör och klienten portaler när distributioner som använder Azure AD. Den här aktiveringen samtycker till att ge Azure-Stack-portalen och Azure Resource Manager rätt behörigheter (som visas på sidan medgivande) för alla användare av katalogen.
+## <a name="activate-the-administrator-and-tenant-portals"></a>Aktivera administratör och klient-portaler
+När du har distributioner som använder Azure AD, måste du aktivera båda Azure Stack-administratör och klient portaler. Den här aktiveringen godkänner ger Azure Stack-portalen och Azure Resource Manager rätt behörigheter (som visas på sidan medgivande) för alla användare av katalogen.
 
-- För administratörsportalen, gå till https://adminportal.local.azurestack.external/guest/signup, Läs informationen och klicka sedan på **acceptera**. När du accepterar bör du lägga till tjänstadministratörer som inte är också directory innehavaradministratörer.
+- Administratörsportalen går du till https://adminportal.local.azurestack.external/guest/signup, Läs informationen och klicka sedan på **acceptera**. Efter att du godkänt, kan du lägga till administratörer som inte är också directory-klientadministratörer.
 
-- För klientportal, gå till https://portal.local.azurestack.external/guest/signup, Läs informationen och klicka sedan på **acceptera**. När du accepterar, kan användare i katalogen logga in på klientportalen. 
+- För klientportalen går du till https://portal.local.azurestack.external/guest/signup, Läs informationen och klicka sedan på **acceptera**. Efter att du godkänt, kan användare i katalogen logga in till klientportalen. 
 
 > [!NOTE] 
-> Om portalerna inte har aktiverat directory administratören logga in och använda portalerna. Om en annan användare loggar in, visas ett fel som talar om att administratören inte har behörighet till andra användare. När administratören inte internt hör till den katalog som Azure-stacken är registrerad på måste Azure-stacken katalogen läggas till Aktiverings-URL. Till exempel om Azure-stacken är registrerad på fabrikam.onmicrosoft.com och Administratörsanvändare är admin@contoso.com, navigera till https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com att aktivera portalen. 
+> Om portalerna inte har aktiverat kan endast directory-administratör logga in och använda portalerna. Om en annan användare loggar in, visas ett fel som talar om att administratören inte har behörighet till andra användare. När administratören internt inte tillhör den katalog som Azure Stack är registrerad, måste Azure Stack-katalog läggas till Aktiverings-URL. Till exempel om Azure Stack är registrerad på fabrikam.onmicrosoft.com och administratören är admin@contoso.com, navigera till https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com att aktivera på portalen. 
 
 ## <a name="reset-the-password-expiration-policy"></a>Återställ förfalloprincipen för lösenord 
-Följ dessa steg om du vill kontrollera att lösenordet för development kit värden inte upphör att gälla innan din utvärdering avslutas, när du har distribuerat ASDK.
+Följ dessa steg för att säkerställa att lösenordet för development kit värden inte går ut innan din utvärderingsversion har upphört att gälla, när du har distribuerat ASDK.
 
 ### <a name="to-change-the-password-expiration-policy-from-powershell"></a>Ändra förfalloprincipen för lösenord från Powershell:
-Kör kommandot från en upphöjd Powershell-konsolen:
+Kör kommandot från en upphöjd Powershell-konsol:
 
 ```powershell
 Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local
 ```
 
 ### <a name="to-change-the-password-expiration-policy-manually"></a>Ändra förfalloprincipen för lösenord manuellt:
-1. Öppna på development kit värden **Grupprinciphantering** (GPMC. MMC) och gå till **Grupprinciphantering** – **skog: azurestack.local** – **domäner** – **azurestack.local**.
-2. Högerklicka på **Standarddomänprincip** och på **redigera**.
-3. I den Redigeraren för Grupprinciphantering, navigera till **Datorkonfiguration** – **principer** – **Windowsinställningar** – **säkerhetsinställningar**– **Konto principer** – **lösenordsprincip**.
+1. Öppna på development kit värden **Group Policy Management** (GPMC. MMC) och gå till **Group Policy Management** – **skog: azurestack.local** – **domäner** – **azurestack.local**.
+2. Högerklicka på **Standarddomänprincip** och klicka på **redigera**.
+3. I den Redigeraren för Grupprinciphantering, navigera till **Datorkonfiguration** – **principer** – **Windows-inställningar** – **säkerhetsinställningar**– **Kontoprinciper** – **lösenordsprincip**.
 4. I den högra rutan, dubbelklickar du på **högsta ålder för lösenord**.
-5. I den **högsta ålder för lösenord egenskaper** i dialogrutan den **lösenord upphör att gälla om** värde till **180**, och klicka sedan på **OK**.
+5. I den **högsta ålder för lösenord egenskaper** i dialogrutan den **lösenord upphör att gälla i** värde att **180**, och klicka sedan på **OK**.
 
 ![Konsolen Grupprinciphantering](media/asdk-post-deploy/gpmc.png)
 

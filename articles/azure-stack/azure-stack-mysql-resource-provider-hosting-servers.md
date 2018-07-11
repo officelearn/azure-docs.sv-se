@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 60f1978b4173f169ad14deb67b075a61f9e7f149
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: bccc2dcad8e326cd29cfe031a95a7c2d0cf5ec7f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344146"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38302321"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Lägg till värdservrar för MySQL-resursprovider
 
@@ -52,9 +52,6 @@ Kontrollera att du har autentiseringsuppgifter för ett konto med systemadminist
    ![Skapa en MySQL-SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
    SKU: N **namn** bör återspegla egenskaperna för SKU: N så att användare kan distribuera sina databaser till lämplig SKU.
-
-   >[!IMPORTANT]
-   >Specialtecken, inklusive blanksteg och punkter, stöds inte i **namn** eller **nivå** när du skapar en SKU för MySQL-resursprovidern.
 
 6. Välj **OK** skapa SKU: N.
 > [!NOTE]

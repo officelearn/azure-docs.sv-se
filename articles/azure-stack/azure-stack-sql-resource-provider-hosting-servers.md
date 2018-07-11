@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/10/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e8dd425bbb5839b1c2f5ad4e217c61dc50b38ce1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c9249de56979d47a29fc9d7c12b99e41b3ada0fd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346832"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465845"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Lägg till värdservrar för SQL-resursprovider
 
@@ -100,9 +100,6 @@ Följ dessa steg för att lägga till en fristående värd-server som redan har 
    * Välj en tillgänglig SKU för att använda en befintlig SKU, och välj sedan **skapa**.
    * Om du vill skapa en SKU, Välj **+ skapa nya SKU: N**. I **skapa SKU**, ange informationen som krävs och välj sedan **OK**.
 
-     > [!IMPORTANT]
-     > Specialtecken, inklusive blanksteg och punkter, stöds inte i **namn** fält. Använd exemplen i följande skärmbild för att ange värden för den **familj**, **nivå**, och **Edition** fält.
-
      ![Skapa en SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Ge hög tillgänglighet med hjälp av SQL Always On-Tillgänglighetsgrupper
@@ -119,16 +116,18 @@ Konfigurera SQL Always On-instanser kräver ytterligare åtgärder och kräver t
 
 Du måste aktivera [automatisk Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) på varje tillgänglighetsgrupp för varje instans av SQL Server.
 
-Om du vill aktivera automatisk seeding på alla instanser, redigera och kör följande SQL-kommando för varje instans:
+Om du vill aktivera automatisk seeding på alla instanser, redigera och kör följande SQL-kommando på den primära repliken för varje sekundär instans:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON 'InstanceName'
+      MODIFY REPLICA ON '<secondary_node>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```
 
-På sekundära instanserna, redigera och kör följande SQL-kommando för varje instans:
+Observera att tillgänglighetsgruppen måste omges av hakparenteser.
+
+Kör följande SQL-kommando på de sekundära noderna:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -156,7 +155,7 @@ Med dessa kommandon anger alternativet innesluten databas authentication server 
 
    Under **som är värd för SQL-servrar**, kan du ansluta SQL Server-Resursleverantör till själva instanserna av SQL Server som fungerar som serverdel för provider för nätverksresurser.
 
-3. Fyll i formuläret med anslutningsinformationen för SQL Server-instansen. Se till att du använder FQDN-adressen för alltid-lyssnare för (och valfritt portnummer.) Ange information för det konto som du konfigurerat med sysadmin-behörighet.
+3. Fyll i formuläret med anslutningsinformationen för SQL Server-instansen. Se till att du använder FQDN-adressen för alltid-lyssnare för (och valfritt antal och instans-portnamn). Ange information för det konto som du konfigurerat med sysadmin-behörighet.
 
 4. Markera rutan Always On Availability Group om du vill aktivera stöd för SQL Always On Availability Group-instanser.
 

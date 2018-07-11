@@ -10,6 +10,8 @@
   items:
     - name: Distribuera en fjärrövervakningslösning
       href: quickstart-remote-monitoring-deploy.md
+    - name: Distribuera en enhetssimuleringslösning
+      href: quickstart-device-simulation-deploy.md
 - name: Självstudier
   items:
     - name: Övervaka IoT-enheter
@@ -149,10 +151,10 @@
           href: iot-accelerators-connected-factory-customize.md
     - name: Enhetssimulering
       items:
-        - name: Distribuera en lösningsaccelerator
-          href: iot-accelerators-device-simulation-deploy.md
-        - name: Köra en simulering
-          href: iot-accelerators-device-simulation-explore.md
+        - name: Använd en befintlig IoT Hub
+          href: iot-accelerators-device-simulation-choose-hub.md
+        - name: Använd en anpassad enhetsmodell
+          href: iot-accelerators-device-simulation-custom-model.md
 - name: Referens
   items:
     - name: Referensguide för utvecklare

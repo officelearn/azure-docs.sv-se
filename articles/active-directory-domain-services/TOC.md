@@ -54,6 +54,7 @@
 #### [Återställa tjänstens huvudnamn som saknas](active-directory-ds-troubleshoot-service-principals.md)
 #### [Säkert LDAP – fel](active-directory-ds-troubleshoot-ldaps.md)
 ### [Lös felmatchade klientfel](active-directory-ds-mismatched-tenant-error.md)
+### [Inaktiverade domäner](active-directory-ds-suspension.md)
 
 
 # Referens

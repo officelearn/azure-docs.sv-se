@@ -12,23 +12,23 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/30/2018
+  ms.date: 07/06/2018
   ms.author: mlearned
-  ms.openlocfilehash: c3021a8d08938deceb9ec2154ddec014bd067508
-  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.openlocfilehash: f9137634c6b2ec07364939cb965b4cabaf5bad3a
+  ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 05/07/2018
-  ms.locfileid: "33778655"
+  ms.lasthandoff: 07/10/2018
+  ms.locfileid: "37951931"
 abstract:
   description: Azure DevOps-projektet ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett av exempelprogrammen för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure.
   aside:
     image:
       alt: 
       height: 110
-      src: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/_img/azure-devops-project-aspnetcore/fullbrowser.png
+      src: _img\video-devops-project.png
       width: 250
-    title: Skapa CI/CD med Azure DevOps-projekt (8:53)
+    title: Skapa CI/CD med Azure DevOps-projektvideo (8:53)
     href: https://channel9.msdn.com/Events/Connect/2017/T174/player/
     width: 250
 sections:
@@ -42,31 +42,31 @@ sections:
     - image:
         src: media\logo_net.svg
       text: .NET
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore
+      href: /azure/devops-project/azure-devops-project-aspnet-core
     - image:
         src: media\logo_nodejs.svg
       text: Node.js
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-nodejs
+      href: /azure/devops-project/azure-devops-project-nodejs
     - image:
         src: media\logo_java.svg
       text: Java
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-java
+      href: /azure/devops-project/azure-devops-project-java
     - image:
         src: media\logo_python.svg
       text: Python
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-python
+      href: /azure/devops-project/azure-devops-project-python
     - image:
         src: media\logo_php.svg
       text: PHP
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-php
+      href: /azure/devops-project/azure-devops-project-php
     - image:
         src: media\logo_ruby.svg
       text: Ruby
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-ruby
+      href: /azure/devops-project/azure-devops-project-ruby
     - image:
         src: media\logo_gopher.svg
       text: Go
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-go
+      href: /azure/devops-project/azure-devops-project-go
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
@@ -74,8 +74,8 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-github">Ta med din egen kod med GitHub</a>
-    - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-vms">Distribuera din ASP.NET-app till virtuella Azure-datorer</a>
-    - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-sqldb">Distribuera din ASP.NET-app och Azure SQL Database</a>
-    - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-aks">Distribuera din app till Azure Container Service och Kubernetes</a>
-    - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-servicefabric">Distribuera din app till Azure Service Fabric</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-github">Ta med din egen kod med GitHub</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-vms">Distribuera din ASP.NET-app till virtuella Azure-datorer</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-sql-database">Distribuera din ASP.NET-app och Azure SQL Database</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-aks">Distribuera din app till Azure Container Service och Kubernetes</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-service-fabric">Distribuera din app till Azure Service Fabric</a>

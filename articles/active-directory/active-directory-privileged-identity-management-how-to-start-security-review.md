@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 28a998647dacdf57390638b8ce1629a76077b450
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 38386de86c83733e3539048de9e263ed6225eee5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446902"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952168"
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Så här startar du en åtkomstgranskning i Azure AD Privileged Identity Management
 Rolltilldelningar blir ”inaktuell” när användarna har privilegierad åtkomst som de inte behöver längre. För att minska riskerna med dessa inaktuella rolltilldelningar Privilegierade roller bör eller globala administratörer regelbundet skapa åtkomstgranskningar om du vill ställa administratörer att granska de roller som användare har fått. Det här dokumentet beskriver steg för att starta en åtkomstgranskning i Azure AD Privileged Identity Management (PIM).
@@ -37,12 +37,12 @@ Det finns tre sätt att starta en åtkomstgranskning från PIM programmet huvuds
 
 När du klickar på den **granska** knapp, den **starta en åtkomstgranskning** bladet visas. På det här bladet ska du konfigurera granskningen med ett namn och en tid, Välj en roll att granska och bestämma vem som ska utföra granskningen.
 
-![Starta en åtkomstgranskning – skärmbild][1]
+![Starta en åtkomstgranskning – skärmbild](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png)
 
 ### <a name="configure-the-review"></a>Konfigurera granskningen
 Om du vill skapa en åtkomstgranskning, måste du ge den namnet och ange ett start- och datum.
 
-![Konfigurera granskning – skärmbild][2]
+![Konfigurera granskning – skärmbild](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png)
 
 Kontrollera längden på Granska tillräckligt länge för användare att slutföra den. Om du är klar innan slutdatumet kan stoppa du alltid granskningen tidigt.
 
@@ -51,7 +51,7 @@ Varje recension fokuserar på endast en roll. Såvida du inte startade åtkomstg
 
 1. Gå till **granska rollmedlemskap**
    
-    ![Granska rollmedlemskap – skärmbild][3]
+    ![Granska rollmedlemskap – skärmbild](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png)
 2. Välj en roll i listan.
 
 ### <a name="decide-who-will-perform-the-review"></a>Bestämma vem som ska utföra granskningen
@@ -59,7 +59,7 @@ Det finns tre alternativ för att utföra en granskning. Du kan tilldela granskn
 
 1. Gå till **Välj granskare**
    
-    ![Välj granskare – skärmbild][4]
+    ![Välj granskare – skärmbild](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png)
 2. Välj något av alternativen:
    
    * **Välj granskare**: Använd det här alternativet om du inte vet vilka som behöver åtkomst. Med det här alternativet kan du tilldela granskningen till en resursägaren eller gruppansvarig för att slutföra.
@@ -79,10 +79,3 @@ Tills granskningsperioden är över, kan du påminna användarna om att slutför
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="pim-table-of-contents"></a>PIM innehållsförteckning
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png
-[3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
-[4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png

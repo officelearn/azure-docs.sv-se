@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 66036da19b0c7f49935b32272e963b3766497605
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 2ce202bbb1479db18fb88cfef4d510ae4cb39a78
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37438180"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952108"
 ---
 # <a name="plan-your-luis-app"></a>Planera din LUIS-app
 
@@ -53,7 +53,7 @@ En hierarkisk entitet är en särskild typ av en **enkel** entitet, definiera en
 
 Se [Dataextrahering](luis-concept-data-extraction.md#hierarchical-entity-data) mer information om hur du extraherar den hierarkiska entiteten från slutpunkten JSON frågesvaret. Försök hierarkisk entiteten [snabbstarten](luis-quickstart-intent-and-hier-entity.md) mer information om hur du använder en hierarkisk entitet.
 
-### <a name="composite-entity"></a>Sammansatt entitet
+### <a name="composite-entity"></a>sammansatt entitet
 En sammansatt entitet består av andra entiteter som utgör delar av en helhet. 
 
 ![sammansatt entitet](./media/luis-plan-your-app/composite-entity.png)
@@ -82,7 +82,7 @@ En entitet i reguljära uttryck kan LUIS för att extrahera data från ett uttry
 Se [Dataextrahering](luis-concept-data-extraction.md#regular-expression-entity-data) mer information om hur du extraherar reguljärt uttryck entiteter från slutpunkten JSON frågesvaret. Prova den [snabbstarten](luis-quickstart-intents-regex-entity.md) mer information om hur du använder en entitet för reguljärt uttryck.
 
 ## <a name="after-getting-endpoint-utterances"></a>När slutpunkten yttranden
-När din app hämtar endpoint yttranden, planerar att implementera förutsägelse förbättringar med [aktiv inlärning](label-suggested-utterances.md), [fras listor](luis-concept-feature.md), och [mönster](luis-concept-patterns.md). 
+När din app hämtar endpoint yttranden, planerar att implementera förutsägelse förbättringar med [aktiv inlärning](luis-how-to-review-endoint-utt.md), [fras listor](luis-concept-feature.md), och [mönster](luis-concept-patterns.md). 
 
 ### <a name="patternany-entity"></a>Pattern.any entitet
 Patterns.any är en platshållare för variabel längd som används endast i en [mönstret](luis-concept-patterns.md) mall-uttryck för att markera där entiteten börjar och slutar. Mallen yttranden överensstämmer med [korrekt syntax](luis-concept-patterns.md#pattern-syntax) att identifiera entiteter och ignorable text.

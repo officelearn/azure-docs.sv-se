@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: v-geberr
-ms.openlocfilehash: 83e5a8db9162ef1587664c0a353252c04ade45d8
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 7dc3d0ce70ca0df2c5cf951ae53ee0566451801f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887811"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952815"
 ---
 # <a name="entities-in-luis"></a>Entiteter i LUIS
 
@@ -77,7 +77,7 @@ LUIS erbjuder många typer av enheter. färdiga entiteter, anpassad dator lärt 
 **Fördefinierade** entiteter är anpassade entiteter som tillhandahålls av LUIS. Vissa av dessa entiteter har definierats i öppen källkod [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text) projekt. Det finns många [exempel](https://github.com/Microsoft/Recognizers-Text/tree/master/Specs) i katalogen /Specs för kulturer som stöds. Om din specifika kultur eller entitet inte stöds för närvarande, bidra till projektet. 
 
 <a name="machine-learned"></a>
-**Datorn lärt dig** entiteter fungerar bäst när testas [endpoint frågor](luis-concept-test.md#endpoint-testing) och [granska endpoint yttranden](label-suggested-utterances.md). 
+**Datorn lärt dig** entiteter fungerar bäst när testas [endpoint frågor](luis-concept-test.md#endpoint-testing) och [granska endpoint yttranden](luis-how-to-review-endoint-utt.md). 
 
 <a name="regex"></a>
 **Reguljärt uttryck entiteter** definieras av ett reguljärt uttryck som användaren anger som en del av dess definition. 

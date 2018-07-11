@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Felsökning Nätverkssäkerhetsgruppen konfiguration | Microsoft Docs'
-description: Felsöka NSG konfigurationen för Azure AD Domain Services
+title: 'Azure Active Directory Domain Services: Felsökning Nätverkssäkerhetsgrupp configuration | Microsoft Docs'
+description: Felsökning av NSG-konfiguration för Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
@@ -15,65 +15,65 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: 807dd2bdcc1e2ad18b1a93c3337c8244e3f1366b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 67f4f0850d0600fc7ca0f1323e7c7801187089f5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218987"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950742"
 ---
-# <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Felsöka ogiltig nätverkskonfigurationen för din hanterade domän
+# <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Felsöka ogiltig nätverkskonfiguration för din hanterade domän
 Den här artikeln hjälper dig att felsöka och lösa nätverksrelaterade konfigurationsfel som resulterar i följande varningsmeddelande:
 
 ## <a name="alert-aadds104-network-error"></a>Varning AADDS104: Nätverksfel
-**Varningsmeddelande:** *Microsoft kan inte nå domänkontrollanterna för den här hanterade domänen. Detta kan inträffa om en nätverkssäkerhetsgrupp (NSG) som har konfigurerats på din virtuella nätverk blockerar åtkomst till den hanterade domänen. En annan möjlig orsak är att om det finns en användardefinierad väg som blockerar inkommande trafik från internet.*
+**Varningsmeddelande:** *Microsoft kan inte nå domänkontrollanterna för den här hanterade domänen. Detta kan inträffa om en nätverkssäkerhetsgrupp (NSG) som har konfigurerats på ditt virtuella nätverk blockerar åtkomsten till den hanterade domänen. En annan möjlig orsak är att om det finns en användardefinierad väg som blockerar inkommande trafik från internet.*
 
-Ogiltig NSG konfigurationer är den vanligaste orsaken till nätverksfel för Azure AD Domain Services. Den Nätverkssäkerhetsgrupp (NSG) har konfigurerats för det virtuella nätverket måste tillåta åtkomst till [specifika portar](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). Om dessa portar blockeras kan inte Microsoft övervaka eller uppdatera din hanterade domän. Dessutom påverkas synkroniseringen mellan Azure AD-katalogen och din hanterade domän. När du skapar din NSG att dessa portar hålls öppna för att undvika avbrott i tjänsten.
+Ogiltig NSG-konfigurationer är den vanligaste orsaken för nätverksfel för Azure AD Domain Services. Den Nätverkssäkerhetsgrupp (NSG) konfigurerats för det virtuella nätverket måste tillåta åtkomst till [specifika portar](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). Om dessa portar blockeras kan inte Microsoft övervaka eller uppdatera din hanterade domän. Dessutom påverkas synkroniseringen mellan Azure AD-katalogen och din hanterade domän. När du skapar din NSG Låt portarna som är öppet för att undvika avbrott i tjänsten.
 
-### <a name="checking-your-nsg-for-compliance"></a>Kontrollera din NSG för efterlevnad
+### <a name="checking-your-nsg-for-compliance"></a>Kontrollera din NSG för kompatibilitet
 
-1. Navigera till den [Nätverkssäkerhetsgrupper](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) sida i Azure-portalen
-2. Välj NSG: N som är associerade med undernätet där din hanterade domän aktiveras från tabellen.
-3. Under **inställningar** i den vänstra panelen klickar du på **inkommande säkerhetsregler**
-4. Granska reglerna på plats och identifiera vilka regler som blockerar åtkomst till [portarna](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services).
-5. Redigera NSG: N för att säkerställa kompatibilitet genom att ta bort regeln, lägger till en regel eller skapa en ny NSG helt. Steg för att [lägga till en regel](#add-a-rule-to-a-network-security-group-using-the-azure-portal) eller [skapa en ny, kompatibla NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) är nedan.
+1. Navigera till den [Nätverkssäkerhetsgrupper](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) sidan på Azure portal
+2. Välj Nätverkssäkerhetsgrupp kopplad till undernätet där den hanterade domänen aktiveras från tabellen.
+3. Under **inställningar** i den vänstra panelen klickar du på **ingående säkerhetsregler**
+4. Granska reglerna på plats och identifiera vilka regler blockerar åtkomst till [dessa portar](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
+5. Redigera NSG: N för att säkerställa efterlevnad genom att antingen ta bort regeln, lägger till en regel eller skapa en ny NSG helt och hållet. Steg för att [lägga till en regel](#add-a-rule-to-a-network-security-group-using-the-azure-portal) eller [skapa en ny, kompatibla NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) är nedan
 
-## <a name="sample-nsg"></a>exempel NSG
-Följande tabell visar ett exempel på en NSG som vill skydda din hanterade domän samtidigt som Microsoft för att övervaka, hantera och uppdatera informationen.
+## <a name="sample-nsg"></a>Exemplet NSG
+I följande tabell visar ett exempel NSG som skulle skydda din hanterade domän samtidigt som Microsoft för att övervaka, hantera och uppdatera informationen.
 
-![exempel NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![exemplet NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
 >[!NOTE]
-> Azure AD Domain Services kräver obegränsad utgående åtkomst från det virtuella nätverket. Vi rekommenderar inte för att skapa alla ytterligare NSG-regler som begränsar utgående åtkomst för det virtuella nätverket.
+> Azure AD Domain Services kräver obegränsad utgående åtkomst från det virtuella nätverket. Vi rekommenderar inte för att skapa någon ytterligare NSG-regel som begränsar utgående åtkomst för det virtuella nätverket.
 
-## <a name="add-a-rule-to-a-network-security-group-using-the-azure-portal"></a>Lägga till en regel till en Nätverkssäkerhetsgrupp med Azure-portalen
-Om du inte vill använda PowerShell kan du manuellt lägga till regler som enda NSG: er med hjälp av Azure portal. Utför följande steg för att skapa regler i säkerhetsgrupp för nätverk:
+## <a name="add-a-rule-to-a-network-security-group-using-the-azure-portal"></a>Lägga till en regel i en grupp med Azure portal
+Om du inte vill använda PowerShell kan du manuellt lägga till regler för enkel NSG: er med Azure-portalen. För att skapa regler i nätverkssäkerhetsgruppen, gör du följande:
 
-1. Navigera till den [Nätverkssäkerhetsgrupper](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) sida i Azure-portalen
-2. Välj NSG: N som är associerade med undernätet där din hanterade domän aktiveras från tabellen.
-3. Under **inställningar** i den vänstra panelen klickar du antingen **inkommande säkerhetsregler** eller **utgående säkerhetsregler**.
+1. Navigera till den [Nätverkssäkerhetsgrupper](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) i Azure-portalen.
+2. Välj Nätverkssäkerhetsgrupp kopplad till undernätet där den hanterade domänen aktiveras från tabellen.
+3. Under **inställningar** i den vänstra panelen klickar du antingen **ingående säkerhetsregler** eller **utgående säkerhetsregler**.
 4. Skapa regeln genom att klicka på **Lägg till** och fylla i informationen. Klicka på **OK**.
-5. Kontrollera att regeln har skapats genom att söka efter tabellen.
+5. Kontrollera att regeln har skapats genom att leta upp den i tabellen.
 
 
 ## <a name="create-a-nsg-for-azure-ad-domain-services-using-powershell"></a>Skapa en NSG för Azure AD Domain Services med hjälp av PowerShell
-Den här NSG är konfigurerad för att tillåta inkommande trafik till de portar som krävs av Azure AD Domain Services, medan andra oönskad inkommande åtkomst nekas.
+NSG: N är konfigurerad för att tillåta inkommande trafik till de portar som krävs av Azure AD Domain Services, medan nekas andra oönskade inkommande åtkomst.
 
-**Nödvändig förutsättning: Installera och konfigurera Azure PowerShell** Följ instruktionerna för att [installera Azure PowerShell-modulen och ansluta till din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+**Förutsättning: Installera och konfigurera Azure PowerShell** Följ instruktionerna för att [installera Azure PowerShell-modulen och ansluta till din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 >[!TIP]
-> Vi rekommenderar att du använder den senaste versionen av Azure PowerShell-modulen. Om du redan har en äldre version av Azure PowerShell-modulen installerad uppdatera till den senaste versionen.
+> Vi rekommenderar att du använder den senaste versionen av Azure PowerShell-modulen. Om du redan har en äldre version av Azure PowerShell-modulen installerad kan du uppdatera till den senaste versionen.
 >
 
 Använd följande steg för att skapa en ny NSG med hjälp av PowerShell.
-1. Logga in på Azure-prenumerationen.
+1. Logga in på din Azure-prenumeration.
 
   ```PowerShell
   # Log in to your Azure subscription.
   Connect-AzureRmAccount
   ```
 
-2. Skapa en NSG med tre regler. Följande skript definierar tre regler för NSG: N som tillåter åtkomst till de portar som behövs för att köra Azure AD Domain Services. Skriptet skapar sedan en ny NSG som innehåller dessa regler. Använd samma format för att lägga till ytterligare regler som tillåter andra inkommande trafik, om det krävs av arbetsbelastningar som distribuerats i det virtuella nätverket.
+2. Skapa en NSG med tre regler. Följande skript definierar tre regler i NSG som tillåter åtkomst till de portar som behövs för att köra Azure AD Domain Services. Skriptet skapar sedan en ny NSG som innehåller dessa regler. Använd samma format för att lägga till ytterligare regler som tillåter andra inkommande trafik, om det krävs av arbetsbelastningar som distribuerats i det virtuella nätverket.
 
   ```PowerShell
   # Allow inbound HTTPS traffic to enable synchronization to your managed domain.
@@ -107,7 +107,7 @@ Använd följande steg för att skapa en ny NSG med hjälp av PowerShell.
   -Name "AADDomainServices-NSG" -SecurityRules $SyncRule, $PSRemotingRule
   ```
 
-3. Till sist ska koppla NSG: N till vnet och undernät föredrar.
+3. Till sist associera NSG med vnet och undernät val.
 
   ```PowerShell
   # Find vnet and subnet
@@ -119,9 +119,9 @@ Använd följande steg för att skapa en ny NSG med hjälp av PowerShell.
   Set-AzureRmVirtualNetwork -VirtualNetwork $Vnet
   ```
 
-## <a name="full-script-to-create-and-apply-an-nsg-for-azure-ad-domain-services"></a>Fullständig skript för att skapa och använda en NSG för Azure AD Domain Services
+## <a name="full-script-to-create-and-apply-an-nsg-for-azure-ad-domain-services"></a>Fullständigt skript för att skapa och använda en NSG för Azure AD Domain Services
 >[!TIP]
-> Vi rekommenderar att du använder den senaste versionen av Azure PowerShell-modulen. Om du redan har en äldre version av Azure PowerShell-modulen installerad uppdatera till den senaste versionen.
+> Vi rekommenderar att du använder den senaste versionen av Azure PowerShell-modulen. Om du redan har en äldre version av Azure PowerShell-modulen installerad kan du uppdatera till den senaste versionen.
 >
 
 ```PowerShell
@@ -175,4 +175,4 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $Vnet
 
 
 ## <a name="need-help"></a>Behöver du hjälp?
-Kontakta produktteamet Azure Active Directory Domain Services för att [dela feedback eller support](active-directory-ds-contact-us.md).
+Kontakta Azure Active Directory Domain Services-produktteamet att [dela feedback eller support](active-directory-ds-contact-us.md).

@@ -1,50 +1,50 @@
 ---
-title: Skapa en zonredundant virtuell nätverksgateway i Azure tillgänglighet zoner - Preview | Microsoft Docs
-description: Distribuera VPN-Gateway och ExpressRoute-gatewayer i tillgänglighet zoner - förhandsgranskning.
+title: Skapa en zonredundant virtuell nätverksgateway i Tillgänglighetszoner i Azure - förhandsversionen | Microsoft Docs
+description: Distribuera VPN-Gateway och ExpressRoute-gatewayer i Tillgänglighetszoner - förhandsversion.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 07/09/2018
 ms.author: cherylmc
-ms.openlocfilehash: c484358bf98f0121cfc3ce270b162b01c75b5b09
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: fa349555a5effd41ca519cbd5a29005203d79543
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096241"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952563"
 ---
-# <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones---preview"></a>Skapa en zonredundant virtuell nätverksgateway i Azure tillgänglighet zoner - förhandsgranskning
+# <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones---preview"></a>Skapa en zonredundant virtuell nätverksgateway i Azure Availability Zones – förhandsversion
 
-Du kan distribuera VPN- och ExpressRoute-gateway i [Azure tillgänglighet zoner](../availability-zones/az-overview.md). Detta ger högre tillgänglighet, skalbarhet och återhämtning för virtuella nätverksgatewayer. Distribuera gateways i Azure tillgänglighet zoner fysiskt och logiskt separerar gateways inom en region samtidigt skydda din lokala nätverksanslutning till Azure från fel på zonnivå.
+Du kan distribuera VPN och ExpressRoute-gatewayer i [Azure Availability Zones](../availability-zones/az-overview.md). Detta ger flexibilitet, skalbarhet och högre tillgänglighet för virtuella nätverksgatewayer. Distribuera gateways i Azure Availability Zones fysisk och logiskt separerar gatewayer inom en region, samtidigt som du skyddar din lokal nätverksanslutning till Azure från zonen på servernivå fel.
 
-Zonal och zonredundant gatewayer har grundläggande prestandaförbättringar över vanliga virtuella nätverksgatewayerna. Dessutom är skapar en zonredundant eller zonal virtuell nätverksgateway snabbare än att skapa andra gateways. Skapa tider tar ungefär 15 minuter för en ExpressRoute-gateway och 19 minuter för en VPN-gateway i stället för med 45 minuter.
+Zonindelade och zonredundanta gateway är tilldelad grundläggande prestandaförbättringar över vanliga virtuella nätverksgatewayer. Skapa en zonredundant eller zonindelad virtuell nätverksgateway är dessutom snabbare än att skapa andra gatewayer. I stället för att ta 45 minuter att skapa gånger tar ungefär 15 minuter för en ExpressRoute-gateway och 19 minuter för en VPN-gateway.
 
-### <a name="zrgw"></a>Zonredundant gateways
+### <a name="zrgw"></a>Zonredundant-gatewayer
 
-För att automatiskt distribuera din virtuella nätverksgatewayerna över tillgänglighet zoner, kan du använda zonredundant virtuella nätverksgatewayerna. Med zonredundant gateways, kan du utnyttja 99,99% drifttid SLA på GA åtkomst till dina kritiska, skalbara tjänster på Azure.
-
-<br>
-<br>
-
-![zonen redunant gateways bild](./media/create-zone-redundant-vnet-gateway/zonered.png)
-
-### <a name="zgw"></a>Zonal gateways
-
-Om du vill distribuera gateways i en viss zon kan du använda zonal gateways. När du distribuerar en zonal gateway distribueras båda instanser av gatewayen i samma zon tillgänglighet.
+För att automatiskt distribuera din virtuella nätverksgatewayer mellan tillgänglighetszoner, kan du använda zonredundant virtuella nätverksgatewayer. Med zonredundant gatewayer, kan du dra nytta 99,99% DRIFTTID vid GA åtkomst till dina verksamhetskritiska, skalbara tjänster på Azure.
 
 <br>
 <br>
 
-![Bild av zonal gateways](./media/create-zone-redundant-vnet-gateway/zonal.png)
+![zon redunant gatewayer bild](./media/create-zone-redundant-vnet-gateway/zonered.png)
+
+### <a name="zgw"></a>Zonindelade gateways
+
+För att distribuera gateways i en viss zon kan använda du zonindelad gatewayer. När du distribuerar en zonindelad gateway distribueras båda instanserna av gatewayen i samma Tillgänglighetszon.
+
+<br>
+<br>
+
+![zonindelade gatewayer bild](./media/create-zone-redundant-vnet-gateway/zonal.png)
 
 ## <a name="gwskus"></a>Gateway-SKU:er
 
-Zonredundant och zonal gateway måste använda den nya gatewayen SKU: er. När du [självregistrerar i förhandsgranskningen](#enroll), visas den nya virtuella nätverksgatewayen SKU: er i alla Azure AZ regioner. Dessa SKU: er liknar motsvarande SKU: er för ExpressRoute- och VPN-Gateway, förutom att de är specifika för zonredundant och zonal gateways.
+Zonredundant och zonindelade gatewayer måste använda den nya gatewayen SKU: er. När du [själv i förhandsversionen av](#enroll), visas den nya virtuella nätverksgatewayen SKU: er i alla Azure-AZ-regioner. Dessa SKU: er liknar de motsvarande SKU: er för ExpressRoute och VPN-Gateway, förutom att de är specifika för zonredundant och zonindelade gatewayer.
 
-Ny gateway-SKU: er är:
+Den nya gatewayen SKU: er är:
 
 ### <a name="vpn-gateway"></a>VPN Gateway
 
@@ -60,32 +60,32 @@ Ny gateway-SKU: er är:
 
 ## <a name="pipskus"></a>Offentliga IP-SKU: er
 
-Zonredundant gatewayer och zonal gatewayer förlitar sig på Azure offentliga IP-resurs *Standard* SKU. Konfigurationen av Azure offentliga IP-resurs avgör om den gateway som du distribuerar är zonredundant, eller zonal. Om du skapar en offentlig IP-resurs med en *grundläggande* SKU, gatewayen kommer inte att ha några redundans och gateway-resurser är regionala.
+Zonredundant gateway och zonindelade gateway förlitar sig på Azure offentlig IP-adressresurs *Standard* SKU. Konfigurationen av Azure offentlig IP-adressresurs avgör om den gateway som du distribuerar är zonredundant, eller zonindelade. Om du skapar en offentlig IP-resurs med en *grundläggande* SKU, gatewayen har inte någon redundans och gateway-resurserna blir regionala.
 
-### <a name="pipzrg"></a>Zonredundant gateways
+### <a name="pipzrg"></a>Zonredundant-gatewayer
 
-När du skapar en offentlig IP-adress med hjälp av den **Standard** offentliga IP-SKU utan att ange en zon, beteendet skiljer sig åt beroende på om gatewayen är en VPN-gateway eller en ExpressRoute-gateway. 
+När du skapar en offentlig IP-adress med hjälp av den **Standard** offentliga IP-SKU utan att ange en zon, beteendet skiljer sig beroende på om gatewayen är en VPN-gateway eller en ExpressRoute-gateway. 
 
-* Två gateway-instanser ska distribueras i alla 2 utanför dessa tre zoner att tillhandahålla redundans för en VPN-gateway. 
-* För en ExpressRoute-gateway, eftersom det kan finnas fler än två instanser gatewayen kan sträcka sig över alla tre zoner.
+* Två gateway-instanserna ska distribueras i 2 utanför dessa tre zoner att tillhandahålla redundans för en VPN-gateway. 
+* För en ExpressRoute-gateway, eftersom det kan finnas fler än två instanser kan gatewayen omfatta flera alla tre zoner.
 
-### <a name="pipzg"></a>Zonal gateways
+### <a name="pipzg"></a>Zonindelade gateways
 
-När du skapar en offentlig IP-adress med hjälp av den **Standard** offentliga IP-SKU och ange zonen (1, 2 eller 3), gateway-instanser som ska distribueras i samma zon.
+När du skapar en offentlig IP-adress med hjälp av den **Standard** offentliga IP-SKU och ange zonen (1, 2 eller 3), alla gatewayinstanser ska distribueras i samma zon.
 
-### <a name="piprg"></a>Regional gateways
+### <a name="piprg"></a>Regionala gateways
 
-När du skapar en offentlig IP-adress med hjälp av den **grundläggande** offentliga IP-SKU gateway distribueras som en gateway för regional och inte har några-redundans är inbyggda i gatewayen.
+När du skapar en offentlig IP-adress med hjälp av den **grundläggande** offentliga IP-SKU gatewayen distribueras som en regional gateway och inte har någon zonredundans som är inbyggda i gatewayen.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du kan använda antingen PowerShell lokalt installerade på datorn eller gränssnitt för Azure-molnet. Om du väljer att installera och använda PowerShell lokalt i den här funktionen kräver den senaste versionen av PowerShell-modulen.
+Du kan använda antingen PowerShell installerat lokalt på datorn eller Azure Cloud Shell. Om du väljer att installera och använda PowerShell lokalt kräver den senaste versionen av PowerShell-modulen i den här funktionen.
 
 [!INCLUDE [Cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-### <a name="to-use-powershell-locally"></a>Du använder PowerShell lokalt
+### <a name="to-use-powershell-locally"></a>Att använda PowerShell lokalt
 
-Om du använder PowerShell lokalt på datorn i stället för med molnet Shell, måste du installera PowerShell-modulen 6.1.1 eller högre. Kontrollera vilken version av PowerShell som du har installerat, använder du följande kommando:
+Om du använder PowerShell lokalt på datorn i stället för att använda Cloud Shell måste du installera PowerShell-modulen 6.1.1 eller högre. Om du vill kontrollera vilken version av PowerShell som du har installerat, använder du följande kommando:
 
 ```azurepowershell
 Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
@@ -95,30 +95,30 @@ Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powers
 
 [!INCLUDE [PowerShell login](../../includes/vpn-gateway-ps-login-include.md)]
 
-## <a name="enroll"></a>1. Registrera dig i förhandsgranskningen
+## <a name="enroll"></a>1. Registrera dig i förhandsversionen
 
-Innan du kan konfigurera en gateway zonredundant eller zonal, måste du först registrera själva prenumerationen i förhandsgranskningen. När din prenumeration har etablerats startar att se den nya gatewayen SKU: er i alla Azure AZ regioner. 
+Innan du kan konfigurera en gateway för zonredundant eller zonindelad, måste du först registrera själva prenumerationen i förhandsversionen. När din prenumeration har etablerats, börjar du se den nya gatewayen SKU: er i alla regioner för Azure-AZ. 
 
-Kontrollera att du är inloggad på ditt Azure-konto och använder den prenumeration som du vill godkända för den här förhandsgranskningen. Använd följande exempel för att registrera:
+Se till att du är inloggad på ditt Azure-konto och använder den prenumeration som du vill godkänna för den här förhandsversionen. Använd följande exempel för att registrera:
 
 ```azurepowershell-interactive
 Register-AzureRmProviderFeature -FeatureName AllowVMSSVirtualNetworkGateway -ProviderNamespace Microsoft.Network
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-Använd följande kommando för att kontrollera att funktionen 'AllowVMSSVirtualNetworkGateway' har registrerats med din prenumeration:
+Använd följande kommando för att verifiera att funktionen 'AllowVMSSVirtualNetworkGateway' är registrerat med din prenumeration:
 
 ```azurepowershell-interactive
 Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network
 ```
 
-Resultatet ser ut ungefär så här:
+Resultatet ser ut ungefär som det här exemplet:
 
-![etablerats](./media/create-zone-redundant-vnet-gateway/verifypreview.png)
+![etablerad](./media/create-zone-redundant-vnet-gateway/verifypreview.png)
 
 ## <a name="variables"></a>2. Deklarera dina variabler
 
-De värden som används i exempel steg visas nedan. Dessutom använder vissa av exemplen deklarerade variabler i stegen. Om du använder de här stegen i din egen miljö måste du ersätta värdena med dina egna. När du anger plats, måste du kontrollera att den region som du anger stöds. Mer information finns i [vanliga frågor och svar](#faq).
+Värden som används för exempelbeskrivningar listas nedan. Vissa av exemplen använder även deklarerade variabler i stegen. Om du använder de här stegen i din egen miljö måste du ersätta värdena med dina egna. När du anger plats, kan du kontrollera att den region som du anger stöds. Mer information finns i den [vanliga frågor och svar](#faq).
 
 ```azurepowershell-interactive
 $RG1         = "TestRG1"
@@ -136,7 +136,7 @@ $GwIP1       = "VNet1GWIP"
 $GwIPConf1   = "gwipconf1"
 ```
 
-## <a name="configure"></a>3. Skapa virtuella nätverk
+## <a name="configure"></a>3. Skapa det virtuella nätverket
 
 Skapa en resursgrupp.
 
@@ -154,7 +154,7 @@ $vnet = New-AzureRmVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location
 
 ## <a name="gwsub"></a>4. Lägg till gateway-undernätet
 
-Gateway-undernätet innehåller reserverade IP-adresser med gateway-tjänster för virtuella nätverk. Använd följande exempel för att lägga till och ange ett gateway-undernät:
+Gateway-undernätet innehåller reserverade IP-adresser som gatewaytjänsterna för virtuella nätverk använder. Använd följande exempel för att lägga till och ange ett gateway-undernät:
 
 Lägg till gateway-undernätet.
 
@@ -170,32 +170,32 @@ $getvnet | Set-AzureRmVirtualNetwork
 ```
 ## <a name="publicip"></a>5. Begär en offentlig IP-adress
  
-I det här steget väljer du de anvisningar som gäller för den gateway som du vill skapa. Valet av zoner för att distribuera gateways beror på de zoner som angetts för den offentliga IP-adressen.
+I det här steget, väljer du de anvisningar som gäller för gateway som du vill skapa. Valet av zoner för att distribuera gateway beror på de zoner som angetts för den offentliga IP-adressen.
 
 ### <a name="ipzoneredundant"></a>För zonredundant gateways
 
-Begär en offentlig IP-adress med en **Standard** PublicIpaddress SKU och inte anger någon zon. I det här fallet blir Standard offentliga IP-adressen skapas en zonredundant offentliga IP-adress.   
+Begär en offentlig IP-adress med en **Standard** PublicIpaddress SKU och inte anger någon zon. I det här fallet blir Standard offentliga IP-adressen skapas en zonredundant offentlig IP-adress.   
 
 ```azurepowershell-interactive
 $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="ipzonalgw"></a>För zonal gateways
+### <a name="ipzonalgw"></a>För zonindelade gateways
 
-Begär en offentlig IP-adress med en **Standard** PublicIpaddress SKU. Ange zonen (1, 2 eller 3). Alla gateway-instanser ska distribueras i den här zonen.
+Begär en offentlig IP-adress med en **Standard** PublicIpaddress SKU. Ange zonen (1, 2 eller 3). Alla gatewayinstanser ska distribueras i den här zonen.
 
 ```azurepowershell-interactive
 $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard -Zone 1
 ```
 
-### <a name="ipregionalgw"></a>För regional gateways
+### <a name="ipregionalgw"></a>För regionala gateways
 
-Begär en offentlig IP-adress med en **grundläggande** PublicIpaddress SKU. I det här fallet gatewayen distribueras som en gateway för regional och har inte någon-redundans är inbyggda i gatewayen. Gateway-instanser skapas respektive i alla zoner.
+Begär en offentlig IP-adress med en **grundläggande** PublicIpaddress SKU. I det här fallet gatewayen distribueras som en regional gateway och har inte någon zonredundans som är inbyggda i gatewayen. Gateway-instanser skapas respektive i alla zoner.
 
 ```azurepowershell-interactive
 $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Basic
 ```
-## <a name="gwipconfig"></a>6. Skapa IP-konfiguration
+## <a name="gwipconfig"></a>6. Skapa IP-konfigurationen
 
 ```azurepowershell-interactive
 $getvnet = Get-AzureRmVirtualNetwork -ResourceGroupName $RG1 -Name $VNet1
@@ -206,10 +206,6 @@ $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $
 ## <a name="gwconfig"></a>7. Skapa gatewayen
 
 Skapa den virtuella nätverksgatewayen.
-
->[!NOTE]
->Du kan inte ange gateway SKU för tillfället. SKU: N blir automatiskt som standard ErGw1AZ för ExpressRoute- och VpnGw1AZ för VPN-Gateway.
->
 
 ### <a name="for-expressroute"></a>För ExpressRoute
 
@@ -225,46 +221,50 @@ New-AzureRmVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name 
 
 ## <a name="feedback"></a>Ge feedback
 
-Vi gärna dina synpunkter. Skicka ett e-postmeddelande till aznetworkgateways@microsoft.com att rapportera eventuella problem eller ger feedback (positivt eller negativt) för zonredundant och zonal VPN och Express Route gateway. Företagsnamnet i ”[]” i ämnesraden. Även innehålla ditt prenumerations-ID om du rapporterar ett problem.
+Vi gärna dina synpunkter. Skicka ett e- aznetworkgateways@microsoft.com att rapportera problem eller ge feedback (positivt eller negativt) för zonredundant och zonindelade VPN och Expressroute-gatewayer. Inkludera företagets namn i ”[]” i ämnesraden. Även innehålla ditt prenumerations-ID om du rapporterar ett problem.
 
 ## <a name="faq"></a>Vanliga frågor och svar
 
-### <a name="how-do-i-sign-up-for-the-preview"></a>Hur loggar jag för förhandsgranskningen?
+### <a name="how-do-i-sign-up-for-the-preview"></a>Hur registrerar jag mig för förhandsversionen?
 
-Du kan [självregistrerar](#enroll) med PowerShell-kommandon i den här artikeln.
+Du kan [själv](#enroll) med hjälp av PowerShell-kommandon i den här artikeln.
 
 ### <a name="what-will-change-when-i-enroll"></a>Vad ändras när jag registrerar?
 
-Under förhandsgranskningen gör din ur kan du distribuera din gateway med redundans. Detta innebär att alla instanser av gateway ska distribueras till Azure tillgänglighet zoner och varje zon tillgänglighet är en annan fel- och update-domän. Detta gör dina gatewayer tillförlitliga, tillgänglighet och flexibel för zonen fel.
+I förhandsversionen från ditt perspektiv, kan du distribuera dina gatewayer med redundans. Det innebär att alla instanser av gateway som ska distribueras till Azure Availability Zones och varje Tillgänglighetszon är en annan fel- och domän. Detta gör dina gatewayer mer tillförlitlig, tillgängliga och elastiska zon fel.
 
-### <a name="what-regions-are-available-for-the-preview"></a>Vilka regioner är tillgängliga för förhandsgranskningen?
+### <a name="can-i-use-the-azure-portal"></a>Kan jag använda Azure-portalen?
 
-Zonredundant och zonal gateway finns i produktion/Azure offentliga områden.
+Ja, du kan använda Azure-portalen för förhandsversionen. Men du fortfarande behöver registreras med hjälp av PowerShell eller du längre inte använda portalen för förhandsversionen.
 
-### <a name="will-i-be-billed-for-participating-in-this-preview"></a>Jag debiteras för deltagande i den här förhandsgranskningen?
+### <a name="what-regions-are-available-for-the-preview"></a>Vilka regioner är tillgängliga för förhandsgranskning?
 
-Du kommer inte att debiteras för din gateways under förhandsgranskningen. Det finns dock ingen SLA som är kopplade till din distribution. Vi är mycket intresserade höra dina synpunkter.
+Zonredundant och zonindelade gatewayer finns i offentliga produktions-/ Azure-regioner.
+
+### <a name="will-i-be-billed-for-participating-in-this-preview"></a>Faktureras jag för att delta i den här förhandsversionen?
+
+Du kommer inte att debiteras för dina gatewayer under förhandsversionen. Det finns dock inget serviceavtal som är kopplat till din distribution. Vi är väldigt intresserade höra dina synpunkter.
 
 > [!NOTE]
-> ExpressRoute-gatewayer är gatewayen inte debiteras/debiteras. Kretsen sig själv (inte gateway) kommer att debiteras.
+> För ExpressRoute-gatewayer är gatewayen inte faktureras/debiteras. Kretsen själva (inte gatewayen) kommer att debiteras.
 
-### <a name="what-regions-are-available-for-me-to-try-this-in"></a>Vilka regioner är tillgängliga för mig på detta i?
+### <a name="what-regions-are-available-for-me-to-try-this-in"></a>Vilka regioner är tillgängliga för mig att prova i?
 
-Förhandsversion är tillgängligt i centrala USA och Frankrike centrala regioner (Azure-regioner som har tillgänglighet zoner allmänt tillgänglig). Framöver, kommer att Zonredundant gateway tillgängliga för dig i andra offentliga Azure-regioner.
+Den offentliga förhandsversionen är tillgänglig i regionerna USA, centrala och Frankrike, centrala (Azure-regioner som har Tillgänglighetszoner som är allmänt tillgänglig). Framöver kommer tillgängliggör vi Zonredundant gateway till dig i andra offentliga Azure-regioner.
 
-### <a name="can-i-change-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Kan jag ändra Mina befintliga virtuella nätverksgatewayerna till zonredundant eller zonal gateways?
+### <a name="can-i-change-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Kan jag ändra Mina befintliga virtuella nätverksgatewayer för zonredundant eller zonindelad-gatewayer?
 
-Migrera dina befintliga virtuella nätverksgatewayerna till zonredundant eller zonal gateways stöds inte för närvarande. Du kan dock ta bort den befintliga gatewayen och skapa en gateway zonredundant eller zonal igen.
+Migrera dina befintliga virtuella nätverksgatewayer för zonredundant eller zonindelad gatewayer stöds för närvarande inte. Du kan dock ta bort den befintliga gatewayen och skapa en zonredundant eller zonindelad gateway igen.
 
-### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Kan jag distribuera VPN- och Expressroute-gateway i samma virtuella nätverk?
+### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Kan jag distribuera VPN- och Expressroute-gatewayer i samma virtuella nätverk?
 
-VPN- och Expressroute-gateway i samma virtuella nätverk existerar stöds under förhandsversion. Dock vara medveten om följande krav och begränsningar:
+Samtidig både VPN och Expressroute-gatewayer i samma virtuella nätverk stöds för den offentliga förhandsversionen. Men tänk på följande krav och begränsningar:
 
-* Reservera en minst/27 IP-adressintervall för gateway-undernätet.
-* Zonen-redundanta/zonal Express Route-gatewayer kan bara finnas tillsammans med zonen-redundanta/zonal VPN-gatewayer.
-* Distribuera en zon-redundanta/zonal Express Route-gateway innan du distribuerar zonen-redundanta/zonal VPN-gatewayen.
-* En zon-redundanta/zonal Express Route-gateway kan anslutas till högst 4 kretsar.
+* Reservera en /27 IP-adressintervall för gateway-undernätet.
+* Zon-redundant/zonindelad Express Route-gatewayer kan endast finnas tillsammans med zon-redundant/zonindelad VPN-gatewayer.
+* Distribuera en zon-redundant/zonindelad Express Route-gateway innan du distribuerar en zon-redundant/zonindelad VPN-gateway.
+* En zon-redundant/zonindelad Express Route-gateway kan anslutas till högst 4 kretsar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vi gärna dina synpunkter. Skicka ett e-postmeddelande till aznetworkgateways@microsoft.com att rapportera eventuella problem eller ger feedback (positivt eller negativt) för zonredundant och zonal VPN och Express Route gateway. Företagsnamnet i ”[]” i ämnesraden. Även innehålla ditt prenumerations-ID om du rapporterar ett problem.
+Vi gärna dina synpunkter. Skicka ett e- aznetworkgateways@microsoft.com att rapportera problem eller ge feedback (positivt eller negativt) för zonredundant och zonindelade VPN och Expressroute-gatewayer. Inkludera företagets namn i ”[]” i ämnesraden. Även innehålla ditt prenumerations-ID om du rapporterar ett problem.

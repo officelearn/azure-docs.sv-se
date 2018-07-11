@@ -4,20 +4,28 @@ description: Vanliga frågor och svar om Azure Migrate adresser
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 07/10/2018
 ms.author: snehaa
-ms.openlocfilehash: c85e512dede7c14e7b678297ed524fa7a1d7e79d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 3f035f38b1ad68e9e39d151ffad3fc650a0a1d80
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859531"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952757"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
 Den här artikeln innehåller vanliga frågor och svar om Azure Migrate. Om du har några ytterligare frågor när du har läst den här artikeln, publicera dem på den [Azure Migrate forum](http://aka.ms/AzureMigrateForum).
 
 ## <a name="general"></a>Allmänt
+
+### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>Stöder Azure Migrate bedömning av VMware-arbetsbelastningar?
+
+Ja, Azure Migrate stöder för närvarande endast bedömning av VMware-arbetsbelastningar. Stöd för Hyper-V och fysiska servrar kommer att aktiveras i framtiden.
+
+### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Behöver Azure Migrate vCenter Server för att identifiera en VMware-miljö?
+
+Ja, Azure Migrate kräver vCenter Server för att identifiera en VMware-miljö. Det stöder inte identifiering av ESXi-värdar som inte hanteras av en vCenter Server.
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Hur skiljer sig Azure Migrate från Azure Site Recovery?
 
@@ -38,11 +46,9 @@ Azure Migrate är ett verktyg för migreringsplanering och Distributionshanterar
 
 **Haveriberedskap från VMware/Hyper-V till Azure**: Om du vill göra katastrofåterställning (DR) på Azure med hjälp av Azure Site Recovery (Site Recovery) använda Site Recovery Deployment Planner för DR planera. Distributionshanteraren för site Recovery har en djupgående, ASR-specifika bedömning av din lokala miljö. Den innehåller rekommendationer som krävs av Site Recovery för lyckade DR-åtgärder, till exempel replikering, redundans för dina virtuella datorer.  
 
-### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Behöver Azure Migrate vCenter Server för att identifiera en VMware-miljö?
-
-Ja, Azure Migrate kräver vCenter Server för att identifiera en VMware-miljö. Det stöder inte identifiering av ESXi-värdar som inte hanteras av en vCenter Server.
-
 ### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Vilka Azure-regioner stöds av Azure Migrate?
+
+Azure Migrate stöder för närvarande USA, östra och USA, västra centrala som migrering projekt platser. Observera att även om du kan bara skapa migreringsprojekt i västra centrala USA och östra USA, du kan fortfarande utvärdera dina datorer för [flera målplatser](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). Projektplatsen används bara för att lagra de identifierade data.
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Hur ansluter en lokal plats till Azure Migrate?
 
@@ -51,7 +57,6 @@ Anslutningen kan vara via internet eller använda ExpressRoute med offentlig pee
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Kan jag skydda den virtuella datorn som konfigurerats med den. OVA mallen?
 
 Ytterligare komponenter (till exempel ett virusskyddsprogram) kan läggas till i den. OVA mallen är så länge lämnas kommunikation och brandväggen regler som krävs för Azure Migrate-installation för att fungera som.   
-
 
 ## <a name="discovery-and-assessment"></a>Identifiering och utvärdering
 
@@ -89,13 +94,19 @@ Data som samlas in av insamlingsprogrammet lagras på Azure-plats som du anger n
 
 För visualisering av beroenden, om du installerar agenter på de virtuella datorerna, lagras data som samlas in av beroendeagenter i USA i en OMS-arbetsyta som skapats i användarens prenumeration. Dessa data tas bort när du tar bort OMS-arbetsytan i din prenumeration. [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
+### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Data krypteras i vila och under överföring?
+
+Ja, insamlade data krypteras både i vila och under överföringen. De metadata som samlas in av installationen skickas på ett säkert sätt till Azure Migrate-tjänsten över internet via https. Insamlade metadata lagras i [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) och i [Azure blobblagring](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) i en Microsoft-prenumeration och krypteras i viloläge.
+
+Data som samlas in av agenterna beroende är också krypterade i rörelse (säker https-kanal) och lagras i Log Analytics-arbetsytan i användarens prenumeration. Det är också krypterade i vila.
+
 ### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>Hur insamlaren kommunicera med vCenter-servern och tjänsten Azure Migrate?
 
 Insamlaren ansluter till vCenter-servern (port 443) med de autentiseringsuppgifter som anges av användaren i installationen. Det frågor till vCenter-servern med hjälp av VMware PowerCLI att samla in metadata om datorer som hanteras av vCenter-servern. Den samlar in båda konfigurationsdata om virtuella datorer (kärnor, minne, diskar, nätverkskort osv) samt prestandahistoriken för varje virtuell dator för den senaste månaden från vCenter-servern. Insamlade metadata skickas sedan till tjänsten Azure Migrate (över internet via https) för utvärdering. [Läs mer](concepts-collector.md)
 
-### <a name="can-i-connect-to-multiple-vcenter-servers"></a>Kan jag ansluta till flera vCenter-servrar?
+### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>Kan jag ansluta samma insamlingsprogrammet till flera vCenter-servrar?
 
-Du behöver en installation för koppling konfigureras för varje server.
+Ja, en enda insamlingsprogrammet kan användas för att identifiera flera vCenter-servrar, men inte samtidigt. Du behöver köra identifieringar efter varandra.
 
 ### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Är den. OVA-mallen som används av Site Recovery integrerade med den. OVA som används av Azure Migrate?
 
@@ -104,12 +115,6 @@ Det finns för närvarande ingen integrering. Den. OVA-mallen i Site Recovery an
 ### <a name="i-changed-my-machine-size-can-i-rerun-the-assessment"></a>Jag har ändrat storlek på min dator. Kan jag köra utvärderingen?
 
 Om du ändrar inställningarna på en virtuell dator som du vill utvärdera, Upptäck utlösaren igen med insamlingsprogrammet. I installationen använder det **starta insamlingen igen** möjlighet att göra detta. När samlingen är klar väljer du den **beräkna om** alternativet för utvärdering i portalen för att hämta uppdaterade utvärderingsresultat.
-
-### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Data krypteras i vila och under överföring?
-
-Ja, insamlade data krypteras både i vila och under överföringen. De metadata som samlas in av installationen skickas på ett säkert sätt till Azure Migrate-tjänsten över internet via https. Insamlade metadata lagras i [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) och i [Azure blobblagring](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) i en Microsoft-prenumeration och krypteras i viloläge.
-
-Data som samlas in av agenterna beroende är också krypterade i rörelse (säker https-kanal) och lagras i Log Analytics-arbetsytan i användarens prenumeration. Det är också krypterade i vila.
 
 ### <a name="how-can-i-discover-a-multi-tenant-environment-in-azure-migrate"></a>Hur kan jag för att identifiera en miljö med flera organisationer i Azure Migrate?
 

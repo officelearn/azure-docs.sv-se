@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1c68c586fb799a540f70804d181aa66b2bda9e97
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344839"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952546"
 ---
 # <a name="what-is-language-understanding-luis"></a>Vad är Språkförståelse (LUIS)?
 Språkförståelse (LUIS) är en molnbaserad tjänst som gäller anpassade machine learning för en användares konversationsanpassade, texter med naturligt språk att förutsäga övergripande betydelse och dra ut relevanta, detaljerad information. 
@@ -99,7 +99,7 @@ Ett exempel [uttryck](luis-how-to-add-example-utterances.md) är textindata frå
 När LUIS-appen har publicerats och tar emot hur användarna yttranden, LUIS erbjuder flera metoder för att förbättra förutsägelsefunktionen: [aktiv inlärning](#active-learning) av slutpunkten yttranden [fras listor](#phrase-lists) för domän Word filinkludering och [mönster](#patterns) att minska antalet yttranden som behövs.
 
 ### <a name="active-learning"></a>Aktiv inlärning
-I den [aktiv inlärning](label-suggested-utterances.md) processen, LUIS kan du anpassa LUIS-appen till verkliga yttranden genom att välja yttranden som togs emot vid slutpunkten för granskning. Du kan acceptera eller korrigera de endpoint förutsägelse, omtrimning och publicera på nytt. LUIS lär sig snabbt med den här iterativ process tar den minsta mängden din tid och arbete. 
+I den [aktiv inlärning](luis-how-to-review-endoint-utt.md) processen, LUIS kan du anpassa LUIS-appen till verkliga yttranden genom att välja yttranden som togs emot vid slutpunkten för granskning. Du kan acceptera eller korrigera de endpoint förutsägelse, omtrimning och publicera på nytt. LUIS lär sig snabbt med den här iterativ process tar den minsta mängden din tid och arbete. 
 
 ### <a name="phrase-lists"></a>Fraslistor 
 LUIS ger [fraser listor](luis-concept-feature.md) så att du kan ange viktiga ord eller fraser till din modell-domän. LUIS använder dessa listor för att lägga till ytterligare betydelse i dessa ord och fraser som inte skulle annars hittas i modellen.

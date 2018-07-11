@@ -1,6 +1,6 @@
 ---
 title: Undantagshantering & fel loggning scenario – Azure Logic Apps | Microsoft Docs
-description: Beskriver en verklig användningsfall om avancerad undantagshantering och felloggning för Logikappar i Azure
+description: Beskriver ett verkliga användningsfall om avancerad undantagshantering och felloggning för Azure Logic Apps
 keywords: ''
 services: logic-apps
 author: hedidin
@@ -16,48 +16,48 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: cb80423266d3e9c0b3cac31821965ad92c0420d9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c4114e32053410689c0482816a46376947023972
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299366"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930281"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Undantagshantering och felloggning för logic apps
 
-Det här scenariot beskriver hur du kan utöka en logikapp för att bättre kunna stödja undantagshantering. Vi har använt en verklig användningsfall för att besvara frågan: ”Azure Logikappar stöder undantag och felhantering”?
+Det här scenariot beskriver hur du kan utöka en logikapp för att bättre stödja undantagshantering. Vi har använt ett verkliga användningsfall för att besvara frågan: ”Azure Logic Apps stöder undantag och felhantering”?
 
 > [!NOTE]
-> Det aktuella schemat för Logikappar i Azure tillhandahåller en standardmall för åtgärden svar. Den här mallen innehåller både interna validering och felsvar som returneras från en API-app.
+> Det aktuella schemat för Azure Logic Apps tillhandahåller en standardmall för åtgärden svar. Den här mallen innehåller både interna verifiering och felsvar som returneras från en API-app.
 
 ## <a name="scenario-and-use-case-overview"></a>Scenariot och Använd case-översikt
 
-Här är artikeln användningsfall för det här scenariot: 
+Här är budskapet som användningsfall för det här scenariot: 
 
-Välkända sjukvårdsorganisation arbetar oss att utveckla en lösning för Azure som skulle skapa en patient portal genom att använda Microsoft Dynamics CRM Online. De behövs för att skicka möte poster mellan patient Dynamics CRM Online-portalen och Salesforce. Vi har ombedd att använda den [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard för alla patientjournaler.
+Välkända inom organisationen ägnar åt att utveckla en Azure-lösning som ger en patientportal med hjälp av Microsoft Dynamics CRM Online. De krävs för att skicka avtalade tider mellan Dynamics CRM Online patientportal och Salesforce. Vi har ombedd att använda den [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard för alla patientjournaler.
 
-Projektet har två viktiga krav:  
+Projektet hade två viktiga krav:  
 
 * En metod för att logga poster som skickas från Dynamics CRM Online-portalen
 * Ett sätt att visa alla fel som uppstått i arbetsflödet
 
 > [!TIP]
-> Se en övergripande video om det här projektet [integrering användargrupp](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "integrering användargrupp").
+> Se en övergripande video om det här projektet [Integration User Group](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group").
 
 ## <a name="how-we-solved-the-problem"></a>Hur vi löste problemet
 
-Vi valde [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") som databas för logg- och fel-poster (Cosmos DB refererar till poster som dokument). Eftersom Azure Logikappar har en standardmall för alla svar kan vi inte att skapa ett anpassat schema. Kan vi skapa en API-app på **infoga** och **frågan** för både fel och loggfiler poster. Vi kan också definiera ett schema för varje API-App.  
+Vi valde [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") som datalager för och -poster (Cosmos DB refererar till poster som dokument). Eftersom Azure Logic Apps har en standardmall för alla svar, behöver vi inte att skapa ett anpassat schema. Vi kan skapa en API-app till **infoga** och **fråga** för både fel och poster. Vi kan också definiera ett schema för API-App.  
 
-Ett annat krav är att rensa poster efter ett visst datum. Cosmos DB har en egenskap som kallas [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL) som tillåts att vi kan ange en **Time to Live** värde för varje post eller en samling. Den här funktionen elimineras behovet av att manuellt ta bort poster i Cosmos-databasen.
+Ett annat krav var att rensa poster efter ett visst datum. Cosmos DB har en egenskap som kallas [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL) som tillåts att vi kan ange en **Time to Live** värde för varje post eller en samling. Den här funktionen elimineras behovet av att manuellt ta bort poster i Cosmos DB.
 
 > [!IMPORTANT]
-> Den här kursen måste du skapa en Cosmos-DB-databas och två samlingar (loggning och -fel).
+> Den här kursen måste du skapa en Cosmos DB-databas och två samlingar (loggning och fel).
 
-## <a name="create-the-logic-app"></a>Skapa logikappen
+## <a name="create-the-logic-app"></a>Skapa logic app
 
-Det första steget är att skapa logikappen och öppna appen i logik App Designer. I det här exemplet använder vi överordnad-underordnad logikappar. Vi förutsätter att det redan har skapat överordnat och kommer att skapa en logikapp för underordnade.
+Det första steget är att skapa logikappen och öppna appen i Logic App Designer. I det här exemplet använder vi överordnad-underordnad logikappar. Anta att vi redan har skapat överordnat och kommer att skapa en logikapp för underordnade.
 
-Eftersom vi ska logga posten från Dynamics CRM Online, låt oss börja längst upp. Vi måste använda en **begära** utlösare, eftersom logikappen överordnade utlöser underordnad.
+Eftersom vi ska logga posten kommer ut från Dynamics CRM Online, låt oss börja längst upp. Vi måste använda en **begära** utlösare, eftersom den överordnade logikappen utlöser det här barnet.
 
 ### <a name="logic-app-trigger"></a>Logikapputlösare
 
@@ -101,14 +101,14 @@ Vi använder en **begära** utlösa som visas i följande exempel:
 
 ## <a name="steps"></a>Steg
 
-Vi måste logga källan (request) för patient posten från Dynamics CRM Online-portalen.
+Vi måste logga källan (begäran) till patientens posten från Dynamics CRM Online-portalen.
 
-1. Vi måste få en ny post för möte från Dynamics CRM Online.
+1. Vi måste få en ny post för avtalad tid från Dynamics CRM Online.
 
-   Utlösaren kommer från CRM ger oss med den **CRM PatentId**, **posttyp**, **ny eller uppdaterad post** (ny eller uppdatera booleskt värde), och  **SalesforceId**. Den **SalesforceId** kan vara null eftersom den används endast för en uppdatering.
-   Vi få CRM-post med hjälp av CRM **PatientID** och **posttyp**.
+   Utlösaren som kommer från CRM ger oss med den **CRM PatentId**, **posttyp**, **ny eller uppdaterad post** (ny eller uppdatera booleskt värde), och  **SalesforceId**. Den **SalesforceId** kan vara null eftersom den används endast för en uppdatering.
+   Vi hämta CRM-post med hjälp av CRM **PatientID** och **posttypen**.
 
-2. Nu ska vi måste du lägga till vår Azure Cosmos DB SQL API-app **InsertLogEntry** åtgärden som visas här i logik App Designer.
+2. Därefter behöver vi lägga till vår Azure Cosmos DB SQL API-app **InsertLogEntry** åtgärden som visas här i Logic App Designer.
 
    **Infoga loggpost**
 
@@ -118,22 +118,22 @@ Vi måste logga källan (request) för patient posten från Dynamics CRM Online-
 
    ![Infoga loggpost](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
-   **Kontrollera att skapa poster fel**
+   **Sök efter skapa poster fel**
 
    ![Tillstånd](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
-## <a name="logic-app-source-code"></a>Källkoden för logik app
+## <a name="logic-app-source-code"></a>Källkoden för Logic app
 
 > [!NOTE]
-> Följande exempel är bara exempel. Eftersom den här kursen är baserad på en implementering nu i produktion, värdet för en **Källnoden** kan inte visa egenskaper som är relaterade till att schemalägga ett möte. > 
+> I följande exempel är bara exempel. Eftersom den här självstudien är baserad på en implementering nu i produktion, värdet för en **Källnoden** kanske inte visar egenskaper som är relaterade till schemaläggning av en avtalad tid. > 
 
 ### <a name="logging"></a>Loggning
 
-Följande logik app kodexempel visar hur du hanterar loggning.
+Följande logic app kodexempel visar hur du hanterar loggning.
 
 #### <a name="log-entry"></a>Loggpost
 
-Här är källkoden logik app för att lägga till en loggpost.
+Här är källkoden för logic app för att infoga en loggpost.
 
 ``` json
 "InsertLogEntry": {
@@ -161,7 +161,7 @@ Här är källkoden logik app för att lägga till en loggpost.
 
 #### <a name="log-request"></a>Log-begäran
 
-Här är begäran loggmeddelande anslås API-app.
+Här är log begärandemeddelandet som publicerats till API-appen.
 
 ``` json
     {
@@ -181,7 +181,7 @@ Här är begäran loggmeddelande anslås API-app.
 
 #### <a name="log-response"></a>Loggsvar
 
-Här är svar loggmeddelande från API-app.
+Här är loggmeddelande för svaret från API-app.
 
 ``` json
 {
@@ -215,15 +215,15 @@ Här är svar loggmeddelande från API-app.
 
 ```
 
-Nu ska vi titta på felhantering steg.
+Nu ska vi titta på stegen för felhantering.
 
 ### <a name="error-handling"></a>Felhantering
 
-Följande logik app kodexempel visar hur du kan implementera felhantering.
+Följande logic app kodexempel visar hur du kan implementera felhantering.
 
 #### <a name="create-error-record"></a>Skapa Felpost
 
-Här är källkoden för att skapa en Felpost logik app.
+Här är källkoden för att skapa en Felpost logic app.
 
 ``` json
 "actions": {
@@ -258,7 +258,7 @@ Här är källkoden för att skapa en Felpost logik app.
 }             
 ```
 
-#### <a name="insert-error-into-cosmos-db--request"></a>Infoga fel i Cosmos-DB - begäran
+#### <a name="insert-error-into-cosmos-db--request"></a>Infoga fel till Cosmos DB – begäran
 
 ``` json
 
@@ -281,7 +281,7 @@ Här är källkoden för att skapa en Felpost logik app.
 }
 ```
 
-#### <a name="insert-error-into-cosmos-db--response"></a>Infoga fel i Cosmos-DB - svar
+#### <a name="insert-error-into-cosmos-db--response"></a>Infoga fel i Cosmos DB – svar
 
 ``` json
 {
@@ -320,7 +320,7 @@ Här är källkoden för att skapa en Felpost logik app.
 }
 ```
 
-#### <a name="salesforce-error-response"></a>Salesforce felsvaret
+#### <a name="salesforce-error-response"></a>Salesforce-felsvar
 
 ``` json
 {
@@ -349,9 +349,9 @@ Här är källkoden för att skapa en Felpost logik app.
 
 ```
 
-### <a name="return-the-response-back-to-parent-logic-app"></a>Returnera svar tillbaka till överordnad logikapp
+### <a name="return-the-response-back-to-parent-logic-app"></a>Returnera svaret tillbaka till överordnad logikapp
 
-När du får svar kan överföra du svaret tillbaka till överordnad logikappen.
+När du får svaret kan skicka du svaret tillbaka till den överordnade logikappen.
 
 #### <a name="return-success-response-to-parent-logic-app"></a>Returnera lyckat svar till överordnade logikapp
 
@@ -375,7 +375,7 @@ När du får svar kan överföra du svaret tillbaka till överordnad logikappen.
 }
 ```
 
-#### <a name="return-error-response-to-parent-logic-app"></a>Returnera felsvar på överordnade logikapp
+#### <a name="return-error-response-to-parent-logic-app"></a>Returnera felsvar till överordnade logikapp
 
 ``` json
 "ErrorResponse": {
@@ -405,44 +405,44 @@ Vår lösning tillagda funktioner med [Azure Cosmos DB](https://azure.microsoft.
 
 ### <a name="error-management-portal"></a>Fel-hanteringsportalen
 
-Du kan skapa en MVC-webbapp för att visa felposter från Cosmos DB om du vill visa felen. Den **lista**, **information**, **redigera**, och **ta bort** operations ingår i den aktuella versionen.
+Du kan skapa en MVC-webbapp för att visa felposter från Cosmos DB om du vill visa felen. Den **lista**, **information**, **redigera**, och **ta bort** åtgärder som ingår i den aktuella versionen.
 
 > [!NOTE]
-> Redigera åtgärd: Cosmos DB ersätter hela dokumentet. Poster som visas i den **lista** och **detaljer** vyer är bara exempel. De är inte faktiska patient möte poster.
+> Redigera åtgärd: Cosmos DB ersätter hela dokumentet. Poster som visas i den **lista** och **detalj** vyer är bara exempel. De är inte faktiska patientens avtalade tider.
 
-Här följer exempel på vår MVC-appinformation som skapats med metoden som beskrivits tidigare.
+Här följer exempel på vår MVC-appinformation som skapats med den tidigare beskrivna metoden.
 
 #### <a name="error-management-list"></a>Fel vid hantering av lista
 ![Lista över fel](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
 
-#### <a name="error-management-detail-view"></a>Fel vid hantering av detaljerad vy
+#### <a name="error-management-detail-view"></a>Fel vid hantering av detaljvy
 ![Information om fel](media/logic-apps-scenario-error-and-exception-handling/errordetails.png)
 
-### <a name="log-management-portal"></a>Log-hanteringsportalen
+### <a name="log-management-portal"></a>Log management portal
 
-Om du vill visa loggfilerna kan skapat vi också en MVC-webbapp. Här följer exempel på vår MVC-appinformation som skapats med metoden som beskrivits tidigare.
+Om du vill visa loggfilerna kan skapat vi också en MVC-webbapp. Här följer exempel på vår MVC-appinformation som skapats med den tidigare beskrivna metoden.
 
-#### <a name="sample-log-detail-view"></a>Exempel loggen detaljvy
-![Loggen detaljvy](media/logic-apps-scenario-error-and-exception-handling/samplelogdetail.png)
+#### <a name="sample-log-detail-view"></a>Exemplet log detaljvy
+![Log detaljvy](media/logic-apps-scenario-error-and-exception-handling/samplelogdetail.png)
 
-### <a name="api-app-details"></a>Information om API-app
+### <a name="api-app-details"></a>Information om API-appar
 
 #### <a name="logic-apps-exception-management-api"></a>Logic Apps undantag hanterings-API
 
-Vår öppen källkod Azure Logikappar undantag hanterings-API-app innehåller funktioner som beskrivs här – det finns två domänkontrollanter:
+Appen undantag hanterade API: er för öppen källkod Azure Logic Apps innehåller funktioner som beskrivs här – det finns två domänkontrollanter:
 
-* **ErrorController** infogar en Felpost (dokument) i en Azure DB som Cosmos-samling.
-* **LogController** infogar en loggpost (dokument) i en Azure DB som Cosmos-samling.
+* **ErrorController** infogar en Felpost (dokument) i en Azure Cosmos DB-samling.
+* **LogController** infogar en loggpost (dokument) i en Azure Cosmos DB-samling.
 
 > [!TIP]
-> Både domänkontrollanter använder `async Task<dynamic>` åtgärder, så att åtgärder att lösa vid körning, så kan vi skapa Azure Cosmos DB-schema i brödtexten för åtgärden. 
+> Båda styrenheterna använda `async Task<dynamic>` åtgärder, så att åtgärder att lösa vid körning, så att vi kan skapa Azure Cosmos DB-schemat i brödtexten i åtgärden. 
 > 
 
-Alla dokument i Azure Cosmos-databasen måste ha ett unikt ID. Vi använder `PatientId` och lägga till en tidsstämpel som konverteras till ett tidsstämpelvärde Unix (double). Vi trunkera värdet för att ta bort värdet bråkdelar.
+Alla dokument i Azure Cosmos DB måste ha ett unikt ID. Vi använder `PatientId` och lägga till en tidsstämpel som konverteras till ett tidsstämpelvärde Unix (double). Vi trunkera värdet för att ta bort bråkvärdet.
 
-Du kan visa källkoden för fel styrningen API [från GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
+Du kan visa källkoden för styrningen fel API från [GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs).
 
-Vi kallar API: et från en logikapp genom att använda följande syntax:
+Vi kan anropa API från en logikapp med hjälp av följande syntax:
 
 ``` json
  "actions": {
@@ -479,16 +479,16 @@ Uttrycket i föregående kodexemplet söker efter den *Create_NewPatientRecord* 
 
 ## <a name="summary"></a>Sammanfattning
 
-* Du kan enkelt implementera loggning och hantera fel i en logikapp.
-* Du kan använda Azure Cosmos DB som en lagringsplats för logg- och fel-poster (dokument).
-* Du kan använda MVC för att skapa en portal för att visa loggen och fel poster.
+* Du kan enkelt implementera loggning och felhantering i en logikapp.
+* Du kan använda Azure Cosmos DB som lagringsplats för och -poster (dokument).
+* Du kan använda MVC för att skapa en portal för att visa och poster.
 
 ### <a name="source-code"></a>Källkod
 
-Källkoden för Logic Apps undantag management API-program finns i det här [GitHub-lagringsplatsen](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "logik App undantag Management API").
+Källkoden för undantagshantering Logic Apps-API-program är tillgängligt i den här [GitHub-lagringsplatsen](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "Logic App undantag Management API").
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Visa mer logik app exempel och scenarier](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Lär dig mer om hur du övervakar logikappar](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Visa mer logic app-exempel och scenarier](../logic-apps/logic-apps-examples-and-scenarios.md)
+* [Läs om hur du övervakar logikappar](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Skapa mallar för automatisk distribution för logic apps](../logic-apps/logic-apps-create-deploy-template.md)

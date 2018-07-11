@@ -1,8 +1,7 @@
 ---
 title: Skapa Hadoop-kluster med hjälp av .NET - Azure HDInsight | Microsoft Docs
-description: Lär dig hur du skapar Hadoop, HBase, Storm eller Spark-kluster på Linux för HDInsight med HDInsight .NET SDK.
+description: Lär dig hur du skapar Hadoop, HBase, Storm eller Spark-kluster på Linux för HDInsight med hjälp av HDInsight .NET SDK.
 services: hdinsight
-documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -10,18 +9,17 @@ tags: azure-portal
 ms.assetid: 9c74e3dc-837f-4c90-bbb1-489bc7124a3d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 07/09/2018
 ms.author: jgao
-ms.openlocfilehash: 8523b012d6ceaf116e6849abaf8952bbde8b41b3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a0e5bf4afcd1d02c81597efdab8ff349e6adf856
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201293"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952934"
 ---
-# <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Skapa Linux-baserade kluster i HDInsight med hjälp av .NET SDK
+# <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Skapa Linux-baserade kluster i HDInsight med .NET SDK
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -29,7 +27,7 @@ ms.locfileid: "34201293"
 Lär dig hur du skapar ett Hadoop-kluster i Azure HDInsight-kluster med hjälp av .NET SDK.
 
 > [!IMPORTANT]
-> Stegen i det här dokumentet kan du skapa ett kluster med en arbetsnoden. Om du planerar att mer än 32 arbetarnoder i klustret har skapats eller genom att skala klustret när den har skapats, måste du välja en huvudnod storlek med minst 8 kärnor och 14GB RAM-minne.
+> Stegen i det här dokumentet kan du skapa ett kluster med en underordnad nod. Om du planerar att mer än 32 arbetarnoder i klustret har skapats eller skala klustret när du har skapat, måste du välja en huvudnod storlek med minst 8 kärnor och 14GB RAM-minne.
 >
 > Mer information om nodstorlekar och relaterade kostnader finns i [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -45,7 +43,7 @@ Lär dig hur du skapar ett Hadoop-kluster i Azure HDInsight-kluster med hjälp a
 
 1. Öppna Visual Studio 2017.
 2. Skapa ett nytt Visual C#-konsolprogram.
-3. Från den **verktyg** -menyn klickar du på **NuGet Package Manager**, och klicka sedan på **Pakethanterarkonsolen**.
+3. Från den **verktyg** -menyn klickar du på **NuGet-Pakethanteraren**, och klicka sedan på **Pakethanterarkonsolen**.
 4. Kör följande kommando i konsolen för att installera paket:
 
     ```powershell
@@ -54,8 +52,8 @@ Lär dig hur du skapar ett Hadoop-kluster i Azure HDInsight-kluster med hjälp a
     Install-Package Microsoft.Azure.Management.HDInsight
     ```
 
-    Dessa kommandon lägga till .NET-bibliotek och referenser till dem i det aktuella projektet i Visual Studio.
-5. Dubbelklicka på Solution Explorer **Program.cs** klistra in följande kod för att öppna den och ange värden för variabler:
+    Dessa kommandon Lägg till .NET-bibliotek och referenser till dem i aktuella Visual Studio-projektet.
+5. Från Solution Explorer dubbelklickar du på **Program.cs** klistra in följande kod för att öppna den och ange värden för variablerna:
 
     ```csharp
     using System;
@@ -191,13 +189,13 @@ Lär dig hur du skapar ett Hadoop-kluster i Azure HDInsight-kluster med hjälp a
     ```
 
 6. Ersätt klassen medlemsvärden.
-7. Tryck på **F5** för att köra programmet. Ett konsolfönster ska öppna och visa status för programmet. Du uppmanas att ange dina autentiseringsuppgifter för Azure-konto. Det kan ta flera minuter att skapa ett HDInsight-kluster normalt cirka 15.
+7. Tryck på **F5** för att köra programmet. Ett konsolfönster ska öppna och visa status för programmet. Du uppmanas att ange dina autentiseringsuppgifter för Azure-konto. Det kan ta flera minuter att skapa ett HDInsight-kluster, normalt cirka 15.
 
-## <a name="use-bootstrap"></a>Använd starttjänsten
+## <a name="use-bootstrap"></a>Använd bootstrap
 
-Med bootstrap kan konfigurera du ytterligare inställningar under klustret skapande.  Mer information finns i [anpassa HDInsight-kluster med Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+Du använder bootstrap, kan du konfigurera ytterligare inställningar under de kluster som skapats.  Mer information finns i [anpassa HDInsight-kluster med Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-Ändra provet i [Skapa kluster](#create-clusters) så här konfigurerar du en Hive-inställning:
+Ändrar i exemplet i [Skapa kluster](#create-clusters) konfigurera en Hive-inställning:
 
 ```csharp
 static void Main(string[] args)
@@ -322,11 +320,11 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="use-script-action"></a>Använd skriptåtgärder
+## <a name="use-script-action"></a>Använd skriptåtgärd
 
-Du använder skriptåtgärd, kan du konfigurera ytterligare inställningar under skapande av klustret.  Mer information finns i [anpassa Linux-baserade HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
+Du använder skriptåtgärd, kan du konfigurera ytterligare inställningar under skapande av kluster.  Mer information finns i [anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md).
 
-Ändra provet i [Skapa kluster](#create-clusters) att anropa en skriptåtgärd för att installera R:
+Ändrar i exemplet i [Skapa kluster](#create-clusters) att anropa en skriptåtgärd för att installera R:
 
 ```csharp
 static void Main(string[] args)
@@ -384,11 +382,11 @@ Nu när du har skapat ett HDInsight-kluster, kan du använda följande för att 
 
 ### <a name="hbase-clusters"></a>HBase-kluster
 * [Kom igång med HBase i HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Utveckla Java-program för HBase i HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+* [Utveckla Java-program för HBase på HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm-kluster
 * [Utveckla Java-topologier för Storm på HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Använda Python komponenter i Storm på HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Använda Python-komponenter i Storm på HDInsight](storm/apache-storm-develop-python-topology.md)
 * [Distribuera och övervaka topologier med Storm på HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="spark-clusters"></a>Spark-kluster
@@ -396,9 +394,10 @@ Nu när du har skapat ett HDInsight-kluster, kan du använda följande för att 
 * [Köra jobb via fjärranslutning på ett Spark-kluster med Livy](spark/apache-spark-livy-rest-interface.md)
 * [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](spark/apache-spark-use-bi-tools.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](spark/apache-spark-machine-learning-mllib-ipython.md)
+
 ### <a name="run-jobs"></a>Kör jobb
-* [Köra Hive-jobb i HDInsight med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [Köra Hive-jobb i HDInsight med hjälp av .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [Köra Pig-jobb i HDInsight med hjälp av .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
-* [Kör Sqoop jobb i HDInsight med hjälp av .NET SDK](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
+* [Köra Sqoop-jobb i HDInsight med hjälp av .NET SDK](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [Kör Oozie-jobb i HDInsight](hdinsight-use-oozie.md)
 

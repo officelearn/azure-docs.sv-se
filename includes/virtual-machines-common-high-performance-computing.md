@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 496c32e70ad58f64b31c1f6fcf913884fcd4abc1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 5a6c5498b4607719199363b5f6d93d3b42ccec0d
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348243"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37967754"
 ---
 Organisationer har storskaliga behov. Dessa Big Compute-arbetsbelastningar omfattar teknisk design och analys, finansiella risker, bildrendering, komplex modellering, Monte Carlo-simuleringar och mycket mer. 
 
@@ -58,7 +58,7 @@ Gå till den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketpl
 * [Azure Data Science VM för Windows och Linux](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)
 * [D3View](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 * [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)
-* [Intel Cloud Edition for Lustre](https://azuremarketplace.microsoft.com/marketplace/apps/intel.lustre-cloud-edition-eval?tab=Overview)
+* [Intel Cloud Edition for Lustre](https://azuremarketplace.microsoft.com/marketplace/apps/intel.intel-cloud-edition-gs)
 
 
  
@@ -189,7 +189,7 @@ Exempel på kunder som har löst affärsproblem med Azure HPC-lösningar:
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
 * [AXA globala P & C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
-* [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
+* [D3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
 * [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
 * [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)

@@ -1,9 +1,9 @@
 ---
-title: Autoskala Azure Virtual Machines | Microsoft Docs
-description: Lär dig mer om att skala automatiskt Windows- och Linux virtuella datorer i Azure.
+title: Virtuella datorer i Azure för automatisk skalning | Microsoft Docs
+description: Lär dig mer om automatisk skalning Windows och Linux-datorer i Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -12,13 +12,13 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.date: 08/21/2017
-ms.author: iainfou
-ms.openlocfilehash: 3310582db89ce461d0ab7fe8a44c084d78034aeb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.author: cynthn
+ms.openlocfilehash: 6c759364d90fd0ef8d3569a8830e26ff5d0507ac
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30190529"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929628"
 ---
 # <a name="automatically-scale-virtual-machines-in-azure"></a>Skala automatiskt virtuella datorer i Azure
 

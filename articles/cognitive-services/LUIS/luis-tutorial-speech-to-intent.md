@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 283dcdc718231e5f0f82fb98fe71b77aa54d741b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 3b225a012abe4796172327d8a723338e8de67749
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867692"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930026"
 ---
 # <a name="integrate-speech-service"></a>Integrera Speech service
 Den [taltjänst](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kan du använda en enskild begäran att ta emot ljud och returnera LUIS förutsägelse JSON-objekt.
@@ -28,7 +28,7 @@ I den här artikeln behöver du en kostnadsfri [LUIS] [ LUIS] webbplats-konto f�
 I Azure-portalen [skapa](luis-how-to-azure-subscription.md#create-luis-endpoint-key) en **Språkförståelse** (LUIS)-nyckel. 
 
 ## <a name="import-human-resources-luis-app"></a>Importera personalfrågor LUIS app
-Avsikter och yttranden för den här artikeln kommer från den personal LUIS-app som är tillgängliga från den [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github-lagringsplatsen. Ladda ned den [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) fil, spara den med tillägget *.json och [importera](create-new-app.md#import-new-app) den i LUIS. 
+Avsikter och yttranden för den här artikeln kommer från den personal LUIS-app som är tillgängliga från den [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github-lagringsplatsen. Ladda ned den [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) fil, spara den med tillägget *.json och [importera](luis-how-to-start-new-app.md#import-new-app) den i LUIS. 
 
 Den här appen har avsikter, entiteter och yttranden som rör personal-domänen. Exempel yttranden är:
 

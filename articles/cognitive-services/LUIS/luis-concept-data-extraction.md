@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 4d18419a6ad8be6ee46944c34205e450212b23a8
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 4341233e56ef62486b935457f606e54e54af84f4
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888523"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952597"
 ---
 # <a name="data-extraction"></a>Extrahering av data
 LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot för att vidta åtgärder.
@@ -426,13 +426,13 @@ Ett annat exempel uttryck med en synonym för Paris:
 Det är svårt att hämta namn från ett uttryck eftersom ett namn kan vara nästan vilken kombination av bokstäver och ord. Beroende på vilken typ av namn som du extraherar, har du flera alternativ. Dessa är inte regler utan fler riktlinjer. 
 
 ### <a name="names-of-people"></a>Namnen på personer
-Folkrepubliken namnet får inte innehålla något mindre format beroende på språket och kultur. Använd en hierarkisk entitet med och efternamn som underordnade eller Använd en enkel enhet med rollerna för förnamn, efternamn. Se till att ge exempel som använder det första och sista namnet i olika delar av uttryck i yttranden med olika längd och yttranden över alla avsikter inklusive ingen avsikt. [Granska](label-suggested-utterances.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt. 
+Folkrepubliken namnet får inte innehålla något mindre format beroende på språket och kultur. Använd en hierarkisk entitet med och efternamn som underordnade eller Använd en enkel enhet med rollerna för förnamn, efternamn. Se till att ge exempel som använder det första och sista namnet i olika delar av uttryck i yttranden med olika längd och yttranden över alla avsikter inklusive ingen avsikt. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt. 
 
 ### <a name="names-of-places"></a>Namnen på platser
-Platsnamn anges och kända, till exempel städer, regioner, stater, regioner och länder. Om appen använder en veta uppsättning platser kan du en entitet i listan. Om du vill hitta alla placera namn kan skapa en enkel enhet och omfattar en mängd olika exempel. Lägg till en fras över platsnamn att förstärka vilken plats namn som ut i din app. [Granska](label-suggested-utterances.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt. 
+Platsnamn anges och kända, till exempel städer, regioner, stater, regioner och länder. Om appen använder en veta uppsättning platser kan du en entitet i listan. Om du vill hitta alla placera namn kan skapa en enkel enhet och omfattar en mängd olika exempel. Lägg till en fras över platsnamn att förstärka vilken plats namn som ut i din app. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt. 
 
 ### <a name="new-and-emerging-names"></a>Nya och framväxande namn
-Vissa appar behöver för att kunna hitta nya och framväxande namn, t.ex produkter eller företag. Det här är den svåraste typ av extrahering av data. Börja med en enkel enhet och lägga till en fras-lista. [Granska](label-suggested-utterances.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt. 
+Vissa appar behöver för att kunna hitta nya och framväxande namn, t.ex produkter eller företag. Det här är den svåraste typ av extrahering av data. Börja med en enkel enhet och lägga till en fras-lista. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt. 
 
 ## <a name="pattern-roles-data"></a>Mönstret roller data
 Roller är sammanhangsberoende skillnader med entiteter. 

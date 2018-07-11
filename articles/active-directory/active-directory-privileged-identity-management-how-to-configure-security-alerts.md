@@ -13,18 +13,18 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d054ca015fd97b3ec45f18b2d3a795eccf606993
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fee4344be2875140a2e9c35bd83eb668bd1efa3f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447565"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952470"
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Så här konfigurerar du säkerhetsaviseringar i Azure AD Privileged Identity Management
 ## <a name="security-alerts"></a>Säkerhetsaviseringar
 Azure Privileged Identity Management (PIM) genererar aviseringar när det finns misstänkt eller osäkra aktivitet i din miljö. När en avisering utlöses, visas det i PIM-instrumentpanelen. Välj vilken avisering du vill se en rapport som visar den användare eller de roller som utlöste aviseringen.
 
-![PIM instrumentpanelen säkerhetsaviseringar – skärmbild][1]
+![PIM instrumentpanelen säkerhetsaviseringar – skärmbild](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png)
 
 | Varning | Severity | Utlösare | Rekommendation |
 | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ Du kan anpassa vissa av säkerhetsvarningar i PIM att arbeta med din miljö och 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) och välj den **Azure AD Privileged Identity Management** panelen på instrumentpanelen.
 2. Välj **hanteras Privilegierade roller** > **inställningar** > **aviseringsinställningar**.
    
-    ![Navigera till säkerhetsinställningar för aviseringar][2]
+    ![Navigera till säkerhetsinställningar för aviseringar](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png)
 
 ### <a name="roles-are-being-activated-too-frequently-alert"></a>”Roller som aktiveras för ofta” avisering
 Den här aviseringen utlöses om en användare aktiverar rollen för samma Privilegierade flera gånger inom en angiven tidsperiod. Du kan konfigurera både hur lång tid och antalet aktiveringar.
@@ -66,8 +66,3 @@ Den här aviseringen utlöses om en användare går en viss tidsperiod utan att 
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: af2a6b19d74e02b9368722cadf4d57aef377d43a
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 891059a440189112c834f3402725781a6b4a3960
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865445"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952832"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Ramverk för djupinlärning och AI
 Den [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) och [Deep Learning VM](http://aka.ms/dsvm/deeplearning) stöder ett antal olika ramverk för djupinlärning för att skapa artificiell intelligens (AI) program med förutsägelseanalys och kognitiva funktioner som bild- och språkförståelse. 
@@ -66,7 +66,7 @@ Här följer information på alla deep learning-ramverk som är tillgängliga p�
 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Ramverk för djupinlärning      |
+| Vad är det?   | Övergripande djupinlärning API      |
 | Stöds DSVM-versioner      | Windows, Linux     |
 | Hur är det konfigurerade / installerad på DSVM?  | TensorFlow installeras i Python 3.5 på [Linux och Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) och Python 3.6 på [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). |
 | Innehåller länkar till exempel      | https://github.com/fchollet/keras/tree/master/examples      |

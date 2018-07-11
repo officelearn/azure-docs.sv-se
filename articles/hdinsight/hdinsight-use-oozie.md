@@ -1,6 +1,6 @@
 ---
-title: Använd Hadoop Oozie i HDInsight | Microsoft Docs
-description: Använd Hadoop Oozie i HDInsight, en stordatatjänst. Lär dig hur du definierar ett arbetsflöde för Oozie och skicka ett Oozie-jobb.
+title: Använda Oozie med Hadoop i HDInsight | Microsoft Docs
+description: Använd Hadoop Oozie i HDInsight, en big data-tjänst. Lär dig hur du definierar ett Oozie-arbetsflöde och skicka en Oozie-jobb.
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
@@ -16,24 +16,24 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.openlocfilehash: c0558432c0d74e2c9fcec108182a4dbafa332904
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32176583"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952866"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Använda Oozie med Hadoop för att definiera och köra ett arbetsflöde i HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Lär dig använda Apache Oozie att definiera ett arbetsflöde och köra arbetsflödet på HDInsight. Läs om Oozie-koordinator i [använda tidsbaserade Hadoop Oozie-koordinator med HDInsight][hdinsight-oozie-coordinator-time]. Information om Azure Data Factory finns [Use Pig och Hive med Data Factory][azure-data-factory-pig-hive].
+Lär dig hur du använder Apache Oozie att definiera ett arbetsflöde och köra arbetsflödet på HDInsight. Läs om Oozie-koordinator i [använda tidsbaserade Hadoop Oozie-koordinator med HDInsight][hdinsight-oozie-coordinator-time]. Läs Azure Data Factory i [Använd Pig och Hive med Data Factory][azure-data-factory-pig-hive].
 
-Apache Oozie är ett arbetsflöde/samordning system som hanterar Hadoop-jobb. Det är integrerat med Hadoop-stacken och stöder Hadoop-jobb för Apache MapReduce, Apache Pig, Apache Hive och Apache Sqoop. Det kan också användas för att schemalägga jobb som är specifika för ett system, t.ex. Java-program eller kommandoskript.
+Apache Oozie är ett arbetsflödeskoordination/system som hanterar Hadoop-jobb. Det är integrerat med Hadoop-stacken och stöder Hadoop-jobb för Apache MapReduce, Apache Pig, Apache Hive och Apache Sqoop. Det kan också användas för att schemalägga jobb som är specifika för ett system, t.ex. Java-program eller kommandoskript.
 
-Arbetsflödet som du implementerar genom att följa anvisningarna i den här självstudiekursen innehåller två åtgärder:
+Arbetsflödet som du implementerar genom att följa anvisningarna i den här självstudien innehåller två åtgärder:
 
 ![Arbetsflödesdiagram][img-workflow-diagram]
 
-1. En Hive-åtgärden körs ett HiveQL-skript för att räkna antalet förekomster av varje loggningsnivån typ i en log4j-fil. Varje log4j-fil består av en rad med fält som innehåller ett [LOGGNINGSNIVÅ] fält som visar vilken typ och allvarlighetsgrad, till exempel:
+1. En Hive-åtgärd körs ett HiveQL-skript för att räkna förekomsterna av varje Loggnivå typ i en log4j-fil. Varje log4j-fil består av en rad med fält som innehåller ett [LOGGNINGSNIVÅ]-fält som visar vilken typ och allvarlighetsgrad, till exempel:
    
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -50,10 +50,10 @@ Arbetsflödet som du implementerar genom att följa anvisningarna i den här sj�
         [WARN]  4
    
     Mer information om Hive finns i [Använda Hive med HDInsight][hdinsight-use-hive].
-2. En åtgärd för Sqoop exporterar HiveQL utdata till en tabell i Azure SQL-databas. Läs mer om Sqoop [Använd Hadoop Sqoop med HDInsight][hdinsight-use-sqoop].
+2. En åtgärd som Sqoop exporterar HiveQL utdata till en tabell i en Azure SQL database. Läs mer om Sqoop [Använd Hadoop Sqoop med HDInsight][hdinsight-use-sqoop].
 
 > [!NOTE]
-> Versioner som stöds Oozie i HDInsight-kluster, se [vad är nytt i Hadoop-klusterversioner som tillhandahålls av HDInsight?] [hdinsight-versions].
+> Versioner som stöds Oozie på HDInsight-kluster, se [vad är nytt i de Hadoop-klusterversioner som tillhandahålls av HDInsight?] [hdinsight-versions].
 > 
 > 
 
@@ -66,8 +66,8 @@ Innan du påbörjar den här självstudien måste du ha följande objekt:
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
   
 
-## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Definiera Oozie arbetsflödet och relaterade HiveQL-skript
-Oozie arbetsflöden definitioner skrivs i hPDL (en XML-processen Definition Language). Standardfilnamnet för arbetsflödet är *workflow.xml*. Följande är arbetsflödesfilen som du använder i den här kursen.
+## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Definiera Oozie-arbetsflöde och relaterade HiveQL-skript
+Oozie arbetsflöden definitioner är skrivna i hPDL (en XML-processen för Definition Language). Standardfilnamnet för arbetsflödet är *workflow.xml*. Följande är arbetsflödesfilen som du använder i den här självstudien.
 
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
         <start to = "RunHiveScript"/>
@@ -124,42 +124,42 @@ Oozie arbetsflöden definitioner skrivs i hPDL (en XML-processen Definition Lang
         <end name="end"/>
     </workflow-app>
 
-Det finns två åtgärder som definierats i arbetsflödet. Start-till-åtgärden är *RunHiveScript*. Om instruktionen körs utan problem, är nästa åtgärd *RunSqoopExport*.
+Det finns två åtgärder som definierats i arbetsflödet. Start-till-åtgärden är *RunHiveScript*. Om åtgärden körs utan problem, är nästa åtgärd *RunSqoopExport*.
 
 RunHiveScript har flera variabler. Du kan skicka värdena när du har skickat jobbet Oozie från din arbetsstation med hjälp av Azure PowerShell.
 
 <table border = "1">
 <tr><th>Arbetsflödesvariabler</th><th>Beskrivning</th></tr>
-<tr><td>${jobTracker}</td><td>Anger Webbadressen för Spårare för Hadoop-jobb. Använd <strong>jobtrackerhost:9010</strong> i HDInsight version 3.0 och 2.1.</td></tr>
-<tr><td>${nameNode}</td><td>Anger URL för noden Hadoop namn. Använda filen system standardadressen, till exempel <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
-<tr><td>${Könamn}</td><td>Anger namnet på kön som jobbet skickas till. Använd den <strong>standard</strong>.</td></tr>
+<tr><td>${jobTracker}</td><td>Anger URL: en för spårningsverktyget för Hadoop-jobb. Använd <strong>jobtrackerhost:9010</strong> i HDInsight version 3.0 och 2.1.</td></tr>
+<tr><td>${nameNode}</td><td>Anger URL: en för noden Hadoop namn. Använda file system standardadressen, till exempel <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
+<tr><td>${queueName}</td><td>Anger namnet på kön som jobbet skickas till. Använd den <strong>standard</strong>.</td></tr>
 </table>
 
 <table border = "1">
-<tr><th>Hive variabel</th><th>Beskrivning</th></tr>
+<tr><th>Variabeln för hive-åtgärd</th><th>Beskrivning</th></tr>
 <tr><td>${hiveDataFolder}</td><td>Anger källkatalogen för Hive Create Table-kommando.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Anger den utgående mappen för instruktionen INSERT skriva över.</td></tr>
-<tr><td>${hiveTableName}</td><td>Anger namnet på den Hive-tabell som refererar till log4j-datafiler.</td></tr>
+<tr><td>${hiveOutputFolder}</td><td>Anger den utgående mappen för instruktionen INSERT skrivs över.</td></tr>
+<tr><td>${hiveTableName}</td><td>Anger namnet på Hive-tabell som refererar till log4j-datafiler.</td></tr>
 </table>
 
 <table border = "1">
-<tr><th>Sqoop variabel</th><th>Beskrivning</th></tr>
+<tr><th>Sqoop åtgärd variabel</th><th>Beskrivning</th></tr>
 <tr><td>${sqlDatabaseConnectionString}</td><td>Anger anslutningssträngen för Azure SQL-databasen.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>Anger Azure SQL database-tabellen där data exporteras till.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Anger den utgående mappen för instruktionen Hive Infoga skriva över. Det här är samma mapp för Sqoop exporten (export-dir).</td></tr>
+<tr><td>${sqlDatabaseTableName}</td><td>Anger Azure SQL database-tabell där data exporteras till.</td></tr>
+<tr><td>${hiveOutputFolder}</td><td>Anger den utgående mappen för instruktionen Hive Infoga skrivs över. Det här är samma mapp för Sqoop exportera (export-dir).</td></tr>
 </table>
 
-Läs mer om Oozie arbetsflödet och använder arbetsflödesåtgärder [Apache Oozie 4.0 dokumentationen] [ apache-oozie-400] (för HDInsight version 3.0) eller [Apache Oozie 3.3.2 dokumentationen] [ apache-oozie-332] (för HDInsight version 2.1).
+Läs mer om hur Oozie-arbetsflöde och använder arbetsflödesåtgärder [Apache Oozie 4.0 dokumentation] [ apache-oozie-400] (för HDInsight version 3.0) eller [Apache Oozie 3.3.2 dokumentation] [ apache-oozie-332] (för HDInsight version 2.1).
 
-Åtgärden Hive i arbetsflödet anropar en skriptfil för HiveQL. Den här skriptfilen innehåller tre HiveQL-instruktioner:
+Hive-åtgärden i arbetsflödet anropar en skriptfil för HiveQL. Den här skriptfilen innehåller tre HiveQL-instruktioner:
 
     DROP TABLE ${hiveTableName};
     CREATE EXTERNAL TABLE ${hiveTableName}(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION '${hiveDataFolder}';
     INSERT OVERWRITE DIRECTORY '${hiveOutputFolder}' SELECT t4 AS sev, COUNT(*) AS cnt FROM ${hiveTableName} WHERE t4 LIKE '[%' GROUP BY t4;
 
 1. **DROP TABLE-instruktionen** tar bort log4j Hive-tabell om den finns.
-2. **Instruktionen CREATE TABLE** skapar en log4j Hive extern tabell som pekar på platsen för filen log4j. Fältavgränsaren är ””,. Standard rad avgränsaren är ”\n”. En extern tabell Hive används för att undvika att filen tas bort från den ursprungliga platsen om du vill köra arbetsflödet Oozie flera gånger.
-3. **Instruktionen INSERT över** räknar förekomster av varje loggningsnivån typ från log4j Hive-tabell och sparar utdata till en blobb i Azure Storage.
+2. **CREATE TABLE-instruktionen** skapar en log4j Hive extern tabell som pekar på platsen för log4j-loggfil. Fältavgränsaren är ””,. Rad saknas används ”\n”. En extern tabell Hive används för att undvika att filen tas bort från den ursprungliga platsen om du vill köra Oozie-arbetsflöde flera gånger.
+3. **Instruktionen INSERT skriva över** räknar förekomster av varje Loggnivå typ från log4j Hive-tabell och sparar resultatet till en blob i Azure Storage.
 
 Det finns tre variabler som används i skriptet:
 
@@ -167,33 +167,33 @@ Det finns tre variabler som används i skriptet:
 * ${hiveDataFolder}
 * ${hiveOutputFolder}
 
-Definitionsfilen för arbetsflöde (workflow.xml i den här självstudiekursen) skickar dessa värden till skriptet HiveQL vid körning.
+Arbetsflöde-definitionsfil (workflow.xml i den här självstudien) skickar dessa värden till den här HiveQL-skript vid körning.
 
-Både arbetsflödesfilen och HiveQL filen lagras i en blob-behållare.  PowerShell-skriptet som du använder senare i den här kursen kopierar filer till standardkontot för lagring. 
+Både arbetsflödesfilen och HiveQL filen lagras i en blob-behållare.  PowerShell-skriptet som du använder senare i den här självstudien kopierar filerna till standardkontot för lagring. 
 
-## <a name="submit-oozie-jobs-using-powershell"></a>Skicka Oozie jobb med hjälp av PowerShell
-Azure PowerShell tillhandahåller inte för närvarande alla cmdlets för att definiera Oozie jobb. Du kan använda den **Invoke-RestMethod** för att anropa Oozie-webbtjänster. Oozie web services API är en HTTP-REST-API för JSON. Mer information om webbtjänster Oozie API finns [Apache Oozie 4.0 dokumentationen] [ apache-oozie-400] (för HDInsight version 3.0) eller [Apache Oozie 3.3.2 dokumentationen] [ apache-oozie-332] (för HDInsight version 2.1).
+## <a name="submit-oozie-jobs-using-powershell"></a>Skicka Oozie-jobb med hjälp av PowerShell
+Azure PowerShell erbjuder inte för närvarande cmdlets för att definiera Oozie-jobb. Du kan använda den **Invoke-RestMethod** cmdlet för att anropa Oozie-webbtjänster. Oozie web services API är en HTTP-REST-API för JSON. Mer information om API för Oozie-webbtjänsterna finns i [Apache Oozie 4.0 dokumentation] [ apache-oozie-400] (för HDInsight version 3.0) eller [Apache Oozie 3.3.2 dokumentation] [ apache-oozie-332] (för HDInsight version 2.1).
 
-PowerShell-skript i det här avsnittet utför följande steg:
+PowerShell-skriptet i det här avsnittet utför du följande steg:
 
 1. Ansluta till Azure.
-2. Skapa en Azure-resursgrupp. Mer information finns i [Använd Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
-3. Skapa en Azure SQL Database-server, en Azure SQL database och två tabeller. Dessa används för åtgärden Sqoop i arbetsflödet.
+2. Skapa en Azure-resursgrupp. Mer information finns i [med Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
+3. Skapa en Azure SQL Database-server, en Azure SQL database och två tabeller. De används för Sqoop-åtgärden i arbetsflödet.
    
     Tabellnamnet är *log4jLogCount*.
-4. Skapa ett HDInsight-kluster som används för att köra Oozie jobb.
+4. Skapa ett HDInsight-kluster som används för att köra Oozie-jobb.
    
-    Du kan använda Azure-portalen eller Azure PowerShell för att undersöka klustret.
-5. Kopiera filen oozie arbetsflödet och HiveQL skriptfilen till filsystemet.
+    Du kan använda Azure portal eller Azure PowerShell om du vill kontrollera klustret.
+5. Kopiera filen oozie-arbetsflöde och HiveQL skriptfilen till standardfilsystem.
    
-    Filer som lagras i en offentlig Blob-behållare.
+    Båda filerna lagras i en offentlig blobbehållare.
    
    * Kopiera HiveQL-skript (useoozie.hql) till Azure Storage (wasb:///tutorials/useoozie/useoozie.hql).
    * Kopiera workflow.xml till wasb:///tutorials/useoozie/workflow.xml.
    * Kopiera datafilen (/ example/data/sample.log) till wasb:///tutorials/useoozie/data/sample.log.
 6. Skicka ett Oozie-jobb.
    
-    Om du vill granska resultaten för OOzie-jobbet använder du Visual Studio eller andra verktyg för att ansluta till Azure SQL-databasen.
+    Om du vill kontrollera jobbresultaten OOzie, använder du Visual Studio eller andra verktyg för att ansluta till Azure SQL Database.
 
 Här är skriptet.  Du kan köra skriptet från Windows PowerShell ISE. Du behöver bara konfigurera först 7 variabler.
 
@@ -577,11 +577,11 @@ Här är skriptet.  Du kan köra skriptet från Windows PowerShell ISE. Du behö
     #endregion
 
 
-**Att köra guiden igen**
+**Köra självstudien**
 
 Om du vill köra arbetsflödet igen, måste du ta bort följande objekt:
 
-* Utdatafilen Hive-skript
+* Hive-skriptfilen för utdata
 * Data i tabellen log4jLogsCount
 
 Här är ett PowerShell-skript som du kan använda:
@@ -617,9 +617,9 @@ Här är ett PowerShell-skript som du kan använda:
     $conn.close()
 
 ## <a name="next-steps"></a>Nästa steg
-I kursen får du har lärt dig hur du definierar ett arbetsflöde för Oozie och hur du kör ett Oozie-jobb med hjälp av PowerShell. Mer information finns i följande artiklar:
+I den här självstudien beskrivs hur du definierar ett Oozie-arbetsflöde och hur du kör ett Oozie-jobb med hjälp av PowerShell. Mer information finns i följande artiklar:
 
-* [Använd tidsbaserad Oozie-koordinator med HDInsight][hdinsight-oozie-coordinator-time]
+* [Använd tidsbaserade Oozie-koordinator med HDInsight][hdinsight-oozie-coordinator-time]
 * [Komma igång med Hadoop med Hive i HDInsight för att analysera mobila luren användning][hdinsight-get-started]
 * [Använda Azure Blob storage med HDInsight][hdinsight-storage]
 * [Administrera HDInsight med hjälp av PowerShell][hdinsight-admin-powershell]
@@ -627,7 +627,7 @@ I kursen får du har lärt dig hur du definierar ett arbetsflöde för Oozie och
 * [Använda Sqoop med Hadoop i HDInsight][hdinsight-use-sqoop]
 * [Använda Hive med Hadoop i HDInsight][hdinsight-use-hive]
 * [Använda Pig med Hadoop i HDInsight][hdinsight-use-pig]
-* [Utveckla Java-MapReduce-program för HDInsight][hdinsight-develop-mapreduce]
+* [Utveckla Java MapReduce-program för HDInsight][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
 

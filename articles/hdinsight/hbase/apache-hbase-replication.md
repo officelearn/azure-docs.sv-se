@@ -1,6 +1,6 @@
 ---
 title: Konfigurera HBase-kluster-replikering i Azure-nätverk | Microsoft Docs
-description: Lär dig hur du ställer in HBase-replikering från en HDInsight-version till en annan för belastningsutjämning, hög tillgänglighet, noll avbrottstid migrering och uppdateringar och katastrofåterställning.
+description: Lär dig hur du ställer in HBase-replikering från en HDInsight-version till en annan för Utjämning av nätverksbelastning, hög tillgänglighet, noll stilleståndstid vid migrering och uppdateringar och katastrofåterställning.
 services: hdinsight,virtual-network
 documentationcenter: ''
 author: mumian
@@ -12,57 +12,57 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: jgao
-ms.openlocfilehash: 56b2b5ae9d3e4a0e682ec3dd47cd5cc30ebf6d58
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: f0367b67f141ca65ce2374722016d0fbea6c97d1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077334"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951132"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera HBase-kluster-replikering i Azure-nätverk
 
-Lär dig hur du ställer in HBase-replikering i ett virtuellt nätverk eller mellan två virtuella nätverk i Azure.
+Lär dig hur du ställer in HBase-replikering inom ett virtuellt nätverk, eller mellan två virtuella nätverk i Azure.
 
-Kluster-replikering använder en käll-push-metod. Ett HBase-kluster kan vara en käll- eller ett mål eller det kan uppfylla båda roller på samma gång. Replikering är asynkron. Målet för replikering är slutliga konsekvensen. När källan tar emot en redigering till en kolumnfamilj när replikeringen är aktiverad, sprids redigera till alla målkluster. När data från ett kluster till ett annat, spåras källklustret och alla kluster som redan förbrukats data, för att förhindra replikering slingor.
+Kluster-replikering använder en käll-push-metod. Ett HBase-kluster kan vara en källa eller ett mål eller det uppfyller båda rollerna samtidigt. Replikering är asynkrona. Målet för replikering är slutlig konsekvens. När källan får redigerar du en kolumnfamilj när replikering har aktiverats, sprids redigera till alla målkluster. När data replikeras från ett kluster till ett annat, spåras källklustret och alla kluster som redan har förbrukat data, för att förhindra replikering slingor.
 
-I den här kursen kan du ställa in en källa mål-replikering. Andra klustertopologier finns i [Apache HBase referenshandboken](http://hbase.apache.org/book.html#_cluster_replication).
+I den här självstudien konfigurerar du en källa-mål-replikering. Andra klustertopologier finns i den [referensguiden för Apache HBase](http://hbase.apache.org/book.html#_cluster_replication).
 
-Följande är HBase replikering användning ärenden för ett enda virtuellt nätverk:
+Följande är HBase-replikering användning ärenden för ett enda virtuellt nätverk:
 
-* Belastningsbalansering. Du kan till exempel köra genomsökningar eller MapReduce-jobb på målklustret och mata in data på källklustret.
+* Belastningsbalansering. Du kan till exempel köra genomsökningar eller MapReduce-jobb på målklustret och mata in data i källklustret.
 * Lägger till hög tillgänglighet.
 * Migrera data från ett HBase-kluster till ett annat.
 * Uppgradera ett Azure HDInsight-kluster från en version till en annan.
 
-Följande är HBase replikering användning fall för två virtuella nätverk:
+Följande är HBase-replikering användning ärenden för två virtuella nätverk:
 
-* Konfigurera katastrofåterställning.
-* Belastningsutjämning och partitionering programmet.
+* Konfigurera haveriberedskap.
+* Utjämning av nätverksbelastning och partitionering programmet.
 * Lägger till hög tillgänglighet.
 
-Du kan replikera kluster med hjälp av [skript åtgärd](../hdinsight-hadoop-customize-cluster-linux.md) skript från [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
+Du kan replikera kluster med hjälp av [skripta åtgärd](../hdinsight-hadoop-customize-cluster-linux.md) skript från [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [få en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## <a name="set-up-the-environments"></a>Konfigurera miljöerna
+## <a name="set-up-the-environments"></a>Ställ in miljöer
 
-Du har tre konfigurationsalternativ:
+Du har tre alternativ:
 
-- Två HBase-kluster i ett Azure virtual network.
+- Två HBase-kluster i en Azure-nätverk.
 - Två HBase-kluster i två olika virtuella nätverk i samma region.
 - Två HBase-kluster i två olika virtuella nätverk i två olika regioner (geo-replikering).
 
-Den här artikeln beskriver scenariot geo-replikering.
+Den här artikeln tar upp den geo-replikering.
 
-Som hjälper dig att ställa in miljöerna, har vi skapat några [Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-overview.md). Om du vill konfigurera i miljöer med hjälp av andra metoder, se:
+För att du ställer in miljöer, vi har skapat några [Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-overview.md). Om du föredrar att ställa in miljöer genom att använda andra metoder, se:
 
 - [Skapa Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Skapa HBase-kluster i Azure-nätverk](apache-hbase-provision-vnet.md)
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Konfigurera två virtuella nätverk i två olika regioner
 
-För att skapa två virtuella nätverk i två olika regioner och VPN-anslutning mellan till Vnet, väljer du följande bilden för att skapa den. Mallen finns i [offentlig blob storage]] (https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
+Om du vill använda en mall som skapar två virtuella nätverk i två olika regioner och VPN-anslutning mellan virtuella nätverk, väljer du följande **distribuera till Azure** knappen. Malldefinitionen lagras i en [offentliga blob-lagring](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -73,47 +73,47 @@ Vissa hårdkodade värden i mallen:
 | Egenskap  | Värde |
 |----------|-------|
 | Plats | Västra USA |
-| Namn på virtuella nätverk | &lt;ClusterNamePrevix >-vnet1 |
-| Adressprefixet utrymme | 10.1.0.0/16 |
-| Namn på undernät | undernät 1 |
+| Namn på virtuellt nätverk | &lt;ClusterNamePrevix >-vnet1 |
+| Adressutrymmets prefix | 10.1.0.0/16 |
+| Namn på undernät | subnät 1 |
 | Undernätets prefix | 10.1.0.0/24 |
-| Undernätnamnet (gateway) | GatewaySubnet (kan ändras) |
-| Undernätsprefixet (gateway) | 10.1.255.0/27 |
-| Gatewaynamnet | vnet1gw |
+| Namn på undernät (gateway) | GatewaySubnet (det går inte att ändras) |
+| Undernätsprefix (gateway) | 10.1.255.0/27 |
+| Gateway-namn | vnet1gw |
 | Gateway-typ | Vpn |
-| VPN gateway-typ | Routningsbaserad |
+| Typ av VPN-gateway | Routningsbaserad |
 | Gateway-SKU | Basic |
-| gateway-IP | vnet1gwip |
+| Gateway IP | vnet1gwip |
 
-**VNet 2**
+**VNet-2**
 
 | Egenskap  | Värde |
 |----------|-------|
 | Plats | Östra USA |
-| Namn på virtuella nätverk | &lt;ClusterNamePrevix >-vnet2 |
-| Adressprefixet utrymme | 10.2.0.0/16 |
-| Namn på undernät | undernät 1 |
+| Namn på virtuellt nätverk | &lt;ClusterNamePrevix >-vnet2 |
+| Adressutrymmets prefix | 10.2.0.0/16 |
+| Namn på undernät | subnät 1 |
 | Undernätets prefix | 10.2.0.0/24 |
-| Undernätnamnet (gateway) | GatewaySubnet (kan ändras) |
-| Undernätsprefixet (gateway) | 10.2.255.0/27 |
-| Gatewaynamnet | vnet2gw |
+| Namn på undernät (gateway) | GatewaySubnet (det går inte att ändras) |
+| Undernätsprefix (gateway) | 10.2.255.0/27 |
+| Gateway-namn | vnet2gw |
 | Gateway-typ | Vpn |
-| VPN gateway-typ | Routningsbaserad |
+| Typ av VPN-gateway | Routningsbaserad |
 | Gateway-SKU | Basic |
-| gateway-IP | vnet1gwip |
+| Gateway IP | vnet1gwip |
 
 ## <a name="setup-dns"></a>Konfigurera DNS
 
-I det sista avsnittet skapas en virtuell Ubuntu-dator i var och en av de två virtuella nätverk i mallen.  I det här avsnittet Installera Bind på två DNS-virtuella datorer och sedan konfigurera DNS-vidarebefordran på två virtuella datorer.
+Mallen skapar en Ubuntu-dator i var och en av de två virtuella nätverken i det sista avsnittet.  I det här avsnittet Installera bindning på två DNS-virtuella datorer och sedan konfigurera DNS-vidarebefordran på två virtuella datorer.
 
-Om du vill installera Bind måste yon att hitta den offentliga IP-adressen för två DNS-virtuella datorer.
+Om du vill installera Bind behöver yon hitta offentliga IP-adress för två DNS-virtuella datorer.
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
-2. Öppna DNS-virtuella datorn genom att välja **resursgrupper > [resursgruppens namn] > [vnet1DNS]**.  Resursgruppens namn är det du har skapat i föregående procedur. Standard DNS-namn för virtuell dator är *vnet1DNS* och *vnet2NDS*.
+2. Öppna DNS-virtuell dator genom att välja **resursgrupper > [resursgruppens namn] > [vnet1DNS]**.  Resursgruppens namn är det som du skapar i föregående procedur. Standard-DNS VM-namn är *vnet1DNS* och *vnet2NDS*.
 3. Välj **egenskaper** att öppna egenskapssidan för det virtuella nätverket.
-4. Skriv ned den **offentliga IP-adressen**, och även kontrollera den **privata IP-adressen**.  Den privata IP-adressen är **10.1.0.4** för vnet1DNS och **10.2.0.4** för vnet2DNS.  
+4. Anteckna den **offentliga IP-adressen**, och också kontrollera den **privat IP-adress**.  Den privata IP-adressen ska vara **10.1.0.4** för vnet1DNS och **10.2.0.4** för vnet2DNS.  
 
-Använd följande procedur om du vill installera bindning:
+Följ anvisningarna nedan om du vill installera bindning:
 
 1. Använda SSH för att ansluta till den __offentliga IP-adressen__ för den virtuella datorn i DNS. I följande exempel ansluter till en virtuell dator på 40.68.254.142:
 
@@ -124,9 +124,9 @@ Använd följande procedur om du vill installera bindning:
     Ersätt `sshuser` med SSH-användarkonto som du angav när du skapar den virtuella datorn i DNS.
 
     > [!NOTE]
-    > Det finns flera olika sätt att hämta den `ssh` verktyget. Linux-, Unix- och macOS anges som en del av operativsystemet. Om du använder Windows, bör du något av följande alternativ:
+    > Det finns en mängd olika sätt att hämta den `ssh` verktyget. Linux-, Unix- och macOS anges som en del av operativsystemet. Om du använder Windows, bör du något av följande alternativ:
     >
-    > * [Azure-molnet Shell](../../cloud-shell/quickstart.md)
+    > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
     > * [Bash på Ubuntu på Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
     > * [Git (https://git-scm.com/)](https://git-scm.com/)
     > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
@@ -138,7 +138,7 @@ Använd följande procedur om du vill installera bindning:
     sudo apt-get install bind9 -y
     ```
 
-3. Om du vill konfigurera Bind att vidarebefordra begäran till din DNS-server för lokal namnmatchning, Använd följande text som innehållet i den `/etc/bind/named.conf.options` filen:
+3. Om du vill konfigurera bindning att vidarebefordra begäran till din DNS-server med en lokal namnmatchning, Använd följande text som innehållet i den `/etc/bind/named.conf.options` fil:
 
     ```
     acl goodclients {
@@ -165,7 +165,7 @@ Använd följande procedur om du vill installera bindning:
     ```
     
     > [!IMPORTANT]
-    > Ersätter värdena i den `goodclients` avsnitt med IP-adressintervall i två virtuella nätverk. Det här avsnittet beskriver de adresser som DNS-servern accepterar begäranden från.
+    > Ersätt värdena i den `goodclients` avsnittet med IP-adressintervall i de två virtuella nätverken. Det här avsnittet definierar de adresser som den här DNS-servern tar emot förfrågningar från.
 
     Om du vill redigera den här filen använder du följande kommando:
 
@@ -175,21 +175,21 @@ Använd följande procedur om du vill installera bindning:
 
     Om du vill spara filen, Använd __Ctrl + X__, __Y__, och sedan __RETUR__.
 
-4. Använd följande kommando från SSH-session:
+4. Använd följande kommando från SSH-sessionen:
 
     ```bash
     hostname -f
     ```
 
-    Det här kommandot returnerar ett värde som liknar följande:
+    Det här kommandot returnerar ett värde som liknar följande text:
 
         vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
 
-    Den `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` texten är den __DNS-suffix__ för den här virtuella nätverket. Spara det här värdet eftersom det används senare.
+    Den `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` texten är den __DNS-suffix__ för den här virtuella nätverket. Du bör spara det här värdet eftersom det används senare.
 
-    Du måste också reda på DNS-suffix från DNS-servern. Du behöver den i nästa steg.
+    Du måste också ta reda på DNS-suffix från DNS-servern. Du behöver det i nästa steg.
 
-5. Konfigurera Bind att matcha DNS-namn för resurser i det virtuella nätverket med följande text som innehållet i den `/etc/bind/named.conf.local` filen:
+5. Om du vill konfigurera bindning för DNS-namnmatchning för resurser i det virtuella nätverket, Använd följande text som innehållet i den `/etc/bind/named.conf.local` fil:
 
     ```
     // Replace the following with the DNS suffix for your virtual network
@@ -200,7 +200,7 @@ Använd följande procedur om du vill installera bindning:
     ```
 
     > [!IMPORTANT]
-    > Du måste ersätta den `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` med DNS-suffixet för det virtuella nätverket. Vidarebefordraren IP-Adressen är den privata IP-adressen för DNS-servern i det virtuella nätverket.
+    > Du måste ersätta det `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` med DNS-suffixet för det virtuella nätverket. Och vidarebefordrare IP-Adressen är den privata IP-adressen för DNS-servern i det virtuella nätverket.
 
     Om du vill redigera den här filen använder du följande kommando:
 
@@ -216,7 +216,7 @@ Använd följande procedur om du vill installera bindning:
     sudo service bind9 restart
     ```
 
-7. Om du vill kontrollera att binda kan matcha namnen på de resurser i det virtuella nätverket, Använd följande kommandon:
+7. Kontrollera att bindning kan matcha namnen på resurser i det virtuella nätverket genom att använda följande kommandon:
 
     ```bash
     sudo apt install dnsutils
@@ -224,9 +224,9 @@ Använd följande procedur om du vill installera bindning:
     ```
 
     > [!IMPORTANT]
-    > Ersätt `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` med fullständigt kvalificerade domännamnet (FQDN) för den virtuella datorn i DNS i andra nätverk.
+    > Ersätt `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` med det fullständigt kvalificerade domännamnet (FQDN) för den virtuella datorn i DNS i andra nätverk.
     >
-    > Ersätt `10.2.0.4` med den __interna IP-adress__ på anpassade DNS-servern i det virtuella nätverket.
+    > Ersätt `10.2.0.4` med den __interna IP-adressen__ för din anpassade DNS-server i det virtuella nätverket.
 
     Svaret ser ut som följande text:
 
@@ -239,20 +239,20 @@ Använd följande procedur om du vill installera bindning:
     Address: 10.2.0.4
     ```
 
-    Fram till nu kan du söka efter IP-adress från nätverket utan angivna DNS-serverns IP-adress.
+    Fram till nu så du kan inte kontrollera IP-adress från det andra nätverket utan angiven DNS-serverns IP-adress.
 
-### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>Konfigurera det virtuella nätverket om du vill använda anpassade DNS-servern
+### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>Konfigurera det virtuella nätverket för att använda den anpassa DNS-servern
 
-Använd följande steg om du vill konfigurera det virtuella nätverket om du vill använda anpassade DNS-servern i stället för Azure rekursiv matcharen:
+Om du vill konfigurera det virtuella nätverket om du vill använda anpassade DNS-servern i stället för Azures rekursiva matchare, använder du följande steg:
 
-1. I den [Azure-portalen](https://portal.azure.com), Välj det virtuella nätverket och väljer sedan __DNS-servrar__.
+1. I den [Azure-portalen](https://portal.azure.com), Välj det virtuella nätverket och välj sedan __DNS-servrar__.
 
-2. Välj __anpassade__, och ange den __interna IP-adress__ för anpassade DNS-servern. Välj slutligen __spara__.
+2. Välj __anpassade__, och ange den __interna IP-adressen__ för anpassad DNS-servern. Välj slutligen __spara__.
 
-6. Öppna den virtuella datorn för DNS-server i vnet1 och på **starta om**.  Du måste starta om alla virtuella datorer i det virtuella nätverket så att DNS-konfigurationen ska börja gälla.
-7. Upprepa steg konfigurera anpassade DNS-servern för vnet2.
+6. Öppna DNS-server-dator i vnet1 och klicka på **starta om**.  Du måste starta om alla virtuella datorer i det virtuella nätverket att göra DNS-konfigurationen ska börja gälla.
+7. Upprepa steg konfigurerar anpassade DNS-servern för vnet2.
 
-Du kan ansluta till två DNS-virtuella datorer med hjälp av SSH och pinga DNS-servern för det virtuella nätverket med hjälp av dess värdnamn för att testa DNS-konfigurationen. Om det inte fungerar, använder du följande kommando för att kontrollera status för DNS:
+Du kan ansluta till två DNS-virtuella datorer med SSH och pinga den DNS-servern i det virtuella nätverket med hjälp av dess värdnamn om du vill testa DNS-konfigurationen. Om det inte fungerar, använder du följande kommando för att kontrollera status för DNS:
 
 ```bash
 sudo service bind9 status
@@ -262,71 +262,71 @@ sudo service bind9 status
 
 Skapa ett HBase-kluster i var och en av de två virtuella nätverk med följande konfiguration:
 
-- **Resursgruppens namn**: Använd samma resursgruppens namn som du har skapat de virtuella nätverken.
-- **Klustret typen**: HBase
-- **Version**: HBase 1.1.2 (HDI 3,6)
-- **Plats**: använda samma plats som det virtuella nätverket.  Som standard är vnet1 *västra USA*, och vnet2 *östra USA*.
-- **Lagring**: skapa ett nytt lagringskonto för klustret.
+- **Resursgruppens namn**: Använd samma resursgruppnamn som du skapade de virtuella nätverken.
+- **Typ av kluster**: HBase
+- **Version**: HBase 1.1.2 (HDI 3.6)
+- **Plats**: använda samma plats som det virtuella nätverket.  Som standard är vnet1 *västra USA*, och vnet2 är *USA, östra*.
+- **Storage**: skapa ett nytt lagringskonto för klustret.
 - **Virtuellt nätverk** (från avancerade inställningar på portalen): Välj vnet1 som du skapade i föregående procedur.
-- **Undernät**: standardnamnet som används i mallen är **Undernät1**.
+- **Undernät**: standardnamnet som används i mallen är **subnet1**.
 
-För att säkerställa att miljön är korrekt konfigurerad, måste du kunna pinga den headnode FQDN mellan två kluster.
+För att säkerställa miljön är rätt konfigurerad, måste du kunna pinga den huvudnoden FQDN mellan två kluster.
 
-## <a name="load-test-data"></a>Läs in testdata
+## <a name="load-test-data"></a>Test av data
 
-När du replikerar ett kluster måste du ange de tabeller som du vill replikera. I det här avsnittet kan du läsa in vissa data i källklustret. I nästa avsnitt aktiverar du replikering mellan två kluster.
+När du replikerar ett kluster måste du ange de tabeller som du vill replikera. I det här avsnittet ska läsa du in data i källklustret. I nästa avsnitt aktiverar du replikering mellan två kluster.
 
-Så här skapar du en **kontakter** tabell och infoga data i tabellen, följer du anvisningarna [självstudier för HBase: komma igång med Apache HBase i HDInsight](apache-hbase-tutorial-get-started-linux.md).
+Skapa en **kontakter** tabellen och infoga data i tabellen, följ instruktionerna på [självstudier för HBase: komma igång med Apache HBase i HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
-Följande steg beskriver hur du anropar åtgärdsskriptet skript från Azure-portalen. Information om hur du kör en skriptåtgärd med hjälp av Azure PowerShell och Azure kommandoradsverktyget (Azure CLI) finns i [anpassa HDInsight-kluster med hjälp av skriptåtgärder](../hdinsight-hadoop-customize-cluster-linux.md).
+Följande steg beskriver hur du anropar åtgärdsskriptet skriptet från Azure-portalen. Information om hur du kör en skriptåtgärd med hjälp av Azure PowerShell och Azure kommandoradsverktyget (Azure CLI) finns i [anpassa HDInsight-kluster med skriptåtgärd](../hdinsight-hadoop-customize-cluster-linux.md).
 
-**Att aktivera HBase-replikering från Azure-portalen**
+**Att aktivera HBase-replikering från Azure portal**
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Öppna källa HBase-kluster.
 3. Kluster-menyn väljer du **skriptåtgärder**.
-4. Överst på sidan Välj **skicka nya**.
+4. Längst ned på sidan Välj **Skicka ny**.
 5. Välj eller ange följande information:
 
   1. **Namnet**: Ange **Aktivera replikering**.
-  2. **Bash Webbadress för skriptet**: Ange **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+  2. **Bash-Webbadress för skript**: Ange **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
   3.  **HEAD**: se till att det här alternativet väljs. Ta bort andra nodtyper.
-  4. **Parametrarna**: följande exempel parametrar Aktivera replikering för alla befintliga tabeller och sedan kopiera alla data från källklustret till målklustret:
+  4. **Parametrar**: exempelparametrarna i följande aktiverar replikering för alla befintliga tabeller och sedan kopiera alla data från källklustret till målklustret:
 
           -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
     >[!note]
     >
-    > Använda värdnamnet i stället för FQDN för både käll- och DNS-klusternamnet.
+    > Använd värdnamnet i stället för FQDN för både källa och mål klustrets DNS-namn.
 
 6. Välj **Skapa**. Skriptet kan ta en stund att köra, särskilt när du använder den **- copydata** argumentet.
 
-Argument som krävs:
+Obligatoriska argument:
 
 |Namn|Beskrivning|
 |----|-----------|
-|-s - src-kluster | Anger DNS-namnet på källan HBase-kluster. Till exempel: -s hbsrccluster,--src-kluster = hbsrccluster |
-|-d,--dst-kluster | Anger DNS-namnet på målet (replik) HBase-kluster. Till exempel: -s dsthbcluster,--src-kluster = dsthbcluster |
-|-sp,--src-ambari-lösenordet | Anger administratörslösenordet för Ambari på källan HBase-kluster. |
-|-dp,--dst-ambari-lösenordet | Anger administratörslösenordet för Ambari på mål HBase-kluster.|
+|-s,--src-kluster | Anger DNS-namnet på källan HBase-kluster. Till exempel: -s hbsrccluster,--src-cluster = hbsrccluster |
+|-d,--dst-kluster | Anger DNS-namnet på målet (replik) HBase-kluster. Till exempel: -s dsthbcluster,--src-cluster = dsthbcluster |
+|-sp,--src-ambari-lösenord | Anger lösenordet för serveradministratören för Ambari på källan HBase-kluster. |
+|-dp,--dst-ambari-lösenord | Anger lösenordet för serveradministratören för Ambari på HBase målklustret.|
 
 Valfria argument:
 
 |Namn|Beskrivning|
 |----|-----------|
-|-su,--src-ambari-användare | Anger användarnamn för administratören för Ambari på källan HBase-kluster. Standardvärdet är **admin**. |
-|-du--dst-ambari-användare | Anger användarnamn för administratören för Ambari på mål HBase-kluster. Standardvärdet är **admin**. |
-|-t,--tabell-lista | Anger tabellerna som ska replikeras. Till exempel:--tabell lista = ”tabell1; tabell2; tabell 3”. Om du inte anger tabeller, replikeras alla befintliga HBase-tabeller.|
-|-m,--dator | Anger huvudnoden där skriptåtgärden körs. Värdet är antingen **hn1** eller **hn0**. Eftersom den **hn0** huvudnod är vanligtvis busier, bör du använda **hn1**. Använd det här alternativet när du kör skriptet $0 som en skriptåtgärd från HDInsight-portalen eller Azure PowerShell.|
-|-cp, - copydata | Gör det möjligt för migrering av befintliga data på tabellerna om replikering har aktiverats. |
-|-rpm, -replikera-phoenix-metadata | Aktiverar replikering på Phoenix systemtabeller. <br><br>*Använd det här alternativet med försiktighet.* Vi rekommenderar att du återskapar Phoenix tabeller på replik kluster innan du använder det här skriptet. |
-|-h,--hjälp | Visar användningsinformation. |
+|-su-och--src-ambari-användare | Anger ett administratörsanvändarnamn för Ambari på källan HBase-kluster. Standardvärdet är **admin**. |
+|-du--dst-ambari-användare | Anger ett administratörsanvändarnamn för Ambari på mål HBase-kluster. Standardvärdet är **admin**. |
+|-t,--tabell lista | Anger tabellerna som ska replikeras. Till exempel:--Tabellista = ”tabell1; tabell2; tabell 3”. Om du inte anger tabeller, replikeras alla befintliga HBase-tabeller.|
+|-m, – dator | Anger huvudnoden där skriptåtgärd körs. Värdet är antingen **hn1** eller **hn0**. Eftersom den **hn0** Huvudnoden är vanligtvis ju mer upptagen, bör du använda **hn1**. Använd det här alternativet när du kör skriptet $0 som en skriptåtgärd från HDInsight-portalen eller Azure PowerShell.|
+|-cp, - copydata | Gör det möjligt att migrera befintliga data i tabellerna där replikering har aktiverats. |
+|-rpm, -replikera-phoenix-metadata | Aktiverar replikering på Phoenix systemtabeller. <br><br>*Använd det här alternativet med försiktighet.* Vi rekommenderar att du återskapar Phoenix tabeller på repliken kluster innan du använder det här skriptet. |
+|-h, – hjälp | Visar användningsinformation. |
 
-Den `print_usage()` avsnitt i den [skriptet](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) har en detaljerad förklaring av parametrarna.
+Den `print_usage()` delen av den [skriptet](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) har en detaljerad förklaring av parametrarna.
 
-Du kan använda SSH för att ansluta till målet HBase-kluster och kontrollerar sedan att data har replikerats när skriptåtgärden har distribuerats.
+Du kan använda SSH för att ansluta till HBase-kluster mål och kontrollera sedan att data har replikerats när skriptåtgärd har distribuerats.
 
 ### <a name="replication-scenarios"></a>Replikeringsscenarier
 
@@ -336,35 +336,35 @@ I följande lista visas ibland allmän användning och deras parameterinställni
 
         -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
 
-- **Aktivera replikering för specifika tabeller**. Aktivera replikering på tabell1 och tabell2 tabell 3 med följande parametrar:
+- **Aktivera replikering på specifika tabeller**. Om du vill aktivera replikering på tabell1 och tabell2 tabell 3 måste du använda följande parametrar:
 
         -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
 
-- **Aktivera replikering för specifika tabeller och kopiera befintliga data**. Aktivera replikering på tabell1 och tabell2 tabell 3 med följande parametrar:
+- **Aktivera replikering på specifika tabeller och kopiera den befintliga informationen**. Om du vill aktivera replikering på tabell1 och tabell2 tabell 3 måste du använda följande parametrar:
 
         -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
 
-- **Aktivera replikering för alla tabeller och replikera Phoenix metadata från källan till målet**. Phoenix metadata replikering är inte exakt. Använd den med försiktighet. Använd följande parametrar:
+- **Aktivera replikering för alla tabeller och replikera Phoenix metadata från källan till målet**. Phoenix metadata replikering är inte exakt. Du kan använda den med försiktighet. Använd följande parametrar:
 
         -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
 
 ## <a name="copy-and-migrate-data"></a>Kopiera och migrera data
 
-Det finns två separata skript åtgärd skript för att kopiera och migrera data när replikeringen har aktiverats:
+Det finns två separata skript åtgärd skript för att kopiera och migrera data när replikering har aktiverats:
 
-- [Skriptet för små tabeller](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_copy_table.sh) (tabeller som är några få gigabyte i storlek och övergripande kopiera förväntas Slutför på mindre än en timme)
+- [Skript för små tabeller](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_copy_table.sh) (tabeller som är några få gigabyte i storlek och hela kopian förväntas Slutför i mindre än en timme)
 
-- [Skriptet för stora tabeller](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/nohup_hdi_copy_table.sh) (tabeller som förväntas ta längre tid än en timme att kopiera)
+- [Skript för stora tabeller](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/nohup_hdi_copy_table.sh) (tabeller som förväntas ta längre tid än en timme att kopiera)
 
 Du kan följa samma steg som beskrivs i [Aktivera replikering](#enable-replication) att anropa skriptåtgärden. Använd följande parametrar:
 
     -m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]
 
-Den `print_usage()` avsnitt i den [skriptet](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh) har en detaljerad beskrivning av parametrar.
+Den `print_usage()` delen av den [skriptet](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh) har en detaljerad beskrivning av parametrar.
 
 ### <a name="scenarios"></a>Scenarier
 
-- **Kopiera specifika tabeller (test1 test2 och test3) för alla rader som redigeras fram till nu (aktuell tidsstämpel)**:
+- **Kopiera specifika tabeller (test1 test2 och test3) för alla rader som redigeras fram till nu (aktuella tidsstämpeln)**:
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
   Eller:
@@ -379,30 +379,30 @@ Den `print_usage()` avsnitt i den [skriptet](https://github.com/Azure/hbase-util
 
 ## <a name="disable-replication"></a>Inaktivera replikering
 
-Inaktivera replikering med ett annat skript åtgärd skript från [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). Du kan följa samma steg som beskrivs i [Aktivera replikering](#enable-replication) att anropa skriptåtgärden. Använd följande parametrar:
+Inaktivera replikering med ett annat skript åtgärdsskriptet från [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). Du kan följa samma steg som beskrivs i [Aktivera replikering](#enable-replication) att anropa skriptåtgärden. Använd följande parametrar:
 
     -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
 
-Den `print_usage()` avsnitt i den [skriptet](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) har en detaljerad förklaring av parametrarna.
+Den `print_usage()` delen av den [skriptet](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) har en detaljerad förklaring av parametrarna.
 
 ### <a name="scenarios"></a>Scenarier
 
-- **Inaktivera replikering för alla tabeller**:
+- **Inaktivera replikering på alla tabeller**:
 
         -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all
   eller
 
         --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
-- **Inaktivera replikering för angivna tabeller (tabell1 tabell2 och tabell 3)**:
+- **Inaktivera replikering på angivna tabellerna (tabell1 tabell2 och tabell 3)**:
 
         -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du har lärt dig hur du ställer in HBase-replikering i ett virtuellt nätverk eller mellan två virtuella nätverk. Mer information om HDInsight och HBase finns i följande artiklar:
+I den här självstudien har du lärt dig hur du ställer in HBase-replikering inom ett virtuellt nätverk, eller mellan två virtuella nätverk. Om du vill veta mer om HDInsight och HBase kan du läsa följande artiklar:
 
 * [Kom igång med Apache HBase i HDInsight](./apache-hbase-tutorial-get-started-linux.md)
-* [Översikt över HDInsight HBase](./apache-hbase-overview.md)
+* [HDInsight HBase-översikt](./apache-hbase-overview.md)
 * [Skapa HBase-kluster i Azure-nätverk](./apache-hbase-provision-vnet.md)
 

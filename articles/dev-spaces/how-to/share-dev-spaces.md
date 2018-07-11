@@ -11,22 +11,27 @@ ms.topic: article
 description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: ca644cc412ad0c8f0e2a0781d9419fba58ed8d12
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 9345015a8732da02ea68711cd807556a543d8d01
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247712"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930152"
 ---
 # <a name="share-azure-dev-spaces"></a>Dela Azure Dev blanksteg
 
-Du kan dela din dev sida med andra i din grupp med Azure Dev blanksteg. Varje utvecklare kan arbeta i sina egna utrymme utan fruktan för att dela med andra. Dessutom kan arbetar tillsammans i ett steg du testa koden slutpunkt till slutpunkt utan att behöva skapa mocks eller simulera beroenden. Finns det [Lär dig mer om utveckling i grupp](../get-started-nodejs.md#learn-about-team-development) mer information.
+Med Azure Dev blanksteg, kan du dela ditt dev-adressutrymme med andra i din grupp. Varje utvecklare kan arbeta i deras utrymme utan att behöva betala större andra. Dessutom kan arbetar tillsammans i ett steg du testa koden slutpunkt till slutpunkt utan att behöva skapa mocks eller simulera beroenden. Se den [Lär dig mer om utveckling i grupp](../team-development-nodejs.md) mer information.
 
-Konfigurera ett dev utrymme för flera utvecklare:
-1. Skapa ett Dev utrymme i Azure. Välj [.NET Core och VS kod](../get-started-netcore.md), [.NET Core och Visual Studio](../get-started-netcore-visualstudio.md), eller [Node.js och VS kod](../get-started-nodejs.md). Du måste ha ägare eller deltagare åtkomst till den valda Azure-prenumerationen.
-1. Konfigurera Azure Dev utrymme **resursgruppen** till [deltagare åtkomstbehörighet](/azure/active-directory/role-based-access-control-configure) för varje medlem i gruppen. Du kan kontrollera dev kan resursgruppen genom att köra det här kommandot: `azds list`
-1. Uppmana gruppmedlemmarna att **Markera dev utrymme** för att utveckla i den.
-     * **Kommandorad eller VS kod**: befintliga Azure Dev utrymmen du har åtkomst till: `azds space list`. Att välja ett dev utrymme: `azds space select`.
-     * **Visual Studio IDE**: öppna ett projekt i Visual Studio, markera **Azure Dev blanksteg** från Starta inställningar listrutan. I den dialogruta som öppnas väljer du ett befintligt kluster.
+## <a name="set-up-a-dev-space-for-multiple-developers"></a>Konfigurera ett dev-utrymme för flera utvecklare
 
-![Visual Studio starta inställningar nedrullningsbara](../media/get-started-netcore-visualstudio/LaunchSettings.png)
+1. Skapa ett utrymme för utveckling i Azure. Välj [.NET Core och VS Code](../get-started-netcore.md), [.NET Core och Visual Studio](../get-started-netcore-visualstudio.md), eller [Node.js och VS Code](../get-started-nodejs.md). Du måste ha ägare eller deltagare åtkomst till den valda Azure-prenumerationen.
+1. Konfigurera Azure Dev utrymme **resursgrupp** till [bevilja deltagaråtkomst](/azure/active-directory/role-based-access-control-configure) för varje medlem i gruppen. Du kan kontrollera en dev-utrymme resursgrupp genom att köra det här kommandot: `azds list`
+1. Be teammedlemmar möjlighet att **väljer området dev** för att utveckla i den.
+     * **Från kommandoraden eller i VS Code**: för att se befintliga Azure Dev blanksteg du har åtkomst till: `azds space list`. Att välja en dev-utrymme: `azds space select`.
+     * **Visual Studio IDE**: öppna ett projekt i Visual Studio väljer **Azure Dev blanksteg** från Start Inställningar listrutan. I dialogrutan som öppnas väljer du ett befintligt kluster.
+
+    ![Visual Studio starta inställningar listrutan](../media/get-started-netcore-visualstudio/LaunchSettings.png)
+
+## <a name="next-steps"></a>Nästa steg
+
+Se [Lär dig mer om utveckling i grupp](../team-development-nodejs.md) för mer information.

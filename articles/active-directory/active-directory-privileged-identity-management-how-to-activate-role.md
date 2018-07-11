@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e0e9e01baccd71804b26282f288d19abff8ff8fa
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: bc4280d6e0ac362712d3b406e2e32c42cf4a9be2
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444930"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952689"
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Aktivera eller inaktivera roller i Azure AD Privileged Identity Management
 Azure Active Directory (AD) Privileged Identity Management förenklar hur företag hantera privilegierad åtkomst till resurser i Azure AD och andra Microsoft onlinetjänster som Office 365 eller Microsoft Intune.  
@@ -44,11 +44,11 @@ När du behöver utföra på en roll kan du begära aktivering genom att välja 
 4. Välj **aktivera**. Den **begär rollaktivering** bladet visas.
 5. Vissa roller kräver Multi-Factor Authentication (MFA) innan du kan aktivera rollen. Du behöver bara autentiseras en gång per session.
    
-    ![Verifiera med MFA innan rollaktivering – skärmbild][2]
+    ![Verifiera med MFA innan rollaktivering – skärmbild](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png)
 6. Ange orsaken till att aktiveringsbegäran i textfältet.  Vissa roller kräver att du kan ange ett begäransnummer problem.
 7. Välj **OK**.  Om rollen inte kräver godkännande, har nu aktiverats och att rollen visas i listan över aktiva roller (direkt under listan över möjliga rolltilldelningar). Om den [rollen kräver godkännande](./privileged-identity-management/azure-ad-pim-approval-workflow.md) ett popup-meddelande visas om du vill aktivera, kort i det övre högra hörnet i webbläsaren som informerar dig om begäran väntar på godkännande.
 
-    ![Förfrågan väntar på meddelande – skärmbild][3]
+    ![Förfrågan väntar på meddelande – skärmbild](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Toast2.png)
 
 ## <a name="deactivate-a-role"></a>Inaktivera en roll
 När en roll har aktiverats, inaktiverar automatiskt när tidsgränsen (varaktighet för berättigande) har nåtts.
@@ -64,16 +64,9 @@ Om du inte behöver aktivering av en roll som kräver godkännande, kan du säga
 4. Välj den **aktivering väntar på godkännande** standardbanderoll på bladet rollen aktivering.
 5. Välj **Avbryt** överst i den **väntar på godkännande** bladet.
 
-   ![Avbryta väntande begäran skärmbild][4]
+   ![Avbryta väntande begäran skärmbild](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Om du vill veta mer om Azure AD Privileged Identity Management, har följande länkar mer information.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png
-[3]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Toast2.png
-[4]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png

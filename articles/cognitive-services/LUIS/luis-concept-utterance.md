@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 4a3571acade7b7bd304c91eadc90b1a9f6e53860
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 5babe089575d03db1f6bc0dd3f01bd3b6a5475fe
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37886849"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951907"
 ---
 # <a name="utterances-in-luis"></a>Yttranden i LUIS
 
@@ -51,7 +51,7 @@ Lägg inte till ett stort antal yttranden i varje iteration av modellen. Lägg t
 
 LUIS skapar effektiva modeller med yttranden som väljs noggrant. Att lägga till för många uttryck är inte värdefulla eftersom förvirring.  
 
-Är det bättre att börja med ett par yttranden sedan [granska endpoint yttranden](label-suggested-utterances.md) för rätt avsikt extrahering av förutsägelser och entiteten.
+Är det bättre att börja med ett par yttranden sedan [granska endpoint yttranden](luis-how-to-review-endoint-utt.md) för rätt avsikt extrahering av förutsägelser och entiteten.
 
 ## <a name="ignoring-words-and-punctuation"></a>Ignorerar ord och skiljetecken
 Om du vill ignorera vissa specifika ord eller skiljetecken i exempel-uttryck kan använda en [mönstret](luis-concept-patterns.md#pattern-syntax) med den _Ignorera_ syntax. 
@@ -61,10 +61,10 @@ Utbildning är icke-deterministisk: uttryck förutsägelsen kan variera något m
 
 ## <a name="testing-utterances"></a>Testa yttranden 
 
-Utvecklare bör börja testa sina LUIS-program med verklig trafik genom att skicka yttranden till slutpunkten. Dessa uttryck används för att förbättra prestandan för avsikter och entiteter med [granska yttranden](label-suggested-utterances.md). Tester som skickades med webbplatsen LUIS testning fönstret skickas inte via slutpunkten och därför bidrar inte till aktiv inlärning. 
+Utvecklare bör börja testa sina LUIS-program med verklig trafik genom att skicka yttranden till slutpunkten. Dessa uttryck används för att förbättra prestandan för avsikter och entiteter med [granska yttranden](luis-how-to-review-endoint-utt.md). Tester som skickades med webbplatsen LUIS testning fönstret skickas inte via slutpunkten och därför bidrar inte till aktiv inlärning. 
 
 ## <a name="review-utterances"></a>Granska yttranden
-När din modell är tränade publicerade och mottagande [endpoint](luis-glossary.md#endpoint) frågor, [granska talade](label-suggested-utterances.md) föreslås av LUIS. LUIS väljer endpoint yttranden som har låg poäng för avsikt eller entitet. 
+När din modell är tränade publicerade och mottagande [endpoint](luis-glossary.md#endpoint) frågor, [granska talade](luis-how-to-review-endoint-utt.md) föreslås av LUIS. LUIS väljer endpoint yttranden som har låg poäng för avsikt eller entitet. 
 
 ## <a name="best-practices"></a>Bästa praxis
 Granska [bästa praxis](luis-concept-best-practices.md) vill veta mer.

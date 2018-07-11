@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/06/2018
+ms.date: 07/09/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 1a5f9ed67bf39db6aa1e4f817957d795883a677f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e9bd1f91f7e7fac1b882c89ffb2195491ca2c07b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901956"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929941"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>SaaS-programintegration med Azure Active Directory
 
@@ -138,8 +138,8 @@ En uttömmande lista med SaaS-appar som är förintegrerade i Azure AD finns i d
 | ![logotyp](./media/tutorial-list/active-directory-saas-cimpl-tutorial.png)| [Cimpl](cimpl-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-ciscocloud-tutorial.png)| [Cisco-molnet](ciscocloud-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-ciscocloudlock-tutorial.png)| [Cisco Cloudlock](ciscocloudlock-tutorial.md)|
-| ![logotyp](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|
-| ![logotyp](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|
+| ![logotyp](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|[Cisco Spark - etableringen av användare](cisco-spark-provisioning-tutorial.md)|
+| ![logotyp](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|[Cisco Webex - etableringen av användare](cisco-webex-provisioning-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-sharefile-tutorial.png)| [Citrix ShareFile](sharefile-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](clarizen-tutorial.md)|[Clarizen - etableringen av användare](clarizen-provisioning-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-clearreview-tutorial.png)| [Rensa granskning](clearreview-tutorial.md)|

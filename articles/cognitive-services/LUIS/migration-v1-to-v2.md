@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7174a78aeb339c864b2eea384b794646c215bc25
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: b60aa551d55907fcac7953efa61473c845e3c2ae
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344010"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951064"
 ---
 # <a name="api-v2-migration-guide"></a>Migreringsguide för API v2
 Version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) och [redigering](https://aka.ms/v1-authoring-api-docs) API: er upphör att gälla. Använd den här guiden för att förstå hur du migrerar till version 2 [endpoint](https://aka.ms/luis-endpoint-apis) och [redigering](https://aka.ms/luis-authoring-apis) API: er. 
@@ -133,7 +133,7 @@ Flera API: er som returnerar LUIS metadata har nya namn.
 
 
 ## <a name="sample-renamed-to-suggest"></a>”Exempel” filnamnstillägget ”föreslå”
-LUIS föreslår yttranden från befintliga [endpoint yttranden](label-suggested-utterances.md) som kan förbättra modellen. I den tidigare versionen det hette **exempel**. I den nya versionen, namnet ändras från exemplet för att **föreslår**. Detta kallas **[granska endpoint yttranden](https://docs.microsoft.com/azure/cognitive-services/LUIS/label-suggested-utterances)** på LUIS-webbplatsen.
+LUIS föreslår yttranden från befintliga [endpoint yttranden](luis-how-to-review-endoint-utt.md) som kan förbättra modellen. I den tidigare versionen det hette **exempel**. I den nya versionen, namnet ändras från exemplet för att **föreslår**. Detta kallas **[granska endpoint yttranden](luis-how-to-review-endoint-utt.md)** på LUIS-webbplatsen.
 
 | version | route |
 |--|--|

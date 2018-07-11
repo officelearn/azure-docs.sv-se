@@ -1,41 +1,41 @@
 ---
 title: Hantera en processerver i Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hantera en processerver har ställts in för VMware VM och fysisk server-replikering i Azure Site Recovery.
-author: AnoopVasudavan
+description: Den här artikeln beskriver hantera en processerver som ställts in för VMware VM och fysisk serverreplikering i Azure Site Recovery.
+author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/20/2018
-ms.author: anoopkv
-ms.openlocfilehash: d1f880a5ec9f0343891999ef3bad11279cb0cfe6
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.author: ramamill
+ms.openlocfilehash: df162177c1ff56c1d6fc34d2ce49925a2705a868
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285538"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950795"
 ---
 # <a name="manage-process-servers"></a>Hantera processervrar
 
-Som standard installeras processervern som används när du replikerar virtuella VMware-datorer eller fysiska servrar till Azure på den lokala configuration server-datorn. Det finns ett antal instanser som du måste ställa in en separat process-server:
+Som standard installeras processervern som används när du replikerar virtuella VMware-datorer eller fysiska servrar till Azure på den lokala configuration server-datorn. Det finns några instanser där du behöver ställa in en separat processerver:
 
-- Du kan behöva ytterligare lokala servrar att skala kapacitet för stora distributioner.
+- Du kanske behöver ytterligare lokala processervrar som skala kapaciteten för stora distributioner.
 - För återställning efter fel, behöver du en tillfällig processerver i Azure. Du kan ta bort den här virtuella datorn när återställningen är klar. 
 
-Den här artikeln sammanfattar vanliga hanteringsuppgifter för dessa ytterligare servrar.
+Den här artikeln sammanfattas vanliga hanteringsuppgifter för dessa ytterligare processervrar.
 
 ## <a name="upgrade-a-process-server"></a>Uppgradera en processerver
 
-Uppgradera en processerver som kör lokalt eller i Azure (för återställning efter fel), enligt följande:
+Uppgradera en processerver som körs lokalt eller i Azure (för återställning efter fel), enligt följande:
 
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]
 
 > [!NOTE]
-  Vanligtvis när du använder bild för Azure-galleriet för att skapa en processerver i Azure för återställning efter fel, kör den den senaste versionen. Site Recovery team versionen korrigeringar och förbättringar regelbundet och vi rekommenderar att du behåller servrar uppdaterade.
+  När du använder Azure Gallery Image för att skapa en processerver i Azure för återställning efter fel, körs den normalt den senast tillgängliga versionen. Site Recovery utvecklingsteam versionen korrigeringar och förbättringar med jämna mellanrum och vi rekommenderar att du behåller processervrar uppdaterad.
 
 
 
 ## <a name="reregister-a-process-server"></a>Registrera en processerver
 
-Om du behöver registrera en processerver körs lokalt eller i Azure, med konfigurationsservern och göra följande:
+Om du vill registrera en processerver som körs lokalt eller i Azure, med konfigurationsservern, gör du följande:
 
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
 
@@ -50,12 +50,12 @@ När du har sparat inställningarna gör du följande:
     net start obengine
     ```
 
-## <a name="modify-proxy-settings-for-an-on-premises-process-server"></a>Ändra proxyinställningar för en lokal process-server
+## <a name="modify-proxy-settings-for-an-on-premises-process-server"></a>Ändra inställningarna för proxyservern för en lokal processerver
 
 Om processervern använder en proxyserver för att ansluta till Site Recovery i Azure, kan du använda den här proceduren om du behöver ändra befintliga proxyinställningar.
 
-1. Logga in på serverdatorn för processen. 
-2. Öppna en Admin PowerShell-Kommandotolken och kör följande kommando:
+1. Logga in på den process server-datorn. 
+2. Öppna en Admin PowerShell-kommandofönster och kör följande kommando:
   ```
   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd

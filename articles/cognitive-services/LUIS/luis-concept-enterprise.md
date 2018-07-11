@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: v-geberr
-ms.openlocfilehash: aca67db88255585355bc59a29e53639bc5eca717
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 0c1cd175649415e811140e45225bd8441071ab19
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37886764"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950846"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Enterprise-strategier för en LUIS-app
 Granska dessa design-strategier för din enterprise-app.
@@ -29,7 +29,7 @@ Kontrollera avsikt förutsägelsen mellan första och andra avsikten är liten a
 
 Ange en enda app som huvudserver. Yttranden som föreslås för granskning bör vara i appen master och därefter flyttas tillbaka till alla andra appar. Det här är antingen en fullständig export av appen eller läser in taggade yttranden från huvudmålservern till underordnade. Läser in kan göras från antingen den [LUIS](luis-reference-regions.md) webbplats eller redigering API: et för en [enkel uttryck](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) eller för en [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
 
-Schemalägga en regelbunden [granskning av slutpunkten yttranden](label-suggested-utterances.md) för aktiv inlärning, till exempel varannan vecka, träna och publicera. 
+Schemalägga en regelbunden [granskning av slutpunkten yttranden](luis-how-to-review-endoint-utt.md) för aktiv inlärning, till exempel varannan vecka, träna och publicera. 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>Tilldela flera LUIS nycklar till samma app
 Om LUIS-appen tar emot mer endpoint träffar än din enda nyckel kvoten kan skapa och tilldela fler nycklar till LUIS-app. Skapa en traffic manager eller belastningsutjämnare för att hantera endpoint-frågor över slutpunkt-nycklar. 
@@ -37,7 +37,7 @@ Om LUIS-appen tar emot mer endpoint träffar än din enda nyckel kvoten kan skap
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>När en monolitisk app returnerar fel avsikt
 Om din app är avsedd att förutsäga ett stort antal användare yttranden, Överväg att implementera den [dispatch modellen](#dispatch-tool-and-model). Dela upp en monolitisk app kan LUIS fokus identifiering mellan avsikter har i stället för förvirrande mellan avsikter över appen överordnade och underordnade appar. 
 
-Schemalägga en regelbunden [granskning av slutpunkten yttranden](label-suggested-utterances.md) för aktiv inlärning, till exempel varannan vecka, träna och publicera. 
+Schemalägga en regelbunden [granskning av slutpunkten yttranden](luis-how-to-review-endoint-utt.md) för aktiv inlärning, till exempel varannan vecka, träna och publicera. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>När du behöver ha fler än 500 intentioner
 Anta exempelvis att du utvecklar en office-assistent som har över 500 intentioner. Om 200 avsikter relaterade till att schemalägga möten, 200 är i färd påminnelser, 200 är om att få information om kollegor, och 200 är för att skicka e-post, gruppen avsikter så att varje grupp är i samma app, sedan skapa en översta app som innehåller varje avsikt. Använd den [skicka verktyget och arkitektur](#dispatch-tool-and-model) att bygga appen på översta nivån. Ändra din robot för att använda sammanhängande anropet som visas i den [dispatch självstudien][dispatcher-application-tutorial]. 

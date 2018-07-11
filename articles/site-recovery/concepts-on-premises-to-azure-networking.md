@@ -1,88 +1,88 @@
 ---
-title: Konfigurera IP-adresser för att ansluta efter en redundansväxling till Azure med Azure Site Recovery | Microsoft Docs
-description: Beskriver hur du ställer in IP-adresser för att ansluta till virtuella Azure-datorer efter redundans från lokala med Azure Site Recovery
+title: Konfigurera IP-adresser för att ansluta till efter redundansväxlingen till Azure med Azure Site Recovery | Microsoft Docs
+description: Beskriver hur du ställer in IP-adresser för att ansluta till virtuella Azure-datorer efter redundans från lokalt med Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
 author: mayanknayar
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 9d4bf43ea727bbf7df79532499007dbd23eea925
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 99b8287b79a7cf9802ab3b71ce4c90032706bc63
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071645"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919251"
 ---
-# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Konfigurera IP-adresser för att ansluta efter en redundansväxling till Azure
+# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Konfigurera IP-adresser för att ansluta till efter redundansväxlingen till Azure
 
-Den här artikeln förklarar nätverkskrav för att ansluta till virtuella Azure-datorer när du använder den [Azure Site Recovery](site-recovery-overview.md) tjänsten för replikering och redundans till Azure.
+Den här artikeln förklarar nätverkskraven för att ansluta till virtuella Azure-datorer när du har använt den [Azure Site Recovery](site-recovery-overview.md) för replikering och redundans till Azure.
 
-I den här artikeln lär du dig hur:
+I den här artikeln lär du dig om:
 
 > [!div class="checklist"]
 > * Anslutningsmetoder som du kan använda
 > * Hur du använder en annan IP-adress för replikerade virtuella Azure-datorer
-> * Hur du bevara IP-adresser för virtuella Azure-datorer efter redundans
+> * Hur behåller jag IP-adresser för virtuella Azure-datorer efter redundansväxling
 
-## <a name="connecting-to-replica-vms"></a>Ansluter till replik virtuella datorer
+## <a name="connecting-to-replica-vms"></a>Ansluta till replikering av VMs
 
-När du planerar din replikering och redundansstrategi, är en av viktiga frågor hur du ansluter till den virtuella Azure-datorn efter redundans. Det finns ett par alternativ när du utformar din strategi för nätverket för replik virtuella Azure-datorer:
+När du planerar din replikering och redundansstrategi, är en av de viktiga frågorna att ansluta Azure-datorn efter redundans. Det finns ett par alternativ när du utformar din strategi för nätverk för virtuella datorer i Azure-replikering:
 
-- **Använd en annan IP-adress**: du kan välja för att använda en annan IP-adressintervall för replikerade Virtuella Azure-nätverket. I det här scenariot den virtuella datorn får en ny IP-adress efter växling vid fel och en DNS-uppdatering krävs.
-- **Behålla samma IP-adress**: du kanske vill använda samma IP-adressintervall som på din primär lokal plats för Azure-nätverket efter redundans. Behålla samma IP adresser förenklar återställning genom att minska nätverksrelaterade problem efter växling vid fel. Men när du replikerar till Azure måste uppdatera vägar med den nya platsen för IP-adresser efter växling vid fel.
+- **Använd olika IP-adressen**: du kan välja för att använda en annan IP-adressintervall för det replikerade Virtuella Azure-nätverket. I det här scenariot hämtar den virtuella datorn en ny IP-adress efter redundansväxling, och en DNS-uppdatering krävs.
+- **Behålla samma IP-adress**: du kanske vill använda samma IP-adressintervall som på din primära lokala plats för Azure-nätverket efter redundans. Att behålla samma IP adresser förenklar återställningen genom att minska nätverksproblem efter en redundansväxling. När du replikerar till Azure kommer du dock behöva uppdatera vägar med den nya platsen för IP-adresser efter redundansväxling.
 
 ## <a name="retaining-ip-addresses"></a>Behålla IP-adresser
 
-Site Recovery tillhandahåller möjligheten att behålla fasta IP-adresser när du redundansväxlar till Azure, med ett undernät redundans.
+Site Recovery ger möjlighet att behålla fasta IP-adresser när redundansväxlingen till Azure, med ett undernät redundans.
 
-- Med undernätet redundans finns ett specifikt undernät på plats 1 eller 2 för platsen, men aldrig på båda platser samtidigt.
-- För att upprätthålla IP-adressutrymme vid en växling vid fel, ordna du programmässigt router-infrastruktur att flytta undernäten från en plats till en annan.
-- Under växling vid fel flytta undernäten med de associera skyddade virtuella datorerna. Den största nackdelen är att vid fel, måste du flytta hela undernätet.
+- Med undernätet redundans är ett specifikt undernät tillgänglig vid 1 eller plats 2, men aldrig på båda platser samtidigt.
+- För att upprätthålla IP-adressutrymmet i händelse av redundans, ordna du programmässigt för router-infrastruktur för att flytta undernät från en plats till en annan.
+- Under redundansväxlingen flytta undernät med de associera skyddade virtuella datorerna. Den huvudsakliga Nackdelen är att om ett fel inträffar, måste du flytta hela undernätet.
 
 
-### <a name="failover-example"></a>Exempel för växling vid fel
+### <a name="failover-example"></a>Exempel för redundans
 
 Nu ska vi titta på ett exempel för redundans till Azure med ett fiktivt företag, Woodgrove Bank.
 
-- Woodgrove Bank är värd för sina appar i en lokal plats. De värd för sin mobila appar på Azure.
-- Det finns en VPN plats-till-plats-anslutning mellan sina lokala edge nätverk och virtuella Azure-nätverket. På grund av VPN-anslutningen visas det virtuella nätverket i Azure som ett tillägg till det lokala nätverket.
+- Woodgrove Bank är värd för sina appar i en lokal plats. De ha sina mobila appar på Azure.
+- Det finns VPN plats-till-plats-anslutning mellan sina lokala edge-nätverk och virtuella Azure-nätverket. På grund av VPN-anslutningen visas det virtuella nätverket i Azure som ett tillägg till det lokala nätverket.
 - Woodgrove vill replikera lokala arbetsbelastningar till Azure med Site Recovery.
- - Woodgrove har appar som är beroende av hårdkodade IP-adresser så att de behöver för att behålla IP-adresser för appar, efter en redundansväxling till Azure.
+ - Woodgrove har appar som är beroende av hårdkodad IP-adresser, så att de behöver för att behålla IP-adresser för apparna efter redundansväxlingen till Azure.
  - Resurser som körs i Azure använder IP-adressintervallet 172.16.1.0/24 172.16.2.0/24.
 
-![Innan du undernät redundans](./media/site-recovery-network-design/network-design7.png)
+![Innan du undernätet redundans](./media/site-recovery-network-design/network-design7.png)
 
 **Infrastruktur före redundans**
 
 
-För Woodgrove ska kunna behöver replikera dess virtuella datorer till Azure samtidigt som de IP-adresserna, härs vad företaget göra:
+För Woodgrove ska kunna replikera dess virtuella datorer till Azure samtidigt som företaget behåller de IP-adresserna, härs vad måste företaget göra:
 
 
-1. Skapa Azure-nätverk som virtuella Azure-datorer kommer att skapas efter växling vid fel för lokala datorer. Det bör vara ett tillägg till det lokala nätverket, så att program kan växla över sömlöst.
-2. Innan du redundans i Site Recovery tilldela de samma IP-adress i egenskaperna för datorn. Efter växling vid fel tilldelar Site Recovery den här adressen Azure VM.
-3. När redundans körs och virtuella Azure-datorer skapas med samma IP-adress, de ansluter till nätverket med en [Vnet Vnet-anslutningen till](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Den här åtgärden kan skriptas.
+1. Skapa Azure-nätverk som virtuella Azure-datorer kommer att skapas efter redundans för lokala datorer. Det bör vara ett tillägg till det lokala nätverket, så att program kan växla över sömlöst.
+2. Före redundans i Site Recovery kan tilldela de samma IP-adress i egenskaperna för datorn. Efter en redundansväxling tilldelar Webbplatsåterställning den här adressen Azure-datorn.
+3. När redundansen körs och virtuella Azure-datorer skapas med samma IP-adress kan de ansluta till nätverket med hjälp av en [anslutning mellan virtuella nätverk](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Den här åtgärden kan skriptas.
 4. De måste du ändra vägar för att återspegla den 192.168.1.0/24 har nu flyttats till Azure.
 
 
-**Infrastrukturen efter växling vid fel**
+**Infrastruktur efter redundans**
 
-![Efter undernät redundans](./media/site-recovery-network-design/network-design9.png)
+![Efter en redundansväxling för undernät](./media/site-recovery-network-design/network-design9.png)
 
 #### <a name="site-to-site-connection"></a>Plats-till-plats-anslutning
 
-Förutom vnet-till-vnet-anslutningen efter växling vid fel, kan Woodgrove ställa in plats-till-plats VPN-anslutningen:
-- När du ställer in en plats-till-plats-anslutning i Azure-nätverket kan du bara vidarebefordra skiljer trafik till den lokala platsen (lokal ntwork) om IP-adressintervall sig från det lokala IP-adressintervallet. Det beror på att Azure inte stöder sträckta undernät. Så om du har undernät 192.168.1.0/24 lokalt kan du inte lägga till 192.168.1.0/24 ett lokalt nätverk i Azure-nätverk. Detta är förväntat eftersom Azure inte vet att det inte finns några aktiva virtuella datorer i undernät och undernätet skapas för endast katastrofåterställning.
-- Om du vill kunna korrekt dirigera nätverkstrafik utanför ett Azure-nätverk av undernät i nätverket och det lokala nätverket får inte står i konflikt.
+Förutom vnet-till-vnet-anslutning efter redundansväxlingen kan Woodgrove ställa in plats-till-plats VPN-anslutningen:
+- När du konfigurerar en plats-till-plats-anslutning i Azure-nätverket du bara kan vidarebefordra skiljer trafik till den lokala platsen (lokala nätverk) om IP-adressintervall sig från den lokala IP-adressintervall. Det beror på att Azure inte stöder sträckt undernät. Så om du har undernät 192.168.1.0/24 lokalt kan du inte lägga till ett lokalt nätverk 192.168.1.0/24 i Azure-nätverket. Detta är förväntat eftersom Azure inte vet att det inte finns några aktiva virtuella datorer i undernätet och att undernätet skapas för disaster recovery endast.
+- Om du vill kunna korrekt dirigera nätverkstrafik från ett Azure-nätverk, undernät i nätverket och det lokala nätverket får inte stå i konflikt.
 
 
 
 
 ## <a name="assigning-new-ip-addresses"></a>Tilldela nya IP-adresser
 
-Detta [blogginlägget](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) förklarar hur du ställer in Azure nätverksinfrastrukturen när du inte behöver behålla IP-adresser efter växling vid fel. Den börjar med en beskrivning av programmet, ta en titt på hur du ställer in nätverk lokalt och i Azure och avslutas med information om att köra redundansväxlingar.
+Detta [blogginlägget](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) förklarar hur du ställer in nätverksinfrastrukturen i Azure när du inte behöver behålla IP-adresser efter redundansväxling. Det börjar med en beskrivning av programmet, tittar på hur du ställer in nätverk både lokalt och i Azure och avslutas med information om att köra redundansväxlingar.
 
 ## <a name="next-steps"></a>Nästa steg
-[Kör en redundansväxling](site-recovery-failover.md)
+[Köra en redundans](site-recovery-failover.md)

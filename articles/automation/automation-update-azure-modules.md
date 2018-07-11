@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f968bd75c7aee4ad390f9206bb1fa210e7fcd8ff
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 90aa19d690b1b4ab28c3a65a287a10aaf6a03ac6
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903157"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929040"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Så här uppdaterar du Azure PowerShell-moduler i Azure Automation
 
@@ -47,7 +47,7 @@ Eftersom modulerna uppdateras regelbundet av produktgruppen, kan ändras med ink
 > [!NOTE]
 > Azure Automation använder de senaste modulerna i ditt Automation-konto när ett nytt schemalagt jobb körs.    
 
-Om du använder cmdlets från dessa Azure PowerShell-moduler i dina runbooks du vill köra den här uppdateringen varje månad eller så se till att du har de senaste modulerna.
+Om du använder cmdlets från dessa Azure PowerShell-moduler i dina runbooks du vill köra den här uppdateringen varje månad eller så se till att du har de senaste modulerna. Azure Automation använder AzureRunAsConnection anslutningen att autentisera när du uppdaterar moduler, om tjänstens huvudnamn har upphört att gälla eller finns inte längre på prenumerationsnivå modulen uppdateringen misslyckas.
 
 ## <a name="next-steps"></a>Nästa steg
 

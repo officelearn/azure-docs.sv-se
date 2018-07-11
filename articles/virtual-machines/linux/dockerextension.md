@@ -1,9 +1,9 @@
 ---
-title: Använd Azure Docker VM-tillägget | Microsoft Docs
+title: Använda tillägget Azure Docker VM | Microsoft Docs
 description: Lär dig hur du använder Docker VM-tillägget för att snabbt och säkert distribuera en Docker-miljö i Azure med hjälp av Resource Manager-mallar och Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
@@ -13,32 +13,32 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
-ms.author: iainfou
-ms.openlocfilehash: 6cf77a6fa5e2cb7f9ce349e72444e76d4c687f49
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.author: cynthn
+ms.openlocfilehash: 44c307a5f21937cd2a3ef345fd4573c67efdaf59
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937660"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928626"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Skapa en Docker-miljö i Azure med Docker VM-tillägget
-Docker är en populär behållarhantering och avbildningsverktyg plattform som gör att du snabbt arbeta med behållare på Linux. I Azure det, finns olika sätt som du kan distribuera Docker efter dina behov. Den här artikeln fokuserar på att använda Docker VM-tillägget och Azure Resource Manager-mallar med Azure CLI 2.0. 
+Docker är en populär behållarhantering- och avbildningsplattform som gör att du snabbt kan arbeta med behållare på Linux. I Azure finns det olika sätt som du kan distribuera Docker efter dina behov. Den här artikeln handlar om hur du använder Docker VM-tillägget och Azure Resource Manager-mallar med Azure CLI 2.0. 
 
 > [!WARNING]
-> Azure Docker VM-tillägget för Linux är föråldrad och kommer att dras tillbaka November 2018.
-> Tillägget installeras bara Docker, så att alternativ såsom molnet init eller tillägget för anpassat skript är ett bättre sätt att installera Docker-versionen av valet. Mer information om hur du använder molntjänster init finns [anpassa en Linux VM med molnet init](tutorial-automate-vm-deployment.md).
+> Azure Docker VM-tillägg för Linux är inaktuell och kommer att dras tillbaka November 2018.
+> Tillägget installeras bara Docker, så att alternativ såsom cloud-init eller tillägget för anpassat skript är ett bättre sätt att installera Docker-versionen av val. Mer information om hur du använder cloud-init finns [anpassa en Linux VM med cloud-init](tutorial-automate-vm-deployment.md).
 
 ## <a name="azure-docker-vm-extension-overview"></a>Översikt av Azure Docker VM-tillägg
-Azure Docker VM-tillägget installeras och konfigureras Docker-daemon, Docker-klienten och Docker Compose i Linux-dator (VM). Med hjälp av Azure Docker VM-tillägget kan ha mer kontroll och funktioner än att bara använda Docker-dator eller skapa Docker-värd själv. Dessa ytterligare funktioner som [Docker Compose](https://docs.docker.com/compose/overview/), se Azure Docker VM-tillägget som passar för stabilare utvecklare eller produktion miljöer.
+Tillägget Azure Docker VM installerar och konfigurerar Docker-daemon, Docker-klienten och Docker Compose i din Linux-dator (VM). Genom att använda tillägget Azure Docker VM kan ha du mer kontroll och funktioner än att bara använda Docker Machine eller att skapa Docker-värd själv. Dessa ytterligare funktioner som [Docker Compose](https://docs.docker.com/compose/overview/), gör tillägget Azure Docker VM passar för stabilare developer- eller produktion.
 
 Mer information om olika distributionsmetoder, inklusive användning av Docker-dator och Azure Container Services finns i följande artiklar:
 
-* Att snabbt prototyp en app du kan skapa en enda Docker-värd med [Docker datorn](docker-machine.md).
-* När du skapar produktionsklara, skalbara miljöer som ger ytterligare schemaläggning och hanteringsverktygen ska du distribuera en [Kubernetes](../../container-service/kubernetes/index.yml) eller [Docker Swarm](../../container-service/dcos-swarm/index.yml) klustret på Azure-tjänster för behållaren.
+* Snabbt prototyper en app kan du skapa en enkel Docker-värd med [Docker Machine](docker-machine.md).
+* Om du vill skapa produktionsklara, skalbara miljöer som innehåller ytterligare verktyg för schemaläggning och hantering, kan du distribuera en [Kubernetes](../../container-service/kubernetes/index.yml) eller [Docker Swarm](../../container-service/dcos-swarm/index.yml) -kluster i Azure Container Services.
 
 
-## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Distribuera en mall med Azure Docker VM-tillägg
-Vi ska använda en befintlig mall för Snabbstart för att skapa en Ubuntu VM som använder Azure Docker VM-tillägget för att installera och konfigurera Docker-värden. Du kan visa den här mallen: [enkel distribution av en Ubuntu VM med Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).
+## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Distribuera en mall med tillägget Azure Docker VM
+Vi använda en befintlig snabbstartsmall för för att skapa en Ubuntu VM som använder Azure Docker VM-tillägget för att installera och konfigurera Docker-värd. Du kan visa den här mallen: [enkel distribution av ett Ubuntu-VM med Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
 Skapa först en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
@@ -46,18 +46,18 @@ Skapa först en resursgrupp med [az group create](/cli/azure/group#az_group_crea
 az group create --name myResourceGroup --location eastus
 ```
 
-Distribuera en virtuell dator med [az distribution skapa](/cli/azure/group/deployment#az_group_deployment_create) som innehåller Azure Docker VM-tillägget från [Azure Resource Manager-mallen på GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). När du uppmanas att ange dina egna unika värden för *newStorageAccountName*, *adminUsername*, *adminPassword*, och *dnsNameForPublicIP*:
+Distribuera en virtuell dator med [az group deployment skapa](/cli/azure/group/deployment#az_group_deployment_create) som innehåller Azure Docker VM-tillägget från [Azure Resource Manager-mallen på GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). När du uppmanas, anger du ditt eget unika värden för *newStorageAccountName*, *adminUsername*, *adminPassword*, och *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-Det tar några minuter för att distributionen ska slutföras.
+Det tar några minuter innan distributionen är klar.
 
 
 ## <a name="deploy-your-first-nginx-container"></a>Distribuera din första NGINX-behållare
-Om du vill visa information om den virtuella datorn, inklusive DNS-namnet [az vm visa](/cli/azure/vm#az_vm_show):
+Du kan visa information om den virtuella datorn, inklusive DNS-namnet [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \
@@ -68,19 +68,19 @@ az vm show \
     --output tsv
 ```
 
-SSH till din nya Docker-värden. Ange användarnamn och DNS-namnet från föregående steg:
+SSH till din nya Docker-värd. Ange ditt eget användarnamn och DNS-namnet från föregående steg:
 
 ```bash
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
-När inloggad till Docker-värden kan vi köra en NGINX-behållare:
+När du loggat in till Docker-värd kan vi köra en NGINX-behållare:
 
 ```bash
 sudo docker run -d -p 80:80 nginx
 ```
 
-Utdata liknar följande exempel som NGINX-avbildningen hämtas och en behållare igång:
+Utdata liknar följande exempel som NGINX-avbildningen har laddats ned och en behållare igång:
 
 ```bash
 Unable to find image 'nginx:latest' locally
@@ -94,25 +94,25 @@ Status: Downloaded newer image for nginx:latest
 b6ed109fb743a762ff21a4606dd38d3e5d35aff43fa7f12e8d4ed1d920b0cd74
 ```
 
-Kontrollera status för de behållare som körs på värden Docker på följande sätt:
+Kontrollera status för de behållare som körs på Docker-värd på följande sätt:
 
 ```bash
 sudo docker ps
 ```
 
-Utdata liknar följande exempel, visar att NGINX-behållaren körs och TCP-portarna 80 och 443 och vidarebefordras:
+Utdata liknar följande exempel, som visar att NGINX-behållaren körs och TCP-portarna 80 och 443 och vidarebefordras:
 
 ```bash
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                         NAMES
 b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 443/tcp   adoring_payne
 ```
 
-Om du vill se dina behållare i åtgärden, öppna en webbläsare och ange DNS-namnet på din Docker-värd:
+Om du vill se din behållare i praktiken, öppna en webbläsare och ange DNS-namnet på din Docker-värd:
 
-![Körs ngnix behållare](./media/dockerextension/nginxrunning.png)
+![Behållaren som körs ngnix](./media/dockerextension/nginxrunning.png)
 
-## <a name="azure-docker-vm-extension-template-reference"></a>Azure Docker VM-mall tilläggsreferens
-Det föregående exemplet används en befintlig mall för Snabbstart. Du kan också distribuera Azure Docker VM-tillägget med egna Resource Manager-mallar. Om du vill göra det lägger du till följande Resource Manager-mallar, definiera den `vmName` på den virtuella datorn på rätt sätt:
+## <a name="azure-docker-vm-extension-template-reference"></a>Mallreferensen för Azure Docker VM-tillägg
+Det föregående exemplet används en befintlig snabbstartsmall för. Du kan också distribuera Azure Docker VM-tillägget med din egen Resource Manager-mallar. Om du vill göra det lägger du till följande Resource Manager-mallar, definiera den `vmName` för den virtuella datorn på rätt sätt:
 
 ```json
 {
@@ -134,14 +134,14 @@ Det föregående exemplet används en befintlig mall för Snabbstart. Du kan ock
 }
 ```
 
-Du kan hitta mer detaljerad genomgång om hur du använder Resource Manager-mallar genom att läsa [översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Du hittar mer detaljerad genomgång om hur du använder Resource Manager-mallar genom att läsa [översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Du kanske vill [konfigurera Docker-daemon TCP-port](https://docs.docker.com/engine/reference/commandline/dockerd/#/bind-docker-to-another-hostport-or-a-unix-socket), Förstå [Docker säkerhet](https://docs.docker.com/engine/security/security/), eller distribuera behållare med [Docker Compose](https://docs.docker.com/compose/overview/). Mer information om Azure Docker VM tillägget själva finns i [GitHub projekt](https://github.com/Azure/azure-docker-extension/).
+Du kanske vill [konfigurera Docker-daemon TCP-port](https://docs.docker.com/engine/reference/commandline/dockerd/#/bind-docker-to-another-hostport-or-a-unix-socket), Förstå [Docker security](https://docs.docker.com/engine/security/security/), eller distribuera behållare med hjälp av [Docker Compose](https://docs.docker.com/compose/overview/). Mer information om tillägget Azure Docker VM själva finns i den [GitHub-projektet](https://github.com/Azure/azure-docker-extension/).
 
-Läs mer om ytterligare Docker distributionsalternativen i Azure:
+Läs mer om de ytterligare alternativen i Azure gäller Docker-distribution:
 
-* [Använda Docker-datorn med Azure-drivrutin](docker-machine.md)  
-* [Kom igång med Docker och skriv för att definiera och köra ett program för flera behållare på en virtuell dator i Azure](docker-compose-quickstart.md).
+* [Använda Docker Machine med Azure-drivrutin](docker-machine.md)  
+* [Kom igång med Docker och Compose för att definiera och köra program med flera behållare på Azure-datorer](docker-compose-quickstart.md).
 * [Distribuera ett Azure Container Service-kluster](../../container-service/dcos-swarm/container-service-deployment.md)
 

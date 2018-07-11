@@ -1,5 +1,5 @@
 ---
-title: Skapa en sammansatt entitet för att extrahera komplexa data – Azure | Microsoft Docs
+title: Självstudien skapa en sammansatt entitet för att extrahera komplexa data – Azure | Microsoft Docs
 description: Lär dig hur du skapar en sammansatt entitet i din LUIS-app för att extrahera olika typer av entitetsdata.
 services: cognitive-services
 author: v-geberr
@@ -7,118 +7,109 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 07/09/2018
 ms.author: v-geberr
-ms.openlocfilehash: 375b52f9206f55e620d5e664844b8fa1d7249a07
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: d73dc9b9f204e334a75c9de5e19c6b11e3a95b12
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888753"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929193"
 ---
-# <a name="use-composite-entity-to-extract-complex-data"></a>Använda sammansatta entitet för att extrahera komplexa data
-Den här enkla appen har två [avsikter](luis-concept-intent.md) och flera entiteter. Syftet är att boka flyg, till exempel '1-biljett från Seattle till Kairo fredagen ”och returnera alla ärendets natur reservationen som en enda typ av data. 
+# <a name="tutorial-6-add-composite-entity"></a>Självstudie: 6. Lägg till sammansatta entitet 
+I den här självstudien lägger du till en sammansatt entitet för att bifoga extraherade data i en innehållande entiteten.
 
 I den här guiden får du lära dig hur man:
 
+<!-- green checkmark -->
 > [!div class="checklist"]
-* Lägg till fördefinierade entiteter datetimeV2 och nummer
-* Skapa en sammansatt entitet
-* Fråga efter LUIS och ta emot sammansatta entitetsdata
+> * Förstå sammansatta entiteter 
+> * Lägg till sammansatta entitet för att extrahera data
+> * Träna och publicera app
+> * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
 
 ## <a name="before-you-begin"></a>Innan du börjar
-* LUIS-appen från den  **[hierarkiska Snabbstart](luis-tutorial-composite-entity.md)**. 
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om [hierarchical entity](luis-quickstart-intent-and-hier-entity.md) (hierarkisk entitet) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json)-GitHub-lagringsplatsen.
 
-> [!Tip]
-> Om du inte redan har en prenumeration kan du registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/).
+Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `composite`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen.  
 
 ## <a name="composite-entity-is-a-logical-grouping"></a>Sammansatt entitet är en logisk gruppering 
-Syftet med entiteten är att hitta och kategorisera delar av texten i yttrandet. En [sammansatta](luis-concept-entity-types.md) entitet består av andra typer av enheter som registrerats från kontexten. Det finns flera olika typer av information, till exempel datum, platser och antalet platser för den här reseapp som tar flygning reservationer. 
+Syftet med den sammansatta entiteten är att gruppera relaterade entiteter i en överordnad kategori. Informationen finns som separata entiteter innan en sammansatta skapas. Det liknar hierarkisk entiteten, men kan innehålla flera typer av enheter. 
 
-Informationen finns som separata entiteter innan en sammansatta skapas. Skapa en sammansatt entitet när separata entiteter kan grupperas logiskt och den här logisk gruppering kan vara bra att chattrobot eller annat program förbrukar LUIS. 
+ Skapa en sammansatt entitet när separata entiteter kan grupperas logiskt och den här logisk gruppering kan vara bra att klientprogrammet. 
 
-Enkla exempel på yttranden från användare innefattar:
+I den här appen medarbetarnamn har definierats i den **medarbetare** listan entitet och omfattar namn, e-postadress, företagets anknytningsnumret, mobiltelefonnummer och USA Federal skatte-ID. 
 
-```
-Book a flight to London for next Monday
-2 tickets from Dallas to Dublin this weekend
-Reserve a seat from New York to Paris on the first of April
-```
+Den **MoveEmployee** syftet har exempel yttranden att begära en anställd flyttas från en kontorsbyggnad och till en annan. Skapa namn är alfabetiskt: ”A”, ”B” och annat kontor är numeriska: ”1234”, ”13245”. 
+
+Exempel yttranden i den **MoveEmployee** avsikt inkluderar:
+
+|Exempel på yttranden|
+|--|
+|Flytta John W. Smith ska kunna a-2345|
+|flytta x12345 till h-1234 imorgon|
  
-Sammansatta entiteten matchar platsantal, ursprungsplatsen, målplatsen och datum. 
+Begäran om att flytta bör minst omfatta medarbetaren (med några synonymen) och den slutgiltiga kontorsbyggnad och platsen. Begäran kan även innehålla den ursprungliga office samt ett datum som flytten som ska hända. 
 
-## <a name="what-luis-does"></a>What LUIS gör
-När yttrandets avsikt och entiteter identifierats, [extraherats](luis-concept-data-extraction.md#list-entity-data) och returnerats i JSON från [slutpunkten](https://aka.ms/luis-endpoint-apis) är LUIS klar. Det anropande programmet eller chattroboten använder JSON-svaret och uppfyller begäran på det sätt som appen eller chattroboten har instruerats att göra. 
+Extraherade data från slutpunkten bör innehålla den här informationen och returnera den på i en `RequestEmployeeMove` sammansatt entitet. 
 
-## <a name="add-prebuilt-entities-number-and-datetimev2"></a>Lägg till fördefinierade entiteter tal och datetimeV2
-1. Välj den `MyTravelApp` appen från listan över appar på den [LUIS](luis-reference-regions.md#luis-website) webbplats.
+## <a name="create-composite-entity"></a>Skapa sammansatta entitet
+1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
 
-2. När appen öppnas, Välj den **entiteter** vänstra navigeringsfönstret länk.
+    [ ![Skärmbild på LUIS-appen med Build (Skapa) markerat i navigeringsfältet längst upp till höger](./media/luis-tutorial-composite-entity/hr-first-image.png)](./media/luis-tutorial-composite-entity/hr-first-image.png#lightbox)
 
-    ![Välj knappen entiteter](./media/luis-tutorial-composite-entity/intents-page-select-entities.png)    
+2. På den **avsikter** väljer **MoveEmployee** avsikt. 
 
-3. Välj **Manage prebuilt entities** (Hantera fördefinierade entiteter).
+    [![](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png "Skärmbild av LUIS med 'MoveEmployee' avsikt markerat")](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png#lightbox)
 
-    ![Välj knappen entiteter](./media/luis-tutorial-composite-entity/manage-prebuilt-entities-button.png)
+3. Välj på förstoringsglaset i verktygsfältet om du vill filtrera listan yttranden. 
 
-4. I popup-rutan, Välj **nummer** och **datetimeV2**.
+    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Skärmbild av LUIS på 'MoveEmployee' avsikten med förstoringsglaset markerat")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
-    ![Välj knappen entiteter](./media/luis-tutorial-composite-entity/prebuilt-entity-ddl.png)
+4. Ange `tomorrow` i textrutan filter för att hitta uttryck `shift x12345 to h-1234 tomorrow`.
 
-5. För de nya entiteterna som ska extraheras, välja **träna** i det övre navigeringsfältet.
+    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Skärmbild av LUIS på 'MoveEmployee' syftet med filtret ”morgondagens' markerat")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
-    ![Välj knappen train (träna)](./media/luis-tutorial-composite-entity/train.png)
+    En annan metod är att filtrera entiteten efter datetimeV2, genom att välja **entitet filter** därefter **datetimeV2** i listan. 
 
-## <a name="use-existing-intent-to-create-composite-entity"></a>Använd befintliga avsikt för att skapa sammansatta entitet
-1. Välj **avsikter** i det vänstra navigeringsfönstret. 
+5. Välj den första entiteten `Employee`och välj sedan **omsluta i sammansatt entitet** i listan över popup-menyn. 
 
-    ![Välj avsikter sida](./media/luis-tutorial-composite-entity/intents-from-entities-page.png)
+    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja första entiteten i sammansatta markerat")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
-2. Välj `BookFlight` från den **avsikter** lista.  
 
-    ![Välj BookFlight avsikt listan](./media/luis-tutorial-composite-entity/intent-page-with-prebuilt-entities-labeled.png)
+6. Välj sedan det senaste entitet omedelbart `datetimeV2` i uttryck. En grön stapel dras under de valda ord som anger en sammansatt entitet. I popup-menyn, anger du sammansatta namn `RequestEmployeeMove` därefter **skapa nya sammansatta** på popup-menyn. 
 
-    Antal och datetimeV2 förskapade entiteter är märkta på talade.
+    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja senaste entitet i sammansatt och skapa entiteten markerat")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
-3. För uttryck `book 2 flights from seattle to cairo next monday`, Välj det blå fältet `number` entitet, välj sedan **omsluta i sammansatt entitet** i listan. En grön linje under ord följer markören som flyttas till höger, som anger en sammansatt entitet. Flytta till höger för att välja den senaste fördefinierade entiteten `datetimeV2`, ange sedan `FlightReservation` i textrutan i popup-fönstret, välj sedan **skapa nya sammansatta**. 
+7. I **vilken typ av enhet vill du skapa?**, nästan alla fält som krävs finns i listan. Endast den ursprungliga platsen saknas. Välj **lägga till en underordnad entitet**väljer **Locations::Origin** från listan över befintliga entiteter, Välj **klar**. 
 
-    ![Skapa sammansatta entiteten på avsikter sida](./media/luis-tutorial-composite-entity/create-new-composite.png)
+  ![Skärmbild av LUIS på 'MoveEmployee' avsikt att lägga till en annan entitet i popup-fönster](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
 
-4. En dialogruta visas där du kan verifiera sammansatt entitet underordnade. Välj **Done** (Klar).
+8. Välj på förstoringsglaset i verktygsfältet för att ta bort filtret. 
 
-    ![Skapa sammansatta entiteten på avsikter sida](./media/luis-tutorial-composite-entity/validate-composite-entity.png)
+## <a name="label-example-utterances-with-composite-entity"></a>Etikett exempel yttranden med sammansatta entitet
+1. Välj vänster-entitet som ska vara i sammansatt i varje exempel-uttryck. Välj sedan **omsluta i sammansatt entitet**.
 
-## <a name="wrap-the-entities-in-the-composite-entity"></a>Omsluta entiteterna i sammansatt entiteten
-När den sammansatta entitet har skapats kan etikettera återstående yttranden i sammansatt entiteten. För att omsluta en fras som en sammansatt enhet, måste du markera det vänster och välj sedan **omsluta i sammansatt entitet** från listan som visas, sedan markerar du det höger och välj sedan namngivna sammansatta entiteten `FlightReservation`. Det här är en snabb, problemfri steg valen som delas upp i följande steg:
+    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja första entiteten i sammansatta markerat")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
-1. I uttryck `schedule 4 seats from paris to london for april 1`, Välj 4 som antalet fördefinierade entitet.
+2. Välj det sista ordet i sammansatt entiteten och välj sedan **RequestEmployeeMove** på snabbmenyn. 
 
-    ![Välj vänster word](./media/luis-tutorial-composite-entity/wrap-composite-step-1.png)
+    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja senaste entitet i sammansatta markerat")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
-2. Välj **omsluta i sammansatt entitet** från listan som visas.
+3. Kontrollera alla uttryck i avsikten är märkta med den sammansatta entitet. 
 
-    ![Välj radbyte i listan](./media/luis-tutorial-composite-entity/wrap-composite-step-2.png)
-
-3. Välj höger ordet. En grön linje visas under frasen, som anger en sammansatt entitet.
-
-    ![Välj höger word](./media/luis-tutorial-composite-entity/wrap-composite-step-3.png)
-
-4. Välj sammansatta namn `FlightReservation` från listan som visas.
-
-    ![Välj namngiven sammansatta entitet](./media/luis-tutorial-composite-entity/wrap-composite-step-4.png)
-
-    Senaste uttryck omsluta `London` och `tomorrow` med samma instruktioner i entiteten sammansatta. 
+    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Skärmbild av LUIS på MoveEmployee om du med alla yttranden som är märkt")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
-LUIS känner inte till ändringarna av avsikterna och entiteterna (modellen) förrän den tränas. 
+LUIS vet inte om den nya sammansatta entiteten tills appen har tränats. 
 
 1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Train** (Träna).
 
-    ![Träna appen](./media/luis-tutorial-composite-entity/train-button.png)
+    ![Träna appen](./media/luis-tutorial-composite-entity/hr-train-button.png)
 
 2. Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
 
-    ![Träningen är klar](./media/luis-tutorial-composite-entity/trained.png)
+    ![Träningen är klar](./media/luis-tutorial-composite-entity/hr-trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
 För att få en LUIS-förutsägelse i en chattrobot eller i ett annat program måste du publicera appen. 
@@ -127,123 +118,202 @@ För att få en LUIS-förutsägelse i en chattrobot eller i ett annat program m�
 
 2. Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera).
 
-    ![Publicera app](./media/luis-tutorial-composite-entity/publish-to-production.png)
+    ![Publicera app](./media/luis-tutorial-composite-entity/hr-publish-to-production.png)
 
 3. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Skicka fråga till slutpunkten med ett annat yttrande
+## <a name="query-the-endpoint"></a>Fråga slutpunkten 
 1. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. 
 
-    ![Välj slutpunkts-URL](./media/luis-tutorial-composite-entity/publish-select-endpoint.png)
+    ![Välj slutpunkts-URL](./media/luis-tutorial-composite-entity/hr-publish-select-endpoint.png)
 
-2. Gå till slutet av URL:en i adressen och ange `reserve 3 seats from London to Cairo on Sunday`. Den sista frågesträngsparametern är `q`, uttryck frågan. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `BookFlight` med den hierarkiska entiteten extraherad.
+2. Gå till slutet av URL:en i adressen och ange `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`. Den sista frågesträngsparametern är `q`, uttryck frågan. 
 
-```
+    Eftersom det här testet är att verifiera sammansatt extraheras korrekt, kan ett test antingen inkludera en befintliga exempel-uttryck eller en ny uttryck. Ett bra test är att inkludera alla underordnade entiteter i sammansatt entiteten.
+
+```JSON
 {
-  "query": "reserve 3 seats from London to Cairo on Sunday",
+  "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
   "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.999999046
+    "intent": "MoveEmployee",
+    "score": 0.9959525
   },
   "intents": [
     {
-      "intent": "BookFlight",
-      "score": 0.999999046
+      "intent": "MoveEmployee",
+      "score": 0.9959525
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.009858314
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.00728598563
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.0058053555
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.005371796
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00266987388
     },
     {
       "intent": "None",
-      "score": 0.227036044
+      "score": 0.00123299169
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00116407464
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.00102653319
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.0006628214
     }
   ],
   "entities": [
     {
-      "entity": "sunday",
-      "type": "builtin.datetimeV2.date",
-      "startIndex": 40,
-      "endIndex": 45,
+      "entity": "march 3 2 p.m",
+      "type": "builtin.datetimeV2.datetime",
+      "startIndex": 41,
+      "endIndex": 54,
       "resolution": {
         "values": [
           {
-            "timex": "XXXX-WXX-7",
-            "type": "date",
-            "value": "2018-03-25"
+            "timex": "XXXX-03-03T14",
+            "type": "datetime",
+            "value": "2018-03-03 14:00:00"
           },
           {
-            "timex": "XXXX-WXX-7",
-            "type": "date",
-            "value": "2018-04-01"
+            "timex": "XXXX-03-03T14",
+            "type": "datetime",
+            "value": "2019-03-03 14:00:00"
           }
         ]
       }
     },
     {
-      "entity": "3 seats from london to cairo on sunday",
-      "type": "flightreservation",
-      "startIndex": 8,
-      "endIndex": 45,
-      "score": 0.6892485
+      "entity": "jill jones",
+      "type": "Employee",
+      "startIndex": 5,
+      "endIndex": 14,
+      "resolution": {
+        "values": [
+          "Employee-45612"
+        ]
+      }
     },
     {
-      "entity": "cairo",
-      "type": "Location::Destination",
+      "entity": "z - 2345",
+      "type": "Locations::Destination",
       "startIndex": 31,
-      "endIndex": 35,
-      "score": 0.557570755
+      "endIndex": 36,
+      "score": 0.9690751
     },
     {
-      "entity": "london",
-      "type": "Location::Origin",
+      "entity": "a - 1234",
+      "type": "Locations::Origin",
       "startIndex": 21,
       "endIndex": 26,
-      "score": 0.8933808
+      "score": 0.9713137
+    },
+    {
+      "entity": "-1234",
+      "type": "builtin.number",
+      "startIndex": 22,
+      "endIndex": 26,
+      "resolution": {
+        "value": "-1234"
+      }
+    },
+    {
+      "entity": "-2345",
+      "type": "builtin.number",
+      "startIndex": 32,
+      "endIndex": 36,
+      "resolution": {
+        "value": "-2345"
+      }
     },
     {
       "entity": "3",
       "type": "builtin.number",
-      "startIndex": 8,
-      "endIndex": 8,
+      "startIndex": 47,
+      "endIndex": 47,
       "resolution": {
         "value": "3"
       }
+    },
+    {
+      "entity": "2",
+      "type": "builtin.number",
+      "startIndex": 50,
+      "endIndex": 50,
+      "resolution": {
+        "value": "2"
+      }
+    },
+    {
+      "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+      "type": "requestemployeemove",
+      "startIndex": 5,
+      "endIndex": 54,
+      "score": 0.4027723
     }
   ],
   "compositeEntities": [
     {
-      "parentType": "flightreservation",
-      "value": "3 seats from london to cairo on sunday",
+      "parentType": "requestemployeemove",
+      "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
       "children": [
         {
-          "type": "builtin.datetimeV2.date",
-          "value": "sunday"
+          "type": "builtin.datetimeV2.datetime",
+          "value": "march 3 2 p.m"
         },
         {
-          "type": "Location::Destination",
-          "value": "cairo"
+          "type": "Locations::Destination",
+          "value": "z - 2345"
         },
         {
-          "type": "builtin.number",
-          "value": "3"
+          "type": "Employee",
+          "value": "jill jones"
         },
         {
-          "type": "Location::Origin",
-          "value": "london"
+          "type": "Locations::Origin",
+          "value": "a - 1234"
         }
       ]
     }
-  ]
+  ],
+  "sentimentAnalysis": {
+    "label": "neutral",
+    "score": 0.5
+  }
 }
 ```
 
-Den här uttryck som returnerar en matris, sammansatta entiteter inklusive den **flightreservation** objekt med de data som extraheras.  
+Den här uttryck returnerar en matris med sammansatta entiteter. Varje entitet är angiven typ och värde. Du hittar mer precision för varje underordnad entitet genom att använda en kombination av typen och värdet från sammansatta matris-objektet för att hitta motsvarande objekt i matrisen entiteter.  
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
-Den här appen, med bara två avsikter och en sammansatt entitet identifierat ett naturligt språk fråga avsikt och returnerade de extraherade data. 
+Den här appen har identifierat en fråga avsikt för naturligt språk och returnerade de extraherade data som en namngiven grupp. 
 
-Din chattrobot har nu tillräcklig information för att fastställa den primära åtgärden `BookFlight`, och reservation information som finns i uttryck. 
+Din chattrobot har nu tillräcklig information för att fastställa den primära åtgärden och relaterade detaljer i uttryck. 
 
 ## <a name="where-is-this-luis-data-used"></a>Var används dessa LUIS-data? 
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="clean-up-resources"></a>Rensa resurser
+Ta bort LUIS-appen när den inte längre behövs. Välj **Mina appar** på menyn längst upp till vänster. Välj ellipsen (***...*** ) till höger om appnamnet i applistan väljer **ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
-[Läs mer om entiteter](luis-concept-entity-types.md). 
+## <a name="next-steps"></a>Nästa steg
+> [!div class="nextstepaction"] 
+> [Lär dig hur du lägger till en enkel enhet med en fras-lista](luis-quickstart-primary-and-secondary-data.md)  

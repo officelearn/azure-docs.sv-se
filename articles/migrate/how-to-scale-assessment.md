@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: dbd2ef6270d0f270dabb6a1f5461e09fc37102db
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: d7814b976529bf7032edd54e4afd574ce766e5dd
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859599"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919870"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
@@ -39,9 +39,9 @@ Om du distribuerar i en miljö organisationer, är här ett sätt att konfigurer
 1.  Skapa en användare per klient och och använder [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), tilldela läsbehörighet till Virtuella datorer som tillhör en viss klient. Sedan Använd dessa autentiseringsuppgifter för identifiering. RBAC säkerställer att motsvarande vCenter-användaren har åtkomst till endast specifika VM-klient.
 2. Du konfigurerar RBAC för olika klientanvändare enligt beskrivningen i följande exempel för användaren nr 1 och 2 för användaren:
 
-    - I **användarnamn** och **lösenord**, anger du de skrivskyddade kontoautentiseringsuppgifter som insamlaren använder för att identifiera virtuella datorer i 
+    - I **användarnamn** och **lösenord**, anger du de skrivskyddade kontoautentiseringsuppgifter som insamlaren använder för att identifiera virtuella datorer i
     - Datacenter1 - ge läsbehörighet till 1 användare och användare #2. Inte Sprid dessa behörigheter till alla underordnade objekt eftersom du ska ange behörigheter för enskilda Virtuella datorer.
-    
+
       - VM1 (klient #1) (endast läsbehörighet till användare #1)
       - VM2 (klient #1) (endast läsbehörighet till användare #1)
       - VM3 (klient #2) (endast läsbehörighet till användaren nr. 2)
@@ -125,6 +125,14 @@ Kontrollera att OVA-filen är säker innan du distribuerar den:
    Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
 3. Se till att den genererade hashen matchar följande inställningar.
+
+    För OVA-version 1.0.9.12
+
+    **Algoritm** | **Hash-värde**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
     För OVA-version 1.0.9.8
 

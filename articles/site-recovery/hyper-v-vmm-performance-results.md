@@ -1,72 +1,72 @@
 ---
-title: Testresultat för replikering av Hyper-V virtuella datorer i VMM-moln till en sekundär plats med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller information om prestandatestning för replikering av Hyper-V virtuella datorer i VMM-moln till en sekundär plats med hjälp av Azure Site Recovery.
+title: Testresultat för replikering av Hyper-V-datorer i VMM-moln till en sekundär plats med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller information om prestandatestning för replikering av Hyper-V-datorer i VMM-moln till en sekundär plats med Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: e15f435a3f32b8908b5b93bccc6c57710ab589bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4e6884bdcbc0d9921186ec9ff11a701b707faeef
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29378899"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921305"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Testresultat för Hyper-V-replikering till en sekundär plats
 
-Den här artikeln innehåller resultaten av prestandatest vid replikering av Hyper-V virtuella datorer i System Center Virtual Machine Manager (VMM)-moln till ett sekundärt datacenter.
+Den här artikeln innehåller resultatet av prestandatest vid replikering av Hyper-V-datorer i System Center Virtual Machine Manager (VMM)-moln till ett sekundärt datacenter.
 
 ## <a name="test-goals"></a>Testa mål
 
-Målet för testning var att undersöka hur Site Recovery utför under stabilt tillstånd.
+Målet med testning var att undersöka hur Site Recovery utför under replikering i stabilt tillstånd.
 
-- Stabilt tillstånd replikeringen sker när virtuella datorer har slutfört den inledande replikeringen och synkroniserar deltaändringar.
-- Det är viktigt att mäta prestanda med hjälp av stabilt tillstånd, eftersom det är ett tillstånd i vilka de flesta VMs förblir, såvida inte oväntade avbrott inträffar.
-- Testa distributionen består av två lokala webbplatser med en VMM-server på varje plats. Den här testdistributionen är typiska för en head office/filialdistribution, med huvudkontoret som fungerar som den primära platsen och avdelningskontoret som webbplatsen sekundär eller återställning.
+- Replikering i stabilt tillstånd inträffar när virtuella datorer har slutfört den inledande replikeringen och synkroniserar deltaändringar.
+- Det är viktigt att mäta prestanda med hjälp av stabilt tillstånd, eftersom det är tillstånd där de flesta de virtuella datorerna kvar, såvida inte oväntade avbrott inträffar.
+- Test-distribution består av två lokala platser, med en VMM-server på varje plats. Den här testdistributionen är typiska för en office distribution huvudet kontor/avdelningskontor med huvudkontoret som fungerar som den primära platsen och avdelningskontoret som platsen för sekundära eller återställning.
 
-## <a name="what-we-did"></a>Vi gjorde
+## <a name="what-we-did"></a>Det vi gjorde
 
-Här är vad vi i testet klarade:
+Här är vad vi i testet skickar:
 
 1. Skapade virtuella datorer med hjälp av VMM-mallar.
-2. Starta virtuella datorer och avbildas baslinjen prestandamått än 12 timmar.
-3. Skapade moln på den primära servern och återställa VMM-servrar.
+2. Igång virtuella datorer och avbildas prestandans basmått än 12 timmar.
+3. Skapade moln på den primära servern och recovery VMM-servrar.
 4. Konfigurerade replikering i Site Recovery, inklusive mappning mellan käll- och moln.
-5. Aktivera skydd för virtuella datorer och kunna slutföra inledande replikeringen.
-6. Väntade några timmar innan systemet stabilisering.
-7. Övervakad prestandamått än 12 timmar, där alla virtuella datorer befann sig i ett replikeringstillstånd som krävs för dessa 12 timmar.
-8. Mätt delta mellan prestandamått baslinjen och prestandamått för replikering.
+5. Aktiverat skydd för virtuella datorer och kunna slutföra den inledande replikeringen.
+6. Ett par timmar för system stabiliserade kan ha väntat.
+7. Avbildas prestandamått än 12 timmar, där alla virtuella datorer befann sig i ett replikeringstillstånd som krävs för de 12 timmarna.
+8. Mätt delta mellan jämförelsemått för prestanda och prestandamått för replikering.
 
 
 ## <a name="primary-server-performance"></a>Primär server-prestanda
 
-* Hyper-V-replikering (används av Site Recovery) asynkront spårar ändringar i en loggfil med minsta lagring försämras på den primära servern.
-* Hyper-V-replikering använder automatisk bibehålls minnescache för att minimera IOPS omkostnader för spårning. Den lagrar skriver till VHDX i minnet och rensningar i loggfilen dem före den tid som loggen skickas till återställningsplatsen. En disk som tömning sker också om skrivningar nått gränsen för ett förutbestämt.
-* Diagrammet nedan visar stabilt tillstånd IOPS CPU-användningen för replikering. Vi kan se att IOPS försämras på grund av replikering är cirka 5%, vilket är mycket liten.
+* Hyper-V-replikering (används av Site Recovery) asynkront spårar ändringar i en loggfil med minsta storage försämras på den primära servern.
+* Hyper-V-replikering använder lokal behålla cacheminnet för att minimera IOPS omkostnader för spårning. Den lagrar skriver till VHDX i minnet och cachetömningar dem i loggfilen innan loggen skickas till återställningsplatsen. En disk som tömning sker även om skrivningar uppnår en förutbestämd gräns.
+* Diagrammet nedan visar stabilt IOPS CPU-användningen för replikering. Vi kan se att IOPS försämras på grund av replikering är cirka 5%, vilket är mycket liten.
 
   ![Primär resultat](./media/hyper-v-vmm-performance-results/IC744913.png)
 
-Hyper-V-replikering använder minne på den primära servern för att optimera diskprestanda. I följande diagram visas minne försämras på alla servrar i det primära klustret är marginell. Minnet omkostnader visas är procentandelen av minne som används av replikering, jämfört med den totala mängden minnet som är installerad på Hyper-V-servern.
+Hyper-V-replikering använder minne på den primära servern för att optimera prestanda för diskar. I följande diagram visas är minne försämras på alla servrar i det primära klustret marginell. Den memory overhead är procentandelen minne som används av replikering, jämfört med den totala mängden minnet som är installerade på Hyper-V-servern.
 
 ![Primär resultat](./media/hyper-v-vmm-performance-results/IC744914.png)
 
-Hyper-V-replikering har minimal CPU-belastning. Visas i diagrammet är replikering i området % 2-3.
+Hyper-V-replikering har lägsta CPU-belastning. I diagrammet visas är replikering mellan 2 – 3%.
 
 ![Primär resultat](./media/hyper-v-vmm-performance-results/IC744915.png)
 
 ## <a name="secondary-server-performance"></a>Sekundär server-prestanda
 
-Hyper-V-replikering använder en liten mängd minne på återställningsservern för att optimera antalet lagringsåtgärder. Diagrammet sammanfattar minnesanvändningen på återställningsservern. Minnet omkostnader visas är procentandelen av minne som används av replikering, jämfört med den totala mängden minnet som är installerad på Hyper-V-servern.
+Hyper-V-replikering använder en liten mängd minne på återställningsservern, för att optimera antalet lagringsåtgärder. Diagrammet innehåller en sammanfattning av minnesanvändning på återställningsservern. Den memory overhead är procentandelen minne som används av replikering, jämfört med den totala mängden minnet som är installerade på Hyper-V-servern.
 
 ![Sekundär resultat](./media/hyper-v-vmm-performance-results/IC744916.png)
 
-Mängden i/o-åtgärder på återställningsplatsen är en funktion av antalet skrivåtgärder på den primära platsen. Nu ska vi titta på de totala i/o-åtgärderna på återställningsplatsen jämfört med Totalt antal i/o-åtgärder och skrivåtgärder på den primära platsen. Diagrammen visar att det totala antalet IOPS på återställningsplatsen
+Hur mycket i/o-åtgärder på återställningsplatsen är en funktion av antalet skrivåtgärder på den primära platsen. Nu ska vi titta på de totala i/o-åtgärderna på återställningsplatsen i jämförelse med de totala i/o-åtgärderna och skrivåtgärder på den primära platsen. Diagrammen visar att det totala antalet IOPS på återställningsplatsen är
 
-* Runt 1,5 gånger skrivningen IOPS på primärt.
-* Omkring 37% av totalt antal IOPS på den primära platsen.
+* Runt 1,5 gånger Skriv-IOPS på primärt.
+* Cirka 37% av det totala antalet IOPS på den primära platsen.
 
 ![Sekundär resultat](./media/hyper-v-vmm-performance-results/IC744917.png)
 
@@ -74,78 +74,78 @@ Mängden i/o-åtgärder på återställningsplatsen är en funktion av antalet s
 
 ## <a name="effect-on-network-utilization"></a>Effekt på belastningen på nätverket
 
-Ett genomsnitt av 275 Mb per sekund av nätverksbandbredden används mellan de primära platsen och återställningsplatsen noderna (med aktiverad komprimering), mot en befintlig bandbredd på 5 Gb per sekund.
+Ett genomsnitt av 275 Mb per sekund av nätverkets bandbredd användes mellan de primära servern och recovery noderna (vid komprimering aktiverat) mot en befintlig bandbredd på 5 Gb per sekund.
 
 ![Resultaten nätverksanvändning](./media/hyper-v-vmm-performance-results/IC744919.png)
 
-## <a name="effect-on-vm-performance"></a>Inverkan på prestandan för VM
+## <a name="effect-on-vm-performance"></a>Effekt på prestanda för virtuella datorer
 
-Ett viktigt övervägande är effekten av replikering för produktionsarbetsbelastningar som körs på de virtuella datorerna. Om den primära platsen etableras på lämpligt sätt för replikering, får inte det finnas någon inverkan på arbetsbelastningar. Hyper-V-replikering lightweight spårning mekanism säkerställer att arbetsbelastningar som körs i de virtuella datorerna inte påverkas under stabilt tillstånd. Detta illustreras i följande diagram.
+Ett viktigt övervägande är effekten av replikering på produktionsarbetsbelastningar som körs på de virtuella datorerna. Om den primära platsen är rätt etableras för replikering, det får inte vara någon inverkan på arbetsbelastningar. Hyper-V-replikering lightweight spåra mekanism säkerställer att arbetsbelastningar som körs på de virtuella datorerna inte påverkas under replikering i stabilt tillstånd. Detta illustreras i följande diagram.
 
-Det här diagrammet visar IOPS utförs av virtuella datorer som kör olika arbetsbelastningar före och efter att replikering har aktiverats. Du kan se att det finns ingen skillnad mellan två.
+Det här diagrammet visar IOPS utförs av virtuella datorer som kör olika arbetsbelastningar, före och efter replikering har aktiverats. Du kan se att det finns ingen skillnad mellan två.
 
-![Replik effekt resultat](./media/hyper-v-vmm-performance-results/IC744920.png)
+![Repliken effekt resultat](./media/hyper-v-vmm-performance-results/IC744920.png)
 
-Följande diagram visar genomströmning av virtuella datorer som kör olika arbetsbelastningar före och efter att replikering har aktiverats. Du kan se att replikeringen har ingen inverkan.
+I följande diagram visas dataflödet virtuella datorer som kör olika arbetsbelastningar, före och efter replikering har aktiverats. Du kan se att replikeringen har ingen betydande inverkan.
 
-![Resultaten replik effekter](./media/hyper-v-vmm-performance-results/IC744921.png)
+![Resultaten repliken effekter](./media/hyper-v-vmm-performance-results/IC744921.png)
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Resultaten visar tydligt att platsen har återställts, tillsammans med Hyper-V-replikering skalas med minsta omkostnader för ett kluster för stora. Site Recovery tillhandahåller enkel distribution, replikering, hantering och övervakning. Hyper-V-replikering tillhandahåller infrastrukturen som behövs för replikering som lyckades skalning. 
+Resultaten visar tydligt att Site Recovery, tillsammans med Hyper-V-replikering, skalar bra med minsta användning för ett stort kluster. Site Recovery tillhandahåller enkel distribution, replikering, hantering och övervakning. Hyper-V-replikering innehåller infrastrukturen som behövs för lyckad replikering skalning. 
 
-## <a name="test-environment-details"></a>Testa miljön information
+## <a name="test-environment-details"></a>Testa miljöinformation
 
 ### <a name="primary-site"></a>Primär plats
 
-* Den primära platsen har ett kluster som innehåller fem Hyper-V-servrar, 470 virtuella datorer som körs.
+* Den primära platsen har ett kluster med fem Hyper-V-servrar, 470 virtuella datorer som körs.
 * De virtuella datorerna kör olika arbetsbelastningar och alla har Site Recovery-skydd är aktiverat.
-* Lagring för klusternoden som en iSCSI SAN-nätverk. Modellen – Hitachi HUS130.
-* Varje klusterserver har fyra nätverkskort (NIC) av en Gbps.
-* Två av nätverkskort som är anslutna till ett privat nätverk för iSCSI och två är ansluten till ett externt företagsnätverk. En av de externa nätverk är reserverad för endast klusterkommunikation.
+* Lagring för klusternoden tillhandahålls av ett iSCSI SAN-nätverk. Hitachi HUS130-modell.
+* Varje klusterserver har fyra nätverkskort (NIC) av en Gbit/s varje.
+* Två av nätverkskort som är anslutna till ett privat nätverk för iSCSI och två är anslutna till ett externt företagsnätverk. En av de externa nätverk är reserverad för endast klusterkommunikation.
 
-![Primär maskinvarukrav](./media/hyper-v-vmm-performance-results/IC744922.png)
+![Primära maskinvarukraven](./media/hyper-v-vmm-performance-results/IC744922.png)
 
-| Server | RAM | Modell | Processor | Antal processorer | NIC | Programvara |
+| Server | RAM | Modell | Processor | Antal processorer | Nätverkskort | Programvara |
 | --- | --- | --- | --- | --- | --- | --- |
-| Hyper-V-servrar i klustret: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB HOST25 har 256 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |4 |Jag Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
-| VMM Server |2 | | |2 |1 Gbit/s |Windows Server-databasen 2012 R2 (x 64) + VMM 2012 R2 |
+| Hyper-V-servrar i klustret: <br />ESTLAB HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB HOST25 har 256 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |4 |Jag Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
+| VMM-servern |2 | | |2 |1 Gbit/s |Windows Server-databas 2012 R2 (x 64) och VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>Sekundär plats
 
-* Den sekundära platsen har ett kluster med sex noder.
-* Lagring för klusternoden som en iSCSI SAN-nätverk. Modellen – Hitachi HUS130.
+* Den sekundära platsen har ett redundanskluster sex noder.
+* Lagring för klusternoden tillhandahålls av ett iSCSI SAN-nätverk. Hitachi HUS130-modell.
 
-![Primär maskinvarukraven](./media/hyper-v-vmm-performance-results/IC744923.png)
+![Primära maskinvarukraven](./media/hyper-v-vmm-performance-results/IC744923.png)
 
-| Server | RAM | Modell | Processor | Antal processorer | NIC | Programvara |
+| Server | RAM | Modell | Processor | Antal processorer | Nätverkskort | Programvara |
 | --- | --- | --- | --- | --- | --- | --- |
-| Hyper-V-servrar i klustret: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell™ PowerEdge™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 @ 2,30 GHz |2 |Jag Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
-| ESTLAB-HOST17 |128 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
+| Hyper-V-servrar i klustret: <br />ESTLAB HOST07<br />ESTLAB HOST08<br />ESTLAB HOST09<br />ESTLAB-HOST10 |96 |Dell™ PowerEdge™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 @ 2,30 GHz |2 |Jag Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
+| ESTLAB HOST17 |128 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
 | ESTLAB-HOST24 |256 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
-| VMM Server |2 | | |2 |1 Gbit/s |Windows Server-databasen 2012 R2 (x 64) + VMM 2012 R2 |
+| VMM-servern |2 | | |2 |1 Gbit/s |Windows Server-databas 2012 R2 (x 64) och VMM 2012 R2 |
 
 ### <a name="server-workloads"></a>Server-arbetsbelastningar
 
-* För testning plockats vi arbetsbelastningar som ofta används i kunden företagsscenarier.
-* Vi använder [IOMeter](http://www.iometer.org) med arbetsbelastning-egenskap som sammanfattas i tabellen för att simulera.
-* Alla IOMeter profiler är inställda på att skriva slumpmässiga byte att simulera sämsta skriva mönster för arbetsbelastningar.
+* Vi valt arbetsbelastningar som ofta används i enterprise-kundscenarier för testning.
+* Vi använder [IOMeter](http://www.iometer.org) med arbetsbelastningen-egenskap som sammanfattas i tabellen för att simulera.
+* Alla IOMeter profiler är inställda på att skriva slumpmässiga byte att simulera sämsta skrivmönster för arbetsbelastningar.
 
 | Arbetsbelastning | I/o-storlek (KB) | % Åtkomst | % Läs | Utestående I/o | I/o-mönster |
 | --- | --- | --- | --- | --- | --- |
 | Filserver |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Alla 100% slumpmässiga |
-| SQL Server (volym 1) SQL Server (volume 2) |864 |100%100% |70%0% |88 |100% random100% sekventiella |
+| SQL Server (volym 1) SQL Server (volym 2) |864 |100%100% |70%0% |88 |100% random100% sekventiella |
 | Exchange |32 |100% |67% |8 |100% slumpmässiga |
-| Workstation/VDI |464 |66%34% |70%95% |11 |Både slumpmässiga 100% |
-| Webbserver-fil |4864 |33%34%33% |95%95%95% |888 |Alla 75% slumpmässiga |
+| Arbetsstationen/VDI |464 |66%34% |70%95% |11 |Både slumpmässiga 100% |
+| Web-filserver |4864 |33%34%33% |95%95%95% |888 |Alla 75% slumpmässiga |
 
-### <a name="vm-configuration"></a>VM-konfiguration
+### <a name="vm-configuration"></a>Konfiguration av virtuell dator
 
 * 470 virtuella datorer på det primära klustret.
-* Alla virtuella datorer med VHDX-disken.
+* Alla virtuella datorer med VHDX-disktyper.
 * Virtuella datorer som kör arbetsbelastningar som sammanfattas i tabellen. Alla har skapats med VMM-mallar.
 
-| Arbetsbelastning | # Virtuella datorer | Minsta RAM-minne (GB) | Maximalt RAM-minne (GB) | Storleken för logisk disk (GB) per VM | Högsta IOPS |
+| Arbetsbelastning | # Virtuella datorer | Minsta RAM-minne (GB) | Maximalt RAM-minne (GB) | Logisk diskstorlek (GB) per virtuell dator | Högsta IOPS |
 | --- | --- | --- | --- | --- | --- |
 | SQL Server |51 |1 |4 |167 |10 |
 | Exchange Server |71 |1 |4 |552 |10 |
@@ -154,12 +154,12 @@ Resultaten visar tydligt att platsen har återställts, tillsammans med Hyper-V-
 | Webbserver |149 |.5 |1 |80 |6 |
 | TOTALT |470 | | |96.83 TB |4108 |
 
-### <a name="site-recovery-settings"></a>Site Recovery-inställningarna
+### <a name="site-recovery-settings"></a>Site Recovery-inställningar
 
 * Site Recovery har konfigurerats för lokalt till lokalt skydd
-* VMM-servern har fyra moln som har konfigurerats, som innehåller servrar för Hyper-V-kluster och deras virtuella datorer.
+* VMM-servern har fyra moln har konfigurerats, som innehåller servrar för Hyper-V-kluster och sina virtuella datorer.
 
-| Primära VMM-moln | Skyddade virtuella datorer | Replikeringsfrekvens | Ytterligare återställningspunkter |
+| Primär VMM-moln | Skyddade virtuella datorer | Replikeringsfrekvens | Ytterligare återställningspunkter |
 | --- | --- | --- | --- |
 | PrimaryCloudRpo15m |142 |15 minuter |Ingen |
 | PrimaryCloudRpo30s |47 |30 sekunder |Ingen |
@@ -168,17 +168,17 @@ Resultaten visar tydligt att platsen har återställts, tillsammans med Hyper-V-
 
 ### <a name="performance-metrics"></a>Prestandamått
 
-Tabellen sammanfattar prestandamått och räknare som har mätt i distributionen.
+Tabellen sammanfattas de prestandamått och räknare som har mätt i distributionen.
 
-| Mått | Räknaren |
+| Mått | Räknare |
 | --- | --- |
 | Processor |\Processor(_Total)\% processortid |
-| Tillgängligt minne |\Memory\Available megabyte |
-| IOPS |\PhysicalDisk(_Total)\Disk Transfers/sec |
-| VM läsåtgärder (IOPS) per sekund |\Hyper-V virtuell lagringsenhet (<VHD>) \Read åtgärder/sek |
-| VM skrivåtgärder (IOPS) per sekund |\Hyper-V virtuell lagringsenhet (<VHD>) \Write åtgärder/S |
-| VM läsa genomflöde |\Hyper-V virtuell lagringsenhet (<VHD>) \Read byte/sek |
-| Genomströmning för skrivning till VM |\Hyper-V virtuell lagringsenhet (<VHD>) \Write byte/sek |
+| Ledigt minne |\Memory\Available megabyte |
+| IOPS |\PhysicalDisk (_Total) \Disk disköverföringar/sek |
+| VM läsåtgärder (IOPS) per sekund |\Hyper-V virtuell lagringsenhet (<VHD>) \Read/sek |
+| VM skrivåtgärder (IOPS) / sek |\Hyper-V virtuell lagringsenhet (<VHD>) \Write åtgärder/S |
+| Läsningsdataflöde som virtuell dator |\Hyper-V virtuell lagringsenhet (<VHD>) \Read byte/sek |
+| Genomströmning för skrivning av virtuell dator |\Hyper-V virtuell lagringsenhet (<VHD>) \Write byte/sek |
 
 ## <a name="next-steps"></a>Nästa steg
 

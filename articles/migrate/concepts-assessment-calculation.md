@@ -1,109 +1,109 @@
 ---
-title: Bedömning beräkningar i Azure migrera | Microsoft Docs
-description: En översikt över assessment beräkningar i tjänsten Azure migrera.
+title: Utvärderingsberäkningar i Azure Migrate | Microsoft Docs
+description: Översikt över utvärderingsberäkningar i Azure Migrate-tjänsten.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: raynew
-ms.openlocfilehash: 6fd0af65e63e9fc1c09232cd1e002da105a9d086
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 6d5a0b959b25c0ee294b22b3f4066d006806b524
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287896"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920935"
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
 
-[Azure migrera](migrate-overview.md) utvärderar lokala arbetsbelastningar för migrering till Azure. Den här artikeln innehåller information om hur bedömningar beräknas.
+[Azure Migrate](migrate-overview.md) utvärderar lokala arbetsbelastningar för migrering till Azure. Den här artikeln innehåller information om hur utvärderingar beräknas.
 
 
 ## <a name="overview"></a>Översikt
 
-En Azure migrera bedömning har tre steg. Bedömning som börjar med en lämplighet analys, följt av storlek, och slutligen ett månatligt cost uppskattning. En dator flyttar endast till ett senare tillfälle om föregående överförs. Till exempel om en dator misslyckas kontrollen Azure lämplighet, har den markerats som lämpar sig inte för Azure, och ange storlek och kostnadskrävande inte göras.
+Ett Azure Migrate-utvärdering har tre steg. Utvärderingen börjar med en lämplighet analys, följt av storlek, och slutligen en månatlig kostnadsuppskattning. En dator flyttar endast till senare om den godkänns föregående. Till exempel om en dator misslyckas kontrollen Azure-lämplighet, har den markerats som olämpliga för Azure, och ange storlek och kostnad inte göras.
 
 
-## <a name="azure-suitability-analysis"></a>Azure lämplighet analys
+## <a name="azure-suitability-analysis"></a>Analys av azures lämplighet
 
-Inte alla datorer som är lämpliga för körs i molnet som molnet har sin egen begränsningar och krav. Azure migrera utvärderar varje lokal dator för migrering lämplighet till Azure och kategoriserar datorerna som något av följande kategorier:
-- **Redo för Azure** -datorn kan migreras som-är att Azure utan några ändringar. Den kommer att starta i Azure med fullständig Azure-supporten.
-- **Villkorligt redo för Azure** -datorn kan starta i Azure, men kanske inte har fullständig Azure-supporten. En dator med en äldre version av Windows Server-Operativsystemet stöds inte i Azure. Du måste vara försiktig innan du migrerar de här datorerna till Azure och följer du anvisningarna för reparation som föreslås i assessment för beredskapsproblem innan du migrerar.
-- **Ej redo för Azure** -startar inte datorn i Azure. Till exempel om en lokal dator har en disk av fler än 4 TB anslutna storlek, får den inte finnas på Azure. Du måste följa riktlinjerna för reparation som föreslås i bedömningen att åtgärda problemet är klar innan du migrerar till Azure. Rätt storlek och kostnad uppskattning är inte klar för datorer som är markerade som ej redo för Azure.
-- **Beredskap för okänd** -Azure migrera kunde inte hitta datorn på grund av otillräckliga data som är tillgängliga i vCenter Server är klar.
+Inte alla datorer är lämpliga för att köra på molnet som molnet har sin egen begränsningar och krav. Azure Migrate utvärderar varje lokal dator deras lämplighet för migrering till Azure och kategoriserar datorerna till något av följande kategorier:
+- **Redo för Azure** -datorn kan migreras som – är till Azure utan ändringar. Det kommer att starta i Azure med fullständig Azure-support.
+- **Villkorligt redo för Azure** -datorn kan starta i Azure, men inte har fullständig Azure-supporten. Till exempel stöds en dator med en äldre version av Windows Server-Operativsystemet inte i Azure. Du måste du vara försiktig innan du migrerar de här datorerna till Azure och följ anvisningarna för reparation som föreslås i utvärdering för att åtgärda beredskapsproblem innan du migrerar.
+- **Ej redo för Azure** -datorn kommer inte att starta i Azure. Till exempel om en lokal dator har en disk som mer än 4 TB kopplade till den, kan inte den nås på Azure. Du måste följa åtgärdsvägledning som föreslås i utvärdering för att åtgärda problemet readiness innan du migrerar till Azure. Rätt storlek och kostnadsuppskattning görs inte för datorer som är markerade som ej redo för Azure.
+- **Beredskap okänd** – Azure Migrate kunde inte hitta beredskap för datorn på grund av otillräckliga data som är tillgängliga i vCenter Server.
 
-Azure migrera granskar datoregenskaperna och gästoperativsystemet för att identifiera Azure beredskap för den lokala datorn.
+Azure Migrate granskar datoregenskaperna och gästoperativsystemet att identifiera Azure-beredskap för den lokala datorn.
 
-### <a name="machine-properties"></a>Datoregenskaperna
-Azure migrera går igenom följande egenskaper för lokala virtuella datorn att identifiera om en virtuell dator kan köras på Azure.
+### <a name="machine-properties"></a>Egenskaper för dator
+Azure Migrate granskar följande egenskaper för lokala virtuella datorn att identifiera om en virtuell dator kan köra på Azure.
 
-**Egenskap** | **Detaljer** | **Azure beredskapsstatusen**
+**Egenskap** | **Detaljer** | **Status för Azure-beredskap**
 --- | --- | ---
-**Start-typ** | Virtuella datorer med start-typ som BIOS och UEFI inte har stöd för Azure. | Villkorligt redo för Azure om start av typen UEFI.
-**Kärnor** | Antal kärnor på datorerna måste vara lika med eller mindre än det högsta antalet kärnor (32) som stöds för en Azure VM.<br/><br/> Om det finns prestandahistorik anser Azure migrera utnyttjade kärnor för jämförelse. Om en bekvämlighet faktor anges i inställningarna för assessment multipliceras antal utnyttjade kärnor med bekvämlighet faktorn.<br/><br/> Om det finns ingen prestandahistorik, använder Azure migrera allokerade kärnor, utan att använda bekvämlighet faktorn. | Ej redo om antalet kärnor är större än 32.
-**Minne** | Storleken på datorn minne måste vara lika med eller mindre än den maximala mängd minne (448 GB) tillåten för en Azure VM. <br/><br/> Om det finns prestandahistorik anser Azure migrera utnyttjade minne för jämförelse. Om du anger en bekvämlighet faktor multipliceras utnyttjade minne med bekvämlighet faktorn.<br/><br/> Om det finns ingen historik allokerat minne används, utan att använda bekvämlighet faktorn.<br/><br/> | Ej redo om minnesstorleken är större än 448 GB.
-**Lagringsdisken** | Allokerade storleken på en disk måste vara 4 TB (4096 GB) eller mindre.<br/><br/> Antalet diskar som är anslutna till datorn måste vara 65 eller mindre, inklusive OS-disk. | Ej redo om alla diskar har större än 4 TB, eller om det finns fler än 65 diskar som är anslutna till datorn.
-**Nätverk** | En dator måste ha 32 eller mindre nätverkskort anslutna. | Ej redo om datorn har fler än 32 nätverkskort
+**Starttyp** | Azure har stöd för virtuella datorer med starttypen BIOS och UEFI inte. | Villkorligt redo för Azure om starttypen är UEFI.
+**Kärnor** | Antalet kärnor på datorerna måste vara lika med eller mindre än det maximala antalet kärnor (32) som stöds för en Azure-dator.<br/><br/> Om det finns prestandahistorik överväger Azure Migrate utnyttjade kärnor för jämförelse. Om en komfortfaktor anges i inställningarna för utvärdering av multipliceras antalet utnyttjade kärnor med komfortfaktorn.<br/><br/> Om det finns inga prestandahistorik, använder Azure Migrate tilldelade kärnor, utan att tillämpa komfortfaktorn. | Ej redo om antalet kärnor som är större än 32.
+**Minne** | Storleken på datorn minne måste vara lika med eller mindre än den maximalt minne (448 GB) som tillåts för en Azure-dator. <br/><br/> Om det finns prestandahistorik överväger Azure Migrate utnyttjade minne för jämförelse. Om en komfortfaktor anges multipliceras utnyttjade minne med komfortfaktorn.<br/><br/> Om det finns ingen historik allokerat minne används, utan att tillämpa komfortfaktorn.<br/><br/> | Ej redo om minnesstorleken är större än 448 GB.
+**Lagringsdisk** | Allokerade storleken på en disk måste vara 4 TB (4096 GB) eller mindre.<br/><br/> Antalet diskar som är anslutna till datorn måste vara 65 eller mindre, inklusive OS-disken. | Ej redo eventuellt disken är större än 4 TB, eller om det finns fler än 65 diskar som är anslutna till datorn.
+**Nätverk** | En dator måste ha 32 eller färre anslutna nätverkskort till den. | Ej redo om datorn har mer än 32 nätverkskort
 
-### <a name="guest-operating-system"></a>Gästoperativsystemet
-Tillsammans med egenskaper för Virtuella datorer tittar Azure migrera också på gästoperativsystemet på den lokala virtuella datorn att identifiera om den virtuella datorn kan köra på Azure.
+### <a name="guest-operating-system"></a>Gästoperativsystem
+Tillsammans med egenskaperna för virtuella datorer tittar Azure Migrate även på gästoperativsystemet på den lokala virtuella datorn att identifiera om den virtuella datorn kan köra på Azure.
 
 > [!NOTE]
-> Azure migrera anser OS som anges i vCenter Server för att göra följande analys. Eftersom identifiering av Azure migrera installation-baserade, har inte ett sätt att kontrollera om Operativsystemet som körs på den virtuella datorn är samma som en angiven i vCenter Server.
+> Azure Migrate överväger operativsystem som har angetts i vCenter Server kan utföra följande analyser. Eftersom identifieringen görs av Azure Migrate är baserat på enhet, har inte ett sätt att kontrollera om det operativsystem som körs på den virtuella datorn är samma som en anges i vCenter Server.
 
-Följande logik används av Azure migrera för att identifiera Azure beredskap för den virtuella datorn baserat på operativsystemet.
+Följande logik används av Azure Migrate för att identifiera Azure-beredskap för den virtuella datorn baserat på operativsystemet.
 
-**Operativsystem** | **Detaljer** | **Azure beredskapsstatusen**
+**Operativsystem** | **Detaljer** | **Status för Azure-beredskap**
 --- | --- | ---
-Windows Server 2016 & alla Service Pack | Azure tillhandahåller fullt stöd. | Redo för Azure
-Windows Server 2012 R2 & alla Service Pack | Azure tillhandahåller fullt stöd. | Redo för Azure
-Windows Server 2012 & alla Service Pack | Azure tillhandahåller fullt stöd. | Redo för Azure
-Windows Server 2008 R2 med alla Service Pack | Azure tillhandahåller fullt stöd.| Redo för Azure
-Windows Server 2003 2008 R2 | Dessa operativsystem har överfört sina slutet av stöd för datum och behovet av en [anpassad stöder avtal (CSA)](https://aka.ms/WSosstatement) för support i Azure. | Villkorligt redo för Azure bör du överväga att uppgradera Operativsystemet innan du migrerar till Azure.
-Windows 2000, 98, 95, NT 3.1, MS-DOS | Dessa operativsystem har överfört sina slutet av support datum, datorn kan starta i Azure, men ingen OS-support tillhandahålls av Azure. | Villkorligt redo för Azure, rekommenderas att uppgradera Operativsystemet innan du migrerar till Azure.
-Klienten för Windows 7, 8 och 10 | Azure tillhandahåller support med Visual Studio-prenumeration. | Villkorligt redo för Azure
-Windows Vista, XP Professional | Dessa operativsystem har överfört sina slutet av support datum, datorn kan starta i Azure, men ingen OS-support tillhandahålls av Azure. | Villkorligt redo för Azure, rekommenderas att uppgradera Operativsystemet innan du migrerar till Azure.
-Linux | Azure rekommenderar dessa [Linux-operativsystem](../virtual-machines/linux/endorsed-distros.md). Andra Linux-operativsystem kan starta i Azure, men det rekommenderas att uppgradera Operativsystemet till en påtecknade version innan du migrerar till Azure. | Redo för Azure om versionen som är godkända.<br/><br/>Villkorligt redo om versionen som inte är godkända.
-Andra operativsystem<br/><br/> t.ex. Oracle Solaris, Apple Mac OS etc., FreeBSD osv. | Azure du inte stöder dessa operativsystem. Datorn kan starta i Azure, men ingen OS-support tillhandahålls av Azure. | Villkorligt redo för Azure, rekommenderas att installera ett operativsystem som stöds innan du migrerar till Azure.  
-Operativsystem som angetts som *andra* i vCenter Server | Migrera Azure kan inte identifiera Operativsystemet i det här fallet. | Beredskap för okänd. Kontrollera att Operativsystemet som körs på den virtuella datorn stöds i Azure.
-32-bitars operativsystem | Datorn kan starta i Azure, men Azure kan inte ger fullt stöd. | Villkorligt redo för Azure bör du överväga att uppgradera Operativsystemet på datorn från 32-bitars operativsystem till 64-bitars operativsystem innan du migrerar till Azure.
+Windows Server 2016 och alla Service Pack | Azure tillhandahåller fullständig support. | Redo för Azure
+Windows Server 2012 R2 och alla Service Pack | Azure tillhandahåller fullständig support. | Redo för Azure
+Windows Server 2012 och alla Service Pack | Azure tillhandahåller fullständig support. | Redo för Azure
+Windows Server 2008 R2 med alla Service Pack | Azure tillhandahåller fullständig support.| Redo för Azure
+Windows Server 2003-2008 | De här operativsystemen har klarat sitt slut supportperioden och du behöver en [anpassad stöder avtal (CSA)](https://aka.ms/WSosstatement) för support på Azure. | Villkorligt redo för Azure bör du överväga att uppgradera datorns operativsystem innan du migrerar till Azure.
+Windows 2000, 98, 95, NT, 3.1, MS-DOS | De här operativsystemen har klarat sitt slut supportperioden, datorn kan starta i Azure, men någon OS-support tillhandahålls av Azure. | Villkorligt redo för Azure, rekommenderar vi att du uppgradera Operativsystemet innan du migrerar till Azure.
+Klienten för Windows 7, 8 och 10 | Azure ger stöd med Visual Studio-prenumeration. | Villkorligt redo för Azure
+Windows Vista, XP Professional | De här operativsystemen har klarat sitt slut supportperioden, datorn kan starta i Azure, men någon OS-support tillhandahålls av Azure. | Villkorligt redo för Azure, rekommenderar vi att du uppgradera Operativsystemet innan du migrerar till Azure.
+Linux | Azure godkänner dessa [Linux-operativsystem](../virtual-machines/linux/endorsed-distros.md). Andra Linux-operativsystem kan starta i Azure, men det rekommenderas att uppgradera datorns operativsystem till en version som stöds innan du migrerar till Azure. | Redo för Azure om versionen är godkända.<br/><br/>Villkorligt redo om versionen inte är godkända.
+Andra operativsystem<br/><br/> t.ex. Oracle Solaris, Apple Mac OS etc., FreeBSD osv. | Azure du inte stöder dessa operativsystem. Datorn kan starta i Azure, men någon OS-support tillhandahålls av Azure. | Villkorligt redo för Azure, rekommenderar vi att du installerar ett operativsystem som stöds innan du migrerar till Azure.  
+OS tillhörigheten *andra* i vCenter Server | Azure Migrate identifiera inte Operativsystemet i det här fallet. | Beredskap för okänd. Se till att det operativsystem som körs på den virtuella datorn stöds i Azure.
+32-bitars operativsystem | Datorn kan starta i Azure, men Azure tillhandahålla inte fullständig support. | Villkorligt redo för Azure bör du överväga att uppgradera Operativsystemet på datorn från 32-bitars operativsystem till 64-bitars operativsystem innan du migrerar till Azure.
 
 ## <a name="sizing"></a>Storleksändring
 
-När en dator markeras som redo för Azure, storlek Azure migrera den virtuella datorn och dess diskar för Azure. Om sizing kriteriet som angetts i egenskaperna för bedömning är att göra prestandabaserad storlek, anser Azure migrera prestandahistorik för datorn att identifiera VM-storlek och disk-typ i Azure. Den här metoden är användbart i scenarier där du har tilldelat den lokala virtuella datorn över men användningen är låg och du vill få rätt storlek på virtuella datorer i Azure för att spara kostnader.
+När en dator markeras som redo för Azure, storlekar Azure Migrate den virtuella datorn och dess diskar för Azure. Om storlekskriteriet som angetts i egenskaperna för utvärdering är att utföra prestandabaserade storleksändringar, överväger Azure Migrate prestandahistoriken för datorn att identifiera VM-storlek och disk-typ i Azure. Den här metoden är användbar i scenarier där du har tilldelat en lokal virtuell dator över men användningen är låg och du vill att storleksanpassa de virtuella datorerna i Azure för att minska kostnaderna.
 
 > [!NOTE]
-> Azure migrera samlar in prestandahistorik över lokala virtuella datorer från vCenter-servern. För att säkerställa exakt rätt storlek för att inställningen statistik i vCenter-servern är inställd på nivå 3 och vänta minst en dag före lanseras identifiering av de lokala virtuella datorerna. Om inställningen statistik i vCenter Server är under nivå 3, samlas inte prestandadata för disk och nätverk.
+> Azure Migrate samlar in prestandahistoriken för lokala virtuella datorer från vCenter-servern. För att säkerställa att korrekt rätt storlek, kontrollera att statistikinställningen i vCenter Server är inställd på nivå 3 och vänta minst en dag innan drog identifiering av lokala virtuella datorer. Om statistikinställningen i vCenter Server är lägre än nivå 3, prestandadata för disk och nätverk har inte samlats in.
 
-Om du inte vill överväga historik för minnesprestanda för VM-storlek och vill göra den virtuella datorn som-är till Azure, kan du ange storlek kriterium som *som lokala* och Azure migrera sedan ändra de virtuella datorerna baserat på lokalt konfiguration av utan att överväga användningsdata. Ändra storlek på disken i det här fallet ska ske baserat på vilken lagringstyp som du anger i egenskaperna assessment (disken som Standard eller Premium)
+Om du inte vill överväga prestandahistorik för VM-storlek och vill ta den virtuella datorn som – är till Azure, kan du ange storlekskriteriet som *som lokalt* och Azure Migrate kommer sedan ändra storlek på de virtuella datorerna baserat på lokala platser konfiguration utan att överväga användningsdata. Ändra storlek på disken i det här fallet kommer att göras baserat på vilken lagringstyp som du anger i egenskaperna för utvärdering (Standard disk eller Premium-diskar)
 
-### <a name="performance-based-sizing"></a>Prestandabaserad storlek
+### <a name="performance-based-sizing"></a>Prestandabaserad storleksändring
 
-Prestandabaserad förstoras Azure migrera börjar med diskar som är kopplade till den virtuella datorn, följt av nätverkskort och sedan maps en Azure VM baserat på kraven för beräkning av den lokala virtuella datorn.
+För prestandabaserade storleksändringar behöver Azure Migrate börjar med diskar som är kopplade till den virtuella datorn, följt av nätverkskort och maps en Azure VM beroende på compute-krav för den lokala virtuella datorn.
 
-- **Lagring**: Azure migrera försöker mappa alla diskar som är anslutna till datorn till en disk i Azure.
+- **Storage**: Azure Migrate försöker mappa alla diskar som är anslutna till datorn till en disk i Azure.
 
     > [!NOTE]
-    > Azure migrera stöder endast hanterade diskar för utvärdering.
+    > Azure Migrate stöder endast hanterade diskar för utvärdering.
 
-    - För att få gällande disk-i/o per sekund (IOPS) och genomströmning (MBps), multiplicerar Azure migrera IOPS för disk och dataflöde med bekvämlighet faktorn. Baserat på effektiva IOPS och genomströmning värden, identifierar Azure migrera om disken som ska mappas till en standard- eller premium disk i Azure.
-    - Om Azure migrerar inte hittar en disk med nödvändiga IOPS & genomströmning, markerar datorn som lämpar sig inte för Azure. [Lär dig mer](../azure-subscription-service-limits.md#storage-limits) om Azure begränsar per disk- och VM.
-    - Om den hittar en uppsättning lämpliga diskar väljer Azure migrera de som stöd för redundans lagringsmetod och den plats som anges i inställningarna för utvärdering.
-    - Om det finns flera tillgängliga diskar, väljs med lägst kostnad.
-    - Om prestandadata för diskar i tillgänglig, alla diskar som är mappade till standarddiskar i Azure.
+    - För att få gällande disk-i/o per sekund (IOPS) och dataflöde (Mbit/s), multiplicerar Azure Migrate disken IOPS och dataflöde med komfortfaktorn. Baserat på effektiv IOPS och dataflöde värden kan identifierar Azure Migrate om disken bör mappas till en standard- eller premium disk i Azure.
+    - Om Azure Migrate inte kan hitta en disk med nödvändiga IOPS och dataflöde, markerar den dator som olämpliga för Azure. [Läs mer](../azure-subscription-service-limits.md#storage-limits) om Azure gränser per disk och virtuell dator.
+    - Om den hittar en uppsättning lämpliga diskar väljs Azure Migrate de som stöd för vilken lagringsmetod för redundans och den plats som anges i utvärderingsinställningarna för.
+    - Om det finns flera berättigade diskar, väljs som har lägst pris.
+    - Om prestandadata för diskar i tillgänglig, alla diskar är mappade till standarddiskar i Azure.
 
-- **Nätverket**: Azure migrera försöker hitta en virtuell Azure-dator som har stöd för antalet nätverkskort som är anslutna till den lokala datorn och prestanda som krävs av dessa nätverkskort.
-    - För att få gällande nätverkets prestanda på den lokala virtuella datorn, Azure migrera samlar in data som överförs per sekund (MBps) utanför datorn (nätverk ut) över alla nätverkskort och gäller bekvämlighet faktorn. Numret används för att hitta en virtuell Azure-dator som har stöd för nödvändiga nätverkets prestanda.
-    - Tillsammans med nätverkets prestanda även betraktar om den virtuella Azure-datorn stöder det obligatoriska antalet nätverkskort.
-    - Om det finns inga nätverk prestandadata anses endast nätverkskort antalet för VM-storlek.
+- **Nätverk**: Azure Migrate försöker hitta en Azure-dator som har stöd för antalet nätverkskort som är anslutna till den lokala datorn och prestanda som krävs av dessa nätverkskort.
+    - För att få gällande nätverkets prestanda för lokala virtuella datorn kan Azure Migrate sammanställer data som överförs per sekund (MBps) från datorn (nätverk ut), över alla nätverkskort och gäller komfortfaktorn. Det här värdet används för att hitta en Azure-dator som har stöd för nödvändig nätverksprestanda.
+    - Tillsammans med nätverksprestanda, den tittar också om den virtuella Azure-datorn har stöd för de nödvändiga antalet nätverkskort.
+    - Om det finns inga nätverk prestandadata anses endast nätverk nätverkskort antal för VM-storlek.
 
-- **Beräkna**: när krav för lagring och nätverk beräknas Azure migrera anser CPU och minne kraven för att hitta en lämplig VM-storlek i Azure.
-    - Azure migrera tittar på utnyttjade kärnor och minne och gäller bekvämlighet faktor för att få gällande kärnor och minne. Baserat på det antalet försök att hitta en lämplig VM-storlek i Azure.
-    - Om det finns ingen lämplig storlek, markeras datorn som lämpar sig inte för Azure.
-    - Om det finns en lämplig storlek, gäller Azure migrera beräkningar för lagring och nätverk. Det gäller plats och prissättning nivån inställningar för slutlig VM storlek rekommendationen.
+- **Compute**: när krav för lagring och nätverk beräknas Azure Migrate överväger processor- och kraven för att hitta en lämplig VM-storlek i Azure.
+    - Azure Migrate tittar på utnyttjade kärnor och minne och gäller komfortfaktor för att få gällande kärnor och minne. Baserat på det antalet försök att hitta en lämplig VM-storlek i Azure.
+    - Om det finns ingen passande storlek, markeras datorn som olämpliga för Azure.
+    - Om en lämplig storlek hittas, gäller Azure Migrate lagring och nätverk beräkningar. Den gäller sedan plats och prisnivåinställningarna för den slutliga rekommendationen för VM-storlek.
     - Om det finns flera tillgängliga Azure VM-storlekar rekommenderas den billigaste.
 
 ### <a name="as-on-premises-sizing"></a>Som lokalt storlek
-Om sizing kriteriet är *som lokalt storlek*, Azure migrerar inte anser prestandahistorik för virtuella datorer och diskar och allokerar en VM-SKU i Azure baserad på den lokala allokerade storleken. På liknande sätt för disk sizing söker i lagringstyp som angetts i egenskaperna för assessment (Standard/Premium) och rekommenderar disktyp därefter. Standardtypen för lagring är premiumdiskar.
+Om storlekskriteriet är *som lokalt storlek*, Azure Migrate beräknar inte prestandahistoriken för virtuella datorer och diskar och allokerar en VM-SKU i Azure baserat på den allokerade lokala storleken. På liknande sätt för disk storlek tittar på lagringstypen som angetts i egenskaperna för utvärdering (Standard/Premium) och rekommenderar disktypen därefter. Standardtypen för lagring är Premium-diskar.
 
 ### <a name="confidence-rating"></a>Säkerhetsomdöme
 
@@ -128,16 +128,16 @@ En utvärdering kanske inte har tillgång till alla datapunkter på grund av nå
 > [!NOTE]
 > Om säkerhetsomdömet för någon utvärdering är lägre än 4 stjärnor rekommenderar vi att du ändrar nivån för statistikinställningar i vCenter Server till 3, väntar så länge som du vill att utvärderingen ska utvärdera (en dag/en vecka/en månad) och sedan utför en identifiering och en utvärdering. Om det föregående inte kan utföras kan prestandabaserade storleksändringar vara mindre tillförlitliga och därför rekommenderar vi att du byter till *storleksändringar av typen "som lokalt"* genom att ändra utvärderingsegenskaperna.
 
-## <a name="monthly-cost-estimation"></a>Månatliga uppskattning
+## <a name="monthly-cost-estimation"></a>Uppskattning per månad
 
-När sizing rekommendationer är klart, beräknar Azure migrera kostnader för beräkning och lagring av efter migreringen.
+När storleksrekommendationer har slutförts kan beräknar Azure Migrate efter migrering beräknings- och kostnader.
 
-- **Beräkna kostnaden**: med den rekommenderade Azure VM-storleken Azure migrera använder fakturerings-API för att beräkna månadskostnaden för den virtuella datorn. I operativsystemet, software assurance, reserverade instanser, VM drifttid, plats och valutainställningar hänsyn tas med i beräkningen. Den sammanställer kostnaden över alla datorer att beräkna den totala månatliga beräkna kostnaden.
-- **Lagringskostnaden**: månatliga storage kostnaden för en dator beräknas genom insamling av månadskostnaden för alla diskar som är anslutna till datorn. Azure migrera beräknar de totala månatliga lagringskostnaderna genom att sammanställa kostnader för lagring av alla datorer. Beräkningen tar för närvarande inte erbjudanden som anges i inställningarna för utvärdering i beräkningen.
+- **Beräkningskostnaden**: med den rekommenderade storleken för virtuell Azure-dator kan Azure Migrate använder Billing-API för att beräkna den månatliga kostnaden för den virtuella datorn. Det operativsystem, software assurance, reserverade instanser, VM drifttid, plats och valutainställningar hänsyn tas med i beräkningen. Sammanställer kostnaden för samtliga datorer att beräkna den totala månadskostnaden för beräkning.
+- **Kostnaden för lagring**: månatlig lagringskostnad för en dator beräknas genom att sammanställa månadskostnaden för alla diskar som är anslutna till datorn. Azure Migrate beräknar de totala månatliga kostnaderna för lagring genom att sammanställa lagringskostnaderna för alla datorer. Beräkningen tar för närvarande inte erbjudanden som anges i utvärderingsinställningarna för i kontot.
 
-Kostnaderna visas i valutan som anges i inställningarna för utvärdering.
+Kostnader visas i den valuta som anges i utvärderingsinställningarna för.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa en bedömning för lokala virtuella VMware-datorer](tutorial-assessment-vmware.md)
+[Skapa en utvärdering för lokala virtuella VMware-datorer](tutorial-assessment-vmware.md)

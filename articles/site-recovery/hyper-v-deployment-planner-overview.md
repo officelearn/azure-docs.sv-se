@@ -7,16 +7,16 @@ manager: garavd
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 17ff3ece76f854cd539172019f8d154742873bb4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f4e8a579e020e81540c1fd52e412c8e6184813d2
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187322"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921220"
 ---
-# <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Site Recovery-distribution Planner för Hyper-V till Azure
+# <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Distributionshanteraren för site Recovery för Hyper-V till Azure
 
 Den här artikeln är användarhandboken för Distributionshanteraren för Azure Site Recovery för produktionsdistribution av Hyper-V till Azure.
 
@@ -117,9 +117,9 @@ Den rekommenderade konfigurationen för de virtuella datorerna: 8 virtuella proc
 3.  Extrahera .zip-filen.
 Mappen innehåller flera filer och undermappar. Den körbara filen är ASRDeploymentPlanner.exe i den överordnade mappen.
 
-Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den. E:\ASR distribution Planner_v2.2.zip
+Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den. E:\ASR Deployment Planner_v2.2.zip
 
-E:\ASR distribution Planner_v2.2\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Uppdatera till den senaste versionen av distributionshanteraren
 Om du har en tidigare version av distributionshanteraren gör du något av följande:
@@ -134,7 +134,7 @@ Om du har en tidigare version av distributionshanteraren gör du något av följ
   >Varje ny kapacitetsplanerare är en ackumulerad uppdatering av .zip-filen. Du behöver inte kopiera de senaste filerna till föregående mapp. Du kan skapa och använda en ny mapp.
 
 ## <a name="version-history"></a>Versionshistorik
-Den senaste versionen av ASR distribution Planner verktyget är 2.2.
+Den senaste versionen av ASR-Distributionshanteraren är 2.2.
 Läs sidan med [versionshistorik för ASR-distributionsplaneraren](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) för information om korrigeringarna som har lagts till i varje uppdatering.
 
 

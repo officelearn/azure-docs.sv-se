@@ -1,19 +1,19 @@
 ---
-title: Om nätverksmappningen för Hyper-V-dator (med VMM) replikering till Azure med Site Recovery | Microsoft Docs
-description: Beskriver hur du ställer in nätverksmappningen för replikering av Hyper-V-datorer hanteras i VMM-moln med Azure Site Recovery.
+title: Om nätverksmappning för replikering av Hyper-V virtuella datorer (med VMM) till Azure med Site Recovery | Microsoft Docs
+description: Beskriver hur du ställer in nätverksmappning för replikering av Hyper-V-datorer som hanteras i VMM-moln med Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: fa596bf4941ac791fa1bc697399a4591d97ba68f
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 35a2fe2373ccbf24c73cd63c096145da19dc6c4c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076374"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921272"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Förbereda nätverksmappning för replikering av virtuella Hyper-V-datorer till Azure
 
@@ -21,56 +21,56 @@ ms.locfileid: "34076374"
 Den här artikeln hjälper dig att förstå och förbereda för nätverksmappning när du replikerar virtuella Hyper-V-datorer i System Center Virtual Machine Manager (VMM)-moln till Azure eller till en sekundär plats med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service.
 
 
-## <a name="prepare-network-mapping-for-replication-to-azure"></a>Förbereda nätverksmappningen för replikering till Azure
+## <a name="prepare-network-mapping-for-replication-to-azure"></a>Förbereda nätverksmappning för replikering till Azure
 
-När du replikerar till Azure mappar nätverksmappningen mellan Virtuella nätverk på en VMM-källservern och rikta virtuella Azure-nätverk. Mappning gör följande:
-    -  **Nätverksanslutning**– säkerställer att replikerade virtuella Azure-datorer är anslutna till den mappade nätverksenheten. Alla datorer som redundansväxlar i samma nätverk kan ansluta till varandra, även om de har redundansväxlats i olika återställningsplaner.
+När du replikerar till Azure mappar nätverksmappningen mellan Virtuella datornätverk i en VMM-källservern och rikta in Azure-nätverk. Mappningen gör följande:
+    -  **Nätverksanslutning**– ser till att replikerade virtuella Azure-datorer är anslutna till den mappade nätverksenheten. Alla datorer som redundansväxlar i samma nätverk kan ansluta till varandra, även om de inte över i olika återställningsplaner.
     - **Nätverksgateway**– om en nätverksgateway har konfigurerats på Azure-målnätverket kan virtuella datorer kan ansluta till andra lokala virtuella datorer.
 
 Nätverksmappning fungerar på följande sätt:
 
-- Du kan mappa en källa VMM VM-nätverk till ett Azure virtual network.
-- Efter redundans virtuella Azure-datorer i källan ansluts nätverk till det virtuella nätverket mappade mål.
-- Nya virtuella datorer läggs till källnätverket ansluts till det mappade Azure-nätverket när replikeringen sker.
+- Du kan mappa en källa VMM VM-nätverk till ett Azure-nätverk.
+- Nätverket ska anslutas till det mappade virtuella målnätverket efter redundansväxling av virtuella Azure-datorer i källan.
+- Nya virtuella datorer läggs till VM-källnätverket ansluts till det mappade Azure-nätverket när replikeringen sker.
 - Om målnätverket har flera undernät och ett av dessa undernät har samma namn som undernätet där den virtuella källdatorn finns så ansluts den virtuella replikdatorn till det målundernätverket efter en redundansväxling.
 - Om det inte finns något målundernät med ett matchande namn ansluts den virtuella datorn till det första undernätet i nätverket.
 
-## <a name="prepare-network-mapping-for-replication-to-a-secondary-site"></a>Förbereda nätverksmappningen för replikering till en sekundär plats
+## <a name="prepare-network-mapping-for-replication-to-a-secondary-site"></a>Förbereda nätverksmappning för replikering till en sekundär plats
 
-När du replikerar till en sekundär plats mappar nätverksmappningen mellan VM-nätverk på en VMM-källservern och Virtuella datornätverk på en VMM-målservern. Mappning gör följande:
+När du replikerar till en sekundär plats mappar nätverksmappningen mellan VM-nätverk på en VMM-källservern och Virtuella datornätverk på en målserver för VMM. Mappningen gör följande:
 
-- **Nätverksanslutning**– ansluter virtuella datorer till lämpliga nätverk efter redundansväxling. Replikerade virtuella datorn ansluts till målnätverket som är mappad till källnätverket.
-- **Optimal placering av Virtuella**– optimalt placerar repliken virtuella datorer på Hyper-V-värdservrar. Replikdatorerna placeras på värdar som kan komma åt mappade VM-nätverk.
-- **Inga nätverksmappning**– om du inte konfigurerar nätverksmappning replikering VMs ansluts inte till något VM-nätverk efter redundansväxling.
+- **Nätverksanslutning**– ansluter datorer till lämpliga nätverk efter redundansväxling. Replikerade virtuella datorn ansluts till målnätverket som är mappad till källnätverket.
+- **Optimal placering av Virtuella**– optimalt placerar repliken virtuella datorer på Hyper-V-värdservrar. Virtuella replikdatorerna placeras på värdar som har åtkomst till de mappade Virtuella datornätverk.
+- **Ingen nätverksmappning**– om du inte konfigurerar nätverksmappning replikering av VMs inte ska anslutas till alla Virtuella datornätverk efter redundansväxling.
 
 Nätverksmappning fungerar på följande sätt:
 
-- Du kan konfigurera nätverksmappning mellan Virtuella nätverk på två VMM-servrar eller på en VMM-server om två platser hanteras av samma server.
-- När mappningen är korrekt konfigurerad och replikering har aktiverats, en virtuell dator på den primära platsen ska anslutas till ett nätverk och dess replik på målplatsen ansluts till dess mappade nätverksenheter.
-- När du väljer ett mål Virtuellt datornätverk under nätverksmappning i Site Recovery visas källa VMM-moln som använder källnätverket, tillsammans med tillgängliga målservrar Virtuella datornätverk på mål-moln som används för skydd.
+- Du kan konfigurera nätverksmappning mellan Virtuella nätverk på två VMM-servrar eller på en enda VMM-server om två platser som hanteras av samma server.
+- När mappningen är korrekt konfigurerad och replikering har aktiverats, en virtuell dator på den primära platsen ska anslutas till ett nätverk och dess replik på målplatsen som ska anslutas till dess mappade nätverksenheter.
+- När du väljer ett mål Virtuellt datornätverk under nätverksmappning i Site Recovery visas källan VMM-moln som använder VM-källnätverket, tillsammans med tillgängliga målservrar Virtuella datornätverk på mål-moln som används för skydd.
 - Om målnätverket har flera undernät och ett av dessa undernät har samma namn som undernätet där den virtuella källdatorn finns, sedan ansluts replikerade virtuella datorn till det målundernätverket efter en redundansväxling. Om det inte finns något målundernät med ett matchande namn, ansluts den virtuella datorn till det första undernätet i nätverket.
 
 ## <a name="example"></a>Exempel
 
 Här är ett exempel som illustrerar den här mekanismen. Låt oss ta en organisation med två platser i New York och Chicago.
 
-**Plats** | **VMM-server** | **Virtuella datornätverk** | **Mappas till**
+**Plats** | **VMM-server** | **Virtuella datornätverk** | **Mappad till**
 ---|---|---|---
-New York | VMM-NewYork| VMNetwork1-NewYork | Mappas till VMNetwork1 Chicago
- |  | VMNetwork2-NewYork | Inte mappad
-Chicago | VMM-Chicago| VMNetwork1-Chicago | Mappas till VMNetwork1 NewYork
- | | VMNetwork2-Chicago | Inte mappad
+New York | VMM-NewYork| VMNetwork1-NewYork | Mappad till VMNetwork1 Chicago
+ |  | VMNetwork2-NewYork | Ingen mappning
+Chicago | VMM-Chicago| VMNetwork1-Chicago | Mappad till VMNetwork1 NewYork
+ | | VMNetwork2-Chicago | Ingen mappning
 
 I det här exemplet:
 
-- När en replik som virtuell dator skapas för varje virtuell dator som är ansluten till VMNetwork1 NewYork ansluts till VMNetwork1 Chicago.
-- När en replik skapas VM för VMNetwork2 NewYork eller VMNetwork2 Chicago kan vara inte ansluten till något nätverk.
+- När en replik som datorn har skapats för alla virtuella datorer som är ansluten till VMNetwork1 NewYork ansluts till VMNetwork1 Chicago.
+- När en replik som datorn har skapats för VMNetwork2 NewYork eller VMNetwork2 Chicago kan vara inte ansluten till något nätverk.
 
-Här är hur VMM-moln ställs in i vårt exempelorganisation och logiska nätverk som är associerade med molnen.
+Här är hur VMM-moln är konfigurerat i vårt exempel-organisation och de logiska nätverk som är associerade med molnen.
 
 ### <a name="cloud-protection-settings"></a>Skyddsinställningarna för molnet
 
-**Skyddade moln** | **Skydda molnet** | **Logiskt nätverk (New York)**  
+**Skyddat moln** | **Skydda molnet** | **Logiskt nätverk (New York)**  
 ---|---|---
 GoldCloud1 | GoldCloud2 |
 SilverCloud1| SilverCloud2 |
@@ -79,22 +79,22 @@ SilverCloud2 | <p>Ej tillämpligt</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>
 
 ### <a name="logical-and-vm-network-settings"></a>Inställningar för logiska och Virtuella nätverk
 
-**Plats** | **Logiskt nätverk** | **Associerat VM-nätverk**
+**Plats** | **Logiskt nätverk** | **Associerade VM-nätverk**
 ---|---|---
 New York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
 Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
  | LogicalNetwork2Chicago | VMNetwork2-Chicago
 
-### <a name="target-network-settings"></a>Nätverksinställningar för mål
+### <a name="target-network-settings"></a>Målnätverksinställningarna
 
-I följande tabell visas baserat på dessa inställningar när du väljer VM målnätverket, alternativen som är tillgängliga.
+Baserat på de här inställningarna när du väljer målnätverket för virtuell dator visas i följande tabell de val som är tillgängliga.
 
-**Välj** | **Skyddade moln** | **Skydda molnet** | **Målnätverket som är tillgängliga**
+**Välj** | **Skyddat moln** | **Skydda molnet** | **Målnätverket som är tillgängliga**
 ---|---|---|---
-VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | Tillgänglig
- | GoldCloud1 | GoldCloud2 | Tillgänglig
-VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | Inte tillgänglig
- | GoldCloud1 | GoldCloud2 | Tillgänglig
+VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | Tillgängligt
+ | GoldCloud1 | GoldCloud2 | Tillgängligt
+VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | Inte tillgängligt
+ | GoldCloud1 | GoldCloud2 | Tillgängligt
 
 
 Om målnätverket har flera undernät och ett av dessa undernät har samma namn som undernätet där den virtuella källdatorn finns, sedan ansluts den replikerade virtuella datorn till det målundernätverket efter en redundansväxling. Om det inte finns något målundernät med ett matchande namn ansluts den virtuella datorn till det första undernätet i nätverket.
@@ -102,26 +102,26 @@ Om målnätverket har flera undernät och ett av dessa undernät har samma namn 
 
 ### <a name="failback-behavior"></a>Beteende för återställning efter fel
 
-Om du vill se vad som händer vid återställning (omvänd replikering), anta att VMNetwork1 NewYork är mappad till VMNetwork1 Chicago med följande inställningar.
+Om du vill se vad som händer när det gäller återställning efter fel (omvänd replikering), antar vi att VMNetwork1 NewYork är mappade till VMNetwork1 Chicago med följande inställningar.
 
 
-**VM** | **Ansluten till nätverket**
+**VIRTUELL DATOR** | **Ansluten till VM-nätverk**
 ---|---
 VM1 | VMNetwork1-Network
 VM2 (replik av VM1) | VMNetwork1-Chicago
 
-Med dessa inställningar nu ska vi se vad som händer på några möjliga scenarier.
+Med de här inställningarna du nu ska vi se vad som händer på några möjliga scenarier.
 
 **Scenario** | **Resultatet**
 ---|---
-Ingen ändring i Nätverksegenskaper för VM-2 efter växling vid fel. | VM-1 fortfarande är ansluten till nätverket källa.
-Nätverksegenskaper för VM-2 har ändrats efter växling vid fel och har kopplats från. | VM-1 är frånkopplad.
-Nätverksegenskaper för VM-2 har ändrats efter växling vid fel och är ansluten till VMNetwork2 Chicago. | Om VMNetwork2 Chicago har inte mappats, kopplas VM-1.
-Nätverksmappningen för VMNetwork1 Chicago ändras. | VM-1 ansluts till nätverket nu mappat till VMNetwork1 Chicago.
+Ingen ändring i Nätverksegenskaper för VM 2 efter en redundansväxling. | VM-1 fortsätter att vara anslutna till källnätverket.
+Nätverksegenskaper för VM 2 har ändrats efter redundans och är frånkopplad. | VM-1 är frånkopplad.
+Nätverksegenskaper för VM 2 har ändrats efter redundans och är ansluten till VMNetwork2 Chicago. | Om VMNetwork2 Chicago har inte mappats, kopplas VM-1.
+Nätverksmappning för VMNetwork1 Chicago ändras. | VM-1 ansluts till nätverket nu mappat till VMNetwork1 Chicago.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lär dig mer om](hyper-v-vmm-networking.md) IP-adresser efter växling till en sekundär plats för VMM.
-- [Lär dig mer om](concepts-on-premises-to-azure-networking.md) IP-adresser efter en redundansväxling till Azure.
+- [Lär dig mer om](hyper-v-vmm-networking.md) IP-adresser efter redundansväxling till en sekundär VMM-plats.
+- [Lär dig mer om](concepts-on-premises-to-azure-networking.md) IP-adresser efter redundansväxling till Azure.

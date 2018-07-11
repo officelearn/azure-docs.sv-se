@@ -10,15 +10,18 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: eb9e4c58343e1f628ff862009b1d12dad07a1c91
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e56b6f9360bdbfe2c5dcb2e81862cb80310bf54c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442448"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928740"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (och svar FAQ) 
 Den här sidan får du svar på vanliga frågor om Azure Active Directory (Azure AD) B2C. Kontrollera tillbaka för uppdateringar.
+
+### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Varför kan jag inte använda Azure AD B2C-tillägget i Azure-portalen?
+Det finns två vanliga orsaker till varför Azure AD-extesion inte fungerar för dig.  Azure AD B2C kräver din användarroll i katalogen är global administratör.  Kontakta administratören om du tror att du ska ha åtkomst.  Om du har behörigheter som global administratör kan du kontrollera att du är i en Azure AD B2C-katalog och inte en Azure Active Directory-katalog.  Du kan se anvisningar för [skapar en Azure AD B2C-katalog här](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Kan jag använda Azure AD B2C-funktioner i min befintliga, anställd-baserad Azure AD-klient?
 Azure AD och Azure AD B2C är separata produkterbjudanden och kan inte finnas i samma klient.  En Azure AD-klient representerar en organisation.  En Azure AD B2C-klient representerar en samling med identiteter som ska användas med förlitande parters program.  Azure AD B2C kan federera Azure AD att tillåta autentisering av anställda i en organisation med anpassade principer (i allmänt tillgänglig förhandsversion).

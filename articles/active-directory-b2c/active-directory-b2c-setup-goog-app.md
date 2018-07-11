@@ -1,58 +1,54 @@
 ---
-title: Google +-konfiguration i Azure Active Directory B2C | Microsoft Docs
-description: Ge registrera dig och logga in till konsumenter med Google +-konton i dina program som skyddas av Azure Active Directory B2C.
+title: Konfigurera registrering och inloggning med ett Google-konto med hjälp av Azure Active Directory B2C | Microsoft Docs
+description: Tillhandahålla registrera dig och logga in till kunder med Google-konton i dina program med Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2016
+ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fe5722e8d5a0a8a5bf172577777ccb899fb7b94d
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: dd0bf50d73b70e37195e8e5e45336b68e4e883e7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443434"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915647"
 ---
-# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-google-accounts"></a>Azure Active Directory B2C: Ge registrera dig och logga in till konsumenter med Google +-konton
-## <a name="create-a-google-application"></a>Skapa ett Google +-program
-För att använda Google + som en identitetsprovider i Azure Active Directory (Azure AD) B2C, måste du skapa ett Google +-program och ange rätt parametrar. Du behöver en Google +-konto om du vill. Om du inte har någon kan du hämta den på [ https://accounts.google.com/SignUp ](https://accounts.google.com/SignUp).
+# <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Google-konto med hjälp av Azure Active Directory B2C
 
-1. Gå till den [Google utvecklare konsolen](https://console.developers.google.com/) och logga in med dina Google +-kontouppgifter.
-2. Klicka på **skapa projekt**, ange en **projektnamn**, och klicka sedan på **skapa**.
-   
-    ![Google + - komma igång](./media/active-directory-b2c-setup-goog-app/google-get-started.png)
-   
-    ![Google + - nytt projekt](./media/active-directory-b2c-setup-goog-app/google-new-project.png)
-3. Klicka på **API-hanterare** och klicka sedan på **autentiseringsuppgifter** i det vänstra navigeringsfönstret.
-4. Klicka på den **OAuth godkännandeskärmen** fliken högst upp.
-   
-    ![Google + - autentiseringsuppgifter](./media/active-directory-b2c-setup-goog-app/google-add-cred.png)
-5. Välj eller ange en giltig **e-postadress**, ange en **produktnamn**, och klicka på **spara**.
-   
-    ![Google + - skärmen för OAuth-medgivande](./media/active-directory-b2c-setup-goog-app/google-consent-screen.png)
-6. Klicka på **nya autentiseringsuppgifter** och välj sedan **OAuth klient-ID**.
-   
-    ![Google + - skärmen för OAuth-medgivande](./media/active-directory-b2c-setup-goog-app/google-add-oauth2-client-id.png)
-7. Under **programtyp**väljer **webbprogram**.
-   
-    ![Google + - skärmen för OAuth-medgivande](./media/active-directory-b2c-setup-goog-app/google-web-app.png)
-8. Ange en **namn** för ditt program ange `https://login.microsoftonline.com` i den **behörighet JavaScript ursprung** fält, och `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` i den **auktoriserade omdirigerings-URI: er** fältet. Ersätt **{klient}** med klientens namn (exempel: contosob2c.onmicrosoft.com). Den **{klient}** värdet är skiftlägeskänsligt. Klicka på **Skapa**.
-   
-    ![Google + - skapa klient-ID](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
-9. Kopiera värdena för **klient-ID** och **klienthemlighet**. Du måste båda för att konfigurera Google + som en identitetsprovider i din klient. **Klienthemlighet** är en viktig säkerhetsuppgift för autentisering.
-   
-    ![Google + - klienthemlighet](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
+## <a name="create-a-google-application"></a>Skapa ett Google-program
 
-## <a name="configure-google-as-an-identity-provider-in-your-tenant"></a>Konfigurera Google + som en identitetsprovider i din klient
-1. Följ dessa steg för att [gå till B2C-funktionsbladet](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) på Azure portal.
-2. Klicka på B2C-funktionsbladet **identitetsprovidrar**.
-3. Klicka på **+Lägg till** överst på bladet.
-4. Ange ett eget **namn** för konfigurationen av identity-providern. Till exempel ange ”G +”.
-5. Klicka på **identifiera providertyp**väljer **Google**, och klicka på **OK**.
-6. Klicka på **ställa in den här identitetsprovidern** och ange klient-ID och klienthemlighet på Google +-programmet som du skapade tidigare.
-7. Klicka på **OK** och klicka sedan på **skapa** att spara din Google +-konfiguration.
+Om du vill använda ett Google-konto som identitetsprovider i Azure Active Directory (Azure AD) B2C, måste du skapa ett program i din klient som representerar den. Om du inte redan har ett Google-konto kan du hämta den på [ https://accounts.google.com/SignUp ](https://accounts.google.com/SignUp).
+
+1. Logga in på den [Google utvecklare konsolen](https://console.developers.google.com/) med dina Google-kontouppgifter.
+2. Välj **skapa projekt**, och klicka sedan på **skapa**. Om du har skapat projekt innan du kan välja projektlistan och välj sedan **nytt projekt**.
+3. Ange en **projektnamn**, och klicka sedan på **skapa**.
+3. Välj **autentiseringsuppgifter** i den vänstra menyn och välj sedan **skapa autentiseringsuppgifter** > **Oauth klient-ID**.
+4. Välj **konfigurera godkännandeskärmen**.
+5. Välj eller ange en giltig **e-postadress**, ange en **produktnamn som visas för användare**, och klicka på **spara**.
+6. Under **programtyp**väljer **webbprogram**.
+7. Ange en **namn** för ditt program ange `https://login.microsoftonline.com` i **behörighet JavaScript ursprung**, och `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` i **auktoriserade omdirigerings-URI: er**. Ersätt **{klient}** med klientens namn (exempel: contosob2c.onmicrosoft.com).
+8. Klicka på **Skapa**.
+9. Kopiera värdena för **klient-ID** och **klienthemlighet**. Du måste båda för att konfigurera Google som en identitetsprovider i din klient. **Klienthemlighet** är en viktig säkerhetsuppgift för autentisering.
+
+## <a name="configure-a-google-account-as-an-identity-provider"></a>Konfigurera ett Google-konto som identitetsprovider
+
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) som global administratör för din Azure AD B2C-klient.
+2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att växla till den i det övre högra hörnet i Azure-portalen. Välj din prenumerationsinformation och välj därefter **Växla katalog**. 
+
+    ![Växla till Azure AD B2C-klientorganisationen](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
+
+    Välj den katalog som innehåller din klient.
+
+    ![Välj katalog](./media/active-directory-b2c-setup-fb-app/select-directory.png)
+
+3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
+4. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
+5. Ange en **namn**. Ange till exempel *Google*.
+6. Välj **identifiera providertyp**väljer **Google**, och klicka på **OK**.
+7. Välj **ställa in den här identitetsprovidern** och ange klient-ID som du antecknade tidigare som den **klient-ID** och ange Klienthemligheten som du registrerade som den **klienthemlighet**av Google-programmet som du skapade tidigare.
+8. Klicka på **OK** och klicka sedan på **skapa** att spara din Google-konfiguration.
 

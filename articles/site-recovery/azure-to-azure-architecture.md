@@ -1,37 +1,37 @@
 ---
-title: Replikering i Azure till Azure-arkitekturen i Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används när du replikerar virtuella Azure-datorer mellan Azure-regioner med hjälp av Azure Site Recovery-tjänsten.
+title: Arkitektur för Azure till Azure replikering i Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används för att replikera virtuella Azure-datorer mellan Azure-regioner med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 67552b05d70e3ae44d75cbe1005743b6d17b2c2c
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 33ab90f958e5033c0c563e4fd8921ee1f7d57c47
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716235"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915681"
 ---
-# <a name="azure-to-azure-replication-architecture"></a>I Azure till Azure-replikeringsarkitektur
+# <a name="azure-to-azure-replication-architecture"></a>Arkitektur för Azure till Azure replikering
 
 
-Den här artikeln beskriver arkitekturen som används när du replikera växla över och återställa virtuella Azure-datorer (VM) mellan Azure-regioner, med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service.
+Den här artikeln beskriver den arkitektur som används när du replikera, redundansväxla och återställa virtuella Azure-datorer (VM) mellan Azure-regioner, med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service.
 
 
 
 
 ## <a name="architectural-components"></a>Arkitekturkomponenter
 
-Bilden nedan ger en övergripande bild av en Azure VM-miljö i en viss region (i det här exemplet östra USA platsen). I en miljö med virtuella Azure-datorn:
+Följande bild visar en övergripande bild av en virtuell dator i Azure-miljö i en viss region (i det här exemplet platsen East USA). I en virtuell dator i Azure-miljö:
 - Appar kan köras på virtuella datorer med hanterade diskar eller icke-hanterade diskar som är fördelade på storage-konton.
-- De virtuella datorerna kan ingå i en eller flera undernät i ett virtuellt nätverk.
+- De virtuella datorerna kan ingå i ett eller flera undernät inom ett virtuellt nätverk.
 
 
-**Azure till Azure-replikering**
+**Azure till Azure replikering**
 
 ![kund-miljö](./media/concepts-azure-to-azure-architecture/source-environment.png)
 
@@ -39,35 +39,35 @@ Bilden nedan ger en övergripande bild av en Azure VM-miljö i en viss region (i
 
 ### <a name="step-1"></a>Steg 1
 
-När du aktiverar Azure VM-replikering skapas i följande resurser automatiskt i målregionen, baserat på inställningarna för datakälla region. Du kan anpassa inställningar i target-resurser som krävs.
+När du aktiverar replikering av virtuella Azure-datorer skapas i följande resurser automatiskt i målregionen, baserat på de nationella inställningarna för källan. Du kan anpassa Målinställningar för resurser som krävs.
 
-![Aktivera replikeringen steg 1](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
+![Aktivera replikeringsprocessen, steg 1](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
 
 **Resurs** | **Detaljer**
 --- | ---
-**Målresursgruppen** | Resursgruppen som tillhör replikerade virtuella datorer efter redundans. Platsen för den här resursgruppen kan vara i alla Azure-region förutom Azure-regionen som är värd för virtuella källdatorer.
-**Mål virtuellt nätverk** | Det virtuella nätverket som replikerade virtuella datorer finns efter växling vid fel. En nätverksmappning skapas mellan käll- och virtuella nätverk och vice versa.
-**Cache-lagringskonton** | De är spåras och skickas till cache-lagringskonto i källplats innan ändringar av datakällan VM replikeras till en mål-lagringskontot. Det här steget säkerställer minimal inverkan på produktionsprogram som körs på den virtuella datorn.
-**Rikta storage-konton (om datakällan inte använder VM-hanterade diskar)**  | Storage-konton på målplatsen data replikeras.
-** Replik hanterade diskar (om källa VM finns på hanterade diskar) **  | Hanterade diskar på målplatsen data replikeras.
-**Mål-tillgänglighetsuppsättningar**  | Tillgänglighetsuppsättningar i som de replikerade virtuella datorerna är placerade efter växling vid fel.
+**Målresursgrupp** | Den resursgrupp som replikerade virtuella datorerna tillhör efter en redundansväxling. Platsen för den här resursgruppen kan finnas i alla Azure-regioner utom Azure-regionen som är värd för virtuella källdatorer.
+**Virtuellt Målnätverk** | Det virtuella nätverket där replikerade virtuella datorer är placerade efter en redundansväxling. En nätverksmappning skapas mellan käll- och virtuella nätverk och vice versa.
+**Cachelagringskonton** | Innan ändringar av datakällan VM replikeras till ett mållagringskonto, de spåras och skickas till cachelagringskontot på källplatsen. Det här steget säkerställer minimal inverkan på produktionsprogram som körs på den virtuella datorn.
+**Mållagringskonton (om källan Virtuella måldatorn inte använder hanterade diskar)**  | Storage-konton på målplatsen som data replikeras.
+** Hanterade replikeringsdiskar (om källan virtuella datorn finns på hanterade diskar) **  | Hanterade diskar på målplatsen som data ska replikeras.
+**Tillgänglighetsuppsättningar för mål**  | Tillgänglighetsuppsättningar i vilka de replikerade virtuella datorerna är placerade efter en redundansväxling.
 
 ### <a name="step-2"></a>Steg 2
 
-Eftersom replikering är aktiverat, installeras automatiskt Site Recovery-tillägget mobilitetstjänsten på den virtuella datorn:
+När replikering har aktiverats, installeras automatiskt mobilitetstjänsten för Site Recovery-tillägget på den virtuella datorn:
 
 1. Den virtuella datorn har registrerats med Site Recovery.
 
-2. Kontinuerlig replikering har konfigurerats för den virtuella datorn. Skrivning av data på Virtuella diskar överförs kontinuerligt till lagringskontot cache på källplatsen.
+2. Kontinuerlig replikering har konfigurerats för den virtuella datorn. Skrivna data på VM-diskarna överförs kontinuerligt till cachelagringskontot på källplatsen.
 
-   ![Aktivera replikeringen steg 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+   ![Aktivera replikeringsprocessen, steg 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
 
- Site Recovery behöver aldrig inkommande anslutning till den virtuella datorn. Endast utgående anslutning krävs för följande.
+ Site Recovery behöver aldrig inkommande anslutningar till den virtuella datorn. Endast utgående anslutning krävs för följande.
 
- - Site Recovery-tjänsten URL-adresser/IP-adresser
- - URL: er/IP-adresser och Office 365-autentisering
- - Cache-lagring konto IP-adresser
+ - Site Recovery service-URL: er/IP-adresser
+ - Office 365-autentisering-URL: er/IP-adresser
+ - IP-adresser för cache storage-konto
 
 Om du aktiverar konsekvens för flera virtuella datorer kommunicerar datorer i replikeringsgruppen med varandra på port 20004. Se till att det inte finns någon brandvägg som blockerar den interna kommunikationen mellan de virtuella datorerna på port 20004.
 
@@ -76,14 +76,14 @@ Om du vill att virtuella datorer med Linux ska vara med i en replikeringsgrupp m
 
 ### <a name="step-3"></a>Steg 3
 
-När kontinuerlig replikering pågår överföras Diskskrivningar omedelbart till cache-lagringskontot. Site Recovery bearbetar data och skickar den till mål-lagringskontot eller replik hanterade diskar. När data har bearbetats skapas återställningspunkter i mål-lagringskontot med några minuters mellanrum.
+När kontinuerlig replikering pågår, Diskskrivningar omedelbart att överföras till cachelagringskontot. Site Recovery bearbetar data och skickar dem till mål-lagringskontot eller repliken hanterade diskar. När data har bearbetats kan skapas återställningspunkter i mållagringskontot några minuters mellanrum.
 
-## <a name="failover-process"></a>Failover-processen
+## <a name="failover-process"></a>Redundans
 
-När du initierar en växling vid fel, virtuella datorer skapas i målresursgruppen, virtuella målnätverket, undernätet mål, och i tillgänglighetsuppsättningen för mål. Du kan använda valfri återställningspunkt under en redundansväxling.
+När du har initierat en redundansväxling kan de virtuella datorerna skapas i målresursgruppen, målets virtuella nätverk, målundernätet, och i tillgänglighetsuppsättningen för målet. Du kan använda någon annan återställningspunkt under en redundansväxling.
 
-![Failover-processen](./media/concepts-azure-to-azure-architecture/failover.png)
+![Redundans](./media/concepts-azure-to-azure-architecture/failover.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Replikera snabbt](azure-to-azure-quickstart.md) en Azure VM till en sekundär region.
+[Replikera snabbt](azure-to-azure-quickstart.md) en Azure-dator till en sekundär region.

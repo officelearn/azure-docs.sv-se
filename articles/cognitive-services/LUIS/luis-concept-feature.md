@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: v-geberr
-ms.openlocfilehash: 597948947303b7fdf16f24576620d6f39d7c51f4
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: b82d5261bbe9d9b153be1cb6e1ff1ba61803c8c2
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887454"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928938"
 ---
 # <a name="phrase-list-features-in-luis"></a>Fras funktioner i LUIS
 
@@ -23,24 +23,31 @@ I machine learning, en *funktionen* är en särskiljande egenskap eller ett attr
 Lägga till funktioner till en språkmodell ge tips om hur du identifierar indata som du vill märka eller klassificera. Funktionerna bidrar LUIS kunna identifiera både avsikter och entiteter, men funktioner är inte avsikter eller entiteter själva. Funktioner kan i stället innehåller exempel på relaterade villkor.  
 
 ## <a name="what-is-a-phrase-list-feature"></a>Vad är en fras lista funktion?
-En lista med frasen innehåller en uppsättning värden (ord eller fraser) som tillhör samma klass och måste behandlas på samma sätt (t.ex, namn på städer eller produkter). Vad LUIS lär sig om en av dem tillämpas automatiskt på alla andra program. Detta är inte en stängd [lista entitet](luis-concept-entity-types.md#types-of-entities) (exakt text matchar) av ord som matchade.
+En lista med frasen innehåller en uppsättning värden (ord eller fraser) som tillhör samma klass och måste behandlas på samma sätt (t.ex, namn på städer eller produkter). Vad LUIS lär sig om en av dem tillämpas automatiskt på alla andra program. Den här listan är inte en stängd [lista entitet](luis-concept-entity-types.md#types-of-entities) (exakt text matchar) av ord som matchade.
 
 En lista med frasen lägger till vokabulär app-domänen som en signal för andra att LUIS om dessa ord.
 
 ## <a name="how-to-use-phrase-lists"></a>Hur du använder frasen listor
-Skapa en fras lista med namnet ”städer” som innehåller värdena London, Paris och Kairo i en resa agent-app. Om du anger ett av följande värden som en enkel enhet i en [exempel uttryck](luis-how-to-add-example-utterances.md#add-simple-entity-label) i ett intent LUIS lär sig att känna igen de andra. 
+I appen personal [enkel enhet självstudien](luis-quickstart-primary-and-secondary-data.md), appen använder en **jobbet** frasen lista över typer av jobb som programmerare, roofer och secretary. Om du anger ett av följande värden som en dator lärt dig enhet LUIS lär sig att känna igen de andra. 
 
-En lista med frasen kanske utbytbara eller icke-utbytbara. En *utbytbara* frasen listan är för värden som är synonymer, och en *ej utbytbara* frasen listan är avsedd för värden som inte är synonymer men liknar varandra i ett annat sätt. 
+En lista med frasen kanske utbytbara eller icke-utbytbara. En *utbytbara* frasen listan är för värden som är synonymer, och en *ej utbytbara* frasen listan är avsedd för värden som inte är synonymer men fortfarande behöver en ytterligare signal i appen. 
 
-## <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>Fras Visar hjälp med att identifiera enkla utbytbara enheter
-Exchangeable frasen listor är ett bra sätt att finjustera prestanda för LUIS-appen. Om din app har problem med att förutsäga yttranden till rätt avsikt eller känna igen entiteter kan du tänka på om talade innehålla ovanliga ord eller ord som kan vara tvetydiga i betydelse. Dessa ord är bra kandidater ska ingå i en fras-lista.
+<a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
+## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Fras Visar hjälp med att identifiera enkla utbytbara enheter
+Utbytbara frasen listor är ett bra sätt att finjustera prestanda för LUIS-appen. Om din app har problem med att förutsäga yttranden till rätt avsikt eller känna igen entiteter kan du tänka på om talade innehålla ovanliga ord eller ord som kan vara tvetydiga i betydelse. Dessa ord är bra kandidater ska ingå i en fras-lista.
 
 ## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>Fras Visar hjälp med att identifiera avsikter genom att bättre förstå kontexten
-Använd frasen listor för sällsynta, äganderätt och främmande ord. LUIS kan inte identifiera sällsynta och egna ord, samt främmande ord (utanför appen kultur) och därför de ska läggas till i en fras-lista. Den här frasen listan bör markeras ej utbytbara, att indikera att uppsättning sällsynta ord utgör en klass som LUIS bör lär sig att känna igen, men de är inte synonymer eller utbytbara med varandra.
-
 En lista med frasen är inte en instruktion till LUIS för att utföra strikt matchar eller alla villkor i listan över frasen alltid märka likadant. Det är bara ett tips. Du kan ha en fras-lista som anger att ”Patti” och ”Selma” namn, men LUIS kan fortfarande använda kontextinformation att känna igen de betyder något annat i ”gör en reservation för 2 på Patti's Diner till middag” och ”hitta mig Driver anvisningar för att Selma, Georgien ”. 
 
 Att lägga till en fras lista är ett alternativ till att lägga till fler exempel yttranden till en avsikt. 
+
+## <a name="an-interchangeable-phrase-list"></a>En lista med utbytbara frasen
+Använd en utbytbara frasen-lista när listan över ord eller fraser som skapar en klass eller grupp. Ett exempel är en lista över månader som ”January”, ”February”, ”mars”; eller namn som ”John”, ”Mary”, ”Frank”.  De här listorna är utbytbara eftersom uttryck skulle märkta med samma avsikt eller entiteten om ett annat ord i listan över frasen användes. Till exempel om ”Visa kalendern för januari” i har samma avsikt som ”visa kalendern för februari” och sedan orden bör finnas på en utbytbara lista. 
+
+## <a name="a-non-interchangeable-phrase-list"></a>En lista med icke-utbytbara frasen
+Använda en icke-utbytbara frasen lista för icke-synonyma ord eller fraser som kan grupperas i din domän. 
+
+Använda en icke-utbytbara frasen lista för sällsynta, äganderätt och främmande ord som ett exempel. LUIS kanske inte att identifiera sällsynta och egna ord, samt främmande ord (utanför appen kultur). Icke-utbytbara inställningen anger att uppsättning sällsynta ord utgör en klass som LUIS bör lär sig att känna igen, men de är inte synonymer eller utbytbara med varandra.
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>När du ska använda frasen listor jämfört med listan över entiteter
 Även om både en fras-lista och listan över entiteter kan påverka yttranden över alla avsikter, gör de detta på ett annat sätt. Använda en fras ska påverka avsikt förutsägelse poäng. Använd en entitet i listan för att påverka entitetextrahering efter en exakt denna matchning. 
@@ -53,7 +60,7 @@ När du vill identifiera nya instanser av en entitet, som ett möte scheduler so
 Fras listor liknar domänspecifika ordförråd hjälp med att förbättra kvaliteten på förståelse för både avsikter och entiteter. En gemensam användning av en fras lista är egennamn, till exempel stadsnamn. Namnet på en stad kan vara flera ord, inklusive bindestreck eller apostrofer.
  
 ### <a name="dont-use-a-phrase-list"></a>Använd inte en fras-lista 
-En lista över entitet definierar uttryckligen varje värde en entitet kan ta och bara identifierar värden som matchar exakt. En lista över entitet kan vara lämpligt för en app där alla instanser av en entitet är kända och inte ändras ofta, som mat objekten på en restaurang-meny som ändras sällan. Om du behöver en exakt denna matchning av en entitet kan du inte använda en fras-lista. 
+En lista över entitet definierar uttryckligen varje värde en entitet kan ta och bara identifierar värden som matchar exakt. En lista över entitet kan vara lämpligt för en app där alla instanser av en entitet är kända och inte ändras ofta. Exempel är mat objekt på en restaurang-meny som ändras sällan. Om du behöver en exakt denna matchning av en entitet kan du inte använda en fras-lista. 
 
 ## <a name="best-practices"></a>Bästa praxis
 Lär dig [bästa praxis](luis-concept-best-practices.md).

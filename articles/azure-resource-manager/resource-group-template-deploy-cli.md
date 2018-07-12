@@ -1,6 +1,6 @@
 ---
-title: Distribuera resurser med Azure CLI och mall | Microsoft Docs
-description: Använd Azure Resource Manager och Azure CLI för att distribuera en resurser till Azure. Resurserna definieras i en Resource Manager-mall.
+title: Distribuera resurser med Azure CLI och en mall | Microsoft Docs
+description: Använda Azure Resource Manager och Azure CLI för att distribuera en resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: ee8ce8453c24d19b3912d0f6cc506b3d3e72548f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5a6b227cee3765593adbda430d8c47312f996c18
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603012"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723842"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuera resurser med Resource Manager-mallar och Azure CLI
 
-Den här artikeln förklarar hur du använder Azure CLI 2.0 med Resource Manager-mallar för att distribuera resurserna till Azure. Om du inte är bekant med principerna för att distribuera och hantera dina Azure lösningar finns [översikt över Azure Resource Manager](resource-group-overview.md).  
+Den här artikeln förklarar hur du använder Azure CLI med Resource Manager-mallar för att distribuera dina resurser till Azure. Om du inte är bekant med principerna för att distribuera och hantera dina Azure-lösningar finns i [översikt över Azure Resource Manager](resource-group-overview.md).  
 
-Resource Manager-mallen som du distribuerar kan antingen vara en lokal fil på din dator eller en extern fil som finns i en databas som GitHub. Den mall som du distribuerar i den här artikeln är tillgänglig i den [exempelmall](#sample-template) avsnitt, eller som en [lagring mall i GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
+Resource Manager-mallen som du distribuerar kan antingen vara en lokal fil på din dator eller en extern fil som finns i en databas som GitHub. Mallen som du distribuerar i den här artikeln är tillgänglig i den [exempelmallen](#sample-template) avsnittet eller som en [storage-konto mallen i GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
-Om du inte har Azure CLI är installerad kan du använda den [moln Shell](#deploy-template-from-cloud-shell).
+Om du inte har Azure CLI installerat kan du använda den [Cloud Shell](#deploy-template-from-cloud-shell).
 
 ## <a name="deploy-local-template"></a>Distribuera lokala mall
 
 När du distribuerar resurser till Azure måste du:
 
 1. Logga in på ditt Azure-konto
-2. Skapa en resursgrupp som fungerar som behållare för distribuerade resurser. Namnet på resursgruppen får bara innehålla alfanumeriska tecken, punkter, understreck, bindestreck och parenteser. Det kan vara upp till 90 tecken. Den kan inte sluta med en punkt.
+2. Skapa en resursgrupp som fungerar som behållare för distribuerade resurser. Namnet på resursgruppen får bara innehålla alfanumeriska tecken, punkter, understreck, bindestreck och parenteser. Det kan vara upp till 90 tecken. Det får inte avslutas med en punkt.
 3. Distribuera till resursgrupp mallen som definierar resurser för att skapa
 
-En mall kan innehålla parametrar som gör att du kan anpassa distributionen. Exempelvis kan du ange värden som är anpassade för en viss miljö (t.ex dev, test- och). Mallen exempel definierar en parameter för lagringskontot SKU. 
+En mall kan innehålla parametrar som gör att du kan anpassa distributionen. Du kan till exempel ange värden som är skräddarsydda för en viss miljö (till exempel utveckling, testning och produktion). Exempelmallen definierar en parameter för SKU för lagringskontot. 
 
-I följande exempel skapar en resursgrupp och distribuerar en mall från den lokala datorn:
+I följande exempel skapas en resursgrupp och distribuerar en mall från den lokala datorn:
 
 ```azurecli
 az login
@@ -62,9 +62,9 @@ Det kan ta några minuter att slutföra distributionen. När den är klar visas 
 
 ## <a name="deploy-external-template"></a>Distribuera externa mall
 
-Du kanske föredrar att lagra dem på en extern plats istället för att lagra Resource Manager-mallar på den lokala datorn. Du kan lagra mallar i en källkontroll (till exempel GitHub). Eller, du kan lagra dem i ett Azure storage-konto för delad åtkomst i din organisation.
+Istället för att lagra Resource Manager-mallar på den lokala datorn, kanske du föredrar att lagra dem i en extern plats. Du kan lagra mallar i ett källkontrollscentrallager (till exempel GitHub). Eller du kan lagra dem i ett Azure storage-konto för delad åtkomst i din organisation.
 
-Distribuera en extern mall att använda den **mall-uri** parameter. Använd URI: N i exemplet för att distribuera exempelmall från GitHub.
+Om du vill distribuera en mall för externa, använda den **mall-uri** parametern. Använd URI: N i det här exemplet för att distribuera exempelmallen från GitHub.
    
 ```azurecli
 az login
@@ -77,11 +77,11 @@ az group deployment create \
     --parameters storageAccountType=Standard_GRS
 ```
 
-I exemplet ovan kräver en offentligt tillgänglig URI för mallen, som fungerar i de flesta scenarier eftersom mallen inte innehålla känsliga data. Om du behöver ange känsliga data (till exempel en adminlösenord) skicka det värdet som en säker parameter. Om du inte vill att mallen ska vara offentligt tillgänglig, kan du dock skydda den genom att lagra det i en behållare för privat lagring. Information om hur du distribuerar en mall som kräver en signatur (SAS) token för delad åtkomst finns i [distribuera privata mallar med SAS-token](resource-manager-cli-sas-token.md).
+I föregående exempel kräver en offentligt tillgänglig URI för den mall som passar de flesta fall eftersom mallen inte får innehålla känsliga data. Om du vill ange känsliga data (till exempel ett administratörslösenord) kan du skicka det värdet som en säker parameter. Om du inte vill att mallen för att vara allmänt tillgänglig, kan du dock skydda den genom att lagra det i en privat lagringsbehållare. Information om hur du distribuerar en mall som kräver en signatur (SAS) token för delad åtkomst finns i [distribuera privat mall med SAS-token](resource-manager-cli-sas-token.md).
 
 [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-Använd följande kommandon i molnet-gränssnittet:
+I Cloud Shell använder du följande kommandon:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "South Central US"
@@ -90,13 +90,13 @@ az group deployment create --resource-group examplegroup \
   --parameters storageAccountType=Standard_GRS
 ```
 
-## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Distribuera till mer än en resursgrupp eller prenumeration
+## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Distribuera till fler än en resursgrupp eller prenumeration
 
-Normalt distribuerar du alla resurser i mallen som en enskild resursgrupp. Det finns emellertid scenarier där du vill distribuera en uppsättning resurser tillsammans men placera dem i olika resursgrupper eller prenumerationer. Du kan distribuera till bara fem resursgrupper i en enda distribution. Mer information finns i [distribuera Azure-resurser till mer än en prenumeration eller resursgrupp](resource-manager-cross-resource-group-deployment.md).
+Normalt kan distribuera du alla resurser i mallen till en enda resursgrupp. Det finns dock scenarier där du vill distribuera en uppsättning resurser tillsammans, men placera dem i olika resursgrupper eller prenumerationer. Du kan distribuera till endast fem resursgrupper i samma distribution. Mer information finns i [distribuera Azure-resurser till mer än en prenumeration eller resursgrupp](resource-manager-cross-resource-group-deployment.md).
 
-## <a name="parameter-files"></a>Parametern-filer
+## <a name="parameter-files"></a>Parameterfiler
 
-I stället för att skicka parametrar som infogade värden i skriptet kan det vara lättare att använda en JSON-fil som innehåller parametrarnas värden. Parameterfilen måste vara i följande format:
+I stället för att skicka parametrar som infogade värden i skriptet, kan det vara enklare att använda en JSON-fil som innehåller parametervärdena. Parameterfilen måste vara i följande format:
 
 ```json
 {
@@ -110,11 +110,11 @@ I stället för att skicka parametrar som infogade värden i skriptet kan det va
 }
 ```
 
-Observera att avsnittet Parametrar innehåller ett parameternamn som matchar den parameter som definierats i mallen (storageAccountType). Parameterfilen innehåller ett värde för parametern. Det här värdet skickas automatiskt till mallen under distributionen. Du kan skapa flera parametern filer för olika distributionsscenarier och sedan ange lämpliga parameterfil. 
+Observera att parameters-avsnittet innehåller ett parameternamn som matchar den parameter som definierats i mallen (storageAccountType). Parameterfilen innehåller ett värde för parametern. Det här värdet skickas automatiskt till mallen under distributionen. Du kan skapa flera parameterfiler för olika distributionsscenarier och sedan skicka in lämpliga parameterfilen. 
 
-Kopiera föregående exempel och spara den som en fil med namnet `storage.parameters.json`.
+Kopiera i föregående exempel och spara det som en fil med namnet `storage.parameters.json`.
 
-Om du vill lägga till en lokal parameterfil, Använd `@` att ange en lokal fil med namnet storage.parameters.json.
+Om du vill skicka en lokal parameterfil använda `@` att ange en lokal fil med namnet storage.parameters.json.
 
 ```azurecli
 az group deployment create \
@@ -126,7 +126,7 @@ az group deployment create \
 
 ## <a name="test-a-template-deployment"></a>Testa en för malldistribution
 
-Testa din mall och parametern-värden utan att faktiskt distribuera resurser med [az distribution Validera](/cli/azure/group/deployment#az_group_deployment_validate). 
+Testa din mall- och parameterfilerna värden utan att faktiskt distribuera resurser med [az group deployment Validera](/cli/azure/group/deployment#az_group_deployment_validate). 
 
 ```azurecli
 az group deployment validate \
@@ -135,7 +135,7 @@ az group deployment validate \
     --parameters @storage.parameters.json
 ```
 
-Om inga fel identifieras returnerar kommandot information om testdistributionen. Observera att särskilt den **fel** värdet är null.
+Om inga fel identifieras måste returnerar kommandot information om test-distribution. Observera att särskilt den **fel** värdet är null.
 
 ```azurecli
 {
@@ -144,7 +144,7 @@ Om inga fel identifieras returnerar kommandot information om testdistributionen.
       ...
 ```
 
-Om ett fel upptäcks returnerar kommandot ett felmeddelande. Försök att skicka ett felaktigt värde för lagringskontot SKU, returnerar till exempel följande fel:
+Om ett fel upptäcks kan returnerar kommandot ett felmeddelande. Exempel: försöker skicka ett felaktigt värde för lagringskontots SKU, får du följande felmeddelande:
 
 ```azurecli
 {
@@ -160,7 +160,7 @@ Om ett fel upptäcks returnerar kommandot ett felmeddelande. Försök att skicka
 }
 ```
 
-Om mallen har ett syntaxfel, returnerar kommandot ett felmeddelande om att det inte kunde tolka mallen. Meddelandet Anger radnumret och positionen för parsningsfel.
+Om mallen innehåller ett syntaxfel, returnerar kommandot ett felmeddelande om att det inte kunde parsa mallen. Meddelandet Anger radnumret och positionen för parsningsfel.
 
 ```azurecli
 {
@@ -177,7 +177,7 @@ Om mallen har ett syntaxfel, returnerar kommandot ett felmeddelande om att det i
 
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
-Om du vill använda fullständig läge i `mode` parameter:
+Om du vill använda fullständig läge, Använd den `mode` parameter:
 
 ```azurecli
 az group deployment create \
@@ -190,7 +190,7 @@ az group deployment create \
 
 ## <a name="sample-template"></a>Exempelmall
 
-Följande mall används i exemplen i den här artikeln. Kopiera och spara den som en fil med namnet storage.json. Information om hur du skapar den här mallen finns [skapa din första Azure Resource Manager-mallen](resource-manager-create-first-template.md).  
+Följande mall används i exemplen i den här artikeln. Kopiera och spara den som en fil med namnet storage.json. Information om hur du skapar den här mallen finns i [skapa din första Azure Resource Manager-mall](resource-manager-create-first-template.md).  
 
 ```json
 {
@@ -238,9 +238,9 @@ Följande mall används i exemplen i den här artikeln. Kopiera och spara den so
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Exemplen i den här artikeln distribuera resurser i en resursgrupp i din standard-prenumeration. Om du vill använda en annan prenumeration finns [hantera Azure-prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli).
-* En fullständig exempelskript som distribuerar en mall finns i [distributionsskriptet för Resource Manager-mallen](resource-manager-samples-cli-deploy.md).
-* Information om hur du definierar parametrar i mallen finns [förstå struktur och syntaxen för Azure Resource Manager-mallar](resource-group-authoring-templates.md).
-* Tips om hur du löser vanliga distributionsfel finns [felsöka vanliga Azure-distribution med Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* Information om hur du distribuerar en mall som kräver en SAS-token finns [distribuera privata mallar med SAS-token](resource-manager-cli-sas-token.md).
+* Exemplen i den här artikeln distribuera resurser till en resursgrupp i din Standardprenumeration. Om du vill använda en annan prenumeration, se [hantera flera Azure-prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli).
+* En fullständig exempelskript som distribuerar en mall finns i [distributionsskriptet för Resource Manager-mall](resource-manager-samples-cli-deploy.md).
+* Information om hur du definierar parametrar i mallen finns i [förstå strukturen och syntaxen för Azure Resource Manager-mallar](resource-group-authoring-templates.md).
+* Tips om hur du löser vanliga distributionsfel finns [felsöka vanliga Azure-distributionsfel med Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Information om hur du distribuerar en mall som kräver en SAS-token finns i [distribuera privat mall med SAS-token](resource-manager-cli-sas-token.md).
 * Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance).

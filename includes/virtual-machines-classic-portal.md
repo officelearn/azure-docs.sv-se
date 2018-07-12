@@ -1,1 +1,1 @@
-Startar den 15 November 2017 virtuella datorer blir tillgängliga i den [Azure-portalen](https://portal.azure.com). 
+Från och med den 15 November 2017 virtuella datorer ska bara finnas tillgänglig i den [Azure-portalen](https://portal.azure.com). 

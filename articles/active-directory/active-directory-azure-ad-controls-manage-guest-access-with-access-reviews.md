@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 71569da662c5d5e5ef5ad6c7d9783a69e307f2fa
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 452501d5da58d06093f22009c6ecc30e02f581a5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441190"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295647"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Hantera gäståtkomst med Azure AD åtkomstgranskningar
 
@@ -30,7 +30,7 @@ Med Azure Active Directory (AD Azure), kan du enkelt aktivera samarbete över or
 Du också kan enkelt se till att gästanvändare har lämplig åtkomst. Du kan be gästerna själva, eller en beslutsfattare, att delta i en åtkomstgranskning och certifiera om (eller intygar genomförs) till den gästers åtkomst. Granskarna kan ge sin syn på varje användares behov för kontinuerlig åtkomst, baserat på förslag från Azure AD. När en åtkomstgranskning är klar kan du göra ändringar och ta bort åtkomst för gäster som inte längre behöver den.
 
 > [!NOTE]
-> Det här dokumentet fokuserar på Granska gästanvändares åtkomst. Om du vill visa alla användares åtkomst, inte bara gäster, se [hantera användarnas åtkomst med åtkomstgranskningar](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md). Om du vill granska användarens medlemskap i administrativa roller som global administratör, se [starta en åtkomstgranskning i Azure AD Privileged Identity Management](active-directory-privileged-identity-management-how-to-start-security-review.md). 
+> Det här dokumentet fokuserar på Granska gästanvändares åtkomst. Om du vill visa alla användares åtkomst, inte bara gäster, se [hantera användarnas åtkomst med åtkomstgranskningar](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md). Om du vill granska användarens medlemskap i administrativa roller som global administratör, se [starta en åtkomstgranskning i Azure AD Privileged Identity Management](privileged-identity-management/pim-how-to-start-security-review.md). 
 >
 >
 

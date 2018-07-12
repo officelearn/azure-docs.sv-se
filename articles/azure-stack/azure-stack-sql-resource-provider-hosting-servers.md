@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/10/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: c9249de56979d47a29fc9d7c12b99e41b3ada0fd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465845"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970559"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Lägg till värdservrar för SQL-resursprovider
 
@@ -66,7 +66,7 @@ Följande information innehåller ytterligare vägledning:
 
 * Alla Azure Stack-lagring krypteras med BitLocker, så att alla SQL-instans på Azure Stack använder krypterad blob storage.
 * SQL-Resursprovider har fullständigt stöd för TLS 1.2. Kontrollera att SQL Server som hanteras via SQL RP är konfigurerad för att TLS 1.2 _endast_ och den ansvariga Personen som standard som. Alla versioner av SQL Server-stöd TLS 1.2 Se [TLS 1.2-stöd för Microsoft SQL Server](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* Använd SQL Server Configuration Manager för att ange den **ForceEncryption** krypteras alltid alternativet för att se till att all kommunikation till SQLServer. Se [att konfigurera servern för att tvinga krypterade anslutningar](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections).
+* Använd SQL Server Configuration Manager för att ange den **ForceEncryption** krypteras alltid alternativet för att se till att all kommunikation till SQLServer. Se [att konfigurera servern för att tvinga krypterade anslutningar](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections).
 * Se till att klientprogram kommunicerar också över en krypterad anslutning.
 * RP: N har konfigurerats för att lita på certifikat som används av SQL Server-instanserna.
 
@@ -106,8 +106,8 @@ Följ dessa steg för att lägga till en fristående värd-server som redan har 
 
 Konfigurera SQL Always On-instanser kräver ytterligare åtgärder och kräver tre virtuella datorer (eller fysiska datorer.) Den här artikeln förutsätter att du redan har en djupare förståelse för Always On-Tillgänglighetsgrupper. Mer information finns i följande artiklar:
 
-* [Introduktion till SQL Server Always On-Tillgänglighetsgrupper på virtuella Azure-datorer](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Always On-Tillgänglighetsgrupper (SQLServer)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Introduktion till SQL Server Always On-Tillgänglighetsgrupper på virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Always On-Tillgänglighetsgrupper (SQLServer)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
 > SQL-adapter resursprovider _endast_ stöder SQL 2016 SP1 Enterprise eller senare instanser för Always On Tillgänglighetsgrupper. Den här konfigurationen för nätverkskort kräver nya SQL-funktioner som automatisk seeding.

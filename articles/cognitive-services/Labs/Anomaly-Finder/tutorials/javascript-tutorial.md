@@ -1,6 +1,6 @@
 ---
-title: Avvikelseidentifiering Javascript-app - kognitiva Microsoft-tjänster | Microsoft Docs
-description: 'Utforska en Javascript-webbapp som använder API: et för Avvikelseidentifiering identifiering i kognitiva Microsoft-tjänster. Skicka ursprungliga datapunkter-API: et och få ett förväntat värde och avvikelseidentifiering punkter.'
+title: Identifiering av avvikelser Javascript-app – Microsoft Cognitive Services | Microsoft Docs
+description: 'Utforska en Javascript-webbapp som använder API: T för Avvikelseidentifiering identifiering i Microsoft Cognitive Services. Skicka ursprungliga datapunkter till API: et och få det förväntade värdet och avvikelseidentifiering punkter.'
 services: cognitive-services
 author: wenya
 manager: bix
@@ -10,64 +10,64 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: wenya
 ms.openlocfilehash: 42c3941a05efe8b74f818cd99f3606b3073892a9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353337"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38453177"
 ---
-# <a name="anomaly-detection-javascript-application"></a>Avvikelseidentifiering identifiering Javascript-programmet
+# <a name="anomaly-detection-javascript-application"></a>Avvikelseidentifiering identifiering av Javascript-programmet
 
-Utforska ett webbprogram som använder Avvikelseidentifiering identifiering REST API för att upptäcka avvikelser. Exemplet skickar serien tidsdata Avvikelseidentifiering identifiering-API: et med din prenumeration nyckel och hämtar alla avvikelseidentifiering punkter och det förväntade värdet för varje datapunkt från API: et.
+Utforska ett webbprogram som använder den Avvikelseidentifiering REST API: T för att identifiera avvikelser. I exempel skickar time series-data till API: T för Avvikelseidentifiering identifiering med din prenumerationsnyckel och sedan hämtar alla avvikelser punkter och det förväntade värdet för varje datapunkt från API: et.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="platform-requirements"></a>Plattformskrav
 
-Den här självstudiekursen har utvecklats med en enkel textredigerare.
+Den här självstudien har utvecklats med en enkel textredigerare.
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Prenumerera på Avvikelseidentifiering och få en nyckel för prenumeration 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Prenumerera på identifiering av avvikelser och få en prenumerationsnyckel 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="get-and-use-the-example"></a>Hämta och använda exempel
+## <a name="get-and-use-the-example"></a>Hämta och använda exemplet
 
-Den här självstudiekursen innehåller två scenarier för identifiering av avvikelse tid serie data. Nu sätter vi igång.
+Den här självstudien innehåller två scenarier för avvikelseidentifiering för time series-data. Nu sätter vi igång.
 
 <a name="Step1"></a> 
-### <a name="download-the-tutorial-project"></a>Hämta projektet självstudiekursen
+### <a name="download-the-tutorial-project"></a>Ladda ned självstudieprojektet
 
-Klona den [kognitiva tjänster JavaScript-vägledning för identifiering av Avvikelseidentifiering](https://github.com/MicrosoftAnomalyDetection/javascript-sample), eller hämta ZIP-filen och extrahera till en tom katalog.
+Klona den [Cognitive Services JavaScript-självstudiekursen för identifiering av avvikelser](https://github.com/MicrosoftAnomalyDetection/javascript-sample), eller hämta ZIP-filen och extrahera det till en tom katalog.
 
 <a name="Step2"></a>
-### <a name="run-the-example"></a>Kör exemplet
+### <a name="run-the-example"></a>Kör exempel
 
 Det finns två scenarier som du kan försöka exemplet.
-1. Placera din **prenumeration nyckeln** i nyckelfältet prenumeration på identifiera funktionen på anomalydetection.html.
-2. Placera avvikelseidentifiering identifiering API-slutpunkt och kontrollera att du använder rätt region i prenumerationen Region.
+1. Placera din **prenumerationsnyckel** i fältet Prenumerationsnyckel på identifiera funktionen på anomalydetection.html.
+2. Placera avvikelseidentifiering identifiering av API-slutpunkt och kontrollera att du använder rätt region i prenumerationen Region.
 3. Öppna den **anomalydetection.html** fil i en webbläsare.
 
-**Scenario 1 identifiera varje vecka tid series-data**
-1. I Period fältet indata period **7**. 
-2. Ersätta exempeldata med din veckovisa tid seriens datapunkter (Json) i fältet punkter eller använda exempeldata direkt.
-3. Klicka på knappen Avvikelseidentifiering och kontrollera resultatet i textrutan rätt svar.
+**Scenario 1 identifiera veckovisa time series-data**
+1. Period fältet anger perioden **7**. 
+2. Ersätta exempeldata med din veckovisa tid datapunkter i serien (Json) i fältet punkter eller använda exempeldata direkt.
+3. Klicka på knappen Avvikelseidentifiering och kontrollera resultatet i textrutan för rätt svar.
 
-**Scenario 2 identifiera tid series-data utan punkt**
-1. Lämna tomt i Period perioden arkiverats förutsätter att du inte vet period i tidsserien.
-2. Med samma tid seriedata som scenario 1.
-3. Klicka på knappen Avvikelseidentifiering och kontrollera fältet Period i textrutan rätt svar.
+**Scenario 2 identifiera time series-data utan punkt**
+1. Lämna den tom inom perioden arkiverat förutsätter att du inte vet perioden för tidsserier.
+2. Använda samma time series-data som scenario 1.
+3. Klicka på knappen Avvikelseidentifiering och kontrollera fältet Period i textrutan för rätt svar.
 
 <a name="Step3"></a>
-### <a name="read-the-result"></a>Läsa resultatet
+### <a name="read-the-result"></a>Läsa
 
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 
 <a name="Review"></a>
-### <a name="review-and-learn"></a>Granska och lära dig
+### <a name="review-and-learn"></a>Granska och lär dig
 
-Nu kan du få ett program som körs. Nu ska vi se hur appen exempel integreras med kognitiva Services-teknik. Det här steget gör det enklare att fortsätta bygger på den här appen eller utveckla egna app med Microsoft Avvikelseidentifiering.
-Det här exemplet app väljer Avvikelseidentifiering identifiering Restful-API slutpunkt.
-Granska hur Restful-API används i exempelprogrammet kan vi att titta på ett kodstycke från anomalydetection.html.
+Nu kan du få ett program som körs. Nu ska vi se hur exempelappen kan integreras med Cognitive Services-teknik. Det här steget gör det enklare att fortsätta att skapa i den här appen eller utveckla din egen app med hjälp av Microsoft för Avvikelseidentifiering.
+Den här exempel-appen kan använda av identifiering av avvikelser Restful API slutpunkt.
+Granska hur Restful API: et hämtar används i exempelprogrammet kan vi att titta på ett kodstycke från anomalydetection.html.
 ```JavaScript
 function anomalyDetection(url, subscriptionKey, points, period) {
     var obj = new Object();

@@ -1,7 +1,7 @@
 ---
-title: 'Bing analytics för API: er för Bing Web Search | Microsoft Docs'
+title: 'Bing-analys för Bing Web Search API: er | Microsoft Docs'
 titleSuffix: Cognitive Services
-description: Beskriver hur du hämtar analytics för Bing Autosuggest API.
+description: Beskriver hur du hämtar analytics för automatiska förslag i Bing.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
 ms.openlocfilehash: 03482ce94efe5f5db11f242384d620d401528ccf
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354486"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38237693"
 ---
-# <a name="how-to-get-analytics-for-bing-autosuggest-api"></a>Hur du hämtar analytics för Bing Autosuggest API
+# <a name="how-to-get-analytics-for-bing-autosuggest-api"></a>Så här hämtar du analytics för automatiska förslag i Bing
 
 [!INCLUDE [cognitive-services-bing-statistics](../../../includes/cognitive-services-bing-statistics.md)]

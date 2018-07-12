@@ -1,6 +1,6 @@
 ---
-title: Lägg till push-meddelanden i appen universella Windowsplattformen (UWP) | Microsoft Docs
-description: Lär dig hur du använder Azure App Service Mobile Apps och Azure Notification Hubs för att skicka push-meddelanden i appen universella Windowsplattformen (UWP).
+title: Lägg till push-meddelanden till din app för Universal Windows Platform (UWP) | Microsoft Docs
+description: Lär dig hur du använder Azure App Service Mobile Apps och Azure Notification Hubs för att skicka push-meddelanden till din app för Universal Windows Platform (UWP).
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
 author: conceptdev
@@ -15,56 +15,56 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: 9e3ed6d19b0f830923745ad0263c5c4f920c0f51
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597866"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473528"
 ---
-# <a name="add-push-notifications-to-your-windows-app"></a>Lägg till push-meddelanden i appen för Windows
+# <a name="add-push-notifications-to-your-windows-app"></a>Lägg till push-meddelanden till din Windows-app
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Översikt
-I kursen får du lägga till push-meddelanden till den [Windows Snabbstart](app-service-mobile-windows-store-dotnet-get-started.md) projekt så att ett push-meddelande skickas till enheten varje gång en post infogas.
+I den här självstudien lägger du till push-meddelanden till den [Windows Snabbstart](app-service-mobile-windows-store-dotnet-get-started.md) projekt så att ett push-meddelande skickas till enheten varje gång en post infogas.
 
-Om du inte använder hämtade Snabbstart serverprojekt behöver push notification extension-paketet. Se [arbeta med serverdelen .NET SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) för mer information.
+Om du inte använder serverprojekt hämtade Snabbstart måste tilläggspaket för push-meddelande. Se [arbeta med SDK för .NET-serverdelen för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) för mer information.
 
-## <a name="configure-hub"></a>Konfigurera en Meddelandehubb
+## <a name="configure-hub"></a>Konfigurera en Notification Hub
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>Registrera din app för push-meddelanden
-Du måste skicka din Microsoft-Store-app och sedan konfigurera serverprojektet att integrera med Windows Notification Services (WNS) att skicka push.
+Du måste skicka in din app till Microsoft Store och sedan konfigurera serverprojektet att integrera med Windows Notification Services (WNS) att skicka push.
 
-1. Högerklicka på UWP-appsprojektet i Visual Studio Solution Explorer, klicka på **Store** > **associera App med Store...** .
+1. I Visual Studio Solution Explorer högerklickar du på UWP-appsprojektet, klickar du på **Store** > **associera App med Store...** .
 
-    ![Associera appen med Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
-2. I guiden klickar du på **nästa**, logga in med ditt Microsoft-konto, Skriv ett namn för din app i **reservera ett nytt namn för appen**, klicka på **reservera**.
-3. Efter registreringen app har skapats, Välj ny programnamn, klicka på **nästa**, och klicka sedan på **associera**. Informationen som krävs Microsoft Store registrering läggs till i programmanifestet.
-4. Navigera till den [Windows Dev Center](https://dev.windows.com/en-us/overview), logga in med ditt Microsoft-konto, klickar du på den nya app registreringen i **Mina appar**, expandera **Services** > **Push-meddelanden**.
-5. I den **Push-meddelanden** klickar du på **webbplatsen Live-tjänster** under **Microsoft Azure Mobile Services**.
-6. På registreringssidan anteckna värdet under **programmet hemligheter** och **paket-SID**, som du sedan använder för att konfigurera din mobilappsserverdel.
+    ![Associera app med Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
+2. I guiden klickar du på **nästa**, logga in med ditt Microsoft-konto, ange ett namn för din app i **reservera ett nytt appnamn**, klicka sedan på **reservera**.
+3. När appregistreringen har skapats, Välj namnet på nya appen, klicka på **nästa**, och klicka sedan på **associera**. Detta lägger till registreringsinformationen som krävs Microsoft Store till i programmanifestet.
+4. Navigera till den [Windows Dev Center](https://dev.windows.com/en-us/overview), logga in med ditt Microsoft-konto, klicka på ny appregistrering i **Mina appar**, expandera sedan **Services**  >   **Push-meddelanden**.
+5. I den **Push-meddelanden** klickar du på **webbplatsen Live-tjänster** under **Microsoft Azure mobiltjänster**.
+6. På registreringssidan anteckna värdet under **programhemligheter** och **paket-SID**, som du sedan använder för att konfigurera din mobilappsserverdel.
 
-    ![Associera appen med Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
+    ![Associera app med Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
-   > Klienthemligheten och paket-SID:et är viktiga säkerhetsuppgifter. Lämna aldrig ut dessa uppgifter till någon och distribuera dem inte tillsammans med din app. Den **program-Id** används med hemlighet för att konfigurera Account autentisering.
+   > Klienthemligheten och paket-SID:et är viktiga säkerhetsuppgifter. Lämna aldrig ut dessa uppgifter till någon och distribuera dem inte tillsammans med din app. Den **program-Id** används med hemligheten för att konfigurera Account autentisering.
    >
    >
 
-## <a name="configure-the-backend-to-send-push-notifications"></a>Konfigurera serverdel och skicka push-meddelanden
+## <a name="configure-the-backend-to-send-push-notifications"></a>Konfigurera serverdelen för att skicka push-meddelanden
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
 ## <a id="update-service"></a>Uppdatera servern för att skicka push-meddelanden
-Använd proceduren nedan som matchar din serverdel projekttypen&mdash;antingen [.NET-serverdel](#dotnet) eller [Node.js-serverdel](#nodejs).
+Använd proceduren nedan som matchar din serverdel projekttyp&mdash;antingen [.NET-serverdel](#dotnet) eller [Node.js-serverdel](#nodejs).
 
-### <a name="dotnet"></a>.NET serverdelsprojektet
-1. Högerklicka på serverprojekt i Visual Studio och klicka på **hantera NuGet-paket**, söka efter Microsoft.Azure.NotificationHubs och sedan på **installera**. Detta installerar klientbiblioteket Notification Hubs.
-2. Expandera **domänkontrollanter**, öppna TodoItemController.cs och Lägg till följande using-instruktioner:
+### <a name="dotnet"></a>.NET serverdelsprojekt
+1. I Visual Studio högerklickar du på serverprojektet och klicka på **hantera NuGet-paket**, Sök efter Microsoft.Azure.NotificationHubs och sedan på **installera**. Detta installerar klientbiblioteket för Meddelandehubbar.
+2. Expandera **domänkontrollanter**, öppna TodoItemController.cs och Lägg till följande using-satser:
 
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.Mobile.Server.Config;
-3. I den **PostTodoItem** metod, Lägg till följande kod efter anropet till **InsertAsync**:
+3. I den **PostTodoItem** metoden Lägg till följande kod efter anropet till **InsertAsync**:
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -101,8 +101,8 @@ Använd proceduren nedan som matchar din serverdel projekttypen&mdash;antingen [
     Den här koden visar meddelandehubben för att skicka ett push-meddelande när ett nytt objekt är infogning.
 4. Publicera om serverprojektet.
 
-### <a name="nodejs"></a>Node.js serverdelsprojektet
-1. Om du inte redan gjort det, [hämta snabbstartsprojektet](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) eller annan användning av [online redigeraren i Azure portal](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+### <a name="nodejs"></a>Node.js-serverdel-projekt
+1. Om du inte redan gjort det, [hämta quickstart-projektet](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) eller annan användning den [onlineredigeraren i Azure-portalen](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Ersätt den befintliga koden i filen todoitem.js med följande:
 
         var azureMobileApps = require('azure-mobile-apps'),
@@ -145,17 +145,17 @@ Använd proceduren nedan som matchar din serverdel projekttypen&mdash;antingen [
 
         module.exports = table;
 
-    Detta skickar ett popup-meddelande med WNS som innehåller item.text när nya todo-objektet infogas.
-3. Publicera om serverprojektet när du redigerar filen på den lokala datorn.
+    Detta skickar ett popup-meddelande med WNS som innehåller item.text när en ny att göra-objekt har infogats.
+3. När du redigerar filen på din lokala dator, publicera om serverprojektet.
 
-## <a id="update-app"></a>Lägg till push-meddelanden i appen
-Appen måste registrera för push-meddelanden på Start. När du redan har aktiverat autentisering, se till att användaren loggar in innan du försöker registrera dig för push-meddelanden.
+## <a id="update-app"></a>Lägg till push-meddelanden till din app
+Nu ska måste din app registrera för push-meddelanden på Start. När du har redan aktiverat autentisering, se till att användaren loggar in innan du försöker registrera för push-meddelanden.
 
 1. Öppna den **App.xaml.cs** projekt filen och Lägg till följande `using` instruktioner:
 
         using System.Threading.Tasks;
         using Windows.Networking.PushNotifications;
-2. Lägg till följande i samma fil **InitNotificationsAsync** metoddefinitionen i **App** klass:
+2. Lägg till följande i samma fil, **InitNotificationsAsync** metoddefinitionen i **App** klass:
 
         private async Task InitNotificationsAsync()
         {
@@ -167,8 +167,8 @@ Appen måste registrera för push-meddelanden på Start. När du redan har aktiv
             await App.MobileService.GetPush().RegisterAsync(channel.Uri);
         }
 
-    Den här koden hämtar ChannelURI för appen från WNS och registrerar sedan denna ChannelURI med Mobilappen App Service.
-3. Längst upp i den **OnLaunched** händelsehanteraren i **App.xaml.cs**, lägga till den **asynkrona** modifierare till metoddefinitionen och Lägg till följande anrop till den nya **InitNotificationsAsync** metod som i följande exempel:
+    Den här koden hämtar ChannelURI för appen från WNS och registrerar sedan den ChannelURI med din App Service Mobile App.
+3. Överst på den **OnLaunched** händelsehanteraren i **App.xaml.cs**, lägga till den **async** modifieraren till metoddefinitionen och Lägg till följande anrop till den nya  **InitNotificationsAsync** metod som i följande exempel:
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -177,22 +177,22 @@ Appen måste registrera för push-meddelanden på Start. När du redan har aktiv
             // ...
         }
 
-    Detta garanterar att tillfällig ChannelURI registreras varje gång appen startas.
-4. Återskapa projektet UWP-app. Appen är nu redo att ta emot popup-meddelanden.
+    Detta garanterar att tillfällig ChannelURI är registrerat varje gång programmet startas.
+4. Återskapa din UWP-app-projekt. Appen är nu redo att ta emot popup-meddelanden.
 
-## <a id="test"></a>Testa push-meddelanden i appen
+## <a id="test"></a>Test-push-meddelanden i din app
 [!INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
 ## <a id="more"></a>Nästa steg
 Mer information om push-meddelanden:
 
-* [Hur du använder den hanterade klienten för Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications) mallar ger dig möjlighet att skicka push-meddelanden för flera plattformar och lokaliserade push-meddelanden. Lär dig hur du registrerar mallar.
-* [Diagnostisera problem för push-meddelande](../notification-hubs/notification-hubs-push-notification-fixer.md) finns på olika orsaker till varför meddelanden kan hämta bort eller inte hamnar på enheter. Det här avsnittet visar hur du analyserar och ta reda på orsaken till fel för push-meddelande.
+* [Hur du använder den hanterade klienten för Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications) mallar får du flexibilitet för att skicka plattformsoberoende push-meddelanden och lokaliserade push-meddelanden. Lär dig hur du registrerar mallar.
+* [Diagnostisera problem med push-meddelande](../notification-hubs/notification-hubs-push-notification-fixer.md) det finns olika orsaker till varför meddelanden kan tas bort eller inte hamnar på enheter. Det här avsnittet visar hur du analyserar och ta reda på orsaken till fel för push-meddelande.
 
-Tänk fortsätter in på något av följande kurser:
+Överväg fortsätter in på någon av följande självstudiekurser:
 
-* [Lägg till autentisering i appen](app-service-mobile-windows-store-dotnet-get-started-users.md) Lär dig hur du autentiserar användare i din app med en identitetsprovider.
-* [Aktivera offlinesynkronisering för din app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Lär dig hur du lägger till offlinestöd i appen med hjälp av en mobilappsserverdel. Med offlinesynkronisering kan slutanvändarna interagera med mobilappen och &mdash;se, lägga till och ändra data&mdash; även när det inte finns någon nätverksanslutning.
+* [Lägga till autentisering i appen](app-service-mobile-windows-store-dotnet-get-started-users.md) Läs om hur du autentiserar användare i din app med en identitetsprovider.
+* [Aktivera synkronisering offline för din app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Lär dig hur du lägger till offlinestöd i appen genom en mobilappsserverdel. Med offlinesynkronisering kan slutanvändarna interagera med mobilappen och &mdash;se, lägga till och ändra data&mdash; även när det inte finns någon nätverksanslutning.
 
 <!-- Anchors. -->
 

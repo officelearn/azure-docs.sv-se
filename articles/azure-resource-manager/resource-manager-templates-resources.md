@@ -1,31 +1,31 @@
 ---
 title: Mallresurser med Azure Resource Manager-| Microsoft Docs
-description: Beskriver avsnittet resurser i Azure Resource Manager-mallar med deklarativ JSON-syntax.
+description: Beskriver resursavsnittet i Azure Resource Manager-mallar med hjälp av deklarativa JSON-syntax.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 12dc5921cc1977b53f0457d89537193eadded188
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1619f3bfdf49820ec529947ea02d1602a7b2aa8c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723835"
 ---
-# <a name="resources-section-of-azure-resource-manager-templates"></a>Avsnittet resurser i Azure Resource Manager-mallar
+# <a name="resources-section-of-azure-resource-manager-templates"></a>Resursavsnittet i Azure Resource Manager-mallar
 
-I avsnittet resurser kan du definiera de resurser som distribueras eller uppdateras. Det här avsnittet får komplicerad, eftersom du måste förstå vilka typer som du distribuerar för att tillhandahålla rätt värden.
+I resursavsnittet kan du definiera de resurser som är distribuerade eller uppdateras. Det här avsnittet kan bli komplicerade eftersom du måste förstå de typer som du distribuerar för att ge rätt värden.
 
 ## <a name="available-properties"></a>Tillgängliga egenskaper
 
-Du kan definiera resurser med följande struktur:
+Du definierar resurser med följande struktur:
 
 ```json
 "resources": [
@@ -83,34 +83,57 @@ Du kan definiera resurser med följande struktur:
 
 | Elementnamn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
-| tillstånd | Nej | Booleskt värde som anger om resursen har distribuerats. |
+| tillstånd | Nej | Booleskt värde som anger om resursen är distribuerad. |
 | apiVersion |Ja |Version av REST-API för att använda för att skapa resursen. |
-| typ |Ja |Typ av resursen. Det här värdet är en kombination av namnområde med resursprovidern och resurstypen (exempelvis **Microsoft.Storage/storageAccounts**). |
-| namn |Ja |Namnet på resursen. Namnet måste följa URI komponenten begränsningar som definierats i RFC3986. Dessutom Azure-tjänster som exponerar resursnamnet att externa parter verifiera namnet så att den är inte ett försök att imitera en annan identitet. |
-| location |Det varierar |Geo-platser som stöds av den angivna resursen. Du kan välja någon av de tillgängliga platserna, men oftast är det klokt att välja ett som är nära dina användare. Vanligtvis gör det också bra att placera resurser som samverkar med varandra i samma region. De flesta resurstyper kräver en plats, men vissa typer (till exempel en rolltilldelning) kräver inte en plats. |
-| tags |Nej |Taggar som är kopplade till resursen. Lägga till taggar för att organisera logiskt resurser i din prenumeration. |
-| Kommentarer |Nej |Anteckningar för dokumentation resurserna i mallen |
-| kopiera |Nej |Om mer än en instans krävs antalet resurser för att skapa. Standardläget är parallell. Ange seriell läge när du inte vill att alla eller resurser som ska distribueras på samma gång. Mer information finns i [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md). |
-| dependsOn |Nej |Resurser som måste distribueras innan den här resursen har distribuerats. Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i rätt ordning. Om resurserna inte är beroende av varandra kan distribueras de parallellt. Värdet kan vara en kommaavgränsad lista över en resurs namn eller resurs unika identifierare. Endast lista över resurser som distribueras i den här mallen. Resurser som inte har definierats i denna mall måste redan finnas. Undvik att lägga till onödiga beroenden som de långsamma distributionen och skapa Cirkelberoenden. Information om inställningen beroenden finns [definiera beroenden i Azure Resource Manager-mallar](resource-group-define-dependencies.md). |
-| properties |Nej |Resurs-specifika konfigurationsinställningar. Värdena för egenskaperna är samma värden som du anger i begärandetexten för REST API-åtgärd (PUT-metoden) att skapa resursen. Du kan också ange en kopia matris om du vill skapa flera instanser av en egenskap. |
-| SKU | Nej | Vissa resurser kan värden som definierar SKU för att distribuera. Du kan till exempel ange typen av redundans för ett lagringskonto. |
-| typ | Nej | Vissa resurser kan ett värde som definierar typ av resurs som du distribuerar. Du kan till exempel ange typen av Cosmos-Databsen ska skapa. |
+| typ |Ja |Typ av resursen. Det här värdet är en kombination av namnområde med resursprovidern och resurstypen (till exempel **Microsoft.Storage/storageAccounts**). |
+| namn |Ja |Namnet på resursen. Namnet måste följa URI-komponent begränsningar som definierats i RFC3986. Dessutom är Azure-tjänster som exponerar resursnamnet externa parter Kontrollera namnet och kontrollera att det inte ett försök att imitera en annan identitet. |
+| location |Varierar |Geo-platser som stöds för den angivna resursen. Du kan välja någon av de tillgängliga platserna, men vanligtvis det vara bra att välja ett som är nära användarna. Vanligtvis är det också vara bra att placera resurser som interagerar med varandra i samma region. De flesta typer av resurser kräver en plats, men vissa typer (till exempel en rolltilldelning) kräver inte en plats. |
+| tags |Nej |Taggar som är kopplade till resursen. Lägga till taggar för att organisera resurser logiskt i din prenumeration. |
+| kommentarer |Nej |Dina anteckningar för att dokumentera resurserna i mallen |
+| kopiera |Nej |Om fler än en instans, hur många resurser för att skapa. Standardläget är parallell. Ange seriell läge när du inte vill att alla eller resurserna som ska distribueras på samma gång. Mer information finns i [och skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md). |
+| dependsOn |Nej |Resurser som måste distribueras innan den här resursen har distribuerats. Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i rätt ordning. När resurserna inte är beroende av varandra, är de distribueras parallellt. Värdet kan vara en kommaavgränsad lista över en resurs namn eller resurs unika identifierare. Endast lista över resurser som distribueras i den här mallen. Resurser som inte har definierats i den här mallen måste redan finnas. Undvik att lägga till onödiga beroenden som de kan sakta distributionen och skapa cirkulärt tjänstberoende. Anvisningar för inställningen beroenden finns i [definiera beroenden i Azure Resource Manager-mallar](resource-group-define-dependencies.md). |
+| properties |Nej |Resurs-specifika konfigurationsinställningar. Värdena för egenskaperna är samma som de värden som du anger i begärandetexten för REST API-åtgärd (PUT-metoden) att skapa resursen. Du kan också ange en kopia matris för att skapa flera instanser av en egenskap. |
+| SKU: n | Nej | Vissa resurser kan värden som definierar SKU för att distribuera. Du kan till exempel ange typen av redundans för ett lagringskonto. |
+| typ | Nej | Vissa resurser kan ett värde som definierar typ av resurs som du distribuerar. Du kan till exempel ange vilken typ av Cosmos DB för att skapa. |
 | plan | Nej | Vissa resurser kan värden som definierar planerar att distribuera. Du kan till exempel ange marketplace-avbildning för en virtuell dator. | 
-| resurser |Nej |Underordnade resurser som är beroende av resursen som definieras. Ange endast resurstyper som tillåts enligt schemat för den överordnade resursen. Den fullständigt kvalificerade typ av underordnade resursen innehåller resurstypen överordnade **Microsoft.Web/sites/extensions**. Beroende på den överordnade resursen är inte underförstådd. Du måste uttryckligen definiera sambandet. |
+| resurser |Nej |Underordnade resurser som är beroende av resursen som definieras. Ange endast resurstyper som tillåts av schemat för den överordnade resursen. Den fullständigt kvalificerade typ av den underordnade resursen omfattar resurstyp överordnade som **Microsoft.Web/sites/extensions**. Beroende på den överordnade resursen är inte underförstådd. Du måste uttryckligen definiera det beroendet. |
+
+## <a name="condition"></a>Tillstånd
+
+När du måste bestämma under distributionen om du vill skapa en resurs eller inte, använda den `condition` element. Värdet för det här elementet matchas till true eller false. När värdet är true, är resursen distribuerad. När värdet är false, är inte resursen distribueras. Till exempel vill ange om ett nytt lagringskonto har distribuerats eller ett befintligt lagringskonto används, använder du:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+För en komplett exempel-mall som använder den `condition` element, se [virtuell dator med ett nytt eller befintligt virtuellt nätverk, lagring och offentlig IP-adress](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
 
 ## <a name="resource-specific-values"></a>Resurs-specifika värden
 
-Den **apiVersion**, **typen**, och **egenskaper** element är olika för varje resurstyp av. Den **sku**, **typ**, och **plan** element är tillgängliga för vissa typer av resurser, men inte alla. För att fastställa värden för dessa egenskaper finns [mallreferensen](/azure/templates/).
+Den **apiVersion**, **typ**, och **egenskaper** element är olika för varje resurstyp. Den **sku**, **typ**, och **plan** element är tillgängliga för vissa typer av resurser, men inte alla. För att fastställa värden för dessa egenskaper finns i [mallreferensen](/azure/templates/).
 
 ## <a name="resource-names"></a>Resursnamn
-I allmänhet kan arbeta du med tre typer av resursnamn i Resource Manager:
+
+I allmänhet bör arbeta du med tre typer av resursnamn i Resource Manager:
 
 * Resursnamn som måste vara unika.
-* Resursnamn som inte behöver vara unika, men välja att ange ett namn som hjälper dig att identifiera resursen.
-* Resursnamn som kan vara generiska.
+* Resursnamn som inte behöver vara unikt, men du kan du välja att ange ett namn som hjälper dig att identifiera resursen.
+* Resursnamn som kan vara allmän.
 
-### <a name="unique-resource-names"></a>Unikt namn
-Du måste ange ett unikt resursnamn för någon resurstyp av som har en slutpunkt för åtkomst av data. Några vanliga typer av resurser som kräver ett unikt namn är:
+### <a name="unique-resource-names"></a>Unika resursnamn
+
+Ange ett unikt resursnamn för någon resurstyp som har en slutpunkt för åtkomst av data. Vissa vanliga typer av resurser som kräver ett unikt namn är:
 
 * Azure Storage<sup>1</sup> 
 * Funktionen Web Apps i Azure App Service
@@ -124,7 +147,7 @@ Du måste ange ett unikt resursnamn för någon resurstyp av som har en slutpunk
 
 <sup>1</sup> lagringskontonamn måste också vara gemener, 24 tecken eller mindre, och inte har någon bindestreck.
 
-När du anger namnet, du kan manuellt skapa ett unikt namn eller använda den [uniqueString()](resource-group-template-functions-string.md#uniquestring) funktion för att generera ett namn. Du kan också lägga till ett prefix eller suffix till den **uniqueString** resultat. Ändra det unika namnet hjälper dig att enkelt identifiera resurstypen från namn. Du kan till exempel generera ett unikt namn för ett lagringskonto med hjälp av följande variabel:
+När du anger namnet, du kan manuellt skapa ett unikt namn eller använda den [uniqueString()](resource-group-template-functions-string.md#uniquestring) funktionen för att skapa ett namn. Du kanske också vill lägga till ett prefix eller suffix till den **uniqueString** resultatet. Ändra det unika namnet kan du enkelt identifiera resurstyp från namn. Du kan till exempel generera ett unikt namn för ett lagringskonto med hjälp av följande variabel:
 
 ```json
 "variables": {
@@ -133,7 +156,7 @@ När du anger namnet, du kan manuellt skapa ett unikt namn eller använda den [u
 ```
 
 ### <a name="resource-names-for-identification"></a>Resursnamn för identifiering
-Vissa typer av resurser som du kanske vill namn, men deras namn behöver inte vara unika. Du kan ange ett namn som identifierar både resurs-kontexten och resurstypen för dessa typer av resurser.
+Vissa typer av resurser som du kanske vill namn, men namnen behöver inte vara unikt. Du kan ange ett namn som identifierar både resurs-kontexten och resurstypen för dessa typer av resurser.
 
 ```json
 "parameters": {
@@ -147,8 +170,8 @@ Vissa typer av resurser som du kanske vill namn, men deras namn behöver inte va
 }
 ```
 
-### <a name="generic-resource-names"></a>Allmänt namn
-Du kan använda ett allmänt namn som är hårdkodat i mallen för resurstyper som främst öppnas från en annan resurs. Du kan till exempel ange ett standard, allmän namn på brandväggsregler på en SQLServer:
+### <a name="generic-resource-names"></a>Allmän resursnamn
+Du kan använda ett allmänt namn som är hårdkodad i mallen för resurstyper som du oftast kommer åt via en annan resurs. Du kan till exempel ange ett standard, allmän namn på brandväggsregler på en SQLServer:
 
 ```json
 {
@@ -159,21 +182,21 @@ Du kan använda ett allmänt namn som är hårdkodat i mallen för resurstyper s
 ```
 
 ## <a name="location"></a>Plats
-När du distribuerar en mall måste du ange en plats för varje resurs. Olika typer stöds i olika platser. Använda Azure PowerShell eller Azure CLI om du vill se en lista över platser som är tillgängliga för din prenumeration för en viss resurstyp. 
+När du distribuerar en mall måste du ange en plats för varje resurs. Olika resurstyper stöds på olika platser. Om du vill se en lista över platser som är tillgängliga för din prenumeration för en viss resurstyp, använder du Azure PowerShell eller Azure CLI. 
 
-I följande exempel använder PowerShell för att hämta platser för den `Microsoft.Web\sites` resurstyp:
+I följande exempel använder PowerShell för att hämta platserna för den `Microsoft.Web\sites` resurstyp:
 
 ```powershell
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
-I följande exempel använder Azure CLI 2.0 för att hämta platser för den `Microsoft.Web\sites` resurstyp:
+I följande exempel används Azure CLI för att få platser för den `Microsoft.Web\sites` resurstyp:
 
 ```azurecli
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-Ange platsen efter att placeringar som stöds för dina resurser i mallen. Det enklaste sättet att ange det här värdet är att skapa en resursgrupp i en plats som har stöd för resurstyperna och ange varje plats som `[resourceGroup().location]`. Du kan omdistribuera mallen till resursgrupper på olika platser och inte att ändra alla värden i mallen eller parametrar. 
+Ange den platsen när du har fastställt platser som stöds för dina resurser i din mall. Det enklaste sättet att ange det här värdet är att skapa en resursgrupp på en plats som har stöd för resurstyperna och inställd på varje plats `[resourceGroup().location]`. Du kan distribuera om mallen till resursgrupper på olika platser och ändras inte alla värden i den mall eller parametrar. 
 
 I följande exempel visas ett lagringskonto som har distribuerats till samma plats som resursgruppen:
 
@@ -204,7 +227,7 @@ I följande exempel visas ett lagringskonto som har distribuerats till samma pla
 }
 ```
 
-Om du behöver att hårdkoda platsen i mallen kan du ange namnet på en av regionerna som stöds. I följande exempel visas ett lagringskonto som alltid har distribuerats till norra centrala USA:
+Om du behöver att hårdkoda platsen i mallen kan du ange namnet på en av regionerna som stöds. I följande exempel visas ett lagringskonto som distribueras alltid till norra centrala USA:
 
 ```json
 {
@@ -239,7 +262,7 @@ Om du behöver att hårdkoda platsen i mallen kan du ange namnet på en av regio
 
 ## <a name="child-resources"></a>Underordnade resurser
 
-Du kan också definiera en matris med underordnade resurser inom vissa typer av resurser. Underordnade är resurser som finns bara i samband med en annan resurs. Till exempel kan inte en SQL-databas finnas utan en SQLServer så att databasen är en underordnad till servern. Du kan definiera databasen i definitionen för servern.
+Du kan också definiera en uppsättning underordnade resurser inom vissa typer av resurser. Underordnade resurser finns resurser som finns bara inom ramen för en annan resurs. Till exempel kan inte en SQL-databas finnas utan en SQLServer så att databasen är en underordnad till servern. Du kan definiera databasen i definitionen för servern.
 
 ```json
 {
@@ -258,13 +281,13 @@ Du kan också definiera en matris med underordnade resurser inom vissa typer av 
 }
 ```
 
-När kapslade, typen är värdet `databases` men dess fullständiga resurstypen är `Microsoft.Sql/servers/databases`. Du inte anger `Microsoft.Sql/servers/` eftersom det antas från den överordnade resurstypen. Namnet på underordnade resursen har angetts till `exampledatabase` men det fullständiga namnet innehåller namnet på överordnade. Du inte anger `exampleserver` eftersom det antas från den överordnade resursen.
+När kapslade, vilken anges till `databases` men dess fullständiga resurstypen är `Microsoft.Sql/servers/databases`. Du inte anger `Microsoft.Sql/servers/` eftersom det antas från den överordnade resurstypen. Namnet på underordnade resursen är inställd `exampledatabase` men det fullständiga namnet innehåller namnet på överordnade. Du inte anger `exampleserver` eftersom det antas från den överordnade resursen.
 
-Formatet för resurstypen underordnade är: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
+Formatet för den underordnade resurstypen är: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
-Formatet på underordnade resursnamnet är: `{parent-resource-name}/{child-resource-name}`
+Formatet på namnet på underordnade resursen är: `{parent-resource-name}/{child-resource-name}`
 
-Men du behöver inte definiera databas på servern. Du kan definiera den underordnade resursen på den översta nivån. Du kan använda den här metoden om den överordnade resursen inte är distribuerat i samma mall, eller om vill använda `copy` att skapa flera underordnade resurser. Med den här metoden måste du ange fullständig resurstypen och inkludera namnet på överordnade resursen i namnet på underordnade resursen.
+Men du behöver definiera databasen på servern. Du kan definiera den underordnade resursen på den översta nivån. Du kan använda den här metoden om den överordnade resursen inte är distribuerat i samma mall, eller om vill använda `copy` och skapa flera underordnade resurser. Med den här metoden måste du ange fullständig resurstypen och inkludera namnet på överordnade resursen i namnet på underordnade resursen.
 
 ```json
 {
@@ -283,7 +306,7 @@ Men du behöver inte definiera databas på servern. Du kan definiera den underor
 }
 ```
 
-När man skapar en fullständiga referens till en resurs, är ordningen att kombinera segment från typ och namn inte bara en sammanfogning av två.  Använd i stället efter namnområde, en sekvens med *typnamn/* par från minst specifika mest specifika:
+När en fullständiga referens till en resurs, inte bara en sammanfogning av två den för att kombinera segment från typ och namn. Använd i stället en sekvens med efter namnområdet, *typnamn/* par från minst specifika att mest specifika:
 
 ```json
 {resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
@@ -291,10 +314,10 @@ När man skapar en fullständiga referens till en resurs, är ordningen att komb
 
 Exempel:
 
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` stämmer `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` är inte korrekt
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` stämmer `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` stämmer inte
 
 ## <a name="recommendations"></a>Rekommendationer
-Följande information kan vara användbart när du arbetar med resurser:
+Följande information kan vara till hjälp när du arbetar med resurser:
 
 * För att hjälpa andra deltagare förstå syftet med resursen, ange **kommentarer** för varje resurs i mallen:
    
@@ -311,7 +334,7 @@ Följande information kan vara användbart när du arbetar med resurser:
    ]
    ```
 
-* Om du använder en *offentlig slutpunkt* i mallen (till exempel Azure Blob storage offentlig slutpunkt), *gör inte hårdkoda* namnområdet. Använd den **referens** funktion för att dynamiskt hämta namnområdet. Du kan använda den här metoden för att distribuera mallen till olika namnområdes-offentliga miljöer utan att manuellt ändra slutpunkten i mallen. Ange API-versionen till samma version som du använder för lagringskontot i mallen:
+* Om du använder en *offentlig slutpunkt* i mallen (till exempel ett Azure Blob storage offentlig slutpunkt), *gör inte hårdkoda* namnområdet. Använd den **referens** funktionen för att dynamiskt hämta namnområdet. Du kan använda den här metoden för att distribuera mallen till olika offentliga namnrymdsmiljöer utan att manuellt ändra slutpunkten i mallen. Ange API-versionen till samma version som du använder för storage-kontot i mallen:
    
    ```json
    "osDisk": {
@@ -322,7 +345,7 @@ Följande information kan vara användbart när du arbetar med resurser:
    }
    ```
    
-   Om lagringskontot distribueras i samma mall som du skapar, behöver du inte ange leverantörens namnrymd när du refererar till resursen. I följande exempel visas förenklad syntax:
+   Om lagringskontot har distribuerats i samma mall som du skapar, behöver du inte ange leverantörens namnområde när du refererar till resursen. I följande exempel visas syntaxen förenklade:
    
    ```json
    "osDisk": {
@@ -333,7 +356,7 @@ Följande information kan vara användbart när du arbetar med resurser:
    }
    ```
    
-   Om du har andra värden i mallen som är konfigurerade för att använda en offentlig namnrymd kan ändra dessa värden för att återspegla samma **referens** funktion. Du kan till exempel ange det **storageUri** -egenskapen för den virtuella dator diagnostikprofilen:
+   Om du har andra värden i mallen som är konfigurerade för att använda en offentlig namnrymd kan ändra dessa värden för att återspegla samma **referens** funktion. Du kan till exempel ange den **storageUri** egenskapen för diagnostikprofilen för virtuell dator:
    
    ```json
    "diagnosticsProfile": {
@@ -344,7 +367,7 @@ Följande information kan vara användbart när du arbetar med resurser:
    }
    ```
    
-   Du kan också referera till ett befintligt lagringskonto i en annan resursgrupp:
+   Du kan också referera till ett befintligt lagringskonto som tillhör en annan resursgrupp:
 
    ```json
    "osDisk": {
@@ -355,16 +378,16 @@ Följande information kan vara användbart när du arbetar med resurser:
    }
    ```
 
-* Tilldela offentliga IP-adresser till en virtuell dator endast när ett program kräver. Använd ingående NAT-regler, en virtuell nätverksgateway eller en jumpbox för att ansluta till en virtuell dator (VM) för felsökning eller för att hantera administrativa syften.
+* Tilldela offentliga IP-adresser till en virtuell dator bara när ett program kräver. Använd inkommande NAT-regler, en virtuell nätverksgateway eller en jumpbox när du ansluter till en virtuell dator (VM) för felsökning eller för att hantera administrativa syften.
    
      Mer information om hur du ansluter till virtuella datorer finns:
    
-   * [Köra virtuella datorer för en arkitektur med flera nivåer i Azure](../guidance/guidance-compute-n-tier-vm.md)
+   * [Köra virtuella datorer för en N-tier-arkitektur i Azure](../guidance/guidance-compute-n-tier-vm.md)
    * [Konfigurera WinRM-åtkomst för virtuella datorer i Azure Resource Manager](../virtual-machines/windows/winrm.md)
    * [Tillåt extern åtkomst till den virtuella datorn med hjälp av Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Tillåt extern åtkomst till den virtuella datorn med hjälp av PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Ge extern åtkomst till din Linux VM med hjälp av Azure CLI](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
-* Den **domainNameLabel** -egenskapen för offentliga IP-adresser måste vara unika. Den **domainNameLabel** värdet måste vara mellan 3 och 63 tecken långt och följa de regler som anges av den här reguljärt uttryck: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Eftersom den **uniqueString** funktionen genererar en sträng som är 13 tecken lång, den **dnsPrefixString** parameter är begränsad till 50 tecken:
+   * [Tillåt extern åtkomst till din Linux-VM med hjälp av Azure CLI](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+* Den **domainNameLabel** -egenskapen för offentliga IP-adresser måste vara unikt. Den **domainNameLabel** värdet måste vara mellan 3 och 63 tecken långt och följa de regler som anges av den här reguljärt uttryck: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Eftersom den **uniqueString** funktionen genererar en sträng som är 13 tecken lång, den **dnsPrefixString** parametern är begränsad till 50 tecken:
 
    ```json
    "parameters": {
@@ -381,7 +404,7 @@ Följande information kan vara användbart när du arbetar med resurser:
    }
    ```
 
-* När du lägger till ett lösenord för tillägget för anpassat skript kan använda den **commandToExecute** egenskap i den **protectedSettings** egenskapen:
+* När du lägger till ett lösenord för ett anpassat skripttillägg använder den **commandToExecute** -egenskapen i den **protectedSettings** egenskapen:
    
    ```json
    "properties": {
@@ -401,14 +424,14 @@ Följande information kan vara användbart när du arbetar med resurser:
    ```
    
    > [!NOTE]
-   > Använd för att säkerställa att hemligheter krypteras när de skickas som parametrar till virtuella datorer och tillägg i **protectedSettings** -egenskapen för de relevanta tillägg.
+   > För att säkerställa att hemligheter som krypteras när de skickas som parametrar till virtuella datorer och tillägg, använda den **protectedSettings** egenskapen för de relevanta tillägg.
    > 
    > 
 
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill visa kompletta mallar för många olika typer av lösningar kan du se [Azure-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/).
-* Mer information om de funktioner som du kan använda från i en mall finns [Azure Resource Manager mallen Functions](resource-group-template-functions.md).
-* Om du vill kombinera flera mallar under distributionen finns [använda länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
-* Du kan behöva använda resurser som finns i en annan resursgrupp. Det här scenariot är vanligt när du arbetar med lagringskonton eller virtuella nätverk som delas mellan flera resursgrupper. Mer information finns i [resourceId funktionen](resource-group-template-functions-resource.md#resourceid).
-* Information om begränsningar för resursen finns [rekommenderas namnkonventionerna för Azure-resurser](../guidance/guidance-naming-conventions.md).
+* Mer information om de funktioner du kan använda från inom en mall finns i [Azure Resource Manager-Mallfunktioner](resource-group-template-functions.md).
+* Om du vill använda mer än en mall under distributionen, se [med länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
+* Du kan behöva använda resurser som finns i en annan resursgrupp. Det här scenariot är vanligt när du arbetar med lagringskonton eller virtuella nätverk som delas mellan flera resursgrupper. Mer information finns i den [resourceId funktionen](resource-group-template-functions-resource.md#resourceid).
+* Information om begränsningar för resursen finns i [rekommenderade namnkonventioner för Azure-resurser](../guidance/guidance-naming-conventions.md).

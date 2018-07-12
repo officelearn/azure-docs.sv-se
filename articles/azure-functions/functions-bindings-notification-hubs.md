@@ -1,5 +1,5 @@
 ---
-title: Notification Hubs bindningar för Azure Functions
+title: Notification Hubs-bindningar för Azure Functions
 description: Förstå hur du använder Azure Notification Hub-bindning i Azure Functions.
 services: functions
 documentationcenter: na
@@ -7,7 +7,7 @@ author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
-keywords: Azure functions, funktioner, händelsebearbetning, dynamiska beräkning serverlösa arkitektur
+keywords: Azure functions, funktioner, händelsebearbetning, dynamisk beräkning, serverlös arkitektur
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -16,46 +16,46 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
 ms.openlocfilehash: 4208a7be3c002bcefed273015d002cb1aee0fecd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724983"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38467672"
 ---
-# <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hubs utdatabindning för Azure Functions
+# <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hub-utdatabindning för Azure Functions
 
-Den här artikeln beskrivs hur du skickar push-meddelanden med hjälp av [Azure Notification Hubs](../notification-hubs/notification-hubs-push-notification-overview.md) bindningar i Azure Functions. Azure Functions stöder utdata bindningar för Notification Hubs.
+Den här artikeln beskrivs hur du skickar push-meddelanden med hjälp av [Azure Notification Hubs](../notification-hubs/notification-hubs-push-notification-overview.md) bindningar i Azure Functions. Azure Functions stöder utdatabindningar för Meddelandehubbar.
 
-Azure Notification Hub måste konfigureras för den plattform meddelanden Service (PNS) du vill använda. Information om hur du hämtar push-meddelanden i klientappen från Notification Hubs finns [komma igång med Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) och välj målplattformen klienten från listrutan längst upp på sidan.
+Azure Meddelandehubbar måste konfigureras för den plattformen meddelanden Service (PNS) du vill använda. Läs hur du hämtar push-meddelanden i klientappen från Meddelandehubbar i [komma igång med Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) och välj din mål-klientplattform från listrutan längst upp på sidan.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Paket - fungerar 1.x
+## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
-Notification Hubs-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet-paketet version 1.x. Källkoden för paketet är i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub-lagringsplatsen.
+Notification Hubs-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet-paketet, version 1.x. Källkoden för paketet finns i den [azure-webjobs-sdk-tilläggen](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
 
-Den här bindningen är inte tillgänglig i funktioner 2.x.
+Den här bindningen är inte tillgänglig i Functions 2.x.
 
-## <a name="example---template"></a>Exempel - mall
+## <a name="example---template"></a>Exempel – mall
 
-Du skickar meddelanden kan vara interna meddelanden eller [mall meddelanden](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Interna meddelanden riktade till en viss klient-plattform som konfigurerats i den `platform` egenskapen för utdata-bindning. Ett meddelande om mall kan användas för att fokusera på flera plattformar.   
+Du skickar meddelanden kan vara interna meddelanden eller [mallvarningar](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Interna meddelanden rikta en specifika klient-plattform som konfigurerats i den `platform` egenskapen för utdata-bindning. Ett meddelande i mallen kan användas för att fokusera på flera plattformar.   
 
-Finns i det språkspecifika:
+Se exempel språkspecifika:
 
-* [C# skript - out-parameter](#c-script-template-example---out-parameter)
-* [C# skript - asynkron](#c-script-template-example---asynchronous)
-* [C# skript - JSON](#c-script-template-example---json)
-* [C# skript - typer av dokumentbibliotek](#c-script-template-example---library-types)
+* [C#-skript – out-parameter](#c-script-template-example---out-parameter)
+* [C#-skript – asynkrona](#c-script-template-example---asynchronous)
+* [C#-skript - JSON](#c-script-template-example---json)
+* [C#-skript - bibliotekstyper](#c-script-template-example---library-types)
 * [F#](#f-template-example)
 * [JavaScript](#javascript-template-example)
 
-### <a name="c-script-template-example---out-parameter"></a>C# mallen exempel på skript - out-parameter
+### <a name="c-script-template-example---out-parameter"></a>C#-skript exempelmall - out-parameter
 
-Det här exemplet skickar en avisering för en [mallen registrering](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som innehåller en `message` platshållare i mallen.
+Det här exemplet skickar ett meddelande en [registrering av mallen](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som innehåller en `message` platshållare i mallen.
 
 ```cs
 using System;
@@ -76,9 +76,9 @@ private static IDictionary<string, string> GetTemplateProperties(string message)
 }
 ```
 
-### <a name="c-script-template-example---asynchronous"></a>C# mallen exempel på skript - asynkron
+### <a name="c-script-template-example---asynchronous"></a>C#-skript exempelmall - asynkron
 
-Om du använder asynkrona koden är out-parametrar inte tillåtna. I det här fallet använder `IAsyncCollector` att returnera mall-meddelande. Följande kod är ett asynkront exempel av koden ovan. 
+Om du använder asynkron kod är out-parametrar inte tillåtna. I det här fallet `IAsyncCollector` att returnera mall-meddelande. Följande kod är en asynkron exempel på koden ovan. 
 
 ```cs
 using System;
@@ -101,9 +101,9 @@ private static IDictionary<string, string> GetTemplateProperties(string message)
 }
 ```
 
-### <a name="c-script-template-example---json"></a>C# mallen exempel på skript - JSON
+### <a name="c-script-template-example---json"></a>C#-skript mall exempel - JSON
 
-Det här exemplet skickar en avisering för en [mallen registrering](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som innehåller en `message` platshållare i mallen med hjälp av en giltig JSON-sträng.
+Det här exemplet skickar ett meddelande en [registrering av mallen](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som innehåller en `message` platshållare i mallen med hjälp av en giltig JSON-sträng.
 
 ```cs
 using System;
@@ -115,9 +115,9 @@ public static void Run(string myQueueItem,  out string notification, TraceWriter
 }
 ```
 
-### <a name="c-script-template-example---library-types"></a>C# mallen exempel på skript - typer av dokumentbibliotek
+### <a name="c-script-template-example---library-types"></a>C#-skript exempelmall - bibliotekstyper
 
-Det här exemplet visar hur du använder typer som definieras i den [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). 
+Det här exemplet visar hur du använder typer som definieras i den [Microsoft Azure Notification Hubs-biblioteket](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). 
 
 ```cs
 #r "Microsoft.Azure.NotificationHubs"
@@ -140,18 +140,18 @@ private static TemplateNotification GetTemplateNotification(string message)
 }
 ```
 
-### <a name="f-template-example"></a>F # exempel
+### <a name="f-template-example"></a>F #-exempelmall
 
-Det här exemplet skickar en avisering för en [mallen registrering](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som innehåller `location` och `message`.
+Det här exemplet skickar ett meddelande en [registrering av mallen](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som innehåller `location` och `message`.
 
 ```fsharp
 let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
     notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
 ```
 
-### <a name="javascript-template-example"></a>Exempel för JavaScript-mall
+### <a name="javascript-template-example"></a>Exempelmall för JavaScript
 
-Det här exemplet skickar en avisering för en [mallen registrering](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som innehåller `location` och `message`.
+Det här exemplet skickar ett meddelande en [registrering av mallen](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som innehåller `location` och `message`.
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -170,9 +170,9 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="example---apns-native"></a>Exempel – APN interna
+## <a name="example---apns-native"></a>Exempel – APNS interna
 
-C# skript exemplet visar hur du skickar ett enhetligt APN-meddelande. 
+Det här Skriptexemplet för C# visar hur du skickar en systemspecifika meddelanden med APNS. 
 
 ```cs
 #r "Microsoft.Azure.NotificationHubs"
@@ -201,9 +201,9 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 }
 ```
 
-## <a name="example---gcm-native"></a>Exempel - GCM interna
+## <a name="example---gcm-native"></a>Exempel – interna GCM
 
-C# skript exemplet visar hur du skickar en inbyggd GCM-meddelanden. 
+Det här Skriptexemplet för C# visar hur du skickar interna GCM-meddelanden. 
 
 ```cs
 #r "Microsoft.Azure.NotificationHubs"
@@ -232,9 +232,9 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 }
 ```
 
-## <a name="example---wns-native"></a>Exempel: WNS interna
+## <a name="example---wns-native"></a>Exempel – WNS interna
 
-C# skript exemplet visar hur du använder typer som definieras i den [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) att skicka ett enhetligt WNS popup-meddelande. 
+Det här Skriptexemplet för C# visar hur du använder typer som definieras i den [Microsoft Azure Notification Hubs-biblioteket](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) att skicka en intern WNS popup-meddelande. 
 
 ```cs
 #r "Microsoft.Azure.NotificationHubs"
@@ -279,27 +279,27 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) attribut.
 
-Attributets konstruktorparametrarna och egenskaper som beskrivs i den [configuration](#configuration) avsnitt.
+Attributets konstruktor parametrar och egenskaper finns i den [configuration](#configuration) avsnittet.
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `NotificationHub` attribut:
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `NotificationHub` attribut:
 
-|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
 |**typ** |Saknas| Måste anges till ”notificationHub”. |
-|**riktning** |Saknas| Måste anges till ”out”. | 
-|**Namn** |Saknas| Variabelnamn som används i Funktionskoden för hubben meddelandet. |
-|**TagExpression** |**TagExpression** | Tagguttryck kan du ange att meddelanden ska levereras till en uppsättning enheter som har registrerats för att ta emot meddelanden som matchar etikettuttrycket.  Mer information finns i [Routning och tagg uttryck](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
-|**hubName** | **hubName** | Namn på notification hub resurs i Azure-portalen. |
-|**Anslutning** | **ConnectionStringSetting** | Namnet på en appinställning som innehåller en anslutningssträng för Notification Hubs.  Anslutningssträngen måste anges till den *DefaultFullSharedAccessSignature* värde för meddelandehubben. Se [sträng anslutningsinställningar](#connection-string-setup) senare i den här artikeln.|
-|**Plattform** | **Plattform** | Egenskapen plattform anger klientplattformen notification-mål. Som standard om egenskapen plattform utelämnas från utdata-bindningen kan mallen meddelanden användas för alla plattformar som konfigurerats på Azure Notification Hub. Mer information om hur du använder mallar i allmänhet att skicka mellan plattform meddelanden med en Azure Notification Hub finns [mallar](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). När inställningen **plattform** måste vara något av följande värden: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Mer information om hur du konfigurerar meddelandehubben för APNS och ta emot meddelandet i ett klientprogram, se [skicka push-meddelanden till iOS med Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Mer information om hur du konfigurerar meddelandehubben för ADM och ta emot meddelandet i en Kindle-app finns [komma igång med Notification Hubs för Kindle-appar](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>gcm</code>&mdash;[Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Firebase Cloud Messaging, vilket är den nya versionen av GCM stöds också. Mer information finns i [skicka push-meddelanden till Android med Azure Notification Hubs](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>&mdash;[Windows Push Notification Services](https://msdn.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) riktad Windows-plattformar. Windows Phone 8.1 och senare stöds också av WNS. Mer information finns i [komma igång med Notification Hubs för Windows Universal-plattformen appar](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Microsoft Push Notification Service](https://msdn.microsoft.com/library/windows/apps/ff402558.aspx). Den här plattformen stöder Windows Phone 8 och Windows Phone-plattformar som tidigare. Mer information finns i [skicka push-meddelanden med Azure Notification Hubs på Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
+|**riktning** |Saknas| Måste anges till ”ut”. | 
+|**Namn** |Saknas| Variabelnamnet som används i Funktionskoden för notification hub-meddelande. |
+|**tagExpression** |**TagExpression** | Tagguttryck kan du ange att meddelanden ska levereras till en uppsättning enheter som har registrerats för att ta emot meddelanden som matchar etikettuttrycket.  Mer information finns i [Routning och tagg uttryck](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
+|**HubName** | **HubName** | Namnet på notification hub-resurs i Azure-portalen. |
+|**anslutning** | **ConnectionStringSetting** | Namnet på en appinställning som innehåller en anslutningssträng för Meddelandehubbar.  Anslutningssträngen måste anges till den *DefaultFullSharedAccessSignature* värde för din meddelandehubb. Se [sträng anslutningsinställningar](#connection-string-setup) senare i den här artikeln.|
+|**Plattform** | **Plattform** | Egenskapen plattform anger klientplattform notification-mål. Som standard om egenskapen plattform utelämnas från utdata-bindning kan mallvarningar användas för att rikta vilken plattform som konfigurerats på Azure Notification Hub. Mer information om hur du använder mallar i allmänhet att skicka plattformsoberoende meddelanden plattformar med Azure Notification Hub finns i [mallar](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). När värdet **plattform** måste vara något av följande värden: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Läs mer på att konfigurera meddelandehubben för APNS och ta emot meddelandet i en klientapp [skicka push-meddelanden till iOS med Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Läs mer på att konfigurera meddelandehubben för ADM och ta emot meddelandet i en Kindle-app, [komma igång med Notification Hubs för Kindle-appar](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>gcm</code>&mdash;[Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Firebase Cloud Messaging som är den nya versionen av GCM, stöds också. Mer information finns i [skicka push-meddelanden till Android med Azure Notification Hubs](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>&mdash;[Windows Push Notification Services](https://msdn.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) utvecklar Windows-plattformen. Windows Phone 8.1 och senare stöds också av WNS. Mer information finns i [komma igång med Notification Hubs för Windows Universal-Plattformsappar](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Microsoft Push Notification Service](https://msdn.microsoft.com/library/windows/apps/ff402558.aspx). Den här plattformen har stöd för Windows Phone 8 och Windows Phone-plattformar som tidigare. Mer information finns i [skicka push-meddelanden med Azure Notification Hubs på Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-### <a name="functionjson-file-example"></a>exempel på Function.JSON
+### <a name="functionjson-file-example"></a>exempel på en Function.JSON
 
-Här är ett exempel på en Notification Hubs-bindning i en *function.json* fil.
+Här är ett exempel på en Notification Hub-bindning i en *function.json* fil.
 
 ```json
 {
@@ -320,15 +320,15 @@ Här är ett exempel på en Notification Hubs-bindning i en *function.json* fil.
 
 ### <a name="connection-string-setup"></a>Anslutningsinställningar för sträng
 
-Om du vill använda en notification hub utdata-bindning måste du konfigurera anslutningssträngen för hubben. Du kan välja en befintlig meddelandehubben eller skapa en ny en direkt från den *integrera* fliken i Azure-portalen. Du kan också konfigurera anslutningssträngen manuellt. 
+Om du vill använda en notification hub-utdatabindning måste du konfigurera anslutningssträngen för hubben. Du kan välja en befintlig notification hub eller skapa en ny en direkt från den *integrera* fliken i Azure-portalen. Du kan också konfigurera anslutningssträngen manuellt. 
 
-Konfigurera anslutningssträngen till en befintlig meddelandehubben:
+Konfigurera anslutningssträngen till en befintlig notification hub:
 
-1. Navigera till din meddelandehubb i de [Azure-portalen](https://portal.azure.com), Välj **åtkomstprinciper**, och välj kopieringsknappen bredvid den **DefaultFullSharedAccessSignature** princip. Då kopieras anslutningssträngen för den *DefaultFullSharedAccessSignature* principen till meddelandehubben. Den här anslutningssträngen kan funktionen Skicka meddelanden till hubben.
+1. Navigera till din meddelandehubb i de [Azure-portalen](https://portal.azure.com), Välj **åtkomstprinciper**, och välj på kopieringsknappen bredvid den **DefaultFullSharedAccessSignature** princip. Anslutningssträngen för kopieras den *DefaultFullSharedAccessSignature* principen till din meddelandehubb. Den här anslutningssträngen kan funktionen Skicka meddelanden till hubben.
     ![Kopiera anslutningssträngen för notification hub](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
-1. Navigera till appen funktionen i Azure portal, väljer **programinställningar**, lägga till en nyckel som **MyHubConnectionString**, klistra in den kopierade *DefaultFullSharedAccessSignature* för meddelandehubben som värdet och klicka sedan på **spara**.
+1. Navigera till din funktionsapp i Azure portal, Välj **programinställningar**, lägga till en nyckel som **MyHubConnectionString**, klistra in den kopierade *DefaultFullSharedAccessSignature* för meddelandehubben som värdet och klicka sedan på **spara**.
 
-Namnet på den här inställningen är vad som ska ingå i inställningen utdata bindning anslutning i *function.json* eller .NET-attribut. Finns det [konfigurationsavsnittet](#configuration) tidigare i den här artikeln.
+Namnet på den här inställningen är vad som ingår i utdata-bindning anslutningsinställningen i *function.json* eller .NET-attributet. Se den [konfigurationsavsnittet](#configuration) tidigare i den här artikeln.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -341,5 +341,5 @@ Namnet på den här inställningen är vad som ska ingå i inställningen utdata
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
+> [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
 

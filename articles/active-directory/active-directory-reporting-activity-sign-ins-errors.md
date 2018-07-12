@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8892f9a2699d18fbaf9161ffb01906a071ab2243
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856764"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971082"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Rapporter om inloggningfelkoder i Azure Active Directory-portalen
 
@@ -78,7 +78,7 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |50012| Det här är ett allmänt felmeddelande som anger att autentiseringen misslyckades. Detta kan inträffa av skäl som saknas eller är ogiltig autentiseringsuppgifter eller anspråk i begäran. Se till att begäran skickas med rätt autentiseringsuppgifter och anspråk. |
 |50013|Kontrollen är ogiltig av olika skäl – tokenutfärdaren matchar inte API-versionen inom det giltiga tidsintervallet – har upphört att gälla – felaktig – uppdateringstoken i försäkran är inte en primär uppdateringstoken.|
 |50017|Verifieringen av certifikatutfärdaren misslyckades, av följande skäl:<ul><li>Det går inte att hitta utfärdarcertifikatet i listan med betrodda certifikat</li><li>Det gick inte att hitta förväntat CrlSegment</li><li>Det går inte att hitta utfärdarcertifikatet i listan med betrodda certifikat</li><li>Delta CRL-distributionspunkten har konfigurerats utan motsvarande CRL-distributionspunkt</li><li>Det gick inte att hämta giltiga CRL-segment på grund av timeout-problem</li><li>Det gick inte att ladda ned CRL</li></ul>Kontakta administratören för klientorganisationen.|
-|50020|Användaren är autentiserad – det går inte att utfärda token på grund av versionsproblem – utfärdarens namn har inte angetts – problem med utfärdarnamnet (null – max. längd). Kontakta appägaren|
+|50020|Användaren är obehörig för någon av följande orsaker.<ul><li>Användaren försöker logga in med ett konto för MSA med v1-slutpunkten</li><li>Användaren finns inte i klienten.</li></ul> Kontakta appägaren.|
 |50027|Ogiltig JWT-token på grund av följande skäl:<ul><li>innehåller inte temporärt nonce-anspråk, sub-anspråk</li><li>felaktig matchning av ämnesidentifierare</li><li>duplicerade anspråk i idToken-anspråk</li><li>oväntad utfärdare</li><li>oväntad målgrupp</li><li>inte inom giltigt tidsintervall </li><li>fel tokenformat</li><li>Signaturverifieringen för externa ID-token från utfärdare misslyckades.</li></ul>Kontakta programägaren|
 |50029|Ogiltig URI – domännamnet innehåller ogiltiga tecken. Kontakta administratören för klientorganisationen.|
 |50034|Användaren finns inte i katalogen. Kontakta administratören för din klientorganisation.|
@@ -100,7 +100,7 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |50089|Flödestoken har upphört att gälla – autentiseringen misslyckades. Låt användaren försöka logga in igen med användarnamn och lösenord|
 |50097|Enhetsautentisering krävs – DeviceId – DeviceAltSecId-anspråk är null ELLER så finns det ingen enhet som motsvarar enhets-ID|
 |50099|JWT-signaturen är ogiltig. Kontakta appägaren.|
-|50105|Den inloggade användaren har inte tilldelats en roll för programmet där personen är inloggad. Tilldela användaren till programmet. Mer information: [https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
+|50105|Den inloggade användaren har inte tilldelats en roll för programmet där personen är inloggad. Tilldela användaren till programmet. Mer information: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
 |50107|Det begärda objektet för federationssfären finns inte. Kontakta administratören för klientorganisationen.|
 |50120|Utfärda med JWT-rubrik. Kontakta administratören för klientorganisationen.|
 |50124|Anspråkstransformeringen innehåller ogiltiga indataparametrar. Kontakta administratören för klientorganisationen för att uppdatera principen.|
@@ -174,9 +174,10 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |81001|Användarens Kerberos-biljett är för stor. Detta kan inträffa om användaren har för många grupper och Kerberos-biljetten därmed innehåller för många gruppmedlemskap. Minska användarens gruppmedlemskap och försök igen.|
 |81005|Autentiseringspaketet stöds inte|
 |81007|Klienten har inte aktiverats för sömlös SSO|
-|90014| Ett obligatoriskt fält för ett protokollmeddelande var saknas, Kontakta programmets ägare. Om du är programmets ägare kan du kontrollera att du har alla nödvändiga parametrar för inloggningsbegäran. 
+|90010|Begäran stöds inte av olika anledningar. Till exempel begäran görs med hjälp av en metod för begäran stöds inte (endast POST-metoden stöds) eller token Signeringsalgoritm som begärdes stöds inte. Kontakta apputvecklaren.|
+|90014| Ett obligatoriskt fält för ett protokollmeddelande var saknas, Kontakta programmets ägare. Om du är programmets ägare kan du kontrollera att du har alla nödvändiga parametrar för inloggningsbegäran. |
 |90072| Kontot måste läggas till som en extern användare i klientorganisationen först. Logga ut och logga in igen med en annan Azure AD konto.|
-|90094| Beviljande måste ha administratörsbehörighet. Be klientorganisationens administratör att ge medgivande för det här programmet.
+|90094| Beviljande måste ha administratörsbehörighet. Be klientorganisationens administratör att ge medgivande för det här programmet.|
 
 ## <a name="next-steps"></a>Nästa steg
 

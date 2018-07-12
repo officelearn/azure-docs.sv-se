@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 0180968d85fffcaf1ee5e224e72864d2ab0511ca
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d2e0f1ecea84398f9e4d43af07b9871f36e8dd48
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446073"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295018"
 ---
 # <a name="azure-ad-access-reviews"></a>Azure AD-åtkomstgranskningar
 
@@ -43,4 +43,4 @@ Med åtkomstgranskningar i Azure Active Directory (Azure AD) kan organisationer 
 - [Hantera gäståtkomst med Azure AD-åtkomstgranskningar](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [Hantera program och kontroller för Azure AD-åtkomstgranskningar](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Skapa en åtkomstgranskning för medlemmar i en grupp eller åtkomst till ett program](active-directory-azure-ad-controls-create-access-review.md)
-- [Skapa en åtkomstgranskning av användarna i en administrativ roll i Azure AD](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Skapa en åtkomstgranskning av användarna i en administrativ roll i Azure AD](privileged-identity-management/pim-how-to-start-security-review.md)

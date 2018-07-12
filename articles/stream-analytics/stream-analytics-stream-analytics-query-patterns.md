@@ -1,6 +1,6 @@
 ---
 title: Vanliga frågemönster i Azure Stream Analytics
-description: Den här artikeln beskriver ett antal vanliga frågemönster och modeller som är användbara i Azure Stream Analytics-jobb.
+description: Den här artikeln beskriver ett antal vanliga frågemönster och -designer som är användbara i Azure Stream Analytics-jobb.
 services: stream-analytics
 author: jseb225
 manager: kfile
@@ -9,25 +9,25 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: f63ccd62136fe8d556a4cfb591e3294f3751dfb3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1ca7d40bb3c358b374e354fa2c3ef77edba055c9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652254"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971789"
 ---
-# <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exempel på vanliga Stream Analytics användningsmönster fråga
+# <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Fråga efter exempel för vanliga mönster för Stream Analytics-användning
 
 ## <a name="introduction"></a>Introduktion
-Frågorna i Azure Stream Analytics uttrycks i ett SQL-liknande frågespråk. Språkkonstruktioner dokumenteras i den [Stream Analytics fråga Språkreferens](https://msdn.microsoft.com/library/azure/dn834998.aspx) guide. 
+Frågor i Azure Stream Analytics uttrycks i ett SQL-liknande frågespråk. Språkkonstruktioner finns dokumenterade i den [frågespråksreferens för Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx) guide. 
 
-Frågedesigntillståndet kan snabba och enkla direkt logik för att flytta händelsedata från en indataström till en annan utdata-datalagret. Det kan göra eller omfattande mönster matchande och temporal analys för att beräkna mängder över olika tidsfönster som i exemplet TollApp. Du kan ansluta till data från flera inmatningar för kombinera strömning händelser och gör sökningar mot statiska referensdata att utöka händelsevärden. Du kan också skriva data till flera utdata.
+Frågans design kan snabba och enkla direkt logik för att flytta händelsedata från en Indataströmmen till ett annat datalager för utdata. Det kan också göra omfattande mönstret matchande och temporala analyser för att beräkna aggregeringar över olika tidsfönster som i exemplet TollApp. Du kan ansluta till data från flera inmatningar att kombinera direktuppspelning av händelser och göra sökningar mot statiska referensdata att utöka de händelse-värdena. Du kan också skriva data till flera utdata.
 
-Den här artikeln beskrivs lösningar på flera vanliga frågemönster, baserat på verkliga scenarier. Det är ett pågående arbete och fortsätter att uppdateras med nya mönster kontinuerligt.
+Den här artikeln beskrivs lösningar på flera vanliga frågemönster utifrån verkliga scenarier. Det är ett pågående arbete och fortsätter att uppdateras med nya mönster med jämna mellanrum.
 
-## <a name="query-example-convert-data-types"></a>Frågan exempel: konvertera-datatyper
-**Beskrivning**: definiera vilka typer av egenskaper på Indataströmmen.
-Till exempel bil vikten kommer på Indataströmmen som strängar och behöver konverteras till **INT** att utföra **SUMMAN** den.
+## <a name="query-example-convert-data-types"></a>Exempel på sökfråga: konvertera-datatyper
+**Beskrivning av**: Ange vilka typer av egenskaper på Indataströmmen.
+Till exempel bil vikten kommer på Indataströmmen som strängar och behöver konverteras till **INT** att utföra **SUMMAN** upp.
 
 **Indata**:
 
@@ -53,11 +53,11 @@ Till exempel bil vikten kommer på Indataströmmen som strängar och behöver ko
         Make,
         TumblingWindow(second, 10)
 
-**Förklaring**: Använd en **OMVANDLINGEN** instruktion i den **vikt** fältet för att ange den aktuella datatypen. Visa en lista över vilka datatyper i [datatyper (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835065.aspx).
+**Förklaring**: Använd en **CAST** instruktionen i det **vikt** fältet för att ange dess datatyp. Se en lista över vilka datatyper i [datatyper (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835065.aspx).
 
-## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Frågan exempel: liknande/inte vill mönstret matchar användning
-**Beskrivning**: kontrollerar att ett fältvärde vid händelsen som matchar ett visst mönster.
-Till exempel kontrollera att resultatet returnerar licens nivåer som börjar med ett och slutar med 9.
+## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Exempel på sökfråga: liknande/inte vilja mönstret matchar användning
+**Beskrivning av**: kontrollerar att ett fältvärde vid händelsen som matchar ett visst mönster.
+Till exempel kontrollera att resultatet returnerar licens nivåer som börjar på A och sluta med 9.
 
 **Indata**:
 
@@ -83,11 +83,11 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar me
     WHERE
         LicensePlate LIKE 'A%9'
 
-**Förklaring**: Använd den **som** -instruktionen för att kontrollera den **LicensePlate** fältet värde. Det måste börja med en A-, och sedan har ett antal noll eller fler tecken och sedan avslutas med en 9. 
+**Förklaring**: Använd den **som** -uttrycket för att kontrollera den **LicensePlate** fältet värde. Det måste börja med en A-, och sedan har noll eller flera teckensträng och sedan avslutas med en 9. 
 
-## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Frågan exempel: Ange logik för olika fall/värden (CASE-satser)
-**Beskrivning**: Ange en annan beräkning för ett fält baserat på ett visst kriterium.
-Ange till exempel en sträng beskrivning för att se hur många bilar av samma skickas med ett specialfall för 1.
+## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Exempel på sökfråga: Ange logik för olika fall/värden (CASE-utdrag)
+**Beskrivning av**: Ange en annan beräkning för ett fält baserat på ett visst kriterium.
+Till exempel ange en sträng beskrivning för hur många bilar av samma gör skickas med ett specialfall för 1.
 
 **Indata**:
 
@@ -118,11 +118,11 @@ Ange till exempel en sträng beskrivning för att se hur många bilar av samma s
         Make,
         TumblingWindow(second, 10)
 
-**Förklaring**: den **FALLET** uttryck jämför ett uttryck som en uppsättning enkla uttryck för att fastställa resultatet. I det här exemplet gör vehicle med ett antal 1 returnerade en annan sträng beskrivning än vehicle gör med ett antal än 1. 
+**Förklaring**: den **FALLET** uttrycket jämför ett uttryck som en uppsättning enkla uttryck för att fastställa resultatet. I det här exemplet gör vehicle och det antal 1 returneras en beskrivning av annan sträng än vehicle gör med ett antal än 1. 
 
-## <a name="query-example-send-data-to-multiple-outputs"></a>Frågan exempel: skicka data till flera utdata
-**Beskrivning**: skicka data till flera mål i utdata från ett enda utskriftsjobb.
-Till exempel analysera data för en avisering om tröskelvärdesbaserad och arkivera alla händelser till blob storage.
+## <a name="query-example-send-data-to-multiple-outputs"></a>Exempel på sökfråga: skicka data till flera utdata
+**Beskrivning av**: skicka data till flera mål i utdata från ett enskilt jobb.
+Till exempel analysera data för en avisering om tröskelbaserade och arkivera alla händelser till blob storage.
 
 **Indata**:
 
@@ -173,11 +173,11 @@ Till exempel analysera data för en avisering om tröskelvärdesbaserad och arki
     HAVING
         [Count] >= 3
 
-**Förklaring**: den **INTO** satsen instruerar Stream Analytics som utdata att skriva data till från den här satsen.
-Den första frågan är en direktlagringsdisk av alla data att utdata som heter **ArchiveOutput**.
-Den andra frågan har några enkla aggregering och filtrering och skickar resultatet till en underordnad aviseringar system.
+**Förklaring**: den **INTO** satsen talar om Stream Analytics som utdata att skriva data till från den här instruktionen.
+Den första frågan är en anslutningsfråga data som tas emot att utdata som heter **ArchiveOutput**.
+Den andra frågan har en enkel aggregering och filtrering och skickar resultatet till en underordnad aviseringssystemet.
 
-Observera att du kan också återanvända resultaten av cte (cte-referenser) (som **WITH** instruktioner) i flera instruktioner i utdata. Det här alternativet har den ytterligare fördelen med att öppna färre läsare till Indatakällan.
+Obs Du kan även återanvända resultatet av de vanliga tabelluttryck (cte-referenser) (till exempel **WITH** uttryck) i flera instruktioner i utdata. Det här alternativet har den ytterligare fördelen med att öppna färre läsare till Indatakällan.
 Exempel: 
 
     WITH AllRedCars AS (
@@ -191,9 +191,9 @@ Exempel:
     SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
     SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
-## <a name="query-example-count-unique-values"></a>Frågan exempel: Räkna antalet unika värden
-**Beskrivning**: Räkna antalet unika värdena som visas i dataströmmen inom ett tidsintervall.
-Till exempel hur många unika gör bilar passerat avgift monter i ett fönster med 2 sekunder?
+## <a name="query-example-count-unique-values"></a>Exempel på sökfråga: antal unika värden
+**Beskrivning av**: Räkna antalet unika fältvärden som visas i strömmen inom ett tidsintervall.
+Gör till exempel hur många unika av bilar som skickas via avgift monter i fönster 2 sekunder?
 
 **Indata**:
 
@@ -225,11 +225,11 @@ GROUP BY
 
 
 **Förklaring:**
-**COUNT (DISTINKTA gör)** returnerar antalet distinkta värden i den **Se** kolumnen inom ett tidsintervall.
+**antal (DISTINKTA Kontrollera)** returnerar antalet distinkta värden i den **gör** kolumnen inom ett tidsintervall.
 
-## <a name="query-example-determine-if-a-value-has-changed"></a>Frågan exempel: fastställa om ett värde har ändrats
-**Beskrivning**: Titta på en tidigare värde för att bestämma om det skiljer sig från det aktuella värdet.
-Tidigare bilen på väg avgift är till exempel göra samma som aktuella bilen?
+## <a name="query-example-determine-if-a-value-has-changed"></a>Exempel på sökfråga: fastställa om ett värde har ändrats
+**Beskrivning av**: Titta på en tidigare värde för att bestämma om det skiljer sig från det aktuella värdet.
+Till exempel är föregående bil på vägen avgift samma Kontrollera som den aktuella bilen?
 
 **Indata**:
 
@@ -254,10 +254,10 @@ Tidigare bilen på väg avgift är till exempel göra samma som aktuella bilen?
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 
-**Förklaring**: Använd **FÖRDRÖJNING** för att granska i Indataströmmen en händelsen tillbaka och få de **Se** värde. Jämför dem med den **Se** -värdet för den aktuella händelsen och utdata händelsen om de är olika.
+**Förklaring**: Använd **FÖRDRÖJNING** att granska i Indataströmmen en händelsen tillbaka och få den **gör** värde. Jämför dem med den **gör** -värdet på den aktuella händelsen och utdata händelsen om de är olika.
 
-## <a name="query-example-find-the-first-event-in-a-window"></a>Frågan exempel: Sök efter den första händelsen i ett fönster
-**Beskrivning**: hitta första bil i varje 10 minuters intervall.
+## <a name="query-example-find-the-first-event-in-a-window"></a>Exempel på sökfråga: hitta den första händelsen i ett fönster
+**Beskrivning av**: hitta första bil i varje 10 minuters intervall.
 
 **Indata**:
 
@@ -289,7 +289,7 @@ Tidigare bilen på väg avgift är till exempel göra samma som aktuella bilen?
     WHERE 
         IsFirst(minute, 10) = 1
 
-Nu ska vi ändra problemet och söka efter en viss kontrollera första bilen i var 10 minuters intervall.
+Nu ska vi ändra problemet och hitta den första bil för en viss kontrollerar i varje 10 minuters intervall.
 
 | LicensePlate | Kontrollera | Tid |
 | --- | --- | --- |
@@ -310,8 +310,8 @@ Nu ska vi ändra problemet och söka efter en viss kontrollera första bilen i v
     WHERE 
         IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
-## <a name="query-example-find-the-last-event-in-a-window"></a>Frågan exempel: Sök efter den sista händelsen i ett fönster
-**Beskrivning**: hitta sista vagnen i varje 10 minuters intervall.
+## <a name="query-example-find-the-last-event-in-a-window"></a>Exempel på sökfråga: hitta den sista händelsen i ett fönster
+**Beskrivning av**: hitta den senaste bilen i varje 10 minuters intervall.
 
 **Indata**:
 
@@ -353,11 +353,11 @@ Nu ska vi ändra problemet och söka efter en viss kontrollera första bilen i v
         ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
         AND Input.Time = LastInWindow.LastEventTime
 
-**Förklaring**: det finns två steg i frågan. Den första som söker efter senaste tidsstämpeln i windows 10 minuter. Det andra steget kopplas resultatet av den första frågan med ursprungliga direkt för att söka efter de händelser som matchar de senaste tidsstämplarna i varje fönster. 
+**Förklaring**: det finns två steg i frågan. Den första som söker efter senaste tidsstämpeln i windows 10: e minut. Det andra steget kopplar ihop resultaten av den första frågan med ursprungliga direkt för att hitta händelser som matchar de senaste tidsstämplarna i varje fönster. 
 
-## <a name="query-example-detect-the-absence-of-events"></a>Frågan exempel: identifiera frånvaro av händelser
-**Beskrivning**: Kontrollera att en ström som inte har något värde som matchar vissa villkor.
-Till exempel 2 på varandra följande bilar från samma Se angett avgift väg inom de senaste 90 sekunderna?
+## <a name="query-example-detect-the-absence-of-events"></a>Exempel på sökfråga: identifiera avsaknad av händelser
+**Beskrivning av**: Kontrollera att en dataström har inget värde som matchar ett visst villkor.
+Till exempel har 2 i följd bilar från samma Se angett avgift vägen inom de senaste 90 sekunderna?
 
 **Indata**:
 
@@ -387,10 +387,10 @@ Till exempel 2 på varandra följande bilar från samma Se angett avgift väg in
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 
-**Förklaring**: Använd **FÖRDRÖJNING** för att granska i Indataströmmen en händelsen tillbaka och få de **Se** värde. Jämför dem med den **Se** värde i den aktuella händelsen och sedan utdata händelsen om de är likadana. Du kan också använda **FÖRDRÖJNING** och hämta data om tidigare bilen.
+**Förklaring**: Använd **FÖRDRÖJNING** att granska i Indataströmmen en händelsen tillbaka och få den **gör** värde. Jämför dem med den **gör** värde i den aktuella händelsen och sedan mata ut händelsen om de är likadana. Du kan också använda **FÖRDRÖJNING** och hämta data om den tidigare bilen.
 
-## <a name="query-example-detect-the-duration-between-events"></a>Frågan exempel: identifiera varaktigheten mellan händelser
-**Beskrivning**: hitta varaktighet för en given händelse. Till exempel ges en web clickstream bestämma tidsåtgången för en funktion.
+## <a name="query-example-detect-the-duration-between-events"></a>Exempel på sökfråga: identifiera varaktigheten mellan händelser
+**Beskrivning av**: hitta varaktigheten för en given händelse. Till exempel med en web-klickströmdata kan fastställa den tid som krävs för en funktion.
 
 **Indata**:  
 
@@ -415,11 +415,11 @@ Till exempel 2 på varandra följande bilar från samma Se angett avgift väg in
         Event = 'end'
 ````
 
-**Förklaring**: Använd den **senaste** funktion för att hämta senaste **tid** värde när händelsetypen **starta**. Den **senaste** använder funktionen **PARTITION BY [användare]** att ange att resultatet beräknas per unika användare. Frågan har ett 1 timme högsta tröskelvärde för tidsskillnad mellan **starta** och **stoppa** händelser, men kan konfigureras vid behov **(GRÄNSEN DURATION(hour, 1)**.
+**Förklaring**: Använd den **senaste** funktionen för att hämta senaste **tid** värde när händelsetyp var **starta**. Den **senaste** använder **PARTITION BY [user]** att indikera att resultatet beräknas per unika användare. Frågan har 1 timme maxgränsen för tidsskillnaden mellan **starta** och **stoppa** händelser, men kan konfigureras vid behov **(GRÄNSEN DURATION(hour, 1)**.
 
-## <a name="query-example-detect-the-duration-of-a-condition"></a>Frågan exempel: identifiera varaktigheten för ett villkor
-**Beskrivning**: ta reda på hur länge ett villkor inträffade.
-Anta exempelvis att en bugg resulterade i alla bilar med en felaktig vikt (ovanför 20 000 pund) och varaktighet för det programfelet måste beräknas.
+## <a name="query-example-detect-the-duration-of-a-condition"></a>Exempel på sökfråga: identifiera varaktigheten för ett villkor
+**Beskrivning av**: ta reda på hur lång tid en tillstånd inträffade.
+Anta exempelvis att en bugg resulterade i alla bilar att ha en felaktig vikt (över 20 000 pund) och varaktigheten för den buggen måste beräknas.
 
 **Indata**:
 
@@ -461,11 +461,11 @@ Anta exempelvis att en bugg resulterade i alla bilar med en felaktig vikt (ovanf
         AND previousWeight > 20000
 ````
 
-**Förklaring**: Använd **FÖRDRÖJNING** visa Indataströmmen under 24 timmar och leta efter instanser där **StartFault** och **StopFault** omfattas av vikten < 20000.
+**Förklaring**: Använd **FÖRDRÖJNING** att visa Indataströmmen i 24 timmar och leta efter instanser var **StartFault** och **StopFault** omfattas av vikten < 20000.
 
-## <a name="query-example-fill-missing-values"></a>Frågan exempel: fylla i saknade värden
-**Beskrivning**: skapa en dataström med händelser med jämna mellanrum för ström av händelser som saknar värden.
-Till exempel generera en händelse var femte sekund som rapporter nyligen upptäckta datapunkten.
+## <a name="query-example-fill-missing-values"></a>Exempel på sökfråga: Fyll värden som saknas
+**Beskrivning av**: Generera en dataström med händelser med jämna mellanrum för dataströmmen av händelser som har värden som saknas.
+Till exempel generera en händelse var femte sekund som rapporterar den nyligen upptäckta datapunkten.
 
 **Indata**:
 
@@ -503,12 +503,12 @@ Till exempel generera en händelse var femte sekund som rapporter nyligen upptä
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 
 
-**Förklaring**: den här frågan och genererar händelser var femte sekund och matar ut den senaste händelse som togs emot tidigare. Den [Hopping fönstret](https://msdn.microsoft.com/library/dn835041.aspx "Hopping fönstret--Azure Stream Analytics") varaktighet anger hur långt tillbaka frågan ser ut för att hitta den senaste händelsen (300 sekunder i det här exemplet).
+**Förklaring**: den här frågan som genererar händelser var femte sekund och matar ut den senaste händelsen togs emot tidigare. Den [Hopping fönstret](https://msdn.microsoft.com/library/dn835041.aspx "Hopping fönstret – Azure Stream Analytics") varaktighet som anger hur långt tillbaka frågan ser ut för att hitta den senaste händelsen (300 sekunder i det här exemplet).
 
 
-## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Frågan exempel: korrelera två typer av händelser inom samma dataström
-**Beskrivning**: ibland aviseringar behöver genereras baserat på flera händelsetyper som uppstått i ett visst tidsintervall.
-Till exempel i en IoT-scenariot för hem ugnar måste en avisering skapas när fläkt är mindre än 40 och högsta effekt under de senaste 3 minuterna är mindre än 10.
+## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Exempel på sökfråga: korrelera två händelsetyper inom samma dataström
+**Beskrivning av**: aviseringar behöver ibland genereras baserat på flera händelsetyper som inträffat under ett visst tidsintervall.
+Till exempel i en IoT-scenario för home ugnar en avisering måste aktiveras när temperaturen fläkt är mindre än 40 och högsta effekt under de senaste 3 minuterna är mindre än 10.
 
 **Indata**:
 
@@ -533,7 +533,7 @@ Till exempel i en IoT-scenariot för hem ugnar måste en avisering skapas när f
 
 **Utdata**:
 
-| EventTime | deviceId | Temp | alertmessage som | maxPowerDuringLast3mins |
+| eventTime | deviceId | Temp | alertmessage som | maxPowerDuringLast3mins |
 | --- | --- | --- | --- | --- | 
 | ”2018-01-01T16:05:00” | ”Oven1” |30 | ”Kort krets uppvärmning element” |15 |
 | ”2018-01-01T16:06:00” | ”Oven1” |20 | ”Kort krets uppvärmning element” |15 |
@@ -577,10 +577,10 @@ WHERE
     AND t2.maxPower > 10
 ````
 
-**Förklaring**: den första frågan `max_power_during_last_3_mins`, använder den [glidande fönstret](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) att hitta maxvärdet för power sensor för varje enhet under de senaste 3 minuterna. Den andra frågan är ansluten till den första frågan för att hitta värdet för power i fönstret senaste relevanta för den aktuella händelsen. Och sedan om villkoren är uppfyllda, en varning ska genereras för enheten.
+**Förklaring**: den första frågan `max_power_during_last_3_mins`, använder den [glidande fönstret](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) att hitta maxvärdet för power sensorn för varje enhet under de senaste 3 minuterna. Den andra frågan är ansluten till den första frågan att hitta power-värdet i fönstret senaste relevanta för det aktuella. Och sedan, om villkoren är uppfyllda, en varning ska genereras för enheten.
 
-## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Frågan exempel: bearbeta händelser som är oberoende av enheten klockan skeva (underströmmar)
-**Beskrivning**: händelser kan sen ankomst eller fel ordning på grund av att jämföra mellan händelse producenter klockan skeva mellan partitioner eller Nätverksfördröjningen. I följande exempel enhet klockan för TollID 2 är tio sekunder efter TollID 1 och enheten klockan för TollID 3 är fem sekunder efter TollID 1. 
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Exempel på sökfråga: bearbeta händelser som är oberoende av enheten klockan förskjuta (underströmmar)
+**Beskrivning av**: händelser kan kommer sent eller oordnade följd av klockavvikelser mellan händelseproducenter klockan snedställer mellan partitioner eller Nätverksfördröjningen. I följande exempel enhetens klocka för TollID 2 är tio sekunder bakom TollID 1 och enhetens klocka för TollID 3 är fem sekunder bakom TollID 1. 
 
 
 **Indata**:
@@ -617,11 +617,11 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 ````
 
-**Förklaring**: den [TIMESTAMP BY OVER](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) satsen tittar på varje enhet tidslinjen separat med underströmmar. Utdata-händelser för varje TollID skapas de beräknade, vilket innebär att händelserna som är i ordning med avseende på varje TollID i stället för som ordnas om som om alla enheter som fanns på samma klockan.
+**Förklaring**: den [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) satsen tittar på varje enhet tidslinje separat enligt våra underströmmar. Utdata-händelser för varje TollID genereras som de beräknade, vilket innebär att händelserna är i ordning med avseende på varje TollID i stället för som ordnas om som om alla enheter som fanns på samma klockan.
 
 
 ## <a name="get-help"></a>Få hjälp
-För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)

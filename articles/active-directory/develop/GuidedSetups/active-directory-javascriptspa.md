@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 JS SPA interaktiv installation | Microsoft Docs
-description: Hur JavaScript SPA program anropar en API som kräver åtkomst-token i Azure Active Directory v2 slutpunkten
+title: Azure AD v2 JS SPA interaktiva installation | Microsoft Docs
+description: Hur JavaScript SPA-program kan anropa ett API som kräver åtkomsttoken genom Azure Active Directory v2-slutpunkten
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -16,14 +16,10 @@ ms.date: 04/09/2018
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: b08907f15411483b57854708e809835860910a72
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32148630"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38443455"
 ---
-[!INCLUDE [1. Introduction](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-introduction.md)]
-[!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-setup.md)]
-[!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-use.md)]
-[!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-configure.md)]
-[!INCLUDE [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-test.md)]
+[[1. Introduction](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-introduction.md)] [!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-setup.md)] [!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-use.md)] [!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-configure.md)] [!INCLUDE [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-test.md)]

@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Azure queue storage- och Visual Studio anslutna tjänster (ASP.NET) | Microsoft Docs
-description: Hur du kommer igång med Azure queue storage i ASP.NET-projekt i Visual Studio efter anslutning till ett lagringskonto med hjälp av Visual Studio anslutna Services
+title: Kom igång med Azure queue storage och Visual Studio anslutna tjänster (ASP.NET) | Microsoft Docs
+description: Hur du kommer igång med Azure queue storage i ett ASP.NET-projekt i Visual Studio när du har anslutit till ett lagringskonto med hjälp av Visual Studio Connected Services
 services: storage
 author: ghogen
 manager: douge
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
 ms.openlocfilehash: d06fde0dc6c289a09b9fe4c9e2ffbb50c3027490
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798329"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719450"
 ---
-# <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure queue storage- och Visual Studio anslutna tjänster (ASP.NET)
+# <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure queue storage och Visual Studio anslutna tjänster (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Översikt
 
-Azure queue storage erbjuder molntjänster meddelandehantering mellan programkomponenter. När program utformas för skalning är programkomponenterna ofta fristående, så att de kan skalas oberoende av varandra. Queue Storage är en asynkron meddelandelösning för kommunikation mellan programkomponenter, oavsett om de körs i molnet, på skrivbordet, på en lokal server eller på en mobil enhet. Queue Storage har också stöd för hantering av asynkrona åtgärder och utveckling av processarbetsflöden.
+Azure queue storage innehåller molnmeddelandehantering mellan programkomponenter. När program utformas för skalning är programkomponenterna ofta fristående, så att de kan skalas oberoende av varandra. Queue Storage är en asynkron meddelandelösning för kommunikation mellan programkomponenter, oavsett om de körs i molnet, på skrivbordet, på en lokal server eller på en mobil enhet. Queue Storage har också stöd för hantering av asynkrona åtgärder och utveckling av processarbetsflöden.
 
-Den här kursen visar hur du skriver ASP.NET-kod för några vanliga scenarier med hjälp av Azure queue storage entiteter. Dessa scenarier som inkluderar vanliga aktiviteter som att skapa en Azure-kö och lägga till, ändra, läsa och tar bort Kömeddelanden.
+Den här självstudiekursen visar hur du skriver ASP.NET-kod för några vanliga scenarier med hjälp av Azure queue storage-entiteter. De här scenarierna omfattar vanliga åtgärder, till exempel skapa en Azure-kö och att lägga till, ändra, läsa och ta bort Kömeddelanden.
 
 ##<a name="prerequisites"></a>Förutsättningar
 
@@ -38,21 +38,21 @@ Den här kursen visar hur du skriver ASP.NET-kod för några vanliga scenarier m
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 
-### <a name="create-an-mvc-controller"></a>Skapa en MVC-enhet 
+### <a name="create-an-mvc-controller"></a>Skapa ett MVC-kontrollant 
 
-1. I den **Solution Explorer**, högerklicka på **domänkontrollanter**, och på snabbmenyn Välj **Lägg till -> styrenhet**.
+1. I den **Solution Explorer**, högerklicka på **domänkontrollanter**, och välj sedan från snabbmenyn **Lägg till -> Controller**.
 
     ![Lägg till en domänkontrollant i en ASP.NET MVC-app](./media/vs-storage-aspnet-getting-started-queues/add-controller-menu.png)
 
-1. På den **Lägg till Kodskelett** markerar **MVC 5 styrenhet – tom**, och välj **Lägg till**.
+1. På den **Lägg till Kodskelett** dialogrutan **MVC 5 styrenhet – tom**, och välj **Lägg till**.
 
     ![Ange typ av MVC-domänkontrollant](./media/vs-storage-aspnet-getting-started-queues/add-controller.png)
 
-1. På den **Lägg till styrenhet** dialogrutan namn styrenheten *QueuesController*, och välj **Lägg till**.
+1. På den **Lägg till styrenhet** dialogrutan namn kontrollanten *QueuesController*, och välj **Lägg till**.
 
-    ![Namnet på MVC-enhet](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
+    ![Namn på MVC-kontrollant](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
 
-1. Lägg till följande *med* direktiven till den `QueuesController.cs` filen:
+1. Lägg till följande *med* direktiv den `QueuesController.cs` fil:
 
     ```csharp
     using Microsoft.Azure;
@@ -62,11 +62,11 @@ Den här kursen visar hur du skriver ASP.NET-kod för några vanliga scenarier m
     ```
 ## <a name="create-a-queue"></a>Skapa en kö
 
-Följande steg visar hur du skapar en kö:
+Följande steg illustrerar hur du skapar en kö:
 
 > [!NOTE]
 > 
-> Det här avsnittet förutsätter att du har slutfört stegen [Konfigurera utvecklingsmiljön](#set-up-the-development-environment). 
+> Det här avsnittet förutsätter att du har slutfört stegen [ställer in utvecklingsmiljön](#set-up-the-development-environment). 
 
 1. Öppna filen `QueuesController.cs`. 
 
@@ -81,7 +81,7 @@ Följande steg visar hur du skapar en kö:
     }
     ```
 
-1. I den **CreateQueue** metod, hämta en **CloudStorageAccount** objekt som representerar din kontoinformation för lagring. Använda följande kod för att hämta anslutningssträngen för lagring och information om lagringskonto från Azure tjänstkonfiguration: (ändra  *&lt;behållarens kontonamn >* till namnet på Azure storage-konto du försöker komma åt.)
+1. I den **CreateQueue** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -93,29 +93,29 @@ Följande steg visar hur du skapar en kö:
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
-1. Hämta en **CloudQueue** objekt som representerar en referens till önskad kö-namn. Den **CloudQueueClient.GetQueueReference** inte gör en begäran mot queue storage. Referensen returneras om kön finns eller inte. 
+1. Hämta en **CloudQueue** objekt som representerar en referens till önskad könamnet. Den **CloudQueueClient.GetQueueReference** inte gör en begäran mot kölagring. Referensen returneras eller inte finns i kön. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Anropa den **CloudQueue.CreateIfNotExists** metod för att skapa kön om det inte finns ännu. Den **CloudQueue.CreateIfNotExists** metoden returnerar **SANT** om kön finns inte och har skapats. Annars **FALSKT** returneras.    
+1. Anropa den **CloudQueue.CreateIfNotExists** metod för att skapa kön om det inte finns ännu. Den **CloudQueue.CreateIfNotExists** metoden returnerar **SANT** om kön finns inte och har skapats. I annat fall **FALSKT** returneras.    
 
     ```csharp
     ViewBag.Success = queue.CreateIfNotExists();
     ```
 
-1. Uppdatering av **ViewBag** med namnet på kön.
+1. Uppdatera den **ViewBag** med namnet på kön.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer** mappen, högerklicka på **köer**, och på snabbmenyn väljer **Lägg till -> Visa**.
+1. I den **Solution Explorer**, expandera den **vyer** mapp, högerklickar du på **köer**, och på snabbmenyn väljer **Lägg till -> Visa**.
 
 1. På den **Lägg till vy** dialogrutan Ange **CreateQueue** för namn och välj **Lägg till**.
 
-1. Öppna `CreateQueue.cshtml`, och ändra den så att det ser ut som följande kodavsnitt:
+1. Öppna `CreateQueue.cshtml`, och ändra det så att det ser ut som följande kodavsnitt:
 
     ```csharp
     @{
@@ -127,7 +127,7 @@ Följande steg visar hur du skapar en kö:
     Creation of @ViewBag.QueueName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer -> delade** och öppna `_Layout.cshtml`.
+1. I den **Solution Explorer**, expandera den **vyer -> delad** och öppna `_Layout.cshtml`.
 
 1. Efter senast **Html.ActionLink**, Lägg till följande **Html.ActionLink**:
 
@@ -135,19 +135,19 @@ Följande steg visar hur du skapar en kö:
     <li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. Kör programmet och välj **Skapa kö** att se resultatet liknar följande Skärmdump:
+1. Kör programmet och välj **Skapa kö** att se resultat som liknar följande skärmbild:
   
     ![Skapa kö](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    Som nämnts tidigare i **CloudQueue.CreateIfNotExists** metoden returnerar **SANT** endast när kön finns inte och har skapats. Om du kör appen när kön finns, metoden returnerar därför **FALSKT**. Om du vill köra appen flera gånger, måste du ta bort kön innan du kör appen igen. Ta bort kön kan göras den **CloudQueue.Delete** metod. Du kan också ta bort en kö med hjälp av den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040) eller [Microsoft Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Som nämnts tidigare i **CloudQueue.CreateIfNotExists** metoden returnerar **SANT** endast när kön inte finns och har skapats. Därför, om du kör appen när kön finns, returnerar metoden **FALSKT**. För att köra appen flera gånger, måste du ta bort kön innan du kör appen igen. Ta bort kön kan ske via den **CloudQueue.Delete** metod. Du kan också ta bort en kö med hjälp av den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040) eller [Microsoft Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
-## <a name="add-a-message-to-a-queue"></a>Lägga till ett meddelande till en kö
+## <a name="add-a-message-to-a-queue"></a>Lägg till ett meddelande till en kö
 
-När du har [skapade en kö](#create-a-queue), du kan lägga till meddelanden till kön. Det här avsnittet vägleder dig genom att lägga till ett meddelande till en kö *test-kön*. 
+När du har [skapat en kö](#create-a-queue), du kan lägga till meddelanden i kön. Det här avsnittet beskriver hur du lägger till ett meddelande i en kö *test-kön*. 
 
 > [!NOTE]
 > 
-> Det här avsnittet förutsätter att du har slutfört stegen [Konfigurera utvecklingsmiljön](#set-up-the-development-environment). 
+> Det här avsnittet förutsätter att du har slutfört stegen [ställer in utvecklingsmiljön](#set-up-the-development-environment). 
 
 1. Öppna filen `QueuesController.cs`.
 
@@ -162,7 +162,7 @@ När du har [skapade en kö](#create-a-queue), du kan lägga till meddelanden ti
     }
     ```
  
-1. I den **AddMessage** metod, hämta en **CloudStorageAccount** objekt som representerar din kontoinformation för lagring. Använda följande kod för att hämta anslutningssträngen för lagring och information om lagringskonto från Azure tjänstkonfiguration: (ändra  *&lt;behållarens kontonamn >* till namnet på Azure storage-konto du försöker komma åt.)
+1. I den **AddMessage** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -181,7 +181,7 @@ När du har [skapade en kö](#create-a-queue), du kan lägga till meddelanden ti
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Skapa den **CloudQueueMessage** objekt som representerar det meddelande som du vill lägga till i kön. En **CloudQueueMessage** objekt kan skapas från en sträng (i UTF-8-format) eller en byte-matris.
+1. Skapa den **CloudQueueMessage** objekt som representerar det meddelande du vill lägga till i kön. En **CloudQueueMessage** objekt kan skapas från en sträng (i UTF-8-format) eller en bytematris.
 
     ```csharp
     CloudQueueMessage message = new CloudQueueMessage("Hello, Azure Queue Storage");
@@ -193,18 +193,18 @@ När du har [skapade en kö](#create-a-queue), du kan lägga till meddelanden ti
     queue.AddMessage(message);
     ```
 
-1. Skapa och ange några **ViewBag** egenskaper som ska visas i vyn.
+1. Skapa och ange några **ViewBag** egenskaper för visning i vyn.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Message = message.AsString;
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer** mappen, högerklicka på **köer**, och på snabbmenyn väljer **Lägg till -> Visa**.
+1. I den **Solution Explorer**, expandera den **vyer** mapp, högerklickar du på **köer**, och på snabbmenyn väljer **Lägg till -> Visa**.
 
 1. På den **Lägg till vy** dialogrutan Ange **AddMessage** för namn och välj **Lägg till**.
 
-1. Öppna `AddMessage.cshtml`, och ändra den så att det ser ut som följande kodavsnitt:
+1. Öppna `AddMessage.cshtml`, och ändra det så att det ser ut som följande kodavsnitt:
 
     ```csharp
     @{
@@ -216,7 +216,7 @@ När du har [skapade en kö](#create-a-queue), du kan lägga till meddelanden ti
     The message '@ViewBag.Message' was added to the queue '@ViewBag.QueueName'.
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer -> delade** och öppna `_Layout.cshtml`.
+1. I den **Solution Explorer**, expandera den **vyer -> delad** och öppna `_Layout.cshtml`.
 
 1. Efter senast **Html.ActionLink**, Lägg till följande **Html.ActionLink**:
 
@@ -224,19 +224,19 @@ När du har [skapade en kö](#create-a-queue), du kan lägga till meddelanden ti
     <li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. Kör programmet och välj **Lägg till meddelandet** att se resultatet liknar följande Skärmdump:
+1. Kör programmet och välj **Lägg till meddelande** att se resultat som liknar följande skärmbild:
   
-    ![Lägga till meddelande](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
+    ![Lägg till meddelande](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
-Två avsnitt - [läsa ett meddelande från en kö utan att ta bort den](#read-a-message-from-a-queue-without-removing-it) och [Läs- och ta bort ett meddelande från en kö](#read-and-remove-a-message-from-a-queue) -illustrerar hur du kan läsa meddelanden från en kö.    
+De två avsnitten - [läsa ett meddelande från en kö utan att ta bort den](#read-a-message-from-a-queue-without-removing-it) och [Läs- och ta bort ett meddelande från en kö](#read-and-remove-a-message-from-a-queue) -illustrerar hur du kan läsa meddelanden från en kö.    
 
 ## <a name="read-a-message-from-a-queue-without-removing-it"></a>Läsa ett meddelande från en kö utan att ta bort den
 
-Det här avsnittet visar hur du kan kika på meddelandet i kön (läsa det första meddelandet inte ta bort).  
+Det här avsnittet visar hur du kan kika på meddelandet i kö (läsa det första meddelandet utan att ta bort det).  
 
 > [!NOTE]
 > 
-> Det här avsnittet förutsätter att du har slutfört stegen [Konfigurera utvecklingsmiljön](#set-up-the-development-environment). 
+> Det här avsnittet förutsätter att du har slutfört stegen [ställer in utvecklingsmiljön](#set-up-the-development-environment). 
 
 1. Öppna filen `QueuesController.cs`.
 
@@ -251,7 +251,7 @@ Det här avsnittet visar hur du kan kika på meddelandet i kön (läsa det förs
     }
     ```
  
-1. I den **PeekMessage** metod, hämta en **CloudStorageAccount** objekt som representerar din kontoinformation för lagring. Använda följande kod för att hämta anslutningssträngen för lagring och information om lagringskonto från Azure tjänstkonfiguration: (ändra  *&lt;behållarens kontonamn >* till namnet på Azure storage-konto du försöker komma åt.)
+1. I den **PeekMessage** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -270,24 +270,24 @@ Det här avsnittet visar hur du kan kika på meddelandet i kön (läsa det förs
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Anropa den **CloudQueue.PeekMessage** metod för att läsa det första meddelandet i kön utan att ta bort den från kön. 
+1. Anropa den **CloudQueue.PeekMessage** metod för att läsa det första meddelandet i kön utan att ta bort det från kön. 
 
     ```csharp
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. Uppdatering av **ViewBag** med två värden: könamnet och meddelandet som lästes. Den **CloudQueueMessage** objektet innehåller två egenskaper för att hämta objektets värde: **CloudQueueMessage.AsBytes** och **CloudQueueMessage.AsString**. **AsString** (används i det här exemplet) returnerar en sträng, medan **AsBytes** returnerar en bytematris.
+1. Uppdatera den **ViewBag** med två värden: namnet på kön och meddelandet som lästes. Den **CloudQueueMessage** objektet innehåller två egenskaper för att hämta objektets värde: **CloudQueueMessage.AsBytes** och **CloudQueueMessage.AsString**. **AsString** (används i det här exemplet) returnerar en sträng, medan **AsBytes** returnerar en byte-matris.
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
     ViewBag.Message = (message != null ? message.AsString : "");
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer** mappen, högerklicka på **köer**, och på snabbmenyn väljer **Lägg till -> Visa**.
+1. I den **Solution Explorer**, expandera den **vyer** mapp, högerklickar du på **köer**, och på snabbmenyn väljer **Lägg till -> Visa**.
 
 1. På den **Lägg till vy** dialogrutan Ange **PeekMessage** för namn och välj **Lägg till**.
 
-1. Öppna `PeekMessage.cshtml`, och ändra den så att det ser ut som följande kodavsnitt:
+1. Öppna `PeekMessage.cshtml`, och ändra det så att det ser ut som följande kodavsnitt:
 
     ```csharp
     @{
@@ -302,7 +302,7 @@ Det här avsnittet visar hur du kan kika på meddelandet i kön (läsa det förs
     </table>    
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer -> delade** och öppna `_Layout.cshtml`.
+1. I den **Solution Explorer**, expandera den **vyer -> delad** och öppna `_Layout.cshtml`.
 
 1. Efter senast **Html.ActionLink**, Lägg till följande **Html.ActionLink**:
 
@@ -310,17 +310,17 @@ Det här avsnittet visar hur du kan kika på meddelandet i kön (läsa det förs
     <li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. Kör programmet och välj **titt meddelandet** att se resultatet liknar följande Skärmdump:
+1. Kör programmet och välj **Peek meddelande** att se resultat som liknar följande skärmbild:
   
     ![Granska meddelande](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
 ## <a name="read-and-remove-a-message-from-a-queue"></a>Läsa och ta bort ett meddelande från en kö
 
-I det här avsnittet lär du dig läsa och ta bort ett meddelande från en kö.   
+I det här avsnittet lär du dig att läsa och ta bort ett meddelande från en kö.   
 
 > [!NOTE]
 > 
-> Det här avsnittet förutsätter att du har slutfört stegen [Konfigurera utvecklingsmiljön](#set-up-the-development-environment). 
+> Det här avsnittet förutsätter att du har slutfört stegen [ställer in utvecklingsmiljön](#set-up-the-development-environment). 
 
 1. Öppna filen `QueuesController.cs`.
 
@@ -335,7 +335,7 @@ I det här avsnittet lär du dig läsa och ta bort ett meddelande från en kö.
     }
     ```
  
-1. I den **ReadMessage** metod, hämta en **CloudStorageAccount** objekt som representerar din kontoinformation för lagring. Använda följande kod för att hämta anslutningssträngen för lagring och information om lagringskonto från Azure tjänstkonfiguration: (ändra  *&lt;behållarens kontonamn >* till namnet på Azure storage-konto du försöker komma åt.)
+1. I den **ReadMessage** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -354,7 +354,7 @@ I det här avsnittet lär du dig läsa och ta bort ett meddelande från en kö.
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Anropa den **CloudQueue.GetMessage** metod för att läsa det första meddelandet i kön. Den **CloudQueue.GetMessage** metoden gör meddelandet osynligt i 30 sekunder (som standard) till andra meddelanden som läser så att ingen annan kod kan ändra eller ta bort meddelandet när din bearbeta denna kod. Om du vill ändra hur lång tid som meddelandet är osynliga ändra den **visibilityTimeout** parameter som skickas till den **CloudQueue.GetMessage** metod.
+1. Anropa den **CloudQueue.GetMessage** metod för att läsa det första meddelandet i kön. Den **CloudQueue.GetMessage** metoden gör meddelandet osynligt i 30 sekunder (som standard) till all kod som läser meddelanden så att ingen annan kod kan ändra eller ta bort meddelandet vid din bearbetning av den. Om du vill ändra hur lång tid som meddelandet är osynligt, ändra den **visibilityTimeout** parameter som skickas till den **CloudQueue.GetMessage** metod.
 
     ```csharp
     // This message will be invisible to other code for 30 seconds.
@@ -367,18 +367,18 @@ I det här avsnittet lär du dig läsa och ta bort ett meddelande från en kö.
     queue.DeleteMessage(message);
     ```
 
-1. Uppdatering av **ViewBag** med meddelandet tas bort och namnet på kön.
+1. Uppdatera den **ViewBag** med meddelandet tas bort och namnet på kön.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Message = message.AsString;
     ```
  
-1. I den **Solution Explorer**, expandera den **vyer** mappen, högerklicka på **köer**, och på snabbmenyn väljer **Lägg till -> Visa**.
+1. I den **Solution Explorer**, expandera den **vyer** mapp, högerklickar du på **köer**, och på snabbmenyn väljer **Lägg till -> Visa**.
 
 1. På den **Lägg till vy** dialogrutan Ange **ReadMessage** för namn och välj **Lägg till**.
 
-1. Öppna `ReadMessage.cshtml`, och ändra den så att det ser ut som följande kodavsnitt:
+1. Öppna `ReadMessage.cshtml`, och ändra det så att det ser ut som följande kodavsnitt:
 
     ```csharp
     @{
@@ -393,7 +393,7 @@ I det här avsnittet lär du dig läsa och ta bort ett meddelande från en kö.
     </table>
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer -> delade** och öppna `_Layout.cshtml`.
+1. I den **Solution Explorer**, expandera den **vyer -> delad** och öppna `_Layout.cshtml`.
 
 1. Efter senast **Html.ActionLink**, Lägg till följande **Html.ActionLink**:
 
@@ -401,9 +401,9 @@ I det här avsnittet lär du dig läsa och ta bort ett meddelande från en kö.
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Kör programmet och välj **läsa/ta bort meddelandet** att se resultatet liknar följande Skärmdump:
+1. Kör programmet och välj **läsa/ta bort meddelandet** att se resultat som liknar följande skärmbild:
   
-    ![Läsa och ta bort meddelandet](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
+    ![Läsa och ta bort meddelande](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
 ## <a name="get-the-queue-length"></a>Hämta kölängden
 
@@ -411,7 +411,7 @@ Det här avsnittet visar hur du kan hämta kölängden (antal meddelanden).
 
 > [!NOTE]
 > 
-> Det här avsnittet förutsätter att du har slutfört stegen [Konfigurera utvecklingsmiljön](#set-up-the-development-environment). 
+> Det här avsnittet förutsätter att du har slutfört stegen [ställer in utvecklingsmiljön](#set-up-the-development-environment). 
 
 1. Öppna filen `QueuesController.cs`.
 
@@ -426,7 +426,7 @@ Det här avsnittet visar hur du kan hämta kölängden (antal meddelanden).
     }
     ```
  
-1. I den **ReadMessage** metod, hämta en **CloudStorageAccount** objekt som representerar din kontoinformation för lagring. Använda följande kod för att hämta anslutningssträngen för lagring och information om lagringskonto från Azure tjänstkonfiguration: (ändra  *&lt;behållarens kontonamn >* till namnet på Azure storage-konto du försöker komma åt.)
+1. I den **ReadMessage** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -457,18 +457,18 @@ Det här avsnittet visar hur du kan hämta kölängden (antal meddelanden).
     int? nMessages = queue.ApproximateMessageCount;
     ```
 
-1. Uppdatering av **ViewBag** med namnet på kön och dess längd.
+1. Uppdatera den **ViewBag** med namnet på kön och hur långt.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Length = nMessages;
     ```
  
-1. I den **Solution Explorer**, expandera den **vyer** mappen, högerklicka på **köer**, och på snabbmenyn väljer **Lägg till -> Visa**.
+1. I den **Solution Explorer**, expandera den **vyer** mapp, högerklickar du på **köer**, och på snabbmenyn väljer **Lägg till -> Visa**.
 
 1. På den **Lägg till vy** dialogrutan Ange **GetQueueLength** för namn och välj **Lägg till**.
 
-1. Öppna `GetQueueLengthMessage.cshtml`, och ändra den så att det ser ut som följande kodavsnitt:
+1. Öppna `GetQueueLengthMessage.cshtml`, och ändra det så att det ser ut som följande kodavsnitt:
 
     ```csharp
     @{
@@ -480,7 +480,7 @@ Det här avsnittet visar hur du kan hämta kölängden (antal meddelanden).
     The queue '@ViewBag.QueueName' has a length of (number of messages): @ViewBag.Length
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer -> delade** och öppna `_Layout.cshtml`.
+1. I den **Solution Explorer**, expandera den **vyer -> delad** och öppna `_Layout.cshtml`.
 
 1. Efter senast **Html.ActionLink**, Lägg till följande **Html.ActionLink**:
 
@@ -488,7 +488,7 @@ Det här avsnittet visar hur du kan hämta kölängden (antal meddelanden).
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. Kör programmet och välj **hämta kölängden** att se resultatet liknar följande Skärmdump:
+1. Kör programmet och välj **hämta kölängden** att se resultat som liknar följande skärmbild:
   
     ![Hämta kölängden](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
@@ -498,7 +498,7 @@ Det här avsnittet visas hur du tar bort en kö.
 
 > [!NOTE]
 > 
-> Det här avsnittet förutsätter att du har slutfört stegen [Konfigurera utvecklingsmiljön](#set-up-the-development-environment). 
+> Det här avsnittet förutsätter att du har slutfört stegen [ställer in utvecklingsmiljön](#set-up-the-development-environment). 
 
 1. Öppna filen `QueuesController.cs`.
 
@@ -513,7 +513,7 @@ Det här avsnittet visas hur du tar bort en kö.
     }
     ```
  
-1. I den **DeleteQueue** metod, hämta en **CloudStorageAccount** objekt som representerar din kontoinformation för lagring. Använda följande kod för att hämta anslutningssträngen för lagring och information om lagringskonto från Azure tjänstkonfiguration: (ändra  *&lt;behållarens kontonamn >* till namnet på Azure storage-konto du försöker komma åt.)
+1. I den **DeleteQueue** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -538,17 +538,17 @@ Det här avsnittet visas hur du tar bort en kö.
     queue.Delete();
     ```
 
-1. Uppdatering av **ViewBag** med namnet på kön och dess längd.
+1. Uppdatera den **ViewBag** med namnet på kön och hur långt.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ```
  
-1. I den **Solution Explorer**, expandera den **vyer** mappen, högerklicka på **köer**, och på snabbmenyn väljer **Lägg till -> Visa**.
+1. I den **Solution Explorer**, expandera den **vyer** mapp, högerklickar du på **köer**, och på snabbmenyn väljer **Lägg till -> Visa**.
 
 1. På den **Lägg till vy** dialogrutan Ange **DeleteQueue** för namn och välj **Lägg till**.
 
-1. Öppna `DeleteQueue.cshtml`, och ändra den så att det ser ut som följande kodavsnitt:
+1. Öppna `DeleteQueue.cshtml`, och ändra det så att det ser ut som följande kodavsnitt:
 
     ```csharp
     @{
@@ -560,7 +560,7 @@ Det här avsnittet visas hur du tar bort en kö.
     @ViewBag.QueueName deleted.
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer -> delade** och öppna `_Layout.cshtml`.
+1. I den **Solution Explorer**, expandera den **vyer -> delad** och öppna `_Layout.cshtml`.
 
 1. Efter senast **Html.ActionLink**, Lägg till följande **Html.ActionLink**:
 
@@ -568,7 +568,7 @@ Det här avsnittet visas hur du tar bort en kö.
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. Kör programmet och välj **hämta kölängden** att se resultatet liknar följande Skärmdump:
+1. Kör programmet och välj **hämta kölängden** att se resultat som liknar följande skärmbild:
   
     ![Ta bort kö](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
@@ -576,4 +576,4 @@ Det här avsnittet visas hur du tar bort en kö.
 Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
 
   * [Kom igång med Azure blob storage och Visual Studio anslutna tjänster (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
-  * [Kom igång med Azure-tabellagring och Visual Studio anslutna tjänster (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
+  * [Kom igång med Azure table storage och Visual Studio anslutna tjänster (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)

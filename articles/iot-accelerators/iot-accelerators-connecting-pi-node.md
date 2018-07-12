@@ -1,6 +1,6 @@
 ---
-title: Etablera Raspberry Pi till Fjärrövervaknings i Node.js - Azure | Microsoft Docs
-description: Beskriver hur du ansluter en hallon Pi-enhet till Fjärrövervaknings solution accelerator med hjälp av ett program som skrivits i Node.js.
+title: Etablera Raspberry Pi till fjärrövervakning i Node.js – Azure | Microsoft Docs
+description: Beskriver hur du ansluter en Raspberry Pi-enhet till den lösningsacceleratorn för fjärrövervakning använder ett program som skrivits i Node.js.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,49 +9,49 @@ ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
 ms.openlocfilehash: 78647612fc747ec328279536d82fb31bb4858688
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626878"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309784"
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Ansluta enheten hallon Pi till Fjärrövervaknings solution accelerator (Node.js)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Anslut Raspberry Pi enheten till lösningsacceleratorn för fjärrövervakning (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Den här kursen visar hur du ansluter en fysisk enhet till Fjärrövervaknings solution accelerator. I den här kursen använder du Node.js, vilket är ett bra alternativ för miljöer med minimal resurs begränsningar.
+Den här självstudien visar hur du ansluter en fysisk enhet till lösningsacceleratorn för fjärrövervakning. I den här självstudien använder du Node.js, vilket är ett bra alternativ för miljöer med minimal resursbegränsningar.
 
-### <a name="required-hardware"></a>Nödvändig maskinvara
+### <a name="required-hardware"></a>Maskinvara som krävs
 
-En stationär dator så att du kan fjärransluta till kommandoraden på hallon Pi.
+En stationär dator så att du kan fjärransluta till kommandoraden på Raspberry Pi.
 
-[Microsoft IoT startpaket för hallon Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) eller motsvarande komponenter. Den här kursen använder följande objekt från kit:
+[Microsoft IoT-startpaket för Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) eller motsvarande komponenter. Den här självstudien använder följande objekt från kit:
 
 - Raspberry Pi 3
 - MicroSD-kort (med NOOBS)
 - En Mini USB-kabel
 - En Ethernet-kabel
 
-### <a name="required-desktop-software"></a>Nödvändig programvara för skrivbordet
+### <a name="required-desktop-software"></a>Nödvändig programvara för fjärrskrivbord
 
-Du måste SSH-klienten på den stationära datorn så att du kan fjärransluta till kommandoraden på hallon Pi.
+Du behöver SSH-klient på din stationära dator så att du kan fjärransluta till kommandoraden på Raspberry Pi.
 
 - Windows innehåller inte en SSH-klient. Vi rekommenderar att du använder [PuTTY](http://www.putty.org/).
-- De flesta distributioner för Linux och Mac OS inkluderar SSH-kommandoradsverktyget. Mer information finns i [SSH med Linux- eller Mac OS x](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
+- De flesta Linux-distributioner och Mac OS innehåller SSH-kommandoradsverktyget. Mer information finns i [SSH med Linux- eller Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
-### <a name="required-raspberry-pi-software"></a>Programvara som krävs hallon Pi
+### <a name="required-raspberry-pi-software"></a>Programvara som krävs Raspberry Pi
 
-Om du inte redan gjort det, installera Node.js version 4.0.0 eller senare på din hallon Pi. Följande steg visar hur du installerar Node.js v6 på din hallon Pi:
+Om du inte redan gjort det, installera Node.js version 4.0.0 eller senare på Raspberry Pi. Följande steg visar hur du installerar Node.js v6 på Raspberry Pi:
 
-1. Anslut till din hallon Pi med `ssh`. Mer information finns i [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) på den [hallon Pi webbplats](https://www.raspberrypi.org/).
+1. Ansluta till Raspberry Pi med `ssh`. Mer information finns i [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) på den [Raspberry Pi webbplats](https://www.raspberrypi.org/).
 
-1. Använd följande kommando för att uppdatera din hallon Pi:
+1. Använd följande kommando för att uppdatera Raspberry Pi:
 
     ```sh
     sudo apt-get update
     ```
 
-1. Använd följande kommandon för att ta bort en befintlig installation av Node.js från din hallon Pi:
+1. Använd följande kommandon för att ta bort alla befintliga installationer av Node.js från Raspberry Pi:
 
     ```sh
     sudo apt-get remove nodered -y
@@ -59,7 +59,7 @@ Om du inte redan gjort det, installera Node.js version 4.0.0 eller senare på di
     sudo apt-get remove npm  -y
     ```
 
-1. Använd följande kommando för att hämta och installera Node.js v6 på din hallon Pi:
+1. Använd följande kommando för att hämta och installera Node.js v6 på Raspberry Pi:
 
     ```sh
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
@@ -74,9 +74,9 @@ Om du inte redan gjort det, installera Node.js version 4.0.0 eller senare på di
 
 ## <a name="create-a-nodejs-solution"></a>Skapa en Node.js-lösning
 
-Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
+Utför följande steg med hjälp av den `ssh` anslutning till Raspberry Pi:
 
-1. Skapa en mapp med namnet `remotemonitoring` i arbetsmappen på hallon Pi. Navigera till den här mappen i kommandoraden:
+1. Skapa en mapp med namnet `remotemonitoring` i arbetsmappen på Raspberry Pi. Gå till den här mappen på kommandoraden:
 
     ```sh
     cd ~
@@ -84,16 +84,16 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
     cd remotemonitoring
     ```
 
-1. Om du vill hämta och installera de paket som du behöver utföra sample-appen genom att köra följande kommandon:
+1. Om du vill hämta och installera de paket som du behöver för att slutföra exempelappen, kör du följande kommandon:
 
     ```sh
     npm init
     npm install async azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. I den `remotemonitoring` mapp, skapa en fil med namnet **remote_monitoring.js**. Öppna den här filen i en textredigerare. På hallon Pi, kan du använda den `nano` eller `vi` textredigerare.
+1. I den `remotemonitoring` mapp, skapa en fil med namnet **remote_monitoring.js**. Öppna den här filen i en textredigerare. På Raspberry Pi, kan du använda den `nano` eller `vi` textredigerare.
 
-1. I den **remote_monitoring.js** fil, lägger du till följande `require` instruktioner:
+1. I den **remote_monitoring.js** Lägg till följande `require` instruktioner:
 
     ```nodejs
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
@@ -103,14 +103,14 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
     var async = require('async');
     ```
 
-1. Lägg till följande variabeldeklarationer efter `require`-instruktionerna. Ersätt platshållaren värdet `{device connection string}` med värdet som du antecknade för enheten etableras i Fjärrövervaknings-lösningen:
+1. Lägg till följande variabeldeklarationer efter `require`-instruktionerna. Ersätt platshållarvärdet `{device connection string}` med värdet som du antecknade för enheten du har etablerat i lösningen för fjärrövervakning:
 
     ```nodejs
     var connectionString = '{device connection string}';
     var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
-1. Om du vill definiera vissa grundläggande telemetridata, lägger du till följande variabler:
+1. För att definiera vissa grundläggande telemetridata, lägger du till följande variabler:
 
     ```nodejs
     var temperature = 50;
@@ -121,7 +121,7 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
     var pressureUnit = 'psig';
     ```
 
-1. Om du vill definiera vissa egenskapsvärden, lägger du till följande variabler:
+1. För att definiera vissa egenskapsvärden, lägger du till följande variabler:
 
     ```nodejs
     var temperatureSchema = 'chiller-temperature;v1';
@@ -137,7 +137,7 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
     var deviceOnline = true;
     ```
 
-1. Lägg till följande variabel om du vill definiera egenskaperna rapporterade att skicka till lösningen. Dessa egenskaper innehåller metadata som beskriver metoderna och telemetri enheten använder:
+1. Lägg till följande variabel om du vill definiera rapporterade egenskaper till att skicka till lösningen. Dessa egenskaper innehåller metadata för att beskriva metoderna och telemetri enheten använder:
 
     ```nodejs
     var reportedProperties = {
@@ -191,7 +191,7 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
     }
     ```
 
-1. Om du vill skriva ut resultatet av åtgärden, lägger du till följande hjälpfunktion:
+1. Om du vill skriva ut Åtgärdsresultat, lägger du till följande hjälpfunktion:
 
     ```nodejs
     function printErrorFor(op) {
@@ -201,7 +201,7 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
     }
     ```
 
-1. Lägg till följande hjälpfunktion du använder för att Slumpa telemetri värden:
+1. Lägg till följande hjälpfunktion du använder för att slumpgenerera telemetrivärden:
 
     ```nodejs
     function generateRandomIncrement() {
@@ -209,7 +209,7 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
     }
     ```
 
-1. Lägg till följande allmänna funktion för att hantera direkt metodanrop från lösningen. Funktionen visar information om den direkta metoden som anropades, men i det här exemplet ändrar inte enheten på något sätt. Lösningen använder direkta metoder för att fungera på enheter:
+1. Lägg till följande allmänna funktion för att hantera direkt metodanrop från lösningen. Funktionen visar information om den direkta metoden som anropades, men i det här exemplet ändrar inte enheten på något sätt. Lösningen använder direkta metoder för att vidta åtgärder för enheter:
 
     ```nodejs
     function onDirectMethod(request, response) {
@@ -224,7 +224,7 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
     }
     ```
 
-1. Lägg till följande funktion att hantera den **FirmwareUpdate** direkt metodanrop från lösningen. Funktionen verifierar parametrar i nyttolasten direkta metoden och kör sedan en firmware-uppdatering simulering asynkront:
+1. Lägg till följande funktion för att hantera den **FirmwareUpdate** dirigera metodanrop från lösningen. Funktionen kontrollerar parametrarna som skickades i nyttolasten för direktmetoden och kör sedan en uppdatering av inbyggd programvara-simulering asynkront:
 
     ```node.js
     function onFirmwareUpdate(request, response) {
@@ -253,7 +253,7 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
     }
     ```
 
-1. Lägg till följande funktion för att simulera en tidskrävande firmware update flöde som rapporterar förlopp tillbaka till lösningen:
+1. Lägg till följande funktion för att simulera en tidskrävande firmware update flöde som rapporterar status tillbaka till lösningen:
 
     ```node.js
     // Simulated firmwareUpdate flow
@@ -359,10 +359,10 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
 
 1. Lägg till följande kod:
 
-    * Öppna en anslutning.
-    * Ställ in en hanterare för egenskaper.
-    * Skicka rapporterat egenskaper.
-    * Registrera hanterare för direkta metoder. En separat hanterare används för firmware-uppdateringsmetoden direkt.
+    * Öppna anslutningen.
+    * Ställ in en hanterare för önskade egenskaper.
+    * Skicka rapporterade egenskaper.
+    * Registrera hanterare för direkta metoder. Exemplet använder en separat hanterare för metoden firmware update direkt.
     * Börja skicka telemetri.
 
     ```nodejs
@@ -439,7 +439,7 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
 
 1. Spara ändringarna i den **remote_monitoring.js** fil.
 
-1. Om du vill starta exempelprogrammet, kör du följande kommando vid en kommandotolk på hallon Pi:
+1. Om du vill starta exempelprogrammet, kör du följande kommando i Kommandotolken på Raspberry Pi:
 
     ```sh
     node remote_monitoring.js

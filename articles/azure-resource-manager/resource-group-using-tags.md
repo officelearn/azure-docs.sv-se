@@ -1,6 +1,6 @@
 ---
 title: Tagga Azure-resurser för logisk struktur | Microsoft Docs
-description: Visar hur du lägger till taggar för att organisera Azure-resurser för fakturering och hantering.
+description: Lär dig mer om att lägga till taggar för att organisera Azure-resurser för fakturering och hantering.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: tomfitz
 ms.openlocfilehash: 8c828bb49548adfdb02ed6fb1611eb405ebf4ff2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602932"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38466268"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Använd taggar för att organisera Azure-resurser
 
@@ -29,7 +29,7 @@ ms.locfileid: "34602932"
 
 ## <a name="powershell"></a>PowerShell
 
-Exemplen i den här artikeln kräver version 6.0 eller senare av Azure PowerShell. Om du inte har version 6.0 eller senare, [uppdatera din version](/powershell/azure/install-azurerm-ps).
+Exemplen i den här artikeln kräver Azure PowerShell 6.0 eller senare. Om du inte har version 6.0 eller senare, [uppdatera din version](/powershell/azure/install-azurerm-ps).
 
 Om du vill visa de befintliga taggarna för en *resursgrupp* använder du:
 
@@ -70,7 +70,7 @@ Om du vill hämta *resurser som har en specifik tagg* använder du:
 (Get-AzureRmResource -Tag @{ Dept="Finance"}).Name
 ```
 
-Att hämta *resurser som har namnet på en specifik tagg*, Använd:
+Att hämta *resurser som har ett specifikt taggnamn*, Använd:
 
 ```powershell
 (Get-AzureRmResource -TagName Dept).Name
@@ -168,25 +168,25 @@ Skriptet returnerar följande format:
 }
 ```
 
-Eller så finns de befintliga taggarna för en *resurs som har en viss grupp namn, typ och resursen*, Använd:
+Eller, för att se de befintliga taggarna för en *resurs som har en viss grupp av namn, typ och resurs*, Använd:
 
 ```azurecli
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
 ```
 
-När slingor via en mängd resurser, kanske du vill visa resursen av resurs-ID. En komplett exempel visas nedan. Om du vill visa de befintliga taggarna för en *resurs som har ett angivet resurs-ID* använder du:
+När slingor via en samling resurser, kanske du vill visa den resurs som resurs-ID. Ett komplett exempel visas nedan. Om du vill visa de befintliga taggarna för en *resurs som har ett angivet resurs-ID* använder du:
 
 ```azurecli
 az resource show --id <resource-id> --query tags
 ```
 
-För att få resursgrupper som har en specifik tagg, Använd `az group list`:
+Hämta resursgrupper som har en specifik tagg med `az group list`:
 
 ```azurecli
 az group list --tag Dept=IT
 ```
 
-Alla resurser som har en viss tagg och värdet får använda `az resource list`:
+Hämta alla resurser som har en viss tagg och värdet `az resource list`:
 
 ```azurecli
 az resource list --tag Dept=Finance
@@ -206,7 +206,7 @@ Om du vill lägga till taggar till en *resurs utan befintliga taggar* använder 
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Hämta befintliga taggar om du vill lägga till taggar till en resurs som redan har taggar, formatera om värdet och återanvända befintliga och nya taggar: 
+Hämta de befintliga taggarna för att lägga till taggar till en resurs som redan har taggar, formatera om detta värde och återanvända befintliga och nya taggar: 
 
 ```azurecli
 jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)
@@ -230,7 +230,7 @@ do
 done
 ```
 
-Tillämpa alla taggar från en resursgrupp till dess resurser och *behåller befintliga taggar på resurser*, använder du följande skript:
+Tillämpa alla taggar från en resursgrupp på dess resurser och *behålla de befintliga taggarna på resurser*, Använd följande skript:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -258,22 +258,22 @@ done
 
 ## <a name="rest-api"></a>REST-API
 
-Azure portal och PowerShell använder båda de [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) i bakgrunden. Om du behöver integrera taggning till en annan miljö, kan du få taggar med hjälp av **hämta** på resurs-ID och uppdatera en uppsättning taggar med hjälp av en **korrigering** anropa.
+Azure-portalen och PowerShell som båda använder den [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) i bakgrunden. Om du vill integrera taggar till en annan miljö kan du få taggar med hjälp av **hämta** på resurs-ID och update-uppsättningen med taggar med hjälp av en **KORRIGERA** anropa.
 
 ## <a name="tags-and-billing"></a>Taggar och fakturering
 
-Du kan använda taggar för att gruppera dina faktureringsinformation. Till exempel om du kör flera virtuella datorer i olika organisationer använda taggar om du vill gruppera användning av kostnadsställe. Du kan också använda taggar för att kategorisera kostnader av körningsmiljön, till exempel fakturering användning för virtuella datorer som körs i produktionsmiljön.
+Du kan använda taggar för att gruppera faktureringsinformation. Till exempel om du kör flera virtuella datorer i olika organisationer kan använda taggar arbetsgrupper per kostnadsställe. Du kan också använda taggar för att kategorisera kostnader genom att runtime-miljö, till exempel den fakturering användningen av virtuella datorer som körs i produktionsmiljön.
 
-Du kan hämta information om taggar via den [Azure Resursanvändning och RateCard APIs](../billing/billing-usage-rate-card-overview.md) eller filen användning fil med kommaavgränsade värden (CSV). Du hämta filen från användning av [Azure kontoportalen](https://account.windowsazure.com/) eller [EA portal](https://ea.azure.com). Mer information om programmatisk åtkomst till faktureringsinformationen finns [få insikter om dina Microsoft Azure-resursförbrukning](../billing/billing-usage-rate-card-overview.md). REST-API: et finns [Azure Billing REST API-referens](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+Du kan hämta information om taggar via den [Azure användning och RateCard APIs](../billing/billing-usage-rate-card-overview.md) eller användningsfil för fil med kommaavgränsade värden (CSV). Du ladda ned användningsfilen från den [Azure-kontoportalen](https://account.windowsazure.com/) eller [EA-portalen](https://ea.azure.com). Läs mer om programmatisk åtkomst till faktureringsinformation [insyn i din Microsoft Azure-resursförbrukning](../billing/billing-usage-rate-card-overview.md). REST API-åtgärder, se [Azure Billing REST API-referens](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
-När du hämtar användning CSV för tjänster som stöder taggar med fakturering taggarna visas i den **taggar** kolumn. Mer information finns i [förstå fakturan för Microsoft Azure](../billing/billing-understand-your-bill.md).
+När du har hämtat användning CSV för tjänster som stöder taggar med fakturering, taggar visas i den **taggar** kolumn. Mer information finns i [förstå fakturan för Microsoft Azure](../billing/billing-understand-your-bill.md).
 
-![Se taggar i fakturering](./media/resource-group-using-tags/billing_csv.png)
+![Visa taggarna i fakturering](./media/resource-group-using-tags/billing_csv.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Du kan tillämpa begränsningar och konventioner över din prenumeration med hjälp av anpassade principer. En princip som du definierar kan kräva att alla resurser som har ett värde för en viss tagg. Mer information finns i [vad är Azure principen?](../azure-policy/azure-policy-introduction.md)
-* En introduktion till med hjälp av Azure PowerShell när du distribuerar resurser, se [med hjälp av Azure PowerShell med Azure Resource Manager](powershell-azure-resource-manager.md).
-* En introduktion till med hjälp av Azure CLI när du distribuerar resurser, se [med hjälp av Azure CLI för Mac, Linux och Windows med Azure Resource Manager](xplat-cli-azure-resource-manager.md).
-* En introduktion till med hjälp av portalen finns [hantera Azure-resurser med hjälp av Azure portal](resource-group-portal.md).  
+* Du kan använda begränsningar och konventioner på din prenumeration med hjälp av anpassade principer. En princip som du definierar kan kräva att alla resurser har ett värde för en viss tagg. Mer information finns i [vad är Azure Policy?](../azure-policy/azure-policy-introduction.md)
+* En introduktion till med hjälp av Azure PowerShell när du distribuerar resurser finns i [med hjälp av Azure PowerShell med Azure Resource Manager](powershell-azure-resource-manager.md).
+* En introduktion till med hjälp av Azure CLI när du distribuerar resurser finns i [med Azure CLI för Mac, Linux och Windows med Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+* En introduktion till med hjälp av portalen finns i [med Azure portal för att hantera dina Azure-resurser](resource-group-portal.md).  
 * Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance).

@@ -1,6 +1,6 @@
 ---
-title: Felkoder för vanliga Windows virtuell dator i Azure | Microsoft Docs
-description: Förstå några av de vanliga felkoder som uppstod när du etablera och hantera Windows-datorer i Azure
+title: Felkoder för vanliga Windows-dator i Azure | Microsoft Docs
+description: Förstå några av de vanliga felkoder som påträffades när du etablerar och hanterar Windows-datorer i Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: xujing-ms
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: xujing;genli
-ms.openlocfilehash: 365fdcc8c7bf4ae8ec68b98734971d324032797f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4addf714ca18a7b5428025473111d96537ff4c99
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30913223"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723793"
 ---
 # <a name="understand-common-error-messages-when-you-manage-windows-virtual-machines-in-azure"></a>Förstå vanliga felmeddelanden när du hanterar Windows-datorer i Azure
 
-Den här artikeln beskrivs några av de vanligaste felkoder och meddelanden som du kan stöta på när du skapar eller hantera Windows-datorer (VM) i Azure.
+Den här artikeln beskriver några av de mest vanliga felkoder och meddelanden som du kan stöta på när du skapar eller hanterar Windows-datorer (VM) i Azure.
 
 [!INCLUDE [virtual-machines-common-error-messages](../../../includes/virtual-machines-common-error-messages.md)]

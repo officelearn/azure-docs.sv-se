@@ -1,12 +1,12 @@
 ---
-title: Ansluter en enhet med Node.js | Microsoft Docs
-description: "Beskriver hur du ansluter en enhet till Azure IoT Suite förkonfigurerade fjärråtkomst övervakning lösningen med hjälp av ett program som skrivits i Node.js."
-services: 
+title: Anslut en enhet med Node.js | Microsoft Docs
+description: Beskriver hur du ansluter en enhet till Azure IoT Suite och förkonfigurerade fjärrövervakningslösningen med hjälp av ett program som skrivits i Node.js.
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
@@ -16,21 +16,22 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 87a2e97638508eef1d90a219cfb38d1fcac81d55
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723884"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Ansluta enheten till den fjärranslutna förkonfigurerade övervakningslösning (Node.js)
+# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Anslut enheten till den förkonfigurerade lösningen för fjärrövervakning (Node.js)
 [!INCLUDE [iot-suite-v1-selector-connecting](../../includes/iot-suite-v1-selector-connecting.md)]
 
 ## <a name="create-a-nodejs-sample-solution"></a>Skapa en lösning för node.js-exempel
 
 Se till att Node.js version 0.11.5 eller senare är installerat på utvecklingsdatorn. Du kan köra `node --version` på kommandoraden för att kontrollera versionen.
 
-1. Skapa en mapp med namnet **RemoteMonitoring** på utvecklingsdatorn. Navigera till den här mappen i kommandoradsverktyget miljön.
+1. Skapa en mapp med namnet **RemoteMonitoring** på utvecklingsdatorn. Navigera till den här mappen i kommandoradsverktyget-miljön.
 
-1. Kör följande kommandon för att hämta och installera paket måste du slutföra exempelappen:
+1. Kör följande kommandon för att ladda ned och installera paket som du behöver för att slutföra exempelappen:
 
     ```
     npm init
@@ -39,7 +40,7 @@ Se till att Node.js version 0.11.5 eller senare är installerat på utvecklingsd
 
 1. I den **RemoteMonitoring** mapp, skapa en fil med namnet **remote_monitoring.js**. Öppna den här filen i en textredigerare.
 
-1. I den **remote_monitoring.js** fil, lägger du till följande `require` instruktioner:
+1. I den **remote_monitoring.js** Lägg till följande `require` instruktioner:
 
     ```nodejs
     'use strict';
@@ -65,7 +66,7 @@ Se till att Node.js version 0.11.5 eller senare är installerat på utvecklingsd
     var externalTemperature = 55;
     ```
 
-1. Lägg till följande hjälpfunktion om du vill skriva ut resultatet för åtgärden:
+1. Lägg till följande hjälpfunktion om du vill skriva ut Åtgärdsresultat:
 
     ```nodejs
     function printErrorFor(op) {
@@ -75,7 +76,7 @@ Se till att Node.js version 0.11.5 eller senare är installerat på utvecklingsd
     }
     ```
 
-1. Lägg till följande hjälpfunktion du använder för att Slumpa telemetri värden:
+1. Lägg till följande hjälpfunktion du använder för att slumpgenerera telemetrivärden:
 
     ```nodejs
     function generateRandomIncrement() {
@@ -83,7 +84,7 @@ Se till att Node.js version 0.11.5 eller senare är installerat på utvecklingsd
     }
     ```
 
-1. Lägg till följande definitionen för den **DeviceInfo** objekt enheten skickar vid start:
+1. Lägg till följande definition för det **DeviceInfo** objekt enheten skickar vid start:
 
     ```nodejs
     var deviceMetaData = {
@@ -97,7 +98,7 @@ Se till att Node.js version 0.11.5 eller senare är installerat på utvecklingsd
     };
     ```
 
-1. Lägg till följande definition för enheten dubbla rapporterade värden. Den här definitionen innehåller beskrivningar av metoderna direkt enheten stöder:
+1. Lägg till följande definition för enhetstvillingen rapporterade värden. Den här definitionen innehåller beskrivningar av de direkta metoder som enheten har stöd för:
 
     ```nodejs
     var reportedProperties = {
@@ -132,7 +133,7 @@ Se till att Node.js version 0.11.5 eller senare är installerat på utvecklingsd
     }
     ```
 
-1. Lägg till följande funktion att hantera den **omstart** direkt metodanrop:
+1. Lägg till följande funktion för att hantera den **omstart** dirigera metodanrop:
 
     ```nodejs
     function onReboot(request, response) {
@@ -150,7 +151,7 @@ Se till att Node.js version 0.11.5 eller senare är installerat på utvecklingsd
     }
     ```
 
-1. Lägg till följande funktion att hantera den **InitiateFirmwareUpdate** direkt metodanrop. Den här direkta metoden använder en parameter för att ange plats för avbildningen som inbyggd programvara ska ladda ned och initierar den inbyggda programvaran uppdatera på enheten asynkront:
+1. Lägg till följande funktion för att hantera den **InitiateFirmwareUpdate** dirigera metodanrop. Den här direkt metod använder en parameter för att ange platsen för avbildningen för inbyggd programvara för att ladda ned och initierar den uppdatering av inbyggd programvaran på enheten asynkront:
 
     ```nodejs
     function onInitiateFirmwareUpdate(request, response) {
@@ -177,10 +178,10 @@ Se till att Node.js version 0.11.5 eller senare är installerat på utvecklingsd
 
 1. Lägg till följande kod:
 
-    * Öppna en anslutning.
+    * Öppna anslutningen.
     * Skicka den **DeviceInfo** objekt.
-    * Ställ in en hanterare för egenskaper.
-    * Skicka rapporterat egenskaper.
+    * Ställ in en hanterare för önskade egenskaper.
+    * Skicka rapporterade egenskaper.
     * Registrera hanterare för direkta metoder.
     * Börja skicka telemetri.
 

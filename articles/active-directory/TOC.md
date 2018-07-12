@@ -404,7 +404,7 @@
 
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
-#### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### Snabbstarter
 ##### [Konfigurera MFA per app](active-directory-conditional-access-app-based-mfa.md)
 ##### [Kräv att användningsvillkoren godkänns](active-directory-conditional-access-tou.md)
@@ -434,7 +434,7 @@
 ### Certifikatbaserad autentisering
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Komma igång](active-directory-certificate-based-authentication-get-started.md)
+#### [Kom igång](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Aktivera](active-directory-identityprotection-enable.md)
@@ -447,7 +447,7 @@
 #### [Vanliga frågor och svar](active-directory-identity-protection-faqs.md)
 #### [Ordlista](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
+### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## Integrera andra tjänster med Azure AD 
 ### [Integrera LinkedIn med Azure AD](users-groups-roles/linkedin-integration.md)
@@ -477,7 +477,7 @@
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD för utvecklare](./develop/active-directory-how-to-integrate.md)
-## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # Resurser
 ## [Azures feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)

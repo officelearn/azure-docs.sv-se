@@ -1,6 +1,6 @@
 ---
-title: Infrastruktur-säkerhetskopieringstjänsten bästa praxis för Azure-stacken | Microsoft Docs
-description: Du kan följa uppsättning av bästa praxis när du distribuerar och hanterar Azure-stacken i ditt datacenter för att minimera dataförlust om ett oåterkalleligt fel.
+title: Infrastruktur för Backup-tjänsten Metodtips för Azure Stack | Microsoft Docs
+description: Du kan följa uppsättning rekommenderade metoder när du distribuerar och hanterar Azure Stack i datacentret för att minimera dataförlust om det finns ett oåterkalleligt fel.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,55 +15,53 @@ ms.topic: article
 ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: ec30832e6863ad92eff8f5c2e613adc503c73af5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 06a2d4ab12d2a7e03a538a98f5232a417fb39e4f
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075756"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969477"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Metodtips för infrastruktur Backup-tjänsten
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Du kan följa bästa praxis när du distribuerar och hanterar Azure-stacken i ditt datacenter för att minimera dataförlust om ett oåterkalleligt fel.
+Du kan följa bästa praxis när du distribuerar och hanterar Azure Stack i datacentret för att minska data går förlorade i händelse av ett oåterkalleligt fel.
 
-Bästa praxis bör du granska med jämna mellanrum att verifiera att installationen är fortfarande i kompatibilitet när ändringar görs till flödet för åtgärden. Ska det uppstår problem när du implementerar dessa bästa praxis, kontakta Microsofts Support för hjälp.
+Bästa praxis bör du granska med jämna mellanrum att verifiera att installationen är fortfarande i efterlevnad när ändringar görs i flödet igen. Bör du får problem när du implementerar dessa metodtips, kontakta Microsoft Support om du behöver hjälp.
 
 ## <a name="configuration-best-practices"></a>Metodtips för konfiguration
 
 ### <a name="deployment"></a>Distribution
 
-Aktivera infrastruktur säkerhetskopiering efter distributionen av varje moln för Azure-stacken. Med hjälp av AzureStack-verktyg som du kan också schemalägga säkerhetskopieringar från en klient/server med åtkomst till operatorn management API-slutpunkt.
+Aktivera säkerhetskopiering av infrastruktur efter distributionen av varje Azure Stack-molnet. Med hjälp av AzureStack-verktyg som du kan schemalägga säkerhetskopieringar från en klient/server med åtkomst till API för operatorn hanteringsslutpunkten.
 
 ### <a name="networking"></a>Nätverk
 
-Universal Naming Convention (UNC)-sträng för sökväg måste använda ett fullständigt kvalificerat domännamn (FQDN). IP-adress är möjligt om namnmatchning inte är möjligt. En UNC-sträng Anger platsen för resurser, till exempel delade filer eller enheter.
+Universal Naming Convention (UNC)-sträng för sökvägen måste använda ett fullständigt kvalificerat domännamn (FQDN). IP-adressen är möjligt om namnmatchning inte är möjligt. En UNC-sträng Anger platsen för resurser, till exempel delade filer eller enheter.
 
 ### <a name="encryption"></a>Kryptering
 
-Krypteringsnyckeln används för att kryptera säkerhetskopian som exporteras till extern lagring. Nyckeln kan genereras med hjälp av AzureStack-verktyg. 
+Krypteringsnyckeln används för att kryptera säkerhetskopierade data som exporteras till extern lagring. Nyckeln genereras som en del av [aktiverar säkerhetskopiering för Azure Stack med PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
-![AzureStack-verktyg](media\azure-stack-backup\azure-stack-backup-encryption1.png)
+Nyckeln måste lagras på en säker plats (till exempel offentliga Azure Key Vault-hemlighet). Den här nyckeln måste användas under omdistribution av Azure Stack. 
 
-Nyckeln måste vara lagrad i en säker plats (till exempel offentliga Azure Key Vault hemliga). Den här nyckeln måste användas under omdistributionen av Azure-stacken. 
-
-![Lagrade nyckeln för en säker plats.](media\azure-stack-backup\azure-stack-backup-encryption2.png)
+![Lagrade nyckeln en säker plats.](media\azure-stack-backup\azure-stack-backup-encryption2.png)
 
 ## <a name="operational-best-practices"></a>Metodtips för fortlöpande
 
 ### <a name="backups"></a>Säkerhetskopior
 
- - Infrastruktur för måste säkerhetskopiering aktiveras på begäran. Rekommendation är att säkerhetskopiera minst två gånger per dag.
- - Säkerhetskopieringsjobb köra när systemet körs så att det finns inget avbrott uppstår på hanteringsupplevelser eller program. Förvänta dig säkerhetskopieringsjobb ska börja 20 – 40 minuter efter en lösning som är under rimliga belastning.
- - Med OEM tillhandahålls instruktion bör manuellt säkerhetskopiering nätverksväxlar och maskinvara livscykel värden (HLH) lagras på samma säkerhetskopiering resurs där infrastruktur säkerhetskopiering Controller lagrar kontrollen plan säkerhetskopierade data. Överväg att lagra växeln och HLH konfigurationer i mappen region. Överväg att använda en identifierare för varje konfiguration som hör till en skalningsenhet om du har flera Azure Stack-instanser i samma region.
+ - Infrastruktur för måste säkerhetskopiering aktiveras på begäran. Rekommendationen är att säkerhetskopiera minst två gånger per dag.
+ - Säkerhetskopieringsjobb körs medan systemet körs så att det finns inga driftstopp för hanteringsupplevelser eller användarprogram. Förvänta dig säkerhetskopieringsjobb ska börja 20 – 40 minuter efter en lösning som är rimligt belastning.
+ - Med OEM tillhandahålls instruktion bör manuellt säkerhetskopiering nätverksväxlar och maskinvara livscykel värden (HLH) lagras på den samma säkerhetskopieringsresursen där-dataplaner kontrollen infrastruktur för säkerhetskopiering Controller lagrar säkerhetskopierade data. Överväg att lagra växel och HLH konfigurationer i mappen region. Om du har flera Azure Stack-instanser i samma region kan du använda en identifierare för varje konfiguration som tillhör en skalningsenhet.
 
 ### <a name="folder-names"></a>Mappnamn
 
- - Infrastruktur skapar automatiskt MASBACKUP mapp. Det här är en Microsoft-hanterad resurs. Du kan skapa resurser på samma nivå som MASBACKUP. Det rekommenderas inte att skapa mappar eller storage-data i MASBACKUP Azure Stack inte skapar. 
- -  Användaren FQDN och region i mappnamnet för att skilja säkerhetskopierade data från olika moln. Fullständigt kvalificerade domännamn (FQDN) Azure Stack-distribution och slutpunkter är en kombination av Region parametrarna och externa domännamn. Mer information finns i [Azure Stack-integrering för datacenter - DNS-](azure-stack-integrate-dns.md).
+ - Infrastruktur skapas MASBACKUP automatiskt. Det här är en Microsoft-hanterad resurs. Du kan skapa filresurser på samma nivå som MASBACKUP. Det rekommenderas inte skapa mappar eller lagringsdata inuti MASBACKUP som inte har skapat i Azure Stack. 
+ -  Användaren FQDN och region i mappnamnet skilja säkerhetskopierade data från olika moln. Det fullständigt kvalificerade domännamnet (FQDN) Azure Stack-distributioner och slutpunkter är en kombination av Region parametrarna och externa domännamn. Mer information finns i [Azure Stack datacenter-integrering - DNS-](azure-stack-integrate-dns.md).
 
-Säkerhetskopiering resursen är till exempel AzSBackups finns på fileserver01.contoso.com. I den filresursen kan det finnas en mapp per Azure Stack-distribution med namnet på externa domänen och en undermapp med namnet region. 
+Till exempel är säkerhetskopieringsresursen AzSBackups fileserver01.contoso.com som värdplattform. I den filresursen kan det finnas en mapp per Azure Stack-distribution med externa domännamnet och en undermapp som använder samma region. 
 
 FQDN: contoso.com  
 Region: nyc
@@ -74,9 +72,9 @@ Region: nyc
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\MASBackup
 
-MASBackup mappen är där Azure Stack lagrar säkerhetskopierade data. Du bör inte använda den här mappen för att lagra dina egna data. OEM bör inte använda den här mappen för att lagra säkerhetskopierade data antingen. 
+MASBackup mappen är där Azure Stack lagrar säkerhetskopierade data. Du bör inte använda den här mappen för att lagra dina egna data. OEM bör inte använda den här mappen för att lagra alla säkerhetskopierade data antingen. 
 
-Bör du lagra säkerhetskopierade data för komponenterna under mappen region. Varje nätverksväxlar, maskinvara livscykel värden (HLH) och så vidare kan lagras i sin egen undermapp. Exempel:
+Bör du också lagra säkerhetskopierade data för komponenter under mappen region. Varje nätverksväxlar, maskinvara livscykel värd (HLH) och så vidare kan lagras i en egen undermapp. Exempel:
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
@@ -89,11 +87,11 @@ Följande aviseringar som stöds av systemet:
 
 | Varning                                                   | Beskrivning                                                                                     | Åtgärd                                                                                                                                |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Säkerhetskopiering misslyckades eftersom filresursen är utanför kapacitet | Filresursen är utanför kapacitet och säkerhetskopiering domänkontrollant kan inte exportera säkerhetskopieringsfiler till platsen. | Lägg till mer lagringskapacitet och försök sedan säkerhetskopiera igen. Ta bort befintliga säkerhetskopior (med början från äldsta först) för att frigöra utrymme.                    |
-| Säkerhetskopieringen misslyckades på grund av problem med nätverksanslutningen.             | Nätverket mellan Azure-stacken och filen resursen upplever problem.                          | Åtgärda nätverksproblemet och försök säkerhetskopieringen igen.                                                                                            |
-| Säkerhetskopieringen misslyckades på grund av ett fel i sökvägen                | Sökvägen till filresursen kan inte lösas                                                          | Mappa resursen från en annan dator för att se till att resursen är tillgänglig. Du kan behöva uppdatera sökvägen om det är inte längre giltig.       |
-| Säkerhetskopieringen misslyckades på grund av autentiseringsproblem               | Det kan finnas ett problem med autentiseringsuppgifterna eller ett nätverksproblem som påverkar autentisering.    | Mappa resursen från en annan dator för att se till att resursen är tillgänglig. Du kan behöva uppdatera autentiseringsuppgifterna, om de inte längre giltig. |
-| Säkerhetskopieringen misslyckades på grund av ett allmänt fel                    | Den misslyckade begäranden kan bero på ett tillfälligt fel. Försök säkerhetskopiera igen.                    | Ring supporten                                                                                                                               |
+| Säkerhetskopieringen misslyckades eftersom filresursen är kapacitet | Filresursen är kapacitet och säkerhetskopiering domänkontrollant kan inte exportera säkerhetskopieringsfiler till platsen. | Lägg till mer lagringskapacitet och försök säkerhetskopiera igen. Ta bort befintliga säkerhetskopior (med början från äldsta först) för att frigöra utrymme.                    |
+| Säkerhetskopieringen misslyckades på grund av problem med nätverksanslutningen.             | Nätverket mellan Azure Stack och filen resursen innehåller fel.                          | Åtgärda problem med nätverket och försök säkerhetskopieringen igen.                                                                                            |
+| Säkerhetskopieringen misslyckades på grund av ett fel i sökvägen                | Sökvägen till filresursen kan inte lösas                                                          | Mappa resursen från en annan dator för att se till att resursen är tillgänglig. Du kan behöva uppdatera sökvägen om den inte längre giltig.       |
+| Säkerhetskopieringen misslyckades på grund av problem med autentisering               | Det kan finnas ett problem med autentiseringsuppgifterna eller ett problem som påverkar autentisering.    | Mappa resursen från en annan dator för att se till att resursen är tillgänglig. Du kan behöva uppdatera autentiseringsuppgifter om de inte längre giltig. |
+| Säkerhetskopieringen misslyckades på grund av ett allmänt fel                    | Misslyckade begäranden kan bero på ett tillfälligt problem. Försök säkerhetskopiera igen.                    | Kontakta supporten                                                                                                                               |
 
 ## <a name="next-steps"></a>Nästa steg
 

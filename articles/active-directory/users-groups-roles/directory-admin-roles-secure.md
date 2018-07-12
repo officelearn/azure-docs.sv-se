@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 50cf905a53ebb9c9eb7bb1ea1660999b11b15bef
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 1d08518a23dfe4a9cc63bf3f35ee69ea1815595f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872483"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38239959"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD
 
@@ -251,7 +251,7 @@ Innehåller riktlinjer för incident hantering, särskilt för att analysera inc
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>Implementera Privileged Identity Management (PIM) för JIT ytterligare administrativa roller
 
-Azure Active Directory, använder [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) kapaciteten. Tidsbegränsad aktivering av Privilegierade roller fungerar genom att:
+Azure Active Directory, använder [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) kapaciteten. Tidsbegränsad aktivering av Privilegierade roller fungerar genom att:
 
 * Aktivera admin-behörighet för att utföra en viss uppgift
 * Använda MFA under aktiveringen

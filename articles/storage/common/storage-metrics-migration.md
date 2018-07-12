@@ -1,6 +1,6 @@
 ---
-title: Azure Storage metrics migration | Microsoft Docs
-description: Lär dig hur du migrerar gamla mått till nya mått som hanteras av Azure-Monitor.
+title: Migrering av Azure Storage-mått | Microsoft Docs
+description: Lär dig hur du migrerar gamla mått till nya mått som hanteras av Azure Monitor.
 services: storage
 documentationcenter: na
 author: fhryo-msft
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 03/30/2018
 ms.author: fryu
-ms.openlocfilehash: c64061aee94e8c08a3f6bcae78cffca0b4172d97
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9586d0c2b61fe97106378ec684c28be9143b5194
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650680"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969392"
 ---
-# <a name="azure-storage-metrics-migration"></a>Azure Storage metrics migrering
+# <a name="azure-storage-metrics-migration"></a>Migrering av Azure Storage-mått
 
-Justerad med strategin för enhetlig övervakaren användarupplevelse i Azure, integrerar Azure Storage mått för Azure-Monitor-plattformen. Tjänsten gamla mått kommer i framtiden, avslutas med en tidig varning baserat på Azure-princip. Om du förlitar sig på gamla storage-mätvärden, måste du migrera före slutdatumet för tjänsten för att underhålla din mått information.
+I linje med strategi för enhetlig övervakaren användarupplevelse i Azure, integrerar Azure Storage mätvärden för Azure Monitor-plattformen. I framtiden, upphör tjänsten av de gamla mått med en tidig meddelande baserat på Azure policy. Om du förlitar dig på gamla lagringsmått måste du migrera före slutdatumet för tjänsten för att upprätthålla din mått information.
 
-Den här artikeln visar hur du migrerar från gammal mått till nya statistik.
+Den här artikeln visar hur du migrerar från den gamla måtten till den nya måtten.
 
 ## <a name="understand-old-metrics-that-are-managed-by-azure-storage"></a>Förstå gamla mått som hanteras av Azure Storage
 
-Azure Storage samlar in gamla måttvärden och sammanställer och lagrar dem i $Metric tabeller i samma lagringskonto. Du kan använda Azure-portalen för att ställa in ett diagram för övervakning. Du kan också använda Azure Storage SDK: erna för att läsa data från $Metric tabeller som är baserade på schemat. Mer information finns i [Storage Analytics](./storage-analytics.md).
+Azure Storage samlar in gamla måttvärden och aggregerar och lagrar dem i $Metric tabeller inom samma lagringskonto. Du kan använda Azure-portalen för att ställa in en Övervakningsdiagrammet. Du kan också använda Azure Storage SDK: er för att läsa data från $Metric tabeller som baseras på schemat. Mer information finns i [Lagringsanalys](./storage-analytics.md).
 
-Gamla mått ange kapacitetsdata bara på Azure Blob storage. Gamla mått ger transaktion mått för Blob storage, Table storage, Azure-filer och Queue storage. 
+Gamla mätvärden är kapacitetsmått som påverkar endast på Azure Blob storage. Gamla mätvärden är transaktionsmått på Blob storage, Table storage, Azure Files och Queue storage. 
 
-Gamla mått är utformade för i platt schemat. Designen resulterar i värdet noll mått när du inte har trafikmönster utlösa måttet. Till exempel den **ServerTimeoutError** värdet anges till 0 i $Metric tabeller, även om du inte får någon server timeout-fel från live trafiken till ett lagringskonto.
+Gamla mått är utformade i ett fast schema. Designen leder noll måttvärde när du inte har trafikmönster utlösa måttet. Till exempel den **ServerTimeoutError** värdet anges till 0 i $Metric tabeller, även om du inte får någon server timeout-fel från live-trafik till ett lagringskonto.
 
-## <a name="understand-new-metrics-managed-by-azure-monitor"></a>Förstå nya mått som hanteras av Azure-Monitor
+## <a name="understand-new-metrics-managed-by-azure-monitor"></a>Förstå nya mått som hanteras av Azure Monitor
 
-För nya storage-mätvärden skickar Azure Storage mått data till Azure-Monitor serverdelen. Azure övervakning ger en enhetlig övervakning miljö, inklusive data från portalen samt datapåfyllning. Mer information kan du referera till detta [artikel](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+För nya lagringsmått genererar måttdata till Azure Monitor-serverdel i Azure Storage. Azure Monitor innehåller en enhetlig övervakningsupplevelse, inklusive data från portalen samt datainmatning. Mer information kan du referera till den här [artikeln](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Nya ange kapacitetsdata och transaktionen mått på Blob, tabell, fil, kön och premium-lagring.
+Nya mått ger kapacitet och transaktionsmått utifrån Blob, tabell, fil, kö och premiumlagring.
 
-Flera dimensionen är en av de funktioner som ger Azure-Monitor. Azure Storage antar design för att definiera nya mått schemat. För stöds dimensioner på mått hittar du information i [Azure Storage-mätvärden i Azure-Monitor](./storage-metrics-in-azure-monitor.md). Flera dimension designen innehåller kostnadseffektivitet på båda bandbredd från införandet och kapacitet från att lagra mått. Därför om trafiken inte utlöses relaterade mått genereras relaterade måttinformationen inte. Till exempel om trafiken inte aktiveras har någon server timeout-fel, Azure-Monitor inte returnerar några data när du frågar värdet för måttet **transaktioner** med dimension **ResponseType** lika med **ServerTimeoutError**.
+Måttkommandon är en av de funktioner som Azure Monitor innehåller. Azure Storage antar design för att definiera nya mått schemat. För stöds dimensioner på mått du hittar information i [Azure Storage-mått i Azure Monitor](./storage-metrics-in-azure-monitor.md). Flera dimensionsdesign innehåller kostnadseffektivitet om båda bandbredden från inmatning och kapacitet från att lagra mått. Därför om trafiken inte har utlöst relaterade mått, genereras relaterade måttdata inte. Till exempel om trafiken inte aktiveras har någon server timeout-fel, Azure Monitor inte returnerar några data när du frågar värdet för måttet **transaktioner** med dimensionen **ResponseType** lika med **ServerTimeoutError**.
 
-## <a name="metrics-mapping-between-old-metrics-and-new-metrics"></a>Mått mappning mellan gamla mått och nya
+## <a name="metrics-mapping-between-old-metrics-and-new-metrics"></a>Mått mappningen mellan gamla mått och nya mått
 
-Om du har läst mätvärden via programmering måste att införa nya mått schemat i dina program. För att bättre förstå ändringarna, kan du referera till mappningen visas i följande tabell:
+Om du har läst mätvärden via programmering behöver att införa nya mått schemat i dina program. För att bättre förstå ändringarna, kan du referera till mappningen som visas i följande tabell:
 
 **Kapacitet mått**
 
-| Gamla mått | Nytt mått |
+| Gamla mått | Nya mått |
 | ------------------- | ----------------- |
-| **Kapacitet**            | **BlobCapacity** med dimensionen **BlobType** lika med **BlockBlob** eller **PageBlob** |
-| **ObjectCount**        | **BlobCount** med dimensionen **BlobType** lika med **BlockBlob** eller **PageBlob** |
+| **Kapacitet**            | **BlobCapacity** med dimensionen **BlobType** lika **BlockBlob** eller **PageBlob** |
+| **ObjectCount**        | **BlobCount** med dimensionen **BlobType** lika **BlockBlob** eller **PageBlob** |
 | **ContainerCount**      | **ContainerCount** |
 
 Följande mått är nya erbjudanden som inte har stöd för de gamla mått:
@@ -67,44 +67,44 @@ Följande mått är nya erbjudanden som inte har stöd för de gamla mått:
 * **FileShareCount**
 * **UsedCapacity**
 
-**Transaktionen mått**
+**Transaktionsmått**
 
-| Gamla mått | Nytt mått |
+| Gamla mått | Nya mått |
 | ------------------- | ----------------- |
-| **AnonymousAuthorizationError** | Transaktioner med dimensionen **ResponseType** lika med **AuthorizationError** |
-| **AnonymousClientOtherError** | Transaktioner med dimensionen **ResponseType** lika med **ClientOtherError** |
-| **AnonymousClientTimeoutError** | Transaktioner med dimensionen **ResponseType** lika med **ClientTimeoutError** |
-| **AnonymousNetworkError** | Transaktioner med dimensionen **ResponseType** lika med **NetworkError** |
-| **AnonymousServerOtherError** | Transaktioner med dimensionen **ResponseType** lika med **ServerOtherError** |
-| **AnonymousServerTimeoutError** | Transaktioner med dimensionen **ResponseType** lika med **ServerTimeoutError** |
-| **AnonymousSuccess** | Transaktioner med dimensionen **ResponseType** lika med **lyckades** |
-| **AnonymousThrottlingError** | Transaktioner med dimensionen **ResponseType** lika med **ClientThrottlingError** eller **ServerBusyError** |
-| **AuthorizationError** | Transaktioner med dimensionen **ResponseType** lika med **AuthorizationError** |
+| **AnonymousAuthorizationError** | Transaktioner med dimensionen **ResponseType** lika **AuthorizationError** |
+| **AnonymousClientOtherError** | Transaktioner med dimensionen **ResponseType** lika **ClientOtherError** |
+| **AnonymousClientTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ClientTimeoutError** |
+| **AnonymousNetworkError** | Transaktioner med dimensionen **ResponseType** lika **NetworkError** |
+| **AnonymousServerOtherError** | Transaktioner med dimensionen **ResponseType** lika **ServerOtherError** |
+| **AnonymousServerTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ServerTimeoutError** |
+| **AnonymousSuccess** | Transaktioner med dimensionen **ResponseType** lika **lyckades** |
+| **AnonymousThrottlingError** | Transaktioner med dimensionen **ResponseType** lika **ClientThrottlingError** eller **ServerBusyError** |
+| **AuthorizationError** | Transaktioner med dimensionen **ResponseType** lika **AuthorizationError** |
 | **Tillgänglighet** | **Tillgänglighet** |
 | **AverageE2ELatency** | **SuccessE2ELatency** |
 | **AverageServerLatency** | **SuccessServerLatency** |
-| **ClientOtherError** | Transaktioner med dimensionen **ResponseType** lika med **ClientOtherError** |
-| **ClientTimeoutError** | Transaktioner med dimensionen **ResponseType** lika med **ClientTimeoutError** |
-| **NetworkError** | Transaktioner med dimensionen **ResponseType** lika med **NetworkError** |
-| **PercentAuthorizationError** | Transaktioner med dimensionen **ResponseType** lika med **AuthorizationError** |
-| **PercentClientOtherError** | Transaktioner med dimensionen **ResponseType** lika med **ClientOtherError** |
-| **PercentNetworkError** | Transaktioner med dimensionen **ResponseType** lika med **NetworkError** |
-| **PercentServerOtherError** | Transaktioner med dimensionen **ResponseType** lika med **ServerOtherError** |
-| **PercentSuccess** | Transaktioner med dimensionen **ResponseType** lika med **lyckades** |
-| **PercentThrottlingError** | Transaktioner med dimensionen **ResponseType** lika med **ClientThrottlingError** eller **ServerBusyError** |
-| **PercentTimeoutError** | Transaktioner med dimensionen **ResponseType** lika med **ServerTimeoutError** eller **ResponseType** lika med **ClientTimeoutError** |
-| **SASAuthorizationError** | Transaktioner med dimensionen **ResponseType** lika med **AuthorizationError** |
-| **SASClientOtherError** | Transaktioner med dimensionen **ResponseType** lika med **ClientOtherError** |
-| **SASClientTimeoutError** | Transaktioner med dimensionen **ResponseType** lika med **ClientTimeoutError** |
-| **SASNetworkError** | Transaktioner med dimensionen **ResponseType** lika med **NetworkError** |
-| **SASServerOtherError** | Transaktioner med dimensionen **ResponseType** lika med **ServerOtherError** |
-| **SASServerTimeoutError** | Transaktioner med dimensionen **ResponseType** lika med **ServerTimeoutError** |
-| **SASSuccess** | Transaktioner med dimensionen **ResponseType** lika med **lyckades** |
-| **SASThrottlingError** | Transaktioner med dimensionen **ResponseType** lika med **ClientThrottlingError** eller **ServerBusyError** |
-| **ServerOtherError** | Transaktioner med dimensionen **ResponseType** lika med **ServerOtherError** |
-| **ServerTimeoutError** | Transaktioner med dimensionen **ResponseType** lika med **ServerTimeoutError** |
-| **Lyckades** | Transaktioner med dimensionen **ResponseType** lika med **lyckades** |
-| **ThrottlingError** | **Transaktioner** med dimensionen **ResponseType** lika med **ClientThrottlingError** eller **ServerBusyError**|
+| **ClientOtherError** | Transaktioner med dimensionen **ResponseType** lika **ClientOtherError** |
+| **ClientTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ClientTimeoutError** |
+| **NetworkError** | Transaktioner med dimensionen **ResponseType** lika **NetworkError** |
+| **PercentAuthorizationError** | Transaktioner med dimensionen **ResponseType** lika **AuthorizationError** |
+| **PercentClientOtherError** | Transaktioner med dimensionen **ResponseType** lika **ClientOtherError** |
+| **PercentNetworkError** | Transaktioner med dimensionen **ResponseType** lika **NetworkError** |
+| **PercentServerOtherError** | Transaktioner med dimensionen **ResponseType** lika **ServerOtherError** |
+| **PercentSuccess** | Transaktioner med dimensionen **ResponseType** lika **lyckades** |
+| **PercentThrottlingError** | Transaktioner med dimensionen **ResponseType** lika **ClientThrottlingError** eller **ServerBusyError** |
+| **PercentTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ServerTimeoutError** eller **ResponseType** lika **ClientTimeoutError** |
+| **SASAuthorizationError** | Transaktioner med dimensionen **ResponseType** lika **AuthorizationError** |
+| **SASClientOtherError** | Transaktioner med dimensionen **ResponseType** lika **ClientOtherError** |
+| **SASClientTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ClientTimeoutError** |
+| **SASNetworkError** | Transaktioner med dimensionen **ResponseType** lika **NetworkError** |
+| **SASServerOtherError** | Transaktioner med dimensionen **ResponseType** lika **ServerOtherError** |
+| **SASServerTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ServerTimeoutError** |
+| **SASSuccess** | Transaktioner med dimensionen **ResponseType** lika **lyckades** |
+| **SASThrottlingError** | Transaktioner med dimensionen **ResponseType** lika **ClientThrottlingError** eller **ServerBusyError** |
+| **ServerOtherError** | Transaktioner med dimensionen **ResponseType** lika **ServerOtherError** |
+| **ServerTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ServerTimeoutError** |
+| **Lyckades** | Transaktioner med dimensionen **ResponseType** lika **lyckades** |
+| **ThrottlingError** | **Transaktioner** med dimensionen **ResponseType** lika **ClientThrottlingError** eller **ServerBusyError**|
 | **TotalBillableRequests** | **Transaktioner** |
 | **TotalEgress** | **Utgående** |
 | **TotalIngress** | **Inkommande** |
@@ -112,15 +112,15 @@ Följande mått är nya erbjudanden som inte har stöd för de gamla mått:
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-### <a name="how-should-i-migrate-existing-alert-rules"></a>Hur får jag migrera befintliga Varningsregler?
+### <a name="how-should-i-migrate-existing-alert-rules"></a>Hur ska jag migrerar befintliga Varningsregler?
 
-Om du har skapat klassiska Varningsregler baserat på gamla storage-mätvärden, måste du skapa nya regler baserat på det nya schemat för mått.
+Om du har skapat klassiska Varningsregler baserat på gamla mätvärden i storage kan behöva du skapa en ny avisering regler baserat på det nya måttet schemat.
 
 ### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>Nya mått data lagras i samma lagringskonto som standard?
 
-Nej. Om du vill arkivera mätvärden till ett lagringskonto, Använd den [Azure övervakaren diagnostiska inställningen API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate).
+Nej. Om du vill arkivera måttdata till ett lagringskonto, använda den [diagnostiska inställningen-API i Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-* [Storage-mätvärden i Azure-Monitor](./storage-metrics-in-azure-monitor.md)
+* [Storage-mått i Azure Monitor](./storage-metrics-in-azure-monitor.md)

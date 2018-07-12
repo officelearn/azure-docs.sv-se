@@ -1,6 +1,6 @@
 ---
-title: Enheten firmware-uppdatering med Azure IoT Hub (.NET/.NET) | Microsoft Docs
-description: Hur du använder hantering av enheter på Azure IoT Hub för att initiera en firmware-uppdatering för enheten. Du kan använda Azure IoT-enhet SDK för .NET för att implementera en simulerad enhetsapp och tjänsten Azure IoT SDK för .NET att implementera ett service-appen som utlöser firmware-uppdatering.
+title: Uppdatering av inbyggd programvara för enheten med Azure IoT Hub (.NET/.NET) | Microsoft Docs
+description: Hur du använder enhetshantering i Azure IoT Hub för att initiera en firmware-uppdatering för enheten. Du kan använda Azure IoT-enhetens SDK för .NET för att implementera en simulerad enhetsapp och tjänsten Azure IoT SDK för .NET för att implementera en service-app som utlöser uppdateringen av inbyggd programvara.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -9,47 +9,47 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: cd669a9585ac5aecf935202a04065a828a2174be
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 1bf7a647ab2fdc175231133b0cfd8abdd51b6d43
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736763"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723933"
 ---
-# <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Använd enhetshantering för att starta en enhet på en firmware-uppdatering (.NET/.NET)
+# <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Använda enhetshantering för att initiera en enhet på en firmware-uppdatering (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## <a name="introduction"></a>Introduktion
-I den [Kom igång med enhetshantering] [ lnk-dm-getstarted] självstudiekursen du sett hur du använder den [enheten dubbla] [ lnk-devtwin] och [direkt metoder] [ lnk-c2dmethod] primitiver att starta om en enhet via fjärranslutning. Den här kursen visar hur du gör en slutpunkt till slutpunkt simulerade firmware-uppdatering använder samma IoT-hubb primitiver.  Det här mönstret används i uppdatering av inbyggd hanteringsprogramvara för den [hallon Pi enheten implementering exempel][lnk-rpi-implementation].
+I den [Kom igång med enhetshantering] [ lnk-dm-getstarted] självstudier, såg du hur du använder den [enhetstvillingen] [ lnk-devtwin] och [direkta metoder ] [ lnk-c2dmethod] primitiver att starta om en enhet via fjärranslutning. Den här självstudien använder samma IoT Hub-primitiver och visar hur du gör en slutpunkt till slutpunkt simulerade firmware-uppdatering.  Det här mönstret används i implementeringen på uppdatering av inbyggd programvara för den [Raspberry Pi enheten implementering exempel][lnk-rpi-implementation].
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 I den här självstudiekursen lär du dig att:
 
-* Skapa en .NET-konsolapp som anropar den **firmwareUpdate** direkt metod i appen simulerade enheten via din IoT-hubb.
-* Skapa en simulerad enhetsapp som implementerar en **firmwareUpdate** direkt metod. Den här metoden initierar en process i flera steg som väntar på att ladda ned avbildningen inbyggd programvara, laddar ned avbildningen av inbyggd programvara och slutligen använder inbyggd avbildningen. Under varje steg i uppdateringen använder enheten rapporterade egenskaperna för att rapportera förlopp.
+* Skapa en .NET-konsolapp som anropar den **firmwareUpdate** direkt metod i den simulerade enhetsappen via din IoT-hubb.
+* Skapa en simulerad enhetsapp som implementerar en **firmwareUpdate** direkt metod. Den här metoden initierar en process i flera steg som väntar på att ladda ned avbildningen för inbyggd programvara, laddar ned avbildningen för inbyggd programvara och slutligen gäller avbildningen för inbyggd programvara. Enheten använder de rapporterade egenskaperna under varje steg av uppdateringen för att informera om förloppet.
 
-I slutet av den här kursen har du en enhet konsolapp .NET (C#) och en backend-konsolapp .NET (C#):
+I slutet av den här självstudien har du en enhet för .NET (C#) konsolapp och en backend-konsolapp .NET (C#):
 
-* **SimulatedDeviceFwUpdate**, som ansluter till din IoT-hubb med enhetens identitet skapade tidigare, får den **firmwareUpdate** direkt metod körs via en process som flera tillstånd för att simulera en firmware-uppdatering Exempel: väntar på avbildningen hämtas, hämta den nya avbildningen och slutligen avbildningen används.
+* **SimulatedDeviceFwUpdate**, som ansluter till din IoT-hubb med enhetsidentiteten som skapades tidigare, tar emot den **firmwareUpdate** direkt metod, körs via en process som har flera tillstånd att simulera en firmware-uppdatering Exempel: väntar för nedladdning av avbildningen, ladda ned den nya avbildningen och slutligen avbildningen används.
 
-* **TriggerFWUpdate**, som använder tjänsten SDK för att anropa via fjärranslutning på **firmwareUpdate** direkt metod på den simulerade enheten visar svaret och regelbundet (varje 500ms) visar den uppdaterade rapporterat Egenskaper.
+* **TriggerFWUpdate**, som använder SDK-tjänsten via en fjärranslutning anropa den **firmwareUpdate** direkta metoden på den simulerade enheten visar svaret och regelbundet (varje 500ms) visar det uppdaterade rapporterade Egenskaper.
 
 För att kunna genomföra den här kursen behöver du följande:
 
 * Visual Studio 2015 eller Visual Studio 2017.
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnadsfritt konto][lnk-free-trial] på bara några minuter.)
 
-Följ den [Kom igång med enhetshantering](iot-hub-csharp-csharp-device-management-get-started.md) artikel för att skapa din IoT-hubb och hämta anslutningssträngen för IoT-hubb.
+Följ den [Kom igång med enhetshantering](iot-hub-csharp-csharp-device-management-get-started.md) artikeln om du vill skapa din IoT-hubb och få din IoT Hub-anslutningssträngen.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Utlös en fjärransluten firmware-uppdatering på enheten med en direkt metod
-I det här avsnittet skapar du en .NET-konsolapp (med C#) som initierar en fjärransluten firmware-uppdatering på en enhet. Appen använder direkta metoden för att initiera uppdateringen och använder enheten dubbla frågor för att hämta status för aktiva firmware-uppdatering med jämna mellanrum.
+## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Utlösa en fjärransluten firmware-uppdatering på enheten med en direkt metod
+I det här avsnittet skapar du en .NET-konsolapp (med C#) som initierar en fjärransluten firmware-uppdatering på en enhet. Appen använder en direkt metod för att initiera uppdateringen och använder enhetstvillingfrågor för att regelbundet hämta status för aktiva firmware-uppdatering.
 
-1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Konsolprogram**. Namnge projektet **TriggerFWUpdate**.
+1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Konsolprogram**. Ge projektet namnet **TriggerFWUpdate**.
 
     ![Nytt Visual C# Windows Classic Desktop-projekt][img-createserviceapp]
 
@@ -64,7 +64,7 @@ I det här avsnittet skapar du en .NET-konsolapp (med C#) som initierar en fjär
     using Microsoft.Azure.Devices.Shared;
     ```
 
-5. Lägg till följande fält i klassen **Program**. Ersätt flera platshållarvärdena med IoT-hubb anslutningssträngen för hubben som du skapade i föregående avsnitt och ID för din enhet.
+5. Lägg till följande fält i klassen **Program**. Ersätt flera platshållarvärdena med IoT Hub-anslutningssträngen för hubben som du skapade i föregående avsnitt och ID för enheten.
    
     ```csharp   
     static RegistryManager registryManager;
@@ -73,7 +73,7 @@ I det här avsnittet skapar du en .NET-konsolapp (med C#) som initierar en fjär
     static string targetDevice = "{deviceIdForTargetDevice}";
     ```
         
-6. Lägg till följande metod i klassen **Program**. Den här metoden avsöker enheten två uppdaterade status var 500 millisekunder. Skriver den till konsolen endast när status faktiskt har ändrats. För det här exemplet för att förhindra att förbruka extra IoT-hubb meddelanden i din prenumeration avsökning slutar när enheten rapporterar statusen **applyComplete** eller ett fel.  
+6. Lägg till följande metod i klassen **Program**. Den här metoden avsöker enhetstvillingen för uppdaterad status för varje 500 millisekunder. Skriver till konsolen förrän statusen faktiskt har ändrats. I det här exemplet att förhindra att förbruka extra IoT Hub-meddelanden i din prenumeration, avsökning stoppas när enheten rapporterar statusen **applyComplete** eller ett fel.  
    
     ```csharp   
     public static async Task QueryTwinFWUpdateReported(DateTime startTime)
@@ -120,7 +120,7 @@ I det här avsnittet skapar du en .NET-konsolapp (med C#) som initierar en fjär
     }
     ```
 
-8. Slutligen lägger du till följande rader till den **Main** metod. Detta skapar ett register manager för att läsa enhet dubbla med startar uppgiften avsökning på en arbetstråd och utlöser firmware-uppdatering.
+8. Slutligen lägger du till följande rader till den **Main** metod. Detta skapar ett register manager att läsa enhetstvillingen med, börjar avsökningen uppgiften på en arbetstråd och utlöser sedan uppdateringen av inbyggd programvara.
    
     ```csharp   
     registryManager = RegistryManager.CreateFromConnectionString(connString);
@@ -137,18 +137,18 @@ I det här avsnittet skapar du en .NET-konsolapp (med C#) som initierar en fjär
 ## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
 I det här avsnittet får du:
 
-* Skapa en .NET-konsolapp som svarar på en direkt metod som anropas av molnet
+* Skapa en .NET-konsolapp som svarar på en direkt metod som anropas via molnet
 * Simulera en firmware-uppdatering som utlöses av en serverdelstjänst via en direkt metod
 * Använda rapporterade egenskaper för att aktivera enhetstvillingfrågor för att identifiera enheter och ta reda på när de senast slutfört en uppdatering av en inbyggd programvara
 
-1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Konsolprogram**. Namnge projektet **SimulateDeviceFWUpdate**.
+1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Konsolprogram**. Ge projektet namnet **SimulateDeviceFWUpdate**.
    
     ![Ny Visual C# Windows Classic enhetsapp][img-createdeviceapp]
     
 2. I Solution Explorer högerklickar du på den **SimulateDeviceFWUpdate** projektet och klicka sedan på **hantera NuGet-paket**.
-3. I den **NuGet Package Manager** väljer **Bläddra** och Sök efter **microsoft.azure.devices.client**. Välj **installera** att installera den **Microsoft.Azure.Devices.Client** paketet och Godkänn användningsvillkoren. Den här proceduren hämtar, installerar och lägger till en referens till den [Azure IoT-enhet SDK] [ lnk-nuget-client-sdk] NuGet-paketet och dess beroenden.
+3. I den **NuGet-Pakethanteraren** väljer **Bläddra** och Sök efter **microsoft.azure.devices.client**. Välj **installera** att installera den **Microsoft.Azure.Devices.Client** paketet och Godkänn användningsvillkoren. Den här proceduren hämtar, installerar och lägger till en referens till den [Azure IoT-enhetens SDK] [ lnk-nuget-client-sdk] NuGet-paketet och dess beroenden.
    
-    ![NuGet-Pakethanteraren fönstret-klientappen][img-clientnuget]
+    ![Klientappen fönstret för NuGet-Pakethanteraren][img-clientnuget]
 4. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
    
     ```csharp   
@@ -157,14 +157,14 @@ I det här avsnittet får du:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-5. Lägg till följande fält i klassen **Program**. Ersätt platshållaren värdet med den anslutningssträng för enheten som du antecknade i den **skapa en enhetsidentitet** avsnitt.
+5. Lägg till följande fält i klassen **Program**. Ersätt platshållarvärdet med anslutningssträngen som du antecknade i den **skapa en enhetsidentitet** avsnittet.
    
     ```csharp   
     static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
     static DeviceClient Client = null;
     ```
 
-6. Lägg till följande metod för att rapportera status till molnet via enhet dubbla: 
+6. Lägg till följande metod för att rapportera status tillbaka till molnet via enhetstvillingen: 
 
     ```csharp   
     static async Task reportFwUpdateThroughTwin(Twin twin, TwinCollection fwUpdateValue)
@@ -188,7 +188,7 @@ I det här avsnittet får du:
     }
     ```
 
-7. Lägg till följande metod för att simulera nedladdningen av avbildningen av inbyggd programvara:
+7. Lägg till följande metod för att simulera nedladdning av avbildningen för inbyggd programvara:
         
     ```csharp   
     static async Task<byte[]> simulateDownloadImage(string imageUrl)
@@ -204,7 +204,7 @@ I det här avsnittet får du:
     }
     ```
 
-8. Lägg till följande metod för att simulera avbildningen inbyggd programvara till enheten:
+8. Lägg till följande metod för att simulera Tillämpa avbildningen för inbyggd programvara på enheten:
         
     ```csharp   
     static async Task simulateApplyImage(byte[] imageData)
@@ -219,7 +219,7 @@ I det här avsnittet får du:
     }
     ```
  
-9.  Lägg till följande metod för att simulera väntar på att hämta bild för inbyggd programvara. Uppdatera status för **väntar på** och avmarkera andra egenskaper för uppdatering av inbyggd programvara på dubbla. Dessa egenskaper rensas för att ta bort alla befintliga värden från tidigare firmware-uppdateringar. Detta är nödvändigt eftersom rapporterade egenskaper som skickas i en korrigering-åtgärd (en delta) och inte en PUT-åtgärd (en fullständig uppsättning egenskaper som ersätter alla tidigare värden). Normalt informeras enheter när en uppdatering är tillgänglig och när en princip som en administaratör har definierat börjar ladda ned och tillämpa uppdateringen. Logiken för att aktivera principen ska köras i den här funktionen. 
+9.  Lägg till följande metod för att simulera väntar på att ladda ned avbildningen för inbyggd programvara. Uppdatera status till **väntar på** och avmarkera andra egenskaper för uppdatering av inbyggd programvara på läsningen. De här egenskaperna rensas för att ta bort alla befintliga värden från tidigare firmwareuppdateringar. Detta är nödvändigt eftersom rapporterade egenskaper som skickas som en korrigeringsåtgärd (en Deltasynkronisering) och inte en PUT-åtgärd (en fullständig uppsättning egenskaper som ersätter alla föregående värden). Normalt informeras enheter när en uppdatering är tillgänglig och när en princip som en administaratör har definierat börjar ladda ned och tillämpa uppdateringen. Logiken för att aktivera principen ska köras i den här funktionen. 
         
     ```csharp   
     static async Task waitToDownload(Twin twin, string fwUpdateUri)
@@ -240,7 +240,7 @@ I det här avsnittet får du:
     }
     ```
 
-10. Lägg till följande metod för att utföra nedladdningen. Så att statusen uppdateras **hämtar** via enhet-dubbla anropar du metoden simulera nedladdning och rapporterar statusen **downloadComplete** eller **downloadFailed** via dubbla beroende på resultatet av hämtningen. 
+10. Lägg till följande metod för att utföra nedladdningen. Uppdateringsstatus till **hämtar** via enhetstvillingen, anropar du metoden simulera nedladdning och rapporterar statusen **downloadComplete** eller **downloadFailed** via läsningen beroende på resultatet av hämtningen. 
         
     ```csharp   
     static async Task<byte[]> downloadImage(Twin twin, string fwUpdateUri)
@@ -272,7 +272,7 @@ I det här avsnittet får du:
     }
     ```
 
-11. Lägg till följande metod om du vill använda avbildningen. Så att statusen uppdateras **tillämpa** via enhet-dubbla anrop av simulera gäller bild metoden och uppdateringsstatus till **applyComplete** eller **applyFailed** via den dubbla beroende på resultatet av åtgärden Verkställ. 
+11. Lägg till följande metod om du vill använda avbildningen. Uppdateringsstatus till **tillämpa** anrop som gäller simulera via enhetstvillingen, bild-metoden och uppdateringsstatus till **applyComplete** eller **applyFailed** via den Twin beroende på resultatet av tillämpa åtgärden. 
         
     ```csharp   
     static async Task applyImage(Twin twin, byte[] imageData)
@@ -304,7 +304,7 @@ I det här avsnittet får du:
     }
     ```
 
-12. Lägg till följande metod för att sekvensera uppdateringsåtgärden inbyggd programvara från väntar på att ladda ned avbildningen till avbildningen till enheten:
+12. Lägg till följande metod för att sekvensera uppdateringen av inbyggd programvara från väntar på att ladda ned avbildningen via avbildning tillämpas på enheten:
         
     ```csharp   
     static async Task doUpdate(string fwUpdateUrl)
@@ -324,7 +324,7 @@ I det här avsnittet får du:
     }
     ```
 
-13. Lägg till följande metod för att hantera den **updateFirmware** direkt metod från molnet. Den URL-Adressen till firmware-uppdatering från nyttolast meddelande och skickar det till den **doUpdate** aktiviteten som den startar på en annan arbetstråd tråd. Den returnerar omedelbart metodsvaret till molnet.
+13. Lägg till följande metod för att hantera den **updateFirmware** direkt metod från molnet. Den URL: en till uppdatering av inbyggd programvara från meddelandet nyttolasten och skickar det till den **doUpdate** uppgiften som startas på en annan arbetstråd tråd. Det returnerar omedelbart metodsvaret till molnet.
         
     ```csharp   
     static Task<MethodResponse> onFirmwareUpdate(MethodRequest methodRequest, object userContext)
@@ -339,11 +339,11 @@ I det här avsnittet får du:
     }
     ```
 > [!NOTE]
-> Den här metoden utlöser simulerade uppdateringen som ska köras som en **aktivitet** och sedan omedelbart svarar på metodanropet informera tjänsten firmware-uppdatering har startats. Uppdateringsstatus och slutförande skickas till tjänsten via rapporterade egenskaper för enhet dubbla. Vi svarar metodanropet när du startar uppdateringen snarare än efter slutförandet, eftersom:
-> * En verklig uppdateringsprocessen är mycket troligt tar längre tid än tidsgränsen för anrop av metoden.
-> * En verklig uppdateringsprocessen är mycket troligt att kräva en omstart, som kan starta om den här appen att göra den **MethodRequest** objekt som är tillgänglig. (Uppdatera rapporterade egenskaperna är dock möjligt även efter en omstart.) 
+> Den här metoden utlöser simulerade uppdateringen ska köras som en **uppgift** och sedan svarar omedelbart på metodanropet informerar tjänsten att uppdateringen av inbyggd programvara har startats. Uppdateringsstatus och slutförande skickas till tjänsten via rapporterade egenskaper i enhetstvillingen. Vi svarar metodanropet när du startar uppdateringen i stället när den är klart eftersom:
+> * En verklig uppdateringsprocess är mycket troligt tar längre tid än tidsgränsen för anropet av metoden.
+> * En verklig uppdateringsprocess är mycket troligt att kräva en omstart, vilket skulle startar den här appen att göra den **MethodRequest** objekt som är inte tillgänglig. (Uppdatera rapporterade egenskaper är dock möjligt även efter en omstart.) 
 
-14. Slutligen lägger du till följande kod i **Main** metod för att öppna anslutningen till din IoT-hubb och initiera lyssnaren för metoden:
+14. Slutligen lägger du till följande kod till den **Main** metod för att öppna anslutningen till din IoT-hubb och initiera lyssnaren för metoden:
    
     ```csharp   
     try
@@ -377,17 +377,17 @@ I det här avsnittet får du:
 
 ## <a name="run-the-apps"></a>Kör apparna
 Nu är det dags att köra apparna.
-1. Kör .NET enhetsapp **SimulatedDeviceFWUpdate**.  Högerklicka på den **SimulatedDeviceFWUpdate** projektet, Välj **felsöka**, och välj sedan **Starta ny instans**. Den ska börja lyssna efter metodanrop från din IoT-hubb: 
+1. Kör .NET-enhetsappen **SimulatedDeviceFWUpdate**.  Högerklicka på den **SimulatedDeviceFWUpdate** projektet, Välj **felsöka**, och välj sedan **Starta ny instans**. Den ska börja lyssna efter metodanrop från IoT Hub: 
 
-2. När enheten är ansluten och väntar på att metoden anrop kör .NET **TriggerFWUpdate** app att anropa metoden firmware update i appen simulerade enheten. Högerklicka på den **TriggerFWUpdate** projektet, Välj **felsöka**, och välj sedan **Starta ny instans**. Du bör se Uppdatera aktivitetssekvensen som skrivits i den **SimulatedDeviceFWUpdate** konsolen och sekvensen rapporteras i rapporterade egenskaper för enheten i den **TriggerFWUpdate** konsolen. Observera att processen tar några sekunder att slutföra. 
+2. När enheten är ansluten och väntar på metodanropen, kör .NET **TriggerFWUpdate** app att anropa metoden firmware update i den simulerade enhetsappen. Högerklicka på den **TriggerFWUpdate** projektet, Välj **felsöka**, och välj sedan **Starta ny instans**. Du bör se Uppdatera sekvens som skrivits i den **SimulatedDeviceFWUpdate** konsolen och även sekvensen som rapporterats via rapporterade egenskaper för enheten i den **TriggerFWUpdate** konsolen. Observera att processen tar några sekunder att slutföra. 
    
-    ![Tjänster och enheter appen kör][img-combinedrun]
+    ![App för tjänster och enheter som kör][img-combinedrun]
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här kursen används direkt metod för att utlösa en fjärransluten firmware-uppdatering på en enhet och används egenskaperna rapporterade för att följa förloppet för firmware-uppdatering.
+I den här självstudien används en direkt metod för att utlösa en fjärransluten firmware-uppdatering på en enhet och används de rapporterade egenskaperna för att följa förloppet för uppdatering av inbyggd programvara.
 
-Information om hur du utökar din IoT-lösningen och schema metodanrop på flera enheter finns i [schema och broadcast jobb] [ lnk-tutorial-jobs] kursen.
+Läs hur du utökar din IoT-lösning och schema anropar på flera enheter i den [schema och sändningsjobb] [ lnk-tutorial-jobs] självstudien.
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-csharp-firmware-update/servicesdknuget.png
@@ -399,7 +399,7 @@ Information om hur du utökar din IoT-lösningen och schema metodanrop på flera
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
 [lnk-dm-getstarted]: iot-hub-csharp-csharp-device-management-get-started.md
-[lnk-tutorial-jobs]: iot-hub-csharp-node-schedule-jobs.md
+[lnk-tutorial-jobs]: iot-hub-csharp-csharp-schedule-jobs.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

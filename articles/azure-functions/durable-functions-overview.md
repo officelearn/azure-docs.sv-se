@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4f09fa7b3f2aff38a016626af2d538f1eab3f5e8
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0bc88a510c05e88351b4ac7d69839a37c0e4fdd8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856631"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970497"
 ---
 # <a name="durable-functions-overview"></a>Översikt över varaktiga funktioner
 
 *Varaktiga funktioner* är en utökning av [Azure Functions](functions-overview.md) och [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) som hjälper dig att skriva tillståndskänsliga funktioner i en serverfri miljö. Tillägget hanterar tillstånd, kontrollpunkter och startas om för dig.
 
-Tillägget kan du definiera tillståndskänsliga arbetsflöden i en ny typ av funktion som kallas en *orchestrator-funktion*. Här följer några av fördelarna med orchestrator-funktioner:
+Tillägget kan du definiera tillståndskänsliga arbetsflöden i en ny typ av funktion som kallas en [ *orchestrator-funktion*](durable-functions-types-features-overview.md#orchestrator-functions). Här följer några av fördelarna med orchestrator-funktioner:
 
 * De definiera arbetsflöden i kod. Inga JSON-scheman eller designers behövs.
 * De kan anropa andra funktioner synkront och asynkront. Du kan spara utdata från anropade funktionerna till lokala variabler.
@@ -340,7 +340,7 @@ Orchestrator-funktioner på ett tillförlitligt sätt underhålla sina körnings
 
 Användning av händelsekällor av det här tillägget är transparent. Under försättsbladen, den `await` operator i en orchestrator-funktion ger kontroll över orchestrator-tråd tillbaka till varaktiga uppgift Framework-avsändaren. Avsändaren sedan genomför alla nya åtgärder som orchestrator-funktion som schemalagts (till exempel anropa en eller flera underordnade funktioner eller schemalägga en hållbar timer) till lagring. Den här transparent commit-åtgärden läggs till i *körningshistorik* för orchestration-instans. Historiken lagras i en lagringstabell. Commit-åtgärden sedan lägger till meddelanden i kö för att schemalägga det faktiska arbetet. Orchestrator-funktion kan nu tas bort från minnet. Faktureringen för den stoppas om du använder Azure Functions Consumption-Plan.  Om det finns mer arbete att göra, funktionen har startats om och dess tillstånd rekonstruerad.
 
-När en orchestration-funktion får mer arbete att göra (till exempel ett svarsmeddelande tas emot eller en hållbar timern upphör) orchestrator aktiveras igen och kör hela funktionen från början igen för att återskapa det lokala tillståndet. Om under den här repetitionsattacker koden försöker anropa en funktion (eller göra andra async work), hållbar uppgift ramverket konsultationer med den *körningshistorik* av den aktuella orchestration. Om den hittar som funktionen aktivitet har redan körts och gav några resultat, det spelar upp den funktionsresultat orchestrator-koden fortsätter att köras. Detta fortsätter händer tills Funktionskoden hämtar till en punkt där antingen den är klar eller också har den schemalagda ny asynkron åtgärd.
+När en orchestration-funktion får mer arbete att göra (till exempel ett svarsmeddelande tas emot eller en hållbar timern upphör) orchestrator aktiveras igen och kör hela funktionen från början igen för att återskapa det lokala tillståndet. Om under den här repetitionsattacker koden försöker anropa en funktion (eller göra andra async work), hållbar uppgift ramverket konsultationer med den *körningshistorik* av den aktuella orchestration. Om den hittar som den [aktivitet funktionen](durable-functions-types-features-overview.md#activity-functions) har redan utförda och gav några resultat, det spelar upp den funktionsresultat och orchestrator-koden fortsätter att köras. Detta fortsätter händer tills Funktionskoden hämtar till en punkt där antingen den är klar eller också har den schemalagda ny asynkron åtgärd.
 
 ### <a name="orchestrator-code-constraints"></a>Begränsningar för orchestrator-kod
 
@@ -384,7 +384,7 @@ Alla kända problem som ska spåras i den [GitHub-ärenden](https://github.com/A
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Fortsätt att läsa dokumentationen för varaktiga funktioner](durable-functions-bindings.md)
+> [Fortsätt att läsa dokumentationen för varaktiga funktioner](durable-functions-types-features-overview.md)
 
 > [!div class="nextstepaction"]
 > [Installera tillägget varaktiga funktioner och -exempel](durable-functions-install.md)

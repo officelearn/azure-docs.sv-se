@@ -1,6 +1,6 @@
 ---
-title: ESP8266 till molnet - ansluta ludd HUZZAH ESP8266 till Azure IoT Hub | Microsoft Docs
-description: Lär dig mer om att konfigurera och ansluta Adafruit ludd HUZZAH ESP8266 till Azure IoT-hubb för att skicka data till Azure-molnplattform i den här självstudiekursen.
+title: ESP8266 till molnet – ansluta Feather HUZZAH ESP8266 till Azure IoT Hub | Microsoft Docs
+description: Lär dig hur du konfigurerar och ansluter Adafruit Feather HUZZAH ESP8266 på Azure IoT Hub för att skicka data till Azure-molnplattformen i den här självstudien.
 author: rangv
 manager: nasing
 ms.service: iot-hub
@@ -10,101 +10,101 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
 ms.openlocfilehash: 3431cc729550c0dd6eae8f332e2f8996cde9b02f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631487"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38235684"
 ---
-# <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Ansluta Adafruit ludd HUZZAH ESP8266 till Azure IoT-hubb i molnet
+# <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Anslut Adafruit Feather HUZZAH ESP8266 till Azure IoT Hub i molnet
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-![Anslutningen mellan DHT22 och ludd HUZZAH ESP8266 IoT-hubb](media/iot-hub-arduino-huzzah-esp8266-get-started/1_connection-hdt22-feather-huzzah-iot-hub.png)
+![Anslutning mellan DHT22 Feather HUZZAH ESP8266 och IoT-hubb](media/iot-hub-arduino-huzzah-esp8266-get-started/1_connection-hdt22-feather-huzzah-iot-hub.png)
 
 ## <a name="what-you-do"></a>Vad du gör
 
 
-Ansluta Adafruit ludd HUZZAH ESP8266 till en IoT-hubb som du skapar. Sedan kör du ett exempelprogram på ESP8266 att samla in data för temperatur- och fuktighetskonsekvens från en DHT22 sensor. Slutligen kan du skicka dessa sensordata för din IoT-hubb.
+Anslut Adafruit Feather HUZZAH ESP8266 till en IoT-hubb som du skapar. Sedan kör du ett exempelprogram på ESP8266 att samla in temperatur och fuktighet data från en DHT22 sensor. Slutligen kan skicka du sensordata till din IoT hub.
 
 > [!NOTE]
-> Du kan följa stegen nedan för att ansluta till din IoT-hubb även om du använder andra ESP8266: er. Beroende på ESP8266-kort som du använder, kan du behöva konfigurera om den `LED_PIN`. Till exempel, om du använder ESP8266 från AI-Thinker kan du ändra det från `0` till `2`. Har du en kit ännu? Hämta det från den [Azure-webbplatsen](http://azure.com/iotstarterkits).
+> Du kan följa stegen nedan för att ansluta till din IoT hub även om du använder andra ESP8266-kort. Beroende på den ESP8266 tavla som du använder kan du behöva konfigurera om den `LED_PIN`. Till exempel om du använder ESP8266 från AI-Thinker, du kan ändra den från `0` till `2`. Har inte ett kit ännu? Hämta den från den [Azure-webbplatsen](http://azure.com/iotstarterkits).
 
 
 
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
-* Hur du skapar en IoT-hubb och registrera en enhet för Ludd HUZZAH ESP8266
-* Så här ansluter du ludd HUZZAH ESP8266 med sensorn och datorn
-* Hur du samlar in sensordata genom att köra ett exempelprogram på ludd HUZZAH ESP8266
-* Hur du skickar dessa sensordata till din IoT-hubb
+* Hur du skapar en IoT-hubb och registrera en enhet för Feather HUZZAH ESP8266
+* Så här ansluter du Feather HUZZAH ESP8266 med sensorn och din dator
+* Hur du samlar in sensordata genom att köra ett exempelprogram på Feather HUZZAH ESP8266
+* Hur du skickar sensordata till din IoT-hubb
 
 ## <a name="what-you-need"></a>Vad du behöver
 
-![Delar som behövs för kursen](media/iot-hub-arduino-huzzah-esp8266-get-started/2_parts-needed-for-the-tutorial.png)
+![Delar som behövs för den här självstudien](media/iot-hub-arduino-huzzah-esp8266-get-started/2_parts-needed-for-the-tutorial.png)
 
-För att slutföra den här åtgärden behöver du följande delar från din startpaket för Ludd HUZZAH ESP8266:
+För att slutföra den här åtgärden, behöver du följande delar från din Feather HUZZAH ESP8266 Starter-paket:
 
-* Ludd HUZZAH ESP8266-kort
+* Feather HUZZAH ESP8266-tavla
 * En Micro USB till typ A USB-kabel
 
-Du måste också följande saker för din utvecklingsmiljö:
+Du måste också följande för din utvecklingsmiljö:
 
-* En aktiv Azure-prenumeration. Om du inte har ett Azure-konto [skapa ett kostnadsfritt Azure konto](https://azure.microsoft.com/free/) i bara några minuter.
+* En aktiv Azure-prenumeration. Om du inte har ett Azure-konto, [skapa ett kostnadsfritt Azure konto](https://azure.microsoft.com/free/) på bara några minuter.
 * Eller Mac-dator som kör Windows eller Ubuntu.
-* Trådlöst nätverk för Ludd HUZZAH ESP8266 att ansluta till.
-* Internet-anslutning att hämta verktyget configuration.
-* [Visual Studio Code-tillägget för Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino).
+* Trådlöst nätverk för Feather HUZZAH ESP8266 att ansluta till.
+* Internet-anslutning att hämta konfigurationsverktyget.
+* [Visual Studio Code-tillägg för Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino).
 
 > [!Note]
-> Den Arduino IDE-version som används av Visual Studio Code-tillägget för Arduino måste vara version 1.6.8 eller senare. Tidigare versioner fungerar inte med AzureIoT-biblioteket.
+> Arduino IDE-version som används av Visual Studio Code-tillägg för Arduino måste vara version 1.6.8 eller senare. Tidigare versioner fungerar inte med AzureIoT-biblioteket.
 
 Följande objekt är valfritt om du inte har en sensor. Du har också möjlighet att använda simulerade sensordata.
 
-* En Adafruit DHT22 temperatur- och fuktighetskonsekvens sensor
+* En Adafruit DHT22 temperatur och fuktighet sensor
 * En breadboard
-* M/M omkopplare kablar
+* M/M-omkopplare kablar
 
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-## <a name="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer"></a>Anslut ludd HUZZAH ESP8266 med sensorn och din dator
-I det här avsnittet kan ansluta du sensorerna till kortets. Sedan ansluta du enheten till din dator för framtida användning.
-### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-feather-huzzah-esp8266"></a>Ansluta en DHT22 temperatur- och fuktighetskonsekvens sensor till ludd HUZZAH ESP8266
+## <a name="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer"></a>Anslut Feather HUZZAH ESP8266 med sensorn och din dator
+I det här avsnittet ska ansluta du sensorerna till din tavla. Sedan ansluter du din enhet till din dator för ytterligare användning.
+### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-feather-huzzah-esp8266"></a>Ansluta en DHT22 temperatur och fuktighet sensor till Feather HUZZAH ESP8266
 
-Använd breadboard och omkopplare kablar för att ansluta på följande sätt. Om du inte har en sensor hoppa över det här avsnittet, eftersom du kan använda simulerade sensordata i stället.
+Använd breadboard och omkopplare kablar för att upprätta anslutningen på följande sätt. Om du inte har en sensor kan du hoppa över det här avsnittet eftersom du kan använda simulerade sensordata i stället.
 
 ![Referens för anslutningar](media/iot-hub-arduino-huzzah-esp8266-get-started/17_connections_on_breadboard.png)
 
 
-Använd följande-kablar för sensor PIN:
+För sensor PIN-koder, använder du följande koaxialkabel:
 
 
-| Starta (Sensor)           | END (moderkort)           | Kabel färg   |
+| Starta (Sensor)           | Slutpunkt (Board)           | Kabel färg   |
 | -----------------------  | ---------------------- | ------------: |
-| VDD (PIN-kod 31F)            | 3v (fästa 58H)           | Röd kabel     |
+| VDD (PIN-kod 31F)            | 3v (fästa 58H)           | Röd-kabel     |
 | DATA (PIN-kod 32F)           | GPIO 2 (PIN-kod 46A)       | Blå kabeln    |
-| JORD (PIN-kod 34F)            | JORD (PIN-kod 56I)          | Svart kabel   |
+| JORD (PIN-kod 34F)            | JORD (PIN-kod 56I)          | Svarta kabeln   |
 
-Mer information finns i [Adafruit DHT22 sensor installationsprogrammet](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor) och [Adafruit ludd HUZZAH Esp8266 Pinouts](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide?view=all#pinouts).
-
-
-
-Nu bör din ludd Huzzah ESP8266 anslutas med en fungerar sensor.
-
-![Anslut DHT22 med ludd Huzzah](media/iot-hub-arduino-huzzah-esp8266-get-started/8_connect-dht22-feather-huzzah.png)
-
-### <a name="connect-feather-huzzah-esp8266-to-your-computer"></a>Ansluta ludd HUZZAH ESP8266 till din dator
-
-Enligt nästa, kan du använda Micro USB till typ A USB-kabel för att ansluta ludd HUZZAH ESP8266 till datorn.
-
-![Ansluta ludd Huzzah till din dator](media/iot-hub-arduino-huzzah-esp8266-get-started/9_connect-feather-huzzah-computer.png)
-
-### <a name="add-serial-port-permissions-ubuntu-only"></a>Lägg till behörigheter för seriell port (Ubuntu)
+Mer information finns i [Adafruit DHT22 sensorkonfiguration](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor) och [Adafruit Feather HUZZAH Esp8266 Pinouts](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide?view=all#pinouts).
 
 
-Om du använder Ubuntu, kontrollera att du har behörighet att fungera på den USB-port för Ludd HUZZAH ESP8266. Följ dessa steg för att lägga till behörigheter för seriell port:
+
+Feather Huzzah ESP8266 bör nu vara ansluten med en fungerande sensor.
+
+![Träffa Feather Huzzah DHT22](media/iot-hub-arduino-huzzah-esp8266-get-started/8_connect-dht22-feather-huzzah.png)
+
+### <a name="connect-feather-huzzah-esp8266-to-your-computer"></a>Ansluta Feather HUZZAH ESP8266 till din dator
+
+Enligt nästa, kan du använda mikro USB till typ A USB-kabel för att ansluta Feather HUZZAH ESP8266 till datorn.
+
+![Ansluta Feather Huzzah till din dator](media/iot-hub-arduino-huzzah-esp8266-get-started/9_connect-feather-huzzah-computer.png)
+
+### <a name="add-serial-port-permissions-ubuntu-only"></a>Lägg till behörigheter för seriell port (endast Ubuntu)
+
+
+Om du använder Ubuntu kan du kontrollera att du har behörighet att fungera på den USB-port av Feather HUZZAH ESP8266. Följ dessa steg för att lägga till behörigheter för seriell port:
 
 
 1. Kör följande kommandon i en terminal:
@@ -114,75 +114,75 @@ Om du använder Ubuntu, kontrollera att du har behörighet att fungera på den U
    ls -l /dev/ttyACM*
    ```
 
-   Du får ett av följande utdata:
+   Du får något av följande utdata:
 
    * crw-rw---1 rot uucp xxxxxxxx
    * crw-rw---1 rot antingen xxxxxxxx
 
-   Observera att i utdata, `uucp` eller `dialout` är gruppnamn för ägare av USB-port.
+   Observera att utdata och `uucp` eller `dialout` är gruppnamn för ägare av USB-port.
 
-1. Lägg till användaren i gruppen genom att köra följande kommando:
+1. Lägga till användaren i gruppen genom att köra följande kommando:
 
    ```bash
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   `<group-owner-name>` är ägare gruppnamnet du hämtade i föregående steg. `<username>` är din Ubuntu användarnamn.
+   `<group-owner-name>` är grupp ägarens namn som du hämtade i föregående steg. `<username>` är ditt Ubuntu-användarnamn.
 
-1. Logga ut från Ubuntu och loggar sedan in igen för att ändringen ska visas.
+1. Logga ut från Ubuntu och logga sedan in igen för att ändringen ska visas.
 
 ## <a name="collect-sensor-data-and-send-it-to-your-iot-hub"></a>Samla in sensordata och skicka den till din IoT-hubb
 
-I det här avsnittet, distribuera och köra ett exempelprogram på ludd HUZZAH ESP8266. Exempelprogrammet blinkar Indikator på ludd HUZZAH ESP8266 och skickar temperatur- och fuktighetskonsekvens data som samlas in från DHT22 sensor till din IoT-hubb.
+I det här avsnittet ska du distribuera och köra ett exempelprogram på Feather HUZZAH ESP8266. Exempelprogrammet blinkar Indikator på Feather HUZZAH ESP8266 och skickar temperatur- och data som samlas in från DHT22 sensorn till din IoT hub.
 
 ### <a name="get-the-sample-application-from-github"></a>Hämta exempelprogrammet från GitHub
 
-Exempelprogrammet finns på GitHub. Klona lagringsplatsen prov som innehåller exempelprogrammet från GitHub. Följ dessa steg om du vill klona databasen exempel:
+Exempelprogrammet finns på GitHub. Klona exempellagringsplatsen med exempelprogrammet från GitHub. Följ dessa steg för att klona exempellagringsplatsen:
 
 1. Öppna en kommandotolk eller ett terminalfönster.
-1. Gå till en mapp där du vill att exempelprogrammet ska lagras.
+1. Gå till en mapp där du vill att exempelprogrammet som ska lagras.
 1. Kör följande kommando:
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-feather-huzzah-client-app.git
    ```
 
-Installera paketet för Ludd HUZZAH ESP8266 i Visual Studio-koden:
+Installera paketet för Feather HUZZAH ESP8266 i Visual Studio Code:
 
 1. Öppna mappen där exempelprogrammet lagras.
-1. Öppna filen app.ino i mappen app i Visual Studio-koden.
+1. Öppna filen app.ino i mappen i Visual Studio Code.
 
-   ![Öppna exempelprogrammet i Visual Studio Code](media/iot-hub-arduino-huzzah-esp8266-get-started/10_vscode-open-sample-app.png)
+   ![Öppna exempelappen i Visual Studio Code](media/iot-hub-arduino-huzzah-esp8266-get-started/10_vscode-open-sample-app.png)
 
-1. Ange i Visual Studio-koden `F1`.
-1. Typen **Arduino** och välj **Arduino: Board Manager**.
-1. I den **Arduino Board Manager** klickar du på **ytterligare URL: er**.
+1. I Visual Studio Code, ange `F1`.
+1. Typ **Arduino** och välj **Arduino: tavla Manager**.
+1. I den **Arduino tavla Manager** fliken **ytterligare URL: er**.
 
-   ![VS kod Arduino Board Manager](media/iot-hub-arduino-huzzah-esp8266-get-started/11_vscode-arduino-board-manager.png)
+   ![VS Code Arduino-kort Manager](media/iot-hub-arduino-huzzah-esp8266-get-started/11_vscode-arduino-board-manager.png)
 
-1. I den **användarinställningar** , kopiera och klistra in följande i slutet av filen
+1. I den **användarinställningar** fönster, kopiera och klistra in följande i slutet av filen
 
    `"arduino.additionalUrls": "http://arduino.esp8266.com/stable/package_esp8266com_index.json"`
 
-   ![Konfigurera Arduino Webbadressen i VS-kod](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
+   ![Konfigurera URL: en för Arduino-paketet i VS Code](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
 
 1. Spara filen och Stäng den **användarinställningar** fliken.
-1. Klicka på **uppdatera paketet index**. När uppdateringen är klar kan du söka efter **esp8266**.
-1. Klicka på **installera** knapp för esp8266.
+1. Klicka på **uppdatera paketet index**. När uppdateringen är klar letar **esp8266**.
+1. Klicka på **installera** knappen för esp8266.
 
-   Anslagstavlor Manager anger att ESP8266 med en version av 2.2.0 eller senare är installerad.
+   Tavlor Manager anger att ESP8266 med en version av 2.2.0 eller senare är installerat.
 
-   ![Esp8266 paketet har installerats](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
+   ![Esp8266-paket installeras](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
-1. Ange `F1`, Skriv **Arduino** och välj **Arduino: Board Config**.
-1. Klicka i rutan för **valt Board:** och skriv **esp8266**och välj **Adafruit HUZZAH ESP8266 (esp8266)**.
+1. Ange `F1`, Skriv **Arduino** och välj **Arduino: tavla Config**.
+1. Klicka på kryssrutan för **valt tavla:** och skriv **esp8266**och välj sedan **Adafruit HUZZAH ESP8266 (esp8266)**.
 
-   ![Välj esp8266-kort](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
+   ![Välj esp8266 tavla](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 
 ### <a name="install-necessary-libraries"></a>Installera nödvändiga bibliotek
 
-1. Ange i Visual Studio-koden `F1`, Skriv **Arduino** och välj **Arduino: Library Manager**.
-1. Sök efter följande biblioteket namn i taget. Klicka på för alla bibliotek som du hittar **installera**.
+1. I Visual Studio Code, ange `F1`, Skriv **Arduino** och välj **Arduino: Library Manager**.
+1. Sök efter följande biblioteket namn i taget. För alla bibliotek som du hittar, klickar du på **installera**.
    * `AzureIoTHub`
    * `AzureIoTUtility`
    * `AzureIoTProtocol_MQTT`
@@ -190,49 +190,49 @@ Installera paketet för Ludd HUZZAH ESP8266 i Visual Studio-koden:
    * `DHT sensor library`
    * `Adafruit Unified Sensor`
 
-### <a name="dont-have-a-real-dht22-sensor"></a>Har en verklig DHT22 sensor?
+### <a name="dont-have-a-real-dht22-sensor"></a>Har du en verklig sensor DHT22?
 
-Exempelprogrammet simulera temperatur- och fuktighetskonsekvens data om du inte har en verklig DHT22 sensor. Följ dessa steg om du vill konfigurera exempelprogrammet använda simulerade data:
+Exempelprogrammet simulera temperatur och fuktighet data om du inte har en verklig DHT22 sensor. Så här konfigurerar du exempelprogrammet till att använda simulerade data genom:
 
-1. Öppna den `config.h` filen i den `app` mapp.
-1. Leta upp följande kodrad och ändrar du värdet från `false` till `true`:
+1. Öppna den `config.h` fil i den `app` mapp.
+1. Leta upp följande rad med kod och ändra värdet från `false` till `true`:
    ```c
    define SIMULATED_DATA true
    ```
-   ![Konfigurera exempelprogrammet använda simulerade data](media/iot-hub-arduino-huzzah-esp8266-get-started/15_vscode-configure-app-use-simulated-data.png)
+   ![Konfigurera exempelprogrammet för att använda simulerade data](media/iot-hub-arduino-huzzah-esp8266-get-started/15_vscode-configure-app-use-simulated-data.png)
 
 1. Spara filen.
 
-### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Distribuera exempelprogrammet till ludd HUZZAH ESP8266
+### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Distribuera exempelprogrammet för att Feather HUZZAH ESP8266
 
-1. I Visual Studio Code, klickar du på **<Select Serial Port>** status, och klicka sedan på den seriella porten för Ludd HUZZAH ESP8266.
-1. Ange `F1`, Skriv **Arduino** och välj **Arduino: Överför** att skapa och distribuera exempelprogrammet till ludd HUZZAH ESP8266.
+1. I Visual Studio Code, klickar du på **<Select Serial Port>** statusen, och klicka sedan på den seriella porten för Feather HUZZAH ESP8266.
+1. Ange `F1`, Skriv **Arduino** och välj **Arduino: ladda upp** att bygga och distribuera exempelprogrammet för att Feather HUZZAH ESP8266.
 
 ### <a name="enter-your-credentials"></a>Ange autentiseringsuppgifter
 
 När överföringen är klar följer du stegen nedan för att ange dina autentiseringsuppgifter:
 
-1. Öppna Arduino IDE, klicka på **verktyg** > **seriella övervakaren**.
-1. Observera två listrutorna i det nedre högra hörnet i fönstret seriella monitor.
-1. Välj **ingen rad avslutas** för den vänstra listrutan.
-1. Välj **115200 baud** för höger nedrullningsbara listan.
-1. Ange följande information i inmatningsrutan som visas överst i fönstret seriell, om du uppmanas att ange dem och klickar sedan på **skicka**.
+1. Öppna Arduino IDE, klicka på **verktyg** > **seriell övervakaren**.
+1. Observera att två listrutorna i det nedre högra hörnet i fönstret seriell monitor.
+1. Välj **inga raden slutar** för den vänstra listan.
+1. Välj **115200 baud** för just nedrullningsbara listan.
+1. Ange följande information i textrutan längst upp i fönstret seriell, om du uppmanas att ange dem och klicka sedan på **skicka**.
    * Wi-Fi SSID
    * Wi-Fi-lösenord
-   * Anslutningssträngen för enhet
+   * Enhetens anslutningssträng
 
 > [!Note]
-> Information om autentiseringsuppgifter lagras i EEPROM av ludd HUZZAH ESP8266. Om du klickar på återställningsknappen på ludd HUZZAH ESP8266-kort frågar exempelprogrammet om du vill radera informationen. Ange `Y` att ha informationen raderas. Du uppmanas att ange informationen som en andra gång.
+> Autentiseringsuppgifterna lagras i EEPROM av Feather HUZZAH ESP8266. Om du klickar på återställningsknappen på tavlan Feather HUZZAH ESP8266 exempelprogrammet som frågar om du vill radera informationen. Ange `Y` att ha information raderas. Du uppmanas att ange information om en andra gång.
 
 ### <a name="verify-the-sample-application-is-running-successfully"></a>Kontrollera exempelprogrammet körts
 
-Om du ser i följande utdata från den seriella övervakningsfönstret och blinkande Indikator på ludd HUZZAH ESP8266 exempelprogrammet körts.
+Exempelprogrammet körs om du ser i följande utdata från seriell övervakningsfönstret och blinkande Indikator på Feather HUZZAH ESP8266.
 
-![Slutversionen i Arduino IDE](media/iot-hub-arduino-huzzah-esp8266-get-started/16_arduino-ide-final-output.png)
+![Slutgiltiga utdata i Arduino IDE](media/iot-hub-arduino-huzzah-esp8266-get-started/16_arduino-ide-final-output.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har anslutit en ludd HUZZAH ESP8266 till din IoT-hubb, och skickas avbildade sensordata till din IoT-hubb. 
+Du har anslutit en Feather HUZZAH ESP8266 till din IoT-hubb, och skickas de hämtade sensordata till din IoT-hubb. 
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

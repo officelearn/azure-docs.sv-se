@@ -1,6 +1,6 @@
 ---
-title: Enheten firmware-uppdatering med Azure IoT Hub (nod) | Microsoft Docs
-description: Hur du använder hantering av enheter på Azure IoT Hub för att initiera en firmware-uppdatering för enheten. Du kan använda Azure IoT-SDK för Node.js för att implementera en simulerad enhetsapp och en service-appen som utlöser firmware-uppdatering.
+title: Enheten firmware-uppdatering med Azure IoT Hub (Node) | Microsoft Docs
+description: Hur du använder enhetshantering i Azure IoT Hub för att initiera en firmware-uppdatering för enheten. Du kan använda Azure IoT SDK för Node.js för att implementera en simulerad enhetsapp och en service-app som utlöser uppdateringen av inbyggd programvara.
 author: juanjperez
 manager: cberlin
 ms.service: iot-hub
@@ -9,56 +9,56 @@ ms.topic: conceptual
 ms.date: 09/07/2017
 ms.author: juanpere
 ms.openlocfilehash: 0cd8c019cf9a65e0e72227ba99c1995a45ed4067
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34634978"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452438"
 ---
-# <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Använd enhetshantering för att starta en enhet på en firmware-uppdatering (nod/nod)
+# <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Använda enhetshantering för att initiera en enhet på en firmware-uppdatering (noden/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-I den [Kom igång med enhetshantering] [ lnk-dm-getstarted] självstudiekursen du sett hur du använder den [enheten dubbla] [ lnk-devtwin] och [direkt metoder ] [ lnk-c2dmethod] primitiver att starta om en enhet via fjärranslutning. Den här kursen använder samma IoT-hubb primitiver och vägledning och visar hur du gör en slutpunkt till slutpunkt simulerade firmware-uppdatering.  Det här mönstret används i uppdatering av inbyggd hanteringsprogramvara för Intel modern enhet.
+I den [Kom igång med enhetshantering] [ lnk-dm-getstarted] självstudier, såg du hur du använder den [enhetstvillingen] [ lnk-devtwin] och [direkta metoder ] [ lnk-c2dmethod] primitiver att starta om en enhet via fjärranslutning. Den här självstudien använder samma IoT Hub-primitiver och ger vägledning och visar hur du gör en slutpunkt till slutpunkt simulerade firmware-uppdatering.  Det här mönstret används i update-implementeringen av inbyggd programvara för Intel Edison enheten exemplet.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 I den här självstudiekursen lär du dig att:
 
-* Skapa en Node.js-konsolprogram som anropar metoden firmwareUpdate direkt i appen simulerade enheten via din IoT-hubb.
-* Skapa en simulerad enhetsapp som implementerar en **firmwareUpdate** direkt metod. Den här metoden initierar en process i flera steg som väntar på att ladda ned avbildningen inbyggd programvara, laddar ned avbildningen av inbyggd programvara och slutligen använder inbyggd avbildningen. Under varje steg i uppdateringen använder enheten rapporterade egenskaperna för att rapportera förlopp.
+* Skapa en Node.js-konsolapp som anropar metoden firmwareUpdate direkt i den simulerade enhetsappen via din IoT-hubb.
+* Skapa en simulerad enhetsapp som implementerar en **firmwareUpdate** direkt metod. Den här metoden initierar en process i flera steg som väntar på att ladda ned avbildningen för inbyggd programvara, laddar ned avbildningen för inbyggd programvara och slutligen gäller avbildningen för inbyggd programvara. Enheten använder de rapporterade egenskaperna under varje steg av uppdateringen för att informera om förloppet.
 
-I slutet av den här kursen har du två Node.js-konsolappar:
+I slutet av den här självstudien har du två Node.js-konsolappar:
 
-**dmpatterns_fwupdate_service.js**, som anropar en direkt metod i appen simulerade enheten visar svaret och regelbundet (varje 500ms) visar den uppdaterade rapporterade egenskaper.
+**dmpatterns_fwupdate_service.js**, som anropar en direkt metod i den simulerade enhetsappen visar svaret och regelbundet (varje 500ms) visar det uppdaterade rapporterade egenskaper.
 
-**dmpatterns_fwupdate_device.js**, som ansluter till din IoT-hubb med enhetens identitet skapade tidigare, tar emot en firmwareUpdate direkt metod, körs via en process som flera tillstånd för att simulera en firmware-uppdatering inklusive: väntar på avbildningen hämta hämta den nya avbildningen och slutligen avbildningen används.
+**dmpatterns_fwupdate_device.js**, som ansluter till din IoT-hubb med enhetsidentiteten som skapades tidigare, får en direkt metod firmwareUpdate, körs via en process som har flera tillstånd att simulera en firmware update inklusive: väntar på avbildningen ladda ned att ladda ned den nya avbildningen och slutligen avbildningen används.
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* Node.js-version 4.0.x eller senare <br/>  [Förbered din utvecklingsmiljö] [ lnk-dev-setup] beskriver hur du installerar Node.js för den här självstudiekursen på Windows- eller Linux.
+* Node.js version 4.0.x eller senare <br/>  [Förbereda utvecklingsmiljön] [ lnk-dev-setup] beskriver hur du installerar Node.js för den här självstudiekursen i Windows eller Linux.
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnadsfritt konto][lnk-free-trial] på bara några minuter.)
 
-Följ den [Kom igång med enhetshantering](iot-hub-node-node-device-management-get-started.md) artikel för att skapa din IoT-hubb och hämta anslutningssträngen för IoT-hubb.
+Följ den [Kom igång med enhetshantering](iot-hub-node-node-device-management-get-started.md) artikeln om du vill skapa din IoT-hubb och få din IoT Hub-anslutningssträngen.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Utlös en fjärransluten firmware-uppdatering på enheten med en direkt metod
-I det här avsnittet skapar du en Node.js-konsolprogram som initierar en fjärransluten firmware-uppdatering på en enhet. Appen använder direkta metoden för att initiera uppdateringen och använder enheten dubbla frågor för att hämta status för aktiva firmware-uppdatering med jämna mellanrum.
+## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Utlösa en fjärransluten firmware-uppdatering på enheten med en direkt metod
+I det här avsnittet skapar du en Node.js-konsolapp som initierar en fjärransluten firmware-uppdatering på en enhet. Appen använder en direkt metod för att initiera uppdateringen och använder enhetstvillingfrågor för att regelbundet hämta status för aktiva firmware-uppdatering.
 
-1. Skapa en tom mapp som kallas **triggerfwupdateondevice**.  I den **triggerfwupdateondevice** mapp, skapa en package.json-fil med följande kommando vid en kommandotolk.  Acceptera alla standardvärden:
+1. Skapa en tom mapp med namnet **triggerfwupdateondevice**.  I den **triggerfwupdateondevice** mappen skapar du en package.json-fil med följande kommando i Kommandotolken.  Acceptera alla standardvärden:
    
     ```
     npm init
     ```
-2. Vid en kommandotolk i den **triggerfwupdateondevice** mapp, kör följande kommando för att installera den **azure iot hub** paketet:
+2. I Kommandotolken i den **triggerfwupdateondevice** mapp, kör följande kommando för att installera den **azure-iot-hub** paketet:
    
     ```
     npm install azure-iothub --save
     ```
-3. Med hjälp av en textredigerare, skapa en **dmpatterns_getstarted_service.js** filen i den **triggerfwupdateondevice** mapp.
-4. Lägg till följande 'krävs, instruktioner i början av den **dmpatterns_getstarted_service.js** fil:
+3. Använd en textredigerare och skapa en **dmpatterns_getstarted_service.js** fil i den **triggerfwupdateondevice** mapp.
+4. Lägg till följande ”require”-instruktioner i början av den **dmpatterns_getstarted_service.js** fil:
    
     ```
     'use strict';
@@ -66,7 +66,7 @@ I det här avsnittet skapar du en Node.js-konsolprogram som initierar en fjärra
     var Registry = require('azure-iothub').Registry;
     var Client = require('azure-iothub').Client;
     ```
-5. Lägg till följande variabeldeklarationer och ersätta platshållarvärdena:
+5. Lägg till följande variabeldeklarationer och Ersätt platshållarvärdena:
    
     ```
     var connectionString = '{device_connectionstring}';
@@ -74,7 +74,7 @@ I det här avsnittet skapar du en Node.js-konsolprogram som initierar en fjärra
     var client = Client.fromConnectionString(connectionString);
     var deviceToUpdate = 'myDeviceId';
     ```
-6. Lägg till följande funktion att söka efter och visa värdet för firmwareUpdate rapporterade egenskapen.
+6. Lägg till följande funktion att hitta och visa värdet för firmwareUpdate rapporterade egenskap.
    
     ```
     var queryTwinFWUpdateReported = function() {
@@ -111,7 +111,7 @@ I det här avsnittet skapar du en Node.js-konsolprogram som initierar en fjärra
       });
     };
     ```
-8. Slutligen lägger du till följande funktion kod för att starta ordning för firmware-uppdatering och starta regelbundet visas rapporterade egenskaper:
+8. Slutligen lägger du till följande funktion till kod för att starta uppdateringssekvensen av inbyggd programvara och starta som regelbundet visar rapporterade egenskaper:
    
     ```
     startFirmwareUpdateDevice();
@@ -124,22 +124,22 @@ I det här avsnittet skapar du en Node.js-konsolprogram som initierar en fjärra
 ## <a name="run-the-apps"></a>Kör apparna
 Nu är det dags att köra apparna.
 
-1. I Kommandotolken i den **manageddevice** mapp, kör följande kommando för att börja lyssna efter omstart direkta metoden.
+1. I Kommandotolken i den **manageddevice** mapp, kör följande kommando för att börja lyssna efter omstart direkt metod.
    
     ```
     node dmpatterns_fwupdate_device.js
     ```
-2. I Kommandotolken i den **triggerfwupdateondevice** mapp, kör följande kommando för att utlösa remote omstart och fråga för enheten dubbla att söka efter senaste omstart tid.
+2. I Kommandotolken i den **triggerfwupdateondevice** mapp, kör följande kommando för att utlösa fjärromstart och fråga för enhetstvillingen för att hitta senaste omstart tid.
    
     ```
     node dmpatterns_fwupdate_service.js
     ```
-3. Svaret från enheten till den direkta metoden i konsolen visas.
+3. Du kan se svaret från enheten till den direkta metoden i konsolen.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här kursen används direkt metod för att utlösa en fjärransluten firmware-uppdatering på en enhet och används egenskaperna rapporterade för att följa förloppet för firmware-uppdatering.
+I den här självstudien används en direkt metod för att utlösa en fjärransluten firmware-uppdatering på en enhet och används de rapporterade egenskaperna för att följa förloppet för uppdatering av inbyggd programvara.
 
-Information om hur du utökar din IoT-lösningen och schema metodanrop på flera enheter finns i [schema och broadcast jobb] [ lnk-tutorial-jobs] kursen.
+Läs hur du utökar din IoT-lösning och schema anropar på flera enheter i den [schema och sändningsjobb] [ lnk-tutorial-jobs] självstudien.
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

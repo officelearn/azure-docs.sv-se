@@ -1,6 +1,6 @@
 ---
 title: Skala Azure Container Service-kluster
-description: Så här skalar du agenten noder i ett DC/OS, Docker Swarm eller Kubernetes kluster i Azure Container Service med hjälp av Azure CLI eller Azure-portalen.
+description: Så här att skala agentnoder i ett DC/OS, Docker Swarm eller Kubernetes-kluster i Azure Container Service med hjälp av Azure CLI eller Azure-portalen.
 services: container-service
 author: sauryadas
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.date: 03/01/2017
 ms.author: saudas
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: 8fc78a84d624f9339b9b77e748b3c36e38d3ae5a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162695"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38310155"
 ---
 # <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Skala agentnoder i ett behållartjänstkluster
 

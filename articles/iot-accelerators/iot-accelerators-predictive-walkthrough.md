@@ -1,19 +1,19 @@
 ---
 title: Översikt över lösningsacceleratorn Förutsägande underhåll – Azure | Microsoft Docs
-description: En översikt över Azure IoT förutsägande Underhåll solution accelerator.
+description: En översikt över förebyggande underhåll i Azure IoT-lösningsaccelerator.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 11/14/2017
+ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: 6bd61f301fa4468ef1d308d4da275c760ee09dc0
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: ed87b3c935fe4032460f8e524f963355fb3157d9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088671"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970309"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Översikt över lösningsacceleratorn Förutsägande underhåll
 
@@ -29,7 +29,17 @@ De blå objekten är Azure-tjänster som är etablerade i den region där du eta
 
 Det gröna objektet är en simulerad enhet som representerar en flygplansmotor. Mer information om dessa simulerade enheter finns i avsnittet [Simulerade enheter](#simulated-devices).
 
-De grå objekten representerar komponenter som implementerar funktioner för *enhetshantering*. Den aktuella versionen av lösningsacceleratorn Förebyggande underhåll etablerar inte dessa resurser. Mer information om enhetshantering finns i den [Fjärrövervaknings lösningsaccelerator][lnk-remote-monitoring].
+De grå objekten representerar komponenter som implementerar funktioner för *enhetshantering*. Den aktuella versionen av lösningsacceleratorn Förebyggande underhåll etablerar inte dessa resurser. Om du vill veta mer om hantering av enheter kan referera till den [lösningsacceleratorn för fjärrövervakning][lnk-remote-monitoring].
+
+## <a name="azure-resources"></a>Azure-resurser
+
+I Azure Portal navigerar du till resursgruppen med det lösningsnamn som du har valt för att visa dina etablerade resurser.
+
+![][img-resource-group]
+
+När du etablerar lösningsacceleratorn får du ett e-postmeddelande med en länk till Machine Learning-arbetsytan. Du kan också navigera till Machine Learning-arbetsyta från den [azureiotsolutions.com] [ lnk-azureiotsuite] för din etablerade lösning. En panel är tillgänglig på den här sidan när lösningen har statusen **Redo**.
+
+![][img-machine-learning]
 
 ## <a name="simulated-devices"></a>Simulerade enheter
 
@@ -61,6 +71,11 @@ IoT Hub bekräftar enhetskommandona.
 ## <a name="machine-learning"></a>Machine Learning
 Machine Learning-komponenten använder en modell som härletts från de data som samlats in från verkliga luftfartygsmotorer. Du kan navigera till Machine Learning-arbetsytan från din lösningsikon på sidan [azureiotsuite.com][lnk-azureiotsuite]. Panelen är tillgänglig när lösningen har statusen **Redo**.
 
+Azure Machine Learning-modellen är tillgänglig som en mall för att visa dessa funktioner arbetar med enhetstelemetri som samlas in via IoT-Lösningsacceleratorer-tjänster. Microsoft har byggt en [regressionsmodell] [ lnk_regression_model] av en flygplansmotor baserat på offentligt tillgängliga data<sup>\[1\]</sup>, och stegvisa anvisningar information om hur du använder modellen.
+
+Azure IoT-lösningsacceleratorn Förutsägande underhåll använder regressionsmodellen som skapats från den här mallen. Modellen distribueras i din Azure-prenumeration och exponeras via en automatiskt genererad API. Lösningen innehåller en delmängd av testdata som representerar 4 (av totalt 100) motorer och 4 (av totalt 21) dataströmmar. Dessa data är tillräckliga för att tillhandahålla ett korrekt resultat från Trained Model.
+
+*\[1\] A. Saxena och K. Goebel (2008). "Turbofan Engine Degradation Simulation Data Set", NASA Ames Prognostics Data Repository (https://c3.nasa.gov/dashlink/resources/139/), NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har sett huvudkomponenterna i lösningsacceleratorn Förebyggande underhåll kanske du vill anpassa den.
@@ -71,10 +86,13 @@ Du kan även utforska andra funktioner och möjligheter i IoT-lösningsaccelerat
 * [IoT-säkerhet från grunden][lnk-security-groundup]
 
 [img-architecture]: media/iot-accelerators-predictive-walkthrough/architecture.png
+[img-resource-group]: media/iot-accelerators-predictive-walkthrough/resource-group.png
+[img-machine-learning]: media/iot-accelerators-predictive-walkthrough/machine-learning.png
 
-[lnk-remote-monitoring]: iot-accelerators-remote-monitoring-explore.md
+[lnk-remote-monitoring]: quickstart-predictive-maintenance-deploy.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/
+[lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3

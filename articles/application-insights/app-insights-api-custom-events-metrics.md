@@ -1,6 +1,6 @@
 ---
 title: Application Insights API för anpassade händelser och mått | Microsoft Docs
-description: Infoga ett fåtal rader med kod i din enhet eller skrivbordet app, webbsida eller tjänsten för att spåra användning och diagnostisera problem.
+description: Infoga några rader med kod i din enhet eller desktop-appen eller webbsidan service för att spåra användning och diagnostisera problem.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -14,33 +14,33 @@ ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
 ms.openlocfilehash: 5c33e1a5568de5fffb5ea9cedb43bdc04aeaeba7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293859"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306768"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
-Infoga ett fåtal rader med kod i ditt program att ta reda på vad användarna gör med den eller för att diagnostisera problem. Du kan skicka telemetri från enheten och den stationära appar, webbklienter och webbservrar. Använd den [Azure Application Insights](app-insights-overview.md) core telemetriska API: N att skicka anpassade händelser och mått och egna versioner av standard telemetri. Detta API är samma API som standard Application Insights-datainsamlare använder.
+Infoga några rader med kod i ditt program för att ta reda på vad användarna gör med den eller för att diagnostisera problem. Du kan skicka telemetri från enheter och skrivbordsenheter appar, webbklienter och servrar. Använd den [Azure Application Insights](app-insights-overview.md) core telemetriska API: N att skicka anpassade händelser och mått och din egen version av standardmoduler. Detta API är som standard datainsamlare för Application Insights använder samma API.
 
 ## <a name="api-summary"></a>API-sammanfattning
-API: et är enhetligt för alla plattformar förutom några mindre variationer.
+API: et är uniform på alla plattformar förutom några små variationer.
 
 | Metod | Används för |
 | --- | --- |
 | [`TrackPageView`](#page-views) |Sidor, skärmar, blad eller formulär. |
-| [`TrackEvent`](#trackevent) |Användaråtgärder och andra händelser. Används för att spåra användarens beteende eller att övervaka prestanda. |
-| [`TrackMetric`](#trackmetric) |Prestandamått, till exempel kölängderna som inte är relaterade till specifika händelser. |
-| [`TrackException`](#trackexception) |Loggning undantag för diagnos. Spåra där de inträffa i förhållande till andra händelser och undersöka stackspår. |
-| [`TrackRequest`](#trackrequest) |Loggning av frekvens och varaktighet för serverbegäranden för prestandaanalys. |
-| [`TrackTrace`](#tracktrace) |Diagnostiska loggmeddelanden. Du kan också samla in loggar från tredje part. |
-| [`TrackDependency`](#trackdependency) |Loggning varaktighet och frekvens för anrop till externa komponenter som är beroende av din app. |
+| [`TrackEvent`](#trackevent) |Användaråtgärder och andra händelser. Används för att spåra användarnas beteende eller för att övervaka prestanda. |
+| [`TrackMetric`](#trackmetric) |Prestandamått, till exempel kölängder inte relaterade till specifika händelser. |
+| [`TrackException`](#trackexception) |Loggning undantag för diagnos. Spåra där de sker i förhållande till andra händelser och undersöka stackspårningar. |
+| [`TrackRequest`](#trackrequest) |Loggning av frekvens och varaktighet för servern för serverbegäranden för prestandaanalys. |
+| [`TrackTrace`](#tracktrace) |Diagnostiklogg meddelanden. Du kan hämta loggar från tredje part. |
+| [`TrackDependency`](#trackdependency) |Loggning varaktighet och frekvens för anrop till externa komponenter som din app är beroende av. |
 
-Du kan [bifoga egenskaper och mått](#properties) för de flesta av dessa telemetri-anrop.
+Du kan [bifoga egenskaper och mätvärden](#properties) till de flesta av dessa telemetri-anrop.
 
 ## <a name="prep"></a>Innan du börjar
-Om du inte har en referens i Application Insights SDK ännu:
+Om du inte ännu inte har en referens i Application Insights SDK:
 
 * Lägg till Application Insights SDK i projektet:
 
@@ -80,7 +80,7 @@ Hämta en instans av `TelemetryClient` (förutom i JavaScript i webbsidor):
 
 TelemetryClient är trådsäkra.
 
-Inkommande HTTP-begäranden som automatiskt avbildas för ASP.NET och Java-projekt. Du kanske vill skapa ytterligare instanser av TelemetryClient för andra modulen av din app. Du kan exempelvis har en TelemetryClient-instans i klassen mellanprogram till rapporten affärshändelser logik. Du kan ange egenskaper, till exempel användar-ID och DeviceId för att identifiera datorn. Den här informationen är ansluten till alla händelser som skickar instansen. 
+Inkommande HTTP-begäranden som automatiskt avbildas för ASP.NET och Java-projekt. Du kanske vill skapa flera instanser av TelemetryClient för andra modulen av din app. Du kan exempelvis ha en TelemetryClient-instans i klassen mellanprogram till rapporten affärshändelser logic. Du kan ange egenskaper, till exempel användar-ID och DeviceId för att identifiera datorn. Den här informationen är kopplat till alla händelser som skickar instansen. 
 
 *C#*
 
@@ -95,11 +95,11 @@ Inkommande HTTP-begäranden som automatiskt avbildas för ASP.NET och Java-proje
 Du kan använda i Node.js-projekt, `new applicationInsights.TelemetryClient(instrumentationKey?)` att skapa en ny instans, men detta rekommenderas endast för scenarier som kräver isolerade konfigurationen från singleton `defaultClient`.
 
 ## <a name="trackevent"></a>TrackEvent
-I Application Insights en *anpassade händelsen* är en datapunkt som du kan visa i [Metrics Explorer](app-insights-metrics-explorer.md) som en sammansatt antal och i [diagnostiska Sök](app-insights-diagnostic-search.md) som individuella förekomster. (Det är inte relaterade till MVC eller andra framework ”händelser”.)
+I Application Insights, en *anpassad händelse* är en datapunkt som du kan visa i [Måttutforskaren](app-insights-metrics-explorer.md) ett aggregerat antal och i [Diagnostiksökning](app-insights-diagnostic-search.md) som enskilda förekomster. (Det är inte relaterade till MVC eller andra ramverk ”händelser”.)
 
-Infoga `TrackEvent` anropar i koden för att räkna olika händelser. Hur ofta användare välja en viss funktion, hur ofta de uppnå specifika mål eller kanske hur ofta de göra vissa typer av misstag.
+Infoga `TrackEvent` anropar i din kod att räkna olika händelser. Hur ofta användarna välja en viss funktion, hur ofta de uppnå specifika mål eller kanske är hur ofta de gör att vissa typer av misstag.
 
-Till exempel skicka en händelse när en användare vinner i spelet app:
+I en spel-app kan till exempel skicka en händelse varje gång en användare vinner:
 
 *JavaScript*
 
@@ -121,45 +121,45 @@ Till exempel skicka en händelse när en användare vinner i spelet app:
 
     telemetry.trackEvent({name: "WinGame"});
 
-### <a name="view-your-events-in-the-microsoft-azure-portal"></a>Visa händelserna i Microsoft Azure-portalen
-Om du vill se en uppräkning av händelserna, öppna en [Metrics Explorer](app-insights-metrics-explorer.md) bladet Lägg till ett nytt diagram och välj **händelser**.  
+### <a name="view-your-events-in-the-microsoft-azure-portal"></a>Visa händelser i Microsoft Azure portal
+Om du vill se antalet händelser öppnar en [Måttutforskaren](app-insights-metrics-explorer.md) bladet Lägg till ett nytt diagram och välj **händelser**.  
 
-![Finns ett antal anpassade händelser](./media/app-insights-api-custom-events-metrics/01-custom.png)
+![Antalet anpassade händelser](./media/app-insights-api-custom-events-metrics/01-custom.png)
 
-Om du vill jämföra antalet olika händelser sägs diagramtypen **rutnätet**, och som händelsenamn:
+Om du vill jämföra antalet olika händelser, inställd diagramtypen **Grid**, och gruppera efter händelsenamn:
 
 ![Ange diagramtyp och gruppering](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
-Klicka på rutnätet, via ett händelsenamn för att visa enskilda förekomster av händelsen. Om du vill se mer detaljer - klickar du på någon av förekomsterna i listan.
+Klicka dig igenom en händelsenamn att visa enskilda förekomster av händelsen i rutnätet. Om du vill se mer information - klickar du på någon av förekomsterna om i listan.
 
 ![Detaljvisning händelser](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
-Ange händelsenamn som du är intresserad i bladet filter för att fokusera på specifika händelser i sökning eller Metrics Explorer:
+Om du vill fokusera på specifika händelser i Sök- eller Metrics Explorer inställd på bladet filter händelsenamn som du är intresserad av:
 
-![Öppna filter, expanderar händelsenamnet och välj ett eller flera värden](./media/app-insights-api-custom-events-metrics/06-filter.png)
+![Öppna filter, expandera händelsenamn och välj en eller flera värden](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
 ### <a name="custom-events-in-analytics"></a>Anpassade händelser i Analytics
 
-Telemetrin är tillgängliga i den `customEvents` tabell i [Application Insights Analytics](app-insights-analytics.md). Varje rad representerar ett anrop till `trackEvent(..)` i din app. 
+Telemetri är tillgänglig i den `customEvents` tabellen i [Application Insights Analytics](app-insights-analytics.md). Varje rad som representerar ett anrop till `trackEvent(..)` i din app. 
 
-Om [provtagning](app-insights-sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. För exempel itemCount == 10 innebär att 10 anrop till trackevent () provtagning processen bara skickas en av dem. För att få en korrekt antal anpassade händelser, bör du använda därför använda kod som `customEvent | summarize sum(itemCount)`.
+Om [sampling](app-insights-sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. För exempel itemCount == 10 sätt att för 10 anrop till trackEvent() processen sampling endast skickas en av dem. För att få en korrekt antal anpassade händelser, bör du använda därför använda koden som `customEvent | summarize sum(itemCount)`.
 
 
 ## <a name="trackmetric"></a>TrackMetric
 
-Application Insights kan diagram mått som inte är kopplade till specifika händelser. Exempelvis kan du övervaka en Kölängd med jämna mellanrum. De enskilda mätningarna är lika intressant variationer och trender med statistik, och så statistiska stapeldiagram är användbara.
+Application Insights kan skapa diagram över mått som inte är kopplade till specifika händelser. Exempelvis kan du övervaka en Kölängd med jämna mellanrum. De enskilda mätningarna är mindre intressanta än varianter och trender med mätvärden, och så statistiska stapeldiagram är användbara.
 
 Du kan använda för att skicka mått till Application Insights i `TrackMetric(..)` API. Det finns två sätt att skicka ett mått: 
 
-* Enstaka värde. Varje gång du utför ett mått i ditt program kan skicka du det motsvarande värdet till Application Insights. Anta att du har ett mått som beskriver antalet objekt i en behållare. Du först lägga till tre objekt i behållaren och sedan ta bort två objekt under en viss tidsperiod. Därför bör du anropa `TrackMetric` två gånger: först skicka värdet `3` och sedan värdet `-2`. Application Insights lagrar båda värdena för din räkning. 
+* Enskilt värde. Varje gång du gör ett mått i ditt program, kan du skicka motsvarande värde till Application Insights. Anta att du har ett mått som beskriver antalet objekt i en behållare. Du först lägger till tre objekt i behållaren och sedan du tar bort två objekt under en viss tidsperiod. Du skulle därför anropar `TrackMetric` två gånger: först skicka värdet `3` och sedan värdet `-2`. Application Insights lagrar båda värdena för din räkning. 
 
-* Aggregering. När du arbetar med mått är sällan varje enskild mätning av intresse. I stället är en sammanfattning av vad som hände under en viss tidsperiod viktigt. Sådana sammanfattning kallas _aggregering_. I exemplet ovan är summan av mått för tidsperioden `1` och antalet mått värden är `2`. När du använder metoden Aggregeringen kan du bara anropa `TrackMetric` en gång per tidsperiod och skicka de sammanlagda värdena. Detta är den rekommenderade metoden eftersom den avsevärt minska kostnaderna och prestanda försämras genom att skicka färre datapunkter till Application Insights vid fortfarande insamling av alla relevanta uppgifter.
+* Aggregering. När du arbetar med mått, är data som sällan varje enskild mätning av intresse. I stället är det viktigt med en sammanfattning av vad som hände under en viss tidsperiod. Sådana sammanfattning kallas _aggregering_. I exemplet ovan är summan av mått för den aktuella tidsperioden `1` och antal mått värdena är `2`. När du använder den aggregering-metoden kan du bara anropa `TrackMetric` en gång per tidsperiod och skicka de sammanlagda värdena. Det här är den rekommenderade metoden eftersom den kan avsevärt minska kostnader och prestanda försämras genom att skicka färre datapunkter till Application Insights, samtidigt som samlar fortfarande in all relevant information.
 
 ### <a name="examples"></a>Exempel:
 
 #### <a name="single-values"></a>Enstaka värden
 
-Så här skickar du ett enda värde:
+Skicka ett enda värde:
 
 *JavaScript*
 
@@ -190,10 +190,10 @@ Så här skickar du ett enda värde:
      telemetry.trackMetric({name: "queueLength", value: 42.0});
  ```
 
-#### <a name="aggregating-metrics"></a>Sammanställa mått
+#### <a name="aggregating-metrics"></a>Sammanställning av mått
 
-Det rekommenderas att aggregera mått innan de skickas från din app, för att minska bandbredd, kostnad och för att förbättra prestanda.
-Här är ett exempel på sammanställa kod:
+Det rekommenderas att aggregera mått innan de skickas från din app, för att minska bandbredd, kostnad och bättre prestanda.
+Här är ett exempel på sammanställning av kod:
 
 *C#*
 
@@ -339,26 +339,26 @@ namespace MetricAggregationExample
 
 ### <a name="custom-metrics-in-metrics-explorer"></a>Anpassade mått i Metrics Explorer
 
-Om du vill se resultatet öppna Metrics Explorer och Lägg till ett nytt diagram. Redigera diagram om du vill visa dina mått.
+Om du vill se resultaten, öppna Metrics Explorer och Lägg till ett nytt diagram. Redigera diagram om du vill visa dina mått.
 
 > [!NOTE]
 > Din anpassade mått kan ta flera minuter innan den visas i listan över tillgängliga mått.
 >
 
-![Lägg till ett nytt schema eller välj ett diagram och under anpassad, väljer du din mått](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
+![Lägg till ett nytt diagram eller välj ett diagram och välj din mått under Anpassad](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
 ### <a name="custom-metrics-in-analytics"></a>Anpassade mått i Analytics
 
-Telemetrin är tillgängliga i den `customMetrics` tabell i [Application Insights Analytics](app-insights-analytics.md). Varje rad representerar ett anrop till `trackMetric(..)` i din app.
-* `valueSum` -Detta är summan av mått. Om du vill ha medelvärdet dividera med `valueCount`.
-* `valueCount` -Antalet mått som har aggregerats till detta `trackMetric(..)` anropa.
+Telemetri är tillgänglig i den `customMetrics` tabellen i [Application Insights Analytics](app-insights-analytics.md). Varje rad som representerar ett anrop till `trackMetric(..)` i din app.
+* `valueSum` -Detta är summan av mätningar. Om du vill ha medelvärdet, dela med `valueCount`.
+* `valueCount` -Antalet mått som har aggregeras till detta `trackMetric(..)` anropa.
 
 ## <a name="page-views"></a>Sidvisning
-I en enhet eller en webbsida app skickas sidan Visa telemetri som standard när varje skärmen eller sidan har lästs in. Men du kan ändra det om du vill spåra sidvisningar vid ytterligare eller olika tidpunkter. I en app som visar flikarna eller blad, kanske du vill spåra en sida när användaren öppnar ett nytt blad.
+I en enhet eller en webbsida app skickas sidvystelemetri som standard när varje skärmbild eller sida har lästs in. Men du kan ändra det om du vill spåra sidvisningar vid ytterligare eller andra tider. I en app som visar flikarna eller blad, kanske du vill spåra en sida när användaren öppnar ett nytt blad.
 
-![Användning linsen på bladet översikt](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
+![Användning lins på översiktsbladet](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
 
-Användar-och sessionen skickas som egenskaper tillsammans med sidvyer så diagram användar- och session kommer alive när sidan Visa telemetri.
+Användare och sessioner data skickas som egenskaper tillsammans med sidvisningar, så att användare och sessioner diagrammen kommer alive när det finns telemetri för sidvisningar.
 
 ### <a name="custom-page-views"></a>Anpassade sidvisningar
 *JavaScript*
@@ -378,17 +378,17 @@ Användar-och sessionen skickas som egenskaper tillsammans med sidvyer så diagr
     telemetry.TrackPageView("GameReviewPage")
 
 
-Om du har flera flikar i olika HTML-sidor kan ange du URL: en för:
+Om du har flera flikar på olika HTML-sidor, kan du ange URL: en för:
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
 ### <a name="timing-page-views"></a>Tidsinställning sidvisningar
-Som standard, vilka tider som ska rapporteras som **inläsningstid för sidvisning** mäts från när webbläsaren skickar en begäran förrän händelsen i webbläsarens sidan anropas.
+Som standard tiderna som rapporteras som **inläsningstid för sidvisning** mäts från när webbläsaren skickar en begäran om, tills webbläsarens sidan händelsen anropas.
 
 I stället kan du antingen:
 
-* Ange en explicit varaktighet i den [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview) anropa: `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`.
-* Använd vyn sida tidsuppgifterna anrop `startTrackPage` och `stopTrackPage`.
+* Ange ett explicit varaktighet i den [flyttat trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview) anropa: `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`.
+* Använda Sidvisning tidsgränsen anrop `startTrackPage` och `stopTrackPage`.
 
 *JavaScript*
 
@@ -400,48 +400,48 @@ I stället kan du antingen:
     // To stop timing and log the page:
     appInsights.stopTrackPage("Page1", url, properties, measurements);
 
-Det namn som du använder som den första parametern associerar start och stopp-anrop. Standard namnet på aktuella sidan.
+Det namn som du använder som första parameter associerar start och stopp-anrop. Standard namnet på aktuella sidan.
 
-De resulterande sidan belastningen varaktighet som visas i Metrics Explorer härleds från intervallet mellan start och stopp-anrop. Det är upp till dig vilka intervall som du faktiskt tid.
+De resulterande sidan belastningen varaktigheter som visas i Metrics Explorer härleds från intervallet mellan start och stopp-anrop. Det är upp till dig vilka intervall du faktiskt tid.
 
 ### <a name="page-telemetry-in-analytics"></a>Sidan telemetri i Analytics
 
-I [Analytics](app-insights-analytics.md) två tabeller visar data från funktioner i webbläsaren:
+I [Analytics](app-insights-analytics.md) två tabellerna visar data från funktioner i webbläsaren:
 
-* Den `pageViews` tabellen innehåller information om URL: en och sidrubriken
-* Den `browserTimings` tabellen innehåller information om klientens prestanda, till exempel den tid det tar att bearbeta inkommande data
+* Den `pageViews` tabellen innehåller data om URL- och rubrik
+* Den `browserTimings` tabellen innehåller data om klientens prestanda, till exempel den tid det tar att bearbeta inkommande
 
-Söka efter hur lång tid tar webbläsaren för att behandla olika sidor:
+Hitta hur lång tid tar för att bearbeta olika sidor på webbläsaren:
 
 ```
 browserTimings | summarize avg(networkDuration), avg(processingDuration), avg(totalDuration) by name 
 ```
 
-För att identifiera popularities av olika webbläsare:
+Identifiera popularities av olika webbläsare:
 
 ```
 pageViews | summarize count() by client_Browser
 ```
 
-Om du vill associera sidvisningar för AJAX-anrop, ansluta med beroenden:
+Om du vill associera sidvisningar AJAX-anrop, Anslut med beroenden:
 
 ```
 pageViews | join (dependencies) on operation_Id 
 ```
 
 ## <a name="trackrequest"></a>TrackRequest
-Server-SDK använder TrackRequest för att logga HTTP-begäranden.
+Servern SDK använder TrackRequest för att logga HTTP-begäranden.
 
-Du kan också anropa den själv om du vill simulera begäranden i ett sammanhang där du inte har modulen web service körs.
+Du kan också anropa den själv om du vill simulera begäranden i ett sammanhang där du behöver inte modulen web service körs.
 
-Det rekommenderade sättet att skicka begärandetelemetri om är dock där begäran fungerar som en <a href="#operation-context">åtgärdssammanhang</a>.
+Det rekommenderade sättet att skicka begärandetelemetri om är dock där begäran fungerar som en <a href="#operation-context">åtgärdskontexten</a>.
 
-## <a name="operation-context"></a>Åtgärden kontext
-Du kan jämföra telemetri objekt tillsammans genom att associeras med operationen kontext. Modulen standard spårning av förfrågningar sker för undantag och andra händelser som sänds när en HTTP-begäran bearbetas. I [Sök](app-insights-diagnostic-search.md) och [Analytics](app-insights-analytics.md), kan du lätt hitta eventuella händelser som är kopplad till begäran med hjälp av dess åtgärd Id.
+## <a name="operation-context"></a>Åtgärdskontexten
+Du kan jämföra telemetri objekt tillsammans genom att associera dem med åtgärden kontext. Modulen standard spårning av förfrågningar sker för undantag och andra händelser som sänds när en HTTP-begäran bearbetas. I [Search](app-insights-diagnostic-search.md) och [Analytics](app-insights-analytics.md), hittar du enkelt eventuella händelser som är kopplat till begäran med hjälp av dess åtgärd Id.
 
-Se [korrelation telemetri i Application Insights](application-insights-correlation.md) för mer information om korrelation.
+Se [telemetrikorrelation i Application Insights](application-insights-correlation.md) för mer information om korrelation.
 
-När spårning telemetri manuellt, det enklaste sättet att se till att telemetri korrelation med hjälp av det här mönstret:
+När du kartlägger telemetri manuellt, det enklaste sättet att se till att telemetrikorrelation med hjälp av det här mönstret:
 
 *C#*
 
@@ -462,11 +462,11 @@ using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operati
 } // When operation is disposed, telemetry item is sent.
 ```
 
-Tillsammans med inställningen en åtgärdssammanhang `StartOperation` skapar ett telemetri objekt av typen som du anger. Den skickar telemetri objektet automatiskt när igen, eller om du explicit anropa `StopOperation`. Om du använder `RequestTelemetry` som telemetri typ, varaktigheten har angetts till tidsintervall mellan start och stopp.
+Tillsammans med inställningen en åtgärdskontexten `StartOperation` skapar ett telemetriobjekt av typen som du anger. Den skickar telemetri objektet automatiskt när åtgärden, eller om du explicit anropa `StopOperation`. Om du använder `RequestTelemetry` som telemetrityp av varaktigheten är inställd på tidsinställda intervall mellan start och stopp.
 
-Telemetri objekt som rapporterats inom en omfattning åtgärden bli underordnade om du för denna åtgärd. Åtgärden kontexter kan vara kapslade. 
+Telemetri artiklar som rapporterats inom ett omfång för åtgärden blir underordnade om du av sådana åtgärder. Åtgärden kontexter kan kapslas. 
 
-I sökning, kontext för åtgärden för att skapa den **relaterade objekt** lista:
+I Search åtgärdskontexten används för att skapa den **relaterade objekt** lista:
 
 ![Relaterade objekt](./media/app-insights-api-custom-events-metrics/21.png)
 
@@ -474,9 +474,9 @@ Se [spåra anpassade åtgärder med Application Insights SDK för .NET](applicat
 
 ### <a name="requests-in-analytics"></a>Begäranden i Analytics 
 
-I [Application Insights Analytics](app-insights-analytics.md), begär visa upp i den `requests` tabellen.
+I [Application Insights Analytics](app-insights-analytics.md), begär visa upp i den `requests` tabell.
 
-Om [provtagning](app-insights-sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. För exempel itemCount == 10 innebär att 10 anrop till trackRequest() provtagning processen bara skickas en av dem. För att få en korrekt antal begäranden och genomsnittlig varaktighet segmenterat per begäran namn kan använda koden som:
+Om [sampling](app-insights-sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. För exempel itemCount == 10 sätt att för 10 anrop till trackRequest() processen sampling endast skickas en av dem. Hämta rätt antal förfrågningar och genomsnittlig varaktighet uppdelat efter namn på begäran med kod som:
 
 ```AIQL
 requests | summarize count = sum(itemCount), avgduration = avg(duration) by name
@@ -486,8 +486,8 @@ requests | summarize count = sum(itemCount), avgduration = avg(duration) by name
 ## <a name="trackexception"></a>TrackException
 Skicka undantag till Application Insights:
 
-* Att [räkna](app-insights-metrics-explorer.md), som en indikation på hur ofta ett problem.
-* Att [undersöka enskilda förekomster](app-insights-diagnostic-search.md).
+* Att [räkna dem](app-insights-metrics-explorer.md), som en indikation på hur ofta ett problem.
+* Att [granska enskilda förekomster](app-insights-diagnostic-search.md).
 
 Rapporterna innehåller stackspårningar.
 
@@ -532,11 +532,11 @@ Rapporterna innehåller stackspårningar.
        telemetry.trackException({exception: ex});
     }
 
-SDK: erna fånga undantag som många automatiskt, så att du inte alltid behöver anropa TrackException explicit.
+SDK: erna fånga undantag som många automatiskt, så du behöver alltid att anropa TrackException uttryckligen.
 
 * ASP.NET: [skriva kod för att fånga undantag från](app-insights-asp-net-exceptions.md).
-* J2EE: [undantag noteras automatiskt](app-insights-java-get-started.md#exceptions-and-request-failures).
-* JavaScript: Undantag noteras automatiskt. Lägg till en rad kodfragmentet som infogas i dina webbsidor om du vill inaktivera automatisk insamling:
+* J2EE: [undantag som fångas automatiskt](app-insights-java-get-started.md#exceptions-and-request-failures).
+* JavaScript: Fångas undantag automatiskt. Om du vill inaktivera automatisk insamling till en rad i kodfragmentet som du infogar i dina webbsidor:
 
     ```
     ({
@@ -547,15 +547,15 @@ SDK: erna fånga undantag som många automatiskt, så att du inte alltid behöve
 
 ### <a name="exceptions-in-analytics"></a>Undantag i Analytics
 
-I [Application Insights Analytics](app-insights-analytics.md), undantag visas i den `exceptions` tabellen.
+I [Application Insights Analytics](app-insights-analytics.md), undantag som visas i den `exceptions` tabell.
 
-Om [provtagning](app-insights-sampling.md) är i drift, den `itemCount` egenskapen visar ett värde större än 1. För exempel itemCount == 10 innebär att 10 anrop till trackException() provtagning processen bara skickas en av dem. Använda koden som för att få rätt antal undantag som är segmenterat av typ av undantag:
+Om [sampling](app-insights-sampling.md) är i drift, den `itemCount` egenskapen visar ett värde större än 1. För exempel itemCount == 10 sätt att av 10 anrop till trackException() processen sampling endast skickas en av dem. För att få en korrekt antal undantag som uppdelat efter typ av undantag kan du använda koden som:
 
 ```
 exceptions | summarize sum(itemCount) by type
 ```
 
-De flesta av de viktiga Stackinformation redan extraherade i olika variabler, men du kan sätta ihop den `details` strukturen för att få mer. Eftersom den här strukturen är dynamiska, bör du omvandla resultatet till vilken du förväntar dig. Exempel:
+De flesta av de viktiga Stackinformation redan extraheras till separata variabler, men du kan sätta ihop den `details` struktur och få mer. Eftersom den här strukturen är dynamisk, bör du skicka resultatet för den typ som du förväntar dig. Exempel:
 
 ```AIQL
 exceptions
@@ -570,11 +570,11 @@ exceptions
 ```
 
 ## <a name="tracktrace"></a>TrackTrace
-Använd TrackTrace för att diagnostisera problem genom att skicka ”spåret spår” till Application Insights. Du kan skicka mängder diagnostikdata och granska dem i [diagnostiska Sök](app-insights-diagnostic-search.md).
+Använd TrackTrace för att diagnostisera problem genom att skicka ”länken.Tryck” till Application Insights. Du kan skicka mängder diagnostikdata och granska dem i [Diagnostiksökning](app-insights-diagnostic-search.md).
 
-I .NET [logga kort](app-insights-asp-net-trace-logs.md) använder den här API för att skicka loggar med från tredje part till portalen.
+I .NET [logga kort](app-insights-asp-net-trace-logs.md) använder den här API för att skicka loggar från tredje part till portalen.
 
-I Java för [Standard loggar tangenttryckningar som Log4J Logback](app-insights-java-trace-logs.md) använder Application Insights Log4j eller Logback Appenders för att skicka loggar från tredje part till portalen.
+I Java för [Standard tangenttryckningar som Log4J, Logback](app-insights-java-trace-logs.md) använder Application Insights Log4j eller Logback Appenders för att skicka loggar från tredje part till portalen.
 
 *C#*
 
@@ -591,10 +591,10 @@ I Java för [Standard loggar tangenttryckningar som Log4J Logback](app-insights-
 
 Du kan söka i meddelandeinnehåll, men du kan inte filtrera (till skillnad från egenskapsvärden) på den.
 
-Storleksgräns för `message` är mycket högre än gränsen på Egenskaper.
-En fördel med TrackTrace är att du kan publicera relativt lång data i meddelandet. Koda till exempel det postdata.  
+Storleksgränsen för `message` är mycket högre än gränsen för egenskaper.
+En fördel med TrackTrace är att du kan publicera relativt lång data i meddelandet. Du kan exempelvis koda det postdata.  
 
-Dessutom kan du lägga till en allvarlighetsgrad för meddelandet. Och precis som andra telemetri kan du lägga till egenskapsvärden som hjälper dig att filtrera eller söka efter olika uppsättningar av spår. Exempel:
+Dessutom kan du lägga till en allvarlighetsgrad ditt meddelande. Och precis som andra telemetri, du kan lägga till egenskapsvärden som hjälper dig att filter eller för olika uppsättningar med spårningar. Exempel:
 
 *C#*
 
@@ -615,17 +615,17 @@ Dessutom kan du lägga till en allvarlighetsgrad för meddelandet. Och precis so
 
 ```
 
-I [Sök](app-insights-diagnostic-search.md), därefter kan du enkelt filtrera ut alla meddelanden från en viss allvarlighetsgrad som relaterar till en viss databas.
+I [Search](app-insights-diagnostic-search.md), sedan kan du enkelt filtrera ut alla meddelanden från en viss allvarlighetsgrad som är relaterade till en viss databas.
 
 
-### <a name="traces-in-analytics"></a>Spåren i Analytics
+### <a name="traces-in-analytics"></a>Spårningar i Analytics
 
-I [Application Insights Analytics](app-insights-analytics.md), anrop till TrackTrace visas i den `traces` tabellen.
+I [Application Insights Analytics](app-insights-analytics.md), anrop till TrackTrace som visas i den `traces` tabell.
 
-Om [provtagning](app-insights-sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. Exempel itemCount == 10 innebär att 10 anrop till `trackTrace()`, provtagning processen skickas endast ett av dem. För att få en korrekt antal trace-anrop kan du bör använda därför kod som `traces | summarize sum(itemCount)`.
+Om [sampling](app-insights-sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. Exempel itemCount == 10 innebär att för 10 anrop till `trackTrace()`, sampling processen överförs endast en av dem. För att få en korrekt antal spårning av anrop du bör använda därför kod som `traces | summarize sum(itemCount)`.
 
 ## <a name="trackdependency"></a>TrackDependency
-Använda TrackDependency-anropet för att spåra svarstider och slutförandefrekvenser för anrop till ett externt kodavsnitt. Resultatet visas i beroendediagrammen i portalen.
+Använd TrackDependency-anrop för att spåra svarstider och slutförandefrekvenser för anrop till ett externt kodavsnitt kod. Resultatet visas i beroendediagrammen i portalen.
 
 *C#*
 
@@ -680,25 +680,25 @@ finally
 }
 ```
 
-Kom ihåg att server SDK inkluderar en [beroende modulen](app-insights-asp-net-dependencies.md) som identifierar och spårar vissa beroendeanrop automatiskt – till exempel till databaser och REST API: er. Du måste installera en agent på servern för att göra modulen fungerar. 
+Kom ihåg att server-SDK: er inkluderar en [beroende modulen](app-insights-asp-net-dependencies.md) som identifierar och spårar vissa beroendeanrop automatiskt – till exempel till databaser och REST API: er. Du måste installera en agent på servern för att göra modulen fungerar. 
 
-I Java, vissa beroendeanrop kan spåras automatiskt med hjälp av [agenten Java](app-insights-java-agent.md).
+I Java, vissa beroendeanrop kan automatiskt spåras med hjälp av [Java-agenten](app-insights-java-agent.md).
 
-Du kan använda det här anropet om du vill spåra anrop som automatisk spårning inte fånga eller om du inte vill installera agenten.
+Du kan använda det här anropet om du vill spåra anrop som automatiserad spårning inte fångar upp, eller om du inte vill installera agenten.
 
-Om du vill inaktivera modulen standard beroende spårning i C#, redigera [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) och ta bort referensen till `DependencyCollector.DependencyTrackingTelemetryModule`. I Java, inte installera agenten java om du inte vill samla in standard beroenden automatiskt.
+Om du vill inaktivera modulen standard beroende-spårning i C#, redigera [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) och ta bort referensen till `DependencyCollector.DependencyTrackingTelemetryModule`. I Java, inte installera java-agenten om du inte vill samla in standard beroenden automatiskt.
 
 ### <a name="dependencies-in-analytics"></a>Beroenden i Analytics
 
-I [Application Insights Analytics](app-insights-analytics.md), trackDependency anropar visa i den `dependencies` tabellen.
+I [Application Insights Analytics](app-insights-analytics.md), trackDependency ringer visa upp den `dependencies` tabell.
 
-Om [provtagning](app-insights-sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. För exempel itemCount == 10 innebär att 10 anrop till trackDependency() provtagning processen bara skickas en av dem. För att få en korrekt antal beroenden segmenterade av mål-komponenten kan använda koden som:
+Om [sampling](app-insights-sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. För exempel itemCount == 10 sätt att för 10 anrop till trackDependency() processen sampling endast skickas en av dem. För att få en korrekt antal beroenden uppdelat efter mål-komponenten kan du använda kod som:
 
 ```
 dependencies | summarize sum(itemCount) by target
 ```
 
-Om du vill associera beroenden med relaterade begäranden, använder du en koppling:
+Om du vill associera beroenden med deras relaterade begäranden, använder du en koppling:
 
 ```
 dependencies
@@ -706,7 +706,7 @@ dependencies
 ```
 
 ## <a name="flushing-data"></a>Tömmer data
-Normalt skickar SDK data alltid valt att minimera påverkan på användaren. Men i vissa fall kan kanske du vill i bufferten – till exempel om du använder SDK: N i ett program som stängs av.
+SDK: N skickar vanligtvis data som ibland valt att minimera påverkan på användaren. Men i vissa fall kan kanske du vill i bufferten – till exempel om du använder SDK: N i ett program som stängs av.
 
 *C#*
  
@@ -736,7 +736,7 @@ Vi rekommenderar ska flush() metoden användas i aktiviteten avstängning av pro
 ## <a name="authenticated-users"></a>Autentiserade användare
 I en webbapp identifieras användare (som standard) av cookies. En användare kan räknas mer än en gång om de har åtkomst till din app från en annan dator eller webbläsare, eller om de tar bort cookies.
 
-Om användare loggar in på din app, kan du få en mer korrekt antal genom att ange autentiserat användar-ID i webbläsaren koden:
+Om användare loggar in till din app kan få du en mer exakt antal genom att ange autentiserat användar-ID i webbläsarkoden:
 
 *JavaScript*
 
@@ -762,30 +762,30 @@ På en webbplats med ASP.NET MVC-program, till exempel:
             </script>
         }
 
-Det är inte nödvändigt att använda användarens faktiska inloggningsnamn. Har bara vara ett ID som är unika för användaren. Namnet får inte innehålla blanksteg eller något av tecknen `,;=|`.
+Det är inte nödvändigt att använda användarens faktiska inloggningsnamn. Den innehåller endast ska vara ett ID som är unika för användaren. Namnet får inte innehålla blanksteg eller något av tecknen `,;=|`.
 
-Användar-ID är också i en sessionscookie och skickas till servern. Om server SDK installeras, skickas autentiserat användar-ID som en del av kontextegenskaperna för både klienten och servern telemetri. Därefter kan du filtrera och söka på den.
+Användar-ID är också i en sessions-cookie och skickas till servern. Om server SDK har installerats skickas autentiserat användar-ID som en del av kontextegenskaperna av både klienten och servern telemetri. Sedan kan du filtrera och söka på den.
 
-Om din app-grupper användare till konton, kan du överföra en identifierare för kontot (med teckenbegränsningar för samma).
+Om din app grupperar användare i konton, kan du också ange en identifierare för kontot (med samma teckenbegränsningar).
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-I [Metrics Explorer](app-insights-metrics-explorer.md), du kan skapa ett diagram som räknar **autentiserade användare,**, och **användarkonton**.
+I [Måttutforskaren](app-insights-metrics-explorer.md), du kan skapa ett diagram som räknar **autentiserad användare,**, och **användarkonton**.
 
-Du kan också [Sök](app-insights-diagnostic-search.md) för klienten datapunkter med specifika användarnamn och konton.
+Du kan också [search](app-insights-diagnostic-search.md) för klienten datapunkter med specifika användarnamn och -konton.
 
 ## <a name="properties"></a>Filtrera, söka och segmentera dina data med hjälp av egenskaper
-Du kan bifoga egenskaper och mått i händelserna (och sidan också vyer, undantag och andra telemetridata till statistik,).
+Du kan koppla egenskaper och mätningar till dina händelser (och även bläddra vyer, undantag och andra telemetridata till mått,).
 
-*Egenskaper för* är strängvärden som du kan använda för att filtrera din telemetri i användningsrapporten. Till exempel om din app erbjuder flera spel, kan du koppla spelet till varje händelse så att du kan se vilka spel är mer populära.
+*Egenskaper för* är strängvärden som du kan använda för att filtrera din telemetri i användningsrapporten. Till exempel om din app tillhandahåller flera spel, kan du ansluta spelet till varje händelse så ser du vilka spel som mer populära.
 
-Det finns en gräns på 8192 på string-längden. (Om du vill skicka stora mängder data kan du använda message-parameter för [TrackTrace](#track-trace).)
+Det finns en gräns på 8192 på strängen. (Om du vill skicka stora mängder data kan använda parametern meddelande av [TrackTrace](#track-trace).)
 
-*Mått* är numeriska värden som kan presenteras grafiskt. Du kanske vill se om det finns en stegvis ökning av resultaten som din spelare uppnå. Diagram kan segmenterade av egenskaperna som skickas med händelsen, så att du kan få separat eller staplade diagram för olika spel.
+*Mått* är numeriska värden som kan presenteras grafiskt. Du kanske vill se om det finns en gradvis ökning poängen som spelare uppnå. Diagrammen kan visas efter de egenskaper som skickas till händelsen, så att du kan få separat eller liggande diagram för olika spel.
 
-För måttvärden visas korrekt, bör de vara större än eller lika med 0.
+Mått-värden som ska visas korrekt bör de vara större än eller lika med 0.
 
-Det finns några [gränser för antal egenskaper och egenskapsvärden mått](#limits) som du kan använda.
+Det finns några [gränser för antalet egenskaper och egenskapsvärden mått](#limits) som du kan använda.
 
 *JavaScript*
 
@@ -856,33 +856,33 @@ Det finns några [gränser för antal egenskaper och egenskapsvärden mått](#li
 
 
 > [!NOTE]
-> Se till att logga personligt identifierbar information i egenskaperna.
+> Var noga så att inte logga personligt identifierbar information i egenskaperna.
 >
 >
 
-*Om du använde mått*, öppna Metrics Explorer och välja ett mått från den **anpassad** grupp:
+*Om du har använt mått*, öppna Metrics Explorer och välj måttet från den **anpassad** grupp:
 
-![Öppna Metrics Explorer, markera diagrammet och välj mått](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
+![Öppna Metrics Explorer, Välj diagrammet och välj måtten](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
 > [!NOTE]
-> Om din mått inte visas, eller om den **anpassad** rubrik finns inte där, Stäng bladet markeringen och försök igen senare. Mått kan ta en timme så att de sammanställs via pipeline.
+> Om dina mått inte visas, eller om den **anpassad** rubriken inte finns där, Stäng valbladet och försök igen senare. Mått kan ibland ta en timme så att de sammanställs genom pipelinen.
 
-*Om du använde egenskaper och mått*, segmentera måttet av egenskapen:
+*Om du använde egenskaper och mätvärden*, segmentera måttet av egenskapen:
 
 ![Ange gruppering och välj sedan egenskapen under Gruppera efter](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
 
-*I diagnostiska sökningen*, du kan visa egenskaper och mått för enskilda förekomster av en händelse.
+*I Diagnostiksökning*, du kan visa egenskaperna och mått för enskilda förekomster av en händelse.
 
 ![Välj en instans och välj sedan ”...”](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-4.png)
 
-Använd den **Sök** fältet för att se händelsen förekomster som har ett visst egenskapsvärde.
+Använd den **Search** fältet för att se händelsen förekomster som har ett visst egenskapsvärde.
 
 ![Skriv en term i sökrutan](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
 
 [Mer information om sökuttryck](app-insights-diagnostic-search.md).
 
-### <a name="alternative-way-to-set-properties-and-metrics"></a>Alternativa sätt att ange egenskaper och mått
-Om det är enklare kan du samla in parametrarna för en händelse i ett separat objekt:
+### <a name="alternative-way-to-set-properties-and-metrics"></a>Alternativt sätt att ange egenskaper och mått
+Om det är enklare, kan du samla in parametrarna för en händelse i ett separat objekt:
 
     var event = new EventTelemetry();
 
@@ -896,15 +896,15 @@ Om det är enklare kan du samla in parametrarna för en händelse i ett separat 
     telemetry.TrackEvent(event);
 
 > [!WARNING]
-> Inte återanvända samma telemetri objektet instans (`event` i det här exemplet) att anropa Track*() flera gånger. Detta kan orsaka telemetri skickas med felaktig konfiguration.
+> Inte återanvända samma telemetri objekt instans (`event` i det här exemplet) att anropa Track*() flera gånger. Detta kan orsaka telemetri skickas med felaktig konfiguration.
 >
 >
 
 ### <a name="custom-measurements-and-properties-in-analytics"></a>Anpassade mått och egenskaper i Analytics
 
-I [Analytics](app-insights-analytics.md), anpassade mått och egenskaper visas i den `customMeasurements` och `customDimensions` attribut för varje post telemetri.
+I [Analytics](app-insights-analytics.md), anpassade mått och egenskaper som visas i den `customMeasurements` och `customDimensions` attribut för varje post i telemetri.
 
-Till exempel om du har lagt till en egenskap med namnet ”spelet” din begärandetelemetri för den här frågan antal förekomster av olika värden för ”spel” och visar medelvärdet för det anpassade mått ”resultatet”:
+Till exempel om du har lagt till en egenskap med namnet ”spel” till telemetrin begäran kan den här frågan antal förekomster av olika värden för ”spel” och visar medelvärdet av din anpassade mått ”poäng”:
 
 ```
 requests
@@ -913,13 +913,13 @@ requests
 
 Observera att:
 
-* När du extraherar ett värde från customDimensions eller customMeasurements JSON, den har dynamiska typ, och så måste du skicka den `tostring` eller `todouble`.
-* Med hänsyn till möjligheten att [provtagning](app-insights-sampling.md), bör du använda `sum(itemCount)`, inte `count()`.
+* När du extrahera ett värde från customDimensions eller customMeasurements JSON, den har dynamisk typ och så måste du skicka den `tostring` eller `todouble`.
+* Med hänsyn till möjligheten att [sampling](app-insights-sampling.md), bör du använda `sum(itemCount)`, inte `count()`.
 
 
 
 ## <a name="timed"></a> Tidsinställning händelser
-Ibland vill du skapa diagram över hur lång tid det tar för att utföra en åtgärd. Du kanske exempelvis vill veta hur länge användare ta att överväga alternativen i spel. Du kan använda parametern mått för den här.
+Ibland vill du att skapa diagram över hur lång tid det tar för att utföra en åtgärd. Du kanske exempelvis vill veta hur lång tid användare gör att överväga val i ett spel. Du kan använda parametern mätning för detta.
 
 *C#*
 
@@ -963,7 +963,7 @@ Ibland vill du skapa diagram över hur lång tid det tar för att utföra en åt
 
 
 ## <a name="defaults"></a>Standardegenskaperna för anpassad telemetri
-Om du vill ange standardvärdet egenskapsvärden för några av de anpassa händelser som du skriver ange du dem i en TelemetryClient-instans. De är kopplade till varje telemetri-objekt som skickas från klienten.
+Om du vill ange standard egenskapsvärden för några av de anpassa händelser som du skriver kan du ange dem i en TelemetryClient-instans. De är kopplade till varje telemetriobjekt som skickas från klienten.
 
 *C#*
 
@@ -1003,25 +1003,25 @@ Om du vill ange standardvärdet egenskapsvärden för några av de anpassa händ
 
 
 
-Enskilda telemetri anrop kan åsidosätta standardvärdena i sina egenskapen ordlistor.
+Enskilda telemetri-anrop kan åsidosätta standardvärdena i sina ordböcker för egenskapen.
 
-*Web klienter för JavaScript*, [använder JavaScript telemetri initierare](#js-initializer).
+*För JavaScript webbklienter*, [använda JavaScript telemetri-initierare](#js-initializer).
 
-*Att lägga till egenskaper till all telemetri*, inklusive data från standard samling moduler [implementera `ITelemetryInitializer` ](app-insights-api-filtering-sampling.md#add-properties).
+*Att lägga till egenskaper i all telemetri*, inklusive data från standard samling moduler [implementera `ITelemetryInitializer` ](app-insights-api-filtering-sampling.md#add-properties).
 
-## <a name="sampling-filtering-and-processing-telemetry"></a>Provtagning, filtrering och bearbetar telemetri
-Du kan skriva kod för att bearbeta din telemetri innan den skickas från SDK. Bearbetningen innehåller data som skickas från standard telemetri moduler, till exempel HTTP request-samlingen och beroende samling.
+## <a name="sampling-filtering-and-processing-telemetry"></a>Sampling, filtrering och bearbetning av telemetri
+Du kan skriva kod för att bearbeta din telemetri innan den skickas från SDK. Bearbetningen innehåller data som skickas från standardmoduler-moduler, till exempel http-begäran samlingen och beroende samlingen.
 
-[Lägga till egenskaper](app-insights-api-filtering-sampling.md#add-properties) till telemetri genom att implementera `ITelemetryInitializer`. Du kan till exempel lägga till versionsnummer eller värden som beräknats från andra egenskaper.
+[Lägg till egenskaper](app-insights-api-filtering-sampling.md#add-properties) till telemetri genom att implementera `ITelemetryInitializer`. Du kan till exempel lägga till versionsnummer eller värden som beräknats från övriga egenskaper.
 
-[Filtrering](app-insights-api-filtering-sampling.md#filtering) kan ändra eller ta bort telemetri innan den skickas från SDK genom att implementera `ITelemetryProcesor`. Du styr vilka skickas eller tas bort, men du behöver för effekten på din mått. Beroende på hur du ta bort objekt, kan du förlora möjligheten att navigera mellan relaterade objekt.
+[Filtrering](app-insights-api-filtering-sampling.md#filtering) kan ändra eller ta bort telemetri innan det skickas från SDK genom att implementera `ITelemetryProcesor`. Du kan styra vad skickas eller tas bort, men du behöver för effekten på dina mått. Beroende på hur du ta bort objekt, kan du förlora möjligheten att navigera mellan relaterade objekt.
 
-[Provtagning](app-insights-api-filtering-sampling.md) är en paketerad lösning för att minska mängden data som skickas från din app på portalen. Detta sker utan att påverka mätvärdena som visas. Och detta sker utan att påverka möjligheterna att diagnostisera problem genom att navigera mellan relaterade objekt som undantag, förfrågningar och sidvyer.
+[Sampling](app-insights-api-filtering-sampling.md) är en lösning som är paketerade för att minska mängden data som skickas från din app på portalen. Detta sker utan att påverka mätvärdena som visas. Och detta sker utan att påverka din möjlighet att diagnostisera problem genom att navigera mellan relaterade objekt, till exempel undantag, begäranden och sidvyer.
 
 [Läs mer](app-insights-api-filtering-sampling.md).
 
 ## <a name="disabling-telemetry"></a>Inaktivera telemetri
-Att *dynamiskt stoppa och starta* insamling och vidarebefordran av telemetri:
+Att *dynamiskt stoppa och starta* insamling och överföring av telemetri:
 
 *C#*
 
@@ -1040,7 +1040,7 @@ Att *dynamiskt stoppa och starta* insamling och vidarebefordran av telemetri:
 
 ```
 
-Att *inaktivera valda standard insamlare*--exempelvis prestandaräknare, HTTP-begäranden eller beroenden – ta bort eller kommentera ut relevanta rader i [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Du kan göra detta, till exempel om du vill skicka TrackRequest data.
+Att *inaktivera valda standard insamlare*– till exempel prestandaräknare, HTTP-begäranden eller beroenden – ta bort eller kommentera ut de relevanta raderna i [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Du kan göra detta, till exempel om du vill skicka dina egna TrackRequest data.
 
 *Node.js*
 
@@ -1049,7 +1049,7 @@ Att *inaktivera valda standard insamlare*--exempelvis prestandaräknare, HTTP-be
     telemetry.config.disableAppInsights = true;
 ```
 
-Att *inaktivera valda standard insamlare*--exempelvis prestandaräknare, HTTP-begäranden eller beroenden--till Initieringstid, kedja configuration metoder för att din kod för initiering av SDK:
+Att *inaktivera valda standard insamlare*– till exempel prestandaräknare, HTTP-begäranden eller beroenden--vid initiering, kedja konfigurationsmetoder i SDK initieringen koden:
 
 ```Javascript
 
@@ -1062,10 +1062,10 @@ Att *inaktivera valda standard insamlare*--exempelvis prestandaräknare, HTTP-be
         .start();
 ```
 
-Inaktivera dessa efter initiering med konfigurationsobjektet: `applicationInsights.Configuration.setAutoCollectRequests(false)`
+Använd konfigurationsobjektet för att inaktivera dessa po inicializaci: `applicationInsights.Configuration.setAutoCollectRequests(false)`
 
-## <a name="debug"></a>Utvecklarläge
-Vid felsökning, är det praktiskt att ha din telemetri expedierade via pipeline så att du kan se resultatet direkt. Du kan också hämta meddelandena som hjälper dig spåra eventuella problem med telemetrin. Stänga av den i produktion, eftersom det kan påverka din app.
+## <a name="debug"></a>Utvecklarläget
+Under felsökning, är det praktiskt att ha telemetrin expedierade genom pipelinen så att du kan se resultatet direkt. Du kan också hämta aktiveringshanteraren som hjälper dig att spåra eventuella problem med telemetri. Stänga av den i produktion, eftersom det kan sakta ned din app.
 
 *C#*
 
@@ -1076,7 +1076,7 @@ Vid felsökning, är det praktiskt att ha din telemetri expedierade via pipeline
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 
-## <a name="ikey"></a> Ange den instrumentation nyckeln för valda anpassad telemetri
+## <a name="ikey"></a> Ange instrumenteringsnyckeln för valda anpassad telemetri
 *C#*
 
     var telemetry = new TelemetryClient();
@@ -1084,10 +1084,10 @@ Vid felsökning, är det praktiskt att ha din telemetri expedierade via pipeline
     // ...
 
 
-## <a name="dynamic-ikey"></a> Dynamisk instrumentation nyckel
-För att undvika blandas in telemetri från utvecklings-, test- och produktionsmiljöer, kan du [skapa separata Application Insights-resurser](app-insights-create-new-resource.md) och ändra deras nycklar, beroende på miljön.
+## <a name="dynamic-ikey"></a> Dynamisk instrumenteringsnyckeln
+Om du vill undvika att blanda in telemetri från utveckling, testning och produktionsmiljöer, kan du [skapa separata Application Insights-resurser](app-insights-create-new-resource.md) och ändrar sina nycklar, beroende på miljön.
 
-Du kan ange den i koden i stället för att hämta nyckeln instrumentation från konfigurationsfilen. Ange nyckeln i en initieringsmetod, till exempel global.aspx.cs i en ASP.NET-tjänst:
+Du kan ange den i din kod i stället för att hämta instrumenteringsnyckeln från konfigurationsfilen. Ange nyckeln i en initieringsmetod, till exempel global.aspx.cs i en ASP.NET-tjänst:
 
 *C#*
 
@@ -1105,7 +1105,7 @@ Du kan ange den i koden i stället för att hämta nyckeln instrumentation från
 
 
 
-På webbsidor, kanske du vill ange från webbserverns tillstånd i stället kodning bokstavligt till skriptet. Till exempel i en webbsida som skapats i en ASP.NET-app:
+På webbsidor, kanske du vill ställa in den från webbserverns tillstånd, i stället kodning bokstavligen till skriptet. Till exempel i en webbsida som genererats i en ASP.NET-app:
 
 *JavaScript i Razor*
 
@@ -1121,39 +1121,39 @@ På webbsidor, kanske du vill ange från webbserverns tillstånd i stället kodn
 
 
 ## <a name="telemetrycontext"></a>TelemetryContext
-TelemetryClient har en kontextegenskap som innehåller värden som skickas tillsammans med alla telemetridata. De normalt har angetts som standard telemetri moduler, men du kan också ange dem själv. Exempel:
+TelemetryClient har en kontextegenskap som innehåller värden som ska skickas tillsammans med alla telemetridata. De normalt har angetts av standardmoduler-moduler, men du kan också ange dem själv. Exempel:
 
     telemetry.Context.Operation.Name = "MyOperationName";
 
-Om du anger dessa värden själv kan du ta bort den aktuella raden från [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), så att värdena och värdena som standard inte bli förvirrad.
+Om du ställer in några av värdena själv, Överväg att ta bort den aktuella raden från [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), så att dina värden och värden som standard inte bli förvirrad.
 
 * **Komponenten**: appen och dess version.
-* **Enheten**: Data om enheten där programmet körs. (I web apps detta är den server eller klientenheten som telemetrin skickas från.)
-* **InstrumentationKey**: The Application Insights-resurs i Azure var telemetrin visas. Det hämtas vanligtvis från ApplicationInsights.config.
-* **Plats**: den geografiska platsen för enheten.
-* **Åtgärden**: I web apps aktuella HTTP-begäran. I andra apptyper kan du ange att gruppera händelser tillsammans.
-  * **ID**: ett genererat värde som korreleras olika händelser så att när du granska alla händelser i diagnostiska sökning, kan du hitta relaterade objekt.
-  * **Namnet**: ett ID, vanligtvis URL: en för HTTP-begäran.
-  * **SyntheticSource**: om inte null eller är tom, en sträng som anger att källan för begäran har identifierats som ett program eller webbplats test. Som standard är den inte beräkningar i Metrics Explorer.
+* **Enheten**: Data om den enhet där appen körs. (I web apps, detta är den server eller en klientenhet som telemetri som skickas från.)
+* **InstrumentationKey**: The Application Insights-resurs i Azure var telemetrin visas. Den har vanligtvis hämtats från ApplicationInsights.config.
+* **Plats**: enhetens geografiska plats.
+* **Åtgärden**: I web apps, den aktuella HTTP-begäran. I andra typer av appar, kan du ange Gruppera händelser tillsammans.
+  * **ID**: ett genererat värde kopplat till olika händelser, så att när du undersöker en händelse i Diagnostiksökning kan du hitta relaterade objekt.
+  * **Namn på**: ett ID, vanligtvis URL: en för HTTP-begäran.
+  * **SyntheticSource**: om det inte null eller tom, en sträng som anger att källan för begäran har identifierats som en robot eller web-test. Som standard är det inte beräkningar i Metrics Explorer.
 * **Egenskaper för**: egenskaper som skickas med alla telemetridata. Den kan åsidosättas i enskilda spåra * anrop.
-* **Sessionen**: användarens session. ID som anges till ett genererat värde ändras när användaren inte har varit aktiv under en stund.
+* **Sessionen**: användarens session. ID har angetts ett genererat värde som ändras när användaren inte har varit aktiva under en tid.
 * **Användaren**: användarinformation.
 
 ## <a name="limits"></a>Begränsningar
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
-Använd för att undvika träffa hastighetsbegränsning data [provtagning](app-insights-sampling.md).
+Undvik att träffa gräns för överföringshastigheten i data, använda [sampling](app-insights-sampling.md).
 
-För att fastställa hur länge data bevaras, se [datalagring och sekretess](app-insights-data-retention-privacy.md).
+För att bestämma hur länge data bevaras, se [kvarhållning av Data och sekretess](app-insights-data-retention-privacy.md).
 
 ## <a name="reference-docs"></a>Referensdokument
 * [ASP.NET-referens](https://msdn.microsoft.com/library/dn817570.aspx)
-* [Referens för Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+* [Java-Referens](http://dl.windowsazure.com/applicationinsights/javadoc/)
 * [JavaScript-referens](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 * [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
 * [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 
-## <a name="sdk-code"></a>SDK-kod
+## <a name="sdk-code"></a>SDK-koden
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Windows Server-paket](https://github.com/Microsoft/applicationInsights-dotnet-server)
@@ -1163,15 +1163,15 @@ För att fastställa hur länge data bevaras, se [datalagring och sekretess](app
 * [Alla plattformar](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## <a name="questions"></a>Frågor
-* *Vilka undantag kan Track_() anrop utlösa?*
+* *Vilka undantag kan generera med Track_() anrop?*
 
-    Ingen. Du behöver inte lägga in dem i försök catch-satser. Om det uppstår problem i SDK, loggas meddelanden i konsolen felsökningsresultat och – om meddelanden får via--i diagnostiska sökningen.
+    Ingen. Du behöver inte lägga in dem i trycatch-satser. Om SDK påträffar problem, loggas meddelanden i debug konsolens utdata och--om meddelanden får via--i Diagnostiksökning.
 * *Finns det en REST-API för att hämta data från portalen?*
 
-    Ja, den [API för dataåtkomst](https://dev.applicationinsights.io/). Andra sätt att extrahera data är [exportera från Analytics till Power BI](app-insights-export-power-bi.md) och [löpande export](app-insights-export-telemetry.md).
+    Ja, den [dataåtkomst API](https://dev.applicationinsights.io/). Du kan extrahera data att [exportera från analys till Power BI](app-insights-export-power-bi.md) och [löpande export](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Nästa steg
-* [Sök händelser och loggar](app-insights-diagnostic-search.md)
+* [Sökhändelser och loggar](app-insights-diagnostic-search.md)
 
 * [Felsökning](app-insights-troubleshoot-faq.md)
 

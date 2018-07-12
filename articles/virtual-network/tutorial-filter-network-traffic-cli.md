@@ -1,6 +1,6 @@
 ---
-title: Filtrera nätverkstrafik - Azure CLI | Microsoft Docs
-description: I den här artikeln får lära du att filtrera trafik till ett undernät med en nätverkssäkerhetsgrupp med hjälp av Azure CLI.
+title: Filtrera nätverkstrafik – Azure CLI | Microsoft Docs
+description: I den här artikeln får du lära dig hur du filtrerar nätverkstrafik till ett undernät med en nätverkssäkerhetsgrupp med hjälp av Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -18,18 +18,18 @@ ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: 11dc0e5f6ee398b2a745ed60cbc166e2a1697c3e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31423185"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38721075"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrera nätverkstrafik med en nätverkssäkerhetsgrupp med hjälp av Azure CLI
 
-Du kan filtrera trafik inkommande och utgående från ett undernät för virtuellt nätverk med en nätverkssäkerhetsgrupp. Nätverkssäkerhetsgrupper innehålla säkerhetsregler som filtrera nätverkstrafik av IP-adress, port och protokoll. Säkerhetsregler som tillämpas på resurser har distribuerats i ett undernät. I den här artikeln kan du se hur du:
+Du kan filtrera inkommande och utgående nätverkstrafik till och från ett undernät i ett virtuellt nätverk med en nätverkssäkerhetsgrupp. Nätverkssäkerhetsgrupper innehåller säkerhetsregler som filtrerar nätverkstrafik efter IP-adress, port och protokoll. Säkerhetsregler tillämpas på resurser som har distribuerats i ett undernät. I den här artikeln kan du se hur du:
 
-* Skapa en nätverkssäkerhet regler för gruppen och säkerhet
-* Skapa ett virtuellt nätverk och associera en säkerhetsgrupp för nätverk till ett undernät
+* Skapa en nätverkssäkerhetsgrupp och säkerhetsregler
+* Skapa ett virtuellt nätverk och associera en nätverkssäkerhetsgrupp med ett undernät
 * Distribuera virtuella datorer (VM) i ett undernät
 * Testa trafikfilter
 
@@ -37,16 +37,16 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt i den här artikeln kräver att du använder Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste den här artikeln kräver att du kör Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
-En nätverkssäkerhetsgrupp innehåller säkerhetsregler. Säkerhetsregler Ange källa och mål. Källor och mål kan vara program säkerhetsgrupper.
+En nätverkssäkerhetsgrupp innehåller säkerhetsregler. Säkerhetsregler anger en källa och ett mål. Källor och mål kan vara programsäkerhetsgrupper.
 
-### <a name="create-application-security-groups"></a>Skapa säkerhetsgrupper för programmet
+### <a name="create-application-security-groups"></a>Skapa programsäkerhetsgrupper
 
-Skapa först en resursgrupp för alla resurser som skapats i denna artikel med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp i den *eastus* plats: 
+Skapa först en resursgrupp för alla resurser som skapats i den här artikeln med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp på platsen *eastus*: 
 
 ```azurecli-interactive
 az group create \
@@ -54,7 +54,7 @@ az group create \
   --location eastus
 ```
 
-Skapa en säkerhetsgrupp för program med [az nätverket asg skapa](/cli/azure/network/asg#az_network_asg_create). En säkerhetsgrupp för programmet kan du till gruppen servrar med liknande portfiltrering krav. I följande exempel skapar två säkerhetsgrupper för programmet.
+Skapa en programsäkerhetsgrupp med [az nätverket asg skapa](/cli/azure/network/asg#az_network_asg_create). En programsäkerhetsgrupp gör att du kan gruppera servrar med liknande portfiltreringskrav. I följande exempel skapas två programsäkerhetsgrupper.
 
 ```azurecli-interactive
 az network asg create \
@@ -70,7 +70,7 @@ az network asg create \
 
 ### <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
-Skapa en nätverkssäkerhetsgrupp med [az nätverket nsg skapa](/cli/azure/network/nsg#az_network_nsg_create). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNsg*: 
+Skapa en nätverkssäkerhetsgrupp med [az network nsg skapa](/cli/azure/network/nsg#az_network_nsg_create). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNsg*: 
 
 ```azurecli-interactive 
 # Create a network security group
@@ -81,7 +81,7 @@ az network nsg create \
 
 ### <a name="create-security-rules"></a>Skapa säkerhetsregler
 
-Skapa en anslutningssäkerhetsregel med [az nätverket nsg regeln skapa](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). I följande exempel skapas en regel som tillåter trafik inkommande trafik från internet till den *myWebServers* programgruppen för säkerhet via portarna 80 och 443:
+Skapa en säkerhetsregel med [az network nsg-regel skapar](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). I följande exempel skapas en regel som tillåter inkommande trafik från Internet till programsäkerhetsgruppen *myWebServers* via port 80 och 443:
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -98,7 +98,7 @@ az network nsg rule create \
   --destination-port-range 80 443
 ```
 
-I följande exempel skapas en regel som tillåter trafik inkommande trafik från Internet till den *myMgmtServers* programgruppen för säkerhet via port 22:
+I följande exempel skapas en regel som tillåter trafik inkommande från Internet till den *myMgmtServers* programsäkerhetsgruppen via port 22:
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -115,11 +115,11 @@ az network nsg rule create \
   --destination-port-range 22
 ```
 
-I den här artikeln SSH (port 22) är exponerad mot internet för den *myAsgMgmtServers* VM. För produktionsmiljöer, i stället för att exponera port 22 till internet, rekommenderas att du ansluter till Azure-resurser som du vill hantera med hjälp av en [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [privata](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nätverksanslutning.
+I den här artikeln SSH (port 22) exponeras mot internet för den *myAsgMgmtServers* VM. För produktionsmiljöer, i stället för att exponera port 22 till internet, rekommenderar vi att du ansluter till Azure-resurser som du vill hantera med hjälp av en [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [privata](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nätverksanslutning.
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). I följande exempel skapas en virtuell med namnet *myVirtualNetwork*:
+Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). I följande exempel skapas ett virtuellt nätverk med namnet *myVirtualNetwork*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -128,7 +128,7 @@ az network vnet create \
   --address-prefixes 10.0.0.0/16
 ```
 
-Lägg till ett undernät till ett virtuellt nätverk med [az undernät för virtuellt nätverk skapa](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). I följande exempel läggs ett undernät med namnet *mySubnet* till virtuella nätverk och associerar den *myNsg* nätverkssäkerhetsgruppen till den:
+Lägg till ett undernät till ett virtuellt nätverk med [az network vnet-undernät skapa](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). I följande exempel läggs ett undernät med namnet *mySubnet* till i det virtuella nätverket och nätverkssäkerhetsgruppen *myNsg* associeras med det:
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -141,11 +141,11 @@ az network vnet subnet create \
 
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-Skapa två virtuella datorer i det virtuella nätverket så att du kan verifiera trafik filtrering i ett senare steg. 
+Skapa två virtuella datorer i det virtuella nätverket så att du kan verifiera trafikfiltrering i ett senare steg. 
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator som fungerar som en webbserver. Den `--asgs myAsgWebServers` alternativet gör att Azure för att göra det nätverksgränssnitt som skapas för den virtuella datorn tillhör den *myAsgWebServers* säkerhetsgrupp för programmet.
+Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator som fungerar som en webbserver. Den `--asgs myAsgWebServers` alternativet gör att Azure för att göra det nätverksgränssnitt som skapas för den virtuella datorn tillhör den *myAsgWebServers* programsäkerhetsgrupp.
 
-Den `--nsg ""` alternativet anges för att förhindra att Azure skapar en standard nätverkssäkerhetsgruppen för nätverksgränssnittet Azure skapar när den virtuella datorn skapas. Ett lösenord används för att förenkla den här artikeln. Nycklar används vanligtvis för produktionsdistributioner. Om du använder nycklar måste du också konfigurera SSH-agentvidarebefordran för stegen. Mer information finns i dokumentationen för SSH-klienten. Ersätt `<replace-with-your-password>` i följande kommando med ett lösenord som du väljer.
+Den `--nsg ""` alternativ anges för att förhindra att Azure skapar en standard för nätverkssäkerhetsgruppen för nätverksgränssnittet som Azure skapar när den virtuella datorn skapas. För att förenkla den här artikeln används ett lösenord. Nycklar används vanligtvis för produktionsdistributioner. Om du använder nycklar måste du också konfigurera SSH-agentvidarebefordran för de återstående stegen. Mer information finns i dokumentationen för SSH-klienten. Ersätt `<replace-with-your-password>` i följande kommando med ett lösenord som du väljer.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"
@@ -162,7 +162,7 @@ az vm create \
   --admin-password $adminPassword
 ```
 
-Det tar några minuter att skapa den virtuella datorn. Utdata som liknar följande exempel returneras när den virtuella datorn skapas: 
+Det tar några minuter att skapa den virtuella datorn. När den virtuella datorn har skapats kan returneras utdata som liknar följande exempel: 
 
 ```azurecli 
 {
@@ -177,7 +177,7 @@ Det tar några minuter att skapa den virtuella datorn. Utdata som liknar följan
 }
 ```
 
-Anteckna den **publicIpAddress**. Den här adressen används för åtkomst till den virtuella datorn från internet i ett senare steg.  Skapa en virtuell dator som fungerar som en hanteringsserver:
+Anteckna **publicIpAddress**. Den här adressen används för att få åtkomst till den virtuella datorn från internet i ett senare steg.  Skapa en virtuell dator som fungerar som en hanteringsserver:
 
 ```azurecli-interactive
 az vm create \
@@ -192,19 +192,19 @@ az vm create \
   --admin-password $adminPassword
 ```
 
-Det tar några minuter att skapa den virtuella datorn. När den virtuella datorn har skapats, notera den **publicIpAddress** i returnerade utdata. Den här adressen används för åtkomst till den virtuella datorn i nästa steg. Inte fortsätta med nästa steg förrän Azure har skapat den virtuella datorn.
+Det tar några minuter att skapa den virtuella datorn. När den virtuella datorn har skapats, notera den **publicIpAddress** i returnerade utdata. Den här adressen används för att få åtkomst till den virtuella datorn i nästa steg. Fortsätt inte med nästa steg förrän Azure har skapat den virtuella datorn.
 
 ## <a name="test-traffic-filters"></a>Testa trafikfilter
 
-Använd kommandot nedan om du vill skapa en SSH-session med den *myVmMgmt* VM. Ersätt *<publicIpAddress>* med offentliga IP-adressen för den virtuella datorn. I exemplet ovan, IP-adressen är *13.90.242.231*.
+Använd kommandot nedan för att skapa en SSH-session med den *myVmMgmt* VM. Ersätt *<publicIpAddress>* med den offentliga IP-adressen för den virtuella datorn. I exemplet ovan, IP-adressen är *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
 ```
 
-När du uppmanas att ange ett lösenord, ange lösenordet du angav i [skapa virtuella datorer](#create-virtual-machines).
+När du tillfrågas om ett lösenord, anger du lösenordet som du angav i [skapa virtuella datorer](#create-virtual-machines).
 
-Anslutningen lyckas, eftersom port 22 tillåts inkommande från Internet till den *myAsgMgmtServers* programmet säkerhetsgrupp som nätverksgränssnittet som är kopplade till den *myVmMgmt* virtuella datorn.
+Anslutningen lyckas, eftersom port 22 tillåts inkommande från Internet till den *myAsgMgmtServers* programsäkerhetsgrupp som nätverksgränssnittet som är kopplat till den *myVmMgmt* virtuella datorn är i.
 
 Använd följande kommando för att SSH till den *myVmWeb* virtuell dator från den *myVmMgmt* VM:
 
@@ -212,9 +212,9 @@ Använd följande kommando för att SSH till den *myVmWeb* virtuell dator från 
 ssh azureuser@myVmWeb
 ```
 
-Anslutningen eftersom en standardsäkerhetsregel inom varje nätverkssäkerhetsgruppen tillåter trafik över alla portar mellan alla IP-adresser inom ett virtuellt nätverk. Det går inte att SSH till den *myVmWeb* VM från Internet eftersom säkerheten regel för den *myAsgWebServers* tillåter inte att port 22 inkommande från Internet.
+Anslutningen lyckas eftersom en standardsäkerhetsregel i varje nätverkssäkerhetsgrupp tillåter trafik via alla portar mellan alla IP-adresser i ett virtuellt nätverk. Det går inte att SSH till den *myVmWeb* virtuell dator från Internet eftersom säkerhetsregeln för den *myAsgWebServers* inte tillåter port 22 inkommande från Internet.
 
-Använd följande kommandon för att installera den nginx-servern på den *myVmWeb* VM:
+Använd följande kommandon för att installera nginx-webbserver på den *myVmWeb* VM:
 
 ```bash 
 # Update package source
@@ -224,17 +224,17 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-Den *myVmWeb* VM tillåts utgående till Internet för att hämta nginx eftersom en standardsäkerhetsregel tillåter all utgående trafik till Internet. Avsluta den *myVmWeb* SSH-session, vilket lämnar du på den `username@myVmMgmt:~$` fråga i den *myVmMgmt* VM. Att hämta nginx välkomstskärmen från den *myVmWeb* VM, anger du följande kommando:
+Den *myVmWeb* VM är tillåten utgående till Internet för att hämta nginx eftersom en standardsäkerhetsregel som tillåter all utgående trafik till Internet. Avsluta den *myVmWeb* SSH-session, vilket lämnar du på den `username@myVmMgmt:~$` fråga för den *myVmMgmt* VM. Att hämta nginx välkomstskärmen från den *myVmWeb* virtuell dator, anger du följande kommando:
 
 ```bash
 curl myVmWeb
 ```
 
-Logga ut från den *myVmMgmt* VM. Bekräfta att du har åtkomst till den *myVmWeb* webbserver från utanför Azure, ange `curl <publicIpAddress>` från din dator. Anslutningen lyckas, eftersom port 80 tillåts inkommande från Internet till den *myAsgWebServers* programmet säkerhetsgrupp som nätverksgränssnittet som är kopplade till den *myVmWeb* virtuella datorn.
+Logga ut från den *myVmMgmt* VM. Bekräfta att du kan komma åt den *myVmWeb* webbserver från utanför Azure, ange `curl <publicIpAddress>` från din egen dator. Anslutningen lyckas, eftersom port 80 tillåts inkommande från Internet till den *myAsgWebServers* programsäkerhetsgrupp som nätverksgränssnittet som är kopplat till den *myVmWeb* virtuella datorn är i.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behöver använda [ta bort grupp az](/cli/azure/group#az_group_delete) att ta bort resursgruppen och alla resurser som den innehåller.
+När den inte längre behövs kan du använda [az group delete](/cli/azure/group#az_group_delete) att ta bort resursgruppen och alla resurser den innehåller.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
@@ -242,6 +242,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln, skapas en nätverkssäkerhetsgrupp och som är kopplad till ett undernät för virtuellt nätverk. Läs mer om nätverkssäkerhetsgrupper i [nätverk Säkerhetsöversikt grupp](security-overview.md) och [hantera en nätverkssäkerhetsgrupp](manage-network-security-group.md).
+I den här artikeln får du skapade en nätverkssäkerhetsgrupp och associerat den till ett virtuellt nätverksundernät. Mer information om nätverkssäkerhetsgrupper finns i [Översikt över nätverkssäkerhetsgrupper](security-overview.md) och [Hantera en nätverkssäkerhetsgrupp](manage-network-security-group.md).
 
-Azure vägar trafik mellan undernät som standard. Du kan i stället välja att vidarebefordra trafik mellan undernät via en virtuell dator som fungerar som en brandvägg, till exempel. Mer information finns i avsnittet [skapa en routingtabell](tutorial-create-route-table-cli.md).
+Azure dirigerar som standard trafik mellan undernät. Du kan i stället välja att exempelvis dirigera trafik mellan undernät via en virtuell dator, som fungerar som en brandvägg. Läs hur genom att läsa [skapar en routningstabell](tutorial-create-route-table-cli.md).

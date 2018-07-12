@@ -1,6 +1,6 @@
 ---
-title: Azure Functions SendGrid bindningar
-description: Azure Functions SendGrid bindningar referens.
+title: Azure Functions SendGrid-bindningar
+description: Referens för Azure Functions SendGrid-bindningar.
 services: functions
 documentationcenter: na
 author: tdykstra
@@ -13,33 +13,33 @@ ms.workload: na
 ms.date: 11/29/2017
 ms.author: tdykstra
 ms.openlocfilehash: 0cd5730d049749949db13f29499e268a1ebccc18
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830620"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38467958"
 ---
-# <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid bindningar
+# <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid-bindningar
 
-Den här artikeln beskrivs hur du skickar e-post med hjälp av [SendGrid](https://sendgrid.com/docs/User_Guide/index.html) bindningar i Azure Functions. Azure Functions stöder en output-bindning för SendGrid.
+Den här artikeln beskrivs hur du skickar e-post med hjälp av [SendGrid](https://sendgrid.com/docs/User_Guide/index.html) bindningar i Azure Functions. Azure Functions stöder en utdatabindning för SendGrid.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Paket - fungerar 1.x
+## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
-SendGrid-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet-paketet version 2.x. Källkoden för paketet är i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.SendGrid/) GitHub-lagringsplatsen.
+SendGrid-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet-paketet, version 2.x. Källkoden för paketet finns i den [azure-webjobs-sdk-tilläggen](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.SendGrid/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
 
-SendGrid-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet-paketet version 3.x. Källkoden för paketet är i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub-lagringsplatsen.
+SendGrid-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet-paketet, version 3.x. Källkoden för paketet finns i den [azure-webjobs-sdk-tilläggen](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="example"></a>Exempel
 
-Finns i det språkspecifika:
+Se exempel språkspecifika:
 
 * [C#](#c-example)
 * [C#-skript (.csx)](#c-script-example)
@@ -47,7 +47,7 @@ Finns i det språkspecifika:
 
 ### <a name="c-example"></a>C#-exempel
 
-Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) att utlösa för använder en Service Bus-kö och en SendGrid utdatabindning.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) att utlösa om använder en Service Bus-kö och en SendGrid-utdatabindning.
 
 ```cs
 [FunctionName("SendEmail")]
@@ -71,13 +71,13 @@ public class OutgoingEmail
 }
 ```
 
-Kan du utelämna inställningen attributets `ApiKey` egenskapen om du har din API-nyckel i en appinställning med namnet ”AzureWebJobsSendGridApiKey”.
+Du kan utelämna attributet `ApiKey` egenskapen om du har din API-nyckel i en appinställning med namnet ”AzureWebJobsSendGridApiKey”.
 
 ### <a name="c-script-example"></a>Exempel på C#-skript
 
-I följande exempel visas en SendGrid bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen.
+I följande exempel visas en SendGrid-utdatabindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen.
 
-Här är de bindande data den *function.json* fil:
+Här är bindningsdata i den *function.json* fil:
 
 ```json 
 {
@@ -97,7 +97,7 @@ Här är de bindande data den *function.json* fil:
 
 Den [configuration](#configuration) förklaras de här egenskaperna.
 
-Här är skriptkod C#:
+Här är C#-skriptkoden:
 
 ```csharp
 #r "SendGrid"
@@ -126,9 +126,9 @@ public static void Run(TraceWriter log, string input, out Mail message)
 
 ### <a name="javascript-example"></a>JavaScript-exempel
 
-I följande exempel visas en SendGrid bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen.
+I följande exempel visas en SendGrid-utdatabindning i en *function.json* fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
 
-Här är de bindande data den *function.json* fil:
+Här är bindningsdata i den *function.json* fil:
 
 ```json 
 {
@@ -170,7 +170,7 @@ module.exports = function (context, input) {
 
 I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) attribut.
 
-Information om egenskaper för attribut som du kan konfigurera finns [Configuration](#configuration). Här är en `SendGrid` attributet exempel i en signatur:
+Information om attributegenskaper som som du kan konfigurera finns i [Configuration](#configuration). Här är en `SendGrid` attributet exemplet i signaturen för metoden:
 
 ```csharp
 [FunctionName("SendEmail")]
@@ -182,26 +182,26 @@ public static void Run(
 }
 ```
 
-En komplett exempel finns [C#-exempel](#c-example).
+Ett komplett exempel finns i [C#-exempel](#c-example).
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `SendGrid` attribut.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `SendGrid` attribut.
 
-|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
 |**typ**|| Krävs – måste vara inställd på `sendGrid`.|
 |**riktning**|| Krävs – måste vara inställd på `out`.|
-|**Namn**|| Obligatoriskt - variabelnamnet som används i Funktionskoden för begäran eller begärandetexten. Det här värdet är ```$return``` när det är endast ett returvärde. |
-|**apiKey**|**apiKey**| Namnet på en appinställning som innehåller API-nyckel. Om inte aktiverad, standardappen inställningen är ”AzureWebJobsSendGridApiKey”.|
+|**Namn**|| Krävs – variabelnamnet som används i Funktionskoden för begäran och begärandetexten. Det här värdet är ```$return``` när det är endast ett returvärde. |
+|**apiKey**|**ApiKey**| Namnet på en appinställning som innehåller din API-nyckel. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsSendGridApiKey”.|
 |**Att**|**Till**| mottagarens e-postadress. |
-|**Från**|**Från**| avsändarens e-postadress. |
-|**Ämne**|**Ämne**| ämnet för e-postmeddelandet. |
-|**Text**|**Text**| e-postinnehåll. |
+|**från**|**Från**| avsändarens e-postadress. |
+|**ämne**|**Ämne**| den e-postmeddelandets ämne. |
+|**text**|**Text**| e-postinnehåll. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
+> [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)

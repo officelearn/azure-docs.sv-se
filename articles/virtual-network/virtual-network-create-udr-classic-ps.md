@@ -1,6 +1,6 @@
 ---
-title: Kontrollera routning i ett Azure Virtual Network - PowerShell - klassisk | Microsoft Docs
-description: Lär dig att styra routning i Vnet med PowerShell | Klassisk
+title: Kontrollera routning i ett Azure Virtual Network - PowerShell – klassisk | Microsoft Docs
+description: Lär dig hur du styr routning i virtuella nätverk med hjälp av PowerShell | Klassisk
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.openlocfilehash: 930676a396ae316ec761ba5d03ad1a1d0fd7a425
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792009"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232574"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Kontrollera Routning och använder virtuella installationer (klassisk) med hjälp av PowerShell
 
@@ -33,26 +33,26 @@ ms.locfileid: "31792009"
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> Innan du börjar arbeta med Azure-resurser är det viktigt att du vet att Azure för närvarande har två distributionsmodeller: Azure Resource Manager och klassisk. Se till att du förstår [distributionsmodeller och verktyg](../azure-resource-manager/resource-manager-deployment-model.md) innan du börjar arbeta med Azure-resurser. Du kan visa i dokumentationen för olika verktyg genom att välja ett alternativ överst i den här artikeln. Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen.
+> Innan du börjar arbeta med Azure-resurser är det viktigt att du vet att Azure för närvarande har två distributionsmodeller: Azure Resource Manager och klassisk. Se till att du förstår [distributionsmodeller och verktyg](../azure-resource-manager/resource-manager-deployment-model.md) innan du börjar arbeta med Azure-resurser. Du kan visa dokumentationen för olika verktyg genom att välja ett alternativ överst i den här artikeln. Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen.
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-Exemplet Azure PowerShell-kommandona nedan förväntar sig en enkel miljö som redan har skapats baserat på scenariot ovan. Om du vill köra kommandon som de visas i det här dokumentet, skapa miljön visas i [skapa ett virtuellt nätverk (klassiska) med hjälp av PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).
+Exemplet Azure PowerShell-kommandona nedan förväntar sig en enkel miljö som redan har skapats baserat på scenariot ovan. Om du vill köra kommandon som de visas i det här dokumentet, skapa miljön visas i [skapar ett virtuellt nätverk (klassisk) med hjälp av PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-the-udr-for-the-front-end-subnet"></a>Skapa UDR för undernätet frontend
-Följ stegen nedan om du vill skapa routningstabellen och väg för undernätet frontend baserat på scenariot ovan.
+## <a name="create-the-udr-for-the-front-end-subnet"></a>Skapa den användardefinierade vägen för klientdelens undernät
+Följ stegen nedan om du vill skapa routningstabell och väg som behövs för klientdelens undernät baserat på scenariot ovan.
 
-1. Kör följande kommando för att skapa en routningstabellen för undernätet frontend:
+1. Kör följande kommando för att skapa en routningstabell för klientdelsundernätet:
 
     ```powershell
     New-AzureRouteTable -Name UDR-FrontEnd -Location uswest `
     -Label "Route table for front end subnet"
     ```
 
-2. Kör följande kommando för att skapa en väg i routningstabellen att skicka all trafik till backend-undernät (192.168.2.0/24) till den **FW1** VM (192.168.0.4):
+2. Kör följande kommando för att skapa en väg i routningstabellen för att skicka all trafik till serverdelsundernätet (192.168.2.0/24) till den **FW1** VM (192.168.0.4):
 
     ```powershell
     Get-AzureRouteTable UDR-FrontEnd `
@@ -69,10 +69,10 @@ Följ stegen nedan om du vill skapa routningstabellen och väg för undernätet 
     -RouteTableName UDR-FrontEnd
     ```
 
-## <a name="create-the-udr-for-the-back-end-subnet"></a>Skapa UDR för backend-undernät
-Utför följande steg för att skapa routningstabellen och väg som behövs för backend-undernät baserat på scenariot:
+## <a name="create-the-udr-for-the-back-end-subnet"></a>Skapa den användardefinierade vägen för backend-undernät
+Utför följande steg för att skapa routningstabell och väg som behövs för backend-undernät baserat på scenariot:
 
-1. Kör följande kommando för att skapa en routingtabell för backend-undernät:
+1. Kör följande kommando för att skapa en routningstabell för backend-undernät:
 
     ```powershell
     New-AzureRouteTable -Name UDR-BackEnd `
@@ -80,7 +80,7 @@ Utför följande steg för att skapa routningstabellen och väg som behövs för
     -Label "Route table for back end subnet"
     ```
 
-2. Kör följande kommando för att skapa en väg i routningstabellen att skicka all trafik till frontend-undernät (192.168.1.0/24) till den **FW1** VM (192.168.0.4):
+2. Kör följande kommando för att skapa en väg i routningstabellen för att skicka all trafik till klientdelsundernätet (192.168.1.0/24) till den **FW1** VM (192.168.0.4):
 
     ```powershell
     Get-AzureRouteTable UDR-BackEnd
@@ -91,7 +91,7 @@ Utför följande steg för att skapa routningstabellen och väg som behövs för
     -NextHopIpAddress 192.168.0.4
     ```
 
-3. Kör följande kommando för att associera routningstabellen med den **BackEnd** undernät:
+3. Kör följande kommando för att associera routningstabellen med den **serverdel** undernät:
 
     ```powershell
     Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
@@ -99,9 +99,9 @@ Utför följande steg för att skapa routningstabellen och väg som behövs för
     -RouteTableName UDR-BackEnd
     ```
 
-## <a name="enable-ip-forwarding-on-the-fw1-vm"></a>Aktivera IP-vidarebefordran på den virtuella datorn FW1
+## <a name="enable-ip-forwarding-on-the-fw1-vm"></a>Aktivera IP-vidarebefordring på FW1 VM
 
-Om du vill aktivera IP-vidarebefordring i FW1 VM, gör du följande:
+Om du vill aktivera IP-vidarebefordran i FW1 VM, gör du följande:
 
 1. Kör följande kommando för att kontrollera status för IP-vidarebefordran:
 
@@ -110,7 +110,7 @@ Om du vill aktivera IP-vidarebefordring i FW1 VM, gör du följande:
     | Get-AzureIPForwarding
     ```
 
-2. Kör följande kommando för att aktivera IP-vidarebefordring för den *FW1* VM:
+2. Kör följande kommando för att aktivera IP-vidarebefordran för den *FW1* VM:
 
     ```powershell
     Get-AzureVM -Name FW1 -ServiceName TestRGFW `

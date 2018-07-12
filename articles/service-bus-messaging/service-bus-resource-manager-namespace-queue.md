@@ -1,6 +1,6 @@
 ---
-title: Skapa Azure Service Bus-namnrymd och kö med Azure Resource Manager-mall | Microsoft Docs
-description: Skapa ett Service Bus-namnområde och en kö med Azure Resource Manager-mall
+title: Skapa Azure Service Bus-namnområde och kö med hjälp av Azure Resource Manager-mall | Microsoft Docs
+description: Skapa ett Service Bus-namnområde och en kö med hjälp av Azure Resource Manager-mall
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -15,35 +15,35 @@ ms.workload: na
 ms.date: 04/11/2018
 ms.author: sethm
 ms.openlocfilehash: 47e29050ca78ee116f3c4dee0ecb53a6a71a866b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31413348"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232110"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde och en kö med en Azure Resource Manager-mall
 
-Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar en Service Bus-namnrymd och en kö inom det här namnområdet. Artikeln beskriver hur för att ange vilka resurser har distribuerats och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
+Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett Service Bus-namnområde och en kö i namnområdet. Den här artikeln beskriver hur du ange vilka resurser distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
 
-Mer information om hur du skapar mallar finns [redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
+Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
 
-Den fullständiga mallen finns i [mallen för Service Bus-namnområde och kön] [ Service Bus namespace and queue template] på GitHub.
+Läs den fullständiga mallen, den [Service Bus-namnområde och kö mallen] [ Service Bus namespace and queue template] på GitHub.
 
 > [!NOTE]
 > Följande Azure Resource Manager-mallar är tillgängliga för hämtning och distribution.
 > 
-> * [Skapa ett namnområde för Service Bus med kön och auktorisering regel](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Skapa ett namnområde för Service Bus med ämnet och prenumerationen](service-bus-resource-manager-namespace-topic.md)
-> * [Skapa ett namnområde för Service Bus](service-bus-resource-manager-namespace.md)
-> * [Skapa ett namnområde för Service Bus med ämne, prenumeration och regel](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Skapa ett Service Bus-namnområde med kön och auktorisering](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Skapa ett Service Bus-namnområde med ämne och en prenumeration](service-bus-resource-manager-namespace-topic.md)
+> * [Skapa ett Service Bus-namnområde](service-bus-resource-manager-namespace.md)
+> * [Skapa ett Service Bus-namnområde med ämne, prenumeration och regel](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Om du vill söka efter de senaste mallarna finns i [Azure-Snabbstartsmallar] [ Azure Quickstart Templates] galleriet och Sök efter **Service Bus**.
+> Om du vill söka efter de senaste mallarna, Besök den [Azure-Snabbstartsmallar] [ Azure Quickstart Templates] galleriet och söka efter **Service Bus**.
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Vad vill du distribuera?
 
-Med den här mallen kan du distribuera en Service Bus-namnrymd med en kö.
+Med den här mallen kan du distribuera ett Service Bus-namnområde med en kö.
 
 [Service Bus-köer](service-bus-queues-topics-subscriptions.md#queues) erbjuder First In, First Out (FIFO) meddelandeleverans till en eller flera konkurrerande konsumenter.
 
@@ -53,12 +53,12 @@ Klicka på följande knapp för att köra distributionen automatiskt:
 
 ## <a name="parameters"></a>Parametrar
 
-Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` som innehåller alla parametervärdena. Du bör definiera en parameter för de värden som varierar baserat på projektet som du distribuerar eller baserat på miljön som du distribuerar till. Definiera inte parametrar för värden som alltid inte ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
+Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` som innehåller alla parametervärden. Du bör definiera en parameter för de värden som varierar utifrån det projekt som du distribuerar eller utifrån den miljö som du distribuerar till. Inte definiera parametrar för värden som ska alltid vara samma. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
 
 Mallen definierar följande parametrar.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-Namnet på namnområdet för Service Bus för att skapa.
+Namnet på Service Bus-namnområdet för att skapa.
 
 ```json
 "serviceBusNamespaceName": {
@@ -70,7 +70,7 @@ Namnet på namnområdet för Service Bus för att skapa.
 ```
 
 ### <a name="servicebusqueuename"></a>serviceBusQueueName
-Namnet på den kö som skapats i Service Bus-namnrymd.
+Namnet på kön som skapats i Service Bus-namnområdet.
 
 ```json
 "serviceBusQueueName": {
@@ -91,7 +91,7 @@ Service Bus-API-versionen av mallen.
 ```
 
 ## <a name="resources-to-deploy"></a>Resurser som ska distribueras
-Skapar en standard Service Bus-namnrymd av typen **Messaging**, med en kö.
+Skapar en standard Service Bus-namnområde av typen **Messaging**, med en kö.
 
 ```json
 "resources ": [{
@@ -135,7 +135,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har skapat och distribuerat resurser med Azure Resource Manager, lär du dig hur du hanterar dessa resurser genom att visa dessa artiklar:
+Nu när du har skapat och distribuerat resurser med hjälp av Azure Resource Manager, lär du dig hur du hanterar dessa resurser genom att visa de här artiklarna:
 
 * [Hantera Service Bus med PowerShell](service-bus-manage-with-ps.md)
 * [Hantera Service Bus-resurser med Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

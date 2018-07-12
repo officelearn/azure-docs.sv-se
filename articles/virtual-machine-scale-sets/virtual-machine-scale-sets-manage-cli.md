@@ -1,9 +1,9 @@
 ---
-title: Hantera Skalningsuppsättningar i virtuella datorer med Azure CLI 2.0 | Microsoft Docs
-description: Vanliga Azure CLI 2.0-kommandon för att hantera Skalningsuppsättningar i virtuella datorer, till exempel att starta och stoppa en instans eller ändra skalan Ange kapacitet.
+title: Hantera VM-Skalningsuppsättningar med Azure CLI 2.0 | Microsoft Docs
+description: Vanliga Azure CLI 2.0-kommandon för att hantera Virtual Machine Scale Sets, till exempel att starta och stoppa en instans eller ändra skala Ange kapacitet.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: iainfou
-ms.openlocfilehash: ca447f3ca0ed6656912a0d3e5082ebd2dd308a14
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: cynthn
+ms.openlocfilehash: a9e01039f1fbf46739ff8dbafea411aad2c3f4f2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652492"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308061"
 ---
-# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Hantera en virtuell dator-skala med Azure CLI 2.0
-Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Den här artikeln beskrivs några av de vanliga Azure CLI 2.0-kommandon som gör att du kan utföra dessa uppgifter.
+# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Hantera en VM-skalningsuppsättning med Azure CLI 2.0
+Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Den här artikeln beskriver några av de vanliga Azure CLI 2.0-kommandon som kan du utföra följande uppgifter.
 
-Om du vill utföra dessa hanteringsuppgifter, måste den senaste Azure CLI 2.0. Mer information finns i [installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du behöver skapa en skaluppsättning för virtuell dator kan du [skapa en skala med Azure CLI 2.0](quick-create-cli.md).
+Om du vill utföra dessa hanteringsuppgifter, behöver du den senaste Azure CLI 2.0. Mer information finns i [installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du vill skapa en skalningsuppsättning för virtuell dator kan du [skapa en skalningsuppsättning med Azure CLI 2.0](quick-create-cli.md).
 
 
-## <a name="view-information-about-a-scale-set"></a>Visa information om en skaluppsättning
-Om du vill visa allmän information om en skalningsuppsättning [az vmss visa](/cli/azure/vmss#az_vmss_show). I följande exempel hämtar information om skaluppsättningen namngivna *myScaleSet* i den *myResourceGroup* resursgruppen. Ange egna namn på följande sätt:
+## <a name="view-information-about-a-scale-set"></a>Visa information om en skalningsuppsättning
+Du kan visa den övergripande informationen om en skalningsuppsättning [az vmss show](/cli/azure/vmss#az_vmss_show). I följande exempel hämtar information om skalningsuppsättningen *myScaleSet* i den *myResourceGroup* resursgrupp. Ange egna namn enligt följande:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -37,7 +37,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Visa virtuella datorer i en skalningsuppsättning
-Du kan visa en lista över VM-instans i en skaluppsättning [az vmss listinstanserna](/cli/azure/vmss#list-instances). I följande exempel visar alla VM-instanser i skaluppsättningen namngivna *myScaleSet* i den *myResourceGroup* resursgruppen. Ange egna värden för dessa namn:
+Du kan visa en lista över VM-instans i en skalningsuppsättning [az vmss list-instances](/cli/azure/vmss#list-instances). I följande exempel visar en lista över alla Virtuella datorinstanser i skalningsuppsättningen *myScaleSet* i den *myResourceGroup* resursgrupp. Ange egna värden för dessa namn:
 
 ```azurecli
 az vmss list-instances \
@@ -46,7 +46,7 @@ az vmss list-instances \
     --output table
 ```
 
-Om du vill visa mer information om en specifik VM-instans, lägger du till den `--instance-id` parameter till [az vmss get-instans view](/cli/azure/vmss#get-instance-view) och ange en instans för att visa. I följande exempel visar information om VM-instans *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange egna namn på följande sätt:
+Om du vill visa mer information om en specifik VM-instans, lägger du till den `--instance-id` parameter [az vmss get-instance-view](/cli/azure/vmss#get-instance-view) och anger en instans för att visa. I följande exempel visar information om den Virtuella datorinstansen *0* i skalningsuppsättningen *myScaleSet* och *myResourceGroup* resursgrupp. Ange egna namn enligt följande:
 
 ```azurecli
 az vmss get-instance-view \
@@ -56,8 +56,8 @@ az vmss get-instance-view \
 ```
 
 
-## <a name="list-connection-information-for-vms"></a>Lista anslutningsinformationen för virtuella datorer
-Att ansluta till virtuella datorer i en skaluppsättning du SSH eller RDP till en tilldelad offentliga IP-adress och portnummer. Som standard läggs network address translation (NAT) regler till Azure belastningsutjämnare som vidarebefordrar fjärranslutning trafik på varje virtuell dator. Visa adresser och portar för anslutning till VM-instanser i en skaluppsättning, Använd [az vmss lista-instans--anslutningsinformation](/cli/azure/vmss#list-instance-connection-info). I följande exempel visar anslutningsinformationen för VM-instanser i skaluppsättningen namngivna *myScaleSet* och i den *myResourceGroup* resursgruppen. Ange egna värden för dessa namn:
+## <a name="list-connection-information-for-vms"></a>Lista anslutningsinformation för virtuella datorer
+För att ansluta till de virtuella datorerna i en skaluppsättning du SSH eller RDP till en tilldelade offentliga IP-adress och portnummer. Som standard läggs regler för network address translation (NAT) till Azure-belastningsutjämnaren som vidarebefordrar trafik för anslutning till varje virtuell dator. Om du vill visa adressen och portarna för att ansluta till VM-instanser i en skalningsuppsättning, använder [az vmss list-instans-connection-info](/cli/azure/vmss#list-instance-connection-info). I följande exempel visas anslutningsinformationen för VM-instanser i skalningsuppsättningen *myScaleSet* och i den *myResourceGroup* resursgrupp. Ange egna värden för dessa namn:
 
 ```azurecli
 az vmss list-instance-connection-info \
@@ -67,7 +67,7 @@ az vmss list-instance-connection-info \
 
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>Ändra kapaciteten för en skalningsuppsättning
-Föregående kommandona visade information om din skaluppsättning och VM-instanser. Du kan ändra kapacitet för att öka eller minska antalet instanser i skaluppsättning. Skaluppsättning skapar eller tar bort antalet virtuella datorer som krävs och sedan konfigurerar de virtuella datorerna för att ta emot trafik för programmet.
+I föregående kommandon som visar information om din skalningsuppsättning och VM-instanser. Om du vill öka eller minska antalet instanser i skalningsuppsättningen, kan du ändra kapaciteten. Skalningsuppsättningen skapar eller tar bort det begärda antalet virtuella datorer och sedan konfigurerar de virtuella datorerna för att ta emot trafik.
 
 Om du vill se antalet instanser som du för närvarande har i en skalningsuppsättning använder du [az vmss show](/cli/azure/vmss#az_vmss_show) och frågar efter *sku.capacity*:
 
@@ -79,7 +79,7 @@ az vmss show \
     --output table
 ```
 
-Du kan sedan manuellt öka eller minska antalet virtuella datorer i skalningsuppsättningen med [az vmss scale](/cli/azure/vmss#az_vmss_scale). I följande exempel anger hur många virtuella datorer i din skaluppsättningen *5*:
+Du kan sedan manuellt öka eller minska antalet virtuella datorer i skalningsuppsättningen med [az vmss scale](/cli/azure/vmss#az_vmss_scale). I följande exempel anger hur många virtuella datorer i din skalningsuppsättning till *5*:
 
 ```azurecli
 az vmss scale \
@@ -88,49 +88,49 @@ az vmss scale \
     --new-capacity 5
 ```
 
-Det tar några minuter att uppdatera kapaciteten för din skalningsuppsättning. Om du minskar kapaciteten för en skala ange de virtuella datorerna med högsta instans-ID tas bort först.
+Det tar några minuter att uppdatera kapaciteten för din skalningsuppsättning. Om du minskar kapaciteten för en skala ange de virtuella datorerna med den högsta instans-ID tas bort först.
 
 
-## <a name="stop-and-start-vms-in-a-scale-set"></a>Stoppa och starta virtuella datorer i en skaluppsättning
-Om du vill stoppa en eller flera virtuella datorer i en skaluppsättning använder [az vmss stoppa](/cli/azure/vmss/stop). Parametern `--instance-ids` låter dig ange en eller flera virtuella datorer att stoppa. Om du inte anger ett instans-ID, stoppas alla virtuella datorer i skalningsuppsättningen. Avgränsa varje instans-ID om du vill stoppa flera virtuella datorer med ett blanksteg.
+## <a name="stop-and-start-vms-in-a-scale-set"></a>Stoppa och starta virtuella datorer i en skalningsuppsättning
+Om du vill stoppa en eller flera virtuella datorer i en skalningsuppsättning, använder [az vmss stop](/cli/azure/vmss/stop). Parametern `--instance-ids` låter dig ange en eller flera virtuella datorer att stoppa. Om du inte anger ett instans-ID, stoppas alla virtuella datorer i skalningsuppsättningen. Stoppa flera virtuella datorer genom att avgränsa varje instans-ID med ett blanksteg.
 
-Följande exempel stoppar instans *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange egna värden på följande sätt:
+I följande exempel stoppar instansen *0* i skalningsuppsättningen *myScaleSet* och *myResourceGroup* resursgrupp. Ange egna värden enligt följande:
 
 ```azurecli
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-Stoppade virtuella datorer är allokerade och fortsätter att avgifter för beräkning. Om du istället vill att de virtuella datorerna till att frigöra och endast avgifter lagring använder [az vmss frigöra](/cli/azure/vmss#az_vmss_deallocate). Avgränsa varje instans-ID om du vill frigöra flera virtuella datorer med ett blanksteg. I följande exempel stoppar och tar bort instansen *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange egna värden på följande sätt:
+Stoppade virtuella datorer är fortfarande allokerade och fortsätter att kosta beräkningsavgifter. Om du istället vill att de virtuella datorerna ska frigöras och endast kosta lagringsavgifter, använder [az vmss deallocate](/cli/azure/vmss#az_vmss_deallocate). Avgränsa varje instans-ID ska frigöras flera virtuella datorer med ett blanksteg. I följande exempel stoppar och frigör instansen *0* i skalningsuppsättningen *myScaleSet* och *myResourceGroup* resursgrupp. Ange egna värden enligt följande:
 
 ```azurecli
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 0
 ```
 
 
-### <a name="start-vms-in-a-scale-set"></a>Starta virtuella datorer i en skaluppsättning
-Starta en eller flera virtuella datorer i en skaluppsättning med [az vmss starta](/cli/azure/vmss#az_vmss_start). Parametern `--instance-ids` låter dig ange en eller flera virtuella datorer att starta. Om du inte anger ett instans-ID, startas alla virtuella datorer i skalningsuppsättningen. Avgränsa varje instans-ID för att starta flera virtuella datorer med ett blanksteg.
+### <a name="start-vms-in-a-scale-set"></a>Starta virtuella datorer i en skalningsuppsättning
+Starta en eller flera virtuella datorer i en skalningsuppsättning med [az vmss start](/cli/azure/vmss#az_vmss_start). Parametern `--instance-ids` låter dig ange en eller flera virtuella datorer att starta. Om du inte anger ett instans-ID, startas alla virtuella datorer i skalningsuppsättningen. Starta flera virtuella datorer genom att avgränsa varje instans-ID med ett blanksteg.
 
-Följande exempel startar instans *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange egna värden på följande sätt:
+Följande exempel startar instansen *0* i skalningsuppsättningen *myScaleSet* och *myResourceGroup* resursgrupp. Ange egna värden enligt följande:
 
 ```azurecli
 az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 0
 ```
 
 
-## <a name="restart-vms-in-a-scale-set"></a>Starta om virtuella datorer i en skaluppsättning
-Om du vill starta om en eller flera virtuella datorer i en skaluppsättning använder [az vmss starta om](/cli/azure/vmss#az_vmss_restart). Parametern `--instance-ids` låter dig ange en eller flera virtuella datorer att starta om. Om du inte anger ett instans-ID, startas alla virtuella datorer i skalningsuppsättningen om. Avgränsa varje instans-ID för att starta om flera virtuella datorer med ett blanksteg.
+## <a name="restart-vms-in-a-scale-set"></a>Starta om virtuella datorer i en skalningsuppsättning
+Om du vill starta om en eller flera virtuella datorer i en skalningsuppsättning, använder [az vmss starta om](/cli/azure/vmss#az_vmss_restart). Parametern `--instance-ids` låter dig ange en eller flera virtuella datorer att starta om. Om du inte anger ett instans-ID, startas alla virtuella datorer i skalningsuppsättningen om. Avgränsa varje instans-ID för att starta om flera virtuella datorer med ett blanksteg.
 
-I följande exempel startar om instansen *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange egna värden på följande sätt:
+I följande exempel startar om instansen *0* i skalningsuppsättningen *myScaleSet* och *myResourceGroup* resursgrupp. Ange egna värden enligt följande:
 
 ```azurecli
 az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-ids 0
 ```
 
 
-## <a name="remove-vms-from-a-scale-set"></a>Ta bort virtuella datorer från en skaluppsättning
-Ta bort en eller flera virtuella datorer i en skaluppsättning med [az vmss delete-instanser](/cli/azure/vmss#delete-instances). Den `--instance-ids` parametern kan du ange en eller flera virtuella datorer ska tas bort. Om du anger * för instansen-ID, alla virtuella datorer i skaluppsättning tas bort. Avgränsa varje instans-ID för att ta bort flera virtuella datorer med ett blanksteg.
+## <a name="remove-vms-from-a-scale-set"></a>Ta bort virtuella datorer från en skalningsuppsättning
+Ta bort en eller flera virtuella datorer i en skalningsuppsättning med [az vmss delete-instances](/cli/azure/vmss#delete-instances). Den `--instance-ids` parametern kan du ange en eller flera virtuella datorer att ta bort. Om du anger * för instansen-ID, alla virtuella datorer i skalningsuppsättningen tas bort. Ta bort flera virtuella datorer genom att avgränsa varje instans-ID med ett blanksteg.
 
-I följande exempel tar bort instansen *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange egna värden på följande sätt:
+I följande exempel tar bort instansen *0* i skalningsuppsättningen *myScaleSet* och *myResourceGroup* resursgrupp. Ange egna värden enligt följande:
 
 ```azurecli
 az vmss delete-instances --resource-group myResourceGroup --name myScaleSet --instance-ids 0
@@ -138,4 +138,4 @@ az vmss delete-instances --resource-group myResourceGroup --name myScaleSet --in
 
 
 ## <a name="next-steps"></a>Nästa steg
-Andra vanliga uppgifter för skalningsuppsättningar inkluderar så [distribuera ett program](virtual-machine-scale-sets-deploy-app.md), och [uppgradera VM-instanser](virtual-machine-scale-sets-upgrade-scale-set.md). Du kan också använda Azure CLI för att [konfigurera regler för automatisk skalning](virtual-machine-scale-sets-autoscale-overview.md).
+Andra vanliga aktiviteter för scale sets omfattar så [distribuera ett program](virtual-machine-scale-sets-deploy-app.md), och [uppgradera VM-instanser](virtual-machine-scale-sets-upgrade-scale-set.md). Du kan också använda Azure CLI för att [konfigurera regler för automatisk skalning](virtual-machine-scale-sets-autoscale-overview.md).

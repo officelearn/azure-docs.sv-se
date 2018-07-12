@@ -1,8 +1,8 @@
 ---
-title: Azure Active Directory-identitetsskydd playbook | Microsoft Docs
-description: Lär dig hur Azure AD Identity Protection gör att du kan begränsa möjligheten för en angripare som utnyttjar en komprometterad identitet eller en enhet och att skydda en identitet eller en enhet som har tidigare eller misstänks vara hotad.
+title: Azure Active Directory Identity Protection spelbok | Microsoft Docs
+description: Lär dig hur Azure AD Identity Protection kan du begränsa möjligheten för en angripare att utnyttja en komprometterad identitet eller en enhet och skyddar en identitet eller en enhet som har tidigare eller misstänks äventyras.
 services: active-directory
-keywords: Azure active directory identitetsskydd, cloud discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip
+keywords: Azure active directory identity protection kan molnidentifiering, hantering av program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprincip
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -16,155 +16,155 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 566748d7d7a2ec89c69ab706700583a9db1f5246
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: c0fd22bb9abb0710b9b4601777a0f0256386af77
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083965"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473946"
 ---
-# <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory-identitetsskydd playbook
+# <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection spelbok
 
-Den här playbook hjälper dig att:
+Spelboken hjälper dig att:
 
-* Fyll i data i Identity Protection-miljö genom simulering riskhändelser och säkerhetsproblem
-* Konfigurera principer för risk-baserad villkorlig åtkomst och testa effekten av dessa principer
+* Fyll i data i Identity Protection-miljö genom simulering riskhändelser och sårbarheter
+* Konfigurera principer för riskbaserad villkorlig åtkomst och testa effekten av dessa principer
 
 
 ## <a name="simulating-risk-events"></a>Simulera riskhändelser
 
-Det här avsnittet innehåller steg för att simulera händelsetyper för följande risker:
+Det här avsnittet innehåller steg för att simulera följande riskhändelsetyper:
 
 * Inloggningar från anonyma IP-adresser (enkel)
 * Inloggningar från okända platser (måttlig)
-* Omöjligt att resa till ovanliga platser (svårt)
+* Omöjlig resa till ovanliga platser (svårt)
 
-Andra riskhändelser kan simuleras på ett säkert sätt.
+Vara det går inte att simuleras andra riskhändelser på ett säkert sätt.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Inloggningar från anonyma IP-adresser
 
-Mer information om händelsen risken finns [inloggningar från anonyma IP-adresser](active-directory-reporting-risk-events.md#sign-ins-from-anonymous-ip-addresses). 
+Läs mer om den här riskhändelsen [inloggningar från anonyma IP-adresser](active-directory-reporting-risk-events.md#sign-ins-from-anonymous-ip-addresses). 
 
 Slutför följande procedur måste du använda:
 
-- Den [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) att simulera anonyma IP-adresser. Du kan behöva använda en virtuell dator om ditt företag begränsar med Tor-webbläsare.
+- Den [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) att simulera anonyma IP-adresser. Du kan behöva använda en virtuell dator om din organisation begränsar webbläsaren Tor.
 - Ett testkonto som ännu inte har registrerats för multifaktorautentisering.
 
-**Utför följande steg för att simulera en inloggning från en anonym IP**:
+**Utför följande steg för att simulera en inloggning från en anonym IP-adress,**:
 
 1. Med hjälp av den [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), gå till [ https://myapps.microsoft.com ](https://myapps.microsoft.com).   
-2. Ange autentiseringsuppgifter för det konto som du vill ska visas i den **inloggningar från anonyma IP-adresser** rapporten.
+2. Ange autentiseringsuppgifterna för det konto som du vill ska visas i den **inloggningar från anonyma IP-adresser** rapporten.
 
-Logga in visas på instrumentpanelen identitetsskydd inom 10 – 15 minuter. 
+Logga in visas på instrumentpanelen för Identity Protection inom 10 – 15 minuter. 
 
 ### <a name="sign-ins-from-unfamiliar-locations"></a>Inloggningar från okända platser
 
-Mer information om händelsen risken finns [inloggningar från okända platser](active-directory-reporting-risk-events.md#sign-in-from-unfamiliar-locations). 
+Läs mer om den här riskhändelsen [inloggningar från okända platser](active-directory-reporting-risk-events.md#sign-in-from-unfamiliar-locations). 
 
-Du måste logga in från en plats och en test-kontot inte har loggat in från innan enheten för att simulera okända platser.
+Du måste logga in från en plats och ditt testkonto inte har loggat in från innan enheten för att simulera okända platser.
 
 Proceduren nedan använder en nyligen skapade:
 
-- VPN-anslutningen, för att simulera ny plats.
+- VPN-anslutning att simulera ny plats.
 
-- Virtuell dator att simulera en ny enhet.
+- Den virtuella datorn att simulera en ny enhet.
 
 Slutför följande procedur måste du använda ett konto som har:
 
-- Minst en 30-dagars inloggning historik.
-- Multifaktorautentisering aktiveras.
+- Minst en 30-dagars inloggningshistorik.
+- Multifaktorautentisering aktiverat.
 
 
 **Utför följande steg för att simulera en inloggning från en okänd plats**:
 
 1. När du loggar in med ditt test, misslyckas MFA-kontrollen genom att inte skicka MFA-kontrollen.
-2. Använd din nya VPN-anslutningar, navigera till [ https://myapps.microsoft.com ](https://myapps.microsoft.com) och ange autentiseringsuppgifterna för kontot för testet.
+2. Din nya VPN, navigera till [ https://myapps.microsoft.com ](https://myapps.microsoft.com) och ange autentiseringsuppgifterna för ditt konto för testning.
    
 
-Logga in visas på instrumentpanelen identitetsskydd inom 10 – 15 minuter.
+Logga in visas på instrumentpanelen för Identity Protection inom 10 – 15 minuter.
 
-### <a name="impossible-travel-to-atypical-location"></a>Omöjligt att resa till ovanliga plats
+### <a name="impossible-travel-to-atypical-location"></a>Omöjlig resa till ovanlig plats
 
-Mer information om händelsen risken finns [Impossible resa till ovanliga plats](active-directory-reporting-risk-events.md#impossible-travel-to-atypical-locations). 
+Läs mer om den här riskhändelsen [omöjlig resa till ovanlig plats](active-directory-reporting-risk-events.md#impossible-travel-to-atypical-locations). 
 
-Det är svårt att simulera villkoret omöjligt att resa eftersom algoritmen använder maskininlärning att filtrera ut FALSKT positiva identifieringar som omöjligt att resa från bekant enheter eller inloggningar från VPN-anslutningar som används av andra användare i katalogen. Dessutom kräver algoritmen en historik 14 dagar och 10 inloggningar för användaren innan den börjar skapa riskhändelser. På grund av komplexa modeller för maskininlärning och senare regler finns en risk att följande inte leder till en händelse för risk. Du kanske vill replikera de här stegen för flera Azure AD-konton att publicera den här händelsen för risk.
+Det är svårt att simulera det omöjliga att resa villkoret eftersom algoritmen använder maskininlärning att filtrera ut falskpositiva resultat, t.ex omöjlig resa från välbekanta enheter eller inloggningar från VPN: er som används av andra användare i katalogen. Algoritmen kräver dessutom en historik över 14 dagar och 10 inloggningar för användaren innan den börjar generera riskhändelser. På grund av komplexa machine learning-modeller och senare regler, finns det en risk att följande steg inte leder till en riskhändelse. Du kanske vill replikera de här stegen för flera Azure AD-konton att publicera den här riskhändelsen.
 
 
-**Utför följande steg för att simulera en omöjligt att resa till ovanliga plats**:
+**Utför följande steg för att simulera en omöjlig resa till ovanlig plats**:
 
-1. Använd din standard-webbläsare, navigera till [ https://myapps.microsoft.com ](https://myapps.microsoft.com).  
-2. Ange autentiseringsuppgifter för det konto som du vill generera en händelse med omöjliga resor risken för.
-3. Ändra din användaragent. Du kan ändra användaragent i Internet Explorer från utvecklingsverktyg eller ändra din användaragent i Firefox eller Chrome med en användaragent switcher tillägg.
-4. Ändra IP-adress. Du kan ändra din IP-adress med hjälp av en VPN-anslutning, Tor-tillägg eller startas en ny dator i Azure i olika datacenter.
-5. Logga in på [ https://myapps.microsoft.com ](https://myapps.microsoft.com) använder du samma inloggningsuppgifter som förut och inom några minuter efter den föregående inloggningen.
+1. Använd din standard webbläsare, navigera till [ https://myapps.microsoft.com ](https://myapps.microsoft.com).  
+2. Ange autentiseringsuppgifterna för det konto som du vill generera en omöjlig resa riskhändelse för.
+3. Ändra ditt användar-agent. Du kan ändra användaragenten i Internet Explorer från utvecklarverktyg eller ändra din användaragenten i Firefox eller Chrome med en användaragent mellan aktiviteter tillägg.
+4. Ändra din IP-adress. Du kan ändra din IP-adress genom att använda en VPN-anslutning, en Tor-tillägg, eller skapa en ny dator i Azure i ett annat datacenter.
+5. Logga in på [ https://myapps.microsoft.com ](https://myapps.microsoft.com) med samma autentiseringsuppgifter som förut och inom ett par minuter efter den föregående inloggningen.
 
-Logga in visas i instrumentpanelen identitetsskydd inom 2-4 timmar.
+Logga in visas i Identity Protection-instrumentpanelen inom 2 – 4 timmar.
 
-## <a name="simulating-vulnerabilities"></a>Simulera säkerhetsrisker
-Säkerhetsrisker är svagheter i en Azure AD-miljö som kan utnyttjas av en felaktig aktören. För närvarande exponeras 3 typer av säkerhetsproblem i Azure AD Identity Protection som utnyttjar andra funktioner i Azure AD. Dessa problem visas på instrumentpanelen identitetsskydd automatiskt när dessa funktioner har ställts in.
+## <a name="simulating-vulnerabilities"></a>Simulera sårbarheter
+Sårbarheter är svagheter i en Azure AD-miljö som kan utnyttjas av en obehörig. För närvarande exponeras 3 typer av sårbarheter som i Azure AD Identity Protection som drar nytta av andra funktioner i Azure AD. Dessa problem visas på Identity Protection-instrumentpanelen automatiskt när de här funktionerna har ställts in.
 
 * Azure AD [Multifaktorautentisering](authentication/multi-factor-authentication.md)
 * Azure AD [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
-* Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
+* Azure AD [Privileged Identity Management](privileged-identity-management/pim-configure.md). 
 
 
 ## <a name="testing-security-policies"></a>Testa säkerhetsprinciper
 
-Det här avsnittet innehåller steg för att testa användare risk och säkerhetsprincip inloggning risk.
+Det här avsnittet innehåller steg för att testa användarrisk och inloggningsrisk säkerhetsprincip.
 
 
-### <a name="user-risk-security-policy"></a>Användaren risk säkerhetsprincip
+### <a name="user-risk-security-policy"></a>Riskprincip
 
-Mer information finns i [användaren risk säkerhetsprincip](active-directory-identityprotection.md#user-risk-security-policy).
+Mer information finns i [riskprincip](active-directory-identityprotection.md#user-risk-security-policy).
 
-![Användaren risk](./media/active-directory-identityprotection-playbook/02.png "Playbook")
+![Användarrisk](./media/active-directory-identityprotection-playbook/02.png "Spelbok")
 
 
-**Utför följande steg om du vill testa en säkerhetsprincip för användaren risk**:
+**Utför följande steg om du vill testa en riskprincip**:
 
-1. Logga in på [ https://portal.azure.com ](https://portal.azure.com) med globala administratörsbehörigheter för din klient.
+1. Logga in på [ https://portal.azure.com ](https://portal.azure.com) med autentiseringsuppgifterna för global administratör för din klient.
 2. Gå till **identitetsskydd**. 
-3. På den **Azure AD Identity Protection** klickar du på **risk användarprincip**.
-4. I den **tilldelningar** , Välj önskade användare (och grupper) och risknivå för användaren.
+3. På den **Azure AD Identity Protection** klickar du på **användarprincip**.
+4. I den **tilldelningar** , Välj önskade användare (och grupper) och risknivån.
 
-    ![Användaren risk](./media/active-directory-identityprotection-playbook/03.png "Playbook")
+    ![Användarrisk](./media/active-directory-identityprotection-playbook/03.png "Spelbok")
 
-5. Välj önskad åtkomstkontroll i avsnittet kontroller (t.ex. lösenordet måste ändras).
-5. Som **tillämpa principen**väljer **av**.
-6. Höj användaren risken för ett testkonto av, till exempel simulera en av riskhändelser några gånger.
-7. Vänta en stund och kontrollera att användarnivå för dina användare är Medium. Om inte, simulera mer riskhändelser för användaren.
-8. Som **tillämpa principen**väljer **på**.
-9. Nu kan du testa användare risk-baserad villkorlig åtkomst genom att logga in med hjälp av en användare med en ökad risk för nivå.
+5. Markera önskad åtkomstkontroll under kontroller (t.ex. kräva ändring av lösenord).
+5. Som **framtvinga princip**väljer **av**.
+6. Utöka användare risken för ett testkonto av, till exempel simulera en av riskhändelser några gånger.
+7. Vänta några minuter och sedan kontrollera att användarnivå för dina användare är Medium. Annars kan du simulera mer riskhändelser för användaren.
+8. Som **framtvinga princip**väljer **på**.
+9. Nu kan du testa riskbaserad villkorlig åtkomst genom att logga in med hjälp av en användare med en upphöjd risknivå.
     
     
 
-### <a name="sign-in-risk-security-policy"></a>Logga in risk säkerhetsprincip
+### <a name="sign-in-risk-security-policy"></a>Säkerhetsprincip för inloggningsrisk
 
-Mer information finns i [användaren risk säkerhetsprincip](active-directory-identityprotection.md#user-risk-security-policy).
+Mer information finns i [riskprincip](active-directory-identityprotection.md#user-risk-security-policy).
 
-![Logga in risk](./media/active-directory-identityprotection-playbook/01.png "Playbook")
+![Inloggningsrisk](./media/active-directory-identityprotection-playbook/01.png "Spelbok")
 
 
-**Utför följande steg om du vill testa ett tecken i riskprincipen:**
+**Om du vill testa ett tecken i riskprincipen, utför du följande steg:**
 
-1. Logga in på [ https://portal.azure.com ](https://portal.azure.com) med globala administratörsbehörigheter för din klient.
+1. Logga in på [ https://portal.azure.com ](https://portal.azure.com) med autentiseringsuppgifterna för global administratör för din klient.
 
 2. Gå till **Azure AD Identity Protection**.
 
-3. På primära **Azure AD Identity Protection** klickar du på **inloggning riskprincipen**. 
+3. På huvudsidan **Azure AD Identity Protection** klickar du på **inloggning riskprincipen**. 
 
 4. I den **tilldelningar** markerar du önskade användare (och grupper) och logga in risknivå.
 
-    ![Logga in risk](./media/active-directory-identityprotection-playbook/04.png "Playbook")
+    ![Inloggningsrisk](./media/active-directory-identityprotection-playbook/04.png "Spelbok")
 
 
-5. I den **kontroller** väljer du önskad åtkomstkontroll (till exempel **kräver Multi-Factor authentication**). 
+5. I den **kontroller** väljer du önskad åtkomstkontroll (till exempel **kräva multifaktorautentisering**). 
 
-6. Som **tillämpa principen**väljer **på**.
+6. Som **framtvinga princip**väljer **på**.
 
 7. Klicka på **Spara**.
 
-8. Du kan nu testa inloggningen Risk-baserad villkorlig åtkomst genom att logga in med en riskfyllda session (till exempel med hjälp av Tor webbläsaren). 
+8. Nu kan du testa logga in riskbaserad villkorlig åtkomst genom att logga in med en riskfylld session (till exempel med hjälp av Tor-webbläsare). 
 
  
 

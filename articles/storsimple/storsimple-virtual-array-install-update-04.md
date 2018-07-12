@@ -1,6 +1,6 @@
 ---
-title: Installera uppdateringar på virtuella StorSimple-matrisen | Microsoft Docs
-description: Beskriver hur du använder virtuella StorSimple-matris webbgränssnittet för att tillämpa uppdateringar med hjälp av Azure portal och snabbkorrigering metoden
+title: Installera uppdateringar på StorSimple Virtual Array | Microsoft Docs
+description: Beskriver hur du använder StorSimple Virtual Array webbgränssnittet för att tillämpa uppdateringar med hjälp av metoden för Azure-portalen och snabbkorrigeringen
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,46 +15,46 @@ ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
 ms.openlocfilehash: 3fb246b1515e7a637e6cff6499bf324c3f80dd45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875783"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232197"
 ---
-# <a name="install-update-04-on-your-storsimple-virtual-array"></a>Installera uppdateringen 0,4 på din virtuella StorSimple-matris
+# <a name="install-update-04-on-your-storsimple-virtual-array"></a>Installera uppdatering 0.4 på StorSimple Virtual Array
 
 ## <a name="overview"></a>Översikt
 
-Den här artikeln beskriver de steg som krävs för att installera uppdateringen 0,4 på din virtuella StorSimple-matrisen via lokala webbgränssnittet och via Azure portal. Du måste tillämpa uppdateringar eller snabbkorrigeringar för att hålla det uppdaterat din virtuella StorSimple-matris. 
+Den här artikeln beskriver de steg som krävs för att installera uppdatering 0.4 på StorSimple Virtual Array via det lokala webbgränssnittet eller via Azure portal. Du måste tillämpa uppdateringar eller snabbkorrigeringar att hålla din StorSimple Virtual Array uppdaterade. 
 
-Tänk på att installera en uppdatering eller snabbkorrigering startar om enheten. Med hänsyn till att den virtuella StorSimple-matrisen är en enskild nod-enhet, avbryts alla i/o pågår och din enhet upplever driftstopp. 
+Tänk på att installera en uppdatering eller snabbkorrigering startar om enheten. Med hänsyn till att StorSimple Virtual Array är en enskild nod-enhet, alla i/o pågår avbryts och din enhet upplever driftstopp. 
 
-Innan du installerar en uppdatering, rekommenderar vi att du vidtar volymer eller resurser offline på värden först och sedan enheten. Detta minimerar möjlighet att data skadas.
+Innan du installerar en uppdatering, rekommenderar vi att du vidtar volymer eller resurser offline på värden första och sedan enheten. Detta minskar risk att data skadas.
 
 > [!IMPORTANT]
-> Om du kör uppdatering 0.1 eller GA programvaruversioner, måste du använda metoden snabbkorrigeringen via lokala webbgränssnittet för att installera uppdatering 0.3. Om du kör uppdatering 0,2 eller senare, rekommenderar vi att installerar du uppdateringar via Azure portal.
+> Om du kör uppdatering 0.1 eller GA programvaruversioner, måste du använda metoden snabbkorrigering via det lokala webbgränssnittet för att installera uppdatering 0.3. Om du kör uppdatering 0.2 eller senare, rekommenderar vi att installerar du uppdateringar via Azure portal.
  
 
-## <a name="use-the-local-web-ui"></a>Använda lokala webbgränssnittet
+## <a name="use-the-local-web-ui"></a>Använd det lokala webbgränssnittet
 
-Det finns två steg när du använder lokala webbgränssnittet:
+Det finns två steg när du använder det lokala webbgränssnittet:
 
-* Hämta uppdateringen eller snabbkorrigeringen
+* Ladda ned uppdateringen eller snabbkorrigeringen
 * Installera uppdateringen eller snabbkorrigeringen
 
-### <a name="download-the-update-or-the-hotfix"></a>Hämta uppdateringen eller snabbkorrigeringen
+### <a name="download-the-update-or-the-hotfix"></a>Ladda ned uppdateringen eller snabbkorrigeringen
 
 Utför följande steg för att hämta programuppdateringen från Microsoft Update Catalog.
 
-#### <a name="to-download-the-update-or-the-hotfix"></a>Hämta uppdateringen eller snabbkorrigeringen
+#### <a name="to-download-the-update-or-the-hotfix"></a>Ladda ned uppdateringen eller snabbkorrigeringen
 
-1. Starta Internet Explorer och gå till [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Starta Internet Explorer och navigera till [ http://catalog.update.microsoft.com ](http://catalog.update.microsoft.com).
 
 2. Om det här är första gången du använder Microsoft Update Catalog på den här datorn klickar du på **Installera** när du uppmanas att installera tillägget för Microsoft Update Catalog.
 
-3. Ange antalet den snabbkorrigering som du vill hämta Knowledge Base (KB) i sökrutan i Microsoft Update-katalogen. Ange **3216577** för Update 0,4 och klicka sedan på **Sök**.
+3. I sökrutan i Microsoft Update-katalogen, anger du numret för Knowledge Base (KB) för den snabbkorrigering som du vill hämta. Ange **3216577** för uppdatering 0.4 och klicka sedan på **Search**.
    
-    Snabbkorrigeringen listan visas till exempel **StorSimple virtuell matris uppdatering 0,4**.
+    I listan över snabbkorrigeringar visas, till exempel **StorSimple Virtual Array uppdatering 0.4**.
    
     ![Sökkatalog](./media/storsimple-virtual-array-install-update-04/download1.png)
 
@@ -64,49 +64,49 @@ Utför följande steg för att hämta programuppdateringen från Microsoft Updat
 
 6. Klicka på **Hämta**. Ange eller **Bläddra** till en lokal plats där du vill att nedladdningarna ska läggas. Uppdateringarna hämtas till den angivna platsen och placeras i en undermapp med samma namn som uppdateringen. Mappen kan också kopieras till en nätverksresurs som kan nås från enheten.
 
-7. Öppna mappen kopierade, bör du se en paketfil för Microsoft Update fristående `WindowsTH-KB3011067-x64`. Den här filen används för att installera uppdatering eller snabbkorrigering.
+7. Öppna den kopierade mappen, du bör se en paketfil för Microsoft Update fristående `WindowsTH-KB3011067-x64`. Den här filen används för att installera uppdatering eller snabbkorrigering.
 
 ### <a name="install-the-update-or-the-hotfix"></a>Installera uppdateringen eller snabbkorrigeringen
 
-Kontrollera att du har uppdateringen eller snabbkorrigeringen hämtas antingen lokalt på värden eller tillgängligt via en nätverksresurs före installationen uppdatering eller snabbkorrigering. 
+Kontrollera att du har uppdateringen eller snabbkorrigeringen ned antingen lokalt på värden eller komma åt via en nätverksresurs innan installationen av uppdateringen eller snabbkorrigeringen. 
 
 Använd den här metoden för att installera uppdateringar på en enhet som kör GA eller uppdatera 0,1 programvaruversioner. Den här proceduren tar mindre än 2 minuter att slutföra. Utför följande steg för att installera uppdatering eller snabbkorrigering.
 
-#### <a name="to-install-the-update-or-the-hotfix"></a>Så här installerar du uppdateringen eller snabbkorrigeringen
+#### <a name="to-install-the-update-or-the-hotfix"></a>Att installera uppdateringen eller snabbkorrigeringen
 
-1. Gå till i det lokala webbgränssnittet **Underhåll** > **programuppdateringen**.
+1. I det lokala webbgränssnittet går du till **Underhåll** > **programuppdateringen**.
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update1m.png)
 
-2. I **uppdatering filsökväg**, ange filnamnet för uppdateringen eller snabbkorrigeringen. Du kan även bläddra till installationsfilen uppdatering eller snabbkorrigering om placeras på en nätverksresurs. Klicka på **Använd**.
+2. I **uppdatering filsökväg**, ange filnamnet för uppdateringen eller snabbkorrigeringen. Du kan också bläddra till installationsfilen för uppdateringen eller snabbkorrigeringen om placeras på en nätverksresurs. Klicka på **Använd**.
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update2m.png)
 
-3. En varning visas. Angivna detta är en enskild nod-enhet när uppdateringen har genomförts, enheten startas om och det finns en avbrottstid. Klicka på kryssikonen.
+3. En varning visas. Beroende på det här är en enskild nod-enhet, när uppdateringen har tillämpats, enheten startas om och stilleståndstid. Klicka på kryssikonen.
    
    ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update3m.png)
 
-4. Uppdateringen startar. När enheten har uppdaterats, startas om. Lokala Användargränssnittet är inte tillgängligt i den här tiden.
+4. Uppdateringen startar. När enheten har uppdaterats, den startar om. Lokala Användargränssnittet är inte tillgänglig under den tiden.
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update5m.png)
 
-5. När omstarten är klar, kommer du till den **inloggning** sidan. Kontrollera att enhetens programvara har uppdaterats i lokala webbgränssnittet, gå till **Underhåll** > **programuppdateringen**. Programvaruversionen visas ska vara **10.0.0.0.0.10289.0** för uppdatering 0,4.
+5. När omstarten är klar kommer du till den **logga in** sidan. Kontrollera att programmet har uppdaterats i det lokala webbgränssnittet, gå till **Underhåll** > **programuppdateringen**. Den visa programvaruversionen ska vara **10.0.0.0.0.10289.0** för uppdatering 0.4.
    
    > [!NOTE]
-   > Vi rapporterar programvaruversioner i ett lite annorlunda sätt i lokala webbgränssnittet och Azure portal. Till exempel lokala webbgränssnittet rapporterar **10.0.0.0.0.10289** och Azure portal rapporter **10.0.10289.0** för samma version.
+   > Vi rapporterar programvaruversionerna i ett något annorlunda sätt i det lokala webbgränssnittet och Azure-portalen. Exempelvis kan det lokala webbgränssnittet rapporterar **10.0.0.0.0.10289** och Azure portal rapporter **10.0.10289.0** för samma version.
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update6m.png)
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-Om du kör uppdatering 0,2 och senare, rekommenderar vi att du installerar uppdateringar via Azure-portalen. Portalen proceduren kräver att användaren skanna, hämta och installera uppdateringarna. Den här proceduren tar cirka 7 minuter för att slutföra. Utför följande steg för att installera uppdatering eller snabbkorrigering.
+Om du kör Update 0,2 och senare, rekommenderar vi att du installerar uppdateringar via Azure portal. Portalen proceduren kräver att användaren att skanna, ladda ned och installera uppdateringarna. Den här proceduren tar cirka 7 minuter för att slutföra. Utför följande steg för att installera uppdatering eller snabbkorrigering.
 
 [!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal-04.md)]
 
-När installationen är klar (som visas jobbets status till 100%) Gå till Enhetshanteraren för StorSimple-tjänsten. Välj **enheter** och markera och klicka på den enhet som du vill uppdatera listan över enheter som är anslutna till den här tjänsten. I den **inställningar** gå till bladet **hantera** avsnittet och väljer **enhetsuppdateringar**. Programvaruversionen visas ska vara **10.0.10289.0**.
+När installationen är klar (som visas jobbets status på 100%), går du till din StorSimple Device Manager-tjänsten. Välj **enheter** och markera och klicka på den enhet som du vill uppdatera listan med enheter som är anslutna till den här tjänsten. I den **inställningar** gå till bladet **hantera** och väljer **enhetsuppdateringar**. Den visa programvaruversionen ska vara **10.0.10289.0**.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [administrera din virtuella StorSimple-matris](storsimple-ova-web-ui-admin.md).
+Läs mer om [administrera StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

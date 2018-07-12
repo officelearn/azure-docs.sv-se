@@ -1,6 +1,6 @@
 ---
-title: Aktivera säkerhetskopiering för Azure-Stack från administrationsportalen | Microsoft Docs
-description: Aktivera infrastruktur Backup-tjänsten via administrationsportalen så att Azure-stacken kan återställas om det uppstår ett fel.
+title: Aktivera säkerhetskopiering för Azure Stack från administrationsportalen | Microsoft Docs
+description: Aktivera infrastruktur Backup-tjänsten via administrationsportalen så att Azure Stack kan återställas om det uppstår ett fel.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,21 +12,21 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/11/2018
 ms.author: jeffgilb
-ms.openlocfilehash: ce5fd2feaa30948042cc0570a4b0ea7f0ab7ad77
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: fba04490aca4c7123ca478ae07a5f0c865d9a826
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34302264"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968705"
 ---
-# <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Aktivera säkerhetskopiering för Azure-Stack från administrationsportalen
-Aktivera infrastruktur Backup-tjänsten via administrationsportalen så att Azure-stacken kan generera säkerhetskopieringar. Du kan använda dessa säkerhetskopieringar för att återställa din miljö med hjälp av recovery för molnet i händelse av [ett oåterkalleligt fel](.\azure-stack-backup-recover-data.md). Syftet med molnet återställning är att säkerställa att dina operatörer och användare kan logga in igen på portalen när återställningen är klar. Användarna har sina prenumerationer återställts inklusive rollbaserade behörigheter och roller, ursprungliga planer, erbjudanden och tidigare definierad beräkning, lagring och nätverkskvoter.
+# <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Aktivera säkerhetskopiering för Azure Stack från administrationsportalen
+Aktivera infrastruktur Backup-tjänsten via administrationsportalen så att Azure Stack kan generera säkerhetskopieringar. Du kan använda dessa säkerhetskopior för att återskapa din miljö med hjälp av molnåterställning i händelse av [ett oåterkalleligt fel](.\azure-stack-backup-recover-data.md). Syftet med molnet är att säkerställa att dina operatörer och användare kan logga in igen på portalen när återställningen är klar. Användarna har sina prenumerationer som återställts, inklusive behörigheter för rollbaserad åtkomst och roller, ursprungliga planer, erbjudanden, och tidigare definierad beräkning, lagring och nätverkskvoter.
 
-Dock säkerhetskopieringstjänsten infrastruktur kan du inte säkerhetskopiera virtuella IaaS-datorer, nätverkskonfigurationer och lagringsresurser, till exempel storage-konton, blobbar, tabeller och så vidare, så att användarna loggar in efter molnet återställningen är klar visas inte någon av sina tidigare befintliga resurser. Plattform som en tjänst (PaaS) resurser och data också säkerhetskopieras inte av tjänsten. 
+Men säkerhetskopieringstjänsten infrastruktur kan du inte säkerhetskopiera virtuella IaaS-datorer, konfigurationer för nätverk och lagringsresurser, t.ex storage-konton, blobbar, tabeller och så vidare, så att användare som loggar in efter molnet återställningen har slutförts kommer inte se några av sina tidigare befintliga resurser. Plattform som en tjänst (PaaS) resurser och data också säkerhetskopieras inte av tjänsten. 
 
-Administratörer och användare ansvarar för att säkerhetskopiera och återställa IaaS och PaaS-resurser separat från processer för infrastrukturen för säkerhetskopiering. Information om hur du säkerhetskopierar IaaS och PaaS-resurser finns i följande länkar:
+Administratörer och användare ansvarar för att säkerhetskopiera och återställa IaaS och PaaS-resurser separat från säkerhetskopiering infrastrukturprocesser. Information om hur du säkerhetskopierar IaaS och PaaS-resurser finns i följande länkar:
 
 - [Virtual Machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-protect)
 - [App Service](https://docs.microsoft.com/azure/app-service/web-sites-backup)
@@ -34,27 +34,27 @@ Administratörer och användare ansvarar för att säkerhetskopiera och återst�
 
 
 > [!Note]  
-> Innan du aktiverar säkerhetskopiering via konsolen måste du konfigurera säkerhetskopieringstjänsten. Du kan konfigurera säkerhetskopieringstjänsten med hjälp av PowerShell. Mer information finns i [Aktivera säkerhetskopiering för Azure-stacken med PowerShell](azure-stack-backup-enable-backup-powershell.md).
+> Innan du aktiverar säkerhetskopiering via konsolen kan behöva du konfigurera backup-tjänsten. Du kan konfigurera tjänsten backup med hjälp av PowerShell. Mer information finns i [Aktivera säkerhetskopiering för Azure Stack med PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="enable-backup"></a>Aktivera säkerhetskopiering
 
 1. Öppna Azure Stack-administrationsportalen på [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
-2. Välj **fler tjänster** > **infrastruktur säkerhetskopiering**. Välj **Configuration** i den **infrastruktur säkerhetskopiering** bladet.
+2. Välj **fler tjänster** > **infrastruktur för säkerhetskopiering**. Välj **Configuration** i den **infrastruktur för säkerhetskopiering** bladet.
 
-    ![Azure Stack - inställningarna för säkerhetskopiering domänkontrollanter](media\azure-stack-backup\azure-stack-backup-settings.png).
+    ![Azure Stack - inställningarna för säkerhetskopiering-domänkontrollanter](media\azure-stack-backup\azure-stack-backup-settings.png).
 
-3. Ange sökvägen till den **säkerhetskopiera lagringsplats**. Använd en Universal Naming Convention (UNC)-sträng för sökväg till en filresurs som finns på en separat enhet. En UNC-sträng Anger platsen för resurser, till exempel delade filer eller enheter. Du kan använda en IP-adress för tjänsten. Enheten måste vara i en annan plats för att säkerställa tillgängligheten för säkerhetskopierade data efter en katastrof.
+3. Ange sökvägen till den **lagringsplats för säkerhetskopiering**. Använd en Universal Naming Convention (UNC)-sträng för sökväg till en filresurs på en separat enhet. En UNC-sträng Anger platsen för resurser, till exempel delade filer eller enheter. Du kan använda en IP-adress för tjänsten. Enheten måste vara i en separat plats för att säkerställa tillgängligheten för säkerhetskopierade data efter en katastrof.
     > [!Note]  
-    > Om miljön har stöd för namnmatchning från nätverkets infrastruktur Azure Stack till din företagsmiljö kan använda du ett fullständigt domännamn i stället för IP-Adressen.
-4. Typ av **användarnamn** med domänen och användarnamnet har behörighet att läsa och skriva filer. Till exempel `Contoso\backupshareuser`.
-5. Typ av **lösenord** för användaren.
-5. Skriv in lösenordet igen till **Bekräfta lösenord**.
-6. Tillhandahålla en i förväg delad nyckel i den **krypteringsnyckeln** rutan. Säkerhetskopiorna krypteras med den här nyckeln. Se till att lagra den här nyckeln på en säker plats. När du anger den här nyckeln för första gången eller rotera nyckeln i framtiden ska visa du inte den här nyckeln från det här gränssnittet. Mer information att generera en i förväg delad nyckel, följ skript på [Aktivera säkerhetskopiering för Azure-stacken med PowerShell](azure-stack-backup-enable-backup-powershell.md#generate-a-new-encryption-key). 
-7. Välj **OK** att spara inställningarna för säkerhetskopiering domänkontrollant.
+    > Om miljön stöder namnmatchning från nätverket för Azure Stack-infrastruktur för att din företagsmiljö kan använda du ett fullständigt domännamn i stället för IP-Adressen.
+4. Skriv den **användarnamn** med domänen och användarnamnet har tillräcklig behörighet att läsa och skriva filer. Till exempel `Contoso\backupshareuser`.
+5. Skriv den **lösenord** för användaren.
+5. Ange lösenordet igen till **Bekräfta lösenord**.
+6. Tillhandahålla en i förväg delad nyckel i den **krypteringsnyckeln** box. Säkerhetskopiorna krypteras med hjälp av den här nyckeln. Se till att lagra den här nyckeln på en säker plats. När du anger den här nyckeln för första gången eller rotera nyckeln i framtiden ska visa du inte den här nyckeln från det här gränssnittet. För mer anvisningar för att generera en i förväg delad nyckel, följer du skript på [Aktivera säkerhetskopiering för Azure Stack med PowerShell](azure-stack-backup-enable-backup-powershell.md).
+7. Välj **OK** att spara dina inställningar för säkerhetskopiering controller.
 
-Om du vill köra en säkerhetskopia, måste du hämtar verktyg för Azure-stacken och köra PowerShell-cmdlet **Start AzSBackup** på Azure-stacken administrationsnoden. Mer information finns i [säkerhetskopiera Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
+För att köra en säkerhetskopia, måste du ladda ned Azure Stack-verktyg och kör sedan PowerShell-cmdleten **Start AzSBackup** på din nod för administration av Azure Stack. Mer information finns i [säkerhetskopiera Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig att köra en säkerhetskopiering. Se [säkerhetskopiera Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
-- Lär dig att kontrollera att säkerhetskopieringen har körts. Se [bekräfta säkerhetskopieringen har slutförts i administrationsportalen](azure-stack-backup-back-up-azure-stack.md).
+- Lär dig att verifiera att säkerhetskopieringen har körts. Se [bekräfta säkerhetskopieringen slutfördes i administrationsportalen](azure-stack-backup-back-up-azure-stack.md).

@@ -1,6 +1,6 @@
 ---
-title: Prisnivåer för Azure-databas för PostgreSQL
-description: Den här artikeln beskrivs alla prisnivåer för Azure-databas för PostgreSQL.
+title: Prisnivåer för Azure Database for PostgreSQL
+description: Den här artikeln beskrivs olika prisnivåer för Azure Database för PostgreSQL.
 services: postgresql
 author: jan-eng
 ms.author: janeng
@@ -8,43 +8,43 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 6f078823d8b911bc5ce6a36ab27b11a9c0117b80
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 07/21/2018
+ms.openlocfilehash: 3637ee63c94ea54145d99b9d5632f0a77c95d2f4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018347"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970269"
 ---
-# <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure-databas för PostgreSQL prisnivåer
+# <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database för PostgreSQL prisnivåer
 
-Du kan skapa en Azure-databas för PostgreSQL-server i en av tre olika prisnivåer: Basic generella och Minnesoptimerade. Alla prisnivåer särskiljs med hjälp av mängden beräkning i vCores som kan etableras och minne per vCore lagringsteknik som används för att lagra data. Alla resurser etableras på servernivå PostgreSQL. En server kan ha en eller flera databaser.
+Du kan skapa en Azure Database for PostgreSQL-server i en av tre olika tjänstnivåer: Basic, generell användning och Minnesoptimerad. Prisnivåerna åtskiljs av mängden beräkning i vCores som kan etableras och minne per vCore lagringsteknik som används för att lagra data. Alla resurser etableras på servernivå för PostgreSQL. En server kan ha en eller flera databaser.
 
-|    | **Basic** | **Generella** | **Minnesoptimerade** |
+|    | **Basic** | **Generell användning** | **Optimerat minne** |
 |:---|:----------|:--------------------|:---------------------|
-| Compute-generering | Gen 4 Gen 5 | Gen 4 Gen 5 | Generation 5 |
+| Compute-generering | Gen 4, generation 5 | Gen 4, generation 5 | Generation 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Minne per vCore | 2 GB | 5 GB | 10 GB |
 | Lagringsstorlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
-| Lagringstyp | Azure standardlagring | Azure Premium Storage | Azure Premium Storage |
-| Databasen period för lagring av säkerhetskopior. | 7-35 dagar | 7-35 dagar | 7-35 dagar |
+| Lagringstyp | Azure Standard-lagring | Azure Premium Storage | Azure Premium Storage |
+| Kvarhållningsperiod för databasen | 7 till 35 dagar | 7 till 35 dagar | 7 till 35 dagar |
 
 Använd följande tabell som utgångspunkt för att välja en prisnivå.
 
 | Prisnivå | Målbelastningar |
 |:-------------|:-----------------|
-| Basic | Arbetsbelastningar som kräver lätta beräknings- och i/o-prestanda. Exempel är servrar som används för utveckling och testning eller småskaliga program som inte används. |
-| Generellt syfte | De flesta arbetsbelastningar som kräver belastningsutjämnade beräknings- och minneskapaciteten med skalbara i/o-genomströmning. Exempel är servrar som värd för webb- och mobilappar och andra företagsprogram.|
-| Minnesoptimerad | För högpresterande databasarbetsbelastningar som kräver InMemory-prestanda för snabbare transaktionsbearbetning och högre samtidighet. Exempel: servrar för att bearbeta data i realtid och högpresterande Transaktionsreplikering eller analytiska appar.|
+| Basic | Arbetsbelastningar som kräver lätt beräkning och i/o-prestanda. Exempel är servrar som används för utveckling eller testning eller sällan småskaliga program. |
+| Generellt syfte | De flesta företags arbetsbelastningar som kräver belastningsutjämnade beräknings- och minnesresurser med skalbart i/o-dataflöde. Exempel är servrar som värd för webb- och mobilappar och andra företagsprogram.|
+| Minnesoptimerad | Högpresterande arbetsbelastningar som kräver minnesprestanda för snabbare bearbetning av transaktioner och högre samtidighet. Exempel är servrar för att bearbeta realtidsdata och transaktionsappar eller analysappar appar med höga prestanda.|
 
-När du har skapat en server, antalet vCores maskinvara generation och priser för tjänstnivån (förutom till och från Basic) kan ändras uppåt eller nedåt inom några sekunder. Du kan även oberoende Justera mängden lagringsutrymme upp och säkerhetskopiering kvarhållningsperioden uppåt eller nedåt utan avbrott för programmet. Du kan inte ändra lagringstypen för säkerhetskopiering när en server har skapats. Mer information finns i [skala](#scale-resources) avsnitt.
+När du har skapat en server, antalet virtuella kärnor, skapande av maskinvara och priser nivå (förutom till och från Basic) kan ändras upp eller ned på några sekunder. Du kan även oberoende Justera mängden lagringsutrymme upp och kvarhållningsperioden för säkerhetskopior upp eller ned utan någon nedtid. Du kan inte ändra lagringstypen säkerhetskopiering när en server har skapats. Mer information finns i den [skala resurser](#scale-resources) avsnittet.
 
 
-## <a name="compute-generations-and-vcores"></a>Beräkna generationer och vCores
+## <a name="compute-generations-and-vcores"></a>Beräkningsgenereringar och virtuella kärnor
 
-Beräkna resurser tillhandahålls som vCores som representerar den underliggande maskinvaran logiska Processorn. För närvarande kan kan du välja mellan två beräkning generationer Gen 4 och 5 Gen. Gen 4 logiska processorer är baserade på Intel E5-2673 v3 (Haswell) 2,4 GHz processorer. Gen 5 logiska processorer är baserade på Intel E5-2673 v4 (Broadwell) 2.3 GHz-processorer. Gen 4 och 5 Gen finns i följande regioner (”X” anger tillgänglig). 
+Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU som den underliggande maskinvaran. För närvarande kan du välja mellan två beräkningsgenereringar Gen 4 och 5 för Gen. Gen 4 logiska CPU baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer. Gen 5 logiska CPU baseras på Intel E5-2673 v4-processorn (Broadwell) 2.3 GHz-processorer. Gen 4 och 5 Gen finns i följande regioner (”X” anger tillgängliga). 
 
-| **Azure-region** | **Gen 4** | **Gen 5** |
+| **Azure-region** | **Generation 4** | **5: e generationen** |
 |:---|:----------:|:--------------------:|
 | Centrala USA | X |  |
 | Östra USA | X | X |
@@ -64,6 +64,8 @@ Beräkna resurser tillhandahålls som vCores som representerar den underliggande
 | Östasien | X | X |
 | Sydostasien | X | X |
 | Östra Australien |  | X |
+| Australien, centrala |  | X |
+| Australien, centrala 2 |  | X |
 | Sydöstra Australien |  | X |
 | Indien, centrala | X | X |
 | Indien, västra | X | X |
@@ -75,45 +77,45 @@ Beräkna resurser tillhandahålls som vCores som representerar den underliggande
 
 ## <a name="storage"></a>Storage
 
-Lagring som du etablerar är mängden lagringskapacitet som är tillgängliga för din Azure-databas för PostgreSQL-server. Lagringsutrymmet som används för databasfilerna, temporära filer, transaktionsloggar och PostgreSQL-servern loggar. Den totala mängden lagringsutrymme som du etablerar definierar även i/o-kapaciteten tillgänglig till servern.
+Lagring som du etablerar är mängden lagringskapacitet som är tillgängliga för din Azure Database for PostgreSQL-server. Lagringsutrymmet används för databasfilerna, temporära filer, transaktionsloggar och PostgreSQL-servern loggar. Den totala mängden lagring som du etablerar definierar också tillgänglig i/o-kapacitet till din server.
 
-|    | **Basic** | **Generella** | **Minnesoptimerade** |
+|    | **Basic** | **Generell användning** | **Optimerat minne** |
 |:---|:----------|:--------------------|:---------------------|
-| Lagringstyp | Azure standardlagring | Azure Premium Storage | Azure Premium Storage |
+| Lagringstyp | Azure Standard-lagring | Azure Premium Storage | Azure Premium Storage |
 | Lagringsstorlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
-| Öka lagringsstorlek | 1 GB | 1 GB | 1 GB |
+| Öka lagringsstorleken | 1 GB | 1 GB | 1 GB |
 | IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS<br/>Maximalt antal 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Maximalt antal 6000 IOPS |
 
-Du kan lägga till ytterligare lagringskapacitet under och efter skapandet av servern. Den grundläggande nivån innehåller inte en IOPS-garanti. I den generella och Minnesoptimerade prisnivåer, skala IOPS med den etablerade lagringsstorleken i förhållandet 3:1.
+Du kan lägga till ytterligare lagringskapacitet under och efter skapandet av servern. Basic-nivån ger inte en garanti för IOPS. I generell användning och Minnesoptimerad prisnivåer, skala IOPS med den allokerade lagringsstorleken i ett 3:1-förhållande.
 
-Du kan övervaka dina i/o-användning i Azure-portalen eller genom att använda Azure CLI-kommandona. Mätvärdena som är relevanta för att övervaka är [lagringsgräns, lagringsprocent, lagringsutrymme som används och IO-procent](concepts-monitoring.md).
+Du kan övervaka dina i/o-användningen i Azure portal eller med hjälp av Azure CLI-kommandon. De mått som är relevanta för att övervaka är [gränsen för lagring, lagringsprocent, lagringsutrymme och IO-procent](concepts-monitoring.md).
 
-### <a name="reaching-the-storage-limit"></a>Nå lagringsgränsen
+### <a name="reaching-the-storage-limit"></a>Når gränsen för lagring
 
-Servern är skrivskyddad när mängden ledigt utrymme uppnår mindre än 5 GB eller 5% av etablerade lagring, som är minst. Om du har etablerat 100 GB lagringsutrymme och den faktiska användningen går till exempel 95 GB, servern är skrivskyddad. Alternativt, om du har tillhandahållit 5 GB lagringsutrymme, servern är skrivskyddad när mängden ledigt utrymme når mindre än 250 MB.  
+Servern är skrivskyddad när mängden ledigt utrymme uppnår mindre än 5 GB eller 5% av etablerad lagring, beroende på vilket som är mindre. Exempel: Om du har etablerat 100 GB lagringsutrymme och den faktiska användningen går över 95 GB, servern är skrivskyddad. Du kan också om du har etablerat 5 GB lagringsutrymme, är servern skrivskyddad när det lediga lagringsutrymmet som når mindre än 250 MB.  
 
-När servern har angetts till skrivskyddad kopplas bort alla befintliga sessioner och ogenomförda transaktioner återställs. Alla efterföljande skrivåtgärder och transaktionen genomför misslyckas. Alla efterföljande skrivskyddade frågor fungerar utan avbrott.  
+När servern har angetts till skrivskyddat läge kopplas bort alla befintliga sessioner och ogenomförda transaktioner återställs. Alla efterföljande skrivåtgärder och transaktionen genomför misslyckas. Alla efterföljande skrivskyddade frågor fungerar utan avbrott.  
 
-Du kan öka mängden lagringsutrymme som är allokerade till servern, eller så kan du starta en ny session i läsa / skriva-läge och släpp data att frigöra ledigt utrymme. Kör `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` anger den aktuella sessionen med read-write-läge. För att undvika att data skadas, utför inte någon skrivåtgärder när servern är i skrivskyddat läge status.
+Du kan öka mängden etablerat lagringsutrymme till din server, eller så kan du starta en ny session i skrivskyddad läge och släpp information för att frigöra ledigt utrymme. Kör `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` anger den aktuella sessionen att läsa skrivläge. För att undvika att data skadas, utför inte alla skrivåtgärder när servern är fortfarande i skrivskyddad status.
 
 ## <a name="backup"></a>Backup
 
-Tjänsten tar automatiskt säkerhetskopior av servern. Minsta kvarhållningsperioden för säkerhetskopiering är sju dagar. Du kan ange en kvarhållningsperiod på upp till 35 dagar. Kvarhållning kan justeras när som helst under livslängden för servern. Du kan välja mellan lokalt redundant och geo-redundant säkerhetskopieringar. GEO-redundant säkerhetskopior lagras också i den [geo länkas region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) för den region där din server har skapats. Detta ger en nivå av skydd vid en katastrof. Du kan också få möjlighet att återställa servern till några andra Azure-region där tjänsten är tillgänglig med geo-redundant säkerhetskopior. Det går inte att ändra mellan de två säkerhetskopieringslagring alternativen när servern har skapats.
+Tjänsten tar automatiskt säkerhetskopior av din server. Minsta kvarhållningsperioden för säkerhetskopior är sju dagar. Du kan ange en kvarhållningsperiod på upp till 35 dagar. Kvarhållning kan justeras när som helst under livslängden för servern. Du kan välja mellan lokalt redundant och geo-redundanta säkerhetskopieringar. GEO-redundanta säkerhetskopieringar lagras också i den [geoparats ihop region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) för den region där din server skapas. Den här redundans ger en nivå av skydd i händelse av en katastrof. Du får också möjlighet att återställa servern till alla andra Azure-regioner där tjänsten är tillgänglig med geo-redundanta säkerhetskopieringar. Det går inte att ändra mellan de två säkerhetskopieringslagring alternativen när servern har skapats.
 
 ## <a name="scale-resources"></a>Skala resurser
 
-När du har skapat din server du oberoende kan ändra vCores, genereringen av maskinvara, prisnivån (förutom till och från grundläggande), lagring och säkerhetskopiering kvarhållningsperioden. Du kan inte ändra lagringstypen för säkerhetskopiering när en server har skapats. Antalet vCores kan skalas upp eller ned. Säkerhetskopiering kvarhållningsperioden kan skalas upp eller ned från 7 till 35 dagar. Lagringsstorleken kan bara ökas. Skalning av resurser kan göras antingen via portalen eller Azure CLI. Ett exempel på skalning med hjälp av Azure CLI, se [Övervakare och skala en Azure-databas för PostgreSQL-servern med hjälp av Azure CLI](scripts/sample-scale-server-up-or-down.md).
+När du har skapat din server du oberoende av varandra kan ändra den virtuella kärnor, maskinvara generation, prisnivån (förutom till och från Basic), hur mycket lagringsutrymme och kvarhållningsperioden för säkerhetskopior. Du kan inte ändra lagringstypen säkerhetskopiering när en server har skapats. Antalet virtuella kärnor kan skalas upp eller ned. Kvarhållningsperiod för säkerhetskopiering kan skalas upp eller ned från 7 till 35 dagar. Lagringsutrymmet kan bara ökas. Skalning av resurser kan göras antingen via portalen eller Azure CLI. Ett exempel på skalning med hjälp av Azure CLI, se [övervaka och skala en Azure Database for PostgreSQL-server med hjälp av Azure CLI](scripts/sample-scale-server-up-or-down.md).
 
-När du ändrar antalet vCores skapas genereringen av maskinvara eller en kopia av den ursprungliga servern prisnivån för den nya beräknings-fördelningen. När den nya servern är igång, växlas anslutningar till den nya servern. Inga nya anslutningar kan upprättas vid den tidpunkt då när datorn växlar till den nya servern, och alla ogenomförda transaktioner återställs. Det här fönstret varierar, men i de flesta fall är mindre än en minut.
+När du ändrar antalet virtuella kärnor, skapas kontot maskinvara eller prisnivån, en kopia av den ursprungliga servern för den nya compute-fördelningen. När den nya servern är igång kan växlas anslutningar till den nya servern. Inga nya anslutningar kan upprättas vid den tidpunkt då när systemet växlar till den nya servern, och alla ogenomförda transaktioner återställs. Det här fönstret varierar, men i de flesta fall är mindre än en minut.
 
-Skala lagring och ändra säkerhetskopiering kvarhållningsperiod är true online åtgärder. Det finns inget driftstopp och programmet påverkas inte. Som IOPS skala med storleken på lagringsplatsen etablerade öka du antalet IOPS som är tillgängliga till servern genom att skala upp lagring.
+Skala lagring och ändra kvarhållningsperioden för säkerhetskopior är SANT online åtgärder. Stilleståndstid ingen och ditt program påverkas inte. När IOPS skalar med storleken på den etablerade lagringen, kan du öka IOPS som är tillgängliga till servern genom att skala upp lagring.
 
 ## <a name="pricing"></a>Prissättning
 
-Den senaste prisinformation finns tjänsten [sida med priser](https://azure.microsoft.com/pricing/details/PostgreSQL/). Att se kostnaden för den konfiguration du vill ha den [Azure-portalen](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) visar månadskostnaden på den **prisnivå** fliken baserat på de alternativ du väljer. Om du inte har en Azure-prenumeration kan använda du Azure prisnivå Kalkylatorn för att hämta ett beräknat pris. På den [Azure prisnivå Kalkylatorn](https://azure.microsoft.com/pricing/calculator/) webbplatsen, väljer **lägga till objekt**, expandera den **databaser** kategori, och välj **Azure-databas för PostgreSQL** du anpassar alternativen.
+Den senaste prisinformationen, finns i tjänsten [prissättningssidan](https://azure.microsoft.com/pricing/details/PostgreSQL/). Att se kostnaden för den konfiguration du vill ha den [Azure-portalen](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) visar den månatliga kostnaden på den **prisnivå** fliken baserat på de alternativ du väljer. Om du inte har en Azure-prenumeration kan använda du Azures priskalkylator för att få ett beräknat pris. På den [Azures priskalkylator](https://azure.microsoft.com/pricing/calculator/) webbplats, väljer **lägga till objekt**, expandera den **databaser** kategori, och välj **Azure Database for PostgreSQL** att anpassa alternativ.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [skapa en PostgreSQL-server i portalen](tutorial-design-database-using-azure-portal.md).
-- Lär dig hur du [övervaka och skala en Azure-databas för PostgreSQL-servern med hjälp av Azure CLI](scripts/sample-scale-server-up-or-down.md).
+- Lär dig hur du [skapar en PostgreSQL-server i portalen](tutorial-design-database-using-azure-portal.md).
+- Lär dig hur du [övervakar och skalar en Azure Database for PostgreSQL-server med hjälp av Azure CLI](scripts/sample-scale-server-up-or-down.md).
 - Lär dig mer om den [tjänsten begränsningar](concepts-limits.md).

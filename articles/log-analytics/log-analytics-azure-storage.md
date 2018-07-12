@@ -1,6 +1,6 @@
 ---
 title: Samla in Azure-tjänstloggar och mått för Log Analytics | Microsoft Docs
-description: Konfigurera diagnostik på Azure-resurser att skriva loggar och mått till logganalys.
+description: Konfigurera diagnostik på Azure-resurser att skriva loggar och mått till Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -16,26 +16,26 @@ ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: na
 ms.openlocfilehash: dec2abdf68b3a38706549b4b655e33bc7abca1a3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131018"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452679"
 ---
-# <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Samla in Azure-tjänstloggar och mått för användning i logganalys
+# <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Samla in Azure-tjänstloggar och mått för användning i Log Analytics
 
-Det finns fyra olika sätt för att samla in loggar och mått för Azure-tjänster:
+Det finns fyra olika sätt att samla in loggar och mått för Azure-tjänster:
 
-1. Azure diagnostics direkt till logganalys (*diagnostik* i följande tabell)
-2. Azure diagnostics till Azure-lagring till logganalys (*lagring* i följande tabell)
-3. Kopplingar för Azure-tjänster (*kopplingar* i följande tabell)
-4. Skript för att samla in och sedan skicka data till logganalys (tomma celler i tabellen nedan och för tjänster som inte anges)
+1. Azure Diagnostics-data direkt till Log Analytics (*diagnostik* i tabellen nedan)
+2. Azure Diagnostics-data till Azure-lagring till Log Analytics (*Storage* i tabellen nedan)
+3. Anslutningsappar för Azure-tjänster (*kopplingar* i tabellen nedan)
+4. Skript för att samla in och publicera sedan data till Log Analytics (tomma i följande tabell och för tjänster som inte visas)
 
 
 | Tjänst                 | Resurstyp                           | Logs        | Mått     | Lösning |
 | --- | --- | --- | --- | --- |
 | Programgateways    | Microsoft.Network/applicationGateways   | Diagnostik | Diagnostik | [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
-| Application Insights    |                                         | Koppling   | Koppling   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (förhandsgranskning) |
+| Application Insights    |                                         | Koppling   | Koppling   | [Application Insights-anslutningsprogram](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (förhandsversion) |
 | Automation-konton     | Microsoft.Automation/AutomationAccounts | Diagnostik |             | [Mer information](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch-konton          | Microsoft.Batch/batchAccounts           | Diagnostik | Diagnostik | |
 | Klassiska molntjänster  |                                         | Storage     |             | [Mer information](log-analytics-azure-storage-iis-table.md) |
@@ -44,46 +44,46 @@ Det finns fyra olika sätt för att samla in loggar och mått för Azure-tjänst
 | Data Lake store         | Microsoft.DataLakeStore/accounts        | Diagnostik |             | |
 | Namnområde för händelsehubb     | Microsoft.EventHub/namespaces           | Diagnostik | Diagnostik | |
 | IoT-hubbar                | Microsoft.Devices/IotHubs               |             | Diagnostik | |
-| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostik |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
-| Belastningsutjämning          | Microsoft.Network/loadBalancers         | Diagnostik |             |  |
+| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostik |             | [KeyVault-analys](log-analytics-azure-key-vault.md) |
+| Lastbalanserare          | Microsoft.Network/loadBalancers         | Diagnostik |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostik | Diagnostik | |
-| Nätverkssäkerhetsgrupper | Microsoft.Network/networksecuritygroups | Diagnostik |             | [Azure Nätverkssäkerhetsgruppen Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
-| Recovery-valv         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services Analytics (förhandsgranskning)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
+| Nätverkssäkerhetsgrupper | Microsoft.Network/networksecuritygroups | Diagnostik |             | [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
+| Recovery-valv         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services-analys (förhandsversion)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Söktjänster         | Microsoft.Search/searchServices         | Diagnostik | Diagnostik | |
-| Service Bus-namnområde   | Microsoft.ServiceBus/namespaces         | Diagnostik | Diagnostik | [Service Bus Analytics (förhandsgranskning)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-| Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (förhandsgranskning)](log-analytics-service-fabric.md) |
-| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostik | [Azure SQL Analytics (förhandsgranskning)](log-analytics-azure-sql.md) |
-| Storage                 |                                         |             | Skript      | [Azure Storage Analytics (förhandsgranskning)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
+| Service Bus-namnområde   | Microsoft.ServiceBus/namespaces         | Diagnostik | Diagnostik | [Service Bus-analys (förhandsversion)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+| Service Fabric          |                                         | Storage     |             | [Service Fabric-analys (förhandsversion)](log-analytics-service-fabric.md) |
+| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostik | [Azure SQL-analys (förhandsversion)](log-analytics-azure-sql.md) |
+| Storage                 |                                         |             | Skript      | [Azure Storage-analys (förhandsversion)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtuella datorer        | Microsoft.Compute/virtualMachines       | Anknytning   | Anknytning <br> Diagnostik  | |
-| Skalningsuppsättningar i virtuella datorer | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostik | |
-| Webbservergrupper        | Microsoft.Web/serverfarms               |             | Diagnostik | |
-| Webbplatser               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostik | [Azure Web Apps Analytics (förhandsgranskning)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
+| Skalningsuppsättningar för virtuella datorer | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostik | |
+| Server webbgrupper        | Microsoft.Web/serverfarms               |             | Diagnostik | |
+| Webbplatser               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostik | [Azure Web Apps-analys (förhandsversion)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
 
 
 > [!NOTE]
-> För att övervaka virtuella Azure-datorer (både Linux och Windows), vi rekommenderar att du installerar den [Log Analytics VM-tillägget](log-analytics-azure-vm-extension.md). Agenten ger information som samlas in från virtuella datorer. Du kan också använda tillägget för virtuella datorer.
+> För att övervaka Azure-datorer (både Linux och Windows), vi rekommenderar att du installerar den [Log Analytics VM-tillägget](log-analytics-azure-vm-extension.md). Agenten ger dig information som samlas in från dina virtuella datorer. Du kan också använda tillägget för VM-skalningsuppsättningar.
 >
 >
 
-## <a name="azure-diagnostics-direct-to-log-analytics"></a>Azure diagnostics direkt till Log Analytics
-Många Azure-resurser ska kunna skriva diagnostikloggar och mått direkt till Log Analytics och detta är det bästa sättet för att samla in data för analys. När du använder Azure-diagnostik, skrivs data direkt till Log Analytics och behöver inte först skriva data till lagring.
+## <a name="azure-diagnostics-direct-to-log-analytics"></a>Azure Diagnostics-data direkt till Log Analytics
+Många Azure-resurser kan skriva diagnostikloggar och mått direkt till Log Analytics och detta är det bästa sättet att samla in data för analys. När du använder Azure-diagnostik kan data skrivs direkt till Log Analytics och behöver du inte först skriva data till lagring.
 
-Azure-resurser som stöder [Azure övervakaren](../monitoring-and-diagnostics/monitoring-overview.md) kan skicka sin loggar och mått direkt till Log Analytics.
+Azure-resurser som stöder [Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md) kan skicka sina loggar och mått direkt till Log Analytics.
 
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden till Log Analytics via diagnostikinställningarna. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
-> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. Men när exporteras via diagnostikinställningar mått representeras som alla inkommande meddelanden i alla köer i hubben.
+> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. Men när exporteras via diagnostikinställningar mått representeras som alla inkommande meddelanden för alla köer i hubben.
 >
 >
 
-* Mer information om tillgänglig statistik avser [stöds mått med Azure-Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
-* Mer information om de tillgängliga loggarna avser [stöds tjänster och schemat för diagnostikloggar](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+* Information för tillgängliga mått i [stöds mått med Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+* Information om tillgängliga loggar finns i [tjänster och -schemat stöds för diagnostikloggar](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Aktivera diagnostik med PowerShell
-Du behöver November 2016 (v2.3.0) eller senare versionen av [Azure PowerShell](/powershell/azure/overview).
+Du behöver i November 2016 (v2.3.0) eller senare versionen av [Azure PowerShell](/powershell/azure/overview).
 
-Följande PowerShell-exempel visar hur du använder [Set AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting) att aktivera diagnostik på en nätverkssäkerhetsgrupp. Samma metod som fungerar för alla resurser som stöds – ange `$resourceId` till resurs-id för den resurs som du vill aktivera diagnostik för.
+Följande PowerShell-exempel visar hur du använder [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting) att aktivera diagnostik på en grupp. Samma metod som fungerar för alla resurser som stöds – ange `$resourceId` till resurs-id för den resurs du vill aktivera diagnostik för.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -95,7 +95,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
 
 ### <a name="enable-diagnostics-with-resource-manager-templates"></a>Aktivera diagnostik med Resource Manager-mallar
 
-Aktivera diagnostik för en resurs när den har skapats och har diagnostiken skickas till logganalys-arbetsytan du kan använda en mall som liknar den nedan. Det här exemplet är för ett Automation-konto men fungerar för alla resurstyper som stöds.
+Aktivera diagnostik på en resurs när den har skapats och har diagnostiken skickas till Log Analytics-arbetsytan du kan använda en mall som liknar den nedan. Det här exemplet är för ett Automation-konto men fungerar för alla resurstyper som stöds.
 
 ```json
         {
@@ -124,39 +124,39 @@ Aktivera diagnostik för en resurs när den har skapats och har diagnostiken ski
 
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
-## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Azure-diagnostik för lagring och sedan till logganalys
+## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Azure Diagnostics-data till lagring och sedan till Log Analytics
 
-För att samla in loggar från inom vissa resurser, är det möjligt att skicka dem till Azure-lagring och sedan konfigurera logganalys om du vill läsa loggfilerna från lagringsplatsen.
+Det är möjligt att skicka dem till Azure storage och sedan konfigurera Log Analytics för att läsa loggarna från lagring för att samla in loggar från inom några resurser.
 
 Log Analytics kan använda den här metoden för att samla in diagnostik från Azure storage för följande resurser och loggar:
 
 | Resurs | Logs |
 | --- | --- |
-| Service Fabric |ETWEvent <br> Arbetsloggen <br> Tillförlitliga aktören händelse <br> Tillförlitlig tjänst-händelse |
+| Service Fabric |ETWEvent <br> Drifthändelse <br> Tillförlitliga aktörer-händelse <br> Händelse för tillförlitlig tjänst |
 | Virtuella datorer |Linux Syslog <br> Windows-händelse <br> IIS-logg <br> Windows ETWEvent |
-| Webbroller <br> Worker-roller |Linux Syslog <br> Windows-händelse <br> IIS-logg <br> Windows ETWEvent |
+| Web-roller <br> Worker-roller |Linux Syslog <br> Windows-händelse <br> IIS-logg <br> Windows ETWEvent |
 
 > [!NOTE]
-> Du debiteras normala Azure datatrafikavgifter för lagring och transaktioner när du skickar diagnostik till ett lagringskonto och när logganalys läser data från ditt lagringskonto.
+> Du debiteras normal Azure datataxa för lagring och transaktioner när du skickar diagnostik till ett lagringskonto och när Log Analytics läser data från ditt lagringskonto.
 >
 >
 
-Se [använda blob storage för IIS- och lagring för händelser](log-analytics-azure-storage-iis-table.md) lära dig mer om hur logganalys samlar in dessa loggar.
+Se [blobblagring för IIS- och table storage för händelser](log-analytics-azure-storage-iis-table.md) mer information om hur Log Analytics kan samla in dessa loggar.
 
-## <a name="connectors-for-azure-services"></a>Kopplingar för Azure-tjänster
+## <a name="connectors-for-azure-services"></a>Anslutningsappar för Azure-tjänster
 
-Det finns en koppling för Application Insights, vilket gör att data som samlas in av Application Insights som ska skickas till logganalys.
+Det finns en koppling för Application Insights, vilket gör att data som samlas in av Application Insights som ska skickas till Log Analytics.
 
-Lär dig mer om den [Application Insights connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/).
+Läs mer om den [Application Insights connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/).
 
-## <a name="scripts-to-collect-and-post-data-to-log-analytics"></a>Skript för att samla in och skicka data till logganalys
+## <a name="scripts-to-collect-and-post-data-to-log-analytics"></a>Skript för att samla in och skicka data till Log Analytics
 
-Du kan använda ett Azure Automation-skript för Azure-tjänster som inte tillhandahåller ett enkelt sätt att skicka loggar och mått till logganalys för att samla in den loggen och mått. Skriptet kan skicka data till Log Analytics med hjälp av den [datainsamlaren API](log-analytics-data-collector-api.md)
+Du kan använda ett Azure Automation-skript för Azure-tjänster som inte uppger ett enkelt sätt att skicka loggar och mått till Log Analytics för att samla in logg och mått. Skriptet kan sedan skicka data till Log Analytics med hjälp av den [API för datainsamling](log-analytics-data-collector-api.md)
 
-Azure-mallgalleriet har [exempel på användning av Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) att samla in data från tjänster och skicka det till logganalys.
+Azure-mall-galleriet har [exempel på användning av Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) att samla in data från tjänster och skickas till Log Analytics.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda blob storage för IIS- och lagring för händelser](log-analytics-azure-storage-iis-table.md) att läsa loggarna för Azure services att skriva diagnostik till tabellagring eller IIS-loggar som skrivs till blob storage.
-* [Aktivera lösningar](log-analytics-add-solutions.md) att ge insikt om data.
-* [Använd sökfrågor](log-analytics-log-searches.md) att analysera data.
+* [Använda blob storage för IIS- och table storage för händelser](log-analytics-azure-storage-iis-table.md) att läsa loggarna för Azure-tjänster som diagnostik för skrivning till tabellagring eller IIS-loggar som skrivs till blob-lagring.
+* [Aktivera lösningar](log-analytics-add-solutions.md) att ge insikter i data.
+* [Använda sökfrågor](log-analytics-log-searches.md) att analysera data.

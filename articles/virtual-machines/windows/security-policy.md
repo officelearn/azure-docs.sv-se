@@ -1,6 +1,6 @@
 ---
-title: Skydda och använda principer på din virtuella Windows-datorer i Azure | Microsoft Docs
-description: Lär dig om säkerhet och principer för Windows och virtuella datorer i Azure.
+title: Skydda och använda principer på din Windows-datorer i Azure | Microsoft Docs
+description: Läs mer om säkerhet och principer för Windows och virtuella datorer i Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 9e291d68cded02296583aba2ef7cef1d1d17b567
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31524337"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38721142"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Skydda och använda principer på virtuella datorer i Azure
 

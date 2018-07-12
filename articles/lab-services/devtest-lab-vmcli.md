@@ -14,31 +14,31 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 0f6713b9b8704e813ab1fd77ab1cf4e71e7f6670
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788615"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38235437"
 ---
-# <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Skapa och hantera virtuella datorer med DevTest Labs med hjälp av Azure CLI
-Den här snabbstartsguide vägleder dig genom att skapa, starta, ansluta, uppdaterar och rensar en utvecklingsdator i labbet. 
+# <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Skapa och hantera virtuella datorer med DevTest Labs med Azure CLI
+Den här snabbstarten får du hjälp att skapa, starta, ansluta, uppdaterar och rensar en utvecklingsdator i labbet. 
 
 Innan du börjar:
 
-* Om ett labb som inte har skapats anvisningar finns [här](devtest-lab-create-lab.md).
+* Om ett labb inte har skapat instruktioner finns [här](devtest-lab-create-lab.md).
 
-* [Installera CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Starta, köra az in för att skapa en anslutning med Azure. 
+* [Installera CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Börja genom att köra az-inloggning för att skapa en anslutning till Azure. 
 
-## <a name="create-and-verify-the-virtual-machine"></a>Skapa och kontrollera den virtuella datorn 
+## <a name="create-and-verify-the-virtual-machine"></a>Skapa och verifiera den virtuella datorn 
 Skapa en virtuell dator från en marketplace-avbildning med ssh autentisering.
 ```azurecli
 az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh --generate-ssh-keys --ip-configuration public 
 ```
 > [!NOTE]
-> Placera den **resursgrupp för labbets** i--resursgrupp parametern.
+> Placera den **övningen resursgrupp** i parametern--resursgrupp.
 >
 
-Om du vill skapa en virtuell dator med en formel, Använd--formeln parametern i [az lab vm skapa](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
+Om du vill skapa en virtuell dator med hjälp av en formel, använder formeln parametern--i [az lab vm skapa](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
 
 
 Kontrollera att den virtuella datorn är tillgänglig.
@@ -53,13 +53,13 @@ az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sam
 }
 ```
 
-## <a name="start-and-connect-to-the-virtual-machine"></a>Starta och Anslut till den virtuella datorn
+## <a name="start-and-connect-to-the-virtual-machine"></a>Starta och ansluta till den virtuella datorn
 Starta en virtuell dator.
 ```azurecli
 az lab vm start --lab-name sampleLabName --name sampleVMName --resource-group sampleLabResourceGroup
 ```
 > [!NOTE]
-> Placera den **resursgrupp för labbets** i--resursgrupp parametern.
+> Placera den **övningen resursgrupp** i parametern--resursgrupp.
 >
 
 Ansluta till en virtuell dator: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) eller [fjärrskrivbord](../virtual-machines/windows/connect-logon.md).
@@ -68,7 +68,7 @@ ssh userName@ipAddressOrfqdn
 ```
 
 ## <a name="update-the-virtual-machine"></a>Uppdatera den virtuella datorn
-Tillämpa artefakter för en virtuell dator.
+Tillämpa artefakter till en virtuell dator.
 ```azurecli
 az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resource-group sampleResourceGroup  --artifacts @/artifacts.json
 ```
@@ -103,7 +103,7 @@ az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resou
 ]
 ```
 
-Lista artefakter i labbet.
+Lista artefakter i laboratoriet.
 ```azurecli
 az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand "properties(\$expand=artifacts)" --query 'artifacts[].{artifactId: artifactId, status: status}'
 ```

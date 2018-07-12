@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: aa309abecdf0fb0c0acaf18e53bde4600c101a44
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: b2bb5e0f9b138af5ff69599b7ba35457788c8a65
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34655389"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968455"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps stöds kategorier
 
-När du gör en [kategorisökning](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchpoicategory) efter Orienteringspunkter, grundkategorier över hundra stöds. Nedan visas en lista över kategorikoder för stöds kategorinamn. Kategorikoder har genererats för övre nivå kategorier. Alla undernycklar kategorier delar samma kategorikod. Observera att den här kategorilistan kan ändras med nya versioner av data.
+När du gör en [kategorisökning](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) efter Orienteringspunkter, grundkategorier över hundra stöds. Nedan visas en lista över kategorikoder för stöds kategorinamn. Kategorikoder har genererats för övre nivå kategorier. Alla undernycklar kategorier delar samma kategorikod. Observera att den här kategorilistan kan ändras med nya versioner av data.
 
 <br/>
 

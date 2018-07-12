@@ -1,6 +1,6 @@
 ---
-title: Gränser och -konfiguration – Azure Logic Apps | Microsoft Docs
-description: Tjänsten gränser och konfigurationsvärden för Azure Logic Apps
+title: Gränser och konfiguration – Azure Logic Apps | Microsoft Docs
+description: Tjänsten begränsningar och konfigurationsvärden för Azure Logic Apps
 services: logic-apps
 author: ecfan
 manager: jeconnoc
@@ -10,34 +10,34 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 2534210c903e77462ece91c577d731d9c8e3726f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8baca0fc46489a22d587ba6e742615b1da79c19a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299723"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970235"
 ---
-# <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurationsinformation för Logikappar i Azure
+# <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Begränsningar och konfigurationsinformation för Azure Logic Apps
 
-Den här artikeln beskriver gränser och konfigurationsinformation för att skapa och köra automatiska arbetsflöden med Azure Logikappar. Microsoft Flow finns [gränser och konfigurationen i Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config).
+Den här artikeln beskriver gränser och konfigureringsinformation för att skapa och köra automatiska arbetsflöden med Azure Logic Apps. Microsoft Flow finns [gränser och konfigurering i Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config).
 
 <a name="definition-limits"></a>
 
-## <a name="definition-limits"></a>Definition av gränser
+## <a name="definition-limits"></a>Definitionsgränser
 
-Här följer gränser för en enskild logik app definition:
+Här följer begränsningarna för en enda logic app-definition:
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
-| Åtgärder per arbetsflöde | 500 | Du kan lägga till inkapslade arbetsflöden som behövs för att utöka den här gränsen. |
-| Tillåtna inkapslingsdjup för åtgärder | 8 | Du kan lägga till inkapslade arbetsflöden som behövs för att utöka den här gränsen. | 
+| Åtgärder per arbetsflöde | 500 | Du kan lägga till kapslade arbetsflöden efter behov för att utöka den här gränsen. |
+| Tillåtna kapslingsdjup för åtgärder | 8 | Du kan lägga till kapslade arbetsflöden efter behov för att utöka den här gränsen. | 
 | Arbetsflöden per region per prenumeration | 1,000 | | 
-| Utlösare per arbetsflöde | 10 | När du arbetar i kodvy inte designer | 
-| Växeln scope fall gränsen | 25 | | 
+| Utlösare per arbetsflöde | 10 | När du arbetar i kodvyn inte designer | 
+| Växeln omfång fall gräns | 25 | | 
 | Variabler per arbetsflöde | 250 | | 
 | Tecken per uttryck | 8 192 | | 
 | Maximal storlek för `trackedProperties` | 16 000 tecken | 
-| Namn för `action` eller `trigger` | 80 tecken | | 
+| Namn på för `action` eller `trigger` | 80 tecken | | 
 | Längden på `description` | 256 tecken | | 
 | Maximalt `parameters` | 50 | | 
 | Maximalt `outputs` | 10 | | 
@@ -45,16 +45,16 @@ Här följer gränser för en enskild logik app definition:
 
 <a name="run-duration-retention-limits"></a>
 
-## <a name="run-duration-and-retention-limits"></a>Kör varaktighet och kvarhållning gränser
+## <a name="run-duration-and-retention-limits"></a>Kör begränsningar för varaktighet och kvarhållning
 
-Här följer gränser för en enkel logikapp som kör:
+Här följer begränsningarna för en enkel logikapp-körningen:
 
 | Namn | Gräns | Anteckningar | 
 |------|-------|-------| 
-| Kör varaktighet | 90 dagar | Om du vill ändra den här gränsen [ändra kör varaktighet](#change-duration). | 
-| Kvarhållning av lagring | 90 dagar från kör starttid | Om du vill ändra den här gränsen [ändra lagring kvarhållning](#change-retention). | 
-| Minsta intervall | 1 sekund | | 
-| Maximalt intervall | 500 dagar | | 
+| Varaktighet för körning | 90 dagar | Om du vill ändra den här gränsen, se [ändra körningens varaktighet](#change-duration). | 
+| Kvarhållning | Starttid för 90 dagar från kör | Om du vill ändra den här gränsen, se [ändra kvarhållning](#change-retention). | 
+| Minsta Upprepningsintervall | 1 sekund | | 
+| Maximal Upprepningsintervall | 500 dagar | | 
 |||| 
 
 <a name="change-duration"></a>
@@ -62,108 +62,108 @@ Här följer gränser för en enkel logikapp som kör:
 
 ### <a name="change-run-duration-and-storage-retention"></a>Ändra omgången varaktigheten och lagringen
 
-Du kan ändra den här gränsen till ett värde mellan 7 dagar och 90 dagar. Gå ovanför den maximala gränsen [kontakta Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina krav.
+Du kan ändra den här gränsen till ett värde mellan 7 dagar och 90 dagar. Att gå över gränsvärdet, [Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina behov.
 
-1. I Azure-portalen på din logikapp-menyn väljer du **inställningar för arbetsflöde**. 
+1. I Azure-portalen på logikappens meny väljer **arbetsflödesinställningarna**. 
 
-2. Under **Runtime alternativ**, från den **kör historik kvarhållning dagar** Välj **anpassad**. 
+2. Under **körningsalternativ**, från den **kör kvarhållning av körningshistorik i dagar** väljer **anpassad**. 
 
-3. Ange eller dra reglaget för antalet dagar som du vill.
+3. Ange eller dra skjutreglaget för hur många dagar som du vill.
 
 <a name="looping-debatching-limits"></a>
 
-## <a name="looping-and-debatching-limits"></a>Slingor och debatching gränser
+## <a name="looping-and-debatching-limits"></a>Loopning och ombatchningsgränser
 
-Här följer gränser för en enkel logikapp som kör:
+Här följer begränsningarna för en enkel logikapp-körningen:
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
-| Tills iterationer | 5 000 | | 
-| ForEach-objekt | 100,000 | Du kan använda den [fråga åtgärd](../connectors/connectors-native-query.md) att filtrera större matriser efter behov. | 
-| ForEach parallellitet | 50 | Standardvärdet är 20. <p>Ange för att ändra den här standardnivån i en ForEach-loop i `runtimeConfiguration` egenskap i den `foreach` åtgärd. <p>Om du vill köra en ForEach-loop sekventiellt, den `operationOptions` egenskapen till ”sekventiella” i den `foreach` åtgärd. | 
-| SplitOn objekt | 100,000 | | 
+| Until-iterationer | 5 000 | | 
+| ForEach-objekt | 100,000 | Du kan använda den [frågeåtgärd](../connectors/connectors-native-query.md) att filtrera större matriser efter behov. | 
+| ForEach-parallellitet | 50 | Standardvärdet är 20. <p>Du kan ändra den här standardnivån i en ForEach-loop, ange den `runtimeConfiguration` -egenskapen i den `foreach` åtgärd. <p>Om du vill köra sekventiellt en ForEach-loop, den `operationOptions` egenskap ”sekventiellt” i den `foreach` åtgärd. | 
+| SplitOn-objekt | 100,000 | | 
 |||| 
 
 <a name="throughput-limits"></a>
 
-## <a name="throughput-limits"></a>Genomströmning gränser
+## <a name="throughput-limits"></a>Dataflödesbegränsningar
 
-Här följer gränser för en enkel logikapp som kör:
+Här följer begränsningarna för en enkel logikapp-körningen:
 
 | Namn | Gräns | Anteckningar | 
 | ----- | ----- | ----- | 
-| Åtgärder körningar per 5 minuter | 100,000 | Om du vill öka gränsen för 300,000, kan du köra en logikapp i `High Throughput` läge. Konfigurera hög genomströmning-läge under den `runtimeConfiguration` av arbetsflödet resurs, ange den `operationOptions` egenskapen `OptimizedForHighThroughput`. <p>**Obs**: hög genomströmning läge är en förhandsversion. Du kan också distribuera en arbetsbelastning i mer än en app efter behov. | 
-| Åtgärder samtidiga utgående anrop | ~2,500 | Minska antalet samtidiga begäranden eller minska tidsåtgången efter behov. | 
-| Runtime-slutpunkten: samtidiga inkommande samtal | ~1,000 | Minska antalet samtidiga begäranden eller minska tidsåtgången efter behov. | 
-| Runtime-slutpunkten: läsa anrop per 5 minuter  | 60,000 | Kan fördela belastningen över flera appen efter behov. | 
-| Runtime-slutpunkten: anropa anrop per 5 minuter| 45,000 | Kan fördela belastningen över flera appen efter behov. | 
+| Åtgärder körningar per 5 minuter | 100,000 | Om du vill höja gränsen till 300 000, du kan köra en logikapp i `High Throughput` läge. Konfigurera hög genomströmning-läge under den `runtimeConfiguration` för resursen i arbetsflödet, den `operationOptions` egenskap `OptimizedForHighThroughput`. <p>**Obs**: läge för hög genomströmning är en förhandsversion. Du kan också distribuera en arbetsbelastning i fler än en app efter behov. | 
+| Åtgärder samtidiga utgående samtal | ~2,500 | Minska antalet samtidiga begäranden eller minska varaktigheten efter behov. | 
+| Runtime-slutpunkten: samtidiga inkommande samtal | ~1,000 | Minska antalet samtidiga begäranden eller minska varaktigheten efter behov. | 
+| Runtime-slutpunkten: läsa anrop per 5 minuter  | 60,000 | Kan fördela belastningen över fler än en app efter behov. | 
+| Runtime-slutpunkten: anropa anrop per 5 minuter| 45,000 | Kan fördela belastningen över fler än en app efter behov. | 
 |||| 
 
-Att över dessa gränser i normala bearbetningen eller köra belastningen tester kan gå över dessa gränser [kontakta Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina krav.
+Att gå över dessa gränser i normala bearbetningen eller köra belastningstest som kan gå över dessa gränser [Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina behov.
 
 <a name="request-limits"></a>
 
 ## <a name="http-request-limits"></a>HTTP-begäran gränser
 
-Här följer gränser för en enskild HTTP-begäran eller synkron connector anrop:
+Här följer begränsningarna för en HTTP-begäran eller synkron anslutning anrop:
 
 #### <a name="timeout"></a>Timeout
 
-Vissa åtgärder för kopplingen asynkrona anrop eller lyssna efter begäranden som webhook, så att tidsgränsen för dessa åtgärder kan vara längre än dessa begränsningar. Mer information finns i de tekniska detaljerna för specifika anslutningen och även [arbetsflöde utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
+Vissa åtgärder för anslutningsappen göra asynkrona anrop eller lyssna efter begäranden som webhook, så att tidsgränsen för de här åtgärderna kan vara längre än dessa gränser. Mer information finns i de tekniska detaljerna för specifika anslutningen och även [utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
-| Utgående begäran | 120 sekunder | Längre kör åtgärder använder en [asynkron avsökning mönster](../logic-apps/logic-apps-create-api-app.md#async-pattern) eller en [tills loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). | 
-| Synkron svar | 120 sekunder | För den ursprungliga begäranden hämta svaret måste alla steg i svaret slutföras inom den om du anropar en annan logikappen som ett kapslat arbetsflöde. Mer information finns i [anropa utlösare eller kapsla logikappar](../logic-apps/logic-apps-http-endpoint.md). | 
+| Utgående begäran | 120 sekunder | Längre åtgärder, använda en [asynkrona avsökningen mönstret](../logic-apps/logic-apps-create-api-app.md#async-pattern) eller en [until-loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). | 
+| Synkron svar | 120 sekunder | För den ursprungliga begäran att hämta svaret måste alla steg i svaret slutförs inom gränsen, såvida inte du anropa en annan logikapp som ett kapslat arbetsflöde. Mer information finns i [anropa, utlösare, eller kapsla logikappar](../logic-apps/logic-apps-http-endpoint.md). | 
 |||| 
 
 #### <a name="message-size"></a>Meddelandestorlek
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
-| Meddelandestorlek | 100 MB | Du kan undvika den här gränsen genom att se [hantera stora meddelanden med högoptimerat](../logic-apps/logic-apps-handle-large-messages.md). Dock kan vissa kopplingar och API: er inte stöder högoptimerat eller ens Standardgränsen. | 
-| Meddelandestorlek med högoptimerat | 1 GB | Den här gränsen gäller för åtgärder som har inbyggt stöd för högoptimerat eller kan du aktivera högoptimerat i sina runtime-konfigurationen. Mer information finns i [hantera stora meddelanden med högoptimerat](../logic-apps/logic-apps-handle-large-messages.md). | 
-| Gränsen för utvärdering av uttryck | 131,072 tecken | Den `@concat()`, `@base64()`, `@string()` uttryck får inte vara längre än den här gränsen. | 
+| Meddelandestorlek | 100 MB | Du kan undvika den här gränsen, se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). Men kan vissa kopplingar och API: er inte stöd för storlekar eller även Standardgränsen. | 
+| Meddelandestorlek med storlekar | 1 GB | Den här gränsen gäller för åtgärder som har inbyggt stöd för storlekar eller kan du aktivera storlekar i sina runtime-konfigurationen. Mer information finns i [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). | 
+| Gräns för uttrycksutvärdering | 131 072 tecken | Den `@concat()`, `@base64()`, `@string()` uttryck får inte vara längre än den här gränsen. | 
 |||| 
 
 #### <a name="retry-policy"></a>Återförsöksprincip
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
-| Antal återförsök | 90 | Standardvärdet är 4. Om du vill ändra standardvärdet, den [försök parametern](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
-| Högsta antal försök | 1 dag | Om du vill ändra standardvärdet, den [försök parametern](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
-| Min tid innan nytt försök | 5 sekunder | Om du vill ändra standardvärdet, den [försök parametern](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Antal återförsök | 90 | Standardvärdet är 4. Du kan ändra standardinställningen med den [försök principparametern](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
+| Maximal tid innan nytt försök | 1 dag | Du kan ändra standardinställningen med den [försök principparametern](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
+| Min tid innan nytt försök | 5 sekunder | Du kan ändra standardinställningen med den [försök principparametern](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 |||| 
 
 <a name="custom-connector-limits"></a>
 
-## <a name="custom-connector-limits"></a>Anpassad koppling gränser
+## <a name="custom-connector-limits"></a>Gränser för anpassad anslutningsapp
 
-Här följer gränser för anpassade kopplingar som du kan skapa från web API: er.
+Här följer begränsningarna för anpassade anslutningsappar som du kan skapa från web API: er.
 
 | Namn | Gräns | 
 | ---- | ----- | 
-| Antal anpassade kopplingar | 1 000 per Azure-prenumeration | 
-| Antal begäranden per minut för varje anslutning som skapats av en anpassad anslutningsapp | 500 förfrågningar per anslutning |
+| Antal anpassade anslutningsappar | 1 000 per Azure-prenumeration | 
+| Antal begäranden per minut för varje anslutning som skapats av en anpassad anslutningsapp | 500 begäranden per anslutning |
 |||| 
 
 <a name="integration-account-limits"></a>
 
-## <a name="integration-account-limits"></a>Gränser för integrering
+## <a name="integration-account-limits"></a>Begränsningar för integrering
 
 <a name="artifact-number-limits"></a>
 
-### <a name="artifact-limits-per-integration-account"></a>Artefakt gränser per integration konto
+### <a name="artifact-limits-per-integration-account"></a>Artefakten gränserna per konto
 
-Här följer gränser för antalet artefakter för varje konto för integrering. Mer information finns i [Logic Apps priser](https://azure.microsoft.com/pricing/details/logic-apps/). 
+Här finns gränser för antalet artefakter för varje integrationskontot. Mer information finns i [Logic Apps-priser](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 *Kostnadsfri nivå*
 
-Använd den kostnadsfria nivån endast för undersökande scenarier, inte produktion scenarier. Det här skiktet begränsar genomflöde och användning och har inga servicenivåavtal (SLA).
+Använd den kostnadsfria nivån enbart för undersökande scenarier, inte produktionsscenarier. Den här nivån begränsar dataflödet och användning och har inget servicenivåavtal (SLA).
 
 | Artefakt | Gräns | Anteckningar | 
 |----------|-------|-------| 
-| EDI handelspartner | 25 | | 
+| EDI-affärspartner | 25 | | 
 | Handel EDI-avtal | 10 | | 
 | Kartor | 25 | | 
 | Scheman | 25 | 
@@ -172,11 +172,11 @@ Använd den kostnadsfria nivån endast för undersökande scenarier, inte produk
 | Certifikat | 25 | | 
 |||| 
 
-*Grundläggande nivån*
+*Basic-nivån*
 
 | Artefakt | Gräns | Anteckningar | 
 |----------|-------|-------| 
-| EDI handelspartner | 2 | | 
+| EDI-affärspartner | 2 | | 
 | Handel EDI-avtal | 1 | | 
 | Kartor | 500 | | 
 | Scheman | 500 | 
@@ -189,7 +189,7 @@ Använd den kostnadsfria nivån endast för undersökande scenarier, inte produk
 
 | Artefakt | Gräns | Anteckningar | 
 |----------|-------|-------| 
-| EDI handelspartner | 500 | | 
+| EDI-affärspartner | 500 | | 
 | Handel EDI-avtal | 500 | | 
 | Kartor | 500 | | 
 | Scheman | 500 | 
@@ -200,23 +200,23 @@ Använd den kostnadsfria nivån endast för undersökande scenarier, inte produk
 
 <a name="artifact-capacity-limits"></a>
 
-### <a name="artifact-capacity-limits"></a>Artefakt kapacitetsbegränsningar
+### <a name="artifact-capacity-limits"></a>Artefakten kapacitetsbegränsningar
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
-| Schema | 8 MB | Om du vill överföra filer som är större än 2 MB, Använd den [blob-URI](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+| Schema | 8 MB | Om du vill ladda upp filer som är större än 2 MB, använda den [blob-URI: N](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Karta (XSLT-fil) | 2 MB | | 
-| Runtime-slutpunkten: läsa anrop per 5 minuter | 60,000 | Du kan distribuera belastningen över fler än ett konto vid behov. | 
-| Runtime-slutpunkten: anropa anrop per 5 minuter | 45,000 | Du kan distribuera belastningen över fler än ett konto vid behov. | 
-| Runtime-slutpunkten: spåra anrop per 5 minuter | 45,000 | Du kan distribuera belastningen över fler än ett konto vid behov. | 
-| Runtime-slutpunkten: blockerar samtidiga anrop | ~1,000 | Du kan minska antalet samtidiga begäranden eller minska tidsåtgången vid behov. | 
+| Runtime-slutpunkten: läsa anrop per 5 minuter | 60,000 | Du kan distribuera arbetsbelastningen över fler än ett konto som behövs. | 
+| Runtime-slutpunkten: anropa anrop per 5 minuter | 45,000 | Du kan distribuera arbetsbelastningen över fler än ett konto som behövs. | 
+| Runtime-slutpunkten: spåra anrop per 5 minuter | 45,000 | Du kan distribuera arbetsbelastningen över fler än ett konto som behövs. | 
+| Runtime-slutpunkten: blockerar samtidiga anrop | ~1,000 | Du kan minska antalet samtidiga begäranden eller minska varaktigheten efter behov. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>
 
-### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>Meddelandestorlek B2B-protokollet (AS2 X12 EDIFACT)
+### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>B2B-protokollet (AS2 X12, EDIFACT) meddelandestorlek
 
-Här följer gränser som gäller för B2B-protokoll:
+Här följer de begränsningar som gäller för B2B-protokoll:
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
@@ -229,14 +229,14 @@ Här följer gränser som gäller för B2B-protokoll:
 
 ## <a name="configuration-ip-addresses"></a>Konfiguration: IP-adresser
 
-### <a name="azure-logic-apps-service"></a>Logic Apps i Azure-tjänsten
+### <a name="azure-logic-apps-service"></a>Azure Logic Apps-tjänsten
 
-Alla logikappar i en region använder samma intervall av IP-adresser. Att stödja de anrop som logic apps gör direkt med [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), och andra HTTP-begäranden, konfigurerar din brandväggskonfigurationer så att de inkluderar dessa utgående och inkommande IP-adresser baserat på dina logic apps finns där:
+Alla logikappar i en region använder samma intervall av IP-adresser. Stöd för de anrop som logic apps gör direkt med [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), och andra HTTP-begäranden, konfigurera din brandväggskonfigurationer så att de inkluderar dessa utgående och inkommande IP-adresser baserat på där dina logic apps finns:
 
-| Logic Apps region | Utgående IP |
+| Logic Apps-regionen | Utgående IP |
 |-------------------|-------------|
-| Australien | 13.73.114.207, 13.77.3.139, 13.70.159.205 |
 | Östra Australien | 13.75.149.4, 104.210.91.55, 104.210.90.241 |
+| Sydöstra Australien | 13.73.114.207, 13.77.3.139, 13.70.159.205 |
 | Södra Brasilien | 191.235.82.221, 191.235.91.7, 191.234.182.26 |
 | Centrala Kanada | 52.233.29.92, 52.228.39.241, 52.228.39.244 |
 | Östra Kanada | 52.232.128.155, 52.229.120.45, 52.229.126.25 |
@@ -261,7 +261,7 @@ Alla logikappar i en region använder samma intervall av IP-adresser. Att stödj
 | Storbritannien, västra | 51.141.54.185, 51.141.45.238, 51.141.47.136 |
 | | |
 
-| Logic Apps region | Inkommande IP |
+| Logic Apps-regionen | Inkommande IP |
 |-------------------|------------|
 | Östra Australien | 3.75.153.66, 104.210.89.222, 104.210.89.244 |
 | Sydöstra Australien | 13.73.115.153, 40.115.78.70, 40.115.78.237 |
@@ -291,13 +291,13 @@ Alla logikappar i en region använder samma intervall av IP-adresser. Att stödj
 
 ### <a name="connectors"></a>Anslutningar
 
-Att stödja anropen som [kopplingar](../connectors/apis-list.md) fabrikat, ställa in din brandväggskonfigurationer så att de inkluderar dessa utgående IP-adresser baserat på de regioner där dina logic apps finns.
+Stöd för anrop som [kopplingar](../connectors/apis-list.md) märke, konfigurera din brandväggskonfigurationer så att de inkluderar dessa utgående IP-adresser baserat på de regioner där dina logic apps finns.
 
 > [!IMPORTANT]
 >
-> Om du har befintliga konfigurationer kan uppdatera dem **så snart som möjligt före den 1 September 2018** så att de inkluderar och matchar IP-adresser i den här listan för de regioner där dina logic apps finns. 
+> Om du har befintliga konfigurationer kan uppdatera dem **så snart som möjligt före den 1 September 2018** så att de omfattar och matchar IP-adresser i den här listan för de regioner där dina logic apps finns. 
 
-| Logic Apps region | Utgående IP | 
+| Logic Apps-regionen | Utgående IP | 
 |-------------------|-------------|  
 | Östra Australien | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 | 
 | Sydöstra Australien | 13.77.50.240 - 13.77.50.255, 13.70.136.174, 40.127.80.34 | 

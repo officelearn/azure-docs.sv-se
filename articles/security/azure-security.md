@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: bda8f72de16d1d8d95823de98aab8ec209908e63
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a1cd2ecc738434fc8d5de03ef538be3ea896fa2b
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437798"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971014"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -113,7 +113,7 @@ Avsnittet innehåller ytterligare information om viktiga funktioner i programmet
 En av de enklaste sätten att komma igång med testa efter säkerhetsrisker på din [App Service-app](https://docs.microsoft.com/azure/app-service/app-service-web-overview) är att använda den [integrering med Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) att utföra ett klick granskar säkerhetsrisker i din app. Du kan visa testresultaten i en rapport som lätt att förstå och lär dig att åtgärda sårbarheten med stegvisa instruktioner.
 
 ### <a name="penetration-testing"></a>Penetrationstester
-Om du vill utföra egna test för penetrationstester eller vill använda en annan skanner suite eller providern, måste du följa den [Azure penetrationstest godkännandeprocess](https://docs.microsoft.com/en-us/azure/security/azure-security-pen-testing ) och hämta förhandsgodkännande för att utföra önskade penetrationstester testerna.
+Om du vill utföra egna test för penetrationstester eller vill använda en annan skanner suite eller providern, måste du följa den [Azure penetrationstest godkännandeprocess](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) och hämta förhandsgodkännande för att utföra önskade penetrationstester testerna.
 
 ### <a name="web-application-firewall"></a>Brandvägg för webbaserade program
 Brandväggen för webbaserade program (WAF) i [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) skyddar webbprogram från vanliga webbaserade attacker som SQL injection, cross-site skriptattacker och sessionskapning. Den levereras förkonfigurerad med skydd mot hot som identifieras av den [OWASP Open Web Application Security Project () som de översta 10 vanligaste sårbarheterna](https://msdn.microsoft.com/library/).

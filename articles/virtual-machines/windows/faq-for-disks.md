@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor (FAQ) om Azure IaaS Windows VM-diskarna | Microsoft Docs
-description: Vanliga frågor och svar om virtuella Azure IaaS Windows-datorn och premiumdiskar (hanterade och ohanterade)
+title: Vanliga frågor (och svar FAQ) om Azure IaaS Windows VM-diskar | Microsoft Docs
+description: Vanliga frågor och svar om Windows Azure IaaS-VM och premiumdiskar (hanterade och ohanterade)
 services: virtual-machines-windows
 documentationcenter: ''
 author: roygara
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.openlocfilehash: 4583131e86788264fe247d80ba7e20c9efa98288
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30288339"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295521"
 ---
 [!INCLUDE [virtual-machines-faq-for-disks](../../../includes/virtual-machines-faq-for-disks.md)]

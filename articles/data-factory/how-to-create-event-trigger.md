@@ -10,74 +10,79 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/10/2018
 ms.author: douglasl
-ms.openlocfilehash: a9c15b239ee0bd0dde0b1f11691565b2676e3d07
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 313f4915a8c522ae2b9fc5ebbbe85fdfb4741cc4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062129"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969586"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Skapa en utlösare som kör en pipeline som svar på en händelse
 
-Den här artikeln beskriver händelsebaserade utlösare som du kan skapa i din Data Factory pipelines.
+Den här artikeln beskriver de händelsebaserade utlösare som du kan skapa i Data Factory-pipeliner.
 
-Händelsedriven arkitektur (EDA) är en gemensam integration datamönster som inbegriper produktion, identifiering, förbrukning och reaktion på händelser. Data integrationsscenarier kräver ofta Data Factory kunder att utlösa pipelines baserat på händelser. Data Factory har nu integrerats med [Azure händelse rutnätet](https://azure.microsoft.com/services/event-grid/), där kan du utlösa rörledningar på en händelse.
+Händelsedriven arkitektur (EDA) är ett vanligt integration mönster för data som inbegriper produktion, identifiering, förbrukning och reaktionen på händelser. Dataintegrering kräver ofta Data Factory-kunder som utlöser pipelines baserat på händelser. Data Factory är nu integrerat med [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), där kan du utlöser pipelines på en händelse.
+
+> [!NOTE]
+> Integrering som beskrivs i den här artikeln är beroende av [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Se till att prenumerationen är registrerad med Event Grid-resursprovidern. Mer information finns i [resursproviders och resurstyper](../azure-resource-manager/resource-manager-supported-services.md#portal).
 
 ## <a name="data-factory-ui"></a>Data Factory-användargränssnitt
 
 ### <a name="create-a-new-event-trigger"></a>Skapa en ny händelseutlösare
 
-En typisk händelse är till exempel ankomsten av en fil eller borttagningen av en fil i Azure Storage-konto. Du kan skapa en utlösare som svarar på den här händelsen i din Data Factory-pipelinen.
+En typisk händelse är till exempel ankomsten av en fil eller borttagningen av en fil i Azure Storage-kontot. Du kan skapa en utlösare som svarar på händelsen i din Data Factory-pipeline.
 
 > [!NOTE]
-> Denna integration stöder endast version 2 Storage-konton (generella).
+> Den här integreringen stöder endast version 2 Storage-konton (Allmänt).
 
 ![Skapa en ny utlösare](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 
-### <a name="select-the-event-trigger-type"></a>Välj typen av händelse-utlösare
+### <a name="configure-the-event-trigger"></a>Konfigurera event-utlösare
 
-När filen når din lagringsplats och motsvarande blob skapas, utlöser den här händelsen och kör din Data Factory-pipelinen. Du kan skapa en utlösare som svarar på en händelse för blob-skapa en händelse för borttagning av blob eller båda händelserna i din Data Factory pipelines.
+Med den **blobbsökvägen börjar med** och **blobbsökvägen slutar med** egenskaper, kan du ange den behållare, mappar och blob-namnet som du vill ta emot händelser. Du kan använda olika mönster för både **blobbsökvägen börjar med** och **blobbsökvägen slutar med** egenskaper, som visas i exemplen senare i den här artikeln. Minst en av dessa egenskaper krävs.
 
-![Välj utlösartypen som händelse](media/how-to-create-event-trigger/event-based-trigger-image2.png)
+![Konfigurera event-utlösare](media/how-to-create-event-trigger/event-based-trigger-image2.png)
 
-### <a name="configure-the-event-trigger"></a>Konfigurera händelseutlösaren
+### <a name="select-the-event-trigger-type"></a>Välj typ av händelse-utlösare
 
-Med den **blobbsökvägen börjar med** och **blobbsökvägen slutar med** egenskaper, kan du ange behållare, mappar och blob-namn som du vill ta emot händelser. Du kan använda olika mönster för både **blobbsökvägen börjar med** och **blobbsökvägen slutar med** egenskaper, som visas i exemplen nedan. Minst en av dessa egenskaper krävs.
+När filen tas emot i din lagringsplats och motsvarande blob skapas den här händelsen utlöses och kör din Data Factory-pipeline. Du kan skapa en utlösare som svarar på en händelse för skapande av blob, en händelse för borttagning av blob eller båda händelser i Data Factory-pipeliner.
 
-![Konfigurera händelseutlösaren](media/how-to-create-event-trigger/event-based-trigger-image3.png)
+![Välj Utlösartyp som händelse](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
 ## <a name="json-schema"></a>JSON-schema
 
-Följande tabell innehåller en översikt över schemaelement som är relaterade till händelsebaserade utlösare:
+Följande tabell innehåller en översikt över de element som är relaterade till händelsebaserade utlösare:
 
 | **JSON-Element** | **Beskrivning** | **Typ** | **Tillåtna värden** | **Krävs** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
 | **Omfång** | Resurs-ID för Azure Resource Manager för Lagringskontot. | Sträng | Azure Resource Manager-ID | Ja |
-| **Händelser** | Typ av händelser som orsakar den här utlösaren att utlösas. | Matris    | Microsoft.Storage.BlobCreated Microsoft.Storage.BlobDeleted | Ja, vilken kombination som helst. |
-| **blobPathBeginsWith** | Blobbsökvägen måste börja med det angivna mönstret för utlösare ska starta. Till exempel utlöses '/ poster/blobbar/december /' endast utlösare för blobbar i mappen december under behållaren poster. | Sträng   | | Minst en av dessa egenskaper måste anges: blobPathBeginsWith blobPathEndsWith. |
-| **blobPathEndsWith** | Blobbsökvägen måste avslutas med det angivna mönstret för utlösare ska starta. Till exempel 'december/boxes.csv' endast att starta utlösare för blobbar med namnet rutor i en mapp för december. | Sträng   | | Minst en av dessa egenskaper måste anges: blobPathBeginsWith blobPathEndsWith. |
+| **händelser** | Typ av händelser som orsakar den här utlösaren utlöses. | Matris    | Microsoft.Storage.BlobCreated Microsoft.Storage.BlobDeleted | Ja, vilken kombination som helst. |
+| **blobPathBeginsWith** | Blobbsökvägen måste börja med det angivna mönstret för utlösare utlöses. Till exempel utlöses ”/ poster/objekt/december /' endast en utlösare för blobbar i mappen december under behållaren poster. | Sträng   | | Minst en av de här egenskaperna måste anges: blobPathBeginsWith, blobPathEndsWith. |
+| **blobPathEndsWith** | Blobbsökväg måste avslutas med det angivna mönstret för utlösare utlöses. Till exempel kommer ”december/boxes.csv” endast innan utlösaren utlöser för BLOB-objekt med namnet rutor i en mapp för december. | Sträng   | | Minst en av de här egenskaperna måste anges: blobPathBeginsWith, blobPathEndsWith. |
 
 ## <a name="examples-of-event-based-triggers"></a>Exempel på händelsebaserade utlösare
 
-Det här avsnittet innehåller exempel på inställningar för händelsebaserad utlösare.
+Det här avsnittet innehåller exempel på inställningar för händelsebaserade utlösare.
 
--   **BLOB-sökväg som börjar med**('/ containername /') – tar emot händelser för alla blob-behållare.
--   **BLOB-sökväg som börjar med**(”/ mappnamn-containername/blobbar”) – tar emot händelser för alla blobbar i behållaren för containername och mappnamn mappen.
--   **BLOB-sökväg som börjar med**('/ containername/blobs/foldername/file.txt') – tar emot händelser för en blob med namnet fil.txt i mappen mappnamn under behållaren containername.
--   **Blobbsökvägen som slutar med**('fil.txt') – mottagningar händelser för en blob med namnet fil.txt på valfri sökväg.
--   **Blobbsökvägen som slutar med**('/ containername/blobs/file.txt') – tar emot händelser för en blob med namnet fil.txt under behållaren containername.
--   **Blobbsökvägen som slutar med**('foldername/file.txt') – mottagningar händelser för en blob med namnet fil.txt mappnamn mappen under en behållare.
+-   **Blobbsökväg som börjar med**('/ containername / ”) – tar emot händelser för alla blobar i behållaren.
+-   **Blobbsökväg som börjar med**(”/ mappnamn/blobar/containername”) – tar emot händelser för alla blobar i behållaren för containername och mappnamn mappen.
+-   **Blobbsökväg som börjar med**('/ containername/blobs/foldername/file.txt ”) – tar emot händelser för en blob med namnet fil.txt i mappnamn mapp under behållaren containername.
+-   **Blobbsökväg slutar med**('fil.txt') – Receives händelser för en blob med namnet fil.txt på valfri sökväg.
+-   **Blobbsökväg slutar med**('/ containername/blobs/file.txt ”) – tar emot händelser för en blob med namnet fil.txt under behållaren containername.
+-   **Blobbsökväg slutar med**('foldername/file.txt') – Receives händelser för en blob med namnet fil.txt i mappnamn mapp under någon behållare.
 
 > [!NOTE]
 > Du behöver ta den `/blobs/` segmentet i sökvägen när du anger behållaren och mappen, behållare och filen eller behållare, mapp och fil.
 
-## <a name="using-blob-events-trigger-properties"></a>Använda Blob händelser utlösaren egenskaper
+## <a name="map-trigger-properties-to-pipeline-parameters"></a>Mappa egenskaper för utlösare till pipeline-parametrar
 
-När en utlösare för blob-händelser som utlöses är två variabler tillgängliga för din pipeline: *folderPath* och *fileName*. Om du vill komma åt dessa variabler kan använda den `@triggerBody().fileName` eller `@triggerBody().folderPath` uttryck.
+När en händelseutlösare utlöses för en specifik blob händelsen fångar mappnamn för sökvägen och filnamnet för bloben till egenskaperna `@triggerBody().folderPath` och `@triggerBody().fileName`. Om du vill använda värdena för dessa egenskaper i en pipeline måste du mappa egenskaperna till pipeline-parametrar. När du mappar egenskaperna till parametrar, du kan komma åt de värden som avbildas av utlösaren via den `@pipeline.parameters.parameterName` uttryck i hela pipelinen.
 
-Anta till exempel att en utlösare som har konfigurerats för att utlösa när en blob skapas med `.csv` som värde för `blobPathEndsWith`. När en CSV-fil som släpps till storage-konto i *folderPath* och *fileName* placeringen av CSV-filen. Till exempel *folderPath* har värdet `/containername/foldername/nestedfoldername` och *fileName* har värdet `filename.csv`.
+![Mappa egenskaper till pipeline-parametrar](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+Till exempel på föregående skärmbild. utlösaren har konfigurerats för att utlöses när en blobbsökväg som slutar på `.csv` skapas i Lagringskontot. Resultatet blir att, när en blob med det `.csv` tillägget skapas var som helst i Storage-konto i `folderPath` och `fileName` egenskaper avbilda platsen för den nya bloben. Till exempel `@triggerBody().folderPath` har ett värde som `/containername/foldername/nestedfoldername` och `@triggerBody().fileName` har ett värde som `filename.csv`. De här värdena mappas i exemplet till pipeline-parametrar `sourceFolder` och `sourceFile`. Du kan använda dem i hela pipelinen som `@pipeline.parameters.sourceFolder` och `@pipeline.parameters.sourceFile` respektive.
 
 ## <a name="next-steps"></a>Nästa steg
-Detaljerad information om utlösare finns [Pipeline körning och utlösare](concepts-pipeline-execution-triggers.md#triggers).
+Detaljerad information om utlösare finns i [Pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md#triggers).

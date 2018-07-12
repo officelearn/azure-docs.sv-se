@@ -1,5 +1,5 @@
 ---
-title: Hantera Azure lösningar med PowerShell | Microsoft Docs
+title: Hantera Azure-lösningar med PowerShell | Microsoft Docs
 description: Använda Azure PowerShell och Resource Manager för att hantera dina resurser.
 services: azure-resource-manager
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 02616ef566dd576c3f406d4b9f3059dab27bf3e0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f7c569eabcf6e4b743f1b6616161787764e8f84
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603421"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723863"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Hantera resurser med Azure PowerShell
 
@@ -33,7 +33,7 @@ Om du väljer att installera och använda PowerShell lokalt läser du [Installer
 
 [!INCLUDE [Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
 
-I den här artikeln gäller du alla inställningar till en resursgrupp så du kan enkelt ta bort dessa inställningar när du är klar.
+I den här artikeln får tillämpa du alla inställningar till en resursgrupp så du kan enkelt ta bort dessa inställningar när du är klar.
 
 Nu ska vi skapa resursgruppen.
 
@@ -56,9 +56,9 @@ I den här artikeln får distribuera du en virtuell dator och dess relaterade vi
 * [Nätverksdeltagare](../role-based-access-control/built-in-roles.md#network-contributor)
 * [Lagringskontodeltagare](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-I stället för att tilldela roller till enskilda användare är det ofta lättare att [skapa en Azure Active Directory-grupp](../active-directory/active-directory-groups-create-azure-portal.md) för användare som behöver utföra liknande åtgärder. Därefter tilldelar du gruppen lämplig roll. För att förenkla informationen i den här artikeln skapar vi en Azure Active Directory-grupp utan medlemmar. Du kan fortfarande tilldela den här gruppen en roll för ett omfång. 
+I stället för att tilldela roller till enskilda användare är det ofta lättare att [skapa en Azure Active Directory-grupp](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) för användare som behöver utföra liknande åtgärder. Därefter tilldelar du gruppen lämplig roll. För att förenkla informationen i den här artikeln skapar vi en Azure Active Directory-grupp utan medlemmar. Du kan fortfarande tilldela den här gruppen en roll för ett omfång. 
 
-I följande exempel skapar en grupp och tilldelar deltagarrollen för virtuell dator för resursgruppen. Att köra den `New-AzureAdGroup` kommandot, måste du antingen använda de [Azure Cloud Shell](/azure/cloud-shell/overview) eller [ladda ned Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/).
+I följande exempel skapar en grupp och tilldelar den till rollen virtuell Datordeltagare för resursgruppen. Att köra den `New-AzureAdGroup` kommandot, måste du antingen genom att använda den [Azure Cloud Shell](/azure/cloud-shell/overview) eller [ladda ned Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/).
 
 ```azurepowershell-interactive
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
@@ -78,7 +78,7 @@ Normalt upprepar du processen för **Nätverksdeltagare** och **Lagringskontodel
 
 ### <a name="apply-policies"></a>Tillämpa principer
 
-Din prenumeration har redan flera principdefinitioner. Tillgängliga principdefinitioner, Använd:
+Din prenumeration har redan flera principdefinitioner. Om du vill se tillgängliga principdefinitioner, använder du:
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -88,7 +88,7 @@ De befintliga principdefinitionerna visas. Principtypen är antingen **BuiltIn**
 
 * begränsa platserna för alla resurser
 * begränsa SKU: er för virtuella datorer
-* gransknings-och virtuella datorer som inte använder hanterade diskar
+* Granska virtuella datorer som inte använder hanterade diskar
 
 ```azurepowershell-interactive
 $locations ="eastus", "eastus2"
@@ -136,7 +136,7 @@ När distributionen är klar kan du lägga till fler hanteringsinställningar f�
 
 ### <a name="lock-a-resource"></a>Låsa en resurs
 
-Om du vill låsa den virtuella datorn och nätverkssäkerhetsgruppen, använder du:
+Om du vill låsa den virtuella datorn och en nätverkssäkerhetsgrupp, använder du:
 
 ```azurepowershell-interactive
 New-AzureRmResourceLock -LockLevel CanNotDelete `
@@ -161,7 +161,7 @@ Den virtuella datorn kan bara tas bort om du uttryckligen tar bort låset. Det s
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
 
-Om du vill lägga till taggar för en virtuell dator, använder du:
+Om du vill lägga till taggar till en virtuell dator, använder du:
 
 ```azurepowershell-interactive
 $r = Get-AzureRmResource -ResourceName myVM `
@@ -172,7 +172,7 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### <a name="find-resources-by-tag"></a>Hitta resurser efter tagg
 
-Om du vill söka efter resurser med taggnamn och värde använder du:
+Om du vill söka efter resurser med en taggnamnet och Taggvärdet, använder du:
 
 ```azurepowershell-interactive
 (Find-AzureRmResource -TagName Environment -TagValue Test).Name
@@ -186,17 +186,17 @@ Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.Reso
 
 ### <a name="view-costs-by-tag-values"></a>Visa kostnader efter taggvärden
 
-Du kan visa kostnaderna för resurser med taggarna när taggar till resurser. Det tar ett tag för kostnadsanalys att visa den senaste användningen, så du inte kan visa kostnaderna ännu. När kostnader, kan du visa kostnader för resurser över resursgrupper i din prenumeration. Användarna måste ha [prenumeration åtkomst till faktureringsinformationen](../billing/billing-manage-access.md) att visa kostnaderna.
+När du har lagt till taggarna till resurser kan visa du kostnaderna för resurser med taggarna. Det tar en stund innan kostnadsanalys att visa den senaste användningen, så att du inte kan se kostnaderna ännu. När kostnaderna är tillgängliga kan visa du kostnaderna för resurser mellan resursgrupper i din prenumeration. Användarna måste ha [prenumerationsåtkomst till faktureringsinformation](../billing/billing-manage-access.md) att se kostnaderna.
 
-Om du vill visa kostnaderna efter tagg i portal, väljer din prenumeration och välj **kostnaden Analysis**.
+Om du vill visa kostnader efter taggar i portal, Välj din prenumeration och välj **kostnadsanalys**.
 
 ![Kostnadsanalys](./media/powershell-azure-resource-manager/select-cost-analysis.png)
 
 Filtrera efter Taggvärdet sedan och välj **tillämpa**.
 
-![Visa kostnad per tagg](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
+![Visa kostnaden efter tagg](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
 
-Du kan också använda den [Azure Billing API: erna](../billing/billing-usage-rate-card-overview.md) programmässigt visa kostnaderna.
+Du kan också använda den [Azure Billing API: er](../billing/billing-usage-rate-card-overview.md) programmässigt visa kostnaderna.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -220,7 +220,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs om hur du övervakar dina virtuella datorer i [övervaka och uppdatera en virtuell dator i Windows med Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
-* Mer information om hur du använder Azure Security Center för att implementera rekommenderad säkerhetspraxis [övervaka virtuella säkerhet med hjälp av Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md).
+* Läs om hur du övervakar dina virtuella datorer i [övervaka och uppdatera en Windows-dator med Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
+* Läs om hur du använder Azure Security Center för att implementera rekommenderade säkerhetsmetoder [övervaka säkerhet för virtuella datorer med hjälp av Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md).
 * Du kan flytta befintliga resurser till en ny resursgrupp. Exempel finns i [flytta resurser till ny resursgrupp eller prenumeration](resource-group-move-resources.md).
 * Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance).

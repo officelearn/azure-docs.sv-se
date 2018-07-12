@@ -1,6 +1,6 @@
 ---
 title: 'Konfigurera Tvingad tunneltrafik för Azure plats-till-plats-anslutningar: Resource Manager | Microsoft Docs'
-description: Så här dirigerar eller 'tvinga' alla Internet-bunden trafik tillbaka till den lokala platsen.
+description: Så här att omdirigera eller ”tvinga” all internetriktad trafik tillbaka till din lokala plats.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
 ms.openlocfilehash: 00330f49d4acc9bd2d720a60b743b78c86b08f86
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984149"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308160"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Konfigurera framtvingad tunneling med distributionsmodellen Azure Resource Manager
 
-Tvingad tunneling kan du omdirigera eller ”force” alla Internet-bunden trafik tillbaka till din lokala plats via en plats-till-plats VPN-tunnel för kontroll och granskning. Detta är en kritisk säkerhetskraven för de flesta företags IT principer. Utan Tvingad tunneltrafik, Internet-bunden trafik från din virtuella datorer i Azure alltid går från Azure nätverksinfrastruktur direkt ut till Internet, utan att du vill granska eller granska trafiken. Obehörig Internetåtkomst kan leda till avslöjande av information och andra typer av säkerhetsintrång.
+Tvingad tunneltrafik kan du omdirigera eller ”tvinga” all internetriktad trafik tillbaka till din lokala plats via en plats-till-plats-VPN-tunnel för kontroll och granskning. Det här är en kritisk säkerhetskrav för de flesta företag IT principer. Utan Tvingad tunneltrafik, Internet-bunden trafik från dina virtuella datorer i Azure alltid går från Azure nätverksinfrastrukturen direkt ut till Internet, utan alternativet så att du kan granska eller granska trafiken. Obehörig Internetåtkomst kan leda till avslöjande av information eller andra typer av säkerhetsproblem.
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-Den här artikeln beskriver hur du konfigurerar Tvingad tunneltrafik för virtuella nätverk som skapats med hjälp av Resource Manager-distributionsmodellen. Tvingad tunneltrafik kan konfigureras med hjälp av PowerShell inte via portalen. Om du vill konfigurera Tvingad tunneling för den klassiska distributionsmodellen Välj klassiska artikel från listan följande:
+Den här artikeln beskriver hur du konfigurerar Tvingad tunneltrafik för virtuella nätverk som skapats med hjälp av Resource Manager-distributionsmodellen. Tvingad tunneltrafik kan konfigureras med hjälp av PowerShell, inte via portalen. Om du vill konfigurera Tvingad tunneltrafik för den klassiska distributionsmodellen, väljer du klassiska artikeln från listan följande:
 
 > [!div class="op_single_selector"]
 > * [PowerShell – Klassisk](vpn-gateway-about-forced-tunneling.md)
@@ -36,41 +36,41 @@ Den här artikeln beskriver hur du konfigurerar Tvingad tunneltrafik för virtue
 > 
 > 
 
-## <a name="about-forced-tunneling"></a>Om Tvingad tunneltrafik
+## <a name="about-forced-tunneling"></a>Om forcerade tunnlar
 
 Följande diagram illustrerar hur Tvingad tunneltrafik fungerar. 
 
 ![Forcerade tunnlar](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
 
-I exemplet ovan tunneldata klientdel undernät inte tvingas. Arbetsbelastningar i undernätet Frontend kan fortsätta att acceptera och svara på kundernas önskemål direkt från Internet. Halva nivå och Backend-undernät tvingas tunnel. Alla utgående anslutningar från dessa två undernät till Internet ska tvingas eller omdirigeras till en lokal plats via en S2S VPN-tunnlar.
+I exemplet ovan tunneltrafik klientdelen undernät inte Tvingad. Arbetsbelastningar i undernätet på klientsidan kan fortsätta att godkänna och svara på kundernas önskemål direkt från Internet. Medelnivån och Backend-undernät är Tvingad tunneltrafik. Alla utgående anslutningar från de här två undernät till Internet ska tvingas eller omdirigeras tillbaka till en lokal plats via en S2S VPN-tunnlarna.
 
-På så sätt kan du begränsa och inspektera Internetåtkomst från dina virtuella datorer eller molntjänster i Azure, medan du aktivera din flernivåtjänst arkitektur som krävs. Om det finns ingen Internet-riktade arbetsbelastningar i dina virtuella nätverk, kan du också använda Tvingad tunneling till hela virtuella nätverk.
+På så sätt kan du begränsa och granska Internetåtkomst från dina virtuella datorer eller molntjänster i Azure, medan du aktivera din tjänst med flera nivåer arkitektur som krävs. Om det finns ingen Internet-riktade arbetsbelastningar i ditt virtuella nätverk kan kan du även använda Tvingad tunneltrafik till hela virtuella nätverk.
 
 ## <a name="requirements-and-considerations"></a>Krav och överväganden
 
-Tvingad tunneling i Azure konfigureras via användardefinierade vägar för virtuellt nätverk. Omdirigera trafik till en lokal plats uttrycks som en standardväg till Azure VPN-gatewayen. Mer information om användardefinierade Routning och virtuella nätverk finns [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md).
+Tvingad tunneltrafik i Azure konfigureras via användardefinierade vägar i virtuella nätverk. Omdirigerar trafik till en lokal plats uttrycks som en standardväg till Azure VPN-gatewayen. Mer information om användardefinierad Routning och virtuella nätverk finns i [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md).
 
-* Varje undernät för virtuellt nätverk har en inbyggd, system-routningstabell. Routningstabellen för systemet har följande tre grupper av vägar:
+* Varje virtuellt nätverksundernät har en inbyggd, system-routningstabell. Routningstabellen system har följande tre grupper av vägar:
   
-  * **Lokal VNet vägar:** direkt till målet virtuella datorer i samma virtuella nätverk.
+  * **Lokala virtuella nätverket vägar:** direkt till målets virtuella datorer i samma virtuella nätverk.
   * **Lokala vägar:** till Azure VPN-gateway.
-  * **Standardvägen:** direkt till Internet. Paket avsedda för de privata IP-adresser som inte omfattas av föregående två vägar tas bort.
-* Den här proceduren använder användardefinierade vägar (UDR) för att skapa en routningstabell för att lägga till en standardväg och sedan associera routningstabellen för din VNet-adressundernät för att aktivera Tvingad tunneltrafik på dessa undernät.
-* Tvingad tunneling måste vara kopplad till ett virtuellt nätverk som har en ruttbaserad VPN-gateway. Du måste ange en ”standardwebbplats” bland de lokala mellan lokala platserna anslutna till det virtuella nätverket. Lokala VPN-enheten måste också konfigureras med 0.0.0.0/0 som trafik väljare. 
-* ExpressRoute Tvingad tunneltrafik konfigureras inte via den här mekanismen, men har aktiverats genom att annonsera en standardväg via ExpressRoute BGP-peeringsessioner i stället. Mer information finns i [ExpressRoute dokumentation](https://azure.microsoft.com/documentation/services/expressroute/).
+  * **Standardvägen:** direkt till Internet. Ignoreras paket som är avsedd för de privata IP-adresser som inte omfattas av de föregående två vägarna.
+* Den här proceduren använder användardefinierade vägar (UDR) för att skapa en routningstabell för att lägga till en standardväg och sedan associera routningstabellen till din VNet-undernät för att aktivera Tvingad tunneltrafik på dessa undernät.
+* Tvingad tunneltrafik måste vara associerad med ett virtuellt nätverk som har en routningsbaserad VPN-gateway. Du måste ange en ”standardwebbplats” mellan de över flera lokala platserna anslutna till det virtuella nätverket. Den lokala VPN-enheten måste också konfigureras med 0.0.0.0/0 som trafikväljare. 
+* ExpressRoute Tvingad tunneltrafik är inte konfigurerad via den här mekanismen, men i stället aktiveras genom att annonsera en standardväg via ExpressRoute BGP-peeringsessioner. Mer information finns i den [dokumentation om ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
 ## <a name="configuration-overview"></a>Konfigurationsöversikt
 
-Följande procedur kan du skapa en resursgrupp och ett VNet. Sedan skapar en VPN-gateway och konfigurera Tvingad tunneltrafik. I den här proceduren har tre undernät i det virtuella nätverket MultiTier-VNet: 'Klientdel', 'Midtier' och 'Backend' med fyra mellan lokala anslutningar: 'DefaultSiteHQ' och tre filialer.
+Följande procedur kan du skapa en resursgrupp och ett virtuellt nätverk. Du sedan skapa en VPN-gateway och konfigurera Tvingad tunneltrafik. I den här proceduren, det virtuella nätverket MultiTier-VNet har tre undernät: ”Frontend”, ”Midtier” och ”serverdel”, med fyra anslutningar mellan olika platser: 'DefaultSiteHQ' och tre grenar.
 
-Anvisningarna för proceduren 'DefaultSiteHQ' som standard plats-anslutning för Tvingad tunneltrafik, och konfigurera Midtier och 'Backend-undernät att använda Tvingad tunneltrafik.
+Stegen i proceduren ”DefaultSiteHQ” som standard plats-anslutning för Tvingad tunneltrafik, och konfigurera Midtier och ”Backend”-undernät att använda Tvingad tunneltrafik.
 
 ## <a name="before"></a>Innan du börjar
 
 Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar. Mer information om hur man installerar PowerShell-cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
-> Installera den senaste versionen av PowerShell-cmdlets krävs. Annars får valideringsfel när du kör några av cmdletarna.
+> Installera den senaste versionen av PowerShell-cmdletar krävs. I annat fall får verifieringsfel när du kör några av cmdletarna.
 >
 >
 
@@ -81,7 +81,7 @@ Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar.
 ## <a name="configure-forced-tunneling"></a>Konfigurera tvingad tunneltrafik
 
 > [!NOTE]
-> Varningar som säger ”objekttypen utdata för denna cmdlet kommer att ändras i framtida versioner” kan visas. Detta är förväntat och du kan ignorera dessa varningar.
+> Varningar som säger ”objekttypen utdata från denna cmdlet kommer att ändras i kommande versioner” kan visas. Detta är förväntat och du kan ignorera dessa varningar.
 >
 >
 
@@ -108,7 +108,7 @@ Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar.
   $lng3 = New-AzureRmLocalNetworkGateway -Name "Branch2" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -GatewayIpAddress "111.111.111.113" -AddressPrefix "192.168.3.0/24"
   $lng4 = New-AzureRmLocalNetworkGateway -Name "Branch3" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -GatewayIpAddress "111.111.111.114" -AddressPrefix "192.168.4.0/24"
   ```
-4. Skapa routningstabellen och väg regeln.
+4. Skapa routningstabell och dirigera regeln.
 
   ```powershell
   New-AzureRmRouteTable –Name "MyRouteTable" -ResourceGroupName "ForcedTunneling" –Location "North Europe"
@@ -124,7 +124,7 @@ Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar.
   Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-6. Skapa den virtuella nätverksgatewayen. Det här steget tar en stund att slutföra ibland 45 minuter eller mer, eftersom du skapar och konfigurerar en gateway. Om du ser ValidateSet fel om värdet GatewaySKU kontrollerar du att du har installerat den [senaste versionen av PowerShell-cmdlets](#before). Den senaste versionen av PowerShell-cmdlets innehåller nya godkända värden för den senaste Gateway-SKU: er.
+6. Skapa den virtuella nätverksgatewayen. Det här steget tar lite tid att slutföra ibland 45 minuter eller mer, eftersom du skapar och konfigurerar gatewayen. Om du ser ValidateSet fel om värdet för GatewaySKU, kontrollerar du att du har installerat den [senaste versionen av PowerShell-cmdletar](#before). Den senaste versionen av PowerShell-cmdletar innehåller de nya verifierade värdena för den senaste Gateway-SKU: er.
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
@@ -132,14 +132,14 @@ Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar.
   $ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "gwIpConfig" -SubnetId $gwsubnet.Id -PublicIpAddressId $pip.Id
   New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $false
   ```
-7. Tilldela en standardwebbplats till den virtuella nätverksgatewayen. Den **- GatewayDefaultSite** är cmdlet-parameter som tillåter framtvingad routningskonfiguration att fungera, så var noga med för att konfigurera den här inställningen korrekt. 
+7. Tilldela en standardwebbplats till den virtuella nätverksgatewayen. Den **- GatewayDefaultSite** är cmdlet-parameter som tillåter Tvingad routningskonfiguration arbetar, så var noga med för att konfigurera den här inställningen korrekt. 
 
   ```powershell
   $LocalGateway = Get-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling"
   $VirtualGateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"
   Set-AzureRmVirtualNetworkGatewayDefaultSite -GatewayDefaultSite $LocalGateway -VirtualNetworkGateway $VirtualGateway
   ```
-8. Upprätta plats-till-plats VPN-anslutningar.
+8. Upprätta VPN för plats-till-plats-anslutningar.
 
   ```powershell
   $gateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"

@@ -1,6 +1,6 @@
 ---
-title: Azure-program insikter översikt över instrumentpanelen | Microsoft Docs
-description: Övervaka program med Azure Application Insights och översikt över instrumentpanelen.
+title: Instrumentpanel med Azure Application Insights | Microsoft Docs
+description: Övervaka program med Azure Application Insights och instrumentpanel med funktioner.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -11,61 +11,55 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a639b51fd930c5c74ee78b37fbe8e97e39dbc32
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337564"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970980"
 ---
-# <a name="application-insights-overview-dashboard"></a>Application Insights översikt över instrumentpanelen
+# <a name="application-insights-overview-dashboard"></a>Application Insights instrumentpanel
 
-Application Insights tillhandahåller alltid en sammanfattande översiktsrutan att snabbt och på snabb utvärdering av programmets hälsotillstånd och prestanda. Den nya översikt över instrumentpanelen tillhandahåller en snabbare mer flexibelt.
+Application Insights tillhandahåller alltid en sammanfattning av översiktsfönstret för att snabbt, med ett ögonkast bedömning av programmets hälsotillstånd och prestanda. Den nya instrumentpanelen är snabbare mer flexibel.
 
 ## <a name="how-do-i-test-out-the-new-experience"></a>Hur jag testa den nya upplevelsen?
 
 Den nya översikt över instrumentpanelen startar nu som standard:
 
-![Översikt över förhandsgranskningsfönstret](.\media\app-insights-overview-dashboard\overview-0001.png)
+![Översikt över förhandsgranskningsfönstret](.\media\app-insights-overview-dashboard\overview.png)
 
 ## <a name="better-performance"></a>Bättre prestanda
 
-Valet av intervallet för tid har förenklats till ett enkelt gränssnitt för en enda klickning.
+Val av tidsintervall har förenklats till ett enkelt klick-gränssnitt.
 
 ![Tidsintervall](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
 
-Övergripande höjts prestanda avsevärt. Du har en enda klickning åtkomst till vanliga funktioner som **Sök** och **Analytics**. Varje standardläget dynamiskt KPI panelen ger inblick i motsvarande Application Insights-funktioner. Kunde inte begäranden väljer att lära dig mer om **fel** under den **Undersök** huvud:
+Övergripande har prestanda avsevärt ökat. Du har ett klick åtkomst till populära funktioner som **Search** och **Analytics**. Varje standard dynamiskt uppdaterar KPI panel ger inblick i motsvarande Application Insights-funktioner. Mer information om misslyckades begäranden väljer **fel** under den **Undersök** rubrik:
 
 ![Fel](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Instrumentpanel för program
 
-Instrumentpanel för program utnyttjar den befintliga instrumentpanel tekniken i Azure för att ange en enda helt anpassningsbar vy för programmets hälsotillstånd och prestanda.
+Instrumentpanel för program utnyttjar den befintliga instrumentpanelen tekniken i Azure för att tillhandahålla en helt anpassningsbar enkel vy av dina programmets hälsotillstånd och prestanda.
 
-Åtkomst till standard instrumentpanelen väljer _instrumentpanel för program_ i det övre vänstra hörnet.
+Åtkomst till standard instrumentpanelen Välj _instrumentpanel för program_ i det övre vänstra hörnet.
 
 ![Instrumentpanelsvy](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
 
-Om det här är första gången du ansluter till instrumentpanelen, startas en standardvy:
+Om det här är första gången du åtkomst till instrumentpanelen, startas så en standardvy:
 
 ![Instrumentpanelsvy](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
 
-Du kan behålla standardvyn om du vill att den. Eller du kan också lägga till och ta bort från instrumentpanelen till bäst behoven för din grupp.
+Om du vill att den kan du låta standardvyn. Eller du kan också lägga till och ta bort från instrumentpanelen till sätt som passar behoven i ditt team.
 
 > [!NOTE]
 > Alla användare med åtkomst till Application Insights-resursen dela samma program för instrumentpanelen. Ändringar som görs av en användare kommer att ändra vyn för alla användare.
 
-Om du vill gå tillbaka till översikt upplevelsen bara välja:
+Gå tillbaka till översikt upplevelsen bara välja:
 
 ![Översikt över knappen](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
-
-## <a name="access-the-classic-overview-dashboard"></a>Komma åt klassiska översikt över instrumentpanelen
-
-Om du missar gamla översikten väljer **klassiska översikt**.
-
-![Klassiska översikt](.\media\app-insights-overview-dashboard\overview-classic.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

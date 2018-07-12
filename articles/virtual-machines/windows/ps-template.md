@@ -1,6 +1,6 @@
 ---
 title: Skapa en virtuell Windows-dator från en mall i Azure | Microsoft Docs
-description: Använd Resource Manager-mall och PowerShell för att skapa en ny Windows virtuell dator.
+description: Använd Resource Manager-mall och PowerShell för att enkelt skapa en ny virtuell Windows-dator.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -17,17 +17,17 @@ ms.date: 07/18/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1c911d7500b61218323dd736aa51f50980d702cc
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "31601846"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38720086"
 ---
-# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Skapa en virtuell Windows-dator från en Resource Manager-mall
+# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Skapa en Windows-dator från en Resource Manager-mall
 
-Den här artikeln visar hur du distribuerar en Azure Resource Manager-mallen med hjälp av PowerShell. Den mall som du skapar distribuerar en enskild virtuell dator som kör Windows Server i ett nytt virtuellt nätverk med ett enda undernät.
+Den här artikeln visar hur du distribuerar en Azure Resource Manager-mall med hjälp av PowerShell. Mallen som du skapar distribuerar en virtuell dator som kör Windows Server i ett nytt virtuellt nätverk med ett enda undernät.
 
-En detaljerad beskrivning av den virtuella datorresursen finns [virtuella datorer i en Azure Resource Manager-mall](template-description.md). Mer information om alla resurser i en mall finns [genomgång av Azure Resource Manager-mall](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+En detaljerad beskrivning av resursen för virtuella datorer finns i [virtuella datorer i en Azure Resource Manager-mall](template-description.md). Mer information om alla resurser i en mall finns i [genomgång av Azure Resource Manager-mall](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 Det bör ta ungefär fem minuter för att utföra stegen i den här artikeln.
 
@@ -37,7 +37,7 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här sj�
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Alla resurser måste distribueras i en [resursgruppen](../../azure-resource-manager/resource-group-overview.md).
+Alla resurser måste distribueras i en [resursgrupp](../../azure-resource-manager/resource-group-overview.md).
 
 1. Hämta en lista över tillgängliga platser där resurser kan skapas.
    
@@ -53,9 +53,9 @@ Alla resurser måste distribueras i en [resursgruppen](../../azure-resource-mana
 
 ## <a name="create-the-files"></a>Skapa filer
 
-I det här steget skapar du en mallfil som distribuerar resurser och en fil med parametrar som tillhandahåller parametervärden för mallen. Du kan också skapa en auktoriseringsfil som används för att utföra åtgärder på Azure Resource Manager.
+I det här steget skapar du en mallfil som distribuerar resurserna och en fil med parametrar som tillhandahåller parametervärden för mallen. Du kan också skapa en auktorisering-fil som används för att utföra åtgärder för Azure Resource Manager.
 
-1. Skapa en fil med namnet *CreateVMTemplate.json* och lägga till den här JSON-kod:
+1. Skapa en fil med namnet *CreateVMTemplate.json* och lägga till det här JSON-kod:
 
     ```json
     {
@@ -160,7 +160,7 @@ I det här steget skapar du en mallfil som distribuerar resurser och en fil med 
     }
     ```
 
-2. Skapa en fil med namnet *Parameters.json* och lägga till den här JSON-kod:
+2. Skapa en fil med namnet *Parameters.json* och lägga till det här JSON-kod:
 
     ```json
     {
@@ -183,18 +183,18 @@ I det här steget skapar du en mallfil som distribuerar resurser och en fil med 
     New-AzureStorageContainer -Name "templates" -Context $context -Permission Container
     ```
 
-4. Ladda upp filer till lagringskontot:
+4. Ladda upp filer till storage-kontot:
 
     ```powershell
     Set-AzureStorageBlobContent -File "C:\templates\CreateVMTemplate.json" -Context $context -Container "templates"
     Set-AzureStorageBlobContent -File "C:\templates\Parameters.json" -Context $context -Container templates
     ```
 
-    Ändra - sökvägarna till den plats där du lagrade filerna.
+    Ändra-sökvägar till platsen där du sparade filerna.
 
 ## <a name="create-the-resources"></a>Skapa resurser
 
-Distribuera mallen med hjälp av parametrar:
+Distribuera mallen med hjälp av parametrarna:
 
 ```powershell
 $templatePath = "https://" + $storageName + ".blob.core.windows.net/templates/CreateVMTemplate.json"
@@ -203,10 +203,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "m
 ```
 
 > [!NOTE]
-> Du kan också distribuera parametrarna från lokala filer och mallar. Läs mer i [med hjälp av Azure PowerShell med Azure Storage](../../storage/common/storage-powershell-guide-full.md).
+> Du kan också distribuera mallar och parametrar från lokala filer. Mer information finns i [med hjälp av Azure PowerShell med Azure Storage](../../storage/common/storage-powershell-guide-full.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om det fanns problem med distributionen, kan du ta en titt på [felsöka vanliga Azure-distribution med Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+- Om det finns problem med distributionen, kan du ta en titt på [felsöka vanliga Azure-distributionsfel med Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 - Lär dig att skapa och hantera en virtuell dator i [skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

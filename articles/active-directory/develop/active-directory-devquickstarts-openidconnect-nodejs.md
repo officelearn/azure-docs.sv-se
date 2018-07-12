@@ -1,6 +1,6 @@
 ---
-title: Azure AD-Node.js-webbapp komma igång | Microsoft Docs
-description: Lär dig hur du skapar en Node.js Express MVC-webbapp som kan integreras med Azure AD för inloggning.
+title: Azure AD-Node.js-webbapp, komma igång | Microsoft Docs
+description: Lär dig hur du skapar en Node.js Express MVC-webbapp som kan integreras med Azure AD för att logga in.
 services: active-directory
 documentationcenter: nodejs
 author: CelesteDG
@@ -17,58 +17,58 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 90c70837b3afb589e5a503681aa9cd7cf1dae930
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7d9b8a740c331a73ac66398be801ba3878312969
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594130"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969086"
 ---
-# <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD-Node.js-webbapp komma igång
-Här kan vi använda Passport:
+# <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD-Node.js-webbapp, komma igång
+Här kan vi använda Passport för att:
 
 * Logga in användaren i appen med Azure Active Directory (AD Azure).
 * Visa information om användaren.
-* Logga ut från appen användaren.
+* Logga ut användaren från appen.
 
-Passport är ett mellanprogram för autentisering för Node.js. Flexibel och modulära, Passport diskret kan släppas till alla Express-baserade eller restify-webbappar. En omfattande uppsättning strategier stöder autentisering som använder ett användarnamn och lösenord, Facebook, Twitter och mycket mer. Vi har utvecklat en strategi för Microsoft Azure Active Directory. Vi installerar den här modulen och lägger sedan till Microsoft Azure Active Directory `passport-azure-ad` plugin-programmet.
+Passport är mellanprogram för autentisering för Node.js. Flexibel och modulbaserade Passport diskret kan släppas alla Express-baserad eller restify-webbappar. En omfattande uppsättning strategier stöder autentisering som använder ett användarnamn och lösenord, Facebook, Twitter och mer. Vi har utvecklat en strategi för Microsoft Azure Active Directory. Vi installerar den här modulen och lägger sedan till Microsoft Azure Active Directory `passport-azure-ad` plugin-programmet.
 
-Om du vill göra det, gör du följande:
+Om du vill göra detta, gör du följande:
 
 1. Registrera en app.
 2. Konfigurera din app att använda den `passport-azure-ad` strategi.
 3. Använda Passport för att utfärda inloggnings- och utloggningsförfrågningar till Azure AD.
 4. Skriva ut data om användaren.
 
-Koden för den här självstudiekursen [finns på GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS). Om du vill följa med kan du [ladda ned appens stomme som en .zip-fil](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) eller klona stommen:
+Koden för den här självstudiekursen [finns på GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS). Om du vill följa med, kan du [ladda ned appens stomme som en .zip-fil](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) eller klona stommen:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
-Det färdiga programmet har angetts i slutet av den här kursen samt.
+Det färdiga programmet visas i slutet av den här självstudien samt.
 
 ## <a name="step-1-register-an-app"></a>Steg 1: Registrera en app
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. I menyn överst på sidan, Välj ditt konto. Under den **Directory** Välj Active Directory-klient som du vill registrera ditt program.
+2. Välj ditt konto på menyn överst på sidan. Under den **Directory** väljer Active Directory-klient där du vill registrera ditt program.
 
-3. Välj **alla tjänster** på menyn till vänster på skärmen och väljer sedan **Azure Active Directory**.
+3. Välj **alla tjänster** på menyn på vänster sida av skärmen och välj sedan **Azure Active Directory**.
 
-4. Välj **App registreringar**, och välj sedan **Lägg till**.
+4. Välj **appregistreringar**, och välj sedan **Lägg till**.
 
 5. Följ anvisningarna för att skapa en **webbprogram** och/eller **WebAPI**.
-  * Den **namn** beskriver ditt program till användare av programmet.
+  * Den **namn** beskriver programmet för användare av programmet.
 
   * Den **inloggnings-URL** är den grundläggande Webbadressen för din app. Den stommen standardvärdet är `http://localhost:3000/auth/openid/return`.
 
-6. När du registrerar tilldelar Azure AD appen ett unikt-ID. Du behöver det här värdet i de följande avsnitten så kopiera den från appen på sidan.
-7. Från den **inställningar** -> **egenskaper** för programmet, uppdatera App-ID-URI. Den **App-ID URI** är en unik identifierare för programmet. Konventionen är att använda formatet `https://<tenant-domain>/<app-name>`, till exempel: `https://contoso.onmicrosoft.com/my-first-aad-app`.
-8. Följ steg 4 i för att skapa en hemlig nyckel, [att lägga till autentiseringsuppgifter eller behörighet att komma åt web API: er](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+6. När du har registrerat tilldelar Azure AD en app i ett unikt program-ID. Du behöver det här värdet i följande avsnitt, så kopiera det från programsidan.
+7. Från den **inställningar** -> **egenskaper** för ditt program och uppdatera App-ID-URI. Den **Appidentitets-URI** är en unik identifierare för ditt program. Konventionen är att använda formatet `https://<tenant-domain>/<app-name>`, till exempel: `https://contoso.onmicrosoft.com/my-first-aad-app`.
+8. Följ steg 4 i för att skapa en hemlig nyckel, [att lägga till autentiseringsuppgifter eller behörighet att komma åt webb API: er](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
 
    > [!IMPORTANT]
-   > Kopiera värdet för nyckeln program. Detta är värdet för den `clientSecret`, som du behöver för **steg3** nedan. 
+   > Kopiera nyckelvärdet för programmet. Detta är värdet för den `clientSecret`, som du behöver för **steg3** nedan. 
 
-## <a name="step-2-add-prerequisites-to-your-directory"></a>Steg 2: Lägg till förutsättningar för din katalog
-1. Från kommandoraden ändrar du katalog till din rotmapp om du inte redan där, och kör sedan följande kommandon:
+## <a name="step-2-add-prerequisites-to-your-directory"></a>Steg 2: Lägg till nödvändiga komponenter till din katalog
+1. Från kommandoraden ändrar du katalog till din rotmapp om du inte redan är där, och kör sedan följande kommandon:
 
     * `npm install express`
     * `npm install ejs`
@@ -84,18 +84,18 @@ Det färdiga programmet har angetts i slutet av den här kursen samt.
 
 Detta installerar biblioteken som `passport-azure-ad` beror på.
 
-## <a name="step-3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>Steg 3: Konfigurera din app att använda passport-nod-js-strategi
-Här kan konfigurera vi Express för att använda autentiseringsprotokollet OpenID Connect. Passport används för att göra olika saker, bland annat problemet inloggning och utloggning förfrågningar, hantera användarens session och få information om användaren.
+## <a name="step-3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>Steg 3: Konfigurera din app att använda passport-node-js-strategin
+Här kan konfigurera vi Express för att använda autentiseringsprotokollet OpenID Connect. Passport används för att göra olika saker, inklusive problem inloggning och utloggning förfrågningar, hantera användarens session och få information om användaren.
 
-1. Öppna först den `config.js` filen i roten av projektet och sedan ange din Apps konfigurationsvärden i den `exports.creds` avsnitt.
+1. Öppna först den `config.js` filen i roten av projektet och sedan ange din Apps konfigurationsvärden i den `exports.creds` avsnittet.
 
   * Den `clientID` är den **program-Id** som har tilldelats din app i portalen för registrering.
 
   * Den `returnURL` är den **omdirigerings-Uri** som du angav på portalen.
 
-  * Den `clientSecret` är den hemlighet som du genererade på portalen.
+  * Den `clientSecret` är den hemlighet som du genererade i portalen.
 
-2. Därefter öppnar den `app.js` filen i roten av projektet. Lägg till följande anrop för att anropa den `OIDCStrategy` strategin som medföljer `passport-azure-ad`.
+2. Därefter öppnar den `app.js` filen i roten av projektet. Lägg sedan till följande anrop för att anropa den `OIDCStrategy` strategin som medföljer `passport-azure-ad`.
 
     ```JavaScript
     var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -107,7 +107,7 @@ Här kan konfigurera vi Express för att använda autentiseringsprotokollet Open
     });
     ```
 
-3. Efter det att använda strategin vi precis refererade till för att hantera vår inloggning begäranden.
+3. Använd strategin som vi precis refererade till för att hantera vår inloggningsförfrågningar.
 
     ```JavaScript
     // Use the OIDCStrategy within Passport. (Section 2)
@@ -147,10 +147,10 @@ Här kan konfigurera vi Express för att använda autentiseringsprotokollet Open
     }
     ));
     ```
-Passport använder ett liknande mönster för alla dess strategier (Twitter, Facebook och så vidare) som alla strategiskrivare följer. Tittar på strategin ser du att vi skickar en funktion som har en token och klart som parametrar. Strategin kommer tillbaka till oss när den har sitt arbete. Sedan vill vi lagra användaren och token så att vi inte behöver fråga efter den igen.
+Passport använder ett liknande mönster för alla dess strategier (Twitter, Facebook och så vidare) som alla strategiskrivare följer. Granskar strategin kan se du att vi skickar den en funktion som har en token och klar som parametrar. Strategin kommer tillbaka till oss när detta är gjort sitt arbete. Sedan vill vi lagra användaren och token så att vi inte behöver fråga efter den igen.
 
 > [!IMPORTANT]
-Föregående kod tar alla användare som inträffar att autentisera till vår server. Detta kallas för automatisk registrering. Vi rekommenderar att du inte låta alla autentisera till en produktionsserver utan att behöva dem registreras via en process som du väljer. Detta är oftast det mönster du ser i konsumentappar, så att du kan registrera med Facebook men be dig att ange ytterligare information. Om det inte var ett exempelprogram kunnat vi extrahera användarens e-postadress från tokenobjektet som returneras och sedan bett användaren att fylla i ytterligare information. Eftersom detta är en testserver vi lägga till dem i InMemory-databasen.
+Den tidigare koden tar alla användare som sker att autentisera vår server. Detta kallas för automatisk registrering. Vi rekommenderar att du inte låta alla autentisera till servrar i produktionsmiljö utan att behöva dem registreras via en process som du väljer. Detta är oftast det mönster du ser i konsumentappar, där du kan registrera dig med Facebook men du be dig att ange ytterligare information. Om detta inte ett exempelprogram, kan vi har extraherat användarens e-postadress från tokenobjektet som returneras och sedan uppmanas användaren att fylla i ytterligare information. Eftersom detta är en testserver kan vi lägga till dem i InMemory-databasen.
 
 
 4. Nu ska vi lägga till de metoder som gör det möjligt för oss att spåra inloggade användare som krävs av Passport. De här metoderna omfattar serialisering och avserialisering av användarens information.
@@ -188,7 +188,7 @@ Föregående kod tar alla användare som inträffar att autentisera till vår se
             };
     ```
 
-5. Nu ska vi lägga till kod för att läsa in Express-motorn. Vi använder här standard /views /routes mönster som Express tillhandahåller.
+5. Nu ska vi lägga till kod för att läsa in Express-motorn. Använder här vi standard /views och /routes mönster som Express tillhandahåller.
 
     ```JavaScript
 
@@ -213,7 +213,7 @@ Föregående kod tar alla användare som inträffar att autentisera till vår se
 
     ```
 
-6. Slutligen ska vi lägga till dirigeringskommandona som lämnar de faktiska inloggning förfrågningar till den `passport-azure-ad` motorn:
+6. Slutligen ska vi lägga till de vägar som lämnar in de faktiska inloggningsförfrågningarna till den `passport-azure-ad` motor:
 
     ```JavaScript
 
@@ -259,9 +259,9 @@ Föregående kod tar alla användare som inträffar att autentisera till vår se
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Steg 4: Använda Passport för att utfärda inloggnings- och utloggningsförfrågningar till Azure AD
-Appen har nu konfigurerats korrekt för att kommunicera med slutpunkten med hjälp av autentiseringsprotokollet OpenID Connect. `passport-azure-ad` har tagit hand om alla detaljer om utforma autentiseringsmeddelanden, verifiera token från Azure AD och upprätthålla användarsessioner. Allt som återstår är ge användarna ett sätt att logga in och logga ut och samla in ytterligare information om de inloggade användarna.
+Din app är nu korrekt konfigurerad för att kommunicera med slutpunkten med hjälp av autentiseringsprotokollet OpenID Connect. `passport-azure-ad` har tagit hand om alla detaljer om autentiseringsmeddelanden, verifiera token från Azure AD och upprätthålla användarsessioner. Alla som finns kvar ge användarna ett sätt att logga in och logga ut och samla in ytterligare information om de inloggade användarna.
 
-1. Först ska vi lägga till den standard, logga in, konto och utloggningsmetoderna i vår `app.js` fil:
+1. Först ska vi lägga till den standard, inloggning, konto och utloggningsmetoderna i vår `app.js` fil:
 
     ```JavaScript
 
@@ -291,12 +291,12 @@ Appen har nu konfigurerats korrekt för att kommunicera med slutpunkten med hjä
 
 2. Nu ska vi se dessa i detalj:
 
-  * Den `/`kommandot omdirigerar till vyn index.ejs skicka användaren i begäran (om den finns).
-  * Den `/account` vidarebefordra först *garanterar vi autentiseras* (vi implementera som i följande exempel), och därefter skickas användaren i begäran så att vi kan få ytterligare information om användaren.
-  * Den `/login` väg anropar våra azuread openidconnect autentiseraren från `passport-azuread`. Om som inte lyckas omdirigeras användaren till /login.
+  * Den `/`kommandot omdirigerar till vyn index.ejs skicka användaren i förfrågan (om det finns).
+  * Den `/account` dirigera först *garanterar vi autentiseras* (vi implementera som i följande exempel), och därefter skickas användaren i begäran så att vi kan få ytterligare information om användaren.
+  * Den `/login` väg anropar vår azuread-openidconnect autentiseraren från `passport-azuread`. Om som inte lyckas omdirigeras användaren till /login.
   * Den `/logout` kommandot bara anropar logout.ejs (och väg) rensar cookies och returnerar sedan användaren till index.ejs.
 
-3. För den sista delen av `app.js`, ska vi lägga till den **EnsureAuthenticated** metod som används i `/account`, enligt tidigare.
+3. För den sista delen av `app.js`, ska vi lägga till den **EnsureAuthenticated** metod som används i `/account`, som visades tidigare.
 
     ```JavaScript
 
@@ -312,7 +312,7 @@ Appen har nu konfigurerats korrekt för att kommunicera med slutpunkten med hjä
         }
     ```
 
-4. Slutligen ska vi skapar du själva servern i `app.js`:
+4. Nu ska vi skapa slutligen själva servern i `app.js`:
 
 ```JavaScript
 
@@ -321,8 +321,8 @@ Appen har nu konfigurerats korrekt för att kommunicera med slutpunkten med hjä
 ```
 
 
-## <a name="step-5-to-display-our-user-in-the-website-create-the-views-and-routes-in-express"></a>Steg 5: Om du vill visa våra användare på webbplatsen, skapa vyerna och vägarna i Express
-Nu `app.js` är klar. Vi behöver bara lägga till vägarna och vyerna som visar den information som vi får användaren som hanterar den `/logout` och `/login` vägar som vi skapade.
+## <a name="step-5-to-display-our-user-in-the-website-create-the-views-and-routes-in-express"></a>Steg 5: För att visa våra användare på webbplatsen, skapa vyerna och vägarna i Express
+Nu `app.js` har slutförts. Vi behöver bara lägga till vägarna och vyerna som visar den information vi får för användaren, samt hantera de `/logout` och `/login` vägar som vi skapade.
 
 1. Skapa `/routes/index.js`-vägen under rotkatalogen.
 
@@ -348,9 +348,9 @@ Nu `app.js` är klar. Vi behöver bara lägga till vägarna och vyerna som visar
                 };
     ```
 
- Dessa skicka vidare förfrågan till vår vyer, inklusive användaren om den finns.
+ Dessa skicka vidare begäran till vår vyer, inklusive användaren om den är tillgänglig.
 
-3. Skapa `/views/index.ejs`-vyn under rotkatalogen. Det här är en enkel sida som anropar våra logga in och logga ut metoder och ger oss möjlighet att hämta kontoinformation. Observera att du kan använda villkorliga `if (!user)` som användaren som skickas via i begäran är bevis som vi har en inloggad användare.
+3. Skapa `/views/index.ejs`-vyn under rotkatalogen. Det här är en enkel sida som anropar vår inloggning och utloggning metoder och gör det möjligt för oss att hämta kontoinformation. Observera att vi kan använda villkorliga `if (!user)` som användaren som skickas via i begäran är bevis som vi har en inloggad användare.
 
     ```JavaScript
     <% if (!user) { %>
@@ -363,7 +363,7 @@ Nu `app.js` är klar. Vi behöver bara lägga till vägarna och vyerna som visar
     <% } %>
     ```
 
-4. Skapa den `/views/account.ejs` vyn under rotkatalogen så att vi kan visa ytterligare information som `passport-azure-ad` har satt i användarens begäran.
+4. Skapa den `/views/account.ejs` visa under rotkatalogen så att vi kan visa ytterligare information som `passport-azure-ad` har satt i användarens begäran.
 
     ```Javascript
     <% if (!user) { %>
@@ -382,7 +382,7 @@ Nu `app.js` är klar. Vi behöver bara lägga till vägarna och vyerna som visar
     <% } %>
     ```
 
-5. Vi behöver kontrollera sökningen bra genom att lägga till en layout. Skapa den ' / views/layout.ejs' vyn under rotkatalogen.
+5. Vi gör det här utseendet bra genom att lägga till en layout. Skapa den ' / views/layout.ejs' vyn under rotkatalogen.
 
     ```HTML
 
@@ -412,13 +412,13 @@ Nu `app.js` är klar. Vi behöver bara lägga till vägarna och vyerna som visar
 ## <a name="next-steps"></a>Nästa steg
 Slutligen skapar och kör din app. Kör `node app.js`, gå sedan till `http://localhost:3000`.
 
-Logga in med ett personligt microsoftkonto eller ett konto för arbetet eller skolan och hur användarens identitet visas i listan över /account. Nu har du en webbapp som skyddas med standardprotokollen som kan autentisera användare med både sina personliga och arbete/skola konton.
+Logga in med ett personligt microsoftkonto eller ett arbets- eller skolkonto konto och hur användarens identitet visas i listan över /account. Nu har du en webbapp som är skyddad med branschstandardprotokoll som autentiserar användare med både sina personliga och arbets/skola konton.
 
 Det färdiga exemplet (utan dina konfigurationsvärden) är tillgängligt som referens i form av en [ZIP-fil](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Du kan också klona det från GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
-Du kan nu gå vidare till mer avancerade avsnitt. Du kanske vill prova:
+Du kan nu gå vidare till mer avancerade ämnen. Du kanske vill prova:
 
 [Skydda ett webb-API med Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
 

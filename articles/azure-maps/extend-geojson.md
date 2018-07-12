@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 2cc0e29615ad4fc19040055d847435a9dffa9c95
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 319f9cba23d088553f361b6a0d648bbde94e0743
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655383"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968569"
 ---
 # <a name="extending-geojson-geometries"></a>Utöka GeoJSON geometrier
 
-Azure Maps innehåller en lista över kraftfulla API: er för att söka i/längs geografiska platser.
-API: erna standardisera [GeoJSON-specifikationen] [ 1] för att representera geografiska funktioner (till exempel: tillstånd gränser, vägar).  
+Azure Maps tillhandahåller en lista med kraftfulla API: er för att söka i/längs geografiska platser.
+Dessa API: er som standard [GeoJSON-specifikationen] [ 1] för att representera geografiska funktioner (till exempel: tillstånd gränser, vägar).  
 
 Den [GeoJSON-specifikationen] [ 1] stöder endast följande geometrier:
 
@@ -27,32 +27,32 @@ Den [GeoJSON-specifikationen] [ 1] stöder endast följande geometrier:
 * MultiLineString
 * MultiPoint
 * MultiPolygon
-* punkt
-* polygon
+* Återställningspunkt
+* Polygon
 
-Vissa Azure Maps API: er (till exempel: [Sök i geometri](https://docs.microsoft.com/en-us/rest/api/maps/search/postsearchinsidegeometry)) accepterar geometrier som ”cirkel”, som inte är en del av den [GeoJSON-specifikationen][1].
+Vissa API: er för Azure Maps (till exempel: [sökning i geometri](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) accepterar geometrier som ”cirkel”, som inte är en del av den [GeoJSON-specifikationen][1].
 
-Den här artikeln innehåller en detaljerad förklaring på hur Azure Maps utökar den [GeoJSON-specifikationen] [ 1] som representerar vissa geometrier.
+Den här artikeln innehåller en detaljerad förklaring på hur Azure Maps utökar den [GeoJSON-specifikationen] [ 1] som motsvarar vissa geometrier.
 
-### <a name="circle"></a>cirkel
+### <a name="circle"></a>Cirkel
 
 Den `Circle` geometri stöds inte av den [GeoJSON-specifikationen][1]. Vi använder den `GeoJSON Feature` objekt som representerar en cirkel.
 
 En `Circle` geometri representeras med hjälp av den `GeoJSON Feature` objekt __måste__ innehåller följande:
 
 1. Centrera
-   >Den cirkelns mittpunkt representeras med hjälp av en `GeoJSON Point` typen.
+   >Cirkelns center visas med en `GeoJSON Point` typen.
 
 2. Radie
-   >Cirkelns `radius` använder `GeoJSON Feature`'s egenskaper. Radievärdet har _mätare_ och måste vara av typen `double`.
+   >Cirkelns `radius` visas med `GeoJSON Feature`'s egenskaper. Radius-värdet är i _taxor_ och måste vara av typen `double`.
 
 3. Undertyp
-   >Cirkel geometrin måste även innehålla den `subType` egenskapen. Den här egenskapen måste vara en del av den `GeoJSON Feature`'s egenskaper och dess värde bör vara _cirkel_
+   >Cirkel geometri måste också innehålla den `subType` egenskapen. Den här egenskapen måste vara en del av den `GeoJSON Feature`'s egenskaper och dess värde bör vara _cirkel_
 
 
 #### <a name="example"></a>Exempel
 
-Här är hur du får en cirkel centreras (latitud: 47.639754, longitud:-122.126986) med en radius som är lika med 100 mätare, med hjälp av en `GeoJSON Feature` objekt:
+Här är hur du kommer representerar en cirkel centreras (latitud: 47.639754, longitud:-122.126986) med en radius som är lika med 100 taxor, med hjälp av en `GeoJSON Feature` objekt:
 
 ```json            
 {

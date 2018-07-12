@@ -1,6 +1,6 @@
 ---
-title: Lär dig hur du använder SharePoint Online-anslutningen i logikappar | Microsoft Docs
-description: Skapa logikappar med SharePoint Online kopplingen för att hantera listor i SharePoint.
+title: Lär dig hur du använder SharePoint Online-anslutningsapp i logic apps | Microsoft Docs
+description: Skapa logikappar med SharePoint Online-anslutningsapp till Hantera listor på SharePoint.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
@@ -16,39 +16,39 @@ ms.workload: integration
 ms.date: 07/19/2016
 ms.author: estfan; ladocs
 ms.openlocfilehash: be104080e1056fa2181e54919d014154d16a60a4
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296466"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38237244"
 ---
-# <a name="get-started-with-the-sharepoint-online-connector"></a>Kom igång med SharePoint Online connector
-Använda SharePoint Online-anslutningen för att hantera SharePoint-listor.  
+# <a name="get-started-with-the-sharepoint-online-connector"></a>Kom igång med SharePoint Online-anslutningsapp
+Använda SharePoint Online-anslutningsapp för att hantera SharePoint-listor.  
 
-Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [att skapa en logikapp nu](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [nu skapa en logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-sharepoint-online"></a>Anslut till SharePoint Online
-Innan din logikapp kan komma åt någon tjänst, måste du först skapa en *anslutning* till tjänsten. En [anslutning](connectors-overview.md) tillhandahåller anslutningen mellan en logikapp och en annan tjänst.  
+Innan din logikapp kan komma åt alla tjänster måste du först måste du skapa en *anslutning* till tjänsten. En [anslutning](connectors-overview.md) tillhandahåller anslutningen mellan en logikapp och en annan tjänst.  
 
 ### <a name="create-a-connection-to-sharepoint-online"></a>Skapa en anslutning till SharePoint Online
 > [!INCLUDE [Steps to create a connection to SharePoint](../../includes/connectors-create-api-sharepointonline.md)]
 
 
-## <a name="use-a-sharepoint-online-trigger"></a>Använda en SharePoint Online utlösare
+## <a name="use-a-sharepoint-online-trigger"></a>Använda en SharePoint Online-utlösare
 En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create a SharePoint Online trigger](../../includes/connectors-create-api-sharepointonline-trigger.md)]
 
 
-## <a name="use-a-sharepoint-online-action"></a>Använd en SharePoint Online-åtgärd
-En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+## <a name="use-a-sharepoint-online-action"></a>Använd en åtgärd som SharePoint Online
+En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Läs mer om åtgärder](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create a SharePoint Online action](../../includes/connectors-create-api-sharepointonline-action.md)]
 
 
-## <a name="connector-specific-details"></a>Connector-specifik information
+## <a name="connector-specific-details"></a>Information om specifika
 
-Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/sharepoint/).
+Visa alla utlösare och åtgärder som definierats i swagger och får även eventuella gränser i den [anslutningsinformationen](/connectors/sharepoint/).
 
 ## <a name="next-steps"></a>Nästa steg
 [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)

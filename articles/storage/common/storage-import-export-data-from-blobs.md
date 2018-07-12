@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Import/Export för att exportera data från Azure BLOB | Microsoft Docs
-description: Lär dig hur du skapar exportjobb i Azure-portalen för att överföra data från Azure BLOB.
+title: Använda Azure Import/Export för att exportera data från Azure Blobs | Microsoft Docs
+description: Lär dig hur du skapar export-jobb i Azure portal för att överföra data från Azure Blobs.
 author: alkohli
 manager: jeconnoc
 services: storage
@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.openlocfilehash: eb41708c7446b3139758678c9247ffbb11da8b40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661004"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969273"
 ---
-# <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda tjänsten Azure Import/Export för att exportera data från Azure Blob storage
-Den här artikeln innehåller stegvisa instruktioner om hur du använder tjänsten Azure Import/Export för att exportera stora mängder data på ett säkert sätt från Azure Blob storage. Tjänsten kräver att du levererar tomma enheter till Azure-datacenter. Tjänsten exporterar data från ditt lagringskonto till enheterna och levereras enheter tillbaka.
+# <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att exportera data från Azure Blob storage
+Den här artikeln innehåller stegvisa instruktioner om hur du använder Azure Import/Export-tjänsten för att exportera stora mängder data på ett säkert sätt från Azure Blob storage. Tjänsten kräver att du kan leverera tomma enheter till Azure-datacentret. Tjänsten exporterar data från ditt lagringskonto till enheterna och sedan levereras enheter tillbaka.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du skapar ett exportjobb för att överföra data från Azure Blob Storage noggrant granska och utför följande förutsättningar för den här tjänsten. Du måste:
+Innan du skapar en export-jobbet för att överföra data från Azure Blob Storage måste du noggrant granska och slutför följande lista över kraven för den här tjänsten. Måste du:
 
 - Ha en aktiv Azure-prenumeration som kan användas för Import/Export-tjänsten.
-- Ha minst ett Azure Storage-konto. Visa en lista över [storage-konton och lagringstyper som stöds för Import/Export service](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagringskonto finns [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account).
+- Har minst en Azure Storage-konto. Se en lista över [storage-konton och lagringstyper stöds för tjänsten Import/Export](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account).
 - Ha tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks).
 
 ## <a name="step-1-create-an-export-job"></a>Steg 1: Skapa ett exportjobb
@@ -31,19 +31,19 @@ Innan du skapar ett exportjobb för att överföra data från Azure Blob Storage
 Utför följande steg för att skapa ett exportjobb i Azure-portalen.
 
 1. Logga in på https://portal.azure.com/.
-2. Gå till **alla services > Storage > Import/export jobb**. 
+2. Gå till **alla tjänster > Storage > Import/export-jobb**. 
 
     ![Gå till Import/export-jobb](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
 
-3. Klicka på **skapa Import-/ exportjobb**.
+3. Klicka på **skapa Import/export-jobbet**.
 
-    ![Klicka på Importera och exportera jobb](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
+    ![Klicka på Import/export-jobbet](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
 
 4. I **grunderna**:
     
     - Välj **exportera från Azure**. 
-    - Ange ett beskrivande namn för exportjobbet. Använd det namn du väljer att spåra förloppet för jobbet. 
-        - Namnet får innehålla endast små bokstäver, siffror, bindestreck och understreck.
+    - Ange ett beskrivande namn för export-jobbet. Använd det namn du väljer att spåra förloppet för dina jobb. 
+        - Namnet får innehålla endast gemener, siffror, bindestreck och understreck.
         - Namnet måste börja med en bokstav och får inte innehålla blanksteg. 
     - Välj en prenumeration.
     - Ange eller välj en resursgrupp.
@@ -52,42 +52,42 @@ Utför följande steg för att skapa ett exportjobb i Azure-portalen.
     
 3. I **Jobbdetaljer**:
 
-    - Välj det lagringskonto där data exporteras finns. 
-    - Samlingsbibliotek platsen fylls i automatiskt baserat på regionen som det lagringskonto som valts. 
-    - Ange blob-data som du vill exportera från ditt lagringskonto till tomma enheten eller enheter. 
-    - Välja att **exporterar alla** blob-data i lagringskontot.
+    - Välj det lagringskonto där det finns data som ska exporteras. 
+    - Samlingsplats fylls i automatiskt baserat på regionen som det valda lagringskontot. 
+    - Ange blob-data som du vill exportera från ditt lagringskonto till din tom eller enheter. 
+    - Välja att **exportera alla** blobdata i lagringskontot.
     
-         ![Exportera allt](./media/storage-import-export-data-from-blobs/export-from-blob4.png) 
+         ![Exportera alla](./media/storage-import-export-data-from-blobs/export-from-blob4.png) 
 
-    - Du kan ange vilka behållare och blobbar att exportera.
-        - **Ange en blob att exportera**: Använd den **lika med** selector. Ange den relativa sökvägen till blob, från och med behållarens namn. Använd *$root* ange root-behållaren.
-        - **Ange alla BLOB som börjar med ett prefix**: Använd den **börjar med** väljare. Ange det prefix som börjar med ett snedstreck (/). Prefixet kan vara prefixet för behållarens namn, fullständig behållarens namn eller fullständig behållarens namn följt av prefixet för blob-namnet. Du måste ange blob-sökvägar i ett giltigt format för att undvika fel under bearbetning, som visas i den här skärmbilden. Mer information finns i [exempel på giltiga blob sökvägar](#examples-of-valid-blob-paths). 
+    - Du kan ange vilka behållare och blobbar som ska exporteras.
+        - **Ange en blob till exportera**: Använd den **Equal To** väljare. Ange den relativa sökvägen till bloben från och med behållarens namn. Använd *$root* ange root-behållaren.
+        - **Ange alla blobar som börjar med prefixet**: Använd den **börjar med** väljare. Ange det prefix som börjar med ett snedstreck (/). Prefixet kan vara prefixet för behållarens namn, fullständig behållarens namn eller fullständig behållarens namn följt av prefixet för blob-namnet. Du måste ange blob-sökvägar i giltigt format för att undvika fel under bearbetning, som visas i den här skärmbilden. Mer information finns i [exempel på giltiga blob sökvägar](#examples-of-valid-blob-paths). 
    
            ![Exportera valda behållare och blobbar](./media/storage-import-export-data-from-blobs/export-from-blob5.png) 
 
-    - Du kan exportera från filen med listan blob.
+    - Du kan exportera från bloblistfilen.
 
-        ![Exportera från listan blob-fil](./media/storage-import-export-data-from-blobs/export-from-blob6.png)  
+        ![Exportera från blobblistfil](./media/storage-import-export-data-from-blobs/export-from-blob6.png)  
    
    > [!NOTE]
-   > Om blob exporteras används vid kopiering av data, Azure Import/Export service tar en ögonblicksbild av blob och kopierar ögonblicksbilden.
+   > Om blobben som ska exporteras används vid kopiering av data, Azure Import/Export-tjänsten tar en ögonblicksbild av blobben och kopierar ögonblicksbilden.
  
 
-4. I **returnera leverans info**:
+4. I **returnera leveransinformation**:
 
-    - Välj en operatör i listrutan.
-    - Ange en giltig operatör kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter tillbaka till dig när importjobbet har slutförts. 
+    - Välj vilken operatör i listrutan.
+    - Ange en giltig transportföretagets kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter till dig när importjobbet har slutförts. 
     - Ange en fullständig och giltig kontaktperson, telefon, e-post, gatuadress, ort, zip, region och land/region.
    
 5. I **sammanfattning**:
 
-    - Granska detaljer för jobbet.
-    - Observera leveransadressen jobbet namn och angivna Azure-datacenter för leverans av diskar till Azure. 
-    - Klicka på **OK** slutföra exporten jobb.
+    - Granska information om jobbet.
+    - Observera leveransadressen jobbet namn och angivna Azure-datacenter för att skicka diskar till Azure. 
+    - Klicka på **OK** för att skapa för export-jobbet.
 
-## <a name="step-2-ship-the-drives"></a>Steg 2: Levereras enheterna
+## <a name="step-2-ship-the-drives"></a>Steg 2: Skicka enheterna
 
-Om du inte vet hur många enheter som du behöver gå till den [kontrollera antalet enheter](#check-the-number-of-drives). Om du vet hur många enheter kan fortsätta att leverera enheterna.
+Om du inte vet hur många enheter som du behöver gå till den [kontrollera antalet enheter](#check-the-number-of-drives). Om du vet hur många enheter kan fortsätta att skicka enheterna.
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
@@ -96,13 +96,13 @@ Om du inte vet hur många enheter som du behöver gå till den [kontrollera anta
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
 
-## <a name="step-4-receive-the-disks"></a>Steg 4: Ta emot diskar
-När instrumentpanelen rapporterar jobbet är klart, diskarna levereras till dig och Spårningsnumret för leveransen är tillgänglig på portalen.
+## <a name="step-4-receive-the-disks"></a>Steg 4: Har tagit emot diskarna
+När instrumentpanelen rapporterar jobbet har slutförts, hårddiskarna skickas till dig och leveransens spårningsnummer är tillgänglig på portalen.
 
-1. Du måste hämta BitLocker-nycklar för att låsa upp enheter när du har fått enheter med exporterade data. Gå till exportjobb i Azure-portalen. Klicka på **Import/Export** fliken. 
-2. Välj och klicka på exporten jobbet i listan. Gå till **BitLocker-nycklar** och kopiera nycklarna.
+1. När du får enheter med exporterade data, måste du hämta BitLocker-nycklar för att låsa upp enheter. Gå till export-jobbet i Azure-portalen. Klicka på **Import/Export** fliken. 
+2. Välj och klicka på din export-jobb i listan. Gå till **BitLocker-nycklar** och kopiera nycklarna.
    
-   ![Visa BitLocker-nycklar för exportjobb](./media/storage-import-export-service/export-job-bitlocker-keys.png)
+   ![Visa BitLocker-nycklar för export-jobbet](./media/storage-import-export-service/export-job-bitlocker-keys.png)
 
 3. Använd BitLocker för att låsa upp diskarna.
 
@@ -111,15 +111,15 @@ Exporten har slutförts. Du kan ta bort jobbet just nu, eller så kan automatisk
 
 ## <a name="check-the-number-of-drives"></a>Kontrollera antalet enheter
 
-Detta *valfria* steg hjälper dig att du bestämmer hur många enheter som krävs för att exportera jobbet. Utför det här steget på ett Windows-system som kör en [stöds OS-version](storage-import-export-requirements.md#supported-operating-systems).
+Detta *valfritt* steg hjälper till att du bestämmer hur många enheter som krävs för export-jobbet. Utför det här steget på ett Windows-system som kör en [stöd för OS-version](storage-import-export-requirements.md#supported-operating-systems).
 
-1. [Hämta WAImportExport version 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) på Windows-systemet. 
+1. [Ladda ned WAImportExport version 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) på Windows-system. 
 2. Packa upp i standardmappen `waimportexportv1`. Till exempel `C:\WaImportExportV1`.
-3. Öppna ett fönster med PowerShell eller Kommandotolken med administratörsbehörighet. Ändra katalogen till mappen uppackade genom att köra följande kommando:
+3. Öppna ett fönster med PowerShell eller Kommandotolken med administratörsbehörighet. Om du vill ändra katalogen till mappen uppzippade, kör du följande kommando:
     
     `cd C:\WaImportExportV1`
 
-4. Kontrollera antalet diskar som krävs för den valda BLOB-objekt genom att köra följande kommando:
+4. Om du vill kontrollera antalet diskar som krävs för de valda blobarna, kör du följande kommando:
 
     `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
@@ -127,26 +127,26 @@ Detta *valfria* steg hjälper dig att du bestämmer hur många enheter som kräv
     
     |Kommandoradsparametern|Beskrivning|  
     |--------------------------|-----------------|  
-    |**/logdir:**|Valfri. Loggkatalogen. Utförlig loggfilerna skrivs till den här katalogen. Om inget anges används den aktuella katalogen som loggkatalogen.|  
-    |**/SN:**|Krävs. Namnet på lagringskontot för exportjobbet.|  
-    |**/Sk:**|Krävs endast om en behållare SAS inte har angetts. Kontonyckel för lagringskontot för exportjobbet.|  
-    |**/csas:**|Krävs endast om en lagringskontonyckel inte har angetts. Behållare SAS för att visa en lista över blobbar som ska exporteras i exportjobbet.|  
-    |**/ ExportBlobListFile:**|Krävs. Sökvägen till XML-fil som innehåller listan över blob-sökvägar eller blob sökväg prefix för blob som ska exporteras. Filformat som används i den `BlobListBlobPath` element i den [placera jobbet](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) driften av tjänsten Import/Export REST API.|  
+    |**/logdir:**|Valfri. Loggkatalogen. Utförliga loggfiler skrivs till den här katalogen. Om den inte anges används den aktuella katalogen som log-katalogen.|  
+    |**/SN:**|Krävs. Namnet på lagringskontot för export-jobbet.|  
+    |**/Sk:**|Krävs endast om en SAS-behållare inte har angetts. Kontonyckel för lagringskontot för export-jobbet.|  
+    |**/csas:**|Krävs endast om en lagringskontonyckel inte har angetts. Behållaren SAS för att lista blobbar exporteras i export-jobbet.|  
+    |**/ ExportBlobListFile:**|Krävs. Sökväg till XML-Datatypen filen som innehåller listan över blob-sökvägar eller blob-prefix som sökväg för BLOB-objekt som ska exporteras. Filformatet som används i den `BlobListBlobPath` elementet i den [placera jobbet](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) driften av REST-API för Import/Export-tjänsten.|  
     |**/ DriveSize:**|Krävs. Storleken på enheter som ska användas för ett exportjobb *t.ex.*, 500 GB, 1,5 TB.|  
 
     Se en [exempel på kommandot PreviewExport](#example-of-previewexport-command).
  
-5. Kontrollera att du kan läsa/skriva till enheter som ska levereras för exportjobbet.
+5. Kontrollera att du kan läsa/skriva till enheterna som ska publiceras för export-jobbet.
 
 ### <a name="example-of-previewexport-command"></a>Exempel på PreviewExport kommando
 
-I följande exempel visas den `PreviewExport` kommando:  
+Exemplet nedan visar den `PreviewExport` kommando:  
   
 ```  
 WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB    
 ```  
   
-Exportfilen blob listan kan innehålla blobbnamnen och blob-prefix, som visas här:  
+Export-blobblistfil kan innehålla blobnamn och blob-adressprefix, som visas här:  
   
 ```xml 
 <?xml version="1.0" encoding="utf-8"?>  
@@ -157,9 +157,9 @@ Exportfilen blob listan kan innehålla blobbnamnen och blob-prefix, som visas h�
 </BlobList>  
 ```
 
-Verktyget Azure Import/Export listar alla BLOB som ska exporteras och beräknar så pack dem till enheter i den angivna storleken med hänsyn till alla nödvändiga kostnader och sedan beräknar antalet enheter som behövs för blobbar och användningsinformation för enheten.  
+Azure Import/Export-verktyget visar en lista över alla blobbar exporteras och beräknar hur att bygga dem i enheter av den angivna storleken med hänsyn till eventuella nödvändiga arbetet och sedan beräknar antalet enheter som behövs för att lagra blobar och enhetsinformationen för användning.  
   
-Här är ett exempel på utdata med informativt loggar utelämnas:  
+Här är ett exempel på utdata med endast i informationssyfte loggar utelämnas:  
   
 ```  
 Number of unique blob paths/prefixes:   3  
@@ -177,17 +177,17 @@ Number of drives needed:        3
 
 ## <a name="examples-of-valid-blob-paths"></a>Exempel på giltiga blob sökvägar
 
-I följande tabell visas exempel på giltiga blob-sökvägar:
+I följande tabell visas exempel på giltiga blob sökvägar:
    
-   | Väljare | BLOB-sökväg | Beskrivning |
+   | Väljare | Blobbsökväg | Beskrivning |
    | --- | --- | --- |
-   | Börjar med |/ |Exporterar alla BLOB storage-konto |
-   | Börjar med |/$root / |Exporterar alla blobbar i behållaren rot |
-   | Börjar med |/Book |Exporterar alla blobbar i en behållare som börjar med prefixet **book** |
-   | Börjar med |/Music/ |Exporterar alla blobbar i behållaren **musik** |
-   | Börjar med |/ musik/kärlek |Exporterar alla blobbar i behållaren **musik** som börjar med prefixet **gillar** |
-   | Lika med |$root/logo.bmp |Export blob **logo.bmp** i behållaren rot |
-   | Lika med |videos/Story.mp4 |Export blob **story.mp4** i behållaren **videor** |
+   | Börjar med |/ |Exporterar alla blobar i lagringskontot |
+   | Börjar med |/$root / |Exporterar alla blobar i behållaren rot |
+   | Börjar med |/Book |Exporterar alla blobbar i en behållare som börjar med prefixet **bok** |
+   | Börjar med |/Music/ |Exporterar alla blobar i behållaren **musik** |
+   | Börjar med |/ musik/kärlek |Exporterar alla blobar i behållaren **musik** som börjar med prefixet **älskar** |
+   | Lika med |$root/logo.bmp |Exporterar blob **logo.bmp** i root-behållaren |
+   | Lika med |videos/Story.mp4 |Exporterar blob **story.mp4** i behållaren **videor** |
 
 ## <a name="next-steps"></a>Nästa steg
 

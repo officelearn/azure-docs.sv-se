@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: 7b813500eecba3aa1902c28b9b7c56da6c4516b7
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-ms.translationtype: MT
+ms.openlocfilehash: cf24810c0aa414e751e55df163563f013c1a0081
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967555"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969953"
 ---
 # <a name="trusted-internet-connection-guidance"></a>Vägledning för betrodda Internet-anslutning
 
@@ -199,7 +199,7 @@ Följande exempel principer kan vara användbart för ärende kompatibilitet sce
 |Tillåtna platser | Se till att alla resurser som distribueras till regioner med kompatibla virtuella nätverk och Network Watcher-konfiguration  | https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs |
 |Otillåtna resurstyper, till exempel PublicIPs  | Förhindra distribution av resurstyper som inte har en plan för efterlevnad. Exempelvis kan den här principen användas för att förhindra distribution av offentliga IP-adressresurser. NSG-regler kan användas för att effektivt blockera inkommande Internettrafik, minskar hindrar användning av offentliga IP-adresser ytterligare risken för angrepp.    | https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type  |
 
-### <a name="azure-traffic-analytics"></a>Azure trafikanalys
+### <a name="azure-traffic-analyticshttpsazuremicrosoftcomen-inblogtraffic-analytics-in-preview"></a>Azure [Traffic Analytics](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/)
 
 Azure Network Watcher-trafikanalys förbrukar loggdata för flödet och andra loggar att tillhandahålla översikt på hög nivå av nätverkstrafik. Dessa data kan vara användbart för att granska RANKNINGSLISTA efterlevnad och identifiera problemområden. En övergripande instrumentpanel kan användas för att snabbt skärmen som virtuella datorer kommunicerar med internet, vilket skulle ange en fokuserade lista för ärende routning.
 

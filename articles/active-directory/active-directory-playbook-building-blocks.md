@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: d2a63a1a9b335b7765c5eaf8c90e1d755b2ce9c9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867128"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38451707"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept strategibok: komponenter
 
@@ -468,24 +468,24 @@ Ungefärlig tid att Slutför: 15 minuter
 
 | Förhandskrav | Resurser |
 | --- | --- |
-| Identifiera den globala administratören som ska ingå i POC för PIM | [Börja använda Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) |
-| Identifiera den globala administratören som ska bli säkerhetsadministratören | [Börja använda Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)<br/> [Olika administrativa roller i Azure Active Directory-PIM](active-directory-privileged-identity-management-roles.md) |
-| Valfritt: Bekräfta om de globala administratörerna har e-poståtkomst att e-postmeddelanden i PIM | [Vad är Azure AD Privileged Identity Management?: Konfigurera aktivering rollinställningar](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)
+| Identifiera den globala administratören som ska ingå i POC för PIM | [Börja använda Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md) |
+| Identifiera den globala administratören som ska bli säkerhetsadministratören | [Börja använda Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md)<br/> [Olika administrativa roller i Azure Active Directory-PIM](privileged-identity-management/pim-roles.md) |
+| Valfritt: Bekräfta om de globala administratörerna har e-poståtkomst att e-postmeddelanden i PIM | [Vad är Azure AD Privileged Identity Management?: Konfigurera aktivering rollinställningar](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)
 
 
 ### <a name="steps"></a>Steg
 
 | Steg | Resurser |
 | --- | --- |
-| Logga in på https://portal.azure.com som en global administratör (GA) och bootstrap PIM-bladet. Den globala administratören som utför det här steget har angetts som security-administratör.  Vi kan kalla den här aktören GA1 | [Guiden Säkerhet i Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
-| Identifiera den globala administratören och flytta dem från permanent till berättigade. Det bör vara en administratör som är separat från den som används i steg 1 för tydlighetens skull. Vi kan kalla den här aktören GA2 | [Azure AD Privileged Identity Management: Så här lägger du till eller ta bort en användarroll](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[Vad är Azure AD Privileged Identity Management?: Konfigurera aktivering rollinställningar](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
+| Logga in på https://portal.azure.com som en global administratör (GA) och bootstrap PIM-bladet. Den globala administratören som utför det här steget har angetts som security-administratör.  Vi kan kalla den här aktören GA1 | [Guiden Säkerhet i Azure AD Privileged Identity Management](privileged-identity-management/pim-security-wizard.md) |
+| Identifiera den globala administratören och flytta dem från permanent till berättigade. Det bör vara en administratör som är separat från den som används i steg 1 för tydlighetens skull. Vi kan kalla den här aktören GA2 | [Azure AD Privileged Identity Management: Så här lägger du till eller ta bort en användarroll](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[Vad är Azure AD Privileged Identity Management?: Konfigurera aktivering rollinställningar](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | Nu kan logga in som GA2 till https://portal.azure.com och försök att ändra ”användarinställningar”. Observera att vissa alternativ är nedtonade. | |
-| I en ny flik och i samma session som steg 3, navigera nu till https://portal.azure.com och lägga till PIM-bladet på instrumentpanelen. | [Aktivera eller inaktivera roller i Azure AD Privileged Identity Management: lägga till programmet Privileged Identity Management](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
-| Begäran om aktivering till rollen som Global administratör | [Aktivera eller inaktivera roller i Azure AD Privileged Identity Management: aktivera en roll](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
+| I en ny flik och i samma session som steg 3, navigera nu till https://portal.azure.com och lägga till PIM-bladet på instrumentpanelen. | [Aktivera eller inaktivera roller i Azure AD Privileged Identity Management: lägga till programmet Privileged Identity Management](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Begäran om aktivering till rollen som Global administratör | [Aktivera eller inaktivera roller i Azure AD Privileged Identity Management: aktivera en roll](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | Observera att om GA2 aldrig registrerat dig för MFA, registrering för Azure MFA ska vara nödvändigt |  |
 | Gå tillbaka till den ursprungliga fliken i steg 3 och klicka på Uppdatera i webbläsaren. Observera att du nu har behörighet att ändra ”användarinställningar” | |
 | Om dina globala administratörer har e-postaktiverad kan du eventuellt se GA1 och GA2's inkorg och meddelandet i rollen som aktiveras |  |
-| 8 Kontrollera granskningshistoriken och se rapporten för att bekräfta utökas GA2 visas. | [Vad är Azure AD Privileged Identity Management?: rollen granskningsaktivitet](active-directory-privileged-identity-management-configure.md#review-role-activity) |
+| 8 Kontrollera granskningshistoriken och se rapporten för att bekräfta utökas GA2 visas. | [Vad är Azure AD Privileged Identity Management?: rollen granskningsaktivitet](privileged-identity-management/pim-configure.md#review-role-activity) |
 
 ### <a name="considerations"></a>Överväganden
 

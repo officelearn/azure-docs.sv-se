@@ -12,7 +12,7 @@ Anvisningarna för att avregistrera en processerver är olika beroende på dess 
 > [!WARNING]
 > Stegen nedan ska användas om det inte finns något sätt att återskapa den virtuella datorn som processervern installerades på.
 
-1. Logga in på av konfigurationsservern som administratör.
+1. Logga in på din konfigurationsserver som administratör.
 2. Öppna en administrativ kommandotolk och gå till katalogen `%ProgramData%\ASR\home\svsystems\bin`.
 3. Kör kommandot nu.
 

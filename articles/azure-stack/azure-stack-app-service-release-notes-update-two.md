@@ -1,6 +1,6 @@
 ---
-title: Apptjänst Azure stacken uppdatera 2 viktig information | Microsoft Docs
-description: Lär dig mer om nyheterna i uppdateringen två för användning på Azure-stacken, kända problem och var du kan hämta uppdateringen.
+title: App Service i Azure Stack uppdatera 2 viktig information | Microsoft Docs
+description: Läs mer om nyheter i uppdateringen två för App Service i Azure Stack, kända problem och var du kan hämta uppdateringen.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -15,76 +15,76 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 8e1790b7d0b3a210a9142fc8580ff8ed4d64311c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: be09773a1ce3e80547d9e5f0e9de2a2d9e093c60
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360407"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970925"
 ---
-# <a name="app-service-on-azure-stack-update-2-release-notes"></a>Apptjänst på Azure-stacken uppdatering 2 viktig information
+# <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service i Azure Stack uppdatering 2 viktig information
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Följande versionsinformation innehåller förbättringar och korrigeringar i Azure App Service på Azure-stacken uppdatering 2 och kända problem. Kända problem är indelade i problem som är direkt relaterade till distribution, uppdateringsprocessen och problem med build (efter installationen).
+Följande versionsinformation innehåller förbättringar och korrigeringar i Azure App Service på Azure Stack Update 2 och kända problem. Kända problem är indelade i problem som är direkt relaterade till distribution, uppdateringsprocessen och problem med build (efter installationen).
 
 > [!IMPORTANT]
-> Uppdateringen är 1804 Azure Stack integrerade systemet eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.2.
+> Uppdateringen är 1804 integrerade Azure Stack-system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.2.
 >
 >
 
 ## <a name="build-reference"></a>Skapa referens
 
-Tjänsten App på Azure-stacken uppdatering 2 build-nummer är **72.0.13698.10**
+App Service på Azure Stack Update 2 build-nummer är **72.0.13698.10**
 
 ### <a name="prerequisites"></a>Förutsättningar
 
 > [!IMPORTANT]
-> Nya distributioner av Azure App Service på Azure-stacken kräver en [tre ämne jokerteckencertifikat](azure-stack-app-service-before-you-get-started.md#get-certificates) på grund av förbättringar i hanteringen av där enkel inloggning för Kudu är nu i Azure App Service. Det nya ämnet är  **\*. sso.appservice.\< region\>.\< DomainName\>.\< tillägg\>**
+> Nya distributioner av Azure App Service i Azure Stack nu kräver en [tre ämne jokerteckencertifikat](azure-stack-app-service-before-you-get-started.md#get-certificates) tack vare förbättringar i hanteringen av där enkel inloggning för Kudu är nu i Azure App Service. Det nya ämnet är  **\*. sso.appservice.\< region\>.\< DomainName\>.\< tillägget\>**
 >
 >
 
-Referera till den [innan du börjar dokumentationen](azure-stack-app-service-before-you-get-started.md) innan du påbörjar distributionen.
+Referera till den [innan du börjar dokumentation](azure-stack-app-service-before-you-get-started.md) innan du påbörjar distributionen.
 
 ### <a name="new-features-and-fixes"></a>Nya funktioner och korrigeringar
 
-Azure App Service på Azure-stacken uppdatering 2 innehåller följande förbättringar och korrigeringar:
+Azure App Service i Azure Stack Update 2 innehåller följande förbättringar och korrigeringar:
 
-- Uppdateringar för **App Service-klient, Admin funktioner portaler och Kudu verktyg**. Konsekvent med Azure-stacken Portal SDK-version.
+- Uppdaterar till **App Service-klient, Admin, portaler för funktioner och verktyg för Kudu**. Konsekvent med Azure Stack Portal SDK-version.
 
-- Uppdateringar för kärntjänsten för att förbättra tillförlitligheten och fel messaging aktiverar enklare diagnos av vanliga problem.
+- Core-tjänst för att förbättra tillförlitlighet och felmeddelanden aktiverar enklare undersöka vanliga problem med uppdateringar.
 
-- **Uppdateringar för följande ramverk för programmet och verktyg**:
-  - Tillagda .net Framework 4.7.1
-  - Lägga till **Node.JS** versioner:
+- **Uppdateringar till följande ramverk för programmet och verktyg**:
+  - Har lagts till .net Framework 4.7.1
+  - Lagt till **Node.JS** versioner:
     - NodeJS 6.12.3
     - NodeJS 8.9.4
     - NodeJS 8.10.0
     - NodeJS 8.11.1
-  - Lägga till **NPM** versioner:
+  - Lagt till **NPM** versioner:
     - 5.6.0
-  - Uppdatera .net kärnkomponenter överensstämmer med Azure App Service i offentliga moln.
+  - Uppdatera .net viktiga komponenter för att överensstämma med Azure App Service i offentliga moln.
   - Uppdaterade Kudu
 
-- Automatisk växling av distribution fack-funktionen aktiverad - [konfigurerar automatiskt växla](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
+- Autoväxling av distribution platser funktionen aktiverad - [konfigurera automatisk växling](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
 
-- Testa i produktion-funktionen aktiverad - [introduktion till testa i produktion](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
+- Testa i produktion-funktionen aktiverad - [introduktion till testning i produktion](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
-- Azure Functions proxyservrar aktiverat – [arbeta med Azure Functions proxyservrar](https://docs.microsoft.com/en-us/azure/azure-functions/functions-proxies)
+- Azure Functions Proxies aktiverat - [arbeta med Azure Functions Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies)
 
-- Apptjänst Admin tillägget UX stöd lagts till för:
+- App Service-admininistrationstillägg UX stöd har lagts till för:
   - Hemlig rotation
-  - Certifikatet rotation
-  - System autentiseringsuppgifter rotation
-  - Anslutningen sträng rotation
+  - Certifikatrotering
+  - System credential rotation
+  - Sträng anslutningsrotationen
 
 ### <a name="known-issues-post-installation"></a>Kända problem (efter installationen)
 
-- Anställda kan inte nå filserver när Apptjänst distribueras i ett befintligt virtuellt nätverk och filservern är endast tillgängligt i det privata nätverket.
+- Arbetare är inte nå filserver när App Service har distribuerats i ett befintligt virtuellt nätverk och servern är endast tillgänglig i det privata nätverket.
 
-Om du vill distribuera till ett befintligt virtuellt nätverk och en intern IP-adress för att ansluta till servern, du måste lägga till utgående säkerhetsregel aktivera SMB-trafik mellan worker-undernät och filservern. Gör detta genom att gå till WorkersNsg i Admin Portal och Lägg till utgående säkerhetsregel med följande egenskaper:
+Om du väljer att distribuera till ett befintligt virtuellt nätverk och en intern IP-adress för att ansluta till filservern, du måste lägga till en utgående säkerhetsregel att aktivera SMB-trafik mellan worker-undernät och filservern. Gör detta genom att gå till WorkersNsg i Admin Portal och Lägg till en utgående säkerhetsregel med följande egenskaper:
  * Källa: alla
- * Datakällan portintervall: *
+ * Käll-portintervall: *
  * Mål: IP-adresser
  * Mål-IP-adressintervall: intervall av IP-adresser för din filserver
  * Målportintervall: 445
@@ -93,11 +93,11 @@ Om du vill distribuera till ett befintligt virtuellt nätverk och en intern IP-a
  * Prioritet: 700
  * Namn: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Kända problem för molnet administratörer fungerar Azure App Service på Azure-stacken
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Kända problem med Cloud administratörerna fungerar Azure App Service i Azure Stack
 
-Dokumentationen i det [Azure Stack 1804 viktig information](azure-stack-update-1804.md)
+Finns i dokumentationen i den [viktig information om Azure Stack 1804](azure-stack-update-1804.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över Azure App Service finns [Azure App Service på Azure-stacken översikt](azure-stack-app-service-overview.md).
-- Mer information om hur du distribuerar Apptjänst Azure stacken finns [innan du börjar med App Service på Azure-stacken](azure-stack-app-service-before-you-get-started.md).
+- En översikt över Azure App Service finns i [Azure App Service i Azure Stack-översikt](azure-stack-app-service-overview.md).
+- Mer information om hur du förbereder att distribuera App Service i Azure Stack finns i [innan du sätter igång med App Service i Azure Stack](azure-stack-app-service-before-you-get-started.md).

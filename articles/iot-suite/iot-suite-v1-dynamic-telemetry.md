@@ -1,12 +1,12 @@
 ---
-title: "Använd dynamiska telemetri | Microsoft Docs"
-description: "Den här kursen om du vill veta hur du använder dynamiska telemetri med Azure IoT Suite remote förkonfigurerade övervakningslösning."
-services: 
+title: Använd dynamisk telemetri | Microsoft Docs
+description: Följ den här självstudiekursen lär du dig hur du använder dynamisk telemetri med förkonfigurerade övervakningslösningen för Azure IoT Suite.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 562799dc-06ea-4cdd-b822-80d1f70d2f09
 ms.service: iot-suite
 ms.devlang: na
@@ -16,16 +16,17 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 60e9ee00fabf15a62e782c70bca251b1a8e617c3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38724003"
 ---
-# <a name="use-dynamic-telemetry-with-the-remote-monitoring-preconfigured-solution"></a>Använd dynamiska telemetri med fjärråtkomst övervakning förkonfigurerade lösningen
+# <a name="use-dynamic-telemetry-with-the-remote-monitoring-preconfigured-solution"></a>Använd dynamisk telemetri med den förkonfigurerade lösningen för fjärrövervakning
 
-Dynamisk telemetri kan du visualisera alla telemetri som skickas till den fjärranslutna förkonfigurerade övervakningslösning. Simulerade enheter som distribueras med förkonfigurerade lösningen skicka temperatur- och fuktighetskonsekvens telemetri som du kan visualisera på instrumentpanelen. Om du anpassa befintliga simulerade enheter, skapa nya simulerade enheter eller ansluta fysiska enheter till den förkonfigurerade lösningen kan du skicka andra telemetri värden som externa temperatur, RPM eller vindhastigheten. Sedan kan du visualisera detta ytterligare telemetri på instrumentpanelen.
+Dynamisk telemetri kan du visualisera någon telemetri som skickas till den förkonfigurerade lösningen för fjärrövervakning. De simulerade enheterna som distribuerar med den förkonfigurerade lösningen skickar temperatur och fuktighet telemetri som du kan visualisera på instrumentpanelen. Om du anpassa befintliga simulerade enheter, skapa nya simulerade enheter eller ansluter fysiska enheter till den förkonfigurerade lösningen skickar du andra telemetrivärden som extern temperatur, RPM eller vindhastigheten. Sedan kan du visualisera den här ytterligare telemetri på instrumentpanelen.
 
-Den här kursen använder en enkel Node.js simulerade enhet som du kan enkelt ändra om du vill experimentera med dynamiska telemetri.
+Den här självstudien använder en enkel Node.js simulerad enhet som du kan enkelt ändra för att experimentera med dynamisk telemetri.
 
 Den här kursen behöver du:
 
@@ -38,12 +39,12 @@ Du kan slutföra den här självstudiekursen på alla operativsystem, till exemp
 
 [!INCLUDE [iot-suite-v1-send-external-temperature](../../includes/iot-suite-v1-send-external-temperature.md)]
 
-## <a name="add-a-telemetry-type"></a>Lägga till en telemetri typ.
+## <a name="add-a-telemetry-type"></a>Lägg till en typ av telemetri
 
-Nästa steg är att ersätta telemetri som genererats av Node.js simulerade enheten med en ny uppsättning värden:
+Nästa steg är att ersätta telemetri som genererats av den simulerade enheten Node.js med en ny uppsättning värden:
 
-1. Stoppa Node.js simulerade enheten genom att skriva **Ctrl + C** i Kommandotolken eller shell.
-2. Du kan se grunddata värdena för befintliga temperatur, fuktighet och externa temperatur telemetri i filen remote_monitoring.js. Lägg till ett värde för basdata för **rpm** på följande sätt:
+1. Stoppa den simulerade enheten Node.js genom att skriva **Ctrl + C** i Kommandotolken eller shell.
+2. Du kan se grunddata värden för befintliga temperatur, fuktighet och extern temperatur telemetri i filen remote_monitoring.js. Lägg till ett värde för basdata för **rpm** på följande sätt:
 
     ```nodejs
     // Sensors data
@@ -53,7 +54,7 @@ Nästa steg är att ersätta telemetri som genererats av Node.js simulerade enhe
     var rpm = 200;
     ```
 
-3. Node.js simulerade enheten använder den **generateRandomIncrement** funktion i filen remote_monitoring.js att lägga till en slumpmässig ökning i grunddata-värden. Slumpa den **rpm** värde genom att lägga till en rad med kod efter befintliga randomizations på följande sätt:
+3. Node.js simulerade enheten använder de **generateRandomIncrement** funktion i filen remote_monitoring.js att lägga till en slumpmässig ökning i grundläggande datavärdena. Slumpgenerera den **rpm** värde genom att lägga till en rad med kod efter befintliga randomizations på följande sätt:
 
     ```nodejs
     temperature += generateRandomIncrement();
@@ -62,7 +63,7 @@ Nästa steg är att ersätta telemetri som genererats av Node.js simulerade enhe
     rpm += generateRandomIncrement();
     ```
 
-4. Lägg till det nya rpm-värdet i JSON-nyttolast enheten skickar till IoT-hubb:
+4. Lägg till det nya rpm-värdet i JSON-nyttolast som enheten skickar till IoT Hub:
 
     ```nodejs
     var data = JSON.stringify({
@@ -74,20 +75,20 @@ Nästa steg är att ersätta telemetri som genererats av Node.js simulerade enhe
     });
     ```
 
-5. Kör Node.js simulerade enheten med följande kommando:
+5. Kör den simulerade enheten för Node.js med följande kommando:
 
     `node remote_monitoring.js`
 
-6. Se den nya typen av RPM telemetri som visas i diagram på instrumentpanelen:
+6. Se den nya typen av RPM telemetri som visas på diagrammet på instrumentpanelen:
 
-![Lägg till RPM på instrumentpanelen][image3]
+![Lägga till RPM på instrumentpanelen][image3]
 
 > [!NOTE]
-> Du kan behöva inaktivera och aktivera sedan Node.js-enhet på den **enheter** sida i instrumentpanelen för att se ändringen direkt.
+> Du kan behöva inaktivera och sedan aktivera Node.js-enhet på den **enheter** sida i instrumentpanelen för att se ändringen direkt.
 
-## <a name="customize-the-dashboard-display"></a>Anpassa instrumentpanelsvy
+## <a name="customize-the-dashboard-display"></a>Anpassa visningen instrumentpanel
 
-Den **enhetsinformation** meddelandet kan innehålla metadata om den telemetriska enheten kan skicka till IoT-hubb. Dessa metadata kan ange vilka telemetri enheten skickar. Ändra den **deviceMetaData** värdet i filen remote_monitoring.js för att inkludera en **telemetri** definition följande den **kommandon** definition. I följande kod fragment visas den **kommandon** definition (se till att lägga till en `,` när den **kommandon** definition):
+Den **enhetsinformation** meddelandet kan innehålla metadata om telemetri som enheten kan skicka till IoT Hub. Dessa metadata kan ange de typer av telemetri som enheten skickar. Ändra den **deviceMetaData** värdet i filen remote_monitoring.js att inkludera en **telemetri** definition följande den **kommandon** definition. Följande kod kodfragmentet visar den **kommandon** definition (se till att lägga till en `,` när den **kommandon** definition):
 
 ```nodejs
 'Commands': [{
@@ -119,10 +120,10 @@ Den **enhetsinformation** meddelandet kan innehålla metadata om den telemetrisk
 ```
 
 > [!NOTE]
-> Fjärråtkomst övervakningslösning använder en skiftlägeskänslig matchning för att jämföra metadatadefinitionen med data i dataströmmen telemetri.
+> Lösningen för fjärrövervakning använder en icke-skiftlägeskänsliga matchningen för att jämföra metadatadefinition med data i telemetriströmmen.
 
 
-Lägga till en **telemetri** definition som visas i föregående kodfragment ändrar inte beteendet för instrumentpanelen. Metadata kan dock också inkludera en **DisplayName** attribut för att anpassa visningen i instrumentpanelen. Uppdatering av **telemetri** metadatadefinitionen som visas i följande utdrag:
+Att lägga till en **telemetri** definition som visas i föregående kodfragment inte ändra beteendet för instrumentpanelen. Metadata kan dock även innehålla en **DisplayName** attribut för att anpassa visningen i instrumentpanelen. Uppdatera den **telemetri** metadatadefinition enligt följande kodavsnitt:
 
 ```nodejs
 'Telemetry': [
@@ -144,18 +145,18 @@ Lägga till en **telemetri** definition som visas i föregående kodfragment än
 ]
 ```
 
-Följande skärmbild visar hur den här ändringen ändrar diagramförklaringen på instrumentpanelen:
+Skärmbilden nedan visar hur den här ändringen ändrar diagramförklaringen på instrumentpanelen:
 
 ![Anpassa diagrammets förklaring][image4]
 
 > [!NOTE]
-> Du kan behöva inaktivera och aktivera sedan Node.js-enhet på den **enheter** sida i instrumentpanelen för att se ändringen direkt.
+> Du kan behöva inaktivera och sedan aktivera Node.js-enhet på den **enheter** sida i instrumentpanelen för att se ändringen direkt.
 
-## <a name="filter-the-telemetry-types"></a>Filtrera telemetri-typer
+## <a name="filter-the-telemetry-types"></a>Filtrera typerna av telemetri
 
-Som standard visar diagram på instrumentpanelen varje dataserie i telemetri dataströmmen. Du kan använda den **enhetsinformation** metadata för visningen av specifika telemetri typer i diagrammet. 
+Som standard visar diagrammet på instrumentpanelen för varje serie i telemetriströmmen. Du kan använda den **enhetsinformation** metadata för att förhindra visning av specifika telemetrityper i diagrammet. 
 
-Att visa endast temperatur- och Fuktighetskonsekvens telemetri, utelämna **ExternalTemperature** från den **enhetsinformation** **telemetri** metadata på följande sätt:
+Om du vill göra diagram som visar bara telemetri om temperatur och fuktighet utelämna **ExternalTemperature** från den **enhetsinformation** **telemetri** metadata på följande sätt:
 
 ```nodejs
 'Telemetry': [
@@ -177,22 +178,22 @@ Att visa endast temperatur- och Fuktighetskonsekvens telemetri, utelämna **Exte
 ]
 ```
 
-Den **utomhus temperatur** inte längre visas i diagrammet:
+Den **utomhus temperatur** visas inte längre i diagrammet:
 
 ![Filtrera telemetri på instrumentpanelen][image5]
 
-Den här ändringen påverkar bara diagramvyn. Den **ExternalTemperature** datavärden fortfarande lagras och blir tillgänglig för alla backend-bearbetning.
+Den här ändringen påverkar endast diagrammet visningen. Den **ExternalTemperature** datavärden fortfarande lagras och blir tillgängliga för alla backend-bearbetning.
 
 > [!NOTE]
-> Du kan behöva inaktivera och aktivera sedan Node.js-enhet på den **enheter** sida i instrumentpanelen för att se ändringen direkt.
+> Du kan behöva inaktivera och sedan aktivera Node.js-enhet på den **enheter** sida i instrumentpanelen för att se ändringen direkt.
 
 ## <a name="handle-errors"></a>Hantera fel
 
-För en dataström som ska visas i diagrammet, dess **typen** i den **enhetsinformation** metadata måste matcha värdena telemetri datatyp. Till exempel om metadata som anger att den **typen** för fuktighet data är **int** och en **dubbla** hittas i dataströmmen telemetri och sedan fuktighet telemetri inte visas i diagrammet. Men den **fuktighet** värden fortfarande lagras och blir tillgänglig för alla backend-bearbetning.
+För en dataström som ska visas i diagrammet, dess **typ** i den **enhetsinformation** metadata måste matcha datatypen för telemetrivärden. Exempel: om metadata som anger att den **typ** för fuktighet data är **int** och en **dubbla** finns i telemetriströmmen och sedan fuktighet telemetrin inte visas i diagrammet. Men den **fuktighet** värden fortfarande lagras och blir tillgänglig för alla backend-bearbetning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder dynamiska telemetri, kan du läsa mer om hur förkonfigurerade lösningar använder enhetsinformation: [enhetens information metadata för fjärranslutna övervakningen förkonfigurerade lösningen] [ lnk-devinfo].
+Nu när du har sett hur du använder dynamisk telemetri, kan du läsa mer om hur de förkonfigurerade lösningarna använder enhetsinformation: [förkonfigurerad lösning för enhetsmetadata information i den fjärrövervakning] [ lnk-devinfo].
 
 [lnk-devinfo]: iot-suite-v1-remote-monitoring-device-info.md
 

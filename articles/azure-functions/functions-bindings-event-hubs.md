@@ -1,13 +1,13 @@
 ---
-title: Azure Event Hubs bindningar för Azure Functions
-description: Förstå hur du använder Azure Event Hubs bindningar i Azure Functions.
+title: Azure Event Hubs-bindningar för Azure Functions
+description: Förstå hur du använder Azure Event Hubs-bindningar i Azure Functions.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
-keywords: Azure functions, funktioner, händelsebearbetning, dynamiska beräkning serverlösa arkitektur
+keywords: Azure functions, funktioner, händelsebearbetning, dynamisk beräkning, serverlös arkitektur
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.service: functions
 ms.devlang: multiple
@@ -16,73 +16,73 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 64914a1b3efe81a152f5463f74c70c22f01ec0c1
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: MT
+ms.openlocfilehash: 7ea233f3d5b0e0b6ad1470af146f963fce6c4e94
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724052"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970680"
 ---
-# <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs bindningar för Azure Functions
+# <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindningar för Azure Functions
 
-Den här artikeln förklarar hur du arbetar med [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) bindningar för Azure Functions. Azure Functions stöder utlösa och utgående bindningar för Händelsehubbar.
+Den här artikeln förklarar hur du arbetar med [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) bindningar för Azure Functions. Azure Functions stöder Utlös och utdatabindningar för Event Hubs.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Paket - fungerar 1.x
+## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
-För Azure Functions version 1.x, bindningar för Händelsehubbar finns i den [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet-paketet version 2.x.
-Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) GitHub-lagringsplatsen.
+För Azure Functions-version 1.x, Event Hubs-bindningar finns i den [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet-paketet, version 2.x.
+Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) GitHub-lagringsplatsen.
 
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
 
-För funktioner 2.x, Använd den [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) paketet, version 3.x.
-Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs) GitHub-lagringsplatsen.
+För Functions 2.x, Använd den [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) paketet, version 3.x.
+Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>Utlösare
 
-Använd Händelsehubbar utlösaren ska svara på en händelse som skickas till en event hub händelseström. Du måste ha läsbehörighet till händelsehubben för att konfigurera utlösaren.
+Använda Event Hubs-utlösare för att svara på en händelse som skickas till en event hub-händelseström. Du måste ha läsbehörighet till händelsehubben för att konfigurera utlösaren.
 
-När en funktion för Händelsehubbar utlösare utlöses skickas meddelandet som utlöser den i funktionen som en sträng.
+När en funktion för Event Hubs-utlösaren utlöses skickas meddelandet som utlöser den i funktionen som en sträng.
 
 ## <a name="trigger---scaling"></a>Utlösa - skalning
 
-Varje instans av en Event Hub-Triggered funktion backas upp av endast 1 EventProcessorHost (EPH)-instans. Händelsehubbar garanterar att bara 1 EPH kan få ett lån på en given partition.
+Varje instans av en funktion för Event Hub-Triggered backas upp av endast 1 instans av EventProcessorHost (EPH). Event Hubs garanterar att endast 1 EPH kan få ett lån på en given partition.
 
-Anta exempelvis att vi börjar med följande inställningar och förutsättningarna för en Händelsehubb:
+Anta exempelvis att vi börjar med följande inställningar och antaganden för en Händelsehubb:
 
 1. 10 partitioner.
 1. 1000 händelser fördelas jämnt över alla partitioner = > 100 meddelanden i varje partition.
 
-När din funktion aktiveras först, finns det endast 1 instans av funktionen. Vi ska anropa den här funktionen instansen Function_0. Function_0 har 1 EPH som hanterar för att få ett lån på alla 10 partitioner. Läsa händelser från partitioner 0-9 startas. Från och med nu händer något av följande:
+När funktionen aktiveras först, är det bara 1 instans av funktionen. Vi kan kalla den här funktionen instansen Function_0. Function_0 har 1 EPH som hanterar att få ett lån på alla 10 partitioner. Den börjar läsa händelser från partitioner 0-9. Från och med nu händer något av följande:
 
-* **Funktionen endast 1 instans krävs** -Function_0 har kunnat bearbeta alla 1000 innan Azure Functions skalning logik aktiveras. Därför måste bearbetas alla 1000 meddelanden av Function_0.
+* **Funktionen endast 1 instans behövs** -Function_0 kan bearbeta alla 1000 innan Azure Functions skalar logic aktiveras. Därför bearbetas alla 1000 meddelanden av Function_0.
 
-* **Lägga till 1 mer funktionen instans** -Azure Functions skalning logik bestämmer att Function_0 har fler meddelanden än den kan bearbeta så skapas en ny instans Function_1,. Händelsehubbar identifierar att en ny instans av EPH som försöker läsa meddelanden. Händelsehubbar startar belastningsutjämning partitionerna över EPH instanser, t.ex. partitioner 0-4 tilldelas Function_0 och partitioner 5 – 9 tilldelas Function_1. 
+* **Lägg till 1 mer funktionen instans** – Azure Functions skalar logic avgör att Function_0 har fler meddelanden än den kan bearbeta så skapas en ny instans Function_1,. Händelsehubbar identifierar att en ny EPH-instans som försöker läsa meddelanden. Händelsehubbar startar partitionerna för belastningsutjämning mellan EPH-instanser, t.ex. partitioner 0-4 har tilldelats Function_0 och partitioner 5 – 9 har tilldelats Function_1. 
 
-* **Lägg till N fungerar fler instanser** -Azure Functions skalning logik anger att både Function_0 och Function_1 har fler meddelanden än de kan bearbeta. Det kommer skala igen för Function_2... N, där N är större än Event Hub-partitioner. Läser in Händelsehubbar Utjämna partitionerna över Function_0... 9 instanser.
+* **Lägg till N fungerar fler instanser** – Azure Functions skalar logic anger att både Function_0 och Function_1 har fler meddelanden än vad de kan bearbeta. Den skalas igen för Function_2... N, där N är större än Event Hub-partitioner. Läser in Event Hubs balanserar partitionerna mellan Function_0... 9 instanser.
 
-Unikt till Azure Functions aktuella skalning logik är att N är större än antalet partitioner. Detta görs för att säkerställa att det alltid är instanser av EPH är tillgänglig för att snabbt få ett lås på den partitionen/partitionerna när de blir tillgängliga från andra instanser. Användare endast debiteras för de resurser som används när funktionen-instansen körs och debiteras inte för den här överbelasta.
+Azure Functions aktuella skalning logic är det faktum att N är större än antalet partitioner. Detta görs för att säkerställa att det alltid är instanser av EPH är tillgänglig för att snabbt få ett lås på partitioner när de blir tillgängliga från andra instanser. Användare debiteras endast för de resurser som används när funktionen-instansen körs, och debiteras inte för den här överetablering.
 
-Om alla körningar av funktionen fungerar utan fel har kontrollpunkter lagts till det associerade lagringskontot. När du pekar lyckas, ska alla 1000 meddelanden aldrig hämtas igen.
+Om alla funktionskörningar lyckas utan fel har kontrollpunkter lagts till det associerade lagringskontot. När kontrollpunkter lyckas ska alla 1000 meddelanden aldrig hämtas igen.
 
-## <a name="trigger---example"></a>Utlösaren - exempel
+## <a name="trigger---example"></a>Utlösare - exempel
 
-Finns i det språkspecifika:
+Se exempel språkspecifika:
 
 * [C#](#trigger---c-example)
 * [C#-skript (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
-### <a name="trigger---c-example"></a>Utlösaren - C#-exempel
+### <a name="trigger---c-example"></a>Utlösare – C#-exempel
 
-Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som loggas av meddelandetexten i hubben händelseutlösare.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som loggar brödtexten i event hub-utlösare.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -92,7 +92,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Du får åtkomst till [metadata för händelser](#trigger---event-metadata) i Funktionskoden, binder till en [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objekt (kräver en med hjälp av uttrycket för `Microsoft.ServiceBus.Messaging`). Du kan också komma åt samma egenskaper med bindande uttryck i Metodsignaturen.  I följande exempel visas båda sätt att få samma data:
+Du får åtkomst till [händelsemetadata](#trigger---event-metadata) i Funktionskoden, binda till en [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objekt (kräver en med hjälp av instruktionen för `Microsoft.ServiceBus.Messaging`). Du kan också komma åt samma egenskaper med hjälp av bindningen uttryck i Metodsignaturen.  I följande exempel visas båda sätten att hämta samma data:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -115,7 +115,7 @@ public static void Run(
 }
 ```
 
-Om du vill ta emot händelser i en batch Se `string` eller `EventData` en matris:
+Om du vill ta emot händelser i en batch göra `string` eller `EventData` en matris:
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
@@ -128,11 +128,11 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-### <a name="trigger---c-script-example"></a>Utlösaren - exempel på C#-skript
+### <a name="trigger---c-script-example"></a>Utlösare – exempel på C#-skript
 
-I följande exempel visas en hub händelseutlösare bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen loggar av meddelandetexten i hubben händelseutlösare.
+I följande exempel visas en utlösare för händelsehubben bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen loggar brödtexten i event hub-utlösare.
 
-Följande exempel visar Händelsehubbar bindningsdata i den *function.json* fil. Det första exemplet avser fungerar 1.x och den andra är för funktioner 2.x. 
+I följande exempel visas data för Event Hubs-bindning i den *function.json* fil. Det första exemplet avser fungerar 1.x och den andra är för Functions 2.x. 
 
 ```json
 {
@@ -153,7 +153,7 @@ Följande exempel visar Händelsehubbar bindningsdata i den *function.json* fil.
 }
 ```
 
-Här är skriptkod C#:
+Här är C#-skriptkoden:
 
 ```cs
 using System;
@@ -164,7 +164,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-Du får åtkomst till [metadata för händelser](#trigger---event-metadata) i Funktionskoden, binder till en [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objekt (kräver en med hjälp av uttrycket för `Microsoft.ServiceBus.Messaging`). Du kan också komma åt samma egenskaper med bindande uttryck i Metodsignaturen.  I följande exempel visas båda sätt att få samma data:
+Du får åtkomst till [händelsemetadata](#trigger---event-metadata) i Funktionskoden, binda till en [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objekt (kräver en med hjälp av instruktionen för `Microsoft.ServiceBus.Messaging`). Du kan också komma åt samma egenskaper med hjälp av bindningen uttryck i Metodsignaturen.  I följande exempel visas båda sätten att hämta samma data:
 
 ```cs
 #r "Microsoft.ServiceBus"
@@ -190,7 +190,7 @@ public static void Run(EventData myEventHubMessage,
 }
 ```
 
-Om du vill ta emot händelser i en batch Se `string` eller `EventData` en matris:
+Om du vill ta emot händelser i en batch göra `string` eller `EventData` en matris:
 
 ```cs
 public static void Run(string[] eventHubMessages, TraceWriter log)
@@ -202,11 +202,11 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 }
 ```
 
-### <a name="trigger---f-example"></a>Utlösaren - F #-exempel
+### <a name="trigger---f-example"></a>Utlösare – F #-exempel
 
-I följande exempel visas en hub händelseutlösare bindning i en *function.json* fil och en [F # funktionen](functions-reference-fsharp.md) som använder bindningen. Funktionen loggar av meddelandetexten i hubben händelseutlösare.
+I följande exempel visas en utlösare för händelsehubben bindning i en *function.json* fil och en [F #-funktion](functions-reference-fsharp.md) som använder bindningen. Funktionen loggar brödtexten i event hub-utlösare.
 
-Följande exempel visar Händelsehubbar bindningsdata i den *function.json* fil. Det första exemplet avser fungerar 1.x och den andra är för funktioner 2.x. 
+I följande exempel visas data för Event Hubs-bindning i den *function.json* fil. Det första exemplet avser fungerar 1.x och den andra är för Functions 2.x. 
 
 ```json
 {
@@ -234,11 +234,11 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
     log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 ```
 
-### <a name="trigger---javascript-example"></a>Utlösaren - JavaScript-exempel
+### <a name="trigger---javascript-example"></a>Utlösare – JavaScript-exempel
 
-I följande exempel visas en hub händelseutlösare bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen. Funktionen läser [händelse metadata](#trigger---event-metadata) och loggar meddelandet.
+I följande exempel visas en utlösare för händelsehubben bindning i en *function.json* fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen läser [händelsemetadata](#trigger---event-metadata) och loggar meddelandet.
 
-Följande exempel visar Händelsehubbar bindningsdata i den *function.json* fil. Det första exemplet avser fungerar 1.x och den andra är för funktioner 2.x. 
+I följande exempel visas data för Event Hubs-bindning i den *function.json* fil. Det första exemplet avser fungerar 1.x och den andra är för Functions 2.x. 
 
 ```json
 {
@@ -272,7 +272,7 @@ module.exports = function (context, eventHubMessage) {
 };
 ```
 
-Om du vill ta emot händelser i en batch ange `cardinality` till `many` i den *function.json* -fil, som visas i följande exempel. Det första exemplet avser fungerar 1.x och den andra är för funktioner 2.x. 
+Om du vill ta emot händelser i en batch, ange `cardinality` till `many` i den *function.json* fil, enligt följande exempel. Det första exemplet avser fungerar 1.x och den andra är för Functions 2.x. 
 
 ```json
 {
@@ -309,11 +309,11 @@ module.exports = function (context, eventHubMessages) {
 };
 ```
 
-## <a name="trigger---attributes"></a>Utlösaren - attribut
+## <a name="trigger---attributes"></a>Utlösare - attribut
 
 I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) attribut.
 
-Attributets konstruktorn har namnet på händelsehubben, namnet på konsumentgruppen och namnet på en appinställning som innehåller anslutningssträngen. Mer information om dessa inställningar finns i [utlösa konfigurationsavsnittet](#trigger---configuration). Här är en `EventHubTriggerAttribute` attributet exempel:
+Attributets konstruktorn tar namnet på händelsehubben, namnet på konsumentgruppen och namnet på en appinställning som innehåller anslutningssträngen. Mer information om dessa inställningar finns i den [utlösa konfigurationsavsnittet](#trigger---configuration). Här är en `EventHubTriggerAttribute` attributet exempel:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -323,63 +323,63 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-En komplett exempel finns [utlösaren - C#-exempel](#trigger---c-example).
+Ett komplett exempel finns i [utlösare – C#-exempel](#trigger---c-example).
 
-## <a name="trigger---configuration"></a>Utlösaren - konfiguration
+## <a name="trigger---configuration"></a>Utlösare - konfiguration
 
-I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `EventHubTrigger` attribut.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `EventHubTrigger` attribut.
 
-|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | måste anges till `eventHubTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
-|**riktning** | Saknas | måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** | Saknas | Namnet på variabeln som representerar händelsen i funktionskoden. | 
+|**typ** | Saknas | Måste anges till `eventHubTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**riktning** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|**Namn** | Saknas | Namnet på variabeln som representerar objektet händelse i funktionskoden. | 
 |**Sökväg** |**EventHubName** | Fungerar endast 1.x. Namnet på händelsehubben.  | 
-|**EventHubName** |**EventHubName** | Fungerar endast 2.x. Namnet på händelsehubben.  |
-|**ConsumerGroup** |**ConsumerGroup** | En valfri egenskap som anger den [konsumentgrupp](../event-hubs/event-hubs-features.md#event-consumers) används för att prenumerera på händelser i hubben. Om det utelämnas används den `$Default` konsumentgrupp används. | 
-|**Kardinalitet** | Saknas | För Javascript. Ange till `many` för att aktivera Batchbearbetning.  Om detta utelämnas eller värdet `one`, enskilt meddelande som skickades till funktionen. | 
-|**Anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till den event hub-namnområdet. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformationen** knappen för den [namnområde](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), inte händelsehubben sig själv. Den här anslutningssträngen måste ha minst läsbehörighet utlösaren ska aktiveras.|
+|**eventHubName** |**EventHubName** | Fungerar endast 2.x. Namnet på händelsehubben.  |
+|**consumerGroup** |**ConsumerGroup** | En valfri egenskap som anger den [konsumentgrupp](../event-hubs/event-hubs-features.md#event-consumers) används för att prenumerera på händelser i hubben. Om det utelämnas används den `$Default` konsumentgrupp används. | 
+|**kardinalitet** | Saknas | För Javascript. Ange `many` för att aktivera Batchbearbetning.  Om detta utelämnas eller värdet `one`, enskilt meddelande som skickades till funktionen. | 
+|**anslutning** |**anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till namnområdet för event hub. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformation** för den [namnområde](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), inte händelsehubben själva. Den här anslutningssträngen måste ha minst läsbehörighet till aktivera utlösaren.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="trigger---event-metadata"></a>Utlösaren - metadata för händelser
+## <a name="trigger---event-metadata"></a>Utlösare - metadata för händelser
 
-Händelsehubbar-utlösare innehåller flera [metadataegenskaper](functions-triggers-bindings.md#binding-expressions---trigger-metadata). De här egenskaperna kan användas som en del av bindande uttryck i andra bindningar eller parametrar i din kod. Dessa är egenskaper för den [EventData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventdata) klass.
+Event Hubs-utlösare innehåller flera [metadataegenskaper](functions-triggers-bindings.md#binding-expressions---trigger-metadata). De här egenskaperna kan användas som en del av bindning uttryck i andra bindningar eller som parametrar i din kod. Dessa är egenskaper för den [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) klass.
 
 |Egenskap |Typ|Beskrivning|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|Den `PartitionContext` instans.|
-|`EnqueuedTimeUtc`|`DateTime`|Köas tid i UTC.|
-|`Offset`|`string`|Förskjutning av data i förhållande till Händelsehubben partition dataströmmen. Förskjutningen är en markör eller identifieraren för en händelse i Händelsehubbar dataströmmen. Identifieraren är unika inom en partition av Händelsehubbar dataströmmen.|
+|`EnqueuedTimeUtc`|`DateTime`|Kötid i UTC.|
+|`Offset`|`string`|Förskjutningen av data i förhållande till Event Hub partition dataströmmen. Förskjutningen är en markör eller identifieraren för en händelse i Event Hubs-dataströmmen. Identifieraren är unika inom en partition av Händelsehubbar dataströmmen.|
 |`PartitionKey`|`string`|Den partition som vilken händelse som data ska skickas.|
-|`Properties`|`IDictionary<String,Object>`|Användaregenskaper av informationen om händelsen.|
+|`Properties`|`IDictionary<String,Object>`|Användaregenskaper av händelsedata.|
 |`SequenceNumber`|`Int64`|Logiska sekvensnumret för händelsen.|
-|`SystemProperties`|`IDictionary<String,Object>`|Systemegenskaper, inklusive informationen om händelsen.|
+|`SystemProperties`|`IDictionary<String,Object>`|Systemegenskaper inklusive händelsedata.|
 
 Se [kodexempel](#trigger---example) som använder de här egenskaperna tidigare i den här artikeln.
 
-## <a name="trigger---hostjson-properties"></a>Utlösaren - host.json egenskaper
+## <a name="trigger---hostjson-properties"></a>Utlösare - host.json egenskaper
 
-Den [host.json](functions-host-json.md#eventhub) filen innehåller inställningar som styr beteendet för Händelsehubbar utlösare.
+Den [host.json](functions-host-json.md#eventhub) filen innehåller inställningar som styr beteendet för Event Hubs-utlösare.
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## <a name="output"></a>Resultat
 
-Använda Händelsehubbar utdata bindning skriva händelser till en händelseström. Du måste ha skicka behörighet till en händelsehubb skriva händelser till den.
+Använda Event Hubs-utdatabindning till skriva händelser till en händelseström. Du måste ha skicka behörighet till en event hub att skriva händelser till den.
 
-## <a name="output---example"></a>Output - exempel
+## <a name="output---example"></a>Utdata - exempel
 
-Finns i det språkspecifika:
+Se exempel språkspecifika:
 
 * [C#](#output---c-example)
 * [C#-skript (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
-### <a name="output---c-example"></a>Utdata - C#-exempel
+### <a name="output---c-example"></a>Resultat – C#-exempel
 
-Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som skriver ett meddelande till en händelsehubb med hjälp av metoden returvärdet som utdata:
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som skriver ett meddelande till en händelsehubb med hjälp av metoden returvärdet som utdata:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -391,11 +391,11 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 }
 ```
 
-### <a name="output---c-script-example"></a>Utdata - exempel på C#-skript
+### <a name="output---c-script-example"></a>Resultat – exempel på C#-skript
 
-I följande exempel visas en hub händelseutlösare bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen skriver ett meddelande till en händelsehubb.
+I följande exempel visas en utlösare för händelsehubben bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen skriver ett meddelande till en händelsehubb.
 
-Följande exempel visar Händelsehubbar bindningsdata i den *function.json* fil. Det första exemplet avser fungerar 1.x och den andra är för funktioner 2.x. 
+I följande exempel visas data för Event Hubs-bindning i den *function.json* fil. Det första exemplet avser fungerar 1.x och den andra är för Functions 2.x. 
 
 ```json
 {
@@ -416,7 +416,7 @@ Följande exempel visar Händelsehubbar bindningsdata i den *function.json* fil.
 }
 ```
 
-Här är C# skriptkod som skapar ett meddelande:
+Här är C#-skriptkoden som skapar ett meddelande:
 
 ```cs
 using System;
@@ -429,7 +429,7 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 }
 ```
 
-Här följer C# skriptkod som skapar flera meddelanden:
+Här är C#-skriptkoden som skapar flera meddelanden:
 
 ```cs
 public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
@@ -441,11 +441,11 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 }
 ```
 
-### <a name="output---f-example"></a>Utdata - F #-exempel
+### <a name="output---f-example"></a>Resultat – F #-exempel
 
-I följande exempel visas en hub händelseutlösare bindning i en *function.json* fil och en [F # funktionen](functions-reference-fsharp.md) som använder bindningen. Funktionen skriver ett meddelande till en händelsehubb.
+I följande exempel visas en utlösare för händelsehubben bindning i en *function.json* fil och en [F #-funktion](functions-reference-fsharp.md) som använder bindningen. Funktionen skriver ett meddelande till en händelsehubb.
 
-Följande exempel visar Händelsehubbar bindningsdata i den *function.json* fil. Det första exemplet avser fungerar 1.x och den andra är för funktioner 2.x. 
+I följande exempel visas data för Event Hubs-bindning i den *function.json* fil. Det första exemplet avser fungerar 1.x och den andra är för Functions 2.x. 
 
 ```json
 {
@@ -475,11 +475,11 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
     outputEventHubMessage <- msg;
 ```
 
-### <a name="output---javascript-example"></a>Utdata - JavaScript-exempel
+### <a name="output---javascript-example"></a>Resultat – JavaScript-exempel
 
-I följande exempel visas en hub händelseutlösare bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen. Funktionen skriver ett meddelande till en händelsehubb.
+I följande exempel visas en utlösare för händelsehubben bindning i en *function.json* fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skriver ett meddelande till en händelsehubb.
 
-Följande exempel visar Händelsehubbar bindningsdata i den *function.json* fil. Det första exemplet avser fungerar 1.x och den andra är för funktioner 2.x. 
+I följande exempel visas data för Event Hubs-bindning i den *function.json* fil. Det första exemplet avser fungerar 1.x och den andra är för Functions 2.x. 
 
 ```json
 {
@@ -500,7 +500,7 @@ Följande exempel visar Händelsehubbar bindningsdata i den *function.json* fil.
 }
 ```
 
-Här är JavaScript-kod som skickar ett meddelande:
+Här är JavaScript-kod som skickar ett enskilt meddelande:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -530,7 +530,7 @@ module.exports = function(context) {
 
 För [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) attribut.
 
-Attributets konstruktorn har namnet på händelsehubben och namnet på en appinställning som innehåller anslutningssträngen. Mer information om dessa inställningar finns [utdata - konfiguration](#output---configuration). Här är en `EventHub` attributet exempel:
+Attributets konstruktorn tar namnet på händelsehubben och namnet på en appinställning som innehåller anslutningssträngen. Mer information om dessa inställningar finns i [utdata - konfigurationen](#output---configuration). Här är en `EventHub` attributet exempel:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -541,28 +541,28 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 }
 ```
 
-En komplett exempel finns [utdata - C#-exempel](#output---c-example).
+Ett komplett exempel finns i [resultat – C#-exempel](#output---c-example).
 
-## <a name="output---configuration"></a>Output - konfiguration
+## <a name="output---configuration"></a>Utdata - konfiguration
 
-I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `EventHub` attribut.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `EventHub` attribut.
 
-|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
 |**typ** | Saknas | Måste anges till ”eventHub”. |
-|**riktning** | Saknas | Måste anges till ”out”. Den här parametern anges automatiskt när du skapar bindningen i Azure-portalen. |
+|**riktning** | Saknas | Måste anges till ”ut”. Den här parametern anges automatiskt när du skapar bindningen i Azure-portalen. |
 |**Namn** | Saknas | Variabelnamnet som används i Funktionskoden som representerar händelsen. | 
 |**Sökväg** |**EventHubName** | Fungerar endast 1.x. Namnet på händelsehubben.  | 
-|**EventHubName** |**EventHubName** | Fungerar endast 2.x. Namnet på händelsehubben.  |
-|**Anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till den event hub-namnområdet. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformationen** knappen för den *namnområde*, inte händelsehubben sig själv. Den här anslutningssträngen måste ha skicka behörighet att skicka meddelandet till händelseströmmen.|
+|**eventHubName** |**EventHubName** | Fungerar endast 2.x. Namnet på händelsehubben.  |
+|**anslutning** |**anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till namnområdet för event hub. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformation** för den *namnområde*, inte händelsehubben själva. Den här anslutningssträngen måste ha behörighet att skicka att skicka meddelandet till händelseströmmen.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Utdata - användning
 
-I C# och C#-skript kan skicka meddelanden med hjälp av en metodparameter som `out string paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Om du vill skriva flera meddelanden, kan du använda `ICollector<string>` eller `IAsyncCollector<string>` i stället för `out string`.
+I C# och C#-skript, skicka meddelanden genom att använda en metodparameter som `out string paramName`. I C#-skript, `paramName` har värdet som angetts i den `name` egenskapen för *function.json*. Du kan använda för att skriva flera meddelanden `ICollector<string>` eller `IAsyncCollector<string>` i stället för `out string`.
 
-Få åtkomst till händelsen utdata i JavaScript, med hjälp av `context.bindings.<name>`. `<name>` är värdet som angetts i den `name` -egenskapen för *function.json*.
+Få åtkomst till händelsen utdata i JavaScript, med hjälp av `context.bindings.<name>`. `<name>` är värdet som angetts i den `name` egenskapen för *function.json*.
 
 ## <a name="exceptions-and-return-codes"></a>Undantag och returkoder
 
@@ -573,4 +573,4 @@ Få åtkomst till händelsen utdata i JavaScript, med hjälp av `context.binding
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
+> [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)

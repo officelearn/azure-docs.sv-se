@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager personuppgifter | Microsoft Docs
+title: Azure Resource Manager-personuppgifter | Microsoft Docs
 description: Lär dig mer om att hantera personliga data som är associerade med Azure Resource Manager-åtgärder.
 services: azure-resource-manager
 documentationcenter: na
@@ -14,45 +14,45 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: tomfitz
 ms.openlocfilehash: 71928be07080ed14fdcb93f33ea64d2572955b53
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358633"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38466032"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Hantera personliga data som är associerade med Azure Resource Manager
 
-Ta bort någon personlig information som du har angett i distributioner, resursgrupp eller taggar för att undvika att exponera känslig information. Azure Resource Manager innehåller åtgärder som kan du hantera personliga data som du har angett i distributioner, resursgrupp eller taggar.
+Ta bort någon personlig information som du har angett i distributioner, resursgrupper eller taggar för att undvika exponera känslig information. Azure Resource Manager tillhandahåller åtgärder som låter dig hantera personliga data som du har angett i distributioner, resursgrupper eller taggar.
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-personal-data-in-deployment-history"></a>Ta bort personliga data i distributionshistoriken
 
-För distributioner behåller Resource Manager parametervärden och statusmeddelanden i distributionshistoriken. Dessa värden sparas tills du tar bort distributionen från historiken. Lista över distributioner för att se om du har angett personliga data i dessa värden. Om du hittar personliga data, kan du ta bort distributioner från historiken.
+För distributioner behåller Resource Manager parametervärden och statusmeddelanden i distributionshistoriken. Dessa värden sparas tills du tar bort distributionen från historiken. Om du har angett personliga data i de här värdena visas en lista över distributioner. Om du hittar personuppgifter kan du ta bort distributioner från historiken.
 
-Listan **distributioner** i tidigare använda:
+Listan **distributioner** i historiken, Använd:
 
-* [Lista med resursgrupp](/rest/api/resources/deployments/listbyresourcegroup)
+* [Listan efter resursgrupp](/rest/api/resources/deployments/listbyresourcegroup)
 * [Get-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/Get-AzureRmResourceGroupDeployment)
-* [AZ grupplistan för distribution](/cli/azure/group/deployment#az-group-deployment-list)
+* [distribution av AZ grupplistan](/cli/azure/group/deployment#az-group-deployment-list)
 
-Ta bort **distributioner** från tidigare använda:
+Att ta bort **distributioner** från historiken, använder du:
 
 * [Ta bort](/rest/api/resources/deployments/delete)
-* [Ta bort AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroupDeployment)
-* [ta bort AZ distribution](/cli/azure/group/deployment#az-group-deployment-delete)
+* [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroupDeployment)
+* [ta bort AZ-gruppdistribution](/cli/azure/group/deployment#az-group-deployment-delete)
 
 ## <a name="delete-personal-data-in-resource-group-names"></a>Ta bort personliga data i resursgruppnamn
 
-Namnet på resursgruppen kvar tills du tar bort resursgruppen. Lista över resursgrupper för att se om du har angett personliga data i namn. Om du hittar dina personliga data, [flytta resurserna](resource-group-move-resources.md) till en ny resursgrupp och ta bort resursgruppen med personliga data i namnet.
+Namnet på resursgruppen håller kvar tills du tar bort resursgruppen. Lista över resursgrupper för att se om du har angett personliga data i namnen. Om du hittar personuppgifter, [flytta resurserna](resource-group-move-resources.md) till en ny resursgrupp och ta bort resursgruppen med personliga data i namnet.
 
 Listan **resursgrupper**, Använd:
 
-* [lista](/rest/api/resources/resourcegroups/list)
+* [Lista](/rest/api/resources/resourcegroups/list)
 * [Get-AzureRmResourceGroup](/powershell/module/azurerm.resources/Get-AzureRmResourceGroup)
 * [AZ grupplistan](/cli/azure/group#az-group-list)
 
-Ta bort **resursgrupper**, Använd:
+Att ta bort **resursgrupper**, Använd:
 
 * [Ta bort](/rest/api/resources/resourcegroups/delete)
 * [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup)
@@ -60,19 +60,19 @@ Ta bort **resursgrupper**, Använd:
 
 ## <a name="delete-personal-data-in-tags"></a>Ta bort personliga data i taggar
 
-Taggar namn och värden sparas tills du tar bort eller ändra taggen. Lista över taggar för att se om du har angett personuppgifter inom taggarna. Ta bort taggar om du hittar personliga data.
+Taggar namn och värden kvar tills du tar bort eller ändra taggen. Om du vill se om du har angett personliga data i taggar, en lista över taggar. Ta bort taggar om du hittar personuppgifter.
 
 Listan **taggar**, Använd:
 
-* [lista](/rest/api/resources/tags/list)
+* [Lista](/rest/api/resources/tags/list)
 * [Get-AzureRmTag](/powershell/module/azurerm.tags/get-azurermtag)
-* [AZ tagglista](/cli/azure/tag#az-tag-list)
+* [AZ tag list](/cli/azure/tag#az-tag-list)
 
-Ta bort **taggar**, Använd:
+Att ta bort **taggar**, Använd:
 
 * [Ta bort](/rest/api/resources/tags/delete)
 * [Ta bort AzureRmTag](/powershell/module/azurerm.tags/remove-azurermtag)
-* [ta bort AZ-tagg](/cli/azure/tag#az-tag-delete)
+* [AZ tag delete](/cli/azure/tag#az-tag-delete)
 
 ## <a name="next-steps"></a>Nästa steg
-* En översikt över Azure Resource Manager finns i [vad är Resource Manager?](resource-group-overview.md)
+* En översikt över Azure Resource Manager finns i den [vad är Resource Manager?](resource-group-overview.md)

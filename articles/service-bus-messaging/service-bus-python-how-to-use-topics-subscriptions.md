@@ -15,32 +15,32 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: sethm
 ms.openlocfilehash: 6f262a63de9409d6b355d9783ca958e4715b1ea5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797728"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38479324"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Hur du använder Service Bus-ämnen och prenumerationer med Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-I den här artikeln beskrivs hur du använder Service Bus-ämnen och -prenumerationer. Exemplen är skrivna i Python och Använd den [Azure Python SDK-paketet][Azure Python package]. Scenarier som tas upp inkluderar **skapa ämnen och prenumerationer**, **skapa prenumerationsfilter**, **skicka meddelanden till ett ämne**, **ta emot meddelanden från en prenumeration**, och **ta bort ämnen och prenumerationer**. Mer information om ämnen och prenumerationer finns i [nästa steg](#next-steps) avsnitt.
+I den här artikeln beskrivs hur du använder Service Bus-ämnen och -prenumerationer. Exemplen är skrivna i Python och Använd den [Azure Python SDK-paketet][Azure Python package]. Scenarier som omfattas är **skapa ämnen och prenumerationer**, **skapa prenumerationsfilter**, **skicka meddelanden till ett ämne**, **tar emot meddelanden från en prenumeration**, och **ta bort ämnen och prenumerationer**. Läs mer om ämnen och prenumerationer, den [nästa steg](#next-steps) avsnittet.
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 > [!NOTE] 
-> Om du behöver installera Python eller [Azure Python-paketet][Azure Python package], finns det [Python installationsguiden](../python-how-to-install.md).
+> Om du vill installera Python eller [Azure Python-paketet][Azure Python package], finns i den [Python installationsguide](../python-how-to-install.md).
 
 ## <a name="create-a-topic"></a>Skapa ett ämne
 
-Den **ServiceBusService** objekt kan du arbeta med ämnen. Lägg till följande kod i den övre delen av Python-fil som du vill komma åt Service Bus:
+Den **ServiceBusService** objekt kan du arbeta med ämnen. Lägg till följande kod i den övre delen av alla Python-fil som du vill komma åt Service Bus via programmering:
 
 ```python
 from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
-Följande kod skapar en **ServiceBusService** objekt. Ersätt `mynamespace`, `sharedaccesskeyname`, och `sharedaccesskey` med det faktiska namnområdet delade signatur åtkomst (SAS) nyckelvärdet namn och nyckel.
+Följande kod skapar en **ServiceBusService** objekt. Ersätt `mynamespace`, `sharedaccesskeyname`, och `sharedaccesskey` med namnområdet faktiska signatur för delad åtkomst (SAS) nyckelvärdet namn och nyckel.
 
 ```python
 bus_service = ServiceBusService(
@@ -55,7 +55,7 @@ Du kan ge värdena för SAS-nyckelnamnet och värdet från den [Azure-portalen][
 bus_service.create_topic('mytopic')
 ```
 
-Den `create_topic` metoden stöder också ytterligare alternativ som gör att du kan åsidosätta standardinställningar för ämnet, till exempel time to live-meddelande eller avsnittet maximala storlek. I följande exempel anger maximal avsnittet storleken till 5 GB och en gång till live (TTL) på en minut:
+Den `create_topic` metoden stöder också ytterligare alternativ som gör att du kan åsidosätta standardinställningarna för ämnet, till exempel tid för TTL-värde eller högsta ämnesstorleken. I följande exempel anger den maximala avsnitt storleken till 5 GB och en tid för TTL-värde (TTL) på en minut:
 
 ```python
 topic_options = Topic()
@@ -67,16 +67,16 @@ bus_service.create_topic('mytopic', topic_options)
 
 ## <a name="create-subscriptions"></a>Skapa prenumerationer
 
-Prenumerationer till avsnitt skapas också med den **ServiceBusService** objekt. Prenumerationer är namngivna och kan ha ett valfritt filter som begränsar uppsättningen av meddelanden som skickas till prenumerationens virtuella kö.
+Prenumerationer på ämnen skapas också med den **ServiceBusService** objekt. Prenumerationer är namngivna och kan ha ett valfritt filter som begränsar uppsättningen av meddelanden som levereras till prenumerationens virtuella kö.
 
 > [!NOTE]
-> Prenumerationer är beständiga och fortsätter att existera tills de, eller i avsnittet som de prenumererar, tas bort.
+> Prenumerationer är beständiga och fortsätter att existera tills antingen de eller ämnet som de prenumererar, tas bort.
 > 
 > 
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Skapa en prenumeration med standardfiltret (MatchAll)
 
-**MatchAll**-filtret är det standardfilter som används om inget filter anges när en ny prenumeration skapas. När den **MatchAll** filter används, alla meddelanden som publiceras till ämnet placeras i prenumerationens virtuella kö. I följande exempel skapas en prenumeration med namnet `AllMessages` och använder förvalet **MatchAll** filter.
+**MatchAll**-filtret är det standardfilter som används om inget filter anges när en ny prenumeration skapas. När den **MatchAll** filter används, alla meddelanden som publiceras till ämnet placeras i prenumerationens virtuella kö. I följande exempel skapas en prenumeration med namnet `AllMessages` och vi använder **MatchAll** filter.
 
 ```python
 bus_service.create_subscription('mytopic', 'AllMessages')
@@ -84,14 +84,14 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 ### <a name="create-subscriptions-with-filters"></a>Skapa prenumerationer med filter
 
-Du kan också definiera filter som gör att du kan ange vilka meddelanden som skickas till ett ämne visas inom en viss ämnesprenumeration.
+Du kan också definiera filter som gör det möjligt att ange vilka meddelanden som skickas till ett ämne visas inom en viss ämnesprenumeration.
 
 Den mest flexibla typen av filter som stöds av prenumerationerna är en **SqlFilter**, som implementerar en deluppsättning av SQL92. SQL-filter tillämpas på egenskaperna i de meddelanden som publiceras till ämnet. Mer information om uttryck som kan användas med ett SQL-filter finns i syntaxen [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
-Du kan lägga till filter till en prenumeration med hjälp av den **skapa\_regeln** metod för den **ServiceBusService** objekt. Den här metoden kan du lägga till nya filter till en befintlig prenumeration.
+Du kan lägga till filter till en prenumeration med hjälp av den **skapa\_regeln** -metoden för den **ServiceBusService** objekt. Den här metoden kan du lägga till nya filter i en befintlig prenumeration.
 
 > [!NOTE]
-> Eftersom standardfiltret används automatiskt för alla nya prenumerationer, måste du först ta bort standardfiltret eller **MatchAll** åsidosätter eventuella filter som du kan ange. Du kan ta bort Standardregeln med hjälp av den `delete_rule` metod för den **ServiceBusService** objekt.
+> Eftersom standardfiltret används automatiskt på alla nya prenumerationer, måste du först ta bort standardfiltret eller **MatchAll** åsidosätter eventuella filter som du kan ange. Du kan ta bort Standardregeln med hjälp av den `delete_rule` -metoden för den **ServiceBusService** objekt.
 > 
 > 
 
@@ -121,13 +121,13 @@ bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-Nu när ett meddelande skickas till `mytopic` levereras det alltid till mottagare som prenumererar på den **AllMessages** avsnittet prenumeration, och levereras selektivt till mottagare som prenumererar på den **HighMessages**och **Highmessages** (beroende på innehållet i meddelandet).
+Nu när ett meddelande skickas till `mytopic` levereras det alltid till mottagare som prenumererar på den **AllMessages** ämnesprenumerationen levereras selektivt till mottagare som prenumererar på den **HighMessages**och **LowMessages** ämnesprenumerationer (beroende på innehållet i meddelandet).
 
 ## <a name="send-messages-to-a-topic"></a>Skicka meddelanden till ett ämne
 
-Om du vill skicka ett meddelande till en Service Bus-ämne, ditt program måste använda den `send_topic_message` metod för den **ServiceBusService** objekt.
+Om du vill skicka ett meddelande till en Service Bus-ämne, ditt program måste använda den `send_topic_message` -metoden för den **ServiceBusService** objekt.
 
-I följande exempel visar hur du skickar fem testmeddelanden till `mytopic`. Den `messagenumber` -värdet för varje meddelande varierar på upprepning av loopen (detta avgör vilka prenumerationer som får det):
+I följande exempel visar hur du skickar fem testmeddelanden till `mytopic`. Den `messagenumber` egenskapsvärdet för varje meddelande varierar på upprepning av loopen (detta avgör vilka prenumerationer som får det):
 
 ```python
 for i in range(5):
@@ -135,22 +135,22 @@ for i in range(5):
     bus_service.send_topic_message('mytopic', msg)
 ```
 
-Service Bus-ämnena stöder en maximal meddelandestorlek på 256 kB på [standardnivån](service-bus-premium-messaging.md) och 1 MB på [premiumnivån](service-bus-premium-messaging.md). Rubriken, som inkluderar standardprogramegenskaperna och de anpassade programegenskaperna, kan ha en maximal storlek på 64 kB. Det finns ingen gräns för antalet meddelanden som kan finnas i ett ämne men det finns ett tak för den totala storleken för de meddelanden som ligger i ett ämne. Den här ämnesstorleken definieras när ämnet skapas, med en övre gräns på 5 GB. Mer information om kvoter finns [Service Bus-kvoter][Service Bus quotas].
+Service Bus-ämnena stöder en maximal meddelandestorlek på 256 kB på [standardnivån](service-bus-premium-messaging.md) och 1 MB på [premiumnivån](service-bus-premium-messaging.md). Rubriken, som inkluderar standardprogramegenskaperna och de anpassade programegenskaperna, kan ha en maximal storlek på 64 kB. Det finns ingen gräns för antalet meddelanden som kan finnas i ett ämne men det finns ett tak för den totala storleken för de meddelanden som ligger i ett ämne. Den här ämnesstorleken definieras när ämnet skapas, med en övre gräns på 5 GB. Mer information om kvoter finns i [Service Bus-kvoter][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Ta emot meddelanden från en prenumeration
 
-Meddelanden tas emot från en prenumeration med hjälp av den `receive_subscription_message` -metoden i den **ServiceBusService** objekt:
+Meddelanden tas emot från en prenumeration med hjälp av den `receive_subscription_message` metoden på den **ServiceBusService** objekt:
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
 
-Meddelanden tas bort från prenumerationen som de läses när parametern `peek_lock` är inställd på **FALSKT**. Du kan läsa (titt) och låsa meddelandet utan att ta bort det från kön genom att ange parametern `peek_lock` till **SANT**.
+Meddelanden som tas bort från prenumerationen eftersom de är skrivskyddade när parametern `peek_lock` är inställd på **FALSKT**. Du kan läsa (peek) och låsa meddelandet utan att ta bort det från kön genom att ange parametern `peek_lock` till **SANT**.
 
-Beteendet för läsning och ta bort meddelandet som en del av receive-åtgärden är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera inte bearbetning av ett meddelande om det uppstår ett fel. Överväg ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan bearbetningen för att förstå problemet. Eftersom Service Bus kommer att ha markerat meddelandet som Förbrukat, och sedan när programmet startas om och börjar förbruka meddelanden igen, att ha missat meddelandet som förbrukades innan kraschen.
+Beteende för att läsa och radera meddelandet som en del av åtgärden ta emot är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera icke-bearbetning av ett meddelande om ett fel uppstår. Tänk dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan bearbetningen för att förstå det här beteendet. Eftersom Service Bus kommer att ha markerat meddelandet som Förbrukat, att sedan när programmet startas om och börjar förbruka meddelanden igen, ha missat meddelandet som förbrukades innan kraschen.
 
-Om den `peek_lock` parametern anges till **SANT**, inleveransen en åtgärd i två steg, vilket gör det möjligt att stödprogram som inte tolererar att ett meddelande saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har avslutat bearbetningen av meddelandet (eller lagrar det på ett tillförlitligt sätt för framtida bearbetning), Slutför det andra steget i processen genom att anropa `delete` -metoden i den **meddelandet** objekt. Den `delete` metoden markerar meddelandet som Förbrukat och tar bort det från prenumerationen.
+Om den `peek_lock` parametern är inställd på **SANT**, ta emot blir en åtgärd i två steg, vilket gör det möjligt att stödprogram som inte tolererar att saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört behandlingen av meddelandet (eller lagrar den på ett tillförlitligt sätt för framtida bearbetning), den är klar det andra steget i processen genom att anropa `delete` metoden på den **meddelande** objekt. Den `delete` metoden markerar meddelandet som Förbrukat och tas bort från prenumerationen.
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
@@ -161,15 +161,15 @@ msg.delete()
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Hantera programkrascher och oläsbara meddelanden
 
-Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagarprogram går inte att bearbeta meddelandet av någon anledning, så kan det anropa den `unlock` -metoden i den **meddelandet** objekt. Den här metoden gör att Service Bus låser upp meddelandet i prenumerationen och göra den tillgänglig för tas emot igen, antingen genom samma användningsprogram eller ett annat användningsprogram.
+Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagarprogram är det går inte att bearbeta meddelandet av någon anledning så kan det anropa den `unlock` metoden på den **meddelande** objekt. Den här metoden gör att Service Bus att låsa upp meddelandet i prenumerationen och gör det tillgängligt att tas emot igen, antingen genom samma användningsprogram eller ett annat användningsprogram.
 
-Det finns också en tidsgräns som är associerad med ett meddelande som ligger låst i prenumerationen om programmet misslyckas med att bearbeta meddelandet innan timeout för lås går ut (till exempel om programmet kraschar), kommer Service Bus låser upp meddelandet automatiskt och gör det tillgängligt att tas emot igen.
+Det finns också en tidsgräns som är associerade med ett meddelande som ligger låst i prenumerationen om programmet misslyckas med att bearbeta meddelandet innan låset tidsgränsen har nåtts (till exempel om programmet kraschar), så att Service Bus låser upp meddelandet automatiskt och gör det tillgängligt att tas emot igen.
 
-I händelse av att programmet kraschar efter att meddelandet har bearbetats men innan den `delete` metoden anropas sedan meddelandet att levereras till programmet när den startas om. Det här beteendet kallas ofta *At Least Once Processing*; som är varje meddelande bearbetas minst en gång men i vissa situationer kan samma meddelande levereras. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Om du vill göra det, kan du använda den **MessageId** för meddelandet, som förblir konstant under alla leveransförsök.
+I händelse av att programmet kraschar efter behandlingen av meddelandet men innan den `delete` metoden anropas sedan meddelandet att levereras till programmet när den startas om. Det här beteendet kallas ofta *minst Processing*; det vill säga varje meddelande bearbetas minst en gång men i vissa situationer kan samma meddelande kan levereras. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Om du vill göra det, du kan använda den **MessageId** för meddelandet, förblir konstant under alla leveransförsök.
 
 ## <a name="delete-topics-and-subscriptions"></a>Ta bort ämnen och prenumerationer
 
-Ämnen och prenumerationer är beständiga och måste vara explicit bort antingen via den [Azure-portalen] [ Azure portal] eller programmässigt. I följande exempel visas hur du tar bort avsnittet med namnet `mytopic`:
+Ämnen och prenumerationer är beständiga och måste vara explicit bort antingen via den [Azure-portalen] [ Azure portal] eller programmässigt. I följande exempel visas hur du tar bort ämnet med namnet `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')
@@ -183,10 +183,10 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig grunderna om Service Bus-ämnen kan du följa dessa länkar om du vill veta mer.
+Nu när du har lärt dig grunderna i Service Bus-ämnen kan du följa dessa länkar om du vill veta mer.
 
 * Se [köer, ämnen och prenumerationer][Queues, topics, and subscriptions].
-* Referens för [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+* Referera för [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 [Azure portal]: https://portal.azure.com
 [Azure Python package]: https://pypi.python.org/pypi/azure  

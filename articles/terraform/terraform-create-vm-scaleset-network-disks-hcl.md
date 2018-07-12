@@ -1,50 +1,50 @@
 ---
-title: Använd Terraform för att skapa en virtuell dator i Azure-skala ange
-description: Självstudiekurs om att använda Terraform för att konfigurera och version skala en virtuell dator i Azure anges med ett virtuellt nätverk och hanteras anslutna diskar
+title: Använd Terraform för att skapa en Azure VM-skalningsuppsättning ange
+description: Självstudier om hur du använder Terraform att konfigurera och version Azure VM-skalningsuppsättning med ett virtuellt nätverk och hanteras anslutna diskar
 keywords: terraform, devops, virtuella datorer, Azure, skala set, nätverk, lagring, moduler
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 06/04/2018
 ms.topic: article
-ms.openlocfilehash: b7cd9ad90198ead7c68d838547232429dbd1289f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 5922bad24c50a9d315aae42ce11a33801b9dbcaf
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757328"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971841"
 ---
-# <a name="use-terraform-to-create-an-azure-virtual-machine-scale"></a>Använd Terraform för att skapa en virtuell dator i Azure-skala
+# <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Använd Terraform för att skapa en Azure VM-skalningsuppsättning ange
 
-[Skaluppsättningar för virtuell dator i Azure](/azure/virtual-machine-scale-sets) kan du skapa och hantera en grupp med identiska, läsa in den belastningsutjämnade virtuella datorer där antalet instanser för virtuella datorer kan automatiskt öka eller minska som svar på begäran eller ett definierat schema. 
+[Azure VM-skalningsuppsättningar](/azure/virtual-machine-scale-sets) kan du skapa och hantera grupper med identiska, läsa in belastningsutjämnade virtuella datorer där antalet instanser av virtuella datorer kan automatiskt öka eller minska som svar på begäran eller ett definierat schema. 
 
-I kursen får du lära dig hur du använder [Azure Cloud Shell](/azure/cloud-shell/overview) att utföra följande uppgifter:
+I den här självstudien får du lära dig hur du använder [Azure Cloud Shell](/azure/cloud-shell/overview) att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Konfigurera en Terraform-distribution
-> * Använda variabler och utdata för Terraform distribution 
+> * Använda variabler och utdata för Terraform-distribution 
 > * Skapa och distribuera nätverksinfrastrukturen
-> * Skapa och distribuera en skaluppsättning för virtuell dator och koppla den till nätverket
+> * Skapa och distribuera en virtuell dator och koppla den till nätverket
 > * Skapa och distribuera en jumpbox att ansluta till de virtuella datorerna via SSH
 
 > [!NOTE]
-> Den senaste versionen av Terraform konfigurationsfiler som används i den här artikeln finns i den [helt otroligt Terraform databasen på Github](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
+> Den senaste versionen av Terraform konfigurationsfiler som används i den här artikeln finns i den [fantastiska Terraform-arkivet på Github](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
-- **Installera Terraform**: följer du anvisningarna i artikeln, [Terraform och konfigurera åtkomst till Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Installera Terraform**: Följ anvisningarna i artikeln [Terraform och konfigurera åtkomst till Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Skapa en SSH-nyckelpar**: Om du inte redan har en SSH nyckelpar, följer du instruktionerna i artikeln [hur du skapar och använder ett SSH offentliga och privata nyckelpar för Linux virtuella datorer i Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys).
+- **Skapa ett SSH-nyckelpar**: Om du inte redan har en SSH nyckelpar, följer du instruktionerna i artikeln [hur du skapar och använder ett SSH offentliga och privata nyckelpar för virtuella Linux-datorer i Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 ## <a name="create-the-directory-structure"></a>Skapa katalogstrukturen
 
 1. Bläddra till den [Azure-portalen](http://portal.azure.com).
 
-1. Öppna [Azuremolnet Shell](/azure/cloud-shell/overview). Om du inte väljer en miljö tidigare väljer **Bash** som din miljö.
+1. Öppna [Azure Cloudshell](/azure/cloud-shell/overview). Om du inte väljer en miljö tidigare, väljer **Bash** som din miljö.
 
-    ![Kommandotolken i molnet-gränssnittet](./media/terraform-create-vm-scaleset-network-disks-hcl/azure-portal-cloud-shell-button-min.png)
+    ![Cloud Shell-prompten](./media/terraform-create-vm-scaleset-network-disks-hcl/azure-portal-cloud-shell-button-min.png)
 
 1. Ändra sökvägen till den `clouddrive` directory.
 
@@ -65,9 +65,9 @@ I kursen får du lära dig hur du använder [Azure Cloud Shell](/azure/cloud-she
     ```
 
 ## <a name="create-the-variables-definitions-file"></a>Skapa filen variabler definitioner
-I det här avsnittet kan du definiera variabler som anpassa de resurser som skapats av Terraform.
+I det här avsnittet definierar du de variabler som anpassar resurser som skapas av Terraform.
 
-I Azure Cloud-gränssnittet, utför du följande steg:
+I Azure Cloud Shell, utför du följande steg:
 
 1. Skapa en fil med namnet `variables.tf`.
 
@@ -77,7 +77,7 @@ I Azure Cloud-gränssnittet, utför du följande steg:
 
 1. Ange infogningsläge genom att välja I nyckeln.
 
-1. Klistra in följande kod i Redigeraren för:
+1. Klistra in följande kod i redigeraren:
 
   ```JSON
   variable "location" {
@@ -107,10 +107,10 @@ I Azure Cloud-gränssnittet, utför du följande steg:
     :wq
     ```
 
-## <a name="create-the-output-definitions-file"></a>Skapa definitioner utdatafilen
+## <a name="create-the-output-definitions-file"></a>Skapa definitioner för utdatafilen
 I det här avsnittet skapar du den fil som beskriver utdata efter distributionen.
 
-I Azure Cloud-gränssnittet, utför du följande steg:
+I Azure Cloud Shell, utför du följande steg:
 
 1. Skapa en fil med namnet `output.tf`.
 
@@ -120,7 +120,7 @@ I Azure Cloud-gränssnittet, utför du följande steg:
 
 1. Ange infogningsläge genom att välja I nyckeln.
 
-1. Klistra in följande kod i Redigeraren för att visa det fullständigt kvalificerade domännamnet (FQDN) för de virtuella datorerna. :
+1. Klistra in följande kod i Redigeraren för att exponera det fullständigt kvalificerade domännamnet (FQDN) för de virtuella datorerna. :
 
   ```JSON
     output "vmss_public_ip" {
@@ -139,13 +139,13 @@ I Azure Cloud-gränssnittet, utför du följande steg:
 ## <a name="define-the-network-infrastructure-in-a-template"></a>Definiera nätverkets infrastruktur i en mall
 I det här avsnittet skapar du följande nätverksinfrastruktur i en ny Azure resursgrupp: 
 
-  - Ett virtuellt nätverk (VNET) med 10.0.0.0/16 adressutrymme 
-  - Ett undernät med 10.0.2.0/24 adressutrymme
-  - Två offentliga IP-adresser. En som används av virtuella scale set belastningsutjämnaren, den andra används för att ansluta till SSH-jumpbox.
+  - Ett virtuellt nätverk (VNET) med adressutrymmet 10.0.0.0/16 
+  - Ett undernät med adressutrymmet för 10.0.2.0/24
+  - Två offentliga IP-adresser. En som används av VM scale set belastningsutjämnaren, den andra används för att ansluta till SSH-jumpbox.
 
-I Azure Cloud-gränssnittet, utför du följande steg:
+I Azure Cloud Shell, utför du följande steg:
 
-1. Skapa en fil med namnet `vmss.tf` ange infrastruktur för att beskriva virtuella datorns skaluppsättning.
+1. Skapa en fil med namnet `vmss.tf` ange infrastruktur för att beskriva VM-skalningsuppsättningen.
 
     ```bash
     vi vmss.tf
@@ -153,7 +153,7 @@ I Azure Cloud-gränssnittet, utför du följande steg:
 
 1. Ange infogningsläge genom att välja I nyckeln.
 
-1. Klistra in följande kod i slutet av filen att exponera det fullständigt kvalificerade domännamnet (FQDN) för de virtuella datorerna. 
+1. Klistra in följande kod i slutet av filen för att exponera det fullständigt kvalificerade domännamnet (FQDN) för de virtuella datorerna. 
 
   ```JSON
   resource "azurerm_resource_group" "vmss" {
@@ -202,8 +202,8 @@ I Azure Cloud-gränssnittet, utför du följande steg:
   :wq
   ```
 
-## <a name="provision-the-network-infrastructure"></a>Etablera nätverkets infrastruktur
-Med hjälp av Azure Cloud Shell från katalogen där du skapade konfigurationsfiler (.tf) utför följande steg:
+## <a name="provision-the-network-infrastructure"></a>Etablera nätverksinfrastrukturen
+Med hjälp av Azure Cloud Shell från katalogen där du skapade configuration-filer (.tf) utför följande steg:
 
 1. Initiera Terraform.
 
@@ -211,34 +211,34 @@ Med hjälp av Azure Cloud Shell från katalogen där du skapade konfigurationsfi
   terraform init 
   ```
 
-1. Kör följande kommando för att distribuera infrastrukturen som är definierade i Azure.
+1. Kör följande kommando för att distribuera den definierade infrastrukturen i Azure.
 
   ```bash
   terraform apply
   ```
 
-  Terraform efterfrågas ett ”plats”-värde som den **plats** variabel definieras i `variables.tf`, men aldrig har angetts. Du kan ange en giltig plats - till exempel ”West US” följt av du väljer Ange. (Använd valfritt värde inom parentes med blanksteg.)
+  Terraform uppmanar dig att ange ett värde för ”plats” som den **plats** variabeln har definierats i `variables.tf`, men det har aldrig angetts. Du kan ange valfri giltig plats – till exempel ”West US” följt av att välja RETUR. (Använd parenteser kring ett värde med blanksteg).
 
-1. Terraform skrivs utdata som definierats i den `output.tf` filen. I följande skärmbild visas det fullständiga Domännamnet har formen &lt;id >.&lt; plats >. cloudapp.azure.com. Id-värdet är ett beräknat värde och plats är det värde som du anger när du kör Terraform.
+1. Terraform skriver ut utdata som definierats i den `output.tf` filen. I följande skärmbild visas det fullständiga Domännamnet har formen &lt;id >.&lt; plats >. cloudapp.azure.com. Id-värdet är ett beräknat värde och plats är det värde som du anger när du kör Terraform.
 
-  ![Fullständigt kvalificerat domännamn för offentlig IP-adress för skaluppsättning för virtuell dator](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
+  ![Fullständigt domännamn för offentliga IP-adressen för VM-skalningsuppsättningen](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
 
-1. I Azure portal menyn, Välj **resursgrupper** på huvudmenyn.
+1. I Azure portal-menyn, Välj **resursgrupper** på huvudmenyn.
 
-1. På den **resursgrupper** väljer **myResourceGroup** att visa de resurser som har skapats av Terraform.
-  ![Nätverksresurser för skaluppsättning för virtuell dator](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
+1. På den **resursgrupper** fliken **myResourceGroup** att visa de resurser som skapades med Terraform.
+  ![Nätverksresurser för VM-skalningsuppsättningen](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
 
-## <a name="add-a-virtual-machine-scale-set"></a>Lägg till en virtuella datorns skaluppsättning
+## <a name="add-a-virtual-machine-scale-set"></a>Lägg till en VM-skalningsuppsättning
 
-I det här avsnittet kan du lära dig hur du lägger till följande resurser för mallen:
+I det här avsnittet ska du lära dig hur du lägger till följande resurser i mallen:
 
-- En Azure belastningsutjämnare och regler för att hantera programmet och koppla den till den offentliga IP-adressen som konfigurerats tidigare i den här artikeln
-- En serverdel för Azure-adresspoolen och tilldelar den belastningsutjämnaren 
-- En hälsa avsökningsport som används av programmet och konfigurerats på belastningsutjämnaren 
-- En virtuell dator skaluppsättningen placerad bakom belastningsutjämnaren som körs på den VNET som distribuerats tidigare i den här artikeln
-- [Nginx](http://nginx.org/) på noderna för den virtuella datorn skala med hjälp av [moln init](http://cloudinit.readthedocs.io/en/latest/).
+- En Azure load balancer och regler för att hantera programmet och koppla den till offentliga IP-adress som konfigurerats tidigare i den här artikeln
+- En Azure backend-adresspoolen och tilldela den till belastningsutjämnaren 
+- En avsökningsport för hälsotillstånd som används av programmet och konfigureras på belastningsutjämnaren 
+- En skalningsuppsättning virtuell dator bakom belastningsutjämnaren som körs på det virtuella nätverket som distribuerats tidigare i den här artikeln
+- [Nginx](http://nginx.org/) på noderna i den virtuella datorn skala med [cloud-init](http://cloudinit.readthedocs.io/en/latest/).
 
-Molnet Shell, utför du följande steg:
+I Cloud Shell, utför du följande steg:
 
 1. Öppna den `vmss.tf` konfigurationsfilen.
 
@@ -356,7 +356,7 @@ Molnet Shell, utför du följande steg:
     :wq
     ```
 
-1. Skapa en fil med namnet `web.conf` som fungerar som molntjänster init-konfigurationen för virtuella datorer som ingår i skaluppsättning. 
+1. Skapa en fil med namnet `web.conf` som fungerar som cloud-init-konfigurationen för virtuella datorer som är en del av skalningsuppsättningen. 
 
     ```bash
     vi web.conf
@@ -364,7 +364,7 @@ Molnet Shell, utför du följande steg:
 
 1. Ange infogningsläge genom att välja I nyckeln.
 
-1. Klistra in följande kod i Redigeraren för:
+1. Klistra in följande kod i redigeraren:
 
   ```JSON
   #cloud-config
@@ -414,15 +414,15 @@ Molnet Shell, utför du följande steg:
     :wq
     ```
 
-1. Skapa en plan för Terraform visualisera distributionen av virtuella datorer scale set. (Du måste ange ett lösenord som du väljer som platsen för dina resurser.)
+1. Skapa en plan för Terraform att visualisera VM scale set distributionen. (Du måste ange ett lösenord som du väljer, samt platsen för dina resurser.)
 
   ```bash
   terraform plan
   ```
 
-  Utdata från kommandot bör likna följande skärmbild:
+  Kommandots utdata bör likna följande skärmbild:
 
-  ![Utdata från att skapa virtuella datorns skaluppsättning](./media/terraform-create-vm-scaleset-network-disks-hcl/add-mvss-plan.png)
+  ![Utdata från att skapa virtuella datorns skalningsuppsättning](./media/terraform-create-vm-scaleset-network-disks-hcl/add-mvss-plan.png)
 
 1. Distribuera nya resurser i Azure.
 
@@ -430,20 +430,20 @@ Molnet Shell, utför du följande steg:
   terraform apply 
   ```
 
-  Utdata från kommandot bör likna följande skärmbild:
+  Kommandots utdata bör likna följande skärmbild:
 
-  ![Skaluppsättning för Terraform virtuella resursgruppen.](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
+  ![Terraform VM-skalningsuppsättningen resursgrupp](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
 
-1. Öppna en webbläsare och Anslut till FQDN som returnerades av kommandot. 
+1. Öppna en webbläsare och Anslut till det fullständiga Domännamnet som returnerades av kommandot. 
 
-  ![Resultaten av Bläddra till FQDN](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
+  ![Resultatet av att bläddra till FQDN](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
 ## <a name="add-an-ssh-jumpbox"></a>Lägg till en SSH-jumpbox
-En SSH *jumpbox* är en enskild server som du ”hoppar” via för att komma åt andra servrar i nätverket. I det här steget konfigurerar du följande resurser:
+En SSH *jumpbox* är en enskild server som du ”gå” via för att komma åt andra servrar i nätverket. I det här steget konfigurerar du följande resurser:
 
-- Gränssnitt (eller jumpbox) som är anslutna till samma undernät som virtuella datorns skaluppsättning.
+- Ett nätverksgränssnitt (eller jumpbox) som är anslutna till samma undernät som virtuella datorns skalningsuppsättning.
 
-- En virtuell dator är ansluten till det här nätverksgränssnittet. Den här jumpbox är åtkomlig via fjärranslutning. När du är ansluten, kan du SSH till någon av de virtuella datorerna i skaluppsättning.
+- En virtuell dator som är ansluten till nätverksgränssnittet. Den här jumpbox är tillgänglig via fjärranslutning. När du är ansluten, kan du SSH till någon av de virtuella datorerna i skalningsuppsättningen.
 
 1. Öppna den `vmss.tf` konfigurationsfilen.
 
@@ -523,7 +523,7 @@ En SSH *jumpbox* är en enskild server som du ”hoppar” via för att komma å
 
 1. Gå till slutet av filen och ange lägga till genom att välja en nyckel.
 
-1. Klistra in följande kod i slutet av filen för att visa värdnamnet för jumpbox när installationen är klar:
+1. Klistra in följande kod i slutet av filen för att visa värdnamnet för jumpbox när distributionen är klar:
 
   ```
   output "jumpbox_public_ip" {
@@ -545,27 +545,27 @@ En SSH *jumpbox* är en enskild server som du ”hoppar” via för att komma å
   terraform apply 
   ```
 
-När distributionen är klar innehållet i resursgruppen ser ut ungefär som visas i följande skärmbild:
+När distributionen är klar, liknar innehållet i resursgruppen som visas i följande skärmbild:
 
-![Skaluppsättning för Terraform virtuella resursgruppen.](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents-final.png)
+![Terraform VM-skalningsuppsättningen resursgrupp](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents-final.png)
 
 > [!NOTE]
-> Möjligheten att logga in med ett lösenord är inaktiverad på jumpbox och virtuella datorns skaluppsättning ange att du har distribuerat. Logga in med SSH åtkomst till minst en virtuell dator.
+> Möjligheten att logga in med ett lösenord är inaktiverat på jumpboxen och på VM-skalningsuppsättningen att du har distribuerat. Logga in med SSH för att få åtkomst till virtuella datorer.
 
-## <a name="environment-cleanup"></a>Rensning av miljö 
+## <a name="environment-cleanup"></a>Miljö-rensning 
 
-Ange följande kommando i molnet Shell för att ta bort Terraform resurser som har skapats i den här kursen:
+Ta bort Terraform-resurser som har skapats i den här självstudien genom att ange följande kommando i Cloud Shell:
 
 ```bash
 terraform destroy
 ```
 
-Destruktion processen kan ta flera minuter att slutföra.
+Destruktion-processen kan ta flera minuter att slutföra.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln beskrivs hur du använder Terraform för att skapa en skaluppsättning för virtuell dator i Azure. Nedan följer några ytterligare resurser för att lära dig mer om Terraform i Azure: 
+I den här artikeln beskrivs hur du använder Terraform för att skapa en Azure VM scale Sets. Här följer några ytterligare resurser för att lära dig mer om Terraform på Azure: 
 
- [Terraform hubben i Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure provider-dokumentationen](http://aka.ms/terraform)  
- [Terraform Azure provider källa](http://aka.ms/tfgit)  
+ [Terraform-hubb på Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
+ [Dokumentationen för Terraform Azure-provider](http://aka.ms/terraform)  
+ [Terraform Azure-providern källa](http://aka.ms/tfgit)  
  [Terraform Azure-moduler](http://aka.ms/tfmodules)

@@ -14,15 +14,15 @@ ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d2f61f1ebdd473a24115c7774801f5b7694f224f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 483f30a6546cf21d93b96b08eede6afae828d9e4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443213"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548312"
 ---
 # <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Aktivera roller för Azure-resurser med hjälp av Privileged Identity Management
-Privileged Identity Management (PIM) introducerar en ny upplevelse i Aktivera roller för Azure-resurser. Berättigade rollmedlemmar kan schemalägga aktivering för ett framtida datum och tid. De kan också välja en specifik aktiveringsvaraktighet inom den Maxtid (konfigureras av administratörer). Mer information finns i [aktivera eller inaktivera roller i Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-how-to-activate-role.md).
+Privileged Identity Management (PIM) introducerar en ny upplevelse i Aktivera roller för Azure-resurser. Berättigade rollmedlemmar kan schemalägga aktivering för ett framtida datum och tid. De kan också välja en specifik aktiveringsvaraktighet inom den Maxtid (konfigureras av administratörer). Mer information finns i [aktivera eller inaktivera roller i Azure AD Privileged Identity Management](pim-how-to-activate-role.md).
 
 ## <a name="activate-roles"></a>Aktivera roller
 Bläddra till den **Mina roller** avsnitt i den vänstra rutan. Välj **aktivera** för den roll som du vill aktivera.

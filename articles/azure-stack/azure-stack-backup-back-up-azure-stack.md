@@ -1,6 +1,6 @@
 ---
 title: Säkerhetskopiera Azure Stack | Microsoft Docs
-description: Utföra en säkerhetskopiering på begäran på Azure-stacken med backup på plats.
+description: Utföra en säkerhetskopiering på begäran på Azure Stack med säkerhetskopiering på plats.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,43 +15,60 @@ ms.topic: article
 ms.date: 5/08/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: c2a6727692a7a74b3e5fe32de8800722a9ed91b5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2570423a3cae2a15f0cfd294f1d91e6730748f68
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075195"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972609"
 ---
 # <a name="back-up-azure-stack"></a>Säkerhetskopiera Azure Stack
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Utföra en säkerhetskopiering på begäran på Azure-stacken med backup på plats. Om du behöver aktivera tjänsten infrastruktur säkerhetskopiering finns [Aktivera säkerhetskopiering för Azure-stacken från administrationsportalen](azure-stack-backup-enable-backup-console.md).
+Utföra en säkerhetskopiering på begäran på Azure Stack med säkerhetskopiering på plats. Anvisningar om hur du konfigurerar PowerShell-miljö finns i [installera PowerShell för Azure Stack ](azure-stack-powershell-install.md). Om du vill logga in på Azure Stack, se [konfigurera operator-miljö och logga in på Azure Stack](azure-stack-powershell-configure-admin.md).
 
-> [!Note]  
->  Instruktioner om hur du konfigurerar PowerShell-miljö finns i [installera PowerShell för Azure-stacken ](azure-stack-powershell-install.md).
+## <a name="start-azure-stack-backup"></a>Starta Säkerhetskopiering i Azure Stack
 
-## <a name="start-azure-stack-backup"></a>Starta Azure Stack-säkerhetskopiering
-
-Öppna Windows PowerShell med en förhöjd behörighet i operatorn management-miljö och kör följande kommandon:
+Använd Start-AzSBackup för att starta en ny säkerhetskopia med - AsJob variabel att spåra förloppet. 
 
 ```powershell
-    Start-AzSBackup -Location $location.Name
+    $backupjob = Start-AzsBackup -Force -AsJob
+    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
 ```
 
-## <a name="confirm-backup-completed-in-the-administration-portal"></a>Bekräfta slutfördes på administrationsportalen för Windows Azure
+## <a name="confirm-backup-completed-via-powershell"></a>Bekräfta säkerhetskopieringen slutfördes med PowerShell
+
+```powershell
+    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
+```
+
+- Resultatet bör se ut som följande:
+
+  ```powershell
+      BackupDataVersion : 1.0.1
+      BackupId          : <backup ID>
+      RoleStatus        : {NRP, SRP, CRP, KeyVaultInternalControlPlane...}
+      Status            : Succeeded
+      CreatedDateTime   : 7/6/2018 6:46:24 AM
+      TimeTakenToCreate : PT20M32.364138S
+      DeploymentID      : <deployment ID>
+      StampVersion      : 1.1807.0.41
+      OemVersion        : 
+      Id                : /subscriptions/<subscription ID>/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/<backup ID>
+      Name              : local/<local name>
+      Type              : Microsoft.Backup.Admin/backupLocations/backups
+      Location          : local
+      Tags              : {}
+  ```
+
+## <a name="confirm-backup-completed-in-the-administration-portal"></a>Bekräfta säkerhetskopieringen slutfördes i administrationsportalen
 
 1. Öppna Azure Stack-administrationsportalen på [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
-2. Välj **fler tjänster** > **infrastruktur säkerhetskopiering**. Välj **Configuration** i den **infrastruktur säkerhetskopiering** bladet.
-3. Hitta de **namn** och **datum slutförd** på säkerhetskopieringen på **tillgängliga säkerhetskopieringar** lista.
+2. Välj **fler tjänster** > **infrastruktur för säkerhetskopiering**. Välj **Configuration** i den **infrastruktur för säkerhetskopiering** bladet.
+3. Hitta den **namn** och **datum slutförts** på säkerhetskopieringen på **tillgängliga säkerhetskopior** lista.
 4. Kontrollera den **tillstånd** är **lyckades**.
-
-<!-- You can also confirm the backup completed from the administration portal. Navigate to `\MASBackup\<datetime>\<backupid>\BackupInfo.xml`
-
-In ‘Confirm backup completed’ section, the path at the end doesn’t make sense (ie relative to what, datetime format, etc?)
-\MASBackup\<datetime>\<backupid>\BackupInfo.xml -->
-
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om arbetsflödet för att återställa från en dataförlust inträffat. Se [återställa från oåterkallelig dataförlust](azure-stack-backup-recover-data.md).
+- Läs mer om arbetsflödet för att återställa från en dataförlust inträffat. Se [fort oåterkallelig dataförlust](azure-stack-backup-recover-data.md).

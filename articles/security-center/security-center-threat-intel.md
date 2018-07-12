@@ -3,23 +3,23 @@ title: Hotinformation i Azure Security Center | Microsoft Docs
 description: Lär dig hur du använder hotinformationsfunktionen i Azure Security Center för att identifiera potentiella hot i dina datorer och virtuella datorer.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: yurid
-ms.openlocfilehash: 9654c25bf6b51d48dc195d6a536b61312fdcbeff
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.date: 07/10/2018
+ms.author: terrylan
+ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774581"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38561372"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Hotinformation i Azure Security Center
 Den här artikeln hjälper dig använda hotinformationen i Azure Security Center till att åtgärda säkerhetsrelaterade problem.
@@ -43,20 +43,24 @@ Ett av stegen i [processen för svar på säkerhetsincidenter](https://docs.micr
 - Identifiera systemen som har drabbats.
 - Identifiera de filer som har använts och fastställ filernas känslighet.
 
-Du kan använda hotinformation i Security Center för de här uppgifterna. 
+Du kan använda hotinformation i Security Center för de här uppgifterna.
 
 ## <a name="access-the-threat-intelligence"></a>Komma åt hotinformationen
 Om du vill visualisera aktuell hotinformation för din miljö måste du först markera arbetsytan där din information finns. Om du inte har flera arbetsytor går du förbi väljaren för arbetsytor och du hamnar direkt på instrumentpanelen **Hotinformation**. Öppna instrumentpanelen:
 
 1. Öppna instrumentpanelen för **Security Center**.
 
-2. Välj **Hotinformation** i den vänstra rutan under **Identifiering**. Instrumentpanelen **Hotinformation** visas.
+2. I den vänstra rutan under **Hotskydd** Välj **Hotinformation**. En karta öppnas.
+
+    ![Karta för hotinformation](./media/security-center-threat-intel/security-center-threat-intel.png)
+
+3. Högst upp på kartan, Välj **Visa klassiska hotinformation**. Den **Hotinformation** instrumentpanelen öppnas.
 
     ![Instrumentpanelen Hotinformation](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
-    > Om kolumnen längst till höger visar **UPGRADE PLAN** (Uppgradera abonnemang) använder den här arbetsytan den kostnadsfria prenumerationen. Uppgradera till Standard om du vill använda den här funktionen. Om kolumnen längst till höger visar **REQUIRES UPDATE** (Kräver uppdatering) uppdaterar [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) om du vill använda funktionen. Mer information om prissättning finns i Azure Security Center pricing (Azure Security Center-prissättning). 
-    > 
+    > Om kolumnen längst till höger visar **UPGRADE PLAN** (Uppgradera abonnemang) använder den här arbetsytan den kostnadsfria prenumerationen. Uppgradera till Standard om du vill använda den här funktionen. Om kolumnen längst till höger visar **REQUIRES UPDATE** (Kräver uppdatering) uppdaterar [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) om du vill använda funktionen. Mer information om prissättning finns i Azure Security Center pricing (Azure Security Center-prissättning).
+    >
 3. Om du har fler än en arbetsyta att undersöka prioriterar du undersökningen enligt kolumnen **Skadlig IP-adress**. Den visar det aktuella antalet skadliga IP-adresser på den här arbetsytan. Välj den arbetsyta du vill använda så visas instrumentpanelen **Hotinformation**.
 
     ![Hotinformation](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
@@ -91,13 +95,12 @@ För virtuella Azure-datorer visas bara de nätverksdata som flödar genom agent
 - DNS-händelser (typ = DnsEvents)
 
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 I den här artikeln lärde du dig att använda hotinformation i Security Center som hjälp vid identifiering av misstänkt aktivitet. I följande artiklar kan du lära dig mer om Security Center:
 
 * [Hantera och besvara säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Lär dig hur du hanterar aviseringar och åtgärdar säkerhetsincidenter i Security Center.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md). Lär dig att övervaka hälsotillståndet för dina Azure-resurser.
 * [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Läs mer om de olika typerna av säkerhetsaviseringar.
-* [Felsökningsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Lär dig hur du felsöker vanliga problem i Security Center. 
+* [Felsökningsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Lär dig hur du felsöker vanliga problem i Security Center.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md). Få svar på vanliga frågor om att använda tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
-

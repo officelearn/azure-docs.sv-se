@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 05/22/2018
 ms.author: sethm
 ms.openlocfilehash: 717ac3c61ba4e362f01bad91f52ecb217cdbe1cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660645"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630393"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Snabbstart: Skicka och ta emot meddelanden med Azure CLI och Java
 
@@ -26,7 +26,7 @@ En butikskedja kanske skickar sina försäljningsdata till ett backoffice eller 
 
 Den här snabbstarten beskriver hur du skickar och tar emot meddelanden med Service Bus med hjälp av Azure CLI och Service Bus Java-biblioteket. Slutligen, om du är intresserad av mer teknisk information, kan du [läsa en förklaring](#understand-the-sample-code) av de viktigaste beståndsdelarna i exempelkoden.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][] konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -268,7 +268,7 @@ I den här artikeln skapade du ett Service Bus-namnområde och andra resurser so
 > [!div class="nextstepaction"]
 > [Uppdatera lagringsplatsen med CLI och Java](./service-bus-tutorial-topics-subscriptions-cli.md)
 
-[kostnadsfritt]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

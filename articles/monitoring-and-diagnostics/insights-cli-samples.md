@@ -1,6 +1,6 @@
 ---
-title: Azure CLI övervakaren Snabbstart-exempel
-description: CLI 2.0 exempelkommandon för Azure-Monitor-funktioner. Azure övervakaren är en Microsoft Azure-tjänst som gör att du kan skicka aviseringar, anropa webbadresser som baseras på värden för konfigurerade telemetridata och Autoskala molntjänster, virtuella datorer och Web Apps.
+title: Snabbstartsexempel för Azure Monitor-CLI
+description: Exemplet CLI 2.0-kommandon för Azure Monitor-funktioner. Azure Monitor är en Microsoft Azure-tjänst som låter dig skicka aviseringar, anropa webbadresser som baseras på värden för konfigurerade telemetridata, och automatisk skalning molntjänster, virtuella datorer och Webbappar.
 author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: 0b98cc29325310cfc0c7a62de693c309b6731447
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 571e4707cd89f1d159928845eca955801ffb9209
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262410"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971653"
 ---
-# <a name="azure-monitor-cli-20-quick-start-samples"></a>Azure-Monitor CLI 2.0 Snabbstart-exempel
-Den här artikeln visar exempel kommandoradsgränssnittet (CLI)-kommandon som hjälper dig att komma åt Azure-Monitor-funktioner. Azure-Monitor kan du Autoskala molntjänster, virtuella datorer och Web Apps att skicka aviseringar eller anropa webbadresser som baseras på värden för konfigurerade telemetridata.
+# <a name="azure-monitor-cli-20-quick-start-samples"></a>Snabbstartsexempel för Azure Monitor CLI 2.0
+Den här artikeln visar exempel kommandoradsgränssnittet (CLI)-kommandon för att få åtkomst till Azure Monitor-funktioner. Azure Monitor kan du att automatisk skalning molntjänster, virtuella datorer och Webbappar och för att skicka aviseringar eller anropa webbadresser som baseras på värden för konfigurerade telemetridata.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte redan har installerat Azure CLI, följer du instruktionerna för [installera Azure CLI 2.0](/cli/azure/install-azure-cli). Du kan också använda [Azure Cloud Shell](/azure/cloud-shell) köra CLI som en interaktiv upplevelse i webbläsaren. Se en fullständig referens för alla tillgängliga kommandon i den [Azure övervakaren CLI referens](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest). 
+Om du inte redan har installerat Azure CLI, följer du anvisningarna för [installera Azure CLI 2.0](/cli/azure/install-azure-cli). Du kan också använda [Azure Cloud Shell](/azure/cloud-shell) att köra CLI som en interaktiv upplevelse i din webbläsare. Se fullständiga referenser för alla tillgängliga kommandon finns tillgängliga i den [Azure Monitor CLI-referensen](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 Det första steget är att logga in på ditt Azure-konto.
@@ -29,7 +29,7 @@ Det första steget är att logga in på ditt Azure-konto.
 az login
 ```
 
-Du måste logga in via anvisningarna på skärmen när du har kört kommandot. Alla kommandon som fungerar i samband med standard-prenumeration.
+Du måste logga in via anvisningarna på skärmen när du har kört det här kommandot. Alla kommandon fungerar i kontexten för din Standardprenumeration.
 
 Använd följande kommando om du vill visa information om din aktuella prenumeration.
 
@@ -37,45 +37,45 @@ Använd följande kommando om du vill visa information om din aktuella prenumera
 az account show
 ```
 
-Använd följande kommando om du vill ändra fungerande kontexten till en annan prenumeration.
+Använd följande kommando om du vill ändra fungerande kontext till en annan prenumeration.
 
 ```azurecli
 az account set -s <Subscription ID or name>
 ```
 
-Gör följande om du vill visa en lista över alla kommandon som stöds i Azure-Monitor.
+Om du vill visa en lista över alla kommandon som stöds i Azure Monitor, utför du följande.
 
 ```azurecli
 az monitor -h
 ```
 
-## <a name="view-activity-log-for-a-subscription"></a>Visa aktivitetsloggen för en prenumeration
+## <a name="view-activity-log-for-a-subscription"></a>Visa aktivitetslogg för en prenumeration
 
-Gör följande om du vill visa en lista över aktiviteten logghändelser.
+Utför följande om du vill visa en lista över händelser i aktivitetsloggen.
 
 ```azurecli
 az monitor activity-log list
 ```
 
-Gör något av följande om du vill visa alla tillgängliga alternativ.
+Prova följande för att visa alla tillgängliga alternativ.
 
 ```azurecli
 az monitor activity-log list -h
 ```
 
-Här är ett exempel i listan loggar av en resursgrupp
+Här är ett exempel för att lista loggar av en resourceGroup
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-Till exempel för att lista loggar av anroparen
+Exempel för att lista loggar av anroparen
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com
 ```
 
-Till exempel för att lista loggar av anroparen på en resurstyp inom ett datumintervall
+Exempel för att lista loggar av anroparen på en resurstyp i ett datumintervall
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \
@@ -86,16 +86,16 @@ az monitor activity-log list --resource-provider Microsoft.Web \
 
 ## <a name="work-with-alerts"></a>Arbeta med aviseringar 
 > [!NOTE]
-> Bara aviseringar (klassiskt) stöds i CLI just nu. 
+> Bara aviseringar (klassisk) stöds i CLI just nu. 
 
-### <a name="get-alert-classic-rules-in-a-resource-group"></a>Hämta Varningsregler (klassiskt) i en resursgrupp
+### <a name="get-alert-classic-rules-in-a-resource-group"></a>Hämta aviseringsregler (klassisk) i en resursgrupp
 
 ```azurecli
 az monitor activity-log alert list --resource-group <group name>
 az monitor activity-log alert show --resource-group <group name> --name <alert name>
 ```
 
-### <a name="create-a-metric-alert-classic-rule"></a>Skapa ett mått (klassiskt) varningsregel
+### <a name="create-a-metric-alert-classic-rule"></a>Skapa en måttavisering (klassisk) aviseringsregel
 
 ```azurecli
 az monitor alert create --name <alert name> --resource-group <group name> \
@@ -105,24 +105,24 @@ az monitor alert create --name <alert name> --resource-group <group name> \
     --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
 ```
 
-### <a name="delete-an-alert-classic-rule"></a>Ta bort en varningsregel (klassiskt)
+### <a name="delete-an-alert-classic-rule"></a>Ta bort en varningsregel (klassisk)
 
 ```azurecli
 az monitor alert delete --name <alert name> --resource-group <group name>
 ```
 
-## <a name="log-profiles"></a>Log-profiler
+## <a name="log-profiles"></a>Loggprofiler
 
-Använd informationen i det här avsnittet för att arbeta med loggen profiler.
+Använd informationen i det här avsnittet för att arbeta med loggprofiler.
 
-### <a name="get-a-log-profile"></a>Hämta en logg-profil
+### <a name="get-a-log-profile"></a>Hämta en loggprofil
 
 ```azurecli
 az monitor log-profiles list
 az monitor log-profiles show --name <profile name>
 ```
 
-### <a name="add-a-log-profile-with-retention"></a>Lägg till en logg-profil med kvarhållning
+### <a name="add-a-log-profile-with-retention"></a>Lägg till en loggprofil med kvarhållning
 
 ```azurecli
 az monitor log-profiles create --name <profile name> --location <location of profile> \
@@ -133,7 +133,7 @@ az monitor log-profiles create --name <profile name> --location <location of pro
     --storage-account-id <storage account ID to store the logs in>
 ```
 
-### <a name="add-a-log-profile-with-retention-and-eventhub"></a>Lägg till en logg-profil med kvarhållning och EventHub
+### <a name="add-a-log-profile-with-retention-and-eventhub"></a>Lägg till en loggprofil med kvarhållning och EventHub
 
 ```azurecli
 az monitor log-profiles create --name <profile name> --location <location of profile> \
@@ -145,7 +145,7 @@ az monitor log-profiles create --name <profile name> --location <location of pro
     --service-bus-rule-id <service bus rule ID to stream to>
 ```
 
-### <a name="remove-a-log-profile"></a>Ta bort en logg-profil
+### <a name="remove-a-log-profile"></a>Ta bort en loggprofil
 
 ```azurecli
 az monitor log-profiles delete --name <profile name>
@@ -155,13 +155,13 @@ az monitor log-profiles delete --name <profile name>
 
 Använd informationen i det här avsnittet för att arbeta med diagnostikinställningar.
 
-### <a name="get-a-diagnostic-setting"></a>Hämta en diagnostikinställningen
+### <a name="get-a-diagnostic-setting"></a>Hämta en diagnostikinställning
 
 ```azurecli
 az monitor diagnostic-settings list --resource <target resource ID>
 ```
 
-### <a name="create-a-diagnostic-log-setting"></a>Skapa en diagnostisk log-inställning 
+### <a name="create-a-diagnostic-log-setting"></a>Skapa en diagnostiklogg-inställning 
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -178,7 +178,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-### <a name="delete-a-diagnostic-setting"></a>Ta bort en diagnostikinställningen
+### <a name="delete-a-diagnostic-setting"></a>Ta bort en diagnostikinställning
 
 ```azurecli
 az monitor diagnostic-settings delete --name <diagnostic name> \
@@ -187,21 +187,21 @@ az monitor diagnostic-settings delete --name <diagnostic name> \
 
 ## <a name="autoscale"></a>Automatisk skalning
 
-Använd informationen i det här avsnittet för att arbeta med Autoskala inställningar. Du behöver ändra exemplen.
+Använd informationen i det här avsnittet för att arbeta med inställningarna för automatisk skalning. Du behöver ändra de här exemplen.
 
-### <a name="get-autoscale-settings-for-a-resource-group"></a>Hämta Autoskala inställningar för en resursgrupp
+### <a name="get-autoscale-settings-for-a-resource-group"></a>Hämta inställningarna för automatisk skalning för en resursgrupp
 
 ```azurecli
 az monitor autoscale list --resource-group <group name>
 ```
 
-### <a name="get-autoscale-settings-by-name-in-a-resource-group"></a>Hämta inställningar för Autoskala efter namn i en resursgrupp
+### <a name="get-autoscale-settings-by-name-in-a-resource-group"></a>Hämta inställningarna för automatisk skalning efter namn i en resursgrupp
 
 ```azurecli
 az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-### <a name="set-autoscale-settings"></a>Ange inställningar för Autoskala
+### <a name="set-autoscale-settings"></a>Ange inställningarna för automatisk skalning
 
 ```azurecli
 az monitor autoscale create --name <settings name> --resource-group <group name> \

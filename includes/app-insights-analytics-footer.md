@@ -1,5 +1,5 @@
 
-## <a name="analytics"></a>Analys
+## <a name="analytics"></a>Analytics
 * [Översikt](../articles/application-insights/app-insights-analytics.md)
 * [Guidad visning av Analytics](../articles/application-insights/app-insights-analytics-tour.md)
   * Börja här. En självstudiekurs som täcker de viktigaste funktionerna.

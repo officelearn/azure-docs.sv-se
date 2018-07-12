@@ -15,12 +15,12 @@ ms.workload: identity
 ms.component: protection
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 7cf628495a79fe775528080ae6ec31df8e9a0f37
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 07fe49be9fcb879b86d2b8a33799d11deb7d7446
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447596"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38528628"
 ---
 # <a name="pim-for-azure-resources"></a>PIM för Azure-resurser
 
@@ -59,7 +59,7 @@ Mina roller innehåller en lista över dina aktiva och berättigade rolltilldeln
 
 ## <a name="activate-roles"></a>Aktivera roller
 
-Aktivera roller för Azure-resurser introducerar en ny upplevelse som gör att medlemmar av berättigad roll att schemalägga aktivering för ett framtida datum/tid och välja en specifik aktiveringsvaraktighet inom den Maxtid (konfigureras av administratörer). Lär dig mer om [aktivera Azure AD-roller här](../active-directory-privileged-identity-management-how-to-activate-role.md).
+Aktivera roller för Azure-resurser introducerar en ny upplevelse som gör att medlemmar av berättigad roll att schemalägga aktivering för ett framtida datum/tid och välja en specifik aktiveringsvaraktighet inom den Maxtid (konfigureras av administratörer). Lär dig mer om [aktivera Azure AD-roller här](pim-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -156,7 +156,7 @@ Välj granska åtgärdsfält att visa befintliga åtkomstgranskningar och välj 
 
 ![](media/azure-pim-resource-rbac/owner.png)
 
-[Läs mer om åtkomstgranskningar](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
+[Läs mer om åtkomstgranskningar](pim-how-to-perform-security-review.md)
 
 >[!NOTE]
 Granskningar stöds endast för resurstyper för prenumerationen just nu.
@@ -196,5 +196,5 @@ Välj Mina roller från den vänstra navigeringsmenyn och välj rätt roll för 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md)
-- Lär dig mer om [aktivera här Azure AD-roller](../active-directory-privileged-identity-management-how-to-activate-role.md)
+- Lär dig mer om [aktivera här Azure AD-roller](pim-how-to-activate-role.md)
 - [Arbetsflöden för godkännande av PIM](azure-ad-pim-approval-workflow.md)

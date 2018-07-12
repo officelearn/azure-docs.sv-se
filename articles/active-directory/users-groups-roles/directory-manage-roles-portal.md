@@ -1,5 +1,5 @@
 ---
-title: Visa medlemmarna i en administratörsroll i Azure Active Directory | Microsoft Docs
+title: Visa medlemmar i en administratörsroll och behörigheter i Azure Active Directory | Microsoft Docs
 description: Du kan nu se och hantera medlemmar i en Azure AD-administratörsroll i portalen. För de som ofta hanterar rolltilldelningar.
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/10/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 588e475a451ea00e52dd995edc3f1bf0e284044f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 5a42f48e85eea95211b36e0c08dcb0edb4928a20
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872328"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38489930"
 ---
-# <a name="view-all-members-of-an-administrator-role-in-azure-active-directory"></a>Visa alla medlemmar i en administratörsroll i Azure Active Directory
+# <a name="view-members-and-descriptions-of-administrator-roles-in-azure-active-directory"></a>Visa medlemmar och beskrivningar av administratörsroller i Azure Active Directory
 
 Du kan nu se och hantera alla medlemmar i administratörsroller i Azure Active Directory-portalen. Om du ofta hantera rolltilldelningar, kommer du förmodligen föredrar säkerhetsvarningen. Och om du någonsin undrat ”vad den markeringen rollerna verkligen gör”?, kan du se en detaljerad lista över behörigheter för var och en av Azure AD-administratörsroller.
 
@@ -35,7 +35,7 @@ Markera hela raden att visa listan över tilldelade medlemmar. Du kan välja **h
 
 Om du är en Global administratör eller en privilegierad roll-administratör kan du enkelt lägga till eller ta bort medlemmar, filtrera listan eller Välj medlemmar för att gå till användarsidan att se deras tilldelade roller aktiv. 
 
-## <a name="role-details-in-the-portal"></a>Rollinformation i portalen
+## <a name="detailed-role-permissions-in-the-portal"></a>Detaljerade behörigheter i portalen
 
 När du visar en rollmedlemmar, Välj **beskrivning** att se den fullständiga listan med behörigheter som beviljats av rolltilldelningen. Sidan innehåller länkar till relevant dokumentation som hjälper dig hantera katalogroller.
 

@@ -1,82 +1,83 @@
 ---
-title: Azure Machine Learning modellen Management web service-förbrukningen | Microsoft Docs
-description: Det här dokumentet beskriver stegen och begrepp som är involverad i förbrukar distribueras med modellhantering av i Azure Machine Learning-webbtjänster.
+title: Azure Machine Learning-modellhantering web service-förbrukning | Microsoft Docs
+description: Det här dokumentet beskriver de steg och koncept som ingår i förbrukar distribueras med modellhantering i Azure Machine Learning-webbtjänster.
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: f87f865ef6d2c3403903a1bdcc402c01c3e9f939
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831997"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972637"
 ---
 # <a name="consuming-web-services"></a>Konsumera webbtjänster
-När du distribuerar en modell som en webbtjänst i realtid kan du skicka data och få förutsägelser från en mängd olika plattformar och program. Webbtjänsten realtid visar ett REST-API för att hämta förutsägelser. Du kan skicka data till webbtjänsten i formatet en eller flera rader för att hämta en eller flera förutsägelser i taget.
+När du distribuerar en modell som en webbtjänst i realtid kan du skicka data och få förutsägelser från en mängd olika plattformar och program. Webbtjänsten i realtid visar ett REST-API för att få förutsägelser. Du kan skicka data till webbtjänsten i formatet för en eller flera rader att hämta en eller flera förutsägelser i taget.
 
-Med den [Azure Machine Learning-webbtjänst](model-management-service-deploy.md), ett externt program synkront kommunicerar med en förutsägelsemodell genom att göra HTTP POST-anrop till tjänsten URL-Adressen. Om du vill göra ett webbtjänstanrop måste klientprogrammet ange API-nyckeln som skapas när du distribuerar en förutsägelse och placera data för begäran i begärandetexten POST.
+Med den [Azure Machine Learning-webbtjänster](model-management-service-deploy.md), kommunicerar ett externt program synkront med en förebyggande modell genom att göra HTTP POST-anrop till tjänstens URL. Om du vill göra ett webbtjänstanrop måste klientprogrammet att ange API-nyckel som skapas när du distribuerar en förutsägelse och placerar begärandedata i begärandetexten INLÄGG.
 
-Observera att API-nycklar är bara tillgängliga i distributionsläget klustret. Lokala webbtjänster saknar nycklar.
+> [!NOTE]
+> Observera att API-nycklar är bara tillgängliga i distributionsläget för klustret. Lokala webbtjänster har inte nycklar.
 
 ## <a name="service-deployment-options"></a>Distributionsalternativ för tjänsten
-Azure Machine Learning-webbtjänster kan distribueras till de molnbaserade kluster för produktions- och testa scenarier och lokala arbetsstationer med docker-motorn. Funktionen för förutsägelsemodell i båda fallen förblir densamma. Kluster-baserad distribution ger skalbara och performant lösning baserad på Azure Container Service medan den lokala distributionen kan användas för felsökning. 
+Azure Machine Learning-webbtjänster kan distribueras till klustren molnbaserade för både produktions- och testscenarier och på lokala arbetsstationer med hjälp av docker-motorn. Funktionen för förutsägande modell i båda fallen förblir densamma. Kluster-baserade distributionen tillhandahåller skalbara och högpresterande lösningen som baseras på Azure Container Services lokal distribution kan användas för felsökning. 
 
-Azure Machine Learning CLI och API ger praktiska kommandon för att skapa och hantera compute miljöer för distributioner med hjälp av den ```az ml env``` alternativet. 
+Azure Machine Learning CLI och API innehåller användbara kommandon för att skapa och hantera olika miljöer för distribution av tjänster med hjälp av den ```az ml env``` alternativet. 
 
-## <a name="list-deployed-services-and-images"></a>Lista över distribuerade tjänster och bilder
-Du kan ange den för tillfället distribuerade tjänster och Docker bilder med hjälp av CLI kommandot ```az ml service list realtime -o table```. Observera att det här kommandot fungerar alltid i samband med den aktuella beräknings-miljön. Tjänster som har distribuerats visas inte i en miljö som inte är inställd på aktuellt. Att ställa in miljön används ```az ml env set```. 
+## <a name="list-deployed-services-and-images"></a>Visa lista över distribuerade tjänster och bilder
+Du kan lista de för tillfället distribuerade tjänster och Docker-avbildningar med CLI-kommando ```az ml service list realtime -o table```. Observera att det här kommandot fungerar alltid i samband med den aktuella compute-miljön. Tjänster som har distribuerats visas inte i en miljö som inte är inställt på att aktuellt. Ange hur miljön ```az ml env set```. 
 
 ## <a name="get-service-information"></a>Hämta tjänstinformation
-När webbtjänsten har distribuerats, använder du följande kommando få tjänstens Webbadress och annan information för att anropa tjänstslutpunkten. 
+När webbtjänsten har distribuerats, kan du använda kommandona nedan för att hämta tjänstens URL och annan information för att anropa tjänsteslutpunkt. 
 
 ```
 az ml service usage realtime -i <web service id>
 ```
 
-Det här kommandot skriver ut tjänst-URL, obligatoriska begärandehuvuden, swagger URL och exempeldata för att anropa tjänsten om API-schemat för tjänsten angavs vid tidpunkten för distribution.
+Det här kommandot skriver ut tjänstens URL, krävs begärandehuvuden, swagger URL och exempeldata för att anropa tjänsten om tjänstens API schema angavs vid tidpunkten för distribution.
 
-Du kan testa tjänsten direkt från CLI utan att skapa en HTTP-begäran genom att ange CLI Exempelkommando med indata:
+Du kan testa tjänsten direkt från CLI utan att skapa en HTTP-begäran, genom att ange exemplet CLI-kommando med indata:
 
 ```
 az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
 ## <a name="get-the-service-api-key"></a>Hämta service API-nyckel
-För att få webbtjänstens, använder du följande kommando:
+Om du vill hämta nyckel för web, använder du följande kommando:
 
 ```
 az ml service keys realtime -i <web service id>
 ```
-När du skapar HTTP-begäran använder nyckeln i authorization-huvud: ”tillstånd” ”: ägar <key>”
+När du skapar HTTP-begäran kan du använda nyckeln i auktoriseringsrubriken: ”Authorization” ”: ägar <key>”
 
 ## <a name="get-the-service-swagger-description"></a>Hämta tjänstbeskrivning för Swagger
-Om tjänsten API-schemat, tjänstslutpunkten skulle exponera en Swagger-dokument på ```http://<ip>/api/v1/service/<service name>/swagger.json```. Swagger-dokument kan användas för att automatiskt generera tjänstklienten och utforska förväntade indata och annan information om tjänsten.
+Om service API-schemat, tjänstslutpunkten skulle exponera en Swagger-dokument på ```http://<ip>/api/v1/service/<service name>/swagger.json```. Swagger-dokument kan användas för att automatiskt generera tjänstklienten och utforska förväntade indata och annan information om tjänsten.
 
-## <a name="get-service-logs"></a>Hämta service-loggar
-Om du vill förstå tjänstbeteende och diagnostisera problem, finns det flera sätt att hämta loggarna för tjänsten:
-- CLI-kommandot ```az ml service logs realtime -i <service id>```. Det här kommandot fungerar i både klustret och lokala lägen.
-- Om du har aktiverat tjänsten loggning på distributionen skickas också service-loggar till AppInsight. Kommandot CLI ```az ml service usage realtime -i <service id>``` visar AppInsight-URL. Observera att AppInsight loggar kan vara fördröjd med 2-5 minuter.
-- Klustret loggar kan ses via Kubernetes-konsol som är ansluten när du ställer in aktuell klustermiljön med ```az ml env set```
-- Lokala docker loggar är tillgängliga via docker-motorloggar när tjänsten körs lokalt.
+## <a name="get-service-logs"></a>Hämta tjänstloggar
+För att förstå tjänstbeteendet och diagnostisera problem, finns det flera sätt att hämta loggarna för tjänsten:
+- CLI-kommando ```az ml service logs realtime -i <service id>```. Det här kommandot fungerar i både kluster- och lokala lägen.
+- Om tjänsten loggning är aktiverat vid distributionen skickas också service-loggarna till AppInsight. CLI-kommando ```az ml service usage realtime -i <service id>``` visar AppInsight-URL: en. Observera att AppInsight-loggarna kan fördröjas med 2 – 5 minuter.
+- Klustret loggar kan ses via Kubernetes-konsol som är ansluten när du ställer in den aktuella miljön i klustret med ```az ml env set```
+- Lokala docker-loggar är tillgängliga via docker-motorloggar när tjänsten körs lokalt.
 
-## <a name="call-the-service-using-c"></a>Anropa tjänsten med hjälp av C#
-Använda service-URL: en för att skicka en begäran från en C#-Konsolapp. 
+## <a name="call-the-service-using-c"></a>Anropa tjänsten med C#
+Använd tjänstens URL för att skicka en begäran från en C#-Konsolapp. 
 
 1. Skapa en ny Konsolapp i Visual Studio: 
-    * Klicka på på menyn, Arkiv -> Ny -> projekt
-    * Under Visual Studio C#, klicka på skrivbordet för klassen och välj sedan konsolprogram.
-2. Ange _MyFirstService_ som namnet på projektet och klicka sedan på OK.
-3. Ange referenser i projektet refererar till _System.Net_, och _System.Net.Http_.
-4. Klicka på Verktyg -> Pakethanteraren NuGet Package Manager-konsolen -> och sedan installera Microsoft.AspNet.WebApi.Client-paketet.
-5. Öppna filen Program.cs och Ersätt Koden med följande kod:
-6. Uppdatering av _SERVICE_URL_ och _API_KEY_ parametrar med information från webbtjänsten.
+    * I menyn klickar du på, Arkiv -> Nytt projekt ->
+    * Under Visual Studio C#, klickar du på Windows-klass Desktop och välj sedan Konsolapp.
+2. Ange `MyFirstService` som namnet på projektet och klicka sedan på OK.
+3. Ange referenser i projektreferenserna, `System.Net`, och `System.Net.Http`.
+4. Klicka på Verktyg -> NuGet Package Manager -> Package Manager-konsolen och sedan installera den **system.NET.http.Formatting** paketet.
+5. Öppna **Program.cs** , och Ersätt Koden med följande kod:
+6. Uppdatera den `SERVICE_URL` och `API_KEY` parametrar med information från din webbtjänst.
 7. Kör projektet.
 
 ```csharp
@@ -146,12 +147,12 @@ namespace MyFirstService
 }
 ```
 
-## <a name="call-the-web-service-using-python"></a>Anropa webbtjänsten använder Python
-Använda Python för att skicka en begäran till realtid webbtjänsten. 
+## <a name="call-the-web-service-using-python"></a>Anropa webbtjänsten med hjälp av Python
+Använd Python för att skicka en begäran till din webbtjänst i realtid. 
 
 1. Kopiera följande kodexempel till en ny Python-fil.
-2. Uppdatera data och URL: en api_key parametrar. Ta bort ”tillstånd”-huvudet för lokala webbtjänster.
-3. Kör kod. 
+2. Uppdatera data, URL: en och api_key parametrarna. Ta bort rubriken ”tillstånd” för lokala webbtjänster.
+3. Kör koden. 
 
 ```python
 import requests

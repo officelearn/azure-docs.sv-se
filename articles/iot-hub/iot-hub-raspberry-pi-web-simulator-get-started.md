@@ -1,9 +1,9 @@
 ---
-title: Simulerade hallon Pi till molnet (Node.js) – ansluta hallon Pi web simulator som Azure IoT Hub | Microsoft Docs
-description: Ansluta hallon Pi web simulator till Azure IoT-hubb för hallon Pi att skicka data till Azure-molnet.
+title: Simulerade Raspberry Pi till molnet (Node.js) – Anslut Raspberry Pi web-simulatorn på Azure IoT Hub | Microsoft Docs
+description: Anslut Raspberry Pi web-simulatorn på Azure IoT Hub för Raspberry Pi att skicka data till Azure-molnet.
 author: rangv
 manager: ''
-keywords: Raspberry pi simulatorn, azure iot raspberry pi, raspberry pi iot-hubb, raspberry pi skickar data till molnet, raspberry pi till molnet
+keywords: Raspberry pi-simulator, azure iot raspberry pi, raspberry pi iot-hubb, raspberry pi skicka data till molnet, raspberry pi till molnet
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
 ms.openlocfilehash: dc8216f6b0a610b556b94637970bfd3e721f38d2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636230"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38482123"
 ---
-# <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Ansluta hallon Pi online simulator till Azure IoT Hub (Node.js)
+# <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Anslut Raspberry Pi onlinesimulator till Azure IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-I den här kursen kan du börja genom att lära dig grunderna i att arbeta med hallon Pi online simulatorn. Du lär dig sedan sömlöst ansluter Pi simulatorn till molnet med hjälp av [Azure IoT Hub](iot-hub-what-is-iot-hub.md). 
+I den här självstudien börjar du med att lära dig grunderna i att arbeta med Raspberry Pi onlinesimulator. Du lär dig sedan att sömlöst ansluta Pi-simulatorn till molnet med hjälp av [Azure IoT Hub](iot-hub-what-is-iot-hub.md). 
 
-Om du har fysiska enheter gå [ansluta hallon Pi till Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md) att komma igång. 
+Om du har några fysiska enheter, [Anslut Raspberry Pi till Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md) att komma igång. 
 
 <p>
 <div id="diag" style="width:100%; text-align:center">
@@ -38,55 +38,55 @@ Om du har fysiska enheter gå [ansluta hallon Pi till Azure IoT Hub](iot-hub-ras
 
 ## <a name="what-you-do"></a>Vad du gör
 
-* Lär dig grunderna i hallon Pi online simulatorn.
+* Lär dig grunderna i Raspberry Pi onlinesimulator.
 * Skapa en IoT-hubb.
 * Registrera en enhet för Pi i din IoT-hubb.
-* Kör ett exempelprogram på Pi simulerade sensordata ska skickas till din IoT-hubb.
+* Kör ett exempelprogram på Pi skicka simulerad sensordata till din IoT-hubb.
 
-Simulerade hallon Pi att ansluta till en IoT-hubb som du skapar. Sedan kör du ett exempelprogram med simulatorn att generera sensordata. Slutligen kan du skicka dessa sensordata för din IoT-hubb.
+Anslut simulerade Raspberry Pi till en IoT-hubb som du skapar. Sedan kör du ett exempelprogram med simulator att generera sensordata. Slutligen kan skicka du sensordata till din IoT hub.
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
-* Hur du skapar en Azure IoT-hubb och hämta din nya anslutningssträngen för enheten. Om du inte har ett Azure-konto [skapa ett kostnadsfritt Azure konto](https://azure.microsoft.com/free/) i bara några minuter.
-* Hur du arbetar med hallon Pi online simulatorn.
-* Hur du skickar sensordata till din IoT-hubb.
+* Hur du skapar en Azure-IoT-hubb och hämta nya enhetens anslutningssträng. Om du inte har ett Azure-konto, [skapa ett kostnadsfritt Azure konto](https://azure.microsoft.com/free/) på bara några minuter.
+* Hur du arbetar med Raspberry Pi onlinesimulator.
+* Så här skickar sensordata till din IoT hub.
 
-## <a name="overview-of-raspberry-pi-web-simulator"></a>Översikt över hallon Pi web simulator
+## <a name="overview-of-raspberry-pi-web-simulator"></a>Översikt över Raspberry Pi web simulator
 
-Klicka på knappen för att starta hallon Pi online simulatorn.
+Klicka på knappen för att starta Raspberry Pi onlinesimulator.
 
 > [!div class="button"]
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Starta Raspberry Pi Simulator</a>
+<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Starta simulatorn Raspberry Pi</a>
 
 Det finns tre områden i web-simulatorn.
-1. Sammansättningen område - standard kretsen är att en Pi ansluter med en BME280 sensor och en Indikator. Området är låst i förhandsversionen så för närvarande kan du inte göra anpassning.
-2. Kodning område - redigerare online koden du till kod med hallon Pi. Exempelprogrammet standard hjälper dig att samla in sensordata från BME280 sensor och skickar till din Azure IoT-hubb. Programmet är helt kompatibel med verkliga Pi-enheter. 
-3. Integrerad konsolfönstret - visar utdata från din kod. Det finns tre knappar längst upp i det här fönstret.
+1. Sammansättningen område - standard-kretsen är att en Pi ansluter med en BME280 sensor och en Indikator. Området är låst i förhandsversionen så för tillfället inte kan du göra anpassning.
+2. Koda området - Kodredigerare online du kan koda med Raspberry Pi. Standard-exempelprogrammet hjälper dig att samla in sensordata från BME280 sensor och skickar till Azure IoT Hub. Programmet är helt kompatibel med verkliga Pi-enheter. 
+3. Integrerad konsolfönstret - visar utdata från din kod. Det finns tre knappar längst ned i fönstret.
    * **Kör** -köra programmet i området för kodning.
-   * **Återställ** -återställa området kodning till exempelprogrammet standard.
-   * **Vikning/Expandera** -det finns en knapp för du vikning/Expandera konsolfönstret på höger sida.
+   * **Återställ** -återställa området kodning till standard-exempelprogram.
+   * **Vikning/Expandera** -på höger sida finns en knapp att vikning/Expandera konsolfönstret.
 
 > [!NOTE] 
-Web-simulatorn hallon Pi är nu tillgängliga i förhandsversionen. Vi hoppas att du hör din röst i den [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). Källkoden är offentlig på [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
+Raspberry Pi web simulatorn är nu tillgängligt i förhandsversionen. Vi vill gärna höra din röst i den [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). Källkoden är offentlig på [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
-![Översikt över Pi online simulator](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
+![Översikt över Pi onlinesimulator](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 
 ## <a name="run-a-sample-application-on-pi-web-simulator"></a>Kör ett exempelprogram på Pi web simulator
 
-1. Kontrollera att du arbetar med exempelprogrammet som standard i kodning område. Ersätt platshållaren i rad 15 med anslutningssträngen för Azure IoT hub-enhet.
-   ![Ersätt anslutningssträngen enhet](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
+1. Kontrollera att du arbetar med exempelprogrammet som standard i kodning området. Ersätt platshållaren i rad 15 med Azure IoT hub-anslutningssträngen.
+   ![Ersätt enhetens anslutningssträng](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
 
 2. Klicka på **kör** eller typ `npm start` att köra programmet.
 
 
-Du bör se följande utdata som visar dessa sensordata och meddelanden som skickas till din IoT-hubb ![utdata - sensordata som skickats från hallon Pi till din IoT-hubb](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
+Du bör se följande utdata som visar sensordata och meddelanden som skickas till din IoT hub ![utdata - sensordata som skickas från Raspberry Pi till din IoT-hubb](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har kört ett exempelprogram för att samla in sensordata och skicka den till din IoT-hubb.
+Du har kört ett exempelprogram för att samla in data för kroppssensor och skicka den till din IoT-hubb.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

@@ -16,12 +16,12 @@ ms.component: protection
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b4322ab5c90b04cf4eb0591e97e5e026664a2769
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 681169fc3db69c2dfb8aa36d6e2896e0ddba8b56
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442380"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548136"
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Krav för Azure Active Directory Privileged Identity Management-prenumeration
 
@@ -38,7 +38,7 @@ Om du inte är säker på om din organisation har en utvärderingsversion eller 
 2. Ange `Connect-MsolService` autentisera sig som en användare i din klient.
 3. Ange `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`.
 
-Det här kommandot hämtar en lista över prenumerationer i din klient. Om det finns inga rader som returneras kan behöver du skaffa en Azure AD Premium P2 utvärderingsversion, inköp en Azure AD Premium P2-prenumeration eller EMS E5-prenumeration för att använda Azure AD Privileged Identity Management.  För att få en utvärderingsversion och börja använda Azure AD Privileged Identity Management kan du läsa [Kom igång med Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md).
+Det här kommandot hämtar en lista över prenumerationer i din klient. Om det finns inga rader som returneras kan behöver du skaffa en Azure AD Premium P2 utvärderingsversion, inköp en Azure AD Premium P2-prenumeration eller EMS E5-prenumeration för att använda Azure AD Privileged Identity Management.  För att få en utvärderingsversion och börja använda Azure AD Privileged Identity Management kan du läsa [Kom igång med Azure AD Privileged Identity Management](pim-getting-started.md).
 
 Om det här kommandot returnerar en rad i vilken SkuPartNumber är ”AAD_PREMIUM_P2” eller ”EMSPREMIUM” och IsTrial är ”True”, innebär en utvärderingsversion av Azure AD Premium P2 finns i klienten.  Om prenumerationen inte är aktiverad och du inte har en Azure AD Premium P2- eller EMS E5-prenumeration köpa, måste sedan du köpa en Azure AD Premium P2-prenumeration eller EMS E5-prenumeration för att fortsätta använda Azure AD Privileged Identity Management.
 
@@ -61,5 +61,5 @@ När en Azure AD Premium P2-prenumeration eller EMS E5-prenumeration upphör att
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Kom igång med Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)
-- [Roller i Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-roles.md)
+- [Kom igång med Azure AD Privileged Identity Management](pim-getting-started.md)
+- [Roller i Azure AD Privileged Identity Management](pim-roles.md)

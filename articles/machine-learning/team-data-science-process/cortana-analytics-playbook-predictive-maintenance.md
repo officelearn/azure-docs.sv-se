@@ -1,6 +1,6 @@
 ---
-title: Azure AI-guide för förutsägande Underhåll lösningar | Microsoft Docs
-description: En fullständig beskrivning av datavetenskap som används av förutsägande Underhåll lösningar i flera branscher.
+title: Azure AI-guide för lösningar för förebyggande underhåll | Microsoft Docs
+description: En heltäckande beskrivning av datavetenskap som används av lösningar för förebyggande underhåll i flera branscher.
 services: machine-learning
 author: fboylu
 manager: cgronlun
@@ -14,221 +14,221 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: ff2e1660ffcc1f397697b27084e000371c7c84f3
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 816ba560ccb9b06414dff8ffaea054e88d216b10
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938017"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972391"
 ---
-# <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för förutsägande Underhåll lösningar
+# <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för lösningar för förebyggande underhåll
 
 ## <a name="summary"></a>Sammanfattning
 
-Förutsägande Underhåll (**PdM**) är ett populärt program för förutsägelseanalys som hjälper företag i flera branscher uppnå hög tillgången utnyttjande och besparingar i driftskostnaderna. Den här guiden samlar företag och analytiska riktlinjer och bästa praxis för att utveckla och distribuera PdM lösningar med hjälp av den [AI för Microsoft Azure-plattformen](https://azure.microsoft.com/overview/ai-platform) teknik.
+Förebyggande underhåll (**PdM**) är ett populärt program till förutsägande analys som hjälper företag i flera olika branscher att uppnå hög tillgången användning och besparingar i driftskostnader. Den här guiden innehåller företag och analytiska riktlinjer och bästa praxis att utveckla och distribuera kontaktar lösningar med hjälp av den [Microsoft Azure AI-plattformen](https://azure.microsoft.com/overview/ai-platform) teknik.
 
-Den här guiden beskriver till att börja branschspecifika affärsscenarier och processen för att kvalificera dessa scenarier för PdM. Det finns också datakrav och tekniker för förutsägelsemodellering för att skapa PdM lösningar. Innehållet i handboken finns på den datavetenskap process, inklusive steg för förberedelse av data, funktionen tekniker, modellen skapas och modellen operationalization. Den här guiden innehåller en uppsättning lösningsmallar för att påskynda PdM programutveckling för att komplettera dessa viktiga begrepp. Guiden pekar också användbart utbildningsresurser för läkare lära dig mer om AI bakom datavetenskap. 
+Till att börja med innehåller den här guiden branschspecifika företagsscenarier och processen för att kvalificera dig för dessa scenarier för kontaktar. Det finns också datakrav och teknik för modellering för att skapa PdM-lösningar. Innehållet i guiden är på data science process, inklusive steg för förberedelse av data, funktionsframställning, modellskapandet och driftsättning av modellen. Den här guiden visar en lista över en uppsättning mallar för lösningar för att snabba på programutvecklingen kontaktar för att komplettera dessa viktiga begrepp. Guiden hjälper också till användbara utbildningsresurser för läkare att lära dig mer om AI bakom datavetenskap. 
 
-### <a name="data-science-guide-overview-and-target-audience"></a>Datavetenskap guiden översikt och mål målgrupp
-Den första delen av den här guiden beskriver vanliga affärsproblem fördelarna med att implementera PdM för att åtgärda dessa problem och visar några vanliga användningsområden. Företagets beslutsfattare (BDMs) drar nytta av det här innehållet. Den andra delen beskriver datavetenskap bakom PdM och innehåller en lista över PdM lösningar som skapats med hjälp av principer som beskrivs i den här guiden. Det ger också utbildningsvägar och pekare till utbildningsmaterial. Tekniska beslutsfattare (TDMs) kommer användbart det här innehållet.
+### <a name="data-science-guide-overview-and-target-audience"></a>Data Science guide översikt och mål målgrupp
+Den första delen av den här guiden beskriver vanliga affärsproblem, fördelarna med att använda PdM för att åtgärda dessa problem och visar några vanliga användningsområden. Beslutsfattare (BDMs) kommer att dra nytta av det här innehållet. Den andra delen förklarar datavetenskap bakom kontaktar och innehåller en lista över PdM-lösningar som skapats med principerna som beskrivs i den här guiden. Det ger också utbildningsvägar och pekare till utbildningsmaterial. Tekniska beslutsfattare (TDMs) kan vara bra det här innehållet.
 
 | Börja med... | Om du är... |
 |:---------------|:---------------|
-| [Företag fallet för förebyggande underhåll](#Business-case-for-predictive-maintenance) |en beslutsfattare inom företaget (BDM) att minimera driftavbrott och driftskostnaderna och förbättra användning av utrustning |
-| [Datavetenskap för förebyggande underhåll](#Data-Science-for-predictive-maintenance) |en teknisk beslutsfattare (TDM) utvärderar PdM tekniker att förstå de unika databehandling och AI krav för förebyggande underhåll |
-| [Lösningsmallar för förebyggande underhåll](#Solution-templates-for-predictive-maintenance)|en programvara systemarkitekt eller AI-utvecklare som vill snabbt klara av en demonstration eller en--konceptbevis |
-| [Utbildningsresurser för förebyggande underhåll](#Training-resources-for-predictive-maintenance) | allt eller något av ovanstående och vill veta grundläggande koncepten bakom datavetenskap, verktyg och tekniker.
+| [Affärsfall för förutsägande Underhåll](#Business-case-for-predictive-maintenance) |en beslutsfattare inom företaget (BDM) vill minska driftstopp och driftskostnader och förbättra användningen av utrustning |
+| [Datavetenskap för förebyggande underhåll](#Data-Science-for-predictive-maintenance) |en teknisk beslutsfattare (TDM) evaluerar kontaktar tekniker att förstå de unika databearbetning och AI-krav för förebyggande underhåll |
+| [Mallar för lösningar för förutsägande Underhåll](#Solution-templates-for-predictive-maintenance)|en programvaruarkitekt eller AI-utvecklare som vill skapa snabbt en demonstration eller proof-of-concept |
+| [Utbildningsresurser för förutsägande Underhåll](#Training-resources-for-predictive-maintenance) | allt eller något av ovanstående och vill lära dig de grundläggande koncepten bakom datavetenskap, verktyg och tekniker.
 
-### <a name="prerequisite-knowledge"></a>Nödvändig information
-Innehållet BDM förväntar sig inte läsaren har kännedom vetenskap tidigare data. Grundläggande kunskaper om statistik och datavetenskap är användbart för TDM-innehåll. Kunskap om Azure Data och AI-tjänster, Python, R, XML och JSON rekommenderas. AI tekniker implementeras i Python och R-paket. Lösningsmallar implementeras med hjälp av Azure-tjänster, utvecklingsverktyg och SDK: er.
+### <a name="prerequisite-knowledge"></a>Förhandskunskaper
+Innehållet BDM förväntar sig inte läsaren ha kännedom tidigare data science. Grundläggande kunskaper om statistik och datavetenskap är användbart för TDM-innehåll. Kunskap om Azure Data och AI-tjänster, Python, R, XML och JSON rekommenderas. AI-tekniker implementeras i Python- och R-paket. Lösningsmallar implementeras med hjälp av Azure-tjänster, utvecklingsverktyg och SDK: er.
 
-## <a name="business-case-for-predictive-maintenance"></a>Företag fallet för förebyggande underhåll
+## <a name="business-case-for-predictive-maintenance"></a>Affärsfall för förutsägande Underhåll
 
-Företag kräver kritiska utrustning köras vid högsta effektivitet och användning Tänk sina avkastning på kapitalinvesteringar. Dessa tillgångar kan röra sig om flygplan motorer, turbiner, hissar eller industriella chillers - som kostar miljoner - nedåt vanliga installationer som kopiatorer, kaffe datorer eller Vattenkylare.
-- Som standard är de flesta företag förlitar sig på _korrigerande Underhåll_, där delar ersätts som och när de inte. Åtgärda Underhåll garanterar delar används helt (därför inte avmagrade komponenten livslängd), men kostnader verksamheten i driftstopp och och oplanerat Underhåll krav (av timmar eller olämplig platser).
-- Vid nästa nivå, företag Övning _förebyggande underhåll_, där de bestämma användbar livslängd för en del och underhåll eller ersätta innan ett fel uppstod. Förebyggande underhåll undviker oplanerade och oåterkalleligt fel. Men hög kostnaderna för schemalagd stilleståndstid under användning av komponenten innan dess fullständiga livslängd för användning och arbete fortfarande kvar.
-- Målet med _förutsägande Underhåll_ är att optimera balansen mellan korrigerande och förebyggande underhåll genom att aktivera _precis i tid_ ersättning av komponenter. Den här metoden ersätter endast komponenterna när de är nära ett fel. Genom att utöka komponenten lifespans (jämfört med förebyggande underhåll) och minskar oplanerat underhåll och arbetskostnader (via korrigerande underhåll), företag kan få kostnadsbesparingar och konkurrenskraftiga fördelar.
+Företag kräver kritiska utrustning att köras på högsta effektivitet och användning för att upptäcka deras avkastningen på investeringar. Dessa resurser kan vara allt från flygplansmotorer, syfte, hissar eller industriell chillers - som kostar miljoner - ned vardagliga installationer som kopiatorer, kaffe datorer eller Vattenkylare.
+- Som standard är de flesta företag förlitar sig på _korrigerande Underhåll_, där delar ersätts som och när de misslyckas. Korrigerande Underhåll garanterar delar används helt (därför inte slösa komponenten livslängd), men kostar verksamheten i driftstopp, arbete och oplanerat Underhåll krav (av timmar eller olämplig platser).
+- På nästa nivå, företag Övning _förebyggande underhåll_, där de fastställa användbara livslängden för en del och underhålla och Ersätt det innan ett fel. Förebyggande underhåll undviker oplanerade och kritiska fel. Men de höga kostnaderna för schemalagd stilleståndstid under användning av komponenten innan dess fullständiga livslängd för användning och arbete som fortfarande är kvar.
+- Målet med _förebyggande underhåll_ är att optimera balans mellan korrigerande och förebyggande underhåll genom att aktivera _just-in-time_ ersättning av komponenter. Den här metoden ersätter endast komponenterna när de ligger nära ett fel. Genom att utöka komponenten lifespans (jämfört med förebyggande underhåll) och minska oplanerat underhåll och arbetsbelastningen (över korrigerande underhåll), företag kan få kostnadsbesparingar och konkurrensmässiga fördelar.
 
-## <a name="business-problems-in-pdm"></a>Affärsproblem i PdM
-Företag står inför hög operativa risker på grund av oväntade fel och har begränsad insyn i den grundläggande orsaken till problem i komplexa system. Några viktiga frågor är:
+## <a name="business-problems-in-pdm"></a>Affärsproblem i kontaktar
+Företag möter operativa högrisk på grund av oväntade fel och har begränsad insikt i de grundläggande orsakerna till problem i komplexa system. Några av de viktiga affärsfrågor är:
 
 - Identifiera avvikelser i utrustning eller systemets prestanda eller funktioner.
 - Förutsäga om en tillgång kan misslyckas inom en snar framtid.
 - Beräkna återstående livslängd för en tillgång.
-- Identifiera huvudsakliga orsakerna till felet av en tillgång.
-- Identifiera vilka underhållsåtgärder som måste göras på en tillgång och på.
+- Identifiera de främsta orsakerna till fel på en tillgång.
+- Identifiera vad underhållsåtgärder som behöver göras för en tillgång och på.
 
-Vanliga mål-satser från PdM är:
+Vanliga mål instruktioner från PdM är:
 
-- Minska operativa risken för verksamhetskritiska kritiska utrustning.
+- Minska riskerna verksamhetskritiska kritiska utrustning.
 - Öka avkastningen på tillgångar genom att förutsäga fel innan de inträffar.
-- Kontrollera kostnaden för underhåll genom att aktivera just-in-time-underhållsåtgärder.
-- Lägre kunden partikelhållfasthet kan förbättra varumärken avbildningen och förlorade försäljning.
-- Lägre kostnader för inventering genom att minska inventering nivåer genom att förutsäga beställningspunkten.
-- Identifiera mönster som är ansluten till olika underhållsproblem med.
-- Ange KPI: er (nyckeltal), till exempel hälsotillstånd resultat för tillgångsinformation villkor.
+- Kontrollera kostnaden för underhåll genom att aktivera just-in-time-underhåll.
+- Sänk kunden partikelhållfasthet, förbättra varumärke avbildningen och förlorade försäljning.
+- Lägre kostnader för inventering genom att minska lagernivåer genom att förutsäga ändra ordning.
+- Upptäck mönster som är anslutna till olika underhållsproblem.
+- Ange KPI: er (nyckeltal), till exempel hälsotillstånd poäng för tillgången villkor.
 - Beräkna återstående livslängd av tillgångar.
-- Rekommendera rimlig underhållsaktiviteter.
-- Aktivera bara i gång lagret genom att uppskatta datum för ersättning av delar.
+- Rekommenderar att du snabbt underhållsaktiviteter.
+- Aktivera just-in-time-inventering genom att uppskatta beställningsdatum för utbyte av delar.
 
-Dessa mål-satser är startpunkter för:
+Dessa mål-uttryck är startpunkter för:
 
-- _datavetare_ att analysera och lösa specifika förutsägande problem.
-- _molnet arkitekter och utvecklare_ sätta ihop en heltäckande lösning.
+- _dataexperter_ att analysera och lösa specifika förutsägande problem.
+- _arkitekter och utvecklare i molnet_ sätta ihop en lösning från slutpunkt till slutpunkt.
 
-## <a name="qualifying-problems-for-predictive-maintenance"></a>Kvalificerande problem för förebyggande underhåll
-Det är viktigt att betona att inte alla användningsfall eller affärsproblem effektivt kan lösas genom PdM. Det finns tre viktiga kvalificerande kriterier som måste beaktas vid val av problemet:
+## <a name="qualifying-problems-for-predictive-maintenance"></a>Kvalificera dig för problem för förebyggande underhåll
+Det är viktigt att betona att inte alla användningsfall eller affärsproblem effektivt kan lösas genom kontaktar. Det finns tre viktiga kvalificerande kriterier som måste beaktas vid val av problemet:
 
-- Problemet måste vara förutsägande i natur. att ska det vara ett mål eller resultat att förutsäga. Problemet bör ha en tydlig sökväg till åtgärder för att förhindra fel när de identifieras.
-- Problemet bör ha en post av utrustning som innehåller operativa tidigare _både bra och felaktiga resultat_. En uppsättning åtgärder som vidtas för att minimera felaktiga resultat ska också vara tillgänglig som en del av dessa poster. Felrapporter, loggar för underhåll av prestandaförsämring, reparera och Ersätt loggar är också viktigt. Dessutom är reparationer som görs för att förbättra dem och ersättning poster också användbara.
-- Inspelad historiken visas i _relevanta_ informationen av _tillräckligt_ tillräckligt med kvalitet att stödja användningsfallet. Mer information om data relevans och kontrollsystemet finns [kraven för förebyggande underhåll](#Data-requirements-for-predictive-maintenance).
-- Slutligen bör verksamheten ha domän experter som har en förståelse för problemet. De bör vara medveten om interna processer och metoder för att kunna hjälpa analytiker förstå och tolka data. De bör också kunna göra nödvändiga ändringar i befintliga processer för att samla in rätt data för problem, om det behövs.
+- Problemet måste vara förutsägande i natur. det vill säga ska det vara ett mål eller ett resultat att förutsäga. Problemet bör även ha en tydlig sökväg till åtgärder för att förhindra fel när de identifieras.
+- Problemet bör ha koll på operativa historiken för den utrustning som innehåller _både bra och felaktiga resultat_. Uppsättningen åtgärder som vidtas för att åtgärda felaktiga resultat ska också vara tillgänglig som en del av dessa poster. Felrapporter, loggar för underhåll av försämrade prestanda, reparera och Ersätt loggarna är också viktigt. Dessutom är reparationer åtagit sig att förbättra dem och ersättning poster också användbara.
+- Inspelade historiken visas i _relevanta_ informationen av _tillräcklig_ tillräckligt med kvalitet för användningsfallet. Läs mer om data relevans och kontrollsystemet [uppgifter som krävs för förebyggande underhåll](#Data-requirements-for-predictive-maintenance).
+- Slutligen bör verksamheten ha områdesexperter som har en förståelse för problemet. De bör känna till den interna processer och praxis för att kunna hjälpa analytikern förstå och tolka data. De bör också kunna göra nödvändiga ändringar i befintliga affärsprocesser för att samla in rätt data för problem, om det behövs.
 
-## <a name="sample-pdm-use-cases"></a>Exempel på användningsområden för PdM
-Det här avsnittet fokuserar på en mängd PdM användningsområden från flera branscher som Aerospace, verktyg och transport. Varje avsnitt börjar med affärsproblem och beskriver fördelarna med PdM relevanta data runt problem i verksamheten och slutligen fördelarna med en PdM lösning.
+## <a name="sample-pdm-use-cases"></a>Exempel på användningsområden för kontaktar
+Det här avsnittet fokuserar på en uppsättning kontaktar användningsfall från flera olika branscher, till exempel flygindustrin, verktyg och transport. Varje avsnitt börjar med ett affärsproblem och beskriver fördelarna med kontaktar, relevanta data omgivande affärsproblemet och slutligen fördelarna med en PdM-lösning.
 
-| Affärsproblem | Fördelarna med en PdM |
+| Affärsproblem | Fördelar med kontaktar |
 |:-----------------|-------------------|
-|**Luftfart**      |                   |
-|_Flight fördröjning och avbryta_ på grund av mekanisk problem. Fel som inte kan repareras i tid kan orsaka flygplan avbrytas och störa schemaläggning och åtgärder. |PdM lösningar kan förutsäga sannolikheten att ett flygplan som fördröjd eller avbröts på grund av mekaniskt fel.|
-|_Flygplan motorn delar fel_: flygplan motorn del ersättningar är bland de vanligaste underhållsaktiviteter inom flygbolag bransch. Underhåll lösningar kräver noggrann hantering av lager komponenttillgänglighet leverans och planering|Att kunna samla in underrättelser om komponenten tillförlitlighet leder till betydande minskning på investeringar.|
+|**Aviation**      |                   |
+|_Flight fördröjning och avbokningar_ på grund av mekanisk problem. Fel som inte kan åtgärdas i tid kan orsaka flyg så avbryts och störa schemaläggning och åtgärder. |Kontaktar lösningar kan förutse sannolikheten för ett flygplan som försenades eller har avbrutits på grund av motorfel.|
+|_Flygplan motorn delar fel_: byte av flygplan motorn delar är bland de vanligaste uppgifterna för underhåll i flygbranschen. Underhåll lösningar kräver noggrann hantering av lagerartiklar komponenttillgänglighet, leverans och planerar|Att kunna samla in information om komponenten tillförlitlighet leder till betydande minskning på investeringskostnader.|
 |**Finans** |                         |
-|_ATM-fel_ är ett vanligt problem inom bank bransch. Det här problemet är att rapportera sannolikheten att en ATM kontanter återkallelse transaktion hämtar avbryts på grund av ett papper har fastnat eller en del i kontanter utgivaren. Baserat på förutsägelser transaktion fel, kan bl.a betjänas proaktivt för att förhindra fel.| I stället för att tillåta datorn misslyckas halvvägs via en transaktion är önskvärt alternativ att programmet datorn för att neka tjänsten baserat på förutsägelser.|
+|_ATM-fel_ är ett vanligt problem inom bank-branschen. Problemet här är att rapportera sannolikheten att en ATM kontanter återkallar transaktion hämtar avbryts på grund av papper har fastnat eller en del pengar utgivaren. Utifrån förutsägelser för transaktionsfel kan Network betjänas proaktivt för att förhindra att fel inträffar.| I stället för att tillåta att datorn misslyckas halvvägs en transaktion, är önskvärt alternativet att programmet datorn för att neka tjänsten baserat på förutsägelser.|
 |**Energi** |                          |
-|_Vindkraft turbinen fel_: vind turbiner största energi-källan i ansvar för miljön länder och omfatta hög utgifter. En viktig del i vind turbiner är generator-motor. fel återger turbinen ineffektiv. Det är också mycket billigare att åtgärda.|Förutsäga KPI: er, till exempel MTTF (tiden fel) hjälper elbolag förhindra turbinen fel och kontrollera minimal avbrottstid. Fel sannolikhet informera tekniker för att övervaka turbiner som sannolikt kommer att misslyckas snart och schemalägga tidsbaserade Underhåll systemen. Förutsägelsemodeller ger insikter om olika faktorer som bidrar till fel, vilket hjälper tekniker bättre förstå rotorsaken till problem.|
-|_Strömbrytare fel_: Distribution av el till hem och företag kräver power rader ska fungera vid alla tidpunkter för att garantera energi leverans. Utlösts hjälpa att begränsa eller undvika skada power rader under överbelastning eller negativa väder villkor. Problem i verksamheten här är att förutsäga strömbrytare fel.| PdM lösningar att minska kostnaderna för reparation och öka livslängd utrustning som utlösts. De hjälper att förbättra kvaliteten på power nätverket genom att minska oväntade fel och avbrott i tjänsten.|
+|_Vindkraft turbinen fel_: vind syfte är den viktigaste energikällan i ansvar för miljön länder/regioner och omfattar höga kapitalkostnader. En viktig del i vind syfte är att generator-motorn. det inte gick återger turbinen ineffektiv. Det är också mycket billigare att åtgärda.|Förutse KPI: er, till exempel MTTF (tiden för felet) kan energibolag förhindra turbinen fel och se till att minimal avbrottstid. Fel sannolikhet informera tekniker för att övervaka syfte som sannolikt kommer att misslyckas snart och schemalägga en tidsbaserad Underhåll systemen. Förutsägande modeller ger insikter om olika faktorer som bidrar till fel, vilket hjälper till att tekniker bättre förstå rotorsaken till problem.|
+|_Kretsbrytare fel_: Distribution av el till hem och företag kräver power rader ska fungera när som helst att garantera energi leverans. Utlösts hjälper att begränsa eller undvika skada power rader under överbelastning eller negativ väderförhållanden. Affärsproblem här är att förutsäga kretsbrytare fel.| Kontaktar lösningar att minska kostnaderna för reparation och öka livslängden för nätverksutrustning som utlösts. De hjälper att förbättra kvaliteten på power-nätverk genom att minska oväntade fel och avbrott i tjänsten.|
 |**Transport och logistik** |    |
-|_Snabba dörren fel_: stora snabba företag tillhandahåller en fullständig stack-tjänst för miljontals funktionella hissar runtom i världen. Snabba säkerhet, tillförlitlighet och drifttid är de viktigaste aspekterna för sina kunder. Dessa företag spåra dessa och andra attribut via sensorer som hjälper dem med korrigerande och förebyggande underhåll. I en snabba tydligaste kunden problemet fungerar inte snabba dörrar. Problem i verksamheten är i det här fallet att tillhandahålla ett kunskapsbas förutsägande program som beräknar risken orsakar dörren fel.| Hissar är kapitalinvesteringar för potentiellt 20 – 30 år livslängd. Så att varje potentiell försäljning kan vara konkurrenskraftiga; förväntningar för service- och är därför höga. Förutsägande Underhåll kan ge dessa företag flera fördelar jämfört med sina konkurrenter i sin produkt och Tjänsterbjudanden.|
-|_Rulla fel_: rulla fel konto för hälften av alla träna urspårning och kostnaden miljarder globala tåg branschen. Hjul fel också göra att spår försämras, ibland orsakar spåret att bryta för tidigt. Tåg radbrytningar leda till katastrofer, till exempel urspårning. Om du vill undvika sådana instanser järnvägar övervaka prestanda för hjul och ersätta dem på ett förebyggande sätt. Här affärsproblem är förutsägelser hjul fel.| Förutsägande underhåll av hjul hjälper med just-in-time-ersättning av hjul |
-|_Språng train dörren fel_: en större orsak till fördröjningar i språng åtgärder är dörren fel train bilar. Problem i verksamheten här är att förutsäga train dörren fel.|Tidig avslöjar ett dörren fel eller antalet dagar tills ett dörren fel hjälper företag-optimera träna dörren servicing scheman.|
+|_Hiss dörren fel_: stora hiss företag tillhandahålla en fullständig stack-tjänst för miljontals funktionella hissar runt om i världen. Hiss säkerhet, tillförlitlighet och drifttid är de viktigaste aspekterna för sina kunder. Dessa företag spåra dessa och andra attribut via sensorer, för att hjälpa dem med korrigerande och förebyggande underhåll. I en hiss viktigaste kunden problemet fungerar inte hiss dörrar. Problem i verksamheten är i det här fallet att tillhandahålla en kunskapsbas förutsägande program som beräknar potentialen orsakar dörren fel.| Hissar är investeringar för potentiellt en livslängd på 20 – 30 år. Så att varje potentiell försäljning kan vara konkurrenskraftiga; Därför är förväntningar för service och support hög. Förutsägande Underhåll kan ge dessa företag flera fördelar jämfört med sina konkurrenter i sin produkt och Tjänsterbjudanden.|
+|_Snurra fel_: snurra fel konto för hälften av alla träna urspårning och kostnad miljarder i branschen globala rail. Hjul fel orsaka också rails försämras, vilket ibland gör rail att bryta tidigt. Rail radbrytningar leda till oåterkallelig händelser, t.ex urspårning. Om du vill undvika sådana instanser järnvägar övervaka prestanda för hjul och ersätta dem på ett förebyggande sätt. Affärsproblem här är förutsägelser av hjul fel.| Förutsägande underhåll av hjul hjälper med just-in-time-ersättning av hjul |
+|_Subway träna dörren fel_: en större orsak till fördröjningar i subway åtgärder är dörren fel av träna bilar. Affärsproblem här är att förutsäga träna dörren fel.|Tidig medvetenhet om dörren fel eller antalet dagar tills dörren fel, kan företag-optimera träna dörren Underhåll scheman.|
 
-I nästa avsnitt hämtar detaljer om hur du inser PdM fördelarna som beskrivs ovan.
+Nästa avsnitt hämtar detaljer om hur du nytta av kontaktar fördelarna som beskrivs ovan.
 
 ## <a name="data-science-for-predictive-maintenance"></a>Datavetenskap för förebyggande underhåll
 
-Det här avsnittet innehåller allmänna riktlinjer av datavetenskap principer och praxis för PdM. Den är avsedd att hjälpa en TDM, Lösningsarkitekt eller en utvecklare förstå kraven och processen för att bygga program för slutpunkt till slutpunkt AI för PdM. Du kan läsa det här avsnittet tillsammans med en granskning av dessa demonstrationer och proof of concept mallar som anges i [Lösningsmallar för förebyggande underhåll](#Solution-templates-for-predictive-maintenance). Du kan sedan använda dessa principer och bästa praxis för att implementera lösningen för en PdM i Azure.
+Det här avsnittet innehåller allmänna riktlinjer för data science principer och praxis för kontaktar. Den är avsedd att hjälpa en TDM, Lösningsarkitekt, eller en utvecklare lära dig om kraven och processen för att skapa AI-program för slutpunkt till slutpunkt för kontaktar. Du kan läsa det här avsnittet tillsammans med en granskning av demonstrationerna och proof of concept-mallar som anges i [mallar för lösningar för förutsägande Underhåll](#Solution-templates-for-predictive-maintenance). Du kan sedan använda dessa principer och bästa praxis för att implementera din PdM-lösning i Azure.
 
 > [!NOTE]
-> Den här guiden är inte avsedd att utbilda läsaren datavetenskap. Flera användbara källor tillhandahålls Läs mer i avsnittet för [utbildningsresurser för förebyggande underhåll](#Training-resources-for-predictive-maintenance). Den [lösningsmallar](#Solution-templates-for-predictive-maintenance) som anges i guiden demonstrerar några av de här AI-teknikerna för specifika PdM problem.
+> Den här guiden är inte avsedd att lära läsaren Data Science. Flera användbara källor tillhandahålls för att läsa mer i avsnittet för [utbildningsresurser för förutsägande Underhåll](#Training-resources-for-predictive-maintenance). Den [lösningsmallar](#Solution-templates-for-predictive-maintenance) visas i guiden visar några av dessa AI-metoder för specifika kontaktar problem.
 
-## <a name="data-requirements-for-predictive-maintenance"></a>Kraven för förebyggande underhåll
+## <a name="data-requirements-for-predictive-maintenance"></a>Uppgifter som krävs för förebyggande underhåll
 
-Alla learning framgång beror på a kvaliteten på vad är att vilka undervisning förekommer och (b) möjligheten för deltagaren. Förutsägelsemodeller Lär dig mönster från historiska data och förutsäga framtida resultat med vissa sannolikhet baserat på dessa observerade mönster. En modell förutsägande noggrannhet beror på relevans, kontrollsystemet och kvaliteten på träning och testning data. Nya data, beräknas' med hjälp av den här modellen ska ha samma funktioner och schema som träning och testning. Funktionen egenskaper (typ, densitet, distribution och så vidare) nya data bör matcha datauppsättningar träning och testning. Det här avsnittet fokuserar på sådana datakrav.
+Någon beror på (a) kvaliteten på vad som undervisats och (b) möjligheten för eleven. Förutsägelsemodeller Läs mönster från historiska data och förutsäga framtida resultat med vissa sannolikhet baserat på dessa observerade mönster. En förutsägande modellnoggrannheten beror på plats, kontrollsystemet och kvaliteten på data för träning och testning. Den nya informationen som ”beräknas” med hjälp av den här modellen bör ha samma funktioner och schema som träning och testning. Funktionen egenskaper (typ, densitet, distribution och så vidare) av nya data bör matcha datauppsättningar träning och testning. Fokus för det här avsnittet finns på dessa krav.
 
 ### <a name="relevant-data"></a>Relevanta data
 
-Först data måste vara _berör problemet_. Överväg att i _rulla fel_ användningsfall som beskrivs ovan - utbildning data ska innehålla funktioner relaterade till hjul-åtgärder. Om problemet är att förutsäga fel på den _drivande system_, av att träningsinformationen måste omfatta de olika komponenterna för drivande system. Det första fallet riktar sig till en särskild komponent, medan det andra fallet riktar sig mot fel på en större undersystemet. Allmänt rekommenderar vi att konstruera förutsägelse system om specifika komponenter i stället för större undersystem, eftersom dessa kommer är mer utspridda data. Domän-expert (se [kvalificerande problem för förebyggande underhåll](#Qualifying-problems-for-predictive-maintenance)) bör bidra till att välja de mest relevanta delmängderna av data för analys. De relevanta datakällorna beskrivs mer detaljerat i [förberedelse av Data för förebyggande underhåll](#Data-preparation-for-predictive-maintenance).
+Först data måste vara _berör problemet_. Överväg att den _snurra fel_ användningsfall som beskrivs ovan - träningsdata ska innehålla funktioner som är relaterade till hjul-åtgärder. Om problemet har att förutsäga fel på den _dirigera system_, träningsdata måste omfatta de olika komponenterna för dirigera-system. Det första fallet riktar sig mot en viss komponent medan det andra fallet riktar sig mot fel på ett större undersystem. Allmän rekommendation är att utforma förutsägelse system om specifika komponenter i stället för större undersystem eftersom det senare kommer är mer utspridda data. Domänexpert (se [kvalificerande problem för förebyggande underhåll](#Qualifying-problems-for-predictive-maintenance)) är till hjälp vid att välja de mest relevanta delmängderna av data för analys. Relevanta datakällor beskrivs mer detaljerat i [förberedelse av Data för förutsägande Underhåll](#Data-preparation-for-predictive-maintenance).
 
 ### <a name="sufficient-data"></a>Tillräckligt med data
-Två frågor är vanliga avseende fel historikdata: (1) ”hur många misslyckade händelser krävs för att träna en modell”? (2) ”hur många poster som betraktas som” det finns tillräckligt med ””? Det finns inga slutgiltiga svar, men endast tumregel. För (1) bättre fler antal misslyckade händelser modellen. För (2), och det exakta antalet misslyckade händelser beror på data och kontexten för att lösa problemet. Men på Vänd-sida om en dator misslyckas för ofta sedan verksamheten ersätts den, vilket minskar fel instanser. Här igen och är riktlinjerna från domänen expert viktigt. Det finns dock metoder för att hantera problemet med _ovanliga händelser_. De beskrivs i avsnittet [hantering av imbalanced data](#Handling-imbalanced-data).
+Två frågor är vanliga när det gäller historikdata för fel: (1) ”hur många felhändelser krävs för att träna en modell”? (2) ”hur många poster betraktas som” tillräckligt ””? Det finns inga slutgiltiga svar, men endast tumregel. För (1) bättre mer antalet misslyckade händelser modellen. För (2), och det exakta antalet misslyckade händelser beror på data och kontexten för det aktuella problemet. Men å andra sidan, om en dator misslyckas alltför ofta sedan verksamheten ersätter den, vilket minskar fel instanser. Här igen och är vägledning från domänen experten viktigt. Det finns dock metoder för att hantera problemet med _sällsynta händelser_. De beskrivs i avsnittet [hantering av imbalanced data](#Handling-imbalanced-data).
 
 ### <a name="quality-data"></a>Data kvalitet
-Kvaliteten på data som är kritiska - varje ge prognoser attributvärdet måste vara _korrekt_ tillsammans med ett värde för target-variabel. Kvalitet är ett väl studerade område i hantering av statistik och data och därför ut av den här guidens omfattning.
+Kvaliteten på data är viktigt – varje ge säkrare prognoser attributvärdet måste vara _korrekt_ tillsammans med värdet för en målvariabel. DQS är ett väl studerade område i statistik och datahantering och kan därför ut av den här guidens omfattning.
 
 > [!NOTE]
-> Det finns flera resurser och enterprise-produkter att leverera data kvalitet. Ett exempel på referenser finns nedan:
+> Det finns flera resurser och företagsprodukter att leverera kvalitet data. Ett exempel på referenser finns nedan:
 > - Dasu T, Johnson, T., undersökande datautvinning och datarensning, Wiley, 2003.
 > - [Undersökande dataanalys, Wikipedia](https://en.wikipedia.org/wiki/Exploratory_data_analysis)
-> - [Hellerstein J kvantitativa Datarensning för stora databaser](http://db.cs.berkeley.edu/jmh/papers/cleaning-unece.pdf)
-> - [Tyskland Jonge, E, van der slå M introduktion till Datarensning med R](https://cran.r-project.org/doc/contrib/de_Jonge+van_der_Loo-Introduction_to_data_cleaning_with_R.pdf)
+> - [Hellerstein J, kvantitativa Data rensning för stora databaser](http://db.cs.berkeley.edu/jmh/papers/cleaning-unece.pdf)
+> - [de Jonge, E, van der slå, M, introduktion till Datarensning med R](https://cran.r-project.org/doc/contrib/de_Jonge+van_der_Loo-Introduction_to_data_cleaning_with_R.pdf)
 
-## <a name="data-preparation-for-predictive-maintenance"></a>Förberedelse av data för förebyggande underhåll
+## <a name="data-preparation-for-predictive-maintenance"></a>Förberedelse av data för förutsägande Underhåll
 
 ### <a name="data-sources"></a>Datakällor
 
-De relevanta data för förebyggande underhåll innefatta, men är inte begränsade till:
-- Fel-historik
-- Underhåll och reparera historik
+Relevanta datakällor för förutsägande Underhåll omfattar, men är inte begränsade till:
+- Felhistorik
+- Underhåll/reparation-historik
 - Datorn driftsförhållanden
 - Utrustning metadata
 
-#### <a name="failure-history"></a>Fel-historik
-Felhändelser är ovanliga i PdM program. När du skapar modeller för förutsägelse måste algoritmen att lära dig om en komponent normal drift mönster som dess fel-mönster. Så utbildning data bör innehålla tillräckligt antal exempel från båda kategorier. Historik för underhållsläge poster och delar ersättning är bra källor att hitta felhändelser. Med hjälp av kunskap om vissa definieras avvikelser i utbildning data också som fel.
+#### <a name="failure-history"></a>Felhistorik
+Felhändelser är ovanligt inom kontaktar program. När du bygger förutsägande modeller, måste algoritmen som vill veta mer om en komponent normala operativa mönster, samt dess fel-mönster. Så träningsdata ska innehålla tillräckligt antal exempel från båda kategorier. Historik för Underhåll poster och delar ersättning är bra källor för att hitta felhändelser. Med hjälp av kunskap om vissa definieras avvikelser i träningsdata också som kodfel.
 
-#### <a name="maintenancerepair-history"></a>Underhåll och reparera historik
-Underhållshistorik för en tillgång innehåller information om komponenter bytts ut kan reparera aktiviteter som utförs etc. Dessa händelser registrera försämring mönster. Avsaknad av den här viktiga informationen i av att träningsinformationen kan leda till missvisande modellen resultat. Fel-Historik finns även i Underhållshistorik som särskilda felkoder eller datum för delar. Ytterligare datakällor som påverkar fel mönster bör undersökas och tillhandahålls av domän experter.
+#### <a name="maintenancerepair-history"></a>Underhåll/reparation-historik
+Underhåll historiken för en tillgång innehåller information om komponenter som ersätts, reparera aktiviteter som utförs osv. De här händelserna registrera försämring mönster. Avsaknad av den här viktiga informationen i träningsdata kan leda till vilseledande modellresultat. Felhistorik finns också i underhållsläge historik som särskilda felkoder eller beställningsdatum för delar. Ytterligare datakällor som påverkar fel mönster bör undersökas och tillhandahålls av områdesexperter.
 
 #### <a name="machine-operating-conditions"></a>Datorn driftsförhållanden
-Temperatursensor baserat (eller andra) strömmande data av utrustning i åtgärden är en viktig källa. En nyckel i PdM antas att en dators hälsostatus försämras med tiden under driften rutinunderhåll. Data förväntas innehålla tid olika funktioner som samlar in det här mönstret ålder och eventuella avvikelser som leder till försämring. Tidsbestämd aspekt av data krävs för algoritmen att lära dig felet och icke-fel mönster över tid. Baserat på dessa datapunkter algoritmen lär sig att förutse hur många fler enheter tid som en dator kan fortsätta att arbeta innan det misslyckas.
+Sensorn baserat (eller andra) strömmande data utrustning i åtgärden är en viktigt-datakälla. En nyckel i kontaktar antas att en dators hälsostatus försämras med tiden under dess rutinunderhåll. Informationen som förväntas innehålla tidsvarierande funktioner som samlar in den här föråldras mönster och avvikelser som leder till försämring. Den temporala delen av informationen som krävs för algoritmen att lära dig till felet och icke-fel mönster över tid. Baserat på dessa datapunkter kan algoritmen som lär sig att förutsäga hur många fler enheter av tid som en virtuell dator kan fortsätta att arbeta innan det misslyckas.
 
 #### <a name="static-feature-data"></a>Statisk funktionsdata
-Statiska funktioner är metadata om utrustning. Exempel är enhetens tillverkare, modell, tillverkade datum, startar datum för tjänsten, platsen för systemet och andra tekniska specifikationer.
+Statiska funktioner är metadata om utrustningen. Exempel är enhetens tillverkare, modell, tillverkad datum, starta underhållsdatum, platsen för systemet och andra tekniska specifikationer.
 
-Exempel på relevanta data för den [exempel PdM användningsfall](#Sample-PdM-use-cases) tabellen nedan:
+Exempel på relevanta data för den [exempel kontaktar användningsfall](#Sample-PdM-use-cases) i tabellen nedan:
 
 | Användningsfall | Exempel på relevanta data |
 |:---------|---------------------------|
-|_Svarta fördröjning och avbryta_ | Väg flyginformation i form av svarta ben och sidan loggfiler. Svarta ben data omfattar routning information, till exempel avvikelse/ankomst datum, tid, flygplats, layovers osv. Sidan loggen innehåller ett antal fel och underhåll koder som har registrerats av grunden underhållspersonal.|
-|_Flygplan motorn delar fel_ | Data samlas in från sensorer i flygplan som innehåller information om de olika delarna. Underhåll poster att identifiera när fel uppstod och när de har ersatts.|
-|_ATM-fel_ | Sensoravläsningar för varje transaktion (deponera kontanter/checka) och leverans av kontanter. Information på mätning mellanrummet mellan anteckningar, Observera tjocklek, Observera ankomst avståndet, kontrollera attribut osv. Underhåll poster som innehåller felkoder, reparationsinformation senast tid kontanter utgivaren har fyllas.|
-|_Vind turbinen fel_ | Sensorer övervaka turbinen villkor, till exempel temperatur, vindriktning, power genereras, generator hastighet osv. Data har samlats in från flera vind turbiner från vind grupper i olika regioner. Varje turbinen har vanligtvis flera sensoravläsningar vidarebefordrar mått med ett fast tidsintervall.|
-|_Fel för strömbrytare_ | Underhåll av loggar med korrigerande, förebyggande och systematiskt åtgärder. Användningsdata med automatisk och manuell kommandon som skickas till utlösts som för åtgärder som öppna och stänga. Enhetens metadata, till exempel datum för tillverkning, plats, modell, osv. Strömbrytare specifikationer som spänning nivåer, geoplats, omgivande förhållanden.|
-|_Snabba dörren fel_| Snabba metadata, till exempel typ av snabba, tillverkade datum, Underhåll frekvens, skapande av typen och så vidare. Teknisk information, till exempel antalet dörren cykler, genomsnittlig dörren Stäng tid. Fel historik med orsaker.|
-|_Hjul fel_ | Sensordata att åtgärder rulla acceleration, bromsar instanser, intresseväckande avståndet, velocity osv. Information om statisk på hjul som tillverkare tillverkats datum. Fel data härledas från en del ordning databas som spårar ordning datum och kvantiteter.|
-|_Språng train dörren fel_ | Dörren inledande och avslutande gånger, andra operativa data, till exempel train dörrar aktuella tillstånd. Statiska data omfattar tillgången identifierare, tid och villkoret värdet kolumner.|
+|_Flygförseningen och avbokningar_ | Flight flödesinformationen i form av flygning ben och sidan loggar. Flight ben data inkluderar routning information som han eller hon lämnar/ankomst datum, tid, flygplatsen, layovers osv. Sidan loggen innehåller ett antal fel och underhåll koder som har registrerats av underhållspersonal grunden.|
+|_Delar av flygplan motorfel_ | Data som samlas in från sensorer med flygplan med information om de olika delarna. Underhåll poster att identifiera när komponentfel inträffat och när de har ersatts.|
+|_ATM-fel_ | Sensoravläsningar för varje transaktion (deponera kontanter/kontroll) och leverans av kontanter. Information på mätning klyftan mellan anteckningar, Observera tjocklek, Observera ankomst avståndet, kontrollera attribut osv. Underhåll poster som innehåller felkoder, reparationsinformation senast tid kontanter utgivaren har fyllas.|
+|_Vind turbinen fel_ | Sensorer övervaka turbinen villkor, till exempel temperatur, vindriktning, power genereras, generator hastighet osv. Data har samlats in från flera vind sig från vind-grupper som finns i olika regioner. Varje turbinen har vanligtvis flera sensoravläsningar vidarebefordrar mätning av faktisk användning med ett fast tidsintervall.|
+|_Kretsbrytare fel_ | Underhåll av loggar med korrigerande, förebyggande och systematiskt åtgärder. Driftdata med automatisk och manuell kommandon som skickas till utlösts som för åtgärder som öppna och stänga. Enhetsmetadata, till exempel datum för tillverkning, plats, modell osv. Kretsbrytare specifikationer som spänning nivåer, geoplats, omgivande villkor.|
+|_Hiss dörren fel_| Hiss metadata, till exempel typ av hissen, tillverkad datum, Underhåll frekvens, skapa typ och så vidare. Teknisk information, till exempel många dörren cykler, genomsnittlig dörren Stäng tid. Felhistorik med orsaker.|
+|_Hjul fel_ | Sensordata att mått snurra acceleration, bromsar instanser, utveckla avståndet, hastighet osv. Statisk information på hjul som tillverkare som tillverkade datum. Feldata härleds från en del ordning databas som spårar beställningsdatum och kvantiteter.|
+|_Subway träna dörren fel_ | Dörren inledande och avslutande gånger, andra operativa data, till exempel aktuella villkor för träna dörrar. Statiska data omfattar tillgång identifierare, tid och kolumner i villkoret värden.|
 
 ### <a name="data-types"></a>Datatyper
-Anges ovan datakällorna är två huvudsakliga datatyperna i PdM domän:
+Med ovanstående datakällor kan är de två huvudsakliga datatyper som observerats i kontaktar domän:
 
-- _Tidsbestämd data_: operativa telemetri, datorn villkor, arbete ordning typer prioritetskoder som har tidsstämplar vid tiden för registrering. Fel, underhåll och reparera och användningshistorik har också tidsstämplar som är associerade med varje händelse.
-- _Statiska data_: datorn funktioner och operatorn funktioner i allmänhet är statiska eftersom de beskriver de tekniska specifikationerna för datorer eller operator-attribut. De bör också ha tidsstämplar som är kopplade till dem om dessa funktioner kan ändras med tiden.
+- _Den temporala data_: operativ telemetri, datorn villkor, arbete ordning typer prioritetskoder som har tidsstämplar vid tidpunkten för inspelning. Fel och underhåll/reparation användningshistorik har också tidsstämplar som är associerade med varje händelse.
+- _Statiska data_: datorn funktioner och operatorn funktioner i allmänhet är statiska eftersom de beskriver de tekniska specifikationerna för datorer eller operator-attribut. Om dessa funktioner kan ändras med tiden, bör de har tidsstämplar som är kopplade till dem också.
 
-Ge prognoser och mål för variabler ska vara meddelandefilsposter/omvandlas till [numeriska kategoriska och andra datatyper](https://www.statsdirect.com/help/basics/measurement_scales.htm) beroende på den algoritm som används.
+Ge säkrare prognoser och target-variabler ska vara meddelandefilsposter/omvandlas till [numeriska kategoriska och andra datatyper](https://www.statsdirect.com/help/basics/measurement_scales.htm) beroende på vilken algoritm som används.
 
-### <a name="data-preprocessing"></a>Förbearbetning av data
-Att _egenskapsval_, förbereda data från olika dataströmmar för att skapa ett schema som det är enkelt att skapa funktioner. Visualisera data först som en tabell med poster. Varje rad i tabellen representerar en instans av utbildning och kolumnerna representerar _ge prognoser_ funktioner (kallas även oberoende attribut eller variabler). Ordna data så att de senaste kolumner är den _mål_ (beroende variabel). För varje instans av utbildning, tilldela en _etikett_ som värde för den här kolumnen.
+### <a name="data-preprocessing"></a>Förbearbeta data
+Som ett krav att _funktionstekniker_, förbereda data från olika strömmar till att skapa ett schema som det är enkelt att skapa funktioner. Visualisera data först som en tabell med poster. Varje rad i tabellen representerar en instans för utbildning och kolumnerna representerar _ge säkrare prognoser_ funktioner (kallas även oberoende attribut eller variabler). Ordna data så att den eller de sista kolumnerna är den _target_ (beroende variabel). För varje instans utbildning kan tilldela en _etikett_ som värde för den här kolumnen.
 
-Dela upp sensordata varaktighet i tidsenheter för temporala data. Varje post ska tillhöra en tidsenhet för en tillgång _och bör ge distinkta information_. Tidsenheter definieras baserat på affärsbehov i multiplar av sekunder, minuter, timmar, dagar, månader, och så vidare. Tidsenheten _behöver inte vara samma som frekvensen för insamling av_. Om frekvensen är högt kan visa data kan inte betydande skillnader från en enhet till en annan. Anta exempelvis att temperatur samlades in var 10: e sekund. Med samma tid för träningsdata endast blåses upp antal exempel utan att ange ytterligare information. För det här fallet är en strategi för bättre att använda medelvärde data över 10 minuter eller en timme baserat på affärsjustering.
+Dela upp varaktigheten för sensordata i tidsenheter för den temporala data. Varje post ska tillhöra en tidsenhet för en tillgång _och bör erbjuda distinkta information_. Tidsenheter definieras baserat på affärsbehov i multipler av sekunder, minuter, timmar, dagar, månader, och så vidare. Tidsenheten _behöver inte vara samma som frekvens för insamling av_. Om frekvensen är hög, visas data kan inte några betydande skillnad från en enhet till en annan. Anta exempelvis att temperatur samlades in var tionde sekund. Med hjälp av samma tid för utbildningsdata endast ökar antalet exempel utan att ange ytterligare information. För det här fallet är en strategi för bättre att använda medelvärde data över 10 minuter eller en timme baserat på affärsrelaterad motivering.
 
-För statiska data
-- _Underhåll poster_: Raw Underhåll data har en identifierare för tillgångsinformation och tidsstämpel med information om av underhållsaktiviteter som har utförts vid en viss tidpunkt. Transformera underhållsaktiviteter i _kategoriska_ kolumner, där varje kategori descriptor unikt mappar till en specifik underhållsåtgärd. Schemat för Underhåll poster omfattar tillgången identifierare, tid och åtgärden för platsunderhåll.
+För statiska data.
+- _Underhåll poster_: Raw Underhåll data har en plats-ID och tidsstämpel med information om underhållsaktiviteter som har utförts vid en viss tidpunkt. Omvandla underhållsaktiviteter i _kategoriska_ kolumner, där varje kategori descriptor unikt mappar till en specifik underhållsåtgärd. Schemat för Underhåll poster omfattar tillgång identifierare, tid och åtgärd för underhåll.
 
-- _Fel poster_: fel eller orsaker till felet kan registreras som specifika felkoder eller misslyckade händelser som definierats av specifika villkor. I fall där utrustningen har flera felkoder att domänen expert identifiera de som är relevant för en målvariabel. Använda återstående felkoder eller villkor för att konstruera _ge prognoser_ funktioner som stämmer med dessa fel. Schemat för fel poster omfattar tillgången identifierare, tid, fel eller felorsak - om det är tillgängligt.
+- _Fel poster_: fel eller orsaker till felet kan registreras som specifika felkoder eller felhändelser som definieras av specifika villkor. I fall där utrustningen som har flera felkoder ska experten domänen identifiera de som är relevanta för en målvariabel. Använda återstående felkoder eller villkor för att konstruera _ge säkrare prognoser_ funktioner som att göra med de här felen. Schemat för fel poster omfattar tillgång identifierare, tid, fel eller felorsak - om det är tillgängligt.
 
-- _Metadata för datorn och operatorn_: Koppla datorn och operatorn data till ett schema för att associera en tillgång med dess operator, tillsammans med deras respektive attribut. Schemat för datorn villkor omfattar tillgången identifierare, tillgångsinformation funktioner, operatorn identifierare och operatorn funktioner.
+- _Metadata för datorn och operatorn_: Koppla datorn och den valda operatorn data till ett schema för att associera en tillgång med dess operator, tillsammans med deras respektive attribut. Schemat för datorn villkor omfattar tillgång identifierare, tillgången funktioner, operatorn identifierare och operatorn funktioner.
 
-Andra data förbearbetning steg innehålla _hanterar saknade värden_ och _normalisering_ över attributvärden. En detaljerad beskrivning är utanför omfattningen för den här guiden - finns i nästa avsnitt för vissa användbara referenser.
+Andra data Förbearbeta steg innehålla _hanterar saknade värden_ och _normalisering_ av attributvärden. Detaljerad information är utanför omfattningen för den här guiden - finns i nästa avsnitt för vissa användbara referenser.
 
-Med ovanstående meddelandefilsposter datakällor på plats, sista omvandlingen innan funktionen tekniker är att ansluta till ovanstående tabeller baserat på tillgången identifierare och tidsstämpel. Den resulterande tabellen skulle ha null-värden för kolumnen fel när datorn är normal drift. Null-värden kan tillräknade genom en indikator för normal drift. Använd den här fel-kolumnen för att skapa _etiketter för förutsägelsemodellen_. Mer information finns i avsnittet på [modeling tekniker för förebyggande underhåll](#Modeling-techniques-for-predictive-maintenance).
+Med ovanstående som förbearbetats datakällor på plats, sista transformeringen innan funktionsframställning är att ansluta till ovanstående tabeller baserat på plats-ID och tidsstämpel. Den resulterande tabellen skulle ha null-värden för kolumnen fel när datorn är i normal drift. Dessa null-värden kan vara tillräknade genom en indikator för normal drift. Använd den här fel-kolumnen för att skapa _etiketter för förutsägelsemodellen_. Mer information finns i avsnittet på [modellering tekniker för förutsägande Underhåll](#Modeling-techniques-for-predictive-maintenance).
 
 ## <a name="feature-engineering"></a>Funktionstekniker
-Funktionen tekniker är det första steget innan modeling data. Roll i datavetenskap processen [som beskrivs här](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features). En _funktionen_ är en förebyggande attribut för modellen – till exempel temperatur, tryck, vibrationer och så vidare. För PdM innebär att funktionen tekniker abstrahera en dators hälsotillstånd över historiska data som samlas in via en varaktighet som kan ändras. Som skiljer det sig från dess peer-datorer som fjärrövervaknings, avvikelseidentifiering och upptäcka fel. 
+Funktioner är det första steget innan modellering av data. Dess roll i data science process [som beskrivs här](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features). En _funktionen_ är ett förutsägande attribut för modellen – till exempel temperatur, tryck, vibrationer och så vidare. För PdM innebär funktionsframställning att abstrahera en dators hälsa över historiska data som samlas in via en volymer varaktighet. Den skiljer sig från dess peer-datorer, till exempel fjärrövervakning, avvikelseidentifiering och felidentifiering som. 
 
 ### <a name="time-windows"></a>Tidsfönster
-Fjärråtkomst övervakning innefattar rapporteringshändelser hända med _tidpunkter_. Avvikelseidentifiering identifiering modeller utvärdera (poäng) inkommande dataströmmar till flaggan avvikelser från och med punkter i tiden. Felidentifiering klassificerar fel ska särskilda typer när de inträffar punkter i tiden. Däremot PdM innebär att förutsäga fel under en _framtida tidsperiod_, baserat på funktioner som representerar datorn beter över _historisk tidsperiod_. För PdM är funktionsdata från enskilda punkter tid för mycket brus ska förutsägbara. Så data för varje funktion måste vara _smoothened_ genom att sammanställa datapunkter över tidsfönster.
+Fjärrövervakning innefattar rapporteringshändelser som sker med _tidpunkter_. Avvikelseidentifiering identifiering modeller utvärdera (poäng) inkommande dataströmmar flaggan avvikelser från och med punkter i tiden. Felidentifiering klassificerar fel vara specifika typer av när de inträffar punkter i tiden. Däremot kontaktar innebär att förutsäga fel över en _framtida tidsperiod_, baserat på funktioner som representerar datorn beter sig över _historiska tidsperiod_. För kontaktar är funktionsdata från enskilda platser tid för brusig vara förutsägande. Så data för varje funktion måste vara _smoothened_ genom att sammanställa datapunkter över tidsfönster.
 
-### <a name="lag-features"></a>Lag funktioner
-Affärsbehoven definierar hur långt modellen har att förutsäga i framtiden. I sin tur varaktigheten bidrar till att definiera 'hur långt tillbaka modellen måste söka ”att göra förutsägelser för dessa. Den här 'söker tillbaka' tidsperiod kallas den _fördröjning_, och funktioner som utvecklats under den här fördröjningen kallas _lag funktioner_. Det här avsnittet beskrivs fördröjning funktioner som kan konstrueras från datakällor med tidsstämplar och skapande av funktionen från statisk datakällor. Fördröjning funktionerna finns vanligtvis _numeriska_ till sin natur.
+### <a name="lag-features"></a>Lag-funktioner
+Affärskraven definierar hur långt modellen har att förutsäga i framtiden. I sin tur varaktigheten bidrar till att definiera ”hur långt tillbaka modellen måste söka” att göra dessa förutsägelser. Den här 'ser tillbaka' tidsperiod kallas den _fördröjning_, och funktioner som utvecklats under perioden fördröjning kallas _lag funktioner_. Det här avsnittet beskrivs lag-funktioner som kan skapas från datakällor med tidsstämplar och skapa en funktion från statiska datakällor. Lag funktioner är vanligtvis _numeriska_ sin natur.
 
 > [!IMPORTANT]
-> Fönstrets storlek bestäms via undersökningar och bör slutföras med hjälp av en expert domän. Samma villkor gäller för urvalet och definitionen av fördröjning funktioner, deras aggregeringar och vilken typ av windows.
+> Fönstrets storlek bestäms via experimentering och bör slutföras med hjälp av en domän som är experten. Samma villkor gäller för val av och definition av lag funktion, sina aggregeringar och vilken typ av windows.
 
-#### <a name="rolling-aggregates"></a>Rullande mängder
-För varje post för en tillgång valt ett rullande fönster storlek ”W” som antalet enheter tid att beräkna aggregat. Fördröjning funktioner sedan beräknas med W punkter _före_ för den posten. I bild 1 visar blå linjer sensor värden för varje tidsenhet registrerats för en tillgång. De anger en rullande medelvärdet för funktionen värden över ett fönster med storlek W = 3. Det rullande medelvärdet beräknas över alla poster med tidsstämplar som är inom räckhåll t<sub>1</sub> (i orange) till t<sub>2</sub> (i grönt). Värdet för W är vanligtvis i minuter eller timmar beroende på typen av uppgift. Men för vissa problem, väljer ett stort W (Säg 12 månader) kan tillhandahålla hela historiken för en tillgång tills posten.
+#### <a name="rolling-aggregates"></a>Löpande aggregeringar
+För varje post för en tillgång väljs ett rullande tidsfönster storlek ”W” som antalet tidsenheter att beräkna aggregeringar. Lag funktioner beräknas sedan med W perioder _före datumet_ för den posten. I bild 1 visar blå raderna sensorvärdena registreras för en tillgång för varje enhet av time. De anger en rullande medelvärdet för funktionen värden över ett fönster med storleken W = 3. Det rullande medelvärdet beräknas över alla poster med tidsstämplar som är inom räckhåll t<sub>1</sub> (i orange) till t<sub>2</sub> (i grönt). Värdet för W är vanligtvis i minuter eller timmar beroende på typen av uppgift. Men för vissa problem, välja ett stort W (exempelvis 12 månader) kan tillhandahålla hela historiken för en tillgång tills posten.
 
-![Bild 1. Rullande sammanställd funktioner](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png) bild 1. Rullande sammanställd funktioner
+![Bild 1. Löpande aggregerade funktioner](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png) bild 1. Löpande aggregerade funktioner
 
-Exempel på rullande mängder över ett tidsfönster är antal, medel, CUMESUM (kumulativa summan) åtgärder, minsta/högsta värden. Dessutom används ofta varians, standardavvikelse och antal avvikare utöver N standardavvikelser. Exempel på mängder som kan användas för den [användningsfall](#Sample-PdM-use-cases) i den här handboken visas nedan. 
-- _Flight fördröjning_: antal felkoder under föregående dag/vecka.
-- _Flygplan motorn del fel_: rullande innebär och standardavvikelsen summan under den senaste dagen vecka osv. Det här måttet fastställas tillsammans med domänen business expert.
-- _ATM-fel_: rullande innebär, median, intervall, standardavvikelser, antal avvikare utöver tre standardavvikelser övre och nedre CUMESUM.
-- _Språng train dörren fel_: antalet händelser under föregående dag, vecka, två veckor osv.
-- _Strömbrytare fel_: fel antal över senaste veckan, år, tre år osv.
+Exempel på löpande aggregeringar via ett tidsfönster är antal, genomsnitt, CUMESUM (kumulativa summan) mått, min/max-värden. Dessutom används ofta avvikelse, standardavvikelse och antal extremvärden utöver N standardavvikelser. Exempel på aggregeringar som kan användas för den [användningsfall](#Sample-PdM-use-cases) i den här handboken finns nedan. 
+- _Flight fördröjning_: antal felkoder över sista dag/vecka.
+- _Flygplan motorn en del fel_: löpande innebär, standardavvikelse och summan under den senaste dagen vecka osv. Det här måttet ska fastställas tillsammans med experten företagsdomänen.
+- _ATM-fel_: löpande innebär, median, intervallet, standardavvikelser, antal extremvärden utöver tre standardavvikelser övre och nedre CUMESUM.
+- _Subway träna dörren fel_: antal händelser över senaste dag, vecka, två veckor osv.
+- _Kretsbrytare fel_: fel antal över senaste veckan, år, tre år osv.
 
-En annan användbar metod i PdM är att samla in trend ändringar, toppar och ändras med hjälp av algoritmer som identifierar avvikelser i data.
+En annan användbar teknik i kontaktar är att samla in trend ändringar, toppar och ändras med hjälp av algoritmer som identifierar avvikelser i data.
 
-#### <a name="tumbling-aggregates"></a>Rullande mängder
-Etikett för varje post för en tillgång, ett fönster med storleken _W -<sub>k</sub>_  definieras, där _k_ är antalet windows storlek _W_. Aggregeringar skapas sedan över _k_ _rullande windows_ _W-k, V -<sub>(k-1)</sub>,..., W -<sub>2</sub>, W -<sub>1</sub>_  för perioder innan en post tidsstämpel. _k_ kan vara ett litet antal att avbilda kortsiktig effekter eller ett stort antal att avbilda långsiktiga försämring mönster. (se bild 2).
+#### <a name="tumbling-aggregates"></a>Rullande aggregeringar
+Etikett för varje post för en tillgång, ett fönster med storleken _W -<sub>k</sub>_  har definierats, där _k_ är antalet windows storlek _W_. Aggregeringar skapas sedan över _k_ _rullande fönster_ _W-k, W -<sub>(k-1)</sub>,..., W -<sub>2</sub>, W -<sub>1</sub>_  för perioder före en post tidsstämpel. _k_ kan vara ett fåtal avbilda kortsiktig effekterna eller ett stort antal avbilda långsiktiga försämring mönster. (se bild 2).
 
-![Figur 2. Rullande sammanställd funktioner](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png) bild 2. Rullande sammanställd funktioner
+![Figur 2. Rullande aggregerade funktioner](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png) bild 2. Rullande aggregerade funktioner
 
-Till exempel lag funktioner för användningsfall för vind turbiner kan skapas med W = 1 och k = 3. De innebär fördröjning för var och en av de tre senaste månaderna med övre och nedre avvikare.
+Till exempel lag funktioner för användningsfall för vind syfte kan skapas med W = 1 och k = 3. De innebär fördröjning för var och en av de senaste tre månaderna med hjälp av övre och nedre extremvärden.
 
 ### <a name="static-features"></a>Statiska funktioner
 
-Tekniska specifikationer utrustning, till exempel datum till tillverkning, modellnummer, plats, är några exempel på funktioner som statisk. De behandlas som _kategoriska_ variabler för förutsägelsemodellering. Några exempel på användningsfall strömbrytare är spänning, aktuella, Strömkapaciteten, transformatortypen och kraftkälla. För hjul fel är typ av däck hjul (legerat vs stål) ett exempel.
+Tekniska specifikationer utrustning, till exempel datum till tillverkning, modellnummer, plats, är några exempel på statiska funktioner. De behandlas som _kategoriska_ variabler för modellering. Några exempel på användningsfall kretsbrytare är spänning, aktuellt, Strömkapaciteten, omvandlare typ och strömkälla. För hjul fel är typ av däck hjul (legerat vs stål) ett exempel.
 
-På arbetet för förberedelse av data beskrivs hittills bör leda till de data som är ordnade enligt nedan. Utbildning, testa och validering data ska ha den här logiska schemat (det här exemplet visar tid i antal dagar).
+På arbetet för förberedelse av data beskrivs hittills ska leda till de data som är ordnade enligt nedan. Utbildning, testning och validering data bör ha det här logiska schemat (det här exemplet visar tid i antal dagar).
 
 | Tillgångs-ID | Tid | <Feature Columns> | Etikett |
 | ---- | ---- | --- | --- |
@@ -239,206 +239,206 @@ På arbetet för förberedelse av data beskrivs hittills bör leda till de data 
 | B234 |Dag 2 | . . . | . |
 | ...  |...   | . . . | . |
 
-Det sista steget i funktionen tekniker är den **etiketter** på mål-variabeln. Den här processen är beroende av modellering-teknik. I sin tur beror modellering tekniken på affärsproblem och arten av de tillgängliga data. Etiketter beskrivs i nästa avsnitt.
+Det sista steget i funktionsframställning är den **märkning** på mål-variabeln. Den här processen är beroende av teknik för modellering. I sin tur beror modellering tekniken på affärsproblem och arten av alla tillgängliga data. Märkning beskrivs i nästa avsnitt.
 
 > [!IMPORTANT]
-> Förberedelse av data och funktionen tekniker är lika viktig som modeling tekniker för att komma fram till framgångsrika PdM lösningar. Domän-expert och läkaren ska investera betydande tid i anländer till rätt funktioner och data för modellen. Nedan visas ett litet exempel från många böcker i funktionen tekniker:
-> - Pyle D. dataförberedelse för datautvinning (Morgan Kaufmann serien i Data Management Systems), 1999
-> - Zheng A., Casari A. funktionen tekniker för Machine Learning: principer och metoder för Data forskare, O'Reilly, 2018.
-> - Dong G. Liu H. (Redigerare) funktionen tekniker för Machine Learning och dataanalys (Chapman & Hall/CRC datautvinning och kunskap Discovery-serien) CRC tryck 2018.
+> Förberedelse av data och funktioner är lika viktigt som modellering tekniker för att komma fram till framgångsrika PdM-lösningar. Domänexpert och läkaren bör investera mycket tid på vägen mot rätt funktioner och data för modellen. Ett litet antal från många böcker om funktionsframställning visas nedan:
+> - Pyle, D. dataförberedelse för datautvinning (Morgan Kaufmann serien i Data Management System), 1999
+> - Zheng A., Casari A. Funktionsframställning för Machine Learning: principer och metoder för Dataexperter, O'Reilly, 2018.
+> - Dong G. Liu, H. (Redigerare), funktionen teknik för Maskininlärning och dataanalys Chapman & Hall/CRC datautvinning och Knowledge Discovery-serien, CRC Press, 2018.
 
-## <a name="modeling-techniques-for-predictive-maintenance"></a>Tekniker för förutsägelsemodellering för förebyggande underhåll
+## <a name="modeling-techniques-for-predictive-maintenance"></a>Teknik för modellering för förutsägande Underhåll
 
-Det här avsnittet beskrivs huvudsakliga modellering tekniker för PdM problem, tillsammans med deras specifika etikett konstruktionen metoder. Observera att du kan använda en enda modellering teknik mellan olika branscher. Modellering tekniken har länkats till vetenskap dataproblem i stället för kontexten av data till hands.
+Det här avsnittet beskrivs teknik huvudsakliga modellering för kontaktar problem, tillsammans med viss etikett konstruktion metoderna. Observera att en enda modellering tekniken kan användas i olika branscher. Modellering tekniken är länkad till data science problemet i stället för kontexten för data till hands.
 
 > [!IMPORTANT]
-> Valet av etiketter för fel fall på och strategin för märkning  
-> fastställas i samråd med experter domänen.
+> Valet av etiketter för fel fall och strategi för etikettering  
+> beror i samråd med domänen som är experten.
 
 ### <a name="binary-classification"></a>Binär klassificering
-Binär klassificering används för att _förutsäga sannolikheten att utrustning misslyckas i en framtida tidsperiod_ – kallas den _framtida horizon period X_. X bestäms av problem i verksamheten och data till hands i samråd med experter domänen. Exempel är:
-- _minsta ledtid_ krävs för att ersätta komponenter, distribuera Underhåll resurser, utföra underhåll för att undvika problem som kan uppstå under denna tid.
+Binär klassificering används för att _sannolikhet utrustning misslyckas i en framtida tidsperiod_ – kallas den _framtida horizon period X_. X bestäms av problem i verksamheten och data till hands i samråd med domänen som är experten. Exempel är:
+- _minsta ledtid_ krävs för att ersätta komponenter, distribuera Underhåll resurser, utföra underhåll för att undvika ett problem som kan uppstå under denna tid.
 - _minsta antal händelser_ som kan inträffa innan ett problem uppstår.
 
-Den här tekniken identifieras två typer av utbildning exempel. Ett positivt exempel _vilket betyder att_, med etiketten = 1. En negativ exempel som visar normal drift, med etiketten = 0. Mål-variabeln och finns därför etikettsvärdena _kategoriska_. Modellen ska identifiera varje ny exempel som kan misslyckas eller fungera normalt under kommande X tidsenheter.
+Två typer av utbildning exempel identifieras i den här tekniken. Ett positivt exempel _som indikerar ett fel_, med etiketten = 1. En negativ exempel som visar normal drift, = 0 med etiketten. En målvariabel och kan därför etikettvärden är _kategoriska_. Modellen måste identifiera varje ny exempel eftersom den sannolikt kan misslyckas eller fungerar som vanligt under närmaste X tidsenheter.
 
-#### <a name="label-construction-for-binary-classification"></a>Etikett konstruktionen för binär klassificering
-Den här frågan är ”: Vad är sannolikheten att tillgången misslyckas under kommande X tidsenheter”? Besvara den här frågan, etikett X poster innan felet inträffade för en tillgång som ”väg till misslyckas” (etikett = 1), och alla poster som ”normal” en etikett (etikett = 0). (se bild 3).
+#### <a name="label-construction-for-binary-classification"></a>Etikett-konstruktion för binär klassificering
+Den här frågan är ”: Vad är sannolikheten att tillgången inte fungerar i nästa X tidsenheter”? Besvara den här frågan, etikett X poster innan felet av en tillgång som ”om du kunde inte” (etikett = 1), och märka alla poster som är ”normal” (etikett = 0). (se bild 3).
 
 ![Bild 3. Etiketter för binär klassificering](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png) bild 3. Etiketter för binär klassificering
 
-Exempel på etiketter strategi för några av användningsområden som anges nedan.
-- _Flight fördröjningar_: X kan väljas som 1 dag att förutsäga fördröjningar i nästkommande 24 timmar. Sedan alla flygplan inom 24 timmar innan fel är märkta som 1.
-- _ATM kontanter överflödiga fel_: ett mål kan vara att fastställa sannolikheten för fel för en transaktion i nästa en timme. I så fall är alla transaktioner som har inträffat i den senaste timmen till felet märkta som 1. För att förutsäga sannolikheten för fel under nästa N valuta märkta anteckningar vara, alla anteckningar vara inom de sista N anteckningarna för ett fel som 1.
-- _Strömbrytare fel_: målet vara att förutsäga nästa strömbrytare-kommandot misslyckades. I så fall väljs X ska vara ett framtida kommando.
+Exempel på märkning strategi för några av användningsfallen listas nedan.
+- _Flight fördröjningar_: X kan väljas som 1 dag att förutsäga fördröjningar i 24 timmar. Sedan alla flygningar som ligger inom ett dygn innan fel är märkta som 1.
+- _ATM kontanter befria fel_: ett mål kan vara att avgöra sannolikheten för fel för en transaktion i nästa en timme. I så fall kan är alla transaktioner som inom den senaste timmen av fel märkta som 1. För att förutse sannolikheten för fel under nästa N valuta är information vara, alla anteckningar vara inom de senaste N-anteckningarna av ett fel märkta som 1.
+- _Kretsbrytare fel_: Målet kan vara att förutsäga nästa kretsbrytare-Kommandofel. I så fall väljs X ska vara ett framtida kommando.
 - _Träna dörren fel_: X kan väljas som två dagar.
 - _Vindkraft turbinen fel_: X kan väljas som två månader.
 
-### <a name="regression-for-predictive-maintenance"></a>Regression för förebyggande underhåll
-Regression modeller används för att _beräkna återstående livslängd (RUL) en tillgång_. RUL definieras som hur lång tid som en tillgång fungerar innan nästa fel inträffar. Varje utbildning exempel är en post som tillhör en tidsenhet _nY_ för en tillgång, där _n_ är en multipel. Modellen kan beräkna RUL för varje ny exempel som en _kontinuerligt nummer_. Det här numret anger tidsperioden som återstår innan felet inträffade.
+### <a name="regression-for-predictive-maintenance"></a>Regression för förutsägande Underhåll
+Regressionsmodeller är vana vid _compute återstående livslängd (RUL) för en tillgång_. RUL definieras som mängden tid som en tillgång är i drift innan nästa fel inträffar. Varje exempel utbildning är en post som hör till en tidsenhet _nY_ för en tillgång, där _n_ är multipeln. Modellen kan beräkna RUL för varje ny exempel som en _kontinuerligt nummer_. Det här talet anger tidsperioden som återstår före felet.
 
-#### <a name="label-construction-for-regression"></a>Etikett konstruktionen för regression
-Den här frågan är: ”Vad är återstående livslängd (RUL) utrustningen”? Beräkna etiketten som antalet enheter återstående tid innan nästa fel för varje post innan felet inträffade. I den här metoden är etiketter kontinuerlig variabler. (Se figur 4)
+#### <a name="label-construction-for-regression"></a>Etikett-konstruktion för regression
+Den här frågan är: ”Vad är den återstående användbara livslängd (RUL)”? Beräkna etikett för att antalet tidsenheter kvar innan nästa fel för varje post innan felet. I den här metoden är etiketter kontinuerlig variabler. (Se bild 4)
 
 ![Bild 4. Etiketter för regression](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png) bild 4. Etiketter för regression
 
-Etiketter är klar för regression, med en felpunkt. Beräkningen är inte möjligt utan att känna till hur länge tillgången har fortfarande varit i livet innan ett fel uppstod. Så kan i motsats till binär klassificering tillgångar utan några fel i data inte användas för modellering. Det här problemet är bäst med ett annat statistiska teknik som kallas [överlevnad Analysis](https://en.wikipedia.org/wiki/Survival_analysis). Men potentiella problem kan uppstå när du använder den här tekniken till PdM användningsområden som avser tiden varierande data med återkommande intervall. Mer information om överlevnad analys finns [detta en personsökare](https://www.cscu.cornell.edu/news/statnews/stnews78.pdf).
+För regression görs märkning med referens till en felpunkt. Beräkningen är inte möjligt utan att känna till hur lång tid tillgången texten, har överlevt innan ett fel uppstod. Så kan i kontrast till binär klassificering tillgångar utan några fel i data inte användas för modellering. Det här problemet är det bäst med en annan statistisk teknik som kallas [analys av fortsatt giltighet](https://en.wikipedia.org/wiki/Survival_analysis). Men potentiella problem kan uppstå när du använder den här tekniken till kontaktar problem som rör tidsvarierande data med regelbundet. Läs mer på analys av fortsatt giltighet [det här en personsökare](https://www.cscu.cornell.edu/news/statnews/stnews78.pdf).
 
-### <a name="multi-class-classification-for-predictive-maintenance"></a>Flera klassen klassificering för förebyggande underhåll
-Tekniker för flera klassen klassificering kan användas i PdM lösningar för två scenarier:
-- Förutsäga _två framtida resultat_: första resultatet är _ett tidsintervall fel_ för en tillgång. Tillgången är tilldelad till en av flera möjliga tidsperioder. Andra resultatet är risken för fel i en framtida period på grund av att _gör att en av flera roten_. Den här förutsägelse kan Underhåll-teamet att bevaka symptom och scheman för programvaruunderhåll av planen.
-- Förutsäga _mest sannolikt grundorsaken_ av ett angivet fel. Det här resultatet rekommenderar rätt uppsättning underhållsåtgärder för att åtgärda ett fel. En rankningslista över rotorsaker och rekommenderade reparationer hjälper tekniker prioritera sina reparationsåtgärder efter ett fel.
+### <a name="multi-class-classification-for-predictive-maintenance"></a>Flera klassificering för förebyggande underhåll
+Flera klassificeringstekniker kan användas i kontaktar lösningar för två scenarier:
+- Förutsäga _två framtida resultat_: första resultatet är _ett tidsintervall för fel_ för en tillgång. Tillgången är tilldelad till en av flera möjliga tidsperioder. Andra resultatet är risken för fel i en framtida period på grund av _gör att en av flera roten_. Den här förutsägelse kan Underhåll besättningen att bevaka symptom och plan underhållsscheman.
+- Förutsäga _mest sannolikt grundorsaken_ för ett visst fel. Det här resultatet rekommenderar rätt uppsättning underhållsåtgärder för att åtgärda ett fel. En rankningslista över underliggande orsaker och rekommenderade reparationer kan tekniker prioritera sina repareringsåtgärder efter ett fel.
 
-#### <a name="label-construction-for-multi-class-classification"></a>Etikett konstruktionen för flera klassen klassificering
-Den här frågan är ”: Vad är sannolikheten att en tillgång misslyckas under kommande _nZ_ tidsenheter där _n_ är antalet perioder”? Etikett nZ poster innan felet inträffade för en tillgång med buckets tid (3Z 2Z Z) för att besvara den här frågan. Etikett alla andra registrerar ”normal” (etikett = 0). I den här metoden innehåller en målvariabel _kategoriska_ värden. (Se bild 5).
+#### <a name="label-construction-for-multi-class-classification"></a>Etikett-konstruktion för flera klassificering
+Den här frågan är ”: Vad är sannolikheten att en tillgång misslyckas i nästa _nZ_ tidsenheter där _n_ är antalet perioder”? Besvara den här frågan, etikett nZ poster innan felet för en tillgång med buckets tid (3Z 2Z Z). Etikett för alla andra registrerar ”normal” (etikett = 0). I den här metoden en målvariabel innehåller _kategoriska_ värden. (Se bild 5).
 
-![Bild 5. Etiketter för multiklass-baserad klassificering för fel tid förutsägelse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) bild 5. Etiketter för klassificering av flera klass för fel tid förutsägelse
+![Bild 5. Etiketter för multiklass-baserad klassificering för fel tid förutsägelse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) bild 5. Etiketter för flera klassificering för fel tid förutsägelse
 
-Den här frågan är ”: Vad är sannolikheten att tillgången misslyckas under kommande X tidsenheter på grund av orsak/rotproblemet _P<sub>jag</sub>_”? där _jag_ är antalet möjliga underliggande orsaker. Besvara den här frågan, etikett X poster innan felet inträffade för en tillgång som ”kommer att misslyckas på grund av rotorsaken _P<sub>jag</sub>_” (etikett = _P<sub>jag</sub>_). Namnge alla poster som ”normal” (etikett = 0). I den här metoden är etiketter också kategoriska (se bild 6).
+Den här frågan är ”: Vad är sannolikheten att tillgången inte fungerar i nästa X tidsenheter på grund av orsaken/rotproblemet _P<sub>jag</sub>_”? där _jag_ är antalet möjliga underliggande orsaker. Besvara den här frågan, etikett X poster innan felet av en tillgång som ”upphör snart att misslyckas på grund av orsaken _P<sub>jag</sub>_” (etikett = _P<sub>jag</sub>_). Etikettera alla poster som är ”normal” (etikett = 0). I den här metoden är etiketter dessutom kategoriska (se bild 6).
 
-![Bild 6. Etiketter för multiklass-baserad klassificering för rot-orsaken förutsägelse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) bild 6. Etiketter för klassificering av flera klass för rot-orsaken förutsägelse
+![Bild 6. Etiketter för multiklass-baserad klassificering för rot orsak förutsägelse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) bild 6. Etiketter för flera klassificering för rot orsak förutsägelse
 
-Modellen tilldelar en sannolikheten för fel på grund av varje _P<sub>jag</sub>_  samt sannolikheten för fel. Dessa sannolikhet kan beställas storlek så att förutsägelser av de problem som är mest sannolikt att i framtiden.
+Modellen tilldelar en sannolikheten för fel på grund av var och en _P<sub>jag</sub>_  samt sannolikheten för fel. Dessa sannolikheter kan beställas storlek så att förutsägelse av de problem som är mest sannolikt kan förekomma i framtiden.
 
-Den här frågan är: ”vilka underhållsåtgärder rekommenderar du efter en misslyckad”? Den här frågan besvaras etiketter _kräver inte en framtida horizon tas ut_eftersom modellen inte förutsäga fel i framtiden. Det är bara att förutsäga det troligen rotorsaken _när felet uppstod redan_.
+Den här frågan är: ”vilka underhållsåtgärder rekommenderar ni efter ett fel”? Besvara den här frågan märkning _kräver inte en framtida horizon som ska väljas_eftersom modellen inte förutse fel i framtiden. Det är bara att förutsäga mest sannolikt rotorsaken _när felet har redan skett_.
 
-## <a name="training-validation-and-testing-methods-for-predictive-maintenance"></a>Utbildning, verifiering och tester metoder för förebyggande underhåll
-Den [Team datavetenskap Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) ger en fullständig täckning för modellen train-test-Validera cykel. Det här avsnittet beskrivs aspekter som är unika för PdM.
+## <a name="training-validation-and-testing-methods-for-predictive-maintenance"></a>Utbildning, validering och analysmetoder för förebyggande underhåll
+Den [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) ger en fullständig täckning för modellen train-test-Validera cykel. Det här avsnittet diskuteras säkerhetsaspekter som är unika för kontaktar.
 
-### <a name="cross-validation"></a>Mellan verifiering
-Målet med [mellan validering](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) är att definiera en datauppsättning till ”test” modellen i utbildning-fasen. Den här datamängden kallas den _validering set_. Den här tekniken hjälper gränsen problem angående _overfitting_ och ger en analys på hur modellen kommer generalisera till en fristående uppsättning data. Det vill säga en okänd data har angetts som kan komma från en verkliga problemet. Rutinen utbildning och tester för PdM måste ta hänsyn till tid olika aspekter att generalisera bättre på överblivna framtida data.
+### <a name="cross-validation"></a>Korsvalidering
+Målet med [korsvalidering](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) är att definiera en uppsättning data till ”test” modellen i fasen utbildning. Den här datamängden kallas den _verifiering set_. Den här metoden hjälper till att gränsen problem angående _overfitting_ och ger en inblick i hur modellen kommer generalisera till en fristående uppsättning data. Det vill säga en okänd för datauppsättning, vilket kan orsaka från verkliga problem. Rutinen utbildning och testning för kontaktar måste ta hänsyn till de olika delarna tid att generalisera bättre på överblivna framtida data.
 
-Många maskininlärningsalgoritmer beror på ett antal justeringsmodeller som kan ändra modellen prestanda avsevärt. Optimala värdena för dessa justeringsmodeller beräknas inte automatiskt vid inlärning av modellen. De bör anges av forskare data. Det finns flera sätt att hitta bra värdena för justeringsmodeller.
+Många machine learning-algoritmer är beroende av ett antal hyperparametrar som kan ändra modellprestanda avsevärt. Optimala värdena för dessa hyperparametrar beräknas inte automatiskt när träna modellen. De bör anges med data Science. Det finns flera sätt att hitta bra värden av hyperparametrar.
 
-De vanligaste en är _k-vikning korsvalidering_ som delar upp exempel slumpmässigt i _k_ vikningar. För varje uppsättning värden för justeringsmodeller, kör du Inlärningsalgoritmen _k_ gånger. Vid varje iteration använder du exemplen i den aktuella vikningen som en uppsättning validering och resten av exemplen som en träningsmängden. Träna algoritmen över utbildning exempel och beräkna validering exempel prestandamåtten. I slutet av denna loop beräkna genomsnitt av _k_ prestandamått. Välj de som har bästa genomsnittliga prestanda för varje uppsättning hyperparameter värden. Aktiviteten för att välja justeringsmodeller är ofta försök till sin natur.
+De vanligaste en är _k-vikning korsvalidering_ som delar upp exempel slumpmässigt i _k_ vikningar. För varje uppsättning av hyperparametrar värden kör Inlärningsalgoritmen _k_ gånger. Vid varje iteration använder du exemplen i den aktuella vikningen som en uppsättning verifiering och resten av exemplen som en uppsättning för utbildning. Träna algoritmen över utbildning exempel och beräkna verifiering exempel prestandamåtten. I slutet av den här loopen beräkna medelvärdet för _k_ prestandamått. För varje uppsättning finjustering värden, väljer du de som har bästa genomsnittliga prestanda. Uppgiften för att välja hyperparametrar är ofta experimentella natur.
 
-Data registreras i PdM problem, som en tidsserie händelser som kommer från flera datakällor. Dessa poster kan sorteras efter tiden för etiketter. Därför, om datamängden delas _slumpmässigt_ till utbildning och validering uppsättning _vissa av utbildning exempel kan vara senare än några av verifieringen exempel_. Framtida prestanda för hyperparameter värden beräknas baserat på vissa data som anlänt _innan_ modellen har tränats. Dessa beräkningar kanske alltför optimistisk, särskilt om tidsserien inte är stilla och utvecklas över tid. Valda hyperparameter värden kanske därför.
+Kontaktar problem registreras data som en tidsserie med händelser som kommer från flera datakällor. Dessa poster kan sorteras enligt tidpunkten för märkning. Därför om datauppsättningen delas _slumpmässigt_ till uppsättningar för träning och verifiering, _vissa av exemplen utbildning kan vara senare än några av verifiering exempel_. Framtida prestanda för finjustering värden ska beräknas baserat på vissa data som anlänt _innan_ modellen har tränats. Dessa beräkningar kan vara alltför optimistisk, särskilt om de time serien-inte står stilla och utvecklas över tid. De valda finjustering värdena kan därför vara icke-optimal.
 
-Det rekommenderade sättet är att dela exemplen i utbildnings- och verifiering som angetts i en _tid beroende_ sätt, där alla validering exemplen är senare än alla utbildning exempel. Träna algoritmen över datauppsättning för träning för varje uppsättning hyperparameter värden. Mät modellens prestanda över samma verifiering. Välj hyperparameter som visar att uppnå bästa prestanda. Hyperparameter värdena som väljs av train-verifiering dela resulterar i bättre framtida modellen prestanda än med värden som väljs slumpmässigt av korsvalidering.
+Det rekommenderade sättet är att dela upp exemplen i utbildnings- och verifiering som angetts i en _tidsberoende_ sätt, där alla verifiering kan till exempel vara senare än alla utbildning exemplen. För varje uppsättning finjustering värden, träna algoritmen utifrån datauppsättningar för utbildning. Mäta modellens prestanda över samma verifiering. Välj finjustering värden som visar bästa möjliga prestanda. Finjustering värdena som väljs av träna/verifiering dela resulterar i bättre framtida modellens prestanda än med de värden som väljs slumpmässigt av korsvalidering.
 
-Den slutliga modellen kan genereras av utbildning en inlärningsalgoritm över hela utbildningsdata med hjälp av bästa hyperparameter värden.
+Den slutliga modellen kan skapas genom att träna en inlärningsalgoritm över hela träningsdata med de bästa finjustering-värdena.
 
-### <a name="testing-for-model-performance"></a>Testa prestanda för modellen
-När en modell skapas, krävs en uppskattning av dess framtida prestanda på nya data. En bra beräkna prestanda mått för hyperparameter värden beräknas över verifieringen, eller ett mått för genomsnittliga prestanda som beräknats från korsvalidering. Dessa beräkningar är ofta alltför optimistisk. Företaget kanske ofta vissa ytterligare riktlinjer för hur de vill testa modellen.
+### <a name="testing-for-model-performance"></a>Testa för modellprestanda
+När du har skapat en modell, krävs en uppskattning av framtida prestanda på nya data. En bra beräkna prestandamått för finjustering värden som beräknats över verifieringen eller ett genomsnittligt prestanda-mått beräknas från korsvalidering. Dessa beräkningar är ofta alltför optimistisk. Företaget kanske ofta vissa ytterligare riktlinjer för hur de vill testa modellen.
 
-Det rekommenderade sättet för PdM är att dela exemplen i utbildning, verifiering, och testdata en _tid beroende_ sätt. Alla test exempel ska vara senare än alla utbildning och validering exempel. När delning, generera modellen och mäta dess prestanda som tidigare beskrivits.
+Det rekommenderade sättet för kontaktar är att dela exemplen i utbildning, verifiering, och testdata en _tidsberoende_ sätt. Alla test exemplen ska vara senare än alla utbildnings- och verifiering exemplen. Generera modellen efter delning, och mäter dess prestanda enligt beskrivningen ovan.
 
-När-tidsserier är stilla och enkelt att förutsäga kan generera slumpmässigt och tid beroende metoder liknande uppskattningar av framtida prestanda. Men när tidsserie ej stationära och/eller svårt att förutse, tid beroende metoden genererar mer realistisk uppskattningar av framtida prestanda.
+När time series-är stillastående och enkla att förutsäga, generera slumpmässiga och tidsberoende metoder liknande uppskattningar av framtida prestanda. Men när time series-är icke-stillastående och/eller svårt att förutse, tidsberoende metoden genererar mer realistiska uppskattningar av framtida prestanda.
 
-### <a name="time-dependent-split"></a>Tid beroende delning
-Det här avsnittet beskrivs bästa praxis för att implementera tid beroende delning. En dubbelriktad delning tid beroende mellan utbildnings- och testuppsättningar som beskrivs nedan.
+### <a name="time-dependent-split"></a>Tidsberoende dela
+Det här avsnittet beskriver Metodtips för att implementera tidsberoende dela. En tidsberoende dubbelriktad delning mellan utbildnings- och testuppsättningar beskrivs nedan.
 
-Anta en dataström med tidsstämplad händelser, t.ex mått från olika sensorer. Definiera funktioner och etiketter och träna och testa exempel över tidsramar som innehåller flera händelser. Till exempel för binär klassificering, skapa funktioner baserat på tidigare händelser och skapa etiketter som baseras på framtida händelser inom ”X” tidsenheter i framtiden (se avsnitt på [egenskapsval](#Feature-engineering) och [modellering tekniker](#Modeling-techniques-applied-to-PdM-use-cases)). Därför kommer märkning tidsintervall för ett exempel senare än tid som dess funktioner.
+Anta att en dataström med tidsstämplad händelser, t.ex mått från olika sensorer. Definiera funktioner och etiketter för träning och testning exempel över tidsramar som innehåller flera händelser. Till exempel för binär klassificering, skapa funktioner som bygger på historiska händelser och skapa etiketter som baseras på framtida händelser i ”X” tidsenheter i framtiden (se avsnitt på [funktionstekniker](#Feature-engineering) och [modellering tekniker](#Modeling-techniques-applied-to-PdM-use-cases)). Därför kommer etikettering tidsram på ett exempel senare än tid som dess funktioner.
 
-Tid beroende delning, Välj en _utbildning klara tiden T<sub>c</sub>_  som tränar en modell med justeringsmodeller justerade med historiska data upp till T<sub>c</sub>. För att förhindra läckor av framtida etiketter som ligger utanför T<sub>c</sub> i utbildning-data väljer du den senaste tidpunkten etikett utbildning exempel ska X enheter innan T<sub>c</sub>. I exemplet som visas på bild 7 representerar varje ruta en post i datauppsättningen där funktioner och etiketter beräknas enligt beskrivningen ovan. Bilden visar de poster som ska gå till träning och testning uppsättningar för X = 2 och W = 3:
+Tidsberoende delning, Välj en _utbildning klara tiden T<sub>c</sub>_  då att träna en modell med hyperparametrar justerade med hjälp av historiska data upp till T<sub>c</sub>. Att förhindra läckage av framtida etiketter som ligger utanför T<sub>c</sub> till utbildningsdata, väljer du senaste tiden till etiketten utbildning exempel ska X enheter innan T<sub>c</sub>. I exemplet som visas på bild 7, representerar varje ruta en post i datauppsättningen där funktioner och etiketter beräknas enligt beskrivningen ovan. Bilden visar de poster som ska gå i utbildning och testningsuppsättningar för X = 2 och W = 3:
 
-![Bild 7. Tid beroende dela för binär klassificering](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png) bild 7. Tid beroende dela för binär klassificering
+![Bild 7. Tidsberoende dela upp för binär klassificering](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png) bild 7. Tidsberoende dela upp för binär klassificering
 
-Grön rutor representerar poster som hör till enheterna som kan användas för utbildning. Varje utbildning exempel genereras genom att beakta tidigare perioderna för generering av funktionen och två framtida perioder för etikettering innan T<sub>c</sub>. När någon del av de kommande två perioderna ligger utanför T<sub>c</sub>, utesluta datauppsättning för träning som exempel eftersom ingen synlighet antas utöver T<sub>c</sub>.
+Grön rutor representerar poster som hör till enheterna som kan användas för utbildning. Varje exempel utbildning genereras av överväger tidigare perioderna för funktionen generation och två framtida perioder för etikettering innan T<sub>c</sub>. När någon del av de två framtida perioderna ligger utanför T<sub>c</sub>, undantas det exemplet från datauppsättningen utbildning eftersom ingen synlighet antas utöver T<sub>c</sub>.
 
-De svarta rutorna representerar poster av slutliga märkt datamängden som inte ska användas i datauppsättning för träning, får den ovanstående begränsningen. Dessa poster också används inte vid testning av data, eftersom de är innan T<sub>c</sub>. Dessutom beror deras märkning tidsramar delvis på tidsramen utbildning som inte är idealiskt. Träning och testning data bör ha separata märkning tidsramar för att förhindra etikett information sprids.
+De svarta rutorna representerar poster i den slutliga taggade datauppsättning som inte ska användas i datauppsättningen utbildning fått ovanstående villkor. Dessa poster också används inte vid testning av data, eftersom de är innan T<sub>c</sub>. Dessutom kan beror deras etikettering tidsramar delvis på tidsramen utbildning som inte är idealiskt. Träning och testning data bör ha separata etikettering tidsramar för att förhindra att information läcker ut för etiketten.
 
-Den metod som beskrivs hittills kan för ett överlapp mellan träning och testning exemplen som har tidsstämplar nära T<sub>c</sub>. En lösning för att uppnå högre uppdelning är att undanta exempel som ligger inom W tidsenheter t<sub>c</sub> från testet. Men ett aggressivt dela beror på gott om datatillgänglighet.
+Den metod som beskrivs hittills kan för ett överlapp mellan träning och testning exempel som har tidsstämplar nära T<sub>c</sub>. En lösning för att uppnå större uppdelning är att undanta exempel som är inom W tidsenheter av T<sub>c</sub> från testet. Men en aggressiv dela beror på gott om datatillgänglighet.
 
-Regression modeller som används för att förutsäga RUL störs mer av läckage av problemet. Med metoden slumpmässiga dela leder till extrema över passning. Regression problem delningen ska vara så att de poster som hör till tillgångar med fel innan T<sub>c</sub> gå till träningsmängden. Register över tillgångar med fel efter brytfrekvens går du till test-uppsättning.
+Regressionsmodeller som används för att förutsäga återstående användbara Livslängden störs mer av läckageproblem. Med hjälp av metoden slumpmässiga dela leder till extrema över passning. Regression problem delningen ska vara så att de poster som hör till tillgångar med felaktiga inloggningar innan T<sub>c</sub> går du till träningsmängden. Poster över tillgångar med fel efter brytfrekvens går du till uppsättningar för testning.
 
-En annan bästa praxis för att dela data för träning och testning är att använda en delning av tillgångsinformation-ID. Delningen ska vara så att ingen av de resurser som används i träningsmängden används i testa modellen. En modell har med den här metoden större möjlighet att ge mer realistisk resultat nya tillgångar.
+En annan bästa praxis för att dela data för träning och testning är att använda en delning av tillgången-ID. Delningen ska vara så att ingen av de resurser som används i träningsmängden används i testa modellprestanda. En modell har med den här metoden större möjligheter till att tillhandahålla mer realistisk resultat med nya tillgångar.
 
 ### <a name="handling-imbalanced-data"></a>Hantering av imbalanced data
-Klassificering problem om det finns fler exempel på en klass än de andra datauppsättningen anses vara _imbalanced_. Vi rekommenderar tillräckligt med representanter för varje klass i av att träningsinformationen är att föredra framför aktivera skillnad mellan olika klasser. Om en klass är mindre än 10% av data, anses data som imbalanced. Underrepresented klassen kallas ett _minoritet klassen_.
+Klassificering problem om det finns fler exempel på en klass än de andra datauppsättningen anses _imbalanced_. Vi rekommenderar är tillräckligt med representanter för varje klass i träningsdata rekommenderat att aktivera skillnaderna mellan olika klasser. Om en klass är mindre än 10% av data, anses data som imbalanced. Underrepresented klassen kallas ett _minority klass_.
 
-Många PdM problem står inför sådana imbalanced datauppsättningar, där en klass kraftigt underrepresented jämfört med de andra klass eller klasser. I vissa situationer kan klassen minoritet utgöra Endast 0,001% av totalt antal datapunkter. Klassen obalans är inte unikt för PdM. Andra domäner där fel och inkonsekvenser är ovanligt förekomster står inför ett liknande problem, till exempel, att upptäcka bedrägerier och intrång. Dessa fel utgör minoritet klassen exemplen.
+Många PdM problem inför sådana imbalanced datauppsättningar, där en klass kraftigt underrepresented jämfört med de andra klass eller klasser. I vissa situationer kan utgöra klassen minority endast 0,001% av totalt antal datapunkter. Klass obalans är inte unikt för kontaktar. Andra domäner där fel och avvikelser är ovanligt förekomster inför ett liknande problem, exempel, identifiering av bedrägerier och intrång. De här felen utgör minority klass exemplen.
 
-Med klassen obalans i data komprometteras prestanda för de flesta standard algoritmer för maskininlärning, eftersom de syftar till att minimera den övergripande Felfrekvensen. För en datauppsättning med 99% negativt och 1% positivt exempel kan en modell visas att ha 99% noggrannhet genom etiketter alla instanser som negativt. Men modellen kommer felaktigt klassificera alla positivt exempel; Så även om dess noggrannhet är hög, algoritmen inte är ett användbart. Följaktligen konventionella utvärdering mått som _övergripande noggrannhet på Felfrekvens_ är inte tillräckliga för imbalanced learning. Andra mått används för utvärdering av modellen vid inför imbalanced datauppsättningar:
+Med klassen obalans i data, är prestanda för de flesta standard learning-algoritmer skadad, eftersom de försöka minska den övergripande Felfrekvensen. För en datamängd med 99% negativa och positiva exempel av 1%, kan en modell visas ha 99% noggrannhet genom märkning alla instanser som negativt. Men modellen kommer argumentantal klassificera alla positivt exemplen; Så även om dess Precision är hög algoritmen inte är en användbar. Därför konventionella utvärderingsmått som _övergripande noggrannhet på Felfrekvens_ inte finns tillräckliga imbalanced learning. När möter med imbalanced datauppsättningar, som andra mått används för utvärdering av modellen:
 - Precision
 - Återkalla
-- F1-resultat
+- F1-poäng
 - Kostnad justeras ROC (mottagare operativa egenskaper)
 
-Mer information om de här måtten finns [modell utvärdering](#Model-evaluation).
+Läs mer om de här måtten [modellera utvärdering](#Model-evaluation).
 
-Det finns dock några metoder som hjälper avhjälpa klassen obalans problem. De två viktigaste som är _provtagning tekniker_ och _kostnad känsliga learning_.
+Det finns dock några metoder som hjälper att åtgärda klass obalans problem. De två viktigaste som är _sampling tekniker_ och _kostnad känsliga learning_.
 
-#### <a name="sampling-methods"></a>Provtagning
-Imbalanced learning omfattar prover metoder för att ändra datauppsättning för träning till en belastningsutjämnade datauppsättning. Sampling metoder får inte tillämpas på uppsättningen test. Även om det finns flera metoder för provtagning, de flesta direkt vidarebefordra som är _slumpmässiga oversampling_ och _under provtagning_.
+#### <a name="sampling-methods"></a>Sampling metoder
+Imbalanced learning innebär användning av sampling metoder för att ändra träningsmängden data till en belastningsutjämnad uppsättning. Sampling metoder är inte tillämpas på test-uppsättningen. Även om det finns flera tekniker för sampling, de flesta okomplicerat som är _slumpmässiga oversampling_ och _under sampling_.
 
-_Slumpmässiga oversampling_ innebär att välja ett slumpmässigt prov minoritet klass, replikera exemplen och lägger till dem datauppsättning för träning. Följaktligen antalet exempel i minoritet klass ökas och slutligen balansera antalet exempel på olika klasser. En oversampling Nackdelen är att flera instanser av vissa exempel kan orsaka klassificeraren ska bli för specifika leda till överdrivet passning. Modellen kan visa hög utbildning Precision, men dess prestanda på överblivna testdata kan vara något sämre.
+_Slumpmässig oversampling_ processen att välja ett slumpmässigt urval från minority klass, replikeras de här exemplen och lägga till dem i datauppsättningen för utbildning. Följaktligen hur många exemplen i minority klass ökas och så småningom balansera antalet exempel på olika klasser. En nackdel med oversampling är att flera instanser av vissa exempel som kan orsaka klassificerare att bli för specifika, vilket leder till stora passning. Modellen kan visa hög utbildning Precision, men dess prestanda på överblivna testdata kan vara icke-optimal.
 
-Däremot _slumpmässiga under provtagning_ är att välja ett slumpmässigt prov från en majoritet klass och ta bort dessa exempel från datauppsättning för träning. Tar bort exempel från majoritet klass kanske dock klassificeraren att missa viktiga begrepp som rör majoritet klassen. _Hybrid provtagning_ där minoritet klass är över provade och majoritet klassen är under-prov på samma tid är ett annat användbart sätt.
+Däremot _slumpmässigt under sampling_ är att välja ett slumpmässigt urval från en majoritet klass och ta bort dessa exempel från datauppsättningen för utbildning. Ta bort exempel från majoritet klass kan emellertid orsaka leder klassificerare att missa viktiga begrepp som hör till klassen majoritet. _Hybrid sampling_ där minority klassen är över provade och majoritet klass är under-samplas med samma tid är en annan lönsamma metod.
 
-Det finns många avancerade provtagningar. Tekniken valt är beroende av egenskaper för data och resultatet av iterativ experiment av forskare data.
+Det finns många avancerade provtagningar. Tekniken valt är beroende av egenskaper för data och resultatet av iterativa experiment med data Science.
 
 #### <a name="cost-sensitive-learning"></a>Kostnad känsliga learning
-I PdM är fel som utgör klassen minoritet mer intressant än vanliga exempel. Så fokuserar huvudsakligen på den algoritm prestanda vid fel. Felaktigt förutsäga en positiv klass som en negativ klass kan kostar mer än vice versa. Den här situationen kallas ofta olika förlust eller asymmetriska kostnaden för felaktigt klassificera element till olika klasser. Idealiskt klassificeraren bör ge hög förutsägelsefunktionen jämfört klassen minoritet utan att kompromissa med precisionen för klassen majoritet.
+I PdM är fel som utgör klassen minority mer intressanta än normala exempel. Så är fokuserar främst på den algoritmen prestanda på fel. Felaktigt att förutsäga en positiv klass som en negativ klass kan kosta mer än vice versa. Den här situationen kallas ofta olika förlust eller asymmetrisk kostnaden för argumentantal klassificera element till olika klasser. Perfekt klassificeraren ska leverera hög förutsägelsefunktionen över klassen minority utan att kompromissa med precisionen för klassen majoritet.
 
-Det finns flera sätt att uppnå detta saldo. Tilldela felaktig klassificering av klassen minoritet en hög kostnad för att åtgärda problemet med olika förlust, och försök att minska den sammanlagda kostnaden. Algoritmer som _SVMs (Support Vector datorer)_ antar den här metoden natur, genom att tillåta kostnaden för positiva och negativa exempel anges vid träning. På samma sätt som förstärkning metoder _tvåklassförhöjt beslutsträd_ vanligtvis visa goda prestanda med imbalanced data.
+Det finns flera sätt att få balans. Tilldela en hög kostnad till felkonfigurerat klassificering i klassen minority för att lösa problemet med ojämn förlust, och försök att minska den sammanlagda kostnaden. Algoritmer som _SVMs (Support Vector datorer)_ antar den här metoden sin natur, genom att tillåta att kostnaden för positiva och negativa exempel anges under utbildningen. På samma sätt kan öka metoder som _förstärkta beslutsträd_ vanligtvis visa bra prestanda med imbalanced data.
 
-## <a name="model-evaluation"></a>Modellen utvärdering
-Felaktig klassificering är ett betydande problem för PdM scenarier där kostnaden för falsklarm till verksamheten är hög. Till exempel ett beslut att bakgrund ett flygplan baserat på en felaktig förutsägelser av motorn fel störa scheman och reser planer. Tar en dator offline från en sammansättning rad kan leda till förlust av intäkter. Utvärdering av modellen med rätt prestandamåtten mot nya testdata är därför viktigt.
+## <a name="model-evaluation"></a>Modell-utvärdering
+Felkonfigurerat klassificeringen är ett betydande problem för kontaktar scenarier där kostnaden för falsklarm verksamheten är hög. Exempelvis kan en beslutet att stående baserat på en felaktig förutsägelser av motorfel störa scheman och reseplaner. Tar en dator offline från en sammanställningsrad kan leda till förlust av intäkter. Utvärdering av modellen med rätt prestandavärden mot nya testdata är så viktigt.
 
-Vanliga prestandamått som används för att utvärdera PdM modeller beskrivs nedan:
+Vanliga prestandamått som används för att utvärdera kontaktar modeller beskrivs nedan:
 
-- [Precision](https://en.wikipedia.org/wiki/Accuracy_and_precision) är den mest populära mått som används för att beskriva en klassificerare prestanda. Men noggrannhet är känsligt för distributioner av data och är en ineffektiv mått för scenarier med imbalanced datauppsättningar. Andra mått används i stället. Verktyg som [förvirring matrisen](https://en.wikipedia.org/wiki/Confusion_matrix) används för att beräkna och skäl om korrektheten i modellen.
-- [Precision](https://en.wikipedia.org/wiki/Precision_and_recall) av PdM modeller som relaterar till mängden falsklarm. Lägre precision av modellen motsvarar vanligtvis en högre andel falsklarm.
-- [Återkalla](https://en.wikipedia.org/wiki/Precision_and_recall) frekvensen anger hur många fel i uppsättningen test identifierades korrekt av modellen. Högre återkallning priser betyder modellen är lyckas identifiera true felen.
-- [F1 poäng](https://en.wikipedia.org/wiki/F1_score) är övertonsutsläpp medelvärdet av precision och återkallande, med dess värde mellan 0 (sämsta) till 1 (bäst).
+- [Precision](https://en.wikipedia.org/wiki/Accuracy_and_precision) är det mest populära mått som används för att beskriva en klassificerare prestanda. Men Precision är känsligt för data-distributioner och är en ineffektiv mått för scenarier med imbalanced datauppsättningar. Andra mått används i stället. Verktyg som [felmatris](https://en.wikipedia.org/wiki/Confusion_matrix) används för att beräkna och skäl om korrektheten i modellen.
+- [Precision](https://en.wikipedia.org/wiki/Precision_and_recall) av kontaktar modeller som är relaterade till antalet falsklarm. Lägre precision av modellen motsvarar vanligtvis en högre andel falsklarm.
+- [Kom ihåg](https://en.wikipedia.org/wiki/Precision_and_recall) frekvensen anger hur många fel i test-uppsättningen identifierades korrekt av modellen. Priserna för högre återkallande innebär modellen har lyckats identifiera SANT felen.
+- [F1 poäng](https://en.wikipedia.org/wiki/F1_score) är övertonsutsläpp medelvärdet av precision och kanske kommer ihåg, med dess värde mellan 0 (sämsta) till 1 (bäst).
 
 För binär klassificering
-- [Mottagaren operativsystem kurvor (ROC)](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) är också ett populärt mått. I ROC kurvor tolkas modellen prestanda baserat på en fast operativa platsen på ROC.
-- Men för PdM problem _decile tabeller_ och _lyfter diagram_ är mer informativ. De fokus ligger endast på klassen positivt (fel) och ger en mer komplex bild av algoritmen prestanda än ROC kurvor.
-  - _Decile tabeller_ skapas med hjälp av test-exempel i en fallande fel sannolikhet. Sorterad exempel grupperas sedan i deciles (10% av prover med största sannolikhet sedan 20%, 30% och så vidare). Förhållandet mellan (true positiva satsen) /(random baseline) för varje decile hjälper beräkna algoritmen prestanda vid varje decile. Slumpmässiga baslinjen tar på värden 0.1, 0,2 och så vidare.
-  - [Lyfter diagram](http://www2.cs.uregina.ca/~dbd/cs831/notes/lift_chart/lift_chart.html) Rita decile SANT positiva satsen jämfört med slumpmässiga true positivt hastighet för alla deciles. De första deciles är vanligtvis fokus för resultat, eftersom de visar de största vinsterna. Första deciles kan också ses som representativa för ”oskyddad”, när den används för PdM.
+- [Mottagare som fungerar kurvor (ROC)](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) är också ett populärt mått. I ROC kurvor tolkas modellprestanda baserat på en operativ fixtal på ROC.
+- Men för kontaktar problem _decile tabeller_ och _lyfta diagram_ är mer informativ. De koncentrera sig på klassen positivt (fel) och ger en mer komplex bild algoritm-prestanda än ROC kurvor.
+  - _Decile tabeller_ skapas med hjälp av test-exempel i en fallande ordning av sannolikheten för fel. Sorterad exemplen grupperas sedan i deciles (10% av exemplen med sannolikhet, och sedan 20%, 30% och så vidare). Förhållandet mellan (SANT positiva identifieringar) /(random baseline) för varje decile hjälper till att beräkna algoritmen prestanda vid varje decile. Slumpmässig baslinjen tar på värden 0.1, 0.2 och så vidare.
+  - [Flytta diagram](http://www2.cs.uregina.ca/~dbd/cs831/notes/lift_chart/lift_chart.html) Rita decile SANT positiva identifieringar jämfört med slumpmässiga SANT positiva identifieringar för alla deciles. De första deciles är vanligtvis fokus resultat, eftersom de visar de största vinsterna. Första deciles kan också ses som är representativ för ”oskyddad”, när den används för kontaktar.
 
-## <a name="model-operationalization-for-predictive-maintenance"></a>Modellen operationalization för förebyggande underhåll
+## <a name="model-operationalization-for-predictive-maintenance"></a>Modellen driftsättning för förutsägande Underhåll
 
-Fördelen datavetenskap Övning är insåg endast när den tränade modellen är operationella. Det vill säga måste modellen distribueras till affärssystem att göra förutsägelser baserat på nya och tidigare överblivna data.  Nya data exakt måste motsvara den _modellen signatur_ av den tränade modellen på två sätt:
-- alla funktioner måste finnas i varje logiska instans (t.ex en rad i en tabell) av nya data.
-- nya data måste bearbetas före och var och en av funktionerna för bakåtkompilerade, exakt på samma sätt som utbildning-data.
+Fördelen är data science Övning realiserade endast när den tränade modellen är operationella. Det vill säga måste modellen distribueras till affärssystem för att göra förutsägelser baserade på nytt, tidigare överblivna data.  Den nya informationen måste exakt överensstämmer med den _modellen signatur_ av den tränade modellen på två sätt:
+- alla funktioner måste finnas i varje logisk instans (exempelvis en rad i en tabell) av nya data.
+- den nya informationen måste bearbetas i förväg och var och en av funktionerna utformat, exakt på samma sätt som träningsdata.
 
-Ovanstående procedur anges på många olika sätt i akademisk och dess dokumentation. Men alla följande instruktioner betyda samma sak:
-- _Samla in nya data_ med hjälp av modellen
+Ovanstående procedur anges på många sätt i akademiska och industri-dokumentationen. Men alla följande instruktioner betyda samma sak:
+- _Rangordna nya data_ med hjälp av modellen
 - _Tillämpar modellen_ för nya data
 - _Operationalisera_ modellen
 - _Distribuera_ modellen
 - _Kör modellen_ mot nya data
 
-Som tidigare nämnts kan skiljer modellen operationalization för PdM sig från dess peer-datorer. Scenarier som omfattar avvikelseidentifiering och felidentifiering vanligtvis implementera _online bedömningen_ (kallas även _realtid bedömningen_). Här, modellen _poäng_ posterna inkommande, och returnerar en förutsägelse. För identifiering av avvikelse förutsägelser är en indikation på att ett fel uppstod (exempel: en klass SVM). Det vore för felidentifiering av typ eller klass av fel.
+Som tidigare nämnts skiljer modellen driftsättning för kontaktar sig från dess peer-datorer. Implementera scenarier som rör identifiering av avvikelser och felidentifiering vanligtvis _online bedömning_ (kallas även _realtid bedömning_). Här, modellen _poäng_ posterna inkommande, och returnerar en förutsägelse. För identifiering av avvikelser, förutsägelsen är en indikation om att ett fel uppstod (exempel: en klass SVM). Det vore för felidentifiering, typ eller klass av fel.
 
-Däremot PdM omfattar _batchbedömningen_. För att uppfylla modellen signatur, vara funktionerna i den nya informationen utformad på samma sätt som utbildning-data. För stora datauppsättningar som är typiskt för nya data visar det sammanlagda resultatet tidsfönster och bedömas i batch funktioner. Batchbedömningen görs vanligtvis i distribuerade system som [Spark](http://spark.apache.org/) eller [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Det finns ett par alternativ - både något sämre:
-- Strömmande data motorer som stöder sammanställning över windows i minnet. Så det kan vara gällande de stöder online bedömningen. Men dessa system är lämpliga för kompakta data i smala windows tid eller sparse element via bredare windows. De kan inte skalas bra för kompakta data över bredare tidsfönster som visas i PdM scenarier.
-- Lösningen är att anpassa online bedömningen för att hantera nya data i små batchar samtidigt om batchbedömningen inte är tillgänglig.
+Däremot kontaktar omfattar _batchbedömning_. För att uppfylla modellen signaturen, vara funktionerna i den nya informationen utformat på samma sätt som träningsdata. För den stora datamängder som är typiskt för nya data kan aggregeras över tidsfönster funktioner och poängsättas i batch. Batchbedömning görs normalt i distribuerade system som [Spark](http://spark.apache.org/) eller [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Det finns ett par alternativ - både icke-optimal:
+- Strömmande datamotorer hantera aggregering i windows i minnet. Så det kan vara gällande att de stöder online bedömning. Men dessa system är lämpliga för kompakta data i smal windows tid eller null-optimerade element över bredare windows. De kan inte skalas bra för kompakta data över bredare tidsfönster som visas i kontaktar scenarier.
+- Om batchbedömning inte är tillgänglig är lösningen att anpassa online bedömning för att hantera nya data i små batchar i taget.
 
-## <a name="solution-templates-for-predictive-maintenance"></a>Lösningsmallar för förebyggande underhåll
+## <a name="solution-templates-for-predictive-maintenance"></a>Mallar för lösningar för förutsägande Underhåll
 
-Den sista delen av den här guiden innehåller en lista över PdM lösningsmallar, självstudier och experiment som implementeras i Azure. Programmen PdM kan distribueras till en Azure-prenumeration i vissa fall: e minut. De kan användas som proof of concept demonstrationer, sandboxar att experimentera med alternativ eller acceleratorer för implementeringar av faktiska produktionen. Dessa mallar finns i den [Azure AI-galleriet](http://gallery.azure.ai) eller [Azure GitHub](https://github.com/Azure). Exemplen olika kommer att ingå i den här lösningen mallen över tid.
+Den sista delen av den här guiden innehåller en lista över kontaktar lösningsmallar, självstudier och experiment som implementeras i Azure. Dessa PdM-program kan distribueras till en Azure-prenumeration inom några minuter i vissa fall. De kan användas som proof of concept demonstrationer, sandbox-miljöer att experimentera med alternativ eller acceleratorer för implementeringar av faktiska produktionen. Dessa mallar finns i den [Azure AI-galleriet](http://gallery.azure.ai) eller [Azure GitHub](https://github.com/Azure). Dessa olika exempel kommer att finnas i den här lösningsmallen över tid.
 
 | # | Titel | Beskrivning |
 |--:|:------|-------------|
-| 1 | [Azure förutsägande Underhåll Machine Learning-exempel](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |PdM exempel att förutsäga fel under nästa N enheterna. Det här exemplet skrivs som ett projekt för Azure ML-arbetsstationen och är idealisk för nybörjare till PdM. [Ytterligare dokumentation](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance) relaterade till det här exemplet.|
-| 2 | [Azure förutsägande Underhåll Lösningsmall](https://github.com/Azure/AI-PredictiveMaintenance) | En slutpunkt till slutpunkt framework att demonstrera scenarier med flera PdM. Den här mallen innehåller två scenarier: först är ett nytt användningsfall i realtid fel villkoret klassificering. Det andra scenariot är helt enkelt en integrering av lösningen [1] i den här lösningen mallen. Den visar hur du kan återanvända samma distribuerade infrastruktur för att lägga till andra nya eller befintliga scenarier.|
-| 3 | [Djup Learning för förebyggande underhåll](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure bärbar dator med en demo lösningen med LSTM (lång kortvariga minne) nätverk (en klass återkommande Neurala nätverk) för förebyggande underhåll med en [blogginlägget på det här exemplet](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
-| 4 | [Guide för Hotmodellering i förutsägande Underhåll i R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guide för hotmodellering i PdM med skript i R.|
-| 5 | [Azure förutsägande Underhåll för Aerospace](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | En av de första PdM lösningsmallar baserat på Azure ML v1.0 för normalt underhåll. Den här guiden kommer från det här projektet. |
-| 6 | [Azure AI Toolkit för IoT kant](https://github.com/Azure/ai-toolkit-iot-edge) | AI i IoT kanten med TensorFlow; Toolkit paket djup learning-modeller i Azure IoT kant-kompatibel Docker-behållare och exponera dessa modeller som REST API: er.
-| 7 | [Azure IoT förutsägande Underhåll](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite datorer - förkonfigurerade lösningen. Flygplan Underhåll PdM mall med IoT Suite. [Ett annat dokument](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) och [genomgången](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) relaterade till samma projekt. |
-| 8 | [Den förutsägande Underhåll mallen med hjälp av SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demonstration av återstående livslängd scenario som baseras på R-tjänster. |
-| 9 | [Guide för Hotmodellering i förutsägande Underhåll](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Flygplan dataset funktionen utvecklats med R med [experiment](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) och [datauppsättningar](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) och [Azure anteckningsboken](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) och [experiment](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)i AzureML v1.0|
+| 1 | [Azures förutsägande Underhåll Machine Learning-exempel](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |Kontaktar exempel att förutsäga fel under nästa N enheterna. Det här exemplet skrivs som ett projekt med Azure ML Workbench och är perfekt för nybörjare till kontaktar. [Ytterligare dokumentation](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance) relaterade till det här exemplet.|
+| 2 | [Lösningsmallen för azures förutsägande Underhåll](https://github.com/Azure/AI-PredictiveMaintenance) | En mall med öppen källkod som visar ML-modeller och en fullständig Azure-infrastrukturen kan stödja scenarier för förebyggande underhåll i samband med IoT fjärrövervakning. |
+| 3 | [Djupinlärning för förutsägande Underhåll](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure-anteckningsbok med en demo-lösning för att använda LSTM (lång kortvariga minne) nätverk (en klass på återkommande Neurala nätverk) för förutsägande underhåll, med en [blogginlägget på det här exemplet](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
+| 4 | [Guide för Hotmodellering i förebyggande underhåll i R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guide för hotmodellering i PdM med skript i R.|
+| 5 | [Azure Förutsägelseunderhåll för flygindustrin](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | En av de första PdM-lösningsmallar baserat på Azure ML v1.0 för flygplan underhåll. Den här guiden kommer från det här projektet. |
+| 6 | [Azure AI-verktyg för IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | AI i IoT edge med TensorFlow; Toolkit paket deep learning-modeller i Azure IoT Edge-kompatibel Docker-behållare och exponera dessa modeller som REST API: er.
+| 7 | [Förebyggande underhåll i Azure IoT](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite datorer - förkonfigurerade lösningen. Flygplan kontaktar mallen Underhåll med IoT Suite. [Ett annat dokument](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) och [genomgången](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) relaterade till samma projekt. |
+| 8 | [Mallen för förebyggande underhåll med hjälp av SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demonstration av återstående livslängd scenariot utifrån R services. |
+| 9 | [Guide för Hotmodellering i förebyggande underhåll](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Flygplan Underhåll datauppsättning funktionen utformat med R med [experiment](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) och [datauppsättningar](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) och [Azure notebook](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) och [experiment](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)i AzureML v1.0|
 
-## <a name="training-resources-for-predictive-maintenance"></a>Utbildningsresurser för förebyggande underhåll
+## <a name="training-resources-for-predictive-maintenance"></a>Utbildningsresurser för förutsägande Underhåll
 
-Den [Azure AI Utbildningsväg för förebyggande underhåll](https://github.com/Azure/AI-PredictiveMaintenance/blob/master/docs/azure-ai-learning-path-for-predictive-maintenance.md) ger utbildningsmaterial för en bättre förståelse för begrepp och math bakom algoritmer och tekniker som används i PdM problem. 
+Den [Azure AI-Utbildningsväg för förebyggande underhåll](https://github.com/Azure/AI-PredictiveMaintenance/blob/master/docs/azure-ai-learning-path-for-predictive-maintenance.md) ger utbildningsmaterial för en djupare förståelse för begrepp och matematiska bakom de algoritmer och tekniker som används i kontaktar problem. 
 
-Microsoft Azure erbjuder kostnadsfri innehåll och utbildning på allmänna AI-begrepp och praxis.
+Microsoft Azure erbjuder kostnadsfria innehåll och utbildning om allmänna begrepp för AI och praxis.
 
 | Utbildning resurs  | Tillgänglighet |
 |:-------------------|--------------|
-| [AI Developer på Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Offentligt |
-| [Microsoft AI skola](http://aischool.microsoft.com/learning-paths) | Offentligt |
-| [Azure AI Learning från GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Offentligt |
-| [LinkedIn-utbildning](http://www.linkedin.com/learning) | Offentligt |
+| [AI Developer för Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Offentligt |
+| [Microsofts AI-skola](http://aischool.microsoft.com/learning-paths) | Offentligt |
+| [Azure AI-utbildning från GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Offentligt |
+| [LinkedIn Learning](http://www.linkedin.com/learning) | Offentligt |
 | [Microsoft AI Youtube Webbseminarier](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Offentligt |
-| [Microsoft AI visa](http://channel9.msdn.com/Shows/AI-Show) | Offentligt |
+| [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Offentligt |
 | [LearnAI@MS](http://learnanalytics.microsoft.com) | För Microsoft-partner |
 | [Microsoft Partner Network](http://learningportal.microsoft.com) | För Microsoft-partner |
 
-Dessutom är ledigt MOOCS (massiv öppna online kurser) på AI erbjudna online av academic institutioner som Stanford och MIT och andra utbildningssyfte företag.
+Dessutom är kostnadsfria MOOC (stora öppna onlinekurser) på AI online erbjuds av akademiska institutioner som Stanford och MIT och andra educational företag.

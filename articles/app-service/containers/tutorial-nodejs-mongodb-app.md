@@ -16,11 +16,11 @@ ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: ee7f37f83d6b3503df1af61509f6f85ca19bc13e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29932753"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38472959"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Skapa en Node.js- and MongoDB-webbapp i Azure App Service i Linux
 
@@ -46,7 +46,7 @@ Du lär dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 1. [Installera Git](https://git-scm.com/)
 1. [Installera Node.js v6.0 eller senare och NPM](https://nodejs.org/)
@@ -457,7 +457,7 @@ Om du lade till några artiklar tidigare kan du fortfarande se dem. Befintliga d
 
 Gå till [Azure Portal](https://portal.azure.com) för att se den webbapp du skapade.
 
-Klicka på **Apptjänster** på menyn till vänster och klicka sedan på namnet på din Azure-webbapp.
+Klicka på **App Services** på menyn till vänster och klicka sedan på namnet på din Azure-webbapp.
 
 ![Navigera till webbappen på Azure Portal](./media/tutorial-nodejs-mongodb-app/access-portal.png)
 

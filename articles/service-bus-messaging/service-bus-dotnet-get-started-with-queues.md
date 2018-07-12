@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/7/2017
 ms.author: sethm
 ms.openlocfilehash: 6af7e4d238c10c0fed3443db58644e3557525993
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26642468"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308373"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Komma igång med Service Bus-köer
 
@@ -32,7 +32,7 @@ Den här självstudien omfattar följande steg:
 3. Skriva ett .NET Core-konsolprogram för att skicka en uppsättning meddelanden till kön.
 4. Skriva ett .NET Core-konsolprogram för att ta emot meddelandena från kön.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) eller senare.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.

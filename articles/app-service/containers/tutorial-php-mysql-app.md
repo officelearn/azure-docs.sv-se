@@ -13,11 +13,11 @@ ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: 593f89071f03cb2e2b8ed9d7eda2cc7cb3971128
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31788814"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317998"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Skapa en PHP- och MySQL-webbapp i Azure App Service i Linux
 
@@ -29,7 +29,7 @@ Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar 
 
 ![PHP-app som körs i Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * skapa en MySQL-databas i Azure

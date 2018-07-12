@@ -224,6 +224,8 @@
           href: virtual-machine-scale-sets-networking.md
         - name: Konvertera en mall till hanterade diskar
           href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Planerat underhåll
+          href: virtual-machine-scale-sets-maintenance-notifications.md
     - name: Felsöka
       items:
         - name: Automatisk skalning

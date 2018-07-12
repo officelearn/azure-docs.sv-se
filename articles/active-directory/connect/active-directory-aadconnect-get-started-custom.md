@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f40f2102729cc317f74bd5a91b17a349a7824476
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d58418b45192a6c1e31b4c3c918a27fe253d8c34
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849999"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473994"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](active-directory-aadconnect-get-started-express.md) inte uppfyller dina distributions- eller topologikrav.
@@ -67,7 +67,7 @@ Det här kontot används bara för att skapa ett tjänstkonto i Azure AD och anv
 Om MFA är aktiverat för ditt globala administratörskonto måste du ange lösenordet igen i popup-fönstret för inloggning och slutföra MFA-kontrollen. Kontrollen kan bestå i att uppge en verifieringskod eller att ringa ett telefonsamtal.  
 ![Användarinloggning i MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
-[Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md) kan också vara aktiverat för det globala administratörskontot.
+[Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) kan också vara aktiverat för det globala administratörskontot.
 
 Om du får ett fel och har problem med anslutningen läser du [Felsöka anslutningsproblem](active-directory-aadconnect-troubleshoot-connectivity.md).
 

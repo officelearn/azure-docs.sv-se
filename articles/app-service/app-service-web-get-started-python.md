@@ -16,11 +16,11 @@ ms.date: 10/26/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 6256ffe9f616ec35f97f792545c72dbb25b3efa6
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28979372"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38318331"
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Skapa en Python-webbapp i Azure
 
@@ -34,7 +34,7 @@ Du kan följa stegen i den här självstudien på en Mac-, Windows- eller Linux-
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 * <a href="https://git-scm.com/" target="_blank">Installera Git</a>
 * <a href="https://www.python.org/downloads/" target="_blank">Installera Python</a>
@@ -178,7 +178,7 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
 
-Klicka på **Apptjänster** i menyn till vänster och sedan på namnet på din Azure-webbapp.
+Klicka på **App Services** i menyn till vänster och sedan på namnet på din Azure-webbapp.
 
 ![Navigera till webbappen på Azure Portal](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 

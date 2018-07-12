@@ -1,27 +1,27 @@
 # Översikt
-## [Vad är Azure AD PIM?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Vad är Azure AD PIM?](pim-configure.md)
 ## [Säker privilegierad åtkomst](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Katalogroller i PIM](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Katalogroller i PIM](pim-roles.md)
 ## [PIM för Azure-resurser](azure-pim-resource-rbac.md)
 ## [Arbetsflöde för godkännande av PIM](azure-ad-pim-approval-workflow.md)
 
 # Kom igång
 ## [Prenumerationskrav](subscription-requirements.md)
-## [Kom igång i Azure Portal](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Säkerhetsguide](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Ge åtkomst till PIM](../active-directory-privileged-identity-management-how-to-give-access-to-pim.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Kom igång i Azure Portal](pim-getting-started.md)
+## [Säkerhetsguide](pim-security-wizard.md)
+## [Ge åtkomst till PIM](pim-how-to-give-access-to-pim.md)
 ## [Aktivera prenumerationshantering](pim-resource-roles-enable-subscription-management.md)
 ## [Identifiera resurser](pim-resource-roles-discover-resources.md)
 ## [Översikt över instrumentpaneler](pim-resource-roles-overview-dashboards.md)
 
 # Gör så här för att
 ## Använda PIM för katalogroller
-### [Aktivera dina roller](../active-directory-privileged-identity-management-how-to-activate-role.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Tilldela roller](../active-directory-privileged-identity-management-how-to-add-role-to-user.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Ändra rollinställningar](../active-directory-privileged-identity-management-how-to-change-default-settings.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Konfigurera varningar](../active-directory-privileged-identity-management-how-to-configure-security-alerts.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Kräv MFA](../active-directory-privileged-identity-management-how-to-require-mfa.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Använda granskningsloggen](../active-directory-privileged-identity-management-how-to-use-audit-log.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+### [Aktivera dina roller](pim-how-to-activate-role.md)
+### [Tilldela roller](pim-how-to-add-role-to-user.md)
+### [Ändra rollinställningar](pim-how-to-change-default-settings.md)
+### [Konfigurera varningar](pim-how-to-configure-security-alerts.md)
+### [Kräv MFA](pim-how-to-require-mfa.md)
+### [Använda granskningsloggen](pim-how-to-use-audit-log.md)
 ## Använda PIM för resursroller
 ### [Aktivera dina roller](pim-resource-roles-activate-your-roles.md)
 ### [Tilldela roller](pim-resource-roles-assign-roles.md)
@@ -34,9 +34,9 @@
 
 # Granska åtkomst
 ## PIM för katalogroller
-### [Utför en åtkomstgranskning](../active-directory-privileged-identity-management-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Starta en åtkomstgranskning](../active-directory-privileged-identity-management-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Slutför en åtkomstgranskning](../active-directory-privileged-identity-management-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+### [Utför en åtkomstgranskning](pim-how-to-perform-security-review.md)
+### [Starta en åtkomstgranskning](pim-how-to-start-security-review.md)
+### [Slutför en åtkomstgranskning](pim-how-to-complete-review.md)
 ## PIM för resursroller
 ### [Utför en åtkomstgranskning](pim-resource-roles-perform-access-review.md)
 ### [Starta en åtkomstgranskning](pim-resource-roles-start-access-review.md)

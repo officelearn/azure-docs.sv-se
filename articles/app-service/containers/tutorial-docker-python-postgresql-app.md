@@ -13,11 +13,11 @@ ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
 ms.openlocfilehash: 2728c354a84c4b13b0ad8509d038837733251975
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31788440"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306902"
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Skapa en Docker Python- och PostgreSQL-webbapp i Azure
 
@@ -25,7 +25,7 @@ Med Web App for Containers får du en mycket skalbar och automatiskt uppdaterad 
 
 ![Docker Python Flask-app i App Service i Linux](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en PostgreSQL-databas i Azure

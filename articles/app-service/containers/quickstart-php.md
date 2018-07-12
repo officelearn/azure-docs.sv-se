@@ -16,11 +16,11 @@ ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 1cbd29b480c80c93f750b97d47ccb3c09c984942
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30230654"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306794"
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Skapa en PHP-webbapp i App Service on Linux
 
@@ -154,7 +154,7 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
 
-Klicka på **Apptjänster** i menyn till vänster och sedan på namnet på din Azure-webbapp.
+Klicka på **App Services** i menyn till vänster och sedan på namnet på din Azure-webbapp.
 
 ![Navigera till webbappen på Azure Portal](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
 

@@ -17,17 +17,17 @@ ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 887ed316605ab423159ef0d2e07f0960c702ed8b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763741"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317965"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Använda du en anpassad Docker-avbildning för Web App for Containers
 
 [Web App for Containers](app-service-linux-intro.md) tillhandahåller fördefinierade Docker-avbildningar i Linux med stöd för specifika versioner, till exempel PHP 7.0 och Node.js 4.5. Web App for Containers använder teknik för Docker-behållare för att vara värd för inbyggda avbildningar och anpassade avbildningar som plattform som en tjänst. I den här självstudien lär du dig att skapa en anpassad Docker-avbildning och distribuera den till Web App for Containers. Det här mönstret är användbart när de inbyggda avbildningarna inte inkluderar ditt språkval eller när ditt program kräver en specifik konfiguration som inte ingår i de inbyggda avbildningarna.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Distribuera en anpassad Docker-avbildning till Azure

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/22/2018
 ms.author: terrylan
 ms.openlocfilehash: 05e4bed0f9b4dfb6d1879408085447ef53db8655
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29530174"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630105"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Snabbstart: Publicera Linux-datorer till Azure Security Center
 När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center för Linux-resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Linux-agenten.
@@ -64,11 +64,11 @@ Loggarna för Security Center-agenten för Linux finns på: */var/opt/microsoft/
 
 Efter en stund visas den nya Linux-datorn i Security Center. Det kan ta upp till 30 minuter.
 
-Nu kan du övervaka dina virtuella Azure-datorer och datorer som inte är Azure-datorer på ett ställe. Under **Compute** har du en översikt över alla virtuella datorer och datorer tillsammans med rekommendationer. I varje kolumn finns en typ av rekommendationer. Färgen representerar den virtuella datorns eller datorns aktuella säkerhetsstatus för den rekommendationen. Security Center visar också eventuella identifieringar för dessa datorer i Säkerhetsaviseringar.
+Nu kan du övervaka dina virtuella Azure-datorer och datorer som inte är Azure-datorer på ett ställe. Under **Compute** (Beräkna) har du en översikt över alla virtuella datorer och datorer tillsammans med rekommendationer. I varje kolumn finns en typ av rekommendationer. Färgen representerar den virtuella datorns eller datorns aktuella säkerhetsstatus för den rekommendationen. Security Center visar också eventuella identifieringar för dessa datorer i Säkerhetsaviseringar.
 
   ![Compute-blad][7] Det finns två typer av ikoner på **Compute**-bladet:
 
-  ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Icke-Azure-dator
+  ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Datorer som inte är Azure-datorer
 
   ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 

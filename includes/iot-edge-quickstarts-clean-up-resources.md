@@ -9,18 +9,18 @@ ms.date: 06/26/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: c0b9f9e9808de90df84edf2d3c409a921629baee
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055055"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38728313"
 ---
-Om du ska fortsätta till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du redan har skapat och återanvända dem.
+Om du fortsätter till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du redan har skapat och återanvända dem.
 
 Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som skapats i den här artikeln om du vill undvika kostnader. 
 
 > [!IMPORTANT]
-> Att ta bort Azure-resurser och en resursgrupp kan inte ångras. När resursgruppen och alla resurser som ingår i den tas bort är de borta permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat IoT Hub:en inuti en befintlig resursgrupp som innehåller resurser som du vill behålla, ta bara bort själva IoT Hub-resursen i stället för att ta bort resursgruppen.
+> Det går inte att ångra borttagning av Azure-resurser och resursgrupper. När resursgruppen och alla resurser som ingår i den tas bort är de borta permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat IoT Hub:en inuti en befintlig resursgrupp som innehåller resurser som du vill behålla, ta bara bort själva IoT Hub-resursen i stället för att ta bort resursgruppen.
 >
 
 Om du endast vill ta bort IoT Hub kan du köra följande kommando efter att ha ersatt `<YourIoTHub>` med ditt hubbnamn och `<TestResources>` med namnet på din resursgrupp:

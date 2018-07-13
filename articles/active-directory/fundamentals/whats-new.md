@@ -14,24 +14,24 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 33208f09c148a9717825b68d65167db8865cc6ce
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 9f0d0b9732b2af36a0411329cede01a9b8cc8efc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869066"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920822"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
-> Håll dig uppdaterad med Nyheter i Azure Active Directory (Azure AD) genom att prenumerera på den [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+> Håll dig informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att prenumerera på den [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 Azure AD får förbättringar med jämna mellanrum. Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den här artikeln information om:
 
--   Den senaste versionen
--   Kända problem
--   Felkorrigeringar
--   Inaktuell funktion
--   Planer för ändringar
+- Den senaste versionen
+- Kända problem
+- Felkorrigeringar
+- Inaktuell funktion
+- Planer för ändringar
 
 Den här sidan uppdateras varje månad, så gå tillbaka till den regelbundet.
 

@@ -337,7 +337,7 @@ I avsnittet **ServiceManifestImport** för VotingWebPkg ska du sedan konfigurera
 
 ## <a name="run-the-application-locally"></a>Kör programmet lokalt
 
-I Solution Explorer väljer du programmet **Voting** och ställer in egenskapen **Programmets URL** på ”https://localhost:443”.
+I Solution Explorer väljer du programmet **Voting** och ställer in egenskapen **Programmets URL** på ” https://localhost:443 ” .
 
 Spara alla filer och tryck på F5 för att köra programmet lokalt.  När programmet distribueras öppnas en webbläsare på adressen [https://localhost:443](https://localhost:443). Om du använder ett självsignerat certifikat visas en varning om att datorn inte har förtroende för den här webbplatsens säkerhet.  Fortsätt till webbsidan.
 

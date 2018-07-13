@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Azure Relay WCF vidarebefordrar i .NET | Microsoft Docs
-description: Lär dig hur du använder Azure Relay WCF reläer för att ansluta två appar som finns på olika platser.
+title: Kom igång med Azure Relay WCF-reläer i .NET | Microsoft Docs
+description: Lär dig hur du använder Azure Relay WCF-reläer för att ansluta två appar som är värdbaserade på olika platser.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: sethm
 ms.openlocfilehash: face684190456fbf4b78a84ac3afe7a4ead8995a
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "26856090"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697900"
 ---
-# <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Hur du använder Azure Relay WCF vidarebefordrar med .NET
-Den här artikeln beskriver hur du använder tjänsten Azure Relay. Exemplen är skrivna i C# och använder API:et Windows Communication Foundation (WCF) med tillägg som finns i Service Bus-sammansättningen. Mer information om Azure relay finns i [översikt över Azure Relay](relay-what-is-it.md).
+# <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Hur du använder Azure Relay WCF-reläer med .NET
+Den här artikeln beskriver hur du använder Azure Relay-tjänsten. Exemplen är skrivna i C# och använder API:et Windows Communication Foundation (WCF) med tillägg som finns i Service Bus-sammansättningen. Mer information om Azure relay finns i den [översikt över Azure Relay](relay-what-is-it.md).
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="what-is-wcf-relay"></a>Vad är WCF Relay?
 
-Azure [ *vidarebefordrande WCF* ](relay-what-is-it.md) kan du skapa hybridprogram som körs i både ett Azure-datacenter och din egen lokala företagsmiljö. Tjänsten relay förenklar detta genom att på ett säkert sätt exponera tjänster för Windows Communication Foundation (WCF) som finns i ett företagsnätverk mot det offentliga molnet, utan att behöva öppna en brandväggsanslutning eller kräva störande ändringar i företagets nätverksinfrastruktur.
+Azure [ *WCF Relay* ](relay-what-is-it.md) service kan du skapa hybridprogram som körs i både ett Azure-datacenter och din egen lokala företagsmiljö. Tjänsten relay förenklar detta genom att på ett säkert sätt exponera tjänster för Windows Communication Foundation (WCF) som finns i ett företagsnätverk mot det offentliga molnet, utan att behöva öppna en brandväggsanslutning eller kräva störande ändringar i företagets nätverksinfrastruktur.
 
 ![WCF Relay-begrepp](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
-Du kan värden WCF-tjänster i din befintliga företagsmiljö Azure Relay. Du kan sedan delegera lyssningen för inkommande sessioner och förfrågningar till de här WCF-tjänster till den vidarebefordrande tjänsten som körs i Azure. Tack vare detta kan du exponera dessa tjänster för programkoden som körs i Azure, eller för mobila arbetare eller miljöer för extranätpartner. Du kan på ett säkert sätt styra åtkomsten till dessa tjänster på en detaljerad nivå Relay. Det ger dig ett kraftfullt och säkert sätt att exponera programfunktioner och data från dina befintliga företagslösningar och dra nytta av dessa från molnet.
+Azure Relay kan du värden WCF-tjänster i din befintliga företagsmiljö. Du kan sedan delegera lyssningen för inkommande sessioner och förfrågningar till de här WCF-tjänster till den vidarebefordrande tjänsten som körs i Azure. Tack vare detta kan du exponera dessa tjänster för programkoden som körs i Azure, eller för mobila arbetare eller miljöer för extranätpartner. Du kan på ett säkert sätt styra åtkomsten till dessa tjänster på en detaljerad nivå Relay. Det ger dig ett kraftfullt och säkert sätt att exponera programfunktioner och data från dina befintliga företagslösningar och dra nytta av dessa från molnet.
 
-Den här artikeln beskriver hur du använder Azure Relay för att skapa en WCF-webbtjänst exponeras med hjälp av en bindning, TCP-kanal som implementerar en säker konversation mellan två parter.
+Den här artikeln beskriver hur du använder Azure Relay för att skapa en WCF-webbtjänst, tillgängliga via en TCP-kanal som binder, som implementerar en säker konversation mellan två parter.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -46,21 +46,21 @@ Den här artikeln beskriver hur du använder Azure Relay för att skapa en WCF-w
    
    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
 
-## <a name="expose-and-consume-a-soap-web-service-with-tcp"></a>Exponera och använda en SOAP-webbtjänst med TCP
-Om du vill exponera en befintlig WCF SOAP-webbtjänst för extern användning, måste du göra ändringar i tjänstebindningarna och i adresserna. Det här kan kräva att du även gör ändringar i konfigurationsfilen, eller i koden, beroende på hur du har skapat och konfigurerat dina WCF-tjänster. Observera att WCF gör att du kan ha flera nätverksslutpunkter inom samma tjänst så att du kan behålla de befintliga, interna slutpunkterna när du lägger till relay slutpunkter för extern åtkomst på samma gång.
+## <a name="expose-and-consume-a-soap-web-service-with-tcp"></a>Exponera och använda ett SOAP-webbtjänst med TCP
+Om du vill exponera en befintlig WCF SOAP-webbtjänst för extern användning, måste du göra ändringar i tjänstebindningarna och i adresserna. Det här kan kräva att du även gör ändringar i konfigurationsfilen, eller i koden, beroende på hur du har skapat och konfigurerat dina WCF-tjänster. Observera att WCF gör att du kan ha flera nätverksslutpunkter inom samma tjänst, så du kan behålla de befintliga interna slutpunkterna när du lägger till relay slutpunkter för extern åtkomst på samma gång.
 
-I den här uppgiften att skapa en enkel WCF-tjänst och Lägg till en relay-lyssnare. Den här övningen förutsätter att du är bekant med Visual Studio och går därför inte igenom alla detaljer om hur man skapar ett projekt. Övningen fokuserar istället på koden.
+I den här uppgiften ska du skapa en enkel WCF-tjänst och Lägg till en relälyssnaren. Den här övningen förutsätter att du är bekant med Visual Studio och går därför inte igenom alla detaljer om hur man skapar ett projekt. Övningen fokuserar istället på koden.
 
 Innan du börjar med dessa steg måste du slutföra följande procedur för att göra justeringar i din miljö:
 
 1. Skapa ett konsolprogram i Visual Studio som innehåller två projekt, ”Klient” och ”Tjänst”, inne i lösningen.
-2. Lägga till Service Bus NuGet-paketet i båda projekten. Detta paket lägger till alla nödvändiga sammansättningsreferenser i dina projekt.
+2. Lägg till Service Bus NuGet-paketet i båda projekten. Detta paket lägger till alla nödvändiga sammansättningsreferenser i dina projekt.
 
 ### <a name="how-to-create-the-service"></a>Så här skapar du tjänsten
 Först skapar du själva tjänsten. Alla WCF-tjänster består av minst tre separata delar:
 
 * Definitionen av ett kontrakt, som beskriver vilka meddelanden som ska bytas ut och vilka åtgärder som ska anropas.
-* Implementering av kontraktet.
+* Implementeringen av kontraktet.
 * Värden som används som värd för WCF-tjänsten och exponerar ett flera slutpunkter.
 
 Kodexemplet i det här avsnittet tar upp var och en av dessa komponenter i detalj.
@@ -80,7 +80,7 @@ interface IProblemSolver
 interface IProblemSolverChannel : IProblemSolver, IClientChannel {}
 ```
 
-Med kontrakt på plats är implementeringen på följande sätt:
+Kontraktet på plats är implementeringen på följande sätt:
 
 ```csharp
 class ProblemSolver : IProblemSolver
@@ -93,7 +93,7 @@ class ProblemSolver : IProblemSolver
 ```
 
 ### <a name="configure-a-service-host-programmatically"></a>Konfigurera en tjänstevärd programmässigt
-När kontraktet är på plats och implementeringen har genomförts, kan du nu vara värd för tjänsten. Värdhanteringen utförs inne i ett [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/system.servicemodel.servicehost.aspx)-objekt som tar hand om hanteringen av tjänsteinstanserna och fungerar som värd för de slutpunkter som lyssnar efter meddelanden. Följande kod konfigurerar tjänsten med både en vanlig, lokal slutpunkt och en relay-slutpunkt för att visa utseende, sida vid sida av interna och externa slutpunkter. Ersätt strängen *namnområde* med ditt namnområdesnamn och *yourKey* med den SAS-nyckel som du fick i det förra steget av installationen.
+När kontraktet är på plats och implementeringen har genomförts, kan du nu vara värd för tjänsten. Värdhanteringen utförs inne i ett [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/system.servicemodel.servicehost.aspx)-objekt som tar hand om hanteringen av tjänsteinstanserna och fungerar som värd för de slutpunkter som lyssnar efter meddelanden. Följande kod konfigurerar tjänsten med både en vanlig, lokal slutpunkt och en relay-slutpunkt för att visa utseende, sida vid sida, för interna och externa slutpunkter. Ersätt strängen *namnområde* med ditt namnområdesnamn och *yourKey* med den SAS-nyckel som du fick i det förra steget av installationen.
 
 ```csharp
 ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
@@ -116,7 +116,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-I det här exemplet skapar du två slutpunkter som ligger på samma kontraktsimplementering. En lokal och en projiceras via Azure Relay. De viktigaste skillnaderna mellan dem är bindningarna: [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) för den lokala och [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding) för relay-slutpunkten och adresserna. Den lokala slutpunkten har en lokal nätverksadress med en separat port. Relay-slutpunkten har en slutpunktsadress som består av strängen `sb`, ditt namnområdesnamn och sökvägen ”solver”. Detta resulterar i URI: N `sb://[serviceNamespace].servicebus.windows.net/solver`, identifierar tjänsteslutpunkten som en Service Bus (relay) TCP-slutpunkt med ett fullständigt kvalificerat externa DNS-namn. Om du placerar ut koden som ska ersätta platshållarna i `Main`-funktionen i **Tjänsteprogrammet** kommer du att få en fungerande tjänst. Om du vill att din tjänst endast ska lyssna på vidarebefordran kan du ta bort den lokala slutpunktsdeklarationen.
+I det här exemplet skapar du två slutpunkter som ligger på samma kontraktsimplementering. En är lokal och en projiceras via Azure Relay. De viktigaste skillnaderna mellan dem är bindningarna: [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) för den lokala punkten och [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding) för relay-slutpunkten och adresserna. Den lokala slutpunkten har en lokal nätverksadress med en separat port. Relay-slutpunkten har en slutpunktsadress som består av strängen `sb`, ditt namnområdesnamn och sökvägen ”solver”. Detta resulterar i URI: N `sb://[serviceNamespace].servicebus.windows.net/solver`, identifierar tjänsteslutpunkten som en Service Bus (relay) TCP-slutpunkt med ett fullständigt kvalificerat externa DNS-namn. Om du placerar ut koden som ska ersätta platshållarna i `Main`-funktionen i **Tjänsteprogrammet** kommer du att få en fungerande tjänst. Om du vill att din tjänst endast ska lyssna på relay, kan du ta bort den lokala slutpunktsdeklarationen.
 
 ### <a name="configure-a-service-host-in-the-appconfig-file"></a>Konfigurera en tjänstevärd i filen App.config
 Du kan också konfigurera värden med hjälp av filen App.config. Koden för tjänstevärden i det här fallet visas i nästa exempel.
@@ -129,8 +129,8 @@ Console.ReadLine();
 sh.Close();
 ```
 
-Slutpunktsdefinitionerna flyttas till filen App.config. NuGet-paketet har redan lagts till en uppsättning definitioner i filen App.config som är nödvändig konfiguration-tillägg för Azure Relay. Följande exempel, som är en exakt motsvarighet till föregående kod, bör visas direkt under elementet **system.serviceModel**. I det här kodexemplet förutsätter vi att namnområdet för ditt C#-projekt har namnet **Tjänst**.
-Ersätt platshållarna med namnet för relay-namnområdet och SAS-nyckel.
+Slutpunktsdefinitionerna flyttas till filen App.config. NuGet-paketet har redan lagt till en uppsättning definitioner i filen App.config, som är nödvändig konfiguration-tillägg för Azure Relay. Följande exempel, som är en exakt motsvarighet till föregående kod, bör visas direkt under elementet **system.serviceModel**. I det här kodexemplet förutsätter vi att namnområdet för ditt C#-projekt har namnet **Tjänst**.
+Ersätt platshållarna med dina relay namn för namnområdet och SAS-nyckel.
 
 ```xml
 <services>
@@ -165,7 +165,7 @@ Om du vill använda tjänsten, kan du skapa en WCF-klient som använder ett [Cha
 
 Först måste du referera eller kopiera kontraktkoden `IProblemSolver` från tjänsten till ditt klientprojekt.
 
-Ersätt Koden i den `Main` metoden för klienten, Ersätt återigen platshållartexten med relay namnområdet och SAS-nyckel.
+Ersätt sedan koden i den `Main` metoden för klienten, Ersätt återigen platshållartexten med relay-namnområde och SAS-nyckeln.
 
 ```csharp
 var cf = new ChannelFactory<IProblemSolverChannel>(
@@ -194,7 +194,7 @@ using (var ch = cf.CreateChannel())
 }
 ```
 
-Slutpunktsdefinitionerna flyttas till filen App.config. I följande exempel, som är samma som koden som listades tidigare, bör visas direkt under den `<system.serviceModel>` element. Här, precis som tidigare, måste du ersätta platshållarna med relay namnområdet och SAS-nyckel.
+Slutpunktsdefinitionerna flyttas till filen App.config. I följande exempel, som är samma som koden som listades tidigare, bör visas direkt under den `<system.serviceModel>` element. Här, som tidigare måste du ersätta platshållarna med dina relay-namnområde och SAS-nyckel.
 
 ```xml
 <client>
@@ -220,8 +220,8 @@ Slutpunktsdefinitionerna flyttas till filen App.config. I följande exempel, som
 Nu när du har lärt dig grunderna i Azure Relay, kan du följa dessa länkar om du vill veta mer.
 
 * [Vad är Azure Relay?](relay-what-is-it.md)
-* [Azure Service Bus-Arkitekturöversikt](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
-* Hämta Service Bus-exempel från [Azure-exempel] [ Azure samples] eller finns den [översikt över Service Bus-exempel][overview of Service Bus samples].
+* [Azure Service Bus översikt över arkitekturen](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+* Hämta Service Bus-exempel från [Azure-exempel] [ Azure samples] eller finns i den [översikt över Service Bus-exempel][overview of Service Bus samples].
 
 [Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md
 [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2

@@ -1,4 +1,4 @@
-Om du vill aktivera detaljerad lösenordsåterställning för ditt program måste du använda en **lösenordsåterställning** princip. Observera att alternativet för lösenordsåterställning för hela klientorganisationen beskrivs [här](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Den här principen beskriver funktioner som kunder går igenom under återställning av lösenord och innehållet i token som programmet ska ta emot genomförts på rätt sätt.
+Om du vill aktivera detaljerad lösenordsåterställning i ditt program måste du använda en **lösenordsåterställning** princip. Observera att alternativet för lösenordsåterställning för hela klientorganisationen beskrivs [här](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Den här principen beskriver hur kunderna går till för återställning av lösenord och innehållet i de token som programmet tar emot vid genomförda inloggningar.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

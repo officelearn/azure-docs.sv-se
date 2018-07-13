@@ -8,8 +8,8 @@
 }
 ```
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap   |Standard | Beskrivning |
 |---------|---------|---------| 
-|maxBatchSize|64|Den maximala händelseantal tas emot varje receive-loop.|
+|maxBatchSize|64|Det maximala antal mottagna händelser per receive-loop.|
 |prefetchCount|Saknas|Standard PrefetchCount som ska användas av den underliggande EventProcessorHost.| 
-|batchCheckpointFrequency|1|Antal händelsebatchar med att bearbeta innan du skapar en kontrollpunkt för EventHub-markör.| 
+|batchCheckpointFrequency|1|Antal händelsebatchar att bearbeta innan du skapar en kontrollpunkt för EventHub-markör.| 

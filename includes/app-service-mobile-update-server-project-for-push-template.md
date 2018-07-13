@@ -1,15 +1,15 @@
-I det här avsnittet uppdatera koden i Mobile Apps serverdel projektet att skicka ett push-meddelande varje gång en ny artikel har lagts till. Den här processen drivs av den [mallen](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) funktion i Azure Notification Hubs, vilket gör att flera plattformar push-meddelanden. Olika klienter registreras för push-meddelanden med hjälp av mallar och en enda universal push får åtkomst till alla klientplattformar.
+I det här avsnittet ska uppdatera du koden i projektet backend-befintliga Mobile Apps för att skicka ett push-meddelande varje gång ett nytt objekt läggs. Den här processen baseras på den [mall](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) funktion i Azure Notification Hubs, vilket gör det möjligt för plattformsoberoende push-meddelanden. Olika klienter registreras för push-meddelanden med hjälp av mallar och en enda universal push får alla klientplattformar.
 
-Välj något av följande procedurer som matchar din serverdel projekttypen&mdash;antingen [.NET-serverdel](#dotnet) eller [Node.js-serverdel](#nodejs).
+Välj något av följande procedurer som matchar din backend-projekttyp&mdash;antingen [.NET-serverdel](#dotnet) eller [Node.js-serverdel](#nodejs).
 
-### <a name="dotnet"></a>.NET backend-projekt
-1. Högerklicka på server-projekt i Visual Studio. Välj sedan **hantera NuGet-paket**. Sök efter `Microsoft.Azure.NotificationHubs`, och välj sedan **installera**. Den här processen installerar Notification Hubs-biblioteket för att skicka meddelanden från serverdelen.
-2. Öppna i project server **domänkontrollanter** > **TodoItemController.cs**. Lägg till följande using-instruktioner:
+### <a name="dotnet"></a>Projekt för .NET-serverdel
+1. Högerklicka på serverprojektet i Visual Studio. Välj sedan **hantera NuGet-paket**. Sök efter `Microsoft.Azure.NotificationHubs`, och välj sedan **installera**. Den här processen installerar Notification Hubs-biblioteket för att skicka meddelanden från backend-servern.
+2. Öppna i project server **domänkontrollanter** > **TodoItemController.cs**. Lägg till följande using-satser:
 
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.Mobile.Server.Config;
-3. I den **PostTodoItem** metod, Lägg till följande kod efter anropet till **InsertAsync**:  
+3. I den **PostTodoItem** metoden Lägg till följande kod efter anropet till **InsertAsync**:  
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -45,11 +45,11 @@ Välj något av följande procedurer som matchar din serverdel projekttypen&mdas
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    Den här processen skickar ett meddelande i mallen som innehåller objektet. Text när ett nytt objekt infogas.
+    Den här processen skickar ett meddelande i mallen som innehåller objektet. Text när ett nytt objekt har infogats.
 4. Publicera om serverprojektet.
 
-### <a name="nodejs"></a>Node.js backend-projekt
-1. Om du inte redan gjort det, [hämta backend-snabbstartsprojekt](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), eller annan användning av [online redigeraren i Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+### <a name="nodejs"></a>Node.js-backend-projekt
+1. Om du inte redan gjort det, [hämta backend-snabbstartsprojektet](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), eller annan användning den [onlineredigeraren i Azure-portalen](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Ersätt den befintliga koden i todoitem.js med följande kod:
 
         var azureMobileApps = require('azure-mobile-apps'),
@@ -91,5 +91,5 @@ Välj något av följande procedurer som matchar din serverdel projekttypen&mdas
 
         module.exports = table;  
 
-    Den här processen skickar ett meddelande i mallen som innehåller item.text när ett nytt objekt infogas.
-3. Publicera om serverprojektet när du redigerar filen på den lokala datorn.
+    Den här processen skickar ett meddelande i mallen som innehåller item.text när ett nytt objekt har infogats.
+3. När du redigerar filen på den lokala datorn kan du publicera om serverprojektet.

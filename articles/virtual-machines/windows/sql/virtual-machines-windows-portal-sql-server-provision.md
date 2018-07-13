@@ -1,6 +1,6 @@
 ---
-title: Etablering av guide för Windows SQL Server-datorer i Azure portal | Microsoft Docs
-description: Den här instruktioner beskriver alternativen för att skapa Windows SQL Server 2017 virtuella datorer i Azure-portalen.
+title: Etablering guide för Windows SQL Server-datorer i Azure portal | Microsoft Docs
+description: Den här guiden beskriver dina alternativ för att skapa Windows SQL Server 2017-datorer i Azure-portalen.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -15,26 +15,26 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: jroth
 ms.openlocfilehash: d2bcabf845a2178abbebe8f2998d58b462e37c78
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072325"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704546"
 ---
-# <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hur du etablerar en virtuell dator i Windows SQL Server i Azure-portalen
+# <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hur du etablerar en Windows SQL Server-dator i Azure portal
 
-Den här guiden innehåller information om de olika alternativ som är tillgängliga när du skapar en virtuell dator med Windows SQL Server i Azure-portalen. Den här artikeln beskriver fler konfigurationsalternativ än den [Snabbstart för SQL Server-VM](quickstart-sql-vm-create-portal.md), som är mer via ett möjligt etablering aktivitet. 
+Den här guiden innehåller information om de olika tillgängliga alternativen när du skapar en virtuell Windows SQL Server-dator i Azure-portalen. Den här artikeln beskriver ytterligare konfigurationsalternativ än de [Snabbstart för SQL Server-VM](quickstart-sql-vm-create-portal.md), som är mer via ett möjligt etablering uppgift. 
 
-Använd den här guiden för att skapa din egen SQL Server-VM. Eller använda den som en referens för de tillgängliga alternativen i Azure-portalen.
+Använd den här guiden för att skapa din egen SQL Server-dator. Eller använda den som en referens för de tillgängliga alternativen i Azure-portalen.
 
 > [!TIP]
 > Om du har frågor om virtuella SQL Server-datorer kan du läsa [Vanliga frågor](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a id="select"></a> SQL Server galleriavbildningar för virtuell dator
+## <a id="select"></a> Galleriavbildningar för SQL Server-dator
 
-När du skapar en virtuell dator med SQL Server kan välja du en av flera förkonfigurerade avbildningar från galleriet för virtuella datorer. Följande steg visar hur du väljer du något av 2017 för SQL Server-avbildningar.
+När du skapar en SQL Server-dator kan välja du en av flera förkonfigurerade avbildningar från galleriet för virtuella datorer. Följande steg visar hur du väljer du något av SQL Server 2017-avbildningar.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ditt konto.
 
@@ -57,10 +57,10 @@ När du skapar en virtuell dator med SQL Server kan välja du en av flera förko
 1. Välj avbildningen med namnet **Kostnadsfri SQL Server-licens: SQL Server 2017 Developer på Windows Server 2016**.
 
    > [!TIP]
-   > Utvecklarversionen används i den här genomgången eftersom det är en komplett, ledigt utgåva av SQL Server för att testa utveckling. Du betalar endast för kostnaden för den VM som körs. Men kan du välja någon av bilderna som ska användas i den här genomgången. En beskrivning av tillgängliga avbildningar finns i [SQL Server Windows virtuella datorer – översikt](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
+   > Utvecklarversionen används i den här genomgången eftersom det är en komplett, kostnadsfri version av SQL Server för Utvecklartestning. Du betalar endast för kostnaden för den VM som körs. Men kan du välja vilken avbildning du vill använda i den här genomgången. En beskrivning av tillgängliga avbildningar finns i den [översikt över SQL Server Windows-datorer](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 
    > [!TIP]
-   > Licensieringskostnaderna för SQL Server ingår i prissättning per sekund på den virtuella datorn som du skapar och varierar av edition och kärnor. SQL Server Developer edition är gratis för utveckling/testning (inte produktion) och SQL Express är gratis för lightweight arbetsbelastningar (mindre än 1 GB minne med mindre än 10 GB lagringsutrymme). Du kan också bring-your-äger-licens (BYOL) och betala endast för den virtuella datorn. Dessa avbildningsnamn föregås av {BYOL}. 
+   > Licensieringskostnaderna för SQL Server ingår i priset per sekund för den virtuella datorn som du skapar och varierar genom edition och kärnor. SQL Server Developer edition är kostnadsfri för utveckling och testning (inte produktion) och SQL Express är kostnadsfri för enklare arbetsbelastningar (mindre än 1 GB minne med mindre än 10 GB lagringsutrymme). Du kan också bring-your-own-license (BYOL) och betala bara för den virtuella datorn. Dessa avbildningsnamn föregås av {BYOL}. 
    >
    > Mer information om alternativen finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
 
@@ -111,7 +111,7 @@ Ange följande i fönstret **Grundläggande inställningar**:
 I steget **Storlek** väljer du en storlek för den virtuella datorn i fönstret **Välj en storlek**. I fönstret visas först rekommenderade datorstorlekar baserat på den avbildning som du har valt.
 
 > [!IMPORTANT]
-> Den uppskattade månadskostnaden som visas på sidan **Välj en storlek** omfattar inte SQL Server-licenskostnaden. Denna uppskattning är kostnaden för den virtuella datorn enbart. Denna uppskattning är den totala uppskattade kostnaden för snabb och Developer-versioner av SQL Server. För andra utgåvor kan du se [sidan med priser för Windows Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and och välja din utgåva av SQL Server. Läs också [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
+> Den uppskattade månadskostnaden som visas på sidan **Välj en storlek** omfattar inte SQL Server-licenskostnaden. Den här beräkningen är kostnaden för den virtuella datorn som är fristående. Den här beräkningen är den totala uppskattade kostnaden för Express och Developer-versioner av SQL Server. För andra utgåvor kan du se [sidan med priser för Windows Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and och välja din utgåva av SQL Server. Läs också [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
 
 ![Storleksalternativ för en virtuell dator med SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
@@ -129,16 +129,16 @@ På sidan **Inställningar** ställer du in Azure-lagring, nätverk och övervak
 * Under **Lagring** väljer du **Ja** under använd **Managed Disks**.
 
    > [!NOTE]
-   > Microsoft rekommenderar Managed Disks för SQL Server. Managed Disks hanterar lagring i bakgrunden. När virtuella datorer med Managed Disks finns i samma tillgänglighetsuppsättning, distribuerar Azure dessutom lagringsresurser för att tillhandahålla rätt redundans. Mer information finns i [hanterade diskar översikt över Azure] [... / hanteras-diskar-overview.md). Mer information om hanterade diskar i en tillgänglighetsuppsättning finns i [Använda hanterade diskar för virtuella datorer i tillgänglighetsuppsättning](../manage-availability.md).
+   > Microsoft rekommenderar Managed Disks för SQL Server. Managed Disks hanterar lagring i bakgrunden. När virtuella datorer med Managed Disks finns i samma tillgänglighetsuppsättning, distribuerar Azure dessutom lagringsresurser för att tillhandahålla rätt redundans. Mer information finns i [Azure översikten över Managed Disks] [... / managed-diskar – overview.md). Mer information om hanterade diskar i en tillgänglighetsuppsättning finns i [Använda hanterade diskar för virtuella datorer i tillgänglighetsuppsättning](../manage-availability.md).
 
-* Under **nätverk**, Välj alla inkommande portar som i den **Välj offentlig ingående portar** lista. Om du vill fjärrskrivbord på den virtuella datorn, väljer du exempelvis den **RDP (port 3389)** port.
+* Under **nätverk**, Välj alla inkommande portar som i den **Välj offentliga inkommande portar** lista. Till exempel om du vill att Fjärrskrivbord på den virtuella datorn, väljer den **RDP (port 3389)** port.
 
    ![Ingående portar](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
 
    > [!NOTE]
-   > Du kan välja den **MS SQL (1433)** porten till SQL Server via fjärranslutning. Men detta behövs inte här, eftersom den **SQL Server-inställningar** ger även det här alternativet. Om du väljer port 1433 i det här steget, öppnas den oberoende dina val i den **SQL Server-inställningar** steg.
+   > Du kan välja porten **MS SQL (1433)** för att komma åt SQL Servern via fjärranslutning. Men detta är inte nödvändigt här, eftersom den **SQL Server-inställningar** steget beskriver även det här alternativet. Om du väljer port 1433 i det här steget, öppnas den oberoende av dina val i steget för **SQL Server-inställningar**.
 
-   Du kan göra andra ändringar i nätverksinställningar eller Behåll standardinställningarna.
+   Du kan göra andra ändringar i inställningar för nätverk, eller Behåll standardvärdena.
 
 * Azure aktiverar **övervakning** som standard med samma lagringskonto som används för den virtuella datorn. Du kan ändra dessa inställningar här.
 
@@ -161,12 +161,12 @@ På sidan **SQL Server-inställningar** anger du specifika inställningar och op
 
 ### <a name="connectivity"></a>Anslutning
 
-Under **SQL-anslutning** anger du vilken typ av åtkomst du vill ha till SQL Server-instansen på den här virtuella datorn. I den här genomgången avses Välj **offentlig (internet)** att tillåta anslutningar till SQL Server från datorer eller tjänster på internet. När det här alternativet är valt konfigurerar Azure automatiskt brandväggen och nätverkssäkerhetsgruppen så att trafik tillåts på port 1433.
+Under **SQL-anslutning** anger du vilken typ av åtkomst du vill ha till SQL Server-instansen på den här virtuella datorn. För den här genomgången väljer **offentlig (internet)** att tillåta anslutningar till SQL Server från datorer eller tjänster på internet. När det här alternativet är valt konfigurerar Azure automatiskt brandväggen och nätverkssäkerhetsgruppen så att trafik tillåts på port 1433.
 
 ![SQL-anslutningsalternativ](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
 
 > [!TIP]
-> Som standard lyssnar SQL Server på en känd port, **1433**. För ökad säkerhet kan du ändra porten så att den lyssnar på en icke-standardport, till exempel 1401, i den föregående dialogrutan. Om du ändrar porten som måste du ansluta den porten från alla klientverktyg, till exempel SSMS.
+> Som standard lyssnar SQL Server på en känd port, **1433**. För ökad säkerhet kan du ändra porten så att den lyssnar på en icke-standardport, till exempel 1401, i den föregående dialogrutan. Om du ändrar porten, måste du ansluta via den porten från alla klientverktyg, till exempel SSMS.
 
 Om du vill ansluta till SQL Server via Internet måste du också aktivera SQL Server-autentisering, som beskrivs i nästa avsnitt.
 
@@ -184,7 +184,7 @@ Om du kräver SQL Server-autentisering klickar du på **Aktivera** under **SQL-a
 ![SQL Server-autentisering](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png)
 
 > [!NOTE]
-> Om du planerar att ansluta till SQL Server via internet (alternativet anslutning för offentliga) måste du aktivera SQL-autentisering här. Offentlig åtkomst till SQL Server kräver användning av SQL-autentisering.
+> Om du planerar att ansluta till SQL Server via internet (alternativet för offentlig anslutning) måste du aktivera SQL-autentisering här. Offentlig åtkomst till SQL Server kräver användning av SQL-autentisering.
 
 Om du aktiverar SQL Server-autentisering anger du ett **inloggningsnamn** och **lösenord**. Det här användarnamnet är konfigurerat som en inloggning med SQL Server-autentisering och som en medlem i den fasta serverrollen **sysadmin**. Mer information om autentiseringslägen finns i [Välja ett autentiseringsläge](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
 
@@ -255,7 +255,7 @@ Mer information finns i [Konfigurera Azure Key Vault-integrering för SQL Server
 
 ### <a name="sql-server-machine-learning-services"></a>SQL Server Machine Learning Services
 
-Du kan aktivera [SQL Server Machine Learning Services](https://msdn.microsoft.com/library/mt604845.aspx). Det här alternativet kan du använda avancerade analyser med SQL Server 2017. Klicka på **Aktivera** i fönstret **SQL Server-inställningar**.
+Du kan aktivera [SQL Server Machine Learning Services](https://msdn.microsoft.com/library/mt604845.aspx). Det här alternativet kan du använda avancerad analys med SQL Server 2017. Klicka på **Aktivera** i fönstret **SQL Server-inställningar**.
 
 ![Aktivera SQL Server Machine Learning Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
@@ -282,12 +282,12 @@ När du har anslutit till datorn kan du direkt ändra inställningarna för dato
 
 ## <a id="connect"></a> Fjärransluta till SQL Server
 
-Du valde i den här genomgången **offentliga** åtkomst för den virtuella datorn och **SQL Server-autentisering**. Dessa inställningar konfigurerade automatiskt den virtuella datorn så att SQL Server-anslutningar tillåts från alla klienter över Internet (förutsatt att de har rätt SQL-inloggningsuppgifter).
+I den här genomgången ska du har valt **offentliga** åtkomst för den virtuella datorn och **SQL Server-autentisering**. Dessa inställningar konfigurerade automatiskt den virtuella datorn så att SQL Server-anslutningar tillåts från alla klienter över Internet (förutsatt att de har rätt SQL-inloggningsuppgifter).
 
 > [!NOTE]
 > Om du inte valde Offentlig under etableringen kan du ändra SQL-anslutningsinställningarna via portalen efter etableringen. Mer information hittar du i [Ändra SQL-anslutningsinställningarna](virtual-machines-windows-sql-connect.md#change).
 
-Följande avsnitt visar hur du ansluter via internet till SQL Server-VM-instans.
+I följande avsnitt visas hur du ansluter via internet till din SQL Server-VM-instans.
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 

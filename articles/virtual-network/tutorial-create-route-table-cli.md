@@ -1,6 +1,6 @@
 ---
-title: Dirigera nätverkstrafik - Azure CLI | Microsoft Docs
-description: I den här artikeln lär du dig hur att dirigera nätverkstrafik till en routingtabell som använder Azure CLI.
+title: Dirigera nätverkstrafik – Azure CLI | Microsoft Docs
+description: I den här artikeln lär du dig hur du dirigerar nätverkstrafik med en routningstabell med hjälp av Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -18,33 +18,33 @@ ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: eb4a28b5a57d7e301e800cd4ad87c56b7c5df6d2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841953"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38701843"
 ---
-# <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Dirigera nätverkstrafik till en routingtabell som använder Azure CLI
+# <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Dirigera nätverkstrafik med en routningstabell med hjälp av Azure CLI
 
-Azure automatiskt vägar trafik mellan alla undernät i ett virtuellt nätverk som standard. Du kan skapa egna flöden om du vill åsidosätta Azures standardroutning. Möjligheten att skapa anpassade vägar är användbart om du exempelvis vill vidarebefordra trafik mellan undernät via en virtuell nätverksenhet (NVA). I den här artikeln får du lära dig hur du:
+Azure dirigerar automatiskt trafik mellan alla undernät inom ett virtuella nätverk som standard. Du kan skapa egna vägar för att åsidosätta Azures standardroutning. Möjligheten att skapa anpassade vägar är användbar om du exempelvis vill dirigera trafik mellan undernät via en virtuell nätverksinstallation (NVA). I den här artikeln kan du se hur du:
 
-* Skapa en routingtabell
+* Skapa en routningstabell
 * Skapa en väg
 * Skapa ett virtuellt nätverk med flera undernät
-* Associera en routingtabell till ett undernät
+* Associera en routningstabell till ett undernät
 * Skapa en NVA som dirigerar trafik
-* Distribuera virtuella datorer (VM) i olika undernät
-* Vidarebefordra trafik från ett undernät till en annan genom en NVA
+* Distribuera virtuella datorer till olika undernät
+* Dirigera trafik från ett undernät till ett annat via en NVA
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt denna Snabbstart kräver att du använder Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.28 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-## <a name="create-a-route-table"></a>Skapa en routingtabell
+## <a name="create-a-route-table"></a>Skapa en routningstabell
 
-Innan du kan skapa en routingtabell, skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create) för alla resurser som har skapats i den här artikeln. 
+Innan du kan skapa en routningstabell, skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create) för alla resurser som skapats i den här artikeln. 
 
 ```azurecli-interactive
 # Create a resource group.
@@ -53,7 +53,7 @@ az group create \
   --location eastus
 ``` 
 
-Skapa en routingtabell med [az nätverket routningstabellen skapa](/cli/azure/network/route#az_network_route_table_create). I följande exempel skapas en routingtabell som heter *myRouteTablePublic*. 
+Skapa en routningstabell med [az network route-table skapa](/cli/azure/network/route#az_network_route_table_create). I följande exempel skapas en routningstabell med namnet *myRouteTablePublic*. 
 
 ```azurecli-interactive 
 # Create a route table
@@ -64,7 +64,7 @@ az network route-table create \
 
 ## <a name="create-a-route"></a>Skapa en väg
 
-Skapa en väg i routningstabellen med [az nätverksväg routningstabellen skapa](/cli/azure/network/route-table/route#az_network_route_table_route_create). 
+Skapa en väg i routningstabellen med [az network route-table route skapa](/cli/azure/network/route-table/route#az_network_route_table_route_create). 
 
 ```azurecli-interactive
 az network route-table route create \
@@ -76,9 +76,9 @@ az network route-table route create \
   --next-hop-ip-address 10.0.2.4
 ``` 
 
-## <a name="associate-a-route-table-to-a-subnet"></a>Associera en routingtabell till ett undernät
+## <a name="associate-a-route-table-to-a-subnet"></a>Associera en routningstabell till ett undernät
 
-Innan du kan koppla en routingtabell till ett undernät som du behöver skapa ett virtuellt nätverk och undernät. Skapa ett virtuellt nätverk med ett undernät med [az network vnet skapa](/cli/azure/network/vnet#az_network_vnet_create).
+Innan du kan associera en routningstabell till ett undernät, måste du skapa ett virtuellt nätverk och undernät. Skapa ett virtuellt nätverk med ett undernät med [az network vnet skapa](/cli/azure/network/vnet#az_network_vnet_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -89,7 +89,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-Skapa två ytterligare undernät med [az undernät för virtuellt nätverk skapa](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create).
+Skapa två ytterligare undernät med [az network vnet-undernät skapa](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create).
 
 ```azurecli-interactive
 # Create a private subnet.
@@ -107,7 +107,7 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-Koppla den *myRouteTablePublic* routningstabellen till den *offentliga* undernät med [az network vnet undernät uppdatering](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update).
+Associera den *myRouteTablePublic* routningstabellen till den *offentliga* undernätet med [az network vnet-undernät uppdatering](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update).
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -119,9 +119,9 @@ az network vnet subnet update \
 
 ## <a name="create-an-nva"></a>Skapa en NVA
 
-En NVA är en virtuell dator som utför en funktion i nätverket, till exempel routning, firewalling eller WAN-optimering.
+En NVA är en virtuell dator som utför en nätverksfunktion, som routning, brandvägg eller WAN-optimering.
 
-Skapa en NVA i den *DMZ* undernät med [az vm skapa](/cli/azure/vm#az_vm_create). När du skapar en virtuell dator, Azure skapar och tilldelar en offentlig IP-adress till den virtuella datorn som standard. Den `--public-ip-address ""` parametern instruerar Azure inte att skapa och tilldela en offentlig IP-adress till den virtuella datorn eftersom den virtuella datorn inte behöver vara ansluten till från internet. Om SSH-nycklar inte redan finns en nyckel standardplatsen, skapar dem i kommandot. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
+Skapa en NVA i den *DMZ* undernätet med [az vm skapa](/cli/azure/vm#az_vm_create). När du skapar en virtuell dator, Azure skapar och tilldelar en offentlig IP-adress till den virtuella datorn som standard. Den `--public-ip-address ""` parametern instruerar Azure inte att skapa och tilldela en offentlig IP-adress till den virtuella datorn eftersom den virtuella datorn inte behöver anslutas till från internet. Om det inte redan finns SSH-nycklar på en standardnyckelplats skapar kommandot dem. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
 ```azure-cli-interactive
 az vm create \
@@ -136,7 +136,7 @@ az vm create \
 
 Det tar några minuter att skapa den virtuella datorn. Fortsätt inte till nästa steg förrän Azure har skapat den virtuella datorn och returnerar utdata om den virtuella datorn. 
 
-För ett nätverksgränssnitt för att kunna vidarebefordra trafik skickas till den, som inte är avsett för sin egen IP-adressen, måste IP-vidarebefordran aktiveras för nätverksgränssnittet. Aktivera IP-vidarebefordring för nätverksgränssnitt med [az nätverket nic uppdatering](/cli/azure/network/nic#az_network_nic_update).
+För att ett nätverksgränssnitt ska kunna vidarebefordra nätverkstrafik som skickas till det som inte är avsett för den egna IP-adressen måste IP-vidarebefordran vara aktiverat för nätverksgränssnittet. Aktivera IP-vidarebefordring för nätverksgränssnittet med [az network nic update](/cli/azure/network/nic#az_network_nic_update).
 
 ```azurecli-interactive
 az network nic update \
@@ -145,7 +145,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-I den virtuella datorn, måste operativsystemet eller ett program som körs på den virtuella datorn också kunna vidarebefordra nätverkstrafik. Aktivera IP-vidarebefordring i operativsystemet för den virtuella datorn med [az vm-tillägget set](/cli/azure/vm/extension#az_vm_extension_set):
+I den virtuella datorn måste operativsystemet, eller ett program som körs i den virtuella datorn, kunna vidarebefordra nätverkstrafik. Aktivera IP-vidarebefordring i operativsystemet för den virtuella datorn med [az vm-tilläggsuppsättningen](/cli/azure/vm/extension#az_vm_extension_set):
 
 ```azurecli-interactive
 az vm extension set \
@@ -159,9 +159,9 @@ Kommandot kan ta upp till en minut att köra.
 
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-Skapa två virtuella datorer i det virtuella nätverket så att du kan verifiera att trafik från den *offentliga* undernät dirigeras till den *privata* undernätet via en NVA i ett senare steg. 
+Skapa två virtuella datorer i det virtuella nätverket så att du kan verifiera att trafiken från den *offentliga* undernätet dirigeras till den *privata* undernätet via NVA i ett senare steg. 
 
-Skapa en virtuell dator i den *offentliga* undernät med [az vm skapa](/cli/azure/vm#az_vm_create). Den `--no-wait` parametern aktiverar Azure för att köra kommandot i bakgrunden så du kan fortsätta med nästa kommando. Ett lösenord används för att förenkla den här artikeln. Nycklar används vanligtvis för produktionsdistributioner. Om du använder nycklar måste du också konfigurera SSH-agentvidarebefordran. Mer information finns i dokumentationen för SSH-klienten. Ersätt `<replace-with-your-password>` i följande kommando med ett lösenord som du väljer.
+Skapa en virtuell dator i den *offentliga* undernätet med [az vm skapa](/cli/azure/vm#az_vm_create). Den `--no-wait` parameter gör det möjligt för Azure för att köra kommandot i bakgrunden, så att du kan fortsätta med nästa kommando. För att förenkla den här artikeln används ett lösenord. Nycklar används vanligtvis för produktionsdistributioner. Om du använder nycklar måste du också konfigurera SSH-agentvidarebefordran. Mer information finns i dokumentationen för SSH-klienten. Ersätt `<replace-with-your-password>` i följande kommando med ett lösenord som du väljer.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"
@@ -190,7 +190,7 @@ az vm create \
   --admin-password $adminPassword
 ```
 
-Det tar några minuter att skapa den virtuella datorn. När du har skapat den virtuella datorn visar Azure CLI information liknar följande exempel: 
+Det tar några minuter att skapa den virtuella datorn. När den virtuella datorn har skapats visar Azure CLI information liknande följande exempel: 
 
 ```azurecli 
 {
@@ -204,25 +204,25 @@ Det tar några minuter att skapa den virtuella datorn. När du har skapat den vi
   "resourceGroup": "myResourceGroup"
 }
 ```
-Anteckna den **publicIpAddress**. Den här adressen används för åtkomst till den virtuella datorn från internet i ett senare steg.
+Anteckna **publicIpAddress**. Den här adressen används för att få åtkomst till den virtuella datorn från internet i ett senare steg.
 
-## <a name="route-traffic-through-an-nva"></a>Vidarebefordra trafik via en NVA
+## <a name="route-traffic-through-an-nva"></a>Dirigera trafik via NVA
 
-Använd följande kommando för att skapa en SSH-session med den *myVmPrivate* VM. Ersätt *<publicIpAddress>* med offentliga IP-adressen för den virtuella datorn. I exemplet ovan, IP-adressen är *13.90.242.231*.
+Använd följande kommando för att skapa en SSH-session med den *myVmPrivate* VM. Ersätt *<publicIpAddress>* med den offentliga IP-adressen för den virtuella datorn. I exemplet ovan, IP-adressen är *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
 ```
 
-När du uppmanas att ange ett lösenord, ange lösenordet som du valde i [skapa virtuella datorer](#create-virtual-machines).
+När du tillfrågas om ett lösenord, anger du lösenordet som du valde i [skapa virtuella datorer](#create-virtual-machines).
 
-Använd följande kommando för att installera spårningsrutt på den *myVmPrivate* VM:
+Använd följande kommando för att installera vägspårning på den *myVmPrivate* VM:
 
 ```bash 
 sudo apt-get install traceroute
 ```
 
-Använd följande kommando för att testa routning av nätverkstrafik till den *myVmPublic* virtuell dator från den *myVmPrivate* VM.
+Använd följande kommando för att testa routningen för trafik till den *myVmPublic* virtuell dator från den *myVmPrivate* VM.
 
 ```bash
 traceroute myVmPublic
@@ -235,7 +235,7 @@ traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
 1  10.0.0.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
 
-Du kan se trafik vidarebefordras direkt från den *myVmPrivate* så att den *myVmPublic* VM. Azures standardvägar, vidarebefordra trafik direkt mellan undernät. 
+Du ser att trafik vidarebefordras direkt från *myVmPrivate* till the *myVmPublic*. Azures standardvägar dirigerar, dirigera trafik direkt mellan undernät. 
 
 Använd följande kommando för att SSH till den *myVmPublic* virtuell dator från den *myVmPrivate* VM:
 
@@ -243,13 +243,13 @@ Använd följande kommando för att SSH till den *myVmPublic* virtuell dator fr�
 ssh azureuser@myVmPublic
 ```
 
-Använd följande kommando för att installera spårningsrutt på den *myVmPublic* VM:
+Använd följande kommando för att installera vägspårning på den *myVmPublic* VM:
 
 ```bash 
 sudo apt-get install traceroute
 ```
 
-Använd följande kommando för att testa routning av nätverkstrafik till den *myVmPrivate* virtuell dator från den *myVmPublic* VM.
+Använd följande kommando för att testa routningen för trafik till den *myVmPrivate* virtuell dator från den *myVmPublic* VM.
 
 ```bash
 traceroute myVmPrivate
@@ -262,13 +262,13 @@ traceroute to myVmPrivate (10.0.1.4), 30 hops max, 60 byte packets
 1  10.0.2.4 (10.0.2.4)  0.781 ms  0.780 ms  0.775 ms
 2  10.0.1.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
-Du kan se att det första hoppet är 10.0.2.4, vilket är en NVA privat IP-adress. Ett andra hopp är 10.0.1.4 privata IP-adressen för den *myVmPrivate* VM. Vägen som lagts till i den *myRouteTablePublic* routningstabellen och som är associerade med den *offentliga* undernät orsakade Azure för att dirigera trafik via en NVA i stället för direkt till den *privata* undernät.
+Du kan se att det första hoppet är 10.0.2.4, som är NVA-enhetens privata IP-adress. Det andra hoppet är is 10.0.1.4, som är den privata IP-adressen för den virtuella datorn *myVmPrivate*. Vägen som har lagts till i routningstabellen *myRouteTablePublic* och associerats till det *offentliga* undernätet gjorde så att Azure dirigerade trafiken via NVA istället för direkt till det *privata* undernätet.
 
-Stäng SSH-sessioner för både den *myVmPublic* och *myVmPrivate* virtuella datorer.
+Stäng SSH-sessionerna till både den *myVmPublic* och *myVmPrivate* virtuella datorer.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behöver använda [ta bort grupp az](/cli/azure/group#az_group_delete) att ta bort resursgruppen och alla resurser som den innehåller.
+När den inte längre behövs kan du använda [az group delete](/cli/azure/group#az_group_delete) att ta bort resursgruppen och alla resurser den innehåller.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
@@ -276,6 +276,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln, skapa en routingtabell och som är kopplad till ett undernät. Du har skapat en enkel NVA som dirigeras trafiken från offentliga undernät till ett privat undernät. Distribuera en mängd olika förkonfigurerade NVAs som utför nätverks-funktioner, till exempel brandvägg och WAN-optimering från den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Mer information om routning finns [routning: översikt](virtual-networks-udr-overview.md) och [hantera en routingtabell](manage-route-table.md).
+I den här artikeln har du skapat en routningstabell och associerat den till ett undernät. Du har skapat en enkel NVA som dirigerade trafik från ett offentligt till ett privat undernät. Distribuera en mängd olika förkonfigurerade NVA-enheter som utför nätverksfunktioner som brandvägg och WAN-optimering från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Mer information om routning finns i [routningsöversikten](virtual-networks-udr-overview.md) och [Hantera en routningstabell](manage-route-table.md).
 
-Resurser för vissa Azure PaaS-tjänster kan inte distribueras till ett virtuellt nätverk medan du kan distribuera många Azure-resurser inom ett virtuellt nätverk. Du kan fortfarande begränsa åtkomsten till resurser av vissa Azure PaaS-tjänster till trafik från ett undernät för virtuellt nätverk men. Mer information finns i avsnittet [begränsa nätverksåtkomst till PaaS-resurser](tutorial-restrict-network-access-to-resources-cli.md).
+Du kan distribuera många Azure-resurser inom ett virtuellt nätverk, men resurser för vissa Azure PaaS-tjänster går inte att distribuera till ett virtuellt nätverk. Du kan fortfarande begränsa åtkomsten för resurserna i vissa Azure PaaS-tjänster till trafik enbart från ett undernät för ett virtuell dator. Läs hur genom att läsa [begränsa nätverksåtkomst till PaaS-resurser](tutorial-restrict-network-access-to-resources-cli.md).

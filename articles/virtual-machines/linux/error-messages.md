@@ -1,6 +1,6 @@
 ---
-title: Felkoder för vanliga Linux virtuella datorer i Azure | Microsoft Docs
-description: Förstå några av de vanliga felkoder som uppstod när du etablera och hantera virtuella Linux-datorer i Azure
+title: Felkoder för vanliga Linux virtuell dator i Azure | Microsoft Docs
+description: Förstå några av de vanliga felkoder som påträffades när du etablerar och hanterar virtuella Linux-datorer i Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: xujing-ms
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: 6d1e344cc0ec66f026bcf9e7c4ab50fd71dc6ca4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30905433"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38705987"
 ---
-# <a name="understand-common-error-messages-when-you-manage-linux-virtual-machines-in-azure"></a>Förstå vanliga felmeddelanden när du hanterar virtuella Linux-datorer i Azure
+# <a name="understand-common-error-messages-when-you-manage-linux-virtual-machines-in-azure"></a>Förstå vanliga felmeddelanden när du hanterar Linux-datorer i Azure
 
-Den här artikeln beskrivs några av de vanligaste felkoder och meddelanden som kan uppstå när du skapar eller hantera virtuella Linux-datorer (VM) i Azure.
+Den här artikeln beskriver några av de mest vanliga felkoder och meddelanden som du kan stöta på när du skapar eller hantera Linux-datorer (VM) i Azure.
 
 [!INCLUDE [virtual-machines-common-error-messages](../../../includes/virtual-machines-common-error-messages.md)]

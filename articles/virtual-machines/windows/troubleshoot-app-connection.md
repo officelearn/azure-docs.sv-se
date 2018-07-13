@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ms.openlocfilehash: 8797b4cf0aafe045a81822cc7956212a8c2068e5
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
-ms.translationtype: HT
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929798"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696697"
 ---
 # <a name="troubleshoot-access-to-an-application-running-on-a-windows-virtual-machine-in-azure"></a>Felsök åtkomst till ett program som körs på en Windows-dator i Azure
 [!INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../../includes/virtual-machines-common-troubleshoot-app-connection.md)]

@@ -1,6 +1,6 @@
 ---
-title: Avvikelseidentifiering Java-app - kognitiva Microsoft-tjänster | Microsoft Docs
-description: 'Utforska en Java-app som använder API: et för Avvikelseidentifiering identifiering i kognitiva Microsoft-tjänster. Skicka ursprungliga datapunkter-API: et och få ett förväntat värde och avvikelseidentifiering punkter.'
+title: Avvikelseidentifiering Java-app – Microsoft Cognitive Services | Microsoft Docs
+description: 'Utforska en Java-app som använder API: T för Avvikelseidentifiering identifiering i Microsoft Cognitive Services. Skicka ursprungliga datapunkter till API: et och få det förväntade värdet och avvikelseidentifiering punkter.'
 services: cognitive-services
 author: wenya
 manager: bix
@@ -10,45 +10,45 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: wenya
 ms.openlocfilehash: 228d440da358eba1322e2228c54f21e925e36ecd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353322"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38597956"
 ---
-# <a name="anomaly-detection-java-application"></a>Avvikelseidentifiering identifiering Java-program
+# <a name="anomaly-detection-java-application"></a>Avvikelseidentifiering identifiering av Java-program
 
-Den här artikeln visas hur du använder ett enkelt Java-program för att anropa API: et för Avvikelseidentifiering identifiering.  
-Exemplet skickar serien tidsdata Avvikelseidentifiering identifiering-API: et med din prenumeration nyckel och hämtar alla avvikelseidentifiering punkter och förväntat värde för varje datapunkt från API: et.
+Den här artikeln visar hur du använder ett enkelt Java-program för att anropa API: T för Avvikelseidentifiering identifiering.  
+I exempel skickar time series-data till API: T för Avvikelseidentifiering identifiering med din prenumerationsnyckel och sedan hämtar alla avvikelser punkter och förväntat värde för varje datapunkt från API: et.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="platform-requirements"></a>Plattformskrav
 
-Den här självstudiekursen har utvecklats med [IntelliJ IDEA](https://www.jetbrains.com/idea). Och du måste också installera [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) version 1.8 +, och en uppdaterad ['s Apache Maven](http://maven.apache.org/) skapa verktyget.
+Den här självstudien har utvecklats med [IntelliJ IDEA](https://www.jetbrains.com/idea). Och du måste också installera [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) version 1.8 +, och en uppdaterad ['s Apache Maven](http://maven.apache.org/) skapa verktyget.
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Prenumerera på Avvikelseidentifiering och få en nyckel för prenumeration 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Prenumerera på identifiering av avvikelser och få en prenumerationsnyckel 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
  
 
-## <a name="download-the-tutorial-project"></a>Hämta projektet självstudiekursen
+## <a name="download-the-tutorial-project"></a>Ladda ned självstudieprojektet
 
 1. Gå till MicrosoftAnomalyDetection [Java databasen](https://github.com/MicrosoftAnomalyDetection/java-sample).
 2. Klicka på klonen eller knappen ladda ned.
-3. Klicka på Hämta ZIP om du vill hämta en .zip-fil i självstudiekursen projektet.
+3. Klicka på ladda ned ZIP om du vill hämta en ZIP-fil med självstudieprojektet.
 
 <a name="Step1"></a>
-### <a name="open-the-tutorial-project"></a>Öppna projektet självstudiekursen
+### <a name="open-the-tutorial-project"></a>Öppna självstudieprojektet
 
-1. Extrahera .zip-filen i självstudiekursen projektet.
-2. Klicka i IntelliJ IDEA **fil > Öppna**, visas dialogrutan Öppna filen eller projekt.
-3. Välj rotsökvägen för det hämtade projektet och klicka på OK.
-4. Expandera i panelen projekt **src > main > java**.
+1. Extrahera .zip-filen för självstudieprojektet.
+2. I IntelliJ IDEA klickar du på **fil > Öppna**, visas dialogrutan Öppna fil eller projekt.
+3. Rotsökvägen för extraherat projekt och sedan klicka på OK.
+4. I panelen projekt expanderar **src > huvudsakliga > java**.
 5. Dubbelklicka på com.microsoft.cognitiveservice.anomalydetection.Main.java för att läsa in filen i redigeraren.
 
 <a name="Step2"></a>
-### <a name="replace-subscriptionkey-and-uri-region"></a>Ersätt subscriptionKey och URI region
+### <a name="replace-subscriptionkey-and-uri-region"></a>Ersätt subscriptionKey och URI-region
 
 ```
 // **********************************************
@@ -63,13 +63,13 @@ public static final String uriBase = "https://api.labs.cognitive.microsoft.com/a
 ```
 
 <a name="Step3"></a>
-### <a name="build-and-run-the-tutorial-project"></a>Skapa och köra projektet självstudiekursen
+### <a name="build-and-run-the-tutorial-project"></a>Skapa och köra självstudieprojektet
 
 1. Ta fram menyn genom att högerklicka någonstans i com.microsoft.cognitiveservice.anomalydetection.Main.java källa kod-flik. 
 2. Välj Kör Main.main()
-3. Resultatet av exempelbegäran ska returneras och visas i terminal.
+3. Resultatet av exemplet begäran ska returneras och visas i terminalen.
 
-### <a name="result-of-the-tutorial-project"></a>Resultatet av kursen projektet
+### <a name="result-of-the-tutorial-project"></a>Resultatet av självstudieprojektet
 
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Azure IoT Hub enhetshantering (Python) | Microsoft Docs
-description: Hur du använder IoT-hubb enhetshantering för att initiera en omstart av fjärranslutna enheter. Azure IoT-SDK för Python används för att implementera en simulerad enhetsapp som innehåller en direkt metod och en service-appen som anropar metoden direkt.
+title: Kom igång med enhetshantering i Azure IoT Hub (Python) | Microsoft Docs
+description: Hur du använder IoT Hub-enhetshantering för att initiera en fjärransluten enhet omstart. Du kan använda Azure IoT SDK för Python för att implementera en simulerad enhetsapp som innehåller en direkt metod och en service-app som anropar direktmetoden.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -10,33 +10,33 @@ ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: kgremban
 ms.openlocfilehash: fa966ee2ea26cccc7d841a0e969d8329ac5bc0de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635295"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38573425"
 ---
-# <a name="get-started-with-device-management-python"></a>Komma igång med hantering av enheter (Python)
+# <a name="get-started-with-device-management-python"></a>Kom igång med enhetshantering (Python)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
 I den här självstudiekursen lär du dig att:
 
-* Använda Azure portal för att skapa en IoT-hubb och skapa en enhetsidentitet i din IoT-hubb.
+* Använda Azure-portalen för att skapa en IoT Hub och skapa en enhetsidentitet i IoT hub.
 * Skapa en simulerad enhetsapp som innehåller en direkt metod som startar om enheten. Direkta metoder anropas från molnet.
-* Skapa en Python-konsolapp som anropar metoden omstart direkt i appen simulerade enheten via din IoT-hubb.
+* Skapa en Python-konsolapp som anropar metoden omstart direkt i den simulerade enhetsappen via din IoT-hubb.
 
-I slutet av den här kursen har du två Python konsolappar:
+I slutet av den här självstudien har du två Python-konsolappar:
 
-**dmpatterns_getstarted_device.PY**, som ansluter till din IoT-hubb med enhetens identitet skapade tidigare, tar emot en direkt metod för omstart, simulerar en fysisk omstart och rapporterar tid för den senaste omstarten.
+**dmpatterns_getstarted_device.PY**, som ansluter till din IoT-hubb med enhetsidentiteten som skapades tidigare, tar emot en direkt metod för omstart, simulerar en fysisk omstart och rapporterar tiden för den senaste omstarten.
 
-**dmpatterns_getstarted_service.PY**, som anropar en direkt metod i appen simulerade enheten visar svaret och visar den uppdaterade rapporterade egenskaper.
+**dmpatterns_getstarted_service.PY**, som anropar en direkt metod i den simulerade enhetsappen visar svaret och visar det uppdaterade rapporterade egenskaper.
 
 För att kunna genomföra den här kursen behöver du följande:
 
 * [Python 2.x eller 3.x][lnk-python-download]. Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen. Om du använder Python 2.x kan du behöva [installera eller uppgradera *PIP* (pakethanteringssystemet för Python)][lnk-install-pip].
-    * Installera den [azure-iothub-enhet-klient](https://pypi.org/project/azure-iothub-device-client/) paketet med hjälp av kommandot   `pip install azure-iothub-device-client`
-    * Installera den [azure-iothub-service-klient](https://pypi.org/project/azure-iothub-service-client/) paketet med hjälp av kommandot   `pip install azure-iothub-service-client`
+    * Installera den [azure-iothub-device-client](https://pypi.org/project/azure-iothub-device-client/) paketet med hjälp av kommandot   `pip install azure-iothub-device-client`
+    * Installera den [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) paketet med hjälp av kommandot   `pip install azure-iothub-service-client`
 * Om du använder Windows OS installerar du [Visual C++ redistributable package][lnk-visual-c-redist] så att du kan använda native-DLL:er från Python.
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnadsfritt konto][lnk-free-trial] på bara några minuter.)
 
@@ -47,11 +47,11 @@ För att kunna genomföra den här kursen behöver du följande:
 ## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
 I det här avsnittet kommer du att:
 
-* Skapa en Python-konsolapp som svarar på en direkt metod som anropas av molnet
+* Skapa en Python-konsolapp som svarar på en direkt metod som anropas via molnet
 * Simulera en omstart av enheten
-* Använda egenskaperna rapporterade för att aktivera enheten dubbla frågor för att identifiera enheter och när de senaste startas om
+* Använd de rapporterade egenskaperna för att aktivera enhetstvillingfrågor att identifiera enheter och när de senast startades om
 
-1. Med hjälp av en textredigerare, skapa en **dmpatterns_getstarted_device.py** fil.
+1. Använd en textredigerare och skapa en **dmpatterns_getstarted_device.py** fil.
 
 1. Lägg till följande `import` instruktioner i början av den **dmpatterns_getstarted_device.py** fil.
    
@@ -64,7 +64,7 @@ I det här avsnittet kommer du att:
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError, DeviceMethodReturnValue
     ```
 
-1. Lägga till variabler, inklusive en **anslutningssträng** variabeln och klient-start.  Ersätt anslutningssträngen med anslutningssträngen enhet.  
+1. Lägg till variabler, inklusive en **anslutningssträng** variabeln och klient-start.  Ersätt anslutningssträngen med enhetens anslutningssträng.  
    
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
@@ -81,7 +81,7 @@ I det här avsnittet kommer du att:
     METHOD_CALLBACKS = 0
     ```
 
-1. Lägg till följande funktion-återanrop för att implementera metoden direkt på enheten.
+1. Lägg till följande funktion-återanrop för att implementera direkt metod på enheten.
    
     ```python
     def send_reported_state_callback(status_code, user_context):
@@ -112,7 +112,7 @@ I det här avsnittet kommer du att:
         return device_method_return_value
     ```
 
-1. Starta lyssnaren direkta metoden och vänta.
+1. Starta lyssnaren för direkt metod och vänta.
    
     ```python
     def iothub_client_init():
@@ -151,10 +151,10 @@ I det här avsnittet kommer du att:
 > För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktionskoden bör du implementera principer för omförsök (till exempel en exponentiell backoff), vilket rekommenderas i MSDN-artikeln om [hantering av tillfälliga fel][lnk-transient-faults].
 
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Utlös en fjärransluten omstart på enheten med en direkt metod
-I det här avsnittet skapar du en Python-konsolapp som initierar en fjärransluten omstart på en enhet med en direkt metod. Appen använder enheten dubbla frågor för att identifiera senast omstart för enheten.
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Utlösa en fjärromstart på enheten med en direkt metod
+I det här avsnittet skapar du en Python-konsolapp som initierar en fjärromstart på en enhet med en direkt metod. Appen använder enhetstvillingfrågor för att identifiera den senaste Omstartstid för enheten.
 
-1. Med hjälp av en textredigerare, skapa en **dmpatterns_getstarted_service.py** fil.
+1. Använd en textredigerare och skapa en **dmpatterns_getstarted_service.py** fil.
 
 1. Lägg till följande `import` instruktioner i början av den **dmpatterns_getstarted_service.py** fil.
    
@@ -177,7 +177,7 @@ I det här avsnittet skapar du en Python-konsolapp som initierar en fjärranslut
     WAIT_COUNT = 10
     ```
 
-1. Lägg till följande funktion för att anropa metoden enheten för att starta om målenheten och fråga efter enhet twins och få senast omstart.
+1. Lägg till följande funktion för att anropa enhetsmetoden för att starta om målenheten och fråga efter enhetstvillingar och få Omstartstid för senaste.
    
     ```python
     def iothub_devicemethod_sample_run():
@@ -234,19 +234,19 @@ I det här avsnittet skapar du en Python-konsolapp som initierar en fjärranslut
 ## <a name="run-the-apps"></a>Kör apparna
 Nu är det dags att köra apparna.
 
-1. I Kommandotolken kör följande kommando för att börja lyssna efter omstart direkta metoden.
+1. Kör följande kommando för att börja lyssna efter omstart direkt metod i Kommandotolken.
    
     ```
     python dmpatterns_getstarted_device.py
     ```
 
-1. I en annan kommandotolk, kör du följande kommando för att utlösa remote omstart och fråga för enheten dubbla att söka efter senaste omstart tid.
+1. I en annan kommandotolk kör du följande kommando för att utlösa fjärromstart och fråga för enhetstvillingen för att hitta senaste omstart tid.
    
     ```
     python dmpatterns_getstarted_service.py
     ```
 
-1. Svaret från enheten till den direkta metoden i konsolen visas.
+1. Du kan se svaret från enheten till den direkta metoden i konsolen.
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 

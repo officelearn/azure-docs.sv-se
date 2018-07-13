@@ -1,6 +1,6 @@
 ---
-title: Flera IP-adresser för virtuella datorer i Azure - PowerShell | Microsoft Docs
-description: Lär dig hur du tilldelar flera IP-adresser till en virtuell dator med hjälp av PowerShell | Resource Manager.
+title: Flera IP-adresser för Azure virtual machines – PowerShell | Microsoft Docs
+description: Lär dig att tilldela flera IP-adresser till en virtuell dator med hjälp av PowerShell | Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,25 +16,25 @@ ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
 ms.openlocfilehash: 4c74833933642ec67bdd2a77d073b083d54a3038
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31602848"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38678620"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Tilldela flera IP-adresser till virtuella datorer med hjälp av PowerShell
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-Den här artikeln förklaras hur du skapar en virtuell dator (VM) via Azure Resource Manager-distributionsmodellen med hjälp av PowerShell. Flera IP-adresser kan inte tilldelas till resurser som skapats via den klassiska distributionsmodellen. Om du vill veta mer om Azure distributionsmodeller kan läsa den [förstår distributionsmodellerna](../resource-manager-deployment-model.md) artikel.
+Den här artikeln beskriver hur du skapar en virtuell dator (VM) med Azure Resource Manager-distributionsmodellen med hjälp av PowerShell. Flera IP-adresser kan inte tilldelas till resurser som skapats via den klassiska distributionsmodellen. Mer information om Azures distributionsmodeller i [förstå distributionsmodeller](../resource-manager-deployment-model.md) artikeln.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Skapa en virtuell dator med flera IP-adresser
 
-De steg som följer beskrivs hur du skapar ett exempel VM med flera IP-adresser, enligt beskrivningen i scenariot. Ändra variabelvärden som krävs för din implementering.
+Stegen nedan beskriver hur du skapar ett exempel VM med flera IP-adresser, som beskrivs i scenariot. Ändra variabelvärden som krävs för din implementering.
 
-1. Öppna ett PowerShell-Kommandotolken och utföra stegen i det här avsnittet i en enda PowerShell-session. Om du inte redan har PowerShell installerats och konfigurerats kan du slutföra stegen i den [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) artikel.
+1. Öppna en PowerShell-kommandotolk och slutför de återstående stegen i det här avsnittet i en enda PowerShell-session. Om du inte redan har PowerShell installerad och konfigurerad kan du slutföra stegen i den [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) artikeln.
 2. Logga in på ditt konto med den `Connect-AzureRmAccount` kommando.
 3. Ersätt *myResourceGroup* och *westus* med ett namn och plats. Skapa en resursgrupp. En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras.
 
@@ -68,7 +68,7 @@ De steg som följer beskrivs hur du skapar ett exempel VM med flera IP-adresser,
     $Subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $SubnetConfig.Name -VirtualNetwork $VNet
     ```
 
-5. Skapa en nätverkssäkerhetsgrupp (NSG) och en regel. NSG: N skyddar den virtuella datorn med hjälp av regler för inkommande och utgående. I detta fall skapas en regel för inkommande trafik för port 3389, som tillåter inkommande anslutningar till fjärrskrivbord.
+5. Skapa en nätverkssäkerhetsgrupp (NSG) och en regel. Nätverkssäkerhetsgruppen skyddar den virtuella datorn med hjälp av inkommande och utgående regler. I detta fall skapas en regel för inkommande trafik för port 3389, som tillåter inkommande anslutningar till fjärrskrivbord.
 
     ```powershell
     
@@ -92,9 +92,9 @@ De steg som följer beskrivs hur du skapar ett exempel VM med flera IP-adresser,
     -SecurityRules $NSGRule
     ```
 
-6. Definiera primära IP-konfiguration för nätverkskortet. Ändra 10.0.0.4 till en giltig adress i undernätet som du skapade om du inte använde värdet som definierats tidigare. Innan du tilldelar en statisk IP-adress, rekommenderas det att du först bekräfta att den inte är redan används. Ange kommandot `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Om adressen är tillgänglig, returnerar utdata *SANT*. Om den inte är tillgänglig, returnerar utdata *FALSKT* och en lista med adresser som är tillgängliga. 
+6. Definiera den primära IP-konfigurationen för nätverkskortet. Ändra 10.0.0.4 till en giltig adress i undernätet som du skapade, om du inte använder värdet som definierats tidigare. Innan du tilldelar en statisk IP-adress, rekommenderar vi att du först bekräfta att det inte är redan används. Ange kommandot `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Om adressen är tillgänglig, utdata returnerar *SANT*. Om den inte är tillgänglig utdata returnerar *FALSKT* och en lista med adresser som är tillgängliga. 
 
-    I följande kommandon och **Ersätt < Ersätt-med-your-unikt-name > med unikt DNS-namn.** Namnet måste vara unikt inom alla offentliga IP-adresser inom en Azure-region. Det här är en valfri parameter. Det kan tas bort om du vill ansluta till den virtuella datorn med hjälp av den offentliga IP-adressen.
+    I följande kommandon och **Ersätt < Ersätt-med-your-unika-name > med unikt DNS-namn du använder.** Namnet måste vara unikt över alla offentliga IP-adresser inom en Azure-region. Det här är en valfri parameter. Det kan tas bort om du vill ansluta till den virtuella datorn med offentliga IP-adress.
 
     ```powershell
     
@@ -116,12 +116,12 @@ De steg som följer beskrivs hur du skapar ett exempel VM med flera IP-adresser,
     -Primary
     ```
 
-    När du tilldelar en NIC flera IP-konfigurationer, det måste tilldelas en konfiguration som den *-primära*.
+    När du tilldelar ett nätverkskort flera IP-konfigurationer måste ha tilldelats en konfiguration som den *-primära*.
 
     > [!NOTE]
-    > Offentliga IP-adresser har en låg kostnad. Mer information om priser för IP-adress i [IP-adress priser](https://azure.microsoft.com/pricing/details/ip-addresses) sidan. Det finns en gräns för antalet offentliga IP-adresser som kan användas i en prenumeration. Mer information om gränserna finns i artikeln om [Azure-begränsningar](../azure-subscription-service-limits.md#networking-limits).
+    > Offentliga IP-adresser har en nominell avgift. Mer information om priser för IP-adress i [prissättning för IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses) sidan. Det finns en gräns för antalet offentliga IP-adresser som kan användas i en prenumeration. Mer information om gränserna finns i artikeln om [Azure-begränsningar](../azure-subscription-service-limits.md#networking-limits).
 
-7. Definiera de sekundära IP-konfigurationerna för nätverkskortet. Du kan lägga till eller ta bort konfigurationer efter behov. Varje IP-adresskonfigurationen måste ha en privat IP-adress. Varje konfiguration kan du ha en offentlig IP-adress.
+7. Definiera de sekundära IP-konfigurationerna för nätverkskortet. Du kan lägga till eller ta bort konfigurationer efter behov. Varje IP-konfiguration måste ha en privat IP-adress. Varje konfiguration kan du kan också ha en offentlig IP-adress.
 
     ```powershell
     
@@ -147,7 +147,7 @@ De steg som följer beskrivs hur du skapar ett exempel VM med flera IP-adresser,
     -PrivateIpAddress 10.0.0.6
     ```
 
-8. Skapa NIC och koppla tre IP-konfigurationer till den:
+8. Skapa nätverkskortet och associera den tre IP-konfigurationerna för:
 
     ```powershell
     
@@ -160,7 +160,7 @@ De steg som följer beskrivs hur du skapar ett exempel VM med flera IP-adresser,
     ```
 
     >[!NOTE]
-    >Även om alla konfigurationer har tilldelats ett nätverkskort i den här artikeln, kan du tilldela flera IP-konfigurationer för varje nätverkskort som är anslutet till den virtuella datorn. Information om hur du skapar en virtuell dator med flera nätverkskort, läsa den [skapa en virtuell dator med flera nätverkskort](../virtual-machines/windows/multiple-nics.md) artikel.
+    >Även om alla konfigurationer har tilldelats ett nätverkskort i den här artikeln, kan du tilldela flera IP-konfigurationer till varje nätverkskort som är kopplat till den virtuella datorn. Om du vill veta hur du skapar en virtuell dator med flera nätverkskort kan du läsa den [skapa en virtuell dator med flera nätverkskort](../virtual-machines/windows/multiple-nics.md) artikeln.
 
 9. Skapa den virtuella datorn genom att ange följande kommandon:
 
@@ -191,14 +191,14 @@ De steg som följer beskrivs hur du skapar ett exempel VM med flera IP-adresser,
     -VM $VmConfig
     ```
 
-10. Lägga till privata IP-adresser i Virtuella operativsystem genom att slutföra stegen för operativsystemet i den [lägga till IP-adresser till ett VM-operativsystem](#os-config) i den här artikeln. Lägg inte till de offentliga IP-adresserna till operativsystemet.
+10. Lägga till de privata IP-adresserna till VM-operativsystem genom att följa stegen för operativsystemet i den [Lägg till IP-adresser till ett VM-operativsystem](#os-config) i den här artikeln. Lägg inte till offentliga IP-adresser för operativsystemet.
 
 ## <a name="add"></a>Lägg till IP-adresser till en virtuell dator
 
-Du kan lägga till privata och offentliga IP-adresser till Azure nätverksgränssnittet genom att slutföra de steg som följer. Exemplen i avsnitten nedan förutsätter att du redan har en virtuell dator med de tre IP-konfigurationerna som beskrivs i den [scenariot](#Scenario) i den här artikeln, men det är inte nödvändigt att du gör.
+Du kan lägga till privata och offentliga IP-adresser till Azure-nätverksgränssnitt genom att följa stegen nedan. Exemplen i avsnitten nedan förutsätter att du redan har en virtuell dator med de tre IP-konfigurationer som beskrivs i den [scenariot](#Scenario) i den här artikeln, men det inte krävs att du gör.
 
-1. Öppna ett PowerShell-Kommandotolken och utföra stegen i det här avsnittet i en enda PowerShell-session. Om du inte redan har PowerShell installerats och konfigurerats kan du slutföra stegen i den [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) artikel.
-2. Ändra följande $Variables ”värdena” till namnet på nätverkskortet som du vill lägga till IP-adressen och den resursgrupp och plats nätverkskortet finns i:
+1. Öppna en PowerShell-kommandotolk och slutför de återstående stegen i det här avsnittet i en enda PowerShell-session. Om du inte redan har PowerShell installerad och konfigurerad kan du slutföra stegen i den [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) artikeln.
+2. Ändra följande $Variables ”values” till namnet på det nätverkskort som du vill lägga till IP-adressen och resursgrupp och plats som nätverkskortet finns i:
 
     ```powershell
     $NicName  = "MyNIC"
@@ -206,58 +206,58 @@ Du kan lägga till privata och offentliga IP-adresser till Azure nätverksgräns
     $Location = "westus"
     ```
 
-    Om du inte vet namnet på nätverkskortet som du vill ändra, ange följande kommandon, ändra värdena för variabler som tidigare:
+    Om du inte vet namnet på det nätverkskort som du vill ändra genom att ange följande kommandon, ändrar du värdena för variabler som tidigare:
 
     ```powershell
     Get-AzureRmNetworkInterface | Format-Table Name, ResourceGroupName, Location
     ```
-3. Skapa en variabel och ange den till det befintliga nätverkskortet genom att skriva följande kommando:
+3. Skapa en variabel och ange den till befintligt nätverkskort genom att skriva följande kommando:
 
     ```powershell
     $MyNIC = Get-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $RgName
     ```
-4. I följande kommandon och ändra *MyVNet* och *MySubnet* till namnen på VNet och undernät som nätverkskortet är anslutet till. Ange kommandon för att hämta objekt VNet och undernät som nätverkskortet är anslutet till:
+4. I följande kommandon och ändra *MyVNet* och *MySubnet* motsvarar namnen på VNet och undernät som nätverkskortet är anslutet till. Ange kommandon för att hämta objekt VNet och undernät som nätverkskortet är anslutet till:
 
     ```powershell
     $MyVNet = Get-AzureRMVirtualnetwork -Name MyVNet -ResourceGroupName $RgName
     $Subnet = $MyVnet.Subnets | Where-Object { $_.Name -eq "MySubnet" }
     ```
-    Om du inte vet namnet på VNet eller undernät nätverkskortet är anslutet till, skriver du följande kommando:
+    Om du inte vet namnet på VNet eller undernätet som nätverkskortet är anslutet till, anger du följande kommando:
     ```powershell
     $MyNIC.IpConfigurations
     ```
-    Leta efter texten som liknar följande exempel utdata i utdata:
+    Utdata och Sök efter text som liknar följande Exempelutdata:
     
     ```
     "Id": "/subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/MyVNet/subnets/MySubnet"
     ```
-    I det här resultatet *MyVnet* är VNet och *MySubnet* är nätverkskortet är anslutet till undernätet.
+    I dessa utdata *MyVnet* är det virtuella nätverket och *MySubnet* är undernätet som nätverkskortet är anslutet till.
 
-5. Utför stegen i följande avsnitt, baserat på dina krav:
+5. Utför stegen i något av följande avsnitt, baserat på dina krav:
 
     **Lägg till en privat IP-adress**
 
-    Om du vill lägga till en privat IP-adress till ett nätverkskort måste du skapa en IP-konfiguration. Följande kommando skapar en konfiguration med en statisk IP-adress 10.0.0.7. När du anger en statisk IP-adress, måste den vara en oanvända adress för undernätet. Vi rekommenderar att du först testar adress för att säkerställa att den är tillgänglig genom att ange den `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` kommando. Om IP-adress är tillgänglig utdata returnerar *SANT*. Om den inte är tillgänglig, returnerar utdata *FALSKT*, och en lista med adresser som är tillgängliga.
+    Om du vill lägga till en privat IP-adress till ett nätverkskort, måste du skapa en IP-konfiguration. Följande kommando skapar en konfiguration med en statisk IP-adress 10.0.0.7. När du anger en statisk IP-adress, måste det vara en oanvänd adress för undernätet. Vi rekommenderar att du först testar adressen för att säkerställa att den är tillgänglig genom att ange den `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` kommando. Om IP-adressen är tillgänglig, utdata returnerar *SANT*. Om den inte är tillgänglig utdata returnerar *FALSKT*, och en lista med adresser som är tillgängliga.
 
     ```powershell
     Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
     $MyNIC -Subnet $Subnet -PrivateIpAddress 10.0.0.7
     ```
-    Skapa så många konfigurationer som du vill använda unika konfigurationsnamn och privata IP-adresser (för konfigurationer med statiska IP-adresser).
+    Skapa så många konfigurationer som du behöver med unika konfigurationsnamn och privata IP-adresser (för konfigurationer med statiska IP-adresser).
 
-    Lägga till den privata IP-adressen i VM-operativsystem genom att slutföra stegen för operativsystemet i den [lägga till IP-adresser till ett VM-operativsystem](#os-config) i den här artikeln.
+    Lägga till den privata IP-adressen till VM-operativsystem genom att följa stegen för operativsystemet i den [Lägg till IP-adresser till ett VM-operativsystem](#os-config) i den här artikeln.
 
     **Lägg till en offentlig IP-adress**
 
-    En offentlig IP-adress har lagts till genom att associera en offentlig IP-adressresurs till en ny IP-konfiguration eller en befintlig IP-konfiguration. Slutför stegen i något av avsnitten som följer, som du behöver.
+    En offentlig IP-adress har lagts till genom att associera en offentlig IP-adressresurs till en ny IP-konfiguration eller en befintlig IP-konfiguration. Slutför stegen i ett av avsnitten som följer, som du behöver.
 
     > [!NOTE]
-    > Offentliga IP-adresser har en låg kostnad. Mer information om priser för IP-adress i [IP-adress priser](https://azure.microsoft.com/pricing/details/ip-addresses) sidan. Det finns en gräns för antalet offentliga IP-adresser som kan användas i en prenumeration. Mer information om gränserna finns i artikeln om [Azure-begränsningar](../azure-subscription-service-limits.md#networking-limits).
+    > Offentliga IP-adresser har en nominell avgift. Mer information om priser för IP-adress i [prissättning för IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses) sidan. Det finns en gräns för antalet offentliga IP-adresser som kan användas i en prenumeration. Mer information om gränserna finns i artikeln om [Azure-begränsningar](../azure-subscription-service-limits.md#networking-limits).
     >
 
-    - **Koppla den offentliga IP-adressresursen till en ny IP-konfiguration**
+    - **Associera den offentliga IP-adressresursen till en ny IP-konfiguration**
     
-        När du lägger till en offentlig IP-adress i en ny IP-konfiguration måste du också lägga en privat IP-adress, eftersom alla IP-konfigurationer måste ha en privat IP-adress. Du kan lägga till en befintlig offentlig IP-adressresurs eller skapa en ny. Ange följande kommando för att skapa en ny:
+        När du lägger till en offentlig IP-adress i en ny IP-konfiguration, du måste också lägga till en privat IP-adress, eftersom alla IP-konfigurationer måste ha en privat IP-adress. Du kan lägga till en befintlig offentlig IP-adressresurs eller skapa en ny. Om du vill skapa ett nytt lösenord, anger du följande kommando:
     
         ```powershell
         $myPublicIp3 = New-AzureRmPublicIpAddress `
@@ -267,7 +267,7 @@ Du kan lägga till privata och offentliga IP-adresser till Azure nätverksgräns
         -AllocationMethod Static
         ```
 
-        Att skapa en ny IP-konfiguration med en statisk privat IP-adress och den associerade *myPublicIp3* offentlig IP adress resursen måste du ange följande kommando:
+        Att skapa en ny IP-konfiguration med en statisk privat IP-adress och den associerade *myPublicIp3* offentliga IP-adressen resurs, anger du följande kommando:
 
         ```powershell
         Add-AzureRmNetworkInterfaceIpConfig `
@@ -278,15 +278,15 @@ Du kan lägga till privata och offentliga IP-adresser till Azure nätverksgräns
         -PublicIpAddress $myPublicIp3
         ```
 
-    - **Koppla den offentliga IP-adressresursen till en befintlig IP-konfiguration**
+    - **Associera den offentliga IP-adressresursen till en befintlig IP-konfiguration**
 
-        En offentlig IP-adressresurs kan bara vara kopplad till en IP-konfiguration som inte redan har en associerad. Du kan avgöra om en IP-konfiguration har en tillhörande offentliga IP-adress genom att ange följande kommando:
+        En offentlig IP-adressresurs kan bara kopplas till en IP-konfiguration som inte redan har en associerad. Du kan avgöra om en IP-konfiguration har en associerad offentlig IP-adress genom att ange följande kommando:
 
         ```powershell
         $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
         ```
 
-        Du kan se utdata som liknar följande:
+        Du ser utdata som liknar följande:
 
         ```     
         Name       PrivateIpAddress PublicIpAddress                                           Primary
@@ -296,7 +296,7 @@ Du kan lägga till privata och offentliga IP-adresser till Azure nätverksgräns
         IpConfig-3 10.0.0.6                                                                     False
         ```
 
-        Eftersom den **PublicIpAddress** för *IpConfig-3* är tomt, inga offentliga IP-adressresurs är för närvarande associerad till den. Du kan lägga till en befintlig offentlig IP-adressresurs IpConfig-3 eller ange följande kommando för att skapa en:
+        Eftersom den **PublicIpAddress** kolumn för *IpConfig-3* är tomt används ingen offentlig IP-adressresurs är för närvarande är kopplad dit. Du kan lägga till en befintlig offentlig IP-adressresurs i IpConfig-3 eller ange följande kommando för att skapa en:
 
         ```powershell
         $MyPublicIp3 = New-AzureRmPublicIpAddress `
@@ -321,11 +321,11 @@ Du kan lägga till privata och offentliga IP-adresser till Azure nätverksgräns
     Set-AzureRmNetworkInterface -NetworkInterface $MyNIC
     ```
 
-7. Visa de privata IP-adresserna och de offentliga IP-adressresurser som tilldelats till nätverkskortet genom att ange följande kommando:
+7. Visa de privata IP-adresserna och offentliga IP-adressresurser som tilldelats till nätverkskortet genom att ange följande kommando:
 
     ```powershell   
     $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
     ```
-8. Lägga till den privata IP-adressen i VM-operativsystem genom att slutföra stegen för operativsystemet i den [lägga till IP-adresser till ett VM-operativsystem](#os-config) i den här artikeln. Lägg inte till den offentliga IP-adressen för operativsystemet.
+8. Lägga till den privata IP-adressen till VM-operativsystem genom att följa stegen för operativsystemet i den [Lägg till IP-adresser till ett VM-operativsystem](#os-config) i den här artikeln. Lägg inte till offentliga IP-adress för operativsystemet.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: sethm
 ms.openlocfilehash: 34b647c0405e4d0997eca12758c10b60cf862a5f
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809462"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611240"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-flernivåapp med hjälp av Azure Service Bus-köer
 
@@ -57,7 +57,7 @@ I följande avsnitt pratar vi om den kod som implementerar denna arkitektur.
 
 ## <a name="create-a-namespace"></a>Skapa ett namnområde
 
-Det första steget är att skapa en *namnområde*, och få en [delade signatur åtkomst (SAS)](service-bus-sas.md) nyckel för det namnområdet. Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnet på namnområdet och SAS-nyckeln tillhandahåller autentiseringsuppgifterna för Service Bus som används för att tillåta åtkomst till ett program.
+Det första steget är att skapa en *namnområde*, och få en [signatur för delad åtkomst (SAS)](service-bus-sas.md) nyckel för det namnområdet. Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnet på namnområdet och SAS-nyckeln tillhandahåller autentiseringsuppgifterna för Service Bus som används för att tillåta åtkomst till ett program.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 

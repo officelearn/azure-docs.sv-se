@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Azure IoT Hub-enhet twins (Python) | Microsoft Docs
-description: Hur du använder Azure IoT Hub-enhet twins att lägga till taggar och sedan använda en IoT-hubb-fråga. Azure IoT-SDK för Python används för att implementera simulerade enheten appen och en service-app som lägger till taggar och IoT-hubb-frågan körs.
+title: Kom igång med enhetstvillingar för Azure IoT Hub (Python) | Microsoft Docs
+description: Så här använder enhetstvillingar för Azure IoT Hub för att lägga till taggar och sedan använda en IoT Hub-fråga. Du kan använda Azure IoT SDK för Python för att implementera app för simulerade enheter och en service-app som lägger till taggar och kör IoT Hub-frågan.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: kgremban
 ms.openlocfilehash: 08e457febaa7522cac86e63c0c187d1e8e49daff
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34634989"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619373"
 ---
-# <a name="get-started-with-device-twins-python"></a>Kom igång med enheten twins (Python)
+# <a name="get-started-with-device-twins-python"></a>Kom igång med enhetstvillingar (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-I slutet av den här kursen har du två Python konsolappar:
+I slutet av den här självstudien har du två Python-konsolappar:
 
-* **AddTagsAndQuery.py**, en Python backend-app som lägger till taggar och frågar enheten twins.
-* **ReportConnectivity.py**, en Python-app som simulerar en enhet som ansluter till din IoT-hubb med enhetens identitet skapade tidigare och rapporterar tillståndet anslutningen.
+* **AddTagsAndQuery.py**, en Python backend-app, som lägger till taggar och frågar enhetstvillingar.
+* **ReportConnectivity.py**, en Python-app som simulerar en enhet som ansluter till din IoT-hubb med enhetsidentiteten som skapades tidigare och rapporterar tillståndet för anslutningen.
 
 > [!NOTE]
-> Artikeln [Azure IoT SDK] [ lnk-hub-sdks] innehåller information om Azure IoT-SDK: er som du kan använda för att skapa både enheten och backend-appar.
+> Artikeln [Azure IoT SDK: er] [ lnk-hub-sdks] innehåller information om Azure IoT SDK: er som du kan använda för att skapa appar för både enheten och backend-server.
 > 
 > 
 
@@ -43,8 +43,8 @@ Den här kursen behöver du följande:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-## <a name="create-the-service-app"></a>Skapa service-appen
-I det här avsnittet skapar du en Python-konsolapp som lägger till platsen metadata i enheten-dubbla som är associerade med din **{enhets-Id}**. Frågar sedan enheten-twins lagras i IoT-hubb som att markera de enheter som finns i Redmond och de som rapporterar en mobil anslutning.
+## <a name="create-the-service-app"></a>Skapa service-app
+I det här avsnittet skapar du en Python-konsolapp som lägger till platsmetadata i enhetstvillingen som är associerade med din **{enhets-Id}**. Därefter beordrar enhetstvillingar som lagras i IoT hub att välja de enheter som finns i Redmond och de som rapporterar en mobil anslutning.
 
 1. Öppna en kommandotolk och installera **Azure IoT Hub Service SDK för Python**. Stäng kommandotolken när du har installerat SDK.
 
@@ -52,7 +52,7 @@ I det här avsnittet skapar du en Python-konsolapp som lägger till platsen meta
     pip install azure-iothub-service-client
     ```
 
-1. Med hjälp av en textredigerare, skapa en ny **AddTagsAndQuery.py** fil.
+1. Använd en textredigerare och skapa en ny **AddTagsAndQuery.py** fil.
 
 3. Lägg till följande kod för att importera de moduler som krävs från SDK:n:
 
@@ -62,7 +62,7 @@ I det här avsnittet skapar du en Python-konsolapp som lägger till platsen meta
     from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod
     from iothub_service_client import IoTHubDeviceTwin, IoTHubError
     ```
-2. Lägg till följande kod, ersätta platshållaren för `[IoTHub Connection String]` och `[Device Id]` med anslutningssträngen för IoT-hubb och enhets-id som du skapade i föregående avsnitt.
+2. Lägg till följande kod, Ersätt platshållarvärdet för `[IoTHub Connection String]` och `[Device Id]` med anslutningssträngen för IoT hub och enhets-id som du skapade i föregående avsnitt.
    
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -74,7 +74,7 @@ I det här avsnittet skapar du en Python-konsolapp som lägger till platsen meta
     UPDATE_JSON_CLIENT_SEARCH = "\"connectivity\":\"cellular\""
     ```
 
-1. Lägg till följande kod i den **AddTagsAndQuery.py** fil:
+1. Lägg till följande kod till den **AddTagsAndQuery.py** fil:
    
      ```python
     def iothub_service_sample_run():
@@ -120,7 +120,7 @@ I det här avsnittet skapar du en Python-konsolapp som lägger till platsen meta
             print ( "IoTHub sample stopped" )
     ```
    
-    Den **registret** objektet innehåller de metoder som krävs för att interagera med enheten twins från tjänsten. Koden initierar först den **registret** objekt, uppdateras sedan enheten dubbla för **deviceId**, och slutligen körs två frågor. Först väljer enheten twins av enheter som finns i den **Redmond43** anläggningen och andra förfinar frågan för att markera de enheter som även är anslutna via mobilnät.
+    Den **registret** objektet innehåller alla metoder som krävs för att interagera med enhetstvillingar från tjänsten. Koden först initierar den **registret** objekt och uppdateringar i enhetstvillingen för **deviceId**, och slutligen körs två frågor. Först väljer endast enhetstvillingar av enheter som finns i den **Redmond43** anläggning och andra förfinar fråga för att välja endast de enheter som även är anslutna via mobilnät.
    
 1. Lägg till följande kod i slutet av **AddTagsAndQuery.py** att implementera den **iothub_service_sample_run** funktionen:
    
@@ -137,14 +137,14 @@ I det här avsnittet skapar du en Python-konsolapp som lägger till platsen meta
     python AddTagsAndQuery.py
     ```
    
-    Du bör se en enhet i resultaten för frågan ställa för alla enheter i **Redmond43** och ingen för frågan som begränsar resultat till enheter som använder ett mobilnät.
+    Du bör se en enhet i resultaten för att fråga ställa för alla enheter i **Redmond43** och ingenting alls under den fråga som begränsar resultaten till enheter som använder ett mobilnät.
    
     ![första frågan][1]
 
-I nästa avsnitt skapar du en enhetsapp som rapporterar information om anslutningar och ändras resultatet av frågan i föregående avsnitt.
+I nästa avsnitt skapar du en app för enheter som rapporterar anslutningsinformation och ändras resultatet av frågan i föregående avsnitt.
 
-## <a name="create-the-device-app"></a>Skapa enhetsapp
-I det här avsnittet skapar du en Python-konsolapp som ansluter till din hubb som din **{enhets-Id}**, och sedan uppdaterar sin enhet dubbla har rapporterat att innehålla den information som den är ansluten med hjälp av ett mobilnät.
+## <a name="create-the-device-app"></a>Skapa en app för enheter
+I det här avsnittet skapar du en Python-konsolapp som ansluter till hubben som din **{enhets-Id}**, och sedan de uppdateringar som dess enhetstvilling är rapporterade egenskaper som innehåller informationen om att den är ansluten med hjälp av ett mobilt nätverk.
 
 1. Öppna en kommandotolk och installera **Azure IoT Hub Service SDK för Python**. Stäng kommandotolken när du har installerat SDK.
 
@@ -152,7 +152,7 @@ I det här avsnittet skapar du en Python-konsolapp som ansluter till din hubb so
     pip install azure-iothub-device-client
     ```
 
-1. Med hjälp av en textredigerare, skapa en ny **ReportConnectivity.py** fil.
+1. Använd en textredigerare och skapa en ny **ReportConnectivity.py** fil.
 
 3. Lägg till följande kod för att importera de moduler som krävs från SDK:n:
 
@@ -162,7 +162,7 @@ I det här avsnittet skapar du en Python-konsolapp som ansluter till din hubb so
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
     ```
 
-2. Lägg till följande kod, ersätta platshållaren för `[IoTHub Device Connection String]` med anslutningssträngen för IoT hub-enhet som du skapade i föregående avsnitt.
+2. Lägg till följande kod, Ersätt platshållarvärdet för `[IoTHub Device Connection String]` med anslutningssträngen för IoT hub-enheter som du skapade i föregående avsnitt.
    
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
@@ -175,7 +175,7 @@ I det här avsnittet skapar du en Python-konsolapp som ansluter till din hubb so
     SEND_REPORTED_STATE_CONTEXT = 0
     ```
 
-1. Lägg till följande kod i den **ReportConnectivity.py** fil att implementera enheten twins funktioner:
+1. Lägg till följande kod till den **ReportConnectivity.py** fil att implementera enheten twins funktioner:
 
     ```python
     def device_twin_callback(update_state, payload, user_context):
@@ -224,7 +224,7 @@ I det här avsnittet skapar du en Python-konsolapp som ansluter till din hubb so
             print ( "IoTHubClient sample stopped" )
     ```   
 
-    Den **klienten** objektet innehåller de metoder som du behöver för att interagera med enheten twins från enheten. Föregående kod när den initieras den **klienten** objekt, hämtar enheten dubbla för din enhet och uppdaterar egenskapen rapporterade med information om anslutningar.
+    Den **klienten** objektet innehåller alla metoder som du behöver för att interagera med enhetstvillingar från enheten. Föregående kod när den initierar den **klienten** objekt, hämtar enhetstvillingen för din enhet och uppdaterar sin rapporterad egenskap med anslutningsinformation.
 
 1. Lägg till följande kod i slutet av **ReportConnectivity.py** att implementera den **iothub_client_sample_run** funktionen:
    
@@ -235,34 +235,34 @@ I det här avsnittet skapar du en Python-konsolapp som ansluter till din hubb so
         iothub_client_sample_run()
     ```
 
-1. Kör enhetsapp
+1. Kör app för enheter
    
     ```cmd/sh
     python ReportConnectivity.py
     ```
    
-    Du bör se en bekräftelse enheten twins har uppdaterats.
+    Du bör se en bekräftelse på enhetstvillingar har uppdaterats.
 
     ![Uppdatera twins][2]
 
-6. Nu när enheten rapporteras dess anslutningsinformation, bör den visas i båda frågor. Gå tillbaka och kör frågorna igen:
+6. Nu när enheten rapporteras dess anslutningsinformation som det visas i båda frågor. Gå tillbaka och köra frågor igen:
    
     ```cmd/sh
     python AddTagsAndQuery.py
     ```
    
-    Den här gången din **{enhets-Id}** ska visas i båda frågeresultaten.
+    Den här gången din **{enhets-Id}** ska visas i båda frågeresultatet.
    
     ![andra frågan][3]
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen konfigurerade du en ny IoT Hub på Azure Portal och skapade sedan en enhetsidentitet i IoT-hubbens identitetsregister. Du lagt till enhetsmetadata som taggar från en backend-app och skrev en simulerad enhetsapp till enheten anslutningsinformation i dubbla för enheten. Du också fått lära dig hur man frågar den här informationen med hjälp av registret.
+I den här självstudiekursen konfigurerade du en ny IoT Hub på Azure Portal och skapade sedan en enhetsidentitet i IoT-hubbens identitetsregister. Du har lagts till enhetsmetadata som taggar från en backend-app och skrev en simulerad enhetsapp till rapporten anslutning enhetsinformation i enhetstvillingen. Du också lärt dig hur du frågar efter den här informationen med hjälp av registret.
 
 Använd följande resurser för att lära dig hur du:
 
-* Skicka telemetri från enheter med den [Kom igång med IoT-hubb] [ lnk-iothub-getstarted] självstudiekursen
-* Konfigurera enheter med hjälp av enheten två egenskaper med den [Använd önskad egenskaper att konfigurera enheter] [ lnk-twin-how-to-configure] självstudiekursen
-* Kontrollera enheter interaktivt (till exempel aktivera fläktar från en användare-kontrollerade app), med den [metoder från direkt] [ lnk-methods-tutorial] kursen.
+* Skicka telemetri från enheter med den [Kom igång med IoT Hub] [ lnk-iothub-getstarted] självstudien
+* Konfigurera enheter som använder enhetstvillingens egenskaper med den [Använd önskade egenskaper för att konfigurera enheter] [ lnk-twin-how-to-configure] självstudien
+* Kontrollera enheter interaktivt (till exempel aktivera en fans, från en användarstyrd app) och med den [Använd direkta metoder] [ lnk-methods-tutorial] självstudien.
 
 <!-- images -->
 [1]: media/iot-hub-python-twin-getstarted/1.png

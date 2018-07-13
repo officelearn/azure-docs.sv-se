@@ -15,25 +15,25 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: terrylan
 ms.openlocfilehash: 847127c96f23bbeb3cf3a5d1c9768af6e0cc0dc4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203979"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619117"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Insamling av data i Azure Security Center
-Security Center samlar in data från dina virtuella Azure-datorer (VM) och Azure-datorer att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: operativsystemets typ och version, operativsystemloggar (Windows-händelseloggar), processer som körs, datornamn, IP-adresser, inloggad användare och klient-ID. Microsoft Monitoring Agent kopieras också kraschdumpfiler till arbetsytan.
+Security Center samlar in data från dina virtuella Azure-datorer (VM) och icke-Azure-datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: operativsystemets typ och version, operativsystemloggar (Windows-händelseloggar), processer som körs, datornamn, IP-adresser, inloggad användare och klient-ID. Microsoft Monitoring Agent kopierar också kraschdumpfiler till din arbetsyta.
 
 ## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Aktivera automatisk etablering av Microsoft Monitoring Agent     
-Automatisk etablering är inaktiverat som standard. När automatisk etablering är aktiverat, stöds Security Center tillhandahåller Microsoft Monitoring Agent på alla virtuella datorer i Azure och nya filer som skapas. Automatisk etablering rekommenderas men manuell agentinstallation är också tillgänglig. [Lär dig hur du installerar tillägget för Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
+Automatisk etablering är inaktiverat som standard. När automatisk etablering är aktiverat, stöds etablerar Security Center Microsoft Monitoring Agent på alla virtuella Azure-datorer och alla nya som skapas. Automatisk försörjning rekommenderas starkt men manuell agentinstallation är också tillgängliga. [Lär dig hur du installerar tillägget Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 > [!NOTE]
-> Inaktivering av automatisk etablering begränsar säkerhetsövervakningen för dina resurser. Läs mer i [inaktivera automatisk etablering](security-center-enable-data-collection.md#disable-automatic-provisioning) i den här artikeln. Virtuella diskbilder aktiveras artefakt samlingen och även om Automatisk etablering har inaktiverats.
+> Inaktivering av automatisk etablering begränsar säkerhetsövervakningen för dina resurser. Mer information finns i [inaktivera automatisk etablering](security-center-enable-data-collection.md#disable-automatic-provisioning) i den här artikeln. Virtuella datordisker och artefaktinsamling är aktiverade även om Automatisk etablering är inaktiverad.
 >
 >
 
 Så här aktiverar du automatisk försörjning för Microsoft Monitoring Agent:
-1. Välj under huvudmenyn Security Center **säkerhetsprincip**.
+1. Huvudmenyn i Security Center, Välj **säkerhetsprincip**.
 2. Välj prenumerationen.
 
   ![Välj en prenumeration][7]
@@ -45,70 +45,70 @@ Så här aktiverar du automatisk försörjning för Microsoft Monitoring Agent:
   ![Aktivera automatisk försörjning][1]
 
 ## <a name="default-workspace-configuration"></a>Standardkonfiguration för arbetsyta
-Data som samlas in av Security Center lagras i logganalys arbetsytor.  Du kan välja att få data som samlas in från virtuella datorer lagras i arbetsytor som skapats av Security Center eller i en befintlig arbetsyta som du skapade i Azure.
+Data som samlas in av Security Center lagras i Log Analytics-arbetsytor.  Du kan välja att låta data som samlas in från virtuella Azure-datorer lagras i arbetsytor som skapats av Security Center eller i en befintlig arbetsyta som du skapade.
 
-Använda din befintliga logganalys-arbetsyta:
-- Arbetsytan måste vara kopplad till din valda Azure-prenumeration.
-- Åtminstone, måste du ha läsbehörighet till arbetsytan.
+Använda din befintliga Log Analytics-arbetsyta:
+- Arbetsytan måste vara associerad med din valda Azure-prenumeration.
+- Som ett minimum måste du ha läsbehörighet till arbetsytan.
 
-Att välja en befintlig logganalys-arbetsyta:
+Att välja en befintlig Log Analytics-arbetsyta:
 
-1. Under **arbetsytan standardkonfigurationen**väljer **använder en annan arbetsyta**.
+1. Under **standardkonfigurationen för arbetstytan**väljer **använder en annan arbetsyta**.
 
    ![Välj en befintlig arbetsyta][2]
 
-2. Välj en arbetsyta för att spara insamlade data i den nedrullningsbara menyn.
+2. Välj en arbetsyta för att lagra insamlade data från den nedrullningsbara menyn.
 
   > [!NOTE]
-  > Alla arbetsytor för alla dina prenumerationer är tillgängliga i nedrullningsbara menyn. Se [mellan prenumeration arbetsytan markeringen](security-center-enable-data-collection.md#cross-subscription-workspace-selection) för mer information.
+  > Alla arbetsytor för alla dina prenumerationer är tillgängliga i nedrullningsbara menyn. Se [mellan val av arbetsyta prenumeration](security-center-enable-data-collection.md#cross-subscription-workspace-selection) för mer information.
   >
   >
 
 3. Välj **Spara**.
-4. När du har valt **spara**, tillfrågas du om du vill konfigurera om övervakas virtuella datorer.
+4. När du har valt **spara**, tillfrågas du om du vill konfigurera om övervakade virtuella datorer.
 
-   - Välj **nr** om du vill tillämpa på nya virtuella datorer bara de nya arbetsyteinställningarna för. De nya arbetsyteinställningarna gäller endast för nya agentinstallationer; Nyligen identifierade virtuella datorer som inte har Microsoft Monitoring Agent installerad.
-   - Välj **Ja** om du vill att de nya arbetsyteinställningarna för ska tillämpas på alla virtuella datorer. Dessutom återansluta var ansluten till en Security Center skapade arbetsytan VM till den nya målarbetsytan.
+   - Välj **nr** om du vill att de nya arbetsyteinställningarna tillämpas på nya datorer. De nya arbetsyteinställningarna gäller endast för nya agentinstallationer; Nyligen identifierade virtuella datorer som inte har Microsoft Monitoring Agent installerad.
+   - Välj **Ja** om du vill att de nya arbetsyteinställningarna tillämpas på alla virtuella datorer. Dessutom kan återansluta varje virtuell dator som är anslutna till en Security Center som skapat arbetsyta till den nya målarbetsytan.
 
    > [!NOTE]
-   > Om du väljer Ja kan du inte ta bort arbetsytor som skapats av Security Center tills alla virtuella datorer har återanslutit till målarbetsytan. Den här åtgärden misslyckas om en arbetsyta tas bort för tidigt.
+   > Om du väljer Ja måste du inte ta bort arbetsytor som skapats av Security Center tills alla virtuella datorer har återanslutit till den nya målarbetsytan. Den här åtgärden misslyckas om en arbetsyta har tagits bort för tidigt.
    >
    >
 
-   - Välj **Avbryt** avbryta åtgärden.
+   - Välj **Avbryt** att avbryta åtgärden.
 
      ![Välj en befintlig arbetsyta][3]
 
-## <a name="cross-subscription-workspace-selection"></a>Mellan prenumeration arbetsytan markering
-Alla arbetsytor för alla dina prenumerationer är tillgängliga när du väljer en arbetsyta för att lagra data. Mellan prenumerationer kan arbetsytan val du samla in data från virtuella datorer som körs i olika prenumerationer och lagra den på arbetsytan i ditt val. Den här funktionen fungerar för både virtuella datorer som kör Linux och Windows.
+## <a name="cross-subscription-workspace-selection"></a>Mellan prenumeration val av arbetsyta
+När du väljer en arbetsyta för att lagra dina data finns alla arbetsytor för alla dina prenumerationer. Mellan prenumerationer kan val av arbetsyta du samla in data från virtuella datorer som körs i olika prenumerationer och lagra den på arbetsytan i ditt val. Den här funktionen fungerar för både virtuella datorer som körs på Linux och Windows.
 
 > [!NOTE]
-> Arbetsytan markeringen är en del av Azure Security Center kostnadsfria nivån mellan prenumerationer. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
+> Val av arbetsyta är en del av kostnadsfria nivån av Azure Security Center mellan prenumerationer. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
 >
 >
 
-## <a name="data-collection-tier"></a>Samlingen datanivå
+## <a name="data-collection-tier"></a>Samling datanivå
 Security Center kan minska mängden händelser samtidigt tillräckligt med händelser för undersökning, granskning och hotidentifiering. Du kan välja rätt filtrera principer för dina prenumerationer och arbetsytor från fyra uppsättningar av händelser som ska samlas in av agenten.
 
-- **Alla händelser** – för kunder som vill kontrollera att alla händelser har samlats in. Detta är standardinställningen.
-- **Vanliga** – detta är en uppsättning händelser som uppfyller de flesta kunder och låter dem en fullständig verifieringskedja.
+- **Alla händelser** – för kunder som vill se till att alla händelser har samlats in. Detta är standardinställningen.
+- **Vanliga** – det här är en uppsättning händelser som uppfyller de flesta kunder och låter dem till fullständiga spårningen.
 - **Minimal** – en mindre uppsättning händelser för kunder som vill minimera händelse volymen.
-- **Ingen** – inaktivera säkerhet händelseinsamling från säkerhets- och AppLocker-loggarna. För kunder som väljer det här alternativet har sina säkerhet instrumentpaneler endast Windows-brandväggen loggar och proaktiv bedömningar som program mot skadlig kod, baslinjen och uppdatering.
+- **Ingen** – inaktivera security händelseinsamling från säkerhet och AppLocker-loggar. För kunder som väljer det här alternativet kan ha sina security instrumentpaneler endast loggar från Windows-brandväggen och proaktiva utvärderingar som program mot skadlig kod, baslinjen och uppdatering.
 
 > [!NOTE]
-> Dessa händelser anger för säkerhet är bara tillgängliga på standardnivån för Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
-Dessa uppsättningar har utformats för att adressera vanliga scenarier. Se till att utvärdera vilket som passar dina behov före implementeringen.
+> Uppsättningarna security händelser är endast tillgängliga på standardnivån i Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
+Dessa uppsättningar har utformats för att hantera vanliga scenarier. Se till att utvärdera vilket alternativ som passar dina behov innan du implementerar den.
 >
 >
 
-Att fastställa de händelser som hör till den **vanliga** och **Minimal** händelse anger vi arbetat med kunder och standarder för att lära dig om ofiltrerade frekvensen för varje händelse och deras användning. Vi använde följande riktlinjer i den här processen:
+Att fastställa de händelser som hör till den **vanliga** och **Minimal** händelse mängder, vi har samarbetat med kunder och branschstandarder för att lära dig om ofiltrerade frekvensen för varje händelse och deras användning. Vi använde följande riktlinjer i den här processen:
 
-- **Minimal** -Kontrollera att den här uppsättningen omfattar händelser som kan indikera en lyckad överträdelse och viktiga händelser som har mycket låg. Till exempel den här uppsättningen innehåller lyckade och misslyckade användarinloggning (händelse-ID: N 4624 4625), men det innehåller inte logga ut som är viktiga för granskning men inte användbar för att identifiera och har relativt hög volym. De flesta av datavolymen i den här uppsättningen är inloggningshändelser och process skapas händelser (händelse-ID 4688).
-- **Vanliga** -ange en fullständig användaren verifieringskedja i den här uppsättningen. Den här uppsättningen innehåller till exempel både användarinloggningar och användarutloggning (händelse-ID 4634). Vi inkludera granskning åtgärder som ändringarna, viktiga domain controller Kerberos åtgärder och andra händelser som rekommenderas av organisationer inom.
+- **Minimal** – se till att den här uppsättningen omfattar endast de händelser som kan indikera en lyckad intrång och viktiga händelser som har en mycket låg volym. Exempelvis kan den här uppsättningen innehåller lyckade och misslyckade användarinloggning (händelse-ID 4624 4625), men den innehåller inte utloggning som är viktiga för granskning, men inte beskrivande för identifiering och har relativt stor volym. De flesta av datavolymen för den här uppsättningen är inloggningshändelser och skapa processhändelse (händelse-ID 4688).
+- **Vanliga** -ange en fullständig användarspårning i den här uppsättningen. Den här uppsättningen innehåller till exempel både användarinloggningar och utloggningar (händelse-ID 4634). Vi tar granskning åtgärder som att ändringarna, viktiga domain controller Kerberos åtgärder och andra händelser som rekommenderas av organisationer inom.
 
-Händelser som har mycket små volymer ingick i uppsättningen som huvudsakliga syfte att välja det över alla händelser är att minska volymen och inte för att filtrera ut specifika händelser.
+Händelser som har mycket små volymer ingick i den gemensamma som huvudsakliga skälet att välja det över alla händelser är att minska mängden och inte för att filtrera bort specifika händelser.
 
-Här är en fullständig uppdelning av den säkerhet och AppLocker händelsen-ID för varje uppsättning:
+Här är en fullständig uppdelning av säkerhets- och AppLocker händelse-ID för varje uppsättning:
 
 | Datanivå | Insamlade händelser indikatorer |
 | --- | --- |
@@ -123,42 +123,42 @@ Här är en fullständig uppdelning av den säkerhet och AppLocker händelsen-ID
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> Om du använder grupprincipobjekt (GPO), rekommenderas att du aktiverar granskningsprinciper processen att skapa händelsen 4688 och *CommandLine* fältet inuti 4688-händelse. Mer information om processen att skapa händelsen 4688 finns i Security Center [vanliga frågor och svar](security-center-faq.md#what-happens-when-data-collection-is-enabled). Mer information om dessa granskningsprinciper, se [Granska principrekommendationer](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+> Om du använder grupprincipobjekt (GPO), rekommenderar vi att du aktiverar granskningsprinciper processen skapa händelse 4688 och *CommandLine* fältet i händelsen 4688. Mer information om processen att skapa händelse 4688 finns i Security Center [vanliga frågor och svar](security-center-faq.md#what-happens-when-data-collection-is-enabled). Mer information om dessa granskningsprinciper, se [granska rekommendationer](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
 >
 >
 
-Välja din princip för filtrering:
-1. På den **säkerhetsprincip datainsamling** bladet Välj din filtrering princip under **säkerhetshändelser**.
+Att välja din filtreringsprincip:
+1. På den **säkerhetsprincip datainsamling** bladet Välj din filtreringsprincip under **säkerhetshändelser**.
 2. Välj **Spara**.
 
    ![Välj filtrera principer][5]
 
 ## <a name="disable-automatic-provisioning"></a>Inaktivera automatisk etablering
-Du kan inaktivera automatisk etablering från resurser när som helst genom att stänga av den här inställningen i säkerhetsprincipen. Automatisk etablering rekommenderas för att få säkerhetsaviseringar och rekommendationer om systemuppdateringar, OS säkerhetsrisker och endpoint protection.
+Du kan inaktivera automatisk etablering från resurser när som helst genom att stänga av den här inställningen i säkerhetsprincipen. Automatisk försörjning rekommenderas starkt för att få säkerhetsaviseringar och rekommendationer om systemuppdateringar, OS-säkerhetsproblem och endpoint protection.
 
 > [!NOTE]
 > Inaktivering av automatisk etablering tar inte bort Microsoft Monitoring Agent från virtuella Azure-datorer där agenten har etablerats.
 >
 >
 
-1. Tillbaka till huvudmenyn Security Center och väljer säkerhetsprincipen.
+1. Återgå till huvudmenyn i Security Center och välj säkerhetsprincipen.
 2. Välj den prenumeration du vill avaktivera automatisk etablering för.
 3. På den **säkerhetsprincip – datainsamling** bladet under **Automatisk etablering** Välj **av**.
 4. Välj **Spara**.
 
   ![Inaktivera automatisk etablering][6]
 
-Konfigurationsavsnittet standard arbetsytan visas inte när automatisk etablering är inaktiverat (inaktiverad).
+När automatisk etablering är inaktiverat (inaktiverad), visas inte i konfigurationsavsnittet för standard-arbetsytan.
 
 ## <a name="next-steps"></a>Nästa steg
 Den här artikeln visar dig hur datainsamling och automatisk etablering i Security Center fungerar. I följande avsnitt kan du lära dig mer om Security Center:
 
 * [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
-* [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md) – Lär dig rekommendationer för att skydda dina Azure-resurser.
+* [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Här kan du läsa om hur du övervakar dina Azure-resursers hälsa.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur du övervakar dina partnerlösningars hälsostatus.
-- [Datasäkerhet i Azure Security Center](security-center-data-security.md) – Lär dig hur data hanteras och garanteras i Security Center.
+- [Datasäkerhet i Azure Security Center](security-center-data-security.md) – Lär dig hur data hanteras och skyddas i Security Center.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Här finns vanliga frågor om tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här kan du hitta de senaste nyheterna och aktuell information om säkerheten i Azure .
 

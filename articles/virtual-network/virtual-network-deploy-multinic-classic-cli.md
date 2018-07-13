@@ -1,6 +1,6 @@
 ---
 title: Skapa en virtuell dator (klassisk) med flera nätverkskort – Azure CLI 1.0 | Microsoft Docs
-description: Lär dig hur du skapar en virtuell dator (klassisk) med flera nätverkskort som använder Azure-kommandoradsgränssnittet (CLI) 1.0.
+description: Lär dig hur du skapar en virtuell dator (klassisk) med flera nätverkskort med hjälp av kommandoradsgränssnittet (CLI) 1.0.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -17,48 +17,48 @@ ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0b56ab474ff23748487c50bd34487c80242c6429
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792087"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38651994"
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Skapa en virtuell dator (klassisk) med flera nätverkskort som använder Azure CLI 1.0
+# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Skapa en virtuell dator (klassisk) med flera nätverkskort med hjälp av Azure CLI 1.0
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
-Du kan skapa virtuella datorer (VM) i Azure och koppla flera nätverksgränssnitt (NIC) till var och en av dina virtuella datorer. Flera nätverkskort aktivera uppdelning av trafiktyper mellan nätverkskort. Till exempel kan ett nätverkskort kommunicera med Internet, medan en annan kommunicerar endast med interna resurser som inte är ansluten till Internet. Möjligheten att separera trafik över flera nätverkskort krävs för många virtuella nätverksenheter, till exempel leverans av program och optimering av WAN-lösningar.
+Du kan skapa virtuella datorer (VM) i Azure och koppla flera nätverksgränssnitt (NIC) till var och en av dina virtuella datorer. Flera nätverkskort kan du aktivera uppdelning av trafiktyper på nätverkskort. Till exempel kan ett nätverkskort kommunicera med Internet, medan en annan kommunicerar endast med interna resurser som inte är ansluten till Internet. Möjligheten att separera trafik över flera nätverkskort krävs för många virtuella nätverksenheter, till exempel program och lösningar för WAN-optimering.
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du utför dessa steg med hjälp av den [Resource Manager-distributionsmodellen](../virtual-machines/linux/multiple-nics.md).
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du utför de här stegen med hjälp av den [Resource Manager-distributionsmodellen](../virtual-machines/linux/multiple-nics.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Följande steg använder en resursgrupp med namnet *IaaSStory* för webbservrar och en resursgrupp med namnet *IaaSStory BackEnd* för DB-servrar.
+Följande steg använder en resursgrupp med namnet *IaaSStory* för webbservrar och en resursgrupp med namnet *IaaSStory-BackEnd* för DB-servrar.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du kan skapa DB-servrar, måste du skapa den *IaaSStory* resursgrupp med alla nödvändiga resurser för det här scenariot. Följ instruktionerna som följer för att skapa dessa resurser. Skapa ett virtuellt nätverk genom att följa stegen i den [skapa ett virtuellt nätverk](virtual-networks-create-vnet-classic-cli.md) artikel.
+Innan du kan skapa DB-servrar, måste du skapa den *IaaSStory* resursgrupp med alla nödvändiga resurser för det här scenariot. Slutför stegen nedan om du vill skapa dessa resurser. Skapa ett virtuellt nätverk genom att följa stegen i den [skapa ett virtuellt nätverk](virtual-networks-create-vnet-classic-cli.md) artikeln.
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## <a name="deploy-the-back-end-vms"></a>Distribuera de virtuella datorerna serverdel
-Backend-VMs beror på att skapa följande resurser:
+## <a name="deploy-the-back-end-vms"></a>Distribuera virtuella datorer i backend-server
+Backend-virtuella datorer beror på att skapa följande resurser:
 
-* **Storage-konto för datadiskar**. För bättre prestanda använder datadiskar på databasservrarna Solid-State-hårddisk (SSD)-teknik som kräver ett premiumlagringskonto. Kontrollera att den Azure-plats som du distribuerar för att stödja premium-lagring.
+* **Storage-konto för datadiskar**. Få bättre prestanda använder datadiskar på databasservrarna har solid state-hårddisk (SSD) teknik, som kräver ett premium storage-konto. Kontrollera att den Azure-plats du distribuerar för stöd för premium storage.
 * **Nätverkskort**. Varje virtuell dator har två nätverkskort, ett för åtkomst till databasen, och en för hantering.
-* **Tillgänglighetsuppsättning**. Alla databasservrar läggs till en enda tillgänglighet ange att se till att minst en av de virtuella datorerna är igång och körs under underhåll.
+* **Tillgänglighetsuppsättning**. Alla databasservrar läggs till en enda tillgänglighetsuppsättning, att se till att minst en av de virtuella datorerna är igång och körs under underhåll.
 
 ### <a name="step-1---start-your-script"></a>Steg 1 – starta skriptet
-Du kan hämta fullständig bash-skript används [här](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Utför följande steg om du vill ändra skriptet fungerar i din miljö:
+Du kan hämta den fullständiga bash-skript används [här](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Utför följande steg om du vill ändra skriptet så att det fungerar i din miljö:
 
-1. Ändra värdena för variablerna nedan baserat på en befintlig resursgrupp distribuerade ovan i [krav](#Prerequisites).
+1. Ändra värdena för variabler nedan baserat på en befintlig resursgrupp som distribueras ovan i [krav](#Prerequisites).
 
     ```azurecli
     location="useast2"
     vnetName="WTestVNet"
     backendSubnetName="BackEnd"
     ```
-2. Ändra värdena för variabler nedan baserat på de värden som du vill använda för backend-distribution.
+2. Ändra värdena för variabler nedan baserat på de värden som du vill använda för din serverdel-distribution.
 
     ```azurecli
     backendCSName="IaaSStory-Backend"
@@ -77,15 +77,15 @@ Du kan hämta fullständig bash-skript används [här](https://raw.githubusercon
     numberOfVMs=2
     ```
 
-### <a name="step-2---create-necessary-resources-for-your-vms"></a>Steg 2 – skapa nödvändiga resurser för din virtuella datorer
-1. Skapa en ny molntjänst för alla virtuella datorer i serverdelen. Observera användningen av den `$backendCSName` variabel för resursgruppens namn och `$location` för Azure-regionen.
+### <a name="step-2---create-necessary-resources-for-your-vms"></a>Steg 2 – skapa nödvändiga resurser för dina virtuella datorer
+1. Skapa en ny molntjänst för alla virtuella datorer i serverdelen. Observera användningen av den `$backendCSName` variabel för resursgruppens namn och `$location` för Azure-region.
 
     ```azurecli
     azure service create --serviceName $backendCSName \
         --location $location
     ```
 
-2. Skapa ett premiumlagringskonto för Operativsystemet och datadiskarna som ska användas av dina virtuella datorer.
+2. Skapa ett premium storage-konto för Operativsystemet och datadiskarna som ska användas av dina virtuella datorer.
 
     ```azurecli
     azure storage account create $prmStorageAccountName \
@@ -94,14 +94,14 @@ Du kan hämta fullständig bash-skript används [här](https://raw.githubusercon
     ```
 
 ### <a name="step-3---create-vms-with-multiple-nics"></a>Steg 3 – skapa virtuella datorer med flera nätverkskort
-1. Starta en loop om du vill skapa flera virtuella datorer, baserat på den `numberOfVMs` variabler.
+1. Starta en loop för att skapa flera virtuella datorer, baserat på den `numberOfVMs` variabler.
 
     ```azurecli
     for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
     do
     ```
 
-2. Ange namn och IP-adressen för var och en av de två nätverkskorten för varje virtuell dator.
+2. Ange namn och IP-adressen för var och en av de två nätverkskort för varje virtuell dator.
 
     ```azurecli
     nic1Name=$vmNamePrefix$suffixNumber-DA
@@ -113,7 +113,7 @@ Du kan hämta fullständig bash-skript används [här](https://raw.githubusercon
     ipAddress2=$ipAddressPrefix$x
     ```
 
-3. Skapa den virtuella datorn. Observera användningen av den `--nic-config` parametern, som innehåller en lista över alla nätverkskort med namnet, undernät och IP-adress.
+3. Skapa den virtuella datorn. Observera användningen av den `--nic-config` parametern, som innehåller en lista över alla nätverkskort med namn, undernätet och IP-adress.
 
     ```azurecli
     azure vm create $backendCSName $image $username $password \
@@ -127,7 +127,7 @@ Du kan hämta fullständig bash-skript används [här](https://raw.githubusercon
         --nic-config $nic1Name:$backendSubnetName:$ipAddress1::,$nic2Name:$backendSubnetName:$ipAddress2::
     ```
 
-4. Skapa två hårddiskar för varje virtuell dator.
+4. Skapa två datadiskar för varje virtuell dator.
 
     ```azurecli
     azure vm disk attach-new $vmNamePrefix$suffixNumber \
@@ -140,10 +140,10 @@ Du kan hämta fullständig bash-skript används [här](https://raw.githubusercon
     done
     ```
 
-### <a name="step-4---run-the-script"></a>Steg 4 – kör skriptet
-Nu när du har hämtat och ändra skriptet baserat på dina behov, kör du skriptet för att skapa serverdelen databasen virtuella datorer med flera nätverkskort.
+### <a name="step-4---run-the-script"></a>Steg 4: kör skript
+Nu när du har hämtat och ändra skriptet utifrån dina behov, kör du skriptet för att skapa serverdelen databasen virtuella datorer med flera nätverkskort.
 
-1. Spara skriptet och kör det från din **Bash** terminal. Inledande utdata visas enligt nedan.
+1. Spara skriptet och köra den från din **Bash** terminal. Den första utdatan visas enligt nedan.
 
         info:    Executing command service create
         info:    Creating cloud service
@@ -160,7 +160,7 @@ Nu när du har hämtat och ändra skriptet baserat på dina behov, kör du skrip
         info:    Looking up deployment
         info:    Creating VM
 
-2. Körningen avslutas efter några minuter och du kommer att se resten av utdata som visas nedan.
+2. Körningen avslutas efter några minuter och visas resten av utdata som visas nedan.
 
         info:    OK
         info:    vm create command OK
@@ -190,6 +190,6 @@ Nu när du har hämtat och ändra skriptet baserat på dina behov, kör du skrip
         info:    Adding Data-Disk
         info:    vm disk attach-new command OK
 
-### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Steg 5 – konfigurera routning i operativsystemet för den virtuella datorn
+### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Steg 5 – konfigurera routning i den Virtuella datorns operativsystem
 
-Azure DHCP tilldelar en standard-gateway till det första (primära) nätverksgränssnittet kopplade till den virtuella datorn. Azure tilldelar inte en standardgateway till ytterligare (sekundära) nätverksgränssnitt som är kopplade till en virtuell dator. Du kan därför som standard inte kommunicera med resurser utanför det undernät som är ett sekundärt nätverksgränssnitt befinner sig i. Sekundära nätverksgränssnitt kan dock kommunicera med resurser utanför deras undernät. Om du vill konfigurera routning för sekundära nätverksgränssnitt, se [routning i ett operativsystem för virtuella datorer med flera nätverksgränssnitt](virtual-network-network-interface-vm.md).
+Azure DHCP tilldelar en standard-gateway till den första (primära) nätverksgränssnitt kopplat till den virtuella datorn. Azure tilldelar inte en standardgateway till ytterligare (sekundära) nätverksgränssnitt som är kopplade till en virtuell dator. Du kan därför som standard inte kommunicera med resurser utanför det undernät som är ett sekundärt nätverksgränssnitt befinner sig i. Sekundära nätverksgränssnitt kan dock kommunicera med resurser utanför deras undernät. För att konfigurera routning för sekundära nätverksgränssnitt, se [routning i ett operativsystem för virtuell dator med flera nätverksgränssnitt](virtual-network-network-interface-vm.md).

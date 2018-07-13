@@ -1,6 +1,6 @@
 ---
-title: Jämföra anpassade avbildningar och formler i DevTest Labs | Microsoft Docs
-description: Lär dig mer om skillnaderna mellan anpassade avbildningar och formler som VM baserar så att du kan bestämma vilket som passar din miljö.
+title: Jämföra anpassade bilder och formler i DevTest Labs | Microsoft Docs
+description: Läs mer om skillnaderna mellan anpassade bilder och formler som VM-baser så att du kan avgöra vilken som bäst passar din miljö.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,35 +15,35 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 37288fd4a9c7558d05728b8ce03df505117e0232
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787446"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611278"
 ---
-# <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Jämföra anpassade avbildningar och formler i DevTest Labs
-Båda [anpassade avbildningar](devtest-lab-create-template.md) och [formler](devtest-lab-manage-formulas.md) kan användas som grund för [skapa nya virtuella datorer](devtest-lab-add-vm.md). Dock viktiga skillnaden mellan anpassade avbildningar och formler är att en anpassad avbildning är helt enkelt en avbildning baserat på en virtuell Hårddisk, medan en formel är en avbildning baserat på en virtuell Hårddisk *förutom* förkonfigurerade inställningar – till exempel VM-storlek, virtuella nätverk, undernät och artefakter. Inställningarna förinställda ställs in med standardvärden som kan åsidosättas vid tidpunkten för att skapa en virtuell dator. Den här artikeln förklarar några av (tekniker) och nackdelar (nackdelar) till att använda anpassade avbildningar jämfört med formler.
+# <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Jämföra anpassade bilder och formler i DevTest Labs
+Båda [anpassade avbildningar](devtest-lab-create-template.md) och [formler](devtest-lab-manage-formulas.md) kan användas som grund för [skapas nya virtuella datorer](devtest-lab-add-vm.md). Dock viktiga skillnaden mellan anpassade bilder och formler är att en anpassad avbildning är helt enkelt en avbildning baserat på en virtuell Hårddisk, medan en formel är en avbildning baserat på en virtuell Hårddisk *förutom* förkonfigurerade inställningar – till exempel VM-storlek, virtuellt nätverk undernät och artefakter. Dessa förkonfigurerade inställningar är inställda med standardvärden som kan åsidosättas när den virtuella datorn skapas. Den här artikeln förklarar några av (personal) och nackdelarna (nackdelar) till att använda anpassade bilder med hjälp av formler.
 
-## <a name="custom-image-pros-and-cons"></a>Anpassad bild- och nackdelar
-Anpassade avbildningar är statisk, ändras kan du skapa virtuella datorer från en önskad miljö. 
+## <a name="custom-image-pros-and-cons"></a>Anpassad avbildning- och nackdelar
+Anpassade avbildningar är en statisk, kan ändras sätt att skapa virtuella datorer från en önskad miljö. 
 
-**Tekniker**
+**Experter**
 
-* Etablering av virtuell dator från en anpassad avbildning är snabb eftersom inget ändras när den virtuella datorn är de från avbildningen. Med andra ord, finns det inga inställningar att tillämpa den anpassade avbildningen är en bild utan inställningar. 
-* Virtuella datorer skapas från en anpassad bild är identiska.
+* Det går snabbt att etablering av virtuella datorer från en anpassad avbildning som ingenting ändras när den virtuella datorn startas från avbildningen. Med andra ord, finns det inga inställningar tillämpas som den anpassade avbildningen är bara en bild utan inställningar. 
+* Virtuella datorer som skapas från en enda anpassad avbildning är identiska.
 
 **Nackdelar**
 
-* Om du behöver uppdatera viss aspekt av den anpassade avbildningen måste du återskapa avbildningen.  
+* Om du behöver uppdatera någon aspekt av den anpassade avbildningen måste du återskapa avbildningen.  
 
 ## <a name="formula-pros-and-cons"></a>Formeln- och nackdelar
-Formler ger ett dynamiskt sätt att skapa virtuella datorer från önskade konfigurationsinställningarna.
+Formler är ett dynamiskt sätt att skapa virtuella datorer från önskad konfigurationsinställningarna.
 
-**Tekniker**
+**Experter**
 
-* Ändringar i miljön kan hämtas direkt via artefakter. Om du vill att en virtuell dator som installerats med den senaste bits från din pipeline versionen eller registrera senaste koden från din lagringsplats kan du bara ange en artefakt som distribuerar den senaste bits eller anlitar senaste koden i formeln tillsammans med en mål-basavbildning. När den här formeln används för att skapa virtuella datorer, är den senaste bits/kod distribueras/registrerad till den virtuella datorn. 
-* Formler kan definiera standardinställningar som anpassade avbildningar inte kan tillhandahålla - som VM-storlekar och inställningarna för virtuella nätverk. 
-* Inställningarna sparas i en formel som standardvärden, men kan ändras när den virtuella datorn skapas. 
+* Förändringar i miljön kan hämtas direkt via artefakter. Till exempel om du vill att en virtuell dator som installeras med de senaste nyheterna från din releasepipeline eller registrera den senaste koden från din lagringsplats, kan du bara ange en artefakt som distribuerar de senaste nyheterna eller registreras senaste koden i formeln tillsammans med en mål-bas bild. Varje gång den här formeln används för att skapa virtuella datorer, är den senaste bits/koden distribueras/registrerad till den virtuella datorn. 
+* Formler kan definiera standardinställningar som anpassade avbildningar inte kan tillhandahålla – till exempel VM-storlekar och inställningar för virtuella nätverk. 
+* Inställningarna sparas i en formel visas som standardvärden, men kan ändras när den virtuella datorn skapas. 
 
 **Nackdelar**
 

@@ -1,52 +1,33 @@
 ---
 title: Distribuera flera instanser av Azure-resurser | Microsoft Docs
-description: Använd kopieringen och matriser i en Azure Resource Manager-mall för att iterera flera gånger när du distribuerar resurser.
+description: Använda kopieringen och matriser i en Azure Resource Manager-mall för att iterera flera gånger när du distribuerar resurser.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: ''
-ms.assetid: 94d95810-a87b-460f-8e82-c69d462ac3ca
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2018
+ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: ee32f6459cf7673f6bb633e12776ec3c40eb13e1
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 25488295ec046eb0ca7473af76e4618eacb1155d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753429"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38600778"
 ---
-# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuera flera instanser av en resurs eller en egenskap i Azure Resource Manager-mallar
-Den här artikeln visar hur du distribuerar villkorligt en resurs och hur du iterera i Azure Resource Manager-mall för att skapa flera instanser av en resurs.
+# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuera flera instanser av en resurs eller egenskapen i Azure Resource Manager-mallar
 
-## <a name="conditionally-deploy-resource"></a>Villkorligt distribuera resurs
+Den här artikeln visar hur du iterera på dina Azure Resource Manager-mall för att skapa flera instanser av en resurs. Om du vill ange om en resurs är distribuerad på alla, se [elementet](resource-manager-templates-resources.md#condition).
 
-När du måste välja under distributionen för att skapa en instans eller inga instanser av en resurs, använda den `condition` element. Värdet för det här elementet matchar true eller false. När värdet är true, distribueras resursen. Om värdet är FALSKT, är inte resursen distribueras. Till exempel vill ange om ett nytt lagringskonto distribueras eller ett befintligt lagringskonto används, använder du:
+## <a name="resource-iteration"></a>Resursen iteration
 
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
-```
+När du måste välja under distributionen för att skapa en eller flera instanser av en resurs, lägga till en `copy` elementet så att den resurstypen. I elementet kopia anger du antalet iterationer och ett namn för den här loopen. Värdet för antal måste vara ett positivt heltal och får inte överskrida 800. 
 
-## <a name="resource-iteration"></a>Resursen upprepning
-När du måste välja under distributionen för att skapa en eller flera instanser av en resurs, lägga till en `copy` elementet för resurstypen. I elementet kopia anger du antalet upprepningar och ett namn för den här loop. Värdet för antal måste vara ett positivt heltal och får inte överskrida 800. 
-
-Resursen ska skapa flera gånger tar följande format:
+Resursen att skapa flera gånger tar följande format:
 
 ```json
 {
@@ -73,31 +54,31 @@ Resursen ska skapa flera gånger tar följande format:
 }
 ```
 
-Observera att varje resurs ingår i `copyIndex()` som returnerar den aktuella upprepningen i en slinga. `copyIndex()` är nollbaserade. Det, i följande exempel:
+Observera att namnet på varje resurs som innehåller den `copyIndex()` som returnerar den aktuella iterationen loopen. `copyIndex()` är nollbaserat. Detta visas i följande exempel:
 
 ```json
 "name": "[concat('storage', copyIndex())]",
 ```
 
-Skapar dessa namn:
+Skapar de här namnen:
 
 * storage0
 * storage1
 * storage2.
 
-Om du vill förskjuta indexvärdet skickar du ett värde i funktionen copyIndex(). Antal iterationer för att utföra fortfarande har angetts i elementet kopia, men värdet för copyIndex förskjutas av det angivna värdet. Det, i följande exempel:
+Du kan skicka ett värde i funktionen copyIndex() för förskjutningen indexvärdet. Antal upprepningar att utföra fortfarande har angetts i elementet kopia, men värdet för copyIndex förskjutas av det angivna värdet. Detta visas i följande exempel:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
 ```
 
-Skapar dessa namn:
+Skapar de här namnen:
 
 * storage1
 * storage2
 * storage3
 
-Kopieringen är användbart när du arbetar med matriser eftersom du kan söka igenom varje element i matrisen. Använd den `length` funktion på matrisen för att ange antalet för iterationer, och `copyIndex` att hämta det aktuella indexet i matrisen. Det, i följande exempel:
+Kopieringsåtgärden är användbart när du arbetar med matriser eftersom du kan gå igenom varje element i matrisen. Använd den `length` funktion på matrisen att ange antalet för iterationer, och `copyIndex` att hämta det aktuella indexet i matrisen. Detta visas i följande exempel:
 
 ```json
 "parameters": { 
@@ -122,17 +103,17 @@ Kopieringen är användbart när du arbetar med matriser eftersom du kan söka i
 ]
 ```
 
-Skapar dessa namn:
+Skapar de här namnen:
 
 * storagecontoso
 * storagefabrikam
 * storagecoho
 
-Som standard skapar Resource Manager resurserna parallellt. Därför garanteras den ordning som de skapas inte. Du kanske vill ange att resurserna som distribueras i följd. Till exempel när du uppdaterar en produktionsmiljö måste du kanske vill sprida uppdateringar så bara ett visst antal uppdateras samtidigt.
+Som standard skapar Resource Manager resurserna parallellt. Därför kan är inte den ordning som de skapas garanterad. Dock kan du ange att resurserna distribueras i följd. Till exempel när du uppdaterar en produktionsmiljö, kanske du vill att sprida ut uppdateringarna så bara ett visst antal uppdateras samtidigt.
 
-För att distribuera seriellt flera instanser av en resurs, ange `mode` till **seriella** och `batchSize` med antalet instanser som ska distribueras i taget. Med seriella läge skapar Resource Manager ett beroende på tidigare instanser i en slinga så att den inte startar en batch tills den föregående batchen har slutförts.
+För att distribuera seriellt flera instanser av en resurs, ange `mode` till **seriell** och `batchSize` för antalet instanser som ska distribueras i taget. Med seriell läge skapar Resource Manager ett beroende på tidigare instanser i loopen, så att den inte startar en batch tills den föregående batchen har slutförts.
 
-Till exempel för att distribuera seriellt lagringskonton två samtidigt, använder du:
+Till exempel för att distribuera seriellt lagringskonton två i taget, använder du:
 
 ```json
 {
@@ -161,17 +142,17 @@ Till exempel för att distribuera seriellt lagringskonton två samtidigt, använ
 }
 ``` 
 
-Egenskapen läget accepterar också **parallella**, vilket är standardvärdet.
+Egenskapen läge också godkänner **parallella**, vilket är standardvärdet.
 
-## <a name="property-iteration"></a>Egenskapen upprepning
+## <a name="property-iteration"></a>Egenskapen iteration
 
-Om du vill skapa flera värden för en egenskap för en resurs lägger du till en `copy` matris i elementet egenskaper. Denna matris innehåller objekt och alla objekt som har följande egenskaper:
+Om du vill skapa flera värden för en egenskap för en resurs lägger du till en `copy` matris i properties-elementet. Den här matrisen innehåller objekt och varje objekt har följande egenskaper:
 
-* namn – namnet på egenskapen för att skapa flera värden för
-* Antal - värden för att skapa
-* indata - ett objekt som innehåller värdena som att tilldela egenskapen  
+* namn – namnet på egenskapen att skapa flera värden för
+* antal – hur många värden för att skapa
+* indata - ett objekt som innehåller värdena för att tilldela egenskapen  
 
-I följande exempel visas hur du använder `copy` dataDisks-egenskapen på en virtuell dator:
+I följande exempel visas hur du använder `copy` till egenskapen dataDisks på en virtuell dator:
 
 ```json
 {
@@ -192,9 +173,9 @@ I följande exempel visas hur du använder `copy` dataDisks-egenskapen på en vi
       ...
 ```
 
-Observera att när du använder `copyIndex` inuti en egenskapen iteration måste du ange namnet på upprepning. Du behöver inte ange namnet när det används med resurs iteration.
+Observera att när du använder `copyIndex` inuti en iteration av egenskapen, måste du ange namnet i iteration. Du behöver inte ange namnet när de används med resursen iteration.
 
-Hanteraren för filserverresurser expanderar den `copy` matris under distributionen. Namnet på matrisen blir namnet på egenskapen. Indatavärdena bli objektets egenskaper. Den distribuerade mallen blir:
+Resource Manager expanderar den `copy` matris under distributionen. Namnet på matrisen blir namnet på egenskapen. Indatavärdena bli objektets egenskaper. Den distribuerade mallen blir:
 
 ```json
 {
@@ -223,7 +204,7 @@ Hanteraren för filserverresurser expanderar den `copy` matris under distributio
       ...
 ```
 
-Kopiera elementet är en matris så att du kan ange flera egenskaper för resursen. Lägg till ett objekt för varje egenskap för att skapa.
+Kopieringselement är en matris, så att du kan ange flera egenskaper för resursen. Lägg till ett objekt för varje egenskap att skapa.
 
 ```json
 {
@@ -285,9 +266,9 @@ Du kan använda resursen och egenskapen iteration tillsammans. Referens egenskap
 }
 ```
 
-## <a name="variable-iteration"></a>Variabeln upprepning
+## <a name="variable-iteration"></a>Variabeln iteration
 
-Du kan skapa flera instanser av en variabel med det `copy` element i avsnittet variables. Du kan skapa flera instanser av objekt med relaterade värden och sedan tilldela dessa värden till instanser av resursen. Du kan använda Kopiera för att skapa ett objekt med en matrisegenskap eller en matris. Båda metoderna visas i följande exempel:
+Du kan skapa flera instanser av en variabel med det `copy` element i variables-avsnittet. Du kan skapa flera instanser av objekt med relaterade värden och sedan tilldela dessa värden till instanser av resursen. Du kan använda kopia för att skapa ett objekt med en matrisegenskap eller en matris. Båda metoderna visas i följande exempel:
 
 ```json
 {
@@ -359,8 +340,8 @@ Kopiera elementet är en matris så att du kan ange fler än en variabel med ant
 ]
 ```
 
-## <a name="depend-on-resources-in-a-loop"></a>Beroende av resurser i en loop
-Du anger att en resurs distribueras efter en annan resurs med hjälp av den `dependsOn` element. Ange namnet på kopian loop i dependsOn-elementet för att distribuera en resurs som är beroende av mängd resurser i en slinga. I följande exempel visas hur du distribuerar tre storage-konton innan du distribuerar den virtuella datorn. Fullständig virtuella definition visas inte. Observera att kopiera elementet har name angivet till `storagecopy` och dependsOn-elementet för virtuella datorer har också `storagecopy`.
+## <a name="depend-on-resources-in-a-loop"></a>Beroende resurser i en loop
+Du anger att en resurs distribueras efter en annan resurs med hjälp av den `dependsOn` element. Ange namnet på Kopiera loop i dependsOn-elementet för att distribuera en resurs som är beroende av samlingen resurser i en loop. I följande exempel visas hur du distribuerar tre lagringskonton innan du distribuerar den virtuella datorn. Den fullständiga definitionen för virtuell dator visas inte. Observera att kopieringselement har namn som har angetts till `storagecopy` och dependsOn-element för de virtuella datorerna också anges `storagecopy`.
 
 ```json
 {
@@ -397,10 +378,10 @@ Du anger att en resurs distribueras efter en annan resurs med hjälp av den `dep
 
 <a id="looping-on-a-nested-resource" />
 
-## <a name="iteration-for-a-child-resource"></a>Upprepningen för en underordnad-resurs
-Du kan inte använda en kopia skapas för en underordnad resurs. Du måste i stället skapa resursen som översta resurs för att skapa flera instanser av en resurs som du vanligtvis definiera som kapslad i en annan resurs. Du definierar relationen med den överordnade resursen via egenskaperna typ och namn.
+## <a name="iteration-for-a-child-resource"></a>Upprepningen för en underordnad resurs
+Du kan inte använda en kopia skapas för en underordnad resurs. Om du vill skapa flera instanser av en resurs som du vanligtvis definierar som kapslade i en annan resurs, måste du i stället skapa resursen som en resurs på toppnivå. Du definierar relationen med den överordnade resursen via egenskaperna typ och namn.
 
-Anta exempelvis att du definierar en datamängd vanligtvis som en underordnad resurs i en datafabrik.
+Anta exempelvis att du vanligtvis definierar en datauppsättning som en underordnad resurs i en data factory.
 
 ```json
 "resources": [
@@ -420,9 +401,9 @@ Anta exempelvis att du definierar en datamängd vanligtvis som en underordnad re
 }]
 ```
 
-Om du vill skapa flera instanser av datauppsättningar flyttas utanför datafabriken. Dataset måste vara på samma nivå som data factory, men det är fortfarande en underordnad resurs i data factory. Du bevara relationen mellan datauppsättning och datafabriken via egenskaperna typ och namn. Eftersom typen inte kan härledas från dess position i mallen, måste du ange typen av fullständigt kvalificerat i formatet: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+Om du vill skapa flera instanser av uppsättningar måste du flytta den utanför data factory. Datauppsättningen måste vara på samma nivå som data factory, men det är fortfarande en underordnad resurs på data factory. Du bevara relationen mellan datauppsättning och data factory via egenskaperna typ och namn. Eftersom typen kan inte längre härledas från dess position i mallen, måste du ange den fullständiga typen i formatet: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
-Ange ett namn för den datamängd som innehåller namnet på överordnade resurs för att upprätta en överordnad-underordnad relation med en instans av datafabriken. Använd formatet: `{parent-resource-name}/{child-resource-name}`.  
+Ange ett namn för den datauppsättning som innehåller namnet på överordnade resursen för att upprätta en överordnad/underordnad relation med en instans av data factory. Använd formatet: `{parent-resource-name}/{child-resource-name}`.  
 
 I följande exempel visas implementeringen:
 
@@ -447,21 +428,20 @@ I följande exempel visas implementeringen:
 }]
 ```
 
-## <a name="example-templates"></a>Exempel mallar
+## <a name="example-templates"></a>Exempel på mallar
 
-Följande exempel visar vanliga scenarier för att skapa flera resurser eller egenskaper.
+I följande exempel visas vanliga scenarier för att skapa flera resurser eller egenskaper.
 
 |Mall  |Beskrivning  |
 |---------|---------|
-|[Lagringsutrymmet](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Distribuerar flera lagringskonton med index i namnet. |
-|[Seriell lagringsutrymmet](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Distribuerar flera lagringskonton som för närvarande. Namnet innehåller antalet index. |
+|[Lagringsutrymme på skuggkopian](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Distribuerar flera lagringskonton med index i namnet. |
+|[Seriell lagringsutrymmet](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Distribuerar flera lagringskonton som på gång. Namnet innehåller antalet index. |
 |[Lagringsutrymmet med matris](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Distribuerar flera lagringskonton. Namnet innehåller ett värde från en matris. |
-|[Virtuell dator med en ny eller befintlig virtuellt nätverk, lagring och offentlig IP-adress](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Villkorligt distribuerar nya eller befintliga resurser med en virtuell dator. |
-|[Distribution av Virtuella datorer med en variabel antalet datadiskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Distribuerar flera datadiskar med en virtuell dator. |
+|[Distribution av virtuella datorer med ett variabelt antal datadiskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Distribuerar flera datadiskar med en virtuell dator. |
 |[Kopiera variabler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Visar de olika sätt för att gå på variabler. |
-|[Flera säkerhetsregler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Distribuerar flera säkerhetsregler till en nätverkssäkerhetsgrupp. Den skapar säkerhetsregler från en parameter. Parametern, se [flera NSG parameterfilen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
+|[Flera säkerhetsregler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Distribuerar flera säkerhetsregler till en nätverkssäkerhetsgrupp. Den skapar säkerhetsregler från en parameter. Parametern, se [flera NSG-parameterfil](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du vill veta om avsnitt i en mall finns [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
-* Information om hur du distribuerar mallen finns [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md).
+* Om du vill lära dig om delar av en mall finns i [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
+* Läs hur du distribuerar mallen i [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md).
 

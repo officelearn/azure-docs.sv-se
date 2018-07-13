@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
 ms.openlocfilehash: 5855396fc87b7d8de17be65a66af40963c59fc71
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633486"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38687944"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>Kom igång med IoT-hubb modulen identitets- och modulen dubbla med hjälp av .NET-serverdel och .NET-enhet
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>Kom igång med IoT Hub identitets- och modulen modultvilling med hjälp av .NET-serverdel och .NET-enhet
 
 > [!NOTE]
 > [Modulidentiteter och modultvillingar](iot-hub-devguide-module-twins.md) liknar enhetsidentitet och enhetstvilling i Azure IoT Hub, men har en större detaljnivå. Medan Azure IoT Hub-enhetsidentiteten och enhetstvillingen gör att serverdelsprogrammet kan konfigurera en enhet och ger synlighet för enhetstillståndet tillhandahåller en modulidentitet och en modultvilling dessa funktioner för enskilda komponenter i en enhet. På kompatibla enheter med flera komponenter som operativsystembaserade enheter eller enheter med inbyggd programvara finns isolerad konfiguration och villkor för varje komponent.
@@ -51,7 +51,7 @@ I det här avsnittet skapar du en .NET-konsolapp på din simulerade enhet som up
 
     ![Skapa ett Visual Studio-projekt][13]
 
-2. **Installera den senaste Azure IoT-hubb .NET enheten SDK** -modulen identitets- och modulen dubbla är tillgänglig som förhandsversion. Den finns bara tillgänglig i IoT Hub-förhandsversionens enhets-SDK:er. I Visual Studio öppnar du Verktyg > Nuget-pakethanteraren > Hantera NuGet-paket för lösningen. Sök efter Microsoft.Azure.Devices.Client. Se till att du markerar kryssrutan för att inkludera förhandsversion. Välj den senaste versionen och installera. Nu har du åtkomst till alla modulfunktioner. 
+2. **Installera den senaste Azure IoT Hub .NET-enheten-SDK** -modultvilling för identitets- och modulen finns i offentlig förhandsversion. Den finns bara tillgänglig i IoT Hub-förhandsversionens enhets-SDK:er. I Visual Studio öppnar du Verktyg > Nuget-pakethanteraren > Hantera NuGet-paket för lösningen. Sök efter Microsoft.Azure.Devices.Client. Se till att du markerar kryssrutan för att inkludera förhandsversion. Välj den senaste versionen och installera. Nu har du åtkomst till alla modulfunktioner. 
 
     ![Installera Azure IoT Hub .NET-tjänstens SDK V1.16.0-preview-005][14]
 
@@ -134,7 +134,7 @@ I det här avsnittet skapar du en .NET-konsolapp på din simulerade enhet som up
 
     Det är kodexemplet visar hur du hämtar modultvillingen och uppdaterar rapporterade egenskaper med AMQP-protokollet. I offentlig förhandsversion stöder vi endast AMQP för modultvillingåtgärder.
 
-5. Förutom ovanstående **Main** -metoden kan du lägga till under kodblock skicka händelsen till IoT-hubb från modulen:
+5. Förutom ovanstående **Main** metod, du kan lägga till nedan kodblock skicka händelsen till IoT Hub från din modul:
     ```csharp
     Byte[] bytes = new Byte[2];
     bytes[0] = 0;

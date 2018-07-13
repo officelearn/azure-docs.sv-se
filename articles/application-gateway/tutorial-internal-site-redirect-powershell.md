@@ -1,6 +1,6 @@
 ---
-title: Skapa en Programgateway med interna omdirigering - Azure PowerShell | Microsoft Docs
-description: Lär dig hur du skapar en Programgateway som omdirigerar interna webbtrafik till lämplig serverdelspoolen av servrar med hjälp av Azure Powershell.
+title: Skapa en Programgateway med intern omdirigering – Azure PowerShell | Microsoft Docs
+description: Lär dig hur du skapar en Programgateway som omdirigerar interna Internet-trafik till korrekta serverdels-pooler för servrar med hjälp av Azure Powershell.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: victorh
 ms.openlocfilehash: 666af23ffb080ac6966e64128cf199cc930246ac
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355448"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38591428"
 ---
-# <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Skapa en Programgateway med interna genom att använda Azure PowerShell
+# <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Skapa en Programgateway med intern omdirigering med Azure PowerShell
 
-Du kan använda Azure Powershell för att konfigurera [web trafik omdirigering](application-gateway-multi-site-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här kursen definierar du en serverdelspool med hjälp av en skaluppsättning för virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på domäner som du äger för att kontrollera Internet-trafik anländer till i poolen. Den här kursen förutsätter att du äger flera domäner och använder exempel på *www.contoso.com* och *www.contoso.org*.
+Du kan använda Azure Powershell för att konfigurera [web traffic omdirigering](application-gateway-multi-site-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudien definierar du en serverdelspool med hjälp av en skalningsuppsättning för virtuella datorer. Du sedan konfigurera lyssnare och regler baserat på domäner som du äger för att se till att Internet-trafik anländer till i poolen. Den här självstudien förutsätter att du äger flera domäner och använder exempel på *www.contoso.com* och *www.contoso.org*.
 
 I den här artikeln kan du se hur du:
 
@@ -29,18 +29,18 @@ I den här artikeln kan du se hur du:
 > * Konfigurera nätverket
 > * Skapa en programgateway
 > * Lägg till lyssnare och omdirigering av regel
-> * Skapa en virtuell dator-skala med serverdelspoolen
-> * Skapa en CNAME-post i din domän
+> * Skapa en VM-skalningsuppsättning med backend-pool
+> * Skapa en CNAME-post i domänen
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Om du vill ta reda på vilken version du kör ` Get-Module -ListAvailable AzureRM` . Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Skapa en Azure-resurs med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).  
+En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).  
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
@@ -48,7 +48,7 @@ New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser
 
-Skapa undernät konfigurationer för *myBackendSubnet* och *myAGSubnet* med [ny AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Skapa ett virtuellt nätverk med namnet *myVNet* med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) med konfigurationer för undernät. Slutligen, skapa offentlig IP-adress med namnet *myAGPublicIPAddress* med [ny AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Dessa resurser används för att ge nätverksanslutning till gateway för programmet och dess associerade resurser.
+Skapa undernätskonfigurationer för *myBackendSubnet* och *myAGSubnet* med [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Skapa ett virtuellt nätverk med namnet *myVNet* med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) och undernätskonfigurationerna. Skapa slutligen den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). De här resurserna används för att ge nätverksanslutning till programgatewayen och tillhörande resurser.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -72,9 +72,9 @@ $pip = New-AzureRmPublicIpAddress `
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-### <a name="create-the-ip-configurations-and-frontend-port"></a>Skapa IP-konfigurationer och klientdelsport
+### <a name="create-the-ip-configurations-and-frontend-port"></a>Skapa IP-konfigurationerna och klientdelsporten
 
-Associera *myAGSubnet* som du skapade tidigare till programmet gateway med [ny AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Tilldela *myAGPublicIPAddress* till programmet gateway med [ny AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig). Och du kan sedan skapa en HTTP-porten med hjälp av [ny AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport).
+Associera *myAGSubnet* som du skapade tidigare till programgatewayen med [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Tilldela *myAGPublicIPAddress* till programgatewayen med [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig). Sedan kan du skapa HTTP-porten med hjälp av [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport).
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -95,9 +95,9 @@ $frontendPort = New-AzureRmApplicationGatewayFrontendPort `
   -Port 80
 ```
 
-### <a name="create-the-backend-pool-and-settings"></a>Skapa serverdelspool och inställningar
+### <a name="create-the-backend-pool-and-settings"></a>Skapa serverdelspoolen och tillhörande inställningar
 
-Skapa en serverdelspool som heter *contosoPool* för programmet gateway med [ny AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Konfigurera inställningar för backend-pool med [ny AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
+Skapa en serverdelspool med namnet *contosoPool* för application gateway med [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Konfigurera inställningar för serverdelspoolen med [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
 ```azurepowershell-interactive
 $contosoPool = New-AzureRmApplicationGatewayBackendAddressPool `
@@ -110,11 +110,11 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
   -RequestTimeout 120
 ```
 
-### <a name="create-the-first-listener-and-rule"></a>Skapa den första lyssnare och regel
+### <a name="create-the-first-listener-and-rule"></a>Skapa den första lyssnaren och regel
 
-En lyssnare krävs för att aktivera Programgateway att dirigera trafik korrekt till serverdelspoolen. I de här självstudierna skapar du två lyssnare för de två domänerna. I det här exemplet skapas lyssnare för domänerna i *www.contoso.com* och *www.contoso.org*.
+Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelspoolen på rätt sätt. I den här självstudien skapar du två lyssnare för de två domänerna. I det här exemplet lyssnare har skapats för domänerna med *www.contoso.com* och *www.contoso.org*.
 
-Skapa första lyssnaren med namnet *contosoComListener* med [ny AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) med klientdel konfiguration och klientdelsport som du skapade tidigare. En regel måste anges för lyssnaren att veta vilka serverdelspool som ska användas för inkommande trafik. Skapa en enkel regel med namnet *contosoComRule* med [ny AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
+Skapa den första lyssnaren med namnet *contosoComListener* med [New AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) med frontend-konfigurationen och frontend-port som du skapade tidigare. Du måste ange en regel för lyssnaren som anger vilken serverdelspool som ska användas för inkommande trafik. Skapa en grundläggande regel med namnet *contosoComRule* med [New AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $contosoComlistener = New-AzureRmApplicationGatewayHttpListener `
@@ -133,7 +133,7 @@ $frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-Nu när du har skapat de nödvändiga stödresurser ange parametrar för Programgateway med namnet *myAppGateway* med [ny AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku), och sedan skapa den med hjälp av [ Nya AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway).
+Nu när du har skapat de nödvändiga stödresurserna ska du ange parametrar för programgatewayen *myAppGateway* med [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku). Skapa sedan gatewayen med [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway).
 
 ```azurepowershell-interactive
 $sku = New-AzureRmApplicationGatewaySku `
@@ -154,7 +154,7 @@ $appgw = New-AzureRmApplicationGateway `
   -Sku $sku
 ```
 
-### <a name="add-the-second-listener"></a>Lägg till andra lyssnaren
+### <a name="add-the-second-listener"></a>Lägg till andra lyssnare
 
 Lägg till lyssnaren med namnet *contosoOrgListener* som behövs för att omdirigera trafik med hjälp av [Lägg till AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/add-azurermapplicationgatewayhttplistener).
 
@@ -178,9 +178,9 @@ Add-AzureRmApplicationGatewayHttpListener `
 Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="add-the-redirection-configuration"></a>Lägg till omdirigering av konfigurationen
+### <a name="add-the-redirection-configuration"></a>Lägga till konfigurationen för omdirigering
 
-Du kan konfigurera omdirigering för lyssnare med [Lägg till AzureRmApplicationGatewayRedirectConfiguration](/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration). 
+Du kan konfigurera omdirigering för lyssnaren med [Add-AzureRmApplicationGatewayRedirectConfiguration](/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration). 
 
 ```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
@@ -204,7 +204,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-the-second-routing-rule"></a>Lägg till den andra regeln för Routning
 
-Därefter kan du associera omdirigering av konfigurationen till en ny regel med namnet *contosoOrgRule* med [Lägg till AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/add-azurermapplicationgatewayrequestroutingrule).
+Därefter kan du associera omdirigeringskonfiguration till en ny regel med namnet *contosoOrgRule* med [Lägg till AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/add-azurermapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
@@ -227,7 +227,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-set"></a>Skapa VM-skalningsuppsättningar
 
-I det här exemplet skapar du en skaluppsättning för virtuell dator som har stöd för serverdelspoolen som du skapade. Den skaluppsättning som du skapar heter *myvmss* och innehåller två instanser för virtuella datorer som du installerar IIS. Du kan tilldela skaluppsättningen till serverdelspoolen när du konfigurerar IP-inställningar.
+I det här exemplet skapar du en skalningsuppsättning för virtuella datorer som har stöd för serverdelspoolen som du skapade. Skalningsuppsättningen som du skapar heter *myvmss* och innehåller två instanser av virtuella datorer som du installerar IIS. Du tilldelar skalningsuppsättningen till serverdelspoolen när du konfigurerar IP-inställningarna.
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -286,9 +286,9 @@ Update-AzureRmVmss `
   -VirtualMachineScaleSet $vmss
 ```
 
-## <a name="create-cname-record-in-your-domain"></a>Skapa CNAME-post i din domän
+## <a name="create-cname-record-in-your-domain"></a>Skapa en CNAME-post i domänen
 
-När programgatewayen har skapats med dess offentliga IP-adress kan du hämta DNS-adress och använda den för att skapa en CNAME-post i din domän. Du kan använda [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) att hämta DNS-serveradress för programgatewayen. Kopiera den *fqdn* värdet för DNSSettings och använda det som värde för CNAME-posten som du skapar. Användning av A-poster rekommenderas inte eftersom VIP kan ändras när programgatewayen har startats om.
+När du har skapat programgatewayen med dess offentliga IP-adress kan du hämta DNS-adressen och använda den till att skapa en CNAME-post i domänen. Du kan använda [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) till att hämta programgatewayens DNS-adress. Kopiera värdet *fqdn* för DNSSettings och använd det som värde för CNAME-posten du skapar. Du bör inte använda A-poster eftersom den virtuella IP-adressen kan ändras när programgatewayen startas om.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -296,22 +296,22 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Ange domännamnet i adressfältet i webbläsaren. T.ex, http://www.contoso.com.
+Ange domännamnet i adressfältet i webbläsaren. Till exempel http://www.contoso.com.
 
-![Testa plats för contoso i Programgateway](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
+![Testa contoso-webbplatsen i programgatewayen](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
 
-Ändra adressen till din domän, till exempel http://www.contoso.org ska du se att trafiken dirigeras till lyssnaren för www.contoso.com.
+Ändra adressen till din domän, till exempel http://www.contoso.org så bör du se att trafiken har omdirigerats till lyssnaren för www.contoso.com.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln har du lärt dig hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
 > * Skapa en programgateway
 > * Lägg till lyssnare och omdirigering av regel
-> * Skapa en virtuell dator-skala med backend-pooler
-> * Skapa en CNAME-post i din domän
+> * Skapa en VM-skalningsuppsättning med backend-pooler
+> * Skapa en CNAME-post i domänen
 
 > [!div class="nextstepaction"]
-> [Mer information om vad du kan göra med Programgateway](./application-gateway-introduction.md)
+> [Läs mer om vad du kan göra med en programgateway](./application-gateway-introduction.md)

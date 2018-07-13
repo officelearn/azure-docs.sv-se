@@ -1,5 +1,5 @@
 ---
-title: 'Generera och exporterar certifikat för plats-till-plats: PowerShell: Azure | Microsoft Docs'
+title: 'Skapa och exportera certifikat för punkt-till-plats: PowerShell: Azure | Microsoft Docs'
 description: Skapa ett självsignerat rotcertifikat, exportera den offentliga nyckeln och generera klientcertifikat med hjälp av PowerShell på Windows 10 eller Windows Server 2016.
 services: vpn-gateway
 documentationcenter: na
@@ -16,35 +16,35 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: cherylmc
 ms.openlocfilehash: 385b6ed2e8104fd2e15e6e55d46dcd12b963ec6b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31423056"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696556"
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Generera och exporterar certifikat för plats-till-plats med hjälp av PowerShell
+# <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Skapa och exportera certifikat för punkt-till-plats med hjälp av PowerShell
 
-Punkt-till-plats-anslutningar använder certifikat för autentisering. Den här artikeln visar hur du skapar ett självsignerat rotcertifikat och generera klientcertifikat med hjälp av PowerShell på Windows 10 eller Windows Server 2016. Om du letar efter konfigurationssteg för punkt-till-plats, till exempel hur du överför rotcertifikat, väljer du en av artiklarna Configure punkt-till-platsen från listan nedan:
+Punkt-till-plats-anslutningar använder certifikat för autentisering. Den här artikeln visar hur du skapar ett självsignerat rotcertifikat och generera klientcertifikat med hjälp av PowerShell på Windows 10 eller Windows Server 2016. Om du letar efter konfigurationssteg för punkt-till-plats, till exempel hur du överför rotcertifikat, väljer du en av artiklarna ”Configure punkt-till-plats” i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Skapa självsignerat certifikat - PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [Skapa självsignerat certifikat - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
-> * [Konfigurera punkt-till-plats - Resource Manager - Azure-portalen](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [Konfigurera punkt-till-plats - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Konfigurera punkt-till-plats - klassisk - Azure-portalen](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [Skapa självsignerade certifikat – PowerShell](vpn-gateway-certificates-point-to-site.md)
+> * [Skapa självsignerade certifikat - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
+> * [Konfigurera punkt-till-plats - Resource Manager – Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Konfigurera punkt-till-plats - Resource Manager – PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+> * [Konfigurera punkt-till-plats - klassisk – Azure portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 > 
 > 
 
-Du måste utföra stegen i den här artikeln på en dator som kör Windows 10 eller Windows Server 2016. PowerShell-cmdlets som används för att generera certifikat är en del av operativsystemet och fungerar inte på andra versioner av Windows. Windows 10 eller Windows Server 2016-dator krävs endast för att generera certifikat. När certifikat som genereras kan du överför dem. eller installera dem på alla operativsystem stöds för klientdatorer. 
+Du måste utföra stegen i den här artikeln på en dator som kör Windows 10 eller Windows Server 2016. PowerShell-cmdlets som används för att generera certifikat är en del av operativsystemet och fungerar inte på andra versioner av Windows. Windows 10 eller Windows Server 2016-dator krävs endast för att generera certifikat. När certifikat som har genererats kan du överföra dem eller installera dem på alla operativsystem stöds för klientdatorer. 
 
-Om du inte har tillgång till en Windows 10 eller Windows Server 2016-dator kan du använda [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) att generera certifikat. De certifikat som du skapar med någon av metoderna kan installeras på något [stöds](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) klientoperativsystem.
+Om du inte har tillgång till en Windows 10 eller Windows Server 2016-dator kan du använda [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) att generera certifikat. De certifikat som du genererar med hjälp av någon av metoderna kan installeras på någon [stöds](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) klientoperativsystem.
 
 ## <a name="rootcert"></a>1. Skapa ett självsignerat rotcertifikat
 
-Använd cmdleten New-SelfSignedCertificate för att skapa ett självsignerat rotcertifikat. Ytterligare parameterinformation finns [ny SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Använd cmdleten New-SelfSignedCertificate för att skapa ett självsignerat rotcertifikat. För ytterligare parameterinformation finns i [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. Öppna en Windows PowerShell-konsol från en dator som kör Windows 10 eller Windows Server 2016 med förhöjd behörighet.
-2. Använd följande exempel för att skapa självsignerat rotcertifikatet. I följande exempel skapas ett självsignerat rotcertifikat med namnet 'P2SRootCert' som installeras automatiskt i 'Certifikat-aktuell User\Personal\Certificates'. Du kan visa certifikatet genom att öppna *certmgr.msc*, eller *Hantera användarcertifikat*.
+1. Öppna en Windows PowerShell-konsol med utökade privilegier från en dator som kör Windows 10 eller Windows Server 2016.
+2. Använd följande exempel för att skapa det självsignerade rotcertifikatet. I följande exempel skapas ett självsignerat rotcertifikat med namnet ”P2SRootCert” som installeras automatiskt i ”certifikat – aktuell användare\personligt\certifikat”. Du kan visa certifikatet genom att öppna *certmgr.msc*, eller *Hantera användarcertifikat*.
 
   ```powershell
   $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -55,17 +55,17 @@ Använd cmdleten New-SelfSignedCertificate för att skapa ett självsignerat rot
 
 ## <a name="clientcert"></a>2. Generera ett klientcertifikat
 
-Varje klientdator som ansluter till ett virtuellt nätverk med punkt-till-plats måste ha ett klientcertifikat installerat. Du genererar ett klientcertifikat från självsignerade rotcertifikatet, och sedan exportera och installera klientcertifikatet. Om klientcertifikatet inte är installerad, misslyckas autentiseringen. 
+Varje klientdator som ansluter till ett virtuellt nätverk med punkt-till-plats måste ha ett klientcertifikat installerat. Du skapar ett klientcertifikat från det självsignerade rotcertifikatet och sedan exportera och installera klientcertifikatet. Om klientcertifikatet inte är installerat, misslyckas autentiseringen. 
 
-Följande steg vägleder dig genom att generera ett certifikat från ett självsignerat rotcertifikat. Du kan skapa flera klientcertifikat från samma rotcertifikat. När du skapar klientcertifikat med nedanstående steg installeras automatiskt klientcertifikatet på den dator som du använde för att generera certifikatet. Om du vill installera ett klientcertifikat på en annan dator, kan du exportera certifikatet.
+I följande steg vägleder dig genom att generera ett klientcertifikat från ett självsignerat rotcertifikat. Du kan skapa flera klientcertifikat från samma rotcertifikat. När du genererar klientcertifikat med nedanstående steg behöver installeras automatiskt klientcertifikatet på den dator som du använde för att generera certifikatet. Om du vill installera ett klientcertifikat på en annan klientdator kan du exportera certifikatet.
 
-Exemplen använder cmdleten New-SelfSignedCertificate för att generera ett certifikat som upphör att gälla i ett år. Parametern för ytterligare information, till exempel inställningsvärde olika giltighetstid för klientcertifikat, se [ny SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+I exemplen används cmdleten New-SelfSignedCertificate för att generera ett klientcertifikat som upphör att gälla i ett år. Ytterligare parameterinformation, till exempel att ange ett värde för olika upphör att gälla för klientcertifikat, se [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
 ### <a name="example-1"></a>Exempel 1
 
-Det här exemplet använder variabeln deklarerade '$cert' från föregående avsnitt. Om du stängt PowerShell-konsolen när du har skapat det självsignerade rotcertifikatet eller skapar ytterligare certifikat i en ny PowerShell-konsolsession, Följ stegen i [exempel 2](#ex2).
+Det här exemplet används variabeln '$cert' deklarerade i föregående avsnitt. Om du har stängt PowerShell-konsolen när du har skapat det självsignerade rotcertifikatet eller skapar ytterligare certifikat i en ny PowerShell-konsolsession, Följ stegen i [exempel 2](#ex2).
 
-Ändra och köra exemplet för att generera ett klientcertifikat. Om du kör följande exempel utan att ändra den är resultatet ett klientcertifikat med namnet 'P2SChildCert'.  Om du vill att namnge certifikatet underordnade något annat, ändra värdet för Nätverksnamnet. Ändra inte TextExtension när du kör det här exemplet. Det klientcertifikat som du genererar installeras automatiskt i ”certifikat - aktuell User\Personal\Certificates” på datorn.
+Ändra och köra exemplet för att generera ett klientcertifikat. Om du kör följande exempel utan att ändra den är resultatet ett klientcertifikat med namnet ”P2SChildCert”.  Om du vill namnge certifikatet underordnade något annat ändra CN-värde. Ändra inte TextExtension när du kör det här exemplet. Klientcertifikatet som du genererar installeras automatiskt under ”certifikat – aktuell användare\personligt\certifikat” på datorn.
 
 ```powershell
 New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
@@ -77,14 +77,14 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 
 ### <a name="ex2"></a>Exempel 2
 
-Om du skapar ytterligare klientcertifikat eller använder inte samma PowerShell-session som du använde för att skapa din självsignerade rotcertifikat, använder du följande steg:
+Om du skapar ytterligare klientcertifikat eller inte använder samma PowerShell-session som användes för att skapa ett självsignerat rotcertifikat certifikat, använder du följande steg:
 
 1. Identifiera det självsignerade rotcertifikat som är installerad på datorn. Denna cmdlet returnerar en lista över certifikat som är installerade på datorn.
 
   ```powershell
   Get-ChildItem -Path “Cert:\CurrentUser\My”
   ```
-2. Hitta ämnesnamnet från listan returneras och sedan kopiera tumavtrycket bredvid den till en textfil. I följande exempel finns två certifikat. CN-namn är namnet på självsignerat rotcertifikatet som du vill skapa ett underordnat certifikat. I det här fallet 'P2SRootCert'.
+2. Leta upp ämnesnamnet från den returnerade listan och kopiera tumavtrycket som finns bredvid den till en textfil. I följande exempel finns två certifikat. CN-namn är namnet på det självsignerade rotcertifikatet som du vill att generera ett underordnat certifikat. I det här fallet ”P2SRootCert”.
 
   ```
   Thumbprint                                Subject
@@ -92,18 +92,18 @@ Om du skapar ytterligare klientcertifikat eller använder inte samma PowerShell-
   AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
   7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
   ```
-3. Deklarera en variabel för rotcertifikatet använder certifikatets tumavtryck från föregående steg. Ersätt TUMAVTRYCKET med tumavtrycket för rotcertifikatet som du vill skapa ett underordnat certifikat.
+3. Deklarera en variabel för rot-certifikatet med tumavtrycket från föregående steg. Ersätt TUMAVTRYCK med tumavtrycket för rotcertifikatet som du vill att generera ett underordnat certifikat.
 
   ```powershell
   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
   ```
 
-  Till exempel använder certifikatets tumavtryck för P2SRootCert i föregående steg, variabeln ser ut så här:
+  Till exempel använder tumavtrycket för P2SRootCert i föregående steg, variabeln ser ut så här:
 
   ```powershell
   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
   ```
-4.  Ändra och köra exemplet för att generera ett klientcertifikat. Om du kör följande exempel utan att ändra den är resultatet ett klientcertifikat med namnet 'P2SChildCert'. Om du vill att namnge certifikatet underordnade något annat, ändra värdet för Nätverksnamnet. Ändra inte TextExtension när du kör det här exemplet. Det klientcertifikat som du genererar installeras automatiskt i ”certifikat - aktuell User\Personal\Certificates” på datorn.
+4.  Ändra och köra exemplet för att generera ett klientcertifikat. Om du kör följande exempel utan att ändra den är resultatet ett klientcertifikat med namnet ”P2SChildCert”. Om du vill namnge certifikatet underordnade något annat ändra CN-värde. Ändra inte TextExtension när du kör det här exemplet. Klientcertifikatet som du genererar installeras automatiskt under ”certifikat – aktuell användare\personligt\certifikat” på datorn.
 
   ```powershell
   New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
@@ -118,9 +118,9 @@ Om du skapar ytterligare klientcertifikat eller använder inte samma PowerShell-
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
 
-### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Exportera självsignerade rotcertifikat och privat nyckel för att lagra den (valfritt)
+### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Exportera självsignerade rotcertifikat och lagra den (valfritt) den privata nyckeln
 
-Du kanske vill exportera självsignerade rotcertifikat och lagra den på ett säkert sätt som säkerhetskopiering. Om behövs bör du senare kan installera den på en annan dator och skapa mer certifiates för klienten. Om du vill exportera självsignerade rotcertifikat som en PFX-fil, Välj rotcertifikatet och använda samma steg som beskrivs i [exportera ett certifikat för](#clientexport).
+Kan du exportera det självsignerade rotcertifikatet och lagra den på ett säkert sätt som säkerhetskopiering. Om måste vara, du kan installera den på en annan dator och generera mer klienten certifiates senare. Välj rotcertifikat för att exportera det självsignerade rotcertifikatet som PFX-fil, och använda samma steg som beskrivs i [exportera ett klientcertifikat](#clientexport).
 
 ## <a name="clientexport"></a>4. Exportera klientcertifikat
 
@@ -129,14 +129,14 @@ Du kanske vill exportera självsignerade rotcertifikat och lagra den på ett sä
 
 ## <a name="install"></a>5. Installera ett exporterat klientcertifikat
 
-Varje klient som ansluter till VNet via en P2S-anslutning kräver ett klientcertifikat installeras lokalt.
+Alla klienter som ansluter till det virtuella nätverket via en P2S-anslutning kräver ett klientcertifikat installeras lokalt.
 
-Om du vill installera ett klientcertifikat [installera ett klientcertifikat för punkt-till-plats-anslutningar](point-to-site-how-to-vpn-client-install-azure-cert.md).
+Om du vill installera ett klientcertifikat, se [installera ett klientcertifikat för punkt-till-plats-anslutningar](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
 ## <a name="install"></a>6. Fortsätt med steg för P2S-konfiguration
 
-Vill du fortsätta med konfigurationen punkt-till-plats.
+Fortsätt med punkt-till-plats-konfiguration.
 
-* För **Resource Manager** modell distributionsstegen, se [konfigurera P2S med hjälp av inbyggda Azure certifikatautentisering](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
-* För **klassiska** modell distributionsstegen, se [konfigurerar en punkt-till-plats VPN-anslutning till ett virtuellt nätverk (klassiska)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
-* P2S felsökningsinformation finns i [felsöka Azure punkt-till-plats-anslutningar](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+* För **Resource Manager** modell distributionsstegen, se [konfigurera P2S med hjälp av Azures interna certifikatautentisering](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
+* För **klassiska** modell distributionsstegen, se [konfigurera en punkt-till-plats-VPN-anslutning till ett virtuellt nätverk (klassisk)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+* P2S felsökningsinformation finns i [punkt-till-plats-anslutningar i felsökning av Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

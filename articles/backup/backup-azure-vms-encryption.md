@@ -6,27 +6,23 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/13/2017
+ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49361aef774e9eb5a0995bc106e73b236a71b0bb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 16620678c38dcdc1564d8cb18f3393352170cefe
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441139"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598432"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup
 Den här artikeln handlar om stegen för att säkerhetskopiera och återställa virtuella datorer (VM) med hjälp av Azure Backup. Den innehåller också information om scenarier som stöds, nödvändiga komponenter och felsökningssteg för fel.
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
- * Säkerhetskopiering och återställning av krypterade virtuella datorer stöds bara för virtuella datorer som använder Azure Resource Manager-distributionsmodellen. Det finns inte stöd för virtuella datorer som använder den klassiska distributionsmodellen. <br>
- * Säkerhetskopiering och återställning av krypterade virtuella datorer stöds för både Windows och Linux-datorer som använder Azure Disk Encryption. Diskkryptering använder branschens standard BitLocker-funktion i Windows och dm-crypt i Linux för att tillhandahålla kryptering av diskar. <br>
- 
- I följande tabell visas scenarier som stöds för BitLocker-krypteringsnyckeln (BEK) - kryptering endast och viktiga nyckel (KEK) - krypterade virtuella datorer:
- 
- 
+ Säkerhetskopiering och återställning av krypterade virtuella datorer stöds bara för virtuella datorer som använder Azure Resource Manager-distributionsmodellen. Det finns inte stöd för virtuella datorer som använder den klassiska distributionsmodellen. Säkerhetskopiering och återställning av krypterade virtuella datorer stöds för Windows och Linux-datorer som använder Azure Disk Encryption. Diskkryptering använder branschens standard BitLocker-funktion i Windows och dm-crypt i Linux för att tillhandahålla kryptering av diskar. I följande tabell visar krypteringstyp och stöd för virtuella datorer.
+
    |  | BEK och KEK virtuella datorer | BEK endast virtuella datorer |
    | --- | --- | --- |
    | **Icke-hanterade virtuella datorer**  | Ja | Ja  |

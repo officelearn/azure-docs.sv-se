@@ -31,6 +31,8 @@
       href: update-managed-resources.md
     - name: Använda portalen för att publicera
       href: publish-portal.md
+    - name: Använda en hemlighet från Key Vault
+      href: key-vault-access.md
 - name: Referens
   items:
     - name: Azure CLI

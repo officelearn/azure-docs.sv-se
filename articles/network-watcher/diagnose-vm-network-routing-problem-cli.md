@@ -1,6 +1,6 @@
 ---
-title: Diagnostisera virtuella routning nätverksproblem - Azure CLI | Microsoft Docs
-description: I den här artikeln får lära du att diagnostisera virtuella routning nätverksproblem med nästa hopp-funktionen i Azure Nätverksbevakaren.
+title: Diagnostisera en virtuell dator problem med nätverksroutning – Azure CLI | Microsoft Docs
+description: I den här artikeln får du lära dig hur du diagnostiserar en virtuell dator problem med nätverksroutning med nästa hopp-funktionen i Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: jimdial
@@ -18,25 +18,25 @@ ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: fcb7ec2e40b5c0e8794d2f4d70395dcbecca019c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182502"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38618958"
 ---
-# <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnostisera virtuella routning nätverksproblem - Azure CLI
+# <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnostisera en virtuell dator problem med nätverksroutning – Azure CLI
 
-I den här artikeln distribuera en virtuell dator (VM) och kontrollera kommunikationen till IP-adress och URL: en. Du kan fastställa orsaken till ett kommunikationsfel och hur du kan lösa.
+I den här artikeln får du distribuera en virtuell dator (VM) och kontrollera kommunikation till en IP-adress och URL: en. Du lär dig också hur du fastställer orsaken till ett kommunikationsfel och hur du löser problemet.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt i den här artikeln kräver att du använder Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). När du har kontrollerat CLI-versionen kör `az login` att skapa en anslutning med Azure. CLI-kommandona i den här artikeln har formaterats för att köras i ett Bash-gränssnitt.
+Om du väljer att installera och använda CLI lokalt måste den här artikeln kräver att du kör Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). När du har verifierat CLI-versionen kör du `az login` för att skapa en anslutning till Azure. CLI-kommandon i den här artikeln har formaterats för att köras i ett Bash-gränssnitt.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
-Innan du kan skapa en virtuell dator, måste du skapa en resursgrupp som innehåller den virtuella datorn. Skapa en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Innan du kan skapa en virtuell dator måste du skapa en resursgrupp som innehåller den virtuella datorn. Skapa en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -52,15 +52,15 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Det tar några minuter att skapa den virtuella datorn. Inte fortsätta med stegen tills den virtuella datorn skapas och CLI returnerar utdata.
+Det tar några minuter att skapa den virtuella datorn. Fortsätt inte med de återstående stegen förrän den virtuella datorn har skapats och CLI returnerar utdata.
 
-## <a name="test-network-communication"></a>Testa nätverkskommunikation
+## <a name="test-network-communication"></a>Testa nätverkskommunikationen
 
-Om du vill testa kommunikation med Nätverksbevakaren måste du först aktivera en nätverksbevakaren i den region som den virtuella datorn som du vill testa och sedan använda nätverket Watcher nästa hopp-funktionen för att testa kommunikation.
+Om du vill testa nätverkskommunikation med Network Watcher måste du först aktivera en network watcher i den region som den virtuella datorn som du vill testa har och sedan använda Network Watcher nästa hopp-funktionen för att testa kommunikation.
 
-### <a name="enable-network-watcher"></a>Aktivera nätverksbevakaren
+### <a name="enable-network-watcher"></a>Aktivera nätverksbevakare
 
-Om du redan har en nätverksbevakaren aktiverat i östra USA kan gå vidare till [Använd nästa hopp](#use-next-hop). Använd den [az nätverksbevakaren konfigurera](/cli/azure/network/watcher#az-network-watcher-configure) kommando för att skapa en nätverksbevakaren i östra USA:
+Om du redan har en network watcher som aktiverats i regionen USA, östra, gå vidare till [Använd nästa hopp](#use-next-hop). Använd den [az network watcher konfigurera](/cli/azure/network/watcher#az-network-watcher-configure) kan du skapa en network watcher i regionen östra USA:
 
 ```azurecli-interactive
 az network watcher configure \
@@ -69,11 +69,11 @@ az network watcher configure \
   --enabled
 ```
 
-### <a name="use-next-hop"></a>Använd nästa hopp
+### <a name="use-next-hop"></a>Använda funktionen för nästa hopp
 
-Azure skapar automatiskt vägar till standard mål. Du kan skapa anpassade vägar som åsidosätter standardvägar. Anpassade vägar kan ibland orsaka kommunikation misslyckas. Testa routning från en virtuell dator med [az nätverk watcher visa-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop) att avgöra routning nexthop när trafiken är avsedda för en specifik adress.
+Azure skapar automatiskt vägar till olika standardmål. Du kan skapa egna vägar som ersätter standardvägarna. Ibland kan egna vägar göra att kommunikationen misslyckas. Testa routning från en virtuell dator med [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop) fastställa nexthop routning när trafik är avsedd för en specifik adress.
 
-Testa utgående kommunikation från den virtuella datorn till en IP-adresser för www.bing.com:
+Testa utgående kommunikation från den virtuella datorn till någon av IP-adresserna för www.bing.com:
 
 ```azurecli-interactive
 az network watcher show-next-hop \
@@ -85,7 +85,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-Efter några sekunder utdata informerar som den **nextHopType** är **Internet**, och att den **routeTableId** är **Systemväg**. Det här resultatet kan du vet att det är en giltig väg till målet.
+Efter några sekunder utdata informerar dig som den **nextHopType** är **Internet**, och att den **routeTableId** är **Systemväg**. Det här resultatet talar om att det finns en giltig väg till målet.
 
 Testa utgående kommunikation från den virtuella datorn till 172.31.0.100:
 
@@ -99,11 +99,11 @@ az network watcher show-next-hop \
   --out table
 ```
 
-Utdatan informerar som **ingen** är den **nextHopType**, och att den **routeTableId** är också **Systemväg**. Det här resultatet kan du vet att det finns en giltig väg till målet, men det finns ingen nästa hopp för att vidarebefordra trafiken till målet.
+Informerar dig om de utdata som returneras som **ingen** är den **nextHopType**, och att den **routeTableId** är också **Systemväg**. Resultatet visar att det visserligen finns en giltig systemväg till målet, men att det inte finns något nästa hopp för att dirigera trafiken till målet.
 
 ## <a name="view-details-of-a-route"></a>Visa information om en väg
 
-Granska för att analysera routning mer effektiva vägarna för nätverksgränssnitt med den [az nätverk nic visa-gällande--routningstabellen](/cli/azure/network/nic#az-network-nic-show-effective-route-table) kommando:
+Om du vill analysera routning ytterligare, granska de effektiva vägarna för nätverksgränssnittet med den [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table) kommando:
 
 ```azurecli-interactive
 az network nic show-effective-route-table \
@@ -111,7 +111,7 @@ az network nic show-effective-route-table \
   --name myVmVMNic
 ```
 
-Följande ingår i den returnerade utdatan:
+Följande text som ingår i den returnerade utdatan:
 
 ```azurecli
 {
@@ -129,9 +129,9 @@ Följande ingår i den returnerade utdatan:
 },
 ```
 
-När du har använt den `az network watcher show-next-hop` kommando för att testa utgående kommunikation till 13.107.21.200 i [Använd nästa hopp](#use-next-hop), vägen med den **addressPrefix** 0.0.0.0/0** användes för att dirigera trafik till adressen eftersom Ingen väg i utdata innehåller adressen. Som standard dirigeras alla adresser som angetts i adressprefixet för en annan väg till internet.
+När du använde den `az network watcher show-next-hop` kommando för att testa utgående kommunikation till 13.107.21.200 i [Använd nästa hopp](#use-next-hop), vägen med den **addressPrefix** 0.0.0.0/0** användes för att dirigera trafik till adressen, eftersom Ingen annan väg i utdata innehåller adressen. Som standard dirigeras alla adresser som inte anges inom adressprefixet till en annan väg till internet.
 
-När du har använt den `az network watcher show-next-hop` kommandot för att testa utgående kommunikation till 172.31.0.100 men, resultatet känner att det inte fanns några nästa hopptyp. I den returnerade utdatan visas också följande text:
+När du använde den `az network watcher show-next-hop` kommandot för att testa utgående kommunikation till 172.31.0.100 men, resultatet informeras du om att det fanns inga nästa hopptyp. I den returnerade utdatan se du också följande text:
 
 ```azurecli
 {
@@ -149,7 +149,7 @@ När du har använt den `az network watcher show-next-hop` kommandot för att te
 },
 ```
 
-Som du ser i utdata från den `az network watcher nic show-effective-route-table` kommandot, men det finns en standardväg till 172.16.0.0/12 prefix, som innehåller 172.31.0.100 adress, den **nextHopType** är **ingen**. Azure skapar en standardväg till 172.16.0.0/12, men anger inte en nästa hopptyp tills det finns en orsak till. Om till exempel att du lagt till adressintervallet 172.16.0.0/12 adressutrymmet för det virtuella nätverket, Azure ändras den **nextHopType** till **för virtuella nätverk** för vägen. En kontroll kan sedan visa **för virtuella nätverk** som den **nextHopType**.
+Som du ser i utdata från den `az network watcher nic show-effective-route-table` kommandot, men det finns en standardväg till 172.16.0.0/12 prefix, som innehåller 172.31.0.100 adressen, den **nextHopType** är **ingen**. Azure skapar en standardväg till 172.16.0.0/12 men anger inte en nästa hopptyp förrän det finns någon anledning till det. Om du till exempel att du lagt till adressintervallet 172.16.0.0/12 adressutrymmet för det virtuella nätverket, Azure ändras den **nextHopType** till **virtuellt nätverk** för vägen. En kontroll visas sedan **virtuellt nätverk** som den **nextHopType**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -161,6 +161,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du skapat en virtuell dator och diagnostiserats nätverksroutning från den virtuella datorn. Du har lärt dig att Azure skapar flera standardvägar och testat routning till två olika mål. Lär dig mer om [routning i Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och hur du [skapa anpassade vägar](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
+I den här artikeln har du skapat en virtuell dator och diagnostiseras nätverksroutning från den virtuella datorn. Du har lärt dig att Azure skapar flera standardvägar och testat routning till två olika mål. Läs mer om [routning i Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och hur du [skapar egna vägar](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
 
-För utgående anslutningar av virtuell dator, du kan också bestämma svarstiden och för tillåten respektive nekad nätverkstrafiken mellan den virtuella datorn och en slutpunkt som använder nätverket Watcher [anslutning felsöka](network-watcher-connectivity-cli.md) kapaciteten. Du kan övervaka kommunikation mellan en virtuell dator och en slutpunkt som en IP-adress eller URL, med tiden med Nätverksbevakaren anslutning övervakaren funktionen. Mer information finns i avsnittet [övervaka en nätverksanslutning](connection-monitor.md).
+För utgående VM-anslutningar kan också bestämma svarstiden du och tillåtna respektive nekade nätverkstrafik mellan den virtuella datorn och en slutpunkt med Network Watchers [anslutningsfelsökning](network-watcher-connectivity-cli.md) kapaciteten. Du kan övervaka kommunikation mellan en virtuell dator och en slutpunkt, till exempel en IP-adress eller URL: en, över tid med Network Watcher anslutning monitor-funktionen. Läs hur genom att läsa [övervaka en nätverksanslutning](connection-monitor.md).

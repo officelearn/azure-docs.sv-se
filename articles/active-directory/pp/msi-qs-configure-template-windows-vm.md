@@ -1,6 +1,6 @@
 ---
-title: Hur du konfigurerar en Användartilldelad MSI för en virtuell Azure-dator med hjälp av en Azure-mall
-description: Steg för steg-instruktioner för hur du konfigurerar en Användartilldelad hanteras Service identitet (MSI) för en Azure-dator med en Azure Resource Manager-mall.
+title: Hur du konfigurerar en Användartilldelad MSI för en Azure-dator med hjälp av en Azure-mall
+description: Steg för steg-instruktioner för hur du konfigurerar en Användartilldelad hanterad tjänstidentitet (MSI) för en Azure-dator med en Azure Resource Manager-mall.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -15,44 +15,44 @@ ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: e01e4c397e0d0a19280a32fc1e8341b57b47e4eb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984047"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38610391"
 ---
-# <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Konfigurera en Användartilldelad hanteras Service identitet (MSI) för en virtuell dator med hjälp av en Azure-mall
+# <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Konfigurera en Användartilldelad hanterad tjänstidentitet (MSI) för en virtuell dator med hjälp av en Azure-mall
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Hanterade tjänstidentiteten ger Azure-tjänster med en hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva autentiseringsuppgifter i din kod. 
+Hanterad tjänstidentitet ger Azure-tjänster med en hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva autentiseringsuppgifter i din kod. 
 
-Lär dig hur du aktiverar och ta bort en Användartilldelad MSI för en Azure-dator med en Azure Resource Manager-Distributionsmall i den här artikeln.
+I den här artikeln får du lära dig hur du aktiverar och ta bort en Användartilldelad MSI för en Azure-dator med hjälp av en Distributionsmall av Azure Resource Manager.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
-## <a name="enable-msi-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Aktivera MSI vid skapandet av en virtuell dator i Azure eller på en befintlig virtuell dator
+## <a name="enable-msi-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Aktivera MSI under skapandet av en Azure-dator eller på en befintlig virtuell dator
 
-Som i Azure ge portal och skript, Azure Resource Manager-mallar möjlighet att distribuera nya eller ändrade resurser som definierats i en Azure-resursgrupp. Flera alternativ är tillgängliga för redigering och distribution, både lokala och portal-baserade, inklusive:
+Som med Azure ger portal och skript, Azure Resource Manager-mallar möjlighet att distribuera nya eller ändrade resurser som definierats av en Azure-resursgrupp. Flera alternativ är tillgängliga för redigering och distribution, både lokala och portalbaserad, inklusive:
 
-   - Med hjälp av en [anpassad mall från Azure Marketplace](~/articles/azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), där du kan skapa en mall från början eller baseras på en befintlig gemensamma eller [QuickStart mallen](https://azure.microsoft.com/documentation/templates/).
-   - Härleds från en befintlig resursgrupp genom att exportera en mall från antingen [den ursprungliga distributionen av](~/articles/azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), eller från den [aktuell status för distributionen](~/articles/azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
-   - Använda en lokal [JSON-redigerare (till exempel VS-kod)](~/articles/azure-resource-manager/resource-manager-create-first-template.md), och sedan ladda upp och distribuera med hjälp av PowerShell eller CLI.
-   - Med Visual Studio [Azure-resursgruppsprojekt](~/articles/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) både skapa och distribuera en mall.  
+   - Med hjälp av en [anpassad mall från Azure Marketplace](~/articles/azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), där du kan skapa en mall från början eller basera den på en befintlig common eller [snabbstartsmall](https://azure.microsoft.com/documentation/templates/).
+   - Som härleds från en befintlig resursgrupp genom att exportera en mall från antingen [den ursprungliga distributionen](~/articles/azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), eller från den [aktuell status för distributionen](~/articles/azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
+   - Med hjälp av en lokal [JSON-redigerare (till exempel VS Code)](~/articles/azure-resource-manager/resource-manager-create-first-template.md), överföring och distribution med hjälp av PowerShell eller CLI.
+   - Med Visual Studio [Azure-resursgruppsprojekt](~/articles/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) att både skapa och distribuera en mall.  
 
-Oavsett vilket alternativ du väljer, är det under första distributionen och Omdistributionen i mallens syntax. Skapa och tilldela en Användartilldelad MSI till en ny eller befintlig virtuell dator görs på samma sätt. Dessutom som standard, Azure Resource Manager har en [stegvis uppdatering](~/articles/azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) för distributioner:
+Oavsett vilket alternativ som väljs, är densamma under den första distributionen och omdistribution i mallens syntax. Skapa och tilldela en Användartilldelad MSI-dator till en ny eller befintlig virtuell dator görs på samma sätt. Dessutom som standard Azure Resource Manager har en [inkrementell uppdatering](~/articles/azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) distributioner:
 
-1. Om du loggar in till Azure lokalt eller via Azure portal, kan du använda ett konto som är associerad med Azure-prenumeration som innehåller MSI och VM. Se också till att ditt konto tillhör en roll som ger dig behörighet att skriva på prenumerationen eller resurser (till exempel roll ”ägare”).
+1. Om du loggar in till Azure lokalt eller via Azure portal kan du använda ett konto som är associerad med Azure-prenumerationen som innehåller MSI och VM. Se också till att ditt konto tillhör en roll som ger dig skrivbehörighet på prenumerations- eller resurser (till exempel rollen ”ägare”).
 
-2. Efter att läsa in mallen i en textredigerare, leta upp den `Microsoft.Compute/virtualMachines` resurs av intresse inom den `resources` avsnitt. Din kan skilja sig något från följande skärmbild, beroende på hur du använder redigeraren och om du redigerar en mall för en ny distribution eller befintlig.
+2. Efter inläsning av mallen i ett redigeringsprogram för att leta upp den `Microsoft.Compute/virtualMachines` resource intressanta inom den `resources` avsnittet. Själv kan skilja sig från följande skärmbild, beroende på redigerare som du använder och om du redigerar en mall för en ny distribution eller befintlig.
 
    >[!NOTE] 
    > Det här exemplet förutsätter variabler som `vmName`, `storageAccountName`, och `nicName` har definierats i mallen.
    >
 
-   ![Skärmbild av mall - hitta VM](~/articles/active-directory/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![Skärmbild av mall - Leta upp virtuell dator](~/articles/active-directory/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
 3. Lägg till den `"identity"` egenskapen på samma nivå som den `"type": "Microsoft.Compute/virtualMachines"` egenskapen. Använd följande syntax:
 
@@ -65,7 +65,7 @@ Oavsett vilket alternativ du väljer, är det under första distributionen och O
 4. Lägg sedan till VM MSI-tillägget som en `resources` element. Använd följande syntax:
 
    >[!NOTE] 
-   > Följande exempel förutsätter en Windows VM-tillägget (`ManagedIdentityExtensionForWindows`) som ska distribueras. Du kan också konfigurera för Linux med hjälp av `ManagedIdentityExtensionForLinux` i stället för den `"name"` och `"type"` element.
+   > I följande exempel förutsätter att en Windows VM-tillägg (`ManagedIdentityExtensionForWindows`) som ska distribueras. Du kan också konfigurera för Linux med hjälp av `ManagedIdentityExtensionForLinux` i stället för den `"name"` och `"type"` element.
    >
 
    ```JSON
@@ -90,19 +90,19 @@ Oavsett vilket alternativ du väljer, är det under första distributionen och O
    }
    ```
 
-5. När du är klar bör mallen likna följande:
+5. När du är klar bör se din mall ut ungefär så här:
 
-   ![Skärmbild av mallen efter uppdateringen](~/articles/active-directory/media/msi-qs-configure-template-windows-vm/template-file-after.png) 
+   ![Skärmbild av mall efter uppdateringen](~/articles/active-directory/media/msi-qs-configure-template-windows-vm/template-file-after.png) 
 
-## <a name="remove-msi-from-an-azure-vm"></a>Ta bort MSI från en virtuell dator i Azure
+## <a name="remove-msi-from-an-azure-vm"></a>Ta bort MSI från en Azure virtuell dator
 
 Om du har en virtuell dator som inte längre behöver en MSI:
 
-1. Om du loggar in till Azure lokalt eller via Azure portal, kan du använda ett konto som är associerade med Azure-prenumeration som innehåller den virtuella datorn. Se också till att ditt konto tillhör en roll som ger dig skrivbehörighet på den virtuella datorn (till exempel roll ”Virtual Machine-deltagare”).
+1. Om du loggar in till Azure lokalt eller via Azure portal kan du använda ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn. Se också till att ditt konto tillhör en roll som ger dig skrivbehörighet på den virtuella datorn (till exempel rollen ”virtuell Datordeltagare”).
 
-2. Ta bort de två element som har lagts till i föregående avsnitt: den virtuella datorn `"identity"` egenskapen och `"Microsoft.Compute/virtualMachines/extensions"` resurs.
+2. Ta bort de två element som har lagts till i föregående avsnitt: Virtuellt datorns `"identity"` egenskapen och `"Microsoft.Compute/virtualMachines/extensions"` resurs.
 
 ## <a name="related-content"></a>Relaterat innehåll
 
-- Ett bredare perspektiv om MSI läsa den [hanterade tjänstidentiteten översikt](msi-overview.md).
+- Ett bredare perspektiv om MSI läsa den [hanterad tjänstidentitet översikt](msi-overview.md).
 

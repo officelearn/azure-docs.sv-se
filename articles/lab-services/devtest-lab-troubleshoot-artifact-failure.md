@@ -1,6 +1,6 @@
 ---
-title: Diagnostisera artefakt fel på en virtuell dator i Azure DevTest Labs | Microsoft Docs
-description: Lär dig hur du felsöker artefakt fel i Azure DevTest Labs.
+title: Diagnostisera fel i artefakter i en virtuell dator i Azure DevTest Labs | Microsoft Docs
+description: Lär dig hur du felsöker fel i artefakter i Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,38 +15,38 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: ebc64215683989ce07f4dd88dc352ecaefe184cd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788727"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697280"
 ---
-# <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnostisera artefakt fel i labbet 
-När du har skapat en artefakt, kan du kontrollera om det har lyckats eller misslyckats. Artefakt loggar i Azure DevTest Labs innehåller information som du kan använda för att diagnostisera ett artefakt-fel. Du har ett antal alternativ för att visa artefakt logginformation för en virtuell Windows-dator:
+# <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnostisera fel i artefakter i laboratoriet 
+När du har skapat en artefakt, kan du kontrollera om du vill se om den lyckades eller misslyckades. Artefakt-loggarna i Azure DevTest Labs ger information som du kan använda för att diagnostisera ett artefakt-fel. Du har ett par alternativ för att visa artefakten logginformation för en virtuell Windows-dator:
 
-* I Azure-portalen
+* I Azure portal
 * I den virtuella datorn
 
 > [!NOTE]
-> För att säkerställa att fel identifieras korrekt och förklaras, är det viktigt att artefakten har rätt struktur. Information om hur du skapar en artefakt korrekt finns [skapa anpassade artefakter](devtest-lab-artifact-author.md). Om du vill se ett exempel på en korrekt strukturerad artefakt checka ut den [testa parametertyper](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes) artefakt.
+> För att säkerställa att fel identifieras korrekt och förklaras, är det viktigt att artefakten har rätt struktur. Information om hur du skapar en artefakt korrekt finns i [skapa anpassade artefakter](devtest-lab-artifact-author.md). Om du vill se ett exempel på en korrekt strukturerad artefakt, Kolla in den [testa parametertyper](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes) artefakten.
 
-## <a name="troubleshoot-artifact-failures-by-using-the-azure-portal"></a>Felsöka artefakt fel med hjälp av Azure portal
+## <a name="troubleshoot-artifact-failures-by-using-the-azure-portal"></a>Felsöka fel i artefakter med hjälp av Azure portal
 
-1. Välj ditt labb i Azure-portalen i din lista över resurser.
+1. Välj ditt labb i Azure-portalen, i listan över resurser.
 2. Välj den Windows-VM som innehåller den artefakt som du vill undersöka.
-3. I den vänstra rutan under **allmänna**väljer **artefakter**. En lista över artefakter som är associerade med den virtuella datorn visas. Namnet på artefakten och artefakt status anges.
+3. I den vänstra panelen under **Allmänt**väljer **artefakter**. En lista över artefakter som associeras med den virtuella datorn visas. Namnet på artefakten och artefakt status anges.
 
-   ![Artefakt status](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure.png)
+   ![Artefakten status](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure.png)
 
-4. Välj en artefakt som visar en **misslyckades** status. Artefakten öppnas. Ett tillägg som innehåller information om felet för artefakten meddelande.
+4. Välj en artefakt som visar en **misslyckades** status. Artefakten öppnas. Ett tillägg som innehåller information om fel på artefakten meddelande.
 
-   ![Artefakt felmeddelande](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error.png)
+   ![Artefakten felmeddelande](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error.png)
 
 
-## <a name="troubleshoot-artifact-failures-from-within-the-virtual-machine"></a>Felsöka artefakt fel från den virtuella datorn
+## <a name="troubleshoot-artifact-failures-from-within-the-virtual-machine"></a>Felsöka fel i artefakter från den virtuella datorn
 
-1. Logga in på den virtuella datorn som innehåller den artefakt som du vill felsöka.
-2. Gå till C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\*1,9*\Status, där *1,9* versionsnummer Azure-tillägget för anpassat skript.
+1. Logga in på den virtuella datorn som innehåller den artefakt som du vill diagnostisera.
+2. Gå till C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\*1.9*\Status, där *1.9* är det anpassade Skripttillägget Azure-versionsnumret.
 
    ![Filen med](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status.png)
 
@@ -55,7 +55,7 @@ När du har skapat en artefakt, kan du kontrollera om det har lyckats eller miss
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-blog-posts"></a>Relaterade blogginlägg
-* [Anslut en virtuell dator till en befintlig Active Directory-domän med hjälp av en Resource Manager-mall i DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Ansluta en dator till en befintlig Active Directory-domän med hjälp av Resource Manager-mall i DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [lägga till en Git-lagringsplats i ett labb](devtest-lab-add-artifact-repo.md).

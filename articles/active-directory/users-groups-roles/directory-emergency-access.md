@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 185f6730babe077332be9f054ba338ff48295eca
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4f3772abc1cdbd3b35b8b1f16e7a47c0f1a17783
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450021"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38595662"
 ---
 # <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Hantera nödfall-åtkomst till administratörskonton i Azure AD 
 
@@ -82,6 +82,6 @@ För att utbilda personalen kan använda för åtkomst vid akutfall och gör fö
 - [Registrera dig för Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md), om du inte har registrerat dig redan.
 - [Kräv Azure Multi-Factor Authentication för enskilda användare som utsetts till administratörer](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
 - [Konfigurera ytterligare skydd för globala administratörer i Office 365](https://support.office.com/article/Protect-your-Office-365-global-administrator-accounts-6b4ded77-ac8d-42ed-8606-c014fd947560), om du använder Office 365.
-- [Utför en åtkomstgranskning av globala administratörer](../active-directory-privileged-identity-management-how-to-start-security-review.md) och [övergång befintliga globala administratörer av mer specifika administratörsroller](directory-assign-admin-roles.md).
+- [Utför en åtkomstgranskning av globala administratörer](../privileged-identity-management/pim-how-to-start-security-review.md) och [övergång befintliga globala administratörer av mer specifika administratörsroller](directory-assign-admin-roles.md).
 
 

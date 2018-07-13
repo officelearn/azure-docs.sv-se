@@ -1,6 +1,6 @@
 ---
 title: Enheten firmware-uppdatering med Azure IoT Hub (Java/Java) | Microsoft Docs
-description: Hur du använder hantering av enheter på Azure IoT Hub för att initiera en firmware-uppdatering för enheten. Du kan använda Azure IoT-enhet SDK för Java att implementera en simulerad enhetsapp och för att implementera ett service-appen som utlöser firmware-uppdatering.
+description: Hur du använder enhetshantering i Azure IoT Hub för att initiera en firmware-uppdatering för enheten. Du kan använda Azure IoT-enhetens SDK för Java för att implementera en simulerad enhetsapp och för att implementera en service-app som utlöser uppdateringen av inbyggd programvara.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -10,29 +10,29 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: dobett
 ms.openlocfilehash: 5991615bca26749e1f138b561260108f8bcf2646
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634615"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611335"
 ---
-# <a name="use-device-management-to-initiate-a-device-firmware-update-javajava"></a>Använd enhetshantering för att starta en enhet på en firmware-uppdatering (Java/Java)
+# <a name="use-device-management-to-initiate-a-device-firmware-update-javajava"></a>Använda enhetshantering för att initiera en enhet på en firmware-uppdatering (Java/Java)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-I den [Kom igång med enhetshantering] [ lnk-dm-getstarted] självstudiekursen du sett hur du använder den [enheten dubbla] [ lnk-devtwin] och [direkt metoder] [ lnk-c2dmethod] primitiver att starta om en enhet via fjärranslutning. Den här kursen visar hur du gör en slutpunkt till slutpunkt simulerade firmware-uppdatering använder samma IoT-hubb primitiver.  Det här mönstret används i uppdatering av inbyggd hanteringsprogramvara för den [hallon Pi enheten implementering exempel][lnk-rpi-implementation].
+I den [Kom igång med enhetshantering] [ lnk-dm-getstarted] självstudier, såg du hur du använder den [enhetstvillingen] [ lnk-devtwin] och [direkta metoder ] [ lnk-c2dmethod] primitiver att starta om en enhet via fjärranslutning. Den här självstudien använder samma IoT Hub-primitiver och visar hur du gör en slutpunkt till slutpunkt simulerade firmware-uppdatering.  Det här mönstret används i implementeringen på uppdatering av inbyggd programvara för den [Raspberry Pi enheten implementering exempel][lnk-rpi-implementation].
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 I den här självstudiekursen lär du dig att:
 
-* Skapa en Java-konsolapp som anropar den **firmwareUpdate** direkt metod på appen simulerade enheten via din IoT-hubb.
-* Skapa en Java-konsolapp som simulerar enheten och implementerar den **firmwareUpdate** direkt metod. Den här metoden initierar en process i flera steg som väntar på att ladda ned avbildningen inbyggd programvara, laddar ned avbildningen av inbyggd programvara och slutligen använder inbyggd avbildningen. Under varje steg i uppdateringen använder enheten rapporterade egenskaperna för att rapportera förlopp.
+* Skapa en Java-konsolapp som anropar den **firmwareUpdate** direkt metod på den simulerade enhetsappen via din IoT-hubb.
+* Skapa en Java-konsolapp som simulerar enheten och implementerar den **firmwareUpdate** direkt metod. Den här metoden initierar en process i flera steg som väntar på att ladda ned avbildningen för inbyggd programvara, laddar ned avbildningen för inbyggd programvara och slutligen gäller avbildningen för inbyggd programvara. Enheten använder de rapporterade egenskaperna under varje steg av uppdateringen för att informera om förloppet.
 
-I slutet av den här kursen har du två appar som Java-konsolen:
+I slutet av den här självstudien har du två Java-konsolappar:
 
-**firmware-uppdatering**, anropar en direkt metod på den simulerade enheten, visas svaret och regelbundet visar rapporterade egenskapen uppdateringar
+**uppdatering av inbyggd programvara**, anropar en direkt metod på den simulerade enheten, visas svaret och regelbundet visar rapporterade egenskap-uppdateringar
 
-**simulerade enheten**, ansluter till din IoT-hubb med tidigare skapade enhetens identitet, tar emot firmwareUpdate direkt metodanropet och körs via en firmware-uppdatering simulering
+**simulated-device**, ansluter till din IoT-hubb med enhetsidentiteten som tidigare skapade, tar emot anropet firmwareUpdate direkt metod och kör igenom en firmware update simulering
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -44,18 +44,18 @@ För att kunna genomföra den här kursen behöver du följande:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Utlös en fjärransluten firmware-uppdatering på enheten med en direkt metod
-I det här avsnittet skapar du en Java-konsolapp som initierar en fjärransluten firmware-uppdatering på en enhet. Appen använder direkta metoden för att initiera uppdateringen och använder enheten dubbla frågor för att hämta status för aktiva firmware-uppdatering med jämna mellanrum.
+## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Utlösa en fjärransluten firmware-uppdatering på enheten med en direkt metod
+I det här avsnittet skapar du en Java-konsolapp som initierar en fjärransluten firmware-uppdatering på en enhet. Appen använder en direkt metod för att initiera uppdateringen och använder enhetstvillingfrågor för att regelbundet hämta status för aktiva firmware-uppdatering.
 
-1. Skapa en tom mapp som kallas VB-get-started.
+1. Skapa en tom mapp med namnet VB-get-started.
 
-1. Skapa ett Maven-projekt som kallas i mappen VB-get-started **firmware-uppdatering** med följande kommando vid en kommandotolk. Observera att detta är ett enda långt kommando:
+1. I mappen VB-get-started skapar du ett Maven-projekt som heter **uppdatering av inbyggd programvara** med följande kommando i Kommandotolken. Observera att detta är ett enda långt kommando:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=firmware-update -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. Navigera till mappen firmware-uppdatering i en kommandotolk.
+1. Navigera till mappen uppdatering av inbyggd programvara i en kommandotolk.
 
-1. Använd en textredigerare och öppna filen pom.xml i mappen firmware-uppdatering och Lägg till följande beroende på den **beroenden** nod. Detta beroende kan du använda iot-service-klient-paketet i appen kommunicerar med IoT-hubben:
+1. Använd en textredigerare och öppna filen pom.xml i mappen uppdatering av inbyggd programvara och Lägg till följande beroende till den **beroenden** noden. Det här beroendet gör att du kan använda iot-service-client-paketet i din app för att kommunicera med IoT-hubben:
 
     ```xml
     <dependency>
@@ -67,9 +67,9 @@ I det här avsnittet skapar du en Java-konsolapp som initierar en fjärransluten
     ```
 
     > [!NOTE]
-    > Du kan söka efter den senaste versionen av **iot tjänstklienten** med [Maven Sök](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Du kan söka efter den senaste versionen av **iot-service-client** med [Maven-sökning](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Lägg till följande **skapa** noden efter den **beroenden** nod. Den här konfigurationen instruerar Maven använda Java 1.8 för att skapa appen:
+1. Lägg till följande **skapa** noden efter den **beroenden** noden. Den här konfigurationen instruerar Maven du använder Java 1.8 för att skapa programmet:
 
     ```xml
     <build>
@@ -104,7 +104,7 @@ I det här avsnittet skapar du en Java-konsolapp som initierar en fjärransluten
     import java.util.concurrent.TimeUnit;
     ```
 
-1. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt **{youriothubconnectionstring}** med din IoT-hubb-anslutningssträng som du antecknade i den *skapar en IoT-hubb* avsnitt:
+1. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt **{youriothubconnectionstring}** med din IoT hub-anslutningssträngen som du antecknade i den *skapar en IoT Hub* avsnittet:
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -115,7 +115,7 @@ I det här avsnittet skapar du en Java-konsolapp som initierar en fjärransluten
     private static final Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
     ```
 
-1. För att implementera en metod som läser rapporterade egenskaper från enheten dubbla, lägger du till följande för att den **App** klass:
+1. För att implementera en metod som läser de rapporterade egenskaperna från enhetstvillingen, lägger du till följande till den **App** klass:
 
     ```java
     public static void ShowReportedProperties() 
@@ -168,13 +168,13 @@ I det här avsnittet skapar du en Java-konsolapp som initierar en fjärransluten
     }
     ```
 
-1. Ändra signaturen för den **huvudsakliga** metod för att utlösa följande undantag:
+1. Ändra signaturen för den **huvudsakliga** metoden utlöser följande undantag:
 
     ```java
     public static void main( String[] args ) throws IOException
     ```
 
-1. Lägg till följande kod för att anropa metoden firmwareUpdate direkt på den simulerade enheten den **huvudsakliga** metoden:
+1. Lägg till följande kod för att anropa metoden firmwareUpdate direkt på den simulerade enheten på **huvudsakliga** metoden:
 
     ```java
     DeviceMethod methodClient = DeviceMethod.createFromConnectionString(iotHubConnectionString);
@@ -202,7 +202,7 @@ I det här avsnittet skapar du en Java-konsolapp som initierar en fjärransluten
     }
     ```
 
-1. Om du vill söka rapporterade egenskaper från den simulerade enheten, lägger du till följande kod i **huvudsakliga** metoden:
+1. Om du vill söka de rapporterade egenskaperna från den simulerade enheten, lägger du till följande kod till den **huvudsakliga** metoden:
 
     ```java
     ShowReportedProperties();
@@ -218,20 +218,20 @@ I det här avsnittet skapar du en Java-konsolapp som initierar en fjärransluten
 
 1. Spara och stäng filen firmware-update\src\main\java\com\mycompany\app\App.java.
 
-1. Skapa den **firmware-uppdatering** backend-app och korrigera eventuella fel. Navigera till mappen firmware-uppdatering i en kommandotolk och kör följande kommando:
+1. Skapa den **uppdatering av inbyggd programvara** serverdelsapp och korrigera eventuella fel. Navigera till mappen uppdatering av inbyggd programvara i en kommandotolk och kör följande kommando:
 
     `mvn clean package -DskipTests`
 
 ## <a name="simulate-a-device-to-handle-direct-method-calls"></a>Simulera en enhet för att hantera direkt metodanrop
-I det här avsnittet skapar du en Java simulerade enheten konsolapp som kan ta emot den direkta metoden firmwareUpdate. Appen körs via en process som flera tillstånd för att simulera firmware-uppdatering med hjälp av reportedProperties kommunicera status.
+I det här avsnittet skapar du en Java-konsolen simulerad enhetsapp som kan ta emot firmwareUpdate direkt metod. Appen körs sedan genom en process som flera tillstånd för att simulera uppdateringen av inbyggd programvara med hjälp av reportedProperties kommunicera status.
 
-1. Skapa ett Maven-projekt som kallas i mappen VB-get-started **simulerade enheten** med följande kommando vid en kommandotolk. Observera att detta är ett enda långt kommando:
+1. I mappen VB-get-started skapar du ett Maven-projekt som heter **simulated-device** med följande kommando i Kommandotolken. Observera att detta är ett enda långt kommando:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
 1. Gå till mappen simulated-device i Kommandotolken.
 
-1. Använd en textredigerare och öppna filen pom.xml i mappen firmware-uppdatering och Lägg till följande beroende på den **beroenden** nod. Detta beroende kan du använda iot-service-klient-paketet i appen kommunicerar med IoT-hubben:
+1. Använd en textredigerare och öppna filen pom.xml i mappen uppdatering av inbyggd programvara och Lägg till följande beroende till den **beroenden** noden. Det här beroendet gör att du kan använda iot-service-client-paketet i din app för att kommunicera med IoT-hubben:
 
     ```xml
     <dependency>
@@ -243,9 +243,9 @@ I det här avsnittet skapar du en Java simulerade enheten konsolapp som kan ta e
     ```
 
     > [!NOTE]
-    > Du kan söka efter den senaste versionen av **iot enhetsklienten** med [Maven Sök](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Du kan söka efter den senaste versionen av **iot-device-client** med [Maven-sökning](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Lägg till följande **skapa** noden efter den **beroenden** nod. Den här konfigurationen instruerar Maven använda Java 1.8 för att skapa appen:
+1. Lägg till följande **skapa** noden efter den **beroenden** noden. Den här konfigurationen instruerar Maven du använder Java 1.8 för att skapa programmet:
 
     ```xml
     <build>
@@ -265,7 +265,7 @@ I det här avsnittet skapar du en Java simulerade enheten konsolapp som kan ta e
 
 1. Spara och stäng filen pom.xml.
 
-1. Använd en textredigerare och öppna källfilen simulated-device\src\main\java\com\mycompany\app\App.java.
+1. Använd en textredigerare och öppna filen simulated-device\src\main\java\com\mycompany\app\App.java källa.
 
 1. Lägg till följande **Import**-instruktioner i filen:
 
@@ -282,7 +282,7 @@ I det här avsnittet skapar du en Java simulerade enheten konsolapp som kan ta e
     import java.util.HashMap;
     ```
 
-1. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt **{yourdeviceconnectionstring}** med din enhet anslutningssträng som du antecknade i den *skapa en enhetsidentitet* avsnitt:
+1. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt **{yourdeviceconnectionstring}** med enhetens anslutningssträng du antecknade i den *skapa en enhetsidentitet* avsnittet:
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -295,7 +295,7 @@ I det här avsnittet skapar du en Java simulerade enheten konsolapp som kan ta e
     private static String downloadURL = "unknown";
     ```
 
-1. Om du vill implementera funktioner för direkta metoden ger återanrop genom att lägga till följande kapslade klasser till den **App** klass:
+1. För att implementera funktioner för direkta metoden, ange återanrop genom att lägga till följande kapslade klasser till den **App** klass:
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -338,7 +338,7 @@ I det här avsnittet skapar du en Java simulerade enheten konsolapp som kan ta e
     }
     ```
 
-1. Om du vill implementera dubbla enhetsfunktion ange återanrop genom att lägga till följande kapslade klasser till den **App** klass:
+1. Om du vill implementera twin enhetsfunktion ger återanrop genom att lägga till följande kapslade klasser till den **App** klass:
 
     ```java
     protected static class DeviceTwinStatusCallback implements IotHubEventCallback
@@ -358,7 +358,7 @@ I det här avsnittet skapar du en Java simulerade enheten konsolapp som kan ta e
     }
     ```
 
-1. Lägg till följande kapslade klassen för att implementera firmware-uppdatering, den **App** klass:
+1. Om du vill implementera uppdatering av inbyggd programvara, lägger du till följande kapslade klassen för att den **App** klass:
 
     ```java
     protected static class FirmwareUpdateThread implements Runnable {
@@ -415,13 +415,13 @@ I det här avsnittet skapar du en Java simulerade enheten konsolapp som kan ta e
     }
     ```
 
-1. Ändra signaturen för den **huvudsakliga** metod för att utlösa följande undantag:
+1. Ändra signaturen för den **huvudsakliga** metoden utlöser följande undantag:
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-1. Lägg till följande kod för att initiera direkt metoder och enheten twins rutinen den **huvudsakliga** metoden:
+1. Lägg till följande kod för att initiera den direkta metoder och device twins rutinen den **huvudsakliga** metoden:
 
     ```java
     client = new DeviceClient(connString, protocol);
@@ -441,7 +441,7 @@ I det här avsnittet skapar du en Java simulerade enheten konsolapp som kan ta e
     }
     ```
 
-1. Så att du kan stoppa appen, Lägg till följande kod i slutet av den **huvudsakliga** metoden:
+1. Så att du kan stoppa appen, lägger du till följande kod i slutet av den **huvudsakliga** metoden:
 
     ```java
     System.out.println("Press any key to exit...");
@@ -452,20 +452,20 @@ I det här avsnittet skapar du en Java simulerade enheten konsolapp som kan ta e
     System.out.println("Shutting down...");
     ```
 
-1. Spara och stäng filen simulated-device\src\main\java\com\mycompany\app\App.java.
+1. Spara och stäng filen simulated-device\src\main\java\com\mycompany\app\App.java i.
 
-1. Skapa den **simulerade enheten** app och korrigera eventuella fel. Navigera till mappen simulerade enheten och kör följande kommando vid en kommandotolk:
+1. Skapa den **simulated-device** app och korrigera eventuella fel. Navigera till mappen simulated-device i Kommandotolken, och kör följande kommando:
 
     `mvn clean package -DskipTests`
 
 ## <a name="run-the-apps"></a>Kör apparna
 Nu är det dags att köra apparna.
 
-1. Vid en kommandotolk i den **simulerade enheten** mapp, kör följande kommando för att börja lyssna efter firmware-uppdateringsmetoden direkt.
+1. I en kommandotolk i den **simulated-device** mapp, kör följande kommando för att tar emot firmware update direkt metod.
    
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-1. Vid en kommandotolk i den **firmware-uppdatering** mapp, kör följande kommando för att anropa firmware-uppdatering och fråga enheten twins på den simulerade enheten från din IoT-hubb:
+1. I en kommandotolk i den **uppdatering av inbyggd programvara** mapp, kör följande kommando för att anropa uppdateringen av inbyggd programvara och fråga efter enhetstvillingar på din simulerade enhet från IoT hub:
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
@@ -474,9 +474,9 @@ Nu är det dags att köra apparna.
     ![Inbyggd programvara har uppdaterats][img-fwupdate]
 
 ## <a name="next-steps"></a>Nästa steg
-I den här kursen används direkt metod för att utlösa en fjärransluten firmware-uppdatering på en enhet och används egenskaperna rapporterade för att följa förloppet för firmware-uppdatering.
+I den här självstudien används en direkt metod för att utlösa en fjärransluten firmware-uppdatering på en enhet och används de rapporterade egenskaperna för att följa förloppet för uppdatering av inbyggd programvara.
 
-Information om hur du utökar din IoT-lösningen och schema metodanrop på flera enheter finns i [schema och broadcast jobb] [ lnk-tutorial-jobs] kursen.
+Läs hur du utökar din IoT-lösning och schema anropar på flera enheter i den [schema och sändningsjobb] [ lnk-tutorial-jobs] självstudien.
 
 <!-- images -->
 [img-fwupdate]: media/iot-hub-java-java-firmware-update/firmwareUpdated.png

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/31/2018
 ms.author: cynthn
 ms.openlocfilehash: 75ec087536d6f833a9a2106b1fdf4ed1fd73ef8e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932419"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634628"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>Hur du krypterar en Linux-dator i Azure
 För förbättrad virtuell dator (VM) säkerhet och efterlevnad, kan virtuella diskar och Virtuellt datorn krypteras. Virtuella datorer krypteras med hjälp av kryptografiska nycklar som skyddas i ett Azure Key Vault. Du kontrollerar dessa kryptografiska nycklar och kan granska deras användning. Den här artikeln beskriver hur du krypterar virtuella diskar på en Linux VM med Azure CLI 2.0. 

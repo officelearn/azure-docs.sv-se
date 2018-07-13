@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Azure-tabellagring och Visual Studio anslutna tjänster (ASP.NET) | Microsoft Docs
-description: Hur du kommer igång med Azure-tabellagring i ASP.NET-projekt i Visual Studio efter anslutning till ett lagringskonto med hjälp av Visual Studio anslutna Services
+title: Kom igång med Azure table storage och Visual Studio anslutna tjänster (ASP.NET) | Microsoft Docs
+description: Hur du kommer igång med Azure table storage i ett ASP.NET-projekt i Visual Studio när du har anslutit till ett lagringskonto med hjälp av Visual Studio Connected Services
 services: storage
 author: ghogen
 manager: douge
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
 ms.openlocfilehash: 39456380769e1c3b790d2bbc6fdf9c04c983d054
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798639"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531397"
 ---
-# <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure-tabellagring och Visual Studio anslutna tjänster (ASP.NET)
+# <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure table storage och Visual Studio anslutna tjänster (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>Översikt
 
 Azure Table storage kan du lagra stora mängder strukturerade data. Tjänsten är en NoSQL-datalager som tar emot autentiserade anrop inuti och utanför Azure-molnet. Azure-tabeller passar utmärkt för att lagra strukturerade, icke-relationella data.
 
-Den här kursen visar hur du skriver ASP.NET-kod för några vanliga scenarier med hjälp av Azure table storage entiteter. Dessa scenarier som inkluderar att skapa en tabell och lägga till, fråga och ta bort tabellentiteter. 
+Den här självstudiekursen visar hur du skriver ASP.NET-kod för några vanliga scenarier med hjälp av Azure table storage-entiteter. Dessa scenarier är hur du skapar en tabell och lägger till, fråga och ta bort tabellenheter. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -38,21 +38,21 @@ Den här kursen visar hur du skriver ASP.NET-kod för några vanliga scenarier m
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 
-### <a name="create-an-mvc-controller"></a>Skapa en MVC-enhet 
+### <a name="create-an-mvc-controller"></a>Skapa ett MVC-kontrollant 
 
-1. I den **Solution Explorer**, högerklicka på **domänkontrollanter**, och på snabbmenyn Välj **Lägg till -> styrenhet**.
+1. I den **Solution Explorer**, högerklicka på **domänkontrollanter**, och välj sedan från snabbmenyn **Lägg till -> Controller**.
 
     ![Lägg till en domänkontrollant i en ASP.NET MVC-app](./media/vs-storage-aspnet-getting-started-tables/add-controller-menu.png)
 
-1. På den **Lägg till Kodskelett** markerar **MVC 5 styrenhet – tom**, och välj **Lägg till**.
+1. På den **Lägg till Kodskelett** dialogrutan **MVC 5 styrenhet – tom**, och välj **Lägg till**.
 
     ![Ange typ av MVC-domänkontrollant](./media/vs-storage-aspnet-getting-started-tables/add-controller.png)
 
-1. På den **Lägg till styrenhet** dialogrutan namn styrenheten *TablesController*, och välj **Lägg till**.
+1. På den **Lägg till styrenhet** dialogrutan namn kontrollanten *TablesController*, och välj **Lägg till**.
 
-    ![Namnet på MVC-enhet](./media/vs-storage-aspnet-getting-started-tables/add-controller-name.png)
+    ![Namn på MVC-kontrollant](./media/vs-storage-aspnet-getting-started-tables/add-controller-name.png)
 
-1. Lägg till följande *med* direktiven till den `TablesController.cs` filen:
+1. Lägg till följande *med* direktiv den `TablesController.cs` fil:
 
     ```csharp
     using Microsoft.Azure;
@@ -63,9 +63,9 @@ Den här kursen visar hur du skriver ASP.NET-kod för några vanliga scenarier m
 
 ### <a name="create-a-model-class"></a>Skapa en modellklass
 
-Många av exemplen i den här artikeln används en **TableEntity**-härledd klass som kallas **CustomerEntity**. Följande steg när du går igenom deklarera den här klassen som en modellklass:
+Många av exemplen i den här artikeln används en **TableEntity**-härledd klass som kallas **CustomerEntity**. Följande steg hjälper dig att deklarera den här klassen som en modellklass:
 
-1. I den **Solution Explorer**, högerklicka på **modeller**, och på snabbmenyn Välj **klassen -> Lägg till**.
+1. I den **Solution Explorer**, högerklicka på **modeller**, och välj sedan från snabbmenyn **Lägg till -> klass**.
 
 1. På den **Lägg till nytt objekt** dialogrutan namn klassen **CustomerEntity**.
 
@@ -94,11 +94,11 @@ Många av exemplen i den här artikeln används en **TableEntity**-härledd klas
 
 ## <a name="create-a-table"></a>Skapa en tabell
 
-Följande steg visar hur du skapar en tabell:
+Följande steg illustrerar hur du skapar en tabell:
 
 > [!NOTE]
 > 
-> Det här avsnittet förutsätter att du har slutfört stegen i [Konfigurera utvecklingsmiljön](#set-up-the-development-environment). 
+> Det här avsnittet förutsätter att du har slutfört stegen i [ställer in utvecklingsmiljön](#set-up-the-development-environment). 
 
 1. Öppna filen `TablesController.cs`.
 
@@ -113,14 +113,14 @@ Följande steg visar hur du skapar en tabell:
     }
     ```
 
-1. I den **CreateTable** metod, hämta en **CloudStorageAccount** objekt som representerar din kontoinformation för lagring. Använda följande kod för att hämta anslutningssträngen för lagring och information om lagringskonto från Azure tjänstkonfiguration: (ändra  *&lt;behållarens kontonamn >* till namnet på Azure storage-konto du försöker komma åt.)
+1. I den **CreateTable** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Hämta en **CloudTableClient** -objektet representerar en tabelltjänstens klient.
+1. Hämta en **CloudTableClient** -objektet representerar en table service-klienten.
    
     ```csharp
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -132,23 +132,23 @@ Följande steg visar hur du skapar en tabell:
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Anropa den **CloudTable.CreateIfNotExists** metod för att skapa tabellen om det inte finns ännu. Den **CloudTable.CreateIfNotExists** metoden returnerar **SANT** om tabellen inte finns och har skapats. Annars **FALSKT** returneras.    
+1. Anropa den **CloudTable.CreateIfNotExists** metod för att skapa tabellen om det inte finns ännu. Den **CloudTable.CreateIfNotExists** metoden returnerar **SANT** om tabellen inte finns och har skapats. I annat fall **FALSKT** returneras.    
 
     ```csharp
     ViewBag.Success = table.CreateIfNotExists();
     ```
 
-1. Uppdatering av **ViewBag** med namnet på tabellen.
+1. Uppdatera den **ViewBag** med namnet på tabellen.
 
     ```csharp
     ViewBag.TableName = table.Name;
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer** mappen, högerklicka på **tabeller**, och på snabbmenyn väljer **Lägg till -> Visa**.
+1. I den **Solution Explorer**, expandera den **vyer** mapp, högerklickar du på **tabeller**, och på snabbmenyn väljer **Lägg till -> Visa**.
 
 1. På den **Lägg till vy** dialogrutan Ange **CreateTable** för namn och välj **Lägg till**.
 
-1. Öppna `CreateTable.cshtml`, och ändra den så att det ser ut som följande kodavsnitt:
+1. Öppna `CreateTable.cshtml`, och ändra det så att det ser ut som följande kodavsnitt:
 
     ```csharp
     @{
@@ -160,7 +160,7 @@ Följande steg visar hur du skapar en tabell:
     Creation of @ViewBag.TableName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer -> delade** och öppna `_Layout.cshtml`.
+1. I den **Solution Explorer**, expandera den **vyer -> delad** och öppna `_Layout.cshtml`.
 
 1. Efter senast **Html.ActionLink**, Lägg till följande **Html.ActionLink**:
 
@@ -168,20 +168,20 @@ Följande steg visar hur du skapar en tabell:
     <li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
     ```
 
-1. Kör programmet och välj **Skapa tabell** att se resultatet liknar följande Skärmdump:
+1. Kör programmet och välj **Create table** att se resultat som liknar följande skärmbild:
   
     ![Skapa tabell](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-    Som nämnts tidigare i **CloudTable.CreateIfNotExists** metoden returnerar **SANT** endast när tabellen finns inte och har skapats. Om du kör appen när tabellen finns metoden returnerar därför **FALSKT**. Om du vill köra appen flera gånger, måste du ta bort tabellen innan du kör appen igen. Ta bort tabellen kan göras den **CloudTable.Delete** metod. Du kan också ta bort en tabell med hjälp av den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040) eller [Microsoft Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Som nämnts tidigare i **CloudTable.CreateIfNotExists** metoden returnerar **SANT** endast när tabellen finns inte och har skapats. Därför, om du kör appen när tabellen finns metoden returnerar **FALSKT**. För att köra appen flera gånger, måste du ta bort tabellen innan du kör appen igen. Tar bort tabellen kan ske via den **CloudTable.Delete** metod. Du kan också ta bort en tabell med hjälp av den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040) eller [Microsoft Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## <a name="add-an-entity-to-a-table"></a>Lägga till en entitet i en tabell
 
-*Entiteter* mappas till C\# objekt med hjälp av en anpassad klass som härleds från **TableEntity**. Om du vill lägga till en entitet i en tabell skapar du en klass som definierar egenskaperna för entiteten. I det här avsnittet visas hur du definierar en entitetsklass som använder kundens förnamn som radnyckel och efternamn som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel entiteten i tabellen unikt. Det går snabbare att fråga entiteter med samma partitionsnyckel än entiteter som har olika partitionsnycklar, men skalbarheten och möjligheten att utföra parallella åtgärder är större med olika partitionsnycklar. Egenskapen måste vara en offentlig egenskap för en typ som stöds som exponerar både inställningen och hämtar värden för alla egenskaper som ska lagras i tabelltjänsten.
+*Entiteter* mappas till C\# objekt med hjälp av en anpassad klass som härleds från **TableEntity**. Om du vill lägga till en entitet i en tabell skapar du en klass som definierar egenskaperna för entiteten. I det här avsnittet visas hur du definierar en entitetsklass som använder kundens förnamn som radnyckel och efternamn som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel entiteten i tabellen unikt. Det går snabbare att fråga entiteter med samma partitionsnyckel än entiteter som har olika partitionsnycklar, men skalbarheten och möjligheten att utföra parallella åtgärder är större med olika partitionsnycklar. För egenskaper som ska lagras i table service, måste egenskapen vara en offentlig egenskap för en typ som stöds som exponerar både inställnings- och hämtningsvärden.
 Enhetsklassen *måste* deklarera en offentlig parameterlös konstruktor.
 
 > [!NOTE]
 > 
-> Det här avsnittet förutsätter att du har slutfört stegen i [Konfigurera utvecklingsmiljön](#set-up-the-development-environment).
+> Det här avsnittet förutsätter att du har slutfört stegen i [ställer in utvecklingsmiljön](#set-up-the-development-environment).
 
 1. Öppna filen `TablesController.cs`.
 
@@ -202,14 +202,14 @@ Enhetsklassen *måste* deklarera en offentlig parameterlös konstruktor.
     }
     ```
 
-1. I den **AddEntity** metod, hämta en **CloudStorageAccount** objekt som representerar din kontoinformation för lagring. Använda följande kod för att hämta anslutningssträngen för lagring och information om lagringskonto från Azure tjänstkonfiguration: (ändra  *&lt;behållarens kontonamn >* till namnet på Azure storage-konto du försöker komma åt.)
+1. I den **AddEntity** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Hämta en **CloudTableClient** -objektet representerar en tabelltjänstens klient.
+1. Hämta en **CloudTableClient** -objektet representerar en table service-klienten.
    
     ```csharp
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -234,24 +234,24 @@ Enhetsklassen *måste* deklarera en offentlig parameterlös konstruktor.
     TableOperation insertOperation = TableOperation.Insert(customer1);
     ```
 
-1. Köra insert-åtgärden genom att anropa den **CloudTable.Execute** metod. Du kan kontrollera resultatet av åtgärden genom att kontrollera den **TableResult.HttpStatusCode** egenskapen. Statuskoden 2xx anger den åtgärd som begärs av klienten har bearbetats. Lyckad infogningar av nya enheter resulterar i en HTTP-statuskod 204, vilket innebär att åtgärden bearbetades och servern returnerade exempelvis inte allt innehåll.
+1. Köra insert-åtgärden genom att anropa den **CloudTable.Execute** metod. Du kan kontrollera resultatet av åtgärden genom att granska den **TableResult.HttpStatusCode** egenskapen. Statuskoden 2xx anger den åtgärd som begärs av klienten har bearbetats. Lyckad infogningar av nya entiteter resulterar i en HTTP-statuskod 204, vilket innebär att åtgärden har bearbetats och servern returnerade exempelvis inte något innehåll.
 
     ```csharp
     TableResult result = table.Execute(insertOperation);
     ```
 
-1. Uppdatering av **ViewBag** med tabellnamnet och resultatet av insert-åtgärden.
+1. Uppdatera den **ViewBag** med tabellnamnet på och resultatet av insert-åtgärden.
 
     ```csharp
     ViewBag.TableName = table.Name;
     ViewBag.Result = result.HttpStatusCode;
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer** mappen, högerklicka på **tabeller**, och på snabbmenyn väljer **Lägg till -> Visa**.
+1. I den **Solution Explorer**, expandera den **vyer** mapp, högerklickar du på **tabeller**, och på snabbmenyn väljer **Lägg till -> Visa**.
 
 1. På den **Lägg till vy** dialogrutan Ange **AddEntity** för namn och välj **Lägg till**.
 
-1. Öppna `AddEntity.cshtml`, och ändra den så att det ser ut som följande kodavsnitt:
+1. Öppna `AddEntity.cshtml`, och ändra det så att det ser ut som följande kodavsnitt:
 
     ```csharp
     @{
@@ -262,7 +262,7 @@ Enhetsklassen *måste* deklarera en offentlig parameterlös konstruktor.
 
     Insert of entity into @ViewBag.TableName @(ViewBag.Result == 204 ? "succeeded" : "failed")
     ```
-1. I den **Solution Explorer**, expandera den **vyer -> delade** och öppna `_Layout.cshtml`.
+1. I den **Solution Explorer**, expandera den **vyer -> delad** och öppna `_Layout.cshtml`.
 
 1. Efter senast **Html.ActionLink**, Lägg till följande **Html.ActionLink**:
 
@@ -270,19 +270,19 @@ Enhetsklassen *måste* deklarera en offentlig parameterlös konstruktor.
     <li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
     ```
 
-1. Kör programmet och välj **lägga till enheten** att se resultatet liknar följande Skärmdump:
+1. Kör programmet och välj **Lägg till entitet** att se resultat som liknar följande skärmbild:
   
-    ![Lägga till entitet](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
+    ![Lägg till entitet](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
 
-    Du kan kontrollera att entiteten har lagts till genom att följa stegen i avsnittet [hämta en enda entitet](#get-a-single-entity). Du kan också använda den [Microsoft Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md) att visa alla entiteter för tabeller.
+    Du kan kontrollera att entiteten har lagts till genom att följa stegen i avsnittet [hämta en enda entitet](#get-a-single-entity). Du kan också använda den [Microsoft Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md) att visa alla entiteter för dina tabeller.
 
 ## <a name="add-a-batch-of-entities-to-a-table"></a>Lägg till en batch med entiteter i en tabell
 
-Förutom att kunna [lägga till en entitet i en tabell en i taget](#add-an-entity-to-a-table), du kan också lägga till entiteter i en batch. Lägger till enheter i batch minskar antalet turer mellan din kod och tjänsten Azure-tabellen. Följande steg visar hur du lägger till flera enheter till en tabell med en enda infoga igen:
+Förutom att [lägga till en entitet i en tabell en i taget](#add-an-entity-to-a-table), du kan också lägga till entiteter i batch. Lägger till entiteter i batch minskar antalet turer mellan din kod och Azure table service. Följande steg illustrerar hur du lägger till flera entiteter i en tabell med en enda Infoga åtgärd:
 
 > [!NOTE]
 > 
-> Det här avsnittet förutsätter att du har slutfört stegen i [Konfigurera utvecklingsmiljön](#set-up-the-development-environment).
+> Det här avsnittet förutsätter att du har slutfört stegen i [ställer in utvecklingsmiljön](#set-up-the-development-environment).
 
 1. Öppna filen `TablesController.cs`.
 
@@ -297,20 +297,20 @@ Förutom att kunna [lägga till en entitet i en tabell en i taget](#add-an-entit
     }
     ```
 
-1. I den **AddEntities** metod, hämta en **CloudStorageAccount** objekt som representerar din kontoinformation för lagring. Använda följande kod för att hämta anslutningssträngen för lagring och information om lagringskonto från Azure tjänstkonfiguration: (ändra  *&lt;behållarens kontonamn >* till namnet på Azure storage-konto du försöker komma åt.)
+1. I den **AddEntities** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Hämta en **CloudTableClient** -objektet representerar en tabelltjänstens klient.
+1. Hämta en **CloudTableClient** -objektet representerar en table service-klienten.
    
     ```csharp
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Hämta en **CloudTable** objekt som representerar en referens till tabellen som du ska lägga till nya enheter. 
+1. Hämta en **CloudTable** objekt som representerar en referens till tabellen som du ska lägga till nya entiteter. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
@@ -332,7 +332,7 @@ Förutom att kunna [lägga till en entitet i en tabell en i taget](#add-an-entit
     TableBatchOperation batchOperation = new TableBatchOperation();
     ```
 
-1. Lägga till enheter i objektet batch insert-åtgärden.
+1. Lägg till entiteter i batch Infoga åtgärden objekt.
 
     ```csharp
     batchOperation.Insert(customer1);
@@ -345,17 +345,17 @@ Förutom att kunna [lägga till en entitet i en tabell en i taget](#add-an-entit
     IList<TableResult> results = table.ExecuteBatch(batchOperation);
     ```
 
-1. Den **CloudTable.ExecuteBatch** metoden returnerar en lista över **TableResult** objekt där varje **TableResult** objekt kan undersökas för att fastställa lyckad eller misslyckad för varje enskild transaktion. I det här exemplet skickar listan till en vy och låt den vy som visar resultatet av varje åtgärd. 
+1. Den **CloudTable.ExecuteBatch** metoden returnerar en lista över **TableResult** objekt där varje **TableResult** objekt kan undersökas för att fastställa lyckats eller misslyckats varje enskild åtgärd. I det här exemplet skickar listan till en vy och låt vyn Visa resultatet av varje åtgärd. 
  
     ```csharp
     return View(results);
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer** mappen, högerklicka på **tabeller**, och på snabbmenyn väljer **Lägg till -> Visa**.
+1. I den **Solution Explorer**, expandera den **vyer** mapp, högerklickar du på **tabeller**, och på snabbmenyn väljer **Lägg till -> Visa**.
 
 1. På den **Lägg till vy** dialogrutan Ange **AddEntities** för namn och välj **Lägg till**.
 
-1. Öppna `AddEntities.cshtml`, och ändra den så att det ser ut ungefär så här.
+1. Öppna `AddEntities.cshtml`, och ändra det så att det ser ut som följande.
 
     ```csharp
     @model IEnumerable<Microsoft.WindowsAzure.Storage.Table.TableResult>
@@ -382,7 +382,7 @@ Förutom att kunna [lägga till en entitet i en tabell en i taget](#add-an-entit
     </table>
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer -> delade** och öppna `_Layout.cshtml`.
+1. I den **Solution Explorer**, expandera den **vyer -> delad** och öppna `_Layout.cshtml`.
 
 1. Efter senast **Html.ActionLink**, Lägg till följande **Html.ActionLink**:
 
@@ -390,19 +390,19 @@ Förutom att kunna [lägga till en entitet i en tabell en i taget](#add-an-entit
     <li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
     ```
 
-1. Kör programmet och välj **lägga till enheter** att se resultatet liknar följande Skärmdump:
+1. Kör programmet och välj **Lägg till entiteter** att se resultat som liknar följande skärmbild:
   
     ![Lägg till entiteter](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
-    Du kan kontrollera att entiteten har lagts till genom att följa stegen i avsnittet [hämta en enda entitet](#get-a-single-entity). Du kan också använda den [Microsoft Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md) att visa alla entiteter för tabeller.
+    Du kan kontrollera att entiteten har lagts till genom att följa stegen i avsnittet [hämta en enda entitet](#get-a-single-entity). Du kan också använda den [Microsoft Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md) att visa alla entiteter för dina tabeller.
 
 ## <a name="get-a-single-entity"></a>Hämta en enda entitet
 
-Det här avsnittet beskriver hur du får en enda entitet från en tabell med hjälp av den entitets radnyckel och partitionsnyckel. 
+Det här avsnittet visar hur du hämtar en enskild entitet från en tabell med de entitets radnyckel och partitionsnyckel. 
 
 > [!NOTE]
 > 
-> Det här avsnittet förutsätter att du har slutfört stegen i [Konfigurera utvecklingsmiljön](#set-up-the-development-environment), och använder data från [lägga till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table). 
+> Det här avsnittet förutsätter att du har slutfört stegen i [ställer in utvecklingsmiljön](#set-up-the-development-environment), och använder data från [lägga till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table). 
 
 1. Öppna filen `TablesController.cs`.
 
@@ -417,32 +417,32 @@ Det här avsnittet beskriver hur du får en enda entitet från en tabell med hj�
     }
     ```
 
-1. I den **GetSingle** metod, hämta en **CloudStorageAccount** objekt som representerar din kontoinformation för lagring. Använda följande kod för att hämta anslutningssträngen för lagring och information om lagringskonto från Azure tjänstkonfiguration: (ändra  *&lt;behållarens kontonamn >* till namnet på Azure storage-konto du försöker komma åt.)
+1. I den **GetSingle** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Hämta en **CloudTableClient** -objektet representerar en tabelltjänstens klient.
+1. Hämta en **CloudTableClient** -objektet representerar en table service-klienten.
    
     ```csharp
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Hämta en **CloudTable** objekt som representerar en referens till tabellen från vilken du hämtar entiteten. 
+1. Hämta en **CloudTable** objekt som representerar en referens till tabellen som du hämtar entiteten. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Skapa ett objekt för hämta åtgärd som tar ett entitetsobjekt som härletts från **TableEntity**. Den första parametern är den *partitionKey*, och den andra parametern är den *rowKey*. Med hjälp av den **CustomerEntity** klass och data som anges i avsnittet [lägga till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table), följande kodavsnitt frågar tabellen för en **CustomerEntity** entitet med en *partitionKey* värdet för ”Smith” och en *rowKey* värdet för ”Ben”:
+1. Skapa ett objekt för hämta åtgärd som tar ett entitetsobjekt som härleds från **TableEntity**. Den första parametern är den *partitionKey*, och den andra parametern är den *rowKey*. Med hjälp av den **CustomerEntity** klass- och visas i avsnittet [lägga till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table), följande kodfragment frågar tabellen för en **CustomerEntity**entitet med en *partitionKey* värdet för ”Smith” och en *rowKey* värdet för ”Ben”:
 
     ```csharp
     TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
     ```
 
-1. Köra hämtningen.   
+1. Hämta åtgärd för körning.   
 
     ```csharp
     TableResult result = table.Execute(retrieveOperation);
@@ -454,11 +454,11 @@ Det här avsnittet beskriver hur du får en enda entitet från en tabell med hj�
     return View(result);
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer** mappen, högerklicka på **tabeller**, och på snabbmenyn väljer **Lägg till -> Visa**.
+1. I den **Solution Explorer**, expandera den **vyer** mapp, högerklickar du på **tabeller**, och på snabbmenyn väljer **Lägg till -> Visa**.
 
 1. På den **Lägg till vy** dialogrutan Ange **GetSingle** för namn och välj **Lägg till**.
 
-1. Öppna `GetSingle.cshtml`, och ändra den så att det ser ut som följande kodavsnitt:
+1. Öppna `GetSingle.cshtml`, och ändra det så att det ser ut som följande kodavsnitt:
 
     ```csharp
     @model Microsoft.WindowsAzure.Storage.Table.TableResult
@@ -484,7 +484,7 @@ Det här avsnittet beskriver hur du får en enda entitet från en tabell med hj�
     </table>
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer -> delade** och öppna `_Layout.cshtml`.
+1. I den **Solution Explorer**, expandera den **vyer -> delad** och öppna `_Layout.cshtml`.
 
 1. Efter senast **Html.ActionLink**, Lägg till följande **Html.ActionLink**:
 
@@ -492,17 +492,17 @@ Det här avsnittet beskriver hur du får en enda entitet från en tabell med hj�
     <li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
     ```
 
-1. Kör programmet och välj **hämta enda** att se resultatet liknar följande Skärmdump:
+1. Kör programmet och välj **få enkel** att se resultat som liknar följande skärmbild:
   
-    ![Hämta enda](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
+    ![Få enkel](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
 ## <a name="get-all-entities-in-a-partition"></a>Hämta alla entiteter i en partition
 
-Som nämnts i avsnittet [lägga till en entitet i en tabell](#add-an-entity-to-a-table), identifiera kombinationen av en partition och en rad för en entitet i en tabell. Entiteter med samma partitionsnyckel kan frågas snabbare än entiteter med olika partitionsnycklar. Det här avsnittet visar hur du kan fråga en tabell efter alla entiteter från en angiven partition.  
+Som vi redan nämnt i avsnittet [lägga till en entitet i en tabell](#add-an-entity-to-a-table), kombinationen av en partition och en radnyckel unikt identifiera en entitet i en tabell. Entiteter med samma partitionsnyckel kan frågas snabbare än entiteter med olika partitionsnycklar. Det här avsnittet visar hur du kan fråga en tabell efter alla entiteter från en angiven partition.  
 
 > [!NOTE]
 > 
-> Det här avsnittet förutsätter att du har slutfört stegen i [Konfigurera utvecklingsmiljön](#set-up-the-development-environment), och använder data från [lägga till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table). 
+> Det här avsnittet förutsätter att du har slutfört stegen i [ställer in utvecklingsmiljön](#set-up-the-development-environment), och använder data från [lägga till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table). 
 
 1. Öppna filen `TablesController.cs`.
 
@@ -517,26 +517,26 @@ Som nämnts i avsnittet [lägga till en entitet i en tabell](#add-an-entity-to-a
     }
     ```
 
-1. I den **GetPartition** metod, hämta en **CloudStorageAccount** objekt som representerar din kontoinformation för lagring. Använda följande kod för att hämta anslutningssträngen för lagring och information om lagringskonto från Azure tjänstkonfiguration: (ändra  *&lt;behållarens kontonamn >* till namnet på Azure storage-konto du försöker komma åt.)
+1. I den **GetPartition** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Hämta en **CloudTableClient** -objektet representerar en tabelltjänstens klient.
+1. Hämta en **CloudTableClient** -objektet representerar en table service-klienten.
    
     ```csharp
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Hämta en **CloudTable** objekt som representerar en referens till tabellen från vilken du hämtar entiteterna. 
+1. Hämta en **CloudTable** objekt som representerar en referens till tabellen som du hämtar entiteter. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Skapa en instans av en **TableQuery** objekt som anger frågan i den **där** satsen. Med hjälp av den **CustomerEntity** klass och data som anges i avsnittet [lägga till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table), följande kodavsnitt frågar tabellen för alla enheter där den **PartitionKey** (kundens efternamn) har värdet ”Smith”:
+1. Skapa en instans av en **TableQuery** objekt som anger frågan i den **där** satsen. Med hjälp av den **CustomerEntity** klass- och visas i avsnittet [lägga till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table), följande kodfragment frågar tabellen för alla entiteter där den  **PartitionKey** (kundens efternamn) har värdet ”Smith”:
 
     ```csharp
     TableQuery<CustomerEntity> query = 
@@ -544,7 +544,7 @@ Som nämnts i avsnittet [lägga till en entitet i en tabell](#add-an-entity-to-a
         .Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
     ```
 
-1. I en slinga anropa den **CloudTable.ExecuteQuerySegmented** metoden skickar frågeobjektet du instansierad i föregående steg.  Den **CloudTable.ExecuteQuerySegmented** metoden returnerar en **TableContinuationToken** objekt som - när **null** -anger att det inte finns några fler enheter att hämta. Använd en annan loop inom loopen, och iterera över returnerade entiteter. I följande kodexempel läggs varje returnerade entitet till en lista. När loopen avslutas listan skickas till en vy för visning: 
+1. I en loop anropa den **CloudTable.ExecuteQuerySegmented** metoden skicka frågeobjektet du instansierats i föregående steg.  Den **CloudTable.ExecuteQuerySegmented** metoden returnerar en **TableContinuationToken** objekt som, när **null** -indikerar att det finns inga fler entiteter att hämta. Använda en annan loop inom loopen, iterera över returnerade entiteter. I följande kodexempel läggs varje returnerade entitet till i en lista. När loopen avslutas i listan har överförts till en vy för att visa: 
 
     ```csharp
     List<CustomerEntity> customers = new List<CustomerEntity>();
@@ -563,11 +563,11 @@ Som nämnts i avsnittet [lägga till en entitet i en tabell](#add-an-entity-to-a
     return View(customers);
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer** mappen, högerklicka på **tabeller**, och på snabbmenyn väljer **Lägg till -> Visa**.
+1. I den **Solution Explorer**, expandera den **vyer** mapp, högerklickar du på **tabeller**, och på snabbmenyn väljer **Lägg till -> Visa**.
 
 1. På den **Lägg till vy** dialogrutan Ange **GetPartition** för namn och välj **Lägg till**.
 
-1. Öppna `GetPartition.cshtml`, och ändra den så att det ser ut som följande kodavsnitt:
+1. Öppna `GetPartition.cshtml`, och ändra det så att det ser ut som följande kodavsnitt:
 
     ```csharp
     @model IEnumerable<StorageAspnet.Models.CustomerEntity>
@@ -594,7 +594,7 @@ Som nämnts i avsnittet [lägga till en entitet i en tabell](#add-an-entity-to-a
     </table>
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer -> delade** och öppna `_Layout.cshtml`.
+1. I den **Solution Explorer**, expandera den **vyer -> delad** och öppna `_Layout.cshtml`.
 
 1. Efter senast **Html.ActionLink**, Lägg till följande **Html.ActionLink**:
 
@@ -602,17 +602,17 @@ Som nämnts i avsnittet [lägga till en entitet i en tabell](#add-an-entity-to-a
     <li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
     ```
 
-1. Kör programmet och välj **hämta partitionen** att se resultatet liknar följande Skärmdump:
+1. Kör programmet och välj **hämta Partition** att se resultat som liknar följande skärmbild:
   
     ![Hämta Partition](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
 ## <a name="delete-an-entity"></a>Ta bort en entitet
 
-Det här avsnittet beskriver hur du tar bort en entitet från en tabell.
+Det här avsnittet visas hur du tar bort en entitet från en tabell.
 
 > [!NOTE]
 > 
-> Det här avsnittet förutsätter att du har slutfört stegen i [Konfigurera utvecklingsmiljön](#set-up-the-development-environment), och använder data från [lägga till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table). 
+> Det här avsnittet förutsätter att du har slutfört stegen i [ställer in utvecklingsmiljön](#set-up-the-development-environment), och använder data från [lägga till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table). 
 
 1. Öppna filen `TablesController.cs`.
 
@@ -627,14 +627,14 @@ Det här avsnittet beskriver hur du tar bort en entitet från en tabell.
     }
     ```
 
-1. I den **DeleteEntity** metod, hämta en **CloudStorageAccount** objekt som representerar din kontoinformation för lagring. Använda följande kod för att hämta anslutningssträngen för lagring och information om lagringskonto från Azure tjänstkonfiguration: (ändra  *&lt;behållarens kontonamn >* till namnet på Azure storage-konto du försöker komma åt.)
+1. I den **DeleteEntity** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Hämta en **CloudTableClient** -objektet representerar en tabelltjänstens klient.
+1. Hämta en **CloudTableClient** -objektet representerar en table service-klienten.
    
     ```csharp
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -646,14 +646,14 @@ Det här avsnittet beskriver hur du tar bort en entitet från en tabell.
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Skapa åtgärden ta bort objekt som tar ett entitetsobjekt som härletts från **TableEntity**. I det här fallet används den **CustomerEntity** klass och data som anges i avsnittet [lägga till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table). Entitetens **ETag** måste anges till ett giltigt värde.  
+1. Skapa ett objekt för ta bort åtgärden som tar ett entitetsobjekt som härleds från **TableEntity**. I det här fallet använder vi den **CustomerEntity** klass- och visas i avsnittet [lägga till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table). Entitetens **ETag** måste anges till ett giltigt värde.  
 
     ```csharp
     TableOperation deleteOperation = 
         TableOperation.Delete(new CustomerEntity("Smith", "Ben") { ETag = "*" } );
     ```
 
-1. Köra delete-åtgärden.   
+1. Kör åtgärden ta bort.   
 
     ```csharp
     TableResult result = table.Execute(deleteOperation);
@@ -665,11 +665,11 @@ Det här avsnittet beskriver hur du tar bort en entitet från en tabell.
     return View(result);
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer** mappen, högerklicka på **tabeller**, och på snabbmenyn väljer **Lägg till -> Visa**.
+1. I den **Solution Explorer**, expandera den **vyer** mapp, högerklickar du på **tabeller**, och på snabbmenyn väljer **Lägg till -> Visa**.
 
 1. På den **Lägg till vy** dialogrutan Ange **DeleteEntity** för namn och välj **Lägg till**.
 
-1. Öppna `DeleteEntity.cshtml`, och ändra den så att det ser ut som följande kodavsnitt:
+1. Öppna `DeleteEntity.cshtml`, och ändra det så att det ser ut som följande kodavsnitt:
 
     ```csharp
     @model Microsoft.WindowsAzure.Storage.Table.TableResult
@@ -694,7 +694,7 @@ Det här avsnittet beskriver hur du tar bort en entitet från en tabell.
 
     ```
 
-1. I den **Solution Explorer**, expandera den **vyer -> delade** och öppna `_Layout.cshtml`.
+1. I den **Solution Explorer**, expandera den **vyer -> delad** och öppna `_Layout.cshtml`.
 
 1. Efter senast **Html.ActionLink**, Lägg till följande **Html.ActionLink**:
 
@@ -702,12 +702,12 @@ Det här avsnittet beskriver hur du tar bort en entitet från en tabell.
     <li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
     ```
 
-1. Kör programmet och välj **ta bort entiteten** att se resultatet liknar följande Skärmdump:
+1. Kör programmet och välj **ta bort entitet** att se resultat som liknar följande skärmbild:
   
-    ![Hämta enda](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
+    ![Få enkel](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
 
   * [Kom igång med Azure blob storage och Visual Studio anslutna tjänster (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
-  * [Kom igång med Azure queue storage- och Visual Studio anslutna tjänster (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)
+  * [Kom igång med Azure queue storage och Visual Studio anslutna tjänster (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)

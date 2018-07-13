@@ -11,11 +11,11 @@ ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
 ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29936585"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635466"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Skapa en Jenkins-server på en virtuell Azure Linux-dator från Azure Portal
 
@@ -29,7 +29,7 @@ Den här snabbstarten visar hur du installerar [Jenkins](https://jenkins.io) på
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-jenkins-vm-from-the-solution-template"></a>Skapa den virtuella Jenkins-datorn från lösningsmallen
-Jenkins stöder en modell där Jenkins server delegater arbetar för att en eller flera agenter så att en enda Jenkins installation som värd för ett stort antal projekt eller att tillhandahålla olika miljöer som behövs för bygger eller tester. Stegen i det här avsnittet hjälper dig att installera och konfigurera en Jenkins server på Azure.
+Jenkins har stöd för en modell där Jenkins server ombud som arbetar för att en eller flera agenter för att en enda Jenkins-installationen som värd för ett stort antal projekt eller att tillhandahålla olika miljöer som behövs för bygger eller testar. Stegen i det här avsnittet hjälper dig att installera och konfigurera en Jenkins-server på Azure.
 
 [!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 

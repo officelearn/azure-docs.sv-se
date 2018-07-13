@@ -1,4 +1,4 @@
-Om du vill bara aktivera registrering för ditt program kan du använda en **anmälan** princip. Den här principen beskriver de funktioner som kunder gå igenom under registreringen och innehållet i token som programmet får på lyckats logga in.
+Om du vill aktivera endast registrera dig för ditt program kan du använda en **registrering** princip. Den här principen beskriver hur kunder går till under registreringen och innehållet i de token som programmet tar emot på genomförda registreringar.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

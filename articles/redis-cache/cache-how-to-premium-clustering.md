@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Redis klustring för Premium Azure Redis-Cache | Microsoft Docs
-description: Lär dig hur du skapar och hanterar Redis klustring för Premium-nivån Azure Redis-Cache-instanser
+title: Så här konfigurerar du Redis-klustring för Premium Azure Redis Cache | Microsoft Docs
+description: Lär dig att skapa och hantera Redis-klustring för Premium-nivån Azure Redis Cache-instanser
 services: redis-cache
 documentationcenter: ''
 author: wesmc7777
@@ -12,129 +12,132 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: 4af6545058ab0031d7cd1b38618b6d80204f83b9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b61c5860cb18f5a5b4ffa96212d66b7becad9928
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38590466"
 ---
-# <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>Konfigurera Redis klustring för Premium Azure Redis-Cache
-Azure Redis-Cache har olika cache-erbjudanden som ger flexibilitet vid val av cachestorlek och funktioner, inklusive funktioner för Premium-nivån, till exempel klustring, beständiga och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar kluster i en premium Azure Redis-Cache-instans.
+# <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>Så här konfigurerar du Redis-klustring för Premium Azure Redis Cache
+Azure Redis Cache har olika cachefunktioner som ger flexibilitet i valet av cachestorlek och funktioner, inklusive funktioner på Premiumnivå som klustring, persistence och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar du klustring i en premium Azure Redis Cache-instans.
 
-Information om andra cache premium-funktioner finns [introduktion till Azure Redis Cache Premium-nivån](cache-premium-tier-intro.md).
+Information om andra premiumfunktioner för cache finns i [introduktion till Azure Redis Cache Premium-nivån](cache-premium-tier-intro.md).
 
 ## <a name="what-is-redis-cluster"></a>Vad är Redis-kluster?
-Azure Redis-Cache erbjuder Redis cluster som [implementeras i Redis](http://redis.io/topics/cluster-tutorial). Med Redis-kluster får du följande fördelar: 
+Azure Redis Cache ger Redis-kluster som [implementeras i Redis](http://redis.io/topics/cluster-tutorial). Med Redis-kluster kan du få följande fördelar: 
 
-* Möjligheten att automatiskt dela din datauppsättning mellan flera noder. 
-* Möjligheten att fortsätta arbetet när en delmängd av noderna har uppstått fel eller inte kan kommunicera med resten av klustret. 
-* Flera genomströmning: genomströmning linjärt ökar om du ökar antalet delar. 
-* Flera minnesstorleken: linjärt ökar om du ökar antalet delar.  
+* Möjligheten att automatiskt dela din datauppsättning bland flera noder. 
+* Möjligheten att fortsätta åtgärder när en delmängd av noderna har drabbats av fel eller inte kan kommunicera med resten av klustret. 
+* Större dataflöde: dataflödet ökar linjärt när du ökar antalet shards. 
+* Mer minnesstorlek: ökar linjärt när du ökar antalet shards.  
 
-Antalet anslutningar som är tillgängliga för en klustrad cache ökar inte kluster. Mer information om storlek, genomflöde och bandbredd med premium cacheminnen finns [vilka Redis-Cache erbjudande och vilken storlek ska jag använda?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+Klustring ökar inte antalet anslutningar som är tillgängliga för en klustrad cache. Mer information om storlek, dataflöde och bandbredd med premium-cache finns i [vilket Redis Cache-erbjudande och vilken storlek ska jag använda?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
-I Azure erbjuds Redis cluster som primär replik/modell där varje Fragmentera har två primära/replik med replikering där replikeringen hanteras av Azure Redis-Cache-tjänsten. 
+I Azure erbjuds Redis-kluster som en primär/replik-modell där varje shard har ett par för primär/replik med replikering där replikeringen hanteras av Azure Redis Cache-tjänsten. 
 
 ## <a name="clustering"></a>Klustring
-Kluster har aktiverats på den **nytt Redis-Cache** bladet under skapande av cachen. 
+Klustring är aktiverat på den **ny Redis-Cache** bladet när cache skapas. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Kluster har konfigurerats på den **Redis Cluster** bladet.
+Klustring är konfigurerad på den **Redis-kluster** bladet.
 
 ![Klustring][redis-cache-clustering]
 
-Du kan ha upp till 10 delar i klustret. Klicka på **aktiverad** och dra reglaget eller ange ett tal mellan 1 och 10 för **Fragmentera antal** och på **OK**.
+Du kan ha upp till 10 shards i klustret. Klicka på **aktiverad** och drar du skjutreglaget eller ange ett tal mellan 1 och 10 för **shardantal** och klicka på **OK**.
 
-Varje Fragmentera är en primär/replik cache-par som hanteras av Azure och den totala storleken på cacheminnet beräknas genom att multiplicera antalet delar med cachestorleken som valts i prisnivån. 
+Varje shard är ett par för primär/replik-cache som hanteras av Azure och den totala storleken på cacheminnet beräknas genom att multiplicera antalet shards med den cachestorlek som valts i prisnivån. 
 
 ![Klustring][redis-cache-clustering-selected]
 
-När cachen har skapats du ansluter till den och Använd den precis som en icke-klustrade cache och Redis distribuerar data i hela cachen delar. Om diagnostik är [aktiverat](cache-how-to-monitor.md#enable-cache-diagnostics), mätvärden fångas separat för varje Fragmentera och kan vara [visas](cache-how-to-monitor.md) i bladet Redis-Cache. 
+När cachen har skapats du ansluta till det och Använd den precis som ett icke-klustrade cacheminne och Redis distribuerar data i hela cachen shards. Om diagnostik är [aktiverat](cache-how-to-monitor.md#enable-cache-diagnostics), mått samlas separat för varje fragment och kan vara [visas](cache-how-to-monitor.md) i Redis-cachebladet. 
 
 > [!NOTE]
 > 
-> Det finns några mindre skillnader som krävs i ditt klientprogram när kluster är konfigurerat. Mer information finns i [behöver jag göra ändringar i client-program att använda kluster?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+> Det finns några mindre skillnader som krävs i klientprogrammet när klustring har konfigurerats. Mer information finns i [behöver jag göra ändringar i mitt klientprogram för att använda kluster?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 > 
 > 
 
-Exempel om hur du arbetar med kluster med StackExchange.Redis-klienten, finns det [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) del av den [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) exempel.
+Exempel om hur du arbetar med klustring med StackExchange.Redis-klienten, finns det [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) delen av den [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) exemplet.
 
 <a name="cluster-size"></a>
 
-## <a name="change-the-cluster-size-on-a-running-premium-cache"></a>Ändra klusterstorlek på ett premium-cache
-Ändra klusterstorleken på ett premium-cache med aktiverad, klustring klickar du på **Redis klusterstorleken** från den **resurs menyn**.
+## <a name="change-the-cluster-size-on-a-running-premium-cache"></a>Ändra klusterstorlek på en löpande premium-cache
+Ändra klusterstorlek på en löpande premium-cache med klustring aktiverat, klickar du på **Redis-klusterstorlek** från den **resursmenyn**.
 
 > [!NOTE]
-> Medan Azure Redis Cache Premium-nivån har släppts för allmän tillgänglighet, är Redis klusterstorleken-funktionen för närvarande i förhandsgranskningen.
+> Medan Azure Redis Cache Premium-nivån har släppts allmänt tillgängliga, är funktionen Redis-klusterstorlek för närvarande i förhandsversion.
 > 
 > 
 
-![Redis klusterstorleken][redis-cache-redis-cluster-size]
+![Redis-klusterstorlek][redis-cache-redis-cluster-size]
 
-Om du vill ändra klusterstorleken skjutreglaget eller ange ett tal mellan 1 och 10 i den **Fragmentera antal** textrutan och klicka på **OK** att spara.
+Om du vill ändra klusterstorleken använder sedan skjutreglaget eller ange ett tal mellan 1 och 10 i den **shardantal** textrutan och klicka på **OK** att spara.
 
-Om du ökar klusterstorleken ökas max genomflöde och cachestorleken. Öka klusterstorleken öka inte max. anslutningar som är tillgängliga för klienter.
+Öka klusterstorleken ökar det maximala dataflöde och cachestorlek. Öka klusterstorleken ökar inte det största värdet. anslutningar som är tillgängliga för klienter.
 
 > [!NOTE]
-> Skala ett kluster som kör den [MIGRERA](https://redis.io/commands/migrate) kommandot, vilket är en kostsam kommando så för minimal påverkan Överväg att köra den här åtgärden vid låg belastning. Under migreringen visas en topp i belastningen på servern. Skala ett kluster körs lång processen och mängden tid det tar beror på antalet nycklar och storleken på de värden som är associerade med nycklarna.
+> Skala ett kluster kör den [MIGRERA](https://redis.io/commands/migrate) kommando, som är en dyr kommandot, så för minimal påverkan bör du köra den här åtgärden vid låg belastning. Under migreringsprocessen visas en topp i belastningen på servern. Skala ett kluster körs en lång processen och mängden tid det tar beror på hur många nycklar och storleken på de värden som är associerade med nycklarna.
 > 
 > 
 
-## <a name="clustering-faq"></a>Kluster för vanliga frågor och svar
-I följande lista innehåller svar på vanliga frågor om Azure Redis-Cache-kluster.
+## <a name="clustering-faq"></a>Klustring vanliga frågor och svar
+I följande lista innehåller svar på vanliga frågor om Azure Redis Cache-kluster.
 
-* [Behöver jag göra ändringar i client-program att använda kluster?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
-* [Hur distribueras nycklar i ett kluster?](#how-are-keys-distributed-in-a-cluster)
+* [Behöver jag göra ändringar i mitt klientprogram för att använda kluster?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+* [Hur fördelas nycklar i ett kluster?](#how-are-keys-distributed-in-a-cluster)
 * [Vad är den största cachestorleken kan jag skapa?](#what-is-the-largest-cache-size-i-can-create)
 * [Stöder alla Redis-klienter kluster?](#do-all-redis-clients-support-clustering)
-* [Hur ansluter jag min cacheminne när kluster aktiveras?](#how-do-i-connect-to-my-cache-when-clustering-is-enabled)
-* [Kan jag ansluta direkt till enskilda delar min-cache?](#can-i-directly-connect-to-the-individual-shards-of-my-cache)
-* [Kan jag konfigurera klustring för en tidigare skapad cache?](#can-i-configure-clustering-for-a-previously-created-cache)
-* [Kan jag konfigurera klustring för basic eller standard-cache?](#can-i-configure-clustering-for-a-basic-or-standard-cache)
-* [Kan jag använda kluster med Redis ASP.NET Session State och cachelagring av utdata-providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
+* [Hur ansluter jag till min cache när klustring har aktiverats?](#how-do-i-connect-to-my-cache-when-clustering-is-enabled)
+* [Kan jag ansluta direkt till de enskilda cacheskärvor min?](#can-i-directly-connect-to-the-individual-shards-of-my-cache)
+* [Kan jag konfigurera klustring för tidigare skapade cache?](#can-i-configure-clustering-for-a-previously-created-cache)
+* [Kan jag konfigurera klustring för basic eller standard cache?](#can-i-configure-clustering-for-a-basic-or-standard-cache)
+* [Kan jag använda kluster med Redis ASP.NET-sessionstillstånd och cachelagring av utdata leverantörer?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 * [Jag får flytta undantag när du använder StackExchange.Redis och klustring, vad ska jag göra?](#i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do)
 
-### <a name="do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering"></a>Behöver jag göra ändringar i client-program att använda kluster?
-* När kluster aktiveras är endast databasen 0 tillgänglig. Om klientprogrammet använder flera databaser och försök att läsa eller skriva till en annan databas än 0, utlöstes följande undantag. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
+### <a name="do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering"></a>Behöver jag göra ändringar i mitt klientprogram för att använda kluster?
+* När klustring har aktiverats kan är bara databasen 0 tillgänglig. Om klientprogrammet använder flera databaser och försök att läsa eller skriva till en annan databas än 0, genereras följande undantag. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
   
-  Mer information finns i [Redis-kluster specifikation - implementerad delmängd](http://redis.io/topics/cluster-spec#implemented-subset).
-* Om du använder [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), måste du använda 1.0.481 eller senare. Du ansluter till i cacheminnet som använder samma [slutpunkter, portarna och nycklarna](cache-configure.md#properties) som du använder när du ansluter till en cache som inte har aktiverat-kluster. Den enda skillnaden är att alla läsningar och skrivningar måste göras till 0-databasen.
+  Mer information finns i [specifikation på Redis-kluster - implementerad delmängd](http://redis.io/topics/cluster-spec#implemented-subset).
+* Om du använder [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), måste du använda 1.0.481 eller senare. Du ansluter till cachen med samma [slutpunkter, portar och nycklar](cache-configure.md#properties) som du använder när du ansluter till en cache som inte har aktiverad klustring. Den enda skillnaden är att alla läsningar och skrivningar måste göras till 0-databas.
   
   * Andra klienter kan ha olika krav. Se [alla Redis-klienter stöder kluster?](#do-all-redis-clients-support-clustering)
-* Om programmet använder flera viktiga åtgärder batchar till ett enda kommando, måste alla nycklar finnas i samma Fragmentera. Du hittar nycklar i samma Fragmentera [hur nycklar distribueras i ett kluster?](#how-are-keys-distributed-in-a-cluster)
-* Om du använder sessionstillståndet ASP.NET för Redis-providern måste du använda 2.0.1 eller högre. Se [kan du använda kluster med Redis ASP.NET Session State och cachelagring av utdata-providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
+* Om programmet använder flera viktiga åtgärder batchar i ett enda kommando, måste alla nycklar finnas i samma fragment. Du hittar nycklarna i samma fragment [hur nycklar distribueras i ett kluster?](#how-are-keys-distributed-in-a-cluster)
+* Om du använder Redis ASP.NET-sessionstillståndsprovider måste du använda 2.0.1 eller högre. Se [kan jag använda kluster med Redis ASP.NET-sessionstillstånd och cachelagring av utdata leverantörer?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
-### <a name="how-are-keys-distributed-in-a-cluster"></a>Hur distribueras nycklar i ett kluster?
-Per Redis [nycklar distributionsmodell](http://redis.io/topics/cluster-spec#keys-distribution-model) dokumentation: nyckel kan delas in i 16384 platser. Varje nyckel hashas och tilldelas till en av platserna, som är fördelade på noderna i klustret. Du kan konfigurera vilken del av nyckeln hashas för att säkerställa att flera nycklar finns i samma Fragmentera med hash-taggar.
+### <a name="how-are-keys-distributed-in-a-cluster"></a>Hur fördelas nycklar i ett kluster?
+Per Redis [nycklar distributionsmodell](http://redis.io/topics/cluster-spec#keys-distribution-model) dokumentation: området viktiga delas upp i 16384 platser. Varje nyckel är hash-kodas och tilldelats till en av platserna, som är distribuerade över noder i klustret. Du kan konfigurera vilken del av nyckeln hashas för att säkerställa att flera nycklar finns i samma fragment med hjälp av hash-taggar.
 
-* Nycklar med en tagg för hash - om någon del av nyckeln omges av `{` och `}`, endast den del av nyckeln hashas för att fastställa hash-plats i en nyckel. Till exempel följande 3 nycklar skulle finnas i samma Fragmentera: `{key}1`, `{key}2`, och `{key}3` eftersom endast den `key` hashas del av namnet. En fullständig lista över nycklar hash-tagg specifikationer finns [nycklar hash-taggar](http://redis.io/topics/cluster-spec#keys-hash-tags).
-* Nycklar utan en hash-tagg - hela nyckelnamnet används för hashing. Detta resulterar i en statistiskt jämn fördelning över delar av cachen.
+* Nycklar med en hash-tagg – om någon del av nyckeln omges `{` och `}`, endast den del av nyckeln hashas för att fastställa hash-fack av en nyckel. Till exempel följande 3 nycklar skulle finnas i samma fragment: `{key}1`, `{key}2`, och `{key}3` eftersom endast den `key` del av namnet hashas. En fullständig lista över nycklar hash-tagg specifikationer, se [nycklar hash-taggar](http://redis.io/topics/cluster-spec#keys-hash-tags).
+* Nycklar utan en hash-tagg - hela nyckelnamnet används för hashing. Detta resulterar i en statistiskt jämn fördelning över shards på cacheminnet.
 
-För bästa prestanda och genomflöde fördela nycklarna jämnt. Om du använder nycklar med en hash-tagg är programmets ansvar att se till att nycklarna fördelas jämnt.
+För bästa prestanda och dataflöde rekommenderar vi att distribuera nycklarna jämnt. Om du använder nycklar med en hash-tagg som ansvarar för programmets att se till att nycklarna är jämnt.
 
-Mer information finns i [nycklar distributionsmodell](http://redis.io/topics/cluster-spec#keys-distribution-model), [Redis Cluster data horisontell partitionering](http://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding), och [nycklar hash-taggar](http://redis.io/topics/cluster-spec#keys-hash-tags).
+Mer information finns i [nycklar distributionsmodell](http://redis.io/topics/cluster-spec#keys-distribution-model), [Redis-kluster data horisontell partitionering](http://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding), och [nycklar hash-taggar](http://redis.io/topics/cluster-spec#keys-hash-tags).
 
-Exempel om hur du arbetar med kluster och hitta nycklar i samma Fragmentera med StackExchange.Redis-klienten, finns det [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) del av den [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) exempel.
+Exempel om hur du arbetar med klustring och hitta nycklar i samma fragment med StackExchange.Redis-klienten, finns det [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) delen av den [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) exemplet.
 
 ### <a name="what-is-the-largest-cache-size-i-can-create"></a>Vad är den största cachestorleken kan jag skapa?
-Den största premium cachestorleken är 53 GB. Du kan skapa upp till 10 shards ger dig en maximal storlek på 530 GB. Om du behöver en större kan du [begära mer](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Mer information finns i [priser för Azure Redis-Cache](https://azure.microsoft.com/pricing/details/cache/).
+Den största premium cachestorleken är 53 GB. Du kan skapa upp till 10 shards, vilket ger dig en maximal storlek på 530 GB. Om du behöver en större storlek kan du [begär mer](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Mer information finns i [priser för Azure Redis Cache](https://azure.microsoft.com/pricing/details/cache/).
 
 ### <a name="do-all-redis-clients-support-clustering"></a>Stöder alla Redis-klienter kluster?
-För närvarande inte alla klienter har stöd för Redis-kluster. StackExchange.Redis är ett som har stöd för den. Mer information om andra klienter finns i [spelar med klustret](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) avsnitt i den [Redis cluster kursen](http://redis.io/topics/cluster-tutorial).
+Just nu inte alla klienter har stöd för Redis-klustring. StackExchange.Redis är ett program som har stöd för den. Mer information om andra klienter finns i den [spelar med klustret](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) delen av den [Redis-kursen om kluster](http://redis.io/topics/cluster-tutorial). 
+
+Redis-klustring protokollet kräver varje klient att ansluta till varje shard direkt i kluster-läge. Försök att använda en klient som inte stöder kluster kommer troligen att resultera i mycket [FLYTTATS omdirigering undantag](https://redis.io/topics/cluster-spec#moved-redirection).
 
 > [!NOTE]
-> Om du använder StackExchange.Redis som klienten kan du kontrollera att du använder den senaste versionen av [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 eller senare för kluster ska fungera korrekt. Om du har problem med flytta undantag, se [flytta undantag](#move-exceptions) för mer information.
+> Om du använder StackExchange.Redis som din klient, se till att du använder den senaste versionen av [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 eller senare för klustring ska fungera korrekt. Om du har problem med flytten undantag, se [flytta undantag](#move-exceptions) för mer information.
 > 
 > 
 
-### <a name="how-do-i-connect-to-my-cache-when-clustering-is-enabled"></a>Hur ansluter jag min cacheminne när kluster aktiveras?
-Du kan ansluta till ditt cacheminne som använder samma [slutpunkter](cache-configure.md#properties), [portar](cache-configure.md#properties), och [nycklar](cache-configure.md#access-keys) som du använder när du ansluter till en cache som inte har aktiverat-kluster. Redis hanterar kluster på serverdelen så att du inte hantera den från din klient.
+### <a name="how-do-i-connect-to-my-cache-when-clustering-is-enabled"></a>Hur ansluter jag till min cache när klustring har aktiverats?
+Du kan ansluta till ditt cacheminne med samma [slutpunkter](cache-configure.md#properties), [portar](cache-configure.md#properties), och [nycklar](cache-configure.md#access-keys) som du använder när du ansluter till en cache som inte har aktiverad klustring. Redis hanterar klustring på serverdelen så att du inte behöver hantera den från klienten.
 
-### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>Kan jag ansluta direkt till enskilda delar min-cache?
-Detta stöds inte officiellt. Med som säger består varje Fragmentera av en primär/replik cache-par gemensamt kallas en cache-instans. Du kan ansluta till instanserna cache med hjälp av verktyget redis-cli i den [instabilt](http://redis.io/download) gren av databasen som Redis på GitHub. Den här versionen implementerar grundläggande stöd när den startas med den `-c` växla. Mer information finns i [spelar med klustret](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) på [ http://redis.io ](http://redis.io) i den [Redis cluster kursen](http://redis.io/topics/cluster-tutorial).
+### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>Kan jag ansluta direkt till de enskilda cacheskärvor min?
+Klustring protokollet kräver att klienten gör rätt fragment-anslutningar. Så bör klienten göra detta på rätt sätt för dig. Därmed SA består varje shard av en primär/replik cache-par gemensamt kallas en cache-instans. Du kan ansluta till instanserna cache använder redis-cli-verktyget i den [instabil](http://redis.io/download) gren av Redis-databasen på GitHub. Den här versionen implementerar basic-support när igång med den `-c` växla. Mer information finns i [spelar med klustret](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) på [ http://redis.io ](http://redis.io) i den [Redis-kursen om kluster](http://redis.io/topics/cluster-tutorial).
 
 För icke-ssl, använder du följande kommandon.
 
@@ -146,25 +149,25 @@ För icke-ssl, använder du följande kommandon.
 
 Ssl, Ersätt `1300N` med `1500N`.
 
-### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>Kan jag konfigurera klustring för en tidigare skapad cache?
-Du kan för närvarande bara aktivera kluster när du skapar en cache. Du kan ändra klusterstorleken när cachen har skapats, men du kan inte lägga till kluster till ett premium-cacheminne eller ta bort kluster från cache premium när cachen har skapats. Premium-cache med aktiverad klustring och endast en Fragmentera skiljer sig premium cache av samma storlek med utan kluster.
+### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>Kan jag konfigurera klustring för tidigare skapade cache?
+Du kan för närvarande bara aktivera klustring när du skapar en cache. Du kan ändra klusterstorleken när cachen har skapats, men du kan inte lägga till kluster till ett premium-cache eller ta bort kluster från en premium-cache när cachen har skapats. Premium-cache med klustring aktiverat och endast en shard skiljer sig premium-cache med samma storlek med ingen klustring.
 
-### <a name="can-i-configure-clustering-for-a-basic-or-standard-cache"></a>Kan jag konfigurera klustring för basic eller standard-cache?
-Kluster är endast tillgängligt för premium.
+### <a name="can-i-configure-clustering-for-a-basic-or-standard-cache"></a>Kan jag konfigurera klustring för basic eller standard cache?
+Klustring är endast tillgängligt för premium-cache.
 
-### <a name="can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers"></a>Kan jag använda kluster med Redis ASP.NET Session State och cachelagring av utdata-providers?
-* **Redis utdatacache providern** -några ändringar krävs.
-* **Redis-sessionstillståndsprovider** - om du vill använda kluster, måste du använda [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 eller högre eller ett undantagsfel genereras. Det här är en ny ändring; Mer information finns i [v2.0.0 information om ändringar i bryter](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+### <a name="can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers"></a>Kan jag använda kluster med Redis ASP.NET-sessionstillstånd och cachelagring av utdata leverantörer?
+* **Redis utdatacachen providern** -några ändringar krävs.
+* **Sessionstillståndsprovider redis** – om du vill använda klustring, måste du använda [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 eller högre eller ett undantagsfel utlöses. Det här är en viktig ändring; Mer information finns i [v2.0.0 viktig information om ändringar](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 <a name="move-exceptions"></a>
 
 ### <a name="i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do"></a>Jag får flytta undantag när du använder StackExchange.Redis och klustring, vad ska jag göra?
-Om du använder StackExchange.Redis och ta emot `MOVE` undantag när du använder kluster, se till att du använder [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) eller senare. Anvisningar om hur du konfigurerar .NET-program att använda StackExchange.Redis finns [konfigurera cache-klienter](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
+Om du använder StackExchange.Redis och ta emot `MOVE` undantag när du använder klustring, se till att du använder [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) eller senare. Anvisningar om hur du konfigurerar .NET-program till att använda StackExchange.Redis finns i [konfigurera cacheklienterna](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du använder flera funktioner som cache premium.
+Lär dig hur du använder mer premiumfunktioner för cache.
 
-* [Introduktion till Azure Redis Cache Premium-nivån](cache-premium-tier-intro.md)
+* [Introduktion till Azure Redis Cache Premium-nivå](cache-premium-tier-intro.md)
 
 <!-- IMAGES -->
 

@@ -1,12 +1,12 @@
 ---
 title: Skapa en anpassad regel i Azure IoT Suite | Microsoft Docs
-description: "Så här skapar du en anpassad regel i en IoT Suite förkonfigurerade lösning."
-services: 
+description: Så här skapar du en anpassad regel i en förkonfigurerade IoT Suite-lösning.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 562799dc-06ea-4cdd-b822-80d1f70d2f09
 ms.service: iot-suite
 ms.devlang: na
@@ -16,55 +16,56 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 9bf2a13035de141766fd935966ce18459dccdaab
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38590522"
 ---
-# <a name="create-a-custom-rule-in-the-remote-monitoring-preconfigured-solution"></a>Skapa en anpassad regel i fjärråtkomst övervakning förkonfigurerade lösningen
+# <a name="create-a-custom-rule-in-the-remote-monitoring-preconfigured-solution"></a>Skapa en anpassad regel i den förkonfigurerade lösningen för fjärrövervakning
 
 ## <a name="introduction"></a>Introduktion
 
-Förkonfigurerade lösningar du kan konfigurera [regler som utlöses när en telemetri värdet för en enhet når ett visst tröskelvärde][lnk-builtin-rule]. [Använd dynamiska telemetri med fjärråtkomst övervakning förkonfigurerade lösningen] [ lnk-dynamic-telemetry] beskriver hur du lägger till anpassad telemetri värden som *ExternalTemperature* i lösningen. Den här artikeln visar hur du skapar en anpassad regel för dynamiskt telemetri typer i din lösning.
+Du kan konfigurera i de förkonfigurerade lösningarna [regler som utlöser när ett telemetri-värdet för en enhet når ett visst tröskelvärde][lnk-builtin-rule]. [Använd dynamisk telemetri med den fjärrövervakning förkonfigurerade lösningen] [ lnk-dynamic-telemetry] beskriver hur du kan lägga till anpassad telemetrivärden, till exempel *ExternalTemperature* i lösningen. Den här artikeln visar hur du skapar en anpassad regel för dynamiskt telemetrityper i din lösning.
 
-Den här kursen använder en enkel Node.js simulerad enhet för att generera dynamiska telemetri för att skicka till förkonfigurerade lösningens serverdel. Du sedan lägga till anpassade regler i den **RemoteMonitoring** Visual Studio-lösning och distribuera den här anpassade serverdel till din Azure-prenumeration.
+Den här självstudien använder en enkel Node.js-simulerad enhet för att generera dynamisk telemetri ska skickas till den förkonfigurerade lösningen för serverdelen. Du sedan lägga till anpassade regler i den **RemoteMonitoring** Visual Studio-lösning och distribuera den här anpassade serverdel till din Azure-prenumeration.
 
 För att slutföra den här kursen behöver du:
 
 * En aktiv Azure-prenumeration. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure][lnk_free_trial].
 * [Node.js] [ lnk-node] version 0.12.x eller senare för att skapa en simulerad enhet.
-* Visual Studio 2015 eller Visual Studio 2017 ändra förkonfigurerade lösningen tillbaka avslutas med din nya regler.
+* Visual Studio 2015 eller Visual Studio 2017 för att ändra tillbaka den förkonfigurerade lösningen avslutas med din nya regler.
 
 [!INCLUDE [iot-suite-v1-provision-remote-monitoring](../../includes/iot-suite-v1-provision-remote-monitoring.md)]
 
-Anteckna lösningens namn som du har valt för din distribution. Du behöver den här lösningsnamn senare i den här kursen.
+Anteckna det lösningsnamn som du har valt för din distribution. Du behöver den här lösningen senare i den här självstudien.
 
 [!INCLUDE [iot-suite-v1-send-external-temperature](../../includes/iot-suite-v1-send-external-temperature.md)]
 
-Du kan stoppa Node.js-konsolprogram när du har verifierat att den skickar **ExternalTemperature** telemetri till förkonfigurerade lösningen. Behåll konsolfönstret öppna eftersom du kör den här Node.js-konsolprogram igen när du lägger till anpassad regel i lösningen.
+Du kan stoppa Node.js-konsolapp när du har verifierat att den skickar **ExternalTemperature** telemetri till den förkonfigurerade lösningen. Låt konsolfönstret öppet eftersom du kör den här Node.js-konsolapp igen när du lägger till den anpassade regeln till lösningen.
 
 ## <a name="rule-storage-locations"></a>Lagringsplatser för regeln
 
 Information om regler sparas på två platser:
 
-* **DeviceRulesNormalizedTable** tabellen – den här tabellen lagras en normaliserade referens till de regler som definierats av lösningen portalen. När lösningen portal visas enheten regler, frågar den här tabellen för Regeldefinitioner.
-* **DeviceRules** blob – den här blob lagrar alla regler som definierats för alla registrerade enheter och har definierats som en referens som indata till Azure Stream Analytics-jobb.
+* **DeviceRulesNormalizedTable** tabellen – den här tabellen lagras en normaliserad referens till regler som definieras av lösningsportalen. När lösningsportalen visar enhetsregler, frågar den här tabellen för Regeldefinitioner.
+* **DeviceRules** blob – den här bloben lagrar alla regler som definierats för alla registrerade enheter och definieras som en referens som indata för Azure Stream Analytics-jobb.
  
-När du uppdaterar en befintlig regel eller definiera en ny regel i lösningen portal, har tabell- och blobbdata uppdaterats för att återspegla ändringarna. Regeldefinitionen visas i portalen hämtas från arkivet tabell och Regeldefinitionen refererar till Stream Analytics-jobb kommer från blob. 
+När du uppdaterar en befintlig regel eller definiera en ny regel i lösningsportalen, har tabell- och blobblagring uppdaterats för att återspegla ändringarna. Regeldefinitionen visas i portalen kommer från arkivet för tabell och Regeldefinitionen som refereras av Stream Analytics-jobb kommer från blob. 
 
-## <a name="update-the-remotemonitoring-visual-studio-solution"></a>Uppdatera RemoteMonitoring Visual Studio-lösning
+## <a name="update-the-remotemonitoring-visual-studio-solution"></a>Uppdatera RemoteMonitoring Visual Studio-lösningen
 
-Följande steg visar hur du ändrar RemoteMonitoring Visual Studio-lösning för att inkludera en ny regel som använder den **ExternalTemperature** telemetri som skickats från den simulerade enheten:
+Följande steg visar hur du ändrar RemoteMonitoring Visual Studio-lösningen för att inkludera en ny regel som använder den **ExternalTemperature** telemetri som skickas från den simulerade enheten:
 
-1. Om du inte redan har gjort det klona den **azure iot-fjärr-övervakning** databasen till en lämplig plats på den lokala datorn med följande Git-kommando:
+1. Om du inte redan har gjort det, klona den **azure-iot-remote-monitoring** databasen till en lämplig plats på den lokala datorn med följande Git-kommando:
 
     ```
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
     ```
 
-2. Öppna filen RemoteMonitoring.sln i Visual Studio från den lokala kopian av den **azure iot-fjärr-övervakning** databasen.
+2. Öppna filen RemoteMonitoring.sln i Visual Studio från din lokala kopia av den **azure-iot-remote-monitoring** lagringsplats.
 
-3. Öppna filen Infrastructure\Models\DeviceRuleBlobEntity.cs och lägga till en **ExternalTemperature** egenskapen på följande sätt:
+3. Öppna filen Infrastructure\Models\DeviceRuleBlobEntity.cs och lägga till en **ExternalTemperature** egenskap enligt följande:
 
     ```csharp
     public double? Temperature { get; set; }
@@ -72,7 +73,7 @@ Följande steg visar hur du ändrar RemoteMonitoring Visual Studio-lösning för
     public double? ExternalTemperature { get; set; }
     ```
 
-4. Lägg till i samma fil, en **ExternalTemperatureRuleOutput** egenskapen på följande sätt:
+4. Lägg till i samma fil, en **ExternalTemperatureRuleOutput** egenskap enligt följande:
 
     ```csharp
     public string TemperatureRuleOutput { get; set; }
@@ -80,7 +81,7 @@ Följande steg visar hur du ändrar RemoteMonitoring Visual Studio-lösning för
     public string ExternalTemperatureRuleOutput { get; set; }
     ```
 
-5. Öppna filen Infrastructure\Models\DeviceRuleDataFields.cs och Lägg till följande **ExternalTemperature** egenskapen när den befintliga **fuktighet** egenskapen:
+5. Öppna filen Infrastructure\Models\DeviceRuleDataFields.cs och Lägg till följande **ExternalTemperature** egenskapen efter den befintliga **fuktighet** egenskapen:
 
     ```csharp
     public static string ExternalTemperature
@@ -89,7 +90,7 @@ Följande steg visar hur du ändrar RemoteMonitoring Visual Studio-lösning för
     }
     ```
 
-6. Uppdatera i samma fil i **_availableDataFields** metod för att inkludera **ExternalTemperature** på följande sätt:
+6. I samma fil, uppdaterar den **_availableDataFields** metoden och ta **ExternalTemperature** på följande sätt:
 
     ```csharp
     private static List<string> _availableDataFields = new List<string>
@@ -113,13 +114,13 @@ Följande steg visar hur du ändrar RemoteMonitoring Visual Studio-lösning för
     }
     ```
 
-## <a name="rebuild-and-redeploy-the-solution"></a>Återskapa och distribuera lösningen igen.
+## <a name="rebuild-and-redeploy-the-solution"></a>Återskapa och distribuera om lösningen.
 
 Du kan nu distribuera den uppdaterade lösningen till din Azure-prenumeration.
 
-1. Öppna en upphöjd kommandotolk och navigera till roten i den lokala kopian av databasen azure iot-fjärr-övervakning.
+1. Öppna en upphöjd kommandotolk och navigera till roten i den lokala kopian av databasen azure-iot-remote-monitoring.
 
-2. För att distribuera din uppdaterade lösning, kör du följande kommando ersätter **{distributionsnamnet}** med namnet på din förkonfigurerade lösningsdistribution som du antecknade tidigare:
+2. För att distribuera din uppdaterade lösning, kör du följande kommando ersätter **{deployment-name}** med namnet på din förkonfigurerade lösningsdistribution som du antecknade tidigare:
 
     ```
     build.cmd cloud release {deployment name}
@@ -127,15 +128,15 @@ Du kan nu distribuera den uppdaterade lösningen till din Azure-prenumeration.
 
 ## <a name="update-the-stream-analytics-job"></a>Uppdatera Stream Analytics-jobbet
 
-När installationen är klar, kan du uppdatera Stream Analytics-jobbet om du vill använda de nya definitionerna.
+När distributionen är klar kan du uppdatera Stream Analytics-jobbet om du vill använda de nya regeln definitionerna.
 
-1. Navigera till den resursgrupp som innehåller din förkonfigurerade lösning resurser i Azure-portalen. Den här resursgruppen har samma namn som du angav för lösningen under distributionen.
+1. Navigera till resursgruppen som innehåller din förkonfigurerade lösningsresurser i Azure-portalen. Den här resursgruppen har samma namn du angav för lösningen under distributionen.
 
-2. Navigera till {distributionsnamnet}-regler Stream Analytics-jobbet. 
+2. Gå till {deployment-name}-regler för Stream Analytics-jobb. 
 
-3. Klicka på **stoppa** att stoppa Stream Analytics-jobbet körs. (Du måste vänta tills direktuppspelningsjobbet att stoppa innan du kan redigera frågan).
+3. Klicka på **stoppa** att stoppa Stream Analytics-jobb från att köras. (Du måste vänta tills det direktuppspelade jobbet att stoppa innan du kan redigera frågan).
 
-4. Klicka på **frågan**. Redigera en fråga som inkluderar den **Välj** -uttrycket för **ExternalTemperature**. I följande exempel visar slutförd fråga med det nya **Välj** instruktionen:
+4. Klicka på **fråga**. Redigera en fråga som inkluderar den **Välj** instruktionen för **ExternalTemperature**. I följande exempel visas fullständig frågan med den nya **Välj** instruktionen:
 
     ```
     WITH AlarmsData AS 
@@ -190,39 +191,39 @@ När installationen är klar, kan du uppdatera Stream Analytics-jobbet om du vil
     FROM AlarmsData
     ```
 
-5. Klicka på **spara** att ändra frågan uppdaterade regeln.
+5. Klicka på **spara** att ändra den uppdaterade Regelfråga.
 
 6. Klicka på **starta** att starta Stream Analytics-jobbet körs igen.
 
 ## <a name="add-your-new-rule-in-the-dashboard"></a>Lägg till din nya regel i instrumentpanelen
 
-Du kan nu lägga till den **ExternalTemperature** regeln till en enhet i instrumentpanelen för lösningen.
+Du kan nu lägga till den **ExternalTemperature** regeln till en enhet i lösningens instrumentpanel.
 
 1. Gå till portalen för lösningen.
 
 2. Navigera till den **enheter** panelen.
 
-3. Leta upp den anpassa enhet som du skapade som skickar **ExternalTemperature** telemetri och på den **enhetsinformation** klickar du på **Lägg till regel**.
+3. Leta upp den anpassade enhet du har skapat och som skickar **ExternalTemperature** telemetri och på den **enhetsinformation** panelen, klickar du på **Lägg till regel**.
 
 4. Välj **ExternalTemperature** i **datafält**.
 
-5. Ange **tröskelvärdet** -56. Klicka på **spara och visa regler**.
+5. Ange **tröskelvärdet** -56. Klicka sedan på **spara och visa regler**.
 
-6. Gå tillbaka till instrumentpanelen för att visa larm historiken.
+6. Gå tillbaka till instrumentpanelen och visa larmhistoriken.
 
-7. I konsolträdet du lämnat öppna börjar Node.js-konsolprogram om du vill börja skicka **ExternalTemperature** telemetridata.
+7. I konsolfönstret du lämnas öppna börjar Node.js-konsolapp för att börja skicka **ExternalTemperature** telemetridata.
 
-8. Observera att den **larm historik** tabell visas nya larm när den nya regeln utlöses.
+8. Observera att den **Larmhistorik** tabellen visar nya larm när den nya regeln utlöses.
  
 ## <a name="additional-information"></a>Ytterligare information
 
-Ändra operatorn  **>**  är mer komplexa och utöver de steg som beskrivs i den här självstudiekursen. Du kan ändra Stream Analytics-jobbet om du vill använda den operator som du vill, avspeglar den operatorn i lösningen portal är en mer komplicerad uppgift. 
+Ändra operatorn **>** är mer komplexa och mycket mer än de steg som beskrivs i den här självstudien. Du kan ändra Stream Analytics-jobbet om du vill använda den operator som du vill, vilket speglar operatorn i lösningsportalen är en mer komplicerad uppgift. 
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig hur du skapar egna regler, kan du lära dig mer om förkonfigurerade lösningar:
+Nu när du har sett hur du skapar anpassade regler, kan du läsa mer om de förkonfigurerade lösningarna:
 
-- [Ansluta Logikappen i Azure IoT Suite Fjärrövervaknings förkonfigurerade lösningen][lnk-logic-app]
-- [Enhetens information metadata för fjärranslutna övervakningen förkonfigurerade lösningen][lnk-devinfo].
+- [Anslut Logikappen till Azure IoT Suite förkonfigurerade lösningen för fjärrövervakning][lnk-logic-app]
+- [Förkonfigurerad lösning för enhetsmetadata information i den fjärrövervakning][lnk-devinfo].
 
 [lnk-devinfo]: iot-suite-v1-remote-monitoring-device-info.md
 

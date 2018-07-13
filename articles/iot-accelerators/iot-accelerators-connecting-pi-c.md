@@ -1,6 +1,6 @@
 ---
-title: Etablera hallon Pi till fjärråtkomst övervakning med hjälp av C - Azure | Microsoft Docs
-description: Beskriver hur du ansluter en hallon Pi-enhet till Fjärrövervaknings solution accelerator med hjälp av ett program som skrivits i C.
+title: Etablera Raspberry Pi till fjärrövervakning med hjälp av C – Azure | Microsoft Docs
+description: Beskriver hur du ansluter en Raspberry Pi-enhet till den lösningsacceleratorn för fjärrövervakning använder ett program som är skrivna i C.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,57 +9,57 @@ ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
 ms.openlocfilehash: 23e84a8d577bb1c4950de3acd76b0f8528551ae0
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735502"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611449"
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Ansluta enheten hallon Pi till Fjärrövervaknings solution accelerator (C)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Anslut Raspberry Pi enheten till lösningsacceleratorn för fjärrövervakning (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Den här kursen visar hur du ansluter en fysisk enhet till Fjärrövervaknings solution accelerator. Precis som med de flesta embedded-program som körs på begränsad enheter, är klientkod för programmets hallon Pi enhet skriven i C. I den här självstudiekursen skapar du programmet på en hallon Pi Raspbian operativsystem.
+Den här självstudien visar hur du ansluter en fysisk enhet till lösningsacceleratorn för fjärrövervakning. Precis som med de flesta embedded-program som körs på begränsade enheter, är klientkod för enhetsprogram Raspberry Pi skrivna i C. I den här självstudien skapar du programmet på en Raspberry Pi med Raspbian-operativsystem.
 
-### <a name="required-hardware"></a>Nödvändig maskinvara
+### <a name="required-hardware"></a>Maskinvara som krävs
 
-En stationär dator så att du kan fjärransluta till kommandoraden på hallon Pi.
+En stationär dator så att du kan fjärransluta till kommandoraden på Raspberry Pi.
 
-[Microsoft IoT startpaket för hallon Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) eller motsvarande komponenter. Den här kursen använder följande objekt från kit:
+[Microsoft IoT-startpaket för Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) eller motsvarande komponenter. Den här självstudien använder följande objekt från kit:
 
 - Raspberry Pi 3
 - MicroSD-kort (med NOOBS)
 - En Mini USB-kabel
 - En Ethernet-kabel
 
-### <a name="required-desktop-software"></a>Nödvändig programvara för skrivbordet
+### <a name="required-desktop-software"></a>Nödvändig programvara för fjärrskrivbord
 
-Du måste SSH-klienten på den stationära datorn så att du kan fjärransluta till kommandoraden på hallon Pi.
+Du behöver SSH-klient på din stationära dator så att du kan fjärransluta till kommandoraden på Raspberry Pi.
 
 - Windows innehåller inte en SSH-klient. Vi rekommenderar att du använder [PuTTY](http://www.putty.org/).
-- De flesta distributioner för Linux och Mac OS inkluderar SSH-kommandoradsverktyget. Mer information finns i [SSH med Linux- eller Mac OS x](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
+- De flesta Linux-distributioner och Mac OS innehåller SSH-kommandoradsverktyget. Mer information finns i [SSH med Linux- eller Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
-### <a name="required-raspberry-pi-software"></a>Programvara som krävs hallon Pi
+### <a name="required-raspberry-pi-software"></a>Programvara som krävs Raspberry Pi
 
-Den här artikeln förutsätter att du har installerat den senaste versionen av den [Raspbian OS på din hallon Pi](https://www.raspberrypi.org/learning/software-guide/quickstart/).
+Den här artikeln förutsätter att du har installerat den senaste versionen av den [Raspbian Operativsystemet på Raspberry Pi](https://www.raspberrypi.org/learning/software-guide/quickstart/).
 
-Följande steg visar hur du förbereder din hallon Pi för att bygga ett C-program som ansluter till solution accelerator:
+Följande steg visar hur du förbereder Raspberry Pi för att skapa ett C-program som ansluter till solution accelerator:
 
-1. Anslut till din hallon Pi med **ssh**. Mer information finns i [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) på den [hallon Pi webbplats](https://www.raspberrypi.org/).
+1. Ansluta till Raspberry Pi med **ssh**. Mer information finns i [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) på den [Raspberry Pi webbplats](https://www.raspberrypi.org/).
 
-1. Använd följande kommando för att uppdatera din hallon Pi:
+1. Använd följande kommando för att uppdatera Raspberry Pi:
 
     ```sh
     sudo apt-get update
     ```
 
-1. Använd följande kommando för att lägga till nödvändiga utvecklingsverktyg och bibliotek hallon-Pi:
+1. Använd följande kommando för att lägga till de nödvändiga utvecklingsverktygen och -bibliotek i Raspberry Pi:
 
     ```sh
     sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
-1. Använd följande kommandon för att hämta, bygga och installera klientbibliotek IoT-hubb på din hallon Pi:
+1. Använd följande kommandon för att hämta, skapa och installera IoT Hub-klientbibliotek på Raspberry Pi:
 
     ```sh
     cd ~
@@ -73,9 +73,9 @@ Följande steg visar hur du förbereder din hallon Pi för att bygga ett C-progr
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 
-Utför följande steg med hjälp av den **ssh** anslutning till din hallon Pi:
+Utför följande steg med hjälp av den **ssh** anslutning till Raspberry Pi:
 
-1. Skapa en mapp med namnet `remote_monitoring` i arbetsmappen på hallon Pi. Navigera till den här mappen i gränssnittet:
+1. Skapa en mapp med namnet `remote_monitoring` i arbetsmappen på Raspberry Pi. Gå till den här mappen i ditt gränssnitt:
 
     ```sh
     cd ~
@@ -83,9 +83,9 @@ Utför följande steg med hjälp av den **ssh** anslutning till din hallon Pi:
     cd remote_monitoring
     ```
 
-1. Skapa fyra filerna **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, och **CMakeLists.txt** i den `remote_monitoring` mapp.
+1. Skapa fyra filerna **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, och **CMakeLists.txt** i den `remote_monitoring` mappen.
 
-1. I en textredigerare, öppnar den **remote_monitoring.c** fil. På hallon Pi, kan du använda antingen den **nano** eller **vi** textredigerare. Lägg till följande `#include`-uttryck:
+1. I en textredigerare och öppna den **remote_monitoring.c** fil. På Raspberry Pi, kan du använda antingen den **nano** eller **vi** textredigerare. Lägg till följande `#include`-uttryck:
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -104,7 +104,7 @@ Spara den **remote_monitoring.c** filen och avsluta redigeraren.
 
 ## <a name="add-code-to-run-the-app"></a>Lägg till kod för att köra appen
 
-I en textredigerare, öppnar den **remote_monitoring.h** fil. Lägg till följande kod:
+I en textredigerare och öppna den **remote_monitoring.h** fil. Lägg till följande kod:
 
 ```c
 void remote_monitoring_run(void);
@@ -112,7 +112,7 @@ void remote_monitoring_run(void);
 
 Spara den **remote_monitoring.h** filen och avsluta redigeraren.
 
-I en textredigerare, öppnar den **main.c** fil. Lägg till följande kod:
+I en textredigerare och öppna den **main.c** fil. Lägg till följande kod:
 
 ```c
 #include "remote_monitoring.h"
@@ -129,11 +129,11 @@ Spara den **main.c** filen och avsluta redigeraren.
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
-Följande steg beskriver hur du använder *CMake* att skapa ditt klientprogram.
+Följande steg beskriver hur du använder *CMake* att bygga ditt klientprogram.
 
-1. I en textredigerare, öppnar den **CMakeLists.txt** filen i den `remote_monitoring` mapp.
+1. I en textredigerare och öppna den **CMakeLists.txt** fil i den `remote_monitoring` mapp.
 
-1. Lägg till följande instruktioner för att definiera hur du skapar ditt klientprogram:
+1. Lägg till följande instruktioner för att definiera hur du skapar klientprogrammet:
 
     ```cmake
     macro(compileAsC99)
@@ -183,7 +183,7 @@ Följande steg beskriver hur du använder *CMake* att skapa ditt klientprogram.
 
 1. Spara den **CMakeLists.txt** filen och avsluta redigeraren.
 
-1. I den `remote_monitoring` mapp, skapa en mapp för att lagra den *Se* filer som CMake genererar. Kör sedan den **cmake** och **Se** kommandon på följande sätt:
+1. I den `remote_monitoring` mappen skapar du en mapp för att lagra den *gör* filer som CMake genererar. Kör sedan den **cmake** och **gör** kommandon på följande sätt:
 
     ```sh
     mkdir cmake
@@ -192,7 +192,7 @@ Följande steg beskriver hur du använder *CMake* att skapa ditt klientprogram.
     make
     ```
 
-1. Kör klientprogrammet och skicka telemetri till IoT-hubb:
+1. Kör klientprogrammet och skickar telemetri till IoT Hub:
 
     ```sh
     ./sample_app

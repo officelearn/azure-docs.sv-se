@@ -1,5 +1,5 @@
 ---
-title: Skapa en anpassad avbildning i Azure DevTest Labs från en VHD-fil | Microsoft Docs
+title: Skapa en anpassad Azure DevTest Labs-avbildning från en VHD-fil | Microsoft Docs
 description: Lär dig hur du skapar en anpassad avbildning i Azure DevTest Labs från en VHD-fil med hjälp av Azure portal
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: a961565815ca0d89dc98a8d6a3e14b338b649398
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787467"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38687816"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Skapa en anpassad avbildning från en VHD-fil
 
@@ -35,9 +35,9 @@ Följande steg beskriver hur du skapar en anpassad avbildning från en VHD-fil m
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
+1. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
 
-1. Lista över labs, Välj önskade labbet.  
+1. Listan över labbar, Välj önskade labbet.  
 
 1. På den testmiljön huvudfönstret väljer **konfiguration och principer**. 
 
@@ -45,35 +45,35 @@ Följande steg beskriver hur du skapar en anpassad avbildning från en VHD-fil m
 
 1. På den **anpassade avbildningar** väljer **+ Lägg till**.
 
-    ![Lägg till anpassad bild](./media/devtest-lab-create-template/add-custom-image.png)
+    ![Lägg till anpassad avbildning](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. Ange namnet på den anpassade avbildningen. Det här namnet visas i listan över grundläggande bilder när du skapar en virtuell dator.
+1. Ange namnet på den anpassade avbildningen. Det här namnet visas i listan över grundläggande avbildningar när du skapar en virtuell dator.
 
-1. Ange en beskrivning av den anpassade avbildningen. Den här beskrivningen visas i listan över grundläggande bilder när du skapar en virtuell dator.
+1. Ange beskrivning av den anpassade avbildningen. Den här beskrivningen visas i listan över grundläggande avbildningar när du skapar en virtuell dator.
 
-1. För **OS-typen**, väljer du antingen **Windows** eller **Linux**.
+1. För **OS-typ**, väljer du antingen **Windows** eller **Linux**.
 
     - Om du väljer **Windows**, ange via kryssrutan om *sysprep* har körts på datorn. 
     - Om du väljer **Linux**, ange via kryssrutan om *avetablering* har körts på datorn. 
 
-1. Välj en **VHD** från den nedrullningsbara menyn. Det här är den virtuella Hårddisken som ska användas för att skapa nya anpassade avbildningen. Om det behövs väljer att **överföra en virtuell Hårddisk med hjälp av PowerShell**.
+1. Välj en **VHD** från den nedrullningsbara menyn. Det här är den virtuella Hårddisken som ska användas för att skapa nya anpassade avbildningen. Om det behövs väljer du **överföra en virtuell Hårddisk med hjälp av PowerShell**.
 
-1. Du kan också ange ett namn för energischema, plan erbjudandet och plan publisher om bilden används för att skapa den anpassade avbildningen inte är en licensierad bild (som publicerats av Microsoft).
+1. Du kan också ange ett namn, plan erbjudandet och plan publisher om den avbildning som används för att skapa den anpassade avbildningen inte är en licensierad avbildning (som publicerats av Microsoft).
 
-   - **Planera name:** anger namnet på Marketplace-avbildning (SKU) från den här anpassade avbildningen har skapats 
-   - **Planera erbjudande:** ange Marketplace-avbildning som den här anpassade avbildningen skapas från produkten (erbjudandet) 
-   - **Planera utgivare:** ange utgivaren av Marketplace-avbildning som den här anpassade avbildningen skapas från
+   - **Namn på prenumerationsavtal:** anger du namnet på Marketplace-avbildning (SKU) från den här anpassade avbildningen har skapats 
+   - **Planera erbjudande:** ange produktnyckel (erbjudandet) av Marketplace-avbildning från vilken den här anpassade avbildningen har skapats 
+   - **Planera utgivare:** ange utgivaren av Marketplace-avbildning från vilken den här anpassade avbildningen har skapats
 
    > [!NOTE]
-   > Om bilden som du använder för att skapa en anpassad avbildning är **inte** licensierade avbildningen och sedan dessa fält är tomma och kan fyllas i om du väljer. Om avbildningen **är** licensierade avbildningen och sedan fälten är fylls i med planinformation om automatiskt. Om du försöker ändra dem i det här fallet visas ett varningsmeddelande.
+   > Om den avbildning som du använder för att skapa en anpassad avbildning är **inte** en licensierad avbildning och sedan de här fälten är tomma och kan fyllas i om du väljer. Om avbildningen **är** en licensierad avbildning och sedan fälten är fylls i med information om supportavtalet automatiskt. Om du försöker ändra dem i det här fallet visas ett varningsmeddelande.
    >
    >
 
 1. Välj **OK** att skapa den anpassade avbildningen.
 
-Efter några minuter anpassad bild skapas och lagras i den labblagringskontot. När en lab-användare som vill skapa en ny virtuell dator, är bilden tillgänglig i listan över grundläggande bilder.
+Efter några minuter, den anpassade avbildningen skapas och lagras i den testmiljön storage-konto. Bilden är tillgänglig i listan över grundläggande avbildningar när en lab användare vill skapa en ny virtuell dator.
 
-![Anpassad avbildning som är tillgängliga i listan över grundläggande bilder](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+![Anpassad avbildning som är tillgängliga i listan över grundläggande avbildningar](./media/devtest-lab-create-template/custom-image-available-as-base.png)
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
@@ -85,4 +85,4 @@ Efter några minuter anpassad bild skapas och lagras i den labblagringskontot. N
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lägga till en virtuell dator i labbet](./devtest-lab-add-vm.md)
+- [Lägg till en virtuell dator i labbet](./devtest-lab-add-vm.md)

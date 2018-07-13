@@ -17,11 +17,11 @@ ms.date: 06/19/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c8f043fdcaa7554d73be6ac3928a37630baab845
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450335"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630429"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera NVIDIA GPU-drivrutiner på N-serien virtuella datorer som kör Linux
 
@@ -176,7 +176,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på NV-serien virtuella datorer, s
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
-1. Kör den `lspci` kommando. Kontrollera att NVIDIA M60-kort eller kort visas som PCI-enheter.
+1. Kör `lspci`-kommandot. Kontrollera att NVIDIA M60-kort eller kort visas som PCI-enheter.
 
 2. Installera uppdateringar.
 

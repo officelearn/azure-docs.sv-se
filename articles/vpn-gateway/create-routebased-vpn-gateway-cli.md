@@ -1,6 +1,6 @@
 ---
 title: 'Skapa en ruttbaserad Azure VPN-gateway: CLI | Microsoft Docs'
-description: Snabbt lära dig hur du skapar en VPN-Gateway med hjälp av CLI
+description: Lär dig hur du skapar en VPN-Gateway med hjälp av CLI
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,21 +16,21 @@ ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: cherylmc
 ms.openlocfilehash: d0f4e292c6f5a2725b4a9efe91e78c6e634ea64e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30840913"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38605985"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Skapa en ruttbaserad VPN-gateway med hjälp av CLI
 
-Den här artikeln hjälper dig att snabbt skapa en ruttbaserad Azure VPN-gateway med hjälp av Azure CLI. En VPN-gateway för att skapa en VPN-anslutning till lokalt nätverk. Du kan också använda en VPN-gateway för att ansluta Vnet.
+Den här artikeln hjälper dig att snabbt skapa en ruttbaserad Azure VPN gateway med Azure CLI. En VPN-gateway för att skapa en VPN-anslutning till ditt lokala nätverk. Du kan också använda en VPN-gateway för att ansluta virtuella nätverk.
 
-Stegen i den här artikeln skapar ett VNet, ett undernät, ett gateway-undernät och en ruttbaserad VPN-gateway (virtuella nätverksgateway). En virtuell nätverksgateway kan ta minst 45 minuter att skapa. Du kan sedan skapa anslutningar när skapandet en gateway är klar. Dessa åtgärder kräver en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Stegen i den här artikeln skapar ett virtuellt nätverk, ett undernät, ett gateway-undernät och en routningsbaserad VPN-gateway (virtuella nätverksgateway). En virtuell nätverksgateway kan ta 45 minuter eller mer att skapa. Du kan sedan skapa anslutningar när skapa gatewayen är klar. Dessa steg kräver en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt i den här artikeln kräver att du använder Azure CLI version 2.0.4 eller senare. Du hittar den installerade versionen genom att köra `az --version`. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.4 eller senare för att du ska kunna följa anvisningarna i den här artikeln. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -43,7 +43,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="vnet"></a>Skapa ett virtuellt nätverk
 
-Skapa ett virtuellt nätverk med den [az network vnet skapa](/cli/azure/network/vnet#az_network_vnet_create) kommando. I följande exempel skapas ett virtuellt nätverk med namnet **VNet1** i den **EastUS** plats:
+Skapa ett virtuellt nätverk med hjälp av den [az network vnet skapa](/cli/azure/network/vnet#az_network_vnet_create) kommando. I följande exempel skapas ett virtuellt nätverk med namnet **VNet1** i den **EastUS** plats:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -55,9 +55,9 @@ az network vnet create \
   --subnet-prefix 10.1.0.0/24
 ```
 
-## <a name="gwsubnet"></a>Lägg till en gatewayundernät
+## <a name="gwsubnet"></a>Lägg till ett gateway-undernät
 
-Gateway-undernätet innehåller reserverade IP-adresser med gateway-tjänster för virtuella nätverk. Använd följande exempel för att lägga till ett gateway-undernät:
+Gateway-undernätet innehåller reserverade IP-adresser som gatewaytjänsterna för virtuella nätverk använder. Använd följande exempel för att lägga till ett gateway-undernät:
 
 ```azurepowershell-interactive
 az network vnet subnet create \
@@ -69,7 +69,7 @@ az network vnet subnet create \
 
 ## <a name="PublicIP"></a>Begär en offentlig IP-adress
 
-En VPN-gateway måste ha en dynamiskt tilldelad offentliga IP-adress. Den offentliga IP-adressen allokeras till VPN-gateway som du skapar för det virtuella nätverket. Använd följande exempel för att begära en offentlig IP-adress:
+En VPN-gateway måste ha en dynamiskt tilldelad offentlig IP-adress. Offentliga IP-adress allokeras till VPN-gateway som du skapar för ditt virtuella nätverk. Använd följande exempel för att begära en offentlig IP-adress:
 
 ```azurecli-interactive
 az network public-ip create \
@@ -78,11 +78,11 @@ az network public-ip create \
   --allocation-method Dynamic 
 ```
 
-## <a name="CreateGateway"></a>Skapa en VPN-gateway
+## <a name="CreateGateway"></a>Skapa VPN-gateway
 
 Skapa en VPN-gateway med kommandot [az network vnet-gateway create](/cli/azure/group#az_network_vnet_gateway_create).
 
-Om du kör kommandot med hjälp av den `--no-wait` parameter du inte ser några feedback eller utdata. Den `--no-wait` parameter gör det möjligt för en gateway som ska skapas i bakgrunden. Det innebär inte att VPN-gateway har skapats direkt.
+Om du kör det här kommandot med hjälp av den `--no-wait` parameter, ser du ingen feedback eller utdata. Den `--no-wait` parametern gör att gatewayen kan skapas i bakgrunden. Det innebär inte att VPN-gatewayen har skapats direkt.
 
 ```azurecli-interactive
 az network vnet-gateway create \
@@ -97,7 +97,7 @@ az network vnet-gateway create \
   --no-wait
 ```
 
-En VPN-gateway kan ta minst 45 minuter att skapa.
+Det kan ta minst 45 minuter att skapa en VPN-gateway.
 
 ## <a name="viewgw"></a>Visa VPN-gateway
 
@@ -155,7 +155,7 @@ Svaret ser ut ungefär så här:
 
 ### <a name="view-the-public-ip-address"></a>Visa den offentliga IP-adressen
 
-Använd följande exempel för att visa den offentliga IP-adressen till din gateway:
+Om du vill visa den offentliga IP-adress som tilldelats din gateway använder du följande exempel:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -163,7 +163,7 @@ az network public-ip show \
   --resource-group TestRG11
 ```
 
-Värdet som associeras med den **ipAddress** fältet är offentliga IP-adressen för VPN-gateway.
+Värdet som är associerade med den **ipAddress** fältet är den offentliga IP-adressen för din VPN-gateway.
 
 Exempelsvar:
 
@@ -180,7 +180,7 @@ Exempelsvar:
 ```
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Använd när du inte längre behöver de resurser som du skapade [ta bort grupp az](/cli/azure/group#az_group_delete) att ta bort resursgruppen. Detta tar bort resursgruppen och alla resurser som den innehåller.
+När du inte längre behöver de resurser som du skapade använda [az group delete](/cli/azure/group#az_group_delete) att ta bort resursgruppen. Därmed tas resursgruppen och alla resurser den innehåller bort.
 
 ```azurecli-interactive 
 az group delete --name TestRG1 --yes
@@ -188,7 +188,7 @@ az group delete --name TestRG1 --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-När gatewayen har skapat, kan du skapa en anslutning mellan det virtuella nätverket och ett annat VNet. Eller skapa en anslutning mellan det virtuella nätverket och en lokal plats.
+När gatewayen har skapats, kan du skapa en anslutning mellan ditt virtuella nätverk och ett annat virtuellt nätverk. Eller skapa en anslutning mellan ditt virtuella nätverk och en lokal plats.
 
 > [!div class="nextstepaction"]
 > [Skapa en plats-till-plats-anslutning](vpn-gateway-create-site-to-site-rm-powershell.md)<br><br>

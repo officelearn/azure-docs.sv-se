@@ -1,6 +1,6 @@
 ---
-title: Azure IoT-hubb migrera till diagnostikinställningar | Microsoft Docs
-description: Så här uppdaterar Azure IoT-hubb för att använda inställningar för Azure-diagnostik i stället för åtgärder som övervakning för att övervaka status för åtgärder för din IoT-hubb i realtid.
+title: Azure IoT Hub migrera till diagnostikinställningar | Microsoft Docs
+description: Så här uppdaterar Azure IoT Hub för att använda Azure diagnostics-inställningar i stället för åtgärdsövervakning om du vill övervaka statusen för åtgärder på IoT hub i realtid.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -9,45 +9,45 @@ ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: kgremban
 ms.openlocfilehash: 85bdb4b4802283c591e4d7a9e8b14ae74fa44e8d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633595"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38666730"
 ---
-# <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migrera din IoT-hubb från operations övervakning i diagnostikinställningar
+# <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migrera din IoT Hub från åtgärdsövervakning till diagnostikinställningar
 
-Kunder som använder [operations övervakning] [ lnk-opsmon] spåra statusen för åtgärder i IoT-hubb kan migrera som arbetsflödet ska [Azure diagnostikinställningar] [ lnk-diagnostics-settings], en funktion i Azure-Monitor. Diagnostikinställningar ange resursnivå diagnostisk information för många Azure-tjänster.
+Kunder som använder [åtgärdsövervakning] [ lnk-opsmon] att spåra statusen för åtgärder i IoT Hub kan migrera som arbetsflödet ska [Azure diagnostikinställningar] [ lnk-diagnostics-settings], en funktion i Azure Monitor. Diagnostikinställningar ange resursnivå diagnostisk information för många Azure-tjänster.
 
-Åtgärder övervakningsfunktioner för IoT-hubben är föråldrad och kommer att tas bort i framtiden. Den här artikeln innehåller steg för att flytta arbetsbelastningar från operations övervakning i inställningarna för webbprogramdiagnostik. Läs mer om utfasning tidslinjen [övervaka dina Azure IoT-lösningar med Azure-Monitor och Azure Resource Health][lnk-blog-announcement].
+Åtgärder för övervakningsfunktioner för IoT Hub är inaktuell och kommer att tas bort i framtiden. Den här artikeln innehåller steg för att flytta dina arbetsbelastningar från åtgärdsövervakning till diagnostikinställningar. Läs mer om utfasning tidslinjen [övervaka dina Azure-IoT-lösningar med Azure Monitor och Azure Resource Health][lnk-blog-announcement].
 
 ## <a name="update-iot-hub"></a>Uppdatera IoT-hubb
 
-Först aktiverar diagnostikinställningar för att uppdatera din IoT-hubb i Azure-portalen, och sedan inaktivera operations övervakning.  
+Aktivera diagnostikinställningar för att uppdatera din IoT-hubb i Azure-portalen, och sedan inaktivera åtgärdsövervakning.  
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
-### <a name="turn-off-operations-monitoring"></a>Inaktivera operations övervakning
+### <a name="turn-off-operations-monitoring"></a>Inaktivera åtgärdsövervakning
 
-När du har testat de nya diagnostikinställningarna för på arbetsflödet kan inaktivera du de åtgärder som funktionen som övervakar. 
+När du har testat de nya diagnostikinställningarna för på ditt arbetsflöde kan stänga du av funktionen för åtgärdsövervakning. 
 
-1. Välj din IoT-hubb-menyn **Operations övervakning**.
-1. Under varje övervakning, Välj **ingen**.
-1. Spara de åtgärder som övervakar ändringar.
+1. I din IoT Hub-menyn väljer **Åtgärdsövervakning**.
+1. Under varje övervakning kategori väljer **ingen**.
+1. Spara åtgärdsövervakning ändringar.
 
-## <a name="update-applications-that-use-operations-monitoring"></a>Uppdatera program som använder operations övervakning
+## <a name="update-applications-that-use-operations-monitoring"></a>Uppdatera program som använder åtgärdsövervakning
 
-Scheman för åtgärder som övervakning och diagnostikinställningar variera något. Det är viktigt att du uppdaterar de program som använder operations övervakning dag för att mappas till schemat som används av inställningarna för webbprogramdiagnostik. 
+Scheman för åtgärdsövervakning och inställningarna för startdiagnostik kan skilja sig något. Det är viktigt att du uppdaterar de program som använder åtgärdsövervakning idag ska mappas till ett schema som används av diagnostikinställningar. 
 
-Dessutom diagnostik inställningar erbjudanden spårning för fem nya kategorier. När du har uppdaterat program för det befintliga schemat lägger du till de nya kategorierna:
+Dessutom diagnostik inställningar erbjudanden spårning för fem nya kategorier. När du har uppdaterat program för det befintliga schemat, lägger du till de nya kategorierna:
 
-- Moln till enhet dubbla åtgärder
-- Enhet till moln dubbla åtgärder
-- Dubbla frågor
+- Moln till enhet twin åtgärder
+- Enhet-till-moln-twin-åtgärder
+- Twin frågor
 - Jobbåtgärder
-- Direkt-metoder
+- Direkta metoder
 
-Specifika schema-konstruktioner finns [förstå schemat för diagnostikinställningar][lnk-diagnostics-schema].
+Specifika schema-konstruktioner Se [förstå schemat för diagnostikinställningar][lnk-diagnostics-schema].
 
 ## <a name="next-steps"></a>Nästa steg
 

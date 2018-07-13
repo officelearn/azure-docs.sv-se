@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
 ms.openlocfilehash: 4b4b193751606883548e25e731dcece4ae72ba7b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858372"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38666899"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Kom igång med IoT Hub-modulidentitet och modultvilling med portalen och .NET-enhet
 

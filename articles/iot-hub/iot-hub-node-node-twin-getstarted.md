@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Azure IoT Hub-enhet twins (nod) | Microsoft Docs
-description: Hur du använder Azure IoT Hub-enhet twins att lägga till taggar och sedan använda en IoT-hubb-fråga. Azure IoT-SDK för Node.js används för att implementera simulerade enheten appen och en service-app som lägger till taggar och IoT-hubb-frågan körs.
+title: Kom igång med enhetstvillingar för Azure IoT Hub (Node) | Microsoft Docs
+description: Så här använder enhetstvillingar för Azure IoT Hub för att lägga till taggar och sedan använda en IoT Hub-fråga. Du kan använda Azure IoT SDK för Node.js för att implementera app för simulerade enheter och en service-app som lägger till taggar och kör IoT Hub-frågan.
 author: fsautomata
 manager: ''
 ms.service: iot-hub
@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
 ms.openlocfilehash: dbb28d7df104887a4056489e9f693ce28ec406df
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635108"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619394"
 ---
-# <a name="get-started-with-device-twins-node"></a>Kom igång med enheten twins (nod)
+# <a name="get-started-with-device-twins-node"></a>Kom igång med enhetstvillingar (Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-I slutet av den här kursen har du två Node.js-konsolappar:
+I slutet av den här självstudien har du två Node.js-konsolappar:
 
-* **AddTagsAndQuery.js**, en Node.js backend-app som lägger till taggar och frågar enheten twins.
-* **TwinSimulatedDevice.js**, en Node.js-app som simulerar en enhet som ansluter till din IoT-hubb med enhetens identitet skapade tidigare och rapporterar tillståndet anslutningen.
+* **AddTagsAndQuery.js**, en Node.js backend-app, som lägger till taggar och frågar enhetstvillingar.
+* **TwinSimulatedDevice.js**, en Node.js-app som simulerar en enhet som ansluter till din IoT-hubb med enhetsidentiteten som skapades tidigare och rapporterar tillståndet för anslutningen.
 
 > [!NOTE]
-> Artikeln [Azure IoT SDK] [ lnk-hub-sdks] innehåller information om Azure IoT-SDK: er som du kan använda för att skapa både enheten och backend-appar.
+> Artikeln [Azure IoT SDK: er] [ lnk-hub-sdks] innehåller information om Azure IoT SDK: er som du kan använda för att skapa appar för både enheten och backend-server.
 > 
 > 
 
@@ -38,21 +38,21 @@ Den här kursen behöver du följande:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="create-the-service-app"></a>Skapa service-appen
-I det här avsnittet skapar du en Node.js-konsolprogram som lägger till platsen metadata i enheten-dubbla som är associerade med **myDeviceId**. Frågar sedan enheten-twins lagras i IoT-hubb som att markera de enheter som finns i USA och de som rapporterar en mobil anslutning.
+## <a name="create-the-service-app"></a>Skapa service-app
+I det här avsnittet skapar du en Node.js-konsolapp som lägger till platsmetadata i enhetstvillingen som är associerade med **myDeviceId**. Därefter beordrar enhetstvillingar som lagras i IoT hub att välja de enheter som finns i USA och de som rapporterar en mobil anslutning.
 
-1. Skapa en ny tom mapp som kallas **addtagsandqueryapp**. I den **addtagsandqueryapp** mapp, skapa en ny package.json-fil med följande kommando vid en kommandotolk. Acceptera alla standardvärden:
+1. Skapa en ny tom mapp med namnet **addtagsandqueryapp**. I den **addtagsandqueryapp** mapp, skapa en ny package.json-fil med följande kommando i Kommandotolken. Acceptera alla standardvärden:
    
     ```
     npm init
     ```
-2. Vid en kommandotolk i den **addtagsandqueryapp** mapp, kör följande kommando för att installera den **azure iothub** paketet:
+2. I Kommandotolken i den **addtagsandqueryapp** mapp, kör följande kommando för att installera den **azure-iothub** paketet:
    
     ```
     npm install azure-iothub --save
     ```
-3. Med hjälp av en textredigerare, skapa en ny **AddTagsAndQuery.js** filen i den **addtagsandqueryapp** mapp.
-4. Lägg till följande kod i den **AddTagsAndQuery.js** filen och Ersätt den **{anslutningssträngen för iot-hubb}** med IoT-hubb anslutningssträngen som du kopierade när du skapade din hubb:
+3. Använd en textredigerare och skapa en ny **AddTagsAndQuery.js** fil i den **addtagsandqueryapp** mapp.
+4. Lägg till följande kod till den **AddTagsAndQuery.js** filen och ersätta den **{iot hub-anslutningssträngen}** med IoT Hub-anslutningssträngen som du kopierade när du skapade din hubb:
    
         'use strict';
         var iothub = require('azure-iothub');
@@ -83,9 +83,9 @@ I det här avsnittet skapar du en Node.js-konsolprogram som lägger till platsen
             }
         });
    
-    Den **registret** objektet innehåller de metoder som krävs för att interagera med enheten twins från tjänsten. Föregående kod först initierar den **registret** objekt och hämtar enheten dubbla för **myDeviceId**, och slutligen uppdateras taggarna med informationen som önskad plats.
+    Den **registret** objektet innehåller alla metoder som krävs för att interagera med enhetstvillingar från tjänsten. Föregående kod först initierar den **registret** objekt och sedan hämtar enhetstvillingen för **myDeviceId**, och uppdaterar slutligen taggarna med informationen som önskad plats.
    
-    Efter uppdatering av taggarna anropar den **queryTwins** funktion.
+    När du har uppdaterat taggarna anropar den **queryTwins** funktion.
 5. Lägg till följande kod i slutet av **AddTagsAndQuery.js** att implementera den **queryTwins** funktionen:
    
         var queryTwins = function() {
@@ -108,35 +108,35 @@ I det här avsnittet skapar du en Node.js-konsolprogram som lägger till platsen
             });
         };
    
-    Föregående kod körs två frågor: först väljer enheten twins av enheter som finns i den **Redmond43** anläggningen och andra förfinar frågan för att markera de enheter som även är anslutna via mobilnät.
+    Föregående kod körs två frågor: först väljer endast enhetstvillingar av enheter som finns i den **Redmond43** anläggning och andra förfinar fråga för att välja endast de enheter som även är anslutna via mobilnät.
    
-    Föregående kod när det skapas den **frågan** objekt, anger ett maximalt antal returnerade dokument. Den **frågan** objektet innehåller en **hasMoreResults** boolesk egenskap som du kan använda för att anropa den **nextAsTwin** metoder flera gånger för att hämta alla resultat. En metod som kallas **nästa** är tillgänglig för resultat som är inte enheten twins, till exempel resultatet av aggregering frågor.
+    Föregående kod när det skapas den **fråga** objekt, anger ett maximalt antal returnerade dokument. Den **fråga** objektet innehåller en **hasMoreResults** boolesk egenskap som du kan använda för att anropa den **nextAsTwin** metoder flera gånger för att hämta alla resultat. En metod som kallas **nästa** är tillgänglig för resultat som är inte enhetstvillingar, till exempel resultat mängdfrågor.
 6. Kör programmet med:
    
         node AddTagsAndQuery.js
    
-    Du bör se en enhet i resultaten för frågan ställa för alla enheter i **Redmond43** och ingen för frågan som begränsar resultat till enheter som använder ett mobilnät.
+    Du bör se en enhet i resultaten för att fråga ställa för alla enheter i **Redmond43** och ingenting alls under den fråga som begränsar resultaten till enheter som använder ett mobilnät.
    
     ![][1]
 
-I nästa avsnitt skapar du en enhetsapp som rapporterar information om anslutningar och ändras resultatet av frågan i föregående avsnitt.
+I nästa avsnitt skapar du en app för enheter som rapporterar anslutningsinformation och ändras resultatet av frågan i föregående avsnitt.
 
-## <a name="create-the-device-app"></a>Skapa enhetsapp
-I det här avsnittet skapar du en Node.js-konsolprogram som ansluter till din hubb som **myDeviceId**, och sedan uppdaterar sin enhet dubbla har rapporterat att innehålla den information som den är ansluten med hjälp av ett mobilnät.
+## <a name="create-the-device-app"></a>Skapa en app för enheter
+I det här avsnittet skapar du en Node.js-konsolapp som ansluter till hubben som **myDeviceId**, och sedan de uppdateringar som dess enhetstvilling är rapporterade egenskaper som innehåller informationen om att den är ansluten med hjälp av ett mobilt nätverk.
 
 
-1. Skapa en ny tom mapp som kallas **reportconnectivity**. I den **reportconnectivity** mapp, skapa en ny package.json-fil med följande kommando vid en kommandotolk. Acceptera alla standardvärden:
+1. Skapa en ny tom mapp med namnet **reportconnectivity**. I den **reportconnectivity** mapp, skapa en ny package.json-fil med följande kommando i Kommandotolken. Acceptera alla standardvärden:
    
     ```
     npm init
     ```
-2. Vid en kommandotolk i den **reportconnectivity** mapp, kör följande kommando för att installera den **azure iot-enhet**, och **azure-iot-enhet – mqtt** paketet:
+2. I Kommandotolken i den **reportconnectivity** mapp, kör följande kommando för att installera den **azure-iot-device**, och **azure-iot-device-mqtt** paketet:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Med hjälp av en textredigerare, skapa en ny **ReportConnectivity.js** filen i den **reportconnectivity** mapp.
-4. Lägg till följande kod i den **ReportConnectivity.js** filen och Ersätt den **{enheten anslutningssträngen}** platshållaren med den anslutningssträng för enheten som du kopierade när du skapade **myDeviceId** enhets-ID:
+3. Använd en textredigerare och skapa en ny **ReportConnectivity.js** fil i den **reportconnectivity** mapp.
+4. Lägg till följande kod till den **ReportConnectivity.js** filen och ersätta den **{enhetsanslutningssträngen}** med enhetens anslutningssträng som du kopierade när du skapade **myDeviceId** enhetsidentitet:
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -174,28 +174,28 @@ I det här avsnittet skapar du en Node.js-konsolprogram som ansluter till din hu
         }
         });
    
-    Den **klienten** objektet innehåller de metoder som du behöver för att interagera med enheten twins från enheten. Föregående kod när den initieras den **klienten** objekt, hämtar enheten dubbla för **myDeviceId** och uppdaterar egenskapen rapporterade med information om anslutningar.
-5. Kör enhetsapp
+    Den **klienten** objektet innehåller alla metoder som du behöver för att interagera med enhetstvillingar från enheten. Föregående kod när den initierar den **klienten** objekt, hämtar enhetstvillingen för **myDeviceId** och uppdaterar sin rapporterad egenskap med anslutningsinformation.
+5. Kör app för enheter
    
         node ReportConnectivity.js
    
     Du bör se meddelandet `twin state reported`.
-6. Nu när enheten rapporteras dess anslutningsinformation, bör den visas i båda frågor. Gå tillbaka i den **addtagsandqueryapp** mappen och kör frågorna igen:
+6. Nu när enheten rapporteras dess anslutningsinformation som det visas i båda frågor. Gå tillbaka i den **addtagsandqueryapp** mappen och kör frågorna igen:
    
         node AddTagsAndQuery.js
    
-    Den här gången **myDeviceId** ska visas i båda frågeresultaten.
+    Den här gången **myDeviceId** ska visas i båda frågeresultatet.
    
     ![][3]
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen konfigurerade du en ny IoT Hub på Azure Portal och skapade sedan en enhetsidentitet i IoT-hubbens identitetsregister. Du lagt till enhetsmetadata som taggar från en backend-app och skrev en simulerad enhetsapp till enheten anslutningsinformation i dubbla för enheten. Du också fått lära dig hur man frågar den här informationen med hjälp av frågespråket i SQL-liknande IoT-hubb.
+I den här självstudiekursen konfigurerade du en ny IoT Hub på Azure Portal och skapade sedan en enhetsidentitet i IoT-hubbens identitetsregister. Du har lagts till enhetsmetadata som taggar från en backend-app och skrev en simulerad enhetsapp till rapporten anslutning enhetsinformation i enhetstvillingen. Du också lärt dig hur du frågar efter den här informationen med hjälp av SQL-liknande IoT Hub-frågespråk.
 
 Använd följande resurser för att lära dig hur du:
 
-* Skicka telemetri från enheter med den [Kom igång med IoT-hubb] [ lnk-iothub-getstarted] självstudiekursen
-* Konfigurera enheter med hjälp av enheten två egenskaper med den [Använd önskad egenskaper att konfigurera enheter] [ lnk-twin-how-to-configure] självstudiekursen
-* Kontrollera enheter interaktivt (till exempel aktivera fläktar från en användare-kontrollerade app), med den [metoder från direkt] [ lnk-methods-tutorial] kursen.
+* Skicka telemetri från enheter med den [Kom igång med IoT Hub] [ lnk-iothub-getstarted] självstudien
+* Konfigurera enheter som använder enhetstvillingens egenskaper med den [Använd önskade egenskaper för att konfigurera enheter] [ lnk-twin-how-to-configure] självstudien
+* Kontrollera enheter interaktivt (till exempel aktivera en fans, från en användarstyrd app) och med den [Använd direkta metoder] [ lnk-methods-tutorial] självstudien.
 
 <!-- images -->
 [1]: media/iot-hub-node-node-twin-getstarted/service1.png

@@ -1,6 +1,6 @@
 ---
-title: Skapa en virtuell dator med en statisk offentlig IP-adress - Azure CLI | Microsoft Docs
-description: Lär dig hur du skapar en virtuell dator med en statisk offentlig IP-adress med hjälp av Azure-kommandoradsgränssnittet (CLI).
+title: Skapa en virtuell dator med en statisk offentlig IP-adress – Azure CLI | Microsoft Docs
+description: Lär dig hur du skapar en virtuell dator med en statisk offentlig IP-adress med hjälp av kommandoradsgränssnittet (CLI).
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,11 +17,11 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bd44971162a79e53b731c5c89316f14e8bb0a1a6
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31524865"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38651967"
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Skapa en virtuell dator med en statisk offentlig IP-adress med hjälp av Azure CLI
 
@@ -33,18 +33,18 @@ ms.locfileid: "31524865"
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Den här artikeln täcker distributionsmodell hanteraren för filserverresurser, som Microsoft rekommenderar för de flesta nya distributioner i stället för den klassiska distributionsmodellen.
+Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Den här artikeln beskriver Resource Manager-distributionsmodellen, som Microsoft rekommenderar för de flesta nya distributioner i stället för den klassiska distributionsmodellen.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
 ## <a name = "create"></a>Skapa den virtuella datorn
 
-Värdena i ”” för variabler i de steg som följer skapa resurser med inställningar för scenariot. Ändra värdena för din miljö.
+Värdena i ”” för variabler i stegen nedan för att skapa resurser med inställningar från scenariot. Ändra värdena för din miljö.
 
-1. Installera den [Azure CLI 2.0](/cli/azure/install-az-cli2) om du inte redan har installerats.
-2. Skapa en SSH offentlig och privat nyckel för Linux virtuella datorer genom att slutföra stegen i den [skapa en SSH offentlig och privat nyckel för Linux virtuella datorer](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Installera den [Azure CLI 2.0](/cli/azure/install-az-cli2) om du inte redan har installerat.
+2. Skapa ett SSH offentliga och privata nyckelpar för virtuella Linux-datorer genom att följa stegen i den [skapa ett SSH offentliga och privata nyckelpar för virtuella Linux-datorer](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 3. Från en kommandotolk, logga in med kommandot `az login`.
-4. Skapa den virtuella datorn genom att köra skriptet som följer på en Linux- eller Mac-dator. Azure offentlig IP-adress, virtuella nätverk, nätverksgränssnitt och Virtuella resurser finnas på samma plats. Även om resurserna inte alla finns i samma resursgrupp kan i följande skript gör de.
+4. Skapa den virtuella datorn genom att köra skriptet som följer på en Linux- eller Mac-dator. Azure offentlig IP-adress, virtuellt nätverk, nätverksgränssnitt och Virtuella datorresurserna finnas på samma plats. Även om resurserna som inte har finnas i samma resursgrupp, i följande skript gör de.
 
 ```bash
 RgName="IaaSStory"
@@ -128,28 +128,28 @@ az vm create \
 # If creating a Windows VM, remove the previous line and you'll be prompted for the password you want to configure for the VM.
 ```
 
-Förutom att skapa en virtuell dator skapar skriptet:
-- En enda premium hanterade disken som standard, men du har andra alternativ för den typ av disk som du kan skapa. Läs den [skapa en Linux VM som använder Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikeln för information.
-- Virtuella nätverk, undernät, nätverkskort och offentliga IP-adress-resurser. Du kan också använda *befintliga* virtuellt nätverk, undernät, nätverkskort eller resurserna för offentlig IP-adress. Information om hur du använder befintliga nätverksresurser i stället för att skapa ytterligare resurser, ange `az vm create -h`.
+Förutom att skapa en virtuell dator, skapar skriptet:
+- En enda premium managed disk som standard, men du har andra alternativ för typ av disk som du kan skapa. Läs den [skapa en Linux-VM med Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nedan för information.
+- Virtuellt nätverk, undernät, nätverkskort och offentliga IP-adress-resurser. Du kan också använda *befintliga* virtuella nätverk, undernät, nätverkskort eller offentlig IP-adressresurser. Om du vill lära dig mer om att använda befintliga nätverksresurser i stället för skapa ytterligare resurser, ange `az vm create -h`.
 
-## <a name = "validate"></a>Validera skapa Virtuella och den offentliga IP-adress
+## <a name = "validate"></a>Verifiera skapa en virtuell dator och offentlig IP-adress
 
-1. Ange kommandot `az resource list --resouce-group IaaSStory --output table` att se en lista över de resurser som skapats av skriptet. Det bör finnas fem resurser i returnerade utdata: network interface, disk, offentlig IP-adress, virtuella nätverk och en virtuell dator.
+1. Ange kommandot `az resource list --resouce-group IaaSStory --output table` att se en lista över resurser som skapas av skriptet. Det bör finnas fem resurser i den returnerade utdatan: gränssnitt, disk, offentlig IP-adress, virtuellt nätverk och en virtuell dator.
 2. Ange kommandot `az network public-ip show --name PIPWEB1 --resource-group IaaSStory --output table`. Returnerade utdata och anteckna värdet för **IpAddress** och att värdet för **PublicIpAllocationMethod** är *statiska*.
-3. Ta bort <> innan du kör följande kommando ersätter *användarnamn* med namn som du använde för den **användarnamn** variabeln i skript och ersätter *IP-adress* med den **IP-adress** från föregående steg. Kör följande kommando för att ansluta till den virtuella datorn: `ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>`. 
+3. Ta bort <> innan du kör följande kommando och Ersätt *användarnamn* med namnet du använde för den **användarnamn** variabel i skriptet och Ersätt *ipAddress*med den **ipAddress** från föregående steg. Kör följande kommando för att ansluta till den virtuella datorn: `ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>`. 
 
 ## <a name= "clean-up"></a>Ta bort den virtuella datorn och associerade resurser
 
-Vi rekommenderar att du tar bort de resurser som skapades i den här övningen om du inte använder dem i produktion. VM, offentlig IP-adress och diskresurser avgifter, så länge som de har etablerats. Om du vill ta bort de resurser som skapades under den här övningen, gör du följande:
+Vi rekommenderar att du tar bort de resurser som skapades i den här övningen om du inte använder dem i produktion. Virtuell dator, offentlig IP-adress och diskresurser avgifter, så länge de är etablerade. Utför följande steg för att ta bort de resurser som skapades under den här övningen:
 
-1. Om du vill visa resurserna i resursgruppen kör den `az resource list --resource-group IaaSStory` kommando.
-2. Bekräfta att det finns inga resurser i resursgrupp än de resurser som skapades av skriptet i den här artikeln. 
-3. Om du vill ta bort alla resurser som har skapats i den här övningen kör den `az group delete -n IaaSStory` kommando. Kommandot tar bort resursgruppen och alla resurser som den innehåller.
+1. Om du vill visa resurserna i resursgruppen, kör den `az resource list --resource-group IaaSStory` kommando.
+2. Bekräfta att det finns inga resurser i resursgruppen, än de resurser som skapats av skriptet i den här artikeln. 
+3. Om du vill ta bort alla resurser som skapats i den här övningen kör den `az group delete -n IaaSStory` kommando. Kommandot tar bort resursgruppen och alla resurser som den innehåller.
  
-## <a name="set-ip-addresses-within-the-operating-system"></a>Ange IP-adresser inom operativsystemet
+## <a name="set-ip-addresses-within-the-operating-system"></a>Ange IP-adresser i operativsystemet
 
-Du bör aldrig manuellt tilldela den offentliga IP-adress som tilldelats en virtuell Azure-dator i den virtuella datorns operativsystem. Vi rekommenderar att du inte statiskt tilldelar privata IP-Adressen som tilldelats den virtuella Azure-datorn i operativsystemet på en virtuell dator, om nödvändigt, t.ex när [tilldela flera IP-adresser till en Windows-VM](virtual-network-multiple-ip-addresses-cli.md). Om du manuellt anger den privata IP-adressen i operativsystemet, kontrollera att det är samma adress som den privata IP-adress som tilldelats i Azure [nätverksgränssnittet](virtual-network-network-interface-addresses.md#change-ip-address-settings), eller du kan förlora anslutningen till den virtuella datorn. Lär dig mer om [privata IP-adressen](virtual-network-network-interface-addresses.md#private) inställningar.
+Du bör aldrig manuellt tilldela offentliga IP-adress som tilldelats till en Azure virtuell dator i den virtuella datorns operativsystem. Vi rekommenderar att du inte statiskt tilldelar privat IP-adress som tilldelats virtuella Azure-datorer i operativsystemet på en virtuell dator, om inte behövs, t.ex när [tilldela flera IP-adresser till en virtuell Windows-dator](virtual-network-multiple-ip-addresses-cli.md). Om du manuellt anger den privata IP-adressen i operativsystemet, kontrollera att det är samma adress som den privata IP-adress som tilldelats Azure [nätverksgränssnittet](virtual-network-network-interface-addresses.md#change-ip-address-settings), eller du kan förlora anslutningen till den virtuella datorn. Läs mer om [privata IP-adressen](virtual-network-network-interface-addresses.md#private) inställningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-All nätverkstrafik kan flöda till och från den virtuella datorn skapas i den här artikeln. Du kan definiera inkommande och utgående säkerhetsregler inom en nätverkssäkerhetsgrupp som begränsar trafiken kan flöda till och från nätverksgränssnittet undernätet eller båda. Läs mer om nätverkssäkerhetsgrupper i [nätverk Säkerhetsöversikt för gruppen](security-overview.md).
+All nätverkstrafik kan flöda till och från den virtuella datorn skapas i den här artikeln. Du kan definiera inkommande och utgående säkerhetsregler inom en nätverkssäkerhetsgrupp som begränsar trafiken kan flöda till och från ett nätverksgränssnitt, undernätet eller båda. Mer information om nätverkssäkerhetsgrupper finns [översikt över Network security group](security-overview.md).

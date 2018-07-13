@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure Compute-enhet | Microsoft Docs
-description: 'Översikt över begreppet Azure compute enheter för Linux. ACU ger ett sätt för att jämföra CPU-prestanda över Azure SKU: er.'
+description: 'Översikt över begreppet Azure compute-enheter för Linux. ACU är ett sätt för att jämföra CPU-prestanda mellan Azure SKU: er.'
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2017
 ms.author: jonbeck
 ms.openlocfilehash: 387133bf0087d6e3fc3dc725749661235d438d27
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30833531"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38606435"
 ---
-# <a name="azure-compute-unit-acu"></a>Azure compute-enhet (ACU)
+# <a name="azure-compute-unit-acu"></a>Azure-beräkningsenhet (ACU)
 
 [!INCLUDE [virtual-machines-common-acu](../../../includes/virtual-machines-common-acu.md)]
 
 
-Här är länkar till mer information om olika storlekar:
-- [Allmänna](sizes-general.md)
+Här finns länkar till mer information om olika storlekar:
+- [Allmänt](sizes-general.md)
 - [Minnesoptimerad](sizes-memory.md)
 - [Beräkningsoptimerad](sizes-compute.md)
 - [GPU-optimerad](sizes-gpu.md)

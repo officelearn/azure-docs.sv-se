@@ -1,6 +1,6 @@
 ---
-title: Förskottsbetala virtuella Azure-datorer och spara pengar | Microsoft Docs
-description: Lär dig mer om att köpa Azure reserverade virtuella instanser att spara på beräknings-kostnader.
+title: Betala i förskott för Azure-datorer och spara pengar | Microsoft Docs
+description: Lär dig hur du köper Azure Reserved Virtual Machine Instances att spara dina beräkningskostnader.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vikramdesai01
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
 ms.openlocfilehash: 8ba738baecdfb48cc411ca06480afffca612ec75
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774003"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38606299"
 ---
 [!INCLUDE [virtual-machines-buy-compute-reservations](../../../includes/virtual-machines-common-prepay-reserved-vm-instances.md)]
 

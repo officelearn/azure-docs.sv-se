@@ -13,6 +13,7 @@
 ## [Resursproviders och resurstyper](resource-manager-supported-services.md)
 ## [Hanteringsgrupper](management-groups-overview.md)
 ## [Prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Mallar för molnkonsekvens](templates-cloud-consistency.md)
 
 # Gör så här för att
 ## Skapa mallar

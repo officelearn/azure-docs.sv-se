@@ -1,6 +1,6 @@
 ---
 title: Hantera tillgängligheten för virtuella Linux-datorer i Azure | Microsoft Docs
-description: Lär dig hur du använder flera virtuella datorer för att säkerställa hög tillgänglighet för Linux-program i Azure
+description: Lär dig hur du använder flera virtuella datorer för att säkerställa hög tillgänglighet för ditt program för Linux i Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -17,20 +17,20 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ecddbb54137c018c1acc202e4056672eb626f87d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30320993"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531471"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Hantera tillgängligheten för virtuella Linux-datorer
 
-Lära dig mer om att konfigurera och hantera flera virtuella datorer för att säkerställa hög tillgänglighet för Linux-program i Azure. Du kan också [hantera tillgängligheten för virtuella Windows-datorer](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Lär dig hur du konfigurerar och hanterar flera virtuella datorer för att säkerställa hög tillgänglighet för ditt program för Linux i Azure. Du kan också [hantera tillgängligheten för Windows-datorer](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Anvisningar om hur du skapar en tillgänglighetsuppsättning med hjälp av CLI i Resource Manager-distributionsmodellen finns [azure availset: kommandon för att hantera din tillgänglighetsuppsättningar](../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets).
+Anvisningar om hur du skapar en tillgänglighetsuppsättning med hjälp av CLI i Resource Manager-distributionsmodellen finns i [azure availset: kommandon för att hantera dina tillgänglighetsuppsättningar](../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets).
 
 [!INCLUDE [virtual-machines-common-manage-availability](../../../includes/virtual-machines-common-manage-availability.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om virtuella datorer för belastningsutjämning i [nätverksbelastning virtuella datorer](../virtual-machines-linux-load-balance.md).
+Mer information om belastningsutjämning för dina virtuella datorer finns [belastningsutjämna virtuella datorer](../virtual-machines-linux-load-balance.md).
 

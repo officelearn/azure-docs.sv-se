@@ -1,6 +1,6 @@
 ---
-title: Etablera Linux enheter till Fjärrövervaknings i C - Azure | Microsoft Docs
-description: Beskriver hur du ansluter en enhet till Fjärrövervaknings solution accelerator med hjälp av ett program som skrivits i C som körs på Linux.
+title: Etablera Linux-enheter till fjärrövervakning i C – Azure | Microsoft Docs
+description: Beskriver hur du ansluter en enhet till den lösningsacceleratorn för fjärrövervakning använder ett program som skrivits i C som körs på Linux.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
 ms.openlocfilehash: 5d7d6522dc663f13ce40cc638ba90ac4043d435c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626385"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611420"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Ansluta enheten till Fjärrövervaknings solution accelerator (Linux)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Anslut enheten till lösningsacceleratorn för fjärrövervakning (Linux)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Den här kursen visar hur du ansluter en fysisk enhet till Fjärrövervaknings solution accelerator.
+Den här självstudien visar hur du ansluter en fysisk enhet till lösningsacceleratorn för fjärrövervakning.
 
 ## <a name="create-a-c-client-project-on-linux"></a>Skapa ett projekt för C-klienten på Linux
 
-Precis som med de flesta embedded-program som körs på begränsad enheter, är klientkod för programmets enhet skriven i C. I den här självstudiekursen skapar du program på en dator som kör Ubuntu (Linux).
+Precis som med de flesta embedded-program som körs på begränsade enheter, är klientkod för enhet-programmet skrivna i C. I den här självstudien skapar du program på en dator som kör Ubuntu (Linux).
 
-För att slutföra de här stegen behöver du en enhet som kör Ubuntu version 15.04 eller senare. Innan du fortsätter bör du installera de nödvändiga paketen på Ubuntu enheten med följande kommando:
+För att slutföra dessa steg behöver du en enhet som kör Ubuntu version 15.04 eller senare. Innan du fortsätter att installera de nödvändiga paketen på Ubuntu-enheten med följande kommando:
 
 ```sh
 sudo apt-get install cmake gcc g++
@@ -33,16 +33,16 @@ sudo apt-get install cmake gcc g++
 
 ### <a name="install-the-client-libraries-on-your-device"></a>Installera klientbiblioteken på din enhet
 
-Azure IoT Hub-klientbibliotek är tillgänglig som ett paket som du kan installera på din Ubuntu enheter med hjälp av den **lgh get** kommando. Utför följande steg för att installera det paket som innehåller IoT-hubb klienten bibliotek och huvudet filerna på din Ubuntu-dator:
+Klientbibliotek för Azure IoT Hub är tillgänglig som ett paket som du kan installera på din Ubuntu enheter med hjälp av den **apt-get** kommando. Utför följande steg för att installera det paket som innehåller de IoT Hub-biblioteket och huvud klientfilerna på Ubuntu-dator:
 
-1. Lägg till AzureIoT databasen till datorn i ett gränssnitt:
+1. Lägg till AzureIoT lagringsplatsen till din dator i ett gränssnitt:
 
     ```sh
     sudo add-apt-repository ppa:aziotsdklinux/ppa-azureiot
     sudo apt-get update
     ```
 
-1. Installera paketet azure iot-sdk-c-utveckling
+1. Installera azure-iot-sdk-c-dev-paket
 
     ```sh
     sudo apt-get install -y azure-iot-sdk-c-dev
@@ -50,7 +50,7 @@ Azure IoT Hub-klientbibliotek är tillgänglig som ett paket som du kan installe
 
 ### <a name="install-the-parson-json-parser"></a>Installera Parson JSON-parser
 
-Klientbibliotek för IoT-hubb använda Parson JSON-parsern för att parsa meddelandet nyttolaster. Klona Parson GitHub-lagret med hjälp av följande kommando i en lämplig mapp på datorn:
+Klientbibliotek för IoT Hub använder Parson JSON-parsern för att parsa meddelandet nyttolaster. Klona Parson GitHub-lagringsplatsen med följande kommando i en lämplig mapp på datorn:
 
 ```sh
 git clone https://github.com/kgabis/parson.git
@@ -58,14 +58,14 @@ git clone https://github.com/kgabis/parson.git
 
 ### <a name="prepare-your-project"></a>Förbered ditt projekt
 
-Skapa en mapp med namnet på datorn Ubuntu `remote_monitoring`. I den `remote_monitoring` mapp:
+Skapa en mapp med namnet på din dator med Ubuntu, `remote_monitoring`. I den `remote_monitoring` mapp:
 
 - Skapa fyra filerna `main.c`, `remote_monitoring.c`, `remote_monitoring.h`, och `CMakeLists.txt`.
 - Skapa mapp med namnet `parson`.
 
-Kopiera filerna `parson.c` och `parson.h` från den lokala kopian av Parson databasen till den `remote_monitoring/parson` mapp.
+Kopiera filerna `parson.c` och `parson.h` från din lokala kopia av lagringsplatsen Parson till den `remote_monitoring/parson` mapp.
 
-I en textredigerare, öppnar den `remote_monitoring.c` filen. Lägg till följande `#include`-uttryck:
+I en textredigerare och öppna den `remote_monitoring.c` filen. Lägg till följande `#include`-uttryck:
 
 ```c
 #include "iothubtransportmqtt.h"
@@ -82,13 +82,13 @@ I en textredigerare, öppnar den `remote_monitoring.c` filen. Lägg till följan
 
 ## <a name="add-code-to-run-the-app"></a>Lägg till kod för att köra appen
 
-I en textredigerare, öppnar den `remote_monitoring.h` filen. Lägg till följande kod:
+I en textredigerare och öppna den `remote_monitoring.h` filen. Lägg till följande kod:
 
 ```c
 void remote_monitoring_run(void);
 ```
 
-I en textredigerare, öppnar den `main.c` filen. Lägg till följande kod:
+I en textredigerare och öppna den `main.c` filen. Lägg till följande kod:
 
 ```c
 #include "remote_monitoring.h"
@@ -103,11 +103,11 @@ int main(void)
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
-Följande steg beskriver hur du använder *CMake* att skapa ditt klientprogram.
+Följande steg beskriver hur du använder *CMake* att bygga ditt klientprogram.
 
-1. I en textredigerare, öppnar den **CMakeLists.txt** filen i den `remote_monitoring` mapp.
+1. I en textredigerare och öppna den **CMakeLists.txt** fil i den `remote_monitoring` mapp.
 
-1. Lägg till följande instruktioner för att definiera hur du skapar ditt klientprogram:
+1. Lägg till följande instruktioner för att definiera hur du skapar klientprogrammet:
 
     ```cmake
     macro(compileAsC99)
@@ -156,7 +156,7 @@ Följande steg beskriver hur du använder *CMake* att skapa ditt klientprogram.
     )
     ```
 
-1. I den `remote_monitoring` mapp, skapa en mapp för att lagra den *Se* filer som CMake genererar. Kör sedan den **cmake** och **Se** kommandon på följande sätt:
+1. I den `remote_monitoring` mappen skapar du en mapp för att lagra den *gör* filer som CMake genererar. Kör sedan den **cmake** och **gör** kommandon på följande sätt:
 
     ```sh
     mkdir cmake
@@ -165,7 +165,7 @@ Följande steg beskriver hur du använder *CMake* att skapa ditt klientprogram.
     make
     ```
 
-1. Kör klientprogrammet och skicka telemetri till IoT-hubb:
+1. Kör klientprogrammet och skickar telemetri till IoT Hub:
 
     ```sh
     ./sample_app

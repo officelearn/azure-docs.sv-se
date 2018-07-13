@@ -35,6 +35,8 @@
           href: log-analytics-oms-portal-faq.md
     - name: Vanliga frågor och svar om Log Analytics
       href: log-analytics-faq.md
+    - name: Datainmatningstid
+      href: log-analytics-data-ingestion-time.md
     - name: Datasäkerhet
       href: log-analytics-data-security.md
     - name: Hantera åtkomst

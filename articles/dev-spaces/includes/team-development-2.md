@@ -11,16 +11,16 @@ ms.date: 05/11/2018
 ms.topic: include
 manager: douge
 ms.openlocfilehash: 85f8632aae8a70b1282155881dbca6b25734a6c5
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
-ms.translationtype: MT
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936405"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37933212"
 ---
-### <a name="run-the-service"></a>Tjänsten körs
+### <a name="run-the-service"></a>Köra tjänsten
 
-1. Tryck på F5 (eller typ `azds up` i fönstret Terminal) att köra tjänsten. Tjänsten körs automatiskt på din valda sida `default/scott`. 
-1. Du kan bekräfta att tjänsten körs i sin egen utrymme genom att köra `azds list` igen. Först märke till en instans av `mywebapi` körs nu i den `default/scott` utrymme (version körs i den `default` är fortfarande körs men det inte visas). För det andra åtkomstpunkt URL: en för `webfrontend` inleds med texten ”scott.s”. Den här URL: en är unika för den `default/scott` utrymme. URL: en särskild innebär att begäranden skickas till ”scott URL” kommer att försöka första väg till tjänster i den `default/scott` utrymme, men detta misslyckas om de kommer att gå tjänster i den `default` utrymme.
+1. Tryck på F5 (eller ange `azds up` i terminalfönstret) om du vill köra tjänsten. Tjänsten körs automatiskt i det valda utrymmet `default/scott`. 
+1. Du kan bekräfta att tjänsten körs i sitt eget utrymme genom att köra `azds list` igen. Först och främst märker du att ett exemplar av `mywebapi` nu körs i `default/scott`-utrymmet (versionen som körs i `default` körs fortfarande, men visas inte). Dessutom står texten ”scott.s.” innan åtkomstpunktens webbadress för `webfrontend`. Den här webbadressen är unik för `default/scott`-utrymmet. Den särskilda webbadressen innebär att en begäran som skickas till ”scott-webbadressen” först skickas till tjänster i `default/scott`-utrymmet. Om det misslyckas återkommer de till tjänster i `default`-utrymmet.
 
 ```
 Name         Space          Chart              Ports   Updated     Access Points
@@ -31,9 +31,9 @@ webfrontend  default        webfrontend-0.1.0  80/TCP  5h ago      http://scott.
 
 ![](../media/common/space-routing.png)
 
-Den här inbyggda funktionen Azure Dev utrymmen kan du testa kod i en delad utrymme utan varje utvecklare att återskapa fullständig stack för tjänster i utrymme. Den här routning kräver Appkod för att vidarebefordra spridningen sidhuvud, enligt beskrivningen i föregående steg i den här guiden.
+Med den här inbyggda Azure Dev Spaces-funktionen kan du testa kod i ett delat utrymme utan att varje utvecklare måste återskapa hela tjänstestacken i deras respektive utrymme. Den här typen av routning kräver att appkoden vidarebefordrar spridningshuvuden, vilket visas i föregående steg i den här guiden.
 
-### <a name="test-code-in-a-space"></a>Testa kod i ett utrymme
-Testa den nya versionen av `mywebapi` med `webfrontend`, öppna webbläsaren till offentlig åtkomst punkt URL för `webfrontend` och gå till sidan om. Du bör se nya meddelandet visas.
+### <a name="test-code-in-a-space"></a>Testa koden i ett utrymme
+Du testar den nya versionen av `mywebapi` med `webfrontend` genom att öppna webbläsaren på den offentliga åtkomstpunktens webbadress för `webfrontend` och gå till sidan Om. Nu bör ditt nya meddelande visas.
 
-Nu kan ta bort ”scott.s”. en del av URL: en och uppdatera webbläsaren. Du bör se den gamla funktionen (med den `mywebapi` version körs i `default`)
+Ta nu bort delen ”scott.s.” från webbadressen och uppdatera webbläsaren. Nu bör du se det äldre beteendet (med `mywebapi`-versionen som körs i `default`)

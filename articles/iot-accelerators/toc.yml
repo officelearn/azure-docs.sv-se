@@ -10,6 +10,8 @@
   items:
     - name: Distribuera en fjärrövervakningslösning
       href: quickstart-remote-monitoring-deploy.md
+    - name: Distribuera en förutsägande underhållslösning
+      href: quickstart-predictive-maintenance-deploy.md
     - name: Distribuera en enhetssimuleringslösning
       href: quickstart-device-simulation-deploy.md
 - name: Självstudier

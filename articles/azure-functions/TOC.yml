@@ -11,12 +11,12 @@
   items:
     - name: 'Skapa funktion: portal'
       href: functions-create-first-azure-function.md
-    - name: 'Skapa funktion: Azure CLI'
-      href: functions-create-first-azure-function-azure-cli.md
     - name: Skapa funktion – Visual Studio
       href: functions-create-your-first-function-visual-studio.md
     - name: Skapa funktion – Java/Maven
       href: functions-create-first-java-maven.md
+    - name: 'Skapa funktion: Azure CLI'
+      href: functions-create-first-azure-function-azure-cli.md
     - name: Skapa funktion – Linux
       href: functions-create-first-azure-function-azure-cli-linux.md
     - name: Utlösare
@@ -97,6 +97,8 @@
       items:
         - name: Översikt
           href: durable-functions-overview.md
+        - name: Funktionstyper och funktioner
+          href: durable-functions-types-features-overview.md
         - name: Bindningar
           href: durable-functions-bindings.md
         - name: Kontrollpunkt och återuppspelning

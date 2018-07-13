@@ -8,22 +8,22 @@ author: ghogen
 ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: tutorial
-description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
+description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 93c1c9cb27e5eb2d56583dccaffe92e9d50ecc2d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: c2d92f26bec2045e7f1e8afff189d58d8c29f25a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959282"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099484"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Komma igång med Azure Dev Spaces med .NET Core och Visual Studio
 
 I den här guiden får du lära dig hur du:
 
 - Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
-- Iterativt utvecklar kod i behållare med Visual Studio.
+- Iterativt utvecklar kod i containrar med Visual Studio.
 - Oberoende utvecklar två separata tjänster och använder Kubernetes DNS-tjänstidentifiering för att anropa en annan tjänst.
 - Effektivt utvecklar och testar din kod i en teammiljö.
 
@@ -35,11 +35,11 @@ I den här guiden får du lära dig hur du:
 1. Installera den senaste versionen av [Visual Studio 2017](https://www.visualstudio.com/vs/)
 1. Se till att följande arbetsbelastning är markerad i Visual Studio-installationsprogrammet:
     * ASP.NET och webbutveckling
-1. Installera [Visual Studio-tillägget för Azure Dev Spaces](https://aka.ms/get-azds-visualstudio)
+1. Installera [Visual Studio Tools för Kubernetes](https://aka.ms/get-azds-visualstudio)
 
-## <a name="create-a-web-app-running-in-a-container"></a>Skapa en webbapp som körs i en behållare
+## <a name="create-a-web-app-running-in-a-container"></a>Skapa en webbapp som körs i en container
 
-I det här avsnittet ska du skapa en ASP.NET Core-webbapp och köra den i en behållare i Kubernetes.
+I det här avsnittet ska du skapa en ASP.NET Core-webbapp och köra den i en container i Kubernetes.
 
 ### <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
 
@@ -92,10 +92,10 @@ Slutligen ser du en fil med namnet `azds.yaml`, som innehåller den utvecklingst
 
 ![](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
-## <a name="debug-a-container-in-kubernetes"></a>Felsöka en behållare i Kubernetes
+## <a name="debug-a-container-in-kubernetes"></a>Felsöka en container i Kubernetes
 När utvecklingsmiljön har skapats kan du felsöka programmet. Lägg till en brytpunkt i koden, till exempel på rad 20 i filen `HomeController.cs` där variabeln `Message` anges. Starta felsökningen genom att trycka på **F5**. 
 
-Visual Studio kommunicerar med utvecklingsmiljön för att skapa och distribuera programmet och öppnar sedan en webbläsare där webbprogrammet körs. Det kan verka som om behållaren körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure. localhost-adressen beror på att Azure Dev Spaces skapar en tillfällig SSH-tunnel för behållaren som körs i AKS.
+Visual Studio kommunicerar med utvecklingsmiljön för att skapa och distribuera programmet och öppnar sedan en webbläsare där webbprogrammet körs. Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure. localhost-adressen beror på att Azure Dev Spaces skapar en tillfällig SSH-tunnel för containern som körs i AKS.
 
 Klicka på länken **Om** längst upp på sidan för att utlösa brytpunkten. Du har fullständig åtkomst till felsökningsinformation precis som när koden körs lokalt, t.ex. anropsstack, lokala variabler, undantagsinformation och så vidare.
 
@@ -108,7 +108,7 @@ Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – 
 1. Spara filen.
 1. Gå till webbläsaren och uppdatera sidan. Den uppdaterade HTML-koden bör visas på webbsidan.
 
-Vad hände? Redigering av innehållsfiler som HTML och CSS kräver inte omkompilering i en .NET Core-webbapp. En aktiv F5-session synkroniserar automatiskt ändrade innehållsfiler i behållaren som körs i AKS, så att du genast kan se dina innehållsändringar.
+Vad hände? Redigering av innehållsfiler som HTML och CSS kräver inte omkompilering i en .NET Core-webbapp. En aktiv F5-session synkroniserar automatiskt ändrade innehållsfiler i containern som körs i AKS, så att du genast kan se dina innehållsändringar.
 
 ### <a name="update-a-code-file"></a>Uppdatera en kodfil
 Uppdateringar av kodfiler kräver lite mer arbete eftersom .NET Core-appar måste återskapas och skapa uppdaterade binärfiler för programmet.
@@ -118,13 +118,13 @@ Uppdateringar av kodfiler kräver lite mer arbete eftersom .NET Core-appar måst
 1. Spara filen.
 1. Starta felsökningen igen genom att trycka på **F5**. 
 
-I stället för att återskapa och distribuera om en ny behållaravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i befintliga behållaren för snabbare redigerings- och felsökningsförlopp.
+I stället för att återskapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i befintliga containern för snabbare redigerings- och felsökningsförlopp.
 
 Uppdatera webbappen i webbläsaren och gå till sidan Om. Nu bör ditt anpassade meddelande visas i användargränssnittet.
 
 
-## <a name="call-another-container"></a>Anropa en annan behållare
-I det här avsnittet ska du skapa en andra tjänst, `mywebapi`, som ska anropas av `webfrontend`. Varje tjänst körs i en separat behållare. Du ska sedan felsöka båda behållarna.
+## <a name="call-another-container"></a>Anropa en annan container
+I det här avsnittet ska du skapa en andra tjänst, `mywebapi`, som ska anropas av `webfrontend`. Varje tjänst körs i en separat container. Du ska sedan felsöka båda containrarna.
 
 ![](media/common/multi-container.png)
 
@@ -135,7 +135,7 @@ För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå t
 1. Öppna projektet `mywebapi` i ett *separat fönster i Visual Studio*.
 1. Välj **Azure Dev Spaces** i listrutan med startinställningar som du gjorde tidigare för projektet `webfrontend`. I stället för att skapa ett nytt AKS-kluster väljer du den här gången samma som du redan skapat. Precis som förut lämnar du standardinställningen `default` för Utrymme och klickar på **OK**. I fönstret Output (Utdata) märker du kanske att Visual Studio börjar ”värma upp” den här nya tjänsten i utvecklingsmiljön för att påskynda förloppet när du börjar felsöka.
 1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Processen är klar när statusfältet i Visual Studio blir orange
-1. Anteckna slutpunktens webbadress som visas i fönstret **Azure Dev Spaces för AKS** i fönstret **Utdata**. Den ser ut ungefär så här: http://localhost:\<portnumber\>. Det kan verka som om behållaren körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure.
+1. Anteckna slutpunktens webbadress som visas i fönstret **Azure Dev Spaces för AKS** i fönstret **Utdata**. Den ser ut ungefär så här: http://localhost:\<portnumber\>. Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure.
 2. När `mywebapi` är klar öppnar du webbläsaren på localhost-adressen och lägger till `/api/values` i URL:en för att anropa standard-GET-API:et för `ValuesController`. 
 3. Om alla steg lyckades bör du se ett svar från `mywebapi`-tjänsten som ser ut så här.
 
@@ -179,7 +179,7 @@ I föregående kodexempel vidarebefordras rubriken `azds-route-as` från den ink
 1. Fortsätt genom att trycka på F5 så kommer du tillbaka till koden i `webfrontend`-projektet.
 1. Om du trycker på F5 en gång till slutförs begäran och en sida returneras i webbläsaren. I webbappen visar sidan Om ett sammanslaget meddelande från de båda tjänsterna: ”Hello from webfrontend and Hello from mywebapi”.
 
-Bra gjort! Nu har du ett program med flera behållare där varje behållare kan utvecklas och distribueras separat.
+Bra gjort! Nu har du ett program med flera containrar där varje container kan utvecklas och distribueras separat.
 
 ## <a name="learn-about-team-development"></a>Lär dig mer om utveckling i team
 

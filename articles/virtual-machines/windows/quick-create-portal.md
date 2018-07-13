@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c28686c3b6494a0cf8938d39ab9b8338de7aa0c1
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: d5f44c634b953194ad4f112722d82f282d8c8f1a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012588"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444619"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator i Azure Portal
 
@@ -29,27 +29,27 @@ Det går att skapa virtuella datorer (VM) via Azure Portal. Med den här metoden
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-1. Välj **Skapa en resurs** längst upp till vänster i Azure-portalen.
+1. Välj **Skapa en resurs** längst upp till vänster i Azure Portal.
 
 2. I sökrutan ovanför listan över resurser i Azure Marketplace, söker di efter och väljer **Windows Server 2016 Datacenter** och därefter **Dkapa**.
 
-3. Ange ett namn, t.ex *myVM*, lämna disktypen som *SSD* och ange ett användarnamn, t.ex *azureuser*. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+3. Ange ett namn på den virtuella datorn, till exempel *myVM*, lämna disktypen som *SSD* och ange sedan ett användarnamn, som *azureuser*. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
     ![Ange grundläggande information om de virtuella datorerna på portalens blad](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
 
-5. Välja att **Skapa ny** resursgrupp och ange sedan ett namn, till exempel *myResourceGroup*. Välj din önskade **Plats** och välj **OK**.
+5. Välj att **Skapa ny** resursgrupp och ange sedan ett namn, till exempel *myResourceGroup*. Välj din **Plats** och välj sedan **OK**.
 
-4. Välj en storlek för den virtuella datorn. Du kan till exempel filtrera efter *Beräkningstyp* eller *Disktyp*. Ett förslag på storlek på en virtuell dator är *D2s_v3*.
+4. Välj en storlek för den virtuella datorn. Du kan till exempel filtrera efter *Beräkningstyp* eller *Disktyp*. En föreslagen virtuell datorstorlek är *D2s_v3*. Klicka på **Välj** när du har valt en storlek.
 
     ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
 
-5. Lämna standardinställningarna under **Inställningar** och välj **OK**.
+5. På sidan **Inställningar** går du till **Nätverk** > **Nätverkssäkerhetsgrupp** > **Välj offentliga ingående portar** och väljer **HTTP** och **RDP (3389)** i listrutan. Lämna resten av standardinställningarna och välj **OK**.
 
 6. På sammanfattningssidan klickar du på **Skapa** för att starta distributionen av den virtuella datorn.
 
@@ -69,7 +69,7 @@ Skapa en fjärrskrivbordsanslutning till den virtuella datorn. Dessa instruktion
 
 3. I fönstret **Windows-säkerhet** väljer du **fler alternativ** och sedan **använd ett annat konto**. Ange *vmname*\* som användarnamn* och det lösenord som du skapade för den virtuella datorn och klicka sedan på **OK**.
 
-4. Du kan få en certifikatvarning under inloggningen. Klicka på **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
+4. Du kan få en certifikatvarning under inloggningen. Klicka på **Ja** eller **Fortsätt** för att skapa anslutningen.
 
 ## <a name="install-web-server"></a>Installera webbservern
 
@@ -81,18 +81,10 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 När kommandot har körts stänger du RDP-anslutningen till den virtuella datorn.
 
-## <a name="open-port-80-for-web-traffic"></a>Öppna port 80 för webbtrafik
-
-En nätverkssäkerhetsgrupp (NSG) säkrar ingående och utgående trafik. När en VM skapas från Azure Portal skapas en regel för inkommande trafik på port 3389 för RDP-anslutningar. Eftersom denna VM är värd för en webbserver måste du skapa en NSG-regel för port 80.
-
-1. Välj **Nätverk** på översiktssidan för den virtuella datorn.
-2. Listan med befintliga regler för inkommande och utgående visas. Välj att **Lägg till regel för inkommande portar**.
-3. Välj alternativet **Grundläggande** överst och välj sedan *HTTP* från listan över tillgängliga tjänster. Du tilldelas port 80, en prioritet och ett namn.
-4. Välj **Lägg till** för att skapa regeln.
 
 ## <a name="view-the-iis-welcome-page"></a>Visa välkomstsidan för IIS
 
-När IIS har installerats och port 80 är öppen på den virtuella datorn från Internet använder du valfri webbläsare för att visa standardvälkomstsidan för IIS. Använd den virtuella datorns offentliga IP-adress, som du hämtade i ett tidigare steg. I följande exempel visas standardwebbplatsen för IIS:
+I portalen väljer du den virtuella datorn, och i översikten för den virtuella datorn använder du knappen **Klicka för att kopiera** till höger om IP-adressen för att kopiera och klistra in den i en ny flik i webbläsaren. Standardvälkomstsidan för IIS öppnas och bör se ut så här:
 
 ![Standardwebbplatsen i IIS](./media/quick-create-powershell/default-iis-website.png)
 

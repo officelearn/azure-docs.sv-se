@@ -1,6 +1,6 @@
 ---
-title: Hantera åtkomst och behörighet med RBAC - Azure RBAC | Microsoft Docs
-description: Kom igång med åtkomsthantering med rollbaserad åtkomstkontroll i Azure i Azure Portal. Använd rolltilldelningar för att tilldela behörigheter i din katalog.
+title: Vad är rollbaserad åtkomstkontroll (Role-based access control, RBAC) i Azure? | Microsoft Docs
+description: Få en översikt över rollbaserad åtkomstkontroll (Role-based access control, RBAC) i Azure. Använd rolltilldelningar för att styra åtkomsten till resurser i Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,62 +8,92 @@ manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/02/2018
+ms.date: 07/02/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
-ms.openlocfilehash: 4a964d127d4d45d10a1f9d39b585b8c59e30ae90
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: MT
+ms.reviewer: bagovind
+ms.openlocfilehash: 4dcfb71e0adb05922603715e4dbcbdb243305927
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37438216"
 ---
-# <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Kom igång med rollbaserad åtkomstkontroll i Azure-portalen
-Säkerhet indatavärdena företag bör tänka på att ge anställda behörigheterna exakt som de behöver. För många behörigheter kan exponera ett konto för attacker. För få behörigheter innebär att anställda kan få arbetet gjort effektivt. Azure rollbaserad åtkomstkontroll (RBAC) kan du lösa det här problemet genom att erbjuda detaljerad åtkomsthantering för Azure.
+# <a name="what-is-role-based-access-control-rbac"></a>Vad är rollbaserad åtkomstkontroll (Role-based access control, RBAC)?
 
-Med RBAC kan du särskilja uppgifter i din grupp och ge bara mängden åtkomst till användare som de behöver för att utföra sitt arbete. Obegränsad istället för att ge alla behörigheter i din Azure-prenumeration eller resurser, kan du tillåta endast vissa åtgärder. Till exempel använda RBAC så att en medarbetare som hanterar virtuella datorer i en prenumeration medan en annan kan hantera SQL-databaser inom samma prenumeration.
+Åtkomsthantering för molnresurser är en viktig funktion för alla organisationer som använder molnet. Rollbaserad åtkomstkontroll (RBAC) hjälper till vid hantering av vem som ska ha åtkomst till Azure-resurser, vad de ska kunna göra med resurserna och till vilka områden de ska ha åtkomst.
 
-## <a name="basics-of-access-management-in-azure"></a>Grunderna i åtkomsthantering i Azure
-Varje Azure-prenumeration är associerad med en katalog i Azure Active Directory (AD). Användare, grupper och program från katalogen kan hantera resurser i Azure-prenumerationen. Tilldela behörigheter med Azure-portalen, Azure kommandoradsverktyg och Azure Management-API: er.
+RBAC är ett auktoriseringssystem som bygger på [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) som ger detaljerad åtkomsthantering av resurser i Azure. Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete. I stället för att ge alla obegränsad behörighet i din Azure-prenumeration eller dina resurser kan du tillåta enbart vissa åtgärder i ett visst omfång.
 
-Bevilja åtkomst genom att tilldela rollen RBAC till användare, grupper och program för ett visst område. Omfånget för en rolltilldelning kan vara en prenumeration, resursgrupp eller en enskild resurs. En roll som tilldelats en överordnad omfattning även ger åtkomst till underordnade som finns i den. En användare med åtkomst till en resursgrupp kan exempelvis hantera alla resurser som den innehåller som webbplatser, virtuella datorer och undernät.
+## <a name="what-can-i-do-with-rbac"></a>Vad kan jag göra med RBAC?
 
-![Relationen mellan element i Azure Active Directory - diagram](./media/overview/rbac_aad.png)
+Här följer några exempel på vad du kan göra med RBAC:
 
-Rollen RBAC som du tilldelar avgör vilka resurser som användare, grupp eller programmet kan hantera i omfattningen.
+- Tillåta en användare att hantera virtuella datorer i en prenumeration och en annan användare att hantera virtuella nätverk
+- Tillåta en DBA-grupp att hantera SQL-databaser i en prenumeration
+- Tillåta en användare att hantera alla resurser i en resursgrupp, till exempel virtuella datorer, webbplatser och undernät
+- Tillåta att ett program får åtkomst till alla resurser i en resursgrupp
 
-## <a name="built-in-roles"></a>Inbyggda roller
-Azure RBAC har tre grundläggande roller som gäller för alla typer av resurser:
+## <a name="how-rbac-works"></a>Så fungerar RBAC
 
-* **Ägare** har fullständig åtkomst till alla resurser som bland annat att delegera åtkomst till andra.
-* **Deltagare** kan skapa och hantera alla typer av Azure-resurser, men det går inte att bevilja åtkomst till andra.
-* **Läsaren** kan visa befintliga Azure-resurser.
+Du styr åtkomst till resurser med hjälp av RBAC genom att skapa rolltilldelningar. Det här är ett viktigt begrepp – det är så här behörigheter tillämpas. En rolltilldelning består av tre delar: säkerhetsobjekt, rolldefinition och omfång.
 
-Resten av rollerna i Azure RBAC kan hanteringen av specifika Azure-resurser. Till exempel tillåter virtuella deltagarrollen användaren att skapa och hantera virtuella datorer. Det ger dem åtkomst till virtuella nätverk eller undernät som den virtuella datorn ansluter till. 
+### <a name="security-principal"></a>Säkerhetsobjekt
 
-[Inbyggda RBAC-roller](built-in-roles.md) listar rollerna som är tillgängliga i Azure. Det anger åtgärder och scope som varje inbyggd roll som ger användare. Om du behöver för att definiera egna roller för ännu mer kontroll, se hur du skapar [anpassade roller i Azure RBAC](custom-roles.md).
+En *säkerhetsobjekt* är ett objekt som representerar en användare, en grupp eller tjänstens huvudnamn som begär åtkomst till Azure-resurser.
 
-## <a name="resource-hierarchy-and-access-inheritance"></a>Resursen hierarki- och arv
-* Varje **prenumeration** hör till endast en katalog i Azure. (Men varje katalog kan ha mer än en prenumeration.)
-* Varje **resursgruppen** hör till en enda prenumeration.
-* Varje **resurs** hör till endast en resursgrupp.
+![Säkerhetsobjekt för en rolltilldelning](./media/overview/rbac-security-principal.png)
 
-Åtkomst som du beviljar i överordnade omfattningar ärvs på underordnade omfattningar. Exempel:
+- Användare – en person som har en profil i Azure Active Directory. Du kan även tilldela roller till användare i andra klientorganisationer. Information om användare i andra organisationer finns i [Azure Active Directory B2B](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Grupp – en uppsättning användare som skapas i Azure Active Directory. När du tilldelar en roll till en grupp får alla användare i gruppen den rollen. 
+- Tjänstens huvudnamn – en säkerhetsidentitet som används av program eller tjänster för att få åtkomst till specifika Azure-resurser. Du kan se det som en *användaridentitet* (användarnamn och lösenord eller certifikat) för ett program.
 
-* Du kan tilldela rollen Läsare för en Azure AD-gruppen på prenumerationsomfattningen. Medlemmar i gruppen kan visa varje resursgrupp och resurser i prenumerationen.
-* Du tilldelar deltagarrollen till ett program på resursen Gruppomfång. Den kan hantera resurser av alla typer i resursgruppen, men inte andra resursgrupper i prenumerationen.
+### <a name="role-definition"></a>Rolldefinition
 
-## <a name="azure-rbac-vs-classic-subscription-administrators"></a>Azure RBAC kontra klassiska prenumerationsadministratörer
-[Klassiska prenumerationsadministratörer och medadministratörer](../billing/billing-add-change-azure-subscription-administrator.md) har fullständig åtkomst till Azure-prenumerationen. De kan hantera resurser med hjälp av den [Azure-portalen](https://portal.azure.com), Azure Resource Manager API: er och den klassiska distributionsmodellen API: er. I RBAC-modellen tilldelas klassiska administratörer rollen som ägare i omfånget för prenumerationen.
+En *rolldefinition* är en uppsättning behörigheter. Ibland kallas det helt enkelt för en *roll*. En rolldefinition listar de åtgärder som kan utföras, till exempel läsa, skriva och ta bort. Roller kan vara på hög nivå, som ägare, eller specifika, som läsare för virtuell dator.
 
-Azure portal och nya Azure Resource Manager API: erna stöder Azure RBAC. Användare och program som tilldelats RBAC-roller kan inte använda Azure klassiska distributionsmodellen API: er.
+![Rolldefinition för en rolltilldelning](./media/overview/rbac-role-definition.png)
 
-## <a name="authorization-for-management-vs-data-operations"></a>Tillstånd för hantering jämfört med dataåtgärder
-Azure RBAC stöder endast hanteringsåtgärder Azure-resurser i Azure-portalen och Azure Resource Manager API: er. Det går inte att tillåta alla data på åtgärder för Azure-resurser. Du kan till exempel auktorisera någon att hantera Storage-konton, men inte till blobbar eller tabeller i ett Lagringskonto. På samma sätt kan kan en SQL-databas hanteras, men inte tabellerna i den.
+Azure innehåller flera [inbyggda roller](built-in-roles.md) som du kan använda. Följande listar fyra grundläggande inbyggda roller. De första tre gäller för alla resurstyper.
+
+- [Ägare](built-in-roles.md#owner) – har fullständig åtkomst till alla resurser inklusive rätten att delegera åtkomst till andra.
+- [Deltagare](built-in-roles.md#contributor) – kan skapa och hantera alla typer av Azure-resurser men kan inte bevilja åtkomst för andra.
+- [Läsare](built-in-roles.md#reader) – kan visa befintliga Azure-resurser.
+- [Administratör för användaråtkomst](built-in-roles.md#user-access-administrator) – gör att du kan hantera användarnas åtkomst till Azure-resurser.
+
+Resten av de inbyggda rollerna tillåter hantering av specifika Azure-resurser. Till exempel tillåter rollen [Virtuell datordeltagare](built-in-roles.md#virtual-machine-contributor) att en användare skapar och hanterar virtuella datorer. Om de inbyggda rollerna inte uppfyller organisationens specifika krav kan du skapa egna, [anpassade roller](custom-roles.md).
+
+Azure har infört dataåtgärder (för närvarande i förhandsversion) som gör det möjligt att bevilja åtkomst till data i ett objekt. Till exempel kan en användare med dataläsningsåtkomst till ett lagringskonto läsa blobar eller meddelanden i det lagringskontot. Mer information finns i [Förstå rolldefinitioner](role-definitions.md).
+
+### <a name="scope"></a>Omfång
+
+*Omfång* är den gräns som åtkomsten som gäller för. När du tilldelar en roll kan du ytterligare begränsa de åtgärder som tillåts genom att definiera ett omfång. Det här är användbart om du vill göra någon till en [Webbplatsdeltagare](built-in-roles.md#website-contributor) men endast för en resursgrupp.
+
+I Azure kan du ange ett omfång på flera nivåer: prenumeration, resursgrupp eller resurs. Omfång är strukturerade i en överordnad-underordnad-relation där varje underordnad endast har en överordnad.
+
+![Omfång för en rolltilldelning](./media/overview/rbac-scope.png)
+
+Åtkomst som du tilldelar på ett överordnad omfång ärvs av det underordnade omfånget. Till exempel:
+
+- Om du tilldelar rollen [Läsare](built-in-roles.md#reader) till en grupp i prenumerationsomfånget kan medlemmarna i den gruppen visa alla resursgrupper och resurser i prenumerationen.
+- Om du tilldelar rollen [Deltagare](built-in-roles.md#contributor) till ett program i resursgruppomfånget kan den hantera resurser av alla typer i den resursgruppen, men inte i andra resursgrupper i prenumerationen.
+
+Azure innehåller även ett omfång över prenumerationer som kallas [hanteringsgrupper](../azure-resource-manager/management-groups-overview.md), vilket är i förhandsversion. Hanteringsgrupper är ett sätt att hantera flera prenumerationer. När du anger omfång för RBAC kan du antingen ange en hanteringsgrupp eller ange en prenumeration, resursgrupp eller resurshierarki.
+
+### <a name="role-assignment"></a>Rolltilldelning
+
+En *rolltilldelning* är processen att binda en rolldefinition till en användare, grupp eller tjänstens huvudnamn i ett visst omfång för att bevilja åtkomst. Åtkomst beviljas genom att en rolltilldelning skapas, och åtkomst återkallas genom att en rolltilldelning tas bort.
+
+Följande diagram visar ett exempel på en rolltilldelning. I det här exemplet har marknadsföringsgruppen tilldelats rollen [Deltagare](built-in-roles.md#contributor) för resursgruppen pharma-sales (läkemedelsförsäljning). Det innebär att användare i marknadsföringsgruppen kan skapa och hantera vilka Azure-resurser som helst i resursgruppen pharma-sales. Marknadsföringsanvändare har inte åtkomst till resurser utanför resursgruppen pharma-sales såvida de inte är en del av en annan rolltilldelning.
+
+![Rolltilldelning för att kontrollera åtkomst](./media/overview/rbac-overview.png)
+
+Du kan skapa rolltilldelningar med hjälp av Azure-portalen, Azure CLI, Azure PowerShell, Azure-SDK:er eller REST-API:er. Du kan ha upp till 2 000 rolltilldelningar i varje prenumeration. För att kunna skapa och ta bort rolltilldelningar behöver du ha `Microsoft.Authorization/roleAssignments/*`-behörighet. Den här behörigheten beviljas via rollerna [Ägare](built-in-roles.md#owner) eller [Administratör för användaråtkomst](built-in-roles.md#user-access-administrator).
 
 ## <a name="next-steps"></a>Nästa steg
-* Kom igång med [rollbaserad åtkomstkontroll i Azure portal](role-assignments-portal.md).
-* Gå till [Inbyggda RBAC-roller](built-in-roles.md)
-* Definiera egna [anpassade roller i Azure RBAC](custom-roles.md)
+
+- [Snabbstart – Bevilja åtkomst för en användare med RBAC och Azure Portal](quickstart-assign-role-user-portal.md)
+- [Hantera åtkomst med hjälp av RBAC och Azure-portalen](role-assignments-portal.md)
+- [Förstå de olika rollerna i Azure](rbac-and-directory-admin-roles.md)

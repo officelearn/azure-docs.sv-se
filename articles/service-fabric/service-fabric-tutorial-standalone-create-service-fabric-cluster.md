@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: 85e6efcc4e213da4d6c650f7543403dd52e8337c
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 7ba5fa1d4c5b87d1c4828ee98dae36f415d37c20
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248443"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344163"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Självstudie: Installera och skapa Service Fabric-kluster
 
@@ -61,13 +61,7 @@ När du har uppdaterat noderna visas de på följande sätt:
         }
 ```
 
-Du måste därefter uppdatera ett par av egenskaperna.  På rad 34 behöver du ändra anslutningssträngen för diagnostikarkivet. Det bör se ut så här efter ändringen, med din IP-adress utbytt i `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`
-
-När du har uppdaterat anslutningssträngen måste du skapa mappen.  Följande kommando kommer att skapa den. Du bör därför se till att ersätta IP-adressen nedan med den IP-adress som du infogade i anslutningssträngen:
-
-```powershell
-mkdir \\172.31.27.1\c$\DiagnosticsStore
-```
+Du måste därefter uppdatera ett par av egenskaperna.  På rad 34 måste du ändra anslutningssträngen för diagnostiklagret, som ska se ut så här `"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`
 
 Slutligen går du till avsnittet `nodeTypes` i konfigurationen och lägger till ett nytt avsnitt för att mappa de tillfälliga portarna som ska användas av Windows.  Konfigurationsfilen bör likna följande:
 

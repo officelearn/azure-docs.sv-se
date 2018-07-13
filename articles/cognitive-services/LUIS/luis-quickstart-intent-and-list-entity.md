@@ -7,16 +7,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/21/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 68c241833aab756bfc5e71c03da5d4175401910d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5408d20a736f262e95ce7014c385b50521967ad
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335830"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127863"
 ---
-# <a name="tutorial-create-app-using-a-list-entity"></a>Självstudie: skapa en app med hjälp av en listentitet
+# <a name="tutorial-4-add-list-entity"></a>Självstudie: 4. Lägg till listentitet
 I den här självstudien skapar du en app som visar hur det går till att hämta data som matchar en fördefinierad lista. 
 
 <!-- green checkmark -->
@@ -30,7 +30,7 @@ I den här självstudien skapar du en app som visar hur det går till att hämta
 För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen Human Resources (Personalfrågor) från självstudien om entiteter för reguljära uttryck [custom domain](luis-quickstart-intents-regex-entity.md) (anpassad domän) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json)-GitHub-lagringsplatsen.
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om [regex-entiteten](luis-quickstart-intents-regex-entity.md) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json)-GitHub-lagringsplatsen.
 
 Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `list`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
@@ -97,8 +97,6 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
     |234-56-7891 till hh-2345|
 
     [ ![Skärmbild på sidan Intent (Avsikt) med nya yttranden markerade](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
-
-    Programmet har en fördefinierad nummerentitet som lagts till från den föregående självstudien. Därför är varje nummer taggat. Det här kan vara tillräckligt för klientprogrammet, men numret märks inte med den typen. Om en ny entitet med ett lämpligt namn skapas kan klientprogrammet bearbeta entiteten när den returneras från LUIS.
 
 ## <a name="create-an-employee-list-entity"></a>Skapa en listentitet för medarbetare
 Avsikten **MoveEmployee** innehåller nu yttranden, och LUIS behöver förstå vad en medarbetare är. 
@@ -298,10 +296,10 @@ Din chattrobot har nu tillräckligt med information för att bestämma den prim�
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du menyn med tre punkter (...) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. Välj **My apps** (Mina appar) i menyn längst upp till vänster. Välj menyn med tre punkter (...) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du lägger till en hierarkisk entitet](luis-quickstart-intent-and-hier-entity.md)
+> [Lägg till en hierarkisk enhet i appen](luis-quickstart-intent-and-hier-entity.md)
 

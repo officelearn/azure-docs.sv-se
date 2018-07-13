@@ -1,120 +1,119 @@
 ---
-title: Avancerad övervakning i fjärranslutna övervakningslösning - Azure | Microsoft Docs
-description: Den här kursen visar hur du övervakar enheter med instrumentpanelen för fjärråtkomst övervakning lösning.
+title: Övervaka dina IoT-enheter via en Azure-lösning | Microsoft Docs
+description: I den här självstudiekursen lär du dig hur du övervakar IoT-enheter med lösningsacceleratorn Fjärrövervakning.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 02/22/2018
-ms.topic: conceptual
-ms.openlocfilehash: 4d2dabd348d7fda4fa7ca3aac9975fd4179400c5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.date: 06/08/2018
+ms.topic: tutorial
+ms.custom: mvc
+ms.openlocfilehash: 5f42ed0fa5362959e5619f2d550ca1ae3711ed65
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627407"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097469"
 ---
-# <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Utför avancerad övervakning med övervakning av fjärråtkomst-lösningen
+# <a name="tutorial-monitor-your-iot-devices"></a>Självstudier: Övervaka dina IoT-enheter
 
-Den här kursen visar funktionerna i instrumentpanelen för övervakning av fjärråtkomst. I självstudiekursen används ett scenario för att införa dessa funktioner i Contoso IoT-programmet.
+I den här självstudiekursen använder du lösningsacceleratorn Fjärrövervakning för att övervaka dina anslutna IoT-enheter. Du använder lösningens instrumentpanel för att visa telemetri, enhetsinformation, aviseringar och KPI:er.
 
-I den här kursen använder du två simulerade Contoso lastbil enheter att lära dig hur du övervakar dina enheter från solution accelerator instrumentpanelen. Du behöver övervaka plats och beteendet för din lastbilar i fältet som en Contoso-operator.
+I självstudiekursen introduceras övervakningsfunktionerna med hjälp av två simulerade lastbilar. Lastbilarna hanteras av en organisation som heter Contoso och är anslutna till lösningsacceleratorn Fjärrövervakning. Som Contoso-operatör behöver du övervaka lastbilarnas plats och beteende på fältet.
 
-I den här guiden får du lära dig att:
+I den här kursen för du göra följande:
 
 >[!div class="checklist"]
-> * Filtrera enheter i instrumentpanelen
-> * Visa realtid telemetri
-> * Visa information om enhet
-> * Visa aviseringar från dina enheter
-> * Visa system KPI: er
+> * Filtrera enheterna på instrumentpanelen
+> * Visa telemetri i realtid
+> * Visa enhetsinformation
+> * Visa aviseringar från enheterna
+> * Visa system-KPI:er
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill följa den här självstudiekursen, måste en distribuerad instans av Fjärrövervaknings-lösning i din Azure-prenumeration.
+Om du vill följa den här självstudien behöver du en distribuerad instans av lösningsacceleratorn Fjärrövervakning i Azure-prenumerationen.
 
-Om du inte har distribuerat Fjärrövervaknings lösningen ännu, bör du genomföra den [distribuera Fjärrövervaknings solution accelerator](iot-accelerators-remote-monitoring-deploy.md) kursen.
+Om du inte har distribuerat lösningsacceleratorn Fjärrövervakning ännu bör du genomföra snabbstarten [Distribuera en molnbaserad fjärrövervakningslösning](quickstart-remote-monitoring-deploy.md).
 
-## <a name="choose-the-devices-to-display"></a>Välj vilka enheter som ska visas
+## <a name="choose-the-devices-to-display"></a>Välja enheter som ska visas
 
-Att välja vilka enheter som visas på den **instrumentpanelen** använder filter. Visa endast den **lastbil** enheter, väljer inbyggt **lastbilar** filter i filtret listrutan:
+Du kan välja vilka anslutna enheters som ska visas på sidan **Instrumentpanel** med hjälp av filter. Om du bara vill visa enheter av typen **Truck** (Lastbil) väljer du de inbyggda filtret **Trucks** (Lastbilar) i filterlistrutan:
 
-![Filtrera efter lastbilar på instrumentpanelen](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter.png)
+[![Filtrera lastbilar på instrumentpanelen](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
-När du använder ett filter visas endast de enheter som matchar filtret villkor i mappningen på den **instrumentpanelen** sidan:
+När du använder ett filter visas på sidan **Instrumentpanel** bara de enheter på kartan som matchar filtervillkoren:
 
-![Lastbilar visas på kartan](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap.png)
+[![Bara lastbilar visas på kartan](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 
-Filtret avgör också vilka enheter som du ser i den **telemetri** diagram:
+Filtret bestämmer även vilka enheter du ser i diagrammet **telemetridiagrammet**:
 
-![Lastbil telemetri visas på instrumentpanelen](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetry.png)
+[![Telemetridata för lastbilar visas på instrumentpanelen](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetry-expanded.png#lightbox)
 
-För att skapa, redigera och ta bort filter, Välj **hantera filter**.
+Du kan skapa, redigera och ta bort filter genom att välja **Hantera enhetsgrupper**.
 
-## <a name="view-real-time-telemetry"></a>Visa realtid telemetri
+## <a name="view-real-time-telemetry"></a>Visa telemetri i realtid
 
-Solution accelerator visar detaljerad realtid telemetridata i diagrammet på den **instrumentpanelen** sidan. Telemetri diagrammet visar telemetri information för enheter som valts av det aktuella filtret:
+Lösningsacceleratorn kartlägger telemetridata i realtid på sidan **Instrumentpanel**. Högst upp i telemetridiagrammet visas tillgängliga telemetrityper för enheterna som valts av det aktuella filtret:
 
-![Lastbil telemetri ritytans](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview.png)
+[![Telemetrityper för lastbil](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-expanded.png#lightbox)
 
-Välj typen telemetri överst i diagrammet för att välja telemetri värden att visa:
+Visa telemetridata för temperatur genom att klicka på **Temperature** (Temperatur):
 
-![Lastbil telemetri ritytans](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry.png)
+[![Telemetrikartläggning av lastbilstemperatur](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-expanded.png#lightbox)
 
-<!-- 05/01 - this features appears to have been removed
-To pause the live telemetry display, choose **Flowing**. To re-enable the live display, choose **Pause**:
+## <a name="use-the-map"></a>Använda kartan
 
-![Pause and restart telemetry display](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetrypause.png)-->
+På kartan visas information om de simulerade lastbilarna som har valts av det aktuella filtret. Du kan zooma och panorera kartan för att visa platserna i mer eller mindre detalj. Färgen på en enhetsikon på kartan visar om det finns aktiva **aviseringar** eller **varningar** för enheten. En sammanfattning av **aviseringar** och **varningar** visas till vänster på kartan.
 
-## <a name="use-the-map"></a>Använd kartan
+Du kan visa enhetsinformationen genom att panorera och zooma kartan för att hitta enheten och sedan välja enheten på kartan. Klicka sedan på enhetsetiketten för att öppna panelen **Enhetsinformation**. Enhetsinformationen omfattar:
 
-Kartan visar information om simulerad lastbilar som valts av det aktuella filtret. Du kan zooma och Panorera kartan för att visa platser i mer eller mindre information. Ikoner för enheter på kartan ange någon **aviseringar** eller **varningar** som är aktiva för enheten. En sammanfattning av antalet **aviseringar** och **varningar** visas till vänster om kartan.
+* Senaste telemetrivärden
+* Metoder som enheten stöder
+* Enhetsegenskaper
 
-<!-- 05/01 - cannot select a deice on the map
-To view the device details, pan and zoom the map to locate the devices, then click the device on the map. The details include:
+[![Visa enhetsinformation på instrumentpanelen](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-expanded.png#lightbox)
 
-* Recent telemetry values
-* Methods the device supports
-* Device properties
+## <a name="view-alerts"></a>Visa aviseringar
 
-![View device details on the dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail.png)-->
+Panelen **Aviseringar** visar detaljerad information om de senaste aviseringarna från dina enheter:
 
-## <a name="view-alerts-from-your-devices"></a>Visa aviseringar från dina enheter
+[![Visa enhetsaviseringar på instrumentpanelen](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-expanded.png#lightbox)
 
-Kartan visar enheterna i det aktuella filtret med **aviseringar** och **varningar**. Den **aviseringar** panelen visas detaljerad information om de senaste aviseringarna från dina enheter:
+Du kan använda ett filter för att justera tidsintervallet för de senaste aviseringarna. Som standard visar panelen aviseringar från den senaste timmen:
 
-![Visa system aviseringar på instrumentpanelen](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms.png)
+[![Filtrera aviseringarna efter tid](./media/iot-accelerators-remote-monitoring-monitor/dashboardalarmsfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardalarmsfilter-expanded.png#lightbox)
 
-Du kan använda den **instrumentpanelen** filter för att justera tidsintervallet för senaste aviseringarna. Panelen visas aviseringar från den senaste timmen som standard:
+## <a name="view-the-system-kpis"></a>Visa system-KPI:er
 
-![Filtrera aviseringarna efter tid](./media/iot-accelerators-remote-monitoring-monitor/dashboardalarmsfilter.png)
+På sidan **Instrumentpanel** visas system-KPI:er beräknade av lösningsacceleratorn i panelen **Analys**:
 
-## <a name="view-the-system-kpis"></a>Visa system KPI: er
+[![KPI:er på instrumentpanelen](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-expanded.png#lightbox)
 
-Den **instrumentpanelen** visar sidan system KPI: er:
+På instrumentpanelen visas tre KPI:er för aviseringarna som har valts av de aktuella filtren för aktuell enhet och tidsintervall:
 
-![Instrumentpanelen KPI: er](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis.png)
+* Antalet aktiva aviseringar för reglerna som utlöst flest aviseringar.
+* Andelen aviseringar per enhetstyp.
+* Procentandelen aviseringar som är kritiska.
 
-Du kan använda den **instrumentpanelen** filter för att justera tidsintervallet för KPI-aggregering. Som standard visar panelen KPI: er samman under den senaste timmen.
+Samma filter som har angett tidsintervallet för aviseringar och kontrollerar vilka enheter som visas bestämmer hur KPI:erna aggregeras. Som standard visar panelen KPI:er aggregerat under den senaste timmen.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du planerar att gå vidare till nästa självstudie lämnar du den distribuerade lösningsacceleratorn Fjärrövervakning. Du kan minska kostnaden för att köra lösningsacceleratorn när du inte använder den genom att stoppa de simulerade enheterna på inställningspanelen:
+
+[![Pausa telemetri](./media/iot-accelerators-remote-monitoring-monitor/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/togglesimulation-expanded.png#lightbox)
+
+Du kan starta om de simulerade enheterna när du är redo att starta nästa självstudie.
+
+Om du inte längre behöver lösningsacceleratorn tar du bort den från sidan [Etablerade lösningar](https://www.azureiotsolutions.com/Accelerators#dashboard):
+
+![Ta bort lösningen](media/iot-accelerators-remote-monitoring-monitor/deletesolution.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här självstudiekursen visades hur du använder den **instrumentpanelen** att filtrera och övervaka simulerade lastbilar etablerats i din lösning för övervakning av fjärråtkomst:
+I den här självstudiekursen visades hur du använder sidan **Instrumentpanel** i lösningsacceleratorn Fjärrövervakning för att filtrera och övervaka de simulerade lastbilarna. Fortsätt till nästa självstudiekurs om du vill lära dig hur du använder lösningsacceleratorn till att identifiera problem med anslutna enheter.
 
-<!-- Repeat task list from intro -->
->[!div class="checklist"]
-> * Filtrera enheter i instrumentpanelen
-> * Visa realtid telemetri
-> * Visa information om enhet
-> * Visa aviseringar från dina enheter
-> * Visa system KPI: er
-
-Nu när du har lärt dig hur du övervakar dina enheter, föreslagna nästa steg är att lära dig hur du:
-
-* [Identifiera problem med tröskelvärdesbaserad regler](iot-accelerators-remote-monitoring-automate.md).
-* [Hantera och konfigurera dina enheter](iot-accelerators-remote-monitoring-manage.md).
-* [Felsök och åtgärda enhetsproblem](iot-accelerators-remote-monitoring-maintain.md).
-* [Testa din lösning med simulerade enheter](iot-accelerators-remote-monitoring-test.md).
-
-<!-- Next tutorials in the sequence -->
+> [!div class="nextstepaction"]
+> [Identifiera problem med enheter som är anslutna till din övervakningslösning](iot-accelerators-remote-monitoring-automate.md)

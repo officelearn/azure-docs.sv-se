@@ -7,14 +7,14 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 06/22/2018
+ms.date: 07/03/2018
 ms.author: hux
-ms.openlocfilehash: 3f1dfa09c0f123d20a7be043aa8d0033a5b6bd72
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335779"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445439"
 ---
 # <a name="azure-storage-account-options"></a>Alternativ för Azure Storage-konton
 
@@ -46,7 +46,10 @@ I GPv2-konton visas attributet **Åtkomstnivå** på kontonivå, vilket innebär
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>Uppgradera ett lagringskonto till GPv2
 
-Användare kan när som helst uppgradera ett GPv1- eller Blob Storage-konto till ett GPv2-konto via PowerShell eller Azure CLI. Den här ändringen kan inte ångras och inga andra ändringar tillåts.
+Användare kan när som helst uppgradera ett GPv1- eller Blob Storage-konto till ett GPv2-konto via Azure-portalen, PowerShell eller Azure CLI. Den här ändringen kan inte ångras och inga andra ändringar tillåts.
+
+#### <a name="upgrade-with-azure-portal"></a>Uppgradera med Azure-portalen
+Om du vill uppgradera ett GPv1- eller Blob Storage-konto till ett GPv2-konto med hjälp av Azure-portalen loggar du först in på [Azure-portalen](https://portal.azure.com) och väljer ditt lagringskonto. Välj **Inställningar** > **Konfiguration**. Där visas knappen **Uppgradera** och ett meddelande om uppgraderingsprocessen.
 
 #### <a name="upgrade-with-powershell"></a>Uppgradera med PowerShell
 
@@ -262,9 +265,9 @@ När du använder ett GRS- eller RA-GRS-lagringskonto kan kostnaden för dataöv
 
 ## <a name="migrating-existing-data"></a>Migrera befintliga data
 
-Ett GPv1-konto kan enkelt uppgraderas till GPv2 utan driftavbrott eller API-ändringar, och utan att du behöver migrera data. Därför rekommenderar starkt att du migrerar GPv1-konton till GPv2-konton istället för till Blob Storage-konton.
+Ett GPv1- eller Blob Storage-konto kan enkelt uppgraderas till GPv2 utan driftavbrott eller API-ändringar, och utan att du behöver migrera data. Därför rekommenderar starkt att du migrerar GPv1-konton till GPv2-konton istället för till Blob Storage-konton. Mer information om uppgradering till GPv2 finns i [Uppgradera ett lagringskonto till GPv2](#upgrade-a-storage-account-to-gpv2).
 
-Om du behöver migrera till ett Blob Storage-konto och inte kan använda GPv2-konton, kan du använda instruktionerna nedan. 
+Om du behöver migrera från GPv1 till ett Blob Storage-konto och inte kan använda GPv2-konton kan du använda instruktionerna nedan. 
 
 Ett Blob Storage-konto är specialanpassat för lagring av endast block- och tilläggsblobar. Allmänna lagringskonton, där du kan lagra tabeller, köer, filer och diskar, och även blobbar, kan inte omvandlas till Blob Storage-konton. Om du vill använda lagringsnivåer måste du skapa Blob Storage-konton och migrera dina befintliga data till de nya kontona. 
 

@@ -7,16 +7,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 317d5b37b90f6c436e3cecf0486d587f54960598
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 522d24c1c03a338633c340502087300c890d1771
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316550"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128453"
 ---
-# <a name="tutorial-use-regular-expression-entity"></a>Självstudie: använda entitet för reguljära uttryck
+# <a name="tutorial-3-add-regular-expression-entity"></a>Självstudie: 3. Lägg till entitet för reguljära uttryck
 I den här självstudien skapar du en app som visar hur det går till att extrahera konsekvent formaterade data från ett yttrande med hjälp av entiteten **Regular Expression** (Reguljärt uttryck).
 
 
@@ -31,7 +31,7 @@ I den här självstudien skapar du en app som visar hur det går till att extrah
 För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen Human Resources (Personalfrågor) från självstudien om de fördefinierade entiteterna [custom domain](luis-tutorial-prebuilt-intents-entities.md) (anpassad domän) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website) från [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json)-GitHub-lagringsplatsen.
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om [fördefinierade entiteter](luis-tutorial-prebuilt-intents-entities.md) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website) från [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json)-GitHub-lagringsplatsen.
 
 Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `regex`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
@@ -84,7 +84,7 @@ LUIS tokeniserar yttrandet när yttrandet läggs till i en avsikt. Tokeniseringe
     |Vad är URL för hrf-123456?|
     |Var är hrf-345678?|
     |När uppdaterades hrf-456098?|
-    |Uppdaterade John Smith hrf-234639 förra veckan?|
+    |Uppdaterade Johan Svensson hrf-234639 förra veckan?|
     |Hur många versioner av hrf-345123 finns det?|
     |Vem behöver godkänna formuläret hrf-123456?|
     |Hur många personer måste signera hrf-345678?|
@@ -144,54 +144,70 @@ För att få en LUIS-förutsägelse i en chattrobot eller i ett annat program m�
 
     ![Skärmbild på sidan Publish (Publicera) med slutpunkts-URL markerad](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
 
-2. Gå till slutet av URL:en i adressen och ange `When were HRF-123456 and hrf-234567 published?`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `FindForm` med de två formulärnumren `HRF-123456` och `hrf-234567`.
+2. Gå till slutet av URL:en i adressen och ange `When were HRF-123456 and hrf-234567 published in the last year?`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `FindForm` med de två formulärnumren `HRF-123456` och `hrf-234567`.
 
     ```
     {
-      "query": "When were HRF-123456 and hrf-234567 published?",
+      "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {
         "intent": "FindForm",
-        "score": 0.970179737
+        "score": 0.9993477
       },
       "intents": [
         {
           "intent": "FindForm",
-          "score": 0.970179737
+          "score": 0.9993477
         },
         {
           "intent": "ApplyForJob",
-          "score": 0.0131893409
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.00364777143
+          "score": 0.0206110049
         },
         {
           "intent": "GetJobInformation",
-          "score": 0.0024568392
+          "score": 0.00533067342
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.004215215
         },
         {
           "intent": "Utilities.Help",
-          "score": 0.00173760345
+          "score": 0.00209096959
         },
         {
           "intent": "None",
-          "score": 0.00173070864
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00130692765
+          "score": 0.0017655947
         },
         {
           "intent": "Utilities.Stop",
-          "score": 0.00130328839
+          "score": 0.00109490135
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.0005704638
         },
         {
           "intent": "Utilities.Cancel",
-          "score": 0.0006671795
+          "score": 0.000525338168
         }
       ],
       "entities": [
+        {
+          "entity": "last year",
+          "type": "builtin.datetimeV2.daterange",
+          "startIndex": 53,
+          "endIndex": 61,
+          "resolution": {
+            "values": [
+              {
+                "timex": "2017",
+                "type": "daterange",
+                "start": "2017-01-01",
+                "end": "2018-01-01"
+              }
+            ]
+          }
+        },
         {
           "entity": "hrf-123456",
           "type": "HRF-number",
@@ -237,10 +253,10 @@ Din chattrobot har nu tillräckligt med information för att bestämma den prim�
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och formulärnumren för att söka ett tredjeparts-API. LUIS utför inte det arbetet. LUIS tar endast reda på vad användarens avsikt är och extraherar data om den avsikten. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du menyn med tre punkter (...) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. Välj **My apps** (Mina appar) på menyn längst upp till vänster. Välj menyn med tre punkter (...) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om entiteten KeyPhrase](luis-quickstart-intent-and-key-phrase.md)
+> [Lär dig mer om listentiteten](luis-quickstart-intent-and-list-entity.md)
 

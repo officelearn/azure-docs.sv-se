@@ -7,16 +7,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/26/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: b718ed505babd2df6487aecd3a87f17590aef2b9
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e6ab9d1db0144ffa68fe9dc3381ba31d57aa0cae
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061255"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130902"
 ---
-# <a name="tutorial-create-app-that-uses-simple-entity"></a>Självstudie: skapa app som använder enkel entitet
+# <a name="tutorial-6-add-simple-entity-and-phrase-list"></a>Självstudie: 6. Lägg till en enkel entitet och fraslista
 I den här självstudien skapar du en app som visar hur det går till att extrahera maskininlärningsdata från ett yttrande med hjälp av entiteten **Simple** (Enkel).
 
 <!-- green checkmark -->
@@ -45,12 +45,12 @@ Den här appen visar hur det går till att hämta data från ett yttrande. Ta f�
 |Jag skickar härmed mitt cv för att söka tjänsten inom teknik.|teknik|
 |Fyll i ansökan till jobbet 123456|123456|
 
-I den här självstudien lägger du till en ny entitet för att extrahera jobbnamnet. Funktionen att extrahera ett specifikt jobbnummer visas i [självstudien](luis-quickstart-intents-regex-entity.md) för reguljära uttryck. 
+I den här självstudien lägger du till en ny entitet för att extrahera jobbnamnet. 
 
 ## <a name="purpose-of-the-simple-entity"></a>Syftet med den enkla entiteten
 Syftet med den enkla entiteten är att lära LUIS vad ett jobbnamn är och var det kan hittas i ett yttrande. Den del av yttrandet som utgör jobbet kan variera från yttrande till yttrande baserat på ordval och yttrandets längd. LUIS behöver exempel på jobb i yttranden över alla avsikter.  
 
-Jobbnamnet är svårt att urskilja eftersom ett namn kan vara ett substantiv, verb eller en fras med flera ord. Till exempel:
+Jobbnamnet är svårt att urskilja eftersom ett namn kan vara ett substantiv, verb eller en fras med flera ord. Exempel:
 
 |Jobb|
 |--|
@@ -85,7 +85,7 @@ Den här LUIS-appen har jobbnamn i flera avsikter. Genom att märka orden i en a
 
     ![Dialogruta för att skapa en enkel entitet med jobbnamn och entitetstyp](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-5. I yttrandet `Submit resume for engineering position` märker du ordet teknik som en jobbentitet. Välj ordet teknik och välj sedan Job (Jobb) på snabbmenyn. 
+5. I yttrandet, `Submit resume for engineering position`, märker du ordet `engineering` som en jobbentitet. Välj ordet `engineering` och välj sedan **Job** (Jobb) i snabbmenyn. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Skärmbild på LUIS-appen med markerad märkning av jobbentitet")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
@@ -292,7 +292,7 @@ Eftersom ett namn kan vara vad som helst förutsäger LUIS-appen entiteter mer k
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Skärmbild på dialogrutan för att skapa en ny fraslista")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Om du vill lägga till fler ord i fraslistan kan du gå igenom de rekommenderade orden och lägga till det som behövs. 
+    Om du vill lägga till fler ord i fraslistan kan du gå igenom **Related Values** (Relaterade värden) och lägga till det som behövs. 
 
 4. Välj **Save** (Spara) så aktiveras fraslistan.
 
@@ -369,7 +369,7 @@ Eftersom ett namn kan vara vad som helst förutsäger LUIS-appen entiteter mer k
 Genom att lägga till fraslistan förbättrades listordens extrahering, men de är **inte** exakta matchningar. Fraslistan har flera jobb med det första ordet `lead` och med jobbet `welder`, men inte jobbet `lead welder`. Den här fraslistan över jobb behöver kanske kompletteras. Allt eftersom du [granskar slutpunktsyttranden](label-suggested-utterances.md) och hittar andra jobbord, lägger du till dem i fraslistan. Träna sedan appen igen och publicera om.
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
-Med hjälp av en enkel entitet och en fraslista har den här appen identifierat en frågeavsikt i naturligt språk och returnerat meddelandedata. 
+Med hjälp av en enkel entitet och en fraslista har den här appen identifierat en frågeavsikt i naturligt språk och returnerat jobbdata. 
 
 Din chattrobot har nu tillräckligt med information för att bestämma den primära åtgärden vid jobbansökan och en parameter för åtgärden, vilket jobb det gäller. 
 
@@ -377,9 +377,9 @@ Din chattrobot har nu tillräckligt med information för att bestämma den prim�
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att skicka jobbinformation till någon på personalavdelningen via ett tredjeparts-API. Om det finns andra programmässiga alternativ för roboten eller det anropande programmet utför inte LUIS det arbetet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du menyn med tre punkter (...) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. Välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj menyn med tre punkter (...) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du lägger till en fördefinierad keyPhrase-entitet](luis-quickstart-intent-and-key-phrase.md)
+> [Lägg till en fördefinierad keyPhrase-entitet](luis-quickstart-intent-and-key-phrase.md)

@@ -1,6 +1,6 @@
 ---
-title: Nätverk integration överväganden för Azure-stacken integrerat system | Microsoft Docs
-description: Lär dig vad du kan göra för att planera för datacenter nätverksintegration med flera noder Azure Stack.
+title: Network integration överväganden för integrerade Azure Stack-system | Microsoft Docs
+description: Lär dig vad du kan göra för att planera för datacenter nätverksintegrering med flera noder Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,80 +12,80 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 07/11/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 752481186167fccb46d5bf3beb87c1507e0f4feb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: MT
+ms.openlocfilehash: 2d16d1dc7a53ca388b00ba02b6447e178a9f6edb
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936525"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989245"
 ---
 # <a name="network-connectivity"></a>Nätverksanslutning
-Den här artikeln innehåller information om Azure-stacken nätverk infrastruktur som hjälper dig att bestämma hur du ska integrera Azure Stack bäst i din befintliga nätverksmiljö. 
+Den här artikeln innehåller information om hur du bestämmer hur du integrerar Azure Stack bäst i din befintliga nätverksmiljö för Azure Stack nätverk infrastruktur. 
 
 > [!NOTE]
-> För att lösa externa DNS-namn från Azure-stacken (till exempel www.bing.com), måste du ange DNS-servrar för att vidarebefordra DNS-förfrågningar. Mer information om krav för Azure-stacken DNS finns [Azure Stack-integrering för datacenter - DNS-](azure-stack-integrate-dns.md).
+> För att lösa externa DNS-namn från Azure Stack (till exempel www.bing.com), måste du ange DNS-servrar för att vidarebefordra DNS-förfrågningar. Läs mer om Azure Stack DNS-krav, [Azure Stack datacenter-integrering - DNS-](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Fysiska nätverksdesign
-Azure Stack-lösning kräver en flexibel och högtillgänglig fysisk infrastruktur till stöd för dess drift och tjänster. Följande diagram representerar vår rekommenderade designen:
+Azure Stack-lösning kräver en flexibel och högtillgänglig fysisk infrastruktur som stöd för dess drift och tjänster. Överordnade länkar från ToR till kantlinje växlar är begränsade till SFP + media och 1 GB eller 10 GB hastigheter. Kontrollera med maskinvaruleverantören OEM-tillverkare (original equipment manufacturer) för tillgänglighet. Följande diagram visar våra rekommenderade design:
 
-![Rekommenderade Azure Stack nätverksdesign](media/azure-stack-network/recommended-design.png)
+![Rekommenderade nätverksdesign för Azure Stack](media/azure-stack-network/recommended-design.png)
 
 
 ## <a name="logical-networks"></a>Logiska nätverk
-Logiska nätverk är en abstraktion av den underliggande fysiska nätverksinfrastrukturen. De används för att ordna och förenkla nätverkstilldelningar för värdar, virtuella datorer och tjänster. Som en del av skapandet av logiskt nätverk skapas nätverksplatser för att definiera virtuella lokala nätverk (VLAN), IP-undernät och IP-undernät och VLAN-par som är associerade med det logiska nätverket på varje fysisk plats.
+Logiska nätverk är en abstraktion av den underliggande fysiska nätverksinfrastrukturen. De används för att ordna och förenkla nätverksallokeringarna för värdar, virtuella datorer och tjänster. Som en del av skapandet av logiskt nätverk skapas nätverksplatser för att definiera de virtuella lokala nätverk (VLAN), IP-undernät och IP-undernät/VLAN-par som är associerade med det logiska nätverket på varje fysisk plats.
 
-I följande tabell visas de logiska nätverken och associerade IPv4-undernät områden som måste du planera för:
+I följande tabell visas de logiska nätverken och associerade IPv4-undernät-intervall som du måste planera för:
 
 | Logiskt nätverk | Beskrivning | Storlek | 
 | -------- | ------------- | ------------ | 
-| Offentliga VIP | Azure-stacken använder Totalt 32-adresser från det här nätverket. Åtta offentliga IP-adresser som används för en liten uppsättning Azure Stack-tjänster och resten används av virtuella datorer. Om du planerar att använda App Service och SQL-resursprovidrar används 7 flera adresser. | / 26 (62 värdar) - /22 (1022 värdar)<br><br>Rekommenderat = /24 (254 värdar) | 
-| Växeln-infrastruktur | Point-to-Point IP-adresser för routning, dedikerad växla hanteringsgränssnitt och loopback-adresser som är tilldelad till växeln. | /26 | 
-| Infrastruktur | Används för Azure-stacken interna komponenter för att kommunicera. | /24 |
-| Privat | Används för lagringsnätverk och privata virtuella IP-adresser. | /24 | 
+| Offentlig VIP | Azure Stack använder Totalt 32 adresser från det här nätverket. Åtta offentliga IP-adresser som används för en liten uppsättning Azure Stack-tjänster och resten som används av virtuella datorer. Om du planerar att använda App Service och SQL-resursprovidrar används 7 fler adresser. | / 26 (62 värdar) - /22 (1022 värdar)<br><br>Rekommenderade = /24 (254 värdar) | 
+| Växeln infrastruktur | Point-to-Point IP-adresser för routningen, dedikerad växla hanteringsgränssnitt och loopback-adresser tilldelade till växeln. | /26 | 
+| Infrastruktur | Används för Azure Stack interna komponenter för att kommunicera. | /24 |
+| Privat | Används för nätverkslagring och privata virtuella IP-adresser. | /24 | 
 | BMC | Används för att kommunicera med bmc på de fysiska värdarna. | /27 | 
 | | | |
 
 ## <a name="network-infrastructure"></a>Nätverksinfrastruktur
-Nätverkets infrastruktur för Azure-Stack består av flera logiska nätverk som har konfigurerats med växlar. Följande diagram visar dessa logiska nätverk och hur de samverkar med det top-of-racket (TOR) hanteringsstyrenhet för baskort (BMC) och border (kunden) nätverksväxlar.
+Nätverksinfrastruktur för Azure Stack består av flera logiska nätverk som är konfigurerade med växlar. I följande diagram visas dessa logiska nätverk och hur de integreras med det top-of-racket (TOR) hanteringsstyrenhet för baskort (BMC) och border (kunden) nätverksväxlar.
 
 ![Logiska nätverksanslutningar för diagram och växel](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>BMC-nätverk
-Det här nätverket är dedikerad till att ansluta alla nodernas hanteringsstyrenheter för baskort (även kallat service processorer, till exempel iDRAC, iLO, iBMC, etc.) i hanteringsnätverket. Om det finns maskinvara livscykel värden (HLH) finns på nätverket och kan ge OEM-specifik programvara för maskinvara underhåll och övervakning. 
+Det här nätverket är dedikerad att ansluta alla hanteringsstyrenheter för baskort (även känt som service processorer, till exempel iDRAC, iLO, iBMC osv) till hanteringsnätverket. Om det finns maskinvara livscykel värden (HLH) finns i det här nätverket och kan ha OEM-specifik programvara för maskinvaruunderhåll och övervakning. 
 
-HLH är också värd distribution VM (DVM). DVM används under distributionen av Azure-stacken och tas bort när distributionen är klar. DVM kräver tillgång till internet i anslutna distributionsscenarier för att testa, verifiera och få åtkomst till flera komponenter. Dessa komponenter kan vara i och utanför företagets nätverk; till exempel NTP, DNS och Azure. Mer information om anslutningskrav finns i [NAT-avsnittet i integrering med Azure-stacken brandväggen](azure-stack-firewall.md#network-address-translation). 
+HLH är också värd för distribution av virtuell dator (DVM). DVM används under distributionen av Azure Stack och tas bort när distributionen är klar. DVM kräver tillgång till internet i anslutna scenarier för att testa, verifiera och få åtkomst till flera komponenter. De här komponenterna kan vara i och utanför företagets nätverk; NTP, DNS och Azure. Mer information om krav för anslutning finns i den [NAT-avsnittet i integrering med Azure Stack-brandväggen](azure-stack-firewall.md#network-address-translation). 
 
 ### <a name="private-network"></a>Privat nätverk
-Den här /24 (254 värd-IP)-nätverk är privat för stacken för Azure-region (inte expanderas utöver kantlinje växeln enheter i Azure Stack-region) och är uppdelad i två undernät:
+Den här /24 (254 värd IP-adresser) nätverk är privat till Azure Stack-region (inte expanderas utöver kantlinje växel enheter för Azure Stack-region) och är uppdelad i två undernät:
 
-- **Lagringsnätverk**. Direktmigrering för en /25 (126 värd-IP) för att användas med lagringsutrymmen och Server Message Block (SMB) lagringsrelaterad trafik och den virtuella datorn. 
-- **Interna virtuella IP-nätverket**. A/25 nätverket att endast internt VIP för belastningsutjämnare för programvara.
+- **Lagringsnätverk**. /25 (126 värd IP-adresser) används för att ge stöd åt lagringstrafik för Lagringsdirigering och Server Message Block (SMB) och Direktmigrering för virtuella datorer. 
+- **Interna virtuella IP-nätverket**. A/25 nätverk dedikerad till interna virtuella IP-adresser för belastningsutjämnare för programvara.
 
-### <a name="azure-stack-infrastructure-network"></a>Azure Stack infrastruktur för nätverk
-Detta/24 nätverk som är dedikerad för interna Azure Stack-komponenter så att de kan kommunicera och utbyta data med varandra. Det här undernätet kräver dirigerbara IP-adresser, men hålls privata till lösningen med hjälp av åtkomstkontrollistor (ACL). Det är inte förväntas dirigeras utöver kantlinje växlar förutom ett mindre intervall samma storlek som en minst/27 nätverk som används av vissa av dessa tjänster när de behöver komma åt externa resurser och/eller internet. 
+### <a name="azure-stack-infrastructure-network"></a>Nätverket för Azure Stack-infrastruktur
+Det/24 nätverk som är dedikerad till interna Azure Stack-komponenter så att de kan kommunicera och utbyta data med varandra. Det här undernätet kräver dirigerbara IP-adresser, men förblir privata till lösningen med hjälp av åtkomstkontrollistor (ACL). Det är inte förväntas att dirigeras utanför kantlinje växlar utom ett mindre intervall som är samma storlek som en/27 nätverk som används av några av dessa tjänster när de behöver komma åt externa resurser och/eller internet. 
 
 ### <a name="public-infrastructure-network"></a>Infrastruktur för offentliga nätverk
-Detta/27 nätverket är liten mellan Azure Stack infrastruktur undernät som tidigare nämnts, kräver inte offentliga IP-adresser, men det kräver tillgång till internet via en NAT-enhet eller en Transparent Proxy. Det här nätverket allokeras för nödfall Recovery konsolen System (ERCS), ERCS VM kräver tillgång till internet under registrering till Azure och infrastruktur säkerhetskopieringar. ERCS VM ska vara dirigerbara till nätverket för felsökning.
+Detta/27 nätverket är liten mellan Azure Stack-infrastruktur-undernätet som nämnts tidigare, kräver inte offentliga IP-adresser, men det kräver Internetåtkomst via en NAT eller Transparent Proxy. Det här nätverket ska allokeras för nödadministration Recovery konsolen System (ERCS), ERCS VM kräver Internetåtkomst under registreringen till Azure och under infrastruktur för säkerhetskopiering. ERCS VM ska vara dirigerbara till nätverket i felsökningssyfte.
 
-### <a name="public-vip-network"></a>Offentligt VIP-nätverk
-Det offentliga VIP-nätverket har tilldelats nätverksstyrenhet i Azure-stacken. Det är inte ett logiskt nätverk på växeln. SLB använder poolen med adresser och tilldelar/32 nätverk för klienternas arbetsbelastningar. På routningstabellen växeln annonseras dessa 32 IP-adresser som en tillgänglig väg via BGP. Det här nätverket innehåller externt tillgänglig eller offentlig IP-adresser. Azure Stack-infrastruktur reserverar de första 31 adresserna från den här offentliga VIP-nätverket medan resten används av klient virtuella datorer. Nätverket storleken på det här undernätet kan variera från minst /26 (64 värdar) till maximalt /22 (1022 värdar) rekommenderar vi att du planerar för ett/24 nätverk.
+### <a name="public-vip-network"></a>Offentliga VIP-nätverk
+Den offentliga VIP-nätverket har tilldelats nätverksstyrenheten i Azure Stack. Det är inte ett logiskt nätverk på växeln. SLB använder poolen med adresser och tilldelar/32 nätverk för klienternas arbetsbelastningar. Dessa 32 IP-adresser annonseras på växeln routningstabell, som en väg som är tillgängliga via BGP. Det här nätverket innehåller externt-tillgängliga eller offentliga IP-adresser. Azure Stack-infrastruktur reserverar de första 31 adresserna från den här offentliga VIP-nätverk medan resten används av virtuella klientdatorer. Nätverket storleken på det här undernätet kan variera mellan minst /26 (64 värdar) till högst /22 (1022 värdar) rekommenderar vi att du planerar för ett/24 nätverk.
 
-### <a name="switch-infrastructure-network"></a>Växeln infrastrukturnätverk
-Detta/26 nätverk är det undernät som innehåller dirigerbara point-to-point IP /30 (2 värd-IP) undernät och loopbacks vilket är dedikerade/32 undernät för in-band-växla hanterings- och BGP-router-ID. Detta intervall med IP-adresser måste vara dirigerbara externt av Azure Stack-lösningen för att ditt datacenter, kan de vara privat eller offentlig IP-adresser.
+### <a name="switch-infrastructure-network"></a>Byt infrastruktur för nätverk
+Detta/26 nätverk är det undernät som innehåller dirigerbara point-to-point IP/30 (IP-adresser med 2 host)-undernät och loopbacks som är dedikerade/32 undernät för in-band-växla hanterings- och BGP-router-ID. Den här IP-adressintervall måste vara dirigerbara externt av Azure Stack-lösningen till ditt datacenter, de kan vara privat eller offentlig IP-adresser.
 
 ### <a name="switch-management-network"></a>Växeln hanteringsnätverk
-Den här /29 (6 värd IP-adresser) nätverk är dedikerad till att ansluta hanteringsportar växlar. Den ger out-of-band-åtkomst för distribution, hantering och felsökning. Den beräknas från växeln infrastrukturnätverk som nämns ovan.
+Den här /29 (6 värd IP-adresser) nätverk som är dedikerad att ansluta hanteringsportar växlar. Det gör out-of-band-åtkomst för distribution, hantering och felsökning. Det beräknas från växeln nätverkets infrastruktur som nämns ovan.
 
 ## <a name="publish-azure-stack-services"></a>Publicera Azure Stack-tjänster
-Du behöver göra Azure Stack tjänster tillgängliga för användare från utanför Azure-stacken. Azure-stacken ställer in olika slutpunkter för dess infrastrukturroller. Dessa slutpunkter tilldelas VIP-adresser från den offentliga IP-adresspoolen. En DNS-post skapas för varje slutpunkt i externa DNS-zonen som angavs vid tidpunkten för distribution. Användarportalen tilldelas till exempel DNS-värdpost i portalen.  *&lt;region >.&lt; FQDN >*.
+Du behöver göra Azure Stack-tjänster tillgängliga för användare från utanför Azure Stack. Azure Stack ställer in olika slutpunkter för dess infrastrukturroller. De här slutpunkterna tilldelas virtuella IP-adresser från den offentliga IP-adresspoolen. En DNS-post skapas för varje slutpunkt i externa DNS-zon som angavs vid tidpunkten för distribution. Till exempel tilldelas användarportalen DNS-värdpost i portalen.  *&lt;region >.&lt; FQDN >*.
 
-### <a name="ports-and-urls"></a>URL: er och portar
-Se Azure Stack-tjänster (till exempel portaler, Azure Resource Manager, DNS, osv) tillgängliga till externa nätverk, måste du tillåta inkommande trafik till dessa slutpunkter för specifika URL-adresser, portar och protokoll.
+### <a name="ports-and-urls"></a>Portar och URL: er
+Att göra Azure Stack-tjänster (till exempel portaler, Azure Resource Manager, DNS, osv.) tillgängliga för externa nätverk, måste du tillåta inkommande trafik till dessa slutpunkter för specifika URL: er, portar och protokoll.
  
-I en distribution där en transparent proxy överordnade länkar till en traditionell proxyserver måste du tillåta specifika portar och URL: er för både [inkommande](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) och [utgående](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) kommunikation. Dessa inkluderar portar och URL: er för identitet, marketplace syndikering, korrigeringsfil och uppdateringen, registrering och användningsdata.
+I en distribution där en transparent proxy överordnade länkar till en traditionell proxyserver måste du tillåta specifika portar och URL: er för både [inkommande](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) och [utgående](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) kommunikation. Dessa inkluderar portar och URL: er för identitet, marketplace syndikering, patch och uppdatering, registrering och användningsdata.
 
 ## <a name="next-steps"></a>Nästa steg
 [Kantlinje anslutning](azure-stack-border-connectivity.md)

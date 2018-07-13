@@ -1,95 +1,89 @@
 ---
-title: Felsökning av enheter i fjärranslutna övervakningslösning - Azure | Microsoft Docs
-description: Den här kursen visar hur du felsöker och åtgärda enhetsproblem med i fjärranslutna övervakningslösning.
+title: Använda aviseringar och enhetsproblem i fjärrövervakningslösningen – Azure | Microsoft Docs
+description: Den här självstudiekursen visar hur du använder aviseringar till att identifiera och åtgärda problem med enheter anslutna till lösningsacceleratorn Fjärrövervakning.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 05/01/2018
-ms.topic: conceptual
-ms.openlocfilehash: 9a620d91238393ba0bde89f521f790b58ab35baf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.date: 06/18/2018
+ms.topic: tutorial
+ms.custom: mvc
+ms.openlocfilehash: 9607705220450b30d2ffaf0f2be9fa2a5664b879
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628080"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081796"
 ---
-# <a name="troubleshoot-and-remediate-device-issues"></a>Felsök och åtgärda enhetsproblem
+# <a name="troubleshoot-and-remediate-device-issues"></a>Felsöka och åtgärda enhetsproblem
 
-Den här kursen visar hur du använder den **Underhåll** sida i lösningen för att felsöka och åtgärda problem med enheter. I självstudiekursen används ett scenario för att införa dessa funktioner i Contoso IoT-programmet.
+I den här självstudien använder du självstudiekursen använder du lösningsacceleratorn Fjärrövervakning till att identifiera och åtgärda problem med dina anslutna IoT-enheter. Du använder aviseringar i lösningsacceleratorns instrumentpanel till att identifiera problem och kör sedan fjärrjobb för att åtgärda dessa problem.
 
-Contoso testa en ny **prototyp** enhet i fältet. Som en Contoso-operator som du ser under testningen som den **prototyp** enheten oväntat utlösa en avisering om temperatur på instrumentpanelen. Du måste nu undersöka beteendet för detta fel **prototyp** enhet.
+Contoso testar en ny enhet av typen **Prototype** (Prototyp) i fältet. Som Contoso-operatör märker du under testningen att **prototypen** oväntat utlöser en temperaturavisering på instrumentpanelen. Du måste nu undersöka beteendet hos den felaktiga **prototypen** och lösa problemet.
 
-I den här guiden får du lära dig att:
+I den här kursen för du göra följande:
 
 >[!div class="checklist"]
-> * Använd den **Underhåll** sidan om du vill undersöka aviseringen
-> * Anropa en metod för enheten för att åtgärda problemet
+> * Undersöka en avisering från en enhet
+> * Lösa problemet med enheten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill följa den här självstudiekursen, måste en distribuerad instans av Fjärrövervaknings-lösning i din Azure-prenumeration.
+Om du vill följa den här självstudien behöver du en distribuerad instans av lösningsacceleratorn Fjärrövervakning i Azure-prenumerationen.
 
-Om du inte har distribuerat Fjärrövervaknings lösningen ännu, bör du genomföra den [distribuera Fjärrövervaknings solution accelerator](iot-accelerators-remote-monitoring-deploy.md) kursen.
+Om du inte har distribuerat lösningsacceleratorn Fjärrövervakning ännu bör du genomföra snabbstarten [Distribuera en molnbaserad fjärrövervakningslösning](quickstart-remote-monitoring-deploy.md).
 
-## <a name="use-the-maintenance-dashboard"></a>Använd instrumentpanelen för underhåll
+## <a name="investigate-an-alert"></a>Undersöka en avisering
 
-På den **instrumentpanelen** sidan du Observera att det finns oväntat temperatur aviseringar från regler som associeras med den **prototyp** enheter:
+På sidan **Instrumentpanel** märker du att det finns oväntade temperaturaviseringar från regeln som hör till enheterna av typen **Prototype** (Prototyp):
 
-![Aviseringar visas på instrumentpanelen](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm.png)
+[![Aviseringar som visas på instrumentpanelen](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-expanded.png#lightbox)
 
-Om du vill undersöka problemet ytterligare, Välj den **utforska avisering** alternativet bredvid aviseringen:
+Du kan undersöka problemet vidare genom att välja alternativet **Explore Alert** (Utforska avisering) bredvid aviseringen:
 
-![Utforska avisering från instrumentpanelen](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm.png)
+[![Utforska avisering på instrumentpanelen](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-expanded.png#lightbox)
 
-Detaljerad vy av aviseringen visas:
+Informationsvyn för aviseringen visar:
 
 * När aviseringen utlöstes
-* Statusinformation om de enheter som är kopplade till aviseringen
-* Telemetri från enheter som är kopplade till aviseringen
+* Statusinformation om enheter som är kopplade till aviseringen
+* Telemetri från enheterna kopplade till aviseringen
 
-![Aviseringsinformation](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail.png)
+[![Aviseringsinformation](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-expanded.png#lightbox)
 
-Bekräfta en avisering, Välj den **Varna förekomster** och välj **återanropen för kvittens**. Den här åtgärden kan andra operatorer för att se att du har sett aviseringen och arbetar med den.
+Du kan bekräfta aviseringen genom att välja **Alert occurrences** (Aviseringsförekomster) och välja **Bekräfta**. Med den här åtgärden meddelas andra operatörer att du har sett aviseringen och arbetar med den:
 
-![Bekräfta aviseringar](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge.png)
+[![Bekräfta aviseringen](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge-expanded.png#lightbox)
 
-När du har godkänt aviseringen status för ändras till **godkänd**.
+När du bekräftar aviseringen ändras statusen för förekomsten till **Bekräftad**.
 
-I listan kan du se den **prototyp** enhet som är ansvarig för startar temperatur aviseringen:
+I listan visas den enhet av typen **Prototype** (Prototyp) som har gjort att en temperaturavisering har utlösts:
 
-![Lista över de enheter som orsakar aviseringen](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice.png)
+[![Lista enheter som orsakar aviseringen](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
-## <a name="remediate-the-issue"></a>Åtgärda problemet
+## <a name="resolve-the-issue"></a>Lösa problemet
 
-Åtgärda problemet med den **prototyp** enhet, måste du anropa den **DecreaseTemperature** metod på enheten.
+Om du vill lösa problemet med enheten av typen **Prototype** (Prototyp) måste du anropa metoden **DecreaseTemperature** (Minska temperatur) för enheten.
 
-För att fungera på en enhet väljer du den i listan över enheter och välj sedan **jobb**. Den **prototyp** enhetsmodell anger sex metoder måste ha stöd för en enhet:
+Du kan utföra åtgärden på enheten genom att välja den i listan med enheter och sedan välja **Jobb**. Enhetsmodellen av typen **Prototype** (Prototyp) anger sex metoder som en enhet måste stödja:
 
-![Visa de metoder som har stöd för enheten](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods.png)
+[![Visa metoder som enheten stöder](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
 
-Välj **DecreaseTemperature** och ange namnet på det jobb som **DecreaseTemperature**. Välj **Verkställ**:
+Välj **DecreaseTemperature** (Minska temperatur) och ange jobbnamnet **DecreaseTemperature** (Minska temperatur). Välj sedan **Använd**:
 
-![Skapa jobbet om du vill minska temperaturen](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob.png)
+[![Skapa jobbet för att minska temperaturen](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
-Spåra status för jobbet på den **Underhåll** väljer **jobb**. Använd den **jobb** visa för att spåra alla jobb och metodanrop i lösningen:
+Du kan spåra jobbets status genom att klicka på **Visa jobbstatus**. I vyn **Jobb** kan du spåra alla jobb och metodanrop i lösningen:
 
-![Övervaka jobbet om du vill minska temperaturen](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob.png)
+[![Övervaka jobbet för att minska temperaturen](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-expanded.png#lightbox)
 
-Om du vill visa information om ett specifikt jobb eller metodanrop, väljer du den i listan i den **jobb** vy:
+Du kan kontrollera att temperaturen för enheten har minskat genom att visa telemetridata på sidan **Instrumentpanel**:
 
-![Visa jobbinformation](./media/iot-accelerators-remote-monitoring-maintain/maintenancejobdetail.png)
+[![Visa temperaturminskningen](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du sett hur du:
+I den här självstudiekursen visades hur du identifierar problem med enheter och hur du agerar för att lösa dessa problem. Fortsätt till instruktionsartiklarna om du vill läsa om hur du ansluter en fysisk enhet till lösningsacceleratorn.
 
-<!-- Repeat task list from intro -->
->[!div class="checklist"]
-> * Använd den **Underhåll** sidan om du vill undersöka aviseringen
-> * Anropa en metod för enheten för att åtgärda problemet
-
-Nu du har lärt dig hur du hanterar problem med enheter, föreslagna nästa steg är att lära dig hur du [testa din lösning med simulerade enheter](iot-accelerators-remote-monitoring-test.md).
-
-<!-- Next tutorials in the sequence -->
+Nu har du lärt dig hur du hanterar enhetsproblem. Förslag på nästa steg är att lära sig hur du [ansluter enheten till lösningsacceleratorn Fjärrövervakning](iot-accelerators-connecting-devices.md).

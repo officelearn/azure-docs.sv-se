@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/30/2018
 ms.author: sethm
-ms.openlocfilehash: 1b2c9b3a0b7565e7de40d4dc0e623a62313b79db
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: dde7691d2fe4503de8a671d7f29e36558d474699
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32775531"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440401"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus Premium- och Standard-meddelandenivåer
 
@@ -57,7 +57,7 @@ Om du har kod som körs med meddelandehantering på standardnivå och vill porte
 
 ## <a name="get-started-with-premium-messaging"></a>Kom igång med Premium-meddelandetjänster
 
-Det är enkelt att komma igång med Premium-meddelandetjänster och processen liknar den för Standard-meddelandetjänster. Börja med att [skapa ett namnområde](service-bus-create-namespace-portal.md) i [Azure Portal](https://portal.azure.com). Se till att du väljer **Premium** under **Välj din prisnivå**.
+Det är enkelt att komma igång med Premium-meddelandetjänster och processen liknar den för Standard-meddelandetjänster. Börja med att [skapa ett namnområde](service-bus-create-namespace-portal.md) i [Azure Portal](https://portal.azure.com). Se till att du väljer **Premium** under **Prisnivå**. Klicka på **Visa fullständiga prisuppgifter** om du vill se mer information om varje nivå.
 
 ![create-premium-namespace][create-premium-namespace]
 
@@ -65,7 +65,7 @@ Du kan också skapa [Premium-namnområden med hjälp av Azure Resource Manager-m
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande ämnen kan du lära dig mer om Service Bus-meddelanden.
+I följande länkar kan du lära dig mer om Service Bus-meddelanden:
 
 * [Introduktion till Azure Service Bus Premium-meddelanden (blogginlägg)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introduktion till Azure Service Bus Premium-meddelanden (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)

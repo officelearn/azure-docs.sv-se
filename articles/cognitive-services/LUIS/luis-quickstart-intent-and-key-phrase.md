@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 9acdfdde667d37bac5b96e4497b3e86d2cdeccb8
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: f3808620c4527f2971d8eb6d53a09c893b162b59
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063416"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340959"
 ---
-# <a name="tutorial-learn-how-to-return-data-from-keyphrase-entity"></a>Självstudier: Lär dig att returnera data från en keyPhrase-entitet 
+# <a name="tutorial-7-add-keyphrase-entity"></a>Självstudie: 7. Lägga till keyPhrase-entitet 
 I den här självstudien använder du en app som visar hur det går till att extrahera nyckelämnen från yttranden.
 
 <!-- green checkmark -->
@@ -201,10 +201,10 @@ Din chattrobot har nu tillräckligt med information för att avgöra nästa steg
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och keyPhrase-data från yttrandet för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du menyn med tre punkter (...) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. Välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj menyn med tre punkter (...) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa app som returnerar sentiment tillsammans med avsiktsförutsägelse](luis-quickstart-intent-and-sentiment-analysis.md)
+> [Lägga till sentimentanalys i appen](luis-quickstart-intent-and-sentiment-analysis.md)
 

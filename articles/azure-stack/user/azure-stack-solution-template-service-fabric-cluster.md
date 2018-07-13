@@ -1,6 +1,6 @@
 ---
-title: Distribuera en skyddad Service Fabric-kluster i Azure-stacken | Microsoft Docs
-description: Lär dig hur du distribuerar en skyddad Service Fabric-kluster i Azure-stacken
+title: Distribuera säkra Service Fabric-kluster i Azure Stack | Microsoft Docs
+description: Lär dig hur du distribuerar säkra Service Fabric-kluster i Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,49 +14,49 @@ ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
-ms.openlocfilehash: a88d8dd2af94ac796a3b2e3c667fd40a308f02a1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: acf850bdc56e55d13b13a40ef343f2f20c4a77ca
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33883027"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969120"
 ---
-# <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Distribuera ett Service Fabric-kluster i Azure-stacken
+# <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Distribuera ett Service Fabric-kluster i Azure Stack
 
-Använd den **Service Fabric-kluster** objekt från Azure Marketplace för att distribuera en skyddad Service Fabric-kluster i Azure-stacken. 
+Använd den **Service Fabric-kluster** objekt från Azure Marketplace för att distribuera säkra Service Fabric-kluster i Azure Stack. 
 
-Mer information om hur du arbetar med Service Fabric finns [översikt av Azure Service Frabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) och [säkerhetsscenarier för Service Fabric-klustret](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), i Azure-dokumentationen.
+Mer information om hur du arbetar med Service Fabric finns i [översikt av Azure Service Frabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) och [säkerhetsscenarier för Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), i Azure-dokumentationen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Följande krävs för att distribuera Service Fabric-kluster:
-1. **Certifikat för kluster**  
-   Detta är X.509-servercertifikat som du lägger till i KeyVault när du distribuerar Service Fabric. 
+Följande krävs för att distribuera Service Fabric-klustret:
+1. **Klustercertifikat**  
+   Det här är X.509-servercertifikat som du lägger till i KeyVault vid distribution av Service Fabric. 
    - Den **CN** på det här certifikatet måste matcha det fullständigt kvalificerade domännamn (FQDN) för Service Fabric-klustret som du skapar. 
-   - Certifikatets format måste vara PFX, som båda de offentliga och privata nycklarna är obligatoriska. 
-   Se [krav](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) för att skapa det här certifikatet för servern.
+   - Certifikatformatet måste vara PFX, som krävs för både offentliga och privata nycklar. 
+   Se [krav](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) för att skapa det här certifikatet för serversidan.
 
     > [!NOTE]  
-    > Du kan använda ett självsignerat certifikat inplace för x.509-certifikatet för servern för testning. Självsignerade certifikat behöver inte matcha FQDN för klustret.
+    > Du kan använda ett självsignerat certifikat inplace för certifikatet för x.509 för testning. Självsignerade certifikat behöver inte matcha det fullständiga Domännamnet för klustret.
 
-2.  **Admin klientcertifikat** detta är det certifikat som klienten använder för att autentisera till Service Fabric-kluster, vilket kan vara självsignerade. Se [krav](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) för att skapa det här certifikatet klienten.
+2.  **Admin-klientcertifikatet** är detta certifikat som klienten använder för att autentisera till Service Fabric-kluster, vilket kan vara självsignerade. Se [krav](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) för att skapa det här klientcertifikatet.
 
-3.  **Följande objekt måste vara tillgängligt i Azure Marketplace för Stack:**
-     - **Windows Server 2016** – mallen använder Windows Server 2016-avbildningen för att skapa klustret.  
-     - **Tillägget av kunden skript** -tillägg för virtuell dator från Microsoft.  
-     - **PowerShell önskad steget konfiguration** -tillägg för virtuell dator från Microsoft.
+3.  **Följande objekt måste vara tillgängliga i Azure Stack Marketplace:**
+     - **Windows Server 2016** – mallen använder Windows Server 2016-avbildning för att skapa klustret.  
+     - **Kundskriptstillägget** -tillägg för virtuell dator från Microsoft.  
+     - **PowerShell Desired Configuration scenen** -tillägg för virtuell dator från Microsoft.
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Lägga till en hemlighet i Key Vault
-Om du vill distribuera ett Service Fabric-kluster måste du ange rätt KeyVault *hemlighet identifierare* eller URL för Service Fabric-klustret. Azure Resource Manager-mallen tar en KeyVault som indata och hämtar sedan klustret certifikat under installationen av Service Fabric-klustret. 
+Om du vill distribuera ett Service Fabric-kluster, måste du ange rätt KeyVault *hemlig identifierare* eller URL: en för Service Fabric-klustret. Azure Resource Manager-mallen tar en KeyVault som indata och hämtar sedan klustercertifikatet under installationen av Service Fabric-klustret. 
 
 > [!IMPORTANT]  
-> Du måste använda PowerShell för att lägga till en hemlighet KeyVault för användning med Service Fabric. Använd inte portalen.  
+> Du måste använda PowerShell för att lägga till en hemlighet i KeyVault för användning med Service Fabric. Använd inte på portalen.  
 
-Använd följande skript för att skapa KeyVault och lägga till den *klustret certifikat* till den. (Se den [krav](#prerequisites).) Innan du kör skriptet måste granska exempelskript och uppdatera de angivna parametrarna för att matcha din miljö. Det här skriptet kommer också utdata värden måste du ange att Azure Resource Manager-mallen. 
+Använd följande skript för att skapa Nyckelvalvet och lägga till den *klustercertifikat* till den. (Se den [krav](#prerequisites).) Innan du kör skriptet, granska exempelskript och uppdatera de angivna parametrarna som matchar din miljö. Det här skriptet kommer också att utdata de värden som du ska ange i Azure Resource Manager-mallen. 
 
 > [!TIP]  
-> Innan skriptet kan genomföras måste det finnas en offentlig erbjudandet som innehåller tjänster för beräkning, nätverk, lagring och KeyVault. 
+> Innan skriptet kan lyckas, måste det finnas ett erbjudande till allmänheten som innehåller tjänster för beräkning, nätverk, lagring och KeyVault. 
 
   ```PowerShell
     function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
@@ -116,15 +116,15 @@ Använd följande skript för att skapa KeyVault och lägga till den *klustret c
    ``` 
 
 
-Mer information finns i [hantera KeyVault Azure stacken med PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell).
+Mer information finns i [hantera KeyVault på Azure Stack med PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell).
 
-## <a name="deploy-the-marketplace-item"></a>Distribuera Marketplace-objektet
+## <a name="deploy-the-marketplace-item"></a>Distribuera Marketplace-objekt
 
-1. I användarportalen, går du till **ny** > **Compute** > **Service Fabric-kluster**. 
+1. I användarportalen, går du till **New** > **Compute** > **Service Fabric-kluster**. 
 
    ![Välj Service Fabric-kluster](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
-2. För varje sida som *grunderna*, Fyll i formuläret distribution. Använd standardinställningar om du är osäker på ett värde. Välj **OK** att gå vidare till nästa sida:
+2. För varje sida som *grunderna*, Fyll i formuläret för distribution. Använd standardinställningarna om du inte är säker på ett värde. Välj **OK** att gå vidare till nästa sida:
 
    ![Grundläggande inställningar](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
@@ -132,59 +132,59 @@ Mer information finns i [hantera KeyVault Azure stacken med PowerShell](https://
 
    ![Nätverksinställningar](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
 
-4. På den *säkerhet* , Lägg till de värden som du har fått från [skapa Azure-KeyVault](#add-a-secret-to-key-vault) och ladda upp hemligheten.
+4. På den *Security* lägger du till de värden som du fick från [skapar Azure KeyVault](#add-a-secret-to-key-vault) och ladda upp hemligheten.
 
-   För den *Admin Klientcertifikatets tumavtryck*, ange certifikatets tumavtryck i *Admin klientcertifikat*. (Se den [krav](#prerequisites).)
+   För den *Admin Klientcertifikatets tumavtryck*, ange certifikatets tumavtryck i den *Admin klientcertifikat*. (Se den [krav](#prerequisites).)
    
-   - Källan Key Vault: Ange hela *keyVault id* sträng från skript-resultaten. 
-   - Kluster-URL för certifikat: Ange hela URL från den *hemlighet Id* från skript-resultaten. 
-   - Klustret tumavtryck för certifikat: Ange den *klustret certifikatets tumavtryck* från skript-resultaten.
+   - Key Vault källa: Ange hela *keyVault-id* sträng från Skriptresultat. 
+   - Kluster-URL för certifikat: Ange hela URL: en från den *hemlighet Id* från skript-resultaten. 
+   - Kluster-tumavtryck för certifikat: Ange den *kluster certifikatets tumavtryck* från skript-resultaten.
    - Administratörsklient Certifikattumavtryck: Ange den *Admin Klientcertifikatets tumavtryck* du har skapat i förutsättningarna. 
 
    ![Skriptutdata](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
    ![Säkerhet](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
-5. Slutför guiden och väljer sedan **skapa** att distribuera Service Fabric-kluster.
+5. Slutför guiden och välj sedan **skapa** att distribuera Service Fabric-kluster.
 
 
 
-## <a name="access-the-service-fabric-cluster"></a>Åtkomst till Service Fabric-kluster
-Du kan komma åt Service Fabric-kluster med hjälp av Service Fabric-Utforskaren eller Service Fabric PowerShell.
+## <a name="access-the-service-fabric-cluster"></a>Få åtkomst till Service Fabric-kluster
+Du kan komma åt Service Fabric-kluster med hjälp av Service Fabric Explorer eller Service Fabric PowerShell.
 
 
 ### <a name="use-service-fabric-explorer"></a>Använda Service Fabric Explorer
-1.  Verifiera att webbläsaren har åtkomst till Admin klientcertifikatet och kan autentisera till Service Fabric-klustret.  
+1.  Verifiera att webbläsaren har åtkomst till ditt klientcertifikat för administratör och kan autentisera till Service Fabric-klustret.  
 
     a. Öppna Internet Explorer och gå till **Internetalternativ** > **innehåll** > **certifikat**.
   
-    b. Välj på certifikat, **importera** att starta den *guiden Importera certifikat*, och klicka sedan på **nästa**. På den *fil att importera* klickar **Bläddra**, och välj den **Admin klientcertifikat** du angav i Azure Resource Manager-mallen.
+    b. Certifikat, Välj **Import** att starta den *guiden Importera certifikat*, och klicka sedan på **nästa**. På den *fil som ska importeras* klickar du på **Bläddra**, och välj den **Admin klientcertifikat** du angav i Azure Resource Manager-mallen.
         
        > [!NOTE]  
-       > Det här certifikatet är inte det kluster-certifikat som tidigare har lagts till i KeyVault.  
+       > Det här certifikatet är inte det klustercertifikat som tidigare har lagts till i KeyVault.  
 
-    c. Se till att du har ”Personal Information Exchange” markerad i listrutan tillägg i fönstret Utforskaren.  
+    c. Kontrollera att du har ”Personal Information Exchange” valde i listrutan tillägget i Utforskaren-fönstret.  
 
-       ![Personal information exchange](media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
+       ![Personligt informationsutbyte](media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
 
-    d. På den *certifikatarkiv* väljer **personliga**, och slutför sedan guiden.  
+    d. På den *Certificate Store* väljer **personliga**, och slutför sedan guiden.  
        ![Certifikatarkiv](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
-2. Hitta FQDN för Service Fabric-kluster:  
+2. Hitta FQDN för Service Fabric-klustret:  
 
-    a. Gå till den resursgrupp som är associerad med Service Fabric-kluster och leta upp den *offentliga IP-adressen* resurs. Markera det objekt som är associerade med den offentliga IP-adressen för att öppna den *offentliga IP-adressen* bladet.  
+    a. Gå till den resursgrupp som är associerad med Service Fabric-kluster och leta upp den *offentliga IP-adressen* resurs. Markera objektet som är associerade med den offentliga IP-adressen för att öppna den *offentliga IP-adressen* bladet.  
 
       ![Offentlig IP-adress](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
 
-    b. I bladet offentlig IP-adress visas FQDN som *DNS-namnet*.  
+    b. På bladet offentliga IP-adress visas det fullständiga Domännamnet som *DNS-namnet*.  
 
       ![DNS-namn](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
 
-3. Granska resultatet av distributionen av mallen för att hitta URL: en för Service Fabric Explorer och klienten Anslutningens slutpunkt.
+3. Du hittar Webbadressen för Service Fabric Explorer och slutpunkten för klientanslutning, granskar du resultaten av malldistributionen.
 
-4. I din webbläsare går du till https://*FQDN*: 19080. Ersätt *FQDN* med FQDN för Service Fabric-kluster från steg 2.   
+4. I webbläsaren går du till https://*FQDN*: 19080. Ersätt *FQDN* med FQDN för Service Fabric-klustret från steg 2.   
    Om du har använt ett självsignerat certifikat, får du en varning om att anslutningen inte är säker. Om du vill fortsätta till webbplatsen, Välj **mer Information**, och sedan **går du vidare till webbsidan**. 
 
-5. Du måste välja ett certifikat som ska användas för att autentisera till platsen. Välj **fler alternativ**, Välj rätt certifikat och klicka sedan på **OK** att ansluta till Service Fabric Explorer. 
+5. Du måste välja ett certifikat som ska användas för att autentisera till webbplatsen. Välj **fler alternativ**, väljer du lämpligt certifikat och klicka sedan på **OK** att ansluta till Service Fabric Explorer. 
 
    ![Autentisera](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
@@ -192,13 +192,13 @@ Du kan komma åt Service Fabric-kluster med hjälp av Service Fabric-Utforskaren
 
 ## <a name="use-service-fabric-powershell"></a>Använda Service Fabric PowerShell
 
-1. Installera den *Microsoft Azure Service Fabric SDK* från [förbereda din utvecklingsmiljö i Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) i Azure Service Fabric-dokumentationen.  
+1. Installera den *Microsoft Azure Service Fabric SDK* från [förbereda utvecklingsmiljön i Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) i Azure Service Fabric-dokumentationen.  
 
-2. När installationen är klar kan du konfigurera systemmiljövariabler för att säkerställa att Service Fabric-cmdlets är tillgängliga från PowerShell.  
+2. När installationen är klar, kan du konfigurera systemets miljövariabler för att säkerställa att Service Fabric-cmdlets är tillgängliga från PowerShell.  
     
     a. Gå till **Kontrollpanelen** > **System och säkerhet** > **System**, och välj sedan **avancerade systeminställningar**.  
     
-      ![Kontrollpanelen](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
+      ![På Kontrollpanelen](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 
     b. På den **Avancerat** fliken *Systemegenskaper*väljer **miljövariabler**.  
 
@@ -206,7 +206,7 @@ Du kan komma åt Service Fabric-kluster med hjälp av Service Fabric-Utforskaren
 
       ![Miljö variabellista](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
 
-3. När du har ändrat ordningen på miljövariablerna, starta om PowerShell och kör följande PowerShell-skript för att få åtkomst till Service Fabric-kluster:
+3. När du har ändrat ordning på miljövariablerna, starta om PowerShell och kör sedan följande PowerShell-skript för att få åtkomst till Service Fabric-klustret:
 
    ````PowerShell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric

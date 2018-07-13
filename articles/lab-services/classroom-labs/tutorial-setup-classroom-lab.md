@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 39683c89db57dbeefd190a51415c783d012785e0
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 163763bf1203a045326c7163b5f6da9aa417d8cf
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36303783"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081864"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Självstudie: Konfigurera ett klassrumslabb 
 I självstudien konfigurerar du ett klassrumslabb med virtuella datorer som används av eleverna i klassrummet.  
@@ -31,7 +31,7 @@ I de här självstudierna gör du följande:
 > * Konfigurera klassrumslabbet
 > * Skicka en registreringslänk till eleverna
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i rollen **Lab Creator** i labbkontot. Labbägaren kan lägga till en användare till rollen Lab Creator genom att använda stegen i följande artikel: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) (Lägg till en användare till rollen Lab Creator).
 
 
@@ -61,7 +61,7 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
 
 
 ## <a name="set-up-the-template"></a>Konfigurera mallen 
-En mall i ett labb är en basavbildning av en virtuell dator som alla användares virtuella datorer skapas från. Konfigurera mallen för virtuella datorer så att den är konfigurerad med exakt det som du vill förse labbanvändarna med. Du kan ange ett namn och en beskrivning av mallen som visas för labbanvändarna. Publicera mallen som offentlig så att instanser av den virtuella malldatorn är tillgängliga för labbanvändarna. 
+En mall i ett labb är en basavbildning av en virtuell dator som alla användares virtuella datorer skapas från. Konfigurera mallen för virtuella datorer så att den är konfigurerad med exakt det som du vill förse labbanvändarna med. Du kan ange ett namn och en beskrivning av mallen som visas för labbanvändarna. Publicera mallen så att instanser av den virtuella malldatorn är tillgängliga för labbanvändarna. 
 
 ### <a name="set-title-and-description"></a>Ange rubrik och beskrivning
 1. I avsnittet **Mall** väljer du **Redigera** (pennikonen) för mallen. 
@@ -96,8 +96,8 @@ När du publicerar en mall skapar Azure Lab Services virtuella datorer i labbet 
 2. Välj sedan knappen **Publicera**. Den här processen kan ta lite tid beroende på hur många virtuella datorer som skapas, vilket är samma som det antal användare som tillåts i labbet.
     
     > [!IMPORTANT]
-    > När en mall har gjorts offentligt tillgänglig, kan åtkomsten inte ändras till privat. 
-4. Växla till sidan **Virtuella datorer** och bekräfta att du ser fem virtuella datorer som är i tillståndet **Otilldelad**. De här virtuella datorerna har inte tilldelats till studenter ännu. 
+    > När en mall har publicerats kan publiceringen inte tas bort. 
+4. Växla till sidan **Virtuella datorer** och bekräfta att du ser virtuella datorer som är i tillståndet **Otilldelad**. De här virtuella datorerna har inte tilldelats till studenter ännu. 
 
     ![Virtuella datorer](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. Vänta tills de virtuella datorerna har skapats. De måste vara i tillstånd **Stoppad**. Du kan starta en virtuell dator för studenter, ansluta till den virtuella datorn, stoppa den virtuella datorn och ta bort den virtuella datorn på den här sidan. Du kan starta dem på den här sidan eller låta studenterna starta de virtuella datorerna. 

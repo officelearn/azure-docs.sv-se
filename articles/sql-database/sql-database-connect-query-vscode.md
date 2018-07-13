@@ -10,12 +10,12 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 7250b2578db86fdb4cbd591a605256424cb0be55
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e1294b8f83da2ad6748f051925219cdc7683d032
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794947"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441105"
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database: Använd Visual Studio Code för att ansluta och skicka frågor till data
 
@@ -34,7 +34,7 @@ Innan du börjar bör du kontrollera att du har installerat den senaste versione
 ## <a name="configure-vs-code"></a>Konfigurera VS-kod 
 
 ### <a name="mac-os"></a>**Mac OS**
-För macOS måste du installera OpenSSL, som är ett förhandskrav för den DotNet Core som används i mssql-tillägget. Ange följande kommandon för att installera **brew** och **OpenSSL**. 
+För macOS måste du installera OpenSSL, som är ett förhandskrav för den .Net Core som används i mssql-tillägget. Ange följande kommandon för att installera **brew** och **OpenSSL**. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

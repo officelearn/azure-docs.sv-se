@@ -17,12 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a76dbb9a232d99615629d1a3fec6010b37e73247
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2750ddaba4b3fe25e18b6d3b7e9a65656165818f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046786"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446613"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Ansluta till HDInsight (Hadoop) med hjälp av SSH
 
@@ -137,7 +137,19 @@ Information om hur du ändrar lösenordet för SSH-användarkontot finns i avsni
 
 ## <a id="domainjoined"></a>Autentisering: Domänanslutet HDInsight-kluster
 
-Om du använder ett __domänanslutet HDInsight-kluster__ måste du använda `kinit`-kommandot efter anslutning med SSH. Det här kommandot frågar efter en domänanvändare och ett lösenord och autentiserar din session med Azure Active Directory-domänen som är associerad med klustret.
+Om du använder ett __domänanslutet HDInsight-kluster__ måste du använda `kinit`-kommandot efter anslutning med lokal SSH-användare. Det här kommandot frågar efter en domänanvändare och ett lösenord och autentiserar din session med Azure Active Directory-domänen som är associerad med klustret.
+
+Du kan även aktivera Kerberos-autentisering på varje domänansluten nod (t.ex. huvudnod, gränsnod) för ssh med domänkontot. Det gör du genom att redigera sshd-konfigurationsfilen:
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+uncommnet och ändra `KerberosAuthentication` till `yes`
+
+```bash
+sudo service sshd restart
+```
+
+Du kan när som helst verifiera om Kerberos-autentiseringen lyckades eller inte genom att använda kommandot `klist`.
 
 Mer information finns i avsnittet [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md) (Konfigurera domänanslutna HDInsight-kluster).
 

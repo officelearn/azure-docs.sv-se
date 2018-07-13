@@ -51,4 +51,4 @@ Konceptet för Azure Compute beräkningsenhet (ACU) är ett sätt för att jämf
 
 ACU:er som visas med * använder Intel® Turbo-teknik för att öka processorfrekvensen och prestanda.  Prestandaökningens storlek kan variera beroende på storleken på den virtuella datorn, arbetsbelastningen och andra arbetsbelastningar som körs på samma värd.
 
-**Hypertrådad. 
+\*\*Hypertrådad. 

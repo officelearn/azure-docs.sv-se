@@ -1,6 +1,6 @@
 ---
-title: Azure-stacken 1804 Update | Microsoft Docs
-description: Lär dig mer om vad som finns i 1804 uppdateringen för Azure-stacken integrerat system, kända problem och var du kan hämta uppdateringen.
+title: Azure Stack 1804 Update | Microsoft Docs
+description: Lär dig mer om vad som finns i 1804 uppdateringen för Azure Stack integrerade system, kända problem och var du kan hämta uppdateringen.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,145 +12,145 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 9fc58d971db18db63e4dc76123ff1311b77e0191
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 496aea1195885c582d3529d7ddb43210aad5fea1
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316441"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990140"
 ---
-# <a name="azure-stack-1804-update"></a>Azure-stacken 1804 uppdatering
+# <a name="azure-stack-1804-update"></a>Uppdatering av Azure Stack 1804
 
-*Gäller för: Azure Stack integrerat system*
+*Gäller för: integrerade Azure Stack-system*
 
-Den här artikeln beskriver förbättringarna och korrigeringar i 1804 uppdateringspaketet, kända problem för den här versionen och var du kan hämta uppdateringen. Kända problem är indelade i direkt relaterad till uppdateringen problem och med version (efter installationen).
+Den här artikeln beskrivs förbättringarna och korrigeringar i 1804 uppdateringspaketet, kända problem för den här versionen och var du kan hämta uppdateringen. Kända problem är indelade i problem direkt relaterade till uppdateringsprocessen och problem med build (efter installationen).
 
 > [!IMPORTANT]        
-> Det här uppdateringspaketet gäller bara för Azure-stacken integrerat system. Det här uppdateringspaketet gäller inte Azure Stack Development Kit.
+> Det här uppdateringspaketet är endast för integrerade Azure Stack-system. Gäller inte det här uppdateringspaketet för Azure Stack Development Kit.
 
 ## <a name="build-reference"></a>Skapa referens    
-Azure-stacken 1804 uppdatera versionsnumret är **20180513.1**.   
+Azure Stack 1804 update build-nummer är **20180513.1**.   
 
 ### <a name="new-features"></a>Nya funktioner
-Den här uppdateringen innehåller följande förbättringar av Azure-stacken.
+Den här uppdateringen innehåller följande förbättringar för Azure Stack.
 
-- <!-- 15028744 - IS -->  **Visual Studio-stöd för den frånkopplade Azure Stack distributioner med hjälp av AD FS**. I Visual Studio du nu kan lägga till prenumerationer och autentisera federerade med hjälp av AD FS användarens autentiseringsuppgifter. 
+- <!-- 15028744 - IS -->  **Visual Studio-stöd för frånkopplade Azure Stack-distributioner som använder AD FS**. Visual Studio du nu kan lägga till prenumerationer och autentisera externa med hjälp av AD FS användarens autentiseringsuppgifter. 
  
-- <!-- 1779474, 1779458 - IS --> **Använda Av2 och F serien virtuella datorer**. Azure-stacken kan nu använda virtuella datorer baserat på storlekar för virtuella datorer med Av2-serien och F-serien. Mer information finns i [storlekar för virtuella datorer stöds i Azure-stacken](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). 
+- <!-- 1779474, 1779458 - IS --> **Använda Av2 och F-serien virtuella datorer**. Azure Stack kan nu använda virtuella datorer baserat på storlekar för virtuella datorer i Av2-serien och F-serien. Mer information finns i [VM-storlekar som stöds i Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). 
 
-- <!-- 1759172 - IS, ASDK --> **Nya administrativa prenumerationer**. Med 1804 finns det två nya prenumerationstyper av i portalen. Dessa nya prenumerationstyper är utöver Standard Provider-prenumeration och visas med den nya Azure-stacken installationer från och med version 1804. *Använd inte typerna prenumeration med den här versionen av Azure-stacken*. Vi kommer att meddela tillgängligheten för att använda dessa prenumerationstyper av i en kommande uppdatering. 
+- <!-- 1759172 - IS, ASDK --> **Nya administrativa prenumerationer**. Med 1804 finns det två typer av nya prenumerationer i portalen. Dessa nya typer av prenumerationer är utöver standard providerprenumeration och synliga i nya Azure Stack-installationer från och med version 1804. *Använd inte de här nya typer av prenumerationer med den här versionen av Azure Stack*. Vi meddelar tillgängligheten för att använda dessa typer av prenumerationer in med en kommande uppdatering. 
 
-  Om du uppdaterar Azure Stack till version 1804 syns inte de två typerna för ny prenumeration. Dock nya distributioner av Azure-stacken integrerat system och installationer av Azure-stacken Development Kit version 1804 eller senare har åtkomst till alla prenumerationstyper av tre.  
+  Om du uppdaterar Azure Stack till version 1804, visas inte de två nya typerna av prenumerationer. Dock nya distributioner av Azure Stack-integrerade system och installationer av Azure Stack Development Kit version 1804 eller senare har åtkomst till alla tre prenumerationstyper.  
 
-  Dessa nya prenumerationstyper är en del av en större ändring att säkra Standard Provider-prenumeration och för att göra det enklare att distribuera delade resurser som värd för SQL-servrar. När vi lägger till flera delar av den här större ändringar med framtida uppdateringar till Azure-stacken kan resurser har distribuerats under typerna prenumeration gå förlorade. 
+  Dessa nya typer av prenumerationer är en del av en större ändring att skydda standard providerprenumeration och för att göra det enklare att distribuera delade resurser som som är värd för SQL-servrar. När vi lägger till fler delar av den här större ändring med framtida uppdateringar till Azure Stack kan gå förlorade resurser som har distribuerats under dessa nya typer av prenumerationer. 
 
   De tre prenumerationen nu visas är:  
-  - Standard prenumeration på leverantör: fortsätta att använda den här prenumerationstypen. 
+  - Standard providerprenumeration: fortsätta att använda den här prenumerationstypen. 
   - Avläsning av prenumerationen: *inte använder den här prenumerationstypen.*
-  - Förbrukning prenumerationen: *inte använder den här prenumerationstypen*
+  - Användning-prenumeration: *inte använder den här prenumerationstypen*
 
   
 
 
 
-## <a name="fixed-issues"></a>Fast problem
+## <a name="fixed-issues"></a>Åtgärdade problem
 
-- <!-- IS, ASDK -->  I administrationsportal behöver du inte längre uppdatera panelen uppdatering innan den visar information.
+- <!-- IS, ASDK -->  I administrationsportalen behöver du inte längre uppdatera uppdatera panel innan den visar information.
  
-- <!-- 2050709  -->  Du kan nu använda administrationsportal för att redigera storage-mätvärden för Blob-tjänsten, tabell och kötjänsten.
+- <!-- 2050709  -->  Du kan nu använda administrationsportalen för att redigera lagringsmått för Blob service, Table service och kötjänsten.
  
-- <!-- IS, ASDK --> Under **nätverk**när du klickar på **anslutning** att ställa in en VPN-anslutning **plats-till-plats (IPsec)** nu är det enda tillgängliga alternativet.
+- <!-- IS, ASDK --> Under **nätverk**när du klickar på **anslutning** att konfigurera en VPN-anslutning **plats-till-plats (IPsec)** nu är det enda tillgängliga alternativet.
 
-- **Olika korrigeringar** för operativsystemet som används av Azure-stacken, säkerhet, stabilitet och prestanda.
+- **Olika korrigeringar** för prestanda, stabilitet, säkerhet och det operativsystem som används av Azure Stack.
 
-## <a name="additional-releases-timed-with-this-update"></a>Ytterligare versioner tidsgränsen med den här uppdateringen  
+## <a name="additional-releases-timed-with-this-update"></a>Ytterligare versioner som taggats med den här uppdateringen  
 Följande är nu tillgängliga, men kräver inte Azure Stack-uppdatering 1804.
-- **Uppdatera till Microsoft Azure-stacken System Center Operations Manager Övervakningspaket**. Det finns en ny version (1.0.3.0) av Microsoft System Center Operations Manager Monitoring Pack för Azure-Stack för [hämta](https://www.microsoft.com/download/details.aspx?id=55184). Med den här versionen kan du använda tjänstens huvudnamn när du lägger till en ansluten Azure Stack-distribution. Den här versionen har också en uppdateringshantering upplevelse som gör att du kan ta Reparationsåtgärd direkt från Operations Manager. Det finns också nya instrumentpaneler som visar resursproviders, skalningsenheter och skala enhet noder.
+- **Uppdatera till Microsoft Azure Stack-System Center Operations Manager Övervakningspaket**. En ny version (1.0.3.0) av Microsoft System Center Operations Manager Monitoring Pack för Azure Stack är tillgänglig för [hämta](https://www.microsoft.com/download/details.aspx?id=55184). Med den här versionen kan du använda tjänstens huvudnamn när du lägger till en ansluten Azure Stack-distribution. Den här versionen har också en uppdateringshantering upplevelse som låter dig dra Reparationsåtgärd direkt från Operations Manager. Det finns även nya instrumentpaneler som Visa resursprovidrar, skalningsenheter och skala enhet noder.
 
-- **Nya Azure stacken Admin PowerShell Version 1.3.0**.  Azure-stacken PowerShell 1.3.0 är nu tillgängliga för installation. Den här versionen innehåller kommandon för alla providrar för administratören att hantera Azure-stacken.  Med den här versionen innehåll att bli inaktuell från Azure-stacken verktyg GitHub [databasen](https://github.com/Azure/AzureStack-Tools). 
+- **Nya Azure Stack Admin PowerShell-Version 1.3.0**.  Azure Stack PowerShell 1.3.0 är nu tillgängliga för installation. Den här versionen innehåller kommandon för alla providrar för administratören att hantera Azure Stack.  Den här versionen kan delar av innehållet upphör att gälla från Azure Stack verktyg GitHub [databasen](https://github.com/Azure/AzureStack-Tools). 
 
-   För information om installationen, följer du de [instruktioner](azure-stack-powershell-install.md) eller [hjälp](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) innehåll för Azure-stacken modulen 1.3.0. 
+   Installationsinformation, följ den [instruktioner](azure-stack-powershell-install.md) eller [hjälpa](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) innehåll för Azure Stack-modulen 1.3.0. 
 
-- **Inledande versionen av Azure Rest API-referens Stack**. Den [API-referens för alla Azure-stacken Admin-providrar](https://docs.microsoft.com/rest/api/azure-stack/) publiceras nu. 
+- **Första versionen av Azure Rest API-referens Stack**. Den [API-referens för alla Azure Stack-Admin-providrar](https://docs.microsoft.com/rest/api/azure-stack/) har nu publicerats. 
 
 
 ## <a name="before-you-begin"></a>Innan du börjar    
 
 ### <a name="prerequisites"></a>Förutsättningar
-- Installera Azure-stacken [1803 uppdatera](azure-stack-update-1803.md) innan du installerar Azure Stack 1804 uppdateringen.    
+- Installera Azure Stack [1803 uppdatera](azure-stack-update-1803.md) innan du installerar Azure Stack 1804 uppdateringen.    
 
 ### <a name="known-issues-with-the-update-process"></a>Kända problem med uppdateringen   
-- Du kan se aviseringar med rubriken under installationen av uppdateringen 1804 *fel – mall för FaultType UserAccounts.New saknas.*  Du kan ignorera dessa aviseringar. De här aviseringarna stängs automatiskt när 1804 uppdateringen är klar.   
+- Du kan se aviseringar med rubriken under installationen av uppdateringen 1804 *fel – mall för FaultType UserAccounts.New saknas.*  Du kan ignorera dessa aviseringar. De här aviseringarna stängs automatiskt när uppdateringen till 1804 är klar.   
  
-- <!-- TBD - IS --> Försök inte att skapa virtuella datorer under installationen av uppdateringen. Mer information om hur du hanterar uppdateringar finns [hantera uppdateringar i Azure-stacken översikt](azure-stack-updates.md#plan-for-updates).
+- <!-- TBD - IS --> Försök inte att skapa virtuella datorer under installationen av uppdateringen. Mer information om hur du hanterar uppdateringar finns i [hantera uppdateringar i Azure Stack – översikt](azure-stack-updates.md#plan-for-updates).
 
 
 ### <a name="post-update-steps"></a>Steg efter uppdateringen
-Installera alla tillämpliga snabbkorrigeringar efter installationen av 1804. Mer information läser du följande knowledge base-artiklar, samt våra [Servicing princip](azure-stack-servicing-policy.md).  
- - [KB 4341392 - Azure Stack snabbkorrigering 1.0.180523.11](https://support.microsoft.com/en-us/help/4341392).
+När installationen av 1804, installerar du eventuella tillämpliga snabbkorrigeringar. Visa mer information i följande artiklar i kunskapsbasen, samt våra [Servicing princip](azure-stack-servicing-policy.md).  
+ - [KB 4344114 – Azure Stack-snabbkorrigeringen 1.0.180527.15](https://support.microsoft.com/help/4344114).
 
 
 
 
 ### <a name="known-issues-post-installation"></a>Kända problem (efter installationen)
-Följande är efter installationen kända problem för version **20180513.1**.
+Följande är efter installation kända problem för version **20180513.1**.
 
 #### <a name="portal"></a>Portalen
-- <!-- 1272111 - IS --> Du kan inte visa Azure-stacken skalenheter i administrationsportal när du installerar eller uppdatera till den här versionen av Azure-stacken.  
-  Lösning: Använd PowerShell för att visa information om Skalningsenheter. Mer information finns i [hjälp](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) innehåll för Azure-stacken modulen 1.3.0. 
+- <!-- 1272111 - IS --> Du kan inte visa Azure Stack-skalningsenheter i Admin portal när du installerar eller uppdaterar till den här versionen av Azure Stack.  
+  Lösning: Använd PowerShell för att visa information om Skalningsenheter. Mer information finns i den [hjälpa](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) innehåll för Azure Stack-modulen 1.3.0. 
 
-- <!-- 2332636 - IS -->  När du använder AD FS för Azure-stacken identitetssystem och uppdatera till den här versionen av Azure-stacken standardägaren av providern standardabonnemang återställs till inbyggt **CloudAdmin** användare.  
-  Lösning: Lös problemet när du har installerat uppdateringen med steg 3 från de [utlösaren automation för att konfigurera anspråksproviderförtroende i Azure-stacken](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) proceduren för att återställa standard providern Prenumerationens ägare.   
+- <!-- 2332636 - IS -->  När du använder AD FS för Azure Stack-identitetssystemet och uppdatera till den här versionen av Azure Stack standardägaren av providern Standardprenumeration återställs till inbyggt **CloudAdmin** användare.  
+  Lösning: Lös problemet när du har installerat uppdateringen med steg 3 i den [utlösa automatisering för att konfigurera anspråk providern förtroende i Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) proceduren för att återställa standard-providern Prenumerationens ägare.   
 
-- <!-- TBD - IS ASDK --> Vissa prenumerationstyper av administrativa är inte tillgängliga.  När du uppgraderar Azure stacken för den här versionen, två prenumerationstyper som har [introducerades i version 1804](#new-features) visas inte i konsolen. Detta är normalt. Tillgänglig prenumerationstyper är *avläsning prenumeration*, och *förbrukning prenumeration*. Dessa prenumerationstyper av visas i den nya Azure-stacken miljöer från och med version 1804 men ännu inte är redo för användning. Du bör fortsätta att använda den *Standard Provider* prenumerationstyp.  
+- <!-- TBD - IS ASDK --> Vissa typer av administrativa prenumerationer är inte tillgängliga.  När du uppgraderar Azure Stack i den här versionen, två prenumerationstyper som var [introducerades i version 1804](#new-features) visas inte i konsolen. Detta är normalt. Typerna som inte tillgänglig prenumeration är *Avläsning av prenumeration*, och *förbrukning prenumeration*. Dessa typer av prenumerationer visas i den nya Azure Stack miljöer från och med version 1804 men ännu inte är redo att användas. Du bör fortsätta att använda den *Standard Provider* prenumerationstyp.  
 
 
-- <!-- TBD -  IS ASDK -->Möjlighet [att öppna en ny supportförfrågan i listrutan](azure-stack-manage-portals.md#quick-access-to-help-and-support) från inom administratören portalen är inte tillgänglig. I stället använder du följande länk:     
-    - För Azure-Stack integrerad system använda https://aka.ms/newsupportrequest.
+- <!-- TBD -  IS ASDK -->Möjligheten [att öppna en ny supportbegäran i listrutan](azure-stack-manage-portals.md#quick-access-to-help-and-support) från inom administratören portalen är inte tillgänglig. I stället använder du följande länk:     
+    - För Azure Stack integrerade system använder https://aka.ms/newsupportrequest.
 
-- <!-- 2403291 - IS ASDK --> Du kanske inte användning av den vågräta rullningslisten längst ned i administratörs- och portaler. Om du inte kommer åt den vågräta rullningslisten, Använd de sökvägarna att navigera till ett tidigare blad i portalen genom att markera namnet på bladet som du vill visa i listan spåret som finns längst upp till vänster i portalen.
-  ![Dynamiska länkar](media/azure-stack-update-1804/breadcrumb.png) 
+- <!-- 2403291 - IS ASDK --> Du kanske inte användning av den vågräta rullningslisten längst ned på administratörs- och portaler. Om du inte kommer åt den vågräta rullningslisten, Använd spåret och navigera till ett tidigare blad i portalen genom att välja namn på bladet du vill visa i dynamiska länkar på listan som finns längst upp till vänster i portalen.
+  ![Brödsmula](media/azure-stack-update-1804/breadcrumb.png) 
 
-- <!-- TBD - IS --> Det kanske inte går att visa beräkning eller lagring resurser i administratörsportalen. Orsaken till det här problemet uppstår ett fel under installationen av uppdateringen som gör att uppdateringen som ska rapporteras felaktigt som slutförd. Om det här problemet inträffar kan du kontakta Microsofts kundsupport om du behöver hjälp.
+- <!-- TBD - IS --> Det kanske inte går att visa resurser för beräkning eller lagring i administratörsportalen. Orsaken till problemet är ett fel under installationen av uppdateringen som gör att uppdateringen ska rapporteras felaktigt som slutförd. Om det här problemet inträffar kan du kontakta Microsofts kundsupport om du behöver hjälp.
 
-- <!-- TBD - IS --> Du kan se en tom instrumentpanel i portalen. Om du vill återställa instrumentpanelen, väljer du växeln-ikonen i det övre högra hörnet av portalen och välj sedan **återställa standardinställningarna**.
+- <!-- TBD - IS --> Du kan se en tom instrumentpanel i portalen. Om du vill återställa instrumentpanelen, väljer du kugghjulsikonen i det övre högra hörnet i portalen och välj sedan **Återställ standardinställningarna**.
 
-- <!-- TBD - IS ASDK --> Ta bort användaren prenumerationer resulterar i frånkopplade resurser. Först ta bort resurser för användare eller hela resursgruppen som en lösning och sedan ta bort prenumerationer för användaren.
+- <!-- TBD - IS ASDK --> Tar bort användaren prenumerationer resulterar i överblivna resurser. Som en lösning kan du först ta bort användarresurser eller hela resursgruppen och tar bort användarprenumerationer.
 
-- <!-- TBD - IS ASDK --> Du kan inte visa behörighet till din prenumeration med hjälp av Azure Stack-portaler. Som en tillfällig lösning kan du använda PowerShell för att kontrollera behörigheter.
+- <!-- TBD - IS ASDK --> Du kan inte visa behörigheter till din prenumeration med hjälp av Azure Stack-portaler. Som en lösning kan du använda PowerShell för att kontrollera behörigheterna.
 
-- <!-- TBD - IS ASDK --> I administrationsportal kan du se en kritisk varning för den *Microsoft.Update.Admin* komponent. Varningens namn, beskrivning och reparation alla visas som:  
+- <!-- TBD - IS ASDK --> I admin portal kan du se en kritisk varning i *Microsoft.Update.Admin* komponent. Aviseringens namn, beskrivning och åtgärder som alla Visa som:  
     - *FEL - mall för FaultType ResourceProviderTimeout saknas.*
 
-  Den här aviseringen kan ignoreras. 
+  Den här varningen kan ignoreras. 
 
 
 #### <a name="health-and-monitoring"></a>Hälsa och övervakning
-- <!-- 1264761 - IS ASDK -->  Du kan se aviseringar för den *hälsa controller* komponenten som har följande information:  
+- <!-- 1264761 - IS ASDK -->  Du kan se aviseringar för den *hälsotillstånd controller* komponent som har följande information:  
 
    Avisera #1:
-   - NAMN: Infrastrukturrollen ohälsosamt
+   - NAMN: Infrastrukturrollen defekt
    - ALLVARLIGHETSGRAD: varning
-   - KOMPONENT: Hälsotillstånd domänkontrollant
-   - Beskrivning: Hälsotillstånd controller pulsslag skanner är inte tillgänglig. Detta kan påverka hälsorapporter och mått.  
+   - KOMPONENT: Health controller
+   - Beskrivning: Kontrollanten hälsotillstånd pulsslag skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.  
 
   Avisera #2:
-   - NAMN: Infrastrukturrollen ohälsosamt
+   - NAMN: Infrastrukturrollen defekt
    - ALLVARLIGHETSGRAD: varning
-   - KOMPONENT: Hälsotillstånd domänkontrollant
-   - Beskrivning: Hälsotillstånd controller fel skanner är inte tillgänglig. Detta kan påverka hälsorapporter och mått.
+   - KOMPONENT: Health controller
+   - Beskrivning: Kontrollanten hälsotillstånd fel skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.
 
-  Båda aviseringarna kan ignoreras. De stängs automatiskt med tiden.  
+  Båda aviseringarna kan ignoreras. De stängs automatiskt över tid.  
  
 
 #### <a name="compute"></a>Compute
-- <!-- TBD - IS --> När du väljer en storlek på virtuell dator för distribution av virtuella datorer, vissa F-serien VM-storlekar visas inte som en del av Väljaren storlek när du skapar en virtuell dator. Storlek på följande Virtuella datorer visas inte i Väljaren: *F8s_v2*, *F16s_v2*, *F32s_v2*, och *F64s_v2*.  
-  Som en lösning att använda någon av följande metoder för att distribuera en virtuell dator. Du måste ange VM-storlek som du vill använda för varje metod.
+- <!-- TBD - IS --> När du väljer en VM-storlek för en distribution av virtuella datorer, vissa F-seriens storlekar visas inte som en del av storlek Väljaren när du skapar en virtuell dator. Storlek på följande Virtuella datorer visas inte i Väljaren: *F8s_v2*, *F16s_v2*, *F32s_v2*, och *F64s_v2*.  
+  Som en lösning kan du använda en av följande metoder för att distribuera en virtuell dator. Du måste ange VM-storlek som du vill använda i varje metod.
 
-  - **Azure Resource Manager-mall:** när du använder en mall i *vmSize* i mallen ska vara lika med den önskade VM-storleken. Till exempel följande används för att distribuera en virtuell dator som använder den *F32s_v2* storlek:  
+  - **Azure Resource Manager-mall:** när du använder en mall kan du ange den *vmSize* i mallen ska vara lika med önskad storlek. Till exempel följande används för att distribuera en virtuell dator som använder den *F32s_v2* storlek:  
 
     ```
         "properties": {
@@ -158,53 +158,53 @@ Följande är efter installationen kända problem för version **20180513.1**.
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI:** du kan använda den [az vm skapa](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) kommando och ange VM-storlek som en parameter som liknar `--size "Standard_F32s_v2"`.
+  - **Azure CLI:** du kan använda den [az vm skapa](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) kommandot och ange virtuella datorstorlek som en parameter, liknar `--size "Standard_F32s_v2"`.
 
-  - **PowerShell:** med PowerShell som du kan använda [ny AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) med parametern som anger VM-storlek liknar `-VMSize "Standard_F32s_v2"`.
+  - **PowerShell:** med PowerShell som du kan använda [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) med parametern som anger virtuella datorns storlek, liknar `-VMSize "Standard_F32s_v2"`.
 
 
-- <!-- TBD - IS ASDK --> Inställningarna för skalning för virtuella datorer är inte tillgängliga i portalen. Som en tillfällig lösning kan du använda [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). På grund av skillnader mellan versioner PowerShell måste du använda den `-Name` parameter i stället för `-VMScaleSetName`.
+- <!-- TBD - IS ASDK --> Skalningsinställningarna för skalningsuppsättningar för virtuella datorer är inte tillgängliga i portalen. Som en tillfällig lösning kan du använda [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). På grund av skillnader i PowerShell-version, måste du använda den `-Name` parameter i stället för `-VMScaleSetName`.
 
-- <!-- TBD - IS --> När du skapar en tillgänglighetsuppsättning i portalen genom att gå till **ny** > **Compute** > **tillgänglighetsuppsättning**, du kan bara skapa en tillgänglighetsuppsättning med en feldomän och uppdateringsdomän 1. Som en lösning när du skapar en ny virtuell dator, skapa tillgänglighetsuppsättning med hjälp av PowerShell, CLI eller från portalen.
+- <!-- TBD - IS --> När du skapar en tillgänglighetsuppsättning i portalen genom att gå till **New** > **Compute** > **tillgänglighetsuppsättning**, du kan bara skapa en tillgänglighetsuppsättning med en feldomän och uppdateringsdomän 1. Som en lösning, när du skapar en ny virtuell dator, skapa tillgänglighetsuppsättning med hjälp av PowerShell, CLI, eller från portalen.
 
-- <!-- TBD - IS ASDK --> När du skapar virtuella datorer på Azure-stacken användarportalen visar portalen ett felaktigt antal datadiskar som kan kopplas till D-serien VM. Alla stöds D-serien virtuella datorer kan hantera så många datadiskar som Azure-konfiguration.
+- <!-- TBD - IS ASDK --> När du skapar virtuella datorer på Azure Stack-användarportalen visar ett felaktigt antal datadiskar som kan kopplas till D-serien VM i portalen. Alla stöds D-serien virtuella datorer kan hantera så många datadiskar som Azure-konfiguration.
 
-- <!-- TBD - IS ASDK --> När en VM-avbildning misslyckas skapas kan en misslyckade objekt som du inte kan ta bort läggas till bladet VM-avbildningar beräkning.
+- <!-- TBD - IS ASDK --> När en VM-avbildning som inte kan skapas, kan ett misslyckade objekt som du inte kan ta bort läggas till VM-avbildningar compute-bladet.
 
-  Skapa en ny VM-avbildning som en lösning med en dummy VHD som kan skapas med Hyper-V (nya VHD-sökvägen C:\dummy.vhd-fast - SizeBytes 1 GB). Den här processen ska åtgärda problemet som förhindrar att ta bort objektet misslyckades. Därefter, 15 minuter efter skapar avbildningen av dummy har bort den.
+  Som en lösning kan du skapa en ny VM-avbildning med en dummy virtuell Hårddisk som kan skapas via Hyper-V (New-VHD-sökväg C:\dummy.vhd-fast - SizeBytes 1 GB). Den här processen ska åtgärda de problem som förhindrar att ta bort objektet som misslyckades. Därefter, 15 minuter när du har skapat den dummy-avbildningen har bort den.
 
-  Du kan sedan försöker redownload VM-avbildning som tidigare har misslyckats.
+  Du kan sedan försöka redownload VM-avbildning som tidigare misslyckats.
 
-- <!-- TBD - IS ASDK --> Om det tar för lång tid att etablera ett tillägg på en distribution av Virtuella datorer, bör användarna kan etablering timeout-värde i stället för att stoppa processen för att frigöra eller ta bort den virtuella datorn.  
+- <!-- TBD - IS ASDK --> Om det tar för lång tid att etablera ett tillägg på en VM-distribution, bör användarna låta etablering timeout-värde istället för att försöka stoppa processen för att frigöra eller ta bort den virtuella datorn.  
 
-- <!-- 1662991 IS ASDK --> Linux VM diagnostik stöds inte i Azure-stacken. När du distribuerar en Linux VM med diagnostik för Virtuella datorer aktiveras misslyckas distributionen. Distributionen misslyckas även om du aktiverar Linux VM grundläggande mätvärden via diagnostikinställningar.  
+- <!-- 1662991 IS ASDK --> Linux VM-diagnostik stöds inte i Azure Stack. Distributionen misslyckas när du distribuerar en Linux VM med VM-diagnostik aktiverat. Distributionen misslyckas också om du aktiverar den grundläggande Linux VM-mätvärden via diagnostikinställningar.  
 
 
 #### <a name="networking"></a>Nätverk
-- <!-- 1766332 - IS ASDK --> Under **nätverk**, om du klickar på **skapa VPN-Gateway** att ställa in en VPN-anslutning **principbaserad** har listats som en VPN-typ. Välj inte det här alternativet. Endast den **väg baserat** alternativet stöds i Azure-stacken.
+- <!-- 1766332 - IS ASDK --> Under **nätverk**, om du klickar på **skapa VPN-Gateway** att konfigurera en VPN-anslutning **principbaserad** har listats som en VPN-typ. Välj inte det här alternativet. Endast den **Vägbaserad** stöds i Azure Stack.
 
-- <!-- 2388980 - IS ASDK --> När en virtuell dator som associeras med en offentlig IP-adress, kan du koppla den virtuella datorn från att IP-adress. Disassociation verkar fungera, men tidigare tilldelade offentliga IP-adressen är kopplad till den ursprungliga virtuella datorn.
+- <!-- 2388980 - IS ASDK --> När en virtuell dator skapas och som är associerade med en offentlig IP-adress, kan du kopplingen mellan den virtuella datorn från IP-adress. Avassociationsåtgärden ser ut att fungera, men den tidigare tilldelade offentliga IP-adressen förblir kopplad till den ursprungliga virtuella datorn.
 
-  För närvarande måste du använda endast nya offentliga IP-adresser för nya virtuella datorer som du skapar.
+  För närvarande, måste du använda endast nya offentliga IP-adresser för nya virtuella datorer som du skapar.
 
-  Detta inträffar även om du omtilldelar IP-adress till en ny virtuell dator (som vanligtvis kallas ett *VIP-växling*). Alla framtida försöker att ansluta till IP-adress resultatet i en anslutning till den ursprungligen associerade virtuella datorn och inte till en ny.
+  Detta inträffar även om du omtilldelar IP-adress till en ny virtuell dator (som ofta kallas en *VIP-växling*). Alla framtiden försöker ansluta via IP-adress resultatet i en anslutning till den ursprungligen associerade virtuella datorn och inte till den nya servern.
 
-- <!-- 2292271 - IS ASDK --> Om du höjer en kvotgräns för en nätverksresurs som är en del av ett erbjudande och planera som är associerad med en klientprenumeration tillämpas inte den nya gränsen till prenumerationen. Den nya gränsen gäller dock att nya prenumerationer som skapas efter kvoten ökas. 
+- <!-- 2292271 - IS ASDK --> Om du ökar en kvot för en nätverksresurs som är en del av ett erbjudande och en Plan som är associerad med en klientprenumeration, tillämpas inte den nya gränsen till den prenumerationen. Den nya gränsen gäller dock för nya prenumerationer som skapas när kvoten ökas. 
 
-  Undvik problemet genom att använda en plan för tillägg för att öka en kvot på nätverket när planen är redan kopplat till en prenumeration. Mer information finns i så här [tillgängliggöra en plan för tillägget](azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
+  Undvik problemet genom att använda en tilläggsplanen för att öka en kvot för datornätverk när planen är redan associerad med en prenumeration. Läs mer om hur du [tillgängliggöra en tilläggsplanen](azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
-- <!-- 2304134 IS ASDK --> Du kan inte ta bort en prenumeration som har DNS-zon eller routningstabellen resurser som är kopplade till den. Om du vill ta bort prenumerationen har, måste du först radera DNS-zonen och routningstabellen resurser från prenumerationen klient. 
+- <!-- 2304134 IS ASDK --> Du kan inte ta bort en prenumeration som har resurser som DNS-zon eller routningstabellen resurser som är associerade med den. Om du vill ta bort prenumerationen har, måste du först radera DNS-zon och routningstabellen resurser från prenumerationen klient. 
   
 
-- <!-- 1902460 - IS ASDK --> Azure-stacken stöder en enda *lokal nätverksgateway* per IP-adress. Detta gäller över alla klient-prenumerationer. Efter att skapa den första gateway nätverksanslutningen, efterföljande försök att skapa en gateway för lokala nätverksresurser med samma IP-adress blockeras.
+- <!-- 1902460 - IS ASDK --> Azure Stack stöd för en enda *lokal nätverksgateway* per IP-adress. Detta gäller för alla klient-prenumerationer. Efter skapandet av den första gateway nätverksanslutningen, efterföljande försök att skapa en resurs för gatewayen lokalt nätverk med samma IP-adress blockeras.
 
-- <!-- 16309153 - IS ASDK --> I ett virtuellt nätverk som har skapats med en DNS-Server inställning av *automatisk*, ändra till en anpassad DNS-servern misslyckas. De uppdaterade inställningarna är inte pushas till virtuella datorer i det virtuella nätverket.
+- <!-- 16309153 - IS ASDK --> I ett virtuellt nätverk som har skapats med en DNS-Server-inställningarna för *automatisk*, ändra till en anpassad DNS-servern misslyckas. De uppdaterade inställningarna skickas inte till virtuella datorer i det virtuella nätverket.
 
-- <!-- TBD - IS ASDK --> Azure-stacken stöder inte att lägga till ytterligare nätverksgränssnitt i en VM-instans när den virtuella datorn har distribuerats. Om den virtuella datorn kräver mer än ett nätverksgränssnitt, måste ha definierats vid tidpunkten för distribution.
+- <!-- TBD - IS ASDK --> Azure Stack har inte stöd för att lägga till ytterligare nätverksgränssnitt i en VM-instans efter den virtuella datorn har distribuerats. Om den virtuella datorn kräver mer än ett nätverksgränssnitt, måste de ha definierats vid tidpunkten för distribution.
 
-- <!-- 2096388 IS --> Du kan inte använda administrationsportal för att uppdatera regler för en nätverkssäkerhetsgrupp. 
+- <!-- 2096388 IS --> Du kan inte använda administrationsportalen för att uppdatera regler för en grupp. 
 
-    Lösning för Apptjänst: Om du behöver fjärrskrivbord till domänkontrollant instanser du ändra säkerhetsregler inom nätverkssäkerhetsgrupper med PowerShell.  Följande är exempel på hur du *Tillåt*, och sedan återställa konfigurationen av *neka*:  
+    Lösning för App Service: Om du behöver fjärrskrivbord till Controller-instanser kan du ändra säkerhetsregler i nätverkssäkerhetsgrupper med PowerShell.  Följande är exempel på hur du *Tillåt*, och sedan återställa konfigurationen av *neka*:  
     
     - *Tillåt:*
  
@@ -267,28 +267,28 @@ Följande är efter installationen kända problem för version **20180513.1**.
 
 #### <a name="sql-and-mysql"></a>SQL- och MySQL
 
-- <!-- TBD - IS --> Endast resursprovidern stöds för att skapa objekt på servrar som SQL-värd eller MySQL. Objekt som har skapats på en värdserver som inte har skapats av resursprovidern kan resultera i ett felaktigt tillstånd.  
+- <!-- TBD - IS --> Endast resursprovidern stöds för att skapa objekt på servrar som värd SQL eller MySQL. Objekt som har skapats på en värdserver som inte skapats med resursprovidern kan resultera i ett felaktigt tillstånd.  
 
-- <!-- IS, ASDK --> Specialtecken, inklusive blanksteg och punkter, stöds inte i den **familj** eller **nivå** namn när du skapar en SKU för SQL och MySQL-resursprovidrar.
+- <!-- IS, ASDK --> Specialtecken, inklusive blanksteg och punkter, stöds inte i den **familj** eller **nivå** namn när du skapar en SKU för SQL- och MySQL-resursprovider.
 
 
 > [!NOTE]  
-> <!-- TBD - IS --> När du har uppdaterat till Azure-stacken 1804 kan du fortsätta att använda SQL och MySQL resursproviders som du tidigare har distribuerats.  Vi rekommenderar att du uppdaterar SQL och MySQL när en ny version blir tillgänglig. T.ex. Azure-stacken, tillämpa uppdateringar SQL och MySQL resursprovidrar sekventiellt.  Till exempel om du använder version 1802 först installera version 1803 och uppdatera sedan till 1804.      
+> <!-- TBD - IS --> När du har uppdaterat till Azure Stack 1804 kan du fortsätta att använda SQL- och MySQL resursprovidrar som du tidigare har distribuerat.  Vi rekommenderar att du uppdaterar SQL- och MySQL när en ny version blir tillgänglig. Som Azure Stack gäller uppdateringar SQL och MySQL-resursprovidrar sekventiellt.  Till exempel om du använder version 1802 först installera version 1803 och uppdatera sedan till 1804.      
 >   
-> Installationen av uppdateringen 1804 påverkar inte den nuvarande användningen av SQL- eller MySQL resursproviders av användare.
-> Dina användare data i sina databaser oavsett vilken version av resursleverantörer som du använder är inte vidröras och förblir tillgängligt.    
+> Installationen av uppdateringen 1804 påverkar inte den nuvarande användningen av SQL eller MySQL resursprovidrar av användarna.
+> Oavsett vilken version av resursprovidrar som du använder dina data för användare i sina databaser är inte vidröras och är fortfarande tillgängliga.    
 
 
 
 #### <a name="app-service"></a>App Service
-- <!-- 2352906 - IS ASDK --> Användare måste registrera lagringsresursprovidern innan de skapar sin första Azure-funktion i prenumerationen.
+- <!-- 2352906 - IS ASDK --> Användarna måste registrera lagringsresursprovidern innan de skapar sina första Azure-funktion i prenumerationen.
 
-- <!-- TBD - IS ASDK --> För att skala ut infrastruktur (anställda, hantering, frontend roller), måste du använda PowerShell enligt beskrivningen i viktig information för beräkning.
+- <!-- TBD - IS ASDK --> För att skala ut infrastruktur (arbetare, hantering, frontend-roller), måste du använda PowerShell enligt beskrivningen i viktig information för beräkning.
 
-- <!-- TBD - IS ASDK --> Apptjänst kan endast distribueras till den **standard prenumeration på leverantör** just nu.  I en kommande uppdatering Apptjänst ska distribuera till den nya avläsning prenumerationen som introducerades i Azure-stacken 1804 och alla befintliga distributioner kommer att migreras till den här nya prenumerationen också.
+- <!-- TBD - IS ASDK --> App Service kan bara distribueras till den **standard Providerprenumeration** just nu.  I en kommande uppdatering distribuerar App Service till den nya Avläsning av prenumeration som introducerades i Azure Stack 1804 och alla befintliga distributioner kommer att migreras till den här nya prenumerationen också.
 
 #### <a name="usage"></a>Användning  
-- <!-- TBD - IS ASDK --> Offentlig IP-adress användning mätaren användningsdata visar samma *EventDateTime* värde för varje post i stället för den *TimeDate* tidsstämpel som visar när posten har skapats. För närvarande kan du använda informationen för att utföra redovisas korrekt användning av offentlig IP-adress.
+- <!-- TBD - IS ASDK --> Offentlig IP-adress användning mätaren användningsdata visar samma *EventDateTime* värde för varje post i stället för den *TimeDate* stämpel som visar när posten skapades. För närvarande kan använda du inte dessa data för att utföra redovisas korrekt användning av offentlig IP-adress.
 
 
 <!-- #### Identity -->
@@ -296,10 +296,10 @@ Följande är efter installationen kända problem för version **20180513.1**.
 
 
 ## <a name="download-the-update"></a>Hämta uppdateringen
-Du kan ladda ned uppdateringspaketet Azure Stack 1804 från [här](https://aka.ms/azurestackupdatedownload).
+Du kan ladda ned Azure Stack 1804 uppdateringspaketet från [här](https://aka.ms/azurestackupdatedownload).
 
 
 ## <a name="see-also"></a>Se också
-- Om du vill använda Privilegierade slutpunkt (program) för att övervaka och återuppta uppdateringar, se [övervaka uppdateringar i Azure-stacken använder Privilegierade slutpunkten](azure-stack-monitor-update.md).
-- En översikt över uppdateringshantering i Azure-stacken, se [hantera uppdateringar i Azure-stacken översikt](azure-stack-updates.md).
-- Mer information om hur du installerar uppdateringar med Azure-stacken finns [tillämpa uppdateringar i Azure-stacken](azure-stack-apply-updates.md).
+- Om du vill använda detta privilegierad slutpunkt (program) för att övervaka och återuppta uppdateringar, se [övervakar uppdateringarna i Azure Stack med hjälp av privilegierad slutpunkt](azure-stack-monitor-update.md).
+- En översikt över uppdateringshantering i Azure Stack finns i [hantera uppdateringar i Azure Stack – översikt](azure-stack-updates.md).
+- Mer information om hur du tillämpar uppdateringar med Azure Stack finns i [tillämpa uppdateringar i Azure Stack](azure-stack-apply-updates.md).

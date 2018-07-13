@@ -1,6 +1,6 @@
 ---
-title: Diagnostisera virtuella routning nätverksproblem - Azure PowerShell | Microsoft Docs
-description: I den här artikeln får lära du att diagnostisera virtuella routning nätverksproblem med nästa hopp-funktionen i Azure Nätverksbevakaren.
+title: Diagnostisera en virtuell dator problem med nätverksroutning – Azure PowerShell | Microsoft Docs
+description: I den här artikeln får du lära dig hur du diagnostiserar en virtuell dator problem med nätverksroutning med nästa hopp-funktionen i Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: jimdial
@@ -18,30 +18,31 @@ ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: f793a201b3fbf57ac2f420c4f4e57a230bc11468
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299032"
 ---
-# <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnostisera virtuella routning nätverksproblem - Azure PowerShell
+# <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnostisera en virtuell dator problem med nätverksroutning – Azure PowerShell
 
-I den här artikeln distribuera en virtuell dator (VM) och kontrollera kommunikationen till IP-adress och URL: en. Du kan fastställa orsaken till ett kommunikationsfel och hur du kan lösa.
+I den här artikeln får du distribuera en virtuell dator (VM) och kontrollera kommunikation till en IP-adress och URL: en. Du lär dig också hur du fastställer orsaken till ett kommunikationsfel och hur du löser problemet.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt i den här artikeln kräver AzureRM PowerShell Modulversion 5.4.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln AzureRM PowerShell-Modulversion 5.4.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
-Innan du kan skapa en virtuell dator, måste du skapa en resursgrupp som innehåller den virtuella datorn. Skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
+Innan du kan skapa en virtuell dator måste du skapa en resursgrupp som innehåller den virtuella datorn. Skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-Skapa den virtuella datorn med [nya AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). När du kör det här steget uppmanas du att ange autentiseringsuppgifter. De värden som du anger konfigureras som användarnamn och lösenord för den virtuella datorn.
+Skapa den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). När du kör det här steget uppmanas du att ange autentiseringsuppgifter. De värden som du anger konfigureras som användarnamn och lösenord för den virtuella datorn.
 
 ```azurepowershell-interactive
 $vM = New-AzureRmVm `
@@ -50,15 +51,15 @@ $vM = New-AzureRmVm `
     -Location "East US"
 ```
 
-Det tar några minuter att skapa den virtuella datorn. Inte fortsätta med stegen tills den virtuella datorn skapas och PowerShell returnerar utdata.
+Det tar några minuter att skapa den virtuella datorn. Fortsätt inte med de återstående stegen förrän den virtuella datorn har skapats och PowerShell returnerar utdata.
 
-## <a name="test-network-communication"></a>Testa nätverkskommunikation
+## <a name="test-network-communication"></a>Testa nätverkskommunikationen
 
-Om du vill testa kommunikation med Nätverksbevakaren måste du först aktivera en nätverksbevakaren i den region som den virtuella datorn som du vill testa och sedan använda nätverket Watcher nästa hopp-funktionen för att testa kommunikation.
+Om du vill testa nätverkskommunikation med Network Watcher måste du först aktivera en network watcher i den region som den virtuella datorn som du vill testa har och sedan använda Network Watcher nästa hopp-funktionen för att testa kommunikation.
 
-## <a name="enable-network-watcher"></a>Aktivera nätverksbevakaren
+## <a name="enable-network-watcher"></a>Aktivera nätverksbevakare
 
-Om du redan har en aktiverad i östra USA nätverksbevakaren använder [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) att hämta nätverksbevakaren. I följande exempel hämtar en befintlig nätverksbevakaren med namnet *NetworkWatcher_eastus* som finns i den *NetworkWatcherRG* resursgrupp:
+Om du redan har en aktiverad nätverksbevakare i regionen Östra USA använder du [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) för att hämta nätverksbevakaren. I följande exempel hämtas en befintlig nätverksbevakare med namnet *NetworkWatcher_eastus* som finns i resursgruppen *NetworkWatcherRG*:
 
 ```azurepowershell-interactive
 $networkWatcher = Get-AzureRmNetworkWatcher `
@@ -66,7 +67,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-Om du inte redan har en nätverksbevakaren aktiverat i östra USA kan du använda [ny AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher) att skapa en nätverksbevakaren i östra USA:
+Om du inte redan har en aktiverad nätverksbevakare i östra USA använder du [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher) för att skapa en nätverksbevakare i regionen Östra USA:
 
 ```azurepowershell-interactive
 $networkWatcher = New-AzureRmNetworkWatcher `
@@ -75,11 +76,11 @@ $networkWatcher = New-AzureRmNetworkWatcher `
   -Location "East US"
 ```
 
-### <a name="use-next-hop"></a>Använd nästa hopp
+### <a name="use-next-hop"></a>Använda funktionen för nästa hopp
 
-Azure skapar automatiskt vägar till standard mål. Du kan skapa anpassade vägar som åsidosätter standardvägar. Anpassade vägar kan ibland orsaka kommunikation misslyckas. Testa routning från en virtuell dator med den [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) kommando för att avgöra routning nexthop när trafiken är avsedda för en specifik adress.
+Azure skapar automatiskt vägar till olika standardmål. Du kan skapa egna vägar som ersätter standardvägarna. Ibland kan egna vägar göra att kommunikationen misslyckas. Testa routning från en virtuell dator med den [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) kommando för att fastställa nexthop routning när trafik är avsedd för en specifik adress.
 
-Testa utgående kommunikation från den virtuella datorn till en IP-adresser för www.bing.com:
+Testa utgående kommunikation från den virtuella datorn till någon av IP-adresserna för www.bing.com:
 
 ```azurepowershell-interactive
 Get-AzureRmNetworkWatcherNextHop `
@@ -89,7 +90,7 @@ Get-AzureRmNetworkWatcherNextHop `
   -DestinationIPAddress 13.107.21.200
 ```
 
-Efter några sekunder utdata informerar som den **NextHopType** är **Internet**, och att den **RouteTableId** är **Systemväg**. Det här resultatet kan du vet att det är en giltig väg till målet.
+Efter några sekunder utdata informerar dig som den **NextHopType** är **Internet**, och att den **RouteTableId** är **Systemväg**. Det här resultatet talar om att det finns en giltig väg till målet.
 
 Testa utgående kommunikation från den virtuella datorn till 172.31.0.100:
 
@@ -101,11 +102,11 @@ Get-AzureRmNetworkWatcherNextHop `
   -DestinationIPAddress 172.31.0.100
 ```
 
-Utdatan informerar som **ingen** är den **NextHopType**, och att den **RouteTableId** är också **Systemväg**. Det här resultatet kan du vet att det finns en giltig väg till målet, men det finns ingen nästa hopp för att vidarebefordra trafiken till målet.
+Informerar dig om de utdata som returneras som **ingen** är den **NextHopType**, och att den **RouteTableId** är också **Systemväg**. Resultatet visar att det visserligen finns en giltig systemväg till målet, men att det inte finns något nästa hopp för att dirigera trafiken till målet.
 
 ## <a name="view-details-of-a-route"></a>Visa information om en väg
 
-Granska för att analysera routning mer effektiva vägarna för nätverksgränssnitt med den [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) kommando:
+Om du vill analysera routning ytterligare, granska de effektiva vägarna för nätverksgränssnittet med den [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) kommando:
 
 ```azurepowershell-interactive
 Get-AzureRmEffectiveRouteTable `
@@ -126,7 +127,7 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
      Active Default {172.16.0.0/12}         None        {}              
 ```
 
-Som du ser i föregående utdata vägen med den **AaddressPrefix** av **0.0.0.0/0** dirigerar all trafik som inte är avsedda för adresser inom andra route-adressprefix med nästa hopp för **Internet**. Som du ser också i utdata, men det finns en standardväg till 172.16.0.0/12 prefix, som innehåller 172.31.0.100 adress, den **nextHopType** är **ingen**. Azure skapar en standardväg till 172.16.0.0/12, men anger inte en nästa hopptyp tills det finns en orsak till. Om till exempel att du lagt till adressintervallet 172.16.0.0/12 adressutrymmet för det virtuella nätverket, Azure ändras den **nextHopType** till **för virtuella nätverk** för vägen. En kontroll kan sedan visa **för virtuella nätverk** som den **nextHopType**.
+Som du ser i föregående utdata vägen med den **AaddressPrefix** av **0.0.0.0/0** dirigerar all trafik som inte är avsedda för adresser inom annan väg adressprefix med ett nexthop för **Internet**. Som du ser också i utdata, men det finns en standardväg till 172.16.0.0/12 prefix, som innehåller 172.31.0.100 adressen, den **nextHopType** är **ingen**. Azure skapar en standardväg till 172.16.0.0/12 men anger inte en nästa hopptyp förrän det finns någon anledning till det. Om du till exempel att du lagt till adressintervallet 172.16.0.0/12 adressutrymmet för det virtuella nätverket, Azure ändras den **nextHopType** till **virtuellt nätverk** för vägen. En kontroll visas sedan **virtuellt nätverk** som den **nextHopType**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -138,6 +139,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du skapat en virtuell dator och diagnostiserats nätverksroutning från den virtuella datorn. Du har lärt dig att Azure skapar flera standardvägar och testat routning till två olika mål. Lär dig mer om [routning i Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och hur du [skapa anpassade vägar](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
+I den här artikeln har du skapat en virtuell dator och diagnostiseras nätverksroutning från den virtuella datorn. Du har lärt dig att Azure skapar flera standardvägar och testat routning till två olika mål. Läs mer om [routning i Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och hur du [skapar egna vägar](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
 
-För utgående anslutningar av virtuell dator, du kan också bestämma svarstiden och för tillåten respektive nekad nätverkstrafiken mellan den virtuella datorn och en slutpunkt som använder nätverket Watcher [anslutning felsöka](network-watcher-connectivity-powershell.md) kapaciteten. Du kan övervaka kommunikation mellan en virtuell dator och en slutpunkt som en IP-adress eller URL, med tiden med Nätverksbevakaren anslutning övervakaren funktionen. Mer information finns i avsnittet [övervaka en nätverksanslutning](connection-monitor.md).
+För utgående VM-anslutningar kan också bestämma svarstiden du och tillåtna respektive nekade nätverkstrafik mellan den virtuella datorn och en slutpunkt med Network Watchers [anslutningsfelsökning](network-watcher-connectivity-powershell.md) kapaciteten. Du kan övervaka kommunikation mellan en virtuell dator och en slutpunkt, till exempel en IP-adress eller URL: en, över tid med Network Watcher anslutning monitor-funktionen. Läs hur genom att läsa [övervaka en nätverksanslutning](connection-monitor.md).

@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: v-geberr
-ms.openlocfilehash: ac959989dbe64460025bfba84df7b6f22c3c1c04
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 1a48810287c1639910db8e39af2da61d836b2988
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958437"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340941"
 ---
-# <a name="tutorial-create-app-that-returns-sentiment-along-with-intent-prediction"></a>Självstudie: skapa app som returnerar sentiment tillsammans med avsiktsförutsägelse
+# <a name="tutorial-8--add-sentiment-analysis"></a>Självstudie: 8.  Lägga till attitydanalys
 I den här självstudien skapar du en app som visar hur det går till att extrahera positiva, negativa och neutrala sentiment från yttranden.
 
 <!-- green checkmark -->
@@ -27,10 +27,10 @@ I den här självstudien skapar du en app som visar hur det går till att extrah
 > * Träna och publicera app
 > * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar 
 
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
+För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen Human Resources (Personalfrågor) från självstudien om [keyPhrase entities](luis-quickstart-intent-and-key-phrase.md) (keyPhrase-entiteter) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json)-GitHub-lagringsplatsen.
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om [den fördefinierade keyPhrase-entiteten](luis-quickstart-intent-and-key-phrase.md) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json)-GitHub-lagringsplatsen.
 
 Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `sentiment`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
@@ -212,13 +212,10 @@ Din chattrobot har nu tillräckligt med information för att avgöra nästa steg
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och sentimentdata från yttrandet för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du menyn med tre punkter (...) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. Välj **My apps** (Mina appar) på menyn längst upp till vänster. Välj menyn med tre punkter (...) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
 > [Anropa LUIS-endpoint-API med C#](luis-get-started-cs-get-intent.md) 
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

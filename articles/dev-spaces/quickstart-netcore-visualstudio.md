@@ -8,28 +8,28 @@ ms.component: azds-kubernetes
 ms.author: ghogen
 ms.date: 06/06/2018
 ms.topic: quickstart
-description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
+description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 3b0e03d47a03411e3e6dc2d073d5087bcb42e03e
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 43b232e612f2ea4b47789e29a7f241bf4c35271d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960431"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100129"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Snabbstart: Skapa en Kubernetes-utvecklingsmiljö med Azure Dev Spaces (.NET Core och Visual Studio)
 
 I den här guiden får du lära dig hur du:
 
 - Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
-- Iterativt utvecklar kod i behållare med Visual Studio.
+- Iterativt utvecklar kod i containrar med Visual Studio.
 - Felsök kod som körs i ditt kluster.
 
 > [!Note]
 > **Om du fastnar** du kan när som helst referera till avsnittet [Felsökning](troubleshooting.md) eller lägga upp en kommentar på den här sidan. Du kan också försöka med den mer ingående [självstudien](get-started-netcore-visualstudio.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Ett Kubernetes-kluster som kör Kubernetes 1.9.6 i området EastUS, WestEurope eller CanadaEast med HTTP-programroutning.
 
@@ -39,7 +39,7 @@ I den här guiden får du lära dig hur du:
 
 ## <a name="set-up-azure-dev-spaces"></a>Konfigurera Azure Dev Spaces
 
-Installera [Visual Studio-tillägget för Azure Dev Spaces](https://aka.ms/get-azds-visualstudio).
+Installera [Visual Studio Tools för Kubernetes](https://aka.ms/get-azds-visualstudio).
 
 ## <a name="connect-to-a-cluster"></a>Anslut till ett kluster
 
@@ -82,15 +82,15 @@ Medan utvecklingsmiljön skapas kan du titta på filerna som lades till i projek
 
 ![](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
-## <a name="debug-a-container-in-kubernetes"></a>Felsöka en behållare i Kubernetes
+## <a name="debug-a-container-in-kubernetes"></a>Felsöka en container i Kubernetes
 När utvecklingsmiljön har skapats kan du felsöka programmet. Lägg till en brytpunkt i koden, till exempel på rad 20 i filen `HomeController.cs` där variabeln `Message` anges. Starta felsökningen genom att trycka på **F5**. 
 
-Visual Studio kommunicerar med utvecklingsmiljön för att skapa och distribuera programmet och öppnar sedan en webbläsare där webbprogrammet körs. Det kan verka som om behållaren körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure. localhost-adressen beror på att Azure Dev Spaces skapar en tillfällig SSH-tunnel för behållaren som körs i AKS.
+Visual Studio kommunicerar med utvecklingsmiljön för att skapa och distribuera programmet och öppnar sedan en webbläsare där webbprogrammet körs. Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure. localhost-adressen beror på att Azure Dev Spaces skapar en tillfällig SSH-tunnel för containern som körs i AKS.
 
 Klicka på länken **Om** längst upp på sidan för att utlösa brytpunkten. Du har fullständig åtkomst till felsökningsinformation precis som när koden körs lokalt, t.ex. anropsstack, lokala variabler, undantagsinformation och så vidare.
 
 
-## <a name="iteratively-develop-code"></a>Löpande kodutveckling
+## <a name="iteratively-develop-code"></a>Iterativ kodutveckling
 
 Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
 
@@ -99,7 +99,7 @@ Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – 
 1. Spara filen.
 1. Gå till webbläsaren och uppdatera sidan. Den uppdaterade HTML-koden bör visas på webbsidan.
 
-Vad hände? Redigering av innehållsfiler som HTML och CSS kräver inte omkompilering i en .NET Core-webbapp. En aktiv F5-session synkroniserar automatiskt ändrade innehållsfiler i behållaren som körs i AKS, så att du genast kan se dina innehållsändringar.
+Vad hände? Redigering av innehållsfiler som HTML och CSS kräver inte omkompilering i en .NET Core-webbapp. En aktiv F5-session synkroniserar automatiskt ändrade innehållsfiler i containern som körs i AKS, så att du genast kan se dina innehållsändringar.
 
 ### <a name="update-a-code-file"></a>Uppdatera en kodfil
 Uppdateringar av kodfiler kräver lite mer arbete eftersom .NET Core-appar måste återskapas och skapa uppdaterade binärfiler för programmet.
@@ -109,7 +109,7 @@ Uppdateringar av kodfiler kräver lite mer arbete eftersom .NET Core-appar måst
 1. Spara filen.
 1. Starta felsökningen igen genom att trycka på **F5**. 
 
-I stället för att återskapa och distribuera om en ny behållaravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i befintliga behållaren för snabbare redigerings- och felsökningsförlopp.
+I stället för att återskapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i befintliga containern för snabbare redigerings- och felsökningsförlopp.
 
 Uppdatera webbappen i webbläsaren och gå till sidan Om. Nu bör ditt anpassade meddelande visas i användargränssnittet.
 
@@ -117,4 +117,4 @@ Uppdatera webbappen i webbläsaren och gå till sidan Om. Nu bör ditt anpassade
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Arbeta med flera behållare och utveckling i team](get-started-netcore-visualstudio.md#call-another-container)
+> [Arbeta med flera containrar och utveckling i team](get-started-netcore-visualstudio.md#call-another-container)

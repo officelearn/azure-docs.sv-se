@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: eec54e0074cbc00fb8c51cf28ba477ef75f99a3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42f7d767162f2f403b2cf921e31a38b711a3c773
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657248"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37438250"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Självstudier: Lär dig hur du hanterar virtuella Windows-datorer med Azure PowerShell
 
@@ -55,7 +55,7 @@ För hanteringen av VM-lösningar finns det tre resursspecifika roller som bevil
 * [Nätverksdeltagare](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Lagringskontodeltagare](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-I stället för att tilldela roller till enskilda användare är det ofta lättare att [skapa en Azure Active Directory-grupp](../../active-directory/active-directory-groups-create-azure-portal.md) för användare som behöver utföra liknande åtgärder. Därefter tilldelar du gruppen lämplig roll. För att förenkla informationen i den här artikeln skapar vi en Azure Active Directory-grupp utan medlemmar. Du kan fortfarande tilldela den här gruppen en roll för ett omfång. 
+I stället för att tilldela roller till enskilda användare är det ofta lättare att [skapa en Azure Active Directory-grupp](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) för användare som behöver utföra liknande åtgärder. Därefter tilldelar du gruppen lämplig roll. För att förenkla informationen i den här artikeln skapar vi en Azure Active Directory-grupp utan medlemmar. Du kan fortfarande tilldela den här gruppen en roll för ett omfång. 
 
 I följande exempel skapas en Azure Active Directory-grupp med namnet *VMDemoContributors* med smeknamnet *vmDemoGroup* för e-post. Smeknamnet för e-post fungerar som ett alias för gruppen.
 
@@ -194,7 +194,7 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### <a name="find-resources-by-tag"></a>Hitta resurser efter tagg
 
-Om du vill söka efter resurser med ett taggnamn och taggvärde använder du kommandot [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource):
+Om du vill söka efter resurser med ett taggnamn och taggvärde använder du kommandot [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource):
 
 ```azurepowershell-interactive
 (Get-AzureRmResource -Tag @{ Environment="Test"}).Name

@@ -1,23 +1,23 @@
 ---
-title: Snabbstart - Ställ in inloggning för en enda sida-app med Azure Active Directory B2C | Microsoft Docs
-description: Kör ett exempelprogram för en sida som använder Azure Active Directory B2C för att tillhandahålla inloggning konto.
+title: Snabbstart – Konfigurera inloggning för en ensidesapp med Azure Active Directory B2C | Microsoft Docs
+description: Kör ett ensidesprogram som använder Azure Active Directory B2C för användarinloggningen.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: quickstart
 ms.date: 2/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ad9153b9b8d0235ad2cdc71b56f7b6179e98afdb
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
-ms.translationtype: MT
+ms.openlocfilehash: 7e600f55b9eeb2682b005b8c84c74ec25e054c36
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293289"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447259"
 ---
-# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Snabbstart: Ställ in inloggning för en enda sida-app med Azure Active Directory B2C
+# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Snabbstart – Konfigurera inloggning för en ensidesapp med Azure Active Directory B2C
 
 Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i molnet för att skydda dina program, ditt företag och dina kunder. Med Azure AD B2C kan appar autentisera med konton på sociala medier och företagskonton med öppna protokoll.
 
@@ -25,7 +25,7 @@ I den här snabbstarten använder du ett enkelsidigt Azure AD B2C-aktiverat exem
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) med arbetsbelastningen **ASP.NET och webbutveckling**.
 * Installera [Node.js](https://nodejs.org/en/download/)

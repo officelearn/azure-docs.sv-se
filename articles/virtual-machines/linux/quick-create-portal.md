@@ -3,7 +3,7 @@ title: Snabbstart – Skapa en virtuell Linux-dator i Azure Portal | Microsoft D
 description: I den här snabbstarten lär du dig hur du använder Azure Portal för att skapa en virtuell Linux-dator
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/24/2018
-ms.author: iainfou
+ms.date: 07/03/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 18ac0291bff2c0fbfffdd5dfa3097f8a6acb561f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012891"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447966"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Linux-dator i Azure Portal
 
@@ -63,7 +63,7 @@ Logga in på Azure Portal på http://portal.azure.com
 
     ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
 
-5. Lämna standardinställningarna under **Inställningar** och välj **OK**.
+5. På sidan **Inställningar** går du till **Nätverk** > **Nätverkssäkerhetsgrupp** > **Välj offentliga ingående portar** och väljer **HTTP** och **SSH (22)**. Lämna resten av standardinställningarna och välj **OK**.
 
 6. På sammanfattningssidan klickar du på **Skapa** för att starta distributionen av den virtuella datorn.
 
@@ -99,14 +99,6 @@ sudo apt-get -y install nginx
 
 När det är klart, `exit` du SSH-sessionen och återgår till egenskaperna för den virtuella datorn i Azure Portal.
 
-## <a name="open-port-80-for-web-traffic"></a>Öppna port 80 för webbtrafik
-
-En nätverkssäkerhetsgrupp (NSG) säkrar ingående och utgående trafik. När en VM skapas från Azure Portal skapas en regel för inkommande trafik på port 22 för SSH-anslutningar. Eftersom den här virtuella datorn är värd för en webbserver, måste du skapa en NSG-regel för port 80.
-
-1. Välj **Nätverk** på översiktssidan för den virtuella datorn.
-2. Listan med befintliga regler för inkommande och utgående visas. Välj att **Lägga till regel för inkommande portar**.
-3. Välj alternativet **Grundläggande** överst och välj sedan *HTTP* från listan över tillgängliga tjänster. Du tilldelas port 80, en prioritet och ett namn.
-4. Välj **Lägg till** för att skapa regeln.
 
 ## <a name="view-the-web-server-in-action"></a>Se hur webbservern fungerar i praktiken
 

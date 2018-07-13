@@ -1,6 +1,6 @@
 ---
-title: Hur du använder SendGrid e-posttjänst (Java) | Microsoft Docs
-description: Lär dig hur skicka e-post med SendGrid-e-posttjänsten på Azure. Kodexempel som skrivits i Java.
+title: Hur du använder e-posttjänsten SendGrid (Java) | Microsoft Docs
+description: Lär dig hur skicka e-postmeddelande med e-posttjänsten SendGrid på Azure. Kodexempel som skrivits i Java.
 services: ''
 documentationcenter: java
 author: thinkingserious
@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.openlocfilehash: cadd771a516270faf23f18a36f54fa9a1541e6d5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "34364909"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38698678"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Hur du skickar e-post med SendGrid från Java
-Den här guiden visar hur du utför vanliga programmeringsuppgifter med SendGrid-e-posttjänsten på Azure. Exemplen är skrivna i Java. Scenarier som tas upp inkluderar **konstruera e-post**, **skicka e-post**, **lägga till bilagor**, **med hjälp av filter**, och **uppdatera egenskaperna för**. Mer information om SendGrid och skicka e-post finns i [nästa steg](#next-steps) avsnitt.
+Den här guiden visar hur du utför vanliga programmeringsspråk uppgifter med e-posttjänsten SendGrid på Azure. Exemplen är skrivna i Java. Scenarier som omfattas är **konstruera e-post**, **skicka e-postmeddelande**, **att lägga till bilagor**, **med hjälp av filter**, och **uppdatera egenskaperna för**. Mer information om SendGrid och skicka e-post finns i den [nästa steg](#next-steps) avsnittet.
 
-## <a name="what-is-the-sendgrid-email-service"></a>Vad är SendGrid e-posttjänst?
-SendGrid är en [molnbaserade e-posttjänst] som ger tillförlitliga [transaktionella e-postleverans], skalbarhet och analys i realtid tillsammans med flexibel API: er som gör det enkelt anpassad integrering. Vanliga Användningsscenarier för SendGrid är:
+## <a name="what-is-the-sendgrid-email-service"></a>Vad är e-posttjänsten SendGrid?
+SendGrid är en [molnbaserade e-posttjänsten] som ger tillförlitliga [transaktionsbaserad e-postleverans], skalbarhet och realtidsanalys tillsammans med flexibla API: er som gör anpassad integration enkel. Vanliga Användningsscenarier för SendGrid är:
 
 * Skicka automatiskt kvitton till kunder
-* Administrera distribution visas för att skicka kunder månatliga e-reklamblad och specialerbjudanden
-* Samla in realtid mätvärden för sådant som blockerade e-post och kunden svarstider
+* Administrera distribution visas för att skicka kunder månatliga e-flygblad och specialerbjudanden
+* Samla in i realtid mått för saker som blockerade e-post och kundsvarstid
 * Generera rapporter för att identifiera trender
 * Vidarebefordran av kundfrågor
-* E-postaviseringar från ditt program
+* E-postmeddelanden från ditt program
 
 Mer information finns i <http://sendgrid.com>.
 
@@ -40,9 +40,9 @@ Mer information finns i <http://sendgrid.com>.
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="how-to-use-the-javaxmail-libraries"></a>Så här: använda javax.mail-bibliotek
-Hämta javax.mail bibliotek, till exempel från <http://www.oracle.com/technetwork/java/javamail> och importera dem till din kod. Vid en hög nivå är processen för att använda biblioteket javax.mail för att skicka e-post via SMTP att göra följande:
+Hämta javax.mail-bibliotek, till exempel från <http://www.oracle.com/technetwork/java/javamail> och importera dem till din kod. Vid en hög nivå är processen för att använda biblioteket javax.mail skicka e-post via SMTP att göra följande:
 
-1. Ange SMTP-värden, inklusive SMTP-servern som för SendGrid smtp.sendgrid.net.
+1. Ange SMTP-värden, inklusive SMTP-servern, vilket för SendGrid är smtp.sendgrid.net.
 
 ```
         import java.util.Properties;
@@ -69,7 +69,7 @@ Hämta javax.mail bibliotek, till exempel från <http://www.oracle.com/technetwo
                  // …
 ```
 
-1. Utöka den *javax.mail.Authenticator* klass, och i din implementering av den *getPasswordAuthentication* -metoden returnerar din SendGrid användarnamn och lösenord.  
+1. Utöka den *javax.mail.Authenticator* klass, och i din implementering av den *getPasswordAuthentication* metoden returnera ditt SendGrid-användarnamn och lösenord.  
 
        private class SMTPAuthenticator extends javax.mail.Authenticator {
        public PasswordAuthentication getPasswordAuthentication() {
@@ -77,12 +77,12 @@ Hämta javax.mail bibliotek, till exempel från <http://www.oracle.com/technetwo
           String password = SMTP_AUTH_PWD;
           return new PasswordAuthentication(username, password);
        }
-2. Skapa en session autentiserade e-post via en *javax.mail.Session* objekt.  
+2. Skapa en session för autentiserade e-post via en *javax.mail.Session* objekt.  
 
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
-3. Skapa ditt meddelande och tilldela **till**, **från**, **ämne** och innehåll värden. Detta framgår av [hur man: skapa ett e-postmeddelande](#how-to-create-an-email) avsnitt.
-4. Skicka meddelandet via en *javax.mail.Transport* objekt. Detta framgår av [hur man: skicka ett e-postmeddelande] [#how-till-send-en-e]-avsnitt.
+3. Skapa ditt meddelande och tilldela **till**, **från**, **ämne** och innehåll värden. Detta visas i den [How To: skapa ett e-postmeddelande](#how-to-create-an-email) avsnittet.
+4. Skicka meddelandet via en *javax.mail.Transport* objekt. Detta visas i den [How To: skicka ett e-postmeddelande] [# How-to-till-skicka e-en-post]-avsnitt.
 
 ## <a name="how-to-create-an-email"></a>Så här: skapa ett e-postmeddelande
 Nedan visas hur du anger värden för ett e-postmeddelande.
@@ -132,9 +132,9 @@ Följande kod visar hur du lägger till en bifogad fil.
     multipart.addBodyPart(attachmentPart);
 
 ## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Så här: använda filter för att aktivera sidfötter, spårning och analys
-SendGrid ger ytterligare e-postfunktioner med *filter*. Dessa finns inställningar som du kan lägga till ett e-postmeddelande för att aktivera vissa funktioner, till exempel aktivera Klicka spårning, Google analytics, prenumeration spårning och så vidare. En fullständig lista över filter finns [filterinställningar][Filter Settings].
+SendGrid ger ytterligare e-funktioner med *filter*. Det här är inställningar som kan läggas till i ett e-postmeddelande för att aktivera vissa funktioner, till exempel aktivera klickspårning, Google analytics, prenumeration, spårnings- och så vidare. En fullständig lista över filter finns i [filterinställningar][Filter Settings].
 
-* Nedan visas hur du infogar en sidfot filter som resulterar i HTML-text som visas längst ned i e-postmeddelandet som skickas.
+* Nedan visas hur du infogar ett sidfot filter som resulterar i HTML-text som visas längst ned i e-postmeddelandet som skickas.
 
       message.addHeader("X-SMTPAPI",
           "{\"filters\":
@@ -142,7 +142,7 @@ SendGrid ger ytterligare e-postfunktioner med *filter*. Dessa finns inställning
           {\"settings\":
           {\"enable\":1,\"text/html\":
           \"<html><b>Thank you</b> for your business.</html>\"}}}}");
-* Ett annat exempel på ett filter är klickar du på spårning. Anta att e-postmeddelandet innehåller en hyperlänk, till exempel följande, och du vill spåra Klicka hastighet:
+* Ett annat exempel på ett filter är klickspårning. Anta att dina e-postmeddelandet innehåller en hyperlänk, till exempel följande, och du vill spåra frekvensen klickar du på:
 
       messagePart.setContent(
           "Hello,
@@ -150,7 +150,7 @@ SendGrid ger ytterligare e-postfunktioner med *filter*. Dessa finns inställning
           <a href='http://www.contoso.com'>http://www.contoso.com</a>.</p>
           Thank you.",
           "text/html");
-* Aktivera klicka spårning genom att använda följande kod:
+* Om du vill aktivera den klickspårning, Använd följande kod:
 
       message.addHeader("X-SMTPAPI",
           "{\"filters\":
@@ -158,10 +158,10 @@ SendGrid ger ytterligare e-postfunktioner med *filter*. Dessa finns inställning
           {\"settings\":
           {\"enable\":1}}}}");
 
-## <a name="how-to-update-email-properties"></a>Så här: uppdatera e-egenskaper
-Vissa egenskaper för e-post kan skrivas över med **egenskapen** eller läggas till med hjälp av **lägga till egenskapen**.
+## <a name="how-to-update-email-properties"></a>Så här: egenskaperna för e-post
+Vissa postegenskaper för e-kan skrivas över med hjälp av **egenskapen** eller läggs till med **Lägg till egenskap**.
 
-Till exempel för att ange **ReplyTo** adresser, använder du följande:
+Till exempel vill ange **ReplyTo** adresser, använder du följande:
 
     InternetAddress addresses[] =
         { new InternetAddress("john@contoso.com"),
@@ -169,20 +169,20 @@ Till exempel för att ange **ReplyTo** adresser, använder du följande:
 
     message.setReplyTo(addresses);
 
-Att lägga till en **kopia** mottagaren, använder du följande:
+Att lägga till en **Cc** mottagaren använder du följande:
 
     message.addRecipient(Message.RecipientType.CC, new
     InternetAddress("john@contoso.com"));
 
 ## <a name="how-to-use-additional-sendgrid-services"></a>Så här: använda ytterligare SendGrid-tjänster
-SendGrid erbjuder webbaserade API: er som du kan använda för att utnyttja ytterligare funktioner för SendGrid från Azure-program. Fullständig information finns i [SendGrid API-dokumentationen][SendGrid API documentation].
+SendGrid erbjuder webbaserad API: er som du kan använda för att utnyttja ytterligare funktioner för SendGrid från ditt Azure-program. Fullständig information finns i [SendGrid API-dokumentation][SendGrid API documentation].
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig grunderna om tjänsten SendGrid e-post, kan du följa dessa länkar om du vill veta mer.
+Nu när du har lärt dig grunderna för den e-posttjänsten SendGrid kan du följa dessa länkar om du vill veta mer.
 
-* Exempel som visar med SendGrid i Azure-distribution: [hur du skickar e-post med SendGrid från Java i Azure-distribution](store-sendgrid-java-how-to-send-email-example.md)
+* Exempel som visar hur du använder SendGrid i en Azure-distribution: [hur du skickar e-post med SendGrid från Java i en Azure-distribution](store-sendgrid-java-how-to-send-email-example.md)
 * SendGrid Java SDK: <https://sendgrid.com/docs/Code_Examples/java.html>
-* SendGrid API-dokumentationen: <https://sendgrid.com/docs/API_Reference/index.html>
+* SendGrid API-dokumentation: <https://sendgrid.com/docs/API_Reference/index.html>
 * SendGrid specialerbjudande för Azure-kunder: <https://sendgrid.com/windowsazure.html>
 
 [http://sendgrid.com]: https://sendgrid.com
@@ -193,5 +193,5 @@ Nu när du har lärt dig grunderna om tjänsten SendGrid e-post, kan du följa d
 [Filter Settings]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
 [SendGrid API documentation]: https://sendgrid.com/docs/API_Reference/index.html
 [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
-[molnbaserade e-posttjänst]: https://sendgrid.com/email-solutions
-[transaktionella e-postleverans]: https://sendgrid.com/transactional-email
+[molnbaserade e-posttjänsten]: https://sendgrid.com/email-solutions
+[transaktionsbaserad e-postleverans]: https://sendgrid.com/transactional-email

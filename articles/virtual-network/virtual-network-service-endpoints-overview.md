@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: f612eb9647bf64a9435b1c667700bf717d445931
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e7e79d51b59d82ebf91d68f0714b8eb7bcaafbe6
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824694"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443638"
 ---
 # <a name="virtual-network-service-endpoints"></a>Slutpunkter för virtuellt nätverk
 
@@ -28,11 +28,13 @@ Med tjänstslutpunkter för Virtual Network (VNet) får du ett utökat privat ad
 
 Den här funktionen är tillgänglig för följande Azure-tjänster och regioner:
 
-- **Azure Storage**: Allmänt tillgänglig i alla Azure-regioner
-- **Azure SQL Database**: Allmänt tillgänglig i alla Azure-regioner
-- **Azure Cosmos DB**: Allmänt tillgängligt i alla Azure-regioner 
-- **Azure SQL Data Warehouse**: Förhandsversioni alla offentliga Azure-molnregioner
+- **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: Allmänt tillgänglig i alla Azure-regioner.
+- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Allmänt tillgänglig i alla Azure-regioner.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Allmänt tillgängligt i alla offentliga Azure-molnregioner. 
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Förhandsversion i alla offentliga Azure-molnregioner.
 - **Azure databastjänster för PostgreSQL och MySQL**: Förhandsgranska i Azure-regioner där databastjänsten är tillgänglig.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tillgänglig i förhandsversion.
+- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tillgänglig i förhandsversion.
 
 De mest uppdaterade meddelandena finns på sidan för [Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -68,7 +70,7 @@ Tjänstslutpunkter har följande fördelar:
 
 - Tjänstslutpunkter konfigureras i ett undernät i ett virtuellt nätverk. Slutpunkter fungerar med valfri typ av beräkningsinstans som körs inom det undernätet.
 - Du kan konfigurera flera tjänstslutpunkter för alla Azure-tjänster som stöds (till exempel Azure Storage eller Azure SQL Database) i ett undernät.
-- För Azure SQL måste virtuella nätverk finnas i samma region som Azure-tjänstresursen. Om du använder GRS- och RA-GRS-konton för Azure Storage måste det primära kontot finnas i samma region som det virtuella nätverket. För alla andra tjänster kan Azure-serviceresurser säkras mot virtuella nätverk i en region. 
+- För Azure SQL Database måste virtuella nätverk finnas i samma region som Azure-tjänstresursen. Om du använder GRS- och RA-GRS-konton för Azure Storage måste det primära kontot finnas i samma region som det virtuella nätverket. För alla andra tjänster kan Azure-serviceresurser säkras mot virtuella nätverk i en region. 
 - Det virtuella nätverket där slutpunkten konfigureras kan vara i samma prenumeration som Azure-tjänstresursen eller i en annan. Mer information om vilka behörigheter som krävs för att konfigurera slutpunkter och skydda Azure-tjänster finns under [Etablering](#Provisioning).
 - För tjänster som stöds kan du skydda nya eller befintliga resurser i virtuella nätverk som använder tjänstslutpunkter.
 
@@ -80,7 +82,7 @@ Tjänstslutpunkter har följande fördelar:
 - Med tjänstslutpunkter förblir DNS-posterna för Azure-tjänster som de är idag, och de fortsätter att matcha mot offentliga IP-adresser tilldelade till Azure-tjänsten.
 - Nätverkssäkerhetsgrupper (NSG) med tjänstslutpunkter:
   - Som standard tillåter NSG:er utgående internettrafik och därmed även trafik från ditt VNet till Azure-tjänster. Detta fortsätter att fungera på samma sätt, med tjänstslutpunkter. 
-  - Om du vill neka all utgående internettrafik och endast tillåta trafik till specifika Azure-tjänster kan du använda __”Azure-tjänsttaggar”__ i dina NSG:er. Du kan ange Azure-tjänster som stöds som mål i NSG-reglerna och underhållet av underliggande IP-adresser för varje tagg anges av Azure. Mer information finns i [Azure-tjänsttaggar för NSG:er](https://aka.ms/servicetags). 
+  - Om du vill neka all utgående internettrafik och endast tillåta trafik till specifika Azure-tjänster kan du använda [tjänsttaggar](security-overview.md#service-tags) i dina NSG:er. Du kan ange Azure-tjänster som stöds som mål i NSG-reglerna och underhållet av underliggande IP-adresser för varje tagg anges av Azure. Mer information finns i [Azure-tjänsttaggar för NSG:er](security-overview.md#service-tags). 
 
 ### <a name="scenarios"></a>Scenarier
 
@@ -124,5 +126,5 @@ För en Azure-tjänstresurs (till exempel ett Azure Storage-konto) kan det finna
 - Lär dig att [skydda ett Azure Storage-konto i ett virtuellt nätverk](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Lär dig att [skydda en Azure SQL-databas i ett virtuellt nätverk](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Lär dig om [Azure-tjänstintegrering i virtuella nätverk](virtual-network-for-azure-services.md)
--  Snabbstart: [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) för att konfigurera tjänstslutpunkt på ett VNet:s undernät och säkra Azure Storage-kontot till det undernätet.
+-  Snabbstart: [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) för att konfigurera tjänstslutpunkt på ett VNet:s undernät och säkra ett Azure Storage-konto till det undernätet.
 

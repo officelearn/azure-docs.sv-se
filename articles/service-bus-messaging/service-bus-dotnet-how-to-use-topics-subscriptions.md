@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/6/2017
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: aa75ac48d650f28d4aaeb612f2900d705cf71b5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8916ccb430da6bea66de3894201a11a70bb45df9
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29396949"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447208"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Kom igång med Service Bus-ämnen
 
@@ -52,7 +52,7 @@ Om du redan har skapat ett namnområde för Service Bus-meddelanden går du vida
 
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Skapa ett ämne med Azure Portal
 
-1. Logga in på [Azure portal][azure-portal].
+1. Logga in på [Azure Portal][azure-portal].
 2. I det vänstra navigeringsfönstret i portalen klickar du på **Service Bus** (om du inte ser **Service Bus** klickar du på **Alla tjänster** eller på **Alla resurser**). Klicka på det namnområde där du vill skapa ämnet. 
 3. Översiktsfönstret för namnområdet öppnas. Klicka på **Ämnen**:
    
@@ -429,7 +429,7 @@ Grattis! Med .NET Standard-biblioteket har du nu skapat ett ämne och en prenume
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kolla in våra [GitHub-databaser med exempel](https://github.com/Azure/azure-service-bus/tree/master/samples) som visar några av de mer avancerade funktionerna i meddelandetjänsten i Service Bus.
+Kolla in Service Bus [GitHub-databaser med exempel](https://github.com/Azure/azure-service-bus/tree/master/samples) som visar några av de mer avancerade funktionerna i meddelandetjänsten i Service Bus.
 
 <!--Image references-->
 

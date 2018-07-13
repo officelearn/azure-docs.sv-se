@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 013369c84ca7f2ec232f542549c22260eca46980
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 27ed860c7dd3b979a25860d453231de74d3f46be
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062542"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096924"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-databricks-using-spark"></a>Självstudie: Få åtkomst till Azure Data Lake Storage Gen2-data (förhandsversion) med DataBricks med hjälp av Spark
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du kör Spark-frågor i ett DataB
 > * Utlösa en Azure-funktion för att bearbeta data
 > * Köra analyser på dina data i Blob Storage
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Den här självstudien visar hur du använder och frågar efter flyginformation som är tillgänglig från [USA:s transportdepartement](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time). Ladda ned minst två års flyginformation (markera alla fält) och spara resultatet på din dator. Se till att anteckna filnamnet och sökvägen för din nedladdning. Du behöver den informationen i ett senare steg.
 
@@ -61,7 +61,7 @@ Nästa steg är att skapa ett [DataBricks-kluster](https://docs.azuredatabricks.
 8. Klicka på **Create Cluster** (Skapa kluster) längst upp på sidan (den här processen kan ta upp till fem minuter att slutföra).
 9. När processen är klar väljer du **Azure Databricks** längst upp till vänster i navigeringsfältet.
 10. Välj **Notebook** (Anteckningsbok) under avsnittet **New** (Ny) på den nedre halvan av sidan.
-11. Ange ett valfritt namn i fältet **Name** (Namn).
+11. Ange namnet på ditt val i fältet **Name** (Namn) och välj **Python** som språk.
 12. Alla andra fält kan lämnas med standardvärdena.
 13. Välj **Skapa**.
 14. Klistra in följande kod i cellen **Cmd 1**. Ersätt värdena med de värden som du bevarade från lagringskontot.
@@ -96,7 +96,7 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 5. Välj **Skapa**.
 6. Klistra in följande kod i cellen **Cmd 1** (den här koden sparas automatiskt i redigeraren).
 
-    ```
+    ```python
     #mount Azure Blob Storage as an HDFS file system to your databricks cluster
     #you need to specify a storage account and container to connect to. 
     #use a SAS token or an account key to connect to Blob Storage.  

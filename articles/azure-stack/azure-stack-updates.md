@@ -1,6 +1,6 @@
 ---
-title: Hantera uppdateringar i Azure-stacken översikt | Microsoft Docs
-description: Mer information om uppdateringshantering för Azure-stacken integrerat system.
+title: Hantera uppdateringar i Azure Stack – översikt | Microsoft Docs
+description: Läs mer om hantering av uppdateringar för integrerade Azure Stack-system.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,42 +12,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 07/11/2017
 ms.author: mabrigg
-ms.openlocfilehash: 23b05909bda7785b45aeaeed0bd75a90de9ffe50
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e80c114b06390a72dcdcc614dffaa97b9761381e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2018
-ms.locfileid: "27620931"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988916"
 ---
-# <a name="manage-updates-in-azure-stack-overview"></a>Hantera uppdateringar i Azure Stack-översikt
+# <a name="manage-updates-in-azure-stack-overview"></a>Hantera uppdateringar i Azure Stack – översikt
 
-*Gäller för: Azure Stack integrerat system*
+*Gäller för: integrerade Azure Stack-system*
 
-Microsoft kommer att släppa uppdateringspaket för Azure-stacken integrerat system i en vanlig takt som ankommer vanligtvis den fjärde tisdagen varje månad från och vid allmän tillgänglighet. Be OEM-tillverkaren om sina specifika meddelandeprocessen för att se till att uppdateringen meddelanden nå din organisation eller kontrollera här under Overview\Release Notes\Integrated system viktig information för mer information om specifika versioner.
+Ny uppdateringspaket släpp för Azure Stack-integrerat system vanligtvis runt den fjärde tisdagen varje månad. Fråga OEM-tillverkaren om deras specifika meddelande registreringsprocessen så att meddelanden om uppdateringar nå din organisation. Du kan också kontrollera i det här dokumentationsbiblioteket under under **översikt** > **viktig** information om versioner som är aktiva support. 
 
-Varje version av Microsoft-programuppdateringar tillsammans i en enda uppdateringspaketet. Som operatör Azure Stack du enkelt kan importera, installera och övervaka installationsförloppet för dessa uppdateringspaket från administratörsportalen. 
+Varje version av Microsoft-programuppdateringar tillsammans i en enda uppdateringspaketet. Du kan importera som en Azure Stack-operator, installation och övervaka installationsförloppet för dessa uppdateringspaket från administratörsportalen. 
 
-Maskinvaruleverantören OEM-tillverkaren (OEM) kommer också att släppa uppdateringar, till exempel drivrutinen och firmware-uppdateringar. Dessa uppdateringar levereras som separata paket av maskinvarutillverkaren OEM och hanteras separat från Microsoft Update.
+Maskinvaruleverantören OEM-tillverkare (original equipment manufacturer) kommer också att släppa uppdateringar, t.ex drivrutinen och firmware-uppdateringar. Dessa uppdateringar levereras som separata paket av maskinvaruleverantören OEM och hanteras separat från Microsoft Update.
 
-För att hålla datorn under stöd, måste du behålla Azure Stack uppdateras till en viss versionsnivå. Kontrollera att du läser den [Azure Stack behandling av princip](azure-stack-servicing-policy.md).
+Du måste hålla Azure Stack uppdateras till en specifik version-nivå för att hålla datorn under support. Se till att du läser igenom den [Azure Stack hanteringsprincip](azure-stack-servicing-policy.md).
 
 > [!NOTE]
-> Du kan inte använda Azure Stack uppdateringspaket Azure Stack Development Kit. Uppdateringspaket är utformade för integrerade system.
+> Du kan inte använda Azure Stack-uppdateringspaket Azure Stack Development Kit. Uppdateringspaket är utformade för integrerade system. Mer information finns i [distribuera om ASDK](https://docs.microsoft.com/en-us/azure/azure-stack/asdk).
 
-## <a name="the-update-resource-provider"></a>Resursprovidern uppdatering
+## <a name="the-update-resource-provider"></a>Update-resursprovidern
 
-Azure-stacken innehåller en Update-resursprovidern som samordnar tillämpningen av Microsoft-programuppdateringar. Den här resursprovidern innebär att uppdateringarna tillämpas på alla fysiska värdar, Service Fabric-program och körningar, och alla infrastruktur för virtuella datorer och deras tillhörande tjänster.
+Azure Stack innehåller en Update-resursprovidern som samordnar tillämpningen av Microsoft-programuppdateringar. Den här resursprovidern säkerställer att uppdateringar tillämpas på alla fysiska värdar, Service Fabric-program och körningar, och alla infrastrukturens virtuella datorer och deras tillhörande tjänster.
 
-Du kan enkelt se översiktliga status som uppdateringen processen mål olika delsystem i Azure-stacken (till exempel fysiska värdar och infrastruktur för virtuella datorer) som uppdateringar installeras.
+Uppdateringar installeras, kan du visa övergripande status som uppdatering processen mål olika delsystem i Azure Stack (till exempel fysiska värdar och infrastrukturens virtuella datorer).
 
 ## <a name="plan-for-updates"></a>Planera för uppdateringar
 
-Vi rekommenderar starkt att du meddela användare om eventuella underhållsåtgärder och att du schemalägger normal underhållsfönster under icke kontorstid så mycket som möjligt. Underhåll kan påverka både klienternas arbetsbelastningar och portalen åtgärder.
+Vi rekommenderar starkt att du meddela användare om eventuella underhållsåtgärder, och att du schemalägger normala underhållsfönster under tider utanför kontorstid om möjligt. Underhåll kan påverka både klienternas arbetsbelastningar och åtgärder.
 
-## <a name="using-the-update-tile-to-manage-updates"></a>Hantera uppdateringar med hjälp av panelen uppdatering
-Hantera uppdateringar från administratörsportalen är en enkel process. Operatör Azure Stack kan gå till panelen uppdatering i instrumentpanelen för att:
+## <a name="using-the-update-tile-to-manage-updates"></a>Hantera uppdateringar med hjälp av uppdatera panel
+Du kan hantera uppdateringar från administratörsportalen. Som Azure Stack-operatör kan du använda uppdatera panel i instrumentpanelen för att:
 
 - Visa viktig information, till exempel den aktuella versionen.
 - installera uppdateringar och övervaka förloppet.
@@ -55,17 +55,17 @@ Hantera uppdateringar från administratörsportalen är en enkel process. Operat
  
 ## <a name="determine-the-current-version"></a>Fastställa den aktuella versionen
 
-Uppdatera panelen visar den aktuella versionen av Azure-stacken. Du kan få till panelen uppdateringen med hjälp av någon av följande metoder i administratörsportalen:
+Uppdatera panel visar den aktuella versionen av Azure Stack. Du kan få till Update-panelen genom att använda någon av följande metoder i administratörsportalen:
 
-- På instrumentpanelen och visa den aktuella versionen i den **uppdatering** panelen.
+- På instrumentpanelen för att visa den aktuella versionen i den **uppdatering** panelen.
  
-   ![Uppdateringar panelen på standardinstrumentpanelen](./media/azure-stack-updates/image1.png)
+   ![Uppdateringar-rutan på standardinstrumentpanel](./media/azure-stack-updates/image1.png)
  
-- På den **Region management** panelen, klickar du på regionsnamnet. Visa den aktuella versionen i den **uppdatering** panelen.
+- På den **regionshantering** panelen, klickar du på namnet på region. Visa den aktuella versionen i den **uppdatering** panelen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure-stacken behandling av princip](azure-stack-servicing-policy.md) 
-- [Regionhantering av i Azure-stacken](azure-stack-region-management.md)     
+- [Azure Stack som hanteringsprincip](azure-stack-servicing-policy.md) 
+- [Regionshantering i Azure Stack](azure-stack-region-management.md)     
 
 

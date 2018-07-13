@@ -14,12 +14,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: ae97a41835c61155fe3fc7174fd93be00eb22873
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cce3b4f15acbcc6ce78ea0623c6b9f3c23941cb0
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767452"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859633"
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Hantera åtkomst till resurser med Azure Active Directory-grupper
 Azure Active Directory (Azure AD) är en omfattande lösning för identitets- och åtkomsthantering som tillhandahåller stabila funktioner för hantering av åtkomst till lokala och molnbaserade program och resurser, bland annat Microsofts onlinetjänster såsom Office 365 och en lång rad SaaS-program från tredje part. Den här artikeln innehåller en översikt, men om du vill börja använda Azure AD-grupper på en gång följer du anvisningarna i [Hantera säkerhetsgrupper i Azure AD](active-directory-groups-create-azure-portal.md). Om du vill se hur du kan använda PowerShell för att hantera grupper i Azure Active Directory kan du läsa mer i [Azure Active Directory-cmdletar för grupphantering](../users-groups-roles/groups-settings-v2-cmdlets.md).
@@ -74,7 +74,7 @@ Redo att sätta igång? Du bör prova några av de grundläggande uppgifter som 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du förstår grunderna för åtkomsthantering följer här några ytterligare avancerade funktioner tillgängliga i Azure Active Directory för att hantera åtkomst till dina program och resurser.
 
-* [Använda attribut för att skapa avancerade regler](../active-directory-groups-dynamic-membership-azure-portal.md)
+* [Använda attribut för att skapa avancerade regler](../users-groups-roles/groups-dynamic-membership.md)
 * [Hantera säkerhetsgrupper i Azure AD](active-directory-groups-create-azure-portal.md)
 * [Graph API-referens för grupper](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 * [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-cmdlets.md)

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/28/2018
 ms.author: juliako
-ms.openlocfilehash: e5b8cc9285d9637a04c4bec47b0185652aa7c84e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 314ffce8a9f8dde62cac670099afbc2223df37e4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114232"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972006"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Självstudie: Analysera videor med Azure Media Services 
 
@@ -39,7 +39,7 @@ I den här självstudiekursen lär du dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 
@@ -67,7 +67,7 @@ Exemplet utför följande åtgärder:
 
 1. Skapa en transformering och ett jobb som analyserar dina videor.
 2. Skapar en inkommande tillgång och överför videon till den. TIllgången används som jobbets indata.
-3. Skapar en utgående tillgång som lagrar utdata för jobbet. 
+3. Skapar en utdatatillgång som lagrar jobbets utdata. 
 4. Skickar jobbet.
 5. Kontrollerar jobbets status.
 6. Laddar ned filer som härrör från körningen av jobbet. 
@@ -112,7 +112,7 @@ När du skapar en **Transformering** bör du först kontrollera om det redan fin
 
 #### <a name="job"></a>Jobb
 
-Som nämns ovan är objektet [Transformering](https://docs.microsoft.com/rest/api/media/transforms) receptet och ett [Jobb](https://docs.microsoft.com/en-us/rest/api/media/jobs) är det faktiska begärandet till Media Services om att tillämpa **transformeringen** på en indatavideo eller ett ljudinnehåll. **Jobb** anger information som platsen för indatavideon och platsen för utdatan. Du kan ange platsen för din video med: HTTPS-webbadresser, SAS-URL:er eller tillgångar som finns på ditt Media Services-konto. 
+Som nämns ovan är objektet [Transformering](https://docs.microsoft.com/rest/api/media/transforms) receptet och ett [Jobb](https://docs.microsoft.com/rest/api/media/jobs) är det faktiska begärandet till Media Services om att tillämpa **transformeringen** på en indatavideo eller ett ljudinnehåll. **Jobb** anger information som platsen för indatavideon och platsen för utdatan. Du kan ange platsen för din video med: HTTPS-webbadresser, SAS-URL:er eller tillgångar som finns på ditt Media Services-konto. 
 
 I det här exemplet är jobbets indata en lokal video.  
 
@@ -120,7 +120,7 @@ I det här exemplet är jobbets indata en lokal video.
 
 ### <a name="wait-for-the-job-to-complete"></a>Vänta tills jobbet är klart
 
-Jobbet tar en stund att slutföra och du meddelas när detta sker. Det finns olika alternativ för att få meddelanden om när [jobben](https://docs.microsoft.com/en-us/rest/api/media/jobs) är klara. Det enklaste alternativet (som visas här) är att använda avsökning. 
+Jobbet tar en stund att slutföra och du meddelas när detta sker. Det finns olika alternativ för att få meddelanden om när [jobben](https://docs.microsoft.com/rest/api/media/jobs) är klara. Det enklaste alternativet (som visas här) är att använda avsökning. 
 
 Vi rekommenderar inte att utföra avsökning av produktionsprogram på grund av att svarstiden kan bli lång. Avsökningen kan begränsas om den överanvänds på ett konto. Utvecklare bör i stället använda Event Grid.
 

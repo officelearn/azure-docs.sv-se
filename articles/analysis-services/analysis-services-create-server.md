@@ -1,64 +1,64 @@
 ---
-title: Skapa en Analysis Services-server i Azure | Microsoft Docs
-description: Lär dig hur du skapar en Analysis Services-server-instans i Azure.
+title: Snabbstart – Skapa en Analysis Services-server med hjälp av Azure-portalen | Microsoft Docs
+description: Lär dig hur du skapar en Analysis Services-serverinstans i Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
-ms.topic: conceptual
-ms.date: 04/23/2018
+ms.service: azure-analysis-services
+ms.topic: quickstart
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c49e886ee5b980e8fd059d72eb2e4a3f0dc895c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 92209d82a6db18b7f1e1a5adbb52c1899bf4593f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950707"
 ---
-# <a name="create-an-analysis-services-server-in-azure-portal"></a>Skapa en Analysis Services-server i Azure-portalen
-Den här artikeln vägleder dig genom att skapa en resurs för Analysis Services-server i din Azure-prenumeration.
+# <a name="quickstart-create-a-server---portal"></a>Snabbstart: Skapa en server – portalen
 
-Innan du börjar måste du: 
+Den här snabbstarten beskriver hur du skapar en Analysis Services-serverresurs i Azure-prenumerationen med hjälp av portalen.
+
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 
 * **Azure-prenumeration**: Gå till [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) för att skapa ett konto.
-* **Azure Active Directory**: din prenumeration måste vara kopplad till en Azure Active Directory-klient. Och du måste vara inloggad i Azure med ett konto i den Azure Active Directory. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
+* **Azure Active Directory**: Prenumerationen måste vara kopplad till en Azure Active Directory-klientorganisation. Och du måste vara inloggad på Azure med ett konto i den Azure Active Directory. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal 
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen 
 
-Logga in på [Azure-portalen](https://portal.azure.com)
+[Logga in på portalen](https://portal.azure.com)
 
 
 ## <a name="create-a-server"></a>Skapa en server
 
-1. Klicka på **+ skapa en resurs** > **Data + analys** > **Analysis Services**.
+1. Klicka på **+ Skapa en resurs** > **Data + analys** > **Analysis Services**.
 
     ![Portalen](./media/analysis-services-create-server/aas-create-server-portal.png)
 
-2. I **Analysis Services**, Fyll i de obligatoriska fälten och tryck sedan på **skapa**.
+2. I **Analysis Services** fyller du i de fält som krävs och trycker sedan på **Skapa**.
    
-    ![Skapa server](./media/analysis-services-create-server/aas-create-server-blade.png)
-   
-   * **Servernamnet**: Ange ett unikt namn som refererar till servern.
-   * **Prenumerationen**: Välj den prenumeration som den här servern kommer att kopplas till.
-   * **Resursgruppen**: skapa en ny resursgrupp eller välj en det finns redan. Resursgrupper är avsedda att hjälpa dig att hantera en samling Azure-resurser. Läs mer i [resursgrupper](../azure-resource-manager/resource-group-overview.md).
-   * **Plats**: servern är värd för platsen för den här Azure-datacenter. Välj en plats närmast största användarbasen.
-   * **Prisnivån**: Välj en prisnivå. Om du vill testa och tänker installera exempeldatabasen för modellen, Välj den kostnadsfria **D1** nivå. Läs mer i [priser för Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/). 
-    * **Administratören**: som standard blir det konto du är inloggad med. Du kan välja ett annat konto från Azure Active Directory.
-    * **Backup Storage inställningen**: valfria. Om du redan har en [lagringskonto](../storage/common/storage-introduction.md), du kan ange den som standard för modellen databassäkerhetskopia. Du kan också ange [säkerhetskopierar och återställer](analysis-services-backup.md) inställningarna senare.
-    * **Lagring viktiga förfallodatum**: valfria. Ange en lagringsperiod viktiga upphör att gälla.
-3. Klicka på **Skapa**.
+   * **Servernamn**: Skriv ett unikt namn som används för att referera till servern.
+   * **Prenumeration**: Välj den prenumeration som den här servern ska associeras med.
+   * **Resursgrupp**: Skapa en ny resursgrupp eller välj en som du redan har. Resursgrupper är utformade för att hjälpa dig hantera en samling Azure-resurser. Mer information finns i [resursgrupper](../azure-resource-manager/resource-group-overview.md).
+   * **Plats**: Den här Azure-datacenterplatsen är värd för servern. Välj en plats närmast din största användarbas.
+   * **Prisnivå**: Välj en prisnivå. Om du testar och vill installera exempelmodelldatabasen väljer du den kostnadsfria **D1**-nivån. Mer information finns i [Priser för Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/). 
+    * **Administratör**: Som standard blir det här det konto som du loggas in med. Du kan välja ett annat konto från din Azure Active Directory.
+    * **Inställning för lagring av säkerhetskopior**: Valfritt. Om du redan har ett [lagringskonto](../storage/common/storage-introduction.md) kan du ange det som standard för modelldatabasens säkerhetskopia. Du kan även ange inställningar för [säkerhetskopia och återställning](analysis-services-backup.md) senare.
+    * **Upphörande av lagringsnyckel**: Valfritt. Ange en upphörandeperiod för lagringsnyckeln.
 
-Skapa tar vanligtvis under en minut. Om du har valt **lägga till till portalen**, gå till portalen för att se den nya servern. Eller navigera till **alla tjänster** > **Analysis Services** att se om din server är klar.
+Det tar vanligtvis mindre än en minut att skapa servern. Om du valde **Lägg till i portalen** går du till din portal för att se den nya servern. Eller så kan du gå till **Alla tjänster** > **Analysis Services** för att se om servern är klar.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort servern när de inte längre behövs. I serverns **översikt**, klickar du på **ta bort**. 
+
+Ta bort servern när den inte längre behövs. I serverns **Översikt** klickar du på **Ta bort**. 
 
  ![Rensa](./media/analysis-services-create-server/aas-create-server-cleanup.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
+I den här snabbstarten har du lärt dig hur du skapar en server i Azure-prenumerationen. Nu när du har en server kan du skydda den genom att konfigurera en serverbrandvägg (valfritt). Du kan även lägga till en grundläggande exempeldatamodell till servern direkt från portalen. Att använda en exempelmodell är en bra idé om du vill lära dig mer om hur man konfigurerar modelldatabasroller och testar klientanslutningar. Fortsätt till och lägg till en exempelmodell om du vill lära dig mer.
 
-[Lägg till en exempel-datamodell](analysis-services-create-sample-model.md) till servern.  
-[Installera en lokal datagateway](analysis-services-gateway-install.md) om datamodellen ansluter till lokala datakällor.  
-[Distribuera en tabellmodell projekt](analysis-services-deploy.md) från Visual Studio.   
-
-
+> [!div class="nextstepaction"]
+> [Snabbstart: Konfigurera serverbrandvägg – portalen](analysis-services-qs-firewall.md)   
+> [!div class="nextstepaction"]
+> [Självstudier: Lägg till en exempelmodell till servern](analysis-services-create-sample-model.md)

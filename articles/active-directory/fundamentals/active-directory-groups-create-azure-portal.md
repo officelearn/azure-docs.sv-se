@@ -14,12 +14,12 @@ ms.date: 08/04/2017
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 82d475e5adadb4e7670f24a6193348c9e1b37a16
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3c71c9c49413045e3a730c10e90ea3c12648b4cb
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767531"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857735"
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Skapa en grupp och lägga till medlemmar i Azure Active Directory
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Den här artikeln beskriver hur du skapar och fyller i en ny grupp i Azure Activ
 
    ![Välja kommandot Lägg till](./media/active-directory-groups-create-azure-portal/add-group-command.png)
 5. På bladet **Grupp** lägger du till ett namn och en beskrivning för gruppen.
-6. För att välja medlemmar som ska läggas till i gruppen väljer du **Tilldelad** i rutan **Medlemstyp** och väljer sedan **Medlemmar**. Mer information om hur du hanterar medlemskap i en grupp dynamiskt finns i [Använda attribut för att skapa avancerade regler för gruppmedlemskap](../active-directory-groups-dynamic-membership-azure-portal.md).
+6. För att välja medlemmar som ska läggas till i gruppen väljer du **Tilldelad** i rutan **Medlemstyp** och väljer sedan **Medlemmar**. Mer information om hur du hanterar medlemskap i en grupp dynamiskt finns i [Använda attribut för att skapa avancerade regler för gruppmedlemskap](../users-groups-roles/groups-dynamic-membership.md).
 
    ![Välja medlemmar att lägga till](./media/active-directory-groups-create-azure-portal/select-members.png)
 7. På bladet **Medlemmar** väljer du en eller flera användare eller enheter att lägga till i gruppen och väljer knappen **Välj** längst ned på bladet för att lägga till dem i gruppen. Rutan **Användare** filtrerar visningen baserat på matchningen av din inmatning till någon del av ett användar- eller enhetsnamn. Jokertecken accepteras inte i den rutan.
@@ -56,4 +56,4 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 * [Hantera inställningar för en grupp](active-directory-groups-settings-azure-portal.md)
 * [Hantera medlemmar i en grupp](active-directory-groups-members-azure-portal.md)
 * [Hantera medlemskap i en grupp](active-directory-groups-membership-azure-portal.md)
-* [Hantera dynamiska regler för användare i en grupp](../active-directory-groups-dynamic-membership-azure-portal.md)
+* [Hantera dynamiska regler för användare i en grupp](../users-groups-roles/groups-dynamic-membership.md)

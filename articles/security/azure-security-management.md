@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 209fdda974dee2386328da43991cc9d453e61aa7
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: edfabf1f93c78cf29ff3561f437053df11e15bd5
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062172"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857488"
 ---
 # <a name="security-management-in-azure"></a>Säkerhetshantering i Azure
 Azure-prenumeranter kan hantera sina molnmiljöer från flera enheter, inklusive hantering av arbetsstationer, utvecklardatorer och även privilegierade slutanvändarens enheter som har uppgiftsspecifika behörigheter. I vissa fall kan administrativa funktioner utförs via webbaserade konsoler som [Azure-portalen](https://azure.microsoft.com/features/azure-portal/). I andra fall kan det finnas direkta anslutningar till Azure från lokala system över virtuella privata nätverk (VPN), Terminal Services, klientprotokoll för program eller (programmässigt) Azure Service Management API (SMAPI). Dessutom kan klientslutpunkter vara antingen domänanslutna eller isolerade och ohanterade, till exempel surfplattor eller smartphones.
@@ -93,7 +93,7 @@ Administratören kör ett vanligt användarkonto (som blockerar körning på adm
 * Begränsning av körning. Tillåt endast en uppsättning fördefinierade körbara filer som behövs för hantering (kallas ”standardneka”). Som standard bör användare nekas behörighet att köra alla program, om det inte definieras uttryckligen i listan över tillåtna.
 * Lägsta behörighet. Användare av hanteringsdatorn bör inte ha administrativ behörighet på själva lokala datorn. På så sätt kan de inte ändra systemkonfigurationen eller systemfiler, oavsiktligt eller avsiktligt.
 
-Du kan framtvinga allt detta genom att använda [grupprincipobjekt](https://www.microsoft.com/download/details.aspx?id=2612) (GPO:er) i AD DS (Active Directory Domain Services) och genom att använda dem i din (lokala) hanteringsdomän för alla hanteringskonton.
+Du kan framtvinga allt detta genom att använda [grupprincipobjekt](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy) (GPO:er) i AD DS (Active Directory Domain Services) och genom att använda dem i din (lokala) hanteringsdomän för alla hanteringskonton.
 
 ### <a name="managing-services-applications-and-data"></a>Hantera tjänster, program och data
 Konfiguration av Azure Cloud Services utförs antingen via Azure Portal eller SMAPI, via kommandoradsgränssnittet Windows PowerShell eller ett specialbyggt program som utnyttjar dessa RESTful-gränssnitt. Produkter som använder dessa mekanismer är bland annat Azure AD (Active Directory Azure), Azure Storage, Azure Websites och Azure Virtual Network.

@@ -218,8 +218,6 @@
           items:
             - name: Översikt
               href: create-features.md
-            - name: Använda Pandas
-              href: create-features-blob.md
             - name: Använda SQL + Python
               href: create-features-sql-server.md
             - name: Använda Hive-frågor

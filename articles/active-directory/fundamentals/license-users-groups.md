@@ -17,12 +17,12 @@ ms.date: 08/22/2017
 ms.author: lizross
 ms.reviewer: jeffgilb
 custom: it-pro
-ms.openlocfilehash: 738e96bf631833b8d35847114ee08fc3f5bec2a4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6fc1d808fb712f7acb60e490663cb7301e22153c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767467"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856097"
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Snabbstart: Licensiera användare i Azure Active Directory
 Licensbaserade Azure AD-tjänster fungerar genom att aktivera en Azure Active Directory-prenumeration (Azure AD) i din Azure-klientorganisation. När prenumerationen är aktiv hanteras tjänstfunktioner av Azure AD-administratörer och används av licensierade användare. När du köper Enterprise Mobility + Security, Azure AD Premium eller Azure AD Basic, uppdateras din klient med prenumerationen, inklusive dess giltighetstid och förbetalda licenser. Du kommer åt din prenumerationsinformation, inklusive antalet tilldelade eller tillgängliga licenser, via Azure-portalen under **Azure Active Directory** genom att öppna panelen **Licenser**. Bladet **Licenser** är också den bästa platsen för att hantera dina licenstilldelningar.
@@ -35,7 +35,7 @@ Du kan använda [gruppbaserad licenstilldelning](active-directory-licensing-what
 * Du kan delegera beslutet till andra chefer i organisationen (genom att använda [självbetjäningsgrupper](../users-groups-roles/groups-self-service-management.md))
 
 > [!TIP]
-> En detaljerad beskrivning av licenstilldelning till grupper, inklusive avancerade scenarier och Office 365-licensieringsscenarier finns i [Tilldela licenser till användare efter gruppmedlemskap i Azure Active Directory](../active-directory-licensing-group-assignment-azure-portal.md).
+> En detaljerad beskrivning av licenstilldelning till grupper, inklusive avancerade scenarier och Office 365-licensieringsscenarier finns i [Tilldela licenser till användare efter gruppmedlemskap i Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
 
 ## <a name="assign-licenses-to-users-and-groups"></a>Tilldela licenser till användare och grupper
 Med en aktiv prenumeration bör du först tilldela en licens till dig själv och uppdatera webbläsaren för att säkerställa att du ser alla förväntade funktioner som ingår i prenumerationen. Nästa steg är att tilldela licenser till de användare som behöver åtkomst till Azure AD-betalfunktioner. Ett enkelt sätt att tilldela licenser är att tilldela licenser till grupper av användare i stället för enskilda användare. När du tilldelar licenser till en grupp tilldelas alla medlemmar i gruppen en licens. Om användare läggs till eller tas bort från gruppen tilldelas eller tas rätt licens bort automatiskt. 

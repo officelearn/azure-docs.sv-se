@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8e6873f45beac281adbc7a9669504f1703a9eaf5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 47db87bf734674bd424fecd0f0f22bff9e2df5d5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345499"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299262"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Distribuera Azure Machine Learning som en IoT Edge-modul – förhandsgranskning
 
@@ -22,7 +22,7 @@ Du kan använda IoT Edge-moduler till att distribuera kod som implementerar din 
 
 Azure Machine Learning-modulen som du skapar i den här självstudiekursen läser av miljödata som genereras av enheten och märker meddelandena som avvikande eller normala.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en Azure Machine Learning-modul
@@ -33,7 +33,7 @@ I den här guiden får du lära dig hur man:
 >[!NOTE]
 >Azure Machine Learning-moduler på Azure IoT Edge finns i en allmänt tillgänglig förhandsversion. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill testa Machine Learning-moduler som du skapar i dessa självstudier behöver du en IoT Edge-enhet. Du kan använda enheten som du konfigurerade i snabbstarten för [Linux](quickstart-linux.md) eller [Windows-enheter](quickstart.md). 
 
@@ -63,7 +63,7 @@ sudo nano /etc/iotedge/config.yaml
 Uppdatera avsnittet **connect** i konfigurationen med din IP-adress. Till exempel:
 ```yaml
 connect:
-  management_uri: "http://172.17.0.1.1:15580"
+  management_uri: "http://172.17.0.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 
@@ -71,7 +71,7 @@ Ange samma adresser i avsnittet **lyssna** i konfigurationen. Till exempel:
 
 ```yaml
 listen:
-  management_uri: "http://172.17.0.1.1:15580"
+  management_uri: "http://172.17.0.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 

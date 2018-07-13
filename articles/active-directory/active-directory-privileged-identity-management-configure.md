@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 927d2ccef6a250d489273a17b070a4a0aa820bee
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9e5039623b1f9b53c636ebaeb1e956d852185577
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767587"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952060"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
 
@@ -101,13 +101,13 @@ Azure AD Privileged Identity Manager innehåller en administratörsinstrumentpan
 *   Användare och grupper med nya rolltilldelningar under de senaste 30 dagarna (Azure-resursroller)
 
 
-![PIM-instrumentpanel – skärmbild][2]
+![PIM-instrumentpanel – skärmbild](./media/active-directory-privileged-identity-management-configure/PIM_Admin_Overview.png)
 
 ## <a name="privileged-role-management"></a>Hantering av privilegierad roll
 
 Med Azure AD Privileged Identity Management kan du hantera administratörerna genom att lägga till eller ta bort permanenta eller berättigade administratörer till varje roll för Azure AD-katalogroller. Med PIM för Azure-resurser (förhandsversion) kan ägare, administratörer för användaråtkomst och globala administratörer som aktiverar hantering av prenumerationer i deras klientorganisationer tilldela användare eller grupper till Azure-resursroller som berättigad (just-in-time-åtkomst), eller tidsbunden (kräver ingen aktivering) åtkomst med ett start- och slutdatum/tid, eller permanent (om det är aktiverat i rollinställningarna).
 
-![PIM: lägg till/ta bort administratörer – skärmbild][3]
+![PIM: lägg till/ta bort administratörer – skärmbild](./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png)
 
 ## <a name="configure-the-role-activation-settings"></a>Konfigurera inställningar för rollaktivering
 
@@ -119,7 +119,7 @@ Med hjälp av [rollinställningarna](active-directory-privileged-identity-manage
 * Tjänstbiljett eller incidentnummer
 * [Krav för arbetsflöde för godkännande – förhandsversion](./privileged-identity-management/azure-ad-pim-approval-workflow.md)
 
-![PIM-inställningar – administratörsaktivering – skärmbild][4]
+![PIM-inställningar – administratörsaktivering – skärmbild](./media/active-directory-privileged-identity-management-configure/PIM_Settings_w_Approval_Disabled.png)
 
 Observera att knapparna för **multifaktorautentisering** i bilden är inaktiverade. För vissa mycket privilegierade roller kräver vi MFA för höjt skydd.
 
@@ -140,13 +140,13 @@ En administratör som vill aktivera en roll måste initiera Azure AD Privileged 
 
 Rollaktivering kan anpassas. I PIM-inställningarna kan du fastställa aktiveringens längd och vilken information som administratören behöver ange för att aktivera rollen.
 
-![PIM-administratörsbegäran om rollaktivering – skärmbild][5]
+![PIM-administratörsbegäran om rollaktivering – skärmbild](./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png)
 
 ## <a name="review-role-activity"></a>Granska rollaktivitet
 
 Det finns två sätt att spåra hur anställda och administratörer använder privilegierade roller. Det första alternativet är att använda [Granskningshistorik för katalogroller](active-directory-privileged-identity-management-how-to-use-audit-log.md). Granskningshistorikloggarna spårar ändringar i privilegierade rolltilldelningar, rollaktiveringshistorik samt ändringar av inställningar för Azure-resursroller (förhandsversion). 
 
-![PIM-aktiveringshistorik – skärmbild][6]
+![PIM-aktiveringshistorik – skärmbild](./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png)
 
 Det andra alternativet är att konfigurera vanliga [åtkomstgranskningar](active-directory-privileged-identity-management-how-to-start-security-review.md). Dessa åtkomstgranskningar kan utföras av en tilldelad granskare (till exempel en gruppchef), eller så kan de anställda granska själva. Det här är det bästa sättet att övervaka vem som fortfarande behöver åtkomst och vem som inte längre har det.
 
@@ -158,12 +158,3 @@ Om din organisation inte förnyar Azure AD Premium P2 eller om utvärderingsvers
 ## <a name="next-steps"></a>Nästa steg
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Admin_Overview.png
-[3]: ./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png
-[4]: ./media/active-directory-privileged-identity-management-configure/PIM_Settings_w_Approval_Disabled.png
-[5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
-[6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png

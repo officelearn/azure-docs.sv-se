@@ -318,8 +318,6 @@ items:
                 href: mongodb-readpreference.md
               - name: Indexering
                 href: mongodb-indexing.md
-              - name: TTL i MongoDB
-                href: mongodb-ttl.md
               - name: Visualisera din information med Power BI
                 href: powerbi-visualize.md
           - name: Resurser

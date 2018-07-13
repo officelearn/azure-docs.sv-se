@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 0790f504c978b4302812cffc9b655e817c156da3
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081395"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38540180"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge-modul – förhandsgranskning
 
@@ -26,7 +26,7 @@ Azure Stream Analytics tillhandahåller ett omfattande strukturerat frågesyntax
 
 Stream Analytics-modulen i den här självstudien beräknar medeltemperaturen över ett rullande 30-sekundersschema. När den genomsnittliga temperaturen når 70 skickar modulen en varning så att enheten kan vidta en åtgärd. I det här fallet är åtgärden att återställa den simulerade temperatursensorn. Du kan till exempel använda den här funktionen för att stänga av en dator eller vidta förebyggande åtgärder när temperaturen når farliga nivåer i en produktionsmiljö. 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Stream Analytics-jobb för bearbetning av data på gränsen.
@@ -36,7 +36,7 @@ I den här guiden får du lära dig hur man:
 >[!NOTE]
 >Azure Stream Analytics-moduler för IoT Edge finns i en [allmänt tillgänglig förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En IoT Hub
 * IoT Edge-enheten som du skapade och konfigurerade i snabbstarten för [Windows][lnk-quickstart-win] eller [Linux][lnk-quickstart-lin]. 

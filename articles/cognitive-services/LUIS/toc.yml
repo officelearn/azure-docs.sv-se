@@ -201,8 +201,6 @@
           href: luis-prebuilt-entities.md
         - name: Använd domäner
           href: luis-how-to-use-prebuilt-domains.md
-        - name: Använd Cortana
-          href: luis-how-to-cortana-prebuilt-app.md
     - name: Hantera app
       items:
         - name: Använd instrumentpanelen
@@ -271,8 +269,6 @@
           href: luis-reference-prebuilt-url.md
     - name: Fördefinierad domänreferens
       href: luis-reference-prebuilt-domains.md
-    - name: Fördefinierad Cortana-appreferens
-      href: luis-reference-cortana-prebuilt.md
     - name: 'Redigera V2 API:er'
       href: 'https://aka.ms/luis-authoring-apis'
     - name: V2 API för slutpunkt

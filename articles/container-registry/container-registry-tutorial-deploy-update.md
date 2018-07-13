@@ -6,14 +6,15 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 2e9a46f2a99bc9b530ac5859068bde58bf5b5098
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8edb35b91327bde1fa824ec456b8a98962adb7ce
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634095"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Självstudier: Push-överför en uppdaterad avbildning för regionala distributioner
 
@@ -70,7 +71,7 @@ Den ändrade `Index.cshtml` bör se ut ungefär så här:
 
 ## <a name="rebuild-the-image"></a>Återskapa avbildningen
 
-Nu när du har uppdaterat webbprogrammet återskapa dess behållaravbildning. Använd som tidigare taggens fullständiga avbildningsnamn, inklusive inloggningsserverns URL:
+Nu när du har uppdaterat webbprogrammet återskapa dess behållaravbildning. Som tidigare, använd det fullständiga avbildningsnamnet, inklusive inloggningsserverns fullständigt kvalificerade domännamn (FQDN) för taggen:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
@@ -78,15 +79,16 @@ docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-hellowo
 
 ## <a name="push-image-to-azure-container-registry"></a>Push-överför avbildningen till Azure Container Registry
 
-Push-överför nu den uppdaterade behållaravbildningen *acr-helloworld* till ditt geo-replikerade register. Här utför du ett enda `docker push`-kommando för att distribuera den uppdaterade avbildningen till registerreplikerna i båda regionerna *USA, västra* och *USA, östra*.
+Push-överför sedan den uppdaterade behållaravbildningen *acr-helloworld* till ditt geo-replikerade register. Här utför du ett enda `docker push`-kommando för att distribuera den uppdaterade avbildningen till registerreplikerna i båda regionerna *USA, västra* och *USA, östra*.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Utdata bör se ut ungefär så här:
+Ditt `docker push`-resultat bör likna följande:
 
-```bash
+```console
+$ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
 5b9454e91555: Pushed
 d6803756744a: Layer already exists
@@ -126,19 +128,17 @@ Verifiera att den uppdaterade behållaravbildningen också distribueras till dis
 
 ![Webbläsarvy över en ändrad webbapp som körs i regionen USA, östra][deployed-app-eastus-modified]
 
-Med en enda `docker push` har du uppdaterat båda de regionala Web App-distributionerna och Azure Container Registry hanterade behållaravbildningarna från nätverksnära databaser.
+Med en enda `docker push`, har du automatiskt uppdaterat webbprogrammet som körs i båda de regionala Web App-distributionerna. Och Azure Container Registry hanterat behållaravbildningar från de databaser som ligger närmast varje distribution.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen har du uppdaterat och push-överfört en ny version av webbprogramsbehållaren till ditt geo-replikerade register. Webhookar i Azure Container Registry meddelade Web Apps för behållare om uppdateringen, vilken utlöste en lokal hämtning från registerreplikerna.
+I den här självstudiekursen har du uppdaterat och push-överfört en ny version av webbprogramsbehållaren till ditt geo-replikerade register. Webhooks i Azure Container Registry meddelade Web Apps for Containers om uppdateringen, vilken utlöste en lokal hämtning från de närmsta registerreplikerna.
 
-I den här avslutande självstudiekursen i serien har du:
+### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: Automatisk skapande av avbildning och korrigering
 
-> [!div class="checklist"]
-> * Uppdaterat webbprogrammets HTML
-> * Skapat och taggat Docker-avbildningen
-> * Push-överfört ändringen till Azure Container Registry
-> * Visat den uppdaterade appen i två olika regioner
+Förutom geo-replikering är ACR Build en annan funktion i Azure Container Registry som kan hjälpa dig att optimera din distributionspipeline för behållare. Börja med ACR Build-översikten om du vill få en uppfattning om dess funktioner:
+
+[Automatisera korrigering av operativsystem och ramverk med ACR Build](container-registry-build-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: afc9e7c0635f9920aa3ec7c9e6012aa4e41edb9d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 8e6873f45beac281adbc7a9669504f1703a9eaf5
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062049"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345499"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Distribuera Azure Machine Learning som en IoT Edge-modul – förhandsgranskning
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig hur man:
 >[!NOTE]
 >Azure Machine Learning-moduler på Azure IoT Edge finns i en allmänt tillgänglig förhandsversion. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill testa Machine Learning-moduler som du skapar i dessa självstudier behöver du en IoT Edge-enhet. Du kan använda enheten som du konfigurerade i snabbstarten för [Linux](quickstart-linux.md) eller [Windows-enheter](quickstart.md). 
 
@@ -52,7 +52,7 @@ Utvecklingsdatorn behöver ha följande förutsättningar:
 
 Om du vill inaktivera processidentifiering måste du ange IP-adressen och porten för **workload_uri** och **management_uri** i avsnittet **ansluta** i daemon-konfiguration för IoT Edge.
 
-Hämta IP-adressen först. Ange `ifconfig` i kommandoraden och kopiera IP-adressen för gränssnittet **docker0**.
+Hämta IP-adressen först. Ange `ifconfig` på kommandoraden och kopiera IP-adressen för gränssnittet **docker0**.
 
 Redigera daemon-konfigurationsfilen för IoT Edge:
 
@@ -60,7 +60,7 @@ Redigera daemon-konfigurationsfilen för IoT Edge:
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Uppdatera avsnittet **ansluta** i konfigurationen. Till exempel:
+Uppdatera avsnittet **connect** i konfigurationen med din IP-adress. Till exempel:
 ```yaml
 connect:
   management_uri: "http://172.17.0.1.1:15580"
@@ -125,7 +125,7 @@ Kontrollera att containeravbildningen skapades och lagras i Azure Container-regi
 1. Om du redan har distribuerat modulen tempSensor till din IoT Edge-enhet kanske den fylls i automatiskt. Lägg till den om den inte redan finns i listan över moduler.
 
     1. Klicka på **Lägg till** och välj **IoT Edge-modul**.
-    2. I **Namn**-fältet skriver du `tempsensor`.
+    2. I **Namn**-fältet skriver du `tempSensor`.
     3. I **URI för avbildning**-fältet skriver du `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`.
     4. Välj **Spara**.
 

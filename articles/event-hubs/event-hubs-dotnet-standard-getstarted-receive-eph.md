@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fd74405c8ca95ca1a5880ab26bf87705bde217de
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29389843"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127541"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Börja ta emot meddelanden med EventProcessorHost i .NET Standard
 
@@ -28,13 +28,13 @@ ms.locfileid: "29389843"
 
 I den här självstudien får du lära dig att skriva ett .NET Core-konsolprogram som tar emot meddelanden från en Event Hub med biblioteket **Värd för händelsebearbetning**. Du kan köra [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)-lösningen i befintligt skick och ersätta strängarna med värdena för din händelsehubb och lagringskonto. Eller så kan du följa stegen i den här självstudiekursen och skapa ett eget.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Microsoft Visual Studio 2015 eller 2017](http://www.visualstudio.com). I exemplen i självstudien används Visual Studio 2017, men Visual Studio 2015 stöds också.
 * [.NET Core Visual Studio 2015- eller 2017-verktyg](http://www.microsoft.com/net/core).
 * En Azure-prenumeration.
-* Ett Event Hubs-namnområde.
-* Ett Azure Storage-konto.
+* Ett namnområde för Azure Event Hubs och en händelsehubb.
+* Ett Azure-lagringskonto.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett namnområde för Event Hubs och en händelsehubb  
 
@@ -123,11 +123,11 @@ Lägg till [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Micros
     using System.Threading.Tasks;
     ```
 
-2. Lägg till konstanter till `Program`-klassen för händelsehubbens anslutningssträng, händelsehubbens namn, namn på lagringskontobehållaren, lagringskontots namn och lagringskontonyckeln. Lägg till följande kod, som ersätter platshållarna med motsvarande värden.
+2. Lägg till konstanter till `Program`-klassen för händelsehubbens anslutningssträng, händelsehubbens namn, namn på lagringskontobehållaren, lagringskontots namn och lagringskontonyckeln. Lägg till följande kod och ersätt platshållarna med motsvarande värden:
 
     ```csharp
-    private const string EhConnectionString = "{Event Hubs connection string}";
-    private const string EhEntityPath = "{Event Hub path/name}";
+    private const string EventHubConnectionString = "{Event Hubs connection string}";
+    private const string EventHubName = "{Event Hub path/name}";
     private const string StorageContainerName = "{Storage account container name}";
     private const string StorageAccountName = "{Storage account name}";
     private const string StorageAccountKey = "{Storage account key}";
@@ -143,9 +143,9 @@ Lägg till [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Micros
         Console.WriteLine("Registering EventProcessor...");
 
         var eventProcessorHost = new EventProcessorHost(
-            EhEntityPath,
+            EventHubName,
             PartitionReceiver.DefaultConsumerGroupName,
-            EhConnectionString,
+            EventHubConnectionString,
             StorageConnectionString,
             StorageContainerName);
 
@@ -174,8 +174,8 @@ Lägg till [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Micros
 
         public class Program
         {
-            private const string EhConnectionString = "{Event Hubs connection string}";
-            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string EventHubConnectionString = "{Event Hubs connection string}";
+            private const string EventHubName = "{Event Hub path/name}";
             private const string StorageContainerName = "{Storage account container name}";
             private const string StorageAccountName = "{Storage account name}";
             private const string StorageAccountKey = "{Storage account key}";
@@ -223,4 +223,4 @@ Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
-[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcore.png
+[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

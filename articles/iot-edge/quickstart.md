@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: df22040de398810fd9250ef46da2f95b6915c4a9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 11b2fccf3c02555f50f48252f2cd9968c9ec90d7
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030666"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436097"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snabbstart: Distribuera din första IoT Edge-modul från Azure Portal till en Windows.enhet – förhandsgranskning
 
@@ -36,7 +36,7 @@ Modulen som du distribuerar i den här snabbstarten är en simulerad sensor som 
 
 Om du inte har en aktiv Azure-prenumeration kan du skapa ett [kostnadsfritt konto][lnk-account] innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Denna snabbstart gör din Windows-dator eller virtuella dator till en IoT Edge-enhet. Om du kör Windows på en virtuell dator aktiverar du [kapslad virtualisering][lnk-nested] och allokerar minst 2 GB minne. 
 
@@ -65,7 +65,7 @@ Starta snabbstarten genom att skapa din IoT Hub i Azure Portal.
 
 Den kostnadsfria nivån för IoT Hub fungerar för den här snabbstarten. Om du har använt IoT Hub tidigare och redan har skapat en kostnadsfri hubb kan du använda den. Varje prenumeration kan bara ha en kostnadsfri IoT Hub. 
 
-1. Skapa en resursgrupp i Azure Cloud Shell. I följande exempel skapas en resursgrupp med namnet **TestResources** i regionen **västra USA**. Genom att lägga alla resurser för snabbstarten och självstudierna i en grupp kan du hantera dem tillsammans. 
+1. Skapa en resursgrupp i Azure Cloud Shell. I följande exempel skapas en resursgrupp med namnet **TestResources** i regionen **USA, västra**. Genom att lägga alla resurser för snabbstarten och självstudierna i en grupp kan du hantera dem tillsammans. 
 
    ```azurecli-interactive
    az group create --name TestResources --location westus
@@ -90,7 +90,7 @@ Skapa en enhetsidentitet för den simulerade enheten så att den kan kommunicera
    az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
    ```
 
-1. Hämta anslutningssträngen för din enhet som länkar den fysiska enheten med sin identitet i IoT Hub. 
+1. Hämta anslutningssträngen för din enhet som länkar den fysiska enheten med dess identitet i IoT Hub. 
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
@@ -103,7 +103,7 @@ Skapa en enhetsidentitet för den simulerade enheten så att den kan kommunicera
 Installera och starta Azure IoT Edge-körningen på din IoT Edge-enhet. 
 ![Registrera en enhet][5]
 
-IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponenter. **IoT Edges säkerhetsdaemon** startas varje gång en Edge-enhet startar. Enheten startas genom att IoT Edge-agenten startas. **IoT Edge-agenten** underlättar distribution och övervakning av moduler på IoT Edge-enheten, inklusive IoT Edge-hubb. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten, samt mellan enheten och IoT Hub. 
+IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponenter. **IoT Edge säkerhetsdaemon** startas varje gång en Edge-enhet startar. Enheten startas genom att IoT Edge-agenten startas. **IoT Edge-agenten** underlättar distribution och övervakning av moduler på IoT Edge-enheten, inklusive IoT Edge-hubb. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten, samt mellan enheten och IoT Hub. 
 
 >[!NOTE]
 >Installationsstegen i det här avsnittet görs manuellt under tiden ett installationsskript utvecklas. 
@@ -163,7 +163,7 @@ Anvisningarna i det här avsnittet konfigurerar IoT Edge-körningen med Linux-be
 
 Konfigurera körningen med anslutningssträngen för IoT Edge-enheten som du kopierade när du registrerat en ny enhet. Konfigurera sedan runtime-nätverket. 
 
-1. Öppna konfigurationsfilen för IoT Edge som finns på `C:\ProgramData\iotedge\config.yaml`. Filen är skyddad, så kör en textredigerare som t.ex. Notepad som en administratör och öppna filen i redigeraren. 
+1. Öppna konfigurationsfilen för IoT Edge som finns på `C:\ProgramData\iotedge\config.yaml`. Filen är skyddad, så kör en textredigerare som t.ex. Notepad som administratör och öppna filen i redigeraren. 
 
 2. Leta upp avsnittet om **etablering** och uppdatera värdet för **device_connection_string** med strängen som du kopierade från informationen om din IoT Edge-enhet. 
 
@@ -185,24 +185,31 @@ Konfigurera körningen med anslutningssträngen för IoT Edge-enheten som du kop
 
 5. Skapa en miljövariabel med namnet **IOTEDGE_HOST**, ersätt *\<ip_address\>* med IP-adressen för din IoT Edge-enhet. 
 
-   ```powershell
-   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-   ```
+  ```powershell
+  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+  ```
+  
+  Bevara miljövariabeln mellan omstarter.
 
-6. Leta upp avsnittet för **anslutningsinställningar** i filen `config.yaml`. Uppdatera värdena för **management_uri** och **workload_uri** med de IP-adresser och portar som du öppnade i föregående avsnitt. 
+  ```powershell
+  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
+  ```
+
+
+6. Leta upp avsnittet för **anslutningsinställningar** i filen `config.yaml`. Uppdatera värdena för **management_uri** och **workload_uri** med de IP-adresser och portar som du öppnade i föregående avsnitt. Ersätt **\<GATEWAY_ADDRESS\>** med din IP-adress. 
 
    ```yaml
    connect: 
-     management_uri: "http://<ip_address>:15580"
-     workload_uri: "http://<ip_address>:15581"
+     management_uri: "http://<GATEWAY_ADDRESS>:15580"
+     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
 7. Leta upp avsnittet med **inställningar för lyssnande** och lägg till samma värden för **management_uri** och **workload_uri**. 
 
    ```yaml
    listen:
-     management_uri: "http://<ip_address>:15580"
-     workload_uri: "http://<ip_address:15581"
+     management_uri: "http://<GATEWAY_ADDRESS>:15580"
+     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
 8. Leta upp avsnittet med **körningsinställningar för Moby-behållare** och kontrollera att värdet för **nätverk** är satt till `nat`.
@@ -278,7 +285,7 @@ Du kan visa meddelanden som tas emot av din IoT Hub med [verktyget IoT Hub Explo
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan använda den simulerade enheten som du konfigurerade i denna snabbstart för att testa IoT Edge-självstudier. Om du vill stoppa modulen tempSensor från att skicka data till din IoT Hub, använder du följande kommando för att stoppa IoT Edge-tjänsten och ta bort de behållare som har skapats på enheten. Kom ihåg att starta tjänsten när du vill använda din dator som en IoT Edge-enhet igen. 
+Du kan använda den simulerade enheten som du konfigurerade i denna snabbstart för att testa IoT Edge-självstudierna. Om du vill stoppa modulen tempSensor från att skicka data till din IoT Hub, använder du följande kommando för att stoppa IoT Edge-tjänsten och ta bort de behållare som har skapats på enheten. Kom ihåg att starta tjänsten när du vill använda din dator som en IoT Edge-enhet igen. 
 
    ```powershell
    Stop-Service iotedge -NoWait

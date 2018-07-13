@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 6fcd6389e3ff23c1cb2b2f0e5183ea43bae9f313
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ee6e3adc3300178164b83ee1f8dc2ab307eec45b
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796146"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081220"
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introduktion till Azure Cosmos DB: Graph API
 
@@ -45,7 +45,7 @@ Azure Cosmos DB Graph API erbjuder:
 - Justerbara konsekvensnivåer.
 - Serviceavtal med 99,99 % tillgänglighet för alla konton i en region och alla konton i flera regioner med avslappnad konsekvens och 99,999 % lästillgänglighet för alla flerregions-databaskonton.
 
-Om du vill fråga Azure Cosmos DB, kan du använda [Apache TinkerPop](http://tinkerpop.apache.org) diagrambläddringsspråk [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), eller andra TinkerPop-kompatibla diagramsystem som [Apache Spark GraphX](spark-connector-graph.md).
+Du kan ställa frågor mot Azure Cosmos DB med diagramtraverseringsspråket [Apache TinkerPop](http://tinkerpop.apache.org) eller [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
 
 Den här artikeln ger en översikt över Azure Cosmos DB Graph API och förklarar hur du kan använda den för att lagra massiva diagram med miljarder brytpunkter och kanter. Du kan fråga diagrammen med svarstider på millisekunder och enkelt utveckla diagrammets struktur och schema.
 
@@ -93,7 +93,7 @@ Azure Cosmos DB erbjuder följande differentierade funktioner jämfört med andr
 
 * Kompatibilitet med Apache TinkerPop
 
- Azure Cosmos DB har ett inbyggt stöd för Apache TinkerPop-standarden med öppen källkod och kan integreras med andra TinkerPop-aktiverade diagramsystem. Du kan därför enkelt migrera från en annan diagramdatabas, som Titan eller Neo4j, eller använda Azure Cosmos DB med ramverk för diagramanalys som [Apache Spark GraphX](spark-connector-graph.md).
+ Azure Cosmos DB har ett inbyggt stöd för Apache TinkerPop-standarden med öppen källkod och kan integreras med andra TinkerPop-aktiverade diagramsystem. Du kan därför enkelt migrera från en annan diagramdatabas, som Titan eller Neo4j, eller använda Azure Cosmos DB med ramverk för diagramanalys som Apache Spark GraphX.
 
 * Justerbara konsekvensnivåer
 

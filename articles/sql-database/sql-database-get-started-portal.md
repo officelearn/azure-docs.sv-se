@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 06/20/2018
-ms.author: carlrab
-ms.openlocfilehash: 5592a22a5e9dad8b0b0aa2e9c9f704db9a31c914
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.date: 07/02/2018
+ms.author: sachinp
+ms.openlocfilehash: 264397fee8ea37321841a4130cb5977219861053
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308232"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345431"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Skapa en Azure SQL-databas på Azure Portal
 
@@ -86,7 +86,7 @@ Följ de här stegen om du vill skapa en SQL-databas som innehåller Adventure W
 8. Godkänn förhandsgranskningsvillkoren för att använda alternativet **Lägg till mer lagringsutrymme**.
 
    > [!IMPORTANT]
-   > Mer än 1 TB lagringsutrymme på premiumnivån är för närvarande tillgängligt i alla regioner förutom följande: Storbritannien, norra, västra centrala USA, södra Storbritannien 2, Kina, östra, USDoDCentral, Tyskland, centrala, USDoDEast, sydvästra USA Gov, södra centrala USA Gov, Tyskland, nordöstra, Kina, norra, östra USA Gov. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > Mer än 1 TB lagringsutrymme på premiumnivån är för närvarande tillgängligt i alla regioner förutom följande: USA, västra centrala; Kina, östra; USDoDCentral; USGov Iowa; Tyskland, centrala; USDoDEast; US Gov, sydvästra; Tyskland, nordöstra; Kina, norra. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 9. När du har valt tjänstenivå, antalet DTU:er och mängden lagring klickar du på **Apply** (Använd).  
 

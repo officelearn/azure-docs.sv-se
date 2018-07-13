@@ -16,11 +16,11 @@ ms.date: 05/21/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 8f71feb610884af29bdfbf170cfc411f32c50233
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640856"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38700790"
 ---
 # <a name="quickstart-how-to-use-azure-redis-cache-with-nodejs"></a>Snabbstart: Så här använder du Azure Redis Cache med Node.js
 
@@ -124,7 +124,7 @@ Kör skriptet med Node.js.
 node redistest.js
 ```
 
-I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure Portal. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
+I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure-portalen. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
 
 ![Cache-appen har slutförts](./media/cache-nodejs-get-started/cache-app-complete.png)
 

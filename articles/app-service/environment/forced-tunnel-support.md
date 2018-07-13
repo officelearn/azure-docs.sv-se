@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 082275e2acd81e34c057f863651528eb46e8501e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114981"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Konfigurera App Service Environment med tvingande dirigering
 
@@ -37,6 +38,7 @@ Mer information om routning i ett virtuellt nätverk finns i [Användardefiniera
 Om du vill dirigera din utgående ASE-trafik någon annanstans än direkt till Internet, kan du välja mellan följande:
 
 * Aktivera din ASE till direkt Internet-åtkomst
+* Konfigurera ditt ASE-undernät så att BGP-vägar ignoreras
 * Konfigurera att ditt ASE-undernät använder tjänstens slutpunkter till Azure SQL och Azure Storage
 * Lägg till egna IP-adresser i ASE Azure SQL-brandväggen
 
@@ -58,8 +60,22 @@ Om nätverket redan dirigerar trafik lokalt måste du skapa det undernät som sk
 
 ![Direkt Internet-åtkomst][1]
 
+## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>Konfigurera ditt ASE-undernät så att BGP-vägar ignoreras ## 
+
+Du kan konfigurera ditt ASE-undernät så att alla BGP-vägar ignoreras.  När du gör det kan ASE komma åt sina beroenden utan problem.  Du måste dock skapa UDR:er så att apparna kan komma åt lokala resurser.
+
+Så här konfigurerar du ditt ASE-undernät så att BGP-vägar ignoreras:
+
+* Skapa en UDR och tilldela den till ditt ASE-undernät om du inte redan har en.
+* Öppna Azure Portal och öppna gränssnittet för routningstabellen som tilldelats till ASE-undernätet.  Välj Konfiguration.  Ange Inaktiverad Spridning av BGP-väg.  Klicka på Spara. Inaktiveringen är dokumenterad i dokumentet [Skapa en routningstabell][routetable].
+
+När du gör detta kan apparna inte längre nå din lokala miljö. Du kan lösa det här genom att redigera UDR:en som är tilldelad till ASE-undernätet och lägga till vägar för dina lokala adressområden. Nästa hopptyp bör ställas in som Virtuell nätverksgateway. 
+
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>Konfigurera din ASE med tjänstens slutpunkter ##
+
+ > [!NOTE]
+   > Tjänstslutpunkter med SQL fungerar inte med ASE i US Government-regioner.  Följande information gäller endast för offentliga Azure-regioner.  
 
 Utför följande steg för att dirigera all utgående trafik från din ASE, förutom den som går till Azure SQL och Azure Storage:
 
@@ -141,3 +157,4 @@ Förutom att bryta kommunikationen kan du försämra din ASE genom att ha för l
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[routetable]: ../../virtual-network/manage-route-table.md#create-a-route-table

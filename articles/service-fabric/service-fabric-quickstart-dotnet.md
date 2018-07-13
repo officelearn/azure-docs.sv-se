@@ -1,5 +1,5 @@
 ---
-title: Skapa ett .NET Service Fabric-program i Azure | Microsoft Docs
+title: Skapa en .NET-app för Service Fabric i Azure | Microsoft Docs
 description: I den här snabbstarten skapar du ett .NET-program för Azure med Service Fabric-exempelprogrammet (tillförlitliga tjänster).
 services: service-fabric
 documentationcenter: .net
@@ -15,15 +15,16 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e6e6464bd8c8174978eded1ed626ca32029b7fbc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f04af62dc555c6c05313b9d0cd7b0231aac7d3aa
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643159"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110090"
 ---
-# <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Snabbstart: Skapa ett .NET Service Fabric-program i Azure
-Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare. 
+# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Snabbstart: Distribuera en .NET-app (tillförlitliga tjänster) till Service Fabric
+
+Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare.
 
 Den här snabbstarten visar hur du distribuerar ditt första .NET-program i Service Fabric. När du är klar har du ett röstningsprogam med en ASP.NET Core-klientdel som sparar röstningsresultat i en tillståndskänslig serverdelstjänst i klustret.
 
@@ -39,8 +40,10 @@ Med det här programmet får du lära dig att:
 * Skala programmet över flera noder
 * Utföra en löpande programuppgradering
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
 För att slutföra den här snabbstarten behöver du:
+
 1. [Installera Visual Studio 2017](https://www.visualstudio.com/) med **Azure Development** och arbetsbelastningarna **ASP.NET och webbutveckling**.
 2. [Installera Git](https://git-scm.com/)
 3. [Installera Microsoft Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
@@ -54,15 +57,18 @@ För att slutföra den här snabbstarten behöver du:
 >
 
 ## <a name="download-the-sample"></a>Hämta exemplet
+
 Kör följande kommando i ett kommandofönster för att klona databasen för exempelappen till den lokala datorn.
-```
+
+```git
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
 ## <a name="run-the-application-locally"></a>Kör programmet lokalt
+
 Högerklicka på Visual Studio-ikonen på startmenyn och välj **Kör som administratör**. Du måste köra Visual Studio som administratör för att kunna bifoga felsökningsprogrammet till tjänsterna.
 
-Öppna Visual Studio-lösningen **Voting.sln** från den lagringsplats du har klonat.  
+Öppna Visual Studio-lösningen **Voting.sln** från den lagringsplats du har klonat.
 
 Röstningsprogrammet är som standard inställt på att lyssna på port 8080.  Programporten ställs in i filen */VotingWeb/PackageRoot/ServiceManifest.xml*.  Du kan ändra programporten genom att uppdatera attributet **Port** för elementet **Slutpunkt**.  Om du vill distribuera och köra programmet lokalt måste programporten vara öppen och tillgänglig på datorn.  Om du ändrar programporten ersätter du det nya programportvärdet med ”8080” i den här artikeln.
 
@@ -78,13 +84,16 @@ När distributionen är klar, startar du en webbläsare och öppnar den här sid
 Du kan nu lägga till en uppsättning röstningsalternativ och börja ta emot röster. Programmet körs och lagrar alla data i Service Fabric-klustret, utan att en separat databas krävs.
 
 ## <a name="walk-through-the-voting-sample-application"></a>Gå igenom exempelprogrammet för röstning
+
 Röstningsprogrammet består av två tjänster:
-- Webbklienttjänst (VotingWeb) – En webbklienttjänst för ASP.NET Core som används av webbsidan och visar webb-API:er för att kommunicera med serverdelstjänsten.
-- Serverdelstjänst (VotingData) – En webbtjänst för ASP.NET Core som visar en API för att lagra röstningsresultat i en tillförlitlig ordlista på disken.
+
+* Webbklienttjänst (VotingWeb) – En webbklienttjänst för ASP.NET Core som används av webbsidan och visar webb-API:er för att kommunicera med serverdelstjänsten.
+* Serverdelstjänst (VotingData) – En webbtjänst för ASP.NET Core som visar en API för att lagra röstningsresultat i en tillförlitlig ordlista på disken.
 
 ![Diagram över programmet](./media/service-fabric-quickstart-dotnet/application-diagram.png)
 
 När du röstar i programmet händer följande:
+
 1. Ett JavaScript skickar röstningsbegäran till webb-API i webbklienttjänsten som en HTTP PUT-begäran.
 
 2. Webbklienttjänsten använder en proxy för att hitta och vidarebefordra en HTTP PUT-begäran till serverdelstjänsten.
@@ -96,37 +105,40 @@ När du röstar i programmet händer följande:
 Programmet bör köras som det ska, men du kan använda felsökaren och se hur viktiga delar av programmet fungerar. När du felsöker programmet i Visual Studio, använder du ett lokalt utvecklingskluster för Service Fabric. Du kan välja att anpassa felsökningen så att det passar ditt scenario. I det här programmet lagras data i serverdelstjänsten med hjälp av en tillförlitlig ordlista. Visual Studio tar som standard bort programmet när du stoppar felsökningsprogrammet. När programmet tas bort kommer även data i serverdelstjänsten att tas bort. Om du vill spara data mellan felsökningssessionerna kan du ändra **programmets felsökningsläge** som en egenskap i projektet **Voting** i Visual Studio.
 
 Gör så här om du vill se vad som händer i koden:
+
 1. Öppna filen **/VotingWeb/Controllers/VotesController.cs** och konfigurera en brytpunkt i webb-API:ns metod **Put** (rad 69). Du kan söka efter filen i Solution Explorer i Visual Studio.
 
 2. Öppna filen **/VotingData/Controllers/VoteDataController.cs** och konfigurera en brytpunkt i denna webb-API:s metod **Put** (rad 54).
 
 3. Gå tillbaka till webbläsaren och klicka på ett röstningsalternativ eller lägg till ett nytt röstningsalternativ. Du kommer till den första brytpunkten i webbklientdelens api-kontroll.
-    - Här skickar JavaScript i webbläsaren en begäran till webb-API-kontrollen i frontwebbtjänsten.
-    
+    * Här skickar JavaScript i webbläsaren en begäran till webb-API-kontrollen i frontwebbtjänsten.
+
     ![Lägg till röst för frontwebbtjänst](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    - Skapa först URL:en till ReverseProxy för serverdelstjänsten **(1)**.
-    - Skicka sedan HTTP PUT-begäran till ReverseProxy **(2)**.
-    - Till sist returneras svaret från serverdelstjänsten till klienten **(3)**.
+    * Skapa först URL:en till ReverseProxy för serverdelstjänsten **(1)**.
+    * Skicka sedan HTTP PUT-begäran till ReverseProxy **(2)**.
+    * Till sist returneras svaret från serverdelstjänsten till klienten **(3)**.
 
 4. Tryck på **F5** för att fortsätta
     - Om du uppmanas av webbläsaren ska du ge gruppen ServiceFabricAllowedUsers läs- och körbehörighet för felsökningsläge.
     - Du befinner dig nu på brytpunkten i serverdelstjänsten.
-    
+
     ![Lägg till röst för serverdelstjänst](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    - På den första raden i metoden **(1)** kommer `StateManager` hämta eller lägga till en tillförlitlig ordlista med namnet `counts`.
-    - All interaktion med värden i en tillförlitlig ordlista kräver en transaktion, den här använder instruktionen **(2)** som skapar den transaktionen.
-    - I transaktionen uppdaterar du värdet för den relevanta nyckeln för röstningsalternativet och utför åtgärden **(3)**. När utförandemetoden returneras uppdateras data i ordlistan och replikeras till andra noder i klustret. Data har nu lagrats i klustret och serverdelstjänsten kan redundansväxla till andra noder och fortfarande ha data tillgängliga.
+    * På den första raden i metoden **(1)** kommer `StateManager` hämta eller lägga till en tillförlitlig ordlista med namnet `counts`.
+    * All interaktion med värden i en tillförlitlig ordlista kräver en transaktion, den här använder instruktionen **(2)** som skapar den transaktionen.
+    * I transaktionen uppdaterar du värdet för den relevanta nyckeln för röstningsalternativet och utför åtgärden **(3)**. När utförandemetoden returneras uppdateras data i ordlistan och replikeras till andra noder i klustret. Data har nu lagrats i klustret och serverdelstjänsten kan redundansväxla till andra noder och fortfarande ha data tillgängliga.
 5. Tryck på **F5** för att fortsätta
 
 Stoppa felsökningssessionen genom att trycka på **Skift + F5**.
 
 ## <a name="deploy-the-application-to-azure"></a>Distribuera programmet till Azure
-Om du vill distribuera programmet till Azure behöver du ett Service Fabric-kluster som kör programmet. 
+
+Om du vill distribuera programmet till Azure behöver du ett Service Fabric-kluster som kör programmet.
 
 ### <a name="join-a-party-cluster"></a>Ansluta till ett partkluster
-Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster i Azure som körs av Service Fabric-teamet där vem som helst kan distribuera program och lära sig mer om plattformen. Klustret använder ett enda självsignerat certifikat för nod-till nod- samt klient-till-nod-säkerhet. 
+
+Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster i Azure som körs av Service Fabric-teamet där vem som helst kan distribuera program och lära sig mer om plattformen. Klustret använder ett enda självsignerat certifikat för nod-till nod- samt klient-till-nod-säkerhet.
 
 Logga in och [ansluta till ett Windows-kluster](http://aka.ms/tryservicefabric). Hämta PFX-certifikatet till datorn genom att klicka på **PFX**-länken. Klicka på länken **Hur ansluter man till ett säkert partkluster?** och kopiera lösenordet för certifikatet. Certifikatet, certifikatlösenordet och värdet **Anslutningsslutpunkt** används i följande steg.
 
@@ -135,7 +147,6 @@ Logga in och [ansluta till ett Windows-kluster](http://aka.ms/tryservicefabric).
 > [!Note]
 > Det finns ett begränsat antal tillgängliga partkluster per timme. Om du får ett felmeddelande när du försöker registrera dig för ett partkluster, kan du vänta en stund och försöka igen, eller följa stegen i självstudien [Distribuera en .NET-app](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) som hjälper dig att skapa ett Service Fabric-kluster i din Azure-prenumeration och distribuera programmet till den. Om du inte redan har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). När du har distribuerat och kontrollerat programmet i klustret kan du gå vidare till [Skala program och tjänster i ett kluster](#scale-applications-and-services-in-a-cluster) i denna snabbstart.
 >
-
 
 På en Windows-dator installerar du PFX i certifikatarkivet *CurrentUser\My*.
 
@@ -157,12 +168,12 @@ Kom ihåg tumavtrycket för följande steg.
 >
 
 ### <a name="deploy-the-application-using-visual-studio"></a>Distribuera programmet med hjälp av Visual Studio
+
 Nu när programmet är redo kan du distribuera det till ett kluster direkt från Visual Studio.
 
 1. Högerklicka på **Röstning** i Solution Explorer och välj **Publicera**. Dialogrutan Publicera visas.
 
-
-2. Kopiera **Anslutningsslutpunkten** för partyklustret till fältet **Anslutningsslutpunkt**. Till exempel `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klicka på **Avancerade anslutningsparametrar** och kontrollera att värdena *FindValue* och *ServerCertThumbprint* matchar tumavtrycket för certifikatet som installerades i föregående steg. 
+2. Kopiera **Anslutningsslutpunkten** för partyklustret till fältet **Anslutningsslutpunkt**. Till exempel `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klicka på **Avancerade anslutningsparametrar** och kontrollera att värdena *FindValue* och *ServerCertThumbprint* matchar tumavtrycket för certifikatet som installerades i föregående steg.
 
     ![Dialogrutan Publicera](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
@@ -175,9 +186,10 @@ Nu när programmet är redo kan du distribuera det till ett kluster direkt från
     ![Programmets klientdel](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Skala program och tjänster i ett kluster
+
 Service Fabric-tjänster kan enkelt skalas över ett kluster beroende på en ändring av belastningen på tjänsterna. Du kan skala en tjänst genom att ändra antalet instanser som körs i klustret. Det går att skala tjänsterna på flera sätt, till exempel med skript eller kommandon från PowerShell eller Service Fabric CLI (sfctl). I det här exemplet använder du Service Fabric Explorer.
 
-Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till klustrets HTTP-hanteringsport (19080), till exempel `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till klustrets HTTP-hanteringsport (19080), till exempel `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 
 Du kan få en webbläsarvarning att platsen inte är betrodd. Det beror på att certifikatet är självsignerat. Du kan välja att ignorera varningen och gå vidare.
 1. När du uppmanas av webbläsaren väljer du det installerade certifikatet för att ansluta. Certifikatet för partklustret som du väljer från listan måste matcha partklustret som du försöker få åtkomst till. Till exempel win243uja6w62r.westus.cloudapp.azure.com.
@@ -185,7 +197,8 @@ Du kan få en webbläsarvarning att platsen inte är betrodd. Det beror på att 
 
 Gör så här om du vill skala frontwebbtjänsten:
 
-1. Öppna Service Fabric Explorer i ditt kluster, till exempel `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
+
 2. I trädvyn öppnar du **Applications**->**VotingType**->**fabric:/Voting** (Program > Rösttyp > fabric: /Röstning). Klicka på ellipsknappen (tre punkter) bredvid noden **fabric:/Voting/VotingWeb** i trädvyn och välj **Scale Service** (Skala tjänst).
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
@@ -202,6 +215,7 @@ Gör så här om du vill skala frontwebbtjänsten:
 Med den här enkla hanteringsåtgärden har vi dubblerat resurserna för bearbetning av användarbelastning för frontwebbtjänsten. Det är viktigt att veta att du inte behöver flera instanser av en tjänst för att den ska köras på ett tillförlitligt sätt. Om en tjänst misslyckas ser Service Fabric till att en ny tjänstinstans körs i klustret.
 
 ## <a name="perform-a-rolling-application-upgrade"></a>Utföra en löpande programuppgradering
+
 När du distribuerar nya uppdateringar till programmet, sprider Service Fabric uppdateringen på ett säkert sätt. Med löpande uppgraderingar slipper du driftstopp under uppgraderingen och du får även automatisk återställning om det uppstår fel.
 
 Gör så här om du vill uppgradera programmet:
@@ -226,8 +240,8 @@ Gör så här om du vill uppgradera programmet:
 
     Service Fabric gör uppgraderingar på ett säkert sätt genom att vänta två minuter efter uppgradering av tjänsten på varje nod i klustret. Du kan förvänta dig att hela uppgraderingen tar cirka åtta minuter.
 
-
 ## <a name="next-steps"></a>Nästa steg
+
 I den här snabbstarten har du lärt dig att:
 
 * Skapa ett program med .NET och Service Fabric

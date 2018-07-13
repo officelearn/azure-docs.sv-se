@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
 ms.custom: mvc
-ms.openlocfilehash: 1e3f1d5edf12980cb0324bb130725ec2588aa220
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: c9f923268e8ca137ceaf88a0c8daa44fdee75095
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36957988"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097520"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-powershell"></a>Snabbstart: Skapa ett Spark-kluster i HDInsight med PowerShell
 Lär dig hur du skapar Apache Spark-kluster på Azure HDInsight och hur du kör Spark SQL-frågor mot Hive-tabeller. Apache Spark möjliggör snabb dataanalys och databehandling i kluster med hjälp av minnesintern bearbetning. Mer information om Spark på HDInsight finns i [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md).
 
-I den här snabbstarten använder du Azure PowerShell för att skapa ett HDInsight Spark-kluster. Klustret använder Azure Storage Blobar som klusterlagring.
+I den här snabbstarten använder du Azure PowerShell för att skapa ett HDInsight Spark-kluster. Klustret använder Azure Storage Blobar som klusterlagring. Mer information om att använda Data Lake Storage Gen2 finns i [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 > [!IMPORTANT]
 > Fakturering för HDInsight-kluster sker proportionerligt per minut, oavsett om du använder dem eller inte. Se till att du tar bort dina kluster när du är klar med dem. Mer information finns i avsnittet [Rensa resurser](#clean-up-resources) i den här artikeln.

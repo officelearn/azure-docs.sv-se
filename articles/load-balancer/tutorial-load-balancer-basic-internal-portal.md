@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7902b5ad2d680a22a2d132187cdad5f96a334447
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c0d19c53a0bd217935a494dfb4affbaa85062247
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061853"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097486"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Självstudier: Belastningsutjämna intern trafik till virtuella datorer med en enkel belastningsutjämnare med hjälp av Azure Portal
 
@@ -75,10 +75,10 @@ I det här avsnittet skapar du två virtuella datorer för belastningsutjämnare
     - *myAvailabilitySet* – för namnet på den nya tillgänglighetsuppsättning som du skapar.
     -  *myVNet* – se till att detta har markerats som det virtuella nätverket.
     - *myBackendSubnet* – kontrollera att det har markerats som undernätet.
-    - *myNetworkSecurityGroup* – namnet på den nya nätverkssäkerhetsgrupp (brandvägg) som du måste skapa.
+5. Under **Nätverkssäkerhetsgrupp** väljer du **Avancerat**. För **Nätverkssäkerhetsgrupp (brandvägg)** väljer du sedan **Ingen**.
 5. Inaktivera startdiagnostikinställningar genom att klicka på **Inaktiverad**.
 6. Klicka på **OK**, granska inställningarna på sammanfattningssidan och klicka sedan på **Skapa**.
-7. Skapa, med hjälp av steg 1-6, en andra virtuell dator med namnet *VM2* med *myAvailabilityset* som tillgänglighetsuppsättning, *myVnet* som virtuellt nätverk, *myBackendSubnet* som undernät och *myNetworkSecurityGroup* som dess nätverkssäkerhetsgrupp. 
+7. Gå igenom steg 1-6 och skapa en andra virtuell dator med namnet *VM2*, med *myAvailabilityset* som tillgänglighetsuppsättning, *myVnet* som virtuellt nätverk, *myBackendSubnet* som undernät och välj **Ingen** för alternativet **Nätverkssäkerhetsgrupp (brandvägg)**. 
 
 ### <a name="install-iis-and-customize-the-default-web-page"></a>Installera IIS och anpassa standardwebbsidan
 
@@ -100,33 +100,6 @@ I det här avsnittet skapar du två virtuella datorer för belastningsutjämnare
 5. Stäng RDP-anslutningen med *myVM1*.
 6. Upprepa steg 1–5 med *myVM2* för att installera IIS och anpassa standardwebbsidan.
 
-## <a name="create-nsg-rules"></a>Skapa nätverkssäkerhetsgruppsregler
-
-I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att inkommande anslutningar använder HTTP och RDP.
-
-1. Klicka på **Alla resurser** på den vänstra menyn och klicka sedan i resurslistan på **myNetworkSecurityGroup** som finns i resursgruppen **myResourceGroupLB**.
-2. Klicka på **Ingående säkerhetsregler** under **Inställningar** och klicka sedan på **Lägg till**.
-3. Ange dessa värden för den ingående säkerhetsregeln *myHTTPRule* så att inkommande HTTP-anslutningar som använder port 80 tillåts:
-    - *Tjänstetagg* – för **Källa**.
-    - *Internet* – för **Källtjänsttagg**
-    - *80* – för **målportsintervall**
-    - *TCP* – för **Protokoll**
-    - *Tillåt* – för **Åtgärd**
-    - *100* för **Prioritet**
-    - *myHTTPRule* för namn
-    - *Tillåt HTTP* – för beskrivning
-4. Klicka på **OK**.
- 
-5. Skapa, genom att upprepa steg 2 till 4, en annan regel med namnet *myRDPRule* som tillåter att en inkommande RDP-anslutning använder port 3389 med följande värden:
-    - *Tjänstetagg* – för **Källa**.
-    - *Internet* – för **Källtjänsttagg**
-    - *3389* – för **målportsintervall**
-    - *TCP* – för **Protokoll**
-    - *Tillåt* – för **Åtgärd**
-    - *200* för **Prioritet**
-    - *myRDPRule* för namn
-    - *Tillåt HTTP* – för beskrivning
-
 ## <a name="create-basic-load-balancer-resources"></a>Skapa en grundläggande belastningshanterare
 
 I det här avsnittet ska du konfigurera belastningsutjämningsinställningarna för en serverdelsadresspool och en hälsoavsökning, och ange belastningsutjämnare och NAT-regler.
@@ -139,7 +112,7 @@ För att distribuera trafik till de virtuella datorerna finns en adresspool på 
 1. Klicka på **Alla resurser** i den vänstra menyn och klicka sedan på **myLoadBalancer** i resurslistan.
 2. Klicka på **Serverdelspooler** under **Inställningar** och klicka sedan på **Lägg till**.
 3. Gör följande på sidan **Lägg till en serverdelspool**:
-    - Ange * myBackEndPool som namn på serverdelspoolen.
+    - Ange *myBackEndPool* som namn på serverdelspoolen.
     - Klicka på **Tillgänglighetsuppsättning** för **Associerad till** i den nedrullningsbara menyn
     - Klicka på **myAvailabilitySet** för **Tillgänglighetsuppsättning**.
     - Klicka på **Lägg till en målnätverks-IP-konfiguration** och lägg till varje virtuell dator (*myVM1* & *myVM2*) som du skapade till serverdelspoolen.

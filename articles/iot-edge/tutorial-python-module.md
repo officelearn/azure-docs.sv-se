@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 884237a851461fe3d7a48708d221909804760ceb
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 42af2b5ec6b591929f37afebe6546d61b8a3a02a
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063130"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082856"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Självstudie: Utveckla och distribuera en Python IoT Edge-modul till din simulerade enhet
 
@@ -32,9 +32,13 @@ IoT Edge-modulen som du skapar i den här självstudien filtrerar temperaturdata
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* Azure IoT Edge-enheten som du skapade i snabbstarten för [Linux](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
+* Azure IoT Edge-enheten som du skapade i snabbstarten för [Linux](quickstart-linux.md).
+
+   >[!Note]
+   >Python-moduler för Azure IoT Edge har inte stöd för Windows- eller ARM-enheter. 
+
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Edge-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Python-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
@@ -190,9 +194,9 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod till Py
 
 4. Spara filen.
 
-5. I VS Code-utforskaren högerklickar du på filen **deployment.template.json** och väljer **Skapa IoT Edge-lösning**. 
+5. Högerklicka på filen **deployment.template.json** och välj **Skapa IoT Edge-lösning** i VS Code-utforskaren. 
 
-När du ger Visual Studio Code kommandot att skapa din lösning hämtar den först information i distributionsmallen och genererar en `deployment.json`-fil i en ny **config**-mapp. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger din Python-kod i behållare och push-överför till det containerregister som du angav när du initierade lösningen. 
+När du ger Visual Studio Code kommando att skapa din lösning hämtar den först information i distributionsmallen och genererar en `deployment.json`-fil i en ny **config**-mapp. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger din Python-kod i behållare och push-överför till det containerregister som du angav när du initierade lösningen. 
 
 Den fullständiga adressen med tagg för behållaravbildningen i `docker build`-kommandot som körs i den integrerade VS Code-terminalen. Avbildningsadressen skapas utifrån information i filen `module.json` med formatet **\<lagringsplats\>:\<version\>-\<plattform\>**. För den här självstudien ska den se ut så här: **registryname.azurecr.io/pythonmodule:0.0.1-amd64**.
 
@@ -200,7 +204,7 @@ Den fullständiga adressen med tagg för behållaravbildningen i `docker build`-
 
 Du kan använda Azure Portal för att distribuera din Python-modul till en IoT Edge-enhet, som du gjorde i snabbstarten, men du kan också distribuera och övervaka moduler från Visual Studio Code. I följande avsnitt använder du Azure IoT Edge-filnamnstillägget för VS Code som listades under förutsättningarna. Installera det nu om du inte redan har gjort det. 
 
-1. Öppna kommandopaletten för VS kod genom att välja **Visa** > **Kommandopalett**.
+1. Öppna kommandopaletten för VS Code genom att välja **Visa** > **Kommandopalett**.
 
 2. Sök efter och kör kommandot **Azure: Logga in**. Följ anvisningarna för att logga in på ditt Azure-konto. 
 
@@ -208,7 +212,7 @@ Du kan använda Azure Portal för att distribuera din Python-modul till en IoT E
 
 4. Välj den prenumeration som innehåller din IoT Hub och välj sedan den IoT Hub du vill komma åt.
 
-5. I VS Code-utforskaren expanderar avsnittet **Azure IoT Hub-enheter**. 
+5. I VS Code-utforskaren expanderar du avsnittet **Azure IoT Hub-enheter**. 
 
 6. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Skapa distribution för IoT Edge-enhet**. 
 
@@ -228,7 +232,7 @@ Du kan använda Azure Portal för att distribuera din Python-modul till en IoT E
 
 <!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
 
-Om du ska fortsätta till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du redan har skapat och återanvända dem.
+Om du fortsätter till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du redan har skapat och återanvända dem.
 
 Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som skapats i den här artikeln om du vill undvika kostnader. 
 

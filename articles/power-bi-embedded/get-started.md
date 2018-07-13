@@ -15,12 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: maghan
-ms.openlocfilehash: 7a860742192227e92a14d9bb5622dc9b61f6cb99
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 33d948ee283ff3ee873e2f17ee07a7a889889925
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716031"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969501"
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Komma igång med Microsoft Power BI Embedded
 
@@ -49,7 +49,7 @@ Vi har några exempel som hjälper dig att komma igång. En genomgång av exempl
 Skapa kapacitet för Power BI Embedded i Microsoft Azure för att flytta programmet till produktion. Information om hur du skapar kapacitet finns i [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Skapa Power BI Embedded-kapacitet på Azure Portal).
 
 > [!IMPORTANT]
-> Eftersom inbäddade token enbart är avsedda för utvecklingstestning är antalet inbäddade token som ett Power BI-huvudkonto kan generera begränsat. En [kapacitet måste köpas](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) för produktionens inbäddningsscenarier. Det finns ingen gräns för att skapa en inbäddningstoken när en dedikerad kapacitet köps. Gå till [Hämta tillgängliga funktioner](https://msdn.microsoft.com/en-us/library/mt846473.aspx) och kontrollera den aktuella procentandelen inbäddad användning just nu.
+> Eftersom inbäddade token enbart är avsedda för utvecklingstestning är antalet inbäddade token som ett Power BI-huvudkonto kan generera begränsat. En [kapacitet måste köpas](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) för produktionens inbäddningsscenarier. Det finns ingen gräns för att skapa en inbäddningstoken när en dedikerad kapacitet köps. Gå till [Hämta tillgängliga funktioner](https://msdn.microsoft.com/library/mt846473.aspx) och kontrollera den aktuella procentandelen inbäddad användning just nu.
 
 Hantera kapaciteten i administrationsportalen för Power BI. Tilldela en administratör för arbetsytan för att hjälpa dig med appens arbetsytor. Mer information finns i [Manage capacities within Power BI Premium and Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/) (Hantera kapacitet i Power BI Premium och Power BI Embedded).
 

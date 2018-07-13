@@ -1,6 +1,6 @@
 ---
 title: 'Ansluta ditt lokala nätverk till ett virtuellt Azure-nätverk: VPN från plats till plats: CLI | Microsoft Docs'
-description: Steg för att skapa en IPsec-anslutning från ditt lokala nätverk till ett virtuellt Azure-nätverk via offentligt Internet. Dessa steg hjälper dig att skapa en plats-till-plats-anslutning med VPN-gateway med hjälp av CLI.
+description: Steg för att skapa en IPsec-anslutning från ditt lokala nätverk till ett virtuellt Azure-nätverk via offentligt Internet. Dessa steg hjälper dig att skapa en plats-till-plats-anslutning med VPN Gateway med hjälp av CLI.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
 ms.openlocfilehash: 76df3a03b559a1be04a969351ecbfafe3da67714
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29951613"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704461"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Skapa ett virtuellt nätverk med en VPN-anslutning från plats till plats med CLI
 
@@ -35,7 +35,7 @@ Den här artikeln visar hur du kan använda Azure CLI för att skapa en VPN-gate
 >
 
 
-![Diagram över plats-till-plats-anslutning med VPN-gateway](./media/vpn-gateway-howto-site-to-site-resource-manager-cli/site-to-site-diagram.png)
+![Diagram över plats-till-plats-anslutning med VPN Gateway](./media/vpn-gateway-howto-site-to-site-resource-manager-cli/site-to-site-diagram.png)
 
 En VPN-gatewayanslutning från plats till plats används för att ansluta ditt lokala nätverk till ett virtuellt Azure-nätverk via en IPsec/IKE VPN-tunnel (IKEv1 eller IKEv2). Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats till en extern offentlig IP-adress. Mer information om VPN-gatewayer finns i [Om VPN-gateway](vpn-gateway-about-vpngateways.md).
 
@@ -130,7 +130,7 @@ az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 
 
 ## <a name="PublicIP"></a>6. Begär en offentlig IP-adress
 
-En VPN-gateway måste ha en offentlig IP-adress. Först begär du IP-adressresursen och sedan hänvisar du till den när du skapar din virtuella nätverksgateway. IP-adressen tilldelas dynamiskt till resursen när en VPN-gateway har skapats. VPN-gateway stöder för närvarande endast *dynamisk* offentlig IP-adressallokering. Du kan inte begära en statisk offentlig IP-adresstilldelning. Det innebär emellertid inte att IP-adressen ändras när den har tilldelats din VPN-gateway. Den enda gången den offentliga IP-adressen ändras är när gatewayen tas bort och återskapas. Den ändras inte vid storleksändring, återställning eller annat internt underhåll/uppgraderingar av din VPN-gateway.
+En VPN-gateway måste ha en offentlig IP-adress. Först begär du IP-adressresursen och sedan hänvisar du till den när du skapar din virtuella nätverksgateway. IP-adressen tilldelas dynamiskt till resursen när en VPN-gateway har skapats. VPN Gateway stöder för närvarande endast *dynamisk* offentlig IP-adressallokering. Du kan inte begära en statisk offentlig IP-adresstilldelning. Det innebär emellertid inte att IP-adressen ändras när den har tilldelats din VPN-gateway. Den enda gången den offentliga IP-adressen ändras är när gatewayen tas bort och återskapas. Den ändras inte vid storleksändring, återställning eller annat internt underhåll/uppgraderingar av din VPN-gateway.
 
 Använd kommandot [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) för att begära en dynamisk offentlig IP-adress.
 
@@ -138,14 +138,14 @@ Använd kommandot [az network public-ip create](/cli/azure/network/public-ip#az_
 az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
 ```
 
-## <a name="CreateGateway"></a>7. Skapa VPN-gatewayen
+## <a name="CreateGateway"></a>7. Skapa VPN gateway
 
 Skapa den virtuella VPN-nätverksgatewayen. Det kan ta upp till 45 minuter att skapa en VPN-gateway.
 
 Ange följande värden:
 
 * *--gateway-type* för en plats-till-plats-konfiguration är *Vpn*. Gateway-typen gäller alltid den konfiguration som du implementerar. Se [Gatewaytyper](vpn-gateway-about-vpn-gateway-settings.md#gwtype) för mer information.
-* *--vpn-type* kan vara *RouteBased* (kallas en dynamisk gateway i viss dokumentation) eller *PolicyBased* (kallas en statisk gateway i viss dokumentation). Inställningen gäller krav på den enhet som du ansluter till. Mer information om VPN-gatewaytyper finns i [Om konfigurationsinställningar för VPN-gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
+* *--vpn-type* kan vara *RouteBased* (kallas en dynamisk gateway i viss dokumentation) eller *PolicyBased* (kallas en statisk gateway i viss dokumentation). Inställningen gäller krav på den enhet som du ansluter till. Mer information om VPN Gateway-typer finns i [Om konfigurationsinställningar för VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * Markera den gateway SKU som du vill använda. Det finns konfigurationsbegränsningar för vissa SKU:er. Se [Gateway SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för mer information.
 
 Skapa en VPN-gateway med kommandot [az network vnet-gateway create](/cli/azure/network/vnet-gateway#az_network_vnet_gateway_create). Om du kör det här kommandot med parametern ”--no-wait” ser du ingen feedback eller utdata. Den här parametern gör att gatewayen kan skapas i bakgrunden. Det tar cirka 45 minuter att skapa en gateway.
@@ -185,7 +185,7 @@ Efter en kort stund har anslutningen upprättats.
 
 [!INCLUDE [verify connection](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
-Om du vill använda en annan metod för att verifiera anslutningen kan du läsa [Verifiera en anslutning till VPN-gateway](vpn-gateway-verify-connection-resource-manager.md).
+Om du vill använda en annan metod för att verifiera anslutningen kan du läsa [Verifiera en anslutning till VPN Gateway](vpn-gateway-verify-connection-resource-manager.md).
 
 ## <a name="connectVM"></a>Ansluta till en virtuell dator
 

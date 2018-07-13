@@ -1,5 +1,5 @@
 ---
-title: Uppgradera Azure Service Fabric-körning (exekvering)| Microsoft Docs
+title: Uppgradera Service Fabric-körningen i Azure | Microsoft Docs
 description: I den här guiden får du lära dig hur du använder PowerShell och uppgraderar körningen för ett Service Fabric-kluster med Azure som värd.
 services: service-fabric
 documentationcenter: .net
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 375e0171f1a131ad95a9c6594cc0e05926e4dcc5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7e7304b259931c5196a4865383cf0b4ace4c4398
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642843"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109774"
 ---
-# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Självstudieguide: uppgradera körningen av ett Service Fabric-kluster
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Självstudie: Uppgradera körningen av ett Service Fabric-kluster i Azure
 
 Den här guiden är del tre i en serie. Den visar hur du uppgraderar körningen av Service Fabric ett Azure Service Fabric-kluster. Den här delen är skriven för Service Fabric-kluster som körs på Azure och gäller inte för fristående Service Fabric kluster.
 
@@ -44,15 +44,18 @@ I den här självstudieserien får du lära du dig att:
 > * uppgradera körningen för ett kluster
 > * [distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
 Innan du börjar den här självstudien:
-- om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Installera [Azure Powershell-modulen version 4.1 eller senare](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) eller [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure
-- Om du distribuerar ett Windows-kluster måste du konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2017](http://www.visualstudio.com) och arbetsbelastningarna **Azure Development**, **ASP.NET och webbutveckling** samt **.NET Core plattformsoberoende utveckling**.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
-- Om du distribuerar ett Linux-kluster måste du konfigurera en Java-utvecklingsmiljö på [Linux](service-fabric-get-started-linux.md) eller [MacOS](service-fabric-get-started-mac.md).  Installera [Service Fabric CLI](service-fabric-cli.md). 
+
+* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Installera [Azure Powershell-modulen version 4.1 eller senare](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) eller [Azure CLI 2.0](/cli/azure/install-azure-cli).
+* Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure
+* Om du distribuerar ett Windows-kluster måste du konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2017](http://www.visualstudio.com) och arbetsbelastningarna **Azure Development**, **ASP.NET och webbutveckling** samt **.NET Core plattformsoberoende utveckling**.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
+* Om du distribuerar ett Linux-kluster måste du konfigurera en Java-utvecklingsmiljö på [Linux](service-fabric-get-started-linux.md) eller [MacOS](service-fabric-get-started-mac.md).  Installera [Service Fabric CLI](service-fabric-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
+
 Logga in på ditt Azure-konto och välj din prenumeration innan du kör Azure-kommandon.
 
 ```powershell
@@ -192,7 +195,8 @@ sfctl cluster upgrade-status
 }
 ```
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="next-steps"></a>Nästa steg
+
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 0d0fb9bad8c6120100ae3ee766aea7620dd6105f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 362a9ae9cb1a1ebc30193b76929f0a683414e5fd
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201765"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435305"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Använda Data Lake Store med Azure HDInsight-kluster
 
@@ -100,10 +100,10 @@ Du kan lägga till ett Data Lake Store-konto som ytterligare lagring och lägga 
 
 ## <a name="configure-data-lake-store-access"></a>Konfigurera åtkomst till Data Lake Store
 
-Om du vill konfigurera åtkomst till Data Lake Store från ditt HDInsight-kluster måste tjänstens huvudnamn komma från Azure AD (Active Directory). Det är bara Azure AD-administratörer som kan vara tjänstens huvudnamn. Tjänstens huvudnamn måste skapas med ett certifikat. Mer information finns i [Konfigurera åtkomst till Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#configure-data-lake-store-access) och [Create service principal with self-signed-certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate) (Skapa tjänstens huvudnamn med självsignerat certifikat).
+Om du vill konfigurera åtkomst till Data Lake Store från ditt HDInsight-kluster måste tjänstens huvudnamn komma från Azure AD (Active Directory). Det är bara Azure AD-administratörer som kan vara tjänstens huvudnamn. Tjänstens huvudnamn måste skapas med ett certifikat. Mer information finns i [Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) och [Create service principal with self-signed-certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate) (Skapa tjänstens huvudnamn med självsignerat certifikat).
 
 > [!NOTE]
-> Om du ska använda Azure Data Lake Store som ytterligare lagringsutrymme för HDInsight-kluster rekommenderar vi starkt att du gör detta när du skapar klustret, enligt beskrivningen i den här artikeln. Att lägga till Azure Data Lake Store som ytterligare lagringsutrymme för ett befintligt HDInsight-kluster är en komplicerad process där det är lätt att göra fel.
+> Om du ska använda Azure Data Lake Store som ytterligare lagringsutrymme för HDInsight-kluster rekommenderar vi starkt att du gör detta när du skapar klustret, enligt beskrivningen i den här artikeln. Det finns inget stöd för att lägga till Azure Data Lake Store som ytterligare lagringsutrymme för ett befintligt HDInsight-kluster.
 >
 
 ## <a name="access-files-from-the-cluster"></a>Åtkomst till filer från klustret
@@ -130,7 +130,7 @@ Du kan komma åt filer i Data Lake Store från ett HDInsight-kluster på flera o
 
 Använd länkarna nedan om du vill ha mer detaljerade instruktioner om hur du skapar HDInsight-kluster med åtkomst till Data Lake Store.
 
-* [Använda portalen](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Använda portalen](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Använda PowerShell (med Data Lake Store som standardlagringsutrymme)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 * [Använda PowerShell (med Data Lake Store som ytterligare lagringsutrymme)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Använda Azure-mallar](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -142,8 +142,7 @@ I den här artikeln fick du lära dig hur du använder det HDFS-kompatibla Azure
 Mer information finns i:
 
 * [Kom igång med Azure HDInsight][hdinsight-get-started]
-* [Kom igång med Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
-* [Skapa ett HDInsight-kluster för att använda Data Lake Store med Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Skapa ett HDInsight-kluster för att använda Data Lake Store med Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Överföra data till HDInsight][hdinsight-upload-data]
 * [Använda Hive med HDInsight][hdinsight-use-hive]

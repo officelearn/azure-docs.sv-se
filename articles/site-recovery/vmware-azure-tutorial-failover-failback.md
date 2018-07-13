@@ -1,19 +1,20 @@
 ---
-title: "Redundansväxla och återställa virtuella VMware-datorer och fysiska servrar som replikeras till Azure med Site Recovery | Microsoft Docs"
-description: "Lär dig hur du redundansväxlar virtuella VMware-datorer och fysiska servrar till Azure och återställer dem till den lokala platsen med Azure Site Recovery"
+title: Redundansväxla och återställa virtuella VMware-datorer och fysiska servrar som replikeras till Azure med Site Recovery | Microsoft Docs
+description: Lär dig hur du redundansväxlar virtuella VMware-datorer och fysiska servrar till Azure och återställer dem till den lokala platsen med Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/05/2018
+ms.date: 06/13/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 618e2bb7ef124883af2d73264e01922ad2329d12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 57be12e3d203ba88cf7900598a09abdd206e1495
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115139"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Redundansväxla och återställa virtuella VMware-datorer och fysiska servrar som replikeras till Azure
 
@@ -142,7 +143,7 @@ Kör en redundans enligt följande:
 
 ## <a name="reprotect-on-premises-machines-to-azure"></a>Återaktivera skyddet av lokala datorer till Azure
 
-Dina data bör nu finnas på den lokala platsen igen, men de replikeras inte till Azure. Du kan påbörja replikeringen till Azure igen på följande sätt:
+Dina data bör nu finnas lokalt igen, men de replikeras inte till Azure. Du kan påbörja replikeringen till Azure igen på följande sätt:
 
 1. I valvet > **Inställningar** >**Replikerade objekt** väljer du de återställda virtuella datorerna och klickar på **Återaktivera skydd**.
 2. Välj den processerver som används för att skicka replikerade data till Azure och klicka på **OK**.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: nitinme
-ms.openlocfilehash: b9cf3ae3417b993cd721460484d6228daf7b283c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dd803fed4bc6a25904b2ea00a5b21af606ad7153
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627355"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097904"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>Snabbstart: Komma igång med Hadoop och Hive i Azure HDInsight med Azure Portal
 
@@ -80,7 +80,7 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med hjälp av Azur
     
     |Egenskap  |Beskrivning  |
     |---------|---------|
-    |**Primär lagringstyp**     | Använd Azure Storage Blob som standardlagringskonto för den här artikeln genom att välja **Azure Storage**. Du kan även använda Azure Data Lake Store som standardlagringsutrymme. |
+    |**Primär lagringstyp**     | Använd Azure Storage Blob som standardlagringskonto för den här artikeln genom att välja **Azure Storage**. Du kan även använda Azure Data Lake Storage som standardlagringsutrymme. |
     |**Urvalsmetod**     |  Använd ett lagringskonto från din Azure-prenumeration för den här artikeln genom att välja **Mina prenumerationer**. Om du vill använda ett lagringskonto från någon annan prenumeration väljer du **Åtkomstnyckel** och anger sedan kontots åtkomstnyckel. |
     |**Skapa ett nytt lagringskonto**     | Ange ett namn för lagringskontot.|
 
@@ -177,6 +177,7 @@ I den här självstudien har du fått veta hur du skapar ett Linux-baserat HDIns
 Om du är redo att börja arbeta med dina egna data och vill veta mer om hur data lagras i HDInsight eller om att hämta data till HDInsight, hittar du mer information i följande artiklar:
 
 * Mer information om hur HDInsight använder Azure Storage finns i [Använda Azure Storage med HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+* Information om hur du skapar ett HDInsight-kluster med Data Lake Storage finns i [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * Mer information om hur du överför data till HDInsight finns i [Överföra data till HDInsight](../hdinsight-upload-data.md).
 
 Mer information om att analysera data med HDInsight finns i följande artiklar:

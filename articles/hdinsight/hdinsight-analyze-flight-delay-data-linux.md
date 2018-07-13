@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 46c80f326c8210ac3282cf128058cee91ff3836c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1abc0a8ed9aec1082a4710647f6c03c87e1fd1d2
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770845"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098237"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Självstudie: Extrahera, transformera och läsa in data med Apache Hive på HDInsight
 
@@ -44,7 +44,7 @@ Följande bild visar ett typiskt ETL-programflöde.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Ett Linux-baserat Hadoop-kluster i HDInsight**. Läs [Kom igång med Hadoop i HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) för att få anvisningar om hur du skapar ett nytt Linux-baserat HDInsight-kluster.
 
@@ -320,6 +320,7 @@ I den här självstudien har du lärt dig att utföra åtgärder för att extrah
 
 Mer information om att arbeta med data i HDInsight finns i följande artiklar:
 
+* [Självstudie: Extrahera, transformera och läsa in data med Apache Hive i HDInsight](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
 * [Använda Hive med HDInsight][hdinsight-use-hive]
 * [Använda Pig med HDInsight][hdinsight-use-pig]
 * [Utveckla Java MapReduce-program för Hadoop i HDInsight][hdinsight-develop-mapreduce]

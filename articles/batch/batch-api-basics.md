@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 182d65ea955cfa2cac611080c30e145c26284369
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 3fe0d3836046ad143e746503210099ee5c640a08
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751487"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129106"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -506,8 +506,7 @@ Om vissa av dina aktiviteter misslyckas kan Batch-klientprogrammet eller Batch-t
 * Läs om tillgängliga [Batch-API:er och verktyg](batch-apis-tools.md) för att skapa Batch-lösningar.
 * Gå igenom ett Batch-exempelprogram steg för steg i [Komma igång med Azure Batch-biblioteket för .NET](batch-dotnet-get-started.md). Det finns också en [Python-version](batch-python-tutorial.md) i självstudien som kör en arbetsbelastning på Linux-beräkningsnoder.
 * Hämta och installera [BatchLabs] [ batch_labs] och använd verktyget i arbetet med att utveckla Batch-lösningar. Använd BatchLabs för att skapa, felsöka och övervaka Azure Batch-program. 
-* Lär dig hur du [skapar pooler för Linux-beräkningsnoder](batch-linux-nodes.md).
-* Besök [Azure Batch-forumet][batch_forum] på MSDN. Forumet är en bra plats om du vill ställa frågor, oavsett om du är helt ny eller expert på Batch.
+* Läs mer i olika community-resurser som [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), [repon för Batch-communityn](https://github.com/Azure/Batch) och [Azure Batch-forumet][batch_forum] på MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 

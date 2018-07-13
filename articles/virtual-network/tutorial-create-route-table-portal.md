@@ -17,16 +17,16 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 7254e9336fca14daee2021d5bde4c5538509fe35
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 81478ace72a538f4970e114cd704fd64ceb94aa6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30842330"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344909"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Självstudie: Dirigera nätverkstrafik med en routningstabell med hjälp av Azure-portalen
 
-Azure dirigerar automatiskt trafik mellan alla undernät inom ett virtuella nätverk som standard. Du kan skapa egna vägar för att åsidosätta Azures standardroutning. Möjligheten att skapa anpassade vägar är användbar om du exempelvis vill dirigera trafik mellan undernät via en virtuell nätverksinstallation (NVA). I den här guiden får du lära dig att:
+Azure dirigerar automatiskt trafik mellan alla undernät inom ett virtuella nätverk som standard. Du kan skapa egna vägar för att åsidosätta Azures standardroutning. Möjligheten att skapa anpassade vägar är användbar om du exempelvis vill dirigera trafik mellan undernät via en virtuell nätverksinstallation (NVA). I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en routningstabell
@@ -55,7 +55,7 @@ Logga in på Azure Portal på http://portal.azure.com.
     |---|---|
     |Namn|myRouteTablePublic|
     |Prenumeration| Välj din prenumeration.|
-    |Resursgrupp | Välj **Skapa ny** och skriv *myResourceGroup*.|
+    |Resursgrupp | Välj **Skapa ny** och ange *myResourceGroup*.|
     |Plats|Östra USA|
  
     ![Skapa routningstabell](./media/tutorial-create-route-table-portal/create-route-table.png) 
@@ -171,7 +171,7 @@ Du kan skapa den virtuella datorn *myVmPrivate* medan Azure skapar den virtuella
 
     ![Ansluta till virtuell dator ](./media/tutorial-create-route-table-portal/connect-to-virtual-machine.png)  
 
-3. Öppna den hämtade RDP-filen för att ansluta till den virtuella datorn. Om det händer väljer du **Anslut**.
+3. Öppna den nedladdade RDP-filen för att ansluta till den virtuella datorn. Välj **Anslut** om du uppmanas att göra det.
 4. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn (du kanske måste välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn) och välj **OK**.
 5. Du kan få en certifikatvarning under inloggningen. Välj **Ja** för att fortsätta med anslutningen.
 6. Senare används vägspårningsverktyget för att testa routningen. Vägspårning använder ICMP (Internet Control Message Protocol), som definieras via Windows-brandväggen. Aktivera ICMP via Windows-brandväggen genom att ange följande kommando från PowerShell på den virtuella datorn *myVmPrivate*:
@@ -252,7 +252,7 @@ Du kan skapa den virtuella datorn *myVmPrivate* medan Azure skapar den virtuella
 
 Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehåller: 
 
-1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du det.
+1. Skriv *myResourceGroup* i rutan **Sök** högst upp i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
 3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
 

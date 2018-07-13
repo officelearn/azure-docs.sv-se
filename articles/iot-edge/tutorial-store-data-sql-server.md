@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: d0837787dcac44d2cc43701ac181ec7eac2dfa2c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034075"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38687223"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Självstudie: Lagra data på gränsen med SQL Server-databaser
 
@@ -68,7 +68,7 @@ Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code o
 3. Öppna kommandopaletten i VS Code genom att välja **Visa** > **Kommandopalett**.
 4. Ange och kör kommandot **Azure: Logga in** i kommandopaletten och följ anvisningarna för att logga in med ditt Azure-konto. Om du redan har loggat in kan du hoppa över det här steget.
 3. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) i kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning: 
-   1. Välj den mapp som du vill skapa lösningen i. 
+   1. Välj den mapp där du vill skapa lösningen. 
    2. Ange ett namn för din lösning eller välj standardnamnet **EdgeSolution**.
    3. Välj **Azure Functions – C#** som mall för modulen. 
    4. Ge modulen namnet **sqlFunction**. 

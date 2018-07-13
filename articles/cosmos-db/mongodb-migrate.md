@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: cacda277082f62c9d98a7459cb5dbf74375bfd87
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: bdaead6fe739d62340ca225aa1a6d8adf9e86cb9
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795354"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100304"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: Importera MongoDB-data 
 
@@ -36,9 +36,9 @@ Den här självstudien omfattar följande uppgifter:
 > * Importera MongoDB-data med hjälp av mongoimport
 > * Importera MongoDB-data med hjälp av mongorestore
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* Öka dataflödet: Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild samling eller en uppsättning samlingar. Vi rekommenderar att du ökar dataflödet för större datamigreringar. När du har slutfört migreringen minskar du dataflödet för att spara kostnader. Mer information om hur du ökar dataflödet på [Azure Portal](https://portal.azure.com) finns i avsnittet om [prestandanivåer och prisnivåer](performance-levels.md) i Azure Cosmos DB.
+* Öka dataflödet: Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild samling eller en uppsättning samlingar. Du bör öka dataflödet för större datamigreringar. När du har slutfört migreringen minskar du dataflödet för att spara kostnader. Mer information om hur du ökar dataflödet på [Azure Portal](https://portal.azure.com) finns i avsnittet om [prestandanivåer och prisnivåer](performance-levels.md) i Azure Cosmos DB.
 
 * Aktivera SSL: Azure Cosmos DB har stränga säkerhetskrav och säkerhetsstandarder. Det är viktigt att du aktiverar SSL när du kommunicerar med ditt konto. Resten av den här artikeln innehåller anvisningar som beskriver hur du aktiverar SSL för mongoimport och mongorestore.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: c9cc94cbfb7575181a65cf21fdd8d19d2fd818f7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e62953ddfcc3f6d08430c477efbd7efc23064e19
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049788"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085431"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
 I den här självstudien använder du Azure-portalen till att skapa Azure Data Factory-pipeline. Pipelinen transformerar data med en Spark-aktivitet och en länkad Azure HDInsight-tjänst på begäran. 
@@ -32,7 +32,7 @@ I den här självstudiekursen får du göra följande:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * **Azure Storage-konto**. Du skapar ett Python-skript och en indatafil, och laddar upp dem till Azure Storage. Utdata från Spark-programmet lagras på det här lagringskontot. Spark-klustret på begäran använder samma lagringskonto som den primära lagringen.  
 * **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -98,7 +98,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 5. För **Version** väljer du **V2**.
 6. För **Plats** väljer du en plats för datafabriken. 
 
-   För närvarande kan du endast skapa datafabriker i Data Factory V2 i regionerna USA, östra; USA; östra 2 och Europa, västra. De datalager (som Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan finnas i andra regioner.
+   Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). De datalager (som Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan finnas i andra regioner.
 7. Välj **fäst till instrumentpanelen**.     
 8. Välj **Skapa**.
 9. Du ser följande panel på instrumentpanelen med statusen **Distribuerar datafabrik**: 

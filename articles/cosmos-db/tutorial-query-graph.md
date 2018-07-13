@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: dfaf3fe1427c9069939f5421c6a87efb584ebe48
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ad38976f439c399d839d6c5ee9dcd6ade7726c71
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763212"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081915"
 ---
 # <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>Självstudie: Fråga Azure Cosmos DB Graph API med hjälp av Gremlin
 
@@ -29,9 +29,9 @@ Den här artikeln beskriver följande uppgifter:
 > [!div class="checklist"]
 > * Fråga efter data med Gremlin
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-För att de här frågorna ska fungera måste du ha ett konto i Azure Cosmos DB och ha diagramdata i behållaren. Har du detta? Slutför [snabbstarten på 5 minuter](create-graph-dotnet.md) eller [självstudien för utvecklare](tutorial-query-graph.md) om du behöver skapa ett konto och fylla i databasen. Du kan köra följande frågor med hjälp av [Azure Cosmos DB .NET-diagrambiblioteket](graph-sdk-dotnet.md), [Gremlin-konsolen](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), eller din favoritdrivrutin för Gremlin.
+För att de här frågorna ska fungera måste du ha ett konto i Azure Cosmos DB och ha diagramdata i behållaren. Har du detta? Slutför [snabbstarten på 5 minuter](create-graph-dotnet.md) eller [självstudien för utvecklare](tutorial-query-graph.md) om du behöver skapa ett konto och fylla i databasen. Du kan köra följande frågor från [Gremlin-konsolen](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) eller din favoritdrivrutin för Gremlin.
 
 ## <a name="count-vertices-in-the-graph"></a>Antal hörn i diagrammet
 
@@ -80,7 +80,8 @@ I den här självstudien har du gjort följande:
 > [!div class="checklist"]
 > * Lärt dig hur man frågar med Graph 
 
-Du kan nu fortsätta till nästa självstudie för att lära dig hur du distribuerar dina data globalt.
+Du kan nu gå vidare till avsnittet Begrepp om du vill ha mer information om Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Distribuera dina data globalt](tutorial-global-distribution-graph.md)
+> [Global distribution](distribute-data-globally.md) 
+

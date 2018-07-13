@@ -9,12 +9,12 @@ ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8cd4f87e690d64e1f69ef39f3422ebc73d79974a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 73b6397ecc97b9e289749aabddfdc4c6161375d4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053100"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38667353"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Självstudie: Utveckla en C# IoT Edge-modul och distribuera till den simulerade enheten
 
@@ -34,10 +34,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Den Azure IoT Edge-enhet som du skapade i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
+* Azure IoT Edge-enheten som du skapade i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
 * Primärnyckelns anslutningssträng för IoT Edge-enheten.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [C# för Visual Studio Code-tillägget (tillhandahålls av OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) för Visual Studio Code.
+* [C# för Visual Studio Code-tillägg (drivs av OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * [Azure IoT Edge-tillägg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) för Visual Studio Code. 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 * [Docker CE](https://docs.docker.com/install/) på utvecklingsdatorn. 
@@ -59,9 +59,9 @@ Du kan använda valfritt Docker-kompatibelt register för den här självstudien
 Följande steg visar hur du skapar ett IoT Edge-modulprojekt som baseras på .NET Core 2.0 med Visual Studio Code och Azure IoT Edge-tillägget.
 1. I Visual Studio Code väljer du **Visa** > **Integrerad terminal** för att öppna den integrerade Visual Studio Code-terminalen.
 2. Välj **Visa** > **Kommandopalett** för att öppna kommandopaletten i VS Code. 
-3. I kommandopaletten anger du och kör kommandot **Azure: Logga in** och följer anvisningarna för att logga in med ditt Azure-konto. Om du redan har loggat in kan du hoppa över det här steget.
-4. I kommandopaletten skriver du och kör kommandot **Azure IoT Edge: Ny IoT Edge-lösning**. I kommandopaletten anger du följande information för att skapa din lösning: 
-   1. Välj den mapp som du vill skapa lösningen i. 
+3. Ange och kör kommandot **Azure: Logga in** i kommandopaletten och följ anvisningarna för att logga in med ditt Azure-konto. Om du redan har loggat in kan du hoppa över det här steget.
+4. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) i kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning: 
+   1. Välj den mapp där du vill skapa lösningen. 
    2. Ange ett namn för din lösning eller välj standardnamnet **EdgeSolution**.
    3. Välj **C# Module** som mall för modulen. 
    4. Ge modulen namnet **CSharpModule**. 
@@ -218,12 +218,12 @@ Följande steg visar hur du skapar ett IoT Edge-modulprojekt som baseras på .NE
 
 I föregående avsnitt skapade du IoT Edge-lösning och lagde till kod till CSharpModule som filtrerar ut meddelanden om att temperaturen för den rapporterade datorn ligger under det godkända tröskelvärdet. Nu behöver du bygga lösningen som en containeravbildning och push-överföra den till ditt containerregister. 
 
-1. Logga in på Docker genom att ange följande kommando i den integrerade terminalen för Visual Studio Code, att du kan push-överföra modulavbildningen till ACR: 
+1. Logga in på Docker genom att ange följande kommando i den integrerade terminalen för Visual Studio Code så att du kan push-överföra modulavbildningen till ACR: 
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-   Använd användarnamn, lösenord och inloggningsserver som du kopierade från Azure Container Registry i det första avsnittet. Eller hämta dem igen från avsnittet **Åtkomstnycklar** i ditt register i Azure-portalen.
+   Använd användarnamnet, lösenordet och inloggningsservern som du kopierade från Azure Container Registry i det första avsnittet. Eller hämta dem igen från avsnittet **Åtkomstnycklar** i ditt register i Azure Portal.
 
 2. I VS Code-utforskaren öppnar du filen **deployment.template.json** i arbetsytan för IoT Edge-lösningen. Den här filen instruerar `$edgeAgent` att distribuera två moduler: **tempSensor** och **CSharpModule**. `CSharpModule.image`-värdet är inställt på en Linux amd64-version för avbildningen. Läs mer om distributionsmanifest i avsnittet om att [förstå hur IoT Edge-moduler kan användas, konfigureras och återanvändas](module-composition.md).
 
@@ -239,7 +239,7 @@ I föregående avsnitt skapade du IoT Edge-lösning och lagde till kod till CSha
     ```
 
 4. Spara filen.
-5. I VS Code-utforskaren högerklickar du på filen **deployment.template.json** och väljer **Build IoT Edge solution** (Skapa IoT Edge-lösning). 
+5. Högerklicka på filen **deployment.template.json** och välj **Skapa IoT Edge-lösning** i VS Code-utforskaren. 
 
 När du ger Visual Studio Code kommando att skapa din lösning hämtar den först information i distributionsmallen och genererar en `deployment.json`-fil i en ny **config**-mapp. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger `CSharpModule.dll` i behållare och push-överför till det containerregister som du angav när du initierade lösningen. 
 
@@ -258,22 +258,22 @@ Den fullständiga adressen med tagg för behållaravbildningen finns i den integ
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
-1. Om du vill övervaka data som inkommer till IoT-hubben klickar du på **...** och väljer **Start Monitoring D2C Messages** (Starta övervakning av D2C-meddelanden).
-2. Om du vill övervaka D2C-meddelandet för en specifik enhet högerklickar du på enheten i listan och väljer **Start Monitoring D2C Messages** (Starta övervakning av D2C-meddelanden).
+1. Om du vill övervaka data som inkommer till IoT Hub klickar du på **...** och väljer **Starta övervakning av D2C-meddelanden**.
+2. Om du vill övervaka D2C-meddelandet för en specifik enhet högerklickar du på enheten i listan och väljer **Starta övervakning av D2C-meddelanden**.
 3. Om du vill stoppa dataövervakningen kör du kommandot **Azure IoT Hub: Stop monitoring D2C message** (Azure IoT Hub: Sluta övervaka D2C-meddelande) i kommandopaletten. 
-4. Om du vill visa eller uppdatera modultvillingen högerklickar du på modulen i listan och väljer **Edit module twin** (Redigering modultvilling). Om du vill uppdatera modultvillingen sparar du tvilling-JSON-filen och högerklickar på redigeringsområdet och väljer **Update Module Twin** (Uppdatera modultvilling).
-5. Om du vill visa Docker-loggar kan du installera [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) för VS Code och se moduler som körs lokalt i Docker-utforskaren. I kontextmenyn klickar du på **Show Logs** (Visa loggar) för att visa i den integrerade terminalen.
+4. Om du vill visa eller uppdatera modultvillingen högerklickar du på modulen i listan och väljer **Redigera modultvilling**. Om du vill uppdatera modultvillingen sparar du tvilling-JSON-filen och högerklickar på redigeringsområdet och väljer **Uppdatera modultvilling**.
+5. Om du vill visa Docker-loggar kan du installera [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) för VS Code och se moduler som körs lokalt i Docker-utforskaren. I kontextmenyn klickar du på **Visa loggar** för att visa i den integrerade terminalen.
  
 ## <a name="clean-up-resources"></a>Rensa resurser 
 
 <!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
 
-Om du ska fortsätta till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du redan har skapat och återanvända dem.
+Om du fortsätter till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du redan har skapat och återanvända dem.
 
 Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som skapats i den här artikeln om du vill undvika kostnader. 
 
 > [!IMPORTANT]
-> Att ta bort Azure-resurser och en resursgrupp kan inte ångras. När resursgruppen och alla resurser som ingår i den tas bort är de borta permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat IoT Hub:en inuti en befintlig resursgrupp som innehåller resurser som du vill behålla, ta bara bort själva IoT Hub-resursen i stället för att ta bort resursgruppen.
+> Det går inte att ångra borttagning av Azure-resurser och resursgrupper. När resursgruppen och alla resurser som ingår i den tas bort är de borta permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat IoT Hub:en inuti en befintlig resursgrupp som innehåller resurser som du vill behålla, ta bara bort själva IoT Hub-resursen i stället för att ta bort resursgruppen.
 >
 
 Om du endast vill ta bort körningen av IoT Hub kan du använda följande kommando med namnet på hubben och resursgruppens namn:

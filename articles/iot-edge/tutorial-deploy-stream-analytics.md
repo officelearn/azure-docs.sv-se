@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ad2895a457a20632823260f2429ac95fad82089c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0790f504c978b4302812cffc9b655e817c156da3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060203"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081395"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge-modul – förhandsgranskning
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig hur man:
 >[!NOTE]
 >Azure Stream Analytics-moduler för IoT Edge finns i en [allmänt tillgänglig förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En IoT Hub
 * IoT Edge-enheten som du skapade och konfigurerade i snabbstarten för [Windows][lnk-quickstart-win] eller [Linux][lnk-quickstart-lin]. 
@@ -128,7 +128,7 @@ Du kan nu distribuera Azure Stream Analytics-jobbet till din IoT Edge-enhet.
    Om du tidigare har distribuerat tempSensor-modulen på den här enheten kanske den fylls i automatiskt. Om inte så lägger du till modulen med följande steg:
 
    1. Klicka på **Lägg till** och välj **IoT Edge-modul**.
-   2. Ange **tempsensor** som namn.
+   2. Ange **tempSensor** som namn.
    3. Ange **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0** som URI för avbildning. 
    4. Lämna de andra inställningarna oförändrade.
    5. Välj **Spara**.

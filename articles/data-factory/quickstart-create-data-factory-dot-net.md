@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: b934cff674ee6967c9ae97baa5c3b93226600e87
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d5858ba7d10093264e1565d88ae518055b814d34
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046348"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085750"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Skapa en datafabrik och pipeline med .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ Den här snabbstarten beskriver hur du använder .NET SDK till att skapa en Azur
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
@@ -145,7 +145,7 @@ Skapa ett C# .NET-konsolprogram med hjälp av Visual Studio 2013/2015/2017.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Lägg till följande kod till **Main**-metoden som anger variablerna. Ersätt platshållarna med dina egna värden. För närvarande kan du endast skapa datafabriker i Data Factory V2 i regionerna USA, östra; USA; östra 2 och Europa, västra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+2. Lägg till följande kod till **Main**-metoden som anger variablerna. Ersätt platshållarna med dina egna värden. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
     ```csharp
     // Set variables

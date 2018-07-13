@@ -5,32 +5,34 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 79857f05505a59de94d7a6926afe38cceeac34f3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5505ec8dd25e5468fad81d4eb26980202425969a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35629602"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>Självstudie: Granska användning och kostnader
 
-I Azure Cost Management visas användning och kostnader så att du kan spåra trender, identifiera ineffektivitet och skapa aviseringar. Alla data om användning och kostnader visas på instrumentpaneler och i rapporter i Cloudyn. I exemplen i den här självstudien får du lära dig hur du granskar användning och kostnader med instrumentpaneler och rapporter. I den här guiden får du lära dig att:
+I Azure Cost Management visas användning och kostnader så att du kan spåra trender, identifiera ineffektivitet och skapa aviseringar. Alla data om användning och kostnader visas på instrumentpaneler och i rapporter i Cloudyn. I exemplen i den här självstudien får du lära dig hur du granskar användning och kostnader med instrumentpaneler och rapporter. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Spårar trender inom användning och kostnader
 > * Identifierar ineffektivitet i användningen
 > * Skapar aviseringar för onormalt höga kostnader
+> * Exportera data
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha ett Azure-konto.
 - Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Azure Cost Management.
@@ -41,7 +43,7 @@ Du kan granska all användning och alla kostnader i Cloudyn-portalen. Öppna Clo
 
 ## <a name="track-usage-and-cost-trends"></a>Spårar trender inom användning och kostnader
 
-Du kan spåra faktiska utgifter för användning och kostnader med rapporter över tid där du kan identifiera trender. Om du vill börja leta efter trender kan du använda rapporten Actual Cost Over Time (Faktisk kostnad över tid). I menyn längst upp i portalen klickar du på **Kostnader** > **Kostnadsanalys** > **Faktisk kostnad över tid**. När du först öppnar rapporten används inga grupper eller filter.
+Du kan spåra faktiska utgifter för användning och kostnader med rapporter över tid där du kan identifiera trender. Om du vill börja leta efter trender kan du använda rapporten Actual Cost Over Time (Faktisk kostnad över tid). Längst upp till vänster i portalen klickar du på **Kostnader** > **Kostnadsanalys** > **Faktisk kostnad över tid**. När du först öppnar rapporten används inga grupper eller filter.
 
 Här är en exempelrapport:
 
@@ -89,12 +91,15 @@ Du kan automatiskt meddela intressenter vid avvikelser i utgifterna och vid risk
 
 Du kan skapa en avisering för alla typer av utgifter från valfri kostnadsrapport. I det här exemplet använder du rapporten Actual Cost Over Time till att meddela dig när Azure VM-utgifterna närmar sig din totala budget. Alla följande steg krävs för att skapa aviseringen. I menyn längst upp i portalen klickar du på **Kostnader** > **Kostnadsanalys** > **Faktisk kostnad över tid**. Ställ in **Groups** (Grupper) på **Service** och sätt **Filter on the service** (Filtrera efter tjänsten) till **Azure/VM**. Klicka på **Actions** (Åtgärder) uppe till höger i rapporten och välj **Schedule report** (Schemalägg rapport).
 
-På fliken **Scheduling** (Schemaläggning) kan du ange att du vill få ett e-postmeddelande med rapporten med valfri frekvens. Välj **Skicka via e-post**. De taggar samt den gruppering och filtrering du använde ingår i rapporten du får via e-post. Klicka på fliken **Threshold** (Tröskelvärde) och välj **Actual Cost vs. Threshold** (Faktisk kostnad jämfört med tröskelvärde). Om du har en total budget på 500 000 USD och vill få en avisering när kostnaderna är ungefär hälften kan du skapa en **röd avisering** vid 250 000 USD och en **gul avisering** vid 240 000 USD. Inkludera inte kommatecken i de värden som du anger. Välj sedan antalet på varandra följande aviseringar. När du har fått det antal aviseringar som du angett, skickas inga fler aviseringar. Spara den schemalagda rapporten.
+På fliken **Schemaläggning** i rutan Spara eller schemalägg den här rapporten kan du ange att du vill få ett e-postmeddelande med rapporten med valfri frekvens. Välj **Skicka via e-post**. De taggar samt den gruppering och filtrering du använde ingår i rapporten du får via e-post. Klicka på fliken **Threshold** (Tröskelvärde) och välj **Actual Cost vs. Threshold** (Faktisk kostnad jämfört med tröskelvärde). Om du har en total budget på 500 000 USD och vill få en avisering när kostnaderna är ungefär hälften kan du skapa en **röd avisering** vid 250 000 USD och en **gul avisering** vid 240 000 USD. Inkludera inte kommatecken i de värden som du anger. Välj sedan antalet på varandra följande aviseringar. När du har fått det antal aviseringar som du angett, skickas inga fler aviseringar. Spara den schemalagda rapporten.
 
 ![exempelrapport](./media/tutorial-review-usage/schedule-alert01.png)
 
 Du kan också välja tröskelvärdesmåttet Cost Percentage vs. Budget (Kostnadernas procentandel av budgeten) till att skapa aviseringar. Då kan du använda procentandelar av budgeten i stället för faktiska valutavärden.
 
+## <a name="export-data"></a>Exportera data
+
+På ungefär samma sätt som du skapar aviseringar för rapporter som kan du även exportera data från valfri rapport. Till exempel kanske du vill exportera en lista med Cloudyn-konton eller andra användardata. Om du vill exportera en rapport öppnar du den och klickar på **Åtgärder** uppe till höger i rapporten. En användbar åtgärd är att **Exportera alla rapportdata** så att du kan ladda ned eller skriva ut informationen. Du kan också välja **Schemalägg rapport** om du vill schemalägga rapporten och få den via e-post.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -104,6 +109,7 @@ I den här självstudiekursen lärde du dig att:
 > * Spårar trender inom användning och kostnader
 > * Identifierar ineffektivitet i användningen
 > * Skapar aviseringar för onormalt höga kostnader
+> * Exportera data
 
 
 Gå vidare till nästa självstudie om du vill lära dig att göra prognoser för utgifter med hjälp av historiska data.

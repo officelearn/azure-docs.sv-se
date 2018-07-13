@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: d9b1666c1543e16fe5433e05645c232d01e7260c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5610a4ec726b296f54beca65a58d6c0e63a5b375
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054576"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084876"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
@@ -58,7 +58,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
 * **Azure Storage**. Du kan använda blob-lagringen som mottagare för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account). Skapa en behållare med namnet adftutorial. 
 * **Azure PowerShell**. Följ instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -188,7 +188,7 @@ Observera följande punkter:
     ```
 
 * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna deltagare eller ägare, eller vara administratör för Azure-prenumerationen.
-* För närvarande kan du endast skapa datafabriker i Data Factory i regionerna USA, östra; USA; östra 2 och Europa, västra. Datalagren ( Storage, Azure SQL Database osv.) och beräkningarna (Azure HDInsight osv.) som används i datafabriken kan finnas i andra regioner.
+* Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren ( Storage, Azure SQL Database osv.) och beräkningarna (Azure HDInsight osv.) som används i datafabriken kan finnas i andra regioner.
 
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster

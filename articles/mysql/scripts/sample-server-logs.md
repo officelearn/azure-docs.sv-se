@@ -12,11 +12,11 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
 ms.openlocfilehash: abe79185b817a4581c7df3f73c1d48ece6058643
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266262"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38698016"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Aktivera och ladda ned serverns långsamma frågeloggar för en Azure Database for MySQL-server med Azure CLI
 Det här CLI-exempelskriptet aktiverar och laddar ned de långsamma frågeloggarna för en enda Azure Database for MySQL-server.

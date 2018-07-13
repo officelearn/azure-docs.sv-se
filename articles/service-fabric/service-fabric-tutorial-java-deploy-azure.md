@@ -1,5 +1,5 @@
 ---
-title: Distribuera en Java Service Fabric-tillämpning till ett kluster i Azure | Microsoft Docs
+title: Distribuera en Java-app till ett Service Fabric-kluster i Azure | Microsoft Docs
 description: I den här självstudiekursen får du lära dig hur du distribuerar en Java Service Fabric-tillämpning till ett Service Fabric-kluster i Azure.
 services: service-fabric
 documentationcenter: java
@@ -15,40 +15,44 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 370cb367a90c8c1a4f8051e79d3858d78c8c3b75
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: afa9aa4ef4d3d8d8a6816d194b69271fdf0d928a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644050"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109682"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Självstudie: Distribuera en Java-tillämpning till ett Service Fabric-kluster i Azure
+
 Den här självstudien är del tre i en serie. Här får du se hur du distribuerar en Service Fabric-tillämpning till ett kluster i Azure.
 
 I den tredje delen i serien får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa ett säkert Linux-kluster i Azure 
+> * Skapa ett säkert Linux-kluster i Azure
 > * Distribuera ett program till klustret
 
 I den här självstudieserien får du lära du dig att:
+
 > [!div class="checklist"]
-> *  [Skapa ett Java Service Fabric Reliable Services-program](service-fabric-tutorial-create-java-app.md)
+> * [Skapa ett Java Service Fabric Reliable Services-program](service-fabric-tutorial-create-java-app.md)
 > * [Distribuera och felsöka programmet på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
 > * Distribuera programmet till ett Azure-kluster
-> * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
-> * [Konfigurera CI/CD](service-fabric-tutorial-java-jenkins.md)
+> * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
+> * [konfigurera CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
 Innan du börjar den här självstudien:
-- om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- Installera Service Fabric SDK för [Mac](service-fabric-get-started-mac.md) eller [Linux](service-fabric-get-started-linux.md)
-- [Installera Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
+
+* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* Installera Service Fabric SDK för [Mac](service-fabric-get-started-mac.md) eller [Linux](service-fabric-get-started-linux.md)
+* [Installera Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 
 ## <a name="create-a-service-fabric-cluster-in-azure"></a>Skapa ett Service Fabric-kluster i Azure
 
-Med följande steg skapar du de resurser som krävs för att distribuera tillämpningen till ett Service Fabric-kluster. Du skapar också de resurser som krävs för att övervaka hälsotillståndet hos din lösning med hjälp av ELK (Elasticsearch, Logstash, Kibana). Mer specifikt används [Event Hubs](https://azure.microsoft.com/services/event-hubs/) som en kanalmottagare för loggar från Service Fabric. Den är konfigurerad för att skicka loggarna från Service Fabric-klustret till din Logstash-instans. 
+Med följande steg skapar du de resurser som krävs för att distribuera tillämpningen till ett Service Fabric-kluster. Du skapar också de resurser som krävs för att övervaka hälsotillståndet hos din lösning med hjälp av ELK (Elasticsearch, Logstash, Kibana). Mer specifikt används [Event Hubs](https://azure.microsoft.com/services/event-hubs/) som en kanalmottagare för loggar från Service Fabric. Den är konfigurerad för att skicka loggarna från Service Fabric-klustret till din Logstash-instans.
 
 1. Öppna en terminal och hämta följande paket, som innehåller nödvändiga hjälpskript och mallarna för att skapa resurser i Azure
 
@@ -56,23 +60,23 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
     git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```
 
-2. Logga in på ditt Azure-konto 
+2. Logga in på ditt Azure-konto
 
     ```bash
     az login
     ```
 
-3. Ange vilken Azure-prenumeration som du vill använda för att skapa resurserna 
+3. Ange vilken Azure-prenumeration som du vill använda för att skapa resurserna
 
     ```bash
     az account set --subscription [SUBSCRIPTION-ID]
-    ``` 
+    ```
 
-4. Från mappen *service-fabric-java-quickstart/AzureCluster* kör du sedan följande kommando för att skapa ett klustercertifikat i Key Vault. Det här certifikatet används för att skydda ditt Service Fabric-kluster. Ange region (måste vara samma som för ditt Service Fabric-kluster), namnet på Key Vault-resursgruppen, Key Vault-namn, lösenord för certifikatet och klustrets DNS-namn. 
+4. Från mappen *service-fabric-java-quickstart/AzureCluster* kör du sedan följande kommando för att skapa ett klustercertifikat i Key Vault. Det här certifikatet används för att skydda ditt Service Fabric-kluster. Ange region (måste vara samma som för ditt Service Fabric-kluster), namnet på Key Vault-resursgruppen, Key Vault-namn, lösenord för certifikatet och klustrets DNS-namn.
 
     ```bash
     ./new-service-fabric-cluster-certificate.sh [REGION] [KEY-VAULT-RESOURCE-GROUP] [KEY-VAULT-NAME] [CERTIFICATE-PASSWORD] [CLUSTER-DNS-NAME-FOR-CERTIFICATE]
-    
+
     Example: ./new-service-fabric-cluster-certificate.sh 'westus' 'testkeyvaultrg' 'testkeyvault' '<password>' 'testservicefabric.westus.cloudapp.azure.com'
     ```
 
@@ -84,11 +88,11 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
     Certificate Thumbprint: <THUMBPRINT>
     ```
 
-5. Skapa en resursgrupp för lagringskontot där dina loggar sparas 
+5. Skapa en resursgrupp för lagringskontot där dina loggar sparas
 
     ```bash
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
-    
+
     Example: az group create --location westus --name teststorageaccountrg
     ```
 
@@ -96,11 +100,11 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
 
     ```bash
     az storage account create -g [RESOURCE-GROUP-NAME] -l [REGION] --name [STORAGE-ACCOUNT-NAME] --kind Storage
-    
+
     Example: az storage account create -g teststorageaccountrg -l westus --name teststorageaccount --kind Storage
     ```
 
-7. Öppna [Azure-portalen](https://portal.azure.com) och gå till fliken**Signatur för delad åtkomst** för ditt lagringskonto. Generera din SAS-token på följande sätt. 
+7. Öppna [Azure-portalen](https://portal.azure.com) och gå till fliken**Signatur för delad åtkomst** för ditt lagringskonto. Generera din SAS-token på följande sätt.
 
     ![Generera en signatur för delad åtkomst (SAS) för lagring](./media/service-fabric-tutorial-java-deploy-azure/storagesas.png)
 
@@ -114,16 +118,16 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
 
     ```bash
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
-    
+
     Example: az group create --location westus --name testeventhubsrg
     ```
 
-10. Skapa en resurs för Event Hubs med hjälp av följande kommando. Följ anvisningarna för att fylla i information för namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule och receiveAuthorizationRule. 
+10. Skapa en resurs för Event Hubs med hjälp av följande kommando. Följ anvisningarna för att fylla i information för namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule och receiveAuthorizationRule.
 
     ```bash
     az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
-    
-    Example: 
+
+    Example:
     az group deployment create -g testeventhubsrg --template-file eventhubsdeploy.json
     Please provide string value for 'namespaceName' (? for help): testeventhubnamespace
     Please provide string value for 'eventHubName' (? for help): testeventhub
@@ -132,8 +136,8 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
     Please provide string value for 'receiveAuthorizationRuleName' (? for help): receiver
     ```
 
-    Kopiera innehållet i fältet **utdata** i JSON-utdata från föregående kommando. Information om avsändaren används när Service Fabric-klustret skapas. Mottagarens namn och nyckel ska sparas för användning i nästa självstudie, där Logstash-tjänsten konfigureras för att ta emot meddelanden från Event Hub. Följande blob är ett exempel på JSON-utdata:     
-    
+    Kopiera innehållet i fältet **utdata** i JSON-utdata från föregående kommando. Information om avsändaren används när Service Fabric-klustret skapas. Mottagarens namn och nyckel ska sparas för användning i nästa självstudie, där Logstash-tjänsten konfigureras för att ta emot meddelanden från Event Hub. Följande blob är ett exempel på JSON-utdata:
+
     ```json
     "outputs": {
         "receiver Key": {
@@ -169,9 +173,9 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
 
     Din SAS URL för EventHubs följer strukturen: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. Till exempel, https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
-12. Öppna filen *sfdeploy.parameters.json* och ersätt följande innehåll från föregående steg 
+12. Öppna filen *sfdeploy.parameters.json* och ersätt följande innehåll från föregående steg
 
-    ```
+    ```json
     "applicationDiagnosticsStorageAccountName": {
         "value": "teststorageaccount"
     },
@@ -191,7 +195,7 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
 
 ## <a name="deploy-your-application-to-the-cluster"></a>Distribuera din tillämpning till klustret
 
-1. Innan du distribuerar din tillämpning måste du lägga till följande kodfragment i filen *Voting/VotingApplication/ApplicationManifest.xml*. Fältet **X509FindValue** är det tumavtryck som returnerades från Steg 4 i avsnittet **Skapa ett Service Fabric-kluster i Azure**. Kodfragmentet är kapslat under fältet **ApplicationManifest** (rotfältet). 
+1. Innan du distribuerar din tillämpning måste du lägga till följande kodfragment i filen *Voting/VotingApplication/ApplicationManifest.xml*. Fältet **X509FindValue** är det tumavtryck som returnerades från Steg 4 i avsnittet **Skapa ett Service Fabric-kluster i Azure**. Kodfragmentet är kapslat under fältet **ApplicationManifest** (rotfältet).
 
     ```xml
     <Certificates>
@@ -211,32 +215,33 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
     sfctl cluster select --endpoint https://testlinuxcluster.westus.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
-4. Om du vill distribuera programmet går du till mappen *Voting/Scripts* (Röstning/Skript) och kör skriptet **install.sh**. 
+4. Om du vill distribuera programmet går du till mappen *Voting/Scripts* (Röstning/Skript) och kör skriptet **install.sh**.
 
     ```bash
     ./install.sh
     ```
 
-5. Du kommer åt Service Fabric Explorer genom at öppna din vanliga webbläsare och skriva https://testlinuxcluster.westus.cloudapp.azure.com:19080. Välj certifikatet från det certifikatarkiv som du vill använda för att ansluta till slutpunkten. Om du använder en Linux-dator måste de certifikat som genererats av skriptet *new-service-fabric-cluster-certificate.sh* importeras till Chrome för att du ska kunna visa Service Fabric Explorer. Om du använder en Mac-dator måste du installera PFX-filen i din nyckelring. Du kan nu se att din tillämpning har installerats i klustret. 
+5. Du kommer åt Service Fabric Explorer genom at öppna din vanliga webbläsare och skriva https://testlinuxcluster.westus.cloudapp.azure.com:19080. Välj certifikatet från det certifikatarkiv som du vill använda för att ansluta till slutpunkten. Om du använder en Linux-dator måste de certifikat som genererats av skriptet *new-service-fabric-cluster-certificate.sh* importeras till Chrome för att du ska kunna visa Service Fabric Explorer. Om du använder en Mac-dator måste du installera PFX-filen i din nyckelring. Du kan nu se att din tillämpning har installerats i klustret.
 
     ![SFX Java i Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 
-6. Du kommer åt din tillämpning genom att skriva https://testlinuxcluster.westus.cloudapp.azure.com:8080 
+6. Du kommer åt din tillämpning genom att skriva https://testlinuxcluster.westus.cloudapp.azure.com:8080
 
     ![Röstningsapp i Java Azure](./media/service-fabric-tutorial-java-deploy-azure/votingappjavaazure.png)
 
-7. Om du vill avinstallera din tillämpning från klustret kör du skriptet *uninstall.sh* i **Skript**-mappen 
+7. Om du vill avinstallera din tillämpning från klustret kör du skriptet *uninstall.sh* i **Skript**-mappen
 
     ```bash
     ./uninstall.sh
     ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Skapa ett säkert Linux-kluster i Azure 
-> * Skapa nödvändiga resurser för övervakning med ELK 
+> * Skapa ett säkert Linux-kluster i Azure
+> * Skapa nödvändiga resurser för övervakning med ELK
 > * Valfritt: Så använder du partskluster för att prova Service Fabric
 
 Gå vidare till nästa kurs:

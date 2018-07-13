@@ -17,11 +17,11 @@ ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: b09a85686e19ae92c3e437bedff54bff8371784f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182365"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719047"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli-20"></a>Snabbstart: Skapa en virtuell Windows-dator med Azure CLI 2.0
 
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.30 eller senare i den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.30 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -81,7 +81,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
 
-Använd följande kommando för att skapa en fjärrskrivbordssession från den lokala datorn. Ersätt IP-adressen med den offentliga IP-adressen för din virtuella dator. När du uppmanas att göra det anger du autentiseringsuppgifterna som användes när den virtuella datorn skapades:
+Skapa en fjärrskrivbordssession från den lokala datorn genom att köra följande kommando. Ersätt IP-adressen med den virtuella datorns offentliga IP-adress. När du uppmanas att göra det anger du autentiseringsuppgifterna som användes när den virtuella datorn skapades:
 
 ```powershell
 mstsc /v:publicIpAddress
@@ -99,7 +99,7 @@ När kommandot har körts stänger du RDP-anslutningen till den virtuella datorn
 
 ## <a name="view-the-web-server-in-action"></a>Se hur webbservern fungerar i praktiken
 
-När IIS har installerats och port 80 är öppen på den virtuella datorn från Internet använder du valfri webbläsare för att visa standardvälkomstsidan för IIS. Använd den offentliga IP-adressen för din virtuella dator som du hämtade i ett tidigare steg. I följande exempel visas standardwebbplatsen för IIS:
+När IIS har installerats och port 80 är öppen på den virtuella datorn från Internet använder du valfri webbläsare för att visa standardvälkomstsidan för IIS. Använd den virtuella datorns offentliga IP-adress, som du hämtade i ett tidigare steg. I följande exempel visas standardwebbplatsen för IIS:
 
 ![Standardwebbplatsen i IIS](./media/quick-create-powershell/default-iis-website.png)
 

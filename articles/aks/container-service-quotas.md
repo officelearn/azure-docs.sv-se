@@ -2,17 +2,18 @@
 title: Kvoter och regional tillgänglighet för Azure Kubernetes Service (AKS)
 description: Standardkvoter och regional tillgänglighet för Azure Kubernetes Service (AKS).
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
-ms.date: 04/26/2018
-ms.author: nepeters
-ms.openlocfilehash: adf2d57961df9a4e8d03f2b3fe43ca0603685eb2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.date: 06/13/2018
+ms.author: iainfou
+ms.openlocfilehash: 6d4fa9a06f3baeb51505c3e6060e9689428f8386
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100719"
 ---
 # <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Kvoter och regional tillgänglighet för Azure Kubernetes Service (AKS)
 
@@ -28,12 +29,18 @@ Alla andra begränsningar för nätverk, beräkning och lagring gäller för den
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Azure Kubernetes Service (AKS) är tillgänglig som förhandsversion i följande regioner:
-- Östra USA
-- Västra Europa
-- Centrala USA
+Azure Kubernetes Service (AKS) är tillgängligt i följande regioner:
+
+- Östra Australien
 - Centrala Kanada
 - Östra Kanada
+- Centrala USA
+- Östra USA
+- Norra Europa
+- Storbritannien, södra
+- Västra Europa
+- Västra USA
+- Västra USA 2
 
 ## <a name="next-steps"></a>Nästa steg
 

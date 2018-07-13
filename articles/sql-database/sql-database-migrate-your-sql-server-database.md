@@ -2,19 +2,19 @@
 title: Migrera en SQL Server-databas till Azure SQL Database med DMA | Microsoft Docs
 description: Läs hur du migrerar din SQL Server-databas till Azure SQL Database med DMA.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 06/20/2018
+ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: d0954627978c7725059e0b678783c8c6ffb9e827
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ceab627d98149774a3eb767ee56d688f9c11ff99
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308891"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346849"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Migrera din SQL Server-databas till Azure SQL Database med DMA
 
@@ -33,7 +33,7 @@ I de här självstudierna får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
@@ -88,7 +88,7 @@ Följ de här stegen om du vill skapa en tom SQL-databas.
 8. Godkänn förhandsgranskningsvillkoren för att använda alternativet **Lägg till mer lagringsutrymme**. 
 
    > [!IMPORTANT]
-   > Mer än 1 TB lagringsutrymme på premiumnivån är för närvarande tillgängligt i alla regioner förutom följande: Storbritannien, norra, västra centrala USA, södra Storbritannien 2, Kina, östra, USDoDCentral, Tyskland, centrala, USDoDEast, sydvästra USA Gov, södra centrala USA Gov, Tyskland, nordöstra, Kina, norra, östra USA Gov. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > Mer än 1 TB lagringsutrymme på premiumnivån är för närvarande tillgängligt i alla regioner förutom följande: USA, västra centrala; Kina, östra; USDoDCentral; USGov Iowa; Tyskland, centrala; USDoDEast; US Gov, sydvästra; Tyskland, nordöstra; Kina, norra. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 9. När du har valt tjänstenivå, antalet DTU:er och mängden lagring klickar du på **Apply** (Använd).  
 
@@ -263,7 +263,7 @@ Du kan ändra tjänstnivån, prestandanivån och kompatibilitetsnivån med hjäl
     ```
 
 ## <a name="next-steps"></a>Nästa steg 
-I den här självstudien fick du lärda dig att:
+I de här självstudierna lärde du dig att:
 
 > * Skapa en tom Azure SQL-databas på Azure-portalen 
 > * Skapa en brandväggsregel på servernivå på Azure-portalen 

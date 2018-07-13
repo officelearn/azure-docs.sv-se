@@ -3,7 +3,7 @@ title: Självstudie – Skala en skalningsuppsättning automatiskt med Azure-mal
 description: Läs hur du använder Azure Resource Manager-mallar för att automatiskt skala en VM-skalningsuppsättning allteftersom CPU-kraven varierar
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7ca037a6aec8516d9656b3389da67b9b02a906d8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: da4f06ff4e1478043bc147c2c08083e118bccbe4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723127"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med en Azure-mall
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app. I den här självstudiekursen får du lära du dig att:
@@ -45,7 +46,7 @@ Du definierar en profil för automatisk skalning i en Azure-mall med resursprovi
 {
 "type": "Microsoft.insights/autoscalesettings",
 "name": "Autoscale",
-"apiVersion": "2014-04-01",
+"apiVersion": "2015-04-01",
 "location": "[variables('location')]",
 "scale": null,
 "properties": {

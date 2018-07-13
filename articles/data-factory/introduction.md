@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ae0247df0bbde07e755bd910bca08b8703969cec
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e4e90082f483720699fb029db33bc8110173c0aa
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047283"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082962"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +48,7 @@ Pipelines (datadrivna arbetsflöden) i Azure Data Factory utför vanligen följa
 
 ### <a name="connect-and-collect"></a>Ansluta och samla in
 
-Företag har olika typer av data som befinner sig på olika platser, lokalt, i molnet, strukterade, ostrukturerade och delvis strukturerade och alla dessa data anländer i olika intervall och med olika hastighet. 
+Företag har olika typer av data som befinner sig på olika platser, lokalt, i molnet, strukturerade, ostrukturerade och delvis strukturerade och alla dessa data anländer i olika intervall och med olika hastighet. 
 
 Det första steget när det gäller att skapa ett informationsproduktionssystem är att ansluta till alla nödvändiga data- och bearbetningskällor, exempelvis SaaS-tjänster, databaser, filresurser och FTP-webbtjänster. Nästa steg är att flytta data efter behov till en central plats för senare bearbetning.
 
@@ -113,11 +113,11 @@ Mer information om Data Factory-begrepp finns i följande artiklar:
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-För närvarande kan du skapa datafabriker i regionerna USA, västra, USA, östra 2 och Europa, västra. Dock kan en datafabrik ha åtkomst till datalager och beräkna tjänster i andra Azure-regioner för att flytta data mellan datalager eller bearbeta data med hjälp av beräkningstjänster.
+Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Dock kan en datafabrik ha åtkomst till datalager och beräkna tjänster i andra Azure-regioner för att flytta data mellan datalager eller bearbeta data med hjälp av beräkningstjänster.
 
 Azure Data Factory lagrar inte själv några data. Du kan använda den för att skapa datadrivna arbetsflöden som samordnar flödet av data mellan datalager som stöds och bearbetning av data med hjälp av beräkningstjänster i andra regioner eller i en lokal miljö. Du kan också övervaka och hantera arbetsflöden med både program- och användargränssnittsmetoder.
 
-Även om Data Factory bara är tillgängligt i regionerna USA, östra, USA, östra 2, och Europa, västra, så finns tjänsten som driver dataförflyttning i Data Factory tillgänglig globalt i flera regioner. Om ett datalager finns bakom en brandvägg kan en Integration Runtime med egen värd som installerats i din lokala miljö flytta data i stället.
+Även om Data Factory bara finns i vissa regioner så finns tjänsten som driver dataförflyttning i Data Factory tillgängligt globalt i flera regioner. Om ett datalager finns bakom en brandvägg kan en Integration Runtime med egen värd som installerats i din lokala miljö flytta data i stället.
 
 Exempelvis kan vi anta att dina beräkningsmiljöer, som t.ex. Azure HDInsight-kluster och Azure Machine Learning, körs utanför regionen Europa, västra. Du kan skapa och använda en Azure Data Factory-instans i USA, östra eller USA, östra 2 och använda den för att schemalägga jobb i dina beräkningsmiljöer i Västeuropa. Det tar några millisekunder för Data Factory att utlösa jobbet i din beräkningsmiljö, men den tid det tar för att köra jobbet ändras inte.
 

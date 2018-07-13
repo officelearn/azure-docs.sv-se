@@ -4,7 +4,7 @@ description: Lär dig hur du snabbt skapar en VM-skalningsuppsättning i Azure P
 keywords: VM-skalningsuppsättningar
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/18
-ms.author: iainfou
-ms.openlocfilehash: 03b4468fd1032b94cde5d83bc871c32e0c21df1c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: cynthn
+ms.openlocfilehash: fb3a3e1cec0d6ec15495e677e7bead1c02445803
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30247366"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38680966"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Snabbstart: Skapa en VM-skalningsuppsättning med Azure Portal
-Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. En Azure-belastningsutjämnare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning i Azure Portal.
+Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning som CPU, minnesefterfrågan eller nätverkstrafik. En Azure-belastningsutjämnare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning i Azure Portal.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

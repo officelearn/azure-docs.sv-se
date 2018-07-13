@@ -3,7 +3,7 @@ title: Övervaka din lokala identitetsinfrastruktur i molnet.
 description: På den här sidan förklarar vi vad Azure AD Connect Health är och hur tjänsten kan hjälpa dig.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 editor: curtand
 ms.assetid: 82798ea6-5cd3-4f30-93ae-d56536f8d8e3
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: aef9a923932b3794e32275bacd2f880d0b8b7b73
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 006914b279f2d762bf0dee6f83d6866235c062bc
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939630"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887512"
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Övervaka den lokala identitetsinfrastrukturen och synkroniseringstjänster i molnet
 Azure Active Directory (Azure AD) Connect Health hjälper dig att övervaka och få insyn i den lokala identitetsinfrastrukturen och synkroniseringstjänsterna. Tjänsten hjälper dig att upprätthålla en tillförlitlig anslutning till Office 365 och Microsoft Online Services genom att tillhandahålla övervakningsfunktioner för viktiga identitetskomponenter som Active Directory Federation Services-servrar (AD FS), Azure AD Connect-servrar (kallas även synkroniseringsmotorn), Active Directory-domänkontrollanter osv. Den gör det också enkelt att komma åt viktiga datapunkter om komponenterna så att du snabbt kan få information om användningen och andra viktiga insikter för att fatta välgrundade beslut.

@@ -2,19 +2,19 @@
 title: Snabbstart – Snabbstart för Azure Kubernetes-klusterportal
 description: Lär dig att snabbt skapa ett Kubernetes-kluster för Linux-behållare i AKS med Azure-portalen.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 90d01ed7cc2483c8467d646ebf9ad056ea1a4baf
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: aa8a1cccd4eeb45e829cd8df73f128dd6cca416d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286604"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344482"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snabbstart: Distribuera ett Azure Kubernetes Service-kluster (AKS)
 
@@ -28,11 +28,9 @@ Den här snabbstarten förutsätter grundläggande kunskaper om Kubernetes-begre
 
 Logga in på Azure Portal på http://portal.azure.com.
 
-
-
 ## <a name="create-aks-cluster"></a>Skapa AKS-kluster
 
-Välj **Skapa en resurs** > välj **Kubernetes Service** > **Skapa**.
+Välj **Skapa en resurs** och sedan **Kubernetes-tjänst**.
 
 Utför följande steg under varje rubrik för att skapa AKS-klustret.
 

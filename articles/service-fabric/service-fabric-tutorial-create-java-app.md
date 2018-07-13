@@ -1,5 +1,5 @@
 ---
-title: Skapa ett Java-program för Service Fabric | Microsoft Docs
+title: Skapa en Java-app för Service Fabric i Azure | Microsoft Docs
 description: I den här självstudien lär du dig att skapa en pålitlig Java-programtjänst med en klientdel och en tillförlitlig serverdel för tillståndskänsliga tjänster, samt hur du distribuerar programmet till ett kluster.
 services: service-fabric
 documentationcenter: java
@@ -15,14 +15,15 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b512ba91d1df7ec0432bdf9048268714e570fe6b
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: a8522dbe20f302a1819b89eaea92562a2dcf43a5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958684"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114133"
 ---
-# <a name="tutorial-create-and-deploy-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudie: Skapa och distribuera ett program med en Java Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
+# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Självstudie: Skapa en app med en Java Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst i Service Fabric
+
 Den här självstudien ingår i en serie. När du är klar har du ett röstningsprogram med en Java-webbklientdel som sparar röstningsresultaten i en tillståndskänslig serverdelstjänst i klustret. För den här självstudien måste du ha en fungerande dator för Mac OSX eller Linux-utvecklare. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden för det färdiga programmet](https://github.com/Azure-Samples/service-fabric-java-quickstart) och gå vidare till [Gå igenom exempelprogrammet för röstning](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).
 
 ![Lokal röstningsapp](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
@@ -30,25 +31,28 @@ Den här självstudien ingår i en serie. När du är klar har du ett röstnings
 I del ett i den här serien lärde du dig att:
 
 > [!div class="checklist"]
-> * Skapa en tillståndskänslig och tillförlitlig Java-tjänst
-> * Skapa en tillståndslös Java-webbprogramtjänst
-> * Använda fjärrkommunikation till att kommunicera med den tillståndskänsliga tjänsten
-> * Distribuera program till ett lokalt Service Fabric-kluster
+> * skapa en tillståndskänslig och tillförlitlig Java-tjänst
+> * skapa en tillståndslös Java-webbprogramtjänst
+> * fjärrkommunicera med den tillståndskänsliga tjänsten
+> * distribuera program till ett lokalt Service Fabric-kluster.
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> *  Skapa ett Java-program för Service Fabric Reliable Services
-> * [Distribuera och felsök programmet på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
-> * [Distribuera programmet till ett Azure-kluster](service-fabric-tutorial-java-deploy-azure.md)
-> * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
-> * [Konfigurera CI/CD](service-fabric-tutorial-java-jenkins.md)
+> * skapa ett Java-program för Service Fabric Reliable Services
+> * [distribuera och felsöka programmet på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
+> * [distribuera programmet till ett Azure-kluster](service-fabric-tutorial-java-deploy-azure.md)
+> * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
+> * [konfigurera CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
 Innan du börjar den här självstudien:
-- Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Konfigurera din utvecklingsmiljö för [Mac](service-fabric-get-started-mac.md) eller [Linux](service-fabric-get-started-linux.md). Följ anvisningarna för att installera plugin-programmet Eclipse, Gradle, Service Fabric-SDK och Service Fabric-CLI (sfctl).
+
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Konfigurera din utvecklingsmiljö för [Mac](service-fabric-get-started-mac.md) eller [Linux](service-fabric-get-started-linux.md). Följ anvisningarna för att installera plugin-programmet Eclipse, Gradle, Service Fabric-SDK och Service Fabric-CLI (sfctl).
 
 ## <a name="create-the-front-end-java-stateless-service"></a>Skapa en tillståndslös Java-tjänst för klientdelen
+
 Skapa först webbklientdelen för röstningsprogrammet. Den tillståndslösa Java-tjänsten har en förenklad HTTP-server som är värd för ett webbgränssnitt som drivs av AngularJS. Begäranden från en användare bearbetas av den tillståndslösa tjänsten och skickas som ett fjärrproceduranrop till tjänsten för att lagra rösterna. 
 
 1. Starta Eclipse
@@ -62,7 +66,7 @@ Skapa först webbklientdelen för röstningsprogrammet. Den tillståndslösa Jav
     ![Välja den tillståndslösa Java-tjänsten i dialogrutan Ny tjänst](./media/service-fabric-tutorial-create-java-app/name-sf-proj-wizard.png) 
 
 4. På sidan **Lägg till tjänst** väljer du **Tillståndslös tjänst** och ger din tjänst namnet **VotingWeb**. Klicka på **Slutför** för att skapa projektet.
-   
+
     ![Skapa en tillståndslös tjänst]( ./media/service-fabric-tutorial-create-java-app/createvotingweb.png)
 
     Eclipse skapar ett program- och ett tjänstprojekt, samt visar dem i Package Explorer.
@@ -80,9 +84,10 @@ Tabellen innehåller en kort beskrivning av varje objekt i Package Explorer frå
 | settings.gradle | Innehåller namnen på de Gradle-projekt som finns i mappen. |
 
 ### <a name="add-html-and-javascript-to-the-votingweb-service"></a>Lägga till HTML och Javascript i VotingWeb-tjänsten
-Om du vill lägga till användargränssnitt som kan renderas av den tillståndslösa tjänsten, lägger du till en HTML-fil i *VotingApplication/VotingWebPkg/Code*. HTML-filen renderas sedan av den förenklade HTTP-server som är inbäddad i den tillståndslösa Java-tjänsten. 
 
-1. Expandera katalogen *VotingApplication* för att gå till katalogen *VotingApplication/VotingWebPkg/Code*. 
+Om du vill lägga till användargränssnitt som kan renderas av den tillståndslösa tjänsten, lägger du till en HTML-fil i *VotingApplication/VotingWebPkg/Code*. HTML-filen renderas sedan av den förenklade HTTP-server som är inbäddad i den tillståndslösa Java-tjänsten.
+
+1. Expandera katalogen *VotingApplication* för att gå till katalogen *VotingApplication/VotingWebPkg/Code*.
 
 2. Högerklicka på katalogen *Kod* och klicka sedan på **Nytt**->**Övrigt**
 
@@ -201,7 +206,8 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
 ```
 
 ### <a name="update-the-votingwebservicejava-file"></a>Uppdatera VotingWebService.java-filen
-I underprojektet **VotingWeb** öppnar du filen *VotingWeb/src/statelessservice/VotingWebService.java*. **VotingWebService** är en gateway till den tillståndslösa tjänsten och ansvarar för att konfigurera kommunikationslyssnaren för klientdelens API. 
+
+I underprojektet **VotingWeb** öppnar du filen *VotingWeb/src/statelessservice/VotingWebService.java*. **VotingWebService** är en gateway till den tillståndslösa tjänsten och ansvarar för att konfigurera kommunikationslyssnaren för klientdelens API.
 
 Ersätt innehållet i metoden **createServiceInstanceListeners** i filen med följande och spara ändringarna.
 
@@ -219,7 +225,8 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 ```
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>Lägg till filen HTTPCommunicationListener.java
-HTTP-kommunikationslyssnaren fungerar som en kontrollant som konfigurerar HTTP-servern och gör de API:er som definierar röstningsåtgärder tillgängliga. Högerklicka på paketet *statelessservice* i mappen *VotingWeb/src/statelessservice*. Välj sedan **Nytt->Övrigt...->Allmänt->Arkiv** och klicka på **Nästa**.  Ge filen namnet *HttpCommunicationListener.java* och klicka på **Slutför**.  
+
+HTTP-kommunikationslyssnaren fungerar som en kontrollant som konfigurerar HTTP-servern och gör de API:er som definierar röstningsåtgärder tillgängliga. Högerklicka på paketet *statelessservice* i mappen *VotingWeb/src/statelessservice*. Välj sedan **Nytt->Övrigt...->Allmänt->Arkiv** och klicka på **Nästa**.  Ge filen namnet *HttpCommunicationListener.java* och klicka på **Slutför**.
 
 Byt ut filens innehåll mot följande och spara sedan ändringarna.  Längre fram, i [Uppdatera filen HttpCommunicationListener.java](#updatelistener_anchor), ändras den här filen till att rendera, läsa och skriva röstningsdata från serverdelstjänsten.  För närvarande returnerar lyssnaren endast statisk HTML för röstningsappen.
 
@@ -259,7 +266,7 @@ import system.fabric.CancellationToken;
 public class HttpCommunicationListener implements CommunicationListener {
 
     private static final Logger logger = Logger.getLogger(HttpCommunicationListener.class.getName());
-    
+
     private static final String HEADER_CONTENT_TYPE = "Content-Type";
     private static final int STATUS_OK = 200;
     private static final int STATUS_NOT_FOUND = 404; 
@@ -267,7 +274,7 @@ public class HttpCommunicationListener implements CommunicationListener {
     private static final String RESPONSE_NOT_FOUND = "404 (Not Found) \n";
     private static final String MIME = "text/html";  
     private static final String ENCODING = "UTF-8";
-    
+
     private static final String ROOT = "wwwroot/";
     private static final String FILE_NAME = "index.html";
     private StatelessServiceContext context;
@@ -290,7 +297,7 @@ public class HttpCommunicationListener implements CommunicationListener {
             logger.log(Level.SEVERE, null, ex);
             throw new RuntimeException(ex);
         }
-        
+
         // Responsible for rendering the HTML layout described in the previous step
         server.createContext("/", new HttpHandler() {
             @Override
@@ -307,7 +314,7 @@ public class HttpCommunicationListener implements CommunicationListener {
                     } else {    
                       Headers h = t.getResponseHeaders();
                       h.set(HEADER_CONTENT_TYPE, MIME);
-                      t.sendResponseHeaders(STATUS_OK, 0);              
+                      t.sendResponseHeaders(STATUS_OK, 0);
     
                       OutputStream os = t.getResponseBody();
                       FileInputStream fs = new FileInputStream(file);
@@ -316,7 +323,7 @@ public class HttpCommunicationListener implements CommunicationListener {
                       while ((count = fs.read(buffer)) >= 0) {
                         os.write(buffer,0,count);
                       }
-                      
+
                       fs.close();
                       os.close();
                     }  
@@ -329,11 +336,11 @@ public class HttpCommunicationListener implements CommunicationListener {
         /*
         [Replace this entire comment block in the 'Connect the services' section]
         */
-        
+
         server.setExecutor(null);
         server.start();
     }
-    
+
     //Helper method to parse raw HTTP requests
     private Map<String, String> queryToMap(String query){
         Map<String, String> result = new HashMap<String, String>();
@@ -379,6 +386,7 @@ public class HttpCommunicationListener implements CommunicationListener {
 ```
 
 ### <a name="configure-the-listening-port"></a>Konfigurera lyssningsporten
+
 När klientdelstjänsten VotingWebService skapas, väljer Service Fabric en port som tjänsten ska lyssna på.  VotingWebService fungerar som klientdel för programmet och godkänner extern trafik, så vi ansluter tjänsten till en fast och välkänd port. I Package Explorer öppnar du *VotingWebService/VotingWebServicePkg/ServiceManifest.xml*.  Leta rätt på resursen **Slutpunkt** i avsnittet **Resurser** och ändra värdet för **Port** till 8080, eller till någon annan port. Om du vill distribuera och köra programmet lokalt måste programmets lyssningsport vara öppen och tillgänglig på datorn. Klistra in följande kodfragment under taggen **ServiceManifest**.
 
 ```xml
@@ -390,16 +398,17 @@ När klientdelstjänsten VotingWebService skapas, väljer Service Fabric en port
         <Endpoint Name="WebEndpoint" Protocol="http" Port="8080" />
     </Endpoints>
   </Resources>
-```  
+```
 
 ## <a name="add-a-stateful-back-end-service-to-your-application"></a>Lägg till en tillståndskänslig serverdelstjänst i ditt program
+
 Nu när stommen i Java Web API-tjänsten har slutförts, ska vi fortsätta med att slutföra den tillståndskänsliga serverdelstjänsten.
 
 I Service Fabric kan du konsekvent och tillförlitligt lagra dina data direkt i tjänsten med hjälp av tillförlitliga samlingar. Tillförlitliga samlingar är en uppsättning samlingsklasser för hög tillgänglighet och tillförlitlighet. Användningen av dessa klasser är välkänd för alla som har använt Java-samlingar.
 
 1. I Package Explorer högerklickar du på **Voting** i programprojektet och väljer **Service Fabric > Lägg till Service Fabric-tjänst**.
-   
-2. I dialogrutan **Lägg till tjänst** väljer du **Tillståndskänslig tjänst**, ger tjänsten namnet **VotingData** och klickar på **Lägg till tjänst**. 
+
+2. I dialogrutan **Lägg till tjänst** väljer du **Tillståndskänslig tjänst**, ger tjänsten namnet **VotingData** och klickar på **Lägg till tjänst**.
 
     ![Lägga till en ny tjänst i ett befintligt program](./media/service-fabric-tutorial-create-java-app/addstatefuljava.png)
 
@@ -540,8 +549,9 @@ class VotingDataService extends StatefulService implements VotingRPC {
 }
 ```
 
-## <a name="create-the-communication-interface-to-your-application"></a>Skapa kommunikationsgränssnittet till ditt program 
-Stommen för den tillståndslösa tjänsten i klientdelen och serverdelstjänsten har nu skapats. Nästa steg är att ansluta de två tjänsterna. Både serverdels- och klientdelstjänsterna använder ett gränssnitt som kallas VotingRPC, som definierar åtgärder för röstningsprogrammet. Det här gränssnittet implementeras av både klientdels- och serverdelstjänsterna för att aktivera RPC (Remote Procedure Calls) mellan de två tjänsterna. Eftersom Eclipse inte stöder tillägg av Gradle-delprojekt, måste det paket som innehåller gränssnittet läggas till manuellt. 
+## <a name="create-the-communication-interface-to-your-application"></a>Skapa kommunikationsgränssnittet till ditt program
+
+Stommen för den tillståndslösa tjänsten i klientdelen och serverdelstjänsten har nu skapats. Nästa steg är att ansluta de två tjänsterna. Både serverdels- och klientdelstjänsterna använder ett gränssnitt som kallas VotingRPC, som definierar åtgärder för röstningsprogrammet. Det här gränssnittet implementeras av både klientdels- och serverdelstjänsterna för att aktivera RPC (Remote Procedure Calls) mellan de två tjänsterna. Eftersom Eclipse inte stöder tillägg av Gradle-delprojekt, måste det paket som innehåller gränssnittet läggas till manuellt.
 
 1. Högerklicka på projektet **Voting** i Package Explorer och klicka på **Ny -> Övrigt...**
 
@@ -552,7 +562,7 @@ Stommen för den tillståndslösa tjänsten i klientdelen och serverdelstjänste
 3. Skapa en fil under *Voting/VotingRPC/src/rpcmethods* med namnet *VotingRPC.java* och klistra in följande i **VotingRPC.java**-filen. 
 
     ```java
-    package rpcmethods; 
+    package rpcmethods;
     
     import java.util.ArrayList;
     import java.util.concurrent.CompletableFuture;
@@ -878,6 +888,7 @@ I det här avsnittet konfigureras Gradle-skripten för projektet.
     ```
 
 ## <a name="deploy-application-to-local-cluster"></a>Distribuera ett program till det lokala klustret
+
 Programmet är nu redo att distribueras till ett lokalt Service Fabric-kluster.
 
 1. Högerklicka på projektet **Voting** i Package Explorer och klicka på **Service Fabric -> Build Application** (Skapa program) för att skapa ditt program.
@@ -901,6 +912,7 @@ Programmet är nu redo att distribueras till ett lokalt Service Fabric-kluster.
 6. Gå till din webbläsare och **http://localhost:8080** för att visa det program som körs på det lokala Service Fabric-klustret. 
 
 ## <a name="next-steps"></a>Nästa steg
+
 I den här självstudiedelen lärde du dig att:
 
 > [!div class="checklist"]

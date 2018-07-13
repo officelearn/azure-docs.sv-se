@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 32afd5bd3f972aa1cb1d90e0b10ebff4a761f2e3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 796f63a77e90c729edae7b11adf3c7be807db5f4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29400325"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38670919"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure CLI
 
@@ -52,7 +52,7 @@ Om du arbetar med komplicerade nätverkskonfigurationer kan du överväga att an
 
 ### <a name="vnet-peering"></a>VNET-peering
 
-Det kan vara bättre att ansluta dina virtuella nätverk med hjälp av VNET-peering. VNET-peering använder ingen VPN-gateway och har även andra restriktioner. Dessutom beräknas [prissättningen för VNET-peering](https://azure.microsoft.com/pricing/details/virtual-network) på ett annat sätt jämfört med [prissättningen för VPN-gatewayen mellan virtuella nätverk](https://azure.microsoft.com/pricing/details/vpn-gateway). Mer information finns i [VNET-peering](../virtual-network/virtual-network-peering-overview.md).
+Det kan vara bättre att ansluta dina virtuella nätverk med hjälp av VNET-peering. VNET-peering använder ingen VPN-gateway och har även andra restriktioner. Dessutom beräknas [prissättningen för VNet-peering](https://azure.microsoft.com/pricing/details/virtual-network) på ett annat sätt jämfört med [prissättningen för VPN Gateway mellan virtuella nätverk](https://azure.microsoft.com/pricing/details/vpn-gateway). Mer information finns i [VNET-peering](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="why"></a>Varför ska jag skapa en anslutning mellan virtuella nätverk?
 

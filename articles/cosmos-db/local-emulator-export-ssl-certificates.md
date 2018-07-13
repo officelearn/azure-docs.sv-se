@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fce6553ce7407f892ed1de1f71bc812798f91c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 237ab0ed99793f54574c4b81e883acb8c2bc57a9
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611814"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082109"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportera Azure Cosmos DB emulatorcertifikat för användning med Java, Python och Node.js
 
@@ -99,7 +99,7 @@ I den här självstudien har du gjort följande:
 > * Exporterat SSL-certifikat
 > * Du har lärt dig hur du använder certifikat i Java, Python och Node.js
 
-Du kan nu fortsätta med att skapa en HTTP-utlösare i Azure Functions med en Azure Cosmos DB-indatabindning.
+Om du vill lära dig mer om Azure Cosmos DB fortsätter du till avsnittet om begrepp. 
 
 > [!div class="nextstepaction"]
-> [Skapa en Azure-funktion med indata från Azure Cosmos DB](tutorial-functions-http-trigger.md) 
+>[Justerbara datakonsekvensnivåer i Azure Cosmos DB](../cosmos-db/consistency-levels.md)

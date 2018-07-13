@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: 48dbd89216d27e9495a9129c6b873f86a9a23338
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c49371d194b3b6f94076cb00595ec9feaeb3fb44
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763263"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096408"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>Snabbstart: Komma igång med Hadoop och Hive i Azure HDInsight med Resource Manager-mall
 
@@ -255,6 +255,7 @@ I den här artikeln har du fått veta hur du skapar ett Linux-baserat HDInsight-
 Om du är redo att börja arbeta med dina egna data och vill veta mer om hur data lagras i HDInsight eller om att hämta data till HDInsight, hittar du mer information i följande artiklar:
 
 * Mer information om hur HDInsight använder Azure Storage finns i [Använda Azure Storage med HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+* Information om hur du skapar ett HDInsight-kluster med Data Lake Storage finns i [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * Mer information om hur du överför data till HDInsight finns i [Överföra data till HDInsight](../hdinsight-upload-data.md).
 
 Mer information om att analysera data med HDInsight finns i följande artiklar:

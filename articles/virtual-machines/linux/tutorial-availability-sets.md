@@ -17,17 +17,17 @@ ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: dc6fba89571515d0d2d7ed3ecc35c3065405056b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188437"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696811"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli-20"></a>Självstudiekurs: Skapa och distribuera virtuella datorer med hög tillgänglighet med Azure CLI 2.0
 
 I den här självstudien får du lära dig hur du ökar tillgängligheten och tillförlitligheten för dina VM-lösningar i Azure med en funktion som heter ”Tillgänglighetsuppsättningar”. Tillgänglighetsuppsättningarna ser till att de virtuella datorer som du distribuerar i Azure distribueras över flera isolerade maskinvarukluster. Detta innebär att endast en del av de virtuella datorerna påverkas om det skulle uppstå ett maskinvaru- eller programvarufel i Azure, och att din lösning fortfarande är tillgänglig och fungerar.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en tillgänglighetsuppsättning
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="availability-set-overview"></a>Översikt över tillgänglighetsuppsättning
 

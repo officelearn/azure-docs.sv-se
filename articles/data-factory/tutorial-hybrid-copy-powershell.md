@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cfbd7080ff365daa15618b93dcfb9fd2d07aacff
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d002955bcdb6e521fd3daddc223e07afa50f2208
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046586"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082722"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Självstudie: Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
 I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet. 
@@ -37,7 +37,7 @@ I den här självstudien får du göra följande:
 > * Starta en pipelinekörning.
 > * Övervaka pipelinekörningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 ### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -185,7 +185,7 @@ Mer detaljerade anvisningar finns i [Installera och konfigurera Azure PowerShell
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
 > * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara tilldelad en *deltagare* eller *ägare*, eller vara en *administratör* för Azure-prenumerationen.
-> * För närvarande kan du bara skapa datafabriker i regionerna östra USA, USA östra 2 och västra Europa. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (Azure HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+> * Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (Azure HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 > 
 > 
 

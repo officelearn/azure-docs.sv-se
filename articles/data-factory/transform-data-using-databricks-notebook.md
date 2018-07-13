@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 438aeda39c6ba9246f75f96214bb0ffa1d4d31e9
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c3774774ff220153d1af9ec9f9807414efb3f7ce
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047816"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081824"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Kör en Databricks Notebook med Databricks Notebook-aktiviteten i Azure Data Factory
 
@@ -40,7 +40,7 @@ Om du vill se en introduktion och demonstration av den här funktionen rekommend
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
   - **Azure Databricks-arbetsyta**. [Skapa en ny Azure Databricks-arbetsyta](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) eller använd en befintlig. Du skapar en Python Notebook i Azure Databricks-arbetsytan. Sedan kör du denna notebook och skickar parametrar till den med hjälp av Azure Data Factory.
 
@@ -72,7 +72,7 @@ Om du vill se en introduktion och demonstration av den här funktionen rekommend
 
 2.  För **Plats** väljer du en plats för datafabriken.
 
-    För närvarande kan du endast skapa datafabriker i Data Factory V2 i regionerna USA, östra; USA; östra 2 och Europa, västra. De datalager (som Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan finnas i andra regioner.
+    Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). De datalager (som Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan finnas i andra regioner.
 
 3.  Välj **fäst till instrumentpanelen**.
 

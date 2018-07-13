@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 4ce2b133ed4266028f1d99151939538fb8ce60f5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aeb94a430e633299637d4e9b96ef6b2c0309b163
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190776"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722923"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>Självstudier: Lär dig hur du hanterar virtuella Linux-datorer med Azure CLI 2.0
 
@@ -55,7 +55,7 @@ För hanteringen av VM-lösningar finns det tre resursspecifika roller som bevil
 * [Nätverksdeltagare](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Lagringskontodeltagare](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-I stället för att tilldela roller till enskilda användare är det ofta lättare att [skapa en Azure Active Directory-grupp](../../active-directory/active-directory-groups-create-azure-portal.md) för användare som behöver utföra liknande åtgärder. Därefter tilldelar du gruppen lämplig roll. För att förenkla informationen i den här artikeln skapar vi en Azure Active Directory-grupp utan medlemmar. Du kan fortfarande tilldela den här gruppen en roll för ett omfång. 
+I stället för att tilldela roller till enskilda användare är det ofta lättare att [skapa en Azure Active Directory-grupp](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) för användare som behöver utföra liknande åtgärder. Därefter tilldelar du gruppen lämplig roll. För att förenkla informationen i den här artikeln skapar vi en Azure Active Directory-grupp utan medlemmar. Du kan fortfarande tilldela den här gruppen en roll för ett omfång. 
 
 I följande exempel skapas en Azure Active Directory-grupp med namnet *VMDemoContributors* med smeknamnet *vmDemoGroup* för e-post. Smeknamnet för e-post fungerar som ett alias för gruppen.
 

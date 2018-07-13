@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 73d6039624a52ae06d8cf74c386bf0d12d9b65d9
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 377cb9df8ce09581a5fd5d9d7a7d55368daf44ca
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046314"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082452"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
@@ -64,7 +64,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * **SQL Server**. Du använder en lokal SQL Server-databas som källdatalager i den här självstudien. 
 * **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md). 
 
@@ -268,7 +268,7 @@ Observera följande punkter:
     The specified Data Factory name 'ADFIncMultiCopyTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna deltagare eller ägare, eller vara administratör för Azure-prenumerationen.
-* För närvarande kan du endast skapa datafabriker i regionerna östra USA, östra USA 2 och västra Europa. Datalagren ( Azure Storage, Azure SQL Database o.s.v.) och beräkningarna (Azure HDInsight o.s.v.) som används i datafabriken kan finnas i andra regioner.
+* Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren ( Azure Storage, Azure SQL Database o.s.v.) och beräkningarna (Azure HDInsight o.s.v.) som används i datafabriken kan finnas i andra regioner.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 

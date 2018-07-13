@@ -3,9 +3,8 @@ title: Snabbstart för Apache Kafka – Azure HDInsight | Microsoft Docs
 description: I den här snabbstarten lär du dig hur du skapar ett Apache Kafka-kluster på Azure HDInsight med hjälp av Azure Portal. Du lär dig också om Kafka-ämnen, -prenumeranter och -konsumenter.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: dhgoelmsft
 manager: jhubbard
-editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
 ms.custom: mvc,hdinsightactive
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 17f7bc4d9325dd8040036e218c43e418f3c51b68
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 776705281a1909cbeee657f7915d4c83ec8bbabe
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021216"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342161"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Kafka-kluster på HDInsight
 
@@ -35,7 +34,7 @@ I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kaf
 >
 > Mer information finns i dokumentet [Anslut till Kafka via ett virtuellt nätverk](apache-kafka-connect-vpn-gateway.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -101,7 +100,7 @@ Använd följande steg om du vill skapa ett Kafka i HDInsight-kluster:
 
     Använd knappen __Nästa__ för att slutföra den grundläggande konfigurationen.
 
-5. Från **Lagring** ska du välja eller skapa ett lagringskonto. Lämna övriga fält på standardvärden för stegen i det här dokumentet. Spara lagringskonfigurationen genom att klicka på __Nästa__.
+5. Från **Lagring** ska du välja eller skapa ett lagringskonto. Lämna övriga fält på standardvärden för stegen i det här dokumentet. Spara lagringskonfigurationen genom att klicka på __Nästa__. Mer information om att använda Data Lake Storage Gen2 finns i [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     ![Ange inställningarna för lagringskontot för HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
 

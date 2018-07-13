@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 4a83ebbcf045ac2b74957effceadfe80609e960c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36237489"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970252"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Oföränderlig lagringsfunktion i Azure Blob Storage (förhandsversion)
 
@@ -42,7 +42,7 @@ Oföränderlig lagringsfunktion möjliggör:
 
 - **Konfiguration för behållarnivå:** Med oföränderlig lagringsfunktion kan du konfigurera taggar för tidsbaserade bevarandeprinciper och bevarande av juridiska skäl på behållarnivå.  Användare kan skapa och låsa tidsbaserade bevarandeprinciper, utöka kvarhållningsintervaller, ställa in och ta bort bevarande av juridiska skäl osv. via enkla inställningar för behållarnivå.  Dessa principer ska gälla för alla blobbar i behållaren, både befintliga och nya.
 
-- **Stöd för granskningsloggning:** Varje behållare innehåller en granskningslogg som visar upp till fem tidsbaserade kvarhållningskommandon för låsta tidsbaserade bevarandeprinciper med högst tre loggar för tillägg av kvarhållningsintervall.  För tidsbaserat bevarande innehåller loggen användar-ID, kommandotyp, tidsstämplar och kvarhållningsintervall. För bevarande av juridiska skäl innehåller loggen användar-ID, kommandotyp, tidsstämplar och taggar för bevarande av juridiska skäl. Den här loggfilen finns kvar under behållarens livslängd enligt SEC 17a-4(f) reglerande föreskrifter. En mer omfattande logg över alla aktiviteter i kontrollplanen finns i [Azure-aktivitetsloggen](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Det är användarens ansvar att lagra dessa loggar beständigt såsom krävs för reglerande eller andra ändamål.
+- **Stöd för granskningsloggning:** Varje behållare innehåller en granskningslogg som visar upp till fem tidsbaserade kvarhållningskommandon för låsta tidsbaserade bevarandeprinciper med högst tre loggar för tillägg av kvarhållningsintervall.  För tidsbaserat bevarande innehåller loggen användar-ID, kommandotyp, tidsstämplar och kvarhållningsintervall. För bevarande av juridiska skäl innehåller loggen användar-ID, kommandotyp, tidsstämplar och taggar för bevarande av juridiska skäl. Den här loggfilen finns kvar under behållarens livslängd enligt SEC 17a-4(f) reglerande föreskrifter. En mer omfattande logg över alla aktiviteter i kontrollplanen finns i [Azure-aktivitetsloggen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Det är användarens ansvar att lagra dessa loggar beständigt såsom krävs för reglerande eller andra ändamål.
 
  Funktionen är aktiverad i alla offentliga Azure-regioner.
 
@@ -68,7 +68,7 @@ Mer information om hur du ställer in och tar bort bevarande av juridiska skäl 
 
 En behållare kan ha både en bevarandeprincip med bevarande av juridiska skäl och en tidsbaserad bevarandeprincip samtidigt. Alla blobbar i behållaren är i det oföränderliga tillståndet tills alla bevarande av juridiska skäl tas bort, även om deras effektiva kvarhållningsperiod har upphört att gälla. Således är en blob i det oföränderliga tillståndet tills den effektiva loggperioden förfaller trots att alla giltiga undantag har rensats.
 I följande tabell visas de typer av blob-åtgärder som kommer att inaktiveras för olika scenarierna av oföränderligt tillstånd.
-Referera till informationen om [Azure Blob Service-API](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api) för Blob REST API-dokumentationen.
+Referera till informationen om [Azure Blob Service-API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) för Blob REST API-dokumentationen.
 
 |Scenario  |Blob-tillstånd  |Blob-åtgärder inte tillåtna  |
 |---------|---------|---------|
@@ -79,7 +79,7 @@ Referera till informationen om [Azure Blob Service-API](https://docs.microsoft.c
 
 > [!NOTE]
 > De första placera Blob- och placera blockeringslista- och placera blockerings-åtgärderna som krävs för att skapa en blob tillåts i de första två scenarierna från tabellen ovan, alla efterföljande åtgärder tillåts inte.
-> Oföränderlig lagringsfunktion är endast tillgänglig i GPv2 och blob storage-konton och måste skapas via [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+> Oföränderlig lagringsfunktion är endast tillgänglig i GPv2 och blob storage-konton och måste skapas via [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="pricing"></a>Prissättning
 
@@ -94,7 +94,7 @@ Följande begränsningar gäller under den offentliga förhandsversionen:
 
 ## <a name="getting-started"></a>Komma igång
 
-Azure oföränderlig lagring för Azure Blob stöds på de senaste versionerna av [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) och Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
+Azure oföränderlig lagring för Azure Blob stöds på de senaste versionerna av [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -130,7 +130,7 @@ Azure oföränderlig lagring för Azure Blob stöds på de senaste versionerna a
 
 ### <a name="cli-20"></a>CLI 2.0
 
-Installera [CLI-tillägget](http://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) med `az extension add -n storage-preview`
+Installera [CLI-tillägget](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) med `az extension add -n storage-preview`
 
 Om du redan har installerat tillägget använder du följande kommando för att aktivera funktionen oföränderlig lagring: `az extension update -n storage-preview`
 

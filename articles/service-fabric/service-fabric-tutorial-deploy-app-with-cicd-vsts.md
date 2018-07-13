@@ -1,6 +1,6 @@
 ---
-title: Distribuera ett Azure Service Fabric-program med kontinuerlig integrering (Team Services) | Microsoft Docs
-description: I den här självstudiekursen får du lära dig hur du ställer in kontinuerlig integrering och distribution för ett Service Fabric-program med hjälp av Visual Studio Team Services.  Distribuera ett program till ett Service Fabric-kluster i Azure.
+title: Distribuera en Service Fabric-app med kontinuerlig integrering (Team Services) i Azure | Microsoft Docs
+description: I den här självstudiekursen får du lära dig hur du ställer in kontinuerlig integrering och distribution för ett Service Fabric-program med hjälp av Visual Studio Team Services.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,14 +15,15 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 543b75fbc1e080d13654df06cf36874e3833e851
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: f3cc4f518278cca915e40bd691c6a7674219916e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018414"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109400"
 ---
-# <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudiekurs: distribuera ett program med CI/CD: N till ett Service Fabric-kluster
+# <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett program med CI/CD till ett Service Fabric-kluster
+
 Den här självstudien är del fyra i en serie. Du får du lära dig hur du ställer in kontinuerlig integrering och distribution för ett Azure Service Fabric-program med hjälp av Visual Studio Team Services.  En befintlig Service Fabric-tillämpning krävs. Den som skapas i [Bygga ett .NET-program](service-fabric-tutorial-create-dotnet-app.md) används som exempel.
 
 I den tredje delen i serien får du lära dig att:
@@ -41,32 +42,37 @@ I den här självstudieserien får du lära du dig att:
 > * Konfigurera CI/CD med hjälp av Visual Studio Team Services
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
 Innan du börjar den här självstudien:
-- om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Installera Visual Studio 2017](https://www.visualstudio.com/) och installera **Azure Development** och arbetsbelastningarna **ASP.NET och webbutveckling**.
-- [Installera Service Fabric SDK](service-fabric-get-started.md)
-- Skapa ett Windows Service Fabric-kluster i Azure, till exempel genom att [följa den här självstudiekursen](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-- Skapa ett [Team Services-konto](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
+
+* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Installera Visual Studio 2017](https://www.visualstudio.com/) och installera **Azure Development** och arbetsbelastningarna **ASP.NET och webbutveckling**.
+* [Installera Service Fabric SDK](service-fabric-get-started.md)
+* Skapa ett Windows Service Fabric-kluster i Azure, till exempel genom att [följa den här självstudiekursen](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+* Skapa ett [Team Services-konto](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
 ## <a name="download-the-voting-sample-application"></a>Ladda ned exempelprogrammet Röstning
+
 Om du inte byggde exempelprogrammet Röstning i [del ett av självstudiekursen](service-fabric-tutorial-create-dotnet-app.md) kan du ladda ned det. Kör följande kommando i ett kommandofönster för att klona databasen för exempelappen till den lokala datorn.
 
-```
+```git
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
 ## <a name="prepare-a-publish-profile"></a>Förbered publiceringsprofil
+
 Nu när du har [skapat ett program](service-fabric-tutorial-create-dotnet-app.md) och [distribuerat programmet till Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md) är du redo att konfigurera kontinuerlig integrering.  Börja med att förbereda en publiceringsprofil i programmet för användning med distributionsprocessen som körs i Team Services.  Publiceringsprofilen ska konfigureras med inriktning på det kluster som du skapade tidigare.  Starta Visual Studio och öppna ett befintligt Service Fabric-programprojekt.  I **Solution Explorer** högerklickar du på programmet och väljer **Publicera**.
 
-Välj en målprofil inom programprojektet att använda för arbetsflödet för den kontinuerliga integreringen, till exempel molnet.  Specificera klusteranslutningsslutpunkten.  Markera kryssrutan **Uppgradera programmet** så att programmet uppgraderas för varje distribution i Team Services.  Klicka på hyperlänken **Spara** och spara inställningarna i profilen. Klicka sedan på **Avbryt** och stäng dialogrutan.  
+Välj en målprofil inom programprojektet att använda för arbetsflödet för den kontinuerliga integreringen, till exempel molnet.  Specificera klusteranslutningsslutpunkten.  Markera kryssrutan **Uppgradera programmet** så att programmet uppgraderas för varje distribution i Team Services.  Klicka på hyperlänken **Spara** och spara inställningarna i profilen. Klicka sedan på **Avbryt** och stäng dialogrutan.
 
 ![Push-profil][publish-app-profile]
 
 ## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Dela Visual Studio-lösningen till en ny Team Services Git-lagringsplats
-Dela programkällfilerna till ett teamprojekt i Team Services så att du kan generera byggen.  
 
-Skapa en ny lokal Git-lagringsplats för projektet genom att välja alternativet för att **lägga till källkontroll** -> **Git** i statusfältet i det nedre högra hörnet av Visual Studio. 
+Dela programkällfilerna till ett teamprojekt i Team Services så att du kan generera byggen.
+
+Skapa en ny lokal Git-lagringsplats för projektet genom att välja alternativet för att **lägga till källkontroll** -> **Git** i statusfältet i det nedre högra hörnet av Visual Studio.
 
 I vyn för **Push-överföring**  i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Visual Studio Team Services**.
 
@@ -79,30 +85,32 @@ Verifiera din e-postadress och välj ditt konto i listrutan **Team Services-dom�
 När du publicerar lagringsplatsen skapas ett nytt teamprojekt i kontot med samma namn som den lokala lagringsplatsen. Om du vill skapa lagringsplatsen i ett befintlig teamprojekt klickar du på **Avancerat** bredvid namnet på **databasen** och väljer ett teamprojekt. Du kan visa koden på webben genom att välja alternativet för att **visa på webben**.
 
 ## <a name="configure-continuous-delivery-with-vsts"></a>Konfigurera kontinuerlig leverans med VSTS
+
 En byggesdefinition för Team Services beskriver ett arbetsflöde som består av en uppsättning byggesåtgärder som utförs i tur och ordning. Skapa en byggesdefinition som producerar ett Service Fabric-programpaket och andra artefakter att distribuera till ett Service Fabric-kluster. Ta reda på mer om [byggesdefinitioner för Team Services](https://www.visualstudio.com/docs/build/define/create). 
 
 En versionsdefinition för Team Services beskriver ett arbetsflöde som distribuerar ett programpaket till ett kluster. När de används tillsammans utför byggesdefinitionen och versionsdefinitionen hela arbetsflödet med början på källfiler för att sluta med ett program som körs i klustret. Lär dig mer om [versionsdefinitioner för Team Services](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### <a name="create-a-build-definition"></a>Skapa en byggesdefinition
-Öppna en webbläsare och navigera till det nya teamprojektet på: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting). 
 
-Välj fliken **Build & Release** (Bygge och version), fliken **Builds** (Byggesversioner) och sedan **+ New definition** (+ Ny definition).  I **Välj en mall** väljer du mallen **Azure Service Fabric-programmet** och klickar på **Använd**. 
+Öppna en webbläsare och navigera till det nya teamprojektet på: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-![Välj byggesmall][select-build-template] 
+Välj fliken **Build & Release** (Bygge och version), fliken **Builds** (Byggesversioner) och sedan **+ New definition** (+ Ny definition).  I **Välj en mall** väljer du mallen **Azure Service Fabric-programmet** och klickar på **Använd**.
 
-I **Uppgifter** anger du Hosted VS2017 som **Agent queue** (Agentkö). 
+![Välj byggesmall][select-build-template]
+
+I **Uppgifter** anger du Hosted VS2017 som **Agent queue** (Agentkö).
 
 ![Välj uppgifter][save-and-queue]
 
-Under **utlösare** aktiverar du kontinuerlig integrering genom att ställa in **utlösarstatus**.  Välj alternativet för att **spara och köa** för att manuellt starta en version.  
+Under **utlösare** aktiverar du kontinuerlig integrering genom att ställa in **utlösarstatus**.  Välj alternativet för att **spara och köa** för att manuellt starta en version.
 
 ![Välj utlösare][save-and-queue2]
 
-Byggen utlöser också vid push och incheckning. Om du vill kontrollera förloppet för bygget växlar du till fliken **Builds** (Byggen).  När du har kontrollerat att bygget körs rätt kan du definiera en versionsdefinition som distribuerar programmet till ett kluster. 
+Byggen utlöser också vid push och incheckning. Om du vill kontrollera förloppet för bygget växlar du till fliken **Builds** (Byggen).  När du har kontrollerat att bygget körs rätt kan du definiera en versionsdefinition som distribuerar programmet till ett kluster.
 
-### <a name="create-a-release-definition"></a>Skapa en versionsdefinition  
+### <a name="create-a-release-definition"></a>Skapa en versionsdefinition
 
-Välj fliken **Build & Release** (Bygge och version), fliken **Releases** (Versioner) och sedan **+New definition** (+ Ny definition).  I **Välj en mall** väljer du mallen **Azure Service Fabric Deployment** på listan och sedan **Använd**.  
+Välj fliken **Build & Release** (Bygge och version), fliken **Releases** (Versioner) och sedan **+New definition** (+ Ny definition).  I **Välj en mall** väljer du mallen **Azure Service Fabric Deployment** på listan och sedan **Använd**.
 
 ![Välj versionsmall][select-release-template]
 
@@ -110,11 +118,11 @@ Välj **Uppgifter**->**Environment 1** (Miljö 1)och sedan **+New** (+Ny) för a
 
 ![Lägga till klusteranslutning][add-cluster-connection]
 
-I vyn för att **lägga till nya Service Fabric-anslutningar** väljer du autentisering av typerna **Certifikatbaserad** eller **Azure Active Directory**.  Ange ett anslutningsnamn för mysftestcluster och en klusterslutpunkt för tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000 (eller slutpunkten i klustret som du distribuerar till). 
+I vyn för att **lägga till nya Service Fabric-anslutningar** väljer du autentisering av typerna **Certifikatbaserad** eller **Azure Active Directory**.  Ange ett anslutningsnamn för mysftestcluster och en klusterslutpunkt för tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000 (eller slutpunkten i klustret som du distribuerar till).
 
-Om du använder certifikatbaserad autentisering lägger du till **servercertifikatets tumavtryck** för det servercertifikat som används för att skapa klustret.  I **klientcertifikat** lägger du till base-64-kodningen för klientcertifikatfilen. Det finns ett hjälppopupfönster för fältet om du behöver information om hur du hittar den base-64-kodade representationen för certifikatet. Lägg också till **lösenordet** för certifikatet.  Du kan använda certifikatet för klustret eller servern om du inte har något separat klientcertifikat. 
+Om du använder certifikatbaserad autentisering lägger du till **servercertifikatets tumavtryck** för det servercertifikat som används för att skapa klustret.  I **klientcertifikat** lägger du till base-64-kodningen för klientcertifikatfilen. Det finns ett hjälppopupfönster för fältet om du behöver information om hur du hittar den base-64-kodade representationen för certifikatet. Lägg också till **lösenordet** för certifikatet.  Du kan använda certifikatet för klustret eller servern om du inte har något separat klientcertifikat.
 
-För Azure Active Directory-autentiseringsuppgifter lägger du till **servercertifikatets tumavtryck** för det servercertifikatet som användes för att skapa klustret och de autentiseringsuppgifter du vill använda för att ansluta till klustret i fälten **Användarnamn** och **Lösenord**. 
+För Azure Active Directory-autentiseringsuppgifter lägger du till **servercertifikatets tumavtryck** för det servercertifikatet som användes för att skapa klustret och de autentiseringsuppgifter du vill använda för att ansluta till klustret i fälten **Användarnamn** och **Lösenord**.
 
 Klicka på **Lägg till** och spara klusteranslutningen.
 
@@ -126,10 +134,11 @@ Aktivera en kontinuerlig distributionsutlösare så att versionen automatiskt sk
 
 ![Aktivera utlösare][enable-trigger]
 
-Välj **+Release** -> **Create Release**  -> **Create** (+Version, Skapa version, Skapa) för att manuellt skapa en version.  Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och navigera till [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observera programversionen. I det här exemplet är den 1.0.0.20170616.3. 
+Välj **+Release** -> **Create Release**  -> **Create** (+Version, Skapa version, Skapa) för att manuellt skapa en version.  Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och navigera till [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observera programversionen. I det här exemplet är den 1.0.0.20170616.3.
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Genomför och push-överföring av ändringar utlöser en släppning
-För att kontrollera att pipelinen för den kontinuerliga integreringen fungerar genom att kontrollera kodändringar i Team Services.    
+
+För att kontrollera att pipelinen för den kontinuerliga integreringen fungerar genom att kontrollera kodändringar i Team Services.
 
 När du skriver koden spåras dina ändringar automatiskt av Visual Studio. Genomför ändringar av den lokala Git-lagringsplatsen genom att välja ikonen väntande ändringar (![Väntande åtgärder][pending]) från statusfältet i nederkant högra hörnet.
 
@@ -150,6 +159,7 @@ Kontrollera att distributionen har slutförts och programmet körs i klustret.  
 ![Service Fabric Explorer][sfx1]
 
 ## <a name="update-the-application"></a>Uppdatera programmet
+
 Göra kodändringar i programmet.  Spara och genomföra ändringarna via de här stegen.
 
 När programuppgraderingen påbörjas kan du visa uppgraderingsförloppet i Service Fabric Explorer:
@@ -161,6 +171,7 @@ Programuppgraderingen kan ta flera minuter. När uppgraderingen har slutförts k
 ![Service Fabric Explorer][sfx3]
 
 ## <a name="next-steps"></a>Nästa steg
+
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
@@ -171,8 +182,7 @@ I den här självstudiekursen lärde du dig att:
 
 Gå vidare till nästa kurs:
 > [!div class="nextstepaction"]
-> [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md) 
-
+> [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
 <!-- Image References -->
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png

@@ -6,32 +6,27 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 4bd084c8-0842-4a10-8460-080c6a085bec
 ms.service: azure-resource-manager
 ms.devlang: multiple
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2018
+ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: bd2869b35d92ea92261223131476d7cc8eb854eb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: af8b91ee20ccb4d16e7666c317ea7d08a265e6d6
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360112"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435552"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Skapa och distribuera Azure-resursgrupper via Visual Studio
-Med Visual Studio och [Azure SDK](https://azure.microsoft.com/downloads/) kan du skapa ett projekt som distribuerar din infrastruktur och kod till Azure. Du kan till exempel definiera webbvärden, webbplatsen och databasen för din app och distribuera den infrastrukturen tillsammans med koden. Eller så kan du definiera en virtuell dator, ett virtuellt nätverk och ett lagringskonto och distribuera den infrastrukturen tillsammans med ett skript som körs på den virtuella datorn. Med ett projekt för distribution av en **Azure-resursgrupp** kan du distribuera alla nödvändiga resurser i en enda, repeterbara åtgärd. Mer information om hur du distribuerar och hanterar dina resurser finns i [Översikt över Azure Resource Manager](resource-group-overview.md).
+Med Visual Studio kan du skapa ett projekt som distribuerar din infrastruktur och kod till Azure. Du kan till exempel definiera webbvärden, webbplatsen och databasen för din app och distribuera den infrastrukturen tillsammans med koden. Visual Studio har många olika startmallar som du kan använda för att distribuera vanliga scenarier. I den här artikeln ska du distribuera en webbapp och SQL Database.  
 
-Projekt med Azure-resursgrupper innehåller JSON-baserade Azure Resource Manager-mallar, som definierar de resurser som du distribuerar till Azure. Mer information om elementen i Resource Manager-mallen finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md). I Visual Studio kan du redigera dessa mallar och använda verktyg som gör det lättare att arbeta med mallar.
-
-I den här artikeln ska du distribuera en webbapp och SQL Database. Stegen är dock i princip identiska för andra typer av resurser. Det är lika lätt att distribuera en virtuell dator och dess relaterade resurser. Visual Studio har många olika startmallar som du kan använda för att distribuera vanliga scenarier.
-
-Den här artikeln visar Visual Studio 2017. Om du använder Visual Studio 2015 Update 2 och Microsoft Azure SDK för .NET 2.9, eller Visual Studio 2013 med Azure SDK 2.9 ser det ut i princip likadant. Du kan använda valfri version av Azure SDK från 2.6 och senare. Din upplevelse av användargränssnittet kan dock skilja sig något mot vad du ser i den här artikeln. Vi rekommenderar starkt att du installerar den senaste versionen av [Azure SDK](https://azure.microsoft.com/downloads/) innan du börjar med stegen. 
+I den här artikeln får du lära dig att använda [Visual Studio 2017 med Azure-utveckling och ASP.NET-arbetsbelastningar installerade](/dotnet/azure/dotnet-tools). Om du använder Visual Studio 2015 Update 2 och Microsoft Azure SDK för .NET 2.9, eller Visual Studio 2013 med Azure SDK 2.9 ser det ut i princip likadant.
 
 ## <a name="create-azure-resource-group-project"></a>Skapa ett projekt för en Azure-resursgrupp
-I den här proceduren ska du skapa ett projekt för en Azure-resursgrupp med en mall av typen **Webbapp + SQL**.
+I det här avsnittet ska du skapa ett projekt för en Azure-resursgrupp med en mall av typen **Webbapp + SQL**.
 
 1. I Visual Studio väljer du **Arkiv**, **Nytt projekt** och antingen **C#** eller **Visual Basic** (vilket språk du väljer påverkar inte senare stadier eftersom projekten endast har JSON- och PowerShell-innehåll). Välj sedan **Moln** och projektet **Azure-resursgrupp**.
    
@@ -52,18 +47,18 @@ I den här proceduren ska du skapa ett projekt för en Azure-resursgrupp med en 
    
     ![visa noder](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
    
-    Eftersom vi valde mallen Webbapp + SQL för det här exemplet visas följande filer: 
+    Eftersom du valde mallen Webbapp + SQL för det här exemplet visas följande filer: 
    
    | Filnamn | Beskrivning |
    | --- | --- |
-   | Deploy-AzureResourceGroup.ps1 |Ett PowerShell-skript som anropar PowerShell-kommandon för distribution till Azure Resource Manager.<br />**Obs!** Visual Studio använder PowerShell-skript för att distribuera mallen. De ändringar du gör i det här skriptet påverkar distributionen i Visual Studio, så var försiktig. |
+   | Deploy-AzureResourceGroup.ps1 |Ett PowerShell-skript som kör PowerShell-kommandon för distribution till Azure Resource Manager.<br />**Obs!** Visual Studio använder PowerShell-skript för att distribuera mallen. De ändringar du gör i det här skriptet påverkar distributionen i Visual Studio, så var försiktig. |
    | WebSiteSQLDatabase.json |Resource Manager-mallen som definierar infrastrukturen som du vill distribuera till Azure, och de parametrar som du kan ange under distributionen. Den definierar även beroendena mellan resurserna så att resurserna distribueras i rätt ordning av Resource Manager. |
-   | WebSiteSQLDatabase.parameters.json |En fil med parametrar som innehåller värden som krävs av mallen. Du skickar in parametervärden för att anpassa varje distribution. |
+   | WebSiteSQLDatabase.parameters.json |En parameterfil med värden som krävs av mallen. Du skickar in parametervärden för att anpassa varje distribution. |
    
     Alla distributionsprojekt för resursgrupper innehåller dessa grundläggande filer. Andra projekt kan innehålla ytterligare filer som ger stöd för andra funktioner.
 
 ## <a name="customize-the-resource-manager-template"></a>Anpassa Resource Manager-mallen
-Du kan anpassa ett distributionsprojekt genom att ändra JSON-mallarna som beskriver de resurser som du vill distribuera. JSON står för JavaScript Object Notation och är ett format för serialiserade data som är lätt att arbeta med. JSON-filerna använder ett schema som du refererar till längst upp i varje fil. Om du vill granska schemat kan du hämta och analysera det. Schemat definierar vilka element som är giltiga, typer och format för fält, de möjliga värdena för uppräknade värden och så vidare. Mer information om elementen i Resource Manager-mallen finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
+Du kan anpassa ett distributionsprojekt genom att ändra JSON-mallarna som beskriver de resurser som du vill distribuera. JSON står för JavaScript Object Notation och är ett format för serialiserade data som är lätt att arbeta med. JSON-filerna använder ett schema som du refererar till längst upp i varje fil. Om du vill granska schemat kan du hämta och analysera det. Schemat definierar vilka element som är giltiga, typer och format för fält samt möjliga värden en egenskap. Mer information om elementen i Resource Manager-mallen finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 
 Du kan arbeta med din mall genom att öppna **WebSiteSQLDatabase.json**.
 
@@ -141,7 +136,7 @@ Nu är det dags att distribuera projektet. När du distribuerar ett Azure-resurs
    
     **administratorLogin** anger SQL Server-administratörens användarnamn. Använd inte vanliga admin-namn som **sa** eller **admin**. 
    
-    **administratorLoginPassword** anger SQL Server-administratörens lösenord. Alternativet **Spara lösenord i klartext i parameterfilen** är inte säkert, välj därför inte detta alternativ. Eftersom lösenordet inte sparas som oformaterad text behöver du ange detta lösenord igen vid distributionen. 
+    **administratorLoginPassword** anger SQL Server-administratörens lösenord. Alternativet **Spara lösenord i klartext i parameterfilen** är inte säkert. Välj därför inte detta alternativ. Eftersom lösenordet inte sparas som oformaterad text behöver du ange detta lösenord igen vid distributionen. 
    
     **databaseName** anger ett namn för databasen att skapa. 
    
@@ -159,7 +154,7 @@ Nu är det dags att distribuera projektet. När du distribuerar ett Azure-resurs
 7. Öppna [Azure Portal](https://portal.azure.com/) i en webbläsare och logga in på ditt konto. Du visar resursgruppen genom att välja **Resursgrupper** och den resursgrupp som du har distribuerat till.
    
     ![välja grupp](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
-8. Du ser alla distribuerade resurser. Observera att namnet på lagringskontot inte är exakt vad du angav när du lade till resursen. Lagringskontot måste vara unikt. Mallen lägger automatiskt till en sträng med tecken i det namn du angav för att ge ett unikt namn. 
+8. Du ser alla distribuerade resurser. Observera att namnet på lagringskontot inte stämmer exakt med namnet du angav när du lade till resursen. Lagringskontot måste vara unikt. Mallen lägger automatiskt till en sträng med tecken i det namn du angav för att ge ett unikt namn. 
    
     ![visa resurser](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
 9. Om du gör ändringar och vill distribuera om ditt projekt väljer du den befintliga resursgruppen på snabbmenyn för Azure-resursgruppsprojektet. Välj **Distribuera** på snabbmenyn och välj sedan den resursgrupp som du har distribuerat.
@@ -167,7 +162,7 @@ Nu är det dags att distribuera projektet. När du distribuerar ett Azure-resurs
     ![Azure-resursgrupp som har distribuerats](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
 ## <a name="deploy-code-with-your-infrastructure"></a>Distribuera kod med din infrastruktur
-Nu har du distribuerat infrastrukturen för din app, men det finns ingen direkt kod som distribueras med projektet. Den här artikeln beskriver hur du distribuerar en webbapp och SQL Database-tabeller under distributionen. Om du distribuerar en virtuell dator i stället för en webbapp vill du köra en del kod på datorn som en del av distributionen. Processen för att distribuera koden för en webbapp eller för att konfigurera en virtuell dator är nästan desamma.
+Nu har du distribuerat infrastrukturen för din app, men det finns ingen faktisk kod som distribueras med projektet. Den här artikeln beskriver hur du distribuerar en webbapp och SQL Database-tabeller under distributionen. Om du distribuerar en virtuell dator i stället för en webbapp vill du köra en del kod på datorn som en del av distributionen. Processen för att distribuera koden för en webbapp eller för att konfigurera en virtuell dator är nästan desamma.
 
 1. Lägga till ett projekt i din Visual Studio-lösning. Högerklicka på lösningen och välj **Lägg till** > **nytt projekt**.
    
@@ -213,16 +208,16 @@ Nu har du distribuerat infrastrukturen för din app, men det finns ingen direkt 
 10. När distributionen är klar väljer du din webbapp i portalen. Välj webbadress för att gå till webbplatsen.
     
      ![bläddra på webbplats](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
-11. Observera att du nu har distribuerat standard-ASP.NET-appen.
+11. Nu ser du att du har distribuerat standard-ASP.NET-appen.
     
      ![visa distribuerad app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## <a name="add-an-operations-dashboard-to-your-deployment"></a>Lägga till en instrumentpanel för åtgärder i din distribution
-Nu när vi har skapat en lösning är det dags att ta det sista steget och få den att fungera. Du är inte begränsad till de resurser som är tillgängliga via Visual Studio-gränssnittet. Vi kan använda delade instrumentpaneler, som definieras som resurser i JSON. Vi gör detta genom att redigera vår mall och lägga till en anpassad resurs. 
+Du är inte begränsad till de resurser som är tillgängliga via Visual Studio-gränssnittet. Du kan anpassa din distribution genom att lägga till en anpassad resurs i mallen. Du kan lägga till en instrumentpanel för att hantera den resurs du har distribuerat.
 
-1. Öppna filen WebsiteSqlDeploy.json och lägg till följande JSON-kodblock efter lagringskontot, men före avslutande ] i resursavsnittet.
+1. Öppna filen WebsiteSqlDeploy.json och lägg till följande JSON efter lagringskontot, men före den avslutande `]`, i resursavsnittet.
 
-```json
+  ```json
     ,{
       "properties": {
         "lenses": {
@@ -297,23 +292,19 @@ Nu när vi har skapat en lösning är det dags att ta det sista steget och få d
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-}
-```
+  }
+  ```
 
-2. Distribuera din resursgrupp på nytt. När du nu tittar på instrumentpanelen i Azure Portal visas den delade instrumentpanelen i listan med alternativ. 
+2. Distribuera om din resursgrupp. Titta på instrumentpanelen i Azure Portal så ser du att den delade instrumentpanelen har lagts till i listan med alternativ.
 
-    ![Anpassad instrumentpanel](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
+   ![Anpassad instrumentpanel](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
 
+3. Välj instrumentpanelen.
 
+   ![Anpassad instrumentpanel](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
-   > [!NOTE] 
-   > Åtkomst till instrumentpanelen kan hanteras med RBAC-grupper och anpassningar kan publiceras till resursen efter att den har distribuerats. Observera att när du distribuerar resursgruppen på nytt, återställs den till standardinställningen i mallen. Du bör uppdatera mallen med anpassningarna. Information om hur du gör detta finns i [Skapa Azure-instrumentpaneler programmässigt](../azure-portal/azure-portal-dashboards-create-programmatically.md)
+Du kan hantera åtkomsten till instrumentpanelen genom att använda RBAC-grupper. Du kan också anpassa instrumentpanelens utseende när den har distribuerats. Om du däremot distribuerar om resursgruppen återställs instrumentpanelen till sitt ursprungsläge i mallen. Mer information om hur du skapar instrumentpaneler finns i [Skapa Azure-instrumentpaneler programmässigt](../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
-
-    ![Anpassad instrumentpanel](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
-    
-    
 ## <a name="next-steps"></a>Nästa steg
-* Information om hur du hanterar dina resurser via portalen finns i [Hantera Azure-resurser med hjälp av Azure Portal](resource-group-portal.md).
 * Mer information om mallar finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 

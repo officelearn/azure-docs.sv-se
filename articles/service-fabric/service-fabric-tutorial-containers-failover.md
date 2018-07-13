@@ -1,5 +1,5 @@
 ---
-title: Redundansväxla och skala en Azure Service Fabric-behållarapp | Microsoft Docs
+title: Redundansväxla och skala om en containerapp för Service Fabric i Azure | Microsoft Docs
 description: I den här självstudien får du lära dig hur redundansväxling hanteras i ett Azure Service Fabric-behållarprogram.  Lär dig också att skala behållarna och tjänsterna som körs i ett kluster.
 services: service-fabric
 documentationcenter: ''
@@ -16,25 +16,27 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 27d1918125b8c2f79f6506470ae43354e402f9af
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b099d1765f0ed56d6768501086bf8b9f83d5a86a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29555492"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112277"
 ---
-# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Självstudie: visa redundansväxling och skalning av behållartjänster med Service Fabric
+# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Självstudie: Visa redundansväxling och skalning av containertjänster med Service Fabric
 
-Den här självstudiekursen är den tredje delen i en serie. I den här självstudien får du lära dig hur redundansväxling hanteras i Service Fabric-behållarprogram. Du får också lära dig att skala behållare. I den här kursen har du:
+Den här självstudiekursen är den tredje delen i en serie. I den här självstudien får du lära dig hur redundansväxling hanteras i Service Fabric-behållarprogram. Du får också lära dig att skala behållare. I den här kursen får du:
 
 > [!div class="checklist"]
-> * Läs om att redundansväxla en behållare i ett Service Fabric-kluster  
+> * Läs om att redundansväxla en behållare i ett Service Fabric-kluster
 > * Skala webbklientbehållare i ett program
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
 Programmet från [Del 2](service-fabric-tutorial-package-containers.md) körs som ett aktivt Service Fabric-kluster.
 
 ## <a name="fail-over-a-container-in-a-cluster"></a>Redundansväxla en behållare i ett kluster
+
 Service Fabric ser till att dina behållarinstanser flyttas automatiskt till andra noder i klustret vid ett fel. Du kan också tomma en nod på behållare och sedan flytta dem till andra noder i klustret. Det finns flera sätt att skala tjänsterna. I det här exemplet använder vi Service Fabric Explorer.
 
 Så här redundansväxlar du behållaren på klientsidan:
@@ -42,13 +44,14 @@ Så här redundansväxlar du behållaren på klientsidan:
 1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://lin4hjim3l4.westus.cloudapp.azure.com:19080`.
 2. Klicka på noden **fabric:/TestContainer/azurevotefront** i trädvyn och utöka partitionsnoden (som representeras av en globalt unik identifierare). Nodnamnet i trädvyn visar vilka noder som behållaren körs på för tillfället, till exempel `_nodetype_1`
 3. Expandera noden **Noder** i trädvyn. Klicka på ellipsknappen (tre punkter) bredvid den nod som körs i behållaren.
-1. Välj **Starta om** för att starta om noden och bekräfta omstartsåtgärden. Omstarten gör att behållaren växlar över till en annan nod i klustret.
+4. Välj **Starta om** för att starta om noden och bekräfta omstartsåtgärden. Omstarten gör att behållaren växlar över till en annan nod i klustret.
 
 ![noderestart][noderestart]
 
 Lägg märke till hur nodnamnet (som indikerar var klientbehållarna körs) ändras till en annan nod i klustret. Efter en kort stund bör du kunna bläddra till programmet igen och se hur programmet nu körs på en annan nod.
 
 ## <a name="scale-containers-and-services-in-a-cluster"></a>Skala behållare och tjänster i ett kluster
+
 Service Fabric-behållare kan enkelt skalas över ett kluster beroende på belastningen på tjänsterna. Du kan skala en behållare genom att ändra antalet instanser som körs i klustret.
 
 Gör så här om du vill skala webbklienten:
@@ -74,10 +77,10 @@ Med den här enkla hanteringsåtgärden har vi dubblerat resurserna för bearbet
 I den här självstudien visades redundansväxling av behållare samt skalning av ett program. Följande steg har slutförts:
 
 > [!div class="checklist"]
-> * Läs om att redundansväxla en behållare i ett Service Fabric-kluster  
+> * Läs om att redundansväxla en behållare i ett Service Fabric-kluster
 > * Skala webbklientbehållare i ett program
 
-I den här serien med självstudiekurser lärde du dig att: 
+I den här serien med självstudiekurser lärde du dig att:
 > [!div class="checklist"]
 > * Skapa behållaravbildningar
 > * Push-överför avbildningar till Azure Container Registry

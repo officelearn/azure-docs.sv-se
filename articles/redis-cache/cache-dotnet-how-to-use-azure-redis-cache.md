@@ -16,17 +16,17 @@ ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 31d93fc8b2034152e61d24a789bba62bfd3b7892
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639817"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635446"
 ---
 # <a name="quickstart-use-azure-redis-cache-with-a-net-application"></a>Snabbstart: Använda Azure Redis Cache med ett .NET-program
 
 
 
-Den här snabbstarten visar hur du kommer igång med Microsoft Azure Redis-Cache med .NET. Microsoft Azure Redis Cache bygger på den populära öppna källkoden Redis Cache. Den ger dig tillgång till en säker och dedikerad Redis-cache som hanteras av Microsoft. Ett cacheminne som har skapats med Azure Redis Cache är tillgängligt från alla program i Microsoft Azure.
+Den här snabbstarten visar hur du kommer igång med Microsoft Azure Redis-Cache med .NET. Microsoft Azure Redis Cache är baserad på den populära Redis Cache med öppen källkod. Den ger dig tillgång till en säker och dedikerad Redis-cache som hanteras av Microsoft. Ett cacheminne som har skapats med Azure Redis Cache är tillgängligt från alla program i Microsoft Azure.
 
 I den här snabbstarten använder du klienten [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) med C\#-kod i ett konsolprogram. Du kommer att skapa en cache och konfigurera .NET-klientappen. Du kommer sedan lägga till och uppdatera objekt i cachen. 
 
@@ -59,7 +59,7 @@ Ersätt `<cache-name>` med din cachens värdnamn.
 Ersätt `<access-key>` med primärnyckeln för cachen.
 
 
-## <a name="create-a-console-app"></a>Skapa en konsolklient
+## <a name="create-a-console-app"></a>Skapa en konsolapp
 
 I Visual Studio klickar du på **Arkiv** > **Nytt** > **Projekt**.
 
@@ -78,7 +78,7 @@ Du kan installera det genom att köra följande kommando i pakethanterarkonsolen
 Install-Package StackExchange.Redis
 ```
 
-När installationen är klar är *StackExchange.Redis*-klienten redo för användning med ditt projekt.
+När installationen är klar är *StackExchange.Redis*-cacheklienten tillgänglig för användning med ditt projekt.
 
 
 ## <a name="connect-to-the-cache"></a>Ansluta till cachen
@@ -129,7 +129,7 @@ I *Program.cs*, lägg till följande medlemmar i klass `Program` för ditt konso
 ```
 
 
-Den här metoden för att dela en `ConnectionMultiplexer`-instans i ditt program är att ha en statisk egenskap som returnerar en ansluten instans. Detta ger ett trådsäkert sätt att endast initiera en enda ansluten `ConnectionMultiplexer`-instans. `abortConnect` inställt på false, vilket innebär att anropet lyckas även om det inte finns någon anslutning till Azure Redis Cache. En viktig egenskap i `ConnectionMultiplexer` är att anslutningen till cachen återställs automatiskt när nätverksproblemet eller andra fel har åtgärdats.
+Den här metoden för att dela en `ConnectionMultiplexer`-instans i ditt program använder en statisk egenskap som returnerar en ansluten instans. Koden ger ett trådsäkert sätt att endast initiera en enda ansluten `ConnectionMultiplexer`-instans. `abortConnect` är inställt på falskt, vilket innebär att anropet lyckas även om en anslutning till Azure Redis Cache inte etableras. En viktig egenskap i `ConnectionMultiplexer` är att anslutningen till cachen återställs automatiskt när nätverksproblemet eller andra fel har åtgärdats.
 
 Värdet för appinställningen *CacheConnection* används för att referera till cache-anslutningssträngen från Azure-portalen som lösenordsparameter.
 
@@ -176,15 +176,15 @@ Lägg till följande kod för procedur `Main` för klass `Program` för ditt kon
 
 Azure Redis-cacheminnen har ett konfigurerbart antal databaser (16 är standard) som kan användas för att logiskt separera data i ett Redis-cacheminne. Koden ansluter till standarddatabasen DB 0. Mer information finns i [What are Redis databases?](cache-faq.md#what-are-redis-databases) (Vad är Redis-databaser?) och [Default Redis server configuration](cache-configure.md#default-redis-server-configuration) (Standardkonfiguration av Redis-server).
 
-Cacheobjekt kan lagras i och hämtas med hjälp av `StringSet`- och `StringGet`-metoderna.
+Cacheobjekt kan lagras och hämtas med hjälp av metoderna `StringSet` och `StringGet`.
 
 Redis lagrar de flesta data som Redis-strängar, men dessa strängar kan innehålla flera typer av data, inklusive serialiserade binära data som kan användas när .NET-objekt lagras i cacheminnet.
 
 Tryck på **Ctrl+F5** för att skapa och köra konsolprogrammet.
 
-I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure Portal. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
+I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure-portalen. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
 
-![Partiellt konsolprogram](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png)
+![Partiell konsolapp](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png)
 
 
 ## <a name="work-with-net-objects-in-the-cache"></a>Arbeta med .NET-objekt i cachen

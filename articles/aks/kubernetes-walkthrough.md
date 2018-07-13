@@ -2,18 +2,19 @@
 title: Snabbstart – Azure Kubernetes-kluster för Linux
 description: Lär dig att snabbt skapa ett Kubernetes-kluster för Linux-behållare i AKS med Azure CLI.
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/14/2018
-ms.author: nepeters
+ms.date: 06/13/2018
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: d07cf87f736b6df58ed46ef0ae98767d4d8a7a48
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0105b9e59a2ae872c53f9522f93f2ffca7c1bd7a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127846"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snabbstart: Distribuera ett Azure Kubernetes Service-kluster (AKS)
 
@@ -27,23 +28,11 @@ I den här snabbstarten förutsätter vi att du har grundläggande kunskaper om 
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.27 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
-## <a name="enabling-aks-preview"></a>Aktivera AKS förhandsgranskning
-
-Kontrollera att de leverantörer av Azure-tjänster som krävs har aktiverats med kommandot `az provider register`.
-
-```azurecli-interactive
-az provider register -n Microsoft.Network
-az provider register -n Microsoft.Storage
-az provider register -n Microsoft.Compute
-az provider register -n Microsoft.ContainerService
-```
-
-Efter registreringen kan du skapa ett Kubernetes-kluster med AKS.
-
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 Skapa en resursgrupp med kommandot [az group create][az-group-create]. En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras.
-När du skapar en resursgrupp uppmanas du att ange en plats. Det är den plats där resurserna verkar i Azure. Med AKS i förhandsläge är endast vissa alternativ tillgängliga. Dessa är `eastus, westeurope, centralus, canadacentral, canadaeast`.
+
+När du skapar en resursgrupp uppmanas du att ange en plats. Det är den plats där resurserna verkar i Azure.
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
@@ -68,7 +57,7 @@ Resultat:
 
 ## <a name="create-aks-cluster"></a>Skapa AKS-kluster
 
-Använd kommandot [az aks create] [ az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod.
+Använd kommandot [az aks create] [ az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. När du distribuerar ett AKS-kluster kan du även aktivera övervakningslösningen för containertillstånd. Mer information om att aktivera övervakningslösningen av containertillstånd finns i [Övervaka hälsotillstånd för Azure Kubernets Service][aks-monitor].
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -173,10 +162,10 @@ spec:
     app: azure-vote-front
 ```
 
-Använd kommandot [kubectl create][kubectl-create] för att köra programmet.
+Använd kommandot [kubectl apply][kubectl-apply] för att köra programmet.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 Resultat:
@@ -241,13 +230,15 @@ Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig dis
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
+[aks-monitor]: ../monitoring/monitoring-container-health.md
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
@@ -255,5 +246,4 @@ Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig dis
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
-[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 

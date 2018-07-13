@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 0445817f9ff403156025e38a1e14a3892a9a292b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031200"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38667030"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules---preview"></a>Självstudie: Distribuera Azure Functions som IoT Edge-moduler – förhandsversion
 
@@ -51,7 +51,7 @@ Du kan använda valfritt Docker-kompatibelt register för den här självstudien
 
 1. I [Azure Portal](https://portal.azure.com) väljer du **Skapa en resurs** > **Container** > **Containerregister**.
 
-    ![create container registry](./media/tutorial-deploy-function/create-container-registry.png)
+    ![skapa containerregister](./media/tutorial-deploy-function/create-container-registry.png)
 
 2. Namnge registret och välj en prenumeration.
 3. För resursgruppen rekommenderar vi att du använder det resursgruppsnamn som innehåller din IoT Hub. Genom att lägga alla resurser i en grupp, kan du hantera dem tillsammans. Till exempel tas alla testresurser som ingår i gruppen bort om resursgruppen för testning tas bort. 
@@ -64,12 +64,12 @@ Du kan använda valfritt Docker-kompatibelt register för den här självstudien
 Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code och Azure IoT Edge-tillägget.
 
 1. Öppna Visual Studio Code.
-2. Välj **Visa** > **Integrerad terminal** för att öppna den VS Code-integrerade terminalen. 
+2. Välj **Visa** > **Integrerad terminal** för att öppna den integrerade terminalen i VS Code. 
 2. Öppna kommandopaletten för VS Code genom att välja **Visa** > **Kommandopalett**.
 3. Ange och kör kommandot **Azure: Logga in** i kommandopaletten och följ anvisningarna för att logga in med ditt Azure-konto. Om du redan har loggat in kan du hoppa över det här steget.
 3. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) i kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning: 
 
-   1. Välj den mapp som du vill skapa lösningen i. 
+   1. Välj den mapp där du vill skapa lösningen. 
    2. Ange ett namn för din lösning eller välj standardnamnet **EdgeSolution**.
    3. Välj **Azure Functions – C#** som mall för modulen. 
    4. Ge modulen namnet **CSharpFunction**. 
@@ -161,7 +161,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod till CS
 
 6. Högerklicka på filen **deployment.template.json** och välj **Skapa IoT Edge-lösning** i VS Code-utforskaren. 
 
-När du ger Visual Studio Code kommando att skapa din lösning hämtar den först information i mallen för distribution och genererar en `deployment.json`-fil i en ny **config**-mapp. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger funktionerna i behållare och push-överför den till containerregistret som du angav när du initierade lösningen. 
+När du ger Visual Studio Code kommando att skapa din lösning hämtar den först information i distributionsmallen och genererar en `deployment.json`-fil i en ny **config**-mapp. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger funktionerna i behållare och push-överför den till containerregistret som du angav när du initierade lösningen. 
 
 ## <a name="view-your-container-image"></a>Visa din containeravbildning
 
@@ -251,7 +251,7 @@ sudo apt-get remove --purge moby
 
 I den här självstudien skapade du en Azure Functions-modul som innehåller kod för att filtrera rådata som genereras av din IoT Edge-enhet. När du är redo att skapa egna moduler kan du läsa mer om hur du [utvecklar Azure Functions med Azure IoT Edge för Visual Studio Code](how-to-develop-csharp-function.md). 
 
-Fortsätt med någon av följande självstudier om du vill veta mer hur Azure IoT Edge kan hjälpa dig att omvandla dina data till affärsinsikter.
+Fortsätt med någon av följande självstudier om du vill veta mer om hur Azure IoT Edge kan hjälpa dig att omvandla dina data till affärsinsikter.
 
 > [!div class="nextstepaction"]
 > [Hitta medelvärden med ett flytande fönster i Azure Stream Analytics](tutorial-deploy-stream-analytics.md)

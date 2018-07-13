@@ -16,11 +16,11 @@ ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 63bab0e5c77204ea1e122c32a508e31ed9bcd114
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660613"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696967"
 ---
 # <a name="quickstart-use-azure-redis-cache-with-a-net-core-app"></a>Snabbstart: Använd Azure Redis Cache med en .NET Core-app
 

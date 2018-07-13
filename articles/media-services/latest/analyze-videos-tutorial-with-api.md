@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 06/28/2018
 ms.author: juliako
-ms.openlocfilehash: e81544d263bea3f367eaf2100ddb36a2835034c4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e5b8cc9285d9637a04c4bec47b0185652aa7c84e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637920"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114232"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Självstudie: Analysera videor med Azure Media Services 
 
@@ -34,9 +34,12 @@ I den här självstudiekursen lär du dig att:
 > * Granska utdatan
 > * Rensa resurser
 
+> [!Note]
+> Använd Azure-portalen enligt beskrivningen i [Skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md) och ställ in ditt Media Services-konto som 10 Mediereserverade S3-enheter.
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 
@@ -64,14 +67,14 @@ Exemplet utför följande åtgärder:
 
 1. Skapa en transformering och ett jobb som analyserar dina videor.
 2. Skapar en inkommande tillgång och överför videon till den. TIllgången används som jobbets indata.
-3. Skapar en utdatatillgång som lagrar jobbets utdata. 
+3. Skapar en utgående tillgång som lagrar utdata för jobbet. 
 4. Skickar jobbet.
 5. Kontrollerar jobbets status.
 6. Laddar ned filer som härrör från körningen av jobbet. 
 
-### <a name="start-using-media-services-apis-with-net-sdk"></a>Börja använda API:er för Media Services med .NET SDK
+### <a name="start-using-media-services-apis-with-net-sdk"></a>Börja med att använda Media Services-API:er med .NET SDK
 
-Om du vill börja använda API:er för Media Services med .NET, måste du skapa ett **AzureMediaServicesClient**-objekt. När du skapar objektet måste du ange de autentiseringsuppgifter som krävs för att klienten ska kunna ansluta till Azure med hjälp av Azure AD. I den kod som du har klonat i början av artikeln skapar funktionen **GetCredentialsAsync** objektet ServiceClientCredentials baserat på de autentiseringsuppgifter som anges i den lokala konfigurationsfilen. 
+Om du vill börja använda API:er för Media Services med .NET, måste du skapa ett **AzureMediaServicesClient**-objekt. När du skapar objektet måste du ange de autentiseringsuppgifter som krävs för att klienten ska kunna ansluta till Azure med hjälp av Azure AD. I den kod som du har klonat i början av artikeln skapade funktionen **GetCredentialsAsync** objektet ServiceClientCredentials baserat på de autentiseringsuppgifter som anges i den lokala konfigurationsfilen. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateMediaServicesClient)]
 
@@ -166,4 +169,4 @@ SDK:erna i Azure Media Services v3 är inte trådsäkra. När du arbetar med fle
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Ladda upp, koda och strömma filer](stream-files-tutorial-with-api.md)
+> [Självstudie: ladda upp, koda och strömma filer](stream-files-tutorial-with-api.md)

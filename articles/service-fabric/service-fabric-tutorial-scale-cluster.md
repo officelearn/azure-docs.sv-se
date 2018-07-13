@@ -1,6 +1,6 @@
 ---
-title: Skala ett Azure Service Fabric-kluster | Microsoft Docs
-description: I den här självstudiekursen lär du dig hur du snabbt skalar ett Service Fabric-kluster.
+title: Skala ut ett Service Fabric-kluster i Azure | Microsoft Docs
+description: I den här självstudien får du lära dig att snabbt skala ut ett Service Fabric-kluster i Azure.
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 678ca45d12fd10a02d967cd32743b4d7b6ea26af
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83f7a03744e7e8819d71eae81ed8e497797bef62
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642707"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109417"
 ---
-# <a name="tutorial-scale-a-service-fabric-cluster"></a>Självstudiekurs: Skala ett Service Fabric-kluster
+# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Självstudie: Skala ut ett Service Fabric-kluster i Azure
 
 Det här är den andra delen i en kurs. I den här delen visas hur du skalar ut och in ditt befintliga kluster. När du är klar kommer du att veta hur du skalar ditt kluster och hur du rensar överblivna resurser.
 
@@ -40,15 +40,18 @@ I den här självstudieserien får du lära du dig att:
 > * [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
 Innan du börjar den här självstudien:
-- om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Installera [Azure Powershell-modulen version 4.1 eller senare](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) eller [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure
-- Om du distribuerar ett Windows-kluster måste du konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2017](http://www.visualstudio.com) och arbetsbelastningarna **Azure Development**, **ASP.NET och webbutveckling** samt **.NET Core plattformsoberoende utveckling**.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
-- Om du distribuerar ett Linux-kluster måste du konfigurera en Java-utvecklingsmiljö på [Linux](service-fabric-get-started-linux.md) eller [MacOS](service-fabric-get-started-mac.md).  Installera [Service Fabric CLI](service-fabric-cli.md). 
+
+* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Installera [Azure Powershell-modulen version 4.1 eller senare](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) eller [Azure CLI 2.0](/cli/azure/install-azure-cli).
+* Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure
+* Om du distribuerar ett Windows-kluster måste du konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2017](http://www.visualstudio.com) och arbetsbelastningarna **Azure Development**, **ASP.NET och webbutveckling** samt **.NET Core plattformsoberoende utveckling**.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
+* Om du distribuerar ett Linux-kluster måste du konfigurera en Java-utvecklingsmiljö på [Linux](service-fabric-get-started-linux.md) eller [MacOS](service-fabric-get-started-mac.md).  Installera [Service Fabric CLI](service-fabric-cli.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
+
 Logga in på ditt Azure-konto och välj din prenumeration innan du kör Azure-kommandon.
 
 ```powershell
@@ -118,7 +121,7 @@ Inskalning fungerar på samma sätt som utskalning, men du använder ett lägre 
 > [!NOTE]
 > Den här delen gäller endast hållbarhetsnivån *Brons*. Mer information om hållbarhet finns i [Kapacitetsplanering för Service Fabric-kluster][durability].
 
-När du skalar in en VM-skalningsuppsättning tar skalningsuppsättningen (i de flesta fall) bort instansen av den virtuella datorn som skapades senast. Därför behöver du hitta den matchande (senaste skapade) Service Fabric-noden. Du hittar den senaste noden genom att kontrollera vilken av Service Fabric-noderna som har det största `NodeInstanceId`-egenskapsvärdet. Kodexemplen nedan sorteras efter nodinstansen och returnerar information om den instans som har det högsta ID-värdet. 
+När du skalar in en VM-skalningsuppsättning tar skalningsuppsättningen (i de flesta fall) bort instansen av den virtuella datorn som skapades senast. Därför behöver du hitta den matchande (senaste skapade) Service Fabric-noden. Du hittar den senaste noden genom att kontrollera vilken av Service Fabric-noderna som har det största `NodeInstanceId`-egenskapsvärdet. Kodexemplen nedan sorteras efter nodinstansen och returnerar information om den instans som har det högsta ID-värdet.
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
@@ -180,7 +183,7 @@ else
     # Stop node
     $stopid = New-Guid
     Start-ServiceFabricNodeTransition -Stop -OperationId $stopid -NodeName $nodename -NodeInstanceId $nodeid -StopDurationInSeconds 300
-    
+
     $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
     $loopTimeout = 10
 
@@ -191,7 +194,7 @@ else
         $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
         Write-Host "Checking state... $state found"
     }
-    
+
     if ($state -ne [System.Fabric.TestCommandProgressState]::Completed)
     {
         Write-Error "Stop transaction failed with $state"
@@ -220,13 +223,12 @@ sfctl node remove-state --node-name _nt1vm_5
 > [!TIP]
 > Använd följande **sfctl**-frågor för att kontrollera status för varje steg
 >
-> **Kontrollera inaktiveringsstatus**  
+> **Kontrollera inaktiveringsstatus**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
-> **Kontrollera stoppstatus**  
+> **Kontrollera stoppstatus**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
-
 
 ### <a name="scale-in-the-scale-set"></a>Skala in skalningsuppsättningen
 
@@ -249,7 +251,6 @@ az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
 az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 ```
 
-
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
@@ -258,7 +259,6 @@ I den här självstudiekursen lärde du dig att:
 > * Läser antalet klusternoder
 > * Lägger till klusternoder (skalar ut)
 > * Tar bort klusternoder (skalar in)
-
 
 Fortsätt sedan till nästa självstudie för att lära dig hur du uppgraderar körningen för ett kluster.
 > [!div class="nextstepaction"]

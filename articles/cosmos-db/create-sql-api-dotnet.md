@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 clicktale: true
-ms.openlocfilehash: f4391ebde6c7c7775c7c916de206ddb398bde1ef
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 19da0591d61e55cc34a7a0cc17ed13b197cdabab
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795439"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344706"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Snabbstart: Skapa en .NET-webbapp med Azure Cosmos DB med SQL API:t och Azure-portalen
 
@@ -27,7 +27,7 @@ Den här snabbstarten visar hur du skapar ett Azure Cosmos DB [SQL API](sql-api-
 
 ![Att göra-app med exempeldata](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
@@ -55,7 +55,7 @@ Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Vis
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
-Nu ska vi övergå till att arbeta med kod. Vi ska klona en SQL API-app från GitHub, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
+Nu ska vi övergå till att arbeta med kod. Vi ska klona en [SQL API-app från GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app), ställa in anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
 1. Öppna en kommandotolk, skapa en ny mapp som heter git-samples och stäng sedan kommandotolken.
 

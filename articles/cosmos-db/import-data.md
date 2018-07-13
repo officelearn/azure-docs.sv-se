@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 7f8e8d920884c611965ff760bb0369e08163356e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 52d5977b2a454dec803ad1233fcb12cc9573521c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029612"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100359"
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Datamigreringsverktyg
 

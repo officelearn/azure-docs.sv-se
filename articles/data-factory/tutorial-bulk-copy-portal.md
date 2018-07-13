@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: c42f7257b4b4077cc719c57e3136505f766e654c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 6079784a21b5dea8929fcfa3d8f296477b3b9520
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046841"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083336"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 I den här självstudien visas hur du **kopierar ett antal tabeller från Azure SQL Database till Azure SQL Data Warehouse**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
@@ -48,7 +48,7 @@ I det här scenariot har du ett antal tabeller i Azure SQL Database som du vill 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * **Azure Storage-konto**. Azure Storage-kontot används för mellanlagring för Blob Storage i masskopieringsåtgärden. 
 * **Azure SQL Database**. Den här databasen innehåller källdata. 
 * **Azure SQL Data Warehouse**. Det här datalagret innehåller de data som kopieras från SQL Database. 
@@ -93,7 +93,7 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
          
       Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
 4. Välj **V2** för **versionen**.
-5. Välj **plats** för datafabriken. För närvarande kan du endast skapa datafabriker i Data Factory V2 i regionerna USA, östra; USA; östra 2 och Europa, västra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+5. Välj **plats** för datafabriken. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 6. Välj **fäst till instrumentpanelen**.     
 7. Klicka på **Skapa**.
 8. På instrumentpanelen visas följande panel med statusen: **Distribuerar datafabrik**. 

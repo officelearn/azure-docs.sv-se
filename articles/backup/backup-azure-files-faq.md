@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 7429516538c892bea04d38a98abcfb13ba960d22
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: de91559d9c3626bdd07c2e497a8aa0b124f00b57
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286408"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434849"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 Den här artikeln innehåller vanliga frågor och svar om hur du säkerhetskopierar Azure Files. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -68,7 +68,7 @@ Säkerhetskopieringen av Azure-filresurser är för närvarande en förhandsvers
 Skriv till [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) om du behöver använda den i ett visst område som inte anges ovan.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vaultbr"></a>Hur många Azure-filresurser kan jag skydda i ett valv?<br/>
-I förhandsversionen kan du skydda Azure-filresurser från upp till 25 lagringskonton per valv. Du kan även skydda upp till 200 Azure-filresurser i ett enda valv.
+I förhandsversionen kan du skydda Azure-filresurser från upp till 50 lagringskonton per valv. Du kan även skydda upp till 200 Azure-filresurser i ett enda valv.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Kan jag skydda två olika filresurser från samma lagringskonto till olika valv?
 Nej. Filresurserna i ett lagringskonto kan endast skyddas med ett och samma valv.

@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 06/29/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 3f0ba3034c1ba9e68f83caaaf9aacb96134ca74b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5d13c565302ae16b6fb2894f6a5a3843f47f9547
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235506"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342233"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
@@ -47,7 +47,7 @@ I den här guiden får du lära dig hur man:
 > - Verifiera domänen
 > - Inaktivera HTTPS-protokollet på din anpassade domän.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan slutföra stegen i den här kursen måste du först skapa en CDN-profil och minst en CDN-slutpunkt. Mer information finns i [Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](cdn-create-new-endpoint.md).
 
@@ -177,7 +177,7 @@ CNAME-posten ska ha följande format, där *Namn* är namnet på din anpassade d
 
 Mer information om CNAME-poster finns i [Skapa CNAME DNS-posten](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
 
-Om din CNAME-post har rätt format verifierar DigiCert automatiskt det anpassade domännamnet och lägger till det i SAN-certifikatet (alternativt namn för certifikatmottagare). DigitCert skickar ingen bekräftelse via e-post och du behöver inte godkänna din begäran. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör. Gå vidare till [Vänta på spridning](#wait-for-propagation). 
+Om din CNAME-post har rätt format verifierar DigiCert automatiskt det anpassade domännamnet och skapar ett dedikerat certifikat för domännamnet. DigitCert skickar ingen bekräftelse via e-post och du behöver inte godkänna din begäran. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör. Gå vidare till [Vänta på spridning](#wait-for-propagation). 
 
 Den automatiska verifieringen tar vanligtvis några minuter. Öppna ett supportärende om domänen inte har verifierats inom en timme.
 
@@ -214,7 +214,7 @@ Följ instruktionerna i formuläret. Du har två verifieringsalternativ:
 
 - Du kan bara godkänna det specifika värdnamn som används i den här begäran. Ytterligare godkännande krävs för efterföljande begäranden.
 
-Efter godkännandet lägger DigiCert till ditt anpassade domännamn i SAN-certifikatet. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör.
+Efter godkännandet slutför DigiCert skapandet av certifikatet för det anpassade domännamnet. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör.
 
 ## <a name="wait-for-propagation"></a>Vänta på spridning
 
@@ -288,11 +288,11 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 
 1. *Vem är certifikatleverantör och vilken typ av certifikat används?*
 
-    I **Azure CDN från Verizon** används ett SAN-certifikat (Alternativt namn för certifikatmottagare) från DigiCert. Ett SAN-certifikat kan skydda flera fullständigt kvalificerade domännamn med ett certifikat. I **Azure CDN Standard från Microsoft** används ett enda certifikat från DigiCert.
+    För både **Azure CDN från Verizon** och **Azure CDN från Microsoft** används ett dedikerat/enskilt certifikat från Digicert för den anpassade domänen’. 
 
-2. Använder du IP-baserad eller SNI-baserad TLS/SSL?
+2. *Använder du IP- eller SNI-baserad TLS/SSL?*
 
-    **Azure CDN från Verizon** använder IP-baserad TLS/SSL. **Azure CDN Standard från Microsoft** använder SNI-baserad TLS/SSL.
+    Både **Azure CDN från Verizon** och **Azure CDN Standard från Microsoft** använder SNI-baserad TLS/SSL.
 
 3. *Vad händer om jag inte får domänverifieringsmeddelandet från DigiCert?*
 
@@ -309,6 +309,10 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 6. *Behöver jag en CAA-post (Certificate Authority Authorization) med DNS-leverantören?*
 
     Nej, en CAA-post krävs inte för närvarande. Men om du har en sådan måste den innehålla DigiCert som en giltig certifikatutfärdare.
+
+7. *Den 20 juni 2018 började Azure CDN från Verizon som standard använda ett dedikerat certifikat med SNI-baserad TLS/SSL. Vad händer med mina befintliga anpassade domäner som använder SAN-certifikat och IP-baserad TLS/SSL?*
+
+    Dina befintliga domäner kommer gradvis att migreras till ett enskilt certifikat under de kommande månaderna om Microsoft i sina analyser ser att det bara görs SNI-klientförfrågningar till ditt program. Om Microsoft ser att det görs andra typer av förfrågningar till ditt program fortsätter domänerna att använda SAN-certifikat med IP-baserad TLS/SSL. Det uppstår dock inga avbrott i tjänsten eller stödet för klientförfrågningar oavsett om förfrågningarna är SNI-baserade eller inte.
 
 
 ## <a name="next-steps"></a>Nästa steg

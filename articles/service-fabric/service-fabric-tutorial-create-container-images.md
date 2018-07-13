@@ -1,5 +1,5 @@
 ---
-title: Skapa behållaravbildningar för Azure Service Fabric | Microsoft Docs
+title: Skapa containeravbildningar för Service Fabric i Azure | Microsoft Docs
 description: I den här självstudiekursen lär du dig hur du skapar behållaravbildningar för ett Service Fabric-program med flera behållare.
 services: service-fabric
 documentationcenter: ''
@@ -16,40 +16,40 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 13cf13ce4a1456731d08f356ca405119ce1a6480
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a2814ff299d1bfb003b6133e2b75b47a312f8728
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29558193"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114048"
 ---
-# <a name="tutorial-create-container-images-for-service-fabric"></a>Självstudiekurs: Skapa behållaravbildningar för Service Fabric
+# <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Självstudie: Skapa containeravbildningar i ett Service Fabric-kluster i Linux
 
-Den här självstudien ingår i en serie som visar hur du använder behållare i ett Linux Service Fabric-kluster. I den här självstudien förbereds ett program med flera behållare för användning med Service Fabric. I efterföljande självstudier används de här avbildningarna som en del i ett Service Fabric-program. I den här självstudiekursen får du lära du dig att: 
+Den här självstudien ingår i en serie som visar hur du använder behållare i ett Linux Service Fabric-kluster. I den här självstudien förbereds ett program med flera behållare för användning med Service Fabric. I efterföljande självstudier används de här avbildningarna som en del i ett Service Fabric-program. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * klona programmets källkod från GitHub  
+> * klona programmets källkod från GitHub
 > * skapa en behållaravbildning från programkällkoden
 > * distribuera en ACR-instans (Azure Container Registry)
 > * tagga en behållaravbildning för ACR
 > * ladda upp avbildningen till ACR.
 
-I den här självstudieserien får du lära du dig att: 
+I den här självstudieserien får du lära du dig att:
 
 > [!div class="checklist"]
 > * skapa behållaravbildningar för Service Fabric
 > * [skapa och köra ett Service Fabric-program med behållare](service-fabric-tutorial-package-containers.md)
 > * [hantera redundans och skalning i Service Fabric](service-fabric-tutorial-containers-failover.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Linux-utvecklingsmiljö konfigurerad för Service Fabric. Följ instruktionerna [här](service-fabric-get-started-linux.md) för att konfigurera din Linux-miljö. 
-- I den här självstudien krävs att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-- Dessutom måste du ha en Azure-prenumeration tillgänglig. Mer information om en kostnadsfri utvärderingsversion finns [här](https://azure.microsoft.com/free/).
+* Linux-utvecklingsmiljö konfigurerad för Service Fabric. Följ instruktionerna [här](service-fabric-get-started-linux.md) för att konfigurera din Linux-miljö.
+* I den här självstudien krävs att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+* Dessutom måste du ha en Azure-prenumeration tillgänglig. Mer information om en kostnadsfri utvärderingsversion finns [här](https://azure.microsoft.com/free/).
 
 ## <a name="get-application-code"></a>Hämta programkod
 
-Exempelprogrammet som används i den här självstudien är en röstningsapp. Programmet består av en webbkomponent på klientsidan och en Redis-instans på serversidan. Komponenterna är paketerade i behållaravbildningar. 
+Exempelprogrammet som används i den här självstudien är en röstningsapp. Programmet består av en webbkomponent på klientsidan och en Redis-instans på serversidan. Komponenterna är paketerade i behållaravbildningar.
 
 Använd git och ladda ned en kopia av programmet till utvecklingsmiljön.
 
@@ -59,11 +59,11 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-Lösningen innehåller två mappar och filen docker-compose.yml. Mappen azure-vote innehåller Python-tjänsten för klientdelen och den dockerfil som används till att skapa avbildningen. Katalogen Voting innehåller Service Fabric-programpaketet som distribueras till klustret. Dessa kataloger innehåller de resurser som behövs i den här självstudien.  
+Lösningen innehåller två mappar och filen docker-compose.yml. Mappen azure-vote innehåller Python-tjänsten för klientdelen och den dockerfil som används till att skapa avbildningen. Katalogen Voting innehåller Service Fabric-programpaketet som distribueras till klustret. Dessa kataloger innehåller de resurser som behövs i den här självstudien.
 
 ## <a name="create-container-images"></a>Skapa behållaravbildningar
 
-Öppna katalogen **azure-vote** och kör följande kommando för att skapa avbildningen för webbkomponenten på klientsidan. I kommandot används dockerfilen i katalogen till att skapa avbildningen. 
+Öppna katalogen **azure-vote** och kör följande kommando för att skapa avbildningen för webbkomponenten på klientsidan. I kommandot används dockerfilen i katalogen till att skapa avbildningen.
 
 ```bash
 docker build -t azure-vote-front .
@@ -86,13 +86,13 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Distribuera Azure Container Registry
 
-Kör först kommandot **az login** för att logga in på ditt Azure-konto. 
+Kör först kommandot **az login** för att logga in på ditt Azure-konto.
 
 ```bash
 az login
 ```
 
-Använd sedan kommandot **az account** till att välja din prenumeration och skapa Azure-behållarregistret. Du måste ange ID:t för din Azure-prenumeration i stället för <subscription_id>. 
+Använd sedan kommandot **az account** till att välja din prenumeration och skapa Azure-behållarregistret. Du måste ange ID:t för din Azure-prenumeration i stället för <subscription_id>.
 
 ```bash
 az account set --subscription <subscription_id>
@@ -106,13 +106,13 @@ Skapa en resursgrupp med kommandot **az group create**. I det här exemplet skap
 az group create --name <myResourceGroup> --location westus
 ```
 
-Skapa ett Azure-behållarregister med kommandot **az acr create**. Ersätt \<acrName> med namnet på behållarregistret du vill skapa i din prenumeration. Det här namnet måste vara alfanumeriskt och unikt. 
+Skapa ett Azure-behållarregister med kommandot **az acr create**. Ersätt \<acrName> med namnet på behållarregistret du vill skapa i din prenumeration. Det här namnet måste vara alfanumeriskt och unikt.
 
 ```bash
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-I resten av den här självstudien använder vi acrName som platshållare för det behållarregisternamn du väljer. Skriv ned det här värdet. 
+I resten av den här självstudien använder vi acrName som platshållare för det behållarregisternamn du väljer. Skriv ned det här värdet.
 
 ## <a name="log-in-to-your-container-registry"></a>Logga in på ditt behållarregister
 
@@ -164,7 +164,6 @@ docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 
 När taggningen är färdig verifierar du åtgärden genom att köra ”docker images”.
 
-
 Resultat:
 
 ```bash
@@ -210,13 +209,13 @@ När självstudien är färdig har behållaravbildningen lagrats i en privat Azu
 I den här självstudien hämtades ett program från Github. Sedan skapades och push-överfördes behållaravbildningar till ett register. Följande steg har slutförts:
 
 > [!div class="checklist"]
-> * klona programmets källkod från GitHub  
+> * klona programmets källkod från GitHub
 > * skapa en behållaravbildning från programkällkoden
 > * distribuera en ACR-instans (Azure Container Registry)
 > * tagga en behållaravbildning för ACR
 > * ladda upp avbildningen till ACR.
 
-Gå vidare till nästa självstudie om du vill veta mer om paketering av behållare till ett Service Fabric-program med hjälp av Yeoman. 
+Gå vidare till nästa självstudie om du vill veta mer om paketering av behållare till ett Service Fabric-program med hjälp av Yeoman.
 
 > [!div class="nextstepaction"]
 > [Paketera och distribuera behållare som ett Service Fabric-program](service-fabric-tutorial-package-containers.md)

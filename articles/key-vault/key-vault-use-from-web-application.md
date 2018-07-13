@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Key Vault från ett webbprogram | Microsoft Docs
-description: Använd den här kursen för att lära dig hur du använder Azure Key Vault från ett webbprogram.
+title: 'Självstudie: Använda Azure Key Vault från en webbapp | Microsoft Docs'
+description: Använd den här självstudien till att lära dig hur du använder Azure Key Vault från en webbapp.
 services: key-vault
 author: adhurwit
 manager: mbaldwin
@@ -8,80 +8,75 @@ tags: azure-resource-manager
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: tutorial
+ms.date: 06/29/2018
 ms.author: adhurwit
-ms.openlocfilehash: 3a191c3ee7eea641aab81008a6da801b609fb4c5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
-ms.translationtype: MT
+ms.openlocfilehash: 5cd764395e91a82973318da7284b28d7a43d35ea
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802110"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115112"
 ---
-# <a name="use-azure-key-vault-from-a-web-application"></a>Använda Azure Key Vault från webbprogram
+# <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Självstudie: Använda Azure Key Vault från en webbapp
+Använd den här självstudien till att lära dig hur du använder Azure Key Vault från en webbapp i Azure. Du får gå igenom processen att bedöma en hemlighet från Azure Key Vault och använda den i en webbapp. Processen utvecklas sedan och du får använda ett certifikat i stället för en klienthemlighet. Den här självstudien är avsedd för webbutvecklare med grundläggande kunskaper om att skapa webbappar i Azure. 
 
-## <a name="introduction"></a>Introduktion
+I den här guiden får du lära dig att: 
 
-Använd den här kursen för att lära dig hur du använder Azure Key Vault från ett webbprogram i Azure. Den vägleder dig genom processen att komma åt en hemlighet från ett Azure Key Vault så att den kan användas i ditt webbprogram.
+> [!div class="checklist"]
+> * Lägga till appinställningar i filen web.config
+> * Lägga till en metod för att få en åtkomsttoken
+> * Hämta token när appen startas
+> * Autentisera med ett certifikat 
 
-**Uppskattad tidsåtgång:** 15 minuter
-
-Översiktlig information om Azure Key Vault finns i [Vad är Azure Key Vault?](key-vault-whatis.md)
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att kunna slutföra den här självstudiekursen behöver du följande:
+När du ska gå igenom den här självstudien behöver du följande:
 
-* En URI för en hemlighet i en Azure Key Vault
-* En klient-ID och en Klienthemlighet för ett webbprogram som har registrerats med Azure Active Directory som har åtkomst till ditt Nyckelvalv
-* Ett webbprogram. Vi ska visa stegen för ett ASP.NET MVC-program som distribueras i Azure som en Webbapp.
+* en URI till en hemlighet i ett Azure Key Vault
+* ett klient-ID och en klienthemlighet för en webbapp som är registrerad i Azure Active Directory och som har åtkomst till ditt nyckelvalv
+* en webbapp. I den här självstudien visas stegen för en ASP.NET MVC-app som är distribuerad i Azure som en webbapp.
 
->[!IMPORTANT]
->* Det här exemplet är beroende av ett äldre sätt att manuellt etablering AAD identiteter. För närvarande finns en ny funktion i förhandsversionen kallas [hanteras Service identitet (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), som automatiskt kan etablera AAD identiteter. Mer information finns i följande exempel på [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) för mer information.
+Utför stegen i [Kom igång med Azure Key Vault](key-vault-get-started.md) där du hämtar URI:n till en hemlighet, ett klient-ID, en klienthemlighet och sedan registrerar appen. Webbappen måste komma åt valvet och måste därför vara registrerad i Azure Active Directory. Den måste dessutom ha åtkomstbehörigheter till nyckelvalvet. I annat fall går du tillbaka till Registrera ett program i självstudien Kom igång och upprepar de här stegen. Mer information om att skapa webbappar i Azure finns i [Översikt över webbappar](../app-service/app-service-web-overview.md).
 
-> [!NOTE]
->* Det är viktigt att du har slutfört stegen i [Kom igång med Azure Key Vault](key-vault-get-started.md) för den här självstudiekursen så att du har en hemlighet och klient-ID och Klienthemlighet URI för ett webbprogram.
+I det här exemplet måste du etablera Azure Active Directory-identiteter manuellt. Nu finns en ny funktion i förhandsversion som kallas [Hanterad tjänstidentitet (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), som gör att du kan etablera Azure AD-identiteter automatiskt. Mer information finns i exemplet på [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) och den relaterade självstudien [MSI med App Service och Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). 
 
 
-Webbprogram som kommer åt Nyckelvalvet är det som är registrerad i Azure Active Directory och har fått tillgång till ditt Nyckelvalv. Om detta inte är fallet kan du gå tillbaka till registrera ett program i komma igång-kursen och upprepa stegen.
+## <a id="packages"></a>Lägga till NuGet-paket
 
-Den här kursen är avsedd för webbutvecklare som förstår grunderna för att skapa webbprogram på Azure. Mer information om Azure Web Apps finns i [Översikt över Web Apps](../app-service/app-service-web-overview.md).
+Du måste installera två paket för webbappen.
 
-## <a id="packages"></a>Lägg till NuGet-paket
+* Active Directory Authentication Library – har metoder för att interagera med Azure Active Directory och hantera användaridentiteter
+* Azure Key Vault Library – har metoder för att interagera med Azure Key Vault
 
-Det finns två paket som ditt webbprogram måste ha installerats.
+Du kan installera båda paketen från Package Manager-konsolen med kommandot Install-Package.
 
-* Active Directory Authentication Library - innehåller metoder för att interagera med Azure Active Directory och hantera användaridentitet
-* Azure Key Vault Library - innehåller metoder för att interagera med Azure Key Vault
-
-Båda dessa paket kan installeras med hjälp av kommandot Install-Package Package Manager-konsolen.
-
-```
-// this is currently the latest stable version of ADAL
-Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+```powershell
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory 
 Install-Package Microsoft.Azure.KeyVault
 ```
 
-## <a id="webconfig"></a>Ändra Web.Config
+## <a id="webconfig"></a>Ändra web.config
 
-Det finns tre inställningar för program som behöver läggas till i filen web.config på följande sätt.
+Du måste lägga till tre appinställningar i filen web.config. Vi kommer att höja säkerheten genom att lägga till de faktiska värdena i Azure Portal.
 
-```
+```xml
     <!-- ClientId and ClientSecret refer to the web application registration with Azure Active Directory -->
     <add key="ClientId" value="clientid" />
     <add key="ClientSecret" value="clientsecret" />
 
     <!-- SecretUri is the URI for the secret in Azure Key Vault -->
     <add key="SecretUri" value="secreturi" />
+    <!-- If you aren't hosting your app as an Azure Web App, then you should use the actual ClientId, Client Secret, and Secret URI values -->
 ```
 
-Om du inte kommer att vara värd för programmet som en Azure Web App, bör du lägga till faktiska värden för ClientId, Klienthemligheten och hemlighet URI till web.config. Annars lämnar du värdena dummy eftersom vi kommer att lägga till de faktiska värdena i Azure portal för en extra nivå av säkerhet.
 
-## <a id="gettoken"></a>Lägg till metoden för att hämta ett åtkomsttoken
 
-För att kunna använda Key Vault API behöver du en åtkomst-token. Key Vault klienten hanterar anrop till Key Vault-API men du måste ange den med en funktion som hämtar den åtkomst-token.  
+## <a id="gettoken"></a>Lägga till en metod för att få en åtkomsttoken
 
-Följande är koden för att hämta en token från Azure Active Directory. Den här koden kan gå var som helst i programmet. Jag vill lägga till en klass med verktyg för webbplatsuppgradering eller EncryptionHelper.  
+Om du vill använda Key Vault-API:t behöver du en åtkomsttoken. Key Vault-klienten hanterar anrop till Key Vault-API:t, men du måste ange en funktion som hämtar den åtkomsttoken som behövs. I följande exempel visas kod för att hämta en åtkomsttoken från Azure Active Directory. Du kan placera koden var som helst i appen. Jag föredrar att lägga till en Utils- eller EncryptionHelper-klass.  
 
 ```cs
 //add these using statements
@@ -105,15 +100,15 @@ public static async Task<string> GetToken(string authority, string resource, str
 
     return result.AccessToken;
 }
+// Using Client ID and Client Secret is a way to authenticate an Azure AD application.
+// Using it in your web application allows for a separation of duties and more control over your key management. 
+// However, it does rely on putting the Client Secret in your configuration settings.
+// For some people, this can be as risky as putting the secret in your configuration settings.
 ```
 
-> [!NOTE]
->* För närvarande är den nya funktionen Managed Service Identity (MSI) det enklaste sättet att autentisera. Mer information finns via följande länk till exemplet med [Key Vault med MSI i ett program i .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) och den relaterade [självstudien för MSI med App Service och Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). 
->* Med hjälp av klient-ID och Klienthemlighet är ett annat sätt att autentisera en Azure AD-program. Och använda den i ditt webbprogram för en uppdelning av uppgifter och mer kontroll över din nyckelhantering. Men den förlitar sig på att placera Klienthemligheten i konfigurationsinställningarna, som kan vara riskabelt som som ger den hemlighet som du vill skydda i inställningarna för några. Se följande information om hur du använder en klient-ID och certifikat i stället för klient-ID och Klienthemlighet för att autentisera Azure AD-program.
+## <a id="appstart"></a>Hämta hemligheten när appen startas
 
-## <a id="appstart"></a>Hämta hemligheten på programmet starta
-
-Nu måste vi kod för att anropa API för Key Vault och hämta hemligheten. Följande kod kan placeras var som helst så länge den anropas innan du behöver använda den. Jag har placerat den här koden i programmet Starta händelsen i Global.asax så att den körs en gång vid start och tillgängliggör hemligheten för programmet.
+Nu behöver vi kod för att anropa Key Vault-API:t och hämta hemligheten. Du kan placera följande kod var som helst så länge den anropas innan du behöver använda hemligheten. Jag har placerat koden i händelsen Application Start i Global.asax så att den körs en gång när appen startas och hemligheten blir tillgänglig i appen.
 
 ```cs
 //add these using statements
@@ -124,43 +119,47 @@ using System.Web.Configuration;
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]);
 
-//I put a variable in a Utils class to hold the secret for general  application use.
+//I put a variable in a Utils class to hold the secret for general application use.
 Utils.EncryptSecret = sec.Value;
 ```
 
-## <a id="portalsettings"></a>Lägg till App-inställningar i Azure-portalen (valfritt)
+## <a id="portalsettings"></a>Lägga till appinställningar i Azure Portal
 
-Om du har en Azure Web App, kan du nu lägga till de faktiska värdena för AppSettings i Azure-portalen. Genom att göra de faktiska värdena är inte i web.config men skyddas via portalen där du har separata åtkomstfunktioner för kontrollen. Dessa värden ersätts med de värden som du angav i filen web.config. Kontrollera att namnen är samma.
+Du kan nu lägga till de faktiska värdena för webbappens inställningar i Azure Portal. När du gör det finns inte de faktiska värdena längre i web.config, utan de skyddas via Portal där du har andra funktioner för åtkomstkontroll. Dessa värden ersätter värdena du angav i filen web.config. Kontrollera att du använder samma namn.
 
-![Programinställningar som visas i Azure-portalen][1]
+![Appinställningar som visas i Azure Portal][1]
 
-## <a name="authenticate-with-a-certificate-instead-of-a-client-secret"></a>Autentisera med ett certifikat i stället för en Klienthemlighet
+## <a name="authenticate-with-a-certificate-instead-of-a-client-secret"></a>Autentisera med ett certifikat i stället för en klienthemlighet
 
-Ett annat sätt att autentisera en Azure AD-program är att använda ett klient-ID och ett certifikat i stället för en klient-ID och Klienthemlighet. Nedan följer stegen för att använda ett certifikat i en Azure Web App:
+Nu när du förstår hur du autentiserar en Azure AD-app med ett klient-ID och en klienthemlighet ska vi istället använda ett klient-ID och ett certifikat. Så här använder du ett certifikat i en Azure-webbapp:
 
 1. Hämta eller skapa ett certifikat
-2. Associera certifikatet med ett Azure AD-program
-3. Lägg till kod i ditt webbprogram till att använda certifikat
-4. Lägga till ett certifikat till ditt webbprogram
+2. Associera certifikatet med en Azure AD-app
+3. Lägg till kod för användning av certifikatet i webbappen
+4. Lägg till ett certifikat i din webbapp
 
 ### <a name="get-or-create-a-certificate"></a>Hämta eller skapa ett certifikat
 
-För våra ändamål gör vi ett testcertifikat. Här är några av kommandon som du kan använda i en utvecklare kommandotolk för att skapa ett certifikat. Ändra katalogen till önskad cert-filer som har skapats.  Kan också använda aktuellt datum plus 1 år för start- och slutdatum för certifikatet.
+ Vi kommer att skapa ett testcertifikat i den här självstudien. Här är ett skript för att skapa ett självsignerat certifikat. Gå till katalogen där du vill skapa certifikatfilerna.  Du kan använda dagens datum och datumet om ett år som start- och slutdatum för certifikatet.
 
+```powershell
+#Create self-signed certificate and export pfx and cer files 
+$PfxFilePath = "c:\data\KVWebApp.pfx" 
+$CerFilePath = "c:\data\KVWebApp.cer" 
+$DNSName = "MyComputer.Contoso.com" 
+$Password ="MyPassword" 
+$SecStringPw = ConvertTo-SecureString -String $Password -Force -AsPlainText 
+$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\LocalMachine\My" -NotBefore 05/15/2018 -NotAfter 05/15/2019 
+Export-PfxCertificate -cert $cert -FilePath $PFXFilePath -Password $SecStringPw 
+Export-Certificate -cert $cert -FilePath $CerFilePath 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
-pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
-```
 
-Anteckna slutdatumet och lösenordet för PFX (i det här exemplet: 07/31/2018 och test123). Du behöver dem nedan.
+Anteckna slutdatumet och lösenordet för .pfx-filen (i det här exemplet är det den 15 maj 2019 och MyPassword). Du behöver dem i skriptet nedan. 
+### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Associera certifikatet med en Azure AD-app
 
-Mer information om hur du skapar ett testcertifikat finns [så här: skapa dina egna testa certifikat](https://msdn.microsoft.com/library/ff699202.aspx)
+Nu när du har ett certifikat kan du behöva associera det med en Azure AD-app. Du kan skapa den här associationen via PowerShell. Kör följande kommandon för att associera certifikatet med Azure AD-appen:
 
-### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Associera certifikatet med ett Azure AD-program
-
-Nu när du har ett certifikat måste du koppla den med Azure AD-program. Azure portal stöder för närvarande kan inte arbetsflöden. Detta kan utföras via PowerShell. Kör följande kommandon för att associera certifikatet med Azure AD-program:
-
-```ps
+```powershell
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
 $x509.Import("C:\data\KVWebApp.cer")
 $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
@@ -178,17 +177,18 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "ht
 $x509.Thumbprint
 ```
 
-När du har kört dessa kommandon, kan du se program i Azure AD. När du söker kan du kontrollera att du väljer ”mitt företag äger” i stället för ”program företaget använder” i dialogrutan Sök.
+När du har kört kommandona kan du se appen i Azure AD. När du söker bland de registrerade apparna ska du välja **Mina appar** i stället för ”Alla appar” i sökrutan. 
 
-Läs mer om Azure AD-program och ServicePrincipal objekt i [program och tjänstens huvudnamn objekt](../active-directory/active-directory-application-objects.md).
+### <a name="add-code-to-your-web-app-to-use-the-certificate"></a>Lägg till kod för användning av certifikatet i webbappen
 
-### <a name="add-code-to-your-web-app-to-use-the-certificate"></a>Lägg till kod i ditt webbprogram till att använda certifikat
+Nu ska vi lägga till kod i webbappen så att den kan komma åt certifikatet och använda det för autentisering. 
 
-Nu ska vi lägga till kod till ditt webbprogram för att komma åt cert och användas för autentisering.
-
-Först är koden för att få åtkomst till certifikatet.
+Först har vi kod för åtkomst till certifikatet. Lägg märke till att StoreLocation är CurrentUser i stället för LocalMachine. Dessutom anger vi ”false” för metoden Find eftersom vi använder ett testcertifikat.
 
 ```cs
+//Add this using statement
+using System.Security.Cryptography.X509Certificates;  
+
 public static class CertificateHelper
 {
     public static X509Certificate2 FindCertificateByThumbprint(string findValue)
@@ -211,9 +211,9 @@ public static class CertificateHelper
 }
 ```
 
-Observera att StoreLocation CurrentUser i stället för LocalMachine. Och som vi tillhandahåller false till metoden hitta eftersom vi använder ett test-certifikat.
 
-Nästa är kod som använder CertificateHelper och skapar en ClientAssertionCertificate som krävs för autentisering.
+
+Sedan kommer kod där CertificateHelper används till att skapa ett ClientAssertionCertificate som krävs för autentisering.
 
 ```cs
 public static ClientAssertionCertificate AssertionCert { get; set; }
@@ -225,7 +225,7 @@ public static void GetCert()
 }
 ```
 
-Här är en ny kod att hämta åtkomsttoken. Det här ersätter metoden GetToken i föregående exempel. Jag har gett den ett annat namn i informationssyfte.
+Här är den nya koden för att hämta åtkomsttoken. Den här koden ersätter GetToken-metoden i föregående exempel. Jag ger den ett annat namn för att underlätta. För enkelhetens skull har jag placerat all den här koden i klassen Utils i projektet för webbappen.
 
 ```cs
 public static async Task<string> GetAccessToken(string authority, string resource, string scope)
@@ -236,33 +236,34 @@ public static async Task<string> GetAccessToken(string authority, string resourc
 }
 ```
 
-Jag har placera alla den här koden i mitt Web App-projekt verktyg för webbplatsuppgradering klass för enkel användning.
 
-Den senaste ändringen av koden är i metoden Application_Start. Vi måste först anropa metoden GetCert() för att läsa in ClientAssertionCertificate. Och vi ändra Återanropsmetoden som vi tillhandahåller när du skapar en ny KeyVaultClient. Observera att detta ersätter den kod som vi hade i föregående exempel.
+
+De senaste kodändringarna ligger i metoden Application_Start. Först måste vi anropa metoden GetCert() och läsa in vårt ClientAssertionCertificate. Sedan ändrar vi motanropsmetoden som vi anger när vi skapar en ny KeyVaultClient. Den här koden ersätter koden i föregående exempel.
 
 ```cs
 Utils.GetCert();
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
 ```
 
-### <a name="add-a-certificate-to-your-web-app-through-the-azure-portal"></a>Lägga till ett certifikat till ditt webbprogram via Azure portal
+### <a name="add-a-certificate-to-your-web-app-through-the-azure-portal"></a>Lägga till ett certifikat i en webbapp via Azure Portal
 
-Lägga till ett certifikat till ditt webbprogram är en enkel process. Gå till Azure portal först och navigera till ditt webbprogram. På inställningsbladet för ditt webbprogram, klickar du på posten för ”anpassade domäner och SSL”. I bladet som öppnas som du kommer att kunna ladda upp certifikatet som du skapade i föregående exempel KVWebApp.pfx, se till att du kommer ihåg lösenordet för pfx.
+Att lägga till ett certifikat i din webbapp är en enkel process i två steg. Öppna först Azure Portal och navigera till webbappen. På sidan Inställningar för webbappen klickar du på posten **SSL-inställningar**. När den öppnas laddar du upp certifikatet du skapade i föregående exempel, KVWebApp.pfx. Se till att du kommer ihåg lösenordet för pfx-filen.
 
-![Lägga till ett certifikat till en Webbapp i Azure-portalen][2]
+![Lägga till ett certifikat i en Webbapp i Azure Portal][2]
 
-Det sista som du behöver göra är att lägga till en programinställning ditt webbprogram som har namnet webbplatsen\_BELASTNINGEN\_certifikat och värdet *. Se till att alla certifikat har lästs in. Om du vill läsa in de certifikat som du har överfört kan du ange en kommaavgränsad lista över sina tumavtryck.
+Det sista du behöver göra är att lägga till en appinställning för webbappen med namnet WEBSITE\_LOAD\_CERTIFICATES och värdet *. Det här steget gör att samtliga certifikat läses in. Om du bara vill läsa in de certifikat du har laddat upp kan du ange en kommaavgränsad lista med tumavtrycken.
 
-Läs mer om att lägga till ett certifikat till en Webbapp i [med hjälp av certifikat i Azure webbplatser program](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
 
-### <a name="add-a-certificate-to-key-vault-as-a-secret"></a>Lägg till ett certifikat på Key Vault som en hemlighet
+## <a name="clean-up-resources"></a>Rensa resurser
+När du inte längre behöver de här resurserna tar du bort apptjänsten, nyckelvalvet och Azure AD-appen som du använde i självstudien.  
 
-I stället för att ladda upp certifikatet till tjänsten Web App direkt, kan du lagra den på Key Vault som en hemlighet och distribuera den därifrån. Detta är en tvåstegsprocess som beskrivs i följande blogginlägg [distribuera Azure-certifikat för webbprogram via Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)
 
 ## <a id="next"></a>Nästa steg
+> [!div class="nextstepaction"]
+>[API-referens för Azure Key Vault Management](/dotnet/api/overview/azure/keyvault/management).
 
-Programmering referenser finns [Azure Key Vault C# klienten API-referens för](https://msdn.microsoft.com/en-us/library/azure/mt430941.aspx).
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
+ 

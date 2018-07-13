@@ -6,18 +6,19 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: c6ac8f22f128b350844af10f309fd3b93512d54d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582309"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Självstudier: Distribuera webbapp från Azure Container Registry
 
-Det här är del två i en serie självstudier i tre delar. I [del ett](container-registry-tutorial-prepare-registry.md) skapade vi ett privat geo-replikerat behållarregister, och en behållaravbildning skapades från källan och pushades till registret. I den här artikeln distribuerar du behållaren till två Web App-instanser i två olika Azure-regioner så att du kan dra nytta av den nätverksnära aspekten av det geo-replikerade registret.
+Det här är del två i en serie självstudier i tre delar. I [del ett](container-registry-tutorial-prepare-registry.md) skapade vi ett privat geo-replikerat behållarregister, och en behållaravbildning skapades från källan och pushades till registret. I den här artikeln drar du nytta av den nätverksnära aspekten av det geo-replikerade registret genom att distribuera behållaren till två Web App-instanser i två olika Azure-regioner. Varje instans hämtar sedan behållaravbildningen från det närmaste registret.
 
 Den här självstudien är del två i serien:
 
@@ -27,11 +28,11 @@ Den här självstudien är del två i serien:
 
 Om du inte har skapat något geo-replikerat register och pushat avbildningen av behållarexempelprogrammet till registret, så gå tillbaka till föregående självstudiekurs i serien: [Förbered ett geo-replikerat Azure-behållarregister](container-registry-tutorial-prepare-registry.md).
 
-I nästa del av serien får du uppdatera programmet och sedan pusha en ny behållaravbildning till registret. Sedan kan du bläddra till varje Web App-instans som körs och se hur ändringen automatiskt återspeglas i dem genom att visa geo-replikering av Azure Container Registry och aktiva webhookar.
+I nästa artikel i serien uppdaterar du programmet och push-överför sedan den uppdaterade behållaravbildning till registret. Sedan kan du bläddra till varje Web App-instans som körs och se hur ändringen automatiskt återspeglas i dem genom att visa geo-replikering av Azure Container Registry och aktiva webhookar.
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Automatisk distribution till Web Apps för behållare
 
-Azure Container Registry ger stöd för distribution av program i behållare direkt till [Web Apps för behållare](../app-service/containers/index.yml). I den här självstudiekursen använder du Azure Portal för att distribuera den behållaravbildning som du skapade i föregående kursen till två webbappsplaner i olika Azure-regioner.
+Azure Container Registry ger stöd för distribution av program i behållare direkt till [Web Apps för behållare](../app-service/containers/index.yml). I den här självstudiekursen använder du Azure Portal för att distribuera den behållaravbildning som du skapade i den föregående kursen till två webbappsplaner i olika Azure-regioner.
 
 När du distribuerar en webbapp från en behållaravbildning i registret, och har ett geo-replikerat register i samma region, så skapar Azure Container Registry en [webhook](container-registry-webhook.md) för avbildningsdistribution för dig. När du push-överför en ny avbildning till behållarlagringsplatsen så hämtar webhooken ändringen och distribuerar automatiskt den nya behållaravbildningen till din webbapp.
 
@@ -103,11 +104,7 @@ När Docker-avbildningen har distribuerats från din geo-replikerade behållare,
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen har du distribuerat två instanser av Web App for Containers från ett geo-replikerat Azure-behållarregister. Genom att följa stegen i självstudien har du:
-
-> [!div class="checklist"]
-> * Distribuerat en behållaravbildning av till två instanser av *Web Apps för behållare*
-> * Verifierat det distribuerade programmet
+I den här självstudiekursen har du distribuerat två instanser av Web App for Containers från ett geo-replikerat Azure-behållarregister.
 
 Gå vidare till nästa självstudie där du lär dig att uppdatera och sedan distribuera en ny behållaravbildning till behållarregistret, och sedan kontrollera att de webbappar som körs i båda regionerna uppdaterades automatiskt.
 

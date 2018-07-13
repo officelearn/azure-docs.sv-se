@@ -17,22 +17,21 @@ ms.topic: hero-article
 ms.date: 07/07/2017
 ms.author: crdun
 ms.openlocfilehash: 223e9e35fcab347f9b5b8db01a9fd667b9f5d55d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27595184"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488654"
 ---
 # <a name="create-an-apache-cordova-app"></a>Skapa en Apache Cordova-app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Översikt
-
 I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en Apache Cordova-mobilapp med hjälp av en mobilappserverdel i Azure.  Du skapar både en ny serverdel för mobilappen och en enkel Apache Cordova-app med en *att göra-lista* som lagrar appdata i Azure.
 
 Du måste slutföra den här kursen innan du påbörjar någon annan Apache Cordova-kurs om att använda funktionen Mobile Apps i Azure Apptjänst.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 * En PC-dator med [Visual Studio Community 2017] eller senare.

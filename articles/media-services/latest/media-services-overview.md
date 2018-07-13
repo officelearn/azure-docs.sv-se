@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 06/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 489801852202163ef40d57da0082e39793196d85
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 5205a6746f6a698768a60375e2e77db9cb535a71
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264102"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971915"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Vad är Azure Media Services v3?
 
@@ -45,7 +45,7 @@ Media Services hjälper dig att skapa en mängd olika mediearbetsflöden i molne
 * Skapa en prenumerationsvideotjänst och strömma DRM-skyddat innehåll när en kund (till exempel en filmstudio) behöver begränsa åtkomst och användning av upphovsrättsskyddat arbete.
 * Leverera offline-innehåll för uppspelning på flygplan tåg och bilar. En kund kan behöva ladda ner innehåll till sin telefon eller surfplatta för uppspelning när de vet att de kan kopplas ned från nätverket.
 * Lägg till textning och beskrivningar till videor för att tillgodose en bredare publik (till exempel personer med handikapp) eller användare som vill kunna läsa med i ett annat språk. 
-* Implementera en videoplattform för e-utbildning med Azure Media Services och [Azure Cognitive Services-API:er](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai) för tal-till-text, översättning till flera språk, o.s.v.
+* Implementera en videoplattform för e-utbildning med Azure Media Services och [Azure Cognitive Services-API:er](https://docs.microsoft.com/azure/#pivot=products&panel=ai) för tal-till-text, översättning till flera språk, o.s.v.
 * Aktivera Azure CDN för att uppnå hög skalning för att bättre hantera omedelbar hög belastning (till exempel start av en produktlansering.) 
 
 ## <a name="v3-capabilities"></a>v3-funktioner

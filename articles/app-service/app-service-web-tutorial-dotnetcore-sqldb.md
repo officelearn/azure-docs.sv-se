@@ -15,11 +15,11 @@ ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: 90cd9b4b29c0860355d318201df49262afd82de5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154440"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38472669"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Självstudie: Skapa en .NET Core- och SQL Database-webbapp i Azure App Service
 

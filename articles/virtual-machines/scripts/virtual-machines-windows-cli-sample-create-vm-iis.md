@@ -3,7 +3,7 @@ title: Skriptexempel för Azure CLI – Installera IIS | Microsoft Docs
 description: Skriptexempel för Azure CLI – Installera IIS
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/28/2017
-ms.author: iainfou
-ms.openlocfilehash: 341006a352898c7dfab36804ab91b0efd304c656
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: cynthn
+ms.openlocfilehash: b6685aebc23cd50729fd39304b6330ff947a5ba8
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097224"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932831"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Snabbskapa en virtuell dator med Azure CLI
 

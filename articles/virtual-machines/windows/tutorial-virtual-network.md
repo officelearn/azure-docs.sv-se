@@ -3,7 +3,7 @@ title: Självstudie – skapa och hantera virtuella Azure-nätverk för virtuell
 description: I den här självstudien får du lära dig hur du använder Azure PowerShell för att skapa och hantera virtuella Azure-nätverk för virtuella Windows-datorer
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,18 +14,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a13163949a52503f42642c109a4fd4c1dedd837f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8bf8388829504b18e71ec597d21b844e29a82346
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944094"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931143"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Självstudie: Skapa och hantera virtuella Azure-nätverk för virtuella Windows-datorer med Azure PowerShell
 
-Azures virtuella datorer använder Azure-nätverk för intern och extern nätverkskommunikation. Den här självstudien visar hur du distribuerar två virtuella datorer och konfigurerar Azure-nätverk för dem. Exemplen i den här självstudien förutsätter att de virtuella datorerna är värd för ett webbprogram med databasens serverdel, men något program behöver inte ha distribuerats i självstudien. I den här guiden får du lära dig att:
+Azures virtuella datorer använder Azure-nätverk för intern och extern nätverkskommunikation. Den här självstudien visar hur du distribuerar två virtuella datorer och konfigurerar Azure-nätverk för dem. Exemplen i den här självstudien förutsätter att de virtuella datorerna är värd för ett webbprogram med databasens serverdel, men något program behöver inte ha distribuerats i självstudien. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt nätverk och ett undernät

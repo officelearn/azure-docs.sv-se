@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9ae476e21e4935ea555e671c3c7144748d60abb6
-ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
+ms.openlocfilehash: 927c8f6d0fefbc592999487217c41aeecc96b0d9
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35662793"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950989"
 ---
 # <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Skapa en Ruby- och Postgres-webbapp i Azure App Service i Linux
 
@@ -42,7 +42,7 @@ I den här guiden får du lära dig hur man:
 För att slutföra den här självstudien behöver du:
 
 * [Installera Git](https://git-scm.com/)
-* [Installera Ruby 2.3](https://www.ruby-lang.org/documentation/installation/)
+* [Installera Ruby 2.3](https://www.ruby-lang.org/en/documentation/installation/)
 * [Installera Ruby on Rails 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html)
 * [Installera och kör PostgreSQL](https://www.postgresql.org/download/)
 

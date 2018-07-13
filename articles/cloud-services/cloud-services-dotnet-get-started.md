@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 7860af5dea41ce00739b592c5409fe5a1a05383b
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 66ece0affbafc219add2ef5c4da34f29ab34e058
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342301"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860028"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
@@ -178,7 +178,7 @@ I ett riktigt program skapar du vanligtvis separata konton för programdata jäm
 
     När molntjänsten och lagringskontot är i olika datacenter (olika regioner), ökar svarstiden och du debiteras för bandbredden utanför datacentret. Bandbredd inom ett datacenter är kostnadsfri.
 
-    Azure-tillhörighetsgrupper tillhandahåller en funktion som minskar avståndet mellan resurser i datacentret, vilket kan förkorta svarstiden. Under den här kursen används inte tillhörighetsgrupper. Mer information finns i [Skapa en tillhörighetsgrupp i Azure](http://msdn.microsoft.com/library/jj156209.aspx).
+    Azure-tillhörighetsgrupper tillhandahåller en funktion som minskar avståndet mellan resurser i datacentret, vilket kan förkorta svarstiden. Under den här kursen används inte tillhörighetsgrupper. Mer information finns i [Skapa en tillhörighetsgrupp i Azure](https://msdn.microsoft.com/library/azure/gg715317.aspx).
 7. Klicka på **Skapa**.
 
     ![Nytt lagringskonto](./media/cloud-services-dotnet-get-started/newstorage.png)

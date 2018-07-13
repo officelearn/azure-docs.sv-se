@@ -16,11 +16,11 @@ ms.date: 04/22/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: ec095572dc8fe20c913d543ffcf926355b5715df
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766452"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38600136"
 ---
 # <a name="create-a-web-app-that-uses-signalr-service-and-github-authentication"></a>Skapa en webbapp som använder SignalR Service- och GitHub-autentisering
 
@@ -54,7 +54,7 @@ Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det hä
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az signalr create](/cli/azure/signalr#az-signalr-create) | Skapar en Azure SignalR-tjänstresurs. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | Lista nycklarna som kommer att användas av programmet när det skickar uppdateringar av innehåll i realtid med SignalR. |
+| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | Listar nycklarna som kommer att användas av programmet när det skickar uppdateringar av innehåll i realtid med SignalR. |
 | [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | Skapar en Azure App Service-Plan som värd för webbprogram. |
 | [az webapp create](/cli/azure/webapp#az-webapp-create) | Skapar en Azure-webbapp med hjälp av App Service som värd för planen. |
 | [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Lägger till nya appinställningar för webbappen. De här appinställningarna används för att lagra SignalR-anslutningssträngen och GitHub OAuth-apphemligheterna. |

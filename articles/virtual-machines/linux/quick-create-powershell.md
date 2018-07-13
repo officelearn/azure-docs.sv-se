@@ -3,7 +3,7 @@ title: Snabbstart – Skapa en virtuell Linux-dator med Azure PowerShell | Micro
 description: I den här snabbstarten lär du dig hur du använder Azure PowerShell för att skapa en virtuell Linux-dator
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/24/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e910ced35738fcba27a8a1d7f2f010b2cd42e55d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 45b1597d3b61a9386fc015b5a7272d948fa5772b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188998"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930954"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Snabbstart: Skapa en virtuell Linux-dator i Azure med PowerShell
 

@@ -13,11 +13,11 @@ ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
 ms.openlocfilehash: 49ec67d06446d6c48e45aef90e2bd528a1b541a9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33203518"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473022"
 ---
 # <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>Självstudie: Skapa en Python- och PostgreSQL-webbapp i Azure
 
@@ -29,7 +29,7 @@ Med [Azure App Service](app-service-web-overview.md) får du en automatiskt uppd
 
 ![Python Flask-app i App Service i Linux](./media/app-service-web-tutorial-python-postgresql/docker-flask-in-azure.png)
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en PostgreSQL-databas i Azure

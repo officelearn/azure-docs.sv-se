@@ -3,7 +3,7 @@ title: Självstudier – Belastningsutjämna virtuella Windows-datorer i Azure |
 description: I den här självstudiekursen lär du dig hur du använder Azure PowerShell för att skapa en belastningsutjämnare för ett säkert program med hög tillgänglighet på tre virtuella Windows-datorer
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35de71f3cc7d865cf2235a21bebf1cfcd7f1850d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d4dd900888e229c86685549c84b724044249429
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191629"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932576"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Självstudier: Belastningsutjämna virtuella Windows-datorer i Azure för att skapa ett program med hög tillgänglighet med Azure PowerShell
 Med belastningsutjämning får du högre tillgänglighet genom att inkommande begäranden sprids över flera virtuella datorer. I den här kursen får du lära dig mer om de olika komponenterna i Azure Load Balancer som distribuerar trafik och ger hög tillgänglighet. Lär dig att:

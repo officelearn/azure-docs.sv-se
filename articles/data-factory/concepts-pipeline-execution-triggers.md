@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: ceff54b15ef70c9654142566bb1d54b6a7990833
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0af6ea05b663f0954785ce966440e3f698ad14a8
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048646"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867094"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pipeline-körning och utlösare i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -105,8 +105,8 @@ Du skickar parametrar i texten i nyttolasten för begäran. I .NET SDK, Azure Po
 
 ```json
 {
-  “sourceBlobContainer”: “MySourceFolder”,
-  “sinkBlobCountainer”: “MySinkFolder”
+  "sourceBlobContainer": "MySourceFolder",
+  "sinkBlobCountainer": "MySinkFolder"
 }
 ```
 
@@ -137,7 +137,7 @@ Du kan även köra en pipelinekörning med utlösare. Utlösare representerar en
 
 - Schemautlösare: en utlösare som anropar en pipeline enligt ett tidsschema.
 
-- Utlösare för rullande fönster: en utlösare som körs med ett regelbundet intervall och samtidigt bibehåller ett tillstånd. Azure Data Factory har för närvarande inte stöd för händelsebaserade utlösare. Exempelvis stöds inte en utlösare för en pipeline som körs när en fil ankommer.
+- Utlösare för rullande fönster: en utlösare som körs med ett regelbundet intervall och samtidigt bibehåller ett tillstånd.
 
 - Händelsebaserad utlösare: en utlösare som svarar på en händelse.
 

@@ -3,7 +3,7 @@ title: Självstudier – Belastningsutjämna virtuella Linux-datorer i Azure | M
 description: I den här självstudiekursen lär du dig hur du använder Azure CLI 2.0 för att skapa en belastningsutjämnare för ett säkert program med hög tillgänglighet på tre virtuella Linux-datorer
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/13/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: baae0ee72056d2f7437a865b11f738ef0a2e6934
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c6ca58fb901be416a2640091862724dbc1611390
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193129"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931957"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli-20"></a>Självstudier: Belastningsutjämna virtuella Linux-datorer i Azure för att skapa ett program med hög tillgänglighet med Azure CLI 2.0
 

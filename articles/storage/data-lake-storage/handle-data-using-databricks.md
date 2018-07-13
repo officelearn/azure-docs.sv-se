@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: d9720377beb1973b8ae4e9423fc991aa82646924
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 10aad06d4ac8d76dc023648e8d6c0366bff859e6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061604"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344719"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Självstudier: Extrahera, transformera och läsa in data med Azure Databricks
 
@@ -39,7 +39,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 
@@ -47,7 +47,7 @@ För att slutföra den här självstudien behöver du:
 * Skapa en databashuvudnyckel för Azure SQL Data Warehouse. Följ anvisningarna i [Skapa en databashuvudnyckel](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 * [Skapa ett Azure Data Lake Storage Gen2-konto](quickstart-create-account.md)
 
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -55,7 +55,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen. 
 
-1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal.
+1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure-portalen.
 
     ![Databricks på Azure-portalen](./media/handle-data-using-databricks/azure-databricks-on-portal.png "Databricks på Azure-portalen")
 
@@ -69,8 +69,8 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     |---------|---------|
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan.        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
-    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en behållare som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../../azure-resource-manager/resource-group-overview.md). |
-    |**Plats**     | Välj **Västra USA 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
+    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../../azure-resource-manager/resource-group-overview.md). |
+    |**Plats**     | Välj **USA, västra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
     |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Välj **Fäst på instrumentpanelen** och välj sedan **Skapa**.
@@ -103,7 +103,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
 I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan och kör sedan kodfragment för att konfigurera lagringskontot.
 
-1. Gå till arbetsytan Azure Databricks som du skapat i [Azure portal](https://portal.azure.com). Välj sedan **Starta arbetsyta**.
+1. Gå till arbetsytan Azure Databricks som du skapat i [Azure-portalen](https://portal.azure.com). Välj sedan **Starta arbetsyta**.
 
 2. Välj **Arbetsyta** i det vänstra fönstret. I listrutan **Arbetsyta** väljer du **Skapa** > **Anteckningsbok**.
 
@@ -117,7 +117,7 @@ I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan
 
 4. Ange följande kod i den första cellen och kör koden:
 
-    ```python
+    ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
     dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
@@ -132,11 +132,14 @@ I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan
 
 Nästa steg är att ladda upp en exempeldatafil till lagringskontot som senare transformeras i Azure Databricks. 
 
-1. Om du inte redan har ett konto som har skapats för Data Lake Storage Gen2 följer du snabbstarten för att skapa ett Data Lake Storage Gen2-konto.
-2. Exempeldata (**small_radio_json.json**) är tillgängliga på lagringsplatsen för [U-SQL-exempel och ärendeuppföljning](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). Ladda ned JSON-filen och anteckna sökvägen där du sparar filen.
-3. Ladda upp data till ditt lagringskonto. Metoden du använder för att ladda upp data till ditt lagringskonto skiljer sig åt beroende på om du har den hierarkiska namnområdestjänsten (HNS) aktiverad.
+> [!NOTE]
+> Om du inte redan har ett Azure Data Lake Storage-konto med Gen2-funktioner följer du [snabbstarten och skapar ett](./quickstart-create-account.md).
 
-    Om den hierarkiska namnområdestjänsten är aktiverad på ditt ADLS Gen2-konto kan du använda Azure Data Factory, distp eller AzCopy (version 10) för att hantera uppladdningen. AzCopy version 10 är endast tillgänglig för förhandsversionskunder. Använda AzCopy från Cloud Shell:
+1. Ladda ned (**small_radio_json.json**) från lagringsplatsen [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) och notera sökvägen där du sparar filen.
+
+2. Sedan laddar du upp exempeldata på ditt lagringskonto. Metoden du använder för att ladda upp data till ditt lagringskonto skiljer sig åt beroende på om du har den hierarkiska namnrymden aktiverad.
+
+    Om den hierarkiska namnrymden är aktiverad på ditt Azure Storage-konto som skapats för Gen2-kontot kan du använda Azure Data Factory, distp eller AzCopy (version 10) för att hantera uppladdningen. AzCopy version 10 är endast tillgänglig för kunder med förhandsversionen. Använd AzCopy genom att klistra in följande kod i ett kommandofönster:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -150,7 +153,7 @@ Gå tillbaka till DataBricks-anteckningsboken och ange följande kod i en ny cel
 
 1. Lägg till följande kodfragment i en tom kodcell och ersätt platshållarvärdena med de värden som du sparade från lagringskontot tidigare.
 
-    ```python
+    ```scala
     dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
     dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
     ```
@@ -159,13 +162,13 @@ Gå tillbaka till DataBricks-anteckningsboken och ange följande kod i en ny cel
 
 2. Du kan nu läsa in json-exempelfilen som en dataram i Azure Databricks. Klistra in följande kod i en ny cell och tryck sedan på **SKIFT + RETUR** (kom ihåg att ersätta platshållarvärdena):
 
-    ```python
+    ```scala
     val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
     ```
 
 3. Kör följande kod om du vill se dataramens innehåll.
 
-    ```python
+    ```scala
     df.show()
     ```
 
@@ -190,7 +193,7 @@ Exempelrådata **small_radio_json.json** fångar målgruppen för en radiostatio
 
 1. Börja med att endast hämta kolumnerna *förnamn*, *efternamn*, *kön*, *plats* och *nivå* från den dataram som du redan har skapat.
 
-    ```python
+    ```scala
     val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
     ```
 
@@ -225,7 +228,7 @@ Exempelrådata **small_radio_json.json** fångar målgruppen för en radiostatio
 
 2.  Du kan transformera dessa data ytterligare genom att t.ex. ändra namnet på kolumnen **nivå** till **prenumerationstyp**.
 
-    ```python
+    ```scala
     val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
     renamedColumnsDF.show()
     ```
@@ -267,28 +270,28 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
 
 1. Ange konfigurationen så att du får åtkomst till Azure Storage-kontot från Azure Databricks.
 
-    ```python
+    ```scala
     val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
-    val fileSystemName = "<FILE_SYSTEM_NJAME>"
+    val fileSystemName = "<FILE_SYSTEM_NAME>"
     val accessKey =  "<ACCESS_KEY>"
     ```
 
 2. Ange en tillfällig mapp som ska användas när du flyttar data mellan Azure Databricks och Azure SQL Data Warehouse.
 
-    ```python
+    ```scala
     val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
     ```
 
 3. Kör följande fragment om du vill lagra åtkomstnycklar för Azure Blob Storage i konfigurationen. Detta säkerställer att du inte behöver behålla åtkomstnyckeln i anteckningsboken i oformaterad text.
 
-    ```python
+    ```scala
     val acntInfo = "fs.azure.account.key."+ storageURI
     sc.hadoopConfiguration.set(acntInfo, accessKey)
     ```
 
 4. Ange värdena för att ansluta till Azure SQL Data Warehouse-instansen. Du måste ha skapat ett SQL Data Warehouse som en del av förutsättningarna.
 
-    ```python
+    ```scala
     //SQL Data Warehouse related settings
     val dwDatabase = "<DATABASE NAME>"
     val dwServer = "<DATABASE SERVER NAME>" 
@@ -302,7 +305,7 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
 
 5. Kör följande fragment om du vill läsa in den transformerande dataramen **renamedColumnsDF** som en tabell i SQL Data Warehouse. Det här kodfragmentet skapar en tabell med namnet **SampleTable** i SQL-databasen.
 
-    ```python
+    ```scala
     spark.conf.set(
         "spark.sql.parquet.writeLegacyFormat",
         "true")

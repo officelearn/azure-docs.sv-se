@@ -3,7 +3,7 @@ title: Självstudie – Skydda en Linux-webbserver med SSL-certifikat i Azure | 
 description: I den här självstudien får du lära dig hur du använder Azure CLI 2.0 till att skydda en virtuell Linux-dator som kör webbservern NGINX med SSL-certifikat som lagras i Azure Key Vault.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/30/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f86cc891b67cddf3a4046260d2977371af3d0596
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: f1d8576791a569007efd7d3fa446ab32a130919d
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32313366"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927989"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Självstudie: Skydda en webbserver på en virtuell Linux-dator i Azure med SSL-certifikat som lagras i Key Vault
 När du ska skydda dina webbservrar kan du använda ett SSL-certifikat (Secure Sockets Layer) för att kryptera webbtrafik. SSL-certifikat går att lagra i Azure Key Vault och tillåter säker distribuering av certifikat till virtuella Linux-datorer i Azure. I den här självstudiekursen får du lära du dig att:
@@ -34,7 +34,7 @@ När du ska skydda dina webbservrar kan du använda ett SSL-certifikat (Secure S
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI:t lokalt för den här självstudien måste du köra Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 
 ## <a name="overview"></a>Översikt

@@ -3,7 +3,7 @@ title: Självstudier – Skapa en pipeline för utveckling i Azure med Jenkins |
 description: Självstudier – I den här självstudiekursen lär du dig hur du skapar en virtuell Jenkins-dator i Azure som hämtar data från GitHub vid varje kodincheckning och skapar en ny Docker-behållare för att köra din app.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f50555775d369da7cf9321d5493bf4e1d84a7bf2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b19d02e7d2bcbd696a7256c06b067f976fd36161
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211199"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931736"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Självstudier: Skapa en infrastruktur för utveckling på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker
 
@@ -148,8 +148,8 @@ Om du vill att Jenkins ska svara på en händelse i GitHub, som att checka in ko
 På Jenkins-webbplatsens startsida väljer du **Skapa nya jobb**:
 
 - Ange *HelloWorld* som jobbnamn. Välj **Freestyle project** (Freestyle-projekt) och välj **OK**.
-- I avsnittet **Allmänt** väljer du **GitHub-projekt** och anger URL:en till din förgrenade lagringsplats, som *https://github.com/iainfoulds/nodejs-docs-hello-world*
-- I avsnittet **Källkodshantering** väljer du **Git** och anger *.git*-URL:en till din förgrenade lagringsplats, som *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
+- I avsnittet **Allmänt** väljer du **GitHub-projekt** och anger URL:en till din förgrenade lagringsplats, som *https://github.com/cynthn/nodejs-docs-hello-world*
+- I avsnittet **Källkodshantering** väljer du **Git** och anger *.git*-URL:en till din förgrenade lagringsplats, som *https://github.com/cynthn/nodejs-docs-hello-world.git*
 - I avsnittet **Build Triggers** (Bygg utlösare) väljer du **GitHub hook trigger for GITscm polling** (GitHub-hookutlösare för GITScm-avsökning).
 - I avsnittet **Skapa** väljer du **Add build step** (Lägg till byggsteg). Välj **Execute shell** (Kör gränssnitt) och ange `echo "Testing"` i kommandofönstret.
 - Välj **Spara** längst ned i jobbfönstret.

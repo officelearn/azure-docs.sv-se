@@ -5,22 +5,22 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3e82983ff171e638415d6e7cafe0cb034dd978af
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: b297e2ef2f4c276b9183d1874e104d686b304a14
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057163"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919129"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrera lokala datorer till Azure
 
 Förutom att använda tjänsten [Azure Site Recovery](site-recovery-overview.md) för att hantera och samordna haveriberedskap på lokala datorer och virtuella Azure-datorer i syftet affärskontinuitet och haveriberedskap (BCDR) kan du även använda Site Recovery för att hantera migrering av lokala datorer till Azure.
 
 
-Den här kursen visar hur du migrerar lokala virtuella datorer och fysiska servrar till Azure. I den här guiden får du lära dig att:
+Den här kursen visar hur du migrerar lokala virtuella datorer och fysiska servrar till Azure. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Välj ett replikeringsmål

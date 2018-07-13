@@ -5,30 +5,29 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 03/20/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: d68df064614c262bd9755be0688841fdb64af762
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 8074867b5fa70d3cacc1a860fdfe03532c722d00
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301809"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869241"
 ---
 # <a name="create-and-route-custom-events-with-azure-cli-and-event-grid"></a>Skapa och dirigera anpassade händelser med Azure CLI och Event Grid
 
-Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure CLI för att skapa ett anpassat ämne, prenumerera på ämnet och utlösa händelsen för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som svarar på händelsen, exempelvis en webhook eller Azure Function. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en URL som endast samlar in meddelanden. Du skapar den här URL:en med ett tredjepartsverktyg från [Hookbin](https://hookbin.com/).
+Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure CLI för att skapa ett anpassat ämne, prenumerera på ämnet och utlösa händelsen för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
 
->[!NOTE]
->**Hookbin** är inte avsett för användning med hög genomströmning. Här används verktyget endast i instruktionssyfte. Om du push-överför fler än en händelse i taget kanske du inte ser alla händelser i verktyget.
+När du är klar kan se du att händelsedata som har skickats till webbappen.
 
-När du är klar kan se du att händelsedata som har skickats till en slutpunkt.
+![Visa resultat](./media/custom-event-quickstart/view-result.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI:t lokalt måste du köra den senaste versionen av Azure CLI (2.0.24 eller senare). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI:t lokalt måste du köra den senaste versionen av Azure CLI (2.0.24 eller senare). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 Om du inte använder Cloud Shell måste du först logga in med `az login`.
 
@@ -44,37 +43,64 @@ I följande exempel skapas en resursgrupp med namnet *gridResourceGroup* på pla
 az group create --name gridResourceGroup --location westus2
 ```
 
+[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+
 ## <a name="create-a-custom-topic"></a>Skapa en anpassat ämne
 
-Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar dina händelser. I följande exempel skapas det anpassade ämnet i din resursgrupp. Ersätt `<topic_name>` med ett unikt namn för ditt ämne. Ämnesnamnet måste vara unikt eftersom det representeras av en DNS-post.
+Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar dina händelser. I följande exempel skapas det anpassade ämnet i din resursgrupp. Ersätt `<your-topic-name>` med ett unikt namn för ditt ämne. Ämnesnamnet måste vara unikt eftersom det är en del av DNS-posten.
 
 ```azurecli-interactive
-az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
+topicname=<your-topic-name>
+
+az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
 ```
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 
-Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. I stället för att skriva kod för att svar på händelsen ska vi skapa en slutpunkt som samlar in meddelandena så att du kan visa dem. Hookbin är ett tredjepartsverktyg som låter dig skapa en slutpunkt och visa förfrågningar som skickas till den. Gå till [Hookbin](https://hookbin.com/) och klicka på **Skapa ny slutpunkt**.  Kopiera lagerplatsens URL eftersom du behöver den för att prenumerera på det anpassade ämnet.
+Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. Slutpunkten utför vanligtvis åtgärder baserat på informationen om händelsen. För att förenkla den här snabbstarten kan du distribuera en [förskapad webbapp](https://github.com/dbarkol/azure-event-grid-viewer) som visar meddelanden om händelser. Den distribuerade lösningen innehåller en App Service-plan,en webbapp för App Service och källkod från GitHub.
+
+Ersätt `<your-site-name>` med ett unikt namn för din webbapp. Webbappnamnet måste vara unikt eftersom det är en del av DNS-posten.
+
+```azurecli-interactive
+sitename=<your-site-name>
+
+az group deployment create \
+  --resource-group gridResourceGroup \
+  --template-uri "https://raw.githubusercontent.com/dbarkol/azure-event-grid-viewer/master/azuredeploy.json" \
+  --parameters siteName=$sitename hostingPlanName=viewerhost
+```
+
+Det kan ta några minuter att slutföra distributionen. Efter distributionen har slutförts kan du visa webbappen för att kontrollera att den körs. I en webbläsare navigerar du till: `https://<your-site-name>.azurewebsites.net`
+
+Webbplatsen bör visas utan några meddelanden.
 
 ## <a name="subscribe-to-a-topic"></a>Prenumerera på ett ämne
 
-Du prenumererar på ett ämne för att ange för Event Grid vilka händelser du vill följa. I följande exempel prenumererar vi på det ämne du just skapat, och URL från Hookbin skickas som slutpunkt för händelseavisering. Ersätt `<event_subscription_name>` med ett unikt namn för din prenumeration och `<endpoint_URL>` med värdet från föregående avsnitt. Genom att ange en slutpunkt när du prenumererar kan Event Grid hantera omdirigeringen av händelser till denna slutpunkt. För `<topic_name>` använder du det värde du skapade tidigare. 
+Du prenumererar på ett ämne därför att du vill ange för Event Grid vilka händelser du vill följa och vart du vill skicka händelserna. I följande exempel prenumererar vi på det ämne du just skapat, och URL från din webbapp skickas som slutpunkt för händelseavisering.
+
+Slutpunkten för ditt webbprogram måste innehålla suffixet `/api/updates/`.
 
 ```azurecli-interactive
+endpoint=https://$sitename.azurewebsites.net/api/updates
+
 az eventgrid event-subscription create \
   -g gridResourceGroup \
-  --topic-name <topic_name> \
-  --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --topic-name $topicname \
+  --name demoViewerSub \
+  --endpoint $endpoint
 ```
+
+Visa ditt webbprogram igen och observera att en händelse för verifieringen av prenumerationen har skickats till den. Välj ögonikonen för att utöka informationen om händelsen. Händelserutnätet skickar valideringshändelsen så att slutpunkten kan bekräfta att den vill ta emot händelsedata. Webbappen inkluderar kod för att verifiera prenumerationen.
+
+![Visa prenumerationshändelse](./media/custom-event-quickstart/view-subscription-event.png)
 
 ## <a name="send-an-event-to-your-topic"></a>Skicka en händelse till ditt ämne
 
-Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Först måste vi ta fram URL och nyckel för det anpassade ämnet. Än en gång, använd din ämnesnamn för `<topic_name>`.
+Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Först måste vi ta fram URL och nyckel för det anpassade ämnet.
 
 ```azurecli-interactive
-endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
-key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
+endpoint=$(az eventgrid topic show --name $topicname -g gridResourceGroup --query "endpoint" --output tsv)
+key=$(az eventgrid topic key list --name $topicname -g gridResourceGroup --query "key1" --output tsv)
 ```
 
 Förenkla den här artikeln genom att använda exempelhändelsedata att skicka till ämnet. Ett program eller en Azure-tjänst skulle vanligtvis skicka sådana händelsedata. I följande exempel hämtas händelsedata:
@@ -91,7 +117,7 @@ CURL är ett verktyg som skickar HTTP-förfrågningar. I den här artikeln anvä
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt som du konfigurerade när du prenumererade. Bläddra till slutpunktsadress du skapade tidigare. Du kan också klicka på Uppdatera i webbläsaren du har öppen. Du kan se den händelse du just skickade. 
+Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt som du konfigurerade när du prenumererade. Visa din webbapp om du vill se händelsen som du har skickat.
 
 ```json
 [{
@@ -110,7 +136,7 @@ Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du planerar att fortsätta arbeta med den här händelsen ska du inte rensa upp bland de resurser som skapades i den här artikeln. I annat fall kan du använda kommandona nedan för att ta bort alla resurser som har skapats i den här artikeln.
+Om du planerar att fortsätta arbeta med den här händelsen eller händelsevisningsappen ska du inte rensa upp bland de resurser som skapades i den här artikeln. I annat fall kan du använda kommandona nedan för att ta bort alla resurser som har skapats i den här artikeln.
 
 ```azurecli-interactive
 az group delete --name gridResourceGroup

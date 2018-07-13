@@ -3,7 +3,7 @@ title: Snabbstart–-Skapa en virtuell Linux-dator med Azure CLI 2.0 | Microsoft
 description: I den här snabbstarten lär du dig hur du använder Azure CLI 2.0 för att skapa en virtuell Linux-dator
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,18 +14,18 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/24/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1c45f8f010d69337d21fce327933990a573988a4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6536860bb75d068a96899f2d30ec7a6126a28436
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187937"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927639"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli-20"></a>Snabbstart: Skapa en virtuell Linux-dator med Azure CLI 2.0
 
-Azure CLI 2.0 används till att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure CLI 2.0 för att distribuera en virtuell dator (VM) för Linux i Azure som kör Ubuntu. Om du vil se hur den virtuella datorn fungerar i praktiken använder du SSH för att ansluta till den virtuella datorn och installerar NGINX-webbservern.
+Azure CLI 2.0 används till att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure CLI 2.0 för att distribuera en virtuell dator (VM) för Linux i Azure som kör Ubuntu. För att se hur den virtuella datorn fungerar i praktiken använder du sedan SSH för att ansluta till den virtuella datorn och installerar NGINX-webbservern.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -105,7 +105,7 @@ När du är klar avslutar du SSH-sessionen med `exit`.
 
 ## <a name="view-the-web-server-in-action"></a>Se hur webbservern fungerar i praktiken
 
-När NGINX har installerats och port 80 är öppen på den virtuella datorn från Internet använder du valfri webbläsare för att visa standardvälkomstsidan för NGINX. Använd den offentliga IP-adressen för din virtuella dator som du hämtade i ett tidigare steg. Följande exempel visar NGINX-standardwebbplatsen:
+När NGINX har installerats och port 80 är öppen på den virtuella datorn från Internet använder du valfri webbläsare för att visa standardvälkomstsidan för NGINX. Använd den virtuella datorns offentliga IP-adress, som du hämtade i ett tidigare steg. Följande exempel visar NGINX-standardwebbplatsen:
 
 ![NGINX-standardwebbplats](./media/quick-create-cli/nginx.png)
 

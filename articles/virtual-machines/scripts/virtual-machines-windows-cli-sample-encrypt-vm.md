@@ -3,7 +3,7 @@ title: Skriptexempel för Azure CLI – Kryptera en virtuell Windows-dator | Mic
 description: Skriptexempel för Azure CLI – Kryptera en virtuell Windows-dator
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/15/2017
-ms.author: iainfou
-ms.openlocfilehash: 9d7b2b0c731c5fc820fe649394a13ee586e47606
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: cynthn
+ms.openlocfilehash: 2df19babaa08ed6add32ea960fc315372076f830
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29846578"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929917"
 ---
 # <a name="encrypt-a-windows-virtual-machine-in-azure"></a>Kryptera en virtuell Windows-dator i Azure
 
@@ -52,7 +52,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | Skapar ett Azure Key Vault för lagring av säkra data, till exempel krypteringsnycklar. |
 | [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key#az_keyvault_key_create) | Skapar en krypteringsnyckel i Key Vault. |
 | [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp#az_ad_sp_create_for_rbac) | Skapar ett huvudnamn för Azure Active Directory-tjänsten för att autentisera och kontrollera åtkomst till krypteringsnycklarna på ett säkert sätt. |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | Anger behörigheter för nyckelvalvet så att tjänstens huvudnamn får åtkomst till krypteringsnycklarna. |
+| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | Anger behörigheter för Key Vault så att tjänstens huvudnamn får åtkomst till krypteringsnycklarna. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
 | [az vm encryption enable](https://docs.microsoft.com/cli/azure/vm/encryption#az_vm_encryption_enable) | Aktiverar kryptering på en virtuell dator med hjälp av autentiseringsuppgifterna för tjänstens huvudnamn och krypteringsnyckeln. |
 | [az vm encryption show](https://docs.microsoft.com/cli/azure/vm/encryption#az_vm_encryption_show) | Visar status för krypteringsprocessen för den virtuella datorn. |

@@ -1,6 +1,6 @@
 ---
 title: Skicka meddelanden till Android-appar med Azure Notification Hubs och Firebase Cloud Messaging | Microsoft Docs
-description: I de här självstudierna får du lära dig hur du använder Azure Notification Hubs och Google Firebase Cloud Messaging för att skicka push-meddelanden till Android-enheter.
+description: I de här självstudierna lär du dig att använda Azure Notification Hubs och Google Firebase Cloud Messaging för att skicka push-meddelanden till Android-enheter.
 services: notification-hubs
 documentationcenter: android
 keywords: push-meddelanden, push-meddelande, push-meddelande för android, fcm, firebase cloud messaging
@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: 2bc085989ff3bbbc50042c46b338f748a10aa87e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777781"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232804"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Självstudier: Skicka meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Firebase Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -166,7 +166,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med Firebase Cloud Mess
    
    * **SenderId**: Det avsändar-ID som du fick tidigare på fliken **Cloud Messaging** i dina projektinställningar i [Firebase-konsolen](https://firebase.google.com/console/).
    * **HubListenConnectionString**: Anslutningssträngen **DefaultListenAccessSignature** för din hubb. Du kan kopiera denna anslutningssträng genom att klicka på **Åtkomstprinciper** i din hubb på [Azure Portal].
-   * **HubName**: Använd meddelandehubbens namn. Detta visas på hubbsidan i [Azure Portal].
+   * **HubName**: Använd meddelandehubbens namn som visas på hubbsidan i [Azure Portal].
      
      `NotificationSettings` kod:
      

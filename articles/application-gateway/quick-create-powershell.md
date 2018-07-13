@@ -14,11 +14,11 @@ ms.date: 01/25/2018
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 95b806eaabaf0ba93b1e8b6823340e82842b0f1c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33202056"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38591393"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure PowerShell
 
@@ -42,7 +42,7 @@ New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser 
 
-Du måste skapa ett virtuellt nätverk så att programgatewayen kan kommunicera med andra resurser. I det här exemplet skapas två undernät: ett för programgatewayen och ett annat för serverdelen. 
+Du måste skapa ett virtuellt nätverk för att programgatewayen ska kunna kommunicera med andra resurser. I det här exemplet skapas två undernät: ett för programgatewayen och ett annat för serverdelen. 
 
 Skapa undernätskonfigurationerna med [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Skapa det virtuella nätverket med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) och undernätskonfigurationerna. Skapa slutligen den offentliga IP-adressen med [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress).
 

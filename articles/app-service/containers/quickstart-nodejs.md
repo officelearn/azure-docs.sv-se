@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: eb1c769e034f37d05de63896f65290db79103637
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 44c3f8ce05854e993ad551a025eec447d882c326
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293912"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969552"
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Skapa en Node.js-webbapp i Azure App Service i Linux
 
@@ -28,7 +28,7 @@ ms.locfileid: "35293912"
 > I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en Node.js-webbapp i Azure](../app-service-web-get-started-nodejs.md).
 >
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du distribuerar ett Node.js-program till App Service i Linux med hjälp av [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du distribuerar ett Node.js-program till App Service i Linux med hjälp av [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 Du måste slutföra denna snabbstart i Cloud Shell, men du kan också köra dessa kommandon lokalt med [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -40,7 +40,7 @@ Du måste slutföra denna snabbstart i Cloud Shell, men du kan också köra dess
 
 ## <a name="install-web-app-extension-for-cloud-shell"></a>Installera webbprogramtillägget för Cloud Shell
 
-För att slutföra den här snabbstarten måste du lägga till [az-webbprogramtillägget](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add). Om tillägget redan är installerat måste du uppdatera det till den senaste versionen. Skriv `az extension update -n webapp` för att uppdatera webbprogramtillägget.
+För att slutföra den här snabbstarten måste du lägga till [az-webbprogramtillägget](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add). Om tillägget redan är installerat måste du uppdatera det till den senaste versionen. Skriv `az extension update -n webapp` för att uppdatera webbprogramtillägget.
 
 Kör följande kommando om du vill installera webbprogramtillägget:
 
@@ -136,7 +136,7 @@ Kommandot `az webapp up` utför följande åtgärder:
 
 - Skapa ett program med det givna namnet.
 
-- [Zip-distribuera](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) filer från den aktuella arbetskatalogen till webbprogrammet.
+- [Zip-distribuera](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) filer från den aktuella arbetskatalogen till webbprogrammet.
 
 ## <a name="browse-to-the-app"></a>Bläddra till appen
 

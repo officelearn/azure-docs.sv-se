@@ -1,92 +1,95 @@
 ---
-title: Lägga till färdiga avsikter och enheter för att extrahera gemensamma data i språk förstå - Azure | Microsoft Docs
-description: Lär dig hur du använder fördefinierade avsikter och enheter för att extrahera olika typer av entitetsdata.
+title: Lägg till fördefinierade avsikter och entiteter för att extrahera data i Language Understanding – Azure | Microsoft Docs
+description: Läs om hur du använder fördefinierade avsikter och entiteter för att extrahera olika typer av entitetsdata.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: tutorial
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 37d67bef7712012a95543041744706b240b16e2d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 075cb270641ca995eec95aa6aa8986c90077148a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085505"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112208"
 ---
-# <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Självstudier: 2. Lägg till fördefinierade avsikter och entiteter
-Lägger till fördefinierade avsikter och entiteter för personalavdelningen quickstart app att snabbt få avsiktshantering extrahering av prognoser och data. 
+# <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Självstudie: 2. Lägg till fördefinierade avsikter och entiteter
+Lägg till fördefinierade avsikter och entiteter i Human Resources-självstudieappen för att snabbt få avsiktsförutsägelse och dataextrahering. 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-* Lägg till fördefinierade avsikter 
-* Lägg till fördefinierade entiteter datetimeV2 och nummer
-* Träna och publicera
-* Fråga THOMAS och förutsägelse svar
+* lägga till fördefinierade avsikter 
+* lägga till fördefinierade entiteter, datetimeV2 och nummer
+* träna och publicera
+* fråga LUIS och få svar på förutsägelser
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har den [personal](luis-quickstart-intents-only.md) app från föregående självstudierna [importera](create-new-app.md#import-new-app) JSON till en ny app i den [THOMAS](luis-reference-regions.md#luis-website) webbplats, från den [THOMAS-exempel ](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github-lagringsplatsen.
+Om du inte har appen Human Resources (Personalfrågor) från den föregående självstudien [custom domain](luis-quickstart-intents-only.md) (anpassad domän) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website) från [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json)-GitHub-lagringsplatsen.
 
 Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `prebuilts`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
-## <a name="add-prebuilt-intents"></a>Lägg till fördefinierade avsikter
-THOMAS innehåller flera fördefinierade avsikter att hjälpa med vanliga användare avsikter.  
+## <a name="add-prebuilt-intents"></a>Lägga till fördefinierade avsikter
+LUIS har flera fördefinierade avsikter som hjälper dig med vanliga användaravsikter.  
 
-1. Kontrollera att din app finns i den **skapa** avsnitt i THOMAS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
+1. Se till att appen finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
 
-    [ ![Skärmbild på LUIS-app med Build (Skapa) markerat i navigeringsfältet längst upp till höger](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
+    [ ![Skärmbild på LUIS-appen med Build (Skapa) markerat i navigeringsfältet längst upp till höger](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
-2. Välj **lägga till färdiga domän avsikt**. 
+2. Välj **Add prebuilt domain intent** (Lägg till fördefinierad domänavsikt). 
 
-    [ ![Skärmbild av Intents sidan med knappen Lägg till fördefinierade domän avsiktshantering markerat](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png) ](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png#lightbox)
+    [ ![Skärmbild av sidan Intents (Avsikter) med knappen Add prebuilt domain intent (Lägg till fördefinierad domänavsikt) markerad](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png) ](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png#lightbox)
 
 3. Sök efter `Utilities`. 
 
-    [ ![Skärmbild av dialogrutan färdiga avsikter med verktyg i sökrutan](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
+    [ ![Skärmbild av dialogrutan för fördefinierade avsikter med Utilities (Verktyg) i sökrutan](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
-4. Välj följande avsikter och **klar**: 
+4. Välj följande avsikter och välj **Done** (Klar): 
 
-    * Utilities.Cancel
-    * Utilities.Confirm
-    * Utilities.Help
-    * Utilities.Stop
-    * Utilities.StartOver
+    * Utilities.Cancel (Verktyg.Avbryt)
+    * Utilities.Confirm (Verktyg.Bekräfta)
+    * Utilities.Help (Verktyg.Hjälp)
+    * Utilities.StartOver (Verktyg.Börja_om)
+    * Utilities.Stop (Verktyg.Stoppa)
+
 
 ## <a name="add-prebuilt-entities"></a>Lägg till fördefinierade entiteter
-THOMAS innehåller flera fördefinierade enheter för vanliga extrahering av data. 
+LUIS har flera fördefinierade entiteter för extrahering av data. 
 
-1. Välj **entiteter** från den vänstra navigeringsmenyn.
+1. Välj **Entities** (Entiteter) på den vänstra navigeringsmenyn.
 
-    [ ![Skärmbild av Intents listan med enheter som är markerade i navigeringen till vänster](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png)](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png#lightbox)
+    [ ![Skärmbild av listan Intents (Avsikter) med Entities (Entiteter) markerat i navigeringen till vänster](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png)](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png#lightbox)
 
-2. Välj **hantera färdiga entiteter** knappen.
+2. Välj knappen **Manage prebuilt entities** (Hantera fördefinierade entiteter).
 
-    [ ![Skärmbild av entiteter lista med fördefinierade entiteter markerat hantera](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png)](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png#lightbox)
+    [ ![Skärmbild på listan Entities (Entiteter) med Manage prebuilt entities (Hantera fördefinierade entiteter) markerad](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png)](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png#lightbox)
 
-3. Välj **nummer** och **datetimeV2** från listan med fördefinierade entiteter Välj **klar**.
+3. Välj **number** (nummer) och **datetimeV2** i listan över fördefinierade entiteter och sedan **Done** (Klar).
 
-    ![Skärmbild av antalet Välj i dialogrutan för färdiga entiteter](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+    ![Skärmbild på dialogrutan för fördefinierade entiteter med nummer markerat](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
 ## <a name="train-and-publish-the-app"></a>Träna och publicera appen
 1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Train** (Träna). 
 
-    ![Train-knappen](./media/luis-quickstart-intents-only/train-button.png)
+    ![Knappen Train (Träna)](./media/luis-quickstart-intents-only/train-button.png)
 
     Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
 
-    ![Utbildade statusfältet](./media/luis-quickstart-intents-only/trained.png)
+    ![Statusfält för avslutad träning](./media/luis-quickstart-intents-only/trained.png)
 
-2. I övre högra sidan av webbplatsen THOMAS väljer den **publicera** knappen för att öppna sidan Publicera. Produktionsplatsen väljs som standard. Välj den **publicera** knappen av produktion fack val. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
+2. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Publish** (Publicera) för att öppna sidan Publish (Publicera). 
 
-    Du behöver inte skapa en THOMAS nyckel i Azure-portalen innan du publicerar eller innan du testar slutpunkts-URL. Varje THOMAS app har en kostnadsfri starter för redigering. Den ger dig obegränsad redigering och en [några endpoint träffar](luis-boundaries.md#key-limits). 
+3. Produktionsplatsen väljs som standard. Välj knappen **Publish** (Publicera) bredvid valet av produktionsplats. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
 
-## <a name="query-endpoint-with-an-utterance"></a>Frågan slutpunkt med ett utterance
-På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. Gå till slutet av URL:en i adressen och ange `I want to cancel on March 3`. Den sista parametern för frågesträngen är `q`, utterance **frågan**. 
+    Du behöver inte skapa en LUIS-slutpunktsnyckel i Azure-portalen innan du publicerar eller testar slutpunktens URL. Varje LUIS-app har en kostnadsfri startnyckel för redigering. Det ger dig obegränsad redigering och [några slutpunktsanrop](luis-boundaries.md#key-limits). 
 
-Resultatet förutsade Utilities.Cancel avsikten och extraheras datumet för 3 mars och talet 3. 
+## <a name="query-endpoint-with-an-utterance"></a>Skicka fråga till slutpunkten med ett yttrande
+På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. Gå till slutet av URL:en i adressen och ange `I want to cancel on March 3`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
+
+Resultatet förutsåg avsikten Utilities.Cancel (Verktyg.Avbryt) och extraherade datumet March 3 (3 mars) och numret 3. 
 
     ```
     {
@@ -163,10 +166,15 @@ Resultatet förutsade Utilities.Cancel avsikten och extraheras datumet för 3 ma
     }
     ```
 
-Snabbt och enkelt lägger du till fördefinierade avsikter och entiteter, klientprogrammet Lägg till konversationen hantering och extrahera vanliga datatyper. 
+Det finns två värden för March 3 (3 mars) eftersom yttrande inte anger om March 3 (3 mars) är i dåtid eller framtid. Det är upp till programmet som anropar LUIS att göra ett antagande eller be om förtydligande, om det behövs. 
+
+Genom att enkelt och snabbt lägga till fördefinierade avsikter och entiteter kan klientprogrammet lägga till konversationshantering och extrahera vanliga datatyper. 
+
+## <a name="clean-up-resources"></a>Rensa resurser
+Ta bort LUIS-appen när den inte längre behövs. Det gör du genom att välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj menyn med tre punkter (...) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lägga till ett reguljärt uttryck entitet i appen](luis-quickstart-intents-regex-entity.md)
+> [Lägga till en entitet för reguljärt uttryck i appen](luis-quickstart-intents-regex-entity.md)
 

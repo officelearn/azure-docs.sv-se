@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Utföra åtgärder för att extrahera, transformera, läsa in (ETL) med Hive i HDInsight – Azure'
-description: Lär dig att extrahera data från en rå CSV-datamängd, transformera dem med Hive på HDInsight och därefter läsa in de transformade data i Azure SQL Database med Sqoop.
+description: Lär dig att extrahera data från en rå CSV-datamängd, transformera dem med Hive på HDInsight och därefter läsa in de transformerade data i Azure SQL Database med Sqoop.
 services: hdinsight
 documentationcenter: ''
 author: jamesbak
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: ab1f8a4e406a7a58c46c5831c24b22f67a13a413
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 8f5771ac860d40eab979bf9be92b18da8f5d850d
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062231"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342376"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Självstudie: Extrahera, transformera och läsa in data med Apache Hive på HDInsight
 
@@ -40,11 +40,11 @@ Följande bild visar ett typiskt ETL-programflöde.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * **Ett Linux-baserat Hadoop-kluster i HDInsight**. Läs informationen om att [konfigurera kluster i HDInsight med Hadoop, Spark, Kafka med mera](./quickstart-create-connect-hdi-cluster.md) om du vill få anvisningar om hur du skapar ett nytt Linux-baserat HDInsight-kluster.
 
-* **Azure SQL Database**. Du använder en Azure SQL-databas som måldatalager. Om du inte har någon SQL-databas kan du läsa [Skapa en Azure SQL-databas i Azure Portal](../../sql-database/sql-database-get-started.md).
+* **Azure SQL Database**. Du använder en Azure SQL-databas som måldatalager. Om du inte har någon SQL-databas kan du läsa [Skapa en Azure SQL-databas i Azure-portalen](../../sql-database/sql-database-get-started.md).
 
 * **Azure CLI 2.0**. Om du inte har installerat Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att få mer anvisningar.
 
@@ -75,33 +75,33 @@ Det finns många sätt att överföra data till lagring som är associerade med 
 1. Öppna en kommandotolk och använd följande kommando för att ladda upp .zip-filen till HDInsight-klustrets huvudnod:
 
     ```bash
-    scp <FILENAME>.zip <SSH-USERNAME>@<CLUSTERNAME>-ssh.azurehdinsight.net:<FILENAME.zip>
+    scp <FILE_NAME>.zip <SSH_USER_NAME>@<CLUSTER_NAME>-ssh.azurehdinsight.net:<FILE_NAME.zip>
     ```
 
-    Ersätt *FILENAME* med namnet på .zip-filen. Ersätt *USERNAME* med SSH-inloggningen för HDInsight-klustret. Ersätt *CLUSTERNAME* med namnet på HDInsight-klustret.
+    Ersätt *FILE_NAME* med namnet på .zip-filen. Ersätt *SSH_USER_NAME* med SSH-inloggningen för HDInsight-klustret. Ersätt *CLUSTER_NAME* med namnet på HDInsight-klustret.
 
    > [!NOTE]
-   > Om du använder ett lösenord för att autentisera din SSH-inloggning uppmanas du att ange lösenordet. Om du använder en offentlig nyckel kan du behöva använda `-i`-parametern och ange sökvägen till motsvarande privata nyckel. Till exempel `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+   > Om du använder ett lösenord för att autentisera din SSH-inloggning uppmanas du att ange lösenordet. Om du använder en offentlig nyckel kan du behöva använda `-i`-parametern och ange sökvägen till motsvarande privata nyckel. Till exempel `scp -i ~/.ssh/id_rsa FILE_NAME.zip USER_NAME@CLUSTER_NAME-ssh.azurehdinsight.net:`.
 
 2. När uppladdningen är klar kan du ansluta till klustret med hjälp av SSH. Öppna kommandotolken och ange följande kommando:
 
     ```bash
-    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ssh <SSH_USER_NAME>@<CLUSTER_NAME>-ssh.azurehdinsight.net
     ```
 
 3. Använd följande kommando för att packa upp .zip-filen:
 
     ```bash
-    unzip FILENAME.zip
+    unzip <FILE_NAME>.zip
     ```
 
-    Det här kommandot extraherar en .csv-fil som är cirka 60 MB.
+    Det här kommandot extraherar en *.csv-fil* som är cirka 60 MB.
 
 4. Använd följande kommandon för att skapa en katalog och kopiera sedan *.csv*-filen till katalogen:
 
     ```bash
     hdfs dfs -mkdir -p abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data
-    hdfs dfs -put <FILENAME>.csv abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data/
+    hdfs dfs -put <FILE_NAME>.csv abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data/
     ```
 
 5. Skapa filsystemet för Azure Data Lake Storage Gen2.
@@ -154,14 +154,14 @@ Som en del av Hive-jobbet importerar du data från .csv-filen till en Hive-tabel
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     STORED AS TEXTFILE
-    LOCATION 'abfs://<filesystem_name>@<account>.dfs.core.windows.net/tutorials/flightdelays/data';
+    LOCATION 'abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data';
 
     -- Drop the delays table if it exists
     DROP TABLE delays;
     -- Create the delays table and populate it with data
     -- pulled in from the CSV file (via the external table defined previously)
     CREATE TABLE delays
-    LOCATION abfs://<filesystem_name>@<account>.dfs.core.windows.net/tutorials/flightdelays/processed
+    LOCATION abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/processed
     AS
     SELECT YEAR AS year,
         FL_DATE AS flight_date,
@@ -203,7 +203,7 @@ Som en del av Hive-jobbet importerar du data från .csv-filen till en Hive-tabel
 5. När du får uppmaningen `jdbc:hive2://localhost:10001/>` ska du använda följande fråga för att hämta data från de importerade flygförseningsdata:
 
     ```hiveql
-    INSERT OVERWRITE DIRECTORY 'abfs://<filesystem_name>@<account>.dfs.core.windows.net/tutorials/flightdelays/output'
+    INSERT OVERWRITE DIRECTORY 'abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output'
     ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
     SELECT regexp_replace(origin_city_name, '''', ''),
         avg(weather_delay)
@@ -212,15 +212,15 @@ Som en del av Hive-jobbet importerar du data från .csv-filen till en Hive-tabel
     GROUP BY origin_city_name;
     ```
 
-    Frågan returnerar en lista över städer som berörs av förseningar på grund av vädret samt genomsnittlig förseningstid och sparar det till `abfs://<filesystem_name>@<account>.dfs.core.windows.net/tutorials/flightdelays/output`. Senare läser Sqoop data från den här platsen och exporterar dem till Azure SQL Database.
+    Frågan returnerar en lista över städer som berörs av förseningar på grund av vädret samt genomsnittlig förseningstid och sparar det till `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output`. Senare läser Sqoop data från den här platsen och exporterar dem till Azure SQL Database.
 
 6. Om du vill avsluta Beeline skriver du `!quit` vid uppmaningen.
 
 ## <a name="create-a-sql-database-table"></a>Skapa en SQL-databastabell
 
-Det här avsnittet förutsätter att du redan har skapat en Azure SQL-databas. Om du inte redan har en SQL-databas använder du informationen i [Create an Azure SQL database in the Azure portal](../../sql-database/sql-database-get-started.md) (Skapa en Azure SQL-databas i Azure Portal) för att skapa en.
+Det här avsnittet förutsätter att du redan har skapat en Azure SQL-databas. Om du inte redan har en SQL-databas använder du informationen i [Create an Azure SQL database in the Azure portal](../../sql-database/sql-database-get-started.md) (Skapa en Azure SQL-databas i Azure-portalen) för att skapa en.
 
-Om du redan har en SQL-databas måste du hämta servernamnet. För att hitta servernamnet i [Azure Portal](https://portal.azure.com) väljer du **SQL-databaser** och filtrerar sedan på namnet på databasen du vill använda. Serverns namn finns i kolumnen **Servernamn**.
+Om du redan har en SQL-databas måste du hämta servernamnet. För att hitta servernamnet i [Azure-portalen](https://portal.azure.com) väljer du **SQL-databaser** och filtrerar sedan på namnet på databasen du vill använda. Serverns namn finns i kolumnen **Servernamn**.
 
 ![Hämta information om Azure SQL-server](./media/tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Hämta information om Azure SQL-server")
 
@@ -237,7 +237,7 @@ Om du redan har en SQL-databas måste du hämta servernamnet. För att hitta ser
 3. När installationen är klar använder du följande kommando för att ansluta till SQL Database-servern. Ersätt **serverName** med SQL Database-servernamnet. Ersätt **adminLogin** och **adminPassword** med inloggningen för SQL Database. Ersätt **databaseName** med databasnamnet.
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <SERVER_NAME>.database.windows.net -U <ADMIN_LOGIN> -p 1433 -D <DATABASE_NAME>
     ```
 
     När du blir ombedd anger du lösenordet till SQL Database-administratörsinloggningen.
@@ -284,12 +284,12 @@ Om du redan har en SQL-databas måste du hämta servernamnet. För att hitta ser
 
 ## <a name="export-data-to-sql-database-using-sqoop"></a>Exportera data till SQL Database med Sqoop
 
-I föregående avsnitt kopierade du omvandlade data på `abfs://<filesystem_name>@<account>.dfs.core.windows.net/tutorials/flightdelays/output`. I det här avsnittet använder du Sqoop för att exportera data från `abfs://<filesystem_name>@<account>.dfs.core.windows.net/tutorials/flightdelays/output` till tabellen du skapade i Azure SQL Database. 
+I föregående avsnitt kopierade du omvandlade data på `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output`. I det här avsnittet använder du Sqoop för att exportera data från `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output` till tabellen du skapade i Azure SQL Database. 
 
 1. Använd följande kommando för att verifiera att Sqoop kan se din SQL-databas:
 
     ```bash
-    sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
+    sqoop list-databases --connect jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433 --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD>
     ```
 
     Det här kommandot returnerar en lista med databaser, däribland databasen som du skapade fördröjningstabellen i tidigare.
@@ -297,7 +297,7 @@ I föregående avsnitt kopierade du omvandlade data på `abfs://<filesystem_name
 2. Använd följande kommando för att exportera data från hivesampletable till fördröjningstabellen:
 
     ```bash
-    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'abfs://<filesystem_name>@.dfs.core.windows.net/tutorials/flightdelays/output' 
+    sqoop export --connect 'jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433;database=<DATABASE_NAME>' --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD> --table 'delays' --export-dir 'abfs://<FILE_SYSTEM_NAME>@.dfs.core.windows.net/tutorials/flightdelays/output' 
     --fields-terminated-by '\t' -m 1
     ```
 
@@ -306,7 +306,7 @@ I föregående avsnitt kopierade du omvandlade data på `abfs://<filesystem_name
 3. När sqoop-kommandot avslutas använder du tsql-verktyget för att ansluta till databasen:
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <SERVER_NAME>.database.windows.net -U <ADMIN_LOGIN> -P <ADMIN_PASSWORD> -p 1433 -D <DATABASE_NAME>
     ```
 
     Använd följande instruktioner för att verifiera att data exporterades till fördröjningstabellen:
@@ -316,7 +316,7 @@ I föregående avsnitt kopierade du omvandlade data på `abfs://<filesystem_name
     GO
     ```
 
-    Du ska se en lista över data i tabellen. Tabellen innehåller stadens namn och genomsnittlig flygförseingstid för den staden. 
+    Du ska se en lista över data i tabellen. Tabellen innehåller stadens namn och genomsnittlig flygförseningstid för den staden. 
 
     Skriv `exit` för att avsluta tsql-verktyget.
 

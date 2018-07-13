@@ -3,7 +3,7 @@ title: Självstudier – Övervaka och uppdatera virtuella Windows-datorer i Azu
 description: I den här självstudiekursen lär du dig hur du övervakar startdiagnostik och prestandamått och hur du hanterar paketuppdateringar på en virtuell Windows-dator
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/04/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9181d79e6eb0443a4607824cfde95068b509a917
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0f2388747d60f1911994431d8edbd57e32d5c35a
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193884"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932661"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Självstudier: Övervaka och uppdatera en virtuell Windows-dator i Azure
 
 Övervakningsfunktionerna i Azure använder agenter för att samla in start- och prestandadata från virtuella Azure-datorer. Dessa data lagras sedan i Azure Storage och görs tillgängliga via portalen, Azure PowerShell-modulen och Azure CLI. Med uppdateringshantering kan du hantera uppdateringar och korrigeringar för dina virtuella Azure Windows-datorer.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Aktivera startdiagnostik på en virtuell dator

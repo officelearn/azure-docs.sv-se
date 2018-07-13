@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: cdcd30ea29c5c7066a6ae05f64b5bf0720572599
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061272"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299214"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Självstudie: Utveckla och distribuera en Node.js IoT Edge-modul till din simulerade enhet
 
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Azure IoT Edge-enheten som du skapade i snabbstarten för [Linux](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
+* Azure IoT Edge-enheten som du skapade i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Edge-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Docker](https://docs.docker.com/engine/installation/) på samma dator som har Visual Studio Code. Community Edition (CE) räcker för den här självstudien. 
@@ -173,9 +173,9 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod till No
         }
     ```
 5. Spara filen.
-6. I VS Code-utforskaren högerklickar du på filen **deployment.template.json** och väljer **Skapa IoT Edge-lösning**. 
+6. Högerklicka på filen **deployment.template.json** och välj **Skapa IoT Edge-lösning** i VS Code-utforskaren. 
 
-När du ger Visual Studio Code kommandot att skapa din lösning hämtar den först information i distributionsmallen och genererar en `deployment.json`-fil i en ny **config**-mapp. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger din Node.js-kod i behållare och push-överför till det containerregister som du angav när du initierade lösningen. 
+När du ger Visual Studio Code kommando att skapa din lösning hämtar den först information i distributionsmallen och genererar en `deployment.json`-fil i en ny **config**-mapp. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger din Node.js-kod i behållare och push-överför till det containerregister som du angav när du initierade lösningen. 
 
 Den fullständiga adressen med tagg för behållaravbildningen i `docker build`-kommandot som körs i den integrerade VS Code-terminalen. Avbildningsadressen skapas utifrån information i filen `module.json` med formatet **\<lagringsplats\>:\<version\>-\<plattform\>**. För den här självstudien ska den se ut så här: **registryname.azurecr.io/nodemodule:0.0.1-amd64**.
 
@@ -183,7 +183,7 @@ Den fullständiga adressen med tagg för behållaravbildningen i `docker build`-
 
 Du kan använda Azure Portal för att distribuera din Node.ms-modul till en IoT Edge-enhet, som du gjorde i snabbstarten, men du kan också distribuera och övervaka moduler från Visual Studio Code. I följande avsnitt använder du Azure IoT Edge-filnamnstillägget för VS Code som listades under förutsättningarna. Installera det nu om du inte redan har gjort det. 
 
-1. Öppna kommandopaletten för VS kod genom att välja **Visa** > **Kommandopalett**.
+1. Öppna kommandopaletten för VS Code genom att välja **Visa** > **Kommandopalett**.
 
 2. Sök efter och kör kommandot **Azure: Logga in**. Följ anvisningarna för att logga in på ditt Azure-konto. 
 
@@ -191,11 +191,11 @@ Du kan använda Azure Portal för att distribuera din Node.ms-modul till en IoT 
 
 4. Välj den prenumeration som innehåller din IoT Hub och välj sedan den IoT Hub du vill komma åt.
 
-5. I VS Code-utforskaren expanderar avsnittet **Azure IoT Hub-enheter**. 
+5. I VS Code-utforskaren expanderar du avsnittet **Azure IoT Hub-enheter**. 
 
 6. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Skapa distribution för IoT Edge-enhet**. 
 
-7. Navigera till lösningsmappen som innehåller NodeModule. Öppna mappen **config** och välj filen **deployment.json**. Klicka på **Välj distributionsmanifest för Edge**
+7. Navigera till lösningsmappen som innehåller NodeModule. Öppna mappen **config** och välj filen **deployment.json**. Klicka på **Välj distributionsmanifest för Edge**.
 
 8. Uppdatera avsnittet **Azure IoT Hub-enheter**. Du bör se den nya **NodeModule** köras tillsammans med **TempSensor**-modulen och **$edgeAgent** och **$edgeHub**. 
 

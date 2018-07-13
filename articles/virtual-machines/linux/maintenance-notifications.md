@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 12a3c4556de21bb0c0dd6b09458943fb03092532
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 840e961e753a15219ae41b8df55dfd95cc7ec774
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866135"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990260"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Hantera meddelanden planerat underhåll för virtuella Linux-datorer
 
-Azure utför regelbundet uppdateringar för att förbättra tillförlitligheten, prestanda och säkerheten för infrastrukturen för värd för virtuella datorer. Uppdateringarna är ändringar som uppdatering värdmiljön eller uppgradera och inaktivering av maskinvara. En majoritet av dessa uppdateringar genomförs utan någon inverkan på de virtuella datorerna. Men finns det fall där uppdateringar påverka:
+Azure utför med jämna mellanrum uppdateringar för att förbättra värdinfrastrukturens tillförlitlighet, prestanda och säkerhet för virtuella datorer. Uppdateringarna är ändringar som uppdatering värdmiljön eller uppgradera och inaktivering av maskinvara. En majoritet av dessa uppdateringar genomförs utan någon inverkan på de virtuella datorerna. Men finns det fall där uppdateringar påverka:
 
 - Om underhållet inte kräver en omstart, använder Azure migrering på plats för att pausa den virtuella datorn när värden har uppdaterats. Dessa icke rebootful underhållsåtgärder är tillämpad feldomän av feldomän och förloppet stoppas om någon varning hälsotillstånd signaler tas emot.
 
@@ -101,7 +101,7 @@ Följande värden returneras under MaintenanceRedeployStatus:
 Följande anrop initierar Underhåll på en virtuell dator om `IsCustomerInitiatedMaintenanceAllowed` har angetts till true.
 
 ```azure-cli
-az vm perform-maintenance rgName vmName 
+az vm perform-maintenance -g rgName -n vmName 
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]

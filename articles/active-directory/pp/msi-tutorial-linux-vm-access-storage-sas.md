@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: fc7c5b4ab025666fc7fa1d9073198ec90d8e71c3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 59e74ee586a28935b5fde4b5c1089264e98e5087
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611035"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003103"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Använda en Linux VM hanterad tjänstidentitet för åtkomst till Azure Storage via SAS-autentiseringsuppgifter
 
@@ -53,7 +53,7 @@ I den här självstudiekursen skapar vi en ny Linux-VM. Du kan också aktivera M
 2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
 3. Ange informationen för den virtuella datorn. För **autentiseringstyp**väljer **offentlig SSH-nyckel** eller **lösenord**. Autentiseringsuppgifterna som har skapats kan du logga in på den virtuella datorn.
 
-    ![ALT bildtext](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![ALT bildtext](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Välj en **prenumeration** för den virtuella datorn i listrutan.
 5. Att välja en ny **resursgrupp** som den virtuella datorn ska skapas i, väljer **Skapa ny**. När du är klar klickar du på **OK**.
@@ -68,11 +68,11 @@ En virtuell dator MSI-dator kan du hämta åtkomsttoken från Azure AD utan att 
 3. Om du vill registrera och aktiverar MSI, Välj **Ja**, om du vill inaktivera det, väljer du Nej.
 4. Se till att du klickar på **spara** att spara konfigurationen.
 
-    ![ALT bildtext](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![ALT bildtext](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Om du vill kontrollera vilka tillägg som finns på den virtuella datorn, klicka på **tillägg**. Om MSI aktiveras den **ManagedIdentityExtensionforLinux** visas i listan.
 
-    ![ALT bildtext](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
+    ![ALT bildtext](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 

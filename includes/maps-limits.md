@@ -9,14 +9,14 @@ ms.date: 05/07/2018
 ms.author: jinzh
 ms.custom: include file
 ms.openlocfilehash: fc96c66ce0cdda133d8776008874c5518cb80be6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33951512"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38756074"
 ---
-Här följer användning begränsningarna för Azure Maps-tjänsten. Information om kostnaden finns [Azure Maps prisinformation](https://azure.microsoft.com/pricing/details/azure-maps/). [Kontakta oss](https://azure.microsoft.com/overview/sales-number/) att öka maximal förfrågningar för din prenumeration.
+Följande är användningsbegränsningarna för Azure Maps-tjänsten. Information om kostnaden finns i [Azure Maps prisinformation](https://azure.microsoft.com/pricing/details/azure-maps/). [Kontakta oss](https://azure.microsoft.com/overview/sales-number/) för att öka den maximala förfrågningsfrekvensen för prenumerationen.
 
 | Resurs                              | Gräns |
 |---------------------------------------|:-----:|
-| Maximal förfrågningar per prenumeration |   50 begäranden per sekund  |
+| Maximal förfrågningsfrekvens per prenumeration |   50 begäranden per sekund  |

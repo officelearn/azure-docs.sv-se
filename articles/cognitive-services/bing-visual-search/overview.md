@@ -1,7 +1,7 @@
 ---
-title: 'Bing Visual Sök-API: översikt | Microsoft Docs'
+title: Bing Visual Search API-översikt | Microsoft Docs
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Visar hur du hämtar information eller information om en avbildning som liknande bilder eller shopping källor.
+description: Visar hur du hämtar information eller insikter om en bild som liknande bilder eller perioder källor.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -10,46 +10,46 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 95f10d8ea7ebe1d40d45231a8ea40df81543fe8b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: aa563d89b1834f5be952f13c31a2451d809709b1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354759"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006537"
 ---
-# <a name="what-is-bing-visual-search-api"></a>Vad är Bing Visual Sök API?
+# <a name="what-is-bing-visual-search-api"></a>Vad är API för Bing Visual Search?
 
-Bing Visual Sök API ger en upplevelse som liknar bilden uppgifterna på Bing.com/images. Med Visual Search du överför en bild och få tillbaka insikter om avbildningen som visuellt liknande bilder, shopping källor, webbsidor som innehåller bilden och mycket mer. I stället för att ladda upp en bild, du kan också tillhandahålla en insikter token som du får från en avbildning i sökresultaten avbildningar (se [Bing bilder API](../bing-image-search/overview.md)).
+Bing Visual Search-API ger en upplevelse som liknar avbildningsdetaljerna som visas på Bing.com/images. Med Visual Search kan du ladda upp en bild och få tillbaka insikter om avbildningen som snarlika bilder, perioder källor, webbsidor som innehåller bilden och mycket mer. I stället för att ladda upp en avbildning kan du även ange en token för insikter som du får från en avbildning i sökresultaten avbildningar (se [bilder i Bing](../bing-image-search/overview.md)).
 
-Visual sökning kan identifiera Kändisars, minnesmärken och landmärken, bilder, heminredning, sätt, produkter, (teckenläsning) och mycket mer.
+Visuell sökning kan identifiera kändisar, monument och landmärken, konstverk, heminredning, dirigering, produkter, teckenläsning (OCR) och mer.
 
-Följande är de insikter som Visual Search kan du identifiera.
+Följande är de insikter som att Visual Search kan du upptäcka.
 
-- Visuellt liknande bilder&mdash;en lista över avbildningar som liknar visuellt inkommande avbildningen
-- Visuellt liknande produkter&mdash;en lista över avbildningar som innehåller produkter som visuellt liknar den produkt som anges i källbilden
-- Shopping källor&mdash;en lista med platser där du kan köpa det objekt som visas i källbilden
-- Relaterade sökningar&mdash;en lista över relaterade sökningar som gjorts av andra eller som är baserade på innehållet i avbildningen
-- Webbsidor som innehåller bilden&mdash;en lista över webbsidor som innehåller den inkommande bilden
-- Recept&mdash;en lista över webbsidor som innehåller recept för att göra rätten visas i källbilden
+- Snarlika bilder&mdash;en lista med avbildningar som är visuellt liknar av inmatad bild
+- Visuellt likartade produkter&mdash;en lista med avbildningar som innehåller produkter som är visuellt likartade till produkten på inkommande bild
+- Shopping källor&mdash;en lista över platser där du kan köpa objektet visas i den inkommande bilden
+- Relaterade sökningar&mdash;en lista med relaterade sökningar som gjorts av andra eller som är baserat på innehållet i avbildningen
+- Webbsidor med avbildningen&mdash;en lista över webbsidor som innehåller inmatad bild
+- Recept&mdash;en lista över webbsidor som innehåller recept för att göra rätten på inkommande bild
 
-Förutom dessa insikter returnerar Visual Sök också en mängd olika villkor (taggar) som härletts från den inkommande bilden. Dessa taggar Tillåt användare att utforska begrepp som hittades i avbildningen. Om inkommande bilden är av en berömda Idrottare, en taggar kan vara namnet på Idrottare, en annan tagg kunde sport. Eller, om indata bilden är av en apple cirkel, taggarna kunde Apple cirkeldiagram och pajer, desserter, så att användare kan utforska relaterade begrepp.
+Förutom dessa insikter returnerar Visual Search också en mängd olika villkor (taggar) som härletts från inmatad bild. Dessa taggar kan du utforska koncepten finns i avbildningen. Till exempel inmatad bild är av en berömda Idrottare, en av taggarna kan vara namnet på Idrottare, en annan tagg kan vara sport. Eller, om inmatad bild är av en apple-cirkel, taggarna kan Apple cirkel, Pies, efterrätter, så att användare kan utforska besläktade begrepp.
 
-Visual sökresultatet innehåller också avgränsar kryssrutorna för områden av intresse för bilden. Till exempel kan bilden innehåller flera Kändisars, resultaten vara avgränsar rutor för varje identifierad Kändisars i bilden. Eller, om Bing känner av en produkt eller kläder i avbildningen kan resultatet kan omfatta avgränsningsram för tolkade produkt eller kläder objektet.
+Visual sökresultatet innehåller också avgränsar rutorna för regioner intressanta i avbildningen. Till exempel om avbildningen innehåller flera kändisar, kan resultaten omfatta avgränsar rutorna för var och en av identifierade kändisar i avbildningen. Eller, om Bing känner av en produkt eller kläder i avbildningen kan resultatet kan innehålla en avgränsningsruta för den produkt som känns igen eller kläder objekt.
 
 > [!IMPORTANT]
-> Om du använder/bilder/information slutpunkten till [få insikter om bilden](../bing-image-search/image-insights.md), bör du uppdatera din kod för att använda Visual Sök i stället eftersom det ger mer omfattande insikter.
+> Om du använder/bilder/information om slutpunkten till [få information om bilder](../bing-image-search/image-insights.md), bör du uppdatera din kod för att använda visuell sökning i stället eftersom det ger mer omfattande insikter.
 
 
 ## <a name="the-request"></a>Begäran
 
-Följande är alternativen för att hämta information om en avbildning. 
+Här följer några alternativ för att få insikter om en bild. 
 
-- Skicka en insikter token som du får från en avbildning i ett tidigare anrop till en av de [Bing bilder API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) slutpunkter
-- Skicka URL till en bild
-- Överför en bild (binär)
+- Skicka en insights-token som du får från en avbildning i ett tidigare anrop till en av de [bilder i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) slutpunkter
+- Skicka Webbadressen till en bild
+- Ladda upp en bild (binär)
 
 
-Om du skickar Visual Sök en bild-token eller en URL, visas följande JSON-objekt som måste inkluderas i brödtexten för efter. 
+Om du skickar Visual Search en bild-token eller en URL, visar följande JSON-objekt som måste inkluderas i brödtexten i INLÄGGET. 
 
 ```json
 {
@@ -71,67 +71,67 @@ Om du skickar Visual Sök en bild-token eller en URL, visas följande JSON-objek
 }
 ```
 
-Den `imageInfo` objekt måste innehålla antingen den `url` och `imageInsightsToken` fältet men inte båda. Ange den `url` fältet till en tillgänglig Internet-bild-URL. Maximala stöds bildens storlek är 1 MB.
+Den `imageInfo` objekt måste innehålla antingen den `url` eller `imageInsightsToken` fält, men inte båda. Ange den `url` fältet till en Internet-tillgänglig bild-URL. Maximal stöds avbildningens storlek är 1 MB.
 
-Den `imageInsightsToken` måste anges till en insights-token. Anropa Bing avbildningen API för att få en token för insikter. Svaret innehåller en lista över `Image` objekt. Varje `Image` objektet innehåller en `imageInsightsToken` som innehåller token.
+Den `imageInsightsToken` måste anges till en insights-token. Anropa API för Bing-bild för att få en token för insights. Svaret innehåller en lista över `Image` objekt. Varje `Image` objektet innehåller en `imageInsightsToken` fält som innehåller token.
 
-Den `cropArea` fältet är valfritt. Beskär område anger övre, vänstra hörnet och längst ned, till höger i en region av intresse. Ange värdena i intervallet 0,0 till 1,0. Värdena är en del av den totala bredden eller höjden. Till exempel markerar i ovanstående exempel höger halvan av bilden som intressant område. Inkludera den om du vill begränsa insikter begäran till regionen av intresse.
+Den `cropArea` fältet är valfritt. Beskärningsområdet anger övre, vänstra hörnet och längst ned, högra hörnet i en region i närheten. Ange värden i intervallet 0,0 till och med 1.0. Värdena som är en del av den totala bredden eller höjden. Till exempel markerar exemplet ovan höger hälften av avbildningen som det intressanta området. Inkludera den om du vill begränsa insights-begäran till det intressanta området.
 
-Den `filters` objekt innehåller ett filter för webbplatsen (finns i `site` fält) som du kan använda för att begränsa liknande bilder och liknande produkter resultat till en specifik domän. Till exempel om bilden är av en Surface Book, du kan ange `site` till www.microsoft.com. 
+Den `filters` objektet innehåller ett plats-filter (se den `site` fältet) som du kan använda för att begränsa liknande bilder och liknande produkter resultat till en specifik domän. Till exempel om avbildningen är av en Surface Book, du kan ange `site` till www.microsoft.com. 
 
-Överför avbildningen som binära data om du vill få insikter om en lokal kopia av en bild.
+Om du vill hämta insikter om en lokal kopia av en avbildning kan du överföra avbildningen som binära data.
 
-Mer information om dessa alternativ, inklusive i själva efter finns [innehållstyper formuläret](#content-form-types).
+Mer information om att inkludera dessa alternativ i brödtexten i INLÄGGET finns i [innehållstyper som formuläret](#content-form-types).
 
 
 ### <a name="endpoint"></a>Slutpunkt
 
-Visual Sök-slutpunkten är: https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/visualsearch.
+Visual Search-slutpunkten är: https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/visualsearch.
 
-Förfrågningar måste skickas som en HTTP POST-begäranden. 
+Begäranden måste skickas som HTTP POST-begäranden. 
 
 
 ### <a name="query-parameters"></a>Frågeparametrar
 
-Följande är din begäran ska ange frågeparametrar. Du bör ta minst den `mkt` Frågeparametern.
+Här följer din begäran bör ange frågeparametrar. Du bör innehålla minst de `mkt` frågeparameter.
 
 |Namn|Värde|Typ|Krävs|  
 |----------|-----------|----------|--------------|  
-|<a name="cc" />kopia|En 2-tecknet landskoden för det land där resultatet kommer från.<br /><br /> Om du anger den här parametern, måste du också ange den [acceptera språk](#acceptlanguage) huvud. Bing används det första språk som stöds den hittar från en lista med språk och kombinerar språket landskoden som du anger för att fastställa att returnera resultat från marknaden. Om listan språk inte innehåller ett språk som stöds, hittar Bing närmaste språk och marknaden som har stöd för begäran. Eller kan använda en aggregerade eller standard marknaden resultat i stället för det angivna.<br /><br /> Du bör använda den här Frågeparametern och `Accept-Language` Frågeparametern endast om du anger flera språk; i annat fall bör du använda den `mkt` och `setLang` fråga parametrar.<br /><br /> Den här parametern och [mkt](#mkt) frågeparameter är ömsesidigt uteslutande&mdash;inte ange båda.|Sträng|Nej|  
-|<a name="mkt" />mkt|Marknaden var resultatet ska hämtas. <br /><br /> **Obs:** du rekommenderas att alltid ange marknaden, om den är känd. Ange marknaden hjälper Bing vidarebefordra begäran och returnera ett lämpligt och optimala svar.<br /><br /> Den här parametern och [kopia](#cc) frågeparameter är ömsesidigt uteslutande&mdash;inte ange båda.|Sträng|Ja|  
-|<a name="safesearch" />säker sökning|Ett filter som används för att filtrera vuxet innehåll. Följande är möjliga skiftlägeskänsliga filtervärdena.<br /><ul><li>Inaktivera&mdash;returnera webbplatser med pornografiskt innehåll text och bilder.<br /><br/></li><li>Måttlig&mdash;returnera webbplatser med pornografiskt innehåll text, men inte vuxna bilder.<br /><br/></li><li>Strikt&mdash;inte returnerar webbplatser med pornografiskt innehåll text och bilder.</li></ul><br /> Standardvärdet är Måttlig.<br /><br /> **Obs:** om begäran kommer från en marknad som Bing vuxna principen kräver att `safeSearch` anges till Strict, Bing ignorerar det `safeSearch` värdet och använder Strict.<br/><br/>**Obs:** om du använder den `site:` frågeoperatorn, finns risken att svaret kan innehålla innehåll för vuxna oavsett vad de `safeSearch` frågeparameter har angetts till. Använd `site:` om du är medveten om innehållet på webbplatsen och ditt scenario stöder möjligheten att vuxet innehåll. |Sträng|Nej|  
-|<a name="setlang" />setLang|Språket som ska användas för gränssnittet användarsträngar. Ange språk med hjälp av koden 2 bokstäver ISO 639-1. Språkkod för engelska är till exempel EN. Standardvärdet är EN (på engelska).<br /><br /> Även om det är valfritt, bör du alltid ange språk. Normalt anger du `setLang` till samma språk som anges av `mkt` om användaren vill användarsträngar för gränssnitt som visas i ett annat språk.<br /><br /> Den här parametern och [acceptera språk](#acceptlanguage) huvud är ömsesidigt uteslutande&mdash;inte ange båda.<br /><br /> En användare gränssnittet strängen är en sträng som används som en etikett i ett användargränssnitt. Det finns några användare gränssnittet strängar i JSON-svar-objekt. Alla länkar till Bing.com egenskaper i svaret objekt gäller också det angivna språket.|Sträng|Nej| 
+|<a name="cc" />kopia|En 2-tecknet landskoden för det land där resultatet kommer från.<br /><br /> Om du anger parametern, måste du även ange den [acceptera språk](#acceptlanguage) rubrik. Bing använder det första språk som stöds det hittar i listan över språk och kombinerar det språk med landskoden som du anger för att fastställa att returnera resultat från marknaden. Om listan över språk som inte innehåller ett språk som stöds hittar Bing närmaste språk och marknaden som har stöd för begäran. Eller den kan använda en sammansatt eller standard marknaden för resultat i stället för den angivna.<br /><br /> Du bör använda den här Frågeparametern och `Accept-Language` frågeparameter endast om du anger flera språk, i annat fall bör du använda den `mkt` och `setLang` Frågeparametrar.<br /><br /> Den här parametern och [mkt](#mkt) Frågeparametern är ömsesidigt uteslutande&mdash;inte ange båda.|Sträng|Nej|  
+|<a name="mkt" />mkt|Marknaden var resultatet kommer från. <br /><br /> **Obs:** du uppmanas att ange alltid marknaden, om det är möjligt. Ange marknaden hjälper Bing dirigera begäran och returnera ett lämpligt och optimal svar.<br /><br /> Den här parametern och [cc](#cc) Frågeparametern är ömsesidigt uteslutande&mdash;inte ange båda.|Sträng|Ja|  
+|<a name="safesearch" />säker sökning|Ett filter som används för att filtrera innehåll för vuxna. Här följer möjliga skiftlägeskänsliga filtervärdena.<br /><ul><li>Inaktivera&mdash;returnera webbsidor med vuxet text eller bilder.<br /><br/></li><li>Måttlig&mdash;returnera webbsidor med vuxet text, men inte vuxen avbildningar.<br /><br/></li><li>Strikt&mdash;inte returnerar webbsidor med vuxet text eller bilder.</li></ul><br /> Standardvärdet är Måttlig.<br /><br /> **Obs:** om förfrågan kommer från en marknad som Bing vuxet principen kräver att `safeSearch` vara inställd på strikt, Bing ignorerar den `safeSearch` värde och använder Strict.<br/><br/>**Obs:** om du använder den `site:` fråga-operator, finns risken att svaret kan innehålla vuxet innehåll, oavsett vad de `safeSearch` Frågeparametern är inställd. Använd `site:` endast om du är känner av innehållet på webbplatsen och ditt scenario har stöd för möjligheten att vuxet innehåll. |Sträng|Nej|  
+|<a name="setlang" />setLang|Språket som ska användas för användaren gränssnittet strängar. Ange vilket språk med hjälp av ISO 639-1 2 bokstäver språkkoden. Språkkod för engelska är till exempel EN. Standardvärdet är EN (på engelska).<br /><br /> Även om det är valfritt, bör du alltid ange språket. Normalt anger du `setLang` på samma språk som anges av `mkt` om inte användaren vill användaren gränssnittet strängar som visas i ett annat språk.<br /><br /> Den här parametern och [acceptera språk](#acceptlanguage) rubrik är ömsesidigt uteslutande&mdash;inte ange båda.<br /><br /> En användare gränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användaren gränssnittet strängar i JSON-svar-objekt. Alla länkar till Bing.com egenskaper i svarsobjekten gäller även, det angivna språket.|Sträng|Nej| 
 
 ### <a name="headers"></a>Sidhuvuden
 
-Följande är sidhuvuden som din begäran ska anges. Content-Type och Ocp-Apim-prenumeration-nyckel huvuden är endast obligatoriska huvuden men du bör också innehålla användaragent, ClientID-MSEdge-X, X-MSEdge-ClientIP och X sökplats.
+Följande är de rubriker som din begäran bör ange. Content-Type och Ocp-Apim-Subscription-Key-huvuden är de enda obligatoriska rubrikerna men du bör också innehålla användar-Agent, X-MSEdge-ClientID, X-MSEdge-ClientIP och X sökplats.
 
 
 |Sidhuvud|Beskrivning|  
 |------------|-----------------|  
-|<a name="acceptlanguage" />Acceptera språk|Valfria begärandehuvudet.<br /><br /> En kommaavgränsad lista över språk som ska användas för gränssnittet användarsträngar. Listan är i fallande preferensordning. Mer information, inklusive förväntat format finns i [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Det här huvudet och [setLang](#setlang) frågeparameter är ömsesidigt uteslutande&mdash;inte ange båda.<br /><br /> Om du anger det här sidhuvudet, måste du också ange den [kopia](#cc) Frågeparametern. För att fastställa marknaden att returnera resultat för Bing använder det första språket den söker efter i listan och kombineras med de `cc` parametervärdet. Om listan inte innehåller ett språk som stöds, Bing hittar närmaste språk och marknaden som har stöd för begäran eller den använder en aggregerade eller standard marknaden för resultat. För att fastställa marknaden som används för Bing finns i rubriken BingAPIs marknaden.<br /><br /> Använd den här rubriken och `cc` Frågeparametern endast om du anger flera språk. Annars kan du använda den [mkt](#mkt) och [setLang](#setlang) fråga parametrar.<br /><br /> En användare gränssnittet strängen är en sträng som används som en etikett i ett användargränssnitt. Det finns några användare gränssnittet strängar i JSON-svar-objekt. Alla länkar till Bing.com egenskaper i svaret objekt gäller det angivna språket.|  
-|<a name="contenttype" />Innehållstyp|Nödvändiga begärandehuvudet.<br /><br />Måste anges till multipart-formulärdata och inkludera en gränsparameter (till exempel multipart-formulärdata; boundary =\<gräns sträng\>). Mer information finns i [innehållstyper formuläret](#content-form-types).
-|<a name="market" />BingAPIs marknaden|Svarsrubrik.<br /><br /> Marknaden som används av begäran. Formuläret är \<languageCode\>-\<countryCode\>. Till exempel en-US.|  
-|<a name="traceid" />BingAPIs TraceId|Svarsrubrik.<br /><br /> ID för loggposten som innehåller information om begäran. När ett fel uppstår avbilda detta ID. Om det inte går att identifiera och lösa problemet, inkludera detta ID tillsammans med den information som du anger supportgruppen.|  
-|<a name="subscriptionkey" />OCP-Apim-prenumeration-nyckel|Nödvändiga begärandehuvudet.<br /><br /> Nyckeln prenumeration som du fick när du registrerat dig för den här tjänsten i [kognitiva Services](https://www.microsoft.com/cognitive-services/).|  
-|<a name="pragma" />Pragma|Valfritt begärandehuvudet<br /><br /> Som standard returnerar Bing cachelagrat innehåll om det är tillgängligt. Ange rubriken Pragma till no cache för att förhindra att Bing returnerar cachelagrat innehåll (till exempel Pragma: no-cache).
-|<a name="useragent" />Användaragent|Valfria begärandehuvudet.<br /><br /> Användaragent som skapade begäran. Bing använder användaragenten för mobila användare med en optimerad upplevelse. Även om det är valfritt, uppmanas du att ange alltid det här sidhuvudet.<br /><br /> Användaragent ska vara samma sträng som används ofta webbläsare skickar. Information om användaragenter finns [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Följande är exempel på användaragent strängar.<br /><ul><li>Windows Phone&mdash;Mozilla/5.0 (kompatibel; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)<br /><br /></li><li>Android&mdash;Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; SCH-I500 Build/PEPPARKAKOR) AppleWebKit/533.1 (KHTML; som Gecko) Version/4.0 Mobile Safari/533.1<br /><br /></li><li>iPhone&mdash;Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 som Mac OS X) AppleWebKit/536.26 (KHTML; som Gecko) Mobile/10B142 iPhone4; 1 BingWeb/3.03.1428.20120423<br /><br /></li><li>PC&mdash;Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) som Gecko<br /><br /></li><li>iPad&mdash;Mozilla/5.0 (iPad; CPU-OS 7_0 som Mac OS X) AppleWebKit/537.51.1 (t.ex. Gecko KHTML) Version/7.0 Mobile/11A465 Safari/9537.53</li></ul>|
-|<a name="clientid" />X-MSEdge-ClientID|Valfria huvud för begäran och svar.<br /><br /> Bing använder den här rubriken för att ge användarna en konsekvent beteende i Bing-API-anrop. Bing flygningar ofta nya funktioner och förbättringar och klient-ID används som en nyckel för att tilldela trafik på olika flygplan. Om du inte använder samma klient-ID för en användare över flera förfrågningar, kan sedan Bing tilldela användaren till flera motstridiga flygplan. Tilldelas till flera motstridiga flygplan kan leda till ett inkonsekvent användarupplevelsen. Om andra begäran har en annan svarta tilldelning än först, till exempel vara upplevelsen oväntat. Bing kan också använda klient-ID för att skräddarsy Webbresultat klienten ID Sök tidigare, vilket ger en bättre upplevelse för användaren.<br /><br /> Bing använder också den här rubriken för att förbättra resultatet rangordning genom att analysera aktiviteten som genererats av ett klient-ID. Förbättringar av betydelse hjälpa med bättre resultat som levereras med Bing-API: er och i sin tur aktiverar högre klicka igenom priser för API-klienten.<br /><br /> **Viktigt:** även om det är valfritt, bör du det här sidhuvudet krävs. Beständighet klient-ID över flera förfrågningar för samma användare och enhet kombination kan 1) API klienten att ta emot en konsekvent användarupplevelse och 2) högre klicka igenom priser via bättre kvalitet av resultat från Bing-API: er.<br /><br /> Följande är de grundläggande användningsregler som gäller för det här sidhuvudet.<br /><ul><li>Varje användare som använder ditt program på enheten måste ha ett unikt, Bing skapas klient-ID.<br /><br/>Om du inte använder det här huvudet i begäran Bing genererar ett ID och returnerar i X-MSEdge-ClientID-Svarsrubrik. Den enda gången som du inte bör inkludera det här huvudet i en begäran är första gången användaren använder din app på enheten.<br /><br/></li><li>**Obs:** måste du se till att detta klient-ID inte är linkable till alla autentiserade användarkontoinformation.</li><li>Använda klient-ID för varje begäran i Bing-API som gör att din app för denna användare på enheten.<br /><br/></li><li>Spara klient-ID. För att bevara ID i en webbläsaren att använda en beständig HTTP-cookie för detta ID används i alla sessioner. Använd inte en sessions-cookie. För andra appar, till exempel mobilappar, använder du enhetens beständig lagring för att bevara ID.<br /><br/>Nästa gång användaren använder din app på enheten, hämta klient-ID som du sparade.</li></ul><br /> **Obs:** Bing svar kanske eller kanske inte med det här sidhuvudet. Om svaret innehåller det här sidhuvudet, avbilda klient-ID och använda det för alla efterföljande Bing-förfrågningar för användare på enheten.<br /><br /> **Obs:** om du inkluderar X-MSEdge-ClientID, får inte innehålla cookies i begäran.|  
-|<a name="clientip" />X-MSEdge-ClientIP|Valfria begärandehuvudet.<br /><br /> Klientenheten IPv4 eller IPv6-adress. IP-adressen används för att identifiera användarens plats. Bing använder Platsinformationen för att fastställa säker sökbeteendet.<br /><br /> **Obs:** även om det är valfritt, du uppmanas att ange alltid detta huvud och huvudet X sökplats.<br /><br /> Obfuscate inte adressen (till exempel genom att ändra den sista oktetten 0). Obfuscating adress resultaten på den plats som inte var som helst nära enhetens verkliga plats, vilket kan medföra Bing betjänar felaktiga resultat.|  
-|<a name="location" />X sökplats|Valfria begärandehuvudet.<br /><br /> En semikolonavgränsad lista över nyckel/värde-par som beskriver klientens geografisk plats. Bing använder platsinformation för att fastställa säker sökbeteendet och returnera relevanta lokalt innehåll. Ange nyckel/värde-par som \<nyckeln\>:\<värdet\>. Följande är de nycklar som används för att ange användarens plats.<br /><br /><ul><li>lat&mdash;krävs. Latitud för klientens plats i grader. Latitud måste vara större än eller lika med-90.0 och mindre än eller lika med +90.0. Negativa värden anger södra latituderna och positiva värden anger norra latituderna.<br /><br /></li><li>lång&mdash;krävs. Longituden för klientens plats i grader. Longituden måste vara större än eller lika med-180.0 och mindre än eller lika med +180.0. Negativa värden anger western longitudes och positiva värden anger eastern longitudes.<br /><br /></li><li>RE&mdash;krävs. Radien, i meter, som anger koordinaterna vågräta noggrannhet. Skicka värdet som returneras av enhetens platstjänsten. Typiska värdena kan vara 22m för GPS-WiFi, 380m för cellen torn triangulering och 18 000 m för omvänd sökning av IP.<br /><br /></li><li>TS&mdash;valfria. UNIX UTC-tidsstämpel för när klienten har på plats. (UNIX-tidsstämpel är antalet sekunder sedan den 1 januari 1970.)<br /><br /></li><li>HEAD&mdash;valfritt. Klientens relativa rubrik eller resa riktning. Ange riktningen för resa som grader från 0 till 360, inventering medurs i förhållande till true Nord. Ange den här nyckeln om den `sp` nyckel är noll.<br /><br /></li><li>SP&mdash;valfria. Den vågräta hastigheten (hastighet) i meter per sekund som färdas klientenheten.<br /><br /></li><li>ALT&mdash;valfritt. Klientenheten i meter höjd.<br /><br /></li><li>är&mdash;valfritt. Radien, i meter, som anger den lodräta riktigheten koordinaterna. Ange den här nyckeln om du anger den `alt` nyckel.<br /><br /></li></ul> **Obs:** men många nycklarna är valfritt, det mer information som du anger desto mer exakt plats är.<br /><br /> **Obs:** även om det är valfritt, du uppmanas att alltid ange användarens geografisk plats. Att tillhandahålla platsen är särskilt viktigt om klientens IP-adress inte korrekt speglar användarens fysisk plats (till exempel om klienten använder VPN). För bästa resultat bör du bör ta med detta huvud och huvudet X-MSEdge-ClientIP, men minst bör du ta med det här sidhuvudet.|
+|<a name="acceptlanguage" />Acceptera språk|Valfria rubriken.<br /><br /> En kommaavgränsad lista över språk som ska användas för användaren gränssnittet strängar. Listan är i fallande prioritetsordning. Läs mer om, inklusive förväntade formatet [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Den här rubriken och [setLang](#setlang) Frågeparametern är ömsesidigt uteslutande&mdash;inte ange båda.<br /><br /> Om du ställer in den här rubriken, måste du även ange den [cc](#cc) frågeparameter. För att fastställa på marknaden och returnera resultat för Bing använder det första språk som stöds det söker efter i listan och kombinerar det med den `cc` parametervärde. Om listan inte innehåller ett språk som stöds, Bing hittar närmaste språk och marknaden som har stöd för begäran eller den använder en sammansatt eller default marknaden för resultaten. För att avgöra på marknaden som används i Bing, finns i rubriken BingAPIs marknad.<br /><br /> Använd den här rubriken och `cc` frågeparameter endast om du anger flera språk. Annars kan du använda den [mkt](#mkt) och [setLang](#setlang) Frågeparametrar.<br /><br /> En användare gränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användaren gränssnittet strängar i JSON-svar-objekt. Alla länkar till Bing.com egenskaper i svarsobjekten gäller det angivna språket.|  
+|<a name="contenttype" />Innehållstyp|Nödvändiga begärandehuvudet.<br /><br />Måste vara inställt på multipart/form-data och inkludera en gränsparameter (till exempel multipart/form-data; gräns =\<gräns sträng\>). Mer information finns i [innehållstyper som formuläret](#content-form-types).
+|<a name="market" />BingAPIs marknad|Svarshuvudet.<br /><br /> På marknaden som används av begäran. Formuläret är \<languageCode\>-\<countryCode\>. Till exempel en-US.|  
+|<a name="traceid" />BingAPIs TraceId|Svarshuvudet.<br /><br /> ID för loggposten som innehåller information om begäran. När ett fel uppstår, avbilda detta ID. Om det inte går att fastställa och lösa problemet, kan du ange följande ID tillsammans med annan information som du anger supporten.|  
+|<a name="subscriptionkey" />OCP-Apim-Subscription-Key|Nödvändiga begärandehuvudet.<br /><br /> Prenumerationsnyckel som du fick när du registrerat dig för den här tjänsten i [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
+|<a name="pragma" />Pragma|Begärandehuvud i valfritt<br /><br /> Bing returnerar cachelagrat innehåll om de är tillgängliga som standard. Om du vill förhindra att Bing returnera cachelagrat innehåll, ange rubriken Pragma till no cache (till exempel Pragma: no-cache).
+|<a name="useragent" />Användaragent|Valfria rubriken.<br /><br /> Användaragenten skapade begäran. Bing använder användaragenten för att tillhandahålla mobila användare med en optimerad upplevelse. Även om det är valfritt, uppmuntras du att alltid ange den här rubriken.<br /><br /> Användaragenten ska vara samma sträng som skickar alla vanliga webbläsare. Läs om hur användaragenter [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Här följer några exempel på användaren agent strängar.<br /><ul><li>Windows Phone&mdash;Mozilla/5.0 (kompatibel; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)<br /><br /></li><li>Android&mdash;Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; SCH-I500 Build/PEPPARKAKOR) AppleWebKit/533.1 (KHTML; som Gecko) Version/4.0 Mobile Safari/533.1<br /><br /></li><li>iPhone&mdash;Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 som Mac OS X) AppleWebKit/536.26 (KHTML; som Gecko) Mobile/10B142 iPhone4; 1 BingWeb/3.03.1428.20120423<br /><br /></li><li>PC&mdash;Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0 Touch; rv:11.0) som Gecko<br /><br /></li><li>iPad&mdash;Mozilla/5.0 (iPad; CPU-OS 7_0 som Mac OS X) AppleWebKit/537.51.1 (t.ex. Gecko KHTML) Version/7.0 Mobile/11A465 Safari/9537.53</li></ul>|
+|<a name="clientid" />X-MSEdge-ClientID|Valfria rubriken för begäran och svar.<br /><br /> Bing använder den här rubriken för att ge användarna konsekvent beteende i Bing API-anrop. Bing flygningar ofta nya funktioner och förbättringar och klient-ID används som en nyckel för att tilldela trafik på olika flyg. Om du inte använder samma klient-ID för en användare över flera förfrågningar, kan sedan Bing tilldela användaren till flera motstridiga flyg. Tilldelas till flera motstridiga flyg kan leda till en inkonsekvent användarupplevelse. Om andra begäran har en annan flygning uppdrag än först, till exempel vara upplevelsen oväntat. Bing kan också använda klient-ID för att skräddarsy Webbresultat till den klienten-ID: n sökhistorik, vilket ger en rikare upplevelse för användaren.<br /><br /> Bing använder också den här rubriken för att förbättra resultatet rangordning genom att analysera aktiviteten som genererats av en klient-ID. Förbättringar för relevans hjälpa med bättre resultat som levereras av Bing-API: er och i sin tur aktiverar högre klicka igenom priser för API-konsument.<br /><br /> **Viktigt:** även om det är valfritt, bör du överväga att den här rubriken som krävs. Spara klient-ID över flera förfrågningar för samma användare och enhet kombination kan (1) API konsumenten att ta emot en konsekvent användarupplevelse och 2) högre klicka igenom kostnader via bättre kvalitet med resultat från Bing-API: er.<br /><br /> Följande är de grundläggande användningsregler som gäller för den här rubriken.<br /><ul><li>Varje användare som använder ditt program på enheten måste ha ett unikt, Bing skapas klient-ID.<br /><br/>Om du inte använder den här rubriken i begäran Bing genererar ett ID och returnerar det i rubriken X-MSEdge-ClientID. Den enda gången som du inte får innehålla den här rubriken i en begäran är första gången du använder din app på enheten.<br /><br/></li><li>**Observera:** måste du se till att detta klient-ID inte är linkable till valfri autentiserad användarkontoinformation.</li><li>Använda klient-ID för varje API för Bing-begäran där din app för den här användaren på enheten.<br /><br/></li><li>Spara klient-ID. Använda en beständig HTTP-cookie för ID: T används i alla sessioner för att bevara ID i en browser-appen. Använd inte en sessions-cookie. För andra appar, till exempel mobilappar, använder du enhetens beständig lagring för att bevara ID.<br /><br/>Nästa gång användaren använder appen på enheten, hämta klient-ID som du sparade.</li></ul><br /> **Obs:** Bing svar kanske eller kanske inte omfattar den här rubriken. Om svaret innehåller den här rubriken, avbilda klient-ID och använda det för alla efterföljande Bing-begäranden för användaren på enheten.<br /><br /> **Obs:** om du inkluderar X-MSEdge-ClientID, får inte innehålla cookies i begäran.|  
+|<a name="clientip" />X-MSEdge-ClientIP|Valfria rubriken.<br /><br /> Klientenheten IPv4 eller IPv6-adress. IP-adressen används för att identifiera användarens plats. Bing använder Platsinformationen för att bestämma beteendet för säker sökning.<br /><br /> **Obs:** även om det är valfritt, du uppmuntras att alltid ange den här rubriken och X-Search-Location-huvudet.<br /><br /> Förvräng inte adressen (till exempel genom att ändra den sista oktetten till 0). Dölja adress resultaten på den plats som inte var som helst nära enhetens verkliga plats, vilket kan resultera i Bing som betjänar felaktiga resultat.|  
+|<a name="location" />X-Sök-plats|Valfria rubriken.<br /><br /> En semikolonavgränsad lista med nyckel/värde-par som beskriver klientens geografisk plats. Bing använder platsinformationen att fastställa säker sökning beteende och returnera relevanta lokalt innehåll. Ange nyckel/värde-par som \<nyckel\>:\<värdet\>. Följande är de nycklar som används för att ange användarens plats.<br /><br /><ul><li>lat&mdash;krävs. Latitud för klientens plats i grader. Latitud måste vara större än eller lika med-90.0 och mindre än eller lika med +90.0. Negativa värden anger södra Latitude och positiva värden anger norra Latitude.<br /><br /></li><li>lång&mdash;krävs. Longitud för klientens plats i grader. Longitud måste vara större än eller lika med-180.0 och mindre än eller lika med +180.0. Negativa värden anger western longitudes och positiva värden anger östra longitudes.<br /><br /></li><li>RE&mdash;krävs. Radien, i meter, som anger vågrät riktighet koordinaterna. Skicka värdet som returneras av enhetens platstjänsten. Typiska värdena kan vara 22m för GPS/Wi-Fi, 380m för cellen tower triangulering och 18 000 m för omvänd IP-sökning.<br /><br /></li><li>TS&mdash;valfritt. UTC-UNIX-tidsstämpel för när klienten har på plats. (UNIX-tidsstämpel är antalet sekunder sedan den 1 januari 1970.)<br /><br /></li><li>HEAD&mdash;valfritt. Klientens relativa rubriken eller riktning resor. Ange riktning resor som grader från 0 till 360, räkna medurs i förhållande till SANT norra. Ange den här nyckeln endast om den `sp` nyckel är noll.<br /><br /></li><li>SP&mdash;valfritt. Den vågräta hastigheten (hastighet) i meter per sekund som färdas klientenheten.<br /><br /></li><li>ALT&mdash;valfritt. Klientenheten i meter höjd.<br /><br /></li><li>är&mdash;valfritt. Radien, i meter, som anger lodrät riktighet koordinaterna. Ange den här nyckeln endast om du anger den `alt` nyckel.<br /><br /></li></ul> **Obs:** även om många av nycklarna som är valfria, den information som du anger, desto mer exakta resultat för platsen är.<br /><br /> **Obs:** även om det är valfritt, du uppmuntras att alltid ange användarens geografiska plats. Att tillhandahålla platsen är särskilt viktigt om klientens IP-adress korrekt inte avspeglar användarens fysisk plats (till exempel om klienten använder VPN). För bästa resultat bör du inkludera den här rubriken och rubriken X-MSEdge-ClientIP, men minst bör du inkludera den här rubriken.|
 
 > [!NOTE] 
-> Kom ihåg att användningsvillkoren kräver följer alla tillämpliga lagar, inklusive om användning av dessa huvuden. Till exempel vissa jurisdiktioner, till exempel Europa, det finns i kraven för att hämta användarens medgivande innan släpps vissa spårning på användarens enheter.
+> Kom ihåg att användningsvillkoren Kräv efterlevnad med alla tillämpliga lagar, inklusive om användande av dessa rubriker. Till exempel vissa jurisdiktioner, till exempel Europa, det finns i kraven för att hämta användarens medgivande innan du placerar vissa spårnings-enheter på användarnas enheter.
 
 
 <a name="content-form-types" />
 
 ### <a name="content-form-types"></a>Typer av innehåll formulär
 
-Varje begäran måste innehålla ett Content-Type-huvudet. Huvudet måste anges till: multipart/form-data. gräns =\<gräns sträng\>, där \<gräns sträng\> är en unik, täckande sträng som identifierar gränsen för formulärdata. Till exempel gräns = boundary_1234 abcd.
+Varje begäran måste innehålla Content-Type-huvud. Huvudet måste anges till: multipart/form-data. gräns =\<gräns sträng\>, där \<gräns sträng\> är en unik, täckande sträng som identifierar gränsen för formuläret. Till exempel gräns = boundary_1234 abcd.
 
 
-Om du skickar Visual Sök en bild-token eller en URL, visar följande formulärdata måste du inkludera i brödtexten i INLÄGGET. Formulärdata måste innehålla rubriken Content-Disposition och dess `name` parametern måste anges till ”knowledgeRequest”. Mer information om den `imageInfo` objekt, se [begäran](#the-request).
+Om du skickar Visual Search en bild-token eller URL visas nedan formulärdata måste du inkludera i brödtexten i INLÄGGET. Formulärdata måste innehålla rubriken Content-Disposition och dess `name` parametern måste anges till ”knowledgeRequest”. Mer information om den `imageInfo` objekt, se [begäran](#the-request).
 
 
 ```
@@ -147,7 +147,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Om du överför en lokal image visas nedan formulärdata måste du inkludera i brödtexten i INLÄGGET. Formulärdata måste innehålla rubriken Content-Disposition. Dess `name` parametern måste anges till ”bild” och `filename` parameter kan anges till en sträng. Content-Type-huvudet kan anges till alla vanliga mime-bildtypen. Innehållet i formuläret är binär för bilden. Du kan ladda upp maximala bildstorleken är 1 MB. 
+Om du laddar upp en lokal avbildning visas nedan formulärdata måste du inkludera i brödtexten i INLÄGGET. Formulärdata måste innehålla Content-Disposition-huvudet. Dess `name` parametern måste anges till ”bild” och `filename` parameter kan anges till valfri sträng. Content-Type-huvudet kan anges till alla vanliga mime-bildtypen. Innehållet i formuläret är den binära filen på avbildningen. Maximal avbildningens storlek kan du överföra är 1 MB. Den största av bredden eller höjden ska vara 1 500 bildpunkter eller mindre.
 
 
 ```
@@ -160,7 +160,7 @@ Content-Type: image/jpeg
 --boundary_1234-abcd--
 ```
 
-Nedan visas hur du anger intressant överförda bildens område.
+Nedan visas hur du anger region of interest för en överförd avbildning.
 
 ```
 --boundary_1234-abcd
@@ -191,7 +191,7 @@ Content-Type: image/jpeg
 
 ### <a name="example-request"></a>Exempelbegäran
 
-Nedan visas en klar bild insikter begäran som skickar ett image-token och intressant område. Du kan få insikter-token från ett tidigare anrop till /images/search.
+Nedan visas en fullständig bild insights-begäran som skickar en bild-token och intressanta området. Du får insikter token vid ett tidigare anrop till /images/search.
 
 
 ```  
@@ -224,7 +224,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 
 ## <a name="the-response"></a>Svaret
 
-Om det finns insikter för avbildningen, svaret innehåller en eller flera `tags` som innehåller insikter. Den `image` fältet innehåller insikter token för inkommande avbildningen.
+Om det finns insikter för avbildningen, svaret innehåller en eller flera `tags` som innehåller insikterna. Den `image` fältet innehåller insikter token för inmatad bild.
 
 ```json
 {
@@ -242,7 +242,7 @@ Om det finns insikter för avbildningen, svaret innehåller en eller flera `tags
 }
 ```
 
-Den `tags` fältet innehåller ett visningsnamn och en lista med åtgärder (insikter). En av taggarna innehåller en `displayName` fält som har angetts till en tom sträng. Taggen innehåller insikter som standard, till exempel webbsidor som innehåller bilden, likartade bilder och shopping källor för objekt hittades i bilden. Eftersom hela bilden intressanta innehåller insikter Standardetiketten avgränsar kryssrutorna för regionerna av intresse.
+Den `tags` fält innehåller ett visningsnamn och en lista med åtgärder (insights). En av taggarna innehåller en `displayName` fält som har angetts till en tom sträng. Den här taggen innehåller insikterna som standard, till exempel webbsidor som innehåller den avbildning, snarlika bilder och perioder källor för poster som hittades i avbildningen. Eftersom hela bilden är av intresse, omfattar inte insikter Standardetiketten avgränsar rutorna för regionerna i närheten.
 
 
 ```json
@@ -269,19 +269,19 @@ Den `tags` fältet innehåller ett visningsnamn och en lista med åtgärder (ins
 }
 ```
 
-En lista över insikter som standard finns [standard insikter](./default-insights-tag.md).
+En lista över analyser som standard finns i [standard insights](./default-insights-tag.md).
 
 
 
-De återstående taggarna innehåller andra insikter som kan vara av intresse för användaren. Om bilden innehåller text, kan en av taggarna omfatta en TextResults kunskaper som innehåller den tolkade texten. Eller, om Bing känner igen en entitet (person, plats eller sak) i bilden, en av taggarna kan identifiera enheten. Visual Sök också returnerar en mängd olika villkor (taggar) som härletts från den inkommande bilden. Dessa taggar Tillåt användare att utforska begrepp som hittades i avbildningen. Till exempel om den inkommande avbildningen berömda Idrottare, kan ett taggar vara sport, som innehåller länkar till avbildningar av sport.
+Resten av taggarna innehålla andra insikter som kan vara av intresse för användaren. Om avbildningen innehåller text, kan en av taggarna omfatta en TextResults och förståelse, som innehåller den tolkade texten. Eller, om Bing känner igen en entitet (person, plats eller sak) i bild, en av taggarna kan identifiera entiteten. Visuell sökning returnerar också en mängd olika villkor (taggar) som härletts från inmatad bild. Dessa taggar kan du utforska koncepten finns i avbildningen. Till exempel om det är avbildningen av en berömda Idrottare, kan en av taggarna vara sport, som innehåller länkar till bilder av sport.
 
-Varje tagg innehåller ett visningsnamn som du kan använda för att kategorisera insight, angränsande ruta som identifierar regionen intresse som gäller information och insikter själva en miniatyrbild för bilden. Om avbildningen är av en person med en sport jersey, kan en taggar innehålla en avgränsningsram som utrymmet på jersey och innehåller VisualSearch och ProductVisualSearch insikter. Och en annan tagg kan innehålla överblick ImageResults som innehåller en URL för en /images/search API-begäran att hämta avbildningar som är relaterade appliceras eller en Bing.com URL som tar användaren att sökresultaten Bing.com avbildningen.
+Varje tagg innehåller ett visningsnamn som du kan använda för att kategorisera den inblick och förståelse, angränsande ruta som identifierar regionen av intresse som insikter som gäller för insikterna som själva och en miniatyrbild för avbildningen. Om avbildningen är av en person med en sport jersey, kan en av taggarna innehålla en avgränsningsruta som utrymmet på jersey och innehåller VisualSearch och ProductVisualSearch insikter. Och en annan tagg kan innehålla ImageResults insikter som innehåller en URL för ett /images/search API-begäran att hämta avbildningar som är relaterade appliceras eller en Bing.com URL som leder användaren till bildsökningsresultat för Bing.com.
 
-Alla taggar än insikter Standardtaggen omfattar avgränsar rutor som identifierar områden av intresse för bilden. Till exempel om bilden innehåller flera tolkade personer, taggar kan omfatta avgränsar rutor för var och en av personerna eller om bilden innehåller tolkade kläder objekt, taggar kan omfatta avgränsar kryssrutorna för varje identifierad kläder-objekt. Du kan använda rutorna omgivande innehåller information om innehållet i den regionen där bilden om du vill skapa aktiva punkter över bilden som när du klickar på. Du bör inte innehålla aktiva punkter i en bild för omgivande rutor som identifierar hela bilden.
+Alla taggar än insikter Standardetiketten är bland annat avgränsar rutor som identifierar områden av intresse för avbildningen. Till exempel om avbildningen innehåller flera identifierade personer, taggar kan innehålla avgränsar rutorna för var och en av personerna eller om avbildningen innehåller erkända kläder objekt, taggar kan innehålla avgränsar rutorna för varje erkända kläder-objekt. Du kan använda rutorna omgivande om du vill skapa aktiva punkter jämfört med avbildningen som när du klickar på innehåller information om innehållet i den regionen för avbildningen. Du får inte innehålla aktiva punkter i en bild för omgivande rutor som identifierar hela bilden.
 
 ### <a name="text-recognition"></a>Textigenkänning
 
-Om bilden innehåller text som identifierar tjänsten, innehåller en av taggarna en TextResults insight (åtgärd). Information `displayName` innehåller den tolkade texten. 
+Om avbildningen innehåller text som tjänsten känner igen, innehåller en av taggarna en TextResults insight (åtgärd). Insikter `displayName` innehåller den tolkade texten. 
 
 ```json
     {
@@ -311,10 +311,10 @@ Om bilden innehåller text som identifierar tjänsten, innehåller en av taggarn
     }
 ```
 
-Eftersom taggen `displayName` fältet innehåller ##TextRecognition Använd inte det som en kategori title i UX. Att försätta för alla namn som börjar med ##. I stället använda åtgärdens namn.
+Eftersom taggen `displayName` fältet innehåller ##TextRecognition, Använd inte som en kategorirubrik i UX. Att sak går för alla Visa namn som börjar med ##. I stället använda åtgärdens namn.
 
 
-Text recognition kan identifiera kontaktinformation på visitkort, till exempel telefonnummer och e-postadresser. Markeringsrutan identifierar platsen för kontaktinformation på kortet. 
+Textigenkänning kan också identifiera kontaktuppgifter för företag-kort, till exempel telefonnummer och e-postadresser. Rutan anger kontaktuppgifter för kortet. 
 
 ```json
     {
@@ -400,7 +400,7 @@ Text recognition kan identifiera kontaktinformation på visitkort, till exempel 
     }
 ```
 
-Om bilden innehåller en känd enhet, till exempel en person, en plats eller en sak, omfatta en av taggarna en entitet analys. Enheter kan också innehålla kunskap som visas i följande exempel:
+Om bilden innehåller en känd enhet till exempel en person, plats eller sak, kan en av taggarna omfatta en entitet insikt. 
 
 ```json
     {
@@ -428,29 +428,6 @@ Om bilden innehåller en känd enhet, till exempel en person, en plats eller en 
           "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Statue+of+Liberty",
           "displayName" : "Statue of Liberty",
           "actionType" : "Entity",
-        },
-        {
-          "_type" : "ImageModuleAction",
-          "actionType" : "Trivia",
-          "data" : {
-            "value" : [
-              {
-                "name" : "Where was the cornerstone of the statue of liberty laid",
-                "text" : "<the answer>",
-                "hostPageUrl" : "http:\/\/contoso.com\/history\/...",
-              },
-              {
-                "name" : "Why Is the Statue of Liberty Green",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/why-statue-of-liberty-is-green",
-              },
-              {
-                "name" : "What is the Statue of Liberty made of",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/art-literature\/statue-liberty-made",
-              }
-            ]
-          }
         }
       ]
     }
@@ -460,13 +437,13 @@ Om bilden innehåller en känd enhet, till exempel en person, en plats eller en 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill komma igång snabbt med din första begäran finns i Snabbstart: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md).
+Om du vill komma igång snabbt med din första begäran kan se Snabbstart: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md).
 
-Prova att använda API: et. Gå till [Visual Sök API Testing-konsolen](https://dev.cognitive.microsoft.com/docs/services/878c38e705b84442845e22c7bff8c9ac). 
+Prova att använda API: et. Gå till [Visual Search API Testing-konsolen](https://dev.cognitive.microsoft.com/docs/services/878c38e705b84442845e22c7bff8c9ac). 
 
 
-Bekanta dig med de [API-referens för Visual Sök](https://aka.ms/bingvisualsearchreferencedoc). Referensen innehåller listan över slutpunkter, rubriker och frågeparametrar som du vill använda för att begära sökresultat. Den omfattar också definitioner av objekt som svar. 
+Bekanta dig med den [Visual Search API-referens](https://aka.ms/bingvisualsearchreferencedoc). Referensen innehåller listan över slutpunkter, rubriker och frågeparametrar som du använder för att begära sökresultat. Den omfattar även definitioner av svarsobjekten. 
 
-Se till att läsa [Bing användas och visa krav](./use-and-display-requirements.md) så att du inte delar någon av reglerna om hur du använder sökresultatet.
+Se till att läsa [Bing Use and Display Requirements](./use-and-display-requirements.md) (Krav för användning och visning i Bing) så att du inte bryter mot någon av reglerna om användning av sökresultat.
 
 

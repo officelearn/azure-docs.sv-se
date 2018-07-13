@@ -9,11 +9,11 @@ ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: dfbedd7945231f4449735cc2f909b64190dcbe05
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910002"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38746258"
 ---
 När du skapar en virtuell Azure-dator (VM) måste du skapa ett [virtuellt nätverk](../articles/virtual-network/virtual-networks-overview.md) (VNet) eller använda ett befintligt VNet. Du måste också bestämma hur dina virtuella datorer är avsedda att användas på VNet. Det är viktigt att [planera innan du skapar resurser](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) och att säkerställa att du förstår [begränsningarna för nätverksresurser](../articles/azure-subscription-service-limits.md#networking-limits).
 

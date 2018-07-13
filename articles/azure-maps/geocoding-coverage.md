@@ -1,27 +1,27 @@
 ---
-title: Geokodning täckning i Azure Maps | Microsoft Docs
-description: Lär dig mer om Geokodning täckning i Azure Maps
-author: kgremban
-ms.author: kgremban
+title: Täckning för geokodning i Azure Maps | Microsoft Docs
+description: Lär dig mer om täckning för Geokodning i Azure Maps
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6602453abd02bf91b135980b4d2c7f99ba60c236
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d7c1eaa26edef830ca156eef943fcb256d737d77
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600297"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989885"
 ---
-# <a name="azure-maps-geocoding-coverage"></a>Azure Maps geokodning täckning
+# <a name="azure-maps-geocoding-coverage"></a>Täckning för geokodning för Azure Maps
 
-När du söker efter en plats med Azure Maps söktjänsten tar sökorden och returnerar latitud och longitud koordinater, en process som kallas geokodning. Maps har dock inte samma grad av information och noggrannhet för alla regioner och länder. Använd den här artikeln för att avgöra vilka platser du ska söka efter i varje region. 
+När du söker efter en plats med Azure Maps söktjänsten tar sökorden och returnerar latitud och longitud koordinater, en process som kallas geokodning. Maps har dock inte samma grad av information och Precision för alla regioner och länder/regioner. Använd den här artikeln för att avgöra vilken typ av platser som du kan på ett tillförlitligt sätt söka efter i varje region. 
 
 ## <a name="americas"></a>Nord- och Sydamerika
 
-| Region             | Adress punkter | House siffror | Gatuadress nivå | Stadsnivå | Punkter av intresse |
+| Region             | Adress punkter | House siffror | Gatuadress nivå | Stadsnivå | Orienteringspunkter |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguilla                                            |                 |                |              |      ✓     |          ✓         |
 | Antarktis                                          |                 |                |              |      ✓     |          ✓         |
@@ -82,7 +82,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 
 ## <a name="asia-pacific"></a>Asien och stillahavsområdet
 
-| Region             | Adress punkter |House siffror | Gatuadress nivå | Stadsnivå | Punkter av intresse |
+| Region             | Adress punkter |House siffror | Gatuadress nivå | Stadsnivå | Orienteringspunkter |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Amerikanska Samoa                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Australien                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -119,7 +119,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 | Pakistan                                            |                 |                |              |      ✓     |          ✓         |
 | Palau |                 |                |              |      ✓     |          ✓         |
 | Papua Nya Guinea                                    |                 |                |              |      ✓     |          ✓         |
-| Paracel i Oceanien och Västindien                                     |                 |                |              |      ✓     |                    |
+| Paracel-öarna                                     |                 |                |              |      ✓     |                    |
 | Filippinerna                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
 | Samoaöarna                                               |                 |                |              |      ✓     |          ✓         |
@@ -142,7 +142,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 
 ## <a name="europe"></a>Europa
 
-| Region             | Adress punkter |House siffror | Gatuadress nivå | Stadsnivå | Punkter av intresse |
+| Region             | Adress punkter |House siffror | Gatuadress nivå | Stadsnivå | Orienteringspunkter |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Albanien                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Andorra                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -169,7 +169,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 | Guernsey                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ungern                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Island                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Irland (Republiken)                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Irland (republiken Makedonien)                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Isle of Man                                         |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Italien                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Jan Mayen                                           |        ✓        |                |              |      ✓     |          ✓         |
@@ -211,7 +211,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 
 ## <a name="middle-east-and-africa"></a>Mellanöstern och Afrika
 
-| Region             | Adress punkter |House siffror | Gatuadress nivå | Stadsnivå | Punkter av intresse |
+| Region             | Adress punkter |House siffror | Gatuadress nivå | Stadsnivå | Orienteringspunkter |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Afghanistan                                         |                 |                |              |      ✓     |          ✓         |
 | Algeriet                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -231,7 +231,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 | Demokratiska republiken Kongo                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Djibouti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Egypten                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Ekvatorialguinea Republiken                      |                 |                |       ✓      |      ✓     |          ✓         |
+| Ekvatorialguinea, Republiken                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Eritrea                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Etiopien                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Franska sydterritorierna|                 |                |              |      ✓     |          ✓         |
@@ -279,13 +279,13 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 | Sudan                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Swaziland                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Syrien                                               |                 |                |              |      ✓     |          ✓         |
-| São Tomé och Principes, Demokratiska republiken       |                 |                |       ✓      |      ✓     |          ✓         |
+| São Tome och Príncipe, Demokratiska republiken       |                 |                |       ✓      |      ✓     |          ✓         |
 | Tanzania                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Togo                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Tunisien                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Uganda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Förenade Arabemiraten                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Västra Bank                                           |                 |                |              |      ✓     |          ✓         |
+| Västbanken                                           |                 |                |              |      ✓     |          ✓         |
 | Jemen                                               |                 |                |              |      ✓     |          ✓         |
 | Zambia                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabwe                                            |                 |                |       ✓      |      ✓     |          ✓         |
@@ -294,7 +294,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Maps geokodning finns i [Sök](https://docs.microsoft.com/rest/api/maps/search) referera sidor.
+Läs mer om Azure Maps-geokodning, den [Search](https://docs.microsoft.com/rest/api/maps/search) referera till sidorna.
 
-Lär dig mer om den [täckningsområden för mappningarna trafik tjänsten](traffic-coverage.md). 
+Lär dig mer om den [täckningsområden för kartorna traffic service](traffic-coverage.md). 
 

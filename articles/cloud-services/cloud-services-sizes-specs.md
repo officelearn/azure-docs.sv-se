@@ -3,7 +3,7 @@ title: VM-storlekar för Azure-molntjänster | Microsoft Docs
 description: 'Visar en lista över olika virtuella datorstorlekar (och ID: N) för Azure cloud service webb- och worker-roller.'
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: 490fd248cdd14858e2ca71f94dcb9dbaa5726f9c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: jeconnoc
+ms.openlocfilehash: 60ee7c2be29791db91db78472cc002e15390d36b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34608822"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004796"
 ---
 # <a name="sizes-for-cloud-services"></a>Storlekar för Cloud Services
 Det här avsnittet beskrivs tillgängliga storlekar och alternativ för molntjänstrollinstanser (webb- och arbetsroller). Det ger också distributionsöverväganden ska tänka på när du planerar att använda de här resurserna. Varje storlek har ett ID som du lägger till i din [tjänstdefinitionsfilen](cloud-services-model-and-package.md#csdef). Priserna för varje storlek är tillgänglig på den [priser för Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/) sidan.

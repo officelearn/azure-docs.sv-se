@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 358827722e8d77cd91410fae842ad2ba99967d98
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b1091ae25e247a0e2ce00de831886cde44ae14a7
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610362"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007840"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Använda en Linux VM hanterad tjänstidentitet (MSI) för att få åtkomst till Azure Data Lake Store
 
@@ -50,7 +50,7 @@ I den här självstudiekursen skapar vi en ny Linux-VM. Du kan också aktivera M
 2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
 3. Ange informationen för den virtuella datorn. För **autentiseringstyp**väljer **offentlig SSH-nyckel** eller **lösenord**. Autentiseringsuppgifterna som har skapats kan du logga in på den virtuella datorn.
 
-   ![ALT bildtext](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![ALT bildtext](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Välj en **prenumeration** för den virtuella datorn i listrutan.
 5. Att välja en ny **resursgrupp** som den virtuella datorn ska skapas i, väljer **Skapa ny**. När du är klar klickar du på **OK**.
@@ -65,11 +65,11 @@ En virtuell dator MSI-dator kan du hämta åtkomsttoken från Azure AD utan att 
 3. Du ser **hanterad tjänstidentitet**. Om du vill registrera och aktiverar MSI, Välj **Ja**, om du vill inaktivera det, väljer du Nej.
 4. Se till att du klickar på **spara** att spara konfigurationen.
 
-   ![ALT bildtext](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![ALT bildtext](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Om du vill se vilka tillägg som finns på den här **Linux VM**, klickar du på **tillägg**. Om MSI aktiveras den **ManagedIdentityExtensionforLinux** visas i listan.
 
-   ![ALT bildtext](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
+   ![ALT bildtext](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Bevilja åtkomst till dina virtuella datorer till Azure Data Lake Store
 

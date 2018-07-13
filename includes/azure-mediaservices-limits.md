@@ -18,28 +18,28 @@
 | Strömningsenheter per slutpunkt för direktuppspelning |10 |
 | Lagringskonton | 1 000<sup>(5)</sup> (fast) |
 | Principer | 1 000 000<sup>(6)</sup> |
-| Filstorlek| I vissa situationer kan finns det en gräns på den största filstorleken som stöds för bearbetning i Media Services. <sup>7</sup> |
+| Filstorlek| I vissa situationer kan finns det en gräns för maximal filstorlek för bearbetning i Media Services. <sup>7</sup> |
   
-<sup>1</sup> om du ändrar typ (till exempel från S2 till S1), max RU gränser återställs.
+<sup>1</sup> ändrar du typ (till exempel från S2 till S1), den högsta gränsvärden som RU återställs.
 
 <sup>2</sup> Det här värdet innefattar jobb i kö och avslutade, aktiva och avbrutna jobb. Det innefattar inte borttagna jobb. Du kan ta bort gamla jobb med **IJob.Delete** eller HTTP-begäran **DELETE**.
 
-Från och med 1 April 2017 raderas alla jobb poster i ditt konto som är äldre än 90 dagar automatiskt, tillsammans med dess associerade aktiviteten poster, även om det totala antalet poster som är lägre än den maximala kvoten. Om du behöver arkivera jobb/uppgiftsinformationen kan du använda koden som beskrivs [här](../articles/media-services/media-services-dotnet-manage-entities.md).
+Från och med 1 April 2017 kommer tas alla jobbposter i ditt konto som är äldre än 90 dagar automatiskt bort, tillsammans med deras associerade uppgiftsposter, även om det totala antalet poster är lägre än den maximala kvoten. Om du behöver arkivera jobb/uppgiftsinformationen kan du använda koden som beskrivs [här](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup> när du gör en begäran till listan jobbet entiteter kan högst 1 000 jobben returneras per begäran. Om du behöver följa upp alla skickade jobb kan du använda top/skip (maximalt antal poster som ska returneras/hoppa över) på det sätt som beskrivs i [OData system query options](http://msdn.microsoft.com/library/gg309461.aspx) (OData-systemfrågealternativ).
+<sup>3</sup> när du gör en begäran till jobblistan entiteter kan högst 1 000 jobben returneras per begäran. Om du behöver följa upp alla skickade jobb kan du använda top/skip (maximalt antal poster som ska returneras/hoppa över) på det sätt som beskrivs i [OData system query options](http://msdn.microsoft.com/library/gg309461.aspx) (OData-systemfrågealternativ).
 
-<sup>4</sup> Positionerare är inte utformade för att hantera åtkomstkontroll per användare. Om du vill ge olika åtkomsträttigheter till enskilda användare kan du använda DRM-lösningar (Digital Rights Management). Mer information finns i [det här](../articles/media-services/media-services-content-protection-overview.md) avsnittet.
+<sup>4</sup> Positionerare är inte utformade för att hantera åtkomstkontroll per användare. Om du vill ge olika åtkomsträttigheter till enskilda användare kan du använda DRM-lösningar (Digital Rights Management). Mer information finns i [det här](../articles/media-services/previous/media-services-content-protection-overview.md) avsnittet.
 
 <sup>5</sup> Lagringskontona måste tillhöra samma Azure-prenumeration.
 
 <sup>6</sup> Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). 
 
 >[!NOTE]
-> Du bör använda samma princip-ID om du alltid använder samma dagar, åtkomstbehörigheter etc. Mer information och ett exempel finns i [det här](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) avsnittet.
+> Du bör använda samma princip-ID om du alltid använder samma dagar, åtkomstbehörigheter etc. Mer information och ett exempel finns i [det här](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies) avsnittet.
 
-<sup>7</sup>om du överför innehåll till en tillgång i Azure Media Services för att bearbeta den med något av de media processorerna i tjänsten (kodare som Media Encoder Standard och Media Encoder Premium arbetsflöde eller analys motorer som som är ansikte detektor) sedan måste du vara medveten om begränsningarna i de maximala storlekar som stöds. 
+<sup>7</sup>om du ska överföra innehåll till en tillgång i Azure Media Services för att bearbeta den med en av medieprocessorerna i tjänsten (d.v.s. kodare som Media Encoder Standard och Media Encoder Premium Workflow eller analysmotorer som Face Detector), sedan ska du vara medveten om begränsningarna för maximal filstorlek som stöds. 
 
-Den maximala storleken som stöds för en enda blob är för närvarande upp till 5 TB i Azure Blob Storage. Dock gäller ytterligare begränsningar i Azure Media Services baserat på storlek på Virtuella datorer som används av tjänsten. I följande tabell visas begränsningarna på varje Media reserverade enheter (S1 S2, S3.) Om din källfil är större än de gränser som definierats i tabellen, misslyckas kodning jobbet. Om du kodar 4K upplösning källor långvarig behöver du använda S3 Media reserverade enheter för att uppnå de prestanda som behövs. Om du har 4K-innehåll som är större än gränsen på 260 GB på S3 Media reserverade enheter kontaktar du oss på amshelp@microsoft.com för eventuella åtgärder som stöd för ditt scenario.
+Den maximala storleken som stöds för en enda blob är för närvarande upp till 5 TB i Azure Blob Storage. Ytterligare begränsningar gäller dock i Azure Media Services baserat på de storlekar som används av tjänsten. I följande tabell visas begränsningarna på var och en av de Mediereserverade enheter (S1, S2, S3) Om källfilen är större än de gränser som definierats i tabellen, inte dina kodningsjobb. Om du kodar 4K upplösning källor för lång tid behöver du använda Mediereserverade S3-enheter för att uppnå prestanda som behövs. Om du har 4K-innehåll som är större än gränsen 260 GB den Mediereserverade S3-enheter kan du kontakta oss på amshelp@microsoft.com för möjliga lösningar för ditt scenario.
 
 | Mediereserverad enhet | Maximal inkommande storlek (GB)| 
 | --- | --- | 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 5db1e7b9c97a0c19ef5ec0a41ea675c33c4d46fc
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2f73a08d14d02b4e4b441b6ac85c6ceb97b9f173
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950924"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004990"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Flytta data till eller från Azure Blob Storage med SSIS-anslutningsappar
 Den [Funktionspaketet för SQL Server Integration Services för Azure](https://msdn.microsoft.com/library/mt146770.aspx) innehåller komponenter för att ansluta till Azure, överföra data mellan Azure och lokala datakällor och bearbeta data som lagras i Azure.
@@ -83,7 +83,7 @@ Här beskrivs de parametrar som används för aktiviteten:
 > 
 
 ## <a name="download-data-from-azure-blob-storage"></a>Hämta data från Azure blob storage
-För att hämta data från Azure blob storage till en lokal lagring med SSIS, använder du en instans av den [Azure Blob överför uppgift](https://msdn.microsoft.com/library/mt146779.aspx).
+För att hämta data från Azure blob storage till en lokal lagring med SSIS, använder du en instans av den [Azure Blob hämta uppgift](https://msdn.microsoft.com/library/mt146779.aspx).
 
 ## <a name="more-advanced-ssis-azure-scenarios"></a>Mer avancerade scenarier för Azure-SSIS
 Funktionspaketet för SSIS möjliggör mer komplexa flöden som ska hanteras av paketering uppgifter tillsammans. Blob-data kan till exempel feed direkt i ett HDInsight-kluster, vars utdata kan hämtas tillbaka till en blob och sedan till den lokala lagringen. SSIS kan köra Hive och Pig-jobb på ett HDInsight-kluster med ytterligare SSIS-anslutningsappar:

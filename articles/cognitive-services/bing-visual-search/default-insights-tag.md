@@ -1,7 +1,7 @@
 ---
 title: Insikter standardtagg | Microsoft Docs
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Innehåller information om de insikter som standard som Visual Sök returnerar om en bild.
+description: Innehåller information om de insikter som standard som Visual Search returnerar om en bild.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -10,16 +10,16 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: c0bf51ab86e2ba99aeb859ea415e1afd355a86f2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a0ced7076c566c819f9e3f7abc5e2fa3930fa0b3
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354126"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004309"
 ---
-# <a name="default-insights-tag"></a>Insikter Standardetiketten
+# <a name="default-insights-tag"></a>Standard insikter tagg
 
-Insikter Standardetiketten är den med den `displayName` fältet inställt på en tom sträng. I följande exempel visas möjliga listan över standard insikter (åtgärder).
+Insikter Standardetiketten är som har den `displayName` fältet inställt på en tom sträng. I följande exempel visas möjliga listan över standard insikter (åtgärder). Lista med åtgärder som svaret innehåller beror på avbildningen. Och för varje åtgärd i listan över egenskaper kan variera beroende på bild, så kontrollera om egenskapen finns innan du försöker använda den.
 
 ```json
 {
@@ -100,7 +100,7 @@ Insikter Standardetiketten är den med den `displayName` fältet inställt på e
 
 ## <a name="pagesincluding-insight"></a>PagesIncluding insight
 
-PagesIncluding insight innehåller en lista över webbsidor som innehåller den här avbildningen. Det är faktiskt en lista över objekt för avbildning och `hostPageUrl` fältet innehåller URL: en till den webbsida som innehåller bilden. Exempel på användning, se [PagesIncluding exempel](./bing-insights-usage.md#pagesincluding-insight-example). 
+PagesIncluding insight innehåller en lista över webbsidor som innehåller den här avbildningen. Det är faktiskt en lista över objekt för avbildning och `hostPageUrl` fältet innehåller URL: en till den webbsida som innehåller en bild. Exempel på användning, se [PagesIncluding exempel](./bing-insights-usage.md#pagesincluding-insight-example). 
 
 ```json
       {
@@ -139,7 +139,7 @@ PagesIncluding insight innehåller en lista över webbsidor som innehåller den 
 
 ## <a name="shoppingsources-insight"></a>ShoppingSources insight
 
-ShoppingSources insight innehåller en lista över webbplatser där du kan köpa det objekt som visas i bilden. Listan över erbjudanden är Webbadressen till webbsidan där användaren kan köpa artikeln, priset på objektet och klassificering eller granska information. Exempel på användning, se [ShoppingSources exempel](./bing-insights-usage.md#shoppingsources-insight-example).
+ShoppingSources insight visar en lista över webbplatser där du kan köpa objektet visas i bild. Listan över erbjudanden är Webbadressen till webbsidan där du kan köpa objektet, priset för objektet och betyg eller en recension information. Exempel på användning, se [ShoppingSources exempel](./bing-insights-usage.md#shoppingsources-insight-example).
 
 ```json
       {
@@ -169,7 +169,7 @@ ShoppingSources insight innehåller en lista över webbplatser där du kan köpa
 
 ## <a name="moresizes-insight"></a>MoreSizes insight
 
-MoreSizes insight det totala antalet storlekar (större eller mindre) till den bild som Bing finns på Internet (finns i `availableSizesCount` fält).
+MoreSizes insight det totala antalet storlekar (större eller mindre) för avbildningen som Bing finns på Internet (se den `availableSizesCount` fältet).
 
 ```json
       {
@@ -204,7 +204,7 @@ MoreSizes insight det totala antalet storlekar (större eller mindre) till den b
 
 ## <a name="visualsearch-insight"></a>VisualSearch insight
 
-VisualSearch insight innehåller en lista över avbildningar som likartade originalet (innehåller innehåll som liknar det innehåll som visas i den ursprungliga bilden). Exempel på användning, se [VisualSearch exempel](./bing-insights-usage.md#visualsearch-insight-example).
+VisualSearch insight innehåller en lista över avbildningar som är visuellt liknar den ursprungliga bilden (innehåller innehåll som liknar det innehåll som visas i den ursprungliga bilden). Exempel på användning, se [VisualSearch exempel](./bing-insights-usage.md#visualsearch-insight-example).
 
 ```json
       {
@@ -244,7 +244,7 @@ VisualSearch insight innehåller en lista över avbildningar som likartade origi
 
 ## <a name="recipes-insight"></a>Recept insight
 
-Recept insight innehåller en lista över webbsidor som innehåller ett recept för att göra mat som visas i bilden. Exempel på användning, se [recept exempel](./bing-insights-usage.md#recipes-insight-example).
+Recept insight innehåller en lista över webbsidor som innehåller ett recept för att göra den mat som visas i bild. Exempel på användning, se [recept exempel](./bing-insights-usage.md#recipes-insight-example).
 
 ```json
       {
@@ -279,7 +279,7 @@ Recept insight innehåller en lista över webbsidor som innehåller ett recept f
 
 ## <a name="imagebyid-insight"></a>ImageById insight
 
-ImageById insight ger ett `Image` objekt till den bild som du har begärt insikter av.
+ImageById insight tillhandahåller en `Image` objekt av den avbildning som du har begärt insikter om.
 
 ```json
       {
@@ -344,6 +344,9 @@ ProductVisualSearch insight innehåller en lista över avbildningar av produkter
                 "shoppingSourcesCount" : 1,
                 "recipeSourcesCount" : 0,
                 "aggregateOffer" : {
+                  "name":"4-Piece Kitchen Package with...",
+                  "priceCurrency":"USD",
+                  "lowPrice":2756,
                   "offers" : [
                     {
                       "name" : "4-Piece Kitchen Package with...",
@@ -360,7 +363,8 @@ ProductVisualSearch insight innehåller en lista över avbildningar av produkter
                       "availability" : "InStock",
                       "lastUpdated" : "2018-02-20T00:00:00.0000000"
                     }
-                  ]
+                  ],
+                  "offerCount":1
                 },
                 "pagesIncludingCount" : 4,
                 "availableSizesCount" : 2
@@ -376,7 +380,7 @@ ProductVisualSearch insight innehåller en lista över avbildningar av produkter
 
 ## <a name="relatedsearches-insight"></a>RelatedSearches insight
 
-RelatedSearches insight innehåller en lista över relaterade sökningar som görs av andra (baserat på sökvillkor för andra användare). Exempel på användning, se [RelatedSearches exempel](./bing-insights-usage.md#relatedsearches-insight-example).
+RelatedSearches insight visar en lista över relaterade sökningar som görs av andra (baserat på sökvillkor för andra användare). Exempel på användning, se [RelatedSearches exempel](./bing-insights-usage.md#relatedsearches-insight-example).
 
 
 ```json
@@ -401,7 +405,7 @@ RelatedSearches insight innehåller en lista över relaterade sökningar som gö
 
 ## <a name="documentlevelsuggestions-insight"></a>DocumentLevelSuggestions insight
 
-DocumentLevelSuggestions insight innehåller en lista över föreslagna söktermer baserat på innehållet i bilden. 
+DocumentLevelSuggestions insight innehåller en lista över föreslagna söktermer baserat på innehållet i avbildningen. 
 
 ```json
       {
@@ -426,6 +430,6 @@ DocumentLevelSuggestions insight innehåller en lista över föreslagna sökterm
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kolla in exempel på hur Bing kan visa visual insikter (se [exempel Bing insikter användning](bing-insights-usage.md)).
+Kolla in exempel på hur Bing kan visa de visuella insikterna (se [exempel Bing insights användning](bing-insights-usage.md)).
 
-Om du vill komma igång snabbt med din första begäran finns i Snabbstart: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md).
+Om du vill komma igång snabbt med din första begäran kan se Snabbstart: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md).

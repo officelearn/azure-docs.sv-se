@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: f9ab9b9af81bf1827c2da646908e204bd051706b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: 6635906b6aae418fa3754f1152fae3e0d8903ffc
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970942"
+ms.locfileid: "38989776"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights för ASP.NET Core
 
@@ -188,7 +188,7 @@ Automatisera förfrågningar mot din app med syntetiska transaktioner.
 
 1. Kör appen genom att klicka på IIS Express ![Skärmbild av Visual Studio IIS Express-ikonen](./media/app-insights-asp-net-core/004-iis-express.png)
 
-2. Kopiera URL: en från webbläsarens adressfält. Det är i formatet http://localhost:{random portnummer}
+2. Kopiera URL: en från webbläsarens adressfält. Det är i formatet `http://localhost:{random port number}`
 
    ![Skärmbild av webbläsarens adressfält för URL: en](./media/app-insights-asp-net-core/0013-copy-url.png)
 

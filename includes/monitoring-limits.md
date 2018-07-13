@@ -12,14 +12,14 @@ ms.date: 05/04/2018
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 38b8372b788ae6c55744cca319b60224cef09d73
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "33903509"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38756116"
 ---
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Autoskala inställningar |100 per region per prenumeration | samma som standard |
-| Mått aviseringar (klassisk) |100 active Varningsregler per prenumeration | Ring supporten |
-| Nyare mått aviseringar |100 active Varningsregler per prenumeration | Ring supporten |
+| Autoskalningsinställningar |100 per region per prenumeration | samma som standard |
+| Aviseringar för mått (klassisk) |100 aktiva Varningsregler per prenumeration | Kontakta supporten |
+| Nyare Måttaviseringar |100 aktiva Varningsregler per prenumeration | Kontakta supporten |

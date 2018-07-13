@@ -1,48 +1,46 @@
 ---
-title: Skapa ett index (portal – Azure Search) | Microsoft Docs
-description: Skapa ett index med hjälp av Azure-portalen.
+title: Skapa ett Azure Search-index i portalen | Microsoft Docs
+description: Lär dig hur du skapar ett index för Azure Search med hjälp av inbyggda portal index designers.
 manager: cgronlun
 author: heidisteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: quickstart
-ms.date: 06/20/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 722f1eb989fb8c160def4024b1aa967a47b87697
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: bb1ba5e860dab237b3f6e16205b5e4cbad45e6e3
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203877"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990854"
 ---
-# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Skapa ett Azure Search-index med hjälp av Azure-portalen
+# <a name="how-to-create-an-azure-search-index-using-the-azure-portal"></a>Så här skapar du ett Azure Search-index med hjälp av Azure portal
 
-Använd den inbyggda funktionen för indexdesign i Azure-portalen som prototyp eller skapa ett [sökindex](search-what-is-an-index.md) som ska köras i din Azure Search-tjänst. 
+Azure Search innehåller ett inbyggt index designer i portal användbar för prototyper eller skapa en [sökindex](search-what-is-an-index.md) finns på Azure Search-tjänsten. Verktyget används för schemat konstruktion. När du sparar definitionen blir ett tomt index fullständigt uttrycks i Azure Search. Hur du läser in den med sökbara data är upp till dig.
 
-Du kan också skapa ett index med hjälp av [.NET](search-create-index-dotnet.md) eller [REST](search-create-index-rest-api.md) API:er.
+Index-designer är bara en metod för att skapa ett index. Programmässigt, kan du skapa ett index med hjälp av den [.NET](search-create-index-dotnet.md) eller [REST](search-create-index-rest-api.md) API: er.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Den här artikeln förutsätter att du har en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) och en [Azure Search-tjänst](search-create-service-portal.md).  
+Den här artikeln förutsätter att du har en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) och en [Azure Search-tjänst](search-create-service-portal.md).
 
-## <a name="find-your-search-service"></a>Hitta din söktjänst
-1. Logga in på Azure-portalsidan och granska [söktjänsterna för din prenumeration](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
-2. Välj din Azure Search-tjänst.
+## <a name="open-index-designer-and-name-an-index"></a>Öppna index designer och namnge ett index
 
-## <a name="name-the-index"></a>Namnge ditt index
+1. Logga in på [Azure Portal](https://portal.azure.com) och öppna instrumentpanelen för tjänsten. Du kan klicka på **Alla tjänster** i indexet om du vill söka efter befintliga ”söktjänster” i den nuvarande prenumerationen. 
 
-1. Klicka på knappen **Lägg till index** i kommandofältet högst upp på sidan.
-2. Namnge ditt Azure Search-index. 
+2.  Klicka på knappen **Lägg till index** i kommandofältet högst upp på sidan.
+
+3. Namnge ditt Azure Search-index. Namn på index refereras i indexerings- och åtgärder. Indexnamnet blir en del av den slutpunkts-URL som används i anslutningar till indexet och för att skicka HTTP-förfrågningar med Azure Search REST-API:t.
+
    * Börja med en bokstav.
    * Använd endast gemena bokstäver, siffror och bindestreck (”-”).
    * Begränsa namnet till 60 tecken.
 
-  Indexnamnet blir en del av den slutpunkts-URL som används i anslutningar till indexet och för att skicka HTTP-förfrågningar med Azure Search REST-API:t.
-
 ## <a name="define-the-fields-of-your-index"></a>Definiera fälten i ditt index
 
-Indexsammansättningen innehåller en *fält samling* som definierar sökbara data i ditt index. Mer specifikt anges strukturen för dokument som du laddar upp separat. Fältsamlingen innehåller obligatoriska och valfria fält, namngivna och typdefinierade, med indexattribut som avgör hur fältet kan användas.
+Indexsammansättningen innehåller en *fält samling* som definierar sökbara data i ditt index. Helt och hållet, fältsamlingen anger strukturen för dokument som du laddar upp separat. En samling fält innehåller obligatoriska och valfria fält, namngivna och typdefinierade, med indexattribut som avgör hur fältet kan användas.
 
 1. På bladet **Lägg till index** klickar du på **Fält >** så att fältdefinitionsbladet öppnas. 
 
@@ -63,6 +61,7 @@ Det är ganska tangentbordsintensivt att skapa ett index i portalen. Minimera ar
 2. Använd sedan kryssrutorna överst i varje attribut för att massaktivera inställningen för alla fält, och avmarkera kryssrutorna för de få, enskilda fält där inställningen inte ska användas. Strängfält är till exempel vanligtvis sökbara. Därför kan du klicka på **Hämtningsbart** och **Sökbart** om du vill både returnera värdena för fältet i sökresultatet och tillåta fulltextsökning i fältet. 
 
 <a name="design"></a>
+
 ## <a name="design-guidance-for-setting-attributes"></a>Designriktlinjer för att ange attribut
 
 Du kan visserligen lägga till nya fält när som helst, men befintliga fältdefinitioner är låsta under indexets hela livslängd. Av den anledningen använder många utvecklare portalen för att skapa enkla index, testa idéer och använda portalsidorna för att söka reda på en inställning. Frekvent upprepning av en indexdesign är mer effektiv om du följer en kodbaserad metod så att du enkelt kan återskapa indexet.
@@ -98,7 +97,7 @@ När du har skapat ett Azure Search-index kan du gå till nästa steg: [ladda up
 
 Du kan också ta en närmare titt på index. Förutom samlingen Fält anges i index även analysverktyg, förslagsställare, bedömningsprofiler och CORS-inställningar. Portalen innehåller fliksidor för att definiera de vanligaste elementen: fält, analysverktyg och förslagsställare. Om du vill skapa eller ändra andra element kan du använda REST-API:et eller .NET SDK.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
  [Så här fungerar fulltextsökning](search-lucene-query-architecture.md)  
  [REST-API för söktjänst](https://docs.microsoft.com/rest/api/searchservice/) [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

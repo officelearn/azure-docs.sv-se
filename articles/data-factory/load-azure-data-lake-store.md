@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7cdc4f0ef436fbd7ea3bdf1431b08be3b840290f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e401508fc5ffc1de666f727ffbb7790005384fc1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857209"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003805"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Läs in data till Azure Data Lake Storage Gen1 med hjälp av Azure Data Factory
 
@@ -35,6 +35,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
 
 > [!NOTE]
 > Mer information finns i [kopiera data till och från Azure Data Lake Store med hjälp av Azure Data Factory](connector-azure-data-lake-store.md).
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration: Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
@@ -109,7 +110,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
    3. Välj **Nästa**.
    
    > [!IMPORTANT]
-   > I den här genomgången ska du använda en _hanterad tjänstidentitet_ att autentisera ditt Data Lake Store. Se till att ge tjänstobjektet rätt behörighet i Azure Data Lake Store genom att följa [instruktionerna](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > I den här genomgången ska du använda en _hanterad tjänstidentitet_ att autentisera ditt Data Lake Store. Se till att ge MSI rätt behörighet i Azure Data Lake Store genom att följa [instruktionerna](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
    ![Ange Azure Data Lake Store-konto](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. I den **Välj utdatafil eller mapp** anger **copyfroms3** som utdata mappnamn och välj **nästa**: 

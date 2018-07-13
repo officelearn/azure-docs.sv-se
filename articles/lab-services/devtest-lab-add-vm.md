@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 5f953cd6f33e5d46098566740efbf83a5fd80799
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9ddf44ef933270c08b42f67387866cd7a3b34719
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635324"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004087"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Lägg till en virtuell dator i ett labb i Azure DevTest Labs
 Om du redan har [skapat din första virtuella dator](devtest-lab-create-first-vm.md), du sannolikt gjorde det från en förinstallerade [marketplace-avbildning](devtest-lab-configure-marketplace-images.md). Nu, om du vill lägga till efterföljande virtuella datorer i labbet, du kan också välja en *grundläggande* som är antingen en [anpassad avbildning](devtest-lab-create-template.md) eller en [formeln](devtest-lab-manage-formulas.md). Den här självstudiekursen beskriver hur du använder Azure-portalen att lägga till en virtuell dator i ett labb i DevTest Labs.
@@ -40,12 +40,12 @@ Den här artikeln beskriver också hur du hanterar artefakter för en virtuell d
     ![Lab VM-fönstret](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
 1. Ange en **användarnamn** som har beviljats administratörsbehörighet på den virtuella datorn.  
-1. Om du vill använda ett lösenord som lagras i din [Arkiv för hemligheter](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store)väljer **använder en sparad hemlighet**, och ange ett nyckelvärde som motsvarar din hemlighet (lösenord). Annars kan ange ett lösenord i textfältet märkta **skriver ett värde**.
+1. Om du vill använda ett lösenord som lagras i en [Azure-nyckelvalv](devtest-lab-store-secrets-in-key-vault.md)väljer **använder en sparad hemlighet**, och ange ett nyckelvärde som motsvarar din hemlighet (lösenord). Annars kan ange ett lösenord i textfältet märkta **skriver ett värde**. Läs om att spara hemligheter i key vault och använder dem när du skapar labbresurser i [Store hemligheter i Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
 1. Den **disktyp för virtuell dator** avgör vilken typ av premiumlagring tillåts för virtuella datorer i labbet.
-1. Välj **VM-storlek** och välj en av de fördefinierade objekt som anger processorkärnor, RAM-storleken och storleken på hårddisken på den virtuella datorn för att skapa.
-1. Välj **artefakter** och - från listan över artefakter - Välj och konfigurera de artefakter som du vill lägga till i basavbildningen.
+2. Välj **VM-storlek** och välj en av de fördefinierade objekt som anger processorkärnor, RAM-storleken och storleken på hårddisken på den virtuella datorn för att skapa.
+3. Välj **artefakter** och - från listan över artefakter - Välj och konfigurera de artefakter som du vill lägga till i basavbildningen.
     **Obs:** om du är nybörjare på DevTest Labs eller konfigurera artefakter, referera till den [lägga till en befintlig artefakt i en virtuell dator](#add-an-existing-artifact-to-a-vm) avsnittet och återgå sedan här när du är klar.
-1. Välj **avancerade inställningar** att konfigurera Virtuellt datorns Nätverksalternativ och alternativ för upphör att gälla. 
+4. Välj **avancerade inställningar** att konfigurera Virtuellt datorns Nätverksalternativ och alternativ för upphör att gälla. 
 
    Om du vill ange ett alternativ för upphör att gälla, väljer du på kalenderikonen att ange ett datum som den virtuella datorn tas bort automatiskt.  Som standard upphör aldrig att den virtuella datorn. 
 1. Om du vill visa eller kopiera Azure Resource Manager-mallen finns i [spara Azure Resource Manager-mall](#save-azure-resource-manager-template) avsnitt och komma tillbaka hit när du är klar.

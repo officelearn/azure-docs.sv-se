@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 30ebe4f990dc65e53c34673f0948d3aa2240385c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: fb8ae3b6225b2029ced3687083777ae47cb54acf
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37859708"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002338"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB vanliga frågor och svar
 ## <a name="azure-cosmos-db-fundamentals"></a>Grunderna i Azure Cosmos DB
@@ -120,6 +120,9 @@ När du ställer in en region, Tänk på att Azure Cosmos DB respekterar suverä
 
 Behållare och nivån dataflöde Databasetableringen är två separata erbjudanden och växla mellan något av dessa kräver att migrera data från källa till mål. Vilket innebär att du behöver skapa en ny databas eller en ny samling och sedan migrera data med hjälp av [bulk executor biblioteket](bulk-executor-overview.md) eller [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
+### <a name="how-do-i-create-fixed-collection-with-partition-key"></a>Hur gör jag för att skapa fasta samlingen med partitionsnyckel
+
+Du kan för närvarande skapa samling med en partition viktiga dataflöde med hjälp av den [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) metod av .net SDK eller med hjälp av den [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Skapa en fast samling med hjälp av Azure-portalen är inte stöds för närvarande.  
 
 ## <a name="develop-against-the-sql-api"></a>Utveckla mot SQL-API
 

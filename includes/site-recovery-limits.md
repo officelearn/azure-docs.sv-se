@@ -1,6 +1,6 @@
 ---
-title: Site Recovery begränsar tabell
-description: Beskriver system begränsningarna för Site Recovery.
+title: Site Recovery-begränsningarna tabell
+description: Beskriver system gränser för Site Recovery.
 services: site recovery
 documentationcenter: NA
 author: csilauraa
@@ -14,20 +14,20 @@ ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
 ms.openlocfilehash: e0694aa8c5226b794be59358e73751cc493a7e95
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23906966"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38756102"
 ---
 Följande begränsningar gäller för Azure Site Recovery:
 
-| GRÄNSEN IDENTIFIERARE | STANDARDGRÄNS |
+| GRÄNS FÖR IDENTIFIERARE | STANDARDGRÄNS |
 | --- | --- | --- | --- |
-| Antal valv per prenumeration |25 |
-| Antal servrar per Azure-valvet |250 |
-| Antal skyddsgrupper per Azure-valvet |Obegränsat |
-| Antal återställningsplaner per Azure valvet |Obegränsat |
-| Antal servrar per skyddsgrupp |Obegränsat |
-| Antal servrar per återställningsplan |50 |
+| Antalet valv per prenumeration |25 |
+| Antalet servrar per Azure-valv |250 |
+| Antal skyddsgrupper per Azure-valv |Obegränsat |
+| Antal återställningsplaner per Azure-valv |Obegränsat |
+| Antalet servrar per skyddsgrupp |Obegränsat |
+| Antalet servrar per återställningsplan |50 |
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: df4c60be8a29ab397424e9e5f9de7050f64d87c2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b7fd880683eed9e742007d6e595e1f275467b664
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859792"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990123"
 ---
 # <a name="log-analytics-data-security"></a>Logga Analytics-datasäkerhet
 Det här dokumentet är avsedd att ge specifik information från Azure Log Analytics för att komplettera informationen på [Azure Trust Center](../security/security-microsoft-trust-center.md).  
@@ -29,16 +29,34 @@ Den här artikeln förklarar hur data som samlas in, bearbetas och skyddas av Lo
 
 Log Analytics-tjänsten hanterar dina molnbaserade data på ett säkert sätt med hjälp av följande metoder:
 
-* Dataavgränsning
+* dataavgränsning
 * Datakvarhållning
 * Fysisk säkerhet
-* Incidenthantering
+* incidenthantering
 * Efterlevnad
-* Certifieringar av standarder för säkerhet
+* certifieringar av standarder för säkerhet
 
 Kontakta oss med frågor, förslag eller problem om något av följande information, inklusive våra säkerhetsprinciper på [supportalternativ för Azure](http://azure.microsoft.com/support/options/).
 
-## <a name="data-segregation"></a>Dataavgränsning
+## <a name="sending-data-securely-using-tls-12"></a>Skicka data på ett säkert sätt med hjälp av TLS 1.2 
+
+Om du vill se till att skydda data under överföringen till Log Analytics, rekommenderar vi starkt att du kan konfigurera att agenten ska du använda minst Transport Layer Security (TLS) 1.2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har påträffats sårbara och de fungerar fortfarande för närvarande för att tillåta bakåtkompatibilitet kompatibilitet, de arbetar **rekommenderas inte**, och branschen snabbt flytta att lämna support äldre protokoll. 
+
+Den [PCI Security Standards Council](https://www.pcisecuritystandards.org/) har ställt in en [deadline på den 30 juni 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) att inaktivera äldre versioner av TLS/SSL och uppgraderingen säkrare protokoll. När Azure sjunker bakåtkompatibelt stöd om agenterna inte kan kommunicera över minst TLS 1.2 inte skulle du kunna skicka data till Log Analytics. 
+
+Vi rekommenderar inte uttryckligen ställa in din agent att bara använda TLS 1.2, såvida inte är absolut nödvändigt eftersom det kan innebära säkerhet på funktioner som gör det möjligt att automatiskt identifiera och utnyttja fördelarna med nyare säkrare protokoll när de blir tillgängliga, till exempel som TLS 1.3. 
+
+### <a name="platform-specific-guidance"></a>Specifik vägledning för plattformen
+
+|Plattform/språk | Support | Mer information |
+| --- | --- | --- |
+|Linux | Linux-distributioner tenderar att förlita dig på [OpenSSL](https://www.openssl.org) för stöd för TSL 1.2.  | Kontrollera den [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) att bekräfta din version av OpenSSL stöds.|
+| Windows 8.0-10 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder den [standardinställningar](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012-2016 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder den [standardinställningar](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men inte är aktiverad som standard. | Se den [registerinställningar för Transport Layer Security (TLS)](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) för information om hur du aktiverar.  |
+| Windows Server 2008 SP2 | Stöd för TLS 1.2 kräver en uppdatering. | Se [Update för att lägga till stöd för TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) i Windows Server 2008 SP2. |
+
+## <a name="data-segregation"></a>dataavgränsning
 När dina data matas in av Log Analytics-tjänsten, lagras data logiskt separerade på varje komponent i tjänsten. Alla data taggas per arbetsyta. Den här taggningen finns kvar i informationens hela livscykel och används på varje lager i tjänsten. Dina data lagras i en dedikerad databas i lagringsklustret i den region som du har valt.
 
 ## <a name="data-retention"></a>Datakvarhållning
@@ -70,7 +88,7 @@ I följande tabell visas exempel på datatyper:
 ## <a name="physical-security"></a>Fysisk säkerhet
 Log Analytics-tjänsten hanteras av Microsoft-Personal och alla aktiviteter loggas och kan granskas. Log Analytics körs som en Azure-tjänst och uppfyller alla krav för Azure-efterlevnad och säkerhet. Du kan visa information om den fysiska säkerheten för Azure-tillgångar på sidan 18 i den [översikt över Microsoft Azure Security](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Fysiska åtkomsträttigheter för att skydda områden ändras inom en arbetsdag för alla som inte längre har ansvar för Log Analytics-tjänsten, inklusive överföring och avslut. Du kan läsa om den globala fysiska infrastrukturen som vi använder på [Microsofts Datacenters](https://azure.microsoft.com/en-us/global-infrastructure/).
 
-## <a name="incident-management"></a>Incidenthantering
+## <a name="incident-management"></a>incidenthantering
 Log Analytics har en incidenthanteringsprocess som följer alla Microsoft-tjänster. Sammanfattningsvis, vi:
 
 * Använda ett delat ansvar modell där en del av security ansvar som tillhör Microsoft och en del tillhör kunden

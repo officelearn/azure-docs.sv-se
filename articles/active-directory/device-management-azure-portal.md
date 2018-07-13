@@ -1,5 +1,5 @@
 ---
-title: Hantera enheter med hjälp av Azure portal | Microsoft Docs
+title: Hantera enheter med hjälp av Azure-portalen | Microsoft Docs
 description: Lär dig hur du använder Azure-portalen för att hantera enheter.
 services: active-directory
 documentationcenter: ''
@@ -16,31 +16,31 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ddce312d6299a7749f1a40a83f67ce3c26876591
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 4410adfd5788b06163b8da18b96d2f8a9c350ac8
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714008"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008792"
 ---
-# <a name="managing-devices-using-the-azure-portal"></a>Hantera enheter med hjälp av Azure portal
+# <a name="managing-devices-using-the-azure-portal"></a>Hantera enheter med hjälp av Azure-portalen
 
 
-Med hantering av enheter i Azure Active Directory (Azure AD), kan du se till att dina användare har åtkomst till dina resurser från enheter som uppfyller dina krav för säkerhet och efterlevnad. 
+Med enhetshantering i Azure Active Directory (AD Azure), kan du se till att dina användare kommer åt dina resurser från enheter som uppfyller dina krav för säkerhet och efterlevnad. 
 
 Den här artikeln:
 
-- Förutsätter att du är bekant med den [introduktion till hantering av enheter i Azure Active Directory](device-management-introduction.md)
+- Förutsätter att du är bekant med den [introduktionen till enhetshantering i Azure Active Directory](device-management-introduction.md)
 
 - Innehåller information om hur du hanterar dina enheter med hjälp av Azure portal
 
 ## <a name="manage-devices"></a>Hantera enheter 
 
-Azure-portalen ger dig en central plats för att hantera dina enheter. Du kommer till denna plats genom att antingen använda en [Direktlänk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) eller genom att följa de manuella stegen:
+Azure-portalen ger en central plats för att hantera dina enheter. Du kommer till denna plats genom att antingen använda en [Direktlänk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) eller genom att följa dessa instruktioner:
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) som administratör.
 
-2. Klicka på den vänstra navigeringsfält för, **Active Directory**.
+2. I det vänstra navigeringsfältet, klickar du på **Active Directory**.
 
     ![Konfigurera enhetsinställningar](./media/device-management-azure-portal/01.png)
 
@@ -56,32 +56,32 @@ Den **enheter** sidan kan du:
 
 - Utföra hanteringsaktiviteter för enhet
 
-- Granska enhetshantering relaterade granskningsloggar  
+- Granska relaterade för enhetshantering granskningsloggar  
   
 
 ## <a name="configure-device-settings"></a>Konfigurera enhetsinställningar
 
-Om du vill hantera enheter med Azure-portalen kan dina enheter måste vara antingen [registrerad eller anslutna](device-management-introduction.md#getting-devices-under-the-control-of-azure-ad) till Azure AD. Du kan finjustera registrera och ansluta enheter genom att konfigurera inställningar för enheter som en administratör. 
+För att hantera dina enheter med hjälp av Azure portal, dina enheter måste vara antingen [registrerats för eller anslutits](device-management-introduction.md#getting-devices-under-the-control-of-azure-ad) till Azure AD. Du kan finjustera processen med att registrera och ansluta enheter genom att konfigurera inställningar för enheter som en administratör. 
 
 ![Konfigurera enhetsinställningar](./media/device-management-azure-portal/22.png)
 
-Inställningssidan kan du konfigurera:
+Inställningssidan för enheten kan du konfigurera:
 
-![Hantera en enhet i Intune](./media/device-management-azure-portal/21.png)
+![Hantera en Intune-enhet](./media/device-management-azure-portal/21.png)
 
 
-- **Användare kan ansluta enheter till Azure AD** -den här inställningen kan du välja vilka användare som kan [ansluta enheter](device-management-introduction.md#azure-ad-joined-devices) till Azure AD. Standardvärdet är **alla**.
+- **Användare kan ansluta enheter till Azure AD** – den här inställningen kan du välja vilka användare som kan [ansluta enheter](device-management-introduction.md#azure-ad-joined-devices) till Azure AD. Standardvärdet är **alla**.
 
-- **Ytterligare lokala administratörer på Azure AD-anslutna enheter** -du kan välja de användare som beviljas lokal administratörsbehörighet på en enhet. Användare som läggs till här läggs till i *Enhetsadministratörer* roll i Azure AD. Globala administratörer i Azure AD och enhetsägare beviljas lokal administratörsbehörighet som standard. Det här alternativet är en premium edition funktioner som är tillgängliga via produkter, till exempel Azure AD Premium eller Enterprise Mobility Suite (EMS). 
+- **Ytterligare lokala administratörer på Azure AD-anslutna enheter** – du kan välja de användare som har beviljats behörighet som lokal administratör på en enhet. Användare som läggs till här läggs till i *Enhetsadministratörer* roll i Azure AD. Globala administratörer i Azure AD och enhetsägare beviljas lokal administratörsbehörighet som standard. Det här alternativet är en premium edition funktioner som är tillgängliga via produkter, till exempel Azure AD Premium eller Enterprise Mobility Suite (EMS). 
 
-- **Användarna kan registrera sina enheter med Azure AD** -måste du konfigurera den här inställningen om du vill tillåta att enheterna ska [registrerade](device-management-introduction.md#azure-ad-registered-devices) med Azure AD. Om du väljer **ingen**, enheter tillåts inte att registrera om de inte Azure AD ansluten eller hybrid anslutna Azure AD. Registrering med Microsoft Intune eller hantering av mobilenheter (MDM) för Office 365 kräver registrering. Om du har konfigurerat någon av dessa tjänster **alla** är markerad och **NONE** är inte tillgänglig...
+- **Användare kan registrera sina enheter med Azure AD** -måste du konfigurera den här inställningen för att tillåta enheter att bli [registrerad](device-management-introduction.md#azure-ad-registered-devices) med Azure AD. Om du väljer **ingen**, enheter kan inte registrera när de inte är ansluten till Azure AD eller hybrid Azure AD-anslutna. Registrering med Microsoft Intune eller Mobile Device Management (MDM) för Office 365 kräver registrering. Om du har konfigurerat någon av dessa tjänster **alla** har valts och **NONE** är inte tillgänglig.
 
-- **Kräva Multifaktorautentisering ansluta enheter** -du kan välja om användare måste ange en andra autentiseringsfaktor till [koppling](device-management-introduction.md#azure-ad-joined-devices) sin enhet till Azure AD. Standardvärdet är **nr**. Vi rekommenderar att kräva multifaktorautentisering vid registrering av en enhet. Innan du aktiverar multifaktorautentisering för den här tjänsten måste du kontrollera att multifaktorautentisering har konfigurerats för de användare som registrerar sina enheter. Mer information om olika Azure Multi-Factor authentication-tjänster finns [komma igång med Azure Multi-Factor authentication](authentication/concept-mfa-whichversion.md). 
+- **Kräver Multi-Factor Authentication att ansluta enheter** – du kan välja om användare måste ange en andra autentiseringsfaktor till [join](device-management-introduction.md#azure-ad-joined-devices) sin enhet till Azure AD. Standardvärdet är **nr**. Vi rekommenderar att kräva multifaktorautentisering när du registrerar en enhet. Innan du aktiverar multifaktorautentisering för den här tjänsten måste du se till att multifaktorautentisering har konfigurerats för de användare som registrerar sina enheter. Mer information om olika Azure Multi-Factor authentication-tjänster finns i [komma igång med Azure Multi-Factor authentication](authentication/concept-mfa-whichversion.md). 
 
-- **Högsta antal enheter** -den här inställningen kan du välja det högsta antalet enheter som en användare kan ha i Azure AD. Om användarna når den här kvoten, de är inte lägga till fler enheter förrän ett eller flera av de befintliga enheterna har tagits bort. Enheten citattecken räknas för alla enheter som är Azure AD ansluten eller Azure AD som registrerade idag. Standardvärdet är **20**.
+- **Högsta antalet enheter** – den här inställningen kan du välja det maximala antalet enheter som en användare kan ha i Azure AD. Om en användare når den här kvoten kan de att inte lägga till ytterligare enheter förrän en eller flera av de befintliga enheterna har tagits bort. Enheten kvoten räknas för alla enheter som är ansluten till Azure AD eller Azure AD-registrerad idag. Standardvärdet är **20**.
 
-- **Användarna kan synkronisera AppData och inställningar mellan enheter** -som standard är inställningen **NONE**. Välja specifika användare eller grupper eller alla kan användarens inställningar och AppData att synkronisera via sina Windows 10-enheter. Mer information om hur synkroniseringen fungerar i Windows 10.
-Det här alternativet är en premium-funktioner som är tillgängliga via produkter, till exempel Azure AD Premium eller Enterprise Mobility Suite (EMS).
+- **Användarna kan synkronisera inställningar och AppData på enheter** -som standard är inställningen **NONE**. Välja specifika användare eller grupper eller alla kan användarens inställningar och AppData att synkronisera via sina Windows 10-enheter. Läs mer om hur synkroniseringen fungerar i Windows 10.
+Det här alternativet är en premium-funktion som är tillgängliga via produkter som Azure AD Premium eller Enterprise Mobility Suite (EMS).
  
 
 
@@ -89,72 +89,72 @@ Det här alternativet är en premium-funktioner som är tillgängliga via produk
 
 ## <a name="locate-devices"></a>Hitta enheter
 
-Du har två alternativ för att hitta registrerade och domänanslutna enheter:
+Du har två alternativ för att hitta registrerade och anslutna enheter:
 
-- **Alla enheter** i den **hantera** avsnitt i den **enheter** sidan  
+- **Alla enheter** i den **hantera** delen av den **enheter** sidan  
 
     ![Alla enheter](./media/device-management-azure-portal/41.png)
 
 
-- **Enheter** i den **hantera** avsnitt i en **användaren** sidan
+- **Enheter** i den **hantera** delen av en **användaren** sidan
  
     ![Alla enheter](./media/device-management-azure-portal/43.png)
 
 
 
-Med båda alternativen du en vy som:
+Med båda alternativen kommer du till en vy som:
 
 
-- Kan du söka efter enheter med visningsnamnet som filter.
+- Kan du söka efter enheter med hjälp av visningsnamnet som filter.
 
-- Ger detaljerad översikt över registrerade och domänanslutna enheter
+- Ger dig detaljerad översikt över registrerade och anslutna enheter
 
-- Du kan utföra vanliga hanteringsuppgifter för enhet
+- Gör att du kan utföra vanliga hanteringsuppgifter för enhet
    
 
 ![Alla enheter](./media/device-management-azure-portal/51.png)
 
-Enhetsnamn som innehåller apostrofer kan potentiellt använda olika tecken som ser ut som apostrofer för vissa iOS-enheter. Så söker efter sådana enheter är lite komplicerade - om du inte ser sökresultat korrekt, kontrollera att strängen innehåller matchande apostroftecknet.
+Enhetsnamn som innehåller apostrofer kan potentiellt använda olika tecken som ser ut som apostrofer för vissa iOS-enheter. Söker efter sådana enheter är lite svårt – om du inte ser resultat från korrekt, kontrollera att strängen innehåller matchande apostroftecknet.
 
 ## <a name="device-management-tasks"></a>Enhetens hanteringsuppgifter
 
-Som administratör kan hantera du registrerade eller anslutna enheter. Det här avsnittet ger information om vanliga hanteringsuppgifter för enheten.
+Som administratör kan hantera du registrerade eller domänanslutna enheter. Det här avsnittet finns information om vanliga hanteringsuppgifter för enheten.
 
 
-### <a name="manage-an-intune-device"></a>Hantera en enhet i Intune
+### <a name="manage-an-intune-device"></a>Hantera en Intune-enhet
 
-Om du är administratör Intune kan du hantera enheter som har markerats som **Microsoft Intune**. En administratör kan se ytterligare enheter 
+Om du är Intune-administratör kan du hantera enheter som har markerats som **Microsoft Intune**. En administratör kan se ytterligare enheter 
 
-![Hantera en enhet i Intune](./media/device-management-azure-portal/31.png)
+![Hantera en Intune-enhet](./media/device-management-azure-portal/31.png)
 
 
-### <a name="enable--disable-an-azure-ad-device"></a>Aktivera / inaktivera en enhet i Azure AD
+### <a name="enable--disable-an-azure-ad-device"></a>Aktivera / inaktivera en Azure AD-enhet
 
 Om du vill aktivera / inaktivera en enhet, har du två alternativ:
 
 - Menyn uppgifter (”...”) på den **alla enheter** sidan
 
-    ![Hantera en enhet i Intune](./media/device-management-azure-portal/71.png)
+    ![Hantera en Intune-enhet](./media/device-management-azure-portal/71.png)
 
 - I verktygsfältet på den **enheter** sidan
 
-    ![Hantera en enhet i Intune](./media/device-management-azure-portal/32.png)
+    ![Hantera en Intune-enhet](./media/device-management-azure-portal/32.png)
 
 
 **Anmärkning:**
 
 - Du måste vara en global administratör i Azure AD för att aktivera / inaktivera en enhet. 
-- Inaktivera en enhet förhindrar att en enhet från att komma åt resurserna i Azure AD. 
+- Inaktiverar en enhet startas en enhet från att komma åt din Azure AD-resurser. 
 
 
 
 ### <a name="delete-an-azure-ad-device"></a>Ta bort en Azure AD-enhet
 
-Om du vill ta bort en enhet har du två alternativ:
+Om du vill ta bort en enhet, har du två alternativ:
 
 - Menyn uppgifter (”...”) på den **alla enheter** sidan
 
-    ![Hantera en enhet i Intune](./media/device-management-azure-portal/72.png)
+    ![Hantera en Intune-enhet](./media/device-management-azure-portal/72.png)
 
 - I verktygsfältet på den **enheter** sidan
 
@@ -167,64 +167,67 @@ Om du vill ta bort en enhet har du två alternativ:
 
 - Tar bort en enhet:
  
-    - Förhindrar att en enhet från att komma åt resurserna i Azure AD. 
+    - Förhindrar att en enhet från att komma åt din Azure AD-resurser. 
 
     - Tar bort all information som är kopplade till enheten, till exempel, BitLocker-nycklar för Windows-enheter.  
 
-    - Representerar en oåterkalleligt aktivitet och rekommenderas inte om det inte krävs.
+    - Representerar en återställningsbar aktivitet och rekommenderas inte om det inte krävs.
 
-Om en enhet hanteras av en annan hanterare (t.ex, Microsoft Intune), kontrollera att enheten har rensats / dragits tillbaka innan du tar bort enheten i Azure AD.
+Om en enhet hanteras av en annan utfärdare för hantering av (till exempel Microsoft Intune), kontrollera att enheten har rensats / tas ur drift innan du tar bort enheten i Azure AD.
 
  
 
 
 ### <a name="view-or-copy-device-id"></a>Visa eller kopiera enhets-ID
 
-Du kan använda enhets-ID för att verifiera ID enhetsinformation på enheten eller med hjälp av PowerShell vid felsökning. Alternativet Kopiera, klicka på enheten.
+Du kan använda ett enhets-ID för att verifiera ID enhetsinformation på enheten eller med hjälp av PowerShell under felsökningen. För att komma åt alternativet Kopiera, klickar du på enheten.
 
-![Visa en enhets-ID](./media/device-management-azure-portal/35.png)
+![Visa ett enhets-ID](./media/device-management-azure-portal/35.png)
   
 
 ### <a name="view-or-copy-bitlocker-keys"></a>Visa eller kopiera BitLocker-nycklar
 
-Du kan visa och kopiera BitLocker-nycklar för att hjälpa användare att återställa den krypterade enheten. Nycklarna är bara tillgängliga för Windows-enheter som är krypterade och har sina nycklar lagras i Azure AD. Du kan kopiera dessa nycklar vid åtkomst till information om enheten.
+Du kan visa och kopiera BitLocker-nycklar för att hjälpa användare att återställa sina krypterade enheten. De här nycklarna är bara tillgängliga för Windows-enheter som är krypterade och har sina nycklar som lagras i Azure AD. Du kan kopiera nycklarna vid åtkomst till information om enheten.
  
 ![Visa BitLocker-nycklar](./media/device-management-azure-portal/36.png)
 
-Om du vill visa eller kopiera BitLocker-nycklar, måste du antingen vara ägare till enheten, eller en användare som har minst en av följande roller:
+Om du vill visa eller kopiera BitLocker-nycklar, måste du vara ägaren till enheten eller en användare som har minst en av följande roller:
 
 - Globala administratörer
-- Supportavdelningen administratörer
+- Supportadministratörer
 - Säkerhetsadministratörer
-- Säkerhet läsare
-- Administratörer för Intune
+- Säkerhetsläsare
+- Intune-tjänstadministratörer
+
+> [!NOTE]
+> Hybrid Azure AD-anslutna Windows 10-enheter har inte någon ägare. Så om du letar efter en enhet av ägare och gick inte att hitta den, Sök efter enhets-ID.
 
 
 ## <a name="audit-logs"></a>Granskningsloggar
 
 
-Enheten aktiviteter är tillgängliga via aktivitetsloggarna. Detta omfattar aktiviteter som utlöses av registreringstjänsten för enheter och användare:
+Enheten aktiviteter är tillgängliga via aktivitetsloggar. Detta omfattar aktiviteter som utlöses av registreringstjänsten för enheter och användare:
 
 - Skapa en enhet och lägga till ägare / användare på enheten
 
 - Ändringar av inställningar för enheter
 
-- Enheten åtgärder, till exempel ta bort eller uppdatera en enhet
+- Åtgärder, till exempel ta bort eller uppdatera en enhet
  
-Är din inkörsport till att granska data **granskningsloggar** i den **aktiviteten** avsnitt i den **enheter** sidan.
+Din startpunkt för granskningsdata som är **granskningsloggar** i den **aktivitet** delen av den **enheter** sidan.
 
 ![Granskningsloggar](./media/device-management-azure-portal/61.png)
 
 
 En granskningslogg har en standardlistvy som visar:
 
-- datum och tid för
+- Datum och tid för händelsen
 
-- mål
+- Den är riktad mot
 
-- initieraren / aktören (som) för en aktivitet
+- Initieraren / aktören (vem) för en aktivitet
 
-- aktiviteten (vad)
+- Aktiviteten (vad)
 
 ![Granskningsloggar](./media/device-management-azure-portal/63.png)
 
@@ -242,7 +245,7 @@ Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du
 - Mål
 - Initierad av (aktör)
 
-Utöver filter kan du söka efter specifika poster.
+Förutom filter, kan du söka efter specifika poster.
 
 ![Granskningsloggar](./media/device-management-azure-portal/65.png)
 

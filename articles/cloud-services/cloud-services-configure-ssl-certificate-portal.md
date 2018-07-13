@@ -1,9 +1,9 @@
 ---
-title: Konfigurera SSL för en molnbaserad tjänst | Microsoft Docs
-description: Lär dig hur du anger en HTTPS-slutpunkt för en webbroll och hur man överför ett SSL-certifikat för att skydda ditt program. De här exemplen använder Azure-portalen.
+title: Konfigurera SSL för en tjänst i molnet | Microsoft Docs
+description: Lär dig hur du anger en HTTPS-slutpunkt för en webbroll och överför ett SSL-certifikat för att skydda dina program. De här exemplen använder Azure portal.
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
@@ -13,46 +13,46 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
-ms.author: adegeo
-ms.openlocfilehash: 0e053ad7f1033317948b6ef0856984b21e56e425
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: jeconnoc
+ms.openlocfilehash: e3e7d271375cd9c3f49d8fedd963b5234dab7902
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
-ms.locfileid: "24859784"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001532"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Konfigurera SSL för ett program i Azure
 
 SSL-kryptering (Secure Socket Layer) är den vanligaste metoden för att skydda data som skickas över Internet. Den här vanliga åtgärden diskuterar hur man anger en HTTPS-slutpunkt för en webbroll och överför ett SSL-certifikat för att skydda ett program.
 
 > [!NOTE]
-> Procedurerna i det här steget gäller för Azure Cloud Services; App-tjänster, se [detta](../app-service/app-service-web-tutorial-custom-ssl.md).
+> Procedurerna i det här steget gäller för Azure Cloud Services; App Services, se [detta](../app-service/app-service-web-tutorial-custom-ssl.md).
 >
 
-Den här aktiviteten använder en Produktionsdistribution. Information om hur du använder en fristående distribution har angetts i slutet av det här avsnittet.
+Den här uppgiften använder en Produktionsdistribution. Information om hur du använder en mellanlagrings-distribution finns i slutet av det här avsnittet.
 
-Läs [detta](cloud-services-how-to-create-deploy-portal.md) första om du inte har skapat en tjänst i molnet.
+Läs [detta](cloud-services-how-to-create-deploy-portal.md) om du inte har skapat en tjänst i molnet.
 
 ## <a name="step-1-get-an-ssl-certificate"></a>Steg 1: Hämta ett SSL-certifikat
-Om du vill konfigurera SSL för ett program måste du först skaffa ett SSL-certifikat som har signerats av en certifikatet (CA), en betrodd tredje part som utfärdar certifikat för detta ändamål. Om du inte redan har en, måste du skaffa ett från ett företag som säljer SSL-certifikat.
+Om du vill konfigurera SSL för ett program, måste du först hämta ett SSL-certifikat som har signerats av en certifikatutfärdare (CA), en betrodd tredje part som utfärdar certifikat för detta ändamål. Om du inte redan har en, måste du skaffa ett från ett företag som säljer SSL-certifikat.
 
 Certifikatet måste uppfylla följande krav för SSL-certifikat i Azure:
 
 * Certifikatet måste innehålla en privat nyckel.
 * Certifikatet måste skapas för nyckelutbyte, kan exporteras till en Personal Information Exchange (.pfx)-fil.
-* Certifikatets ämnesnamn måste matcha den domän som används för åtkomst till Molntjänsten. Du kan skaffa ett SSL-certifikat från en certifikatutfärdare (CA) för domänen cloudapp.net. Du måste skaffa ett anpassat domännamn som ska användas vid åtkomst till din tjänst. När du begär ett certifikat från en Certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som används för åtkomst till ditt program. Om ditt domännamn är till exempel **contoso.com** du vill begära ett certifikat från Certifikatutfärdaren för ***. contoso.com** eller **www.contoso.com**.
+* Certifikatets ämnesnamn måste matcha den domän som används för att få åtkomst till Molntjänsten. Du kan inte hämta ett SSL-certifikat från en certifikatutfärdare (CA) för cloudapp.net-domän. Du måste skaffa ett anpassat domännamn som ska användas när komma åt tjänsten. När du begär ett certifikat från en Certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som används för att komma åt ditt program. Exempel: om ditt domännamn är **contoso.com** du vill begära ett certifikat från din Certifikatutfärdare för ***. contoso.com** eller **www.contoso.com**.
 * Certifikatet måste använda minst 2048-bitars kryptering.
 
-För testning, kan du [skapa](cloud-services-certs-create.md) och använda ett självsignerat certifikat. Ett självsignerat certifikat har autentiserats inte via en Certifikatutfärdare och kan använda domänen cloudapp.net som URL för webbplatsen. Till exempel följande uppgift använder ett självsignerat certifikat som nätverksnamn (CN) som används i certifikatet är **sslexample.cloudapp.net**.
+För testning, kan du [skapa](cloud-services-certs-create.md) och använda ett självsignerat certifikat. Ett självsignerat certifikat har autentiserats inte via en Certifikatutfärdare och kan använda cloudapp.net domänen som URL för webbplatsen. Till exempel följande uppgift använder ett självsignerat certifikat som CN-namn (CN) som används i certifikatet är **sslexample.cloudapp.net**.
 
 Därefter måste du inkludera information om certifikatet i tjänstdefinitionen och konfigurationsfiler för tjänsten.
 
 <a name="modify"> </a>
 
-## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Steg 2: Ändra tjänsten definitions- och filer
-Programmet måste konfigureras för att använda certifikat och en HTTPS-slutpunkt måste läggas till. Därför tjänstdefinitionen och service configuration-filer som måste uppdateras.
+## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Steg 2: Ändra service definition och konfigurationsfiler
+Programmet måste konfigureras för att använda certifikat och en HTTPS-slutpunkt måste läggas till. Tjänstdefinition och konfigurationsfiler för tjänsten måste därför uppdateras.
 
-1. Öppna tjänstdefinitionsfilen (CSDEF) i din utvecklingsmiljö, lägga till en **certifikat** avsnittet inom den **WebRole** avsnittet och innehålla följande information om certifikat (och mellanliggande certifikat):
+1. Öppna tjänstdefinitionsfilen (CSDEF) i din utvecklingsmiljö, lägga till en **certifikat** avsnittet inom den **WebRole** avsnittet och inkluderar följande information om certifikatet (och mellanliggande certifikat):
 
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -78,16 +78,16 @@ Programmet måste konfigureras för att använda certifikat och en HTTPS-slutpun
     </WebRole>
     ```
 
-   Den **certifikat** avsnittet definierar namnet på vår certifikat, dess plats och namnet på arkivet där den finns.
+   Den **certifikat** avsnittet definierar namnet på vår certifikat, dess plats och namnet på arkivet var de finns.
 
-   Behörigheter (`permisionLevel` attributet) kan anges som något av följande värden:
+   Behörigheter (`permisionLevel` attribut) kan anges till något av följande värden:
 
-   | Behörighetsvärdet | Beskrivning |
+   | Behörigheten värde | Beskrivning |
    | --- | --- |
-   | limitedOrElevated |**(Standard)**  Alla processer som rollen har åtkomst till den privata nyckeln. |
+   | limitedOrElevated |**(Standard)**  Alla processer som rollen kan komma åt den privata nyckeln. |
    | upphöjd |Endast utökade processer kan komma åt den privata nyckeln. |
 
-2. Lägg till i din tjänstdefinitionsfilen en **InputEndpoint** element i den **slutpunkter** avsnittet om du vill aktivera HTTPS:
+2. Lägg till i din tjänstdefinitionsfilen en **InputEndpoint** element i den **slutpunkter** avsnitt för att aktivera HTTPS:
 
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -100,7 +100,7 @@ Programmet måste konfigureras för att använda certifikat och en HTTPS-slutpun
     </WebRole>
     ```
 
-3. Lägg till i din tjänstdefinitionsfilen en **bindning** element i den **platser** avsnitt. Det här elementet lägger till en HTTPS-bindning för att mappa slutpunkten till din plats:
+3. Lägg till i din tjänstdefinitionsfilen en **bindning** element i den **platser** avsnittet. Det här elementet lägger till en HTTPS-bindning för att mappa slutpunkten till din webbplats:
 
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -116,8 +116,8 @@ Programmet måste konfigureras för att använda certifikat och en HTTPS-slutpun
     </WebRole>
     ```
 
-   Alla nödvändiga ändringar av tjänstdefinitionsfilen har avslutats. men du måste lägga till certifikatinformationen i tjänstekonfigurationsfilen.
-4. Lägg till i din tjänstekonfigurationsfil (CSCFG) ServiceConfiguration.Cloud.cscfg, en **certifikat** värdet med ditt certifikat. Följande kodexempel innehåller information om den **certifikat** avsnittet förutom av tumavtrycksvärde.
+   Alla nödvändiga ändringar i tjänstdefinitionsfilen har uppfyllts. men du behöver att lägga till certifikatinformationen i tjänstekonfigurationsfilen.
+4. Lägg till i din tjänstkonfigurationsfilen (CSCFG), ServiceConfiguration.Cloud.cscfg, en **certifikat** värdet med ditt certifikat. Följande kodexempel innehåller information om den **certifikat** avsnittet, förutom tumavtrycksvärde.
 
    ```xml
     <Role name="Deployment">
@@ -134,51 +134,51 @@ Programmet måste konfigureras för att använda certifikat och en HTTPS-slutpun
     </Role>
     ```
 
-(Det här exemplet används **sha1** för algoritmen tumavtryck. Ange ett värde för din certifikatets tumavtryck algoritmen.)
+(Det här exemplet används **sha1** för algoritmen tumavtryck. Ange ett värde för ditt certifikat tumavtrycksalgoritm.)
 
-Nu när tjänsten definitions- och konfigurationsfiler för tjänsten har uppdaterats, paketera din distribution för överföring till Azure. Om du använder **cspack**, Använd inte den **/generateConfigurationFile** flagga som skrivs som du har infogat certifikatinformationen.
+Nu när tjänsten definitions- och konfigurationsfiler för tjänsten har uppdaterats, paketera din distribution för att ladda upp till Azure. Om du använder **cspack**, Använd inte den **/generateConfigurationFile** flagga, som som skriver över den certifikatinformation som du har infogat.
 
-## <a name="step-3-upload-a-certificate"></a>Steg 3: Överför certifikat
+## <a name="step-3-upload-a-certificate"></a>Steg 3: Ladda upp ett certifikat
 Ansluta till Azure-portalen och...
 
-1. I den **alla resurser** avsnittet Portal, väljer du din tjänst i molnet.
+1. I den **alla resurser** avsnittet i portalen väljer du din molntjänst.
 
     ![Publicera din molntjänst](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
 2. Klicka på **certifikat**.
 
-    ![Klicka på ikonen certifikat](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
+    ![Klicka på ikonen för certifikat](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 
 3. Klicka på **överför** överst i området för certifikat.
 
-    ![Klicka på menyalternativet Överför](media/cloud-services-configure-ssl-certificate-portal/Upload_menu.png)
+    ![Klicka på menyalternativet ladda upp](media/cloud-services-configure-ssl-certificate-portal/Upload_menu.png)
 
-4. Ange den **filen**, **lösenord**, klicka på **överför** längst ned i dataområdet transaktionen.
+4. Ange den **filen**, **lösenord**, klicka sedan på **överför** längst ned i posten dataområdet.
 
 ## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Steg 4: Anslut till rollinstansen med hjälp av HTTPS
-Nu när distributionen är igång och körs i Azure, kan du ansluta till den med hjälp av HTTPS.
+Nu när distributionen är igång och körs i Azure kan ansluta du till den med hjälp av HTTPS.
 
-1. Klicka på den **Webbadress** öppna webbläsaren.
+1. Klicka på den **webbplatsens URL** så att du öppnar webbläsaren.
 
    ![Klicka på webbplatsens URL](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
 
-2. Ändra länken om du vill använda i din webbläsare **https** i stället för **http**, och går sedan till sidan.
+2. Ändra länken så att använda i din webbläsare **https** i stället för **http**, och sedan gå till sidan.
 
    > [!NOTE]
-   > Om du använder ett självsignerat certifikat när du bläddrar till en HTTPS-slutpunkt som är kopplad till det självsignerade certifikatet kan du se ett certifikatfel i webbläsaren. Använder ett certifikat som signerats av en betrodd certifikatutfärdare åtgärdar problemet. under tiden kan du ignorera felet. (Ett annat alternativ är att lägga till det självsignerade certifikatet i certifikatarkivet för användarens certifikat från betrodd utfärdare.)
+   > Om du använder ett självsignerat certifikat när du bläddrar till en HTTPS-slutpunkt som är associerat med det självsignerade certifikatet som du kan se ett certifikat-fel i webbläsaren. Med hjälp av ett certifikat som signerats av en betrodd certifikatutfärdare eliminerar det här problemet. under tiden kan ignorera du felet. (Ett annat alternativ är att lägga till det självsignerade certifikatet i certifikatarkivet för användarens certifikat från betrodd utfärdare.)
    >
    >
 
-   ![Platsen preview](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
+   ![Förhandsversion av plats](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
    > [!TIP]
-   > Om du vill använda SSL för en fristående distribution i stället för en Produktionsdistribution måste du först fastställa URL: en som används för distribution av fristående. När Molntjänsten har distribuerats, URL-Adressen till mellanlagringsmiljön bestäms av den **distributions-ID** GUID i det här formatet:`https://deployment-id.cloudapp.net/`  
+   > Om du vill använda SSL för en mellanlagrings-distribution i stället för en Produktionsdistribution måste du först fastställa den URL som används för mellanlagring distributionen. När din molntjänst har distribuerats, URL-Adressen till mellanlagringsmiljön bestäms av den **distributions-ID** GUID i följande format: `https://deployment-id.cloudapp.net/`  
    >
-   > Skapa ett certifikat med nätverksnamn (CN) som är lika med GUID-baserad URL (till exempel **328187776e774ceda8fc57609d404462.cloudapp.net**). Använda portalen för att lägga till certifikatet mellanlagrade Molntjänsten. Sedan lägger du till certifikatinformationen CSDEF- och CSCFG-filer, paketera programmet och uppdatera din stegvis distribution om du vill använda det nya paketet.
+   > Skapa ett certifikat med nätverksnamn (CN) som är lika med GUID-baserad URL (till exempel **328187776e774ceda8fc57609d404462.cloudapp.net**). Använda portalen för att lägga till certifikatet i mellanlagrad Molntjänsten. Lägg sedan till certifikatinformationen till dina CSDEF och CSCFG-filer, Paketera om ditt program och uppdatera din stegvis distribution om du vill använda det nya paketet.
    >
 
 ## <a name="next-steps"></a>Nästa steg
-* [Allmän konfiguration av Molntjänsten](cloud-services-how-to-configure-portal.md).
-* Lär dig hur du [distribuera en tjänst i molnet](cloud-services-how-to-create-deploy-portal.md).
+* [Allmän konfiguration för din molntjänst](cloud-services-how-to-configure-portal.md).
+* Lär dig hur du [distribuera en molntjänst](cloud-services-how-to-create-deploy-portal.md).
 * Konfigurera en [domännamn](cloud-services-custom-domain-name-portal.md).
 * [Hantera din molntjänst](cloud-services-how-to-manage-portal.md).

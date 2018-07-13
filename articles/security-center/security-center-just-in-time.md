@@ -1,6 +1,6 @@
 ---
-title: Precis i tid virtuella datorn åtkomst till i Azure Security Center | Microsoft Docs
-description: Det här dokumentet visar hur precis i tid VM åtkomst i Azure Security Center hjälper dig att styra åtkomsten till din virtuella Azure-datorer.
+title: Just-in-time-VM åtkomst i Azure Security Center | Microsoft Docs
+description: Det här dokumentet visar hur just-in-time-åtkomst till virtuell dator i Azure Security Center hjälper dig att styra åtkomsten till virtuella datorer i Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,40 +12,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2018
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 60a5de16f4146e112a85d74634c662e228a0854f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 288524e58efd64670df098f249f3ad0b1cca464c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640565"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990586"
 ---
-# <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera virtuella åtkomst med hjälp av precis i tid
+# <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera VM-åtkomst med hjälp av just-in-time
 
-Precis i tid virtuell dator (VM) kan åtkomst användas för att låsa inkommande trafik till din virtuella Azure-datorer minskar risken för attacker och enkel åtkomst till att ansluta till virtuella datorer när de behövs.
+Just-in-time-dator (VM) kan åtkomst användas för att låsa inkommande trafik till dina virtuella Azure-datorer minskar exponeringen för attacker samtidigt som det ger enkel åtkomst till att ansluta till virtuella datorer när det behövs.
 
 > [!NOTE]
-> Den bara i tiden funktionen är tillgänglig på standardnivån av Security Center.  Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
+> Just in-time-funktionen är tillgänglig för standardnivån i Security Center.  Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
 >
 >
 
-## <a name="attack-scenario"></a>Angrepp
+## <a name="attack-scenario"></a>Attack scenario
 
-Brute force-attacker ofta målportar för hantering som ett sätt att få åtkomst till en virtuell dator. Om det lyckas, kan en angripare ta kontroll över den virtuella datorn och upprätta en fot i din miljö.
+Brute force-attacker ofta mål hanteringsportar som ett sätt att få åtkomst till en virtuell dator. Om detta lyckas, kan en angripare ta kontroll över den virtuella datorn och upprätta en fot i din miljö.
 
-Ett sätt att minska risken för ett nyckelsökningsangrepp är att begränsa den tid som en port är öppen. Hanteringsportar behöver inte vara öppna hela tiden. De behöver endast vara öppna medan du är ansluten till den virtuella datorn för att exempelvis utföra hantering eller underhåll. När precis i tid är aktiverat, Security Center använder [nätverkssäkerhetsgruppen](../virtual-network/security-overview.md#security-rules) (NSG) regler som begränsar åtkomsten till hanteringsportar och de inte kan riktas av angripare.
+Ett sätt att minska exponeringen för en råstyrkeattack är att begränsa hur lång tid att öppna en port. Hanteringsportar behöver inte vara öppna hela tiden. De behöver endast vara öppna medan du är ansluten till den virtuella datorn för att exempelvis utföra hantering eller underhåll. När just-in-time är aktiverat, Security Center använder [nätverkssäkerhetsgrupp](../virtual-network/security-overview.md#security-rules) (NSG) regler, vilket begränsar åtkomsten till hanteringsportar så de inte kan nås av angripare.
 
-![Precis i tid scenario][1]
+![Just-in-time-scenario][1]
 
-## <a name="how-does-just-in-time-access-work"></a>Hur just-in-time-åtkomst fungerar?
+## <a name="how-does-just-in-time-access-work"></a>Hur just-in-time-åtkomst till fungerar?
 
-När JIT (Just-In-Time) är aktiverat begränsar Security Center inkommande trafik till dina virtuella Azure-datorer genom att skapa en NSG-regel. Du väljer portar på den virtuella datorn som inkommande trafik ska låsas. Dessa portar som styrs av den bara i Tidslösning.
+När JIT (Just-In-Time) är aktiverat begränsar Security Center inkommande trafik till dina virtuella Azure-datorer genom att skapa en NSG-regel. Du väljer vilka portar på den virtuella datorn som inkommande trafik låses. De här portarna styrs av just i time-lösningen.
 
-När en användare begär åtkomst till en virtuell dator, Security Center kontrollerar att användaren har [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) behörigheter som ger skrivbehörighet för den virtuella datorn. Om de har behörighet att skriva begäran har godkänts och Security Center automatiskt konfigurerar Nätverkssäkerhetsgrupper (NSG: er) för att tillåta inkommande trafik till de markerade portarna för den tid angett du. När tid har gått ut, återställer Security Center de NSG: er till sitt tidigare tillstånd. Dessa anslutningar som redan har skapat som avbryts inte, men.
+När en användare begär åtkomst till en virtuell dator, kontrollerar Security Center att användaren har [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) behörigheter som ger skrivbehörighet för den virtuella datorn. Om de har skrivbehörighet, begäran har godkänts och konfigurerar Security Center automatiskt Nätverkssäkerhetsgrupper (NSG) för att tillåta inkommande trafik till de markerade portarna för den tid angett du. När tiden har gått ut, återställer Security Center NSG: erna till sina tidigare tillstånd. Dessa anslutningar som redan har skapat är inte störs, men.
 
 > [!NOTE]
-> Security Center just-in-time-åtkomst för VM stöder för närvarande endast virtuella datorer som distribueras via Azure Resource Manager. Mer information om klassiskt och Resource Manager distributionsmodellerna finns [Azure Resource Manager och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md).
+> Security Center just-in-time-åtkomst till virtuell dator stöder för närvarande endast datorer som distribuerats via Azure Resource Manager. Mer information om klassiskt och Resource Manager distributionsmodellerna finns [Azure Resource Manager och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md).
 >
 >
 
@@ -53,58 +53,58 @@ När en användare begär åtkomst till en virtuell dator, Security Center kontr
 
 1. Öppna instrumentpanelen för **Security Center**.
 
-2. I den vänstra rutan, Välj **precis i tid VM access**.
+2. I den vänstra rutan väljer **Just-in-time-åtkomst till virtuell dator**.
 
-![Precis i tid VM åtkomst panelen][2]
+![Just-in-time-åtkomst till virtuell dator i panelen][2]
 
-Den **precis i tid VM access** öppnas.
+Den **Just-in-time-åtkomst till virtuell dator** öppnas.
 
-![Precis i tid VM åtkomst panelen][10]
+![Just-in-time-åtkomst till virtuell dator i panelen][10]
 
 **Just-in-time-åtkomst till virtuell dator** tillhandahåller information om dina virtuella datorers status:
 
-- **Konfigurerad** – Virtuella datorer som har konfigurerats för att stödja Just-in-time-åtkomst till virtuella datorer. Data som visas för den senaste veckan och innehåller antalet godkända begäranden, datumet och tiden och senast användare för varje virtuell dator.
-- **Rekommenderas** – Virtuella datorer som kan stödja Just-in-time-åtkomst till virtuell dator men som inte har konfigurerats för det. Vi rekommenderar att du aktiverar precis i tid VM åtkomstkontroll för dessa virtuella datorer. Se [konfigurerar bara i tid åtkomstprincip](#configuring-a-just-in-time-access-policy).
+- **Konfigurerad** – Virtuella datorer som har konfigurerats för att stödja Just-in-time-åtkomst till virtuella datorer. Informationen som presenteras för den senaste veckan och innehåller antalet godkända begäranden, datumet och tiden och senaste användare för varje virtuell dator.
+- **Rekommenderas** – Virtuella datorer som kan stödja Just-in-time-åtkomst till virtuell dator men som inte har konfigurerats för det. Vi rekommenderar att du aktiverar just-in-time-åtkomstkontroll för virtuell dator för dessa virtuella datorer. Se [konfigurerar bara i tid åtkomstprincip](#configuring-a-just-in-time-access-policy).
 - **Ingen rekommendation** – Orsaker som kan orsaka att en virtuell dator inte rekommenderas är:
   - Saknad NSG – Just-in-time-lösningen kräver att det finns en NSG.
-  - Klassisk virtuell dator – Security Centers just-in-time-åtkomst till virtuell dator stöder för närvarande bara virtuella datorer som har distribuerats via Azure Resource Manager. Klassisk distribution stöds inte av den bara i Tidslösning.
+  - Klassisk virtuell dator – Security Centers just-in-time-åtkomst till virtuell dator stöder för närvarande bara virtuella datorer som har distribuerats via Azure Resource Manager. En klassisk distribution stöds inte av just i time-lösningen.
   - Övrigt – En virtuell dator i den här kategorin om just-in-time-lösningen är avstängd i säkerhetsprincipen för prenumerationen eller resursgruppen, eller om den virtuella datorn saknar en offentlig IP-adress och inte har någon NSG.
 
 ## <a name="configuring-a-just-in-time-access-policy"></a>Konfigurera bara i tid åtkomstprincip
 
 Så här väljer du de virtuella datorer som du vill aktivera:
 
-1. Under **precis i tid VM access**, Välj den **rekommenderas** fliken.
+1. Under **Just-in-time-åtkomst till virtuell dator**väljer den **rekommenderas** fliken.
 
   ![Aktivera just-in-time-åtkomst][3]
 
-2. Under **VIRTUELLA**, Välj de virtuella datorer som du vill aktivera. Detta placerar en bock bredvid en virtuell dator.
+2. Under **VM**, Välj de virtuella datorer som du vill aktivera. Detta placerar en bock bredvid en virtuell dator.
 3. Välj **aktivera JIT på virtuella datorer**.
 4. Välj **Spara**.
 
 ### <a name="default-ports"></a>Standardportar
 
-Du kan se standardportarna som Security Center rekommenderar att aktivera precis i tid.
+Du kan se standardportarna som Security Center rekommenderar att aktivera just-in-time.
 
-1. Under **precis i tid VM access**, Välj den **rekommenderas** fliken.
+1. Under **Just-in-time-åtkomst till virtuell dator**väljer den **rekommenderas** fliken.
 
-  ![Visa standardportarna][6]
+  ![Visa standardportar][6]
 
-2. Under **VMs**, Välj en virtuell dator. Detta placerar en bock bredvid den virtuella datorn och öppnar **JIT VM konfiguration**. Det här bladet visar standardportarna.
+2. Under **VMs**, Välj en virtuell dator. Detta placerar en bock bredvid den virtuella datorn och öppnar **JIT VM-åtkomstkonfiguration**. Det här bladet visar standardportarna.
 
-### <a name="add-ports"></a>Lägga till portar
+### <a name="add-ports"></a>Lägg till portar
 
-Under **JIT VM konfiguration**, du kan också lägga till och konfigurera en ny port som du vill aktivera den bara i Tidslösning.
+Under **JIT VM-åtkomstkonfiguration**, du kan också lägga till och konfigurera en ny port som du vill aktivera just i time-lösningen.
 
-1. Under **JIT VM konfiguration**väljer **Lägg till**. Då öppnas **Lägg till Portkonfiguration**.
+1. Under **JIT VM-åtkomstkonfiguration**väljer **Lägg till**. Då öppnas **Lägg till Portkonfiguration**.
 
   ![Portkonfiguration][7]
 
-2. Under **Lägg till Portkonfiguration**, du identifierar porten, protokolltyp, tillåtna käll-IP-adresser och tid för maximal begäran.
+2. Under **Lägg till Portkonfiguration**, du identifiera port, protokolltyp, tillåtna käll-IP-adresser och maximal begärandetid.
 
-  Tillåtna käll-IP-adresser är IP-adressintervall som tillåts att få åtkomst vid ett godkänt förfrågan.
+  Tillåtna käll-IP-adresser är IP-adressintervall som tillåts att få åtkomst vid en godkänd förfrågan.
 
-  Tid för maximal begäran är fönstret maximal tid som en specifik port kan öppnas.
+  Maximal begärandetid är den maximala tidsperioden som en specifik port kan öppnas.
 
 3. Välj **OK**.
 
@@ -112,88 +112,88 @@ Under **JIT VM konfiguration**, du kan också lägga till och konfigurera en ny 
 
 Att begära åtkomst till en virtuell dator:
 
-1. Under **precis i tid VM access**, Välj den **konfigurerad** fliken.
+1. Under **Just-in-time-åtkomst till virtuell dator**väljer den **konfigurerad** fliken.
 2. Under **VMs**, Välj de virtuella datorerna som du vill aktivera åtkomst. Detta placerar en bock bredvid en virtuell dator.
-3. Välj **begära åtkomst**. Då öppnas **begära åtkomst**.
+3. Välj **begär åtkomst**. Då öppnas **begär åtkomst**.
 
   ![Begär åtkomst till en virtuell dator][4]
 
-4. Under **begära åtkomst**, konfigurera för varje virtuell portar öppna tillsammans med som porten är öppen på käll-IP och tidsfönstret porten är öppen. Du kan begära åtkomst till de portar som konfigurerats i den bara i tid princip. Varje port har en högsta tillåtna tid som härletts från den bara i tid princip.
-5. Välj **öppna portarna**.
+4. Under **begär åtkomst**, du konfigurerar för varje virtuell dator portar öppna tillsammans med den IP-källan som porten är öppen till och tidsfönstret porten är öppen. Du kan begära åtkomst endast för de portar som konfigurerats i just i time-princip. Varje port har en högsta tillåtna tid som härletts från just i time-princip.
+5. Välj **öppna portar**.
 
 > [!NOTE]
-> När en användare begär åtkomst till en virtuell dator, Security Center kontrollerar att användaren har [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) behörigheter som ger skrivbehörighet för den virtuella datorn. Om de har behörighet att skriva har begäran godkänts.
+> När en användare begär åtkomst till en virtuell dator, kontrollerar Security Center att användaren har [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) behörigheter som ger skrivbehörighet för den virtuella datorn. Om de har skrivbehörighet har begäran godkänts.
 >
 >
 
 > [!NOTE]
-> Om en användare som begär åtkomst är bakom en proxyserver, fungerar inte alternativet ”Mina-IP. Det kan finnas behov av att fastställa en fullständig uppsättning organisationen.
+> Om en användare som begär åtkomst är bakom en proxyserver, fungerar inte alternativet ”Min IP”. Det kan finnas ett behov av att definiera ett komplett utbud av organisationen.
 >
 >
 
 ## <a name="editing-a-just-in-time-access-policy"></a>Redigera bara i tid åtkomstprincip
 
-Du kan ändra en virtuell dator finns bara i tid princip genom att lägga till och konfigurera en ny port ska öppnas för den virtuella datorn eller genom att ändra andra parametrar som är relaterade till en port som redan skyddad.
+Du kan ändra en virtuell dators befintliga just-in-time-princip genom att lägga till och konfigurera en ny port att öppna för den virtuella datorn eller genom att ändra andra parametrar som är relaterade till en port som redan skyddas.
 
-För att redigera en befintlig precis i tid princip för en virtuell dator i **konfigurerad** används:
+För att redigera en befintlig just-in-time-princip för en virtuell dator i **konfigurerad** fliken används:
 
 1. Under **VMs**, Välj en virtuell dator att lägga till en port för genom att klicka på de tre punkterna i raden för den virtuella datorn. Då öppnas en meny.
-2. Välj **redigera** på menyn. Då öppnas **JIT VM konfiguration**.
+2. Välj **redigera** på menyn. Då öppnas **JIT VM-åtkomstkonfiguration**.
 
   ![Redigera princip][8]
 
-3. Under **JIT VM konfiguration**, du kan redigera de befintliga inställningarna för en redan skyddade port antingen genom att klicka på dess port och du kan välja **Lägg till**. Då öppnas **Lägg till Portkonfiguration**.
+3. Under **JIT VM-åtkomstkonfiguration**, du kan antingen redigera de befintliga inställningarna för en port som redan skyddas genom att klicka på dess port eller du kan välja **Lägg till**. Då öppnas **Lägg till Portkonfiguration**.
 
   ![Lägga till en port][7]
 
-4. Under **Lägg till Portkonfiguration**, identifierar porten, protokolltyp tillåtna IP-adresser för källa och maximal tid för begäran.
+4. Under **Lägg till Portkonfiguration**, identifiera porten och protokoll-typ, tillåtna käll-IP-adresser och maximal tid för begäran.
 5. Välj **OK**.
 6. Välj **Spara**.
 
-## <a name="auditing-just-in-time-access-activity"></a>Granskning precis i tid access-aktivitet
+## <a name="auditing-just-in-time-access-activity"></a>Granskning just-in-time-åtkomstaktivitet
 
-Du kan få insikter om VM aktiviteter loggen sökning. Visa loggar:
+Du kan få insikter om VM-aktiviteter med loggsökning. Visa loggar:
 
-1. Under **precis i tid VM access**, Välj den **konfigurerad** fliken.
+1. Under **Just-in-time-åtkomst till virtuell dator**väljer den **konfigurerad** fliken.
 2. Under **VMs**, Välj en virtuell dator för att visa information om genom att klicka på de tre punkterna i raden för den virtuella datorn. Då öppnas en meny.
 3. Välj **aktivitetsloggen** på menyn. Då öppnas **aktivitetsloggen**.
 
   ![Välj aktivitetsloggen][9]
 
-  **Aktivitetsloggen** en filtrerad vy över tidigare åtgärder för den virtuella datorn tillsammans med tid och datum prenumeration.
+  **Aktivitetsloggen** en filtrerad vy över tidigare åtgärder för den virtuella datorn tillsammans med tid, datum och prenumeration.
 
-  ![Visa aktivitetsloggen][5]
+  ![Visa aktivitetslogg][5]
 
-Du kan hämta logginformation genom att välja **Klicka här för att hämta alla objekt som CSV**.
+Du kan ladda ned logginformation genom att välja **Klicka här för att hämta alla objekt som CSV**.
 
-Ändra filter och välj **tillämpa** att skapa en sökning och logg.
+Ändra filter och välj **tillämpa** att skapa en sökning och log.
 
-## <a name="using-just-in-time-vm-access-via-powershell"></a>Med hjälp av precis i tid VM åtkomst via PowerShell
+## <a name="using-just-in-time-vm-access-via-powershell"></a>Med hjälp av just-in-time-åtkomst till virtuell dator via PowerShell
 
-För att kunna använda den bara i Tidslösning via PowerShell kan du kontrollera att den [senaste](/powershell/azure/install-azurerm-ps) Azure PowerShell-version.
+För att kunna använda den bara i Tidslösning via PowerShell kan du kontrollera att du har den [senaste](/powershell/azure/install-azurerm-ps) Azure PowerShell-version.
 När du gör det, måste du installera den [senaste](https://aka.ms/asc-psgallery) Azure Security Center från PowerShell-galleriet.
 
-### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Konfigurera bara i tid princip för en virtuell dator
+### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Konfigurera bara i time-princip för en virtuell dator
 
-Så här konfigurerar du bara i tid princip på en specifik VM, måste du köra det här kommandot i PowerShell-sessionen: Set-ASCJITAccessPolicy.
+Så här konfigurerar du bara i tid princip på en specifik virtuell dator, måste du köra det här kommandot i PowerShell-sessionen: Set-ASCJITAccessPolicy.
 Följ cmdlet-dokumentationen om du vill veta mer.
 
 ### <a name="requesting-access-to-a-vm"></a>Begär åtkomst till en virtuell dator
 
-Åtkomst till en specifik VM som skyddas med den bara i tid lösningen måste du köra det här kommandot i PowerShell-sessionen: anropa ASCJITAccess.
+Åtkomst till en specifik virtuell dator som är skyddat med just i time-lösningen måste du köra det här kommandot i PowerShell-sessionen: anropa ASCJITAccess.
 Följ cmdlet-dokumentationen om du vill veta mer.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig hur precis i tid VM åtkomst i Security Center hjälper du styr åtkomst till din Azure virtuella datorer.
+I den här artikeln har du lärt dig hur just-in-time-åtkomst till virtuell dator i Security Center hjälper till att du styra åtkomsten till din Azure-datorer.
 
 I följande avsnitt kan du lära dig mer om Security Center:
 
-- [Ställa in säkerhetsprinciper](security-center-policies.md) – Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
-- [Hantera säkerhetsrekommendationer](security-center-recommendations.md) – Lär dig rekommendationer för att skydda dina Azure-resurser.
+- [Ange säkerhetsprinciper](security-center-policies.md) – Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
+- [Hantera säkerhetsrekommendationer](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
 - [Övervakning av säkerhetshälsa](security-center-monitoring.md) – Lär dig att övervaka hälsotillståndet hos dina Azure-resurser.
 - [Hantera och åtgärda säkerhetsaviseringar](security-center-managing-and-responding-alerts.md) – Lär dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 - [Övervaka partnerlösningar](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
-- [Vanliga frågor om Security Center](security-center-faq.md) – finns vanliga frågor om hur du använder tjänsten.
+- [Security Center vanliga frågor och svar](security-center-faq.md) – hittar du vanliga frågor och svar om tjänsten.
 - [Azures säkerhetsblogg](https://blogs.msdn.microsoft.com/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
 
 

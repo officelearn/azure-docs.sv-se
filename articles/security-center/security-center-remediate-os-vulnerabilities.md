@@ -1,6 +1,6 @@
 ---
 title: Åtgärda säkerhetskonfigurationer i Azure Security Center | Microsoft Docs
-description: Det här dokumentet beskrivs hur du implementerar en rekommendation för Azure Security Center, ”reparera säkerhetskonfigurationer”.
+description: Det här dokumentet visar hur du implementerar Azure Security Center-rekommendationen, ”åtgärda säkerhetskonfigurationer”.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,102 +12,102 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3c56abcec37bb6abcb77ec8cc443b0656bd69932
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285924"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990803"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Åtgärda säkerhetskonfigurationer i Azure Security Center
-Azure Security Center analyserar dagligen operativsystem (OS) på virtuella datorer (VM) och för en konfiguration som kan göra de virtuella datorerna och datorer som är mer sårbara för angrepp. Security Center rekommenderar att du löser säkerhetsproblem när Operativsystemets konfiguration matchar inte de rekommenderade konfigurationen säkerhetsreglerna och rekommenderar konfigurationsändringar för att åtgärda dessa problem.
+Azure Security Center analyserar dagligen operativsystemet (OS) på dina virtuella datorer (VM) och en konfiguration som kan göra de virtuella datorerna och datorer som är mer sårbara för angrepp. Security Center rekommenderar att du löser säkerhetsproblem när Operativsystemets konfiguration matchar inte de rekommendera säkerhetsreglerna för konfiguration och den rekommenderar konfigurationsändringar för att åtgärda dessa sårbarheter.
 
-Läs mer om de specifika konfigurationer som övervakas av [lista över rekommenderade konfigurationsregler](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Information om hur du anpassar security configuration utvärderingar finns [anpassa OS säkerhetskonfigurationer i Azure Security Center (förhandsgranskning)](security-center-customize-os-security-config.md).
+Läs mer om vilka konfigurationer som övervakas, den [lista över rekommenderade konfigurationsregler](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Läs hur du anpassar säkerhetsutvärderingar för konfiguration i [anpassa OS-säkerhetskonfigurationer i Azure Security Center (förhandsversion)](security-center-customize-os-security-config.md).
 
 ## <a name="implement-the-recommendation"></a>Implementera rekommendationen
-”Åtgärda säkerhetskonfigurationer” visas som en rekommendation i Security Center. Rekommendationen visas under **rekommendationer** > **Compute**.
+”Åtgärda säkerhetskonfigurationer” visas som en rekommendation i Security Center. Rekommendationen visas under **rekommendationer** > **Compute och appar**.
 
-Det här exemplet innehåller rekommendationen ”reparera säkerhetskonfigurationer” under **Compute**.
-1. I Security Center i den vänstra rutan, Välj **Compute**.  
-  Den **Compute** öppnas.
+Det här exemplet beskriver ”åtgärda säkerhetskonfigurationer” rekommendationen under **Compute och appar**.
+1. I Security Center, i den vänstra rutan väljer **Compute och appar**.  
+  Den **Compute och appar** öppnas.
 
    ![Åtgärda säkerhetskonfigurationer][1]
 
-2. Välj **reparera säkerhetskonfigurationer**.  
+2. Välj **åtgärda säkerhetskonfigurationer**.  
   Den **säkerhetskonfigurationer** öppnas.
 
    ![Fönstret ”säkerhetskonfigurationer”][2]
 
-  Den övre delen av instrumentpanelen visar:
+  Överst på instrumentpanelen visar:
 
-  - **Kunde inte regler efter allvarlighetsgrad**: det totala antalet regler för att konfigurationen av OS misslyckades över dina virtuella datorer och datorer, nedbrutna efter allvarlighetsgrad.
-  - **Det gick inte regler av typen**: det totala antalet regler för att konfigurationen av OS misslyckades över dina virtuella datorer och datorer, nedbrutna av typen.
-  - **Kunde inte Windows-regler**: det totala antalet regler misslyckades på grund av Windows OS-konfigurationer.
-  - **Kunde inte Linux regler**: det totala antalet regler misslyckades på grund av Linux OS-konfigurationer.
+  - **Misslyckade regler efter allvarlighetsgrad**: det totala antalet regler att Operativsystemets konfiguration misslyckades mellan dina virtuella datorer och datorer, indelade efter allvarlighetsgrad.
+  - **Misslyckade regler efter typ**: det totala antalet regler att Operativsystemets konfiguration misslyckades mellan dina virtuella datorer och datorer, indelade efter typen.
+  - **Windows-regler som inte**: det totala antalet regler misslyckades på grund av din Windows OS-konfigurationer.
+  - **Linux-regler som inte**: det totala antalet regler misslyckades på grund av Linux OS-konfigurationer.
 
-  Den nedre delen av instrumentpanelen visar alla misslyckade regler för dina virtuella datorer och datorer och hur allvarligt klassas. Listan innehåller följande element:
+  Den nedre delen av instrumentpanelen visas alla misslyckade regler för dina virtuella datorer och datorer och allvarlighetsgraden för saknad uppdatering. Listan innehåller följande element:
 
-  - **CCEID**: den CCE Unik identifierare för regeln. Security Center använder Common Configuration Enumeration (CCE) för att tilldela konfigurationsregler unika identifierare.
-  - **Namnet**: misslyckade regelns namn.
+  - **CCEID**: The CCE Unik identifierare för regeln. Security Center använder Common Configuration Enumeration (CCE) för att tilldela unika identifierare till konfigurationsregler.
+  - **Namn på**: namnet på den misslyckade regeln.
   - **Regeltyp**: den *registernyckeln*, *säkerhetsprincip*, *granskningsprincip*, eller *IIS* regeltyp.
-  - **Nej. för virtuella datorer och datorer**: det totala antalet virtuella datorer och datorer som misslyckats regeln gäller för.
-  - **Regeln allvarlighetsgrad**: värdet för det CCE *kritisk*, *viktigt*, eller *varning*.
+  - **Nej. VM: ar och datorer**: det totala antalet virtuella datorer och datorer som misslyckade regeln gäller för.
+  - **Regeln allvarlighetsgrad**: The CCE värdet *kritisk*, *viktigt*, eller *varning*.
   - **Tillstånd**: det aktuella tillståndet för rekommendationen:
 
     - **Öppen**: Rekommendationen har inte utförts än.
-    - **Pågående**: rekommendationen används för närvarande i resurser och ingen åtgärd krävs av dig.
-    - **Matcha**: rekommendationen har tillämpats. Transaktionen är bara tillgängligt när problemet är löst.
+    - **Pågår**: rekommendationen håller på att resurserna och ingen åtgärd krävs av dig.
+    - **Löst**: rekommendationen har tillämpats. När problemet har lösts, inaktiveras posten.
 
-3. Om du vill visa information om misslyckade regeln väljer du den i listan.
+3. Om du vill visa information om en regel som inte, väljer du den i listan.
 
    ![Detaljerad vy av en misslyckad konfigurationsregel][3]
 
    I den detaljerade vyn visas följande information:
 
-   - **Namnet**: namnet på regeln.
-   - **CCIED**: den CCE Unik identifierare för regeln.
-   - **OS-version**: OS-versionen av den virtuella datorn eller en dator.
-   - **Regeln allvarlighetsgrad**: värdet för det CCE *kritisk*, *viktigt*, eller *varning*.
+   - **Namn på**: namnet på regeln.
+   - **CCIED**: The CCE Unik identifierare för regeln.
+   - **OS-version**: OS-versionen av den virtuella datorn eller datorn.
+   - **Regeln allvarlighetsgrad**: The CCE värdet *kritisk*, *viktigt*, eller *varning*.
    - **Fullständig beskrivning**: beskrivning av regeln.
    - **Säkerhetsproblem**: förklaring av säkerhetsproblem eller risk om regeln inte tillämpas.
-   - **Potentiella påverkan**: marknadsfördelar när regeln har tillämpats.
-   - **Motåtgärden**: steg.
-   - **Förväntat värde**: det värde som förväntas när Security Center analyserar VM OS konfigurationen mot regeln.
-   - **Faktiskt värde**: värdet som returneras när en analys av VM OS konfigurationen mot regeln.
-   - **Regeln åtgärden**: åtgärden som används av Security Center under analysen av VM OS konfigurationen mot regeln.
+   - **Potentiell påverkan**: inverkan på företaget när regeln tillämpas.
+   - **Motåtgärden**: anvisningarna för reparation.
+   - **Förväntat värde**: det värde som förväntas när Security Center analyserar din konfiguration för VM OS mot regeln.
+   - **Faktiskt värde**: det värde som returneras efter en analys av din VM Operativsystemets konfiguration mot regeln.
+   - **Regeln åtgärden**: Regelåtgärd som används av Security Center under analysen av dina Virtuella Operativsystemets konfiguration mot regeln.
 
-4. Längst upp i fönstret detaljerad vy, Välj **Sök**.  
-  Sök öppnas en lista över arbetsytor som har virtuella datorer och datorer med matchningsfel för valda säkerhet konfigurationer. Arbetsytan markeringen visas bara om den markerade regeln gäller för flera virtuella datorer som är anslutna till olika arbetsytor.
+4. Överst i fönstret detaljerad vy väljer **Search**.  
+  Sök öppnas en lista över arbetsytor som har virtuella datorer och datorer med matchningsfel för valda security-konfigurationer. Val av arbetsyta visas bara om den valda regeln gäller för flera virtuella datorer som är anslutna till olika arbetsytor.
 
-   ![Listan arbetsytor][4]
+   ![Listade arbetsytor][4]
 
 5. Välj en arbetsyta.  
-  En sökfråga logganalys öppnas filtrerade till arbetsytan med säkerhet konfigurationer matchningsfel.
+  En sökfråga för Log Analytics öppnas filtrerade till arbetsytan med säkerhet konfigurationer matchningsfel.
 
-   ![Med OS-problem][5]
+   ![Arbetsyta med OS-säkerhetsproblem][5]
 
 6. Välj en dator i listan.  
-  Ett nytt sökresultat öppnas med information som filtrerad endast för den datorn.
+  En ny sökresultat öppnas med information som filtrerad endast för den datorn.
 
    ![Detaljerad information om den valda datorn][6]
 
 ## <a name="next-steps"></a>Nästa steg
-Den här artikeln visar dig hur du implementerar Security Center-rekommendationen ”reparera säkerhetskonfigurationer”. Information om hur du anpassar security configuration utvärderingar finns [anpassa OS säkerhetskonfigurationer i Azure Security Center (förhandsgranskning)](security-center-customize-os-security-config.md).
+Den här artikeln visar dig hur du implementerar Security Center-rekommendationen ”åtgärda säkerhetskonfigurationer”. Läs hur du anpassar säkerhetsutvärderingar för konfiguration i [anpassa OS-säkerhetskonfigurationer i Azure Security Center (förhandsversion)](security-center-customize-os-security-config.md).
 
-De specifika konfigurationer som övervakas finns [lista över rekommenderade konfigurationsregler](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center använder Common Configuration Enumeration (CCE) för att tilldela konfigurationsregler unika identifierare. Mer information finns i [CCE](https://nvd.nist.gov/cce/index.cfm) plats.
+Om du vill granska vilka konfigurationer som övervakas, se [lista över rekommenderade konfigurationsregler](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center använder Common Configuration Enumeration (CCE) för att tilldela unika identifierare till konfigurationsregler. Mer information går du till den [CCE](https://nvd.nist.gov/cce/index.cfm) plats.
 
-Mer information om Security Center finns i följande resurser:
+Om du vill veta mer om Security Center finns i följande resurser:
 
-* En lista över Windows och Linux virtuella datorer som stöds, se [plattformar som stöds i Azure Security Center](security-center-os-coverage.md).
-* Information om hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper finns [ställa in säkerhetsprinciper i Azure Security Center](security-center-policies.md).
-* Information om hur rekommendationer hjälper dig att skydda dina Azure-resurser finns [hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md).
-* Information om hur du övervakar hälsotillståndet för dina Azure-resurser finns [övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md).
-* Information om hur du hanterar och åtgärdar säkerhetsaviseringar finns [hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
-* Information om hur du övervakar dina partnerlösningars hälsostatus finns [övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md).
-* Svar på vanliga frågor och svar om tjänsten finns [Azure Security Center vanliga frågor och svar](security-center-faq.md).
-* Blogginlägg om säkerhet och Azure kompatibilitet, se [Azure-säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/).
+* En lista över Windows och Linux-datorer som stöds finns i [plattformar som stöds i Azure Security Center](security-center-os-coverage.md).
+* Läs hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper i [ange säkerhetsprinciper i Azure Security Center](security-center-policies.md).
+* Läs hur rekommendationer hjälper dig att skydda dina Azure-resurser i [hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md).
+* Läs hur du övervakar hälsotillståndet för dina Azure-resurser i [övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md).
+* Läs hur du hanterar och åtgärdar säkerhetsaviseringar i [hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
+* Läs hur du övervakar dina partnerlösningars hälsostatus i [övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md).
+* Svar på vanliga frågor och svar om tjänsten finns i [Azure Security Center vanliga frågor och svar](security-center-faq.md).
+* För blogginlägg om Azure-säkerhet och regelefterlevnad, se [Azure Security-bloggen](http://blogs.msdn.com/b/azuresecurity/).
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png

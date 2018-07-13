@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 2d16d1dc7a53ca388b00ba02b6447e178a9f6edb
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: b39a1f7b0de01c50b04072cc0de011928c6af786
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989245"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003621"
 ---
 # <a name="network-connectivity"></a>Nätverksanslutning
 Den här artikeln innehåller information om hur du bestämmer hur du integrerar Azure Stack bäst i din befintliga nätverksmiljö för Azure Stack nätverk infrastruktur. 
@@ -29,7 +29,7 @@ Den här artikeln innehåller information om hur du bestämmer hur du integrerar
 > För att lösa externa DNS-namn från Azure Stack (till exempel www.bing.com), måste du ange DNS-servrar för att vidarebefordra DNS-förfrågningar. Läs mer om Azure Stack DNS-krav, [Azure Stack datacenter-integrering - DNS-](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Fysiska nätverksdesign
-Azure Stack-lösning kräver en flexibel och högtillgänglig fysisk infrastruktur som stöd för dess drift och tjänster. Överordnade länkar från ToR till kantlinje växlar är begränsade till SFP + media och 1 GB eller 10 GB hastigheter. Kontrollera med maskinvaruleverantören OEM-tillverkare (original equipment manufacturer) för tillgänglighet. Följande diagram visar våra rekommenderade design:
+Azure Stack-lösning kräver en flexibel och högtillgänglig fysisk infrastruktur som stöd för dess drift och tjänster. Överordnade länkar från ToR till kantlinje växlar är begränsade till SFP + eller SFP28 media och 1 GB, 10 GB eller 25 GB hastigheter. Kontrollera med maskinvaruleverantören OEM-tillverkare (original equipment manufacturer) för tillgänglighet. Följande diagram visar våra rekommenderade design:
 
 ![Rekommenderade nätverksdesign för Azure Stack](media/azure-stack-network/recommended-design.png)
 

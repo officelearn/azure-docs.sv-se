@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 40c30958c5e0e24f2b35475848c1828df4a40d0c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: b7a68f545f60829e5da83f0734c57a4d210cb843
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "33787614"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001489"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Hantera Azure DevTest Labs formler
 
@@ -61,7 +61,7 @@ Följande steg vägleder dig genom processen att skapa en formel från en anpass
     * **Formelnamnet** -ange ett namn för din formel. Det här värdet visas i listan över grundläggande avbildningar när du skapar en virtuell dator. Kontrollera namnet som du skriver den, och om det är inte giltigt, ett meddelande som anger kraven för ett giltigt namn.
     * **Beskrivning av** – ange en beskrivning för din formel. Det här värdet är tillgängliga från snabbmenyn för formelns när du skapar en virtuell dator.
     * **Användarnamn** -ange ett användarnamn som har beviljats administratörsbehörighet.
-    * **Lösenord** – ange - eller välj i listrutan - ett-värde som är associerad med den hemlighet (lösenord) som du vill använda för den angivna användaren. Läs mer om hemligheterna [Azure DevTest Labs: personliga Arkiv](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/).
+    * **Lösenord** – ange - eller välj i listrutan - ett-värde som är associerad med den hemlighet (lösenord) som du vill använda för den angivna användaren. Läs om att spara hemligheter i key vault och använder dem när du skapar labbresurser i [Store hemligheter i Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
     * **VM-disktyp** – ange antingen HDD (hårddiskenheten) eller SSD (solid-state drive) som anger vilken typ av premiumlagring tillåts för de virtuella datorerna etableras genom att använda basavbildningen.
     * ** VM storlek ** – Välj något av de fördefinierade objekt som anger processorkärnor, RAM-storleken och storleken på hårddisken på den virtuella datorn för att skapa. 
     * **Artefakter** – Välj för att öppna den **Lägg till artefakter** bladet, där du kan välja och konfigurera artefakter som du vill lägga till i basavbildningen. Läs mer om artefakter [skapa anpassade artefakter för din virtuella dator i Azure DevTest Labs](devtest-lab-artifact-author.md).

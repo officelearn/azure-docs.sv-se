@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 1b22357b201306ec09e586bfa52fbe9a821250da
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 912176df2681f890cf3bbe6f69395ad39c9263fc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887478"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004905"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-utlösare och bindningar begrepp
 
@@ -32,7 +32,7 @@ En *utlösaren* definierar hur en funktion som anropas. En funktion måste ha ex
 
 Indata och utdata *bindningar* tillhandahåller en deklarativ metod för att ansluta till data från i din kod. Bindningar är valfria och en funktion kan ha flera indatafiler och utdatabindningar. 
 
-Utlösare och bindningar kan du undvika hardcoding information om de tjänster som du arbetar med. Funktionen tar emot data (till exempel innehållet i ett kömeddelande) i funktionsparametrar. Du skickar data (t.ex, för att skapa ett kömeddelande) med hjälp av det returnera värdet till funktionen, en `out` parametern, eller en [insamlingsobjektet](functions-reference-csharp.md#writing-multiple-output-values).
+Utlösare och bindningar kan du undvika hardcoding information om de tjänster som du arbetar med. Funktionen tar emot data (till exempel innehållet i ett kömeddelande) i funktionsparametrar. Du kan skicka data (t.ex, för att skapa ett kömeddelande) med hjälp av det returnera värdet för funktionen. Olika sätt att skicka data finns i C# och C#-skript, `out` parametrar och [insamlaren objekt](functions-reference-csharp.md#writing-multiple-output-values).
 
 När du utvecklar funktioner med hjälp av Azure portal, utlösare och bindningar har konfigurerats i en *function.json* fil. Portalen innehåller ett användargränssnitt för den här konfigurationen men du kan redigera filen direkt genom att ändra till den **Avancerad redigerare**.
 
@@ -224,9 +224,11 @@ Du kan binda en utdatabindning till det returnera värdet på språk som har ett
 * I C# klassbiblioteket, gäller attributet utdata-bindning för returvärdet för metoden.
 * I andra språk, ställer du in den `name` -egenskapen i *function.json* till `$return`.
 
-Om du vill skriva mer än ett objekt kan du använda en [insamlingsobjektet](functions-reference-csharp.md#writing-multiple-output-values) i stället för det returnera värdet. Om det finns flera utdatabindningar kan du använda det returnera värdet för endast en av dem.
+Om det finns flera utdatabindningar kan du använda det returnera värdet för endast en av dem.
 
-Se exempel språkspecifika:
+I C# och C#-skript, olika sätt att skicka data till en utdatabindning är `out` parametrar och [insamlaren objekt](functions-reference-csharp.md#writing-multiple-output-values).
+
+Se språkspecifika exempel som visar användning av det returnera värdet:
 
 * [C#](#c-example)
 * [C#-skript (.csx)](#c-script-example)

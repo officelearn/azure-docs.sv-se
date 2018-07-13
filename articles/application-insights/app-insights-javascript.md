@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: c3c5a3029916b91b65a5bd0f6efa5c83f5dfcb66
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: HT
+ms.openlocfilehash: 70269fc71fcb2ef9158b50d3bb281097abee0740
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991474"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 Visa prestanda och användning för webbsidor eller appar. Om du lägger till [Application Insights](app-insights-overview.md) i webbsidans skript så visas information om tider för sidinläsningar och AJAX-anrop, information om och antalet webbläsarundantag och AJAX-fel, samt information om antalet användare och sessioner. Allt detta kan visas efter sida, klientoperativsystem- och webbläsarversion, geografisk plats och andra dimensioner. Du kan ställa in varningar för antal fel eller långsam sidinläsning. Och genom att infoga spårning av anrop i JavaScript-kod kan du spåra hur olika funktioner i ditt webbsideprogram används.
@@ -56,7 +57,7 @@ Hämta skriptet för webbsidor i Snabbstart:
 
 ```HTML
 <!-- 
-To collect end-user usage analytics about your application, 
+To collect user behavior analytics about your application, 
 insert the following script into each page you want to track.
 Place this code immediately before the closing </head> tag,
 and before any other scripts. Your first data will appear 
@@ -73,7 +74,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 </script>
 ```
 
-Infoga skriptet precis före `</head>`-taggen för alla sidor som du vill spåra. Om din webbplats har en huvudsida kan du placera skriptet där. Till exempel:
+Infoga skriptet precis före `</head>`-taggen för alla sidor som du vill spåra. Om din webbplats har en huvudsida kan du placera skriptet där. Exempel:
 
 * I ett ASP.NET MVC-projekt lägger du till det i `View\Shared\_Layout.cshtml`
 * På en SharePoint-plats öppnar du [Webbplatsinställningar/Huvudsida](app-insights-sharepoint.md) på kontrollpanelen.
@@ -126,7 +127,7 @@ Om du vill kontrollera telemetrin som en webbapp skickar till Application Insigh
 
 ![Öppna appens resurs på portal.azure.com och klicka på Inställningar, Webbläsare.](./media/app-insights-javascript/03.png)
 
-*Ser du inga data än? Klicka på **Uppdatera** längst upp på sidan. Ser du fortfarande ingenting? Mer information finns i [Felsökning](app-insights-troubleshoot-faq.md).*
+Inga data än? Klicka på **Uppdatera** längst upp på sidan. Ser du fortfarande ingenting? Mer information finns i [Felsökning](app-insights-troubleshoot-faq.md).
 
 Bladet Webbläsare är ett [Metrics Explorer-blad](app-insights-metrics-explorer.md) med förinställda filter och diagraminställningar. Du kan redigera tidsintervallet, filtren och diagramkonfigurationen om du vill och spara resultatet som en favorit. Klicka på **Återställ standardvärden** för att återgå till det ursprungliga konfigurationsbladet.
 
@@ -235,7 +236,7 @@ Sidans namn kan innehålla samma tecken som en URL, men allt efter ”#” eller
 ## <a name="usage-tracking"></a>Användningsspårning
 Vill du veta vad användarna gör med din app?
 
-* [Lär dig mer om användningsspårning](app-insights-web-track-usage.md)
+* [Lär dig mer om analysverktyg som användaren beteende](app-insights-web-track-usage.md)
 * [Lär dig mer om API:er för mätvärden och anpassade händelser](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: daef85164793dd6183c41604f200864aabadf8d8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a35d99ae6fd41ae840c5e2710135c6a2f840be65
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610889"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007731"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Använd en Windows VM hanterad tjänstidentitet (MSI) för att få åtkomst till Azure Data Lake Store
 
@@ -53,7 +53,7 @@ I den här självstudiekursen skapar vi en ny virtuell Windows-dator.  Du kan oc
 5. Att välja en ny **resursgrupp** där du kan skapa den virtuella datorn, väljer **Skapa ny**. När du är klar klickar du på **OK**.
 6. Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Behåll standardinställningarna på sidan Inställningar och klickar på **OK**.
 
-   ![ALT bildtext](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![ALT bildtext](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn 
 
@@ -63,11 +63,11 @@ En VM MSI kan du hämta åtkomsttoken från Azure AD utan att du behöver att pl
 2. I det vänstra navigeringsfältet klickar du på **Configuration**. 
 3. Du ser **hanterad tjänstidentitet**. Om du vill registrera och aktiverar MSI, Välj **Ja**, om du vill inaktivera det, väljer du Nej. 
 4. Se till att du klickar på **spara** att spara konfigurationen.  
-   ![ALT bildtext](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![ALT bildtext](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Om du vill kontrollera och vilka tillägg som finns på den här virtuella datorn klickar du på **tillägg**. Om MSI aktiveras sedan **ManagedIdentityExtensionforWindows** visas i listan.
 
-   ![ALT bildtext](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+   ![ALT bildtext](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Bevilja åtkomst till dina virtuella datorer till Azure Data Lake Store
 

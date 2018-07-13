@@ -1,6 +1,6 @@
 ---
-title: Azure instansnivå offentlig IP-adress (klassisk)-adresser | Microsoft Docs
-description: Förstå instans nivån offentliga IP-går adresser och hantera dem med hjälp av PowerShell.
+title: Azure Instance-level (klassisk) för offentliga IP-adresser | Microsoft Docs
+description: Förstå instans på offentliga IP (ILPIP)-adresser och hur du hanterar dem med hjälp av PowerShell.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: genli
-ms.openlocfilehash: 4b4350e6b1616450ce45f9e947cc3b639a341ae7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a10bf96f06c3917913c479d81e8772cb86cfe36e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796028"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005274"
 ---
-# <a name="instance-level-public-ip-classic-overview"></a>Instansen offentlig IP (klassisk): översikt
-En instans nivån offentliga IP-går är en offentlig IP-adress som kan tilldelas direkt till en virtuell dator eller molntjänster rollinstans i stället för till Molntjänsten som din Virtuella eller roll instans finns i. En går äga inte rum för den virtuella IP (VIP) som är tilldelad till Molntjänsten. Det är en ytterligare IP-adress som du kan använda för att ansluta direkt till din Virtuella eller roll-instans.
+# <a name="instance-level-public-ip-classic-overview"></a>Instans offentliga IP (klassisk) översikt
+En instans på offentliga IP (ILPIP) är en offentlig IP-adress som du kan tilldela direkt till en virtuell dator eller Cloud Services-rollinstans i stället för till Molntjänsten som din instans av virtuell dator eller rollen finns i. En ILPIP äga inte rum för den virtuella IP (VIP) som är tilldelad till din molntjänst. Det är snarare ytterligare IP-adress som du kan använda för att ansluta direkt till din instans av virtuell dator eller roll.
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att skapa virtuella datorer via Resource Manager. Kontrollera att du förstår hur [IP-adresser](virtual-network-ip-addresses-overview-classic.md) fungerar i Azure.
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att du skapar virtuella datorer via Resource Manager. Kontrollera att du förstår hur [IP-adresser](virtual-network-ip-addresses-overview-classic.md) arbets i Azure.
 
-![Skillnaden mellan att går och VIP](./media/virtual-networks-instance-level-public-ip/Figure1.png)
+![Skillnaden mellan ILPIP och VIP](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
-I bild 1 visas Molntjänsten används med en VIP samtidigt som de enskilda virtuella datorerna används normalt med VIP:&lt;portnummer&gt;. Genom att tilldela en går till en specifik virtuell dator kan kan den virtuella datorn nås direkt med den IP-adressen.
+I bild 1 visas Molntjänsten får åtkomst till med en VIP medan enskilda virtuella datorer används vanligtvis med VIP:&lt;portnummer&gt;. Genom att tilldela en ILPIP till en specifik virtuell dator, kan den virtuella datorn nås direkt med hjälp av IP-adress.
 
-När du skapar en molnbaserad tjänst i Azure skapas motsvarande DNS A-poster automatiskt för att tillåta åtkomst till tjänsten via ett fullständigt kvalificerat domännamn (FQDN), i stället för verkliga VIP. Samma process som sker för en går att tillåta åtkomst till virtuell dator eller roll-instansen av FQDN i stället för i går. Till exempel om du skapar en molntjänst med namnet *contosoadservice*, och du konfigurerar en webbroll med namnet *contosoweb* med två instanser Azure registrerar följande A-poster för instanserna:
+När du skapar en molnbaserad tjänst i Azure, skapas motsvarande DNS A-poster automatiskt för att tillåta åtkomst till tjänsten via ett fullständigt kvalificerat domännamn (FQDN), istället för att använda faktiska VIP. Samma process som sker för en ILPIP, att tillåta åtkomst till den virtuella dator eller rollinstansen instansen efter FQDN i stället för ILPIP. Till exempel om du skapar en molntjänst med namnet *contosoadservice*, och du konfigurerar en webbroll med namnet *contosoweb* med två instanser Azure registrerar följande A-poster för instanser:
 
 * contosoweb\_IN_0.contosoadservice.cloudapp.net
 * contosoweb\_IN_1.contosoadservice.cloudapp.net 
 
 > [!NOTE]
-> Du kan tilldela en enda går för varje virtuell dator eller roll-instans. Du kan använda upp till 5 ILPIPs per prenumeration. ILPIPs stöds inte för virtuella datorer som flera nätverkskort.
+> Du kan tilldela endast en ILPIP för varje virtuell dator eller roll-instans. Du kan använda upp till 5 ILPIPs per prenumeration. ILPIPs stöds inte för virtuella datorer med flera nätverkskort.
 > 
 > 
 
-## <a name="why-would-i-request-an-ilpip"></a>Varför skulle jag för att begära en går?
-Om du vill kunna ansluta till din Virtuella eller roll-instans med en IP-adress som tilldelats till den i stället för att använda molnet tjänsten VIP:&lt;portnummer&gt;, begär en går för din virtuella dator eller din rollinstans.
+## <a name="why-would-i-request-an-ilpip"></a>Varför skulle jag för att begära en ILPIP?
+Om du vill kunna ansluta till din virtuella datorn eller rollinstansen instans av en IP-adress som tilldelats till den direkt i stället för molnet tjänsten VIP:&lt;portnummer&gt;, begär en ILPIP för den virtuella datorn eller rollinstansen.
 
-* **Aktiva FTP** -genom att tilldela en går till en virtuell dator kan den ta emot trafik på alla portar. Slutpunkter krävs inte för den virtuella datorn tar emot trafik.  Se (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP-Protokollöversikt] mer information om FTP-protokollet.
-* **Utgående IP** – utgående trafik från den virtuella datorn är mappad till går som källa och går identifierar den virtuella datorn till externa enheter.
+* **Aktiva FTP** -genom att tilldela en ILPIP till en virtuell dator kan den ta emot trafik på alla portar. Slutpunkter krävs inte för den virtuella datorn ska ta emot trafik.  Se [FTP-Protokollöversikt] (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) mer information om FTP-protokollet.
+* **Utgående IP** – utgående trafik från den virtuella datorn har mappats till ILPIP som källa och ILPIP unikt identifierar den virtuella datorn till externa enheter.
 
 > [!NOTE]
-> Tidigare som går-adress kallas en offentlig IP (PIP)-adress.
+> Tidigare var som en ILPIP-adress kallas en offentlig adress IP (PIP).
 > 
 
-## <a name="manage-an-ilpip-for-a-vm"></a>Hantera en går för en virtuell dator
+## <a name="manage-an-ilpip-for-a-vm"></a>Hantera en ILPIP för en virtuell dator
 Följande aktiviteter kan du skapa, tilldela och ta bort ILPIPs från virtuella datorer:
 
-### <a name="how-to-request-an-ilpip-during-vm-creation-using-powershell"></a>Hur du begär ett går under Skapa en virtuell dator med hjälp av PowerShell
-Följande PowerShell-skript skapar en molntjänst med namnet *FTPService*, hämtar en avbildning från Azure, skapar en virtuell dator med namnet *FTPInstance* använder den hämtade avbildningen anger den virtuella datorn att använda en går och lägger till den virtuella datorn till den nya tjänsten:
+### <a name="how-to-request-an-ilpip-during-vm-creation-using-powershell"></a>Hur du begär en ILPIP under skapandet av VM med hjälp av PowerShell
+Följande PowerShell-skript skapar en molntjänst med namnet *FTPService*, hämtar du en avbildning från Azure, skapar en virtuell dator med namnet *FTPInstance* med den hämtade avbildningen anger den virtuella datorn att använda en ILPIP och lägger till den virtuella datorn till den nya tjänsten:
 
 ```powershell
 New-AzureService -ServiceName FTPService -Location "Central US"
@@ -66,8 +66,8 @@ New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageN
 | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 ```
 
-### <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>Hur du hämtar går information för en virtuell dator
-Kör följande PowerShell-kommando för att visa går informationen för den virtuella datorn som skapats med föregående skript, och notera att värdena för *PublicIPAddress* och *PublicIPName*:
+### <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>Hur du hämtar ILPIP information för en virtuell dator
+Kör följande PowerShell-kommando för att visa ILPIP-information för den virtuella datorn skapas med föregående skript, och notera värdena för *PublicIPAddress* och *PublicIPName*:
 
 ```powershell
 Get-AzureVM -Name FTPInstance -ServiceName FTPService
@@ -102,26 +102,26 @@ Förväntad utdata:
     OperationId                 : 568d88d2be7c98f4bbb875e4d823718e
     OperationStatus             : OK
 
-### <a name="how-to-remove-an-ilpip-from-a-vm"></a>Ta bort en går från en virtuell dator
-Kör följande PowerShell-kommando för att ta bort går till den virtuella datorn i föregående skript:
+### <a name="how-to-remove-an-ilpip-from-a-vm"></a>Ta bort en ILPIP från en virtuell dator
+Kör följande PowerShell-kommando för att ta bort ILPIP som lagts till i den virtuella datorn i föregående skript:
 
 ```powershell
 Get-AzureVM -ServiceName FTPService -Name FTPInstance | Remove-AzurePublicIP | Update-AzureVM
 ```
 
-### <a name="how-to-add-an-ilpip-to-an-existing-vm"></a>Hur du lägger till en går till en befintlig virtuell dator
-Om du vill lägga till en går till den virtuella datorn skapas med hjälp av skript som tidigare, kör du följande kommando:
+### <a name="how-to-add-an-ilpip-to-an-existing-vm"></a>Lägga till en ILPIP i en befintlig virtuell dator
+Kör följande kommando för att lägga till en ILPIP till den virtuella datorn skapas med hjälp av föregående skript:
 
 ```powershell
 Get-AzureVM -ServiceName FTPService -Name FTPInstance | Set-AzurePublicIP -PublicIPName ftpip2 | Update-AzureVM
 ```
 
-## <a name="manage-an-ilpip-for-a-cloud-services-role-instance"></a>Hantera en går för en roll Cloud Services-instans
+## <a name="manage-an-ilpip-for-a-cloud-services-role-instance"></a>Hantera en ILPIP för en rollinstans för Cloud Services
 
-Utför följande steg för att lägga till en går till en roll Cloud Services-instans:
+Om du vill lägga till en ILPIP i en rollinstans för Cloud Services, gör du följande:
 
-1. Hämta .cscfg-filen för Molntjänsten genom att slutföra stegen i den [hur du konfigurerar molntjänster](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) artikel.
-2. Uppdatera .cscfg-filen genom att lägga till den `InstanceAddress` element. I följande exempel lägger till en går med namnet *MyPublicIP* till en roll med namnet *WebRole1*: 
+1. Ladda ned .cscfg-filen för Molntjänsten genom att följa stegen i den [hur du konfigurerar Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) artikeln.
+2. Uppdatera .cscfg-filen genom att lägga till den `InstanceAddress` element. I följande exempel lägger till en ILPIP med namnet *MyPublicIP* en rollinstans med namnet *WebRole1*: 
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -143,7 +143,7 @@ Utför följande steg för att lägga till en går till en roll Cloud Services-i
       </NetworkConfiguration>
     </ServiceConfiguration>
     ```
-3. Överför .cscfg-filen för Molntjänsten genom att slutföra stegen i den [hur du konfigurerar molntjänster](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) artikel.
+3. Ladda upp .cscfg-filen för Molntjänsten genom att följa stegen i den [hur du konfigurerar Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) artikeln.
 
 ## <a name="next-steps"></a>Nästa steg
 * Förstå hur [IP-adressering](virtual-network-ip-addresses-overview-classic.md) fungerar i den klassiska distributionsmodellen.

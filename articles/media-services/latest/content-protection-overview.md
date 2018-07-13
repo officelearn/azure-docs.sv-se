@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: juliako
-ms.openlocfilehash: 2f0996482c599a664d02e172dcb20cda4e039af5
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 5ed98bb4c4f40b23988a4f73778e715bfbea2505
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341672"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004952"
 ---
 # <a name="content-protection-overview"></a>Content protection-översikt
 
@@ -90,7 +90,7 @@ Du kan använda Media Services för att leverera ditt innehåll dynamiskt krypte
 
 I Media Services v3, en innehållsnyckel är associerad med StreamingLocator (se [det här exemplet](protect-with-aes128.md)). Om du använder Media Services-nyckelleveranstjänst, bör du automatiskt generera innehållsnyckeln. Du bör skapa innehållsnyckeln själv om du använder du egna nyckelleveranstjänst, eller om du behöver hantera ett scenario med hög tillgänglighet, där du måste ha samma innehållsnyckeln i två datacenter.
 
-När en dataströmmen har begärts av en spelare, använder Media Services den angivna nyckeln för att dynamiskt kryptera ditt innehåll med klartextnyckel för AES eller DRM-kryptering. Om du vill dekryptera dataströmmen begär spelaren nyckeln från Media Services nyckelleveranstjänst eller nyckelleveranstjänst som du har angett. När du beslutar om användaren har behörighet att hämta nyckel måste utvärderar tjänsten auktoriseringsprinciper som du angav för nyckeln.
+När en dataströmmen har begärts av en spelare, använder Media Services den angivna nyckeln för att dynamiskt kryptera ditt innehåll med klartextnyckel för AES eller DRM-kryptering. Om du vill dekryptera dataströmmen begär spelaren nyckeln från Media Services nyckelleveranstjänst eller nyckelleveranstjänst som du har angett. När du beslutar om användaren har behörighet att hämta nyckel måste utvärderar tjänsten innehåll viktiga principen som du angav för nyckeln.
 
 ## <a name="aes-128-clear-key-vs-drm"></a>Rensa viktiga jämfört med AES-128 DRM
 

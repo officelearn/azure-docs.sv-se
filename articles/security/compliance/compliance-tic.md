@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: cf24810c0aa414e751e55df163563f013c1a0081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: 9d71efa35713500911c67d1df15612b64c8e97da
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969953"
+ms.locfileid: "38990837"
 ---
 # <a name="trusted-internet-connection-guidance"></a>Vägledning för betrodda Internet-anslutning
 
@@ -30,7 +30,7 @@ Enkelt uttryckt är syftet med RANKNINGSLISTA för myndigheter känna till:
 
 Idag alla agency externa anslutningar måste dirigeras via en godkänd OMB ärende. Federala myndigheter måste delta i programmet RANKNINGSLISTA antingen som en RANKNINGSLISTA åtkomst Provider (TICAP) eller genom att upphandlande tjänster med något av de viktigaste Internetleverantörer för nivå 1 kallas leverantörer av hanterade betrodda Internet Protocol Service (MTIPS).  RANKNINGSLISTA innehåller obligatoriska viktiga funktioner som utförs i dag av myndighet och MTIPS-providern. I den aktuella versionen av ärende, EINSTEIN version 2 intrångsidentifiering och EINSTEIN version 3 accelererat (3A) intrång dataförlustskydd enheter distribueras på varje TICAP och MTIPS och myndigheten upprättar ett samförståndsavtal med avdelning Hemland säkerhet (DHS) att distribuera EINSTEIN funktioner till federala system.
 
-Som en del av dess ansvar att skydda nätverket .gov, kräver DHS rådata feeds agency Netflow data att kombinera incidenter i federal företaget och utföra analyser med hjälp av särskilda verktyg. DHS routrar ger möjlighet att samla in IP-nätverkstrafik när den anländer till eller lämnar ett gränssnitt. Genom att analysera flödesdata net kan kan en nätverksadministratör fastställa sådant som källa och mål för trafiken, klass av tjänsten. NET flödesdata betraktas som ”inte innehåll data” (till exempel sidhuvud, käll-IP, mål-IP, o.s.v.) och tillåter DHS veta information kring innehåll. det vill säga som gjorde vad och hur lång tid.
+Som en del av dess ansvar att skydda nätverket .gov, kräver DHS rådata feeds agency Netflow data att kombinera incidenter i federal företaget och utföra analyser med hjälp av särskilda verktyg. DHS routrar ger möjlighet att samla in IP-nätverkstrafik när den anländer till eller lämnar ett gränssnitt. Genom att analysera net flödesdata ett nätverk kan administratören bestämma sådant som källa och mål för trafiken, klass av tjänsten. NET flödesdata betraktas som ”inte innehåll data” (till exempel sidhuvud, käll-IP, mål-IP, o.s.v.) och tillåter DHS veta information kring innehåll. det vill säga som gjorde vad och hur lång tid.
 
 Initiativet innehåller också säkerhetsprinciper, riktlinjer och ramverk som förutsätter att den lokala infrastrukturen. När myndigheter går över till molnet som ger kostnadsbesparingar, operationell effektivitet och innovation, är kraven på implementering av ärende i vissa fall långsammare nätverkstrafik och begränsa hastighet och flexibilitet med vilka government användare kan åtkomst till sina molnbaserade data.
 
@@ -250,4 +250,3 @@ Microsoft Azure, Office 365 och Dynamics 365-åtkomst kan enkelt konfigureras f�
 
 *: Offentlig förhandsversion i Azure Government från och med maj 2018  
 **: Privat förhandsgranskning i Azure Government från och med maj 2018
-

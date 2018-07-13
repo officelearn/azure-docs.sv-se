@@ -8,14 +8,14 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 9e69faf1b07af0e60cfd21cd6eb9f00e211ab91e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 7c0ef019536d527775e4f5b959a155db3eacebbf
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031761"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006106"
 ---
-# <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Ansluta Modbus TCP-enheter via en gateway för IoT-Edge-enhet
+# <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Ansluta Modbus TCP-enheter via en gateway för IoT Edge-enhet
 
 Om du vill ansluta IoT-enheter som använder Modbus TCP eller RTU-protokoll till en Azure IoT Hub ska du använda en IoT Edge-enhet som gateway. Gatewayenheten läser data från Modbus-enheterna och kommunicerar sedan dessa data till molnet med ett protokoll som stöds. 
 
@@ -43,10 +43,10 @@ Om du vill skapa en egen modul och anpassa den för din miljö finns det ett pro
 
 ## <a name="run-the-solution"></a>Kör lösningen
 1. Gå till IoT-hubben på [Azure-portalen](https://portal.azure.com/).
-2. Gå till **IoT kant** och klicka på enheten IoT kant.
+2. Gå till **IoT Edge** och klicka på din IoT Edge-enhet.
 3. Välj **Ange moduler**.
 4. Lägg till Modbus-modulen:
-   1. Klicka på **Lägg till** och välj **IoT kant modulen**.
+   1. Klicka på **Lägg till** och välj **IoT Edge-modul**.
    2. I fältet **Namn** skriver du ”modbus”.
    3. I fältet **Bild** anger du bildens URI för exempelbehållaren: `microsoft/azureiotedge-modbus-tcp:1.0-preview`.
    4. Markera rutan **Aktivera** för att uppdatera önskade egenskaper för modultvillingen.
@@ -87,8 +87,8 @@ Om du vill skapa en egen modul och anpassa den för din miljö finns det ett pro
    ```
 
 8. Välj **Nästa**. 
-9. I den **granska distribution** steg, Välj **skicka**. 
-10. Återgå till informationssidan om enheten och välj **Uppdatera**. Du bör se den nya **modbus** modulen körs tillsammans med IoT-Edge-körningsmiljön.
+9. Välj **Skicka** i steget **Granska distribution**. 
+10. Återgå till informationssidan om enheten och välj **Uppdatera**. Du bör se den nya **modbus** modulen körs tillsammans med IoT Edge-körningen.
 
 ## <a name="view-data"></a>Visa data
 Visa data som kommer genom modbus-modulen:
@@ -96,11 +96,11 @@ Visa data som kommer genom modbus-modulen:
 docker logs -f modbus
 ```
 
-Du kan också visa telemetri som enheten skickar med [IoT Hub-utforskarverktyget](https://github.com/azure/iothub-explorer). 
+Du kan också visa telemetri som enheten skickar med hjälp av den [IoT Hub explorer-verktyget](https://github.com/azure/iothub-explorer) eller [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur IoT-gränsenheterna kan fungera som gateways finns [skapa en insticksenhet för IoT som fungerar som en transparent gateway][lnk-transparent-gateway-linux]
+- Läs mer om hur IoT Edge-enheter kan fungera som gatewayer i [skapa en IoT Edge-enhet som fungerar som en transparent gateway][lnk-transparent-gateway-linux]
 - Mer information om hur IoT Edge-moduler fungerar finns i informationen om att [förstå Azure IoT Edge-moduler](iot-edge-modules.md)
 
 <!-- Links -->

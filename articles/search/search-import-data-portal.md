@@ -1,22 +1,22 @@
 ---
 title: Importera data till Azure Search i portalen | Microsoft Docs
-description: Använd Azure Search i guiden Importera data i Azure Portal för att uppdatera Azure-data från NoSQL Azure Cosmos DB, Blob Storage, Table Storage, SQL Database och SQL Server på virtuella Azure-datorer.
+description: Lär dig hur du använder guiden Importera Data i Azure-portalen för att uppdatera Azure data från Cosmos DB, Blob storage, table storage, SQL Database och SQL Server på virtuella Azure-datorer.
 author: HeidiSteen
 manager: cgronlun
-tags: Azure Portal
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 05/01/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: ee27b63a5df658ff5d575f0599dadd1cbafd3c18
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: dcdc0501d94191cf2c281a4f880ddab3db023fc0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795892"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004957"
 ---
-# <a name="import-data-to-azure-search-using-the-portal"></a>Importera data till Azure Search med hjälp av portalen
+# <a name="how-to-import-data-into-azure-search-index-using-the-azure-portal"></a>Hur du importerar data till Azure Search-index med hjälp av Azure portal
+
 Med guiden **Importera data** i instrumentpanelen för Azure Search på Azure Portal kan du läsa in data i ett index. 
 
   ![Importera data i kommandofältet][1]
@@ -26,8 +26,6 @@ Internt konfigurerar och aktiverar guiden en *indexerare*, vilket automatiserar 
 * Anslut till en extern datakälla i samma Azure-prenumeration
 * Generera ett ändringsbart indexschema baserat på källdatastrukturen
 * Läs in JSON-dokument i ett index med en raduppsättning som hämtats från datakällan
-
-Du kan testa det här arbetsflödet med exempeldata i Azure Cosmos DB. Om du behöver anvisningar läser du [Komma igång med Azure Search i Azure Portal](search-get-started-portal.md).
 
 > [!NOTE]
 > Du kan starta guiden **Importera data** från Azure Cosmos DB-instrumentpanelen för att förenkla indexeringen för datakällan. Välj **Samlingar** > **Lägg till Azure Search** i navigeringsfältet till vänster för att komma igång.
@@ -45,8 +43,10 @@ En utjämnad datauppsättning är en obligatorisk inmatning. Du kan bara importe
 
 ## <a name="connect-to-your-data"></a>Ansluta till data
 1. Logga in på [Azure Portal](https://portal.azure.com) och öppna instrumentpanelen för tjänsten. Du kan klicka på **Alla tjänster** i indexet om du vill söka efter befintliga ”söktjänster” i den nuvarande prenumerationen. 
-2. Klicka på **Importera data** i kommandofältet för att öppna bladet Importera data.  
-3. Klicka på **Anslut till dina data** för att ange en definition för datakällan som används av en indexerare. Vid datakällor inom prenumerationen kan guiden vanligtvis identifiera och läsa anslutningsinformationen, vilket minimerar de allmänna konfigurationskraven.
+
+1. Klicka på **Importera data** i kommandofältet för att öppna bladet Importera data.
+
+1. Klicka på **Anslut till dina data** för att ange en definition för datakällan som används av en indexerare. Vid datakällor inom prenumerationen kan guiden vanligtvis identifiera och läsa anslutningsinformationen, vilket minimerar de allmänna konfigurationskraven.
 
 |  |  |
 | --- | --- |
@@ -61,35 +61,42 @@ En utjämnad datauppsättning är en obligatorisk inmatning. Du kan bara importe
 Ett preliminärt index är vanligtvis härlett från datauppsättningen. Lägga till, redigera eller ta bort fält för att slutföra schemat. Du kan dessutom ange attributen på fältnivå för att fastställa dess efterföljande sökbeteenden.
 
 1. I **Anpassa målindex** anger du namnet och en **nyckel** som ska användas för att identifiera varje dokument. Nyckeln måste vara en sträng. Om fältvärdena innehåller mellanslag eller tankstreck måste du ange avancerade alternativ i **Importera dina data** för att utelämna valideringskontrollen av dessa tecken.
-2. Granska och ändra återstående fält. Fältnamnet och typen fylls vanligtvis i automatiskt. Du kan ändra datatypen fram till dess att indexet har skapats. Om du ändrar datatypen efter detta måste indexet återskapas.
-3. Ange indexattribut för varje fält:
+
+1. Granska och ändra återstående fält. Fältnamnet och typen fylls vanligtvis i automatiskt. Du kan ändra datatypen fram till dess att indexet har skapats. Om du ändrar datatypen efter detta måste indexet återskapas.
+
+1. Ange indexattribut för varje fält:
    
    * Hämtningsbar returnerar fältet i sökresultatet.
    * Filtrerbar gör att du kan referera till fältet i filteruttryck.
    * Sorterbar gör att fältet kan användas i en sortering.
    * Fasettbar gör att fältet kan användas för fasetterad navigering.
    * Sökbar gör att du kan använda fulltextsökning.
-4. Klicka på fliken **Analyzer** om du vill ange ett språkanalysverktyg på fältnivå. Det går endast att ange språkanalysverktyg för närvarande. Om du använder ett anpassat analysverktyg eller en icke-språkanalys som t.ex. nyckelord, mönster och så vidare, kommer kod att krävas.
+
+1. Klicka på fliken **Analyzer** om du vill ange ett språkanalysverktyg på fältnivå. Det går endast att ange språkanalysverktyg för närvarande. Om du använder ett anpassat analysverktyg eller en icke-språkanalys som t.ex. nyckelord, mönster och så vidare, kommer kod att krävas.
    
    * Klicka på **Sökbara** för att använda fulltextsökning i fältet och aktivera listrutan Analyzer.
    * Välj det analysverktyg som du vill använda. Mer information finns i [Skapa ett index för dokument på flera språk](search-language-support.md).
-5. Klicka på **Förslagsställare** för att aktivera frågeifyllningsförslag i markerade fält.
+
+1. Klicka på **Förslagsställare** för att aktivera frågeifyllningsförslag i markerade fält.
 
 ## <a name="import-your-data"></a>Importera dina data
 1. I **Importera dina data** anger du ett namn på indexeraren. Kom ihåg att produkten från guiden Importera data är en indexerare. Om du senare vill visa eller redigera den måste du välja den från portalen i stället för att köra guiden igen. 
-2. Ange det schema som är baserat på den nationella tidszonen där tjänsten har etablerats.
-3. Ställ in avancerade alternativ för att ange tröskelvärden där indexeringen kan fortsätta om ett dokument tas bort. Dessutom kan du ange om fältet **Nyckel** får innehålla blanksteg och snedstreck.  
-4. Klicka på **OK** för att skapa indexet och importera data.
+
+1. Ange det schema som är baserat på den nationella tidszonen där tjänsten har etablerats.
+
+1. Ställ in avancerade alternativ för att ange tröskelvärden där indexeringen kan fortsätta om ett dokument tas bort. Dessutom kan du ange om fältet **Nyckel** får innehålla blanksteg och snedstreck.  
+
+1. Klicka på **OK** för att skapa indexet och importera data.
 
 Du kan övervaka indexeringen i portalen. Under tiden dokumenten läses in ökar antalet dokument för det index som du har definierat. Ibland kan det ta några minuter för portalsidan att hämta de senaste uppdateringarna.
 
 Så snart alla dokument har lästs in kan du köra frågor mot indexet.
 
-## <a name="query-an-index-using-search-explorer"></a>Köra frågor mot ett index med hjälp av Sökutforskaren
+## <a name="query-an-index-using-search-explorer"></a>Fråga ett index med Sökutforskaren
 
-Portalen innehåller **Sökutforskaren** så att du kan köra frågor mot ett index utan att behöva skriva kod. Du kan använda [Sökutforskaren](search-explorer.md) för valfritt index.
+Portalen innehåller **Sökutforskaren** så att du kan fråga ett index utan att behöva skriva någon kod. Du kan använda [Sökutforskaren](search-explorer.md) för valfritt index.
 
-Sökupplevelsen baseras på standardinställningar, som [enkel syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) och standardparametern [searchMode (https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+Sökupplevelse baseras på standardinställningar, t.ex. [enkel syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) och [searchMode-frågeparametern](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
 Resultaten returneras i JSON (i ett utförligt format) så att du kan gå igenom hela dokumentet.
 

@@ -8,16 +8,15 @@ manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 6e92eed5e4083c9b8063318b2a9139e20f53de1a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: HT
+ms.openlocfilehash: fa1c42a7bb9a06b2ea790e883ec7da6caa41d6b3
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39009184"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-python"></a>Filsystemsåtgärder i Azure Data Lake Store med hjälp av Python
 > [!div class="op_single_selector"]
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/10/2018
 
 I den här artikeln får du lära dig hur du använder Python SDK till att utföra filsystemsåtgärder på Azure Data Lake Store. Instruktioner för hur du utför kontohanteringsåtgärder på Data Lake Store med Python finns i [Kontohanteringsåtgärder på Data Lake Store med hjälp av Python](data-lake-store-get-started-python.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Python**. Du kan hämta Python [här](https://www.python.org/downloads/). I den här artikeln används Python 3.6.2.
 
@@ -130,7 +129,7 @@ Följande kodfragment skapar först Data Lake Store-klienten. Klientobjektet anv
 ## <a name="next-steps"></a>Nästa steg
 * [Kontohanteringsåtgärder på Azure Data Lake Store med hjälp av Python](data-lake-store-get-started-python.md).
 
-## <a name="see-also"></a>Se även
-* [Referens för Azure Data Lake Store Python (kontohantering)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+## <a name="see-also"></a>Se också
+
 * [Referens för Azure Data Lake Store Python (filsystem)](http://azure-datalake-store.readthedocs.io/en/latest)
 * [Stordataprogram med öppen källkod som är kompatibla med Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)

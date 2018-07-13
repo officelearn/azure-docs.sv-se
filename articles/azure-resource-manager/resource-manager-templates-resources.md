@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
+ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1619f3bfdf49820ec529947ea02d1602a7b2aa8c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6723cf8cc18637c157b295361425357e1c47ec2e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723835"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007169"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Resursavsnittet i Azure Resource Manager-mallar
 
@@ -30,7 +30,7 @@ Du definierar resurser med följande struktur:
 ```json
 "resources": [
   {
-      "condition": "<boolean-value-whether-to-deploy>",
+      "condition": "<true-to-deploy-this-resource>",
       "apiVersion": "<api-version-of-resource>",
       "type": "<resource-provider-namespace/resource-type-name>",
       "name": "<name-of-the-resource>",
@@ -83,7 +83,7 @@ Du definierar resurser med följande struktur:
 
 | Elementnamn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
-| tillstånd | Nej | Booleskt värde som anger om resursen är distribuerad. |
+| tillstånd | Nej | Booleskt värde som anger om resursen ska etableras under den här distributionen. När `true`, där resursen skapas under distributionen. När `false`, resursen är hoppades över för den här distributionen. |
 | apiVersion |Ja |Version av REST-API för att använda för att skapa resursen. |
 | typ |Ja |Typ av resursen. Det här värdet är en kombination av namnområde med resursprovidern och resurstypen (till exempel **Microsoft.Storage/storageAccounts**). |
 | namn |Ja |Namnet på resursen. Namnet måste följa URI-komponent begränsningar som definierats i RFC3986. Dessutom är Azure-tjänster som exponerar resursnamnet externa parter Kontrollera namnet och kontrollera att det inte ett försök att imitera en annan identitet. |
@@ -100,7 +100,7 @@ Du definierar resurser med följande struktur:
 
 ## <a name="condition"></a>Tillstånd
 
-När du måste bestämma under distributionen om du vill skapa en resurs eller inte, använda den `condition` element. Värdet för det här elementet matchas till true eller false. När värdet är true, är resursen distribuerad. När värdet är false, är inte resursen distribueras. Till exempel vill ange om ett nytt lagringskonto har distribuerats eller ett befintligt lagringskonto används, använder du:
+När du måste bestämma under distributionen om du vill skapa en resurs eller inte, använda den `condition` element. Värdet för det här elementet matchas till true eller false. När värdet är true, skapas resursen. När värdet är FALSKT skapas inte resursen. Normalt använder du det här värdet när du vill skapa en ny resurs eller Använd en befintlig. Till exempel vill ange om ett nytt lagringskonto har distribuerats eller ett befintligt lagringskonto används, använder du:
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
-title: Länder och språk som stöds för Bing anpassad sökning API i Azure | Microsoft Docs
-description: Ta reda på vilka länder och språk som stöds av Bing anpassad sökning API.
+title: Länder/regioner och språk som stöds för Bing Custom Search API på Azure | Microsoft Docs
+description: 'Ta reda på vilka länder/regioner och språk som stöds av API: et för Bing Custom Search.'
 services: cognitive-services
 author: mikedodaro
 manager: ronakshah
@@ -9,32 +9,32 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: v-gedod
-ms.openlocfilehash: 7ff309f9b789662c4ebd791dffaa2bc2e440763e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7009991ddd0bc8fd9fc68eaab57585b752db1fc1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352890"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006503"
 ---
-# <a name="bing-custom-search-countries-and-languages"></a>Bing anpassad sökning länder och språk
+# <a name="bing-custom-search-countriesregions-and-languages"></a>Bing Custom Search länder/regioner och språk
 
-API: et för Bing anpassad sökning stöder mer än tre 12 länder många med flera olika språk. 
+API: et för Bing Custom Search har stöd för fler än tre dussin länder/regioner, många med flera olika språk. 
 
-Men det är valfritt, begäran måste ange den [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#mkt) frågeparameter som identifierar marknaden där du vill att resultaten från. En lista med valfria parametrar finns [frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)
+Men det är valfritt, begäran bör ange den [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#mkt) frågeparameter som identifierar marknaden där du vill att resultatet kommer från. En lista över valfria frågeparametrar, se [frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)
 
-Du kan ange ett land som använder den `cc` Frågeparametern. Om du anger ett land, måste du också ange en eller flera språkkoder som använder den `Accept-Language` rubrik. Språk som stöds varierar beroende på land. de ges för varje land i den **marknader** tabell.
+Du kan ange ett land/region med hjälp av den `cc` frågeparameter. Om du anger ett land/region, måste du även ange en eller flera språkkoder med hjälp av den `Accept-Language` rubrik. Språk som stöds varierar beroende på land/region de tilldelas för varje land/region i den **marknader** tabell.
 
-Den `Accept-Language` sidhuvud och `setLang` frågeparameter är ömsesidigt uteslutande – inte ange båda. Mer information finns i [acceptera språk](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
+Den `Accept-Language` rubrik och `setLang` Frågeparametern är ömsesidigt uteslutande – inte ange båda. Mer information finns i [acceptera språk](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
 
-## <a name="countries"></a>Land
+## <a name="countries"></a>Länder/regioner
 
 |Land/region|Kod|
 |-------|----|
-|Argentina|AR|
+|Argentina|KUNDRESKONTRA|
 |Australien|AUSTRALIEN|
 |Österrike|AT|
-|Belgien|ATT|
-|Brasilien|BRASILIEN|
+|Belgien|VARA|
+|Brasilien|BR|
 |Kanada|CA|
 |Chile|CL|
 |Danmark|DK|
@@ -42,11 +42,11 @@ Den `Accept-Language` sidhuvud och `setLang` frågeparameter är ömsesidigt ute
 |Frankrike|FR|
 |Tyskland|TYSKLAND|
 |Hongkong SAR|HK|
-|Indien|I|
+|Indien|INDIEN|
 |Indonesien|ID|
 |Italien|IT|
 |Japan|JP|
-|Korea|KR|
+|Korea|KOREA|
 |Malaysia|MIN|
 |Mexiko|MX|
 |Nederländerna|NL|
@@ -58,7 +58,7 @@ Den `Accept-Language` sidhuvud och `setLang` frågeparameter är ömsesidigt ute
 |Filippinerna|PH|
 |Ryssland|RU|
 |Saudiarabien|SA|
-|Sydafrika|ÖA|
+|Sydafrika|ZA|
 |Spanien|ES|
 |Sverige|SE|
 |Schweiz|CH|
@@ -73,40 +73,40 @@ Den `Accept-Language` sidhuvud och `setLang` frågeparameter är ömsesidigt ute
 |Land/region|Språk|Marknaden kod|
 |-------|--------|-----------|
 |Argentina|Spanska|ES AR|
-|Australien|Svenska|SV Australien|
-|Österrike|Tyska|Tyskland AT|
+|Australien|Svenska|SV-Australien|
+|Österrike|Tyska|Tyskland-AT|
 |Belgien|Nederländska|NL-vara|
 |Belgien|Franska|fr-vara|
 |Brasilien|Portugisiska|pt-BR|
-|Kanada|Svenska|en Certifikatutfärdare|
+|Kanada|Svenska|en CA: N|
 |Kanada|Franska|fr-CA|
-|Chile|Spanska|ES-CL|
+|Chile|Spanska|ES – CL|
 |Danmark|Danska|da-DK|
 |Finland|Finska|fi-FI|
 |Frankrike|Franska|fr-FR|
 |Tyskland|Tyska|de-DE|
 |Hongkong SAR|Traditionell kinesiska|zh-HK|
-|Indien|Svenska|SV IN|
+|Indien|Svenska|en Indien|
 |Indonesien|Svenska|SV-ID|
 |Italien|Italienska|IT-IT|
 |Japan|Japanska|ja-JP|
 |Korea|Koreanska|ko-KR|
-|Malaysia|Svenska|en Mina|
+|Malaysia|Svenska|en min|
 |Mexiko|Spanska|es-MX|
 |Nederländerna|Nederländska|NL-NL|
-|Nya Zeeland|Svenska|SV NZ|
+|Nya Zeeland|Svenska|en NZ|
 |Norge|Norska|no-NO|
 |Kina|Kinesiska|zh-CN|
 |Polen|Polska|pl-PL|
 |Portugal|Portugisiska|PT-PT|
-|Filippinerna|Svenska|SV PH|
+|Filippinerna|Svenska|en f|
 |Ryssland|Ryska|ru-RU|
 |Saudiarabien|Arabiska|ar-SA|
-|Sydafrika|Svenska|SV-ÖA|
+|Sydafrika|Svenska|en ZA|
 |Spanien|Spanska|es-ES|
 |Sverige|Svenska|SV-SE|
 |Schweiz|Franska|fr CH|
-|Schweiz|Tyska|Tyskland CH|
+|Schweiz|Tyska|Tyskland – CH|
 |Taiwan SAR|Traditionell kinesiska|zh-TW|
 |Turkiet|Turkiska|TR-TR|
 |Storbritannien|Svenska|en-GB|

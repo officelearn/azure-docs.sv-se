@@ -1,9 +1,9 @@
 ---
-title: Hantera Molntjänsten Livscykelhändelser | Microsoft Docs
-description: Lär dig hur livscykel metoder för en tjänst i molnet roll kan användas i .NET
+title: Hantera Livscykelhändelser för molntjänst | Microsoft Docs
+description: Lär dig hur livscykel-metoderna i en molntjänstroll kan användas i .NET
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 39b30acd-57b9-48b7-a7c4-40ea3430e451
@@ -13,42 +13,42 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: eb78c05df3b3cdf3887334c11bdabd5cebb74747
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeconnoc
+ms.openlocfilehash: 56f7b5e3b303ce68868f15528d1ec200919b52aa
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23843450"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001566"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Anpassa livscykeln för en webb- eller arbetsroll i .NET
-När du skapar en arbetsroll kan du utöka den [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) klassen som innehåller metoder för att åsidosätta att svara på Livscykelhändelser. Den här klassen är valfritt, för webbroller som måste använda för att svara på Livscykelhändelser.
+När du skapar en arbetsroll kan du utöka den [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) klassen som innehåller metoder för att åsidosätta som du kan svara på Livscykelhändelser. För webbroller kan den här klassen är valfritt, så du måste använda den för att svara på Livscykelhändelser.
 
 ## <a name="extend-the-roleentrypoint-class"></a>Utöka klassen RoleEntryPoint
-Den [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) klassen innehåller metoder som anropas av Azure när den **startar**, **kör**, eller **stoppar** rollen webb eller arbetare. Alternativt kan du åsidosätta dessa metoder för att hantera rollen initiering, roll avstängning sekvenser eller tråden körning av rollen. 
+Den [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) klassen innehåller metoder som anropas av Azure när det **startar**, **körs**, eller **stoppar** en web- eller worker-roll. Du kan också åsidosätta dessa metoder för att hantera rollen initieringen eller roll-avstängning sekvenser tråden för körning av rollen. 
 
 När du utökar **RoleEntryPoint**, bör du vara medveten om följande beteenden av metoder:
 
 * Den [OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) och [OnStop](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) metoder returnerar ett booleskt värde, så det är möjligt att returnera **FALSKT** från dessa metoder.
   
-   Om din kod returnerar **FALSKT**roll processen avslutas plötsligt, utan att köra alla stängas ned har på plats. I allmänhet bör du undvika returnerar **FALSKT** från den **OnStart** metod.
-* Någon utan felhantering undantag inom en överlagring av en **RoleEntryPoint** metoden behandlas som ett ohanterat undantag.
+   Om din kod returnerar **FALSKT**, roll processen avslutas tvärt, utan att köra flera avstängning har på plats. I allmänhet bör du undvika att returnera **FALSKT** från den **OnStart** metod.
+* Någon ofångat undantag i en överlagring för en **RoleEntryPoint** metoden behandlas som ett ohanterat undantag.
   
-   Om ett undantag inträffar inom någon av metoderna livscykel, Azure höjer den [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) händelse och processen avslutas. När din roll har varit offline, startas av Azure. Om ett ohanterat undantag inträffar den [stoppar](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) händelsen inte inträffar och **OnStop** -metoden inte anropas.
+   Om ett undantag inträffar inom någon av metoderna livscykel Azure höjer de [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) händelse och processen avslutas. När din roll har varit offline, startas av Azure. Om ett ohanterat undantag inträffar den [stoppar](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) inte inträffar händelsen och **OnStop** metoden inte anropas.
 
-Om din roll startar inte, eller återvinning mellan initierar upptagen och stoppa tillstånd, kan din kod utlöser ett ohanterat undantag i en av Livscykelhändelser varje gång rollen startas om. I det här fallet använder den [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) händelsen och ta reda på orsaken till undantaget och hantera korrekt. Din roll kan också returnera från den [kör](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) metod, vilket gör att rollen ska starta om. Mer information om distributionstillstånd finns [vanliga problem som orsakar roller till återvinning](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Om din roll startar inte, eller återanvänds mellan initierar, upptagen och stoppa tillstånd, kan din kod utlöste ett ohanterat undantag i någon av de Livscykelhändelser för varje gång rollen startas om. I det här fallet den [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) händelse att ta reda på orsaken för undantaget och hantera på rätt sätt. Din roll kan också returnera från den [kör](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) metoden, vilket gör att rollen startas om. Mer information om distributionstillstånd finns [vanliga problem som orsak roller till återvinning](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 > [!NOTE]
-> Om du använder den **Azure Tools för Microsoft Visual Studio** för att utveckla ditt program projektmallar rollen Utöka automatiskt de **RoleEntryPoint** klassen för dig, i den *WebRole.cs* och *WorkerRole.cs* filer.
+> Om du använder den **Azure Tools för Microsoft Visual Studio** för att utveckla ditt program kan projektmallar rollen automatiskt utöka den **RoleEntryPoint** klassen för dig, i den  *WebRole.cs* och *WorkerRole.cs* filer.
 > 
 > 
 
 ## <a name="onstart-method"></a>OnStart-metoden
-Den **OnStart** metoden anropas när din rollinstans är online med Azure. Medan OnStart koden körs rollinstansen som har markerats som **upptagen** och ingen extern trafik dirigeras till den av belastningsutjämnaren. Du kan åsidosätta den här metoden om du vill utföra initieringsarbete, till exempel implementera händelsehanterare och starta [Azure Diagnostics](cloud-services-how-to-monitor.md).
+Den **OnStart** metoden anropas när rollinstansen är online med Azure. Medan OnStart koden körs rollinstansen har markerats som **upptagen** och ingen extern trafik dirigeras till den av belastningsutjämnaren. Du kan åsidosätta den här metoden om du vill utföra initieringen arbeten, till exempel implementera händelsehanterare och starta [Azure Diagnostics](cloud-services-how-to-monitor.md).
 
-Om **OnStart** returnerar **SANT**instansen har initierats och Azure anropar den **RoleEntryPoint.Run** metod. Om **OnStart** returnerar **FALSKT**, rollen omedelbart, avslutar utan att köra alla planerad avstängning sekvenser.
+Om **OnStart** returnerar **SANT**, instansen är initierad och tjänsten Azure anropar den **RoleEntryPoint.Run** metod. Om **OnStart** returnerar **FALSKT**, rollen avslutas direkt, utan att köra alla planerad avstängning sekvenser.
 
-Följande kodexempel visar hur du åsidosätter den **OnStart** metod. Den här metoden konfigurerar och startar en diagnostikövervakare när instansen startar och ställer in en överföring av loggningsdata till ett lagringskonto:
+I följande kodexempel visas hur du kan åsidosätta den **OnStart** metod. Den här metoden konfigurerar och startar en diagnostikövervakare när rollinstansen startas och ställer in en överföring av loggningsdata till ett lagringskonto:
 
 ```csharp
 public override bool OnStart()
@@ -64,22 +64,22 @@ public override bool OnStart()
 }
 ```
 
-## <a name="onstop-method"></a>OnStop-metoden
-Den **OnStop** metoden anropas när en rollinstans har varit offline i Azure och innan processen avslutas. Du kan åsidosätta den här metoden om du vill anropa kod som krävs för din instans av serverroll korrekt stängas.
+## <a name="onstop-method"></a>OnStop metod
+Den **OnStop** metoden anropas när en rollinstans har varit offline av Azure och innan processen avslutas. Du kan åsidosätta den här metoden för att anropa kod som krävs för din rollinstans att korrekt stängas av.
 
 > [!IMPORTANT]
-> Kod som körs i den **OnStop** metoden har en begränsad tid att slutföra när den anropas av andra orsaker än användarinitierad avstängning. Efter den här tiden processen avslutas, så måste du se till att koden i den **OnStop** metod kan köra snabbt eller kan tolerera körs inte kan slutföras. Den **OnStop** metoden anropas efter den **stoppar** händelsen inträffar.
+> Kod som körs i den **OnStop** metoden har en begränsad tid att slutföra när den anropas för av andra orsaker än en användarinitierad avstängning. Efter den här tiden processen avslutas, så måste du se till att koden i den **OnStop** metoden kan köra snabbt eller kan tolerera körs inte kan slutföras. Den **OnStop** metoden anropas efter den **stoppar** inträffar händelsen.
 > 
 > 
 
 ## <a name="run-method"></a>Metoden Kör
-Du kan åsidosätta den **kör** metod för att implementera en tidskrävande tråd för din rollinstans.
+Du kan åsidosätta den **kör** metod för att implementera en tidskrävande tråd för rollinstansen.
 
-Åsidosätta den **kör** metoden är inte obligatoriska; standardimplementering startar en tråd som alltid i viloläge. Om du åsidosätta den **kör** metoden koden ska blockera på obestämd tid. Om den **kör** metoden returnerar rollen återanvänds automatiskt smidigt; med andra ord genererar Azure den **stoppar** händelse och anrop i **OnStop** metoden så att din avstängning sekvenser kan utföras förrän rollen tas offline.
+Åsidosätta den **kör** metod krävs inte, standardimplementering startar en tråd som vilar alltid. Om du åsidosätter den **kör** metod, din kod ska blockera på obestämd tid. Om den **kör** metoden returnerar rollen återanvänds automatiskt ett smidigt sätt, d.v.s. Azure genererar den **stoppar** händelse och anropar den **OnStop** metod så att din Stäng av aktivitetssekvenser kan köras innan rollen tas offline.
 
 ### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>Implementera metoder för ASP.NET-livscykeln för en webbroll
-Du kan använda ASP.NET livscykel metoder, förutom de som finns i **RoleEntryPoint** klass för att hantera initiering och avstängning sekvenser för en webbroll. Detta kan vara användbart för kompatibilitet om du överföra ett befintligt ASP.NET-program till Azure. ASP.NET livscykel metoderna anropas inifrån den **RoleEntryPoint** metoder. Den **programmet\_starta** metoden anropas efter den **RoleEntryPoint.OnStart** metod har avslutats. Den **programmet\_End** metoden anropas innan den **RoleEntryPoint.OnStop** metoden anropas.
+Du kan använda ASP.NET livscykel metoder, förutom det som tillhandahålls av den **RoleEntryPoint** klass, för att hantera initieringen och Stäng av sekvenser för en webbroll. Detta kan vara användbart för kompatibilitet om du portar ett befintligt ASP.NET-program till Azure. ASP.NET livscykel metoderna anropas inifrån den **RoleEntryPoint** metoder. Den **programmet\_starta** metoden anropas efter den **RoleEntryPoint.OnStart** metoden har slutförts. Den **programmet\_slutet** metoden anropas innan den **RoleEntryPoint.OnStop** metoden anropas.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du [skapa ett paket för cloud service](cloud-services-model-and-package.md).
+Lär dig hur du [skapa ett molntjänstpaket](cloud-services-model-and-package.md).
 

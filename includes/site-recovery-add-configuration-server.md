@@ -11,17 +11,17 @@
     ![Registrering](./media/site-recovery-add-configuration-server/combined-wiz3.png)
 5. I **Internet Settings** (Internetinställningar) anger du hur providern som körs på konfigurationsservern ska ansluta till Azure Site Recovery via internet. Kontrollera att du har tillåtit URL: er som krävs.
 
-    - Om du vill ansluta till proxyservern som för närvarande har ställts in på datorn, väljer **Anslut till Azure Site Recovery via en proxyserver**.
-    - Om du vill att providern ska ansluta direkt väljer **Anslut direkt till Azure Site Recovery utan en proxyserver**.
-    - Om den befintliga proxyservern kräver autentisering, eller om du vill använda en anpassad proxyserver för Provider-anslutning väljer **Anslut med anpassade proxyinställningar**, och ange adress, port och autentiseringsuppgifter.
+    - Om du vill ansluta till proxyservern som för närvarande har ställts in på datorn väljer **Anslut till Azure Site Recovery med proxyserver**.
+    - Om du vill att providern ska ansluta direkt väljer **Anslut direkt till Azure Site Recovery utan proxyserver**.
+    - Om den befintliga proxyservern kräver autentisering, eller om du vill använda en anpassad proxyserver för provideranslutningen, väljer **Anslut med anpassade proxyinställningar**, och ange adressen, porten och autentiseringsuppgifterna.
      ![Brandvägg](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. I **Kravkontroll** körs en kontroll för att se till att installationen kan köras. Om det visas en varning om **synkroniseringskontrollen för global tid** kontrollerar du att systemklockans tid (inställningarna för **datum och tid**) är samma som tidszonen.
 
-    ![Krav](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+    ![Förutsättningar](./media/site-recovery-add-configuration-server/combined-wiz5.png)
 7. I **MySQL Configuration** (MySQL-konfiguration) skapar du autentiseringsuppgifter för att logga in på den MySQL-serverinstans som är installerad.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
-8. I **Miljöinformation** väljer du om du ska replikera virtuella VMwares-datorer. Om du kan sedan kontrolleras att PowerCLI 6.0 är installerad.
+8. I **Miljöinformation** väljer du om du ska replikera virtuella VMwares-datorer. Om du kan sedan kontrollerar installationen att PowerCLI 6.0 är installerat.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
 

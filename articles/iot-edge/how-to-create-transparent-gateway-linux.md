@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 45179f8f1f46be764144bdc22d5bab3548e9401d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 789958874784f19169e79a177beb0d811d9f60d4
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346067"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005714"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Skapa en Linux IoT Edge-enhet som fungerar som en transparent gateway
 
@@ -181,7 +181,7 @@ IoT Edge-körningen kan dirigera meddelanden som skickas från underordnade enhe
    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
    ```
 
-[Modulen sammansättning artikel] [lnk--modulsammansättningen] för mer information om meddelanderoutning.
+Referera till den [modulen sammansättning artikeln] [ lnk-module-composition] för mer information om meddelanderoutning.
 
 ## <a name="next-steps"></a>Nästa steg
 [Förstå de krav och verktyg för att utveckla IoT Edge-moduler][lnk-module-dev].
@@ -192,6 +192,7 @@ IoT Edge-körningen kan dirigera meddelanden som skickas från underordnade enhe
 <!-- Links -->
 [lnk-install-linux-x64]: ./how-to-install-iot-edge-linux.md
 [lnk-install-linux-arm]: ./how-to-install-iot-edge-linux-arm.md
+[lnk-module-composition]: ./module-composition.md
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md

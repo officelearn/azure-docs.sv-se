@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager mallstruktur och syntax | Microsoft Docs
-description: Beskriver strukturen och egenskaperna för Azure Resource Manager-mallar med deklarativ JSON-syntax.
+title: Azure Resource Manager-mall-strukturen och syntaxen | Microsoft Docs
+description: Beskriver strukturen och egenskaperna för Azure Resource Manager-mallar med hjälp av deklarativa JSON-syntax.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f1ce47874b759748f4a2e2ce1fb438b394443058
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 826dcf13a6e29fd4631e1078dd2ac0fa65b14e14
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334806"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001692"
 ---
-# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå struktur och syntaxen för Azure Resource Manager-mallar
-Den här artikeln beskriver strukturen i en Azure Resource Manager-mall. Det innehåller olika avsnitt i en mall och egenskaper som är tillgängliga i dessa avsnitt. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution. En stegvis självstudiekurs om hur du skapar en mall finns i [skapa din första Azure Resource Manager-mallen](resource-manager-create-first-template.md).
+# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager-mallar
+Den här artikeln beskriver strukturen för en Azure Resource Manager-mall. Den anger de olika avsnitten i en mall och egenskaperna som är tillgängliga i dessa avsnitt. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution. En stegvis självstudiekurs om hur du skapar en mall finns i [skapa din första Azure Resource Manager-mall](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Mallformat
 I sin enklaste struktur har en mall följande element:
@@ -41,12 +41,12 @@ I sin enklaste struktur har en mall följande element:
 
 | Elementnamn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
-| $schema |Ja |Plats för JSON-schemafilen som beskriver versionen av mallspråk. Använd den URL som visas i föregående exempel. |
-| contentVersion |Ja |Version av mallen (till exempel 1.0.0.0). Du kan ange ett värde för det här elementet. Använd det här värdet till dokumentet betydande förändringar i mallen. Det här värdet kan användas för att se till att rätt mall används när du distribuerar resurser med hjälp av mallen. |
-| parameters |Nej |Värden som tillhandahålls när distributionen körs för att anpassa resource distribution. |
-| variabler |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck. |
+| $schema |Ja |Platsen för schemat JSON-fil som beskriver versionen av mallspråk. Använd den URL som visas i föregående exempel. |
+| contentVersion |Ja |Versionen av mallen (till exempel 1.0.0.0). Du kan ange ett värde för det här elementet. Använd det här värdet till dokumentet betydande förändringar i mallen. Det här värdet kan användas för att se till att rätt mall används när du distribuerar resurser med hjälp av mallen. |
+| parameters |Nej |Värden som tillhandahålls när distributionen körs för att anpassa resursdistributionen. |
+| Variabler |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck. |
 | functions |Nej |Användardefinierade funktioner som är tillgängliga i mallen. |
-| resurser |Ja |Resurstyper som distribuerats eller uppdateras i en resursgrupp. |
+| resurser |Ja |Resurstyper som är distribuerade eller uppdateras i en resursgrupp. |
 | utdata |Nej |Värden som returneras efter distributionen. |
 
 Varje element har egenskaper som du kan ange. I följande exempel visas den fullständiga syntaxen för en mall:
@@ -159,14 +159,14 @@ Varje element har egenskaper som du kan ange. I följande exempel visas den full
 }
 ```
 
-Den här artikeln beskriver avsnitt i mallen i detalj.
+Den här artikeln beskriver avsnitt i mallen i större detalj.
 
 ## <a name="syntax"></a>Syntax
-Den grundläggande syntaxen i mallen är JSON. Dock utöka uttryck och funktioner i JSON-värden som är tillgängliga i mallen.  Uttryck skrivs i JSON-stränglitteraler vars första och sista tecknen är hakparenteserna: `[` och `]`respektive. Värdet för uttrycket utvärderas när mallen distribueras. Medan skrivs som en teckensträng kan resultat av utvärderingen av uttrycket vara av en annan JSON-typ, till exempel en matris eller ett heltal, beroende på det faktiska uttrycket.  Att ha en teckensträng som börjar med en hakparentes `[`, men inte har det tolkas som ett uttryck, lägga till en extra hakparentes för att starta strängen med `[[`.
+Grundläggande syntaxen för mallen är JSON. Dock utöka uttryck och funktioner i JSON-värden som är tillgängliga i mallen.  Uttryck skrivs i JSON-stränglitteraler vars första och sista tecken börjar hakparenteserna: `[` och `]`respektive. Värdet för uttrycket utvärderas när mallen distribueras. Medan skrivs som en teckensträng, kan resultatet av utvärderingen av uttrycket vara av en annan JSON-typ, till exempel en matris eller ett heltal, beroende på faktiska uttrycket.  Ha en teckensträng som börjar med en hakparentes `[`, men inte har det tolkas som ett uttryck, lägga till en extra hakparentes för att starta strängen med `[[`.
 
-Normalt använder du uttryck med funktioner för att utföra åtgärder för att konfigurera distributionen. Precis som i JavaScript-funktionsanrop som är formaterade som `functionName(arg1,arg2,arg3)`. Du kan referera egenskaper genom att använda operatorerna punkt och [index].
+Normalt kan använda du uttryck med functions för att utföra åtgärder för att konfigurera distributionen. Precis som i JavaScript, funktionsanrop som är formaterade som `functionName(arg1,arg2,arg3)`. Du referera till egenskaper med hjälp av punkt och [index] operatörer.
 
-I följande exempel visas hur du använder flera funktioner när man skapar ett-värde:
+I följande exempel visas hur du använder flera funktioner när ett värde:
 
 ```json
 "variables": {
@@ -174,10 +174,10 @@ I följande exempel visas hur du använder flera funktioner när man skapar ett-
 }
 ```
 
-En fullständig lista över Mallfunktioner finns [Azure Resource Manager Mallfunktioner](resource-group-template-functions.md). 
+En fullständig lista över Mallfunktioner finns [Azure Resource Manager-Mallfunktioner](resource-group-template-functions.md). 
 
 ## <a name="parameters"></a>Parametrar
-I avsnittet parametrar i mallen kan du ange vilka värden som du kan ange när du distribuerar resurserna. Dessa värden kan du anpassa distributionen med värden som är anpassade för en viss miljö (t.ex dev, test- och). Du behöver inte ange parametrarna i mallen, men utan parametrar mallen skulle distribuera alltid samma resurser med samma namn, platser och egenskaper.
+I avsnittet parametrar i mallen kan du ange vilka värden som du kan ange när du distribuerar resurser. Dessa parametervärden kan du anpassa distributionen genom att tillhandahålla värden som är skräddarsydda för en viss miljö (till exempel utveckling, testning och produktion). Du behöver inte ange parametrar i mallen, men utan parametrar mallen distribuerar alltid samma resurser med samma namn, platser och egenskaper.
 
 I följande exempel visar en enkel parameterdefinition:
 
@@ -192,12 +192,12 @@ I följande exempel visar en enkel parameterdefinition:
 },
 ```
 
-Information om hur du definierar parametrar finns [parametrar avsnitt i Azure Resource Manager-mallar](resource-manager-templates-parameters.md).
+Information om hur du definierar parametrar finns i [Parameters-avsnittet av Azure Resource Manager-mallar](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>Variabler
 I avsnittet variables kan skapa du värden som kan användas i hela din mall. Du behöver inte definiera variabler, men de förenkla ofta din mall genom att minska komplexa uttryck.
 
-I följande exempel visas ett enkelt variabeldefinitionen:
+I följande exempel visar en enkel variabeldefinitionen:
 
 ```json
 "variables": {
@@ -205,20 +205,21 @@ I följande exempel visas ett enkelt variabeldefinitionen:
 },
 ```
 
-Information om hur du definierar variabler finns i [variabler avsnitt i Azure Resource Manager-mallar](resource-manager-templates-variables.md).
+Information om hur du definierar variabler finns i [Variables-avsnittet av Azure Resource Manager-mallar](resource-manager-templates-variables.md).
 
 ## <a name="functions"></a>Functions
 
-Du kan skapa egna funktioner i din mall. Dessa funktioner är tillgängliga för användning i mallen. Normalt kan du definiera komplicerade uttryck som du inte vill upprepa i hela din mall. Du kan skapa användardefinierade funktioner från uttryck och [funktioner](resource-group-template-functions.md) som stöds i mallar.
+Du kan skapa egna funktioner i din mall. Dessa funktioner är tillgängliga för användning i din mall. Normalt kan definiera du komplicerat uttryck som du inte vill upprepa i hela din mall. Du kan skapa användardefinierade funktioner från uttryck och [functions](resource-group-template-functions.md) som stöds i mallar.
 
 När du definierar en user-funktionen, finns det vissa begränsningar:
 
-* Funktionen kommer inte åt variabler.
+* Funktionen kan inte komma åt variabler.
+* Funktionen har inte åtkomst till mallparametrarna. Det vill säga den [parametrar funktionen](resource-group-template-functions-deployment.md#parameters) är begränsad till funktionsparametrar.
 * Funktionen kan inte anropa andra användardefinierade funktioner.
-* Funktionen kan inte använda den [referera funktionen](resource-group-template-functions-resource.md#reference).
-* Parametrar för funktionen kan inte ha standardvärden.
+* Funktionen kan inte använda den [refererar till funktionen](resource-group-template-functions-resource.md#reference).
+* Funktionens parametrar kan inte ha standardvärden.
 
-Dina funktioner kräver ett namnutrymmesvärde för att undvika namngivningskonflikter med Mallfunktioner. I följande exempel visas en funktion som returnerar namnet på ett lagringskonto:
+Dina funktioner kräver en namnområdesvärdet för att undvika namnkonflikter med Mallfunktioner. I följande exempel visas en funktion som returnerar ett lagringskontonamn:
 
 ```json
 "functions": [
@@ -242,7 +243,7 @@ Dina funktioner kräver ett namnutrymmesvärde för att undvika namngivningskonf
 ],
 ```
 
-Du kan anropa en funktion med:
+Du anropar en funktion med:
 
 ```json
 "resources": [
@@ -262,7 +263,7 @@ Du kan anropa en funktion med:
 ```
 
 ## <a name="resources"></a>Resurser
-I avsnittet resurser kan du definiera de resurser som distribueras eller uppdateras. Det här avsnittet får komplicerad, eftersom du måste förstå vilka typer som du distribuerar för att tillhandahålla rätt värden.
+I resursavsnittet kan du definiera de resurser som är distribuerade eller uppdateras. Det här avsnittet kan bli komplicerade eftersom du måste förstå de typer som du distribuerar för att ge rätt värden.
 
 ```json
 "resources": [
@@ -278,10 +279,10 @@ I avsnittet resurser kan du definiera de resurser som distribueras eller uppdate
 ],
 ```
 
-Mer information finns i [resurser avsnitt i Azure Resource Manager-mallar](resource-manager-templates-resources.md).
+Mer information finns i [resursavsnittet i Azure Resource Manager-mallar](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Utdata
-I avsnittet utdata anger du värden som returneras från distributionen. Du kan till exempel returnera URI: N för att komma åt en resurs som är distribuerad.
+I Outputs-avsnittet anger du värden som returneras från distributionen. Du kan till exempel returnera URI: N för att komma åt en distribuerad resurs.
 
 ```json
 "outputs": {
@@ -294,22 +295,22 @@ I avsnittet utdata anger du värden som returneras från distributionen. Du kan 
 
 Mer information finns i [matar ut Azure Resource Manager-mallar](resource-manager-templates-outputs.md).
 
-## <a name="template-limits"></a>Mallen gränser
+## <a name="template-limits"></a>Mall för gränser
 
-Begränsa storleken på din mall 1 MB och varje parameterfilen till 64 KB. Gränsen på 1 MB gäller sluttillstånd för mallen när den har utökats med iterativ resursdefinitionerna och värden för parametrar och variabler. 
+Begränsa storleken på din mall till 1 MB och varje parameterfilen till 64 KB. Gränsen på 1 MB gäller sluttillstånd för mallen när det har utökats med iterativ resursdefinitioner och värden för variabler och parametrar. 
 
 Du är också begränsad till:
 
 * 256 parametrar
 * 256 variabler
-* 800 resurserna (inklusive antal kopior)
+* 800 resurser (inklusive antal kopior)
 * 64 utdatavärden
-* 24,576 tecken i ett malluttryck för
+* 24,576 tecken i ett malluttryck
 
-Du kan överskrida vissa mallen med hjälp av en kapslad mall. Mer information finns i [använda länkade mallar när du distribuerar Azure-resurser](resource-group-linked-templates.md). Du kan kombinera flera värden i ett objekt för att minska antalet parametrar, variabler eller utdata. Mer information finns i [objekt som parametrar](resource-manager-objects-as-parameters.md).
+Du kan överskrida vissa begränsningar för mallen med hjälp av en kapslad mall. Mer information finns i [använda länkade mallar när du distribuerar Azure-resurser](resource-group-linked-templates.md). Du kan kombinera flera värden i ett objekt för att minska antalet parametrar, variabler eller utdata. Mer information finns i [objekt som parametrar](resource-manager-objects-as-parameters.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill visa kompletta mallar för många olika typer av lösningar kan du se [Azure-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/).
-* Mer information om de funktioner som du kan använda från i en mall finns [Azure Resource Manager mallen Functions](resource-group-template-functions.md).
-* Om du vill kombinera flera mallar under distributionen finns [använda länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
-* Du kan behöva använda resurser som finns i en annan resursgrupp. Det här scenariot är vanligt när du arbetar med lagringskonton eller virtuella nätverk som delas mellan flera resursgrupper. Mer information finns i [resourceId funktionen](resource-group-template-functions-resource.md#resourceid).
+* Mer information om de funktioner du kan använda från inom en mall finns i [Azure Resource Manager-Mallfunktioner](resource-group-template-functions.md).
+* Om du vill kombinera flera mallar under distributionen, se [med länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
+* Du kan behöva använda resurser som finns i en annan resursgrupp. Det här scenariot är vanligt när du arbetar med lagringskonton eller virtuella nätverk som delas mellan flera resursgrupper. Mer information finns i den [resourceId funktionen](resource-group-template-functions-resource.md#resourceid).

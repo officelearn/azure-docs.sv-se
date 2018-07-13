@@ -3,7 +3,7 @@ title: Distribuera snabbt en befintlig app till ett Azure Service Fabric-kluster
 description: Använda en Azure Service Fabric-kluster som värd för ett befintligt Node.js-program med Visual Studio.
 services: service-fabric
 documentationcenter: nodejs
-author: thraka
+author: rwike77
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: adegeo
-ms.openlocfilehash: 3cb7fdf309c935c21f4e80c1d1ba529838935acc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: ryanwi
+ms.openlocfilehash: 2e7511f0efa36243a9e7e8e25f1697bdd3e60b63
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213018"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005302"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Skapa ett Node.js-program i Azure med Node.js
 

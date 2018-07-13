@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera webbappsanalyser för ASP.NET med Application Insights | Microsoft Docs"
-description: "Konfigurera prestanda-, tillgänglighets- och användningsanalyser för din lokala eller Azure-baserade ASP.NET-webbplats."
+title: Konfigurera webbappsanalyser för ASP.NET med Application Insights | Microsoft Docs
+description: Konfigurera prestanda, tillgänglighet och användaren beteende analytics-verktyg för din ASP.NET-webbplats finns lokalt eller i Azure.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4fea71509b2dec897a3dafef627e243ae25447ad
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: HT
+ms.openlocfilehash: 73bb1e3d06066c422614bc9d6d3431b49be9c6de
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991444"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Konfigurera Application Insights för din ASP.NET-webbplats
 
@@ -25,7 +26,7 @@ Den här proceduren konfigurerar din ASP.NET-webbapp för att skicka telemetri t
 
 Installationen kräver bara några klick i Visual Studio. Du har möjlighet att undvika kostnader genom att begränsa mängden telemetri. På så sätt kan du experimentera och felsöka eller övervaka en plats som har få användare. Om du sedan vill gå vidare och övervaka din produktionsplats, är det lätt att höja gränsen vid ett senare tillfälle.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 När du ska lägga till Application Insights för din ASP.NET-webbplats måste du göra följande:
 
 - Installera [Visual Studio 2017 för Windows](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:

@@ -8,12 +8,12 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/13/2017
-ms.openlocfilehash: 50e27cbc485259ea5ce744ba71feee5e90293bcb
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a7b32bad8a9f1d039b17fe0f1be167cffbc86547
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792917"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006213"
 ---
 # <a name="queries-in-azure-search"></a>Frågor i Azure Search
 > [!div class="op_single_selector"]
@@ -60,6 +60,6 @@ I Azure Search kan du enkelt framhäva exakt den del av sökresultatet som match
 
 Det bästa sättet att förstå skillnader i syntaxen är genom att skicka frågor och granska resultatet.
 
-+ Använd [Search Explorer](search-explorer.md) i Azure Portal. Genom att distribuera [exempel indexet](search-get-started-portal.md) kan du fråga indexet inom minuter med hjälp av verktyg i portalen.
++ Använd [Sökutforskaren](search-explorer.md) i Azure-portalen. Genom att distribuera [exempel indexet](search-get-started-portal.md) kan du fråga indexet inom minuter med hjälp av verktyg i portalen.
 
 + Använd Telerik Fiddler eller Chrome Postman för att skicka frågor till ett index som du har laddat upp till din söktjänst. Båda verktygen stöder REST-anrop till en HTTP-slutpunkt. 

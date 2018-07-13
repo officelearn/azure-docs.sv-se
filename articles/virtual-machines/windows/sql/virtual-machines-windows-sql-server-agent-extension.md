@@ -1,6 +1,6 @@
 ---
-title: Automatisera hanteringsuppgifter på SQL virtuella datorer (Resource Manager) | Microsoft Docs
-description: Den här artikeln beskriver hur du hanterar SQL Server agent-tillägg som automatiserar specifika administrationsuppgifter för SQL Server. Dessa inkluderar automatisk säkerhetskopiering, automatisk uppdatering och Azure Key Vault-integrering.
+title: Automatisera hanteringsuppgifter på SQL-datorer (Resource Manager) | Microsoft Docs
+description: Den här artikeln beskriver hur du hanterar SQL Server agent-tillägget som automatiserar specifika uppgifter för administration av SQL Server. Dessa inkluderar automatisk säkerhetskopiering, automatisk uppdatering och Azure Key Vault-integrering.
 services: virtual-machines-windows
 documentationcenter: ''
 author: rothja
@@ -13,38 +13,39 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/20/2018
+ms.date: 07/12/2018
 ms.author: jroth
-ms.openlocfilehash: d9cb4a3bdc5776c4ac70ac376d8b839193e3fc3d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c663aec02d4d1808426a9f05a6674d5504563a63
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39009408"
 ---
-# <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatisera hanteringsuppgifter på Azure Virtual Machines med SQL Server Agent-tillägget (Resource Manager)
+# <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatisera hanteringsuppgifter på Azure virtuella datorer med SQL Server Agent-tillägget (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
 > * [Klassisk](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
-SQL Server IaaS Agent tillägget (SQLIaaSExtension) körs på virtuella Azure-datorer att automatisera administrationsuppgifter. Den här artikeln innehåller en översikt över de tjänster som stöds av tillägget samt anvisningar för installation, status och borttagning.
+SQL Server IaaS Agent-tillägget (SQLIaaSExtension) körs på Azure virtuella datorer för att automatisera administrationsuppgifter. Den här artikeln innehåller en översikt över de tjänster som stöds av tillägget samt anvisningar för installation, status och borttagning.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Den klassiska versionen av den här artikeln finns [SQL Server Agent-tillägget för SQL Server VMs klassiska](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
+Den klassiska versionen av den här artikeln finns [SQL Server-Agenttillägg för SQL Server-datorer klassiska](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 ## <a name="supported-services"></a>Tjänster som stöds
-SQL Server IaaS Agent tillägget stöder följande administrationsuppgifter:
+SQL Server IaaS Agent-tillägget har stöd för följande administrationsuppgifter:
 
-| Funktionen för administration | Beskrivning |
+| Administrationsfunktion | Beskrivning |
 | --- | --- |
-| **Automatisk SQL-säkerhetskopiering** |Automatiserar schemaläggning av säkerhetskopieringar för alla databaser för standardinstansen av SQL Server på den virtuella datorn. Mer information finns i [automatisk säkerhetskopiering för SQL Server i Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-backup.md). |
-| **Automatisk SQL-uppdatering** |Konfigurerar en underhållsperiod då Windows-uppdateringar på din virtuella dator kan ske, så du kan undvika uppdateringar under Högbelastningstider för din arbetsbelastning. Mer information finns i [automatisk uppdatering för SQL Server i Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-patching.md). |
-| **Azure Key Vault-integrering** |Kan du automatiskt installera och konfigurera Azure Key Vault på SQL Server-VM. Mer information finns i [konfigurera Azure Key Vault-integrering för SQL Server på Azure Virtual Machines (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md). |
+| **Automatisk SQL-säkerhetskopiering** |Automatiserar schemaläggning av säkerhetskopiering för alla databaser för standardinstansen av SQL Server på den virtuella datorn. Mer information finns i [automatisk säkerhetskopiering för SQL Server i Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-backup.md). |
+| **Automatisk SQL-uppdatering** |Konfigurerar en underhållsperiod då viktiga Windows-uppdateringar till den virtuella datorn kan äga rum, så att du kan undvika att uppdateringar under Högbelastningstider för din arbetsbelastning. Mer information finns i [automatisk uppdatering för SQL Server i Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-patching.md). |
+| **Azure Key Vault-integrering** |Kan du automatiskt installera och konfigurera Azure Key Vault på din SQL Server-VM. Mer information finns i [konfigurera Azure Key Vault-integrering för SQL Server på Azure Virtual Machines (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md). |
 
-När installerad och körs, gör SQL Server IaaS Agent tillägget dessa funktioner för administration tillgängliga i SQL Server-panelen på den virtuella datorn i Azure-portalen och via Azure PowerShell för SQL Server marketplace-bilder och via Azure PowerShell för manuella installationer av tillägget. 
+När installerad och igång, tillgängliggör SQL Server IaaS Agent-tillägget dessa funktioner för administration på den SQL Server-panelen för den virtuella datorn i Azure-portalen och via Azure PowerShell för SQL Server marketplace-avbildningar och via Azure PowerShell för manuella installationer av tillägget. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Krav för att använda SQL Server IaaS Agent tillägget på den virtuella datorn:
+Krav för att använda SQL Server IaaS Agent-tillägget på den virtuella datorn:
 
 **Operativsystemet**:
 
@@ -60,49 +61,50 @@ Krav för att använda SQL Server IaaS Agent tillägget på den virtuella datorn
 
 **Azure PowerShell**:
 
-* [Hämta och konfigurera de senaste Azure PowerShell-kommandon](/powershell/azure/overview)
+* [Hämta och konfigurera de senaste Azure PowerShell-kommandona](/powershell/azure/overview)
+
+> [!IMPORTANT]
+> För närvarande den [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md) stöds inte för FCI för SQL Server på Azure. Vi rekommenderar att du avinstallerar tillägget från virtuella datorer som deltar i ett FCI. Funktioner som stöds av tillägget är inte tillgängliga för SQL-datorer när agenten har avinstallerats.
 
 ## <a name="installation"></a>Installation
-Tillägget SQL Server IaaS-Agent installeras automatiskt när du etablerar en galleriavbildningar för SQL Server-virtuella datorn. Om du behöver installera tillägget manuellt på något av dessa SQL Server-datorer kan du använda följande PowerShell-kommando:
+SQL Server IaaS Agent-tillägget installeras automatiskt när du etablerar en galleriavbildningar för SQL Server-dator. Om du vill installera om tillägget manuellt på en av de här SQL Server-datorer kan du använda följande PowerShell-kommando:
 
 ```powershell
 Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
 ```
 
 > [!IMPORTANT]
-> Om filnamnstillägget inte har installerats, installerar tillägget startar om SQL Server-tjänsten.
-
-Det är också möjligt att installera tillägget SQL Server IaaS-Agent på en virtuell dator bara Operativsystemet Windows Server. Detta stöds endast om du har installerat SQL Server manuellt på den datorn. Installera tillägget manuellt med hjälp av samma **Set AzureRmVMSqlServerExtension** PowerShell-cmdlet.
+> Om tillägget inte redan är installerat installerar tillägget startar om SQL Server-tjänsten.
 
 > [!NOTE]
-> Om du manuellt installera tillägget SQL Server IaaS-Agent på en OS-endast Windows Server VM, kan du inte hantera konfigurationsinställningarna för SQL Server via Azure-portalen. I det här scenariot måste du göra alla ändringar med PowerShell.
+> SQL Server IaaS Agent-tillägget stöds bara på [galleriavbildningar för SQL Server-VM](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (betala per användning eller bring-your-own-license). Det stöds inte om du manuellt installera SQL Server på en OS-endast Windows Server-dator eller om du distribuerar en anpassad SQL Server VM-VHD. I dessa fall kan det vara möjligt att installera och hantera tillägget manuellt med hjälp av PowerShell, men du får inte konfigurationsinställningarna för SQL Server i Azure-portalen. Vi rekommenderar dock starkt att i stället installera en SQL Server-VM-avbildning för galleriet och sedan anpassa den.
 
 ## <a name="status"></a>Status
-Ett sätt att kontrollera att tillägget installeras är att visa agentens status på Azure-portalen. Välj **alla inställningar** i den virtuella datorn, och klicka sedan på **tillägg**. Du bör se den **SQLIaaSExtension** tillägg i listan.
+Ett sätt att kontrollera att tillägget har installerats är att visa agentens status på Azure-portalen. Välj **alla inställningar** i den virtuella datorn och sedan klicka på **tillägg**. Du bör se den **SQLIaaSExtension** tillägg i listan.
 
-![SQL Server IaaS Agent tillägget i Azure-portalen](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
+![SQL Server IaaS Agent-tillägget i Azure-portalen](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
-Du kan också använda den **Get-AzureRmVMSqlServerExtension** Azure PowerShell-cmdlet.
+Du kan också använda den **Get-AzureRmVMSqlServerExtension** Azure PowerShell-cmdleten.
 
     Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
 
-Föregående kommando bekräftar att agenten är installerad och ger allmän statusinformation. Du kan också hämta statusinformation om automatisk säkerhetskopiering och korrigering med följande kommandon.
+Föregående kommando bekräftar agenten är installerad och ger allmän statusinformation. Du kan också hämta statusinformation om automatisk säkerhetskopiering och uppdatering med följande kommandon.
 
     $sqlext = Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
     $sqlext.AutoPatchingSettings
     $sqlext.AutoBackupSettings
 
 ## <a name="removal"></a>Borttagning
-I Azure-portalen kan du avinstallera tillägget genom att klicka på knappen på den **tillägg** fönstret i Egenskaper för virtuell dator. Klicka på **Ta bort**.
+I Azure-portalen kan du avinstallera tillägget genom att klicka på ellipsen på den **tillägg** fönster för dina VM-egenskaper. Klicka på **Ta bort**.
 
-![Avinstallera SQL Server IaaS Agent tillägget i Azure-portalen](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
+![Avinstallera SQL Server IaaS Agent-tillägget i Azure-portalen](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
 
-Du kan också använda den **ta bort AzureRmVMSqlServerExtension** PowerShell-cmdlet.
+Du kan också använda den **Remove-AzureRmVMSqlServerExtension** PowerShell-cmdlet.
 
     Remove-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension"
 
 ## <a name="next-steps"></a>Nästa steg
-Börja med en av de tjänster som stöds av tillägget. Mer information finns i artiklar som refereras till i den [-tjänster som stöds](#supported-services) i den här artikeln.
+Börja med någon av de tjänster som stöds av tillägget. Mer information finns i artiklar som refereras till i den [tjänster som stöds](#supported-services) i den här artikeln.
 
-Mer information om hur du kör SQL Server på Azure Virtual Machines finns [SQL Server på Azure virtuella datorer – översikt](virtual-machines-windows-sql-server-iaas-overview.md).
+Mer information om hur du kör SQL Server på Azure Virtual Machines finns i [SQL Server på Azure virtuella datorer – översikt](virtual-machines-windows-sql-server-iaas-overview.md).
 

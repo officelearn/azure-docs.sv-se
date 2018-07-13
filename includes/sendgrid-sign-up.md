@@ -2,7 +2,7 @@ Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. M
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Registrera ett SendGrid-konto
 1. Logga in på [Azure Portal][Azure portal].
-2. Klicka på menyn till vänster **skapar du en resurs**.
+2. I menyn till vänster, klickar du på **skapa en resurs**.
 
     ![command-bar-new][command-bar-new]
 3. Klicka på **Tillägg** och sedan **SendGrid Email Delivery** (E-postleverans med SendGrid).
@@ -59,11 +59,11 @@ Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. M
     ![key][key]
 2. Lösenordet är det du valde vid installationen. Om du vill ändra det så kan du välja **Ändra lösenord** eller **Återställ lösenord**.
 
-Om du vill hantera inställningarna för e-postleverans så klickar du på knappen **Hantera**. Detta kommer att omdirigera till SendGrid-instrumentpanelen.
+Om du vill hantera inställningarna för e-postleverans så klickar du på knappen **Hantera**. Detta kommer att omdirigera till instrumentpanelen för SendGrid.
 
 ![manage][manage]
 
-Mer information om hur du skickar e-post via SendGrid finns i [e-API översikt][Email API Overview].
+Mer information om hur du skickar e-post via SendGrid finns på [e-API-översikt][Email API Overview].
 
 <!--images-->
 

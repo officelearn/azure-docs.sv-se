@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/11/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6544503353f085a9dd9b0fe7207bbf8d4e0bc9d0
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: aaa36d850516ff4d8e40b62c588347468da5c6d2
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435625"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008169"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Hantera åtkomst med hjälp av RBAC och Azure Portal
 
@@ -88,7 +88,9 @@ Vid hantering av åtkomst vill du veta vem som har åtkomst, deras behörigheter
 
    ![Resurser för Azure Active Directory-användare](./media/role-assignments-portal/aad-user-azure-resources.png)
 
-   På bladet Azure-resurser kan se du rolltilldelningar för den valda användaren. Listan innehåller endast rolltilldelningar för resurser som du har behörighet att läsa. Till exempel om användaren har också rolltilldelningar i en annan prenumeration som du inte kan läsa, visas dessa rolltilldelningar inte i listan.
+   På bladet Azure-resurser kan du se rolltilldelningar för den valda användaren och den valda prenumerationen. Den här listan innehåller endast rolltilldelningar för resurser som du har behörighet att läsa. Till exempel om användaren har också rolltilldelningar som inte kan läsa, visas de rolltilldelningar inte i listan.
+
+1. Om du har flera prenumerationer kan du välja den **prenumeration** listrutan för att se rolltilldelningar i en annan prenumeration.
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
@@ -161,14 +163,6 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst.
 1. När du ser meddelandet om att ta bort rolltilldelningen väljer du **Ja**.
 
 Ärvda tilldelningar kan inte tas bort. Om du behöver ta bort en ärvd tilldelning så måste du göra det i samma omfång som där rolltilldelningen skapades. I kolumnen **Omfång** bredvid **Ärvd** finns en länk som leder till resurserna där den här rollen har tilldelats. Gå till omfånget som visas där om du vill ta bort rolltilldelningen.
-
-## <a name="other-tools-to-manage-access"></a>Andra verktyg för att hantera åtkomst
-
-Du kan tilldela roller och hantera åtkomst med Azure RBAC-kommandon i andra verktyg än Azure-portalen. Mer information finns här på följande länkar:
-
-* [Azure PowerShell](role-assignments-powershell.md)
-* [Azure CLI](role-assignments-cli.md)
-* [REST API](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

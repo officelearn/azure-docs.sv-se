@@ -3,7 +3,7 @@ title: Hantera säkerhetsrekommendationer i Azure Security Center | Microsoft Do
 description: Det här dokumentet vägleder dig genom hur rekommendationerna i Azure Security Center hjälpa dig att skydda dina Azure-resurser och uppfyller säkerhetsprinciper.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: TerryLan
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2018
-ms.author: rkarlin
-ms.openlocfilehash: 7bb7f36338fe117a3e31834570b3ee5c3ae1b83b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.date: 07/12/2018
+ms.author: terrylan
+ms.openlocfilehash: 35f9f197dc9886998f695c4c632aa4b68ac4d072
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856441"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006622"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Hantera säkerhetsrekommendationer i Azure Security Center
 Det här dokumentet vägleder dig genom hur du använder rekommendationer i Azure Security Center för att hjälpa dig att skydda dina Azure-resurser.
@@ -76,7 +76,7 @@ Använd tabellen nedan som referens för att förstå rekommendationerna som är
 | [Aktivera insamling av data för prenumerationer](security-center-enable-data-collection.md) |Rekommenderar att du aktiverar datainsamling i säkerhetsprincipen för var och en av dina prenumerationer och alla Azure-datorer (VM) och icke-Azure-datorer. |
 | [Åtgärda säkerhetskonfigurationer](security-center-remediate-os-vulnerabilities.md) |Rekommenderar att du justera operativsystem enligt rekommenderade security konfigurationsregler, till exempel, lösenord ska sparas. |
 | [Tillämpa systemuppdateringar](security-center-apply-system-updates.md) |Rekommenderar att du distribuerar saknas systemsäkerhet och viktiga uppdateringar till Windows och Linux-datorer och datorer. |
-| [Tillämpa en Just-In-Time nätverksåtkomstkontroll](security-center-just-in-time.md) | Rekommenderar att du tillämpar just-in-time-åtkomst till virtuell dator. Den bara i tid funktionen är en förhandsversion och är tillgängliga på standardnivån i Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md). |
+| [Tillämpa en Just-In-Time nätverksåtkomstkontroll](security-center-just-in-time.md) | Rekommenderar att du tillämpar just-in-time-åtkomst till virtuell dator. Just in-time-funktionen är tillgänglig för standardnivån i Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md). |
 | [Starta om datorn efter uppdateringarna](security-center-apply-system-updates.md#reboot-after-system-updates) |Rekommenderar att du startar om en virtuell dator för att slutföra processen med att tillämpa uppdateringar. |
 | [Lägga till en brandvägg för webbappar](security-center-add-web-application-firewall.md) |Rekommenderar att du distribuerar en brandvägg för webbaserade program (WAF) för webb-slutpunkter. En WAF-rekommendation visas för valfri offentlig IP-adress (instans nivå IP eller belastningsutjämnade IP-Load) som har en nätverkssäkerhetsgrupp med öppna inkommande webbportar (80,443). </br>Security Center rekommenderar att du etablerar en WAF för att skydda mot hot mot dina webbprogram på virtuella datorer och på App Service Environment. App Service Environment (ASE) är en [Premium](https://azure.microsoft.com/pricing/details/app-service/) tjänsten Prenumerationsalternativ i Azure App Service som innehåller en helt isolerad och dedikerad miljö för säker körning av Azure App Service-appar. Mer information om ASE finns i [dokumentation för App Service Environment](../app-service/environment/intro.md).</br>Du kan skydda flera webbprogram i Security Center genom att lägga till dessa program till din befintliga WAF-distributioner. |
 | [Slutför programskydd](security-center-add-web-application-firewall.md#finalize-application-protection) |Om du vill slutföra konfigurationen av en WAF måste trafik dirigeras om till den WAF-installationen. Efter den här rekommendationen Slutför de nödvändiga ändringarna. |
@@ -95,6 +95,7 @@ Använd tabellen nedan som referens för att förstå rekommendationerna som är
 | [Sårbarhetsbedömning inte installerad](security-center-vulnerability-assessment-recommendations.md) |Rekommenderar att du installerar en lösning för sårbarhetsbedömning på den virtuella datorn. |
 | [Åtgärda sårbarheter](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Gör att du kan visa system- och säkerhetssårbarheter som identifieras av sårbarhetsbedömningen som är installerad på den virtuella datorn. |
 | [Aktivera kryptering för Azure Storage-konto](security-center-enable-encryption-for-storage-account.md) | Rekommenderar att du aktiverar Azure Storage Service Encryption för vilande data. Storage Service Encryption (SSE) fungerar genom att kryptera data när den skrivs till Azure-lagring och dekrypterar före hämtning. SSE är för närvarande endast tillgänglig för Azure Blob service och kan användas för blockblobbar, sidblobbar och tilläggsblobbar. Mer information finns i [Storage Service Encryption för vilande data](../storage/common/storage-service-encryption.md).</br>SSE stöds bara på Resource Manager-lagringskonton. |
+| [Aktivera anpassningsbara program kontroller](security-center-adaptive-application.md) | Rekommenderar att du installerar anpassningsbara programkontroller på dina virtuella Windows-datorer. Den här funktionen är i förhandsversion och är tillgängliga på standardnivån i Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md). |
 | App Service bör endast vara tillgängligt via HTTPS | Rekommenderar att du begränsar åtkomst till App Service via HTTPS endast. |
 | Webbsockets bör inaktiveras för webbprogram| Rekommenderar att du noggrant läser användningen av Web Sockets i webbappar.  Web Sockets-protokollet är utsatt för olika typer av säkerhetshot. |
 | Använd anpassade domäner för ditt webbprogram | Rekommenderar att du använder anpassade domäner för att skydda ett webbprogram mot vanliga attacker som nätfiske och andra DNS-relaterade attacker. |

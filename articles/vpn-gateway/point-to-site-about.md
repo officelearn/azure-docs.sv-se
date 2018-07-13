@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2668d92b5b933f7ccf8ebcccbe7ea77ea6ea1e86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8cdc80e8e4f8d3feb36ca82740d5610e60716ec6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38721436"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003367"
 ---
 # <a name="about-point-to-site-vpn"></a>Om punkt-till-plats-VPN
 
@@ -58,7 +58,7 @@ AD-Domain-autentisering kan användarna ansluta till Azure med hjälp av domäna
 
 En RADIUS-server kan också integreras med andra system för extern Identitetshantering. Detta öppnar massor av alternativ för autentisering för P2S VPN, inklusive alternativ för multifaktorautentisering.
 
-! [punkt-till-plats]] (./media/point-to-site-about/p2s.png ”punkt-till-plats”)
+![punkt-till-plats](./media/point-to-site-about/p2s.png "punkt-till-plats")
 
 ## <a name="what-are-the-client-configuration-requirements"></a>Vilka är konfigurationskrav som klienten?
 

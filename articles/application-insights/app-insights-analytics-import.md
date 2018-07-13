@@ -1,8 +1,8 @@
 ---
-title: Importera data till analyser i Azure Application Insights | Microsoft Docs
-description: Importera statiska data att ansluta med app telemetri eller importera en separat dataström frågan med Analytics.
+title: Importera dina data till Analytics i Azure Application Insights | Microsoft Docs
+description: Importera statiska data ska kopplas till apptelemetri eller importera en separat dataström till frågan med Analytics.
 services: application-insights
-keywords: Öppna schema, import av data
+keywords: Öppna schema, importera data
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d891cd92e70d3491ee0c7a58f1409823301b299c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293629"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989772"
 ---
 # <a name="import-data-into-analytics"></a>Importera data till Analytics
 
-Importera inga tabelldata i [Analytics](app-insights-analytics.md), antingen för att ansluta till den med [Programinsikter](app-insights-overview.md) telemetri från din app, eller så att du kan analysera dem som en separat dataström. Analytics är ett kraftfullt frågespråk som är väl lämpade för analys av stora volymer tidsstämplad dataströmmar telemetri.
+Importera alla tabelldata i [Analytics](app-insights-analytics.md), antingen för att ansluta till den med [Application Insights](app-insights-overview.md) telemetri från din app, eller så att du kan analysera dem som en separat dataström. Analytics är ett kraftfullt frågespråk lämpade för att analysera stora volymer tidsstämplad strömmar av telemetri.
 
 Du kan importera data till Analytics med hjälp av ditt eget schema. Det behöver inte använda standard Application Insights-scheman som begäran eller trace.
 
-Du kan importera JSON eller DSV (avgränsare med kommaavgränsade värden - kommatecken eller semikolon fliken) filer.
+Du kan importera JSON eller DSV (avgränsare med kommaavgränsade värden - kommatecken, semikolon eller flik) filer.
 
-Det finns tre situationer som du importerar till Analytics kan vara användbar:
+Det finns tre situationer som kan importeras till Analytics vara användbar:
 
-* **Anslut med app telemetri.** Exempelvis kan du importera en tabell som mappar URL: er från webbplatsen till mer lättläst rubriker. Du kan skapa en instrumentpanel diagramrapport som visar de tio populäraste sidorna på webbplatsen i analyser. Det kan nu visa sidnamn i stället för URL: er.
-* **Korrelera programmets telemetri** med andra källor, till exempel nätverkstrafik, server-data eller CDN loggfiler.
-* **Gäller Analytics en separat dataström.** Application Insights Analytics är ett kraftfullt verktyg som fungerar bra med sparse, tidsstämplad dataströmmar - mycket bättre än SQL i många fall. Om du har en sådan dataström från någon annan källa kan analysera du dem med Analytics.
+* **Träffa apptelemetri.** Exempelvis kan importera du en tabell som mappar URL: er från din webbplats till lättare att läsa rubriker. I Analytics, kan du skapa en instrumentpanel diagrammet rapport som visar de 10 populäraste sidorna på webbplatsen. Det kan nu visa titlarna sidan i stället för URL: er.
+* **Korrelera din programtelemetri** med andra källor, till exempel nätverkstrafik, server-data eller CDN loggfiler.
+* **Avser en separat stream Analytics.** Application Insights Analytics är ett kraftfullt verktyg som fungerar bra med null-optimerade, tidsstämplad strömmar - mycket bättre än SQL i många fall. Om du har en sådan ström från någon annan källa, kan du analysera den med Analytics.
 
 Det är enkelt att skicka data till datakällan. 
 
 1. (En gång) Definiera schemat för dina data i en-datakälla.
-2. (Med jämna mellanrum) Ladda upp data till Azure-lagring och anropa REST-API för att meddela oss att nya data väntar införandet. Data är tillgängliga för frågan i Analytics inom några minuter.
+2. (Med jämna mellanrum) Ladda upp data till Azure storage och anropa REST-API för att meddela oss att nya data väntar på inmatning. Data är tillgängliga för frågor i Analytics inom några minuter.
 
-Frekvensen av överföringen har definierats av dig och hur snabbt vill du att dina data ska vara tillgängliga för frågor. Det är mer effektivt att överföra data i större segment, men inte är större än 1GB.
+Frekvensen av överföringen har definierats av dig och hur snabbt vill du att dina data ska vara tillgängliga för frågor. Det är mer effektivt att ladda upp data i större segment, men inte är större än 1GB.
 
 > [!NOTE]
-> *Har många datakällor för att analysera?* [*Överväg att använda* logstash *att leverera data till Application Insights.*](https://github.com/Microsoft/logstash-output-application-insights)
+> *Massor av datakällor för att analysera?* [*Överväg att använda* logstash *kan leverera dina data till Application Insights.*](https://github.com/Microsoft/logstash-output-application-insights)
 > 
 
 ## <a name="before-you-start"></a>Innan du börjar
@@ -51,21 +51,21 @@ Du behöver:
 
 1. En Application Insights-resurs i Microsoft Azure.
 
- * Om du vill analysera dina data separat från andra telemetri [skapar en ny Application Insights-resurs](app-insights-create-new-resource.md).
- * Om du ansluter eller jämförelse av dina data med telemetri från en app som redan har konfigurerats med Application Insights, kan du använda resursen för appen.
- * Medarbetare eller ägare åtkomst till resursen.
+ * Om du vill analysera dina data separat från andra telemetri, [skapa en ny Application Insights-resurs](app-insights-create-new-resource.md).
+ * Om du ansluter till eller Jämför dina data med telemetri från en app som redan har konfigurerats med Application Insights, kan du använda resursen för appen.
+ * Deltagare eller ägare åtkomst till resursen.
  
-2. Azure-lagring. Du överför till Azure-lagring och Analytics hämtar dina data därifrån. 
+2. Azure storage. Du överför till Azure storage och Analytics hämtar dina data där. 
 
- * Vi rekommenderar att du skapar ett dedikerat storage-konto för din BLOB. Det tar längre tid för våra processer att läsa din blobbar om dina blobbar som delas med andra processer.
+ * Vi rekommenderar att du skapar en dedikerad storage-konto för din BLOB. Om dina blobar ska delas med andra processer, tar det längre tid för vår processer att läsa dina blobar.
 
 
-## <a name="define-your-schema"></a>Definiera schemat
+## <a name="define-your-schema"></a>Definiera ditt schema
 
-Innan du kan importera data, måste du definiera en *datakällan* som anger schemat för dina data.
+Innan du kan importera data, måste du definiera en *datakällan,* som anger schemat för dina data.
 Du kan ha upp till 50 datakällor i en enda Application Insights-resurs
 
-1. Starta guiden datakälla. Använd knappen ”Lägg till ny datakälla”. Du kan också - klicka på inställningsknappen i övre högra hörnet och välj ”datakällor” i listrutan.
+1. Starta guiden datakälla. Använd knappen ”Lägg till ny datakälla”. Du kan också - klicka på knappen i övre högra hörnet och välj ”datakällor” i listrutan.
 
     ![Lägg till ny datakälla](./media/app-insights-analytics-import/add-new-data-source.png)
 
@@ -75,28 +75,28 @@ Du kan ha upp till 50 datakällor i en enda Application Insights-resurs
 
     Du kan definiera formatet manuellt eller ladda upp en exempelfil.
 
-    Om data finns i CSV-format, kan den första raden i exempel vara kolumnrubrikerna. Du kan ändra fältnamn i nästa steg.
+    Om data är i CSV-format, kan den första raden i exemplet vara kolumnrubriker. Du kan ändra namnen på i nästa steg.
 
-    Exemplet ska innehålla minst 10 rader eller poster av data.
+    Exemplet bör innehålla minst 10 rader eller poster av data.
 
     Kolumnen eller fältnamn bör ha alfanumeriskt namn (utan blanksteg eller skiljetecken).
 
-    ![Överför en exempelfil](./media/app-insights-analytics-import/sample-data-file.png)
+    ![Ladda upp en exempelfil](./media/app-insights-analytics-import/sample-data-file.png)
 
 
-3. Granska det schema som du har gjort i guiden. Om den härleda typer från ett exempel kan du behöva justera antydda typer av kolumnerna.
+3. Granska det schema som varit i guiden. Om den härleds typer från ett exempel kan du behöva justera antydda typer av kolumnerna.
 
     ![Granska antydda schemat](./media/app-insights-analytics-import/data-source-review-schema.png)
 
- * (Valfritt.) Överför schemadefinition. Se nedanstående format.
+ * (Valfritt.) Ladda upp en schemadefinition. Se ha nedanstående format.
 
- * Välj en tidsstämpel. Alla data i Analytics måste ha något tidsstämpelsfält. Det måste vara av typen `datetime`, men det behöver inte ha namnet ”tidsstämpel'. Om dina data har en kolumn som innehåller datum och tid med ISO-format, väljer du det som kolumn för tidsstämpel. Annars väljer du ”som data anlänt” och importen lägger till något tidsstämpelsfält.
+ * Välj en tidsstämpel. Alla data i Analytics måste ha något tidsstämpelsfält. Det måste vara av typen `datetime`, men det behöver inte ha namnet ”timestamp”. Om dina data har en kolumn som innehåller ett datum och tid i ISO-format, väljer du det som kolumn för tidsstämpel. Annars väljer du ”som data anlänt” och importen läggs ett tidsstämpelsfält.
 
 5. Skapa datakällan.
 
 ### <a name="schema-definition-file-format"></a>Schemaformat för paketdefinitionsfiler
 
-Du kan läsa in schemadefinitionen från en fil i stället för att redigera schemat i Användargränssnittet. Formatet schema definition är följande: 
+Du kan läsa in schemadefinitionen från en fil i stället för att redigera schemat i Användargränssnittet. Formatet schemat definition är följande: 
 
 Avgränsad format 
 ```
@@ -116,37 +116,38 @@ JSON-format
 ]
 ```
  
-Varje kolumn identifieras av plats, namn och typen. 
+Varje kolumn har identifierats av plats, namn och typ.
 
-* Plats – är för avgränsad filformatet den positionen för det mappade värdet. JSON-format är jpath av mappade nyckeln.
+* Plats – är för avgränsad fil formatera den positionen för det mappade värdet. JSON-format är det jpath den mappade nyckeln.
 * Namn – visningsnamnet för kolumnen.
 * Typ – datatypen för kolumnen.
  
-Om en exempeldata användes och filformatet avgränsas schemadefinitionen Mappa alla kolumner och lägga till nya kolumner i slutet. 
-
-JSON tillåter delvis mappning av data, därför schemadefinitionen för JSON-formatet saknar att mappa alla nycklar som finns i en exempeldata. Det kan också mappa kolumner som inte är en del av exempeldata. 
+> [!NOTE]
+> Om exempeldata har använts och formatet är avgränsat, schemadefinitionen Mappa alla kolumner och lägga till nya datakolumner i slutet.
+> 
+> JSON kan delvis mappning av data, därför schemadefinitionen med JSON-format behöver inte mappa alla nycklar som finns i exempeldata. Det kan också mappa kolumner som inte är en del av exempeldata. 
 
 ## <a name="import-data"></a>Importera data
 
-För att importera data och överföra den till Azure storage, skapa en snabbtangent för den och göra ett REST API-anrop.
+För att importera data, överföra den till Azure storage, skapa en åtkomstnyckel för den och gör sedan ett REST API-anrop.
 
 ![Lägg till ny datakälla](./media/app-insights-analytics-import/analytics-upload-process.png)
 
-Du kan utföra följande process manuellt eller konfigurera ett automatiserat system för att göra det med jämna mellanrum. Du måste följa de här stegen för varje datablock som du vill importera.
+Du kan utföra följande process manuellt eller konfigurera automatiserade system att göra det med jämna mellanrum. Du måste följa de här stegen för varje datablock som du vill importera.
 
-1. Överföra data till [Azure-blobblagring](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
+1. Ladda upp data till [Azure blobblagring](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
 
- * Blobbar kan vara en storlek på upp till 1GB okomprimerade. Stora blobbar MB hundratals lämpar sig ur prestandaperspektiv.
- * Du kan komprimera den med Gzip att förbättra tid och svarstid för att data ska vara tillgängliga för frågan. Använd den `.gz` filnamnstillägg.
- * Det är bäst att använda ett separat lagringskonto för detta ändamål för att undvika anrop från olika tjänster sänka prestanda.
- * När du skickar data i hög frekvens rekommenderas några sekunders att använda mer än ett lagringskonto av prestandaskäl.
+ * Blobar kan vara en storlek på upp till 1GB okomprimerad. Stora blobbar hundratals MB är idealiska ur prestandaperspektiv.
+ * Du kan komprimera den med Gzip att förbättra tid och svarstid för data som ska vara tillgängliga för frågor. Använd den `.gz` filnamnstillägg.
+ * Det är bäst att använda ett separat lagringskonto för detta ändamål, för att undvika anrop från olika tjänster långsammare prestanda.
+ * När du skickar data i hög frekvens, rekommenderas några sekunders att använda mer än ett lagringskonto av prestandaskäl.
 
  
-2. [Skapa en nyckel för signatur för delad åtkomst för blobben](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). Nyckeln bör ha en utgångsperiod på en dag och ge läsbehörighet.
-3. Skapa ett REST-anrop för att meddela Application Insights som väntar på data.
+2. [Skapa en nyckel för signatur för delad åtkomst för blobben](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). Nyckeln bör ha en förfalloperiod på en dag och ger läsåtkomst.
+3. Gör ett REST-anrop för att meddela Application Insights som väntar på data.
 
  * Slutpunkt: `https://dc.services.visualstudio.com/v2/track`
- * HTTP-metod: POST
+ * HTTP-metod: INLÄGG
  * Nyttolasten:
 
 ```JSON
@@ -171,29 +172,29 @@ Du kan utföra följande process manuellt eller konfigurera ett automatiserat sy
 Platshållarna är:
 
 * `Blob URI with Shared Access Key`: Du får detta från proceduren för att skapa en nyckel. Det är specifika för blob.
-* `Schema ID`: Schemat ID genereras för din definierat schema. Informationen i det här blob bör passa schemat.
-* `DateTime`: Den tid då begäran har skickats, UTC. Vi godkänna dessa format: ISO8601 (som ”2016-01-01 13:45:01”); Rfc822 (”ons, 14 Dec 16 14:57:01 + 0000”); RFC850 (”onsdag, 14-Dec-16 14:57:00 UTC”); RFC1123 (”ons, 14 Dec 2016 14:57:00 + 0000”).
-* `Instrumentation key` i Application Insights-resurs.
+* `Schema ID`: Det schema-ID som genererades för din definierat schema. Data i den här bloben ska följa schemat.
+* `DateTime`: Den tid då begäran har skickats, UTC. Vi accepterar dessa format: ISO8601 (som ”2016-01-01 13:45:01”); Rfc822 (”Wed, 14 Dec 16 14:57:01 + 0000”); RFC850 (”onsdag, 14-Dec-16 14:57:00 UTC”); RFC1123 (”Wed den 14 december 2016 14:57:00 + 0000”).
+* `Instrumentation key` för Application Insights-resursen.
 
-Data är tillgängliga i Analytics efter några minuter.
+Data är tillgängliga i Analytics efter ett par minuter.
 
 ## <a name="error-responses"></a>Felsvar
 
 * **400 Felaktig begäran**: Anger att nyttolasten i begäran är ogiltig. Kontrollera:
- * Rätt instrumentation nyckel.
- * Giltig tid-värde. Det bör vara nu i UTC-tid.
- * JSON av händelsen överensstämmer med schemat.
-* **403 Nekad**: blob som du har skickat är inte tillgänglig. Se till att den delade åtkomstnyckeln är giltigt och inte har gått ut.
-* **Det gick inte att hitta 404**:
+ * Rätt instrumenteringsnyckeln.
+ * Giltigt tidsvärde. Det bör vara nu i UTC-tid.
+ * JSON händelsens överensstämmer med schemat.
+* **403 Åtkomst nekas**: blob som du har skickat är inte tillgänglig. Se till att den delade åtkomstnyckeln är giltigt och inte har upphört att gälla.
+* **404 hittades inte**:
  * Blobben finns inte.
- * Målentiteten är felaktigt.
+ * Målentiteten är fel.
 
-Mer detaljerad information finns i svarsmeddelandet för fel.
+Mer detaljerad information finns i felmeddelandet svar.
 
 
 ## <a name="sample-code"></a>Exempelkod
 
-Den här koden används den [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) NuGet-paketet.
+Den här koden använder den [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) NuGet-paketet.
 
 ### <a name="classes"></a>Klasser
 
@@ -352,7 +353,7 @@ namespace IngestionClient
 } 
 ```
 
-### <a name="ingest-data"></a>För in data
+### <a name="ingest-data"></a>Mata in data
 
 Använd den här koden för varje blob. 
 
@@ -367,4 +368,4 @@ Använd den här koden för varje blob.
 ## <a name="next-steps"></a>Nästa steg
 
 * [Genomgång av Log Analytics-frågespråket](app-insights-analytics-tour.md)
-* Om du använder Logstash kan använda den [Logstash plugin-programmet för att skicka data till Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
+* Om du använder Logstash kan använda den [Logstash plugin-programmet att skicka data till Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

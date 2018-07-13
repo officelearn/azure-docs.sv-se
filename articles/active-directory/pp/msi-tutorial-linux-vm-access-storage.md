@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4a1a2d0c40012649f6cd89193fd3f704f325e38a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ba4c4525899e82b4dd93fc46d9e9bbc1850500dc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611052"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003044"
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Använd en Användartilldelad hanterad tjänstidentitet (MSI) på en Linux VM för att komma åt Azure Storage
 
@@ -56,7 +56,7 @@ Först skapar du en ny Linux-VM. Du kan också aktivera MSI på en befintlig vir
 2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
 3. Ange informationen för den virtuella datorn. För **autentiseringstyp**väljer **offentlig SSH-nyckel** eller **lösenord**. Autentiseringsuppgifterna som har skapats kan du logga in på den virtuella datorn.
 
-    ![ALT bildtext](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![ALT bildtext](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Välj en **prenumeration** för den virtuella datorn i listrutan.
 5. Att välja en ny **resursgrupp** som den virtuella datorn ska skapas i, väljer **Skapa ny**. När du är klar klickar du på **OK**.

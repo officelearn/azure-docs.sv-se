@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 88bd895cb3a384f1ada0394fe2da206aca86b981
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a5a6a43c41760e22a7aeb0e97aacc145c69957ff
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38670938"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006404"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installera MySQL på en virtuell dator som kör OpenSUSE Linux i Azure
 
@@ -33,13 +33,13 @@ Om du väljer att installera och använda CLI-gränssnittet lokalt måste du ha 
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>Skapa en virtuell dator som kör OpenSUSE Linux
 
-Skapa först en resursgrupp. I det här exemplet vi namnger resursgruppen *mySQSUSEResourceGroup* och skapa den i den *USA, östra* region.
+Skapa först en resursgrupp. I det här exemplet heter resursgruppen *mySQSUSEResourceGroup* och den har skapats i den *USA, östra* region.
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Skapa den virtuella datorn. I det här exemplet vi namnger den virtuella datorn *myVM*. Vi också kommer att använda en VM-storlek *Standard_D2s_v3*, men du bör välja den [VM-storlek](sizes.md) du tycker passar bäst för din arbetsbelastning.
+Skapa den virtuella datorn. I det här exemplet heter den virtuella datorn *myVM* och VM-storleken är *Standard_D2s_v3*, men du bör välja den [VM-storlek](sizes.md) du tycker passar bäst för din arbetsbelastning.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -96,17 +96,30 @@ systemctl is-enabled mysql
 
 Detta bör returnera: aktiverat.
 
+Starta om servern.
+
+```bash
+sudo reboot
+```
+
 
 ## <a name="mysql-password"></a>Lösenordet för MySQL
 
-Rotlösenord för MySQL är tomt som standard efter installationen. Kör den **mysql\_säker\_installation** skript för att skydda MySQL. Skriptet uppmanas du att ändra rotlösenord för MySQL, ta bort anonym användarkonton, inaktivera fjärråtkomst rot inloggningar, ta bort test databaser och läsa in tabellen privilegier. 
+Rotlösenord för MySQL är tomt som standard efter installationen. Kör den **mysql\_säker\_installation** skript för att skydda MySQL. Skriptet uppmanas du att ändra rotlösenord för MySQL, ta bort anonym användarkonton, inaktivera fjärråtkomst rot logga in, ta bort test databaser och läsa in tabellen privilegier. 
+
+När servern startas om, ssh till den virtuella datorn igen.
+
+```azurecli-interactive  
+ssh 10.111.112.113
+```
+
 
 
 ```bash
 mysql_secure_installation
 ```
 
-## <a name="log-in-to-mysql"></a>Logga in till MySQL
+## <a name="sign-in-to-mysql"></a>Logga in till MySQL
 
 Nu kan du logga in och ange MySQL-prompten.
 
@@ -136,7 +149,7 @@ GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
 Databas-användarnamn och lösenord som endast används av skript som ansluter till databasen.  Databasen användarkontonamn utgör inte nödvändigtvis faktiska användarkonton på systemet.
 
-Aktivera inloggning från en annan dator. I det här exemplet är IP-adressen för datorn som vi vill logga in från *10.112.113.114*.
+Aktivera inloggning från en annan dator. I det här exemplet är IP-adressen för datorn att logga in från *10.112.113.114*.
 
 ```   
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';

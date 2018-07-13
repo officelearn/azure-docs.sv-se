@@ -1,6 +1,6 @@
 ---
-title: Hantera Azure mikrotjänster belastningen med hjälp av mätvärden | Microsoft Docs
-description: Lär dig mer om hur du konfigurerar och använder mått i Service Fabric för att hantera tjänsten resursförbrukning.
+title: Hantera Azure mikrotjänst belastning med hjälp av mätvärden | Microsoft Docs
+description: Mer information om hur du konfigurerar och använder mått i Service Fabric för att hantera tjänsten resursförbrukning.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7457a820d9179248eab976ceec64f6b7a4a38563
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e16f1ae28f2212d0cec61368a2fba946d48fd811
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643346"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006292"
 ---
-# <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Hantera resursförbrukning och belastningen i Service Fabric med
-*Mått* är de resurser som din dig för tjänster och som tillhandahålls av noder i klustret. Ett mått är något som du vill hantera för att förbättra eller övervaka prestanda för dina tjänster. Exempelvis kan du titta på minnesförbrukning om du vill veta om din tjänst är överbelastad. Ett annat syfte är att ta reda på om tjänsten kan flytta någon annanstans där minne är mindre begränsad för att få bättre prestanda.
+# <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Hantera resursförbrukning och belastning i Service Fabric med mått
+*Mått* vilka resurser som din dig för tjänster och som tillhandahålls av noder i klustret. Ett mått är något som du vill hantera för att förbättra eller övervaka prestanda för dina tjänster. Du kan till exempel bevaka minnesförbrukning om du vill veta om din tjänst är överbelastad. Ett annat användningsområde är att ta reda på om tjänsten kan flytta någon annanstans där minne är mindre begränsad för att få bättre prestanda.
 
-Till exempel minne, Disk och CPU-användning är exempel på mått. De här måtten är fysiska statistik, och resurser som motsvarar fysiska resurser på den nod som måste hanteras. Mått kan också vara (och ofta är) logiska mått. Logisk är till exempel ”MyWorkQueueDepth” eller ”MessagesToProcess” eller ”TotalRecords”. Logiska mått är programdefinierade och motsvarar indirekt vissa fysiska resursförbrukning. Logiska mått är vanliga eftersom det kan vara svårt att mått och rapportera förbrukning av fysiska resurser för per tjänst. Komplexitet mäta och rapportera egna fysiska mått är också varför Service Fabric innehåller vissa siffror som standard.
+Till exempel minne, Disk och CPU-användning är exempel på mått. De här måtten är fysiska mätvärden, resurser som motsvarar fysiska resurser på den nod som måste hanteras. Mått kan också vara (och ofta är) logiska mått. Logiska mått är till exempel ”MyWorkQueueDepth” eller ”MessagesToProcess” eller ”TotalRecords”. Logiska mått är programdefinierade och motsvarar indirekt vissa fysiska resursförbrukning. Logiska mått är vanliga eftersom det kan vara svårt att mått och rapportera användning av fysiska resurser på basis av per tjänst. Komplexiteten för att mäta och rapportera dina egna fysiska mått är också varför Service Fabric tillhandahåller vissa standard-mått.
 
 ## <a name="default-metrics"></a>Standard-mått
-Anta att du vill börja skriva och distribuera din tjänst. Nu vet du inte vilka fysiska eller logiska resurser som den förbrukar. Det är bra! Resurshanteraren för Service Fabric klustret använder vissa standard mått när inga andra mått har angetts. De är:
+Anta att du vill börja skriva och distribuera din tjänst. Nu vet du inte vilka fysiska eller logiska resurser som har det förbrukar. Det är bra! Service Fabric Cluster Resource Manager använder vissa standardstatistik när inga andra mått har angetts. De är:
 
   - PrimaryCount - antal primära repliker på noden 
-  - ReplicaCount - antal totala tillståndskänslig repliker på noden
-  - Antal - antalet för alla service-objekt (tillståndslösa och tillståndskänsliga) på noden
+  - ReplicaCount - antal totala tillståndskänsliga repliker på noden
+  - Antal – antal alla service-objekt (tillståndslösa och tillståndskänsliga) på noden
 
-| Mått | Läs in tillståndslös instans | Tillståndskänsliga sekundära belastning | Tillståndskänsliga primära belastning | Vikt |
+| Mått | Tillståndslösa instans belastning | Tillståndskänsliga sekundära belastning | Tillståndskänsliga primära belastning | Vikt |
 | --- | --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |0 |
-| ReplicaCount |0 |1 |1 |0 |
-| Antal |1 |1 |1 |0 |
+| PrimaryCount |0 |0 |1 |Hög |
+| ReplicaCount |0 |1 |1 |Medel |
+| Antal |1 |1 |1 |Låg |
 
 
-För grundläggande arbetsbelastningar anger mätvärdena som standard en hyfsad fördelning av arbete i klustret. I följande exempel, låt oss se vad som händer när vi skapar två tjänster och förlitar sig på standard-mätvärden för belastningsutjämning. Den första tjänsten är en tillståndskänslig service med tre partitioner och ett mål replikuppsättningen storleken på tre. Andra tjänsten är en tillståndslös tjänst med en partition och instansantal av tre.
+För grundläggande arbetsbelastningar och ange mått som standard en vettigt fördelning av arbete i klustret. I följande exempel, låt oss se vad som händer när vi skapar två tjänster och förlitar sig på standard-mått för belastningsutjämning. Den första tjänsten är en tillståndskänslig tjänst med tre partitioner och en mål-replik ange storleken på tre. Andra tjänsten är en tillståndslös tjänst med en partition och ett instansantal på tre.
 
 Här är vad du får:
 
@@ -48,33 +48,33 @@ Här är vad du får:
 ![Klustret Layout med standard-mått][Image1]
 </center>
 
-Några saker att Observera:
-  - Primära repliker för tjänsten tillståndskänslig distribueras över flera noder
+Några saker att tänka på:
+  - Primära repliker för den tillståndskänsliga tjänsten som är distribuerade över flera noder
   - Repliker för samma partition som finns på olika noder
-  - Det totala antalet primärfärgerna och sekundärservrar distribueras i klustret
-  - Det totala antalet tjänstobjekt fördelas jämnt på varje nod
+  - Det totala antalet USA: s presidentval och sekundärservrar distribueras i klustret
+  - Det totala antalet-tjänstobjekt fördelas jämnt på varje nod
 
 Bra!
 
-Standard-mått fungera utmärkt som en start. Men hanterar mätvärdena som standard endast du hittills. Till exempel: Vad är sannolikheten för att partitionering schemat du plockats resultat i perfekt även användning av alla partitioner? Vad har du möjlighet att belastningen för en viss tjänst är konstant över tid eller ens över flera partitioner på samma sätt just nu?
+Mått som standard fungerar bra som en start. Men har mått som standard bara du hittills. Till exempel: Vad är sannolikheten att partitionering system som du valt resultat i perfekt även användningen av alla partitioner? Vad är risken att belastningen för en viss tjänst är konstant över tid eller även över flera plattformar på samma just nu?
 
-Du kan köra med bara mätvärdena som standard. Men om du gör det vanligtvis innebär att din klusteranvändning lägre och mer ojämn än du vill. Detta beror på att mätvärdena som standard inte anpassningsbar och förutsätter att allt är likvärdiga. Till exempel bidra en primär är upptagen och ett som inte är båda ”1” till PrimaryCount måttet. I värsta fall kan med bara mätvärdena som standard också resultera i overscheduled noder, vilket resulterar i prestandaproblem. Om du är intresserad av att mest av klustret och undvika prestandaproblem måste du använda anpassade mått och dynamisk rapportering.
+Du kan köra med bara mått som standard. Detta vanligtvis innebär dock att din klusteranvändning är lägre och mer ojämn än vad du vill ha. Detta beror på mått som standard inte anpassningsbar och förutsätter att allt är likvärdiga. Till exempel bidra en primär är upptagen och som inte är båda ”1” till PrimaryCount mått. I värsta fall kan med bara mått som standard också resultera i overscheduled noder, vilket resulterar i prestandaproblem. Om du är intresserad av att få ut mest av ditt kluster och undvika problem med prestanda kan behöva du använda anpassade mått och rapportering om dynamisk belastning.
 
 ## <a name="custom-metrics"></a>Anpassade mått
-Mått är konfigurerade på grundval av per med namnet-service-instans när du skapar tjänsten.
+Mått är konfigurerade på basis av per med namnet-service-instans när du skapar tjänsten.
 
-Alla mått har vissa egenskaper som beskriver den: ett namn, en vikt och en standard-belastning.
+Vilka mått som har vissa egenskaper som beskriver den: ett namn, en vikt och en standard-belastning.
 
-* Måttnamnet: Namnet på måttet. Måttnamnet är en unik identifierare för måttet inom klustret ur med Resource Manager.
+* Måttnamn: Namnet på måttet. Måttnamnet är en unik identifierare för mått i klustret ur Resource Manager.
 * Vikt: Tjänstmåttets vikt definierar hur viktigt det här måttet är i förhållande till andra mått för den här tjänsten.
-* Standard-belastning: Standard belastningen representeras på olika sätt beroende på om tjänsten är tillståndslösa och tillståndskänsliga.
-  * För tillståndslösa tjänster har varje mått en egenskap med namnet DefaultLoad
-  * För tillståndskänsliga tjänster ange du:
-    * PrimaryDefaultLoad: Det här måttet standardmängden tjänsten förbrukar när det är en primär
-    * SecondaryDefaultLoad: Det här måttet standardmängden tjänsten förbrukar när det är en sekundär
+* Standard-belastning: Standard load representeras på olika sätt beroende på om tjänsten är tillståndslösa eller tillståndskänsliga.
+  * För tillståndslösa tjänster kan har varje mått en enskild egenskap med namnet DefaultLoad
+  * För tillståndskänsliga tjänster som du definierar:
+    * PrimaryDefaultLoad: Det här måttet hur den här tjänsten förbrukar när det är en primär
+    * SecondaryDefaultLoad: Det här måttet hur den här tjänsten förbrukar när det är en sekundär
 
 > [!NOTE]
-> Om du definiera anpassade mått och du vill _också_ använda mätvärdena som standard måste du _explicit_ lägga till mätvärdena som standard tillbaka och definiera vikterna och värden för dessa. Det beror på att du måste definiera relationen mellan mätvärdena som är standard och din anpassade mått. Till exempel kanske du bryr dig om ConnectionCount eller WorkQueueDepth mer än primära distributionsplatser. Som standard är vikten av måttet PrimaryCount hög, så att du vill minska till mellan när du lägger till dina andra mått så de högre prioritet.
+> Om du definierar anpassade mått och du vill _också_ använder mått som standard, måste du _uttryckligen_ lägga till mått som standard tillbaka och anger vikterna och värden för dessa. Det beror på att du måste definiera relationen mellan mått som standard och din anpassade mått. Till exempel kanske du bryr dig om ConnectionCount eller WorkQueueDepth mer än primära. Som standard är vikten för måttet PrimaryCount hög, så att du vill minska det till medel när du lägger till din andra mått för att se till att de har företräde.
 >
 
 ### <a name="defining-metrics-for-your-service---an-example"></a>Definiera mått för din tjänst - exempel
@@ -82,13 +82,13 @@ Anta att du vill konfigurera följande:
 
   - Tjänsten rapporterar ett mått med namnet ”ConnectionCount”
   - Du vill använda standard-mått 
-  - Du har gjort vissa mått och vet att en primär replik av den tjänsten tar normalt 20 enheter ”ConnectionCount”
-  - Sekundärservrar använda 5 enheter i ”ConnectionCount”
-  - Du vet att ”ConnectionCount” är det viktigaste måtten som hanterar prestandan för viss tjänsten
-  - Du ändå vill primära repliker belastningsutjämnade. NLB primära repliker är vanligtvis bra oavsett vad. Detta förhindrar förlust av vissa nod eller fault domän påverkar en majoritet av primära repliker tillsammans med den. 
-  - I annat fall är mätvärdena som standard bra
+  - Du har gjort vissa mätning av faktisk användning och vet att en primär replik av den tjänsten tar normalt 20 enheter för ”ConnectionCount”
+  - Sekundärservrar använder 5 enheter av ”ConnectionCount”
+  - Du vet att ”ConnectionCount” är det viktigaste måttet när det gäller hantering av prestanda för den här viss tjänst
+  - Vill primära repliker nätverksbelastning. Belastningsutjämning primära repliker är vanligtvis bra oavsett vad. Detta förhindrar förlusten av en nod eller fel domän påverkar en majoritet av primära repliker tillsammans med den. 
+  - I annat fall är mått som standard bra
 
-Här är koden som du skulle kunna skriva att skapa en tjänst med mått konfigurationen:
+Här är koden som du skulle skriva för att skapa en tjänst med mått konfigurationen:
 
 Kod:
 
@@ -133,47 +133,47 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 > [!NOTE]
-> Ovanstående exempel och resten av det här dokumentet beskriver du hantera mått på grundval av per-med namnet-tjänst. Det är också möjligt att definiera mätvärden för dina tjänster på tjänsten _typen_ nivå. Detta åstadkoms genom att ange dem i din service manifest. Definiera typ nivån mått rekommenderas inte av flera skäl. Det första skälet är att mått namn är ofta miljöspecifikt. Om det inte finns ett fast kontrakt på plats, kan du vara säker på att måttet ”kärnor” i en miljö är inte ”MiliCores” eller ”kärnor” i andra. Om din mått har definierats i ditt manifest som du behöver skapa nya manifesten per miljö. Detta leder vanligtvis till en ökande mängden av olika manifest med bara smärre skillnader, vilket kan leda till problem med hantering.  
+> Ovanstående exempel och resten av det här dokumentet beskriver du hantera mått på basis av per med namnet-tjänst. Det är också möjligt att definiera mått för dina tjänster på tjänsten _typ_ nivå. Detta åstadkoms genom att ange dem i din tjänstmanifest. Du bör inte definiera statistik för typ av flera skäl. Det första skälet är att Måttnamn ofta miljöspecifika. Om det inte finns ett fast avtal på plats, kan du vara säker på att mått ”kärnor” i en miljö inte är ”MiliCores” eller ”kärnor” i andra. Om dina mått har definierats i ditt manifest som du behöver skapa nya manifest per miljö. Detta leder ofta till en ökningen av olika manifest med bara smärre skillnader, vilket kan leda till problem med hantering.  
 >
-> Mått belastningar tilldelas ofta på grundval av per med namnet-service-instans. Anta exempelvis att du skapar en instans av tjänsten för CustomerA som planerar att använda den inte. Anta också att du skapar en annan för CustomerB som har en större arbetsbelastning. I så fall måste vill du förmodligen justera belastningarna som standard för dessa tjänster. Om du har mått och belastningar som anges via manifesten och du vill kunna använda det här scenariot kräver olika program och typer av tjänster för varje kund. De värden som definierats vid tidpunkten för skapandet av tjänsten åsidosätta de som anges i manifestet, så att du kan använda som kan ange specifika standardinställningar. Dock gör gör de värden som deklarerats i tjänsten körs med manifesten till stämmer inte överens. Detta kan leda till förvirring. 
+> Metrisk belastningar tilldelas ofta på basis av per med namnet-service-instans. Anta exempelvis att du skapar en instans av tjänsten för CustomerA som planerar att använda den inte. Anta också att du skapar ett annat för CustomerB som har en större arbetsbelastning. I det här fallet skulle du förmodligen vill justera belastningar som standard för dessa tjänster. Om du har mått och belastningar som anges via manifest och du vill kunna använda det här scenariot, kräver olika program och typer av tjänster för varje kund. De värden som definieras vid tidpunkten för skapandet av tjänsten åsidosätta de som anges i manifestet, så att du kan använda som för att ange specifika standardvärdena. Dock gör gör det de värden som deklarerats i manifest så att den inte matchar de som tjänsten körs faktiskt med. Detta kan leda till förvirring. 
 >
 
-Som en påminnelse: Om du vill använda mätvärdena som är standard, behöver du inte alls touch samlingen mått eller göra något speciellt när du skapar din tjänst. Standard-mått hämta används automatiskt när inga andra definieras. 
+Som en påminnelse: Om du bara vill använda mått som standard behöver du inte alls touch samlingen mått eller göra något speciellt när du skapar din tjänst. Mått som standard används hämta automatiskt när inga andra har definierats. 
 
-Nu går vi igenom de här inställningarna i detalj och talar om hur den inverkar.
+Nu ska vi gå igenom dessa inställningar i detalj och prata om det beteende som den inverkar.
 
 ## <a name="load"></a>Läsa in
-Det hela definiera mått är representerar vissa belastningen. *Läs in* är hur mycket av ett visst mått som används av vissa tjänstinstansen eller repliken på en viss nod. Läs in kan konfigureras på nästan alla punkt. Exempel:
+Hela syftet med att definiera mått är att representera vissa belastningen. *Läs in* är hur mycket av ett visst mått som används av vissa tjänstinstansen eller repliken på en viss nod. Belastningen kan konfigureras på nästan vilken punkt. Exempel:
 
-  - Läs in kan definieras när en tjänst skapas. Detta kallas _standard belastningen_.
-  - Mått information, inklusive standard belastning för en tjänst kan uppdateras när tjänsten har skapats. Detta kallas _uppdatera en tjänst_. 
-  - Belastning för en given partition kan du återställa standardvärdena för tjänsten. Detta kallas _återställa partitionsbelastning_.
-  - Läs in rapporteras på en per service objektet bas dynamiskt vid körning. Detta kallas _reporting belastningen_. 
+  - Belastningen kan definieras när en tjänst har skapats. Detta kallas _standard load_.
+  - Metrisk information, inklusive standard belastning, för en tjänst kan uppdateras när tjänsten har skapats. Detta kallas _uppdatera en tjänst_. 
+  - Belastning för en given partition kan återställas till standardvärdena för tjänsten. Detta kallas _återställer partitionsinläsning_.
+  - Belastningen kan rapporteras på en per tjänst objektet basis dynamiskt vid körning. Detta kallas _reporting belastningen_. 
   
-Alla dessa strategier kan användas inom samma tjänst under sin livslängd. 
+Alla dessa strategier kan användas inom samma tjänst under livslängden. 
 
-## <a name="default-load"></a>Standard-inläsning
-*Standard belastningen* är hur mycket av måttet förbrukar varje serviceobjektet (tillståndslös instans eller tillståndskänslig replik) för den här tjänsten. Resurshanteraren klustret använder det här numret för belastningen på serviceobjektet tills det mottar annan information, till exempel en dynamisk rapport. Standard-belastningen är en statisk definition för enklare tjänster. Standard-belastningen uppdateras aldrig och används för livslängden för tjänsten. Standard laddar fungerar bra för enkel kapacitetsplanering scenarier där vissa mängder resurser är dedikerade till olika arbetsbelastningar och ändras inte.
+## <a name="default-load"></a>Standard load
+*Standard load* är hur mycket av det mått som förbrukar varje serviceobjektet (tillståndslös instans eller tillståndskänslig replik) för den här tjänsten. Cluster Resource Manager använder det här numret för belastningen på objektet tills det mottar annan information, till exempel en dynamisk-rapport. Standard belastningen är en statisk definition för enklare tjänster. Standard load uppdateras aldrig och används för livslängden för tjänsten. Standard arbetsbelastning fungerar bra för enkel kapacitetsplanering för scenarier där vissa mängder resurser har reserverats för olika arbetsbelastningar och ändras inte.
 
 > [!NOTE]
-> Mer information om kapacitetshantering av och definiera kapacitet för noder i klustret finns [i den här artikeln](service-fabric-cluster-resource-manager-cluster-description.md#capacity).
+> Mer information om kapacitetshantering av och definiera kapaciteter för noderna i klustret finns i [i den här artikeln](service-fabric-cluster-resource-manager-cluster-description.md#capacity).
 > 
 
-Klustret Resource Manager tillåter tillståndskänsliga tjänster att ange en annan standard belastning för sina primärfärgerna och sekundärservrar. Tillståndslösa tjänster kan bara ange ett värde som gäller för alla instanser. Repliker är vanligtvis olika för tillståndskänsliga tjänster, standard-belastningen för primär och sekundär eftersom repliker har olika typer av resurser i varje roll. Till exempel primärfärgerna vanligtvis fungerar både läsningar och skrivningar och hantera de flesta av beräkningar belastningen medan sekundärservrar inte. Vanligtvis är standard belastningen för en primär replik högre än standard belastningen för sekundära repliker. Reellt tal bör beror på dina egna mått.
+Cluster Resource Manager kan tillståndskänsliga tjänster att ange en annan standard-belastningen för sina USA: s presidentval och sekundära databaser. Tillståndslösa tjänster kan bara ange ett värde som gäller för alla instanser. För tillståndskänsliga tjänster, standard-belastningen för primära och sekundära skiljer repliker sig vanligtvis eftersom repliker göra olika typer av arbete i varje roll. Till exempel USA: s presidentval vanligtvis fungerar både läsningar och skrivningar och hantera de flesta av databaserad belastningen medan sekundära databaser inte. Standard-belastningen för en primär replik är vanligtvis högre än standard-belastningen för sekundära repliker. Reella tal bör beror på dina egna mått.
 
-## <a name="dynamic-load"></a>Dynamisk
-Anta att du har kört din tjänst för en stund. Med viss övervakning upplever du som:
+## <a name="dynamic-load"></a>Dynamisk belastning
+Anta att du har kört din tjänst under en tid. Du har märkt som med viss övervakning:
 
-1. Några partitioner eller instanser av en viss tjänst förbruka mer resurser än andra
-2. Vissa tjänster ha belastningen varierar över tiden.
+1. Vissa partitioner eller instanser av en viss tjänst använda fler resurser än andra
+2. Vissa tjänster har belastning som varierar över tid.
 
-Det finns många saker som kan leda till att dessa typer av belastningen variationer. Till exempel är olika tjänster eller partitioner associerade med olika kunder med olika krav. Läs in kan också ändra eftersom mängden arbete tjänsten varierar under loppet av dagen. Oavsett orsak är det vanligtvis ingen tal som du kan använda för standardvärde. Detta gäller särskilt om du vill ha de flesta användning utanför klustret. Ett värde som du väljer för standard är felaktigt del av tiden. Felaktig standard läser in resultatet i klustret Resource Manager antingen över eller under fördela resurser. Därför kan har du noder som över eller under används även om klustret Resource Manager tror att klustret är Balanserat. Standard-belastning är fortfarande bra eftersom de ger viss information för inledande placering, men de har inte en fullständig artikel för verkliga arbetsbelastningar. För att avbilda korrekt ändra resursbehov, kan klustret Resource Manager varje serviceobjektet att uppdatera sin egen belastning under körningen. Detta kallas dynamisk reporting.
+Det finns många olika saker som kan orsaka dessa typer av belastningen variationer. Till exempel är olika tjänster eller partitioner associerade med olika kunder med olika krav. Belastningen kan även ändras eftersom mängden arbete som tjänsten varierar under loppet av dagen. Oavsett orsak är det vanligtvis inget enskilt tal som du kan använda för standard. Detta gäller särskilt om du vill hämta de flesta användning från klustret. Ett värde som du väljer för standard är felaktigt del av tiden. Felaktig standard läser in resultatet i Cluster Resource Manager över eller under tilldela resurser. Därför kan ha du noder som är över eller under används även om Klusterresurshanteraren tror att klustret är balanserade. Standard belastning är fortfarande bra eftersom de ger viss information för inledande placering, men de är inte en helt representativt för verkliga arbetsbelastningar. Om du vill samla in föränderliga resurskraven korrekt, kan Cluster Resource Manager varje service-objekt att uppdatera sin egen belastning under körning. Detta kallas rapportering om dynamisk belastning.
 
-Dynamisk rapporter kan repliker eller instanser att justera sina allokering/rapporterade belastningen på mått under sin livslängd. En replik för tjänsten eller instans som var kall och inte gör allt arbete rapporteras vanligtvis som använde små mängder av ett visst mått. En upptagen replik eller skulle rapporterar att de använder mer.
+Dynamisk rapporter kan repliker eller instanser för att justera sina allokering/rapporterade belastningen på mått under deras livstid. En tjänsterepliken eller instans som var kall och inte gör allt arbete skulle vanligtvis rapporterar att den använde små mängder av ett visst mått. En upptagen målreplik eller skulle rapporterar att de använder mer.
 
-Belastningen per målrepliker eller instanser kan klustret resurshanteraren att ordna om enskilda service-objekt i klustret. Organisera om tjänsterna säkerställer att de får de resurser som de behöver. Upptagen tjänster få effektivt ”frigöra” resurser från andra repliker eller instanser som är för närvarande kall eller göra mindre arbete.
+Reporting belastningen per målrepliker eller instanser kan Cluster Resource Manager att ordna om enskilda service-objekt i klustret. Organisera om tjänsterna hjälper till att säkerställa att de får de resurser som de behöver. Upptagen tjänster få effektivt ”frigöra” resurser från andra repliker eller instanser som är för närvarande kall eller göra mindre arbete.
 
-Inom Reliable Services kod för att rapportera belastning dynamiskt ser ut så här:
+I Reliable Services koden för att rapportera belastning dynamiskt ser ut så här:
 
 Kod:
 
@@ -181,28 +181,28 @@ Kod:
 this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnectionCount", 1234), new LoadMetric("metric1", 42) });
 ```
 
-En tjänst kan rapportera på någon av de mätvärden som definierats för den vid skapandet. Om en tjänst rapporter belastning för ett mått som inte är konfigurerad för att använda, ignorerar Service Fabric rapporten. Om det finns andra mått som rapporteras vid samma tidpunkt som är giltiga, godkänns rapporterna. Service-kod kan mäta och rapportera alla mått som vet hur till, och operatörer kan ange den mått konfigurationen som ska användas utan att ändra kod. 
+En tjänst kan rapportera på någon av de mått som definierats för den vid tidpunkten för skapandet. Om en tjänstinläsning rapporter för ett mått som inte är konfigurerad för att använda, ignorerar den rapporten i Service Fabric. Om det finns andra mått rapporteras samtidigt som är giltiga, accepteras rapporterna. Koden kan mäta och rapportera alla mått som den vet hur du, och operatörer kan ange mått konfigurationen kan använda utan att behöva ändra kod. 
 
-### <a name="updating-a-services-metric-configuration"></a>Ett mått tjänstkonfigurationen uppdaterades
-Listan över mått som är associerad med tjänsten och egenskaperna för dessa mått kan uppdateras dynamiskt när tjänsten är aktiv. Detta ger undersökningar och flexibilitet. Några exempel när det är praktiskt är:
+### <a name="updating-a-services-metric-configuration"></a>Uppdaterar konfigurationen för en tjänst-mått
+I listan över mått som är associerad med tjänsten och egenskaperna för de mått som kan uppdateras dynamiskt när tjänsten är aktiv. På så sätt kan undersökningar och flexibilitet. Några exempel på när detta är användbart är:
 
-  - inaktivera ett mått med en buggy rapport för en viss tjänst
+  - inaktiverar ett mått med en buggy rapport för en viss tjänst
   - Konfigurera om vikten av mått baserat på önskat beteende
   - Aktivera ett nytt mått när koden har redan distribuerats och godkänts via andra mekanismer
-  - Ändra standard-belastningen för en tjänst baserat på observerade beteende och förbrukning
+  - Ändra standard-belastningen för en tjänst utifrån observerad beteende och förbrukning
 
-De huvudsakliga API: er för att ändra mått konfiguration är `FabricClient.ServiceManagementClient.UpdateServiceAsync` i C# och `Update-ServiceFabricService` i PowerShell. Den information som du anger med dessa API: er ersätter befintliga mått information för tjänsten omedelbart. 
+De huvudsakliga API: er för att ändra konfigurationen för mått är `FabricClient.ServiceManagementClient.UpdateServiceAsync` i C# och `Update-ServiceFabricService` i PowerShell. Den information som du anger med dessa API: er ersätter den befintliga mått informationen om tjänsten omedelbart. 
 
-## <a name="mixing-default-load-values-and-dynamic-load-reports"></a>Blandning av belastningen standardvärden och dynamisk rapporter
-Standard belastning och dynamisk last kan användas för samma tjänst. När en tjänst använder både standard belastning och dynamisk rapporter, standard belastning som fungerar som en uppskattning tills dynamiska rapporter visas. Standard belastningen är bra eftersom den ger klustret Resource Manager något att arbeta med. Standard belastningen kan klustret Resource Manager ska placeras service-objekt i god platser när de skapas. Om ingen standard belastningen information tillhandahålls är placering av tjänster effektiv slumpmässiga. När belastningen rapporter kommer senare inledande slumpmässiga placering är ofta fel och klustret Resource Manager har flytta tjänster.
+## <a name="mixing-default-load-values-and-dynamic-load-reports"></a>Blanda standardvärden för inläsning och dynamisk rapporter
+Standard load och dynamisk belastning kan användas för samma tjänst. När en tjänst använder både standard belastning och dynamisk rapporter, standard belastning som fungerar som en uppskattning tills dynamiska rapporter visas. Standard-belastningen är bra eftersom den ger Klusterresurshanteraren något att arbeta med. Standard-belastningen gör Cluster Resource Manager att placera service-objekt på bra platser när de skapas. Om ingen information om standard load anges, är placeringen av tjänster effektivt slumpmässigt. När belastningen rapporter kommer senare inledande slumpmässiga placering är ofta fel och Cluster Resource Manager måste flytta tjänster.
 
-Vi tar det tidigare exemplet och se vad som händer när vi lägger till vissa anpassade mått och dynamisk rapportering. I det här exemplet använder vi ”MemoryInMb” som ett exempel mått.
+Låt oss ta vårt tidigare exempel och se vad som händer när vi lägger till vissa anpassade mått och rapportering om dynamisk belastning. I det här exemplet använder vi ”MemoryInMb” som en exempel-mått.
 
 > [!NOTE]
-> Minne är en system-mått som Service Fabric kan [resursen styr](service-fabric-resource-governance.md), och rapportering själv är vanligtvis svårt. Vi faktiskt inte förväntar dig att rapportera om minnesförbrukning; Minne används här som en hjälp att lära dig mer om funktionerna i klustret Resource Manager.
+> Minnet är något av de systemmått som Service Fabric kan [resursen styr](service-fabric-resource-governance.md), och rapportering själv är vanligtvis svårt. Vi faktiskt tror inte du att rapportera om minnesförbrukning; Minnet används här som en hjälp att lära dig mer om funktionerna för Cluster Resource Manager.
 >
 
-Vi förutsätter att det ursprungligen skapades tillståndskänslig tjänsten med följande kommando:
+Vi förutsätter vi ursprungligen skapats den tillståndskänsliga tjänsten med följande kommando:
 
 PowerShell:
 
@@ -210,65 +210,65 @@ PowerShell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("MemoryInMb,High,21,11”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
 ```
 
-Som en påminnelse är den här syntaxen (”MetricName, MetricWeight, PrimaryDefaultLoad, SecondaryDefaultLoad”).
+Den här syntaxen är (”MetricName, MetricWeight, PrimaryDefaultLoad, SecondaryDefaultLoad”) som en påminnelse.
 
-Nu ska vi se vad en layout för möjliga klustret kan se ut så:
+Låt oss se vilka ett möjligt kluster layout gick ut:
 
 <center>
-![Kluster balanserad med både standard- och anpassade mått][Image2]
+![Klustret balanserad med både standard och anpassade mått][Image2]
 </center>
 
-Vissa saker som är noteras:
+Några saker som är värt:
 
 * Sekundära repliker inom en partition kan ha sina egna belastning
-* Mätvärdena leta övergripande belastningsutjämnade. För minne, är förhållandet mellan den högsta och lägsta lasten 1,75 (noden med mest belastningen är N3, minst är N2 och 28/16 = 1,75).
+* Måtten titta övergripande belastningsutjämnade. Förhållandet mellan den högsta och lägsta belastningen är för minne, 1,75 (noden med mest belastning är N3, minst är N2 och 28/16 = 1,75).
 
-Det finns vissa saker som fortfarande behövs för att förklara:
+Det finns några saker som vi behöver för att förklara:
 
-* Vad fastställa om ett förhållande på 1,75 var rimliga? Hur klustret Resource Manager vet om som är tillräckligt bra eller om det finns mer arbete att göra?
+* Vad fastställa om ett förhållande på 1,75 var detta rimligt? Hur Cluster Resource Manager vet om det är tillräckligt bra eller om det finns mer arbete att göra?
 * När sker belastningsutjämning?
-* Vad innebär det att minnet var viktas ”hög”?
+* Vad innebär det att minnet var viktad ”hög”?
 
 ## <a name="metric-weights"></a>Tjänstmåttets vikt
-Det är viktigt att spåra samma mått över olika tjänster. Den globala vyn är vad gör klustret Resource Manager kan spåra användning i klustret, balanserar förbrukning mellan noder och kontrollera att noderna inte gå igenom kapacitet. Tjänster kan dock ha olika vyer om vikten av samma mått. Även i ett kluster med många mått och många tjänster finns perfekt belastningsutjämnade lösningar inte för alla. Hur ska klustret Resource Manager hanterar sådana situationer?
+Det är viktigt att spåra mått som är samma mellan olika tjänster. Den globala vyn innebär det att Cluster Resource Manager att spåra användningen i klustret, balansera förbrukning över noder och se till att noderna inte går över kapacitet. Tjänster kan dock ha olika vyer om vikten av samma mått. Även i ett kluster med många mått och många olika tjänster, kanske perfekt balans lösningar inte finns för alla mått. Hur ska Cluster Resource Manager hanterar sådana situationer?
 
-Tjänstmåttets vikt kan klustret resurshanteraren att bestämma hur du ska hantera klustret när det finns inget perfekta svar. Tjänstmåttets vikt kan också klustret resurshanteraren att balansera specifika tjänster på olika sätt. Mått kan ha fyra olika vikt nivåer: noll, lågt, Medium och hög. Ett mått med en vikt på noll bidrar ingenting när du överväger saker är balanserade eller inte. Men bidrar belastningen fortfarande till kapacitetshantering av. Mått med noll är användbar och används ofta som en del av tjänst och prestandaövervakning. [Den här artikeln](service-fabric-diagnostics-event-generation-infra.md) finns mer information om användning av mätvärden för övervakning och diagnostik-tjänster. 
+Metrisk vikterna Tillåt Cluster Resource Manager för att avgöra hur du balansera klustret när det finns inget perfekta svar. Tjänstmåttets vikt även låta Cluster Resource Manager att balansera specifika tjänster på olika sätt. Mått kan ha fyra olika vikt nivåer: noll, låg, Medium och hög. Ett mått med en vikt på noll bidrar ingenting när du överväger om saker balanseras eller inte. Men bidrar belastningen fortfarande till kapacitetshanteringsområde. Mått med noll vikt är fortfarande användbart och används ofta som en del av tjänstbeteende och prestandaövervakning. [Den här artikeln](service-fabric-diagnostics-event-generation-infra.md) finns mer information om användning av mått för övervakning och diagnostik för dina tjänster. 
 
-Den verkliga effekten av olika mått vikter i klustret är att klustret Resource Manager genererar olika lösningar. Tjänstmåttets vikt berätta klustret Resource Manager för att vissa mått är viktigare än andra. När det finns ingen perfekt lösning föredrar klustret Resource Manager lösningar som balanserar högre viktat mätvärdena bättre. Om en tjänst tror ett viss mått är oviktigt kan hittas deras användning av den måtten imbalanced. På så sätt kan en annan tjänsten för att hämta en jämn fördelning av vissa mått som är viktiga för den.
+Verkliga effekten av olika mått vikter i klustret är att Cluster Resource Manager genererar olika lösningar. Metrisk vikterna berätta Cluster Resource Manager för att vissa mått är viktigare än andra. När det finns ingen perfekt lösning kan Klusterresurshanteraren föredrar lösningar som balanserar högre viktad måtten bättre. Om en tjänst uppfattar som ett visst mått oviktigt kan hittas deras användning av det måttet imbalanced. På så sätt kan en annan tjänst att få en jämn fördelning av vissa mått som är viktiga för den.
 
-Nu ska vi titta på ett exempel på några belastningen rapporter och hur olika mått viktas resulterar i olika allokeringar i klustret. I det här exemplet finns att växla relativa viktade mätvärden gör att klustret resurshanteraren att skapa olika åtgärder av tjänster.
+Låt oss titta på ett exempel på vissa belastningen rapporter och hur olika mått viktas resultat i olika allokeringar i klustret. I det här exemplet Se vi att byta den relativa vikten av mätvärden orsakar Cluster Resource Manager för att skapa olika uppställningar av tjänster.
 
 <center>
-![Tjänstmåttets vikt exempel och dess påverkan på NLB lösningar][Image3]
+![Tjänstmåttets vikt exempel och dess påverkan på nätverksbelastning lösningar][Image3]
 </center>
 
-I det här exemplet finns fyra olika tjänster, alla reporting olika värden för två olika mått, MetricA och MetricB. Alla tjänster definiera MetricA i ett fall är det viktigaste (vikt = hög) och MetricB som oviktigt (vikt = låg). Därför kan vi kan se att klustret Resource Manager placerar tjänsterna så att MetricA balanseras bättre än MetricB. ”Bättre belastningsutjämnade” innebär att MetricA har en lägre har en lägre standardavvikelse än MetricB. I det andra fallet omvända vi mått vikterna. Därför växlingar klustret Resource Manager services A och B för att få fram en allokering där MetricB är bättre belastningsutjämnade än MetricA.
+I det här exemplet finns fyra olika tjänster, alla reporting olika värden för två olika mått, MetricA och MetricB. I ett fall definiera alla tjänster MetricA är det viktigaste (vikt = hög) och MetricB som oviktiga (vikt = låg). Därför kan se vi att Cluster Resource Manager placerar tjänsterna så att MetricA fördelas bättre än MetricB. ”Bättre belastningsutjämnade” innebär att MetricA har ett lägre har en lägre standardavvikelse än MetricB. I det andra fallet kan omvänd vi mått vikterna. Klusterresurshanteraren växlingar därför tjänster A och B för att få fram en allokering där MetricB bättre är balanserade än MetricA.
 
 > [!NOTE]
-> Tjänstmåttets vikt avgöra hur klustret Resource Manager ska utjämna, men inte när NLB ska hända. Mer information om belastningsutjämning kolla [den här artikeln](service-fabric-cluster-resource-manager-balancing.md)
+> Metrisk vikterna avgöra hur Cluster Resource Manager ska stämma överens, men inte när belastningsutjämning som ska hända. Mer information om belastningsutjämning Kolla in [i den här artikeln](service-fabric-cluster-resource-manager-balancing.md)
 >
 
-### <a name="global-metric-weights"></a>Globala mått vikterna
-Anta att ServiceA definierar MetricA som vikt hög och ServiceB vikten för MetricA till låg eller noll. Vad är den faktiska vikten hamnar används?
+### <a name="global-metric-weights"></a>Global mått vikterna
+Vi antar att ServiceA definierar MetricA som vikt hög och ServiceB vikten för MetricA till låg eller noll. Vad är den faktiska vikten identisk vänja?
 
-Det finns flera vikter som spåras för varje mått. Första vikten är den som angetts för måttet när tjänsten har skapats. Andra vikten är en global vikt, som beräknas automatiskt. Klustret Resource Manager använder båda dessa vikter när bedömningen lösningar. Det är viktigt att hänsyn tas till båda vikter. Detta gör att klustret Resource Manager att balansera varje tjänst enligt sin egen prioriteter och se också till att klustret som helhet fördelas på rätt sätt.
+Det finns flera vikterna som spåras för varje mått. Den första vikten är den som definierats för måttet när tjänsten skapas. Vikten som helst är en global vikt, som beräknas automatiskt. Cluster Resource Manager använder båda dessa vikterna när bedömning lösningar. Det är viktigt att hänsyn tas till båda vikterna. På så sätt kan Cluster Resource Manager så att balansera varje tjänst enligt sin egen prioriteringar Se också till att klustret som helhet tilldelas korrekt.
 
-Vad som skulle hända om klustret Resource Manager inte bryr dig om både globala och lokala saldo? Det är enkelt att skapa lösningar som balanseras globalt, men vilket kan resultera i sämre resursbalansen för enskilda tjänster. I följande exempel ska vi titta på en tjänst som konfigurerats med bara mätvärdena som standard och se vad som händer när endast globala saldo betraktas som:
+Vad som skulle hända om Cluster Resource Manager inte bryr dig om både globala och lokala saldo? Det är enkelt att skapa lösningar som balanseras globalt, men vilket resultera i sämre resursbalansen för enskilda tjänster. I följande exempel ska vi titta på en tjänst som konfigurerats med bara mått som standard och se vad som händer när endast globala saldo anses:
 
 <center>
 ![Effekten av en Global endast lösning][Image4]
 </center>
 
-I översta exempel endast baseras på globalt saldo balanseras verkligen klustret som helhet. Alla noder som har samma antal primärfärgerna och samma antal totala repliker. Men om du tittar på faktiska effekten av den här allokeringen är det inte så bra: förlust av alla noder som påverkar en viss arbetsbelastning oproportionerligt, eftersom det tar bort all dess primärfärgerna. Till exempel om den första noden misslyckas tre primärfärgerna för de tre olika partitionerna för tjänsten cirkel skulle vara förlorade. Däremot har tjänsterna triangel och Sexhörning deras partitioner förlorar en replik. Detta medför att några avbrott än att återställa på repliken.
+I övre exempel baseras på global saldo fördelas verkligen klustret som helhet. Alla noder har samma antal USA: s presidentval och samma antal totala replikerna. Om du tittar på den faktiska effekten av den här allokering det är dock inte så bra: förlusten av en nod påverkar en viss arbetsbelastning oproportionerligt, eftersom det tar bort all dess USA: s presidentval. Till exempel om den första noden misslyckas tre USA: s presidentval för tre olika partitioner av tjänsten cirkel skulle alla gå förlorade. Däremot har tjänsterna triangel och Sexhörning deras partitioner förlorar en replik. Detta gör att inga avbrott än att behöva återställa på repliken.
 
-I exemplet nedre har klustret Resource Manager distribuerade repliker baserat på båda globala och per service saldot. Vid beräkning av poängen för lösningen ger de flesta av vikten till globala lösningen och en (konfigureras) del enskilda tjänster. Globala balansera för ett mått beräknas baserat på medelvärdet av mått vikterna från varje tjänst. Varje tjänst balanseras enligt sin egen definierade mått vikter. Detta säkerställer att tjänsterna är balanserade i själva efter egna behov. Därför distribueras om den första noden samma misslyckades för alla partitioner för alla tjänster. Påverkan på varje är samma.
+Cluster Resource Manager har distribuerade repliker baserat på båda globala och per tjänst saldo i exempel längst ned. När du beräknar resultatet av lösningen ger de flesta av vikten till global lösning och en (kan konfigureras) del till enskilda tjänster. Global balans för ett mått beräknas baserat på genomsnittliga av mått vikterna från varje tjänst. Varje tjänst är belastningsutjämnad enligt egna definierade mått vikterna. Detta säkerställer att tjänsterna är balanserade i själva efter egna behov. Om samma första nod misslyckas felet är därför fördelat över alla partitioner i alla tjänster. Påverkan på var och en är samma.
 
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om hur du konfigurerar tjänster, [Lär dig mer om hur du konfigurerar tjänster](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)
-- Definiera defragmentering mått är ett sätt att konsolidera belastningen på noder i stället för att sprida. Om du vill veta hur du konfigurerar defragmentering avser [i den här artikeln](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- Om du vill veta mer om hur klustret Resource Manager hanterar och balanserar belastningen i klustret kan ta en titt i artikeln på [belastningsutjämning](service-fabric-cluster-resource-manager-balancing.md)
-- Börja från början och [få en introduktion till Service Fabric klustret Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-- Förflyttningskostnad är ett sätt att signalering till klustret Resource Manager att vissa tjänster är dyrare att flytta än andra. Mer information om förflyttningskostnad avser [i den här artikeln](service-fabric-cluster-resource-manager-movement-cost.md)
+- Mer information om hur du konfigurerar tjänster, [Läs om hur du konfigurerar tjänster](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)
+- Definiera defragmentering mått är ett sätt att konsolidera belastningen på noder i stället för sprida. Läs hur du konfigurerar defragmentering [i den här artikeln](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- Om du vill veta mer om hur Cluster Resource Manager hanterar och balanserar belastningen i klustret kan du läsa artikeln på [belastningsutjämning](service-fabric-cluster-resource-manager-balancing.md)
+- Börja från början och [få en introduktion till Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+- Förflyttningskostnad är ett sätt att signalering till Cluster Resource Manager att vissa tjänster är dyrare att flytta än andra. Läs mer om förflyttningskostnad [i den här artikeln](service-fabric-cluster-resource-manager-movement-cost.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
 [Image2]:./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png

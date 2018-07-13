@@ -1,5 +1,5 @@
 ---
-title: Integrera Azure API Management med Azure Application Insights | Microsoft Docs
+title: Hur du integrerar Azure API Management med Azure Application Insights | Microsoft Docs
 description: Lär dig mer om att logga in och visa händelser från Azure API Management i Azure Application Insights.
 services: api-management
 documentationcenter: ''
@@ -13,103 +13,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 7740da505f7635944536252d60ec2c2039295975
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36320585"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001811"
 ---
-# <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Integrera Azure API Management med Azure Application Insights
+# <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Hur du integrerar Azure API Management med Azure Application Insights
 
-Azure API Management gör det möjligt för enkel integrering med Azure Application Insights - en utökningsbar tjänst för webbutvecklare bygga och hantera appar på flera plattformar. Den här guiden går igenom varje steg på sådana integrering och beskriver strategier för att minska inverkan på prestanda på din API Management service-instans.
+Azure API Management kan för enkel integrering med Azure Application Insights - tjänstens extensible för webbutvecklare att skapa och hantera appar på flera plattformar. Den här guiden beskriver varje steg på sådana integrering och beskrivs strategier för att minska prestandaförsämring på din API Management-tjänstinstans.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du måste ha en Azure API Management-instans om du vill följa den här guiden. Om du inte har någon Slutför den [kursen](get-started-create-service-instance.md) första.
+Om du vill följa den här guiden behöver du en Azure API Management-instans. Om du inte har någon kan slutföra den [självstudien](get-started-create-service-instance.md) första.
 
-## <a name="create-an-azure-application-insights-instance"></a>Skapa en instans av Azure Application Insights
+## <a name="create-an-azure-application-insights-instance"></a>Skapa en Azure Application Insights-instans
 
 Innan du kan använda Azure Application Insights, måste du först skapa en instans av tjänsten.
 
-1. Öppna den **Azure-portalen** och gå till **Programinsikter**.  
+1. Öppna den **Azure-portalen** och gå till **Application Insights**.  
     ![Skapa App Insights](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
 2. Klicka på **+ Lägg till**.  
     ![Skapa App Insights](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
-3. Fylla i formuläret. Välj **allmänna** som den **programtyp**.
+3. Fyll i formuläret. Välj **Allmänt** som den **programtyp**.
 4. Klicka på **Skapa**.
 
-## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>Skapa en anslutning mellan Azure Application Insights och Azure API Management service-instans
+## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>Skapa en anslutning mellan Azure Application Insights och Azure API Management-tjänstinstans
 
-1. Navigera till din **Azure API Management service-instans** i den **Azure-portalen**.
-2. Välj **Programinsikter** på menyn till vänster.
+1. Gå till din **Azure API Management-tjänstinstans** i den **Azure-portalen**.
+2. Välj **Application Insights** på menyn till vänster.
 3. Klicka på **+ Lägg till**.  
-    ![App Insights-logg](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
-4. Välj den tidigare skapade **Programinsikter** instansen och ange en kort beskrivning.
+    ![App Insights loggare](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
+4. Välj den tidigare skapade **Application Insights** instans och ange en kort beskrivning.
 5. Klicka på **Skapa**.
-6. Du har just skapat ett Azure Application Insights loggaren med instrumentation nyckel. Det bör nu visas i listan.  
-    ![App Insights-logg](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
+6. Du har just skapat ett Azure Application Insights-loggaren med en instrumenteringsnyckel. Det bör nu visas i listan.  
+    ![App Insights loggare](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
-## <a name="enable-application-insights-logging-for-your-api"></a>Aktivera loggning för Application Insights för din API
+> [!NOTE]
+> Bakom scenen, en [loggaren](https://docs.microsoft.com/en-us/rest/api/apimanagement/logger/createorupdate) entitet skapas i din API Management-instans som innehåller Instrumenteringsnyckeln för Application Insights-instans.
 
-1. Navigera till din **Azure API Management service-instans** i den **Azure-portalen**.
+## <a name="enable-application-insights-logging-for-your-api"></a>Aktivera loggning för Application Insights för ditt API
+
+1. Gå till din **Azure API Management-tjänstinstans** i den **Azure-portalen**.
 2. Välj **API: er** på menyn till vänster.
-3. Klicka på din API i det här fallet **Demo konferens API**.
-4. Gå till den **inställningar** fliken från översta raden.
-5. Rulla ned till den **diagnostik loggar** avsnitt.  
-    ![App Insights-logg](media/api-management-howto-app-insights/apim-app-insights-api-1.png)  
-6. Kontrollera den **aktivera** rutan.
+3. Klicka på ditt API i det här fallet **Demokonferens-API**.
+4. Gå till den **inställningar** fliken från det översta fältet.
+5. Rulla ned till den **diagnostikloggar** avsnittet.  
+    ![App Insights loggare](media/api-management-howto-app-insights/apim-app-insights-api-1.png)  
+6. Kontrollera den **aktivera** box.
 7. Välj din bifogade loggaren i den **mål** listrutan.
-8. Indata **100** som **samplingsfrekvensen (%)** och markera den **alltid logga fel** kryssrutan.
-9. Indata **1024** i den **första byten av text** fältet.
+8. Indata **100** som **Sampling (%)** och markera den **alltid logga fel** kryssrutan.
+9. Indata **1024** i den **första byten i brödtexten** fält.
 10. Klicka på **Spara**.
+
+> [!NOTE]
+> Bakom scenen, en [diagnostiska](https://docs.microsoft.com/en-us/rest/api/apimanagement/diagnostic/createorupdate) entitet med namnet 'applicationinsights' skapas på API-nivå.
 
 | Inställningsnamn                        | Värdetyp                        | Beskrivning                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Aktivera                              | boolesk                           | Anger om loggning för detta API är aktiverat.                                                                                                                                                                                                                                                                                                |
-| Mål                         | Azure Application Insights-logg | Anger Azure Application Insights-logg som ska användas                                                                                                                                                                                                                                                                                           |
-| Provtagning (%)                        | Decimal                           | Värden från 0 till 100 (procent). <br/> Anger vilken procentandel av förfrågningar kommer att loggas till Azure Application Insights. 0% provtagning innebär noll begäranden som loggas när provtagning 100% innebär att alla begäranden som loggas. <br/> Den här inställningen används för att minska prestanda följderna av att logga begäranden till Azure Application Insights (se avsnittet nedan). |
-| Alltid logga fel                   | boolesk                           | Om den här inställningen är markerad alla fel loggas till Azure Application Insights, oberoende av den **provtagning** inställningen.                                                                                                                                                                                                                  |
-| Grundläggande alternativ: rubriker              | lista                              | Anger sidhuvuden som kommer att loggas till Azure Application Insights för begäranden och -svar.  Standard: inga huvuden loggas.                                                                                                                                                                                                             |
-| Grundläggande alternativ: Första byten av text  | heltal                           | Anger hur många första byten i brödtexten loggas till Azure Application Insights för begäranden och svar.  Standard: body är inte inloggad.                                                                                                                                                                                              |
-| Avancerade alternativ: Frontend-begäran  |                                   | Anger om och hur *klientdel begäranden* loggas till Azure Application Insights. *Klientdel begäran* är en begäran inkommande till Azure API Management-tjänsten.                                                                                                                                                                        |
-| Avancerade alternativ: Frontend-svar |                                   | Anger om och hur *klientdel svar* loggas till Azure Application Insights. *Klientdel svar* är utgående svar från Azure API Management-tjänsten.                                                                                                                                                                   |
-| Avancerade alternativ: Backend-begäran   |                                   | Anger om och hur *backend begäranden* loggas till Azure Application Insights. *Backend-begäran* är en begäran om utgående från Azure API Management-tjänsten.                                                                                                                                                                        |
-| Avancerade alternativ: Backend-svar  |                                   | Anger om och hur *backend svar* loggas till Azure Application Insights. *Backend-svar* är ett svar inkommande till Azure API Management-tjänsten.                                                                                                                                                                       |
+| Aktivera                              | boolesk                           | Anger om detta API har aktiverats.                                                                                                                                                                                                                                                                                                |
+| Mål                         | Azure Application Insights-logg | Anger Azure Application Insights loggaren som ska användas                                                                                                                                                                                                                                                                                           |
+| Sampling (%)                        | decimaltal                           | Värden mellan 0 och 100 (procent). <br/> Anger vilken procentandel av förfrågningar kommer att loggas till Azure Application Insights. 0% sampling innebär noll förfrågningar loggas, medan sampling med 100% innebär att alla begäranden som loggats. <br/> Den här inställningen används för att minska prestanda följderna av att logga begäranden till Azure Application Insights (se avsnittet nedan). |
+| Alltid logga fel                   | boolesk                           | Om den här inställningen väljs alla fel loggas till Azure Application Insights, oavsett den **Sampling** inställningen.                                                                                                                                                                                                                  |
+| Grundalternativ: rubriker              | lista                              | Anger sidhuvuden som kommer att loggas till Azure Application Insights för begäranden och svar.  Standard: inga rubriker loggas.                                                                                                                                                                                                             |
+| Grundalternativ: Första byten i brödtexten  | heltal                           | Anger hur många första byten i texten som loggas i Azure Application Insights för begäranden och svar.  Standard: brödtext loggas inte.                                                                                                                                                                                              |
+| Avancerade alternativ: Frontend-begäran  |                                   | Anger om och hur *klientdel begäranden* loggas till Azure Application Insights. *Frontend-begäran* är en begäran inkommande till Azure API Management-tjänsten.                                                                                                                                                                        |
+| Avancerade alternativ: Frontend-svar |                                   | Anger om och hur *klientdel svar* loggas till Azure Application Insights. *Frontend-svar* är utgående svar från Azure API Management-tjänsten.                                                                                                                                                                   |
+| Avancerade alternativ: Backend-begäran   |                                   | Anger om och hur *serverdel begäranden* loggas till Azure Application Insights. *Backend-begäran* är en begäran som utgående från Azure API Management-tjänsten.                                                                                                                                                                        |
+| Avancerade alternativ: Backend-svar  |                                   | Anger om och hur *backend-svar* loggas till Azure Application Insights. *Backend-svar* är ett svar inkommande till Azure API Management-tjänsten.                                                                                                                                                                       |
 
 > [!NOTE]
-> Du kan ange loggare på olika nivåer - enda API-loggaren eller en logg för alla API: er.
+> Du kan ange tangenttryckningar på olika nivåer – enkel API logger eller en loggare för alla API: er.
 >  
-> Om du anger både:
-> + Om de olika loggar tangenttryckningar kan används båda (multiplexering loggar)
-> + Om de är samma loggare som har men olika inställningar och sedan ett enda API: t (mer detaljerad nivå) åsidosätter en för alla API: er.
+> Om du anger båda:
+> + Om de olika tangenttryckningar kan används båda (multiplexing loggar)
+> + Om de är samma tangenttryckningar ha men olika inställningar och sedan en för enkel API (mer detaljerad nivå) att åsidosätta det för alla API: er.
 
 ## <a name="what-data-is-added-to-azure-application-insights"></a>Vilka data som har lagts till i Azure Application Insights
 
 Azure Application Insights tar emot:
 
-+ *Begäran* telemetri objekt för varje inkommande begäran (*klientdel begäran*, *klientdel svar*),
-+ *Beroende* telemetri objekt för varje begäran som vidarebefordras till en backend-tjänst (*backend begäran*, *backend svar*),
-+ *Undantag* telemetri objekt, för alla misslyckade begäranden.
++ *Begäran* telemetriobjekt för varje inkommande begäran (*klientdel begäran*, *klientdel svar*),
++ *Beroende* telemetriobjekt för varje begäran som vidarebefordras till en serverdelstjänst (*serverdel begäran*, *backend-svar*),
++ *Undantag* telemetriobjekt för alla misslyckade begäranden.
 
 En misslyckad begäran är en begäran som:
 
 + misslyckades på grund av en stängd klientanslutning eller
-+ utlöses en *vid fel* avsnitt av API-principer eller
-+ har en matchande 4xx för svar HTTP-status-kod eller 5xx.
++ utlöses en *vid fel* avsnittet för API-principer, eller
++ har en svarskod HTTP-status matchande 4xx eller 5xx.
 
-## <a name="performance-implications-and-log-sampling"></a>Konsekvenser för prestanda och logg provtagning
+## <a name="performance-implications-and-log-sampling"></a>Prestanda och log sampling
 
 > [!WARNING]
-> Loggning av alla händelser kan ha allvarliga prestandaproblem konsekvenser, beroende på mottagningshastighet för begäranden.
+> Logga alla händelser kan ha allvarligt prestandaskäl, beroende på inkommande begäranden-hastighet.
 
-Baserat på interna tester, den här funktionen aktiveras på grund en 40-50% minskning i dataflöde när begärandehastighet överskrider 1 000 begäranden per sekund. Azure Application Insights är utformad för statistiska analyser för att bedöma programmets prestanda. Det är inte avsedd att vara en audit-system och är inte lämpligt för loggning av varje enskild begäran för API: er för stora volymer.
+Baserat på interna tester kan orsakade den här funktionen aktiveras en 40-50% av dataflöde när förfrågningar har överskridits 1 000 begäranden per sekund. Azure Application Insights har utformats för att använda statistiska analyser för att utvärdera prestanda för programmet. Det är inte avsedd att vara en granskning system och är inte lämpligt för loggning av varje enskild begäran för API: er för stora volymer.
 
-Du kan ändra antalet begäranden som du loggar in genom att justera det **provtagning** inställning (se ovan). Värdet 100% innebär alla begäranden som loggas när 0% visar ingen loggning alls. **Provtagning** hjälper till att minska telemetrivolym effektivt förhindrar nedsatt prestanda, fortfarande sin fördelarna med loggning.
+Du kan ändra antalet begäranden som du loggar in genom att justera den **Sampling** inställning (se ovan). Värdet 100% innebär att alla förfrågningar loggas, medan 0% är medräknad ingen loggning alls. **Sampling** hjälper till att minska mängden telemetri som effektivt förhindrar betydande prestandaförsämring fortfarande sin fördelarna med loggning.
 
-Hoppar över loggning av rubriker och brödtexten i begäran och svar har också positiva inverkan på lindra prestandaproblem.
+Hoppar över loggning av rubriker och brödtext för begäranden och svar har också positiv inverkan på lindra prestandaproblem.
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ Lär dig mer om [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/).
-+ Överväg att [loggning med Händelsehubbar](api-management-howto-log-event-hubs.md).
++ Läs mer om [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/).
++ Överväg att [loggning med Azure Event Hubs](api-management-howto-log-event-hubs.md).

@@ -1,6 +1,6 @@
 ---
-title: Lägg till klienter för användning och fakturering till Azure-stacken | Microsoft Docs
-description: De steg som krävs för att lägga till en slutanvändare till Azure-stacken som hanteras av en Molntjänstleverantör.
+title: Lägg till klienter för användning och fakturering i Azure Stack | Microsoft Docs
+description: De steg som krävs för att lägga till en användare i Azure Stack som hanteras av en Cloud Service Provider (CSP).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,85 +11,85 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 07/12/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 27473ce4057fdb06ab9faf0f46dede62b4ee2246
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ec4ef435aac65df628a8d499cd0d3f205808abcf
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048847"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003188"
 ---
-# <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Lägg till klient för användning och fakturering till Azure-stacken
+# <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Lägg till klient för användning och fakturering i Azure Stack
 
-*Gäller för: Azure Stack integrerat system*
+*Gäller för: integrerade Azure Stack-system*
 
-Den här artikeln beskrivs vad du behöver lägga till en användare i Azure stapel som hanteras av en molntjänst-providers (CSP). När den nya innehavaren använder resurser, rapporterar Azure Stack användning till CSP prenumerationen.
+Den här artikeln beskrivs vad du behöver lägga till en användare i Azure Stack som hanteras av en Cloud Service Provider (CSP). När den nya innehavaren använder resurser, kommer Azure Stack rapportera användning till CSP-prenumerationen.
 
-Kryptografiproviders erbjuda ofta tjänster till flera kunder (klienter) på deras Azure Stack-distribution. Lägger till klienter i Azure Stack-registrering säkerställer att varje klientanvändning ska rapporteras och debiteras den motsvarande CSP-prenumerationen. Om du inte slutför stegen i den här artikeln debiteras klientanvändning till registreringen av Azure Stack-prenumerationen. Innan du kan lägga till en end-kund till Azure-stacken för spårning av användning och för att hantera klienten, behöver du konfigurera Azure-stacken som en CSP. Steg och resurser finns [Hantera användning och fakturering för Azure-stacken som en Molntjänstleverantör](azure-stack-add-manage-billing-as-a-csp.md).
+CSP: er erbjuda ofta tjänster till flera slutkunder (klienter) på deras Azure Stack-distribution. Att lägga till klienter i Azure Stack-registrering säkerställer att varje klientanvändning ska rapporteras och debiteras för den motsvarande CSP-prenumerationen. Om du inte slutföra stegen i den här artikeln, debiteras klientanvändning till den första registreringen av Azure Stack-prenumerationen. Innan du kan lägga till en slutkunden till Azure Stack för spårning av användning och för att hantera sina klienten, måste du konfigurera Azure Stack som en Kryptografiprovider. Steg och resurser finns i [Hantera användning och fakturering för Azure Stack som en Molntjänstleverantör](azure-stack-add-manage-billing-as-a-csp.md).
 
-I följande diagram visas de steg som en Kryptografiprovider måste följa för att aktivera en ny kund att använda Azure-stacken och konfigurera spårning för kundens användning. Lägger till slut-kund kan vara du också att hantera resurser i Azure-stacken. Har du två alternativ för att hantera sina resurser:
+I följande diagram visas de steg som en CSP måste du följa om du vill aktivera en ny kund att använda Azure Stack och ställa in användningsspårning för kunden. Genom att lägga till slutkunden, kommer du också att hantera resurser i Azure Stack. Har du två alternativ för att hantera sina resurser:
 
-1. Du kan underhålla slutet kunden klient och ange autentiseringsuppgifter till den lokala Azure Stack-prenumerationen till slutkunden.  
-2. Eller end-kund kan arbeta med prenumerationen lokalt och lägga till CSP: N som gäst med ägare.  
+1. Du kan underhålla slutkunden och ange autentiseringsuppgifter för lokala Azure Stack-prenumerationen till slutkunden.  
+2. Eller slutkunden kan arbeta med sin prenumeration lokalt och lägga till CSP: N som en gäst med ägarbehörigheter.  
 
-**Steg för att lägga till en end-kund**
+**Hur du lägger till en slutkunden**
 
-![Ställa in Molntjänstleverantören för spårning av användning och hantera kundkontot slut](media\azure-stack-csp-enable-billing-usage-tracking\process-csp-enable-billing.png)
+![Ställ in Molntjänstleverantören för spårning av användning och för att hantera slutet kund-ID](media\azure-stack-csp-enable-billing-usage-tracking\process-csp-enable-billing.png)
 
 ## <a name="create-a-new-customer-in-partner-center"></a>Skapa en ny kund i Partner Center
 
-Skapa en ny Azure-prenumeration för kunden Partner Center. Instruktioner finns i [lägga till en ny kund](https://msdn.microsoft.com/partner-center/add-a-new-customer).
+Skapa en ny Azure-prenumeration för kunden Partner Center. Anvisningar finns i [lägga till en ny kund](https://msdn.microsoft.com/partner-center/add-a-new-customer).
 
 
-##  <a name="create-an-azure-subscription-for-the-end-customer"></a>Skapa en Azure-prenumeration för end-kund
+##  <a name="create-an-azure-subscription-for-the-end-customer"></a>Skapa en Azure-prenumeration för slutkunden
 
-När du har skapat en post till kunden Partner Center kan sälja du dem prenumerationer produkter i katalogen. Instruktioner finns i [skapa, pausa eller avsluta kundprenumerationer](https://msdn.microsoft.com/partner-center/create-a-new-subscription).
+När du har skapat en post för din kund i Partner Center kan sälja du dem på prenumerationer till produkter i katalogen. Anvisningar finns i [skapa, pausa eller avsluta kundprenumerationer](https://msdn.microsoft.com/partner-center/create-a-new-subscription).
 
-## <a name="create-a-guest-user-in-the-end-customer-directory"></a>Skapa gästanvändare i katalogen slutet kunder
+## <a name="create-a-guest-user-in-the-end-customer-directory"></a>Skapa en gästanvändare i katalogen end-kund
 
-Om slutkunden ska hantera sina egna konton, skapa gästanvändare i sina kataloger och skicka dem till informationen. Slutanvändaren sedan lägger till gästen och höjer behörigheten Gäst till **ägare** till Azure-stacken CSP-konto.
+Om slutkunden ska hantera sina egna konton, skapa en gästanvändare i sin katalog och skicka dem till informationen. Användaren sedan lägger till gästen och höjer behörigheten Gäst till **ägare** till CSP: N för Azure Stack-konto.
  
-## <a name="update-the-registration-with-the-end-customer-subscription"></a>Uppdatera registreringen med kundprenumerationen slut
+## <a name="update-the-registration-with-the-end-customer-subscription"></a>Uppdatera registreringen med kundprenumerationen slutet
 
-Uppdatera registreringen med nya kundens prenumeration. Azure rapporterar kundens användning med identiteten kunden från Central till Partner. Det här steget säkerställer att varje kunds användning rapporteras under den enskilda CSP kundprenumeration. Detta gör att spåra användaren användning och fakturering är mycket enklare.
+Uppdatera din registrering med nya kundens prenumeration. Azure rapporterar kundens användning med hjälp av kunden identiteten från Central till Partner. Det här steget säkerställer att varje kunds användning rapporteras under kundens enskilda CSP-prenumeration. Detta gör att spåra användaren användning och fakturering är mycket enklare.
 
 > [!Note]  
-> Om du vill utföra det här steget måste du ha [registrerade Azure Stack](azure-stack-register.md).
+> Om du vill utföra det här steget måste du ha [registrerad Azure Stack](azure-stack-register.md).
 
-1. Öppna Windows PowerShell med en förhöjd behörighet och kör:  
+1. Öppna Windows PowerShell med en upphöjd kommandotolk och kör:  
     `Add-AzureRmAccount`
 2. Ange dina autentiseringsuppgifter för Azure.
-3. Kör i PowerShell-session:
+3. I PowerShell-session kör du:
 
 ```powershell
     New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
 ```
-### <a name="new-azurermresource-powershell-parameters"></a>Nya AzureRmResource PowerShell-parametrar
+### <a name="new-azurermresource-powershell-parameters"></a>Ny AzureRmResource PowerShell-parametrar
 | Parameter | Beskrivning |
 | --- | --- | 
-|registrationSubscriptionID | Azure-prenumerationen som användes för registreringen av Azure-stacken. |
-| customerSubscriptionID | Azure-prenumerationen (inte Azure-Stack) som hör till kunden ska registreras. Måste vara skapas i CSP erbjudandet; i praktiken innebär detta via Partnercenter. Om en kund har mer än en Azure Active Directory-klient, måste den här prenumerationen skapas i innehavaren som ska användas för att logga in på Azure-stacken.
-| resourceGroup | Resursgrupp i Azure som är lagrade i din registrering. 
-| registrationName | Namnet på registrering av Azure-stacken. Det är ett objekt som lagras i Azure. | 
+|registrationSubscriptionID | Azure-prenumerationen som har använts för den första registreringen av Azure Stack. |
+| customerSubscriptionID | Azure-prenumerationen (inte Azure Stack) som hör till kunden som ska registreras. Måste vara skapas i CSP-erbjudandet; i praktiken innebär detta via Partnercenter. Om en kund har mer än en Azure Active Directory-klient, måste den här prenumerationen skapas i den klient som ska användas för att logga in på Azure Stack.
+| ResourceGroup | Resursgruppen i Azure som är lagrade i din registrering. 
+| registrationName | Namnet på registreringen av din Azure Stack. Det är ett objekt som lagras i Azure. | 
 | Egenskaper | Anger egenskaper för resursen. Använd den här parametern om du vill ange värden för egenskaper som är specifika för resurstypen.
 
 
 > [!Note]  
-> Klienter måste vara registrerad med varje Azure-stacken som de använder. Om du har två Azure Stack-distributioner och en klient kommer att använda båda, måste du uppdatera de inledande registreringarna för varje distribution med klientprenumeration.
+> Klienter måste vara registrerad med varje Azure Stack som de använder. Om du har två Azure Stack-distributioner och en klient kommer att använda båda, måste du uppdatera de inledande registreringarna för varje distribution med klientprenumeration.
 
-## <a name="onboard-tenant-to-azure-stack"></a>Publicera klient till Azure-stacken
+## <a name="onboard-tenant-to-azure-stack"></a>Publicera klient till Azure Stack
 
-Konfigurera Azure-grupp om du vill hantera användare från flera Azure AD-klienter att använda tjänster i Azure-stacken. Instruktioner finns i [aktivera multitenans i Azure-stacken](azure-stack-enable-multitenancy.md).
+Konfigurera Azure Stack för att hantera användare från flera Azure AD-klienter att använda tjänster i Azure Stack. Anvisningar finns i [aktivera flera innehavare i Azure Stack](azure-stack-enable-multitenancy.md).
 
 
-## <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack"></a>Skapa en lokal resurs i slutet kunden klienten i Azure-stacken
+## <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack"></a>Skapa en lokal resurs i slutet kund-klienten i Azure Stack
 
-När du har lagt till den nya kunden till Azure-stacken, eller slutet kunden innehavaren har aktiverat gästkonto med privilegier som ägare, kontrollera att du kan skapa en resurs i klientorganisationen. De kan till exempel [skapa en virtuell Windows-dator med Azure Stack-portalen](user\azure-stack-quick-windows-portal.md).
+När du har lagt till den nya kunden till Azure Stack eller kundklient slutet har aktiverat din gästkontot med ägarprivilegier, kontrollera att du kan skapa en resurs i deras klienter. De kan till exempel [skapa en Windows-dator med Azure Stack portal](user\azure-stack-quick-windows-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
- - Felmeddelanden om de har utlösts i din registreringsprocessen finns [klient registrering felmeddelanden](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
- - Läs mer om hur du hämtar information om användning från Azure-stacken i [användnings- och fakturering i Azure-stacken](/azure-stack-billing-and-chargeback.md).
- - Om du vill granska hur en end-kund kan lägga till dig, som CSP: N som hanterare för sina Azure Stack-klient, se [aktivera en Molntjänstleverantör att hantera din prenumeration på Azure-stacken](user\azure-stack-csp-enable-billing-usage-tracking.md).
+ - Felmeddelanden om de aktiveras i din registreringen finns i [klient registrering felmeddelanden](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
+ - Läs mer om hur du hämtar information om användning från Azure Stack i [användning och fakturering i Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Om du vill granska hur en slutkund kan lägga till dig, som CSP: N, chef för deras Azure Stack-klientorganisation, se [aktivera en Molntjänstleverantör att hantera din prenumeration för Azure Stack](user\azure-stack-csp-enable-billing-usage-tracking.md).

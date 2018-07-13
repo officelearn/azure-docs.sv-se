@@ -10,7 +10,7 @@ Azure Data Factory har stöd för följande typer av format:
 ### <a name="specifying-textformat"></a>Ange TextFormat
 Om du vill parsa textfilerna eller skriva data i textformat anger du egenskapen `format` `type` till **TextFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [TextFormat-exempel](#textformat-example).
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | columnDelimiter |Det tecken som används för att avgränsa kolumner i en fil. Överväg att använda ett sällsynt icke utskrivbart tecken som sannolikt inte finns i dina data: använd till exempel "\u0001" som representerar rubrikens början (SOH, Start of Heading). |Endast ett tecken är tillåtet. **Standardvärdet** är **kommatecken (,)**. <br/><br/>Om du vill använda ett Unicode-tecken letar du upp motsvarande kod i avsnittet med [Unicode-tecken](https://en.wikipedia.org/wiki/List_of_Unicode_characters). |Nej |
 | rowDelimiter |Det tecken som används för att avgränsa rader i en fil. |Endast ett tecken är tillåtet. **Standardvärdet** är något av följande värden vid läsning: **["\r\n", "\r", "\n"]** och **"\r\n"** vid skrivning. |Nej |
@@ -56,11 +56,11 @@ Om du vill använda ett `escapeChar` i stället för `quoteChar` ersätter du ra
 * Du kopierar från en textfil och vill hoppa över några rader i början som antingen inte innehåller några data eller som innehåller rubrikinformation. Ange `skipLineCount` för att ange antalet rader som ska hoppas över. Om resten av filen innehåller en rubrikrad kan du också ange `firstRowAsHeader`. Om både `skipLineCount` och `firstRowAsHeader` anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen
 
 ### <a name="specifying-jsonformat"></a>Ange JsonFormat
-Till **import/export av JSON-filer som-är i/från Azure Cosmos DB**, se [Import/export JSON-dokument](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) avsnitt i Azure DB som Cosmos-koppling med information.
+Att **import/export JSON-filer som – är till/från Azure Cosmos DB**, se [Import/export JSON-dokument](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) avsnitt i Azure Cosmos DB-anslutningen med information.
 
 Om du vill parsa JSON-filerna eller skriva data i JSON-format anger du egenskapen `format` `type` till **JsonFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example).
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | filePattern |Ange mönstret för de data som lagras i varje JSON-fil. Tillåtna värden är: **setOfObjects** och **arrayOfObjects**. **Standardvärdet** är **setOfObjects**. Detaljerad information om dessa mönster finns i avsnittet om [JSON-filmönster](#json-file-patterns). |Nej |
 | jsonNodeReference | Om du vill iterera och extrahera data från objekten i ett matrisfält med samma mönster anger du JSON-sökvägen för matrisen. Den här egenskapen stöds endast när du kopierar data från JSON-filer. | Nej |
@@ -201,7 +201,7 @@ och du vill kopiera den till en Azure SQL-tabell i följande format, genom att e
 Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt:
 
 - Avsnittet `structure` definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Mer information finns i avsnittet [Specifying structure definition for rectangular datasets](#specifying-structure-definition-for-rectangular-datasets) (Ange strukturdefinition för rektangulära datauppsättningar).
-- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. Om du vill kopiera data från matrisen kan du använda **matris[x].egenskap** för att extrahera värdet för en viss egenskap från objekt nr x, eller så kan du använda **matris[*].egenskap** för att hitta värdet från alla objekt som innehåller en sådan egenskap.
+- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. Du kan använda för att kopiera data från en matris, **matris [x] .egenskap** att extrahera värdet för en viss egenskap från objekt nr x, eller om du kan använda **matris [*] .egenskap** att hitta värdet från alla objekt som innehåller till exempel Egenskapen.
 
 ```json
 "properties": {

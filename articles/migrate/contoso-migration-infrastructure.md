@@ -5,14 +5,14 @@ services: azure-migrate
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: bf1406c8e361e0a1433b0e26c477c3c34e987fcf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6f535d98ea9e1312e4d5f197d121c8d12c109449
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38562766"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002287"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - distribuera en infrastruktur för migrering
 
@@ -21,25 +21,30 @@ Den här artikeln går igenom hur Contoso ställer in en lokal och Azure-infrast
 - Det är en exempelarkitektur som är specifik för Contoso.
 - Om du behöver alla element som beskrivs i artikel beror på migreringsstrategin. Till exempel om du bygger endast molnbaserade appar i Azure kan behöva en mindre komplexa nätverk struktur.
 
-Det här dokumentet är andra i serie av artiklar som dokumenterar hur det fiktiva företaget Contoso migrerar lokala resurser till Microsoft Azure-molnet. Serien innehåller bakgrundsinformation och en uppsättning scenarier som illustrerar hur du ställer in en infrastruktur för migrering, bedöma lokala resurser för migrering och kör olika typer av migreringar. Scenarier växer i komplexitet och vi ska lägga till ytterligare artiklar med tiden.
+Det här dokumentet är andra i serie av artiklar som dokumenterar hur det fiktiva företaget Contoso migrerar lokala resurser till Microsoft Azure-molnet. Serien innehåller information och scenarier som illustrerar hur du ställer in en infrastruktur för migrering, bedöma lokala resurser för migrering och köra olika typer av migreringar. Scenarier växer i komplexitet och vi ska lägga till ytterligare artiklar med tiden.
 
 **Artikel** | **Detaljer** | **Status**
 --- | --- | ---
 [Artikel 1: översikt](contoso-migration-overview.md) | Översikt över Contosos migreringsstrategi, artikelserien och exempelappar som vi använder. | Tillgängligt
-Artikel 2: Distribuera en Azure-infrastruktur (den här artikeln) | Beskriver hur Contoso förbereder sina lokala och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla scenarier för migrering av Contoso. | Tillgängligt
-[Artikel 3: Utvärdera lokala resurser](contoso-migration-assessment.md) | Visar hur Contoso körs en bedömning av sina lokala tvålagers-SmartHotel-app som körs på VMware. De utvärdera app virtuella datorer med den [Azure Migrate](migrate-overview.md) -tjänsten och SQL Server-databas för appen med den [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Tillgängligt
-[Artikel 4: Rehost till Azure virtuella datorer och en hanterad SQL-instans](contoso-migration-rehost-vm-sql-managed-instance.md) | Visar hur Contoso migrerar SmartHotel appen till Azure. De migrera appen klientdelens VM med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), och appen databasen med den [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) service för att migrera till en SQL-hanterad instans. | Tillgängligt
-[Artikel 5: Byt värd till virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Visar hur Contoso migrerar SmartHotel appen virtuella datorer med Site Recovery endast.
-[Artikel 6: Byt värd till virtuella Azure-datorer och SQL Server-Tillgänglighetsgrupper](contoso-migration-rehost-vm-sql-ag.md) | Visar hur Contoso migrerar SmartHotel appen. De kan använda Site Recovery för att migrera de virtuella datorerna för appen och tjänsten Databasmigrering för att migrera app-databas till en SQL Server-tillgänglighetsgrupp. | Tillgängligt
-[Artikel 7: Byta Appvärd en Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Visar hur Contoso migrerar Linux osTicket-app till virtuella Azure-datorer. | Tillgängligt
-[Artikel 8: Rehost en Linux-app till Azure virtuella datorer och Azure MySQL-Server](contoso-migration-rehost-linux-vm-mysql.md) | Visar hur Contoso migrerar Linux osTicket appen med Site Recovery och MySQL Workbench för att migrera (säkerhetskopiering och återställning) till en Azure MySQL-Server-instans. | Tillgängligt
+Artikel 2: Distribuera en Azure-infrastruktur | Beskriver hur Contoso förbereder sina lokala och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla migreringsartiklar om. | Den här artikeln.
+[Artikel 3: Utvärdera lokala resurser för migrering till Azure](contoso-migration-assessment.md)  | Visar hur Contoso körs en bedömning av en lokal tvålagers-SmartHotel-app som körs på VMware. Contoso utvärderar app virtuella datorer med den [Azure Migrate](migrate-overview.md) -tjänsten och SQL Server-databas för appen med den [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Tillgängligt
+[Artikel 4: Ange ny värd för en app på Azure virtuella datorer och en hanterad SQL-instans](contoso-migration-rehost-vm-sql-managed-instance.md) | Visar hur Contoso körs en lift and shift-migrering till Azure för lokala SmartHotel appen. Contoso migrerar appen klientdelens VM med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), och app-databasen till en SQL Managed Instance med hjälp av den [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Tillgängligt
+[Artikel 5: Ange ny värd för en app på virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Visar hur Contoso migrerar appen SmartHotel virtuella datorer till virtuella Azure-datorer med hjälp av Site Recovery-tjänsten. | Tillgängligt
+[Artikel 6: Ange ny värd för en app på Azure virtuella datorer och SQLServer Always On-tillgänglighetsgrupp](contoso-migration-rehost-vm-sql-ag.md) | Visar hur Contoso migrerar SmartHotel appen. Contoso använder Site Recovery för att migrera de virtuella datorerna för appen och tjänsten Databasmigrering att migrera app-databas till en SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängligt
+[Artikel 7: Byta Appvärd en Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Visar hur Contoso gör en lift and shift-migrering av Linux osTicket-app till virtuella Azure-datorer med Site Recovery | Tillgängligt
+[Artikel 8: Byta Appvärd en Linux på Azure virtuella datorer och Azure MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Visar hur Contoso migrerar Linux osTicket-app till Azure virtuella datorer med Site Recovery och migrerar app-databasen till en Azure MySQL-Server-instans med MySQL Workbench. | Tillgängligt
+[Artikel 9: Omstrukturera en app på Azure Web Apps och Azure SQL-databas](contoso-migration-refactor-web-app-sql.md) | Visar hur Contoso migrerar SmartHotel-app till ett Azure Web Apps och app-databasen har migrerats till Azure SQL Server-instans | Tillgängligt
+[Artikel 10: Omstrukturera en app för Linux på Azure Web Apps och Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Visar hur Contoso migrerar Linux osTicket-app till Azure Web Apps på flera platser, integrerad med GitHub för kontinuerlig leverans. De migrera app-databasen till en Azure MySQL-instans. | Tillgängligt
+[Artikel 11: Omstrukturera TFS på VSTS](contoso-migration-tfs-vsts.md) | Visar hur Contoso migrerar sina lokala Team Foundation Server (TFS)-distributionen genom att migrera den till Visual Studio Team Services (VSTS) i Azure. | Tillgängligt
+[Artikel 12: Omforma en app på Azure-behållare och Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Visar hur Contoso migrerar och rearchitects SmartHotel appen till Azure. De Omforma webbnivån appen som en Windows-behållare och app-databasen i en Azure SQL Database. | Tillgängligt
+[Artikel 13: Återskapa en app i Azure](contoso-migration-rebuild.md) | Visar hur Contoso återskapa SmartHotel appen med hjälp av en mängd Azure-funktioner och tjänster, inklusive App Services, Azure Kubernetes, Azure Functions, Cognitive services och Cosmos DB. | Tillgängligt
 
-I den här artikeln Contoso ställa in alla infrastrukturelement måste de slutföra Migreringsscenarier. 
+I den här artikeln Contoso ställer in alla infrastrukturelement måste de slutföra alla Migreringsscenarier. 
 
 
 ## <a name="overview"></a>Översikt
 
-Innan de kan migrera till Azure, är det viktigt att Contoso förbereder sin infrastruktur.  Det finns ofta fem bred områden som de behöver för att tänka på:
+Innan de kan migrera till Azure, är det viktigt att Contoso förbereder ett Azure-infrastrukturen.  Det finns ofta fem bred områden som de behöver för att tänka på:
 
 **Steg 1: Azure-prenumerationer**: hur ska de köper Azure och interagera med Azure-plattformen och tjänster?  
 **Steg 2: Hybrididentitet**: hur ska de hantera och styra åtkomsten till både lokala och Azure-resurser efter migreringen? Hur utökar de eller flytta Identitetshantering till molnet?  
@@ -82,16 +87,16 @@ Contoso behöver ta reda på hur du köper Azure, hur du skapar prenumerationer 
 Contoso kommer med en [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Detta innebär att betala ett åtagandebelopp till Azure, gör att de få fantastiska förmåner – inklusive flexibla faktureringsalternativ och optimerade priser.
 
 - Contoso beräknat vad deras varje år Azure-kostnader kommer att. När de signerade avtalet betalt de för det första året i sin helhet.
-- Contoso behöver använda alla sina åtaganden innan året är över eller de förlorar värdet för dessa dollar.
+- Contoso behöver använda alla åtaganden innan året är över eller de förlorar värdet för dessa dollar.
 - Om de överstiger åtagandet och lägga mer av någon anledning, kommer Microsoft ska fakturera dem för skillnaden.
 - Eventuella kostnader som uppstår ovan åtagandet är tillgänglig med samma priser och de som finns i deras avtal. Det finns inga påföljder för att gå över.
 
 ### <a name="manage-subscriptions"></a>Hantera prenumerationer
 
-Efter att betala för Azure, måste Contoso att ta reda på hur du hanterar sina prenumerationer. De har ett EA och därför ingen gräns för hur många Azure-prenumerationer som de kan ställa in.
+Efter att betala för Azure, måste Contoso att ta reda på hur du hanterar Azure-prenumerationer. De har ett EA och därför ingen gräns för hur många Azure-prenumerationer som de kan ställa in.
 
 - En Azure Enterprise-registrering definierar hur formen företag använder Azure-tjänster och definierar en core styrning struktur.
-- Som ett första steg Contoso har bestämt en struktur (kallas en enterprise-kodskelett för sina Företagsregistrering. De används [i den här artikeln](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance) som hjälper dem att förstå och utforma en kodskelett.
+- Som ett första steg har Contoso fastställt att en struktur (kallas en enterprise-kodskelett för sina Företagsregistrering. De används [i den här artikeln](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance) som hjälper dem att förstå och utforma en kodskelett.
 - Contoso har beslutat att använda en funktionell metod för att hantera sina prenumerationer för tillfället.
     - I företaget har de en enskild IT-avdelningen som styr Azure budgeten. Det här är den enda gruppen med prenumerationer.
     - De att utöka den här modellen i framtiden, så att andra företagets grupper kan ansluta som avdelningar i Enterprise-registrering.
@@ -128,9 +133,9 @@ I utbyte mot med reserverade instanser för specifika VM-instanser som de redan 
 
 Ge och styra användarnas åtkomst till Azure-resurser med identitets- och åtkomsthantering (IAM) är ett viktigt steg i att dra ihop Azure-infrastrukturen.  
 
-- Contoso vill utöka sin lokala Active Directory till molnet i stället för att skapa ett nytt separat system i Azure.
+- Contoso beslutar att utöka sin lokala Active Directory till molnet i stället för att skapa ett nytt separat system i Azure.
 - De skapar en Azure-baserad Active Directory för att göra detta.
-- Contoso har inte Office 365 på plats, så att de behöver för att etablera en ny Azure AD.
+- Contoso har Office 365 på plats, så de behöver för att etablera en ny Azure AD.
 - Office 365 använder Azure AD för hantering av användare. Om Contoso använder Office 365, skulle de redan har en Azure AD-tenet och använda det som sin primära AD.
 - [Läs mer](https://support.office.com/article/understanding-office-365-identity-and-azure-active-directory-06a189e7-5ec6-4af2-94bf-a22ea225a7a9) om Azure AD för Office 365, och lär dig [hur du lägger till en prenumeration](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) till en befintlig Azure AD.
 
@@ -138,7 +143,7 @@ Ge och styra användarnas åtkomst till Azure-resurser med identitets- och åtko
 
 Contoso använder den kostnadsfria versionen av Azure AD som har inkluderat med en Azure-prenumeration. Lägg till en ny AD-katalog på följande sätt:
 
-1. I den [Azure-portalen](http://portal.azure.com/), Contoso går du till **skapa en resurs** > **identitet** > **Azure Active Directory**.
+1. I den [Azure-portalen](http://portal.azure.com/), Contoso går till **skapa en resurs** > **identitet** > **Azure Active Directory**.
 2. I **Skapa katalog**, de ange ett namn för katalogen, ett första domännamn och region där Azure AD-katalogen ska skapas.
 
     ![Skapa Azure AD](./media/contoso-migration-infrastructure/azure-ad-create.png) 
@@ -148,7 +153,7 @@ Contoso använder den kostnadsfria versionen av Azure AD som har inkluderat med 
 
 ### <a name="add-the-domain-name"></a>Lägga till domännamnet
 
-För att använda deras standard domännamn, Contoso måste du lägga till det som ett anpassat namn till Azure AD. Det här alternativet gör att administratörer kan tilldela välbekanta användarnamn. Exempelvis kan en användare kan logga in med e-postadress billg@contoso.com, i stället för att behöva billg@contosomigration.onmicrosoft.com. 
+För att använda deras standard domännamn, behöver Contoso lägga till den som ett anpassat namn till Azure AD. Det här alternativet gör att administratörer kan tilldela välbekanta användarnamn. Exempelvis kan en användare kan logga in med e-postadress billg@contoso.com, i stället för att behöva billg@contosomigration.onmicrosoft.com. 
 
 Du ställer in anpassat namn de lägga till den i katalogen, lägger du till en DNS-post och kontrollera namnet i Azure AD.
 
@@ -163,7 +168,7 @@ Du ställer in anpassat namn de lägga till den i katalogen, lägger du till en 
 
 ### <a name="set-up-on-premises-and-azure-groups-and-users"></a>Ställa in både lokalt och Azure-grupper och användare
 
-Nu när deras Azure AD är igång, Contoso behöver lägga till anställda till en lokal AD-grupper som ska synkroniseras till Azure AD. Vi rekommenderar att de använder den lokala gruppnamn som matchar namnet på resursgrupperna i Azure. Detta gör det lättare att identifiera matchningar för synkronisering.
+Nu när deras Azure AD är igång, Contoso behov att lägga till anställda lokala AD-grupper som ska synkroniseras till Azure AD. Vi rekommenderar att de använder den lokala gruppnamn som matchar namnet på resursgrupperna i Azure. Detta gör det lättare att identifiera matchningar för synkronisering.
 
 #### <a name="create-resource-groups-in-azure"></a>Skapa resursgrupper i Azure
 
@@ -172,7 +177,7 @@ Azure-resursgrupper samla ihop Azure-resurser. Om du använder en resursgrupps-I
 - En Azure-prenumeration kan ha flera resursgrupper, men en resursgrupp kan bara finnas i en enskild prenumeration.
 - Dessutom kan en enskild resursgrupp kan ha flera resurser, men en resurs kan bara tillhöra en grupp.
 
-Contoso ställa in Azure-resursgrupper som sammanfattas i tabellen nedan.
+Contoso ställer in Azure-resursgrupper som sammanfattas i tabellen nedan.
 
 **Resursgrupp** | **Detaljer**
 --- | ---
@@ -193,7 +198,7 @@ De skapa resursgrupper enligt följande:
 
 #### <a name="create-matching-security-groups-on-premises"></a>Skapa matchande security grupper lokalt
 
-1. I sin lokala Active Directory konfigurera Contoso säkerhetsgrupper med namn som matchar namnen på Azure-resursgrupper.
+1. Contoso ställer in säkerhetsgrupper med namn som matchar namnen på Azure-resursgrupper i sin lokala Active Directory.
  
     ![En lokal AD-säkerhetsgrupper](./media/contoso-migration-infrastructure/on-prem-ad.png) 
 
@@ -206,7 +211,7 @@ Contoso vill tillhandahålla en gemensam identitet för åtkomst till resurser l
 - Användare och organisationer kan dra nytta av en enda identitet för att få åtkomst till lokala program och molntjänster, som Office 365 och tusentals andra webbplatser på internet.
 - Administratörer kan utnyttja grupperna i AD för att implementera [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) i Azure.
 
-Att underlätta integration, Contoso används den [verktyget Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect). När du installerar och konfigurerar verktyget på en domänkontrollant, synkroniseras lokalt lokala AD-identiteter med Azure AD. 
+För att underlätta integration, Contoso använder den [verktyget Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect). När du installerar och konfigurerar verktyget på en domänkontrollant, synkroniseras lokalt lokala AD-identiteter med Azure AD. 
 
 ### <a name="download-the-tool"></a>Ladda ned verktyget
 
@@ -228,13 +233,13 @@ Att underlätta integration, Contoso används den [verktyget Azure AD Connect](h
 
 5. I **redo att konfigurera**, de klickar på **starta synkroniseringsprocessen när konfigurationen är klar** att starta synkroniseringen direkt. De installerar.
 
-
+Tänk på följande:
 - Contoso har ingen direkt anslutning till Azure. Om din lokala AD är bakom en proxy, finns i det här [artikeln](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-connectivity).
 - Efter den första synkroniseringen kan lokala AD-objekt kan ses i Azure AD.
 
     ![Lokala AD i Azure](./media/contoso-migration-infrastructure/on-prem-ad-groups.png) 
 
-- Contoso IT-avdelningen representeras i varje grupp baserat på deras roll.
+- Contoso IT-avdelningen representeras i varje grupp baserat på dess roll.
 
     ![En lokal AD-medlemmar i Azure](./media/contoso-migration-infrastructure/on-prem-ad-group-members.png) 
 
@@ -242,7 +247,7 @@ Att underlätta integration, Contoso används den [verktyget Azure AD Connect](h
 
 Azure [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) Aktivera detaljerad åtkomsthantering för Azure. Med RBAC kan du bevilja exakt den åtkomstnivå som användarna behöver för att kunna utföra sitt arbete. Du kan tilldela lämpliga RBAC-roll till användare, grupper och program på en omfångsnivå. Omfattningen för en rolltilldelning kan vara en prenumeration, en resursgrupp eller en enskild resurs. 
 
-Contoso kan du nu tilldela roller till AD-grupper som de synkroniseras från en lokal plats.
+Contoso nu tilldelar roller till AD-grupper som de synkroniseras från en lokal plats.
 
 1. I den **ControlCobRG** resursgruppen, som han eller hon klickar **åtkomstkontroll (IAM)** > **Lägg till**.
 2. I **lägga till behörigheter** > **rollen**, de väljer **deltagare**, och välj den **ContosoCobRG** AD-grupp i listan. Gruppen visas sedan i **valda medlemmar** lista. 
@@ -261,15 +266,15 @@ Azure-resurser distribueras inom regionerna.
 - Läs mer om [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/), och förstå [hur regioner har parats ihop](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 
-Contoso har bestämt dig att gå med östra USA 2 (finns i Virginia) som deras primära region och USA, centrala som deras sekundär region. Det finns några orsaker till detta:
+Contoso har beslutat att gå med östra USA 2 (finns i Virginia) som deras primära region och USA, centrala som deras sekundär region. Det finns några orsaker till detta:
 
 - Contoso-datacenter finns i New York, och de anses vara fördröjning till det närmaste datacentret.
 - Östra USA 2 har alla tjänster och produkter som de ska användas. Inte alla Azure-regioner är desamma när det gäller de produkter och tjänster som är tillgängliga. Du kan granska [Azure-produkter per region](https://azure.microsoft.com/global-infrastructure/services/).
 - Centrala USA är Azure-parade regionen för östra USA 2.
 
-Som de tycker om hybridmiljön behöver Contoso att tänka på hur du skapar ökad flexibilitet och en strategi för katastrofåterställning i sin design region. Allmänna ordalag strategier sträcker sig från en distribution i en region, som förlitar sig på Azure-plattformen funktioner, till exempel som feldomäner och regional länkning för elasticitet, genom att en fullständig aktiv-aktiv modell i vilken molntjänster och en databas har distribuerats och underhåll användare från två regioner.
+Som de tycker om hybridmiljön måste Contoso att tänka på hur du skapar ökad flexibilitet och en strategi för katastrofåterställning i sin design region. Allmänna ordalag strategier sträcker sig från en distribution i en region, som förlitar sig på Azure-plattformen funktioner, till exempel som feldomäner och regional länkning för elasticitet, genom att en fullständig aktiv-aktiv modell i vilken molntjänster och en databas har distribuerats och underhåll användare från två regioner.
 
-Contoso har valt att ta en mellersta väg. De distribuera sina appar och resurser i en primär region och ha en fullständig infrastruktur i den sekundära regionen så att den är redo att fungera som en fullständig säkerhetskopiering vid fullständig app katastrof eller fel region.
+Contoso har beslutat att vidta en mellersta väg. De distribuera sina appar och resurser i en primär region och ha en fullständig infrastruktur i den sekundära regionen så att den är redo att fungera som en fullständig säkerhetskopiering vid fullständig app katastrof eller fel region.
 
 
 ## <a name="step-4-design-a-network-infrastructure"></a>Steg 4: Utforma en nätverksinfrastruktur
@@ -341,7 +346,7 @@ I varje region distribuerar Contoso virtuella nätverk för olika syften, som ek
 
 #### <a name="design-the-hub-network"></a>Utforma hub-nätverk
 
-I NAV och ekrar modellen som Contoso har valt, de behöver för att tänka på hur trafik från sina lokala datacenter och från internet, ska dirigeras. Här är hur Contoso har valt att hantera routning för både östra USA 2 och USA, centrala hubs:
+I NAV och ekrar modellen som Contoso har valt, de behöver för att tänka på hur trafik från sina lokala datacenter och från internet, ska dirigeras. Här är hur Contoso har beslutat att hantera routning för både östra USA 2 och USA, centrala hubs:
 
 - De skapar ett nätverk som kallas ”omvänd c”, eftersom det här är den sökväg som inkommer till utgående nätverk följer du paketen.
 - Deras nätverksarkitektur har två gränser, en ej betrodd frontend perimeter-zon och en backend-betrodda zonen.
@@ -545,7 +550,7 @@ EUS2 | CONTOSODC4 | VNET-PROD-EUS2 | PROD-DC-EUS2 | 10.245.42.5
 CU: ER | CONTOSODC5 | VNET-PROD-CU: ER | PROD-DC-CU: ER | 10.255.42.4
 CU: ER | CONTOSODC6 | VNET-PROD-CU: ER | PROD-DC-CU: ER | 10.255.42.4
 
-När du har distribuerat de lokala domänkontrollanterna, Contoso måste du uppdatera DNS-inställningarna på nätverk på antingen region för att inkludera de nya domänkontrollanterna i sina DNS-serverlistan.
+När du har distribuerat de lokala domänkontrollanterna måste Contoso att uppdatera DNS-inställningarna på nätverk på antingen region för att inkludera de nya domänkontrollanterna i sina DNS-serverlistan.
 
 
 
@@ -610,7 +615,7 @@ AD är en kritisk tjänst i nätverk och måste vara korrekt konfigurerad. Conto
 
 Azure erbjuder en uppsättning kontroller för styrning i tjänster och Azure-plattformen. [Läs mer](https://docs.microsoft.com/azure/security/governance-in-azure) för en grundläggande förståelse för alternativ.
 
-När de konfigurera identitet och åtkomstkontroll Contoso redan börjat att inrätta vissa aspekter av styrning och säkerhet. Det finns allmänna ordalag tre områden som de behöver tänka på:
+När de konfigurera identitet och åtkomstkontroll har Contoso redan börjat infört vissa aspekter av styrning och säkerhet. Det finns allmänna ordalag tre områden som de behöver tänka på:
 
 - **Principen**: principen i Azure gäller och tillämpar regler och effekterna på resurserna, så att resurserna kompatibla med företagets krav och serviceavtal.
 - **Låser**: Azure kan du låsa prenumerationer, resursgrupper och andra resurser, så att de kan bara ändras av de som har behörighet att göra detta.
@@ -700,7 +705,7 @@ När du har skapat taggen Contoso gå tillbaka och skapa nya Azure principdefini
 
 Säkerhet är avgörande i molnet Azure ger en mängd olika säkerhetsverktyg och -funktioner. Dessa hjälper dig att skapa säkra lösningar för säkra Azure-plattformen. Läs [förtroende för det tillförlitliga molnet](https://azure.microsoft.com/overview/trusted-cloud/) vill veta mer om Azure-säkerhet.
 
-Det några huvudsakliga skillnader för Contoso att tänka på
+Det några huvudsakliga skillnader för Contoso att tänka på:
 
 - **Azure Security Center**: Azure Security Center erbjuder enhetlig säkerhetshantering och Avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. Med Security Center kan du tillämpa säkerhetsprinciper i arbetsbelastningarna, begränsa hotexponeringen samt identifiera och åtgärda attacker.  [Läs mer](https://docs.microsoft.com/azure/security-center/security-center-intro).
 - **Nätverkssäkerhetsgrupper (NSG)**: en NSG är ett filter (brandvägg) som innehåller en lista över security regler som vid tillämpningen tillåter eller nekar nätverkstrafik till resurser som är anslutna till virtuella Azure-nätverk. [Läs mer](https://docs.microsoft.com/azure/virtual-network/security-overview).
@@ -772,7 +777,7 @@ Azure Disk Encryption kan integreras med Azure Key Vault för att styra och hant
 
 ## <a name="conclusion"></a>Sammanfattning
 
-I den här artikeln Contoso ställer in sina Azure-infrastrukturen och ställa in eller planerat infrastruktur princip för Azure-prenumeration, hybrid identifierar, katastrofåterställning, nätverk, styrning och säkerhet. 
+I den här artikeln, Contoso ställa in en Azure-infrastrukturen och en princip för Azure-prenumeration kan identifiera hybrid, katastrofåterställning, nätverk, styrning och säkerhet. 
 
 Inte alla steg som Contoso har slutfört här krävs för migrering till molnet. I fallen de vill planera en nätverksinfrastruktur som kan användas för alla typer av migreringar och är säker, flexibel och skalbar. 
 

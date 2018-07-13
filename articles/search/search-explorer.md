@@ -1,30 +1,23 @@
 ---
-title: Köra frågor mot ett index (Portal – Azure Search) | Microsoft Docs
-description: Skicka en sökfråga i Sökutforskaren på Azure Portal.
+title: Sökutforskaren för att fråga index i Azure Search | Microsoft Docs
+description: Lär dig hur du använder Sökutforskaren för att fråga index i Azure Search.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 07/10/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: a3592bd0c304dfb78374eeba432c0d28203980c9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 520d9e7b1899c54d922ff6fb77e0901f9609b029
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790516"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004141"
 ---
-# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Köra frågor mot ett Azure Search-index med Sökutforskaren i Azure Portal
-> [!div class="op_single_selector"]
-> * [Översikt](search-query-overview.md)
-> * [Portalen](search-explorer.md)
-> * [NET](search-query-dotnet.md)
-> * [REST](search-query-rest-api.md)
-> 
-> 
+# <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Hur du använder Sökutforskaren för frågan index i Azure Search 
 
-Den här artikeln beskriver hur du kör frågor mot ett Azure Search-index med hjälp av **Sökutforskaren** i Azure Portal. Med Sökutforskaren kan du skicka enkla frågor eller fullständiga Lucene-frågesträngar till befintliga index i din tjänst.
+Den här artikeln visar hur du frågar efter en befintlig Azure Search index med hjälp av **Sökutforskaren** i Azure-portalen. Du kan använda Sökutforskaren för att skicka enkla eller fullständiga Lucene frågesträngar till befintliga index i din tjänst.
 
 ## <a name="open-the-service-dashboard"></a>Öppna instrumentpanelen
 1. Klicka på **Alla resurser** i snabbåtkomstfältet på vänster sida av [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
@@ -38,13 +31,13 @@ Välj det index som du vill söka i från panelen **Index**.
 
 ## <a name="open-search-explorer"></a>Öppna Sökutforskaren
 
-Klicka på panelen Sökutforskaren för att öppna sökfältet och resultatfönstret.
+Klicka på panelen Sök explorer för att öppna sökfältet och resultatfönstret.
 
    ![](./media/search-explorer/search-explorer-tile.png)
 
 ## <a name="start-searching"></a>Starta sökningen
 
-När du använder Sökutforskaren kan du formulera frågan genom att ange valfria [frågeparametrar](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+När du använder Sökutforskaren kan du ange [frågeparametrar](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) formulera frågan.
 
 1. Skriv en fråga i **Frågesträng** och tryck sedan på **Sök**. 
 

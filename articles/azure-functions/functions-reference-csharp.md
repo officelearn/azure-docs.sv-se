@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1706eaeaa59f09f343d831f0c09f98210eadb820
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 42b9f574d09429d95fbf79da02c137e1079ac369
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970844"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006955"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C#-skript (.csx) för utvecklare
 
@@ -202,17 +202,19 @@ Den `#load` direktiv fungerar bara med *.csx* filer, inte med *.cs* filer.
 
 Du kan använda metoden returvärdet för en utdatabindning genom att använda namnet `$return` i *function.json*. Exempel finns i [utlösare och bindningar](functions-triggers-bindings.md#using-the-function-return-value).
 
+Använd det returnera värdet bara om lyckad körning av en funktion alltid resulterar i ett returvärde ska skickas till utdata-bindning. Annars kan du använda `ICollector` eller `IAsyncCollector`, vilket visas i följande avsnitt.
+
 ## <a name="writing-multiple-output-values"></a>Skriva flera utdatavärden
 
-Om du vill skriva flera värden till en utdatabindning, använda den [ `ICollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) eller [ `IAsyncCollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) typer. Dessa typer är lässkyddad samlingar som har skrivits till utdata-bindning när metoden har slutförts.
+Skriva flera värden till en utdatabindning eller om en lyckad funktionsanrop inte kan resultera i att skicka till utdata-bindning kan du använda den [ `ICollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) eller [ `IAsyncCollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) typer. Dessa typer är lässkyddad samlingar som har skrivits till utdata-bindning när metoden har slutförts.
 
 Det här exemplet skriver flera Kömeddelanden i samma kö med `ICollector`:
 
 ```csharp
-public static void Run(ICollector<string> myQueueItem, TraceWriter log)
+public static void Run(ICollector<string> myQueue, TraceWriter log)
 {
-    myQueueItem.Add("Hello");
-    myQueueItem.Add("World!");
+    myQueue.Add("Hello");
+    myQueue.Add("World!");
 }
 ```
 

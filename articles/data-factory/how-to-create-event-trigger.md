@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 313f4915a8c522ae2b9fc5ebbbe85fdfb4741cc4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ecd5f242d2dcb5662376541ac0a9e75ce533b59f
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969586"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005840"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Skapa en utlösare som kör en pipeline som svar på en händelse
 
@@ -51,6 +51,14 @@ När filen tas emot i din lagringsplats och motsvarande blob skapas den här hä
 
 ![Välj Utlösartyp som händelse](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
+### <a name="map-trigger-properties-to-pipeline-parameters"></a>Mappa egenskaper för utlösare till pipeline-parametrar
+
+När en händelseutlösare utlöses för en specifik blob händelsen fångar mappnamn för sökvägen och filnamnet för bloben till egenskaperna `@triggerBody().folderPath` och `@triggerBody().fileName`. Om du vill använda värdena för dessa egenskaper i en pipeline måste du mappa egenskaperna till pipeline-parametrar. När du mappar egenskaperna till parametrar, du kan komma åt de värden som avbildas av utlösaren via den `@pipeline.parameters.parameterName` uttryck i hela pipelinen.
+
+![Mappa egenskaper till pipeline-parametrar](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+Till exempel på föregående skärmbild. utlösaren har konfigurerats för att utlöses när en blobbsökväg som slutar på `.csv` skapas i Lagringskontot. Resultatet blir att, när en blob med det `.csv` tillägget skapas var som helst i Storage-konto i `folderPath` och `fileName` egenskaper avbilda platsen för den nya bloben. Till exempel `@triggerBody().folderPath` har ett värde som `/containername/foldername/nestedfoldername` och `@triggerBody().fileName` har ett värde som `filename.csv`. De här värdena mappas i exemplet till pipeline-parametrar `sourceFolder` och `sourceFile`. Du kan använda dem i hela pipelinen som `@pipeline.parameters.sourceFolder` och `@pipeline.parameters.sourceFile` respektive.
+
 ## <a name="json-schema"></a>JSON-schema
 
 Följande tabell innehåller en översikt över de element som är relaterade till händelsebaserade utlösare:
@@ -75,14 +83,6 @@ Det här avsnittet innehåller exempel på inställningar för händelsebaserade
 
 > [!NOTE]
 > Du behöver ta den `/blobs/` segmentet i sökvägen när du anger behållaren och mappen, behållare och filen eller behållare, mapp och fil.
-
-## <a name="map-trigger-properties-to-pipeline-parameters"></a>Mappa egenskaper för utlösare till pipeline-parametrar
-
-När en händelseutlösare utlöses för en specifik blob händelsen fångar mappnamn för sökvägen och filnamnet för bloben till egenskaperna `@triggerBody().folderPath` och `@triggerBody().fileName`. Om du vill använda värdena för dessa egenskaper i en pipeline måste du mappa egenskaperna till pipeline-parametrar. När du mappar egenskaperna till parametrar, du kan komma åt de värden som avbildas av utlösaren via den `@pipeline.parameters.parameterName` uttryck i hela pipelinen.
-
-![Mappa egenskaper till pipeline-parametrar](media/how-to-create-event-trigger/event-based-trigger-image4.png)
-
-Till exempel på föregående skärmbild. utlösaren har konfigurerats för att utlöses när en blobbsökväg som slutar på `.csv` skapas i Lagringskontot. Resultatet blir att, när en blob med det `.csv` tillägget skapas var som helst i Storage-konto i `folderPath` och `fileName` egenskaper avbilda platsen för den nya bloben. Till exempel `@triggerBody().folderPath` har ett värde som `/containername/foldername/nestedfoldername` och `@triggerBody().fileName` har ett värde som `filename.csv`. De här värdena mappas i exemplet till pipeline-parametrar `sourceFolder` och `sourceFile`. Du kan använda dem i hela pipelinen som `@pipeline.parameters.sourceFolder` och `@pipeline.parameters.sourceFile` respektive.
 
 ## <a name="next-steps"></a>Nästa steg
 Detaljerad information om utlösare finns i [Pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md#triggers).

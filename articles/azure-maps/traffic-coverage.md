@@ -1,25 +1,25 @@
 ---
 title: Trafik täckning i Azure Maps | Microsoft Docs
-description: Lär dig mer om trafik täckning i Azure Maps
-author: kgremban
-ms.author: kgremban
+description: Lär dig mer om trafiktäckning i Azure Maps
+author: dsk-2015
+ms.author: dkshir
 ms.date: 11/28/2017
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: a6fc1a8f050c3b1f546b4d0150f14b2cbebc31d0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 37f63b719ed6137716789e3093074f50a74e4ae0
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599716"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990099"
 ---
-# <a name="azure-maps-traffic-coverage"></a>Azure Maps trafik täckning
+# <a name="azure-maps-traffic-coverage"></a>Azure Maps-trafiktäckning
 
-Azure Maps innehåller omfattande trafikinformation i form av trafik **flöde** och **incidenter**. Dessa data kan visualiseras på kartor eller används för att generera smartare vägar som factor i real körning villkor. 
+Azure Maps ger omfattande trafikinformation i form av trafik **flow** och **incidenter**. Dessa data kan visualiseras i maps eller används för att generera smartare vägar som faktor i realtid som driver villkor. 
 
-Maps har dock inte samma grad av information och noggrannhet för alla regioner. Följande tabell innehåller information om vilken typ av trafikinformation som du kan begära från varje region: 
+Maps har dock inte samma grad av information och Precision för alla regioner. I följande tabell innehåller information om vilken typ av information om trafik som du kan begära från varje region: 
 
 |Region  |Incidenter  |Flöde  |
 |---------|:---------:|:---------:|
@@ -39,7 +39,7 @@ Maps har dock inte samma grad av information och noggrannhet för alla regioner.
 |Egypten     |         |✓         |
 |Estland     |         | ✓        |
 |Finland     |✓         |✓         |
-|+ Åland i Oceanien och Västindien      |✓         |✓         |
+|+ Åland-öarna      |✓         |✓         |
 |Frankrike     |✓         |✓         |
 |+ Monaco     |✓         |✓         |
 |Tyskland     |✓         |✓         |
@@ -48,7 +48,7 @@ Maps har dock inte samma grad av information och noggrannhet för alla regioner.
 |Ungern     |✓         |✓         |
 |Island     |         |✓         |
 |Indonesien     |✓         |✓         |
-|Irland (Republiken)     |✓         |✓         |
+|Irland (republiken Makedonien)     |✓         |✓         |
 |Israel     |         |✓         |
 |Italien     |✓         |✓        |
 |+ San Marino     |✓         |✓         |
@@ -94,6 +94,6 @@ Maps har dock inte samma grad av information och noggrannhet för alla regioner.
 |(Guernsey & Jersey)     |✓         |✓         |
 |Isle of Man     |✓         |✓         |
 |USA     |✓         |✓        |
-|+ Registreringen     |✓         |✓         |
+|+ Puerto Rico     |✓         |✓         |
 
-Mer information om Azure Maps trafikinformation finns i [trafik](https://docs.microsoft.com/rest/api/maps/traffic) referera sidor.
+Läs mer om Azure Maps trafikdata den [trafik](https://docs.microsoft.com/rest/api/maps/traffic) referera till sidorna.

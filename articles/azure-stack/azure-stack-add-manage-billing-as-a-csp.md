@@ -1,6 +1,6 @@
 ---
-title: Hantera användning och fakturering för Azure-stacken som en Molntjänstleverantör | Microsoft Docs
-description: En genomgång registrera Azure Stack som en Molntjänstleverantör och lägga till kunder.
+title: Hantera användning och fakturering för Azure Stack som en Molntjänstleverantör | Microsoft Docs
+description: En genomgång och registrera Azure Stack som en Cloud Provider (CSP) och lägga till kunder för fakturering.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,27 +11,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 07/12/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 21a52af4943004789b0a9bdbe4695ab1a603c046
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c4a266644bf5288e51e01523b6033082400387d4
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796707"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39009261"
 ---
-# <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Hantera användning och fakturering för Azure-stacken som en Molntjänstleverantör 
+# <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Hantera användning och fakturering för Azure Stack som en Molntjänstleverantör 
 
-*Gäller för: Azure Stack integrerat system*
+*Gäller för: integrerade Azure Stack-system*
 
-Den här artikeln beskriver hur du registrerar Azure Stack som en molnet Provider (CSP) och lägga till kunder.
+Den här artikeln beskriver hur du registrerar Azure Stack som en Cloud Provider (CSP) och lägga till kunder.
 
-Som en Kryptografiprovider troligen kommer att ha många olika kunder som använder Azure-stacken. Varje kund har en CSP-prenumeration i Azure och du behöver direkt användning från Azure-stacken till varje användares prenumeration.
+Som en Kryptografiprovider fungerar med olika kunder som använder Azure Stack. Varje kund har en CSP-prenumeration i Azure. Du behöver dirigera användning från din Azure-Stack på varje användarprenumeration.
 
-I följande diagram visas de steg som du behöver välja kontot för delade tjänster och registrera azure-konto med kontot. När detta har gjorts, kan du publicera kunderna slutet.
+I följande diagram visas de steg som du måste välja ditt konto för delade tjänster och registrera Azure-konto med Azure Stack-konto. Registrerad, kan du registrera dina slutkunder.
 
-**Steg för att lägga till som en Kryptografiprovider för uppföljning av användningen**
+**Hur du lägger till användningsspårning som en Kryptografiprovider**
 
 ![Processen för att aktivera användning och hantering som en Molntjänstleverantör.](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png)
 
@@ -39,50 +39,48 @@ I följande diagram visas de steg som du behöver välja kontot för delade tjä
 
 ### <a name="cloud-service-provider-subscription-types"></a>Molntyper tjänstleverantör prenumeration
 
-Du måste välja vilken typ av konto för delade tjänster som du använder för Azure-stacken. Typer av prenumerationer som kan användas för registrering av en multitenant Azure-stacken är:
+Du måste välja vilken typ av konto för delade tjänster som du använder för Azure Stack. Typer av prenumerationer som kan användas för registrering av en multitenant Azure Stack är:
 
  - Molntjänstleverantör 
- - Partner delade tjänster prenumeration 
+ - Delade tjänster-partnerprenumeration 
 
 #### <a name="csp-shared-services"></a>CSP delade tjänster
 
-Molnprenumerationer Service providern för delade tjänster (CSPSS) är det bästa valet för registrering när en direkt CSP eller distributör CSP fungerar Azure stacken.
+Molnprenumerationer för Service Provider delade tjänster (CSPSS) är det önskade valet för registrering när en direkt CSP eller en CSP-återförsäljare fungerar Azure Stack.
 
-CSPSS prenumerationer är associerade med en klient för delade tjänster. När du registrerar Azure-stacken, måste du ange autentiseringsuppgifter för ett konto som är ägare till prenumerationen. Det konto som används för att registrera Azure Stack kan skilja sig från det administratörskonto som du använder för distribution; två gör *inte* måste tillhöra samma domän. Med andra ord kan du distribuera med den klient som du redan använder. Du kan till exempel använda ContosoCSP.onmicrosoft.com och sedan registrera med hjälp av en annan klient, till exempel IURContosoCSP.onmicrosoft.com. Du kommer att behöva komma ihåg att du loggar in med ContosoCSP.onmicrosoft.com när du gör dag att göra Azure Stack administration. När du loggar in till Azure med IURContosoCSP.onmicrosoft.com när du behöver utföra åtgärder för registrering.
+CSPSS prenumerationer är associerade med en klient för delade tjänster. När du registrerar Azure Stack kan behöva du ange autentiseringsuppgifter för ett konto som är ägare till prenumerationen. Det konto som används för att registrera Azure Stack kan skilja sig från det administratörskonto som du använder för distributionen. Dessutom är de två kontona gör *inte* måste tillhöra samma domän. Med andra ord kan du distribuera med hjälp av den klient som du redan använder. Du kan till exempel använda ContosoCSP.onmicrosoft.com och sedan registrera dig med en annan klient, till exempel IURContosoCSP.onmicrosoft.com. Du måste komma ihåg att du loggar in med ContosoCSP.onmicrosoft.com när du gör dag att göra Azure Stack-administration. När du loggar in på Azure med hjälp av IURContosoCSP.onmicrosoft.com när du behöver göra registreringsåtgärder.
 
-Referera till följande en beskrivning av CSPSS prenumerationer och anvisningar om hur du skapar prenumerationen [Lägg till Azure Partner delade tjänster](https://msdn.microsoft.com/partner-center/shared-services).
+Se nedan för en beskrivning av CSPSS prenumerationer och instruktioner om hur du skapar prenumerationen [Lägg till Azure-Partner delade tjänster](https://msdn.microsoft.com/partner-center/shared-services).
 
 #### <a name="csp-subscriptions"></a>CSP-prenumerationer
 
-Molnprenumerationer för Service Provider (CSP) är det bästa valet för registrering när en CSP återförsäljare eller en end-kund fungerar Azure stacken.
+Molnprenumerationer för Service Provider (CSP) är det önskade alternativet för registrering när en CSP-återförsäljare eller en slutkunden fungerar Azure Stack.
 
 ## <a name="register-azure-stack"></a>Registrera Azure Stack
 
-Om du vill registrera med Azure-stacken, se [registrera Azure stacken med din Azure-prenumeration](azure-stack-registration.md).
+Om du vill registrera med Azure Stack, se [registrera Azure Stack med din Azure-prenumeration](azure-stack-registration.md).
 
-## <a name="add-end-customer"></a>Lägg till slutet kund
+## <a name="add-end-customer"></a>Lägg till slutkunden
 
-Om du vill konfigurera Azure Stack så att när en ny klient använder resurser sin användning kommer att rapporteras till prenumerationen molntjänst-providers (CSP), se [lägga till innehavaren för användning och fakturering till Azure-stacken](azure-stack-csp-howto-register-tenants.md).
+För att konfigurera Azure Stack så att när en ny klient använder resurser sin användning rapporteras till sin Cloud Service Provider (CSP)-prenumeration, se [Lägg till klient för användning och fakturering i Azure Stack](azure-stack-csp-howto-register-tenants.md).
 
 ## <a name="charge-the-right-subscriptions"></a>Debitera rätt prenumerationer
 
-Azure-stacken använder en funktion som kallas registrering. En registrering är ett objekt som lagras i Azure, vilket dokument som Azure-prenumeration(er) att använda debiterar för en viss Azure-stacken. Det här avsnittet behandlar vikten av registreringen.
+Azure Stack använder en funktion som kallas registrering. En registrering är ett objekt som lagras i Azure. Objektet registrering dokument vilka Azure-prenumerationerna du använder för att ta betalt för en viss Azure Stack. Det här avsnittet handlar om vikten av registreringen.
 
-Med registrering kan Azure Stack:
- - Vidarebefordra Azure Stack användningsdata till Azure handel och debiterar en Azure-prenumeration.
- - Rapportera varje kund användning på en annan prenumeration med en multitenant Azure Stack-distribution. Multitenancy kan Azure stackutrymme för att stödja olika organisationer i samma Azure Stack-instans.
+Med registrering av kan Azure Stack:
+ - Vidarebefordra Azure Stack-användningsdata till Azure Commerce och fakturerar en Azure-prenumeration.
+ - Rapportera alla kunders användning på en annan prenumeration med en multitenant Azure Stack-distribution. Flera innehavare kan Azure Stack för olika organisationer på samma Azure Stack-instans.
 
-För varje Azure-stacken är en standard-prenumeration och många klient prenumerationer vid behov. Standard-prenumerationen är en Azure-prenumeration som debiteras om det finns ingen klient-specifik prenumeration. Det måste vara först som ska registreras. Prenumerationen måste vara en CSP eller CSPSS prenumeration för flera innehavare användning av rapporterna ska fungera.
+Det finns en Standardprenumeration för varje Azure Stack, och många klient prenumerationer. Standard-prenumerationen är en Azure-prenumeration som debiteras om det inte finns en klientspecifik-prenumeration. Det måste vara först som prenumeration som har registrerats. Prenumerationen för användning med flera innehavare rapporterna ska fungera, måste vara en CSP eller CSPSS prenumeration.
 
-Sedan har registreringen uppdaterats med en Azure-prenumeration för varje klient som kommer att använda Azure-stacken. Klient-prenumerationer måste vara av typen CSP och måste slås samman till den partner som äger den standard-prenumerationen. Med andra ord kan du registrera någon annans kunder.
+Sedan har registreringen uppdaterats med en Azure-prenumeration för varje klient som kommer att använda Azure Stack. Klient-prenumerationer måste vara av typen CSP och måste dyker upp i den partner som äger standard-prenumerationen. Med andra ord kan du registrera någon annans kunder.
 
-När Azure Stack vidarebefordrar användningsinformation till globala Azure, en tjänst i Azure tittar registreringen och mappar varje klientanvändning till lämplig klientprenumeration. Om en klient inte har registrerats blir denna användning till standard-prenumeration för Azure Stack-instansen som den kommer från.
+När Azure Stack vidarebefordrar användningsinformation till globala Azure, en tjänst i Azure konsultationer registreringen och mappar varje klients användning till lämplig-klientprenumeration. Om en klient inte har registrerats, går denna användning till standard-prenumerationen för Azure Stack-instans som den kommer från.
 
-Eftersom klienten prenumerationer är CSP-prenumerationer, deras faktura skickas till CSP-partner och information om användning visas inte för end-kund.
-
-
+Eftersom klient-prenumerationer är CSP-prenumerationer, sin faktura som skickas till CSP-partner och information om användning visas inte för slutkunden.
 
 ## <a name="next-steps"></a>Nästa steg
 
- - Läs mer om CSP-programmet i [leverantör programmet](https://partnercenter.microsoft.com/en-us/partner/programs).
- - Läs mer om hur du hämtar information om användning från Azure-stacken i [användnings- och fakturering i Azure-stacken](azure-stack-billing-and-chargeback.md).
+ - Läs mer om CSP-programmet i [programmet Cloud Solution Provider](https://partnercenter.microsoft.com/en-us/partner/programs).
+ - Läs mer om hur du hämtar information om användning från Azure Stack i [användning och fakturering i Azure Stack](azure-stack-billing-and-chargeback.md).

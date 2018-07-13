@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 02a790907908daf2db282a320f50d3a27efbd177
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 05340c8504150ed568e0d5ce5c8250127e59bca0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917194"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003245"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-visual-studio-team-services-vsts"></a>Contoso-migrering: omstrukturera en Team Foundation Server-distribution till Visual Studio Team Services (VSTS)
 
@@ -33,6 +33,8 @@ Det här dokumentet är 11 i en serie artiklar som visar hur det fiktiva företa
 [Artikel 9: Omstrukturera en app på en Azure-Webbappen och Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Visar hur Contoso migrerar SmartHotel appen till en Azure container-baserad webbapp och migrerar app-databas till Azure SQL Server. | Tillgängligt
 [Artikel 10: Omstrukturera en Linux-app till Azure App Service och Azure MySQL-Server](contoso-migration-refactor-linux-app-service-mysql.md) | Visar hur Contoso migrerar osTicket Linux-app till Azure App Service med PHP 7.0 Docker-behållare. Kodbas för distributionen har migrerats till GitHub. App-databasen har migrerats till Azure MySQL. | Tillgängligt
 Artikel 11: Omstrukturera en TFS-distribution i VSTS | Migrera dev app TFS till VSTS i Azure | Den här artikeln
+[Artikel 12: Omforma en app på Azure-behållare och Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Visar hur Contoso migrerar och rearchitects SmartHotel appen till Azure. De Omforma webbnivån appen som en Windows-behållare och app-databasen i en Azure SQL Database. | Tillgängligt
+[Artikel 13: Återskapa en app i Azure](contoso-migration-rebuild.md) | Visar hur Contoso återskapa SmartHotel appen med hjälp av en mängd Azure-funktioner och tjänster, inklusive App Services, Azure Kubernetes, Azure Functions, Cognitive services och Cosmos DB. | Tillgängligt
 
 
 ## <a name="business-drivers"></a>Affärsdrivande faktorer

@@ -6,18 +6,20 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 83ba437e699eb150e86e6c89e478377394966419
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ab73420d1bfe0dbddcf2a0e3c3dd34203e4bb2d7
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232685"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008424"
 ---
 # <a name="what-is-azure-importexport-service"></a>Vad är tjänsten Azure Import/Export?
 
 Azure Import/Export-tjänsten används för att importera stora mängder data på ett säkert sätt till Azure Blob storage och Azure Files genom att skicka diskenheter till en Azure-datacenter. Den här tjänsten kan också användas för att överföra data från Azure Blob storage till diskenheter och leverera till dina lokala platser. Data från en eller flera diskar kan importeras till Azure Blob storage eller Azure Files. 
+
+Azure Import/Export-tjänsten måste du ange dina egna diskar. Du kan använda Azure Data Box-diskar för att importera data till Azure om du vill överföra data med hjälp av diskar som tillhandahålls av Microsoft. Microsoft medföljer en 40 TB kapacitet per beställning till ditt datacenter till ett regionalt flygbolag upp till 5 krypterade SSD-diskar (SSD). Du kan snabbt konfigurera diskar, kopiera data till diskar via en USB 3.0-anslutning och skicka tillbaka diskarna till Azure. Mer information går du till [översikt över Azure Data Box-Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
 
 ## <a name="azure-importexport-usecases"></a>Azure Import/Export-usecases
 

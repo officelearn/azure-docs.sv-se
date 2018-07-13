@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9eb7f74a365b51431aabd78de3c6d36c3c969bb6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: HT
+ms.openlocfilehash: 3a7d657a21b414d51375f912513ae045adec6d6e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991450"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Övervaka en SharePoint-webbplats med Application Insights
 Azure Application Insights övervakar dina appars tillgänglighet, prestanda och användning. Här lär du dig att ställa in det för en SharePoint-webbplats.
@@ -33,7 +34,7 @@ Fönstret som öppnas är den plats där du kan se prestanda- och användningsda
 
 ```HTML
 <!-- 
-To collect end-user usage analytics about your application, 
+To collect user behavior analytics tools about your application, 
 insert the following script into each page you want to track.
 Place this code immediately before the closing </head> tag,
 and before any other scripts. Your first data will appear 
@@ -83,18 +84,6 @@ De första händelserna visas i sökningen.
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Klicka på Uppdatera efter några sekunder om du väntade dig mer data.
-
-Klicka på bladet översikt och klicka på **användningsanalys** för att se diagram för användare, sessioner och sidvyer:
-
-![](./media/app-insights-sharepoint/06-usage.png)
-
-Klicka på diagram om du vill se mer information – till exempel sidvyer:
-
-![](./media/app-insights-sharepoint/07-pages.png)
-
-Eller användare:
-
-![](./media/app-insights-sharepoint/08-users.png)
 
 ## <a name="capturing-user-id"></a>Hämta användar-Id
 Kodfragmentet för standardwebbplatsen hämtar inte användar-ID från SharePoint, men du kan göra detta med en liten ändring.

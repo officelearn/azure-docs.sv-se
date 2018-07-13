@@ -16,12 +16,12 @@ ms.date: 07/09/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: e9bd1f91f7e7fac1b882c89ffb2195491ca2c07b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: bbbfc495f1ec262ccc067f3cd00b75e1a3e0c178
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929941"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990201"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>SaaS-programintegration med Azure Active Directory
 
@@ -109,7 +109,7 @@ En uttömmande lista med SaaS-appar som är förintegrerade i Azure AD finns i d
 | ![logotyp](./media/tutorial-list/active-directory-saas-blackboard-learn-shibboleth-tutorial.png)| [Svart tavla Läs - Shibboleth](blackboard-learn-shibboleth-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-bluejeans-tutorial.png)| [BlueJeans](bluejeans-tutorial.md)|[BlueJeans - etableringen av användare](bluejeans-provisioning-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-bomgarremotesupport-tutorial.png)| [Bomgar fjärr-stöd](bomgarremotesupport-tutorial.md)|
-| ![logotyp](./media/tutorial-list/active-directory-saas-bonus-tutorial.png)| [Bonusly](bonus-tutorial.md)|
+| ![logotyp](./media/tutorial-list/active-directory-saas-bonus-tutorial.png)| [Bonusly](bonus-tutorial.md)|[Bonusly - etableringen av användare](bonusly-provisioning-tutorial.md)
 | ![logotyp](./media/tutorial-list/active-directory-saas-boomi-tutorial.png)| [Boomi](boomi-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-box-tutorial.png)| [Box](box-tutorial.md)| [Box - etableringen av användare](box-userprovisioning-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-boxcryptor-tutorial.png)| [Boxcryptor](boxcryptor-tutorial.md)|
@@ -139,7 +139,7 @@ En uttömmande lista med SaaS-appar som är förintegrerade i Azure AD finns i d
 | ![logotyp](./media/tutorial-list/active-directory-saas-ciscocloud-tutorial.png)| [Cisco-molnet](ciscocloud-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-ciscocloudlock-tutorial.png)| [Cisco Cloudlock](ciscocloudlock-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|[Cisco Spark - etableringen av användare](cisco-spark-provisioning-tutorial.md)|
-| ![logotyp](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|[Cisco Webex - etableringen av användare](cisco-webex-provisioning-tutorial.md)|
+| ![logotyp](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|)|[Cisco Webex - etableringen av användare](cisco-webex-provisioning-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-sharefile-tutorial.png)| [Citrix ShareFile](sharefile-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](clarizen-tutorial.md)|[Clarizen - etableringen av användare](clarizen-provisioning-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-clearreview-tutorial.png)| [Rensa granskning](clearreview-tutorial.md)|
@@ -178,7 +178,7 @@ En uttömmande lista med SaaS-appar som är förintegrerade i Azure AD finns i d
 | ![logotyp](./media/tutorial-list/active-directory-saas-dome9arc-tutorial.png)| [Dome9 båge](dome9arc-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-domo-tutorial.png)| [Domo](domo-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-dowjones-factiva-tutorial.png)| [Dow Jones Factiva](dowjones-factiva-tutorial.md)|
-| ![logotyp](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](dropboxforbusiness-tutorial.md)| [Dropbox for Business - etableringen av användare](dropboxforbusiness-provisioning-tutorial.md)|
+| ![logotyp](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](dropboxforbusiness-tutorial.md)| [Dropbox for Business - etableringen av användare](dropboxforbusiness-provisioning-tutorial.md)| 
 | ![logotyp](./media/tutorial-list/active-directory-saas-druva-tutorial.png)| [Druva](druva-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-dynamicsignal-tutorial.png)| [Dynamisk Signal](dynamicsignal-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-easyterritory-tutorial.png)| [EasyTerritory](easyterritory-tutorial.md)|

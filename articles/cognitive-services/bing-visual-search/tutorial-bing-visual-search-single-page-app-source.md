@@ -1,7 +1,7 @@
 ---
-title: Webbprogram för Bing Image-sökning sida (källkod) | Microsoft Docs
+title: Bing Visual Search enkelsidiga webbapp (källkoden) | Microsoft Docs
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Källkoden för kursen visar hur du använder Bing avbildningen Sök API i en enda sida webbprogram.
+description: Källkoden för genomgång som visar hur du använder Bing Visual Search API i ett enkelsidigt program.
 services: cognitive-services
 author: v-jerkin
 manager: ehansen
@@ -10,16 +10,16 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 636b809a1018a79f5ddd0e6d5ee91b0c34d01552
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b6164b811f897ec5cd8a67d27d3aa4f3d250f2e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354132"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002600"
 ---
-# <a name="tutorial-visual-search-single-page-web-app"></a>Självstudier: Visual Sök Single-page-Webbapp
+# <a name="tutorial-visual-search-single-page-web-app"></a>Självstudie: Visual Search enkelsidiga Web app
 
-Detta är klar källkoden som beskrivs i den [Visual Sök Single-page webbprogrammet](tutorial-bing-visual-search-single-page-app.md) självstudiekurs för Bing Visual sökning. Kör appen genom att kopiera källkoden i anteckningar eller något annat textredigeringsprogram och spara den som `bing-visual-search.html`. Öppna sedan den sparade filen i Microsoft Edge eller en annan populära webbläsare.
+Det här är den fullständiga källkoden som beskrivs i den [Visual Search enkelsidiga webbapp](tutorial-bing-visual-search-single-page-app.md) självstudie för att Bing Visual Search. Kör appen genom att kopiera källkoden i anteckningar eller något annat textredigeringsprogram och spara den som `bing-visual-search.html`. Öppna den sparade filen i Microsoft Edge eller en annan populära webbläsare.
 
 ```html
 <!DOCTYPE html>
@@ -113,7 +113,7 @@ try {
 function getSubscriptionKey() {
     var key = retrieveValue(API_KEY_COOKIE);
     while (key.length !== 32) {
-        key = prompt("Enter Bing Search API subscription key:", "").trim();
+        key = prompt("Enter Bing Image Search API subscription key:", "").trim();
     }
     // always set the cookie in order to update the expiration date
     storeValue(API_KEY_COOKIE, key);
@@ -131,7 +131,7 @@ function escape(text) {
         replace(/'/g, "&apos;").replace(/"/g, "&quot;");
 }
 
-// get the host portion of a URL, strpping out search result formatting and www too
+// get the host portion of a URL, stripping out search result formatting and www too
 function getHost(url) {
     return url.replace(/<\/?b>/g, "").replace(/^https?:\/\//, "").split("/")[0].replace(/^www\./, "");
 }
@@ -270,7 +270,7 @@ function handleBingResponse() {
         // 401 is unauthorized; force re-prompt for API key for next request
         if (this.status === 401) invalidateSubscriptionKey();
 
-        // some error responses don't have a top-level errors object, so gin one up
+        // some error responses don't have a top-level errors object
         var errors = jsobj.errors || [jsobj];
         var errmsg = [];
 

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera liveness avsökningar i Azure Container instanser
-description: Lär dig hur du konfigurerar liveness avsökningar att starta om feltillstånd behållare i Azure Container instanser
+title: Konfigurera liveness avsökningar i Azure Container Instances
+description: Lär dig hur du konfigurerar liveness avsökningar för att starta om feltillstånd behållare i Azure Container Instances
 services: container-instances
 author: jluk
 manager: jeconnoc
@@ -8,22 +8,22 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: juluk
-ms.openlocfilehash: 76ca4db28d99702532ae656a19f0d54b479a13fe
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: e47d203ab21afc6d07f425ae6367fbc536b13f1d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35249382"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39009093"
 ---
-# <a name="configure-liveness-probes"></a>Konfigurera liveness avsökningar
+# <a name="configure-liveness-probes"></a>Konfigurera liveavsökningar
 
-Container program köra under långa perioder som resulterar i brutna tillstånd som kan behöva repareras genom att starta om behållaren. Azure Behållarinstanser stöder liveness avsökningar om du vill inkludera konfigurationer så att din behållare kan starta om om viktiga funktioner inte fungerar. 
+Köra program i behållare under längre tid, vilket resulterar i bruten tillstånd som kan behöva repareras genom att starta om behållaren. Azure Container Instances stöder liveness avsökningar för att inkludera konfigurationer så att din behållare kan starta om vid kritiska funktioner inte fungerar.
 
-Den här artikeln förklarar hur du distribuerar en behållare-grupp som innehåller en liveness avsökning visar automatisk omstart av en simulerad ohälsosamt behållare.
+Den här artikeln förklarar hur du distribuerar en behållargrupp som innehåller en hälsoavsökningen visar automatisk omstart av en simulerad feltillstånd behållare.
 
 ## <a name="yaml-deployment"></a>YAML-distribution
 
-Skapa en `liveness-probe.yaml` fil med följande kodavsnitt. Den här filen definierar en grupp i behållaren som består av en NGNIX-behållare som slutligen blir ohälsosamt. 
+Skapa en `liveness-probe.yaml` fil med följande kodavsnitt. Den här filen definierar en behållargrupp som består av en NGNIX-behållare som så småningom blir ohälsosamt.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -45,7 +45,7 @@ properties:
           memoryInGB: 1.5
       livenessProbe:
         exec:
-            command: 
+            command:
                 - "cat"
                 - "/tmp/healthy"
         periodSeconds: 5
@@ -55,53 +55,53 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Kör följande kommando för att distribuera till konfigurationen ovan YAML behållargruppen:
+Kör följande kommando för att distribuera den här behållargruppen med ovanstående YAML-konfiguration:
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name livenesstest -f liveness-probe.yaml
 ```
 
-### <a name="start-command"></a>Starta kommando
+### <a name="start-command"></a>Startkommandot
 
-Distributionen definierar ett första kommando som ska köras när behållaren först startas körs, definieras av den `command` -egenskap som accepterar en matris med strängar. I det här exemplet startar en bash-session den och skapa en fil med namnet `healthy` inom den `/tmp` katalogen genom att skicka det här kommandot:
+Distributionen definierar ett från kommando som ska köras när behållaren startas första gången som körs, definieras av den `command` egenskapen som accepterar en matris med strängar. I det här exemplet ska det starta en bash-session och skapa en fil med namnet `healthy` inom den `/tmp` katalogen genom att skicka det här kommandot:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- Den kommer sedan vila i 30 sekunder innan du tar bort filen och sedan försätts i strömsparläge en 10 minuter.
+ Det kommer sedan att vila i 30 sekunder innan du tar bort filen och anger sedan en 10 minuter strömsparläge.
 
 ### <a name="liveness-command"></a>Liveness kommando
 
-Den här distributionen definierar en `livenessProbe` som har stöd en `exec` liveness kommando som fungerar som liveness-kontrollen. Om det här kommandot avslutas med ett värde som inte är noll, behållaren avslutats och startas om, signalering den `healthy` filen kunde inte hittas. Om det här kommandot har avslutas med slutkoden 0, vidtas ingen åtgärd.
+Den här distributionen definierar en `livenessProbe` som har stöd en `exec` liveness kommando som fungerar som liveness kontrollen. Om det här kommandot avslutas med ett annat värde än noll, behållaren ska avslutas och startas om, signalering den `healthy` filen kunde inte hittas. Om det här kommandot har avslutas med slutkoden 0, åtgärd ingen.
 
-Den `periodSeconds` egenskapen anger liveness kommandot ska köras var femte sekund.
+Den `periodSeconds` egenskapen betyder liveness kommandot ska köras var femte sekund.
 
-## <a name="verify-liveness-output"></a>Kontrollera liveness utdata
+## <a name="verify-liveness-output"></a>Verifiera liveness utdata
 
-I de första 30 sekunderna den `healthy` filen som skapas av startkommandot finns. När kommandot liveness söker efter den `healthy` filens existens statuskoden returnerar ett noll-signalering lyckades, så ingen omstart sker.
+Inom de första 30 sekunderna den `healthy` filen som skapats av startkommandot finns. När kommandot liveness söker efter den `healthy` filens förekomst statuskoden returnerar noll, signalering lyckades, så ingen omstart sker.
 
-Efter 30 sekunder det `cat /tmp/healthy` börjar misslyckas, orsakar feltillstånd och avlivas händelser inträffar. 
+Efter 30 sekunder, den `cat /tmp/healthy` börjar misslyckas, orsakar feltillstånd och avlivas händelser inträffar.
 
-Dessa händelser kan visas från Azure-portalen eller Azure CLI 2.0.
+Dessa händelser kan ses från Azure portal eller Azure CLI.
 
 ![Portalen ohälsosam händelse][portal-unhealthy]
 
-Genom att visa händelser i Azure-portalen händelser av typen `Unhealthy` ska utlösas vid liveness kommandot misslyckas. Efterföljande händelsen ska vara av typen `Killing`, så att en omstart kan börja som betecknar en behållare för borttagning. Antalet omstarter för behållaren ökar varje gång detta inträffar.
+Genom att visa händelser i Azure-portalen, händelser av typen `Unhealthy` att utlösas vid liveness kommandot misslyckas. Efterföljande händelsen ska vara av typen `Killing`, vilket tyder på en borttagning av behållare så att en omstart kan börja. Antalet omstarter för behållaren ökar varje gång som det här inträffar.
 
-Omstart är slutförda på plats så att resurser som offentliga IP-adresser och nodspecifik innehållet kommer att bevaras.
+Omstarter utförs på plats så att resurser som offentliga IP-adresser och nodspecifik innehållet kommer att bevaras.
 
-![Portalen omstart räknare][portal-restart]
+![Portalen starta om räknare][portal-restart]
 
-Om liveness avsökningen misslyckas kontinuerligt och utlöser för många omstarter, anges din behållare en exponentiell tillbaka av fördröjning.
+Om hälsoavsökningen kontinuerligt misslyckas och utlöser för många omstarter, anger din behållare en exponentiell backoff-fördröjning.
 
-## <a name="liveness-probes-and-restart-policies"></a>Liveness-avsökningar och starta om principer
+## <a name="liveness-probes-and-restart-policies"></a>Liveness avsökningar och principer och omstart
 
-Starta om principer ersätter omstartsbeteende som utlöses av liveness avsökningar. Till exempel om du ställer in en `restartPolicy = Never` *och* en liveness avsökning behållargruppen startar inte om vid en misslyckad liveness-kontroll. Behållargruppen kommer att i stället följa principen för behållargruppen omstart av `Never`.
+Starta om principer ersätter omstartsbeteende som utlöses av liveness avsökningar. Exempel: Om du ställer in en `restartPolicy = Never` *och* en hälsoavsökningen behållargruppen startar inte om i händelse av en misslyckad liveness-kontroll. Behållargruppen ska i stället följa den behållargruppen omstartsprincip av `Never`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Uppgiftsbaserade scenarier kan kräva en liveness avsökningen tom aktivera automatiska omstarter om en funktion som krävs inte fungerar korrekt. Mer information om hur du kör uppgiftsbaserade behållare finns [köra av uppgifter i Azure Behållarinstanser](container-instances-restart-policy.md).
+Uppgiftsbaserade scenarier kan kräva en hälsoavsökningen att aktivera automatiska omstarter om en funktion som krävs inte fungerar korrekt. Mer information om hur du kör uppgiftsbaserade behållare finns i [köra behållarbaserade uppgifter i Azure Container Instances](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-liveness-probe/unhealthy-killing.png

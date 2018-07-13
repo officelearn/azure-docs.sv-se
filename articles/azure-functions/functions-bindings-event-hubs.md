@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 7ea233f3d5b0e0b6ad1470af146f963fce6c4e94
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: 51f64f6f74875c6afac350dc9cc235573b89c524
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970680"
+ms.locfileid: "38989596"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindningar för Azure Functions
 
@@ -367,6 +367,8 @@ Den [host.json](functions-host-json.md#eventhub) filen innehåller inställninga
 ## <a name="output"></a>Resultat
 
 Använda Event Hubs-utdatabindning till skriva händelser till en händelseström. Du måste ha skicka behörighet till en event hub att skriva händelser till den.
+
+Kontrollera att nödvändiga paketet refererar till är uppfyllda: [fungerar 1.x](#packages---functions-1.x) eller [fungerar 2.x](#packages---functions-2.x) 
 
 ## <a name="output---example"></a>Utdata - exempel
 

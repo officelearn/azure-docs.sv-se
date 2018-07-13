@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/07/2018
-ms.openlocfilehash: be007fe06f7b3354dc88e319a76715d2e94eb3fb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.date: 07/12/2018
+ms.openlocfilehash: c911b096af6662e11afb4c4262b92c239d252c36
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971496"
+ms.locfileid: "38990235"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>Migrera SQL Server till Azure SQL Database Managed Instance med DMS
 Du kan använda Azure Database Migration Service för att migrera databaserna från en lokal SQL Server-instansen till en [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md). För ytterligare metoder som kan kräva att vissa manuellt arbete, finns i artikeln [migrering av SQL Server-instans till Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md).
@@ -26,7 +26,7 @@ Du kan använda Azure Database Migration Service för att migrera databaserna fr
 
 I den här självstudien får du migrera den **Adventureworks2012** databas från en lokal instans av SQL Server till en Azure SQL Database Managed Instance med Azure Database Migration Service.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Skapa en instans av Azure Database Migration Service.
 > * Skapa ett migreringsprojekt med Azure Database Migration Service.

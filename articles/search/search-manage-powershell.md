@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure Search med Powershell-skript | Microsoft Docs
-description: Hantera din Azure Search-tjänst med PowerShell-skript. Skapa eller uppdatera en Azure Search-tjänst och hantera Azure Search admin nycklar
+description: Hantera Azure Search-tjänsten med PowerShell-skript. Skapa eller uppdatera en Azure Search-tjänst och hantera Azure Search admin-nycklar
 author: HeidiSteen
 manager: cgronlun
 tags: azure-resource-manager
@@ -10,44 +10,44 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-ms.openlocfilehash: 8f83f2652f7bd34f53dde1674c022f8792ae7658
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1d0024af3bbf9edfe8c43032878a8b61e35cea9c
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181995"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39000998"
 ---
-# <a name="manage-your-azure-search-service-with-powershell"></a>Hantera din Azure Search-tjänst med PowerShell
+# <a name="manage-your-azure-search-service-with-powershell"></a>Hantera Azure Search-tjänsten med PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > 
 > 
 
-Det här avsnittet beskrivs de PowerShell-kommandona för att utföra många av de administrativa uppgifterna för Azure Search-tjänster. Vi kommer att gå igenom hur du skapar en söktjänst, skalning och hantera dess API-nycklar.
-Dessa kommandon parallell vilka hanteringsalternativ som finns tillgängliga i den [Azure Search Management REST API](https://docs.microsoft.com/rest/api/searchmanagement).
+Det här avsnittet beskriver PowerShell-kommandon för att utföra många av hanteringsaktiviteter för Azure Search-tjänsterna. Vi visar hur du skapar en söktjänst, skalning och hantera dess API-nycklar.
+Dessa kommandon parallell hanteringsalternativ som är tillgängliga i den [Azure Search Management REST API](https://docs.microsoft.com/rest/api/searchmanagement).
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Du måste ha Azure PowerShell 1.0 eller senare. Instruktioner finns i [installera och konfigurera Azure PowerShell](/powershell/azure/overview).
-* Du måste vara inloggad på Azure-prenumerationen i PowerShell som beskrivs nedan.
+* Du måste ha Azure PowerShell 1.0 eller senare. Anvisningar finns i [installera och konfigurera Azure PowerShell](/powershell/azure/overview).
+* Du måste vara inloggad på Azure-prenumerationen i PowerShell enligt beskrivningen nedan.
 
-Först måste du logga in till Azure med det här kommandot:
+Först måste du logga in på Azure med det här kommandot:
 
     Connect-AzureRmAccount
 
-Ange den e-postadressen för kontot och lösenordet i dialogrutan för Microsoft Azure-inloggning.
+Ange e-postadressen till ditt Azure-konto och lösenordet i dialogrutan för Microsoft Azure-inloggning.
 
 Du kan också [logga in interaktivt med ett huvudnamn för tjänsten](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
-Om du har flera Azure-prenumerationer måste du ställa in din Azure-prenumeration. Kör det här kommandot om du vill se en lista över dina befintliga prenumerationer.
+Om du har flera Azure-prenumerationer kan behöva du ange dina Azure-prenumeration. Kör det här kommandot om du vill se en lista över dina aktuella prenumerationer.
 
     Get-AzureRmSubscription | sort SubscriptionName | Select SubscriptionName
 
-Kör följande kommando om du vill ange prenumerationen. I följande exempel prenumerationsnamn är `ContosoSubscription`.
+Kör följande kommando för att ange prenumerationen. I följande exempel prenumerationens namn är `ContosoSubscription`.
 
     Select-AzureRmSubscription -SubscriptionName ContosoSubscription
 
-## <a name="commands-to-help-you-get-started"></a>Kommandon som hjälper dig att komma igång
+## <a name="commands-to-help-you-get-started"></a>Kommandon för att hjälpa dig att komma igång
     $serviceName = "your-service-name-lowercase-with-dashes"
     $sku = "free" # or "basic" or "standard" for paid services
     $location = "West US"
@@ -126,11 +126,11 @@ Kör följande kommando om du vill ange prenumerationen. I följande exempel pre
     $resource | Remove-AzureRmResource
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när tjänsten har skapats kan du ta nästa steg: skapa en [index](search-what-is-an-index.md), [fråga ett index](search-query-overview.md), och slutligen skapar och hanterar egna sökprogram som använder Azure Search.
+Nu när din tjänst har skapats kan du ta nästa steg: skapa en [index](search-what-is-an-index.md), [fråga ett index](search-query-overview.md), och slutligen skapa och hantera din egen sökprogram som använder Azure Search.
 
-* [Skapa ett Azure Search-index i Azure-portalen](search-create-index-portal.md)
-* [Fråga en Azure Search-index med Sök Explorer i Azure-portalen](search-explorer.md)
+* [Skapa ett Azure Search-index i Azure portal](search-create-index-portal.md)
+* [Fråga ett Azure Search-index med Sökutforskaren i Azure portal](search-explorer.md)
 * [Konfigurera en indexerare för att läsa in data från andra tjänster](search-indexer-overview.md)
 * [Hur du använder Azure Search i .NET](search-howto-dotnet-sdk.md)
-* [Analysera Azure Search-trafik](search-traffic-analytics.md)
+* [Analysera din Azure Search-trafik](search-traffic-analytics.md)
 

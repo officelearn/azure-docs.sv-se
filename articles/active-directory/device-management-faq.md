@@ -15,16 +15,18 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 928bd4dcc51391e3832b5fea26ff8c665f768cdb
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901144"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005680"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory-enhetshantering vanliga frågor och svar
 
+**F: kan jag registrera Android eller iOS BYOD-enheter?**
 
+**S:** Ja, men endast med enhetsregistreringstjänsten för Azure och för kunder med hybriddistributioner. Det stöds inte med den lokala enhetsregistreringstjänsten i AD FS.
 
 **F: hur kan jag registrera en macOS-enhet?**
 

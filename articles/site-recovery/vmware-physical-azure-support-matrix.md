@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: cb01e71ae45ae8a7e37e8ab5cdf60e3b3fcb9983
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eecf608a712e6a29180b797bbef491501653dfd6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919768"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006486"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Supportmatris för VMware och fysisk serverreplikering till Azure
 
@@ -24,13 +24,13 @@ Den här artikeln sammanfattar komponenter som stöds och inställningar för ha
 **Scenario** | **Detaljer**
 --- | ---
 VMwares virtuella datorer | Replikering av lokala virtuella VMware-datorer till Azure. Du kan distribuera det här scenariot i Azure portal eller med hjälp av [PowerShell](vmware-azure-disaster-recovery-powershell.md).
-Fysiska servrar | Replikering av lokala Windows-/ Linux fysiska serversto Azure. Du kan distribuera det här scenariot i Azure-portalen.
+Fysiska servrar | Replikering av lokala Windows-/ Linux fysiska servrar till Azure. Du kan distribuera det här scenariot i Azure-portalen.
 
 ## <a name="on-premises-virtualization-servers"></a>Lokala virtualiseringsservrar
 
 **Server** | **Krav** | **Detaljer**
 --- | --- | ---
-VMware | vCenter Server 6.5, 6.0 eller 5.5 eller vSphere 6.5, 6.0 eller 5.5 | Vi rekommenderar att du använder en vCenter-server.<br/><br/> Vi rekommenderar att vSphere-värdar och vCenter-servrar finns i samma nätverk som processervern. Som standard process server-komponenter som körs på konfigurationsservern, så blir det nätverket där du ställer in konfigurationsservern, om inte du ställa in en dedikerad processerver.
+VMware | vCenter Server 6.7 6.5, 6.0 eller 5.5 eller vSphere 6.7, 6.5, 6.0 eller 5.5 | Vi rekommenderar att du använder en vCenter-server.<br/><br/> Vi rekommenderar att vSphere-värdar och vCenter-servrar finns i samma nätverk som processervern. Som standard process server-komponenter som körs på konfigurationsservern, så blir det nätverket där du ställer in konfigurationsservern, om inte du ställa in en dedikerad processerver.
 Fysiska | Gäller inte
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery konfigurationsserver
@@ -61,7 +61,7 @@ Site Recovery har stöd för replikering av alla arbetsbelastningar som körs p�
 **Komponent** | **Detaljer**
 --- | ---
 Datorinställningar | Datorer som replikeras till Azure måste uppfylla [krav för Azure](#azure-vm-requirements).
-Windows-operativsystem | 64-bitars Windows Server 2016 (Server Core, Server med Skrivbordsmiljö), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1. Windows 2016 Nano Server stöds inte.
+Windows-operativsystem | 64-bitars Windows Server 2016 (Server Core, Server med Skrivbordsmiljö), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1.</br></br>  [Windows Server 2008 med på minst SP2 - 32-bitars och 64-bitars](migrate-tutorial-windows-server-2008.md) (migrering). </br></br> * *Windows 2016 Nano Server stöds inte.*
 Linux-operativsystem | Red Hat Enterprise Linux: 5.2 till 5.11, 6.1 6,9, 7.0 7.4 <br/><br/>CentOS: 5.2 till 5.11, 6.1 6,9, 7.0 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versioner som stöds)](#debian-kernel-versions)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 som kör Red Hat kompatibla kernel eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>Uppgradera replikerade datorer från SP3 till SP4 stöds inte. Om du vill uppgradera, inaktiverar du replikering och aktivera det igen efter uppgraderingen.
 
 >[!NOTE]
@@ -70,6 +70,7 @@ Linux-operativsystem | Red Hat Enterprise Linux: 5.2 till 5.11, 6.1 6,9, 7.0 7.4
 >
 > - Uppgradera skyddade datorer i större Linux distribution versioner inte stöds. Om du vill uppgradera, inaktiverar du replikering, uppgradera operativsystemet och aktiverar sedan replikeringen igen.
 >
+> - Servrar som kör Red Hat Enterprise Linux 5.2 5.11 eller CentOS 5.2 till 5.11 ska installera Services(LIS) för Linux Integration components i ordning att starta i Azure virtuella datorer.
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu kernel-versioner
 

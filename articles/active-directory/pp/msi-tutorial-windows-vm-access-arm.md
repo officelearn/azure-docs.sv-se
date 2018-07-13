@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a7960ab4aee80c7d15ea0f031790dd089424565d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 089835d9c60780fb90f5c19c75c185ee0a908a25
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610265"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007288"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Använd en Windows VM hanterad tjänstidentitet (MSI) för att få åtkomst till Resource Manager
 
@@ -52,7 +52,7 @@ I den här självstudiekursen skapar vi en ny virtuell Windows-dator.  Du kan oc
 5.  Att välja en ny **resursgrupp** där du kan skapa den virtuella datorn, väljer **Skapa ny**. När du är klar klickar du på **OK**.
 6.  Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Behåll standardinställningarna på sidan Inställningar och klickar på **OK**.
 
-    ![ALT bildtext](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![ALT bildtext](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn 
 
@@ -62,11 +62,11 @@ En VM MSI kan du hämta åtkomsttoken från Azure AD utan att du behöver att pl
 2.  I det vänstra navigeringsfältet klickar du på **Configuration**. 
 3.  Du ser **hanterad tjänstidentitet**. Om du vill registrera och aktiverar MSI, Välj **Ja**, om du vill inaktivera det, väljer du Nej. 
 4.  Se till att du klickar på **spara** att spara konfigurationen.  
-    ![ALT bildtext](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![ALT bildtext](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Om du vill kontrollera och vilka tillägg som finns på den här virtuella datorn klickar du på **tillägg**. Om MSI aktiveras sedan **ManagedIdentityExtensionforWindows** kommer att visas i listan.
 
-    ![ALT bildtext](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+    ![ALT bildtext](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Bevilja åtkomst till dina virtuella datorer till en resursgrupp i Resource Manager
 Med hjälp av MSI kan din kod hämta åtkomsttoken för att autentisera de resurser som har stöd för Azure AD-autentisering.  Azure Resource Manager har stöd för Azure AD-autentisering.  Vi måste först och ge den här Virtuella datorns identitet åtkomst till en resurs i Resource Manager i det här fallet resursgruppen där den virtuella datorn finns.  
@@ -79,7 +79,7 @@ Med hjälp av MSI kan din kod hämta åtkomsttoken för att autentisera de resur
 6.  Kontrollera sedan att korrekt prenumeration visas i den **prenumeration** listrutan. Och för **resursgrupp**väljer **alla resursgrupper**. 
 7.  Slutligen i **Välj** Välj din virtuella Windows-dator i listrutan och klickar på **spara**.
 
-    ![ALT bildtext](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
+    ![ALT bildtext](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
 
 ## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-resource-manager"></a>Få ett åtkomsttoken med hjälp av identitet för virtuell dator och använda den för att anropa Azure Resource Manager 
 

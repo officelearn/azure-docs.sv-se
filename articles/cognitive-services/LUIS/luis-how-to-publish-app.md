@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 0f6ba76ede48502e4f3308b11d41bf141f0188fb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 43a26f9e81b788c2a110c24bf2e02c56c0714f1e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927782"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988844"
 ---
 # <a name="publish-your-trained-app"></a>Publicera din tränade app
 När du är klar att skapa och testa LUIS-appen kan du publicera den. När appen publiceras på publiceringssidan visar alla tillhörande HTTP [slutpunkter](luis-glossary.md#endpoint). De här slutpunkterna per [region](luis-reference-regions.md) och per [nyckel](luis-how-to-manage-keys.md), integreras sedan i alla klienten, chattrobot eller backend-program. 
@@ -91,9 +91,9 @@ Avsikter och deras resultat är också inkluderat endpoint-loggarna. Du kan [exp
 ```
 
 ### <a name="enable-bing-spell-checker"></a>Aktivera Bing-stavningskontroll 
-I den **slutpunkts-url-inställningar**, **Aktivera Bing-stavningskontroll** kryssrutan kan LUIS för att korrigera felstavade ord. innan förutsägelse. Detta måste du skapa en  **[stavningskontroll i Bing nyckeln](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. När nyckeln har skapats läggs två parametrar för frågesträng till slutpunkts-URL på publiceringssidan. 
+I den **slutpunkts-url-inställningar**, **Aktivera Bing-stavningskontroll** kryssrutan kan LUIS för att korrigera felstavade ord. innan förutsägelse. Skapa en  **[stavningskontroll i Bing nyckeln](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. När nyckeln har skapats läggs två parametrar för frågesträng till slutpunkts-URL på publiceringssidan. 
 
-Om du konstruerar en egen URL: er för programmets LUIS anropas, se till att den **stavningskontroll = true** Frågeparametern och **bing-stavningskontroll-kontroll-subscription-key = {YOUR_BING_KEY_HERE}**. Ersätt den `{YOUR_BING_KEY_HERE}` med din nyckel för Bing stavningskontroll för installation.
+Lägg till den **stavningskontroll = true** Frågeparametern och **bing-stavningskontroll-kontroll-subscription-key = {YOUR_BING_KEY_HERE}** . Ersätt den `{YOUR_BING_KEY_HERE}` med din nyckel för Bing stavningskontroll för installation.
 
 ```JSON
 {

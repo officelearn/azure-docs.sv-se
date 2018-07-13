@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4862e3aa976287512fd69fdfe9295e3f3328d5a7
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: ecd19acdeba57a29a28187d42783bbf146095190
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887784"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001913"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
@@ -107,19 +107,43 @@ När IoT Edge Security Daemon körs kan du titta på loggarna för behållarna f
 
 ### <a name="view-the-messages-going-through-the-edge-hub"></a>Visa meddelandena som skickas genom Edge hub
 
-Visa meddelandena som skickas genom Edge hub och få kunskap om uppdateringar av enhetens egenskaper med utförliga loggar från körningsbehållarna edgeAgent och edgeHub. Om du vill aktivera utförliga loggar på de här behållarna, ange den `RuntimeLogLevel` miljövariabeln: 
+Visa meddelandena som skickas genom Edge hub och få kunskap om uppdateringar av enhetens egenskaper med utförliga loggar från körningsbehållarna edgeAgent och edgeHub. Om du vill aktivera utförliga loggar på de här behållarna ange `RuntimeLogLevel` i konfigurationsfilen yaml. Att öppna filen:
 
 I Linux:
-    
-   ```cmd
-   export RuntimeLogLevel="debug"
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
    ```
-    
+
 I Windows:
-    
-   ```powershell
-   [Environment]::SetEnvironmentVariable("RuntimeLogLevel", "debug")
+
+   ```cmd
+   notepad C:\ProgramData\iotedge\config.yaml
    ```
+
+Som standard den `agent` element ser ut ungefär så här:
+
+   ```yaml
+   agent:
+     name: edgeAgent
+     type: docker
+     env: {}
+     config:
+       image: mcr.microsoft.com/azureiotedge-agent:1.0
+       auth: {}
+   ```
+
+Ersätt `env: {}` med:
+
+> [!WARNING]
+> YAML-filer får inte innehålla flikar som indrag. Använd 2 blanksteg i stället.
+
+   ```yaml
+   env:
+     RuntimeLogLevel: debug
+   ```
+
+Spara filen och starta om säkerhetshanteraren IoT Edge.
 
 Du kan också kontrollera meddelandena som skickas mellan IoT Hub och IoT Edge-enheterna. Visa meddelandena genom att använda tillägget [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) för Visual Studio Code. Mer information finns i [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) (Praktiskt verktyg när du utvecklar med Azure IoT).
 

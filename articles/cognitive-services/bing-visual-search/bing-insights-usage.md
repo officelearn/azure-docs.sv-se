@@ -1,7 +1,7 @@
 ---
 title: Exempel på Bing insikter | Microsoft Docs
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Visar exempel på bilden insikter som visas på Bing.com.
+description: Visar exempel på information om bilder visas på Bing.com.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -10,82 +10,82 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 102bd0e916491738d74956c209829008d779bcbf
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 927a02b400c7a7b250b315ad5668feb198fd590a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354129"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005697"
 ---
-# <a name="examples-of-bing-insights-usage"></a>Exempel på användning av Bing insights
+# <a name="examples-of-bing-insights-usage"></a>Exempel på användning av Bing insikter
 
 Det här avsnittet innehåller exempel på hur Bing kan visa insikter på Bing.com.
 
-## <a name="pagesincluding-insight-example"></a>PagesIncluding insight exempel
+## <a name="pagesincluding-insight-example"></a>PagesIncluding insight-exempel
 
-Nedan visas hur Bing kan visa webbsidor som innehåller bilden. I exemplet visar en länk till den första webbsidan och användaren kan expandera eller komprimera listan över andra webbsidor som innehåller bilden.
+Nedan visas hur Bing kan visa webbsidor som innehåller bilden. I exemplet visas en länk till den första webbsidan och användaren kan expandera eller komprimera listan över andra webbsidor som innehåller bilden.
 
-![Utökade sidor inklusive](./media/pages-including.PNG)
+![Utökade sidor, inklusive](./media/pages-including.PNG)
 
 
-## <a name="shoppingsources-insight-example"></a>ShoppingSources insight exempel
+## <a name="shoppingsources-insight-example"></a>ShoppingSources insight-exempel
 
-Nedan visas hur Bing kan visas i källor för produkter som visas i bilden.
+Nedan visas hur Bing kan visas i källorna för produkter som visas i bild.
 
 ![Shopping källor](./media/shopping-sources.PNG)
 
 
-## <a name="visualsearch-insight-example"></a>VisualSearch insight exempel
+## <a name="visualsearch-insight-example"></a>VisualSearch insight-exempel
 
-Här visas hur Bing kan visa likartade bilder (se **relaterade bilder** i exemplet).
+Följande visar hur Bing kan visa visuellt likartade bilder (se **relaterade bilder** i det här exemplet).
 
-![Visuellt liknande bilder](./media/similar-images.PNG)
+![Snarlika bilder](./media/similar-images.PNG)
 
-## <a name="recipes-insight-example"></a>Recept insight exempel
+## <a name="recipes-insight-example"></a>Recept insight-exempel
 
-Nedan visas hur Bing kan visas med recept för den visas i bilden. Exemplet tillåter att användaren vet recept är tillgängliga.
+Nedan visas hur Bing kan visas med recept på den mat som visas i bild. I exempel låter användaren veta recept finns tillgängliga.
 
-![Recept och sidor inklusive](./media/recipes-pages-including.PNG)
+![Recept och sidor, inklusive](./media/recipes-pages-including.PNG)
 
- Och innehåller en länk till recept när användaren utökar listan.
+ Och innehåller en länk till recept när du utökar listan.
 
-![Utökade recept sidor inklusive](./media/expanded-recipes-pages-including.PNG)
+![Utökade recept sidor, inklusive](./media/expanded-recipes-pages-including.PNG)
 
 
-## <a name="relatedsearches-insight-example"></a>RelatedSearches insight exempel
+## <a name="relatedsearches-insight-example"></a>RelatedSearches insight-exempel
 
-Nedan visas hur Bing kan visa relaterade sökningar av avbildningar som görs av andra. Om användaren klickar på bilden tas användaren till Bing.com/images sökresultatsidan relaterade frågan.
+Nedan visas hur Bing kan visa relaterade sökningar av bilder som har skapats av andra. Om användaren klickar på bilden, tas användaren till Bing.com/images sökresultatsidan relaterade frågan.
 
 ![Relaterade sökningar för bilder](./media/bordered-related-searches.PNG)
 
 
-## <a name="entity-insight-example"></a>Entiteten insight exempel
+## <a name="entity-insight-example"></a>Entiteten insight-exempel
 
-Nedan visas hur Bing kan visa information om entiteten (person, plats eller sak) visas i bilden. Om användaren klickar på länken entiteten tas användaren till sökresultatsidan Bing.com för entiteten.
+Nedan visas hur Bing kan visa information om entiteten (person, plats eller sak) visas i bild. Om användaren klickar på länken entiteten tas användaren till Bing.com sökresultatsidan för entiteten.
 
-![Entitet som visas i bild](./media/entity.PNG)
-
-
-## <a name="displaying-other-insights-that-the-user-might-explore"></a>Visa andra insikter som användaren kan utforska
-
-Nedan visas hur Bing kan visa annan information om den avbildning som användaren kan utforska.
-
-![Utforska andra inblick i avbildningen](./media/apple-pie-more-tags.PNG)
+![Entiteten visas i bild](./media/entity.PNG)
 
 
-## <a name="bounding-boxes-and-hot-spots"></a>Omgivande rutor och aktiva punkter
+## <a name="displaying-other-insights-that-the-user-might-explore"></a>Visa andra insikter som du kan utforska
 
-Icke-standard taggar är bland annat rutan som identifierar intresseområde bild taggen gäller. Om markeringsrutan inte identifierar hela bilden, kan du använda rutan för att skapa en aktiv punkt på bilden. Användaren kan klicka på den aktiva punkten för att få information som rör innehållet hittades i den aktiva punkten (eller rektangel). Till exempel om bilden är en hög sätt bild, kan resultaten innehålla taggar (och omgivande rutorna) för tillbehör som visas i bild, en vad-eller, smycken, scarfs, t.ex. I följande exempel visas en hotspot rektangeln för sunglasses som visas i bilden.
+Nedan visas hur Bing kan visa annan information om den avbildning som du kan utforska.
 
-![Omgivande rutan och aktiv punkt](./media/click-to-search.PNG)
+![Utforska andra insikter om avbildningen](./media/apple-pie-more-tags.PNG)
+
+
+## <a name="bounding-boxes-and-hot-spots"></a>Omgivande rutorna och aktiva punkter
+
+Icke-standard-taggar är bland annat avgränsningsruta som identifierar intresseområde i avbildningen som taggen gäller för. Om rutan inte identifierar hela bilden, använder du rutan för att skapa en aktiv punkt på bilden. Användaren kan klicka på den aktiva punkten för att få information som rör innehållet finns under hotspot (eller rektangel). Till exempel om avbildningen är en avbildning av en hög sätt, kan resultaten innehålla taggar (och omgivande rutorna) för tillbehör som visas i bild, till exempel en vad-eller, smycken, scarfs osv. I följande exempel visas en hotspot rektangel för solglasögonföretag som visas i bild.
+
+![Omgivande ruta och hotspot](./media/click-to-search.PNG)
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att kolla JSON bakom de här exemplen finns [standard insikter](default-insights-tag.md) och [JSON-svar](overview.md#the-response).
+Du kan kontrollera ut JSON bakom de här exemplen [standard insights](default-insights-tag.md) och [JSON-svar](overview.md#the-response).
 
-Om du vill komma igång snabbt med din första begäran finns i Snabbstart: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)
+Om du vill komma igång snabbt med din första begäran kan se Snabbstart: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)
 
 
 
